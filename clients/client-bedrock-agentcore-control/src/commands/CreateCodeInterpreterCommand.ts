@@ -55,6 +55,15 @@ export interface CreateCodeInterpreterCommandOutput extends CreateCodeInterprete
  *       ],
  *     },
  *   },
+ *   certificates: [ // Certificates
+ *     { // Certificate
+ *       location: { // CertificateLocation Union: only one key present
+ *         secretsManager: { // SecretsManagerLocation
+ *           secretArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
  *   clientToken: "STRING_VALUE",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",

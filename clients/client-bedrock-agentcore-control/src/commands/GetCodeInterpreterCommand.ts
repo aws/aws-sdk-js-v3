@@ -63,6 +63,15 @@ export interface GetCodeInterpreterCommandOutput extends GetCodeInterpreterRespo
  * //     },
  * //   },
  * //   status: "CREATING" || "CREATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED" || "DELETED", // required
+ * //   certificates: [ // Certificates
+ * //     { // Certificate
+ * //       location: { // CertificateLocation Union: only one key present
+ * //         secretsManager: { // SecretsManagerLocation
+ * //           secretArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
  * //   failureReason: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required

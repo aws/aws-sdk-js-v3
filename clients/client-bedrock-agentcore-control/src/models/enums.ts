@@ -139,6 +139,20 @@ export type BrowserProfileStatus = (typeof BrowserProfileStatus)[keyof typeof Br
  * @public
  * @enum
  */
+export const BrowserEnterprisePolicyType = {
+  MANAGED: "MANAGED",
+  RECOMMENDED: "RECOMMENDED",
+} as const;
+/**
+ * @public
+ */
+export type BrowserEnterprisePolicyType =
+  (typeof BrowserEnterprisePolicyType)[keyof typeof BrowserEnterprisePolicyType];
+
+/**
+ * @public
+ * @enum
+ */
 export const BrowserNetworkMode = {
   PUBLIC: "PUBLIC",
   VPC: "VPC",

@@ -19,6 +19,8 @@ const _AREg = "AgentRuntimeEndpoints";
 const _ARg = "AgentRuntimes";
 const _ASC = "ApiSchemaConfiguration";
 const _BEMC = "BedrockEvaluatorModelConfig";
+const _BEP = "BrowserEnterprisePolicy";
+const _BEPr = "BrowserEnterprisePolicies";
 const _BNC = "BrowserNetworkConfiguration";
 const _BPS = "BrowserProfileSummary";
 const _BPSr = "BrowserProfileSummaries";
@@ -26,7 +28,7 @@ const _BS = "BrowserSummary";
 const _BSCI = "BrowserSigningConfigInput";
 const _BSCO = "BrowserSigningConfigOutput";
 const _BSr = "BrowserSummaries";
-const _C = "Code";
+const _C = "Certificate";
 const _CAKCP = "CreateApiKeyCredentialProvider";
 const _CAKCPR = "CreateApiKeyCredentialProviderRequest";
 const _CAKCPRr = "CreateApiKeyCredentialProviderResponse";
@@ -71,6 +73,7 @@ const _CINC = "CodeInterpreterNetworkConfiguration";
 const _CIS = "CodeInterpreterSummary";
 const _CISo = "CodeInterpreterSummaries";
 const _CJWTAC = "CustomJWTAuthorizerConfiguration";
+const _CL = "CertificateLocation";
 const _CM = "CreateMemory";
 const _CME = "ConcurrentModificationException";
 const _CMI = "CreateMemoryInput";
@@ -105,7 +108,9 @@ const _CWIR = "CreateWorkloadIdentityRequest";
 const _CWIRr = "CreateWorkloadIdentityResponse";
 const _CWLIC = "CloudWatchLogsInputConfig";
 const _CWOC = "CloudWatchOutputConfig";
-const _Co = "Content";
+const _Ce = "Certificates";
+const _Co = "Code";
+const _Con = "Content";
 const _D = "Description";
 const _DAKCP = "DeleteApiKeyCredentialProvider";
 const _DAKCPR = "DeleteApiKeyCredentialProviderRequest";
@@ -388,6 +393,7 @@ const _R = "Rule";
 const _RC = "RecordingConfig";
 const _RCe = "ReflectionConfiguration";
 const _RHC = "RequestHeaderConfiguration";
+const _RL = "ResourceLocation";
 const _RLEE = "ResourceLimitExceededException";
 const _RMC = "RuntimeMetadataConfiguration";
 const _RNFE = "ResourceNotFoundException";
@@ -412,6 +418,7 @@ const _SGTRy = "SynchronizeGatewayTargetsResponse";
 const _SL = "S3Location";
 const _SMC = "SelfManagedConfiguration";
 const _SMCI = "SelfManagedConfigurationInput";
+const _SML = "SecretsManagerLocation";
 const _SMSI = "SemanticMemoryStrategyInput";
 const _SMSIu = "SummaryMemoryStrategyInput";
 const _SOCCI = "SemanticOverrideConsolidationConfigurationInput";
@@ -580,7 +587,8 @@ const _cUa = "callbackUrl";
 const _cWC = "cloudWatchConfig";
 const _cWL = "cloudWatchLogs";
 const _ca = "categorical";
-const _ce = "cedar";
+const _ce = "certificates";
+const _ced = "cedar";
 const _co = "code";
 const _con = "configuration";
 const _cons = "consolidation";
@@ -609,6 +617,7 @@ const _eNv = "evaluatorName";
 const _eO = "episodicOverride";
 const _eOC = "enableOnCreate";
 const _eP = "entryPoint";
+const _ePn = "enterprisePolicies";
 const _eRA = "executionRoleArn";
 const _eRC = "episodicReflectionConfiguration";
 const _eRO = "episodicReflectionOverride";
@@ -658,7 +667,7 @@ const _kC = "kmsConfiguration";
 const _kKA = "kmsKeyArn";
 const _kT = "keyType";
 const _ki = "kinesis";
-const _l = "label";
+const _l = "location";
 const _lA = "lambdaArn";
 const _lAAJ = "llmAsAJudge";
 const _lC = "lifecycleConfiguration";
@@ -674,7 +683,8 @@ const _lSBSI = "lastSavedBrowserSessionId";
 const _lUA = "lastUpdatedAt";
 const _lUT = "lastUpdatedTime";
 const _lV = "liveVersion";
-const _la = "lambda";
+const _la = "label";
+const _lam = "lambda";
 const _le = "level";
 const _m = "message";
 const _mBT = "messageBasedTrigger";
@@ -777,10 +787,11 @@ const _sEO = "semanticExtractionOverride";
 const _sG = "securityGroups";
 const _sI = "strategyId";
 const _sL = "s3Location";
-const _sM = "smithyModel";
+const _sM = "secretsManager";
 const _sMC = "selfManagedConfiguration";
 const _sMS = "semanticMemoryStrategy";
 const _sMSu = "summaryMemoryStrategy";
+const _sMm = "smithyModel";
 const _sN = "serviceNames";
 const _sO = "semanticOverride";
 const _sOPC = "slackOauth2ProviderConfig";
@@ -1039,6 +1050,11 @@ export var BedrockEvaluatorModelConfig$: StaticStructureSchema = [3, n0, _BEMC,
   [_mI, _iC, _aMRF],
   [0, () => InferenceConfiguration$, 15], 1
 ];
+export var BrowserEnterprisePolicy$: StaticStructureSchema = [3, n0, _BEP,
+  0,
+  [_l, _t],
+  [() => ResourceLocation$, 0], 1
+];
 export var BrowserNetworkConfiguration$: StaticStructureSchema = [3, n0, _BNC,
   0,
   [_nM, _vC],
@@ -1066,13 +1082,18 @@ export var BrowserSummary$: StaticStructureSchema = [3, n0, _BS,
 ];
 export var CategoricalScaleDefinition$: StaticStructureSchema = [3, n0, _CSD,
   0,
-  [_de, _l],
+  [_de, _la],
   [0, 0], 2
 ];
 export var CedarPolicy$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_stat],
   [0], 1
+];
+export var Certificate$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_l],
+  [() => CertificateLocation$], 1
 ];
 export var CloudWatchLogsInputConfig$: StaticStructureSchema = [3, n0, _CWLIC,
   0,
@@ -1151,8 +1172,8 @@ export var CreateBrowserProfileResponse$: StaticStructureSchema = [3, n0, _CBPRr
 ];
 export var CreateBrowserRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_n, _nC, _d, _eRA, _re, _bS, _cTl, _ta],
-  [0, () => BrowserNetworkConfiguration$, [() => Description, 0], 0, () => RecordingConfig$, () => BrowserSigningConfigInput$, [0, 4], 128 | 0], 2
+  [_n, _nC, _d, _eRA, _re, _bS, _ePn, _ce, _cTl, _ta],
+  [0, () => BrowserNetworkConfiguration$, [() => Description, 0], 0, () => RecordingConfig$, () => BrowserSigningConfigInput$, () => BrowserEnterprisePolicies, () => Certificates, [0, 4], 128 | 0], 2
 ];
 export var CreateBrowserResponse$: StaticStructureSchema = [3, n0, _CBRr,
   0,
@@ -1161,8 +1182,8 @@ export var CreateBrowserResponse$: StaticStructureSchema = [3, n0, _CBRr,
 ];
 export var CreateCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _CCIR,
   0,
-  [_n, _nC, _d, _eRA, _cTl, _ta],
-  [0, () => CodeInterpreterNetworkConfiguration$, [() => Description, 0], 0, [0, 4], 128 | 0], 2
+  [_n, _nC, _d, _eRA, _ce, _cTl, _ta],
+  [0, () => CodeInterpreterNetworkConfiguration$, [() => Description, 0], 0, () => Certificates, [0, 4], 128 | 0], 2
 ];
 export var CreateCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _CCIRr,
   0,
@@ -1591,8 +1612,8 @@ export var GetBrowserRequest$: StaticStructureSchema = [3, n0, _GBR,
 ];
 export var GetBrowserResponse$: StaticStructureSchema = [3, n0, _GBRe,
   0,
-  [_bI, _bA, _n, _nC, _st, _cA, _lUA, _d, _eRA, _re, _bS, _fR],
-  [0, 0, 0, () => BrowserNetworkConfiguration$, 0, 5, 5, [() => Description, 0], 0, () => RecordingConfig$, () => BrowserSigningConfigOutput$, 0], 7
+  [_bI, _bA, _n, _nC, _st, _cA, _lUA, _d, _eRA, _re, _bS, _ePn, _ce, _fR],
+  [0, 0, 0, () => BrowserNetworkConfiguration$, 0, 5, 5, [() => Description, 0], 0, () => RecordingConfig$, () => BrowserSigningConfigOutput$, () => BrowserEnterprisePolicies, () => Certificates, 0], 7
 ];
 export var GetCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _GCIR,
   0,
@@ -1601,8 +1622,8 @@ export var GetCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _GCIR,
 ];
 export var GetCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _GCIRe,
   0,
-  [_cII, _cIA, _n, _nC, _st, _cA, _lUA, _d, _eRA, _fR],
-  [0, 0, 0, () => CodeInterpreterNetworkConfiguration$, 0, 5, 5, [() => Description, 0], 0, 0], 7
+  [_cII, _cIA, _n, _nC, _st, _cA, _lUA, _d, _eRA, _ce, _fR],
+  [0, 0, 0, () => CodeInterpreterNetworkConfiguration$, 0, 5, 5, [() => Description, 0], 0, () => Certificates, 0], 7
 ];
 export var GetEvaluatorRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
@@ -2086,7 +2107,7 @@ export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
 ];
 export var NumericalScaleDefinition$: StaticStructureSchema = [3, n0, _NSD,
   0,
-  [_de, _v, _l],
+  [_de, _v, _la],
   [0, 1, 0], 3
 ];
 export var Oauth2AuthorizationServerMetadata$: StaticStructureSchema = [3, n0, _OASM,
@@ -2200,6 +2221,11 @@ export var SchemaDefinition$: StaticStructureSchema = [3, n0, _SD,
   [0, () => SchemaProperties, 64 | 0, () => SchemaDefinition$, 0], 1
 ];
 export var Secret$: StaticStructureSchema = [3, n0, _S,
+  0,
+  [_sA],
+  [0], 1
+];
+export var SecretsManagerLocation$: StaticStructureSchema = [3, n0, _SML,
   0,
   [_sA],
   [0], 1
@@ -2567,6 +2593,9 @@ var ApiGatewayToolOverrides: StaticListSchema = [1, n0, _AGTOp,
 var ApiKeyCredentialProviders: StaticListSchema = [1, n0, _AKCP,
   0, () => ApiKeyCredentialProviderItem$
 ];
+var BrowserEnterprisePolicies: StaticListSchema = [1, n0, _BEPr,
+  0, () => BrowserEnterprisePolicy$
+];
 var BrowserProfileSummaries: StaticListSchema = [1, n0, _BPSr,
   0, [() => BrowserProfileSummary$,
     0]
@@ -2577,6 +2606,9 @@ var BrowserSummaries: StaticListSchema = [1, n0, _BSr,
 ];
 var CategoricalScaleDefinitions: StaticListSchema = [1, n0, _CSDa,
   0, () => CategoricalScaleDefinition$
+];
+var Certificates: StaticListSchema = [1, n0, _Ce,
+  0, () => Certificate$
 ];
 var CodeInterpreterSummaries: StaticListSchema = [1, n0, _CISo,
   0, [() => CodeInterpreterSummary$,
@@ -2729,12 +2761,17 @@ export var AuthorizerConfiguration$: StaticUnionSchema = [4, n0, _AC,
   [_cJWTA],
   [() => CustomJWTAuthorizerConfiguration$]
 ];
+export var CertificateLocation$: StaticUnionSchema = [4, n0, _CL,
+  0,
+  [_sM],
+  [() => SecretsManagerLocation$]
+];
 export var ClaimMatchValueType$: StaticUnionSchema = [4, n0, _CMVT,
   0,
   [_mVS, _mVSL],
   [0, 64 | 0]
 ];
-export var Code$: StaticUnionSchema = [4, n0, _C,
+export var Code$: StaticUnionSchema = [4, n0, _Co,
   0,
   [_s_],
   [() => S3Location$]
@@ -2744,7 +2781,7 @@ export var ConsolidationConfiguration$: StaticUnionSchema = [4, n0, _CCons,
   [_cCC],
   [[() => CustomConsolidationConfiguration$, 0]]
 ];
-export var Content$: StaticUnionSchema = [4, n0, _Co,
+export var Content$: StaticUnionSchema = [4, n0, _Con,
   0,
   [_rTa],
   [0]
@@ -2826,12 +2863,12 @@ export var GatewayProtocolConfiguration$: StaticUnionSchema = [4, n0, _GPC,
 ];
 export var InterceptorConfiguration$: StaticUnionSchema = [4, n0, _ICnt,
   0,
-  [_la],
+  [_lam],
   [() => LambdaInterceptorConfiguration$]
 ];
 export var McpTargetConfiguration$: StaticUnionSchema = [4, n0, _MTC,
   0,
-  [_oAS, _sM, _la, _mSc, _aG],
+  [_oAS, _sMm, _lam, _mSc, _aG],
   [[() => ApiSchemaConfiguration$, 0], [() => ApiSchemaConfiguration$, 0], () => McpLambdaTargetConfiguration$, () => McpServerTargetConfiguration$, () => ApiGatewayTargetConfiguration$]
 ];
 export var MemoryStrategyInput$: StaticUnionSchema = [4, n0, _MSI,
@@ -2871,7 +2908,7 @@ export var Oauth2ProviderConfigOutput$: StaticUnionSchema = [4, n0, _OPCO,
 ];
 export var PolicyDefinition$: StaticUnionSchema = [4, n0, _PD,
   0,
-  [_ce, _pGo],
+  [_ced, _pGo],
   [() => CedarPolicy$, () => PolicyGenerationDetails$]
 ];
 export var RatingScale$: StaticUnionSchema = [4, n0, _RS,
@@ -2893,6 +2930,11 @@ export var Resource$: StaticUnionSchema = [4, n0, _Re,
   0,
   [_a],
   [0]
+];
+export var ResourceLocation$: StaticUnionSchema = [4, n0, _RL,
+  0,
+  [_s_],
+  [() => S3Location$]
 ];
 export var StreamDeliveryResource$: StaticUnionSchema = [4, n0, _SDRt,
   0,

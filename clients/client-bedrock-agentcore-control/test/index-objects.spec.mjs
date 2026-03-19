@@ -23,6 +23,8 @@ import {
   BedrockAgentCoreControlClient,
   BedrockAgentCoreControlServiceException,
   BedrockEvaluatorModelConfig$,
+  BrowserEnterprisePolicy$,
+  BrowserEnterprisePolicyType,
   BrowserNetworkConfiguration$,
   BrowserNetworkMode,
   BrowserProfileStatus,
@@ -33,6 +35,8 @@ import {
   BrowserSummary$,
   CategoricalScaleDefinition$,
   CedarPolicy$,
+  Certificate$,
+  CertificateLocation$,
   ClaimMatchOperatorType,
   ClaimMatchValueType$,
   CloudWatchLogsInputConfig$,
@@ -483,6 +487,7 @@ import {
   Resource$,
   ResourceLimitExceededException,
   ResourceLimitExceededException$,
+  ResourceLocation$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceType,
@@ -498,6 +503,7 @@ import {
   SchemaType,
   SearchType,
   Secret$,
+  SecretsManagerLocation$,
   SelfManagedConfiguration$,
   SelfManagedConfigurationInput$,
   SemanticConsolidationOverride$,
@@ -825,6 +831,7 @@ assert(typeof AtlassianOauth2ProviderConfigOutput$ === "object");
 assert(typeof AuthorizerConfiguration$ === "object");
 assert(typeof AuthorizingClaimMatchValueType$ === "object");
 assert(typeof BedrockEvaluatorModelConfig$ === "object");
+assert(typeof BrowserEnterprisePolicy$ === "object");
 assert(typeof BrowserNetworkConfiguration$ === "object");
 assert(typeof BrowserProfileSummary$ === "object");
 assert(typeof BrowserSigningConfigInput$ === "object");
@@ -832,6 +839,8 @@ assert(typeof BrowserSigningConfigOutput$ === "object");
 assert(typeof BrowserSummary$ === "object");
 assert(typeof CategoricalScaleDefinition$ === "object");
 assert(typeof CedarPolicy$ === "object");
+assert(typeof Certificate$ === "object");
+assert(typeof CertificateLocation$ === "object");
 assert(typeof ClaimMatchValueType$ === "object");
 assert(typeof CloudWatchLogsInputConfig$ === "object");
 assert(typeof CloudWatchOutputConfig$ === "object");
@@ -1082,6 +1091,7 @@ assert(typeof RecordingConfig$ === "object");
 assert(typeof ReflectionConfiguration$ === "object");
 assert(typeof RequestHeaderConfiguration$ === "object");
 assert(typeof Resource$ === "object");
+assert(typeof ResourceLocation$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof RuntimeMetadataConfiguration$ === "object");
 assert(typeof S3Configuration$ === "object");
@@ -1091,6 +1101,7 @@ assert(typeof SalesforceOauth2ProviderConfigOutput$ === "object");
 assert(typeof SamplingConfig$ === "object");
 assert(typeof SchemaDefinition$ === "object");
 assert(typeof Secret$ === "object");
+assert(typeof SecretsManagerLocation$ === "object");
 assert(typeof SelfManagedConfiguration$ === "object");
 assert(typeof SelfManagedConfigurationInput$ === "object");
 assert(typeof SemanticConsolidationOverride$ === "object");
@@ -1170,6 +1181,7 @@ assert(typeof AgentRuntimeEndpointStatus === "object");
 assert(typeof AgentRuntimeStatus === "object");
 assert(typeof ApiKeyCredentialLocation === "object");
 assert(typeof AuthorizerType === "object");
+assert(typeof BrowserEnterprisePolicyType === "object");
 assert(typeof BrowserNetworkMode === "object");
 assert(typeof BrowserProfileStatus === "object");
 assert(typeof BrowserStatus === "object");

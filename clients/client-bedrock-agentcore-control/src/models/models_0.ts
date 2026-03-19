@@ -7,6 +7,7 @@ import {
   AgentRuntimeStatus,
   ApiKeyCredentialLocation,
   AuthorizerType,
+  BrowserEnterprisePolicyType,
   BrowserNetworkMode,
   BrowserProfileStatus,
   BrowserStatus,
@@ -38,7 +39,6 @@ import {
   OnlineEvaluationExecutionStatus,
   OverrideType,
   PolicyEngineStatus,
-  PolicyGenerationStatus,
   ResourceType,
   RestApiMethod,
   SearchType,
@@ -1994,6 +1994,126 @@ export interface BrowserSigningConfigInput {
 }
 
 /**
+ * <p>The Amazon Web Services Secrets Manager location configuration.</p>
+ * @public
+ */
+export interface SecretsManagerLocation {
+  /**
+   * <p>The ARN of the Amazon Web Services Secrets Manager secret containing the certificate.</p>
+   * @public
+   */
+  secretArn: string | undefined;
+}
+
+/**
+ * <p>The location from which to retrieve a certificate.</p>
+ * @public
+ */
+export type CertificateLocation =
+  | CertificateLocation.SecretsManagerMember
+  | CertificateLocation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CertificateLocation {
+  /**
+   * <p>The Amazon Web Services Secrets Manager location of the certificate.</p>
+   * @public
+   */
+  export interface SecretsManagerMember {
+    secretsManager: SecretsManagerLocation;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    secretsManager?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    secretsManager: (value: SecretsManagerLocation) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A certificate to install in the browser or code interpreter.</p>
+ * @public
+ */
+export interface Certificate {
+  /**
+   * <p>The location of the certificate.</p>
+   * @public
+   */
+  location: CertificateLocation | undefined;
+}
+
+/**
+ * <p>The location of a resource.</p>
+ * @public
+ */
+export type ResourceLocation =
+  | ResourceLocation.S3Member
+  | ResourceLocation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ResourceLocation {
+  /**
+   * <p>The Amazon S3 location for storing data. This structure defines where in Amazon S3 data is stored.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3Location;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: S3Location) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Browser enterprise policy configuration.</p>
+ * @public
+ */
+export interface BrowserEnterprisePolicy {
+  /**
+   * <p>The location of the enterprise policy file.</p>
+   * @public
+   */
+  location: ResourceLocation | undefined;
+
+  /**
+   * <p>The type of browser enterprise policy. Available values are <code>MANAGED</code> and <code>RECOMMENDED</code>.</p>
+   * @public
+   */
+  type?: BrowserEnterprisePolicyType | undefined;
+}
+
+/**
  * <p>The network configuration for a browser. This structure defines how the browser connects to the network.</p>
  * @public
  */
@@ -2068,6 +2188,18 @@ export interface CreateBrowserRequest {
    * @public
    */
   browserSigning?: BrowserSigningConfigInput | undefined;
+
+  /**
+   * <p>A list of enterprise policy files for the browser.</p>
+   * @public
+   */
+  enterprisePolicies?: BrowserEnterprisePolicy[] | undefined;
+
+  /**
+   * <p>A list of certificates to install in the browser.</p>
+   * @public
+   */
+  certificates?: Certificate[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
@@ -2225,6 +2357,18 @@ export interface GetBrowserResponse {
    * @public
    */
   browserSigning?: BrowserSigningConfigOutput | undefined;
+
+  /**
+   * <p>The list of enterprise policy files configured for the browser.</p>
+   * @public
+   */
+  enterprisePolicies?: BrowserEnterprisePolicy[] | undefined;
+
+  /**
+   * <p>The list of certificates configured for the browser.</p>
+   * @public
+   */
+  certificates?: Certificate[] | undefined;
 
   /**
    * <p>The current status of the browser.</p>
@@ -2386,6 +2530,12 @@ export interface CreateCodeInterpreterRequest {
   networkConfiguration: CodeInterpreterNetworkConfiguration | undefined;
 
   /**
+   * <p>A list of certificates to install in the code interpreter.</p>
+   * @public
+   */
+  certificates?: Certificate[] | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
    * @public
    */
@@ -2523,6 +2673,12 @@ export interface GetCodeInterpreterResponse {
    * @public
    */
   status: CodeInterpreterStatus | undefined;
+
+  /**
+   * <p>The list of certificates configured for the code interpreter.</p>
+   * @public
+   */
+  certificates?: Certificate[] | undefined;
 
   /**
    * <p>The reason for failure if the code interpreter is in a failed state.</p>
@@ -9360,167 +9516,4 @@ export interface GetPolicyGenerationRequest {
    * @public
    */
   policyEngineId: string | undefined;
-}
-
-/**
- * <p>Represents a resource within the AgentCore Policy system. Resources are the targets of policy evaluation. Currently, only AgentCore Gateways are supported as resources for policy enforcement.</p>
- * @public
- */
-export type Resource =
-  | Resource.ArnMember
-  | Resource.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Resource {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource. This globally unique identifier specifies the exact resource that policies will be evaluated against for access control decisions. </p>
-   * @public
-   */
-  export interface ArnMember {
-    arn: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    arn?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    arn: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface GetPolicyGenerationResponse {
-  /**
-   * <p>The identifier of the policy engine associated with this policy generation. This confirms the policy engine context for the generation operation.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the policy generation request. This matches the generation ID provided in the request and serves as the tracking identifier.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name for the policy generation request. This helps identify and track generation operations across multiple requests.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy generation. This globally unique identifier can be used for tracking, auditing, and cross-service references.</p>
-   * @public
-   */
-  policyGenerationArn: string | undefined;
-
-  /**
-   * <p>The resource information associated with the policy generation. This provides context about the target resources for which the policies are being generated.</p>
-   * @public
-   */
-  resource: Resource | undefined;
-
-  /**
-   * <p>The timestamp when the policy generation request was created. This is used for tracking and auditing generation operations and their lifecycle.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy generation was last updated. This tracks the progress of the generation process and any status changes.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The current status of the policy generation. This indicates whether the generation is in progress, completed successfully, or failed during processing.</p>
-   * @public
-   */
-  status: PolicyGenerationStatus | undefined;
-
-  /**
-   * <p>Additional information about the generation status. This provides details about any failures, warnings, or the current state of the generation process.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
-   * <p>The findings and results from the policy generation process. This includes any issues, recommendations, validation results, or insights from the generated policies.</p>
-   * @public
-   */
-  findings?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyGenerationAssetsRequest {
-  /**
-   * <p>The unique identifier of the policy generation request whose assets are to be retrieved. This must be a valid generation ID from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html">StartPolicyGeneration</a> call that has completed processing.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the policy engine associated with the policy generation request. This provides the context for the generation operation and ensures assets are retrieved from the correct policy engine.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationAssets.html">ListPolicyGenerationAssets</a> call. Use this token to retrieve the next page of assets when the response is paginated due to large numbers of generated policy options.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policy generation assets to return in a single response. If not specified, the default is 10 assets per page, with a maximum of 100 per page. This helps control response size when dealing with policy generations that produce many alternative policy options.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Represents a Cedar policy statement within the AgentCore Policy system. Cedar is a policy language designed for authorization that provides human-readable, analyzable, and high-performance policy evaluation for controlling agent behavior and access decisions. </p>
- * @public
- */
-export interface CedarPolicy {
-  /**
-   * <p>The Cedar policy statement that defines the authorization logic. This statement follows Cedar syntax and specifies principals, actions, resources, and conditions that determine when access should be allowed or denied.</p>
-   * @public
-   */
-  statement: string | undefined;
-}
-
-/**
- * <p>Represents the information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
- * @public
- */
-export interface PolicyGenerationDetails {
-  /**
-   * <p>The unique identifier for this policy generation request.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The unique identifier for this generated policy asset within the policy generation request.</p>
-   * @public
-   */
-  policyGenerationAssetId: string | undefined;
 }

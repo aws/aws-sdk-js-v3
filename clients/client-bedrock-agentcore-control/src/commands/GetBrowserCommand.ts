@@ -73,6 +73,27 @@ export interface GetBrowserCommandOutput extends GetBrowserResponse, __MetadataB
  * //   browserSigning: { // BrowserSigningConfigOutput
  * //     enabled: true || false, // required
  * //   },
+ * //   enterprisePolicies: [ // BrowserEnterprisePolicies
+ * //     { // BrowserEnterprisePolicy
+ * //       location: { // ResourceLocation Union: only one key present
+ * //         s3: {
+ * //           bucket: "STRING_VALUE", // required
+ * //           prefix: "STRING_VALUE", // required
+ * //           versionId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       type: "MANAGED" || "RECOMMENDED",
+ * //     },
+ * //   ],
+ * //   certificates: [ // Certificates
+ * //     { // Certificate
+ * //       location: { // CertificateLocation Union: only one key present
+ * //         secretsManager: { // SecretsManagerLocation
+ * //           secretArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
  * //   status: "CREATING" || "CREATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED" || "DELETED", // required
  * //   failureReason: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
