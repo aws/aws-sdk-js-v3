@@ -66,6 +66,18 @@ export interface GetBrowserSessionCommandOutput extends GetBrowserSessionRespons
  * //       },
  * //     },
  * //   ],
+ * //   enterprisePolicies: [ // BrowserEnterprisePolicies
+ * //     { // BrowserEnterprisePolicy
+ * //       location: {//  Union: only one key present
+ * //         s3: {
+ * //           bucket: "STRING_VALUE", // required
+ * //           prefix: "STRING_VALUE", // required
+ * //           versionId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       type: "MANAGED" || "RECOMMENDED",
+ * //     },
+ * //   ],
  * //   profileConfiguration: { // BrowserProfileConfiguration
  * //     profileIdentifier: "STRING_VALUE", // required
  * //   },
@@ -103,6 +115,15 @@ export interface GetBrowserSessionCommandOutput extends GetBrowserSessionRespons
  * //       ],
  * //     },
  * //   },
+ * //   certificates: [ // Certificates
+ * //     { // Certificate
+ * //       location: { // CertificateLocation Union: only one key present
+ * //         secretsManager: { // SecretsManagerLocation
+ * //           secretArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
  * //   sessionReplayArtifact: "STRING_VALUE",
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
  * // };

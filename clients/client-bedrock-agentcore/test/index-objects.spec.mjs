@@ -23,11 +23,15 @@ import {
   BedrockAgentCoreServiceException,
   Branch$,
   BranchFilter$,
+  BrowserEnterprisePolicy$,
+  BrowserEnterprisePolicyType,
   BrowserExtension$,
   BrowserProfileConfiguration$,
   BrowserSessionStatus,
   BrowserSessionStream$,
   BrowserSessionSummary$,
+  Certificate$,
+  CertificateLocation$,
   CodeInterpreterResult$,
   CodeInterpreterSessionStatus,
   CodeInterpreterSessionSummary$,
@@ -213,6 +217,7 @@ import {
   SaveBrowserSessionProfileRequest$,
   SaveBrowserSessionProfileResponse$,
   SearchCriteria$,
+  SecretsManagerLocation$,
   ServiceException,
   ServiceException$,
   ServiceQuotaExceededException,
@@ -359,10 +364,13 @@ assert(typeof BatchUpdateMemoryRecordsInput$ === "object");
 assert(typeof BatchUpdateMemoryRecordsOutput$ === "object");
 assert(typeof Branch$ === "object");
 assert(typeof BranchFilter$ === "object");
+assert(typeof BrowserEnterprisePolicy$ === "object");
 assert(typeof BrowserExtension$ === "object");
 assert(typeof BrowserProfileConfiguration$ === "object");
 assert(typeof BrowserSessionStream$ === "object");
 assert(typeof BrowserSessionSummary$ === "object");
+assert(typeof Certificate$ === "object");
+assert(typeof CertificateLocation$ === "object");
 assert(typeof CodeInterpreterResult$ === "object");
 assert(typeof CodeInterpreterSessionSummary$ === "object");
 assert(typeof CodeInterpreterStreamOutput$ === "object");
@@ -464,6 +472,7 @@ assert(typeof S3Location$ === "object");
 assert(typeof SaveBrowserSessionProfileRequest$ === "object");
 assert(typeof SaveBrowserSessionProfileResponse$ === "object");
 assert(typeof SearchCriteria$ === "object");
+assert(typeof SecretsManagerLocation$ === "object");
 assert(typeof SessionSummary$ === "object");
 assert(typeof SpanContext$ === "object");
 assert(typeof StartBrowserSessionRequest$ === "object");
@@ -489,6 +498,7 @@ assert(typeof ValidationExceptionField$ === "object");
 assert(typeof ViewPort$ === "object");
 // enums
 assert(typeof AutomationStreamStatus === "object");
+assert(typeof BrowserEnterprisePolicyType === "object");
 assert(typeof BrowserSessionStatus === "object");
 assert(typeof CodeInterpreterSessionStatus === "object");
 assert(typeof CommandExecutionStatus === "object");

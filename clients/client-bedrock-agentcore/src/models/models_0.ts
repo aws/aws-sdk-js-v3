@@ -3,6 +3,7 @@ import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/type
 
 import {
   AutomationStreamStatus,
+  BrowserEnterprisePolicyType,
   BrowserSessionStatus,
   CodeInterpreterSessionStatus,
   CommandExecutionStatus,
@@ -783,6 +784,69 @@ export interface GetBrowserSessionRequest {
 }
 
 /**
+ * <p>The Amazon Web Services Secrets Manager location configuration.</p>
+ * @public
+ */
+export interface SecretsManagerLocation {
+  /**
+   * <p>The ARN of the Amazon Web Services Secrets Manager secret containing the certificate.</p>
+   * @public
+   */
+  secretArn: string | undefined;
+}
+
+/**
+ * <p>The location from which to retrieve a certificate.</p>
+ * @public
+ */
+export type CertificateLocation =
+  | CertificateLocation.SecretsManagerMember
+  | CertificateLocation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CertificateLocation {
+  /**
+   * <p>The Amazon Web Services Secrets Manager location of the certificate.</p>
+   * @public
+   */
+  export interface SecretsManagerMember {
+    secretsManager: SecretsManagerLocation;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    secretsManager?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    secretsManager: (value: SecretsManagerLocation) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A certificate to install in the browser or code interpreter session.</p>
+ * @public
+ */
+export interface Certificate {
+  /**
+   * <p>The location of the certificate.</p>
+   * @public
+   */
+  location: CertificateLocation | undefined;
+}
+
+/**
  * <p>The Amazon S3 location configuration of a resource.</p>
  * @public
  */
@@ -843,6 +907,24 @@ export namespace ResourceLocation {
     s3: (value: S3Location) => T;
     _: (name: string, value: any) => T;
   }
+}
+
+/**
+ * <p>Browser enterprise policy configuration.</p>
+ * @public
+ */
+export interface BrowserEnterprisePolicy {
+  /**
+   * <p>The location of the enterprise policy file.</p>
+   * @public
+   */
+  location: ResourceLocation | undefined;
+
+  /**
+   * <p>The enterprise policy type. See BrowserEnterprisePolicyType.</p>
+   * @public
+   */
+  type?: BrowserEnterprisePolicyType | undefined;
 }
 
 /**
@@ -1126,6 +1208,12 @@ export interface GetBrowserSessionResponse {
   extensions?: BrowserExtension[] | undefined;
 
   /**
+   * <p>A list of files containing enterprise policies for the browser session.</p>
+   * @public
+   */
+  enterprisePolicies?: BrowserEnterprisePolicy[] | undefined;
+
+  /**
    * <p>The browser profile configuration associated with this session. Contains the profile identifier that links to persistent browser data such as cookies and local storage.</p>
    * @public
    */
@@ -1154,6 +1242,12 @@ export interface GetBrowserSessionResponse {
    * @public
    */
   proxyConfiguration?: ProxyConfiguration | undefined;
+
+  /**
+   * <p>The list of certificates installed in the browser session.</p>
+   * @public
+   */
+  certificates?: Certificate[] | undefined;
 
   /**
    * <p>The artifact containing the session replay information.</p>
@@ -1313,6 +1407,18 @@ export interface StartBrowserSessionRequest {
    * @public
    */
   proxyConfiguration?: ProxyConfiguration | undefined;
+
+  /**
+   * <p>A list of files containing enterprise policies for the browser.</p>
+   * @public
+   */
+  enterprisePolicies?: BrowserEnterprisePolicy[] | undefined;
+
+  /**
+   * <p>A list of certificates to install in the browser session.</p>
+   * @public
+   */
+  certificates?: Certificate[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.</p>
@@ -1573,6 +1679,12 @@ export interface GetCodeInterpreterSessionResponse {
    * @public
    */
   status?: CodeInterpreterSessionStatus | undefined;
+
+  /**
+   * <p>The list of certificates installed in the code interpreter session.</p>
+   * @public
+   */
+  certificates?: Certificate[] | undefined;
 }
 
 /**
@@ -1696,6 +1808,12 @@ export interface StartCodeInterpreterSessionRequest {
    * @public
    */
   sessionTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>A list of certificates to install in the code interpreter session.</p>
+   * @public
+   */
+  certificates?: Certificate[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.</p>

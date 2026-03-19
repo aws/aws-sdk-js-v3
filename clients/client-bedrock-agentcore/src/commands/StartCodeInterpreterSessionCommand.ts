@@ -46,6 +46,15 @@ export interface StartCodeInterpreterSessionCommandOutput extends StartCodeInter
  *   codeInterpreterIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   sessionTimeoutSeconds: Number("int"),
+ *   certificates: [ // Certificates
+ *     { // Certificate
+ *       location: { // CertificateLocation Union: only one key present
+ *         secretsManager: { // SecretsManagerLocation
+ *           secretArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new StartCodeInterpreterSessionCommand(input);

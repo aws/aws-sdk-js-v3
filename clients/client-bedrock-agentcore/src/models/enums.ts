@@ -32,6 +32,20 @@ export type CommandExecutionStatus = (typeof CommandExecutionStatus)[keyof typeo
  * @public
  * @enum
  */
+export const BrowserEnterprisePolicyType = {
+  MANAGED: "MANAGED",
+  RECOMMENDED: "RECOMMENDED",
+} as const;
+/**
+ * @public
+ */
+export type BrowserEnterprisePolicyType =
+  (typeof BrowserEnterprisePolicyType)[keyof typeof BrowserEnterprisePolicyType];
+
+/**
+ * @public
+ * @enum
+ */
 export const BrowserSessionStatus = {
   READY: "READY",
   TERMINATED: "TERMINATED",

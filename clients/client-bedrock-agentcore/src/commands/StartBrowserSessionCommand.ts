@@ -87,6 +87,27 @@ export interface StartBrowserSessionCommandOutput extends StartBrowserSessionRes
  *       ],
  *     },
  *   },
+ *   enterprisePolicies: [ // BrowserEnterprisePolicies
+ *     { // BrowserEnterprisePolicy
+ *       location: {//  Union: only one key present
+ *         s3: {
+ *           bucket: "STRING_VALUE", // required
+ *           prefix: "STRING_VALUE", // required
+ *           versionId: "STRING_VALUE",
+ *         },
+ *       },
+ *       type: "MANAGED" || "RECOMMENDED",
+ *     },
+ *   ],
+ *   certificates: [ // Certificates
+ *     { // Certificate
+ *       location: { // CertificateLocation Union: only one key present
+ *         secretsManager: { // SecretsManagerLocation
+ *           secretArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new StartBrowserSessionCommand(input);

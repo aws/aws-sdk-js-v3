@@ -53,6 +53,15 @@ export interface GetCodeInterpreterSessionCommandOutput extends GetCodeInterpret
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   sessionTimeoutSeconds: Number("int"),
  * //   status: "READY" || "TERMINATED",
+ * //   certificates: [ // Certificates
+ * //     { // Certificate
+ * //       location: { // CertificateLocation Union: only one key present
+ * //         secretsManager: { // SecretsManagerLocation
+ * //           secretArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```
