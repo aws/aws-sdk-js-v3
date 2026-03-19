@@ -93,7 +93,7 @@
     "@smithy/fetch-http-handler": "^5.3.15",
     "@smithy/node-http-handler": "^4.5.0",
     "@smithy/protocol-http": "^5.3.12",
-    "@smithy/smithy-client": "^4.12.6",
+    "@smithy/smithy-client": "^4.12.7",
     "@smithy/typecheck": "^1.0.20",
     "@smithy/types": "^4.13.1",
     "@smithy/util-retry": "^4.2.12",
