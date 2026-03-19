@@ -48,6 +48,9 @@ export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedul
  * //     { // SchedulingPolicyDetail
  * //       name: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
+ * //       quotaSharePolicy: { // QuotaSharePolicy
+ * //         idleResourceAssignmentStrategy: "FIFO", // required
+ * //       },
  * //       fairsharePolicy: { // FairsharePolicy
  * //         shareDecaySeconds: Number("int"),
  * //         computeReservation: Number("int"),

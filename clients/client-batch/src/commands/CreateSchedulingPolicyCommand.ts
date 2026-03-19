@@ -38,6 +38,9 @@ export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPol
  * const client = new BatchClient(config);
  * const input = { // CreateSchedulingPolicyRequest
  *   name: "STRING_VALUE", // required
+ *   quotaSharePolicy: { // QuotaSharePolicy
+ *     idleResourceAssignmentStrategy: "FIFO", // required
+ *   },
  *   fairsharePolicy: { // FairsharePolicy
  *     shareDecaySeconds: Number("int"),
  *     computeReservation: Number("int"),

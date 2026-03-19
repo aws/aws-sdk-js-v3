@@ -7,5 +7,6 @@ export * from "./DescribeServiceEnvironmentsPaginator";
 export * from "./ListConsumableResourcesPaginator";
 export * from "./ListJobsPaginator";
 export * from "./ListJobsByConsumableResourcePaginator";
+export * from "./ListQuotaSharesPaginator";
 export * from "./ListSchedulingPoliciesPaginator";
 export * from "./ListServiceJobsPaginator";

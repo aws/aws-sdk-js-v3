@@ -20,6 +20,11 @@ import {
   CreateJobQueueCommandOutput,
 } from "./commands/CreateJobQueueCommand";
 import {
+  CreateQuotaShareCommand,
+  CreateQuotaShareCommandInput,
+  CreateQuotaShareCommandOutput,
+} from "./commands/CreateQuotaShareCommand";
+import {
   CreateSchedulingPolicyCommand,
   CreateSchedulingPolicyCommandInput,
   CreateSchedulingPolicyCommandOutput,
@@ -44,6 +49,11 @@ import {
   DeleteJobQueueCommandInput,
   DeleteJobQueueCommandOutput,
 } from "./commands/DeleteJobQueueCommand";
+import {
+  DeleteQuotaShareCommand,
+  DeleteQuotaShareCommandInput,
+  DeleteQuotaShareCommandOutput,
+} from "./commands/DeleteQuotaShareCommand";
 import {
   DeleteSchedulingPolicyCommand,
   DeleteSchedulingPolicyCommandInput,
@@ -85,6 +95,11 @@ import {
   DescribeJobsCommandOutput,
 } from "./commands/DescribeJobsCommand";
 import {
+  DescribeQuotaShareCommand,
+  DescribeQuotaShareCommandInput,
+  DescribeQuotaShareCommandOutput,
+} from "./commands/DescribeQuotaShareCommand";
+import {
   DescribeSchedulingPoliciesCommand,
   DescribeSchedulingPoliciesCommandInput,
   DescribeSchedulingPoliciesCommandOutput,
@@ -115,6 +130,11 @@ import {
   ListJobsByConsumableResourceCommandOutput,
 } from "./commands/ListJobsByConsumableResourceCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import {
+  ListQuotaSharesCommand,
+  ListQuotaSharesCommandInput,
+  ListQuotaSharesCommandOutput,
+} from "./commands/ListQuotaSharesCommand";
 import {
   ListSchedulingPoliciesCommand,
   ListSchedulingPoliciesCommandInput,
@@ -173,6 +193,11 @@ import {
   UpdateJobQueueCommandOutput,
 } from "./commands/UpdateJobQueueCommand";
 import {
+  UpdateQuotaShareCommand,
+  UpdateQuotaShareCommandInput,
+  UpdateQuotaShareCommandOutput,
+} from "./commands/UpdateQuotaShareCommand";
+import {
   UpdateSchedulingPolicyCommand,
   UpdateSchedulingPolicyCommandInput,
   UpdateSchedulingPolicyCommandOutput,
@@ -182,6 +207,11 @@ import {
   UpdateServiceEnvironmentCommandInput,
   UpdateServiceEnvironmentCommandOutput,
 } from "./commands/UpdateServiceEnvironmentCommand";
+import {
+  UpdateServiceJobCommand,
+  UpdateServiceJobCommandInput,
+  UpdateServiceJobCommandOutput,
+} from "./commands/UpdateServiceJobCommand";
 import { paginateDescribeComputeEnvironments } from "./pagination/DescribeComputeEnvironmentsPaginator";
 import { paginateDescribeJobDefinitions } from "./pagination/DescribeJobDefinitionsPaginator";
 import { paginateDescribeJobQueues } from "./pagination/DescribeJobQueuesPaginator";
@@ -189,6 +219,7 @@ import { paginateDescribeServiceEnvironments } from "./pagination/DescribeServic
 import { paginateListConsumableResources } from "./pagination/ListConsumableResourcesPaginator";
 import { paginateListJobsByConsumableResource } from "./pagination/ListJobsByConsumableResourcePaginator";
 import { paginateListJobs } from "./pagination/ListJobsPaginator";
+import { paginateListQuotaShares } from "./pagination/ListQuotaSharesPaginator";
 import { paginateListSchedulingPolicies } from "./pagination/ListSchedulingPoliciesPaginator";
 import { paginateListServiceJobs } from "./pagination/ListServiceJobsPaginator";
 
@@ -197,11 +228,13 @@ const commands = {
   CreateComputeEnvironmentCommand,
   CreateConsumableResourceCommand,
   CreateJobQueueCommand,
+  CreateQuotaShareCommand,
   CreateSchedulingPolicyCommand,
   CreateServiceEnvironmentCommand,
   DeleteComputeEnvironmentCommand,
   DeleteConsumableResourceCommand,
   DeleteJobQueueCommand,
+  DeleteQuotaShareCommand,
   DeleteSchedulingPolicyCommand,
   DeleteServiceEnvironmentCommand,
   DeregisterJobDefinitionCommand,
@@ -210,6 +243,7 @@ const commands = {
   DescribeJobDefinitionsCommand,
   DescribeJobQueuesCommand,
   DescribeJobsCommand,
+  DescribeQuotaShareCommand,
   DescribeSchedulingPoliciesCommand,
   DescribeServiceEnvironmentsCommand,
   DescribeServiceJobCommand,
@@ -217,6 +251,7 @@ const commands = {
   ListConsumableResourcesCommand,
   ListJobsCommand,
   ListJobsByConsumableResourceCommand,
+  ListQuotaSharesCommand,
   ListSchedulingPoliciesCommand,
   ListServiceJobsCommand,
   ListTagsForResourceCommand,
@@ -230,8 +265,10 @@ const commands = {
   UpdateComputeEnvironmentCommand,
   UpdateConsumableResourceCommand,
   UpdateJobQueueCommand,
+  UpdateQuotaShareCommand,
   UpdateSchedulingPolicyCommand,
   UpdateServiceEnvironmentCommand,
+  UpdateServiceJobCommand,
 };
 const paginators = {
   paginateDescribeComputeEnvironments,
@@ -241,6 +278,7 @@ const paginators = {
   paginateListConsumableResources,
   paginateListJobs,
   paginateListJobsByConsumableResource,
+  paginateListQuotaShares,
   paginateListSchedulingPolicies,
   paginateListServiceJobs,
 };
@@ -312,6 +350,23 @@ export interface Batch {
     args: CreateJobQueueCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateJobQueueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateQuotaShareCommand}
+   */
+  createQuotaShare(
+    args: CreateQuotaShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQuotaShareCommandOutput>;
+  createQuotaShare(
+    args: CreateQuotaShareCommandInput,
+    cb: (err: any, data?: CreateQuotaShareCommandOutput) => void
+  ): void;
+  createQuotaShare(
+    args: CreateQuotaShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateQuotaShareCommandOutput) => void
   ): void;
 
   /**
@@ -397,6 +452,23 @@ export interface Batch {
     args: DeleteJobQueueCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteJobQueueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteQuotaShareCommand}
+   */
+  deleteQuotaShare(
+    args: DeleteQuotaShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQuotaShareCommandOutput>;
+  deleteQuotaShare(
+    args: DeleteQuotaShareCommandInput,
+    cb: (err: any, data?: DeleteQuotaShareCommandOutput) => void
+  ): void;
+  deleteQuotaShare(
+    args: DeleteQuotaShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQuotaShareCommandOutput) => void
   ): void;
 
   /**
@@ -539,6 +611,23 @@ export interface Batch {
   ): void;
 
   /**
+   * @see {@link DescribeQuotaShareCommand}
+   */
+  describeQuotaShare(
+    args: DescribeQuotaShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQuotaShareCommandOutput>;
+  describeQuotaShare(
+    args: DescribeQuotaShareCommandInput,
+    cb: (err: any, data?: DescribeQuotaShareCommandOutput) => void
+  ): void;
+  describeQuotaShare(
+    args: DescribeQuotaShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQuotaShareCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeSchedulingPoliciesCommand}
    */
   describeSchedulingPolicies(
@@ -658,6 +747,23 @@ export interface Batch {
     args: ListJobsByConsumableResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListJobsByConsumableResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListQuotaSharesCommand}
+   */
+  listQuotaShares(
+    args: ListQuotaSharesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQuotaSharesCommandOutput>;
+  listQuotaShares(
+    args: ListQuotaSharesCommandInput,
+    cb: (err: any, data?: ListQuotaSharesCommandOutput) => void
+  ): void;
+  listQuotaShares(
+    args: ListQuotaSharesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQuotaSharesCommandOutput) => void
   ): void;
 
   /**
@@ -884,6 +990,23 @@ export interface Batch {
   ): void;
 
   /**
+   * @see {@link UpdateQuotaShareCommand}
+   */
+  updateQuotaShare(
+    args: UpdateQuotaShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQuotaShareCommandOutput>;
+  updateQuotaShare(
+    args: UpdateQuotaShareCommandInput,
+    cb: (err: any, data?: UpdateQuotaShareCommandOutput) => void
+  ): void;
+  updateQuotaShare(
+    args: UpdateQuotaShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQuotaShareCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateSchedulingPolicyCommand}
    */
   updateSchedulingPolicy(
@@ -915,6 +1038,23 @@ export interface Batch {
     args: UpdateServiceEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateServiceJobCommand}
+   */
+  updateServiceJob(
+    args: UpdateServiceJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceJobCommandOutput>;
+  updateServiceJob(
+    args: UpdateServiceJobCommandInput,
+    cb: (err: any, data?: UpdateServiceJobCommandOutput) => void
+  ): void;
+  updateServiceJob(
+    args: UpdateServiceJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateServiceJobCommandOutput) => void
   ): void;
 
   /**
@@ -993,6 +1133,17 @@ export interface Batch {
     args: ListJobsByConsumableResourceCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListJobsByConsumableResourceCommandOutput>;
+
+  /**
+   * @see {@link ListQuotaSharesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQuotaSharesCommandOutput}.
+   */
+  paginateListQuotaShares(
+    args: ListQuotaSharesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQuotaSharesCommandOutput>;
 
   /**
    * @see {@link ListSchedulingPoliciesCommand}

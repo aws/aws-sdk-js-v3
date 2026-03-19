@@ -52,6 +52,10 @@ export interface SubmitServiceJobCommandOutput extends SubmitServiceJobResponse,
  *   serviceRequestPayload: "STRING_VALUE", // required
  *   serviceJobType: "SAGEMAKER_TRAINING", // required
  *   shareIdentifier: "STRING_VALUE",
+ *   quotaShareName: "STRING_VALUE",
+ *   preemptionConfiguration: { // ServiceJobPreemptionConfiguration
+ *     preemptionRetriesBeforeTermination: Number("int"),
+ *   },
  *   timeoutConfig: { // ServiceJobTimeout
  *     attemptDurationSeconds: Number("int"),
  *   },

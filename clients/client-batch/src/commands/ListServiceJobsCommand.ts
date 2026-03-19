@@ -74,6 +74,7 @@ export interface ListServiceJobsCommandOutput extends ListServiceJobsResponse, _
  * //       scheduledAt: Number("long"),
  * //       serviceJobType: "SAGEMAKER_TRAINING", // required
  * //       shareIdentifier: "STRING_VALUE",
+ * //       quotaShareName: "STRING_VALUE",
  * //       status: "SUBMITTED" || "PENDING" || "RUNNABLE" || "SCHEDULED" || "STARTING" || "RUNNING" || "SUCCEEDED" || "FAILED",
  * //       statusReason: "STRING_VALUE",
  * //       startedAt: Number("long"),

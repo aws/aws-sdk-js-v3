@@ -28,6 +28,9 @@ const _CL = "CapacityLimit";
 const _CLa = "CapacityLimits";
 const _CO = "ContainerOverrides";
 const _CP = "ContainerProperties";
+const _CQS = "CreateQuotaShare";
+const _CQSR = "CreateQuotaShareRequest";
+const _CQSRr = "CreateQuotaShareResponse";
 const _CR = "ComputeResource";
 const _CRL = "ConsumableResourceList";
 const _CRP = "ConsumableResourceProperties";
@@ -72,6 +75,12 @@ const _DJQe = "DescribeJobQueues";
 const _DJR = "DescribeJobsRequest";
 const _DJRe = "DescribeJobsResponse";
 const _DL = "DevicesList";
+const _DQS = "DeleteQuotaShare";
+const _DQSR = "DeleteQuotaShareRequest";
+const _DQSRe = "DeleteQuotaShareResponse";
+const _DQSRes = "DescribeQuotaShareRequest";
+const _DQSResc = "DescribeQuotaShareResponse";
+const _DQSe = "DescribeQuotaShare";
 const _DSE = "DeleteServiceEnvironment";
 const _DSER = "DeleteServiceEnvironmentRequest";
 const _DSERe = "DeleteServiceEnvironmentResponse";
@@ -138,6 +147,10 @@ const _FCUa = "FairshareCapacityUtilization";
 const _FOQD = "FrontOfQueueDetail";
 const _FOQJS = "FrontOfQueueJobSummary";
 const _FOQJSL = "FrontOfQueueJobSummaryList";
+const _FOQSD = "FrontOfQuotaSharesDetail";
+const _FOQSJS = "FrontOfQuotaShareJobSummary";
+const _FOQSJSL = "FrontOfQuotaShareJobSummaryList";
+const _FOQSJSM = "FrontOfQuotaSharesJobSummaryMap";
 const _FP = "FairsharePolicy";
 const _FPC = "FargatePlatformConfiguration";
 const _FUD = "FairshareUtilizationDetail";
@@ -184,6 +197,9 @@ const _LJFL = "ListJobsFilterList";
 const _LJR = "ListJobsRequest";
 const _LJRi = "ListJobsResponse";
 const _LP = "LinuxParameters";
+const _LQS = "ListQuotaShares";
+const _LQSR = "ListQuotaSharesRequest";
+const _LQSRi = "ListQuotaSharesResponse";
 const _LSJ = "ListServiceJobs";
 const _LSJA = "LatestServiceJobAttempt";
 const _LSJR = "ListServiceJobsRequest";
@@ -214,9 +230,21 @@ const _NPOo = "NodePropertyOverrides";
 const _NPS = "NodePropertiesSummary";
 const _NRP = "NodeRangeProperty";
 const _NRPo = "NodeRangeProperties";
+const _QSCL = "QuotaShareCapacityLimit";
+const _QSCLu = "QuotaShareCapacityLimits";
 const _QSCU = "QueueSnapshotCapacityUsage";
 const _QSCUL = "QueueSnapshotCapacityUsageList";
+const _QSCULu = "QuotaShareCapacityUsageList";
+const _QSCULuo = "QuotaShareCapacityUtilizationList";
+const _QSCUu = "QuotaShareCapacityUsage";
+const _QSCUuo = "QuotaShareCapacityUtilization";
+const _QSD = "QuotaShareDetail";
+const _QSL = "QuotaShareList";
+const _QSP = "QuotaSharePolicy";
+const _QSPC = "QuotaSharePreemptionConfiguration";
+const _QSRSC = "QuotaShareResourceSharingConfiguration";
 const _QSUD = "QueueSnapshotUtilizationDetail";
+const _QSUDu = "QuotaShareUtilizationDetail";
 const _RC = "RepositoryCredentials";
 const _RJD = "RegisterJobDefinition";
 const _RJDR = "RegisterJobDefinitionRequest";
@@ -242,7 +270,11 @@ const _SJCUS = "ServiceJobCapacityUsageSummary";
 const _SJCUSL = "ServiceJobCapacityUsageSummaryList";
 const _SJEOE = "ServiceJobEvaluateOnExit";
 const _SJEOEL = "ServiceJobEvaluateOnExitList";
+const _SJPA = "ServiceJobPreemptedAttempt";
+const _SJPC = "ServiceJobPreemptionConfiguration";
+const _SJPS = "ServiceJobPreemptionSummary";
 const _SJR = "SubmitJobRequest";
+const _SJRPAL = "ServiceJobRecentPreemptedAttemptList";
 const _SJRS = "ServiceJobRetryStrategy";
 const _SJRu = "SubmitJobResponse";
 const _SJS = "ServiceJobSummary";
@@ -285,12 +317,18 @@ const _UJQ = "UpdateJobQueue";
 const _UJQR = "UpdateJobQueueRequest";
 const _UJQRp = "UpdateJobQueueResponse";
 const _UP = "UpdatePolicy";
+const _UQS = "UpdateQuotaShare";
+const _UQSR = "UpdateQuotaShareRequest";
+const _UQSRp = "UpdateQuotaShareResponse";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _USE = "UpdateServiceEnvironment";
 const _USER = "UpdateServiceEnvironmentRequest";
 const _USERp = "UpdateServiceEnvironmentResponse";
+const _USJ = "UpdateServiceJob";
+const _USJR = "UpdateServiceJobRequest";
+const _USJRp = "UpdateServiceJobResponse";
 const _USP = "UpdateSchedulingPolicy";
 const _USPR = "UpdateSchedulingPolicyRequest";
 const _USPRp = "UpdateSchedulingPolicyResponse";
@@ -314,6 +352,7 @@ const _an = "annotations";
 const _ar = "arns";
 const _arg = "args";
 const _at = "attempts";
+const _bL = "borrowLimit";
 const _bP = "bidPercentage";
 const _c = "client";
 const _cA = "createdAt";
@@ -379,6 +418,7 @@ const _es = "essential";
 const _f = "filters";
 const _fC = "firelensConfiguration";
 const _fOQ = "frontOfQueue";
+const _fOQS = "frontOfQuotaShares";
 const _fP = "fairsharePolicy";
 const _fPC = "fargatePlatformConfiguration";
 const _fSI = "fileSystemId";
@@ -403,6 +443,8 @@ const _iPE = "initProcessEnabled";
 const _iPP = "imagePullPolicy";
 const _iPS = "imagePullSecrets";
 const _iR = "instanceRole";
+const _iRAS = "idleResourceAssignmentStrategy";
+const _iSP = "inSharePreemption";
 const _iT = "instanceTypes";
 const _iTm = "imageType";
 const _iTn = "instanceType";
@@ -479,13 +521,17 @@ const _ope = "operation";
 const _opt = "options";
 const _ov = "overrides";
 const _p = "privileged";
-const _pC = "platformCapabilities";
+const _pAC = "preemptedAttemptCount";
+const _pC = "preemptionConfiguration";
+const _pCl = "platformCapabilities";
 const _pG = "placementGroup";
 const _pIA = "privateIpv4Address";
 const _pM = "pidMode";
 const _pN = "podName";
 const _pNo = "podNamespace";
 const _pP = "podProperties";
+const _pRBT = "preemptionRetriesBeforeTermination";
+const _pS = "preemptionSummary";
 const _pT = "propagateTags";
 const _pV = "platformVersion";
 const _pVC = "persistentVolumeClaim";
@@ -494,6 +540,11 @@ const _par = "parameters";
 const _pe = "permissions";
 const _pr = "priority";
 const _q = "quantity";
+const _qS = "quotaShares";
+const _qSA = "quotaShareArn";
+const _qSN = "quotaShareName";
+const _qSP = "quotaSharePolicy";
+const _qSU = "quotaShareUtilization";
 const _qU = "queueUtilization";
 const _r = "reason";
 const _rA = "resourceArn";
@@ -505,9 +556,11 @@ const _rD = "rootDirectory";
 const _rO = "readOnly";
 const _rORF = "readOnlyRootFilesystem";
 const _rP = "runtimePlatform";
+const _rPA = "recentPreemptedAttempts";
 const _rR = "resourceRequirements";
 const _rRF = "readonlyRootFilesystem";
 const _rS = "retryStrategy";
+const _rSC = "resourceSharingConfiguration";
 const _rT = "resourceType";
 const _re = "resources";
 const _req = "requests";
@@ -557,6 +610,7 @@ const _secr = "secret";
 const _si = "size";
 const _st = "state";
 const _sta = "status";
+const _str = "strategy";
 const _su = "subnets";
 const _sw = "swappiness";
 const _t = "tags";
@@ -772,10 +826,20 @@ export var CreateJobQueueResponse$: StaticStructureSchema = [3, n0, _CJQRr,
   [_jQN, _jQA],
   [0, 0], 2
 ];
+export var CreateQuotaShareRequest$: StaticStructureSchema = [3, n0, _CQSR,
+  0,
+  [_qSN, _jQ, _cL, _rSC, _pC, _st, _t],
+  [0, 0, () => QuotaShareCapacityLimits, () => QuotaShareResourceSharingConfiguration$, () => QuotaSharePreemptionConfiguration$, 0, 128 | 0], 5
+];
+export var CreateQuotaShareResponse$: StaticStructureSchema = [3, n0, _CQSRr,
+  0,
+  [_qSN, _qSA],
+  [0, 0]
+];
 export var CreateSchedulingPolicyRequest$: StaticStructureSchema = [3, n0, _CSPR,
   0,
-  [_n, _fP, _t],
-  [0, () => FairsharePolicy$, 128 | 0], 1
+  [_n, _qSP, _fP, _t],
+  [0, () => QuotaSharePolicy$, () => FairsharePolicy$, 128 | 0], 1
 ];
 export var CreateSchedulingPolicyResponse$: StaticStructureSchema = [3, n0, _CSPRr,
   0,
@@ -818,6 +882,16 @@ export var DeleteJobQueueRequest$: StaticStructureSchema = [3, n0, _DJQR,
   [0], 1
 ];
 export var DeleteJobQueueResponse$: StaticStructureSchema = [3, n0, _DJQRe,
+  0,
+  [],
+  []
+];
+export var DeleteQuotaShareRequest$: StaticStructureSchema = [3, n0, _DQSR,
+  0,
+  [_qSA],
+  [0], 1
+];
+export var DeleteQuotaShareResponse$: StaticStructureSchema = [3, n0, _DQSRe,
   0,
   [],
   []
@@ -902,6 +976,16 @@ export var DescribeJobsResponse$: StaticStructureSchema = [3, n0, _DJRe,
   [_j],
   [() => JobDetailList]
 ];
+export var DescribeQuotaShareRequest$: StaticStructureSchema = [3, n0, _DQSRes,
+  0,
+  [_qSA],
+  [0], 1
+];
+export var DescribeQuotaShareResponse$: StaticStructureSchema = [3, n0, _DQSResc,
+  0,
+  [_qSN, _qSA, _jQA, _cL, _rSC, _pC, _st, _sta, _t],
+  [0, 0, 0, () => QuotaShareCapacityLimits, () => QuotaShareResourceSharingConfiguration$, () => QuotaSharePreemptionConfiguration$, 0, 0, 128 | 0]
+];
 export var DescribeSchedulingPoliciesRequest$: StaticStructureSchema = [3, n0, _DSPRes,
   0,
   [_ar],
@@ -929,8 +1013,8 @@ export var DescribeServiceJobRequest$: StaticStructureSchema = [3, n0, _DSJR,
 ];
 export var DescribeServiceJobResponse$: StaticStructureSchema = [3, n0, _DSJRe,
   0,
-  [_jI, _jN, _jQ, _sJT, _sA, _sta, _at, _cUa, _cA, _iTs, _jA, _lA, _rS, _sAc, _sPch, _sRP, _sI, _sR, _sAt, _t, _tC],
-  [0, 0, 0, 0, 1, 0, () => ServiceJobAttemptDetails, () => ServiceJobCapacityUsageDetailList, 1, 2, 0, () => LatestServiceJobAttempt$, () => ServiceJobRetryStrategy$, 1, 1, 0, 0, 0, 1, 128 | 0, () => ServiceJobTimeout$], 6
+  [_jI, _jN, _jQ, _sJT, _sA, _sta, _at, _cUa, _cA, _iTs, _jA, _lA, _rS, _sAc, _sPch, _sRP, _sI, _qSN, _pC, _pS, _sR, _sAt, _t, _tC],
+  [0, 0, 0, 0, 1, 0, () => ServiceJobAttemptDetails, () => ServiceJobCapacityUsageDetailList, 1, 2, 0, () => LatestServiceJobAttempt$, () => ServiceJobRetryStrategy$, 1, 1, 0, 0, 0, () => ServiceJobPreemptionConfiguration$, () => ServiceJobPreemptionSummary$, 0, 1, 128 | 0, () => ServiceJobTimeout$], 6
 ];
 export var Device$: StaticStructureSchema = [3, n0, _D,
   0,
@@ -1137,6 +1221,16 @@ export var FrontOfQueueJobSummary$: StaticStructureSchema = [3, n0, _FOQJS,
   [_jA, _eTAP],
   [0, 1]
 ];
+export var FrontOfQuotaShareJobSummary$: StaticStructureSchema = [3, n0, _FOQSJS,
+  0,
+  [_jA, _eTAP],
+  [0, 1]
+];
+export var FrontOfQuotaSharesDetail$: StaticStructureSchema = [3, n0, _FOQSD,
+  0,
+  [_qS, _lUA],
+  [() => FrontOfQuotaSharesJobSummaryMap, 1]
+];
 export var GetJobQueueSnapshotRequest$: StaticStructureSchema = [3, n0, _GJQSR,
   0,
   [_jQ],
@@ -1144,8 +1238,8 @@ export var GetJobQueueSnapshotRequest$: StaticStructureSchema = [3, n0, _GJQSR,
 ];
 export var GetJobQueueSnapshotResponse$: StaticStructureSchema = [3, n0, _GJQSRe,
   0,
-  [_fOQ, _qU],
-  [() => FrontOfQueueDetail$, () => QueueSnapshotUtilizationDetail$]
+  [_fOQ, _fOQS, _qU],
+  [() => FrontOfQueueDetail$, () => FrontOfQuotaSharesDetail$, () => QueueSnapshotUtilizationDetail$]
 ];
 export var Host$: StaticStructureSchema = [3, n0, _H,
   0,
@@ -1164,7 +1258,7 @@ export var JobCapacityUsageSummary$: StaticStructureSchema = [3, n0, _JCUS,
 ];
 export var JobDefinition$: StaticStructureSchema = [3, n0, _JD,
   0,
-  [_jDN, _jDA, _rev, _ty, _sta, _sPch, _par, _rS, _cPo, _ti, _nP, _t, _pT, _pC, _eP, _ePk, _cOT, _cRP],
+  [_jDN, _jDA, _rev, _ty, _sta, _sPch, _par, _rS, _cPo, _ti, _nP, _t, _pT, _pCl, _eP, _ePk, _cOT, _cRP],
   [0, 0, 1, 0, 0, 1, 128 | 0, () => RetryStrategy$, () => ContainerProperties$, () => JobTimeout$, () => NodeProperties$, 128 | 0, 2, 64 | 0, () => EcsProperties$, () => EksProperties$, 0, () => ConsumableResourceProperties$], 4
 ];
 export var JobDependency$: StaticStructureSchema = [3, n0, _JDo,
@@ -1174,7 +1268,7 @@ export var JobDependency$: StaticStructureSchema = [3, n0, _JDo,
 ];
 export var JobDetail$: StaticStructureSchema = [3, n0, _JDob,
   0,
-  [_jN, _jI, _jQ, _sta, _sA, _jD, _jA, _sI, _sPch, _at, _sR, _cA, _rS, _sAt, _dO, _par, _co, _nD, _nP, _aP, _ti, _t, _pT, _pC, _ePk, _eA, _eP, _iCs, _iTs, _cRP],
+  [_jN, _jI, _jQ, _sta, _sA, _jD, _jA, _sI, _sPch, _at, _sR, _cA, _rS, _sAt, _dO, _par, _co, _nD, _nP, _aP, _ti, _t, _pT, _pCl, _ePk, _eA, _eP, _iCs, _iTs, _cRP],
   [0, 0, 0, 0, 1, 0, 0, 0, 1, () => AttemptDetails, 0, 1, () => RetryStrategy$, 1, () => JobDependencyList, 128 | 0, () => ContainerDetail$, () => NodeDetails$, () => NodeProperties$, () => ArrayPropertiesDetail$, () => JobTimeout$, 128 | 0, 2, 64 | 0, () => EksPropertiesDetail$, () => EksAttemptDetails, () => EcsPropertiesDetail$, 2, 2, () => ConsumableResourceProperties$], 6
 ];
 export var JobQueueDetail$: StaticStructureSchema = [3, n0, _JQD,
@@ -1261,6 +1355,16 @@ export var ListJobsResponse$: StaticStructureSchema = [3, n0, _LJRi,
   0,
   [_jSL, _nT],
   [() => JobSummaryList, 0], 1
+];
+export var ListQuotaSharesRequest$: StaticStructureSchema = [3, n0, _LQSR,
+  0,
+  [_jQ, _mR, _nT],
+  [0, 1, 0], 1
+];
+export var ListQuotaSharesResponse$: StaticStructureSchema = [3, n0, _LQSRi,
+  0,
+  [_qS, _nT],
+  [() => QuotaShareList, 0]
 ];
 export var ListSchedulingPoliciesRequest$: StaticStructureSchema = [3, n0, _LSPR,
   0,
@@ -1349,12 +1453,52 @@ export var QueueSnapshotCapacityUsage$: StaticStructureSchema = [3, n0, _QSCU,
 ];
 export var QueueSnapshotUtilizationDetail$: StaticStructureSchema = [3, n0, _QSUD,
   0,
-  [_tCUo, _fU, _lUA],
-  [() => QueueSnapshotCapacityUsageList, () => FairshareUtilizationDetail$, 1]
+  [_tCUo, _fU, _qSU, _lUA],
+  [() => QueueSnapshotCapacityUsageList, () => FairshareUtilizationDetail$, () => QuotaShareUtilizationDetail$, 1]
+];
+export var QuotaShareCapacityLimit$: StaticStructureSchema = [3, n0, _QSCL,
+  0,
+  [_mC, _cU],
+  [1, 0], 2
+];
+export var QuotaShareCapacityUsage$: StaticStructureSchema = [3, n0, _QSCUu,
+  0,
+  [_cU, _q],
+  [0, 1]
+];
+export var QuotaShareCapacityUtilization$: StaticStructureSchema = [3, n0, _QSCUuo,
+  0,
+  [_qSN, _cUa],
+  [0, () => QuotaShareCapacityUsageList]
+];
+export var QuotaShareDetail$: StaticStructureSchema = [3, n0, _QSD,
+  0,
+  [_qSN, _qSA, _jQA, _cL, _rSC, _pC, _st, _sta],
+  [0, 0, 0, () => QuotaShareCapacityLimits, () => QuotaShareResourceSharingConfiguration$, () => QuotaSharePreemptionConfiguration$, 0, 0]
+];
+export var QuotaSharePolicy$: StaticStructureSchema = [3, n0, _QSP,
+  0,
+  [_iRAS],
+  [0], 1
+];
+export var QuotaSharePreemptionConfiguration$: StaticStructureSchema = [3, n0, _QSPC,
+  0,
+  [_iSP],
+  [0], 1
+];
+export var QuotaShareResourceSharingConfiguration$: StaticStructureSchema = [3, n0, _QSRSC,
+  0,
+  [_str, _bL],
+  [0, 1], 1
+];
+export var QuotaShareUtilizationDetail$: StaticStructureSchema = [3, n0, _QSUDu,
+  0,
+  [_tCU],
+  [() => QuotaShareCapacityUtilizationList]
 ];
 export var RegisterJobDefinitionRequest$: StaticStructureSchema = [3, n0, _RJDR,
   0,
-  [_jDN, _ty, _par, _sPch, _cPo, _nP, _rS, _pT, _ti, _t, _pC, _ePk, _eP, _cRP],
+  [_jDN, _ty, _par, _sPch, _cPo, _nP, _rS, _pT, _ti, _t, _pCl, _ePk, _eP, _cRP],
   [0, 0, 128 | 0, 1, () => ContainerProperties$, () => NodeProperties$, () => RetryStrategy$, 2, () => JobTimeout$, 128 | 0, 64 | 0, () => EksProperties$, () => EcsProperties$, () => ConsumableResourceProperties$], 2
 ];
 export var RegisterJobDefinitionResponse$: StaticStructureSchema = [3, n0, _RJDRe,
@@ -1384,8 +1528,8 @@ export var RuntimePlatform$: StaticStructureSchema = [3, n0, _RP,
 ];
 export var SchedulingPolicyDetail$: StaticStructureSchema = [3, n0, _SPD,
   0,
-  [_n, _a, _fP, _t],
-  [0, 0, () => FairsharePolicy$, 128 | 0], 2
+  [_n, _a, _qSP, _fP, _t],
+  [0, 0, () => QuotaSharePolicy$, () => FairsharePolicy$, 128 | 0], 2
 ];
 export var SchedulingPolicyListingDetail$: StaticStructureSchema = [3, n0, _SPLD,
   0,
@@ -1427,6 +1571,21 @@ export var ServiceJobEvaluateOnExit$: StaticStructureSchema = [3, n0, _SJEOE,
   [_ac, _oSR],
   [0, 0]
 ];
+export var ServiceJobPreemptedAttempt$: StaticStructureSchema = [3, n0, _SJPA,
+  0,
+  [_sRI, _sA, _sAt, _sR],
+  [() => ServiceResourceId$, 1, 1, 0]
+];
+export var ServiceJobPreemptionConfiguration$: StaticStructureSchema = [3, n0, _SJPC,
+  0,
+  [_pRBT],
+  [1]
+];
+export var ServiceJobPreemptionSummary$: StaticStructureSchema = [3, n0, _SJPS,
+  0,
+  [_pAC, _rPA],
+  [1, () => ServiceJobRecentPreemptedAttemptList]
+];
 export var ServiceJobRetryStrategy$: StaticStructureSchema = [3, n0, _SJRS,
   0,
   [_at, _eOE],
@@ -1434,8 +1593,8 @@ export var ServiceJobRetryStrategy$: StaticStructureSchema = [3, n0, _SJRS,
 ];
 export var ServiceJobSummary$: StaticStructureSchema = [3, n0, _SJS,
   0,
-  [_jI, _jN, _sJT, _lA, _cUa, _cA, _jA, _sAc, _sI, _sta, _sR, _sA, _sAt],
-  [0, 0, 0, () => LatestServiceJobAttempt$, () => ServiceJobCapacityUsageSummaryList, 1, 0, 1, 0, 0, 0, 1, 1], 3
+  [_jI, _jN, _sJT, _lA, _cUa, _cA, _jA, _sAc, _sI, _qSN, _sta, _sR, _sA, _sAt],
+  [0, 0, 0, () => LatestServiceJobAttempt$, () => ServiceJobCapacityUsageSummaryList, 1, 0, 1, 0, 0, 0, 0, 1, 1], 3
 ];
 export var ServiceJobTimeout$: StaticStructureSchema = [3, n0, _SJT,
   0,
@@ -1464,8 +1623,8 @@ export var SubmitJobResponse$: StaticStructureSchema = [3, n0, _SJRu,
 ];
 export var SubmitServiceJobRequest$: StaticStructureSchema = [3, n0, _SSJR,
   0,
-  [_jN, _jQ, _sRP, _sJT, _rS, _sPch, _sI, _tC, _t, _cT],
-  [0, 0, 0, 0, () => ServiceJobRetryStrategy$, 1, 0, () => ServiceJobTimeout$, 128 | 0, [0, 4]], 4
+  [_jN, _jQ, _sRP, _sJT, _rS, _sPch, _sI, _qSN, _pC, _tC, _t, _cT],
+  [0, 0, 0, 0, () => ServiceJobRetryStrategy$, 1, 0, 0, () => ServiceJobPreemptionConfiguration$, () => ServiceJobTimeout$, 128 | 0, [0, 4]], 4
 ];
 export var SubmitServiceJobResponse$: StaticStructureSchema = [3, n0, _SSJRu,
   0,
@@ -1582,10 +1741,20 @@ export var UpdatePolicy$: StaticStructureSchema = [3, n0, _UP,
   [_tJOU, _jETM],
   [2, 1]
 ];
+export var UpdateQuotaShareRequest$: StaticStructureSchema = [3, n0, _UQSR,
+  0,
+  [_qSA, _cL, _rSC, _pC, _st],
+  [0, () => QuotaShareCapacityLimits, () => QuotaShareResourceSharingConfiguration$, () => QuotaSharePreemptionConfiguration$, 0], 1
+];
+export var UpdateQuotaShareResponse$: StaticStructureSchema = [3, n0, _UQSRp,
+  0,
+  [_qSN, _qSA],
+  [0, 0]
+];
 export var UpdateSchedulingPolicyRequest$: StaticStructureSchema = [3, n0, _USPR,
   0,
-  [_a, _fP],
-  [0, () => FairsharePolicy$], 1
+  [_a, _qSP, _fP],
+  [0, () => QuotaSharePolicy$, () => FairsharePolicy$], 1
 ];
 export var UpdateSchedulingPolicyResponse$: StaticStructureSchema = [3, n0, _USPRp,
   0,
@@ -1601,6 +1770,16 @@ export var UpdateServiceEnvironmentResponse$: StaticStructureSchema = [3, n0, _U
   0,
   [_sEN, _sEA],
   [0, 0], 2
+];
+export var UpdateServiceJobRequest$: StaticStructureSchema = [3, n0, _USJR,
+  0,
+  [_jI, _sPch],
+  [0, 1], 2
+];
+export var UpdateServiceJobResponse$: StaticStructureSchema = [3, n0, _USJRp,
+  0,
+  [_jA, _jN, _jI],
+  [0, 0, 0]
 ];
 export var Volume$: StaticStructureSchema = [3, n0, _V,
   0,
@@ -1670,6 +1849,9 @@ var FairshareCapacityUtilizationList: StaticListSchema = [1, n0, _FCULa,
 ];
 var FrontOfQueueJobSummaryList: StaticListSchema = [1, n0, _FOQJSL,
   0, () => FrontOfQueueJobSummary$
+];
+var FrontOfQuotaShareJobSummaryList: StaticListSchema = [1, n0, _FOQSJSL,
+  0, () => FrontOfQuotaShareJobSummary$
 ];
 var ImagePullSecrets: StaticListSchema = [1, n0, _IPSm,
   0, () => ImagePullSecret$
@@ -1750,6 +1932,18 @@ var PlatformCapabilityList = 64 | 0;
 var QueueSnapshotCapacityUsageList: StaticListSchema = [1, n0, _QSCUL,
   0, () => QueueSnapshotCapacityUsage$
 ];
+var QuotaShareCapacityLimits: StaticListSchema = [1, n0, _QSCLu,
+  0, () => QuotaShareCapacityLimit$
+];
+var QuotaShareCapacityUsageList: StaticListSchema = [1, n0, _QSCULu,
+  0, () => QuotaShareCapacityUsage$
+];
+var QuotaShareCapacityUtilizationList: StaticListSchema = [1, n0, _QSCULuo,
+  0, () => QuotaShareCapacityUtilization$
+];
+var QuotaShareList: StaticListSchema = [1, n0, _QSL,
+  0, () => QuotaShareDetail$
+];
 var ResourceRequirements: StaticListSchema = [1, n0, _RRe,
   0, () => ResourceRequirement$
 ];
@@ -1780,6 +1974,9 @@ var ServiceJobCapacityUsageSummaryList: StaticListSchema = [1, n0, _SJCUSL,
 var ServiceJobEvaluateOnExitList: StaticListSchema = [1, n0, _SJEOEL,
   0, () => ServiceJobEvaluateOnExit$
 ];
+var ServiceJobRecentPreemptedAttemptList: StaticListSchema = [1, n0, _SJRPAL,
+  0, () => ServiceJobPreemptedAttempt$
+];
 var ServiceJobSummaryList: StaticListSchema = [1, n0, _SJSL,
   0, () => ServiceJobSummary$
 ];
@@ -1806,6 +2003,9 @@ var EksLabelsMap = 128 | 0;
 var EksLimits = 128 | 0;
 var EksRequests = 128 | 0;
 var FirelensConfigurationOptionsMap = 128 | 0;
+var FrontOfQuotaSharesJobSummaryMap: StaticMapSchema = [2, n0, _FOQSJSM,
+  0, 0, () => FrontOfQuotaShareJobSummaryList
+];
 var LogConfigurationOptionsMap = 128 | 0;
 var ParametersMap = 128 | 0;
 var TagrisTagsMap = 128 | 0;
@@ -1822,6 +2022,9 @@ export var CreateConsumableResource$: StaticOperationSchema = [9, n0, _CCR,
 export var CreateJobQueue$: StaticOperationSchema = [9, n0, _CJQ,
   { [_ht]: ["POST", "/v1/createjobqueue", 200] }, () => CreateJobQueueRequest$, () => CreateJobQueueResponse$
 ];
+export var CreateQuotaShare$: StaticOperationSchema = [9, n0, _CQS,
+  { [_ht]: ["POST", "/v1/createquotashare", 200] }, () => CreateQuotaShareRequest$, () => CreateQuotaShareResponse$
+];
 export var CreateSchedulingPolicy$: StaticOperationSchema = [9, n0, _CSPr,
   { [_ht]: ["POST", "/v1/createschedulingpolicy", 200] }, () => CreateSchedulingPolicyRequest$, () => CreateSchedulingPolicyResponse$
 ];
@@ -1836,6 +2039,9 @@ export var DeleteConsumableResource$: StaticOperationSchema = [9, n0, _DCR,
 ];
 export var DeleteJobQueue$: StaticOperationSchema = [9, n0, _DJQ,
   { [_ht]: ["POST", "/v1/deletejobqueue", 200] }, () => DeleteJobQueueRequest$, () => DeleteJobQueueResponse$
+];
+export var DeleteQuotaShare$: StaticOperationSchema = [9, n0, _DQS,
+  { [_ht]: ["POST", "/v1/deletequotashare", 200] }, () => DeleteQuotaShareRequest$, () => DeleteQuotaShareResponse$
 ];
 export var DeleteSchedulingPolicy$: StaticOperationSchema = [9, n0, _DSP,
   { [_ht]: ["POST", "/v1/deleteschedulingpolicy", 200] }, () => DeleteSchedulingPolicyRequest$, () => DeleteSchedulingPolicyResponse$
@@ -1861,6 +2067,9 @@ export var DescribeJobQueues$: StaticOperationSchema = [9, n0, _DJQe,
 export var DescribeJobs$: StaticOperationSchema = [9, n0, _DJ,
   { [_ht]: ["POST", "/v1/describejobs", 200] }, () => DescribeJobsRequest$, () => DescribeJobsResponse$
 ];
+export var DescribeQuotaShare$: StaticOperationSchema = [9, n0, _DQSe,
+  { [_ht]: ["POST", "/v1/describequotashare", 200] }, () => DescribeQuotaShareRequest$, () => DescribeQuotaShareResponse$
+];
 export var DescribeSchedulingPolicies$: StaticOperationSchema = [9, n0, _DSPe,
   { [_ht]: ["POST", "/v1/describeschedulingpolicies", 200] }, () => DescribeSchedulingPoliciesRequest$, () => DescribeSchedulingPoliciesResponse$
 ];
@@ -1881,6 +2090,9 @@ export var ListJobs$: StaticOperationSchema = [9, n0, _LJ,
 ];
 export var ListJobsByConsumableResource$: StaticOperationSchema = [9, n0, _LJBCR,
   { [_ht]: ["POST", "/v1/listjobsbyconsumableresource", 200] }, () => ListJobsByConsumableResourceRequest$, () => ListJobsByConsumableResourceResponse$
+];
+export var ListQuotaShares$: StaticOperationSchema = [9, n0, _LQS,
+  { [_ht]: ["POST", "/v1/listquotashares", 200] }, () => ListQuotaSharesRequest$, () => ListQuotaSharesResponse$
 ];
 export var ListSchedulingPolicies$: StaticOperationSchema = [9, n0, _LSP,
   { [_ht]: ["POST", "/v1/listschedulingpolicies", 200] }, () => ListSchedulingPoliciesRequest$, () => ListSchedulingPoliciesResponse$
@@ -1921,9 +2133,15 @@ export var UpdateConsumableResource$: StaticOperationSchema = [9, n0, _UCR,
 export var UpdateJobQueue$: StaticOperationSchema = [9, n0, _UJQ,
   { [_ht]: ["POST", "/v1/updatejobqueue", 200] }, () => UpdateJobQueueRequest$, () => UpdateJobQueueResponse$
 ];
+export var UpdateQuotaShare$: StaticOperationSchema = [9, n0, _UQS,
+  { [_ht]: ["POST", "/v1/updatequotashare", 200] }, () => UpdateQuotaShareRequest$, () => UpdateQuotaShareResponse$
+];
 export var UpdateSchedulingPolicy$: StaticOperationSchema = [9, n0, _USP,
   { [_ht]: ["POST", "/v1/updateschedulingpolicy", 200] }, () => UpdateSchedulingPolicyRequest$, () => UpdateSchedulingPolicyResponse$
 ];
 export var UpdateServiceEnvironment$: StaticOperationSchema = [9, n0, _USE,
   { [_ht]: ["POST", "/v1/updateserviceenvironment", 200] }, () => UpdateServiceEnvironmentRequest$, () => UpdateServiceEnvironmentResponse$
+];
+export var UpdateServiceJob$: StaticOperationSchema = [9, n0, _USJ,
+  { [_ht]: ["POST", "/v1/updateservicejob", 200] }, () => UpdateServiceJobRequest$, () => UpdateServiceJobResponse$
 ];

@@ -46,6 +46,10 @@ import {
   CreateJobQueueCommand,
   CreateJobQueueRequest$,
   CreateJobQueueResponse$,
+  CreateQuotaShare$,
+  CreateQuotaShareCommand,
+  CreateQuotaShareRequest$,
+  CreateQuotaShareResponse$,
   CreateSchedulingPolicy$,
   CreateSchedulingPolicyCommand,
   CreateSchedulingPolicyRequest$,
@@ -68,6 +72,10 @@ import {
   DeleteJobQueueCommand,
   DeleteJobQueueRequest$,
   DeleteJobQueueResponse$,
+  DeleteQuotaShare$,
+  DeleteQuotaShareCommand,
+  DeleteQuotaShareRequest$,
+  DeleteQuotaShareResponse$,
   DeleteSchedulingPolicy$,
   DeleteSchedulingPolicyCommand,
   DeleteSchedulingPolicyRequest$,
@@ -100,6 +108,10 @@ import {
   DescribeJobsCommand,
   DescribeJobsRequest$,
   DescribeJobsResponse$,
+  DescribeQuotaShare$,
+  DescribeQuotaShareCommand,
+  DescribeQuotaShareRequest$,
+  DescribeQuotaShareResponse$,
   DescribeSchedulingPolicies$,
   DescribeSchedulingPoliciesCommand,
   DescribeSchedulingPoliciesRequest$,
@@ -157,6 +169,8 @@ import {
   FirelensConfigurationType,
   FrontOfQueueDetail$,
   FrontOfQueueJobSummary$,
+  FrontOfQuotaShareJobSummary$,
+  FrontOfQuotaSharesDetail$,
   GetJobQueueSnapshot$,
   GetJobQueueSnapshotCommand,
   GetJobQueueSnapshotRequest$,
@@ -197,6 +211,10 @@ import {
   ListJobsCommand,
   ListJobsRequest$,
   ListJobsResponse$,
+  ListQuotaShares$,
+  ListQuotaSharesCommand,
+  ListQuotaSharesRequest$,
+  ListQuotaSharesResponse$,
   ListSchedulingPolicies$,
   ListSchedulingPoliciesCommand,
   ListSchedulingPoliciesRequest$,
@@ -228,11 +246,25 @@ import {
   paginateListConsumableResources,
   paginateListJobs,
   paginateListJobsByConsumableResource,
+  paginateListQuotaShares,
   paginateListSchedulingPolicies,
   paginateListServiceJobs,
   PlatformCapability,
   QueueSnapshotCapacityUsage$,
   QueueSnapshotUtilizationDetail$,
+  QuotaShareCapacityLimit$,
+  QuotaShareCapacityUsage$,
+  QuotaShareCapacityUtilization$,
+  QuotaShareDetail$,
+  QuotaShareIdleResourceAssignmentStrategy,
+  QuotaShareInSharePreemptionState,
+  QuotaSharePolicy$,
+  QuotaSharePreemptionConfiguration$,
+  QuotaShareResourceSharingConfiguration$,
+  QuotaShareResourceSharingStrategy,
+  QuotaShareState,
+  QuotaShareStatus,
+  QuotaShareUtilizationDetail$,
   RegisterJobDefinition$,
   RegisterJobDefinitionCommand,
   RegisterJobDefinitionRequest$,
@@ -257,6 +289,9 @@ import {
   ServiceJobCapacityUsageDetail$,
   ServiceJobCapacityUsageSummary$,
   ServiceJobEvaluateOnExit$,
+  ServiceJobPreemptedAttempt$,
+  ServiceJobPreemptionConfiguration$,
+  ServiceJobPreemptionSummary$,
   ServiceJobRetryAction,
   ServiceJobRetryStrategy$,
   ServiceJobStatus,
@@ -310,6 +345,10 @@ import {
   UpdateJobQueueRequest$,
   UpdateJobQueueResponse$,
   UpdatePolicy$,
+  UpdateQuotaShare$,
+  UpdateQuotaShareCommand,
+  UpdateQuotaShareRequest$,
+  UpdateQuotaShareResponse$,
   UpdateSchedulingPolicy$,
   UpdateSchedulingPolicyCommand,
   UpdateSchedulingPolicyRequest$,
@@ -318,6 +357,10 @@ import {
   UpdateServiceEnvironmentCommand,
   UpdateServiceEnvironmentRequest$,
   UpdateServiceEnvironmentResponse$,
+  UpdateServiceJob$,
+  UpdateServiceJobCommand,
+  UpdateServiceJobRequest$,
+  UpdateServiceJobResponse$,
   UserdataType,
   Volume$,
 } from "../dist-cjs/index.js";
@@ -334,6 +377,8 @@ assert(typeof CreateConsumableResourceCommand === "function");
 assert(typeof CreateConsumableResource$ === "object");
 assert(typeof CreateJobQueueCommand === "function");
 assert(typeof CreateJobQueue$ === "object");
+assert(typeof CreateQuotaShareCommand === "function");
+assert(typeof CreateQuotaShare$ === "object");
 assert(typeof CreateSchedulingPolicyCommand === "function");
 assert(typeof CreateSchedulingPolicy$ === "object");
 assert(typeof CreateServiceEnvironmentCommand === "function");
@@ -344,6 +389,8 @@ assert(typeof DeleteConsumableResourceCommand === "function");
 assert(typeof DeleteConsumableResource$ === "object");
 assert(typeof DeleteJobQueueCommand === "function");
 assert(typeof DeleteJobQueue$ === "object");
+assert(typeof DeleteQuotaShareCommand === "function");
+assert(typeof DeleteQuotaShare$ === "object");
 assert(typeof DeleteSchedulingPolicyCommand === "function");
 assert(typeof DeleteSchedulingPolicy$ === "object");
 assert(typeof DeleteServiceEnvironmentCommand === "function");
@@ -360,6 +407,8 @@ assert(typeof DescribeJobQueuesCommand === "function");
 assert(typeof DescribeJobQueues$ === "object");
 assert(typeof DescribeJobsCommand === "function");
 assert(typeof DescribeJobs$ === "object");
+assert(typeof DescribeQuotaShareCommand === "function");
+assert(typeof DescribeQuotaShare$ === "object");
 assert(typeof DescribeSchedulingPoliciesCommand === "function");
 assert(typeof DescribeSchedulingPolicies$ === "object");
 assert(typeof DescribeServiceEnvironmentsCommand === "function");
@@ -374,6 +423,8 @@ assert(typeof ListJobsCommand === "function");
 assert(typeof ListJobs$ === "object");
 assert(typeof ListJobsByConsumableResourceCommand === "function");
 assert(typeof ListJobsByConsumableResource$ === "object");
+assert(typeof ListQuotaSharesCommand === "function");
+assert(typeof ListQuotaShares$ === "object");
 assert(typeof ListSchedulingPoliciesCommand === "function");
 assert(typeof ListSchedulingPolicies$ === "object");
 assert(typeof ListServiceJobsCommand === "function");
@@ -400,10 +451,14 @@ assert(typeof UpdateConsumableResourceCommand === "function");
 assert(typeof UpdateConsumableResource$ === "object");
 assert(typeof UpdateJobQueueCommand === "function");
 assert(typeof UpdateJobQueue$ === "object");
+assert(typeof UpdateQuotaShareCommand === "function");
+assert(typeof UpdateQuotaShare$ === "object");
 assert(typeof UpdateSchedulingPolicyCommand === "function");
 assert(typeof UpdateSchedulingPolicy$ === "object");
 assert(typeof UpdateServiceEnvironmentCommand === "function");
 assert(typeof UpdateServiceEnvironment$ === "object");
+assert(typeof UpdateServiceJobCommand === "function");
+assert(typeof UpdateServiceJob$ === "object");
 // structural schemas
 assert(typeof ArrayProperties$ === "object");
 assert(typeof ArrayPropertiesDetail$ === "object");
@@ -433,6 +488,8 @@ assert(typeof CreateConsumableResourceRequest$ === "object");
 assert(typeof CreateConsumableResourceResponse$ === "object");
 assert(typeof CreateJobQueueRequest$ === "object");
 assert(typeof CreateJobQueueResponse$ === "object");
+assert(typeof CreateQuotaShareRequest$ === "object");
+assert(typeof CreateQuotaShareResponse$ === "object");
 assert(typeof CreateSchedulingPolicyRequest$ === "object");
 assert(typeof CreateSchedulingPolicyResponse$ === "object");
 assert(typeof CreateServiceEnvironmentRequest$ === "object");
@@ -443,6 +500,8 @@ assert(typeof DeleteConsumableResourceRequest$ === "object");
 assert(typeof DeleteConsumableResourceResponse$ === "object");
 assert(typeof DeleteJobQueueRequest$ === "object");
 assert(typeof DeleteJobQueueResponse$ === "object");
+assert(typeof DeleteQuotaShareRequest$ === "object");
+assert(typeof DeleteQuotaShareResponse$ === "object");
 assert(typeof DeleteSchedulingPolicyRequest$ === "object");
 assert(typeof DeleteSchedulingPolicyResponse$ === "object");
 assert(typeof DeleteServiceEnvironmentRequest$ === "object");
@@ -459,6 +518,8 @@ assert(typeof DescribeJobQueuesRequest$ === "object");
 assert(typeof DescribeJobQueuesResponse$ === "object");
 assert(typeof DescribeJobsRequest$ === "object");
 assert(typeof DescribeJobsResponse$ === "object");
+assert(typeof DescribeQuotaShareRequest$ === "object");
+assert(typeof DescribeQuotaShareResponse$ === "object");
 assert(typeof DescribeSchedulingPoliciesRequest$ === "object");
 assert(typeof DescribeSchedulingPoliciesResponse$ === "object");
 assert(typeof DescribeServiceEnvironmentsRequest$ === "object");
@@ -506,6 +567,8 @@ assert(typeof FargatePlatformConfiguration$ === "object");
 assert(typeof FirelensConfiguration$ === "object");
 assert(typeof FrontOfQueueDetail$ === "object");
 assert(typeof FrontOfQueueJobSummary$ === "object");
+assert(typeof FrontOfQuotaShareJobSummary$ === "object");
+assert(typeof FrontOfQuotaSharesDetail$ === "object");
 assert(typeof GetJobQueueSnapshotRequest$ === "object");
 assert(typeof GetJobQueueSnapshotResponse$ === "object");
 assert(typeof Host$ === "object");
@@ -531,6 +594,8 @@ assert(typeof ListJobsByConsumableResourceResponse$ === "object");
 assert(typeof ListJobsByConsumableResourceSummary$ === "object");
 assert(typeof ListJobsRequest$ === "object");
 assert(typeof ListJobsResponse$ === "object");
+assert(typeof ListQuotaSharesRequest$ === "object");
+assert(typeof ListQuotaSharesResponse$ === "object");
 assert(typeof ListSchedulingPoliciesRequest$ === "object");
 assert(typeof ListSchedulingPoliciesResponse$ === "object");
 assert(typeof ListServiceJobsRequest$ === "object");
@@ -549,6 +614,14 @@ assert(typeof NodePropertyOverride$ === "object");
 assert(typeof NodeRangeProperty$ === "object");
 assert(typeof QueueSnapshotCapacityUsage$ === "object");
 assert(typeof QueueSnapshotUtilizationDetail$ === "object");
+assert(typeof QuotaShareCapacityLimit$ === "object");
+assert(typeof QuotaShareCapacityUsage$ === "object");
+assert(typeof QuotaShareCapacityUtilization$ === "object");
+assert(typeof QuotaShareDetail$ === "object");
+assert(typeof QuotaSharePolicy$ === "object");
+assert(typeof QuotaSharePreemptionConfiguration$ === "object");
+assert(typeof QuotaShareResourceSharingConfiguration$ === "object");
+assert(typeof QuotaShareUtilizationDetail$ === "object");
 assert(typeof RegisterJobDefinitionRequest$ === "object");
 assert(typeof RegisterJobDefinitionResponse$ === "object");
 assert(typeof RepositoryCredentials$ === "object");
@@ -564,6 +637,9 @@ assert(typeof ServiceJobAttemptDetail$ === "object");
 assert(typeof ServiceJobCapacityUsageDetail$ === "object");
 assert(typeof ServiceJobCapacityUsageSummary$ === "object");
 assert(typeof ServiceJobEvaluateOnExit$ === "object");
+assert(typeof ServiceJobPreemptedAttempt$ === "object");
+assert(typeof ServiceJobPreemptionConfiguration$ === "object");
+assert(typeof ServiceJobPreemptionSummary$ === "object");
 assert(typeof ServiceJobRetryStrategy$ === "object");
 assert(typeof ServiceJobSummary$ === "object");
 assert(typeof ServiceJobTimeout$ === "object");
@@ -595,10 +671,14 @@ assert(typeof UpdateConsumableResourceResponse$ === "object");
 assert(typeof UpdateJobQueueRequest$ === "object");
 assert(typeof UpdateJobQueueResponse$ === "object");
 assert(typeof UpdatePolicy$ === "object");
+assert(typeof UpdateQuotaShareRequest$ === "object");
+assert(typeof UpdateQuotaShareResponse$ === "object");
 assert(typeof UpdateSchedulingPolicyRequest$ === "object");
 assert(typeof UpdateSchedulingPolicyResponse$ === "object");
 assert(typeof UpdateServiceEnvironmentRequest$ === "object");
 assert(typeof UpdateServiceEnvironmentResponse$ === "object");
+assert(typeof UpdateServiceJobRequest$ === "object");
+assert(typeof UpdateServiceJobResponse$ === "object");
 assert(typeof Volume$ === "object");
 // enums
 assert(typeof ArrayJobDependency === "object");
@@ -623,6 +703,11 @@ assert(typeof JQStatus === "object");
 assert(typeof LogDriver === "object");
 assert(typeof OrchestrationType === "object");
 assert(typeof PlatformCapability === "object");
+assert(typeof QuotaShareIdleResourceAssignmentStrategy === "object");
+assert(typeof QuotaShareInSharePreemptionState === "object");
+assert(typeof QuotaShareResourceSharingStrategy === "object");
+assert(typeof QuotaShareState === "object");
+assert(typeof QuotaShareStatus === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RetryAction === "object");
 assert(typeof ServiceEnvironmentState === "object");
@@ -647,6 +732,7 @@ assert(typeof paginateDescribeServiceEnvironments === "function");
 assert(typeof paginateListConsumableResources === "function");
 assert(typeof paginateListJobs === "function");
 assert(typeof paginateListJobsByConsumableResource === "function");
+assert(typeof paginateListQuotaShares === "function");
 assert(typeof paginateListSchedulingPolicies === "function");
 assert(typeof paginateListServiceJobs === "function");
 console.log(`Batch index test passed.`);

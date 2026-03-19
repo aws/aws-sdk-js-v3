@@ -153,6 +153,61 @@ export type JQState = (typeof JQState)[keyof typeof JQState];
  * @public
  * @enum
  */
+export const QuotaShareInSharePreemptionState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type QuotaShareInSharePreemptionState =
+  (typeof QuotaShareInSharePreemptionState)[keyof typeof QuotaShareInSharePreemptionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuotaShareResourceSharingStrategy = {
+  LEND: "LEND",
+  LEND_AND_BORROW: "LEND_AND_BORROW",
+  RESERVE: "RESERVE",
+} as const;
+/**
+ * @public
+ */
+export type QuotaShareResourceSharingStrategy =
+  (typeof QuotaShareResourceSharingStrategy)[keyof typeof QuotaShareResourceSharingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuotaShareState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type QuotaShareState = (typeof QuotaShareState)[keyof typeof QuotaShareState];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuotaShareIdleResourceAssignmentStrategy = {
+  FIFO: "FIFO",
+} as const;
+/**
+ * @public
+ */
+export type QuotaShareIdleResourceAssignmentStrategy =
+  (typeof QuotaShareIdleResourceAssignmentStrategy)[keyof typeof QuotaShareIdleResourceAssignmentStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const ServiceEnvironmentType = {
   SAGEMAKER_TRAINING: "SAGEMAKER_TRAINING",
 } as const;
@@ -350,6 +405,22 @@ export const JobStatus = {
  * @public
  */
 export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuotaShareStatus = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  INVALID: "INVALID",
+  UPDATING: "UPDATING",
+  VALID: "VALID",
+} as const;
+/**
+ * @public
+ */
+export type QuotaShareStatus = (typeof QuotaShareStatus)[keyof typeof QuotaShareStatus];
 
 /**
  * @public

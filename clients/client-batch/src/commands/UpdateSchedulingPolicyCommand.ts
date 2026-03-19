@@ -38,6 +38,9 @@ export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPol
  * const client = new BatchClient(config);
  * const input = { // UpdateSchedulingPolicyRequest
  *   arn: "STRING_VALUE", // required
+ *   quotaSharePolicy: { // QuotaSharePolicy
+ *     idleResourceAssignmentStrategy: "FIFO", // required
+ *   },
  *   fairsharePolicy: { // FairsharePolicy
  *     shareDecaySeconds: Number("int"),
  *     computeReservation: Number("int"),

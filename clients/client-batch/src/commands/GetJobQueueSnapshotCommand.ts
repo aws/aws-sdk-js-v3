@@ -27,8 +27,10 @@ export interface GetJobQueueSnapshotCommandInput extends GetJobQueueSnapshotRequ
 export interface GetJobQueueSnapshotCommandOutput extends GetJobQueueSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a list of the first 100 <code>RUNNABLE</code> jobs associated to a single job
- *       queue and includes capacity utilization, including total usage and breakdown by share for fairshare scheduling job queues. </p>
+ * <p>Provides a snapshot of job queue state, including ordering of <code>RUNNABLE</code> jobs, as well as capacity utilization for already dispatched jobs.
+ *     The first 100 <code>RUNNABLE</code> jobs in the job queue are listed in order of dispatch. For job queues with an attached
+ *     quota-share policy, the first <code>RUNNABLE</code> job in each quota share is also listed. Capacity utilization for the job queue is provided, as well as
+ *     break downs by share for job queues with attached fair-share or quota-share scheduling policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +54,17 @@ export interface GetJobQueueSnapshotCommandOutput extends GetJobQueueSnapshotRes
  * //     ],
  * //     lastUpdatedAt: Number("long"),
  * //   },
+ * //   frontOfQuotaShares: { // FrontOfQuotaSharesDetail
+ * //     quotaShares: { // FrontOfQuotaSharesJobSummaryMap
+ * //       "<keys>": [ // FrontOfQuotaShareJobSummaryList
+ * //         { // FrontOfQuotaShareJobSummary
+ * //           jobArn: "STRING_VALUE",
+ * //           earliestTimeAtPosition: Number("long"),
+ * //         },
+ * //       ],
+ * //     },
+ * //     lastUpdatedAt: Number("long"),
+ * //   },
  * //   queueUtilization: { // QueueSnapshotUtilizationDetail
  * //     totalCapacityUsage: [ // QueueSnapshotCapacityUsageList
  * //       { // QueueSnapshotCapacityUsage
@@ -66,6 +79,19 @@ export interface GetJobQueueSnapshotCommandOutput extends GetJobQueueSnapshotRes
  * //           shareIdentifier: "STRING_VALUE",
  * //           capacityUsage: [ // FairshareCapacityUsageList
  * //             { // FairshareCapacityUsage
+ * //               capacityUnit: "STRING_VALUE",
+ * //               quantity: Number("double"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //     quotaShareUtilization: { // QuotaShareUtilizationDetail
+ * //       topCapacityUtilization: [ // QuotaShareCapacityUtilizationList
+ * //         { // QuotaShareCapacityUtilization
+ * //           quotaShareName: "STRING_VALUE",
+ * //           capacityUsage: [ // QuotaShareCapacityUsageList
+ * //             { // QuotaShareCapacityUsage
  * //               capacityUnit: "STRING_VALUE",
  * //               quantity: Number("double"),
  * //             },

@@ -22,6 +22,11 @@ import {
   LogDriver,
   OrchestrationType,
   PlatformCapability,
+  QuotaShareIdleResourceAssignmentStrategy,
+  QuotaShareInSharePreemptionState,
+  QuotaShareResourceSharingStrategy,
+  QuotaShareState,
+  QuotaShareStatus,
   ResourceType,
   RetryAction,
   ServiceEnvironmentState,
@@ -1259,7 +1264,8 @@ export interface JobStateTimeLimitAction {
 
   /**
    * <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of
-   *    time. The only supported value is <code>CANCEL</code>, which will cancel the job.</p>
+   *    time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job.
+   *    For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
    * @public
    */
   action: JobStateTimeLimitActionsAction | undefined;
@@ -1389,6 +1395,132 @@ export interface CreateJobQueueResponse {
 }
 
 /**
+ * <p>Defines the capacity limit for a quota share, or the type and maximum quantity of a particular resource that can be allocated to jobs in the quota share
+ *        without borrowing. </p>
+ * @public
+ */
+export interface QuotaShareCapacityLimit {
+  /**
+   * <p>The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share
+   *        without borrowing.</p>
+   * @public
+   */
+  maxCapacity: number | undefined;
+
+  /**
+   * <p>The unit of compute capacity for the capacityLimit. For example, <code>ml.m5.large</code>.</p>
+   * @public
+   */
+  capacityUnit: string | undefined;
+}
+
+/**
+ * <p>Specifies the preemption behavior for jobs in a quota share.</p>
+ * @public
+ */
+export interface QuotaSharePreemptionConfiguration {
+  /**
+   * <p>Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.</p>
+   * @public
+   */
+  inSharePreemption: QuotaShareInSharePreemptionState | undefined;
+}
+
+/**
+ * <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
+ * @public
+ */
+export interface QuotaShareResourceSharingConfiguration {
+  /**
+   * <p>The resource sharing strategy for the quota share. The <code>RESERVE</code> strategy allows a quota share to reserve idle capacity for itself.
+   *       <code>LEND</code> configures the share to lend its idle capacity to another share in need of capacity.
+   *       The <code>LEND_AND_BORROW</code> strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.</p>
+   * @public
+   */
+  strategy: QuotaShareResourceSharingStrategy | undefined;
+
+  /**
+   * <p>The maximum percentage of additional capacity that the quota share can borrow from other shares. <code>borrowLimit</code> can only be applied to quota shares with a strategy of <code>LEND_AND_BORROW</code>.
+   *         This value is expressed as a percentage of the quota share's configured <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_QuotaShareCapacityLimit.html">CapacityLimits</a>.</p>
+   *          <p>The <code>borrowLimit</code> is applied uniformly across all capacity units.
+   *         For example, if the <code>borrowLimit</code> is 200, the quota
+   *         share can borrow up to 200% of its configured <code>maxCapacity</code> for each capacity unit. The default <code>borrowLimit</code> is -1, which indicates unlimited borrowing.</p>
+   * @public
+   */
+  borrowLimit?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQuotaShareRequest {
+  /**
+   * <p>The name of the quota share. It can be up to 128 characters long. It can contain uppercase and
+   *       lowercase letters, numbers, hyphens (-), and underscores (_).</p>
+   * @public
+   */
+  quotaShareName: string | undefined;
+
+  /**
+   * <p>The Batch job queue associated with the quota share. This can be the job queue name or ARN.
+   *     A job queue must be in the <code>VALID</code> state before you can associate it with a quota share.</p>
+   * @public
+   */
+  jobQueue: string | undefined;
+
+  /**
+   * <p>A list that specifies the quantity and type of compute capacity allocated to the quota share. </p>
+   * @public
+   */
+  capacityLimits: QuotaShareCapacityLimit[] | undefined;
+
+  /**
+   * <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
+   * @public
+   */
+  resourceSharingConfiguration: QuotaShareResourceSharingConfiguration | undefined;
+
+  /**
+   * <p>Specifies the preemption behavior for jobs in a quota share.</p>
+   * @public
+   */
+  preemptionConfiguration: QuotaSharePreemptionConfiguration | undefined;
+
+  /**
+   * <p>The state of the quota share. If the quota share is <code>ENABLED</code>, it is able to accept jobs.
+   *     If the quota share is <code>DISABLED</code>, new jobs won't be accepted but jobs already submitted can finish.
+   *     The default state is <code>ENABLED</code>.</p>
+   * @public
+   */
+  state?: QuotaShareState | undefined;
+
+  /**
+   * <p>The tags that you apply to the quota share to help you categorize and organize your
+   *       resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>
+   *       in <i>Batch User Guide</i>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQuotaShareResponse {
+  /**
+   * <p>The name of the quota share.</p>
+   * @public
+   */
+  quotaShareName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quota share.</p>
+   * @public
+   */
+  quotaShareArn?: string | undefined;
+}
+
+/**
  * <p>Specifies the weights for the share identifiers for the fair-share policy. Share
  *    identifiers that aren't included have a default weight of <code>1.0</code>.</p>
  * @public
@@ -1466,6 +1598,19 @@ export interface FairsharePolicy {
 }
 
 /**
+ * <p>The quota share scheduling policy details for a job queue.</p>
+ * @public
+ */
+export interface QuotaSharePolicy {
+  /**
+   * <p>The strategy that determines how idle resources are assigned to quota shares
+   *        that are borrowing capacity. Currently, only <code>FIFO</code> is supported.</p>
+   * @public
+   */
+  idleResourceAssignmentStrategy: QuotaShareIdleResourceAssignmentStrategy | undefined;
+}
+
+/**
  * <p>Contains the parameters for <code>CreateSchedulingPolicy</code>.</p>
  * @public
  */
@@ -1478,7 +1623,15 @@ export interface CreateSchedulingPolicyRequest {
   name: string | undefined;
 
   /**
-   * <p>The fair-share scheduling policy details.</p>
+   * <p>The quota share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set.
+   *         Once set, this policy type cannot be removed or changed to a fairSharePolicy.</p>
+   * @public
+   */
+  quotaSharePolicy?: QuotaSharePolicy | undefined;
+
+  /**
+   * <p>The fair-share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set.
+   *     Once set, this policy type cannot be removed or changed to a quotaSharePolicy.</p>
    * @public
    */
   fairsharePolicy?: FairsharePolicy | undefined;
@@ -1515,22 +1668,26 @@ export interface CreateSchedulingPolicyResponse {
 }
 
 /**
- * <p>Defines the capacity limit for a service environment. This structure specifies the maximum amount of resources that can be used by service jobs in the environment.</p>
+ * <p>Defines the type and maximum quantity of resources that can be allocated to service jobs in a service environment.</p>
  * @public
  */
 export interface CapacityLimit {
   /**
-   * <p>The maximum capacity available for the service environment. This value represents the maximum amount of resources that can be allocated to service jobs.</p>
-   *          <p>For example, <code>maxCapacity=50</code>, <code>capacityUnit=NUM_INSTANCES</code>. This indicates that the
-   *             maximum number of instances that can be run on this service environment is 50. You could
-   *             then run 5 SageMaker Training jobs that each use 10 instances. However, if you submit another job that
-   *             requires 10 instances, it will wait in the queue.</p>
+   * <p>The maximum capacity available for the service environment. For a quota management enabled service environment, this value represents
+   *       the maximum quantity of a particular resource type (specified by <code>capacityUnit</code>) that can be allocated to service jobs.
+   *       For other service environments, this value represents the maximum quantity of all resources that can be allocated to service jobs.</p>
+   *          <p>For example, if <code>maxCapacity=50</code> and <code>capacityUnit=NUM_INSTANCES</code>, you can run up to 50 instances concurrently.
+   *       If you run 5 SageMaker Training jobs that each use 10 instances, a subsequent job requiring 10 instances waits in the queue until
+   *       capacity is available. In a quota management enabled service environment with <code>capacityUnit=ml.m5.large</code>, only
+   *       <code>ml.m5.large</code> instances count against this limit, and jobs requiring other instance types wait until a matching capacity limit is configured.</p>
    * @public
    */
   maxCapacity?: number | undefined;
 
   /**
-   * <p>The unit of measure for the capacity limit. This defines how the maxCapacity value should be interpreted. For <code>SAGEMAKER_TRAINING</code> jobs, use <code>NUM_INSTANCES</code>.</p>
+   * <p>The unit of measure for the capacity limit, which defines how <code>maxCapacity</code> is interpreted. For <code>SAGEMAKER_TRAINING</code> jobs in a quota management
+   *       enabled service environment, specify the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceConfig.html#sagemaker-Type-ResourceConfig-InstanceType">instance type</a>
+   *       (for example, <code>ml.m5.large</code>). Otherwise, use <code>NUM_INSTANCES</code>.</p>
    * @public
    */
   capacityUnit?: string | undefined;
@@ -1637,6 +1794,22 @@ export interface DeleteJobQueueRequest {
  * @public
  */
 export interface DeleteJobQueueResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteQuotaShareRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quota share.</p>
+   * @public
+   */
+  quotaShareArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuotaShareResponse {}
 
 /**
  * <p>Contains the parameters for <code>DeleteSchedulingPolicy</code>.</p>
@@ -6038,6 +6211,76 @@ export interface DescribeJobsResponse {
 }
 
 /**
+ * @public
+ */
+export interface DescribeQuotaShareRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quota share.</p>
+   * @public
+   */
+  quotaShareArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeQuotaShareResponse {
+  /**
+   * <p>The name of the quota share.</p>
+   * @public
+   */
+  quotaShareName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quota share.</p>
+   * @public
+   */
+  quotaShareArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the job queue associated with the quota share.</p>
+   * @public
+   */
+  jobQueueArn?: string | undefined;
+
+  /**
+   * <p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>
+   * @public
+   */
+  capacityLimits?: QuotaShareCapacityLimit[] | undefined;
+
+  /**
+   * <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
+   * @public
+   */
+  resourceSharingConfiguration?: QuotaShareResourceSharingConfiguration | undefined;
+
+  /**
+   * <p>Specifies the preemption behavior for jobs in a quota share.</p>
+   * @public
+   */
+  preemptionConfiguration?: QuotaSharePreemptionConfiguration | undefined;
+
+  /**
+   * <p>The state of the quota share.</p>
+   * @public
+   */
+  state?: QuotaShareState | undefined;
+
+  /**
+   * <p>The current status of the quota share.</p>
+   * @public
+   */
+  status?: QuotaShareStatus | undefined;
+
+  /**
+   * <p>The tags applied to the quota share.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Contains the parameters for <code>DescribeSchedulingPolicies</code>.</p>
  * @public
  */
@@ -6067,6 +6310,12 @@ export interface SchedulingPolicyDetail {
    * @public
    */
   arn: string | undefined;
+
+  /**
+   * <p>The quota share scheduling policy details.</p>
+   * @public
+   */
+  quotaSharePolicy?: QuotaSharePolicy | undefined;
 
   /**
    * <p>The fair-share scheduling policy details.</p>
@@ -6279,6 +6528,68 @@ export interface LatestServiceJobAttempt {
 }
 
 /**
+ * <p>Specifies the service job behavior when preempted.</p>
+ * @public
+ */
+export interface ServiceJobPreemptionConfiguration {
+  /**
+   * <p>The number of times a service job can be retried after it is preempted.  A job will be terminated when preemption retries have been exhausted.
+   *       If this field is unset, preempted jobs will be requeued an unlimited number of times. </p>
+   * @public
+   */
+  preemptionRetriesBeforeTermination?: number | undefined;
+}
+
+/**
+ * <p>Detailed information about a preempted attempt of a service job.</p>
+ * @public
+ */
+export interface ServiceJobPreemptedAttempt {
+  /**
+   * <p>The service resource identifier associated with the service job attempt.</p>
+   * @public
+   */
+  serviceResourceId?: ServiceResourceId | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the service job attempt was started.</p>
+   * @public
+   */
+  startedAt?: number | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the service job attempt stopped running.</p>
+   * @public
+   */
+  stoppedAt?: number | undefined;
+
+  /**
+   * <p>A string that provides additional details for the current status of the service job attempt.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * <p>Summarizes the preemptions of the service job. This field appears on a service job
+ *         when it has been preempted.</p>
+ * @public
+ */
+export interface ServiceJobPreemptionSummary {
+  /**
+   * <p>The total number of times the service job has been preempted.</p>
+   * @public
+   */
+  preemptedAttemptCount?: number | undefined;
+
+  /**
+   * <p>A list of the most recent preemption attempts for the service job.</p>
+   * @public
+   */
+  recentPreemptedAttempts?: ServiceJobPreemptedAttempt[] | undefined;
+}
+
+/**
  * <p>Specifies conditions for when to exit or retry a service job based on the exit status or status reason.</p>
  * @public
  */
@@ -6425,6 +6736,25 @@ export interface DescribeServiceJobResponse {
   shareIdentifier?: string | undefined;
 
   /**
+   * <p>The name of the quota share that the service job is associated with.</p>
+   * @public
+   */
+  quotaShareName?: string | undefined;
+
+  /**
+   * <p>Specifies the service job behavior when preempted.</p>
+   * @public
+   */
+  preemptionConfiguration?: ServiceJobPreemptionConfiguration | undefined;
+
+  /**
+   * <p>Summarizes the preemptions of the service job. This field appears on a service job
+   *         when it has been preempted.</p>
+   * @public
+   */
+  preemptionSummary?: ServiceJobPreemptionSummary | undefined;
+
+  /**
    * <p>The Unix timestamp (in milliseconds) for when the service job was started.</p>
    * @public
    */
@@ -6509,6 +6839,42 @@ export interface FrontOfQueueDetail {
 }
 
 /**
+ * <p>An object that represents summary details for the first <code>RUNNABLE</code> job in a quota share.</p>
+ * @public
+ */
+export interface FrontOfQuotaShareJobSummary {
+  /**
+   * <p>The ARN for a job in a named quota share.</p>
+   * @public
+   */
+  jobArn?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the job transitioned to its current position in the quota share.</p>
+   * @public
+   */
+  earliestTimeAtPosition?: number | undefined;
+}
+
+/**
+ * <p>An object that represents the details of the first <code>RUNNABLE</code> job in each named quota share associated with a single job queue.</p>
+ * @public
+ */
+export interface FrontOfQuotaSharesDetail {
+  /**
+   * <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
+   * @public
+   */
+  quotaShares?: Record<string, FrontOfQuotaShareJobSummary[]> | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the first <code>RUNNABLE</code> job per quota share were all last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: number | undefined;
+}
+
+/**
  * <p>The capacity usage for a fairshare scheduling job queue.</p>
  * @public
  */
@@ -6570,6 +6936,54 @@ export interface FairshareUtilizationDetail {
 }
 
 /**
+ * <p>The capacity usage for a quota share, including units of compute capacity and quantity of resources being used.</p>
+ * @public
+ */
+export interface QuotaShareCapacityUsage {
+  /**
+   * <p>The unit of compute capacity for the capacity usage.</p>
+   * @public
+   */
+  capacityUnit?: string | undefined;
+
+  /**
+   * <p>The quantity of capacity being used.</p>
+   * @public
+   */
+  quantity?: number | undefined;
+}
+
+/**
+ * <p>The capacity utilization for a specific quota share, including the quota share name and its current usage.</p>
+ * @public
+ */
+export interface QuotaShareCapacityUtilization {
+  /**
+   * <p>The name of the quota share.</p>
+   * @public
+   */
+  quotaShareName?: string | undefined;
+
+  /**
+   * <p>The capacity usage information for this quota share, including the units of compute capacity and quantity being used.</p>
+   * @public
+   */
+  capacityUsage?: QuotaShareCapacityUsage[] | undefined;
+}
+
+/**
+ * <p>An object that represents the capacity utilization details of all quota shares associated with a single job queue.</p>
+ * @public
+ */
+export interface QuotaShareUtilizationDetail {
+  /**
+   * <p>A list of the top capacity utilizations across quota shares associated with a job queue.</p>
+   * @public
+   */
+  topCapacityUtilization?: QuotaShareCapacityUtilization[] | undefined;
+}
+
+/**
  * <p>The configured capacity usage for a job queue snapshot, including the unit of
  *             measure and quantity of resources being used.</p>
  * @public
@@ -6592,13 +7006,13 @@ export interface QueueSnapshotCapacityUsage {
 
 /**
  * <p>The job queue utilization at a specific point in time,
- *             including total capacity usage and fairshare utilization breakdown.</p>
+ *             including total capacity usage, and quota share or fairshare utilization breakdown
+ *             depending on the job queue scheduling policy.</p>
  * @public
  */
 export interface QueueSnapshotUtilizationDetail {
   /**
-   * <p>The total capacity usage for the entire job queue, for both first-in,
-   *             first-out (FIFO) and fairshare scheduling job queue.</p>
+   * <p>The total capacity usage for the entire job queue.</p>
    * @public
    */
   totalCapacityUsage?: QueueSnapshotCapacityUsage[] | undefined;
@@ -6609,6 +7023,12 @@ export interface QueueSnapshotUtilizationDetail {
    * @public
    */
   fairshareUtilization?: FairshareUtilizationDetail | undefined;
+
+  /**
+   * <p>The utilization information for a job queue with a quota share scheduling policy.</p>
+   * @public
+   */
+  quotaShareUtilization?: QuotaShareUtilizationDetail | undefined;
 
   /**
    * <p>The Unix timestamp (in milliseconds) for when the queue utilization information was
@@ -6624,16 +7044,22 @@ export interface QueueSnapshotUtilizationDetail {
 export interface GetJobQueueSnapshotResponse {
   /**
    * <p>The list of the first 100 <code>RUNNABLE</code> jobs in each job queue. For
-   *       first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For
-   *       fair-share scheduling (FSS) job queues, jobs are ordered based on their job priority and share
+   *       first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For job queues with an attached
+   *       fair-share scheduling (FSS) or quota-share policy, jobs are ordered based on their job priority and share
    *       usage.</p>
    * @public
    */
   frontOfQueue?: FrontOfQueueDetail | undefined;
 
   /**
+   * <p>The first <code>RUNNABLE</code> job in each quota share. Jobs are ordered based on their job priority and share usage.</p>
+   * @public
+   */
+  frontOfQuotaShares?: FrontOfQuotaSharesDetail | undefined;
+
+  /**
    * <p>The job queue's capacity utilization, including total usage and
-   *             breakdown by fairshare scheduling queue.</p>
+   *             breakdown per given share.</p>
    * @public
    */
   queueUtilization?: QueueSnapshotUtilizationDetail | undefined;
@@ -7293,6 +7719,119 @@ export interface ListJobsByConsumableResourceResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListQuotaSharesRequest {
+  /**
+   * <p>The name or full Amazon Resource Name (ARN) of the job queue used to list quota shares.</p>
+   * @public
+   */
+  jobQueue: string | undefined;
+
+  /**
+   * <p>The maximum number of results returned by <code>ListQuotaShares</code> in
+   *       paginated output. When this parameter is used, <code>ListQuotaShares</code> only
+   *       returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response
+   *       element. You can see the remaining results of the initial request by sending another
+   *         <code>ListQuotaShares</code> request with the returned <code>nextToken</code> value.
+   *       This value can be between 1 and 100. If this parameter isn't
+   *       used, <code>ListQuotaShares</code> returns up to 100 results and a
+   *         <code>nextToken</code> value if applicable.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value that's returned from a previous paginated
+   *         <code>ListQuotaShares</code> request where <code>maxResults</code> was used and the
+   *       results exceeded the value of that parameter. Pagination continues from the end of the
+   *       previous results that returned the <code>nextToken</code> value. This value is
+   *         <code>null</code> when there are no more results to return.</p>
+   *          <note>
+   *             <p>Treat this token as an opaque identifier that's only used to
+   *  retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Detailed information about a quota share, including its configuration, state, and capacity limits.</p>
+ * @public
+ */
+export interface QuotaShareDetail {
+  /**
+   * <p>The name of the quota share.</p>
+   * @public
+   */
+  quotaShareName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quota share.</p>
+   * @public
+   */
+  quotaShareArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job queue associated with the quota share.</p>
+   * @public
+   */
+  jobQueueArn?: string | undefined;
+
+  /**
+   * <p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>
+   * @public
+   */
+  capacityLimits?: QuotaShareCapacityLimit[] | undefined;
+
+  /**
+   * <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
+   * @public
+   */
+  resourceSharingConfiguration?: QuotaShareResourceSharingConfiguration | undefined;
+
+  /**
+   * <p>Specifies the preemption behavior for jobs in a quota share.</p>
+   * @public
+   */
+  preemptionConfiguration?: QuotaSharePreemptionConfiguration | undefined;
+
+  /**
+   * <p>The state of the quota share.</p>
+   * @public
+   */
+  state?: QuotaShareState | undefined;
+
+  /**
+   * <p>The current status of the quota share.</p>
+   * @public
+   */
+  status?: QuotaShareStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQuotaSharesResponse {
+  /**
+   * <p>A list of quota shares that match the request.</p>
+   * @public
+   */
+  quotaShares?: QuotaShareDetail[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future
+   *         <code>ListQuotaShares</code> request. When the results of a
+   *         <code>ListQuotaShares</code> request exceed <code>maxResults</code>, this value can
+   *       be used to retrieve the next page of results. This value is <code>null</code> when there are
+   *       no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>Contains the parameters for <code>ListSchedulingPolicies</code>.</p>
  * @public
  */
@@ -7518,6 +8057,12 @@ export interface ServiceJobSummary {
    * @public
    */
   shareIdentifier?: string | undefined;
+
+  /**
+   * <p>The quota share for the service job.</p>
+   * @public
+   */
+  quotaShareName?: string | undefined;
 
   /**
    * <p>The current status of the service job. </p>
@@ -8333,6 +8878,20 @@ export interface SubmitServiceJobRequest {
   shareIdentifier?: string | undefined;
 
   /**
+   * <p>The quota share for the service job. Don't specify this parameter if the job queue
+   *         doesn't have a quota share scheduling policy. If the job queue has a quota share scheduling policy,
+   *         then this parameter must be specified.</p>
+   * @public
+   */
+  quotaShareName?: string | undefined;
+
+  /**
+   * <p>Specifies the service job behavior when preempted.</p>
+   * @public
+   */
+  preemptionConfiguration?: ServiceJobPreemptionConfiguration | undefined;
+
+  /**
    * <p>The timeout configuration for the service job. If none is specified, Batch defers to the default timeout of the underlying service handling the job.</p>
    * @public
    */
@@ -9126,7 +9685,60 @@ export interface UpdateJobQueueResponse {
 }
 
 /**
- * <p>Contains the parameters for <code>UpdateSchedulingPolicy</code>.</p>
+ * @public
+ */
+export interface UpdateQuotaShareRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quota share to update.</p>
+   * @public
+   */
+  quotaShareArn: string | undefined;
+
+  /**
+   * <p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>
+   * @public
+   */
+  capacityLimits?: QuotaShareCapacityLimit[] | undefined;
+
+  /**
+   * <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
+   * @public
+   */
+  resourceSharingConfiguration?: QuotaShareResourceSharingConfiguration | undefined;
+
+  /**
+   * <p>Specifies the preemption behavior for jobs in a quota share.</p>
+   * @public
+   */
+  preemptionConfiguration?: QuotaSharePreemptionConfiguration | undefined;
+
+  /**
+   * <p>The state of the quota share. If the quota share is <code>ENABLED</code>, it is able to accept jobs.
+   *     If the quota share is <code>DISABLED</code>, new jobs won't be accepted but jobs already submitted can finish.</p>
+   * @public
+   */
+  state?: QuotaShareState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuotaShareResponse {
+  /**
+   * <p>The name of the quota share.</p>
+   * @public
+   */
+  quotaShareName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quota share.</p>
+   * @public
+   */
+  quotaShareArn?: string | undefined;
+}
+
+/**
+ * <p>Contains the parameters for <code>UpdateSchedulingPolicy</code>. </p>
  * @public
  */
 export interface UpdateSchedulingPolicyRequest {
@@ -9137,7 +9749,13 @@ export interface UpdateSchedulingPolicyRequest {
   arn: string | undefined;
 
   /**
-   * <p>The fair-share policy scheduling details.</p>
+   * <p>The quota share scheduling policy details. Once set during creation, a quotaSharePolicy cannot be removed or changed to a fairsharePolicy.</p>
+   * @public
+   */
+  quotaSharePolicy?: QuotaSharePolicy | undefined;
+
+  /**
+   * <p>The fair-share policy scheduling details. Once set during creation, a fairsharePolicy cannot be removed or changed to a quotaSharePolicy.</p>
    * @public
    */
   fairsharePolicy?: FairsharePolicy | undefined;
@@ -9186,4 +9804,47 @@ export interface UpdateServiceEnvironmentResponse {
    * @public
    */
   serviceEnvironmentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateServiceJobRequest {
+  /**
+   * <p>The Batch job ID of the job to update.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The scheduling priority for the job. This only affects jobs in job queues with a
+   *       quota-share or fair-share scheduling policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
+   *       scheduling priority within a share.</p>
+   *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
+   * @public
+   */
+  schedulingPriority: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateServiceJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the job.</p>
+   * @public
+   */
+  jobArn?: string | undefined;
+
+  /**
+   * <p>The name of the job.</p>
+   * @public
+   */
+  jobName?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the job.</p>
+   * @public
+   */
+  jobId?: string | undefined;
 }

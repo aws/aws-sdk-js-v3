@@ -85,6 +85,21 @@ export interface DescribeServiceJobCommandOutput extends DescribeServiceJobRespo
  * //   serviceRequestPayload: "STRING_VALUE",
  * //   serviceJobType: "SAGEMAKER_TRAINING", // required
  * //   shareIdentifier: "STRING_VALUE",
+ * //   quotaShareName: "STRING_VALUE",
+ * //   preemptionConfiguration: { // ServiceJobPreemptionConfiguration
+ * //     preemptionRetriesBeforeTermination: Number("int"),
+ * //   },
+ * //   preemptionSummary: { // ServiceJobPreemptionSummary
+ * //     preemptedAttemptCount: Number("int"),
+ * //     recentPreemptedAttempts: [ // ServiceJobRecentPreemptedAttemptList
+ * //       { // ServiceJobPreemptedAttempt
+ * //         serviceResourceId: "<ServiceResourceId>",
+ * //         startedAt: Number("long"),
+ * //         stoppedAt: Number("long"),
+ * //         statusReason: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
  * //   startedAt: Number("long"), // required
  * //   status: "SUBMITTED" || "PENDING" || "RUNNABLE" || "SCHEDULED" || "STARTING" || "RUNNING" || "SUCCEEDED" || "FAILED", // required
  * //   statusReason: "STRING_VALUE",

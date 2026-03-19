@@ -73,6 +73,7 @@ import {
   CreateConsumableResourceCommandOutput,
 } from "./commands/CreateConsumableResourceCommand";
 import { CreateJobQueueCommandInput, CreateJobQueueCommandOutput } from "./commands/CreateJobQueueCommand";
+import { CreateQuotaShareCommandInput, CreateQuotaShareCommandOutput } from "./commands/CreateQuotaShareCommand";
 import {
   CreateSchedulingPolicyCommandInput,
   CreateSchedulingPolicyCommandOutput,
@@ -90,6 +91,7 @@ import {
   DeleteConsumableResourceCommandOutput,
 } from "./commands/DeleteConsumableResourceCommand";
 import { DeleteJobQueueCommandInput, DeleteJobQueueCommandOutput } from "./commands/DeleteJobQueueCommand";
+import { DeleteQuotaShareCommandInput, DeleteQuotaShareCommandOutput } from "./commands/DeleteQuotaShareCommand";
 import {
   DeleteSchedulingPolicyCommandInput,
   DeleteSchedulingPolicyCommandOutput,
@@ -116,6 +118,7 @@ import {
 } from "./commands/DescribeJobDefinitionsCommand";
 import { DescribeJobQueuesCommandInput, DescribeJobQueuesCommandOutput } from "./commands/DescribeJobQueuesCommand";
 import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "./commands/DescribeJobsCommand";
+import { DescribeQuotaShareCommandInput, DescribeQuotaShareCommandOutput } from "./commands/DescribeQuotaShareCommand";
 import {
   DescribeSchedulingPoliciesCommandInput,
   DescribeSchedulingPoliciesCommandOutput,
@@ -138,6 +141,7 @@ import {
   ListJobsByConsumableResourceCommandOutput,
 } from "./commands/ListJobsByConsumableResourceCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { ListQuotaSharesCommandInput, ListQuotaSharesCommandOutput } from "./commands/ListQuotaSharesCommand";
 import {
   ListSchedulingPoliciesCommandInput,
   ListSchedulingPoliciesCommandOutput,
@@ -169,6 +173,7 @@ import {
   UpdateConsumableResourceCommandOutput,
 } from "./commands/UpdateConsumableResourceCommand";
 import { UpdateJobQueueCommandInput, UpdateJobQueueCommandOutput } from "./commands/UpdateJobQueueCommand";
+import { UpdateQuotaShareCommandInput, UpdateQuotaShareCommandOutput } from "./commands/UpdateQuotaShareCommand";
 import {
   UpdateSchedulingPolicyCommandInput,
   UpdateSchedulingPolicyCommandOutput,
@@ -177,6 +182,7 @@ import {
   UpdateServiceEnvironmentCommandInput,
   UpdateServiceEnvironmentCommandOutput,
 } from "./commands/UpdateServiceEnvironmentCommand";
+import { UpdateServiceJobCommandInput, UpdateServiceJobCommandOutput } from "./commands/UpdateServiceJobCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -196,11 +202,13 @@ export type ServiceInputTypes =
   | CreateComputeEnvironmentCommandInput
   | CreateConsumableResourceCommandInput
   | CreateJobQueueCommandInput
+  | CreateQuotaShareCommandInput
   | CreateSchedulingPolicyCommandInput
   | CreateServiceEnvironmentCommandInput
   | DeleteComputeEnvironmentCommandInput
   | DeleteConsumableResourceCommandInput
   | DeleteJobQueueCommandInput
+  | DeleteQuotaShareCommandInput
   | DeleteSchedulingPolicyCommandInput
   | DeleteServiceEnvironmentCommandInput
   | DeregisterJobDefinitionCommandInput
@@ -209,6 +217,7 @@ export type ServiceInputTypes =
   | DescribeJobDefinitionsCommandInput
   | DescribeJobQueuesCommandInput
   | DescribeJobsCommandInput
+  | DescribeQuotaShareCommandInput
   | DescribeSchedulingPoliciesCommandInput
   | DescribeServiceEnvironmentsCommandInput
   | DescribeServiceJobCommandInput
@@ -216,6 +225,7 @@ export type ServiceInputTypes =
   | ListConsumableResourcesCommandInput
   | ListJobsByConsumableResourceCommandInput
   | ListJobsCommandInput
+  | ListQuotaSharesCommandInput
   | ListSchedulingPoliciesCommandInput
   | ListServiceJobsCommandInput
   | ListTagsForResourceCommandInput
@@ -229,8 +239,10 @@ export type ServiceInputTypes =
   | UpdateComputeEnvironmentCommandInput
   | UpdateConsumableResourceCommandInput
   | UpdateJobQueueCommandInput
+  | UpdateQuotaShareCommandInput
   | UpdateSchedulingPolicyCommandInput
-  | UpdateServiceEnvironmentCommandInput;
+  | UpdateServiceEnvironmentCommandInput
+  | UpdateServiceJobCommandInput;
 
 /**
  * @public
@@ -240,11 +252,13 @@ export type ServiceOutputTypes =
   | CreateComputeEnvironmentCommandOutput
   | CreateConsumableResourceCommandOutput
   | CreateJobQueueCommandOutput
+  | CreateQuotaShareCommandOutput
   | CreateSchedulingPolicyCommandOutput
   | CreateServiceEnvironmentCommandOutput
   | DeleteComputeEnvironmentCommandOutput
   | DeleteConsumableResourceCommandOutput
   | DeleteJobQueueCommandOutput
+  | DeleteQuotaShareCommandOutput
   | DeleteSchedulingPolicyCommandOutput
   | DeleteServiceEnvironmentCommandOutput
   | DeregisterJobDefinitionCommandOutput
@@ -253,6 +267,7 @@ export type ServiceOutputTypes =
   | DescribeJobDefinitionsCommandOutput
   | DescribeJobQueuesCommandOutput
   | DescribeJobsCommandOutput
+  | DescribeQuotaShareCommandOutput
   | DescribeSchedulingPoliciesCommandOutput
   | DescribeServiceEnvironmentsCommandOutput
   | DescribeServiceJobCommandOutput
@@ -260,6 +275,7 @@ export type ServiceOutputTypes =
   | ListConsumableResourcesCommandOutput
   | ListJobsByConsumableResourceCommandOutput
   | ListJobsCommandOutput
+  | ListQuotaSharesCommandOutput
   | ListSchedulingPoliciesCommandOutput
   | ListServiceJobsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -273,8 +289,10 @@ export type ServiceOutputTypes =
   | UpdateComputeEnvironmentCommandOutput
   | UpdateConsumableResourceCommandOutput
   | UpdateJobQueueCommandOutput
+  | UpdateQuotaShareCommandOutput
   | UpdateSchedulingPolicyCommandOutput
-  | UpdateServiceEnvironmentCommandOutput;
+  | UpdateServiceEnvironmentCommandOutput
+  | UpdateServiceJobCommandOutput;
 
 /**
  * @public
