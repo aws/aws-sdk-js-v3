@@ -52,6 +52,7 @@ const _DLC = "DestinationLogsConfiguration";
 const _DP = "DestinationPattern";
 const _DR = "DestinationRegion";
 const _DS = "DataSources";
+const _DSSC = "DataSourceSelectionCriteria";
 const _DSTI = "DeleteS3TableIntegration";
 const _DSTII = "DeleteS3TableIntegrationInput";
 const _DSa = "DataSource";
@@ -725,8 +726,8 @@ export var Source$: StaticStructureSchema = [3, n0, _S,
 ];
 export var SourceLogsConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
-  [_LGSC, _ELGS],
-  [0, 0], 2
+  [_ELGS, _LGSC, _DSSC],
+  [0, 0, 0], 1
 ];
 export var StartTelemetryEnrichmentOutput$: StaticStructureSchema = [3, n0, _STEO,
   0,
