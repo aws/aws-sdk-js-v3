@@ -6,5 +6,6 @@ export * from "./GetSpeechSynthesisTaskCommand";
 export * from "./ListLexiconsCommand";
 export * from "./ListSpeechSynthesisTasksCommand";
 export * from "./PutLexiconCommand";
+export * from "./StartSpeechSynthesisStreamCommand";
 export * from "./StartSpeechSynthesisTaskCommand";
 export * from "./SynthesizeSpeechCommand";

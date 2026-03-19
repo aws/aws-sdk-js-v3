@@ -30,6 +30,11 @@ import {
 } from "./commands/ListSpeechSynthesisTasksCommand";
 import { PutLexiconCommand, PutLexiconCommandInput, PutLexiconCommandOutput } from "./commands/PutLexiconCommand";
 import {
+  StartSpeechSynthesisStreamCommand,
+  StartSpeechSynthesisStreamCommandInput,
+  StartSpeechSynthesisStreamCommandOutput,
+} from "./commands/StartSpeechSynthesisStreamCommand";
+import {
   StartSpeechSynthesisTaskCommand,
   StartSpeechSynthesisTaskCommandInput,
   StartSpeechSynthesisTaskCommandOutput,
@@ -50,6 +55,7 @@ const commands = {
   ListLexiconsCommand,
   ListSpeechSynthesisTasksCommand,
   PutLexiconCommand,
+  StartSpeechSynthesisStreamCommand,
   StartSpeechSynthesisTaskCommand,
   SynthesizeSpeechCommand,
 };
@@ -178,6 +184,23 @@ export interface Polly {
     args: PutLexiconCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutLexiconCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSpeechSynthesisStreamCommand}
+   */
+  startSpeechSynthesisStream(
+    args: StartSpeechSynthesisStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSpeechSynthesisStreamCommandOutput>;
+  startSpeechSynthesisStream(
+    args: StartSpeechSynthesisStreamCommandInput,
+    cb: (err: any, data?: StartSpeechSynthesisStreamCommandOutput) => void
+  ): void;
+  startSpeechSynthesisStream(
+    args: StartSpeechSynthesisStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSpeechSynthesisStreamCommandOutput) => void
   ): void;
 
   /**

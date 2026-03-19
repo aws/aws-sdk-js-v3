@@ -235,6 +235,13 @@ PutLexicon
 </details>
 <details>
 <summary>
+StartSpeechSynthesisStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/polly/command/StartSpeechSynthesisStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/StartSpeechSynthesisStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/StartSpeechSynthesisStreamCommandOutput/)
+</details>
+<details>
+<summary>
 StartSpeechSynthesisTask
 </summary>
 

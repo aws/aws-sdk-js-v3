@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { QuotaCode, ServiceCode, ValidationExceptionReason } from "./enums";
+import { ThrottlingReason, ValidationExceptionField } from "./models_0";
 import { PollyServiceException as __BaseException } from "./PollyServiceException";
 
 /**
@@ -402,6 +404,101 @@ export class UnsupportedPlsLanguageException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, UnsupportedPlsLanguageException.prototype);
+  }
+}
+
+/**
+ * <p>The request would cause a service quota to be exceeded.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The quota code identifying the specific quota.</p>
+   * @public
+   */
+  quotaCode: QuotaCode | undefined;
+
+  /**
+   * <p>The service code identifying the originating service.</p>
+   * @public
+   */
+  serviceCode: ServiceCode | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.quotaCode = opts.quotaCode;
+    this.serviceCode = opts.serviceCode;
+  }
+}
+
+/**
+ * <p>The request was denied because of request throttling.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name = "ThrottlingException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A list of reasons explaining why the request was throttled.</p>
+   * @public
+   */
+  throttlingReasons?: ThrottlingReason[] | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.throttlingReasons = opts.throttlingReasons;
+  }
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name = "ValidationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The reason the request failed validation.</p>
+   * @public
+   */
+  reason: ValidationExceptionReason | undefined;
+
+  /**
+   * <p>The fields that caused the validation error.</p>
+   * @public
+   */
+  fields?: ValidationExceptionField[] | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fields = opts.fields;
   }
 }
 

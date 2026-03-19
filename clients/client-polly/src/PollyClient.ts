@@ -1,5 +1,10 @@
 // smithy-typescript generated code
 import {
+  type EventStreamInputConfig,
+  type EventStreamResolvedConfig,
+  resolveEventStreamConfig,
+} from "@aws-sdk/middleware-eventstream";
+import {
   type HostHeaderInputConfig,
   type HostHeaderResolvedConfig,
   getHostHeaderPlugin,
@@ -13,6 +18,7 @@ import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
+import { EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider } from "@aws-sdk/types";
 import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
   DefaultIdentityProviderConfig,
@@ -20,6 +26,11 @@ import {
   getHttpSigningPlugin,
 } from "@smithy/core";
 import { getSchemaSerdePlugin } from "@smithy/core/schema";
+import {
+  type EventStreamSerdeInputConfig,
+  type EventStreamSerdeResolvedConfig,
+  resolveEventStreamSerdeConfig,
+} from "@smithy/eventstream-serde-config-resolver";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import {
   type EndpointInputConfig,
@@ -45,6 +56,7 @@ import {
   type ChecksumConstructor as __ChecksumConstructor,
   type Decoder as __Decoder,
   type Encoder as __Encoder,
+  type EventStreamSerdeProvider as __EventStreamSerdeProvider,
   type HashConstructor as __HashConstructor,
   type HttpHandlerOptions as __HttpHandlerOptions,
   type Logger as __Logger,
@@ -78,6 +90,10 @@ import {
 } from "./commands/ListSpeechSynthesisTasksCommand";
 import { PutLexiconCommandInput, PutLexiconCommandOutput } from "./commands/PutLexiconCommand";
 import {
+  StartSpeechSynthesisStreamCommandInput,
+  StartSpeechSynthesisStreamCommandOutput,
+} from "./commands/StartSpeechSynthesisStreamCommand";
+import {
   StartSpeechSynthesisTaskCommandInput,
   StartSpeechSynthesisTaskCommandOutput,
 } from "./commands/StartSpeechSynthesisTaskCommand";
@@ -104,6 +120,7 @@ export type ServiceInputTypes =
   | ListLexiconsCommandInput
   | ListSpeechSynthesisTasksCommandInput
   | PutLexiconCommandInput
+  | StartSpeechSynthesisStreamCommandInput
   | StartSpeechSynthesisTaskCommandInput
   | SynthesizeSpeechCommandInput;
 
@@ -118,6 +135,7 @@ export type ServiceOutputTypes =
   | ListLexiconsCommandOutput
   | ListSpeechSynthesisTasksCommandOutput
   | PutLexiconCommandOutput
+  | StartSpeechSynthesisStreamCommandOutput
   | StartSpeechSynthesisTaskCommandOutput
   | SynthesizeSpeechCommandOutput;
 
@@ -267,9 +285,20 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
+   * The function that provides necessary utilities for generating and parsing event stream
+   */
+  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
+
+  /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
+  /**
+   * The function that provides necessary utilities for handling request event stream.
+   * @internal
+   */
+  eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
+
   /**
    * The internal function that inject utilities to runtime-specific stream to help users consume the data
    * @internal
@@ -288,7 +317,9 @@ export type PollyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   RegionInputConfig &
   HostHeaderInputConfig &
   EndpointInputConfig<EndpointParameters> &
+  EventStreamSerdeInputConfig &
   HttpAuthSchemeInputConfig &
+  EventStreamInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -308,7 +339,9 @@ export type PollyClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
+  EventStreamSerdeResolvedConfig &
   HttpAuthSchemeResolvedConfig &
+  EventStreamResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -347,9 +380,11 @@ export class PollyClient extends __Client<
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    this.config = _config_8;
+    const _config_7 = resolveEventStreamSerdeConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveEventStreamConfig(_config_8);
+    const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
+    this.config = _config_10;
     this.middlewareStack.use(getSchemaSerdePlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

@@ -2,6 +2,32 @@
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { Engine, Gender, LanguageCode, OutputFormat, SpeechMarkType, TaskStatus, TextType, VoiceId } from "./enums";
+import {
+  ServiceFailureException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
+} from "./errors";
+
+/**
+ * <p>Contains a chunk of synthesized audio data.</p>
+ * @public
+ */
+export interface AudioEvent {
+  /**
+   * <p>A chunk of synthesized audio data encoded in the format specified by the
+   *       <code>OutputFormat</code> parameter.</p>
+   * @public
+   */
+  AudioChunk?: Uint8Array | undefined;
+}
+
+/**
+ * <p>Indicates the end of the input stream. After sending this event, the input stream
+ *      will be closed and all audio will be returned.</p>
+ * @public
+ */
+export interface CloseStreamEvent {}
 
 /**
  * @public
@@ -135,6 +161,19 @@ export interface DescribeVoicesOutput {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * <p>Configuration that controls when synthesized audio data is sent on the output stream.</p>
+ * @public
+ */
+export interface FlushStreamConfiguration {
+  /**
+   * <p>Specifies whether to force the synthesis engine to immediately
+   *       write buffered audio data to the output stream.</p>
+   * @public
+   */
+  Force?: boolean | undefined;
 }
 
 /**
@@ -315,7 +354,7 @@ export interface SynthesisTask {
 
   /**
    * <p>The format in which the returned output will be encoded. For audio
-   *       stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will
+   *       stream, this will be mp3, ogg_vorbis, ogg_opus, mu-law, a-law, or pcm. For speech marks, this will
    *       be json. </p>
    * @public
    */
@@ -329,6 +368,8 @@ export interface SynthesisTask {
    *       is "24000". The default value for generative voices is "24000".</p>
    *          <p>Valid values for pcm are "8000" and "16000" The default value is
    *       "16000". </p>
+   *          <p>Valid value for ogg_opus is "48000". </p>
+   *          <p>Valid value for mu-law and a-law is "8000". </p>
    * @public
    */
   SampleRate?: string | undefined;
@@ -501,6 +542,324 @@ export interface PutLexiconInput {
 export interface PutLexiconOutput {}
 
 /**
+ * <p>Contains text content to be synthesized into speech.</p>
+ * @public
+ */
+export interface TextEvent {
+  /**
+   * <p>The text content to synthesize. If you specify <code>ssml</code> as the
+   *       <code>TextType</code>, follow the SSML format for the input text.</p>
+   * @public
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>Specifies whether the input text is plain text or SSML. Default: plain text.</p>
+   * @public
+   */
+  TextType?: TextType | undefined;
+
+  /**
+   * <p>Configuration for controlling when synthesized audio flushes to the output stream.</p>
+   * @public
+   */
+  FlushStreamConfiguration?: FlushStreamConfiguration | undefined;
+}
+
+/**
+ * <p>Inbound event stream for sending input and control events to manage bidirectional speech synthesis.</p>
+ * @public
+ */
+export type StartSpeechSynthesisStreamActionStream =
+  | StartSpeechSynthesisStreamActionStream.CloseStreamEventMember
+  | StartSpeechSynthesisStreamActionStream.TextEventMember
+  | StartSpeechSynthesisStreamActionStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace StartSpeechSynthesisStreamActionStream {
+  /**
+   * <p>A text event containing content to be synthesized.</p>
+   * @public
+   */
+  export interface TextEventMember {
+    TextEvent: TextEvent;
+    CloseStreamEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An event indicating the end of the input stream.</p>
+   * @public
+   */
+  export interface CloseStreamEventMember {
+    TextEvent?: never;
+    CloseStreamEvent: CloseStreamEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    TextEvent?: never;
+    CloseStreamEvent?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    TextEvent: (value: TextEvent) => T;
+    CloseStreamEvent: (value: CloseStreamEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartSpeechSynthesisStreamInput {
+  /**
+   * <p>Specifies the engine for Amazon Polly to use when processing input text for speech synthesis.
+   *       Currently, only the <code>generative</code> engine is supported.
+   *       If you specify a voice that the selected engine doesn't support, Amazon Polly returns an error.</p>
+   * @public
+   */
+  Engine: Engine | undefined;
+
+  /**
+   * <p>An optional parameter that sets the language code for the speech synthesis request. Specify this parameter only
+   *       when using a bilingual voice. If a bilingual voice is used and no language code is specified, Amazon Polly
+   *       uses the default language of the bilingual voice.</p>
+   * @public
+   */
+  LanguageCode?: LanguageCode | undefined;
+
+  /**
+   * <p>The names of one or more pronunciation lexicons for the service to apply
+   *       during synthesis. Amazon Polly applies lexicons only when the lexicon language matches the voice language.</p>
+   * @public
+   */
+  LexiconNames?: string[] | undefined;
+
+  /**
+   * <p>The audio format for the synthesized speech. Currently, Amazon Polly does not support JSON speech marks.</p>
+   * @public
+   */
+  OutputFormat: OutputFormat | undefined;
+
+  /**
+   * <p>The audio frequency, specified in Hz.</p>
+   * @public
+   */
+  SampleRate?: string | undefined;
+
+  /**
+   * <p>The voice to use in synthesis. To get a list of available voice IDs, use the <a href="https://docs.aws.amazon.com/polly/latest/API/API_DescribeVoices.html">DescribeVoices</a> operation.</p>
+   * @public
+   */
+  VoiceId: VoiceId | undefined;
+
+  /**
+   * <p>The input event stream that contains text events and stream control events.</p>
+   * @public
+   */
+  ActionStream?: AsyncIterable<StartSpeechSynthesisStreamActionStream> | undefined;
+}
+
+/**
+ * <p>Indicates that the synthesis stream is closed and provides summary information.</p>
+ * @public
+ */
+export interface StreamClosedEvent {
+  /**
+   * <p>The total number of characters synthesized during the streaming session.</p>
+   * @public
+   */
+  RequestCharacters?: number | undefined;
+}
+
+/**
+ * <p>Provides information about a specific throttling reason.</p>
+ * @public
+ */
+export interface ThrottlingReason {
+  /**
+   * <p>The reason code explaining why the request was throttled.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>The resource that caused the throttling.</p>
+   * @public
+   */
+  resource?: string | undefined;
+}
+
+/**
+ * <p>Information about a field that failed validation.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field that failed validation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A message describing why the field failed validation.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>Outbound event stream that contains synthesized audio data and stream status events.</p>
+ * @public
+ */
+export type StartSpeechSynthesisStreamEventStream =
+  | StartSpeechSynthesisStreamEventStream.AudioEventMember
+  | StartSpeechSynthesisStreamEventStream.ServiceFailureExceptionMember
+  | StartSpeechSynthesisStreamEventStream.ServiceQuotaExceededExceptionMember
+  | StartSpeechSynthesisStreamEventStream.StreamClosedEventMember
+  | StartSpeechSynthesisStreamEventStream.ThrottlingExceptionMember
+  | StartSpeechSynthesisStreamEventStream.ValidationExceptionMember
+  | StartSpeechSynthesisStreamEventStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace StartSpeechSynthesisStreamEventStream {
+  /**
+   * <p>An audio event containing synthesized speech.</p>
+   * @public
+   */
+  export interface AudioEventMember {
+    AudioEvent: AudioEvent;
+    StreamClosedEvent?: never;
+    ValidationException?: never;
+    ServiceQuotaExceededException?: never;
+    ServiceFailureException?: never;
+    ThrottlingException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An event, with summary information, indicating the stream has closed.</p>
+   * @public
+   */
+  export interface StreamClosedEventMember {
+    AudioEvent?: never;
+    StreamClosedEvent: StreamClosedEvent;
+    ValidationException?: never;
+    ServiceQuotaExceededException?: never;
+    ServiceFailureException?: never;
+    ThrottlingException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An exception indicating the input failed validation.</p>
+   * @public
+   */
+  export interface ValidationExceptionMember {
+    AudioEvent?: never;
+    StreamClosedEvent?: never;
+    ValidationException: ValidationException;
+    ServiceQuotaExceededException?: never;
+    ServiceFailureException?: never;
+    ThrottlingException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An exception indicating a service quota would be exceeded.</p>
+   * @public
+   */
+  export interface ServiceQuotaExceededExceptionMember {
+    AudioEvent?: never;
+    StreamClosedEvent?: never;
+    ValidationException?: never;
+    ServiceQuotaExceededException: ServiceQuotaExceededException;
+    ServiceFailureException?: never;
+    ThrottlingException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An unknown condition has caused a service failure.</p>
+   * @public
+   */
+  export interface ServiceFailureExceptionMember {
+    AudioEvent?: never;
+    StreamClosedEvent?: never;
+    ValidationException?: never;
+    ServiceQuotaExceededException?: never;
+    ServiceFailureException: ServiceFailureException;
+    ThrottlingException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An exception indicating the request was throttled.</p>
+   * @public
+   */
+  export interface ThrottlingExceptionMember {
+    AudioEvent?: never;
+    StreamClosedEvent?: never;
+    ValidationException?: never;
+    ServiceQuotaExceededException?: never;
+    ServiceFailureException?: never;
+    ThrottlingException: ThrottlingException;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AudioEvent?: never;
+    StreamClosedEvent?: never;
+    ValidationException?: never;
+    ServiceQuotaExceededException?: never;
+    ServiceFailureException?: never;
+    ThrottlingException?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    AudioEvent: (value: AudioEvent) => T;
+    StreamClosedEvent: (value: StreamClosedEvent) => T;
+    ValidationException: (value: ValidationException) => T;
+    ServiceQuotaExceededException: (value: ServiceQuotaExceededException) => T;
+    ServiceFailureException: (value: ServiceFailureException) => T;
+    ThrottlingException: (value: ThrottlingException) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartSpeechSynthesisStreamOutput {
+  /**
+   * <p>The output event stream that contains synthesized audio events and stream status events.</p>
+   * @public
+   */
+  EventStream?: AsyncIterable<StartSpeechSynthesisStreamEventStream> | undefined;
+}
+
+/**
  * @public
  */
 export interface StartSpeechSynthesisTaskInput {
@@ -536,7 +895,7 @@ export interface StartSpeechSynthesisTaskInput {
 
   /**
    * <p>The format in which the returned output will be encoded. For audio
-   *       stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will
+   *       stream, this will be mp3, ogg_vorbis, ogg_opus, mu-law, a-law, or pcm. For speech marks, this will
    *       be json. </p>
    * @public
    */
@@ -562,6 +921,8 @@ export interface StartSpeechSynthesisTaskInput {
    *       is "24000". The default value for generative voices is "24000".</p>
    *          <p>Valid values for pcm are "8000" and "16000" The default value is
    *       "16000". </p>
+   *          <p>Valid value for ogg_opus is "48000". </p>
+   *          <p>Valid value for mu-law and a-law is "8000". </p>
    * @public
    */
   SampleRate?: string | undefined;
@@ -652,7 +1013,7 @@ export interface SynthesizeSpeechInput {
 
   /**
    * <p> The format in which the returned output will be encoded. For audio
-   *       stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will
+   *       stream, this will be mp3, ogg_vorbis, ogg_opus, mu-law, a-law or pcm. For speech marks, this will
    *       be json. </p>
    *          <p>When pcm is used, the content returned is audio/pcm in a signed
    *       16-bit, 1 channel (mono), little-endian format. </p>
@@ -667,6 +1028,8 @@ export interface SynthesizeSpeechInput {
    *       is "24000". The default value for generative voices is "24000".</p>
    *          <p>Valid values for pcm are "8000" and "16000" The default value is
    *       "16000". </p>
+   *          <p>Valid value for ogg_opus is "48000". </p>
+   *          <p>Valid value for mu-law and a-law is "8000". </p>
    * @public
    */
   SampleRate?: string | undefined;
@@ -726,9 +1089,26 @@ export interface SynthesizeSpeechOutput {
    *           audio/ogg. </p>
    *             </li>
    *             <li>
+   *                <p> If you request <code>ogg_opus</code> as the
+   *             <code>OutputFormat</code>, the <code>ContentType</code> returned is
+   *           audio/ogg. </p>
+   *             </li>
+   *             <li>
    *                <p> If you request <code>pcm</code> as the
    *             <code>OutputFormat</code>, the <code>ContentType</code> returned is
    *           audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p> If you request <code>mu-law</code> as the
+   *             <code>OutputFormat</code>, the <code>ContentType</code> returned is
+   *           audio/mulaw.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p> If you request <code>a-law</code> as the
+   *             <code>OutputFormat</code>, the <code>ContentType</code> returned is
+   *           audio/alaw.
    *         </p>
    *             </li>
    *             <li>

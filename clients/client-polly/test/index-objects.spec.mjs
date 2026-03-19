@@ -1,4 +1,6 @@
 import {
+  AudioEvent$,
+  CloseStreamEvent$,
   DeleteLexicon$,
   DeleteLexiconCommand,
   DeleteLexiconInput$,
@@ -10,6 +12,7 @@ import {
   Engine,
   EngineNotSupportedException,
   EngineNotSupportedException$,
+  FlushStreamConfiguration$,
   Gender,
   GetLexicon$,
   GetLexiconCommand,
@@ -68,15 +71,26 @@ import {
   PutLexiconCommand,
   PutLexiconInput$,
   PutLexiconOutput$,
+  QuotaCode,
+  ServiceCode,
   ServiceFailureException,
   ServiceFailureException$,
+  ServiceQuotaExceededException,
+  ServiceQuotaExceededException$,
   SpeechMarkType,
   SsmlMarksNotSupportedForTextTypeException,
   SsmlMarksNotSupportedForTextTypeException$,
+  StartSpeechSynthesisStream$,
+  StartSpeechSynthesisStreamActionStream$,
+  StartSpeechSynthesisStreamCommand,
+  StartSpeechSynthesisStreamEventStream$,
+  StartSpeechSynthesisStreamInput$,
+  StartSpeechSynthesisStreamOutput$,
   StartSpeechSynthesisTask$,
   StartSpeechSynthesisTaskCommand,
   StartSpeechSynthesisTaskInput$,
   StartSpeechSynthesisTaskOutput$,
+  StreamClosedEvent$,
   SynthesisTask$,
   SynthesisTaskNotFoundException,
   SynthesisTaskNotFoundException$,
@@ -85,13 +99,21 @@ import {
   SynthesizeSpeechInput$,
   SynthesizeSpeechOutput$,
   TaskStatus,
+  TextEvent$,
   TextLengthExceededException,
   TextLengthExceededException$,
   TextType,
+  ThrottlingException,
+  ThrottlingException$,
+  ThrottlingReason$,
   UnsupportedPlsAlphabetException,
   UnsupportedPlsAlphabetException$,
   UnsupportedPlsLanguageException,
   UnsupportedPlsLanguageException$,
+  ValidationException,
+  ValidationException$,
+  ValidationExceptionField$,
+  ValidationExceptionReason,
   Voice$,
   VoiceId,
 } from "../dist-cjs/index.js";
@@ -114,15 +136,20 @@ assert(typeof ListSpeechSynthesisTasksCommand === "function");
 assert(typeof ListSpeechSynthesisTasks$ === "object");
 assert(typeof PutLexiconCommand === "function");
 assert(typeof PutLexicon$ === "object");
+assert(typeof StartSpeechSynthesisStreamCommand === "function");
+assert(typeof StartSpeechSynthesisStream$ === "object");
 assert(typeof StartSpeechSynthesisTaskCommand === "function");
 assert(typeof StartSpeechSynthesisTask$ === "object");
 assert(typeof SynthesizeSpeechCommand === "function");
 assert(typeof SynthesizeSpeech$ === "object");
 // structural schemas
+assert(typeof AudioEvent$ === "object");
+assert(typeof CloseStreamEvent$ === "object");
 assert(typeof DeleteLexiconInput$ === "object");
 assert(typeof DeleteLexiconOutput$ === "object");
 assert(typeof DescribeVoicesInput$ === "object");
 assert(typeof DescribeVoicesOutput$ === "object");
+assert(typeof FlushStreamConfiguration$ === "object");
 assert(typeof GetLexiconInput$ === "object");
 assert(typeof GetLexiconOutput$ === "object");
 assert(typeof GetSpeechSynthesisTaskInput$ === "object");
@@ -136,20 +163,31 @@ assert(typeof ListSpeechSynthesisTasksInput$ === "object");
 assert(typeof ListSpeechSynthesisTasksOutput$ === "object");
 assert(typeof PutLexiconInput$ === "object");
 assert(typeof PutLexiconOutput$ === "object");
+assert(typeof StartSpeechSynthesisStreamActionStream$ === "object");
+assert(typeof StartSpeechSynthesisStreamEventStream$ === "object");
+assert(typeof StartSpeechSynthesisStreamInput$ === "object");
+assert(typeof StartSpeechSynthesisStreamOutput$ === "object");
 assert(typeof StartSpeechSynthesisTaskInput$ === "object");
 assert(typeof StartSpeechSynthesisTaskOutput$ === "object");
+assert(typeof StreamClosedEvent$ === "object");
 assert(typeof SynthesisTask$ === "object");
 assert(typeof SynthesizeSpeechInput$ === "object");
 assert(typeof SynthesizeSpeechOutput$ === "object");
+assert(typeof TextEvent$ === "object");
+assert(typeof ThrottlingReason$ === "object");
+assert(typeof ValidationExceptionField$ === "object");
 assert(typeof Voice$ === "object");
 // enums
 assert(typeof Engine === "object");
 assert(typeof Gender === "object");
 assert(typeof LanguageCode === "object");
 assert(typeof OutputFormat === "object");
+assert(typeof QuotaCode === "object");
+assert(typeof ServiceCode === "object");
 assert(typeof SpeechMarkType === "object");
 assert(typeof TaskStatus === "object");
 assert(typeof TextType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VoiceId === "object");
 // errors
 assert(EngineNotSupportedException.prototype instanceof PollyServiceException);
@@ -184,16 +222,22 @@ assert(MaxLexiconsNumberExceededException.prototype instanceof PollyServiceExcep
 assert(typeof MaxLexiconsNumberExceededException$ === "object");
 assert(ServiceFailureException.prototype instanceof PollyServiceException);
 assert(typeof ServiceFailureException$ === "object");
+assert(ServiceQuotaExceededException.prototype instanceof PollyServiceException);
+assert(typeof ServiceQuotaExceededException$ === "object");
 assert(SsmlMarksNotSupportedForTextTypeException.prototype instanceof PollyServiceException);
 assert(typeof SsmlMarksNotSupportedForTextTypeException$ === "object");
 assert(SynthesisTaskNotFoundException.prototype instanceof PollyServiceException);
 assert(typeof SynthesisTaskNotFoundException$ === "object");
 assert(TextLengthExceededException.prototype instanceof PollyServiceException);
 assert(typeof TextLengthExceededException$ === "object");
+assert(ThrottlingException.prototype instanceof PollyServiceException);
+assert(typeof ThrottlingException$ === "object");
 assert(UnsupportedPlsAlphabetException.prototype instanceof PollyServiceException);
 assert(typeof UnsupportedPlsAlphabetException$ === "object");
 assert(UnsupportedPlsLanguageException.prototype instanceof PollyServiceException);
 assert(typeof UnsupportedPlsLanguageException$ === "object");
+assert(ValidationException.prototype instanceof PollyServiceException);
+assert(typeof ValidationException$ === "object");
 assert(PollyServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListSpeechSynthesisTasks === "function");
