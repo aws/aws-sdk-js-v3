@@ -17,6 +17,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.15 (2026-03-19)
+### Chores
+* **credential-provider-cognito-identity:** update dependencies.
+
+
+
 # 3.972.14 (2026-03-18)
 ### Chores
 * **credential-provider-cognito-identity:** update dependencies.

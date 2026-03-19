@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1013.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1012.0...v3.1013.0) (2026-03-19)
+
+
+### Features
+
+* **client-batch:** AWS Batch now supports quota management, enabling administrators to allocate shared compute resources across teams and projects through quota shares with capacity limits, resource-sharing strategies, and priority-based preemption - currently available for SageMaker Training job queues. ([3e695b9](https://github.com/aws/aws-sdk-js-v3/commit/3e695b9aad1eb973d79cd78d7993c0d93cc789af))
+
+
+
+
+
 # [3.1012.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1011.0...v3.1012.0) (2026-03-18)
 
 **Note:** Version bump only for package @aws-sdk/client-batch

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1013.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1012.0...v3.1013.0) (2026-03-19)
+
+
+### Bug Fixes
+
+* **xml-builder:** configure maxTotalExpansions on fast-xml-parser ([#7868](https://github.com/aws/aws-sdk-js-v3/issues/7868)) ([2ad1477](https://github.com/aws/aws-sdk-js-v3/commit/2ad14770e35ed1eed1918657ae7670dffcf980a0))
+
+
+### Features
+
+* **client-batch:** AWS Batch now supports quota management, enabling administrators to allocate shared compute resources across teams and projects through quota shares with capacity limits, resource-sharing strategies, and priority-based preemption - currently available for SageMaker Training job queues. ([3e695b9](https://github.com/aws/aws-sdk-js-v3/commit/3e695b9aad1eb973d79cd78d7993c0d93cc789af))
+* **client-bedrock-agentcore-control:** Adds support for the following new features. 1. Enterprise Policies support for AgentCore Browser Tool. 2. Root CA Configuration support for AgentCore Browser Tool and Code Interpreter. ([d286f51](https://github.com/aws/aws-sdk-js-v3/commit/d286f51fab030d5f5cc496934a440386a0d49927))
+* **client-bedrock-agentcore:** This release includes SDK support for the following new features on AgentCore Built In Tools.  1. Enterprise Policies for AgentCore Browser Tool. 2. Root CA Configuration Support for AgentCore Browser Tool and Code Interpreter. 3. API changes to AgentCore Browser Profile APIs ([088f058](https://github.com/aws/aws-sdk-js-v3/commit/088f0580ba0fdaca8c1d86daa6317a4c1a9047c1))
+* **client-ec2:** Amazon EC2 Fleet instant mode now supports launching instances into Interruptible Capacity Reservations, enabling customers to use spare capacity shared by Capacity Reservation owners within their AWS Organization. ([5ae4a55](https://github.com/aws/aws-sdk-js-v3/commit/5ae4a552d7d650af248213fc7187842e89460820))
+* **client-observabilityadmin:** Adding a new field in the CreateCentralizationRuleForOrganization, UpdateCentralizationRuleForOrganization API and updating the GetCentralizationRuleForOrganization API response to include the new field ([f8dcb3a](https://github.com/aws/aws-sdk-js-v3/commit/f8dcb3a1ee2be84a7bfc64e099248f96baffe3e9))
+* **client-polly:** Added bi-directional streaming functionality through a new API, StartSpeechSynthesisStream. This API allows streaming input text through inbound events and receiving audio as part of an output stream simultaneously. ([581bf84](https://github.com/aws/aws-sdk-js-v3/commit/581bf8494d5e76aa05b5ec3f472269db2a25461a))
+* **clients:** update client endpoints as of 2026-03-19 ([485aa08](https://github.com/aws/aws-sdk-js-v3/commit/485aa0860360c4f0b33f778a6df7043300199776))
+
+
+
+
+
 # [3.1012.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1011.0...v3.1012.0) (2026-03-18)
 
 

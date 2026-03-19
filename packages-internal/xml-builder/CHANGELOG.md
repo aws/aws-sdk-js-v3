@@ -15,6 +15,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.14 (2026-03-18)
+### Bug Fixes
+* **xml-builder:** configure maxTotalExpansions on fast-xml-parser ([#7868](https://github.com/aws/aws-sdk-js-v3/issues/7868)) ([2ad1477](https://github.com/aws/aws-sdk-js-v3/commit/2ad14770e35ed1eed1918657ae7670dffcf980a0))
+### Chores
+* **xml-builder:** single-pass XML escape for escapeElement and escapeAttribute ([#7833](https://github.com/aws/aws-sdk-js-v3/issues/7833)) ([97de564](https://github.com/aws/aws-sdk-js-v3/commit/97de5649ff5fc8692d5c41e087e6828a718e46db))
+
+
+
 # 3.972.12 (2026-03-18)
 ### Chores
 * bump fast-xml-parser to 5.5.6 ([#7862](https://github.com/aws/aws-sdk-js-v3/issues/7862)) ([5e8d73b](https://github.com/aws/aws-sdk-js-v3/commit/5e8d73bafb2f447b517e9af047595930acbffced))

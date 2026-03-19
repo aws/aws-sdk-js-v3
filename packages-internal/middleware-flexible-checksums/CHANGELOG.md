@@ -23,6 +23,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.2 (2026-03-19)
+### Chores
+* **middleware-flexible-checksums:** update dependencies.
+
+
+
 # 3.974.1 (2026-03-18)
 ### Chores
 * **codegen:** smithy-aws-typescript-codegen 0.47.0 ([#7854](https://github.com/aws/aws-sdk-js-v3/issues/7854)) ([950b0c2](https://github.com/aws/aws-sdk-js-v3/commit/950b0c289001862971810817e57c2adab6313140))

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1013.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1012.0...v3.1013.0) (2026-03-19)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds support for the following new features. 1. Enterprise Policies support for AgentCore Browser Tool. 2. Root CA Configuration support for AgentCore Browser Tool and Code Interpreter. ([d286f51](https://github.com/aws/aws-sdk-js-v3/commit/d286f51fab030d5f5cc496934a440386a0d49927))
+
+
+
+
+
 # [3.1012.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1011.0...v3.1012.0) (2026-03-18)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control
