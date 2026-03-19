@@ -32,6 +32,7 @@ import {
   HostnameType,
   HttpTokensState,
   HypervisorType,
+  ImageState,
   InstanceAutoRecoveryState,
   InstanceBandwidthWeighting,
   InstanceBootModeValues,
@@ -163,19 +164,194 @@ import {
   Snapshot,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
-  TrafficMirrorSession,
 } from "./models_2";
 import {
   type AttributeBooleanValue,
   type EnclaveOptions,
   type EventInformation,
-  type ImageMetadata,
   Byoasn,
   Filter,
   IdFormat,
   InstanceBlockDeviceMapping,
   ProductCode,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeInstanceImageMetadataRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The name of the Availability Zone (for example,
+   *           <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) of
+   *           the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The ID of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-allowed</code> - A Boolean that indicates whether the image meets the
+   *           criteria specified for Allowed AMIs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-state-name</code> - The state of the instance (<code>pending</code> |
+   *           <code>running</code> | <code>shutting-down</code> | <code>terminated</code> |
+   *           <code>stopping</code> | <code>stopped</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The type of instance (for example,
+   *           <code>t3.micro</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>launch-time</code> - The time when the instance was launched, in the ISO 8601
+   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
+   *           <code>2023-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
+   *           example, <code>2023-09-29T*</code>, which matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> |
+   *           <code>aws-marketplace</code> | <code>aws-backup-vault</code>). The valid aliases are
+   *           defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set
+   *           using the IAM console. We recommend that you use the <code>Owner</code> request parameter
+   *           instead of this filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use
+   *           the <code>Owner</code> request parameter instead of this filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zone-id</code> - The ID of the Availability Zone (for example,
+   *           <code>usw2-az2</code>) or Local Zone (for example, <code>usw2-lax1-az1</code>) of the
+   *           instance.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The instance IDs.</p>
+   *          <p>If you don't specify an instance ID or filters, the output includes information for all
+   *       instances.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>Default: 1000</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Information about the AMI.</p>
+ * @public
+ */
+export interface ImageMetadata {
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The name of the AMI.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the AMI.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The current state of the AMI. If the state is <code>available</code>, the AMI is
+   *       successfully registered and can be used to launch an instance.</p>
+   * @public
+   */
+  State?: ImageState | undefined;
+
+  /**
+   * <p>The alias of the AMI owner.</p>
+   *          <p>Valid values: <code>amazon</code> | <code>aws-backup-vault</code> |
+   *       <code>aws-marketplace</code>
+   *          </p>
+   * @public
+   */
+  ImageOwnerAlias?: string | undefined;
+
+  /**
+   * <p>The date and time the AMI was created.</p>
+   * @public
+   */
+  CreationDate?: string | undefined;
+
+  /**
+   * <p>The deprecation date and time of the AMI, in UTC, in the following format:
+   *       <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.</p>
+   * @public
+   */
+  DeprecationTime?: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, the AMI satisfies the criteria for Allowed AMIs and can be
+   *       discovered and used in the account. If <code>false</code>, the AMI can't be discovered or used
+   *       in the account.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Control the discovery and use of AMIs in
+   *       Amazon EC2 with Allowed AMIs</a> in
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ImageAllowed?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the AMI has public launch permissions. A value of <code>true</code>
+   *       means this AMI has public launch permissions, while <code>false</code> means it has only
+   *       implicit (AMI owner) or explicit (shared with your account) launch permissions.</p>
+   * @public
+   */
+  IsPublic?: boolean | undefined;
+}
 
 /**
  * <p>Describes the current state of an instance.</p>
@@ -14707,83 +14883,6 @@ export interface DescribeTrafficMirrorSessionsRequest {
    *             <li>
    *                <p>
    *                   <code>virtual-network-id</code>: The virtual network ID of the Traffic Mirror session.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTrafficMirrorSessionsResult {
-  /**
-   * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
-   * @public
-   */
-  TrafficMirrorSessions?: TrafficMirrorSession[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTrafficMirrorTargetsRequest {
-  /**
-   * <p>The ID of the Traffic Mirror targets.</p>
-   * @public
-   */
-  TrafficMirrorTargetIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>description</code>: The Traffic Mirror target description.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-load-balancer-arn</code>: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p>
    *             </li>
    *          </ul>
    * @public

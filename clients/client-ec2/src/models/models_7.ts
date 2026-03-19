@@ -48,6 +48,7 @@ import {
   SSEType,
   Status,
   TpmSupportValues,
+  TrafficMirrorSessionField,
   TransitGatewayAttachmentResourceType,
   VerificationMethod,
   VerifiedAccessEndpointProtocol,
@@ -92,6 +93,7 @@ import {
 } from "./models_1";
 import {
   type DnsOptionsSpecification,
+  type TrafficMirrorSession,
   type TransitGateway,
   type TransitGatewayMeteringPolicy,
   type TransitGatewayPrefixListReference,
@@ -140,6 +142,81 @@ import type {
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 import { type CapacityReservationSpecification, Purchase } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorSessionRequest {
+  /**
+   * <p>The ID of the Traffic Mirror session.</p>
+   * @public
+   */
+  TrafficMirrorSessionId: string | undefined;
+
+  /**
+   * <p>The Traffic Mirror target. The target must be in the same VPC as the source, or have a VPC peering connection with the source.</p>
+   * @public
+   */
+  TrafficMirrorTargetId?: string | undefined;
+
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   * @public
+   */
+  TrafficMirrorFilterId?: string | undefined;
+
+  /**
+   * <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p>
+   *          <p>For sessions with Network Load Balancer (NLB) traffic mirror targets, the default <code>PacketLength</code> will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code> greater than 8500 will result in an error response.</p>
+   * @public
+   */
+  PacketLength?: number | undefined;
+
+  /**
+   * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
+   *          <p>Valid values are 1-32766.</p>
+   * @public
+   */
+  SessionNumber?: number | undefined;
+
+  /**
+   * <p>The virtual network ID of the Traffic Mirror session.</p>
+   * @public
+   */
+  VirtualNetworkId?: number | undefined;
+
+  /**
+   * <p>The description to assign to the Traffic Mirror session.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The properties that you want to remove from the Traffic Mirror session.</p>
+   *          <p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
+   * @public
+   */
+  RemoveFields?: TrafficMirrorSessionField[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorSessionResult {
+  /**
+   * <p>Information about the Traffic Mirror session.</p>
+   * @public
+   */
+  TrafficMirrorSession?: TrafficMirrorSession | undefined;
+}
 
 /**
  * <p>The transit gateway options.</p>

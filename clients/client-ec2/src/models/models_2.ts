@@ -130,6 +130,53 @@ import type {
 } from "./models_1";
 
 /**
+ * @public
+ */
+export interface CreateSecondarySubnetRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The Availability Zone for the secondary subnet. You cannot specify both <code>AvailabilityZone</code> and <code>AvailabilityZoneId</code> in the same request.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone for the secondary subnet. This option is preferred over <code>AvailabilityZone</code> as it provides a consistent identifier across Amazon Web Services accounts. You cannot specify both <code>AvailabilityZone</code> and <code>AvailabilityZoneId</code> in the same request.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block for the secondary subnet. The CIDR block size must be between /12 and /28.</p>
+   * @public
+   */
+  Ipv4CidrBlock: string | undefined;
+
+  /**
+   * <p>The ID of the secondary network in which to create the secondary subnet.</p>
+   * @public
+   */
+  SecondaryNetworkId: string | undefined;
+
+  /**
+   * <p>The tags to assign to the secondary subnet.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
  * <p>Describes an IPv4 CIDR block associated with a secondary subnet.</p>
  * @public
  */
@@ -9480,15 +9527,4 @@ export interface DeleteTrafficMirrorSessionRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTrafficMirrorSessionResult {
-  /**
-   * <p>The ID of the deleted Traffic Mirror session.</p>
-   * @public
-   */
-  TrafficMirrorSessionId?: string | undefined;
 }

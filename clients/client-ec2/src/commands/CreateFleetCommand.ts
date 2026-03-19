@@ -68,6 +68,11 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *     MinTargetCapacity: Number("int"),
  *     MaxTotalPrice: "STRING_VALUE",
  *   },
+ *   ReservedCapacityOptions: { // ReservedCapacityOptionsRequest
+ *     ReservationTypes: [ // ReservationTypeListRequest
+ *       "interruptible-capacity-reservation",
+ *     ],
+ *   },
  *   ExcessCapacityTerminationPolicy: "no-termination" || "termination",
  *   LaunchTemplateConfigs: [ // FleetLaunchTemplateConfigListRequest // required
  *     { // FleetLaunchTemplateConfigRequest
@@ -202,7 +207,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *     TotalTargetCapacity: Number("int"), // required
  *     OnDemandTargetCapacity: Number("int"),
  *     SpotTargetCapacity: Number("int"),
- *     DefaultTargetCapacityType: "spot" || "on-demand" || "capacity-block",
+ *     DefaultTargetCapacityType: "spot" || "on-demand" || "capacity-block" || "reserved-capacity",
  *     TargetCapacityUnitType: "vcpu" || "memory-mib" || "units",
  *   },
  *   TerminateInstancesWithExpiration: true || false,
@@ -345,7 +350,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //           AvailabilityZoneId: "STRING_VALUE",
  * //         },
  * //       },
- * //       Lifecycle: "spot" || "on-demand",
+ * //       Lifecycle: "spot" || "on-demand" || "interruptible-capacity-reservation",
  * //       ErrorCode: "STRING_VALUE",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
@@ -468,7 +473,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //           AvailabilityZoneId: "STRING_VALUE",
  * //         },
  * //       },
- * //       Lifecycle: "spot" || "on-demand",
+ * //       Lifecycle: "spot" || "on-demand" || "interruptible-capacity-reservation",
  * //       InstanceIds: [ // InstanceIdsSet
  * //         "STRING_VALUE",
  * //       ],

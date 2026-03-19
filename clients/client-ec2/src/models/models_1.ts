@@ -27,6 +27,7 @@ import {
   FleetExcessCapacityTerminationPolicy,
   FleetOnDemandAllocationStrategy,
   FleetReplacementStrategy,
+  FleetReservationType,
   FleetType,
   FlowLogsResourceType,
   HostnameType,
@@ -1736,6 +1737,27 @@ export interface OnDemandOptionsRequest {
 }
 
 /**
+ * <p>Defines EC2 Fleet preferences for utilizing reserved capacity when DefaultTargetCapacityType is set to <code>reserved-capacity</code>.</p>
+ *          <note>
+ *             <p>This configuration can only be used if the EC2 Fleet is of type
+ *               <code>instant</code>.</p>
+ *          </note>
+ *          <p>When you specify <code>ReservedCapacityOptions</code>, you must also set
+ *            <code>DefaultTargetCapacityType</code> to <code>reserved-capacity</code> in the
+ *            <code>TargetCapacitySpecification</code>.</p>
+ *          <p>For more information about Interruptible Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-launch-instances-interruptible-cr-walkthrough.html">Launch
+ *               instances into an Interruptible Capacity Reservation</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface ReservedCapacityOptionsRequest {
+  /**
+   * <p>The types of Capacity Reservations to use for fulfilling the EC2 Fleet request.</p>
+   * @public
+   */
+  ReservationTypes?: FleetReservationType[] | undefined;
+}
+
+/**
  * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance
  *          notification signal that your Spot Instance is at an elevated risk of being interrupted.
  *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -2003,6 +2025,13 @@ export interface CreateFleetRequest {
    * @public
    */
   OnDemandOptions?: OnDemandOptionsRequest | undefined;
+
+  /**
+   * <p>Defines EC2 Fleet preferences for utilizing reserved capacity when DefaultTargetCapacityType is set to <code>reserved-capacity</code>.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  ReservedCapacityOptions?: ReservedCapacityOptionsRequest | undefined;
 
   /**
    * <p>Indicates whether running instances should be terminated if the total target capacity of
@@ -3199,7 +3228,8 @@ export interface CreateFleetError {
   LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse | undefined;
 
   /**
-   * <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
+   * <p>Indicates if the instance that could not be launched was a Spot, On-Demand, Capacity Block,
+   *          or Interruptible Capacity Reservation instance.</p>
    * @public
    */
   Lifecycle?: InstanceLifecycle | undefined;
@@ -3232,7 +3262,8 @@ export interface CreateFleetInstance {
   LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse | undefined;
 
   /**
-   * <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
+   * <p>Indicates if the instance that was launched is a Spot, On-Demand, Capacity Block,
+   *          or Interruptible Capacity Reservation instance.</p>
    * @public
    */
   Lifecycle?: InstanceLifecycle | undefined;
@@ -14123,51 +14154,4 @@ export interface CreateSecondaryNetworkResult {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSecondarySubnetRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The Availability Zone for the secondary subnet. You cannot specify both <code>AvailabilityZone</code> and <code>AvailabilityZoneId</code> in the same request.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone for the secondary subnet. This option is preferred over <code>AvailabilityZone</code> as it provides a consistent identifier across Amazon Web Services accounts. You cannot specify both <code>AvailabilityZone</code> and <code>AvailabilityZoneId</code> in the same request.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IPv4 CIDR block for the secondary subnet. The CIDR block size must be between /12 and /28.</p>
-   * @public
-   */
-  Ipv4CidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the secondary network in which to create the secondary subnet.</p>
-   * @public
-   */
-  SecondaryNetworkId: string | undefined;
-
-  /**
-   * <p>The tags to assign to the secondary subnet.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
 }

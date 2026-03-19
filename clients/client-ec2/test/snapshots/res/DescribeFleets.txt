@@ -3350,6 +3350,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __MaxTotalPrice__
                 </maxTotalPrice>
             </onDemandOptions>
+            <reservedCapacityOptions>
+                <reservationTypeSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </reservationTypeSet>
+            </reservedCapacityOptions>
             <tagSet>
                 <item>
                     <key>
@@ -8985,6 +8998,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __MaxTotalPrice__
                 </maxTotalPrice>
             </onDemandOptions>
+            <reservedCapacityOptions>
+                <reservationTypeSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </reservationTypeSet>
+            </reservedCapacityOptions>
             <tagSet>
                 <item>
                     <key>
@@ -14620,6 +14646,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __MaxTotalPrice__
                 </maxTotalPrice>
             </onDemandOptions>
+            <reservedCapacityOptions>
+                <reservationTypeSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </reservationTypeSet>
+            </reservedCapacityOptions>
             <tagSet>
                 <item>
                     <key>
@@ -18477,2602 +18516,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         MinTargetCapacity: (number) 0,
         MaxTotalPrice: "__MaxTotalPrice__"
       },
-      Tags: [
-        {
-          Key: "__Key__",
-          Value: "__Value__"
-        },
-        {
-          Key: "__Key__",
-          Value: "__Value__"
-        },
-        {
-          Key: "__Key__",
-          Value: "__Value__"
-        }
-      ],
-      Errors: [
-        {
-          LaunchTemplateAndOverrides: {
-            LaunchTemplateSpecification: {
-              LaunchTemplateId: "__LaunchTemplateId__",
-              LaunchTemplateName: "__LaunchTemplateName__",
-              Version: "__Version__"
-            },
-            Overrides: {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            }
-          },
-          Lifecycle: "__Lifecycle__",
-          ErrorCode: "__ErrorCode__",
-          ErrorMessage: "__ErrorMessage__"
-        },
-        {
-          LaunchTemplateAndOverrides: {
-            LaunchTemplateSpecification: {
-              LaunchTemplateId: "__LaunchTemplateId__",
-              LaunchTemplateName: "__LaunchTemplateName__",
-              Version: "__Version__"
-            },
-            Overrides: {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            }
-          },
-          Lifecycle: "__Lifecycle__",
-          ErrorCode: "__ErrorCode__",
-          ErrorMessage: "__ErrorMessage__"
-        },
-        {
-          LaunchTemplateAndOverrides: {
-            LaunchTemplateSpecification: {
-              LaunchTemplateId: "__LaunchTemplateId__",
-              LaunchTemplateName: "__LaunchTemplateName__",
-              Version: "__Version__"
-            },
-            Overrides: {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            }
-          },
-          Lifecycle: "__Lifecycle__",
-          ErrorCode: "__ErrorCode__",
-          ErrorMessage: "__ErrorMessage__"
-        }
-      ],
-      Instances: [
-        {
-          LaunchTemplateAndOverrides: {
-            LaunchTemplateSpecification: {
-              LaunchTemplateId: "__LaunchTemplateId__",
-              LaunchTemplateName: "__LaunchTemplateName__",
-              Version: "__Version__"
-            },
-            Overrides: {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            }
-          },
-          Lifecycle: "__Lifecycle__",
-          InstanceIds: [
-            "__member__",
-            "__member__",
-            "__member__"
-          ],
-          InstanceType: "__InstanceType__",
-          Platform: "__Platform__"
-        },
-        {
-          LaunchTemplateAndOverrides: {
-            LaunchTemplateSpecification: {
-              LaunchTemplateId: "__LaunchTemplateId__",
-              LaunchTemplateName: "__LaunchTemplateName__",
-              Version: "__Version__"
-            },
-            Overrides: {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            }
-          },
-          Lifecycle: "__Lifecycle__",
-          InstanceIds: [
-            "__member__",
-            "__member__",
-            "__member__"
-          ],
-          InstanceType: "__InstanceType__",
-          Platform: "__Platform__"
-        },
-        {
-          LaunchTemplateAndOverrides: {
-            LaunchTemplateSpecification: {
-              LaunchTemplateId: "__LaunchTemplateId__",
-              LaunchTemplateName: "__LaunchTemplateName__",
-              Version: "__Version__"
-            },
-            Overrides: {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            }
-          },
-          Lifecycle: "__Lifecycle__",
-          InstanceIds: [
-            "__member__",
-            "__member__",
-            "__member__"
-          ],
-          InstanceType: "__InstanceType__",
-          Platform: "__Platform__"
-        }
-      ],
-      Context: "__Context__"
-    },
-    {
-      ActivityStatus: "__ActivityStatus__",
-      CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-      FleetId: "__FleetId__",
-      FleetState: "__FleetState__",
-      ClientToken: "__ClientToken__",
-      ExcessCapacityTerminationPolicy: "__ExcessCapacityTerminationPolicy__",
-      FulfilledCapacity: (number) 0,
-      FulfilledOnDemandCapacity: (number) 0,
-      LaunchTemplateConfigs: [
-        {
-          LaunchTemplateSpecification: {
-            LaunchTemplateId: "__LaunchTemplateId__",
-            LaunchTemplateName: "__LaunchTemplateName__",
-            Version: "__Version__"
-          },
-          Overrides: [
-            {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            },
-            {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            },
-            {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            }
-          ]
-        },
-        {
-          LaunchTemplateSpecification: {
-            LaunchTemplateId: "__LaunchTemplateId__",
-            LaunchTemplateName: "__LaunchTemplateName__",
-            Version: "__Version__"
-          },
-          Overrides: [
-            {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            },
-            {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            },
-            {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            }
-          ]
-        },
-        {
-          LaunchTemplateSpecification: {
-            LaunchTemplateId: "__LaunchTemplateId__",
-            LaunchTemplateName: "__LaunchTemplateName__",
-            Version: "__Version__"
-          },
-          Overrides: [
-            {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            },
-            {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            },
-            {
-              InstanceType: "__InstanceType__",
-              MaxPrice: "__MaxPrice__",
-              SubnetId: "__SubnetId__",
-              AvailabilityZone: "__AvailabilityZone__",
-              WeightedCapacity: (number) 0,
-              Priority: (number) 0,
-              Placement: {
-                GroupName: "__GroupName__"
-              },
-              InstanceRequirements: {
-                VCpuCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                MemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                CpuManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MemoryGiBPerVCpu: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                ExcludedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                InstanceGenerations: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                SpotMaxPricePercentageOverLowestPrice: (number) 0,
-                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
-                BareMetal: "__BareMetal__",
-                BurstablePerformance: "__BurstablePerformance__",
-                RequireHibernateSupport: (boolean) false,
-                NetworkInterfaceCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                LocalStorage: "__LocalStorage__",
-                LocalStorageTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                TotalLocalStorageGB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                BaselineEbsBandwidthMbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorCount: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AcceleratorManufacturers: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorNames: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                AcceleratorTotalMemoryMiB: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                NetworkBandwidthGbps: {
-                  Min: (number) 0,
-                  Max: (number) 0
-                },
-                AllowedInstanceTypes: [
-                  "__member__",
-                  "__member__",
-                  "__member__"
-                ],
-                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
-                BaselinePerformanceFactors: {
-                  Cpu: {
-                    References: [
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      },
-                      {
-                        InstanceFamily: "__InstanceFamily__"
-                      }
-                    ]
-                  }
-                },
-                RequireEncryptionInTransit: (boolean) false
-              },
-              ImageId: "__ImageId__",
-              BlockDeviceMappings: [
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                },
-                {
-                  DeviceName: "__DeviceName__",
-                  VirtualName: "__VirtualName__",
-                  Ebs: {
-                    Encrypted: (boolean) false,
-                    DeleteOnTermination: (boolean) false,
-                    Iops: (number) 0,
-                    Throughput: (number) 0,
-                    KmsKeyId: "__KmsKeyId__",
-                    SnapshotId: "__SnapshotId__",
-                    VolumeSize: (number) 0,
-                    VolumeType: "__VolumeType__"
-                  },
-                  NoDevice: "__NoDevice__"
-                }
-              ],
-              AvailabilityZoneId: "__AvailabilityZoneId__"
-            }
-          ]
-        }
-      ],
-      TargetCapacitySpecification: {
-        TotalTargetCapacity: (number) 0,
-        OnDemandTargetCapacity: (number) 0,
-        SpotTargetCapacity: (number) 0,
-        DefaultTargetCapacityType: "__DefaultTargetCapacityType__",
-        TargetCapacityUnitType: "__TargetCapacityUnitType__"
-      },
-      TerminateInstancesWithExpiration: (boolean) false,
-      Type: "__Type__",
-      ValidFrom: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-      ValidUntil: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-      ReplaceUnhealthyInstances: (boolean) false,
-      SpotOptions: {
-        AllocationStrategy: "__AllocationStrategy__",
-        MaintenanceStrategies: {
-          CapacityRebalance: {
-            ReplacementStrategy: "__ReplacementStrategy__",
-            TerminationDelay: (number) 0
-          }
-        },
-        InstanceInterruptionBehavior: "__InstanceInterruptionBehavior__",
-        InstancePoolsToUseCount: (number) 0,
-        SingleInstanceType: (boolean) false,
-        SingleAvailabilityZone: (boolean) false,
-        MinTargetCapacity: (number) 0,
-        MaxTotalPrice: "__MaxTotalPrice__"
-      },
-      OnDemandOptions: {
-        AllocationStrategy: "__AllocationStrategy__",
-        CapacityReservationOptions: {
-          UsageStrategy: "__UsageStrategy__"
-        },
-        SingleInstanceType: (boolean) false,
-        SingleAvailabilityZone: (boolean) false,
-        MinTargetCapacity: (number) 0,
-        MaxTotalPrice: "__MaxTotalPrice__"
+      ReservedCapacityOptions: {
+        ReservationTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
       },
       Tags: [
         {
@@ -23670,6 +21119,2617 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SingleAvailabilityZone: (boolean) false,
         MinTargetCapacity: (number) 0,
         MaxTotalPrice: "__MaxTotalPrice__"
+      },
+      ReservedCapacityOptions: {
+        ReservationTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      Errors: [
+        {
+          LaunchTemplateAndOverrides: {
+            LaunchTemplateSpecification: {
+              LaunchTemplateId: "__LaunchTemplateId__",
+              LaunchTemplateName: "__LaunchTemplateName__",
+              Version: "__Version__"
+            },
+            Overrides: {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            }
+          },
+          Lifecycle: "__Lifecycle__",
+          ErrorCode: "__ErrorCode__",
+          ErrorMessage: "__ErrorMessage__"
+        },
+        {
+          LaunchTemplateAndOverrides: {
+            LaunchTemplateSpecification: {
+              LaunchTemplateId: "__LaunchTemplateId__",
+              LaunchTemplateName: "__LaunchTemplateName__",
+              Version: "__Version__"
+            },
+            Overrides: {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            }
+          },
+          Lifecycle: "__Lifecycle__",
+          ErrorCode: "__ErrorCode__",
+          ErrorMessage: "__ErrorMessage__"
+        },
+        {
+          LaunchTemplateAndOverrides: {
+            LaunchTemplateSpecification: {
+              LaunchTemplateId: "__LaunchTemplateId__",
+              LaunchTemplateName: "__LaunchTemplateName__",
+              Version: "__Version__"
+            },
+            Overrides: {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            }
+          },
+          Lifecycle: "__Lifecycle__",
+          ErrorCode: "__ErrorCode__",
+          ErrorMessage: "__ErrorMessage__"
+        }
+      ],
+      Instances: [
+        {
+          LaunchTemplateAndOverrides: {
+            LaunchTemplateSpecification: {
+              LaunchTemplateId: "__LaunchTemplateId__",
+              LaunchTemplateName: "__LaunchTemplateName__",
+              Version: "__Version__"
+            },
+            Overrides: {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            }
+          },
+          Lifecycle: "__Lifecycle__",
+          InstanceIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          InstanceType: "__InstanceType__",
+          Platform: "__Platform__"
+        },
+        {
+          LaunchTemplateAndOverrides: {
+            LaunchTemplateSpecification: {
+              LaunchTemplateId: "__LaunchTemplateId__",
+              LaunchTemplateName: "__LaunchTemplateName__",
+              Version: "__Version__"
+            },
+            Overrides: {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            }
+          },
+          Lifecycle: "__Lifecycle__",
+          InstanceIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          InstanceType: "__InstanceType__",
+          Platform: "__Platform__"
+        },
+        {
+          LaunchTemplateAndOverrides: {
+            LaunchTemplateSpecification: {
+              LaunchTemplateId: "__LaunchTemplateId__",
+              LaunchTemplateName: "__LaunchTemplateName__",
+              Version: "__Version__"
+            },
+            Overrides: {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            }
+          },
+          Lifecycle: "__Lifecycle__",
+          InstanceIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          InstanceType: "__InstanceType__",
+          Platform: "__Platform__"
+        }
+      ],
+      Context: "__Context__"
+    },
+    {
+      ActivityStatus: "__ActivityStatus__",
+      CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      FleetId: "__FleetId__",
+      FleetState: "__FleetState__",
+      ClientToken: "__ClientToken__",
+      ExcessCapacityTerminationPolicy: "__ExcessCapacityTerminationPolicy__",
+      FulfilledCapacity: (number) 0,
+      FulfilledOnDemandCapacity: (number) 0,
+      LaunchTemplateConfigs: [
+        {
+          LaunchTemplateSpecification: {
+            LaunchTemplateId: "__LaunchTemplateId__",
+            LaunchTemplateName: "__LaunchTemplateName__",
+            Version: "__Version__"
+          },
+          Overrides: [
+            {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            },
+            {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            },
+            {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            }
+          ]
+        },
+        {
+          LaunchTemplateSpecification: {
+            LaunchTemplateId: "__LaunchTemplateId__",
+            LaunchTemplateName: "__LaunchTemplateName__",
+            Version: "__Version__"
+          },
+          Overrides: [
+            {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            },
+            {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            },
+            {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            }
+          ]
+        },
+        {
+          LaunchTemplateSpecification: {
+            LaunchTemplateId: "__LaunchTemplateId__",
+            LaunchTemplateName: "__LaunchTemplateName__",
+            Version: "__Version__"
+          },
+          Overrides: [
+            {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            },
+            {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            },
+            {
+              InstanceType: "__InstanceType__",
+              MaxPrice: "__MaxPrice__",
+              SubnetId: "__SubnetId__",
+              AvailabilityZone: "__AvailabilityZone__",
+              WeightedCapacity: (number) 0,
+              Priority: (number) 0,
+              Placement: {
+                GroupName: "__GroupName__"
+              },
+              InstanceRequirements: {
+                VCpuCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                MemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                CpuManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MemoryGiBPerVCpu: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                ExcludedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                InstanceGenerations: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                SpotMaxPricePercentageOverLowestPrice: (number) 0,
+                OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+                BareMetal: "__BareMetal__",
+                BurstablePerformance: "__BurstablePerformance__",
+                RequireHibernateSupport: (boolean) false,
+                NetworkInterfaceCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                LocalStorage: "__LocalStorage__",
+                LocalStorageTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                TotalLocalStorageGB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                BaselineEbsBandwidthMbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorCount: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AcceleratorManufacturers: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorNames: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                AcceleratorTotalMemoryMiB: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                NetworkBandwidthGbps: {
+                  Min: (number) 0,
+                  Max: (number) 0
+                },
+                AllowedInstanceTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ],
+                MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+                BaselinePerformanceFactors: {
+                  Cpu: {
+                    References: [
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      },
+                      {
+                        InstanceFamily: "__InstanceFamily__"
+                      }
+                    ]
+                  }
+                },
+                RequireEncryptionInTransit: (boolean) false
+              },
+              ImageId: "__ImageId__",
+              BlockDeviceMappings: [
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                },
+                {
+                  DeviceName: "__DeviceName__",
+                  VirtualName: "__VirtualName__",
+                  Ebs: {
+                    Encrypted: (boolean) false,
+                    DeleteOnTermination: (boolean) false,
+                    Iops: (number) 0,
+                    Throughput: (number) 0,
+                    KmsKeyId: "__KmsKeyId__",
+                    SnapshotId: "__SnapshotId__",
+                    VolumeSize: (number) 0,
+                    VolumeType: "__VolumeType__"
+                  },
+                  NoDevice: "__NoDevice__"
+                }
+              ],
+              AvailabilityZoneId: "__AvailabilityZoneId__"
+            }
+          ]
+        }
+      ],
+      TargetCapacitySpecification: {
+        TotalTargetCapacity: (number) 0,
+        OnDemandTargetCapacity: (number) 0,
+        SpotTargetCapacity: (number) 0,
+        DefaultTargetCapacityType: "__DefaultTargetCapacityType__",
+        TargetCapacityUnitType: "__TargetCapacityUnitType__"
+      },
+      TerminateInstancesWithExpiration: (boolean) false,
+      Type: "__Type__",
+      ValidFrom: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ValidUntil: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReplaceUnhealthyInstances: (boolean) false,
+      SpotOptions: {
+        AllocationStrategy: "__AllocationStrategy__",
+        MaintenanceStrategies: {
+          CapacityRebalance: {
+            ReplacementStrategy: "__ReplacementStrategy__",
+            TerminationDelay: (number) 0
+          }
+        },
+        InstanceInterruptionBehavior: "__InstanceInterruptionBehavior__",
+        InstancePoolsToUseCount: (number) 0,
+        SingleInstanceType: (boolean) false,
+        SingleAvailabilityZone: (boolean) false,
+        MinTargetCapacity: (number) 0,
+        MaxTotalPrice: "__MaxTotalPrice__"
+      },
+      OnDemandOptions: {
+        AllocationStrategy: "__AllocationStrategy__",
+        CapacityReservationOptions: {
+          UsageStrategy: "__UsageStrategy__"
+        },
+        SingleInstanceType: (boolean) false,
+        SingleAvailabilityZone: (boolean) false,
+        MinTargetCapacity: (number) 0,
+        MaxTotalPrice: "__MaxTotalPrice__"
+      },
+      ReservedCapacityOptions: {
+        ReservationTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
       },
       Tags: [
         {

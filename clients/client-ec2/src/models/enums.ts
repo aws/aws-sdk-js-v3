@@ -3040,6 +3040,18 @@ export type FleetCapacityReservationUsageStrategy =
  * @public
  * @enum
  */
+export const FleetReservationType = {
+  INTERRUPTIBLE_CAPACITY_RESERVATION: "interruptible-capacity-reservation",
+} as const;
+/**
+ * @public
+ */
+export type FleetReservationType = (typeof FleetReservationType)[keyof typeof FleetReservationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SpotAllocationStrategy = {
   CAPACITY_OPTIMIZED: "capacity-optimized",
   CAPACITY_OPTIMIZED_PRIORITIZED: "capacity-optimized-prioritized",
@@ -3087,6 +3099,7 @@ export type FleetReplacementStrategy = (typeof FleetReplacementStrategy)[keyof t
 export const DefaultTargetCapacityType = {
   CAPACITY_BLOCK: "capacity-block",
   ON_DEMAND: "on-demand",
+  RESERVED_CAPACITY: "reserved-capacity",
   SPOT: "spot",
 } as const;
 /**
@@ -3127,6 +3140,7 @@ export type FleetType = (typeof FleetType)[keyof typeof FleetType];
  * @enum
  */
 export const InstanceLifecycle = {
+  INTERRUPTIBLE_CAPACITY_RESERVATION: "interruptible-capacity-reservation",
   ON_DEMAND: "on-demand",
   SPOT: "spot",
 } as const;

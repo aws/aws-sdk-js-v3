@@ -4637,6 +4637,8 @@ const _RCA = "ResourceConfigurationArn";
 const _RCGA = "ResourceConfigurationGroupArn";
 const _RCL = "ReasonCodesList";
 const _RCLe = "RecurringChargesList";
+const _RCO = "ReservedCapacityOptions";
+const _RCOR = "ReservedCapacityOptionsRequest";
 const _RCRBO = "RejectCapacityReservationBillingOwnership";
 const _RCRBOR = "RejectCapacityReservationBillingOwnershipRequest";
 const _RCRBORe = "RejectCapacityReservationBillingOwnershipResult";
@@ -4963,7 +4965,9 @@ const _RTI = "RouteTableId";
 const _RTISL = "RouteTableIdStringList";
 const _RTIe = "RequesterTgwInfo";
 const _RTIo = "RouteTableIds";
-const _RTL = "RouteTableList";
+const _RTL = "ReservationTypeList";
+const _RTLR = "ReservationTypeListRequest";
+const _RTLo = "RouteTableList";
 const _RTO = "ResourceTypeOptions";
 const _RTOL = "ResourceTypeOptionList";
 const _RTOe = "ResourceTypeOption";
@@ -4975,6 +4979,7 @@ const _RTe = "ResourceType";
 const _RTel = "ReleaseTime";
 const _RTeq = "RequestTime";
 const _RTes = "ResourceTypes";
+const _RTese = "ReservationTypes";
 const _RTeso = "ResourceTag";
 const _RTesou = "ResourceTags";
 const _RTo = "RouteTable";
@@ -7462,6 +7467,7 @@ const _rBETe = "recycleBinExitTime";
 const _rC = "returnCode";
 const _rCA = "resourceConfigurationArn";
 const _rCGA = "resourceConfigurationGroupArn";
+const _rCO = "reservedCapacityOptions";
 const _rCS = "resourceComplianceStatus";
 const _rCT = "reservationCreateTimestamp";
 const _rCTe = "reportCreationTime";
@@ -7577,6 +7583,7 @@ const _rTR = "routeTableRoute";
 const _rTS = "routeTableSet";
 const _rTSe = "resourceTypeSet";
 const _rTSes = "resourceTagSet";
+const _rTSese = "reservationTypeSet";
 const _rTV = "remainingTotalValue";
 const _rTe = "resourceType";
 const _rTel = "releaseTime";
@@ -10251,8 +10258,8 @@ export var CreateFleetInstance$: StaticStructureSchema = [3, n0, _CFI,
 ];
 export var CreateFleetRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_LTC, _TCS, _DR, _CT, _SO, _ODO, _ECTP, _TIWE, _Ty, _VF, _VU, _RUI, _TS, _Con],
-  [[() => FleetLaunchTemplateConfigListRequest, 0], () => TargetCapacitySpecificationRequest$, 2, [0, 4], () => SpotOptionsRequest$, () => OnDemandOptionsRequest$, 0, 2, 0, 4, 4, 2, [() => TagSpecificationList, { [_xN]: _TSa }], 0], 2
+  [_LTC, _TCS, _DR, _CT, _SO, _ODO, _RCO, _ECTP, _TIWE, _Ty, _VF, _VU, _RUI, _TS, _Con],
+  [[() => FleetLaunchTemplateConfigListRequest, 0], () => TargetCapacitySpecificationRequest$, 2, [0, 4], () => SpotOptionsRequest$, () => OnDemandOptionsRequest$, [() => ReservedCapacityOptionsRequest$, 0], 0, 2, 0, 4, 4, 2, [() => TagSpecificationList, { [_xN]: _TSa }], 0], 2
 ];
 export var CreateFleetResult$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -16360,7 +16367,7 @@ export var FleetCapacityReservation$: StaticStructureSchema = [3, n0, _FCRl,
 ];
 export var FleetData$: StaticStructureSchema = [3, n0, _FDl,
   0,
-  [_ASc, _CTr, _FIl, _FS, _CT, _ECTP, _FCu, _FODC, _LTC, _TCS, _TIWE, _Ty, _VF, _VU, _RUI, _SO, _ODO, _T, _Err, _Ins, _Con],
+  [_ASc, _CTr, _FIl, _FS, _CT, _ECTP, _FCu, _FODC, _LTC, _TCS, _TIWE, _Ty, _VF, _VU, _RUI, _SO, _ODO, _RCO, _T, _Err, _Ins, _Con],
   [[0, { [_eQN]: `ActivityStatus`
   , [_xN]: _aSc }], [4, { [_eQN]: `CreateTime`
   , [_xN]: _cTr }], [0, { [_eQN]: `FleetId`
@@ -16378,7 +16385,8 @@ export var FleetData$: StaticStructureSchema = [3, n0, _FDl,
   , [_xN]: _vU }], [2, { [_eQN]: `ReplaceUnhealthyInstances`
   , [_xN]: _rUI }], [() => SpotOptions$, { [_eQN]: `SpotOptions`
   , [_xN]: _sO }], [() => OnDemandOptions$, { [_eQN]: `OnDemandOptions`
-  , [_xN]: _oDO }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _oDO }], [() => ReservedCapacityOptions$, { [_eQN]: `ReservedCapacityOptions`
+  , [_xN]: _rCO }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [() => DescribeFleetsErrorSet, { [_eQN]: `ErrorSet`
   , [_xN]: _eSr }], [() => DescribeFleetsInstancesSet, { [_eQN]: `FleetInstanceSet`
   , [_xN]: _fIS }], [0, { [_eQN]: `Context`
@@ -22272,6 +22280,17 @@ export var ReservationValue$: StaticStructureSchema = [3, n0, _RVe,
   , [_xN]: _rTV }], [0, { [_eQN]: `RemainingUpfrontValue`
   , [_xN]: _rUV }]]
 ];
+export var ReservedCapacityOptions$: StaticStructureSchema = [3, n0, _RCO,
+  0,
+  [_RTese],
+  [[() => ReservationTypeList, { [_eQN]: `ReservationTypeSet`
+  , [_xN]: _rTSese }]]
+];
+export var ReservedCapacityOptionsRequest$: StaticStructureSchema = [3, n0, _RCOR,
+  0,
+  [_RTese],
+  [[() => ReservationTypeListRequest, { [_xN]: _RT }]]
+];
 export var ReservedInstanceLimitPrice$: StaticStructureSchema = [3, n0, _RILP,
   0,
   [_Am, _CC],
@@ -27378,6 +27397,14 @@ var ReservationList: StaticListSchema = [1, n0, _RLe,
   0, [() => Reservation$,
     { [_xN]: _it }]
 ];
+var ReservationTypeList: StaticListSchema = [1, n0, _RTL,
+  0, [0,
+    { [_xN]: _it }]
+];
+var ReservationTypeListRequest: StaticListSchema = [1, n0, _RTLR,
+  0, [0,
+    { [_xN]: _RT }]
+];
 var ReservedInstanceIdSet: StaticListSchema = [1, n0, _RIIS,
   0, [0,
     { [_xN]: _RIIe }]
@@ -27497,7 +27524,7 @@ var RouteTableIdStringList: StaticListSchema = [1, n0, _RTISL,
   0, [0,
     { [_xN]: _it }]
 ];
-var RouteTableList: StaticListSchema = [1, n0, _RTL,
+var RouteTableList: StaticListSchema = [1, n0, _RTLo,
   0, [() => RouteTable$,
     { [_xN]: _it }]
 ];

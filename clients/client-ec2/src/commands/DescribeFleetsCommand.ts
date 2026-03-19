@@ -196,7 +196,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //         TotalTargetCapacity: Number("int"),
  * //         OnDemandTargetCapacity: Number("int"),
  * //         SpotTargetCapacity: Number("int"),
- * //         DefaultTargetCapacityType: "spot" || "on-demand" || "capacity-block",
+ * //         DefaultTargetCapacityType: "spot" || "on-demand" || "capacity-block" || "reserved-capacity",
  * //         TargetCapacityUnitType: "vcpu" || "memory-mib" || "units",
  * //       },
  * //       TerminateInstancesWithExpiration: true || false,
@@ -228,6 +228,11 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //         SingleAvailabilityZone: true || false,
  * //         MinTargetCapacity: Number("int"),
  * //         MaxTotalPrice: "STRING_VALUE",
+ * //       },
+ * //       ReservedCapacityOptions: { // ReservedCapacityOptions
+ * //         ReservationTypes: [ // ReservationTypeList
+ * //           "interruptible-capacity-reservation",
+ * //         ],
  * //       },
  * //       Tags: [ // TagList
  * //         { // Tag
@@ -353,7 +358,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //               AvailabilityZoneId: "STRING_VALUE",
  * //             },
  * //           },
- * //           Lifecycle: "spot" || "on-demand",
+ * //           Lifecycle: "spot" || "on-demand" || "interruptible-capacity-reservation",
  * //           ErrorCode: "STRING_VALUE",
  * //           ErrorMessage: "STRING_VALUE",
  * //         },
@@ -476,7 +481,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //               AvailabilityZoneId: "STRING_VALUE",
  * //             },
  * //           },
- * //           Lifecycle: "spot" || "on-demand",
+ * //           Lifecycle: "spot" || "on-demand" || "interruptible-capacity-reservation",
  * //           InstanceIds: [ // InstanceIdsSet
  * //             "STRING_VALUE",
  * //           ],

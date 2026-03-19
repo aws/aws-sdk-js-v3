@@ -86,6 +86,7 @@ import {
   DnsEntry,
   ServiceConfiguration,
   ServiceTypeDetail,
+  TrafficMirrorSession,
   TrafficMirrorTarget,
   TransitGateway,
   TransitGatewayConnect,
@@ -112,6 +113,83 @@ import {
   ProductCode,
 } from "./models_3";
 import { RegisteredInstance } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeTrafficMirrorSessionsResult {
+  /**
+   * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
+   * @public
+   */
+  TrafficMirrorSessions?: TrafficMirrorSession[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrafficMirrorTargetsRequest {
+  /**
+   * <p>The ID of the Traffic Mirror targets.</p>
+   * @public
+   */
+  TrafficMirrorTargetIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code>: The Traffic Mirror target description.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-load-balancer-arn</code>: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -9006,117 +9084,4 @@ export interface RegionalSummary {
    * @public
    */
   NumberOfUnmatchedAccounts?: number | undefined;
-}
-
-/**
- * <p>A summary report for the attribute across all Regions.</p>
- * @public
- */
-export interface AttributeSummary {
-  /**
-   * <p>The name of the attribute.</p>
-   * @public
-   */
-  AttributeName?: string | undefined;
-
-  /**
-   * <p>The configuration value that is most frequently observed for the attribute.</p>
-   * @public
-   */
-  MostFrequentValue?: string | undefined;
-
-  /**
-   * <p>The number of accounts with the same configuration value for the attribute that is
-   *             most frequently observed.</p>
-   * @public
-   */
-  NumberOfMatchedAccounts?: number | undefined;
-
-  /**
-   * <p>The number of accounts with a configuration value different from the most frequently
-   *             observed value for the attribute.</p>
-   * @public
-   */
-  NumberOfUnmatchedAccounts?: number | undefined;
-
-  /**
-   * <p>The summary report for each Region for the attribute.</p>
-   * @public
-   */
-  RegionalSummaries?: RegionalSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDeclarativePoliciesReportSummaryResult {
-  /**
-   * <p>The ID of the report.</p>
-   * @public
-   */
-  ReportId?: string | undefined;
-
-  /**
-   * <p>The name of the Amazon S3 bucket where the report is located.</p>
-   * @public
-   */
-  S3Bucket?: string | undefined;
-
-  /**
-   * <p>The prefix for your S3 object.</p>
-   * @public
-   */
-  S3Prefix?: string | undefined;
-
-  /**
-   * <p>The root ID, organizational unit ID, or account ID.</p>
-   *          <p>Format:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For root: <code>r-ab12</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For OU: <code>ou-ab12-cdef1234</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For account: <code>123456789012</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TargetId?: string | undefined;
-
-  /**
-   * <p>The time when the report generation started.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The time when the report generation ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The total number of accounts associated with the specified
-   *             <code>targetId</code>.</p>
-   * @public
-   */
-  NumberOfAccounts?: number | undefined;
-
-  /**
-   * <p>The number of accounts where attributes could not be retrieved in any Region.</p>
-   * @public
-   */
-  NumberOfFailedAccounts?: number | undefined;
-
-  /**
-   * <p>The attributes described in the report.</p>
-   * @public
-   */
-  AttributeSummaries?: AttributeSummary[] | undefined;
 }

@@ -77,7 +77,6 @@ import {
   TrafficMirrorFilterRuleField,
   TrafficMirrorNetworkService,
   TrafficMirrorRuleAction,
-  TrafficMirrorSessionField,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayPropagationState,
@@ -139,7 +138,6 @@ import {
   type TrafficMirrorFilter,
   type TrafficMirrorFilterRule,
   type TrafficMirrorPortRangeRequest,
-  type TrafficMirrorSession,
   SubnetCidrReservation,
   TransitGatewayMeteringPolicyEntry,
   TransitGatewayPrefixListReference,
@@ -162,7 +160,120 @@ import {
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
 } from "./models_4";
-import { RouteServerPropagation } from "./models_5";
+import { RegionalSummary, RouteServerPropagation } from "./models_5";
+
+/**
+ * <p>A summary report for the attribute across all Regions.</p>
+ * @public
+ */
+export interface AttributeSummary {
+  /**
+   * <p>The name of the attribute.</p>
+   * @public
+   */
+  AttributeName?: string | undefined;
+
+  /**
+   * <p>The configuration value that is most frequently observed for the attribute.</p>
+   * @public
+   */
+  MostFrequentValue?: string | undefined;
+
+  /**
+   * <p>The number of accounts with the same configuration value for the attribute that is
+   *             most frequently observed.</p>
+   * @public
+   */
+  NumberOfMatchedAccounts?: number | undefined;
+
+  /**
+   * <p>The number of accounts with a configuration value different from the most frequently
+   *             observed value for the attribute.</p>
+   * @public
+   */
+  NumberOfUnmatchedAccounts?: number | undefined;
+
+  /**
+   * <p>The summary report for each Region for the attribute.</p>
+   * @public
+   */
+  RegionalSummaries?: RegionalSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDeclarativePoliciesReportSummaryResult {
+  /**
+   * <p>The ID of the report.</p>
+   * @public
+   */
+  ReportId?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket where the report is located.</p>
+   * @public
+   */
+  S3Bucket?: string | undefined;
+
+  /**
+   * <p>The prefix for your S3 object.</p>
+   * @public
+   */
+  S3Prefix?: string | undefined;
+
+  /**
+   * <p>The root ID, organizational unit ID, or account ID.</p>
+   *          <p>Format:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For root: <code>r-ab12</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For OU: <code>ou-ab12-cdef1234</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For account: <code>123456789012</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TargetId?: string | undefined;
+
+  /**
+   * <p>The time when the report generation started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The time when the report generation ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The total number of accounts associated with the specified
+   *             <code>targetId</code>.</p>
+   * @public
+   */
+  NumberOfAccounts?: number | undefined;
+
+  /**
+   * <p>The number of accounts where attributes could not be retrieved in any Region.</p>
+   * @public
+   */
+  NumberOfFailedAccounts?: number | undefined;
+
+  /**
+   * <p>The attributes described in the report.</p>
+   * @public
+   */
+  AttributeSummaries?: AttributeSummary[] | undefined;
+}
 
 /**
  * @public
@@ -9931,79 +10042,4 @@ export interface ModifyTrafficMirrorFilterRuleResult {
    * @public
    */
   TrafficMirrorFilterRule?: TrafficMirrorFilterRule | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorSessionRequest {
-  /**
-   * <p>The ID of the Traffic Mirror session.</p>
-   * @public
-   */
-  TrafficMirrorSessionId: string | undefined;
-
-  /**
-   * <p>The Traffic Mirror target. The target must be in the same VPC as the source, or have a VPC peering connection with the source.</p>
-   * @public
-   */
-  TrafficMirrorTargetId?: string | undefined;
-
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   * @public
-   */
-  TrafficMirrorFilterId?: string | undefined;
-
-  /**
-   * <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p>
-   *          <p>For sessions with Network Load Balancer (NLB) traffic mirror targets, the default <code>PacketLength</code> will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code> greater than 8500 will result in an error response.</p>
-   * @public
-   */
-  PacketLength?: number | undefined;
-
-  /**
-   * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
-   *          <p>Valid values are 1-32766.</p>
-   * @public
-   */
-  SessionNumber?: number | undefined;
-
-  /**
-   * <p>The virtual network ID of the Traffic Mirror session.</p>
-   * @public
-   */
-  VirtualNetworkId?: number | undefined;
-
-  /**
-   * <p>The description to assign to the Traffic Mirror session.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The properties that you want to remove from the Traffic Mirror session.</p>
-   *          <p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
-   * @public
-   */
-  RemoveFields?: TrafficMirrorSessionField[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorSessionResult {
-  /**
-   * <p>Information about the Traffic Mirror session.</p>
-   * @public
-   */
-  TrafficMirrorSession?: TrafficMirrorSession | undefined;
 }

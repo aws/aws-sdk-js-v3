@@ -2438,6 +2438,7 @@ import {
   FleetLaunchTemplateSpecificationRequest$,
   FleetOnDemandAllocationStrategy,
   FleetReplacementStrategy,
+  FleetReservationType,
   FleetSpotCapacityRebalance$,
   FleetSpotCapacityRebalanceRequest$,
   FleetSpotMaintenanceStrategies$,
@@ -3921,6 +3922,8 @@ import {
   ReservationState,
   ReservationType,
   ReservationValue$,
+  ReservedCapacityOptions$,
+  ReservedCapacityOptionsRequest$,
   ReservedInstanceLimitPrice$,
   ReservedInstanceReservationValue$,
   ReservedInstances$,
@@ -8102,6 +8105,8 @@ assert(typeof RequestSpotLaunchSpecification$ === "object");
 assert(typeof Reservation$ === "object");
 assert(typeof ReservationFleetInstanceSpecification$ === "object");
 assert(typeof ReservationValue$ === "object");
+assert(typeof ReservedCapacityOptions$ === "object");
+assert(typeof ReservedCapacityOptionsRequest$ === "object");
 assert(typeof ReservedInstanceLimitPrice$ === "object");
 assert(typeof ReservedInstanceReservationValue$ === "object");
 assert(typeof ReservedInstances$ === "object");
@@ -8571,6 +8576,7 @@ assert(typeof FleetExcessCapacityTerminationPolicy === "object");
 assert(typeof FleetInstanceMatchCriteria === "object");
 assert(typeof FleetOnDemandAllocationStrategy === "object");
 assert(typeof FleetReplacementStrategy === "object");
+assert(typeof FleetReservationType === "object");
 assert(typeof FleetStateCode === "object");
 assert(typeof FleetType === "object");
 assert(typeof FlexibleEnaQueuesSupport === "object");

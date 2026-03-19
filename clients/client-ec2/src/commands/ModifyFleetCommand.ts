@@ -194,7 +194,7 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *     TotalTargetCapacity: Number("int"), // required
  *     OnDemandTargetCapacity: Number("int"),
  *     SpotTargetCapacity: Number("int"),
- *     DefaultTargetCapacityType: "spot" || "on-demand" || "capacity-block",
+ *     DefaultTargetCapacityType: "spot" || "on-demand" || "capacity-block" || "reserved-capacity",
  *     TargetCapacityUnitType: "vcpu" || "memory-mib" || "units",
  *   },
  *   Context: "STRING_VALUE",
