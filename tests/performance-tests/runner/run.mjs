@@ -9,7 +9,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const APPLICATIONS_DIR = path.resolve(__dirname, "../applications");
 const DIST_DIR = path.resolve(__dirname, "../dist-perf");
 
-const lerna = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../../lerna.json"), "utf-8"));
+let lerna = { version: "unknown" };
+try {
+  lerna = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../lerna.json"), "utf-8"));
+} catch {}
 
 let commitId = "unknown";
 try {
