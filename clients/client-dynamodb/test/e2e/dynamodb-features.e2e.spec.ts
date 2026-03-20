@@ -1,12 +1,24 @@
 import { DynamoDB, waitUntilTableExists } from "@aws-sdk/client-dynamodb";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
+
+// aws is created at runtime by the Vitest setup file,
+// but TypeScript doesn't know that symbol exists in this test file,
+// globalThis is a known global, so narrowing it with a small local type removes the Cannot find name 'aws' error without changing runtime behavior
+const testCredentials = (
+  globalThis as typeof globalThis & {
+    aws?: {
+      testCredentials?: AwsCredentialIdentity | (() => Promise<AwsCredentialIdentity>);
+    };
+  }
+).aws?.testCredentials;
 
 describe(DynamoDB.name, () => {
   let client: DynamoDB;
   let sharedTableName: string;
 
   beforeAll(async () => {
-    client = new DynamoDB({ region: "us-west-2", maxAttempts: 10, credentials: aws?.testCredentials });
+    client = new DynamoDB({ region: "us-west-2", maxAttempts: 10, credentials: testCredentials });
 
     // Create shared table for tests
     sharedTableName = `aws-sdk-js-integration-${Date.now()}`;

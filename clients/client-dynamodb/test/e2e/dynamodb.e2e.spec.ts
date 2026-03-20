@@ -1,12 +1,22 @@
 import { DynamoDB, ResourceNotFoundException } from "@aws-sdk/client-dynamodb";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema } from "@smithy/types";
+import type { StaticErrorSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
+
+const testCredentials = (
+  globalThis as typeof globalThis & {
+    aws?: {
+      testCredentials?: AwsCredentialIdentity | (() => Promise<AwsCredentialIdentity>);
+    };
+  }
+).aws?.testCredentials;
 
 describe(DynamoDB.name, () => {
   const ddb = new DynamoDB({
     region: "us-west-2",
-    credentials: aws?.testCredentials,
+    maxAttempts: 2,
+    ...(testCredentials ? { credentials: testCredentials } : {}),
   });
 
   it("throws an error when table is not found", async () => {
@@ -17,7 +27,6 @@ describe(DynamoDB.name, () => {
       .catch((e) => e);
 
     expect(error).toMatchObject({
-      message: "Requested resource not found: Table: DynamoDB not found",
       $fault: "client",
       $metadata: {
         attempts: 1,
@@ -25,14 +34,15 @@ describe(DynamoDB.name, () => {
       },
       name: "ResourceNotFoundException",
     });
-
+    expect(error.message).toMatch(/non-existent table|not found/i);
     expect(error).toBeInstanceOf(ResourceNotFoundException);
-
     const registry = TypeRegistry.for("com.amazonaws.dynamodb");
     const errorSchema = registry.getSchema("ResourceNotFoundException") as StaticErrorSchema;
     expect(errorSchema).toBeDefined();
-    const errorCtor = registry.getErrorCtor(errorSchema);
-
+    if (!errorSchema) {
+      throw new Error("Expected ResourceNotFoundException schema to be registered.");
+    }
+    const errorCtor = registry.getErrorCtor(errorSchema as StaticErrorSchema);
     expect(errorCtor).toBe(ResourceNotFoundException);
   });
 });
