@@ -4,11 +4,23 @@
 content-type: application/xml
 
 [Uint8Array (xml)]
-<ErrorResponse xmlns="https://placeholder.amazonaws.com"/>
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            InsufficientCloudWatchLogsResourcePolicy
+        </Code>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
 
 
 --- [error name & message] ---
-Unknown: UnknownError
+InsufficientCloudWatchLogsResourcePolicy: UnknownError
 
 --- [error object] ---
 {
@@ -16,15 +28,22 @@ Unknown: UnknownError
   $retryable: (undefined),
   $metadata: {
     httpStatusCode: (number) 400,
-    requestId: (undefined),
+    requestId: "00000000-0000-4000-8000-000000000000",
     extendedRequestId: (undefined),
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
   },
-  name: "Unknown",
+  name: "InsufficientCloudWatchLogsResourcePolicy",
+  message: "UnknownError",
+  Error: {
+    Type: "Sender",
+    Code: "InsufficientCloudWatchLogsResourcePolicy"
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
   xmlns: "https://placeholder.amazonaws.com",
-  message: "UnknownError"
+  Type: "Sender",
+  Code: "InsufficientCloudWatchLogsResourcePolicy"
 }
 
 ======================== w/ optional fields ========================
@@ -33,11 +52,26 @@ Unknown: UnknownError
 content-type: application/xml
 
 [Uint8Array (xml)]
-<ErrorResponse xmlns="https://placeholder.amazonaws.com"/>
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            InsufficientCloudWatchLogsResourcePolicy
+        </Code>
+        <message>
+            __message__
+        </message>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
 
 
 --- [error name & message] ---
-Unknown: UnknownError
+InsufficientCloudWatchLogsResourcePolicy: __message__
 
 --- [error object] ---
 {
@@ -45,15 +79,23 @@ Unknown: UnknownError
   $retryable: (undefined),
   $metadata: {
     httpStatusCode: (number) 400,
-    requestId: (undefined),
+    requestId: "00000000-0000-4000-8000-000000000000",
     extendedRequestId: (undefined),
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
   },
-  name: "Unknown",
+  name: "InsufficientCloudWatchLogsResourcePolicy",
+  message: "__message__",
+  Error: {
+    Type: "Sender",
+    Code: "InsufficientCloudWatchLogsResourcePolicy",
+    message: "__message__"
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
   xmlns: "https://placeholder.amazonaws.com",
-  message: "UnknownError"
+  Type: "Sender",
+  Code: "InsufficientCloudWatchLogsResourcePolicy"
 }
 
 ======================== frontend error ========================

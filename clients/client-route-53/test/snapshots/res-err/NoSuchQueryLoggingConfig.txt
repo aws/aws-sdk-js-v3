@@ -4,11 +4,23 @@
 content-type: application/xml
 
 [Uint8Array (xml)]
-<ErrorResponse xmlns="https://placeholder.amazonaws.com"/>
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            NoSuchQueryLoggingConfig
+        </Code>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
 
 
 --- [error name & message] ---
-NotFound: UnknownError
+NoSuchQueryLoggingConfig: UnknownError
 
 --- [error object] ---
 {
@@ -16,15 +28,22 @@ NotFound: UnknownError
   $retryable: (undefined),
   $metadata: {
     httpStatusCode: (number) 404,
-    requestId: (undefined),
+    requestId: "00000000-0000-4000-8000-000000000000",
     extendedRequestId: (undefined),
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
   },
-  name: "NotFound",
+  name: "NoSuchQueryLoggingConfig",
+  message: "UnknownError",
+  Error: {
+    Type: "Sender",
+    Code: "NoSuchQueryLoggingConfig"
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
   xmlns: "https://placeholder.amazonaws.com",
-  message: "UnknownError"
+  Type: "Sender",
+  Code: "NoSuchQueryLoggingConfig"
 }
 
 ======================== w/ optional fields ========================
@@ -33,11 +52,26 @@ NotFound: UnknownError
 content-type: application/xml
 
 [Uint8Array (xml)]
-<ErrorResponse xmlns="https://placeholder.amazonaws.com"/>
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            NoSuchQueryLoggingConfig
+        </Code>
+        <message>
+            __message__
+        </message>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
 
 
 --- [error name & message] ---
-NotFound: UnknownError
+NoSuchQueryLoggingConfig: __message__
 
 --- [error object] ---
 {
@@ -45,15 +79,23 @@ NotFound: UnknownError
   $retryable: (undefined),
   $metadata: {
     httpStatusCode: (number) 404,
-    requestId: (undefined),
+    requestId: "00000000-0000-4000-8000-000000000000",
     extendedRequestId: (undefined),
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
   },
-  name: "NotFound",
+  name: "NoSuchQueryLoggingConfig",
+  message: "__message__",
+  Error: {
+    Type: "Sender",
+    Code: "NoSuchQueryLoggingConfig",
+    message: "__message__"
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
   xmlns: "https://placeholder.amazonaws.com",
-  message: "UnknownError"
+  Type: "Sender",
+  Code: "NoSuchQueryLoggingConfig"
 }
 
 ======================== frontend error ========================
