@@ -4,11 +4,26 @@
 content-type: application/xml
 
 [Uint8Array (xml)]
-<ErrorResponse xmlns="https://placeholder.amazonaws.com"/>
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            ComplexError
+        </Code>
+        <Message>
+            unmodeled message.
+        </Message>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
 
 
 --- [error name & message] ---
-Unknown: UnknownError
+ComplexError: unmodeled message.
 
 --- [error object] ---
 {
@@ -16,15 +31,26 @@ Unknown: UnknownError
   $retryable: (undefined),
   $metadata: {
     httpStatusCode: (number) 403,
-    requestId: (undefined),
+    requestId: "00000000-0000-4000-8000-000000000000",
     extendedRequestId: (undefined),
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
   },
-  name: "Unknown",
+  name: "ComplexError",
+  Header: (undefined),
+  TopLevel: (undefined),
+  Nested: (undefined),
+  message: "unmodeled message.",
+  Error: {
+    Type: "Sender",
+    Code: "ComplexError",
+    Message: "unmodeled message."
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
   xmlns: "https://placeholder.amazonaws.com",
-  message: "UnknownError"
+  Type: "Sender",
+  Code: "ComplexError"
 }
 
 ======================== w/ optional fields ========================
@@ -34,11 +60,34 @@ content-type: application/xml
 X-Header: __Header__
 
 [Uint8Array (xml)]
-<ErrorResponse xmlns="https://placeholder.amazonaws.com"/>
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            ComplexError
+        </Code>
+        <TopLevel>
+            __TopLevel__
+        </TopLevel>
+        <Nested>
+            <Foo>
+                __Foo__
+            </Foo>
+        </Nested>
+        <Message>
+            unmodeled message.
+        </Message>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
 
 
 --- [error name & message] ---
-Unknown: UnknownError
+ComplexError: unmodeled message.
 
 --- [error object] ---
 {
@@ -46,15 +95,32 @@ Unknown: UnknownError
   $retryable: (undefined),
   $metadata: {
     httpStatusCode: (number) 403,
-    requestId: (undefined),
+    requestId: "00000000-0000-4000-8000-000000000000",
     extendedRequestId: (undefined),
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
   },
-  name: "Unknown",
+  name: "ComplexError",
+  Header: (undefined),
+  TopLevel: "__TopLevel__",
+  Nested: {
+    Foo: "__Foo__"
+  },
+  message: "unmodeled message.",
+  Error: {
+    Type: "Sender",
+    Code: "ComplexError",
+    TopLevel: "__TopLevel__",
+    Nested: {
+      Foo: "__Foo__"
+    },
+    Message: "unmodeled message."
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
   xmlns: "https://placeholder.amazonaws.com",
-  message: "UnknownError"
+  Type: "Sender",
+  Code: "ComplexError"
 }
 
 ======================== frontend error ========================

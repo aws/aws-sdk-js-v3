@@ -85,18 +85,17 @@ export class AwsRestXmlSnapshotResponseSerializer extends HttpBindingSnapshotRes
       ["Error", "RequestId"],
       [$unwrapped, 0],
     ] satisfies StaticErrorSchema;
+
     return [
       NormalizedSchema.of($wrapped),
       {
-        ErrorResponse: {
-          Error: {
-            Type: "Sender",
-            Code: name,
-            Message: "unmodeled message.",
-            ...output,
-          },
-          RequestId: "00000000-0000-4000-8000-000000000000",
+        Error: {
+          Type: "Sender",
+          Code: name,
+          Message: "unmodeled message.",
+          ...output,
         },
+        RequestId: "00000000-0000-4000-8000-000000000000",
       },
     ];
   }

@@ -4,27 +4,50 @@
 content-type: application/xml
 
 [Uint8Array (xml)]
-<ErrorResponse xmlns="https://placeholder.amazonaws.com"/>
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            InternalServiceException
+        </Code>
+        <Message>
+            unmodeled message.
+        </Message>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
 
 
 --- [error name & message] ---
-Unknown: UnknownError
+InternalServiceException: unmodeled message.
 
 --- [error object] ---
 {
-  $fault: "client",
+  $fault: "server",
   $retryable: (undefined),
   $metadata: {
     httpStatusCode: (number) 400,
-    requestId: (undefined),
+    requestId: "00000000-0000-4000-8000-000000000000",
     extendedRequestId: (undefined),
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
   },
-  name: "Unknown",
+  name: "InternalServiceException",
+  message: "unmodeled message.",
+  Error: {
+    Type: "Sender",
+    Code: "InternalServiceException",
+    Message: "unmodeled message."
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
   xmlns: "https://placeholder.amazonaws.com",
-  message: "UnknownError"
+  Type: "Sender",
+  Code: "InternalServiceException"
 }
 
 ======================== w/ optional fields ========================
@@ -33,27 +56,50 @@ Unknown: UnknownError
 content-type: application/xml
 
 [Uint8Array (xml)]
-<ErrorResponse xmlns="https://placeholder.amazonaws.com"/>
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            InternalServiceException
+        </Code>
+        <Message>
+            __Message__
+        </Message>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
 
 
 --- [error name & message] ---
-Unknown: UnknownError
+InternalServiceException: __Message__
 
 --- [error object] ---
 {
-  $fault: "client",
+  $fault: "server",
   $retryable: (undefined),
   $metadata: {
     httpStatusCode: (number) 400,
-    requestId: (undefined),
+    requestId: "00000000-0000-4000-8000-000000000000",
     extendedRequestId: (undefined),
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
   },
-  name: "Unknown",
+  name: "InternalServiceException",
+  message: "__Message__",
+  Error: {
+    Type: "Sender",
+    Code: "InternalServiceException",
+    Message: "__Message__"
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
   xmlns: "https://placeholder.amazonaws.com",
-  message: "UnknownError"
+  Type: "Sender",
+  Code: "InternalServiceException"
 }
 
 ======================== frontend error ========================
