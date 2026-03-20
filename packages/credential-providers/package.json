@@ -44,7 +44,7 @@
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.22",
     "@aws-sdk/nested-clients": "workspace:^3.996.12",
     "@aws-sdk/types": "workspace:^3.973.6",
-    "@smithy/config-resolver": "^4.4.11",
+    "@smithy/config-resolver": "^4.4.13",
     "@smithy/core": "^3.23.12",
     "@smithy/credential-provider-imds": "^4.2.12",
     "@smithy/node-config-provider": "^4.3.12",

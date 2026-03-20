@@ -3,12 +3,13 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CognitoIdentityClient } from "./CognitoIdentityClient";
-import {
-  GetCredentialsForIdentityCommand,
+import type {
   GetCredentialsForIdentityCommandInput,
   GetCredentialsForIdentityCommandOutput,
 } from "./commands/GetCredentialsForIdentityCommand";
-import { GetIdCommand, GetIdCommandInput, GetIdCommandOutput } from "./commands/GetIdCommand";
+import { GetCredentialsForIdentityCommand } from "./commands/GetCredentialsForIdentityCommand";
+import type { GetIdCommandInput, GetIdCommandOutput } from "./commands/GetIdCommand";
+import { GetIdCommand } from "./commands/GetIdCommand";
 
 const commands = {
   GetCredentialsForIdentityCommand,
