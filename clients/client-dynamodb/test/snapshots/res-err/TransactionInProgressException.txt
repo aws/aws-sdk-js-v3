@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.0
 
 
 --- [error name & message] ---
-TransactionInProgressException: Unknown
+TransactionInProgressException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ TransactionInProgressException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "TransactionInProgressException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.dynamodb#TransactionInProgressException"
 }
 

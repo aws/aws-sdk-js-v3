@@ -14,14 +14,11 @@ content-type: application/xml
     <RequestId>
         00000000-0000-4000-8000-000000000000
     </RequestId>
-    <Message>
-        unmodeled message.
-    </Message>
 </IdempotencyParameterMismatch>
 
 
 --- [error name & message] ---
-IdempotencyParameterMismatch: unmodeled message.
+IdempotencyParameterMismatch: UnknownError
 
 --- [error object] ---
 {
@@ -36,7 +33,7 @@ IdempotencyParameterMismatch: unmodeled message.
     totalRetryDelay: (number) 0
   },
   name: "IdempotencyParameterMismatch",
-  message: "unmodeled message.",
+  message: "UnknownError",
   Type: "Sender",
   Code: "IdempotencyParameterMismatch",
   RequestId: "00000000-0000-4000-8000-000000000000",
@@ -59,14 +56,11 @@ content-type: application/xml
     <RequestId>
         00000000-0000-4000-8000-000000000000
     </RequestId>
-    <Message>
-        unmodeled message.
-    </Message>
 </IdempotencyParameterMismatch>
 
 
 --- [error name & message] ---
-IdempotencyParameterMismatch: unmodeled message.
+IdempotencyParameterMismatch: UnknownError
 
 --- [error object] ---
 {
@@ -81,7 +75,7 @@ IdempotencyParameterMismatch: unmodeled message.
     totalRetryDelay: (number) 0
   },
   name: "IdempotencyParameterMismatch",
-  message: "unmodeled message.",
+  message: "UnknownError",
   Type: "Sender",
   Code: "IdempotencyParameterMismatch",
   RequestId: "00000000-0000-4000-8000-000000000000",

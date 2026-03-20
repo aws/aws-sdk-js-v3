@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-InvalidGreeting: Unknown
+InvalidGreeting: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ InvalidGreeting: Unknown
     totalRetryDelay: (number) 0
   },
   name: "InvalidGreeting",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "aws.protocoltests.json#InvalidGreeting"
 }
 

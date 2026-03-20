@@ -16,7 +16,7 @@ content-type: application/cbor
 
 
 --- [error name & message] ---
-ComplexError: Unknown
+ComplexError: UnknownError
 
 --- [error object] ---
 {
@@ -33,7 +33,7 @@ ComplexError: Unknown
   name: "ComplexError",
   TopLevel: (undefined),
   Nested: (undefined),
-  message: "Unknown",
+  message: "UnknownError",
   __type: "smithy.protocoltests.rpcv2Cbor#ComplexError"
 }
 
@@ -60,7 +60,7 @@ content-type: application/cbor
 
 
 --- [error name & message] ---
-ComplexError: Unknown
+ComplexError: UnknownError
 
 --- [error object] ---
 {
@@ -79,7 +79,7 @@ ComplexError: Unknown
   Nested: {
     Foo: "__Foo__"
   },
-  message: "Unknown",
+  message: "UnknownError",
   __type: "smithy.protocoltests.rpcv2Cbor#ComplexError"
 }
 

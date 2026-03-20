@@ -14,14 +14,11 @@ content-type: application/xml
     <RequestId>
         00000000-0000-4000-8000-000000000000
     </RequestId>
-    <Message>
-        unmodeled message.
-    </Message>
 </ObjectAlreadyInActiveTierError>
 
 
 --- [error name & message] ---
-ObjectAlreadyInActiveTierError: unmodeled message.
+ObjectAlreadyInActiveTierError: UnknownError
 
 --- [error object] ---
 {
@@ -36,7 +33,7 @@ ObjectAlreadyInActiveTierError: unmodeled message.
     totalRetryDelay: (number) 0
   },
   name: "ObjectAlreadyInActiveTierError",
-  message: "unmodeled message.",
+  message: "UnknownError",
   Type: "Sender",
   Code: "ObjectAlreadyInActiveTierError",
   RequestId: "00000000-0000-4000-8000-000000000000",
@@ -59,14 +56,11 @@ content-type: application/xml
     <RequestId>
         00000000-0000-4000-8000-000000000000
     </RequestId>
-    <Message>
-        unmodeled message.
-    </Message>
 </ObjectAlreadyInActiveTierError>
 
 
 --- [error name & message] ---
-ObjectAlreadyInActiveTierError: unmodeled message.
+ObjectAlreadyInActiveTierError: UnknownError
 
 --- [error object] ---
 {
@@ -81,7 +75,7 @@ ObjectAlreadyInActiveTierError: unmodeled message.
     totalRetryDelay: (number) 0
   },
   name: "ObjectAlreadyInActiveTierError",
-  message: "unmodeled message.",
+  message: "UnknownError",
   Type: "Sender",
   Code: "ObjectAlreadyInActiveTierError",
   RequestId: "00000000-0000-4000-8000-000000000000",

@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.0
 
 
 --- [error name & message] ---
-ReplicaNotFoundException: Unknown
+ReplicaNotFoundException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ ReplicaNotFoundException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "ReplicaNotFoundException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.dynamodb#ReplicaNotFoundException"
 }
 

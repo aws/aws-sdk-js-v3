@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-ErrorWithMembers: Unknown
+ErrorWithMembers: UnknownError
 
 --- [error object] ---
 {
@@ -31,7 +31,7 @@ ErrorWithMembers: Unknown
   ListField: (undefined),
   MapField: (undefined),
   StringField: (undefined),
-  message: "Unknown",
+  message: "UnknownError",
   __type: "aws.protocoltests.json#ErrorWithMembers"
 }
 

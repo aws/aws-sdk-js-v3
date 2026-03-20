@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-ResourceAlreadyExistsException: Unknown
+ResourceAlreadyExistsException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ ResourceAlreadyExistsException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "ResourceAlreadyExistsException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException"
 }
 

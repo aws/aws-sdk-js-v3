@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-ValidationException: Unknown
+ValidationException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ ValidationException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "ValidationException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.cloudwatchlogs#ValidationException"
 }
 

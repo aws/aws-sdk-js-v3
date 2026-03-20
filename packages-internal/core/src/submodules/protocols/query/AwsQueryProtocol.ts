@@ -214,7 +214,7 @@ export class AwsQueryProtocol extends RpcProtocol {
 
   protected loadQueryErrorMessage(data: any): string {
     const errorData = this.loadQueryError(data);
-    return errorData?.message ?? errorData?.Message ?? data.message ?? data.Message ?? "Unknown";
+    return errorData?.message ?? errorData?.Message ?? data.message ?? data.Message ?? "UnknownError";
   }
 
   /**

@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.0
 
 
 --- [error name & message] ---
-TableAlreadyExistsException: Unknown
+TableAlreadyExistsException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ TableAlreadyExistsException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "TableAlreadyExistsException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.dynamodb#TableAlreadyExistsException"
 }
 
