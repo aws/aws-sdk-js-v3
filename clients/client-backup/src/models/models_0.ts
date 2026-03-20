@@ -58,8 +58,8 @@ export interface AdvancedBackupSetting {
    *          option and create a Windows VSS backup. </p>
    *          <p>Set to <code>"WindowsVSS":"disabled"</code> to create a regular backup. The
    *             <code>WindowsVSS</code> option is not enabled by default.</p>
-   *          <p>For S3 backups, set to <code>"S3BackupACLs":"disabled"</code> to exclude ACLs from the backup,
-   *          or <code>"S3BackupObjectTags":"disabled"</code> to exclude object tags from the backup.
+   *          <p>For S3 backups, set to <code>"BackupACLs":"disabled"</code> to exclude ACLs from the backup,
+   *          or <code>"BackupObjectTags":"disabled"</code> to exclude object tags from the backup.
    *          By default, both ACLs and object tags are included in S3 backups.</p>
    *          <p>If you specify an invalid option, you get an <code>InvalidParameterValueException</code>
    *          exception.</p>
@@ -367,6 +367,9 @@ export interface BackupJob {
    *             <li>
    *                <p>For Amazon EFS, this value refers to the delta bytes transferred during a
    *                backup.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon EKS, this value refers to the size of your nested EKS recovery point.</p>
    *             </li>
    *             <li>
    *                <p>Amazon FSx does not populate this value from the operation
@@ -1220,6 +1223,9 @@ export interface BackupSelection {
    *          selection strategy, such as assigning all resources of a resource type or refining your
    *          resource selection using tags.</p>
    *          <p>If you specify multiple ARNs, the resources much match any of the ARNs (OR logic).</p>
+   *          <note>
+   *             <p>When using wildcards in ARN patterns for backup selections, the asterisk (*) must appear at the end of the ARN string (prefix pattern). For example, <code>arn:aws:s3:::my-bucket-*</code> is valid, but <code>arn:aws:s3:::*-logs</code> is not supported.</p>
+   *          </note>
    * @public
    */
   Resources?: string[] | undefined;
@@ -3521,6 +3527,9 @@ export interface DescribeBackupJobOutput {
    *                backup.</p>
    *             </li>
    *             <li>
+   *                <p>For Amazon EKS, this value refers to the size of your nested EKS recovery point.</p>
+   *             </li>
+   *             <li>
    *                <p>Amazon FSx does not populate this value from the operation
    *                <code>GetBackupJobStatus</code> for FSx file systems.</p>
    *             </li>
@@ -3979,17 +3988,27 @@ export interface DescribeGlobalSettingsInput {}
  */
 export interface DescribeGlobalSettingsOutput {
   /**
-   * <p>The status of the flags <code>isCrossAccountBackupEnabled</code>,
-   *          <code>isMpaEnabled</code> ('Mpa' refers to multi-party approval), and <code>isDelegatedAdministratorEnabled</code>.</p>
+   * <p>The status of the flags <code>isCrossAccountBackupEnabled</code>, <code>isMpaEnabled</code> ('Mpa' refers to multi-party approval), and <code>isDelegatedAdministratorEnabled</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>isCrossAccountBackupEnabled</code>: Allow accounts in your organization to copy backups to other accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isMpaEnabled</code>: Add cross-account access to your organization with the option to assign a Multi-party approval team to a logically air-gapped vault.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isDelegatedAdministratorEnabled</code>: Allow Backup to automatically synchronize delegated administrator permissions with Organizations.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   GlobalSettings?: Record<string, string> | undefined;
 
   /**
-   * <p>The date and time that the flag <code>isCrossAccountBackupEnabled</code> was last
-   *          updated. This update is in Unix format and Coordinated Universal Time (UTC). The value of
-   *             <code>LastUpdateTime</code> is accurate to milliseconds. For example, the value
-   *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   * <p>The date and time that the supported flags were last updated. This update is in Unix format and Coordinated Universal Time (UTC). The value of <code>LastUpdateTime</code> is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
   LastUpdateTime?: Date | undefined;
@@ -6030,6 +6049,10 @@ export interface GetSupportedResourceTypesOutput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>EKS</code> for Amazon Elastic Kubernetes Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>FSx</code> for Amazon FSx</p>
    *             </li>
    *             <li>
@@ -6245,6 +6268,10 @@ export interface ListBackupJobsInput {
    *             <li>
    *                <p>
    *                   <code>EFS</code> for Amazon Elastic File System</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EKS</code> for Amazon Elastic Kubernetes Service</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6810,6 +6837,10 @@ export interface ListCopyJobsInput {
    *             <li>
    *                <p>
    *                   <code>EFS</code> for Amazon Elastic File System</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EKS</code> for Amazon Elastic Kubernetes Service</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7667,6 +7698,10 @@ export interface ListRecoveryPointsByBackupVaultInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>EKS</code> for Amazon Elastic Kubernetes Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>FSx</code> for Amazon FSx</p>
    *             </li>
    *             <li>
@@ -8516,6 +8551,10 @@ export interface ListRestoreJobsInput {
    *             <li>
    *                <p>
    *                   <code>EFS</code> for Amazon Elastic File System</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EKS</code> for Amazon Elastic Kubernetes Service</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9943,6 +9982,7 @@ export interface PutBackupVaultLockConfigurationInput {
    *          <p>Backup enforces a 72-hour cooling-off period before Vault Lock takes effect
    *          and becomes immutable. Therefore, you must set <code>ChangeableForDays</code> to 3 or
    *          greater.</p>
+   *          <p>The maximum value you can specify is 36,500 days (approximately 100 years).</p>
    *          <p>Before the lock date, you can delete Vault Lock from the vault using
    *             <code>DeleteBackupVaultLockConfiguration</code> or change the Vault Lock configuration
    *          using <code>PutBackupVaultLockConfiguration</code>. On and after the lock date, the Vault
@@ -10371,6 +10411,11 @@ export interface StartRestoreJobInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-eks.html#eks-restore-backup-section">Metadata for Amazon EKS</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-fsx.html#fsx-restore-cli">Metadata for Amazon FSx</a>
    *                </p>
    *             </li>
@@ -10460,6 +10505,10 @@ export interface StartRestoreJobInput {
    *             <li>
    *                <p>
    *                   <code>EFS</code> - Amazon Elastic File System</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EKS</code> - Amazon Elastic Kubernetes Service</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10792,17 +10841,14 @@ export interface UpdateFrameworkOutput {
 export interface UpdateGlobalSettingsInput {
   /**
    * <p>Inputs can include:</p>
-   *          <p>A value for <code>isCrossAccountBackupEnabled</code> and a Region. Example:
-   *             <code>update-global-settings --global-settings isCrossAccountBackupEnabled=false
-   *             --region us-west-2</code>.</p>
-   *          <p>A value for Multi-party approval, styled as "Mpa": <code>isMpaEnabled</code>. Values can
+   *          <p>A value for <code>isCrossAccountBackupEnabled</code>. Values can be true or false. Example:
+   *             <code>update-global-settings --global-settings isCrossAccountBackupEnabled=false</code>.</p>
+   *          <p>A value for Multi-party approval, styled as <code>isMpaEnabled</code>. Values can
    *          be true or false. Example:
-   *          <code>update-global-settings --global-settings isMpaEnabled=false
-   *             --region us-west-2</code>.</p>
-   *          <p>A value for Backup Service-Linked Role creation, styled as<code>isDelegatedAdministratorEnabled</code>.
+   *          <code>update-global-settings --global-settings isMpaEnabled=false</code>.</p>
+   *          <p>A value for Backup Service-Linked Role creation, styled as <code>isDelegatedAdministratorEnabled</code>.
    *          Values can be true or false. Example:
-   *          <code>update-global-settings --global-settings isDelegatedAdministratorEnabled=false
-   *             --region us-west-2</code>.</p>
+   *          <code>update-global-settings --global-settings isDelegatedAdministratorEnabled=false</code>.</p>
    * @public
    */
   GlobalSettings?: Record<string, string> | undefined;
