@@ -54,6 +54,10 @@ export interface ListDirectQueryDataSourcesCommandOutput extends ListDirectQuery
  * //         SecurityLake: { // SecurityLakeDirectQueryDataSource
  * //           RoleArn: "STRING_VALUE", // required
  * //         },
+ * //         Prometheus: { // PrometheusDirectQueryDataSource
+ * //           RoleArn: "STRING_VALUE", // required
+ * //           WorkspaceArn: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       Description: "STRING_VALUE",
  * //       OpenSearchArns: [ // DirectQueryOpenSearchARNList

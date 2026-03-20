@@ -513,6 +513,7 @@ const _PDASRu = "PutDefaultApplicationSettingResponse";
 const _PDFA = "PackageDetailsForAssociation";
 const _PDFAL = "PackageDetailsForAssociationList";
 const _PDL = "PackageDetailsList";
+const _PDQDS = "PrometheusDirectQueryDataSource";
 const _PDa = "PackageDescription";
 const _PDac = "PackageDetails";
 const _PEO = "PackageEncryptionOptions";
@@ -542,6 +543,7 @@ const _PVO = "PackageVendingOptions";
 const _PVe = "PendingValue";
 const _Pr = "Principal";
 const _Pro = "Processing";
+const _Prom = "Prometheus";
 const _R = "Region";
 const _RA = "RoleArn";
 const _RAEE = "ResourceAlreadyExistsException";
@@ -724,6 +726,7 @@ const _VTa = "ValueType";
 const _Va = "Values";
 const _Ve = "Versions";
 const _Ver = "Version";
+const _WA = "WorkspaceArn";
 const _WC = "WarmCount";
 const _WE = "WarmEnabled";
 const _WNC = "WarmNodeCount";
@@ -939,8 +942,8 @@ export var AddDataSourceResponse$: StaticStructureSchema = [3, n0, _ADSRd,
 ];
 export var AddDirectQueryDataSourceRequest$: StaticStructureSchema = [3, n0, _ADQDSR,
   0,
-  [_DSN, _DST, _OSA, _D, _DSAP, _TL],
-  [0, () => DirectQueryDataSourceType$, 64 | 0, 0, 0, () => TagList], 3
+  [_DSN, _DST, _D, _OSA, _DSAP, _TL],
+  [0, () => DirectQueryDataSourceType$, 0, 64 | 0, 0, () => TagList], 2
 ];
 export var AddDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0, _ADQDSRd,
   0,
@@ -2062,6 +2065,11 @@ export var PluginProperties$: StaticStructureSchema = [3, n0, _PPl,
   [_N, _D, _Ver, _CN, _USIB],
   [0, 0, 0, 0, 1]
 ];
+export var PrometheusDirectQueryDataSource$: StaticStructureSchema = [3, n0, _PDQDS,
+  0,
+  [_RA, _WA],
+  [0, 0], 2
+];
 export var PurchaseReservedInstanceOfferingRequest$: StaticStructureSchema = [3, n0, _PRIOR,
   0,
   [_RIOI, _RN, _IC],
@@ -2249,8 +2257,8 @@ export var UpdateDataSourceResponse$: StaticStructureSchema = [3, n0, _UDSRp,
 ];
 export var UpdateDirectQueryDataSourceRequest$: StaticStructureSchema = [3, n0, _UDQDSR,
   0,
-  [_DSN, _DST, _OSA, _D, _DSAP],
-  [[0, 1], () => DirectQueryDataSourceType$, 64 | 0, 0, 0], 3
+  [_DSN, _DST, _D, _OSA, _DSAP],
+  [[0, 1], () => DirectQueryDataSourceType$, 0, 64 | 0, 0], 2
 ];
 export var UpdateDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0, _UDQDSRp,
   0,
@@ -2548,8 +2556,8 @@ export var DataSourceType$: StaticUnionSchema = [4, n0, _DST,
 ];
 export var DirectQueryDataSourceType$: StaticUnionSchema = [4, n0, _DQDST,
   0,
-  [_CWL, _SLe],
-  [() => CloudWatchDirectQueryDataSource$, () => SecurityLakeDirectQueryDataSource$]
+  [_CWL, _SLe, _Prom],
+  [() => CloudWatchDirectQueryDataSource$, () => SecurityLakeDirectQueryDataSource$, () => PrometheusDirectQueryDataSource$]
 ];
 export var AcceptInboundConnection$: StaticOperationSchema = [9, n0, _AIC,
   { [_h]: ["PUT", "/2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/accept", 200] }, () => AcceptInboundConnectionRequest$, () => AcceptInboundConnectionResponse$

@@ -388,6 +388,27 @@ export interface CloudWatchDirectQueryDataSource {
 }
 
 /**
+ * <p> Configuration details for a Prometheus data source that can be used for direct queries.
+ *         </p>
+ * @public
+ */
+export interface PrometheusDirectQueryDataSource {
+  /**
+   * <p> The unique identifier of the IAM role that grants OpenSearch Service permission to access
+   *             the specified data source. </p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the Amazon Managed Prometheus Workspace that is associated with the specified
+   *             data source. </p>
+   * @public
+   */
+  WorkspaceArn: string | undefined;
+}
+
+/**
  * <p> Configuration details for a Security Lake data source that can be used for direct
  *             queries. </p>
  * @public
@@ -407,6 +428,7 @@ export interface SecurityLakeDirectQueryDataSource {
  */
 export type DirectQueryDataSourceType =
   | DirectQueryDataSourceType.CloudWatchLogMember
+  | DirectQueryDataSourceType.PrometheusMember
   | DirectQueryDataSourceType.SecurityLakeMember
   | DirectQueryDataSourceType.$UnknownMember;
 
@@ -421,6 +443,7 @@ export namespace DirectQueryDataSourceType {
   export interface CloudWatchLogMember {
     CloudWatchLog: CloudWatchDirectQueryDataSource;
     SecurityLake?: never;
+    Prometheus?: never;
     $unknown?: never;
   }
 
@@ -431,6 +454,18 @@ export namespace DirectQueryDataSourceType {
   export interface SecurityLakeMember {
     CloudWatchLog?: never;
     SecurityLake: SecurityLakeDirectQueryDataSource;
+    Prometheus?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Specifies Prometheus as a type of data source for direct queries. </p>
+   * @public
+   */
+  export interface PrometheusMember {
+    CloudWatchLog?: never;
+    SecurityLake?: never;
+    Prometheus: PrometheusDirectQueryDataSource;
     $unknown?: never;
   }
 
@@ -440,6 +475,7 @@ export namespace DirectQueryDataSourceType {
   export interface $UnknownMember {
     CloudWatchLog?: never;
     SecurityLake?: never;
+    Prometheus?: never;
     $unknown: [string, any];
   }
 
@@ -450,6 +486,7 @@ export namespace DirectQueryDataSourceType {
   export interface Visitor<T> {
     CloudWatchLog: (value: CloudWatchDirectQueryDataSource) => T;
     SecurityLake: (value: SecurityLakeDirectQueryDataSource) => T;
+    Prometheus: (value: PrometheusDirectQueryDataSource) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -501,11 +538,12 @@ export interface AddDirectQueryDataSourceRequest {
   Description?: string | undefined;
 
   /**
-   * <p> A list of Amazon Resource Names (ARNs) for the OpenSearch collections that are
-   *             associated with the direct query data source. </p>
+   * <p> An optional list of Amazon Resource Names (ARNs) for the OpenSearch collections that are
+   *             associated with the direct query data source. This field is required for CloudWatchLogs
+   *             and SecurityLake datasource types. </p>
    * @public
    */
-  OpenSearchArns: string[] | undefined;
+  OpenSearchArns?: string[] | undefined;
 
   /**
    * <p> An optional IAM access policy document that defines the permissions for accessing the data source.
@@ -7896,11 +7934,12 @@ export interface UpdateDirectQueryDataSourceRequest {
   Description?: string | undefined;
 
   /**
-   * <p> A list of Amazon Resource Names (ARNs) for the OpenSearch collections that are
-   *             associated with the direct query data source. </p>
+   * <p> An optional list of Amazon Resource Names (ARNs) for the OpenSearch collections that are
+   *             associated with the direct query data source. This field is required for CloudWatchLogs
+   *             and SecurityLake datasource types. </p>
    * @public
    */
-  OpenSearchArns: string[] | undefined;
+  OpenSearchArns?: string[] | undefined;
 
   /**
    * <p> An optional IAM access policy document that defines the updated permissions for accessing the direct query data source.

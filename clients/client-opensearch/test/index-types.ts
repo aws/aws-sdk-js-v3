@@ -542,6 +542,7 @@ export type {
   PackageVendingOptions,
   PackageVersionHistory,
   PluginProperties,
+  PrometheusDirectQueryDataSource,
   PurchaseReservedInstanceOfferingRequest,
   PurchaseReservedInstanceOfferingResponse,
   PutDefaultApplicationSettingRequest,

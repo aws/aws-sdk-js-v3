@@ -440,6 +440,7 @@ import {
   paginateListVersions,
   PluginProperties$,
   PrincipalType,
+  PrometheusDirectQueryDataSource$,
   PropertyValueType,
   PurchaseReservedInstanceOffering$,
   PurchaseReservedInstanceOfferingCommand,
@@ -971,6 +972,7 @@ assert(typeof PackageSource$ === "object");
 assert(typeof PackageVendingOptions$ === "object");
 assert(typeof PackageVersionHistory$ === "object");
 assert(typeof PluginProperties$ === "object");
+assert(typeof PrometheusDirectQueryDataSource$ === "object");
 assert(typeof PurchaseReservedInstanceOfferingRequest$ === "object");
 assert(typeof PurchaseReservedInstanceOfferingResponse$ === "object");
 assert(typeof PutDefaultApplicationSettingRequest$ === "object");

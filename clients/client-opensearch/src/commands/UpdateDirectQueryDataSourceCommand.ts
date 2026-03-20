@@ -46,9 +46,13 @@ export interface UpdateDirectQueryDataSourceCommandOutput extends UpdateDirectQu
  *     SecurityLake: { // SecurityLakeDirectQueryDataSource
  *       RoleArn: "STRING_VALUE", // required
  *     },
+ *     Prometheus: { // PrometheusDirectQueryDataSource
+ *       RoleArn: "STRING_VALUE", // required
+ *       WorkspaceArn: "STRING_VALUE", // required
+ *     },
  *   },
  *   Description: "STRING_VALUE",
- *   OpenSearchArns: [ // DirectQueryOpenSearchARNList // required
+ *   OpenSearchArns: [ // DirectQueryOpenSearchARNList
  *     "STRING_VALUE",
  *   ],
  *   DataSourceAccessPolicy: "STRING_VALUE",
