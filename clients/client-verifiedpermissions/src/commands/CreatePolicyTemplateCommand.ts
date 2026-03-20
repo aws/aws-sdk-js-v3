@@ -45,6 +45,7 @@ export interface CreatePolicyTemplateCommandOutput extends CreatePolicyTemplateO
  *   policyStoreId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   statement: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
  * };
  * const command = new CreatePolicyTemplateCommand(input);
  * const response = await client.send(command);
@@ -64,7 +65,7 @@ export interface CreatePolicyTemplateCommandOutput extends CreatePolicyTemplateO
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because another request to modify a resource occurred at the same.</p>
+ *  <p>The request failed because another request to modify a resource occurred at the same time.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request failed because it references a resource that doesn't exist.</p>
@@ -94,6 +95,7 @@ export interface CreatePolicyTemplateCommandOutput extends CreatePolicyTemplateO
  * const input = {
  *   clientToken: "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
  *   description: "Template for research dept",
+ *   name: "name/example-policy-template",
  *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
  *   statement: `"AccessVacation"
  * permit(

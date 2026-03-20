@@ -4,8 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateIdentitySourceInput, UpdateIdentitySourceOutput } from "../models/models_0";
-import { UpdateIdentitySource$ } from "../schemas/schemas_0";
+import type { ListPolicyStoreAliasesInput, ListPolicyStoreAliasesOutput } from "../models/models_0";
+import { ListPolicyStoreAliases$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -20,86 +20,55 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateIdentitySourceCommand}.
+ * The input for {@link ListPolicyStoreAliasesCommand}.
  */
-export interface UpdateIdentitySourceCommandInput extends UpdateIdentitySourceInput {}
+export interface ListPolicyStoreAliasesCommandInput extends ListPolicyStoreAliasesInput {}
 /**
  * @public
  *
- * The output of {@link UpdateIdentitySourceCommand}.
+ * The output of {@link ListPolicyStoreAliasesCommand}.
  */
-export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceOutput, __MetadataBearer {}
+export interface ListPolicyStoreAliasesCommandOutput extends ListPolicyStoreAliasesOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the specified identity source to use a new identity provider (IdP), or to change the mapping of identities from the IdP to a different principal entity type.</p> <note> <p>Verified Permissions is <i> <a href="https://wikipedia.org/wiki/Eventual_consistency">eventually consistent</a> </i>. It can take a few seconds for a new or changed element to propagate through the service and be visible in the results of other Verified Permissions operations.</p> </note>
+ * <p>Returns a paginated list of all policy store aliases in the calling Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VerifiedPermissionsClient, UpdateIdentitySourceCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
- * // const { VerifiedPermissionsClient, UpdateIdentitySourceCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * import { VerifiedPermissionsClient, ListPolicyStoreAliasesCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
+ * // const { VerifiedPermissionsClient, ListPolicyStoreAliasesCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
  * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
  * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
- * const input = { // UpdateIdentitySourceInput
- *   policyStoreId: "STRING_VALUE", // required
- *   identitySourceId: "STRING_VALUE", // required
- *   updateConfiguration: { // UpdateConfiguration Union: only one key present
- *     cognitoUserPoolConfiguration: { // UpdateCognitoUserPoolConfiguration
- *       userPoolArn: "STRING_VALUE", // required
- *       clientIds: [ // ClientIds
- *         "STRING_VALUE",
- *       ],
- *       groupConfiguration: { // UpdateCognitoGroupConfiguration
- *         groupEntityType: "STRING_VALUE", // required
- *       },
- *     },
- *     openIdConnectConfiguration: { // UpdateOpenIdConnectConfiguration
- *       issuer: "STRING_VALUE", // required
- *       entityIdPrefix: "STRING_VALUE",
- *       groupConfiguration: { // UpdateOpenIdConnectGroupConfiguration
- *         groupClaim: "STRING_VALUE", // required
- *         groupEntityType: "STRING_VALUE", // required
- *       },
- *       tokenSelection: { // UpdateOpenIdConnectTokenSelection Union: only one key present
- *         accessTokenOnly: { // UpdateOpenIdConnectAccessTokenConfiguration
- *           principalIdClaim: "STRING_VALUE",
- *           audiences: [ // Audiences
- *             "STRING_VALUE",
- *           ],
- *         },
- *         identityTokenOnly: { // UpdateOpenIdConnectIdentityTokenConfiguration
- *           principalIdClaim: "STRING_VALUE",
- *           clientIds: [
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *     },
+ * const input = { // ListPolicyStoreAliasesInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: { // PolicyStoreAliasFilter
+ *     policyStoreId: "STRING_VALUE",
  *   },
- *   principalEntityType: "STRING_VALUE",
  * };
- * const command = new UpdateIdentitySourceCommand(input);
+ * const command = new ListPolicyStoreAliasesCommand(input);
  * const response = await client.send(command);
- * // { // UpdateIdentitySourceOutput
- * //   createdDate: new Date("TIMESTAMP"), // required
- * //   identitySourceId: "STRING_VALUE", // required
- * //   lastUpdatedDate: new Date("TIMESTAMP"), // required
- * //   policyStoreId: "STRING_VALUE", // required
+ * // { // ListPolicyStoreAliasesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   policyStoreAliases: [ // PolicyStoreAliasList // required
+ * //     { // PolicyStoreAliasItem
+ * //       aliasName: "STRING_VALUE", // required
+ * //       policyStoreId: "STRING_VALUE", // required
+ * //       aliasArn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       state: "Active" || "PendingDeletion", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param UpdateIdentitySourceCommandInput - {@link UpdateIdentitySourceCommandInput}
- * @returns {@link UpdateIdentitySourceCommandOutput}
- * @see {@link UpdateIdentitySourceCommandInput} for command's `input` shape.
- * @see {@link UpdateIdentitySourceCommandOutput} for command's `response` shape.
+ * @param ListPolicyStoreAliasesCommandInput - {@link ListPolicyStoreAliasesCommandInput}
+ * @returns {@link ListPolicyStoreAliasesCommandOutput}
+ * @see {@link ListPolicyStoreAliasesCommandInput} for command's `input` shape.
+ * @see {@link ListPolicyStoreAliasesCommandOutput} for command's `response` shape.
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because another request to modify a resource occurred at the same time.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request failed because it references a resource that doesn't exist.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient access to perform this action.</p>
@@ -117,39 +86,79 @@ export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceO
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  *
- * @example UpdateIdentitySource
+ * @example ListPolicyStoreAliases - Example 1
  * ```javascript
- * // The following example updates the configuration of the specified identity source with a new configuration.
- * const input = {
- *   identitySourceId: "ISEXAMPLEabcdefg111111",
- *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
- *   updateConfiguration: {
- *     cognitoUserPoolConfiguration: {
- *       clientIds: [
- *         "a1b2c3d4e5f6g7h8i9j0kalbmc"
- *       ],
- *       userPoolArn: "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"
- *     }
- *   }
- * };
- * const command = new UpdateIdentitySourceCommand(input);
+ * // The following example lists all policy store aliases in the AWS account in the AWS Region in which you call the operation.
+ * const input = { /* empty *\/ };
+ * const command = new ListPolicyStoreAliasesCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   createdDate: "2023-05-19T20:30:28.173926Z",
- *   identitySourceId: "ISEXAMPLEabcdefg111111",
- *   lastUpdatedDate: "2023-05-22T20:45:59.962216Z",
- *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ *   policyStoreAliases: [
+ *     {
+ *       aliasArn: "arn:aws:verifiedpermissions:us-east-1:123456789012:policy-store-alias/example-policy-store",
+ *       aliasName: "policy-store-alias/example-policy-store",
+ *       createdAt: "2024-01-15T12:30:00.52Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       state: "Active"
+ *     },
+ *     {
+ *       aliasArn: "arn:aws:verifiedpermissions:us-east-1:123456789012:policy-store-alias/example-policy-store-2",
+ *       aliasName: "policy-store-alias/example-policy-store-2",
+ *       createdAt: "2024-01-16T09:15:00.52Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       state: "Active"
+ *     },
+ *     {
+ *       aliasArn: "arn:aws:verifiedpermissions:us-east-1:123456789012:policy-store-alias/example-policy-store-3",
+ *       aliasName: "policy-store-alias/example-policy-store-3",
+ *       createdAt: "2024-01-17T14:45:00.52Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       state: "Active"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example ListPolicyStoreAliases - Example 2
+ * ```javascript
+ * // The following example lists all policy store aliases associated with the policy store with ID C7v5xMplfFH3i3e4Jrzb1a
+ * const input = {
+ *   filter: {
+ *     policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ *   }
+ * };
+ * const command = new ListPolicyStoreAliasesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   policyStoreAliases: [
+ *     {
+ *       aliasArn: "arn:aws:verifiedpermissions:us-east-1:123456789012:policy-store-alias/example-policy-store",
+ *       aliasName: "policy-store-alias/example-policy-store",
+ *       createdAt: "2024-01-15T12:30:00.52Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       state: "Active"
+ *     },
+ *     {
+ *       aliasArn: "arn:aws:verifiedpermissions:us-east-1:123456789012:policy-store-alias/example-policy-store-2",
+ *       aliasName: "policy-store-alias/example-policy-store-2",
+ *       createdAt: "2024-01-16T09:15:00.52Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       state: "Active"
+ *     }
+ *   ]
  * }
  * *\/
  * ```
  *
  * @public
  */
-export class UpdateIdentitySourceCommand extends $Command
+export class ListPolicyStoreAliasesCommand extends $Command
   .classBuilder<
-    UpdateIdentitySourceCommandInput,
-    UpdateIdentitySourceCommandOutput,
+    ListPolicyStoreAliasesCommandInput,
+    ListPolicyStoreAliasesCommandOutput,
     VerifiedPermissionsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -158,19 +167,19 @@ export class UpdateIdentitySourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("VerifiedPermissions", "UpdateIdentitySource", {})
-  .n("VerifiedPermissionsClient", "UpdateIdentitySourceCommand")
-  .sc(UpdateIdentitySource$)
+  .s("VerifiedPermissions", "ListPolicyStoreAliases", {})
+  .n("VerifiedPermissionsClient", "ListPolicyStoreAliasesCommand")
+  .sc(ListPolicyStoreAliases$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateIdentitySourceInput;
-      output: UpdateIdentitySourceOutput;
+      input: ListPolicyStoreAliasesInput;
+      output: ListPolicyStoreAliasesOutput;
     };
     sdk: {
-      input: UpdateIdentitySourceCommandInput;
-      output: UpdateIdentitySourceCommandOutput;
+      input: ListPolicyStoreAliasesCommandInput;
+      output: ListPolicyStoreAliasesCommandOutput;
     };
   };
 }

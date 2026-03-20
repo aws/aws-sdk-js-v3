@@ -74,6 +74,10 @@ import {
   CreateIdentitySourceCommandOutput,
 } from "./commands/CreateIdentitySourceCommand";
 import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
+import {
+  CreatePolicyStoreAliasCommandInput,
+  CreatePolicyStoreAliasCommandOutput,
+} from "./commands/CreatePolicyStoreAliasCommand";
 import { CreatePolicyStoreCommandInput, CreatePolicyStoreCommandOutput } from "./commands/CreatePolicyStoreCommand";
 import {
   CreatePolicyTemplateCommandInput,
@@ -84,6 +88,10 @@ import {
   DeleteIdentitySourceCommandOutput,
 } from "./commands/DeleteIdentitySourceCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
+import {
+  DeletePolicyStoreAliasCommandInput,
+  DeletePolicyStoreAliasCommandOutput,
+} from "./commands/DeletePolicyStoreAliasCommand";
 import { DeletePolicyStoreCommandInput, DeletePolicyStoreCommandOutput } from "./commands/DeletePolicyStoreCommand";
 import {
   DeletePolicyTemplateCommandInput,
@@ -91,6 +99,10 @@ import {
 } from "./commands/DeletePolicyTemplateCommand";
 import { GetIdentitySourceCommandInput, GetIdentitySourceCommandOutput } from "./commands/GetIdentitySourceCommand";
 import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import {
+  GetPolicyStoreAliasCommandInput,
+  GetPolicyStoreAliasCommandOutput,
+} from "./commands/GetPolicyStoreAliasCommand";
 import { GetPolicyStoreCommandInput, GetPolicyStoreCommandOutput } from "./commands/GetPolicyStoreCommand";
 import { GetPolicyTemplateCommandInput, GetPolicyTemplateCommandOutput } from "./commands/GetPolicyTemplateCommand";
 import { GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
@@ -104,6 +116,10 @@ import {
   ListIdentitySourcesCommandOutput,
 } from "./commands/ListIdentitySourcesCommand";
 import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
+import {
+  ListPolicyStoreAliasesCommandInput,
+  ListPolicyStoreAliasesCommandOutput,
+} from "./commands/ListPolicyStoreAliasesCommand";
 import { ListPolicyStoresCommandInput, ListPolicyStoresCommandOutput } from "./commands/ListPolicyStoresCommand";
 import {
   ListPolicyTemplatesCommandInput,
@@ -146,14 +162,17 @@ export type ServiceInputTypes =
   | BatchIsAuthorizedWithTokenCommandInput
   | CreateIdentitySourceCommandInput
   | CreatePolicyCommandInput
+  | CreatePolicyStoreAliasCommandInput
   | CreatePolicyStoreCommandInput
   | CreatePolicyTemplateCommandInput
   | DeleteIdentitySourceCommandInput
   | DeletePolicyCommandInput
+  | DeletePolicyStoreAliasCommandInput
   | DeletePolicyStoreCommandInput
   | DeletePolicyTemplateCommandInput
   | GetIdentitySourceCommandInput
   | GetPolicyCommandInput
+  | GetPolicyStoreAliasCommandInput
   | GetPolicyStoreCommandInput
   | GetPolicyTemplateCommandInput
   | GetSchemaCommandInput
@@ -161,6 +180,7 @@ export type ServiceInputTypes =
   | IsAuthorizedWithTokenCommandInput
   | ListIdentitySourcesCommandInput
   | ListPoliciesCommandInput
+  | ListPolicyStoreAliasesCommandInput
   | ListPolicyStoresCommandInput
   | ListPolicyTemplatesCommandInput
   | ListTagsForResourceCommandInput
@@ -181,14 +201,17 @@ export type ServiceOutputTypes =
   | BatchIsAuthorizedWithTokenCommandOutput
   | CreateIdentitySourceCommandOutput
   | CreatePolicyCommandOutput
+  | CreatePolicyStoreAliasCommandOutput
   | CreatePolicyStoreCommandOutput
   | CreatePolicyTemplateCommandOutput
   | DeleteIdentitySourceCommandOutput
   | DeletePolicyCommandOutput
+  | DeletePolicyStoreAliasCommandOutput
   | DeletePolicyStoreCommandOutput
   | DeletePolicyTemplateCommandOutput
   | GetIdentitySourceCommandOutput
   | GetPolicyCommandOutput
+  | GetPolicyStoreAliasCommandOutput
   | GetPolicyStoreCommandOutput
   | GetPolicyTemplateCommandOutput
   | GetSchemaCommandOutput
@@ -196,6 +219,7 @@ export type ServiceOutputTypes =
   | IsAuthorizedWithTokenCommandOutput
   | ListIdentitySourcesCommandOutput
   | ListPoliciesCommandOutput
+  | ListPolicyStoreAliasesCommandOutput
   | ListPolicyStoresCommandOutput
   | ListPolicyTemplatesCommandOutput
   | ListTagsForResourceCommandOutput

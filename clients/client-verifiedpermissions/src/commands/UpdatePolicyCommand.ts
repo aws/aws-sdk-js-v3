@@ -49,6 +49,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyOutput, __Metadat
  *       statement: "STRING_VALUE", // required
  *     },
  *   },
+ *   name: "STRING_VALUE",
  * };
  * const command = new UpdatePolicyCommand(input);
  * const response = await client.send(command);
@@ -84,7 +85,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyOutput, __Metadat
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because another request to modify a resource occurred at the same.</p>
+ *  <p>The request failed because another request to modify a resource occurred at the same time.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request failed because it references a resource that doesn't exist.</p>
@@ -117,6 +118,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyOutput, __Metadat
  *       statement: `permit(principal, action, resource in Album::"public_folder");`
  *     }
  *   },
+ *   name: "name/example-policy-2",
  *   policyId: "9wYxMpljbbZQb5fcZHyJhY",
  *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };

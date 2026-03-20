@@ -75,11 +75,12 @@ export interface BatchGetPolicyCommandOutput extends BatchGetPolicyOutput, __Met
  * //       },
  * //       createdDate: new Date("TIMESTAMP"), // required
  * //       lastUpdatedDate: new Date("TIMESTAMP"), // required
+ * //       name: "STRING_VALUE",
  * //     },
  * //   ],
  * //   errors: [ // BatchGetPolicyErrorList // required
  * //     { // BatchGetPolicyErrorItem
- * //       code: "POLICY_STORE_NOT_FOUND" || "POLICY_NOT_FOUND", // required
+ * //       code: "POLICY_STORE_NOT_FOUND" || "POLICY_NOT_FOUND" || "POLICY_STORE_ALIAS_NOT_FOUND", // required
  * //       policyStoreId: "STRING_VALUE", // required
  * //       policyId: "STRING_VALUE", // required
  * //       message: "STRING_VALUE", // required
@@ -145,6 +146,7 @@ export interface BatchGetPolicyCommandOutput extends BatchGetPolicyOutput, __Met
  *         }
  *       },
  *       lastUpdatedDate: "2024-10-18T18:53:39.258153Z",
+ *       name: "name/example-policy",
  *       policyId: "PWv5M6d5HePx3gVVLKY1nK",
  *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC",
  *       policyType: "STATIC"
@@ -158,6 +160,7 @@ export interface BatchGetPolicyCommandOutput extends BatchGetPolicyOutput, __Met
  *         }
  *       },
  *       lastUpdatedDate: "2024-10-18T18:57:03.305027Z",
+ *       name: "name/example-policy-2",
  *       policyId: "LzFn6KgLWvv4Mbegus35jn",
  *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC",
  *       policyType: "STATIC"
@@ -172,6 +175,60 @@ export interface BatchGetPolicyCommandOutput extends BatchGetPolicyOutput, __Met
  *       },
  *       lastUpdatedDate: "2024-10-18T18:57:48.005343Z",
  *       policyId: "77gLjer8H5o3mvrnMGrSL5",
+ *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC",
+ *       policyType: "STATIC"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example To retrieve policies by name
+ * ```javascript
+ * // The following example retrieves information about policies using their names instead of their IDs.
+ * const input = {
+ *   requests: [
+ *     {
+ *       policyId: "name/example-policy",
+ *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC"
+ *     },
+ *     {
+ *       policyId: "name/example-policy-2",
+ *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC"
+ *     }
+ *   ]
+ * };
+ * const command = new BatchGetPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   errors:   [],
+ *   results: [
+ *     {
+ *       createdDate: "2024-10-18T18:53:39.258153Z",
+ *       definition: {
+ *         static: {
+ *           description: "Users can manage account resources in any account they own",
+ *           statement: `permit (principal, action in PhotoFlash::Action::"ManageAccount",resource) when { resource in principal.Account };`
+ *         }
+ *       },
+ *       lastUpdatedDate: "2024-10-18T18:53:39.258153Z",
+ *       name: "name/example-policy",
+ *       policyId: "PWv5M6d5HePx3gVVLKY1nK",
+ *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC",
+ *       policyType: "STATIC"
+ *     },
+ *     {
+ *       createdDate: "2024-10-18T18:57:03.305027Z",
+ *       definition: {
+ *         static: {
+ *           description: "User alice can't delete any photos.",
+ *           statement: `forbid (principal == PhotoFlash::User::"alice", action in [PhotoFlash::Action::"DeletePhoto"], resource);`
+ *         }
+ *       },
+ *       lastUpdatedDate: "2024-10-18T18:57:03.305027Z",
+ *       name: "name/example-policy-2",
+ *       policyId: "LzFn6KgLWvv4Mbegus35jn",
  *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC",
  *       policyType: "STATIC"
  *     }

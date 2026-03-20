@@ -53,6 +53,7 @@ export interface GetPolicyTemplateCommandOutput extends GetPolicyTemplateOutput,
  * //   statement: "STRING_VALUE", // required
  * //   createdDate: new Date("TIMESTAMP"), // required
  * //   lastUpdatedDate: new Date("TIMESTAMP"), // required
+ * //   name: "STRING_VALUE",
  * // };
  *
  * ```
@@ -96,6 +97,34 @@ export interface GetPolicyTemplateCommandOutput extends GetPolicyTemplateOutput,
  *   createdDate: "2024-08-12T18:20:50.99Z",
  *   description: "Template for research dept",
  *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyTemplateId: "PTEXAMPLEabcdefg111111",
+ *   statement: `permit(
+ *   principal ?principal,
+ *   action == Action::"view",
+ *   resource in ?resource
+ * ) when {
+ *   principal has department && principal.department == "research"
+ * };`
+ * }
+ * *\/
+ * ```
+ *
+ * @example To retrieve a policy template by name
+ * ```javascript
+ * // The following example retrieves the details of a policy template using its name instead of its ID.
+ * const input = {
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyTemplateId: "name/example-policy-template"
+ * };
+ * const command = new GetPolicyTemplateCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   description: "Template for research dept",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   name: "name/example-policy-template",
  *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
  *   policyTemplateId: "PTEXAMPLEabcdefg111111",
  *   statement: `permit(

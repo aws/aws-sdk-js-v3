@@ -78,7 +78,7 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because another request to modify a resource occurred at the same.</p>
+ *  <p>The request failed because another request to modify a resource occurred at the same time.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request failed because it would cause a service quota to be exceeded.</p>

@@ -4,8 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateIdentitySourceInput, UpdateIdentitySourceOutput } from "../models/models_0";
-import { UpdateIdentitySource$ } from "../schemas/schemas_0";
+import type { CreatePolicyStoreAliasInput, CreatePolicyStoreAliasOutput } from "../models/models_0";
+import { CreatePolicyStoreAlias$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -20,79 +20,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateIdentitySourceCommand}.
+ * The input for {@link CreatePolicyStoreAliasCommand}.
  */
-export interface UpdateIdentitySourceCommandInput extends UpdateIdentitySourceInput {}
+export interface CreatePolicyStoreAliasCommandInput extends CreatePolicyStoreAliasInput {}
 /**
  * @public
  *
- * The output of {@link UpdateIdentitySourceCommand}.
+ * The output of {@link CreatePolicyStoreAliasCommand}.
  */
-export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceOutput, __MetadataBearer {}
+export interface CreatePolicyStoreAliasCommandOutput extends CreatePolicyStoreAliasOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the specified identity source to use a new identity provider (IdP), or to change the mapping of identities from the IdP to a different principal entity type.</p> <note> <p>Verified Permissions is <i> <a href="https://wikipedia.org/wiki/Eventual_consistency">eventually consistent</a> </i>. It can take a few seconds for a new or changed element to propagate through the service and be visible in the results of other Verified Permissions operations.</p> </note>
+ * <p>Creates a policy store alias for the specified policy store. A policy store alias is an alternative identifier that you can use to reference a policy store in API operations.</p> <p>This operation is idempotent. If multiple CreatePolicyStoreAlias requests are made where the <code>aliasName</code> and <code>policyStoreId</code> fields are the same between the requests, subsequent requests will be ignored. For each duplicate CreatePolicyStoreAlias request, a Success response will be returned and a new policy store alias will not be created.</p> <note> <p>Verified Permissions is <i> <a href="https://wikipedia.org/wiki/Eventual_consistency">eventually consistent</a> </i>. It can take a few seconds for a new or changed element to propagate through the service and be visible in the results of other Verified Permissions operations.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VerifiedPermissionsClient, UpdateIdentitySourceCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
- * // const { VerifiedPermissionsClient, UpdateIdentitySourceCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * import { VerifiedPermissionsClient, CreatePolicyStoreAliasCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
+ * // const { VerifiedPermissionsClient, CreatePolicyStoreAliasCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
  * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
  * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
- * const input = { // UpdateIdentitySourceInput
+ * const input = { // CreatePolicyStoreAliasInput
+ *   aliasName: "STRING_VALUE", // required
  *   policyStoreId: "STRING_VALUE", // required
- *   identitySourceId: "STRING_VALUE", // required
- *   updateConfiguration: { // UpdateConfiguration Union: only one key present
- *     cognitoUserPoolConfiguration: { // UpdateCognitoUserPoolConfiguration
- *       userPoolArn: "STRING_VALUE", // required
- *       clientIds: [ // ClientIds
- *         "STRING_VALUE",
- *       ],
- *       groupConfiguration: { // UpdateCognitoGroupConfiguration
- *         groupEntityType: "STRING_VALUE", // required
- *       },
- *     },
- *     openIdConnectConfiguration: { // UpdateOpenIdConnectConfiguration
- *       issuer: "STRING_VALUE", // required
- *       entityIdPrefix: "STRING_VALUE",
- *       groupConfiguration: { // UpdateOpenIdConnectGroupConfiguration
- *         groupClaim: "STRING_VALUE", // required
- *         groupEntityType: "STRING_VALUE", // required
- *       },
- *       tokenSelection: { // UpdateOpenIdConnectTokenSelection Union: only one key present
- *         accessTokenOnly: { // UpdateOpenIdConnectAccessTokenConfiguration
- *           principalIdClaim: "STRING_VALUE",
- *           audiences: [ // Audiences
- *             "STRING_VALUE",
- *           ],
- *         },
- *         identityTokenOnly: { // UpdateOpenIdConnectIdentityTokenConfiguration
- *           principalIdClaim: "STRING_VALUE",
- *           clientIds: [
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *     },
- *   },
- *   principalEntityType: "STRING_VALUE",
  * };
- * const command = new UpdateIdentitySourceCommand(input);
+ * const command = new CreatePolicyStoreAliasCommand(input);
  * const response = await client.send(command);
- * // { // UpdateIdentitySourceOutput
- * //   createdDate: new Date("TIMESTAMP"), // required
- * //   identitySourceId: "STRING_VALUE", // required
- * //   lastUpdatedDate: new Date("TIMESTAMP"), // required
+ * // { // CreatePolicyStoreAliasOutput
+ * //   aliasName: "STRING_VALUE", // required
  * //   policyStoreId: "STRING_VALUE", // required
+ * //   aliasArn: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
  * // };
  *
  * ```
  *
- * @param UpdateIdentitySourceCommandInput - {@link UpdateIdentitySourceCommandInput}
- * @returns {@link UpdateIdentitySourceCommandOutput}
- * @see {@link UpdateIdentitySourceCommandInput} for command's `input` shape.
- * @see {@link UpdateIdentitySourceCommandOutput} for command's `response` shape.
+ * @param CreatePolicyStoreAliasCommandInput - {@link CreatePolicyStoreAliasCommandInput}
+ * @returns {@link CreatePolicyStoreAliasCommandOutput}
+ * @see {@link CreatePolicyStoreAliasCommandInput} for command's `input` shape.
+ * @see {@link CreatePolicyStoreAliasCommandOutput} for command's `response` shape.
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -100,6 +66,9 @@ export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceO
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request failed because it references a resource that doesn't exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request failed because it would cause a service quota to be exceeded.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient access to perform this action.</p>
@@ -117,28 +86,20 @@ export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceO
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  *
- * @example UpdateIdentitySource
+ * @example CreatePolicyStoreAlias
  * ```javascript
- * // The following example updates the configuration of the specified identity source with a new configuration.
+ * // The following example creates a new policy store alias.
  * const input = {
- *   identitySourceId: "ISEXAMPLEabcdefg111111",
- *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
- *   updateConfiguration: {
- *     cognitoUserPoolConfiguration: {
- *       clientIds: [
- *         "a1b2c3d4e5f6g7h8i9j0kalbmc"
- *       ],
- *       userPoolArn: "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"
- *     }
- *   }
+ *   aliasName: "policy-store-alias/example-policy-store",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
- * const command = new UpdateIdentitySourceCommand(input);
+ * const command = new CreatePolicyStoreAliasCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   createdDate: "2023-05-19T20:30:28.173926Z",
- *   identitySourceId: "ISEXAMPLEabcdefg111111",
- *   lastUpdatedDate: "2023-05-22T20:45:59.962216Z",
+ *   aliasArn: "arn:aws:verifiedpermissions:us-east-1:123456789012:policy-store-alias/example-policy-store",
+ *   aliasName: "policy-store-alias/example-policy-store",
+ *   createdAt: "2024-01-15T12:30:00.52Z",
  *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * }
  * *\/
@@ -146,10 +107,10 @@ export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceO
  *
  * @public
  */
-export class UpdateIdentitySourceCommand extends $Command
+export class CreatePolicyStoreAliasCommand extends $Command
   .classBuilder<
-    UpdateIdentitySourceCommandInput,
-    UpdateIdentitySourceCommandOutput,
+    CreatePolicyStoreAliasCommandInput,
+    CreatePolicyStoreAliasCommandOutput,
     VerifiedPermissionsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -158,19 +119,19 @@ export class UpdateIdentitySourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("VerifiedPermissions", "UpdateIdentitySource", {})
-  .n("VerifiedPermissionsClient", "UpdateIdentitySourceCommand")
-  .sc(UpdateIdentitySource$)
+  .s("VerifiedPermissions", "CreatePolicyStoreAlias", {})
+  .n("VerifiedPermissionsClient", "CreatePolicyStoreAliasCommand")
+  .sc(CreatePolicyStoreAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateIdentitySourceInput;
-      output: UpdateIdentitySourceOutput;
+      input: CreatePolicyStoreAliasInput;
+      output: CreatePolicyStoreAliasOutput;
     };
     sdk: {
-      input: UpdateIdentitySourceCommandInput;
-      output: UpdateIdentitySourceCommandOutput;
+      input: CreatePolicyStoreAliasCommandInput;
+      output: CreatePolicyStoreAliasCommandOutput;
     };
   };
 }

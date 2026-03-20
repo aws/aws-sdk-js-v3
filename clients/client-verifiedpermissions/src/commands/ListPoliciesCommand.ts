@@ -105,6 +105,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesOutput, __Metadat
  * //       createdDate: new Date("TIMESTAMP"), // required
  * //       lastUpdatedDate: new Date("TIMESTAMP"), // required
  * //       effect: "Permit" || "Forbid",
+ * //       name: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -155,6 +156,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesOutput, __Metadat
  *         }
  *       },
  *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       name: "name/example-policy",
  *       policyId: "9wYxMpljbbZQb5fcZHyJhY",
  *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
  *       policyType: "STATIC",
@@ -175,6 +177,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesOutput, __Metadat
  *         }
  *       },
  *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       name: "name/example-policy-2",
  *       policyId: "Et9KxMplyaDdyurDw8TeFa",
  *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
  *       policyType: "STATIC",

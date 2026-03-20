@@ -28,6 +28,11 @@ import {
   CreatePolicyCommandOutput,
 } from "./commands/CreatePolicyCommand";
 import {
+  CreatePolicyStoreAliasCommand,
+  CreatePolicyStoreAliasCommandInput,
+  CreatePolicyStoreAliasCommandOutput,
+} from "./commands/CreatePolicyStoreAliasCommand";
+import {
   CreatePolicyStoreCommand,
   CreatePolicyStoreCommandInput,
   CreatePolicyStoreCommandOutput,
@@ -48,6 +53,11 @@ import {
   DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  DeletePolicyStoreAliasCommand,
+  DeletePolicyStoreAliasCommandInput,
+  DeletePolicyStoreAliasCommandOutput,
+} from "./commands/DeletePolicyStoreAliasCommand";
+import {
   DeletePolicyStoreCommand,
   DeletePolicyStoreCommandInput,
   DeletePolicyStoreCommandOutput,
@@ -63,6 +73,11 @@ import {
   GetIdentitySourceCommandOutput,
 } from "./commands/GetIdentitySourceCommand";
 import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import {
+  GetPolicyStoreAliasCommand,
+  GetPolicyStoreAliasCommandInput,
+  GetPolicyStoreAliasCommandOutput,
+} from "./commands/GetPolicyStoreAliasCommand";
 import {
   GetPolicyStoreCommand,
   GetPolicyStoreCommandInput,
@@ -94,6 +109,11 @@ import {
   ListPoliciesCommandInput,
   ListPoliciesCommandOutput,
 } from "./commands/ListPoliciesCommand";
+import {
+  ListPolicyStoreAliasesCommand,
+  ListPolicyStoreAliasesCommandInput,
+  ListPolicyStoreAliasesCommandOutput,
+} from "./commands/ListPolicyStoreAliasesCommand";
 import {
   ListPolicyStoresCommand,
   ListPolicyStoresCommandInput,
@@ -138,6 +158,7 @@ import {
 } from "./commands/UpdatePolicyTemplateCommand";
 import { paginateListIdentitySources } from "./pagination/ListIdentitySourcesPaginator";
 import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
+import { paginateListPolicyStoreAliases } from "./pagination/ListPolicyStoreAliasesPaginator";
 import { paginateListPolicyStores } from "./pagination/ListPolicyStoresPaginator";
 import { paginateListPolicyTemplates } from "./pagination/ListPolicyTemplatesPaginator";
 import { VerifiedPermissionsClient } from "./VerifiedPermissionsClient";
@@ -149,20 +170,24 @@ const commands = {
   CreateIdentitySourceCommand,
   CreatePolicyCommand,
   CreatePolicyStoreCommand,
+  CreatePolicyStoreAliasCommand,
   CreatePolicyTemplateCommand,
   DeleteIdentitySourceCommand,
   DeletePolicyCommand,
   DeletePolicyStoreCommand,
+  DeletePolicyStoreAliasCommand,
   DeletePolicyTemplateCommand,
   GetIdentitySourceCommand,
   GetPolicyCommand,
   GetPolicyStoreCommand,
+  GetPolicyStoreAliasCommand,
   GetPolicyTemplateCommand,
   GetSchemaCommand,
   IsAuthorizedCommand,
   IsAuthorizedWithTokenCommand,
   ListIdentitySourcesCommand,
   ListPoliciesCommand,
+  ListPolicyStoreAliasesCommand,
   ListPolicyStoresCommand,
   ListPolicyTemplatesCommand,
   ListTagsForResourceCommand,
@@ -177,6 +202,7 @@ const commands = {
 const paginators = {
   paginateListIdentitySources,
   paginateListPolicies,
+  paginateListPolicyStoreAliases,
   paginateListPolicyStores,
   paginateListPolicyTemplates,
 };
@@ -285,6 +311,23 @@ export interface VerifiedPermissions {
   ): void;
 
   /**
+   * @see {@link CreatePolicyStoreAliasCommand}
+   */
+  createPolicyStoreAlias(
+    args: CreatePolicyStoreAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePolicyStoreAliasCommandOutput>;
+  createPolicyStoreAlias(
+    args: CreatePolicyStoreAliasCommandInput,
+    cb: (err: any, data?: CreatePolicyStoreAliasCommandOutput) => void
+  ): void;
+  createPolicyStoreAlias(
+    args: CreatePolicyStoreAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePolicyStoreAliasCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreatePolicyTemplateCommand}
    */
   createPolicyTemplate(
@@ -353,6 +396,23 @@ export interface VerifiedPermissions {
   ): void;
 
   /**
+   * @see {@link DeletePolicyStoreAliasCommand}
+   */
+  deletePolicyStoreAlias(
+    args: DeletePolicyStoreAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyStoreAliasCommandOutput>;
+  deletePolicyStoreAlias(
+    args: DeletePolicyStoreAliasCommandInput,
+    cb: (err: any, data?: DeletePolicyStoreAliasCommandOutput) => void
+  ): void;
+  deletePolicyStoreAlias(
+    args: DeletePolicyStoreAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePolicyStoreAliasCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeletePolicyTemplateCommand}
    */
   deletePolicyTemplate(
@@ -418,6 +478,23 @@ export interface VerifiedPermissions {
     args: GetPolicyStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPolicyStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPolicyStoreAliasCommand}
+   */
+  getPolicyStoreAlias(
+    args: GetPolicyStoreAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyStoreAliasCommandOutput>;
+  getPolicyStoreAlias(
+    args: GetPolicyStoreAliasCommandInput,
+    cb: (err: any, data?: GetPolicyStoreAliasCommandOutput) => void
+  ): void;
+  getPolicyStoreAlias(
+    args: GetPolicyStoreAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicyStoreAliasCommandOutput) => void
   ): void;
 
   /**
@@ -520,6 +597,24 @@ export interface VerifiedPermissions {
     args: ListPoliciesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPolicyStoreAliasesCommand}
+   */
+  listPolicyStoreAliases(): Promise<ListPolicyStoreAliasesCommandOutput>;
+  listPolicyStoreAliases(
+    args: ListPolicyStoreAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPolicyStoreAliasesCommandOutput>;
+  listPolicyStoreAliases(
+    args: ListPolicyStoreAliasesCommandInput,
+    cb: (err: any, data?: ListPolicyStoreAliasesCommandOutput) => void
+  ): void;
+  listPolicyStoreAliases(
+    args: ListPolicyStoreAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPolicyStoreAliasesCommandOutput) => void
   ): void;
 
   /**
@@ -714,6 +809,17 @@ export interface VerifiedPermissions {
     args: ListPoliciesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyStoreAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyStoreAliasesCommandOutput}.
+   */
+  paginateListPolicyStoreAliases(
+    args?: ListPolicyStoreAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyStoreAliasesCommandOutput>;
 
   /**
    * @see {@link ListPolicyStoresCommand}

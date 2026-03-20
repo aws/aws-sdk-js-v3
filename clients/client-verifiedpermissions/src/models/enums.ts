@@ -3,8 +3,22 @@
  * @public
  * @enum
  */
+export const AliasState = {
+  ACTIVE: "Active",
+  PENDING_DELETION: "PendingDeletion",
+} as const;
+/**
+ * @public
+ */
+export type AliasState = (typeof AliasState)[keyof typeof AliasState];
+
+/**
+ * @public
+ * @enum
+ */
 export const BatchGetPolicyErrorCode = {
   POLICY_NOT_FOUND: "POLICY_NOT_FOUND",
+  POLICY_STORE_ALIAS_NOT_FOUND: "POLICY_STORE_ALIAS_NOT_FOUND",
   POLICY_STORE_NOT_FOUND: "POLICY_STORE_NOT_FOUND",
 } as const;
 /**
@@ -46,6 +60,7 @@ export const ResourceType = {
   IDENTITY_SOURCE: "IDENTITY_SOURCE",
   POLICY: "POLICY",
   POLICY_STORE: "POLICY_STORE",
+  POLICY_STORE_ALIAS: "POLICY_STORE_ALIAS",
   POLICY_TEMPLATE: "POLICY_TEMPLATE",
   SCHEMA: "SCHEMA",
 } as const;

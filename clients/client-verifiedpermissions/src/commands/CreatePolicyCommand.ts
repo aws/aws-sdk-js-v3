@@ -60,6 +60,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyOutput, __Metadat
  *       },
  *     },
  *   },
+ *   name: "STRING_VALUE",
  * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
@@ -95,7 +96,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyOutput, __Metadat
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because another request to modify a resource occurred at the same.</p>
+ *  <p>The request failed because another request to modify a resource occurred at the same time.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request failed because it references a resource that doesn't exist.</p>
@@ -130,40 +131,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyOutput, __Metadat
  *       statement: `permit( principal in UserGroup::"janeFriends", action, resource in Album::"vacationFolder" );`
  *     }
  *   },
- *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
- * };
- * const command = new CreatePolicyCommand(input);
- * const response = await client.send(command);
- * /* response is
- * {
- *   createdDate: "2024-08-12T18:20:50.99Z",
- *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
- *   policyId: "9wYxMpljbbZQb5fcZHyJhY",
- *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
- *   policyType: "STATIC",
- *   principal: {
- *     entityId: "janeFriends",
- *     entityType: "UserGroup"
- *   },
- *   resource: {
- *     entityId: "vacationFolder",
- *     entityType: "Album"
- *   }
- * }
- * *\/
- * ```
- *
- * @example To create a static policy
- * ```javascript
- * // The following example request creates a static policy with a policy scope that specifies both a principal and a resource. The response includes both the Principal and Resource elements because both were specified in the request policy scope.
- * const input = {
- *   clientToken: "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
- *   definition: {
- *     static: {
- *       description: "Grant members of janeFriends UserGroup access to the vacationFolder Album",
- *       statement: `permit( principal in UserGroup::"janeFriends", action, resource in Album::"vacationFolder" );`
- *     }
- *   },
+ *   name: "name/example-policy",
  *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
  * const command = new CreatePolicyCommand(input);
@@ -201,6 +169,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyOutput, __Metadat
  *       }
  *     }
  *   },
+ *   name: "name/example-template-linked-policy",
  *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
  * const command = new CreatePolicyCommand(input);

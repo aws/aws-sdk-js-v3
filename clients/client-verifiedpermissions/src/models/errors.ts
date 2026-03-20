@@ -145,7 +145,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request failed because another request to modify a resource occurred at the same.</p>
+ * <p>The request failed because another request to modify a resource occurred at the same time.</p>
  * @public
  */
 export class ConflictException extends __BaseException {

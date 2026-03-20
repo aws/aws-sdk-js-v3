@@ -96,7 +96,7 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because another request to modify a resource occurred at the same.</p>
+ *  <p>The request failed because another request to modify a resource occurred at the same time.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request failed because it references a resource that doesn't exist.</p>

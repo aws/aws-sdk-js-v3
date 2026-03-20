@@ -56,6 +56,7 @@ export interface ListPolicyTemplatesCommandOutput extends ListPolicyTemplatesOut
  * //       description: "STRING_VALUE",
  * //       createdDate: new Date("TIMESTAMP"), // required
  * //       lastUpdatedDate: new Date("TIMESTAMP"), // required
+ * //       name: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -102,6 +103,7 @@ export interface ListPolicyTemplatesCommandOutput extends ListPolicyTemplatesOut
  *       createdDate: "2024-08-12T18:20:50.99Z",
  *       description: "Generic template",
  *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       name: "name/example-policy-template",
  *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
  *       policyTemplateId: "PTEXAMPLEabcdefg111111"
  *     },
@@ -109,6 +111,7 @@ export interface ListPolicyTemplatesCommandOutput extends ListPolicyTemplatesOut
  *       createdDate: "2024-08-12T18:20:50.99Z",
  *       description: "Template for research dept",
  *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       name: "name/example-policy-template-2",
  *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
  *       policyTemplateId: "PTEXAMPLEabcdefg222222"
  *     }

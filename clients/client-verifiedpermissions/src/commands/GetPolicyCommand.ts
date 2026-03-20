@@ -84,6 +84,7 @@ export interface GetPolicyCommandOutput extends GetPolicyOutput, __MetadataBeare
  * //   createdDate: new Date("TIMESTAMP"), // required
  * //   lastUpdatedDate: new Date("TIMESTAMP"), // required
  * //   effect: "Permit" || "Forbid",
+ * //   name: "STRING_VALUE",
  * // };
  *
  * ```
@@ -132,6 +133,37 @@ export interface GetPolicyCommandOutput extends GetPolicyOutput, __MetadataBeare
  *     }
  *   },
  *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyId: "9wYxMpljbbZQb5fcZHyJhY",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyType: "STATIC",
+ *   resource: {
+ *     entityId: "publicFolder",
+ *     entityType: "Album"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To retrieve a policy by name
+ * ```javascript
+ * // The following example retrieves information about a policy using its name instead of its ID.
+ * const input = {
+ *   policyId: "name/example-policy",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new GetPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   definition: {
+ *     static: {
+ *       description: "Grant everyone of janeFriends UserGroup access to the vacationFolder Album",
+ *       statement: `permit(principal, action, resource in Album::"publicFolder");`
+ *     }
+ *   },
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   name: "name/example-policy",
  *   policyId: "9wYxMpljbbZQb5fcZHyJhY",
  *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
  *   policyType: "STATIC",

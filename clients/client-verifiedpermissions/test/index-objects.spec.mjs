@@ -2,6 +2,7 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   ActionIdentifier$,
+  AliasState,
   AttributeValue$,
   BatchGetPolicy$,
   BatchGetPolicyCommand,
@@ -46,6 +47,10 @@ import {
   CreatePolicyInput$,
   CreatePolicyOutput$,
   CreatePolicyStore$,
+  CreatePolicyStoreAlias$,
+  CreatePolicyStoreAliasCommand,
+  CreatePolicyStoreAliasInput$,
+  CreatePolicyStoreAliasOutput$,
   CreatePolicyStoreCommand,
   CreatePolicyStoreInput$,
   CreatePolicyStoreOutput$,
@@ -63,6 +68,10 @@ import {
   DeletePolicyInput$,
   DeletePolicyOutput$,
   DeletePolicyStore$,
+  DeletePolicyStoreAlias$,
+  DeletePolicyStoreAliasCommand,
+  DeletePolicyStoreAliasInput$,
+  DeletePolicyStoreAliasOutput$,
   DeletePolicyStoreCommand,
   DeletePolicyStoreInput$,
   DeletePolicyStoreOutput$,
@@ -88,6 +97,10 @@ import {
   GetPolicyInput$,
   GetPolicyOutput$,
   GetPolicyStore$,
+  GetPolicyStoreAlias$,
+  GetPolicyStoreAliasCommand,
+  GetPolicyStoreAliasInput$,
+  GetPolicyStoreAliasOutput$,
   GetPolicyStoreCommand,
   GetPolicyStoreInput$,
   GetPolicyStoreOutput$,
@@ -125,6 +138,10 @@ import {
   ListPoliciesCommand,
   ListPoliciesInput$,
   ListPoliciesOutput$,
+  ListPolicyStoreAliases$,
+  ListPolicyStoreAliasesCommand,
+  ListPolicyStoreAliasesInput$,
+  ListPolicyStoreAliasesOutput$,
   ListPolicyStores$,
   ListPolicyStoresCommand,
   ListPolicyStoresInput$,
@@ -155,6 +172,7 @@ import {
   OpenIdIssuer,
   paginateListIdentitySources,
   paginateListPolicies,
+  paginateListPolicyStoreAliases,
   paginateListPolicyStores,
   paginateListPolicyTemplates,
   PolicyDefinition$,
@@ -163,6 +181,8 @@ import {
   PolicyEffect,
   PolicyFilter$,
   PolicyItem$,
+  PolicyStoreAliasFilter$,
+  PolicyStoreAliasItem$,
   PolicyStoreItem$,
   PolicyTemplateItem$,
   PolicyType,
@@ -247,6 +267,8 @@ assert(typeof CreatePolicyCommand === "function");
 assert(typeof CreatePolicy$ === "object");
 assert(typeof CreatePolicyStoreCommand === "function");
 assert(typeof CreatePolicyStore$ === "object");
+assert(typeof CreatePolicyStoreAliasCommand === "function");
+assert(typeof CreatePolicyStoreAlias$ === "object");
 assert(typeof CreatePolicyTemplateCommand === "function");
 assert(typeof CreatePolicyTemplate$ === "object");
 assert(typeof DeleteIdentitySourceCommand === "function");
@@ -255,6 +277,8 @@ assert(typeof DeletePolicyCommand === "function");
 assert(typeof DeletePolicy$ === "object");
 assert(typeof DeletePolicyStoreCommand === "function");
 assert(typeof DeletePolicyStore$ === "object");
+assert(typeof DeletePolicyStoreAliasCommand === "function");
+assert(typeof DeletePolicyStoreAlias$ === "object");
 assert(typeof DeletePolicyTemplateCommand === "function");
 assert(typeof DeletePolicyTemplate$ === "object");
 assert(typeof GetIdentitySourceCommand === "function");
@@ -263,6 +287,8 @@ assert(typeof GetPolicyCommand === "function");
 assert(typeof GetPolicy$ === "object");
 assert(typeof GetPolicyStoreCommand === "function");
 assert(typeof GetPolicyStore$ === "object");
+assert(typeof GetPolicyStoreAliasCommand === "function");
+assert(typeof GetPolicyStoreAlias$ === "object");
 assert(typeof GetPolicyTemplateCommand === "function");
 assert(typeof GetPolicyTemplate$ === "object");
 assert(typeof GetSchemaCommand === "function");
@@ -275,6 +301,8 @@ assert(typeof ListIdentitySourcesCommand === "function");
 assert(typeof ListIdentitySources$ === "object");
 assert(typeof ListPoliciesCommand === "function");
 assert(typeof ListPolicies$ === "object");
+assert(typeof ListPolicyStoreAliasesCommand === "function");
+assert(typeof ListPolicyStoreAliases$ === "object");
 assert(typeof ListPolicyStoresCommand === "function");
 assert(typeof ListPolicyStores$ === "object");
 assert(typeof ListPolicyTemplatesCommand === "function");
@@ -326,6 +354,8 @@ assert(typeof CreateIdentitySourceInput$ === "object");
 assert(typeof CreateIdentitySourceOutput$ === "object");
 assert(typeof CreatePolicyInput$ === "object");
 assert(typeof CreatePolicyOutput$ === "object");
+assert(typeof CreatePolicyStoreAliasInput$ === "object");
+assert(typeof CreatePolicyStoreAliasOutput$ === "object");
 assert(typeof CreatePolicyStoreInput$ === "object");
 assert(typeof CreatePolicyStoreOutput$ === "object");
 assert(typeof CreatePolicyTemplateInput$ === "object");
@@ -334,6 +364,8 @@ assert(typeof DeleteIdentitySourceInput$ === "object");
 assert(typeof DeleteIdentitySourceOutput$ === "object");
 assert(typeof DeletePolicyInput$ === "object");
 assert(typeof DeletePolicyOutput$ === "object");
+assert(typeof DeletePolicyStoreAliasInput$ === "object");
+assert(typeof DeletePolicyStoreAliasOutput$ === "object");
 assert(typeof DeletePolicyStoreInput$ === "object");
 assert(typeof DeletePolicyStoreOutput$ === "object");
 assert(typeof DeletePolicyTemplateInput$ === "object");
@@ -350,6 +382,8 @@ assert(typeof GetIdentitySourceInput$ === "object");
 assert(typeof GetIdentitySourceOutput$ === "object");
 assert(typeof GetPolicyInput$ === "object");
 assert(typeof GetPolicyOutput$ === "object");
+assert(typeof GetPolicyStoreAliasInput$ === "object");
+assert(typeof GetPolicyStoreAliasOutput$ === "object");
 assert(typeof GetPolicyStoreInput$ === "object");
 assert(typeof GetPolicyStoreOutput$ === "object");
 assert(typeof GetPolicyTemplateInput$ === "object");
@@ -370,6 +404,8 @@ assert(typeof ListIdentitySourcesInput$ === "object");
 assert(typeof ListIdentitySourcesOutput$ === "object");
 assert(typeof ListPoliciesInput$ === "object");
 assert(typeof ListPoliciesOutput$ === "object");
+assert(typeof ListPolicyStoreAliasesInput$ === "object");
+assert(typeof ListPolicyStoreAliasesOutput$ === "object");
 assert(typeof ListPolicyStoresInput$ === "object");
 assert(typeof ListPolicyStoresOutput$ === "object");
 assert(typeof ListPolicyTemplatesInput$ === "object");
@@ -396,6 +432,8 @@ assert(typeof PolicyDefinitionDetail$ === "object");
 assert(typeof PolicyDefinitionItem$ === "object");
 assert(typeof PolicyFilter$ === "object");
 assert(typeof PolicyItem$ === "object");
+assert(typeof PolicyStoreAliasFilter$ === "object");
+assert(typeof PolicyStoreAliasItem$ === "object");
 assert(typeof PolicyStoreItem$ === "object");
 assert(typeof PolicyTemplateItem$ === "object");
 assert(typeof PutSchemaInput$ === "object");
@@ -433,6 +471,7 @@ assert(typeof UpdateStaticPolicyDefinition$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof ValidationSettings$ === "object");
 // enums
+assert(typeof AliasState === "object");
 assert(typeof BatchGetPolicyErrorCode === "object");
 assert(typeof CedarVersion === "object");
 assert(typeof Decision === "object");
@@ -465,6 +504,7 @@ assert(VerifiedPermissionsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListIdentitySources === "function");
 assert(typeof paginateListPolicies === "function");
+assert(typeof paginateListPolicyStoreAliases === "function");
 assert(typeof paginateListPolicyStores === "function");
 assert(typeof paginateListPolicyTemplates === "function");
 console.log(`VerifiedPermissions index test passed.`);

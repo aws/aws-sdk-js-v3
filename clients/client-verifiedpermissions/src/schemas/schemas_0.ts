@@ -47,6 +47,9 @@ const _CP = "CreatePolicy";
 const _CPI = "CreatePolicyInput";
 const _CPO = "CreatePolicyOutput";
 const _CPS = "CreatePolicyStore";
+const _CPSA = "CreatePolicyStoreAlias";
+const _CPSAI = "CreatePolicyStoreAliasInput";
+const _CPSAO = "CreatePolicyStoreAliasOutput";
 const _CPSI = "CreatePolicyStoreInput";
 const _CPSO = "CreatePolicyStoreOutput";
 const _CPT = "CreatePolicyTemplate";
@@ -70,6 +73,9 @@ const _DPIe = "DeterminingPolicyItem";
 const _DPL = "DeterminingPolicyList";
 const _DPO = "DeletePolicyOutput";
 const _DPS = "DeletePolicyStore";
+const _DPSA = "DeletePolicyStoreAlias";
+const _DPSAI = "DeletePolicyStoreAliasInput";
+const _DPSAO = "DeletePolicyStoreAliasOutput";
 const _DPSI = "DeletePolicyStoreInput";
 const _DPSO = "DeletePolicyStoreOutput";
 const _DPT = "DeletePolicyTemplate";
@@ -98,6 +104,9 @@ const _GP = "GetPolicy";
 const _GPI = "GetPolicyInput";
 const _GPO = "GetPolicyOutput";
 const _GPS = "GetPolicyStore";
+const _GPSA = "GetPolicyStoreAlias";
+const _GPSAI = "GetPolicyStoreAliasInput";
+const _GPSAO = "GetPolicyStoreAliasOutput";
 const _GPSI = "GetPolicyStoreInput";
 const _GPSO = "GetPolicyStoreOutput";
 const _GPT = "GetPolicyTemplate";
@@ -131,6 +140,9 @@ const _LP = "ListPolicies";
 const _LPI = "ListPoliciesInput";
 const _LPO = "ListPoliciesOutput";
 const _LPS = "ListPolicyStores";
+const _LPSA = "ListPolicyStoreAliases";
+const _LPSAI = "ListPolicyStoreAliasesInput";
+const _LPSAO = "ListPolicyStoreAliasesOutput";
 const _LPSI = "ListPolicyStoresInput";
 const _LPSO = "ListPolicyStoresOutput";
 const _LPT = "ListPolicyTemplates";
@@ -165,6 +177,9 @@ const _PI = "PolicyItem";
 const _PL = "ParentList";
 const _PLo = "PolicyList";
 const _PS = "PolicyStatement";
+const _PSAF = "PolicyStoreAliasFilter";
+const _PSAI = "PolicyStoreAliasItem";
+const _PSAL = "PolicyStoreAliasList";
 const _PSD = "PolicyStoreDescription";
 const _PSI = "PolicyStoreItem";
 const _PSIu = "PutSchemaInput";
@@ -226,7 +241,9 @@ const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _VS = "ValidationSettings";
 const _a = "action";
+const _aA = "aliasArn";
 const _aI = "actionId";
+const _aN = "aliasName";
 const _aT = "actionType";
 const _aTO = "accessTokenOnly";
 const _aTc = "accessToken";
@@ -236,6 +253,7 @@ const _at = "attributes";
 const _au = "audiences";
 const _b = "boolean";
 const _c = "client";
+const _cA = "createdAt";
 const _cD = "createdDate";
 const _cI = "clientIds";
 const _cJ = "cedarJson";
@@ -292,8 +310,9 @@ const _lUD = "lastUpdatedDate";
 const _m = "message";
 const _mR = "maxResults";
 const _mo = "mode";
-const _n = "namespaces";
+const _n = "name";
 const _nT = "nextToken";
+const _na = "namespaces";
 const _oICC = "openIdConnectConfiguration";
 const _oII = "openIdIssuer";
 const _p = "principal";
@@ -301,6 +320,7 @@ const _pET = "principalEntityType";
 const _pI = "policyId";
 const _pIC = "principalIdClaim";
 const _pS = "policyStores";
+const _pSA = "policyStoreAliases";
 const _pSI = "policyStoreId";
 const _pT = "policyType";
 const _pTI = "policyTemplateId";
@@ -325,7 +345,8 @@ const _sc = "schema";
 const _se = "server";
 const _set = "set";
 const _st = "statement";
-const _sta = "static";
+const _sta = "state";
+const _stat = "static";
 const _str = "string";
 const _t = "tags";
 const _tK = "tagKeys";
@@ -481,8 +502,8 @@ export var BatchGetPolicyOutput$: StaticStructureSchema = [3, n0, _BGPO,
 ];
 export var BatchGetPolicyOutputItem$: StaticStructureSchema = [3, n0, _BGPOI,
   0,
-  [_pSI, _pI, _pT, _d, _cD, _lUD],
-  [0, 0, 0, [() => PolicyDefinitionDetail$, 0], 5, 5], 6
+  [_pSI, _pI, _pT, _d, _cD, _lUD, _n],
+  [0, 0, 0, [() => PolicyDefinitionDetail$, 0], 5, 5, 0], 6
 ];
 export var BatchIsAuthorizedInput$: StaticStructureSchema = [3, n0, _BIAI,
   0,
@@ -566,13 +587,23 @@ export var CreateIdentitySourceOutput$: StaticStructureSchema = [3, n0, _CISO,
 ];
 export var CreatePolicyInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
-  [_pSI, _d, _cT],
-  [0, [() => PolicyDefinition$, 0], [0, 4]], 2
+  [_pSI, _d, _cT, _n],
+  [0, [() => PolicyDefinition$, 0], [0, 4], 0], 2
 ];
 export var CreatePolicyOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
   [_pSI, _pI, _pT, _cD, _lUD, _p, _reso, _ac, _ef],
   [0, 0, 0, 5, 5, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], 0], 5
+];
+export var CreatePolicyStoreAliasInput$: StaticStructureSchema = [3, n0, _CPSAI,
+  0,
+  [_aN, _pSI],
+  [0, 0], 2
+];
+export var CreatePolicyStoreAliasOutput$: StaticStructureSchema = [3, n0, _CPSAO,
+  0,
+  [_aN, _pSI, _aA, _cA],
+  [0, 0, 0, 5], 4
 ];
 export var CreatePolicyStoreInput$: StaticStructureSchema = [3, n0, _CPSI,
   0,
@@ -586,8 +617,8 @@ export var CreatePolicyStoreOutput$: StaticStructureSchema = [3, n0, _CPSO,
 ];
 export var CreatePolicyTemplateInput$: StaticStructureSchema = [3, n0, _CPTI,
   0,
-  [_pSI, _st, _cT, _des],
-  [0, [() => PolicyStatement, 0], [0, 4], [() => PolicyTemplateDescription, 0]], 2
+  [_pSI, _st, _cT, _des, _n],
+  [0, [() => PolicyStatement, 0], [0, 4], [() => PolicyTemplateDescription, 0], 0], 2
 ];
 export var CreatePolicyTemplateOutput$: StaticStructureSchema = [3, n0, _CPTO,
   0,
@@ -610,6 +641,16 @@ export var DeletePolicyInput$: StaticStructureSchema = [3, n0, _DPI,
   [0, 0], 2
 ];
 export var DeletePolicyOutput$: StaticStructureSchema = [3, n0, _DPO,
+  0,
+  [],
+  []
+];
+export var DeletePolicyStoreAliasInput$: StaticStructureSchema = [3, n0, _DPSAI,
+  0,
+  [_aN],
+  [0], 1
+];
+export var DeletePolicyStoreAliasOutput$: StaticStructureSchema = [3, n0, _DPSAO,
   0,
   [],
   []
@@ -671,8 +712,18 @@ export var GetPolicyInput$: StaticStructureSchema = [3, n0, _GPI,
 ];
 export var GetPolicyOutput$: StaticStructureSchema = [3, n0, _GPO,
   0,
-  [_pSI, _pI, _pT, _d, _cD, _lUD, _p, _reso, _ac, _ef],
-  [0, 0, 0, [() => PolicyDefinitionDetail$, 0], 5, 5, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], 0], 6
+  [_pSI, _pI, _pT, _d, _cD, _lUD, _p, _reso, _ac, _ef, _n],
+  [0, 0, 0, [() => PolicyDefinitionDetail$, 0], 5, 5, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], 0, 0], 6
+];
+export var GetPolicyStoreAliasInput$: StaticStructureSchema = [3, n0, _GPSAI,
+  0,
+  [_aN],
+  [0], 1
+];
+export var GetPolicyStoreAliasOutput$: StaticStructureSchema = [3, n0, _GPSAO,
+  0,
+  [_aN, _pSI, _aA, _cA, _sta],
+  [0, 0, 0, 5, 0], 5
 ];
 export var GetPolicyStoreInput$: StaticStructureSchema = [3, n0, _GPSI,
   0,
@@ -691,8 +742,8 @@ export var GetPolicyTemplateInput$: StaticStructureSchema = [3, n0, _GPTI,
 ];
 export var GetPolicyTemplateOutput$: StaticStructureSchema = [3, n0, _GPTO,
   0,
-  [_pSI, _pTI, _st, _cD, _lUD, _des],
-  [0, 0, [() => PolicyStatement, 0], 5, 5, [() => PolicyTemplateDescription, 0]], 5
+  [_pSI, _pTI, _st, _cD, _lUD, _des, _n],
+  [0, 0, [() => PolicyStatement, 0], 5, 5, [() => PolicyTemplateDescription, 0], 0], 5
 ];
 export var GetSchemaInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
@@ -701,7 +752,7 @@ export var GetSchemaInput$: StaticStructureSchema = [3, n0, _GSI,
 ];
 export var GetSchemaOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
-  [_pSI, _sc, _cD, _lUD, _n],
+  [_pSI, _sc, _cD, _lUD, _na],
   [0, [() => SchemaJson, 0], 5, 5, [() => NamespaceList, 0]], 4
 ];
 export var IdentitySourceDetails$: StaticStructureSchema = [3, n0, _ISD,
@@ -773,6 +824,16 @@ export var ListPoliciesOutput$: StaticStructureSchema = [3, n0, _LPO,
   0,
   [_po, _nT],
   [[() => PolicyList, 0], 0], 1
+];
+export var ListPolicyStoreAliasesInput$: StaticStructureSchema = [3, n0, _LPSAI,
+  0,
+  [_nT, _mR, _fi],
+  [0, 1, () => PolicyStoreAliasFilter$]
+];
+export var ListPolicyStoreAliasesOutput$: StaticStructureSchema = [3, n0, _LPSAO,
+  0,
+  [_pSA, _nT],
+  [() => PolicyStoreAliasList, 0], 1
 ];
 export var ListPolicyStoresInput$: StaticStructureSchema = [3, n0, _LPSI,
   0,
@@ -871,8 +932,18 @@ export var PolicyFilter$: StaticStructureSchema = [3, n0, _PF,
 ];
 export var PolicyItem$: StaticStructureSchema = [3, n0, _PI,
   0,
-  [_pSI, _pI, _pT, _d, _cD, _lUD, _p, _reso, _ac, _ef],
-  [0, 0, 0, [() => PolicyDefinitionItem$, 0], 5, 5, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], 0], 6
+  [_pSI, _pI, _pT, _d, _cD, _lUD, _p, _reso, _ac, _ef, _n],
+  [0, 0, 0, [() => PolicyDefinitionItem$, 0], 5, 5, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], 0, 0], 6
+];
+export var PolicyStoreAliasFilter$: StaticStructureSchema = [3, n0, _PSAF,
+  0,
+  [_pSI],
+  [0]
+];
+export var PolicyStoreAliasItem$: StaticStructureSchema = [3, n0, _PSAI,
+  0,
+  [_aN, _pSI, _aA, _cA, _sta],
+  [0, 0, 0, 5, 0], 5
 ];
 export var PolicyStoreItem$: StaticStructureSchema = [3, n0, _PSI,
   0,
@@ -881,8 +952,8 @@ export var PolicyStoreItem$: StaticStructureSchema = [3, n0, _PSI,
 ];
 export var PolicyTemplateItem$: StaticStructureSchema = [3, n0, _PTI,
   0,
-  [_pSI, _pTI, _cD, _lUD, _des],
-  [0, 0, 5, 5, [() => PolicyTemplateDescription, 0]], 4
+  [_pSI, _pTI, _cD, _lUD, _des, _n],
+  [0, 0, 5, 5, [() => PolicyTemplateDescription, 0], 0], 4
 ];
 export var PutSchemaInput$: StaticStructureSchema = [3, n0, _PSIu,
   0,
@@ -891,7 +962,7 @@ export var PutSchemaInput$: StaticStructureSchema = [3, n0, _PSIu,
 ];
 export var PutSchemaOutput$: StaticStructureSchema = [3, n0, _PSO,
   0,
-  [_pSI, _n, _cD, _lUD],
+  [_pSI, _na, _cD, _lUD],
   [0, [() => NamespaceList, 0], 5, 5], 4
 ];
 export var ResourceConflict$: StaticStructureSchema = [3, n0, _RC,
@@ -991,8 +1062,8 @@ export var UpdateOpenIdConnectIdentityTokenConfiguration$: StaticStructureSchema
 ];
 export var UpdatePolicyInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
-  [_pSI, _pI, _d],
-  [0, 0, [() => UpdatePolicyDefinition$, 0]], 2
+  [_pSI, _pI, _d, _n],
+  [0, 0, [() => UpdatePolicyDefinition$, 0], 0], 2
 ];
 export var UpdatePolicyOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
@@ -1011,8 +1082,8 @@ export var UpdatePolicyStoreOutput$: StaticStructureSchema = [3, n0, _UPSO,
 ];
 export var UpdatePolicyTemplateInput$: StaticStructureSchema = [3, n0, _UPTI,
   0,
-  [_pSI, _pTI, _st, _des],
-  [0, 0, [() => PolicyStatement, 0], [() => PolicyTemplateDescription, 0]], 3
+  [_pSI, _pTI, _st, _des, _n],
+  [0, 0, [() => PolicyStatement, 0], [() => PolicyTemplateDescription, 0], 0], 3
 ];
 export var UpdatePolicyTemplateOutput$: StaticStructureSchema = [3, n0, _UPTO,
   0,
@@ -1104,6 +1175,9 @@ var ParentList: StaticListSchema = [1, n0, _PL,
 var PolicyList: StaticListSchema = [1, n0, _PLo,
   0, [() => PolicyItem$,
     0]
+];
+var PolicyStoreAliasList: StaticListSchema = [1, n0, _PSAL,
+  0, () => PolicyStoreAliasItem$
 ];
 var PolicyStoreList: StaticListSchema = [1, n0, _PSL,
   0, [() => PolicyStoreItem$,
@@ -1223,17 +1297,17 @@ export var OpenIdConnectTokenSelectionItem$: StaticUnionSchema = [4, n0, _OICTSI
 ];
 export var PolicyDefinition$: StaticUnionSchema = [4, n0, _PD,
   0,
-  [_sta, _tL],
+  [_stat, _tL],
   [[() => StaticPolicyDefinition$, 0], [() => TemplateLinkedPolicyDefinition$, 0]]
 ];
 export var PolicyDefinitionDetail$: StaticUnionSchema = [4, n0, _PDD,
   0,
-  [_sta, _tL],
+  [_stat, _tL],
   [[() => StaticPolicyDefinitionDetail$, 0], [() => TemplateLinkedPolicyDefinitionDetail$, 0]]
 ];
 export var PolicyDefinitionItem$: StaticUnionSchema = [4, n0, _PDI,
   0,
-  [_sta, _tL],
+  [_stat, _tL],
   [[() => StaticPolicyDefinitionItem$, 0], [() => TemplateLinkedPolicyDefinitionItem$, 0]]
 ];
 export var SchemaDefinition$: StaticUnionSchema = [4, n0, _SD,
@@ -1253,7 +1327,7 @@ export var UpdateOpenIdConnectTokenSelection$: StaticUnionSchema = [4, n0, _UOIC
 ];
 export var UpdatePolicyDefinition$: StaticUnionSchema = [4, n0, _UPD,
   0,
-  [_sta],
+  [_stat],
   [[() => UpdateStaticPolicyDefinition$, 0]]
 ];
 export var BatchGetPolicy$: StaticOperationSchema = [9, n0, _BGP,
@@ -1274,6 +1348,9 @@ export var CreatePolicy$: StaticOperationSchema = [9, n0, _CP,
 export var CreatePolicyStore$: StaticOperationSchema = [9, n0, _CPS,
   2, () => CreatePolicyStoreInput$, () => CreatePolicyStoreOutput$
 ];
+export var CreatePolicyStoreAlias$: StaticOperationSchema = [9, n0, _CPSA,
+  2, () => CreatePolicyStoreAliasInput$, () => CreatePolicyStoreAliasOutput$
+];
 export var CreatePolicyTemplate$: StaticOperationSchema = [9, n0, _CPT,
   2, () => CreatePolicyTemplateInput$, () => CreatePolicyTemplateOutput$
 ];
@@ -1286,6 +1363,9 @@ export var DeletePolicy$: StaticOperationSchema = [9, n0, _DP,
 export var DeletePolicyStore$: StaticOperationSchema = [9, n0, _DPS,
   2, () => DeletePolicyStoreInput$, () => DeletePolicyStoreOutput$
 ];
+export var DeletePolicyStoreAlias$: StaticOperationSchema = [9, n0, _DPSA,
+  2, () => DeletePolicyStoreAliasInput$, () => DeletePolicyStoreAliasOutput$
+];
 export var DeletePolicyTemplate$: StaticOperationSchema = [9, n0, _DPT,
   2, () => DeletePolicyTemplateInput$, () => DeletePolicyTemplateOutput$
 ];
@@ -1297,6 +1377,9 @@ export var GetPolicy$: StaticOperationSchema = [9, n0, _GP,
 ];
 export var GetPolicyStore$: StaticOperationSchema = [9, n0, _GPS,
   0, () => GetPolicyStoreInput$, () => GetPolicyStoreOutput$
+];
+export var GetPolicyStoreAlias$: StaticOperationSchema = [9, n0, _GPSA,
+  0, () => GetPolicyStoreAliasInput$, () => GetPolicyStoreAliasOutput$
 ];
 export var GetPolicyTemplate$: StaticOperationSchema = [9, n0, _GPT,
   0, () => GetPolicyTemplateInput$, () => GetPolicyTemplateOutput$
@@ -1315,6 +1398,9 @@ export var ListIdentitySources$: StaticOperationSchema = [9, n0, _LIS,
 ];
 export var ListPolicies$: StaticOperationSchema = [9, n0, _LP,
   0, () => ListPoliciesInput$, () => ListPoliciesOutput$
+];
+export var ListPolicyStoreAliases$: StaticOperationSchema = [9, n0, _LPSA,
+  0, () => ListPolicyStoreAliasesInput$, () => ListPolicyStoreAliasesOutput$
 ];
 export var ListPolicyStores$: StaticOperationSchema = [9, n0, _LPS,
   0, () => ListPolicyStoresInput$, () => ListPolicyStoresOutput$

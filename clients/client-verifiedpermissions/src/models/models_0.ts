@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import {
+  AliasState,
   BatchGetPolicyErrorCode,
   CedarVersion,
   Decision,
@@ -59,7 +60,7 @@ export interface BatchGetPolicyInputItem {
   policyStoreId: string | undefined;
 
   /**
-   * <p>The identifier of the policy you want information about.</p>
+   * <p>The identifier of the policy you want information about.</p> <p>You can use the policy name in place of the policy ID. When using a name, prefix it with <code>name/</code>. For example:</p> <ul> <li> <p>ID: <code>SPEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Name: <code>name/example-policy</code> </p> </li> </ul>
    * @public
    */
   policyId: string | undefined;
@@ -241,6 +242,12 @@ export interface BatchGetPolicyOutputItem {
    * @public
    */
   lastUpdatedDate: Date | undefined;
+
+  /**
+   * <p>The name of the policy, if one was assigned when the policy was created or last updated.</p>
+   * @public
+   */
+  name?: string | undefined;
 }
 
 /**
@@ -1021,7 +1028,7 @@ export interface CreateIdentitySourceInput {
   clientToken?: string | undefined;
 
   /**
-   * <p>Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.</p>
+   * <p>Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -1174,7 +1181,7 @@ export interface CreatePolicyInput {
   clientToken?: string | undefined;
 
   /**
-   * <p>Specifies the <code>PolicyStoreId</code> of the policy store you want to store the policy in.</p>
+   * <p>Specifies the <code>PolicyStoreId</code> of the policy store you want to store the policy in.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -1184,6 +1191,12 @@ export interface CreatePolicyInput {
    * @public
    */
   definition: PolicyDefinition | undefined;
+
+  /**
+   * <p>Specifies a name for the policy that is unique among all policies within the policy store. You can use the name in place of the policy ID in API operations that reference the policy. The name must be prefixed with <code>name/</code>.</p> <p>If you specify a name that is already associated with another policy in the policy store, you receive a <code>ConflictException</code> error.</p>
+   * @public
+   */
+  name?: string | undefined;
 }
 
 /**
@@ -1406,6 +1419,52 @@ export interface CreatePolicyStoreOutput {
 /**
  * @public
  */
+export interface CreatePolicyStoreAliasInput {
+  /**
+   * <p>Specifies the name of the policy store alias to create. The name must be unique within your Amazon Web Services account and Amazon Web Services Region.</p> <note> <p>The alias name must always be prefixed with <code>policy-store-alias/</code>.</p> </note>
+   * @public
+   */
+  aliasName: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the policy store to associate with the alias.</p> <note> <p>The associated policy store must be specified using its ID. The alias name cannot be used.</p> </note>
+   * @public
+   */
+  policyStoreId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePolicyStoreAliasOutput {
+  /**
+   * <p>The name of the policy store alias.</p>
+   * @public
+   */
+  aliasName: string | undefined;
+
+  /**
+   * <p>The ID of the policy store associated with the alias.</p>
+   * @public
+   */
+  policyStoreId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy store alias.</p>
+   * @public
+   */
+  aliasArn: string | undefined;
+
+  /**
+   * <p>The date and time the policy store alias was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreatePolicyTemplateInput {
   /**
    * <p>Specifies a unique, case-sensitive ID that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>ConflictException</code> error.</p> <p>Verified Permissions recognizes a <code>ClientToken</code> for eight hours. After eight hours, the next request with the same parameters performs the operation again regardless of the value of <code>ClientToken</code>.</p>
@@ -1414,7 +1473,7 @@ export interface CreatePolicyTemplateInput {
   clientToken?: string | undefined;
 
   /**
-   * <p>The ID of the policy store in which to create the policy template.</p>
+   * <p>The ID of the policy store in which to create the policy template.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -1430,6 +1489,12 @@ export interface CreatePolicyTemplateInput {
    * @public
    */
   statement: string | undefined;
+
+  /**
+   * <p>Specifies a name for the policy template that is unique among all policy templates within the policy store. You can use the name in place of the policy template ID in API operations that reference the policy template. The name must be prefixed with <code>name/</code>.</p> <p>If you specify a name that is already associated with another policy template in the policy store, you receive a <code>ConflictException</code> error.</p>
+   * @public
+   */
+  name?: string | undefined;
 }
 
 /**
@@ -1466,7 +1531,7 @@ export interface CreatePolicyTemplateOutput {
  */
 export interface DeleteIdentitySourceInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the identity source that you want to delete.</p>
+   * <p>Specifies the ID of the policy store that contains the identity source that you want to delete.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -1488,13 +1553,13 @@ export interface DeleteIdentitySourceOutput {}
  */
 export interface DeletePolicyInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the policy that you want to delete.</p>
+   * <p>Specifies the ID of the policy store that contains the policy that you want to delete.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * <p>Specifies the ID of the policy that you want to delete.</p>
+   * <p>Specifies the ID of the policy that you want to delete.</p> <p>You can use the policy name in place of the policy ID. When using a name, prefix it with <code>name/</code>. For example:</p> <ul> <li> <p>ID: <code>SPEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Name: <code>name/example-policy</code> </p> </li> </ul>
    * @public
    */
   policyId: string | undefined;
@@ -1510,7 +1575,7 @@ export interface DeletePolicyOutput {}
  */
 export interface DeletePolicyStoreInput {
   /**
-   * <p>Specifies the ID of the policy store that you want to delete.</p>
+   * <p>Specifies the ID of the policy store that you want to delete.</p> <note> <p>To specify a policy store, the alias name cannot be used. Only the ID can be used.</p> </note>
    * @public
    */
   policyStoreId: string | undefined;
@@ -1524,15 +1589,31 @@ export interface DeletePolicyStoreOutput {}
 /**
  * @public
  */
+export interface DeletePolicyStoreAliasInput {
+  /**
+   * <p>Specifies the name of the policy store alias that you want to delete.</p> <note> <p>The alias name must always be prefixed with <code>policy-store-alias/</code>.</p> </note>
+   * @public
+   */
+  aliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePolicyStoreAliasOutput {}
+
+/**
+ * @public
+ */
 export interface DeletePolicyTemplateInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the policy template that you want to delete.</p>
+   * <p>Specifies the ID of the policy store that contains the policy template that you want to delete.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * <p>Specifies the ID of the policy template that you want to delete.</p>
+   * <p>Specifies the ID of the policy template that you want to delete.</p> <p>You can use the policy template name in place of the policy template ID. When using a name, prefix it with <code>name/</code>. For example:</p> <ul> <li> <p>ID: <code>PTEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Name: <code>name/example-policy-template</code> </p> </li> </ul>
    * @public
    */
   policyTemplateId: string | undefined;
@@ -1672,7 +1753,7 @@ export namespace EntityReference {
  */
 export interface GetIdentitySourceInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the identity source you want information about.</p>
+   * <p>Specifies the ID of the policy store that contains the identity source you want information about.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -1778,13 +1859,13 @@ export interface GetIdentitySourceOutput {
  */
 export interface GetPolicyInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the policy that you want information about.</p>
+   * <p>Specifies the ID of the policy store that contains the policy that you want information about.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * <p>Specifies the ID of the policy you want information about.</p>
+   * <p>Specifies the ID of the policy you want information about.</p> <p>You can use the policy name in place of the policy ID. When using a name, prefix it with <code>name/</code>. For example:</p> <ul> <li> <p>ID: <code>SPEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Name: <code>name/example-policy</code> </p> </li> </ul>
    * @public
    */
   policyId: string | undefined;
@@ -1853,6 +1934,12 @@ export interface GetPolicyOutput {
    * @public
    */
   effect?: PolicyEffect | undefined;
+
+  /**
+   * <p>The name of the policy, if one was assigned when the policy was created or last updated.</p>
+   * @public
+   */
+  name?: string | undefined;
 }
 
 /**
@@ -1860,7 +1947,7 @@ export interface GetPolicyOutput {
  */
 export interface GetPolicyStoreInput {
   /**
-   * <p>Specifies the ID of the policy store that you want information about.</p>
+   * <p>Specifies the policy store that you want information about.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -1940,15 +2027,61 @@ export interface GetPolicyStoreOutput {
 /**
  * @public
  */
-export interface GetPolicyTemplateInput {
+export interface GetPolicyStoreAliasInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the policy template that you want information about.</p>
+   * <p>Specifies the name of the policy store alias that you want information about.</p> <note> <p>The alias name must always be prefixed with <code>policy-store-alias/</code>.</p> </note>
+   * @public
+   */
+  aliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyStoreAliasOutput {
+  /**
+   * <p>The name of the policy store alias.</p>
+   * @public
+   */
+  aliasName: string | undefined;
+
+  /**
+   * <p>The ID of the policy store associated with the alias.</p>
    * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * <p>Specifies the ID of the policy template that you want information about.</p>
+   * <p>The Amazon Resource Name (ARN) of the policy store alias.</p>
+   * @public
+   */
+  aliasArn: string | undefined;
+
+  /**
+   * <p>The date and time the policy store alias was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The state of the policy store alias. Policy Store Aliases in the Active state can be used normally. When a policy store alias is deleted, it enters the PendingDeletion state. Policy Store Aliases in the PendingDeletion cannot be used, and creating a policy store alias with the same alias name will fail.</p>
+   * @public
+   */
+  state: AliasState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyTemplateInput {
+  /**
+   * <p>Specifies the ID of the policy store that contains the policy template that you want information about.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
+   * @public
+   */
+  policyStoreId: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the policy template that you want information about.</p> <p>You can use the policy template name in place of the policy template ID. When using a name, prefix it with <code>name/</code>. For example:</p> <ul> <li> <p>ID: <code>PTEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Name: <code>name/example-policy-template</code> </p> </li> </ul>
    * @public
    */
   policyTemplateId: string | undefined;
@@ -1993,6 +2126,12 @@ export interface GetPolicyTemplateOutput {
    * @public
    */
   lastUpdatedDate: Date | undefined;
+
+  /**
+   * <p>The name of the policy template, if one was assigned when the policy template was created or last updated.</p>
+   * @public
+   */
+  name?: string | undefined;
 }
 
 /**
@@ -2000,7 +2139,7 @@ export interface GetPolicyTemplateOutput {
  */
 export interface GetSchemaInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the schema.</p>
+   * <p>Specifies the ID of the policy store that contains the schema.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -2058,7 +2197,7 @@ export interface IdentitySourceFilter {
  */
 export interface ListIdentitySourcesInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the identity sources that you want to list.</p>
+   * <p>Specifies the ID of the policy store that contains the identity sources that you want to list.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -2420,7 +2559,7 @@ export namespace UpdateConfiguration {
  */
 export interface UpdateIdentitySourceInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the identity source that you want to update.</p>
+   * <p>Specifies the ID of the policy store that contains the identity source that you want to update.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -2560,7 +2699,7 @@ export interface PolicyFilter {
  */
 export interface ListPoliciesInput {
   /**
-   * <p>Specifies the ID of the policy store you want to list policies from.</p>
+   * <p>Specifies the ID of the policy store you want to list policies from.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -2737,6 +2876,12 @@ export interface PolicyItem {
    * @public
    */
   effect?: PolicyEffect | undefined;
+
+  /**
+   * <p>The name of the policy, if one was assigned when the policy was created or last updated.</p>
+   * @public
+   */
+  name?: string | undefined;
 }
 
 /**
@@ -2754,6 +2899,94 @@ export interface ListPoliciesOutput {
    * @public
    */
   policies: PolicyItem[] | undefined;
+}
+
+/**
+ * <p>Contains filters for the <code>ListPolicyStoreAliases</code> operation.</p>
+ * @public
+ */
+export interface PolicyStoreAliasFilter {
+  /**
+   * <p>The ID of the policy store to filter by. Only policy store aliases associated with this policy store are returned.</p>
+   * @public
+   */
+  policyStoreId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyStoreAliasesInput {
+  /**
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> <p>If you do not specify this parameter, the operation defaults to 5 policy store aliases per response. You can specify a maximum of 50 policy store aliases per response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Specifies a filter to narrow the results. You can filter by <code>policyStoreId</code> to list only the policy store aliases associated with a specific policy store.</p>
+   * @public
+   */
+  filter?: PolicyStoreAliasFilter | undefined;
+}
+
+/**
+ * <p>Contains information about a policy store alias.</p> <p>This data type is used as a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a> operation.</p>
+ * @public
+ */
+export interface PolicyStoreAliasItem {
+  /**
+   * <p>The name of the policy store alias.</p>
+   * @public
+   */
+  aliasName: string | undefined;
+
+  /**
+   * <p>The ID of the policy store associated with the alias.</p>
+   * @public
+   */
+  policyStoreId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy store alias.</p>
+   * @public
+   */
+  aliasArn: string | undefined;
+
+  /**
+   * <p>The date and time the policy store alias was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The state of the policy store alias. Policy Store Aliases in the Active state can be used normally. When a policy store alias is deleted, it enters the PendingDeletion state. Policy Store Aliases in the PendingDeletion state cannot be used, and creating a policy store alias with the same alias name will fail.</p>
+   * @public
+   */
+  state: AliasState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyStoreAliasesOutput {
+  /**
+   * <p>If present, this value indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of policy store aliases in the account.</p>
+   * @public
+   */
+  policyStoreAliases: PolicyStoreAliasItem[] | undefined;
 }
 
 /**
@@ -2831,7 +3064,7 @@ export interface ListPolicyStoresOutput {
  */
 export interface ListPolicyTemplatesInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the policy templates you want to list.</p>
+   * <p>Specifies the ID of the policy store that contains the policy templates you want to list.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -2883,6 +3116,12 @@ export interface PolicyTemplateItem {
    * @public
    */
   lastUpdatedDate: Date | undefined;
+
+  /**
+   * <p>The name of the policy template, if one was assigned when the policy template was created or last updated.</p>
+   * @public
+   */
+  name?: string | undefined;
 }
 
 /**
@@ -2986,22 +3225,28 @@ export namespace UpdatePolicyDefinition {
  */
 export interface UpdatePolicyInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the policy that you want to update.</p>
+   * <p>Specifies the ID of the policy store that contains the policy that you want to update.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * <p>Specifies the ID of the policy that you want to update. To find this value, you can use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicies.html">ListPolicies</a>.</p>
+   * <p>Specifies the ID of the policy that you want to update. To find this value, you can use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicies.html">ListPolicies</a>.</p> <p>You can use the policy name in place of the policy ID. When using a name, prefix it with <code>name/</code>. For example:</p> <ul> <li> <p>ID: <code>SPEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Name: <code>name/example-policy</code> </p> </li> </ul>
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>Specifies the updated policy content that you want to replace on the specified policy. The content must be valid Cedar policy language text.</p> <p>You can change only the following elements from the policy definition:</p> <ul> <li> <p>The <code>action</code> referenced by the policy.</p> </li> <li> <p>Any conditional clauses, such as <code>when</code> or <code>unless</code> clauses.</p> </li> </ul> <p>You <b>can't</b> change the following elements:</p> <ul> <li> <p>Changing from <code>static</code> to <code>templateLinked</code>.</p> </li> <li> <p>Changing the effect of the policy from <code>permit</code> or <code>forbid</code>.</p> </li> <li> <p>The <code>principal</code> referenced by the policy.</p> </li> <li> <p>The <code>resource</code> referenced by the policy.</p> </li> </ul>
+   * <p>Specifies the updated policy content that you want to replace on the specified policy. The content must be valid Cedar policy language text.</p> <p>If you don't specify this parameter, the existing policy definition remains unchanged.</p> <p>You can change only the following elements from the policy definition:</p> <ul> <li> <p>The <code>action</code> referenced by the policy.</p> </li> <li> <p>Any conditional clauses, such as <code>when</code> or <code>unless</code> clauses.</p> </li> </ul> <p>You <b>can't</b> change the following elements:</p> <ul> <li> <p>Changing from <code>static</code> to <code>templateLinked</code>.</p> </li> <li> <p>Changing the effect of the policy from <code>permit</code> or <code>forbid</code>.</p> </li> <li> <p>The <code>principal</code> referenced by the policy.</p> </li> <li> <p>The <code>resource</code> referenced by the policy.</p> </li> </ul>
    * @public
    */
   definition?: UpdatePolicyDefinition | undefined;
+
+  /**
+   * <p>Specifies a name for the policy that is unique among all policies within the policy store. You can use the name in place of the policy ID in API operations that reference the policy. The name must be prefixed with <code>name/</code>.</p> <note> <p>If you don't include the name in an update request, the existing name is unchanged. To remove a name, set it to an empty string (<code>""</code>).</p> </note> <p>If you specify a name that is already associated with another policy in the policy store, you receive a <code>ConflictException</code> error.</p>
+   * @public
+   */
+  name?: string | undefined;
 }
 
 /**
@@ -3068,13 +3313,13 @@ export interface UpdatePolicyOutput {
  */
 export interface UpdatePolicyTemplateInput {
   /**
-   * <p>Specifies the ID of the policy store that contains the policy template that you want to update.</p>
+   * <p>Specifies the ID of the policy store that contains the policy template that you want to update.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * <p>Specifies the ID of the policy template that you want to update.</p>
+   * <p>Specifies the ID of the policy template that you want to update.</p> <p>You can use the policy template name in place of the policy template ID. When using a name, prefix it with <code>name/</code>. For example:</p> <ul> <li> <p>ID: <code>PTEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Name: <code>name/example-policy-template</code> </p> </li> </ul>
    * @public
    */
   policyTemplateId: string | undefined;
@@ -3090,6 +3335,12 @@ export interface UpdatePolicyTemplateInput {
    * @public
    */
   statement: string | undefined;
+
+  /**
+   * <p>Specifies a name for the policy template that is unique among all policy templates within the policy store. You can use the name in place of the policy template ID in API operations that reference the policy template. The name must be prefixed with <code>name/</code>.</p> <note> <p>If you don't include the name in an update request, the existing name is unchanged. To remove a name, set it to an empty string (<code>""</code>).</p> </note> <p>If you specify a name that is already associated with another policy template in the policy store, you receive a <code>ConflictException</code> error.</p>
+   * @public
+   */
+  name?: string | undefined;
 }
 
 /**
@@ -3165,7 +3416,7 @@ export namespace SchemaDefinition {
  */
 export interface PutSchemaInput {
   /**
-   * <p>Specifies the ID of the policy store in which to place the schema.</p>
+   * <p>Specifies the ID of the policy store in which to place the schema.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -3211,7 +3462,7 @@ export interface PutSchemaOutput {
  */
 export interface UpdatePolicyStoreInput {
   /**
-   * <p>Specifies the ID of the policy store that you want to update</p>
+   * <p>Specifies the ID of the policy store that you want to update</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -4065,7 +4316,7 @@ export namespace EntitiesDefinition {
  */
 export interface IsAuthorizedInput {
   /**
-   * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an authorization decision for the input.</p>
+   * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an authorization decision for the input.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -4106,7 +4357,7 @@ export interface IsAuthorizedInput {
  */
 export interface IsAuthorizedWithTokenInput {
   /**
-   * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an authorization decision for the input.</p>
+   * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an authorization decision for the input.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -4153,7 +4404,7 @@ export interface IsAuthorizedWithTokenInput {
  */
 export interface BatchIsAuthorizedInput {
   /**
-   * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make the authorization decisions for the input.</p>
+   * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make the authorization decisions for the input.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -4176,7 +4427,7 @@ export interface BatchIsAuthorizedInput {
  */
 export interface BatchIsAuthorizedWithTokenInput {
   /**
-   * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an authorization decision for the input.</p>
+   * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an authorization decision for the input.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</p>
    * @public
    */
   policyStoreId: string | undefined;

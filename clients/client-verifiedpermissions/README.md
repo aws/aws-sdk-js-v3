@@ -223,6 +223,13 @@ CreatePolicyStore
 </details>
 <details>
 <summary>
+CreatePolicyStoreAlias
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/verifiedpermissions/command/CreatePolicyStoreAliasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/CreatePolicyStoreAliasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/CreatePolicyStoreAliasCommandOutput/)
+</details>
+<details>
+<summary>
 CreatePolicyTemplate
 </summary>
 
@@ -251,6 +258,13 @@ DeletePolicyStore
 </details>
 <details>
 <summary>
+DeletePolicyStoreAlias
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/verifiedpermissions/command/DeletePolicyStoreAliasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/DeletePolicyStoreAliasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/DeletePolicyStoreAliasCommandOutput/)
+</details>
+<details>
+<summary>
 DeletePolicyTemplate
 </summary>
 
@@ -276,6 +290,13 @@ GetPolicyStore
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/verifiedpermissions/command/GetPolicyStoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/GetPolicyStoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/GetPolicyStoreCommandOutput/)
+</details>
+<details>
+<summary>
+GetPolicyStoreAlias
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/verifiedpermissions/command/GetPolicyStoreAliasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/GetPolicyStoreAliasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/GetPolicyStoreAliasCommandOutput/)
 </details>
 <details>
 <summary>
@@ -318,6 +339,13 @@ ListPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/verifiedpermissions/command/ListPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/ListPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/ListPoliciesCommandOutput/)
+</details>
+<details>
+<summary>
+ListPolicyStoreAliases
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/verifiedpermissions/command/ListPolicyStoreAliasesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/ListPolicyStoreAliasesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/ListPolicyStoreAliasesCommandOutput/)
 </details>
 <details>
 <summary>

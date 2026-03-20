@@ -45,6 +45,7 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  *   policyTemplateId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   statement: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
  * };
  * const command = new UpdatePolicyTemplateCommand(input);
  * const response = await client.send(command);
@@ -64,7 +65,7 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because another request to modify a resource occurred at the same.</p>
+ *  <p>The request failed because another request to modify a resource occurred at the same time.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request failed because it references a resource that doesn't exist.</p>
@@ -95,6 +96,7 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  * Example strings might be displayed wrapped across multiple lines here for readability, but the operation requires the parameters be submitted as single line strings.
  * const input = {
  *   description: "My updated template description",
+ *   name: "name/example-policy-template-2",
  *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
  *   policyTemplateId: "PTEXAMPLEabcdefg111111",
  *   statement: `"ResearchAccess"
