@@ -245,6 +245,7 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //       { // ReplicaDescription
  * //         RegionName: "STRING_VALUE",
  * //         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
+ * //         ReplicaArn: "STRING_VALUE",
  * //         ReplicaStatusDescription: "STRING_VALUE",
  * //         ReplicaStatusPercentProgress: "STRING_VALUE",
  * //         KMSMasterKeyId: "STRING_VALUE",

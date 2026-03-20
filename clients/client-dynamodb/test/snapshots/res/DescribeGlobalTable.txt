@@ -33,6 +33,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       {
         "RegionName": "__RegionName__",
         "ReplicaStatus": "__ReplicaStatus__",
+        "ReplicaArn": "__ReplicaArn__",
         "ReplicaStatusDescription": "__ReplicaStatusDescription__",
         "ReplicaStatusPercentProgress": "__ReplicaStatusPercentProgress__",
         "KMSMasterKeyId": "__KMSMasterKeyId__",
@@ -101,6 +102,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       {
         "RegionName": "__RegionName__",
         "ReplicaStatus": "__ReplicaStatus__",
+        "ReplicaArn": "__ReplicaArn__",
         "ReplicaStatusDescription": "__ReplicaStatusDescription__",
         "ReplicaStatusPercentProgress": "__ReplicaStatusPercentProgress__",
         "KMSMasterKeyId": "__KMSMasterKeyId__",
@@ -169,6 +171,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       {
         "RegionName": "__RegionName__",
         "ReplicaStatus": "__ReplicaStatus__",
+        "ReplicaArn": "__ReplicaArn__",
         "ReplicaStatusDescription": "__ReplicaStatusDescription__",
         "ReplicaStatusPercentProgress": "__ReplicaStatusPercentProgress__",
         "KMSMasterKeyId": "__KMSMasterKeyId__",
@@ -250,6 +253,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       {
         RegionName: "__RegionName__",
         ReplicaStatus: "__ReplicaStatus__",
+        ReplicaArn: "__ReplicaArn__",
         ReplicaStatusDescription: "__ReplicaStatusDescription__",
         ReplicaStatusPercentProgress: "__ReplicaStatusPercentProgress__",
         KMSMasterKeyId: "__KMSMasterKeyId__",
@@ -318,6 +322,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       {
         RegionName: "__RegionName__",
         ReplicaStatus: "__ReplicaStatus__",
+        ReplicaArn: "__ReplicaArn__",
         ReplicaStatusDescription: "__ReplicaStatusDescription__",
         ReplicaStatusPercentProgress: "__ReplicaStatusPercentProgress__",
         KMSMasterKeyId: "__KMSMasterKeyId__",
@@ -386,6 +391,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       {
         RegionName: "__RegionName__",
         ReplicaStatus: "__ReplicaStatus__",
+        ReplicaArn: "__ReplicaArn__",
         ReplicaStatusDescription: "__ReplicaStatusDescription__",
         ReplicaStatusPercentProgress: "__ReplicaStatusPercentProgress__",
         KMSMasterKeyId: "__KMSMasterKeyId__",

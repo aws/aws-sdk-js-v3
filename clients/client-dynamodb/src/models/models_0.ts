@@ -1608,6 +1608,12 @@ export interface ReplicaDescription {
   ReplicaStatus?: ReplicaStatus | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the global table replica.</p>
+   * @public
+   */
+  ReplicaArn?: string | undefined;
+
+  /**
    * <p>Detailed information about the replica status.</p>
    * @public
    */

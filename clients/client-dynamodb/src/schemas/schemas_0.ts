@@ -434,6 +434,7 @@ const _RASD = "ReplicaAutoScalingDescription";
 const _RASDL = "ReplicaAutoScalingDescriptionList";
 const _RASU = "ReplicaAutoScalingUpdate";
 const _RASUL = "ReplicaAutoScalingUpdateList";
+const _RAe = "ReplicaArn";
 const _RBMS = "ReplicaBillingModeSummary";
 const _RCC = "ReturnConsumedCapacity";
 const _RCU = "ReadCapacityUnits";
@@ -1721,8 +1722,8 @@ export var ReplicaAutoScalingUpdate$: StaticStructureSchema = [3, n0, _RASU,
 ];
 export var ReplicaDescription$: StaticStructureSchema = [3, n0, _RD,
   0,
-  [_RN, _RSe, _RSD, _RSPP, _KMSMKI, _PTO, _ODTO, _WT, _GSI, _RIDT, _RTCS, _GTSRM],
-  [0, 0, 0, 0, 0, () => ProvisionedThroughputOverride$, () => OnDemandThroughputOverride$, () => TableWarmThroughputDescription$, () => ReplicaGlobalSecondaryIndexDescriptionList, 4, () => TableClassSummary$, 0]
+  [_RN, _RSe, _RAe, _RSD, _RSPP, _KMSMKI, _PTO, _ODTO, _WT, _GSI, _RIDT, _RTCS, _GTSRM],
+  [0, 0, 0, 0, 0, 0, () => ProvisionedThroughputOverride$, () => OnDemandThroughputOverride$, () => TableWarmThroughputDescription$, () => ReplicaGlobalSecondaryIndexDescriptionList, 4, () => TableClassSummary$, 0]
 ];
 export var ReplicaGlobalSecondaryIndex$: StaticStructureSchema = [3, n0, _RGSI,
   0,
