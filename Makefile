@@ -1,7 +1,7 @@
 # This is the public Makefile containing some build commands.
 # You can implement some additional personal commands such as login and sync in Makefile.private.mk (unversioned).
 
-.PHONY: login sync bundles test-unit test-types test-indices test-protocols test-schema test-integration test-endpoints test-e2e test-bundlers build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols
+.PHONY: login sync bundles test-unit test-types test-indices test-protocols test-schema test-integration test-endpoints test-e2e build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols
 
 # fetch AWS testing credentials
 login:
@@ -71,7 +71,6 @@ test-endpoints:
 test-e2e: bundles
 	yarn g:vitest run -c vitest.config.e2e.mts --retry=4 --test-timeout=60000
 	make test-browser-cross-platform
-	make test-bundlers
 	make test-canary
 
 test-x: test-browser-cross-platform
@@ -86,9 +85,6 @@ test-browser-cross-platform:
 
 reset-test-credentials:
 	echo "export const testCredentials = {}" > ./scripts/browser-testing/aws.testCredentials.browser.ts
-
-test-bundlers:
-	(cd ./tests/bundlers && make build test)
 
 test-canary:
 	node ./tests/canary/canary-runner.js
