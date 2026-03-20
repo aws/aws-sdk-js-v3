@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1014.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1013.0...v3.1014.0) (2026-03-20)
+
+
+### Features
+
+* **client-dynamodb:** Adding ReplicaArn to ReplicaDescription of a global table replica ([51c2c17](https://github.com/aws/aws-sdk-js-v3/commit/51c2c17a869241002cbe1b2c8748217467ae5014))
+* **client-opensearch:** Added support for Amazon Managed Service for Prometheus (AMP) as a connected data source in OpenSearch UI. Now users can analyze Prometheus metrics in OpenSearch UI without data copy. ([c9bdbb5](https://github.com/aws/aws-sdk-js-v3/commit/c9bdbb54cea3fcd0e6a703ad33d7c6a72c79d6e2))
+* **client-verifiedpermissions:** Adds support for Policy Store Aliases, Policy Names, and Policy Template Names. These are customizable identifiers that can be used in place of Policy Store ids, Policy ids, and Policy Template ids respectively in Amazon Verified Permissions APIs. ([c8fe185](https://github.com/aws/aws-sdk-js-v3/commit/c8fe1858d26a9910832f210f4d6177d567bee5fb))
+* **clients:** update client endpoints as of 2026-03-20 ([6450a12](https://github.com/aws/aws-sdk-js-v3/commit/6450a12d4635c548e24f09ce6ec3da07a3394b41))
+
+
+
+
+
 # [3.1013.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1012.0...v3.1013.0) (2026-03-19)
 
 

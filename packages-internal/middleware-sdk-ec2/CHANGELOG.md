@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.17 (2026-03-20)
+### Chores
+* bump smithy versions ([414aa0d](https://github.com/aws/aws-sdk-js-v3/commit/414aa0d1c8ded23c68c6652e494078eae6a3a1d9))
+
+
+
 # 3.972.16 (2026-03-18)
 ### Chores
 * **codegen:** smithy-aws-typescript-codegen 0.47.0 ([#7854](https://github.com/aws/aws-sdk-js-v3/issues/7854)) ([950b0c2](https://github.com/aws/aws-sdk-js-v3/commit/950b0c289001862971810817e57c2adab6313140))

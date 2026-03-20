@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1014.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1013.0...v3.1014.0) (2026-03-20)
+
+
+### Features
+
+* **client-dynamodb:** Adding ReplicaArn to ReplicaDescription of a global table replica ([51c2c17](https://github.com/aws/aws-sdk-js-v3/commit/51c2c17a869241002cbe1b2c8748217467ae5014))
+
+
+
+
+
 # [3.1013.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1012.0...v3.1013.0) (2026-03-19)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

@@ -25,6 +25,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.23 (2026-03-20)
+### Chores
+* bump smithy versions ([414aa0d](https://github.com/aws/aws-sdk-js-v3/commit/414aa0d1c8ded23c68c6652e494078eae6a3a1d9))
+
+
+
 # 3.972.22 (2026-03-19)
 ### Chores
 * **credential-provider-http:** update dependencies.

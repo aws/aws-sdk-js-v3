@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1014.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1013.0...v3.1014.0) (2026-03-20)
+
+
+### Features
+
+* **client-verifiedpermissions:** Adds support for Policy Store Aliases, Policy Names, and Policy Template Names. These are customizable identifiers that can be used in place of Policy Store ids, Policy ids, and Policy Template ids respectively in Amazon Verified Permissions APIs. ([c8fe185](https://github.com/aws/aws-sdk-js-v3/commit/c8fe1858d26a9910832f210f4d6177d567bee5fb))
+
+
+
+
+
 # [3.1013.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1012.0...v3.1013.0) (2026-03-19)
 
 **Note:** Version bump only for package @aws-sdk/client-verifiedpermissions

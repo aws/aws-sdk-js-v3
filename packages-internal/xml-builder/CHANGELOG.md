@@ -16,6 +16,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.15 (2026-03-20)
+### Chores
+* **xml-builder:** bump fast-xml-parser to 5.5.8 ([#7876](https://github.com/aws/aws-sdk-js-v3/issues/7876)) ([80ef601](https://github.com/aws/aws-sdk-js-v3/commit/80ef60146a5f1ba7e584cfdc595550c9e97b52f1))
+
+
+
 # 3.972.14 (2026-03-18)
 ### Bug Fixes
 * **xml-builder:** configure maxTotalExpansions on fast-xml-parser ([#7868](https://github.com/aws/aws-sdk-js-v3/issues/7868)) ([2ad1477](https://github.com/aws/aws-sdk-js-v3/commit/2ad14770e35ed1eed1918657ae7670dffcf980a0))

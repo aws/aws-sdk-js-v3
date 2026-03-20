@@ -26,6 +26,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.23 (2026-03-20)
+### Chores
+* bump smithy versions ([414aa0d](https://github.com/aws/aws-sdk-js-v3/commit/414aa0d1c8ded23c68c6652e494078eae6a3a1d9))
+
+
+
 # 3.973.22 (2026-03-18)
 ### Bug Fixes
 * **xml-builder:** configure maxTotalExpansions on fast-xml-parser ([#7868](https://github.com/aws/aws-sdk-js-v3/issues/7868)) ([2ad1477](https://github.com/aws/aws-sdk-js-v3/commit/2ad14770e35ed1eed1918657ae7670dffcf980a0))
