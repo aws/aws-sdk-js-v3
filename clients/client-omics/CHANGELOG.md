@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1015.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1014.0...v3.1015.0) (2026-03-23)
+
+
+### Features
+
+* **client-omics:** Adds support for batch workflow runs in Amazon Omics, enabling users to submit, manage, and monitor multiple runs as a single batch. Includes APIs to create, cancel, and delete batches, track submission statuses and counts, list runs within a batch, and configure default settings. ([5dd6fe2](https://github.com/aws/aws-sdk-js-v3/commit/5dd6fe2fd2005543bb5cb79dce382ddc3ab86985))
+
+
+
+
+
 # [3.1014.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1013.0...v3.1014.0) (2026-03-20)
 
 **Note:** Version bump only for package @aws-sdk/client-omics

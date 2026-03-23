@@ -27,6 +27,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.24 (2026-03-23)
+### Bug Fixes
+* **core/protocols:** use composite error registry for error handling, revert default error message to "UnknownError" ([#7877](https://github.com/aws/aws-sdk-js-v3/issues/7877)) ([55f7726](https://github.com/aws/aws-sdk-js-v3/commit/55f7726977a2c87d58e7591ba22f6e77b1c55617))
+
+
+
 # 3.973.23 (2026-03-20)
 ### Chores
 * bump smithy versions ([414aa0d](https://github.com/aws/aws-sdk-js-v3/commit/414aa0d1c8ded23c68c6652e494078eae6a3a1d9))

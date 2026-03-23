@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1015.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1014.0...v3.1015.0) (2026-03-23)
+
+
+### Features
+
+* **client-connectcases:** You can now use the UpdateRelatedItem API to update the content of comments and custom related items associated with a case. ([ca3fcd6](https://github.com/aws/aws-sdk-js-v3/commit/ca3fcd61fb66ea865995cc672af99e38e73bebc3))
+
+
+
+
+
 # [3.1014.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1013.0...v3.1014.0) (2026-03-20)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcases

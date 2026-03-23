@@ -6,6 +6,13 @@
 
 
 
+
+# 3.0.7 (2026-03-23)
+### Chores
+* **snapshot-testing:** update dependencies.
+
+
+
 # 3.0.6 (2026-03-20)
 ### Tests
 * **snapshot-testing:** fix structure of XML errors from mock service ([#7874](https://github.com/aws/aws-sdk-js-v3/issues/7874)) ([a17511f](https://github.com/aws/aws-sdk-js-v3/commit/a17511fed4a12fd90feb6a923ea7108b53a4c987))

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1015.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1014.0...v3.1015.0) (2026-03-23)
+
+
+### Bug Fixes
+
+* **core/protocols:** use composite error registry for error handling, revert default error message to "UnknownError" ([#7877](https://github.com/aws/aws-sdk-js-v3/issues/7877)) ([55f7726](https://github.com/aws/aws-sdk-js-v3/commit/55f7726977a2c87d58e7591ba22f6e77b1c55617))
+
+
+### Features
+
+* **client-batch:** AWS Batch AMI Visibility feature support. Adds read-only batchImageStatus to Ec2Configuration to provide visibility on the status of Batch-vended AMIs used by Compute Environments. ([a1eace0](https://github.com/aws/aws-sdk-js-v3/commit/a1eace0cafa76426e8d22f4e14026e61966b2c7c))
+* **client-connectcases:** You can now use the UpdateRelatedItem API to update the content of comments and custom related items associated with a case. ([ca3fcd6](https://github.com/aws/aws-sdk-js-v3/commit/ca3fcd61fb66ea865995cc672af99e38e73bebc3))
+* **client-lightsail:** Add support for tagging of ContactMethod resource type ([9e5c87c](https://github.com/aws/aws-sdk-js-v3/commit/9e5c87c65cec72f7c9b4456d02c9468a841cf5c6))
+* **client-omics:** Adds support for batch workflow runs in Amazon Omics, enabling users to submit, manage, and monitor multiple runs as a single batch. Includes APIs to create, cancel, and delete batches, track submission statuses and counts, list runs within a batch, and configure default settings. ([5dd6fe2](https://github.com/aws/aws-sdk-js-v3/commit/5dd6fe2fd2005543bb5cb79dce382ddc3ab86985))
+
+
+
+
+
 # [3.1014.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1013.0...v3.1014.0) (2026-03-20)
 
 

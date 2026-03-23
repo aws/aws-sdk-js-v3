@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1015.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1014.0...v3.1015.0) (2026-03-23)
+
+
+### Features
+
+* **client-lightsail:** Add support for tagging of ContactMethod resource type ([9e5c87c](https://github.com/aws/aws-sdk-js-v3/commit/9e5c87c65cec72f7c9b4456d02c9468a841cf5c6))
+
+
+
+
+
 # [3.1014.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1013.0...v3.1014.0) (2026-03-20)
 
 **Note:** Version bump only for package @aws-sdk/client-lightsail

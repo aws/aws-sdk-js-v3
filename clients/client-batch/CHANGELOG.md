@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1015.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1014.0...v3.1015.0) (2026-03-23)
+
+
+### Features
+
+* **client-batch:** AWS Batch AMI Visibility feature support. Adds read-only batchImageStatus to Ec2Configuration to provide visibility on the status of Batch-vended AMIs used by Compute Environments. ([a1eace0](https://github.com/aws/aws-sdk-js-v3/commit/a1eace0cafa76426e8d22f4e14026e61966b2c7c))
+
+
+
+
+
 # [3.1014.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1013.0...v3.1014.0) (2026-03-20)
 
 **Note:** Version bump only for package @aws-sdk/client-batch
