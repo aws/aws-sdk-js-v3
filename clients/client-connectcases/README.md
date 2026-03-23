@@ -468,6 +468,13 @@ UpdateLayout
 </details>
 <details>
 <summary>
+UpdateRelatedItem
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/UpdateRelatedItemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateRelatedItemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateRelatedItemCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateTemplate
 </summary>
 

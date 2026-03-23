@@ -24,6 +24,8 @@ export const AuditEventType = {
   CASE_CREATED: "Case.Created",
   CASE_UPDATED: "Case.Updated",
   RELATED_ITEM_CREATED: "RelatedItem.Created",
+  RELATED_ITEM_DELETED: "RelatedItem.Deleted",
+  RELATED_ITEM_UPDATED: "RelatedItem.Updated",
 } as const;
 /**
  * @public

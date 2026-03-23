@@ -40,4 +40,5 @@ export * from "./UpdateCaseCommand";
 export * from "./UpdateCaseRuleCommand";
 export * from "./UpdateFieldCommand";
 export * from "./UpdateLayoutCommand";
+export * from "./UpdateRelatedItemCommand";
 export * from "./UpdateTemplateCommand";

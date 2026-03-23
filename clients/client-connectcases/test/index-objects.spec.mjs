@@ -31,6 +31,7 @@ import {
   CommentBodyTextType,
   CommentContent$,
   CommentFilter$,
+  CommentUpdateContent$,
   CompoundCondition$,
   ConflictException,
   ConflictException$,
@@ -75,6 +76,7 @@ import {
   CustomFieldsFilter$,
   CustomFilter$,
   CustomInputContent$,
+  CustomUpdateContent$,
   DeleteCase$,
   DeleteCaseCommand,
   DeleteCaseRequest$,
@@ -215,6 +217,7 @@ import {
   RelatedItemInputContent$,
   RelatedItemType,
   RelatedItemTypeFilter$,
+  RelatedItemUpdateContent$,
   RequiredCaseRule$,
   RequiredField$,
   ResourceNotFoundException,
@@ -280,6 +283,10 @@ import {
   UpdateLayoutCommand,
   UpdateLayoutRequest$,
   UpdateLayoutResponse$,
+  UpdateRelatedItem$,
+  UpdateRelatedItemCommand,
+  UpdateRelatedItemRequest$,
+  UpdateRelatedItemResponse$,
   UpdateTemplate$,
   UpdateTemplateCommand,
   UpdateTemplateRequest$,
@@ -375,6 +382,8 @@ assert(typeof UpdateFieldCommand === "function");
 assert(typeof UpdateField$ === "object");
 assert(typeof UpdateLayoutCommand === "function");
 assert(typeof UpdateLayout$ === "object");
+assert(typeof UpdateRelatedItemCommand === "function");
+assert(typeof UpdateRelatedItem$ === "object");
 assert(typeof UpdateTemplateCommand === "function");
 assert(typeof UpdateTemplate$ === "object");
 // structural schemas
@@ -400,6 +409,7 @@ assert(typeof CaseRuleSummary$ === "object");
 assert(typeof CaseSummary$ === "object");
 assert(typeof CommentContent$ === "object");
 assert(typeof CommentFilter$ === "object");
+assert(typeof CommentUpdateContent$ === "object");
 assert(typeof CompoundCondition$ === "object");
 assert(typeof ConnectCaseContent$ === "object");
 assert(typeof ConnectCaseFilter$ === "object");
@@ -425,6 +435,7 @@ assert(typeof CustomContent$ === "object");
 assert(typeof CustomFieldsFilter$ === "object");
 assert(typeof CustomFilter$ === "object");
 assert(typeof CustomInputContent$ === "object");
+assert(typeof CustomUpdateContent$ === "object");
 assert(typeof DeleteCaseRequest$ === "object");
 assert(typeof DeleteCaseResponse$ === "object");
 assert(typeof DeleteCaseRuleRequest$ === "object");
@@ -502,6 +513,7 @@ assert(typeof RelatedItemContent$ === "object");
 assert(typeof RelatedItemEventIncludedData$ === "object");
 assert(typeof RelatedItemInputContent$ === "object");
 assert(typeof RelatedItemTypeFilter$ === "object");
+assert(typeof RelatedItemUpdateContent$ === "object");
 assert(typeof RequiredCaseRule$ === "object");
 assert(typeof RequiredField$ === "object");
 assert(typeof SearchAllRelatedItemsRequest$ === "object");
@@ -537,6 +549,8 @@ assert(typeof UpdateFieldRequest$ === "object");
 assert(typeof UpdateFieldResponse$ === "object");
 assert(typeof UpdateLayoutRequest$ === "object");
 assert(typeof UpdateLayoutResponse$ === "object");
+assert(typeof UpdateRelatedItemRequest$ === "object");
+assert(typeof UpdateRelatedItemResponse$ === "object");
 assert(typeof UpdateTemplateRequest$ === "object");
 assert(typeof UpdateTemplateResponse$ === "object");
 assert(typeof UserUnion$ === "object");

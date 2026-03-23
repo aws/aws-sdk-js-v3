@@ -71,6 +71,8 @@ const _CSL = "CaseSummaryList";
 const _CT = "CreateTemplate";
 const _CTR = "CreateTemplateRequest";
 const _CTRr = "CreateTemplateResponse";
+const _CUC = "CommentUpdateContent";
+const _CUCu = "CustomUpdateContent";
 const _DC = "DeleteCase";
 const _DCR = "DeleteCaseRequest";
 const _DCRR = "DeleteCaseRuleRequest";
@@ -185,6 +187,7 @@ const _RIEID = "RelatedItemEventIncludedData";
 const _RIFL = "RelatedItemFilterList";
 const _RIIC = "RelatedItemInputContent";
 const _RITF = "RelatedItemTypeFilter";
+const _RIUC = "RelatedItemUpdateContent";
 const _RNFE = "ResourceNotFoundException";
 const _S = "Sort";
 const _SARI = "SearchAllRelatedItems";
@@ -241,6 +244,9 @@ const _UL = "UpdateLayout";
 const _ULR = "UpdateLayoutRequest";
 const _ULRp = "UpdateLayoutResponse";
 const _UR = "UntagResource";
+const _URI = "UpdateRelatedItem";
+const _URIR = "UpdateRelatedItemRequest";
+const _URIRp = "UpdateRelatedItemResponse";
 const _URR = "UntagResourceRequest";
 const _UT = "UpdateTemplate";
 const _UTR = "UpdateTemplateRequest";
@@ -259,6 +265,7 @@ const _ba = "basic";
 const _c = "client";
 const _cA = "contactArn";
 const _cAa = "caseArn";
+const _cB = "createdBy";
 const _cC = "connectCase";
 const _cD = "caseData";
 const _cE = "customEntity";
@@ -329,6 +336,7 @@ const _lI = "layoutId";
 const _lMT = "lastModifiedTime";
 const _lT = "lessThan";
 const _lTOET = "lessThanOrEqualTo";
+const _lUU = "lastUpdatedUser";
 const _m = "message";
 const _mI = "moreInfo";
 const _mR = "maxResults";
@@ -569,6 +577,11 @@ export var CommentFilter$: StaticStructureSchema = [3, n0, _CF,
   [],
   []
 ];
+export var CommentUpdateContent$: StaticStructureSchema = [3, n0, _CUC,
+  0,
+  [_b, _cT],
+  [0, 0], 2
+];
 export var CompoundCondition$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_co],
@@ -685,6 +698,11 @@ export var CustomFilter$: StaticStructureSchema = [3, n0, _CFu,
   [() => CustomFieldsFilter$]
 ];
 export var CustomInputContent$: StaticStructureSchema = [3, n0, _CIC,
+  0,
+  [_f],
+  [() => FieldValueList], 1
+];
+export var CustomUpdateContent$: StaticStructureSchema = [3, n0, _CUCu,
   0,
   [_f],
   [() => FieldValueList], 1
@@ -1189,6 +1207,16 @@ export var UpdateLayoutResponse$: StaticStructureSchema = [3, n0, _ULRp,
   [],
   []
 ];
+export var UpdateRelatedItemRequest$: StaticStructureSchema = [3, n0, _URIR,
+  0,
+  [_dI, _cI, _rII, _con, _pB],
+  [[0, 1], [0, 1], [0, 1], () => RelatedItemUpdateContent$, [() => UserUnion$, 0]], 4
+];
+export var UpdateRelatedItemResponse$: StaticStructureSchema = [3, n0, _URIRp,
+  0,
+  [_rII, _rIA, _t, _con, _aT, _ta, _lUU, _cB],
+  [0, 0, 0, [() => RelatedItemContent$, 0], 5, [() => Tags, 0], [() => UserUnion$, 0], [() => UserUnion$, 0]], 5
+];
 export var UpdateTemplateRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
   [_dI, _tI, _n, _d, _lC, _rF, _st, _rul, _tPC],
@@ -1389,6 +1417,11 @@ export var RelatedItemTypeFilter$: StaticUnionSchema = [4, n0, _RITF,
   [_conta, _com, _file, _sl, _cC, _cu],
   [() => ContactFilter$, () => CommentFilter$, () => FileFilter$, [() => SlaFilter$, 0], () => ConnectCaseFilter$, () => CustomFilter$]
 ];
+export var RelatedItemUpdateContent$: StaticUnionSchema = [4, n0, _RIUC,
+  0,
+  [_com, _cu],
+  [() => CommentUpdateContent$, () => CustomUpdateContent$]
+];
 export var Section$: StaticUnionSchema = [4, n0, _Se,
   0,
   [_fG],
@@ -1531,6 +1564,9 @@ export var UpdateField$: StaticOperationSchema = [9, n0, _UF,
 ];
 export var UpdateLayout$: StaticOperationSchema = [9, n0, _UL,
   { [_ht]: ["PUT", "/domains/{domainId}/layouts/{layoutId}", 200] }, () => UpdateLayoutRequest$, () => UpdateLayoutResponse$
+];
+export var UpdateRelatedItem$: StaticOperationSchema = [9, n0, _URI,
+  { [_ht]: ["PUT", "/domains/{domainId}/cases/{caseId}/related-items/{relatedItemId}", 200] }, () => UpdateRelatedItemRequest$, () => UpdateRelatedItemResponse$
 ];
 export var UpdateTemplate$: StaticOperationSchema = [9, n0, _UT,
   { [_ht]: ["PUT", "/domains/{domainId}/templates/{templateId}", 200] }, () => UpdateTemplateRequest$, () => UpdateTemplateResponse$

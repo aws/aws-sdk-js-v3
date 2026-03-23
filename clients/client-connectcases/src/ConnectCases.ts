@@ -148,6 +148,11 @@ import {
   UpdateLayoutCommandOutput,
 } from "./commands/UpdateLayoutCommand";
 import {
+  UpdateRelatedItemCommand,
+  UpdateRelatedItemCommandInput,
+  UpdateRelatedItemCommandOutput,
+} from "./commands/UpdateRelatedItemCommand";
+import {
   UpdateTemplateCommand,
   UpdateTemplateCommandInput,
   UpdateTemplateCommandOutput,
@@ -208,6 +213,7 @@ const commands = {
   UpdateCaseRuleCommand,
   UpdateFieldCommand,
   UpdateLayoutCommand,
+  UpdateRelatedItemCommand,
   UpdateTemplateCommand,
 };
 const paginators = {
@@ -922,6 +928,23 @@ export interface ConnectCases {
     args: UpdateLayoutCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLayoutCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRelatedItemCommand}
+   */
+  updateRelatedItem(
+    args: UpdateRelatedItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRelatedItemCommandOutput>;
+  updateRelatedItem(
+    args: UpdateRelatedItemCommandInput,
+    cb: (err: any, data?: UpdateRelatedItemCommandOutput) => void
+  ): void;
+  updateRelatedItem(
+    args: UpdateRelatedItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRelatedItemCommandOutput) => void
   ): void;
 
   /**

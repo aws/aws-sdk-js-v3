@@ -122,6 +122,7 @@ import { UpdateCaseCommandInput, UpdateCaseCommandOutput } from "./commands/Upda
 import { UpdateCaseRuleCommandInput, UpdateCaseRuleCommandOutput } from "./commands/UpdateCaseRuleCommand";
 import { UpdateFieldCommandInput, UpdateFieldCommandOutput } from "./commands/UpdateFieldCommand";
 import { UpdateLayoutCommandInput, UpdateLayoutCommandOutput } from "./commands/UpdateLayoutCommand";
+import { UpdateRelatedItemCommandInput, UpdateRelatedItemCommandOutput } from "./commands/UpdateRelatedItemCommand";
 import { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "./commands/UpdateTemplateCommand";
 import {
   ClientInputEndpointParameters,
@@ -179,6 +180,7 @@ export type ServiceInputTypes =
   | UpdateCaseRuleCommandInput
   | UpdateFieldCommandInput
   | UpdateLayoutCommandInput
+  | UpdateRelatedItemCommandInput
   | UpdateTemplateCommandInput;
 
 /**
@@ -226,6 +228,7 @@ export type ServiceOutputTypes =
   | UpdateCaseRuleCommandOutput
   | UpdateFieldCommandOutput
   | UpdateLayoutCommandOutput
+  | UpdateRelatedItemCommandOutput
   | UpdateTemplateCommandOutput;
 
 /**

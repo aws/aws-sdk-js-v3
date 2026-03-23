@@ -539,7 +539,7 @@ export interface AuditEvent {
   eventId: string | undefined;
 
   /**
-   * <p>The Type of an audit history event.</p>
+   * <p>The type of audit history event.</p> <p>Valid Values: <code>Case.Created</code> | <code>Case.Updated</code> | <code>RelatedItem.Created</code> | <code>RelatedItem.Updated</code> | <code>RelatedItem.Deleted</code> </p>
    * @public
    */
   type: AuditEventType | undefined;
@@ -1489,6 +1489,177 @@ export interface SearchRelatedItemsResponse {
    * @public
    */
   relatedItems: SearchRelatedItemsResponseItem[] | undefined;
+}
+
+/**
+ * <p>Represents the updated content of a <code>Comment</code> related item.</p>
+ * @public
+ */
+export interface CommentUpdateContent {
+  /**
+   * <p>Updated text in the body of a <code>Comment</code> on a case.</p>
+   * @public
+   */
+  body: string | undefined;
+
+  /**
+   * <p>Type of the text in the box of a <code>Comment</code> on a case.</p>
+   * @public
+   */
+  contentType: CommentBodyTextType | undefined;
+}
+
+/**
+ * <p>Represents the updated content of a <code>Custom</code> related item.</p>
+ * @public
+ */
+export interface CustomUpdateContent {
+  /**
+   * <p>List of updated field values for the <code>Custom</code> related item. All existing and new fields, and their associated values should be included. Fields not included as part of this request will be removed.</p>
+   * @public
+   */
+  fields: FieldValue[] | undefined;
+}
+
+/**
+ * <p>Represents the content of a related item to be updated. This is a union type that can contain either comment content or custom content.</p>
+ * @public
+ */
+export type RelatedItemUpdateContent =
+  | RelatedItemUpdateContent.CommentMember
+  | RelatedItemUpdateContent.CustomMember
+  | RelatedItemUpdateContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RelatedItemUpdateContent {
+  /**
+   * <p>Represents the updated content of a <code>Comment</code> related item.</p>
+   * @public
+   */
+  export interface CommentMember {
+    comment: CommentUpdateContent;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the updated content of a <code>Custom</code> related item.</p>
+   * @public
+   */
+  export interface CustomMember {
+    comment?: never;
+    custom: CustomUpdateContent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    comment?: never;
+    custom?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    comment: (value: CommentUpdateContent) => T;
+    custom: (value: CustomUpdateContent) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface UpdateRelatedItemRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>A unique identifier of the case.</p>
+   * @public
+   */
+  caseId: string | undefined;
+
+  /**
+   * <p>Unique identifier of a related item.</p>
+   * @public
+   */
+  relatedItemId: string | undefined;
+
+  /**
+   * <p>The content of a related item to be updated.</p>
+   * @public
+   */
+  content: RelatedItemUpdateContent | undefined;
+
+  /**
+   * <p>Represents the user who performed the update of the related item.</p>
+   * @public
+   */
+  performedBy?: UserUnion | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRelatedItemResponse {
+  /**
+   * <p>The unique identifier of the updated related item.</p>
+   * @public
+   */
+  relatedItemId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated related item.</p>
+   * @public
+   */
+  relatedItemArn: string | undefined;
+
+  /**
+   * <p>Type of the updated related item.</p>
+   * @public
+   */
+  type: RelatedItemType | undefined;
+
+  /**
+   * <p>Represents the content of the updated related item.</p>
+   * @public
+   */
+  content: RelatedItemContent | undefined;
+
+  /**
+   * <p>Time at which the related item was associated with the case.</p>
+   * @public
+   */
+  associationTime: Date | undefined;
+
+  /**
+   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Represents the last user that updated the related item.</p>
+   * @public
+   */
+  lastUpdatedUser?: UserUnion | undefined;
+
+  /**
+   * <p>Represents the creator of the related item.</p>
+   * @public
+   */
+  createdBy?: UserUnion | undefined;
 }
 
 /**
