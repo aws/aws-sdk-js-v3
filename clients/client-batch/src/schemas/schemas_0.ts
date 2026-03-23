@@ -352,6 +352,7 @@ const _an = "annotations";
 const _ar = "arns";
 const _arg = "args";
 const _at = "attempts";
+const _bIS = "batchImageStatus";
 const _bL = "borrowLimit";
 const _bP = "bidPercentage";
 const _c = "client";
@@ -1023,8 +1024,8 @@ export var Device$: StaticStructureSchema = [3, n0, _D,
 ];
 export var Ec2Configuration$: StaticStructureSchema = [3, n0, _EC,
   0,
-  [_iTm, _iIO, _iKV],
-  [0, 0, 0], 1
+  [_iTm, _iIO, _bIS, _iKV],
+  [0, 0, 0, 0], 1
 ];
 export var EcsProperties$: StaticStructureSchema = [3, n0, _EP,
   0,

@@ -319,7 +319,8 @@ export interface CancelJobResponse {}
 /**
  * <p>Provides information used to select Amazon Machine Images (AMIs) for instances in the
  *    compute environment. If <code>Ec2Configuration</code> isn't specified, the default is
- *     <code>ECS_AL2</code> (<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami">Amazon Linux 2</a>).</p>
+ *     <code>ECS_AL2</code> (<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami">Amazon ECS-optimized Amazon Linux 2</a>) for EC2 (ECS) compute environments and <code>EKS_AL2023</code> (<a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html">Amazon EKS-optimized Amazon Linux 2023
+ *     AMI</a>) for EKS compute environments.</p>
  *          <note>
  *             <p>This object isn't applicable to jobs that are running on Fargate resources.</p>
  *          </note>
@@ -446,6 +447,44 @@ export interface Ec2Configuration {
    * @public
    */
   imageIdOverride?: string | undefined;
+
+  /**
+   * <p>The status of the Batch-provided default AMIs associated with the <code>imageType</code>.</p>
+   *          <p>The field only appears after the compute environment has begun scaling instances using the <code>imageType</code>. The field is not present when an image is specified in
+   *             <code>ComputeResources.imageId</code> (deprecated), the default launch template, or
+   *             <code>Ec2Configuration.imageIdOverride</code>. The field is also not present when the compute environment has a launch template override.
+   *
+   *
+   *             For more information on image selection, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/ami-selection-order.html">AMI selection order</a>.</p>
+   *          <note>
+   *             <p>This field is read-only and only appears in the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeComputeEnvironments.html">DescribeComputeEnvironments</a> response.</p>
+   *          </note>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LATEST</code> − Using the most recent AMI supported</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_AVAILABLE</code> − An updated AMI is available</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>If a compute environment has multiple AMIs for the <code>imageType</code> and any one AMI has <code>UPDATE_AVAILABLE</code>, the status shows <code>UPDATE_AVAILABLE</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For compute environments that use <code>BEST_FIT</code> as their allocation strategy,
+   *                     you can perform a <a href="https://docs.aws.amazon.com/batch/latest/userguide/blue-green-updates.html">blue/green update</a> to update the AMI.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For all other compute environments, you can perform an
+   *                     <a href="https://docs.aws.amazon.com/batch/latest/userguide/managing-ami-versions.html#updating-ami-versions">AMI version update</a> to update the AMI to the latest version.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  batchImageStatus?: string | undefined;
 
   /**
    * <p>The Kubernetes version for the compute environment. If you don't specify a value, the latest
@@ -967,7 +1006,7 @@ export interface ComputeResource {
   /**
    * <p>Provides information that's used to select Amazon Machine Images (AMIs) for Amazon EC2 instances
    *    in the compute environment. If <code>Ec2Configuration</code> isn't specified, the default is
-   *     <code>ECS_AL2</code>.</p>
+   *     <code>ECS_AL2</code> for EC2 (ECS) compute environments and <code>EKS_AL2023</code> for EKS compute environments.</p>
    *          <p>One or two values can be provided.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
@@ -9326,7 +9365,7 @@ export interface ComputeResourceUpdate {
   /**
    * <p>Provides information used to select Amazon Machine Images (AMIs) for Amazon EC2 instances in the
    *    compute environment. If <code>Ec2Configuration</code> isn't specified, the default is
-   *     <code>ECS_AL2</code>.</p>
+   *     <code>ECS_AL2</code> for EC2 (ECS) compute environments and <code>EKS_AL2023</code> for EKS compute environments.</p>
    *          <p>When updating a compute environment, changing this setting requires an infrastructure update
    *    of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the
    *     <i>Batch User Guide</i>. To remove the Amazon EC2 configuration and any custom AMI ID

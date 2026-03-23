@@ -107,6 +107,7 @@ export interface DescribeComputeEnvironmentsCommandOutput extends DescribeComput
  * //           { // Ec2Configuration
  * //             imageType: "STRING_VALUE", // required
  * //             imageIdOverride: "STRING_VALUE",
+ * //             batchImageStatus: "STRING_VALUE",
  * //             imageKubernetesVersion: "STRING_VALUE",
  * //           },
  * //         ],
