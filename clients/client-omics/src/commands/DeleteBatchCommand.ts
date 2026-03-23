@@ -4,9 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteAnnotationStoreRequest, DeleteAnnotationStoreResponse } from "../models/models_0";
+import type { DeleteBatchRequest } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { DeleteAnnotationStore$ } from "../schemas/schemas_0";
+import { DeleteBatch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,42 +16,39 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteAnnotationStoreCommand}.
+ * The input for {@link DeleteBatchCommand}.
  */
-export interface DeleteAnnotationStoreCommandInput extends DeleteAnnotationStoreRequest {}
+export interface DeleteBatchCommandInput extends DeleteBatchRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteAnnotationStoreCommand}.
+ * The output of {@link DeleteBatchCommand}.
  */
-export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStoreResponse, __MetadataBearer {}
+export interface DeleteBatchCommandOutput extends __MetadataBearer {}
 
 /**
- * <important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Deletes an annotation store.</p>
+ * <p>Deletes a run batch resource and its associated metadata. This operation does not delete the individual workflow runs. To delete the runs, call <code>DeleteRunBatch</code> before calling <code>DeleteBatch</code>.</p> <p> <code>DeleteBatch</code> requires the batch to be in a terminal state: <code>PROCESSED</code>, <code>FAILED</code>, <code>CANCELLED</code>, or <code>RUNS_DELETED</code>. After <code>DeleteBatch</code> completes, the batch metadata is no longer accessible. You cannot call <code>GetBatch</code>, <code>ListRunsInBatch</code>, <code>DeleteRunBatch</code>, or <code>CancelRunBatch</code> on a deleted batch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, DeleteAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, DeleteAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, DeleteBatchCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, DeleteBatchCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
  * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
- * const input = { // DeleteAnnotationStoreRequest
- *   name: "STRING_VALUE", // required
- *   force: true || false,
+ * const input = { // DeleteBatchRequest
+ *   batchId: "STRING_VALUE", // required
  * };
- * const command = new DeleteAnnotationStoreCommand(input);
+ * const command = new DeleteBatchCommand(input);
  * const response = await client.send(command);
- * // { // DeleteAnnotationStoreResponse
- * //   status: "STRING_VALUE", // required
- * // };
+ * // {};
  *
  * ```
  *
- * @param DeleteAnnotationStoreCommandInput - {@link DeleteAnnotationStoreCommandInput}
- * @returns {@link DeleteAnnotationStoreCommandOutput}
- * @see {@link DeleteAnnotationStoreCommandInput} for command's `input` shape.
- * @see {@link DeleteAnnotationStoreCommandOutput} for command's `response` shape.
+ * @param DeleteBatchCommandInput - {@link DeleteBatchCommandInput}
+ * @returns {@link DeleteBatchCommandOutput}
+ * @see {@link DeleteBatchCommandInput} for command's `input` shape.
+ * @see {@link DeleteBatchCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -63,8 +60,14 @@ export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStor
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred. Try the request again.</p>
  *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeds a service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -78,10 +81,10 @@ export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStor
  *
  * @public
  */
-export class DeleteAnnotationStoreCommand extends $Command
+export class DeleteBatchCommand extends $Command
   .classBuilder<
-    DeleteAnnotationStoreCommandInput,
-    DeleteAnnotationStoreCommandOutput,
+    DeleteBatchCommandInput,
+    DeleteBatchCommandOutput,
     OmicsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -90,19 +93,19 @@ export class DeleteAnnotationStoreCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("Omics", "DeleteAnnotationStore", {})
-  .n("OmicsClient", "DeleteAnnotationStoreCommand")
-  .sc(DeleteAnnotationStore$)
+  .s("Omics", "DeleteBatch", {})
+  .n("OmicsClient", "DeleteBatchCommand")
+  .sc(DeleteBatch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteAnnotationStoreRequest;
-      output: DeleteAnnotationStoreResponse;
+      input: DeleteBatchRequest;
+      output: {};
     };
     sdk: {
-      input: DeleteAnnotationStoreCommandInput;
-      output: DeleteAnnotationStoreCommandOutput;
+      input: DeleteBatchCommandInput;
+      output: DeleteBatchCommandOutput;
     };
   };
 }

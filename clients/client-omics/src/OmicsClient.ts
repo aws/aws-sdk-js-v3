@@ -74,6 +74,7 @@ import {
   CancelAnnotationImportJobCommandInput,
   CancelAnnotationImportJobCommandOutput,
 } from "./commands/CancelAnnotationImportJobCommand";
+import { CancelRunBatchCommandInput, CancelRunBatchCommandOutput } from "./commands/CancelRunBatchCommand";
 import { CancelRunCommandInput, CancelRunCommandOutput } from "./commands/CancelRunCommand";
 import {
   CancelVariantImportJobCommandInput,
@@ -120,11 +121,13 @@ import {
   DeleteAnnotationStoreVersionsCommandInput,
   DeleteAnnotationStoreVersionsCommandOutput,
 } from "./commands/DeleteAnnotationStoreVersionsCommand";
+import { DeleteBatchCommandInput, DeleteBatchCommandOutput } from "./commands/DeleteBatchCommand";
 import { DeleteReferenceCommandInput, DeleteReferenceCommandOutput } from "./commands/DeleteReferenceCommand";
 import {
   DeleteReferenceStoreCommandInput,
   DeleteReferenceStoreCommandOutput,
 } from "./commands/DeleteReferenceStoreCommand";
+import { DeleteRunBatchCommandInput, DeleteRunBatchCommandOutput } from "./commands/DeleteRunBatchCommand";
 import { DeleteRunCacheCommandInput, DeleteRunCacheCommandOutput } from "./commands/DeleteRunCacheCommand";
 import { DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
 import { DeleteRunGroupCommandInput, DeleteRunGroupCommandOutput } from "./commands/DeleteRunGroupCommand";
@@ -152,6 +155,7 @@ import {
   GetAnnotationStoreVersionCommandInput,
   GetAnnotationStoreVersionCommandOutput,
 } from "./commands/GetAnnotationStoreVersionCommand";
+import { GetBatchCommandInput, GetBatchCommandOutput } from "./commands/GetBatchCommand";
 import {
   GetReadSetActivationJobCommandInput,
   GetReadSetActivationJobCommandOutput,
@@ -202,6 +206,7 @@ import {
   ListAnnotationStoreVersionsCommandInput,
   ListAnnotationStoreVersionsCommandOutput,
 } from "./commands/ListAnnotationStoreVersionsCommand";
+import { ListBatchCommandInput, ListBatchCommandOutput } from "./commands/ListBatchCommand";
 import {
   ListMultipartReadSetUploadsCommandInput,
   ListMultipartReadSetUploadsCommandOutput,
@@ -235,6 +240,7 @@ import {
 import { ListRunCachesCommandInput, ListRunCachesCommandOutput } from "./commands/ListRunCachesCommand";
 import { ListRunGroupsCommandInput, ListRunGroupsCommandOutput } from "./commands/ListRunGroupsCommand";
 import { ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
+import { ListRunsInBatchCommandInput, ListRunsInBatchCommandOutput } from "./commands/ListRunsInBatchCommand";
 import { ListRunTasksCommandInput, ListRunTasksCommandOutput } from "./commands/ListRunTasksCommand";
 import { ListSequenceStoresCommandInput, ListSequenceStoresCommandOutput } from "./commands/ListSequenceStoresCommand";
 import { ListSharesCommandInput, ListSharesCommandOutput } from "./commands/ListSharesCommand";
@@ -273,6 +279,7 @@ import {
   StartReferenceImportJobCommandInput,
   StartReferenceImportJobCommandOutput,
 } from "./commands/StartReferenceImportJobCommand";
+import { StartRunBatchCommandInput, StartRunBatchCommandOutput } from "./commands/StartRunBatchCommand";
 import { StartRunCommandInput, StartRunCommandOutput } from "./commands/StartRunCommand";
 import {
   StartVariantImportJobCommandInput,
@@ -320,6 +327,7 @@ export type ServiceInputTypes =
   | AcceptShareCommandInput
   | BatchDeleteReadSetCommandInput
   | CancelAnnotationImportJobCommandInput
+  | CancelRunBatchCommandInput
   | CancelRunCommandInput
   | CancelVariantImportJobCommandInput
   | CompleteMultipartReadSetUploadCommandInput
@@ -336,8 +344,10 @@ export type ServiceInputTypes =
   | CreateWorkflowVersionCommandInput
   | DeleteAnnotationStoreCommandInput
   | DeleteAnnotationStoreVersionsCommandInput
+  | DeleteBatchCommandInput
   | DeleteReferenceCommandInput
   | DeleteReferenceStoreCommandInput
+  | DeleteRunBatchCommandInput
   | DeleteRunCacheCommandInput
   | DeleteRunCommandInput
   | DeleteRunGroupCommandInput
@@ -350,6 +360,7 @@ export type ServiceInputTypes =
   | GetAnnotationImportJobCommandInput
   | GetAnnotationStoreCommandInput
   | GetAnnotationStoreVersionCommandInput
+  | GetBatchCommandInput
   | GetReadSetActivationJobCommandInput
   | GetReadSetCommandInput
   | GetReadSetExportJobCommandInput
@@ -373,6 +384,7 @@ export type ServiceInputTypes =
   | ListAnnotationImportJobsCommandInput
   | ListAnnotationStoreVersionsCommandInput
   | ListAnnotationStoresCommandInput
+  | ListBatchCommandInput
   | ListMultipartReadSetUploadsCommandInput
   | ListReadSetActivationJobsCommandInput
   | ListReadSetExportJobsCommandInput
@@ -386,6 +398,7 @@ export type ServiceInputTypes =
   | ListRunGroupsCommandInput
   | ListRunTasksCommandInput
   | ListRunsCommandInput
+  | ListRunsInBatchCommandInput
   | ListSequenceStoresCommandInput
   | ListSharesCommandInput
   | ListTagsForResourceCommandInput
@@ -399,6 +412,7 @@ export type ServiceInputTypes =
   | StartReadSetExportJobCommandInput
   | StartReadSetImportJobCommandInput
   | StartReferenceImportJobCommandInput
+  | StartRunBatchCommandInput
   | StartRunCommandInput
   | StartVariantImportJobCommandInput
   | TagResourceCommandInput
@@ -421,6 +435,7 @@ export type ServiceOutputTypes =
   | AcceptShareCommandOutput
   | BatchDeleteReadSetCommandOutput
   | CancelAnnotationImportJobCommandOutput
+  | CancelRunBatchCommandOutput
   | CancelRunCommandOutput
   | CancelVariantImportJobCommandOutput
   | CompleteMultipartReadSetUploadCommandOutput
@@ -437,8 +452,10 @@ export type ServiceOutputTypes =
   | CreateWorkflowVersionCommandOutput
   | DeleteAnnotationStoreCommandOutput
   | DeleteAnnotationStoreVersionsCommandOutput
+  | DeleteBatchCommandOutput
   | DeleteReferenceCommandOutput
   | DeleteReferenceStoreCommandOutput
+  | DeleteRunBatchCommandOutput
   | DeleteRunCacheCommandOutput
   | DeleteRunCommandOutput
   | DeleteRunGroupCommandOutput
@@ -451,6 +468,7 @@ export type ServiceOutputTypes =
   | GetAnnotationImportJobCommandOutput
   | GetAnnotationStoreCommandOutput
   | GetAnnotationStoreVersionCommandOutput
+  | GetBatchCommandOutput
   | GetReadSetActivationJobCommandOutput
   | GetReadSetCommandOutput
   | GetReadSetExportJobCommandOutput
@@ -474,6 +492,7 @@ export type ServiceOutputTypes =
   | ListAnnotationImportJobsCommandOutput
   | ListAnnotationStoreVersionsCommandOutput
   | ListAnnotationStoresCommandOutput
+  | ListBatchCommandOutput
   | ListMultipartReadSetUploadsCommandOutput
   | ListReadSetActivationJobsCommandOutput
   | ListReadSetExportJobsCommandOutput
@@ -487,6 +506,7 @@ export type ServiceOutputTypes =
   | ListRunGroupsCommandOutput
   | ListRunTasksCommandOutput
   | ListRunsCommandOutput
+  | ListRunsInBatchCommandOutput
   | ListSequenceStoresCommandOutput
   | ListSharesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -500,6 +520,7 @@ export type ServiceOutputTypes =
   | StartReadSetExportJobCommandOutput
   | StartReadSetImportJobCommandOutput
   | StartReferenceImportJobCommandOutput
+  | StartRunBatchCommandOutput
   | StartRunCommandOutput
   | StartVariantImportJobCommandOutput
   | TagResourceCommandOutput

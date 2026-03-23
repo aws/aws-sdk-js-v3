@@ -4,9 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListRunsRequest, ListRunsResponse } from "../models/models_0";
+import type { ListRunsInBatchRequest, ListRunsInBatchResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { ListRuns$ } from "../schemas/schemas_0";
+import { ListRunsInBatch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,52 +16,46 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListRunsCommand}.
+ * The input for {@link ListRunsInBatchCommand}.
  */
-export interface ListRunsCommandInput extends ListRunsRequest {}
+export interface ListRunsInBatchCommandInput extends ListRunsInBatchRequest {}
 /**
  * @public
  *
- * The output of {@link ListRunsCommand}.
+ * The output of {@link ListRunsInBatchCommand}.
  */
-export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBearer {}
+export interface ListRunsInBatchCommandOutput extends ListRunsInBatchResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of runs and returns each run's metadata and status.</p> <p>Amazon Web Services HealthOmics stores a configurable number of runs, as determined by service limits, that are available to the console and API. If the <code>ListRuns</code> response doesn't include specific runs that you expected, you can find all run logs in the CloudWatch logs. For more information about viewing the run logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/monitoring-cloudwatch-logs.html">CloudWatch logs</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+ * <p>Returns a paginated list of individual workflow runs within a specific batch. Use this operation to map each <code>runSettingId</code> to its HealthOmics-generated <code>runId</code>, and to check the submission status of each run. Only one filter per call is supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListRunsCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListRunsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, ListRunsInBatchCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, ListRunsInBatchCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
  * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
- * const input = { // ListRunsRequest
- *   name: "STRING_VALUE",
- *   runGroupId: "STRING_VALUE",
- *   batchId: "STRING_VALUE",
+ * const input = { // ListRunsInBatchRequest
+ *   batchId: "STRING_VALUE", // required
+ *   maxItems: Number("int"),
  *   startingToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   status: "STRING_VALUE",
+ *   submissionStatus: "STRING_VALUE",
+ *   runSettingId: "STRING_VALUE",
+ *   runId: "STRING_VALUE",
  * };
- * const command = new ListRunsCommand(input);
+ * const command = new ListRunsInBatchCommand(input);
  * const response = await client.send(command);
- * // { // ListRunsResponse
- * //   items: [ // RunList
- * //     { // RunListItem
- * //       arn: "STRING_VALUE",
- * //       id: "STRING_VALUE",
- * //       status: "STRING_VALUE",
- * //       workflowId: "STRING_VALUE",
- * //       batchId: "STRING_VALUE",
- * //       name: "STRING_VALUE",
- * //       priority: Number("int"),
- * //       storageCapacity: Number("int"),
- * //       creationTime: new Date("TIMESTAMP"),
- * //       startTime: new Date("TIMESTAMP"),
- * //       stopTime: new Date("TIMESTAMP"),
- * //       storageType: "STRING_VALUE",
- * //       workflowVersionName: "STRING_VALUE",
+ * // { // ListRunsInBatchResponse
+ * //   runs: [ // RunBatchList
+ * //     { // RunBatchListItem
+ * //       runSettingId: "STRING_VALUE",
+ * //       runId: "STRING_VALUE",
+ * //       runInternalUuid: "STRING_VALUE",
+ * //       runArn: "STRING_VALUE",
+ * //       submissionStatus: "STRING_VALUE",
+ * //       submissionFailureReason: "STRING_VALUE",
+ * //       submissionFailureMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -69,10 +63,10 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListRunsCommandInput - {@link ListRunsCommandInput}
- * @returns {@link ListRunsCommandOutput}
- * @see {@link ListRunsCommandInput} for command's `input` shape.
- * @see {@link ListRunsCommandOutput} for command's `response` shape.
+ * @param ListRunsInBatchCommandInput - {@link ListRunsInBatchCommandInput}
+ * @returns {@link ListRunsInBatchCommandOutput}
+ * @see {@link ListRunsInBatchCommandInput} for command's `input` shape.
+ * @see {@link ListRunsInBatchCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -105,10 +99,10 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  *
  * @public
  */
-export class ListRunsCommand extends $Command
+export class ListRunsInBatchCommand extends $Command
   .classBuilder<
-    ListRunsCommandInput,
-    ListRunsCommandOutput,
+    ListRunsInBatchCommandInput,
+    ListRunsInBatchCommandOutput,
     OmicsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -117,19 +111,19 @@ export class ListRunsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("Omics", "ListRuns", {})
-  .n("OmicsClient", "ListRunsCommand")
-  .sc(ListRuns$)
+  .s("Omics", "ListRunsInBatch", {})
+  .n("OmicsClient", "ListRunsInBatchCommand")
+  .sc(ListRunsInBatch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListRunsRequest;
-      output: ListRunsResponse;
+      input: ListRunsInBatchRequest;
+      output: ListRunsInBatchResponse;
     };
     sdk: {
-      input: ListRunsCommandInput;
-      output: ListRunsCommandOutput;
+      input: ListRunsInBatchCommandInput;
+      output: ListRunsInBatchCommandOutput;
     };
   };
 }

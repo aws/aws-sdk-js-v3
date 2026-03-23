@@ -310,6 +310,26 @@ export type VersionStatus = (typeof VersionStatus)[keyof typeof VersionStatus];
  * @public
  * @enum
  */
+export const BatchStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  INPROGRESS: "INPROGRESS",
+  PENDING: "PENDING",
+  PROCESSED: "PROCESSED",
+  RUNS_DELETED: "RUNS_DELETED",
+  RUNS_DELETING: "RUNS_DELETING",
+  STOPPING: "STOPPING",
+  SUBMITTING: "SUBMITTING",
+} as const;
+/**
+ * @public
+ */
+export type BatchStatus = (typeof BatchStatus)[keyof typeof BatchStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const CacheBehavior = {
   CACHE_ALWAYS: "CACHE_ALWAYS",
   CACHE_ON_FAILURE: "CACHE_ON_FAILURE",
@@ -462,6 +482,47 @@ export const CreationType = {
  * @public
  */
 export type CreationType = (typeof CreationType)[keyof typeof CreationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RunLogLevel = {
+  ALL: "ALL",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  OFF: "OFF",
+} as const;
+/**
+ * @public
+ */
+export type RunLogLevel = (typeof RunLogLevel)[keyof typeof RunLogLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const RunRetentionMode = {
+  REMOVE: "REMOVE",
+  RETAIN: "RETAIN",
+} as const;
+/**
+ * @public
+ */
+export type RunRetentionMode = (typeof RunRetentionMode)[keyof typeof RunRetentionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowType = {
+  PRIVATE: "PRIVATE",
+  READY2RUN: "READY2RUN",
+} as const;
+/**
+ * @public
+ */
+export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
 
 /**
  * @public
@@ -693,34 +754,6 @@ export type RunExport = (typeof RunExport)[keyof typeof RunExport];
  * @public
  * @enum
  */
-export const RunLogLevel = {
-  ALL: "ALL",
-  ERROR: "ERROR",
-  FATAL: "FATAL",
-  OFF: "OFF",
-} as const;
-/**
- * @public
- */
-export type RunLogLevel = (typeof RunLogLevel)[keyof typeof RunLogLevel];
-
-/**
- * @public
- * @enum
- */
-export const RunRetentionMode = {
-  REMOVE: "REMOVE",
-  RETAIN: "RETAIN",
-} as const;
-/**
- * @public
- */
-export type RunRetentionMode = (typeof RunRetentionMode)[keyof typeof RunRetentionMode];
-
-/**
- * @public
- * @enum
- */
 export const RunStatus = {
   CANCELLED: "CANCELLED",
   COMPLETED: "COMPLETED",
@@ -735,19 +768,6 @@ export const RunStatus = {
  * @public
  */
 export type RunStatus = (typeof RunStatus)[keyof typeof RunStatus];
-
-/**
- * @public
- * @enum
- */
-export const WorkflowType = {
-  PRIVATE: "PRIVATE",
-  READY2RUN: "READY2RUN",
-} as const;
-/**
- * @public
- */
-export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
 
 /**
  * @public
@@ -792,6 +812,23 @@ export const WorkflowExport = {
  * @public
  */
 export type WorkflowExport = (typeof WorkflowExport)[keyof typeof WorkflowExport];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubmissionStatus = {
+  CANCEL_FAILED: "CANCEL_FAILED",
+  CANCEL_SUCCESS: "CANCEL_SUCCESS",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_SUCCESS: "DELETE_SUCCESS",
+  FAILED: "FAILED",
+  SUCCESS: "SUCCESS",
+} as const;
+/**
+ * @public
+ */
+export type SubmissionStatus = (typeof SubmissionStatus)[keyof typeof SubmissionStatus];
 
 /**
  * @public

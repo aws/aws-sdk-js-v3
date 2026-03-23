@@ -24,6 +24,11 @@ import {
   CancelAnnotationImportJobCommandInput,
   CancelAnnotationImportJobCommandOutput,
 } from "./commands/CancelAnnotationImportJobCommand";
+import {
+  CancelRunBatchCommand,
+  CancelRunBatchCommandInput,
+  CancelRunBatchCommandOutput,
+} from "./commands/CancelRunBatchCommand";
 import { CancelRunCommand, CancelRunCommandInput, CancelRunCommandOutput } from "./commands/CancelRunCommand";
 import {
   CancelVariantImportJobCommand,
@@ -96,6 +101,7 @@ import {
   DeleteAnnotationStoreVersionsCommandInput,
   DeleteAnnotationStoreVersionsCommandOutput,
 } from "./commands/DeleteAnnotationStoreVersionsCommand";
+import { DeleteBatchCommand, DeleteBatchCommandInput, DeleteBatchCommandOutput } from "./commands/DeleteBatchCommand";
 import {
   DeleteReferenceCommand,
   DeleteReferenceCommandInput,
@@ -106,6 +112,11 @@ import {
   DeleteReferenceStoreCommandInput,
   DeleteReferenceStoreCommandOutput,
 } from "./commands/DeleteReferenceStoreCommand";
+import {
+  DeleteRunBatchCommand,
+  DeleteRunBatchCommandInput,
+  DeleteRunBatchCommandOutput,
+} from "./commands/DeleteRunBatchCommand";
 import {
   DeleteRunCacheCommand,
   DeleteRunCacheCommandInput,
@@ -158,6 +169,7 @@ import {
   GetAnnotationStoreVersionCommandInput,
   GetAnnotationStoreVersionCommandOutput,
 } from "./commands/GetAnnotationStoreVersionCommand";
+import { GetBatchCommand, GetBatchCommandInput, GetBatchCommandOutput } from "./commands/GetBatchCommand";
 import {
   GetReadSetActivationJobCommand,
   GetReadSetActivationJobCommandInput,
@@ -245,6 +257,7 @@ import {
   ListAnnotationStoreVersionsCommandInput,
   ListAnnotationStoreVersionsCommandOutput,
 } from "./commands/ListAnnotationStoreVersionsCommand";
+import { ListBatchCommand, ListBatchCommandInput, ListBatchCommandOutput } from "./commands/ListBatchCommand";
 import {
   ListMultipartReadSetUploadsCommand,
   ListMultipartReadSetUploadsCommandInput,
@@ -301,6 +314,11 @@ import {
   ListRunGroupsCommandOutput,
 } from "./commands/ListRunGroupsCommand";
 import { ListRunsCommand, ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
+import {
+  ListRunsInBatchCommand,
+  ListRunsInBatchCommandInput,
+  ListRunsInBatchCommandOutput,
+} from "./commands/ListRunsInBatchCommand";
 import {
   ListRunTasksCommand,
   ListRunTasksCommandInput,
@@ -367,6 +385,11 @@ import {
   StartReferenceImportJobCommandInput,
   StartReferenceImportJobCommandOutput,
 } from "./commands/StartReferenceImportJobCommand";
+import {
+  StartRunBatchCommand,
+  StartRunBatchCommandInput,
+  StartRunBatchCommandOutput,
+} from "./commands/StartRunBatchCommand";
 import { StartRunCommand, StartRunCommandInput, StartRunCommandOutput } from "./commands/StartRunCommand";
 import {
   StartVariantImportJobCommand,
@@ -428,6 +451,7 @@ import { OmicsClient } from "./OmicsClient";
 import { paginateListAnnotationImportJobs } from "./pagination/ListAnnotationImportJobsPaginator";
 import { paginateListAnnotationStores } from "./pagination/ListAnnotationStoresPaginator";
 import { paginateListAnnotationStoreVersions } from "./pagination/ListAnnotationStoreVersionsPaginator";
+import { paginateListBatch } from "./pagination/ListBatchPaginator";
 import { paginateListMultipartReadSetUploads } from "./pagination/ListMultipartReadSetUploadsPaginator";
 import { paginateListReadSetActivationJobs } from "./pagination/ListReadSetActivationJobsPaginator";
 import { paginateListReadSetExportJobs } from "./pagination/ListReadSetExportJobsPaginator";
@@ -439,6 +463,7 @@ import { paginateListReferences } from "./pagination/ListReferencesPaginator";
 import { paginateListReferenceStores } from "./pagination/ListReferenceStoresPaginator";
 import { paginateListRunCaches } from "./pagination/ListRunCachesPaginator";
 import { paginateListRunGroups } from "./pagination/ListRunGroupsPaginator";
+import { paginateListRunsInBatch } from "./pagination/ListRunsInBatchPaginator";
 import { paginateListRuns } from "./pagination/ListRunsPaginator";
 import { paginateListRunTasks } from "./pagination/ListRunTasksPaginator";
 import { paginateListSequenceStores } from "./pagination/ListSequenceStoresPaginator";
@@ -472,6 +497,7 @@ const commands = {
   BatchDeleteReadSetCommand,
   CancelAnnotationImportJobCommand,
   CancelRunCommand,
+  CancelRunBatchCommand,
   CancelVariantImportJobCommand,
   CompleteMultipartReadSetUploadCommand,
   CreateAnnotationStoreCommand,
@@ -487,9 +513,11 @@ const commands = {
   CreateWorkflowVersionCommand,
   DeleteAnnotationStoreCommand,
   DeleteAnnotationStoreVersionsCommand,
+  DeleteBatchCommand,
   DeleteReferenceCommand,
   DeleteReferenceStoreCommand,
   DeleteRunCommand,
+  DeleteRunBatchCommand,
   DeleteRunCacheCommand,
   DeleteRunGroupCommand,
   DeleteS3AccessPolicyCommand,
@@ -501,6 +529,7 @@ const commands = {
   GetAnnotationImportJobCommand,
   GetAnnotationStoreCommand,
   GetAnnotationStoreVersionCommand,
+  GetBatchCommand,
   GetReadSetCommand,
   GetReadSetActivationJobCommand,
   GetReadSetExportJobCommand,
@@ -524,6 +553,7 @@ const commands = {
   ListAnnotationImportJobsCommand,
   ListAnnotationStoresCommand,
   ListAnnotationStoreVersionsCommand,
+  ListBatchCommand,
   ListMultipartReadSetUploadsCommand,
   ListReadSetActivationJobsCommand,
   ListReadSetExportJobsCommand,
@@ -536,6 +566,7 @@ const commands = {
   ListRunCachesCommand,
   ListRunGroupsCommand,
   ListRunsCommand,
+  ListRunsInBatchCommand,
   ListRunTasksCommand,
   ListSequenceStoresCommand,
   ListSharesCommand,
@@ -551,6 +582,7 @@ const commands = {
   StartReadSetImportJobCommand,
   StartReferenceImportJobCommand,
   StartRunCommand,
+  StartRunBatchCommand,
   StartVariantImportJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -568,6 +600,7 @@ const paginators = {
   paginateListAnnotationImportJobs,
   paginateListAnnotationStores,
   paginateListAnnotationStoreVersions,
+  paginateListBatch,
   paginateListMultipartReadSetUploads,
   paginateListReadSetActivationJobs,
   paginateListReadSetExportJobs,
@@ -580,6 +613,7 @@ const paginators = {
   paginateListRunCaches,
   paginateListRunGroups,
   paginateListRuns,
+  paginateListRunsInBatch,
   paginateListRunTasks,
   paginateListSequenceStores,
   paginateListShares,
@@ -693,6 +727,23 @@ export interface Omics {
     args: CancelRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelRunBatchCommand}
+   */
+  cancelRunBatch(
+    args: CancelRunBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelRunBatchCommandOutput>;
+  cancelRunBatch(
+    args: CancelRunBatchCommandInput,
+    cb: (err: any, data?: CancelRunBatchCommandOutput) => void
+  ): void;
+  cancelRunBatch(
+    args: CancelRunBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelRunBatchCommandOutput) => void
   ): void;
 
   /**
@@ -951,6 +1002,23 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link DeleteBatchCommand}
+   */
+  deleteBatch(
+    args: DeleteBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBatchCommandOutput>;
+  deleteBatch(
+    args: DeleteBatchCommandInput,
+    cb: (err: any, data?: DeleteBatchCommandOutput) => void
+  ): void;
+  deleteBatch(
+    args: DeleteBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBatchCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteReferenceCommand}
    */
   deleteReference(
@@ -999,6 +1067,23 @@ export interface Omics {
     args: DeleteRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRunBatchCommand}
+   */
+  deleteRunBatch(
+    args: DeleteRunBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRunBatchCommandOutput>;
+  deleteRunBatch(
+    args: DeleteRunBatchCommandInput,
+    cb: (err: any, data?: DeleteRunBatchCommandOutput) => void
+  ): void;
+  deleteRunBatch(
+    args: DeleteRunBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRunBatchCommandOutput) => void
   ): void;
 
   /**
@@ -1186,6 +1271,23 @@ export interface Omics {
     args: GetAnnotationStoreVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAnnotationStoreVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetBatchCommand}
+   */
+  getBatch(
+    args: GetBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBatchCommandOutput>;
+  getBatch(
+    args: GetBatchCommandInput,
+    cb: (err: any, data?: GetBatchCommandOutput) => void
+  ): void;
+  getBatch(
+    args: GetBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBatchCommandOutput) => void
   ): void;
 
   /**
@@ -1582,6 +1684,24 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link ListBatchCommand}
+   */
+  listBatch(): Promise<ListBatchCommandOutput>;
+  listBatch(
+    args: ListBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBatchCommandOutput>;
+  listBatch(
+    args: ListBatchCommandInput,
+    cb: (err: any, data?: ListBatchCommandOutput) => void
+  ): void;
+  listBatch(
+    args: ListBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBatchCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMultipartReadSetUploadsCommand}
    */
   listMultipartReadSetUploads(
@@ -1787,6 +1907,23 @@ export interface Omics {
     args: ListRunsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRunsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRunsInBatchCommand}
+   */
+  listRunsInBatch(
+    args: ListRunsInBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRunsInBatchCommandOutput>;
+  listRunsInBatch(
+    args: ListRunsInBatchCommandInput,
+    cb: (err: any, data?: ListRunsInBatchCommandOutput) => void
+  ): void;
+  listRunsInBatch(
+    args: ListRunsInBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRunsInBatchCommandOutput) => void
   ): void;
 
   /**
@@ -2049,6 +2186,23 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link StartRunBatchCommand}
+   */
+  startRunBatch(
+    args: StartRunBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRunBatchCommandOutput>;
+  startRunBatch(
+    args: StartRunBatchCommandInput,
+    cb: (err: any, data?: StartRunBatchCommandOutput) => void
+  ): void;
+  startRunBatch(
+    args: StartRunBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRunBatchCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartVariantImportJobCommand}
    */
   startVariantImportJob(
@@ -2286,6 +2440,17 @@ export interface Omics {
   ): Paginator<ListAnnotationStoreVersionsCommandOutput>;
 
   /**
+   * @see {@link ListBatchCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBatchCommandOutput}.
+   */
+  paginateListBatch(
+    args?: ListBatchCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBatchCommandOutput>;
+
+  /**
    * @see {@link ListMultipartReadSetUploadsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2416,6 +2581,17 @@ export interface Omics {
     args?: ListRunsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListRunsCommandOutput>;
+
+  /**
+   * @see {@link ListRunsInBatchCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRunsInBatchCommandOutput}.
+   */
+  paginateListRunsInBatch(
+    args: ListRunsInBatchCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRunsInBatchCommandOutput>;
 
   /**
    * @see {@link ListRunTasksCommand}

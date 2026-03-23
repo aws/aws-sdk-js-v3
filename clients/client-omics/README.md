@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OmicsClient` and
-the commands you need, for example `ListRunsCommand`:
+the commands you need, for example `ListBatchCommand`:
 
 ```js
 // ES5 example
-const { OmicsClient, ListRunsCommand } = require("@aws-sdk/client-omics");
+const { OmicsClient, ListBatchCommand } = require("@aws-sdk/client-omics");
 ```
 
 ```ts
 // ES6+ example
-import { OmicsClient, ListRunsCommand } from "@aws-sdk/client-omics";
+import { OmicsClient, ListBatchCommand } from "@aws-sdk/client-omics";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new OmicsClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListRunsCommand(params);
+const command = new ListBatchCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new Omics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listRuns(params);
+  const data = await client.listBatch(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listRuns(params)
+  .listBatch(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listRuns(params, (err, data) => {
+client.listBatch(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -213,6 +213,13 @@ CancelRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/CancelRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CancelRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CancelRunCommandOutput/)
+</details>
+<details>
+<summary>
+CancelRunBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/CancelRunBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CancelRunBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CancelRunBatchCommandOutput/)
 </details>
 <details>
 <summary>
@@ -321,6 +328,13 @@ DeleteAnnotationStoreVersions
 </details>
 <details>
 <summary>
+DeleteBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/DeleteBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteBatchCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteReference
 </summary>
 
@@ -339,6 +353,13 @@ DeleteRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/DeleteRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteRunBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/DeleteRunBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunBatchCommandOutput/)
 </details>
 <details>
 <summary>
@@ -416,6 +437,13 @@ GetAnnotationStoreVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/GetAnnotationStoreVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetAnnotationStoreVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetAnnotationStoreVersionCommandOutput/)
+</details>
+<details>
+<summary>
+GetBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/GetBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetBatchCommandOutput/)
 </details>
 <details>
 <summary>
@@ -580,6 +608,13 @@ ListAnnotationStoreVersions
 </details>
 <details>
 <summary>
+ListBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/ListBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListBatchCommandOutput/)
+</details>
+<details>
+<summary>
 ListMultipartReadSetUploads
 </summary>
 
@@ -661,6 +696,13 @@ ListRuns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/ListRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListRunsCommandOutput/)
+</details>
+<details>
+<summary>
+ListRunsInBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/ListRunsInBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListRunsInBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListRunsInBatchCommandOutput/)
 </details>
 <details>
 <summary>
@@ -766,6 +808,13 @@ StartRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/StartRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/StartRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/StartRunCommandOutput/)
+</details>
+<details>
+<summary>
+StartRunBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/StartRunBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/StartRunBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/StartRunBatchCommandOutput/)
 </details>
 <details>
 <summary>

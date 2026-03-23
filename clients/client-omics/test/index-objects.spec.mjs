@@ -23,12 +23,19 @@ import {
   BatchDeleteReadSetCommand,
   BatchDeleteReadSetRequest$,
   BatchDeleteReadSetResponse$,
+  BatchListItem$,
+  BatchRunSettings$,
+  BatchStatus,
   CacheBehavior,
   CancelAnnotationImportJob$,
   CancelAnnotationImportJobCommand,
   CancelAnnotationImportRequest$,
   CancelAnnotationImportResponse$,
   CancelRun$,
+  CancelRunBatch$,
+  CancelRunBatchCommand,
+  CancelRunBatchRequest$,
+  CancelRunBatchResponse$,
   CancelRunCommand,
   CancelRunRequest$,
   CancelVariantImportJob$,
@@ -88,6 +95,7 @@ import {
   CreateWorkflowVersionRequest$,
   CreateWorkflowVersionResponse$,
   CreationType,
+  DefaultRunSetting$,
   DefinitionRepository$,
   DefinitionRepositoryDetails$,
   DeleteAnnotationStore$,
@@ -98,6 +106,9 @@ import {
   DeleteAnnotationStoreVersionsCommand,
   DeleteAnnotationStoreVersionsRequest$,
   DeleteAnnotationStoreVersionsResponse$,
+  DeleteBatch$,
+  DeleteBatchCommand,
+  DeleteBatchRequest$,
   DeleteReference$,
   DeleteReferenceCommand,
   DeleteReferenceRequest$,
@@ -107,6 +118,10 @@ import {
   DeleteReferenceStoreRequest$,
   DeleteReferenceStoreResponse$,
   DeleteRun$,
+  DeleteRunBatch$,
+  DeleteRunBatchCommand,
+  DeleteRunBatchRequest$,
+  DeleteRunBatchResponse$,
   DeleteRunCache$,
   DeleteRunCacheCommand,
   DeleteRunCacheRequest$,
@@ -162,6 +177,10 @@ import {
   GetAnnotationStoreVersionCommand,
   GetAnnotationStoreVersionRequest$,
   GetAnnotationStoreVersionResponse$,
+  GetBatch$,
+  GetBatchCommand,
+  GetBatchRequest$,
+  GetBatchResponse$,
   GetReadSet$,
   GetReadSetActivationJob$,
   GetReadSetActivationJobCommand,
@@ -250,6 +269,7 @@ import {
   ImportReferenceFilter$,
   ImportReferenceJobItem$,
   ImportReferenceSourceItem$,
+  InlineSetting$,
   InternalServerException,
   InternalServerException$,
   JobStatus,
@@ -268,6 +288,10 @@ import {
   ListAnnotationStoreVersionsFilter$,
   ListAnnotationStoreVersionsRequest$,
   ListAnnotationStoreVersionsResponse$,
+  ListBatch$,
+  ListBatchCommand,
+  ListBatchRequest$,
+  ListBatchResponse$,
   ListMultipartReadSetUploads$,
   ListMultipartReadSetUploadsCommand,
   ListMultipartReadSetUploadsRequest$,
@@ -314,6 +338,10 @@ import {
   ListRunGroupsResponse$,
   ListRuns$,
   ListRunsCommand,
+  ListRunsInBatch$,
+  ListRunsInBatchCommand,
+  ListRunsInBatchRequest$,
+  ListRunsInBatchResponse$,
   ListRunsRequest$,
   ListRunsResponse$,
   ListRunTasks$,
@@ -359,6 +387,7 @@ import {
   paginateListAnnotationImportJobs,
   paginateListAnnotationStores,
   paginateListAnnotationStoreVersions,
+  paginateListBatch,
   paginateListMultipartReadSetUploads,
   paginateListReadSetActivationJobs,
   paginateListReadSetExportJobs,
@@ -371,6 +400,7 @@ import {
   paginateListRunCaches,
   paginateListRunGroups,
   paginateListRuns,
+  paginateListRunsInBatch,
   paginateListRunTasks,
   paginateListSequenceStores,
   paginateListShares,
@@ -418,6 +448,7 @@ import {
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceOwner,
+  RunBatchListItem$,
   RunCacheListItem$,
   RunCacheStatus,
   RunExport,
@@ -427,6 +458,7 @@ import {
   RunLogLocation$,
   RunRetentionMode,
   RunStatus,
+  RunSummary$,
   S3AccessConfig$,
   SchemaValueType,
   SequenceInformation$,
@@ -467,6 +499,10 @@ import {
   StartReferenceImportJobResponse$,
   StartReferenceImportJobSourceItem$,
   StartRun$,
+  StartRunBatch$,
+  StartRunBatchCommand,
+  StartRunBatchRequest$,
+  StartRunBatchResponse$,
   StartRunCommand,
   StartRunRequest$,
   StartRunResponse$,
@@ -479,6 +515,8 @@ import {
   StoreOptions$,
   StoreStatus,
   StoreType,
+  SubmissionStatus,
+  SubmissionSummary$,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -595,6 +633,8 @@ assert(typeof CancelAnnotationImportJobCommand === "function");
 assert(typeof CancelAnnotationImportJob$ === "object");
 assert(typeof CancelRunCommand === "function");
 assert(typeof CancelRun$ === "object");
+assert(typeof CancelRunBatchCommand === "function");
+assert(typeof CancelRunBatch$ === "object");
 assert(typeof CancelVariantImportJobCommand === "function");
 assert(typeof CancelVariantImportJob$ === "object");
 assert(typeof CompleteMultipartReadSetUploadCommand === "function");
@@ -625,12 +665,16 @@ assert(typeof DeleteAnnotationStoreCommand === "function");
 assert(typeof DeleteAnnotationStore$ === "object");
 assert(typeof DeleteAnnotationStoreVersionsCommand === "function");
 assert(typeof DeleteAnnotationStoreVersions$ === "object");
+assert(typeof DeleteBatchCommand === "function");
+assert(typeof DeleteBatch$ === "object");
 assert(typeof DeleteReferenceCommand === "function");
 assert(typeof DeleteReference$ === "object");
 assert(typeof DeleteReferenceStoreCommand === "function");
 assert(typeof DeleteReferenceStore$ === "object");
 assert(typeof DeleteRunCommand === "function");
 assert(typeof DeleteRun$ === "object");
+assert(typeof DeleteRunBatchCommand === "function");
+assert(typeof DeleteRunBatch$ === "object");
 assert(typeof DeleteRunCacheCommand === "function");
 assert(typeof DeleteRunCache$ === "object");
 assert(typeof DeleteRunGroupCommand === "function");
@@ -653,6 +697,8 @@ assert(typeof GetAnnotationStoreCommand === "function");
 assert(typeof GetAnnotationStore$ === "object");
 assert(typeof GetAnnotationStoreVersionCommand === "function");
 assert(typeof GetAnnotationStoreVersion$ === "object");
+assert(typeof GetBatchCommand === "function");
+assert(typeof GetBatch$ === "object");
 assert(typeof GetReadSetCommand === "function");
 assert(typeof GetReadSet$ === "object");
 assert(typeof GetReadSetActivationJobCommand === "function");
@@ -699,6 +745,8 @@ assert(typeof ListAnnotationStoresCommand === "function");
 assert(typeof ListAnnotationStores$ === "object");
 assert(typeof ListAnnotationStoreVersionsCommand === "function");
 assert(typeof ListAnnotationStoreVersions$ === "object");
+assert(typeof ListBatchCommand === "function");
+assert(typeof ListBatch$ === "object");
 assert(typeof ListMultipartReadSetUploadsCommand === "function");
 assert(typeof ListMultipartReadSetUploads$ === "object");
 assert(typeof ListReadSetActivationJobsCommand === "function");
@@ -723,6 +771,8 @@ assert(typeof ListRunGroupsCommand === "function");
 assert(typeof ListRunGroups$ === "object");
 assert(typeof ListRunsCommand === "function");
 assert(typeof ListRuns$ === "object");
+assert(typeof ListRunsInBatchCommand === "function");
+assert(typeof ListRunsInBatch$ === "object");
 assert(typeof ListRunTasksCommand === "function");
 assert(typeof ListRunTasks$ === "object");
 assert(typeof ListSequenceStoresCommand === "function");
@@ -753,6 +803,8 @@ assert(typeof StartReferenceImportJobCommand === "function");
 assert(typeof StartReferenceImportJob$ === "object");
 assert(typeof StartRunCommand === "function");
 assert(typeof StartRun$ === "object");
+assert(typeof StartRunBatchCommand === "function");
+assert(typeof StartRunBatch$ === "object");
 assert(typeof StartVariantImportJobCommand === "function");
 assert(typeof StartVariantImportJob$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -792,8 +844,12 @@ assert(typeof AnnotationStoreItem$ === "object");
 assert(typeof AnnotationStoreVersionItem$ === "object");
 assert(typeof BatchDeleteReadSetRequest$ === "object");
 assert(typeof BatchDeleteReadSetResponse$ === "object");
+assert(typeof BatchListItem$ === "object");
+assert(typeof BatchRunSettings$ === "object");
 assert(typeof CancelAnnotationImportRequest$ === "object");
 assert(typeof CancelAnnotationImportResponse$ === "object");
+assert(typeof CancelRunBatchRequest$ === "object");
+assert(typeof CancelRunBatchResponse$ === "object");
 assert(typeof CancelRunRequest$ === "object");
 assert(typeof CancelVariantImportRequest$ === "object");
 assert(typeof CancelVariantImportResponse$ === "object");
@@ -823,16 +879,20 @@ assert(typeof CreateWorkflowRequest$ === "object");
 assert(typeof CreateWorkflowResponse$ === "object");
 assert(typeof CreateWorkflowVersionRequest$ === "object");
 assert(typeof CreateWorkflowVersionResponse$ === "object");
+assert(typeof DefaultRunSetting$ === "object");
 assert(typeof DefinitionRepository$ === "object");
 assert(typeof DefinitionRepositoryDetails$ === "object");
 assert(typeof DeleteAnnotationStoreRequest$ === "object");
 assert(typeof DeleteAnnotationStoreResponse$ === "object");
 assert(typeof DeleteAnnotationStoreVersionsRequest$ === "object");
 assert(typeof DeleteAnnotationStoreVersionsResponse$ === "object");
+assert(typeof DeleteBatchRequest$ === "object");
 assert(typeof DeleteReferenceRequest$ === "object");
 assert(typeof DeleteReferenceResponse$ === "object");
 assert(typeof DeleteReferenceStoreRequest$ === "object");
 assert(typeof DeleteReferenceStoreResponse$ === "object");
+assert(typeof DeleteRunBatchRequest$ === "object");
+assert(typeof DeleteRunBatchResponse$ === "object");
 assert(typeof DeleteRunCacheRequest$ === "object");
 assert(typeof DeleteRunGroupRequest$ === "object");
 assert(typeof DeleteRunRequest$ === "object");
@@ -860,6 +920,8 @@ assert(typeof GetAnnotationStoreRequest$ === "object");
 assert(typeof GetAnnotationStoreResponse$ === "object");
 assert(typeof GetAnnotationStoreVersionRequest$ === "object");
 assert(typeof GetAnnotationStoreVersionResponse$ === "object");
+assert(typeof GetBatchRequest$ === "object");
+assert(typeof GetBatchResponse$ === "object");
 assert(typeof GetReadSetActivationJobRequest$ === "object");
 assert(typeof GetReadSetActivationJobResponse$ === "object");
 assert(typeof GetReadSetExportJobRequest$ === "object");
@@ -908,6 +970,7 @@ assert(typeof ImportReadSetSourceItem$ === "object");
 assert(typeof ImportReferenceFilter$ === "object");
 assert(typeof ImportReferenceJobItem$ === "object");
 assert(typeof ImportReferenceSourceItem$ === "object");
+assert(typeof InlineSetting$ === "object");
 assert(typeof ListAnnotationImportJobsFilter$ === "object");
 assert(typeof ListAnnotationImportJobsRequest$ === "object");
 assert(typeof ListAnnotationImportJobsResponse$ === "object");
@@ -917,6 +980,8 @@ assert(typeof ListAnnotationStoresResponse$ === "object");
 assert(typeof ListAnnotationStoreVersionsFilter$ === "object");
 assert(typeof ListAnnotationStoreVersionsRequest$ === "object");
 assert(typeof ListAnnotationStoreVersionsResponse$ === "object");
+assert(typeof ListBatchRequest$ === "object");
+assert(typeof ListBatchResponse$ === "object");
 assert(typeof ListMultipartReadSetUploadsRequest$ === "object");
 assert(typeof ListMultipartReadSetUploadsResponse$ === "object");
 assert(typeof ListReadSetActivationJobsRequest$ === "object");
@@ -939,6 +1004,8 @@ assert(typeof ListRunCachesRequest$ === "object");
 assert(typeof ListRunCachesResponse$ === "object");
 assert(typeof ListRunGroupsRequest$ === "object");
 assert(typeof ListRunGroupsResponse$ === "object");
+assert(typeof ListRunsInBatchRequest$ === "object");
+assert(typeof ListRunsInBatchResponse$ === "object");
 assert(typeof ListRunsRequest$ === "object");
 assert(typeof ListRunsResponse$ === "object");
 assert(typeof ListRunTasksRequest$ === "object");
@@ -977,10 +1044,12 @@ assert(typeof ReferenceListItem$ === "object");
 assert(typeof ReferenceStoreDetail$ === "object");
 assert(typeof ReferenceStoreFilter$ === "object");
 assert(typeof RegistryMapping$ === "object");
+assert(typeof RunBatchListItem$ === "object");
 assert(typeof RunCacheListItem$ === "object");
 assert(typeof RunGroupListItem$ === "object");
 assert(typeof RunListItem$ === "object");
 assert(typeof RunLogLocation$ === "object");
+assert(typeof RunSummary$ === "object");
 assert(typeof S3AccessConfig$ === "object");
 assert(typeof SequenceInformation$ === "object");
 assert(typeof SequenceStoreDetail$ === "object");
@@ -1003,11 +1072,14 @@ assert(typeof StartReadSetImportJobSourceItem$ === "object");
 assert(typeof StartReferenceImportJobRequest$ === "object");
 assert(typeof StartReferenceImportJobResponse$ === "object");
 assert(typeof StartReferenceImportJobSourceItem$ === "object");
+assert(typeof StartRunBatchRequest$ === "object");
+assert(typeof StartRunBatchResponse$ === "object");
 assert(typeof StartRunRequest$ === "object");
 assert(typeof StartRunResponse$ === "object");
 assert(typeof StartVariantImportRequest$ === "object");
 assert(typeof StartVariantImportResponse$ === "object");
 assert(typeof StoreOptions$ === "object");
+assert(typeof SubmissionSummary$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof TaskListItem$ === "object");
@@ -1043,6 +1115,7 @@ assert(typeof WorkflowVersionListItem$ === "object");
 // enums
 assert(typeof Accelerators === "object");
 assert(typeof AnnotationType === "object");
+assert(typeof BatchStatus === "object");
 assert(typeof CacheBehavior === "object");
 assert(typeof CreationType === "object");
 assert(typeof EncryptionType === "object");
@@ -1080,6 +1153,7 @@ assert(typeof StorageType === "object");
 assert(typeof StoreFormat === "object");
 assert(typeof StoreStatus === "object");
 assert(typeof StoreType === "object");
+assert(typeof SubmissionStatus === "object");
 assert(typeof TaskStatus === "object");
 assert(typeof VersionStatus === "object");
 assert(typeof WorkflowEngine === "object");
@@ -1149,6 +1223,7 @@ assert(typeof waitUntilWorkflowVersionActive === "function");
 assert(typeof paginateListAnnotationImportJobs === "function");
 assert(typeof paginateListAnnotationStoreVersions === "function");
 assert(typeof paginateListAnnotationStores === "function");
+assert(typeof paginateListBatch === "function");
 assert(typeof paginateListMultipartReadSetUploads === "function");
 assert(typeof paginateListReadSetActivationJobs === "function");
 assert(typeof paginateListReadSetExportJobs === "function");
@@ -1162,6 +1237,7 @@ assert(typeof paginateListRunCaches === "function");
 assert(typeof paginateListRunGroups === "function");
 assert(typeof paginateListRunTasks === "function");
 assert(typeof paginateListRuns === "function");
+assert(typeof paginateListRunsInBatch === "function");
 assert(typeof paginateListSequenceStores === "function");
 assert(typeof paginateListShares === "function");
 assert(typeof paginateListVariantImportJobs === "function");

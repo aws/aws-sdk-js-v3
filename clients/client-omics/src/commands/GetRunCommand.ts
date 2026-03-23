@@ -57,6 +57,7 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * //   roleArn: "STRING_VALUE",
  * //   name: "STRING_VALUE",
  * //   runGroupId: "STRING_VALUE",
+ * //   batchId: "STRING_VALUE",
  * //   priority: Number("int"),
  * //   definition: "STRING_VALUE",
  * //   digest: "STRING_VALUE",

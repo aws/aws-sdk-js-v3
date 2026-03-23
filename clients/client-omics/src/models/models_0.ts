@@ -5,6 +5,7 @@ import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/type
 import {
   Accelerators,
   AnnotationType,
+  BatchStatus,
   CacheBehavior,
   CreationType,
   EncryptionType,
@@ -42,6 +43,7 @@ import {
   StoreFormat,
   StoreStatus,
   StoreType,
+  SubmissionStatus,
   TaskStatus,
   VersionStatus,
   WorkflowEngine,
@@ -1777,6 +1779,149 @@ export interface BatchDeleteReadSetResponse {
 }
 
 /**
+ * <p>A summary of a batch returned by <code>ListBatch</code>.</p>
+ * @public
+ */
+export interface BatchListItem {
+  /**
+   * <p>The batch identifier.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The batch name.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The current batch status.</p>
+   * @public
+   */
+  status?: BatchStatus | undefined;
+
+  /**
+   * <p>The timestamp when the batch was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The total number of runs in the batch.</p>
+   * @public
+   */
+  totalRuns?: number | undefined;
+
+  /**
+   * <p>The identifier of the workflow used for the batch.</p>
+   * @public
+   */
+  workflowId?: string | undefined;
+}
+
+/**
+ * <p>A per-run configuration that overrides or merges with fields from <code>DefaultRunSetting</code> for a specific run.</p>
+ * @public
+ */
+export interface InlineSetting {
+  /**
+   * <p>A customer-provided unique identifier for this run configuration within the batch. After submission, use <code>ListRunsInBatch</code> to map each <code>runSettingId</code> to the HealthOmics-generated <code>runId</code>.</p>
+   * @public
+   */
+  runSettingId: string | undefined;
+
+  /**
+   * <p>An optional user-friendly name for this run.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Override the destination S3 URI for this run's outputs.</p>
+   * @public
+   */
+  outputUri?: string | undefined;
+
+  /**
+   * <p>Override the priority for this run.</p>
+   * @public
+   */
+  priority?: number | undefined;
+
+  /**
+   * <p>Per-run workflow parameters. Merged with <code>defaultRunSetting.parameters</code>; values in this object take precedence when keys overlap.</p>
+   * @public
+   */
+  parameters?: __DocumentType | undefined;
+
+  /**
+   * <p>The expected AWS account ID of the owner of the output S3 bucket for this run.</p>
+   * @public
+   */
+  outputBucketOwnerId?: string | undefined;
+
+  /**
+   * <p>Per-run AWS tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
+   * @public
+   */
+  runTags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A union type representing per-run configurations for the batch. Specify exactly one of the following members.</p>
+ * @public
+ */
+export type BatchRunSettings =
+  | BatchRunSettings.InlineSettingsMember
+  | BatchRunSettings.S3UriSettingsMember
+  | BatchRunSettings.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace BatchRunSettings {
+  /**
+   * <p>A list of per-run configurations provided inline in the request. Each entry must include a unique <code>runSettingId</code>. Supports up to 100 entries. For batches with more than 100 runs, use <code>s3UriSettings</code>.</p>
+   * @public
+   */
+  export interface InlineSettingsMember {
+    inlineSettings: InlineSetting[];
+    s3UriSettings?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An Amazon S3 URI pointing to a JSON file containing per-run configurations. The file must be a JSON array in the same format as <code>inlineSettings</code>. Supports up to 100,000 run configurations. The maximum file size is 6 GB.</p> <p>The IAM service role in <code>roleArn</code> must have read access to this S3 object. HealthOmics validates access to the file during the synchronous API call and records the file's ETag. If the file is modified after submission, the batch fails.</p>
+   * @public
+   */
+  export interface S3UriSettingsMember {
+    inlineSettings?: never;
+    s3UriSettings: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    inlineSettings?: never;
+    s3UriSettings?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    inlineSettings: (value: InlineSetting[]) => T;
+    s3UriSettings: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * @public
  */
 export interface CancelRunRequest {
@@ -1786,6 +1931,22 @@ export interface CancelRunRequest {
    */
   id: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface CancelRunBatchRequest {
+  /**
+   * <p>The identifier portion of the run batch ARN.</p>
+   * @public
+   */
+  batchId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelRunBatchResponse {}
 
 /**
  * @public
@@ -2656,7 +2817,7 @@ export interface CreateWorkflowRequest {
   description?: string | undefined;
 
   /**
-   * <p>The workflow engine for the workflow. This is only required if you have workflow definition files from more than one engine in your zip file. Otherwise, the service can detect the engine automatically from your workflow definition.</p>
+   * <p>The workflow engine for the workflow. By default, Amazon Web Services HealthOmics detects the engine automatically from your workflow definition. Provide a value if you have workflow definition files from more than one engine in your zip file, or to use WDL lenient.</p> <p>WDL lenient is designed to handle workflows migrated from Cromwell. It supports customer Cromwell directives and some non-conformant logic. For details, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-wdl-type-conversion.html">Implicit type conversion in WDL lenient</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   engine?: WorkflowEngine | undefined;
@@ -2972,6 +3133,120 @@ export interface CreateWorkflowVersionResponse {
 }
 
 /**
+ * <p>Shared configuration applied to all runs in a batch. Fields specified in a per-run <code>InlineSetting</code> entry override the corresponding fields in this object for that run. The <code>parameters</code> and <code>runTags</code> fields are merged rather than replaced — run-specific values take precedence when keys overlap.</p>
+ * @public
+ */
+export interface DefaultRunSetting {
+  /**
+   * <p>The identifier of the workflow to run.</p>
+   * @public
+   */
+  workflowId: string | undefined;
+
+  /**
+   * <p>The type of the originating workflow. Batch runs are not supported with <code>READY2RUN</code> workflows.</p>
+   * @public
+   */
+  workflowType?: WorkflowType | undefined;
+
+  /**
+   * <p>The IAM role ARN that grants HealthOmics permissions to access required AWS resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>An optional user-friendly name applied to each workflow run. Can be overridden per run.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The identifier of the run cache to associate with the runs.</p>
+   * @public
+   */
+  cacheId?: string | undefined;
+
+  /**
+   * <p>The cache behavior for the runs. Requires <code>cacheId</code> to be set.</p>
+   * @public
+   */
+  cacheBehavior?: CacheBehavior | undefined;
+
+  /**
+   * <p>The ID of the run group to contain all workflow runs in the batch.</p>
+   * @public
+   */
+  runGroupId?: string | undefined;
+
+  /**
+   * <p>An integer priority for the workflow runs. Higher values correspond to higher priority. A value of 0 corresponds to the lowest priority. Can be overridden per run.</p>
+   * @public
+   */
+  priority?: number | undefined;
+
+  /**
+   * <p>Workflow parameter names and values shared across all runs. Merged with per-run parameters; run-specific values take precedence when keys overlap. Can be overridden per run.</p>
+   * @public
+   */
+  parameters?: __DocumentType | undefined;
+
+  /**
+   * <p>The filesystem size in gibibytes (GiB) provisioned for each workflow run and shared by all tasks in that run. Defaults to 1200 GiB if not specified.</p>
+   * @public
+   */
+  storageCapacity?: number | undefined;
+
+  /**
+   * <p>The destination S3 URI for workflow outputs. Must begin with <code>s3://</code>. The <code>roleArn</code> must grant write permissions to this bucket. Can be overridden per run.</p>
+   * @public
+   */
+  outputUri?: string | undefined;
+
+  /**
+   * <p>The verbosity level for CloudWatch Logs emitted during each run.</p>
+   * @public
+   */
+  logLevel?: RunLogLevel | undefined;
+
+  /**
+   * <p>AWS tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
+   * @public
+   */
+  runTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The retention behavior for runs after completion.</p>
+   * @public
+   */
+  retentionMode?: RunRetentionMode | undefined;
+
+  /**
+   * <p>The storage type for the workflow runs.</p>
+   * @public
+   */
+  storageType?: StorageType | undefined;
+
+  /**
+   * <p>The AWS account ID of the workflow owner, used for cross-account workflow sharing.</p>
+   * @public
+   */
+  workflowOwnerId?: string | undefined;
+
+  /**
+   * <p>The expected AWS account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
+   * @public
+   */
+  outputBucketOwnerId?: string | undefined;
+
+  /**
+   * <p>The version name of the specified workflow.</p>
+   * @public
+   */
+  workflowVersionName?: string | undefined;
+}
+
+/**
  * <p>Contains detailed information about the source code repository that hosts the workflow definition files.</p>
  * @public
  */
@@ -3005,6 +3280,17 @@ export interface DefinitionRepositoryDetails {
    * @public
    */
   providerEndpoint?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBatchRequest {
+  /**
+   * <p>The identifier portion of the run batch ARN.</p>
+   * @public
+   */
+  batchId: string | undefined;
 }
 
 /**
@@ -3055,6 +3341,22 @@ export interface DeleteRunRequest {
    */
   id: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteRunBatchRequest {
+  /**
+   * <p>The identifier portion of the run batch ARN.</p>
+   * @public
+   */
+  batchId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRunBatchResponse {}
 
 /**
  * @public
@@ -3378,6 +3680,214 @@ export interface Filter {
    * @public
    */
   type?: ShareResourceType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBatchRequest {
+  /**
+   * <p>The identifier portion of the run batch ARN.</p>
+   * @public
+   */
+  batchId: string | undefined;
+}
+
+/**
+ * <p>A summary of the runs in a batch.</p>
+ * @public
+ */
+export interface RunSummary {
+  /**
+   * <p>The number of pending runs.</p>
+   * @public
+   */
+  pendingRunCount?: number | undefined;
+
+  /**
+   * <p>The number of starting runs.</p>
+   * @public
+   */
+  startingRunCount?: number | undefined;
+
+  /**
+   * <p>The number of running runs.</p>
+   * @public
+   */
+  runningRunCount?: number | undefined;
+
+  /**
+   * <p>The number of stopping runs.</p>
+   * @public
+   */
+  stoppingRunCount?: number | undefined;
+
+  /**
+   * <p>The number of completed runs.</p>
+   * @public
+   */
+  completedRunCount?: number | undefined;
+
+  /**
+   * <p>The number of deleted runs.</p>
+   * @public
+   */
+  deletedRunCount?: number | undefined;
+
+  /**
+   * <p>The number of failed runs.</p>
+   * @public
+   */
+  failedRunCount?: number | undefined;
+
+  /**
+   * <p>The number of cancelled runs.</p>
+   * @public
+   */
+  cancelledRunCount?: number | undefined;
+}
+
+/**
+ * <p>A summary of the submissions in a batch.</p>
+ * @public
+ */
+export interface SubmissionSummary {
+  /**
+   * <p>The number of successful start submissions.</p>
+   * @public
+   */
+  successfulStartSubmissionCount?: number | undefined;
+
+  /**
+   * <p>The number of failed start submissions.</p>
+   * @public
+   */
+  failedStartSubmissionCount?: number | undefined;
+
+  /**
+   * <p>The number of pending start submissions.</p>
+   * @public
+   */
+  pendingStartSubmissionCount?: number | undefined;
+
+  /**
+   * <p>The number of successful cancel submissions.</p>
+   * @public
+   */
+  successfulCancelSubmissionCount?: number | undefined;
+
+  /**
+   * <p>The number of failed cancel submissions.</p>
+   * @public
+   */
+  failedCancelSubmissionCount?: number | undefined;
+
+  /**
+   * <p>The number of successful delete submissions.</p>
+   * @public
+   */
+  successfulDeleteSubmissionCount?: number | undefined;
+
+  /**
+   * <p>The number of failed delete submissions.</p>
+   * @public
+   */
+  failedDeleteSubmissionCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBatchResponse {
+  /**
+   * <p>The identifier portion of the run batch ARN.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The unique ARN of the run batch.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The universally unique identifier (UUID) for the run batch.</p>
+   * @public
+   */
+  uuid?: string | undefined;
+
+  /**
+   * <p>The optional user-friendly name of the batch.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The current status of the run batch.</p>
+   * @public
+   */
+  status?: BatchStatus | undefined;
+
+  /**
+   * <p>AWS tags associated with the run batch.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The total number of runs in the batch.</p>
+   * @public
+   */
+  totalRuns?: number | undefined;
+
+  /**
+   * <p>The shared configuration applied to all runs in the batch. See <code>DefaultRunSetting</code>.</p>
+   * @public
+   */
+  defaultRunSetting?: DefaultRunSetting | undefined;
+
+  /**
+   * <p>A summary of run submission outcomes. See <code>SubmissionSummary</code>.</p>
+   * @public
+   */
+  submissionSummary?: SubmissionSummary | undefined;
+
+  /**
+   * <p>A summary of run execution states. Run execution counts are eventually consistent and may lag behind actual run states. Final counts are accurate once the batch reaches <code>PROCESSED</code> status. See <code>RunSummary</code>.</p>
+   * @public
+   */
+  runSummary?: RunSummary | undefined;
+
+  /**
+   * <p>The timestamp when the batch was created.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when all run submissions completed.</p>
+   * @public
+   */
+  submittedTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when all run executions completed.</p>
+   * @public
+   */
+  processedTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the batch transitioned to a <code>FAILED</code> status.</p>
+   * @public
+   */
+  failedTime?: Date | undefined;
+
+  /**
+   * <p>A description of the batch failure. Present only when status is <code>FAILED</code>.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
 }
 
 /**
@@ -4336,6 +4846,12 @@ export interface GetRunResponse {
    * @public
    */
   runGroupId?: string | undefined;
+
+  /**
+   * <p>The run's batch ID.</p>
+   * @public
+   */
+  batchId?: string | undefined;
 
   /**
    * <p>The run's priority.</p>
@@ -5683,6 +6199,58 @@ export interface ImportReferenceJobItem {
 /**
  * @public
  */
+export interface ListBatchRequest {
+  /**
+   * <p>The maximum number of batches to return. If not specified, defaults to 100.</p>
+   * @public
+   */
+  maxItems?: number | undefined;
+
+  /**
+   * <p>A pagination token returned from a prior <code>ListBatch</code> call.</p>
+   * @public
+   */
+  startingToken?: string | undefined;
+
+  /**
+   * <p>Filter batches by status.</p>
+   * @public
+   */
+  status?: BatchStatus | undefined;
+
+  /**
+   * <p>Filter batches by name.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Filter batches by run group ID.</p>
+   * @public
+   */
+  runGroupId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBatchResponse {
+  /**
+   * <p>A list of batch summary objects. See <code>BatchListItem</code>.</p>
+   * @public
+   */
+  items?: BatchListItem[] | undefined;
+
+  /**
+   * <p>A pagination token to retrieve the next page of results. Absent when no further results are available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListMultipartReadSetUploadsRequest {
   /**
    * <p>The Sequence Store ID used for the multipart uploads.</p>
@@ -6731,6 +7299,12 @@ export interface ListRunsRequest {
   runGroupId?: string | undefined;
 
   /**
+   * <p>Filter by batch ID.</p>
+   * @public
+   */
+  batchId?: string | undefined;
+
+  /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
@@ -6777,6 +7351,12 @@ export interface RunListItem {
    * @public
    */
   workflowId?: string | undefined;
+
+  /**
+   * <p>The run's batch ID.</p>
+   * @public
+   */
+  batchId?: string | undefined;
 
   /**
    * <p>The run's name.</p>
@@ -6839,6 +7419,112 @@ export interface ListRunsResponse {
 
   /**
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRunsInBatchRequest {
+  /**
+   * <p>The identifier portion of the run batch ARN.</p>
+   * @public
+   */
+  batchId: string | undefined;
+
+  /**
+   * <p>The maximum number of runs to return.</p>
+   * @public
+   */
+  maxItems?: number | undefined;
+
+  /**
+   * <p>A pagination token returned from a prior <code>ListRunsInBatch</code> call.</p>
+   * @public
+   */
+  startingToken?: string | undefined;
+
+  /**
+   * <p>Filter runs by submission status.</p>
+   * @public
+   */
+  submissionStatus?: SubmissionStatus | undefined;
+
+  /**
+   * <p>Filter runs by the customer-provided run setting ID.</p>
+   * @public
+   */
+  runSettingId?: string | undefined;
+
+  /**
+   * <p>Filter runs by the HealthOmics-generated run ID.</p>
+   * @public
+   */
+  runId?: string | undefined;
+}
+
+/**
+ * <p>A single run entry returned by <code>ListRunsInBatch</code>.</p>
+ * @public
+ */
+export interface RunBatchListItem {
+  /**
+   * <p>The customer-provided identifier for the run configuration. Use this to correlate results back to the input configuration provided in <code>inlineSettings</code> or <code>s3UriSettings</code>.</p>
+   * @public
+   */
+  runSettingId?: string | undefined;
+
+  /**
+   * <p>The HealthOmics-generated identifier for the workflow run. Empty if submission failed.</p>
+   * @public
+   */
+  runId?: string | undefined;
+
+  /**
+   * <p>The universally unique identifier (UUID) for the run.</p>
+   * @public
+   */
+  runInternalUuid?: string | undefined;
+
+  /**
+   * <p>The unique ARN of the workflow run.</p>
+   * @public
+   */
+  runArn?: string | undefined;
+
+  /**
+   * <p>The submission outcome for this run.</p>
+   * @public
+   */
+  submissionStatus?: SubmissionStatus | undefined;
+
+  /**
+   * <p>The error category for a failed submission. See the run-level failure table in the HealthOmics User Guide for details on each value.</p>
+   * @public
+   */
+  submissionFailureReason?: string | undefined;
+
+  /**
+   * <p>A detailed message describing the submission failure.</p>
+   * @public
+   */
+  submissionFailureMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRunsInBatchResponse {
+  /**
+   * <p>A list of run entries in the batch. See <code>RunBatchListItem</code>.</p>
+   * @public
+   */
+  runs?: RunBatchListItem[] | undefined;
+
+  /**
+   * <p>A pagination token to retrieve the next page of results. Absent when the last run has been returned.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7788,6 +8474,76 @@ export interface StartReferenceImportJobResponse {
    * @public
    */
   creationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRunBatchRequest {
+  /**
+   * <p>An optional user-friendly name for the run batch.</p>
+   * @public
+   */
+  batchName?: string | undefined;
+
+  /**
+   * <p>A client token used to deduplicate retry requests and prevent duplicate batches from being created.</p>
+   * @public
+   */
+  requestId?: string | undefined;
+
+  /**
+   * <p>AWS tags to associate with the batch resource. These tags are not inherited by individual runs. To tag individual runs, use <code>defaultRunSetting.runTags</code>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Shared configuration applied to all runs in the batch. See <code>DefaultRunSetting</code>.</p>
+   * @public
+   */
+  defaultRunSetting: DefaultRunSetting | undefined;
+
+  /**
+   * <p>The individual run configurations. Specify exactly one of <code>inlineSettings</code> or <code>s3UriSettings</code>. See <code>BatchRunSettings</code>.</p>
+   * @public
+   */
+  batchRunSettings: BatchRunSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRunBatchResponse {
+  /**
+   * <p>The identifier portion of the run batch ARN.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The unique ARN of the run batch.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The initial status of the run batch.</p>
+   * @public
+   */
+  status?: BatchStatus | undefined;
+
+  /**
+   * <p>The universally unique identifier (UUID) for the run batch.</p>
+   * @public
+   */
+  uuid?: string | undefined;
+
+  /**
+   * <p>AWS tags associated with the run batch.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
