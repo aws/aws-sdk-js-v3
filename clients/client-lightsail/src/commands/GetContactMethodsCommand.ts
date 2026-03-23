@@ -63,6 +63,12 @@ export interface GetContactMethodsCommandOutput extends GetContactMethodsResult,
  * //       },
  * //       resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
  * //       supportCode: "STRING_VALUE",
+ * //       tags: [ // TagList
+ * //         { // Tag
+ * //           key: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

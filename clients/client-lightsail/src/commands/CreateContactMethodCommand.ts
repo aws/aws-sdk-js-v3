@@ -43,6 +43,12 @@ export interface CreateContactMethodCommandOutput extends CreateContactMethodRes
  * const input = { // CreateContactMethodRequest
  *   protocol: "Email" || "SMS", // required
  *   contactEndpoint: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateContactMethodCommand(input);
  * const response = await client.send(command);

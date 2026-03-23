@@ -2778,6 +2778,13 @@ export interface ContactMethod {
    * @public
    */
   supportCode?: string | undefined;
+
+  /**
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -3951,6 +3958,13 @@ export interface CreateContactMethodRequest {
    * @public
    */
   contactEndpoint: string | undefined;
+
+  /**
+   * <p>The tag keys and optional values to add to the contact method during create.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
 }
 
 /**

@@ -1471,8 +1471,8 @@ export var CloudFormationStackRecordSourceInfo$: StaticStructureSchema = [3, n0,
 ];
 export var ContactMethod$: StaticStructureSchema = [3, n0, _CM,
   0,
-  [_cE, _st, _pro, _n, _a, _cA, _l, _rT, _sC],
-  [0, 0, 0, 0, 0, 4, () => ResourceLocation$, 0, 0]
+  [_cE, _st, _pro, _n, _a, _cA, _l, _rT, _sC, _ta],
+  [0, 0, 0, 0, 0, 4, () => ResourceLocation$, 0, 0, () => TagList]
 ];
 export var Container$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -1606,8 +1606,8 @@ export var CreateCloudFormationStackResult$: StaticStructureSchema = [3, n0, _CC
 ];
 export var CreateContactMethodRequest$: StaticStructureSchema = [3, n0, _CCMR,
   0,
-  [_pro, _cE],
-  [0, 0], 2
+  [_pro, _cE, _ta],
+  [0, 0, () => TagList], 2
 ];
 export var CreateContactMethodResult$: StaticStructureSchema = [3, n0, _CCMRr,
   0,
