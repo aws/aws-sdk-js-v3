@@ -4,6 +4,7 @@
     "esbuild": "*",
     "vite": "*",
     "webpack": "*",
-    "ts-loader": "*"
+    "ts-loader": "*",
+    "prettier": "*"
   }
 }
