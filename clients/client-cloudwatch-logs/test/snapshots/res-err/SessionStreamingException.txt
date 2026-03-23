@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-SessionStreamingException: Unknown
+SessionStreamingException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ SessionStreamingException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "SessionStreamingException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.cloudwatchlogs#SessionStreamingException"
 }
 

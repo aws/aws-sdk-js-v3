@@ -1,9 +1,11 @@
+import { TypeRegistry } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
 import type {
   BlobSchema,
   BooleanSchema,
   MapSchemaModifier,
   NumericSchema,
+  StaticErrorSchema,
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
@@ -168,6 +170,35 @@ describe(AwsRestJsonProtocol.name, () => {
 
     it("should have a shapeId of aws.protocols#restJson1", () => {
       expect(protocol.getShapeId()).toEqual("aws.protocols#restJson1");
+    });
+
+    it("uses compositeErrorRegistries from instantiation", () => {
+      const GenericServiceException$: StaticErrorSchema = [
+        -3,
+        "com.amazonaws.sdk.example",
+        "GenericServiceException",
+        0,
+        [],
+        [],
+      ];
+      class GenericServiceException extends Error {}
+
+      const registry = TypeRegistry.for("com.amazonaws.sdk.example");
+      registry.registerError(GenericServiceException$, GenericServiceException);
+
+      const protocol = new (class extends AwsRestJsonProtocol {
+        public getCompositeErrorRegistry() {
+          return this.compositeErrorRegistry;
+        }
+      })({
+        defaultNamespace: "ns",
+        errorTypeRegistries: [registry],
+      });
+
+      expect(protocol.getCompositeErrorRegistry()).not.toBe(registry);
+      expect(protocol.getCompositeErrorRegistry().getSchema("com.amazonaws.sdk.example#GenericServiceException")).toBe(
+        GenericServiceException$
+      );
     });
 
     it("obeys jsonName and HTTP bindings during serialization", async () => {

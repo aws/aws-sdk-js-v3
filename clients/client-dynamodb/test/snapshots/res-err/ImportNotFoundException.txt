@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.0
 
 
 --- [error name & message] ---
-ImportNotFoundException: Unknown
+ImportNotFoundException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ ImportNotFoundException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "ImportNotFoundException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.dynamodb#ImportNotFoundException"
 }
 

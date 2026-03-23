@@ -1,5 +1,6 @@
 import { RpcProtocol } from "@smithy/core/protocols";
-import { deref, NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
+import type { TypeRegistry } from "@smithy/core/schema";
+import { deref, NormalizedSchema } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -30,17 +31,20 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
 
   protected constructor({
     defaultNamespace,
+    errorTypeRegistries,
     serviceTarget,
     awsQueryCompatible,
     jsonCodec,
   }: {
     defaultNamespace: string;
+    errorTypeRegistries?: TypeRegistry[];
     serviceTarget: string;
     awsQueryCompatible?: boolean;
     jsonCodec?: JsonCodec;
   }) {
     super({
       defaultNamespace,
+      errorTypeRegistries,
     });
     this.serviceTarget = serviceTarget;
     this.codec =
@@ -99,11 +103,12 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     dataObject: any,
     metadata: ResponseMetadata
   ): Promise<never> {
-    // loadRestJsonErrorCode is still used in JSON RPC.
     if (this.awsQueryCompatible) {
       this.mixin.setQueryCompatError(dataObject, response);
     }
+    // loadRestJsonErrorCode is still used in JSON RPC.
     const errorIdentifier = loadRestJsonErrorCode(response, dataObject) ?? "Unknown";
+    this.mixin.compose(this.compositeErrorRegistry, errorIdentifier, this.options.defaultNamespace);
 
     const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(
       errorIdentifier,
@@ -115,8 +120,8 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     );
 
     const ns = NormalizedSchema.of(errorSchema);
-    const message = dataObject.message ?? dataObject.Message ?? "Unknown";
-    const ErrorCtor = TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
+    const message = dataObject.message ?? dataObject.Message ?? "UnknownError";
+    const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
     const exception = new ErrorCtor(message);
 
     const output = {} as any;

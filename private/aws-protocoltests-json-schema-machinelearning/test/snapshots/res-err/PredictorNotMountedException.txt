@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-PredictorNotMountedException: Unknown
+PredictorNotMountedException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ PredictorNotMountedException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "PredictorNotMountedException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.machinelearning#PredictorNotMountedException"
 }
 

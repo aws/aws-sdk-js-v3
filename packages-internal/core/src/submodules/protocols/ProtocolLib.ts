@@ -17,6 +17,8 @@ type ErrorMetadataBearer = MetadataBearer & {
  * @internal
  */
 export class ProtocolLib {
+  private errorRegistry?: TypeRegistry;
+
   public constructor(private queryCompat = false) {}
 
   /**
@@ -70,10 +72,9 @@ export class ProtocolLib {
     metadata: ResponseMetadata,
     getErrorSchema?: (registry: TypeRegistry, errorName: string) => StaticErrorSchema
   ): Promise<{ errorSchema: StaticErrorSchema; errorMetadata: ErrorMetadataBearer }> {
-    let namespace = defaultNamespace;
     let errorName = errorIdentifier;
     if (errorIdentifier.includes("#")) {
-      [namespace, errorName] = errorIdentifier.split("#");
+      [, errorName] = errorIdentifier.split("#");
     }
 
     const errorMetadata: ErrorMetadataBearer = {
@@ -81,16 +82,20 @@ export class ProtocolLib {
       $fault: response.statusCode < 500 ? ("client" as const) : ("server" as const),
     };
 
-    const registry = TypeRegistry.for(namespace);
+    if (!this.errorRegistry) {
+      throw new Error("@aws-sdk/core/protocols - error handler not initialized.");
+    }
 
     try {
       const errorSchema =
-        getErrorSchema?.(registry, errorName) ?? (registry.getSchema(errorIdentifier) as StaticErrorSchema);
+        getErrorSchema?.(this.errorRegistry, errorName) ??
+        (this.errorRegistry.getSchema(errorIdentifier) as StaticErrorSchema);
       return { errorSchema, errorMetadata };
     } catch (e) {
       dataObject.message = dataObject.message ?? dataObject.Message ?? "UnknownError";
-      const synthetic = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace);
+      const synthetic = this.errorRegistry;
       const baseExceptionSchema = synthetic.getBaseException();
+
       if (baseExceptionSchema) {
         const ErrorCtor = synthetic.getErrorCtor(baseExceptionSchema) ?? Error;
         throw this.decorateServiceException(
@@ -98,8 +103,43 @@ export class ProtocolLib {
           dataObject
         );
       }
-      throw this.decorateServiceException(Object.assign(new Error(errorName), errorMetadata), dataObject);
+
+      const d = dataObject;
+      const message = d?.message ?? d?.Message ?? d?.Error?.Message ?? d?.Error?.message;
+      throw this.decorateServiceException(
+        Object.assign(
+          new Error(message),
+          {
+            name: errorName,
+          },
+          errorMetadata
+        ),
+        dataObject
+      );
     }
+  }
+
+  /**
+   * This method exists because in older clients, no `errorTypeRegistries` array is provided to the Protocol
+   * implementation. This means that the TypeRegistry queried by the error's namespace or the service's defaultNamespace
+   * must be composed into the possibly-empty local compositeErrorRegistry.
+   *
+   *
+   * @param composite - TypeRegistry instance local to instances of HttpProtocol. In newer clients, this instance directly
+   * receives the error registries exported by the client.
+   * @param errorIdentifier - parsed from the response, used to look up the error schema within the registry.
+   * @param defaultNamespace - property of the Protocol implementation pointing to a specific service.
+   */
+  public compose(composite: TypeRegistry, errorIdentifier: string, defaultNamespace: string): void {
+    let namespace = defaultNamespace;
+    if (errorIdentifier.includes("#")) {
+      [namespace] = errorIdentifier.split("#");
+    }
+    const staticRegistry = TypeRegistry.for(namespace);
+    const defaultSyntheticRegistry = TypeRegistry.for("smithy.ts.sdk.synthetic." + defaultNamespace);
+    composite.copyFrom(staticRegistry);
+    composite.copyFrom(defaultSyntheticRegistry);
+    this.errorRegistry = composite;
   }
 
   /**

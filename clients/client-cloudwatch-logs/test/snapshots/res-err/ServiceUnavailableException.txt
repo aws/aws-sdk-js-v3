@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-ServiceUnavailableException: Unknown
+ServiceUnavailableException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ ServiceUnavailableException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "ServiceUnavailableException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.cloudwatchlogs#ServiceUnavailableException"
 }
 

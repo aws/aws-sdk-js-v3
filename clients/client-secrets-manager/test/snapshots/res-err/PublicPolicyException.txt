@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-PublicPolicyException: Unknown
+PublicPolicyException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ PublicPolicyException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "PublicPolicyException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.secretsmanager#PublicPolicyException"
 }
 

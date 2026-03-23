@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.0
 
 
 --- [error name & message] ---
-TransactionCanceledException: Unknown
+TransactionCanceledException: UnknownError
 
 --- [error object] ---
 {
@@ -26,7 +26,7 @@ TransactionCanceledException: Unknown
   },
   name: "TransactionCanceledException",
   CancellationReasons: (undefined),
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.dynamodb#TransactionCanceledException"
 }
 

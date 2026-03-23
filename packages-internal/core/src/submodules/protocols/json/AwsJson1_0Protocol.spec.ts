@@ -1,9 +1,11 @@
+import { TypeRegistry } from "@smithy/core/schema";
 import type {
   BlobSchema,
   BooleanSchema,
   DocumentSchema,
   NumericSchema,
   OperationSchema,
+  StaticErrorSchema,
   StaticStructureSchema,
   StringSchema,
   TimestampDefaultSchema,
@@ -48,6 +50,36 @@ describe(AwsJson1_0Protocol.name, () => {
       serviceTarget: "JsonRpc10",
     });
     expect(protocol.getShapeId()).toEqual("aws.protocols#awsJson1_0");
+  });
+
+  it("uses compositeErrorRegistries from instantiation", () => {
+    const GenericServiceException$: StaticErrorSchema = [
+      -3,
+      "com.amazonaws.sdk.example",
+      "GenericServiceException",
+      0,
+      [],
+      [],
+    ];
+    class GenericServiceException extends Error {}
+
+    const registry = TypeRegistry.for("com.amazonaws.sdk.example");
+    registry.registerError(GenericServiceException$, GenericServiceException);
+
+    const protocol = new (class extends AwsJson1_0Protocol {
+      public getCompositeErrorRegistry() {
+        return this.compositeErrorRegistry;
+      }
+    })({
+      defaultNamespace: "",
+      serviceTarget: "JsonRpc10",
+      errorTypeRegistries: [registry],
+    });
+
+    expect(protocol.getCompositeErrorRegistry()).not.toBe(registry);
+    expect(protocol.getCompositeErrorRegistry().getSchema("com.amazonaws.sdk.example#GenericServiceException")).toBe(
+      GenericServiceException$
+    );
   });
 
   describe("codec", () => {

@@ -1,7 +1,7 @@
 import { cbor } from "@smithy/core/cbor";
-import { error as registerError } from "@smithy/core/schema";
+import { error as registerError, TypeRegistry } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
-import type { NumericSchema, StringSchema } from "@smithy/types";
+import type { NumericSchema, StaticErrorSchema, StringSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { context } from "../test-schema.spec";
@@ -110,5 +110,43 @@ describe(AwsSmithyRpcV2CborProtocol.name, () => {
         httpStatusCode: 400,
       },
     });
+  });
+
+  it("has a shapeId of smithy.protocols#rpcv2Cbor", () => {
+    const protocol = new AwsSmithyRpcV2CborProtocol({
+      defaultNamespace: "ns",
+      awsQueryCompatible: true,
+    });
+    expect(protocol.getShapeId()).toEqual("smithy.protocols#rpcv2Cbor");
+  });
+
+  it("uses compositeErrorRegistries from instantiation", () => {
+    const GenericServiceException$: StaticErrorSchema = [
+      -3,
+      "com.amazonaws.sdk.example",
+      "GenericServiceException",
+      0,
+      [],
+      [],
+    ];
+    class GenericServiceException extends Error {}
+
+    const registry = TypeRegistry.for("com.amazonaws.sdk.example");
+    registry.registerError(GenericServiceException$, GenericServiceException);
+
+    const protocol = new (class extends AwsSmithyRpcV2CborProtocol {
+      public getCompositeErrorRegistry() {
+        return this.compositeErrorRegistry;
+      }
+    })({
+      defaultNamespace: "ns",
+      awsQueryCompatible: true,
+      errorTypeRegistries: [registry],
+    });
+
+    expect(protocol.getCompositeErrorRegistry()).not.toBe(registry);
+    expect(protocol.getCompositeErrorRegistry().getSchema("com.amazonaws.sdk.example#GenericServiceException")).toBe(
+      GenericServiceException$
+    );
   });
 });

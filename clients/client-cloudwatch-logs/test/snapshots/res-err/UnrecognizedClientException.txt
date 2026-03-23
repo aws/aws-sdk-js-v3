@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-UnrecognizedClientException: Unknown
+UnrecognizedClientException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ UnrecognizedClientException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "UnrecognizedClientException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.cloudwatchlogs#UnrecognizedClientException"
 }
 

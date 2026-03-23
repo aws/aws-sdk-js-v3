@@ -28,6 +28,37 @@ describe(AwsQueryProtocol.name, () => {
     );
   });
 
+  it("uses compositeErrorRegistries from instantiation", () => {
+    const GenericServiceException$: StaticErrorSchema = [
+      -3,
+      "com.amazonaws.sdk.example",
+      "GenericServiceException",
+      0,
+      [],
+      [],
+    ];
+    class GenericServiceException extends Error {}
+
+    const registry = TypeRegistry.for("com.amazonaws.sdk.example");
+    registry.registerError(GenericServiceException$, GenericServiceException);
+
+    const protocol = new (class extends AwsQueryProtocol {
+      public getCompositeErrorRegistry() {
+        return this.compositeErrorRegistry;
+      }
+    })({
+      version: "",
+      defaultNamespace: "",
+      xmlNamespace: "",
+      errorTypeRegistries: [registry],
+    });
+
+    expect(protocol.getCompositeErrorRegistry()).not.toBe(registry);
+    expect(protocol.getCompositeErrorRegistry().getSchema("com.amazonaws.sdk.example#GenericServiceException")).toBe(
+      GenericServiceException$
+    );
+  });
+
   it("decorates service exceptions with unmodeled fields", async () => {
     const httpResponse = new HttpResponse({
       statusCode: 400,

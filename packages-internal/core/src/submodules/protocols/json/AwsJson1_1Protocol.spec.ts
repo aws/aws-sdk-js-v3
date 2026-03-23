@@ -1,4 +1,6 @@
+import { TypeRegistry } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
+import type { StaticErrorSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { context, createNestingWidget, deleteObjects, nestingWidget } from "../test-schema.spec";
@@ -7,7 +9,7 @@ import { AwsJson1_1Protocol } from "./AwsJson1_1Protocol";
 /**
  * These tests are cursory since most coverage is provided by protocol tests.
  */
-describe(AwsJson1_1Protocol, () => {
+describe(AwsJson1_1Protocol.name, () => {
   const [, namespace, name, traits, input, output] = deleteObjects;
   const deleteObjectsOperation = {
     namespace,
@@ -23,6 +25,36 @@ describe(AwsJson1_1Protocol, () => {
       serviceTarget: "JsonRpc11",
     });
     expect(protocol.getShapeId()).toEqual("aws.protocols#awsJson1_1");
+  });
+
+  it("uses compositeErrorRegistries from instantiation", () => {
+    const GenericServiceException$: StaticErrorSchema = [
+      -3,
+      "com.amazonaws.sdk.example",
+      "GenericServiceException",
+      0,
+      [],
+      [],
+    ];
+    class GenericServiceException extends Error {}
+
+    const registry = TypeRegistry.for("com.amazonaws.sdk.example");
+    registry.registerError(GenericServiceException$, GenericServiceException);
+
+    const protocol = new (class extends AwsJson1_1Protocol {
+      public getCompositeErrorRegistry() {
+        return this.compositeErrorRegistry;
+      }
+    })({
+      defaultNamespace: "",
+      serviceTarget: "JsonRpc11",
+      errorTypeRegistries: [registry],
+    });
+
+    expect(protocol.getCompositeErrorRegistry()).not.toBe(registry);
+    expect(protocol.getCompositeErrorRegistry().getSchema("com.amazonaws.sdk.example#GenericServiceException")).toBe(
+      GenericServiceException$
+    );
   });
 
   it("serializes a request", async () => {
