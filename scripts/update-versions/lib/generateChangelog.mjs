@@ -101,6 +101,7 @@ async function generateChangelog(packagePath, since) {
     .split("\n")
     .map((r) => r.trim())
     .map((r) => r.replaceAll(/(^'|'$)/g, ""))
+    .map((r) => r.replace(/"message":"(.*?)"},$/, (_, msg) => `"message":"${msg.replaceAll('"', '\\"')}"},`))
     .join("\n");
 
   const changelog = JSON.parse(`[${processedRows.slice(0, -1)}]`);
