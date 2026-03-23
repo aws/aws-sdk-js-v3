@@ -89,7 +89,7 @@ async function generateChangelog(packagePath, since) {
     "git",
     [
       "log",
-      `--pretty=format:'{"commit":"%H","date":"%ad","message":"%s"},'`,
+      `--pretty=format:'{"commit":"%H","date":"%ad","message":"%s"},'`.replace(/"/g, "__DOUBLE_QUOTE__"),
       "--date=format:%Y-%m-%d",
       `${since}..HEAD`,
       "--",
@@ -100,7 +100,12 @@ async function generateChangelog(packagePath, since) {
   const processedRows = rows
     .split("\n")
     .map((r) => r.trim())
-    .map((r) => r.replaceAll(/(^'|'$)/g, ""))
+    .map((r) =>
+      r
+        .replaceAll(/(^'|'$)/g, "")
+        .replace(/"/g, '\\"')
+        .replace(/__DOUBLE_QUOTE__/g, `"`)
+    )
     .join("\n");
 
   const changelog = JSON.parse(`[${processedRows.slice(0, -1)}]`);
@@ -280,7 +285,8 @@ function writeNewVersion(increment, pkgJsonPath) {
  */
 function parseMessage(entry) {
   const commitMsg = entry.message;
-  const [, type, module, comment] = commitMsg.match(/([\w-]+)(\([\w-]+\))?:\s?(.*?)$/) || [];
+  const [, type, module, comment] = commitMsg.match(/([\w-]+)(\([\w-/]+\))?:\s?(.*?)$/) || [];
+
   if (type) {
     entry.type = type;
     if (module) {
