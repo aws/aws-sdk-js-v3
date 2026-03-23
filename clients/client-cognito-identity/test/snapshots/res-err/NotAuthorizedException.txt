@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-NotAuthorizedException: Unknown
+NotAuthorizedException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ NotAuthorizedException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "NotAuthorizedException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.cognitoidentity#NotAuthorizedException"
 }
 

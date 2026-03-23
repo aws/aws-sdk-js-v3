@@ -22,6 +22,36 @@ describe(AwsRestXmlProtocol.name, () => {
     expect(protocol.getShapeId()).toEqual("aws.protocols#restXml");
   });
 
+  it("uses compositeErrorRegistries from instantiation", () => {
+    const GenericServiceException$: StaticErrorSchema = [
+      -3,
+      "com.amazonaws.sdk.example",
+      "GenericServiceException",
+      0,
+      [],
+      [],
+    ];
+    class GenericServiceException extends Error {}
+
+    const registry = TypeRegistry.for("com.amazonaws.sdk.example");
+    registry.registerError(GenericServiceException$, GenericServiceException);
+
+    const protocol = new (class extends AwsRestXmlProtocol {
+      public getCompositeErrorRegistry() {
+        return this.compositeErrorRegistry;
+      }
+    })({
+      xmlNamespace: "http://s3.amazonaws.com/doc/2006-03-01/",
+      defaultNamespace: "com.amazonaws.s3",
+      errorTypeRegistries: [registry],
+    });
+
+    expect(protocol.getCompositeErrorRegistry()).not.toBe(registry);
+    expect(protocol.getCompositeErrorRegistry().getSchema("com.amazonaws.sdk.example#GenericServiceException")).toBe(
+      GenericServiceException$
+    );
+  });
+
   describe("serialization", () => {
     const testCases = [
       {

@@ -1,3 +1,5 @@
+import type { TypeRegistry } from "@smithy/core/schema";
+
 import { AwsQueryProtocol } from "./AwsQueryProtocol";
 import type { QuerySerializerSettings } from "./QuerySerializerSettings";
 
@@ -10,6 +12,7 @@ export class AwsEc2QueryProtocol extends AwsQueryProtocol {
       defaultNamespace: string;
       xmlNamespace: string;
       version: string;
+      errorTypeRegistries?: TypeRegistry[];
     }
   ) {
     super(options);

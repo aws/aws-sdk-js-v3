@@ -1,3 +1,5 @@
+import type { TypeRegistry } from "@smithy/core/schema";
+
 import { AwsJsonRpcProtocol } from "./AwsJsonRpcProtocol";
 import type { JsonCodec } from "./JsonCodec";
 
@@ -8,17 +10,20 @@ import type { JsonCodec } from "./JsonCodec";
 export class AwsJson1_1Protocol extends AwsJsonRpcProtocol {
   public constructor({
     defaultNamespace,
+    errorTypeRegistries,
     serviceTarget,
     awsQueryCompatible,
     jsonCodec,
   }: {
     defaultNamespace: string;
+    errorTypeRegistries?: TypeRegistry[];
     serviceTarget: string;
     awsQueryCompatible?: boolean;
     jsonCodec?: JsonCodec;
   }) {
     super({
       defaultNamespace,
+      errorTypeRegistries,
       serviceTarget,
       awsQueryCompatible,
       jsonCodec,

@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.0
 
 
 --- [error name & message] ---
-InvalidIdFormat: Unknown
+InvalidIdFormat: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ InvalidIdFormat: Unknown
     totalRetryDelay: (number) 0
   },
   name: "InvalidIdFormat",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.sqs#InvalidIdFormat",
   Error: {
     Type: (undefined),
@@ -46,7 +46,7 @@ content-type: application/x-amz-json-1.0
 
 
 --- [error name & message] ---
-InvalidIdFormat: Unknown
+InvalidIdFormat: UnknownError
 
 --- [error object] ---
 {
@@ -61,7 +61,7 @@ InvalidIdFormat: Unknown
     totalRetryDelay: (number) 0
   },
   name: "InvalidIdFormat",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.sqs#InvalidIdFormat",
   Error: {
     Type: (undefined),

@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-MalformedQueryException: Unknown
+MalformedQueryException: UnknownError
 
 --- [error object] ---
 {
@@ -26,7 +26,7 @@ MalformedQueryException: Unknown
   },
   name: "MalformedQueryException",
   queryCompileError: (undefined),
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.cloudwatchlogs#MalformedQueryException"
 }
 

@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-InvalidIdentityPoolConfigurationException: Unknown
+InvalidIdentityPoolConfigurationException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ InvalidIdentityPoolConfigurationException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "InvalidIdentityPoolConfigurationException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.cognitoidentity#InvalidIdentityPoolConfigurationException"
 }
 

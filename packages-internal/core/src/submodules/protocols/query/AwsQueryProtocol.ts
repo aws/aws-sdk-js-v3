@@ -1,5 +1,6 @@
 import { collectBody, RpcProtocol } from "@smithy/core/protocols";
-import { deref, ErrorSchema, NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
+import type { TypeRegistry } from "@smithy/core/schema";
+import { deref, ErrorSchema, NormalizedSchema } from "@smithy/core/schema";
 import type {
   Codec,
   DocumentSchema,
@@ -32,10 +33,12 @@ export class AwsQueryProtocol extends RpcProtocol {
       defaultNamespace: string;
       xmlNamespace: string;
       version: string;
+      errorTypeRegistries?: TypeRegistry[];
     }
   ) {
     super({
       defaultNamespace: options.defaultNamespace,
+      errorTypeRegistries: options.errorTypeRegistries,
     });
     const settings = {
       timestampFormat: {
@@ -146,6 +149,8 @@ export class AwsQueryProtocol extends RpcProtocol {
     metadata: ResponseMetadata
   ): Promise<never> {
     const errorIdentifier = this.loadQueryErrorCode(response, dataObject) ?? "Unknown";
+    this.mixin.compose(this.compositeErrorRegistry, errorIdentifier, this.options.defaultNamespace);
+
     const errorData = this.loadQueryError(dataObject) ?? {};
     const message = this.loadQueryErrorMessage(dataObject);
     errorData.message = message;
@@ -165,7 +170,7 @@ export class AwsQueryProtocol extends RpcProtocol {
     );
 
     const ns = NormalizedSchema.of(errorSchema);
-    const ErrorCtor = TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
+    const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
     const exception = new ErrorCtor(message);
 
     const output = {

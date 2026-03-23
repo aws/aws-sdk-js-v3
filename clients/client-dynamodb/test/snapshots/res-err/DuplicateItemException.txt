@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.0
 
 
 --- [error name & message] ---
-DuplicateItemException: Unknown
+DuplicateItemException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ DuplicateItemException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "DuplicateItemException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.dynamodb#DuplicateItemException"
 }
 

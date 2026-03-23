@@ -11,7 +11,7 @@ x-amzn-query-error: undefined;Sender
 
 
 --- [error name & message] ---
-ThrottlingException: Unknown
+ThrottlingException: UnknownError
 
 --- [error object] ---
 {
@@ -27,7 +27,7 @@ ThrottlingException: Unknown
   },
   name: "ThrottlingException",
   throttlingReasons: (undefined),
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.dynamodb#ThrottlingException"
 }
 
