@@ -303,7 +303,8 @@
     "throw200ExceptionsMiddleware": "function, since <=3.930.0",
     "throw200ExceptionsMiddlewareOptions": "object, since <=3.930.0",
     "validateBucketNameMiddleware": "function, since <=3.930.0",
-    "validateBucketNameMiddlewareOptions": "object, since <=3.930.0"
+    "validateBucketNameMiddlewareOptions": "object, since <=3.930.0",
+    "S3RestXmlProtocol": "function, since 3.972.24"
   },
   "@aws-sdk/middleware-sdk-s3-control": {
     "NODE_USE_ARN_REGION_CONFIG_OPTIONS": "object, since <=3.930.0",

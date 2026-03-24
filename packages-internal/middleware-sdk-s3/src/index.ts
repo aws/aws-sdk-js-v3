@@ -6,3 +6,4 @@ export * from "./s3-express/index";
 export * from "./s3Configuration";
 export * from "./throw-200-exceptions";
 export * from "./validate-bucket-name";
+export { S3RestXmlProtocol } from "./protocol/S3RestXmlProtocol";
