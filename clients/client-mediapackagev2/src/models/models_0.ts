@@ -1184,7 +1184,7 @@ export interface SpekeKeyProvider {
   Url: string | undefined;
 
   /**
-   * <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+   * <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
    * @public
    */
   CertificateArn?: string | undefined;
