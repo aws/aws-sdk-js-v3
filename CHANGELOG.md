@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1016.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1015.0...v3.1016.0) (2026-03-24)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds SDK support for 1) Persist session state in AgentCore Runtime via filesystemConfigurations in CreateAgentRuntime, UpdateAgentRuntime, and GetAgentRuntime APIs, 2) Optional name-based filtering on AgentCore ListBrowserProfiles API. ([72c67eb](https://github.com/aws/aws-sdk-js-v3/commit/72c67eb252af3b2167082ce68a5f5e1023aea88f))
+* **client-mediapackagev2:** Reduces the minimum allowed value for startOverWindowSeconds from 60 to 0, allowing customers to effectively disable the start-over window. ([7f93210](https://github.com/aws/aws-sdk-js-v3/commit/7f932107bda9f1d8b93d50507611b8a923874bd2))
+* **client-opensearchserverless:** Adds support for updating the vector options field for existing collections. ([e2ec053](https://github.com/aws/aws-sdk-js-v3/commit/e2ec053d3821aee17fd2d446c4fbc696097925a6))
+* **client-pcs:** This release adds support for custom slurmdbd and cgroup configuration in AWS PCS. Customers can now specify slurmdbd and cgroup settings to configure database accounting and reporting for their HPC workloads, and control resource allocation and limits for compute jobs. ([e95c806](https://github.com/aws/aws-sdk-js-v3/commit/e95c80624e95219f2a6bcd504ac14f11794b7b97))
+* **client-rds:** Adds support in Aurora PostgreSQL serverless databases for express configuration based creation through WithExpressConfiguration in CreateDbCluster API, and for restoring clusters using RestoreDBClusterToPointInTime and RestoreDBClusterFromSnapshot APIs. ([d1038f0](https://github.com/aws/aws-sdk-js-v3/commit/d1038f0fbf08a9172422088a9773e780df8f7d0d))
+
+
+
+
+
 # [3.1015.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1014.0...v3.1015.0) (2026-03-23)
 
 

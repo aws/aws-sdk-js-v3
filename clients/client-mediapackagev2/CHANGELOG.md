@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1016.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1015.0...v3.1016.0) (2026-03-24)
+
+
+### Features
+
+* **client-mediapackagev2:** Reduces the minimum allowed value for startOverWindowSeconds from 60 to 0, allowing customers to effectively disable the start-over window. ([7f93210](https://github.com/aws/aws-sdk-js-v3/commit/7f932107bda9f1d8b93d50507611b8a923874bd2))
+
+
+
+
+
 # [3.1015.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1014.0...v3.1015.0) (2026-03-23)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackagev2

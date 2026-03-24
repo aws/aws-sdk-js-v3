@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1016.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1015.0...v3.1016.0) (2026-03-24)
+
+
+### Features
+
+* **client-pcs:** This release adds support for custom slurmdbd and cgroup configuration in AWS PCS. Customers can now specify slurmdbd and cgroup settings to configure database accounting and reporting for their HPC workloads, and control resource allocation and limits for compute jobs. ([e95c806](https://github.com/aws/aws-sdk-js-v3/commit/e95c80624e95219f2a6bcd504ac14f11794b7b97))
+
+
+
+
+
 # [3.1015.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1014.0...v3.1015.0) (2026-03-23)
 
 **Note:** Version bump only for package @aws-sdk/client-pcs

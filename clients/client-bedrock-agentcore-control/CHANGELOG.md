@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1016.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1015.0...v3.1016.0) (2026-03-24)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds SDK support for 1) Persist session state in AgentCore Runtime via filesystemConfigurations in CreateAgentRuntime, UpdateAgentRuntime, and GetAgentRuntime APIs, 2) Optional name-based filtering on AgentCore ListBrowserProfiles API. ([72c67eb](https://github.com/aws/aws-sdk-js-v3/commit/72c67eb252af3b2167082ce68a5f5e1023aea88f))
+
+
+
+
+
 # [3.1015.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1014.0...v3.1015.0) (2026-03-23)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

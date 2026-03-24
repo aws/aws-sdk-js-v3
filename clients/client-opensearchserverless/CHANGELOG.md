@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1016.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1015.0...v3.1016.0) (2026-03-24)
+
+
+### Features
+
+* **client-opensearchserverless:** Adds support for updating the vector options field for existing collections. ([e2ec053](https://github.com/aws/aws-sdk-js-v3/commit/e2ec053d3821aee17fd2d446c4fbc696097925a6))
+
+
+
+
+
 # [3.1015.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1014.0...v3.1015.0) (2026-03-23)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearchserverless
