@@ -60,6 +60,18 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *         parameterValue: "STRING_VALUE", // required
  *       },
  *     ],
+ *     slurmdbdCustomSettings: [ // SlurmdbdCustomSettings
+ *       { // SlurmdbdCustomSetting
+ *         parameterName: "STRING_VALUE", // required
+ *         parameterValue: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     cgroupCustomSettings: [ // CgroupCustomSettings
+ *       { // CgroupCustomSetting
+ *         parameterName: "STRING_VALUE", // required
+ *         parameterValue: "STRING_VALUE", // required
+ *       },
+ *     ],
  *     accounting: { // AccountingRequest
  *       defaultPurgeTimeInDays: Number("int"),
  *       mode: "STANDARD" || "NONE", // required
@@ -92,6 +104,18 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       scaleDownIdleTimeInSeconds: Number("int"),
  * //       slurmCustomSettings: [ // SlurmCustomSettings
  * //         { // SlurmCustomSetting
+ * //           parameterName: "STRING_VALUE", // required
+ * //           parameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       slurmdbdCustomSettings: [ // SlurmdbdCustomSettings
+ * //         { // SlurmdbdCustomSetting
+ * //           parameterName: "STRING_VALUE", // required
+ * //           parameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       cgroupCustomSettings: [ // CgroupCustomSettings
+ * //         { // CgroupCustomSetting
  * //           parameterName: "STRING_VALUE", // required
  * //           parameterValue: "STRING_VALUE", // required
  * //         },

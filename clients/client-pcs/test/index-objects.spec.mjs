@@ -4,6 +4,7 @@ import {
   Accounting$,
   AccountingMode,
   AccountingRequest$,
+  CgroupCustomSetting$,
   Cluster$,
   ClusterSlurmConfiguration$,
   ClusterSlurmConfigurationRequest$,
@@ -109,6 +110,7 @@ import {
   Size,
   SlurmAuthKey$,
   SlurmCustomSetting$,
+  SlurmdbdCustomSetting$,
   SlurmRest$,
   SlurmRestMode,
   SlurmRestRequest$,
@@ -192,6 +194,7 @@ assert(typeof UpdateQueue$ === "object");
 // structural schemas
 assert(typeof Accounting$ === "object");
 assert(typeof AccountingRequest$ === "object");
+assert(typeof CgroupCustomSetting$ === "object");
 assert(typeof Cluster$ === "object");
 assert(typeof ClusterSlurmConfiguration$ === "object");
 assert(typeof ClusterSlurmConfigurationRequest$ === "object");
@@ -247,6 +250,7 @@ assert(typeof Scheduler$ === "object");
 assert(typeof SchedulerRequest$ === "object");
 assert(typeof SlurmAuthKey$ === "object");
 assert(typeof SlurmCustomSetting$ === "object");
+assert(typeof SlurmdbdCustomSetting$ === "object");
 assert(typeof SlurmRest$ === "object");
 assert(typeof SlurmRestRequest$ === "object");
 assert(typeof SpotOptions$ === "object");

@@ -62,6 +62,18 @@ export interface GetClusterCommandOutput extends GetClusterResponse, __MetadataB
  * //           parameterValue: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       slurmdbdCustomSettings: [ // SlurmdbdCustomSettings
+ * //         { // SlurmdbdCustomSetting
+ * //           parameterName: "STRING_VALUE", // required
+ * //           parameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       cgroupCustomSettings: [ // CgroupCustomSettings
+ * //         { // CgroupCustomSetting
+ * //           parameterName: "STRING_VALUE", // required
+ * //           parameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //       authKey: { // SlurmAuthKey
  * //         secretArn: "STRING_VALUE", // required
  * //         secretVersion: "STRING_VALUE", // required

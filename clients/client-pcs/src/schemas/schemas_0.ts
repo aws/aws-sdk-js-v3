@@ -8,6 +8,8 @@ const _CCNGR = "CreateComputeNodeGroupRequest";
 const _CCNGRr = "CreateComputeNodeGroupResponse";
 const _CCR = "CreateClusterRequest";
 const _CCRr = "CreateClusterResponse";
+const _CCS = "CgroupCustomSetting";
+const _CCSg = "CgroupCustomSettings";
 const _CE = "ConflictException";
 const _CL = "ClusterList";
 const _CLT = "CustomLaunchTemplate";
@@ -80,7 +82,9 @@ const _SAK = "SlurmAuthKey";
 const _SC = "ScalingConfiguration";
 const _SCR = "ScalingConfigurationRequest";
 const _SCS = "SlurmCustomSetting";
-const _SCSl = "SlurmCustomSettings";
+const _SCSl = "SlurmdbdCustomSetting";
+const _SCSlu = "SlurmCustomSettings";
+const _SCSlur = "SlurmdbdCustomSettings";
 const _SO = "SpotOptions";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "SchedulerRequest";
@@ -119,6 +123,7 @@ const _ac = "accounting";
 const _bI = "bootstrapId";
 const _c = "client";
 const _cA = "createdAt";
+const _cCS = "cgroupCustomSettings";
 const _cI = "clusterId";
 const _cIl = "clusterIdentifier";
 const _cLT = "customLaunchTemplate";
@@ -179,6 +184,7 @@ const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pcs";
 const _sA = "secretArn";
 const _sC = "serviceCode";
 const _sCS = "slurmCustomSettings";
+const _sCSl = "slurmdbdCustomSettings";
 const _sCc = "scalingConfiguration";
 const _sCl = "slurmConfiguration";
 const _sDITIS = "scaleDownIdleTimeInSeconds";
@@ -287,6 +293,11 @@ export var AccountingRequest$: StaticStructureSchema = [3, n0, _AR,
   [_mo, _dPTID],
   [0, 1], 1
 ];
+export var CgroupCustomSetting$: StaticStructureSchema = [3, n0, _CCS,
+  0,
+  [_pN, _pV],
+  [0, 0], 2
+];
 export var Cluster$: StaticStructureSchema = [3, n0, _C,
   0,
   [_n, _i, _a, _st, _cA, _mA, _sc, _si, _ne, _sCl, _en, _eI],
@@ -294,13 +305,13 @@ export var Cluster$: StaticStructureSchema = [3, n0, _C,
 ];
 export var ClusterSlurmConfiguration$: StaticStructureSchema = [3, n0, _CSC,
   0,
-  [_sDITIS, _sCS, _aK, _jA, _ac, _sR],
-  [1, () => SlurmCustomSettings, () => SlurmAuthKey$, () => JwtAuth$, () => Accounting$, () => SlurmRest$]
+  [_sDITIS, _sCS, _sCSl, _cCS, _aK, _jA, _ac, _sR],
+  [1, () => SlurmCustomSettings, () => SlurmdbdCustomSettings, () => CgroupCustomSettings, () => SlurmAuthKey$, () => JwtAuth$, () => Accounting$, () => SlurmRest$]
 ];
 export var ClusterSlurmConfigurationRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
-  [_sDITIS, _sCS, _ac, _sR],
-  [1, () => SlurmCustomSettings, () => AccountingRequest$, () => SlurmRestRequest$]
+  [_sDITIS, _sCS, _sCSl, _cCS, _ac, _sR],
+  [1, () => SlurmCustomSettings, () => SlurmdbdCustomSettings, () => CgroupCustomSettings, () => AccountingRequest$, () => SlurmRestRequest$]
 ];
 export var ClusterSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -562,6 +573,11 @@ export var SlurmCustomSetting$: StaticStructureSchema = [3, n0, _SCS,
   [_pN, _pV],
   [0, 0], 2
 ];
+export var SlurmdbdCustomSetting$: StaticStructureSchema = [3, n0, _SCSl,
+  0,
+  [_pN, _pV],
+  [0, 0], 2
+];
 export var SlurmRest$: StaticStructureSchema = [3, n0, _SRl,
   0,
   [_mo],
@@ -614,8 +630,8 @@ export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateClusterSlurmConfigurationRequest$: StaticStructureSchema = [3, n0, _UCSCR,
   0,
-  [_sDITIS, _sCS, _ac, _sR],
-  [1, () => SlurmCustomSettings, () => UpdateAccountingRequest$, () => UpdateSlurmRestRequest$]
+  [_sDITIS, _sCS, _sCSl, _cCS, _ac, _sR],
+  [1, () => SlurmCustomSettings, () => SlurmdbdCustomSettings, () => CgroupCustomSettings, () => UpdateAccountingRequest$, () => UpdateSlurmRestRequest$]
 ];
 export var UpdateComputeNodeGroupRequest$: StaticStructureSchema = [3, n0, _UCNGR,
   0,
@@ -657,6 +673,9 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   [_n, _m],
   [0, 0], 2
 ];
+var CgroupCustomSettings: StaticListSchema = [1, n0, _CCSg,
+  0, () => CgroupCustomSetting$
+];
 var ClusterList: StaticListSchema = [1, n0, _CL,
   0, () => ClusterSummary$
 ];
@@ -679,8 +698,11 @@ var QueueList: StaticListSchema = [1, n0, _QL,
   0, () => QueueSummary$
 ];
 var SecurityGroupIdList = 64 | 0;
-var SlurmCustomSettings: StaticListSchema = [1, n0, _SCSl,
+var SlurmCustomSettings: StaticListSchema = [1, n0, _SCSlu,
   0, () => SlurmCustomSetting$
+];
+var SlurmdbdCustomSettings: StaticListSchema = [1, n0, _SCSlur,
+  0, () => SlurmdbdCustomSetting$
 ];
 var StringList = 64 | 0;
 var SubnetIdList = 64 | 0;

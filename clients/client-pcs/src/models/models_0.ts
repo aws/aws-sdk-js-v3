@@ -681,10 +681,46 @@ export interface SchedulerRequest {
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11</code> </p>
+   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>24.11 | 25.05</code> </p>
    * @public
    */
   version: string | undefined;
+}
+
+/**
+ * <p>Additional settings that directly map to Cgroup settings.</p> <important> <p>PCS supports a subset of Cgroup settings. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/cgroup-custom-settings.html">Configuring custom Cgroup settings in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
+ * @public
+ */
+export interface CgroupCustomSetting {
+  /**
+   * <p>PCS supports custom Cgroup settings for clusters. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/cgroup-custom-settings.html">Configuring custom Cgroup settings in PCS</a> in the <i>PCS User Guide</i>.</p>
+   * @public
+   */
+  parameterName: string | undefined;
+
+  /**
+   * <p>The values for the configured Cgroup settings.</p>
+   * @public
+   */
+  parameterValue: string | undefined;
+}
+
+/**
+ * <p>Additional settings that directly map to SlurmDBD settings.</p> <important> <p>PCS supports a subset of SlurmDBD settings. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurmdbd-custom-settings.html">Configuring custom SlurmDBD settings in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
+ * @public
+ */
+export interface SlurmdbdCustomSetting {
+  /**
+   * <p>PCS supports custom SlurmDBD settings for clusters. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurmdbd-custom-settings.html">Configuring custom SlurmDBD settings in PCS</a> in the <i>PCS User Guide</i>.</p>
+   * @public
+   */
+  parameterName: string | undefined;
+
+  /**
+   * <p>The values for the configured SlurmDBD settings.</p>
+   * @public
+   */
+  parameterValue: string | undefined;
 }
 
 /**
@@ -715,6 +751,18 @@ export interface ClusterSlurmConfigurationRequest {
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
+
+  /**
+   * <p>Additional SlurmDBD-specific configuration that directly maps to SlurmDBD settings.</p>
+   * @public
+   */
+  slurmdbdCustomSettings?: SlurmdbdCustomSetting[] | undefined;
+
+  /**
+   * <p>Additional Cgroup-specific configuration that directly maps to Cgroup settings.</p>
+   * @public
+   */
+  cgroupCustomSettings?: CgroupCustomSetting[] | undefined;
 
   /**
    * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>
@@ -848,7 +896,7 @@ export interface Scheduler {
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11</code> </p>
+   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11 | 25.05</code> </p>
    * @public
    */
   version: string | undefined;
@@ -930,6 +978,18 @@ export interface ClusterSlurmConfiguration {
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
+
+  /**
+   * <p>Additional SlurmDBD-specific configuration that directly maps to SlurmDBD settings.</p>
+   * @public
+   */
+  slurmdbdCustomSettings?: SlurmdbdCustomSetting[] | undefined;
+
+  /**
+   * <p>Additional Cgroup-specific configuration that directly maps to Cgroup settings.</p>
+   * @public
+   */
+  cgroupCustomSettings?: CgroupCustomSetting[] | undefined;
 
   /**
    * <p>The shared Slurm key for authentication, also known as the <b>cluster secret</b>.</p>
@@ -1607,6 +1667,18 @@ export interface UpdateClusterSlurmConfigurationRequest {
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
+
+  /**
+   * <p>Additional SlurmDBD-specific configuration that directly maps to SlurmDBD settings.</p>
+   * @public
+   */
+  slurmdbdCustomSettings?: SlurmdbdCustomSetting[] | undefined;
+
+  /**
+   * <p>Additional Cgroup-specific configuration that directly maps to Cgroup settings.</p>
+   * @public
+   */
+  cgroupCustomSettings?: CgroupCustomSetting[] | undefined;
 
   /**
    * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>
