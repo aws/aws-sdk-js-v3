@@ -2147,7 +2147,7 @@ export interface GroupType {
    * <p>A non-negative integer value that specifies the precedence of this group relative to
    *             the other groups that a user can belong to in the user pool. Zero is the highest
    *             precedence value. Groups with lower <code>Precedence</code> values take precedence over
-   *             groups with higher ornull <code>Precedence</code> values. If a user belongs to two or
+   *             groups with higher or null <code>Precedence</code> values. If a user belongs to two or
    *             more groups, it is the group with the lowest precedence value whose role ARN is given in
    *             the user's tokens for the <code>cognito:roles</code> and
    *                 <code>cognito:preferred_role</code> claims.</p>
