@@ -4558,13 +4558,14 @@ export interface CreateLocationInput {
  */
 export interface UDPEndpoint {
   /**
-   * <p>The domain name of the UDP endpoint. </p>
+   * <p>The domain name of the UDP endpoint.</p>
    * @public
    */
   Domain?: string | undefined;
 
   /**
-   * <p>The port number of the UDP endpoint. </p>
+   * <p>The port number of the UDP endpoint. For Amazon GameLift Servers ping
+   *                 beacons, this is typically port 7770.</p>
    * @public
    */
   Port?: number | undefined;
@@ -4577,7 +4578,9 @@ export interface UDPEndpoint {
  */
 export interface PingBeacon {
   /**
-   * <p>The domain name and port of the UDP ping beacon. </p>
+   * <p>The domain name and port of the UDP ping beacon. Your
+   *                 game client can send UDP messages to this endpoint and receive responses to measure
+   *                 network latency.</p>
    * @public
    */
   UDPEndpoint?: UDPEndpoint | undefined;
@@ -4604,7 +4607,8 @@ export interface LocationModel {
   LocationArn?: string | undefined;
 
   /**
-   * <p>Information about the UDP ping beacon for this location. </p>
+   * <p>Information about the UDP ping beacon for this location. Ping beacons are fixed endpoints that you can use to measure network
+   *                 latency between a player device and an Amazon GameLift Servers hosting location.</p>
    * @public
    */
   PingBeacon?: PingBeacon | undefined;
