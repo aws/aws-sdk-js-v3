@@ -408,7 +408,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
  *
  * @throws {@link BackupPolicyNotFoundFault} (client fault)
- *
+ *  <p/>
  *
  * @throws {@link CertificateNotFoundFault} (client fault)
  *  <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>

@@ -235,6 +235,8 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     EngineLifecycleSupport: "STRING_VALUE",
+ * //     VPCNetworkingEnabled: true || false,
+ * //     InternetAccessGatewayEnabled: true || false,
  * //   },
  * // };
  *

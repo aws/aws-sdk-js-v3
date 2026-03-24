@@ -28,7 +28,7 @@ export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
 export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p> <p>If you create an Aurora DB cluster, the request creates an empty cluster. You must explicitly create the writer instance for your DB cluster using the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a> operation. If you create a Multi-AZ DB cluster, the request creates a writer and two reader DB instances for you, each in a different Availability Zone.</p> <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL or PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>You can also use the <code>ReplicationSourceIdentifier</code> parameter to create a Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the source. For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p>
+ * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p> <p>If you create an Aurora DB cluster, the request creates an empty cluster. You must explicitly create the writer instance for your DB cluster using the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a> operation. If you create a Multi-AZ DB cluster, the request creates a writer and two reader DB instances for you, each in a different Availability Zone.</p> <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL or PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>You can also use the <code>ReplicationSourceIdentifier</code> parameter to create a Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the source. For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p> <p>You can use the <code>WithExpressConfiguration</code> parameter to create an Aurora DB Cluster with express configuration and create cluster in seconds. Express configuration provides a cluster with a writer instance and feature specific values set to all other input parameters of this API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -132,6 +132,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *     },
  *   ],
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
+ *   WithExpressConfiguration: true || false,
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
@@ -329,6 +330,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     EngineLifecycleSupport: "STRING_VALUE",
+ * //     VPCNetworkingEnabled: true || false,
+ * //     InternetAccessGatewayEnabled: true || false,
  * //   },
  * // };
  *
@@ -536,6 +539,75 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *         VpcSecurityGroupId: "sg-0b91305example"
  *       }
  *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create a Aurora DB cluster with express configuration
+ * ```javascript
+ * // The following example creates a Aurora DB cluster with express configuration.
+ * const input = {
+ *   DBClusterIdentifier: "sample-cluster",
+ *   Engine: "aurora-postgresql",
+ *   WithExpressConfiguration: true
+ * };
+ * const command = new CreateDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AssociatedRoles:     [],
+ *     AutoMinorVersionUpgrade: true,
+ *     AvailabilityZones: [
+ *       "us-east-1c",
+ *       "us-east-1a",
+ *       "us-east-1b"
+ *     ],
+ *     BackupRetentionPeriod: 7,
+ *     ClusterCreateTime: "2026-01-10T22:14:02Z",
+ *     CopyTagsToSnapshot: false,
+ *     CrossAccountClone: false,
+ *     DBClusterArn: "arn:aws:rds:us-east-1:654654253058:cluster:sample-cluster",
+ *     DBClusterIdentifier: "sample-cluster",
+ *     DBClusterMembers: [
+ *       {
+ *         DBClusterParameterGroupStatus: "in-sync",
+ *         DBInstanceIdentifier: "sample-cluster-instance-1",
+ *         IsClusterWriter: false,
+ *         PromotionTier: 1
+ *       }
+ *     ],
+ *     DBClusterParameterGroup: "default.aurora-postgresql17",
+ *     DatabaseInsightsMode: "standard",
+ *     DbClusterResourceId: "cluster-OWV7DRHS2W7R4LXZRYNXCHZST4",
+ *     DeletionProtection: false,
+ *     DomainMemberships:     [],
+ *     Engine: "aurora-postgresql",
+ *     EngineLifecycleSupport: "open-source-rds-extended-support",
+ *     EngineMode: "provisioned",
+ *     EngineVersion: "17.7",
+ *     HttpEndpointEnabled: false,
+ *     IAMDatabaseAuthenticationEnabled: true,
+ *     LocalWriteForwardingStatus: "disabled",
+ *     MasterUsername: "postgres",
+ *     MultiAZ: false,
+ *     PerformanceInsightsEnabled: false,
+ *     Port: 5432,
+ *     PreferredBackupWindow: "06:15-06:45",
+ *     PreferredMaintenanceWindow: "sat:03:44-sat:04:14",
+ *     ReadReplicaIdentifiers:     [],
+ *     ServerlessV2PlatformVersion: "3",
+ *     ServerlessV2ScalingConfiguration: {
+ *       MaxCapacity: 16.0,
+ *       MinCapacity: 0.0,
+ *       SecondsUntilAutoPause: 300
+ *     },
+ *     Status: "creating",
+ *     StorageEncrypted: false,
+ *     TagList:     [],
+ *     VpcSecurityGroups:     []
  *   }
  * }
  * *\/

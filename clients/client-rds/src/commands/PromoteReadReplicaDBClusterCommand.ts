@@ -235,6 +235,8 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     EngineLifecycleSupport: "STRING_VALUE",
+ * //     VPCNetworkingEnabled: true || false,
+ * //     InternetAccessGatewayEnabled: true || false,
  * //   },
  * // };
  *

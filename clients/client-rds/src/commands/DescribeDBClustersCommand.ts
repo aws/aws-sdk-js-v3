@@ -248,6 +248,8 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //         ValidTill: new Date("TIMESTAMP"),
  * //       },
  * //       EngineLifecycleSupport: "STRING_VALUE",
+ * //       VPCNetworkingEnabled: true || false,
+ * //       InternetAccessGatewayEnabled: true || false,
  * //     },
  * //   ],
  * // };
@@ -358,6 +360,73 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  *           VpcSecurityGroupId: "sg-0b9130572daf3dc16"
  *         }
  *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example To describe an Aurora DB cluster without VPC networking
+ * ```javascript
+ * // The following example retrieves the details of the specified Aurora PostgreSQL DB cluster configured without VPC networking and with internet access gateway enabled. IAM database authentication is required when VPC networking is disabled and internet access gateway is enabled.
+ * const input = {
+ *   DBClusterIdentifier: "my-vpcless-cluster"
+ * };
+ * const command = new DescribeDBClustersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DBClusters: [
+ *     {
+ *       ActivityStreamStatus: "stopped",
+ *       AllocatedStorage: 1,
+ *       AssociatedRoles:       [],
+ *       AutoMinorVersionUpgrade: true,
+ *       AvailabilityZones: [
+ *         "us-east-1d",
+ *         "us-east-1a",
+ *         "us-east-1c"
+ *       ],
+ *       BackupRetentionPeriod: 1,
+ *       ClusterCreateTime: "2026-03-09T20:53:24.054Z",
+ *       CopyTagsToSnapshot: false,
+ *       CrossAccountClone: false,
+ *       DBClusterArn: "arn:aws:rds:us-east-1:123456789012:cluster:my-vpcless-cluster",
+ *       DBClusterIdentifier: "my-vpcless-cluster",
+ *       DBClusterMembers:       [],
+ *       DBClusterParameterGroup: "default.aurora-postgresql17",
+ *       DatabaseInsightsMode: "standard",
+ *       DbClusterResourceId: "cluster-AHX35HFI2YV26F3XVXVVO3MEHU",
+ *       DeletionProtection: false,
+ *       DomainMemberships:       [],
+ *       EarliestRestorableTime: "2026-03-09T20:53:39.652Z",
+ *       Engine: "aurora-postgresql",
+ *       EngineLifecycleSupport: "open-source-rds-extended-support",
+ *       EngineMode: "provisioned",
+ *       EngineVersion: "17.4",
+ *       HttpEndpointEnabled: false,
+ *       IAMDatabaseAuthenticationEnabled: true,
+ *       InternetAccessGatewayEnabled: true,
+ *       LatestRestorableTime: "2026-03-09T20:53:39.652Z",
+ *       LocalWriteForwardingStatus: "disabled",
+ *       MasterUsername: "postgres",
+ *       MultiAZ: false,
+ *       Port: 5432,
+ *       PreferredBackupWindow: "07:13-07:43",
+ *       PreferredMaintenanceWindow: "mon:07:55-mon:08:25",
+ *       ReadReplicaIdentifiers:       [],
+ *       ServerlessV2PlatformVersion: "3",
+ *       ServerlessV2ScalingConfiguration: {
+ *         MaxCapacity: 128.0,
+ *         MinCapacity: 1.0
+ *       },
+ *       Status: "available",
+ *       StorageEncrypted: false,
+ *       StorageEncryptionType: "sse-rds",
+ *       TagList:       [],
+ *       UpgradeRolloutOrder: "second",
+ *       VPCNetworkingEnabled: false,
+ *       VpcSecurityGroups:       []
  *     }
  *   ]
  * }

@@ -3018,6 +3018,18 @@ export interface RestoreDBClusterFromSnapshotMessage {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Specifies whether to enable VPC networking for the restored DB cluster. Set this parameter to <code>false</code> to create a cluster without the VPC network interface (ENI).</p> <p>This parameter must be used together with <code>EnableInternetAccessGateway</code>. When both parameters are specified, IAM database authentication is required. You must also specify <code>EnableIAMDatabaseAuthentication</code>.</p> <p>Valid for Cluster Type: Aurora PostgreSQL clusters</p>
+   * @public
+   */
+  EnableVPCNetworking?: boolean | undefined;
+
+  /**
+   * <p>Specifies that the restored DB cluster should use internet-based connectivity through an internet access gateway. This allows clients to connect to the cluster over the internet without requiring a VPC.</p> <p>This parameter must be used together with <code>EnableVPCNetworking</code> set to <code>false</code>. When both parameters are specified, IAM database authentication is required. You must also specify <code>EnableIAMDatabaseAuthentication</code>.</p> <p>Valid for Cluster Type: Aurora PostgreSQL clusters</p>
+   * @public
+   */
+  EnableInternetAccessGateway?: boolean | undefined;
 }
 
 /**
@@ -3263,6 +3275,18 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Specifies whether to enable VPC networking for the restored DB cluster. Set this parameter to <code>false</code> to create a cluster without the VPC network interface (ENI).</p> <p>This parameter must be used together with <code>EnableInternetAccessGateway</code>. When both parameters are specified, IAM database authentication is required. You must also specify <code>EnableIAMDatabaseAuthentication</code>.</p> <p>Valid for Cluster Type: Aurora PostgreSQL clusters</p>
+   * @public
+   */
+  EnableVPCNetworking?: boolean | undefined;
+
+  /**
+   * <p>Specifies that the restored DB cluster should use internet-based connectivity through an internet access gateway. This allows clients to connect to the cluster over the internet without requiring a VPC.</p> <p>This parameter must be used together with <code>EnableVPCNetworking</code> set to <code>false</code>. When both parameters are specified, IAM database authentication is required. You must also specify <code>EnableIAMDatabaseAuthentication</code>.</p> <p>Valid for Cluster Type: Aurora PostgreSQL clusters</p>
+   * @public
+   */
+  EnableInternetAccessGateway?: boolean | undefined;
 }
 
 /**

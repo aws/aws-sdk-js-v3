@@ -235,6 +235,8 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     EngineLifecycleSupport: "STRING_VALUE",
+ * //     VPCNetworkingEnabled: true || false,
+ * //     InternetAccessGatewayEnabled: true || false,
  * //   },
  * // };
  *

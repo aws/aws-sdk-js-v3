@@ -27,7 +27,7 @@ export interface RestoreDBClusterToPointInTimeCommandInput extends RestoreDBClus
 export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClusterToPointInTimeResult, __MetadataBearer {}
 
 /**
- * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code> days. The target DB cluster is created from the source DB cluster with the same configuration as the original DB cluster, except that the new DB cluster is created with the default DB security group. Unless the <code>RestoreType</code> is set to <code>copy-on-write</code>, the restore may occur in a different Availability Zone (AZ) from the original DB cluster. The AZ where RDS restores the DB cluster depends on the AZs in the specified subnet group.</p> <note> <p>For Aurora, this operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterToPointInTime</code> operation has completed and the DB cluster is available.</p> </note> <p>For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
+ * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code> days. The target DB cluster is created from the source DB cluster with the same configuration as the original DB cluster, except that the new DB cluster is created with the default DB security group. Unless the <code>RestoreType</code> is set to <code>copy-on-write</code>, the restore may occur in a different Availability Zone (AZ) from the original DB cluster. The AZ where RDS restores the DB cluster depends on the AZs in the specified subnet group.</p> <p>You can use the <code>EnableVPCNetworking</code> and <code>EnableInternetAccessGateway</code> parameters together to restore an Aurora PostgreSQL cluster without VPC networking and with internet-based connectivity. These two parameters must always be specified together. Set <code>EnableVPCNetworking</code> to <code>false</code> to disable the VPC network interface (ENI) for the cluster. <code>EnableInternetAccessGateway</code> enables internet-based connectivity through an internet access gateway. IAM database authentication is required and must be enabled using <code>EnableIAMDatabaseAuthentication</code>. Once the cluster is restored, you need to modify the DB cluster to update <code>MasterUserAuthenticationType</code> to <code>iam-db-auth</code>. </p> <note> <p>For Aurora, this operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterToPointInTime</code> operation has completed and the DB cluster is available.</p> </note> <p>For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,6 +109,8 @@ export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClu
  *       ],
  *     },
  *   ],
+ *   EnableVPCNetworking: true || false,
+ *   EnableInternetAccessGateway: true || false,
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -306,6 +308,8 @@ export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClu
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     EngineLifecycleSupport: "STRING_VALUE",
+ * //     VPCNetworkingEnabled: true || false,
+ * //     InternetAccessGatewayEnabled: true || false,
  * //   },
  * // };
  *
@@ -447,6 +451,60 @@ export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClu
  *         VpcSecurityGroupId: "sg-########"
  *       }
  *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To restore an Aurora DB cluster to a point in time without VPC networking
+ * ```javascript
+ * // The following example restores an Aurora DB cluster to the latest possible time without VPC networking and with internet-based connectivity enabled through an internet access gateway. The EnableVPCNetworking and EnableInternetAccessGateway parameters must always be specified together. IAM database authentication is required when both parameters are specified.
+ * const input = {
+ *   DBClusterIdentifier: "sample-cluster-restored",
+ *   EnableIAMDatabaseAuthentication: true,
+ *   EnableInternetAccessGateway: true,
+ *   EnableVPCNetworking: false,
+ *   RestoreType: "copy-on-write",
+ *   SourceDBClusterIdentifier: "sample-cluster",
+ *   UseLatestRestorableTime: true
+ * };
+ * const command = new RestoreDBClusterToPointInTimeCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AssociatedRoles:     [],
+ *     AvailabilityZones: [
+ *       "us-east-1c",
+ *       "us-east-1a",
+ *       "us-east-1b"
+ *     ],
+ *     BackupRetentionPeriod: 7,
+ *     ClusterCreateTime: "2026-01-15T22:14:02.000Z",
+ *     CopyTagsToSnapshot: false,
+ *     CrossAccountClone: false,
+ *     DBClusterArn: "arn:aws:rds:us-east-1:654654253058:cluster:sample-cluster-restored",
+ *     DBClusterIdentifier: "sample-cluster-restored",
+ *     DBClusterMembers:     [],
+ *     DBClusterParameterGroup: "default.aurora-postgresql17",
+ *     DatabaseName: "",
+ *     DbClusterResourceId: "cluster-ABCDEFGHIJKLMNOPQRSTUVWXYZ1234",
+ *     DeletionProtection: false,
+ *     Engine: "aurora-postgresql",
+ *     EngineMode: "provisioned",
+ *     EngineVersion: "17.7",
+ *     HttpEndpointEnabled: false,
+ *     IAMDatabaseAuthenticationEnabled: true,
+ *     MasterUsername: "postgres",
+ *     MultiAZ: false,
+ *     Port: 5432,
+ *     PreferredBackupWindow: "06:15-06:45",
+ *     PreferredMaintenanceWindow: "sat:03:44-sat:04:14",
+ *     ReadReplicaIdentifiers:     [],
+ *     Status: "creating",
+ *     StorageEncrypted: false,
+ *     VpcSecurityGroups:     []
  *   }
  * }
  * *\/

@@ -297,6 +297,8 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     EngineLifecycleSupport: "STRING_VALUE",
+ * //     VPCNetworkingEnabled: true || false,
+ * //     InternetAccessGatewayEnabled: true || false,
  * //   },
  * // };
  *

@@ -680,6 +680,7 @@ const _EGWF = "EnableGlobalWriteForwarding";
 const _EHE = "EnableHttpEndpoint";
 const _EHER = "EnableHttpEndpointRequest";
 const _EHERn = "EnableHttpEndpointResponse";
+const _EIAG = "EnableInternetAccessGateway";
 const _EIAMDA = "EnableIAMDatabaseAuthentication";
 const _EIPNSF = "Ec2ImagePropertiesNotSupportedFault";
 const _EL = "EventList";
@@ -715,6 +716,7 @@ const _ETn = "EndTime";
 const _ETx = "ExportTask";
 const _ETxp = "ExportTasks";
 const _EV = "EngineVersion";
+const _EVPCN = "EnableVPCNetworking";
 const _En = "Enabled";
 const _Enc = "Encrypted";
 const _End = "Endpoint";
@@ -768,6 +770,7 @@ const _HZI = "HostedZoneId";
 const _I = "Iops";
 const _IA = "IncludeAll";
 const _IAEF = "IntegrationAlreadyExistsFault";
+const _IAGE = "InternetAccessGatewayEnabled";
 const _IAIPISF = "InsufficientAvailableIPsInSubnetFault";
 const _IAMA = "IAMAuth";
 const _IAMDAE = "IAMDatabaseAuthenticationEnabled";
@@ -1504,6 +1507,7 @@ const _VF = "ValidFrom";
 const _VI = "VpcId";
 const _VN = "VolumeName";
 const _VO = "VpcOnly";
+const _VPCNE = "VPCNetworkingEnabled";
 const _VPF = "ValidProcessorFeatures";
 const _VSG = "VpcSecurityGroups";
 const _VSGI = "VpcSecurityGroupIds";
@@ -1526,6 +1530,7 @@ const _Va = "Values";
 const _Ve = "Version";
 const _Vo = "Volumes";
 const _Vp = "Vpc";
+const _WEC = "WithExpressConfiguration";
 const _WM = "WarningMessage";
 const _aQE = "awsQueryError";
 const _c = "client";
@@ -2808,8 +2813,8 @@ export var CreateDBClusterEndpointMessage$: StaticStructureSchema = [3, n0, _CDB
 ];
 export var CreateDBClusterMessage$: StaticStructureSchema = [3, n0, _CDBCM,
   0,
-  [_DBCI, _E, _AZv, _BRP, _CSN, _DN, _DBCPGN, _VSGI, _DBSGNu, _EV, _P, _MU, _MUP, _OGN, _PBW, _PMW, _RSI, _T, _SE, _KKI, _PSU, _EIAMDA, _BW, _ECLE, _EMn, _SC, _RCCC, _DBCIC, _AS, _STt, _I, _PA, _AMVU, _DP, _GCI, _EHE, _CTTS, _Do, _DIAMRN, _EGWF, _NT, _SVSC, _MIo, _MRA, _DIM, _EPI, _PIKMSKI, _PIRP, _ELD, _CST, _DBSI, _MMUP, _ELWF, _MUSKKI, _CACI, _ELS, _TS, _MUAT],
-  [0, 0, [() => AvailabilityZones, 0], 1, 0, 0, 0, [() => VpcSecurityGroupIdList, 0], 0, 0, 1, 0, [() => SensitiveString, 0], 0, 0, 0, 0, [() => TagList, 0], 2, 0, [() => SensitiveString, 0], 2, 1, 64 | 0, 0, () => ScalingConfiguration$, () => RdsCustomClusterConfiguration$, 0, 1, 0, 1, 2, 2, 2, 0, 2, 2, 0, 0, 2, 0, () => ServerlessV2ScalingConfiguration$, 1, 0, 0, 2, 0, 1, 2, 0, 0, 2, 2, 0, 0, 0, [() => TagSpecificationList, 0], 0], 2
+  [_DBCI, _E, _AZv, _BRP, _CSN, _DN, _DBCPGN, _VSGI, _DBSGNu, _EV, _P, _MU, _MUP, _OGN, _PBW, _PMW, _RSI, _T, _SE, _KKI, _PSU, _EIAMDA, _BW, _ECLE, _EMn, _SC, _RCCC, _DBCIC, _AS, _STt, _I, _PA, _AMVU, _DP, _GCI, _EHE, _CTTS, _Do, _DIAMRN, _EGWF, _NT, _SVSC, _MIo, _MRA, _DIM, _EPI, _PIKMSKI, _PIRP, _ELD, _CST, _DBSI, _MMUP, _ELWF, _MUSKKI, _CACI, _ELS, _TS, _MUAT, _WEC],
+  [0, 0, [() => AvailabilityZones, 0], 1, 0, 0, 0, [() => VpcSecurityGroupIdList, 0], 0, 0, 1, 0, [() => SensitiveString, 0], 0, 0, 0, 0, [() => TagList, 0], 2, 0, [() => SensitiveString, 0], 2, 1, 64 | 0, 0, () => ScalingConfiguration$, () => RdsCustomClusterConfiguration$, 0, 1, 0, 1, 2, 2, 2, 0, 2, 2, 0, 0, 2, 0, () => ServerlessV2ScalingConfiguration$, 1, 0, 0, 2, 0, 1, 2, 0, 0, 2, 2, 0, 0, 0, [() => TagSpecificationList, 0], 0, 2], 2
 ];
 export var CreateDBClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _CDBCPGMr,
   0,
@@ -2973,8 +2978,8 @@ export var CustomDBEngineVersionAMI$: StaticStructureSchema = [3, n0, _CDBEVAMI,
 ];
 export var DBCluster$: StaticStructureSchema = [3, n0, _DBC,
   0,
-  [_AS, _AZv, _BRP, _CSN, _DN, _DBCI, _DBCPG, _DBSGu, _St, _PP, _ERT, _End, _RE, _CE, _MAZ, _E, _EV, _LRT, _P, _MU, _DBCOGM, _PBW, _PMW, _URO, _RSI, _RRI, _SIt, _DBCM, _VSG, _HZI, _SE, _SET, _KKI, _DCRI, _DBCA, _AR, _IAMDAE, _CGI, _CCT, _EBT, _BW, _BCCR, _ECLEn, _Ca, _PMV, _EMn, _SCI, _RCCC, _DBCIC, _STt, _I, _ST, _IOONAMT, _PA, _AMVU, _DP, _HEE, _ASM, _ASS, _ASKKI, _ASKSN, _CTTS, _CAC, _DM, _TL, _GCI, _GWFS, _GWFR, _NT, _ART, _SVSC, _SVPV, _MIo, _MRA, _DIM, _PIE, _PIKMSKI, _PIRP, _DBSI, _MUS, _LWFS, _ABRPA, _LD, _CST, _CD, _ELS],
-  [1, [() => AvailabilityZones, 0], 1, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 64 | 0, 2, 0, 0, 4, 1, 0, [() => DBClusterOptionGroupMemberships, 0], 0, 0, 0, 0, [() => ReadReplicaIdentifierList, 0], [() => DBClusterStatusInfoList, 0], [() => DBClusterMemberList, 0], [() => VpcSecurityGroupMembershipList, 0], 0, 2, 0, 0, 0, 0, [() => DBClusterRoles, 0], 2, 0, 4, 4, 1, 1, 64 | 0, 1, [() => ClusterPendingModifiedValues$, 0], 0, () => ScalingConfigurationInfo$, () => RdsCustomClusterConfiguration$, 0, 0, 1, 1, 4, 2, 2, 2, 2, 0, 0, 0, 0, 2, 2, [() => DomainMembershipList, 0], [() => TagList, 0], 0, 0, 2, 0, 4, () => ServerlessV2ScalingConfigurationInfo$, 0, 1, 0, 0, 2, 0, 1, 0, () => MasterUserSecret$, 0, 0, () => LimitlessDatabase$, 0, () => CertificateDetails$, 0]
+  [_AS, _AZv, _BRP, _CSN, _DN, _DBCI, _DBCPG, _DBSGu, _St, _PP, _ERT, _End, _RE, _CE, _MAZ, _E, _EV, _LRT, _P, _MU, _DBCOGM, _PBW, _PMW, _URO, _RSI, _RRI, _SIt, _DBCM, _VSG, _HZI, _SE, _SET, _KKI, _DCRI, _DBCA, _AR, _IAMDAE, _CGI, _CCT, _EBT, _BW, _BCCR, _ECLEn, _Ca, _PMV, _EMn, _SCI, _RCCC, _DBCIC, _STt, _I, _ST, _IOONAMT, _PA, _AMVU, _DP, _HEE, _ASM, _ASS, _ASKKI, _ASKSN, _CTTS, _CAC, _DM, _TL, _GCI, _GWFS, _GWFR, _NT, _ART, _SVSC, _SVPV, _MIo, _MRA, _DIM, _PIE, _PIKMSKI, _PIRP, _DBSI, _MUS, _LWFS, _ABRPA, _LD, _CST, _CD, _ELS, _VPCNE, _IAGE],
+  [1, [() => AvailabilityZones, 0], 1, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 64 | 0, 2, 0, 0, 4, 1, 0, [() => DBClusterOptionGroupMemberships, 0], 0, 0, 0, 0, [() => ReadReplicaIdentifierList, 0], [() => DBClusterStatusInfoList, 0], [() => DBClusterMemberList, 0], [() => VpcSecurityGroupMembershipList, 0], 0, 2, 0, 0, 0, 0, [() => DBClusterRoles, 0], 2, 0, 4, 4, 1, 1, 64 | 0, 1, [() => ClusterPendingModifiedValues$, 0], 0, () => ScalingConfigurationInfo$, () => RdsCustomClusterConfiguration$, 0, 0, 1, 1, 4, 2, 2, 2, 2, 0, 0, 0, 0, 2, 2, [() => DomainMembershipList, 0], [() => TagList, 0], 0, 0, 2, 0, 4, () => ServerlessV2ScalingConfigurationInfo$, 0, 1, 0, 0, 2, 0, 1, 0, () => MasterUserSecret$, 0, 0, () => LimitlessDatabase$, 0, () => CertificateDetails$, 0, 2, 2]
 ];
 export var DBClusterAutomatedBackup$: StaticStructureSchema = [3, n0, _DBCAB,
   0,
@@ -4413,8 +4418,8 @@ export var RestoreDBClusterFromS3Result$: StaticStructureSchema = [3, n0, _RDBCF
 ];
 export var RestoreDBClusterFromSnapshotMessage$: StaticStructureSchema = [3, n0, _RDBCFSMe,
   0,
-  [_DBCI, _SIn, _E, _AZv, _EV, _P, _DBSGNu, _DN, _OGN, _VSGI, _T, _KKI, _EIAMDA, _BW, _ECLE, _EMn, _SC, _DBCPGN, _DP, _CTTS, _Do, _DIAMRN, _DBCIC, _STt, _I, _PA, _NT, _SVSC, _RCCC, _MIo, _MRA, _EPI, _PIKMSKI, _PIRP, _BRP, _PBW, _ELS, _TS],
-  [0, 0, 0, [() => AvailabilityZones, 0], 0, 1, 0, 0, 0, [() => VpcSecurityGroupIdList, 0], [() => TagList, 0], 0, 2, 1, 64 | 0, 0, () => ScalingConfiguration$, 0, 2, 2, 0, 0, 0, 0, 1, 2, 0, () => ServerlessV2ScalingConfiguration$, () => RdsCustomClusterConfiguration$, 1, 0, 2, 0, 1, 1, 0, 0, [() => TagSpecificationList, 0]], 3
+  [_DBCI, _SIn, _E, _AZv, _EV, _P, _DBSGNu, _DN, _OGN, _VSGI, _T, _KKI, _EIAMDA, _BW, _ECLE, _EMn, _SC, _DBCPGN, _DP, _CTTS, _Do, _DIAMRN, _DBCIC, _STt, _I, _PA, _NT, _SVSC, _RCCC, _MIo, _MRA, _EPI, _PIKMSKI, _PIRP, _BRP, _PBW, _ELS, _TS, _EVPCN, _EIAG],
+  [0, 0, 0, [() => AvailabilityZones, 0], 0, 1, 0, 0, 0, [() => VpcSecurityGroupIdList, 0], [() => TagList, 0], 0, 2, 1, 64 | 0, 0, () => ScalingConfiguration$, 0, 2, 2, 0, 0, 0, 0, 1, 2, 0, () => ServerlessV2ScalingConfiguration$, () => RdsCustomClusterConfiguration$, 1, 0, 2, 0, 1, 1, 0, 0, [() => TagSpecificationList, 0], 2, 2], 3
 ];
 export var RestoreDBClusterFromSnapshotResult$: StaticStructureSchema = [3, n0, _RDBCFSRe,
   0,
@@ -4423,8 +4428,8 @@ export var RestoreDBClusterFromSnapshotResult$: StaticStructureSchema = [3, n0, 
 ];
 export var RestoreDBClusterToPointInTimeMessage$: StaticStructureSchema = [3, n0, _RDBCTPITM,
   0,
-  [_DBCI, _RT, _SDBCI, _RTT, _ULRT, _P, _DBSGNu, _OGN, _VSGI, _T, _KKI, _EIAMDA, _BW, _ECLE, _DBCPGN, _DP, _CTTS, _Do, _DIAMRN, _DBCIC, _STt, _PA, _I, _NT, _SDCRI, _SVSC, _SC, _EMn, _RCCC, _MIo, _MRA, _EPI, _PIKMSKI, _PIRP, _BRP, _PBW, _ELS, _TS],
-  [0, 0, 0, 4, 2, 1, 0, 0, [() => VpcSecurityGroupIdList, 0], [() => TagList, 0], 0, 2, 1, 64 | 0, 0, 2, 2, 0, 0, 0, 0, 2, 1, 0, 0, () => ServerlessV2ScalingConfiguration$, () => ScalingConfiguration$, 0, () => RdsCustomClusterConfiguration$, 1, 0, 2, 0, 1, 1, 0, 0, [() => TagSpecificationList, 0]], 1
+  [_DBCI, _RT, _SDBCI, _RTT, _ULRT, _P, _DBSGNu, _OGN, _VSGI, _T, _KKI, _EIAMDA, _BW, _ECLE, _DBCPGN, _DP, _CTTS, _Do, _DIAMRN, _DBCIC, _STt, _PA, _I, _NT, _SDCRI, _SVSC, _SC, _EMn, _RCCC, _MIo, _MRA, _EPI, _PIKMSKI, _PIRP, _BRP, _PBW, _ELS, _TS, _EVPCN, _EIAG],
+  [0, 0, 0, 4, 2, 1, 0, 0, [() => VpcSecurityGroupIdList, 0], [() => TagList, 0], 0, 2, 1, 64 | 0, 0, 2, 2, 0, 0, 0, 0, 2, 1, 0, 0, () => ServerlessV2ScalingConfiguration$, () => ScalingConfiguration$, 0, () => RdsCustomClusterConfiguration$, 1, 0, 2, 0, 1, 1, 0, 0, [() => TagSpecificationList, 0], 2, 2], 1
 ];
 export var RestoreDBClusterToPointInTimeResult$: StaticStructureSchema = [3, n0, _RDBCTPITR,
   0,

@@ -27,7 +27,7 @@ export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClust
 export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClusterFromSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p> <p>The target DB cluster is created from the source snapshot with a default configuration. If you don't specify a security group, the new DB cluster is associated with the default security group.</p> <note> <p>This operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterFromSnapshot</code> operation has completed and the DB cluster is available.</p> </note> <p>For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
+ * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p> <p>The target DB cluster is created from the source snapshot with a default configuration. If you don't specify a security group, the new DB cluster is associated with the default security group.</p> <p>You can use the <code>EnableVPCNetworking</code> and <code>EnableInternetAccessGateway</code> parameters together to restore an Aurora PostgreSQL cluster without VPC networking and with internet-based connectivity. These two parameters must always be specified together. Set <code>EnableVPCNetworking</code> to <code>false</code> to disable the VPC network interface (ENI) for the cluster. <code>EnableInternetAccessGateway</code> enables internet-based connectivity through an internet access gateway. IAM database authentication is required and must be enabled using <code>EnableIAMDatabaseAuthentication</code>. Once the cluster is restored, you need to modify the DB cluster to update <code>MasterUserAuthenticationType</code> to <code>iam-db-auth</code>. </p> <note> <p>This operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterFromSnapshot</code> operation has completed and the DB cluster is available.</p> </note> <p>For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,6 +111,8 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  *       ],
  *     },
  *   ],
+ *   EnableVPCNetworking: true || false,
+ *   EnableInternetAccessGateway: true || false,
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
@@ -308,6 +310,8 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     EngineLifecycleSupport: "STRING_VALUE",
+ * //     VPCNetworkingEnabled: true || false,
+ * //     InternetAccessGatewayEnabled: true || false,
  * //   },
  * // };
  *
@@ -449,6 +453,60 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  *         VpcSecurityGroupId: "sg-########"
  *       }
  *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To restore a DB cluster from a snapshot without VPC networking
+ * ```javascript
+ * // The following example restores an Aurora DB cluster from a DB cluster snapshot named sample-cluster-snapshot without VPC networking and with internet-based connectivity enabled through an internet access gateway. The EnableVPCNetworking and EnableInternetAccessGateway parameters must always be specified together. IAM database authentication is required when both parameters are specified.
+ * const input = {
+ *   DBClusterIdentifier: "restored-cluster",
+ *   EnableIAMDatabaseAuthentication: true,
+ *   EnableInternetAccessGateway: true,
+ *   EnableVPCNetworking: false,
+ *   Engine: "aurora-postgresql",
+ *   SnapshotIdentifier: "sample-cluster-snapshot"
+ * };
+ * const command = new RestoreDBClusterFromSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AssociatedRoles:     [],
+ *     AvailabilityZones: [
+ *       "us-west-2c",
+ *       "us-west-2a",
+ *       "us-west-2b"
+ *     ],
+ *     BackupRetentionPeriod: 7,
+ *     ClusterCreateTime: "2020-06-05T15:06:58.634Z",
+ *     CopyTagsToSnapshot: false,
+ *     CrossAccountClone: false,
+ *     DBClusterArn: "arn:aws:rds:us-west-2:123456789012:cluster:restored-cluster",
+ *     DBClusterIdentifier: "restored-cluster",
+ *     DBClusterMembers:     [],
+ *     DBClusterParameterGroup: "default.aurora-postgresql17",
+ *     DatabaseName: "",
+ *     DbClusterResourceId: "cluster-5DSB5IFQDDUVAWOUWM1EXAMPLE",
+ *     DeletionProtection: false,
+ *     DomainMemberships:     [],
+ *     Engine: "aurora-postgresql",
+ *     EngineMode: "provisioned",
+ *     EngineVersion: "17.7",
+ *     HttpEndpointEnabled: false,
+ *     IAMDatabaseAuthenticationEnabled: true,
+ *     MasterUsername: "postgres",
+ *     MultiAZ: false,
+ *     Port: 5432,
+ *     PreferredBackupWindow: "09:33-10:03",
+ *     PreferredMaintenanceWindow: "sun:12:22-sun:12:52",
+ *     ReadReplicaIdentifiers:     [],
+ *     Status: "creating",
+ *     StorageEncrypted: false,
+ *     VpcSecurityGroups:     []
  *   }
  * }
  * *\/

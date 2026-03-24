@@ -711,6 +711,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <EngineLifecycleSupport>
             __EngineLifecycleSupport__
         </EngineLifecycleSupport>
+        <VPCNetworkingEnabled>
+            false
+        </VPCNetworkingEnabled>
+        <InternetAccessGatewayEnabled>
+            false
+        </InternetAccessGatewayEnabled>
     </DBCluster>
 </DeleteDBClusterResult>
 

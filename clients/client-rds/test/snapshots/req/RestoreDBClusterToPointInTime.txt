@@ -2,14 +2,14 @@ POST https://rds.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 2364
+content-length: 2424
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/rds#_.__ m/E,e
 host: rds.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 49dcc841c138f68846b0357d0ba6222fccdf56258ddde9c64faf9e730361bb5a
+x-amz-content-sha256: 0174c1902bc59d72815601be14b0bbab9b79d504a0f6c73d5e3000af22af4138
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -72,4 +72,6 @@ PreferredBackupWindow=__PreferredBackupWindow__&
 EngineLifecycleSupport=__EngineLifecycleSupport__&
 TagSpecifications.item.1.ResourceType=__ResourceType__&
 TagSpecifications.item.2.ResourceType=__ResourceType__&
-TagSpecifications.item.3.ResourceType=__ResourceType__
+TagSpecifications.item.3.ResourceType=__ResourceType__&
+EnableVPCNetworking=false&
+EnableInternetAccessGateway=false

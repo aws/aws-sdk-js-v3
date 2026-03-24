@@ -2869,6 +2869,12 @@ export interface CreateDBClusterMessage {
    * @public
    */
   MasterUserAuthenticationType?: MasterUserAuthenticationType | undefined;
+
+  /**
+   * <p>Specifies to create an Aurora DB Cluster with express configuration in seconds. Express configuration provides a cluster with a writer instance and feature specific values set to all other input parameters of this API. </p> <p>Valid for Cluster Type: Aurora DB clusters</p>
+   * @public
+   */
+  WithExpressConfiguration?: boolean | undefined;
 }
 
 /**
@@ -3757,6 +3763,18 @@ export interface DBCluster {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>Indicates whether the DB cluster uses VPC-based networking.</p> <p>This setting is applicable only for Aurora PostgreSQL clusters created through express configuration.</p>
+   * @public
+   */
+  VPCNetworkingEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the DB cluster has internet-based connectivity enabled through an internet access gateway.</p> <p>This setting is applicable only for Aurora PostgreSQL clusters created through express configuration.</p>
+   * @public
+   */
+  InternetAccessGatewayEnabled?: boolean | undefined;
 }
 
 /**
