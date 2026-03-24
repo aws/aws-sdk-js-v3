@@ -222,6 +222,7 @@ import {
   EvaluatorType,
   ExceptionLevel,
   ExtractionConfiguration$,
+  FilesystemConfiguration$,
   Filter$,
   FilterOperator,
   FilterValue$,
@@ -518,6 +519,7 @@ import {
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   SessionConfig$,
+  SessionStorageConfiguration$,
   SetTokenVaultCMK$,
   SetTokenVaultCMKCommand,
   SetTokenVaultCMKRequest$,
@@ -945,6 +947,7 @@ assert(typeof EvaluatorModelConfig$ === "object");
 assert(typeof EvaluatorReference$ === "object");
 assert(typeof EvaluatorSummary$ === "object");
 assert(typeof ExtractionConfiguration$ === "object");
+assert(typeof FilesystemConfiguration$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof FilterValue$ === "object");
 assert(typeof Finding$ === "object");
@@ -1111,6 +1114,7 @@ assert(typeof SemanticOverrideConfigurationInput$ === "object");
 assert(typeof SemanticOverrideConsolidationConfigurationInput$ === "object");
 assert(typeof SemanticOverrideExtractionConfigurationInput$ === "object");
 assert(typeof SessionConfig$ === "object");
+assert(typeof SessionStorageConfiguration$ === "object");
 assert(typeof SetTokenVaultCMKRequest$ === "object");
 assert(typeof SetTokenVaultCMKResponse$ === "object");
 assert(typeof SlackOauth2ProviderConfigInput$ === "object");

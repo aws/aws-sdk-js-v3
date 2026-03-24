@@ -43,6 +43,7 @@ export interface ListBrowserProfilesCommandOutput extends ListBrowserProfilesRes
  * const input = { // ListBrowserProfilesRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   name: "STRING_VALUE",
  * };
  * const command = new ListBrowserProfilesCommand(input);
  * const response = await client.send(command);

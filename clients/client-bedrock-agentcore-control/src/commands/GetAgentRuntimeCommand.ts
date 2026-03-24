@@ -136,6 +136,13 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //   metadataConfiguration: { // RuntimeMetadataConfiguration
  * //     requireMMDSV2: true || false, // required
  * //   },
+ * //   filesystemConfigurations: [ // FilesystemConfigurations
+ * //     { // FilesystemConfiguration Union: only one key present
+ * //       sessionStorage: { // SessionStorageConfiguration
+ * //         mountPath: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```

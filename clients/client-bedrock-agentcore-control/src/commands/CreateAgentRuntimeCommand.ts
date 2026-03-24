@@ -118,6 +118,13 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *   environmentVariables: { // EnvironmentVariablesMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   filesystemConfigurations: [ // FilesystemConfigurations
+ *     { // FilesystemConfiguration Union: only one key present
+ *       sessionStorage: { // SessionStorageConfiguration
+ *         mountPath: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },

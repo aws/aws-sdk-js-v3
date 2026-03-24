@@ -188,6 +188,8 @@ const _ES = "EvaluatorSummary";
 const _ESL = "EvaluatorSummaryList";
 const _EVM = "EnvironmentVariablesMap";
 const _F = "Filter";
+const _FC = "FilesystemConfigurations";
+const _FCi = "FilesystemConfiguration";
 const _FL = "FilterList";
 const _FV = "FilterValue";
 const _Fi = "Finding";
@@ -435,6 +437,7 @@ const _SPG = "StartPolicyGeneration";
 const _SPGR = "StartPolicyGenerationRequest";
 const _SPGRt = "StartPolicyGenerationResponse";
 const _SQEE = "ServiceQuotaExceededException";
+const _SSC = "SessionStorageConfiguration";
 const _STVCMK = "SetTokenVaultCMK";
 const _STVCMKR = "SetTokenVaultCMKRequest";
 const _STVCMKRe = "SetTokenVaultCMKResponse";
@@ -629,6 +632,7 @@ const _end = "endpoint";
 const _ev = "evaluators";
 const _ex = "extraction";
 const _f = "findings";
+const _fC = "filesystemConfigurations";
 const _fL = "fieldList";
 const _fP = "filterPath";
 const _fR = "failureReason";
@@ -697,6 +701,7 @@ const _mIe = "memoryId";
 const _mL = "maxLifetime";
 const _mMS = "modifyMemoryStrategies";
 const _mOPC = "microsoftOauth2ProviderConfig";
+const _mP = "mountPath";
 const _mR = "maxResults";
 const _mS = "memoryStrategies";
 const _mSI = "memoryStrategyId";
@@ -801,6 +806,7 @@ const _sP = "serverProtocol";
 const _sPa = "samplingPercentage";
 const _sR = "statusReasons";
 const _sS = "stopSequences";
+const _sSe = "sessionStorage";
 const _sT = "searchType";
 const _sTM = "sessionTimeoutMinutes";
 const _sV = "supportedVersions";
@@ -1142,8 +1148,8 @@ export var CreateAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _CARR,
   0,
-  [_aRN, _aRAg, _rA, _nC, _cTl, _d, _aC, _rHC, _pC, _lC, _eV, _ta],
-  [0, () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [0, 4], [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, [() => EnvironmentVariablesMap, 0], 128 | 0], 4
+  [_aRN, _aRAg, _rA, _nC, _cTl, _d, _aC, _rHC, _pC, _lC, _eV, _fC, _ta],
+  [0, () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [0, 4], [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, 128 | 0], 4
 ];
 export var CreateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _CARRr,
   0,
@@ -1582,8 +1588,8 @@ export var GetAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _GARR,
 ];
 export var GetAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
-  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _nC, _st, _lC, _fR, _d, _wID, _aRAg, _pC, _eV, _aC, _rHC, _mC],
-  [0, 0, 0, 0, 5, 5, 0, () => NetworkConfiguration$, 0, () => LifecycleConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => RuntimeMetadataConfiguration$], 10
+  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _nC, _st, _lC, _fR, _d, _wID, _aRAg, _pC, _eV, _aC, _rHC, _mC, _fC],
+  [0, 0, 0, 0, 5, 5, 0, () => NetworkConfiguration$, 0, () => LifecycleConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => RuntimeMetadataConfiguration$, () => FilesystemConfigurations], 10
 ];
 export var GetApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _GAKCPR,
   0,
@@ -1867,8 +1873,8 @@ export var ListApiKeyCredentialProvidersResponse$: StaticStructureSchema = [3, n
 ];
 export var ListBrowserProfilesRequest$: StaticStructureSchema = [3, n0, _LBPR,
   0,
-  [_mR, _nTe],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]]
+  [_mR, _nTe, _n],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }], 0]
 ];
 export var ListBrowserProfilesResponse$: StaticStructureSchema = [3, n0, _LBPRi,
   0,
@@ -2275,6 +2281,11 @@ export var SessionConfig$: StaticStructureSchema = [3, n0, _SCe,
   [_sTM],
   [1], 1
 ];
+export var SessionStorageConfiguration$: StaticStructureSchema = [3, n0, _SSC,
+  0,
+  [_mP],
+  [0], 1
+];
 export var SetTokenVaultCMKRequest$: StaticStructureSchema = [3, n0, _STVCMKR,
   0,
   [_kC, _tVI],
@@ -2407,8 +2418,8 @@ export var UpdateAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _UARR,
   0,
-  [_aRI, _aRAg, _rA, _nC, _d, _aC, _rHC, _pC, _lC, _mC, _eV, _cTl],
-  [[0, 1], () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, () => RuntimeMetadataConfiguration$, [() => EnvironmentVariablesMap, 0], [0, 4]], 4
+  [_aRI, _aRAg, _rA, _nC, _d, _aC, _rHC, _pC, _lC, _mC, _eV, _fC, _cTl],
+  [[0, 1], () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, () => RuntimeMetadataConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, [0, 4]], 4
 ];
 export var UpdateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _UARRp,
   0,
@@ -2635,6 +2646,9 @@ var EvaluatorSummaryList: StaticListSchema = [1, n0, _ESL,
   0, [() => EvaluatorSummary$,
     0]
 ];
+var FilesystemConfigurations: StaticListSchema = [1, n0, _FC,
+  0, () => FilesystemConfiguration$
+];
 var FilterList: StaticListSchema = [1, n0, _FL,
   0, () => Filter$
 ];
@@ -2850,6 +2864,11 @@ export var ExtractionConfiguration$: StaticUnionSchema = [4, n0, _ECx,
   0,
   [_cEC],
   [[() => CustomExtractionConfiguration$, 0]]
+];
+export var FilesystemConfiguration$: StaticUnionSchema = [4, n0, _FCi,
+  0,
+  [_sSe],
+  [() => SessionStorageConfiguration$]
 ];
 export var FilterValue$: StaticUnionSchema = [4, n0, _FV,
   0,

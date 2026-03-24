@@ -797,6 +797,57 @@ export namespace AuthorizerConfiguration {
 }
 
 /**
+ * <p>Configuration for a session storage filesystem mounted into the AgentCore Runtime. Session storage provides persistent storage that is preserved across AgentCore Runtime session invocations.</p>
+ * @public
+ */
+export interface SessionStorageConfiguration {
+  /**
+   * <p>The mount path for the session storage filesystem inside the AgentCore Runtime. The path must be under <code>/mnt</code> with exactly one subdirectory level (for example, <code>/mnt/data</code>).</p>
+   * @public
+   */
+  mountPath: string | undefined;
+}
+
+/**
+ * <p>Configuration for a filesystem that can be mounted into the AgentCore Runtime.</p>
+ * @public
+ */
+export type FilesystemConfiguration =
+  | FilesystemConfiguration.SessionStorageMember
+  | FilesystemConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FilesystemConfiguration {
+  /**
+   * <p>Configuration for session storage. Session storage provides persistent storage that is preserved across AgentCore Runtime session invocations.</p>
+   * @public
+   */
+  export interface SessionStorageMember {
+    sessionStorage: SessionStorageConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    sessionStorage?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    sessionStorage: (value: SessionStorageConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
  * @public
  */
@@ -970,6 +1021,12 @@ export interface CreateAgentRuntimeRequest {
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>The filesystem configurations to mount into the AgentCore Runtime. Use filesystem configurations to provide persistent storage to your AgentCore Runtime sessions.</p>
+   * @public
+   */
+  filesystemConfigurations?: FilesystemConfiguration[] | undefined;
 
   /**
    * <p>A map of tag keys and values to assign to the agent runtime. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
@@ -1211,6 +1268,12 @@ export interface GetAgentRuntimeResponse {
    * @public
    */
   metadataConfiguration?: RuntimeMetadataConfiguration | undefined;
+
+  /**
+   * <p>The filesystem configurations mounted into the AgentCore Runtime.</p>
+   * @public
+   */
+  filesystemConfigurations?: FilesystemConfiguration[] | undefined;
 }
 
 /**
@@ -1404,6 +1467,12 @@ export interface UpdateAgentRuntimeRequest {
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>The updated filesystem configurations to mount into the AgentCore Runtime.</p>
+   * @public
+   */
+  filesystemConfigurations?: FilesystemConfiguration[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
@@ -1896,6 +1965,12 @@ export interface ListBrowserProfilesRequest {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>The name of the browser profile to filter results by.</p>
+   * @public
+   */
+  name?: string | undefined;
 }
 
 /**
@@ -9414,7 +9489,10 @@ export interface ListPolicyEnginesResponse {
 }
 
 /**
- * <p>Respresents an optional value that can be provided to update the human-readable description of the resource. If the field is omitted from the request, it will leave the current decription value unchanged.</p>
+ * Wrapper for updating an optional Description field with PATCH semantics.
+ * When present in an update request, the description is replaced with optionalValue.
+ * When absent, the description is left unchanged.
+ * To unset the description, include the wrapper with optionalValue set to null.
  * @public
  */
 export interface UpdatedDescription {
@@ -9440,80 +9518,4 @@ export interface UpdatePolicyEngineRequest {
    * @public
    */
   description?: UpdatedDescription | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePolicyEngineResponse {
-  /**
-   * <p>The unique identifier of the updated policy engine.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The name of the updated policy engine.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The updated description of the policy engine.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The original creation timestamp of the policy engine.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The ARN of the updated policy engine.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The current status of the updated policy engine.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>Additional information about the update status.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyGenerationRequest {
-  /**
-   * <p>The unique identifier of the policy generation request to be retrieved. This must be a valid generation ID from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html">StartPolicyGeneration</a> call.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine associated with the policy generation request. This provides the context for the generation operation and schema validation.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
 }

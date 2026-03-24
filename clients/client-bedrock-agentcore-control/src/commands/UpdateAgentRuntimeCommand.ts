@@ -120,6 +120,13 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *   environmentVariables: { // EnvironmentVariablesMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   filesystemConfigurations: [ // FilesystemConfigurations
+ *     { // FilesystemConfiguration Union: only one key present
+ *       sessionStorage: { // SessionStorageConfiguration
+ *         mountPath: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateAgentRuntimeCommand(input);

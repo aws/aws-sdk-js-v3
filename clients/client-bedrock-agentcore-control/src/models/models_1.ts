@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import {
   FindingType,
+  PolicyEngineStatus,
   PolicyGenerationStatus,
   PolicyStatus,
   PolicyValidationMode,
@@ -17,6 +18,82 @@ import {
   McpServerTargetConfiguration,
   S3Configuration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdatePolicyEngineResponse {
+  /**
+   * <p>The unique identifier of the updated policy engine.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The name of the updated policy engine.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The updated description of the policy engine.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The original creation timestamp of the policy engine.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The ARN of the updated policy engine.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the updated policy engine.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>Additional information about the update status.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyGenerationRequest {
+  /**
+   * <p>The unique identifier of the policy generation request to be retrieved. This must be a valid generation ID from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html">StartPolicyGeneration</a> call.</p>
+   * @public
+   */
+  policyGenerationId: string | undefined;
+
+  /**
+   * <p>The identifier of the policy engine associated with the policy generation request. This provides the context for the generation operation and schema validation.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+}
 
 /**
  * <p>Represents a resource within the AgentCore Policy system. Resources are the targets of policy evaluation. Currently, only AgentCore Gateways are supported as resources for policy enforcement.</p>
