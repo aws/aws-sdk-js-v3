@@ -980,8 +980,8 @@ export var UpdateAccountSettingsResponse$: StaticStructureSchema = [3, n0, _UASR
 ];
 export var UpdateCollectionDetail$: StaticStructureSchema = [3, n0, _UCD,
   0,
-  [_id_, _n, _st, _t, _d, _a, _cD, _lMD],
-  [0, 0, 0, 0, 0, 0, 1, 1]
+  [_id_, _n, _st, _t, _d, _vO, _a, _cD, _lMD],
+  [0, 0, 0, 0, 0, () => VectorOptions$, 0, 1, 1]
 ];
 export var UpdateCollectionGroupDetail$: StaticStructureSchema = [3, n0, _UCGD,
   0,
@@ -1000,8 +1000,8 @@ export var UpdateCollectionGroupResponse$: StaticStructureSchema = [3, n0, _UCGR
 ];
 export var UpdateCollectionRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_id_, _d, _cT],
-  [0, 0, [0, 4]], 1
+  [_id_, _d, _vO, _cT],
+  [0, 0, () => VectorOptions$, [0, 4]], 1
 ];
 export var UpdateCollectionResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,

@@ -4,7 +4,7 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smith
 import { OpenSearchServerlessServiceException as __BaseException } from "./OpenSearchServerlessServiceException";
 
 /**
- * <p>When creating a resource, thrown when a resource with the same name already exists or is being created.</p>
+ * <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
  * @public
  */
 export class ConflictException extends __BaseException {

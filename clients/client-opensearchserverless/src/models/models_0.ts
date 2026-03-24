@@ -1417,6 +1417,12 @@ export interface UpdateCollectionRequest {
   description?: string | undefined;
 
   /**
+   * <p>Configuration options for vector search capabilities in the collection.</p>
+   * @public
+   */
+  vectorOptions?: VectorOptions | undefined;
+
+  /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
@@ -1457,6 +1463,12 @@ export interface UpdateCollectionDetail {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>Configuration options for vector search capabilities in the collection.</p>
+   * @public
+   */
+  vectorOptions?: VectorOptions | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the collection.</p>

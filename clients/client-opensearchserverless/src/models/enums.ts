@@ -54,6 +54,14 @@ export const CollectionStatus = {
    * Collection resource create or delete failed
    */
   FAILED: "FAILED",
+  /**
+   * Collection resource update failed
+   */
+  UPDATE_FAILED: "UPDATE_FAILED",
+  /**
+   * Updating collection resource
+   */
+  UPDATING: "UPDATING",
 } as const;
 /**
  * @public

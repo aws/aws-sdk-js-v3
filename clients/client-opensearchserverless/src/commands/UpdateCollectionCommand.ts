@@ -43,6 +43,9 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * const input = { // UpdateCollectionRequest
  *   id: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   vectorOptions: { // VectorOptions
+ *     ServerlessVectorAcceleration: "STRING_VALUE", // required
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateCollectionCommand(input);
@@ -54,6 +57,9 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * //     status: "STRING_VALUE",
  * //     type: "STRING_VALUE",
  * //     description: "STRING_VALUE",
+ * //     vectorOptions: { // VectorOptions
+ * //       ServerlessVectorAcceleration: "STRING_VALUE", // required
+ * //     },
  * //     arn: "STRING_VALUE",
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
@@ -69,7 +75,7 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a resource, thrown when a resource with the same name already exists or is being created.</p>
+ *  <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
