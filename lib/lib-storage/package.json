@@ -30,7 +30,6 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/abort-controller": "^4.2.12",
     "@smithy/middleware-endpoint": "^4.4.27",
     "@smithy/protocol-http": "^5.3.12",
     "@smithy/smithy-client": "^4.12.7",

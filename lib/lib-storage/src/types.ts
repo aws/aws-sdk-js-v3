@@ -6,7 +6,7 @@ import type {
   Tag,
   UploadPartCommandInput,
 } from "@aws-sdk/client-s3";
-import type { AbortController } from "@smithy/types";
+import type { AbortController as AbortControllerPolyfill } from "@smithy/types";
 
 export interface Progress {
   loaded?: number;
@@ -52,7 +52,7 @@ export interface Configuration {
   /**
    * Optional abort controller for controlling this upload's abort signal externally.
    */
-  abortController?: AbortController;
+  abortController?: AbortController | AbortControllerPolyfill;
 }
 
 export interface Options extends Partial<Configuration> {
