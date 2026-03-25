@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AgreementStatus, PaymentRequestApprovalStrategy, SortOrder } from "./enums";
+import { AgreementStatus, PaymentRequestApprovalStrategy, PaymentRequestStatus, SortOrder } from "./enums";
 
 /**
  * <p>Enables you and your customers to move your existing agreements to AWS Marketplace. The customer won't be charged for product usage in AWS Marketplace because they already paid for the product outside of AWS Marketplace.</p>
@@ -943,6 +943,100 @@ export interface AgreementViewSummary {
 /**
  * @public
  */
+export interface CancelAgreementPaymentRequestInput {
+  /**
+   * <p>The unique identifier of the payment request to cancel.</p>
+   * @public
+   */
+  paymentRequestId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement associated with the payment request.</p>
+   * @public
+   */
+  agreementId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelAgreementPaymentRequestOutput {
+  /**
+   * <p>The unique identifier of the cancelled payment request.</p>
+   * @public
+   */
+  paymentRequestId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement associated with this payment request.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>The updated status of the payment request, which is <code>CANCELLED</code>.</p>
+   * @public
+   */
+  status?: PaymentRequestStatus | undefined;
+
+  /**
+   * <p>The descriptive name of the payment request.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The detailed description of the payment request, if provided.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The amount that was requested to be charged.</p>
+   * @public
+   */
+  chargeAmount?: string | undefined;
+
+  /**
+   * <p>The currency code for the charge amount.</p>
+   * @public
+   */
+  currencyCode?: string | undefined;
+
+  /**
+   * <p>The date and time when the payment request was originally created, in ISO 8601 format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the payment request was cancelled, in ISO 8601 format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field associated with the error.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>See applicable actions.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeAgreementInput {
   /**
    * <p>The unique identifier of the agreement.</p>
@@ -1035,21 +1129,91 @@ export interface DescribeAgreementOutput {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
  * @public
  */
-export interface ValidationExceptionField {
+export interface GetAgreementPaymentRequestInput {
   /**
-   * <p>The name of the field associated with the error.</p>
+   * <p>The identifier of the payment request.</p>
    * @public
    */
-  name: string | undefined;
+  paymentRequestId: string | undefined;
 
   /**
-   * <p>See applicable actions.</p>
+   * <p>The unique identifier of the agreement associated with the payment request.</p>
    * @public
    */
-  message: string | undefined;
+  agreementId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgreementPaymentRequestOutput {
+  /**
+   * <p>The unique identifier of the payment request.</p>
+   * @public
+   */
+  paymentRequestId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement associated with this payment request. Use <code>DescribeAgreement</code> to retrieve full agreement details.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>The current status of the payment request. Possible values include:</p> <ul> <li> <p> <code>VALIDATING</code> – The payment request is being validated against agreement terms.</p> </li> <li> <p> <code>VALIDATION_FAILED</code> – The payment request failed validation.</p> </li> <li> <p> <code>PENDING_APPROVAL</code> – The payment request is awaiting buyer action.</p> </li> <li> <p> <code>APPROVED</code> – The buyer has approved the payment request.</p> </li> <li> <p> <code>REJECTED</code> – The buyer has rejected the payment request.</p> </li> <li> <p> <code>CANCELLED</code> – The seller has cancelled the payment request.</p> </li> </ul>
+   * @public
+   */
+  status?: PaymentRequestStatus | undefined;
+
+  /**
+   * <p>An optional message providing additional context about the payment request status, such as a rejection reason or validation failure details.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the payment request.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The detailed description of the payment request, if provided.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the charge created after the payment request is approved. This field is only present for approved payment requests and follows the pattern <code>ch-[a-zA-Z0-9]+</code>.</p>
+   * @public
+   */
+  chargeId?: string | undefined;
+
+  /**
+   * <p>The amount charged or to be charged to the buyer.</p>
+   * @public
+   */
+  chargeAmount?: string | undefined;
+
+  /**
+   * <p>The currency code for the charge amount.</p>
+   * @public
+   */
+  currencyCode?: string | undefined;
+
+  /**
+   * <p>The date and time when the payment request was created, in ISO 8601 format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the payment request was last updated, in ISO 8601 format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -1090,6 +1254,130 @@ export interface GetAgreementTermsOutput {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgreementPaymentRequestsInput {
+  /**
+   * <p>The party type for the payment requests. Required parameter. Use <code>Proposer</code> to list payment requests where you are the seller, or <code>Acceptor</code> to list payment requests where you are the buyer.</p>
+   * @public
+   */
+  partyType: string | undefined;
+
+  /**
+   * <p>An optional parameter to list payment requests by agreement type (e.g., <code>PurchaseAgreement</code>).</p>
+   * @public
+   */
+  agreementType?: string | undefined;
+
+  /**
+   * <p>An optional parameter to list payment requests by catalog (e.g., <code>AWSMarketplace</code>).</p>
+   * @public
+   */
+  catalog?: string | undefined;
+
+  /**
+   * <p>An optional parameter to list payment requests for a specific agreement.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>An optional parameter to list payment requests by status. Valid values include <code>VALIDATING</code>, <code>VALIDATION_FAILED</code>, <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, and <code>CANCELLED</code>.</p>
+   * @public
+   */
+  status?: PaymentRequestStatus | undefined;
+
+  /**
+   * <p>The maximum number of payment requests to return in a single response (1-50). Default is 50.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to specify where to start pagination. Use the <code>nextToken</code> value from a previous response to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary view of a payment request.</p>
+ * @public
+ */
+export interface PaymentRequestSummary {
+  /**
+   * <p>The unique identifier of the payment request.</p>
+   * @public
+   */
+  paymentRequestId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement associated with this payment request.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>The current status of the payment request. Possible values include <code>VALIDATING</code>, <code>VALIDATION_FAILED</code>, <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, and <code>CANCELLED</code>.</p>
+   * @public
+   */
+  status?: PaymentRequestStatus | undefined;
+
+  /**
+   * <p>The descriptive name of the payment request.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the charge created after the payment request is approved. This field is only present for approved payment requests.</p>
+   * @public
+   */
+  chargeId?: string | undefined;
+
+  /**
+   * <p>The amount charged or to be charged to the buyer.</p>
+   * @public
+   */
+  chargeAmount?: string | undefined;
+
+  /**
+   * <p>The currency code for the charge amount.</p>
+   * @public
+   */
+  currencyCode?: string | undefined;
+
+  /**
+   * <p>The date and time when the payment request was created, in ISO 8601 format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the payment request was last updated, in ISO 8601 format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgreementPaymentRequestsOutput {
+  /**
+   * <p>A token to retrieve the next page of results. If <code>null</code>, there are no more results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of <code>PaymentRequestSummary</code> objects containing summary information about each payment request.</p>
+   * @public
+   */
+  items: PaymentRequestSummary[] | undefined;
 }
 
 /**
@@ -1178,4 +1466,98 @@ export interface SearchAgreementsOutput {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendAgreementPaymentRequestInput {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement for which the payment request is being submitted. Use <code>GetAgreementTerms</code> to retrieve agreement term details.</p>
+   * @public
+   */
+  agreementId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the <code>VariablePaymentTerm</code> for the agreement that the payment request is being sent for.</p>
+   * @public
+   */
+  termId: string | undefined;
+
+  /**
+   * <p>A descriptive name for the payment request (5-64 characters).</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The amount requested to be charged to the buyer, positive decimal value in the currency of the accepted term.</p> <note> <p>A <code>ValidationException</code> is returned if the <code>chargeAmount</code> exceeds the available balance, if the agreement doesn't have an active <code>VariablePaymentTerm</code>, or if the <code>termId</code> is invalid.</p> </note>
+   * @public
+   */
+  chargeAmount: string | undefined;
+
+  /**
+   * <p>An optional detailed description of the payment request (1-2000 characters).</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendAgreementPaymentRequestOutput {
+  /**
+   * <p>The unique identifier for the sent payment request.</p>
+   * @public
+   */
+  paymentRequestId?: string | undefined;
+
+  /**
+   * <p>The agreement identifier for this payment request.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>The current status of the payment request. The initial status is <code>PENDING_APPROVAL</code>.</p>
+   * @public
+   */
+  status?: PaymentRequestStatus | undefined;
+
+  /**
+   * <p>The descriptive name of the payment request.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The detailed description of the payment request, if provided.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The amount being charged to the buyer.</p>
+   * @public
+   */
+  chargeAmount?: string | undefined;
+
+  /**
+   * <p>The currency code for the charge amount (e.g., <code>USD</code>).</p>
+   * @public
+   */
+  currencyCode?: string | undefined;
+
+  /**
+   * <p>The time when the payment request was created, in ISO 8601 format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
 }

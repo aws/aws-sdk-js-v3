@@ -63,9 +63,25 @@ import {
   defaultMarketplaceAgreementHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  CancelAgreementPaymentRequestCommandInput,
+  CancelAgreementPaymentRequestCommandOutput,
+} from "./commands/CancelAgreementPaymentRequestCommand";
 import { DescribeAgreementCommandInput, DescribeAgreementCommandOutput } from "./commands/DescribeAgreementCommand";
+import {
+  GetAgreementPaymentRequestCommandInput,
+  GetAgreementPaymentRequestCommandOutput,
+} from "./commands/GetAgreementPaymentRequestCommand";
 import { GetAgreementTermsCommandInput, GetAgreementTermsCommandOutput } from "./commands/GetAgreementTermsCommand";
+import {
+  ListAgreementPaymentRequestsCommandInput,
+  ListAgreementPaymentRequestsCommandOutput,
+} from "./commands/ListAgreementPaymentRequestsCommand";
 import { SearchAgreementsCommandInput, SearchAgreementsCommandOutput } from "./commands/SearchAgreementsCommand";
+import {
+  SendAgreementPaymentRequestCommandInput,
+  SendAgreementPaymentRequestCommandOutput,
+} from "./commands/SendAgreementPaymentRequestCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -81,17 +97,25 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CancelAgreementPaymentRequestCommandInput
   | DescribeAgreementCommandInput
+  | GetAgreementPaymentRequestCommandInput
   | GetAgreementTermsCommandInput
-  | SearchAgreementsCommandInput;
+  | ListAgreementPaymentRequestsCommandInput
+  | SearchAgreementsCommandInput
+  | SendAgreementPaymentRequestCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | CancelAgreementPaymentRequestCommandOutput
   | DescribeAgreementCommandOutput
+  | GetAgreementPaymentRequestCommandOutput
   | GetAgreementTermsCommandOutput
-  | SearchAgreementsCommandOutput;
+  | ListAgreementPaymentRequestsCommandOutput
+  | SearchAgreementsCommandOutput
+  | SendAgreementPaymentRequestCommandOutput;
 
 /**
  * @public

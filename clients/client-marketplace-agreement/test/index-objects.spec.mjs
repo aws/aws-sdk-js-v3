@@ -6,9 +6,15 @@ import {
   AgreementStatus,
   AgreementViewSummary$,
   ByolPricingTerm$,
+  CancelAgreementPaymentRequest$,
+  CancelAgreementPaymentRequestCommand,
+  CancelAgreementPaymentRequestInput$,
+  CancelAgreementPaymentRequestOutput$,
   ConfigurableUpfrontPricingTerm$,
   ConfigurableUpfrontPricingTermConfiguration$,
   ConfigurableUpfrontRateCardItem$,
+  ConflictException,
+  ConflictException$,
   Constraints$,
   DescribeAgreement$,
   DescribeAgreementCommand,
@@ -20,6 +26,10 @@ import {
   Filter$,
   FixedUpfrontPricingTerm$,
   FreeTrialPricingTerm$,
+  GetAgreementPaymentRequest$,
+  GetAgreementPaymentRequestCommand,
+  GetAgreementPaymentRequestInput$,
+  GetAgreementPaymentRequestOutput$,
   GetAgreementTerms$,
   GetAgreementTermsCommand,
   GetAgreementTermsInput$,
@@ -28,12 +38,19 @@ import {
   InternalServerException,
   InternalServerException$,
   LegalTerm$,
+  ListAgreementPaymentRequests$,
+  ListAgreementPaymentRequestsCommand,
+  ListAgreementPaymentRequestsInput$,
+  ListAgreementPaymentRequestsOutput$,
   MarketplaceAgreement,
   MarketplaceAgreementClient,
   MarketplaceAgreementServiceException,
   paginateGetAgreementTerms,
+  paginateListAgreementPaymentRequests,
   paginateSearchAgreements,
   PaymentRequestApprovalStrategy,
+  PaymentRequestStatus,
+  PaymentRequestSummary$,
   PaymentScheduleTerm$,
   ProposalSummary$,
   Proposer$,
@@ -51,6 +68,10 @@ import {
   SearchAgreementsInput$,
   SearchAgreementsOutput$,
   Selector$,
+  SendAgreementPaymentRequest$,
+  SendAgreementPaymentRequestCommand,
+  SendAgreementPaymentRequestInput$,
+  SendAgreementPaymentRequestOutput$,
   Sort$,
   SortOrder,
   SupportTerm$,
@@ -71,17 +92,27 @@ import assert from "node:assert";
 assert(typeof MarketplaceAgreementClient === "function");
 assert(typeof MarketplaceAgreement === "function");
 // commands
+assert(typeof CancelAgreementPaymentRequestCommand === "function");
+assert(typeof CancelAgreementPaymentRequest$ === "object");
 assert(typeof DescribeAgreementCommand === "function");
 assert(typeof DescribeAgreement$ === "object");
+assert(typeof GetAgreementPaymentRequestCommand === "function");
+assert(typeof GetAgreementPaymentRequest$ === "object");
 assert(typeof GetAgreementTermsCommand === "function");
 assert(typeof GetAgreementTerms$ === "object");
+assert(typeof ListAgreementPaymentRequestsCommand === "function");
+assert(typeof ListAgreementPaymentRequests$ === "object");
 assert(typeof SearchAgreementsCommand === "function");
 assert(typeof SearchAgreements$ === "object");
+assert(typeof SendAgreementPaymentRequestCommand === "function");
+assert(typeof SendAgreementPaymentRequest$ === "object");
 // structural schemas
 assert(typeof AcceptedTerm$ === "object");
 assert(typeof Acceptor$ === "object");
 assert(typeof AgreementViewSummary$ === "object");
 assert(typeof ByolPricingTerm$ === "object");
+assert(typeof CancelAgreementPaymentRequestInput$ === "object");
+assert(typeof CancelAgreementPaymentRequestOutput$ === "object");
 assert(typeof ConfigurableUpfrontPricingTerm$ === "object");
 assert(typeof ConfigurableUpfrontPricingTermConfiguration$ === "object");
 assert(typeof ConfigurableUpfrontRateCardItem$ === "object");
@@ -94,10 +125,15 @@ assert(typeof EstimatedCharges$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof FixedUpfrontPricingTerm$ === "object");
 assert(typeof FreeTrialPricingTerm$ === "object");
+assert(typeof GetAgreementPaymentRequestInput$ === "object");
+assert(typeof GetAgreementPaymentRequestOutput$ === "object");
 assert(typeof GetAgreementTermsInput$ === "object");
 assert(typeof GetAgreementTermsOutput$ === "object");
 assert(typeof GrantItem$ === "object");
 assert(typeof LegalTerm$ === "object");
+assert(typeof ListAgreementPaymentRequestsInput$ === "object");
+assert(typeof ListAgreementPaymentRequestsOutput$ === "object");
+assert(typeof PaymentRequestSummary$ === "object");
 assert(typeof PaymentScheduleTerm$ === "object");
 assert(typeof ProposalSummary$ === "object");
 assert(typeof Proposer$ === "object");
@@ -110,6 +146,8 @@ assert(typeof ScheduleItem$ === "object");
 assert(typeof SearchAgreementsInput$ === "object");
 assert(typeof SearchAgreementsOutput$ === "object");
 assert(typeof Selector$ === "object");
+assert(typeof SendAgreementPaymentRequestInput$ === "object");
+assert(typeof SendAgreementPaymentRequestOutput$ === "object");
 assert(typeof Sort$ === "object");
 assert(typeof SupportTerm$ === "object");
 assert(typeof UsageBasedPricingTerm$ === "object");
@@ -121,12 +159,15 @@ assert(typeof VariablePaymentTermConfiguration$ === "object");
 // enums
 assert(typeof AgreementStatus === "object");
 assert(typeof PaymentRequestApprovalStrategy === "object");
+assert(typeof PaymentRequestStatus === "object");
 assert(typeof ResourceType === "object");
 assert(typeof SortOrder === "object");
 assert(typeof ValidationExceptionReason === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof MarketplaceAgreementServiceException);
 assert(typeof AccessDeniedException$ === "object");
+assert(ConflictException.prototype instanceof MarketplaceAgreementServiceException);
+assert(typeof ConflictException$ === "object");
 assert(InternalServerException.prototype instanceof MarketplaceAgreementServiceException);
 assert(typeof InternalServerException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof MarketplaceAgreementServiceException);
@@ -138,5 +179,6 @@ assert(typeof ValidationException$ === "object");
 assert(MarketplaceAgreementServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetAgreementTerms === "function");
+assert(typeof paginateListAgreementPaymentRequests === "function");
 assert(typeof paginateSearchAgreements === "function");
 console.log(`MarketplaceAgreement index test passed.`);

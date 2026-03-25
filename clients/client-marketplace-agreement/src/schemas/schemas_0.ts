@@ -6,6 +6,10 @@ const _AVS = "AgreementViewSummary";
 const _AVSL = "AgreementViewSummaryList";
 const _BPT = "ByolPricingTerm";
 const _C = "Constraints";
+const _CAPR = "CancelAgreementPaymentRequest";
+const _CAPRI = "CancelAgreementPaymentRequestInput";
+const _CAPRO = "CancelAgreementPaymentRequestOutput";
+const _CE = "ConflictException";
 const _CUPT = "ConfigurableUpfrontPricingTerm";
 const _CUPTC = "ConfigurableUpfrontPricingTermConfiguration";
 const _CURCI = "ConfigurableUpfrontRateCardItem";
@@ -22,14 +26,23 @@ const _F = "Filter";
 const _FL = "FilterList";
 const _FTPT = "FreeTrialPricingTerm";
 const _FUPT = "FixedUpfrontPricingTerm";
+const _GAPR = "GetAgreementPaymentRequest";
+const _GAPRI = "GetAgreementPaymentRequestInput";
+const _GAPRO = "GetAgreementPaymentRequestOutput";
 const _GAT = "GetAgreementTerms";
 const _GATI = "GetAgreementTermsInput";
 const _GATO = "GetAgreementTermsOutput";
 const _GI = "GrantItem";
 const _GL = "GrantList";
 const _ISE = "InternalServerException";
+const _LAPR = "ListAgreementPaymentRequests";
+const _LAPRI = "ListAgreementPaymentRequestsInput";
+const _LAPRO = "ListAgreementPaymentRequestsOutput";
 const _LT = "LegalTerm";
 const _P = "Proposer";
+const _PRD = "PaymentRequestDescription";
+const _PRS = "PaymentRequestSummary";
+const _PRSL = "PaymentRequestSummaryList";
 const _PS = "ProposalSummary";
 const _PST = "PaymentScheduleTerm";
 const _R = "Resource";
@@ -44,6 +57,9 @@ const _S = "Selector";
 const _SA = "SearchAgreements";
 const _SAI = "SearchAgreementsInput";
 const _SAO = "SearchAgreementsOutput";
+const _SAPR = "SendAgreementPaymentRequest";
+const _SAPRI = "SendAgreementPaymentRequestInput";
+const _SAPRO = "SendAgreementPaymentRequestOutput";
 const _SI = "ScheduleItem";
 const _SL = "ScheduleList";
 const _ST = "SupportTerm";
@@ -73,15 +89,19 @@ const _bP = "billingPeriod";
 const _bPT = "byolPricingTerm";
 const _c = "client";
 const _cA = "chargeAmount";
+const _cAr = "createdAt";
 const _cC = "currencyCode";
 const _cD = "chargeDate";
+const _cI = "chargeId";
+const _cT = "clientToken";
 const _cUPT = "configurableUpfrontPricingTerm";
 const _ca = "catalog";
 const _co = "configuration";
 const _con = "constraints";
-const _d = "dimensions";
+const _d = "description";
 const _dK = "dimensionKey";
 const _dV = "dimensionValue";
+const _di = "dimensions";
 const _do = "documents";
 const _du = "duration";
 const _e = "error";
@@ -95,7 +115,8 @@ const _fUPT = "fixedUpfrontPricingTerm";
 const _fi = "filters";
 const _g = "grants";
 const _hE = "httpError";
-const _i = "id";
+const _i = "items";
+const _id = "id";
 const _lT = "legalTerm";
 const _m = "message";
 const _mDS = "multipleDimensionSelection";
@@ -108,8 +129,10 @@ const _oI = "offerId";
 const _oSI = "offerSetId";
 const _p = "proposer";
 const _pRAS = "paymentRequestApprovalStrategy";
+const _pRI = "paymentRequestId";
 const _pS = "proposalSummary";
 const _pST = "paymentScheduleTerm";
+const _pT = "partyType";
 const _pr = "price";
 const _qC = "quantityConfiguration";
 const _r = "reason";
@@ -124,6 +147,7 @@ const _rTe = "renewalTerm";
 const _re = "resources";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.marketplaceagreement";
 const _sB = "sortBy";
+const _sM = "statusMessage";
 const _sO = "sortOrder";
 const _sT = "startTime";
 const _sTu = "supportTerm";
@@ -134,7 +158,9 @@ const _sel = "selector";
 const _so = "sort";
 const _st = "status";
 const _t = "type";
+const _tI = "termId";
 const _u = "url";
+const _uA = "updatedAt";
 const _uBPT = "usageBasedPricingTerm";
 const _v = "version";
 const _vPT = "variablePaymentTerm";
@@ -149,12 +175,14 @@ import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
+  StaticSimpleSchema,
   StaticStructureSchema,
   StaticUnionSchema,
 } from "@smithy/types";
 
 import {
   AccessDeniedException,
+  ConflictException,
   InternalServerException,
   ResourceNotFoundException,
   ThrottlingException,
@@ -173,6 +201,12 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   [0, 0]
 ];
 n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_rI, _m, _rIe, _rT],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_rI, _m],
@@ -206,6 +240,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var PaymentRequestDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
 export var Acceptor$: StaticStructureSchema = [3, n0, _A,
   0,
   [_aI],
@@ -221,6 +256,16 @@ export var ByolPricingTerm$: StaticStructureSchema = [3, n0, _BPT,
   [_t],
   [0]
 ];
+export var CancelAgreementPaymentRequestInput$: StaticStructureSchema = [3, n0, _CAPRI,
+  0,
+  [_pRI, _aIg],
+  [0, 0], 2
+];
+export var CancelAgreementPaymentRequestOutput$: StaticStructureSchema = [3, n0, _CAPRO,
+  0,
+  [_pRI, _aIg, _st, _n, _d, _cA, _cC, _cAr, _uA],
+  [0, 0, 0, 0, [() => PaymentRequestDescription, 0], 0, 0, 4, 4]
+];
 export var ConfigurableUpfrontPricingTerm$: StaticStructureSchema = [3, n0, _CUPT,
   0,
   [_t, _cC, _rC, _co],
@@ -228,7 +273,7 @@ export var ConfigurableUpfrontPricingTerm$: StaticStructureSchema = [3, n0, _CUP
 ];
 export var ConfigurableUpfrontPricingTermConfiguration$: StaticStructureSchema = [3, n0, _CUPTC,
   0,
-  [_sV, _d],
+  [_sV, _di],
   [0, () => DimensionList], 2
 ];
 export var ConfigurableUpfrontRateCardItem$: StaticStructureSchema = [3, n0, _CURCI,
@@ -281,6 +326,16 @@ export var FreeTrialPricingTerm$: StaticStructureSchema = [3, n0, _FTPT,
   [_t, _du, _g],
   [0, 0, () => GrantList]
 ];
+export var GetAgreementPaymentRequestInput$: StaticStructureSchema = [3, n0, _GAPRI,
+  0,
+  [_pRI, _aIg],
+  [0, 0], 2
+];
+export var GetAgreementPaymentRequestOutput$: StaticStructureSchema = [3, n0, _GAPRO,
+  0,
+  [_pRI, _aIg, _st, _sM, _n, _d, _cI, _cA, _cC, _cAr, _uA],
+  [0, 0, 0, 0, 0, [() => PaymentRequestDescription, 0], 0, 0, 0, 4, 4]
+];
 export var GetAgreementTermsInput$: StaticStructureSchema = [3, n0, _GATI,
   0,
   [_aIg, _mR, _nT],
@@ -300,6 +355,21 @@ export var LegalTerm$: StaticStructureSchema = [3, n0, _LT,
   0,
   [_t, _do],
   [0, () => DocumentList]
+];
+export var ListAgreementPaymentRequestsInput$: StaticStructureSchema = [3, n0, _LAPRI,
+  0,
+  [_pT, _aTg, _ca, _aIg, _st, _mR, _nT],
+  [0, 0, 0, 0, 0, 1, 0], 1
+];
+export var ListAgreementPaymentRequestsOutput$: StaticStructureSchema = [3, n0, _LAPRO,
+  0,
+  [_i, _nT],
+  [() => PaymentRequestSummaryList, 0], 1
+];
+export var PaymentRequestSummary$: StaticStructureSchema = [3, n0, _PRS,
+  0,
+  [_pRI, _aIg, _st, _n, _cI, _cA, _cC, _cAr, _uA],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4]
 ];
 export var PaymentScheduleTerm$: StaticStructureSchema = [3, n0, _PST,
   0,
@@ -338,7 +408,7 @@ export var RenewalTermConfiguration$: StaticStructureSchema = [3, n0, _RTC,
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_i, _t],
+  [_id, _t],
   [0, 0]
 ];
 export var ScheduleItem$: StaticStructureSchema = [3, n0, _SI,
@@ -360,6 +430,16 @@ export var Selector$: StaticStructureSchema = [3, n0, _S,
   0,
   [_t, _val],
   [0, 0]
+];
+export var SendAgreementPaymentRequestInput$: StaticStructureSchema = [3, n0, _SAPRI,
+  0,
+  [_aIg, _tI, _n, _cA, _cT, _d],
+  [0, 0, 0, 0, [0, 4], [() => PaymentRequestDescription, 0]], 4
+];
+export var SendAgreementPaymentRequestOutput$: StaticStructureSchema = [3, n0, _SAPRO,
+  0,
+  [_pRI, _aIg, _st, _n, _d, _cA, _cC, _cAr],
+  [0, 0, 0, 0, [() => PaymentRequestDescription, 0], 0, 0, 4]
 ];
 export var Sort$: StaticStructureSchema = [3, n0, _So,
   0,
@@ -423,6 +503,9 @@ var FilterValueList = 64 | 0;
 var GrantList: StaticListSchema = [1, n0, _GL,
   0, () => GrantItem$
 ];
+var PaymentRequestSummaryList: StaticListSchema = [1, n0, _PRSL,
+  0, () => PaymentRequestSummary$
+];
 var RateCardList: StaticListSchema = [1, n0, _RCL,
   0, () => RateCardItem$
 ];
@@ -443,12 +526,24 @@ export var AcceptedTerm$: StaticUnionSchema = [4, n0, _AT,
   [_lT, _sTu, _rTe, _uBPT, _cUPT, _bPT, _rPT, _vT, _pST, _fTPT, _fUPT, _vPT],
   [() => LegalTerm$, () => SupportTerm$, () => RenewalTerm$, () => UsageBasedPricingTerm$, () => ConfigurableUpfrontPricingTerm$, () => ByolPricingTerm$, () => RecurringPaymentTerm$, () => ValidityTerm$, () => PaymentScheduleTerm$, () => FreeTrialPricingTerm$, () => FixedUpfrontPricingTerm$, () => VariablePaymentTerm$]
 ];
+export var CancelAgreementPaymentRequest$: StaticOperationSchema = [9, n0, _CAPR,
+  0, () => CancelAgreementPaymentRequestInput$, () => CancelAgreementPaymentRequestOutput$
+];
 export var DescribeAgreement$: StaticOperationSchema = [9, n0, _DA,
   0, () => DescribeAgreementInput$, () => DescribeAgreementOutput$
+];
+export var GetAgreementPaymentRequest$: StaticOperationSchema = [9, n0, _GAPR,
+  0, () => GetAgreementPaymentRequestInput$, () => GetAgreementPaymentRequestOutput$
 ];
 export var GetAgreementTerms$: StaticOperationSchema = [9, n0, _GAT,
   0, () => GetAgreementTermsInput$, () => GetAgreementTermsOutput$
 ];
+export var ListAgreementPaymentRequests$: StaticOperationSchema = [9, n0, _LAPR,
+  0, () => ListAgreementPaymentRequestsInput$, () => ListAgreementPaymentRequestsOutput$
+];
 export var SearchAgreements$: StaticOperationSchema = [9, n0, _SA,
   0, () => SearchAgreementsInput$, () => SearchAgreementsOutput$
+];
+export var SendAgreementPaymentRequest$: StaticOperationSchema = [9, n0, _SAPR,
+  0, () => SendAgreementPaymentRequestInput$, () => SendAgreementPaymentRequestOutput$
 ];

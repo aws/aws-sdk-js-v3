@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MarketplaceAgreementClient` and
-the commands you need, for example `DescribeAgreementCommand`:
+the commands you need, for example `ListAgreementPaymentRequestsCommand`:
 
 ```js
 // ES5 example
-const { MarketplaceAgreementClient, DescribeAgreementCommand } = require("@aws-sdk/client-marketplace-agreement");
+const { MarketplaceAgreementClient, ListAgreementPaymentRequestsCommand } = require("@aws-sdk/client-marketplace-agreement");
 ```
 
 ```ts
 // ES6+ example
-import { MarketplaceAgreementClient, DescribeAgreementCommand } from "@aws-sdk/client-marketplace-agreement";
+import { MarketplaceAgreementClient, ListAgreementPaymentRequestsCommand } from "@aws-sdk/client-marketplace-agreement";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new MarketplaceAgreementClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new DescribeAgreementCommand(params);
+const command = new ListAgreementPaymentRequestsCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new MarketplaceAgreement({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeAgreement(params);
+  const data = await client.listAgreementPaymentRequests(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .describeAgreement(params)
+  .listAgreementPaymentRequests(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.describeAgreement(params, (err, data) => {
+client.listAgreementPaymentRequests(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -181,10 +181,24 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CancelAgreementPaymentRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/CancelAgreementPaymentRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/CancelAgreementPaymentRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/CancelAgreementPaymentRequestCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeAgreement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/DescribeAgreementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/DescribeAgreementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/DescribeAgreementCommandOutput/)
+</details>
+<details>
+<summary>
+GetAgreementPaymentRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/GetAgreementPaymentRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementPaymentRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/GetAgreementPaymentRequestCommandOutput/)
 </details>
 <details>
 <summary>
@@ -195,8 +209,22 @@ GetAgreementTerms
 </details>
 <details>
 <summary>
+ListAgreementPaymentRequests
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/ListAgreementPaymentRequestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/ListAgreementPaymentRequestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/ListAgreementPaymentRequestsCommandOutput/)
+</details>
+<details>
+<summary>
 SearchAgreements
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/SearchAgreementsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/SearchAgreementsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/SearchAgreementsCommandOutput/)
+</details>
+<details>
+<summary>
+SendAgreementPaymentRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/SendAgreementPaymentRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/SendAgreementPaymentRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-agreement/Interface/SendAgreementPaymentRequestCommandOutput/)
 </details>

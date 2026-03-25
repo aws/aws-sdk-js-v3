@@ -33,6 +33,47 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The unique identifier for the error.</p>
+   * @public
+   */
+  requestId?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the resource.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The type of resource.</p>
+   * @public
+   */
+  resourceType?: ResourceType | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.requestId = opts.requestId;
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
  * <p>Unexpected error during processing of request.</p>
  * @public
  */

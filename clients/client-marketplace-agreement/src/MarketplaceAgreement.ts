@@ -3,35 +3,78 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  CancelAgreementPaymentRequestCommand,
+  CancelAgreementPaymentRequestCommandInput,
+  CancelAgreementPaymentRequestCommandOutput,
+} from "./commands/CancelAgreementPaymentRequestCommand";
+import {
   DescribeAgreementCommand,
   DescribeAgreementCommandInput,
   DescribeAgreementCommandOutput,
 } from "./commands/DescribeAgreementCommand";
+import {
+  GetAgreementPaymentRequestCommand,
+  GetAgreementPaymentRequestCommandInput,
+  GetAgreementPaymentRequestCommandOutput,
+} from "./commands/GetAgreementPaymentRequestCommand";
 import {
   GetAgreementTermsCommand,
   GetAgreementTermsCommandInput,
   GetAgreementTermsCommandOutput,
 } from "./commands/GetAgreementTermsCommand";
 import {
+  ListAgreementPaymentRequestsCommand,
+  ListAgreementPaymentRequestsCommandInput,
+  ListAgreementPaymentRequestsCommandOutput,
+} from "./commands/ListAgreementPaymentRequestsCommand";
+import {
   SearchAgreementsCommand,
   SearchAgreementsCommandInput,
   SearchAgreementsCommandOutput,
 } from "./commands/SearchAgreementsCommand";
+import {
+  SendAgreementPaymentRequestCommand,
+  SendAgreementPaymentRequestCommandInput,
+  SendAgreementPaymentRequestCommandOutput,
+} from "./commands/SendAgreementPaymentRequestCommand";
 import { MarketplaceAgreementClient } from "./MarketplaceAgreementClient";
 import { paginateGetAgreementTerms } from "./pagination/GetAgreementTermsPaginator";
+import { paginateListAgreementPaymentRequests } from "./pagination/ListAgreementPaymentRequestsPaginator";
 import { paginateSearchAgreements } from "./pagination/SearchAgreementsPaginator";
 
 const commands = {
+  CancelAgreementPaymentRequestCommand,
   DescribeAgreementCommand,
+  GetAgreementPaymentRequestCommand,
   GetAgreementTermsCommand,
+  ListAgreementPaymentRequestsCommand,
   SearchAgreementsCommand,
+  SendAgreementPaymentRequestCommand,
 };
 const paginators = {
   paginateGetAgreementTerms,
+  paginateListAgreementPaymentRequests,
   paginateSearchAgreements,
 };
 
 export interface MarketplaceAgreement {
+  /**
+   * @see {@link CancelAgreementPaymentRequestCommand}
+   */
+  cancelAgreementPaymentRequest(
+    args: CancelAgreementPaymentRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelAgreementPaymentRequestCommandOutput>;
+  cancelAgreementPaymentRequest(
+    args: CancelAgreementPaymentRequestCommandInput,
+    cb: (err: any, data?: CancelAgreementPaymentRequestCommandOutput) => void
+  ): void;
+  cancelAgreementPaymentRequest(
+    args: CancelAgreementPaymentRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelAgreementPaymentRequestCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link DescribeAgreementCommand}
    */
@@ -50,6 +93,23 @@ export interface MarketplaceAgreement {
   ): void;
 
   /**
+   * @see {@link GetAgreementPaymentRequestCommand}
+   */
+  getAgreementPaymentRequest(
+    args: GetAgreementPaymentRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgreementPaymentRequestCommandOutput>;
+  getAgreementPaymentRequest(
+    args: GetAgreementPaymentRequestCommandInput,
+    cb: (err: any, data?: GetAgreementPaymentRequestCommandOutput) => void
+  ): void;
+  getAgreementPaymentRequest(
+    args: GetAgreementPaymentRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgreementPaymentRequestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAgreementTermsCommand}
    */
   getAgreementTerms(
@@ -64,6 +124,23 @@ export interface MarketplaceAgreement {
     args: GetAgreementTermsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAgreementTermsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgreementPaymentRequestsCommand}
+   */
+  listAgreementPaymentRequests(
+    args: ListAgreementPaymentRequestsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgreementPaymentRequestsCommandOutput>;
+  listAgreementPaymentRequests(
+    args: ListAgreementPaymentRequestsCommandInput,
+    cb: (err: any, data?: ListAgreementPaymentRequestsCommandOutput) => void
+  ): void;
+  listAgreementPaymentRequests(
+    args: ListAgreementPaymentRequestsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgreementPaymentRequestsCommandOutput) => void
   ): void;
 
   /**
@@ -85,6 +162,23 @@ export interface MarketplaceAgreement {
   ): void;
 
   /**
+   * @see {@link SendAgreementPaymentRequestCommand}
+   */
+  sendAgreementPaymentRequest(
+    args: SendAgreementPaymentRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendAgreementPaymentRequestCommandOutput>;
+  sendAgreementPaymentRequest(
+    args: SendAgreementPaymentRequestCommandInput,
+    cb: (err: any, data?: SendAgreementPaymentRequestCommandOutput) => void
+  ): void;
+  sendAgreementPaymentRequest(
+    args: SendAgreementPaymentRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendAgreementPaymentRequestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAgreementTermsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -94,6 +188,17 @@ export interface MarketplaceAgreement {
     args: GetAgreementTermsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<GetAgreementTermsCommandOutput>;
+
+  /**
+   * @see {@link ListAgreementPaymentRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgreementPaymentRequestsCommandOutput}.
+   */
+  paginateListAgreementPaymentRequests(
+    args: ListAgreementPaymentRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgreementPaymentRequestsCommandOutput>;
 
   /**
    * @see {@link SearchAgreementsCommand}
