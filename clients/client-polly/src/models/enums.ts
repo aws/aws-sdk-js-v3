@@ -202,8 +202,10 @@ export type VoiceId = (typeof VoiceId)[keyof typeof VoiceId];
  * @enum
  */
 export const OutputFormat = {
+  ALAW: "alaw",
   JSON: "json",
   MP3: "mp3",
+  MULAW: "mulaw",
   OGG_OPUS: "ogg_opus",
   OGG_VORBIS: "ogg_vorbis",
   PCM: "pcm",

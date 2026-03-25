@@ -60,7 +60,7 @@ export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthes
  * //       LexiconNames: [ // LexiconNameList
  * //         "STRING_VALUE",
  * //       ],
- * //       OutputFormat: "json" || "mp3" || "ogg_opus" || "ogg_vorbis" || "pcm",
+ * //       OutputFormat: "json" || "mp3" || "ogg_opus" || "ogg_vorbis" || "pcm" || "mulaw" || "alaw",
  * //       SampleRate: "STRING_VALUE",
  * //       SpeechMarkTypes: [ // SpeechMarkTypeList
  * //         "sentence" || "ssml" || "viseme" || "word",

@@ -48,7 +48,7 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
  *   LexiconNames: [ // LexiconNameList
  *     "STRING_VALUE",
  *   ],
- *   OutputFormat: "json" || "mp3" || "ogg_opus" || "ogg_vorbis" || "pcm", // required
+ *   OutputFormat: "json" || "mp3" || "ogg_opus" || "ogg_vorbis" || "pcm" || "mulaw" || "alaw", // required
  *   SampleRate: "STRING_VALUE",
  *   SpeechMarkTypes: [ // SpeechMarkTypeList
  *     "sentence" || "ssml" || "viseme" || "word",
