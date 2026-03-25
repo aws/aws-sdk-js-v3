@@ -7,6 +7,10 @@ describe("middleware-sdk-s3", () => {
     it("validates bucket names", async () => {
       const client = new S3({
         region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
       });
 
       requireRequestsFrom(client).toMatch({
@@ -32,6 +36,10 @@ describe("middleware-sdk-s3", () => {
     it("warns on input streams of unknown length", async () => {
       const client = new S3({
         region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
         logger: Object.assign({
           trace: vi.fn(),
           debug: vi.fn(),
@@ -61,6 +69,10 @@ describe("middleware-sdk-s3", () => {
     it("allows using a bucket input value as the endpoint", async () => {
       const client = new S3({
         region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
         bucketEndpoint: true,
       });
 
@@ -80,6 +92,37 @@ describe("middleware-sdk-s3", () => {
         Key: "my-key",
         Body: "abcd",
       });
+
+      expect.hasAssertions();
+    });
+
+    it("considers missing Bucket an http label error", async () => {
+      const client = new S3({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
+
+      requireRequestsFrom(client).toMatch({
+        headers: {
+          bucket: "assertion-not-reached",
+        },
+      });
+
+      await client
+        .headBucket(
+          {} as unknown as {
+            Bucket: "present";
+          }
+        )
+        .then(() => {
+          throw new Error("this should not be reached");
+        })
+        .catch((err) => {
+          expect(err).toEqual(new Error("No value provided for input HTTP label: Bucket."));
+        });
 
       expect.hasAssertions();
     });

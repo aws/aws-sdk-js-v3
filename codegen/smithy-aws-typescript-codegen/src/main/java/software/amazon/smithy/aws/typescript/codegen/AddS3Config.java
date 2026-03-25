@@ -336,6 +336,12 @@ public final class AddS3Config implements TypeScriptIntegration {
                     "useArnRegion",
                     writer -> {
                         writer.write("undefined");
+                    },
+                    "protocol",
+                    writer -> {
+                        writer.addImport("S3RestXmlProtocol", null, AwsDependency.S3_MIDDLEWARE);
+                        writer.write("""
+                                     S3RestXmlProtocol""");
                     }
                 );
             case NODE:
