@@ -917,7 +917,7 @@ describe(Upload.name, () => {
         client: new S3({}),
       });
 
-      expect((upload as any).abortController).toBeInstanceOf(AbortControllerPolyfill);
+      expect((upload as any).abortController).toBeInstanceOf(AbortController);
     });
 
     it("should calculate expectedPartsCount correctly when totalBytes is known", () => {
