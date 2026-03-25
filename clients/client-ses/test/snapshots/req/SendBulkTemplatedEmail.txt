@@ -1,0 +1,82 @@
+POST https://email.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 3744
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/ses#_.__ m/E,e
+host: email.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 49205d1319f1dea8c704d769c5c905c23ed9b51247157d3ac882bc3e66eae7de
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ses/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=SendBulkTemplatedEmail&
+Version=2010-12-01&
+Source=__Source__&
+Template=__Template__&
+DefaultTemplateData=__DefaultTemplateData__&
+Destinations.member.1.Destination.ToAddresses.member.1=__member__&
+Destinations.member.1.Destination.ToAddresses.member.2=__member__&
+Destinations.member.1.Destination.ToAddresses.member.3=__member__&
+Destinations.member.1.Destination.CcAddresses.member.1=__member__&
+Destinations.member.1.Destination.CcAddresses.member.2=__member__&
+Destinations.member.1.Destination.CcAddresses.member.3=__member__&
+Destinations.member.1.Destination.BccAddresses.member.1=__member__&
+Destinations.member.1.Destination.BccAddresses.member.2=__member__&
+Destinations.member.1.Destination.BccAddresses.member.3=__member__&
+Destinations.member.1.ReplacementTags.member.1.Name=__Name__&
+Destinations.member.1.ReplacementTags.member.1.Value=__Value__&
+Destinations.member.1.ReplacementTags.member.2.Name=__Name__&
+Destinations.member.1.ReplacementTags.member.2.Value=__Value__&
+Destinations.member.1.ReplacementTags.member.3.Name=__Name__&
+Destinations.member.1.ReplacementTags.member.3.Value=__Value__&
+Destinations.member.1.ReplacementTemplateData=__ReplacementTemplateData__&
+Destinations.member.2.Destination.ToAddresses.member.1=__member__&
+Destinations.member.2.Destination.ToAddresses.member.2=__member__&
+Destinations.member.2.Destination.ToAddresses.member.3=__member__&
+Destinations.member.2.Destination.CcAddresses.member.1=__member__&
+Destinations.member.2.Destination.CcAddresses.member.2=__member__&
+Destinations.member.2.Destination.CcAddresses.member.3=__member__&
+Destinations.member.2.Destination.BccAddresses.member.1=__member__&
+Destinations.member.2.Destination.BccAddresses.member.2=__member__&
+Destinations.member.2.Destination.BccAddresses.member.3=__member__&
+Destinations.member.2.ReplacementTags.member.1.Name=__Name__&
+Destinations.member.2.ReplacementTags.member.1.Value=__Value__&
+Destinations.member.2.ReplacementTags.member.2.Name=__Name__&
+Destinations.member.2.ReplacementTags.member.2.Value=__Value__&
+Destinations.member.2.ReplacementTags.member.3.Name=__Name__&
+Destinations.member.2.ReplacementTags.member.3.Value=__Value__&
+Destinations.member.2.ReplacementTemplateData=__ReplacementTemplateData__&
+Destinations.member.3.Destination.ToAddresses.member.1=__member__&
+Destinations.member.3.Destination.ToAddresses.member.2=__member__&
+Destinations.member.3.Destination.ToAddresses.member.3=__member__&
+Destinations.member.3.Destination.CcAddresses.member.1=__member__&
+Destinations.member.3.Destination.CcAddresses.member.2=__member__&
+Destinations.member.3.Destination.CcAddresses.member.3=__member__&
+Destinations.member.3.Destination.BccAddresses.member.1=__member__&
+Destinations.member.3.Destination.BccAddresses.member.2=__member__&
+Destinations.member.3.Destination.BccAddresses.member.3=__member__&
+Destinations.member.3.ReplacementTags.member.1.Name=__Name__&
+Destinations.member.3.ReplacementTags.member.1.Value=__Value__&
+Destinations.member.3.ReplacementTags.member.2.Name=__Name__&
+Destinations.member.3.ReplacementTags.member.2.Value=__Value__&
+Destinations.member.3.ReplacementTags.member.3.Name=__Name__&
+Destinations.member.3.ReplacementTags.member.3.Value=__Value__&
+Destinations.member.3.ReplacementTemplateData=__ReplacementTemplateData__&
+SourceArn=__SourceArn__&
+ReplyToAddresses.member.1=__member__&
+ReplyToAddresses.member.2=__member__&
+ReplyToAddresses.member.3=__member__&
+ReturnPath=__ReturnPath__&
+ReturnPathArn=__ReturnPathArn__&
+ConfigurationSetName=__ConfigurationSetName__&
+DefaultTags.member.1.Name=__Name__&
+DefaultTags.member.1.Value=__Value__&
+DefaultTags.member.2.Name=__Name__&
+DefaultTags.member.2.Value=__Value__&
+DefaultTags.member.3.Name=__Name__&
+DefaultTags.member.3.Value=__Value__&
+TemplateArn=__TemplateArn__

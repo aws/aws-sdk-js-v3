@@ -1,0 +1,162 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIdentityNotificationAttributesResponse xmlns="https://placeholder.amazonaws.com">
+    <NotificationAttributes>
+        <entry>
+            <key>
+                key1
+            </key>
+            <value>
+                <BounceTopic>
+                    __BounceTopic__
+                </BounceTopic>
+                <ComplaintTopic>
+                    __ComplaintTopic__
+                </ComplaintTopic>
+                <DeliveryTopic>
+                    __DeliveryTopic__
+                </DeliveryTopic>
+                <ForwardingEnabled>
+                    false
+                </ForwardingEnabled>
+                <HeadersInBounceNotificationsEnabled>
+                    false
+                </HeadersInBounceNotificationsEnabled>
+                <HeadersInComplaintNotificationsEnabled>
+                    false
+                </HeadersInComplaintNotificationsEnabled>
+                <HeadersInDeliveryNotificationsEnabled>
+                    false
+                </HeadersInDeliveryNotificationsEnabled>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                key2
+            </key>
+            <value>
+                <BounceTopic>
+                    __BounceTopic__
+                </BounceTopic>
+                <ComplaintTopic>
+                    __ComplaintTopic__
+                </ComplaintTopic>
+                <DeliveryTopic>
+                    __DeliveryTopic__
+                </DeliveryTopic>
+                <ForwardingEnabled>
+                    false
+                </ForwardingEnabled>
+                <HeadersInBounceNotificationsEnabled>
+                    false
+                </HeadersInBounceNotificationsEnabled>
+                <HeadersInComplaintNotificationsEnabled>
+                    false
+                </HeadersInComplaintNotificationsEnabled>
+                <HeadersInDeliveryNotificationsEnabled>
+                    false
+                </HeadersInDeliveryNotificationsEnabled>
+            </value>
+        </entry>
+    </NotificationAttributes>
+</GetIdentityNotificationAttributesResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIdentityNotificationAttributesResponse xmlns="https://placeholder.amazonaws.com">
+    <NotificationAttributes>
+        <entry>
+            <key>
+                key1
+            </key>
+            <value>
+                <BounceTopic>
+                    __BounceTopic__
+                </BounceTopic>
+                <ComplaintTopic>
+                    __ComplaintTopic__
+                </ComplaintTopic>
+                <DeliveryTopic>
+                    __DeliveryTopic__
+                </DeliveryTopic>
+                <ForwardingEnabled>
+                    false
+                </ForwardingEnabled>
+                <HeadersInBounceNotificationsEnabled>
+                    false
+                </HeadersInBounceNotificationsEnabled>
+                <HeadersInComplaintNotificationsEnabled>
+                    false
+                </HeadersInComplaintNotificationsEnabled>
+                <HeadersInDeliveryNotificationsEnabled>
+                    false
+                </HeadersInDeliveryNotificationsEnabled>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                key2
+            </key>
+            <value>
+                <BounceTopic>
+                    __BounceTopic__
+                </BounceTopic>
+                <ComplaintTopic>
+                    __ComplaintTopic__
+                </ComplaintTopic>
+                <DeliveryTopic>
+                    __DeliveryTopic__
+                </DeliveryTopic>
+                <ForwardingEnabled>
+                    false
+                </ForwardingEnabled>
+                <HeadersInBounceNotificationsEnabled>
+                    false
+                </HeadersInBounceNotificationsEnabled>
+                <HeadersInComplaintNotificationsEnabled>
+                    false
+                </HeadersInComplaintNotificationsEnabled>
+                <HeadersInDeliveryNotificationsEnabled>
+                    false
+                </HeadersInDeliveryNotificationsEnabled>
+            </value>
+        </entry>
+    </NotificationAttributes>
+</GetIdentityNotificationAttributesResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

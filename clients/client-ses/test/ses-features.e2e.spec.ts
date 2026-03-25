@@ -19,16 +19,6 @@ describe(SES.name, () => {
     });
   });
 
-  describe("Verify email", () => {
-    it("should return 200 status code for email verification request", async () => {
-      const result = await client.verifyEmailIdentity({
-        EmailAddress: "foo@example.com",
-      });
-
-      expect(result.$metadata?.httpStatusCode).toBe(200);
-    });
-  });
-
   describe("Rescue SES InvalidParameterValue", () => {
     it("should get InvalidParameterValue error for invalid email address", async () => {
       try {

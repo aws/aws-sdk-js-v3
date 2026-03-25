@@ -1,0 +1,35 @@
+POST https://email.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1574
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/ses#_.__ m/E,e
+host: email.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 21d3c031804530832161cd7098ab5ea2b1d391425c5f12206bd88229194c8ad6
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ses/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=UpdateConfigurationSetEventDestination&
+Version=2010-12-01&
+ConfigurationSetName=__ConfigurationSetName__&
+EventDestination.Name=__Name__&
+EventDestination.MatchingEventTypes.member.1=__member__&
+EventDestination.MatchingEventTypes.member.2=__member__&
+EventDestination.MatchingEventTypes.member.3=__member__&
+EventDestination.Enabled=false&
+EventDestination.KinesisFirehoseDestination.IAMRoleARN=__IAMRoleARN__&
+EventDestination.KinesisFirehoseDestination.DeliveryStreamARN=__DeliveryStreamARN__&
+EventDestination.CloudWatchDestination.DimensionConfigurations.member.1.DimensionName=__DimensionName__&
+EventDestination.CloudWatchDestination.DimensionConfigurations.member.1.DimensionValueSource=__DimensionValueSource__&
+EventDestination.CloudWatchDestination.DimensionConfigurations.member.1.DefaultDimensionValue=__DefaultDimensionValue__&
+EventDestination.CloudWatchDestination.DimensionConfigurations.member.2.DimensionName=__DimensionName__&
+EventDestination.CloudWatchDestination.DimensionConfigurations.member.2.DimensionValueSource=__DimensionValueSource__&
+EventDestination.CloudWatchDestination.DimensionConfigurations.member.2.DefaultDimensionValue=__DefaultDimensionValue__&
+EventDestination.CloudWatchDestination.DimensionConfigurations.member.3.DimensionName=__DimensionName__&
+EventDestination.CloudWatchDestination.DimensionConfigurations.member.3.DimensionValueSource=__DimensionValueSource__&
+EventDestination.CloudWatchDestination.DimensionConfigurations.member.3.DefaultDimensionValue=__DefaultDimensionValue__&
+EventDestination.SNSDestination.TopicARN=__TopicARN__
