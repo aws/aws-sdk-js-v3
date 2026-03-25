@@ -198,6 +198,24 @@ export interface DependencyConfig {
 }
 
 /**
+ * <p>Identifies the metric source for SLOs on resources other than Application Signals services.</p>
+ * @public
+ */
+export interface MetricSource {
+  /**
+   * <p>Key attributes that identify the metric source.</p>
+   * @public
+   */
+  MetricSourceKeyAttributes: Record<string, string> | undefined;
+
+  /**
+   * <p>Additional attributes for the metric source.</p>
+   * @public
+   */
+  MetricSourceAttributes?: Record<string, string> | undefined;
+}
+
+/**
  * <p>A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish <code>InstanceId</code> as a dimension name, and the actual instance ID as the value for that dimension.</p> <p>You can assign up to 30 dimensions to a metric.</p>
  * @public
  */
@@ -410,6 +428,12 @@ export interface RequestBasedServiceLevelIndicatorMetric {
    * @public
    */
   DependencyConfig?: DependencyConfig | undefined;
+
+  /**
+   * <p>Identifies the metric source for SLOs on resources other than Application Signals services.</p>
+   * @public
+   */
+  MetricSource?: MetricSource | undefined;
 }
 
 /**
@@ -470,6 +494,12 @@ export interface ServiceLevelIndicatorMetric {
    * @public
    */
   DependencyConfig?: DependencyConfig | undefined;
+
+  /**
+   * <p>Identifies the metric source for SLOs on resources other than Application Signals services.</p>
+   * @public
+   */
+  MetricSource?: MetricSource | undefined;
 }
 
 /**
@@ -2185,6 +2215,18 @@ export interface RequestBasedServiceLevelIndicatorMetricConfig {
    * @public
    */
   DependencyConfig?: DependencyConfig | undefined;
+
+  /**
+   * <p>Identifies the metric source for SLOs on resources other than Application Signals services.</p>
+   * @public
+   */
+  MetricSource?: MetricSource | undefined;
+
+  /**
+   * <p>The name of the metric for SLOs on resources other than Application Signals services.</p>
+   * @public
+   */
+  MetricName?: string | undefined;
 }
 
 /**
@@ -2251,6 +2293,12 @@ export interface ServiceLevelIndicatorMetricConfig {
    * @public
    */
   PeriodSeconds?: number | undefined;
+
+  /**
+   * <p>Identifies the metric source for SLOs on resources other than Application Signals services.</p>
+   * @public
+   */
+  MetricSource?: MetricSource | undefined;
 
   /**
    * <p>If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression. </p>
@@ -2402,7 +2450,7 @@ export interface ServiceLevelObjective {
   BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
 
   /**
-   * <p>Displays the SLI metric source type for this SLO. Supported types are:</p> <ul> <li> <p>Service operation</p> </li> <li> <p>Service dependency</p> </li> <li> <p>CloudWatch metric</p> </li> </ul>
+   * <p>Displays the SLI metric source type for this SLO. Supported types are:</p> <ul> <li> <p>Service operation</p> </li> <li> <p>Service dependency</p> </li> <li> <p>Service</p> </li> <li> <p>CloudWatch metric</p> </li> <li> <p>AppMonitor</p> </li> <li> <p>Canary</p> </li> </ul>
    * @public
    */
   MetricSourceType?: MetricSourceType | undefined;
@@ -2492,6 +2540,12 @@ export interface ListServiceLevelObjectivesInput {
   NextToken?: string | undefined;
 
   /**
+   * <p>Use this optional field to only include SLOs with the specified metric source types in the output. Supported types are:</p> <ul> <li> <p>Service operation</p> </li> <li> <p>Service dependency</p> </li> <li> <p>Service</p> </li> <li> <p>CloudWatch metric</p> </li> <li> <p>AppMonitor</p> </li> <li> <p>Canary</p> </li> </ul>
+   * @public
+   */
+  MetricSourceTypes?: MetricSourceType[] | undefined;
+
+  /**
    * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include SLO from source accounts in the returned data. </p> <p>When you are monitoring an account, you can use Amazon Web Services account ID in <code>KeyAttribute</code> filter for service source account and <code>SloOwnerawsaccountID</code> for SLO source account with <code>IncludeLinkedAccounts</code> to filter the returned data to only a single source account. </p>
    * @public
    */
@@ -2504,10 +2558,10 @@ export interface ListServiceLevelObjectivesInput {
   SloOwnerAwsAccountId?: string | undefined;
 
   /**
-   * <p>Use this optional field to only include SLOs with the specified metric source types in the output. Supported types are:</p> <ul> <li> <p>Service operation</p> </li> <li> <p>Service dependency</p> </li> <li> <p>CloudWatch metric</p> </li> </ul>
+   * <p>Identifies the metric source to filter SLOs by.</p>
    * @public
    */
-  MetricSourceTypes?: MetricSourceType[] | undefined;
+  MetricSource?: MetricSource | undefined;
 }
 
 /**
@@ -2558,10 +2612,16 @@ export interface ServiceLevelObjectiveSummary {
   EvaluationType?: EvaluationType | undefined;
 
   /**
-   * <p>Displays the SLI metric source type for this SLO. Supported types are:</p> <ul> <li> <p>Service operation</p> </li> <li> <p>Service dependency</p> </li> <li> <p>CloudWatch metric</p> </li> </ul>
+   * <p>Displays the SLI metric source type for this SLO. Supported types are:</p> <ul> <li> <p>Service operation</p> </li> <li> <p>Service dependency</p> </li> <li> <p>Service</p> </li> <li> <p>CloudWatch metric</p> </li> <li> <p>AppMonitor</p> </li> <li> <p>Canary</p> </li> </ul>
    * @public
    */
   MetricSourceType?: MetricSourceType | undefined;
+
+  /**
+   * <p>Identifies the metric source for SLOs on resources other than Application Signals services.</p>
+   * @public
+   */
+  MetricSource?: MetricSource | undefined;
 }
 
 /**

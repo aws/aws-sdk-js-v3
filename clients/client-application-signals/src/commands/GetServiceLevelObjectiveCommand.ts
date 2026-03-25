@@ -90,6 +90,14 @@ export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelOb
  * //           },
  * //           DependencyOperationName: "STRING_VALUE", // required
  * //         },
+ * //         MetricSource: { // MetricSource
+ * //           MetricSourceKeyAttributes: { // required
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           MetricSourceAttributes: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //       MetricThreshold: Number("double"), // required
  * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
@@ -179,10 +187,12 @@ export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelOb
  * //           ],
  * //         },
  * //         DependencyConfig: {
- * //           DependencyKeyAttributes: { // required
- * //             "<keys>": "STRING_VALUE",
- * //           },
+ * //           DependencyKeyAttributes: "<Attributes>", // required
  * //           DependencyOperationName: "STRING_VALUE", // required
+ * //         },
+ * //         MetricSource: {
+ * //           MetricSourceKeyAttributes: "<Attributes>", // required
+ * //           MetricSourceAttributes: "<Attributes>",
  * //         },
  * //       },
  * //       MetricThreshold: Number("double"),
@@ -209,7 +219,7 @@ export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelOb
  * //         LookBackWindowMinutes: Number("int"), // required
  * //       },
  * //     ],
- * //     MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency",
+ * //     MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency" || "AppMonitor" || "Canary" || "Service",
  * //   },
  * // };
  *

@@ -102,6 +102,14 @@ export interface BatchGetServiceLevelObjectiveBudgetReportCommandOutput extends 
  * //             },
  * //             DependencyOperationName: "STRING_VALUE", // required
  * //           },
+ * //           MetricSource: { // MetricSource
+ * //             MetricSourceKeyAttributes: { // required
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             MetricSourceAttributes: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
  * //         },
  * //         MetricThreshold: Number("double"), // required
  * //         ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
@@ -191,10 +199,12 @@ export interface BatchGetServiceLevelObjectiveBudgetReportCommandOutput extends 
  * //             ],
  * //           },
  * //           DependencyConfig: {
- * //             DependencyKeyAttributes: { // required
- * //               "<keys>": "STRING_VALUE",
- * //             },
+ * //             DependencyKeyAttributes: "<Attributes>", // required
  * //             DependencyOperationName: "STRING_VALUE", // required
+ * //           },
+ * //           MetricSource: {
+ * //             MetricSourceKeyAttributes: "<Attributes>", // required
+ * //             MetricSourceAttributes: "<Attributes>",
  * //           },
  * //         },
  * //         MetricThreshold: Number("double"),

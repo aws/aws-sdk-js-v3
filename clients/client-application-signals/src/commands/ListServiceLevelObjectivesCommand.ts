@@ -53,11 +53,19 @@ export interface ListServiceLevelObjectivesCommandOutput extends ListServiceLeve
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   MetricSourceTypes: [ // MetricSourceTypes
+ *     "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency" || "AppMonitor" || "Canary" || "Service",
+ *   ],
  *   IncludeLinkedAccounts: true || false,
  *   SloOwnerAwsAccountId: "STRING_VALUE",
- *   MetricSourceTypes: [ // MetricSourceTypes
- *     "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency",
- *   ],
+ *   MetricSource: { // MetricSource
+ *     MetricSourceKeyAttributes: { // required
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     MetricSourceAttributes: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new ListServiceLevelObjectivesCommand(input);
  * const response = await client.send(command);
@@ -78,7 +86,15 @@ export interface ListServiceLevelObjectivesCommandOutput extends ListServiceLeve
  * //       },
  * //       CreatedTime: new Date("TIMESTAMP"),
  * //       EvaluationType: "PeriodBased" || "RequestBased",
- * //       MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency",
+ * //       MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency" || "AppMonitor" || "Canary" || "Service",
+ * //       MetricSource: { // MetricSource
+ * //         MetricSourceKeyAttributes: { // required
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         MetricSourceAttributes: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

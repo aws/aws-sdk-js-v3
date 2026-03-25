@@ -151,9 +151,12 @@ const _MRCM = "MonitoredRequestCountMetric";
 const _MRCMDQ = "MonitoredRequestCountMetricDataQueries";
 const _MRe = "MetricReference";
 const _MRet = "MetricReferences";
-const _MS = "MetricStat";
+const _MS = "MetricSource";
+const _MSA = "MetricSourceAttributes";
+const _MSKA = "MetricSourceKeyAttributes";
 const _MST = "MetricSourceTypes";
 const _MSTe = "MetricSourceType";
+const _MSe = "MetricStat";
 const _MT = "MetricType";
 const _MTe = "MetricThreshold";
 const _Me = "Metric";
@@ -556,8 +559,8 @@ export var ListServiceLevelObjectiveExclusionWindowsOutput$: StaticStructureSche
 ];
 export var ListServiceLevelObjectivesInput$: StaticStructureSchema = [3, n0, _LSLOI,
   0,
-  [_KA, _ON, _DC, _MR, _NT, _ILA, _SOAAI, _MST],
-  [128 | 0, [0, { [_hQ]: _ON }], () => DependencyConfig$, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [2, { [_hQ]: _ILA }], [0, { [_hQ]: _SOAAI }], 64 | 0]
+  [_KA, _ON, _DC, _MR, _NT, _MST, _ILA, _SOAAI, _MS],
+  [128 | 0, [0, { [_hQ]: _ON }], () => DependencyConfig$, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], 64 | 0, [2, { [_hQ]: _ILA }], [0, { [_hQ]: _SOAAI }], () => MetricSource$]
 ];
 export var ListServiceLevelObjectivesOutput$: StaticStructureSchema = [3, n0, _LSLOO,
   0,
@@ -611,7 +614,7 @@ export var Metric$: StaticStructureSchema = [3, n0, _Me,
 ];
 export var MetricDataQuery$: StaticStructureSchema = [3, n0, _MDQ,
   0,
-  [_I, _MS, _Ex, _L, _RD, _P, _AI],
+  [_I, _MSe, _Ex, _L, _RD, _P, _AI],
   [0, () => MetricStat$, 0, 0, 2, 1, 0], 1
 ];
 export var MetricGraph$: StaticStructureSchema = [3, n0, _MG,
@@ -624,7 +627,12 @@ export var MetricReference$: StaticStructureSchema = [3, n0, _MRe,
   [_Na, _MT, _MN, _Dim, _AI],
   [0, 0, 0, () => Dimensions, 0], 3
 ];
-export var MetricStat$: StaticStructureSchema = [3, n0, _MS,
+export var MetricSource$: StaticStructureSchema = [3, n0, _MS,
+  0,
+  [_MSKA, _MSA],
+  [128 | 0, 128 | 0], 1
+];
+export var MetricStat$: StaticStructureSchema = [3, n0, _MSe,
   0,
   [_Me, _P, _St, _U],
   [() => Metric$, 1, 0, 0], 3
@@ -661,13 +669,13 @@ export var RequestBasedServiceLevelIndicatorConfig$: StaticStructureSchema = [3,
 ];
 export var RequestBasedServiceLevelIndicatorMetric$: StaticStructureSchema = [3, n0, _RBSLIM,
   0,
-  [_TRCM, _MRCM, _KA, _ON, _MT, _DC],
-  [() => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, 128 | 0, 0, 0, () => DependencyConfig$], 2
+  [_TRCM, _MRCM, _KA, _ON, _MT, _DC, _MS],
+  [() => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, 128 | 0, 0, 0, () => DependencyConfig$, () => MetricSource$], 2
 ];
 export var RequestBasedServiceLevelIndicatorMetricConfig$: StaticStructureSchema = [3, n0, _RBSLIMC,
   0,
-  [_KA, _ON, _MT, _TRCM, _MRCM, _DC],
-  [128 | 0, 0, 0, () => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, () => DependencyConfig$]
+  [_KA, _ON, _MT, _TRCM, _MRCM, _DC, _MS, _MN],
+  [128 | 0, 0, 0, () => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, () => DependencyConfig$, () => MetricSource$, 0]
 ];
 export var RollingInterval$: StaticStructureSchema = [3, n0, _RIo,
   0,
@@ -711,13 +719,13 @@ export var ServiceLevelIndicatorConfig$: StaticStructureSchema = [3, n0, _SLIC,
 ];
 export var ServiceLevelIndicatorMetric$: StaticStructureSchema = [3, n0, _SLIM,
   0,
-  [_MDQe, _KA, _ON, _MT, _DC],
-  [() => MetricDataQueries, 128 | 0, 0, 0, () => DependencyConfig$], 1
+  [_MDQe, _KA, _ON, _MT, _DC, _MS],
+  [() => MetricDataQueries, 128 | 0, 0, 0, () => DependencyConfig$, () => MetricSource$], 1
 ];
 export var ServiceLevelIndicatorMetricConfig$: StaticStructureSchema = [3, n0, _SLIMC,
   0,
-  [_KA, _ON, _MT, _MN, _Stat, _PS, _MDQe, _DC],
-  [128 | 0, 0, 0, 0, 0, 1, () => MetricDataQueries, () => DependencyConfig$]
+  [_KA, _ON, _MT, _MN, _Stat, _PS, _MS, _MDQe, _DC],
+  [128 | 0, 0, 0, 0, 0, 1, () => MetricSource$, () => MetricDataQueries, () => DependencyConfig$]
 ];
 export var ServiceLevelObjective$: StaticStructureSchema = [3, n0, _SLO,
   0,
@@ -741,8 +749,8 @@ export var ServiceLevelObjectiveEntity$: StaticStructureSchema = [3, n0, _SLOE,
 ];
 export var ServiceLevelObjectiveSummary$: StaticStructureSchema = [3, n0, _SLOS,
   0,
-  [_Ar, _N, _KA, _ON, _DC, _CTr, _ETv, _MSTe],
-  [0, 0, 128 | 0, 0, () => DependencyConfig$, 4, 0, 0], 2
+  [_Ar, _N, _KA, _ON, _DC, _CTr, _ETv, _MSTe, _MS],
+  [0, 0, 128 | 0, 0, () => DependencyConfig$, 4, 0, 0, () => MetricSource$], 2
 ];
 export var ServiceOperation$: StaticStructureSchema = [3, n0, _SOe,
   0,

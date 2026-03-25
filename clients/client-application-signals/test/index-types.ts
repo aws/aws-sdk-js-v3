@@ -140,6 +140,7 @@ export type {
   MetricDataQuery,
   MetricGraph,
   MetricReference,
+  MetricSource,
   MetricStat,
   MonitoredRequestCountMetricDataQueries,
   Node,

@@ -53,6 +53,14 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  *       MetricName: "STRING_VALUE",
  *       Statistic: "STRING_VALUE",
  *       PeriodSeconds: Number("int"),
+ *       MetricSource: { // MetricSource
+ *         MetricSourceKeyAttributes: { // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         MetricSourceAttributes: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
  *       MetricDataQueries: [ // MetricDataQueries
  *         { // MetricDataQuery
  *           Id: "STRING_VALUE", // required
@@ -173,11 +181,14 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  *         ],
  *       },
  *       DependencyConfig: {
- *         DependencyKeyAttributes: { // required
- *           "<keys>": "STRING_VALUE",
- *         },
+ *         DependencyKeyAttributes: "<Attributes>", // required
  *         DependencyOperationName: "STRING_VALUE", // required
  *       },
+ *       MetricSource: {
+ *         MetricSourceKeyAttributes: "<Attributes>", // required
+ *         MetricSourceAttributes: "<Attributes>",
+ *       },
+ *       MetricName: "STRING_VALUE",
  *     },
  *     MetricThreshold: Number("double"),
  *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
@@ -249,6 +260,14 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  * //             "<keys>": "STRING_VALUE",
  * //           },
  * //           DependencyOperationName: "STRING_VALUE", // required
+ * //         },
+ * //         MetricSource: { // MetricSource
+ * //           MetricSourceKeyAttributes: { // required
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           MetricSourceAttributes: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
  * //         },
  * //       },
  * //       MetricThreshold: Number("double"), // required
@@ -339,10 +358,12 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  * //           ],
  * //         },
  * //         DependencyConfig: {
- * //           DependencyKeyAttributes: { // required
- * //             "<keys>": "STRING_VALUE",
- * //           },
+ * //           DependencyKeyAttributes: "<Attributes>", // required
  * //           DependencyOperationName: "STRING_VALUE", // required
+ * //         },
+ * //         MetricSource: {
+ * //           MetricSourceKeyAttributes: "<Attributes>", // required
+ * //           MetricSourceAttributes: "<Attributes>",
  * //         },
  * //       },
  * //       MetricThreshold: Number("double"),
@@ -369,7 +390,7 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  * //         LookBackWindowMinutes: Number("int"), // required
  * //       },
  * //     ],
- * //     MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency",
+ * //     MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency" || "AppMonitor" || "Canary" || "Service",
  * //   },
  * // };
  *

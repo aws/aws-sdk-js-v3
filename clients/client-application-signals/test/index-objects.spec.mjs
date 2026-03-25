@@ -105,6 +105,7 @@ import {
   MetricDataQuery$,
   MetricGraph$,
   MetricReference$,
+  MetricSource$,
   MetricSourceType,
   MetricStat$,
   MonitoredRequestCountMetricDataQueries$,
@@ -287,6 +288,7 @@ assert(typeof Metric$ === "object");
 assert(typeof MetricDataQuery$ === "object");
 assert(typeof MetricGraph$ === "object");
 assert(typeof MetricReference$ === "object");
+assert(typeof MetricSource$ === "object");
 assert(typeof MetricStat$ === "object");
 assert(typeof MonitoredRequestCountMetricDataQueries$ === "object");
 assert(typeof Node$ === "object");

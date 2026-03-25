@@ -171,7 +171,10 @@ export type ChangeEventType = (typeof ChangeEventType)[keyof typeof ChangeEventT
  * @enum
  */
 export const MetricSourceType = {
+  APPMONITOR: "AppMonitor",
+  CANARY: "Canary",
   CLOUDWATCH_METRIC: "CloudWatchMetric",
+  SERVICE: "Service",
   SERVICE_DEPENDENCY: "ServiceDependency",
   SERVICE_OPERATION: "ServiceOperation",
 } as const;
