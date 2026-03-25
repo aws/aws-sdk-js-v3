@@ -10,8 +10,9 @@ const pkgJsonEnforcement = require("./package-json-enforcement");
 const root = path.join(__dirname, "..", "..");
 const packages = path.join(root, "packages");
 const packagesInternal = path.join(root, "packages-internal");
+const lib = path.join(root, "lib");
 const _private = path.join(root, "private");
-const topLevelFolders = [packages, packagesInternal, _private];
+const topLevelFolders = [packages, packagesInternal, _private, lib];
 const packageFolders = [];
 const walk = require("../utils/walk");
 const { listFolders } = require("../utils/list-folders");
@@ -56,11 +57,6 @@ const shouldIgnore = (dep) => ignored.includes(dep) || (dep.startsWith("node:") 
   const errors = [];
 
   for (const packageFolder of packageFolders) {
-    if (packageFolder === "util-dynamodb") {
-      // exempt
-      continue;
-    }
-
     const containingFolder = topLevelFolders.find((f) => fs.existsSync(path.join(f, packageFolder, "package.json")));
 
     const pkgJsonPath = path.join(containingFolder, packageFolder, "package.json");
@@ -124,6 +120,11 @@ const shouldIgnore = (dep) => ignored.includes(dep) || (dep.startsWith("node:") 
 
       for (const [dep, version] of Object.entries(pkgJson.devDependencies ?? {})) {
         if ((dep.startsWith("@smithy") || dep.startsWith("@aws-sdk")) && contents.includes(`from "${dep}";`)) {
+          if (dep in pkgJson.peerDependencies) {
+            // peers can be declared in devDeps to set correct build order.
+            continue;
+          }
+
           errors.push(`${dep} incorrectly declared in devDependencies of ${packageFolder}`);
           delete pkgJson.devDependencies[dep];
           if (!pkgJson.dependencies) {
