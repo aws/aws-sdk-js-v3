@@ -23973,6 +23973,7 @@ __metadata:
     "@aws-sdk/client-s3": "workspace:3.1016.0"
     "@smithy/abort-controller": "npm:^4.2.12"
     "@smithy/middleware-endpoint": "npm:^4.4.27"
+    "@smithy/protocol-http": "npm:^5.3.12"
     "@smithy/smithy-client": "npm:^4.12.7"
     "@smithy/types": "npm:^4.13.1"
     "@tsconfig/recommended": "npm:1.0.1"
