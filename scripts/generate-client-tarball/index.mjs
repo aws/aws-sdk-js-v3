@@ -1,15 +1,5 @@
 import { execSync } from "node:child_process";
-import {
-  cpSync,
-  existsSync,
-  lstatSync,
-  readdirSync,
-  readFileSync,
-  realpathSync,
-  rmSync,
-  unlinkSync,
-  writeFileSync,
-} from "node:fs";
+import { cpSync, existsSync, lstatSync, readFileSync, realpathSync, rmSync, unlinkSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const clientName = process.argv[2];
@@ -21,8 +11,6 @@ const rootDir = join(import.meta.dirname, "..", "..");
 const clientDir = join(rootDir, "clients", clientName);
 const pkgJsonPath = join(clientDir, "package.json");
 
-// This is for removing yarn specific version numbers, like `workspace:`
-execSync("yarn update:versions:current", { cwd: rootDir, stdio: "inherit" });
 const newPkgJson = JSON.parse(readFileSync(pkgJsonPath, "utf-8"));
 
 // This configuration change is for yarn to install dependencies in node_modules
@@ -70,6 +58,9 @@ try {
       }
     }
   };
+  execSync("yarn", { cwd: rootDir, stdio: "inherit" });
+  // This is for removing yarn specific version numbers, like `workspace:`
+  execSync("yarn update:versions:current", { cwd: rootDir, stdio: "inherit" });
   // Start from client's own dependencies.
   const clientDeps = Object.keys(JSON.parse(readFileSync(pkgJsonPath, "utf-8")).dependencies || {});
   for (const dep of clientDeps) {
