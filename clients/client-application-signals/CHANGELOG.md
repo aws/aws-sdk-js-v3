@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1017.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1016.0...v3.1017.0) (2026-03-25)
+
+
+### Features
+
+* **client-application-signals:** This release adds support for creating SLOs on RUM appMonitors, Synthetics canaries and services. ([324daae](https://github.com/aws/aws-sdk-js-v3/commit/324daaeb9be6a45898df9add3235616b1dea914e))
+
+
+
+
+
 # [3.1016.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1015.0...v3.1016.0) (2026-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-application-signals

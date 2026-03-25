@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1017.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1016.0...v3.1017.0) (2026-03-25)
+
+
+### Features
+
+* **client-apigatewayv2:** Added DISABLE IN PROGRESS and DISABLE FAILED Portal statuses. ([1dc7ba2](https://github.com/aws/aws-sdk-js-v3/commit/1dc7ba26bbc78b1b6582af30da6e1b281bc14d86))
+* **client-application-signals:** This release adds support for creating SLOs on RUM appMonitors, Synthetics canaries and services. ([324daae](https://github.com/aws/aws-sdk-js-v3/commit/324daaeb9be6a45898df9add3235616b1dea914e))
+* **client-marketplace-agreement:** The Variable Payments APIs enable AWS Marketplace Sellers to perform manage their payment requests (send, get, list, cancel). ([b9f85b1](https://github.com/aws/aws-sdk-js-v3/commit/b9f85b12b18b5155027e8d3da25e52ef1c416ecd))
+* **client-polly:** Add support for Mu-law and A-law codecs for output format ([16b8ce2](https://github.com/aws/aws-sdk-js-v3/commit/16b8ce279c691ad1019df73336cf6560bf4a38fa))
+* **client-uxc:** GA release of AccountCustomizations, used to manage account color, visible services, and visible regions settings in the AWS Management Console. ([0258442](https://github.com/aws/aws-sdk-js-v3/commit/025844285b406c33a2b3d35f62208778454dd33b))
+* **clients:** update client endpoints as of 2026-03-25 ([289b4f1](https://github.com/aws/aws-sdk-js-v3/commit/289b4f177ac1d54c450910eb7ad941f5b45e8141))
+
+
+
+
+
 # [3.1016.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1015.0...v3.1016.0) (2026-03-24)
 
 

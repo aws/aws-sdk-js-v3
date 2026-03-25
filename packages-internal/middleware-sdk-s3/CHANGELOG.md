@@ -27,6 +27,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.25 (2026-03-25)
+### Chores
+* **middleware-sdk-s3:** custom request validation for s3 client ([#7882](https://github.com/aws/aws-sdk-js-v3/issues/7882)) ([dfeae95](https://github.com/aws/aws-sdk-js-v3/commit/dfeae958cfe7d7c3ab43dc126b4fa8ab8787c085))
+
+
+
 # 3.972.24 (2026-03-23)
 ### Chores
 * **middleware-sdk-s3:** update dependencies.

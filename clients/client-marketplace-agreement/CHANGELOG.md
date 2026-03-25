@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1017.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1016.0...v3.1017.0) (2026-03-25)
+
+
+### Features
+
+* **client-marketplace-agreement:** The Variable Payments APIs enable AWS Marketplace Sellers to perform manage their payment requests (send, get, list, cancel). ([b9f85b1](https://github.com/aws/aws-sdk-js-v3/commit/b9f85b12b18b5155027e8d3da25e52ef1c416ecd))
+
+
+
+
+
 # [3.1016.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1015.0...v3.1016.0) (2026-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-agreement
