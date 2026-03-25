@@ -116,7 +116,7 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * //     },
  * //   },
  * //   PortalId: "STRING_VALUE",
- * //   PublishStatus: "PUBLISHED" || "PUBLISH_IN_PROGRESS" || "PUBLISH_FAILED" || "DISABLED",
+ * //   PublishStatus: "PUBLISHED" || "PUBLISH_IN_PROGRESS" || "PUBLISH_FAILED" || "DISABLE_IN_PROGRESS" || "DISABLE_FAILED" || "DISABLED",
  * //   RumAppMonitorName: "STRING_VALUE",
  * //   StatusException: { // StatusException
  * //     Exception: "STRING_VALUE",

@@ -122,7 +122,7 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * //       Message: "STRING_VALUE",
  * //     },
  * //   },
- * //   PublishStatus: "PUBLISHED" || "PUBLISH_IN_PROGRESS" || "PUBLISH_FAILED" || "DISABLED",
+ * //   PublishStatus: "PUBLISHED" || "PUBLISH_IN_PROGRESS" || "PUBLISH_FAILED" || "DISABLE_IN_PROGRESS" || "DISABLE_FAILED" || "DISABLED",
  * //   RumAppMonitorName: "STRING_VALUE",
  * //   StatusException: {
  * //     Exception: "STRING_VALUE",

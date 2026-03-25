@@ -183,6 +183,8 @@ export type PreviewStatus = (typeof PreviewStatus)[keyof typeof PreviewStatus];
  */
 export const PublishStatus = {
   DISABLED: "DISABLED",
+  DISABLE_FAILED: "DISABLE_FAILED",
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
   PUBLISHED: "PUBLISHED",
   PUBLISH_FAILED: "PUBLISH_FAILED",
   PUBLISH_IN_PROGRESS: "PUBLISH_IN_PROGRESS",
