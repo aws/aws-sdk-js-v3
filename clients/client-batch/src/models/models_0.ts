@@ -7950,10 +7950,11 @@ export interface ListServiceJobsRequest {
   /**
    * <p>The job status used to filter service jobs in the specified queue. If the <code>filters</code>
    * 	            parameter is specified, the <code>jobStatus</code> parameter is ignored and jobs with any
-   * 	            status are returned. The exception is the <code>SHARE_IDENTIFIER</code> filter and <code>jobStatus</code> can be used together. If you don't specify a status, only <code>RUNNING</code> jobs are
+   * 	            status are returned. The exceptions are the <code>SHARE_IDENTIFIER</code> filter and <code>QUOTA_SHARE_NAME</code> filter, which
+   *                 can be used with <code>jobStatus</code>. If you don't specify a status, only <code>RUNNING</code> jobs are
    * 	            returned.</p>
    *          <note>
-   *             <p>The <code>SHARE_IDENTIFIER</code> filter and the <code>jobStatus</code> field can be used together to filter results.</p>
+   *             <p>The <code>SHARE_IDENTIFIER</code> filter or <code>QUOTA_SHARE_NAME</code> filter can be used with the <code>jobStatus</code> field to filter results.</p>
    *          </note>
    * @public
    */
@@ -7977,10 +7978,10 @@ export interface ListServiceJobsRequest {
 
   /**
    * <p>The filter to apply to the query. Only one filter can be used at a time. When the
-   * 	            filter is used, <code>jobStatus</code> is ignored with the exception that <code>SHARE_IDENTIFIER</code> and <code>jobStatus</code> can be used together. The results are sorted by the
+   * 	            filter is used, <code>jobStatus</code> is ignored with the exception that <code>SHARE_IDENTIFIER</code> or <code>QUOTA_SHARE_NAME</code> and <code>jobStatus</code> can be used together. The results are sorted by the
    * 	                <code>createdAt</code> field, with the most recent jobs being first.</p>
    *          <note>
-   *             <p>The <code>SHARE_IDENTIFIER</code> filter and the <code>jobStatus</code> field can be used together to filter results.</p>
+   *             <p>The <code>SHARE_IDENTIFIER</code> or <code>QUOTA_SHARE_NAME</code> filter and the <code>jobStatus</code> field can be used together to filter results.</p>
    *          </note>
    *          <dl>
    *             <dt>JOB_NAME</dt>
@@ -8008,6 +8009,10 @@ export interface ListServiceJobsRequest {
    *             <dt>SHARE_IDENTIFIER</dt>
    *             <dd>
    *                <p>The value for the filter is the fairshare scheduling share identifier.</p>
+   *             </dd>
+   *             <dt>QUOTA_SHARE_NAME</dt>
+   *             <dd>
+   *                <p>The value for the filter is the quota management share name.</p>
    *             </dd>
    *          </dl>
    * @public
