@@ -1,0 +1,20 @@
+POST https://email.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 159
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/ses#_.__ m/E,e
+host: email.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 54e8f9c1fd10ebfbce96a0db7108d6b0b9cee9b8d9ecf150d2f5adecb55a27e0
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ses/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=SendCustomVerificationEmail&
+Version=2010-12-01&
+EmailAddress=__EmailAddress__&
+TemplateName=__TemplateName__&
+ConfigurationSetName=__ConfigurationSetName__

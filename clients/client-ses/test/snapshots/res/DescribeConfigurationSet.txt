@@ -1,0 +1,280 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeConfigurationSetResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeConfigurationSetResponse xmlns="https://placeholder.amazonaws.com">
+    <ConfigurationSet>
+        <Name>
+            __Name__
+        </Name>
+    </ConfigurationSet>
+    <EventDestinations>
+        <member>
+            <Name>
+                __Name__
+            </Name>
+            <MatchingEventTypes>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+            </MatchingEventTypes>
+            <Enabled>
+                false
+            </Enabled>
+            <KinesisFirehoseDestination>
+                <IAMRoleARN>
+                    __IAMRoleARN__
+                </IAMRoleARN>
+                <DeliveryStreamARN>
+                    __DeliveryStreamARN__
+                </DeliveryStreamARN>
+            </KinesisFirehoseDestination>
+            <CloudWatchDestination>
+                <DimensionConfigurations>
+                    <member>
+                        <DimensionName>
+                            __DimensionName__
+                        </DimensionName>
+                        <DimensionValueSource>
+                            __DimensionValueSource__
+                        </DimensionValueSource>
+                        <DefaultDimensionValue>
+                            __DefaultDimensionValue__
+                        </DefaultDimensionValue>
+                    </member>
+                    <member>
+                        <DimensionName>
+                            __DimensionName__
+                        </DimensionName>
+                        <DimensionValueSource>
+                            __DimensionValueSource__
+                        </DimensionValueSource>
+                        <DefaultDimensionValue>
+                            __DefaultDimensionValue__
+                        </DefaultDimensionValue>
+                    </member>
+                    <member>
+                        <DimensionName>
+                            __DimensionName__
+                        </DimensionName>
+                        <DimensionValueSource>
+                            __DimensionValueSource__
+                        </DimensionValueSource>
+                        <DefaultDimensionValue>
+                            __DefaultDimensionValue__
+                        </DefaultDimensionValue>
+                    </member>
+                </DimensionConfigurations>
+            </CloudWatchDestination>
+            <SNSDestination>
+                <TopicARN>
+                    __TopicARN__
+                </TopicARN>
+            </SNSDestination>
+        </member>
+        <member>
+            <Name>
+                __Name__
+            </Name>
+            <MatchingEventTypes>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+            </MatchingEventTypes>
+            <Enabled>
+                false
+            </Enabled>
+            <KinesisFirehoseDestination>
+                <IAMRoleARN>
+                    __IAMRoleARN__
+                </IAMRoleARN>
+                <DeliveryStreamARN>
+                    __DeliveryStreamARN__
+                </DeliveryStreamARN>
+            </KinesisFirehoseDestination>
+            <CloudWatchDestination>
+                <DimensionConfigurations>
+                    <member>
+                        <DimensionName>
+                            __DimensionName__
+                        </DimensionName>
+                        <DimensionValueSource>
+                            __DimensionValueSource__
+                        </DimensionValueSource>
+                        <DefaultDimensionValue>
+                            __DefaultDimensionValue__
+                        </DefaultDimensionValue>
+                    </member>
+                    <member>
+                        <DimensionName>
+                            __DimensionName__
+                        </DimensionName>
+                        <DimensionValueSource>
+                            __DimensionValueSource__
+                        </DimensionValueSource>
+                        <DefaultDimensionValue>
+                            __DefaultDimensionValue__
+                        </DefaultDimensionValue>
+                    </member>
+                    <member>
+                        <DimensionName>
+                            __DimensionName__
+                        </DimensionName>
+                        <DimensionValueSource>
+                            __DimensionValueSource__
+                        </DimensionValueSource>
+                        <DefaultDimensionValue>
+                            __DefaultDimensionValue__
+                        </DefaultDimensionValue>
+                    </member>
+                </DimensionConfigurations>
+            </CloudWatchDestination>
+            <SNSDestination>
+                <TopicARN>
+                    __TopicARN__
+                </TopicARN>
+            </SNSDestination>
+        </member>
+        <member>
+            <Name>
+                __Name__
+            </Name>
+            <MatchingEventTypes>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+            </MatchingEventTypes>
+            <Enabled>
+                false
+            </Enabled>
+            <KinesisFirehoseDestination>
+                <IAMRoleARN>
+                    __IAMRoleARN__
+                </IAMRoleARN>
+                <DeliveryStreamARN>
+                    __DeliveryStreamARN__
+                </DeliveryStreamARN>
+            </KinesisFirehoseDestination>
+            <CloudWatchDestination>
+                <DimensionConfigurations>
+                    <member>
+                        <DimensionName>
+                            __DimensionName__
+                        </DimensionName>
+                        <DimensionValueSource>
+                            __DimensionValueSource__
+                        </DimensionValueSource>
+                        <DefaultDimensionValue>
+                            __DefaultDimensionValue__
+                        </DefaultDimensionValue>
+                    </member>
+                    <member>
+                        <DimensionName>
+                            __DimensionName__
+                        </DimensionName>
+                        <DimensionValueSource>
+                            __DimensionValueSource__
+                        </DimensionValueSource>
+                        <DefaultDimensionValue>
+                            __DefaultDimensionValue__
+                        </DefaultDimensionValue>
+                    </member>
+                    <member>
+                        <DimensionName>
+                            __DimensionName__
+                        </DimensionName>
+                        <DimensionValueSource>
+                            __DimensionValueSource__
+                        </DimensionValueSource>
+                        <DefaultDimensionValue>
+                            __DefaultDimensionValue__
+                        </DefaultDimensionValue>
+                    </member>
+                </DimensionConfigurations>
+            </CloudWatchDestination>
+            <SNSDestination>
+                <TopicARN>
+                    __TopicARN__
+                </TopicARN>
+            </SNSDestination>
+        </member>
+    </EventDestinations>
+    <TrackingOptions>
+        <CustomRedirectDomain>
+            __CustomRedirectDomain__
+        </CustomRedirectDomain>
+    </TrackingOptions>
+    <DeliveryOptions>
+        <TlsPolicy>
+            __TlsPolicy__
+        </TlsPolicy>
+    </DeliveryOptions>
+    <ReputationOptions>
+        <SendingEnabled>
+            false
+        </SendingEnabled>
+        <ReputationMetricsEnabled>
+            false
+        </ReputationMetricsEnabled>
+        <LastFreshStart>
+            2000-01-01T04:59:59.999Z
+        </LastFreshStart>
+    </ReputationOptions>
+</DescribeConfigurationSetResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

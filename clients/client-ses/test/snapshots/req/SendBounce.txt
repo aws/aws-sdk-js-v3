@@ -1,0 +1,74 @@
+POST https://email.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 4262
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/ses#_.__ m/E,e
+host: email.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: e0a8c356a4a3e07b798a10b2d71635e19a3d447c68d7b98a13c5a41c5c7eddeb
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ses/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=SendBounce&
+Version=2010-12-01&
+OriginalMessageId=__OriginalMessageId__&
+BounceSender=__BounceSender__&
+BouncedRecipientInfoList.member.1.Recipient=__Recipient__&
+BouncedRecipientInfoList.member.1.RecipientArn=__RecipientArn__&
+BouncedRecipientInfoList.member.1.BounceType=__BounceType__&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.Action=__Action__&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.Status=__Status__&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.FinalRecipient=__FinalRecipient__&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.RemoteMta=__RemoteMta__&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.DiagnosticCode=__DiagnosticCode__&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.LastAttemptDate=2000-01-01T04%3A59%3A59.999Z&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.ExtensionFields.member.1.Name=__Name__&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.ExtensionFields.member.1.Value=__Value__&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.ExtensionFields.member.2.Name=__Name__&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.ExtensionFields.member.2.Value=__Value__&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.ExtensionFields.member.3.Name=__Name__&
+BouncedRecipientInfoList.member.1.RecipientDsnFields.ExtensionFields.member.3.Value=__Value__&
+BouncedRecipientInfoList.member.2.Recipient=__Recipient__&
+BouncedRecipientInfoList.member.2.RecipientArn=__RecipientArn__&
+BouncedRecipientInfoList.member.2.BounceType=__BounceType__&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.Action=__Action__&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.Status=__Status__&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.FinalRecipient=__FinalRecipient__&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.RemoteMta=__RemoteMta__&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.DiagnosticCode=__DiagnosticCode__&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.LastAttemptDate=2000-01-01T04%3A59%3A59.999Z&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.ExtensionFields.member.1.Name=__Name__&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.ExtensionFields.member.1.Value=__Value__&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.ExtensionFields.member.2.Name=__Name__&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.ExtensionFields.member.2.Value=__Value__&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.ExtensionFields.member.3.Name=__Name__&
+BouncedRecipientInfoList.member.2.RecipientDsnFields.ExtensionFields.member.3.Value=__Value__&
+BouncedRecipientInfoList.member.3.Recipient=__Recipient__&
+BouncedRecipientInfoList.member.3.RecipientArn=__RecipientArn__&
+BouncedRecipientInfoList.member.3.BounceType=__BounceType__&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.Action=__Action__&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.Status=__Status__&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.FinalRecipient=__FinalRecipient__&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.RemoteMta=__RemoteMta__&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.DiagnosticCode=__DiagnosticCode__&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.LastAttemptDate=2000-01-01T04%3A59%3A59.999Z&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.ExtensionFields.member.1.Name=__Name__&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.ExtensionFields.member.1.Value=__Value__&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.ExtensionFields.member.2.Name=__Name__&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.ExtensionFields.member.2.Value=__Value__&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.ExtensionFields.member.3.Name=__Name__&
+BouncedRecipientInfoList.member.3.RecipientDsnFields.ExtensionFields.member.3.Value=__Value__&
+Explanation=__Explanation__&
+MessageDsn.ReportingMta=__ReportingMta__&
+MessageDsn.ArrivalDate=2000-01-01T04%3A59%3A59.999Z&
+MessageDsn.ExtensionFields.member.1.Name=__Name__&
+MessageDsn.ExtensionFields.member.1.Value=__Value__&
+MessageDsn.ExtensionFields.member.2.Name=__Name__&
+MessageDsn.ExtensionFields.member.2.Value=__Value__&
+MessageDsn.ExtensionFields.member.3.Name=__Name__&
+MessageDsn.ExtensionFields.member.3.Value=__Value__&
+BounceSenderArn=__BounceSenderArn__

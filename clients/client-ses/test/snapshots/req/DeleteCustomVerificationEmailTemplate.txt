@@ -1,0 +1,18 @@
+POST https://email.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 93
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/ses#_.__ m/E,e
+host: email.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 16ed8a1e8e66a5d406ab11e96b768ff1effb3df601c987715055b25f9feaf168
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ses/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=DeleteCustomVerificationEmailTemplate&
+Version=2010-12-01&
+TemplateName=__TemplateName__

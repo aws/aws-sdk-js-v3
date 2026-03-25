@@ -1,0 +1,333 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeReceiptRuleResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeReceiptRuleResponse xmlns="https://placeholder.amazonaws.com">
+    <Rule>
+        <Name>
+            __Name__
+        </Name>
+        <Enabled>
+            false
+        </Enabled>
+        <TlsPolicy>
+            __TlsPolicy__
+        </TlsPolicy>
+        <Recipients>
+            <member>
+                __member__
+            </member>
+            <member>
+                __member__
+            </member>
+            <member>
+                __member__
+            </member>
+        </Recipients>
+        <Actions>
+            <member>
+                <S3Action>
+                    <BucketName>
+                        __BucketName__
+                    </BucketName>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <ObjectKeyPrefix>
+                        __ObjectKeyPrefix__
+                    </ObjectKeyPrefix>
+                    <KmsKeyArn>
+                        __KmsKeyArn__
+                    </KmsKeyArn>
+                    <IamRoleArn>
+                        __IamRoleArn__
+                    </IamRoleArn>
+                </S3Action>
+                <BounceAction>
+                    <SmtpReplyCode>
+                        __SmtpReplyCode__
+                    </SmtpReplyCode>
+                    <Message>
+                        __Message__
+                    </Message>
+                    <Sender>
+                        __Sender__
+                    </Sender>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <StatusCode>
+                        __StatusCode__
+                    </StatusCode>
+                </BounceAction>
+                <WorkmailAction>
+                    <OrganizationArn>
+                        __OrganizationArn__
+                    </OrganizationArn>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                </WorkmailAction>
+                <LambdaAction>
+                    <FunctionArn>
+                        __FunctionArn__
+                    </FunctionArn>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <InvocationType>
+                        __InvocationType__
+                    </InvocationType>
+                </LambdaAction>
+                <StopAction>
+                    <Scope>
+                        __Scope__
+                    </Scope>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                </StopAction>
+                <AddHeaderAction>
+                    <HeaderName>
+                        __HeaderName__
+                    </HeaderName>
+                    <HeaderValue>
+                        __HeaderValue__
+                    </HeaderValue>
+                </AddHeaderAction>
+                <SNSAction>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <Encoding>
+                        __Encoding__
+                    </Encoding>
+                </SNSAction>
+                <ConnectAction>
+                    <InstanceARN>
+                        __InstanceARN__
+                    </InstanceARN>
+                    <IAMRoleARN>
+                        __IAMRoleARN__
+                    </IAMRoleARN>
+                </ConnectAction>
+            </member>
+            <member>
+                <S3Action>
+                    <BucketName>
+                        __BucketName__
+                    </BucketName>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <ObjectKeyPrefix>
+                        __ObjectKeyPrefix__
+                    </ObjectKeyPrefix>
+                    <KmsKeyArn>
+                        __KmsKeyArn__
+                    </KmsKeyArn>
+                    <IamRoleArn>
+                        __IamRoleArn__
+                    </IamRoleArn>
+                </S3Action>
+                <BounceAction>
+                    <SmtpReplyCode>
+                        __SmtpReplyCode__
+                    </SmtpReplyCode>
+                    <Message>
+                        __Message__
+                    </Message>
+                    <Sender>
+                        __Sender__
+                    </Sender>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <StatusCode>
+                        __StatusCode__
+                    </StatusCode>
+                </BounceAction>
+                <WorkmailAction>
+                    <OrganizationArn>
+                        __OrganizationArn__
+                    </OrganizationArn>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                </WorkmailAction>
+                <LambdaAction>
+                    <FunctionArn>
+                        __FunctionArn__
+                    </FunctionArn>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <InvocationType>
+                        __InvocationType__
+                    </InvocationType>
+                </LambdaAction>
+                <StopAction>
+                    <Scope>
+                        __Scope__
+                    </Scope>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                </StopAction>
+                <AddHeaderAction>
+                    <HeaderName>
+                        __HeaderName__
+                    </HeaderName>
+                    <HeaderValue>
+                        __HeaderValue__
+                    </HeaderValue>
+                </AddHeaderAction>
+                <SNSAction>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <Encoding>
+                        __Encoding__
+                    </Encoding>
+                </SNSAction>
+                <ConnectAction>
+                    <InstanceARN>
+                        __InstanceARN__
+                    </InstanceARN>
+                    <IAMRoleARN>
+                        __IAMRoleARN__
+                    </IAMRoleARN>
+                </ConnectAction>
+            </member>
+            <member>
+                <S3Action>
+                    <BucketName>
+                        __BucketName__
+                    </BucketName>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <ObjectKeyPrefix>
+                        __ObjectKeyPrefix__
+                    </ObjectKeyPrefix>
+                    <KmsKeyArn>
+                        __KmsKeyArn__
+                    </KmsKeyArn>
+                    <IamRoleArn>
+                        __IamRoleArn__
+                    </IamRoleArn>
+                </S3Action>
+                <BounceAction>
+                    <SmtpReplyCode>
+                        __SmtpReplyCode__
+                    </SmtpReplyCode>
+                    <Message>
+                        __Message__
+                    </Message>
+                    <Sender>
+                        __Sender__
+                    </Sender>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <StatusCode>
+                        __StatusCode__
+                    </StatusCode>
+                </BounceAction>
+                <WorkmailAction>
+                    <OrganizationArn>
+                        __OrganizationArn__
+                    </OrganizationArn>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                </WorkmailAction>
+                <LambdaAction>
+                    <FunctionArn>
+                        __FunctionArn__
+                    </FunctionArn>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <InvocationType>
+                        __InvocationType__
+                    </InvocationType>
+                </LambdaAction>
+                <StopAction>
+                    <Scope>
+                        __Scope__
+                    </Scope>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                </StopAction>
+                <AddHeaderAction>
+                    <HeaderName>
+                        __HeaderName__
+                    </HeaderName>
+                    <HeaderValue>
+                        __HeaderValue__
+                    </HeaderValue>
+                </AddHeaderAction>
+                <SNSAction>
+                    <TopicArn>
+                        __TopicArn__
+                    </TopicArn>
+                    <Encoding>
+                        __Encoding__
+                    </Encoding>
+                </SNSAction>
+                <ConnectAction>
+                    <InstanceARN>
+                        __InstanceARN__
+                    </InstanceARN>
+                    <IAMRoleARN>
+                        __IAMRoleARN__
+                    </IAMRoleARN>
+                </ConnectAction>
+            </member>
+        </Actions>
+        <ScanEnabled>
+            false
+        </ScanEnabled>
+    </Rule>
+</DescribeReceiptRuleResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

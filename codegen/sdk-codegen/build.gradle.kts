@@ -144,7 +144,7 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
                 "CloudWatch Logs", "SageMaker", "Secrets Manager",
 
                 // Query
-                "IAM", "RDS",
+                "IAM", "RDS", "SES",
 
                 // REST XML
                 "S3", "S3 Control", "Route 53",

@@ -1,0 +1,95 @@
+POST https://email.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 4398
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/ses#_.__ m/E,e
+host: email.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: e22744e2acf6e02dc2e1915d9c87db0dfa7821846d286a01b9725712ca89c049
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ses/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateReceiptRule&
+Version=2010-12-01&
+RuleSetName=__RuleSetName__&
+Rule.Name=__Name__&
+Rule.Enabled=false&
+Rule.TlsPolicy=__TlsPolicy__&
+Rule.Recipients.member.1=__member__&
+Rule.Recipients.member.2=__member__&
+Rule.Recipients.member.3=__member__&
+Rule.Actions.member.1.S3Action.BucketName=__BucketName__&
+Rule.Actions.member.1.S3Action.TopicArn=__TopicArn__&
+Rule.Actions.member.1.S3Action.ObjectKeyPrefix=__ObjectKeyPrefix__&
+Rule.Actions.member.1.S3Action.KmsKeyArn=__KmsKeyArn__&
+Rule.Actions.member.1.S3Action.IamRoleArn=__IamRoleArn__&
+Rule.Actions.member.1.BounceAction.SmtpReplyCode=__SmtpReplyCode__&
+Rule.Actions.member.1.BounceAction.Message=__Message__&
+Rule.Actions.member.1.BounceAction.Sender=__Sender__&
+Rule.Actions.member.1.BounceAction.TopicArn=__TopicArn__&
+Rule.Actions.member.1.BounceAction.StatusCode=__StatusCode__&
+Rule.Actions.member.1.WorkmailAction.OrganizationArn=__OrganizationArn__&
+Rule.Actions.member.1.WorkmailAction.TopicArn=__TopicArn__&
+Rule.Actions.member.1.LambdaAction.FunctionArn=__FunctionArn__&
+Rule.Actions.member.1.LambdaAction.TopicArn=__TopicArn__&
+Rule.Actions.member.1.LambdaAction.InvocationType=__InvocationType__&
+Rule.Actions.member.1.StopAction.Scope=__Scope__&
+Rule.Actions.member.1.StopAction.TopicArn=__TopicArn__&
+Rule.Actions.member.1.AddHeaderAction.HeaderName=__HeaderName__&
+Rule.Actions.member.1.AddHeaderAction.HeaderValue=__HeaderValue__&
+Rule.Actions.member.1.SNSAction.TopicArn=__TopicArn__&
+Rule.Actions.member.1.SNSAction.Encoding=__Encoding__&
+Rule.Actions.member.1.ConnectAction.InstanceARN=__InstanceARN__&
+Rule.Actions.member.1.ConnectAction.IAMRoleARN=__IAMRoleARN__&
+Rule.Actions.member.2.S3Action.BucketName=__BucketName__&
+Rule.Actions.member.2.S3Action.TopicArn=__TopicArn__&
+Rule.Actions.member.2.S3Action.ObjectKeyPrefix=__ObjectKeyPrefix__&
+Rule.Actions.member.2.S3Action.KmsKeyArn=__KmsKeyArn__&
+Rule.Actions.member.2.S3Action.IamRoleArn=__IamRoleArn__&
+Rule.Actions.member.2.BounceAction.SmtpReplyCode=__SmtpReplyCode__&
+Rule.Actions.member.2.BounceAction.Message=__Message__&
+Rule.Actions.member.2.BounceAction.Sender=__Sender__&
+Rule.Actions.member.2.BounceAction.TopicArn=__TopicArn__&
+Rule.Actions.member.2.BounceAction.StatusCode=__StatusCode__&
+Rule.Actions.member.2.WorkmailAction.OrganizationArn=__OrganizationArn__&
+Rule.Actions.member.2.WorkmailAction.TopicArn=__TopicArn__&
+Rule.Actions.member.2.LambdaAction.FunctionArn=__FunctionArn__&
+Rule.Actions.member.2.LambdaAction.TopicArn=__TopicArn__&
+Rule.Actions.member.2.LambdaAction.InvocationType=__InvocationType__&
+Rule.Actions.member.2.StopAction.Scope=__Scope__&
+Rule.Actions.member.2.StopAction.TopicArn=__TopicArn__&
+Rule.Actions.member.2.AddHeaderAction.HeaderName=__HeaderName__&
+Rule.Actions.member.2.AddHeaderAction.HeaderValue=__HeaderValue__&
+Rule.Actions.member.2.SNSAction.TopicArn=__TopicArn__&
+Rule.Actions.member.2.SNSAction.Encoding=__Encoding__&
+Rule.Actions.member.2.ConnectAction.InstanceARN=__InstanceARN__&
+Rule.Actions.member.2.ConnectAction.IAMRoleARN=__IAMRoleARN__&
+Rule.Actions.member.3.S3Action.BucketName=__BucketName__&
+Rule.Actions.member.3.S3Action.TopicArn=__TopicArn__&
+Rule.Actions.member.3.S3Action.ObjectKeyPrefix=__ObjectKeyPrefix__&
+Rule.Actions.member.3.S3Action.KmsKeyArn=__KmsKeyArn__&
+Rule.Actions.member.3.S3Action.IamRoleArn=__IamRoleArn__&
+Rule.Actions.member.3.BounceAction.SmtpReplyCode=__SmtpReplyCode__&
+Rule.Actions.member.3.BounceAction.Message=__Message__&
+Rule.Actions.member.3.BounceAction.Sender=__Sender__&
+Rule.Actions.member.3.BounceAction.TopicArn=__TopicArn__&
+Rule.Actions.member.3.BounceAction.StatusCode=__StatusCode__&
+Rule.Actions.member.3.WorkmailAction.OrganizationArn=__OrganizationArn__&
+Rule.Actions.member.3.WorkmailAction.TopicArn=__TopicArn__&
+Rule.Actions.member.3.LambdaAction.FunctionArn=__FunctionArn__&
+Rule.Actions.member.3.LambdaAction.TopicArn=__TopicArn__&
+Rule.Actions.member.3.LambdaAction.InvocationType=__InvocationType__&
+Rule.Actions.member.3.StopAction.Scope=__Scope__&
+Rule.Actions.member.3.StopAction.TopicArn=__TopicArn__&
+Rule.Actions.member.3.AddHeaderAction.HeaderName=__HeaderName__&
+Rule.Actions.member.3.AddHeaderAction.HeaderValue=__HeaderValue__&
+Rule.Actions.member.3.SNSAction.TopicArn=__TopicArn__&
+Rule.Actions.member.3.SNSAction.Encoding=__Encoding__&
+Rule.Actions.member.3.ConnectAction.InstanceARN=__InstanceARN__&
+Rule.Actions.member.3.ConnectAction.IAMRoleARN=__IAMRoleARN__&
+Rule.ScanEnabled=false&
+After=__After__
