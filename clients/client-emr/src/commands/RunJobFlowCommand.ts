@@ -263,6 +263,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *       },
  *     },
  *   ],
+ *   StepExecutionRoleArn: "STRING_VALUE",
  *   BootstrapActions: [ // BootstrapActionConfigList
  *     { // BootstrapActionConfig
  *       Name: "STRING_VALUE", // required

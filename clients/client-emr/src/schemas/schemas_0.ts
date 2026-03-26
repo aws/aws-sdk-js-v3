@@ -516,6 +516,7 @@ const _SD = "StepDetail";
 const _SDB = "ScaleDownBehavior";
 const _SDL = "StepDetailList";
 const _SDT = "StartDateTime";
+const _SERA = "StepExecutionRoleArn";
 const _SESD = "StepExecutionStatusDetail";
 const _SGB = "StorageGB";
 const _SI = "StepIds";
@@ -1543,8 +1544,8 @@ export var RemoveTagsOutput$: StaticStructureSchema = [3, n0, _RTO,
 ];
 export var RunJobFlowInput$: StaticStructureSchema = [3, n0, _RJFI,
   0,
-  [_N, _Ins, _LU, _LEKKI, _AI, _AV, _RL, _S, _BA, _SPu, _NSP, _Ap, _Con, _VTAU, _JFR, _SR, _T, _SC, _ASR, _SDB, _CAI, _ERVS, _RUOB, _KA, _SCL, _MSP, _PGCl, _ATP, _OSRL, _ERVI, _ERVT, _ES, _MC],
-  [0, () => JobFlowInstancesConfig$, 0, 0, 0, 0, 0, () => StepConfigList, () => BootstrapActionConfigList, 64 | 0, () => NewSupportedProductsList, () => ApplicationList, () => ConfigurationList, 2, 0, 0, () => TagList, 0, 0, 0, 0, 1, 0, () => KerberosAttributes$, 1, () => ManagedScalingPolicy$, () => PlacementGroupConfigList, () => AutoTerminationPolicy$, 0, 1, 1, 2, () => MonitoringConfiguration$], 2
+  [_N, _Ins, _LU, _LEKKI, _AI, _AV, _RL, _S, _SERA, _BA, _SPu, _NSP, _Ap, _Con, _VTAU, _JFR, _SR, _T, _SC, _ASR, _SDB, _CAI, _ERVS, _RUOB, _KA, _SCL, _MSP, _PGCl, _ATP, _OSRL, _ERVI, _ERVT, _ES, _MC],
+  [0, () => JobFlowInstancesConfig$, 0, 0, 0, 0, 0, () => StepConfigList, 0, () => BootstrapActionConfigList, 64 | 0, () => NewSupportedProductsList, () => ApplicationList, () => ConfigurationList, 2, 0, 0, () => TagList, 0, 0, 0, 0, 1, 0, () => KerberosAttributes$, 1, () => ManagedScalingPolicy$, () => PlacementGroupConfigList, () => AutoTerminationPolicy$, 0, 1, 1, 2, () => MonitoringConfiguration$], 2
 ];
 export var RunJobFlowOutput$: StaticStructureSchema = [3, n0, _RJFO,
   0,
