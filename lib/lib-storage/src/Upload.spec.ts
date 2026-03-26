@@ -8,7 +8,7 @@ import {
   S3Client,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
-import { AbortController } from "@smithy/abort-controller";
+import { AbortController as AbortControllerPolyfill } from "@smithy/abort-controller";
 import { EventEmitter, Readable } from "node:stream";
 import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -783,6 +783,24 @@ describe(Upload.name, () => {
     }
   });
 
+  it("should respect external abort signal from polyfill", async () => {
+    const abortController = new AbortControllerPolyfill();
+
+    try {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+        abortController,
+      });
+
+      abortController.abort();
+
+      await upload.done();
+    } catch (error) {
+      expect(error).toBeDefined();
+    }
+  });
+
   it("should reject calling .done() more than once on an instance", async () => {
     const upload = new Upload({
       params,
@@ -883,7 +901,7 @@ describe(Upload.name, () => {
     });
 
     it("should use custom abortController when provided", () => {
-      const customAbortController = new AbortController();
+      const customAbortController = new AbortControllerPolyfill();
       const upload = new Upload({
         params,
         abortController: customAbortController,
