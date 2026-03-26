@@ -174,6 +174,8 @@ module.exports = class Inliner {
 
     const entryPoint = path.join(root, this.subfolder, this.package, "dist-es", "index.js");
 
+    const externalityAssessments = {};
+
     const inputOptions = (externals) => ({
       input: [entryPoint],
       plugins: [nodeResolve(), json()],
@@ -188,15 +190,19 @@ module.exports = class Inliner {
         }
       },
       external: (id) => {
+        if (undefined !== externalityAssessments[id]) {
+          return externalityAssessments[id];
+        }
+
         const relative = !!id.match(/^\.?\.?\//);
         if (!relative) {
           this.verbose && console.log("EXTERN (pkg)", id);
-          return true;
+          return (externalityAssessments[id] = true);
         }
 
         if (id === entryPoint) {
           this.verbose && console.log("INTERN (entry point)", id);
-          return false;
+          return (externalityAssessments[id] = false);
         }
 
         const local =
@@ -205,19 +211,19 @@ module.exports = class Inliner {
             (id.includes(`/packages-internal/`) && !id.includes(`packages-internal/${this.package}/`)));
         if (local) {
           this.verbose && console.log("EXTERN (local)", id);
-          return true;
+          return (externalityAssessments[id] = true);
         }
 
         for (const file of externals) {
           const idWithoutExtension = id.replace(/\.[tj]s$/, "");
           if (idWithoutExtension.endsWith(path.basename(file))) {
             this.verbose && console.log("EXTERN (variant)", id);
-            return true;
+            return (externalityAssessments[id] = true);
           }
         }
 
         this.verbose && console.log("INTERN (invariant)", id);
-        return false;
+        return (externalityAssessments[id] = false);
       },
     });
 
