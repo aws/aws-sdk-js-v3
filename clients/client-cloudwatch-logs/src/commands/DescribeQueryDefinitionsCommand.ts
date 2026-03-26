@@ -63,6 +63,13 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * //       logGroupNames: [ // LogGroupNames
  * //         "STRING_VALUE",
  * //       ],
+ * //       parameters: [ // QueryParameterList
+ * //         { // QueryParameter
+ * //           name: "STRING_VALUE", // required
+ * //           defaultValue: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

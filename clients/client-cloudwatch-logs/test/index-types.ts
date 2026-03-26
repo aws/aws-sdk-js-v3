@@ -610,6 +610,7 @@ export type {
   QueryCompileErrorLocation,
   QueryDefinition,
   QueryInfo,
+  QueryParameter,
   QueryStatistics,
   RecordField,
   RejectedEntityInfo,

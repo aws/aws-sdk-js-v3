@@ -1251,6 +1251,19 @@ export interface S3Configuration {
    * @public
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The AWS accountId for the bucket owning account.</p>
+   * @public
+   */
+  ownerAccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS encryption key. Must belong to the same AWS Region
+   *       as the destination Amazon S3 bucket.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -1286,7 +1299,7 @@ export interface CreateScheduledQueryRequest {
   description?: string | undefined;
 
   /**
-   * <p>The query language to use for the scheduled query. Valid values are <code>LogsQL</code>,
+   * <p>The query language to use for the scheduled query. Valid values are <code>CWLI</code>,
    *         <code>PPL</code>, and <code>SQL</code>.</p>
    * @public
    */
@@ -3539,6 +3552,36 @@ export interface DescribeQueryDefinitionsRequest {
 }
 
 /**
+ * <p>This structure defines a query parameter for a saved CloudWatch Logs Insights query
+ *       definition. Query parameters are supported only for Logs Insights QL queries. They are
+ *       placeholder variables that you can reference in a query string using the
+ *       <code>\{\{parameterName\}\}</code> syntax. Each parameter can include a default value and a
+ *       description.</p>
+ * @public
+ */
+export interface QueryParameter {
+  /**
+   * <p>The name of the query parameter. A query parameter name must start with a letter or
+   *       underscore, and contain only letters, digits, and underscores.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The default value to use for this query parameter if no value is supplied at execution
+   *       time.</p>
+   * @public
+   */
+  defaultValue?: string | undefined;
+
+  /**
+   * <p>A description of the query parameter that explains its purpose or expected values.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
  * <p>This structure contains details about a saved CloudWatch Logs Insights query
  *       definition.</p>
  * @public
@@ -3583,6 +3626,13 @@ export interface QueryDefinition {
    * @public
    */
   logGroupNames?: string[] | undefined;
+
+  /**
+   * <p>If this query definition contains a list of query parameters that define placeholder
+   *       variables for the query string, that list appears here.</p>
+   * @public
+   */
+  parameters?: QueryParameter[] | undefined;
 }
 
 /**
@@ -7492,6 +7542,10 @@ export interface PutDeliverySourceRequest {
    *             <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
    *             <li>
+   *                <p>For Amazon Bedrock AgentCore Memory, the valid values are
+   *             <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For Amazon Bedrock AgentCore Gateway, the valid values are
    *             <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
@@ -7508,6 +7562,11 @@ export interface PutDeliverySourceRequest {
    *             <li>
    *                <p>For Elemental MediaTailor, the valid values are <code>AD_DECISION_SERVER_LOGS</code>,
    *             <code>MANIFEST_SERVICE_LOGS</code>, and <code>TRANSCODE_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon EKS Auto Mode, the valid values are <code>AUTO_MODE_BLOCK_STORAGE_LOGS</code>,
+   *             <code>AUTO_MODE_COMPUTE_LOGS</code>, <code>AUTO_MODE_IPAM_LOGS</code>, and
+   *             <code>AUTO_MODE_LOAD_BALANCING_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Entity Resolution, the valid value is <code>WORKFLOW_LOGS</code>.</p>
@@ -7528,7 +7587,7 @@ export interface PutDeliverySourceRequest {
    *             <code>PCS_JOBCOMP_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Quick Suite, the valid values are <code>CHAT_LOGS</code> and
+   *                <p>For Quick, the valid values are <code>CHAT_LOGS</code> and
    *             <code>FEEDBACK_LOGS</code>.</p>
    *             </li>
    *             <li>
@@ -8085,6 +8144,16 @@ export interface PutQueryDefinitionRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>Use this parameter to include specific query parameters as part of your query definition.
+   *       Query parameters are supported only for Logs Insights QL queries. Query parameters allow you
+   *       to use placeholder variables in your query string that are substituted with values at execution
+   *       time. Use the <code>\{\{parameterName\}\}</code> syntax in your query string to reference a
+   *       parameter.</p>
+   * @public
+   */
+  parameters?: QueryParameter[] | undefined;
 }
 
 /**

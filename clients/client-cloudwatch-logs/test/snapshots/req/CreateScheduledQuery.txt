@@ -3,14 +3,14 @@ POST https://logs.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: Logs_20140328.CreateScheduledQuery
-content-length: 550
+content-length: 614
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudwatch-logs#_.__ m/E,e
 host: logs.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 072bd6a279e1e7d96db6e602e4b616a6388588dca54fb56fe2b8c410c7a83bee
+x-amz-content-sha256: f3082744be36ef98b5642811dd5a4630f17f0403c74f149ead92bf8f05737a0e
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -31,7 +31,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_requ
   "destinationConfiguration": {
     "s3Configuration": {
       "destinationIdentifier": "__destinationIdentifier__",
-      "roleArn": "__roleArn__"
+      "roleArn": "__roleArn__",
+      "ownerAccountId": "__ownerAccountId__",
+      "kmsKeyId": "__kmsKeyId__"
     }
   },
   "scheduleStartTime": 0,

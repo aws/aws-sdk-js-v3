@@ -39,6 +39,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
+      ],
+      "parameters": [
+        {
+          "name": "__name__",
+          "defaultValue": "__defaultValue__",
+          "description": "__description__"
+        },
+        {
+          "name": "__name__",
+          "defaultValue": "__defaultValue__",
+          "description": "__description__"
+        },
+        {
+          "name": "__name__",
+          "defaultValue": "__defaultValue__",
+          "description": "__description__"
+        }
       ]
     },
     {
@@ -51,6 +68,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
+      ],
+      "parameters": [
+        {
+          "name": "__name__",
+          "defaultValue": "__defaultValue__",
+          "description": "__description__"
+        },
+        {
+          "name": "__name__",
+          "defaultValue": "__defaultValue__",
+          "description": "__description__"
+        },
+        {
+          "name": "__name__",
+          "defaultValue": "__defaultValue__",
+          "description": "__description__"
+        }
       ]
     },
     {
@@ -63,6 +97,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
+      ],
+      "parameters": [
+        {
+          "name": "__name__",
+          "defaultValue": "__defaultValue__",
+          "description": "__description__"
+        },
+        {
+          "name": "__name__",
+          "defaultValue": "__defaultValue__",
+          "description": "__description__"
+        },
+        {
+          "name": "__name__",
+          "defaultValue": "__defaultValue__",
+          "description": "__description__"
+        }
       ]
     }
   ],
@@ -83,6 +134,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
+      ],
+      parameters: [
+        {
+          name: "__name__",
+          defaultValue: "__defaultValue__",
+          description: "__description__"
+        },
+        {
+          name: "__name__",
+          defaultValue: "__defaultValue__",
+          description: "__description__"
+        },
+        {
+          name: "__name__",
+          defaultValue: "__defaultValue__",
+          description: "__description__"
+        }
       ]
     },
     {
@@ -95,6 +163,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
+      ],
+      parameters: [
+        {
+          name: "__name__",
+          defaultValue: "__defaultValue__",
+          description: "__description__"
+        },
+        {
+          name: "__name__",
+          defaultValue: "__defaultValue__",
+          description: "__description__"
+        },
+        {
+          name: "__name__",
+          defaultValue: "__defaultValue__",
+          description: "__description__"
+        }
       ]
     },
     {
@@ -107,6 +192,23 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
+      ],
+      parameters: [
+        {
+          name: "__name__",
+          defaultValue: "__defaultValue__",
+          description: "__description__"
+        },
+        {
+          name: "__name__",
+          defaultValue: "__defaultValue__",
+          description: "__description__"
+        },
+        {
+          name: "__name__",
+          defaultValue: "__defaultValue__",
+          description: "__description__"
+        }
       ]
     }
   ],

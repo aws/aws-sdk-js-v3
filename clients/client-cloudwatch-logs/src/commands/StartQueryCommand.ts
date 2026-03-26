@@ -73,7 +73,7 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  *       in a monitoring account to start a query in a linked source account. For more information, see
  *         <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>. For a cross-account <code>StartQuery</code>
  *       operation, the query definition must be defined in the monitoring account.</p>
- *          <p>You can have up to 30 concurrent CloudWatch Logs insights queries, including queries
+ *          <p>You can have up to 100 concurrent CloudWatch Logs insights queries, including queries
  *       that have been added to dashboards. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

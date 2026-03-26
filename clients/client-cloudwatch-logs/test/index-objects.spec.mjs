@@ -505,6 +505,7 @@ import {
   QueryDefinition$,
   QueryInfo$,
   QueryLanguage,
+  QueryParameter$,
   QueryStatistics$,
   QueryStatus,
   RecordField$,
@@ -1080,6 +1081,7 @@ assert(typeof QueryCompileError$ === "object");
 assert(typeof QueryCompileErrorLocation$ === "object");
 assert(typeof QueryDefinition$ === "object");
 assert(typeof QueryInfo$ === "object");
+assert(typeof QueryParameter$ === "object");
 assert(typeof QueryStatistics$ === "object");
 assert(typeof RecordField$ === "object");
 assert(typeof RejectedEntityInfo$ === "object");

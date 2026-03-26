@@ -63,6 +63,8 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * //         s3Configuration: { // S3Configuration
  * //           destinationIdentifier: "STRING_VALUE", // required
  * //           roleArn: "STRING_VALUE", // required
+ * //           ownerAccountId: "STRING_VALUE",
+ * //           kmsKeyId: "STRING_VALUE",
  * //         },
  * //       },
  * //       creationTime: Number("long"),

@@ -59,6 +59,13 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  *   ],
  *   queryString: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
+ *   parameters: [ // QueryParameterList
+ *     { // QueryParameter
+ *       name: "STRING_VALUE", // required
+ *       defaultValue: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new PutQueryDefinitionCommand(input);
  * const response = await client.send(command);

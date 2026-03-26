@@ -44,7 +44,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "destinationConfiguration": {
     "s3Configuration": {
       "destinationIdentifier": "__destinationIdentifier__",
-      "roleArn": "__roleArn__"
+      "roleArn": "__roleArn__",
+      "ownerAccountId": "__ownerAccountId__",
+      "kmsKeyId": "__kmsKeyId__"
     }
   },
   "state": "__state__",
@@ -76,7 +78,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   destinationConfiguration: {
     s3Configuration: {
       destinationIdentifier: "__destinationIdentifier__",
-      roleArn: "__roleArn__"
+      roleArn: "__roleArn__",
+      ownerAccountId: "__ownerAccountId__",
+      kmsKeyId: "__kmsKeyId__"
     }
   },
   state: "__state__",

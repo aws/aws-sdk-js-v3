@@ -390,6 +390,8 @@ const _QD = "QueryDefinition";
 const _QDL = "QueryDefinitionList";
 const _QI = "QueryInfo";
 const _QIL = "QueryInfoList";
+const _QP = "QueryParameter";
+const _QPL = "QueryParameterList";
 const _QR = "QueryResults";
 const _QS = "QueryStatistics";
 const _RAEE = "ResourceAlreadyExistsException";
@@ -725,6 +727,7 @@ const _nMV = "nonMatchValue";
 const _nP = "networkPolicy";
 const _nST = "nextSequenceToken";
 const _nT = "nextToken";
+const _oAI = "ownerAccountId";
 const _oB = "orderBy";
 const _oF = "outputFormat";
 const _oIE = "overwriteIfExists";
@@ -749,6 +752,7 @@ const _pTOCSF = "parseToOCSF";
 const _pTa = "patternTokens";
 const _pVPC = "parseVPC";
 const _pWAF = "parseWAF";
+const _pa = "parameters";
 const _pe = "percent";
 const _po = "policy";
 const _q = "queries";
@@ -2214,8 +2218,8 @@ export var PutMetricFilterRequest$: StaticStructureSchema = [3, n0, _PMFR,
 ];
 export var PutQueryDefinitionRequest$: StaticStructureSchema = [3, n0, _PQDR,
   0,
-  [_n, _qS, _qL, _qDI, _lGNo, _cTl],
-  [0, 0, 0, 0, 64 | 0, [0, 4]], 2
+  [_n, _qS, _qL, _qDI, _lGNo, _cTl, _pa],
+  [0, 0, 0, 0, 64 | 0, [0, 4], () => QueryParameterList], 2
 ];
 export var PutQueryDefinitionResponse$: StaticStructureSchema = [3, n0, _PQDRu,
   0,
@@ -2259,13 +2263,18 @@ export var QueryCompileErrorLocation$: StaticStructureSchema = [3, n0, _QCEL,
 ];
 export var QueryDefinition$: StaticStructureSchema = [3, n0, _QD,
   0,
-  [_qL, _qDI, _n, _qS, _lM, _lGNo],
-  [0, 0, 0, 0, 1, 64 | 0]
+  [_qL, _qDI, _n, _qS, _lM, _lGNo, _pa],
+  [0, 0, 0, 0, 1, 64 | 0, () => QueryParameterList]
 ];
 export var QueryInfo$: StaticStructureSchema = [3, n0, _QI,
   0,
   [_qL, _qI, _qS, _sta, _cTr, _lGN],
   [0, 0, 0, 0, 1, 0]
+];
+export var QueryParameter$: StaticStructureSchema = [3, n0, _QP,
+  0,
+  [_n, _dV, _d],
+  [0, 0, 0], 1
 ];
 export var QueryStatistics$: StaticStructureSchema = [3, n0, _QS,
   0,
@@ -2309,8 +2318,8 @@ export var ResultField$: StaticStructureSchema = [3, n0, _RFe,
 ];
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_dI, _rAo],
-  [0, 0], 2
+  [_dI, _rAo, _oAI, _kKI],
+  [0, 0, 0, 0], 2
 ];
 export var S3DeliveryConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
@@ -2633,6 +2642,9 @@ var QueryDefinitionList: StaticListSchema = [1, n0, _QDL,
 ];
 var QueryInfoList: StaticListSchema = [1, n0, _QIL,
   0, () => QueryInfo$
+];
+var QueryParameterList: StaticListSchema = [1, n0, _QPL,
+  0, () => QueryParameter$
 ];
 var QueryResults: StaticListSchema = [1, n0, _QR,
   0, () => ResultRows
