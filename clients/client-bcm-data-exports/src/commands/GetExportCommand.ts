@@ -61,6 +61,7 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  * //     DestinationConfigurations: { // DestinationConfigurations
  * //       S3Destination: { // S3Destination
  * //         S3Bucket: "STRING_VALUE", // required
+ * //         S3BucketOwner: "STRING_VALUE",
  * //         S3Prefix: "STRING_VALUE", // required
  * //         S3Region: "STRING_VALUE", // required
  * //         S3OutputConfigurations: { // S3OutputConfigurations

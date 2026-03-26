@@ -74,6 +74,7 @@ const _RTe = "ResourceTags";
 const _RTes = "ResourceTag";
 const _S = "Schema";
 const _SB = "S3Bucket";
+const _SBO = "S3BucketOwner";
 const _SC = "ServiceCode";
 const _SCt = "StatusCode";
 const _SD = "S3Destination";
@@ -325,8 +326,8 @@ export var ResourceTag$: StaticStructureSchema = [3, n0, _RTes,
 ];
 export var S3Destination$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_SB, _SP, _SRe, _SOC],
-  [0, 0, 0, () => S3OutputConfigurations$], 4
+  [_SB, _SP, _SRe, _SOC, _SBO],
+  [0, 0, 0, () => S3OutputConfigurations$, 0], 4
 ];
 export var S3OutputConfigurations$: StaticStructureSchema = [3, n0, _SOC,
   0,

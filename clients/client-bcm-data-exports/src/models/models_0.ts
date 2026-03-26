@@ -70,6 +70,12 @@ export interface S3Destination {
   S3Bucket: string | undefined;
 
   /**
+   * <p>The AWS Account ID that owns the S3 bucket used as the destination for the data export.</p>
+   * @public
+   */
+  S3BucketOwner?: string | undefined;
+
+  /**
    * <p>The S3 path prefix you want prepended to the name of your data export.</p>
    * @public
    */
