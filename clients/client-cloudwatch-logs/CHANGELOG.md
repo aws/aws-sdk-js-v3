@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1018.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1017.0...v3.1018.0) (2026-03-26)
+
+
+### Features
+
+* **client-cloudwatch-logs:** This release adds parameter support to saved queries in CloudWatch Logs Insights. Define reusable query templates with named placeholders, invoke them using start query. Available in Console, CLI and SDK ([2c09ac4](https://github.com/aws/aws-sdk-js-v3/commit/2c09ac48f254ea7b0f5915cad5d387197e589bb7))
+
+
+
+
+
 # [3.1017.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1016.0...v3.1017.0) (2026-03-25)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

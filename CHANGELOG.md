@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1018.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1017.0...v3.1018.0) (2026-03-26)
+
+
+### Features
+
+* **client-bcm-data-exports:** With this release we are providing an option to accounts to have their export delivered to an S3 bucket that is not owned by the account. ([ec48160](https://github.com/aws/aws-sdk-js-v3/commit/ec48160efacd618fb6624fb76c379bcbd88e8192))
+* **client-cloudwatch-logs:** This release adds parameter support to saved queries in CloudWatch Logs Insights. Define reusable query templates with named placeholders, invoke them using start query. Available in Console, CLI and SDK ([2c09ac4](https://github.com/aws/aws-sdk-js-v3/commit/2c09ac48f254ea7b0f5915cad5d387197e589bb7))
+* **client-emr:** Add StepExecutionRoleArn to RunJobFlow API ([59a0577](https://github.com/aws/aws-sdk-js-v3/commit/59a0577f97bf21a8cce255d97bb9cd57e1ee60a1))
+* **client-sagemaker:** Release support for ml.r5d.16xlarge instance types for SageMaker HyperPod ([db6db4e](https://github.com/aws/aws-sdk-js-v3/commit/db6db4e38b768b849146ecf1eee964457be37887))
+* **client-timestream-influxdb:** Timestream for InfluxDB adds support for customer defined maintenance windows. This allows customers to define maintenance schedule during resource creation and updates ([22d9a2c](https://github.com/aws/aws-sdk-js-v3/commit/22d9a2c89b71410267d00164d0abce2b1ed129a3))
+* **clients:** update client endpoints as of 2026-03-26 ([bc19bda](https://github.com/aws/aws-sdk-js-v3/commit/bc19bda4a875239b26e5d624d0e8809f40290e13))
+
+
+
+
+
 # [3.1017.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1016.0...v3.1017.0) (2026-03-25)
 
 

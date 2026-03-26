@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-cognito-identity",
-  "version": "3.972.17",
+  "version": "3.972.18",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline credential-provider-cognito-identity",
@@ -24,7 +24,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/nested-clients": "workspace:^3.996.14",
+    "@aws-sdk/nested-clients": "workspace:^3.996.15",
     "@aws-sdk/types": "workspace:^3.973.6",
     "@smithy/property-provider": "^4.2.12",
     "@smithy/types": "^4.13.1",

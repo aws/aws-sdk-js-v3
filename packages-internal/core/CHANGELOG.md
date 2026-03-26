@@ -28,6 +28,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.25 (2026-03-25)
+### Docs
+* **packages-internal:** readme updates for internal packages ([#7885](https://github.com/aws/aws-sdk-js-v3/issues/7885)) ([2da8b4c](https://github.com/aws/aws-sdk-js-v3/commit/2da8b4cd3ee660dcb14ca79d77cf942bd3405349))
+
+
+
 # 3.973.24 (2026-03-23)
 ### Bug Fixes
 * **core/protocols:** use composite error registry for error handling, revert default error message to "UnknownError" ([#7877](https://github.com/aws/aws-sdk-js-v3/issues/7877)) ([55f7726](https://github.com/aws/aws-sdk-js-v3/commit/55f7726977a2c87d58e7591ba22f6e77b1c55617))

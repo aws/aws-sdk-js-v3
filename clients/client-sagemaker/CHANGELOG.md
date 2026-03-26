@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1018.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1017.0...v3.1018.0) (2026-03-26)
+
+
+### Features
+
+* **client-sagemaker:** Release support for ml.r5d.16xlarge instance types for SageMaker HyperPod ([db6db4e](https://github.com/aws/aws-sdk-js-v3/commit/db6db4e38b768b849146ecf1eee964457be37887))
+
+
+
+
+
 # [3.1017.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1016.0...v3.1017.0) (2026-03-25)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

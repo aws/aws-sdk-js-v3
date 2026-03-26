@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1018.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1017.0...v3.1018.0) (2026-03-26)
+
+
+### Features
+
+* **client-bcm-data-exports:** With this release we are providing an option to accounts to have their export delivered to an S3 bucket that is not owned by the account. ([ec48160](https://github.com/aws/aws-sdk-js-v3/commit/ec48160efacd618fb6624fb76c379bcbd88e8192))
+
+
+
+
+
 # [3.1017.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1016.0...v3.1017.0) (2026-03-25)
 
 **Note:** Version bump only for package @aws-sdk/client-bcm-data-exports

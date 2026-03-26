@@ -17,6 +17,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.16 (2026-03-25)
+### Docs
+* **packages-internal:** readme updates for internal packages ([#7885](https://github.com/aws/aws-sdk-js-v3/issues/7885)) ([2da8b4c](https://github.com/aws/aws-sdk-js-v3/commit/2da8b4cd3ee660dcb14ca79d77cf942bd3405349))
+
+
+
 # 3.972.15 (2026-03-20)
 ### Chores
 * **xml-builder:** bump fast-xml-parser to 5.5.8 ([#7876](https://github.com/aws/aws-sdk-js-v3/issues/7876)) ([80ef601](https://github.com/aws/aws-sdk-js-v3/commit/80ef60146a5f1ba7e584cfdc595550c9e97b52f1))

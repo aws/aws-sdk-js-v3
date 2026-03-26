@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1018.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1017.0...v3.1018.0) (2026-03-26)
+
+
+### Features
+
+* **client-timestream-influxdb:** Timestream for InfluxDB adds support for customer defined maintenance windows. This allows customers to define maintenance schedule during resource creation and updates ([22d9a2c](https://github.com/aws/aws-sdk-js-v3/commit/22d9a2c89b71410267d00164d0abce2b1ed129a3))
+
+
+
+
+
 # [3.1017.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1016.0...v3.1017.0) (2026-03-25)
 
 **Note:** Version bump only for package @aws-sdk/client-timestream-influxdb
