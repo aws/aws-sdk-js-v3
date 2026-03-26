@@ -4717,8 +4717,8 @@ export var CreateImageVersionResponse$: StaticStructureSchema = [3, n0, _CIVRr,
 ];
 export var CreateInferenceComponentInput$: StaticStructureSchema = [3, n0, _CICI,
   0,
-  [_ICN, _EN, _Spe, _VN, _RC, _Ta],
-  [0, 0, () => InferenceComponentSpecification$, 0, () => InferenceComponentRuntimeConfig$, () => TagList], 3
+  [_ICN, _EN, _VN, _Spe, _RC, _Ta],
+  [0, 0, 0, () => InferenceComponentSpecification$, () => InferenceComponentRuntimeConfig$, () => TagList], 2
 ];
 export var CreateInferenceComponentOutput$: StaticStructureSchema = [3, n0, _CICO,
   0,

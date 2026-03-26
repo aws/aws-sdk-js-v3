@@ -133,6 +133,7 @@ export const ClusterInstanceType = {
   ML_P6E_GB200_36XLARGE: "ml.p6e-gb200.36xlarge",
   ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
   ML_P6_B300_48XLARGE: "ml.p6-b300.48xlarge",
+  ML_R5D_16XLARGE: "ml.r5d.16xlarge",
   ML_R6I_12XLARGE: "ml.r6i.12xlarge",
   ML_R6I_16XLARGE: "ml.r6i.16xlarge",
   ML_R6I_24XLARGE: "ml.r6i.24xlarge",

@@ -9916,6 +9916,12 @@
             "smithy.api#enumValue": "ml.r7i.48xlarge"
           }
         },
+        "ML_R5D_16XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.r5d.16xlarge"
+          }
+        },
         "ML_P6_B300_48XLARGE": {
           "target": "smithy.api#Unit",
           "traits": {
@@ -15275,9 +15281,7 @@
         "Specification": {
           "target": "com.amazonaws.sagemaker#InferenceComponentSpecification",
           "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>Details about the resources to deploy with this inference component, including the model, container, and compute resources.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Details about the resources to deploy with this inference component, including the model, container, and compute resources.</p>"
           }
         },
         "RuntimeConfig": {
@@ -37220,7 +37224,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 170391
+          "max": 327680
         },
         "smithy.api#pattern": ".*"
       }

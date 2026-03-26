@@ -3892,7 +3892,7 @@ export interface CreateInferenceComponentInput {
    * <p>Details about the resources to deploy with this inference component, including the model, container, and compute resources.</p>
    * @public
    */
-  Specification: InferenceComponentSpecification | undefined;
+  Specification?: InferenceComponentSpecification | undefined;
 
   /**
    * <p>Runtime settings for a model that is deployed with an inference component.</p>
