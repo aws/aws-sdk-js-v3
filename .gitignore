@@ -79,6 +79,7 @@ etc/
 temp/
 temp-packages/
 temp-lib/
+temp-tarball/
 
 /tmp/*
 !/tmp/.gitkeep
