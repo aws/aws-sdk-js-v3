@@ -2,6 +2,7 @@ import {
   _Parameters$,
   AccessDeniedException,
   AccessDeniedException$,
+  ClusterConfiguration$,
   ClusterDeploymentType,
   ClusterStatus,
   ConflictException,
@@ -79,6 +80,7 @@ import {
   LogDeliveryConfiguration$,
   LogFormats,
   LogLevel,
+  MaintenanceSchedule$,
   NetworkType,
   paginateListDbClusters,
   paginateListDbInstances,
@@ -167,6 +169,7 @@ assert(typeof UpdateDbCluster$ === "object");
 assert(typeof UpdateDbInstanceCommand === "function");
 assert(typeof UpdateDbInstance$ === "object");
 // structural schemas
+assert(typeof ClusterConfiguration$ === "object");
 assert(typeof CreateDbClusterInput$ === "object");
 assert(typeof CreateDbClusterOutput$ === "object");
 assert(typeof CreateDbInstanceInput$ === "object");
@@ -202,6 +205,7 @@ assert(typeof ListDbParameterGroupsOutput$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof LogDeliveryConfiguration$ === "object");
+assert(typeof MaintenanceSchedule$ === "object");
 assert(typeof _Parameters$ === "object");
 assert(typeof PercentOrAbsoluteLong$ === "object");
 assert(typeof RebootDbClusterInput$ === "object");

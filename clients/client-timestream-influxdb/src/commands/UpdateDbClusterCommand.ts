@@ -52,6 +52,10 @@ export interface UpdateDbClusterCommandOutput extends UpdateDbClusterOutput, __M
  *   port: Number("int"),
  *   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge" || "db.influx.24xlarge",
  *   failoverMode: "AUTOMATIC" || "NO_FAILOVER",
+ *   maintenanceSchedule: { // MaintenanceSchedule
+ *     timezone: "STRING_VALUE", // required
+ *     preferredMaintenanceWindow: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new UpdateDbClusterCommand(input);
  * const response = await client.send(command);

@@ -79,6 +79,12 @@ export interface RebootDbInstanceCommandOutput extends RebootDbInstanceOutput, _
  * //   instanceModes: [ // InstanceModeList
  * //     "PRIMARY" || "STANDBY" || "REPLICA" || "INGEST" || "QUERY" || "COMPACT" || "PROCESS",
  * //   ],
+ * //   maintenanceSchedule: { // MaintenanceSchedule
+ * //     timezone: "STRING_VALUE", // required
+ * //     preferredMaintenanceWindow: "STRING_VALUE", // required
+ * //   },
+ * //   lastMaintenanceTime: new Date("TIMESTAMP"),
+ * //   nextMaintenanceTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```

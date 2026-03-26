@@ -67,6 +67,10 @@ export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __M
  *       enabled: true || false, // required
  *     },
  *   },
+ *   maintenanceSchedule: { // MaintenanceSchedule
+ *     timezone: "STRING_VALUE", // required
+ *     preferredMaintenanceWindow: "STRING_VALUE", // required
+ *   },
  *   tags: { // RequestTagMap
  *     "<keys>": "STRING_VALUE",
  *   },

@@ -48,6 +48,24 @@ export interface LogDeliveryConfiguration {
 }
 
 /**
+ * <p>Specifies the maintenance schedule for a DB instance or cluster, defining when maintenance operations such as patching can be performed.</p>
+ * @public
+ */
+export interface MaintenanceSchedule {
+  /**
+   * <p>The IANA timezone identifier for the maintenance window. Format: Region/City or UTC. For example, America/New_York or UTC.</p>
+   * @public
+   */
+  timezone: string | undefined;
+
+  /**
+   * <p>The preferred maintenance window in the format ddd:HH:MM-ddd:HH:MM (UTC). Day must be one of: Mon, Tue, Wed, Thu, Fri, Sat, Sun. For example, Sun:02:00-Sun:06:00. Provide an empty string to let the system choose a window.</p>
+   * @public
+   */
+  preferredMaintenanceWindow: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateDbClusterInput {
@@ -171,6 +189,12 @@ export interface CreateDbClusterInput {
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
+   * <p>Specifies the maintenance schedule for the DB cluster, including the preferred maintenance window and timezone.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
    * <p>A list of key-value pairs to associate with the DB instance.</p>
    * @public
    */
@@ -225,6 +249,30 @@ export interface GetDbClusterInput {
    * @public
    */
   dbClusterId: string | undefined;
+}
+
+/**
+ * <p>Configuration for node modes in the DbCluster.</p>
+ * @public
+ */
+export interface ClusterConfiguration {
+  /**
+   * <p>The number of instances in the DbCluster which can both ingest and query.</p>
+   * @public
+   */
+  ingestQueryInstances?: number | undefined;
+
+  /**
+   * <p>The number of instances in the DbCluster which can only query.</p>
+   * @public
+   */
+  queryOnlyInstances?: number | undefined;
+
+  /**
+   * <p>Indicates if the compactor instance is a standalone instance or not.</p>
+   * @public
+   */
+  dedicatedCompactor?: boolean | undefined;
 }
 
 /**
@@ -328,6 +376,24 @@ export interface GetDbClusterOutput {
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
+   * <p>The maintenance schedule for the DB cluster.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
+   * <p>The timestamp of the last completed maintenance operation on the DB cluster.</p>
+   * @public
+   */
+  lastMaintenanceTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp of the next scheduled maintenance operation on the DB cluster.</p>
+   * @public
+   */
+  nextMaintenanceTime?: Date | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
@@ -350,6 +416,12 @@ export interface GetDbClusterOutput {
    * @public
    */
   failoverMode?: FailoverMode | undefined;
+
+  /**
+   * <p>Configuration for node modes in the DbCluster.</p>
+   * @public
+   */
+  clusterConfiguration?: ClusterConfiguration | undefined;
 }
 
 /**
@@ -663,6 +735,12 @@ export interface UpdateDbClusterInput {
    * @public
    */
   failoverMode?: FailoverMode | undefined;
+
+  /**
+   * <p>Specifies the maintenance schedule for the DB cluster, including the preferred maintenance window and timezone.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
 }
 
 /**
@@ -778,6 +856,12 @@ export interface CreateDbInstanceInput {
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
+
+  /**
+   * <p>Specifies the maintenance schedule for the DB instance, including the preferred maintenance window and timezone.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
    * <p>A list of key-value pairs to associate with the DB instance.</p>
@@ -936,6 +1020,24 @@ export interface CreateDbInstanceOutput {
    * @public
    */
   instanceModes?: InstanceMode[] | undefined;
+
+  /**
+   * <p>The maintenance schedule for the DB instance.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
+   * <p>The timestamp of the last completed maintenance operation on the DB instance.</p>
+   * @public
+   */
+  lastMaintenanceTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp of the next scheduled maintenance operation on the DB instance.</p>
+   * @public
+   */
+  nextMaintenanceTime?: Date | undefined;
 }
 
 /**
@@ -1084,6 +1186,24 @@ export interface DeleteDbInstanceOutput {
    * @public
    */
   instanceModes?: InstanceMode[] | undefined;
+
+  /**
+   * <p>The maintenance schedule for the DB instance.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
+   * <p>The timestamp of the last completed maintenance operation on the DB instance.</p>
+   * @public
+   */
+  lastMaintenanceTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp of the next scheduled maintenance operation on the DB instance.</p>
+   * @public
+   */
+  nextMaintenanceTime?: Date | undefined;
 }
 
 /**
@@ -1232,6 +1352,24 @@ export interface GetDbInstanceOutput {
    * @public
    */
   instanceModes?: InstanceMode[] | undefined;
+
+  /**
+   * <p>The maintenance schedule for the DB instance.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
+   * <p>The timestamp of the last completed maintenance operation on the DB instance.</p>
+   * @public
+   */
+  lastMaintenanceTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp of the next scheduled maintenance operation on the DB instance.</p>
+   * @public
+   */
+  nextMaintenanceTime?: Date | undefined;
 }
 
 /**
@@ -1488,6 +1626,24 @@ export interface RebootDbInstanceOutput {
    * @public
    */
   instanceModes?: InstanceMode[] | undefined;
+
+  /**
+   * <p>The maintenance schedule for the DB instance.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
+   * <p>The timestamp of the last completed maintenance operation on the DB instance.</p>
+   * @public
+   */
+  lastMaintenanceTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp of the next scheduled maintenance operation on the DB instance.</p>
+   * @public
+   */
+  nextMaintenanceTime?: Date | undefined;
 }
 
 /**
@@ -1545,6 +1701,12 @@ export interface UpdateDbInstanceInput {
    * @public
    */
   allocatedStorage?: number | undefined;
+
+  /**
+   * <p>Specifies the maintenance schedule for the DB instance, including the preferred maintenance window and timezone.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
 }
 
 /**
@@ -1683,6 +1845,24 @@ export interface UpdateDbInstanceOutput {
    * @public
    */
   instanceModes?: InstanceMode[] | undefined;
+
+  /**
+   * <p>The maintenance schedule for the DB instance.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
+   * <p>The timestamp of the last completed maintenance operation on the DB instance.</p>
+   * @public
+   */
+  lastMaintenanceTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp of the next scheduled maintenance operation on the DB instance.</p>
+   * @public
+   */
+  nextMaintenanceTime?: Date | undefined;
 }
 
 /**

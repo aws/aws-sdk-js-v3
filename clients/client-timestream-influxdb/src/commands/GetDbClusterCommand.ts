@@ -67,6 +67,12 @@ export interface GetDbClusterCommandOutput extends GetDbClusterOutput, __Metadat
  * //       enabled: true || false, // required
  * //     },
  * //   },
+ * //   maintenanceSchedule: { // MaintenanceSchedule
+ * //     timezone: "STRING_VALUE", // required
+ * //     preferredMaintenanceWindow: "STRING_VALUE", // required
+ * //   },
+ * //   lastMaintenanceTime: new Date("TIMESTAMP"),
+ * //   nextMaintenanceTime: new Date("TIMESTAMP"),
  * //   influxAuthParametersSecretArn: "STRING_VALUE",
  * //   vpcSubnetIds: [ // VpcSubnetIdList
  * //     "STRING_VALUE",
@@ -75,6 +81,11 @@ export interface GetDbClusterCommandOutput extends GetDbClusterOutput, __Metadat
  * //     "STRING_VALUE",
  * //   ],
  * //   failoverMode: "AUTOMATIC" || "NO_FAILOVER",
+ * //   clusterConfiguration: { // ClusterConfiguration
+ * //     ingestQueryInstances: Number("int"),
+ * //     queryOnlyInstances: Number("int"),
+ * //     dedicatedCompactor: true || false,
+ * //   },
  * // };
  *
  * ```

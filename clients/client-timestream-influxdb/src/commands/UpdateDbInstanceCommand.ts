@@ -54,6 +54,10 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  *   deploymentType: "SINGLE_AZ" || "WITH_MULTIAZ_STANDBY",
  *   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  *   allocatedStorage: Number("int"),
+ *   maintenanceSchedule: { // MaintenanceSchedule
+ *     timezone: "STRING_VALUE", // required
+ *     preferredMaintenanceWindow: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new UpdateDbInstanceCommand(input);
  * const response = await client.send(command);
@@ -91,6 +95,12 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  * //   instanceModes: [ // InstanceModeList
  * //     "PRIMARY" || "STANDBY" || "REPLICA" || "INGEST" || "QUERY" || "COMPACT" || "PROCESS",
  * //   ],
+ * //   maintenanceSchedule: { // MaintenanceSchedule
+ * //     timezone: "STRING_VALUE", // required
+ * //     preferredMaintenanceWindow: "STRING_VALUE", // required
+ * //   },
+ * //   lastMaintenanceTime: new Date("TIMESTAMP"),
+ * //   nextMaintenanceTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```

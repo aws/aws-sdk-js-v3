@@ -1,4 +1,5 @@
 const _ADE = "AccessDeniedException";
+const _CC = "ClusterConfiguration";
 const _CDC = "CreateDbCluster";
 const _CDCI = "CreateDbClusterInput";
 const _CDCO = "CreateDbClusterOutput";
@@ -56,6 +57,7 @@ const _LDPGO = "ListDbParameterGroupsOutput";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _MS = "MaintenanceSchedule";
 const _P = "Password";
 const _POAL = "PercentOrAbsoluteLong";
 const _Pa = "Parameters";
@@ -89,6 +91,7 @@ const _ab = "absolute";
 const _b = "bucket";
 const _bN = "bucketName";
 const _c = "client";
+const _cC = "clusterConfiguration";
 const _cCI = "compactionCheckInterval";
 const _cCW = "compactionCleanupWait";
 const _cGD = "compactionGen2Duration";
@@ -154,12 +157,15 @@ const _lDC = "logDeliveryConfiguration";
 const _lF = "logFilter";
 const _lFo = "logFormat";
 const _lL = "logLevel";
+const _lMT = "lastMaintenanceTime";
 const _lVCDFH = "lastValueCacheDisableFromHistory";
 const _m = "message";
 const _mD = "metricsDisabled";
 const _mHRS = "maxHttpRequestSize";
 const _mR = "maxResults";
+const _mS = "maintenanceSchedule";
 const _n = "name";
+const _nMT = "nextMaintenanceTime";
 const _nT = "networkType";
 const _nTe = "nextToken";
 const _nTo = "noTasks";
@@ -172,6 +178,7 @@ const _pMCPI = "parquetMemCachePruneInterval";
 const _pMCPP = "parquetMemCachePrunePercentage";
 const _pMCQPD = "parquetMemCacheQueryPathDuration";
 const _pMCS = "parquetMemCacheSize";
+const _pMW = "preferredMaintenanceWindow";
 const _pa = "parameters";
 const _pe = "percent";
 const _po = "port";
@@ -217,6 +224,7 @@ const _tICCL = "tableIndexCacheConcurrencyLimit";
 const _tICME = "tableIndexCacheMaxEntries";
 const _tK = "tagKeys";
 const _tT = "tracingType";
+const _ti = "timezone";
 const _u = "username";
 const _uD = "uiDisabled";
 const _v = "value";
@@ -309,10 +317,15 @@ export const errorTypeRegistries = [
 ]
 var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
+export var ClusterConfiguration$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_iQI, _qOI, _dC],
+  [1, 1, 2]
+];
 export var CreateDbClusterInput$: StaticStructureSchema = [3, n0, _CDCI,
   0,
-  [_n, _dIT, _vSI, _vSGI, _u, _p, _o, _b, _po, _dPGI, _dST, _aS, _nT, _pA, _dT, _fM, _lDC, _t],
-  [0, 0, 64 | 0, 64 | 0, [() => Username, 0], [() => Password, 0], 0, 0, 1, 0, 0, 1, 0, 2, 0, 0, () => LogDeliveryConfiguration$, 128 | 0], 4
+  [_n, _dIT, _vSI, _vSGI, _u, _p, _o, _b, _po, _dPGI, _dST, _aS, _nT, _pA, _dT, _fM, _lDC, _mS, _t],
+  [0, 0, 64 | 0, 64 | 0, [() => Username, 0], [() => Password, 0], 0, 0, 1, 0, 0, 1, 0, 2, 0, 0, () => LogDeliveryConfiguration$, () => MaintenanceSchedule$, 128 | 0], 4
 ];
 export var CreateDbClusterOutput$: StaticStructureSchema = [3, n0, _CDCO,
   0,
@@ -321,13 +334,13 @@ export var CreateDbClusterOutput$: StaticStructureSchema = [3, n0, _CDCO,
 ];
 export var CreateDbInstanceInput$: StaticStructureSchema = [3, n0, _CDII,
   0,
-  [_n, _p, _dIT, _vSI, _vSGI, _aS, _u, _o, _b, _pA, _dST, _dPGI, _dT, _lDC, _t, _po, _nT],
-  [0, [() => Password, 0], 0, 64 | 0, 64 | 0, 1, [() => Username, 0], 0, 0, 2, 0, 0, 0, () => LogDeliveryConfiguration$, 128 | 0, 1, 0], 6
+  [_n, _p, _dIT, _vSI, _vSGI, _aS, _u, _o, _b, _pA, _dST, _dPGI, _dT, _lDC, _mS, _t, _po, _nT],
+  [0, [() => Password, 0], 0, 64 | 0, 64 | 0, 1, [() => Username, 0], 0, 0, 2, 0, 0, 0, () => LogDeliveryConfiguration$, () => MaintenanceSchedule$, 128 | 0, 1, 0], 6
 ];
 export var CreateDbInstanceOutput$: StaticStructureSchema = [3, n0, _CDIO,
   0,
-  [_i, _n, _a, _vSI, _st, _en, _po, _nT, _dIT, _dST, _aS, _dT, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn],
-  [0, 0, 0, 64 | 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0], 4
+  [_i, _n, _a, _vSI, _st, _en, _po, _nT, _dIT, _dST, _aS, _dT, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn, _mS, _lMT, _nMT],
+  [0, 0, 0, 64 | 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0, () => MaintenanceSchedule$, 5, 5], 4
 ];
 export var CreateDbParameterGroupInput$: StaticStructureSchema = [3, n0, _CDPGI,
   0,
@@ -376,8 +389,8 @@ export var DeleteDbInstanceInput$: StaticStructureSchema = [3, n0, _DDII,
 ];
 export var DeleteDbInstanceOutput$: StaticStructureSchema = [3, n0, _DDIO,
   0,
-  [_i, _n, _a, _vSI, _st, _en, _po, _nT, _dIT, _dST, _aS, _dT, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn],
-  [0, 0, 0, 64 | 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0], 4
+  [_i, _n, _a, _vSI, _st, _en, _po, _nT, _dIT, _dST, _aS, _dT, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn, _mS, _lMT, _nMT],
+  [0, 0, 0, 64 | 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0, () => MaintenanceSchedule$, 5, 5], 4
 ];
 export var Duration$: StaticStructureSchema = [3, n0, _D,
   0,
@@ -391,8 +404,8 @@ export var GetDbClusterInput$: StaticStructureSchema = [3, n0, _GDCI,
 ];
 export var GetDbClusterOutput$: StaticStructureSchema = [3, n0, _GDCO,
   0,
-  [_i, _n, _a, _st, _en, _rE, _po, _dT, _dIT, _nT, _dST, _aS, _eT, _pA, _dPGI, _lDC, _iAPSA, _vSI, _vSGI, _fM],
-  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, () => LogDeliveryConfiguration$, 0, 64 | 0, 64 | 0, 0], 3
+  [_i, _n, _a, _st, _en, _rE, _po, _dT, _dIT, _nT, _dST, _aS, _eT, _pA, _dPGI, _lDC, _mS, _lMT, _nMT, _iAPSA, _vSI, _vSGI, _fM, _cC],
+  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, () => LogDeliveryConfiguration$, () => MaintenanceSchedule$, 5, 5, 0, 64 | 0, 64 | 0, 0, () => ClusterConfiguration$], 3
 ];
 export var GetDbInstanceInput$: StaticStructureSchema = [3, n0, _GDII,
   0,
@@ -401,8 +414,8 @@ export var GetDbInstanceInput$: StaticStructureSchema = [3, n0, _GDII,
 ];
 export var GetDbInstanceOutput$: StaticStructureSchema = [3, n0, _GDIO,
   0,
-  [_i, _n, _a, _vSI, _st, _en, _po, _nT, _dIT, _dST, _aS, _dT, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn],
-  [0, 0, 0, 64 | 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0], 4
+  [_i, _n, _a, _vSI, _st, _en, _po, _nT, _dIT, _dST, _aS, _dT, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn, _mS, _lMT, _nMT],
+  [0, 0, 0, 64 | 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0, () => MaintenanceSchedule$, 5, 5], 4
 ];
 export var GetDbParameterGroupInput$: StaticStructureSchema = [3, n0, _GDPGI,
   0,
@@ -484,6 +497,11 @@ export var LogDeliveryConfiguration$: StaticStructureSchema = [3, n0, _LDC,
   [_sC],
   [() => S3Configuration$], 1
 ];
+export var MaintenanceSchedule$: StaticStructureSchema = [3, n0, _MS,
+  0,
+  [_ti, _pMW],
+  [0, 0], 2
+];
 export var RebootDbClusterInput$: StaticStructureSchema = [3, n0, _RDCI,
   0,
   [_dCI, _iI],
@@ -501,8 +519,8 @@ export var RebootDbInstanceInput$: StaticStructureSchema = [3, n0, _RDII,
 ];
 export var RebootDbInstanceOutput$: StaticStructureSchema = [3, n0, _RDIO,
   0,
-  [_i, _n, _a, _vSI, _st, _en, _po, _nT, _dIT, _dST, _aS, _dT, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn],
-  [0, 0, 0, 64 | 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0], 4
+  [_i, _n, _a, _vSI, _st, _en, _po, _nT, _dIT, _dST, _aS, _dT, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn, _mS, _lMT, _nMT],
+  [0, 0, 0, 64 | 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0, () => MaintenanceSchedule$, 5, 5], 4
 ];
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -521,8 +539,8 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 ];
 export var UpdateDbClusterInput$: StaticStructureSchema = [3, n0, _UDCI,
   0,
-  [_dCI, _lDC, _dPGI, _po, _dIT, _fM],
-  [0, () => LogDeliveryConfiguration$, 0, 1, 0, 0], 1
+  [_dCI, _lDC, _dPGI, _po, _dIT, _fM, _mS],
+  [0, () => LogDeliveryConfiguration$, 0, 1, 0, 0, () => MaintenanceSchedule$], 1
 ];
 export var UpdateDbClusterOutput$: StaticStructureSchema = [3, n0, _UDCO,
   0,
@@ -531,13 +549,13 @@ export var UpdateDbClusterOutput$: StaticStructureSchema = [3, n0, _UDCO,
 ];
 export var UpdateDbInstanceInput$: StaticStructureSchema = [3, n0, _UDII,
   0,
-  [_id, _lDC, _dPGI, _po, _dIT, _dT, _dST, _aS],
-  [0, () => LogDeliveryConfiguration$, 0, 1, 0, 0, 0, 1], 1
+  [_id, _lDC, _dPGI, _po, _dIT, _dT, _dST, _aS, _mS],
+  [0, () => LogDeliveryConfiguration$, 0, 1, 0, 0, 0, 1, () => MaintenanceSchedule$], 1
 ];
 export var UpdateDbInstanceOutput$: StaticStructureSchema = [3, n0, _UDIO,
   0,
-  [_i, _n, _a, _vSI, _st, _en, _po, _nT, _dIT, _dST, _aS, _dT, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn],
-  [0, 0, 0, 64 | 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0], 4
+  [_i, _n, _a, _vSI, _st, _en, _po, _nT, _dIT, _dST, _aS, _dT, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn, _mS, _lMT, _nMT],
+  [0, 0, 0, 64 | 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0, () => MaintenanceSchedule$, 5, 5], 4
 ];
 var __Unit = "unit" as const;
 var DbClusterSummaryList: StaticListSchema = [1, n0, _DCSL,

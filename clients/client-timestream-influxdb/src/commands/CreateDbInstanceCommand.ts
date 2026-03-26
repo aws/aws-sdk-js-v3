@@ -64,6 +64,10 @@ export interface CreateDbInstanceCommandOutput extends CreateDbInstanceOutput, _
  *       enabled: true || false, // required
  *     },
  *   },
+ *   maintenanceSchedule: { // MaintenanceSchedule
+ *     timezone: "STRING_VALUE", // required
+ *     preferredMaintenanceWindow: "STRING_VALUE", // required
+ *   },
  *   tags: { // RequestTagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -106,6 +110,12 @@ export interface CreateDbInstanceCommandOutput extends CreateDbInstanceOutput, _
  * //   instanceModes: [ // InstanceModeList
  * //     "PRIMARY" || "STANDBY" || "REPLICA" || "INGEST" || "QUERY" || "COMPACT" || "PROCESS",
  * //   ],
+ * //   maintenanceSchedule: { // MaintenanceSchedule
+ * //     timezone: "STRING_VALUE", // required
+ * //     preferredMaintenanceWindow: "STRING_VALUE", // required
+ * //   },
+ * //   lastMaintenanceTime: new Date("TIMESTAMP"),
+ * //   nextMaintenanceTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
