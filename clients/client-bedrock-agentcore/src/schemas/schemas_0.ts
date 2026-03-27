@@ -379,6 +379,7 @@ const _resp = "response";
 const _resu = "result";
 const _ri = "right";
 const _ro = "role";
+const _ru = "runtime";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockagentcore";
 const _sA = "secretArn";
 const _sC = "structuredContent";
@@ -1189,8 +1190,8 @@ export var TokenUsage$: StaticStructureSchema = [3, n0, _TU,
 ];
 export var ToolArguments$: StaticStructureSchema = [3, n0, _TA,
   0,
-  [_cod, _lan, _cC, _com, _pa, _pat, _co, _dPi, _tIa],
-  [0, 0, 2, 0, 0, 64 | 0, [() => InputContentBlockList, 0], 0, 0]
+  [_cod, _lan, _cC, _com, _pa, _pat, _co, _dPi, _tIa, _ru],
+  [0, 0, 2, 0, 0, 64 | 0, [() => InputContentBlockList, 0], 0, 0, 0]
 ];
 export var ToolResultStructuredContent$: StaticStructureSchema = [3, n0, _TRSC,
   0,

@@ -9,6 +9,7 @@ import {
   CommandExecutionStatus,
   ContentBlockType,
   ExtractionJobStatus,
+  LanguageRuntime,
   MemoryRecordStatus,
   Oauth2FlowType,
   OperatorType,
@@ -2075,7 +2076,7 @@ export namespace EvaluationTarget {
  */
 export interface EvaluateRequest {
   /**
-   * <p> The unique identifier of the evaluator to use for scoring. Can be a built-in evaluator (e.g., <code>Builtin.Helpfulness</code>, <code>Builtin.Correctness</code>) or a custom evaluator ARN created through the control plane API. </p>
+   * <p> The unique identifier of the evaluator to use for scoring. Can be a built-in evaluator (e.g., <code>Builtin.Helpfulness</code>, <code>Builtin.Correctness</code>) or a custom evaluator Id created through the control plane API. </p>
    * @public
    */
   evaluatorId: string | undefined;
@@ -2487,7 +2488,7 @@ export interface ToolArguments {
   code?: string | undefined;
 
   /**
-   * <p>The programming language of the code to execute. This tells the code interpreter which language runtime to use for execution. Common values include 'python', 'javascript', and 'r'.</p>
+   * <p>The programming language of the code to execute. This tells the code interpreter which language runtime to use for execution.</p>
    * @public
    */
   language?: ProgrammingLanguage | undefined;
@@ -2533,6 +2534,12 @@ export interface ToolArguments {
    * @public
    */
   taskId?: string | undefined;
+
+  /**
+   * <p>The runtime environment to use for code execution. If not specified, defaults to <code>deno</code> for JavaScript and TypeScript.</p>
+   * @public
+   */
+  runtime?: LanguageRuntime | undefined;
 }
 
 /**

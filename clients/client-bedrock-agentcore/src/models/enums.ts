@@ -126,6 +126,20 @@ export type ProgrammingLanguage = (typeof ProgrammingLanguage)[keyof typeof Prog
  * @public
  * @enum
  */
+export const LanguageRuntime = {
+  DENO: "deno",
+  NODEJS: "nodejs",
+  PYTHON: "python",
+} as const;
+/**
+ * @public
+ */
+export type LanguageRuntime = (typeof LanguageRuntime)[keyof typeof LanguageRuntime];
+
+/**
+ * @public
+ * @enum
+ */
 export const ToolName = {
   EXECUTE_CODE: "executeCode",
   EXECUTE_COMMAND: "executeCommand",

@@ -120,6 +120,7 @@ export type {
   CommandExecutionStatus,
   ContentBlockType,
   ExtractionJobStatus,
+  LanguageRuntime,
   MemoryRecordStatus,
   Oauth2FlowType,
   OperatorType,

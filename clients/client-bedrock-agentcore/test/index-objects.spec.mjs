@@ -140,6 +140,7 @@ import {
   InvokeCodeInterpreterCommand,
   InvokeCodeInterpreterRequest$,
   InvokeCodeInterpreterResponse$,
+  LanguageRuntime,
   LeftExpression$,
   ListActors$,
   ListActorsCommand,
@@ -504,6 +505,7 @@ assert(typeof CodeInterpreterSessionStatus === "object");
 assert(typeof CommandExecutionStatus === "object");
 assert(typeof ContentBlockType === "object");
 assert(typeof ExtractionJobStatus === "object");
+assert(typeof LanguageRuntime === "object");
 assert(typeof MemoryRecordStatus === "object");
 assert(typeof Oauth2FlowType === "object");
 assert(typeof OperatorType === "object");

@@ -64,6 +64,7 @@ export interface InvokeCodeInterpreterCommandOutput extends InvokeCodeInterprete
  *     ],
  *     directoryPath: "STRING_VALUE",
  *     taskId: "STRING_VALUE",
+ *     runtime: "nodejs" || "deno" || "python",
  *   },
  * };
  * const command = new InvokeCodeInterpreterCommand(input);
