@@ -58,6 +58,12 @@ module.exports = {
             patterns: [
               {
                 group: ["*src*", "*dist-*", "!*csrc*"],
+                message:
+                  "Imports must not contain the src folder in their path. Either import from the official package name, or you are already in the src folder and the relative path will not contain src.",
+              },
+              {
+                group: ["@aws-sdk/core", "!@aws-sdk/core/"],
+                message: "Import from a specific submodule like @aws-sdk/core/submodule instead.",
               },
             ],
           },

@@ -10,9 +10,9 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
-    "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs",
     "extract:docs": "api-extractor run --local",
-    "generate:client": "node ../../scripts/generate-clients/single-service --solo uxc"
+    "generate:client": "node ../../scripts/generate-clients/single-service --solo uxc",
+    "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

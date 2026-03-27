@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
 import { AwsJson1_0Protocol } from "@aws-sdk/core/protocols";
 import { DynamoDBJsonCodec } from "@aws-sdk/dynamodb-codec";
 import { NoOpLogger } from "@smithy/smithy-client";

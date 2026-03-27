@@ -4,7 +4,7 @@ import {
   loadRestJsonErrorCode,
   parseJsonBody as parseBody,
   parseJsonErrorBody as parseErrorBody,
-} from "@aws-sdk/core";
+} from "@aws-sdk/core/protocols";
 import {
   HttpRequest,
   HttpRequest as __HttpRequest,

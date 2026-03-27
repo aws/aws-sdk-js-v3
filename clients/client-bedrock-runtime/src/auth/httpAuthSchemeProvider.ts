@@ -4,7 +4,7 @@ import {
   AwsSdkSigV4AuthResolvedConfig,
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
-} from "@aws-sdk/core";
+} from "@aws-sdk/core/httpAuthSchemes";
 import { FromSsoInit } from "@aws-sdk/token-providers";
 import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider } from "@smithy/core";
 import {

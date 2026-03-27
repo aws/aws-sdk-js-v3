@@ -1,5 +1,9 @@
 // smithy-typescript generated code
-import { loadRestXmlErrorCode, parseXmlBody as parseBody, parseXmlErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  loadRestXmlErrorCode,
+  parseXmlBody as parseBody,
+  parseXmlErrorBody as parseErrorBody,
+} from "@aws-sdk/core/protocols";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
 import { requestBuilder as rb } from "@smithy/core";
 import {

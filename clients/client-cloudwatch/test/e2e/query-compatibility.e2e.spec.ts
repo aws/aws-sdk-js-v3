@@ -7,7 +7,7 @@ import {
   PutMetricAlarmCommand,
   ResourceNotFound,
 } from "@aws-sdk/client-cloudwatch";
-import { AwsJson1_0Protocol, AwsQueryProtocol, AwsSmithyRpcV2CborProtocol } from "@aws-sdk/core";
+import { AwsJson1_0Protocol, AwsQueryProtocol, AwsSmithyRpcV2CborProtocol } from "@aws-sdk/core/protocols";
 import { describe, expect, test as it } from "vitest";
 
 describe("CloudWatch Query Compatibility E2E", () => {

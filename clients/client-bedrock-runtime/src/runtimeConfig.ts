@@ -2,11 +2,8 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
-import {
-  AwsSdkSigV4Signer,
-  emitWarningIfUnsupportedVersion as awsCheckVersion,
-  NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
-} from "@aws-sdk/core";
+import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core/client";
+import { AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { eventStreamPayloadHandlerProvider } from "@aws-sdk/eventstream-handler-node";
 import { fromEnvSigningName, FromSsoInit, nodeProvider } from "@aws-sdk/token-providers";
