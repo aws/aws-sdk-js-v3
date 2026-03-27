@@ -65,7 +65,7 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
 
         if (isAwsService(service) && isSigV4Service(service) && !areAllOptionalAuthOperations(model, service)) {
             writer
-                .addImport("AwsCredentialIdentityProvider", null, TypeScriptDependency.SMITHY_TYPES)
+                .addTypeImport("AwsCredentialIdentityProvider", null, TypeScriptDependency.SMITHY_TYPES)
                 .writeDocs("""
                            Default credentials provider; Not available in browser runtime.
                            @deprecated

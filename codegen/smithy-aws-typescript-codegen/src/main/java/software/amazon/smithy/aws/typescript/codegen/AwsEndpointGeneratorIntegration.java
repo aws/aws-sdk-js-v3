@@ -90,10 +90,8 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
                     Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters").toString()
                 )
             );
-
-            writer.addImport("EndpointV2", "__EndpointV2", TypeScriptDependency.SMITHY_TYPES);
         } else {
-            writer.addImport("RegionInfoProvider", null, TypeScriptDependency.SMITHY_TYPES);
+            writer.addTypeImport("RegionInfoProvider", null, TypeScriptDependency.SMITHY_TYPES);
             writer.writeDocs(
                 "Fetch related hostname, signing name or signing region with given region.\n"
                     + "@internal"

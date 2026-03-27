@@ -165,8 +165,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                         );
                     Map<String, HttpAuthSchemeParameter> httpAuthSchemeParameters =
                         AuthUtils.collectHttpAuthSchemeParameters(effectiveHttpAuthSchemes.values());
-                    w.addDependency(TypeScriptDependency.SMITHY_TYPES);
-                    w.addImport("HttpAuthSchemeParameters", null, TypeScriptDependency.SMITHY_TYPES);
+                    w.addTypeImport("HttpAuthSchemeParameters", null, TypeScriptDependency.SMITHY_TYPES);
                     w.writeDocs("@internal");
                     w.openBlock(
                         """
@@ -235,12 +234,13 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                         null,
                         Paths.get(".", serviceSymbol.getNamespace())
                     );
-                    w.addDependency(TypeScriptDependency.SMITHY_TYPES);
-                    w.addImport("HandlerExecutionContext", null, TypeScriptDependency.SMITHY_TYPES);
-                    w.addDependency(TypeScriptDependency.UTIL_MIDDLEWARE);
+                    w.addTypeImport("HandlerExecutionContext", null, TypeScriptDependency.SMITHY_TYPES);
                     w.addImport("getSmithyContext", null, TypeScriptDependency.UTIL_MIDDLEWARE);
-                    w.addDependency(TypeScriptDependency.MIDDLEWARE_ENDPOINTS_V2);
-                    w.addImport("EndpointParameterInstructions", null, TypeScriptDependency.MIDDLEWARE_ENDPOINTS_V2);
+                    w.addTypeImport(
+                        "EndpointParameterInstructions",
+                        null,
+                        TypeScriptDependency.MIDDLEWARE_ENDPOINTS_V2
+                    );
                     w.addImport("resolveParams", null, TypeScriptDependency.MIDDLEWARE_ENDPOINTS_V2);
                     w.writeDocs("@internal");
                     w.write("""
@@ -351,8 +351,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                         s.getModel(),
                         s.getSymbolProvider()
                     );
-                    w.addDependency(TypeScriptDependency.SMITHY_TYPES);
-                    w.addImport("HttpAuthSchemeProvider", null, TypeScriptDependency.SMITHY_TYPES);
+                    w.addTypeImport("HttpAuthSchemeProvider", null, TypeScriptDependency.SMITHY_TYPES);
                     w.writeDocs("@internal");
                     w.write(
                         """
@@ -409,16 +408,15 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                               EndpointParametersT extends EndpointParameters,
                               HttpAuthSchemeParametersT extends HttpAuthSchemeParameters
                             > extends HttpAuthSchemeProvider<EndpointParametersT & HttpAuthSchemeParametersT> {}""");
-                    w.addDependency(TypeScriptDependency.SMITHY_TYPES);
                     w.addImport("SignatureV4MultiRegion", null, AwsDependency.SIGNATURE_V4_MULTIREGION);
-                    w.addImport("Logger", null, TypeScriptDependency.SMITHY_TYPES);
-                    w.addImport("EndpointV2", null, TypeScriptDependency.SMITHY_TYPES);
+                    w.addTypeImport("Logger", null, TypeScriptDependency.SMITHY_TYPES);
+                    w.addTypeImport("EndpointV2", null, TypeScriptDependency.SMITHY_TYPES);
                     w.writeDocs("@internal");
                     w.write("""
                             interface DefaultEndpointResolver<EndpointParametersT extends EndpointParameters> {
                               (params: EndpointParametersT, context?: { logger?: Logger }): EndpointV2;
                             }""");
-                    w.addImport("HttpAuthSchemeId", null, TypeScriptDependency.SMITHY_TYPES);
+                    w.addTypeImport("HttpAuthSchemeId", null, TypeScriptDependency.SMITHY_TYPES);
                     w.writeDocs("@internal");
                     w.write(
                         """

@@ -14,13 +14,13 @@ import {
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
+  type S3InputConfig,
+  type S3ResolvedConfig,
   getRegionRedirectMiddlewarePlugin,
   getS3ExpressHttpSigningPlugin,
   getS3ExpressPlugin,
   getValidateBucketNamePlugin,
   resolveS3Config,
-  S3InputConfig,
-  S3ResolvedConfig,
 } from "@aws-sdk/middleware-sdk-s3";
 import {
   type UserAgentInputConfig,
@@ -28,7 +28,7 @@ import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { GetAwsChunkedEncodingStream } from "@aws-sdk/types";
+import type { GetAwsChunkedEncodingStream } from "@aws-sdk/types";
 import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
   DefaultIdentityProviderConfig,
@@ -60,29 +60,26 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type EventStreamSerdeProvider as __EventStreamSerdeProvider,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type SdkStreamMixinInjector as __SdkStreamMixinInjector,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
   Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
-  EndpointV2 as __EndpointV2,
-  Hash as __Hash,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
-  Provider,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
+  StreamCollector as __StreamCollector,
   StreamHasher as __StreamHasher,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
-import { Readable } from "stream";
+import type { Readable as Readable } from "node:stream";
 
 import {
   type HttpAuthSchemeInputConfig,
@@ -736,7 +733,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * A function that, given a hash constructor and a stream, calculates the
@@ -811,7 +808,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   /**
    * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to undefined.
    */
-  useArnRegion?: boolean | undefined | Provider<boolean | undefined>;
+  useArnRegion?: boolean | undefined | __Provider<boolean | undefined>;
   /**
    * The internal function that inject utilities to runtime-specific stream to help users consume the data
    * @internal

@@ -28,11 +28,13 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 public final class SupportSigV4Auth implements HttpAuthTypeScriptIntegration {
     static final Symbol AWS_CREDENTIAL_IDENTITY = Symbol.builder()
         .name("AwsCredentialIdentity")
+        .putProperty("typeOnly", true)
         .namespace(TypeScriptDependency.SMITHY_TYPES.getPackageName(), "/")
         .addDependency(TypeScriptDependency.SMITHY_TYPES)
         .build();
     static final Symbol AWS_CREDENTIAL_IDENTITY_PROVIDER = Symbol.builder()
         .name("AwsCredentialIdentityProvider")
+        .putProperty("typeOnly", true)
         .namespace(TypeScriptDependency.SMITHY_TYPES.getPackageName(), "/")
         .addDependency(TypeScriptDependency.SMITHY_TYPES)
         .build();
@@ -43,6 +45,7 @@ public final class SupportSigV4Auth implements HttpAuthTypeScriptIntegration {
         .inputType(
             Symbol.builder()
                 .name("AwsCredentialIdentity | AwsCredentialIdentityProvider")
+                .putProperty("typeOnly", true)
                 .addReference(AWS_CREDENTIAL_IDENTITY)
                 .addReference(AWS_CREDENTIAL_IDENTITY_PROVIDER)
                 .build()
@@ -50,6 +53,7 @@ public final class SupportSigV4Auth implements HttpAuthTypeScriptIntegration {
         .resolvedType(
             Symbol.builder()
                 .name("AwsCredentialIdentityProvider")
+                .putProperty("typeOnly", true)
                 .addReference(AWS_CREDENTIAL_IDENTITY)
                 .addReference(AWS_CREDENTIAL_IDENTITY_PROVIDER)
                 .build()

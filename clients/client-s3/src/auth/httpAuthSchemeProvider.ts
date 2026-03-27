@@ -10,18 +10,18 @@ import {
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
-import { EndpointParameterInstructions, resolveParams } from "@smithy/middleware-endpoint";
-import {
-  type HttpAuthOption,
-  type HttpAuthScheme,
-  type HttpAuthSchemeParametersProvider,
-  type Provider,
+import { type EndpointParameterInstructions, resolveParams } from "@smithy/middleware-endpoint";
+import type {
   EndpointV2,
   HandlerExecutionContext,
+  HttpAuthOption,
+  HttpAuthScheme,
   HttpAuthSchemeId,
   HttpAuthSchemeParameters,
+  HttpAuthSchemeParametersProvider,
   HttpAuthSchemeProvider,
   Logger,
+  Provider,
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
