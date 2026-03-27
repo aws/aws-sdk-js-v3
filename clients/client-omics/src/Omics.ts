@@ -51,6 +51,11 @@ import {
   CreateAnnotationStoreVersionCommandOutput,
 } from "./commands/CreateAnnotationStoreVersionCommand";
 import {
+  CreateConfigurationCommand,
+  CreateConfigurationCommandInput,
+  CreateConfigurationCommandOutput,
+} from "./commands/CreateConfigurationCommand";
+import {
   CreateMultipartReadSetUploadCommand,
   CreateMultipartReadSetUploadCommandInput,
   CreateMultipartReadSetUploadCommandOutput,
@@ -102,6 +107,11 @@ import {
   DeleteAnnotationStoreVersionsCommandOutput,
 } from "./commands/DeleteAnnotationStoreVersionsCommand";
 import { DeleteBatchCommand, DeleteBatchCommandInput, DeleteBatchCommandOutput } from "./commands/DeleteBatchCommand";
+import {
+  DeleteConfigurationCommand,
+  DeleteConfigurationCommandInput,
+  DeleteConfigurationCommandOutput,
+} from "./commands/DeleteConfigurationCommand";
 import {
   DeleteReferenceCommand,
   DeleteReferenceCommandInput,
@@ -170,6 +180,11 @@ import {
   GetAnnotationStoreVersionCommandOutput,
 } from "./commands/GetAnnotationStoreVersionCommand";
 import { GetBatchCommand, GetBatchCommandInput, GetBatchCommandOutput } from "./commands/GetBatchCommand";
+import {
+  GetConfigurationCommand,
+  GetConfigurationCommandInput,
+  GetConfigurationCommandOutput,
+} from "./commands/GetConfigurationCommand";
 import {
   GetReadSetActivationJobCommand,
   GetReadSetActivationJobCommandInput,
@@ -258,6 +273,11 @@ import {
   ListAnnotationStoreVersionsCommandOutput,
 } from "./commands/ListAnnotationStoreVersionsCommand";
 import { ListBatchCommand, ListBatchCommandInput, ListBatchCommandOutput } from "./commands/ListBatchCommand";
+import {
+  ListConfigurationsCommand,
+  ListConfigurationsCommandInput,
+  ListConfigurationsCommandOutput,
+} from "./commands/ListConfigurationsCommand";
 import {
   ListMultipartReadSetUploadsCommand,
   ListMultipartReadSetUploadsCommandInput,
@@ -452,6 +472,7 @@ import { paginateListAnnotationImportJobs } from "./pagination/ListAnnotationImp
 import { paginateListAnnotationStores } from "./pagination/ListAnnotationStoresPaginator";
 import { paginateListAnnotationStoreVersions } from "./pagination/ListAnnotationStoreVersionsPaginator";
 import { paginateListBatch } from "./pagination/ListBatchPaginator";
+import { paginateListConfigurations } from "./pagination/ListConfigurationsPaginator";
 import { paginateListMultipartReadSetUploads } from "./pagination/ListMultipartReadSetUploadsPaginator";
 import { paginateListReadSetActivationJobs } from "./pagination/ListReadSetActivationJobsPaginator";
 import { paginateListReadSetExportJobs } from "./pagination/ListReadSetExportJobsPaginator";
@@ -502,6 +523,7 @@ const commands = {
   CompleteMultipartReadSetUploadCommand,
   CreateAnnotationStoreCommand,
   CreateAnnotationStoreVersionCommand,
+  CreateConfigurationCommand,
   CreateMultipartReadSetUploadCommand,
   CreateReferenceStoreCommand,
   CreateRunCacheCommand,
@@ -514,6 +536,7 @@ const commands = {
   DeleteAnnotationStoreCommand,
   DeleteAnnotationStoreVersionsCommand,
   DeleteBatchCommand,
+  DeleteConfigurationCommand,
   DeleteReferenceCommand,
   DeleteReferenceStoreCommand,
   DeleteRunCommand,
@@ -530,6 +553,7 @@ const commands = {
   GetAnnotationStoreCommand,
   GetAnnotationStoreVersionCommand,
   GetBatchCommand,
+  GetConfigurationCommand,
   GetReadSetCommand,
   GetReadSetActivationJobCommand,
   GetReadSetExportJobCommand,
@@ -554,6 +578,7 @@ const commands = {
   ListAnnotationStoresCommand,
   ListAnnotationStoreVersionsCommand,
   ListBatchCommand,
+  ListConfigurationsCommand,
   ListMultipartReadSetUploadsCommand,
   ListReadSetActivationJobsCommand,
   ListReadSetExportJobsCommand,
@@ -601,6 +626,7 @@ const paginators = {
   paginateListAnnotationStores,
   paginateListAnnotationStoreVersions,
   paginateListBatch,
+  paginateListConfigurations,
   paginateListMultipartReadSetUploads,
   paginateListReadSetActivationJobs,
   paginateListReadSetExportJobs,
@@ -815,6 +841,23 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link CreateConfigurationCommand}
+   */
+  createConfiguration(
+    args: CreateConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConfigurationCommandOutput>;
+  createConfiguration(
+    args: CreateConfigurationCommandInput,
+    cb: (err: any, data?: CreateConfigurationCommandOutput) => void
+  ): void;
+  createConfiguration(
+    args: CreateConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateMultipartReadSetUploadCommand}
    */
   createMultipartReadSetUpload(
@@ -1016,6 +1059,23 @@ export interface Omics {
     args: DeleteBatchCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBatchCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConfigurationCommand}
+   */
+  deleteConfiguration(
+    args: DeleteConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConfigurationCommandOutput>;
+  deleteConfiguration(
+    args: DeleteConfigurationCommandInput,
+    cb: (err: any, data?: DeleteConfigurationCommandOutput) => void
+  ): void;
+  deleteConfiguration(
+    args: DeleteConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1288,6 +1348,23 @@ export interface Omics {
     args: GetBatchCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetBatchCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConfigurationCommand}
+   */
+  getConfiguration(
+    args: GetConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationCommandOutput>;
+  getConfiguration(
+    args: GetConfigurationCommandInput,
+    cb: (err: any, data?: GetConfigurationCommandOutput) => void
+  ): void;
+  getConfiguration(
+    args: GetConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1699,6 +1776,24 @@ export interface Omics {
     args: ListBatchCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBatchCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConfigurationsCommand}
+   */
+  listConfigurations(): Promise<ListConfigurationsCommandOutput>;
+  listConfigurations(
+    args: ListConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationsCommandOutput>;
+  listConfigurations(
+    args: ListConfigurationsCommandInput,
+    cb: (err: any, data?: ListConfigurationsCommandOutput) => void
+  ): void;
+  listConfigurations(
+    args: ListConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -2449,6 +2544,17 @@ export interface Omics {
     args?: ListBatchCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListBatchCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationsCommandOutput}.
+   */
+  paginateListConfigurations(
+    args?: ListConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationsCommandOutput>;
 
   /**
    * @see {@link ListMultipartReadSetUploadsCommand}

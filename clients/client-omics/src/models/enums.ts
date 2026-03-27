@@ -356,6 +356,23 @@ export type ReadSetPartSource = (typeof ReadSetPartSource)[keyof typeof ReadSetP
  * @public
  * @enum
  */
+export const ConfigurationStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type ConfigurationStatus = (typeof ConfigurationStatus)[keyof typeof ConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const FileType = {
   BAM: "BAM",
   CRAM: "CRAM",
@@ -749,6 +766,19 @@ export const RunExport = {
  * @public
  */
 export type RunExport = (typeof RunExport)[keyof typeof RunExport];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkingMode = {
+  RESTRICTED: "RESTRICTED",
+  VPC: "VPC",
+} as const;
+/**
+ * @public
+ */
+export type NetworkingMode = (typeof NetworkingMode)[keyof typeof NetworkingMode];
 
 /**
  * @public

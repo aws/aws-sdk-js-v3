@@ -89,6 +89,21 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * //   workflowOwnerId: "STRING_VALUE",
  * //   workflowVersionName: "STRING_VALUE",
  * //   workflowUuid: "STRING_VALUE",
+ * //   networkingMode: "STRING_VALUE",
+ * //   configuration: { // ConfigurationDetails
+ * //     name: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     uuid: "STRING_VALUE",
+ * //   },
+ * //   vpcConfig: { // VpcConfigResponse
+ * //     securityGroupIds: [ // SecurityGroupIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     subnetIds: [ // SubnetIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     vpcId: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

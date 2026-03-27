@@ -35,7 +35,13 @@ const _CASRr = "CreateAnnotationStoreResponse";
 const _CASV = "CreateAnnotationStoreVersion";
 const _CASVR = "CreateAnnotationStoreVersionRequest";
 const _CASVRr = "CreateAnnotationStoreVersionResponse";
+const _CC = "CreateConfiguration";
+const _CCR = "CreateConfigurationRequest";
+const _CCRr = "CreateConfigurationResponse";
+const _CD = "ConfigurationDetails";
 const _CE = "ConflictException";
+const _CL = "ConfigurationList";
+const _CLI = "ConfigurationListItem";
 const _CMRSU = "CompleteMultipartReadSetUpload";
 const _CMRSUR = "CompleteMultipartReadSetUploadRequest";
 const _CMRSURo = "CompleteMultipartReadSetUploadResponse";
@@ -85,6 +91,8 @@ const _DASVR = "DeleteAnnotationStoreVersionsRequest";
 const _DASVRe = "DeleteAnnotationStoreVersionsResponse";
 const _DB = "DeleteBatch";
 const _DBR = "DeleteBatchRequest";
+const _DC = "DeleteConfiguration";
+const _DCR = "DeleteConfigurationRequest";
 const _DR = "DefinitionRepository";
 const _DRB = "DeleteRunBatch";
 const _DRBR = "DeleteRunBatchRequest";
@@ -142,6 +150,9 @@ const _GASVRe = "GetAnnotationStoreVersionResponse";
 const _GB = "GetBatch";
 const _GBR = "GetBatchRequest";
 const _GBRe = "GetBatchResponse";
+const _GC = "GetConfiguration";
+const _GCR = "GetConfigurationRequest";
+const _GCRe = "GetConfigurationResponse";
 const _GR = "GetReference";
 const _GRC = "GetRunCache";
 const _GRCR = "GetRunCacheRequest";
@@ -233,6 +244,9 @@ const _LASVRi = "ListAnnotationStoreVersionsResponse";
 const _LB = "ListBatch";
 const _LBR = "ListBatchRequest";
 const _LBRi = "ListBatchResponse";
+const _LC = "ListConfigurations";
+const _LCR = "ListConfigurationsRequest";
+const _LCRi = "ListConfigurationsResponse";
 const _LMRSU = "ListMultipartReadSetUploads";
 const _LMRSUR = "ListMultipartReadSetUploadsRequest";
 const _LMRSURi = "ListMultipartReadSetUploadsResponse";
@@ -307,8 +321,10 @@ const _PSAPRu = "PutS3AccessPolicyResponse";
 const _R = "Range";
 const _RBL = "RunBatchList";
 const _RBLI = "RunBatchListItem";
+const _RC = "RunConfigurations";
 const _RCL = "RunCacheList";
 const _RCLI = "RunCacheListItem";
+const _RCR = "RunConfigurationsResponse";
 const _RF = "ReferenceFiles";
 const _RFe = "ReferenceFilter";
 const _RGL = "RunGroupList";
@@ -424,6 +440,8 @@ const _UW = "UpdateWorkflow";
 const _UWR = "UpdateWorkflowRequest";
 const _UWV = "UpdateWorkflowVersion";
 const _UWVR = "UpdateWorkflowVersionRequest";
+const _VC = "VpcConfig";
+const _VCR = "VpcConfigResponse";
 const _VDE = "VersionDeleteError";
 const _VDEL = "VersionDeleteErrorList";
 const _VE = "ValidationException";
@@ -469,6 +487,7 @@ const _cH = "cacheHit";
 const _cI = "cacheId";
 const _cJI = "creationJobId";
 const _cL = "contentLength";
+const _cN = "configurationName";
 const _cRC = "completedRunCount";
 const _cRCa = "cancelledRunCount";
 const _cRM = "containerRegistryMap";
@@ -480,8 +499,9 @@ const _cTl = "clientToken";
 const _cTo = "completionTime";
 const _cTr = "creationType";
 const _ch = "checksum";
-const _co = "comment";
+const _co = "configuration";
 const _cod = "code";
+const _com = "comment";
 const _cp = "cpus";
 const _d = "description";
 const _dI = "destinationImage";
@@ -567,6 +587,7 @@ const _md = "md5";
 const _me = "memory";
 const _met = "metadata";
 const _n = "name";
+const _nM = "networkingMode";
 const _nT = "nextToken";
 const _nV = "numVersions";
 const _o = "optional";
@@ -597,6 +618,7 @@ const _rAe = "referenceArn";
 const _rAes = "resourceArn";
 const _rAeso = "resourceArns";
 const _rAu = "runArn";
+const _rC = "runConfigurations";
 const _rD = "resourceDigests";
 const _rGI = "runGroupId";
 const _rI = "requestId";
@@ -644,12 +666,14 @@ const _sFR = "submissionFailureReason";
 const _sFT = "sourceFileType";
 const _sFo = "sourceFiles";
 const _sFou = "sourceFile";
+const _sGI = "securityGroupIds";
 const _sI = "shareId";
 const _sIa = "sampleId";
 const _sIe = "sequenceInformation";
 const _sIo = "sourceImage";
 const _sIt = "storeId";
 const _sIu = "subjectId";
+const _sIub = "subnetIds";
 const _sM = "statusMessage";
 const _sN = "shareName";
 const _sNt = "storeName";
@@ -704,6 +728,8 @@ const _uT = "updateTime";
 const _up = "uploads";
 const _v = "versions";
 const _vA = "versionArn";
+const _vC = "vpcConfig";
+const _vI = "vpcId";
 const _vIJ = "variantImportJobs";
 const _vN = "versionName";
 const _vO = "versionOptions";
@@ -949,6 +975,16 @@ export var CompleteReadSetUploadPartListItem$: StaticStructureSchema = [3, n0, _
   [_pN, _pS, _ch],
   [1, 0, 0], 3
 ];
+export var ConfigurationDetails$: StaticStructureSchema = [3, n0, _CD,
+  0,
+  [_n, _ar, _u],
+  [0, 0, 0]
+];
+export var ConfigurationListItem$: StaticStructureSchema = [3, n0, _CLI,
+  0,
+  [_ar, _n, _d, _sta, _cT],
+  [0, 0, 0, 0, 5]
+];
 export var ContainerRegistryMap$: StaticStructureSchema = [3, n0, _CRM,
   0,
   [_rM, _iM],
@@ -973,6 +1009,16 @@ export var CreateAnnotationStoreVersionResponse$: StaticStructureSchema = [3, n0
   0,
   [_i, _vN, _sIt, _n, _sta, _cT, _vO],
   [0, 0, 0, 0, 0, 5, () => VersionOptions$], 6
+];
+export var CreateConfigurationRequest$: StaticStructureSchema = [3, n0, _CCR,
+  0,
+  [_n, _rC, _d, _ta, _rI],
+  [0, () => RunConfigurations$, 0, 128 | 0, [0, 4]], 2
+];
+export var CreateConfigurationResponse$: StaticStructureSchema = [3, n0, _CCRr,
+  0,
+  [_ar, _u, _n, _d, _rC, _sta, _cT, _ta],
+  [0, 0, 0, 0, () => RunConfigurationsResponse$, 0, 5, 128 | 0]
 ];
 export var CreateMultipartReadSetUploadRequest$: StaticStructureSchema = [3, n0, _CMRSURr,
   0,
@@ -1102,6 +1148,11 @@ export var DeleteAnnotationStoreVersionsResponse$: StaticStructureSchema = [3, n
 export var DeleteBatchRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
   [_bI],
+  [[0, 1]], 1
+];
+export var DeleteConfigurationRequest$: StaticStructureSchema = [3, n0, _DCR,
+  0,
+  [_n],
   [[0, 1]], 1
 ];
 export var DeleteReferenceRequest$: StaticStructureSchema = [3, n0, _DRR,
@@ -1274,6 +1325,16 @@ export var GetBatchResponse$: StaticStructureSchema = [3, n0, _GBRe,
   [_i, _ar, _u, _n, _sta, _ta, _tR, _dRS, _sS, _rS, _cT, _sTu, _pTro, _fT, _fR],
   [0, 0, 0, 0, 0, 128 | 0, 1, () => DefaultRunSetting$, () => SubmissionSummary$, () => RunSummary$, 5, 5, 5, 5, 0]
 ];
+export var GetConfigurationRequest$: StaticStructureSchema = [3, n0, _GCR,
+  0,
+  [_n],
+  [[0, 1]], 1
+];
+export var GetConfigurationResponse$: StaticStructureSchema = [3, n0, _GCRe,
+  0,
+  [_ar, _u, _n, _d, _rC, _sta, _cT, _ta],
+  [0, 0, 0, 0, () => RunConfigurationsResponse$, 0, 5, 128 | 0]
+];
 export var GetReadSetActivationJobRequest$: StaticStructureSchema = [3, n0, _GRSAJR,
   0,
   [_i, _sSI],
@@ -1391,8 +1452,8 @@ export var GetRunRequest$: StaticStructureSchema = [3, n0, _GRRet,
 ];
 export var GetRunResponse$: StaticStructureSchema = [3, n0, _GRRetu,
   0,
-  [_ar, _i, _cI, _cBa, _eV, _sta, _wI, _wT, _rIu, _rA, _n, _rGI, _bI, _pr, _def, _di, _pa, _sCt, _oU, _lL, _rD, _sB, _cT, _sTt, _sTto, _sM, _ta, _ac, _rMet, _fR, _lLo, _u, _rOU, _sT, _wOI, _wVN, _wU],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 15, 1, 0, 0, 128 | 0, 0, 5, 5, 5, 0, 128 | 0, 0, 0, 0, () => RunLogLocation$, 0, 0, 0, 0, 0, 0]
+  [_ar, _i, _cI, _cBa, _eV, _sta, _wI, _wT, _rIu, _rA, _n, _rGI, _bI, _pr, _def, _di, _pa, _sCt, _oU, _lL, _rD, _sB, _cT, _sTt, _sTto, _sM, _ta, _ac, _rMet, _fR, _lLo, _u, _rOU, _sT, _wOI, _wVN, _wU, _nM, _co, _vC],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 15, 1, 0, 0, 128 | 0, 0, 5, 5, 5, 0, 128 | 0, 0, 0, 0, () => RunLogLocation$, 0, 0, 0, 0, 0, 0, 0, () => ConfigurationDetails$, () => VpcConfigResponse$]
 ];
 export var GetRunTaskRequest$: StaticStructureSchema = [3, n0, _GRTR,
   0,
@@ -1573,6 +1634,16 @@ export var ListBatchResponse$: StaticStructureSchema = [3, n0, _LBRi,
   0,
   [_it, _nT],
   [() => BatchList, 0]
+];
+export var ListConfigurationsRequest$: StaticStructureSchema = [3, n0, _LCR,
+  0,
+  [_mRa, _sTta],
+  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _sTta }]]
+];
+export var ListConfigurationsResponse$: StaticStructureSchema = [3, n0, _LCRi,
+  0,
+  [_it, _nT],
+  [() => ConfigurationList, 0]
 ];
 export var ListMultipartReadSetUploadsRequest$: StaticStructureSchema = [3, n0, _LMRSUR,
   0,
@@ -1811,7 +1882,7 @@ export var PutS3AccessPolicyResponse$: StaticStructureSchema = [3, n0, _PSAPRu,
 ];
 export var ReadOptions$: StaticStructureSchema = [3, n0, _RO,
   0,
-  [_sep, _enc, _q, _qA, _es, _eQ, _co, _h, _lSi],
+  [_sep, _enc, _q, _qA, _es, _eQ, _com, _h, _lSi],
   [0, 0, 0, 2, 0, 2, 0, 2, 0]
 ];
 export var ReadSetBatchError$: StaticStructureSchema = [3, n0, _RSBE,
@@ -1888,6 +1959,16 @@ export var RunCacheListItem$: StaticStructureSchema = [3, n0, _RCLI,
   0,
   [_ar, _cBa, _cSU, _cT, _i, _n, _sta],
   [0, 0, 0, 5, 0, 0, 0]
+];
+export var RunConfigurations$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_vC],
+  [() => VpcConfig$]
+];
+export var RunConfigurationsResponse$: StaticStructureSchema = [3, n0, _RCR,
+  0,
+  [_vC],
+  [() => VpcConfigResponse$]
 ];
 export var RunGroupListItem$: StaticStructureSchema = [3, n0, _RGLI,
   0,
@@ -2031,13 +2112,13 @@ export var StartRunBatchResponse$: StaticStructureSchema = [3, n0, _SRBRt,
 ];
 export var StartRunRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
-  [_rA, _oU, _wI, _wT, _rIu, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _lL, _ta, _rI, _rMet, _sT, _wOI, _wVN],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 128 | 0, [0, 4], 0, 0, 0, 0], 2
+  [_rA, _oU, _wI, _wT, _rIu, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _lL, _ta, _rI, _rMet, _sT, _wOI, _wVN, _nM, _cN],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 128 | 0, [0, 4], 0, 0, 0, 0, 0, 0], 2
 ];
 export var StartRunResponse$: StaticStructureSchema = [3, n0, _SRRt,
   0,
-  [_ar, _i, _sta, _ta, _u, _rOU],
-  [0, 0, 0, 128 | 0, 0, 0]
+  [_ar, _i, _sta, _ta, _u, _rOU, _co, _nM],
+  [0, 0, 0, 128 | 0, 0, 0, () => ConfigurationDetails$, 0]
 ];
 export var StartVariantImportRequest$: StaticStructureSchema = [3, n0, _SVIR,
   0,
@@ -2194,6 +2275,16 @@ export var VersionDeleteError$: StaticStructureSchema = [3, n0, _VDE,
   [_vN, _m],
   [0, 0], 2
 ];
+export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
+  0,
+  [_sGI, _sIub],
+  [64 | 0, 64 | 0]
+];
+export var VpcConfigResponse$: StaticStructureSchema = [3, n0, _VCR,
+  0,
+  [_sGI, _sIub, _vI],
+  [64 | 0, 64 | 0, 0]
+];
 export var WorkflowListItem$: StaticStructureSchema = [3, n0, _WLI,
   0,
   [_ar, _i, _n, _sta, _ty, _di, _cT, _met],
@@ -2237,6 +2328,9 @@ var BatchList: StaticListSchema = [1, n0, _BL,
 ];
 var CompleteReadSetUploadPartList: StaticListSchema = [1, n0, _CRSUPL,
   0, () => CompleteReadSetUploadPartListItem$
+];
+var ConfigurationList: StaticListSchema = [1, n0, _CL,
+  0, () => ConfigurationListItem$
 ];
 var ExcludeFilePatternList = 64 | 0;
 var ExportReadSetDetailList: StaticListSchema = [1, n0, _ERSDL,
@@ -2306,6 +2400,7 @@ var RunList: StaticListSchema = [1, n0, _RLu,
 var Schema: StaticListSchema = [1, n0, _S,
   0, 128 | 0
 ];
+var SecurityGroupIds = 64 | 0;
 var SequenceStoreDetailList: StaticListSchema = [1, n0, _SSDL,
   0, () => SequenceStoreDetail$
 ];
@@ -2322,6 +2417,7 @@ var StartReferenceImportJobSourceList: StaticListSchema = [1, n0, _SRIJSL,
   0, () => StartReferenceImportJobSourceItem$
 ];
 var StatusList = 64 | 0;
+var SubnetIds = 64 | 0;
 var TagKeyList = 64 | 0;
 var TaskList: StaticListSchema = [1, n0, _TL,
   0, () => TaskListItem$
@@ -2414,6 +2510,9 @@ export var CreateAnnotationStore$: StaticOperationSchema = [9, n0, _CAS,
 export var CreateAnnotationStoreVersion$: StaticOperationSchema = [9, n0, _CASV,
   { [_end]: ["analytics-"], [_ht]: ["POST", "/annotationStore/{name}/version", 200] }, () => CreateAnnotationStoreVersionRequest$, () => CreateAnnotationStoreVersionResponse$
 ];
+export var CreateConfiguration$: StaticOperationSchema = [9, n0, _CC,
+  { [_end]: ["workflows-"], [_ht]: ["POST", "/configuration", 201] }, () => CreateConfigurationRequest$, () => CreateConfigurationResponse$
+];
 export var CreateMultipartReadSetUpload$: StaticOperationSchema = [9, n0, _CMRSUr,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/upload", 200] }, () => CreateMultipartReadSetUploadRequest$, () => CreateMultipartReadSetUploadResponse$
 ];
@@ -2449,6 +2548,9 @@ export var DeleteAnnotationStoreVersions$: StaticOperationSchema = [9, n0, _DASV
 ];
 export var DeleteBatch$: StaticOperationSchema = [9, n0, _DB,
   { [_end]: ["workflows-"], [_ht]: ["DELETE", "/runBatch/{batchId}", 202] }, () => DeleteBatchRequest$, () => __Unit
+];
+export var DeleteConfiguration$: StaticOperationSchema = [9, n0, _DC,
+  { [_end]: ["workflows-"], [_ht]: ["DELETE", "/configuration/{name}", 202] }, () => DeleteConfigurationRequest$, () => __Unit
 ];
 export var DeleteReference$: StaticOperationSchema = [9, n0, _DRe,
   { [_end]: ["control-storage-"], [_ht]: ["DELETE", "/referencestore/{referenceStoreId}/reference/{id}", 200] }, () => DeleteReferenceRequest$, () => DeleteReferenceResponse$
@@ -2497,6 +2599,9 @@ export var GetAnnotationStoreVersion$: StaticOperationSchema = [9, n0, _GASV,
 ];
 export var GetBatch$: StaticOperationSchema = [9, n0, _GB,
   { [_end]: ["workflows-"], [_ht]: ["GET", "/runBatch/{batchId}", 200] }, () => GetBatchRequest$, () => GetBatchResponse$
+];
+export var GetConfiguration$: StaticOperationSchema = [9, n0, _GC,
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/configuration/{name}", 200] }, () => GetConfigurationRequest$, () => GetConfigurationResponse$
 ];
 export var GetReadSet$: StaticOperationSchema = [9, n0, _GRS,
   { [_end]: ["storage-"], [_ht]: ["GET", "/sequencestore/{sequenceStoreId}/readset/{id}", 200] }, () => GetReadSetRequest$, () => GetReadSetResponse$
@@ -2569,6 +2674,9 @@ export var ListAnnotationStoreVersions$: StaticOperationSchema = [9, n0, _LASV,
 ];
 export var ListBatch$: StaticOperationSchema = [9, n0, _LB,
   { [_end]: ["workflows-"], [_ht]: ["GET", "/runBatch", 200] }, () => ListBatchRequest$, () => ListBatchResponse$
+];
+export var ListConfigurations$: StaticOperationSchema = [9, n0, _LC,
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/configuration", 200] }, () => ListConfigurationsRequest$, () => ListConfigurationsResponse$
 ];
 export var ListMultipartReadSetUploads$: StaticOperationSchema = [9, n0, _LMRSU,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/uploads", 200] }, () => ListMultipartReadSetUploadsRequest$, () => ListMultipartReadSetUploadsResponse$

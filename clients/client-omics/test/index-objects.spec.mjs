@@ -47,6 +47,9 @@ import {
   CompleteMultipartReadSetUploadRequest$,
   CompleteMultipartReadSetUploadResponse$,
   CompleteReadSetUploadPartListItem$,
+  ConfigurationDetails$,
+  ConfigurationListItem$,
+  ConfigurationStatus,
   ConflictException,
   ConflictException$,
   ContainerRegistryMap$,
@@ -58,6 +61,10 @@ import {
   CreateAnnotationStoreVersionCommand,
   CreateAnnotationStoreVersionRequest$,
   CreateAnnotationStoreVersionResponse$,
+  CreateConfiguration$,
+  CreateConfigurationCommand,
+  CreateConfigurationRequest$,
+  CreateConfigurationResponse$,
   CreateMultipartReadSetUpload$,
   CreateMultipartReadSetUploadCommand,
   CreateMultipartReadSetUploadRequest$,
@@ -109,6 +116,9 @@ import {
   DeleteBatch$,
   DeleteBatchCommand,
   DeleteBatchRequest$,
+  DeleteConfiguration$,
+  DeleteConfigurationCommand,
+  DeleteConfigurationRequest$,
   DeleteReference$,
   DeleteReferenceCommand,
   DeleteReferenceRequest$,
@@ -181,6 +191,10 @@ import {
   GetBatchCommand,
   GetBatchRequest$,
   GetBatchResponse$,
+  GetConfiguration$,
+  GetConfigurationCommand,
+  GetConfigurationRequest$,
+  GetConfigurationResponse$,
   GetReadSet$,
   GetReadSetActivationJob$,
   GetReadSetActivationJobCommand,
@@ -292,6 +306,10 @@ import {
   ListBatchCommand,
   ListBatchRequest$,
   ListBatchResponse$,
+  ListConfigurations$,
+  ListConfigurationsCommand,
+  ListConfigurationsRequest$,
+  ListConfigurationsResponse$,
   ListMultipartReadSetUploads$,
   ListMultipartReadSetUploadsCommand,
   ListMultipartReadSetUploadsRequest$,
@@ -379,6 +397,7 @@ import {
   ListWorkflowVersionsRequest$,
   ListWorkflowVersionsResponse$,
   MultipartReadSetUploadListItem$,
+  NetworkingMode,
   NotSupportedOperationException,
   NotSupportedOperationException$,
   Omics,
@@ -388,6 +407,7 @@ import {
   paginateListAnnotationStores,
   paginateListAnnotationStoreVersions,
   paginateListBatch,
+  paginateListConfigurations,
   paginateListMultipartReadSetUploads,
   paginateListReadSetActivationJobs,
   paginateListReadSetExportJobs,
@@ -451,6 +471,8 @@ import {
   RunBatchListItem$,
   RunCacheListItem$,
   RunCacheStatus,
+  RunConfigurations$,
+  RunConfigurationsResponse$,
   RunExport,
   RunGroupListItem$,
   RunListItem$,
@@ -574,6 +596,8 @@ import {
   VersionDeleteError$,
   VersionOptions$,
   VersionStatus,
+  VpcConfig$,
+  VpcConfigResponse$,
   waitForAnnotationImportJobCreated,
   waitForAnnotationStoreCreated,
   waitForAnnotationStoreDeleted,
@@ -643,6 +667,8 @@ assert(typeof CreateAnnotationStoreCommand === "function");
 assert(typeof CreateAnnotationStore$ === "object");
 assert(typeof CreateAnnotationStoreVersionCommand === "function");
 assert(typeof CreateAnnotationStoreVersion$ === "object");
+assert(typeof CreateConfigurationCommand === "function");
+assert(typeof CreateConfiguration$ === "object");
 assert(typeof CreateMultipartReadSetUploadCommand === "function");
 assert(typeof CreateMultipartReadSetUpload$ === "object");
 assert(typeof CreateReferenceStoreCommand === "function");
@@ -667,6 +693,8 @@ assert(typeof DeleteAnnotationStoreVersionsCommand === "function");
 assert(typeof DeleteAnnotationStoreVersions$ === "object");
 assert(typeof DeleteBatchCommand === "function");
 assert(typeof DeleteBatch$ === "object");
+assert(typeof DeleteConfigurationCommand === "function");
+assert(typeof DeleteConfiguration$ === "object");
 assert(typeof DeleteReferenceCommand === "function");
 assert(typeof DeleteReference$ === "object");
 assert(typeof DeleteReferenceStoreCommand === "function");
@@ -699,6 +727,8 @@ assert(typeof GetAnnotationStoreVersionCommand === "function");
 assert(typeof GetAnnotationStoreVersion$ === "object");
 assert(typeof GetBatchCommand === "function");
 assert(typeof GetBatch$ === "object");
+assert(typeof GetConfigurationCommand === "function");
+assert(typeof GetConfiguration$ === "object");
 assert(typeof GetReadSetCommand === "function");
 assert(typeof GetReadSet$ === "object");
 assert(typeof GetReadSetActivationJobCommand === "function");
@@ -747,6 +777,8 @@ assert(typeof ListAnnotationStoreVersionsCommand === "function");
 assert(typeof ListAnnotationStoreVersions$ === "object");
 assert(typeof ListBatchCommand === "function");
 assert(typeof ListBatch$ === "object");
+assert(typeof ListConfigurationsCommand === "function");
+assert(typeof ListConfigurations$ === "object");
 assert(typeof ListMultipartReadSetUploadsCommand === "function");
 assert(typeof ListMultipartReadSetUploads$ === "object");
 assert(typeof ListReadSetActivationJobsCommand === "function");
@@ -856,11 +888,15 @@ assert(typeof CancelVariantImportResponse$ === "object");
 assert(typeof CompleteMultipartReadSetUploadRequest$ === "object");
 assert(typeof CompleteMultipartReadSetUploadResponse$ === "object");
 assert(typeof CompleteReadSetUploadPartListItem$ === "object");
+assert(typeof ConfigurationDetails$ === "object");
+assert(typeof ConfigurationListItem$ === "object");
 assert(typeof ContainerRegistryMap$ === "object");
 assert(typeof CreateAnnotationStoreRequest$ === "object");
 assert(typeof CreateAnnotationStoreResponse$ === "object");
 assert(typeof CreateAnnotationStoreVersionRequest$ === "object");
 assert(typeof CreateAnnotationStoreVersionResponse$ === "object");
+assert(typeof CreateConfigurationRequest$ === "object");
+assert(typeof CreateConfigurationResponse$ === "object");
 assert(typeof CreateMultipartReadSetUploadRequest$ === "object");
 assert(typeof CreateMultipartReadSetUploadResponse$ === "object");
 assert(typeof CreateReferenceStoreRequest$ === "object");
@@ -887,6 +923,7 @@ assert(typeof DeleteAnnotationStoreResponse$ === "object");
 assert(typeof DeleteAnnotationStoreVersionsRequest$ === "object");
 assert(typeof DeleteAnnotationStoreVersionsResponse$ === "object");
 assert(typeof DeleteBatchRequest$ === "object");
+assert(typeof DeleteConfigurationRequest$ === "object");
 assert(typeof DeleteReferenceRequest$ === "object");
 assert(typeof DeleteReferenceResponse$ === "object");
 assert(typeof DeleteReferenceStoreRequest$ === "object");
@@ -922,6 +959,8 @@ assert(typeof GetAnnotationStoreVersionRequest$ === "object");
 assert(typeof GetAnnotationStoreVersionResponse$ === "object");
 assert(typeof GetBatchRequest$ === "object");
 assert(typeof GetBatchResponse$ === "object");
+assert(typeof GetConfigurationRequest$ === "object");
+assert(typeof GetConfigurationResponse$ === "object");
 assert(typeof GetReadSetActivationJobRequest$ === "object");
 assert(typeof GetReadSetActivationJobResponse$ === "object");
 assert(typeof GetReadSetExportJobRequest$ === "object");
@@ -982,6 +1021,8 @@ assert(typeof ListAnnotationStoreVersionsRequest$ === "object");
 assert(typeof ListAnnotationStoreVersionsResponse$ === "object");
 assert(typeof ListBatchRequest$ === "object");
 assert(typeof ListBatchResponse$ === "object");
+assert(typeof ListConfigurationsRequest$ === "object");
+assert(typeof ListConfigurationsResponse$ === "object");
 assert(typeof ListMultipartReadSetUploadsRequest$ === "object");
 assert(typeof ListMultipartReadSetUploadsResponse$ === "object");
 assert(typeof ListReadSetActivationJobsRequest$ === "object");
@@ -1046,6 +1087,8 @@ assert(typeof ReferenceStoreFilter$ === "object");
 assert(typeof RegistryMapping$ === "object");
 assert(typeof RunBatchListItem$ === "object");
 assert(typeof RunCacheListItem$ === "object");
+assert(typeof RunConfigurations$ === "object");
+assert(typeof RunConfigurationsResponse$ === "object");
 assert(typeof RunGroupListItem$ === "object");
 assert(typeof RunListItem$ === "object");
 assert(typeof RunLogLocation$ === "object");
@@ -1109,6 +1152,8 @@ assert(typeof VariantStoreItem$ === "object");
 assert(typeof VcfOptions$ === "object");
 assert(typeof VersionDeleteError$ === "object");
 assert(typeof VersionOptions$ === "object");
+assert(typeof VpcConfig$ === "object");
+assert(typeof VpcConfigResponse$ === "object");
 assert(typeof WorkflowListItem$ === "object");
 assert(typeof WorkflowParameter$ === "object");
 assert(typeof WorkflowVersionListItem$ === "object");
@@ -1117,6 +1162,7 @@ assert(typeof Accelerators === "object");
 assert(typeof AnnotationType === "object");
 assert(typeof BatchStatus === "object");
 assert(typeof CacheBehavior === "object");
+assert(typeof ConfigurationStatus === "object");
 assert(typeof CreationType === "object");
 assert(typeof EncryptionType === "object");
 assert(typeof ETagAlgorithm === "object");
@@ -1124,6 +1170,7 @@ assert(typeof ETagAlgorithmFamily === "object");
 assert(typeof FileType === "object");
 assert(typeof FormatToHeaderKey === "object");
 assert(typeof JobStatus === "object");
+assert(typeof NetworkingMode === "object");
 assert(typeof ReadSetActivationJobItemStatus === "object");
 assert(typeof ReadSetActivationJobStatus === "object");
 assert(typeof ReadSetExportJobItemStatus === "object");
@@ -1224,6 +1271,7 @@ assert(typeof paginateListAnnotationImportJobs === "function");
 assert(typeof paginateListAnnotationStoreVersions === "function");
 assert(typeof paginateListAnnotationStores === "function");
 assert(typeof paginateListBatch === "function");
+assert(typeof paginateListConfigurations === "function");
 assert(typeof paginateListMultipartReadSetUploads === "function");
 assert(typeof paginateListReadSetActivationJobs === "function");
 assert(typeof paginateListReadSetExportJobs === "function");

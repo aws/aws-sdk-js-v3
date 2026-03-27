@@ -4,6 +4,7 @@ export * from "./ListAnnotationImportJobsPaginator";
 export * from "./ListAnnotationStoresPaginator";
 export * from "./ListAnnotationStoreVersionsPaginator";
 export * from "./ListBatchPaginator";
+export * from "./ListConfigurationsPaginator";
 export * from "./ListMultipartReadSetUploadsPaginator";
 export * from "./ListReadSetActivationJobsPaginator";
 export * from "./ListReadSetExportJobsPaginator";

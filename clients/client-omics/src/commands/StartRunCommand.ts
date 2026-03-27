@@ -58,6 +58,8 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *   storageType: "STRING_VALUE",
  *   workflowOwnerId: "STRING_VALUE",
  *   workflowVersionName: "STRING_VALUE",
+ *   networkingMode: "STRING_VALUE",
+ *   configurationName: "STRING_VALUE",
  * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);
@@ -70,6 +72,12 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * //   },
  * //   uuid: "STRING_VALUE",
  * //   runOutputUri: "STRING_VALUE",
+ * //   configuration: { // ConfigurationDetails
+ * //     name: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     uuid: "STRING_VALUE",
+ * //   },
+ * //   networkingMode: "STRING_VALUE",
  * // };
  *
  * ```

@@ -93,6 +93,10 @@ import {
   CreateAnnotationStoreVersionCommandOutput,
 } from "./commands/CreateAnnotationStoreVersionCommand";
 import {
+  CreateConfigurationCommandInput,
+  CreateConfigurationCommandOutput,
+} from "./commands/CreateConfigurationCommand";
+import {
   CreateMultipartReadSetUploadCommandInput,
   CreateMultipartReadSetUploadCommandOutput,
 } from "./commands/CreateMultipartReadSetUploadCommand";
@@ -122,6 +126,10 @@ import {
   DeleteAnnotationStoreVersionsCommandOutput,
 } from "./commands/DeleteAnnotationStoreVersionsCommand";
 import { DeleteBatchCommandInput, DeleteBatchCommandOutput } from "./commands/DeleteBatchCommand";
+import {
+  DeleteConfigurationCommandInput,
+  DeleteConfigurationCommandOutput,
+} from "./commands/DeleteConfigurationCommand";
 import { DeleteReferenceCommandInput, DeleteReferenceCommandOutput } from "./commands/DeleteReferenceCommand";
 import {
   DeleteReferenceStoreCommandInput,
@@ -156,6 +164,7 @@ import {
   GetAnnotationStoreVersionCommandOutput,
 } from "./commands/GetAnnotationStoreVersionCommand";
 import { GetBatchCommandInput, GetBatchCommandOutput } from "./commands/GetBatchCommand";
+import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
 import {
   GetReadSetActivationJobCommandInput,
   GetReadSetActivationJobCommandOutput,
@@ -207,6 +216,7 @@ import {
   ListAnnotationStoreVersionsCommandOutput,
 } from "./commands/ListAnnotationStoreVersionsCommand";
 import { ListBatchCommandInput, ListBatchCommandOutput } from "./commands/ListBatchCommand";
+import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
 import {
   ListMultipartReadSetUploadsCommandInput,
   ListMultipartReadSetUploadsCommandOutput,
@@ -333,6 +343,7 @@ export type ServiceInputTypes =
   | CompleteMultipartReadSetUploadCommandInput
   | CreateAnnotationStoreCommandInput
   | CreateAnnotationStoreVersionCommandInput
+  | CreateConfigurationCommandInput
   | CreateMultipartReadSetUploadCommandInput
   | CreateReferenceStoreCommandInput
   | CreateRunCacheCommandInput
@@ -345,6 +356,7 @@ export type ServiceInputTypes =
   | DeleteAnnotationStoreCommandInput
   | DeleteAnnotationStoreVersionsCommandInput
   | DeleteBatchCommandInput
+  | DeleteConfigurationCommandInput
   | DeleteReferenceCommandInput
   | DeleteReferenceStoreCommandInput
   | DeleteRunBatchCommandInput
@@ -361,6 +373,7 @@ export type ServiceInputTypes =
   | GetAnnotationStoreCommandInput
   | GetAnnotationStoreVersionCommandInput
   | GetBatchCommandInput
+  | GetConfigurationCommandInput
   | GetReadSetActivationJobCommandInput
   | GetReadSetCommandInput
   | GetReadSetExportJobCommandInput
@@ -385,6 +398,7 @@ export type ServiceInputTypes =
   | ListAnnotationStoreVersionsCommandInput
   | ListAnnotationStoresCommandInput
   | ListBatchCommandInput
+  | ListConfigurationsCommandInput
   | ListMultipartReadSetUploadsCommandInput
   | ListReadSetActivationJobsCommandInput
   | ListReadSetExportJobsCommandInput
@@ -441,6 +455,7 @@ export type ServiceOutputTypes =
   | CompleteMultipartReadSetUploadCommandOutput
   | CreateAnnotationStoreCommandOutput
   | CreateAnnotationStoreVersionCommandOutput
+  | CreateConfigurationCommandOutput
   | CreateMultipartReadSetUploadCommandOutput
   | CreateReferenceStoreCommandOutput
   | CreateRunCacheCommandOutput
@@ -453,6 +468,7 @@ export type ServiceOutputTypes =
   | DeleteAnnotationStoreCommandOutput
   | DeleteAnnotationStoreVersionsCommandOutput
   | DeleteBatchCommandOutput
+  | DeleteConfigurationCommandOutput
   | DeleteReferenceCommandOutput
   | DeleteReferenceStoreCommandOutput
   | DeleteRunBatchCommandOutput
@@ -469,6 +485,7 @@ export type ServiceOutputTypes =
   | GetAnnotationStoreCommandOutput
   | GetAnnotationStoreVersionCommandOutput
   | GetBatchCommandOutput
+  | GetConfigurationCommandOutput
   | GetReadSetActivationJobCommandOutput
   | GetReadSetCommandOutput
   | GetReadSetExportJobCommandOutput
@@ -493,6 +510,7 @@ export type ServiceOutputTypes =
   | ListAnnotationStoreVersionsCommandOutput
   | ListAnnotationStoresCommandOutput
   | ListBatchCommandOutput
+  | ListConfigurationsCommandOutput
   | ListMultipartReadSetUploadsCommandOutput
   | ListReadSetActivationJobsCommandOutput
   | ListReadSetExportJobsCommandOutput

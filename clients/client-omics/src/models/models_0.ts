@@ -7,6 +7,7 @@ import {
   AnnotationType,
   BatchStatus,
   CacheBehavior,
+  ConfigurationStatus,
   CreationType,
   EncryptionType,
   ETagAlgorithm,
@@ -14,6 +15,7 @@ import {
   FileType,
   FormatToHeaderKey,
   JobStatus,
+  NetworkingMode,
   ReadSetActivationJobItemStatus,
   ReadSetActivationJobStatus,
   ReadSetExportJobItemStatus,
@@ -2020,6 +2022,329 @@ export interface CompleteMultipartReadSetUploadResponse {
    * @public
    */
   readSetId: string | undefined;
+}
+
+/**
+ * <p>Minimal details for a configuration resource.</p>
+ * @public
+ */
+export interface ConfigurationDetails {
+  /**
+   * <p>User-friendly name for the configuration.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Unique resource identifier for the configuration.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>Unique identifier for the configuration.</p>
+   * @public
+   */
+  uuid?: string | undefined;
+}
+
+/**
+ * <p>Configuration list item with summary information.</p>
+ * @public
+ */
+export interface ConfigurationListItem {
+  /**
+   * <p>Unique resource identifier for the configuration.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>User-friendly name for the configuration.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Description for the configuration.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Current configuration status.</p>
+   * @public
+   */
+  status?: ConfigurationStatus | undefined;
+
+  /**
+   * <p>Configuration creation timestamp.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+}
+
+/**
+ * <p>VPC configuration for workflow runs.</p>
+ * @public
+ */
+export interface VpcConfig {
+  /**
+   * <p>List of security group IDs. Maximum of 5 security groups allowed.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>List of subnet IDs. Maximum of 16 subnets allowed.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+}
+
+/**
+ * <p>Run-specific configuration settings.</p>
+ * @public
+ */
+export interface RunConfigurations {
+  /**
+   * <p>VPC configuration for workflow runs.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConfigurationRequest {
+  /**
+   * <p>User-friendly name for the configuration.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Optional description for the configuration.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Required run-specific configurations.</p>
+   * @public
+   */
+  runConfigurations: RunConfigurations | undefined;
+
+  /**
+   * <p>Optional tags for the configuration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Optional request idempotency token. If not specified, a universally unique identifier (UUID) will be automatically generated for the request.</p>
+   * @public
+   */
+  requestId?: string | undefined;
+}
+
+/**
+ * <p>VPC configuration for workflow runs with computed VPC ID.</p>
+ * @public
+ */
+export interface VpcConfigResponse {
+  /**
+   * <p>List of security group IDs.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>List of subnet IDs.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>VPC ID computed from the provided subnet IDs.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+}
+
+/**
+ * <p>Run-specific configuration settings with computed values.</p>
+ * @public
+ */
+export interface RunConfigurationsResponse {
+  /**
+   * <p>VPC configuration for workflow runs with computed VPC ID.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfigResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConfigurationResponse {
+  /**
+   * <p>Unique resource identifier for the configuration.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>Unique identifier for the configuration.</p>
+   * @public
+   */
+  uuid?: string | undefined;
+
+  /**
+   * <p>User-friendly name for the configuration.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Description for the configuration.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Run-specific configurations.</p>
+   * @public
+   */
+  runConfigurations?: RunConfigurationsResponse | undefined;
+
+  /**
+   * <p>Current configuration status.</p>
+   * @public
+   */
+  status?: ConfigurationStatus | undefined;
+
+  /**
+   * <p>Configuration creation timestamp.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>Tags for the configuration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConfigurationRequest {
+  /**
+   * <p>Configuration name to delete.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationRequest {
+  /**
+   * <p>Configuration name to retrieve.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationResponse {
+  /**
+   * <p>Unique resource identifier for the configuration.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>Unique identifier for the configuration.</p>
+   * @public
+   */
+  uuid?: string | undefined;
+
+  /**
+   * <p>User-friendly name for the configuration.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Description for the configuration.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Run-specific configurations.</p>
+   * @public
+   */
+  runConfigurations?: RunConfigurationsResponse | undefined;
+
+  /**
+   * <p>Current configuration status.</p>
+   * @public
+   */
+  status?: ConfigurationStatus | undefined;
+
+  /**
+   * <p>Configuration creation timestamp.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>Tags for the configuration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationsRequest {
+  /**
+   * <p>Maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token for retrieving next page of results.</p>
+   * @public
+   */
+  startingToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationsResponse {
+  /**
+   * <p>List of configuration items.</p>
+   * @public
+   */
+  items?: ConfigurationListItem[] | undefined;
+
+  /**
+   * <p>Token for retrieving next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4996,6 +5321,24 @@ export interface GetRunResponse {
    * @public
    */
   workflowUuid?: string | undefined;
+
+  /**
+   * <p>Configuration for run networking behavior. If absent, this will default to RESTRICTED.</p>
+   * @public
+   */
+  networkingMode?: NetworkingMode | undefined;
+
+  /**
+   * <p>Configuration details for the workflow run.</p>
+   * @public
+   */
+  configuration?: ConfigurationDetails | undefined;
+
+  /**
+   * <p>VPC configuration for the workflow run.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfigResponse | undefined;
 }
 
 /**
@@ -8733,6 +9076,18 @@ export interface StartRunRequest {
    * @public
    */
   workflowVersionName?: string | undefined;
+
+  /**
+   * <p>Optional configuration for run networking behavior. If not specified, this will default to RESTRICTED.</p>
+   * @public
+   */
+  networkingMode?: NetworkingMode | undefined;
+
+  /**
+   * <p>Optional configuration name to use for the workflow run.</p>
+   * @public
+   */
+  configurationName?: string | undefined;
 }
 
 /**
@@ -8774,6 +9129,18 @@ export interface StartRunResponse {
    * @public
    */
   runOutputUri?: string | undefined;
+
+  /**
+   * <p>Configuration details for the workflow run.</p>
+   * @public
+   */
+  configuration?: ConfigurationDetails | undefined;
+
+  /**
+   * <p>Networking mode for the workflow run.</p>
+   * @public
+   */
+  networkingMode?: string | undefined;
 }
 
 /**
