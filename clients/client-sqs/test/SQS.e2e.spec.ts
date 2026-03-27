@@ -1,5 +1,5 @@
 import { SQS } from "@aws-sdk/client-sqs";
-import { AwsJson1_0Protocol, AwsQueryProtocol } from "@aws-sdk/core";
+import { AwsJson1_0Protocol, AwsQueryProtocol } from "@aws-sdk/core/protocols";
 import { describe, expect, test as it } from "vitest";
 
 describe(

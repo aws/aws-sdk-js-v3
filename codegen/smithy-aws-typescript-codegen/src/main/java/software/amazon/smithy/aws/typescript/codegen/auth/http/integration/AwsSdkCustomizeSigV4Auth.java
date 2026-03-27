@@ -127,16 +127,16 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                             "sigv4aSigningRegionSet",
                             writer -> {
                                 writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                                writer.addDependency(AwsDependency.AWS_SDK_CORE);
                                 writer.addImport(
                                     "loadConfig",
                                     "loadNodeConfig",
                                     TypeScriptDependency.NODE_CONFIG_PROVIDER
                                 );
-                                writer.addImport(
+                                writer.addImportSubmodule(
                                     "NODE_SIGV4A_CONFIG_OPTIONS",
                                     null,
-                                    AwsDependency.AWS_SDK_CORE
+                                    AwsDependency.AWS_SDK_CORE,
+                                    "/httpAuthSchemes"
                                 );
                                 writer.write("loadNodeConfig(NODE_SIGV4A_CONFIG_OPTIONS, loaderConfig)");
                             }
@@ -200,28 +200,28 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                         .resolveConfigFunction(
                             Symbol.builder()
                                 .name("resolveAwsSdkSigV4Config")
-                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName() + "/httpAuthSchemes", "/")
                                 .addDependency(AwsDependency.AWS_SDK_CORE)
                                 .build()
                         )
                         .inputConfig(
                             Symbol.builder()
                                 .name("AwsSdkSigV4AuthInputConfig")
-                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName() + "/httpAuthSchemes", "/")
                                 .addDependency(AwsDependency.AWS_SDK_CORE)
                                 .build()
                         )
                         .previouslyResolved(
                             Symbol.builder()
                                 .name("AwsSdkSigV4PreviouslyResolved")
-                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName() + "/httpAuthSchemes", "/")
                                 .addDependency(AwsDependency.AWS_SDK_CORE)
                                 .build()
                         )
                         .resolvedConfig(
                             Symbol.builder()
                                 .name("AwsSdkSigV4AuthResolvedConfig")
-                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName() + "/httpAuthSchemes", "/")
                                 .addDependency(AwsDependency.AWS_SDK_CORE)
                                 .build()
                         )
@@ -230,8 +230,12 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                 .putDefaultSigner(
                     LanguageTarget.SHARED,
                     w -> w
-                        .addDependency(AwsDependency.AWS_SDK_CORE)
-                        .addImport("AwsSdkSigV4Signer", null, AwsDependency.AWS_SDK_CORE)
+                        .addImportSubmodule(
+                            "AwsSdkSigV4Signer",
+                            null,
+                            AwsDependency.AWS_SDK_CORE,
+                            "/httpAuthSchemes"
+                        )
                         .write("new AwsSdkSigV4Signer()")
                 )
                 .build();
@@ -247,28 +251,28 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                             .resolveConfigFunction(
                                 Symbol.builder()
                                     .name("resolveAwsSdkSigV4AConfig")
-                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName() + "/httpAuthSchemes", "/")
                                     .addDependency(AwsDependency.AWS_SDK_CORE)
                                     .build()
                             )
                             .inputConfig(
                                 Symbol.builder()
                                     .name("AwsSdkSigV4AAuthInputConfig")
-                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName() + "/httpAuthSchemes", "/")
                                     .addDependency(AwsDependency.AWS_SDK_CORE)
                                     .build()
                             )
                             .previouslyResolved(
                                 Symbol.builder()
                                     .name("AwsSdkSigV4APreviouslyResolved")
-                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName() + "/httpAuthSchemes", "/")
                                     .addDependency(AwsDependency.AWS_SDK_CORE)
                                     .build()
                             )
                             .resolvedConfig(
                                 Symbol.builder()
                                     .name("AwsSdkSigV4AAuthResolvedConfig")
-                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName() + "/httpAuthSchemes", "/")
                                     .addDependency(AwsDependency.AWS_SDK_CORE)
                                     .build()
                             )
@@ -277,8 +281,12 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                     .putDefaultSigner(
                         LanguageTarget.SHARED,
                         w -> w
-                            .addDependency(AwsDependency.AWS_SDK_CORE)
-                            .addImport("AwsSdkSigV4ASigner", null, AwsDependency.AWS_SDK_CORE)
+                            .addImportSubmodule(
+                                "AwsSdkSigV4ASigner",
+                                null,
+                                AwsDependency.AWS_SDK_CORE,
+                                "/httpAuthSchemes"
+                            )
                             .write("new AwsSdkSigV4ASigner()")
                     )
                     .build();

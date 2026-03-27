@@ -2,7 +2,8 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
-import { emitWarningIfUnsupportedVersion as awsCheckVersion, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core";
+import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core/client";
+import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
 import { createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS } from "@aws-sdk/util-user-agent-node";

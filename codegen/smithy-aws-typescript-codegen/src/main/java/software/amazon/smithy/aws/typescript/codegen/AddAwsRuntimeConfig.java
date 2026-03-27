@@ -156,8 +156,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         Model model
     ) {
         if (isAwsService(settings, model) && target.equals(LanguageTarget.NODE)) {
-            writer.addDependency(AwsDependency.AWS_SDK_CORE);
-            writer.addImport("emitWarningIfUnsupportedVersion", "awsCheckVersion", AwsDependency.AWS_SDK_CORE);
+            writer.addImportSubmodule(
+                "emitWarningIfUnsupportedVersion",
+                "awsCheckVersion",
+                AwsDependency.AWS_SDK_CORE,
+                "/client"
+            );
             writer.write("awsCheckVersion(process.version);");
         }
         if (target.equals(LanguageTarget.NODE)) {
@@ -226,10 +230,11 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                                 "loadNodeConfig",
                                 TypeScriptDependency.NODE_CONFIG_PROVIDER
                             );
-                            writer.addImport(
+                            writer.addImportSubmodule(
                                 "NODE_AUTH_SCHEME_PREFERENCE_OPTIONS",
                                 null,
-                                AwsDependency.AWS_SDK_CORE
+                                AwsDependency.AWS_SDK_CORE,
+                                "/httpAuthSchemes"
                             );
                             writer.write("loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig)");
                         });

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { parseXmlBody as parseBody, parseXmlErrorBody as parseErrorBody } from "@aws-sdk/core";
+import { parseXmlBody as parseBody, parseXmlErrorBody as parseErrorBody } from "@aws-sdk/core/protocols";
 import {
   HttpRequest,
   HttpRequest as __HttpRequest,

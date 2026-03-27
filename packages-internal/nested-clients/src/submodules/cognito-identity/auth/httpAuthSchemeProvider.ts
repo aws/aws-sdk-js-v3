@@ -3,8 +3,8 @@ import type {
   AwsSdkSigV4AuthInputConfig,
   AwsSdkSigV4AuthResolvedConfig,
   AwsSdkSigV4PreviouslyResolved,
-} from "@aws-sdk/core";
-import { resolveAwsSdkSigV4Config } from "@aws-sdk/core";
+} from "@aws-sdk/core/httpAuthSchemes";
+import { resolveAwsSdkSigV4Config } from "@aws-sdk/core/httpAuthSchemes";
 import type {
   HandlerExecutionContext,
   HttpAuthOption,

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
 import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { HttpBearerAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";

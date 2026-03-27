@@ -8,7 +8,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4AConfig,
   resolveAwsSdkSigV4Config,
-} from "@aws-sdk/core";
+} from "@aws-sdk/core/httpAuthSchemes";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { EndpointParameterInstructions, resolveParams } from "@smithy/middleware-endpoint";
 import {

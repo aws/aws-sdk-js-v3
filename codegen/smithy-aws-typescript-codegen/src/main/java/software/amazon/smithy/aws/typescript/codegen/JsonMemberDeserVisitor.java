@@ -65,8 +65,13 @@ final class JsonMemberDeserVisitor extends MemberDeserVisitor {
 
     @Override
     public String unionShape(UnionShape shape) {
-        context.getWriter().addDependency(AwsDependency.AWS_SDK_CORE);
-        context.getWriter().addImport("awsExpectUnion", "__expectUnion", AwsDependency.AWS_SDK_CORE);
+        context.getWriter()
+            .addImportSubmodule(
+                "awsExpectUnion",
+                "__expectUnion",
+                AwsDependency.AWS_SDK_CORE,
+                "/protocols"
+            );
         return getDelegateDeserializer(shape, "__expectUnion(" + dataSource + ")");
     }
 

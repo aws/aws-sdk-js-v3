@@ -118,17 +118,9 @@ unlink-smithy:
 copy-smithy:
 	node ./scripts/copy-smithy-dist-files
 
-gen-auth:
-	node ./scripts/cli-dispatcher client sso - gen;
-	node ./scripts/cli-dispatcher client sts - gen;
-	node ./scripts/cli-dispatcher client sso-oidc - gen;
-	node ./scripts/cli-dispatcher client cognito identity - gen;
-
-b-auth:
-	node ./scripts/cli-dispatcher client sso - deps;
-	node ./scripts/cli-dispatcher client sts - b;
-	node ./scripts/cli-dispatcher client sso-oidc - b;
-	node ./scripts/cli-dispatcher client cognito identity - b;
+# format Java code.
+jfmt:
+	(cd codegen && ./gradlew spotlessApply)
 
 # run turbo build for packages only.
 tpk:

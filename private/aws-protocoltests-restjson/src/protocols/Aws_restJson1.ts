@@ -4,7 +4,7 @@ import {
   loadRestJsonErrorCode,
   parseJsonBody as parseBody,
   parseJsonErrorBody as parseErrorBody,
-} from "@aws-sdk/core";
+} from "@aws-sdk/core/protocols";
 import { requestBuilder as rb } from "@smithy/core";
 import { Int64 as __Int64 } from "@smithy/eventstream-codec";
 import {
