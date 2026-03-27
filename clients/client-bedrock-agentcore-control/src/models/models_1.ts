@@ -11,13 +11,44 @@ import {
 import {
   type KmsConfiguration,
   type MetadataConfiguration,
-  type UpdatedDescription,
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
   CredentialProviderConfiguration,
   McpServerTargetConfiguration,
   S3Configuration,
 } from "./models_0";
+
+/**
+ * Wrapper for updating an optional Description field with PATCH semantics.
+ * When present in an update request, the description is replaced with optionalValue.
+ * When absent, the description is left unchanged.
+ * To unset the description, include the wrapper with optionalValue not specified.
+ * @public
+ */
+export interface UpdatedDescription {
+  /**
+   * <p>Represents an optional value that is used to update the human-readable description of the resource. If not specified, it will clear the current description of the resource.</p>
+   * @public
+   */
+  optionalValue?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePolicyEngineRequest {
+  /**
+   * <p>The unique identifier of the policy engine to be updated.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The new description for the policy engine.</p>
+   * @public
+   */
+  description?: UpdatedDescription | undefined;
+}
 
 /**
  * @public

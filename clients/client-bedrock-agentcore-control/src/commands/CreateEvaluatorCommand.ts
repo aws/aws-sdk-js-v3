@@ -31,7 +31,7 @@ export interface CreateEvaluatorCommandInput extends CreateEvaluatorRequest {}
 export interface CreateEvaluatorCommandOutput extends CreateEvaluatorResponse, __MetadataBearer {}
 
 /**
- * <p> Creates a custom evaluator for agent quality assessment. Custom evaluators use LLM-as-a-Judge configurations with user-defined prompts, rating scales, and model settings to evaluate agent performance at tool call, trace, or session levels. </p>
+ * <p> Creates a custom evaluator for agent quality assessment. Custom evaluators can use either LLM-as-a-Judge configurations with user-defined prompts, rating scales, and model settings, or code-based configurations with customer-managed Lambda functions to evaluate agent performance at tool call, trace, or session levels. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +75,12 @@ export interface CreateEvaluatorCommandOutput extends CreateEvaluatorResponse, _
  *           },
  *           additionalModelRequestFields: "DOCUMENT_VALUE",
  *         },
+ *       },
+ *     },
+ *     codeBased: { // CodeBasedEvaluatorConfig Union: only one key present
+ *       lambdaConfig: { // LambdaEvaluatorConfig
+ *         lambdaArn: "STRING_VALUE", // required
+ *         lambdaTimeoutInSeconds: Number("int"),
  *       },
  *     },
  *   },

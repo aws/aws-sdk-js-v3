@@ -2879,6 +2879,63 @@ export interface DeleteResourcePolicyRequest {
 export interface DeleteResourcePolicyResponse {}
 
 /**
+ * <p> Configuration for a Lambda function used as a code-based evaluator. </p>
+ * @public
+ */
+export interface LambdaEvaluatorConfig {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Lambda function that implements the evaluation logic. </p>
+   * @public
+   */
+  lambdaArn: string | undefined;
+
+  /**
+   * <p> The timeout in seconds for the Lambda function invocation. Defaults to 60. Must be between 1 and 300. </p>
+   * @public
+   */
+  lambdaTimeoutInSeconds?: number | undefined;
+}
+
+/**
+ * <p> Configuration for a code-based evaluator. Specify the Lambda function to use for evaluation. </p>
+ * @public
+ */
+export type CodeBasedEvaluatorConfig =
+  | CodeBasedEvaluatorConfig.LambdaConfigMember
+  | CodeBasedEvaluatorConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CodeBasedEvaluatorConfig {
+  /**
+   * <p> The Lambda function configuration for code-based evaluation. </p>
+   * @public
+   */
+  export interface LambdaConfigMember {
+    lambdaConfig: LambdaEvaluatorConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    lambdaConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    lambdaConfig: (value: LambdaEvaluatorConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p> The configuration parameters that control how the foundation model behaves during evaluation, including response generation settings. </p>
  * @public
  */
@@ -3095,6 +3152,7 @@ export interface LlmAsAJudgeEvaluatorConfig {
  * @public
  */
 export type EvaluatorConfig =
+  | EvaluatorConfig.CodeBasedMember
   | EvaluatorConfig.LlmAsAJudgeMember
   | EvaluatorConfig.$UnknownMember;
 
@@ -3108,6 +3166,17 @@ export namespace EvaluatorConfig {
    */
   export interface LlmAsAJudgeMember {
     llmAsAJudge: LlmAsAJudgeEvaluatorConfig;
+    codeBased?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Configuration for a code-based evaluator that uses a customer-managed Lambda function to programmatically assess agent performance. </p>
+   * @public
+   */
+  export interface CodeBasedMember {
+    llmAsAJudge?: never;
+    codeBased: CodeBasedEvaluatorConfig;
     $unknown?: never;
   }
 
@@ -3116,6 +3185,7 @@ export namespace EvaluatorConfig {
    */
   export interface $UnknownMember {
     llmAsAJudge?: never;
+    codeBased?: never;
     $unknown: [string, any];
   }
 
@@ -3125,6 +3195,7 @@ export namespace EvaluatorConfig {
    */
   export interface Visitor<T> {
     llmAsAJudge: (value: LlmAsAJudgeEvaluatorConfig) => T;
+    codeBased: (value: CodeBasedEvaluatorConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3152,7 +3223,7 @@ export interface CreateEvaluatorRequest {
   description?: string | undefined;
 
   /**
-   * <p> The configuration for the evaluator, including LLM-as-a-Judge settings with instructions, rating scale, and model configuration. </p>
+   * <p> The configuration for the evaluator. Specify either LLM-as-a-Judge settings with instructions, rating scale, and model configuration, or code-based settings with a customer-managed Lambda function. </p>
    * @public
    */
   evaluatorConfig: EvaluatorConfig | undefined;
@@ -3273,7 +3344,7 @@ export interface GetEvaluatorResponse {
   description?: string | undefined;
 
   /**
-   * <p> The configuration of the evaluator, including LLM-as-a-Judge settings for custom evaluators. </p>
+   * <p> The configuration of the evaluator, including LLM-as-a-Judge or code-based settings. </p>
    * @public
    */
   evaluatorConfig: EvaluatorConfig | undefined;
@@ -3432,7 +3503,7 @@ export interface UpdateEvaluatorRequest {
   description?: string | undefined;
 
   /**
-   * <p> The updated configuration for the evaluator, including LLM-as-a-Judge settings with instructions, rating scale, and model configuration. </p>
+   * <p> The updated configuration for the evaluator. Specify either LLM-as-a-Judge settings with instructions, rating scale, and model configuration, or code-based settings with a customer-managed Lambda function. </p>
    * @public
    */
   evaluatorConfig?: EvaluatorConfig | undefined;
@@ -9486,36 +9557,4 @@ export interface ListPolicyEnginesResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * Wrapper for updating an optional Description field with PATCH semantics.
- * When present in an update request, the description is replaced with optionalValue.
- * When absent, the description is left unchanged.
- * To unset the description, include the wrapper with optionalValue set to null.
- * @public
- */
-export interface UpdatedDescription {
-  /**
-   * <p>Represents an optional value that is used to update the human-readable description of the resource. If set to null, it will clear the current description of the resource.</p>
-   * @public
-   */
-  optionalValue?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePolicyEngineRequest {
-  /**
-   * <p>The unique identifier of the policy engine to be updated.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The new description for the policy engine.</p>
-   * @public
-   */
-  description?: UpdatedDescription | undefined;
 }

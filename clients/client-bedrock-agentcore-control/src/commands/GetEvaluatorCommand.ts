@@ -83,6 +83,12 @@ export interface GetEvaluatorCommandOutput extends GetEvaluatorResponse, __Metad
  * //         },
  * //       },
  * //     },
+ * //     codeBased: { // CodeBasedEvaluatorConfig Union: only one key present
+ * //       lambdaConfig: { // LambdaEvaluatorConfig
+ * //         lambdaArn: "STRING_VALUE", // required
+ * //         lambdaTimeoutInSeconds: Number("int"),
+ * //       },
+ * //     },
  * //   },
  * //   level: "TOOL_CALL" || "TRACE" || "SESSION", // required
  * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING", // required

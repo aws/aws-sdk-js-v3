@@ -39,6 +39,7 @@ const _CARERr = "CreateAgentRuntimeEndpointResponse";
 const _CARR = "CreateAgentRuntimeRequest";
 const _CARRr = "CreateAgentRuntimeResponse";
 const _CB = "CreateBrowser";
+const _CBEC = "CodeBasedEvaluatorConfig";
 const _CBP = "CreateBrowserProfile";
 const _CBPR = "CreateBrowserProfileRequest";
 const _CBPRr = "CreateBrowserProfileResponse";
@@ -298,6 +299,7 @@ const _LCI = "ListCodeInterpreters";
 const _LCIR = "ListCodeInterpretersRequest";
 const _LCIRi = "ListCodeInterpretersResponse";
 const _LE = "ListEvaluators";
+const _LEC = "LambdaEvaluatorConfig";
 const _LER = "ListEvaluatorsRequest";
 const _LERi = "ListEvaluatorsResponse";
 const _LG = "ListGateways";
@@ -555,6 +557,7 @@ const _bSr = "browserSummaries";
 const _bV = "booleanValue";
 const _c = "client";
 const _cA = "createdAt";
+const _cB = "codeBased";
 const _cC = "customClaims";
 const _cCC = "customConsolidationConfiguration";
 const _cCo = "contentConfigurations";
@@ -675,6 +678,7 @@ const _l = "location";
 const _lA = "lambdaArn";
 const _lAAJ = "llmAsAJudge";
 const _lC = "lifecycleConfiguration";
+const _lCa = "lambdaConfig";
 const _lFM = "lockedForModification";
 const _lGN = "logGroupNames";
 const _lGNo = "logGroupName";
@@ -684,6 +688,7 @@ const _lSA = "lastSavedAt";
 const _lSAa = "lastSynchronizedAt";
 const _lSBI = "lastSavedBrowserId";
 const _lSBSI = "lastSavedBrowserSessionId";
+const _lTIS = "lambdaTimeoutInSeconds";
 const _lUA = "lastUpdatedAt";
 const _lUT = "lastUpdatedTime";
 const _lV = "liveVersion";
@@ -1811,6 +1816,11 @@ export var KmsConfiguration$: StaticStructureSchema = [3, n0, _KC,
   [_kT, _kKA],
   [0, 0], 1
 ];
+export var LambdaEvaluatorConfig$: StaticStructureSchema = [3, n0, _LEC,
+  0,
+  [_lA, _lTIS],
+  [0, 1], 1
+];
 export var LambdaInterceptorConfiguration$: StaticStructureSchema = [3, n0, _LIC,
   0,
   [_a],
@@ -2790,6 +2800,11 @@ export var Code$: StaticUnionSchema = [4, n0, _Co,
   [_s_],
   [() => S3Location$]
 ];
+export var CodeBasedEvaluatorConfig$: StaticUnionSchema = [4, n0, _CBEC,
+  0,
+  [_lCa],
+  [() => LambdaEvaluatorConfig$]
+];
 export var ConsolidationConfiguration$: StaticUnionSchema = [4, n0, _CCons,
   0,
   [_cCC],
@@ -2847,8 +2862,8 @@ export var DataSourceConfig$: StaticUnionSchema = [4, n0, _DSC,
 ];
 export var EvaluatorConfig$: StaticUnionSchema = [4, n0, _EC,
   0,
-  [_lAAJ],
-  [[() => LlmAsAJudgeEvaluatorConfig$, 0]]
+  [_lAAJ, _cB],
+  [[() => LlmAsAJudgeEvaluatorConfig$, 0], () => CodeBasedEvaluatorConfig$]
 ];
 export var EvaluatorModelConfig$: StaticUnionSchema = [4, n0, _EMC,
   0,

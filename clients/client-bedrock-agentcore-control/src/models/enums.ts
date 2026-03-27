@@ -260,6 +260,7 @@ export type EvaluatorStatus = (typeof EvaluatorStatus)[keyof typeof EvaluatorSta
  */
 export const EvaluatorType = {
   BUILTIN: "Builtin",
+  CODE: "CustomCode",
   CUSTOM: "Custom",
 } as const;
 /**

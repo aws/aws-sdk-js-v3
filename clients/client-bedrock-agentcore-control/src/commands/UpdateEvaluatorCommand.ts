@@ -77,6 +77,12 @@ export interface UpdateEvaluatorCommandOutput extends UpdateEvaluatorResponse, _
  *         },
  *       },
  *     },
+ *     codeBased: { // CodeBasedEvaluatorConfig Union: only one key present
+ *       lambdaConfig: { // LambdaEvaluatorConfig
+ *         lambdaArn: "STRING_VALUE", // required
+ *         lambdaTimeoutInSeconds: Number("int"),
+ *       },
+ *     },
  *   },
  *   level: "TOOL_CALL" || "TRACE" || "SESSION",
  * };

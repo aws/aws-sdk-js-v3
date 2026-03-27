@@ -42,6 +42,7 @@ import {
   CloudWatchLogsInputConfig$,
   CloudWatchOutputConfig$,
   Code$,
+  CodeBasedEvaluatorConfig$,
   CodeConfiguration$,
   CodeInterpreterNetworkConfiguration$,
   CodeInterpreterNetworkMode,
@@ -327,6 +328,7 @@ import {
   KeyType,
   KinesisResource$,
   KmsConfiguration$,
+  LambdaEvaluatorConfig$,
   LambdaInterceptorConfiguration$,
   LifecycleConfiguration$,
   LinkedinOauth2ProviderConfigInput$,
@@ -847,6 +849,7 @@ assert(typeof ClaimMatchValueType$ === "object");
 assert(typeof CloudWatchLogsInputConfig$ === "object");
 assert(typeof CloudWatchOutputConfig$ === "object");
 assert(typeof Code$ === "object");
+assert(typeof CodeBasedEvaluatorConfig$ === "object");
 assert(typeof CodeConfiguration$ === "object");
 assert(typeof CodeInterpreterNetworkConfiguration$ === "object");
 assert(typeof CodeInterpreterSummary$ === "object");
@@ -1006,6 +1009,7 @@ assert(typeof InvocationConfiguration$ === "object");
 assert(typeof InvocationConfigurationInput$ === "object");
 assert(typeof KinesisResource$ === "object");
 assert(typeof KmsConfiguration$ === "object");
+assert(typeof LambdaEvaluatorConfig$ === "object");
 assert(typeof LambdaInterceptorConfiguration$ === "object");
 assert(typeof LifecycleConfiguration$ === "object");
 assert(typeof LinkedinOauth2ProviderConfigInput$ === "object");

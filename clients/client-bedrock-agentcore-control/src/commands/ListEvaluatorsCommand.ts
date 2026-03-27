@@ -53,7 +53,7 @@ export interface ListEvaluatorsCommandOutput extends ListEvaluatorsResponse, __M
  * //       evaluatorId: "STRING_VALUE", // required
  * //       evaluatorName: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       evaluatorType: "Builtin" || "Custom", // required
+ * //       evaluatorType: "Builtin" || "Custom" || "CustomCode", // required
  * //       level: "TOOL_CALL" || "TRACE" || "SESSION",
  * //       status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
