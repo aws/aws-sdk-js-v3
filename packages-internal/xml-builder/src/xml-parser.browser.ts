@@ -51,7 +51,7 @@ export function parseXML(xmlString: string): any {
             return childResult;
           }
 
-          if (obj[childName]) {
+          if (childName in obj) {
             if (Array.isArray(obj[childName])) {
               obj[childName].push(childResult);
             } else {

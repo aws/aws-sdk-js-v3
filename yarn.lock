@@ -1176,7 +1176,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     entities: "npm:2.2.0"
-    fast-xml-parser: "npm:5.5.8"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -1236,7 +1235,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     entities: "npm:2.2.0"
-    fast-xml-parser: "npm:5.5.8"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -25153,7 +25151,6 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    fast-xml-parser: "npm:5.5.8"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -31396,6 +31393,7 @@ __metadata:
     eslint-plugin-sort-export-all: "npm:1.2.2"
     eslint-plugin-tsdoc: "npm:0.2.17"
     esprint: "npm:3.6.0"
+    fast-xml-parser: "npm:^5.5.6"
     fastify: "npm:^4.11.0"
     figlet: "npm:^1.5.0"
     fs-extra: "npm:^9.0.0"
@@ -34241,7 +34239,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-xml-parser@npm:5.5.8":
+"fast-xml-parser@npm:^5.5.6":
   version: 5.5.8
   resolution: "fast-xml-parser@npm:5.5.8"
   dependencies:
