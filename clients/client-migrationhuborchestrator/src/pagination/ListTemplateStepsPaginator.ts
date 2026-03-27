@@ -8,7 +8,7 @@ import {
   ListTemplateStepsCommandOutput,
 } from "../commands/ListTemplateStepsCommand";
 import { MigrationHubOrchestratorClient } from "../MigrationHubOrchestratorClient";
-import { MigrationHubOrchestratorPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubOrchestratorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

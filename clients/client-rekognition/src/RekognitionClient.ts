@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,181 +61,220 @@ import {
   defaultRekognitionHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateFacesCommandInput, AssociateFacesCommandOutput } from "./commands/AssociateFacesCommand";
-import { CompareFacesCommandInput, CompareFacesCommandOutput } from "./commands/CompareFacesCommand";
-import { CopyProjectVersionCommandInput, CopyProjectVersionCommandOutput } from "./commands/CopyProjectVersionCommand";
-import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
-import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
-import {
+import type { AssociateFacesCommandInput, AssociateFacesCommandOutput } from "./commands/AssociateFacesCommand";
+import type { CompareFacesCommandInput, CompareFacesCommandOutput } from "./commands/CompareFacesCommand";
+import type {
+  CopyProjectVersionCommandInput,
+  CopyProjectVersionCommandOutput,
+} from "./commands/CopyProjectVersionCommand";
+import type { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
+import type { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import type {
   CreateFaceLivenessSessionCommandInput,
   CreateFaceLivenessSessionCommandOutput,
 } from "./commands/CreateFaceLivenessSessionCommand";
-import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
-import {
+import type { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import type {
   CreateProjectVersionCommandInput,
   CreateProjectVersionCommandOutput,
 } from "./commands/CreateProjectVersionCommand";
-import {
+import type {
   CreateStreamProcessorCommandInput,
   CreateStreamProcessorCommandOutput,
 } from "./commands/CreateStreamProcessorCommand";
-import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand";
-import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
-import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand";
-import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
-import {
+import type { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import type { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand";
+import type { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import type { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand";
+import type { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import type {
   DeleteProjectPolicyCommandInput,
   DeleteProjectPolicyCommandOutput,
 } from "./commands/DeleteProjectPolicyCommand";
-import {
+import type {
   DeleteProjectVersionCommandInput,
   DeleteProjectVersionCommandOutput,
 } from "./commands/DeleteProjectVersionCommand";
-import {
+import type {
   DeleteStreamProcessorCommandInput,
   DeleteStreamProcessorCommandOutput,
 } from "./commands/DeleteStreamProcessorCommand";
-import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
-import { DescribeCollectionCommandInput, DescribeCollectionCommandOutput } from "./commands/DescribeCollectionCommand";
-import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
-import { DescribeProjectsCommandInput, DescribeProjectsCommandOutput } from "./commands/DescribeProjectsCommand";
-import {
+import type { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import type {
+  DescribeCollectionCommandInput,
+  DescribeCollectionCommandOutput,
+} from "./commands/DescribeCollectionCommand";
+import type { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
+import type { DescribeProjectsCommandInput, DescribeProjectsCommandOutput } from "./commands/DescribeProjectsCommand";
+import type {
   DescribeProjectVersionsCommandInput,
   DescribeProjectVersionsCommandOutput,
 } from "./commands/DescribeProjectVersionsCommand";
-import {
+import type {
   DescribeStreamProcessorCommandInput,
   DescribeStreamProcessorCommandOutput,
 } from "./commands/DescribeStreamProcessorCommand";
-import { DetectCustomLabelsCommandInput, DetectCustomLabelsCommandOutput } from "./commands/DetectCustomLabelsCommand";
-import { DetectFacesCommandInput, DetectFacesCommandOutput } from "./commands/DetectFacesCommand";
-import { DetectLabelsCommandInput, DetectLabelsCommandOutput } from "./commands/DetectLabelsCommand";
-import {
+import type {
+  DetectCustomLabelsCommandInput,
+  DetectCustomLabelsCommandOutput,
+} from "./commands/DetectCustomLabelsCommand";
+import type { DetectFacesCommandInput, DetectFacesCommandOutput } from "./commands/DetectFacesCommand";
+import type { DetectLabelsCommandInput, DetectLabelsCommandOutput } from "./commands/DetectLabelsCommand";
+import type {
   DetectModerationLabelsCommandInput,
   DetectModerationLabelsCommandOutput,
 } from "./commands/DetectModerationLabelsCommand";
-import {
+import type {
   DetectProtectiveEquipmentCommandInput,
   DetectProtectiveEquipmentCommandOutput,
 } from "./commands/DetectProtectiveEquipmentCommand";
-import { DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand";
-import { DisassociateFacesCommandInput, DisassociateFacesCommandOutput } from "./commands/DisassociateFacesCommand";
-import {
+import type { DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand";
+import type {
+  DisassociateFacesCommandInput,
+  DisassociateFacesCommandOutput,
+} from "./commands/DisassociateFacesCommand";
+import type {
   DistributeDatasetEntriesCommandInput,
   DistributeDatasetEntriesCommandOutput,
 } from "./commands/DistributeDatasetEntriesCommand";
-import { GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput } from "./commands/GetCelebrityInfoCommand";
-import {
+import type { GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput } from "./commands/GetCelebrityInfoCommand";
+import type {
   GetCelebrityRecognitionCommandInput,
   GetCelebrityRecognitionCommandOutput,
 } from "./commands/GetCelebrityRecognitionCommand";
-import {
+import type {
   GetContentModerationCommandInput,
   GetContentModerationCommandOutput,
 } from "./commands/GetContentModerationCommand";
-import { GetFaceDetectionCommandInput, GetFaceDetectionCommandOutput } from "./commands/GetFaceDetectionCommand";
-import {
+import type { GetFaceDetectionCommandInput, GetFaceDetectionCommandOutput } from "./commands/GetFaceDetectionCommand";
+import type {
   GetFaceLivenessSessionResultsCommandInput,
   GetFaceLivenessSessionResultsCommandOutput,
 } from "./commands/GetFaceLivenessSessionResultsCommand";
-import { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "./commands/GetFaceSearchCommand";
-import { GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput } from "./commands/GetLabelDetectionCommand";
-import {
+import type { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "./commands/GetFaceSearchCommand";
+import type {
+  GetLabelDetectionCommandInput,
+  GetLabelDetectionCommandOutput,
+} from "./commands/GetLabelDetectionCommand";
+import type {
   GetMediaAnalysisJobCommandInput,
   GetMediaAnalysisJobCommandOutput,
 } from "./commands/GetMediaAnalysisJobCommand";
-import { GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput } from "./commands/GetPersonTrackingCommand";
-import {
+import type {
+  GetPersonTrackingCommandInput,
+  GetPersonTrackingCommandOutput,
+} from "./commands/GetPersonTrackingCommand";
+import type {
   GetSegmentDetectionCommandInput,
   GetSegmentDetectionCommandOutput,
 } from "./commands/GetSegmentDetectionCommand";
-import { GetTextDetectionCommandInput, GetTextDetectionCommandOutput } from "./commands/GetTextDetectionCommand";
-import { IndexFacesCommandInput, IndexFacesCommandOutput } from "./commands/IndexFacesCommand";
-import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./commands/ListCollectionsCommand";
-import { ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput } from "./commands/ListDatasetEntriesCommand";
-import { ListDatasetLabelsCommandInput, ListDatasetLabelsCommandOutput } from "./commands/ListDatasetLabelsCommand";
-import { ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
-import {
+import type { GetTextDetectionCommandInput, GetTextDetectionCommandOutput } from "./commands/GetTextDetectionCommand";
+import type { IndexFacesCommandInput, IndexFacesCommandOutput } from "./commands/IndexFacesCommand";
+import type { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./commands/ListCollectionsCommand";
+import type {
+  ListDatasetEntriesCommandInput,
+  ListDatasetEntriesCommandOutput,
+} from "./commands/ListDatasetEntriesCommand";
+import type {
+  ListDatasetLabelsCommandInput,
+  ListDatasetLabelsCommandOutput,
+} from "./commands/ListDatasetLabelsCommand";
+import type { ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
+import type {
   ListMediaAnalysisJobsCommandInput,
   ListMediaAnalysisJobsCommandOutput,
 } from "./commands/ListMediaAnalysisJobsCommand";
-import {
+import type {
   ListProjectPoliciesCommandInput,
   ListProjectPoliciesCommandOutput,
 } from "./commands/ListProjectPoliciesCommand";
-import {
+import type {
   ListStreamProcessorsCommandInput,
   ListStreamProcessorsCommandOutput,
 } from "./commands/ListStreamProcessorsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import { PutProjectPolicyCommandInput, PutProjectPolicyCommandOutput } from "./commands/PutProjectPolicyCommand";
-import {
+import type { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import type { PutProjectPolicyCommandInput, PutProjectPolicyCommandOutput } from "./commands/PutProjectPolicyCommand";
+import type {
   RecognizeCelebritiesCommandInput,
   RecognizeCelebritiesCommandOutput,
 } from "./commands/RecognizeCelebritiesCommand";
-import { SearchFacesByImageCommandInput, SearchFacesByImageCommandOutput } from "./commands/SearchFacesByImageCommand";
-import { SearchFacesCommandInput, SearchFacesCommandOutput } from "./commands/SearchFacesCommand";
-import { SearchUsersByImageCommandInput, SearchUsersByImageCommandOutput } from "./commands/SearchUsersByImageCommand";
-import { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
-import {
+import type {
+  SearchFacesByImageCommandInput,
+  SearchFacesByImageCommandOutput,
+} from "./commands/SearchFacesByImageCommand";
+import type { SearchFacesCommandInput, SearchFacesCommandOutput } from "./commands/SearchFacesCommand";
+import type {
+  SearchUsersByImageCommandInput,
+  SearchUsersByImageCommandOutput,
+} from "./commands/SearchUsersByImageCommand";
+import type { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
+import type {
   StartCelebrityRecognitionCommandInput,
   StartCelebrityRecognitionCommandOutput,
 } from "./commands/StartCelebrityRecognitionCommand";
-import {
+import type {
   StartContentModerationCommandInput,
   StartContentModerationCommandOutput,
 } from "./commands/StartContentModerationCommand";
-import { StartFaceDetectionCommandInput, StartFaceDetectionCommandOutput } from "./commands/StartFaceDetectionCommand";
-import { StartFaceSearchCommandInput, StartFaceSearchCommandOutput } from "./commands/StartFaceSearchCommand";
-import {
+import type {
+  StartFaceDetectionCommandInput,
+  StartFaceDetectionCommandOutput,
+} from "./commands/StartFaceDetectionCommand";
+import type { StartFaceSearchCommandInput, StartFaceSearchCommandOutput } from "./commands/StartFaceSearchCommand";
+import type {
   StartLabelDetectionCommandInput,
   StartLabelDetectionCommandOutput,
 } from "./commands/StartLabelDetectionCommand";
-import {
+import type {
   StartMediaAnalysisJobCommandInput,
   StartMediaAnalysisJobCommandOutput,
 } from "./commands/StartMediaAnalysisJobCommand";
-import {
+import type {
   StartPersonTrackingCommandInput,
   StartPersonTrackingCommandOutput,
 } from "./commands/StartPersonTrackingCommand";
-import {
+import type {
   StartProjectVersionCommandInput,
   StartProjectVersionCommandOutput,
 } from "./commands/StartProjectVersionCommand";
-import {
+import type {
   StartSegmentDetectionCommandInput,
   StartSegmentDetectionCommandOutput,
 } from "./commands/StartSegmentDetectionCommand";
-import {
+import type {
   StartStreamProcessorCommandInput,
   StartStreamProcessorCommandOutput,
 } from "./commands/StartStreamProcessorCommand";
-import { StartTextDetectionCommandInput, StartTextDetectionCommandOutput } from "./commands/StartTextDetectionCommand";
-import { StopProjectVersionCommandInput, StopProjectVersionCommandOutput } from "./commands/StopProjectVersionCommand";
-import {
+import type {
+  StartTextDetectionCommandInput,
+  StartTextDetectionCommandOutput,
+} from "./commands/StartTextDetectionCommand";
+import type {
+  StopProjectVersionCommandInput,
+  StopProjectVersionCommandOutput,
+} from "./commands/StopProjectVersionCommand";
+import type {
   StopStreamProcessorCommandInput,
   StopStreamProcessorCommandOutput,
 } from "./commands/StopStreamProcessorCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateDatasetEntriesCommandInput,
   UpdateDatasetEntriesCommandOutput,
 } from "./commands/UpdateDatasetEntriesCommand";
-import {
+import type {
   UpdateStreamProcessorCommandInput,
   UpdateStreamProcessorCommandOutput,
 } from "./commands/UpdateStreamProcessorCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -519,7 +556,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

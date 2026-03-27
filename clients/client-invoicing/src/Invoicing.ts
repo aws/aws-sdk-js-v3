@@ -3,85 +3,89 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchGetInvoiceProfileCommandInput,
+  type BatchGetInvoiceProfileCommandOutput,
   BatchGetInvoiceProfileCommand,
-  BatchGetInvoiceProfileCommandInput,
-  BatchGetInvoiceProfileCommandOutput,
 } from "./commands/BatchGetInvoiceProfileCommand";
 import {
+  type CreateInvoiceUnitCommandInput,
+  type CreateInvoiceUnitCommandOutput,
   CreateInvoiceUnitCommand,
-  CreateInvoiceUnitCommandInput,
-  CreateInvoiceUnitCommandOutput,
 } from "./commands/CreateInvoiceUnitCommand";
 import {
+  type CreateProcurementPortalPreferenceCommandInput,
+  type CreateProcurementPortalPreferenceCommandOutput,
   CreateProcurementPortalPreferenceCommand,
-  CreateProcurementPortalPreferenceCommandInput,
-  CreateProcurementPortalPreferenceCommandOutput,
 } from "./commands/CreateProcurementPortalPreferenceCommand";
 import {
+  type DeleteInvoiceUnitCommandInput,
+  type DeleteInvoiceUnitCommandOutput,
   DeleteInvoiceUnitCommand,
-  DeleteInvoiceUnitCommandInput,
-  DeleteInvoiceUnitCommandOutput,
 } from "./commands/DeleteInvoiceUnitCommand";
 import {
+  type DeleteProcurementPortalPreferenceCommandInput,
+  type DeleteProcurementPortalPreferenceCommandOutput,
   DeleteProcurementPortalPreferenceCommand,
-  DeleteProcurementPortalPreferenceCommandInput,
-  DeleteProcurementPortalPreferenceCommandOutput,
 } from "./commands/DeleteProcurementPortalPreferenceCommand";
 import {
+  type GetInvoicePDFCommandInput,
+  type GetInvoicePDFCommandOutput,
   GetInvoicePDFCommand,
-  GetInvoicePDFCommandInput,
-  GetInvoicePDFCommandOutput,
 } from "./commands/GetInvoicePDFCommand";
 import {
+  type GetInvoiceUnitCommandInput,
+  type GetInvoiceUnitCommandOutput,
   GetInvoiceUnitCommand,
-  GetInvoiceUnitCommandInput,
-  GetInvoiceUnitCommandOutput,
 } from "./commands/GetInvoiceUnitCommand";
 import {
+  type GetProcurementPortalPreferenceCommandInput,
+  type GetProcurementPortalPreferenceCommandOutput,
   GetProcurementPortalPreferenceCommand,
-  GetProcurementPortalPreferenceCommandInput,
-  GetProcurementPortalPreferenceCommandOutput,
 } from "./commands/GetProcurementPortalPreferenceCommand";
 import {
+  type ListInvoiceSummariesCommandInput,
+  type ListInvoiceSummariesCommandOutput,
   ListInvoiceSummariesCommand,
-  ListInvoiceSummariesCommandInput,
-  ListInvoiceSummariesCommandOutput,
 } from "./commands/ListInvoiceSummariesCommand";
 import {
+  type ListInvoiceUnitsCommandInput,
+  type ListInvoiceUnitsCommandOutput,
   ListInvoiceUnitsCommand,
-  ListInvoiceUnitsCommandInput,
-  ListInvoiceUnitsCommandOutput,
 } from "./commands/ListInvoiceUnitsCommand";
 import {
+  type ListProcurementPortalPreferencesCommandInput,
+  type ListProcurementPortalPreferencesCommandOutput,
   ListProcurementPortalPreferencesCommand,
-  ListProcurementPortalPreferencesCommandInput,
-  ListProcurementPortalPreferencesCommandOutput,
 } from "./commands/ListProcurementPortalPreferencesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutProcurementPortalPreferenceCommandInput,
+  type PutProcurementPortalPreferenceCommandOutput,
   PutProcurementPortalPreferenceCommand,
-  PutProcurementPortalPreferenceCommandInput,
-  PutProcurementPortalPreferenceCommandOutput,
 } from "./commands/PutProcurementPortalPreferenceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateInvoiceUnitCommandInput,
+  type UpdateInvoiceUnitCommandOutput,
   UpdateInvoiceUnitCommand,
-  UpdateInvoiceUnitCommandInput,
-  UpdateInvoiceUnitCommandOutput,
 } from "./commands/UpdateInvoiceUnitCommand";
 import {
+  type UpdateProcurementPortalPreferenceStatusCommandInput,
+  type UpdateProcurementPortalPreferenceStatusCommandOutput,
   UpdateProcurementPortalPreferenceStatusCommand,
-  UpdateProcurementPortalPreferenceStatusCommandInput,
-  UpdateProcurementPortalPreferenceStatusCommandOutput,
 } from "./commands/UpdateProcurementPortalPreferenceStatusCommand";
 import { InvoicingClient } from "./InvoicingClient";
 import { paginateListInvoiceSummaries } from "./pagination/ListInvoiceSummariesPaginator";

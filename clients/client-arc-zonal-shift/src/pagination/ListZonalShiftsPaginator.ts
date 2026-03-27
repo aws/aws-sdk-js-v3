@@ -8,7 +8,7 @@ import {
   ListZonalShiftsCommandInput,
   ListZonalShiftsCommandOutput,
 } from "../commands/ListZonalShiftsCommand";
-import { ARCZonalShiftPaginationConfiguration } from "./Interfaces";
+import type { ARCZonalShiftPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

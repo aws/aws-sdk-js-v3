@@ -8,7 +8,7 @@ import {
   ListPipelinesCommandOutput,
 } from "../commands/ListPipelinesCommand";
 import { OSISClient } from "../OSISClient";
-import { OSISPaginationConfiguration } from "./Interfaces";
+import type { OSISPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

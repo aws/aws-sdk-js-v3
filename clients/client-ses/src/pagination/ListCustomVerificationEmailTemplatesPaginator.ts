@@ -8,7 +8,7 @@ import {
   ListCustomVerificationEmailTemplatesCommandOutput,
 } from "../commands/ListCustomVerificationEmailTemplatesCommand";
 import { SESClient } from "../SESClient";
-import { SESPaginationConfiguration } from "./Interfaces";
+import type { SESPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

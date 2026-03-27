@@ -3,1296 +3,1340 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptCertificateTransferCommandInput,
+  type AcceptCertificateTransferCommandOutput,
   AcceptCertificateTransferCommand,
-  AcceptCertificateTransferCommandInput,
-  AcceptCertificateTransferCommandOutput,
 } from "./commands/AcceptCertificateTransferCommand";
 import {
+  type AddThingToBillingGroupCommandInput,
+  type AddThingToBillingGroupCommandOutput,
   AddThingToBillingGroupCommand,
-  AddThingToBillingGroupCommandInput,
-  AddThingToBillingGroupCommandOutput,
 } from "./commands/AddThingToBillingGroupCommand";
 import {
+  type AddThingToThingGroupCommandInput,
+  type AddThingToThingGroupCommandOutput,
   AddThingToThingGroupCommand,
-  AddThingToThingGroupCommandInput,
-  AddThingToThingGroupCommandOutput,
 } from "./commands/AddThingToThingGroupCommand";
 import {
+  type AssociateSbomWithPackageVersionCommandInput,
+  type AssociateSbomWithPackageVersionCommandOutput,
   AssociateSbomWithPackageVersionCommand,
-  AssociateSbomWithPackageVersionCommandInput,
-  AssociateSbomWithPackageVersionCommandOutput,
 } from "./commands/AssociateSbomWithPackageVersionCommand";
 import {
+  type AssociateTargetsWithJobCommandInput,
+  type AssociateTargetsWithJobCommandOutput,
   AssociateTargetsWithJobCommand,
-  AssociateTargetsWithJobCommandInput,
-  AssociateTargetsWithJobCommandOutput,
 } from "./commands/AssociateTargetsWithJobCommand";
 import {
+  type AttachPolicyCommandInput,
+  type AttachPolicyCommandOutput,
   AttachPolicyCommand,
-  AttachPolicyCommandInput,
-  AttachPolicyCommandOutput,
 } from "./commands/AttachPolicyCommand";
 import {
+  type AttachPrincipalPolicyCommandInput,
+  type AttachPrincipalPolicyCommandOutput,
   AttachPrincipalPolicyCommand,
-  AttachPrincipalPolicyCommandInput,
-  AttachPrincipalPolicyCommandOutput,
 } from "./commands/AttachPrincipalPolicyCommand";
 import {
+  type AttachSecurityProfileCommandInput,
+  type AttachSecurityProfileCommandOutput,
   AttachSecurityProfileCommand,
-  AttachSecurityProfileCommandInput,
-  AttachSecurityProfileCommandOutput,
 } from "./commands/AttachSecurityProfileCommand";
 import {
+  type AttachThingPrincipalCommandInput,
+  type AttachThingPrincipalCommandOutput,
   AttachThingPrincipalCommand,
-  AttachThingPrincipalCommandInput,
-  AttachThingPrincipalCommandOutput,
 } from "./commands/AttachThingPrincipalCommand";
 import {
+  type CancelAuditMitigationActionsTaskCommandInput,
+  type CancelAuditMitigationActionsTaskCommandOutput,
   CancelAuditMitigationActionsTaskCommand,
-  CancelAuditMitigationActionsTaskCommandInput,
-  CancelAuditMitigationActionsTaskCommandOutput,
 } from "./commands/CancelAuditMitigationActionsTaskCommand";
 import {
+  type CancelAuditTaskCommandInput,
+  type CancelAuditTaskCommandOutput,
   CancelAuditTaskCommand,
-  CancelAuditTaskCommandInput,
-  CancelAuditTaskCommandOutput,
 } from "./commands/CancelAuditTaskCommand";
 import {
+  type CancelCertificateTransferCommandInput,
+  type CancelCertificateTransferCommandOutput,
   CancelCertificateTransferCommand,
-  CancelCertificateTransferCommandInput,
-  CancelCertificateTransferCommandOutput,
 } from "./commands/CancelCertificateTransferCommand";
 import {
+  type CancelDetectMitigationActionsTaskCommandInput,
+  type CancelDetectMitigationActionsTaskCommandOutput,
   CancelDetectMitigationActionsTaskCommand,
-  CancelDetectMitigationActionsTaskCommandInput,
-  CancelDetectMitigationActionsTaskCommandOutput,
 } from "./commands/CancelDetectMitigationActionsTaskCommand";
-import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { type CancelJobCommandInput, type CancelJobCommandOutput, CancelJobCommand } from "./commands/CancelJobCommand";
 import {
+  type CancelJobExecutionCommandInput,
+  type CancelJobExecutionCommandOutput,
   CancelJobExecutionCommand,
-  CancelJobExecutionCommandInput,
-  CancelJobExecutionCommandOutput,
 } from "./commands/CancelJobExecutionCommand";
 import {
+  type ClearDefaultAuthorizerCommandInput,
+  type ClearDefaultAuthorizerCommandOutput,
   ClearDefaultAuthorizerCommand,
-  ClearDefaultAuthorizerCommandInput,
-  ClearDefaultAuthorizerCommandOutput,
 } from "./commands/ClearDefaultAuthorizerCommand";
 import {
+  type ConfirmTopicRuleDestinationCommandInput,
+  type ConfirmTopicRuleDestinationCommandOutput,
   ConfirmTopicRuleDestinationCommand,
-  ConfirmTopicRuleDestinationCommandInput,
-  ConfirmTopicRuleDestinationCommandOutput,
 } from "./commands/ConfirmTopicRuleDestinationCommand";
 import {
+  type CreateAuditSuppressionCommandInput,
+  type CreateAuditSuppressionCommandOutput,
   CreateAuditSuppressionCommand,
-  CreateAuditSuppressionCommandInput,
-  CreateAuditSuppressionCommandOutput,
 } from "./commands/CreateAuditSuppressionCommand";
 import {
+  type CreateAuthorizerCommandInput,
+  type CreateAuthorizerCommandOutput,
   CreateAuthorizerCommand,
-  CreateAuthorizerCommandInput,
-  CreateAuthorizerCommandOutput,
 } from "./commands/CreateAuthorizerCommand";
 import {
+  type CreateBillingGroupCommandInput,
+  type CreateBillingGroupCommandOutput,
   CreateBillingGroupCommand,
-  CreateBillingGroupCommandInput,
-  CreateBillingGroupCommandOutput,
 } from "./commands/CreateBillingGroupCommand";
 import {
+  type CreateCertificateFromCsrCommandInput,
+  type CreateCertificateFromCsrCommandOutput,
   CreateCertificateFromCsrCommand,
-  CreateCertificateFromCsrCommandInput,
-  CreateCertificateFromCsrCommandOutput,
 } from "./commands/CreateCertificateFromCsrCommand";
 import {
+  type CreateCertificateProviderCommandInput,
+  type CreateCertificateProviderCommandOutput,
   CreateCertificateProviderCommand,
-  CreateCertificateProviderCommandInput,
-  CreateCertificateProviderCommandOutput,
 } from "./commands/CreateCertificateProviderCommand";
 import {
+  type CreateCommandCommandInput,
+  type CreateCommandCommandOutput,
   CreateCommandCommand,
-  CreateCommandCommandInput,
-  CreateCommandCommandOutput,
 } from "./commands/CreateCommandCommand";
 import {
+  type CreateCustomMetricCommandInput,
+  type CreateCustomMetricCommandOutput,
   CreateCustomMetricCommand,
-  CreateCustomMetricCommandInput,
-  CreateCustomMetricCommandOutput,
 } from "./commands/CreateCustomMetricCommand";
 import {
+  type CreateDimensionCommandInput,
+  type CreateDimensionCommandOutput,
   CreateDimensionCommand,
-  CreateDimensionCommandInput,
-  CreateDimensionCommandOutput,
 } from "./commands/CreateDimensionCommand";
 import {
+  type CreateDomainConfigurationCommandInput,
+  type CreateDomainConfigurationCommandOutput,
   CreateDomainConfigurationCommand,
-  CreateDomainConfigurationCommandInput,
-  CreateDomainConfigurationCommandOutput,
 } from "./commands/CreateDomainConfigurationCommand";
 import {
+  type CreateDynamicThingGroupCommandInput,
+  type CreateDynamicThingGroupCommandOutput,
   CreateDynamicThingGroupCommand,
-  CreateDynamicThingGroupCommandInput,
-  CreateDynamicThingGroupCommandOutput,
 } from "./commands/CreateDynamicThingGroupCommand";
 import {
+  type CreateFleetMetricCommandInput,
+  type CreateFleetMetricCommandOutput,
   CreateFleetMetricCommand,
-  CreateFleetMetricCommandInput,
-  CreateFleetMetricCommandOutput,
 } from "./commands/CreateFleetMetricCommand";
-import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import { type CreateJobCommandInput, type CreateJobCommandOutput, CreateJobCommand } from "./commands/CreateJobCommand";
 import {
+  type CreateJobTemplateCommandInput,
+  type CreateJobTemplateCommandOutput,
   CreateJobTemplateCommand,
-  CreateJobTemplateCommandInput,
-  CreateJobTemplateCommandOutput,
 } from "./commands/CreateJobTemplateCommand";
 import {
+  type CreateKeysAndCertificateCommandInput,
+  type CreateKeysAndCertificateCommandOutput,
   CreateKeysAndCertificateCommand,
-  CreateKeysAndCertificateCommandInput,
-  CreateKeysAndCertificateCommandOutput,
 } from "./commands/CreateKeysAndCertificateCommand";
 import {
+  type CreateMitigationActionCommandInput,
+  type CreateMitigationActionCommandOutput,
   CreateMitigationActionCommand,
-  CreateMitigationActionCommandInput,
-  CreateMitigationActionCommandOutput,
 } from "./commands/CreateMitigationActionCommand";
 import {
+  type CreateOTAUpdateCommandInput,
+  type CreateOTAUpdateCommandOutput,
   CreateOTAUpdateCommand,
-  CreateOTAUpdateCommandInput,
-  CreateOTAUpdateCommandOutput,
 } from "./commands/CreateOTAUpdateCommand";
 import {
+  type CreatePackageCommandInput,
+  type CreatePackageCommandOutput,
   CreatePackageCommand,
-  CreatePackageCommandInput,
-  CreatePackageCommandOutput,
 } from "./commands/CreatePackageCommand";
 import {
+  type CreatePackageVersionCommandInput,
+  type CreatePackageVersionCommandOutput,
   CreatePackageVersionCommand,
-  CreatePackageVersionCommandInput,
-  CreatePackageVersionCommandOutput,
 } from "./commands/CreatePackageVersionCommand";
 import {
+  type CreatePolicyCommandInput,
+  type CreatePolicyCommandOutput,
   CreatePolicyCommand,
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput,
 } from "./commands/CreatePolicyCommand";
 import {
+  type CreatePolicyVersionCommandInput,
+  type CreatePolicyVersionCommandOutput,
   CreatePolicyVersionCommand,
-  CreatePolicyVersionCommandInput,
-  CreatePolicyVersionCommandOutput,
 } from "./commands/CreatePolicyVersionCommand";
 import {
+  type CreateProvisioningClaimCommandInput,
+  type CreateProvisioningClaimCommandOutput,
   CreateProvisioningClaimCommand,
-  CreateProvisioningClaimCommandInput,
-  CreateProvisioningClaimCommandOutput,
 } from "./commands/CreateProvisioningClaimCommand";
 import {
+  type CreateProvisioningTemplateCommandInput,
+  type CreateProvisioningTemplateCommandOutput,
   CreateProvisioningTemplateCommand,
-  CreateProvisioningTemplateCommandInput,
-  CreateProvisioningTemplateCommandOutput,
 } from "./commands/CreateProvisioningTemplateCommand";
 import {
+  type CreateProvisioningTemplateVersionCommandInput,
+  type CreateProvisioningTemplateVersionCommandOutput,
   CreateProvisioningTemplateVersionCommand,
-  CreateProvisioningTemplateVersionCommandInput,
-  CreateProvisioningTemplateVersionCommandOutput,
 } from "./commands/CreateProvisioningTemplateVersionCommand";
 import {
+  type CreateRoleAliasCommandInput,
+  type CreateRoleAliasCommandOutput,
   CreateRoleAliasCommand,
-  CreateRoleAliasCommandInput,
-  CreateRoleAliasCommandOutput,
 } from "./commands/CreateRoleAliasCommand";
 import {
+  type CreateScheduledAuditCommandInput,
+  type CreateScheduledAuditCommandOutput,
   CreateScheduledAuditCommand,
-  CreateScheduledAuditCommandInput,
-  CreateScheduledAuditCommandOutput,
 } from "./commands/CreateScheduledAuditCommand";
 import {
+  type CreateSecurityProfileCommandInput,
+  type CreateSecurityProfileCommandOutput,
   CreateSecurityProfileCommand,
-  CreateSecurityProfileCommandInput,
-  CreateSecurityProfileCommandOutput,
 } from "./commands/CreateSecurityProfileCommand";
 import {
+  type CreateStreamCommandInput,
+  type CreateStreamCommandOutput,
   CreateStreamCommand,
-  CreateStreamCommandInput,
-  CreateStreamCommandOutput,
 } from "./commands/CreateStreamCommand";
-import { CreateThingCommand, CreateThingCommandInput, CreateThingCommandOutput } from "./commands/CreateThingCommand";
 import {
+  type CreateThingCommandInput,
+  type CreateThingCommandOutput,
+  CreateThingCommand,
+} from "./commands/CreateThingCommand";
+import {
+  type CreateThingGroupCommandInput,
+  type CreateThingGroupCommandOutput,
   CreateThingGroupCommand,
-  CreateThingGroupCommandInput,
-  CreateThingGroupCommandOutput,
 } from "./commands/CreateThingGroupCommand";
 import {
+  type CreateThingTypeCommandInput,
+  type CreateThingTypeCommandOutput,
   CreateThingTypeCommand,
-  CreateThingTypeCommandInput,
-  CreateThingTypeCommandOutput,
 } from "./commands/CreateThingTypeCommand";
 import {
+  type CreateTopicRuleCommandInput,
+  type CreateTopicRuleCommandOutput,
   CreateTopicRuleCommand,
-  CreateTopicRuleCommandInput,
-  CreateTopicRuleCommandOutput,
 } from "./commands/CreateTopicRuleCommand";
 import {
+  type CreateTopicRuleDestinationCommandInput,
+  type CreateTopicRuleDestinationCommandOutput,
   CreateTopicRuleDestinationCommand,
-  CreateTopicRuleDestinationCommandInput,
-  CreateTopicRuleDestinationCommandOutput,
 } from "./commands/CreateTopicRuleDestinationCommand";
 import {
+  type DeleteAccountAuditConfigurationCommandInput,
+  type DeleteAccountAuditConfigurationCommandOutput,
   DeleteAccountAuditConfigurationCommand,
-  DeleteAccountAuditConfigurationCommandInput,
-  DeleteAccountAuditConfigurationCommandOutput,
 } from "./commands/DeleteAccountAuditConfigurationCommand";
 import {
+  type DeleteAuditSuppressionCommandInput,
+  type DeleteAuditSuppressionCommandOutput,
   DeleteAuditSuppressionCommand,
-  DeleteAuditSuppressionCommandInput,
-  DeleteAuditSuppressionCommandOutput,
 } from "./commands/DeleteAuditSuppressionCommand";
 import {
+  type DeleteAuthorizerCommandInput,
+  type DeleteAuthorizerCommandOutput,
   DeleteAuthorizerCommand,
-  DeleteAuthorizerCommandInput,
-  DeleteAuthorizerCommandOutput,
 } from "./commands/DeleteAuthorizerCommand";
 import {
+  type DeleteBillingGroupCommandInput,
+  type DeleteBillingGroupCommandOutput,
   DeleteBillingGroupCommand,
-  DeleteBillingGroupCommandInput,
-  DeleteBillingGroupCommandOutput,
 } from "./commands/DeleteBillingGroupCommand";
 import {
+  type DeleteCACertificateCommandInput,
+  type DeleteCACertificateCommandOutput,
   DeleteCACertificateCommand,
-  DeleteCACertificateCommandInput,
-  DeleteCACertificateCommandOutput,
 } from "./commands/DeleteCACertificateCommand";
 import {
+  type DeleteCertificateCommandInput,
+  type DeleteCertificateCommandOutput,
   DeleteCertificateCommand,
-  DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput,
 } from "./commands/DeleteCertificateCommand";
 import {
+  type DeleteCertificateProviderCommandInput,
+  type DeleteCertificateProviderCommandOutput,
   DeleteCertificateProviderCommand,
-  DeleteCertificateProviderCommandInput,
-  DeleteCertificateProviderCommandOutput,
 } from "./commands/DeleteCertificateProviderCommand";
 import {
+  type DeleteCommandCommandInput,
+  type DeleteCommandCommandOutput,
   DeleteCommandCommand,
-  DeleteCommandCommandInput,
-  DeleteCommandCommandOutput,
 } from "./commands/DeleteCommandCommand";
 import {
+  type DeleteCommandExecutionCommandInput,
+  type DeleteCommandExecutionCommandOutput,
   DeleteCommandExecutionCommand,
-  DeleteCommandExecutionCommandInput,
-  DeleteCommandExecutionCommandOutput,
 } from "./commands/DeleteCommandExecutionCommand";
 import {
+  type DeleteCustomMetricCommandInput,
+  type DeleteCustomMetricCommandOutput,
   DeleteCustomMetricCommand,
-  DeleteCustomMetricCommandInput,
-  DeleteCustomMetricCommandOutput,
 } from "./commands/DeleteCustomMetricCommand";
 import {
+  type DeleteDimensionCommandInput,
+  type DeleteDimensionCommandOutput,
   DeleteDimensionCommand,
-  DeleteDimensionCommandInput,
-  DeleteDimensionCommandOutput,
 } from "./commands/DeleteDimensionCommand";
 import {
+  type DeleteDomainConfigurationCommandInput,
+  type DeleteDomainConfigurationCommandOutput,
   DeleteDomainConfigurationCommand,
-  DeleteDomainConfigurationCommandInput,
-  DeleteDomainConfigurationCommandOutput,
 } from "./commands/DeleteDomainConfigurationCommand";
 import {
+  type DeleteDynamicThingGroupCommandInput,
+  type DeleteDynamicThingGroupCommandOutput,
   DeleteDynamicThingGroupCommand,
-  DeleteDynamicThingGroupCommandInput,
-  DeleteDynamicThingGroupCommandOutput,
 } from "./commands/DeleteDynamicThingGroupCommand";
 import {
+  type DeleteFleetMetricCommandInput,
+  type DeleteFleetMetricCommandOutput,
   DeleteFleetMetricCommand,
-  DeleteFleetMetricCommandInput,
-  DeleteFleetMetricCommandOutput,
 } from "./commands/DeleteFleetMetricCommand";
-import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import { type DeleteJobCommandInput, type DeleteJobCommandOutput, DeleteJobCommand } from "./commands/DeleteJobCommand";
 import {
+  type DeleteJobExecutionCommandInput,
+  type DeleteJobExecutionCommandOutput,
   DeleteJobExecutionCommand,
-  DeleteJobExecutionCommandInput,
-  DeleteJobExecutionCommandOutput,
 } from "./commands/DeleteJobExecutionCommand";
 import {
+  type DeleteJobTemplateCommandInput,
+  type DeleteJobTemplateCommandOutput,
   DeleteJobTemplateCommand,
-  DeleteJobTemplateCommandInput,
-  DeleteJobTemplateCommandOutput,
 } from "./commands/DeleteJobTemplateCommand";
 import {
+  type DeleteMitigationActionCommandInput,
+  type DeleteMitigationActionCommandOutput,
   DeleteMitigationActionCommand,
-  DeleteMitigationActionCommandInput,
-  DeleteMitigationActionCommandOutput,
 } from "./commands/DeleteMitigationActionCommand";
 import {
+  type DeleteOTAUpdateCommandInput,
+  type DeleteOTAUpdateCommandOutput,
   DeleteOTAUpdateCommand,
-  DeleteOTAUpdateCommandInput,
-  DeleteOTAUpdateCommandOutput,
 } from "./commands/DeleteOTAUpdateCommand";
 import {
+  type DeletePackageCommandInput,
+  type DeletePackageCommandOutput,
   DeletePackageCommand,
-  DeletePackageCommandInput,
-  DeletePackageCommandOutput,
 } from "./commands/DeletePackageCommand";
 import {
+  type DeletePackageVersionCommandInput,
+  type DeletePackageVersionCommandOutput,
   DeletePackageVersionCommand,
-  DeletePackageVersionCommandInput,
-  DeletePackageVersionCommandOutput,
 } from "./commands/DeletePackageVersionCommand";
 import {
+  type DeletePolicyCommandInput,
+  type DeletePolicyCommandOutput,
   DeletePolicyCommand,
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  type DeletePolicyVersionCommandInput,
+  type DeletePolicyVersionCommandOutput,
   DeletePolicyVersionCommand,
-  DeletePolicyVersionCommandInput,
-  DeletePolicyVersionCommandOutput,
 } from "./commands/DeletePolicyVersionCommand";
 import {
+  type DeleteProvisioningTemplateCommandInput,
+  type DeleteProvisioningTemplateCommandOutput,
   DeleteProvisioningTemplateCommand,
-  DeleteProvisioningTemplateCommandInput,
-  DeleteProvisioningTemplateCommandOutput,
 } from "./commands/DeleteProvisioningTemplateCommand";
 import {
+  type DeleteProvisioningTemplateVersionCommandInput,
+  type DeleteProvisioningTemplateVersionCommandOutput,
   DeleteProvisioningTemplateVersionCommand,
-  DeleteProvisioningTemplateVersionCommandInput,
-  DeleteProvisioningTemplateVersionCommandOutput,
 } from "./commands/DeleteProvisioningTemplateVersionCommand";
 import {
+  type DeleteRegistrationCodeCommandInput,
+  type DeleteRegistrationCodeCommandOutput,
   DeleteRegistrationCodeCommand,
-  DeleteRegistrationCodeCommandInput,
-  DeleteRegistrationCodeCommandOutput,
 } from "./commands/DeleteRegistrationCodeCommand";
 import {
+  type DeleteRoleAliasCommandInput,
+  type DeleteRoleAliasCommandOutput,
   DeleteRoleAliasCommand,
-  DeleteRoleAliasCommandInput,
-  DeleteRoleAliasCommandOutput,
 } from "./commands/DeleteRoleAliasCommand";
 import {
+  type DeleteScheduledAuditCommandInput,
+  type DeleteScheduledAuditCommandOutput,
   DeleteScheduledAuditCommand,
-  DeleteScheduledAuditCommandInput,
-  DeleteScheduledAuditCommandOutput,
 } from "./commands/DeleteScheduledAuditCommand";
 import {
+  type DeleteSecurityProfileCommandInput,
+  type DeleteSecurityProfileCommandOutput,
   DeleteSecurityProfileCommand,
-  DeleteSecurityProfileCommandInput,
-  DeleteSecurityProfileCommandOutput,
 } from "./commands/DeleteSecurityProfileCommand";
 import {
+  type DeleteStreamCommandInput,
+  type DeleteStreamCommandOutput,
   DeleteStreamCommand,
-  DeleteStreamCommandInput,
-  DeleteStreamCommandOutput,
 } from "./commands/DeleteStreamCommand";
-import { DeleteThingCommand, DeleteThingCommandInput, DeleteThingCommandOutput } from "./commands/DeleteThingCommand";
 import {
+  type DeleteThingCommandInput,
+  type DeleteThingCommandOutput,
+  DeleteThingCommand,
+} from "./commands/DeleteThingCommand";
+import {
+  type DeleteThingGroupCommandInput,
+  type DeleteThingGroupCommandOutput,
   DeleteThingGroupCommand,
-  DeleteThingGroupCommandInput,
-  DeleteThingGroupCommandOutput,
 } from "./commands/DeleteThingGroupCommand";
 import {
+  type DeleteThingTypeCommandInput,
+  type DeleteThingTypeCommandOutput,
   DeleteThingTypeCommand,
-  DeleteThingTypeCommandInput,
-  DeleteThingTypeCommandOutput,
 } from "./commands/DeleteThingTypeCommand";
 import {
+  type DeleteTopicRuleCommandInput,
+  type DeleteTopicRuleCommandOutput,
   DeleteTopicRuleCommand,
-  DeleteTopicRuleCommandInput,
-  DeleteTopicRuleCommandOutput,
 } from "./commands/DeleteTopicRuleCommand";
 import {
+  type DeleteTopicRuleDestinationCommandInput,
+  type DeleteTopicRuleDestinationCommandOutput,
   DeleteTopicRuleDestinationCommand,
-  DeleteTopicRuleDestinationCommandInput,
-  DeleteTopicRuleDestinationCommandOutput,
 } from "./commands/DeleteTopicRuleDestinationCommand";
 import {
+  type DeleteV2LoggingLevelCommandInput,
+  type DeleteV2LoggingLevelCommandOutput,
   DeleteV2LoggingLevelCommand,
-  DeleteV2LoggingLevelCommandInput,
-  DeleteV2LoggingLevelCommandOutput,
 } from "./commands/DeleteV2LoggingLevelCommand";
 import {
+  type DeprecateThingTypeCommandInput,
+  type DeprecateThingTypeCommandOutput,
   DeprecateThingTypeCommand,
-  DeprecateThingTypeCommandInput,
-  DeprecateThingTypeCommandOutput,
 } from "./commands/DeprecateThingTypeCommand";
 import {
+  type DescribeAccountAuditConfigurationCommandInput,
+  type DescribeAccountAuditConfigurationCommandOutput,
   DescribeAccountAuditConfigurationCommand,
-  DescribeAccountAuditConfigurationCommandInput,
-  DescribeAccountAuditConfigurationCommandOutput,
 } from "./commands/DescribeAccountAuditConfigurationCommand";
 import {
+  type DescribeAuditFindingCommandInput,
+  type DescribeAuditFindingCommandOutput,
   DescribeAuditFindingCommand,
-  DescribeAuditFindingCommandInput,
-  DescribeAuditFindingCommandOutput,
 } from "./commands/DescribeAuditFindingCommand";
 import {
+  type DescribeAuditMitigationActionsTaskCommandInput,
+  type DescribeAuditMitigationActionsTaskCommandOutput,
   DescribeAuditMitigationActionsTaskCommand,
-  DescribeAuditMitigationActionsTaskCommandInput,
-  DescribeAuditMitigationActionsTaskCommandOutput,
 } from "./commands/DescribeAuditMitigationActionsTaskCommand";
 import {
+  type DescribeAuditSuppressionCommandInput,
+  type DescribeAuditSuppressionCommandOutput,
   DescribeAuditSuppressionCommand,
-  DescribeAuditSuppressionCommandInput,
-  DescribeAuditSuppressionCommandOutput,
 } from "./commands/DescribeAuditSuppressionCommand";
 import {
+  type DescribeAuditTaskCommandInput,
+  type DescribeAuditTaskCommandOutput,
   DescribeAuditTaskCommand,
-  DescribeAuditTaskCommandInput,
-  DescribeAuditTaskCommandOutput,
 } from "./commands/DescribeAuditTaskCommand";
 import {
+  type DescribeAuthorizerCommandInput,
+  type DescribeAuthorizerCommandOutput,
   DescribeAuthorizerCommand,
-  DescribeAuthorizerCommandInput,
-  DescribeAuthorizerCommandOutput,
 } from "./commands/DescribeAuthorizerCommand";
 import {
+  type DescribeBillingGroupCommandInput,
+  type DescribeBillingGroupCommandOutput,
   DescribeBillingGroupCommand,
-  DescribeBillingGroupCommandInput,
-  DescribeBillingGroupCommandOutput,
 } from "./commands/DescribeBillingGroupCommand";
 import {
+  type DescribeCACertificateCommandInput,
+  type DescribeCACertificateCommandOutput,
   DescribeCACertificateCommand,
-  DescribeCACertificateCommandInput,
-  DescribeCACertificateCommandOutput,
 } from "./commands/DescribeCACertificateCommand";
 import {
+  type DescribeCertificateCommandInput,
+  type DescribeCertificateCommandOutput,
   DescribeCertificateCommand,
-  DescribeCertificateCommandInput,
-  DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
 import {
+  type DescribeCertificateProviderCommandInput,
+  type DescribeCertificateProviderCommandOutput,
   DescribeCertificateProviderCommand,
-  DescribeCertificateProviderCommandInput,
-  DescribeCertificateProviderCommandOutput,
 } from "./commands/DescribeCertificateProviderCommand";
 import {
+  type DescribeCustomMetricCommandInput,
+  type DescribeCustomMetricCommandOutput,
   DescribeCustomMetricCommand,
-  DescribeCustomMetricCommandInput,
-  DescribeCustomMetricCommandOutput,
 } from "./commands/DescribeCustomMetricCommand";
 import {
+  type DescribeDefaultAuthorizerCommandInput,
+  type DescribeDefaultAuthorizerCommandOutput,
   DescribeDefaultAuthorizerCommand,
-  DescribeDefaultAuthorizerCommandInput,
-  DescribeDefaultAuthorizerCommandOutput,
 } from "./commands/DescribeDefaultAuthorizerCommand";
 import {
+  type DescribeDetectMitigationActionsTaskCommandInput,
+  type DescribeDetectMitigationActionsTaskCommandOutput,
   DescribeDetectMitigationActionsTaskCommand,
-  DescribeDetectMitigationActionsTaskCommandInput,
-  DescribeDetectMitigationActionsTaskCommandOutput,
 } from "./commands/DescribeDetectMitigationActionsTaskCommand";
 import {
+  type DescribeDimensionCommandInput,
+  type DescribeDimensionCommandOutput,
   DescribeDimensionCommand,
-  DescribeDimensionCommandInput,
-  DescribeDimensionCommandOutput,
 } from "./commands/DescribeDimensionCommand";
 import {
+  type DescribeDomainConfigurationCommandInput,
+  type DescribeDomainConfigurationCommandOutput,
   DescribeDomainConfigurationCommand,
-  DescribeDomainConfigurationCommandInput,
-  DescribeDomainConfigurationCommandOutput,
 } from "./commands/DescribeDomainConfigurationCommand";
 import {
+  type DescribeEncryptionConfigurationCommandInput,
+  type DescribeEncryptionConfigurationCommandOutput,
   DescribeEncryptionConfigurationCommand,
-  DescribeEncryptionConfigurationCommandInput,
-  DescribeEncryptionConfigurationCommandOutput,
 } from "./commands/DescribeEncryptionConfigurationCommand";
 import {
+  type DescribeEndpointCommandInput,
+  type DescribeEndpointCommandOutput,
   DescribeEndpointCommand,
-  DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput,
 } from "./commands/DescribeEndpointCommand";
 import {
+  type DescribeEventConfigurationsCommandInput,
+  type DescribeEventConfigurationsCommandOutput,
   DescribeEventConfigurationsCommand,
-  DescribeEventConfigurationsCommandInput,
-  DescribeEventConfigurationsCommandOutput,
 } from "./commands/DescribeEventConfigurationsCommand";
 import {
+  type DescribeFleetMetricCommandInput,
+  type DescribeFleetMetricCommandOutput,
   DescribeFleetMetricCommand,
-  DescribeFleetMetricCommandInput,
-  DescribeFleetMetricCommandOutput,
 } from "./commands/DescribeFleetMetricCommand";
 import {
+  type DescribeIndexCommandInput,
+  type DescribeIndexCommandOutput,
   DescribeIndexCommand,
-  DescribeIndexCommandInput,
-  DescribeIndexCommandOutput,
 } from "./commands/DescribeIndexCommand";
-import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
+  type DescribeJobCommandInput,
+  type DescribeJobCommandOutput,
+  DescribeJobCommand,
+} from "./commands/DescribeJobCommand";
+import {
+  type DescribeJobExecutionCommandInput,
+  type DescribeJobExecutionCommandOutput,
   DescribeJobExecutionCommand,
-  DescribeJobExecutionCommandInput,
-  DescribeJobExecutionCommandOutput,
 } from "./commands/DescribeJobExecutionCommand";
 import {
+  type DescribeJobTemplateCommandInput,
+  type DescribeJobTemplateCommandOutput,
   DescribeJobTemplateCommand,
-  DescribeJobTemplateCommandInput,
-  DescribeJobTemplateCommandOutput,
 } from "./commands/DescribeJobTemplateCommand";
 import {
+  type DescribeManagedJobTemplateCommandInput,
+  type DescribeManagedJobTemplateCommandOutput,
   DescribeManagedJobTemplateCommand,
-  DescribeManagedJobTemplateCommandInput,
-  DescribeManagedJobTemplateCommandOutput,
 } from "./commands/DescribeManagedJobTemplateCommand";
 import {
+  type DescribeMitigationActionCommandInput,
+  type DescribeMitigationActionCommandOutput,
   DescribeMitigationActionCommand,
-  DescribeMitigationActionCommandInput,
-  DescribeMitigationActionCommandOutput,
 } from "./commands/DescribeMitigationActionCommand";
 import {
+  type DescribeProvisioningTemplateCommandInput,
+  type DescribeProvisioningTemplateCommandOutput,
   DescribeProvisioningTemplateCommand,
-  DescribeProvisioningTemplateCommandInput,
-  DescribeProvisioningTemplateCommandOutput,
 } from "./commands/DescribeProvisioningTemplateCommand";
 import {
+  type DescribeProvisioningTemplateVersionCommandInput,
+  type DescribeProvisioningTemplateVersionCommandOutput,
   DescribeProvisioningTemplateVersionCommand,
-  DescribeProvisioningTemplateVersionCommandInput,
-  DescribeProvisioningTemplateVersionCommandOutput,
 } from "./commands/DescribeProvisioningTemplateVersionCommand";
 import {
+  type DescribeRoleAliasCommandInput,
+  type DescribeRoleAliasCommandOutput,
   DescribeRoleAliasCommand,
-  DescribeRoleAliasCommandInput,
-  DescribeRoleAliasCommandOutput,
 } from "./commands/DescribeRoleAliasCommand";
 import {
+  type DescribeScheduledAuditCommandInput,
+  type DescribeScheduledAuditCommandOutput,
   DescribeScheduledAuditCommand,
-  DescribeScheduledAuditCommandInput,
-  DescribeScheduledAuditCommandOutput,
 } from "./commands/DescribeScheduledAuditCommand";
 import {
+  type DescribeSecurityProfileCommandInput,
+  type DescribeSecurityProfileCommandOutput,
   DescribeSecurityProfileCommand,
-  DescribeSecurityProfileCommandInput,
-  DescribeSecurityProfileCommandOutput,
 } from "./commands/DescribeSecurityProfileCommand";
 import {
+  type DescribeStreamCommandInput,
+  type DescribeStreamCommandOutput,
   DescribeStreamCommand,
-  DescribeStreamCommandInput,
-  DescribeStreamCommandOutput,
 } from "./commands/DescribeStreamCommand";
 import {
+  type DescribeThingCommandInput,
+  type DescribeThingCommandOutput,
   DescribeThingCommand,
-  DescribeThingCommandInput,
-  DescribeThingCommandOutput,
 } from "./commands/DescribeThingCommand";
 import {
+  type DescribeThingGroupCommandInput,
+  type DescribeThingGroupCommandOutput,
   DescribeThingGroupCommand,
-  DescribeThingGroupCommandInput,
-  DescribeThingGroupCommandOutput,
 } from "./commands/DescribeThingGroupCommand";
 import {
+  type DescribeThingRegistrationTaskCommandInput,
+  type DescribeThingRegistrationTaskCommandOutput,
   DescribeThingRegistrationTaskCommand,
-  DescribeThingRegistrationTaskCommandInput,
-  DescribeThingRegistrationTaskCommandOutput,
 } from "./commands/DescribeThingRegistrationTaskCommand";
 import {
+  type DescribeThingTypeCommandInput,
+  type DescribeThingTypeCommandOutput,
   DescribeThingTypeCommand,
-  DescribeThingTypeCommandInput,
-  DescribeThingTypeCommandOutput,
 } from "./commands/DescribeThingTypeCommand";
 import {
+  type DetachPolicyCommandInput,
+  type DetachPolicyCommandOutput,
   DetachPolicyCommand,
-  DetachPolicyCommandInput,
-  DetachPolicyCommandOutput,
 } from "./commands/DetachPolicyCommand";
 import {
+  type DetachPrincipalPolicyCommandInput,
+  type DetachPrincipalPolicyCommandOutput,
   DetachPrincipalPolicyCommand,
-  DetachPrincipalPolicyCommandInput,
-  DetachPrincipalPolicyCommandOutput,
 } from "./commands/DetachPrincipalPolicyCommand";
 import {
+  type DetachSecurityProfileCommandInput,
+  type DetachSecurityProfileCommandOutput,
   DetachSecurityProfileCommand,
-  DetachSecurityProfileCommandInput,
-  DetachSecurityProfileCommandOutput,
 } from "./commands/DetachSecurityProfileCommand";
 import {
+  type DetachThingPrincipalCommandInput,
+  type DetachThingPrincipalCommandOutput,
   DetachThingPrincipalCommand,
-  DetachThingPrincipalCommandInput,
-  DetachThingPrincipalCommandOutput,
 } from "./commands/DetachThingPrincipalCommand";
 import {
+  type DisableTopicRuleCommandInput,
+  type DisableTopicRuleCommandOutput,
   DisableTopicRuleCommand,
-  DisableTopicRuleCommandInput,
-  DisableTopicRuleCommandOutput,
 } from "./commands/DisableTopicRuleCommand";
 import {
+  type DisassociateSbomFromPackageVersionCommandInput,
+  type DisassociateSbomFromPackageVersionCommandOutput,
   DisassociateSbomFromPackageVersionCommand,
-  DisassociateSbomFromPackageVersionCommandInput,
-  DisassociateSbomFromPackageVersionCommandOutput,
 } from "./commands/DisassociateSbomFromPackageVersionCommand";
 import {
+  type EnableTopicRuleCommandInput,
+  type EnableTopicRuleCommandOutput,
   EnableTopicRuleCommand,
-  EnableTopicRuleCommandInput,
-  EnableTopicRuleCommandOutput,
 } from "./commands/EnableTopicRuleCommand";
 import {
+  type GetBehaviorModelTrainingSummariesCommandInput,
+  type GetBehaviorModelTrainingSummariesCommandOutput,
   GetBehaviorModelTrainingSummariesCommand,
-  GetBehaviorModelTrainingSummariesCommandInput,
-  GetBehaviorModelTrainingSummariesCommandOutput,
 } from "./commands/GetBehaviorModelTrainingSummariesCommand";
 import {
+  type GetBucketsAggregationCommandInput,
+  type GetBucketsAggregationCommandOutput,
   GetBucketsAggregationCommand,
-  GetBucketsAggregationCommandInput,
-  GetBucketsAggregationCommandOutput,
 } from "./commands/GetBucketsAggregationCommand";
 import {
+  type GetCardinalityCommandInput,
+  type GetCardinalityCommandOutput,
   GetCardinalityCommand,
-  GetCardinalityCommandInput,
-  GetCardinalityCommandOutput,
 } from "./commands/GetCardinalityCommand";
-import { GetCommandCommand, GetCommandCommandInput, GetCommandCommandOutput } from "./commands/GetCommandCommand";
 import {
+  type GetCommandCommandInput,
+  type GetCommandCommandOutput,
+  GetCommandCommand,
+} from "./commands/GetCommandCommand";
+import {
+  type GetCommandExecutionCommandInput,
+  type GetCommandExecutionCommandOutput,
   GetCommandExecutionCommand,
-  GetCommandExecutionCommandInput,
-  GetCommandExecutionCommandOutput,
 } from "./commands/GetCommandExecutionCommand";
 import {
+  type GetEffectivePoliciesCommandInput,
+  type GetEffectivePoliciesCommandOutput,
   GetEffectivePoliciesCommand,
-  GetEffectivePoliciesCommandInput,
-  GetEffectivePoliciesCommandOutput,
 } from "./commands/GetEffectivePoliciesCommand";
 import {
+  type GetIndexingConfigurationCommandInput,
+  type GetIndexingConfigurationCommandOutput,
   GetIndexingConfigurationCommand,
-  GetIndexingConfigurationCommandInput,
-  GetIndexingConfigurationCommandOutput,
 } from "./commands/GetIndexingConfigurationCommand";
 import {
+  type GetJobDocumentCommandInput,
+  type GetJobDocumentCommandOutput,
   GetJobDocumentCommand,
-  GetJobDocumentCommandInput,
-  GetJobDocumentCommandOutput,
 } from "./commands/GetJobDocumentCommand";
 import {
+  type GetLoggingOptionsCommandInput,
+  type GetLoggingOptionsCommandOutput,
   GetLoggingOptionsCommand,
-  GetLoggingOptionsCommandInput,
-  GetLoggingOptionsCommandOutput,
 } from "./commands/GetLoggingOptionsCommand";
 import {
+  type GetOTAUpdateCommandInput,
+  type GetOTAUpdateCommandOutput,
   GetOTAUpdateCommand,
-  GetOTAUpdateCommandInput,
-  GetOTAUpdateCommandOutput,
 } from "./commands/GetOTAUpdateCommand";
-import { GetPackageCommand, GetPackageCommandInput, GetPackageCommandOutput } from "./commands/GetPackageCommand";
 import {
+  type GetPackageCommandInput,
+  type GetPackageCommandOutput,
+  GetPackageCommand,
+} from "./commands/GetPackageCommand";
+import {
+  type GetPackageConfigurationCommandInput,
+  type GetPackageConfigurationCommandOutput,
   GetPackageConfigurationCommand,
-  GetPackageConfigurationCommandInput,
-  GetPackageConfigurationCommandOutput,
 } from "./commands/GetPackageConfigurationCommand";
 import {
+  type GetPackageVersionCommandInput,
+  type GetPackageVersionCommandOutput,
   GetPackageVersionCommand,
-  GetPackageVersionCommandInput,
-  GetPackageVersionCommandOutput,
 } from "./commands/GetPackageVersionCommand";
 import {
+  type GetPercentilesCommandInput,
+  type GetPercentilesCommandOutput,
   GetPercentilesCommand,
-  GetPercentilesCommandInput,
-  GetPercentilesCommandOutput,
 } from "./commands/GetPercentilesCommand";
-import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { type GetPolicyCommandInput, type GetPolicyCommandOutput, GetPolicyCommand } from "./commands/GetPolicyCommand";
 import {
+  type GetPolicyVersionCommandInput,
+  type GetPolicyVersionCommandOutput,
   GetPolicyVersionCommand,
-  GetPolicyVersionCommandInput,
-  GetPolicyVersionCommandOutput,
 } from "./commands/GetPolicyVersionCommand";
 import {
+  type GetRegistrationCodeCommandInput,
+  type GetRegistrationCodeCommandOutput,
   GetRegistrationCodeCommand,
-  GetRegistrationCodeCommandInput,
-  GetRegistrationCodeCommandOutput,
 } from "./commands/GetRegistrationCodeCommand";
 import {
+  type GetStatisticsCommandInput,
+  type GetStatisticsCommandOutput,
   GetStatisticsCommand,
-  GetStatisticsCommandInput,
-  GetStatisticsCommandOutput,
 } from "./commands/GetStatisticsCommand";
 import {
+  type GetThingConnectivityDataCommandInput,
+  type GetThingConnectivityDataCommandOutput,
   GetThingConnectivityDataCommand,
-  GetThingConnectivityDataCommandInput,
-  GetThingConnectivityDataCommandOutput,
 } from "./commands/GetThingConnectivityDataCommand";
 import {
+  type GetTopicRuleCommandInput,
+  type GetTopicRuleCommandOutput,
   GetTopicRuleCommand,
-  GetTopicRuleCommandInput,
-  GetTopicRuleCommandOutput,
 } from "./commands/GetTopicRuleCommand";
 import {
+  type GetTopicRuleDestinationCommandInput,
+  type GetTopicRuleDestinationCommandOutput,
   GetTopicRuleDestinationCommand,
-  GetTopicRuleDestinationCommandInput,
-  GetTopicRuleDestinationCommandOutput,
 } from "./commands/GetTopicRuleDestinationCommand";
 import {
+  type GetV2LoggingOptionsCommandInput,
+  type GetV2LoggingOptionsCommandOutput,
   GetV2LoggingOptionsCommand,
-  GetV2LoggingOptionsCommandInput,
-  GetV2LoggingOptionsCommandOutput,
 } from "./commands/GetV2LoggingOptionsCommand";
 import {
+  type ListActiveViolationsCommandInput,
+  type ListActiveViolationsCommandOutput,
   ListActiveViolationsCommand,
-  ListActiveViolationsCommandInput,
-  ListActiveViolationsCommandOutput,
 } from "./commands/ListActiveViolationsCommand";
 import {
+  type ListAttachedPoliciesCommandInput,
+  type ListAttachedPoliciesCommandOutput,
   ListAttachedPoliciesCommand,
-  ListAttachedPoliciesCommandInput,
-  ListAttachedPoliciesCommandOutput,
 } from "./commands/ListAttachedPoliciesCommand";
 import {
+  type ListAuditFindingsCommandInput,
+  type ListAuditFindingsCommandOutput,
   ListAuditFindingsCommand,
-  ListAuditFindingsCommandInput,
-  ListAuditFindingsCommandOutput,
 } from "./commands/ListAuditFindingsCommand";
 import {
+  type ListAuditMitigationActionsExecutionsCommandInput,
+  type ListAuditMitigationActionsExecutionsCommandOutput,
   ListAuditMitigationActionsExecutionsCommand,
-  ListAuditMitigationActionsExecutionsCommandInput,
-  ListAuditMitigationActionsExecutionsCommandOutput,
 } from "./commands/ListAuditMitigationActionsExecutionsCommand";
 import {
+  type ListAuditMitigationActionsTasksCommandInput,
+  type ListAuditMitigationActionsTasksCommandOutput,
   ListAuditMitigationActionsTasksCommand,
-  ListAuditMitigationActionsTasksCommandInput,
-  ListAuditMitigationActionsTasksCommandOutput,
 } from "./commands/ListAuditMitigationActionsTasksCommand";
 import {
+  type ListAuditSuppressionsCommandInput,
+  type ListAuditSuppressionsCommandOutput,
   ListAuditSuppressionsCommand,
-  ListAuditSuppressionsCommandInput,
-  ListAuditSuppressionsCommandOutput,
 } from "./commands/ListAuditSuppressionsCommand";
 import {
+  type ListAuditTasksCommandInput,
+  type ListAuditTasksCommandOutput,
   ListAuditTasksCommand,
-  ListAuditTasksCommandInput,
-  ListAuditTasksCommandOutput,
 } from "./commands/ListAuditTasksCommand";
 import {
+  type ListAuthorizersCommandInput,
+  type ListAuthorizersCommandOutput,
   ListAuthorizersCommand,
-  ListAuthorizersCommandInput,
-  ListAuthorizersCommandOutput,
 } from "./commands/ListAuthorizersCommand";
 import {
+  type ListBillingGroupsCommandInput,
+  type ListBillingGroupsCommandOutput,
   ListBillingGroupsCommand,
-  ListBillingGroupsCommandInput,
-  ListBillingGroupsCommandOutput,
 } from "./commands/ListBillingGroupsCommand";
 import {
+  type ListCACertificatesCommandInput,
+  type ListCACertificatesCommandOutput,
   ListCACertificatesCommand,
-  ListCACertificatesCommandInput,
-  ListCACertificatesCommandOutput,
 } from "./commands/ListCACertificatesCommand";
 import {
+  type ListCertificateProvidersCommandInput,
+  type ListCertificateProvidersCommandOutput,
   ListCertificateProvidersCommand,
-  ListCertificateProvidersCommandInput,
-  ListCertificateProvidersCommandOutput,
 } from "./commands/ListCertificateProvidersCommand";
 import {
+  type ListCertificatesByCACommandInput,
+  type ListCertificatesByCACommandOutput,
   ListCertificatesByCACommand,
-  ListCertificatesByCACommandInput,
-  ListCertificatesByCACommandOutput,
 } from "./commands/ListCertificatesByCACommand";
 import {
+  type ListCertificatesCommandInput,
+  type ListCertificatesCommandOutput,
   ListCertificatesCommand,
-  ListCertificatesCommandInput,
-  ListCertificatesCommandOutput,
 } from "./commands/ListCertificatesCommand";
 import {
+  type ListCommandExecutionsCommandInput,
+  type ListCommandExecutionsCommandOutput,
   ListCommandExecutionsCommand,
-  ListCommandExecutionsCommandInput,
-  ListCommandExecutionsCommandOutput,
 } from "./commands/ListCommandExecutionsCommand";
 import {
+  type ListCommandsCommandInput,
+  type ListCommandsCommandOutput,
   ListCommandsCommand,
-  ListCommandsCommandInput,
-  ListCommandsCommandOutput,
 } from "./commands/ListCommandsCommand";
 import {
+  type ListCustomMetricsCommandInput,
+  type ListCustomMetricsCommandOutput,
   ListCustomMetricsCommand,
-  ListCustomMetricsCommandInput,
-  ListCustomMetricsCommandOutput,
 } from "./commands/ListCustomMetricsCommand";
 import {
+  type ListDetectMitigationActionsExecutionsCommandInput,
+  type ListDetectMitigationActionsExecutionsCommandOutput,
   ListDetectMitigationActionsExecutionsCommand,
-  ListDetectMitigationActionsExecutionsCommandInput,
-  ListDetectMitigationActionsExecutionsCommandOutput,
 } from "./commands/ListDetectMitigationActionsExecutionsCommand";
 import {
+  type ListDetectMitigationActionsTasksCommandInput,
+  type ListDetectMitigationActionsTasksCommandOutput,
   ListDetectMitigationActionsTasksCommand,
-  ListDetectMitigationActionsTasksCommandInput,
-  ListDetectMitigationActionsTasksCommandOutput,
 } from "./commands/ListDetectMitigationActionsTasksCommand";
 import {
+  type ListDimensionsCommandInput,
+  type ListDimensionsCommandOutput,
   ListDimensionsCommand,
-  ListDimensionsCommandInput,
-  ListDimensionsCommandOutput,
 } from "./commands/ListDimensionsCommand";
 import {
+  type ListDomainConfigurationsCommandInput,
+  type ListDomainConfigurationsCommandOutput,
   ListDomainConfigurationsCommand,
-  ListDomainConfigurationsCommandInput,
-  ListDomainConfigurationsCommandOutput,
 } from "./commands/ListDomainConfigurationsCommand";
 import {
+  type ListFleetMetricsCommandInput,
+  type ListFleetMetricsCommandOutput,
   ListFleetMetricsCommand,
-  ListFleetMetricsCommandInput,
-  ListFleetMetricsCommandOutput,
 } from "./commands/ListFleetMetricsCommand";
-import { ListIndicesCommand, ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import {
+  type ListIndicesCommandInput,
+  type ListIndicesCommandOutput,
+  ListIndicesCommand,
+} from "./commands/ListIndicesCommand";
+import {
+  type ListJobExecutionsForJobCommandInput,
+  type ListJobExecutionsForJobCommandOutput,
   ListJobExecutionsForJobCommand,
-  ListJobExecutionsForJobCommandInput,
-  ListJobExecutionsForJobCommandOutput,
 } from "./commands/ListJobExecutionsForJobCommand";
 import {
+  type ListJobExecutionsForThingCommandInput,
+  type ListJobExecutionsForThingCommandOutput,
   ListJobExecutionsForThingCommand,
-  ListJobExecutionsForThingCommandInput,
-  ListJobExecutionsForThingCommandOutput,
 } from "./commands/ListJobExecutionsForThingCommand";
-import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { type ListJobsCommandInput, type ListJobsCommandOutput, ListJobsCommand } from "./commands/ListJobsCommand";
 import {
+  type ListJobTemplatesCommandInput,
+  type ListJobTemplatesCommandOutput,
   ListJobTemplatesCommand,
-  ListJobTemplatesCommandInput,
-  ListJobTemplatesCommandOutput,
 } from "./commands/ListJobTemplatesCommand";
 import {
+  type ListManagedJobTemplatesCommandInput,
+  type ListManagedJobTemplatesCommandOutput,
   ListManagedJobTemplatesCommand,
-  ListManagedJobTemplatesCommandInput,
-  ListManagedJobTemplatesCommandOutput,
 } from "./commands/ListManagedJobTemplatesCommand";
 import {
+  type ListMetricValuesCommandInput,
+  type ListMetricValuesCommandOutput,
   ListMetricValuesCommand,
-  ListMetricValuesCommandInput,
-  ListMetricValuesCommandOutput,
 } from "./commands/ListMetricValuesCommand";
 import {
+  type ListMitigationActionsCommandInput,
+  type ListMitigationActionsCommandOutput,
   ListMitigationActionsCommand,
-  ListMitigationActionsCommandInput,
-  ListMitigationActionsCommandOutput,
 } from "./commands/ListMitigationActionsCommand";
 import {
+  type ListOTAUpdatesCommandInput,
+  type ListOTAUpdatesCommandOutput,
   ListOTAUpdatesCommand,
-  ListOTAUpdatesCommandInput,
-  ListOTAUpdatesCommandOutput,
 } from "./commands/ListOTAUpdatesCommand";
 import {
+  type ListOutgoingCertificatesCommandInput,
+  type ListOutgoingCertificatesCommandOutput,
   ListOutgoingCertificatesCommand,
-  ListOutgoingCertificatesCommandInput,
-  ListOutgoingCertificatesCommandOutput,
 } from "./commands/ListOutgoingCertificatesCommand";
 import {
+  type ListPackagesCommandInput,
+  type ListPackagesCommandOutput,
   ListPackagesCommand,
-  ListPackagesCommandInput,
-  ListPackagesCommandOutput,
 } from "./commands/ListPackagesCommand";
 import {
+  type ListPackageVersionsCommandInput,
+  type ListPackageVersionsCommandOutput,
   ListPackageVersionsCommand,
-  ListPackageVersionsCommandInput,
-  ListPackageVersionsCommandOutput,
 } from "./commands/ListPackageVersionsCommand";
 import {
+  type ListPoliciesCommandInput,
+  type ListPoliciesCommandOutput,
   ListPoliciesCommand,
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput,
 } from "./commands/ListPoliciesCommand";
 import {
+  type ListPolicyPrincipalsCommandInput,
+  type ListPolicyPrincipalsCommandOutput,
   ListPolicyPrincipalsCommand,
-  ListPolicyPrincipalsCommandInput,
-  ListPolicyPrincipalsCommandOutput,
 } from "./commands/ListPolicyPrincipalsCommand";
 import {
+  type ListPolicyVersionsCommandInput,
+  type ListPolicyVersionsCommandOutput,
   ListPolicyVersionsCommand,
-  ListPolicyVersionsCommandInput,
-  ListPolicyVersionsCommandOutput,
 } from "./commands/ListPolicyVersionsCommand";
 import {
+  type ListPrincipalPoliciesCommandInput,
+  type ListPrincipalPoliciesCommandOutput,
   ListPrincipalPoliciesCommand,
-  ListPrincipalPoliciesCommandInput,
-  ListPrincipalPoliciesCommandOutput,
 } from "./commands/ListPrincipalPoliciesCommand";
 import {
+  type ListPrincipalThingsCommandInput,
+  type ListPrincipalThingsCommandOutput,
   ListPrincipalThingsCommand,
-  ListPrincipalThingsCommandInput,
-  ListPrincipalThingsCommandOutput,
 } from "./commands/ListPrincipalThingsCommand";
 import {
+  type ListPrincipalThingsV2CommandInput,
+  type ListPrincipalThingsV2CommandOutput,
   ListPrincipalThingsV2Command,
-  ListPrincipalThingsV2CommandInput,
-  ListPrincipalThingsV2CommandOutput,
 } from "./commands/ListPrincipalThingsV2Command";
 import {
+  type ListProvisioningTemplatesCommandInput,
+  type ListProvisioningTemplatesCommandOutput,
   ListProvisioningTemplatesCommand,
-  ListProvisioningTemplatesCommandInput,
-  ListProvisioningTemplatesCommandOutput,
 } from "./commands/ListProvisioningTemplatesCommand";
 import {
+  type ListProvisioningTemplateVersionsCommandInput,
+  type ListProvisioningTemplateVersionsCommandOutput,
   ListProvisioningTemplateVersionsCommand,
-  ListProvisioningTemplateVersionsCommandInput,
-  ListProvisioningTemplateVersionsCommandOutput,
 } from "./commands/ListProvisioningTemplateVersionsCommand";
 import {
+  type ListRelatedResourcesForAuditFindingCommandInput,
+  type ListRelatedResourcesForAuditFindingCommandOutput,
   ListRelatedResourcesForAuditFindingCommand,
-  ListRelatedResourcesForAuditFindingCommandInput,
-  ListRelatedResourcesForAuditFindingCommandOutput,
 } from "./commands/ListRelatedResourcesForAuditFindingCommand";
 import {
+  type ListRoleAliasesCommandInput,
+  type ListRoleAliasesCommandOutput,
   ListRoleAliasesCommand,
-  ListRoleAliasesCommandInput,
-  ListRoleAliasesCommandOutput,
 } from "./commands/ListRoleAliasesCommand";
 import {
+  type ListSbomValidationResultsCommandInput,
+  type ListSbomValidationResultsCommandOutput,
   ListSbomValidationResultsCommand,
-  ListSbomValidationResultsCommandInput,
-  ListSbomValidationResultsCommandOutput,
 } from "./commands/ListSbomValidationResultsCommand";
 import {
+  type ListScheduledAuditsCommandInput,
+  type ListScheduledAuditsCommandOutput,
   ListScheduledAuditsCommand,
-  ListScheduledAuditsCommandInput,
-  ListScheduledAuditsCommandOutput,
 } from "./commands/ListScheduledAuditsCommand";
 import {
+  type ListSecurityProfilesCommandInput,
+  type ListSecurityProfilesCommandOutput,
   ListSecurityProfilesCommand,
-  ListSecurityProfilesCommandInput,
-  ListSecurityProfilesCommandOutput,
 } from "./commands/ListSecurityProfilesCommand";
 import {
+  type ListSecurityProfilesForTargetCommandInput,
+  type ListSecurityProfilesForTargetCommandOutput,
   ListSecurityProfilesForTargetCommand,
-  ListSecurityProfilesForTargetCommandInput,
-  ListSecurityProfilesForTargetCommandOutput,
 } from "./commands/ListSecurityProfilesForTargetCommand";
-import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
+  type ListStreamsCommandInput,
+  type ListStreamsCommandOutput,
+  ListStreamsCommand,
+} from "./commands/ListStreamsCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTargetsForPolicyCommandInput,
+  type ListTargetsForPolicyCommandOutput,
   ListTargetsForPolicyCommand,
-  ListTargetsForPolicyCommandInput,
-  ListTargetsForPolicyCommandOutput,
 } from "./commands/ListTargetsForPolicyCommand";
 import {
+  type ListTargetsForSecurityProfileCommandInput,
+  type ListTargetsForSecurityProfileCommandOutput,
   ListTargetsForSecurityProfileCommand,
-  ListTargetsForSecurityProfileCommandInput,
-  ListTargetsForSecurityProfileCommandOutput,
 } from "./commands/ListTargetsForSecurityProfileCommand";
 import {
+  type ListThingGroupsCommandInput,
+  type ListThingGroupsCommandOutput,
   ListThingGroupsCommand,
-  ListThingGroupsCommandInput,
-  ListThingGroupsCommandOutput,
 } from "./commands/ListThingGroupsCommand";
 import {
+  type ListThingGroupsForThingCommandInput,
+  type ListThingGroupsForThingCommandOutput,
   ListThingGroupsForThingCommand,
-  ListThingGroupsForThingCommandInput,
-  ListThingGroupsForThingCommandOutput,
 } from "./commands/ListThingGroupsForThingCommand";
 import {
+  type ListThingPrincipalsCommandInput,
+  type ListThingPrincipalsCommandOutput,
   ListThingPrincipalsCommand,
-  ListThingPrincipalsCommandInput,
-  ListThingPrincipalsCommandOutput,
 } from "./commands/ListThingPrincipalsCommand";
 import {
+  type ListThingPrincipalsV2CommandInput,
+  type ListThingPrincipalsV2CommandOutput,
   ListThingPrincipalsV2Command,
-  ListThingPrincipalsV2CommandInput,
-  ListThingPrincipalsV2CommandOutput,
 } from "./commands/ListThingPrincipalsV2Command";
 import {
+  type ListThingRegistrationTaskReportsCommandInput,
+  type ListThingRegistrationTaskReportsCommandOutput,
   ListThingRegistrationTaskReportsCommand,
-  ListThingRegistrationTaskReportsCommandInput,
-  ListThingRegistrationTaskReportsCommandOutput,
 } from "./commands/ListThingRegistrationTaskReportsCommand";
 import {
+  type ListThingRegistrationTasksCommandInput,
+  type ListThingRegistrationTasksCommandOutput,
   ListThingRegistrationTasksCommand,
-  ListThingRegistrationTasksCommandInput,
-  ListThingRegistrationTasksCommandOutput,
 } from "./commands/ListThingRegistrationTasksCommand";
-import { ListThingsCommand, ListThingsCommandInput, ListThingsCommandOutput } from "./commands/ListThingsCommand";
 import {
+  type ListThingsCommandInput,
+  type ListThingsCommandOutput,
+  ListThingsCommand,
+} from "./commands/ListThingsCommand";
+import {
+  type ListThingsInBillingGroupCommandInput,
+  type ListThingsInBillingGroupCommandOutput,
   ListThingsInBillingGroupCommand,
-  ListThingsInBillingGroupCommandInput,
-  ListThingsInBillingGroupCommandOutput,
 } from "./commands/ListThingsInBillingGroupCommand";
 import {
+  type ListThingsInThingGroupCommandInput,
+  type ListThingsInThingGroupCommandOutput,
   ListThingsInThingGroupCommand,
-  ListThingsInThingGroupCommandInput,
-  ListThingsInThingGroupCommandOutput,
 } from "./commands/ListThingsInThingGroupCommand";
 import {
+  type ListThingTypesCommandInput,
+  type ListThingTypesCommandOutput,
   ListThingTypesCommand,
-  ListThingTypesCommandInput,
-  ListThingTypesCommandOutput,
 } from "./commands/ListThingTypesCommand";
 import {
+  type ListTopicRuleDestinationsCommandInput,
+  type ListTopicRuleDestinationsCommandOutput,
   ListTopicRuleDestinationsCommand,
-  ListTopicRuleDestinationsCommandInput,
-  ListTopicRuleDestinationsCommandOutput,
 } from "./commands/ListTopicRuleDestinationsCommand";
 import {
+  type ListTopicRulesCommandInput,
+  type ListTopicRulesCommandOutput,
   ListTopicRulesCommand,
-  ListTopicRulesCommandInput,
-  ListTopicRulesCommandOutput,
 } from "./commands/ListTopicRulesCommand";
 import {
+  type ListV2LoggingLevelsCommandInput,
+  type ListV2LoggingLevelsCommandOutput,
   ListV2LoggingLevelsCommand,
-  ListV2LoggingLevelsCommandInput,
-  ListV2LoggingLevelsCommandOutput,
 } from "./commands/ListV2LoggingLevelsCommand";
 import {
+  type ListViolationEventsCommandInput,
+  type ListViolationEventsCommandOutput,
   ListViolationEventsCommand,
-  ListViolationEventsCommandInput,
-  ListViolationEventsCommandOutput,
 } from "./commands/ListViolationEventsCommand";
 import {
+  type PutVerificationStateOnViolationCommandInput,
+  type PutVerificationStateOnViolationCommandOutput,
   PutVerificationStateOnViolationCommand,
-  PutVerificationStateOnViolationCommandInput,
-  PutVerificationStateOnViolationCommandOutput,
 } from "./commands/PutVerificationStateOnViolationCommand";
 import {
+  type RegisterCACertificateCommandInput,
+  type RegisterCACertificateCommandOutput,
   RegisterCACertificateCommand,
-  RegisterCACertificateCommandInput,
-  RegisterCACertificateCommandOutput,
 } from "./commands/RegisterCACertificateCommand";
 import {
+  type RegisterCertificateCommandInput,
+  type RegisterCertificateCommandOutput,
   RegisterCertificateCommand,
-  RegisterCertificateCommandInput,
-  RegisterCertificateCommandOutput,
 } from "./commands/RegisterCertificateCommand";
 import {
+  type RegisterCertificateWithoutCACommandInput,
+  type RegisterCertificateWithoutCACommandOutput,
   RegisterCertificateWithoutCACommand,
-  RegisterCertificateWithoutCACommandInput,
-  RegisterCertificateWithoutCACommandOutput,
 } from "./commands/RegisterCertificateWithoutCACommand";
 import {
+  type RegisterThingCommandInput,
+  type RegisterThingCommandOutput,
   RegisterThingCommand,
-  RegisterThingCommandInput,
-  RegisterThingCommandOutput,
 } from "./commands/RegisterThingCommand";
 import {
+  type RejectCertificateTransferCommandInput,
+  type RejectCertificateTransferCommandOutput,
   RejectCertificateTransferCommand,
-  RejectCertificateTransferCommandInput,
-  RejectCertificateTransferCommandOutput,
 } from "./commands/RejectCertificateTransferCommand";
 import {
+  type RemoveThingFromBillingGroupCommandInput,
+  type RemoveThingFromBillingGroupCommandOutput,
   RemoveThingFromBillingGroupCommand,
-  RemoveThingFromBillingGroupCommandInput,
-  RemoveThingFromBillingGroupCommandOutput,
 } from "./commands/RemoveThingFromBillingGroupCommand";
 import {
+  type RemoveThingFromThingGroupCommandInput,
+  type RemoveThingFromThingGroupCommandOutput,
   RemoveThingFromThingGroupCommand,
-  RemoveThingFromThingGroupCommandInput,
-  RemoveThingFromThingGroupCommandOutput,
 } from "./commands/RemoveThingFromThingGroupCommand";
 import {
+  type ReplaceTopicRuleCommandInput,
+  type ReplaceTopicRuleCommandOutput,
   ReplaceTopicRuleCommand,
-  ReplaceTopicRuleCommandInput,
-  ReplaceTopicRuleCommandOutput,
 } from "./commands/ReplaceTopicRuleCommand";
-import { SearchIndexCommand, SearchIndexCommandInput, SearchIndexCommandOutput } from "./commands/SearchIndexCommand";
 import {
+  type SearchIndexCommandInput,
+  type SearchIndexCommandOutput,
+  SearchIndexCommand,
+} from "./commands/SearchIndexCommand";
+import {
+  type SetDefaultAuthorizerCommandInput,
+  type SetDefaultAuthorizerCommandOutput,
   SetDefaultAuthorizerCommand,
-  SetDefaultAuthorizerCommandInput,
-  SetDefaultAuthorizerCommandOutput,
 } from "./commands/SetDefaultAuthorizerCommand";
 import {
+  type SetDefaultPolicyVersionCommandInput,
+  type SetDefaultPolicyVersionCommandOutput,
   SetDefaultPolicyVersionCommand,
-  SetDefaultPolicyVersionCommandInput,
-  SetDefaultPolicyVersionCommandOutput,
 } from "./commands/SetDefaultPolicyVersionCommand";
 import {
+  type SetLoggingOptionsCommandInput,
+  type SetLoggingOptionsCommandOutput,
   SetLoggingOptionsCommand,
-  SetLoggingOptionsCommandInput,
-  SetLoggingOptionsCommandOutput,
 } from "./commands/SetLoggingOptionsCommand";
 import {
+  type SetV2LoggingLevelCommandInput,
+  type SetV2LoggingLevelCommandOutput,
   SetV2LoggingLevelCommand,
-  SetV2LoggingLevelCommandInput,
-  SetV2LoggingLevelCommandOutput,
 } from "./commands/SetV2LoggingLevelCommand";
 import {
+  type SetV2LoggingOptionsCommandInput,
+  type SetV2LoggingOptionsCommandOutput,
   SetV2LoggingOptionsCommand,
-  SetV2LoggingOptionsCommandInput,
-  SetV2LoggingOptionsCommandOutput,
 } from "./commands/SetV2LoggingOptionsCommand";
 import {
+  type StartAuditMitigationActionsTaskCommandInput,
+  type StartAuditMitigationActionsTaskCommandOutput,
   StartAuditMitigationActionsTaskCommand,
-  StartAuditMitigationActionsTaskCommandInput,
-  StartAuditMitigationActionsTaskCommandOutput,
 } from "./commands/StartAuditMitigationActionsTaskCommand";
 import {
+  type StartDetectMitigationActionsTaskCommandInput,
+  type StartDetectMitigationActionsTaskCommandOutput,
   StartDetectMitigationActionsTaskCommand,
-  StartDetectMitigationActionsTaskCommandInput,
-  StartDetectMitigationActionsTaskCommandOutput,
 } from "./commands/StartDetectMitigationActionsTaskCommand";
 import {
+  type StartOnDemandAuditTaskCommandInput,
+  type StartOnDemandAuditTaskCommandOutput,
   StartOnDemandAuditTaskCommand,
-  StartOnDemandAuditTaskCommandInput,
-  StartOnDemandAuditTaskCommandOutput,
 } from "./commands/StartOnDemandAuditTaskCommand";
 import {
+  type StartThingRegistrationTaskCommandInput,
+  type StartThingRegistrationTaskCommandOutput,
   StartThingRegistrationTaskCommand,
-  StartThingRegistrationTaskCommandInput,
-  StartThingRegistrationTaskCommandOutput,
 } from "./commands/StartThingRegistrationTaskCommand";
 import {
+  type StopThingRegistrationTaskCommandInput,
+  type StopThingRegistrationTaskCommandOutput,
   StopThingRegistrationTaskCommand,
-  StopThingRegistrationTaskCommandInput,
-  StopThingRegistrationTaskCommandOutput,
 } from "./commands/StopThingRegistrationTaskCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TestAuthorizationCommandInput,
+  type TestAuthorizationCommandOutput,
   TestAuthorizationCommand,
-  TestAuthorizationCommandInput,
-  TestAuthorizationCommandOutput,
 } from "./commands/TestAuthorizationCommand";
 import {
+  type TestInvokeAuthorizerCommandInput,
+  type TestInvokeAuthorizerCommandOutput,
   TestInvokeAuthorizerCommand,
-  TestInvokeAuthorizerCommandInput,
-  TestInvokeAuthorizerCommandOutput,
 } from "./commands/TestInvokeAuthorizerCommand";
 import {
+  type TransferCertificateCommandInput,
+  type TransferCertificateCommandOutput,
   TransferCertificateCommand,
-  TransferCertificateCommandInput,
-  TransferCertificateCommandOutput,
 } from "./commands/TransferCertificateCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccountAuditConfigurationCommandInput,
+  type UpdateAccountAuditConfigurationCommandOutput,
   UpdateAccountAuditConfigurationCommand,
-  UpdateAccountAuditConfigurationCommandInput,
-  UpdateAccountAuditConfigurationCommandOutput,
 } from "./commands/UpdateAccountAuditConfigurationCommand";
 import {
+  type UpdateAuditSuppressionCommandInput,
+  type UpdateAuditSuppressionCommandOutput,
   UpdateAuditSuppressionCommand,
-  UpdateAuditSuppressionCommandInput,
-  UpdateAuditSuppressionCommandOutput,
 } from "./commands/UpdateAuditSuppressionCommand";
 import {
+  type UpdateAuthorizerCommandInput,
+  type UpdateAuthorizerCommandOutput,
   UpdateAuthorizerCommand,
-  UpdateAuthorizerCommandInput,
-  UpdateAuthorizerCommandOutput,
 } from "./commands/UpdateAuthorizerCommand";
 import {
+  type UpdateBillingGroupCommandInput,
+  type UpdateBillingGroupCommandOutput,
   UpdateBillingGroupCommand,
-  UpdateBillingGroupCommandInput,
-  UpdateBillingGroupCommandOutput,
 } from "./commands/UpdateBillingGroupCommand";
 import {
+  type UpdateCACertificateCommandInput,
+  type UpdateCACertificateCommandOutput,
   UpdateCACertificateCommand,
-  UpdateCACertificateCommandInput,
-  UpdateCACertificateCommandOutput,
 } from "./commands/UpdateCACertificateCommand";
 import {
+  type UpdateCertificateCommandInput,
+  type UpdateCertificateCommandOutput,
   UpdateCertificateCommand,
-  UpdateCertificateCommandInput,
-  UpdateCertificateCommandOutput,
 } from "./commands/UpdateCertificateCommand";
 import {
+  type UpdateCertificateProviderCommandInput,
+  type UpdateCertificateProviderCommandOutput,
   UpdateCertificateProviderCommand,
-  UpdateCertificateProviderCommandInput,
-  UpdateCertificateProviderCommandOutput,
 } from "./commands/UpdateCertificateProviderCommand";
 import {
+  type UpdateCommandCommandInput,
+  type UpdateCommandCommandOutput,
   UpdateCommandCommand,
-  UpdateCommandCommandInput,
-  UpdateCommandCommandOutput,
 } from "./commands/UpdateCommandCommand";
 import {
+  type UpdateCustomMetricCommandInput,
+  type UpdateCustomMetricCommandOutput,
   UpdateCustomMetricCommand,
-  UpdateCustomMetricCommandInput,
-  UpdateCustomMetricCommandOutput,
 } from "./commands/UpdateCustomMetricCommand";
 import {
+  type UpdateDimensionCommandInput,
+  type UpdateDimensionCommandOutput,
   UpdateDimensionCommand,
-  UpdateDimensionCommandInput,
-  UpdateDimensionCommandOutput,
 } from "./commands/UpdateDimensionCommand";
 import {
+  type UpdateDomainConfigurationCommandInput,
+  type UpdateDomainConfigurationCommandOutput,
   UpdateDomainConfigurationCommand,
-  UpdateDomainConfigurationCommandInput,
-  UpdateDomainConfigurationCommandOutput,
 } from "./commands/UpdateDomainConfigurationCommand";
 import {
+  type UpdateDynamicThingGroupCommandInput,
+  type UpdateDynamicThingGroupCommandOutput,
   UpdateDynamicThingGroupCommand,
-  UpdateDynamicThingGroupCommandInput,
-  UpdateDynamicThingGroupCommandOutput,
 } from "./commands/UpdateDynamicThingGroupCommand";
 import {
+  type UpdateEncryptionConfigurationCommandInput,
+  type UpdateEncryptionConfigurationCommandOutput,
   UpdateEncryptionConfigurationCommand,
-  UpdateEncryptionConfigurationCommandInput,
-  UpdateEncryptionConfigurationCommandOutput,
 } from "./commands/UpdateEncryptionConfigurationCommand";
 import {
+  type UpdateEventConfigurationsCommandInput,
+  type UpdateEventConfigurationsCommandOutput,
   UpdateEventConfigurationsCommand,
-  UpdateEventConfigurationsCommandInput,
-  UpdateEventConfigurationsCommandOutput,
 } from "./commands/UpdateEventConfigurationsCommand";
 import {
+  type UpdateFleetMetricCommandInput,
+  type UpdateFleetMetricCommandOutput,
   UpdateFleetMetricCommand,
-  UpdateFleetMetricCommandInput,
-  UpdateFleetMetricCommandOutput,
 } from "./commands/UpdateFleetMetricCommand";
 import {
+  type UpdateIndexingConfigurationCommandInput,
+  type UpdateIndexingConfigurationCommandOutput,
   UpdateIndexingConfigurationCommand,
-  UpdateIndexingConfigurationCommandInput,
-  UpdateIndexingConfigurationCommandOutput,
 } from "./commands/UpdateIndexingConfigurationCommand";
-import { UpdateJobCommand, UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
+import { type UpdateJobCommandInput, type UpdateJobCommandOutput, UpdateJobCommand } from "./commands/UpdateJobCommand";
 import {
+  type UpdateMitigationActionCommandInput,
+  type UpdateMitigationActionCommandOutput,
   UpdateMitigationActionCommand,
-  UpdateMitigationActionCommandInput,
-  UpdateMitigationActionCommandOutput,
 } from "./commands/UpdateMitigationActionCommand";
 import {
+  type UpdatePackageCommandInput,
+  type UpdatePackageCommandOutput,
   UpdatePackageCommand,
-  UpdatePackageCommandInput,
-  UpdatePackageCommandOutput,
 } from "./commands/UpdatePackageCommand";
 import {
+  type UpdatePackageConfigurationCommandInput,
+  type UpdatePackageConfigurationCommandOutput,
   UpdatePackageConfigurationCommand,
-  UpdatePackageConfigurationCommandInput,
-  UpdatePackageConfigurationCommandOutput,
 } from "./commands/UpdatePackageConfigurationCommand";
 import {
+  type UpdatePackageVersionCommandInput,
+  type UpdatePackageVersionCommandOutput,
   UpdatePackageVersionCommand,
-  UpdatePackageVersionCommandInput,
-  UpdatePackageVersionCommandOutput,
 } from "./commands/UpdatePackageVersionCommand";
 import {
+  type UpdateProvisioningTemplateCommandInput,
+  type UpdateProvisioningTemplateCommandOutput,
   UpdateProvisioningTemplateCommand,
-  UpdateProvisioningTemplateCommandInput,
-  UpdateProvisioningTemplateCommandOutput,
 } from "./commands/UpdateProvisioningTemplateCommand";
 import {
+  type UpdateRoleAliasCommandInput,
+  type UpdateRoleAliasCommandOutput,
   UpdateRoleAliasCommand,
-  UpdateRoleAliasCommandInput,
-  UpdateRoleAliasCommandOutput,
 } from "./commands/UpdateRoleAliasCommand";
 import {
+  type UpdateScheduledAuditCommandInput,
+  type UpdateScheduledAuditCommandOutput,
   UpdateScheduledAuditCommand,
-  UpdateScheduledAuditCommandInput,
-  UpdateScheduledAuditCommandOutput,
 } from "./commands/UpdateScheduledAuditCommand";
 import {
+  type UpdateSecurityProfileCommandInput,
+  type UpdateSecurityProfileCommandOutput,
   UpdateSecurityProfileCommand,
-  UpdateSecurityProfileCommandInput,
-  UpdateSecurityProfileCommandOutput,
 } from "./commands/UpdateSecurityProfileCommand";
 import {
+  type UpdateStreamCommandInput,
+  type UpdateStreamCommandOutput,
   UpdateStreamCommand,
-  UpdateStreamCommandInput,
-  UpdateStreamCommandOutput,
 } from "./commands/UpdateStreamCommand";
-import { UpdateThingCommand, UpdateThingCommandInput, UpdateThingCommandOutput } from "./commands/UpdateThingCommand";
 import {
+  type UpdateThingCommandInput,
+  type UpdateThingCommandOutput,
+  UpdateThingCommand,
+} from "./commands/UpdateThingCommand";
+import {
+  type UpdateThingGroupCommandInput,
+  type UpdateThingGroupCommandOutput,
   UpdateThingGroupCommand,
-  UpdateThingGroupCommandInput,
-  UpdateThingGroupCommandOutput,
 } from "./commands/UpdateThingGroupCommand";
 import {
+  type UpdateThingGroupsForThingCommandInput,
+  type UpdateThingGroupsForThingCommandOutput,
   UpdateThingGroupsForThingCommand,
-  UpdateThingGroupsForThingCommandInput,
-  UpdateThingGroupsForThingCommandOutput,
 } from "./commands/UpdateThingGroupsForThingCommand";
 import {
+  type UpdateThingTypeCommandInput,
+  type UpdateThingTypeCommandOutput,
   UpdateThingTypeCommand,
-  UpdateThingTypeCommandInput,
-  UpdateThingTypeCommandOutput,
 } from "./commands/UpdateThingTypeCommand";
 import {
+  type UpdateTopicRuleDestinationCommandInput,
+  type UpdateTopicRuleDestinationCommandOutput,
   UpdateTopicRuleDestinationCommand,
-  UpdateTopicRuleDestinationCommandInput,
-  UpdateTopicRuleDestinationCommandOutput,
 } from "./commands/UpdateTopicRuleDestinationCommand";
 import {
+  type ValidateSecurityProfileBehaviorsCommandInput,
+  type ValidateSecurityProfileBehaviorsCommandOutput,
   ValidateSecurityProfileBehaviorsCommand,
-  ValidateSecurityProfileBehaviorsCommandInput,
-  ValidateSecurityProfileBehaviorsCommandOutput,
 } from "./commands/ValidateSecurityProfileBehaviorsCommand";
 import { IoTClient } from "./IoTClient";
 import { paginateGetBehaviorModelTrainingSummaries } from "./pagination/GetBehaviorModelTrainingSummariesPaginator";

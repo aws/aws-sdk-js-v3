@@ -8,7 +8,7 @@ import {
   ListTransformersCommandInput,
   ListTransformersCommandOutput,
 } from "../commands/ListTransformersCommand";
-import { B2biPaginationConfiguration } from "./Interfaces";
+import type { B2biPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

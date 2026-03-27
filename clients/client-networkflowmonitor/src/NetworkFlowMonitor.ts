@@ -3,102 +3,126 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateMonitorCommandInput,
+  type CreateMonitorCommandOutput,
   CreateMonitorCommand,
-  CreateMonitorCommandInput,
-  CreateMonitorCommandOutput,
 } from "./commands/CreateMonitorCommand";
-import { CreateScopeCommand, CreateScopeCommandInput, CreateScopeCommandOutput } from "./commands/CreateScopeCommand";
 import {
+  type CreateScopeCommandInput,
+  type CreateScopeCommandOutput,
+  CreateScopeCommand,
+} from "./commands/CreateScopeCommand";
+import {
+  type DeleteMonitorCommandInput,
+  type DeleteMonitorCommandOutput,
   DeleteMonitorCommand,
-  DeleteMonitorCommandInput,
-  DeleteMonitorCommandOutput,
 } from "./commands/DeleteMonitorCommand";
-import { DeleteScopeCommand, DeleteScopeCommandInput, DeleteScopeCommandOutput } from "./commands/DeleteScopeCommand";
-import { GetMonitorCommand, GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
 import {
+  type DeleteScopeCommandInput,
+  type DeleteScopeCommandOutput,
+  DeleteScopeCommand,
+} from "./commands/DeleteScopeCommand";
+import {
+  type GetMonitorCommandInput,
+  type GetMonitorCommandOutput,
+  GetMonitorCommand,
+} from "./commands/GetMonitorCommand";
+import {
+  type GetQueryResultsMonitorTopContributorsCommandInput,
+  type GetQueryResultsMonitorTopContributorsCommandOutput,
   GetQueryResultsMonitorTopContributorsCommand,
-  GetQueryResultsMonitorTopContributorsCommandInput,
-  GetQueryResultsMonitorTopContributorsCommandOutput,
 } from "./commands/GetQueryResultsMonitorTopContributorsCommand";
 import {
+  type GetQueryResultsWorkloadInsightsTopContributorsCommandInput,
+  type GetQueryResultsWorkloadInsightsTopContributorsCommandOutput,
   GetQueryResultsWorkloadInsightsTopContributorsCommand,
-  GetQueryResultsWorkloadInsightsTopContributorsCommandInput,
-  GetQueryResultsWorkloadInsightsTopContributorsCommandOutput,
 } from "./commands/GetQueryResultsWorkloadInsightsTopContributorsCommand";
 import {
+  type GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput,
+  type GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput,
   GetQueryResultsWorkloadInsightsTopContributorsDataCommand,
-  GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput,
-  GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput,
 } from "./commands/GetQueryResultsWorkloadInsightsTopContributorsDataCommand";
 import {
+  type GetQueryStatusMonitorTopContributorsCommandInput,
+  type GetQueryStatusMonitorTopContributorsCommandOutput,
   GetQueryStatusMonitorTopContributorsCommand,
-  GetQueryStatusMonitorTopContributorsCommandInput,
-  GetQueryStatusMonitorTopContributorsCommandOutput,
 } from "./commands/GetQueryStatusMonitorTopContributorsCommand";
 import {
+  type GetQueryStatusWorkloadInsightsTopContributorsCommandInput,
+  type GetQueryStatusWorkloadInsightsTopContributorsCommandOutput,
   GetQueryStatusWorkloadInsightsTopContributorsCommand,
-  GetQueryStatusWorkloadInsightsTopContributorsCommandInput,
-  GetQueryStatusWorkloadInsightsTopContributorsCommandOutput,
 } from "./commands/GetQueryStatusWorkloadInsightsTopContributorsCommand";
 import {
+  type GetQueryStatusWorkloadInsightsTopContributorsDataCommandInput,
+  type GetQueryStatusWorkloadInsightsTopContributorsDataCommandOutput,
   GetQueryStatusWorkloadInsightsTopContributorsDataCommand,
-  GetQueryStatusWorkloadInsightsTopContributorsDataCommandInput,
-  GetQueryStatusWorkloadInsightsTopContributorsDataCommandOutput,
 } from "./commands/GetQueryStatusWorkloadInsightsTopContributorsDataCommand";
-import { GetScopeCommand, GetScopeCommandInput, GetScopeCommandOutput } from "./commands/GetScopeCommand";
+import { type GetScopeCommandInput, type GetScopeCommandOutput, GetScopeCommand } from "./commands/GetScopeCommand";
 import {
+  type ListMonitorsCommandInput,
+  type ListMonitorsCommandOutput,
   ListMonitorsCommand,
-  ListMonitorsCommandInput,
-  ListMonitorsCommandOutput,
 } from "./commands/ListMonitorsCommand";
-import { ListScopesCommand, ListScopesCommandInput, ListScopesCommandOutput } from "./commands/ListScopesCommand";
 import {
+  type ListScopesCommandInput,
+  type ListScopesCommandOutput,
+  ListScopesCommand,
+} from "./commands/ListScopesCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartQueryMonitorTopContributorsCommandInput,
+  type StartQueryMonitorTopContributorsCommandOutput,
   StartQueryMonitorTopContributorsCommand,
-  StartQueryMonitorTopContributorsCommandInput,
-  StartQueryMonitorTopContributorsCommandOutput,
 } from "./commands/StartQueryMonitorTopContributorsCommand";
 import {
+  type StartQueryWorkloadInsightsTopContributorsCommandInput,
+  type StartQueryWorkloadInsightsTopContributorsCommandOutput,
   StartQueryWorkloadInsightsTopContributorsCommand,
-  StartQueryWorkloadInsightsTopContributorsCommandInput,
-  StartQueryWorkloadInsightsTopContributorsCommandOutput,
 } from "./commands/StartQueryWorkloadInsightsTopContributorsCommand";
 import {
+  type StartQueryWorkloadInsightsTopContributorsDataCommandInput,
+  type StartQueryWorkloadInsightsTopContributorsDataCommandOutput,
   StartQueryWorkloadInsightsTopContributorsDataCommand,
-  StartQueryWorkloadInsightsTopContributorsDataCommandInput,
-  StartQueryWorkloadInsightsTopContributorsDataCommandOutput,
 } from "./commands/StartQueryWorkloadInsightsTopContributorsDataCommand";
 import {
+  type StopQueryMonitorTopContributorsCommandInput,
+  type StopQueryMonitorTopContributorsCommandOutput,
   StopQueryMonitorTopContributorsCommand,
-  StopQueryMonitorTopContributorsCommandInput,
-  StopQueryMonitorTopContributorsCommandOutput,
 } from "./commands/StopQueryMonitorTopContributorsCommand";
 import {
+  type StopQueryWorkloadInsightsTopContributorsCommandInput,
+  type StopQueryWorkloadInsightsTopContributorsCommandOutput,
   StopQueryWorkloadInsightsTopContributorsCommand,
-  StopQueryWorkloadInsightsTopContributorsCommandInput,
-  StopQueryWorkloadInsightsTopContributorsCommandOutput,
 } from "./commands/StopQueryWorkloadInsightsTopContributorsCommand";
 import {
+  type StopQueryWorkloadInsightsTopContributorsDataCommandInput,
+  type StopQueryWorkloadInsightsTopContributorsDataCommandOutput,
   StopQueryWorkloadInsightsTopContributorsDataCommand,
-  StopQueryWorkloadInsightsTopContributorsDataCommandInput,
-  StopQueryWorkloadInsightsTopContributorsDataCommandOutput,
 } from "./commands/StopQueryWorkloadInsightsTopContributorsDataCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateMonitorCommandInput,
+  type UpdateMonitorCommandOutput,
   UpdateMonitorCommand,
-  UpdateMonitorCommandInput,
-  UpdateMonitorCommandOutput,
 } from "./commands/UpdateMonitorCommand";
-import { UpdateScopeCommand, UpdateScopeCommandInput, UpdateScopeCommandOutput } from "./commands/UpdateScopeCommand";
+import {
+  type UpdateScopeCommandInput,
+  type UpdateScopeCommandOutput,
+  UpdateScopeCommand,
+} from "./commands/UpdateScopeCommand";
 import { NetworkFlowMonitorClient } from "./NetworkFlowMonitorClient";
 import {
   paginateGetQueryResultsMonitorTopContributors,

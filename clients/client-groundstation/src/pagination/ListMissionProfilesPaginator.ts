@@ -8,7 +8,7 @@ import {
   ListMissionProfilesCommandOutput,
 } from "../commands/ListMissionProfilesCommand";
 import { GroundStationClient } from "../GroundStationClient";
-import { GroundStationPaginationConfiguration } from "./Interfaces";
+import type { GroundStationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -10,414 +10,426 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { BedrockAgentCoreControlClient } from "./BedrockAgentCoreControlClient";
 import {
+  type CreateAgentRuntimeCommandInput,
+  type CreateAgentRuntimeCommandOutput,
   CreateAgentRuntimeCommand,
-  CreateAgentRuntimeCommandInput,
-  CreateAgentRuntimeCommandOutput,
 } from "./commands/CreateAgentRuntimeCommand";
 import {
+  type CreateAgentRuntimeEndpointCommandInput,
+  type CreateAgentRuntimeEndpointCommandOutput,
   CreateAgentRuntimeEndpointCommand,
-  CreateAgentRuntimeEndpointCommandInput,
-  CreateAgentRuntimeEndpointCommandOutput,
 } from "./commands/CreateAgentRuntimeEndpointCommand";
 import {
+  type CreateApiKeyCredentialProviderCommandInput,
+  type CreateApiKeyCredentialProviderCommandOutput,
   CreateApiKeyCredentialProviderCommand,
-  CreateApiKeyCredentialProviderCommandInput,
-  CreateApiKeyCredentialProviderCommandOutput,
 } from "./commands/CreateApiKeyCredentialProviderCommand";
 import {
+  type CreateBrowserCommandInput,
+  type CreateBrowserCommandOutput,
   CreateBrowserCommand,
-  CreateBrowserCommandInput,
-  CreateBrowserCommandOutput,
 } from "./commands/CreateBrowserCommand";
 import {
+  type CreateBrowserProfileCommandInput,
+  type CreateBrowserProfileCommandOutput,
   CreateBrowserProfileCommand,
-  CreateBrowserProfileCommandInput,
-  CreateBrowserProfileCommandOutput,
 } from "./commands/CreateBrowserProfileCommand";
 import {
+  type CreateCodeInterpreterCommandInput,
+  type CreateCodeInterpreterCommandOutput,
   CreateCodeInterpreterCommand,
-  CreateCodeInterpreterCommandInput,
-  CreateCodeInterpreterCommandOutput,
 } from "./commands/CreateCodeInterpreterCommand";
 import {
+  type CreateEvaluatorCommandInput,
+  type CreateEvaluatorCommandOutput,
   CreateEvaluatorCommand,
-  CreateEvaluatorCommandInput,
-  CreateEvaluatorCommandOutput,
 } from "./commands/CreateEvaluatorCommand";
 import {
+  type CreateGatewayCommandInput,
+  type CreateGatewayCommandOutput,
   CreateGatewayCommand,
-  CreateGatewayCommandInput,
-  CreateGatewayCommandOutput,
 } from "./commands/CreateGatewayCommand";
 import {
+  type CreateGatewayTargetCommandInput,
+  type CreateGatewayTargetCommandOutput,
   CreateGatewayTargetCommand,
-  CreateGatewayTargetCommandInput,
-  CreateGatewayTargetCommandOutput,
 } from "./commands/CreateGatewayTargetCommand";
 import {
+  type CreateMemoryCommandInput,
+  type CreateMemoryCommandOutput,
   CreateMemoryCommand,
-  CreateMemoryCommandInput,
-  CreateMemoryCommandOutput,
 } from "./commands/CreateMemoryCommand";
 import {
+  type CreateOauth2CredentialProviderCommandInput,
+  type CreateOauth2CredentialProviderCommandOutput,
   CreateOauth2CredentialProviderCommand,
-  CreateOauth2CredentialProviderCommandInput,
-  CreateOauth2CredentialProviderCommandOutput,
 } from "./commands/CreateOauth2CredentialProviderCommand";
 import {
+  type CreateOnlineEvaluationConfigCommandInput,
+  type CreateOnlineEvaluationConfigCommandOutput,
   CreateOnlineEvaluationConfigCommand,
-  CreateOnlineEvaluationConfigCommandInput,
-  CreateOnlineEvaluationConfigCommandOutput,
 } from "./commands/CreateOnlineEvaluationConfigCommand";
 import {
+  type CreatePolicyCommandInput,
+  type CreatePolicyCommandOutput,
   CreatePolicyCommand,
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput,
 } from "./commands/CreatePolicyCommand";
 import {
+  type CreatePolicyEngineCommandInput,
+  type CreatePolicyEngineCommandOutput,
   CreatePolicyEngineCommand,
-  CreatePolicyEngineCommandInput,
-  CreatePolicyEngineCommandOutput,
 } from "./commands/CreatePolicyEngineCommand";
 import {
+  type CreateWorkloadIdentityCommandInput,
+  type CreateWorkloadIdentityCommandOutput,
   CreateWorkloadIdentityCommand,
-  CreateWorkloadIdentityCommandInput,
-  CreateWorkloadIdentityCommandOutput,
 } from "./commands/CreateWorkloadIdentityCommand";
 import {
+  type DeleteAgentRuntimeCommandInput,
+  type DeleteAgentRuntimeCommandOutput,
   DeleteAgentRuntimeCommand,
-  DeleteAgentRuntimeCommandInput,
-  DeleteAgentRuntimeCommandOutput,
 } from "./commands/DeleteAgentRuntimeCommand";
 import {
+  type DeleteAgentRuntimeEndpointCommandInput,
+  type DeleteAgentRuntimeEndpointCommandOutput,
   DeleteAgentRuntimeEndpointCommand,
-  DeleteAgentRuntimeEndpointCommandInput,
-  DeleteAgentRuntimeEndpointCommandOutput,
 } from "./commands/DeleteAgentRuntimeEndpointCommand";
 import {
+  type DeleteApiKeyCredentialProviderCommandInput,
+  type DeleteApiKeyCredentialProviderCommandOutput,
   DeleteApiKeyCredentialProviderCommand,
-  DeleteApiKeyCredentialProviderCommandInput,
-  DeleteApiKeyCredentialProviderCommandOutput,
 } from "./commands/DeleteApiKeyCredentialProviderCommand";
 import {
+  type DeleteBrowserCommandInput,
+  type DeleteBrowserCommandOutput,
   DeleteBrowserCommand,
-  DeleteBrowserCommandInput,
-  DeleteBrowserCommandOutput,
 } from "./commands/DeleteBrowserCommand";
 import {
+  type DeleteBrowserProfileCommandInput,
+  type DeleteBrowserProfileCommandOutput,
   DeleteBrowserProfileCommand,
-  DeleteBrowserProfileCommandInput,
-  DeleteBrowserProfileCommandOutput,
 } from "./commands/DeleteBrowserProfileCommand";
 import {
+  type DeleteCodeInterpreterCommandInput,
+  type DeleteCodeInterpreterCommandOutput,
   DeleteCodeInterpreterCommand,
-  DeleteCodeInterpreterCommandInput,
-  DeleteCodeInterpreterCommandOutput,
 } from "./commands/DeleteCodeInterpreterCommand";
 import {
+  type DeleteEvaluatorCommandInput,
+  type DeleteEvaluatorCommandOutput,
   DeleteEvaluatorCommand,
-  DeleteEvaluatorCommandInput,
-  DeleteEvaluatorCommandOutput,
 } from "./commands/DeleteEvaluatorCommand";
 import {
+  type DeleteGatewayCommandInput,
+  type DeleteGatewayCommandOutput,
   DeleteGatewayCommand,
-  DeleteGatewayCommandInput,
-  DeleteGatewayCommandOutput,
 } from "./commands/DeleteGatewayCommand";
 import {
+  type DeleteGatewayTargetCommandInput,
+  type DeleteGatewayTargetCommandOutput,
   DeleteGatewayTargetCommand,
-  DeleteGatewayTargetCommandInput,
-  DeleteGatewayTargetCommandOutput,
 } from "./commands/DeleteGatewayTargetCommand";
 import {
+  type DeleteMemoryCommandInput,
+  type DeleteMemoryCommandOutput,
   DeleteMemoryCommand,
-  DeleteMemoryCommandInput,
-  DeleteMemoryCommandOutput,
 } from "./commands/DeleteMemoryCommand";
 import {
+  type DeleteOauth2CredentialProviderCommandInput,
+  type DeleteOauth2CredentialProviderCommandOutput,
   DeleteOauth2CredentialProviderCommand,
-  DeleteOauth2CredentialProviderCommandInput,
-  DeleteOauth2CredentialProviderCommandOutput,
 } from "./commands/DeleteOauth2CredentialProviderCommand";
 import {
+  type DeleteOnlineEvaluationConfigCommandInput,
+  type DeleteOnlineEvaluationConfigCommandOutput,
   DeleteOnlineEvaluationConfigCommand,
-  DeleteOnlineEvaluationConfigCommandInput,
-  DeleteOnlineEvaluationConfigCommandOutput,
 } from "./commands/DeleteOnlineEvaluationConfigCommand";
 import {
+  type DeletePolicyCommandInput,
+  type DeletePolicyCommandOutput,
   DeletePolicyCommand,
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  type DeletePolicyEngineCommandInput,
+  type DeletePolicyEngineCommandOutput,
   DeletePolicyEngineCommand,
-  DeletePolicyEngineCommandInput,
-  DeletePolicyEngineCommandOutput,
 } from "./commands/DeletePolicyEngineCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteWorkloadIdentityCommandInput,
+  type DeleteWorkloadIdentityCommandOutput,
   DeleteWorkloadIdentityCommand,
-  DeleteWorkloadIdentityCommandInput,
-  DeleteWorkloadIdentityCommandOutput,
 } from "./commands/DeleteWorkloadIdentityCommand";
 import {
+  type GetAgentRuntimeCommandInput,
+  type GetAgentRuntimeCommandOutput,
   GetAgentRuntimeCommand,
-  GetAgentRuntimeCommandInput,
-  GetAgentRuntimeCommandOutput,
 } from "./commands/GetAgentRuntimeCommand";
 import {
+  type GetAgentRuntimeEndpointCommandInput,
+  type GetAgentRuntimeEndpointCommandOutput,
   GetAgentRuntimeEndpointCommand,
-  GetAgentRuntimeEndpointCommandInput,
-  GetAgentRuntimeEndpointCommandOutput,
 } from "./commands/GetAgentRuntimeEndpointCommand";
 import {
+  type GetApiKeyCredentialProviderCommandInput,
+  type GetApiKeyCredentialProviderCommandOutput,
   GetApiKeyCredentialProviderCommand,
-  GetApiKeyCredentialProviderCommandInput,
-  GetApiKeyCredentialProviderCommandOutput,
 } from "./commands/GetApiKeyCredentialProviderCommand";
-import { GetBrowserCommand, GetBrowserCommandInput, GetBrowserCommandOutput } from "./commands/GetBrowserCommand";
 import {
+  type GetBrowserCommandInput,
+  type GetBrowserCommandOutput,
+  GetBrowserCommand,
+} from "./commands/GetBrowserCommand";
+import {
+  type GetBrowserProfileCommandInput,
+  type GetBrowserProfileCommandOutput,
   GetBrowserProfileCommand,
-  GetBrowserProfileCommandInput,
-  GetBrowserProfileCommandOutput,
 } from "./commands/GetBrowserProfileCommand";
 import {
+  type GetCodeInterpreterCommandInput,
+  type GetCodeInterpreterCommandOutput,
   GetCodeInterpreterCommand,
-  GetCodeInterpreterCommandInput,
-  GetCodeInterpreterCommandOutput,
 } from "./commands/GetCodeInterpreterCommand";
 import {
+  type GetEvaluatorCommandInput,
+  type GetEvaluatorCommandOutput,
   GetEvaluatorCommand,
-  GetEvaluatorCommandInput,
-  GetEvaluatorCommandOutput,
 } from "./commands/GetEvaluatorCommand";
-import { GetGatewayCommand, GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
 import {
+  type GetGatewayCommandInput,
+  type GetGatewayCommandOutput,
+  GetGatewayCommand,
+} from "./commands/GetGatewayCommand";
+import {
+  type GetGatewayTargetCommandInput,
+  type GetGatewayTargetCommandOutput,
   GetGatewayTargetCommand,
-  GetGatewayTargetCommandInput,
-  GetGatewayTargetCommandOutput,
 } from "./commands/GetGatewayTargetCommand";
-import { GetMemoryCommand, GetMemoryCommandInput, GetMemoryCommandOutput } from "./commands/GetMemoryCommand";
+import { type GetMemoryCommandInput, type GetMemoryCommandOutput, GetMemoryCommand } from "./commands/GetMemoryCommand";
 import {
+  type GetOauth2CredentialProviderCommandInput,
+  type GetOauth2CredentialProviderCommandOutput,
   GetOauth2CredentialProviderCommand,
-  GetOauth2CredentialProviderCommandInput,
-  GetOauth2CredentialProviderCommandOutput,
 } from "./commands/GetOauth2CredentialProviderCommand";
 import {
+  type GetOnlineEvaluationConfigCommandInput,
+  type GetOnlineEvaluationConfigCommandOutput,
   GetOnlineEvaluationConfigCommand,
-  GetOnlineEvaluationConfigCommandInput,
-  GetOnlineEvaluationConfigCommandOutput,
 } from "./commands/GetOnlineEvaluationConfigCommand";
-import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { type GetPolicyCommandInput, type GetPolicyCommandOutput, GetPolicyCommand } from "./commands/GetPolicyCommand";
 import {
+  type GetPolicyEngineCommandInput,
+  type GetPolicyEngineCommandOutput,
   GetPolicyEngineCommand,
-  GetPolicyEngineCommandInput,
-  GetPolicyEngineCommandOutput,
 } from "./commands/GetPolicyEngineCommand";
 import {
+  type GetPolicyGenerationCommandInput,
+  type GetPolicyGenerationCommandOutput,
   GetPolicyGenerationCommand,
-  GetPolicyGenerationCommandInput,
-  GetPolicyGenerationCommandOutput,
 } from "./commands/GetPolicyGenerationCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type GetTokenVaultCommandInput,
+  type GetTokenVaultCommandOutput,
   GetTokenVaultCommand,
-  GetTokenVaultCommandInput,
-  GetTokenVaultCommandOutput,
 } from "./commands/GetTokenVaultCommand";
 import {
+  type GetWorkloadIdentityCommandInput,
+  type GetWorkloadIdentityCommandOutput,
   GetWorkloadIdentityCommand,
-  GetWorkloadIdentityCommandInput,
-  GetWorkloadIdentityCommandOutput,
 } from "./commands/GetWorkloadIdentityCommand";
 import {
+  type ListAgentRuntimeEndpointsCommandInput,
+  type ListAgentRuntimeEndpointsCommandOutput,
   ListAgentRuntimeEndpointsCommand,
-  ListAgentRuntimeEndpointsCommandInput,
-  ListAgentRuntimeEndpointsCommandOutput,
 } from "./commands/ListAgentRuntimeEndpointsCommand";
 import {
+  type ListAgentRuntimesCommandInput,
+  type ListAgentRuntimesCommandOutput,
   ListAgentRuntimesCommand,
-  ListAgentRuntimesCommandInput,
-  ListAgentRuntimesCommandOutput,
 } from "./commands/ListAgentRuntimesCommand";
 import {
+  type ListAgentRuntimeVersionsCommandInput,
+  type ListAgentRuntimeVersionsCommandOutput,
   ListAgentRuntimeVersionsCommand,
-  ListAgentRuntimeVersionsCommandInput,
-  ListAgentRuntimeVersionsCommandOutput,
 } from "./commands/ListAgentRuntimeVersionsCommand";
 import {
+  type ListApiKeyCredentialProvidersCommandInput,
+  type ListApiKeyCredentialProvidersCommandOutput,
   ListApiKeyCredentialProvidersCommand,
-  ListApiKeyCredentialProvidersCommandInput,
-  ListApiKeyCredentialProvidersCommandOutput,
 } from "./commands/ListApiKeyCredentialProvidersCommand";
 import {
+  type ListBrowserProfilesCommandInput,
+  type ListBrowserProfilesCommandOutput,
   ListBrowserProfilesCommand,
-  ListBrowserProfilesCommandInput,
-  ListBrowserProfilesCommandOutput,
 } from "./commands/ListBrowserProfilesCommand";
 import {
+  type ListBrowsersCommandInput,
+  type ListBrowsersCommandOutput,
   ListBrowsersCommand,
-  ListBrowsersCommandInput,
-  ListBrowsersCommandOutput,
 } from "./commands/ListBrowsersCommand";
 import {
+  type ListCodeInterpretersCommandInput,
+  type ListCodeInterpretersCommandOutput,
   ListCodeInterpretersCommand,
-  ListCodeInterpretersCommandInput,
-  ListCodeInterpretersCommandOutput,
 } from "./commands/ListCodeInterpretersCommand";
 import {
+  type ListEvaluatorsCommandInput,
+  type ListEvaluatorsCommandOutput,
   ListEvaluatorsCommand,
-  ListEvaluatorsCommandInput,
-  ListEvaluatorsCommandOutput,
 } from "./commands/ListEvaluatorsCommand";
 import {
+  type ListGatewaysCommandInput,
+  type ListGatewaysCommandOutput,
   ListGatewaysCommand,
-  ListGatewaysCommandInput,
-  ListGatewaysCommandOutput,
 } from "./commands/ListGatewaysCommand";
 import {
+  type ListGatewayTargetsCommandInput,
+  type ListGatewayTargetsCommandOutput,
   ListGatewayTargetsCommand,
-  ListGatewayTargetsCommandInput,
-  ListGatewayTargetsCommandOutput,
 } from "./commands/ListGatewayTargetsCommand";
 import {
+  type ListMemoriesCommandInput,
+  type ListMemoriesCommandOutput,
   ListMemoriesCommand,
-  ListMemoriesCommandInput,
-  ListMemoriesCommandOutput,
 } from "./commands/ListMemoriesCommand";
 import {
+  type ListOauth2CredentialProvidersCommandInput,
+  type ListOauth2CredentialProvidersCommandOutput,
   ListOauth2CredentialProvidersCommand,
-  ListOauth2CredentialProvidersCommandInput,
-  ListOauth2CredentialProvidersCommandOutput,
 } from "./commands/ListOauth2CredentialProvidersCommand";
 import {
+  type ListOnlineEvaluationConfigsCommandInput,
+  type ListOnlineEvaluationConfigsCommandOutput,
   ListOnlineEvaluationConfigsCommand,
-  ListOnlineEvaluationConfigsCommandInput,
-  ListOnlineEvaluationConfigsCommandOutput,
 } from "./commands/ListOnlineEvaluationConfigsCommand";
 import {
+  type ListPoliciesCommandInput,
+  type ListPoliciesCommandOutput,
   ListPoliciesCommand,
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput,
 } from "./commands/ListPoliciesCommand";
 import {
+  type ListPolicyEnginesCommandInput,
+  type ListPolicyEnginesCommandOutput,
   ListPolicyEnginesCommand,
-  ListPolicyEnginesCommandInput,
-  ListPolicyEnginesCommandOutput,
 } from "./commands/ListPolicyEnginesCommand";
 import {
+  type ListPolicyGenerationAssetsCommandInput,
+  type ListPolicyGenerationAssetsCommandOutput,
   ListPolicyGenerationAssetsCommand,
-  ListPolicyGenerationAssetsCommandInput,
-  ListPolicyGenerationAssetsCommandOutput,
 } from "./commands/ListPolicyGenerationAssetsCommand";
 import {
+  type ListPolicyGenerationsCommandInput,
+  type ListPolicyGenerationsCommandOutput,
   ListPolicyGenerationsCommand,
-  ListPolicyGenerationsCommandInput,
-  ListPolicyGenerationsCommandOutput,
 } from "./commands/ListPolicyGenerationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWorkloadIdentitiesCommandInput,
+  type ListWorkloadIdentitiesCommandOutput,
   ListWorkloadIdentitiesCommand,
-  ListWorkloadIdentitiesCommandInput,
-  ListWorkloadIdentitiesCommandOutput,
 } from "./commands/ListWorkloadIdentitiesCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type SetTokenVaultCMKCommandInput,
+  type SetTokenVaultCMKCommandOutput,
   SetTokenVaultCMKCommand,
-  SetTokenVaultCMKCommandInput,
-  SetTokenVaultCMKCommandOutput,
 } from "./commands/SetTokenVaultCMKCommand";
 import {
+  type StartPolicyGenerationCommandInput,
+  type StartPolicyGenerationCommandOutput,
   StartPolicyGenerationCommand,
-  StartPolicyGenerationCommandInput,
-  StartPolicyGenerationCommandOutput,
 } from "./commands/StartPolicyGenerationCommand";
 import {
+  type SynchronizeGatewayTargetsCommandInput,
+  type SynchronizeGatewayTargetsCommandOutput,
   SynchronizeGatewayTargetsCommand,
-  SynchronizeGatewayTargetsCommandInput,
-  SynchronizeGatewayTargetsCommandOutput,
 } from "./commands/SynchronizeGatewayTargetsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAgentRuntimeCommandInput,
+  type UpdateAgentRuntimeCommandOutput,
   UpdateAgentRuntimeCommand,
-  UpdateAgentRuntimeCommandInput,
-  UpdateAgentRuntimeCommandOutput,
 } from "./commands/UpdateAgentRuntimeCommand";
 import {
+  type UpdateAgentRuntimeEndpointCommandInput,
+  type UpdateAgentRuntimeEndpointCommandOutput,
   UpdateAgentRuntimeEndpointCommand,
-  UpdateAgentRuntimeEndpointCommandInput,
-  UpdateAgentRuntimeEndpointCommandOutput,
 } from "./commands/UpdateAgentRuntimeEndpointCommand";
 import {
+  type UpdateApiKeyCredentialProviderCommandInput,
+  type UpdateApiKeyCredentialProviderCommandOutput,
   UpdateApiKeyCredentialProviderCommand,
-  UpdateApiKeyCredentialProviderCommandInput,
-  UpdateApiKeyCredentialProviderCommandOutput,
 } from "./commands/UpdateApiKeyCredentialProviderCommand";
 import {
+  type UpdateEvaluatorCommandInput,
+  type UpdateEvaluatorCommandOutput,
   UpdateEvaluatorCommand,
-  UpdateEvaluatorCommandInput,
-  UpdateEvaluatorCommandOutput,
 } from "./commands/UpdateEvaluatorCommand";
 import {
+  type UpdateGatewayCommandInput,
+  type UpdateGatewayCommandOutput,
   UpdateGatewayCommand,
-  UpdateGatewayCommandInput,
-  UpdateGatewayCommandOutput,
 } from "./commands/UpdateGatewayCommand";
 import {
+  type UpdateGatewayTargetCommandInput,
+  type UpdateGatewayTargetCommandOutput,
   UpdateGatewayTargetCommand,
-  UpdateGatewayTargetCommandInput,
-  UpdateGatewayTargetCommandOutput,
 } from "./commands/UpdateGatewayTargetCommand";
 import {
+  type UpdateMemoryCommandInput,
+  type UpdateMemoryCommandOutput,
   UpdateMemoryCommand,
-  UpdateMemoryCommandInput,
-  UpdateMemoryCommandOutput,
 } from "./commands/UpdateMemoryCommand";
 import {
+  type UpdateOauth2CredentialProviderCommandInput,
+  type UpdateOauth2CredentialProviderCommandOutput,
   UpdateOauth2CredentialProviderCommand,
-  UpdateOauth2CredentialProviderCommandInput,
-  UpdateOauth2CredentialProviderCommandOutput,
 } from "./commands/UpdateOauth2CredentialProviderCommand";
 import {
+  type UpdateOnlineEvaluationConfigCommandInput,
+  type UpdateOnlineEvaluationConfigCommandOutput,
   UpdateOnlineEvaluationConfigCommand,
-  UpdateOnlineEvaluationConfigCommandInput,
-  UpdateOnlineEvaluationConfigCommandOutput,
 } from "./commands/UpdateOnlineEvaluationConfigCommand";
 import {
+  type UpdatePolicyCommandInput,
+  type UpdatePolicyCommandOutput,
   UpdatePolicyCommand,
-  UpdatePolicyCommandInput,
-  UpdatePolicyCommandOutput,
 } from "./commands/UpdatePolicyCommand";
 import {
+  type UpdatePolicyEngineCommandInput,
+  type UpdatePolicyEngineCommandOutput,
   UpdatePolicyEngineCommand,
-  UpdatePolicyEngineCommandInput,
-  UpdatePolicyEngineCommandOutput,
 } from "./commands/UpdatePolicyEngineCommand";
 import {
+  type UpdateWorkloadIdentityCommandInput,
+  type UpdateWorkloadIdentityCommandOutput,
   UpdateWorkloadIdentityCommand,
-  UpdateWorkloadIdentityCommandInput,
-  UpdateWorkloadIdentityCommandOutput,
 } from "./commands/UpdateWorkloadIdentityCommand";
 import { paginateListAgentRuntimeEndpoints } from "./pagination/ListAgentRuntimeEndpointsPaginator";
 import { paginateListAgentRuntimes } from "./pagination/ListAgentRuntimesPaginator";

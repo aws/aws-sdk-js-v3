@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ApplicationState, Architecture, JobRunMode, JobRunState } from "./enums";
+import type { ApplicationState, Architecture, JobRunMode, JobRunState } from "./enums";
 
 /**
  * <p>The configuration for an application to automatically start on job submission.</p>

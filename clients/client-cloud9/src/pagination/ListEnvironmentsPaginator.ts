@@ -8,7 +8,7 @@ import {
   ListEnvironmentsCommandInput,
   ListEnvironmentsCommandOutput,
 } from "../commands/ListEnvironmentsCommand";
-import { Cloud9PaginationConfiguration } from "./Interfaces";
+import type { Cloud9PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

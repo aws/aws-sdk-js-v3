@@ -3,246 +3,250 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateSourceNetworkStackCommandInput,
+  type AssociateSourceNetworkStackCommandOutput,
   AssociateSourceNetworkStackCommand,
-  AssociateSourceNetworkStackCommandInput,
-  AssociateSourceNetworkStackCommandOutput,
 } from "./commands/AssociateSourceNetworkStackCommand";
 import {
+  type CreateExtendedSourceServerCommandInput,
+  type CreateExtendedSourceServerCommandOutput,
   CreateExtendedSourceServerCommand,
-  CreateExtendedSourceServerCommandInput,
-  CreateExtendedSourceServerCommandOutput,
 } from "./commands/CreateExtendedSourceServerCommand";
 import {
+  type CreateLaunchConfigurationTemplateCommandInput,
+  type CreateLaunchConfigurationTemplateCommandOutput,
   CreateLaunchConfigurationTemplateCommand,
-  CreateLaunchConfigurationTemplateCommandInput,
-  CreateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/CreateLaunchConfigurationTemplateCommand";
 import {
+  type CreateReplicationConfigurationTemplateCommandInput,
+  type CreateReplicationConfigurationTemplateCommandOutput,
   CreateReplicationConfigurationTemplateCommand,
-  CreateReplicationConfigurationTemplateCommandInput,
-  CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
 import {
+  type CreateSourceNetworkCommandInput,
+  type CreateSourceNetworkCommandOutput,
   CreateSourceNetworkCommand,
-  CreateSourceNetworkCommandInput,
-  CreateSourceNetworkCommandOutput,
 } from "./commands/CreateSourceNetworkCommand";
-import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import { type DeleteJobCommandInput, type DeleteJobCommandOutput, DeleteJobCommand } from "./commands/DeleteJobCommand";
 import {
+  type DeleteLaunchActionCommandInput,
+  type DeleteLaunchActionCommandOutput,
   DeleteLaunchActionCommand,
-  DeleteLaunchActionCommandInput,
-  DeleteLaunchActionCommandOutput,
 } from "./commands/DeleteLaunchActionCommand";
 import {
+  type DeleteLaunchConfigurationTemplateCommandInput,
+  type DeleteLaunchConfigurationTemplateCommandOutput,
   DeleteLaunchConfigurationTemplateCommand,
-  DeleteLaunchConfigurationTemplateCommandInput,
-  DeleteLaunchConfigurationTemplateCommandOutput,
 } from "./commands/DeleteLaunchConfigurationTemplateCommand";
 import {
+  type DeleteRecoveryInstanceCommandInput,
+  type DeleteRecoveryInstanceCommandOutput,
   DeleteRecoveryInstanceCommand,
-  DeleteRecoveryInstanceCommandInput,
-  DeleteRecoveryInstanceCommandOutput,
 } from "./commands/DeleteRecoveryInstanceCommand";
 import {
+  type DeleteReplicationConfigurationTemplateCommandInput,
+  type DeleteReplicationConfigurationTemplateCommandOutput,
   DeleteReplicationConfigurationTemplateCommand,
-  DeleteReplicationConfigurationTemplateCommandInput,
-  DeleteReplicationConfigurationTemplateCommandOutput,
 } from "./commands/DeleteReplicationConfigurationTemplateCommand";
 import {
+  type DeleteSourceNetworkCommandInput,
+  type DeleteSourceNetworkCommandOutput,
   DeleteSourceNetworkCommand,
-  DeleteSourceNetworkCommandInput,
-  DeleteSourceNetworkCommandOutput,
 } from "./commands/DeleteSourceNetworkCommand";
 import {
+  type DeleteSourceServerCommandInput,
+  type DeleteSourceServerCommandOutput,
   DeleteSourceServerCommand,
-  DeleteSourceServerCommandInput,
-  DeleteSourceServerCommandOutput,
 } from "./commands/DeleteSourceServerCommand";
 import {
+  type DescribeJobLogItemsCommandInput,
+  type DescribeJobLogItemsCommandOutput,
   DescribeJobLogItemsCommand,
-  DescribeJobLogItemsCommandInput,
-  DescribeJobLogItemsCommandOutput,
 } from "./commands/DescribeJobLogItemsCommand";
 import {
+  type DescribeJobsCommandInput,
+  type DescribeJobsCommandOutput,
   DescribeJobsCommand,
-  DescribeJobsCommandInput,
-  DescribeJobsCommandOutput,
 } from "./commands/DescribeJobsCommand";
 import {
+  type DescribeLaunchConfigurationTemplatesCommandInput,
+  type DescribeLaunchConfigurationTemplatesCommandOutput,
   DescribeLaunchConfigurationTemplatesCommand,
-  DescribeLaunchConfigurationTemplatesCommandInput,
-  DescribeLaunchConfigurationTemplatesCommandOutput,
 } from "./commands/DescribeLaunchConfigurationTemplatesCommand";
 import {
+  type DescribeRecoveryInstancesCommandInput,
+  type DescribeRecoveryInstancesCommandOutput,
   DescribeRecoveryInstancesCommand,
-  DescribeRecoveryInstancesCommandInput,
-  DescribeRecoveryInstancesCommandOutput,
 } from "./commands/DescribeRecoveryInstancesCommand";
 import {
+  type DescribeRecoverySnapshotsCommandInput,
+  type DescribeRecoverySnapshotsCommandOutput,
   DescribeRecoverySnapshotsCommand,
-  DescribeRecoverySnapshotsCommandInput,
-  DescribeRecoverySnapshotsCommandOutput,
 } from "./commands/DescribeRecoverySnapshotsCommand";
 import {
+  type DescribeReplicationConfigurationTemplatesCommandInput,
+  type DescribeReplicationConfigurationTemplatesCommandOutput,
   DescribeReplicationConfigurationTemplatesCommand,
-  DescribeReplicationConfigurationTemplatesCommandInput,
-  DescribeReplicationConfigurationTemplatesCommandOutput,
 } from "./commands/DescribeReplicationConfigurationTemplatesCommand";
 import {
+  type DescribeSourceNetworksCommandInput,
+  type DescribeSourceNetworksCommandOutput,
   DescribeSourceNetworksCommand,
-  DescribeSourceNetworksCommandInput,
-  DescribeSourceNetworksCommandOutput,
 } from "./commands/DescribeSourceNetworksCommand";
 import {
+  type DescribeSourceServersCommandInput,
+  type DescribeSourceServersCommandOutput,
   DescribeSourceServersCommand,
-  DescribeSourceServersCommandInput,
-  DescribeSourceServersCommandOutput,
 } from "./commands/DescribeSourceServersCommand";
 import {
+  type DisconnectRecoveryInstanceCommandInput,
+  type DisconnectRecoveryInstanceCommandOutput,
   DisconnectRecoveryInstanceCommand,
-  DisconnectRecoveryInstanceCommandInput,
-  DisconnectRecoveryInstanceCommandOutput,
 } from "./commands/DisconnectRecoveryInstanceCommand";
 import {
+  type DisconnectSourceServerCommandInput,
+  type DisconnectSourceServerCommandOutput,
   DisconnectSourceServerCommand,
-  DisconnectSourceServerCommandInput,
-  DisconnectSourceServerCommandOutput,
 } from "./commands/DisconnectSourceServerCommand";
 import {
+  type ExportSourceNetworkCfnTemplateCommandInput,
+  type ExportSourceNetworkCfnTemplateCommandOutput,
   ExportSourceNetworkCfnTemplateCommand,
-  ExportSourceNetworkCfnTemplateCommandInput,
-  ExportSourceNetworkCfnTemplateCommandOutput,
 } from "./commands/ExportSourceNetworkCfnTemplateCommand";
 import {
+  type GetFailbackReplicationConfigurationCommandInput,
+  type GetFailbackReplicationConfigurationCommandOutput,
   GetFailbackReplicationConfigurationCommand,
-  GetFailbackReplicationConfigurationCommandInput,
-  GetFailbackReplicationConfigurationCommandOutput,
 } from "./commands/GetFailbackReplicationConfigurationCommand";
 import {
+  type GetLaunchConfigurationCommandInput,
+  type GetLaunchConfigurationCommandOutput,
   GetLaunchConfigurationCommand,
-  GetLaunchConfigurationCommandInput,
-  GetLaunchConfigurationCommandOutput,
 } from "./commands/GetLaunchConfigurationCommand";
 import {
+  type GetReplicationConfigurationCommandInput,
+  type GetReplicationConfigurationCommandOutput,
   GetReplicationConfigurationCommand,
-  GetReplicationConfigurationCommandInput,
-  GetReplicationConfigurationCommandOutput,
 } from "./commands/GetReplicationConfigurationCommand";
 import {
+  type InitializeServiceCommandInput,
+  type InitializeServiceCommandOutput,
   InitializeServiceCommand,
-  InitializeServiceCommandInput,
-  InitializeServiceCommandOutput,
 } from "./commands/InitializeServiceCommand";
 import {
+  type ListExtensibleSourceServersCommandInput,
+  type ListExtensibleSourceServersCommandOutput,
   ListExtensibleSourceServersCommand,
-  ListExtensibleSourceServersCommandInput,
-  ListExtensibleSourceServersCommandOutput,
 } from "./commands/ListExtensibleSourceServersCommand";
 import {
+  type ListLaunchActionsCommandInput,
+  type ListLaunchActionsCommandOutput,
   ListLaunchActionsCommand,
-  ListLaunchActionsCommandInput,
-  ListLaunchActionsCommandOutput,
 } from "./commands/ListLaunchActionsCommand";
 import {
+  type ListStagingAccountsCommandInput,
+  type ListStagingAccountsCommandOutput,
   ListStagingAccountsCommand,
-  ListStagingAccountsCommandInput,
-  ListStagingAccountsCommandOutput,
 } from "./commands/ListStagingAccountsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutLaunchActionCommandInput,
+  type PutLaunchActionCommandOutput,
   PutLaunchActionCommand,
-  PutLaunchActionCommandInput,
-  PutLaunchActionCommandOutput,
 } from "./commands/PutLaunchActionCommand";
 import {
+  type RetryDataReplicationCommandInput,
+  type RetryDataReplicationCommandOutput,
   RetryDataReplicationCommand,
-  RetryDataReplicationCommandInput,
-  RetryDataReplicationCommandOutput,
 } from "./commands/RetryDataReplicationCommand";
 import {
+  type ReverseReplicationCommandInput,
+  type ReverseReplicationCommandOutput,
   ReverseReplicationCommand,
-  ReverseReplicationCommandInput,
-  ReverseReplicationCommandOutput,
 } from "./commands/ReverseReplicationCommand";
 import {
+  type StartFailbackLaunchCommandInput,
+  type StartFailbackLaunchCommandOutput,
   StartFailbackLaunchCommand,
-  StartFailbackLaunchCommandInput,
-  StartFailbackLaunchCommandOutput,
 } from "./commands/StartFailbackLaunchCommand";
 import {
+  type StartRecoveryCommandInput,
+  type StartRecoveryCommandOutput,
   StartRecoveryCommand,
-  StartRecoveryCommandInput,
-  StartRecoveryCommandOutput,
 } from "./commands/StartRecoveryCommand";
 import {
+  type StartReplicationCommandInput,
+  type StartReplicationCommandOutput,
   StartReplicationCommand,
-  StartReplicationCommandInput,
-  StartReplicationCommandOutput,
 } from "./commands/StartReplicationCommand";
 import {
+  type StartSourceNetworkRecoveryCommandInput,
+  type StartSourceNetworkRecoveryCommandOutput,
   StartSourceNetworkRecoveryCommand,
-  StartSourceNetworkRecoveryCommandInput,
-  StartSourceNetworkRecoveryCommandOutput,
 } from "./commands/StartSourceNetworkRecoveryCommand";
 import {
+  type StartSourceNetworkReplicationCommandInput,
+  type StartSourceNetworkReplicationCommandOutput,
   StartSourceNetworkReplicationCommand,
-  StartSourceNetworkReplicationCommandInput,
-  StartSourceNetworkReplicationCommandOutput,
 } from "./commands/StartSourceNetworkReplicationCommand";
 import {
+  type StopFailbackCommandInput,
+  type StopFailbackCommandOutput,
   StopFailbackCommand,
-  StopFailbackCommandInput,
-  StopFailbackCommandOutput,
 } from "./commands/StopFailbackCommand";
 import {
+  type StopReplicationCommandInput,
+  type StopReplicationCommandOutput,
   StopReplicationCommand,
-  StopReplicationCommandInput,
-  StopReplicationCommandOutput,
 } from "./commands/StopReplicationCommand";
 import {
+  type StopSourceNetworkReplicationCommandInput,
+  type StopSourceNetworkReplicationCommandOutput,
   StopSourceNetworkReplicationCommand,
-  StopSourceNetworkReplicationCommandInput,
-  StopSourceNetworkReplicationCommandOutput,
 } from "./commands/StopSourceNetworkReplicationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TerminateRecoveryInstancesCommandInput,
+  type TerminateRecoveryInstancesCommandOutput,
   TerminateRecoveryInstancesCommand,
-  TerminateRecoveryInstancesCommandInput,
-  TerminateRecoveryInstancesCommandOutput,
 } from "./commands/TerminateRecoveryInstancesCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateFailbackReplicationConfigurationCommandInput,
+  type UpdateFailbackReplicationConfigurationCommandOutput,
   UpdateFailbackReplicationConfigurationCommand,
-  UpdateFailbackReplicationConfigurationCommandInput,
-  UpdateFailbackReplicationConfigurationCommandOutput,
 } from "./commands/UpdateFailbackReplicationConfigurationCommand";
 import {
+  type UpdateLaunchConfigurationCommandInput,
+  type UpdateLaunchConfigurationCommandOutput,
   UpdateLaunchConfigurationCommand,
-  UpdateLaunchConfigurationCommandInput,
-  UpdateLaunchConfigurationCommandOutput,
 } from "./commands/UpdateLaunchConfigurationCommand";
 import {
+  type UpdateLaunchConfigurationTemplateCommandInput,
+  type UpdateLaunchConfigurationTemplateCommandOutput,
   UpdateLaunchConfigurationTemplateCommand,
-  UpdateLaunchConfigurationTemplateCommandInput,
-  UpdateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/UpdateLaunchConfigurationTemplateCommand";
 import {
+  type UpdateReplicationConfigurationCommandInput,
+  type UpdateReplicationConfigurationCommandOutput,
   UpdateReplicationConfigurationCommand,
-  UpdateReplicationConfigurationCommandInput,
-  UpdateReplicationConfigurationCommandOutput,
 } from "./commands/UpdateReplicationConfigurationCommand";
 import {
+  type UpdateReplicationConfigurationTemplateCommandInput,
+  type UpdateReplicationConfigurationTemplateCommandOutput,
   UpdateReplicationConfigurationTemplateCommand,
-  UpdateReplicationConfigurationTemplateCommandInput,
-  UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
 import { DrsClient } from "./DrsClient";
 import { paginateDescribeJobLogItems } from "./pagination/DescribeJobLogItemsPaginator";

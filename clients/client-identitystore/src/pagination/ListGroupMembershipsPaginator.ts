@@ -8,7 +8,7 @@ import {
   ListGroupMembershipsCommandOutput,
 } from "../commands/ListGroupMembershipsCommand";
 import { IdentitystoreClient } from "../IdentitystoreClient";
-import { IdentitystorePaginationConfiguration } from "./Interfaces";
+import type { IdentitystorePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

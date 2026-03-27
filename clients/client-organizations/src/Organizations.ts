@@ -3,303 +3,315 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptHandshakeCommandInput,
+  type AcceptHandshakeCommandOutput,
   AcceptHandshakeCommand,
-  AcceptHandshakeCommandInput,
-  AcceptHandshakeCommandOutput,
 } from "./commands/AcceptHandshakeCommand";
 import {
+  type AttachPolicyCommandInput,
+  type AttachPolicyCommandOutput,
   AttachPolicyCommand,
-  AttachPolicyCommandInput,
-  AttachPolicyCommandOutput,
 } from "./commands/AttachPolicyCommand";
 import {
+  type CancelHandshakeCommandInput,
+  type CancelHandshakeCommandOutput,
   CancelHandshakeCommand,
-  CancelHandshakeCommandInput,
-  CancelHandshakeCommandOutput,
 } from "./commands/CancelHandshakeCommand";
 import {
+  type CloseAccountCommandInput,
+  type CloseAccountCommandOutput,
   CloseAccountCommand,
-  CloseAccountCommandInput,
-  CloseAccountCommandOutput,
 } from "./commands/CloseAccountCommand";
 import {
+  type CreateAccountCommandInput,
+  type CreateAccountCommandOutput,
   CreateAccountCommand,
-  CreateAccountCommandInput,
-  CreateAccountCommandOutput,
 } from "./commands/CreateAccountCommand";
 import {
+  type CreateGovCloudAccountCommandInput,
+  type CreateGovCloudAccountCommandOutput,
   CreateGovCloudAccountCommand,
-  CreateGovCloudAccountCommandInput,
-  CreateGovCloudAccountCommandOutput,
 } from "./commands/CreateGovCloudAccountCommand";
 import {
+  type CreateOrganizationalUnitCommandInput,
+  type CreateOrganizationalUnitCommandOutput,
   CreateOrganizationalUnitCommand,
-  CreateOrganizationalUnitCommandInput,
-  CreateOrganizationalUnitCommandOutput,
 } from "./commands/CreateOrganizationalUnitCommand";
 import {
+  type CreateOrganizationCommandInput,
+  type CreateOrganizationCommandOutput,
   CreateOrganizationCommand,
-  CreateOrganizationCommandInput,
-  CreateOrganizationCommandOutput,
 } from "./commands/CreateOrganizationCommand";
 import {
+  type CreatePolicyCommandInput,
+  type CreatePolicyCommandOutput,
   CreatePolicyCommand,
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput,
 } from "./commands/CreatePolicyCommand";
 import {
+  type DeclineHandshakeCommandInput,
+  type DeclineHandshakeCommandOutput,
   DeclineHandshakeCommand,
-  DeclineHandshakeCommandInput,
-  DeclineHandshakeCommandOutput,
 } from "./commands/DeclineHandshakeCommand";
 import {
+  type DeleteOrganizationalUnitCommandInput,
+  type DeleteOrganizationalUnitCommandOutput,
   DeleteOrganizationalUnitCommand,
-  DeleteOrganizationalUnitCommandInput,
-  DeleteOrganizationalUnitCommandOutput,
 } from "./commands/DeleteOrganizationalUnitCommand";
 import {
+  type DeleteOrganizationCommandInput,
+  type DeleteOrganizationCommandOutput,
   DeleteOrganizationCommand,
-  DeleteOrganizationCommandInput,
-  DeleteOrganizationCommandOutput,
 } from "./commands/DeleteOrganizationCommand";
 import {
+  type DeletePolicyCommandInput,
+  type DeletePolicyCommandOutput,
   DeletePolicyCommand,
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeregisterDelegatedAdministratorCommandInput,
+  type DeregisterDelegatedAdministratorCommandOutput,
   DeregisterDelegatedAdministratorCommand,
-  DeregisterDelegatedAdministratorCommandInput,
-  DeregisterDelegatedAdministratorCommandOutput,
 } from "./commands/DeregisterDelegatedAdministratorCommand";
 import {
+  type DescribeAccountCommandInput,
+  type DescribeAccountCommandOutput,
   DescribeAccountCommand,
-  DescribeAccountCommandInput,
-  DescribeAccountCommandOutput,
 } from "./commands/DescribeAccountCommand";
 import {
+  type DescribeCreateAccountStatusCommandInput,
+  type DescribeCreateAccountStatusCommandOutput,
   DescribeCreateAccountStatusCommand,
-  DescribeCreateAccountStatusCommandInput,
-  DescribeCreateAccountStatusCommandOutput,
 } from "./commands/DescribeCreateAccountStatusCommand";
 import {
+  type DescribeEffectivePolicyCommandInput,
+  type DescribeEffectivePolicyCommandOutput,
   DescribeEffectivePolicyCommand,
-  DescribeEffectivePolicyCommandInput,
-  DescribeEffectivePolicyCommandOutput,
 } from "./commands/DescribeEffectivePolicyCommand";
 import {
+  type DescribeHandshakeCommandInput,
+  type DescribeHandshakeCommandOutput,
   DescribeHandshakeCommand,
-  DescribeHandshakeCommandInput,
-  DescribeHandshakeCommandOutput,
 } from "./commands/DescribeHandshakeCommand";
 import {
+  type DescribeOrganizationalUnitCommandInput,
+  type DescribeOrganizationalUnitCommandOutput,
   DescribeOrganizationalUnitCommand,
-  DescribeOrganizationalUnitCommandInput,
-  DescribeOrganizationalUnitCommandOutput,
 } from "./commands/DescribeOrganizationalUnitCommand";
 import {
+  type DescribeOrganizationCommandInput,
+  type DescribeOrganizationCommandOutput,
   DescribeOrganizationCommand,
-  DescribeOrganizationCommandInput,
-  DescribeOrganizationCommandOutput,
 } from "./commands/DescribeOrganizationCommand";
 import {
+  type DescribePolicyCommandInput,
+  type DescribePolicyCommandOutput,
   DescribePolicyCommand,
-  DescribePolicyCommandInput,
-  DescribePolicyCommandOutput,
 } from "./commands/DescribePolicyCommand";
 import {
+  type DescribeResourcePolicyCommandInput,
+  type DescribeResourcePolicyCommandOutput,
   DescribeResourcePolicyCommand,
-  DescribeResourcePolicyCommandInput,
-  DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
 import {
+  type DescribeResponsibilityTransferCommandInput,
+  type DescribeResponsibilityTransferCommandOutput,
   DescribeResponsibilityTransferCommand,
-  DescribeResponsibilityTransferCommandInput,
-  DescribeResponsibilityTransferCommandOutput,
 } from "./commands/DescribeResponsibilityTransferCommand";
 import {
+  type DetachPolicyCommandInput,
+  type DetachPolicyCommandOutput,
   DetachPolicyCommand,
-  DetachPolicyCommandInput,
-  DetachPolicyCommandOutput,
 } from "./commands/DetachPolicyCommand";
 import {
+  type DisableAWSServiceAccessCommandInput,
+  type DisableAWSServiceAccessCommandOutput,
   DisableAWSServiceAccessCommand,
-  DisableAWSServiceAccessCommandInput,
-  DisableAWSServiceAccessCommandOutput,
 } from "./commands/DisableAWSServiceAccessCommand";
 import {
+  type DisablePolicyTypeCommandInput,
+  type DisablePolicyTypeCommandOutput,
   DisablePolicyTypeCommand,
-  DisablePolicyTypeCommandInput,
-  DisablePolicyTypeCommandOutput,
 } from "./commands/DisablePolicyTypeCommand";
 import {
+  type EnableAllFeaturesCommandInput,
+  type EnableAllFeaturesCommandOutput,
   EnableAllFeaturesCommand,
-  EnableAllFeaturesCommandInput,
-  EnableAllFeaturesCommandOutput,
 } from "./commands/EnableAllFeaturesCommand";
 import {
+  type EnableAWSServiceAccessCommandInput,
+  type EnableAWSServiceAccessCommandOutput,
   EnableAWSServiceAccessCommand,
-  EnableAWSServiceAccessCommandInput,
-  EnableAWSServiceAccessCommandOutput,
 } from "./commands/EnableAWSServiceAccessCommand";
 import {
+  type EnablePolicyTypeCommandInput,
+  type EnablePolicyTypeCommandOutput,
   EnablePolicyTypeCommand,
-  EnablePolicyTypeCommandInput,
-  EnablePolicyTypeCommandOutput,
 } from "./commands/EnablePolicyTypeCommand";
 import {
+  type InviteAccountToOrganizationCommandInput,
+  type InviteAccountToOrganizationCommandOutput,
   InviteAccountToOrganizationCommand,
-  InviteAccountToOrganizationCommandInput,
-  InviteAccountToOrganizationCommandOutput,
 } from "./commands/InviteAccountToOrganizationCommand";
 import {
+  type InviteOrganizationToTransferResponsibilityCommandInput,
+  type InviteOrganizationToTransferResponsibilityCommandOutput,
   InviteOrganizationToTransferResponsibilityCommand,
-  InviteOrganizationToTransferResponsibilityCommandInput,
-  InviteOrganizationToTransferResponsibilityCommandOutput,
 } from "./commands/InviteOrganizationToTransferResponsibilityCommand";
 import {
+  type LeaveOrganizationCommandInput,
+  type LeaveOrganizationCommandOutput,
   LeaveOrganizationCommand,
-  LeaveOrganizationCommandInput,
-  LeaveOrganizationCommandOutput,
 } from "./commands/LeaveOrganizationCommand";
 import {
+  type ListAccountsCommandInput,
+  type ListAccountsCommandOutput,
   ListAccountsCommand,
-  ListAccountsCommandInput,
-  ListAccountsCommandOutput,
 } from "./commands/ListAccountsCommand";
 import {
+  type ListAccountsForParentCommandInput,
+  type ListAccountsForParentCommandOutput,
   ListAccountsForParentCommand,
-  ListAccountsForParentCommandInput,
-  ListAccountsForParentCommandOutput,
 } from "./commands/ListAccountsForParentCommand";
 import {
+  type ListAccountsWithInvalidEffectivePolicyCommandInput,
+  type ListAccountsWithInvalidEffectivePolicyCommandOutput,
   ListAccountsWithInvalidEffectivePolicyCommand,
-  ListAccountsWithInvalidEffectivePolicyCommandInput,
-  ListAccountsWithInvalidEffectivePolicyCommandOutput,
 } from "./commands/ListAccountsWithInvalidEffectivePolicyCommand";
 import {
+  type ListAWSServiceAccessForOrganizationCommandInput,
+  type ListAWSServiceAccessForOrganizationCommandOutput,
   ListAWSServiceAccessForOrganizationCommand,
-  ListAWSServiceAccessForOrganizationCommandInput,
-  ListAWSServiceAccessForOrganizationCommandOutput,
 } from "./commands/ListAWSServiceAccessForOrganizationCommand";
 import {
+  type ListChildrenCommandInput,
+  type ListChildrenCommandOutput,
   ListChildrenCommand,
-  ListChildrenCommandInput,
-  ListChildrenCommandOutput,
 } from "./commands/ListChildrenCommand";
 import {
+  type ListCreateAccountStatusCommandInput,
+  type ListCreateAccountStatusCommandOutput,
   ListCreateAccountStatusCommand,
-  ListCreateAccountStatusCommandInput,
-  ListCreateAccountStatusCommandOutput,
 } from "./commands/ListCreateAccountStatusCommand";
 import {
+  type ListDelegatedAdministratorsCommandInput,
+  type ListDelegatedAdministratorsCommandOutput,
   ListDelegatedAdministratorsCommand,
-  ListDelegatedAdministratorsCommandInput,
-  ListDelegatedAdministratorsCommandOutput,
 } from "./commands/ListDelegatedAdministratorsCommand";
 import {
+  type ListDelegatedServicesForAccountCommandInput,
+  type ListDelegatedServicesForAccountCommandOutput,
   ListDelegatedServicesForAccountCommand,
-  ListDelegatedServicesForAccountCommandInput,
-  ListDelegatedServicesForAccountCommandOutput,
 } from "./commands/ListDelegatedServicesForAccountCommand";
 import {
+  type ListEffectivePolicyValidationErrorsCommandInput,
+  type ListEffectivePolicyValidationErrorsCommandOutput,
   ListEffectivePolicyValidationErrorsCommand,
-  ListEffectivePolicyValidationErrorsCommandInput,
-  ListEffectivePolicyValidationErrorsCommandOutput,
 } from "./commands/ListEffectivePolicyValidationErrorsCommand";
 import {
+  type ListHandshakesForAccountCommandInput,
+  type ListHandshakesForAccountCommandOutput,
   ListHandshakesForAccountCommand,
-  ListHandshakesForAccountCommandInput,
-  ListHandshakesForAccountCommandOutput,
 } from "./commands/ListHandshakesForAccountCommand";
 import {
+  type ListHandshakesForOrganizationCommandInput,
+  type ListHandshakesForOrganizationCommandOutput,
   ListHandshakesForOrganizationCommand,
-  ListHandshakesForOrganizationCommandInput,
-  ListHandshakesForOrganizationCommandOutput,
 } from "./commands/ListHandshakesForOrganizationCommand";
 import {
+  type ListInboundResponsibilityTransfersCommandInput,
+  type ListInboundResponsibilityTransfersCommandOutput,
   ListInboundResponsibilityTransfersCommand,
-  ListInboundResponsibilityTransfersCommandInput,
-  ListInboundResponsibilityTransfersCommandOutput,
 } from "./commands/ListInboundResponsibilityTransfersCommand";
 import {
+  type ListOrganizationalUnitsForParentCommandInput,
+  type ListOrganizationalUnitsForParentCommandOutput,
   ListOrganizationalUnitsForParentCommand,
-  ListOrganizationalUnitsForParentCommandInput,
-  ListOrganizationalUnitsForParentCommandOutput,
 } from "./commands/ListOrganizationalUnitsForParentCommand";
 import {
+  type ListOutboundResponsibilityTransfersCommandInput,
+  type ListOutboundResponsibilityTransfersCommandOutput,
   ListOutboundResponsibilityTransfersCommand,
-  ListOutboundResponsibilityTransfersCommandInput,
-  ListOutboundResponsibilityTransfersCommandOutput,
 } from "./commands/ListOutboundResponsibilityTransfersCommand";
-import { ListParentsCommand, ListParentsCommandInput, ListParentsCommandOutput } from "./commands/ListParentsCommand";
 import {
+  type ListParentsCommandInput,
+  type ListParentsCommandOutput,
+  ListParentsCommand,
+} from "./commands/ListParentsCommand";
+import {
+  type ListPoliciesCommandInput,
+  type ListPoliciesCommandOutput,
   ListPoliciesCommand,
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput,
 } from "./commands/ListPoliciesCommand";
 import {
+  type ListPoliciesForTargetCommandInput,
+  type ListPoliciesForTargetCommandOutput,
   ListPoliciesForTargetCommand,
-  ListPoliciesForTargetCommandInput,
-  ListPoliciesForTargetCommandOutput,
 } from "./commands/ListPoliciesForTargetCommand";
-import { ListRootsCommand, ListRootsCommandInput, ListRootsCommandOutput } from "./commands/ListRootsCommand";
+import { type ListRootsCommandInput, type ListRootsCommandOutput, ListRootsCommand } from "./commands/ListRootsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTargetsForPolicyCommandInput,
+  type ListTargetsForPolicyCommandOutput,
   ListTargetsForPolicyCommand,
-  ListTargetsForPolicyCommandInput,
-  ListTargetsForPolicyCommandOutput,
 } from "./commands/ListTargetsForPolicyCommand";
-import { MoveAccountCommand, MoveAccountCommandInput, MoveAccountCommandOutput } from "./commands/MoveAccountCommand";
 import {
+  type MoveAccountCommandInput,
+  type MoveAccountCommandOutput,
+  MoveAccountCommand,
+} from "./commands/MoveAccountCommand";
+import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RegisterDelegatedAdministratorCommandInput,
+  type RegisterDelegatedAdministratorCommandOutput,
   RegisterDelegatedAdministratorCommand,
-  RegisterDelegatedAdministratorCommandInput,
-  RegisterDelegatedAdministratorCommandOutput,
 } from "./commands/RegisterDelegatedAdministratorCommand";
 import {
+  type RemoveAccountFromOrganizationCommandInput,
+  type RemoveAccountFromOrganizationCommandOutput,
   RemoveAccountFromOrganizationCommand,
-  RemoveAccountFromOrganizationCommandInput,
-  RemoveAccountFromOrganizationCommandOutput,
 } from "./commands/RemoveAccountFromOrganizationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TerminateResponsibilityTransferCommandInput,
+  type TerminateResponsibilityTransferCommandOutput,
   TerminateResponsibilityTransferCommand,
-  TerminateResponsibilityTransferCommandInput,
-  TerminateResponsibilityTransferCommandOutput,
 } from "./commands/TerminateResponsibilityTransferCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateOrganizationalUnitCommandInput,
+  type UpdateOrganizationalUnitCommandOutput,
   UpdateOrganizationalUnitCommand,
-  UpdateOrganizationalUnitCommandInput,
-  UpdateOrganizationalUnitCommandOutput,
 } from "./commands/UpdateOrganizationalUnitCommand";
 import {
+  type UpdatePolicyCommandInput,
+  type UpdatePolicyCommandOutput,
   UpdatePolicyCommand,
-  UpdatePolicyCommandInput,
-  UpdatePolicyCommandOutput,
 } from "./commands/UpdatePolicyCommand";
 import {
+  type UpdateResponsibilityTransferCommandInput,
+  type UpdateResponsibilityTransferCommandOutput,
   UpdateResponsibilityTransferCommand,
-  UpdateResponsibilityTransferCommandInput,
-  UpdateResponsibilityTransferCommandOutput,
 } from "./commands/UpdateResponsibilityTransferCommand";
 import { OrganizationsClient } from "./OrganizationsClient";
 import { paginateListAccountsForParent } from "./pagination/ListAccountsForParentPaginator";

@@ -3,76 +3,84 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateProfileCommandInput,
+  type AssociateProfileCommandOutput,
   AssociateProfileCommand,
-  AssociateProfileCommandInput,
-  AssociateProfileCommandOutput,
 } from "./commands/AssociateProfileCommand";
 import {
+  type AssociateResourceToProfileCommandInput,
+  type AssociateResourceToProfileCommandOutput,
   AssociateResourceToProfileCommand,
-  AssociateResourceToProfileCommandInput,
-  AssociateResourceToProfileCommandOutput,
 } from "./commands/AssociateResourceToProfileCommand";
 import {
+  type CreateProfileCommandInput,
+  type CreateProfileCommandOutput,
   CreateProfileCommand,
-  CreateProfileCommandInput,
-  CreateProfileCommandOutput,
 } from "./commands/CreateProfileCommand";
 import {
+  type DeleteProfileCommandInput,
+  type DeleteProfileCommandOutput,
   DeleteProfileCommand,
-  DeleteProfileCommandInput,
-  DeleteProfileCommandOutput,
 } from "./commands/DeleteProfileCommand";
 import {
+  type DisassociateProfileCommandInput,
+  type DisassociateProfileCommandOutput,
   DisassociateProfileCommand,
-  DisassociateProfileCommandInput,
-  DisassociateProfileCommandOutput,
 } from "./commands/DisassociateProfileCommand";
 import {
+  type DisassociateResourceFromProfileCommandInput,
+  type DisassociateResourceFromProfileCommandOutput,
   DisassociateResourceFromProfileCommand,
-  DisassociateResourceFromProfileCommandInput,
-  DisassociateResourceFromProfileCommandOutput,
 } from "./commands/DisassociateResourceFromProfileCommand";
 import {
+  type GetProfileAssociationCommandInput,
+  type GetProfileAssociationCommandOutput,
   GetProfileAssociationCommand,
-  GetProfileAssociationCommandInput,
-  GetProfileAssociationCommandOutput,
 } from "./commands/GetProfileAssociationCommand";
-import { GetProfileCommand, GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
 import {
+  type GetProfileCommandInput,
+  type GetProfileCommandOutput,
+  GetProfileCommand,
+} from "./commands/GetProfileCommand";
+import {
+  type GetProfileResourceAssociationCommandInput,
+  type GetProfileResourceAssociationCommandOutput,
   GetProfileResourceAssociationCommand,
-  GetProfileResourceAssociationCommandInput,
-  GetProfileResourceAssociationCommandOutput,
 } from "./commands/GetProfileResourceAssociationCommand";
 import {
+  type ListProfileAssociationsCommandInput,
+  type ListProfileAssociationsCommandOutput,
   ListProfileAssociationsCommand,
-  ListProfileAssociationsCommandInput,
-  ListProfileAssociationsCommandOutput,
 } from "./commands/ListProfileAssociationsCommand";
 import {
+  type ListProfileResourceAssociationsCommandInput,
+  type ListProfileResourceAssociationsCommandOutput,
   ListProfileResourceAssociationsCommand,
-  ListProfileResourceAssociationsCommandInput,
-  ListProfileResourceAssociationsCommandOutput,
 } from "./commands/ListProfileResourceAssociationsCommand";
 import {
+  type ListProfilesCommandInput,
+  type ListProfilesCommandOutput,
   ListProfilesCommand,
-  ListProfilesCommandInput,
-  ListProfilesCommandOutput,
 } from "./commands/ListProfilesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateProfileResourceAssociationCommandInput,
+  type UpdateProfileResourceAssociationCommandOutput,
   UpdateProfileResourceAssociationCommand,
-  UpdateProfileResourceAssociationCommandInput,
-  UpdateProfileResourceAssociationCommandOutput,
 } from "./commands/UpdateProfileResourceAssociationCommand";
 import { paginateListProfileAssociations } from "./pagination/ListProfileAssociationsPaginator";
 import { paginateListProfileResourceAssociations } from "./pagination/ListProfileResourceAssociationsPaginator";

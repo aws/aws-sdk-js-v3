@@ -39,22 +39,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type SdkStreamMixinInjector as __SdkStreamMixinInjector,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -64,170 +62,206 @@ import {
   defaultLakeFormationHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddLFTagsToResourceCommandInput,
   AddLFTagsToResourceCommandOutput,
 } from "./commands/AddLFTagsToResourceCommand";
-import {
+import type {
   AssumeDecoratedRoleWithSAMLCommandInput,
   AssumeDecoratedRoleWithSAMLCommandOutput,
 } from "./commands/AssumeDecoratedRoleWithSAMLCommand";
-import {
+import type {
   BatchGrantPermissionsCommandInput,
   BatchGrantPermissionsCommandOutput,
 } from "./commands/BatchGrantPermissionsCommand";
-import {
+import type {
   BatchRevokePermissionsCommandInput,
   BatchRevokePermissionsCommandOutput,
 } from "./commands/BatchRevokePermissionsCommand";
-import { CancelTransactionCommandInput, CancelTransactionCommandOutput } from "./commands/CancelTransactionCommand";
-import { CommitTransactionCommandInput, CommitTransactionCommandOutput } from "./commands/CommitTransactionCommand";
-import {
+import type {
+  CancelTransactionCommandInput,
+  CancelTransactionCommandOutput,
+} from "./commands/CancelTransactionCommand";
+import type {
+  CommitTransactionCommandInput,
+  CommitTransactionCommandOutput,
+} from "./commands/CommitTransactionCommand";
+import type {
   CreateDataCellsFilterCommandInput,
   CreateDataCellsFilterCommandOutput,
 } from "./commands/CreateDataCellsFilterCommand";
-import {
+import type {
   CreateLakeFormationIdentityCenterConfigurationCommandInput,
   CreateLakeFormationIdentityCenterConfigurationCommandOutput,
 } from "./commands/CreateLakeFormationIdentityCenterConfigurationCommand";
-import {
+import type {
   CreateLakeFormationOptInCommandInput,
   CreateLakeFormationOptInCommandOutput,
 } from "./commands/CreateLakeFormationOptInCommand";
-import { CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
-import {
+import type { CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
+import type {
   CreateLFTagExpressionCommandInput,
   CreateLFTagExpressionCommandOutput,
 } from "./commands/CreateLFTagExpressionCommand";
-import {
+import type {
   DeleteDataCellsFilterCommandInput,
   DeleteDataCellsFilterCommandOutput,
 } from "./commands/DeleteDataCellsFilterCommand";
-import {
+import type {
   DeleteLakeFormationIdentityCenterConfigurationCommandInput,
   DeleteLakeFormationIdentityCenterConfigurationCommandOutput,
 } from "./commands/DeleteLakeFormationIdentityCenterConfigurationCommand";
-import {
+import type {
   DeleteLakeFormationOptInCommandInput,
   DeleteLakeFormationOptInCommandOutput,
 } from "./commands/DeleteLakeFormationOptInCommand";
-import { DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
-import {
+import type { DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
+import type {
   DeleteLFTagExpressionCommandInput,
   DeleteLFTagExpressionCommandOutput,
 } from "./commands/DeleteLFTagExpressionCommand";
-import {
+import type {
   DeleteObjectsOnCancelCommandInput,
   DeleteObjectsOnCancelCommandOutput,
 } from "./commands/DeleteObjectsOnCancelCommand";
-import { DeregisterResourceCommandInput, DeregisterResourceCommandOutput } from "./commands/DeregisterResourceCommand";
-import {
+import type {
+  DeregisterResourceCommandInput,
+  DeregisterResourceCommandOutput,
+} from "./commands/DeregisterResourceCommand";
+import type {
   DescribeLakeFormationIdentityCenterConfigurationCommandInput,
   DescribeLakeFormationIdentityCenterConfigurationCommandOutput,
 } from "./commands/DescribeLakeFormationIdentityCenterConfigurationCommand";
-import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand";
-import {
+import type { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand";
+import type {
   DescribeTransactionCommandInput,
   DescribeTransactionCommandOutput,
 } from "./commands/DescribeTransactionCommand";
-import { ExtendTransactionCommandInput, ExtendTransactionCommandOutput } from "./commands/ExtendTransactionCommand";
-import { GetDataCellsFilterCommandInput, GetDataCellsFilterCommandOutput } from "./commands/GetDataCellsFilterCommand";
-import {
+import type {
+  ExtendTransactionCommandInput,
+  ExtendTransactionCommandOutput,
+} from "./commands/ExtendTransactionCommand";
+import type {
+  GetDataCellsFilterCommandInput,
+  GetDataCellsFilterCommandOutput,
+} from "./commands/GetDataCellsFilterCommand";
+import type {
   GetDataLakePrincipalCommandInput,
   GetDataLakePrincipalCommandOutput,
 } from "./commands/GetDataLakePrincipalCommand";
-import {
+import type {
   GetDataLakeSettingsCommandInput,
   GetDataLakeSettingsCommandOutput,
 } from "./commands/GetDataLakeSettingsCommand";
-import {
+import type {
   GetEffectivePermissionsForPathCommandInput,
   GetEffectivePermissionsForPathCommandOutput,
 } from "./commands/GetEffectivePermissionsForPathCommand";
-import { GetLFTagCommandInput, GetLFTagCommandOutput } from "./commands/GetLFTagCommand";
-import { GetLFTagExpressionCommandInput, GetLFTagExpressionCommandOutput } from "./commands/GetLFTagExpressionCommand";
-import { GetQueryStateCommandInput, GetQueryStateCommandOutput } from "./commands/GetQueryStateCommand";
-import { GetQueryStatisticsCommandInput, GetQueryStatisticsCommandOutput } from "./commands/GetQueryStatisticsCommand";
-import { GetResourceLFTagsCommandInput, GetResourceLFTagsCommandOutput } from "./commands/GetResourceLFTagsCommand";
-import { GetTableObjectsCommandInput, GetTableObjectsCommandOutput } from "./commands/GetTableObjectsCommand";
-import {
+import type { GetLFTagCommandInput, GetLFTagCommandOutput } from "./commands/GetLFTagCommand";
+import type {
+  GetLFTagExpressionCommandInput,
+  GetLFTagExpressionCommandOutput,
+} from "./commands/GetLFTagExpressionCommand";
+import type { GetQueryStateCommandInput, GetQueryStateCommandOutput } from "./commands/GetQueryStateCommand";
+import type {
+  GetQueryStatisticsCommandInput,
+  GetQueryStatisticsCommandOutput,
+} from "./commands/GetQueryStatisticsCommand";
+import type {
+  GetResourceLFTagsCommandInput,
+  GetResourceLFTagsCommandOutput,
+} from "./commands/GetResourceLFTagsCommand";
+import type { GetTableObjectsCommandInput, GetTableObjectsCommandOutput } from "./commands/GetTableObjectsCommand";
+import type {
   GetTemporaryDataLocationCredentialsCommandInput,
   GetTemporaryDataLocationCredentialsCommandOutput,
 } from "./commands/GetTemporaryDataLocationCredentialsCommand";
-import {
+import type {
   GetTemporaryGluePartitionCredentialsCommandInput,
   GetTemporaryGluePartitionCredentialsCommandOutput,
 } from "./commands/GetTemporaryGluePartitionCredentialsCommand";
-import {
+import type {
   GetTemporaryGlueTableCredentialsCommandInput,
   GetTemporaryGlueTableCredentialsCommandOutput,
 } from "./commands/GetTemporaryGlueTableCredentialsCommand";
-import { GetWorkUnitResultsCommandInput, GetWorkUnitResultsCommandOutput } from "./commands/GetWorkUnitResultsCommand";
-import { GetWorkUnitsCommandInput, GetWorkUnitsCommandOutput } from "./commands/GetWorkUnitsCommand";
-import { GrantPermissionsCommandInput, GrantPermissionsCommandOutput } from "./commands/GrantPermissionsCommand";
-import {
+import type {
+  GetWorkUnitResultsCommandInput,
+  GetWorkUnitResultsCommandOutput,
+} from "./commands/GetWorkUnitResultsCommand";
+import type { GetWorkUnitsCommandInput, GetWorkUnitsCommandOutput } from "./commands/GetWorkUnitsCommand";
+import type { GrantPermissionsCommandInput, GrantPermissionsCommandOutput } from "./commands/GrantPermissionsCommand";
+import type {
   ListDataCellsFilterCommandInput,
   ListDataCellsFilterCommandOutput,
 } from "./commands/ListDataCellsFilterCommand";
-import {
+import type {
   ListLakeFormationOptInsCommandInput,
   ListLakeFormationOptInsCommandOutput,
 } from "./commands/ListLakeFormationOptInsCommand";
-import {
+import type {
   ListLFTagExpressionsCommandInput,
   ListLFTagExpressionsCommandOutput,
 } from "./commands/ListLFTagExpressionsCommand";
-import { ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
-import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
-import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
-import {
+import type { ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
+import type { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
+import type { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
+import type {
   ListTableStorageOptimizersCommandInput,
   ListTableStorageOptimizersCommandOutput,
 } from "./commands/ListTableStorageOptimizersCommand";
-import { ListTransactionsCommandInput, ListTransactionsCommandOutput } from "./commands/ListTransactionsCommand";
-import {
+import type { ListTransactionsCommandInput, ListTransactionsCommandOutput } from "./commands/ListTransactionsCommand";
+import type {
   PutDataLakeSettingsCommandInput,
   PutDataLakeSettingsCommandOutput,
 } from "./commands/PutDataLakeSettingsCommand";
-import { RegisterResourceCommandInput, RegisterResourceCommandOutput } from "./commands/RegisterResourceCommand";
-import {
+import type { RegisterResourceCommandInput, RegisterResourceCommandOutput } from "./commands/RegisterResourceCommand";
+import type {
   RemoveLFTagsFromResourceCommandInput,
   RemoveLFTagsFromResourceCommandOutput,
 } from "./commands/RemoveLFTagsFromResourceCommand";
-import { RevokePermissionsCommandInput, RevokePermissionsCommandOutput } from "./commands/RevokePermissionsCommand";
-import {
+import type {
+  RevokePermissionsCommandInput,
+  RevokePermissionsCommandOutput,
+} from "./commands/RevokePermissionsCommand";
+import type {
   SearchDatabasesByLFTagsCommandInput,
   SearchDatabasesByLFTagsCommandOutput,
 } from "./commands/SearchDatabasesByLFTagsCommand";
-import {
+import type {
   SearchTablesByLFTagsCommandInput,
   SearchTablesByLFTagsCommandOutput,
 } from "./commands/SearchTablesByLFTagsCommand";
-import { StartQueryPlanningCommandInput, StartQueryPlanningCommandOutput } from "./commands/StartQueryPlanningCommand";
-import { StartTransactionCommandInput, StartTransactionCommandOutput } from "./commands/StartTransactionCommand";
-import {
+import type {
+  StartQueryPlanningCommandInput,
+  StartQueryPlanningCommandOutput,
+} from "./commands/StartQueryPlanningCommand";
+import type { StartTransactionCommandInput, StartTransactionCommandOutput } from "./commands/StartTransactionCommand";
+import type {
   UpdateDataCellsFilterCommandInput,
   UpdateDataCellsFilterCommandOutput,
 } from "./commands/UpdateDataCellsFilterCommand";
-import {
+import type {
   UpdateLakeFormationIdentityCenterConfigurationCommandInput,
   UpdateLakeFormationIdentityCenterConfigurationCommandOutput,
 } from "./commands/UpdateLakeFormationIdentityCenterConfigurationCommand";
-import { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
-import {
+import type { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
+import type {
   UpdateLFTagExpressionCommandInput,
   UpdateLFTagExpressionCommandOutput,
 } from "./commands/UpdateLFTagExpressionCommand";
-import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
-import { UpdateTableObjectsCommandInput, UpdateTableObjectsCommandOutput } from "./commands/UpdateTableObjectsCommand";
-import {
+import type { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
+import type {
+  UpdateTableObjectsCommandInput,
+  UpdateTableObjectsCommandOutput,
+} from "./commands/UpdateTableObjectsCommand";
+import type {
   UpdateTableStorageOptimizerCommandInput,
   UpdateTableStorageOptimizerCommandOutput,
 } from "./commands/UpdateTableStorageOptimizerCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -481,7 +515,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

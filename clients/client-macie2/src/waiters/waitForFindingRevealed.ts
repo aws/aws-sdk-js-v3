@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type GetSensitiveDataOccurrencesCommandInput,
   GetSensitiveDataOccurrencesCommand,
-  GetSensitiveDataOccurrencesCommandInput,
 } from "../commands/GetSensitiveDataOccurrencesCommand";
-import { Macie2Client } from "../Macie2Client";
+import type { Macie2Client } from "../Macie2Client";
 
 const checkState = async (client: Macie2Client, input: GetSensitiveDataOccurrencesCommandInput): Promise<WaiterResult> => {
   let reason;

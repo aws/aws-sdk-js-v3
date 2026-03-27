@@ -5,16 +5,16 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
-import { FromSsoInit } from "@aws-sdk/token-providers";
+import type { FromSsoInit } from "@aws-sdk/token-providers";
 import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider } from "@smithy/core";
 import {
+  type HandlerExecutionContext,
   type HttpAuthOption,
   type HttpAuthScheme,
   type HttpAuthSchemeParameters,
   type HttpAuthSchemeParametersProvider,
   type HttpAuthSchemeProvider,
   type Provider,
-  HandlerExecutionContext,
   TokenIdentity,
   TokenIdentityProvider,
 } from "@smithy/types";

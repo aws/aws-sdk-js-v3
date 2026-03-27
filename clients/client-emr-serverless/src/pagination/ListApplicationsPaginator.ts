@@ -8,7 +8,7 @@ import {
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
 import { EMRServerlessClient } from "../EMRServerlessClient";
-import { EMRServerlessPaginationConfiguration } from "./Interfaces";
+import type { EMRServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

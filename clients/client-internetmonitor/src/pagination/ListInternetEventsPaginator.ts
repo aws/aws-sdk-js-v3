@@ -8,7 +8,7 @@ import {
   ListInternetEventsCommandOutput,
 } from "../commands/ListInternetEventsCommand";
 import { InternetMonitorClient } from "../InternetMonitorClient";
-import { InternetMonitorPaginationConfiguration } from "./Interfaces";
+import type { InternetMonitorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

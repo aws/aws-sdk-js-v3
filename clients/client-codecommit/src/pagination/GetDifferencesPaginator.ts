@@ -8,7 +8,7 @@ import {
   GetDifferencesCommandInput,
   GetDifferencesCommandOutput,
 } from "../commands/GetDifferencesCommand";
-import { CodeCommitPaginationConfiguration } from "./Interfaces";
+import type { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

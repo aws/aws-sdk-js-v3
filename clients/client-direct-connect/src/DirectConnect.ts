@@ -3,299 +3,307 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type AcceptDirectConnectGatewayAssociationProposalCommandInput,
+  type AcceptDirectConnectGatewayAssociationProposalCommandOutput,
   AcceptDirectConnectGatewayAssociationProposalCommand,
-  AcceptDirectConnectGatewayAssociationProposalCommandInput,
-  AcceptDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/AcceptDirectConnectGatewayAssociationProposalCommand";
 import {
+  type AllocateConnectionOnInterconnectCommandInput,
+  type AllocateConnectionOnInterconnectCommandOutput,
   AllocateConnectionOnInterconnectCommand,
-  AllocateConnectionOnInterconnectCommandInput,
-  AllocateConnectionOnInterconnectCommandOutput,
 } from "./commands/AllocateConnectionOnInterconnectCommand";
 import {
+  type AllocateHostedConnectionCommandInput,
+  type AllocateHostedConnectionCommandOutput,
   AllocateHostedConnectionCommand,
-  AllocateHostedConnectionCommandInput,
-  AllocateHostedConnectionCommandOutput,
 } from "./commands/AllocateHostedConnectionCommand";
 import {
+  type AllocatePrivateVirtualInterfaceCommandInput,
+  type AllocatePrivateVirtualInterfaceCommandOutput,
   AllocatePrivateVirtualInterfaceCommand,
-  AllocatePrivateVirtualInterfaceCommandInput,
-  AllocatePrivateVirtualInterfaceCommandOutput,
 } from "./commands/AllocatePrivateVirtualInterfaceCommand";
 import {
+  type AllocatePublicVirtualInterfaceCommandInput,
+  type AllocatePublicVirtualInterfaceCommandOutput,
   AllocatePublicVirtualInterfaceCommand,
-  AllocatePublicVirtualInterfaceCommandInput,
-  AllocatePublicVirtualInterfaceCommandOutput,
 } from "./commands/AllocatePublicVirtualInterfaceCommand";
 import {
+  type AllocateTransitVirtualInterfaceCommandInput,
+  type AllocateTransitVirtualInterfaceCommandOutput,
   AllocateTransitVirtualInterfaceCommand,
-  AllocateTransitVirtualInterfaceCommandInput,
-  AllocateTransitVirtualInterfaceCommandOutput,
 } from "./commands/AllocateTransitVirtualInterfaceCommand";
 import {
+  type AssociateConnectionWithLagCommandInput,
+  type AssociateConnectionWithLagCommandOutput,
   AssociateConnectionWithLagCommand,
-  AssociateConnectionWithLagCommandInput,
-  AssociateConnectionWithLagCommandOutput,
 } from "./commands/AssociateConnectionWithLagCommand";
 import {
+  type AssociateHostedConnectionCommandInput,
+  type AssociateHostedConnectionCommandOutput,
   AssociateHostedConnectionCommand,
-  AssociateHostedConnectionCommandInput,
-  AssociateHostedConnectionCommandOutput,
 } from "./commands/AssociateHostedConnectionCommand";
 import {
+  type AssociateMacSecKeyCommandInput,
+  type AssociateMacSecKeyCommandOutput,
   AssociateMacSecKeyCommand,
-  AssociateMacSecKeyCommandInput,
-  AssociateMacSecKeyCommandOutput,
 } from "./commands/AssociateMacSecKeyCommand";
 import {
+  type AssociateVirtualInterfaceCommandInput,
+  type AssociateVirtualInterfaceCommandOutput,
   AssociateVirtualInterfaceCommand,
-  AssociateVirtualInterfaceCommandInput,
-  AssociateVirtualInterfaceCommandOutput,
 } from "./commands/AssociateVirtualInterfaceCommand";
 import {
+  type ConfirmConnectionCommandInput,
+  type ConfirmConnectionCommandOutput,
   ConfirmConnectionCommand,
-  ConfirmConnectionCommandInput,
-  ConfirmConnectionCommandOutput,
 } from "./commands/ConfirmConnectionCommand";
 import {
+  type ConfirmCustomerAgreementCommandInput,
+  type ConfirmCustomerAgreementCommandOutput,
   ConfirmCustomerAgreementCommand,
-  ConfirmCustomerAgreementCommandInput,
-  ConfirmCustomerAgreementCommandOutput,
 } from "./commands/ConfirmCustomerAgreementCommand";
 import {
+  type ConfirmPrivateVirtualInterfaceCommandInput,
+  type ConfirmPrivateVirtualInterfaceCommandOutput,
   ConfirmPrivateVirtualInterfaceCommand,
-  ConfirmPrivateVirtualInterfaceCommandInput,
-  ConfirmPrivateVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmPrivateVirtualInterfaceCommand";
 import {
+  type ConfirmPublicVirtualInterfaceCommandInput,
+  type ConfirmPublicVirtualInterfaceCommandOutput,
   ConfirmPublicVirtualInterfaceCommand,
-  ConfirmPublicVirtualInterfaceCommandInput,
-  ConfirmPublicVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmPublicVirtualInterfaceCommand";
 import {
+  type ConfirmTransitVirtualInterfaceCommandInput,
+  type ConfirmTransitVirtualInterfaceCommandOutput,
   ConfirmTransitVirtualInterfaceCommand,
-  ConfirmTransitVirtualInterfaceCommandInput,
-  ConfirmTransitVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmTransitVirtualInterfaceCommand";
 import {
+  type CreateBGPPeerCommandInput,
+  type CreateBGPPeerCommandOutput,
   CreateBGPPeerCommand,
-  CreateBGPPeerCommandInput,
-  CreateBGPPeerCommandOutput,
 } from "./commands/CreateBGPPeerCommand";
 import {
+  type CreateConnectionCommandInput,
+  type CreateConnectionCommandOutput,
   CreateConnectionCommand,
-  CreateConnectionCommandInput,
-  CreateConnectionCommandOutput,
 } from "./commands/CreateConnectionCommand";
 import {
+  type CreateDirectConnectGatewayAssociationCommandInput,
+  type CreateDirectConnectGatewayAssociationCommandOutput,
   CreateDirectConnectGatewayAssociationCommand,
-  CreateDirectConnectGatewayAssociationCommandInput,
-  CreateDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/CreateDirectConnectGatewayAssociationCommand";
 import {
+  type CreateDirectConnectGatewayAssociationProposalCommandInput,
+  type CreateDirectConnectGatewayAssociationProposalCommandOutput,
   CreateDirectConnectGatewayAssociationProposalCommand,
-  CreateDirectConnectGatewayAssociationProposalCommandInput,
-  CreateDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/CreateDirectConnectGatewayAssociationProposalCommand";
 import {
+  type CreateDirectConnectGatewayCommandInput,
+  type CreateDirectConnectGatewayCommandOutput,
   CreateDirectConnectGatewayCommand,
-  CreateDirectConnectGatewayCommandInput,
-  CreateDirectConnectGatewayCommandOutput,
 } from "./commands/CreateDirectConnectGatewayCommand";
 import {
+  type CreateInterconnectCommandInput,
+  type CreateInterconnectCommandOutput,
   CreateInterconnectCommand,
-  CreateInterconnectCommandInput,
-  CreateInterconnectCommandOutput,
 } from "./commands/CreateInterconnectCommand";
-import { CreateLagCommand, CreateLagCommandInput, CreateLagCommandOutput } from "./commands/CreateLagCommand";
+import { type CreateLagCommandInput, type CreateLagCommandOutput, CreateLagCommand } from "./commands/CreateLagCommand";
 import {
+  type CreatePrivateVirtualInterfaceCommandInput,
+  type CreatePrivateVirtualInterfaceCommandOutput,
   CreatePrivateVirtualInterfaceCommand,
-  CreatePrivateVirtualInterfaceCommandInput,
-  CreatePrivateVirtualInterfaceCommandOutput,
 } from "./commands/CreatePrivateVirtualInterfaceCommand";
 import {
+  type CreatePublicVirtualInterfaceCommandInput,
+  type CreatePublicVirtualInterfaceCommandOutput,
   CreatePublicVirtualInterfaceCommand,
-  CreatePublicVirtualInterfaceCommandInput,
-  CreatePublicVirtualInterfaceCommandOutput,
 } from "./commands/CreatePublicVirtualInterfaceCommand";
 import {
+  type CreateTransitVirtualInterfaceCommandInput,
+  type CreateTransitVirtualInterfaceCommandOutput,
   CreateTransitVirtualInterfaceCommand,
-  CreateTransitVirtualInterfaceCommandInput,
-  CreateTransitVirtualInterfaceCommandOutput,
 } from "./commands/CreateTransitVirtualInterfaceCommand";
 import {
+  type DeleteBGPPeerCommandInput,
+  type DeleteBGPPeerCommandOutput,
   DeleteBGPPeerCommand,
-  DeleteBGPPeerCommandInput,
-  DeleteBGPPeerCommandOutput,
 } from "./commands/DeleteBGPPeerCommand";
 import {
+  type DeleteConnectionCommandInput,
+  type DeleteConnectionCommandOutput,
   DeleteConnectionCommand,
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
+  type DeleteDirectConnectGatewayAssociationCommandInput,
+  type DeleteDirectConnectGatewayAssociationCommandOutput,
   DeleteDirectConnectGatewayAssociationCommand,
-  DeleteDirectConnectGatewayAssociationCommandInput,
-  DeleteDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayAssociationCommand";
 import {
+  type DeleteDirectConnectGatewayAssociationProposalCommandInput,
+  type DeleteDirectConnectGatewayAssociationProposalCommandOutput,
   DeleteDirectConnectGatewayAssociationProposalCommand,
-  DeleteDirectConnectGatewayAssociationProposalCommandInput,
-  DeleteDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayAssociationProposalCommand";
 import {
+  type DeleteDirectConnectGatewayCommandInput,
+  type DeleteDirectConnectGatewayCommandOutput,
   DeleteDirectConnectGatewayCommand,
-  DeleteDirectConnectGatewayCommandInput,
-  DeleteDirectConnectGatewayCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayCommand";
 import {
+  type DeleteInterconnectCommandInput,
+  type DeleteInterconnectCommandOutput,
   DeleteInterconnectCommand,
-  DeleteInterconnectCommandInput,
-  DeleteInterconnectCommandOutput,
 } from "./commands/DeleteInterconnectCommand";
-import { DeleteLagCommand, DeleteLagCommandInput, DeleteLagCommandOutput } from "./commands/DeleteLagCommand";
+import { type DeleteLagCommandInput, type DeleteLagCommandOutput, DeleteLagCommand } from "./commands/DeleteLagCommand";
 import {
+  type DeleteVirtualInterfaceCommandInput,
+  type DeleteVirtualInterfaceCommandOutput,
   DeleteVirtualInterfaceCommand,
-  DeleteVirtualInterfaceCommandInput,
-  DeleteVirtualInterfaceCommandOutput,
 } from "./commands/DeleteVirtualInterfaceCommand";
 import {
+  type DescribeConnectionLoaCommandInput,
+  type DescribeConnectionLoaCommandOutput,
   DescribeConnectionLoaCommand,
-  DescribeConnectionLoaCommandInput,
-  DescribeConnectionLoaCommandOutput,
 } from "./commands/DescribeConnectionLoaCommand";
 import {
+  type DescribeConnectionsCommandInput,
+  type DescribeConnectionsCommandOutput,
   DescribeConnectionsCommand,
-  DescribeConnectionsCommandInput,
-  DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand";
 import {
+  type DescribeConnectionsOnInterconnectCommandInput,
+  type DescribeConnectionsOnInterconnectCommandOutput,
   DescribeConnectionsOnInterconnectCommand,
-  DescribeConnectionsOnInterconnectCommandInput,
-  DescribeConnectionsOnInterconnectCommandOutput,
 } from "./commands/DescribeConnectionsOnInterconnectCommand";
 import {
+  type DescribeCustomerMetadataCommandInput,
+  type DescribeCustomerMetadataCommandOutput,
   DescribeCustomerMetadataCommand,
-  DescribeCustomerMetadataCommandInput,
-  DescribeCustomerMetadataCommandOutput,
 } from "./commands/DescribeCustomerMetadataCommand";
 import {
+  type DescribeDirectConnectGatewayAssociationProposalsCommandInput,
+  type DescribeDirectConnectGatewayAssociationProposalsCommandOutput,
   DescribeDirectConnectGatewayAssociationProposalsCommand,
-  DescribeDirectConnectGatewayAssociationProposalsCommandInput,
-  DescribeDirectConnectGatewayAssociationProposalsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAssociationProposalsCommand";
 import {
+  type DescribeDirectConnectGatewayAssociationsCommandInput,
+  type DescribeDirectConnectGatewayAssociationsCommandOutput,
   DescribeDirectConnectGatewayAssociationsCommand,
-  DescribeDirectConnectGatewayAssociationsCommandInput,
-  DescribeDirectConnectGatewayAssociationsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAssociationsCommand";
 import {
+  type DescribeDirectConnectGatewayAttachmentsCommandInput,
+  type DescribeDirectConnectGatewayAttachmentsCommandOutput,
   DescribeDirectConnectGatewayAttachmentsCommand,
-  DescribeDirectConnectGatewayAttachmentsCommandInput,
-  DescribeDirectConnectGatewayAttachmentsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAttachmentsCommand";
 import {
+  type DescribeDirectConnectGatewaysCommandInput,
+  type DescribeDirectConnectGatewaysCommandOutput,
   DescribeDirectConnectGatewaysCommand,
-  DescribeDirectConnectGatewaysCommandInput,
-  DescribeDirectConnectGatewaysCommandOutput,
 } from "./commands/DescribeDirectConnectGatewaysCommand";
 import {
+  type DescribeHostedConnectionsCommandInput,
+  type DescribeHostedConnectionsCommandOutput,
   DescribeHostedConnectionsCommand,
-  DescribeHostedConnectionsCommandInput,
-  DescribeHostedConnectionsCommandOutput,
 } from "./commands/DescribeHostedConnectionsCommand";
 import {
+  type DescribeInterconnectLoaCommandInput,
+  type DescribeInterconnectLoaCommandOutput,
   DescribeInterconnectLoaCommand,
-  DescribeInterconnectLoaCommandInput,
-  DescribeInterconnectLoaCommandOutput,
 } from "./commands/DescribeInterconnectLoaCommand";
 import {
+  type DescribeInterconnectsCommandInput,
+  type DescribeInterconnectsCommandOutput,
   DescribeInterconnectsCommand,
-  DescribeInterconnectsCommandInput,
-  DescribeInterconnectsCommandOutput,
 } from "./commands/DescribeInterconnectsCommand";
 import {
+  type DescribeLagsCommandInput,
+  type DescribeLagsCommandOutput,
   DescribeLagsCommand,
-  DescribeLagsCommandInput,
-  DescribeLagsCommandOutput,
 } from "./commands/DescribeLagsCommand";
-import { DescribeLoaCommand, DescribeLoaCommandInput, DescribeLoaCommandOutput } from "./commands/DescribeLoaCommand";
 import {
+  type DescribeLoaCommandInput,
+  type DescribeLoaCommandOutput,
+  DescribeLoaCommand,
+} from "./commands/DescribeLoaCommand";
+import {
+  type DescribeLocationsCommandInput,
+  type DescribeLocationsCommandOutput,
   DescribeLocationsCommand,
-  DescribeLocationsCommandInput,
-  DescribeLocationsCommandOutput,
 } from "./commands/DescribeLocationsCommand";
 import {
+  type DescribeRouterConfigurationCommandInput,
+  type DescribeRouterConfigurationCommandOutput,
   DescribeRouterConfigurationCommand,
-  DescribeRouterConfigurationCommandInput,
-  DescribeRouterConfigurationCommandOutput,
 } from "./commands/DescribeRouterConfigurationCommand";
 import {
+  type DescribeTagsCommandInput,
+  type DescribeTagsCommandOutput,
   DescribeTagsCommand,
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  type DescribeVirtualGatewaysCommandInput,
+  type DescribeVirtualGatewaysCommandOutput,
   DescribeVirtualGatewaysCommand,
-  DescribeVirtualGatewaysCommandInput,
-  DescribeVirtualGatewaysCommandOutput,
 } from "./commands/DescribeVirtualGatewaysCommand";
 import {
+  type DescribeVirtualInterfacesCommandInput,
+  type DescribeVirtualInterfacesCommandOutput,
   DescribeVirtualInterfacesCommand,
-  DescribeVirtualInterfacesCommandInput,
-  DescribeVirtualInterfacesCommandOutput,
 } from "./commands/DescribeVirtualInterfacesCommand";
 import {
+  type DisassociateConnectionFromLagCommandInput,
+  type DisassociateConnectionFromLagCommandOutput,
   DisassociateConnectionFromLagCommand,
-  DisassociateConnectionFromLagCommandInput,
-  DisassociateConnectionFromLagCommandOutput,
 } from "./commands/DisassociateConnectionFromLagCommand";
 import {
+  type DisassociateMacSecKeyCommandInput,
+  type DisassociateMacSecKeyCommandOutput,
   DisassociateMacSecKeyCommand,
-  DisassociateMacSecKeyCommandInput,
-  DisassociateMacSecKeyCommandOutput,
 } from "./commands/DisassociateMacSecKeyCommand";
 import {
+  type ListVirtualInterfaceTestHistoryCommandInput,
+  type ListVirtualInterfaceTestHistoryCommandOutput,
   ListVirtualInterfaceTestHistoryCommand,
-  ListVirtualInterfaceTestHistoryCommandInput,
-  ListVirtualInterfaceTestHistoryCommandOutput,
 } from "./commands/ListVirtualInterfaceTestHistoryCommand";
 import {
+  type StartBgpFailoverTestCommandInput,
+  type StartBgpFailoverTestCommandOutput,
   StartBgpFailoverTestCommand,
-  StartBgpFailoverTestCommandInput,
-  StartBgpFailoverTestCommandOutput,
 } from "./commands/StartBgpFailoverTestCommand";
 import {
+  type StopBgpFailoverTestCommandInput,
+  type StopBgpFailoverTestCommandOutput,
   StopBgpFailoverTestCommand,
-  StopBgpFailoverTestCommandInput,
-  StopBgpFailoverTestCommandOutput,
 } from "./commands/StopBgpFailoverTestCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateConnectionCommandInput,
+  type UpdateConnectionCommandOutput,
   UpdateConnectionCommand,
-  UpdateConnectionCommandInput,
-  UpdateConnectionCommandOutput,
 } from "./commands/UpdateConnectionCommand";
 import {
+  type UpdateDirectConnectGatewayAssociationCommandInput,
+  type UpdateDirectConnectGatewayAssociationCommandOutput,
   UpdateDirectConnectGatewayAssociationCommand,
-  UpdateDirectConnectGatewayAssociationCommandInput,
-  UpdateDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/UpdateDirectConnectGatewayAssociationCommand";
 import {
+  type UpdateDirectConnectGatewayCommandInput,
+  type UpdateDirectConnectGatewayCommandOutput,
   UpdateDirectConnectGatewayCommand,
-  UpdateDirectConnectGatewayCommandInput,
-  UpdateDirectConnectGatewayCommandOutput,
 } from "./commands/UpdateDirectConnectGatewayCommand";
-import { UpdateLagCommand, UpdateLagCommandInput, UpdateLagCommandOutput } from "./commands/UpdateLagCommand";
+import { type UpdateLagCommandInput, type UpdateLagCommandOutput, UpdateLagCommand } from "./commands/UpdateLagCommand";
 import {
+  type UpdateVirtualInterfaceAttributesCommandInput,
+  type UpdateVirtualInterfaceAttributesCommandOutput,
   UpdateVirtualInterfaceAttributesCommand,
-  UpdateVirtualInterfaceAttributesCommandInput,
-  UpdateVirtualInterfaceAttributesCommandOutput,
 } from "./commands/UpdateVirtualInterfaceAttributesCommand";
 import { DirectConnectClient } from "./DirectConnectClient";
 

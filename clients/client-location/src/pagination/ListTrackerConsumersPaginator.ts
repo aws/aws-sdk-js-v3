@@ -8,7 +8,7 @@ import {
   ListTrackerConsumersCommandOutput,
 } from "../commands/ListTrackerConsumersCommand";
 import { LocationClient } from "../LocationClient";
-import { LocationPaginationConfiguration } from "./Interfaces";
+import type { LocationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -48,21 +48,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -72,59 +70,68 @@ import {
   defaultJSONRPC10HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   ContentTypeParametersCommandInput,
   ContentTypeParametersCommandOutput,
 } from "./commands/ContentTypeParametersCommand";
-import {
+import type {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
-import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "./commands/EndpointOperationCommand";
-import {
+import type {
+  EndpointOperationCommandInput,
+  EndpointOperationCommandOutput,
+} from "./commands/EndpointOperationCommand";
+import type {
   EndpointWithHostLabelOperationCommandInput,
   EndpointWithHostLabelOperationCommandOutput,
 } from "./commands/EndpointWithHostLabelOperationCommand";
-import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
-import {
+import type {
+  GreetingWithErrorsCommandInput,
+  GreetingWithErrorsCommandOutput,
+} from "./commands/GreetingWithErrorsCommand";
+import type {
   HostWithPathOperationCommandInput,
   HostWithPathOperationCommandOutput,
 } from "./commands/HostWithPathOperationCommand";
-import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
-import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
-import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
-import {
+import type { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
+import type {
+  NoInputAndNoOutputCommandInput,
+  NoInputAndNoOutputCommandOutput,
+} from "./commands/NoInputAndNoOutputCommand";
+import type { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
+import type {
   OperationWithDefaultsCommandInput,
   OperationWithDefaultsCommandOutput,
 } from "./commands/OperationWithDefaultsCommand";
-import {
+import type {
   OperationWithNestedStructureCommandInput,
   OperationWithNestedStructureCommandOutput,
 } from "./commands/OperationWithNestedStructureCommand";
-import {
+import type {
   OperationWithRequiredMembersCommandInput,
   OperationWithRequiredMembersCommandOutput,
 } from "./commands/OperationWithRequiredMembersCommand";
-import {
+import type {
   OperationWithRequiredMembersWithDefaultsCommandInput,
   OperationWithRequiredMembersWithDefaultsCommandOutput,
 } from "./commands/OperationWithRequiredMembersWithDefaultsCommand";
-import {
+import type {
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,
 } from "./commands/PutWithContentEncodingCommand";
-import {
+import type {
   QueryIncompatibleOperationCommandInput,
   QueryIncompatibleOperationCommandOutput,
 } from "./commands/QueryIncompatibleOperationCommand";
-import {
+import type {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -288,7 +295,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

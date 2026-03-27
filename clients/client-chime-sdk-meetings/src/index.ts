@@ -9,7 +9,7 @@
  */
 export * from "./ChimeSDKMeetingsClient";
 export * from "./ChimeSDKMeetings";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ChimeSDKMeetingsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

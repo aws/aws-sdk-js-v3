@@ -8,7 +8,7 @@ import {
   ListHypervisorsCommandInput,
   ListHypervisorsCommandOutput,
 } from "../commands/ListHypervisorsCommand";
-import { BackupGatewayPaginationConfiguration } from "./Interfaces";
+import type { BackupGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListGroupsForUserCommandOutput,
 } from "../commands/ListGroupsForUserCommand";
 import { IAMClient } from "../IAMClient";
-import { IAMPaginationConfiguration } from "./Interfaces";
+import type { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

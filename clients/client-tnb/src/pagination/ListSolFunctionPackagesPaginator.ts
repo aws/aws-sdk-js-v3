@@ -8,7 +8,7 @@ import {
   ListSolFunctionPackagesCommandOutput,
 } from "../commands/ListSolFunctionPackagesCommand";
 import { TnbClient } from "../TnbClient";
-import { TnbPaginationConfiguration } from "./Interfaces";
+import type { TnbPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

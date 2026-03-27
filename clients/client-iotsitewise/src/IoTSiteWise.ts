@@ -9,496 +9,524 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AssociateAssetsCommandInput,
+  type AssociateAssetsCommandOutput,
   AssociateAssetsCommand,
-  AssociateAssetsCommandInput,
-  AssociateAssetsCommandOutput,
 } from "./commands/AssociateAssetsCommand";
 import {
+  type AssociateTimeSeriesToAssetPropertyCommandInput,
+  type AssociateTimeSeriesToAssetPropertyCommandOutput,
   AssociateTimeSeriesToAssetPropertyCommand,
-  AssociateTimeSeriesToAssetPropertyCommandInput,
-  AssociateTimeSeriesToAssetPropertyCommandOutput,
 } from "./commands/AssociateTimeSeriesToAssetPropertyCommand";
 import {
+  type BatchAssociateProjectAssetsCommandInput,
+  type BatchAssociateProjectAssetsCommandOutput,
   BatchAssociateProjectAssetsCommand,
-  BatchAssociateProjectAssetsCommandInput,
-  BatchAssociateProjectAssetsCommandOutput,
 } from "./commands/BatchAssociateProjectAssetsCommand";
 import {
+  type BatchDisassociateProjectAssetsCommandInput,
+  type BatchDisassociateProjectAssetsCommandOutput,
   BatchDisassociateProjectAssetsCommand,
-  BatchDisassociateProjectAssetsCommandInput,
-  BatchDisassociateProjectAssetsCommandOutput,
 } from "./commands/BatchDisassociateProjectAssetsCommand";
 import {
+  type BatchGetAssetPropertyAggregatesCommandInput,
+  type BatchGetAssetPropertyAggregatesCommandOutput,
   BatchGetAssetPropertyAggregatesCommand,
-  BatchGetAssetPropertyAggregatesCommandInput,
-  BatchGetAssetPropertyAggregatesCommandOutput,
 } from "./commands/BatchGetAssetPropertyAggregatesCommand";
 import {
+  type BatchGetAssetPropertyValueCommandInput,
+  type BatchGetAssetPropertyValueCommandOutput,
   BatchGetAssetPropertyValueCommand,
-  BatchGetAssetPropertyValueCommandInput,
-  BatchGetAssetPropertyValueCommandOutput,
 } from "./commands/BatchGetAssetPropertyValueCommand";
 import {
+  type BatchGetAssetPropertyValueHistoryCommandInput,
+  type BatchGetAssetPropertyValueHistoryCommandOutput,
   BatchGetAssetPropertyValueHistoryCommand,
-  BatchGetAssetPropertyValueHistoryCommandInput,
-  BatchGetAssetPropertyValueHistoryCommandOutput,
 } from "./commands/BatchGetAssetPropertyValueHistoryCommand";
 import {
+  type BatchPutAssetPropertyValueCommandInput,
+  type BatchPutAssetPropertyValueCommandOutput,
   BatchPutAssetPropertyValueCommand,
-  BatchPutAssetPropertyValueCommandInput,
-  BatchPutAssetPropertyValueCommandOutput,
 } from "./commands/BatchPutAssetPropertyValueCommand";
 import {
+  type CreateAccessPolicyCommandInput,
+  type CreateAccessPolicyCommandOutput,
   CreateAccessPolicyCommand,
-  CreateAccessPolicyCommandInput,
-  CreateAccessPolicyCommandOutput,
 } from "./commands/CreateAccessPolicyCommand";
-import { CreateAssetCommand, CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import {
+  type CreateAssetCommandInput,
+  type CreateAssetCommandOutput,
+  CreateAssetCommand,
+} from "./commands/CreateAssetCommand";
+import {
+  type CreateAssetModelCommandInput,
+  type CreateAssetModelCommandOutput,
   CreateAssetModelCommand,
-  CreateAssetModelCommandInput,
-  CreateAssetModelCommandOutput,
 } from "./commands/CreateAssetModelCommand";
 import {
+  type CreateAssetModelCompositeModelCommandInput,
+  type CreateAssetModelCompositeModelCommandOutput,
   CreateAssetModelCompositeModelCommand,
-  CreateAssetModelCompositeModelCommandInput,
-  CreateAssetModelCompositeModelCommandOutput,
 } from "./commands/CreateAssetModelCompositeModelCommand";
 import {
+  type CreateBulkImportJobCommandInput,
+  type CreateBulkImportJobCommandOutput,
   CreateBulkImportJobCommand,
-  CreateBulkImportJobCommandInput,
-  CreateBulkImportJobCommandOutput,
 } from "./commands/CreateBulkImportJobCommand";
 import {
+  type CreateComputationModelCommandInput,
+  type CreateComputationModelCommandOutput,
   CreateComputationModelCommand,
-  CreateComputationModelCommandInput,
-  CreateComputationModelCommandOutput,
 } from "./commands/CreateComputationModelCommand";
 import {
+  type CreateDashboardCommandInput,
+  type CreateDashboardCommandOutput,
   CreateDashboardCommand,
-  CreateDashboardCommandInput,
-  CreateDashboardCommandOutput,
 } from "./commands/CreateDashboardCommand";
 import {
+  type CreateDatasetCommandInput,
+  type CreateDatasetCommandOutput,
   CreateDatasetCommand,
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput,
 } from "./commands/CreateDatasetCommand";
 import {
+  type CreateGatewayCommandInput,
+  type CreateGatewayCommandOutput,
   CreateGatewayCommand,
-  CreateGatewayCommandInput,
-  CreateGatewayCommandOutput,
 } from "./commands/CreateGatewayCommand";
 import {
+  type CreatePortalCommandInput,
+  type CreatePortalCommandOutput,
   CreatePortalCommand,
-  CreatePortalCommandInput,
-  CreatePortalCommandOutput,
 } from "./commands/CreatePortalCommand";
 import {
+  type CreateProjectCommandInput,
+  type CreateProjectCommandOutput,
   CreateProjectCommand,
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput,
 } from "./commands/CreateProjectCommand";
 import {
+  type DeleteAccessPolicyCommandInput,
+  type DeleteAccessPolicyCommandOutput,
   DeleteAccessPolicyCommand,
-  DeleteAccessPolicyCommandInput,
-  DeleteAccessPolicyCommandOutput,
 } from "./commands/DeleteAccessPolicyCommand";
-import { DeleteAssetCommand, DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import {
+  type DeleteAssetCommandInput,
+  type DeleteAssetCommandOutput,
+  DeleteAssetCommand,
+} from "./commands/DeleteAssetCommand";
+import {
+  type DeleteAssetModelCommandInput,
+  type DeleteAssetModelCommandOutput,
   DeleteAssetModelCommand,
-  DeleteAssetModelCommandInput,
-  DeleteAssetModelCommandOutput,
 } from "./commands/DeleteAssetModelCommand";
 import {
+  type DeleteAssetModelCompositeModelCommandInput,
+  type DeleteAssetModelCompositeModelCommandOutput,
   DeleteAssetModelCompositeModelCommand,
-  DeleteAssetModelCompositeModelCommandInput,
-  DeleteAssetModelCompositeModelCommandOutput,
 } from "./commands/DeleteAssetModelCompositeModelCommand";
 import {
+  type DeleteAssetModelInterfaceRelationshipCommandInput,
+  type DeleteAssetModelInterfaceRelationshipCommandOutput,
   DeleteAssetModelInterfaceRelationshipCommand,
-  DeleteAssetModelInterfaceRelationshipCommandInput,
-  DeleteAssetModelInterfaceRelationshipCommandOutput,
 } from "./commands/DeleteAssetModelInterfaceRelationshipCommand";
 import {
+  type DeleteComputationModelCommandInput,
+  type DeleteComputationModelCommandOutput,
   DeleteComputationModelCommand,
-  DeleteComputationModelCommandInput,
-  DeleteComputationModelCommandOutput,
 } from "./commands/DeleteComputationModelCommand";
 import {
+  type DeleteDashboardCommandInput,
+  type DeleteDashboardCommandOutput,
   DeleteDashboardCommand,
-  DeleteDashboardCommandInput,
-  DeleteDashboardCommandOutput,
 } from "./commands/DeleteDashboardCommand";
 import {
+  type DeleteDatasetCommandInput,
+  type DeleteDatasetCommandOutput,
   DeleteDatasetCommand,
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput,
 } from "./commands/DeleteDatasetCommand";
 import {
+  type DeleteGatewayCommandInput,
+  type DeleteGatewayCommandOutput,
   DeleteGatewayCommand,
-  DeleteGatewayCommandInput,
-  DeleteGatewayCommandOutput,
 } from "./commands/DeleteGatewayCommand";
 import {
+  type DeletePortalCommandInput,
+  type DeletePortalCommandOutput,
   DeletePortalCommand,
-  DeletePortalCommandInput,
-  DeletePortalCommandOutput,
 } from "./commands/DeletePortalCommand";
 import {
+  type DeleteProjectCommandInput,
+  type DeleteProjectCommandOutput,
   DeleteProjectCommand,
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand";
 import {
+  type DeleteTimeSeriesCommandInput,
+  type DeleteTimeSeriesCommandOutput,
   DeleteTimeSeriesCommand,
-  DeleteTimeSeriesCommandInput,
-  DeleteTimeSeriesCommandOutput,
 } from "./commands/DeleteTimeSeriesCommand";
 import {
+  type DescribeAccessPolicyCommandInput,
+  type DescribeAccessPolicyCommandOutput,
   DescribeAccessPolicyCommand,
-  DescribeAccessPolicyCommandInput,
-  DescribeAccessPolicyCommandOutput,
 } from "./commands/DescribeAccessPolicyCommand";
 import {
+  type DescribeActionCommandInput,
+  type DescribeActionCommandOutput,
   DescribeActionCommand,
-  DescribeActionCommandInput,
-  DescribeActionCommandOutput,
 } from "./commands/DescribeActionCommand";
 import {
+  type DescribeAssetCommandInput,
+  type DescribeAssetCommandOutput,
   DescribeAssetCommand,
-  DescribeAssetCommandInput,
-  DescribeAssetCommandOutput,
 } from "./commands/DescribeAssetCommand";
 import {
+  type DescribeAssetCompositeModelCommandInput,
+  type DescribeAssetCompositeModelCommandOutput,
   DescribeAssetCompositeModelCommand,
-  DescribeAssetCompositeModelCommandInput,
-  DescribeAssetCompositeModelCommandOutput,
 } from "./commands/DescribeAssetCompositeModelCommand";
 import {
+  type DescribeAssetModelCommandInput,
+  type DescribeAssetModelCommandOutput,
   DescribeAssetModelCommand,
-  DescribeAssetModelCommandInput,
-  DescribeAssetModelCommandOutput,
 } from "./commands/DescribeAssetModelCommand";
 import {
+  type DescribeAssetModelCompositeModelCommandInput,
+  type DescribeAssetModelCompositeModelCommandOutput,
   DescribeAssetModelCompositeModelCommand,
-  DescribeAssetModelCompositeModelCommandInput,
-  DescribeAssetModelCompositeModelCommandOutput,
 } from "./commands/DescribeAssetModelCompositeModelCommand";
 import {
+  type DescribeAssetModelInterfaceRelationshipCommandInput,
+  type DescribeAssetModelInterfaceRelationshipCommandOutput,
   DescribeAssetModelInterfaceRelationshipCommand,
-  DescribeAssetModelInterfaceRelationshipCommandInput,
-  DescribeAssetModelInterfaceRelationshipCommandOutput,
 } from "./commands/DescribeAssetModelInterfaceRelationshipCommand";
 import {
+  type DescribeAssetPropertyCommandInput,
+  type DescribeAssetPropertyCommandOutput,
   DescribeAssetPropertyCommand,
-  DescribeAssetPropertyCommandInput,
-  DescribeAssetPropertyCommandOutput,
 } from "./commands/DescribeAssetPropertyCommand";
 import {
+  type DescribeBulkImportJobCommandInput,
+  type DescribeBulkImportJobCommandOutput,
   DescribeBulkImportJobCommand,
-  DescribeBulkImportJobCommandInput,
-  DescribeBulkImportJobCommandOutput,
 } from "./commands/DescribeBulkImportJobCommand";
 import {
+  type DescribeComputationModelCommandInput,
+  type DescribeComputationModelCommandOutput,
   DescribeComputationModelCommand,
-  DescribeComputationModelCommandInput,
-  DescribeComputationModelCommandOutput,
 } from "./commands/DescribeComputationModelCommand";
 import {
+  type DescribeComputationModelExecutionSummaryCommandInput,
+  type DescribeComputationModelExecutionSummaryCommandOutput,
   DescribeComputationModelExecutionSummaryCommand,
-  DescribeComputationModelExecutionSummaryCommandInput,
-  DescribeComputationModelExecutionSummaryCommandOutput,
 } from "./commands/DescribeComputationModelExecutionSummaryCommand";
 import {
+  type DescribeDashboardCommandInput,
+  type DescribeDashboardCommandOutput,
   DescribeDashboardCommand,
-  DescribeDashboardCommandInput,
-  DescribeDashboardCommandOutput,
 } from "./commands/DescribeDashboardCommand";
 import {
+  type DescribeDatasetCommandInput,
+  type DescribeDatasetCommandOutput,
   DescribeDatasetCommand,
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput,
 } from "./commands/DescribeDatasetCommand";
 import {
+  type DescribeDefaultEncryptionConfigurationCommandInput,
+  type DescribeDefaultEncryptionConfigurationCommandOutput,
   DescribeDefaultEncryptionConfigurationCommand,
-  DescribeDefaultEncryptionConfigurationCommandInput,
-  DescribeDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/DescribeDefaultEncryptionConfigurationCommand";
 import {
+  type DescribeExecutionCommandInput,
+  type DescribeExecutionCommandOutput,
   DescribeExecutionCommand,
-  DescribeExecutionCommandInput,
-  DescribeExecutionCommandOutput,
 } from "./commands/DescribeExecutionCommand";
 import {
+  type DescribeGatewayCapabilityConfigurationCommandInput,
+  type DescribeGatewayCapabilityConfigurationCommandOutput,
   DescribeGatewayCapabilityConfigurationCommand,
-  DescribeGatewayCapabilityConfigurationCommandInput,
-  DescribeGatewayCapabilityConfigurationCommandOutput,
 } from "./commands/DescribeGatewayCapabilityConfigurationCommand";
 import {
+  type DescribeGatewayCommandInput,
+  type DescribeGatewayCommandOutput,
   DescribeGatewayCommand,
-  DescribeGatewayCommandInput,
-  DescribeGatewayCommandOutput,
 } from "./commands/DescribeGatewayCommand";
 import {
+  type DescribeLoggingOptionsCommandInput,
+  type DescribeLoggingOptionsCommandOutput,
   DescribeLoggingOptionsCommand,
-  DescribeLoggingOptionsCommandInput,
-  DescribeLoggingOptionsCommandOutput,
 } from "./commands/DescribeLoggingOptionsCommand";
 import {
+  type DescribePortalCommandInput,
+  type DescribePortalCommandOutput,
   DescribePortalCommand,
-  DescribePortalCommandInput,
-  DescribePortalCommandOutput,
 } from "./commands/DescribePortalCommand";
 import {
+  type DescribeProjectCommandInput,
+  type DescribeProjectCommandOutput,
   DescribeProjectCommand,
-  DescribeProjectCommandInput,
-  DescribeProjectCommandOutput,
 } from "./commands/DescribeProjectCommand";
 import {
+  type DescribeStorageConfigurationCommandInput,
+  type DescribeStorageConfigurationCommandOutput,
   DescribeStorageConfigurationCommand,
-  DescribeStorageConfigurationCommandInput,
-  DescribeStorageConfigurationCommandOutput,
 } from "./commands/DescribeStorageConfigurationCommand";
 import {
+  type DescribeTimeSeriesCommandInput,
+  type DescribeTimeSeriesCommandOutput,
   DescribeTimeSeriesCommand,
-  DescribeTimeSeriesCommandInput,
-  DescribeTimeSeriesCommandOutput,
 } from "./commands/DescribeTimeSeriesCommand";
 import {
+  type DisassociateAssetsCommandInput,
+  type DisassociateAssetsCommandOutput,
   DisassociateAssetsCommand,
-  DisassociateAssetsCommandInput,
-  DisassociateAssetsCommandOutput,
 } from "./commands/DisassociateAssetsCommand";
 import {
+  type DisassociateTimeSeriesFromAssetPropertyCommandInput,
+  type DisassociateTimeSeriesFromAssetPropertyCommandOutput,
   DisassociateTimeSeriesFromAssetPropertyCommand,
-  DisassociateTimeSeriesFromAssetPropertyCommandInput,
-  DisassociateTimeSeriesFromAssetPropertyCommandOutput,
 } from "./commands/DisassociateTimeSeriesFromAssetPropertyCommand";
 import {
+  type ExecuteActionCommandInput,
+  type ExecuteActionCommandOutput,
   ExecuteActionCommand,
-  ExecuteActionCommandInput,
-  ExecuteActionCommandOutput,
 } from "./commands/ExecuteActionCommand";
 import {
+  type ExecuteQueryCommandInput,
+  type ExecuteQueryCommandOutput,
   ExecuteQueryCommand,
-  ExecuteQueryCommandInput,
-  ExecuteQueryCommandOutput,
 } from "./commands/ExecuteQueryCommand";
 import {
+  type GetAssetPropertyAggregatesCommandInput,
+  type GetAssetPropertyAggregatesCommandOutput,
   GetAssetPropertyAggregatesCommand,
-  GetAssetPropertyAggregatesCommandInput,
-  GetAssetPropertyAggregatesCommandOutput,
 } from "./commands/GetAssetPropertyAggregatesCommand";
 import {
+  type GetAssetPropertyValueCommandInput,
+  type GetAssetPropertyValueCommandOutput,
   GetAssetPropertyValueCommand,
-  GetAssetPropertyValueCommandInput,
-  GetAssetPropertyValueCommandOutput,
 } from "./commands/GetAssetPropertyValueCommand";
 import {
+  type GetAssetPropertyValueHistoryCommandInput,
+  type GetAssetPropertyValueHistoryCommandOutput,
   GetAssetPropertyValueHistoryCommand,
-  GetAssetPropertyValueHistoryCommandInput,
-  GetAssetPropertyValueHistoryCommandOutput,
 } from "./commands/GetAssetPropertyValueHistoryCommand";
 import {
+  type GetInterpolatedAssetPropertyValuesCommandInput,
+  type GetInterpolatedAssetPropertyValuesCommandOutput,
   GetInterpolatedAssetPropertyValuesCommand,
-  GetInterpolatedAssetPropertyValuesCommandInput,
-  GetInterpolatedAssetPropertyValuesCommandOutput,
 } from "./commands/GetInterpolatedAssetPropertyValuesCommand";
 import {
+  type InvokeAssistantCommandInput,
+  type InvokeAssistantCommandOutput,
   InvokeAssistantCommand,
-  InvokeAssistantCommandInput,
-  InvokeAssistantCommandOutput,
 } from "./commands/InvokeAssistantCommand";
 import {
+  type ListAccessPoliciesCommandInput,
+  type ListAccessPoliciesCommandOutput,
   ListAccessPoliciesCommand,
-  ListAccessPoliciesCommandInput,
-  ListAccessPoliciesCommandOutput,
 } from "./commands/ListAccessPoliciesCommand";
-import { ListActionsCommand, ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import {
+  type ListActionsCommandInput,
+  type ListActionsCommandOutput,
+  ListActionsCommand,
+} from "./commands/ListActionsCommand";
+import {
+  type ListAssetModelCompositeModelsCommandInput,
+  type ListAssetModelCompositeModelsCommandOutput,
   ListAssetModelCompositeModelsCommand,
-  ListAssetModelCompositeModelsCommandInput,
-  ListAssetModelCompositeModelsCommandOutput,
 } from "./commands/ListAssetModelCompositeModelsCommand";
 import {
+  type ListAssetModelPropertiesCommandInput,
+  type ListAssetModelPropertiesCommandOutput,
   ListAssetModelPropertiesCommand,
-  ListAssetModelPropertiesCommandInput,
-  ListAssetModelPropertiesCommandOutput,
 } from "./commands/ListAssetModelPropertiesCommand";
 import {
+  type ListAssetModelsCommandInput,
+  type ListAssetModelsCommandOutput,
   ListAssetModelsCommand,
-  ListAssetModelsCommandInput,
-  ListAssetModelsCommandOutput,
 } from "./commands/ListAssetModelsCommand";
 import {
+  type ListAssetPropertiesCommandInput,
+  type ListAssetPropertiesCommandOutput,
   ListAssetPropertiesCommand,
-  ListAssetPropertiesCommandInput,
-  ListAssetPropertiesCommandOutput,
 } from "./commands/ListAssetPropertiesCommand";
 import {
+  type ListAssetRelationshipsCommandInput,
+  type ListAssetRelationshipsCommandOutput,
   ListAssetRelationshipsCommand,
-  ListAssetRelationshipsCommandInput,
-  ListAssetRelationshipsCommandOutput,
 } from "./commands/ListAssetRelationshipsCommand";
-import { ListAssetsCommand, ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
 import {
+  type ListAssetsCommandInput,
+  type ListAssetsCommandOutput,
+  ListAssetsCommand,
+} from "./commands/ListAssetsCommand";
+import {
+  type ListAssociatedAssetsCommandInput,
+  type ListAssociatedAssetsCommandOutput,
   ListAssociatedAssetsCommand,
-  ListAssociatedAssetsCommandInput,
-  ListAssociatedAssetsCommandOutput,
 } from "./commands/ListAssociatedAssetsCommand";
 import {
+  type ListBulkImportJobsCommandInput,
+  type ListBulkImportJobsCommandOutput,
   ListBulkImportJobsCommand,
-  ListBulkImportJobsCommandInput,
-  ListBulkImportJobsCommandOutput,
 } from "./commands/ListBulkImportJobsCommand";
 import {
+  type ListCompositionRelationshipsCommandInput,
+  type ListCompositionRelationshipsCommandOutput,
   ListCompositionRelationshipsCommand,
-  ListCompositionRelationshipsCommandInput,
-  ListCompositionRelationshipsCommandOutput,
 } from "./commands/ListCompositionRelationshipsCommand";
 import {
+  type ListComputationModelDataBindingUsagesCommandInput,
+  type ListComputationModelDataBindingUsagesCommandOutput,
   ListComputationModelDataBindingUsagesCommand,
-  ListComputationModelDataBindingUsagesCommandInput,
-  ListComputationModelDataBindingUsagesCommandOutput,
 } from "./commands/ListComputationModelDataBindingUsagesCommand";
 import {
+  type ListComputationModelResolveToResourcesCommandInput,
+  type ListComputationModelResolveToResourcesCommandOutput,
   ListComputationModelResolveToResourcesCommand,
-  ListComputationModelResolveToResourcesCommandInput,
-  ListComputationModelResolveToResourcesCommandOutput,
 } from "./commands/ListComputationModelResolveToResourcesCommand";
 import {
+  type ListComputationModelsCommandInput,
+  type ListComputationModelsCommandOutput,
   ListComputationModelsCommand,
-  ListComputationModelsCommandInput,
-  ListComputationModelsCommandOutput,
 } from "./commands/ListComputationModelsCommand";
 import {
+  type ListDashboardsCommandInput,
+  type ListDashboardsCommandOutput,
   ListDashboardsCommand,
-  ListDashboardsCommandInput,
-  ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
 import {
+  type ListDatasetsCommandInput,
+  type ListDatasetsCommandOutput,
   ListDatasetsCommand,
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
 import {
+  type ListExecutionsCommandInput,
+  type ListExecutionsCommandOutput,
   ListExecutionsCommand,
-  ListExecutionsCommandInput,
-  ListExecutionsCommandOutput,
 } from "./commands/ListExecutionsCommand";
 import {
+  type ListGatewaysCommandInput,
+  type ListGatewaysCommandOutput,
   ListGatewaysCommand,
-  ListGatewaysCommandInput,
-  ListGatewaysCommandOutput,
 } from "./commands/ListGatewaysCommand";
 import {
+  type ListInterfaceRelationshipsCommandInput,
+  type ListInterfaceRelationshipsCommandOutput,
   ListInterfaceRelationshipsCommand,
-  ListInterfaceRelationshipsCommandInput,
-  ListInterfaceRelationshipsCommandOutput,
 } from "./commands/ListInterfaceRelationshipsCommand";
-import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
 import {
+  type ListPortalsCommandInput,
+  type ListPortalsCommandOutput,
+  ListPortalsCommand,
+} from "./commands/ListPortalsCommand";
+import {
+  type ListProjectAssetsCommandInput,
+  type ListProjectAssetsCommandOutput,
   ListProjectAssetsCommand,
-  ListProjectAssetsCommandInput,
-  ListProjectAssetsCommandOutput,
 } from "./commands/ListProjectAssetsCommand";
 import {
+  type ListProjectsCommandInput,
+  type ListProjectsCommandOutput,
   ListProjectsCommand,
-  ListProjectsCommandInput,
-  ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTimeSeriesCommandInput,
+  type ListTimeSeriesCommandOutput,
   ListTimeSeriesCommand,
-  ListTimeSeriesCommandInput,
-  ListTimeSeriesCommandOutput,
 } from "./commands/ListTimeSeriesCommand";
 import {
+  type PutAssetModelInterfaceRelationshipCommandInput,
+  type PutAssetModelInterfaceRelationshipCommandOutput,
   PutAssetModelInterfaceRelationshipCommand,
-  PutAssetModelInterfaceRelationshipCommandInput,
-  PutAssetModelInterfaceRelationshipCommandOutput,
 } from "./commands/PutAssetModelInterfaceRelationshipCommand";
 import {
+  type PutDefaultEncryptionConfigurationCommandInput,
+  type PutDefaultEncryptionConfigurationCommandOutput,
   PutDefaultEncryptionConfigurationCommand,
-  PutDefaultEncryptionConfigurationCommandInput,
-  PutDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/PutDefaultEncryptionConfigurationCommand";
 import {
+  type PutLoggingOptionsCommandInput,
+  type PutLoggingOptionsCommandOutput,
   PutLoggingOptionsCommand,
-  PutLoggingOptionsCommandInput,
-  PutLoggingOptionsCommandOutput,
 } from "./commands/PutLoggingOptionsCommand";
 import {
+  type PutStorageConfigurationCommandInput,
+  type PutStorageConfigurationCommandOutput,
   PutStorageConfigurationCommand,
-  PutStorageConfigurationCommandInput,
-  PutStorageConfigurationCommandOutput,
 } from "./commands/PutStorageConfigurationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccessPolicyCommandInput,
+  type UpdateAccessPolicyCommandOutput,
   UpdateAccessPolicyCommand,
-  UpdateAccessPolicyCommandInput,
-  UpdateAccessPolicyCommandOutput,
 } from "./commands/UpdateAccessPolicyCommand";
-import { UpdateAssetCommand, UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
 import {
+  type UpdateAssetCommandInput,
+  type UpdateAssetCommandOutput,
+  UpdateAssetCommand,
+} from "./commands/UpdateAssetCommand";
+import {
+  type UpdateAssetModelCommandInput,
+  type UpdateAssetModelCommandOutput,
   UpdateAssetModelCommand,
-  UpdateAssetModelCommandInput,
-  UpdateAssetModelCommandOutput,
 } from "./commands/UpdateAssetModelCommand";
 import {
+  type UpdateAssetModelCompositeModelCommandInput,
+  type UpdateAssetModelCompositeModelCommandOutput,
   UpdateAssetModelCompositeModelCommand,
-  UpdateAssetModelCompositeModelCommandInput,
-  UpdateAssetModelCompositeModelCommandOutput,
 } from "./commands/UpdateAssetModelCompositeModelCommand";
 import {
+  type UpdateAssetPropertyCommandInput,
+  type UpdateAssetPropertyCommandOutput,
   UpdateAssetPropertyCommand,
-  UpdateAssetPropertyCommandInput,
-  UpdateAssetPropertyCommandOutput,
 } from "./commands/UpdateAssetPropertyCommand";
 import {
+  type UpdateComputationModelCommandInput,
+  type UpdateComputationModelCommandOutput,
   UpdateComputationModelCommand,
-  UpdateComputationModelCommandInput,
-  UpdateComputationModelCommandOutput,
 } from "./commands/UpdateComputationModelCommand";
 import {
+  type UpdateDashboardCommandInput,
+  type UpdateDashboardCommandOutput,
   UpdateDashboardCommand,
-  UpdateDashboardCommandInput,
-  UpdateDashboardCommandOutput,
 } from "./commands/UpdateDashboardCommand";
 import {
+  type UpdateDatasetCommandInput,
+  type UpdateDatasetCommandOutput,
   UpdateDatasetCommand,
-  UpdateDatasetCommandInput,
-  UpdateDatasetCommandOutput,
 } from "./commands/UpdateDatasetCommand";
 import {
+  type UpdateGatewayCapabilityConfigurationCommandInput,
+  type UpdateGatewayCapabilityConfigurationCommandOutput,
   UpdateGatewayCapabilityConfigurationCommand,
-  UpdateGatewayCapabilityConfigurationCommandInput,
-  UpdateGatewayCapabilityConfigurationCommandOutput,
 } from "./commands/UpdateGatewayCapabilityConfigurationCommand";
 import {
+  type UpdateGatewayCommandInput,
+  type UpdateGatewayCommandOutput,
   UpdateGatewayCommand,
-  UpdateGatewayCommandInput,
-  UpdateGatewayCommandOutput,
 } from "./commands/UpdateGatewayCommand";
 import {
+  type UpdatePortalCommandInput,
+  type UpdatePortalCommandOutput,
   UpdatePortalCommand,
-  UpdatePortalCommandInput,
-  UpdatePortalCommandOutput,
 } from "./commands/UpdatePortalCommand";
 import {
+  type UpdateProjectCommandInput,
+  type UpdateProjectCommandOutput,
   UpdateProjectCommand,
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
 import { IoTSiteWiseClient } from "./IoTSiteWiseClient";
 import { paginateBatchGetAssetPropertyAggregates } from "./pagination/BatchGetAssetPropertyAggregatesPaginator";

@@ -7,7 +7,7 @@
  */
 export * from "./BCMDashboardsClient";
 export * from "./BCMDashboards";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BCMDashboardsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

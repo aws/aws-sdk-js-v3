@@ -9,7 +9,7 @@
  */
 export * from "./EC2Client";
 export * from "./EC2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { EC2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -8,7 +8,7 @@ import {
   DescribeEvaluationsCommandOutput,
 } from "../commands/DescribeEvaluationsCommand";
 import { MachineLearningClient } from "../MachineLearningClient";
-import { MachineLearningPaginationConfiguration } from "./Interfaces";
+import type { MachineLearningPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

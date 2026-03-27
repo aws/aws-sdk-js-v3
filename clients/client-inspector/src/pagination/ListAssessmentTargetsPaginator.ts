@@ -8,7 +8,7 @@ import {
   ListAssessmentTargetsCommandOutput,
 } from "../commands/ListAssessmentTargetsCommand";
 import { InspectorClient } from "../InspectorClient";
-import { InspectorPaginationConfiguration } from "./Interfaces";
+import type { InspectorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

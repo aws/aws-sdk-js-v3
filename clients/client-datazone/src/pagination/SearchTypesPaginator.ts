@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { SearchTypesCommand, SearchTypesCommandInput, SearchTypesCommandOutput } from "../commands/SearchTypesCommand";
 import { DataZoneClient } from "../DataZoneClient";
-import { DataZonePaginationConfiguration } from "./Interfaces";
+import type { DataZonePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

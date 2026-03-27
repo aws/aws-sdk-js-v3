@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   AllowedImagesSettingsDisabledState,
   AllowedImagesSettingsEnabledState,
   CapacityManagerStatus,
@@ -50,38 +50,38 @@ import {
   VpcBlockPublicAccessExclusionsAllowed,
   VpcBlockPublicAccessState,
 } from "./enums";
-import {
-  type ActiveVpnTunnelStatus,
-  type AddressTransfer,
-  type AsnAssociation,
-  type AssociationStatus,
-  type IamInstanceProfileAssociation,
-  type InstanceEventWindow,
-  type InterruptibleCapacityAllocation,
-  type InterruptionInfo,
-  type IpamResourceDiscoveryAssociation,
-  type RouteServerAssociation,
-  type SubnetIpv6CidrBlockAssociation,
-  type TransitGatewayAssociation,
-  type TransitGatewayMulticastDomainAssociations,
-  type TransitGatewayPolicyTableAssociation,
-  type VpcCidrBlockAssociation,
-  type VpcIpv6CidrBlockAssociation,
+import type {
+  ActiveVpnTunnelStatus,
+  AddressTransfer,
   AllowedPrincipal,
+  AsnAssociation,
+  AssociationStatus,
+  IamInstanceProfileAssociation,
+  InstanceEventWindow,
+  InterruptibleCapacityAllocation,
+  InterruptionInfo,
+  IpamResourceDiscoveryAssociation,
   NatGatewayAddress,
+  RouteServerAssociation,
+  SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
+  TransitGatewayAssociation,
+  TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
+  TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
   Volume,
   Vpc,
+  VpcCidrBlockAssociation,
   VpcEncryptionControl,
+  VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
 } from "./models_0";
-import {
+import type {
   ConnectionNotification,
   DnsEntry,
   ServiceConfiguration,
@@ -104,15 +104,15 @@ import {
   VpnConnection,
   VpnGateway,
 } from "./models_2";
-import {
-  type AttributeBooleanValue,
-  type ExportTaskS3Location,
-  type FastLaunchLaunchTemplateSpecificationResponse,
-  type FastLaunchSnapshotConfigurationResponse,
+import type {
+  AttributeBooleanValue,
+  ExportTaskS3Location,
+  FastLaunchLaunchTemplateSpecificationResponse,
+  FastLaunchSnapshotConfigurationResponse,
   Filter,
   ProductCode,
 } from "./models_3";
-import { RegisteredInstance } from "./models_4";
+import type { RegisteredInstance } from "./models_4";
 
 /**
  * @public

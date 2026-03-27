@@ -8,7 +8,7 @@ import {
   ListDomainMaintenancesCommandOutput,
 } from "../commands/ListDomainMaintenancesCommand";
 import { OpenSearchClient } from "../OpenSearchClient";
-import { OpenSearchPaginationConfiguration } from "./Interfaces";
+import type { OpenSearchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

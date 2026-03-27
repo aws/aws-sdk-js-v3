@@ -8,7 +8,7 @@ import {
   ListAssessmentReportsCommandInput,
   ListAssessmentReportsCommandOutput,
 } from "../commands/ListAssessmentReportsCommand";
-import { AuditManagerPaginationConfiguration } from "./Interfaces";
+import type { AuditManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -18,7 +18,7 @@
  */
 export * from "./ComputeOptimizerClient";
 export * from "./ComputeOptimizer";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ComputeOptimizerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

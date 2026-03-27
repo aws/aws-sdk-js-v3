@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ClientVersion, CloudHsmObjectState, HsmStatus, SubscriptionType } from "./enums";
+import type { ClientVersion, CloudHsmObjectState, HsmStatus, SubscriptionType } from "./enums";
 
 /**
  * <p>A key-value pair that identifies or specifies metadata about an AWS CloudHSM

@@ -8,7 +8,7 @@ import {
   ListLibraryItemsCommandOutput,
 } from "../commands/ListLibraryItemsCommand";
 import { QAppsClient } from "../QAppsClient";
-import { QAppsPaginationConfiguration } from "./Interfaces";
+import type { QAppsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

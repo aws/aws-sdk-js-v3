@@ -8,7 +8,7 @@ import {
   ListHarvestJobsCommandOutput,
 } from "../commands/ListHarvestJobsCommand";
 import { MediaPackageV2Client } from "../MediaPackageV2Client";
-import { MediaPackageV2PaginationConfiguration } from "./Interfaces";
+import type { MediaPackageV2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

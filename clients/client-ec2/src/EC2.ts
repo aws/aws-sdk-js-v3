@@ -9,3712 +9,3772 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AcceptAddressTransferCommandInput,
+  type AcceptAddressTransferCommandOutput,
   AcceptAddressTransferCommand,
-  AcceptAddressTransferCommandInput,
-  AcceptAddressTransferCommandOutput,
 } from "./commands/AcceptAddressTransferCommand";
 import {
+  type AcceptCapacityReservationBillingOwnershipCommandInput,
+  type AcceptCapacityReservationBillingOwnershipCommandOutput,
   AcceptCapacityReservationBillingOwnershipCommand,
-  AcceptCapacityReservationBillingOwnershipCommandInput,
-  AcceptCapacityReservationBillingOwnershipCommandOutput,
 } from "./commands/AcceptCapacityReservationBillingOwnershipCommand";
 import {
+  type AcceptReservedInstancesExchangeQuoteCommandInput,
+  type AcceptReservedInstancesExchangeQuoteCommandOutput,
   AcceptReservedInstancesExchangeQuoteCommand,
-  AcceptReservedInstancesExchangeQuoteCommandInput,
-  AcceptReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/AcceptReservedInstancesExchangeQuoteCommand";
 import {
+  type AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
+  type AcceptTransitGatewayMulticastDomainAssociationsCommandOutput,
   AcceptTransitGatewayMulticastDomainAssociationsCommand,
-  AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
-  AcceptTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/AcceptTransitGatewayMulticastDomainAssociationsCommand";
 import {
+  type AcceptTransitGatewayPeeringAttachmentCommandInput,
+  type AcceptTransitGatewayPeeringAttachmentCommandOutput,
   AcceptTransitGatewayPeeringAttachmentCommand,
-  AcceptTransitGatewayPeeringAttachmentCommandInput,
-  AcceptTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/AcceptTransitGatewayPeeringAttachmentCommand";
 import {
+  type AcceptTransitGatewayVpcAttachmentCommandInput,
+  type AcceptTransitGatewayVpcAttachmentCommandOutput,
   AcceptTransitGatewayVpcAttachmentCommand,
-  AcceptTransitGatewayVpcAttachmentCommandInput,
-  AcceptTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/AcceptTransitGatewayVpcAttachmentCommand";
 import {
+  type AcceptVpcEndpointConnectionsCommandInput,
+  type AcceptVpcEndpointConnectionsCommandOutput,
   AcceptVpcEndpointConnectionsCommand,
-  AcceptVpcEndpointConnectionsCommandInput,
-  AcceptVpcEndpointConnectionsCommandOutput,
 } from "./commands/AcceptVpcEndpointConnectionsCommand";
 import {
+  type AcceptVpcPeeringConnectionCommandInput,
+  type AcceptVpcPeeringConnectionCommandOutput,
   AcceptVpcPeeringConnectionCommand,
-  AcceptVpcPeeringConnectionCommandInput,
-  AcceptVpcPeeringConnectionCommandOutput,
 } from "./commands/AcceptVpcPeeringConnectionCommand";
 import {
+  type AdvertiseByoipCidrCommandInput,
+  type AdvertiseByoipCidrCommandOutput,
   AdvertiseByoipCidrCommand,
-  AdvertiseByoipCidrCommandInput,
-  AdvertiseByoipCidrCommandOutput,
 } from "./commands/AdvertiseByoipCidrCommand";
 import {
+  type AllocateAddressCommandInput,
+  type AllocateAddressCommandOutput,
   AllocateAddressCommand,
-  AllocateAddressCommandInput,
-  AllocateAddressCommandOutput,
 } from "./commands/AllocateAddressCommand";
 import {
+  type AllocateHostsCommandInput,
+  type AllocateHostsCommandOutput,
   AllocateHostsCommand,
-  AllocateHostsCommandInput,
-  AllocateHostsCommandOutput,
 } from "./commands/AllocateHostsCommand";
 import {
+  type AllocateIpamPoolCidrCommandInput,
+  type AllocateIpamPoolCidrCommandOutput,
   AllocateIpamPoolCidrCommand,
-  AllocateIpamPoolCidrCommandInput,
-  AllocateIpamPoolCidrCommandOutput,
 } from "./commands/AllocateIpamPoolCidrCommand";
 import {
+  type ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
+  type ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput,
   ApplySecurityGroupsToClientVpnTargetNetworkCommand,
-  ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
-  ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput,
 } from "./commands/ApplySecurityGroupsToClientVpnTargetNetworkCommand";
 import {
+  type AssignIpv6AddressesCommandInput,
+  type AssignIpv6AddressesCommandOutput,
   AssignIpv6AddressesCommand,
-  AssignIpv6AddressesCommandInput,
-  AssignIpv6AddressesCommandOutput,
 } from "./commands/AssignIpv6AddressesCommand";
 import {
+  type AssignPrivateIpAddressesCommandInput,
+  type AssignPrivateIpAddressesCommandOutput,
   AssignPrivateIpAddressesCommand,
-  AssignPrivateIpAddressesCommandInput,
-  AssignPrivateIpAddressesCommandOutput,
 } from "./commands/AssignPrivateIpAddressesCommand";
 import {
+  type AssignPrivateNatGatewayAddressCommandInput,
+  type AssignPrivateNatGatewayAddressCommandOutput,
   AssignPrivateNatGatewayAddressCommand,
-  AssignPrivateNatGatewayAddressCommandInput,
-  AssignPrivateNatGatewayAddressCommandOutput,
 } from "./commands/AssignPrivateNatGatewayAddressCommand";
 import {
+  type AssociateAddressCommandInput,
+  type AssociateAddressCommandOutput,
   AssociateAddressCommand,
-  AssociateAddressCommandInput,
-  AssociateAddressCommandOutput,
 } from "./commands/AssociateAddressCommand";
 import {
+  type AssociateCapacityReservationBillingOwnerCommandInput,
+  type AssociateCapacityReservationBillingOwnerCommandOutput,
   AssociateCapacityReservationBillingOwnerCommand,
-  AssociateCapacityReservationBillingOwnerCommandInput,
-  AssociateCapacityReservationBillingOwnerCommandOutput,
 } from "./commands/AssociateCapacityReservationBillingOwnerCommand";
 import {
+  type AssociateClientVpnTargetNetworkCommandInput,
+  type AssociateClientVpnTargetNetworkCommandOutput,
   AssociateClientVpnTargetNetworkCommand,
-  AssociateClientVpnTargetNetworkCommandInput,
-  AssociateClientVpnTargetNetworkCommandOutput,
 } from "./commands/AssociateClientVpnTargetNetworkCommand";
 import {
+  type AssociateDhcpOptionsCommandInput,
+  type AssociateDhcpOptionsCommandOutput,
   AssociateDhcpOptionsCommand,
-  AssociateDhcpOptionsCommandInput,
-  AssociateDhcpOptionsCommandOutput,
 } from "./commands/AssociateDhcpOptionsCommand";
 import {
+  type AssociateEnclaveCertificateIamRoleCommandInput,
+  type AssociateEnclaveCertificateIamRoleCommandOutput,
   AssociateEnclaveCertificateIamRoleCommand,
-  AssociateEnclaveCertificateIamRoleCommandInput,
-  AssociateEnclaveCertificateIamRoleCommandOutput,
 } from "./commands/AssociateEnclaveCertificateIamRoleCommand";
 import {
+  type AssociateIamInstanceProfileCommandInput,
+  type AssociateIamInstanceProfileCommandOutput,
   AssociateIamInstanceProfileCommand,
-  AssociateIamInstanceProfileCommandInput,
-  AssociateIamInstanceProfileCommandOutput,
 } from "./commands/AssociateIamInstanceProfileCommand";
 import {
+  type AssociateInstanceEventWindowCommandInput,
+  type AssociateInstanceEventWindowCommandOutput,
   AssociateInstanceEventWindowCommand,
-  AssociateInstanceEventWindowCommandInput,
-  AssociateInstanceEventWindowCommandOutput,
 } from "./commands/AssociateInstanceEventWindowCommand";
 import {
+  type AssociateIpamByoasnCommandInput,
+  type AssociateIpamByoasnCommandOutput,
   AssociateIpamByoasnCommand,
-  AssociateIpamByoasnCommandInput,
-  AssociateIpamByoasnCommandOutput,
 } from "./commands/AssociateIpamByoasnCommand";
 import {
+  type AssociateIpamResourceDiscoveryCommandInput,
+  type AssociateIpamResourceDiscoveryCommandOutput,
   AssociateIpamResourceDiscoveryCommand,
-  AssociateIpamResourceDiscoveryCommandInput,
-  AssociateIpamResourceDiscoveryCommandOutput,
 } from "./commands/AssociateIpamResourceDiscoveryCommand";
 import {
+  type AssociateNatGatewayAddressCommandInput,
+  type AssociateNatGatewayAddressCommandOutput,
   AssociateNatGatewayAddressCommand,
-  AssociateNatGatewayAddressCommandInput,
-  AssociateNatGatewayAddressCommandOutput,
 } from "./commands/AssociateNatGatewayAddressCommand";
 import {
+  type AssociateRouteServerCommandInput,
+  type AssociateRouteServerCommandOutput,
   AssociateRouteServerCommand,
-  AssociateRouteServerCommandInput,
-  AssociateRouteServerCommandOutput,
 } from "./commands/AssociateRouteServerCommand";
 import {
+  type AssociateRouteTableCommandInput,
+  type AssociateRouteTableCommandOutput,
   AssociateRouteTableCommand,
-  AssociateRouteTableCommandInput,
-  AssociateRouteTableCommandOutput,
 } from "./commands/AssociateRouteTableCommand";
 import {
+  type AssociateSecurityGroupVpcCommandInput,
+  type AssociateSecurityGroupVpcCommandOutput,
   AssociateSecurityGroupVpcCommand,
-  AssociateSecurityGroupVpcCommandInput,
-  AssociateSecurityGroupVpcCommandOutput,
 } from "./commands/AssociateSecurityGroupVpcCommand";
 import {
+  type AssociateSubnetCidrBlockCommandInput,
+  type AssociateSubnetCidrBlockCommandOutput,
   AssociateSubnetCidrBlockCommand,
-  AssociateSubnetCidrBlockCommandInput,
-  AssociateSubnetCidrBlockCommandOutput,
 } from "./commands/AssociateSubnetCidrBlockCommand";
 import {
+  type AssociateTransitGatewayMulticastDomainCommandInput,
+  type AssociateTransitGatewayMulticastDomainCommandOutput,
   AssociateTransitGatewayMulticastDomainCommand,
-  AssociateTransitGatewayMulticastDomainCommandInput,
-  AssociateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/AssociateTransitGatewayMulticastDomainCommand";
 import {
+  type AssociateTransitGatewayPolicyTableCommandInput,
+  type AssociateTransitGatewayPolicyTableCommandOutput,
   AssociateTransitGatewayPolicyTableCommand,
-  AssociateTransitGatewayPolicyTableCommandInput,
-  AssociateTransitGatewayPolicyTableCommandOutput,
 } from "./commands/AssociateTransitGatewayPolicyTableCommand";
 import {
+  type AssociateTransitGatewayRouteTableCommandInput,
+  type AssociateTransitGatewayRouteTableCommandOutput,
   AssociateTransitGatewayRouteTableCommand,
-  AssociateTransitGatewayRouteTableCommandInput,
-  AssociateTransitGatewayRouteTableCommandOutput,
 } from "./commands/AssociateTransitGatewayRouteTableCommand";
 import {
+  type AssociateTrunkInterfaceCommandInput,
+  type AssociateTrunkInterfaceCommandOutput,
   AssociateTrunkInterfaceCommand,
-  AssociateTrunkInterfaceCommandInput,
-  AssociateTrunkInterfaceCommandOutput,
 } from "./commands/AssociateTrunkInterfaceCommand";
 import {
+  type AssociateVpcCidrBlockCommandInput,
+  type AssociateVpcCidrBlockCommandOutput,
   AssociateVpcCidrBlockCommand,
-  AssociateVpcCidrBlockCommandInput,
-  AssociateVpcCidrBlockCommandOutput,
 } from "./commands/AssociateVpcCidrBlockCommand";
 import {
+  type AttachClassicLinkVpcCommandInput,
+  type AttachClassicLinkVpcCommandOutput,
   AttachClassicLinkVpcCommand,
-  AttachClassicLinkVpcCommandInput,
-  AttachClassicLinkVpcCommandOutput,
 } from "./commands/AttachClassicLinkVpcCommand";
 import {
+  type AttachInternetGatewayCommandInput,
+  type AttachInternetGatewayCommandOutput,
   AttachInternetGatewayCommand,
-  AttachInternetGatewayCommandInput,
-  AttachInternetGatewayCommandOutput,
 } from "./commands/AttachInternetGatewayCommand";
 import {
+  type AttachNetworkInterfaceCommandInput,
+  type AttachNetworkInterfaceCommandOutput,
   AttachNetworkInterfaceCommand,
-  AttachNetworkInterfaceCommandInput,
-  AttachNetworkInterfaceCommandOutput,
 } from "./commands/AttachNetworkInterfaceCommand";
 import {
+  type AttachVerifiedAccessTrustProviderCommandInput,
+  type AttachVerifiedAccessTrustProviderCommandOutput,
   AttachVerifiedAccessTrustProviderCommand,
-  AttachVerifiedAccessTrustProviderCommandInput,
-  AttachVerifiedAccessTrustProviderCommandOutput,
 } from "./commands/AttachVerifiedAccessTrustProviderCommand";
 import {
+  type AttachVolumeCommandInput,
+  type AttachVolumeCommandOutput,
   AttachVolumeCommand,
-  AttachVolumeCommandInput,
-  AttachVolumeCommandOutput,
 } from "./commands/AttachVolumeCommand";
 import {
+  type AttachVpnGatewayCommandInput,
+  type AttachVpnGatewayCommandOutput,
   AttachVpnGatewayCommand,
-  AttachVpnGatewayCommandInput,
-  AttachVpnGatewayCommandOutput,
 } from "./commands/AttachVpnGatewayCommand";
 import {
+  type AuthorizeClientVpnIngressCommandInput,
+  type AuthorizeClientVpnIngressCommandOutput,
   AuthorizeClientVpnIngressCommand,
-  AuthorizeClientVpnIngressCommandInput,
-  AuthorizeClientVpnIngressCommandOutput,
 } from "./commands/AuthorizeClientVpnIngressCommand";
 import {
+  type AuthorizeSecurityGroupEgressCommandInput,
+  type AuthorizeSecurityGroupEgressCommandOutput,
   AuthorizeSecurityGroupEgressCommand,
-  AuthorizeSecurityGroupEgressCommandInput,
-  AuthorizeSecurityGroupEgressCommandOutput,
 } from "./commands/AuthorizeSecurityGroupEgressCommand";
 import {
+  type AuthorizeSecurityGroupIngressCommandInput,
+  type AuthorizeSecurityGroupIngressCommandOutput,
   AuthorizeSecurityGroupIngressCommand,
-  AuthorizeSecurityGroupIngressCommandInput,
-  AuthorizeSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeSecurityGroupIngressCommand";
 import {
+  type BundleInstanceCommandInput,
+  type BundleInstanceCommandOutput,
   BundleInstanceCommand,
-  BundleInstanceCommandInput,
-  BundleInstanceCommandOutput,
 } from "./commands/BundleInstanceCommand";
 import {
+  type CancelBundleTaskCommandInput,
+  type CancelBundleTaskCommandOutput,
   CancelBundleTaskCommand,
-  CancelBundleTaskCommandInput,
-  CancelBundleTaskCommandOutput,
 } from "./commands/CancelBundleTaskCommand";
 import {
+  type CancelCapacityReservationCommandInput,
+  type CancelCapacityReservationCommandOutput,
   CancelCapacityReservationCommand,
-  CancelCapacityReservationCommandInput,
-  CancelCapacityReservationCommandOutput,
 } from "./commands/CancelCapacityReservationCommand";
 import {
+  type CancelCapacityReservationFleetsCommandInput,
+  type CancelCapacityReservationFleetsCommandOutput,
   CancelCapacityReservationFleetsCommand,
-  CancelCapacityReservationFleetsCommandInput,
-  CancelCapacityReservationFleetsCommandOutput,
 } from "./commands/CancelCapacityReservationFleetsCommand";
 import {
+  type CancelConversionTaskCommandInput,
+  type CancelConversionTaskCommandOutput,
   CancelConversionTaskCommand,
-  CancelConversionTaskCommandInput,
-  CancelConversionTaskCommandOutput,
 } from "./commands/CancelConversionTaskCommand";
 import {
+  type CancelDeclarativePoliciesReportCommandInput,
+  type CancelDeclarativePoliciesReportCommandOutput,
   CancelDeclarativePoliciesReportCommand,
-  CancelDeclarativePoliciesReportCommandInput,
-  CancelDeclarativePoliciesReportCommandOutput,
 } from "./commands/CancelDeclarativePoliciesReportCommand";
 import {
+  type CancelExportTaskCommandInput,
+  type CancelExportTaskCommandOutput,
   CancelExportTaskCommand,
-  CancelExportTaskCommandInput,
-  CancelExportTaskCommandOutput,
 } from "./commands/CancelExportTaskCommand";
 import {
+  type CancelImageLaunchPermissionCommandInput,
+  type CancelImageLaunchPermissionCommandOutput,
   CancelImageLaunchPermissionCommand,
-  CancelImageLaunchPermissionCommandInput,
-  CancelImageLaunchPermissionCommandOutput,
 } from "./commands/CancelImageLaunchPermissionCommand";
 import {
+  type CancelImportTaskCommandInput,
+  type CancelImportTaskCommandOutput,
   CancelImportTaskCommand,
-  CancelImportTaskCommandInput,
-  CancelImportTaskCommandOutput,
 } from "./commands/CancelImportTaskCommand";
 import {
+  type CancelReservedInstancesListingCommandInput,
+  type CancelReservedInstancesListingCommandOutput,
   CancelReservedInstancesListingCommand,
-  CancelReservedInstancesListingCommandInput,
-  CancelReservedInstancesListingCommandOutput,
 } from "./commands/CancelReservedInstancesListingCommand";
 import {
+  type CancelSpotFleetRequestsCommandInput,
+  type CancelSpotFleetRequestsCommandOutput,
   CancelSpotFleetRequestsCommand,
-  CancelSpotFleetRequestsCommandInput,
-  CancelSpotFleetRequestsCommandOutput,
 } from "./commands/CancelSpotFleetRequestsCommand";
 import {
+  type CancelSpotInstanceRequestsCommandInput,
+  type CancelSpotInstanceRequestsCommandOutput,
   CancelSpotInstanceRequestsCommand,
-  CancelSpotInstanceRequestsCommandInput,
-  CancelSpotInstanceRequestsCommandOutput,
 } from "./commands/CancelSpotInstanceRequestsCommand";
 import {
+  type ConfirmProductInstanceCommandInput,
+  type ConfirmProductInstanceCommandOutput,
   ConfirmProductInstanceCommand,
-  ConfirmProductInstanceCommandInput,
-  ConfirmProductInstanceCommandOutput,
 } from "./commands/ConfirmProductInstanceCommand";
 import {
+  type CopyFpgaImageCommandInput,
+  type CopyFpgaImageCommandOutput,
   CopyFpgaImageCommand,
-  CopyFpgaImageCommandInput,
-  CopyFpgaImageCommandOutput,
 } from "./commands/CopyFpgaImageCommand";
-import { CopyImageCommand, CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
+import { type CopyImageCommandInput, type CopyImageCommandOutput, CopyImageCommand } from "./commands/CopyImageCommand";
 import {
+  type CopySnapshotCommandInput,
+  type CopySnapshotCommandOutput,
   CopySnapshotCommand,
-  CopySnapshotCommandInput,
-  CopySnapshotCommandOutput,
 } from "./commands/CopySnapshotCommand";
-import { CopyVolumesCommand, CopyVolumesCommandInput, CopyVolumesCommandOutput } from "./commands/CopyVolumesCommand";
 import {
+  type CopyVolumesCommandInput,
+  type CopyVolumesCommandOutput,
+  CopyVolumesCommand,
+} from "./commands/CopyVolumesCommand";
+import {
+  type CreateCapacityManagerDataExportCommandInput,
+  type CreateCapacityManagerDataExportCommandOutput,
   CreateCapacityManagerDataExportCommand,
-  CreateCapacityManagerDataExportCommandInput,
-  CreateCapacityManagerDataExportCommandOutput,
 } from "./commands/CreateCapacityManagerDataExportCommand";
 import {
+  type CreateCapacityReservationBySplittingCommandInput,
+  type CreateCapacityReservationBySplittingCommandOutput,
   CreateCapacityReservationBySplittingCommand,
-  CreateCapacityReservationBySplittingCommandInput,
-  CreateCapacityReservationBySplittingCommandOutput,
 } from "./commands/CreateCapacityReservationBySplittingCommand";
 import {
+  type CreateCapacityReservationCommandInput,
+  type CreateCapacityReservationCommandOutput,
   CreateCapacityReservationCommand,
-  CreateCapacityReservationCommandInput,
-  CreateCapacityReservationCommandOutput,
 } from "./commands/CreateCapacityReservationCommand";
 import {
+  type CreateCapacityReservationFleetCommandInput,
+  type CreateCapacityReservationFleetCommandOutput,
   CreateCapacityReservationFleetCommand,
-  CreateCapacityReservationFleetCommandInput,
-  CreateCapacityReservationFleetCommandOutput,
 } from "./commands/CreateCapacityReservationFleetCommand";
 import {
+  type CreateCarrierGatewayCommandInput,
+  type CreateCarrierGatewayCommandOutput,
   CreateCarrierGatewayCommand,
-  CreateCarrierGatewayCommandInput,
-  CreateCarrierGatewayCommandOutput,
 } from "./commands/CreateCarrierGatewayCommand";
 import {
+  type CreateClientVpnEndpointCommandInput,
+  type CreateClientVpnEndpointCommandOutput,
   CreateClientVpnEndpointCommand,
-  CreateClientVpnEndpointCommandInput,
-  CreateClientVpnEndpointCommandOutput,
 } from "./commands/CreateClientVpnEndpointCommand";
 import {
+  type CreateClientVpnRouteCommandInput,
+  type CreateClientVpnRouteCommandOutput,
   CreateClientVpnRouteCommand,
-  CreateClientVpnRouteCommandInput,
-  CreateClientVpnRouteCommandOutput,
 } from "./commands/CreateClientVpnRouteCommand";
 import {
+  type CreateCoipCidrCommandInput,
+  type CreateCoipCidrCommandOutput,
   CreateCoipCidrCommand,
-  CreateCoipCidrCommandInput,
-  CreateCoipCidrCommandOutput,
 } from "./commands/CreateCoipCidrCommand";
 import {
+  type CreateCoipPoolCommandInput,
+  type CreateCoipPoolCommandOutput,
   CreateCoipPoolCommand,
-  CreateCoipPoolCommandInput,
-  CreateCoipPoolCommandOutput,
 } from "./commands/CreateCoipPoolCommand";
 import {
+  type CreateCustomerGatewayCommandInput,
+  type CreateCustomerGatewayCommandOutput,
   CreateCustomerGatewayCommand,
-  CreateCustomerGatewayCommandInput,
-  CreateCustomerGatewayCommandOutput,
 } from "./commands/CreateCustomerGatewayCommand";
 import {
+  type CreateDefaultSubnetCommandInput,
+  type CreateDefaultSubnetCommandOutput,
   CreateDefaultSubnetCommand,
-  CreateDefaultSubnetCommandInput,
-  CreateDefaultSubnetCommandOutput,
 } from "./commands/CreateDefaultSubnetCommand";
 import {
+  type CreateDefaultVpcCommandInput,
+  type CreateDefaultVpcCommandOutput,
   CreateDefaultVpcCommand,
-  CreateDefaultVpcCommandInput,
-  CreateDefaultVpcCommandOutput,
 } from "./commands/CreateDefaultVpcCommand";
 import {
+  type CreateDelegateMacVolumeOwnershipTaskCommandInput,
+  type CreateDelegateMacVolumeOwnershipTaskCommandOutput,
   CreateDelegateMacVolumeOwnershipTaskCommand,
-  CreateDelegateMacVolumeOwnershipTaskCommandInput,
-  CreateDelegateMacVolumeOwnershipTaskCommandOutput,
 } from "./commands/CreateDelegateMacVolumeOwnershipTaskCommand";
 import {
+  type CreateDhcpOptionsCommandInput,
+  type CreateDhcpOptionsCommandOutput,
   CreateDhcpOptionsCommand,
-  CreateDhcpOptionsCommandInput,
-  CreateDhcpOptionsCommandOutput,
 } from "./commands/CreateDhcpOptionsCommand";
 import {
+  type CreateEgressOnlyInternetGatewayCommandInput,
+  type CreateEgressOnlyInternetGatewayCommandOutput,
   CreateEgressOnlyInternetGatewayCommand,
-  CreateEgressOnlyInternetGatewayCommandInput,
-  CreateEgressOnlyInternetGatewayCommandOutput,
 } from "./commands/CreateEgressOnlyInternetGatewayCommand";
-import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
+  type CreateFleetCommandInput,
+  type CreateFleetCommandOutput,
+  CreateFleetCommand,
+} from "./commands/CreateFleetCommand";
+import {
+  type CreateFlowLogsCommandInput,
+  type CreateFlowLogsCommandOutput,
   CreateFlowLogsCommand,
-  CreateFlowLogsCommandInput,
-  CreateFlowLogsCommandOutput,
 } from "./commands/CreateFlowLogsCommand";
 import {
+  type CreateFpgaImageCommandInput,
+  type CreateFpgaImageCommandOutput,
   CreateFpgaImageCommand,
-  CreateFpgaImageCommandInput,
-  CreateFpgaImageCommandOutput,
 } from "./commands/CreateFpgaImageCommand";
-import { CreateImageCommand, CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
+  type CreateImageCommandInput,
+  type CreateImageCommandOutput,
+  CreateImageCommand,
+} from "./commands/CreateImageCommand";
+import {
+  type CreateImageUsageReportCommandInput,
+  type CreateImageUsageReportCommandOutput,
   CreateImageUsageReportCommand,
-  CreateImageUsageReportCommandInput,
-  CreateImageUsageReportCommandOutput,
 } from "./commands/CreateImageUsageReportCommand";
 import {
+  type CreateInstanceConnectEndpointCommandInput,
+  type CreateInstanceConnectEndpointCommandOutput,
   CreateInstanceConnectEndpointCommand,
-  CreateInstanceConnectEndpointCommandInput,
-  CreateInstanceConnectEndpointCommandOutput,
 } from "./commands/CreateInstanceConnectEndpointCommand";
 import {
+  type CreateInstanceEventWindowCommandInput,
+  type CreateInstanceEventWindowCommandOutput,
   CreateInstanceEventWindowCommand,
-  CreateInstanceEventWindowCommandInput,
-  CreateInstanceEventWindowCommandOutput,
 } from "./commands/CreateInstanceEventWindowCommand";
 import {
+  type CreateInstanceExportTaskCommandInput,
+  type CreateInstanceExportTaskCommandOutput,
   CreateInstanceExportTaskCommand,
-  CreateInstanceExportTaskCommandInput,
-  CreateInstanceExportTaskCommandOutput,
 } from "./commands/CreateInstanceExportTaskCommand";
 import {
+  type CreateInternetGatewayCommandInput,
+  type CreateInternetGatewayCommandOutput,
   CreateInternetGatewayCommand,
-  CreateInternetGatewayCommandInput,
-  CreateInternetGatewayCommandOutput,
 } from "./commands/CreateInternetGatewayCommand";
 import {
+  type CreateInterruptibleCapacityReservationAllocationCommandInput,
+  type CreateInterruptibleCapacityReservationAllocationCommandOutput,
   CreateInterruptibleCapacityReservationAllocationCommand,
-  CreateInterruptibleCapacityReservationAllocationCommandInput,
-  CreateInterruptibleCapacityReservationAllocationCommandOutput,
 } from "./commands/CreateInterruptibleCapacityReservationAllocationCommand";
-import { CreateIpamCommand, CreateIpamCommandInput, CreateIpamCommandOutput } from "./commands/CreateIpamCommand";
 import {
+  type CreateIpamCommandInput,
+  type CreateIpamCommandOutput,
+  CreateIpamCommand,
+} from "./commands/CreateIpamCommand";
+import {
+  type CreateIpamExternalResourceVerificationTokenCommandInput,
+  type CreateIpamExternalResourceVerificationTokenCommandOutput,
   CreateIpamExternalResourceVerificationTokenCommand,
-  CreateIpamExternalResourceVerificationTokenCommandInput,
-  CreateIpamExternalResourceVerificationTokenCommandOutput,
 } from "./commands/CreateIpamExternalResourceVerificationTokenCommand";
 import {
+  type CreateIpamPolicyCommandInput,
+  type CreateIpamPolicyCommandOutput,
   CreateIpamPolicyCommand,
-  CreateIpamPolicyCommandInput,
-  CreateIpamPolicyCommandOutput,
 } from "./commands/CreateIpamPolicyCommand";
 import {
+  type CreateIpamPoolCommandInput,
+  type CreateIpamPoolCommandOutput,
   CreateIpamPoolCommand,
-  CreateIpamPoolCommandInput,
-  CreateIpamPoolCommandOutput,
 } from "./commands/CreateIpamPoolCommand";
 import {
+  type CreateIpamPrefixListResolverCommandInput,
+  type CreateIpamPrefixListResolverCommandOutput,
   CreateIpamPrefixListResolverCommand,
-  CreateIpamPrefixListResolverCommandInput,
-  CreateIpamPrefixListResolverCommandOutput,
 } from "./commands/CreateIpamPrefixListResolverCommand";
 import {
+  type CreateIpamPrefixListResolverTargetCommandInput,
+  type CreateIpamPrefixListResolverTargetCommandOutput,
   CreateIpamPrefixListResolverTargetCommand,
-  CreateIpamPrefixListResolverTargetCommandInput,
-  CreateIpamPrefixListResolverTargetCommandOutput,
 } from "./commands/CreateIpamPrefixListResolverTargetCommand";
 import {
+  type CreateIpamResourceDiscoveryCommandInput,
+  type CreateIpamResourceDiscoveryCommandOutput,
   CreateIpamResourceDiscoveryCommand,
-  CreateIpamResourceDiscoveryCommandInput,
-  CreateIpamResourceDiscoveryCommandOutput,
 } from "./commands/CreateIpamResourceDiscoveryCommand";
 import {
+  type CreateIpamScopeCommandInput,
+  type CreateIpamScopeCommandOutput,
   CreateIpamScopeCommand,
-  CreateIpamScopeCommandInput,
-  CreateIpamScopeCommandOutput,
 } from "./commands/CreateIpamScopeCommand";
 import {
+  type CreateKeyPairCommandInput,
+  type CreateKeyPairCommandOutput,
   CreateKeyPairCommand,
-  CreateKeyPairCommandInput,
-  CreateKeyPairCommandOutput,
 } from "./commands/CreateKeyPairCommand";
 import {
+  type CreateLaunchTemplateCommandInput,
+  type CreateLaunchTemplateCommandOutput,
   CreateLaunchTemplateCommand,
-  CreateLaunchTemplateCommandInput,
-  CreateLaunchTemplateCommandOutput,
 } from "./commands/CreateLaunchTemplateCommand";
 import {
+  type CreateLaunchTemplateVersionCommandInput,
+  type CreateLaunchTemplateVersionCommandOutput,
   CreateLaunchTemplateVersionCommand,
-  CreateLaunchTemplateVersionCommandInput,
-  CreateLaunchTemplateVersionCommandOutput,
 } from "./commands/CreateLaunchTemplateVersionCommand";
 import {
+  type CreateLocalGatewayRouteCommandInput,
+  type CreateLocalGatewayRouteCommandOutput,
   CreateLocalGatewayRouteCommand,
-  CreateLocalGatewayRouteCommandInput,
-  CreateLocalGatewayRouteCommandOutput,
 } from "./commands/CreateLocalGatewayRouteCommand";
 import {
+  type CreateLocalGatewayRouteTableCommandInput,
+  type CreateLocalGatewayRouteTableCommandOutput,
   CreateLocalGatewayRouteTableCommand,
-  CreateLocalGatewayRouteTableCommandInput,
-  CreateLocalGatewayRouteTableCommandOutput,
 } from "./commands/CreateLocalGatewayRouteTableCommand";
 import {
+  type CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  type CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
-  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
-  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
 } from "./commands/CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand";
 import {
+  type CreateLocalGatewayRouteTableVpcAssociationCommandInput,
+  type CreateLocalGatewayRouteTableVpcAssociationCommandOutput,
   CreateLocalGatewayRouteTableVpcAssociationCommand,
-  CreateLocalGatewayRouteTableVpcAssociationCommandInput,
-  CreateLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/CreateLocalGatewayRouteTableVpcAssociationCommand";
 import {
+  type CreateLocalGatewayVirtualInterfaceCommandInput,
+  type CreateLocalGatewayVirtualInterfaceCommandOutput,
   CreateLocalGatewayVirtualInterfaceCommand,
-  CreateLocalGatewayVirtualInterfaceCommandInput,
-  CreateLocalGatewayVirtualInterfaceCommandOutput,
 } from "./commands/CreateLocalGatewayVirtualInterfaceCommand";
 import {
+  type CreateLocalGatewayVirtualInterfaceGroupCommandInput,
+  type CreateLocalGatewayVirtualInterfaceGroupCommandOutput,
   CreateLocalGatewayVirtualInterfaceGroupCommand,
-  CreateLocalGatewayVirtualInterfaceGroupCommandInput,
-  CreateLocalGatewayVirtualInterfaceGroupCommandOutput,
 } from "./commands/CreateLocalGatewayVirtualInterfaceGroupCommand";
 import {
+  type CreateMacSystemIntegrityProtectionModificationTaskCommandInput,
+  type CreateMacSystemIntegrityProtectionModificationTaskCommandOutput,
   CreateMacSystemIntegrityProtectionModificationTaskCommand,
-  CreateMacSystemIntegrityProtectionModificationTaskCommandInput,
-  CreateMacSystemIntegrityProtectionModificationTaskCommandOutput,
 } from "./commands/CreateMacSystemIntegrityProtectionModificationTaskCommand";
 import {
+  type CreateManagedPrefixListCommandInput,
+  type CreateManagedPrefixListCommandOutput,
   CreateManagedPrefixListCommand,
-  CreateManagedPrefixListCommandInput,
-  CreateManagedPrefixListCommandOutput,
 } from "./commands/CreateManagedPrefixListCommand";
 import {
+  type CreateNatGatewayCommandInput,
+  type CreateNatGatewayCommandOutput,
   CreateNatGatewayCommand,
-  CreateNatGatewayCommandInput,
-  CreateNatGatewayCommandOutput,
 } from "./commands/CreateNatGatewayCommand";
 import {
+  type CreateNetworkAclCommandInput,
+  type CreateNetworkAclCommandOutput,
   CreateNetworkAclCommand,
-  CreateNetworkAclCommandInput,
-  CreateNetworkAclCommandOutput,
 } from "./commands/CreateNetworkAclCommand";
 import {
+  type CreateNetworkAclEntryCommandInput,
+  type CreateNetworkAclEntryCommandOutput,
   CreateNetworkAclEntryCommand,
-  CreateNetworkAclEntryCommandInput,
-  CreateNetworkAclEntryCommandOutput,
 } from "./commands/CreateNetworkAclEntryCommand";
 import {
+  type CreateNetworkInsightsAccessScopeCommandInput,
+  type CreateNetworkInsightsAccessScopeCommandOutput,
   CreateNetworkInsightsAccessScopeCommand,
-  CreateNetworkInsightsAccessScopeCommandInput,
-  CreateNetworkInsightsAccessScopeCommandOutput,
 } from "./commands/CreateNetworkInsightsAccessScopeCommand";
 import {
+  type CreateNetworkInsightsPathCommandInput,
+  type CreateNetworkInsightsPathCommandOutput,
   CreateNetworkInsightsPathCommand,
-  CreateNetworkInsightsPathCommandInput,
-  CreateNetworkInsightsPathCommandOutput,
 } from "./commands/CreateNetworkInsightsPathCommand";
 import {
+  type CreateNetworkInterfaceCommandInput,
+  type CreateNetworkInterfaceCommandOutput,
   CreateNetworkInterfaceCommand,
-  CreateNetworkInterfaceCommandInput,
-  CreateNetworkInterfaceCommandOutput,
 } from "./commands/CreateNetworkInterfaceCommand";
 import {
+  type CreateNetworkInterfacePermissionCommandInput,
+  type CreateNetworkInterfacePermissionCommandOutput,
   CreateNetworkInterfacePermissionCommand,
-  CreateNetworkInterfacePermissionCommandInput,
-  CreateNetworkInterfacePermissionCommandOutput,
 } from "./commands/CreateNetworkInterfacePermissionCommand";
 import {
+  type CreatePlacementGroupCommandInput,
+  type CreatePlacementGroupCommandOutput,
   CreatePlacementGroupCommand,
-  CreatePlacementGroupCommandInput,
-  CreatePlacementGroupCommandOutput,
 } from "./commands/CreatePlacementGroupCommand";
 import {
+  type CreatePublicIpv4PoolCommandInput,
+  type CreatePublicIpv4PoolCommandOutput,
   CreatePublicIpv4PoolCommand,
-  CreatePublicIpv4PoolCommandInput,
-  CreatePublicIpv4PoolCommandOutput,
 } from "./commands/CreatePublicIpv4PoolCommand";
 import {
+  type CreateReplaceRootVolumeTaskCommandInput,
+  type CreateReplaceRootVolumeTaskCommandOutput,
   CreateReplaceRootVolumeTaskCommand,
-  CreateReplaceRootVolumeTaskCommandInput,
-  CreateReplaceRootVolumeTaskCommandOutput,
 } from "./commands/CreateReplaceRootVolumeTaskCommand";
 import {
+  type CreateReservedInstancesListingCommandInput,
+  type CreateReservedInstancesListingCommandOutput,
   CreateReservedInstancesListingCommand,
-  CreateReservedInstancesListingCommandInput,
-  CreateReservedInstancesListingCommandOutput,
 } from "./commands/CreateReservedInstancesListingCommand";
 import {
+  type CreateRestoreImageTaskCommandInput,
+  type CreateRestoreImageTaskCommandOutput,
   CreateRestoreImageTaskCommand,
-  CreateRestoreImageTaskCommandInput,
-  CreateRestoreImageTaskCommandOutput,
 } from "./commands/CreateRestoreImageTaskCommand";
-import { CreateRouteCommand, CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
 import {
+  type CreateRouteCommandInput,
+  type CreateRouteCommandOutput,
+  CreateRouteCommand,
+} from "./commands/CreateRouteCommand";
+import {
+  type CreateRouteServerCommandInput,
+  type CreateRouteServerCommandOutput,
   CreateRouteServerCommand,
-  CreateRouteServerCommandInput,
-  CreateRouteServerCommandOutput,
 } from "./commands/CreateRouteServerCommand";
 import {
+  type CreateRouteServerEndpointCommandInput,
+  type CreateRouteServerEndpointCommandOutput,
   CreateRouteServerEndpointCommand,
-  CreateRouteServerEndpointCommandInput,
-  CreateRouteServerEndpointCommandOutput,
 } from "./commands/CreateRouteServerEndpointCommand";
 import {
+  type CreateRouteServerPeerCommandInput,
+  type CreateRouteServerPeerCommandOutput,
   CreateRouteServerPeerCommand,
-  CreateRouteServerPeerCommandInput,
-  CreateRouteServerPeerCommandOutput,
 } from "./commands/CreateRouteServerPeerCommand";
 import {
+  type CreateRouteTableCommandInput,
+  type CreateRouteTableCommandOutput,
   CreateRouteTableCommand,
-  CreateRouteTableCommandInput,
-  CreateRouteTableCommandOutput,
 } from "./commands/CreateRouteTableCommand";
 import {
+  type CreateSecondaryNetworkCommandInput,
+  type CreateSecondaryNetworkCommandOutput,
   CreateSecondaryNetworkCommand,
-  CreateSecondaryNetworkCommandInput,
-  CreateSecondaryNetworkCommandOutput,
 } from "./commands/CreateSecondaryNetworkCommand";
 import {
+  type CreateSecondarySubnetCommandInput,
+  type CreateSecondarySubnetCommandOutput,
   CreateSecondarySubnetCommand,
-  CreateSecondarySubnetCommandInput,
-  CreateSecondarySubnetCommandOutput,
 } from "./commands/CreateSecondarySubnetCommand";
 import {
+  type CreateSecurityGroupCommandInput,
+  type CreateSecurityGroupCommandOutput,
   CreateSecurityGroupCommand,
-  CreateSecurityGroupCommandInput,
-  CreateSecurityGroupCommandOutput,
 } from "./commands/CreateSecurityGroupCommand";
 import {
+  type CreateSnapshotCommandInput,
+  type CreateSnapshotCommandOutput,
   CreateSnapshotCommand,
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
 import {
+  type CreateSnapshotsCommandInput,
+  type CreateSnapshotsCommandOutput,
   CreateSnapshotsCommand,
-  CreateSnapshotsCommandInput,
-  CreateSnapshotsCommandOutput,
 } from "./commands/CreateSnapshotsCommand";
 import {
+  type CreateSpotDatafeedSubscriptionCommandInput,
+  type CreateSpotDatafeedSubscriptionCommandOutput,
   CreateSpotDatafeedSubscriptionCommand,
-  CreateSpotDatafeedSubscriptionCommandInput,
-  CreateSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/CreateSpotDatafeedSubscriptionCommand";
 import {
+  type CreateStoreImageTaskCommandInput,
+  type CreateStoreImageTaskCommandOutput,
   CreateStoreImageTaskCommand,
-  CreateStoreImageTaskCommandInput,
-  CreateStoreImageTaskCommandOutput,
 } from "./commands/CreateStoreImageTaskCommand";
 import {
+  type CreateSubnetCidrReservationCommandInput,
+  type CreateSubnetCidrReservationCommandOutput,
   CreateSubnetCidrReservationCommand,
-  CreateSubnetCidrReservationCommandInput,
-  CreateSubnetCidrReservationCommandOutput,
 } from "./commands/CreateSubnetCidrReservationCommand";
 import {
+  type CreateSubnetCommandInput,
+  type CreateSubnetCommandOutput,
   CreateSubnetCommand,
-  CreateSubnetCommandInput,
-  CreateSubnetCommandOutput,
 } from "./commands/CreateSubnetCommand";
-import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
+  type CreateTagsCommandInput,
+  type CreateTagsCommandOutput,
+  CreateTagsCommand,
+} from "./commands/CreateTagsCommand";
+import {
+  type CreateTrafficMirrorFilterCommandInput,
+  type CreateTrafficMirrorFilterCommandOutput,
   CreateTrafficMirrorFilterCommand,
-  CreateTrafficMirrorFilterCommandInput,
-  CreateTrafficMirrorFilterCommandOutput,
 } from "./commands/CreateTrafficMirrorFilterCommand";
 import {
+  type CreateTrafficMirrorFilterRuleCommandInput,
+  type CreateTrafficMirrorFilterRuleCommandOutput,
   CreateTrafficMirrorFilterRuleCommand,
-  CreateTrafficMirrorFilterRuleCommandInput,
-  CreateTrafficMirrorFilterRuleCommandOutput,
 } from "./commands/CreateTrafficMirrorFilterRuleCommand";
 import {
+  type CreateTrafficMirrorSessionCommandInput,
+  type CreateTrafficMirrorSessionCommandOutput,
   CreateTrafficMirrorSessionCommand,
-  CreateTrafficMirrorSessionCommandInput,
-  CreateTrafficMirrorSessionCommandOutput,
 } from "./commands/CreateTrafficMirrorSessionCommand";
 import {
+  type CreateTrafficMirrorTargetCommandInput,
+  type CreateTrafficMirrorTargetCommandOutput,
   CreateTrafficMirrorTargetCommand,
-  CreateTrafficMirrorTargetCommandInput,
-  CreateTrafficMirrorTargetCommandOutput,
 } from "./commands/CreateTrafficMirrorTargetCommand";
 import {
+  type CreateTransitGatewayCommandInput,
+  type CreateTransitGatewayCommandOutput,
   CreateTransitGatewayCommand,
-  CreateTransitGatewayCommandInput,
-  CreateTransitGatewayCommandOutput,
 } from "./commands/CreateTransitGatewayCommand";
 import {
+  type CreateTransitGatewayConnectCommandInput,
+  type CreateTransitGatewayConnectCommandOutput,
   CreateTransitGatewayConnectCommand,
-  CreateTransitGatewayConnectCommandInput,
-  CreateTransitGatewayConnectCommandOutput,
 } from "./commands/CreateTransitGatewayConnectCommand";
 import {
+  type CreateTransitGatewayConnectPeerCommandInput,
+  type CreateTransitGatewayConnectPeerCommandOutput,
   CreateTransitGatewayConnectPeerCommand,
-  CreateTransitGatewayConnectPeerCommandInput,
-  CreateTransitGatewayConnectPeerCommandOutput,
 } from "./commands/CreateTransitGatewayConnectPeerCommand";
 import {
+  type CreateTransitGatewayMeteringPolicyCommandInput,
+  type CreateTransitGatewayMeteringPolicyCommandOutput,
   CreateTransitGatewayMeteringPolicyCommand,
-  CreateTransitGatewayMeteringPolicyCommandInput,
-  CreateTransitGatewayMeteringPolicyCommandOutput,
 } from "./commands/CreateTransitGatewayMeteringPolicyCommand";
 import {
+  type CreateTransitGatewayMeteringPolicyEntryCommandInput,
+  type CreateTransitGatewayMeteringPolicyEntryCommandOutput,
   CreateTransitGatewayMeteringPolicyEntryCommand,
-  CreateTransitGatewayMeteringPolicyEntryCommandInput,
-  CreateTransitGatewayMeteringPolicyEntryCommandOutput,
 } from "./commands/CreateTransitGatewayMeteringPolicyEntryCommand";
 import {
+  type CreateTransitGatewayMulticastDomainCommandInput,
+  type CreateTransitGatewayMulticastDomainCommandOutput,
   CreateTransitGatewayMulticastDomainCommand,
-  CreateTransitGatewayMulticastDomainCommandInput,
-  CreateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/CreateTransitGatewayMulticastDomainCommand";
 import {
+  type CreateTransitGatewayPeeringAttachmentCommandInput,
+  type CreateTransitGatewayPeeringAttachmentCommandOutput,
   CreateTransitGatewayPeeringAttachmentCommand,
-  CreateTransitGatewayPeeringAttachmentCommandInput,
-  CreateTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayPeeringAttachmentCommand";
 import {
+  type CreateTransitGatewayPolicyTableCommandInput,
+  type CreateTransitGatewayPolicyTableCommandOutput,
   CreateTransitGatewayPolicyTableCommand,
-  CreateTransitGatewayPolicyTableCommandInput,
-  CreateTransitGatewayPolicyTableCommandOutput,
 } from "./commands/CreateTransitGatewayPolicyTableCommand";
 import {
+  type CreateTransitGatewayPrefixListReferenceCommandInput,
+  type CreateTransitGatewayPrefixListReferenceCommandOutput,
   CreateTransitGatewayPrefixListReferenceCommand,
-  CreateTransitGatewayPrefixListReferenceCommandInput,
-  CreateTransitGatewayPrefixListReferenceCommandOutput,
 } from "./commands/CreateTransitGatewayPrefixListReferenceCommand";
 import {
+  type CreateTransitGatewayRouteCommandInput,
+  type CreateTransitGatewayRouteCommandOutput,
   CreateTransitGatewayRouteCommand,
-  CreateTransitGatewayRouteCommandInput,
-  CreateTransitGatewayRouteCommandOutput,
 } from "./commands/CreateTransitGatewayRouteCommand";
 import {
+  type CreateTransitGatewayRouteTableAnnouncementCommandInput,
+  type CreateTransitGatewayRouteTableAnnouncementCommandOutput,
   CreateTransitGatewayRouteTableAnnouncementCommand,
-  CreateTransitGatewayRouteTableAnnouncementCommandInput,
-  CreateTransitGatewayRouteTableAnnouncementCommandOutput,
 } from "./commands/CreateTransitGatewayRouteTableAnnouncementCommand";
 import {
+  type CreateTransitGatewayRouteTableCommandInput,
+  type CreateTransitGatewayRouteTableCommandOutput,
   CreateTransitGatewayRouteTableCommand,
-  CreateTransitGatewayRouteTableCommandInput,
-  CreateTransitGatewayRouteTableCommandOutput,
 } from "./commands/CreateTransitGatewayRouteTableCommand";
 import {
+  type CreateTransitGatewayVpcAttachmentCommandInput,
+  type CreateTransitGatewayVpcAttachmentCommandOutput,
   CreateTransitGatewayVpcAttachmentCommand,
-  CreateTransitGatewayVpcAttachmentCommandInput,
-  CreateTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayVpcAttachmentCommand";
 import {
+  type CreateVerifiedAccessEndpointCommandInput,
+  type CreateVerifiedAccessEndpointCommandOutput,
   CreateVerifiedAccessEndpointCommand,
-  CreateVerifiedAccessEndpointCommandInput,
-  CreateVerifiedAccessEndpointCommandOutput,
 } from "./commands/CreateVerifiedAccessEndpointCommand";
 import {
+  type CreateVerifiedAccessGroupCommandInput,
+  type CreateVerifiedAccessGroupCommandOutput,
   CreateVerifiedAccessGroupCommand,
-  CreateVerifiedAccessGroupCommandInput,
-  CreateVerifiedAccessGroupCommandOutput,
 } from "./commands/CreateVerifiedAccessGroupCommand";
 import {
+  type CreateVerifiedAccessInstanceCommandInput,
+  type CreateVerifiedAccessInstanceCommandOutput,
   CreateVerifiedAccessInstanceCommand,
-  CreateVerifiedAccessInstanceCommandInput,
-  CreateVerifiedAccessInstanceCommandOutput,
 } from "./commands/CreateVerifiedAccessInstanceCommand";
 import {
+  type CreateVerifiedAccessTrustProviderCommandInput,
+  type CreateVerifiedAccessTrustProviderCommandOutput,
   CreateVerifiedAccessTrustProviderCommand,
-  CreateVerifiedAccessTrustProviderCommandInput,
-  CreateVerifiedAccessTrustProviderCommandOutput,
 } from "./commands/CreateVerifiedAccessTrustProviderCommand";
 import {
+  type CreateVolumeCommandInput,
+  type CreateVolumeCommandOutput,
   CreateVolumeCommand,
-  CreateVolumeCommandInput,
-  CreateVolumeCommandOutput,
 } from "./commands/CreateVolumeCommand";
 import {
+  type CreateVpcBlockPublicAccessExclusionCommandInput,
+  type CreateVpcBlockPublicAccessExclusionCommandOutput,
   CreateVpcBlockPublicAccessExclusionCommand,
-  CreateVpcBlockPublicAccessExclusionCommandInput,
-  CreateVpcBlockPublicAccessExclusionCommandOutput,
 } from "./commands/CreateVpcBlockPublicAccessExclusionCommand";
-import { CreateVpcCommand, CreateVpcCommandInput, CreateVpcCommandOutput } from "./commands/CreateVpcCommand";
+import { type CreateVpcCommandInput, type CreateVpcCommandOutput, CreateVpcCommand } from "./commands/CreateVpcCommand";
 import {
+  type CreateVpcEncryptionControlCommandInput,
+  type CreateVpcEncryptionControlCommandOutput,
   CreateVpcEncryptionControlCommand,
-  CreateVpcEncryptionControlCommandInput,
-  CreateVpcEncryptionControlCommandOutput,
 } from "./commands/CreateVpcEncryptionControlCommand";
 import {
+  type CreateVpcEndpointCommandInput,
+  type CreateVpcEndpointCommandOutput,
   CreateVpcEndpointCommand,
-  CreateVpcEndpointCommandInput,
-  CreateVpcEndpointCommandOutput,
 } from "./commands/CreateVpcEndpointCommand";
 import {
+  type CreateVpcEndpointConnectionNotificationCommandInput,
+  type CreateVpcEndpointConnectionNotificationCommandOutput,
   CreateVpcEndpointConnectionNotificationCommand,
-  CreateVpcEndpointConnectionNotificationCommandInput,
-  CreateVpcEndpointConnectionNotificationCommandOutput,
 } from "./commands/CreateVpcEndpointConnectionNotificationCommand";
 import {
+  type CreateVpcEndpointServiceConfigurationCommandInput,
+  type CreateVpcEndpointServiceConfigurationCommandOutput,
   CreateVpcEndpointServiceConfigurationCommand,
-  CreateVpcEndpointServiceConfigurationCommandInput,
-  CreateVpcEndpointServiceConfigurationCommandOutput,
 } from "./commands/CreateVpcEndpointServiceConfigurationCommand";
 import {
+  type CreateVpcPeeringConnectionCommandInput,
+  type CreateVpcPeeringConnectionCommandOutput,
   CreateVpcPeeringConnectionCommand,
-  CreateVpcPeeringConnectionCommandInput,
-  CreateVpcPeeringConnectionCommandOutput,
 } from "./commands/CreateVpcPeeringConnectionCommand";
 import {
+  type CreateVpnConcentratorCommandInput,
+  type CreateVpnConcentratorCommandOutput,
   CreateVpnConcentratorCommand,
-  CreateVpnConcentratorCommandInput,
-  CreateVpnConcentratorCommandOutput,
 } from "./commands/CreateVpnConcentratorCommand";
 import {
+  type CreateVpnConnectionCommandInput,
+  type CreateVpnConnectionCommandOutput,
   CreateVpnConnectionCommand,
-  CreateVpnConnectionCommandInput,
-  CreateVpnConnectionCommandOutput,
 } from "./commands/CreateVpnConnectionCommand";
 import {
+  type CreateVpnConnectionRouteCommandInput,
+  type CreateVpnConnectionRouteCommandOutput,
   CreateVpnConnectionRouteCommand,
-  CreateVpnConnectionRouteCommandInput,
-  CreateVpnConnectionRouteCommandOutput,
 } from "./commands/CreateVpnConnectionRouteCommand";
 import {
+  type CreateVpnGatewayCommandInput,
+  type CreateVpnGatewayCommandOutput,
   CreateVpnGatewayCommand,
-  CreateVpnGatewayCommandInput,
-  CreateVpnGatewayCommandOutput,
 } from "./commands/CreateVpnGatewayCommand";
 import {
+  type DeleteCapacityManagerDataExportCommandInput,
+  type DeleteCapacityManagerDataExportCommandOutput,
   DeleteCapacityManagerDataExportCommand,
-  DeleteCapacityManagerDataExportCommandInput,
-  DeleteCapacityManagerDataExportCommandOutput,
 } from "./commands/DeleteCapacityManagerDataExportCommand";
 import {
+  type DeleteCarrierGatewayCommandInput,
+  type DeleteCarrierGatewayCommandOutput,
   DeleteCarrierGatewayCommand,
-  DeleteCarrierGatewayCommandInput,
-  DeleteCarrierGatewayCommandOutput,
 } from "./commands/DeleteCarrierGatewayCommand";
 import {
+  type DeleteClientVpnEndpointCommandInput,
+  type DeleteClientVpnEndpointCommandOutput,
   DeleteClientVpnEndpointCommand,
-  DeleteClientVpnEndpointCommandInput,
-  DeleteClientVpnEndpointCommandOutput,
 } from "./commands/DeleteClientVpnEndpointCommand";
 import {
+  type DeleteClientVpnRouteCommandInput,
+  type DeleteClientVpnRouteCommandOutput,
   DeleteClientVpnRouteCommand,
-  DeleteClientVpnRouteCommandInput,
-  DeleteClientVpnRouteCommandOutput,
 } from "./commands/DeleteClientVpnRouteCommand";
 import {
+  type DeleteCoipCidrCommandInput,
+  type DeleteCoipCidrCommandOutput,
   DeleteCoipCidrCommand,
-  DeleteCoipCidrCommandInput,
-  DeleteCoipCidrCommandOutput,
 } from "./commands/DeleteCoipCidrCommand";
 import {
+  type DeleteCoipPoolCommandInput,
+  type DeleteCoipPoolCommandOutput,
   DeleteCoipPoolCommand,
-  DeleteCoipPoolCommandInput,
-  DeleteCoipPoolCommandOutput,
 } from "./commands/DeleteCoipPoolCommand";
 import {
+  type DeleteCustomerGatewayCommandInput,
+  type DeleteCustomerGatewayCommandOutput,
   DeleteCustomerGatewayCommand,
-  DeleteCustomerGatewayCommandInput,
-  DeleteCustomerGatewayCommandOutput,
 } from "./commands/DeleteCustomerGatewayCommand";
 import {
+  type DeleteDhcpOptionsCommandInput,
+  type DeleteDhcpOptionsCommandOutput,
   DeleteDhcpOptionsCommand,
-  DeleteDhcpOptionsCommandInput,
-  DeleteDhcpOptionsCommandOutput,
 } from "./commands/DeleteDhcpOptionsCommand";
 import {
+  type DeleteEgressOnlyInternetGatewayCommandInput,
+  type DeleteEgressOnlyInternetGatewayCommandOutput,
   DeleteEgressOnlyInternetGatewayCommand,
-  DeleteEgressOnlyInternetGatewayCommandInput,
-  DeleteEgressOnlyInternetGatewayCommandOutput,
 } from "./commands/DeleteEgressOnlyInternetGatewayCommand";
 import {
+  type DeleteFleetsCommandInput,
+  type DeleteFleetsCommandOutput,
   DeleteFleetsCommand,
-  DeleteFleetsCommandInput,
-  DeleteFleetsCommandOutput,
 } from "./commands/DeleteFleetsCommand";
 import {
+  type DeleteFlowLogsCommandInput,
+  type DeleteFlowLogsCommandOutput,
   DeleteFlowLogsCommand,
-  DeleteFlowLogsCommandInput,
-  DeleteFlowLogsCommandOutput,
 } from "./commands/DeleteFlowLogsCommand";
 import {
+  type DeleteFpgaImageCommandInput,
+  type DeleteFpgaImageCommandOutput,
   DeleteFpgaImageCommand,
-  DeleteFpgaImageCommandInput,
-  DeleteFpgaImageCommandOutput,
 } from "./commands/DeleteFpgaImageCommand";
 import {
+  type DeleteImageUsageReportCommandInput,
+  type DeleteImageUsageReportCommandOutput,
   DeleteImageUsageReportCommand,
-  DeleteImageUsageReportCommandInput,
-  DeleteImageUsageReportCommandOutput,
 } from "./commands/DeleteImageUsageReportCommand";
 import {
+  type DeleteInstanceConnectEndpointCommandInput,
+  type DeleteInstanceConnectEndpointCommandOutput,
   DeleteInstanceConnectEndpointCommand,
-  DeleteInstanceConnectEndpointCommandInput,
-  DeleteInstanceConnectEndpointCommandOutput,
 } from "./commands/DeleteInstanceConnectEndpointCommand";
 import {
+  type DeleteInstanceEventWindowCommandInput,
+  type DeleteInstanceEventWindowCommandOutput,
   DeleteInstanceEventWindowCommand,
-  DeleteInstanceEventWindowCommandInput,
-  DeleteInstanceEventWindowCommandOutput,
 } from "./commands/DeleteInstanceEventWindowCommand";
 import {
+  type DeleteInternetGatewayCommandInput,
+  type DeleteInternetGatewayCommandOutput,
   DeleteInternetGatewayCommand,
-  DeleteInternetGatewayCommandInput,
-  DeleteInternetGatewayCommandOutput,
 } from "./commands/DeleteInternetGatewayCommand";
-import { DeleteIpamCommand, DeleteIpamCommandInput, DeleteIpamCommandOutput } from "./commands/DeleteIpamCommand";
 import {
+  type DeleteIpamCommandInput,
+  type DeleteIpamCommandOutput,
+  DeleteIpamCommand,
+} from "./commands/DeleteIpamCommand";
+import {
+  type DeleteIpamExternalResourceVerificationTokenCommandInput,
+  type DeleteIpamExternalResourceVerificationTokenCommandOutput,
   DeleteIpamExternalResourceVerificationTokenCommand,
-  DeleteIpamExternalResourceVerificationTokenCommandInput,
-  DeleteIpamExternalResourceVerificationTokenCommandOutput,
 } from "./commands/DeleteIpamExternalResourceVerificationTokenCommand";
 import {
+  type DeleteIpamPolicyCommandInput,
+  type DeleteIpamPolicyCommandOutput,
   DeleteIpamPolicyCommand,
-  DeleteIpamPolicyCommandInput,
-  DeleteIpamPolicyCommandOutput,
 } from "./commands/DeleteIpamPolicyCommand";
 import {
+  type DeleteIpamPoolCommandInput,
+  type DeleteIpamPoolCommandOutput,
   DeleteIpamPoolCommand,
-  DeleteIpamPoolCommandInput,
-  DeleteIpamPoolCommandOutput,
 } from "./commands/DeleteIpamPoolCommand";
 import {
+  type DeleteIpamPrefixListResolverCommandInput,
+  type DeleteIpamPrefixListResolverCommandOutput,
   DeleteIpamPrefixListResolverCommand,
-  DeleteIpamPrefixListResolverCommandInput,
-  DeleteIpamPrefixListResolverCommandOutput,
 } from "./commands/DeleteIpamPrefixListResolverCommand";
 import {
+  type DeleteIpamPrefixListResolverTargetCommandInput,
+  type DeleteIpamPrefixListResolverTargetCommandOutput,
   DeleteIpamPrefixListResolverTargetCommand,
-  DeleteIpamPrefixListResolverTargetCommandInput,
-  DeleteIpamPrefixListResolverTargetCommandOutput,
 } from "./commands/DeleteIpamPrefixListResolverTargetCommand";
 import {
+  type DeleteIpamResourceDiscoveryCommandInput,
+  type DeleteIpamResourceDiscoveryCommandOutput,
   DeleteIpamResourceDiscoveryCommand,
-  DeleteIpamResourceDiscoveryCommandInput,
-  DeleteIpamResourceDiscoveryCommandOutput,
 } from "./commands/DeleteIpamResourceDiscoveryCommand";
 import {
+  type DeleteIpamScopeCommandInput,
+  type DeleteIpamScopeCommandOutput,
   DeleteIpamScopeCommand,
-  DeleteIpamScopeCommandInput,
-  DeleteIpamScopeCommandOutput,
 } from "./commands/DeleteIpamScopeCommand";
 import {
+  type DeleteKeyPairCommandInput,
+  type DeleteKeyPairCommandOutput,
   DeleteKeyPairCommand,
-  DeleteKeyPairCommandInput,
-  DeleteKeyPairCommandOutput,
 } from "./commands/DeleteKeyPairCommand";
 import {
+  type DeleteLaunchTemplateCommandInput,
+  type DeleteLaunchTemplateCommandOutput,
   DeleteLaunchTemplateCommand,
-  DeleteLaunchTemplateCommandInput,
-  DeleteLaunchTemplateCommandOutput,
 } from "./commands/DeleteLaunchTemplateCommand";
 import {
+  type DeleteLaunchTemplateVersionsCommandInput,
+  type DeleteLaunchTemplateVersionsCommandOutput,
   DeleteLaunchTemplateVersionsCommand,
-  DeleteLaunchTemplateVersionsCommandInput,
-  DeleteLaunchTemplateVersionsCommandOutput,
 } from "./commands/DeleteLaunchTemplateVersionsCommand";
 import {
+  type DeleteLocalGatewayRouteCommandInput,
+  type DeleteLocalGatewayRouteCommandOutput,
   DeleteLocalGatewayRouteCommand,
-  DeleteLocalGatewayRouteCommandInput,
-  DeleteLocalGatewayRouteCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteCommand";
 import {
+  type DeleteLocalGatewayRouteTableCommandInput,
+  type DeleteLocalGatewayRouteTableCommandOutput,
   DeleteLocalGatewayRouteTableCommand,
-  DeleteLocalGatewayRouteTableCommandInput,
-  DeleteLocalGatewayRouteTableCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteTableCommand";
 import {
+  type DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  type DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
   DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
-  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
-  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand";
 import {
+  type DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
+  type DeleteLocalGatewayRouteTableVpcAssociationCommandOutput,
   DeleteLocalGatewayRouteTableVpcAssociationCommand,
-  DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
-  DeleteLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteTableVpcAssociationCommand";
 import {
+  type DeleteLocalGatewayVirtualInterfaceCommandInput,
+  type DeleteLocalGatewayVirtualInterfaceCommandOutput,
   DeleteLocalGatewayVirtualInterfaceCommand,
-  DeleteLocalGatewayVirtualInterfaceCommandInput,
-  DeleteLocalGatewayVirtualInterfaceCommandOutput,
 } from "./commands/DeleteLocalGatewayVirtualInterfaceCommand";
 import {
+  type DeleteLocalGatewayVirtualInterfaceGroupCommandInput,
+  type DeleteLocalGatewayVirtualInterfaceGroupCommandOutput,
   DeleteLocalGatewayVirtualInterfaceGroupCommand,
-  DeleteLocalGatewayVirtualInterfaceGroupCommandInput,
-  DeleteLocalGatewayVirtualInterfaceGroupCommandOutput,
 } from "./commands/DeleteLocalGatewayVirtualInterfaceGroupCommand";
 import {
+  type DeleteManagedPrefixListCommandInput,
+  type DeleteManagedPrefixListCommandOutput,
   DeleteManagedPrefixListCommand,
-  DeleteManagedPrefixListCommandInput,
-  DeleteManagedPrefixListCommandOutput,
 } from "./commands/DeleteManagedPrefixListCommand";
 import {
+  type DeleteNatGatewayCommandInput,
+  type DeleteNatGatewayCommandOutput,
   DeleteNatGatewayCommand,
-  DeleteNatGatewayCommandInput,
-  DeleteNatGatewayCommandOutput,
 } from "./commands/DeleteNatGatewayCommand";
 import {
+  type DeleteNetworkAclCommandInput,
+  type DeleteNetworkAclCommandOutput,
   DeleteNetworkAclCommand,
-  DeleteNetworkAclCommandInput,
-  DeleteNetworkAclCommandOutput,
 } from "./commands/DeleteNetworkAclCommand";
 import {
+  type DeleteNetworkAclEntryCommandInput,
+  type DeleteNetworkAclEntryCommandOutput,
   DeleteNetworkAclEntryCommand,
-  DeleteNetworkAclEntryCommandInput,
-  DeleteNetworkAclEntryCommandOutput,
 } from "./commands/DeleteNetworkAclEntryCommand";
 import {
+  type DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
+  type DeleteNetworkInsightsAccessScopeAnalysisCommandOutput,
   DeleteNetworkInsightsAccessScopeAnalysisCommand,
-  DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
-  DeleteNetworkInsightsAccessScopeAnalysisCommandOutput,
 } from "./commands/DeleteNetworkInsightsAccessScopeAnalysisCommand";
 import {
+  type DeleteNetworkInsightsAccessScopeCommandInput,
+  type DeleteNetworkInsightsAccessScopeCommandOutput,
   DeleteNetworkInsightsAccessScopeCommand,
-  DeleteNetworkInsightsAccessScopeCommandInput,
-  DeleteNetworkInsightsAccessScopeCommandOutput,
 } from "./commands/DeleteNetworkInsightsAccessScopeCommand";
 import {
+  type DeleteNetworkInsightsAnalysisCommandInput,
+  type DeleteNetworkInsightsAnalysisCommandOutput,
   DeleteNetworkInsightsAnalysisCommand,
-  DeleteNetworkInsightsAnalysisCommandInput,
-  DeleteNetworkInsightsAnalysisCommandOutput,
 } from "./commands/DeleteNetworkInsightsAnalysisCommand";
 import {
+  type DeleteNetworkInsightsPathCommandInput,
+  type DeleteNetworkInsightsPathCommandOutput,
   DeleteNetworkInsightsPathCommand,
-  DeleteNetworkInsightsPathCommandInput,
-  DeleteNetworkInsightsPathCommandOutput,
 } from "./commands/DeleteNetworkInsightsPathCommand";
 import {
+  type DeleteNetworkInterfaceCommandInput,
+  type DeleteNetworkInterfaceCommandOutput,
   DeleteNetworkInterfaceCommand,
-  DeleteNetworkInterfaceCommandInput,
-  DeleteNetworkInterfaceCommandOutput,
 } from "./commands/DeleteNetworkInterfaceCommand";
 import {
+  type DeleteNetworkInterfacePermissionCommandInput,
+  type DeleteNetworkInterfacePermissionCommandOutput,
   DeleteNetworkInterfacePermissionCommand,
-  DeleteNetworkInterfacePermissionCommandInput,
-  DeleteNetworkInterfacePermissionCommandOutput,
 } from "./commands/DeleteNetworkInterfacePermissionCommand";
 import {
+  type DeletePlacementGroupCommandInput,
+  type DeletePlacementGroupCommandOutput,
   DeletePlacementGroupCommand,
-  DeletePlacementGroupCommandInput,
-  DeletePlacementGroupCommandOutput,
 } from "./commands/DeletePlacementGroupCommand";
 import {
+  type DeletePublicIpv4PoolCommandInput,
+  type DeletePublicIpv4PoolCommandOutput,
   DeletePublicIpv4PoolCommand,
-  DeletePublicIpv4PoolCommandInput,
-  DeletePublicIpv4PoolCommandOutput,
 } from "./commands/DeletePublicIpv4PoolCommand";
 import {
+  type DeleteQueuedReservedInstancesCommandInput,
+  type DeleteQueuedReservedInstancesCommandOutput,
   DeleteQueuedReservedInstancesCommand,
-  DeleteQueuedReservedInstancesCommandInput,
-  DeleteQueuedReservedInstancesCommandOutput,
 } from "./commands/DeleteQueuedReservedInstancesCommand";
-import { DeleteRouteCommand, DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
+  type DeleteRouteCommandInput,
+  type DeleteRouteCommandOutput,
+  DeleteRouteCommand,
+} from "./commands/DeleteRouteCommand";
+import {
+  type DeleteRouteServerCommandInput,
+  type DeleteRouteServerCommandOutput,
   DeleteRouteServerCommand,
-  DeleteRouteServerCommandInput,
-  DeleteRouteServerCommandOutput,
 } from "./commands/DeleteRouteServerCommand";
 import {
+  type DeleteRouteServerEndpointCommandInput,
+  type DeleteRouteServerEndpointCommandOutput,
   DeleteRouteServerEndpointCommand,
-  DeleteRouteServerEndpointCommandInput,
-  DeleteRouteServerEndpointCommandOutput,
 } from "./commands/DeleteRouteServerEndpointCommand";
 import {
+  type DeleteRouteServerPeerCommandInput,
+  type DeleteRouteServerPeerCommandOutput,
   DeleteRouteServerPeerCommand,
-  DeleteRouteServerPeerCommandInput,
-  DeleteRouteServerPeerCommandOutput,
 } from "./commands/DeleteRouteServerPeerCommand";
 import {
+  type DeleteRouteTableCommandInput,
+  type DeleteRouteTableCommandOutput,
   DeleteRouteTableCommand,
-  DeleteRouteTableCommandInput,
-  DeleteRouteTableCommandOutput,
 } from "./commands/DeleteRouteTableCommand";
 import {
+  type DeleteSecondaryNetworkCommandInput,
+  type DeleteSecondaryNetworkCommandOutput,
   DeleteSecondaryNetworkCommand,
-  DeleteSecondaryNetworkCommandInput,
-  DeleteSecondaryNetworkCommandOutput,
 } from "./commands/DeleteSecondaryNetworkCommand";
 import {
+  type DeleteSecondarySubnetCommandInput,
+  type DeleteSecondarySubnetCommandOutput,
   DeleteSecondarySubnetCommand,
-  DeleteSecondarySubnetCommandInput,
-  DeleteSecondarySubnetCommandOutput,
 } from "./commands/DeleteSecondarySubnetCommand";
 import {
+  type DeleteSecurityGroupCommandInput,
+  type DeleteSecurityGroupCommandOutput,
   DeleteSecurityGroupCommand,
-  DeleteSecurityGroupCommandInput,
-  DeleteSecurityGroupCommandOutput,
 } from "./commands/DeleteSecurityGroupCommand";
 import {
+  type DeleteSnapshotCommandInput,
+  type DeleteSnapshotCommandOutput,
   DeleteSnapshotCommand,
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput,
 } from "./commands/DeleteSnapshotCommand";
 import {
+  type DeleteSpotDatafeedSubscriptionCommandInput,
+  type DeleteSpotDatafeedSubscriptionCommandOutput,
   DeleteSpotDatafeedSubscriptionCommand,
-  DeleteSpotDatafeedSubscriptionCommandInput,
-  DeleteSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/DeleteSpotDatafeedSubscriptionCommand";
 import {
+  type DeleteSubnetCidrReservationCommandInput,
+  type DeleteSubnetCidrReservationCommandOutput,
   DeleteSubnetCidrReservationCommand,
-  DeleteSubnetCidrReservationCommandInput,
-  DeleteSubnetCidrReservationCommandOutput,
 } from "./commands/DeleteSubnetCidrReservationCommand";
 import {
+  type DeleteSubnetCommandInput,
+  type DeleteSubnetCommandOutput,
   DeleteSubnetCommand,
-  DeleteSubnetCommandInput,
-  DeleteSubnetCommandOutput,
 } from "./commands/DeleteSubnetCommand";
-import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
+  type DeleteTagsCommandInput,
+  type DeleteTagsCommandOutput,
+  DeleteTagsCommand,
+} from "./commands/DeleteTagsCommand";
+import {
+  type DeleteTrafficMirrorFilterCommandInput,
+  type DeleteTrafficMirrorFilterCommandOutput,
   DeleteTrafficMirrorFilterCommand,
-  DeleteTrafficMirrorFilterCommandInput,
-  DeleteTrafficMirrorFilterCommandOutput,
 } from "./commands/DeleteTrafficMirrorFilterCommand";
 import {
+  type DeleteTrafficMirrorFilterRuleCommandInput,
+  type DeleteTrafficMirrorFilterRuleCommandOutput,
   DeleteTrafficMirrorFilterRuleCommand,
-  DeleteTrafficMirrorFilterRuleCommandInput,
-  DeleteTrafficMirrorFilterRuleCommandOutput,
 } from "./commands/DeleteTrafficMirrorFilterRuleCommand";
 import {
+  type DeleteTrafficMirrorSessionCommandInput,
+  type DeleteTrafficMirrorSessionCommandOutput,
   DeleteTrafficMirrorSessionCommand,
-  DeleteTrafficMirrorSessionCommandInput,
-  DeleteTrafficMirrorSessionCommandOutput,
 } from "./commands/DeleteTrafficMirrorSessionCommand";
 import {
+  type DeleteTrafficMirrorTargetCommandInput,
+  type DeleteTrafficMirrorTargetCommandOutput,
   DeleteTrafficMirrorTargetCommand,
-  DeleteTrafficMirrorTargetCommandInput,
-  DeleteTrafficMirrorTargetCommandOutput,
 } from "./commands/DeleteTrafficMirrorTargetCommand";
 import {
+  type DeleteTransitGatewayCommandInput,
+  type DeleteTransitGatewayCommandOutput,
   DeleteTransitGatewayCommand,
-  DeleteTransitGatewayCommandInput,
-  DeleteTransitGatewayCommandOutput,
 } from "./commands/DeleteTransitGatewayCommand";
 import {
+  type DeleteTransitGatewayConnectCommandInput,
+  type DeleteTransitGatewayConnectCommandOutput,
   DeleteTransitGatewayConnectCommand,
-  DeleteTransitGatewayConnectCommandInput,
-  DeleteTransitGatewayConnectCommandOutput,
 } from "./commands/DeleteTransitGatewayConnectCommand";
 import {
+  type DeleteTransitGatewayConnectPeerCommandInput,
+  type DeleteTransitGatewayConnectPeerCommandOutput,
   DeleteTransitGatewayConnectPeerCommand,
-  DeleteTransitGatewayConnectPeerCommandInput,
-  DeleteTransitGatewayConnectPeerCommandOutput,
 } from "./commands/DeleteTransitGatewayConnectPeerCommand";
 import {
+  type DeleteTransitGatewayMeteringPolicyCommandInput,
+  type DeleteTransitGatewayMeteringPolicyCommandOutput,
   DeleteTransitGatewayMeteringPolicyCommand,
-  DeleteTransitGatewayMeteringPolicyCommandInput,
-  DeleteTransitGatewayMeteringPolicyCommandOutput,
 } from "./commands/DeleteTransitGatewayMeteringPolicyCommand";
 import {
+  type DeleteTransitGatewayMeteringPolicyEntryCommandInput,
+  type DeleteTransitGatewayMeteringPolicyEntryCommandOutput,
   DeleteTransitGatewayMeteringPolicyEntryCommand,
-  DeleteTransitGatewayMeteringPolicyEntryCommandInput,
-  DeleteTransitGatewayMeteringPolicyEntryCommandOutput,
 } from "./commands/DeleteTransitGatewayMeteringPolicyEntryCommand";
 import {
+  type DeleteTransitGatewayMulticastDomainCommandInput,
+  type DeleteTransitGatewayMulticastDomainCommandOutput,
   DeleteTransitGatewayMulticastDomainCommand,
-  DeleteTransitGatewayMulticastDomainCommandInput,
-  DeleteTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/DeleteTransitGatewayMulticastDomainCommand";
 import {
+  type DeleteTransitGatewayPeeringAttachmentCommandInput,
+  type DeleteTransitGatewayPeeringAttachmentCommandOutput,
   DeleteTransitGatewayPeeringAttachmentCommand,
-  DeleteTransitGatewayPeeringAttachmentCommandInput,
-  DeleteTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayPeeringAttachmentCommand";
 import {
+  type DeleteTransitGatewayPolicyTableCommandInput,
+  type DeleteTransitGatewayPolicyTableCommandOutput,
   DeleteTransitGatewayPolicyTableCommand,
-  DeleteTransitGatewayPolicyTableCommandInput,
-  DeleteTransitGatewayPolicyTableCommandOutput,
 } from "./commands/DeleteTransitGatewayPolicyTableCommand";
 import {
+  type DeleteTransitGatewayPrefixListReferenceCommandInput,
+  type DeleteTransitGatewayPrefixListReferenceCommandOutput,
   DeleteTransitGatewayPrefixListReferenceCommand,
-  DeleteTransitGatewayPrefixListReferenceCommandInput,
-  DeleteTransitGatewayPrefixListReferenceCommandOutput,
 } from "./commands/DeleteTransitGatewayPrefixListReferenceCommand";
 import {
+  type DeleteTransitGatewayRouteCommandInput,
+  type DeleteTransitGatewayRouteCommandOutput,
   DeleteTransitGatewayRouteCommand,
-  DeleteTransitGatewayRouteCommandInput,
-  DeleteTransitGatewayRouteCommandOutput,
 } from "./commands/DeleteTransitGatewayRouteCommand";
 import {
+  type DeleteTransitGatewayRouteTableAnnouncementCommandInput,
+  type DeleteTransitGatewayRouteTableAnnouncementCommandOutput,
   DeleteTransitGatewayRouteTableAnnouncementCommand,
-  DeleteTransitGatewayRouteTableAnnouncementCommandInput,
-  DeleteTransitGatewayRouteTableAnnouncementCommandOutput,
 } from "./commands/DeleteTransitGatewayRouteTableAnnouncementCommand";
 import {
+  type DeleteTransitGatewayRouteTableCommandInput,
+  type DeleteTransitGatewayRouteTableCommandOutput,
   DeleteTransitGatewayRouteTableCommand,
-  DeleteTransitGatewayRouteTableCommandInput,
-  DeleteTransitGatewayRouteTableCommandOutput,
 } from "./commands/DeleteTransitGatewayRouteTableCommand";
 import {
+  type DeleteTransitGatewayVpcAttachmentCommandInput,
+  type DeleteTransitGatewayVpcAttachmentCommandOutput,
   DeleteTransitGatewayVpcAttachmentCommand,
-  DeleteTransitGatewayVpcAttachmentCommandInput,
-  DeleteTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayVpcAttachmentCommand";
 import {
+  type DeleteVerifiedAccessEndpointCommandInput,
+  type DeleteVerifiedAccessEndpointCommandOutput,
   DeleteVerifiedAccessEndpointCommand,
-  DeleteVerifiedAccessEndpointCommandInput,
-  DeleteVerifiedAccessEndpointCommandOutput,
 } from "./commands/DeleteVerifiedAccessEndpointCommand";
 import {
+  type DeleteVerifiedAccessGroupCommandInput,
+  type DeleteVerifiedAccessGroupCommandOutput,
   DeleteVerifiedAccessGroupCommand,
-  DeleteVerifiedAccessGroupCommandInput,
-  DeleteVerifiedAccessGroupCommandOutput,
 } from "./commands/DeleteVerifiedAccessGroupCommand";
 import {
+  type DeleteVerifiedAccessInstanceCommandInput,
+  type DeleteVerifiedAccessInstanceCommandOutput,
   DeleteVerifiedAccessInstanceCommand,
-  DeleteVerifiedAccessInstanceCommandInput,
-  DeleteVerifiedAccessInstanceCommandOutput,
 } from "./commands/DeleteVerifiedAccessInstanceCommand";
 import {
+  type DeleteVerifiedAccessTrustProviderCommandInput,
+  type DeleteVerifiedAccessTrustProviderCommandOutput,
   DeleteVerifiedAccessTrustProviderCommand,
-  DeleteVerifiedAccessTrustProviderCommandInput,
-  DeleteVerifiedAccessTrustProviderCommandOutput,
 } from "./commands/DeleteVerifiedAccessTrustProviderCommand";
 import {
+  type DeleteVolumeCommandInput,
+  type DeleteVolumeCommandOutput,
   DeleteVolumeCommand,
-  DeleteVolumeCommandInput,
-  DeleteVolumeCommandOutput,
 } from "./commands/DeleteVolumeCommand";
 import {
+  type DeleteVpcBlockPublicAccessExclusionCommandInput,
+  type DeleteVpcBlockPublicAccessExclusionCommandOutput,
   DeleteVpcBlockPublicAccessExclusionCommand,
-  DeleteVpcBlockPublicAccessExclusionCommandInput,
-  DeleteVpcBlockPublicAccessExclusionCommandOutput,
 } from "./commands/DeleteVpcBlockPublicAccessExclusionCommand";
-import { DeleteVpcCommand, DeleteVpcCommandInput, DeleteVpcCommandOutput } from "./commands/DeleteVpcCommand";
+import { type DeleteVpcCommandInput, type DeleteVpcCommandOutput, DeleteVpcCommand } from "./commands/DeleteVpcCommand";
 import {
+  type DeleteVpcEncryptionControlCommandInput,
+  type DeleteVpcEncryptionControlCommandOutput,
   DeleteVpcEncryptionControlCommand,
-  DeleteVpcEncryptionControlCommandInput,
-  DeleteVpcEncryptionControlCommandOutput,
 } from "./commands/DeleteVpcEncryptionControlCommand";
 import {
+  type DeleteVpcEndpointConnectionNotificationsCommandInput,
+  type DeleteVpcEndpointConnectionNotificationsCommandOutput,
   DeleteVpcEndpointConnectionNotificationsCommand,
-  DeleteVpcEndpointConnectionNotificationsCommandInput,
-  DeleteVpcEndpointConnectionNotificationsCommandOutput,
 } from "./commands/DeleteVpcEndpointConnectionNotificationsCommand";
 import {
+  type DeleteVpcEndpointsCommandInput,
+  type DeleteVpcEndpointsCommandOutput,
   DeleteVpcEndpointsCommand,
-  DeleteVpcEndpointsCommandInput,
-  DeleteVpcEndpointsCommandOutput,
 } from "./commands/DeleteVpcEndpointsCommand";
 import {
+  type DeleteVpcEndpointServiceConfigurationsCommandInput,
+  type DeleteVpcEndpointServiceConfigurationsCommandOutput,
   DeleteVpcEndpointServiceConfigurationsCommand,
-  DeleteVpcEndpointServiceConfigurationsCommandInput,
-  DeleteVpcEndpointServiceConfigurationsCommandOutput,
 } from "./commands/DeleteVpcEndpointServiceConfigurationsCommand";
 import {
+  type DeleteVpcPeeringConnectionCommandInput,
+  type DeleteVpcPeeringConnectionCommandOutput,
   DeleteVpcPeeringConnectionCommand,
-  DeleteVpcPeeringConnectionCommandInput,
-  DeleteVpcPeeringConnectionCommandOutput,
 } from "./commands/DeleteVpcPeeringConnectionCommand";
 import {
+  type DeleteVpnConcentratorCommandInput,
+  type DeleteVpnConcentratorCommandOutput,
   DeleteVpnConcentratorCommand,
-  DeleteVpnConcentratorCommandInput,
-  DeleteVpnConcentratorCommandOutput,
 } from "./commands/DeleteVpnConcentratorCommand";
 import {
+  type DeleteVpnConnectionCommandInput,
+  type DeleteVpnConnectionCommandOutput,
   DeleteVpnConnectionCommand,
-  DeleteVpnConnectionCommandInput,
-  DeleteVpnConnectionCommandOutput,
 } from "./commands/DeleteVpnConnectionCommand";
 import {
+  type DeleteVpnConnectionRouteCommandInput,
+  type DeleteVpnConnectionRouteCommandOutput,
   DeleteVpnConnectionRouteCommand,
-  DeleteVpnConnectionRouteCommandInput,
-  DeleteVpnConnectionRouteCommandOutput,
 } from "./commands/DeleteVpnConnectionRouteCommand";
 import {
+  type DeleteVpnGatewayCommandInput,
+  type DeleteVpnGatewayCommandOutput,
   DeleteVpnGatewayCommand,
-  DeleteVpnGatewayCommandInput,
-  DeleteVpnGatewayCommandOutput,
 } from "./commands/DeleteVpnGatewayCommand";
 import {
+  type DeprovisionByoipCidrCommandInput,
+  type DeprovisionByoipCidrCommandOutput,
   DeprovisionByoipCidrCommand,
-  DeprovisionByoipCidrCommandInput,
-  DeprovisionByoipCidrCommandOutput,
 } from "./commands/DeprovisionByoipCidrCommand";
 import {
+  type DeprovisionIpamByoasnCommandInput,
+  type DeprovisionIpamByoasnCommandOutput,
   DeprovisionIpamByoasnCommand,
-  DeprovisionIpamByoasnCommandInput,
-  DeprovisionIpamByoasnCommandOutput,
 } from "./commands/DeprovisionIpamByoasnCommand";
 import {
+  type DeprovisionIpamPoolCidrCommandInput,
+  type DeprovisionIpamPoolCidrCommandOutput,
   DeprovisionIpamPoolCidrCommand,
-  DeprovisionIpamPoolCidrCommandInput,
-  DeprovisionIpamPoolCidrCommandOutput,
 } from "./commands/DeprovisionIpamPoolCidrCommand";
 import {
+  type DeprovisionPublicIpv4PoolCidrCommandInput,
+  type DeprovisionPublicIpv4PoolCidrCommandOutput,
   DeprovisionPublicIpv4PoolCidrCommand,
-  DeprovisionPublicIpv4PoolCidrCommandInput,
-  DeprovisionPublicIpv4PoolCidrCommandOutput,
 } from "./commands/DeprovisionPublicIpv4PoolCidrCommand";
 import {
+  type DeregisterImageCommandInput,
+  type DeregisterImageCommandOutput,
   DeregisterImageCommand,
-  DeregisterImageCommandInput,
-  DeregisterImageCommandOutput,
 } from "./commands/DeregisterImageCommand";
 import {
+  type DeregisterInstanceEventNotificationAttributesCommandInput,
+  type DeregisterInstanceEventNotificationAttributesCommandOutput,
   DeregisterInstanceEventNotificationAttributesCommand,
-  DeregisterInstanceEventNotificationAttributesCommandInput,
-  DeregisterInstanceEventNotificationAttributesCommandOutput,
 } from "./commands/DeregisterInstanceEventNotificationAttributesCommand";
 import {
+  type DeregisterTransitGatewayMulticastGroupMembersCommandInput,
+  type DeregisterTransitGatewayMulticastGroupMembersCommandOutput,
   DeregisterTransitGatewayMulticastGroupMembersCommand,
-  DeregisterTransitGatewayMulticastGroupMembersCommandInput,
-  DeregisterTransitGatewayMulticastGroupMembersCommandOutput,
 } from "./commands/DeregisterTransitGatewayMulticastGroupMembersCommand";
 import {
+  type DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
+  type DeregisterTransitGatewayMulticastGroupSourcesCommandOutput,
   DeregisterTransitGatewayMulticastGroupSourcesCommand,
-  DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
-  DeregisterTransitGatewayMulticastGroupSourcesCommandOutput,
 } from "./commands/DeregisterTransitGatewayMulticastGroupSourcesCommand";
 import {
+  type DescribeAccountAttributesCommandInput,
+  type DescribeAccountAttributesCommandOutput,
   DescribeAccountAttributesCommand,
-  DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
 import {
+  type DescribeAddressesAttributeCommandInput,
+  type DescribeAddressesAttributeCommandOutput,
   DescribeAddressesAttributeCommand,
-  DescribeAddressesAttributeCommandInput,
-  DescribeAddressesAttributeCommandOutput,
 } from "./commands/DescribeAddressesAttributeCommand";
 import {
+  type DescribeAddressesCommandInput,
+  type DescribeAddressesCommandOutput,
   DescribeAddressesCommand,
-  DescribeAddressesCommandInput,
-  DescribeAddressesCommandOutput,
 } from "./commands/DescribeAddressesCommand";
 import {
+  type DescribeAddressTransfersCommandInput,
+  type DescribeAddressTransfersCommandOutput,
   DescribeAddressTransfersCommand,
-  DescribeAddressTransfersCommandInput,
-  DescribeAddressTransfersCommandOutput,
 } from "./commands/DescribeAddressTransfersCommand";
 import {
+  type DescribeAggregateIdFormatCommandInput,
+  type DescribeAggregateIdFormatCommandOutput,
   DescribeAggregateIdFormatCommand,
-  DescribeAggregateIdFormatCommandInput,
-  DescribeAggregateIdFormatCommandOutput,
 } from "./commands/DescribeAggregateIdFormatCommand";
 import {
+  type DescribeAvailabilityZonesCommandInput,
+  type DescribeAvailabilityZonesCommandOutput,
   DescribeAvailabilityZonesCommand,
-  DescribeAvailabilityZonesCommandInput,
-  DescribeAvailabilityZonesCommandOutput,
 } from "./commands/DescribeAvailabilityZonesCommand";
 import {
+  type DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+  type DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput,
   DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
-  DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
-  DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput,
 } from "./commands/DescribeAwsNetworkPerformanceMetricSubscriptionsCommand";
 import {
+  type DescribeBundleTasksCommandInput,
+  type DescribeBundleTasksCommandOutput,
   DescribeBundleTasksCommand,
-  DescribeBundleTasksCommandInput,
-  DescribeBundleTasksCommandOutput,
 } from "./commands/DescribeBundleTasksCommand";
 import {
+  type DescribeByoipCidrsCommandInput,
+  type DescribeByoipCidrsCommandOutput,
   DescribeByoipCidrsCommand,
-  DescribeByoipCidrsCommandInput,
-  DescribeByoipCidrsCommandOutput,
 } from "./commands/DescribeByoipCidrsCommand";
 import {
+  type DescribeCapacityBlockExtensionHistoryCommandInput,
+  type DescribeCapacityBlockExtensionHistoryCommandOutput,
   DescribeCapacityBlockExtensionHistoryCommand,
-  DescribeCapacityBlockExtensionHistoryCommandInput,
-  DescribeCapacityBlockExtensionHistoryCommandOutput,
 } from "./commands/DescribeCapacityBlockExtensionHistoryCommand";
 import {
+  type DescribeCapacityBlockExtensionOfferingsCommandInput,
+  type DescribeCapacityBlockExtensionOfferingsCommandOutput,
   DescribeCapacityBlockExtensionOfferingsCommand,
-  DescribeCapacityBlockExtensionOfferingsCommandInput,
-  DescribeCapacityBlockExtensionOfferingsCommandOutput,
 } from "./commands/DescribeCapacityBlockExtensionOfferingsCommand";
 import {
+  type DescribeCapacityBlockOfferingsCommandInput,
+  type DescribeCapacityBlockOfferingsCommandOutput,
   DescribeCapacityBlockOfferingsCommand,
-  DescribeCapacityBlockOfferingsCommandInput,
-  DescribeCapacityBlockOfferingsCommandOutput,
 } from "./commands/DescribeCapacityBlockOfferingsCommand";
 import {
+  type DescribeCapacityBlocksCommandInput,
+  type DescribeCapacityBlocksCommandOutput,
   DescribeCapacityBlocksCommand,
-  DescribeCapacityBlocksCommandInput,
-  DescribeCapacityBlocksCommandOutput,
 } from "./commands/DescribeCapacityBlocksCommand";
 import {
+  type DescribeCapacityBlockStatusCommandInput,
+  type DescribeCapacityBlockStatusCommandOutput,
   DescribeCapacityBlockStatusCommand,
-  DescribeCapacityBlockStatusCommandInput,
-  DescribeCapacityBlockStatusCommandOutput,
 } from "./commands/DescribeCapacityBlockStatusCommand";
 import {
+  type DescribeCapacityManagerDataExportsCommandInput,
+  type DescribeCapacityManagerDataExportsCommandOutput,
   DescribeCapacityManagerDataExportsCommand,
-  DescribeCapacityManagerDataExportsCommandInput,
-  DescribeCapacityManagerDataExportsCommandOutput,
 } from "./commands/DescribeCapacityManagerDataExportsCommand";
 import {
+  type DescribeCapacityReservationBillingRequestsCommandInput,
+  type DescribeCapacityReservationBillingRequestsCommandOutput,
   DescribeCapacityReservationBillingRequestsCommand,
-  DescribeCapacityReservationBillingRequestsCommandInput,
-  DescribeCapacityReservationBillingRequestsCommandOutput,
 } from "./commands/DescribeCapacityReservationBillingRequestsCommand";
 import {
+  type DescribeCapacityReservationFleetsCommandInput,
+  type DescribeCapacityReservationFleetsCommandOutput,
   DescribeCapacityReservationFleetsCommand,
-  DescribeCapacityReservationFleetsCommandInput,
-  DescribeCapacityReservationFleetsCommandOutput,
 } from "./commands/DescribeCapacityReservationFleetsCommand";
 import {
+  type DescribeCapacityReservationsCommandInput,
+  type DescribeCapacityReservationsCommandOutput,
   DescribeCapacityReservationsCommand,
-  DescribeCapacityReservationsCommandInput,
-  DescribeCapacityReservationsCommandOutput,
 } from "./commands/DescribeCapacityReservationsCommand";
 import {
+  type DescribeCapacityReservationTopologyCommandInput,
+  type DescribeCapacityReservationTopologyCommandOutput,
   DescribeCapacityReservationTopologyCommand,
-  DescribeCapacityReservationTopologyCommandInput,
-  DescribeCapacityReservationTopologyCommandOutput,
 } from "./commands/DescribeCapacityReservationTopologyCommand";
 import {
+  type DescribeCarrierGatewaysCommandInput,
+  type DescribeCarrierGatewaysCommandOutput,
   DescribeCarrierGatewaysCommand,
-  DescribeCarrierGatewaysCommandInput,
-  DescribeCarrierGatewaysCommandOutput,
 } from "./commands/DescribeCarrierGatewaysCommand";
 import {
+  type DescribeClassicLinkInstancesCommandInput,
+  type DescribeClassicLinkInstancesCommandOutput,
   DescribeClassicLinkInstancesCommand,
-  DescribeClassicLinkInstancesCommandInput,
-  DescribeClassicLinkInstancesCommandOutput,
 } from "./commands/DescribeClassicLinkInstancesCommand";
 import {
+  type DescribeClientVpnAuthorizationRulesCommandInput,
+  type DescribeClientVpnAuthorizationRulesCommandOutput,
   DescribeClientVpnAuthorizationRulesCommand,
-  DescribeClientVpnAuthorizationRulesCommandInput,
-  DescribeClientVpnAuthorizationRulesCommandOutput,
 } from "./commands/DescribeClientVpnAuthorizationRulesCommand";
 import {
+  type DescribeClientVpnConnectionsCommandInput,
+  type DescribeClientVpnConnectionsCommandOutput,
   DescribeClientVpnConnectionsCommand,
-  DescribeClientVpnConnectionsCommandInput,
-  DescribeClientVpnConnectionsCommandOutput,
 } from "./commands/DescribeClientVpnConnectionsCommand";
 import {
+  type DescribeClientVpnEndpointsCommandInput,
+  type DescribeClientVpnEndpointsCommandOutput,
   DescribeClientVpnEndpointsCommand,
-  DescribeClientVpnEndpointsCommandInput,
-  DescribeClientVpnEndpointsCommandOutput,
 } from "./commands/DescribeClientVpnEndpointsCommand";
 import {
+  type DescribeClientVpnRoutesCommandInput,
+  type DescribeClientVpnRoutesCommandOutput,
   DescribeClientVpnRoutesCommand,
-  DescribeClientVpnRoutesCommandInput,
-  DescribeClientVpnRoutesCommandOutput,
 } from "./commands/DescribeClientVpnRoutesCommand";
 import {
+  type DescribeClientVpnTargetNetworksCommandInput,
+  type DescribeClientVpnTargetNetworksCommandOutput,
   DescribeClientVpnTargetNetworksCommand,
-  DescribeClientVpnTargetNetworksCommandInput,
-  DescribeClientVpnTargetNetworksCommandOutput,
 } from "./commands/DescribeClientVpnTargetNetworksCommand";
 import {
+  type DescribeCoipPoolsCommandInput,
+  type DescribeCoipPoolsCommandOutput,
   DescribeCoipPoolsCommand,
-  DescribeCoipPoolsCommandInput,
-  DescribeCoipPoolsCommandOutput,
 } from "./commands/DescribeCoipPoolsCommand";
 import {
+  type DescribeConversionTasksCommandInput,
+  type DescribeConversionTasksCommandOutput,
   DescribeConversionTasksCommand,
-  DescribeConversionTasksCommandInput,
-  DescribeConversionTasksCommandOutput,
 } from "./commands/DescribeConversionTasksCommand";
 import {
+  type DescribeCustomerGatewaysCommandInput,
+  type DescribeCustomerGatewaysCommandOutput,
   DescribeCustomerGatewaysCommand,
-  DescribeCustomerGatewaysCommandInput,
-  DescribeCustomerGatewaysCommandOutput,
 } from "./commands/DescribeCustomerGatewaysCommand";
 import {
+  type DescribeDeclarativePoliciesReportsCommandInput,
+  type DescribeDeclarativePoliciesReportsCommandOutput,
   DescribeDeclarativePoliciesReportsCommand,
-  DescribeDeclarativePoliciesReportsCommandInput,
-  DescribeDeclarativePoliciesReportsCommandOutput,
 } from "./commands/DescribeDeclarativePoliciesReportsCommand";
 import {
+  type DescribeDhcpOptionsCommandInput,
+  type DescribeDhcpOptionsCommandOutput,
   DescribeDhcpOptionsCommand,
-  DescribeDhcpOptionsCommandInput,
-  DescribeDhcpOptionsCommandOutput,
 } from "./commands/DescribeDhcpOptionsCommand";
 import {
+  type DescribeEgressOnlyInternetGatewaysCommandInput,
+  type DescribeEgressOnlyInternetGatewaysCommandOutput,
   DescribeEgressOnlyInternetGatewaysCommand,
-  DescribeEgressOnlyInternetGatewaysCommandInput,
-  DescribeEgressOnlyInternetGatewaysCommandOutput,
 } from "./commands/DescribeEgressOnlyInternetGatewaysCommand";
 import {
+  type DescribeElasticGpusCommandInput,
+  type DescribeElasticGpusCommandOutput,
   DescribeElasticGpusCommand,
-  DescribeElasticGpusCommandInput,
-  DescribeElasticGpusCommandOutput,
 } from "./commands/DescribeElasticGpusCommand";
 import {
+  type DescribeExportImageTasksCommandInput,
+  type DescribeExportImageTasksCommandOutput,
   DescribeExportImageTasksCommand,
-  DescribeExportImageTasksCommandInput,
-  DescribeExportImageTasksCommandOutput,
 } from "./commands/DescribeExportImageTasksCommand";
 import {
+  type DescribeExportTasksCommandInput,
+  type DescribeExportTasksCommandOutput,
   DescribeExportTasksCommand,
-  DescribeExportTasksCommandInput,
-  DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
 import {
+  type DescribeFastLaunchImagesCommandInput,
+  type DescribeFastLaunchImagesCommandOutput,
   DescribeFastLaunchImagesCommand,
-  DescribeFastLaunchImagesCommandInput,
-  DescribeFastLaunchImagesCommandOutput,
 } from "./commands/DescribeFastLaunchImagesCommand";
 import {
+  type DescribeFastSnapshotRestoresCommandInput,
+  type DescribeFastSnapshotRestoresCommandOutput,
   DescribeFastSnapshotRestoresCommand,
-  DescribeFastSnapshotRestoresCommandInput,
-  DescribeFastSnapshotRestoresCommandOutput,
 } from "./commands/DescribeFastSnapshotRestoresCommand";
 import {
+  type DescribeFleetHistoryCommandInput,
+  type DescribeFleetHistoryCommandOutput,
   DescribeFleetHistoryCommand,
-  DescribeFleetHistoryCommandInput,
-  DescribeFleetHistoryCommandOutput,
 } from "./commands/DescribeFleetHistoryCommand";
 import {
+  type DescribeFleetInstancesCommandInput,
+  type DescribeFleetInstancesCommandOutput,
   DescribeFleetInstancesCommand,
-  DescribeFleetInstancesCommandInput,
-  DescribeFleetInstancesCommandOutput,
 } from "./commands/DescribeFleetInstancesCommand";
 import {
+  type DescribeFleetsCommandInput,
+  type DescribeFleetsCommandOutput,
   DescribeFleetsCommand,
-  DescribeFleetsCommandInput,
-  DescribeFleetsCommandOutput,
 } from "./commands/DescribeFleetsCommand";
 import {
+  type DescribeFlowLogsCommandInput,
+  type DescribeFlowLogsCommandOutput,
   DescribeFlowLogsCommand,
-  DescribeFlowLogsCommandInput,
-  DescribeFlowLogsCommandOutput,
 } from "./commands/DescribeFlowLogsCommand";
 import {
+  type DescribeFpgaImageAttributeCommandInput,
+  type DescribeFpgaImageAttributeCommandOutput,
   DescribeFpgaImageAttributeCommand,
-  DescribeFpgaImageAttributeCommandInput,
-  DescribeFpgaImageAttributeCommandOutput,
 } from "./commands/DescribeFpgaImageAttributeCommand";
 import {
+  type DescribeFpgaImagesCommandInput,
+  type DescribeFpgaImagesCommandOutput,
   DescribeFpgaImagesCommand,
-  DescribeFpgaImagesCommandInput,
-  DescribeFpgaImagesCommandOutput,
 } from "./commands/DescribeFpgaImagesCommand";
 import {
+  type DescribeHostReservationOfferingsCommandInput,
+  type DescribeHostReservationOfferingsCommandOutput,
   DescribeHostReservationOfferingsCommand,
-  DescribeHostReservationOfferingsCommandInput,
-  DescribeHostReservationOfferingsCommandOutput,
 } from "./commands/DescribeHostReservationOfferingsCommand";
 import {
+  type DescribeHostReservationsCommandInput,
+  type DescribeHostReservationsCommandOutput,
   DescribeHostReservationsCommand,
-  DescribeHostReservationsCommandInput,
-  DescribeHostReservationsCommandOutput,
 } from "./commands/DescribeHostReservationsCommand";
 import {
+  type DescribeHostsCommandInput,
+  type DescribeHostsCommandOutput,
   DescribeHostsCommand,
-  DescribeHostsCommandInput,
-  DescribeHostsCommandOutput,
 } from "./commands/DescribeHostsCommand";
 import {
+  type DescribeIamInstanceProfileAssociationsCommandInput,
+  type DescribeIamInstanceProfileAssociationsCommandOutput,
   DescribeIamInstanceProfileAssociationsCommand,
-  DescribeIamInstanceProfileAssociationsCommandInput,
-  DescribeIamInstanceProfileAssociationsCommandOutput,
 } from "./commands/DescribeIamInstanceProfileAssociationsCommand";
 import {
+  type DescribeIdentityIdFormatCommandInput,
+  type DescribeIdentityIdFormatCommandOutput,
   DescribeIdentityIdFormatCommand,
-  DescribeIdentityIdFormatCommandInput,
-  DescribeIdentityIdFormatCommandOutput,
 } from "./commands/DescribeIdentityIdFormatCommand";
 import {
+  type DescribeIdFormatCommandInput,
+  type DescribeIdFormatCommandOutput,
   DescribeIdFormatCommand,
-  DescribeIdFormatCommandInput,
-  DescribeIdFormatCommandOutput,
 } from "./commands/DescribeIdFormatCommand";
 import {
+  type DescribeImageAttributeCommandInput,
+  type DescribeImageAttributeCommandOutput,
   DescribeImageAttributeCommand,
-  DescribeImageAttributeCommandInput,
-  DescribeImageAttributeCommandOutput,
 } from "./commands/DescribeImageAttributeCommand";
 import {
+  type DescribeImageReferencesCommandInput,
+  type DescribeImageReferencesCommandOutput,
   DescribeImageReferencesCommand,
-  DescribeImageReferencesCommandInput,
-  DescribeImageReferencesCommandOutput,
 } from "./commands/DescribeImageReferencesCommand";
 import {
+  type DescribeImagesCommandInput,
+  type DescribeImagesCommandOutput,
   DescribeImagesCommand,
-  DescribeImagesCommandInput,
-  DescribeImagesCommandOutput,
 } from "./commands/DescribeImagesCommand";
 import {
+  type DescribeImageUsageReportEntriesCommandInput,
+  type DescribeImageUsageReportEntriesCommandOutput,
   DescribeImageUsageReportEntriesCommand,
-  DescribeImageUsageReportEntriesCommandInput,
-  DescribeImageUsageReportEntriesCommandOutput,
 } from "./commands/DescribeImageUsageReportEntriesCommand";
 import {
+  type DescribeImageUsageReportsCommandInput,
+  type DescribeImageUsageReportsCommandOutput,
   DescribeImageUsageReportsCommand,
-  DescribeImageUsageReportsCommandInput,
-  DescribeImageUsageReportsCommandOutput,
 } from "./commands/DescribeImageUsageReportsCommand";
 import {
+  type DescribeImportImageTasksCommandInput,
+  type DescribeImportImageTasksCommandOutput,
   DescribeImportImageTasksCommand,
-  DescribeImportImageTasksCommandInput,
-  DescribeImportImageTasksCommandOutput,
 } from "./commands/DescribeImportImageTasksCommand";
 import {
+  type DescribeImportSnapshotTasksCommandInput,
+  type DescribeImportSnapshotTasksCommandOutput,
   DescribeImportSnapshotTasksCommand,
-  DescribeImportSnapshotTasksCommandInput,
-  DescribeImportSnapshotTasksCommandOutput,
 } from "./commands/DescribeImportSnapshotTasksCommand";
 import {
+  type DescribeInstanceAttributeCommandInput,
+  type DescribeInstanceAttributeCommandOutput,
   DescribeInstanceAttributeCommand,
-  DescribeInstanceAttributeCommandInput,
-  DescribeInstanceAttributeCommandOutput,
 } from "./commands/DescribeInstanceAttributeCommand";
 import {
+  type DescribeInstanceConnectEndpointsCommandInput,
+  type DescribeInstanceConnectEndpointsCommandOutput,
   DescribeInstanceConnectEndpointsCommand,
-  DescribeInstanceConnectEndpointsCommandInput,
-  DescribeInstanceConnectEndpointsCommandOutput,
 } from "./commands/DescribeInstanceConnectEndpointsCommand";
 import {
+  type DescribeInstanceCreditSpecificationsCommandInput,
+  type DescribeInstanceCreditSpecificationsCommandOutput,
   DescribeInstanceCreditSpecificationsCommand,
-  DescribeInstanceCreditSpecificationsCommandInput,
-  DescribeInstanceCreditSpecificationsCommandOutput,
 } from "./commands/DescribeInstanceCreditSpecificationsCommand";
 import {
+  type DescribeInstanceEventNotificationAttributesCommandInput,
+  type DescribeInstanceEventNotificationAttributesCommandOutput,
   DescribeInstanceEventNotificationAttributesCommand,
-  DescribeInstanceEventNotificationAttributesCommandInput,
-  DescribeInstanceEventNotificationAttributesCommandOutput,
 } from "./commands/DescribeInstanceEventNotificationAttributesCommand";
 import {
+  type DescribeInstanceEventWindowsCommandInput,
+  type DescribeInstanceEventWindowsCommandOutput,
   DescribeInstanceEventWindowsCommand,
-  DescribeInstanceEventWindowsCommandInput,
-  DescribeInstanceEventWindowsCommandOutput,
 } from "./commands/DescribeInstanceEventWindowsCommand";
 import {
+  type DescribeInstanceImageMetadataCommandInput,
+  type DescribeInstanceImageMetadataCommandOutput,
   DescribeInstanceImageMetadataCommand,
-  DescribeInstanceImageMetadataCommandInput,
-  DescribeInstanceImageMetadataCommandOutput,
 } from "./commands/DescribeInstanceImageMetadataCommand";
 import {
+  type DescribeInstancesCommandInput,
+  type DescribeInstancesCommandOutput,
   DescribeInstancesCommand,
-  DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput,
 } from "./commands/DescribeInstancesCommand";
 import {
+  type DescribeInstanceSqlHaHistoryStatesCommandInput,
+  type DescribeInstanceSqlHaHistoryStatesCommandOutput,
   DescribeInstanceSqlHaHistoryStatesCommand,
-  DescribeInstanceSqlHaHistoryStatesCommandInput,
-  DescribeInstanceSqlHaHistoryStatesCommandOutput,
 } from "./commands/DescribeInstanceSqlHaHistoryStatesCommand";
 import {
+  type DescribeInstanceSqlHaStatesCommandInput,
+  type DescribeInstanceSqlHaStatesCommandOutput,
   DescribeInstanceSqlHaStatesCommand,
-  DescribeInstanceSqlHaStatesCommandInput,
-  DescribeInstanceSqlHaStatesCommandOutput,
 } from "./commands/DescribeInstanceSqlHaStatesCommand";
 import {
+  type DescribeInstanceStatusCommandInput,
+  type DescribeInstanceStatusCommandOutput,
   DescribeInstanceStatusCommand,
-  DescribeInstanceStatusCommandInput,
-  DescribeInstanceStatusCommandOutput,
 } from "./commands/DescribeInstanceStatusCommand";
 import {
+  type DescribeInstanceTopologyCommandInput,
+  type DescribeInstanceTopologyCommandOutput,
   DescribeInstanceTopologyCommand,
-  DescribeInstanceTopologyCommandInput,
-  DescribeInstanceTopologyCommandOutput,
 } from "./commands/DescribeInstanceTopologyCommand";
 import {
+  type DescribeInstanceTypeOfferingsCommandInput,
+  type DescribeInstanceTypeOfferingsCommandOutput,
   DescribeInstanceTypeOfferingsCommand,
-  DescribeInstanceTypeOfferingsCommandInput,
-  DescribeInstanceTypeOfferingsCommandOutput,
 } from "./commands/DescribeInstanceTypeOfferingsCommand";
 import {
+  type DescribeInstanceTypesCommandInput,
+  type DescribeInstanceTypesCommandOutput,
   DescribeInstanceTypesCommand,
-  DescribeInstanceTypesCommandInput,
-  DescribeInstanceTypesCommandOutput,
 } from "./commands/DescribeInstanceTypesCommand";
 import {
+  type DescribeInternetGatewaysCommandInput,
+  type DescribeInternetGatewaysCommandOutput,
   DescribeInternetGatewaysCommand,
-  DescribeInternetGatewaysCommandInput,
-  DescribeInternetGatewaysCommandOutput,
 } from "./commands/DescribeInternetGatewaysCommand";
 import {
+  type DescribeIpamByoasnCommandInput,
+  type DescribeIpamByoasnCommandOutput,
   DescribeIpamByoasnCommand,
-  DescribeIpamByoasnCommandInput,
-  DescribeIpamByoasnCommandOutput,
 } from "./commands/DescribeIpamByoasnCommand";
 import {
+  type DescribeIpamExternalResourceVerificationTokensCommandInput,
+  type DescribeIpamExternalResourceVerificationTokensCommandOutput,
   DescribeIpamExternalResourceVerificationTokensCommand,
-  DescribeIpamExternalResourceVerificationTokensCommandInput,
-  DescribeIpamExternalResourceVerificationTokensCommandOutput,
 } from "./commands/DescribeIpamExternalResourceVerificationTokensCommand";
 import {
+  type DescribeIpamPoliciesCommandInput,
+  type DescribeIpamPoliciesCommandOutput,
   DescribeIpamPoliciesCommand,
-  DescribeIpamPoliciesCommandInput,
-  DescribeIpamPoliciesCommandOutput,
 } from "./commands/DescribeIpamPoliciesCommand";
 import {
+  type DescribeIpamPoolsCommandInput,
+  type DescribeIpamPoolsCommandOutput,
   DescribeIpamPoolsCommand,
-  DescribeIpamPoolsCommandInput,
-  DescribeIpamPoolsCommandOutput,
 } from "./commands/DescribeIpamPoolsCommand";
 import {
+  type DescribeIpamPrefixListResolversCommandInput,
+  type DescribeIpamPrefixListResolversCommandOutput,
   DescribeIpamPrefixListResolversCommand,
-  DescribeIpamPrefixListResolversCommandInput,
-  DescribeIpamPrefixListResolversCommandOutput,
 } from "./commands/DescribeIpamPrefixListResolversCommand";
 import {
+  type DescribeIpamPrefixListResolverTargetsCommandInput,
+  type DescribeIpamPrefixListResolverTargetsCommandOutput,
   DescribeIpamPrefixListResolverTargetsCommand,
-  DescribeIpamPrefixListResolverTargetsCommandInput,
-  DescribeIpamPrefixListResolverTargetsCommandOutput,
 } from "./commands/DescribeIpamPrefixListResolverTargetsCommand";
 import {
+  type DescribeIpamResourceDiscoveriesCommandInput,
+  type DescribeIpamResourceDiscoveriesCommandOutput,
   DescribeIpamResourceDiscoveriesCommand,
-  DescribeIpamResourceDiscoveriesCommandInput,
-  DescribeIpamResourceDiscoveriesCommandOutput,
 } from "./commands/DescribeIpamResourceDiscoveriesCommand";
 import {
+  type DescribeIpamResourceDiscoveryAssociationsCommandInput,
+  type DescribeIpamResourceDiscoveryAssociationsCommandOutput,
   DescribeIpamResourceDiscoveryAssociationsCommand,
-  DescribeIpamResourceDiscoveryAssociationsCommandInput,
-  DescribeIpamResourceDiscoveryAssociationsCommandOutput,
 } from "./commands/DescribeIpamResourceDiscoveryAssociationsCommand";
 import {
+  type DescribeIpamsCommandInput,
+  type DescribeIpamsCommandOutput,
   DescribeIpamsCommand,
-  DescribeIpamsCommandInput,
-  DescribeIpamsCommandOutput,
 } from "./commands/DescribeIpamsCommand";
 import {
+  type DescribeIpamScopesCommandInput,
+  type DescribeIpamScopesCommandOutput,
   DescribeIpamScopesCommand,
-  DescribeIpamScopesCommandInput,
-  DescribeIpamScopesCommandOutput,
 } from "./commands/DescribeIpamScopesCommand";
 import {
+  type DescribeIpv6PoolsCommandInput,
+  type DescribeIpv6PoolsCommandOutput,
   DescribeIpv6PoolsCommand,
-  DescribeIpv6PoolsCommandInput,
-  DescribeIpv6PoolsCommandOutput,
 } from "./commands/DescribeIpv6PoolsCommand";
 import {
+  type DescribeKeyPairsCommandInput,
+  type DescribeKeyPairsCommandOutput,
   DescribeKeyPairsCommand,
-  DescribeKeyPairsCommandInput,
-  DescribeKeyPairsCommandOutput,
 } from "./commands/DescribeKeyPairsCommand";
 import {
+  type DescribeLaunchTemplatesCommandInput,
+  type DescribeLaunchTemplatesCommandOutput,
   DescribeLaunchTemplatesCommand,
-  DescribeLaunchTemplatesCommandInput,
-  DescribeLaunchTemplatesCommandOutput,
 } from "./commands/DescribeLaunchTemplatesCommand";
 import {
+  type DescribeLaunchTemplateVersionsCommandInput,
+  type DescribeLaunchTemplateVersionsCommandOutput,
   DescribeLaunchTemplateVersionsCommand,
-  DescribeLaunchTemplateVersionsCommandInput,
-  DescribeLaunchTemplateVersionsCommandOutput,
 } from "./commands/DescribeLaunchTemplateVersionsCommand";
 import {
+  type DescribeLocalGatewayRouteTablesCommandInput,
+  type DescribeLocalGatewayRouteTablesCommandOutput,
   DescribeLocalGatewayRouteTablesCommand,
-  DescribeLocalGatewayRouteTablesCommandInput,
-  DescribeLocalGatewayRouteTablesCommandOutput,
 } from "./commands/DescribeLocalGatewayRouteTablesCommand";
 import {
+  type DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
+  type DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
-  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
-  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput,
 } from "./commands/DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand";
 import {
+  type DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
+  type DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput,
   DescribeLocalGatewayRouteTableVpcAssociationsCommand,
-  DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
-  DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput,
 } from "./commands/DescribeLocalGatewayRouteTableVpcAssociationsCommand";
 import {
+  type DescribeLocalGatewaysCommandInput,
+  type DescribeLocalGatewaysCommandOutput,
   DescribeLocalGatewaysCommand,
-  DescribeLocalGatewaysCommandInput,
-  DescribeLocalGatewaysCommandOutput,
 } from "./commands/DescribeLocalGatewaysCommand";
 import {
+  type DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
+  type DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput,
   DescribeLocalGatewayVirtualInterfaceGroupsCommand,
-  DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
-  DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput,
 } from "./commands/DescribeLocalGatewayVirtualInterfaceGroupsCommand";
 import {
+  type DescribeLocalGatewayVirtualInterfacesCommandInput,
+  type DescribeLocalGatewayVirtualInterfacesCommandOutput,
   DescribeLocalGatewayVirtualInterfacesCommand,
-  DescribeLocalGatewayVirtualInterfacesCommandInput,
-  DescribeLocalGatewayVirtualInterfacesCommandOutput,
 } from "./commands/DescribeLocalGatewayVirtualInterfacesCommand";
 import {
+  type DescribeLockedSnapshotsCommandInput,
+  type DescribeLockedSnapshotsCommandOutput,
   DescribeLockedSnapshotsCommand,
-  DescribeLockedSnapshotsCommandInput,
-  DescribeLockedSnapshotsCommandOutput,
 } from "./commands/DescribeLockedSnapshotsCommand";
 import {
+  type DescribeMacHostsCommandInput,
+  type DescribeMacHostsCommandOutput,
   DescribeMacHostsCommand,
-  DescribeMacHostsCommandInput,
-  DescribeMacHostsCommandOutput,
 } from "./commands/DescribeMacHostsCommand";
 import {
+  type DescribeMacModificationTasksCommandInput,
+  type DescribeMacModificationTasksCommandOutput,
   DescribeMacModificationTasksCommand,
-  DescribeMacModificationTasksCommandInput,
-  DescribeMacModificationTasksCommandOutput,
 } from "./commands/DescribeMacModificationTasksCommand";
 import {
+  type DescribeManagedPrefixListsCommandInput,
+  type DescribeManagedPrefixListsCommandOutput,
   DescribeManagedPrefixListsCommand,
-  DescribeManagedPrefixListsCommandInput,
-  DescribeManagedPrefixListsCommandOutput,
 } from "./commands/DescribeManagedPrefixListsCommand";
 import {
+  type DescribeMovingAddressesCommandInput,
+  type DescribeMovingAddressesCommandOutput,
   DescribeMovingAddressesCommand,
-  DescribeMovingAddressesCommandInput,
-  DescribeMovingAddressesCommandOutput,
 } from "./commands/DescribeMovingAddressesCommand";
 import {
+  type DescribeNatGatewaysCommandInput,
+  type DescribeNatGatewaysCommandOutput,
   DescribeNatGatewaysCommand,
-  DescribeNatGatewaysCommandInput,
-  DescribeNatGatewaysCommandOutput,
 } from "./commands/DescribeNatGatewaysCommand";
 import {
+  type DescribeNetworkAclsCommandInput,
+  type DescribeNetworkAclsCommandOutput,
   DescribeNetworkAclsCommand,
-  DescribeNetworkAclsCommandInput,
-  DescribeNetworkAclsCommandOutput,
 } from "./commands/DescribeNetworkAclsCommand";
 import {
+  type DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
+  type DescribeNetworkInsightsAccessScopeAnalysesCommandOutput,
   DescribeNetworkInsightsAccessScopeAnalysesCommand,
-  DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
-  DescribeNetworkInsightsAccessScopeAnalysesCommandOutput,
 } from "./commands/DescribeNetworkInsightsAccessScopeAnalysesCommand";
 import {
+  type DescribeNetworkInsightsAccessScopesCommandInput,
+  type DescribeNetworkInsightsAccessScopesCommandOutput,
   DescribeNetworkInsightsAccessScopesCommand,
-  DescribeNetworkInsightsAccessScopesCommandInput,
-  DescribeNetworkInsightsAccessScopesCommandOutput,
 } from "./commands/DescribeNetworkInsightsAccessScopesCommand";
 import {
+  type DescribeNetworkInsightsAnalysesCommandInput,
+  type DescribeNetworkInsightsAnalysesCommandOutput,
   DescribeNetworkInsightsAnalysesCommand,
-  DescribeNetworkInsightsAnalysesCommandInput,
-  DescribeNetworkInsightsAnalysesCommandOutput,
 } from "./commands/DescribeNetworkInsightsAnalysesCommand";
 import {
+  type DescribeNetworkInsightsPathsCommandInput,
+  type DescribeNetworkInsightsPathsCommandOutput,
   DescribeNetworkInsightsPathsCommand,
-  DescribeNetworkInsightsPathsCommandInput,
-  DescribeNetworkInsightsPathsCommandOutput,
 } from "./commands/DescribeNetworkInsightsPathsCommand";
 import {
+  type DescribeNetworkInterfaceAttributeCommandInput,
+  type DescribeNetworkInterfaceAttributeCommandOutput,
   DescribeNetworkInterfaceAttributeCommand,
-  DescribeNetworkInterfaceAttributeCommandInput,
-  DescribeNetworkInterfaceAttributeCommandOutput,
 } from "./commands/DescribeNetworkInterfaceAttributeCommand";
 import {
+  type DescribeNetworkInterfacePermissionsCommandInput,
+  type DescribeNetworkInterfacePermissionsCommandOutput,
   DescribeNetworkInterfacePermissionsCommand,
-  DescribeNetworkInterfacePermissionsCommandInput,
-  DescribeNetworkInterfacePermissionsCommandOutput,
 } from "./commands/DescribeNetworkInterfacePermissionsCommand";
 import {
+  type DescribeNetworkInterfacesCommandInput,
+  type DescribeNetworkInterfacesCommandOutput,
   DescribeNetworkInterfacesCommand,
-  DescribeNetworkInterfacesCommandInput,
-  DescribeNetworkInterfacesCommandOutput,
 } from "./commands/DescribeNetworkInterfacesCommand";
 import {
+  type DescribeOutpostLagsCommandInput,
+  type DescribeOutpostLagsCommandOutput,
   DescribeOutpostLagsCommand,
-  DescribeOutpostLagsCommandInput,
-  DescribeOutpostLagsCommandOutput,
 } from "./commands/DescribeOutpostLagsCommand";
 import {
+  type DescribePlacementGroupsCommandInput,
+  type DescribePlacementGroupsCommandOutput,
   DescribePlacementGroupsCommand,
-  DescribePlacementGroupsCommandInput,
-  DescribePlacementGroupsCommandOutput,
 } from "./commands/DescribePlacementGroupsCommand";
 import {
+  type DescribePrefixListsCommandInput,
+  type DescribePrefixListsCommandOutput,
   DescribePrefixListsCommand,
-  DescribePrefixListsCommandInput,
-  DescribePrefixListsCommandOutput,
 } from "./commands/DescribePrefixListsCommand";
 import {
+  type DescribePrincipalIdFormatCommandInput,
+  type DescribePrincipalIdFormatCommandOutput,
   DescribePrincipalIdFormatCommand,
-  DescribePrincipalIdFormatCommandInput,
-  DescribePrincipalIdFormatCommandOutput,
 } from "./commands/DescribePrincipalIdFormatCommand";
 import {
+  type DescribePublicIpv4PoolsCommandInput,
+  type DescribePublicIpv4PoolsCommandOutput,
   DescribePublicIpv4PoolsCommand,
-  DescribePublicIpv4PoolsCommandInput,
-  DescribePublicIpv4PoolsCommandOutput,
 } from "./commands/DescribePublicIpv4PoolsCommand";
 import {
+  type DescribeRegionsCommandInput,
+  type DescribeRegionsCommandOutput,
   DescribeRegionsCommand,
-  DescribeRegionsCommandInput,
-  DescribeRegionsCommandOutput,
 } from "./commands/DescribeRegionsCommand";
 import {
+  type DescribeReplaceRootVolumeTasksCommandInput,
+  type DescribeReplaceRootVolumeTasksCommandOutput,
   DescribeReplaceRootVolumeTasksCommand,
-  DescribeReplaceRootVolumeTasksCommandInput,
-  DescribeReplaceRootVolumeTasksCommandOutput,
 } from "./commands/DescribeReplaceRootVolumeTasksCommand";
 import {
+  type DescribeReservedInstancesCommandInput,
+  type DescribeReservedInstancesCommandOutput,
   DescribeReservedInstancesCommand,
-  DescribeReservedInstancesCommandInput,
-  DescribeReservedInstancesCommandOutput,
 } from "./commands/DescribeReservedInstancesCommand";
 import {
+  type DescribeReservedInstancesListingsCommandInput,
+  type DescribeReservedInstancesListingsCommandOutput,
   DescribeReservedInstancesListingsCommand,
-  DescribeReservedInstancesListingsCommandInput,
-  DescribeReservedInstancesListingsCommandOutput,
 } from "./commands/DescribeReservedInstancesListingsCommand";
 import {
+  type DescribeReservedInstancesModificationsCommandInput,
+  type DescribeReservedInstancesModificationsCommandOutput,
   DescribeReservedInstancesModificationsCommand,
-  DescribeReservedInstancesModificationsCommandInput,
-  DescribeReservedInstancesModificationsCommandOutput,
 } from "./commands/DescribeReservedInstancesModificationsCommand";
 import {
+  type DescribeReservedInstancesOfferingsCommandInput,
+  type DescribeReservedInstancesOfferingsCommandOutput,
   DescribeReservedInstancesOfferingsCommand,
-  DescribeReservedInstancesOfferingsCommandInput,
-  DescribeReservedInstancesOfferingsCommandOutput,
 } from "./commands/DescribeReservedInstancesOfferingsCommand";
 import {
+  type DescribeRouteServerEndpointsCommandInput,
+  type DescribeRouteServerEndpointsCommandOutput,
   DescribeRouteServerEndpointsCommand,
-  DescribeRouteServerEndpointsCommandInput,
-  DescribeRouteServerEndpointsCommandOutput,
 } from "./commands/DescribeRouteServerEndpointsCommand";
 import {
+  type DescribeRouteServerPeersCommandInput,
+  type DescribeRouteServerPeersCommandOutput,
   DescribeRouteServerPeersCommand,
-  DescribeRouteServerPeersCommandInput,
-  DescribeRouteServerPeersCommandOutput,
 } from "./commands/DescribeRouteServerPeersCommand";
 import {
+  type DescribeRouteServersCommandInput,
+  type DescribeRouteServersCommandOutput,
   DescribeRouteServersCommand,
-  DescribeRouteServersCommandInput,
-  DescribeRouteServersCommandOutput,
 } from "./commands/DescribeRouteServersCommand";
 import {
+  type DescribeRouteTablesCommandInput,
+  type DescribeRouteTablesCommandOutput,
   DescribeRouteTablesCommand,
-  DescribeRouteTablesCommandInput,
-  DescribeRouteTablesCommandOutput,
 } from "./commands/DescribeRouteTablesCommand";
 import {
+  type DescribeScheduledInstanceAvailabilityCommandInput,
+  type DescribeScheduledInstanceAvailabilityCommandOutput,
   DescribeScheduledInstanceAvailabilityCommand,
-  DescribeScheduledInstanceAvailabilityCommandInput,
-  DescribeScheduledInstanceAvailabilityCommandOutput,
 } from "./commands/DescribeScheduledInstanceAvailabilityCommand";
 import {
+  type DescribeScheduledInstancesCommandInput,
+  type DescribeScheduledInstancesCommandOutput,
   DescribeScheduledInstancesCommand,
-  DescribeScheduledInstancesCommandInput,
-  DescribeScheduledInstancesCommandOutput,
 } from "./commands/DescribeScheduledInstancesCommand";
 import {
+  type DescribeSecondaryInterfacesCommandInput,
+  type DescribeSecondaryInterfacesCommandOutput,
   DescribeSecondaryInterfacesCommand,
-  DescribeSecondaryInterfacesCommandInput,
-  DescribeSecondaryInterfacesCommandOutput,
 } from "./commands/DescribeSecondaryInterfacesCommand";
 import {
+  type DescribeSecondaryNetworksCommandInput,
+  type DescribeSecondaryNetworksCommandOutput,
   DescribeSecondaryNetworksCommand,
-  DescribeSecondaryNetworksCommandInput,
-  DescribeSecondaryNetworksCommandOutput,
 } from "./commands/DescribeSecondaryNetworksCommand";
 import {
+  type DescribeSecondarySubnetsCommandInput,
+  type DescribeSecondarySubnetsCommandOutput,
   DescribeSecondarySubnetsCommand,
-  DescribeSecondarySubnetsCommandInput,
-  DescribeSecondarySubnetsCommandOutput,
 } from "./commands/DescribeSecondarySubnetsCommand";
 import {
+  type DescribeSecurityGroupReferencesCommandInput,
+  type DescribeSecurityGroupReferencesCommandOutput,
   DescribeSecurityGroupReferencesCommand,
-  DescribeSecurityGroupReferencesCommandInput,
-  DescribeSecurityGroupReferencesCommandOutput,
 } from "./commands/DescribeSecurityGroupReferencesCommand";
 import {
+  type DescribeSecurityGroupRulesCommandInput,
+  type DescribeSecurityGroupRulesCommandOutput,
   DescribeSecurityGroupRulesCommand,
-  DescribeSecurityGroupRulesCommandInput,
-  DescribeSecurityGroupRulesCommandOutput,
 } from "./commands/DescribeSecurityGroupRulesCommand";
 import {
+  type DescribeSecurityGroupsCommandInput,
+  type DescribeSecurityGroupsCommandOutput,
   DescribeSecurityGroupsCommand,
-  DescribeSecurityGroupsCommandInput,
-  DescribeSecurityGroupsCommandOutput,
 } from "./commands/DescribeSecurityGroupsCommand";
 import {
+  type DescribeSecurityGroupVpcAssociationsCommandInput,
+  type DescribeSecurityGroupVpcAssociationsCommandOutput,
   DescribeSecurityGroupVpcAssociationsCommand,
-  DescribeSecurityGroupVpcAssociationsCommandInput,
-  DescribeSecurityGroupVpcAssociationsCommandOutput,
 } from "./commands/DescribeSecurityGroupVpcAssociationsCommand";
 import {
+  type DescribeServiceLinkVirtualInterfacesCommandInput,
+  type DescribeServiceLinkVirtualInterfacesCommandOutput,
   DescribeServiceLinkVirtualInterfacesCommand,
-  DescribeServiceLinkVirtualInterfacesCommandInput,
-  DescribeServiceLinkVirtualInterfacesCommandOutput,
 } from "./commands/DescribeServiceLinkVirtualInterfacesCommand";
 import {
+  type DescribeSnapshotAttributeCommandInput,
+  type DescribeSnapshotAttributeCommandOutput,
   DescribeSnapshotAttributeCommand,
-  DescribeSnapshotAttributeCommandInput,
-  DescribeSnapshotAttributeCommandOutput,
 } from "./commands/DescribeSnapshotAttributeCommand";
 import {
+  type DescribeSnapshotsCommandInput,
+  type DescribeSnapshotsCommandOutput,
   DescribeSnapshotsCommand,
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput,
 } from "./commands/DescribeSnapshotsCommand";
 import {
+  type DescribeSnapshotTierStatusCommandInput,
+  type DescribeSnapshotTierStatusCommandOutput,
   DescribeSnapshotTierStatusCommand,
-  DescribeSnapshotTierStatusCommandInput,
-  DescribeSnapshotTierStatusCommandOutput,
 } from "./commands/DescribeSnapshotTierStatusCommand";
 import {
+  type DescribeSpotDatafeedSubscriptionCommandInput,
+  type DescribeSpotDatafeedSubscriptionCommandOutput,
   DescribeSpotDatafeedSubscriptionCommand,
-  DescribeSpotDatafeedSubscriptionCommandInput,
-  DescribeSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/DescribeSpotDatafeedSubscriptionCommand";
 import {
+  type DescribeSpotFleetInstancesCommandInput,
+  type DescribeSpotFleetInstancesCommandOutput,
   DescribeSpotFleetInstancesCommand,
-  DescribeSpotFleetInstancesCommandInput,
-  DescribeSpotFleetInstancesCommandOutput,
 } from "./commands/DescribeSpotFleetInstancesCommand";
 import {
+  type DescribeSpotFleetRequestHistoryCommandInput,
+  type DescribeSpotFleetRequestHistoryCommandOutput,
   DescribeSpotFleetRequestHistoryCommand,
-  DescribeSpotFleetRequestHistoryCommandInput,
-  DescribeSpotFleetRequestHistoryCommandOutput,
 } from "./commands/DescribeSpotFleetRequestHistoryCommand";
 import {
+  type DescribeSpotFleetRequestsCommandInput,
+  type DescribeSpotFleetRequestsCommandOutput,
   DescribeSpotFleetRequestsCommand,
-  DescribeSpotFleetRequestsCommandInput,
-  DescribeSpotFleetRequestsCommandOutput,
 } from "./commands/DescribeSpotFleetRequestsCommand";
 import {
+  type DescribeSpotInstanceRequestsCommandInput,
+  type DescribeSpotInstanceRequestsCommandOutput,
   DescribeSpotInstanceRequestsCommand,
-  DescribeSpotInstanceRequestsCommandInput,
-  DescribeSpotInstanceRequestsCommandOutput,
 } from "./commands/DescribeSpotInstanceRequestsCommand";
 import {
+  type DescribeSpotPriceHistoryCommandInput,
+  type DescribeSpotPriceHistoryCommandOutput,
   DescribeSpotPriceHistoryCommand,
-  DescribeSpotPriceHistoryCommandInput,
-  DescribeSpotPriceHistoryCommandOutput,
 } from "./commands/DescribeSpotPriceHistoryCommand";
 import {
+  type DescribeStaleSecurityGroupsCommandInput,
+  type DescribeStaleSecurityGroupsCommandOutput,
   DescribeStaleSecurityGroupsCommand,
-  DescribeStaleSecurityGroupsCommandInput,
-  DescribeStaleSecurityGroupsCommandOutput,
 } from "./commands/DescribeStaleSecurityGroupsCommand";
 import {
+  type DescribeStoreImageTasksCommandInput,
+  type DescribeStoreImageTasksCommandOutput,
   DescribeStoreImageTasksCommand,
-  DescribeStoreImageTasksCommandInput,
-  DescribeStoreImageTasksCommandOutput,
 } from "./commands/DescribeStoreImageTasksCommand";
 import {
+  type DescribeSubnetsCommandInput,
+  type DescribeSubnetsCommandOutput,
   DescribeSubnetsCommand,
-  DescribeSubnetsCommandInput,
-  DescribeSubnetsCommandOutput,
 } from "./commands/DescribeSubnetsCommand";
 import {
+  type DescribeTagsCommandInput,
+  type DescribeTagsCommandOutput,
   DescribeTagsCommand,
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  type DescribeTrafficMirrorFilterRulesCommandInput,
+  type DescribeTrafficMirrorFilterRulesCommandOutput,
   DescribeTrafficMirrorFilterRulesCommand,
-  DescribeTrafficMirrorFilterRulesCommandInput,
-  DescribeTrafficMirrorFilterRulesCommandOutput,
 } from "./commands/DescribeTrafficMirrorFilterRulesCommand";
 import {
+  type DescribeTrafficMirrorFiltersCommandInput,
+  type DescribeTrafficMirrorFiltersCommandOutput,
   DescribeTrafficMirrorFiltersCommand,
-  DescribeTrafficMirrorFiltersCommandInput,
-  DescribeTrafficMirrorFiltersCommandOutput,
 } from "./commands/DescribeTrafficMirrorFiltersCommand";
 import {
+  type DescribeTrafficMirrorSessionsCommandInput,
+  type DescribeTrafficMirrorSessionsCommandOutput,
   DescribeTrafficMirrorSessionsCommand,
-  DescribeTrafficMirrorSessionsCommandInput,
-  DescribeTrafficMirrorSessionsCommandOutput,
 } from "./commands/DescribeTrafficMirrorSessionsCommand";
 import {
+  type DescribeTrafficMirrorTargetsCommandInput,
+  type DescribeTrafficMirrorTargetsCommandOutput,
   DescribeTrafficMirrorTargetsCommand,
-  DescribeTrafficMirrorTargetsCommandInput,
-  DescribeTrafficMirrorTargetsCommandOutput,
 } from "./commands/DescribeTrafficMirrorTargetsCommand";
 import {
+  type DescribeTransitGatewayAttachmentsCommandInput,
+  type DescribeTransitGatewayAttachmentsCommandOutput,
   DescribeTransitGatewayAttachmentsCommand,
-  DescribeTransitGatewayAttachmentsCommandInput,
-  DescribeTransitGatewayAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayAttachmentsCommand";
 import {
+  type DescribeTransitGatewayConnectPeersCommandInput,
+  type DescribeTransitGatewayConnectPeersCommandOutput,
   DescribeTransitGatewayConnectPeersCommand,
-  DescribeTransitGatewayConnectPeersCommandInput,
-  DescribeTransitGatewayConnectPeersCommandOutput,
 } from "./commands/DescribeTransitGatewayConnectPeersCommand";
 import {
+  type DescribeTransitGatewayConnectsCommandInput,
+  type DescribeTransitGatewayConnectsCommandOutput,
   DescribeTransitGatewayConnectsCommand,
-  DescribeTransitGatewayConnectsCommandInput,
-  DescribeTransitGatewayConnectsCommandOutput,
 } from "./commands/DescribeTransitGatewayConnectsCommand";
 import {
+  type DescribeTransitGatewayMeteringPoliciesCommandInput,
+  type DescribeTransitGatewayMeteringPoliciesCommandOutput,
   DescribeTransitGatewayMeteringPoliciesCommand,
-  DescribeTransitGatewayMeteringPoliciesCommandInput,
-  DescribeTransitGatewayMeteringPoliciesCommandOutput,
 } from "./commands/DescribeTransitGatewayMeteringPoliciesCommand";
 import {
+  type DescribeTransitGatewayMulticastDomainsCommandInput,
+  type DescribeTransitGatewayMulticastDomainsCommandOutput,
   DescribeTransitGatewayMulticastDomainsCommand,
-  DescribeTransitGatewayMulticastDomainsCommandInput,
-  DescribeTransitGatewayMulticastDomainsCommandOutput,
 } from "./commands/DescribeTransitGatewayMulticastDomainsCommand";
 import {
+  type DescribeTransitGatewayPeeringAttachmentsCommandInput,
+  type DescribeTransitGatewayPeeringAttachmentsCommandOutput,
   DescribeTransitGatewayPeeringAttachmentsCommand,
-  DescribeTransitGatewayPeeringAttachmentsCommandInput,
-  DescribeTransitGatewayPeeringAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayPeeringAttachmentsCommand";
 import {
+  type DescribeTransitGatewayPolicyTablesCommandInput,
+  type DescribeTransitGatewayPolicyTablesCommandOutput,
   DescribeTransitGatewayPolicyTablesCommand,
-  DescribeTransitGatewayPolicyTablesCommandInput,
-  DescribeTransitGatewayPolicyTablesCommandOutput,
 } from "./commands/DescribeTransitGatewayPolicyTablesCommand";
 import {
+  type DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
+  type DescribeTransitGatewayRouteTableAnnouncementsCommandOutput,
   DescribeTransitGatewayRouteTableAnnouncementsCommand,
-  DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
-  DescribeTransitGatewayRouteTableAnnouncementsCommandOutput,
 } from "./commands/DescribeTransitGatewayRouteTableAnnouncementsCommand";
 import {
+  type DescribeTransitGatewayRouteTablesCommandInput,
+  type DescribeTransitGatewayRouteTablesCommandOutput,
   DescribeTransitGatewayRouteTablesCommand,
-  DescribeTransitGatewayRouteTablesCommandInput,
-  DescribeTransitGatewayRouteTablesCommandOutput,
 } from "./commands/DescribeTransitGatewayRouteTablesCommand";
 import {
+  type DescribeTransitGatewaysCommandInput,
+  type DescribeTransitGatewaysCommandOutput,
   DescribeTransitGatewaysCommand,
-  DescribeTransitGatewaysCommandInput,
-  DescribeTransitGatewaysCommandOutput,
 } from "./commands/DescribeTransitGatewaysCommand";
 import {
+  type DescribeTransitGatewayVpcAttachmentsCommandInput,
+  type DescribeTransitGatewayVpcAttachmentsCommandOutput,
   DescribeTransitGatewayVpcAttachmentsCommand,
-  DescribeTransitGatewayVpcAttachmentsCommandInput,
-  DescribeTransitGatewayVpcAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayVpcAttachmentsCommand";
 import {
+  type DescribeTrunkInterfaceAssociationsCommandInput,
+  type DescribeTrunkInterfaceAssociationsCommandOutput,
   DescribeTrunkInterfaceAssociationsCommand,
-  DescribeTrunkInterfaceAssociationsCommandInput,
-  DescribeTrunkInterfaceAssociationsCommandOutput,
 } from "./commands/DescribeTrunkInterfaceAssociationsCommand";
 import {
+  type DescribeVerifiedAccessEndpointsCommandInput,
+  type DescribeVerifiedAccessEndpointsCommandOutput,
   DescribeVerifiedAccessEndpointsCommand,
-  DescribeVerifiedAccessEndpointsCommandInput,
-  DescribeVerifiedAccessEndpointsCommandOutput,
 } from "./commands/DescribeVerifiedAccessEndpointsCommand";
 import {
+  type DescribeVerifiedAccessGroupsCommandInput,
+  type DescribeVerifiedAccessGroupsCommandOutput,
   DescribeVerifiedAccessGroupsCommand,
-  DescribeVerifiedAccessGroupsCommandInput,
-  DescribeVerifiedAccessGroupsCommandOutput,
 } from "./commands/DescribeVerifiedAccessGroupsCommand";
 import {
+  type DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+  type DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput,
   DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
-  DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
-  DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput,
 } from "./commands/DescribeVerifiedAccessInstanceLoggingConfigurationsCommand";
 import {
+  type DescribeVerifiedAccessInstancesCommandInput,
+  type DescribeVerifiedAccessInstancesCommandOutput,
   DescribeVerifiedAccessInstancesCommand,
-  DescribeVerifiedAccessInstancesCommandInput,
-  DescribeVerifiedAccessInstancesCommandOutput,
 } from "./commands/DescribeVerifiedAccessInstancesCommand";
 import {
+  type DescribeVerifiedAccessTrustProvidersCommandInput,
+  type DescribeVerifiedAccessTrustProvidersCommandOutput,
   DescribeVerifiedAccessTrustProvidersCommand,
-  DescribeVerifiedAccessTrustProvidersCommandInput,
-  DescribeVerifiedAccessTrustProvidersCommandOutput,
 } from "./commands/DescribeVerifiedAccessTrustProvidersCommand";
 import {
+  type DescribeVolumeAttributeCommandInput,
+  type DescribeVolumeAttributeCommandOutput,
   DescribeVolumeAttributeCommand,
-  DescribeVolumeAttributeCommandInput,
-  DescribeVolumeAttributeCommandOutput,
 } from "./commands/DescribeVolumeAttributeCommand";
 import {
+  type DescribeVolumesCommandInput,
+  type DescribeVolumesCommandOutput,
   DescribeVolumesCommand,
-  DescribeVolumesCommandInput,
-  DescribeVolumesCommandOutput,
 } from "./commands/DescribeVolumesCommand";
 import {
+  type DescribeVolumesModificationsCommandInput,
+  type DescribeVolumesModificationsCommandOutput,
   DescribeVolumesModificationsCommand,
-  DescribeVolumesModificationsCommandInput,
-  DescribeVolumesModificationsCommandOutput,
 } from "./commands/DescribeVolumesModificationsCommand";
 import {
+  type DescribeVolumeStatusCommandInput,
+  type DescribeVolumeStatusCommandOutput,
   DescribeVolumeStatusCommand,
-  DescribeVolumeStatusCommandInput,
-  DescribeVolumeStatusCommandOutput,
 } from "./commands/DescribeVolumeStatusCommand";
 import {
+  type DescribeVpcAttributeCommandInput,
+  type DescribeVpcAttributeCommandOutput,
   DescribeVpcAttributeCommand,
-  DescribeVpcAttributeCommandInput,
-  DescribeVpcAttributeCommandOutput,
 } from "./commands/DescribeVpcAttributeCommand";
 import {
+  type DescribeVpcBlockPublicAccessExclusionsCommandInput,
+  type DescribeVpcBlockPublicAccessExclusionsCommandOutput,
   DescribeVpcBlockPublicAccessExclusionsCommand,
-  DescribeVpcBlockPublicAccessExclusionsCommandInput,
-  DescribeVpcBlockPublicAccessExclusionsCommandOutput,
 } from "./commands/DescribeVpcBlockPublicAccessExclusionsCommand";
 import {
+  type DescribeVpcBlockPublicAccessOptionsCommandInput,
+  type DescribeVpcBlockPublicAccessOptionsCommandOutput,
   DescribeVpcBlockPublicAccessOptionsCommand,
-  DescribeVpcBlockPublicAccessOptionsCommandInput,
-  DescribeVpcBlockPublicAccessOptionsCommandOutput,
 } from "./commands/DescribeVpcBlockPublicAccessOptionsCommand";
 import {
+  type DescribeVpcClassicLinkCommandInput,
+  type DescribeVpcClassicLinkCommandOutput,
   DescribeVpcClassicLinkCommand,
-  DescribeVpcClassicLinkCommandInput,
-  DescribeVpcClassicLinkCommandOutput,
 } from "./commands/DescribeVpcClassicLinkCommand";
 import {
+  type DescribeVpcClassicLinkDnsSupportCommandInput,
+  type DescribeVpcClassicLinkDnsSupportCommandOutput,
   DescribeVpcClassicLinkDnsSupportCommand,
-  DescribeVpcClassicLinkDnsSupportCommandInput,
-  DescribeVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/DescribeVpcClassicLinkDnsSupportCommand";
 import {
+  type DescribeVpcEncryptionControlsCommandInput,
+  type DescribeVpcEncryptionControlsCommandOutput,
   DescribeVpcEncryptionControlsCommand,
-  DescribeVpcEncryptionControlsCommandInput,
-  DescribeVpcEncryptionControlsCommandOutput,
 } from "./commands/DescribeVpcEncryptionControlsCommand";
 import {
+  type DescribeVpcEndpointAssociationsCommandInput,
+  type DescribeVpcEndpointAssociationsCommandOutput,
   DescribeVpcEndpointAssociationsCommand,
-  DescribeVpcEndpointAssociationsCommandInput,
-  DescribeVpcEndpointAssociationsCommandOutput,
 } from "./commands/DescribeVpcEndpointAssociationsCommand";
 import {
+  type DescribeVpcEndpointConnectionNotificationsCommandInput,
+  type DescribeVpcEndpointConnectionNotificationsCommandOutput,
   DescribeVpcEndpointConnectionNotificationsCommand,
-  DescribeVpcEndpointConnectionNotificationsCommandInput,
-  DescribeVpcEndpointConnectionNotificationsCommandOutput,
 } from "./commands/DescribeVpcEndpointConnectionNotificationsCommand";
 import {
+  type DescribeVpcEndpointConnectionsCommandInput,
+  type DescribeVpcEndpointConnectionsCommandOutput,
   DescribeVpcEndpointConnectionsCommand,
-  DescribeVpcEndpointConnectionsCommandInput,
-  DescribeVpcEndpointConnectionsCommandOutput,
 } from "./commands/DescribeVpcEndpointConnectionsCommand";
 import {
+  type DescribeVpcEndpointsCommandInput,
+  type DescribeVpcEndpointsCommandOutput,
   DescribeVpcEndpointsCommand,
-  DescribeVpcEndpointsCommandInput,
-  DescribeVpcEndpointsCommandOutput,
 } from "./commands/DescribeVpcEndpointsCommand";
 import {
+  type DescribeVpcEndpointServiceConfigurationsCommandInput,
+  type DescribeVpcEndpointServiceConfigurationsCommandOutput,
   DescribeVpcEndpointServiceConfigurationsCommand,
-  DescribeVpcEndpointServiceConfigurationsCommandInput,
-  DescribeVpcEndpointServiceConfigurationsCommandOutput,
 } from "./commands/DescribeVpcEndpointServiceConfigurationsCommand";
 import {
+  type DescribeVpcEndpointServicePermissionsCommandInput,
+  type DescribeVpcEndpointServicePermissionsCommandOutput,
   DescribeVpcEndpointServicePermissionsCommand,
-  DescribeVpcEndpointServicePermissionsCommandInput,
-  DescribeVpcEndpointServicePermissionsCommandOutput,
 } from "./commands/DescribeVpcEndpointServicePermissionsCommand";
 import {
+  type DescribeVpcEndpointServicesCommandInput,
+  type DescribeVpcEndpointServicesCommandOutput,
   DescribeVpcEndpointServicesCommand,
-  DescribeVpcEndpointServicesCommandInput,
-  DescribeVpcEndpointServicesCommandOutput,
 } from "./commands/DescribeVpcEndpointServicesCommand";
 import {
+  type DescribeVpcPeeringConnectionsCommandInput,
+  type DescribeVpcPeeringConnectionsCommandOutput,
   DescribeVpcPeeringConnectionsCommand,
-  DescribeVpcPeeringConnectionsCommandInput,
-  DescribeVpcPeeringConnectionsCommandOutput,
 } from "./commands/DescribeVpcPeeringConnectionsCommand";
 import {
+  type DescribeVpcsCommandInput,
+  type DescribeVpcsCommandOutput,
   DescribeVpcsCommand,
-  DescribeVpcsCommandInput,
-  DescribeVpcsCommandOutput,
 } from "./commands/DescribeVpcsCommand";
 import {
+  type DescribeVpnConcentratorsCommandInput,
+  type DescribeVpnConcentratorsCommandOutput,
   DescribeVpnConcentratorsCommand,
-  DescribeVpnConcentratorsCommandInput,
-  DescribeVpnConcentratorsCommandOutput,
 } from "./commands/DescribeVpnConcentratorsCommand";
 import {
+  type DescribeVpnConnectionsCommandInput,
+  type DescribeVpnConnectionsCommandOutput,
   DescribeVpnConnectionsCommand,
-  DescribeVpnConnectionsCommandInput,
-  DescribeVpnConnectionsCommandOutput,
 } from "./commands/DescribeVpnConnectionsCommand";
 import {
+  type DescribeVpnGatewaysCommandInput,
+  type DescribeVpnGatewaysCommandOutput,
   DescribeVpnGatewaysCommand,
-  DescribeVpnGatewaysCommandInput,
-  DescribeVpnGatewaysCommandOutput,
 } from "./commands/DescribeVpnGatewaysCommand";
 import {
+  type DetachClassicLinkVpcCommandInput,
+  type DetachClassicLinkVpcCommandOutput,
   DetachClassicLinkVpcCommand,
-  DetachClassicLinkVpcCommandInput,
-  DetachClassicLinkVpcCommandOutput,
 } from "./commands/DetachClassicLinkVpcCommand";
 import {
+  type DetachInternetGatewayCommandInput,
+  type DetachInternetGatewayCommandOutput,
   DetachInternetGatewayCommand,
-  DetachInternetGatewayCommandInput,
-  DetachInternetGatewayCommandOutput,
 } from "./commands/DetachInternetGatewayCommand";
 import {
+  type DetachNetworkInterfaceCommandInput,
+  type DetachNetworkInterfaceCommandOutput,
   DetachNetworkInterfaceCommand,
-  DetachNetworkInterfaceCommandInput,
-  DetachNetworkInterfaceCommandOutput,
 } from "./commands/DetachNetworkInterfaceCommand";
 import {
+  type DetachVerifiedAccessTrustProviderCommandInput,
+  type DetachVerifiedAccessTrustProviderCommandOutput,
   DetachVerifiedAccessTrustProviderCommand,
-  DetachVerifiedAccessTrustProviderCommandInput,
-  DetachVerifiedAccessTrustProviderCommandOutput,
 } from "./commands/DetachVerifiedAccessTrustProviderCommand";
 import {
+  type DetachVolumeCommandInput,
+  type DetachVolumeCommandOutput,
   DetachVolumeCommand,
-  DetachVolumeCommandInput,
-  DetachVolumeCommandOutput,
 } from "./commands/DetachVolumeCommand";
 import {
+  type DetachVpnGatewayCommandInput,
+  type DetachVpnGatewayCommandOutput,
   DetachVpnGatewayCommand,
-  DetachVpnGatewayCommandInput,
-  DetachVpnGatewayCommandOutput,
 } from "./commands/DetachVpnGatewayCommand";
 import {
+  type DisableAddressTransferCommandInput,
+  type DisableAddressTransferCommandOutput,
   DisableAddressTransferCommand,
-  DisableAddressTransferCommandInput,
-  DisableAddressTransferCommandOutput,
 } from "./commands/DisableAddressTransferCommand";
 import {
+  type DisableAllowedImagesSettingsCommandInput,
+  type DisableAllowedImagesSettingsCommandOutput,
   DisableAllowedImagesSettingsCommand,
-  DisableAllowedImagesSettingsCommandInput,
-  DisableAllowedImagesSettingsCommandOutput,
 } from "./commands/DisableAllowedImagesSettingsCommand";
 import {
+  type DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+  type DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
   DisableAwsNetworkPerformanceMetricSubscriptionCommand,
-  DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
-  DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
 } from "./commands/DisableAwsNetworkPerformanceMetricSubscriptionCommand";
 import {
+  type DisableCapacityManagerCommandInput,
+  type DisableCapacityManagerCommandOutput,
   DisableCapacityManagerCommand,
-  DisableCapacityManagerCommandInput,
-  DisableCapacityManagerCommandOutput,
 } from "./commands/DisableCapacityManagerCommand";
 import {
+  type DisableEbsEncryptionByDefaultCommandInput,
+  type DisableEbsEncryptionByDefaultCommandOutput,
   DisableEbsEncryptionByDefaultCommand,
-  DisableEbsEncryptionByDefaultCommandInput,
-  DisableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/DisableEbsEncryptionByDefaultCommand";
 import {
+  type DisableFastLaunchCommandInput,
+  type DisableFastLaunchCommandOutput,
   DisableFastLaunchCommand,
-  DisableFastLaunchCommandInput,
-  DisableFastLaunchCommandOutput,
 } from "./commands/DisableFastLaunchCommand";
 import {
+  type DisableFastSnapshotRestoresCommandInput,
+  type DisableFastSnapshotRestoresCommandOutput,
   DisableFastSnapshotRestoresCommand,
-  DisableFastSnapshotRestoresCommandInput,
-  DisableFastSnapshotRestoresCommandOutput,
 } from "./commands/DisableFastSnapshotRestoresCommand";
 import {
+  type DisableImageBlockPublicAccessCommandInput,
+  type DisableImageBlockPublicAccessCommandOutput,
   DisableImageBlockPublicAccessCommand,
-  DisableImageBlockPublicAccessCommandInput,
-  DisableImageBlockPublicAccessCommandOutput,
 } from "./commands/DisableImageBlockPublicAccessCommand";
 import {
+  type DisableImageCommandInput,
+  type DisableImageCommandOutput,
   DisableImageCommand,
-  DisableImageCommandInput,
-  DisableImageCommandOutput,
 } from "./commands/DisableImageCommand";
 import {
+  type DisableImageDeprecationCommandInput,
+  type DisableImageDeprecationCommandOutput,
   DisableImageDeprecationCommand,
-  DisableImageDeprecationCommandInput,
-  DisableImageDeprecationCommandOutput,
 } from "./commands/DisableImageDeprecationCommand";
 import {
+  type DisableImageDeregistrationProtectionCommandInput,
+  type DisableImageDeregistrationProtectionCommandOutput,
   DisableImageDeregistrationProtectionCommand,
-  DisableImageDeregistrationProtectionCommandInput,
-  DisableImageDeregistrationProtectionCommandOutput,
 } from "./commands/DisableImageDeregistrationProtectionCommand";
 import {
+  type DisableInstanceSqlHaStandbyDetectionsCommandInput,
+  type DisableInstanceSqlHaStandbyDetectionsCommandOutput,
   DisableInstanceSqlHaStandbyDetectionsCommand,
-  DisableInstanceSqlHaStandbyDetectionsCommandInput,
-  DisableInstanceSqlHaStandbyDetectionsCommandOutput,
 } from "./commands/DisableInstanceSqlHaStandbyDetectionsCommand";
 import {
+  type DisableIpamOrganizationAdminAccountCommandInput,
+  type DisableIpamOrganizationAdminAccountCommandOutput,
   DisableIpamOrganizationAdminAccountCommand,
-  DisableIpamOrganizationAdminAccountCommandInput,
-  DisableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableIpamOrganizationAdminAccountCommand";
 import {
+  type DisableIpamPolicyCommandInput,
+  type DisableIpamPolicyCommandOutput,
   DisableIpamPolicyCommand,
-  DisableIpamPolicyCommandInput,
-  DisableIpamPolicyCommandOutput,
 } from "./commands/DisableIpamPolicyCommand";
 import {
+  type DisableRouteServerPropagationCommandInput,
+  type DisableRouteServerPropagationCommandOutput,
   DisableRouteServerPropagationCommand,
-  DisableRouteServerPropagationCommandInput,
-  DisableRouteServerPropagationCommandOutput,
 } from "./commands/DisableRouteServerPropagationCommand";
 import {
+  type DisableSerialConsoleAccessCommandInput,
+  type DisableSerialConsoleAccessCommandOutput,
   DisableSerialConsoleAccessCommand,
-  DisableSerialConsoleAccessCommandInput,
-  DisableSerialConsoleAccessCommandOutput,
 } from "./commands/DisableSerialConsoleAccessCommand";
 import {
+  type DisableSnapshotBlockPublicAccessCommandInput,
+  type DisableSnapshotBlockPublicAccessCommandOutput,
   DisableSnapshotBlockPublicAccessCommand,
-  DisableSnapshotBlockPublicAccessCommandInput,
-  DisableSnapshotBlockPublicAccessCommandOutput,
 } from "./commands/DisableSnapshotBlockPublicAccessCommand";
 import {
+  type DisableTransitGatewayRouteTablePropagationCommandInput,
+  type DisableTransitGatewayRouteTablePropagationCommandOutput,
   DisableTransitGatewayRouteTablePropagationCommand,
-  DisableTransitGatewayRouteTablePropagationCommandInput,
-  DisableTransitGatewayRouteTablePropagationCommandOutput,
 } from "./commands/DisableTransitGatewayRouteTablePropagationCommand";
 import {
+  type DisableVgwRoutePropagationCommandInput,
+  type DisableVgwRoutePropagationCommandOutput,
   DisableVgwRoutePropagationCommand,
-  DisableVgwRoutePropagationCommandInput,
-  DisableVgwRoutePropagationCommandOutput,
 } from "./commands/DisableVgwRoutePropagationCommand";
 import {
+  type DisableVpcClassicLinkCommandInput,
+  type DisableVpcClassicLinkCommandOutput,
   DisableVpcClassicLinkCommand,
-  DisableVpcClassicLinkCommandInput,
-  DisableVpcClassicLinkCommandOutput,
 } from "./commands/DisableVpcClassicLinkCommand";
 import {
+  type DisableVpcClassicLinkDnsSupportCommandInput,
+  type DisableVpcClassicLinkDnsSupportCommandOutput,
   DisableVpcClassicLinkDnsSupportCommand,
-  DisableVpcClassicLinkDnsSupportCommandInput,
-  DisableVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/DisableVpcClassicLinkDnsSupportCommand";
 import {
+  type DisassociateAddressCommandInput,
+  type DisassociateAddressCommandOutput,
   DisassociateAddressCommand,
-  DisassociateAddressCommandInput,
-  DisassociateAddressCommandOutput,
 } from "./commands/DisassociateAddressCommand";
 import {
+  type DisassociateCapacityReservationBillingOwnerCommandInput,
+  type DisassociateCapacityReservationBillingOwnerCommandOutput,
   DisassociateCapacityReservationBillingOwnerCommand,
-  DisassociateCapacityReservationBillingOwnerCommandInput,
-  DisassociateCapacityReservationBillingOwnerCommandOutput,
 } from "./commands/DisassociateCapacityReservationBillingOwnerCommand";
 import {
+  type DisassociateClientVpnTargetNetworkCommandInput,
+  type DisassociateClientVpnTargetNetworkCommandOutput,
   DisassociateClientVpnTargetNetworkCommand,
-  DisassociateClientVpnTargetNetworkCommandInput,
-  DisassociateClientVpnTargetNetworkCommandOutput,
 } from "./commands/DisassociateClientVpnTargetNetworkCommand";
 import {
+  type DisassociateEnclaveCertificateIamRoleCommandInput,
+  type DisassociateEnclaveCertificateIamRoleCommandOutput,
   DisassociateEnclaveCertificateIamRoleCommand,
-  DisassociateEnclaveCertificateIamRoleCommandInput,
-  DisassociateEnclaveCertificateIamRoleCommandOutput,
 } from "./commands/DisassociateEnclaveCertificateIamRoleCommand";
 import {
+  type DisassociateIamInstanceProfileCommandInput,
+  type DisassociateIamInstanceProfileCommandOutput,
   DisassociateIamInstanceProfileCommand,
-  DisassociateIamInstanceProfileCommandInput,
-  DisassociateIamInstanceProfileCommandOutput,
 } from "./commands/DisassociateIamInstanceProfileCommand";
 import {
+  type DisassociateInstanceEventWindowCommandInput,
+  type DisassociateInstanceEventWindowCommandOutput,
   DisassociateInstanceEventWindowCommand,
-  DisassociateInstanceEventWindowCommandInput,
-  DisassociateInstanceEventWindowCommandOutput,
 } from "./commands/DisassociateInstanceEventWindowCommand";
 import {
+  type DisassociateIpamByoasnCommandInput,
+  type DisassociateIpamByoasnCommandOutput,
   DisassociateIpamByoasnCommand,
-  DisassociateIpamByoasnCommandInput,
-  DisassociateIpamByoasnCommandOutput,
 } from "./commands/DisassociateIpamByoasnCommand";
 import {
+  type DisassociateIpamResourceDiscoveryCommandInput,
+  type DisassociateIpamResourceDiscoveryCommandOutput,
   DisassociateIpamResourceDiscoveryCommand,
-  DisassociateIpamResourceDiscoveryCommandInput,
-  DisassociateIpamResourceDiscoveryCommandOutput,
 } from "./commands/DisassociateIpamResourceDiscoveryCommand";
 import {
+  type DisassociateNatGatewayAddressCommandInput,
+  type DisassociateNatGatewayAddressCommandOutput,
   DisassociateNatGatewayAddressCommand,
-  DisassociateNatGatewayAddressCommandInput,
-  DisassociateNatGatewayAddressCommandOutput,
 } from "./commands/DisassociateNatGatewayAddressCommand";
 import {
+  type DisassociateRouteServerCommandInput,
+  type DisassociateRouteServerCommandOutput,
   DisassociateRouteServerCommand,
-  DisassociateRouteServerCommandInput,
-  DisassociateRouteServerCommandOutput,
 } from "./commands/DisassociateRouteServerCommand";
 import {
+  type DisassociateRouteTableCommandInput,
+  type DisassociateRouteTableCommandOutput,
   DisassociateRouteTableCommand,
-  DisassociateRouteTableCommandInput,
-  DisassociateRouteTableCommandOutput,
 } from "./commands/DisassociateRouteTableCommand";
 import {
+  type DisassociateSecurityGroupVpcCommandInput,
+  type DisassociateSecurityGroupVpcCommandOutput,
   DisassociateSecurityGroupVpcCommand,
-  DisassociateSecurityGroupVpcCommandInput,
-  DisassociateSecurityGroupVpcCommandOutput,
 } from "./commands/DisassociateSecurityGroupVpcCommand";
 import {
+  type DisassociateSubnetCidrBlockCommandInput,
+  type DisassociateSubnetCidrBlockCommandOutput,
   DisassociateSubnetCidrBlockCommand,
-  DisassociateSubnetCidrBlockCommandInput,
-  DisassociateSubnetCidrBlockCommandOutput,
 } from "./commands/DisassociateSubnetCidrBlockCommand";
 import {
+  type DisassociateTransitGatewayMulticastDomainCommandInput,
+  type DisassociateTransitGatewayMulticastDomainCommandOutput,
   DisassociateTransitGatewayMulticastDomainCommand,
-  DisassociateTransitGatewayMulticastDomainCommandInput,
-  DisassociateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/DisassociateTransitGatewayMulticastDomainCommand";
 import {
+  type DisassociateTransitGatewayPolicyTableCommandInput,
+  type DisassociateTransitGatewayPolicyTableCommandOutput,
   DisassociateTransitGatewayPolicyTableCommand,
-  DisassociateTransitGatewayPolicyTableCommandInput,
-  DisassociateTransitGatewayPolicyTableCommandOutput,
 } from "./commands/DisassociateTransitGatewayPolicyTableCommand";
 import {
+  type DisassociateTransitGatewayRouteTableCommandInput,
+  type DisassociateTransitGatewayRouteTableCommandOutput,
   DisassociateTransitGatewayRouteTableCommand,
-  DisassociateTransitGatewayRouteTableCommandInput,
-  DisassociateTransitGatewayRouteTableCommandOutput,
 } from "./commands/DisassociateTransitGatewayRouteTableCommand";
 import {
+  type DisassociateTrunkInterfaceCommandInput,
+  type DisassociateTrunkInterfaceCommandOutput,
   DisassociateTrunkInterfaceCommand,
-  DisassociateTrunkInterfaceCommandInput,
-  DisassociateTrunkInterfaceCommandOutput,
 } from "./commands/DisassociateTrunkInterfaceCommand";
 import {
+  type DisassociateVpcCidrBlockCommandInput,
+  type DisassociateVpcCidrBlockCommandOutput,
   DisassociateVpcCidrBlockCommand,
-  DisassociateVpcCidrBlockCommandInput,
-  DisassociateVpcCidrBlockCommandOutput,
 } from "./commands/DisassociateVpcCidrBlockCommand";
 import {
+  type EnableAddressTransferCommandInput,
+  type EnableAddressTransferCommandOutput,
   EnableAddressTransferCommand,
-  EnableAddressTransferCommandInput,
-  EnableAddressTransferCommandOutput,
 } from "./commands/EnableAddressTransferCommand";
 import {
+  type EnableAllowedImagesSettingsCommandInput,
+  type EnableAllowedImagesSettingsCommandOutput,
   EnableAllowedImagesSettingsCommand,
-  EnableAllowedImagesSettingsCommandInput,
-  EnableAllowedImagesSettingsCommandOutput,
 } from "./commands/EnableAllowedImagesSettingsCommand";
 import {
+  type EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+  type EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
   EnableAwsNetworkPerformanceMetricSubscriptionCommand,
-  EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
-  EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
 } from "./commands/EnableAwsNetworkPerformanceMetricSubscriptionCommand";
 import {
+  type EnableCapacityManagerCommandInput,
+  type EnableCapacityManagerCommandOutput,
   EnableCapacityManagerCommand,
-  EnableCapacityManagerCommandInput,
-  EnableCapacityManagerCommandOutput,
 } from "./commands/EnableCapacityManagerCommand";
 import {
+  type EnableEbsEncryptionByDefaultCommandInput,
+  type EnableEbsEncryptionByDefaultCommandOutput,
   EnableEbsEncryptionByDefaultCommand,
-  EnableEbsEncryptionByDefaultCommandInput,
-  EnableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/EnableEbsEncryptionByDefaultCommand";
 import {
+  type EnableFastLaunchCommandInput,
+  type EnableFastLaunchCommandOutput,
   EnableFastLaunchCommand,
-  EnableFastLaunchCommandInput,
-  EnableFastLaunchCommandOutput,
 } from "./commands/EnableFastLaunchCommand";
 import {
+  type EnableFastSnapshotRestoresCommandInput,
+  type EnableFastSnapshotRestoresCommandOutput,
   EnableFastSnapshotRestoresCommand,
-  EnableFastSnapshotRestoresCommandInput,
-  EnableFastSnapshotRestoresCommandOutput,
 } from "./commands/EnableFastSnapshotRestoresCommand";
 import {
+  type EnableImageBlockPublicAccessCommandInput,
+  type EnableImageBlockPublicAccessCommandOutput,
   EnableImageBlockPublicAccessCommand,
-  EnableImageBlockPublicAccessCommandInput,
-  EnableImageBlockPublicAccessCommandOutput,
 } from "./commands/EnableImageBlockPublicAccessCommand";
-import { EnableImageCommand, EnableImageCommandInput, EnableImageCommandOutput } from "./commands/EnableImageCommand";
 import {
+  type EnableImageCommandInput,
+  type EnableImageCommandOutput,
+  EnableImageCommand,
+} from "./commands/EnableImageCommand";
+import {
+  type EnableImageDeprecationCommandInput,
+  type EnableImageDeprecationCommandOutput,
   EnableImageDeprecationCommand,
-  EnableImageDeprecationCommandInput,
-  EnableImageDeprecationCommandOutput,
 } from "./commands/EnableImageDeprecationCommand";
 import {
+  type EnableImageDeregistrationProtectionCommandInput,
+  type EnableImageDeregistrationProtectionCommandOutput,
   EnableImageDeregistrationProtectionCommand,
-  EnableImageDeregistrationProtectionCommandInput,
-  EnableImageDeregistrationProtectionCommandOutput,
 } from "./commands/EnableImageDeregistrationProtectionCommand";
 import {
+  type EnableInstanceSqlHaStandbyDetectionsCommandInput,
+  type EnableInstanceSqlHaStandbyDetectionsCommandOutput,
   EnableInstanceSqlHaStandbyDetectionsCommand,
-  EnableInstanceSqlHaStandbyDetectionsCommandInput,
-  EnableInstanceSqlHaStandbyDetectionsCommandOutput,
 } from "./commands/EnableInstanceSqlHaStandbyDetectionsCommand";
 import {
+  type EnableIpamOrganizationAdminAccountCommandInput,
+  type EnableIpamOrganizationAdminAccountCommandOutput,
   EnableIpamOrganizationAdminAccountCommand,
-  EnableIpamOrganizationAdminAccountCommandInput,
-  EnableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableIpamOrganizationAdminAccountCommand";
 import {
+  type EnableIpamPolicyCommandInput,
+  type EnableIpamPolicyCommandOutput,
   EnableIpamPolicyCommand,
-  EnableIpamPolicyCommandInput,
-  EnableIpamPolicyCommandOutput,
 } from "./commands/EnableIpamPolicyCommand";
 import {
+  type EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+  type EnableReachabilityAnalyzerOrganizationSharingCommandOutput,
   EnableReachabilityAnalyzerOrganizationSharingCommand,
-  EnableReachabilityAnalyzerOrganizationSharingCommandInput,
-  EnableReachabilityAnalyzerOrganizationSharingCommandOutput,
 } from "./commands/EnableReachabilityAnalyzerOrganizationSharingCommand";
 import {
+  type EnableRouteServerPropagationCommandInput,
+  type EnableRouteServerPropagationCommandOutput,
   EnableRouteServerPropagationCommand,
-  EnableRouteServerPropagationCommandInput,
-  EnableRouteServerPropagationCommandOutput,
 } from "./commands/EnableRouteServerPropagationCommand";
 import {
+  type EnableSerialConsoleAccessCommandInput,
+  type EnableSerialConsoleAccessCommandOutput,
   EnableSerialConsoleAccessCommand,
-  EnableSerialConsoleAccessCommandInput,
-  EnableSerialConsoleAccessCommandOutput,
 } from "./commands/EnableSerialConsoleAccessCommand";
 import {
+  type EnableSnapshotBlockPublicAccessCommandInput,
+  type EnableSnapshotBlockPublicAccessCommandOutput,
   EnableSnapshotBlockPublicAccessCommand,
-  EnableSnapshotBlockPublicAccessCommandInput,
-  EnableSnapshotBlockPublicAccessCommandOutput,
 } from "./commands/EnableSnapshotBlockPublicAccessCommand";
 import {
+  type EnableTransitGatewayRouteTablePropagationCommandInput,
+  type EnableTransitGatewayRouteTablePropagationCommandOutput,
   EnableTransitGatewayRouteTablePropagationCommand,
-  EnableTransitGatewayRouteTablePropagationCommandInput,
-  EnableTransitGatewayRouteTablePropagationCommandOutput,
 } from "./commands/EnableTransitGatewayRouteTablePropagationCommand";
 import {
+  type EnableVgwRoutePropagationCommandInput,
+  type EnableVgwRoutePropagationCommandOutput,
   EnableVgwRoutePropagationCommand,
-  EnableVgwRoutePropagationCommandInput,
-  EnableVgwRoutePropagationCommandOutput,
 } from "./commands/EnableVgwRoutePropagationCommand";
 import {
+  type EnableVolumeIOCommandInput,
+  type EnableVolumeIOCommandOutput,
   EnableVolumeIOCommand,
-  EnableVolumeIOCommandInput,
-  EnableVolumeIOCommandOutput,
 } from "./commands/EnableVolumeIOCommand";
 import {
+  type EnableVpcClassicLinkCommandInput,
+  type EnableVpcClassicLinkCommandOutput,
   EnableVpcClassicLinkCommand,
-  EnableVpcClassicLinkCommandInput,
-  EnableVpcClassicLinkCommandOutput,
 } from "./commands/EnableVpcClassicLinkCommand";
 import {
+  type EnableVpcClassicLinkDnsSupportCommandInput,
+  type EnableVpcClassicLinkDnsSupportCommandOutput,
   EnableVpcClassicLinkDnsSupportCommand,
-  EnableVpcClassicLinkDnsSupportCommandInput,
-  EnableVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/EnableVpcClassicLinkDnsSupportCommand";
 import {
+  type ExportClientVpnClientCertificateRevocationListCommandInput,
+  type ExportClientVpnClientCertificateRevocationListCommandOutput,
   ExportClientVpnClientCertificateRevocationListCommand,
-  ExportClientVpnClientCertificateRevocationListCommandInput,
-  ExportClientVpnClientCertificateRevocationListCommandOutput,
 } from "./commands/ExportClientVpnClientCertificateRevocationListCommand";
 import {
+  type ExportClientVpnClientConfigurationCommandInput,
+  type ExportClientVpnClientConfigurationCommandOutput,
   ExportClientVpnClientConfigurationCommand,
-  ExportClientVpnClientConfigurationCommandInput,
-  ExportClientVpnClientConfigurationCommandOutput,
 } from "./commands/ExportClientVpnClientConfigurationCommand";
-import { ExportImageCommand, ExportImageCommandInput, ExportImageCommandOutput } from "./commands/ExportImageCommand";
 import {
+  type ExportImageCommandInput,
+  type ExportImageCommandOutput,
+  ExportImageCommand,
+} from "./commands/ExportImageCommand";
+import {
+  type ExportTransitGatewayRoutesCommandInput,
+  type ExportTransitGatewayRoutesCommandOutput,
   ExportTransitGatewayRoutesCommand,
-  ExportTransitGatewayRoutesCommandInput,
-  ExportTransitGatewayRoutesCommandOutput,
 } from "./commands/ExportTransitGatewayRoutesCommand";
 import {
+  type ExportVerifiedAccessInstanceClientConfigurationCommandInput,
+  type ExportVerifiedAccessInstanceClientConfigurationCommandOutput,
   ExportVerifiedAccessInstanceClientConfigurationCommand,
-  ExportVerifiedAccessInstanceClientConfigurationCommandInput,
-  ExportVerifiedAccessInstanceClientConfigurationCommandOutput,
 } from "./commands/ExportVerifiedAccessInstanceClientConfigurationCommand";
 import {
+  type GetActiveVpnTunnelStatusCommandInput,
+  type GetActiveVpnTunnelStatusCommandOutput,
   GetActiveVpnTunnelStatusCommand,
-  GetActiveVpnTunnelStatusCommandInput,
-  GetActiveVpnTunnelStatusCommandOutput,
 } from "./commands/GetActiveVpnTunnelStatusCommand";
 import {
+  type GetAllowedImagesSettingsCommandInput,
+  type GetAllowedImagesSettingsCommandOutput,
   GetAllowedImagesSettingsCommand,
-  GetAllowedImagesSettingsCommandInput,
-  GetAllowedImagesSettingsCommandOutput,
 } from "./commands/GetAllowedImagesSettingsCommand";
 import {
+  type GetAssociatedEnclaveCertificateIamRolesCommandInput,
+  type GetAssociatedEnclaveCertificateIamRolesCommandOutput,
   GetAssociatedEnclaveCertificateIamRolesCommand,
-  GetAssociatedEnclaveCertificateIamRolesCommandInput,
-  GetAssociatedEnclaveCertificateIamRolesCommandOutput,
 } from "./commands/GetAssociatedEnclaveCertificateIamRolesCommand";
 import {
+  type GetAssociatedIpv6PoolCidrsCommandInput,
+  type GetAssociatedIpv6PoolCidrsCommandOutput,
   GetAssociatedIpv6PoolCidrsCommand,
-  GetAssociatedIpv6PoolCidrsCommandInput,
-  GetAssociatedIpv6PoolCidrsCommandOutput,
 } from "./commands/GetAssociatedIpv6PoolCidrsCommand";
 import {
+  type GetAwsNetworkPerformanceDataCommandInput,
+  type GetAwsNetworkPerformanceDataCommandOutput,
   GetAwsNetworkPerformanceDataCommand,
-  GetAwsNetworkPerformanceDataCommandInput,
-  GetAwsNetworkPerformanceDataCommandOutput,
 } from "./commands/GetAwsNetworkPerformanceDataCommand";
 import {
+  type GetCapacityManagerAttributesCommandInput,
+  type GetCapacityManagerAttributesCommandOutput,
   GetCapacityManagerAttributesCommand,
-  GetCapacityManagerAttributesCommandInput,
-  GetCapacityManagerAttributesCommandOutput,
 } from "./commands/GetCapacityManagerAttributesCommand";
 import {
+  type GetCapacityManagerMetricDataCommandInput,
+  type GetCapacityManagerMetricDataCommandOutput,
   GetCapacityManagerMetricDataCommand,
-  GetCapacityManagerMetricDataCommandInput,
-  GetCapacityManagerMetricDataCommandOutput,
 } from "./commands/GetCapacityManagerMetricDataCommand";
 import {
+  type GetCapacityManagerMetricDimensionsCommandInput,
+  type GetCapacityManagerMetricDimensionsCommandOutput,
   GetCapacityManagerMetricDimensionsCommand,
-  GetCapacityManagerMetricDimensionsCommandInput,
-  GetCapacityManagerMetricDimensionsCommandOutput,
 } from "./commands/GetCapacityManagerMetricDimensionsCommand";
 import {
+  type GetCapacityReservationUsageCommandInput,
+  type GetCapacityReservationUsageCommandOutput,
   GetCapacityReservationUsageCommand,
-  GetCapacityReservationUsageCommandInput,
-  GetCapacityReservationUsageCommandOutput,
 } from "./commands/GetCapacityReservationUsageCommand";
 import {
+  type GetCoipPoolUsageCommandInput,
+  type GetCoipPoolUsageCommandOutput,
   GetCoipPoolUsageCommand,
-  GetCoipPoolUsageCommandInput,
-  GetCoipPoolUsageCommandOutput,
 } from "./commands/GetCoipPoolUsageCommand";
 import {
+  type GetConsoleOutputCommandInput,
+  type GetConsoleOutputCommandOutput,
   GetConsoleOutputCommand,
-  GetConsoleOutputCommandInput,
-  GetConsoleOutputCommandOutput,
 } from "./commands/GetConsoleOutputCommand";
 import {
+  type GetConsoleScreenshotCommandInput,
+  type GetConsoleScreenshotCommandOutput,
   GetConsoleScreenshotCommand,
-  GetConsoleScreenshotCommandInput,
-  GetConsoleScreenshotCommandOutput,
 } from "./commands/GetConsoleScreenshotCommand";
 import {
+  type GetDeclarativePoliciesReportSummaryCommandInput,
+  type GetDeclarativePoliciesReportSummaryCommandOutput,
   GetDeclarativePoliciesReportSummaryCommand,
-  GetDeclarativePoliciesReportSummaryCommandInput,
-  GetDeclarativePoliciesReportSummaryCommandOutput,
 } from "./commands/GetDeclarativePoliciesReportSummaryCommand";
 import {
+  type GetDefaultCreditSpecificationCommandInput,
+  type GetDefaultCreditSpecificationCommandOutput,
   GetDefaultCreditSpecificationCommand,
-  GetDefaultCreditSpecificationCommandInput,
-  GetDefaultCreditSpecificationCommandOutput,
 } from "./commands/GetDefaultCreditSpecificationCommand";
 import {
+  type GetEbsDefaultKmsKeyIdCommandInput,
+  type GetEbsDefaultKmsKeyIdCommandOutput,
   GetEbsDefaultKmsKeyIdCommand,
-  GetEbsDefaultKmsKeyIdCommandInput,
-  GetEbsDefaultKmsKeyIdCommandOutput,
 } from "./commands/GetEbsDefaultKmsKeyIdCommand";
 import {
+  type GetEbsEncryptionByDefaultCommandInput,
+  type GetEbsEncryptionByDefaultCommandOutput,
   GetEbsEncryptionByDefaultCommand,
-  GetEbsEncryptionByDefaultCommandInput,
-  GetEbsEncryptionByDefaultCommandOutput,
 } from "./commands/GetEbsEncryptionByDefaultCommand";
 import {
+  type GetEnabledIpamPolicyCommandInput,
+  type GetEnabledIpamPolicyCommandOutput,
   GetEnabledIpamPolicyCommand,
-  GetEnabledIpamPolicyCommandInput,
-  GetEnabledIpamPolicyCommandOutput,
 } from "./commands/GetEnabledIpamPolicyCommand";
 import {
+  type GetFlowLogsIntegrationTemplateCommandInput,
+  type GetFlowLogsIntegrationTemplateCommandOutput,
   GetFlowLogsIntegrationTemplateCommand,
-  GetFlowLogsIntegrationTemplateCommandInput,
-  GetFlowLogsIntegrationTemplateCommandOutput,
 } from "./commands/GetFlowLogsIntegrationTemplateCommand";
 import {
+  type GetGroupsForCapacityReservationCommandInput,
+  type GetGroupsForCapacityReservationCommandOutput,
   GetGroupsForCapacityReservationCommand,
-  GetGroupsForCapacityReservationCommandInput,
-  GetGroupsForCapacityReservationCommandOutput,
 } from "./commands/GetGroupsForCapacityReservationCommand";
 import {
+  type GetHostReservationPurchasePreviewCommandInput,
+  type GetHostReservationPurchasePreviewCommandOutput,
   GetHostReservationPurchasePreviewCommand,
-  GetHostReservationPurchasePreviewCommandInput,
-  GetHostReservationPurchasePreviewCommandOutput,
 } from "./commands/GetHostReservationPurchasePreviewCommand";
 import {
+  type GetImageAncestryCommandInput,
+  type GetImageAncestryCommandOutput,
   GetImageAncestryCommand,
-  GetImageAncestryCommandInput,
-  GetImageAncestryCommandOutput,
 } from "./commands/GetImageAncestryCommand";
 import {
+  type GetImageBlockPublicAccessStateCommandInput,
+  type GetImageBlockPublicAccessStateCommandOutput,
   GetImageBlockPublicAccessStateCommand,
-  GetImageBlockPublicAccessStateCommandInput,
-  GetImageBlockPublicAccessStateCommandOutput,
 } from "./commands/GetImageBlockPublicAccessStateCommand";
 import {
+  type GetInstanceMetadataDefaultsCommandInput,
+  type GetInstanceMetadataDefaultsCommandOutput,
   GetInstanceMetadataDefaultsCommand,
-  GetInstanceMetadataDefaultsCommandInput,
-  GetInstanceMetadataDefaultsCommandOutput,
 } from "./commands/GetInstanceMetadataDefaultsCommand";
 import {
+  type GetInstanceTpmEkPubCommandInput,
+  type GetInstanceTpmEkPubCommandOutput,
   GetInstanceTpmEkPubCommand,
-  GetInstanceTpmEkPubCommandInput,
-  GetInstanceTpmEkPubCommandOutput,
 } from "./commands/GetInstanceTpmEkPubCommand";
 import {
+  type GetInstanceTypesFromInstanceRequirementsCommandInput,
+  type GetInstanceTypesFromInstanceRequirementsCommandOutput,
   GetInstanceTypesFromInstanceRequirementsCommand,
-  GetInstanceTypesFromInstanceRequirementsCommandInput,
-  GetInstanceTypesFromInstanceRequirementsCommandOutput,
 } from "./commands/GetInstanceTypesFromInstanceRequirementsCommand";
 import {
+  type GetInstanceUefiDataCommandInput,
+  type GetInstanceUefiDataCommandOutput,
   GetInstanceUefiDataCommand,
-  GetInstanceUefiDataCommandInput,
-  GetInstanceUefiDataCommandOutput,
 } from "./commands/GetInstanceUefiDataCommand";
 import {
+  type GetIpamAddressHistoryCommandInput,
+  type GetIpamAddressHistoryCommandOutput,
   GetIpamAddressHistoryCommand,
-  GetIpamAddressHistoryCommandInput,
-  GetIpamAddressHistoryCommandOutput,
 } from "./commands/GetIpamAddressHistoryCommand";
 import {
+  type GetIpamDiscoveredAccountsCommandInput,
+  type GetIpamDiscoveredAccountsCommandOutput,
   GetIpamDiscoveredAccountsCommand,
-  GetIpamDiscoveredAccountsCommandInput,
-  GetIpamDiscoveredAccountsCommandOutput,
 } from "./commands/GetIpamDiscoveredAccountsCommand";
 import {
+  type GetIpamDiscoveredPublicAddressesCommandInput,
+  type GetIpamDiscoveredPublicAddressesCommandOutput,
   GetIpamDiscoveredPublicAddressesCommand,
-  GetIpamDiscoveredPublicAddressesCommandInput,
-  GetIpamDiscoveredPublicAddressesCommandOutput,
 } from "./commands/GetIpamDiscoveredPublicAddressesCommand";
 import {
+  type GetIpamDiscoveredResourceCidrsCommandInput,
+  type GetIpamDiscoveredResourceCidrsCommandOutput,
   GetIpamDiscoveredResourceCidrsCommand,
-  GetIpamDiscoveredResourceCidrsCommandInput,
-  GetIpamDiscoveredResourceCidrsCommandOutput,
 } from "./commands/GetIpamDiscoveredResourceCidrsCommand";
 import {
+  type GetIpamPolicyAllocationRulesCommandInput,
+  type GetIpamPolicyAllocationRulesCommandOutput,
   GetIpamPolicyAllocationRulesCommand,
-  GetIpamPolicyAllocationRulesCommandInput,
-  GetIpamPolicyAllocationRulesCommandOutput,
 } from "./commands/GetIpamPolicyAllocationRulesCommand";
 import {
+  type GetIpamPolicyOrganizationTargetsCommandInput,
+  type GetIpamPolicyOrganizationTargetsCommandOutput,
   GetIpamPolicyOrganizationTargetsCommand,
-  GetIpamPolicyOrganizationTargetsCommandInput,
-  GetIpamPolicyOrganizationTargetsCommandOutput,
 } from "./commands/GetIpamPolicyOrganizationTargetsCommand";
 import {
+  type GetIpamPoolAllocationsCommandInput,
+  type GetIpamPoolAllocationsCommandOutput,
   GetIpamPoolAllocationsCommand,
-  GetIpamPoolAllocationsCommandInput,
-  GetIpamPoolAllocationsCommandOutput,
 } from "./commands/GetIpamPoolAllocationsCommand";
 import {
+  type GetIpamPoolCidrsCommandInput,
+  type GetIpamPoolCidrsCommandOutput,
   GetIpamPoolCidrsCommand,
-  GetIpamPoolCidrsCommandInput,
-  GetIpamPoolCidrsCommandOutput,
 } from "./commands/GetIpamPoolCidrsCommand";
 import {
+  type GetIpamPrefixListResolverRulesCommandInput,
+  type GetIpamPrefixListResolverRulesCommandOutput,
   GetIpamPrefixListResolverRulesCommand,
-  GetIpamPrefixListResolverRulesCommandInput,
-  GetIpamPrefixListResolverRulesCommandOutput,
 } from "./commands/GetIpamPrefixListResolverRulesCommand";
 import {
+  type GetIpamPrefixListResolverVersionEntriesCommandInput,
+  type GetIpamPrefixListResolverVersionEntriesCommandOutput,
   GetIpamPrefixListResolverVersionEntriesCommand,
-  GetIpamPrefixListResolverVersionEntriesCommandInput,
-  GetIpamPrefixListResolverVersionEntriesCommandOutput,
 } from "./commands/GetIpamPrefixListResolverVersionEntriesCommand";
 import {
+  type GetIpamPrefixListResolverVersionsCommandInput,
+  type GetIpamPrefixListResolverVersionsCommandOutput,
   GetIpamPrefixListResolverVersionsCommand,
-  GetIpamPrefixListResolverVersionsCommandInput,
-  GetIpamPrefixListResolverVersionsCommandOutput,
 } from "./commands/GetIpamPrefixListResolverVersionsCommand";
 import {
+  type GetIpamResourceCidrsCommandInput,
+  type GetIpamResourceCidrsCommandOutput,
   GetIpamResourceCidrsCommand,
-  GetIpamResourceCidrsCommandInput,
-  GetIpamResourceCidrsCommandOutput,
 } from "./commands/GetIpamResourceCidrsCommand";
 import {
+  type GetLaunchTemplateDataCommandInput,
+  type GetLaunchTemplateDataCommandOutput,
   GetLaunchTemplateDataCommand,
-  GetLaunchTemplateDataCommandInput,
-  GetLaunchTemplateDataCommandOutput,
 } from "./commands/GetLaunchTemplateDataCommand";
 import {
+  type GetManagedPrefixListAssociationsCommandInput,
+  type GetManagedPrefixListAssociationsCommandOutput,
   GetManagedPrefixListAssociationsCommand,
-  GetManagedPrefixListAssociationsCommandInput,
-  GetManagedPrefixListAssociationsCommandOutput,
 } from "./commands/GetManagedPrefixListAssociationsCommand";
 import {
+  type GetManagedPrefixListEntriesCommandInput,
+  type GetManagedPrefixListEntriesCommandOutput,
   GetManagedPrefixListEntriesCommand,
-  GetManagedPrefixListEntriesCommandInput,
-  GetManagedPrefixListEntriesCommandOutput,
 } from "./commands/GetManagedPrefixListEntriesCommand";
 import {
+  type GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
+  type GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput,
   GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
-  GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
-  GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput,
 } from "./commands/GetNetworkInsightsAccessScopeAnalysisFindingsCommand";
 import {
+  type GetNetworkInsightsAccessScopeContentCommandInput,
+  type GetNetworkInsightsAccessScopeContentCommandOutput,
   GetNetworkInsightsAccessScopeContentCommand,
-  GetNetworkInsightsAccessScopeContentCommandInput,
-  GetNetworkInsightsAccessScopeContentCommandOutput,
 } from "./commands/GetNetworkInsightsAccessScopeContentCommand";
 import {
+  type GetPasswordDataCommandInput,
+  type GetPasswordDataCommandOutput,
   GetPasswordDataCommand,
-  GetPasswordDataCommandInput,
-  GetPasswordDataCommandOutput,
 } from "./commands/GetPasswordDataCommand";
 import {
+  type GetReservedInstancesExchangeQuoteCommandInput,
+  type GetReservedInstancesExchangeQuoteCommandOutput,
   GetReservedInstancesExchangeQuoteCommand,
-  GetReservedInstancesExchangeQuoteCommandInput,
-  GetReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/GetReservedInstancesExchangeQuoteCommand";
 import {
+  type GetRouteServerAssociationsCommandInput,
+  type GetRouteServerAssociationsCommandOutput,
   GetRouteServerAssociationsCommand,
-  GetRouteServerAssociationsCommandInput,
-  GetRouteServerAssociationsCommandOutput,
 } from "./commands/GetRouteServerAssociationsCommand";
 import {
+  type GetRouteServerPropagationsCommandInput,
+  type GetRouteServerPropagationsCommandOutput,
   GetRouteServerPropagationsCommand,
-  GetRouteServerPropagationsCommandInput,
-  GetRouteServerPropagationsCommandOutput,
 } from "./commands/GetRouteServerPropagationsCommand";
 import {
+  type GetRouteServerRoutingDatabaseCommandInput,
+  type GetRouteServerRoutingDatabaseCommandOutput,
   GetRouteServerRoutingDatabaseCommand,
-  GetRouteServerRoutingDatabaseCommandInput,
-  GetRouteServerRoutingDatabaseCommandOutput,
 } from "./commands/GetRouteServerRoutingDatabaseCommand";
 import {
+  type GetSecurityGroupsForVpcCommandInput,
+  type GetSecurityGroupsForVpcCommandOutput,
   GetSecurityGroupsForVpcCommand,
-  GetSecurityGroupsForVpcCommandInput,
-  GetSecurityGroupsForVpcCommandOutput,
 } from "./commands/GetSecurityGroupsForVpcCommand";
 import {
+  type GetSerialConsoleAccessStatusCommandInput,
+  type GetSerialConsoleAccessStatusCommandOutput,
   GetSerialConsoleAccessStatusCommand,
-  GetSerialConsoleAccessStatusCommandInput,
-  GetSerialConsoleAccessStatusCommandOutput,
 } from "./commands/GetSerialConsoleAccessStatusCommand";
 import {
+  type GetSnapshotBlockPublicAccessStateCommandInput,
+  type GetSnapshotBlockPublicAccessStateCommandOutput,
   GetSnapshotBlockPublicAccessStateCommand,
-  GetSnapshotBlockPublicAccessStateCommandInput,
-  GetSnapshotBlockPublicAccessStateCommandOutput,
 } from "./commands/GetSnapshotBlockPublicAccessStateCommand";
 import {
+  type GetSpotPlacementScoresCommandInput,
+  type GetSpotPlacementScoresCommandOutput,
   GetSpotPlacementScoresCommand,
-  GetSpotPlacementScoresCommandInput,
-  GetSpotPlacementScoresCommandOutput,
 } from "./commands/GetSpotPlacementScoresCommand";
 import {
+  type GetSubnetCidrReservationsCommandInput,
+  type GetSubnetCidrReservationsCommandOutput,
   GetSubnetCidrReservationsCommand,
-  GetSubnetCidrReservationsCommandInput,
-  GetSubnetCidrReservationsCommandOutput,
 } from "./commands/GetSubnetCidrReservationsCommand";
 import {
+  type GetTransitGatewayAttachmentPropagationsCommandInput,
+  type GetTransitGatewayAttachmentPropagationsCommandOutput,
   GetTransitGatewayAttachmentPropagationsCommand,
-  GetTransitGatewayAttachmentPropagationsCommandInput,
-  GetTransitGatewayAttachmentPropagationsCommandOutput,
 } from "./commands/GetTransitGatewayAttachmentPropagationsCommand";
 import {
+  type GetTransitGatewayMeteringPolicyEntriesCommandInput,
+  type GetTransitGatewayMeteringPolicyEntriesCommandOutput,
   GetTransitGatewayMeteringPolicyEntriesCommand,
-  GetTransitGatewayMeteringPolicyEntriesCommandInput,
-  GetTransitGatewayMeteringPolicyEntriesCommandOutput,
 } from "./commands/GetTransitGatewayMeteringPolicyEntriesCommand";
 import {
+  type GetTransitGatewayMulticastDomainAssociationsCommandInput,
+  type GetTransitGatewayMulticastDomainAssociationsCommandOutput,
   GetTransitGatewayMulticastDomainAssociationsCommand,
-  GetTransitGatewayMulticastDomainAssociationsCommandInput,
-  GetTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayMulticastDomainAssociationsCommand";
 import {
+  type GetTransitGatewayPolicyTableAssociationsCommandInput,
+  type GetTransitGatewayPolicyTableAssociationsCommandOutput,
   GetTransitGatewayPolicyTableAssociationsCommand,
-  GetTransitGatewayPolicyTableAssociationsCommandInput,
-  GetTransitGatewayPolicyTableAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayPolicyTableAssociationsCommand";
 import {
+  type GetTransitGatewayPolicyTableEntriesCommandInput,
+  type GetTransitGatewayPolicyTableEntriesCommandOutput,
   GetTransitGatewayPolicyTableEntriesCommand,
-  GetTransitGatewayPolicyTableEntriesCommandInput,
-  GetTransitGatewayPolicyTableEntriesCommandOutput,
 } from "./commands/GetTransitGatewayPolicyTableEntriesCommand";
 import {
+  type GetTransitGatewayPrefixListReferencesCommandInput,
+  type GetTransitGatewayPrefixListReferencesCommandOutput,
   GetTransitGatewayPrefixListReferencesCommand,
-  GetTransitGatewayPrefixListReferencesCommandInput,
-  GetTransitGatewayPrefixListReferencesCommandOutput,
 } from "./commands/GetTransitGatewayPrefixListReferencesCommand";
 import {
+  type GetTransitGatewayRouteTableAssociationsCommandInput,
+  type GetTransitGatewayRouteTableAssociationsCommandOutput,
   GetTransitGatewayRouteTableAssociationsCommand,
-  GetTransitGatewayRouteTableAssociationsCommandInput,
-  GetTransitGatewayRouteTableAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayRouteTableAssociationsCommand";
 import {
+  type GetTransitGatewayRouteTablePropagationsCommandInput,
+  type GetTransitGatewayRouteTablePropagationsCommandOutput,
   GetTransitGatewayRouteTablePropagationsCommand,
-  GetTransitGatewayRouteTablePropagationsCommandInput,
-  GetTransitGatewayRouteTablePropagationsCommandOutput,
 } from "./commands/GetTransitGatewayRouteTablePropagationsCommand";
 import {
+  type GetVerifiedAccessEndpointPolicyCommandInput,
+  type GetVerifiedAccessEndpointPolicyCommandOutput,
   GetVerifiedAccessEndpointPolicyCommand,
-  GetVerifiedAccessEndpointPolicyCommandInput,
-  GetVerifiedAccessEndpointPolicyCommandOutput,
 } from "./commands/GetVerifiedAccessEndpointPolicyCommand";
 import {
+  type GetVerifiedAccessEndpointTargetsCommandInput,
+  type GetVerifiedAccessEndpointTargetsCommandOutput,
   GetVerifiedAccessEndpointTargetsCommand,
-  GetVerifiedAccessEndpointTargetsCommandInput,
-  GetVerifiedAccessEndpointTargetsCommandOutput,
 } from "./commands/GetVerifiedAccessEndpointTargetsCommand";
 import {
+  type GetVerifiedAccessGroupPolicyCommandInput,
+  type GetVerifiedAccessGroupPolicyCommandOutput,
   GetVerifiedAccessGroupPolicyCommand,
-  GetVerifiedAccessGroupPolicyCommandInput,
-  GetVerifiedAccessGroupPolicyCommandOutput,
 } from "./commands/GetVerifiedAccessGroupPolicyCommand";
 import {
+  type GetVpcResourcesBlockingEncryptionEnforcementCommandInput,
+  type GetVpcResourcesBlockingEncryptionEnforcementCommandOutput,
   GetVpcResourcesBlockingEncryptionEnforcementCommand,
-  GetVpcResourcesBlockingEncryptionEnforcementCommandInput,
-  GetVpcResourcesBlockingEncryptionEnforcementCommandOutput,
 } from "./commands/GetVpcResourcesBlockingEncryptionEnforcementCommand";
 import {
+  type GetVpnConnectionDeviceSampleConfigurationCommandInput,
+  type GetVpnConnectionDeviceSampleConfigurationCommandOutput,
   GetVpnConnectionDeviceSampleConfigurationCommand,
-  GetVpnConnectionDeviceSampleConfigurationCommandInput,
-  GetVpnConnectionDeviceSampleConfigurationCommandOutput,
 } from "./commands/GetVpnConnectionDeviceSampleConfigurationCommand";
 import {
+  type GetVpnConnectionDeviceTypesCommandInput,
+  type GetVpnConnectionDeviceTypesCommandOutput,
   GetVpnConnectionDeviceTypesCommand,
-  GetVpnConnectionDeviceTypesCommandInput,
-  GetVpnConnectionDeviceTypesCommandOutput,
 } from "./commands/GetVpnConnectionDeviceTypesCommand";
 import {
+  type GetVpnTunnelReplacementStatusCommandInput,
+  type GetVpnTunnelReplacementStatusCommandOutput,
   GetVpnTunnelReplacementStatusCommand,
-  GetVpnTunnelReplacementStatusCommandInput,
-  GetVpnTunnelReplacementStatusCommandOutput,
 } from "./commands/GetVpnTunnelReplacementStatusCommand";
 import {
+  type ImportClientVpnClientCertificateRevocationListCommandInput,
+  type ImportClientVpnClientCertificateRevocationListCommandOutput,
   ImportClientVpnClientCertificateRevocationListCommand,
-  ImportClientVpnClientCertificateRevocationListCommandInput,
-  ImportClientVpnClientCertificateRevocationListCommandOutput,
 } from "./commands/ImportClientVpnClientCertificateRevocationListCommand";
-import { ImportImageCommand, ImportImageCommandInput, ImportImageCommandOutput } from "./commands/ImportImageCommand";
 import {
+  type ImportImageCommandInput,
+  type ImportImageCommandOutput,
+  ImportImageCommand,
+} from "./commands/ImportImageCommand";
+import {
+  type ImportInstanceCommandInput,
+  type ImportInstanceCommandOutput,
   ImportInstanceCommand,
-  ImportInstanceCommandInput,
-  ImportInstanceCommandOutput,
 } from "./commands/ImportInstanceCommand";
 import {
+  type ImportKeyPairCommandInput,
+  type ImportKeyPairCommandOutput,
   ImportKeyPairCommand,
-  ImportKeyPairCommandInput,
-  ImportKeyPairCommandOutput,
 } from "./commands/ImportKeyPairCommand";
 import {
+  type ImportSnapshotCommandInput,
+  type ImportSnapshotCommandOutput,
   ImportSnapshotCommand,
-  ImportSnapshotCommandInput,
-  ImportSnapshotCommandOutput,
 } from "./commands/ImportSnapshotCommand";
 import {
+  type ImportVolumeCommandInput,
+  type ImportVolumeCommandOutput,
   ImportVolumeCommand,
-  ImportVolumeCommandInput,
-  ImportVolumeCommandOutput,
 } from "./commands/ImportVolumeCommand";
 import {
+  type ListImagesInRecycleBinCommandInput,
+  type ListImagesInRecycleBinCommandOutput,
   ListImagesInRecycleBinCommand,
-  ListImagesInRecycleBinCommandInput,
-  ListImagesInRecycleBinCommandOutput,
 } from "./commands/ListImagesInRecycleBinCommand";
 import {
+  type ListSnapshotsInRecycleBinCommandInput,
+  type ListSnapshotsInRecycleBinCommandOutput,
   ListSnapshotsInRecycleBinCommand,
-  ListSnapshotsInRecycleBinCommandInput,
-  ListSnapshotsInRecycleBinCommandOutput,
 } from "./commands/ListSnapshotsInRecycleBinCommand";
 import {
+  type ListVolumesInRecycleBinCommandInput,
+  type ListVolumesInRecycleBinCommandOutput,
   ListVolumesInRecycleBinCommand,
-  ListVolumesInRecycleBinCommandInput,
-  ListVolumesInRecycleBinCommandOutput,
 } from "./commands/ListVolumesInRecycleBinCommand";
 import {
+  type LockSnapshotCommandInput,
+  type LockSnapshotCommandOutput,
   LockSnapshotCommand,
-  LockSnapshotCommandInput,
-  LockSnapshotCommandOutput,
 } from "./commands/LockSnapshotCommand";
 import {
+  type ModifyAddressAttributeCommandInput,
+  type ModifyAddressAttributeCommandOutput,
   ModifyAddressAttributeCommand,
-  ModifyAddressAttributeCommandInput,
-  ModifyAddressAttributeCommandOutput,
 } from "./commands/ModifyAddressAttributeCommand";
 import {
+  type ModifyAvailabilityZoneGroupCommandInput,
+  type ModifyAvailabilityZoneGroupCommandOutput,
   ModifyAvailabilityZoneGroupCommand,
-  ModifyAvailabilityZoneGroupCommandInput,
-  ModifyAvailabilityZoneGroupCommandOutput,
 } from "./commands/ModifyAvailabilityZoneGroupCommand";
 import {
+  type ModifyCapacityReservationCommandInput,
+  type ModifyCapacityReservationCommandOutput,
   ModifyCapacityReservationCommand,
-  ModifyCapacityReservationCommandInput,
-  ModifyCapacityReservationCommandOutput,
 } from "./commands/ModifyCapacityReservationCommand";
 import {
+  type ModifyCapacityReservationFleetCommandInput,
+  type ModifyCapacityReservationFleetCommandOutput,
   ModifyCapacityReservationFleetCommand,
-  ModifyCapacityReservationFleetCommandInput,
-  ModifyCapacityReservationFleetCommandOutput,
 } from "./commands/ModifyCapacityReservationFleetCommand";
 import {
+  type ModifyClientVpnEndpointCommandInput,
+  type ModifyClientVpnEndpointCommandOutput,
   ModifyClientVpnEndpointCommand,
-  ModifyClientVpnEndpointCommandInput,
-  ModifyClientVpnEndpointCommandOutput,
 } from "./commands/ModifyClientVpnEndpointCommand";
 import {
+  type ModifyDefaultCreditSpecificationCommandInput,
+  type ModifyDefaultCreditSpecificationCommandOutput,
   ModifyDefaultCreditSpecificationCommand,
-  ModifyDefaultCreditSpecificationCommandInput,
-  ModifyDefaultCreditSpecificationCommandOutput,
 } from "./commands/ModifyDefaultCreditSpecificationCommand";
 import {
+  type ModifyEbsDefaultKmsKeyIdCommandInput,
+  type ModifyEbsDefaultKmsKeyIdCommandOutput,
   ModifyEbsDefaultKmsKeyIdCommand,
-  ModifyEbsDefaultKmsKeyIdCommandInput,
-  ModifyEbsDefaultKmsKeyIdCommandOutput,
 } from "./commands/ModifyEbsDefaultKmsKeyIdCommand";
-import { ModifyFleetCommand, ModifyFleetCommandInput, ModifyFleetCommandOutput } from "./commands/ModifyFleetCommand";
 import {
+  type ModifyFleetCommandInput,
+  type ModifyFleetCommandOutput,
+  ModifyFleetCommand,
+} from "./commands/ModifyFleetCommand";
+import {
+  type ModifyFpgaImageAttributeCommandInput,
+  type ModifyFpgaImageAttributeCommandOutput,
   ModifyFpgaImageAttributeCommand,
-  ModifyFpgaImageAttributeCommandInput,
-  ModifyFpgaImageAttributeCommandOutput,
 } from "./commands/ModifyFpgaImageAttributeCommand";
-import { ModifyHostsCommand, ModifyHostsCommandInput, ModifyHostsCommandOutput } from "./commands/ModifyHostsCommand";
 import {
+  type ModifyHostsCommandInput,
+  type ModifyHostsCommandOutput,
+  ModifyHostsCommand,
+} from "./commands/ModifyHostsCommand";
+import {
+  type ModifyIdentityIdFormatCommandInput,
+  type ModifyIdentityIdFormatCommandOutput,
   ModifyIdentityIdFormatCommand,
-  ModifyIdentityIdFormatCommandInput,
-  ModifyIdentityIdFormatCommandOutput,
 } from "./commands/ModifyIdentityIdFormatCommand";
 import {
+  type ModifyIdFormatCommandInput,
+  type ModifyIdFormatCommandOutput,
   ModifyIdFormatCommand,
-  ModifyIdFormatCommandInput,
-  ModifyIdFormatCommandOutput,
 } from "./commands/ModifyIdFormatCommand";
 import {
+  type ModifyImageAttributeCommandInput,
+  type ModifyImageAttributeCommandOutput,
   ModifyImageAttributeCommand,
-  ModifyImageAttributeCommandInput,
-  ModifyImageAttributeCommandOutput,
 } from "./commands/ModifyImageAttributeCommand";
 import {
+  type ModifyInstanceAttributeCommandInput,
+  type ModifyInstanceAttributeCommandOutput,
   ModifyInstanceAttributeCommand,
-  ModifyInstanceAttributeCommandInput,
-  ModifyInstanceAttributeCommandOutput,
 } from "./commands/ModifyInstanceAttributeCommand";
 import {
+  type ModifyInstanceCapacityReservationAttributesCommandInput,
+  type ModifyInstanceCapacityReservationAttributesCommandOutput,
   ModifyInstanceCapacityReservationAttributesCommand,
-  ModifyInstanceCapacityReservationAttributesCommandInput,
-  ModifyInstanceCapacityReservationAttributesCommandOutput,
 } from "./commands/ModifyInstanceCapacityReservationAttributesCommand";
 import {
+  type ModifyInstanceConnectEndpointCommandInput,
+  type ModifyInstanceConnectEndpointCommandOutput,
   ModifyInstanceConnectEndpointCommand,
-  ModifyInstanceConnectEndpointCommandInput,
-  ModifyInstanceConnectEndpointCommandOutput,
 } from "./commands/ModifyInstanceConnectEndpointCommand";
 import {
+  type ModifyInstanceCpuOptionsCommandInput,
+  type ModifyInstanceCpuOptionsCommandOutput,
   ModifyInstanceCpuOptionsCommand,
-  ModifyInstanceCpuOptionsCommandInput,
-  ModifyInstanceCpuOptionsCommandOutput,
 } from "./commands/ModifyInstanceCpuOptionsCommand";
 import {
+  type ModifyInstanceCreditSpecificationCommandInput,
+  type ModifyInstanceCreditSpecificationCommandOutput,
   ModifyInstanceCreditSpecificationCommand,
-  ModifyInstanceCreditSpecificationCommandInput,
-  ModifyInstanceCreditSpecificationCommandOutput,
 } from "./commands/ModifyInstanceCreditSpecificationCommand";
 import {
+  type ModifyInstanceEventStartTimeCommandInput,
+  type ModifyInstanceEventStartTimeCommandOutput,
   ModifyInstanceEventStartTimeCommand,
-  ModifyInstanceEventStartTimeCommandInput,
-  ModifyInstanceEventStartTimeCommandOutput,
 } from "./commands/ModifyInstanceEventStartTimeCommand";
 import {
+  type ModifyInstanceEventWindowCommandInput,
+  type ModifyInstanceEventWindowCommandOutput,
   ModifyInstanceEventWindowCommand,
-  ModifyInstanceEventWindowCommandInput,
-  ModifyInstanceEventWindowCommandOutput,
 } from "./commands/ModifyInstanceEventWindowCommand";
 import {
+  type ModifyInstanceMaintenanceOptionsCommandInput,
+  type ModifyInstanceMaintenanceOptionsCommandOutput,
   ModifyInstanceMaintenanceOptionsCommand,
-  ModifyInstanceMaintenanceOptionsCommandInput,
-  ModifyInstanceMaintenanceOptionsCommandOutput,
 } from "./commands/ModifyInstanceMaintenanceOptionsCommand";
 import {
+  type ModifyInstanceMetadataDefaultsCommandInput,
+  type ModifyInstanceMetadataDefaultsCommandOutput,
   ModifyInstanceMetadataDefaultsCommand,
-  ModifyInstanceMetadataDefaultsCommandInput,
-  ModifyInstanceMetadataDefaultsCommandOutput,
 } from "./commands/ModifyInstanceMetadataDefaultsCommand";
 import {
+  type ModifyInstanceMetadataOptionsCommandInput,
+  type ModifyInstanceMetadataOptionsCommandOutput,
   ModifyInstanceMetadataOptionsCommand,
-  ModifyInstanceMetadataOptionsCommandInput,
-  ModifyInstanceMetadataOptionsCommandOutput,
 } from "./commands/ModifyInstanceMetadataOptionsCommand";
 import {
+  type ModifyInstanceNetworkPerformanceOptionsCommandInput,
+  type ModifyInstanceNetworkPerformanceOptionsCommandOutput,
   ModifyInstanceNetworkPerformanceOptionsCommand,
-  ModifyInstanceNetworkPerformanceOptionsCommandInput,
-  ModifyInstanceNetworkPerformanceOptionsCommandOutput,
 } from "./commands/ModifyInstanceNetworkPerformanceOptionsCommand";
 import {
+  type ModifyInstancePlacementCommandInput,
+  type ModifyInstancePlacementCommandOutput,
   ModifyInstancePlacementCommand,
-  ModifyInstancePlacementCommandInput,
-  ModifyInstancePlacementCommandOutput,
 } from "./commands/ModifyInstancePlacementCommand";
-import { ModifyIpamCommand, ModifyIpamCommandInput, ModifyIpamCommandOutput } from "./commands/ModifyIpamCommand";
 import {
+  type ModifyIpamCommandInput,
+  type ModifyIpamCommandOutput,
+  ModifyIpamCommand,
+} from "./commands/ModifyIpamCommand";
+import {
+  type ModifyIpamPolicyAllocationRulesCommandInput,
+  type ModifyIpamPolicyAllocationRulesCommandOutput,
   ModifyIpamPolicyAllocationRulesCommand,
-  ModifyIpamPolicyAllocationRulesCommandInput,
-  ModifyIpamPolicyAllocationRulesCommandOutput,
 } from "./commands/ModifyIpamPolicyAllocationRulesCommand";
 import {
+  type ModifyIpamPoolCommandInput,
+  type ModifyIpamPoolCommandOutput,
   ModifyIpamPoolCommand,
-  ModifyIpamPoolCommandInput,
-  ModifyIpamPoolCommandOutput,
 } from "./commands/ModifyIpamPoolCommand";
 import {
+  type ModifyIpamPrefixListResolverCommandInput,
+  type ModifyIpamPrefixListResolverCommandOutput,
   ModifyIpamPrefixListResolverCommand,
-  ModifyIpamPrefixListResolverCommandInput,
-  ModifyIpamPrefixListResolverCommandOutput,
 } from "./commands/ModifyIpamPrefixListResolverCommand";
 import {
+  type ModifyIpamPrefixListResolverTargetCommandInput,
+  type ModifyIpamPrefixListResolverTargetCommandOutput,
   ModifyIpamPrefixListResolverTargetCommand,
-  ModifyIpamPrefixListResolverTargetCommandInput,
-  ModifyIpamPrefixListResolverTargetCommandOutput,
 } from "./commands/ModifyIpamPrefixListResolverTargetCommand";
 import {
+  type ModifyIpamResourceCidrCommandInput,
+  type ModifyIpamResourceCidrCommandOutput,
   ModifyIpamResourceCidrCommand,
-  ModifyIpamResourceCidrCommandInput,
-  ModifyIpamResourceCidrCommandOutput,
 } from "./commands/ModifyIpamResourceCidrCommand";
 import {
+  type ModifyIpamResourceDiscoveryCommandInput,
+  type ModifyIpamResourceDiscoveryCommandOutput,
   ModifyIpamResourceDiscoveryCommand,
-  ModifyIpamResourceDiscoveryCommandInput,
-  ModifyIpamResourceDiscoveryCommandOutput,
 } from "./commands/ModifyIpamResourceDiscoveryCommand";
 import {
+  type ModifyIpamScopeCommandInput,
+  type ModifyIpamScopeCommandOutput,
   ModifyIpamScopeCommand,
-  ModifyIpamScopeCommandInput,
-  ModifyIpamScopeCommandOutput,
 } from "./commands/ModifyIpamScopeCommand";
 import {
+  type ModifyLaunchTemplateCommandInput,
+  type ModifyLaunchTemplateCommandOutput,
   ModifyLaunchTemplateCommand,
-  ModifyLaunchTemplateCommandInput,
-  ModifyLaunchTemplateCommandOutput,
 } from "./commands/ModifyLaunchTemplateCommand";
 import {
+  type ModifyLocalGatewayRouteCommandInput,
+  type ModifyLocalGatewayRouteCommandOutput,
   ModifyLocalGatewayRouteCommand,
-  ModifyLocalGatewayRouteCommandInput,
-  ModifyLocalGatewayRouteCommandOutput,
 } from "./commands/ModifyLocalGatewayRouteCommand";
 import {
+  type ModifyManagedPrefixListCommandInput,
+  type ModifyManagedPrefixListCommandOutput,
   ModifyManagedPrefixListCommand,
-  ModifyManagedPrefixListCommandInput,
-  ModifyManagedPrefixListCommandOutput,
 } from "./commands/ModifyManagedPrefixListCommand";
 import {
+  type ModifyNetworkInterfaceAttributeCommandInput,
+  type ModifyNetworkInterfaceAttributeCommandOutput,
   ModifyNetworkInterfaceAttributeCommand,
-  ModifyNetworkInterfaceAttributeCommandInput,
-  ModifyNetworkInterfaceAttributeCommandOutput,
 } from "./commands/ModifyNetworkInterfaceAttributeCommand";
 import {
+  type ModifyPrivateDnsNameOptionsCommandInput,
+  type ModifyPrivateDnsNameOptionsCommandOutput,
   ModifyPrivateDnsNameOptionsCommand,
-  ModifyPrivateDnsNameOptionsCommandInput,
-  ModifyPrivateDnsNameOptionsCommandOutput,
 } from "./commands/ModifyPrivateDnsNameOptionsCommand";
 import {
+  type ModifyPublicIpDnsNameOptionsCommandInput,
+  type ModifyPublicIpDnsNameOptionsCommandOutput,
   ModifyPublicIpDnsNameOptionsCommand,
-  ModifyPublicIpDnsNameOptionsCommandInput,
-  ModifyPublicIpDnsNameOptionsCommandOutput,
 } from "./commands/ModifyPublicIpDnsNameOptionsCommand";
 import {
+  type ModifyReservedInstancesCommandInput,
+  type ModifyReservedInstancesCommandOutput,
   ModifyReservedInstancesCommand,
-  ModifyReservedInstancesCommandInput,
-  ModifyReservedInstancesCommandOutput,
 } from "./commands/ModifyReservedInstancesCommand";
 import {
+  type ModifyRouteServerCommandInput,
+  type ModifyRouteServerCommandOutput,
   ModifyRouteServerCommand,
-  ModifyRouteServerCommandInput,
-  ModifyRouteServerCommandOutput,
 } from "./commands/ModifyRouteServerCommand";
 import {
+  type ModifySecurityGroupRulesCommandInput,
+  type ModifySecurityGroupRulesCommandOutput,
   ModifySecurityGroupRulesCommand,
-  ModifySecurityGroupRulesCommandInput,
-  ModifySecurityGroupRulesCommandOutput,
 } from "./commands/ModifySecurityGroupRulesCommand";
 import {
+  type ModifySnapshotAttributeCommandInput,
+  type ModifySnapshotAttributeCommandOutput,
   ModifySnapshotAttributeCommand,
-  ModifySnapshotAttributeCommandInput,
-  ModifySnapshotAttributeCommandOutput,
 } from "./commands/ModifySnapshotAttributeCommand";
 import {
+  type ModifySnapshotTierCommandInput,
+  type ModifySnapshotTierCommandOutput,
   ModifySnapshotTierCommand,
-  ModifySnapshotTierCommandInput,
-  ModifySnapshotTierCommandOutput,
 } from "./commands/ModifySnapshotTierCommand";
 import {
+  type ModifySpotFleetRequestCommandInput,
+  type ModifySpotFleetRequestCommandOutput,
   ModifySpotFleetRequestCommand,
-  ModifySpotFleetRequestCommandInput,
-  ModifySpotFleetRequestCommandOutput,
 } from "./commands/ModifySpotFleetRequestCommand";
 import {
+  type ModifySubnetAttributeCommandInput,
+  type ModifySubnetAttributeCommandOutput,
   ModifySubnetAttributeCommand,
-  ModifySubnetAttributeCommandInput,
-  ModifySubnetAttributeCommandOutput,
 } from "./commands/ModifySubnetAttributeCommand";
 import {
+  type ModifyTrafficMirrorFilterNetworkServicesCommandInput,
+  type ModifyTrafficMirrorFilterNetworkServicesCommandOutput,
   ModifyTrafficMirrorFilterNetworkServicesCommand,
-  ModifyTrafficMirrorFilterNetworkServicesCommandInput,
-  ModifyTrafficMirrorFilterNetworkServicesCommandOutput,
 } from "./commands/ModifyTrafficMirrorFilterNetworkServicesCommand";
 import {
+  type ModifyTrafficMirrorFilterRuleCommandInput,
+  type ModifyTrafficMirrorFilterRuleCommandOutput,
   ModifyTrafficMirrorFilterRuleCommand,
-  ModifyTrafficMirrorFilterRuleCommandInput,
-  ModifyTrafficMirrorFilterRuleCommandOutput,
 } from "./commands/ModifyTrafficMirrorFilterRuleCommand";
 import {
+  type ModifyTrafficMirrorSessionCommandInput,
+  type ModifyTrafficMirrorSessionCommandOutput,
   ModifyTrafficMirrorSessionCommand,
-  ModifyTrafficMirrorSessionCommandInput,
-  ModifyTrafficMirrorSessionCommandOutput,
 } from "./commands/ModifyTrafficMirrorSessionCommand";
 import {
+  type ModifyTransitGatewayCommandInput,
+  type ModifyTransitGatewayCommandOutput,
   ModifyTransitGatewayCommand,
-  ModifyTransitGatewayCommandInput,
-  ModifyTransitGatewayCommandOutput,
 } from "./commands/ModifyTransitGatewayCommand";
 import {
+  type ModifyTransitGatewayMeteringPolicyCommandInput,
+  type ModifyTransitGatewayMeteringPolicyCommandOutput,
   ModifyTransitGatewayMeteringPolicyCommand,
-  ModifyTransitGatewayMeteringPolicyCommandInput,
-  ModifyTransitGatewayMeteringPolicyCommandOutput,
 } from "./commands/ModifyTransitGatewayMeteringPolicyCommand";
 import {
+  type ModifyTransitGatewayPrefixListReferenceCommandInput,
+  type ModifyTransitGatewayPrefixListReferenceCommandOutput,
   ModifyTransitGatewayPrefixListReferenceCommand,
-  ModifyTransitGatewayPrefixListReferenceCommandInput,
-  ModifyTransitGatewayPrefixListReferenceCommandOutput,
 } from "./commands/ModifyTransitGatewayPrefixListReferenceCommand";
 import {
+  type ModifyTransitGatewayVpcAttachmentCommandInput,
+  type ModifyTransitGatewayVpcAttachmentCommandOutput,
   ModifyTransitGatewayVpcAttachmentCommand,
-  ModifyTransitGatewayVpcAttachmentCommandInput,
-  ModifyTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/ModifyTransitGatewayVpcAttachmentCommand";
 import {
+  type ModifyVerifiedAccessEndpointCommandInput,
+  type ModifyVerifiedAccessEndpointCommandOutput,
   ModifyVerifiedAccessEndpointCommand,
-  ModifyVerifiedAccessEndpointCommandInput,
-  ModifyVerifiedAccessEndpointCommandOutput,
 } from "./commands/ModifyVerifiedAccessEndpointCommand";
 import {
+  type ModifyVerifiedAccessEndpointPolicyCommandInput,
+  type ModifyVerifiedAccessEndpointPolicyCommandOutput,
   ModifyVerifiedAccessEndpointPolicyCommand,
-  ModifyVerifiedAccessEndpointPolicyCommandInput,
-  ModifyVerifiedAccessEndpointPolicyCommandOutput,
 } from "./commands/ModifyVerifiedAccessEndpointPolicyCommand";
 import {
+  type ModifyVerifiedAccessGroupCommandInput,
+  type ModifyVerifiedAccessGroupCommandOutput,
   ModifyVerifiedAccessGroupCommand,
-  ModifyVerifiedAccessGroupCommandInput,
-  ModifyVerifiedAccessGroupCommandOutput,
 } from "./commands/ModifyVerifiedAccessGroupCommand";
 import {
+  type ModifyVerifiedAccessGroupPolicyCommandInput,
+  type ModifyVerifiedAccessGroupPolicyCommandOutput,
   ModifyVerifiedAccessGroupPolicyCommand,
-  ModifyVerifiedAccessGroupPolicyCommandInput,
-  ModifyVerifiedAccessGroupPolicyCommandOutput,
 } from "./commands/ModifyVerifiedAccessGroupPolicyCommand";
 import {
+  type ModifyVerifiedAccessInstanceCommandInput,
+  type ModifyVerifiedAccessInstanceCommandOutput,
   ModifyVerifiedAccessInstanceCommand,
-  ModifyVerifiedAccessInstanceCommandInput,
-  ModifyVerifiedAccessInstanceCommandOutput,
 } from "./commands/ModifyVerifiedAccessInstanceCommand";
 import {
+  type ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+  type ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput,
   ModifyVerifiedAccessInstanceLoggingConfigurationCommand,
-  ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
-  ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput,
 } from "./commands/ModifyVerifiedAccessInstanceLoggingConfigurationCommand";
 import {
+  type ModifyVerifiedAccessTrustProviderCommandInput,
+  type ModifyVerifiedAccessTrustProviderCommandOutput,
   ModifyVerifiedAccessTrustProviderCommand,
-  ModifyVerifiedAccessTrustProviderCommandInput,
-  ModifyVerifiedAccessTrustProviderCommandOutput,
 } from "./commands/ModifyVerifiedAccessTrustProviderCommand";
 import {
+  type ModifyVolumeAttributeCommandInput,
+  type ModifyVolumeAttributeCommandOutput,
   ModifyVolumeAttributeCommand,
-  ModifyVolumeAttributeCommandInput,
-  ModifyVolumeAttributeCommandOutput,
 } from "./commands/ModifyVolumeAttributeCommand";
 import {
+  type ModifyVolumeCommandInput,
+  type ModifyVolumeCommandOutput,
   ModifyVolumeCommand,
-  ModifyVolumeCommandInput,
-  ModifyVolumeCommandOutput,
 } from "./commands/ModifyVolumeCommand";
 import {
+  type ModifyVpcAttributeCommandInput,
+  type ModifyVpcAttributeCommandOutput,
   ModifyVpcAttributeCommand,
-  ModifyVpcAttributeCommandInput,
-  ModifyVpcAttributeCommandOutput,
 } from "./commands/ModifyVpcAttributeCommand";
 import {
+  type ModifyVpcBlockPublicAccessExclusionCommandInput,
+  type ModifyVpcBlockPublicAccessExclusionCommandOutput,
   ModifyVpcBlockPublicAccessExclusionCommand,
-  ModifyVpcBlockPublicAccessExclusionCommandInput,
-  ModifyVpcBlockPublicAccessExclusionCommandOutput,
 } from "./commands/ModifyVpcBlockPublicAccessExclusionCommand";
 import {
+  type ModifyVpcBlockPublicAccessOptionsCommandInput,
+  type ModifyVpcBlockPublicAccessOptionsCommandOutput,
   ModifyVpcBlockPublicAccessOptionsCommand,
-  ModifyVpcBlockPublicAccessOptionsCommandInput,
-  ModifyVpcBlockPublicAccessOptionsCommandOutput,
 } from "./commands/ModifyVpcBlockPublicAccessOptionsCommand";
 import {
+  type ModifyVpcEncryptionControlCommandInput,
+  type ModifyVpcEncryptionControlCommandOutput,
   ModifyVpcEncryptionControlCommand,
-  ModifyVpcEncryptionControlCommandInput,
-  ModifyVpcEncryptionControlCommandOutput,
 } from "./commands/ModifyVpcEncryptionControlCommand";
 import {
+  type ModifyVpcEndpointCommandInput,
+  type ModifyVpcEndpointCommandOutput,
   ModifyVpcEndpointCommand,
-  ModifyVpcEndpointCommandInput,
-  ModifyVpcEndpointCommandOutput,
 } from "./commands/ModifyVpcEndpointCommand";
 import {
+  type ModifyVpcEndpointConnectionNotificationCommandInput,
+  type ModifyVpcEndpointConnectionNotificationCommandOutput,
   ModifyVpcEndpointConnectionNotificationCommand,
-  ModifyVpcEndpointConnectionNotificationCommandInput,
-  ModifyVpcEndpointConnectionNotificationCommandOutput,
 } from "./commands/ModifyVpcEndpointConnectionNotificationCommand";
 import {
+  type ModifyVpcEndpointServiceConfigurationCommandInput,
+  type ModifyVpcEndpointServiceConfigurationCommandOutput,
   ModifyVpcEndpointServiceConfigurationCommand,
-  ModifyVpcEndpointServiceConfigurationCommandInput,
-  ModifyVpcEndpointServiceConfigurationCommandOutput,
 } from "./commands/ModifyVpcEndpointServiceConfigurationCommand";
 import {
+  type ModifyVpcEndpointServicePayerResponsibilityCommandInput,
+  type ModifyVpcEndpointServicePayerResponsibilityCommandOutput,
   ModifyVpcEndpointServicePayerResponsibilityCommand,
-  ModifyVpcEndpointServicePayerResponsibilityCommandInput,
-  ModifyVpcEndpointServicePayerResponsibilityCommandOutput,
 } from "./commands/ModifyVpcEndpointServicePayerResponsibilityCommand";
 import {
+  type ModifyVpcEndpointServicePermissionsCommandInput,
+  type ModifyVpcEndpointServicePermissionsCommandOutput,
   ModifyVpcEndpointServicePermissionsCommand,
-  ModifyVpcEndpointServicePermissionsCommandInput,
-  ModifyVpcEndpointServicePermissionsCommandOutput,
 } from "./commands/ModifyVpcEndpointServicePermissionsCommand";
 import {
+  type ModifyVpcPeeringConnectionOptionsCommandInput,
+  type ModifyVpcPeeringConnectionOptionsCommandOutput,
   ModifyVpcPeeringConnectionOptionsCommand,
-  ModifyVpcPeeringConnectionOptionsCommandInput,
-  ModifyVpcPeeringConnectionOptionsCommandOutput,
 } from "./commands/ModifyVpcPeeringConnectionOptionsCommand";
 import {
+  type ModifyVpcTenancyCommandInput,
+  type ModifyVpcTenancyCommandOutput,
   ModifyVpcTenancyCommand,
-  ModifyVpcTenancyCommandInput,
-  ModifyVpcTenancyCommandOutput,
 } from "./commands/ModifyVpcTenancyCommand";
 import {
+  type ModifyVpnConnectionCommandInput,
+  type ModifyVpnConnectionCommandOutput,
   ModifyVpnConnectionCommand,
-  ModifyVpnConnectionCommandInput,
-  ModifyVpnConnectionCommandOutput,
 } from "./commands/ModifyVpnConnectionCommand";
 import {
+  type ModifyVpnConnectionOptionsCommandInput,
+  type ModifyVpnConnectionOptionsCommandOutput,
   ModifyVpnConnectionOptionsCommand,
-  ModifyVpnConnectionOptionsCommandInput,
-  ModifyVpnConnectionOptionsCommandOutput,
 } from "./commands/ModifyVpnConnectionOptionsCommand";
 import {
+  type ModifyVpnTunnelCertificateCommandInput,
+  type ModifyVpnTunnelCertificateCommandOutput,
   ModifyVpnTunnelCertificateCommand,
-  ModifyVpnTunnelCertificateCommandInput,
-  ModifyVpnTunnelCertificateCommandOutput,
 } from "./commands/ModifyVpnTunnelCertificateCommand";
 import {
+  type ModifyVpnTunnelOptionsCommandInput,
+  type ModifyVpnTunnelOptionsCommandOutput,
   ModifyVpnTunnelOptionsCommand,
-  ModifyVpnTunnelOptionsCommandInput,
-  ModifyVpnTunnelOptionsCommandOutput,
 } from "./commands/ModifyVpnTunnelOptionsCommand";
 import {
+  type MonitorInstancesCommandInput,
+  type MonitorInstancesCommandOutput,
   MonitorInstancesCommand,
-  MonitorInstancesCommandInput,
-  MonitorInstancesCommandOutput,
 } from "./commands/MonitorInstancesCommand";
 import {
+  type MoveAddressToVpcCommandInput,
+  type MoveAddressToVpcCommandOutput,
   MoveAddressToVpcCommand,
-  MoveAddressToVpcCommandInput,
-  MoveAddressToVpcCommandOutput,
 } from "./commands/MoveAddressToVpcCommand";
 import {
+  type MoveByoipCidrToIpamCommandInput,
+  type MoveByoipCidrToIpamCommandOutput,
   MoveByoipCidrToIpamCommand,
-  MoveByoipCidrToIpamCommandInput,
-  MoveByoipCidrToIpamCommandOutput,
 } from "./commands/MoveByoipCidrToIpamCommand";
 import {
+  type MoveCapacityReservationInstancesCommandInput,
+  type MoveCapacityReservationInstancesCommandOutput,
   MoveCapacityReservationInstancesCommand,
-  MoveCapacityReservationInstancesCommandInput,
-  MoveCapacityReservationInstancesCommandOutput,
 } from "./commands/MoveCapacityReservationInstancesCommand";
 import {
+  type ProvisionByoipCidrCommandInput,
+  type ProvisionByoipCidrCommandOutput,
   ProvisionByoipCidrCommand,
-  ProvisionByoipCidrCommandInput,
-  ProvisionByoipCidrCommandOutput,
 } from "./commands/ProvisionByoipCidrCommand";
 import {
+  type ProvisionIpamByoasnCommandInput,
+  type ProvisionIpamByoasnCommandOutput,
   ProvisionIpamByoasnCommand,
-  ProvisionIpamByoasnCommandInput,
-  ProvisionIpamByoasnCommandOutput,
 } from "./commands/ProvisionIpamByoasnCommand";
 import {
+  type ProvisionIpamPoolCidrCommandInput,
+  type ProvisionIpamPoolCidrCommandOutput,
   ProvisionIpamPoolCidrCommand,
-  ProvisionIpamPoolCidrCommandInput,
-  ProvisionIpamPoolCidrCommandOutput,
 } from "./commands/ProvisionIpamPoolCidrCommand";
 import {
+  type ProvisionPublicIpv4PoolCidrCommandInput,
+  type ProvisionPublicIpv4PoolCidrCommandOutput,
   ProvisionPublicIpv4PoolCidrCommand,
-  ProvisionPublicIpv4PoolCidrCommandInput,
-  ProvisionPublicIpv4PoolCidrCommandOutput,
 } from "./commands/ProvisionPublicIpv4PoolCidrCommand";
 import {
+  type PurchaseCapacityBlockCommandInput,
+  type PurchaseCapacityBlockCommandOutput,
   PurchaseCapacityBlockCommand,
-  PurchaseCapacityBlockCommandInput,
-  PurchaseCapacityBlockCommandOutput,
 } from "./commands/PurchaseCapacityBlockCommand";
 import {
+  type PurchaseCapacityBlockExtensionCommandInput,
+  type PurchaseCapacityBlockExtensionCommandOutput,
   PurchaseCapacityBlockExtensionCommand,
-  PurchaseCapacityBlockExtensionCommandInput,
-  PurchaseCapacityBlockExtensionCommandOutput,
 } from "./commands/PurchaseCapacityBlockExtensionCommand";
 import {
+  type PurchaseHostReservationCommandInput,
+  type PurchaseHostReservationCommandOutput,
   PurchaseHostReservationCommand,
-  PurchaseHostReservationCommandInput,
-  PurchaseHostReservationCommandOutput,
 } from "./commands/PurchaseHostReservationCommand";
 import {
+  type PurchaseReservedInstancesOfferingCommandInput,
+  type PurchaseReservedInstancesOfferingCommandOutput,
   PurchaseReservedInstancesOfferingCommand,
-  PurchaseReservedInstancesOfferingCommandInput,
-  PurchaseReservedInstancesOfferingCommandOutput,
 } from "./commands/PurchaseReservedInstancesOfferingCommand";
 import {
+  type PurchaseScheduledInstancesCommandInput,
+  type PurchaseScheduledInstancesCommandOutput,
   PurchaseScheduledInstancesCommand,
-  PurchaseScheduledInstancesCommandInput,
-  PurchaseScheduledInstancesCommandOutput,
 } from "./commands/PurchaseScheduledInstancesCommand";
 import {
+  type RebootInstancesCommandInput,
+  type RebootInstancesCommandOutput,
   RebootInstancesCommand,
-  RebootInstancesCommandInput,
-  RebootInstancesCommandOutput,
 } from "./commands/RebootInstancesCommand";
 import {
+  type RegisterImageCommandInput,
+  type RegisterImageCommandOutput,
   RegisterImageCommand,
-  RegisterImageCommandInput,
-  RegisterImageCommandOutput,
 } from "./commands/RegisterImageCommand";
 import {
+  type RegisterInstanceEventNotificationAttributesCommandInput,
+  type RegisterInstanceEventNotificationAttributesCommandOutput,
   RegisterInstanceEventNotificationAttributesCommand,
-  RegisterInstanceEventNotificationAttributesCommandInput,
-  RegisterInstanceEventNotificationAttributesCommandOutput,
 } from "./commands/RegisterInstanceEventNotificationAttributesCommand";
 import {
+  type RegisterTransitGatewayMulticastGroupMembersCommandInput,
+  type RegisterTransitGatewayMulticastGroupMembersCommandOutput,
   RegisterTransitGatewayMulticastGroupMembersCommand,
-  RegisterTransitGatewayMulticastGroupMembersCommandInput,
-  RegisterTransitGatewayMulticastGroupMembersCommandOutput,
 } from "./commands/RegisterTransitGatewayMulticastGroupMembersCommand";
 import {
+  type RegisterTransitGatewayMulticastGroupSourcesCommandInput,
+  type RegisterTransitGatewayMulticastGroupSourcesCommandOutput,
   RegisterTransitGatewayMulticastGroupSourcesCommand,
-  RegisterTransitGatewayMulticastGroupSourcesCommandInput,
-  RegisterTransitGatewayMulticastGroupSourcesCommandOutput,
 } from "./commands/RegisterTransitGatewayMulticastGroupSourcesCommand";
 import {
+  type RejectCapacityReservationBillingOwnershipCommandInput,
+  type RejectCapacityReservationBillingOwnershipCommandOutput,
   RejectCapacityReservationBillingOwnershipCommand,
-  RejectCapacityReservationBillingOwnershipCommandInput,
-  RejectCapacityReservationBillingOwnershipCommandOutput,
 } from "./commands/RejectCapacityReservationBillingOwnershipCommand";
 import {
+  type RejectTransitGatewayMulticastDomainAssociationsCommandInput,
+  type RejectTransitGatewayMulticastDomainAssociationsCommandOutput,
   RejectTransitGatewayMulticastDomainAssociationsCommand,
-  RejectTransitGatewayMulticastDomainAssociationsCommandInput,
-  RejectTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/RejectTransitGatewayMulticastDomainAssociationsCommand";
 import {
+  type RejectTransitGatewayPeeringAttachmentCommandInput,
+  type RejectTransitGatewayPeeringAttachmentCommandOutput,
   RejectTransitGatewayPeeringAttachmentCommand,
-  RejectTransitGatewayPeeringAttachmentCommandInput,
-  RejectTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/RejectTransitGatewayPeeringAttachmentCommand";
 import {
+  type RejectTransitGatewayVpcAttachmentCommandInput,
+  type RejectTransitGatewayVpcAttachmentCommandOutput,
   RejectTransitGatewayVpcAttachmentCommand,
-  RejectTransitGatewayVpcAttachmentCommandInput,
-  RejectTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/RejectTransitGatewayVpcAttachmentCommand";
 import {
+  type RejectVpcEndpointConnectionsCommandInput,
+  type RejectVpcEndpointConnectionsCommandOutput,
   RejectVpcEndpointConnectionsCommand,
-  RejectVpcEndpointConnectionsCommandInput,
-  RejectVpcEndpointConnectionsCommandOutput,
 } from "./commands/RejectVpcEndpointConnectionsCommand";
 import {
+  type RejectVpcPeeringConnectionCommandInput,
+  type RejectVpcPeeringConnectionCommandOutput,
   RejectVpcPeeringConnectionCommand,
-  RejectVpcPeeringConnectionCommandInput,
-  RejectVpcPeeringConnectionCommandOutput,
 } from "./commands/RejectVpcPeeringConnectionCommand";
 import {
+  type ReleaseAddressCommandInput,
+  type ReleaseAddressCommandOutput,
   ReleaseAddressCommand,
-  ReleaseAddressCommandInput,
-  ReleaseAddressCommandOutput,
 } from "./commands/ReleaseAddressCommand";
 import {
+  type ReleaseHostsCommandInput,
+  type ReleaseHostsCommandOutput,
   ReleaseHostsCommand,
-  ReleaseHostsCommandInput,
-  ReleaseHostsCommandOutput,
 } from "./commands/ReleaseHostsCommand";
 import {
+  type ReleaseIpamPoolAllocationCommandInput,
+  type ReleaseIpamPoolAllocationCommandOutput,
   ReleaseIpamPoolAllocationCommand,
-  ReleaseIpamPoolAllocationCommandInput,
-  ReleaseIpamPoolAllocationCommandOutput,
 } from "./commands/ReleaseIpamPoolAllocationCommand";
 import {
+  type ReplaceIamInstanceProfileAssociationCommandInput,
+  type ReplaceIamInstanceProfileAssociationCommandOutput,
   ReplaceIamInstanceProfileAssociationCommand,
-  ReplaceIamInstanceProfileAssociationCommandInput,
-  ReplaceIamInstanceProfileAssociationCommandOutput,
 } from "./commands/ReplaceIamInstanceProfileAssociationCommand";
 import {
+  type ReplaceImageCriteriaInAllowedImagesSettingsCommandInput,
+  type ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput,
   ReplaceImageCriteriaInAllowedImagesSettingsCommand,
-  ReplaceImageCriteriaInAllowedImagesSettingsCommandInput,
-  ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput,
 } from "./commands/ReplaceImageCriteriaInAllowedImagesSettingsCommand";
 import {
+  type ReplaceNetworkAclAssociationCommandInput,
+  type ReplaceNetworkAclAssociationCommandOutput,
   ReplaceNetworkAclAssociationCommand,
-  ReplaceNetworkAclAssociationCommandInput,
-  ReplaceNetworkAclAssociationCommandOutput,
 } from "./commands/ReplaceNetworkAclAssociationCommand";
 import {
+  type ReplaceNetworkAclEntryCommandInput,
+  type ReplaceNetworkAclEntryCommandOutput,
   ReplaceNetworkAclEntryCommand,
-  ReplaceNetworkAclEntryCommandInput,
-  ReplaceNetworkAclEntryCommandOutput,
 } from "./commands/ReplaceNetworkAclEntryCommand";
 import {
+  type ReplaceRouteCommandInput,
+  type ReplaceRouteCommandOutput,
   ReplaceRouteCommand,
-  ReplaceRouteCommandInput,
-  ReplaceRouteCommandOutput,
 } from "./commands/ReplaceRouteCommand";
 import {
+  type ReplaceRouteTableAssociationCommandInput,
+  type ReplaceRouteTableAssociationCommandOutput,
   ReplaceRouteTableAssociationCommand,
-  ReplaceRouteTableAssociationCommandInput,
-  ReplaceRouteTableAssociationCommandOutput,
 } from "./commands/ReplaceRouteTableAssociationCommand";
 import {
+  type ReplaceTransitGatewayRouteCommandInput,
+  type ReplaceTransitGatewayRouteCommandOutput,
   ReplaceTransitGatewayRouteCommand,
-  ReplaceTransitGatewayRouteCommandInput,
-  ReplaceTransitGatewayRouteCommandOutput,
 } from "./commands/ReplaceTransitGatewayRouteCommand";
 import {
+  type ReplaceVpnTunnelCommandInput,
+  type ReplaceVpnTunnelCommandOutput,
   ReplaceVpnTunnelCommand,
-  ReplaceVpnTunnelCommandInput,
-  ReplaceVpnTunnelCommandOutput,
 } from "./commands/ReplaceVpnTunnelCommand";
 import {
+  type ReportInstanceStatusCommandInput,
+  type ReportInstanceStatusCommandOutput,
   ReportInstanceStatusCommand,
-  ReportInstanceStatusCommandInput,
-  ReportInstanceStatusCommandOutput,
 } from "./commands/ReportInstanceStatusCommand";
 import {
+  type RequestSpotFleetCommandInput,
+  type RequestSpotFleetCommandOutput,
   RequestSpotFleetCommand,
-  RequestSpotFleetCommandInput,
-  RequestSpotFleetCommandOutput,
 } from "./commands/RequestSpotFleetCommand";
 import {
+  type RequestSpotInstancesCommandInput,
+  type RequestSpotInstancesCommandOutput,
   RequestSpotInstancesCommand,
-  RequestSpotInstancesCommandInput,
-  RequestSpotInstancesCommandOutput,
 } from "./commands/RequestSpotInstancesCommand";
 import {
+  type ResetAddressAttributeCommandInput,
+  type ResetAddressAttributeCommandOutput,
   ResetAddressAttributeCommand,
-  ResetAddressAttributeCommandInput,
-  ResetAddressAttributeCommandOutput,
 } from "./commands/ResetAddressAttributeCommand";
 import {
+  type ResetEbsDefaultKmsKeyIdCommandInput,
+  type ResetEbsDefaultKmsKeyIdCommandOutput,
   ResetEbsDefaultKmsKeyIdCommand,
-  ResetEbsDefaultKmsKeyIdCommandInput,
-  ResetEbsDefaultKmsKeyIdCommandOutput,
 } from "./commands/ResetEbsDefaultKmsKeyIdCommand";
 import {
+  type ResetFpgaImageAttributeCommandInput,
+  type ResetFpgaImageAttributeCommandOutput,
   ResetFpgaImageAttributeCommand,
-  ResetFpgaImageAttributeCommandInput,
-  ResetFpgaImageAttributeCommandOutput,
 } from "./commands/ResetFpgaImageAttributeCommand";
 import {
+  type ResetImageAttributeCommandInput,
+  type ResetImageAttributeCommandOutput,
   ResetImageAttributeCommand,
-  ResetImageAttributeCommandInput,
-  ResetImageAttributeCommandOutput,
 } from "./commands/ResetImageAttributeCommand";
 import {
+  type ResetInstanceAttributeCommandInput,
+  type ResetInstanceAttributeCommandOutput,
   ResetInstanceAttributeCommand,
-  ResetInstanceAttributeCommandInput,
-  ResetInstanceAttributeCommandOutput,
 } from "./commands/ResetInstanceAttributeCommand";
 import {
+  type ResetNetworkInterfaceAttributeCommandInput,
+  type ResetNetworkInterfaceAttributeCommandOutput,
   ResetNetworkInterfaceAttributeCommand,
-  ResetNetworkInterfaceAttributeCommandInput,
-  ResetNetworkInterfaceAttributeCommandOutput,
 } from "./commands/ResetNetworkInterfaceAttributeCommand";
 import {
+  type ResetSnapshotAttributeCommandInput,
+  type ResetSnapshotAttributeCommandOutput,
   ResetSnapshotAttributeCommand,
-  ResetSnapshotAttributeCommandInput,
-  ResetSnapshotAttributeCommandOutput,
 } from "./commands/ResetSnapshotAttributeCommand";
 import {
+  type RestoreAddressToClassicCommandInput,
+  type RestoreAddressToClassicCommandOutput,
   RestoreAddressToClassicCommand,
-  RestoreAddressToClassicCommandInput,
-  RestoreAddressToClassicCommandOutput,
 } from "./commands/RestoreAddressToClassicCommand";
 import {
+  type RestoreImageFromRecycleBinCommandInput,
+  type RestoreImageFromRecycleBinCommandOutput,
   RestoreImageFromRecycleBinCommand,
-  RestoreImageFromRecycleBinCommandInput,
-  RestoreImageFromRecycleBinCommandOutput,
 } from "./commands/RestoreImageFromRecycleBinCommand";
 import {
+  type RestoreManagedPrefixListVersionCommandInput,
+  type RestoreManagedPrefixListVersionCommandOutput,
   RestoreManagedPrefixListVersionCommand,
-  RestoreManagedPrefixListVersionCommandInput,
-  RestoreManagedPrefixListVersionCommandOutput,
 } from "./commands/RestoreManagedPrefixListVersionCommand";
 import {
+  type RestoreSnapshotFromRecycleBinCommandInput,
+  type RestoreSnapshotFromRecycleBinCommandOutput,
   RestoreSnapshotFromRecycleBinCommand,
-  RestoreSnapshotFromRecycleBinCommandInput,
-  RestoreSnapshotFromRecycleBinCommandOutput,
 } from "./commands/RestoreSnapshotFromRecycleBinCommand";
 import {
+  type RestoreSnapshotTierCommandInput,
+  type RestoreSnapshotTierCommandOutput,
   RestoreSnapshotTierCommand,
-  RestoreSnapshotTierCommandInput,
-  RestoreSnapshotTierCommandOutput,
 } from "./commands/RestoreSnapshotTierCommand";
 import {
+  type RestoreVolumeFromRecycleBinCommandInput,
+  type RestoreVolumeFromRecycleBinCommandOutput,
   RestoreVolumeFromRecycleBinCommand,
-  RestoreVolumeFromRecycleBinCommandInput,
-  RestoreVolumeFromRecycleBinCommandOutput,
 } from "./commands/RestoreVolumeFromRecycleBinCommand";
 import {
+  type RevokeClientVpnIngressCommandInput,
+  type RevokeClientVpnIngressCommandOutput,
   RevokeClientVpnIngressCommand,
-  RevokeClientVpnIngressCommandInput,
-  RevokeClientVpnIngressCommandOutput,
 } from "./commands/RevokeClientVpnIngressCommand";
 import {
+  type RevokeSecurityGroupEgressCommandInput,
+  type RevokeSecurityGroupEgressCommandOutput,
   RevokeSecurityGroupEgressCommand,
-  RevokeSecurityGroupEgressCommandInput,
-  RevokeSecurityGroupEgressCommandOutput,
 } from "./commands/RevokeSecurityGroupEgressCommand";
 import {
+  type RevokeSecurityGroupIngressCommandInput,
+  type RevokeSecurityGroupIngressCommandOutput,
   RevokeSecurityGroupIngressCommand,
-  RevokeSecurityGroupIngressCommandInput,
-  RevokeSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeSecurityGroupIngressCommand";
 import {
+  type RunInstancesCommandInput,
+  type RunInstancesCommandOutput,
   RunInstancesCommand,
-  RunInstancesCommandInput,
-  RunInstancesCommandOutput,
 } from "./commands/RunInstancesCommand";
 import {
+  type RunScheduledInstancesCommandInput,
+  type RunScheduledInstancesCommandOutput,
   RunScheduledInstancesCommand,
-  RunScheduledInstancesCommandInput,
-  RunScheduledInstancesCommandOutput,
 } from "./commands/RunScheduledInstancesCommand";
 import {
+  type SearchLocalGatewayRoutesCommandInput,
+  type SearchLocalGatewayRoutesCommandOutput,
   SearchLocalGatewayRoutesCommand,
-  SearchLocalGatewayRoutesCommandInput,
-  SearchLocalGatewayRoutesCommandOutput,
 } from "./commands/SearchLocalGatewayRoutesCommand";
 import {
+  type SearchTransitGatewayMulticastGroupsCommandInput,
+  type SearchTransitGatewayMulticastGroupsCommandOutput,
   SearchTransitGatewayMulticastGroupsCommand,
-  SearchTransitGatewayMulticastGroupsCommandInput,
-  SearchTransitGatewayMulticastGroupsCommandOutput,
 } from "./commands/SearchTransitGatewayMulticastGroupsCommand";
 import {
+  type SearchTransitGatewayRoutesCommandInput,
+  type SearchTransitGatewayRoutesCommandOutput,
   SearchTransitGatewayRoutesCommand,
-  SearchTransitGatewayRoutesCommandInput,
-  SearchTransitGatewayRoutesCommandOutput,
 } from "./commands/SearchTransitGatewayRoutesCommand";
 import {
+  type SendDiagnosticInterruptCommandInput,
+  type SendDiagnosticInterruptCommandOutput,
   SendDiagnosticInterruptCommand,
-  SendDiagnosticInterruptCommandInput,
-  SendDiagnosticInterruptCommandOutput,
 } from "./commands/SendDiagnosticInterruptCommand";
 import {
+  type StartDeclarativePoliciesReportCommandInput,
+  type StartDeclarativePoliciesReportCommandOutput,
   StartDeclarativePoliciesReportCommand,
-  StartDeclarativePoliciesReportCommandInput,
-  StartDeclarativePoliciesReportCommandOutput,
 } from "./commands/StartDeclarativePoliciesReportCommand";
 import {
+  type StartInstancesCommandInput,
+  type StartInstancesCommandOutput,
   StartInstancesCommand,
-  StartInstancesCommandInput,
-  StartInstancesCommandOutput,
 } from "./commands/StartInstancesCommand";
 import {
+  type StartNetworkInsightsAccessScopeAnalysisCommandInput,
+  type StartNetworkInsightsAccessScopeAnalysisCommandOutput,
   StartNetworkInsightsAccessScopeAnalysisCommand,
-  StartNetworkInsightsAccessScopeAnalysisCommandInput,
-  StartNetworkInsightsAccessScopeAnalysisCommandOutput,
 } from "./commands/StartNetworkInsightsAccessScopeAnalysisCommand";
 import {
+  type StartNetworkInsightsAnalysisCommandInput,
+  type StartNetworkInsightsAnalysisCommandOutput,
   StartNetworkInsightsAnalysisCommand,
-  StartNetworkInsightsAnalysisCommandInput,
-  StartNetworkInsightsAnalysisCommandOutput,
 } from "./commands/StartNetworkInsightsAnalysisCommand";
 import {
+  type StartVpcEndpointServicePrivateDnsVerificationCommandInput,
+  type StartVpcEndpointServicePrivateDnsVerificationCommandOutput,
   StartVpcEndpointServicePrivateDnsVerificationCommand,
-  StartVpcEndpointServicePrivateDnsVerificationCommandInput,
-  StartVpcEndpointServicePrivateDnsVerificationCommandOutput,
 } from "./commands/StartVpcEndpointServicePrivateDnsVerificationCommand";
 import {
+  type StopInstancesCommandInput,
+  type StopInstancesCommandOutput,
   StopInstancesCommand,
-  StopInstancesCommandInput,
-  StopInstancesCommandOutput,
 } from "./commands/StopInstancesCommand";
 import {
+  type TerminateClientVpnConnectionsCommandInput,
+  type TerminateClientVpnConnectionsCommandOutput,
   TerminateClientVpnConnectionsCommand,
-  TerminateClientVpnConnectionsCommandInput,
-  TerminateClientVpnConnectionsCommandOutput,
 } from "./commands/TerminateClientVpnConnectionsCommand";
 import {
+  type TerminateInstancesCommandInput,
+  type TerminateInstancesCommandOutput,
   TerminateInstancesCommand,
-  TerminateInstancesCommandInput,
-  TerminateInstancesCommandOutput,
 } from "./commands/TerminateInstancesCommand";
 import {
+  type UnassignIpv6AddressesCommandInput,
+  type UnassignIpv6AddressesCommandOutput,
   UnassignIpv6AddressesCommand,
-  UnassignIpv6AddressesCommandInput,
-  UnassignIpv6AddressesCommandOutput,
 } from "./commands/UnassignIpv6AddressesCommand";
 import {
+  type UnassignPrivateIpAddressesCommandInput,
+  type UnassignPrivateIpAddressesCommandOutput,
   UnassignPrivateIpAddressesCommand,
-  UnassignPrivateIpAddressesCommandInput,
-  UnassignPrivateIpAddressesCommandOutput,
 } from "./commands/UnassignPrivateIpAddressesCommand";
 import {
+  type UnassignPrivateNatGatewayAddressCommandInput,
+  type UnassignPrivateNatGatewayAddressCommandOutput,
   UnassignPrivateNatGatewayAddressCommand,
-  UnassignPrivateNatGatewayAddressCommandInput,
-  UnassignPrivateNatGatewayAddressCommandOutput,
 } from "./commands/UnassignPrivateNatGatewayAddressCommand";
 import {
+  type UnlockSnapshotCommandInput,
+  type UnlockSnapshotCommandOutput,
   UnlockSnapshotCommand,
-  UnlockSnapshotCommandInput,
-  UnlockSnapshotCommandOutput,
 } from "./commands/UnlockSnapshotCommand";
 import {
+  type UnmonitorInstancesCommandInput,
+  type UnmonitorInstancesCommandOutput,
   UnmonitorInstancesCommand,
-  UnmonitorInstancesCommandInput,
-  UnmonitorInstancesCommandOutput,
 } from "./commands/UnmonitorInstancesCommand";
 import {
+  type UpdateCapacityManagerOrganizationsAccessCommandInput,
+  type UpdateCapacityManagerOrganizationsAccessCommandOutput,
   UpdateCapacityManagerOrganizationsAccessCommand,
-  UpdateCapacityManagerOrganizationsAccessCommandInput,
-  UpdateCapacityManagerOrganizationsAccessCommandOutput,
 } from "./commands/UpdateCapacityManagerOrganizationsAccessCommand";
 import {
+  type UpdateInterruptibleCapacityReservationAllocationCommandInput,
+  type UpdateInterruptibleCapacityReservationAllocationCommandOutput,
   UpdateInterruptibleCapacityReservationAllocationCommand,
-  UpdateInterruptibleCapacityReservationAllocationCommandInput,
-  UpdateInterruptibleCapacityReservationAllocationCommandOutput,
 } from "./commands/UpdateInterruptibleCapacityReservationAllocationCommand";
 import {
+  type UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
+  type UpdateSecurityGroupRuleDescriptionsEgressCommandOutput,
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
-  UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
-  UpdateSecurityGroupRuleDescriptionsEgressCommandOutput,
 } from "./commands/UpdateSecurityGroupRuleDescriptionsEgressCommand";
 import {
+  type UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
+  type UpdateSecurityGroupRuleDescriptionsIngressCommandOutput,
   UpdateSecurityGroupRuleDescriptionsIngressCommand,
-  UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
-  UpdateSecurityGroupRuleDescriptionsIngressCommandOutput,
 } from "./commands/UpdateSecurityGroupRuleDescriptionsIngressCommand";
 import {
+  type WithdrawByoipCidrCommandInput,
+  type WithdrawByoipCidrCommandOutput,
   WithdrawByoipCidrCommand,
-  WithdrawByoipCidrCommandInput,
-  WithdrawByoipCidrCommandOutput,
 } from "./commands/WithdrawByoipCidrCommand";
 import { EC2Client } from "./EC2Client";
 import { paginateDescribeAddressesAttribute } from "./pagination/DescribeAddressesAttributePaginator";

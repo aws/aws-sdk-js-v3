@@ -8,7 +8,7 @@ import {
   ListLabelingJobsCommandOutput,
 } from "../commands/ListLabelingJobsCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

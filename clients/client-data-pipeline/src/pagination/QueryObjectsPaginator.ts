@@ -8,7 +8,7 @@ import {
   QueryObjectsCommandOutput,
 } from "../commands/QueryObjectsCommand";
 import { DataPipelineClient } from "../DataPipelineClient";
-import { DataPipelinePaginationConfiguration } from "./Interfaces";
+import type { DataPipelinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -3,186 +3,234 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelKeyDeletionCommandInput,
+  type CancelKeyDeletionCommandOutput,
   CancelKeyDeletionCommand,
-  CancelKeyDeletionCommandInput,
-  CancelKeyDeletionCommandOutput,
 } from "./commands/CancelKeyDeletionCommand";
 import {
+  type ConnectCustomKeyStoreCommandInput,
+  type ConnectCustomKeyStoreCommandOutput,
   ConnectCustomKeyStoreCommand,
-  ConnectCustomKeyStoreCommandInput,
-  ConnectCustomKeyStoreCommandOutput,
 } from "./commands/ConnectCustomKeyStoreCommand";
-import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
+  type CreateAliasCommandInput,
+  type CreateAliasCommandOutput,
+  CreateAliasCommand,
+} from "./commands/CreateAliasCommand";
+import {
+  type CreateCustomKeyStoreCommandInput,
+  type CreateCustomKeyStoreCommandOutput,
   CreateCustomKeyStoreCommand,
-  CreateCustomKeyStoreCommandInput,
-  CreateCustomKeyStoreCommandOutput,
 } from "./commands/CreateCustomKeyStoreCommand";
-import { CreateGrantCommand, CreateGrantCommandInput, CreateGrantCommandOutput } from "./commands/CreateGrantCommand";
-import { CreateKeyCommand, CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
-import { DecryptCommand, DecryptCommandInput, DecryptCommandOutput } from "./commands/DecryptCommand";
-import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import {
+  type CreateGrantCommandInput,
+  type CreateGrantCommandOutput,
+  CreateGrantCommand,
+} from "./commands/CreateGrantCommand";
+import { type CreateKeyCommandInput, type CreateKeyCommandOutput, CreateKeyCommand } from "./commands/CreateKeyCommand";
+import { type DecryptCommandInput, type DecryptCommandOutput, DecryptCommand } from "./commands/DecryptCommand";
+import {
+  type DeleteAliasCommandInput,
+  type DeleteAliasCommandOutput,
+  DeleteAliasCommand,
+} from "./commands/DeleteAliasCommand";
+import {
+  type DeleteCustomKeyStoreCommandInput,
+  type DeleteCustomKeyStoreCommandOutput,
   DeleteCustomKeyStoreCommand,
-  DeleteCustomKeyStoreCommandInput,
-  DeleteCustomKeyStoreCommandOutput,
 } from "./commands/DeleteCustomKeyStoreCommand";
 import {
+  type DeleteImportedKeyMaterialCommandInput,
+  type DeleteImportedKeyMaterialCommandOutput,
   DeleteImportedKeyMaterialCommand,
-  DeleteImportedKeyMaterialCommandInput,
-  DeleteImportedKeyMaterialCommandOutput,
 } from "./commands/DeleteImportedKeyMaterialCommand";
 import {
+  type DeriveSharedSecretCommandInput,
+  type DeriveSharedSecretCommandOutput,
   DeriveSharedSecretCommand,
-  DeriveSharedSecretCommandInput,
-  DeriveSharedSecretCommandOutput,
 } from "./commands/DeriveSharedSecretCommand";
 import {
+  type DescribeCustomKeyStoresCommandInput,
+  type DescribeCustomKeyStoresCommandOutput,
   DescribeCustomKeyStoresCommand,
-  DescribeCustomKeyStoresCommandInput,
-  DescribeCustomKeyStoresCommandOutput,
 } from "./commands/DescribeCustomKeyStoresCommand";
-import { DescribeKeyCommand, DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand";
-import { DisableKeyCommand, DisableKeyCommandInput, DisableKeyCommandOutput } from "./commands/DisableKeyCommand";
 import {
+  type DescribeKeyCommandInput,
+  type DescribeKeyCommandOutput,
+  DescribeKeyCommand,
+} from "./commands/DescribeKeyCommand";
+import {
+  type DisableKeyCommandInput,
+  type DisableKeyCommandOutput,
+  DisableKeyCommand,
+} from "./commands/DisableKeyCommand";
+import {
+  type DisableKeyRotationCommandInput,
+  type DisableKeyRotationCommandOutput,
   DisableKeyRotationCommand,
-  DisableKeyRotationCommandInput,
-  DisableKeyRotationCommandOutput,
 } from "./commands/DisableKeyRotationCommand";
 import {
+  type DisconnectCustomKeyStoreCommandInput,
+  type DisconnectCustomKeyStoreCommandOutput,
   DisconnectCustomKeyStoreCommand,
-  DisconnectCustomKeyStoreCommandInput,
-  DisconnectCustomKeyStoreCommandOutput,
 } from "./commands/DisconnectCustomKeyStoreCommand";
-import { EnableKeyCommand, EnableKeyCommandInput, EnableKeyCommandOutput } from "./commands/EnableKeyCommand";
+import { type EnableKeyCommandInput, type EnableKeyCommandOutput, EnableKeyCommand } from "./commands/EnableKeyCommand";
 import {
+  type EnableKeyRotationCommandInput,
+  type EnableKeyRotationCommandOutput,
   EnableKeyRotationCommand,
-  EnableKeyRotationCommandInput,
-  EnableKeyRotationCommandOutput,
 } from "./commands/EnableKeyRotationCommand";
-import { EncryptCommand, EncryptCommandInput, EncryptCommandOutput } from "./commands/EncryptCommand";
+import { type EncryptCommandInput, type EncryptCommandOutput, EncryptCommand } from "./commands/EncryptCommand";
 import {
+  type GenerateDataKeyCommandInput,
+  type GenerateDataKeyCommandOutput,
   GenerateDataKeyCommand,
-  GenerateDataKeyCommandInput,
-  GenerateDataKeyCommandOutput,
 } from "./commands/GenerateDataKeyCommand";
 import {
+  type GenerateDataKeyPairCommandInput,
+  type GenerateDataKeyPairCommandOutput,
   GenerateDataKeyPairCommand,
-  GenerateDataKeyPairCommandInput,
-  GenerateDataKeyPairCommandOutput,
 } from "./commands/GenerateDataKeyPairCommand";
 import {
+  type GenerateDataKeyPairWithoutPlaintextCommandInput,
+  type GenerateDataKeyPairWithoutPlaintextCommandOutput,
   GenerateDataKeyPairWithoutPlaintextCommand,
-  GenerateDataKeyPairWithoutPlaintextCommandInput,
-  GenerateDataKeyPairWithoutPlaintextCommandOutput,
 } from "./commands/GenerateDataKeyPairWithoutPlaintextCommand";
 import {
+  type GenerateDataKeyWithoutPlaintextCommandInput,
+  type GenerateDataKeyWithoutPlaintextCommandOutput,
   GenerateDataKeyWithoutPlaintextCommand,
-  GenerateDataKeyWithoutPlaintextCommandInput,
-  GenerateDataKeyWithoutPlaintextCommandOutput,
 } from "./commands/GenerateDataKeyWithoutPlaintextCommand";
-import { GenerateMacCommand, GenerateMacCommandInput, GenerateMacCommandOutput } from "./commands/GenerateMacCommand";
 import {
+  type GenerateMacCommandInput,
+  type GenerateMacCommandOutput,
+  GenerateMacCommand,
+} from "./commands/GenerateMacCommand";
+import {
+  type GenerateRandomCommandInput,
+  type GenerateRandomCommandOutput,
   GenerateRandomCommand,
-  GenerateRandomCommandInput,
-  GenerateRandomCommandOutput,
 } from "./commands/GenerateRandomCommand";
 import {
+  type GetKeyPolicyCommandInput,
+  type GetKeyPolicyCommandOutput,
   GetKeyPolicyCommand,
-  GetKeyPolicyCommandInput,
-  GetKeyPolicyCommandOutput,
 } from "./commands/GetKeyPolicyCommand";
 import {
+  type GetKeyRotationStatusCommandInput,
+  type GetKeyRotationStatusCommandOutput,
   GetKeyRotationStatusCommand,
-  GetKeyRotationStatusCommandInput,
-  GetKeyRotationStatusCommandOutput,
 } from "./commands/GetKeyRotationStatusCommand";
 import {
+  type GetParametersForImportCommandInput,
+  type GetParametersForImportCommandOutput,
   GetParametersForImportCommand,
-  GetParametersForImportCommandInput,
-  GetParametersForImportCommandOutput,
 } from "./commands/GetParametersForImportCommand";
 import {
+  type GetPublicKeyCommandInput,
+  type GetPublicKeyCommandOutput,
   GetPublicKeyCommand,
-  GetPublicKeyCommandInput,
-  GetPublicKeyCommandOutput,
 } from "./commands/GetPublicKeyCommand";
 import {
+  type ImportKeyMaterialCommandInput,
+  type ImportKeyMaterialCommandOutput,
   ImportKeyMaterialCommand,
-  ImportKeyMaterialCommandInput,
-  ImportKeyMaterialCommandOutput,
 } from "./commands/ImportKeyMaterialCommand";
-import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
-import { ListGrantsCommand, ListGrantsCommandInput, ListGrantsCommandOutput } from "./commands/ListGrantsCommand";
 import {
+  type ListAliasesCommandInput,
+  type ListAliasesCommandOutput,
+  ListAliasesCommand,
+} from "./commands/ListAliasesCommand";
+import {
+  type ListGrantsCommandInput,
+  type ListGrantsCommandOutput,
+  ListGrantsCommand,
+} from "./commands/ListGrantsCommand";
+import {
+  type ListKeyPoliciesCommandInput,
+  type ListKeyPoliciesCommandOutput,
   ListKeyPoliciesCommand,
-  ListKeyPoliciesCommandInput,
-  ListKeyPoliciesCommandOutput,
 } from "./commands/ListKeyPoliciesCommand";
 import {
+  type ListKeyRotationsCommandInput,
+  type ListKeyRotationsCommandOutput,
   ListKeyRotationsCommand,
-  ListKeyRotationsCommandInput,
-  ListKeyRotationsCommandOutput,
 } from "./commands/ListKeyRotationsCommand";
-import { ListKeysCommand, ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
+import { type ListKeysCommandInput, type ListKeysCommandOutput, ListKeysCommand } from "./commands/ListKeysCommand";
 import {
+  type ListResourceTagsCommandInput,
+  type ListResourceTagsCommandOutput,
   ListResourceTagsCommand,
-  ListResourceTagsCommandInput,
-  ListResourceTagsCommandOutput,
 } from "./commands/ListResourceTagsCommand";
 import {
+  type ListRetirableGrantsCommandInput,
+  type ListRetirableGrantsCommandOutput,
   ListRetirableGrantsCommand,
-  ListRetirableGrantsCommandInput,
-  ListRetirableGrantsCommandOutput,
 } from "./commands/ListRetirableGrantsCommand";
 import {
+  type PutKeyPolicyCommandInput,
+  type PutKeyPolicyCommandOutput,
   PutKeyPolicyCommand,
-  PutKeyPolicyCommandInput,
-  PutKeyPolicyCommandOutput,
 } from "./commands/PutKeyPolicyCommand";
-import { ReEncryptCommand, ReEncryptCommandInput, ReEncryptCommandOutput } from "./commands/ReEncryptCommand";
+import { type ReEncryptCommandInput, type ReEncryptCommandOutput, ReEncryptCommand } from "./commands/ReEncryptCommand";
 import {
+  type ReplicateKeyCommandInput,
+  type ReplicateKeyCommandOutput,
   ReplicateKeyCommand,
-  ReplicateKeyCommandInput,
-  ReplicateKeyCommandOutput,
 } from "./commands/ReplicateKeyCommand";
-import { RetireGrantCommand, RetireGrantCommandInput, RetireGrantCommandOutput } from "./commands/RetireGrantCommand";
-import { RevokeGrantCommand, RevokeGrantCommandInput, RevokeGrantCommandOutput } from "./commands/RevokeGrantCommand";
 import {
+  type RetireGrantCommandInput,
+  type RetireGrantCommandOutput,
+  RetireGrantCommand,
+} from "./commands/RetireGrantCommand";
+import {
+  type RevokeGrantCommandInput,
+  type RevokeGrantCommandOutput,
+  RevokeGrantCommand,
+} from "./commands/RevokeGrantCommand";
+import {
+  type RotateKeyOnDemandCommandInput,
+  type RotateKeyOnDemandCommandOutput,
   RotateKeyOnDemandCommand,
-  RotateKeyOnDemandCommandInput,
-  RotateKeyOnDemandCommandOutput,
 } from "./commands/RotateKeyOnDemandCommand";
 import {
+  type ScheduleKeyDeletionCommandInput,
+  type ScheduleKeyDeletionCommandOutput,
   ScheduleKeyDeletionCommand,
-  ScheduleKeyDeletionCommandInput,
-  ScheduleKeyDeletionCommandOutput,
 } from "./commands/ScheduleKeyDeletionCommand";
-import { SignCommand, SignCommandInput, SignCommandOutput } from "./commands/SignCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type SignCommandInput, type SignCommandOutput, SignCommand } from "./commands/SignCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
 import {
+  type UpdateAliasCommandInput,
+  type UpdateAliasCommandOutput,
+  UpdateAliasCommand,
+} from "./commands/UpdateAliasCommand";
+import {
+  type UpdateCustomKeyStoreCommandInput,
+  type UpdateCustomKeyStoreCommandOutput,
   UpdateCustomKeyStoreCommand,
-  UpdateCustomKeyStoreCommandInput,
-  UpdateCustomKeyStoreCommandOutput,
 } from "./commands/UpdateCustomKeyStoreCommand";
 import {
+  type UpdateKeyDescriptionCommandInput,
+  type UpdateKeyDescriptionCommandOutput,
   UpdateKeyDescriptionCommand,
-  UpdateKeyDescriptionCommandInput,
-  UpdateKeyDescriptionCommandOutput,
 } from "./commands/UpdateKeyDescriptionCommand";
 import {
+  type UpdatePrimaryRegionCommandInput,
+  type UpdatePrimaryRegionCommandOutput,
   UpdatePrimaryRegionCommand,
-  UpdatePrimaryRegionCommandInput,
-  UpdatePrimaryRegionCommandOutput,
 } from "./commands/UpdatePrimaryRegionCommand";
-import { VerifyCommand, VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand";
-import { VerifyMacCommand, VerifyMacCommandInput, VerifyMacCommandOutput } from "./commands/VerifyMacCommand";
+import { type VerifyCommandInput, type VerifyCommandOutput, VerifyCommand } from "./commands/VerifyCommand";
+import { type VerifyMacCommandInput, type VerifyMacCommandOutput, VerifyMacCommand } from "./commands/VerifyMacCommand";
 import { KMSClient } from "./KMSClient";
 import { paginateDescribeCustomKeyStores } from "./pagination/DescribeCustomKeyStoresPaginator";
 import { paginateListAliases } from "./pagination/ListAliasesPaginator";

@@ -17,7 +17,7 @@
  */
 export * from "./CodeBuildClient";
 export * from "./CodeBuild";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CodeBuildExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

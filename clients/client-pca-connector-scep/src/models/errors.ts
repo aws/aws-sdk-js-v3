@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionReason } from "./enums";
 import { PcaConnectorScepServiceException as __BaseException } from "./PcaConnectorScepServiceException";
 
 /**

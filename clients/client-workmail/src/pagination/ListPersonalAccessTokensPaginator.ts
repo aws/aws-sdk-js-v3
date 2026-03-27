@@ -8,7 +8,7 @@ import {
   ListPersonalAccessTokensCommandOutput,
 } from "../commands/ListPersonalAccessTokensCommand";
 import { WorkMailClient } from "../WorkMailClient";
-import { WorkMailPaginationConfiguration } from "./Interfaces";
+import type { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,58 +61,67 @@ import {
   defaultARCRegionSwitchHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   ApprovePlanExecutionStepCommandInput,
   ApprovePlanExecutionStepCommandOutput,
 } from "./commands/ApprovePlanExecutionStepCommand";
-import {
+import type {
   CancelPlanExecutionCommandInput,
   CancelPlanExecutionCommandOutput,
 } from "./commands/CancelPlanExecutionCommand";
-import { CreatePlanCommandInput, CreatePlanCommandOutput } from "./commands/CreatePlanCommand";
-import { DeletePlanCommandInput, DeletePlanCommandOutput } from "./commands/DeletePlanCommand";
-import { GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
-import {
+import type { CreatePlanCommandInput, CreatePlanCommandOutput } from "./commands/CreatePlanCommand";
+import type { DeletePlanCommandInput, DeletePlanCommandOutput } from "./commands/DeletePlanCommand";
+import type { GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
+import type {
   GetPlanEvaluationStatusCommandInput,
   GetPlanEvaluationStatusCommandOutput,
 } from "./commands/GetPlanEvaluationStatusCommand";
-import { GetPlanExecutionCommandInput, GetPlanExecutionCommandOutput } from "./commands/GetPlanExecutionCommand";
-import { GetPlanInRegionCommandInput, GetPlanInRegionCommandOutput } from "./commands/GetPlanInRegionCommand";
-import {
+import type { GetPlanExecutionCommandInput, GetPlanExecutionCommandOutput } from "./commands/GetPlanExecutionCommand";
+import type { GetPlanInRegionCommandInput, GetPlanInRegionCommandOutput } from "./commands/GetPlanInRegionCommand";
+import type {
   ListPlanExecutionEventsCommandInput,
   ListPlanExecutionEventsCommandOutput,
 } from "./commands/ListPlanExecutionEventsCommand";
-import { ListPlanExecutionsCommandInput, ListPlanExecutionsCommandOutput } from "./commands/ListPlanExecutionsCommand";
-import { ListPlansCommandInput, ListPlansCommandOutput } from "./commands/ListPlansCommand";
-import { ListPlansInRegionCommandInput, ListPlansInRegionCommandOutput } from "./commands/ListPlansInRegionCommand";
-import {
+import type {
+  ListPlanExecutionsCommandInput,
+  ListPlanExecutionsCommandOutput,
+} from "./commands/ListPlanExecutionsCommand";
+import type { ListPlansCommandInput, ListPlansCommandOutput } from "./commands/ListPlansCommand";
+import type {
+  ListPlansInRegionCommandInput,
+  ListPlansInRegionCommandOutput,
+} from "./commands/ListPlansInRegionCommand";
+import type {
   ListRoute53HealthChecksCommandInput,
   ListRoute53HealthChecksCommandOutput,
 } from "./commands/ListRoute53HealthChecksCommand";
-import {
+import type {
   ListRoute53HealthChecksInRegionCommandInput,
   ListRoute53HealthChecksInRegionCommandOutput,
 } from "./commands/ListRoute53HealthChecksInRegionCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartPlanExecutionCommandInput, StartPlanExecutionCommandOutput } from "./commands/StartPlanExecutionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdatePlanCommandInput, UpdatePlanCommandOutput } from "./commands/UpdatePlanCommand";
-import {
+import type {
+  StartPlanExecutionCommandInput,
+  StartPlanExecutionCommandOutput,
+} from "./commands/StartPlanExecutionCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdatePlanCommandInput, UpdatePlanCommandOutput } from "./commands/UpdatePlanCommand";
+import type {
   UpdatePlanExecutionCommandInput,
   UpdatePlanExecutionCommandOutput,
 } from "./commands/UpdatePlanExecutionCommand";
-import {
+import type {
   UpdatePlanExecutionStepCommandInput,
   UpdatePlanExecutionStepCommandOutput,
 } from "./commands/UpdatePlanExecutionStepCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -288,7 +295,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

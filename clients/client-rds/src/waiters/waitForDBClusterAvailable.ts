@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeDBClustersCommand, DescribeDBClustersCommandInput } from "../commands/DescribeDBClustersCommand";
-import { RDSClient } from "../RDSClient";
+import { type DescribeDBClustersCommandInput, DescribeDBClustersCommand } from "../commands/DescribeDBClustersCommand";
+import type { RDSClient } from "../RDSClient";
 
 const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInput): Promise<WaiterResult> => {
   let reason;

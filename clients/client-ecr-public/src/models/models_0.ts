@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ImageFailureCode, LayerAvailability, LayerFailureCode, RegistryAliasStatus } from "./enums";
+import type { ImageFailureCode, LayerAvailability, LayerFailureCode, RegistryAliasStatus } from "./enums";
 
 /**
  * <p>An authorization token data object that corresponds to a public registry.</p>

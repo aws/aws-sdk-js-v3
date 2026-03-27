@@ -8,7 +8,7 @@ import {
   ListCollectionsCommandOutput,
 } from "../commands/ListCollectionsCommand";
 import { RekognitionClient } from "../RekognitionClient";
-import { RekognitionPaginationConfiguration } from "./Interfaces";
+import type { RekognitionPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

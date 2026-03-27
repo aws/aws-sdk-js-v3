@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,77 +61,80 @@ import {
   defaultAmplifyHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
-import {
+import type { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
+import type {
   CreateBackendEnvironmentCommandInput,
   CreateBackendEnvironmentCommandOutput,
 } from "./commands/CreateBackendEnvironmentCommand";
-import { CreateBranchCommandInput, CreateBranchCommandOutput } from "./commands/CreateBranchCommand";
-import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
-import {
+import type { CreateBranchCommandInput, CreateBranchCommandOutput } from "./commands/CreateBranchCommand";
+import type { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
+import type {
   CreateDomainAssociationCommandInput,
   CreateDomainAssociationCommandOutput,
 } from "./commands/CreateDomainAssociationCommand";
-import { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "./commands/CreateWebhookCommand";
-import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
-import {
+import type { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "./commands/CreateWebhookCommand";
+import type { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
+import type {
   DeleteBackendEnvironmentCommandInput,
   DeleteBackendEnvironmentCommandOutput,
 } from "./commands/DeleteBackendEnvironmentCommand";
-import { DeleteBranchCommandInput, DeleteBranchCommandOutput } from "./commands/DeleteBranchCommand";
-import {
+import type { DeleteBranchCommandInput, DeleteBranchCommandOutput } from "./commands/DeleteBranchCommand";
+import type {
   DeleteDomainAssociationCommandInput,
   DeleteDomainAssociationCommandOutput,
 } from "./commands/DeleteDomainAssociationCommand";
-import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
-import { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand";
-import { GenerateAccessLogsCommandInput, GenerateAccessLogsCommandOutput } from "./commands/GenerateAccessLogsCommand";
-import { GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
-import { GetArtifactUrlCommandInput, GetArtifactUrlCommandOutput } from "./commands/GetArtifactUrlCommand";
-import {
+import type { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import type { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand";
+import type {
+  GenerateAccessLogsCommandInput,
+  GenerateAccessLogsCommandOutput,
+} from "./commands/GenerateAccessLogsCommand";
+import type { GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
+import type { GetArtifactUrlCommandInput, GetArtifactUrlCommandOutput } from "./commands/GetArtifactUrlCommand";
+import type {
   GetBackendEnvironmentCommandInput,
   GetBackendEnvironmentCommandOutput,
 } from "./commands/GetBackendEnvironmentCommand";
-import { GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
-import {
+import type { GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
+import type {
   GetDomainAssociationCommandInput,
   GetDomainAssociationCommandOutput,
 } from "./commands/GetDomainAssociationCommand";
-import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
-import { GetWebhookCommandInput, GetWebhookCommandOutput } from "./commands/GetWebhookCommand";
-import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
-import { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand";
-import {
+import type { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import type { GetWebhookCommandInput, GetWebhookCommandOutput } from "./commands/GetWebhookCommand";
+import type { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import type { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand";
+import type {
   ListBackendEnvironmentsCommandInput,
   ListBackendEnvironmentsCommandOutput,
 } from "./commands/ListBackendEnvironmentsCommand";
-import { ListBranchesCommandInput, ListBranchesCommandOutput } from "./commands/ListBranchesCommand";
-import {
+import type { ListBranchesCommandInput, ListBranchesCommandOutput } from "./commands/ListBranchesCommand";
+import type {
   ListDomainAssociationsCommandInput,
   ListDomainAssociationsCommandOutput,
 } from "./commands/ListDomainAssociationsCommand";
-import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
-import {
+import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "./commands/ListWebhooksCommand";
-import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand";
-import { StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
-import { StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
-import { UpdateBranchCommandInput, UpdateBranchCommandOutput } from "./commands/UpdateBranchCommand";
-import {
+import type { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "./commands/ListWebhooksCommand";
+import type { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand";
+import type { StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
+import type { StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
+import type { UpdateBranchCommandInput, UpdateBranchCommandOutput } from "./commands/UpdateBranchCommand";
+import type {
   UpdateDomainAssociationCommandInput,
   UpdateDomainAssociationCommandOutput,
 } from "./commands/UpdateDomainAssociationCommand";
-import { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "./commands/UpdateWebhookCommand";
+import type { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "./commands/UpdateWebhookCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -339,7 +340,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -8,7 +8,7 @@ import {
   ListWorkspaceInstancesCommandOutput,
 } from "../commands/ListWorkspaceInstancesCommand";
 import { WorkspacesInstancesClient } from "../WorkspacesInstancesClient";
-import { WorkspacesInstancesPaginationConfiguration } from "./Interfaces";
+import type { WorkspacesInstancesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

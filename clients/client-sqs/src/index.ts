@@ -77,7 +77,7 @@
  */
 export * from "./SQSClient";
 export * from "./SQS";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SQSExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

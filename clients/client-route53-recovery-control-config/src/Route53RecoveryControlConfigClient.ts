@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,59 +61,77 @@ import {
   defaultRoute53RecoveryControlConfigHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
-import { CreateControlPanelCommandInput, CreateControlPanelCommandOutput } from "./commands/CreateControlPanelCommand";
-import {
+import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import type {
+  CreateControlPanelCommandInput,
+  CreateControlPanelCommandOutput,
+} from "./commands/CreateControlPanelCommand";
+import type {
   CreateRoutingControlCommandInput,
   CreateRoutingControlCommandOutput,
 } from "./commands/CreateRoutingControlCommand";
-import { CreateSafetyRuleCommandInput, CreateSafetyRuleCommandOutput } from "./commands/CreateSafetyRuleCommand";
-import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
-import { DeleteControlPanelCommandInput, DeleteControlPanelCommandOutput } from "./commands/DeleteControlPanelCommand";
-import {
+import type { CreateSafetyRuleCommandInput, CreateSafetyRuleCommandOutput } from "./commands/CreateSafetyRuleCommand";
+import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import type {
+  DeleteControlPanelCommandInput,
+  DeleteControlPanelCommandOutput,
+} from "./commands/DeleteControlPanelCommand";
+import type {
   DeleteRoutingControlCommandInput,
   DeleteRoutingControlCommandOutput,
 } from "./commands/DeleteRoutingControlCommand";
-import { DeleteSafetyRuleCommandInput, DeleteSafetyRuleCommandOutput } from "./commands/DeleteSafetyRuleCommand";
-import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
-import {
+import type { DeleteSafetyRuleCommandInput, DeleteSafetyRuleCommandOutput } from "./commands/DeleteSafetyRuleCommand";
+import type { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
+import type {
   DescribeControlPanelCommandInput,
   DescribeControlPanelCommandOutput,
 } from "./commands/DescribeControlPanelCommand";
-import {
+import type {
   DescribeRoutingControlCommandInput,
   DescribeRoutingControlCommandOutput,
 } from "./commands/DescribeRoutingControlCommand";
-import { DescribeSafetyRuleCommandInput, DescribeSafetyRuleCommandOutput } from "./commands/DescribeSafetyRuleCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import {
+import type {
+  DescribeSafetyRuleCommandInput,
+  DescribeSafetyRuleCommandOutput,
+} from "./commands/DescribeSafetyRuleCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type {
   ListAssociatedRoute53HealthChecksCommandInput,
   ListAssociatedRoute53HealthChecksCommandOutput,
 } from "./commands/ListAssociatedRoute53HealthChecksCommand";
-import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
-import { ListControlPanelsCommandInput, ListControlPanelsCommandOutput } from "./commands/ListControlPanelsCommand";
-import {
+import type { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
+import type {
+  ListControlPanelsCommandInput,
+  ListControlPanelsCommandOutput,
+} from "./commands/ListControlPanelsCommand";
+import type {
   ListRoutingControlsCommandInput,
   ListRoutingControlsCommandOutput,
 } from "./commands/ListRoutingControlsCommand";
-import { ListSafetyRulesCommandInput, ListSafetyRulesCommandOutput } from "./commands/ListSafetyRulesCommand";
-import {
+import type { ListSafetyRulesCommandInput, ListSafetyRulesCommandOutput } from "./commands/ListSafetyRulesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
-import { UpdateControlPanelCommandInput, UpdateControlPanelCommandOutput } from "./commands/UpdateControlPanelCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
+import type {
+  UpdateControlPanelCommandInput,
+  UpdateControlPanelCommandOutput,
+} from "./commands/UpdateControlPanelCommand";
+import type {
   UpdateRoutingControlCommandInput,
   UpdateRoutingControlCommandOutput,
 } from "./commands/UpdateRoutingControlCommand";
-import { UpdateSafetyRuleCommandInput, UpdateSafetyRuleCommandOutput } from "./commands/UpdateSafetyRuleCommand";
+import type { UpdateSafetyRuleCommandInput, UpdateSafetyRuleCommandOutput } from "./commands/UpdateSafetyRuleCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -297,7 +313,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

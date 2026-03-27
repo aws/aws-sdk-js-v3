@@ -9,239 +9,239 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AbortEnvironmentUpdateCommandInput,
+  type AbortEnvironmentUpdateCommandOutput,
   AbortEnvironmentUpdateCommand,
-  AbortEnvironmentUpdateCommandInput,
-  AbortEnvironmentUpdateCommandOutput,
 } from "./commands/AbortEnvironmentUpdateCommand";
 import {
+  type ApplyEnvironmentManagedActionCommandInput,
+  type ApplyEnvironmentManagedActionCommandOutput,
   ApplyEnvironmentManagedActionCommand,
-  ApplyEnvironmentManagedActionCommandInput,
-  ApplyEnvironmentManagedActionCommandOutput,
 } from "./commands/ApplyEnvironmentManagedActionCommand";
 import {
+  type AssociateEnvironmentOperationsRoleCommandInput,
+  type AssociateEnvironmentOperationsRoleCommandOutput,
   AssociateEnvironmentOperationsRoleCommand,
-  AssociateEnvironmentOperationsRoleCommandInput,
-  AssociateEnvironmentOperationsRoleCommandOutput,
 } from "./commands/AssociateEnvironmentOperationsRoleCommand";
 import {
+  type CheckDNSAvailabilityCommandInput,
+  type CheckDNSAvailabilityCommandOutput,
   CheckDNSAvailabilityCommand,
-  CheckDNSAvailabilityCommandInput,
-  CheckDNSAvailabilityCommandOutput,
 } from "./commands/CheckDNSAvailabilityCommand";
 import {
+  type ComposeEnvironmentsCommandInput,
+  type ComposeEnvironmentsCommandOutput,
   ComposeEnvironmentsCommand,
-  ComposeEnvironmentsCommandInput,
-  ComposeEnvironmentsCommandOutput,
 } from "./commands/ComposeEnvironmentsCommand";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateApplicationVersionCommandInput,
+  type CreateApplicationVersionCommandOutput,
   CreateApplicationVersionCommand,
-  CreateApplicationVersionCommandInput,
-  CreateApplicationVersionCommandOutput,
 } from "./commands/CreateApplicationVersionCommand";
 import {
+  type CreateConfigurationTemplateCommandInput,
+  type CreateConfigurationTemplateCommandOutput,
   CreateConfigurationTemplateCommand,
-  CreateConfigurationTemplateCommandInput,
-  CreateConfigurationTemplateCommandOutput,
 } from "./commands/CreateConfigurationTemplateCommand";
 import {
+  type CreateEnvironmentCommandInput,
+  type CreateEnvironmentCommandOutput,
   CreateEnvironmentCommand,
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand";
 import {
+  type CreatePlatformVersionCommandInput,
+  type CreatePlatformVersionCommandOutput,
   CreatePlatformVersionCommand,
-  CreatePlatformVersionCommandInput,
-  CreatePlatformVersionCommandOutput,
 } from "./commands/CreatePlatformVersionCommand";
 import {
+  type CreateStorageLocationCommandInput,
+  type CreateStorageLocationCommandOutput,
   CreateStorageLocationCommand,
-  CreateStorageLocationCommandInput,
-  CreateStorageLocationCommandOutput,
 } from "./commands/CreateStorageLocationCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteApplicationVersionCommandInput,
+  type DeleteApplicationVersionCommandOutput,
   DeleteApplicationVersionCommand,
-  DeleteApplicationVersionCommandInput,
-  DeleteApplicationVersionCommandOutput,
 } from "./commands/DeleteApplicationVersionCommand";
 import {
+  type DeleteConfigurationTemplateCommandInput,
+  type DeleteConfigurationTemplateCommandOutput,
   DeleteConfigurationTemplateCommand,
-  DeleteConfigurationTemplateCommandInput,
-  DeleteConfigurationTemplateCommandOutput,
 } from "./commands/DeleteConfigurationTemplateCommand";
 import {
+  type DeleteEnvironmentConfigurationCommandInput,
+  type DeleteEnvironmentConfigurationCommandOutput,
   DeleteEnvironmentConfigurationCommand,
-  DeleteEnvironmentConfigurationCommandInput,
-  DeleteEnvironmentConfigurationCommandOutput,
 } from "./commands/DeleteEnvironmentConfigurationCommand";
 import {
+  type DeletePlatformVersionCommandInput,
+  type DeletePlatformVersionCommandOutput,
   DeletePlatformVersionCommand,
-  DeletePlatformVersionCommandInput,
-  DeletePlatformVersionCommandOutput,
 } from "./commands/DeletePlatformVersionCommand";
 import {
+  type DescribeAccountAttributesCommandInput,
+  type DescribeAccountAttributesCommandOutput,
   DescribeAccountAttributesCommand,
-  DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
 import {
+  type DescribeApplicationsCommandInput,
+  type DescribeApplicationsCommandOutput,
   DescribeApplicationsCommand,
-  DescribeApplicationsCommandInput,
-  DescribeApplicationsCommandOutput,
 } from "./commands/DescribeApplicationsCommand";
 import {
+  type DescribeApplicationVersionsCommandInput,
+  type DescribeApplicationVersionsCommandOutput,
   DescribeApplicationVersionsCommand,
-  DescribeApplicationVersionsCommandInput,
-  DescribeApplicationVersionsCommandOutput,
 } from "./commands/DescribeApplicationVersionsCommand";
 import {
+  type DescribeConfigurationOptionsCommandInput,
+  type DescribeConfigurationOptionsCommandOutput,
   DescribeConfigurationOptionsCommand,
-  DescribeConfigurationOptionsCommandInput,
-  DescribeConfigurationOptionsCommandOutput,
 } from "./commands/DescribeConfigurationOptionsCommand";
 import {
+  type DescribeConfigurationSettingsCommandInput,
+  type DescribeConfigurationSettingsCommandOutput,
   DescribeConfigurationSettingsCommand,
-  DescribeConfigurationSettingsCommandInput,
-  DescribeConfigurationSettingsCommandOutput,
 } from "./commands/DescribeConfigurationSettingsCommand";
 import {
+  type DescribeEnvironmentHealthCommandInput,
+  type DescribeEnvironmentHealthCommandOutput,
   DescribeEnvironmentHealthCommand,
-  DescribeEnvironmentHealthCommandInput,
-  DescribeEnvironmentHealthCommandOutput,
 } from "./commands/DescribeEnvironmentHealthCommand";
 import {
+  type DescribeEnvironmentManagedActionHistoryCommandInput,
+  type DescribeEnvironmentManagedActionHistoryCommandOutput,
   DescribeEnvironmentManagedActionHistoryCommand,
-  DescribeEnvironmentManagedActionHistoryCommandInput,
-  DescribeEnvironmentManagedActionHistoryCommandOutput,
 } from "./commands/DescribeEnvironmentManagedActionHistoryCommand";
 import {
+  type DescribeEnvironmentManagedActionsCommandInput,
+  type DescribeEnvironmentManagedActionsCommandOutput,
   DescribeEnvironmentManagedActionsCommand,
-  DescribeEnvironmentManagedActionsCommandInput,
-  DescribeEnvironmentManagedActionsCommandOutput,
 } from "./commands/DescribeEnvironmentManagedActionsCommand";
 import {
+  type DescribeEnvironmentResourcesCommandInput,
+  type DescribeEnvironmentResourcesCommandOutput,
   DescribeEnvironmentResourcesCommand,
-  DescribeEnvironmentResourcesCommandInput,
-  DescribeEnvironmentResourcesCommandOutput,
 } from "./commands/DescribeEnvironmentResourcesCommand";
 import {
+  type DescribeEnvironmentsCommandInput,
+  type DescribeEnvironmentsCommandOutput,
   DescribeEnvironmentsCommand,
-  DescribeEnvironmentsCommandInput,
-  DescribeEnvironmentsCommandOutput,
 } from "./commands/DescribeEnvironmentsCommand";
 import {
+  type DescribeEventsCommandInput,
+  type DescribeEventsCommandOutput,
   DescribeEventsCommand,
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  type DescribeInstancesHealthCommandInput,
+  type DescribeInstancesHealthCommandOutput,
   DescribeInstancesHealthCommand,
-  DescribeInstancesHealthCommandInput,
-  DescribeInstancesHealthCommandOutput,
 } from "./commands/DescribeInstancesHealthCommand";
 import {
+  type DescribePlatformVersionCommandInput,
+  type DescribePlatformVersionCommandOutput,
   DescribePlatformVersionCommand,
-  DescribePlatformVersionCommandInput,
-  DescribePlatformVersionCommandOutput,
 } from "./commands/DescribePlatformVersionCommand";
 import {
+  type DisassociateEnvironmentOperationsRoleCommandInput,
+  type DisassociateEnvironmentOperationsRoleCommandOutput,
   DisassociateEnvironmentOperationsRoleCommand,
-  DisassociateEnvironmentOperationsRoleCommandInput,
-  DisassociateEnvironmentOperationsRoleCommandOutput,
 } from "./commands/DisassociateEnvironmentOperationsRoleCommand";
 import {
+  type ListAvailableSolutionStacksCommandInput,
+  type ListAvailableSolutionStacksCommandOutput,
   ListAvailableSolutionStacksCommand,
-  ListAvailableSolutionStacksCommandInput,
-  ListAvailableSolutionStacksCommandOutput,
 } from "./commands/ListAvailableSolutionStacksCommand";
 import {
+  type ListPlatformBranchesCommandInput,
+  type ListPlatformBranchesCommandOutput,
   ListPlatformBranchesCommand,
-  ListPlatformBranchesCommandInput,
-  ListPlatformBranchesCommandOutput,
 } from "./commands/ListPlatformBranchesCommand";
 import {
+  type ListPlatformVersionsCommandInput,
+  type ListPlatformVersionsCommandOutput,
   ListPlatformVersionsCommand,
-  ListPlatformVersionsCommandInput,
-  ListPlatformVersionsCommandOutput,
 } from "./commands/ListPlatformVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RebuildEnvironmentCommandInput,
+  type RebuildEnvironmentCommandOutput,
   RebuildEnvironmentCommand,
-  RebuildEnvironmentCommandInput,
-  RebuildEnvironmentCommandOutput,
 } from "./commands/RebuildEnvironmentCommand";
 import {
+  type RequestEnvironmentInfoCommandInput,
+  type RequestEnvironmentInfoCommandOutput,
   RequestEnvironmentInfoCommand,
-  RequestEnvironmentInfoCommandInput,
-  RequestEnvironmentInfoCommandOutput,
 } from "./commands/RequestEnvironmentInfoCommand";
 import {
+  type RestartAppServerCommandInput,
+  type RestartAppServerCommandOutput,
   RestartAppServerCommand,
-  RestartAppServerCommandInput,
-  RestartAppServerCommandOutput,
 } from "./commands/RestartAppServerCommand";
 import {
+  type RetrieveEnvironmentInfoCommandInput,
+  type RetrieveEnvironmentInfoCommandOutput,
   RetrieveEnvironmentInfoCommand,
-  RetrieveEnvironmentInfoCommandInput,
-  RetrieveEnvironmentInfoCommandOutput,
 } from "./commands/RetrieveEnvironmentInfoCommand";
 import {
+  type SwapEnvironmentCNAMEsCommandInput,
+  type SwapEnvironmentCNAMEsCommandOutput,
   SwapEnvironmentCNAMEsCommand,
-  SwapEnvironmentCNAMEsCommandInput,
-  SwapEnvironmentCNAMEsCommandOutput,
 } from "./commands/SwapEnvironmentCNAMEsCommand";
 import {
+  type TerminateEnvironmentCommandInput,
+  type TerminateEnvironmentCommandOutput,
   TerminateEnvironmentCommand,
-  TerminateEnvironmentCommandInput,
-  TerminateEnvironmentCommandOutput,
 } from "./commands/TerminateEnvironmentCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateApplicationResourceLifecycleCommandInput,
+  type UpdateApplicationResourceLifecycleCommandOutput,
   UpdateApplicationResourceLifecycleCommand,
-  UpdateApplicationResourceLifecycleCommandInput,
-  UpdateApplicationResourceLifecycleCommandOutput,
 } from "./commands/UpdateApplicationResourceLifecycleCommand";
 import {
+  type UpdateApplicationVersionCommandInput,
+  type UpdateApplicationVersionCommandOutput,
   UpdateApplicationVersionCommand,
-  UpdateApplicationVersionCommandInput,
-  UpdateApplicationVersionCommandOutput,
 } from "./commands/UpdateApplicationVersionCommand";
 import {
+  type UpdateConfigurationTemplateCommandInput,
+  type UpdateConfigurationTemplateCommandOutput,
   UpdateConfigurationTemplateCommand,
-  UpdateConfigurationTemplateCommandInput,
-  UpdateConfigurationTemplateCommandOutput,
 } from "./commands/UpdateConfigurationTemplateCommand";
 import {
+  type UpdateEnvironmentCommandInput,
+  type UpdateEnvironmentCommandOutput,
   UpdateEnvironmentCommand,
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import {
+  type UpdateTagsForResourceCommandInput,
+  type UpdateTagsForResourceCommandOutput,
   UpdateTagsForResourceCommand,
-  UpdateTagsForResourceCommandInput,
-  UpdateTagsForResourceCommandOutput,
 } from "./commands/UpdateTagsForResourceCommand";
 import {
+  type ValidateConfigurationSettingsCommandInput,
+  type ValidateConfigurationSettingsCommandOutput,
   ValidateConfigurationSettingsCommand,
-  ValidateConfigurationSettingsCommandInput,
-  ValidateConfigurationSettingsCommandOutput,
 } from "./commands/ValidateConfigurationSettingsCommand";
 import { ElasticBeanstalkClient } from "./ElasticBeanstalkClient";
 import {

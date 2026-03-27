@@ -31,7 +31,7 @@
  */
 export * from "./PIClient";
 export * from "./PI";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PIExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

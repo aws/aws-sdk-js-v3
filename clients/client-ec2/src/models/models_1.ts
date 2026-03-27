@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   _InstanceType,
   AcceleratorManufacturer,
   AcceleratorName,
@@ -120,23 +120,23 @@ import {
   VolumeType,
   WeekDay,
 } from "./enums";
-import {
-  type AcceleratorCount,
-  type AcceleratorCountRequest,
-  type AcceleratorTotalMemoryMiB,
-  type AcceleratorTotalMemoryMiBRequest,
-  type InstanceEventWindow,
-  type MacModificationTask,
-  type OperatorResponse,
-  type PortRange,
-  type RouteTableAssociationState,
+import type {
+  AcceleratorCount,
+  AcceleratorCountRequest,
+  AcceleratorTotalMemoryMiB,
+  AcceleratorTotalMemoryMiBRequest,
   AccessScopePath,
   AccessScopePathRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
+  InstanceEventWindow,
   Ipv4PrefixSpecification,
+  MacModificationTask,
   NatGatewayAddress,
+  OperatorResponse,
+  PortRange,
   ReservedInstancesListing,
+  RouteTableAssociationState,
   Tag,
   TagSpecification,
   UnsuccessfulItem,

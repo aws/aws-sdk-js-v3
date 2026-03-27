@@ -1,8 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeCodeBindingCommand, DescribeCodeBindingCommandInput } from "../commands/DescribeCodeBindingCommand";
-import { SchemasClient } from "../SchemasClient";
+import {
+  type DescribeCodeBindingCommandInput,
+  DescribeCodeBindingCommand,
+} from "../commands/DescribeCodeBindingCommand";
+import type { SchemasClient } from "../SchemasClient";
 
 const checkState = async (client: SchemasClient, input: DescribeCodeBindingCommandInput): Promise<WaiterResult> => {
   let reason;

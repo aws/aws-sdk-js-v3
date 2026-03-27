@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { MediaLiveServiceException as __BaseException } from "./MediaLiveServiceException";
-import { ValidationError } from "./models_0";
+import type { ValidationError } from "./models_0";
 
 /**
  * Placeholder documentation for BadGatewayException

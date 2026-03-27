@@ -3,9 +3,9 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type StartFaceLivenessSessionCommandInput,
+  type StartFaceLivenessSessionCommandOutput,
   StartFaceLivenessSessionCommand,
-  StartFaceLivenessSessionCommandInput,
-  StartFaceLivenessSessionCommandOutput,
 } from "./commands/StartFaceLivenessSessionCommand";
 import { RekognitionStreamingClient } from "./RekognitionStreamingClient";
 

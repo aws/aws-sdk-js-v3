@@ -8,7 +8,7 @@ import {
   DescribeJobDefinitionsCommandInput,
   DescribeJobDefinitionsCommandOutput,
 } from "../commands/DescribeJobDefinitionsCommand";
-import { BatchPaginationConfiguration } from "./Interfaces";
+import type { BatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

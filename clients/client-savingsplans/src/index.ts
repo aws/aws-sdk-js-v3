@@ -10,7 +10,7 @@
  */
 export * from "./SavingsplansClient";
 export * from "./Savingsplans";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SavingsplansExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

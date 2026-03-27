@@ -4,143 +4,155 @@ import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AmplifyBackendClient } from "./AmplifyBackendClient";
 import {
+  type CloneBackendCommandInput,
+  type CloneBackendCommandOutput,
   CloneBackendCommand,
-  CloneBackendCommandInput,
-  CloneBackendCommandOutput,
 } from "./commands/CloneBackendCommand";
 import {
+  type CreateBackendAPICommandInput,
+  type CreateBackendAPICommandOutput,
   CreateBackendAPICommand,
-  CreateBackendAPICommandInput,
-  CreateBackendAPICommandOutput,
 } from "./commands/CreateBackendAPICommand";
 import {
+  type CreateBackendAuthCommandInput,
+  type CreateBackendAuthCommandOutput,
   CreateBackendAuthCommand,
-  CreateBackendAuthCommandInput,
-  CreateBackendAuthCommandOutput,
 } from "./commands/CreateBackendAuthCommand";
 import {
+  type CreateBackendCommandInput,
+  type CreateBackendCommandOutput,
   CreateBackendCommand,
-  CreateBackendCommandInput,
-  CreateBackendCommandOutput,
 } from "./commands/CreateBackendCommand";
 import {
+  type CreateBackendConfigCommandInput,
+  type CreateBackendConfigCommandOutput,
   CreateBackendConfigCommand,
-  CreateBackendConfigCommandInput,
-  CreateBackendConfigCommandOutput,
 } from "./commands/CreateBackendConfigCommand";
 import {
+  type CreateBackendStorageCommandInput,
+  type CreateBackendStorageCommandOutput,
   CreateBackendStorageCommand,
-  CreateBackendStorageCommandInput,
-  CreateBackendStorageCommandOutput,
 } from "./commands/CreateBackendStorageCommand";
-import { CreateTokenCommand, CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
 import {
+  type CreateTokenCommandInput,
+  type CreateTokenCommandOutput,
+  CreateTokenCommand,
+} from "./commands/CreateTokenCommand";
+import {
+  type DeleteBackendAPICommandInput,
+  type DeleteBackendAPICommandOutput,
   DeleteBackendAPICommand,
-  DeleteBackendAPICommandInput,
-  DeleteBackendAPICommandOutput,
 } from "./commands/DeleteBackendAPICommand";
 import {
+  type DeleteBackendAuthCommandInput,
+  type DeleteBackendAuthCommandOutput,
   DeleteBackendAuthCommand,
-  DeleteBackendAuthCommandInput,
-  DeleteBackendAuthCommandOutput,
 } from "./commands/DeleteBackendAuthCommand";
 import {
+  type DeleteBackendCommandInput,
+  type DeleteBackendCommandOutput,
   DeleteBackendCommand,
-  DeleteBackendCommandInput,
-  DeleteBackendCommandOutput,
 } from "./commands/DeleteBackendCommand";
 import {
+  type DeleteBackendStorageCommandInput,
+  type DeleteBackendStorageCommandOutput,
   DeleteBackendStorageCommand,
-  DeleteBackendStorageCommandInput,
-  DeleteBackendStorageCommandOutput,
 } from "./commands/DeleteBackendStorageCommand";
-import { DeleteTokenCommand, DeleteTokenCommandInput, DeleteTokenCommandOutput } from "./commands/DeleteTokenCommand";
 import {
+  type DeleteTokenCommandInput,
+  type DeleteTokenCommandOutput,
+  DeleteTokenCommand,
+} from "./commands/DeleteTokenCommand";
+import {
+  type GenerateBackendAPIModelsCommandInput,
+  type GenerateBackendAPIModelsCommandOutput,
   GenerateBackendAPIModelsCommand,
-  GenerateBackendAPIModelsCommandInput,
-  GenerateBackendAPIModelsCommandOutput,
 } from "./commands/GenerateBackendAPIModelsCommand";
 import {
+  type GetBackendAPICommandInput,
+  type GetBackendAPICommandOutput,
   GetBackendAPICommand,
-  GetBackendAPICommandInput,
-  GetBackendAPICommandOutput,
 } from "./commands/GetBackendAPICommand";
 import {
+  type GetBackendAPIModelsCommandInput,
+  type GetBackendAPIModelsCommandOutput,
   GetBackendAPIModelsCommand,
-  GetBackendAPIModelsCommandInput,
-  GetBackendAPIModelsCommandOutput,
 } from "./commands/GetBackendAPIModelsCommand";
 import {
+  type GetBackendAuthCommandInput,
+  type GetBackendAuthCommandOutput,
   GetBackendAuthCommand,
-  GetBackendAuthCommandInput,
-  GetBackendAuthCommandOutput,
 } from "./commands/GetBackendAuthCommand";
-import { GetBackendCommand, GetBackendCommandInput, GetBackendCommandOutput } from "./commands/GetBackendCommand";
 import {
+  type GetBackendCommandInput,
+  type GetBackendCommandOutput,
+  GetBackendCommand,
+} from "./commands/GetBackendCommand";
+import {
+  type GetBackendJobCommandInput,
+  type GetBackendJobCommandOutput,
   GetBackendJobCommand,
-  GetBackendJobCommandInput,
-  GetBackendJobCommandOutput,
 } from "./commands/GetBackendJobCommand";
 import {
+  type GetBackendStorageCommandInput,
+  type GetBackendStorageCommandOutput,
   GetBackendStorageCommand,
-  GetBackendStorageCommandInput,
-  GetBackendStorageCommandOutput,
 } from "./commands/GetBackendStorageCommand";
-import { GetTokenCommand, GetTokenCommandInput, GetTokenCommandOutput } from "./commands/GetTokenCommand";
+import { type GetTokenCommandInput, type GetTokenCommandOutput, GetTokenCommand } from "./commands/GetTokenCommand";
 import {
+  type ImportBackendAuthCommandInput,
+  type ImportBackendAuthCommandOutput,
   ImportBackendAuthCommand,
-  ImportBackendAuthCommandInput,
-  ImportBackendAuthCommandOutput,
 } from "./commands/ImportBackendAuthCommand";
 import {
+  type ImportBackendStorageCommandInput,
+  type ImportBackendStorageCommandOutput,
   ImportBackendStorageCommand,
-  ImportBackendStorageCommandInput,
-  ImportBackendStorageCommandOutput,
 } from "./commands/ImportBackendStorageCommand";
 import {
+  type ListBackendJobsCommandInput,
+  type ListBackendJobsCommandOutput,
   ListBackendJobsCommand,
-  ListBackendJobsCommandInput,
-  ListBackendJobsCommandOutput,
 } from "./commands/ListBackendJobsCommand";
 import {
+  type ListS3BucketsCommandInput,
+  type ListS3BucketsCommandOutput,
   ListS3BucketsCommand,
-  ListS3BucketsCommandInput,
-  ListS3BucketsCommandOutput,
 } from "./commands/ListS3BucketsCommand";
 import {
+  type RemoveAllBackendsCommandInput,
+  type RemoveAllBackendsCommandOutput,
   RemoveAllBackendsCommand,
-  RemoveAllBackendsCommandInput,
-  RemoveAllBackendsCommandOutput,
 } from "./commands/RemoveAllBackendsCommand";
 import {
+  type RemoveBackendConfigCommandInput,
+  type RemoveBackendConfigCommandOutput,
   RemoveBackendConfigCommand,
-  RemoveBackendConfigCommandInput,
-  RemoveBackendConfigCommandOutput,
 } from "./commands/RemoveBackendConfigCommand";
 import {
+  type UpdateBackendAPICommandInput,
+  type UpdateBackendAPICommandOutput,
   UpdateBackendAPICommand,
-  UpdateBackendAPICommandInput,
-  UpdateBackendAPICommandOutput,
 } from "./commands/UpdateBackendAPICommand";
 import {
+  type UpdateBackendAuthCommandInput,
+  type UpdateBackendAuthCommandOutput,
   UpdateBackendAuthCommand,
-  UpdateBackendAuthCommandInput,
-  UpdateBackendAuthCommandOutput,
 } from "./commands/UpdateBackendAuthCommand";
 import {
+  type UpdateBackendConfigCommandInput,
+  type UpdateBackendConfigCommandOutput,
   UpdateBackendConfigCommand,
-  UpdateBackendConfigCommandInput,
-  UpdateBackendConfigCommandOutput,
 } from "./commands/UpdateBackendConfigCommand";
 import {
+  type UpdateBackendJobCommandInput,
+  type UpdateBackendJobCommandOutput,
   UpdateBackendJobCommand,
-  UpdateBackendJobCommandInput,
-  UpdateBackendJobCommandOutput,
 } from "./commands/UpdateBackendJobCommand";
 import {
+  type UpdateBackendStorageCommandInput,
+  type UpdateBackendStorageCommandOutput,
   UpdateBackendStorageCommand,
-  UpdateBackendStorageCommandInput,
-  UpdateBackendStorageCommandOutput,
 } from "./commands/UpdateBackendStorageCommand";
 
 const commands = {

@@ -3,243 +3,271 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type AssociateWebACLCommandInput,
+  type AssociateWebACLCommandOutput,
   AssociateWebACLCommand,
-  AssociateWebACLCommandInput,
-  AssociateWebACLCommandOutput,
 } from "./commands/AssociateWebACLCommand";
 import {
+  type CheckCapacityCommandInput,
+  type CheckCapacityCommandOutput,
   CheckCapacityCommand,
-  CheckCapacityCommandInput,
-  CheckCapacityCommandOutput,
 } from "./commands/CheckCapacityCommand";
 import {
+  type CreateAPIKeyCommandInput,
+  type CreateAPIKeyCommandOutput,
   CreateAPIKeyCommand,
-  CreateAPIKeyCommandInput,
-  CreateAPIKeyCommandOutput,
 } from "./commands/CreateAPIKeyCommand";
-import { CreateIPSetCommand, CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
+  type CreateIPSetCommandInput,
+  type CreateIPSetCommandOutput,
+  CreateIPSetCommand,
+} from "./commands/CreateIPSetCommand";
+import {
+  type CreateRegexPatternSetCommandInput,
+  type CreateRegexPatternSetCommandOutput,
   CreateRegexPatternSetCommand,
-  CreateRegexPatternSetCommandInput,
-  CreateRegexPatternSetCommandOutput,
 } from "./commands/CreateRegexPatternSetCommand";
 import {
+  type CreateRuleGroupCommandInput,
+  type CreateRuleGroupCommandOutput,
   CreateRuleGroupCommand,
-  CreateRuleGroupCommandInput,
-  CreateRuleGroupCommandOutput,
 } from "./commands/CreateRuleGroupCommand";
 import {
+  type CreateWebACLCommandInput,
+  type CreateWebACLCommandOutput,
   CreateWebACLCommand,
-  CreateWebACLCommandInput,
-  CreateWebACLCommandOutput,
 } from "./commands/CreateWebACLCommand";
 import {
+  type DeleteAPIKeyCommandInput,
+  type DeleteAPIKeyCommandOutput,
   DeleteAPIKeyCommand,
-  DeleteAPIKeyCommandInput,
-  DeleteAPIKeyCommandOutput,
 } from "./commands/DeleteAPIKeyCommand";
 import {
+  type DeleteFirewallManagerRuleGroupsCommandInput,
+  type DeleteFirewallManagerRuleGroupsCommandOutput,
   DeleteFirewallManagerRuleGroupsCommand,
-  DeleteFirewallManagerRuleGroupsCommandInput,
-  DeleteFirewallManagerRuleGroupsCommandOutput,
 } from "./commands/DeleteFirewallManagerRuleGroupsCommand";
-import { DeleteIPSetCommand, DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
 import {
+  type DeleteIPSetCommandInput,
+  type DeleteIPSetCommandOutput,
+  DeleteIPSetCommand,
+} from "./commands/DeleteIPSetCommand";
+import {
+  type DeleteLoggingConfigurationCommandInput,
+  type DeleteLoggingConfigurationCommandOutput,
   DeleteLoggingConfigurationCommand,
-  DeleteLoggingConfigurationCommandInput,
-  DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand";
 import {
+  type DeletePermissionPolicyCommandInput,
+  type DeletePermissionPolicyCommandOutput,
   DeletePermissionPolicyCommand,
-  DeletePermissionPolicyCommandInput,
-  DeletePermissionPolicyCommandOutput,
 } from "./commands/DeletePermissionPolicyCommand";
 import {
+  type DeleteRegexPatternSetCommandInput,
+  type DeleteRegexPatternSetCommandOutput,
   DeleteRegexPatternSetCommand,
-  DeleteRegexPatternSetCommandInput,
-  DeleteRegexPatternSetCommandOutput,
 } from "./commands/DeleteRegexPatternSetCommand";
 import {
+  type DeleteRuleGroupCommandInput,
+  type DeleteRuleGroupCommandOutput,
   DeleteRuleGroupCommand,
-  DeleteRuleGroupCommandInput,
-  DeleteRuleGroupCommandOutput,
 } from "./commands/DeleteRuleGroupCommand";
 import {
+  type DeleteWebACLCommandInput,
+  type DeleteWebACLCommandOutput,
   DeleteWebACLCommand,
-  DeleteWebACLCommandInput,
-  DeleteWebACLCommandOutput,
 } from "./commands/DeleteWebACLCommand";
 import {
+  type DescribeAllManagedProductsCommandInput,
+  type DescribeAllManagedProductsCommandOutput,
   DescribeAllManagedProductsCommand,
-  DescribeAllManagedProductsCommandInput,
-  DescribeAllManagedProductsCommandOutput,
 } from "./commands/DescribeAllManagedProductsCommand";
 import {
+  type DescribeManagedProductsByVendorCommandInput,
+  type DescribeManagedProductsByVendorCommandOutput,
   DescribeManagedProductsByVendorCommand,
-  DescribeManagedProductsByVendorCommandInput,
-  DescribeManagedProductsByVendorCommandOutput,
 } from "./commands/DescribeManagedProductsByVendorCommand";
 import {
+  type DescribeManagedRuleGroupCommandInput,
+  type DescribeManagedRuleGroupCommandOutput,
   DescribeManagedRuleGroupCommand,
-  DescribeManagedRuleGroupCommandInput,
-  DescribeManagedRuleGroupCommandOutput,
 } from "./commands/DescribeManagedRuleGroupCommand";
 import {
+  type DisassociateWebACLCommandInput,
+  type DisassociateWebACLCommandOutput,
   DisassociateWebACLCommand,
-  DisassociateWebACLCommandInput,
-  DisassociateWebACLCommandOutput,
 } from "./commands/DisassociateWebACLCommand";
 import {
+  type GenerateMobileSdkReleaseUrlCommandInput,
+  type GenerateMobileSdkReleaseUrlCommandOutput,
   GenerateMobileSdkReleaseUrlCommand,
-  GenerateMobileSdkReleaseUrlCommandInput,
-  GenerateMobileSdkReleaseUrlCommandOutput,
 } from "./commands/GenerateMobileSdkReleaseUrlCommand";
 import {
+  type GetDecryptedAPIKeyCommandInput,
+  type GetDecryptedAPIKeyCommandOutput,
   GetDecryptedAPIKeyCommand,
-  GetDecryptedAPIKeyCommandInput,
-  GetDecryptedAPIKeyCommandOutput,
 } from "./commands/GetDecryptedAPIKeyCommand";
-import { GetIPSetCommand, GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
+import { type GetIPSetCommandInput, type GetIPSetCommandOutput, GetIPSetCommand } from "./commands/GetIPSetCommand";
 import {
+  type GetLoggingConfigurationCommandInput,
+  type GetLoggingConfigurationCommandOutput,
   GetLoggingConfigurationCommand,
-  GetLoggingConfigurationCommandInput,
-  GetLoggingConfigurationCommandOutput,
 } from "./commands/GetLoggingConfigurationCommand";
 import {
+  type GetManagedRuleSetCommandInput,
+  type GetManagedRuleSetCommandOutput,
   GetManagedRuleSetCommand,
-  GetManagedRuleSetCommandInput,
-  GetManagedRuleSetCommandOutput,
 } from "./commands/GetManagedRuleSetCommand";
 import {
+  type GetMobileSdkReleaseCommandInput,
+  type GetMobileSdkReleaseCommandOutput,
   GetMobileSdkReleaseCommand,
-  GetMobileSdkReleaseCommandInput,
-  GetMobileSdkReleaseCommandOutput,
 } from "./commands/GetMobileSdkReleaseCommand";
 import {
+  type GetPermissionPolicyCommandInput,
+  type GetPermissionPolicyCommandOutput,
   GetPermissionPolicyCommand,
-  GetPermissionPolicyCommandInput,
-  GetPermissionPolicyCommandOutput,
 } from "./commands/GetPermissionPolicyCommand";
 import {
+  type GetRateBasedStatementManagedKeysCommandInput,
+  type GetRateBasedStatementManagedKeysCommandOutput,
   GetRateBasedStatementManagedKeysCommand,
-  GetRateBasedStatementManagedKeysCommandInput,
-  GetRateBasedStatementManagedKeysCommandOutput,
 } from "./commands/GetRateBasedStatementManagedKeysCommand";
 import {
+  type GetRegexPatternSetCommandInput,
+  type GetRegexPatternSetCommandOutput,
   GetRegexPatternSetCommand,
-  GetRegexPatternSetCommandInput,
-  GetRegexPatternSetCommandOutput,
 } from "./commands/GetRegexPatternSetCommand";
 import {
+  type GetRuleGroupCommandInput,
+  type GetRuleGroupCommandOutput,
   GetRuleGroupCommand,
-  GetRuleGroupCommandInput,
-  GetRuleGroupCommandOutput,
 } from "./commands/GetRuleGroupCommand";
 import {
+  type GetSampledRequestsCommandInput,
+  type GetSampledRequestsCommandOutput,
   GetSampledRequestsCommand,
-  GetSampledRequestsCommandInput,
-  GetSampledRequestsCommandOutput,
 } from "./commands/GetSampledRequestsCommand";
 import {
+  type GetTopPathStatisticsByTrafficCommandInput,
+  type GetTopPathStatisticsByTrafficCommandOutput,
   GetTopPathStatisticsByTrafficCommand,
-  GetTopPathStatisticsByTrafficCommandInput,
-  GetTopPathStatisticsByTrafficCommandOutput,
 } from "./commands/GetTopPathStatisticsByTrafficCommand";
-import { GetWebACLCommand, GetWebACLCommandInput, GetWebACLCommandOutput } from "./commands/GetWebACLCommand";
+import { type GetWebACLCommandInput, type GetWebACLCommandOutput, GetWebACLCommand } from "./commands/GetWebACLCommand";
 import {
+  type GetWebACLForResourceCommandInput,
+  type GetWebACLForResourceCommandOutput,
   GetWebACLForResourceCommand,
-  GetWebACLForResourceCommandInput,
-  GetWebACLForResourceCommandOutput,
 } from "./commands/GetWebACLForResourceCommand";
-import { ListAPIKeysCommand, ListAPIKeysCommandInput, ListAPIKeysCommandOutput } from "./commands/ListAPIKeysCommand";
 import {
+  type ListAPIKeysCommandInput,
+  type ListAPIKeysCommandOutput,
+  ListAPIKeysCommand,
+} from "./commands/ListAPIKeysCommand";
+import {
+  type ListAvailableManagedRuleGroupsCommandInput,
+  type ListAvailableManagedRuleGroupsCommandOutput,
   ListAvailableManagedRuleGroupsCommand,
-  ListAvailableManagedRuleGroupsCommandInput,
-  ListAvailableManagedRuleGroupsCommandOutput,
 } from "./commands/ListAvailableManagedRuleGroupsCommand";
 import {
+  type ListAvailableManagedRuleGroupVersionsCommandInput,
+  type ListAvailableManagedRuleGroupVersionsCommandOutput,
   ListAvailableManagedRuleGroupVersionsCommand,
-  ListAvailableManagedRuleGroupVersionsCommandInput,
-  ListAvailableManagedRuleGroupVersionsCommandOutput,
 } from "./commands/ListAvailableManagedRuleGroupVersionsCommand";
-import { ListIPSetsCommand, ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import {
+  type ListIPSetsCommandInput,
+  type ListIPSetsCommandOutput,
+  ListIPSetsCommand,
+} from "./commands/ListIPSetsCommand";
+import {
+  type ListLoggingConfigurationsCommandInput,
+  type ListLoggingConfigurationsCommandOutput,
   ListLoggingConfigurationsCommand,
-  ListLoggingConfigurationsCommandInput,
-  ListLoggingConfigurationsCommandOutput,
 } from "./commands/ListLoggingConfigurationsCommand";
 import {
+  type ListManagedRuleSetsCommandInput,
+  type ListManagedRuleSetsCommandOutput,
   ListManagedRuleSetsCommand,
-  ListManagedRuleSetsCommandInput,
-  ListManagedRuleSetsCommandOutput,
 } from "./commands/ListManagedRuleSetsCommand";
 import {
+  type ListMobileSdkReleasesCommandInput,
+  type ListMobileSdkReleasesCommandOutput,
   ListMobileSdkReleasesCommand,
-  ListMobileSdkReleasesCommandInput,
-  ListMobileSdkReleasesCommandOutput,
 } from "./commands/ListMobileSdkReleasesCommand";
 import {
+  type ListRegexPatternSetsCommandInput,
+  type ListRegexPatternSetsCommandOutput,
   ListRegexPatternSetsCommand,
-  ListRegexPatternSetsCommandInput,
-  ListRegexPatternSetsCommandOutput,
 } from "./commands/ListRegexPatternSetsCommand";
 import {
+  type ListResourcesForWebACLCommandInput,
+  type ListResourcesForWebACLCommandOutput,
   ListResourcesForWebACLCommand,
-  ListResourcesForWebACLCommandInput,
-  ListResourcesForWebACLCommandOutput,
 } from "./commands/ListResourcesForWebACLCommand";
 import {
+  type ListRuleGroupsCommandInput,
+  type ListRuleGroupsCommandOutput,
   ListRuleGroupsCommand,
-  ListRuleGroupsCommandInput,
-  ListRuleGroupsCommandOutput,
 } from "./commands/ListRuleGroupsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListWebACLsCommand, ListWebACLsCommandInput, ListWebACLsCommandOutput } from "./commands/ListWebACLsCommand";
 import {
+  type ListWebACLsCommandInput,
+  type ListWebACLsCommandOutput,
+  ListWebACLsCommand,
+} from "./commands/ListWebACLsCommand";
+import {
+  type PutLoggingConfigurationCommandInput,
+  type PutLoggingConfigurationCommandOutput,
   PutLoggingConfigurationCommand,
-  PutLoggingConfigurationCommandInput,
-  PutLoggingConfigurationCommandOutput,
 } from "./commands/PutLoggingConfigurationCommand";
 import {
+  type PutManagedRuleSetVersionsCommandInput,
+  type PutManagedRuleSetVersionsCommandOutput,
   PutManagedRuleSetVersionsCommand,
-  PutManagedRuleSetVersionsCommandInput,
-  PutManagedRuleSetVersionsCommandOutput,
 } from "./commands/PutManagedRuleSetVersionsCommand";
 import {
+  type PutPermissionPolicyCommandInput,
+  type PutPermissionPolicyCommandOutput,
   PutPermissionPolicyCommand,
-  PutPermissionPolicyCommandInput,
-  PutPermissionPolicyCommandOutput,
 } from "./commands/PutPermissionPolicyCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateIPSetCommand, UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
 import {
+  type UpdateIPSetCommandInput,
+  type UpdateIPSetCommandOutput,
+  UpdateIPSetCommand,
+} from "./commands/UpdateIPSetCommand";
+import {
+  type UpdateManagedRuleSetVersionExpiryDateCommandInput,
+  type UpdateManagedRuleSetVersionExpiryDateCommandOutput,
   UpdateManagedRuleSetVersionExpiryDateCommand,
-  UpdateManagedRuleSetVersionExpiryDateCommandInput,
-  UpdateManagedRuleSetVersionExpiryDateCommandOutput,
 } from "./commands/UpdateManagedRuleSetVersionExpiryDateCommand";
 import {
+  type UpdateRegexPatternSetCommandInput,
+  type UpdateRegexPatternSetCommandOutput,
   UpdateRegexPatternSetCommand,
-  UpdateRegexPatternSetCommandInput,
-  UpdateRegexPatternSetCommandOutput,
 } from "./commands/UpdateRegexPatternSetCommand";
 import {
+  type UpdateRuleGroupCommandInput,
+  type UpdateRuleGroupCommandOutput,
   UpdateRuleGroupCommand,
-  UpdateRuleGroupCommandInput,
-  UpdateRuleGroupCommandOutput,
 } from "./commands/UpdateRuleGroupCommand";
 import {
+  type UpdateWebACLCommandInput,
+  type UpdateWebACLCommandOutput,
   UpdateWebACLCommand,
-  UpdateWebACLCommandInput,
-  UpdateWebACLCommandOutput,
 } from "./commands/UpdateWebACLCommand";
 import { WAFV2Client } from "./WAFV2Client";
 

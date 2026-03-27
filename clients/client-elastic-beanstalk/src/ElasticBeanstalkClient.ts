@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,174 +61,192 @@ import {
   defaultElasticBeanstalkHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AbortEnvironmentUpdateCommandInput,
   AbortEnvironmentUpdateCommandOutput,
 } from "./commands/AbortEnvironmentUpdateCommand";
-import {
+import type {
   ApplyEnvironmentManagedActionCommandInput,
   ApplyEnvironmentManagedActionCommandOutput,
 } from "./commands/ApplyEnvironmentManagedActionCommand";
-import {
+import type {
   AssociateEnvironmentOperationsRoleCommandInput,
   AssociateEnvironmentOperationsRoleCommandOutput,
 } from "./commands/AssociateEnvironmentOperationsRoleCommand";
-import {
+import type {
   CheckDNSAvailabilityCommandInput,
   CheckDNSAvailabilityCommandOutput,
 } from "./commands/CheckDNSAvailabilityCommand";
-import {
+import type {
   ComposeEnvironmentsCommandInput,
   ComposeEnvironmentsCommandOutput,
 } from "./commands/ComposeEnvironmentsCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import {
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type {
   CreateApplicationVersionCommandInput,
   CreateApplicationVersionCommandOutput,
 } from "./commands/CreateApplicationVersionCommand";
-import {
+import type {
   CreateConfigurationTemplateCommandInput,
   CreateConfigurationTemplateCommandOutput,
 } from "./commands/CreateConfigurationTemplateCommand";
-import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
-import {
+import type {
+  CreateEnvironmentCommandInput,
+  CreateEnvironmentCommandOutput,
+} from "./commands/CreateEnvironmentCommand";
+import type {
   CreatePlatformVersionCommandInput,
   CreatePlatformVersionCommandOutput,
 } from "./commands/CreatePlatformVersionCommand";
-import {
+import type {
   CreateStorageLocationCommandInput,
   CreateStorageLocationCommandOutput,
 } from "./commands/CreateStorageLocationCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import {
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type {
   DeleteApplicationVersionCommandInput,
   DeleteApplicationVersionCommandOutput,
 } from "./commands/DeleteApplicationVersionCommand";
-import {
+import type {
   DeleteConfigurationTemplateCommandInput,
   DeleteConfigurationTemplateCommandOutput,
 } from "./commands/DeleteConfigurationTemplateCommand";
-import {
+import type {
   DeleteEnvironmentConfigurationCommandInput,
   DeleteEnvironmentConfigurationCommandOutput,
 } from "./commands/DeleteEnvironmentConfigurationCommand";
-import {
+import type {
   DeletePlatformVersionCommandInput,
   DeletePlatformVersionCommandOutput,
 } from "./commands/DeletePlatformVersionCommand";
-import {
+import type {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
-import {
+import type {
   DescribeApplicationsCommandInput,
   DescribeApplicationsCommandOutput,
 } from "./commands/DescribeApplicationsCommand";
-import {
+import type {
   DescribeApplicationVersionsCommandInput,
   DescribeApplicationVersionsCommandOutput,
 } from "./commands/DescribeApplicationVersionsCommand";
-import {
+import type {
   DescribeConfigurationOptionsCommandInput,
   DescribeConfigurationOptionsCommandOutput,
 } from "./commands/DescribeConfigurationOptionsCommand";
-import {
+import type {
   DescribeConfigurationSettingsCommandInput,
   DescribeConfigurationSettingsCommandOutput,
 } from "./commands/DescribeConfigurationSettingsCommand";
-import {
+import type {
   DescribeEnvironmentHealthCommandInput,
   DescribeEnvironmentHealthCommandOutput,
 } from "./commands/DescribeEnvironmentHealthCommand";
-import {
+import type {
   DescribeEnvironmentManagedActionHistoryCommandInput,
   DescribeEnvironmentManagedActionHistoryCommandOutput,
 } from "./commands/DescribeEnvironmentManagedActionHistoryCommand";
-import {
+import type {
   DescribeEnvironmentManagedActionsCommandInput,
   DescribeEnvironmentManagedActionsCommandOutput,
 } from "./commands/DescribeEnvironmentManagedActionsCommand";
-import {
+import type {
   DescribeEnvironmentResourcesCommandInput,
   DescribeEnvironmentResourcesCommandOutput,
 } from "./commands/DescribeEnvironmentResourcesCommand";
-import {
+import type {
   DescribeEnvironmentsCommandInput,
   DescribeEnvironmentsCommandOutput,
 } from "./commands/DescribeEnvironmentsCommand";
-import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
-import {
+import type { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
+import type {
   DescribeInstancesHealthCommandInput,
   DescribeInstancesHealthCommandOutput,
 } from "./commands/DescribeInstancesHealthCommand";
-import {
+import type {
   DescribePlatformVersionCommandInput,
   DescribePlatformVersionCommandOutput,
 } from "./commands/DescribePlatformVersionCommand";
-import {
+import type {
   DisassociateEnvironmentOperationsRoleCommandInput,
   DisassociateEnvironmentOperationsRoleCommandOutput,
 } from "./commands/DisassociateEnvironmentOperationsRoleCommand";
-import {
+import type {
   ListAvailableSolutionStacksCommandInput,
   ListAvailableSolutionStacksCommandOutput,
 } from "./commands/ListAvailableSolutionStacksCommand";
-import {
+import type {
   ListPlatformBranchesCommandInput,
   ListPlatformBranchesCommandOutput,
 } from "./commands/ListPlatformBranchesCommand";
-import {
+import type {
   ListPlatformVersionsCommandInput,
   ListPlatformVersionsCommandOutput,
 } from "./commands/ListPlatformVersionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RebuildEnvironmentCommandInput, RebuildEnvironmentCommandOutput } from "./commands/RebuildEnvironmentCommand";
-import {
+import type {
+  RebuildEnvironmentCommandInput,
+  RebuildEnvironmentCommandOutput,
+} from "./commands/RebuildEnvironmentCommand";
+import type {
   RequestEnvironmentInfoCommandInput,
   RequestEnvironmentInfoCommandOutput,
 } from "./commands/RequestEnvironmentInfoCommand";
-import { RestartAppServerCommandInput, RestartAppServerCommandOutput } from "./commands/RestartAppServerCommand";
-import {
+import type { RestartAppServerCommandInput, RestartAppServerCommandOutput } from "./commands/RestartAppServerCommand";
+import type {
   RetrieveEnvironmentInfoCommandInput,
   RetrieveEnvironmentInfoCommandOutput,
 } from "./commands/RetrieveEnvironmentInfoCommand";
-import {
+import type {
   SwapEnvironmentCNAMEsCommandInput,
   SwapEnvironmentCNAMEsCommandOutput,
 } from "./commands/SwapEnvironmentCNAMEsCommand";
-import {
+import type {
   TerminateEnvironmentCommandInput,
   TerminateEnvironmentCommandOutput,
 } from "./commands/TerminateEnvironmentCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import {
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type {
   UpdateApplicationResourceLifecycleCommandInput,
   UpdateApplicationResourceLifecycleCommandOutput,
 } from "./commands/UpdateApplicationResourceLifecycleCommand";
-import {
+import type {
   UpdateApplicationVersionCommandInput,
   UpdateApplicationVersionCommandOutput,
 } from "./commands/UpdateApplicationVersionCommand";
-import {
+import type {
   UpdateConfigurationTemplateCommandInput,
   UpdateConfigurationTemplateCommandOutput,
 } from "./commands/UpdateConfigurationTemplateCommand";
-import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
-import {
+import type {
+  UpdateEnvironmentCommandInput,
+  UpdateEnvironmentCommandOutput,
+} from "./commands/UpdateEnvironmentCommand";
+import type {
   UpdateTagsForResourceCommandInput,
   UpdateTagsForResourceCommandOutput,
 } from "./commands/UpdateTagsForResourceCommand";
-import {
+import type {
   ValidateConfigurationSettingsCommandInput,
   ValidateConfigurationSettingsCommandOutput,
 } from "./commands/ValidateConfigurationSettingsCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -456,7 +472,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   _InstanceType,
   ActivityStatus,
   AllocationStrategy,
@@ -92,16 +92,16 @@ import {
   UsageClassType,
   VirtualizationType,
 } from "./enums";
-import {
-  type IamInstanceProfile,
-  type IamInstanceProfileSpecification,
-  type OperatorResponse,
+import type {
   ActiveInstance,
   AlternatePathHint,
   Explanation,
+  IamInstanceProfile,
+  IamInstanceProfileSpecification,
   IpamResourceDiscoveryAssociation,
   IpPermission,
   MacModificationTask,
+  OperatorResponse,
   PathComponent,
   ReservedInstancesListing,
   SecurityGroupRule,
@@ -110,19 +110,16 @@ import {
   TagSpecification,
   UserIdGroupPair,
 } from "./models_0";
-import {
-  type AttributeValue,
-  type CapacityReservationTargetResponse,
-  type ConnectionTrackingSpecificationRequest,
-  type EnaSrdSpecificationRequest,
-  type FleetLaunchTemplateSpecification,
-  type InstanceRequirements,
-  type NetworkInterfaceAttachment,
-  type Placement,
-  type StateReason,
+import type {
+  AttributeValue,
   BlockDeviceMapping,
+  CapacityReservationTargetResponse,
+  ConnectionTrackingSpecificationRequest,
+  EnaSrdSpecificationRequest,
+  FleetLaunchTemplateSpecification,
   GroupIdentifier,
   InstanceIpv6Address,
+  InstanceRequirements,
   InternetGateway,
   Ipam,
   IpamExternalResourceVerificationToken,
@@ -147,7 +144,9 @@ import {
   NetworkInsightsAccessScope,
   NetworkInsightsPath,
   NetworkInterface,
+  NetworkInterfaceAttachment,
   NetworkInterfacePermission,
+  Placement,
   PlacementGroup,
   PrivateIpAddressSpecification,
   ReplaceRootVolumeTask,
@@ -156,20 +155,21 @@ import {
   RouteServerPeer,
   RouteTable,
   SecondaryNetwork,
+  StateReason,
 } from "./models_1";
-import {
-  type SpotDatafeedSubscription,
-  type SpotInstanceStateFault,
+import type {
   SecondarySubnet,
   Snapshot,
+  SpotDatafeedSubscription,
+  SpotInstanceStateFault,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
 } from "./models_2";
-import {
-  type AttributeBooleanValue,
-  type EnclaveOptions,
-  type EventInformation,
+import type {
+  AttributeBooleanValue,
   Byoasn,
+  EnclaveOptions,
+  EventInformation,
   Filter,
   IdFormat,
   InstanceBlockDeviceMapping,

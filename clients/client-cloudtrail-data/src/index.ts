@@ -12,7 +12,7 @@
  */
 export * from "./CloudTrailDataClient";
 export * from "./CloudTrailData";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CloudTrailDataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

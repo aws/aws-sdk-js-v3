@@ -8,7 +8,7 @@ import {
   ListNodegroupsCommandOutput,
 } from "../commands/ListNodegroupsCommand";
 import { EKSClient } from "../EKSClient";
-import { EKSPaginationConfiguration } from "./Interfaces";
+import type { EKSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

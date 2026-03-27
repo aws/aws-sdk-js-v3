@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
 import { MediaLiveClient } from "../MediaLiveClient";
-import { MediaLivePaginationConfiguration } from "./Interfaces";
+import type { MediaLivePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

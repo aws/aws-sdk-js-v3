@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import { MediaConvertClient } from "../MediaConvertClient";
-import { MediaConvertPaginationConfiguration } from "./Interfaces";
+import type { MediaConvertPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

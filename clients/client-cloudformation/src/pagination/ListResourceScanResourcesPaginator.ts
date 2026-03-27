@@ -8,7 +8,7 @@ import {
   ListResourceScanResourcesCommandInput,
   ListResourceScanResourcesCommandOutput,
 } from "../commands/ListResourceScanResourcesCommand";
-import { CloudFormationPaginationConfiguration } from "./Interfaces";
+import type { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

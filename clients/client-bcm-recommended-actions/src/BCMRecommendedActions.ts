@@ -4,9 +4,9 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BCMRecommendedActionsClient } from "./BCMRecommendedActionsClient";
 import {
+  type ListRecommendedActionsCommandInput,
+  type ListRecommendedActionsCommandOutput,
   ListRecommendedActionsCommand,
-  ListRecommendedActionsCommandInput,
-  ListRecommendedActionsCommandOutput,
 } from "./commands/ListRecommendedActionsCommand";
 import { paginateListRecommendedActions } from "./pagination/ListRecommendedActionsPaginator";
 

@@ -16,7 +16,7 @@
  */
 export * from "./SimpleDBv2Client";
 export * from "./SimpleDBv2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SimpleDBv2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

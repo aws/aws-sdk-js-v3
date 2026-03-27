@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { TargetType } from "./enums";
+import type { TargetType } from "./enums";
 
 /**
  * <p>The target parameter specifies the identifier to which the home region is applied, which

@@ -8,7 +8,7 @@ import {
   ListRotationShiftsCommandOutput,
 } from "../commands/ListRotationShiftsCommand";
 import { SSMContactsClient } from "../SSMContactsClient";
-import { SSMContactsPaginationConfiguration } from "./Interfaces";
+import type { SSMContactsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

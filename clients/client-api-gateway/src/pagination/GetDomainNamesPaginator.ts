@@ -8,7 +8,7 @@ import {
   GetDomainNamesCommandInput,
   GetDomainNamesCommandOutput,
 } from "../commands/GetDomainNamesCommand";
-import { APIGatewayPaginationConfiguration } from "./Interfaces";
+import type { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

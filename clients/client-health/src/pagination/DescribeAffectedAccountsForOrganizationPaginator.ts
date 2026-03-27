@@ -8,7 +8,7 @@ import {
   DescribeAffectedAccountsForOrganizationCommandOutput,
 } from "../commands/DescribeAffectedAccountsForOrganizationCommand";
 import { HealthClient } from "../HealthClient";
-import { HealthPaginationConfiguration } from "./Interfaces";
+import type { HealthPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

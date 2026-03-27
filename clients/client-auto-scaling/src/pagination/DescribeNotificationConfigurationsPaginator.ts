@@ -8,7 +8,7 @@ import {
   DescribeNotificationConfigurationsCommandInput,
   DescribeNotificationConfigurationsCommandOutput,
 } from "../commands/DescribeNotificationConfigurationsCommand";
-import { AutoScalingPaginationConfiguration } from "./Interfaces";
+import type { AutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

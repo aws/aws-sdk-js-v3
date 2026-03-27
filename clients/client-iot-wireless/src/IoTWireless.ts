@@ -3,552 +3,564 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateAwsAccountWithPartnerAccountCommandInput,
+  type AssociateAwsAccountWithPartnerAccountCommandOutput,
   AssociateAwsAccountWithPartnerAccountCommand,
-  AssociateAwsAccountWithPartnerAccountCommandInput,
-  AssociateAwsAccountWithPartnerAccountCommandOutput,
 } from "./commands/AssociateAwsAccountWithPartnerAccountCommand";
 import {
+  type AssociateMulticastGroupWithFuotaTaskCommandInput,
+  type AssociateMulticastGroupWithFuotaTaskCommandOutput,
   AssociateMulticastGroupWithFuotaTaskCommand,
-  AssociateMulticastGroupWithFuotaTaskCommandInput,
-  AssociateMulticastGroupWithFuotaTaskCommandOutput,
 } from "./commands/AssociateMulticastGroupWithFuotaTaskCommand";
 import {
+  type AssociateWirelessDeviceWithFuotaTaskCommandInput,
+  type AssociateWirelessDeviceWithFuotaTaskCommandOutput,
   AssociateWirelessDeviceWithFuotaTaskCommand,
-  AssociateWirelessDeviceWithFuotaTaskCommandInput,
-  AssociateWirelessDeviceWithFuotaTaskCommandOutput,
 } from "./commands/AssociateWirelessDeviceWithFuotaTaskCommand";
 import {
+  type AssociateWirelessDeviceWithMulticastGroupCommandInput,
+  type AssociateWirelessDeviceWithMulticastGroupCommandOutput,
   AssociateWirelessDeviceWithMulticastGroupCommand,
-  AssociateWirelessDeviceWithMulticastGroupCommandInput,
-  AssociateWirelessDeviceWithMulticastGroupCommandOutput,
 } from "./commands/AssociateWirelessDeviceWithMulticastGroupCommand";
 import {
+  type AssociateWirelessDeviceWithThingCommandInput,
+  type AssociateWirelessDeviceWithThingCommandOutput,
   AssociateWirelessDeviceWithThingCommand,
-  AssociateWirelessDeviceWithThingCommandInput,
-  AssociateWirelessDeviceWithThingCommandOutput,
 } from "./commands/AssociateWirelessDeviceWithThingCommand";
 import {
+  type AssociateWirelessGatewayWithCertificateCommandInput,
+  type AssociateWirelessGatewayWithCertificateCommandOutput,
   AssociateWirelessGatewayWithCertificateCommand,
-  AssociateWirelessGatewayWithCertificateCommandInput,
-  AssociateWirelessGatewayWithCertificateCommandOutput,
 } from "./commands/AssociateWirelessGatewayWithCertificateCommand";
 import {
+  type AssociateWirelessGatewayWithThingCommandInput,
+  type AssociateWirelessGatewayWithThingCommandOutput,
   AssociateWirelessGatewayWithThingCommand,
-  AssociateWirelessGatewayWithThingCommandInput,
-  AssociateWirelessGatewayWithThingCommandOutput,
 } from "./commands/AssociateWirelessGatewayWithThingCommand";
 import {
+  type CancelMulticastGroupSessionCommandInput,
+  type CancelMulticastGroupSessionCommandOutput,
   CancelMulticastGroupSessionCommand,
-  CancelMulticastGroupSessionCommandInput,
-  CancelMulticastGroupSessionCommandOutput,
 } from "./commands/CancelMulticastGroupSessionCommand";
 import {
+  type CreateDestinationCommandInput,
+  type CreateDestinationCommandOutput,
   CreateDestinationCommand,
-  CreateDestinationCommandInput,
-  CreateDestinationCommandOutput,
 } from "./commands/CreateDestinationCommand";
 import {
+  type CreateDeviceProfileCommandInput,
+  type CreateDeviceProfileCommandOutput,
   CreateDeviceProfileCommand,
-  CreateDeviceProfileCommandInput,
-  CreateDeviceProfileCommandOutput,
 } from "./commands/CreateDeviceProfileCommand";
 import {
+  type CreateFuotaTaskCommandInput,
+  type CreateFuotaTaskCommandOutput,
   CreateFuotaTaskCommand,
-  CreateFuotaTaskCommandInput,
-  CreateFuotaTaskCommandOutput,
 } from "./commands/CreateFuotaTaskCommand";
 import {
+  type CreateMulticastGroupCommandInput,
+  type CreateMulticastGroupCommandOutput,
   CreateMulticastGroupCommand,
-  CreateMulticastGroupCommandInput,
-  CreateMulticastGroupCommandOutput,
 } from "./commands/CreateMulticastGroupCommand";
 import {
+  type CreateNetworkAnalyzerConfigurationCommandInput,
+  type CreateNetworkAnalyzerConfigurationCommandOutput,
   CreateNetworkAnalyzerConfigurationCommand,
-  CreateNetworkAnalyzerConfigurationCommandInput,
-  CreateNetworkAnalyzerConfigurationCommandOutput,
 } from "./commands/CreateNetworkAnalyzerConfigurationCommand";
 import {
+  type CreateServiceProfileCommandInput,
+  type CreateServiceProfileCommandOutput,
   CreateServiceProfileCommand,
-  CreateServiceProfileCommandInput,
-  CreateServiceProfileCommandOutput,
 } from "./commands/CreateServiceProfileCommand";
 import {
+  type CreateWirelessDeviceCommandInput,
+  type CreateWirelessDeviceCommandOutput,
   CreateWirelessDeviceCommand,
-  CreateWirelessDeviceCommandInput,
-  CreateWirelessDeviceCommandOutput,
 } from "./commands/CreateWirelessDeviceCommand";
 import {
+  type CreateWirelessGatewayCommandInput,
+  type CreateWirelessGatewayCommandOutput,
   CreateWirelessGatewayCommand,
-  CreateWirelessGatewayCommandInput,
-  CreateWirelessGatewayCommandOutput,
 } from "./commands/CreateWirelessGatewayCommand";
 import {
+  type CreateWirelessGatewayTaskCommandInput,
+  type CreateWirelessGatewayTaskCommandOutput,
   CreateWirelessGatewayTaskCommand,
-  CreateWirelessGatewayTaskCommandInput,
-  CreateWirelessGatewayTaskCommandOutput,
 } from "./commands/CreateWirelessGatewayTaskCommand";
 import {
+  type CreateWirelessGatewayTaskDefinitionCommandInput,
+  type CreateWirelessGatewayTaskDefinitionCommandOutput,
   CreateWirelessGatewayTaskDefinitionCommand,
-  CreateWirelessGatewayTaskDefinitionCommandInput,
-  CreateWirelessGatewayTaskDefinitionCommandOutput,
 } from "./commands/CreateWirelessGatewayTaskDefinitionCommand";
 import {
+  type DeleteDestinationCommandInput,
+  type DeleteDestinationCommandOutput,
   DeleteDestinationCommand,
-  DeleteDestinationCommandInput,
-  DeleteDestinationCommandOutput,
 } from "./commands/DeleteDestinationCommand";
 import {
+  type DeleteDeviceProfileCommandInput,
+  type DeleteDeviceProfileCommandOutput,
   DeleteDeviceProfileCommand,
-  DeleteDeviceProfileCommandInput,
-  DeleteDeviceProfileCommandOutput,
 } from "./commands/DeleteDeviceProfileCommand";
 import {
+  type DeleteFuotaTaskCommandInput,
+  type DeleteFuotaTaskCommandOutput,
   DeleteFuotaTaskCommand,
-  DeleteFuotaTaskCommandInput,
-  DeleteFuotaTaskCommandOutput,
 } from "./commands/DeleteFuotaTaskCommand";
 import {
+  type DeleteMulticastGroupCommandInput,
+  type DeleteMulticastGroupCommandOutput,
   DeleteMulticastGroupCommand,
-  DeleteMulticastGroupCommandInput,
-  DeleteMulticastGroupCommandOutput,
 } from "./commands/DeleteMulticastGroupCommand";
 import {
+  type DeleteNetworkAnalyzerConfigurationCommandInput,
+  type DeleteNetworkAnalyzerConfigurationCommandOutput,
   DeleteNetworkAnalyzerConfigurationCommand,
-  DeleteNetworkAnalyzerConfigurationCommandInput,
-  DeleteNetworkAnalyzerConfigurationCommandOutput,
 } from "./commands/DeleteNetworkAnalyzerConfigurationCommand";
 import {
+  type DeleteQueuedMessagesCommandInput,
+  type DeleteQueuedMessagesCommandOutput,
   DeleteQueuedMessagesCommand,
-  DeleteQueuedMessagesCommandInput,
-  DeleteQueuedMessagesCommandOutput,
 } from "./commands/DeleteQueuedMessagesCommand";
 import {
+  type DeleteServiceProfileCommandInput,
+  type DeleteServiceProfileCommandOutput,
   DeleteServiceProfileCommand,
-  DeleteServiceProfileCommandInput,
-  DeleteServiceProfileCommandOutput,
 } from "./commands/DeleteServiceProfileCommand";
 import {
+  type DeleteWirelessDeviceCommandInput,
+  type DeleteWirelessDeviceCommandOutput,
   DeleteWirelessDeviceCommand,
-  DeleteWirelessDeviceCommandInput,
-  DeleteWirelessDeviceCommandOutput,
 } from "./commands/DeleteWirelessDeviceCommand";
 import {
+  type DeleteWirelessDeviceImportTaskCommandInput,
+  type DeleteWirelessDeviceImportTaskCommandOutput,
   DeleteWirelessDeviceImportTaskCommand,
-  DeleteWirelessDeviceImportTaskCommandInput,
-  DeleteWirelessDeviceImportTaskCommandOutput,
 } from "./commands/DeleteWirelessDeviceImportTaskCommand";
 import {
+  type DeleteWirelessGatewayCommandInput,
+  type DeleteWirelessGatewayCommandOutput,
   DeleteWirelessGatewayCommand,
-  DeleteWirelessGatewayCommandInput,
-  DeleteWirelessGatewayCommandOutput,
 } from "./commands/DeleteWirelessGatewayCommand";
 import {
+  type DeleteWirelessGatewayTaskCommandInput,
+  type DeleteWirelessGatewayTaskCommandOutput,
   DeleteWirelessGatewayTaskCommand,
-  DeleteWirelessGatewayTaskCommandInput,
-  DeleteWirelessGatewayTaskCommandOutput,
 } from "./commands/DeleteWirelessGatewayTaskCommand";
 import {
+  type DeleteWirelessGatewayTaskDefinitionCommandInput,
+  type DeleteWirelessGatewayTaskDefinitionCommandOutput,
   DeleteWirelessGatewayTaskDefinitionCommand,
-  DeleteWirelessGatewayTaskDefinitionCommandInput,
-  DeleteWirelessGatewayTaskDefinitionCommandOutput,
 } from "./commands/DeleteWirelessGatewayTaskDefinitionCommand";
 import {
+  type DeregisterWirelessDeviceCommandInput,
+  type DeregisterWirelessDeviceCommandOutput,
   DeregisterWirelessDeviceCommand,
-  DeregisterWirelessDeviceCommandInput,
-  DeregisterWirelessDeviceCommandOutput,
 } from "./commands/DeregisterWirelessDeviceCommand";
 import {
+  type DisassociateAwsAccountFromPartnerAccountCommandInput,
+  type DisassociateAwsAccountFromPartnerAccountCommandOutput,
   DisassociateAwsAccountFromPartnerAccountCommand,
-  DisassociateAwsAccountFromPartnerAccountCommandInput,
-  DisassociateAwsAccountFromPartnerAccountCommandOutput,
 } from "./commands/DisassociateAwsAccountFromPartnerAccountCommand";
 import {
+  type DisassociateMulticastGroupFromFuotaTaskCommandInput,
+  type DisassociateMulticastGroupFromFuotaTaskCommandOutput,
   DisassociateMulticastGroupFromFuotaTaskCommand,
-  DisassociateMulticastGroupFromFuotaTaskCommandInput,
-  DisassociateMulticastGroupFromFuotaTaskCommandOutput,
 } from "./commands/DisassociateMulticastGroupFromFuotaTaskCommand";
 import {
+  type DisassociateWirelessDeviceFromFuotaTaskCommandInput,
+  type DisassociateWirelessDeviceFromFuotaTaskCommandOutput,
   DisassociateWirelessDeviceFromFuotaTaskCommand,
-  DisassociateWirelessDeviceFromFuotaTaskCommandInput,
-  DisassociateWirelessDeviceFromFuotaTaskCommandOutput,
 } from "./commands/DisassociateWirelessDeviceFromFuotaTaskCommand";
 import {
+  type DisassociateWirelessDeviceFromMulticastGroupCommandInput,
+  type DisassociateWirelessDeviceFromMulticastGroupCommandOutput,
   DisassociateWirelessDeviceFromMulticastGroupCommand,
-  DisassociateWirelessDeviceFromMulticastGroupCommandInput,
-  DisassociateWirelessDeviceFromMulticastGroupCommandOutput,
 } from "./commands/DisassociateWirelessDeviceFromMulticastGroupCommand";
 import {
+  type DisassociateWirelessDeviceFromThingCommandInput,
+  type DisassociateWirelessDeviceFromThingCommandOutput,
   DisassociateWirelessDeviceFromThingCommand,
-  DisassociateWirelessDeviceFromThingCommandInput,
-  DisassociateWirelessDeviceFromThingCommandOutput,
 } from "./commands/DisassociateWirelessDeviceFromThingCommand";
 import {
+  type DisassociateWirelessGatewayFromCertificateCommandInput,
+  type DisassociateWirelessGatewayFromCertificateCommandOutput,
   DisassociateWirelessGatewayFromCertificateCommand,
-  DisassociateWirelessGatewayFromCertificateCommandInput,
-  DisassociateWirelessGatewayFromCertificateCommandOutput,
 } from "./commands/DisassociateWirelessGatewayFromCertificateCommand";
 import {
+  type DisassociateWirelessGatewayFromThingCommandInput,
+  type DisassociateWirelessGatewayFromThingCommandOutput,
   DisassociateWirelessGatewayFromThingCommand,
-  DisassociateWirelessGatewayFromThingCommandInput,
-  DisassociateWirelessGatewayFromThingCommandOutput,
 } from "./commands/DisassociateWirelessGatewayFromThingCommand";
 import {
+  type GetDestinationCommandInput,
+  type GetDestinationCommandOutput,
   GetDestinationCommand,
-  GetDestinationCommandInput,
-  GetDestinationCommandOutput,
 } from "./commands/GetDestinationCommand";
 import {
+  type GetDeviceProfileCommandInput,
+  type GetDeviceProfileCommandOutput,
   GetDeviceProfileCommand,
-  GetDeviceProfileCommandInput,
-  GetDeviceProfileCommandOutput,
 } from "./commands/GetDeviceProfileCommand";
 import {
+  type GetEventConfigurationByResourceTypesCommandInput,
+  type GetEventConfigurationByResourceTypesCommandOutput,
   GetEventConfigurationByResourceTypesCommand,
-  GetEventConfigurationByResourceTypesCommandInput,
-  GetEventConfigurationByResourceTypesCommandOutput,
 } from "./commands/GetEventConfigurationByResourceTypesCommand";
 import {
+  type GetFuotaTaskCommandInput,
+  type GetFuotaTaskCommandOutput,
   GetFuotaTaskCommand,
-  GetFuotaTaskCommandInput,
-  GetFuotaTaskCommandOutput,
 } from "./commands/GetFuotaTaskCommand";
 import {
+  type GetLogLevelsByResourceTypesCommandInput,
+  type GetLogLevelsByResourceTypesCommandOutput,
   GetLogLevelsByResourceTypesCommand,
-  GetLogLevelsByResourceTypesCommandInput,
-  GetLogLevelsByResourceTypesCommandOutput,
 } from "./commands/GetLogLevelsByResourceTypesCommand";
 import {
+  type GetMetricConfigurationCommandInput,
+  type GetMetricConfigurationCommandOutput,
   GetMetricConfigurationCommand,
-  GetMetricConfigurationCommandInput,
-  GetMetricConfigurationCommandOutput,
 } from "./commands/GetMetricConfigurationCommand";
-import { GetMetricsCommand, GetMetricsCommandInput, GetMetricsCommandOutput } from "./commands/GetMetricsCommand";
 import {
+  type GetMetricsCommandInput,
+  type GetMetricsCommandOutput,
+  GetMetricsCommand,
+} from "./commands/GetMetricsCommand";
+import {
+  type GetMulticastGroupCommandInput,
+  type GetMulticastGroupCommandOutput,
   GetMulticastGroupCommand,
-  GetMulticastGroupCommandInput,
-  GetMulticastGroupCommandOutput,
 } from "./commands/GetMulticastGroupCommand";
 import {
+  type GetMulticastGroupSessionCommandInput,
+  type GetMulticastGroupSessionCommandOutput,
   GetMulticastGroupSessionCommand,
-  GetMulticastGroupSessionCommandInput,
-  GetMulticastGroupSessionCommandOutput,
 } from "./commands/GetMulticastGroupSessionCommand";
 import {
+  type GetNetworkAnalyzerConfigurationCommandInput,
+  type GetNetworkAnalyzerConfigurationCommandOutput,
   GetNetworkAnalyzerConfigurationCommand,
-  GetNetworkAnalyzerConfigurationCommandInput,
-  GetNetworkAnalyzerConfigurationCommandOutput,
 } from "./commands/GetNetworkAnalyzerConfigurationCommand";
 import {
+  type GetPartnerAccountCommandInput,
+  type GetPartnerAccountCommandOutput,
   GetPartnerAccountCommand,
-  GetPartnerAccountCommandInput,
-  GetPartnerAccountCommandOutput,
 } from "./commands/GetPartnerAccountCommand";
-import { GetPositionCommand, GetPositionCommandInput, GetPositionCommandOutput } from "./commands/GetPositionCommand";
 import {
+  type GetPositionCommandInput,
+  type GetPositionCommandOutput,
+  GetPositionCommand,
+} from "./commands/GetPositionCommand";
+import {
+  type GetPositionConfigurationCommandInput,
+  type GetPositionConfigurationCommandOutput,
   GetPositionConfigurationCommand,
-  GetPositionConfigurationCommandInput,
-  GetPositionConfigurationCommandOutput,
 } from "./commands/GetPositionConfigurationCommand";
 import {
+  type GetPositionEstimateCommandInput,
+  type GetPositionEstimateCommandOutput,
   GetPositionEstimateCommand,
-  GetPositionEstimateCommandInput,
-  GetPositionEstimateCommandOutput,
 } from "./commands/GetPositionEstimateCommand";
 import {
+  type GetResourceEventConfigurationCommandInput,
+  type GetResourceEventConfigurationCommandOutput,
   GetResourceEventConfigurationCommand,
-  GetResourceEventConfigurationCommandInput,
-  GetResourceEventConfigurationCommandOutput,
 } from "./commands/GetResourceEventConfigurationCommand";
 import {
+  type GetResourceLogLevelCommandInput,
+  type GetResourceLogLevelCommandOutput,
   GetResourceLogLevelCommand,
-  GetResourceLogLevelCommandInput,
-  GetResourceLogLevelCommandOutput,
 } from "./commands/GetResourceLogLevelCommand";
 import {
+  type GetResourcePositionCommandInput,
+  type GetResourcePositionCommandOutput,
   GetResourcePositionCommand,
-  GetResourcePositionCommandInput,
-  GetResourcePositionCommandOutput,
 } from "./commands/GetResourcePositionCommand";
 import {
+  type GetServiceEndpointCommandInput,
+  type GetServiceEndpointCommandOutput,
   GetServiceEndpointCommand,
-  GetServiceEndpointCommandInput,
-  GetServiceEndpointCommandOutput,
 } from "./commands/GetServiceEndpointCommand";
 import {
+  type GetServiceProfileCommandInput,
+  type GetServiceProfileCommandOutput,
   GetServiceProfileCommand,
-  GetServiceProfileCommandInput,
-  GetServiceProfileCommandOutput,
 } from "./commands/GetServiceProfileCommand";
 import {
+  type GetWirelessDeviceCommandInput,
+  type GetWirelessDeviceCommandOutput,
   GetWirelessDeviceCommand,
-  GetWirelessDeviceCommandInput,
-  GetWirelessDeviceCommandOutput,
 } from "./commands/GetWirelessDeviceCommand";
 import {
+  type GetWirelessDeviceImportTaskCommandInput,
+  type GetWirelessDeviceImportTaskCommandOutput,
   GetWirelessDeviceImportTaskCommand,
-  GetWirelessDeviceImportTaskCommandInput,
-  GetWirelessDeviceImportTaskCommandOutput,
 } from "./commands/GetWirelessDeviceImportTaskCommand";
 import {
+  type GetWirelessDeviceStatisticsCommandInput,
+  type GetWirelessDeviceStatisticsCommandOutput,
   GetWirelessDeviceStatisticsCommand,
-  GetWirelessDeviceStatisticsCommandInput,
-  GetWirelessDeviceStatisticsCommandOutput,
 } from "./commands/GetWirelessDeviceStatisticsCommand";
 import {
+  type GetWirelessGatewayCertificateCommandInput,
+  type GetWirelessGatewayCertificateCommandOutput,
   GetWirelessGatewayCertificateCommand,
-  GetWirelessGatewayCertificateCommandInput,
-  GetWirelessGatewayCertificateCommandOutput,
 } from "./commands/GetWirelessGatewayCertificateCommand";
 import {
+  type GetWirelessGatewayCommandInput,
+  type GetWirelessGatewayCommandOutput,
   GetWirelessGatewayCommand,
-  GetWirelessGatewayCommandInput,
-  GetWirelessGatewayCommandOutput,
 } from "./commands/GetWirelessGatewayCommand";
 import {
+  type GetWirelessGatewayFirmwareInformationCommandInput,
+  type GetWirelessGatewayFirmwareInformationCommandOutput,
   GetWirelessGatewayFirmwareInformationCommand,
-  GetWirelessGatewayFirmwareInformationCommandInput,
-  GetWirelessGatewayFirmwareInformationCommandOutput,
 } from "./commands/GetWirelessGatewayFirmwareInformationCommand";
 import {
+  type GetWirelessGatewayStatisticsCommandInput,
+  type GetWirelessGatewayStatisticsCommandOutput,
   GetWirelessGatewayStatisticsCommand,
-  GetWirelessGatewayStatisticsCommandInput,
-  GetWirelessGatewayStatisticsCommandOutput,
 } from "./commands/GetWirelessGatewayStatisticsCommand";
 import {
+  type GetWirelessGatewayTaskCommandInput,
+  type GetWirelessGatewayTaskCommandOutput,
   GetWirelessGatewayTaskCommand,
-  GetWirelessGatewayTaskCommandInput,
-  GetWirelessGatewayTaskCommandOutput,
 } from "./commands/GetWirelessGatewayTaskCommand";
 import {
+  type GetWirelessGatewayTaskDefinitionCommandInput,
+  type GetWirelessGatewayTaskDefinitionCommandOutput,
   GetWirelessGatewayTaskDefinitionCommand,
-  GetWirelessGatewayTaskDefinitionCommandInput,
-  GetWirelessGatewayTaskDefinitionCommandOutput,
 } from "./commands/GetWirelessGatewayTaskDefinitionCommand";
 import {
+  type ListDestinationsCommandInput,
+  type ListDestinationsCommandOutput,
   ListDestinationsCommand,
-  ListDestinationsCommandInput,
-  ListDestinationsCommandOutput,
 } from "./commands/ListDestinationsCommand";
 import {
+  type ListDeviceProfilesCommandInput,
+  type ListDeviceProfilesCommandOutput,
   ListDeviceProfilesCommand,
-  ListDeviceProfilesCommandInput,
-  ListDeviceProfilesCommandOutput,
 } from "./commands/ListDeviceProfilesCommand";
 import {
+  type ListDevicesForWirelessDeviceImportTaskCommandInput,
+  type ListDevicesForWirelessDeviceImportTaskCommandOutput,
   ListDevicesForWirelessDeviceImportTaskCommand,
-  ListDevicesForWirelessDeviceImportTaskCommandInput,
-  ListDevicesForWirelessDeviceImportTaskCommandOutput,
 } from "./commands/ListDevicesForWirelessDeviceImportTaskCommand";
 import {
+  type ListEventConfigurationsCommandInput,
+  type ListEventConfigurationsCommandOutput,
   ListEventConfigurationsCommand,
-  ListEventConfigurationsCommandInput,
-  ListEventConfigurationsCommandOutput,
 } from "./commands/ListEventConfigurationsCommand";
 import {
+  type ListFuotaTasksCommandInput,
+  type ListFuotaTasksCommandOutput,
   ListFuotaTasksCommand,
-  ListFuotaTasksCommandInput,
-  ListFuotaTasksCommandOutput,
 } from "./commands/ListFuotaTasksCommand";
 import {
+  type ListMulticastGroupsByFuotaTaskCommandInput,
+  type ListMulticastGroupsByFuotaTaskCommandOutput,
   ListMulticastGroupsByFuotaTaskCommand,
-  ListMulticastGroupsByFuotaTaskCommandInput,
-  ListMulticastGroupsByFuotaTaskCommandOutput,
 } from "./commands/ListMulticastGroupsByFuotaTaskCommand";
 import {
+  type ListMulticastGroupsCommandInput,
+  type ListMulticastGroupsCommandOutput,
   ListMulticastGroupsCommand,
-  ListMulticastGroupsCommandInput,
-  ListMulticastGroupsCommandOutput,
 } from "./commands/ListMulticastGroupsCommand";
 import {
+  type ListNetworkAnalyzerConfigurationsCommandInput,
+  type ListNetworkAnalyzerConfigurationsCommandOutput,
   ListNetworkAnalyzerConfigurationsCommand,
-  ListNetworkAnalyzerConfigurationsCommandInput,
-  ListNetworkAnalyzerConfigurationsCommandOutput,
 } from "./commands/ListNetworkAnalyzerConfigurationsCommand";
 import {
+  type ListPartnerAccountsCommandInput,
+  type ListPartnerAccountsCommandOutput,
   ListPartnerAccountsCommand,
-  ListPartnerAccountsCommandInput,
-  ListPartnerAccountsCommandOutput,
 } from "./commands/ListPartnerAccountsCommand";
 import {
+  type ListPositionConfigurationsCommandInput,
+  type ListPositionConfigurationsCommandOutput,
   ListPositionConfigurationsCommand,
-  ListPositionConfigurationsCommandInput,
-  ListPositionConfigurationsCommandOutput,
 } from "./commands/ListPositionConfigurationsCommand";
 import {
+  type ListQueuedMessagesCommandInput,
+  type ListQueuedMessagesCommandOutput,
   ListQueuedMessagesCommand,
-  ListQueuedMessagesCommandInput,
-  ListQueuedMessagesCommandOutput,
 } from "./commands/ListQueuedMessagesCommand";
 import {
+  type ListServiceProfilesCommandInput,
+  type ListServiceProfilesCommandOutput,
   ListServiceProfilesCommand,
-  ListServiceProfilesCommandInput,
-  ListServiceProfilesCommandOutput,
 } from "./commands/ListServiceProfilesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWirelessDeviceImportTasksCommandInput,
+  type ListWirelessDeviceImportTasksCommandOutput,
   ListWirelessDeviceImportTasksCommand,
-  ListWirelessDeviceImportTasksCommandInput,
-  ListWirelessDeviceImportTasksCommandOutput,
 } from "./commands/ListWirelessDeviceImportTasksCommand";
 import {
+  type ListWirelessDevicesCommandInput,
+  type ListWirelessDevicesCommandOutput,
   ListWirelessDevicesCommand,
-  ListWirelessDevicesCommandInput,
-  ListWirelessDevicesCommandOutput,
 } from "./commands/ListWirelessDevicesCommand";
 import {
+  type ListWirelessGatewaysCommandInput,
+  type ListWirelessGatewaysCommandOutput,
   ListWirelessGatewaysCommand,
-  ListWirelessGatewaysCommandInput,
-  ListWirelessGatewaysCommandOutput,
 } from "./commands/ListWirelessGatewaysCommand";
 import {
+  type ListWirelessGatewayTaskDefinitionsCommandInput,
+  type ListWirelessGatewayTaskDefinitionsCommandOutput,
   ListWirelessGatewayTaskDefinitionsCommand,
-  ListWirelessGatewayTaskDefinitionsCommandInput,
-  ListWirelessGatewayTaskDefinitionsCommandOutput,
 } from "./commands/ListWirelessGatewayTaskDefinitionsCommand";
 import {
+  type PutPositionConfigurationCommandInput,
+  type PutPositionConfigurationCommandOutput,
   PutPositionConfigurationCommand,
-  PutPositionConfigurationCommandInput,
-  PutPositionConfigurationCommandOutput,
 } from "./commands/PutPositionConfigurationCommand";
 import {
+  type PutResourceLogLevelCommandInput,
+  type PutResourceLogLevelCommandOutput,
   PutResourceLogLevelCommand,
-  PutResourceLogLevelCommandInput,
-  PutResourceLogLevelCommandOutput,
 } from "./commands/PutResourceLogLevelCommand";
 import {
+  type ResetAllResourceLogLevelsCommandInput,
+  type ResetAllResourceLogLevelsCommandOutput,
   ResetAllResourceLogLevelsCommand,
-  ResetAllResourceLogLevelsCommandInput,
-  ResetAllResourceLogLevelsCommandOutput,
 } from "./commands/ResetAllResourceLogLevelsCommand";
 import {
+  type ResetResourceLogLevelCommandInput,
+  type ResetResourceLogLevelCommandOutput,
   ResetResourceLogLevelCommand,
-  ResetResourceLogLevelCommandInput,
-  ResetResourceLogLevelCommandOutput,
 } from "./commands/ResetResourceLogLevelCommand";
 import {
+  type SendDataToMulticastGroupCommandInput,
+  type SendDataToMulticastGroupCommandOutput,
   SendDataToMulticastGroupCommand,
-  SendDataToMulticastGroupCommandInput,
-  SendDataToMulticastGroupCommandOutput,
 } from "./commands/SendDataToMulticastGroupCommand";
 import {
+  type SendDataToWirelessDeviceCommandInput,
+  type SendDataToWirelessDeviceCommandOutput,
   SendDataToWirelessDeviceCommand,
-  SendDataToWirelessDeviceCommandInput,
-  SendDataToWirelessDeviceCommandOutput,
 } from "./commands/SendDataToWirelessDeviceCommand";
 import {
+  type StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
+  type StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput,
   StartBulkAssociateWirelessDeviceWithMulticastGroupCommand,
-  StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
-  StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput,
 } from "./commands/StartBulkAssociateWirelessDeviceWithMulticastGroupCommand";
 import {
+  type StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
+  type StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput,
   StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
-  StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
-  StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput,
 } from "./commands/StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand";
 import {
+  type StartFuotaTaskCommandInput,
+  type StartFuotaTaskCommandOutput,
   StartFuotaTaskCommand,
-  StartFuotaTaskCommandInput,
-  StartFuotaTaskCommandOutput,
 } from "./commands/StartFuotaTaskCommand";
 import {
+  type StartMulticastGroupSessionCommandInput,
+  type StartMulticastGroupSessionCommandOutput,
   StartMulticastGroupSessionCommand,
-  StartMulticastGroupSessionCommandInput,
-  StartMulticastGroupSessionCommandOutput,
 } from "./commands/StartMulticastGroupSessionCommand";
 import {
+  type StartSingleWirelessDeviceImportTaskCommandInput,
+  type StartSingleWirelessDeviceImportTaskCommandOutput,
   StartSingleWirelessDeviceImportTaskCommand,
-  StartSingleWirelessDeviceImportTaskCommandInput,
-  StartSingleWirelessDeviceImportTaskCommandOutput,
 } from "./commands/StartSingleWirelessDeviceImportTaskCommand";
 import {
+  type StartWirelessDeviceImportTaskCommandInput,
+  type StartWirelessDeviceImportTaskCommandOutput,
   StartWirelessDeviceImportTaskCommand,
-  StartWirelessDeviceImportTaskCommandInput,
-  StartWirelessDeviceImportTaskCommandOutput,
 } from "./commands/StartWirelessDeviceImportTaskCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TestWirelessDeviceCommandInput,
+  type TestWirelessDeviceCommandOutput,
   TestWirelessDeviceCommand,
-  TestWirelessDeviceCommandInput,
-  TestWirelessDeviceCommandOutput,
 } from "./commands/TestWirelessDeviceCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDestinationCommandInput,
+  type UpdateDestinationCommandOutput,
   UpdateDestinationCommand,
-  UpdateDestinationCommandInput,
-  UpdateDestinationCommandOutput,
 } from "./commands/UpdateDestinationCommand";
 import {
+  type UpdateEventConfigurationByResourceTypesCommandInput,
+  type UpdateEventConfigurationByResourceTypesCommandOutput,
   UpdateEventConfigurationByResourceTypesCommand,
-  UpdateEventConfigurationByResourceTypesCommandInput,
-  UpdateEventConfigurationByResourceTypesCommandOutput,
 } from "./commands/UpdateEventConfigurationByResourceTypesCommand";
 import {
+  type UpdateFuotaTaskCommandInput,
+  type UpdateFuotaTaskCommandOutput,
   UpdateFuotaTaskCommand,
-  UpdateFuotaTaskCommandInput,
-  UpdateFuotaTaskCommandOutput,
 } from "./commands/UpdateFuotaTaskCommand";
 import {
+  type UpdateLogLevelsByResourceTypesCommandInput,
+  type UpdateLogLevelsByResourceTypesCommandOutput,
   UpdateLogLevelsByResourceTypesCommand,
-  UpdateLogLevelsByResourceTypesCommandInput,
-  UpdateLogLevelsByResourceTypesCommandOutput,
 } from "./commands/UpdateLogLevelsByResourceTypesCommand";
 import {
+  type UpdateMetricConfigurationCommandInput,
+  type UpdateMetricConfigurationCommandOutput,
   UpdateMetricConfigurationCommand,
-  UpdateMetricConfigurationCommandInput,
-  UpdateMetricConfigurationCommandOutput,
 } from "./commands/UpdateMetricConfigurationCommand";
 import {
+  type UpdateMulticastGroupCommandInput,
+  type UpdateMulticastGroupCommandOutput,
   UpdateMulticastGroupCommand,
-  UpdateMulticastGroupCommandInput,
-  UpdateMulticastGroupCommandOutput,
 } from "./commands/UpdateMulticastGroupCommand";
 import {
+  type UpdateNetworkAnalyzerConfigurationCommandInput,
+  type UpdateNetworkAnalyzerConfigurationCommandOutput,
   UpdateNetworkAnalyzerConfigurationCommand,
-  UpdateNetworkAnalyzerConfigurationCommandInput,
-  UpdateNetworkAnalyzerConfigurationCommandOutput,
 } from "./commands/UpdateNetworkAnalyzerConfigurationCommand";
 import {
+  type UpdatePartnerAccountCommandInput,
+  type UpdatePartnerAccountCommandOutput,
   UpdatePartnerAccountCommand,
-  UpdatePartnerAccountCommandInput,
-  UpdatePartnerAccountCommandOutput,
 } from "./commands/UpdatePartnerAccountCommand";
 import {
+  type UpdatePositionCommandInput,
+  type UpdatePositionCommandOutput,
   UpdatePositionCommand,
-  UpdatePositionCommandInput,
-  UpdatePositionCommandOutput,
 } from "./commands/UpdatePositionCommand";
 import {
+  type UpdateResourceEventConfigurationCommandInput,
+  type UpdateResourceEventConfigurationCommandOutput,
   UpdateResourceEventConfigurationCommand,
-  UpdateResourceEventConfigurationCommandInput,
-  UpdateResourceEventConfigurationCommandOutput,
 } from "./commands/UpdateResourceEventConfigurationCommand";
 import {
+  type UpdateResourcePositionCommandInput,
+  type UpdateResourcePositionCommandOutput,
   UpdateResourcePositionCommand,
-  UpdateResourcePositionCommandInput,
-  UpdateResourcePositionCommandOutput,
 } from "./commands/UpdateResourcePositionCommand";
 import {
+  type UpdateWirelessDeviceCommandInput,
+  type UpdateWirelessDeviceCommandOutput,
   UpdateWirelessDeviceCommand,
-  UpdateWirelessDeviceCommandInput,
-  UpdateWirelessDeviceCommandOutput,
 } from "./commands/UpdateWirelessDeviceCommand";
 import {
+  type UpdateWirelessDeviceImportTaskCommandInput,
+  type UpdateWirelessDeviceImportTaskCommandOutput,
   UpdateWirelessDeviceImportTaskCommand,
-  UpdateWirelessDeviceImportTaskCommandInput,
-  UpdateWirelessDeviceImportTaskCommandOutput,
 } from "./commands/UpdateWirelessDeviceImportTaskCommand";
 import {
+  type UpdateWirelessGatewayCommandInput,
+  type UpdateWirelessGatewayCommandOutput,
   UpdateWirelessGatewayCommand,
-  UpdateWirelessGatewayCommandInput,
-  UpdateWirelessGatewayCommandOutput,
 } from "./commands/UpdateWirelessGatewayCommand";
 import { IoTWirelessClient } from "./IoTWirelessClient";
 import { paginateListDestinations } from "./pagination/ListDestinationsPaginator";

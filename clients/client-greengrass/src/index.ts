@@ -7,7 +7,7 @@
  */
 export * from "./GreengrassClient";
 export * from "./Greengrass";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { GreengrassExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

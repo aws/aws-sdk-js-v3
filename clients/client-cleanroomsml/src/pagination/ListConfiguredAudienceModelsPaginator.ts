@@ -8,7 +8,7 @@ import {
   ListConfiguredAudienceModelsCommandInput,
   ListConfiguredAudienceModelsCommandOutput,
 } from "../commands/ListConfiguredAudienceModelsCommand";
-import { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

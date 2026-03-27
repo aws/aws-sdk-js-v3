@@ -44,21 +44,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -68,98 +66,128 @@ import {
   defaultCloudWatchHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   DeleteAlarmMuteRuleCommandInput,
   DeleteAlarmMuteRuleCommandOutput,
 } from "./commands/DeleteAlarmMuteRuleCommand";
-import { DeleteAlarmsCommandInput, DeleteAlarmsCommandOutput } from "./commands/DeleteAlarmsCommand";
-import {
+import type { DeleteAlarmsCommandInput, DeleteAlarmsCommandOutput } from "./commands/DeleteAlarmsCommand";
+import type {
   DeleteAnomalyDetectorCommandInput,
   DeleteAnomalyDetectorCommandOutput,
 } from "./commands/DeleteAnomalyDetectorCommand";
-import { DeleteDashboardsCommandInput, DeleteDashboardsCommandOutput } from "./commands/DeleteDashboardsCommand";
-import { DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput } from "./commands/DeleteInsightRulesCommand";
-import { DeleteMetricStreamCommandInput, DeleteMetricStreamCommandOutput } from "./commands/DeleteMetricStreamCommand";
-import {
+import type { DeleteDashboardsCommandInput, DeleteDashboardsCommandOutput } from "./commands/DeleteDashboardsCommand";
+import type {
+  DeleteInsightRulesCommandInput,
+  DeleteInsightRulesCommandOutput,
+} from "./commands/DeleteInsightRulesCommand";
+import type {
+  DeleteMetricStreamCommandInput,
+  DeleteMetricStreamCommandOutput,
+} from "./commands/DeleteMetricStreamCommand";
+import type {
   DescribeAlarmContributorsCommandInput,
   DescribeAlarmContributorsCommandOutput,
 } from "./commands/DescribeAlarmContributorsCommand";
-import {
+import type {
   DescribeAlarmHistoryCommandInput,
   DescribeAlarmHistoryCommandOutput,
 } from "./commands/DescribeAlarmHistoryCommand";
-import { DescribeAlarmsCommandInput, DescribeAlarmsCommandOutput } from "./commands/DescribeAlarmsCommand";
-import {
+import type { DescribeAlarmsCommandInput, DescribeAlarmsCommandOutput } from "./commands/DescribeAlarmsCommand";
+import type {
   DescribeAlarmsForMetricCommandInput,
   DescribeAlarmsForMetricCommandOutput,
 } from "./commands/DescribeAlarmsForMetricCommand";
-import {
+import type {
   DescribeAnomalyDetectorsCommandInput,
   DescribeAnomalyDetectorsCommandOutput,
 } from "./commands/DescribeAnomalyDetectorsCommand";
-import {
+import type {
   DescribeInsightRulesCommandInput,
   DescribeInsightRulesCommandOutput,
 } from "./commands/DescribeInsightRulesCommand";
-import {
+import type {
   DisableAlarmActionsCommandInput,
   DisableAlarmActionsCommandOutput,
 } from "./commands/DisableAlarmActionsCommand";
-import {
+import type {
   DisableInsightRulesCommandInput,
   DisableInsightRulesCommandOutput,
 } from "./commands/DisableInsightRulesCommand";
-import { EnableAlarmActionsCommandInput, EnableAlarmActionsCommandOutput } from "./commands/EnableAlarmActionsCommand";
-import { EnableInsightRulesCommandInput, EnableInsightRulesCommandOutput } from "./commands/EnableInsightRulesCommand";
-import { GetAlarmMuteRuleCommandInput, GetAlarmMuteRuleCommandOutput } from "./commands/GetAlarmMuteRuleCommand";
-import { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand";
-import {
+import type {
+  EnableAlarmActionsCommandInput,
+  EnableAlarmActionsCommandOutput,
+} from "./commands/EnableAlarmActionsCommand";
+import type {
+  EnableInsightRulesCommandInput,
+  EnableInsightRulesCommandOutput,
+} from "./commands/EnableInsightRulesCommand";
+import type { GetAlarmMuteRuleCommandInput, GetAlarmMuteRuleCommandOutput } from "./commands/GetAlarmMuteRuleCommand";
+import type { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand";
+import type {
   GetInsightRuleReportCommandInput,
   GetInsightRuleReportCommandOutput,
 } from "./commands/GetInsightRuleReportCommand";
-import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
-import {
+import type { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
+import type {
   GetMetricStatisticsCommandInput,
   GetMetricStatisticsCommandOutput,
 } from "./commands/GetMetricStatisticsCommand";
-import { GetMetricStreamCommandInput, GetMetricStreamCommandOutput } from "./commands/GetMetricStreamCommand";
-import {
+import type { GetMetricStreamCommandInput, GetMetricStreamCommandOutput } from "./commands/GetMetricStreamCommand";
+import type {
   GetMetricWidgetImageCommandInput,
   GetMetricWidgetImageCommandOutput,
 } from "./commands/GetMetricWidgetImageCommand";
-import { ListAlarmMuteRulesCommandInput, ListAlarmMuteRulesCommandOutput } from "./commands/ListAlarmMuteRulesCommand";
-import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
-import {
+import type {
+  ListAlarmMuteRulesCommandInput,
+  ListAlarmMuteRulesCommandOutput,
+} from "./commands/ListAlarmMuteRulesCommand";
+import type { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
+import type {
   ListManagedInsightRulesCommandInput,
   ListManagedInsightRulesCommandOutput,
 } from "./commands/ListManagedInsightRulesCommand";
-import { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
-import { ListMetricStreamsCommandInput, ListMetricStreamsCommandOutput } from "./commands/ListMetricStreamsCommand";
-import {
+import type { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
+import type {
+  ListMetricStreamsCommandInput,
+  ListMetricStreamsCommandOutput,
+} from "./commands/ListMetricStreamsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutAlarmMuteRuleCommandInput, PutAlarmMuteRuleCommandOutput } from "./commands/PutAlarmMuteRuleCommand";
-import { PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput } from "./commands/PutAnomalyDetectorCommand";
-import { PutCompositeAlarmCommandInput, PutCompositeAlarmCommandOutput } from "./commands/PutCompositeAlarmCommand";
-import { PutDashboardCommandInput, PutDashboardCommandOutput } from "./commands/PutDashboardCommand";
-import { PutInsightRuleCommandInput, PutInsightRuleCommandOutput } from "./commands/PutInsightRuleCommand";
-import {
+import type { PutAlarmMuteRuleCommandInput, PutAlarmMuteRuleCommandOutput } from "./commands/PutAlarmMuteRuleCommand";
+import type {
+  PutAnomalyDetectorCommandInput,
+  PutAnomalyDetectorCommandOutput,
+} from "./commands/PutAnomalyDetectorCommand";
+import type {
+  PutCompositeAlarmCommandInput,
+  PutCompositeAlarmCommandOutput,
+} from "./commands/PutCompositeAlarmCommand";
+import type { PutDashboardCommandInput, PutDashboardCommandOutput } from "./commands/PutDashboardCommand";
+import type { PutInsightRuleCommandInput, PutInsightRuleCommandOutput } from "./commands/PutInsightRuleCommand";
+import type {
   PutManagedInsightRulesCommandInput,
   PutManagedInsightRulesCommandOutput,
 } from "./commands/PutManagedInsightRulesCommand";
-import { PutMetricAlarmCommandInput, PutMetricAlarmCommandOutput } from "./commands/PutMetricAlarmCommand";
-import { PutMetricDataCommandInput, PutMetricDataCommandOutput } from "./commands/PutMetricDataCommand";
-import { PutMetricStreamCommandInput, PutMetricStreamCommandOutput } from "./commands/PutMetricStreamCommand";
-import { SetAlarmStateCommandInput, SetAlarmStateCommandOutput } from "./commands/SetAlarmStateCommand";
-import { StartMetricStreamsCommandInput, StartMetricStreamsCommandOutput } from "./commands/StartMetricStreamsCommand";
-import { StopMetricStreamsCommandInput, StopMetricStreamsCommandOutput } from "./commands/StopMetricStreamsCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { PutMetricAlarmCommandInput, PutMetricAlarmCommandOutput } from "./commands/PutMetricAlarmCommand";
+import type { PutMetricDataCommandInput, PutMetricDataCommandOutput } from "./commands/PutMetricDataCommand";
+import type { PutMetricStreamCommandInput, PutMetricStreamCommandOutput } from "./commands/PutMetricStreamCommand";
+import type { SetAlarmStateCommandInput, SetAlarmStateCommandOutput } from "./commands/SetAlarmStateCommand";
+import type {
+  StartMetricStreamsCommandInput,
+  StartMetricStreamsCommandOutput,
+} from "./commands/StartMetricStreamsCommand";
+import type {
+  StopMetricStreamsCommandInput,
+  StopMetricStreamsCommandOutput,
+} from "./commands/StopMetricStreamsCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -377,7 +405,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

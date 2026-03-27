@@ -8,7 +8,7 @@ import {
   GetRecommendationSummariesCommandOutput,
 } from "../commands/GetRecommendationSummariesCommand";
 import { ComputeOptimizerClient } from "../ComputeOptimizerClient";
-import { ComputeOptimizerPaginationConfiguration } from "./Interfaces";
+import type { ComputeOptimizerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

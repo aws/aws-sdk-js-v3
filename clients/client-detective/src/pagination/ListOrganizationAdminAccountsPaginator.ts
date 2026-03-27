@@ -8,7 +8,7 @@ import {
   ListOrganizationAdminAccountsCommandOutput,
 } from "../commands/ListOrganizationAdminAccountsCommand";
 import { DetectiveClient } from "../DetectiveClient";
-import { DetectivePaginationConfiguration } from "./Interfaces";
+import type { DetectivePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

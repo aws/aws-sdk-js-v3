@@ -8,7 +8,7 @@ import {
   ListIpAccessSettingsCommandOutput,
 } from "../commands/ListIpAccessSettingsCommand";
 import { WorkSpacesWebClient } from "../WorkSpacesWebClient";
-import { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
+import type { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   GetQueryResultsCommandOutput,
 } from "../commands/GetQueryResultsCommand";
 import { InternetMonitorClient } from "../InternetMonitorClient";
-import { InternetMonitorPaginationConfiguration } from "./Interfaces";
+import type { InternetMonitorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

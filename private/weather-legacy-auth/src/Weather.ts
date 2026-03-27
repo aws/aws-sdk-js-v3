@@ -3,59 +3,59 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type OnlyCustomAuthCommandInput,
+  type OnlyCustomAuthCommandOutput,
   OnlyCustomAuthCommand,
-  OnlyCustomAuthCommandInput,
-  OnlyCustomAuthCommandOutput,
 } from "./commands/OnlyCustomAuthCommand";
 import {
+  type OnlyCustomAuthOptionalCommandInput,
+  type OnlyCustomAuthOptionalCommandOutput,
   OnlyCustomAuthOptionalCommand,
-  OnlyCustomAuthOptionalCommandInput,
-  OnlyCustomAuthOptionalCommandOutput,
 } from "./commands/OnlyCustomAuthOptionalCommand";
 import {
+  type OnlyHttpApiKeyAndBearerAuthCommandInput,
+  type OnlyHttpApiKeyAndBearerAuthCommandOutput,
   OnlyHttpApiKeyAndBearerAuthCommand,
-  OnlyHttpApiKeyAndBearerAuthCommandInput,
-  OnlyHttpApiKeyAndBearerAuthCommandOutput,
 } from "./commands/OnlyHttpApiKeyAndBearerAuthCommand";
 import {
+  type OnlyHttpApiKeyAndBearerAuthReversedCommandInput,
+  type OnlyHttpApiKeyAndBearerAuthReversedCommandOutput,
   OnlyHttpApiKeyAndBearerAuthReversedCommand,
-  OnlyHttpApiKeyAndBearerAuthReversedCommandInput,
-  OnlyHttpApiKeyAndBearerAuthReversedCommandOutput,
 } from "./commands/OnlyHttpApiKeyAndBearerAuthReversedCommand";
 import {
+  type OnlyHttpApiKeyAuthCommandInput,
+  type OnlyHttpApiKeyAuthCommandOutput,
   OnlyHttpApiKeyAuthCommand,
-  OnlyHttpApiKeyAuthCommandInput,
-  OnlyHttpApiKeyAuthCommandOutput,
 } from "./commands/OnlyHttpApiKeyAuthCommand";
 import {
+  type OnlyHttpApiKeyAuthOptionalCommandInput,
+  type OnlyHttpApiKeyAuthOptionalCommandOutput,
   OnlyHttpApiKeyAuthOptionalCommand,
-  OnlyHttpApiKeyAuthOptionalCommandInput,
-  OnlyHttpApiKeyAuthOptionalCommandOutput,
 } from "./commands/OnlyHttpApiKeyAuthOptionalCommand";
 import {
+  type OnlyHttpBearerAuthCommandInput,
+  type OnlyHttpBearerAuthCommandOutput,
   OnlyHttpBearerAuthCommand,
-  OnlyHttpBearerAuthCommandInput,
-  OnlyHttpBearerAuthCommandOutput,
 } from "./commands/OnlyHttpBearerAuthCommand";
 import {
+  type OnlyHttpBearerAuthOptionalCommandInput,
+  type OnlyHttpBearerAuthOptionalCommandOutput,
   OnlyHttpBearerAuthOptionalCommand,
-  OnlyHttpBearerAuthOptionalCommandInput,
-  OnlyHttpBearerAuthOptionalCommandOutput,
 } from "./commands/OnlyHttpBearerAuthOptionalCommand";
 import {
+  type OnlySigv4AuthCommandInput,
+  type OnlySigv4AuthCommandOutput,
   OnlySigv4AuthCommand,
-  OnlySigv4AuthCommandInput,
-  OnlySigv4AuthCommandOutput,
 } from "./commands/OnlySigv4AuthCommand";
 import {
+  type OnlySigv4AuthOptionalCommandInput,
+  type OnlySigv4AuthOptionalCommandOutput,
   OnlySigv4AuthOptionalCommand,
-  OnlySigv4AuthOptionalCommandInput,
-  OnlySigv4AuthOptionalCommandOutput,
 } from "./commands/OnlySigv4AuthOptionalCommand";
 import {
+  type SameAsServiceCommandInput,
+  type SameAsServiceCommandOutput,
   SameAsServiceCommand,
-  SameAsServiceCommandInput,
-  SameAsServiceCommandOutput,
 } from "./commands/SameAsServiceCommand";
 import { WeatherClient } from "./WeatherClient";
 

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,248 +61,260 @@ import {
   defaultNeptuneHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddRoleToDBClusterCommandInput, AddRoleToDBClusterCommandOutput } from "./commands/AddRoleToDBClusterCommand";
-import {
+import type {
+  AddRoleToDBClusterCommandInput,
+  AddRoleToDBClusterCommandOutput,
+} from "./commands/AddRoleToDBClusterCommand";
+import type {
   AddSourceIdentifierToSubscriptionCommandInput,
   AddSourceIdentifierToSubscriptionCommandOutput,
 } from "./commands/AddSourceIdentifierToSubscriptionCommand";
-import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
-import {
+import type {
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput,
+} from "./commands/AddTagsToResourceCommand";
+import type {
   ApplyPendingMaintenanceActionCommandInput,
   ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
-import {
+import type {
   CopyDBClusterParameterGroupCommandInput,
   CopyDBClusterParameterGroupCommandOutput,
 } from "./commands/CopyDBClusterParameterGroupCommand";
-import {
+import type {
   CopyDBClusterSnapshotCommandInput,
   CopyDBClusterSnapshotCommandOutput,
 } from "./commands/CopyDBClusterSnapshotCommand";
-import {
+import type {
   CopyDBParameterGroupCommandInput,
   CopyDBParameterGroupCommandOutput,
 } from "./commands/CopyDBParameterGroupCommand";
-import { CreateDBClusterCommandInput, CreateDBClusterCommandOutput } from "./commands/CreateDBClusterCommand";
-import {
+import type { CreateDBClusterCommandInput, CreateDBClusterCommandOutput } from "./commands/CreateDBClusterCommand";
+import type {
   CreateDBClusterEndpointCommandInput,
   CreateDBClusterEndpointCommandOutput,
 } from "./commands/CreateDBClusterEndpointCommand";
-import {
+import type {
   CreateDBClusterParameterGroupCommandInput,
   CreateDBClusterParameterGroupCommandOutput,
 } from "./commands/CreateDBClusterParameterGroupCommand";
-import {
+import type {
   CreateDBClusterSnapshotCommandInput,
   CreateDBClusterSnapshotCommandOutput,
 } from "./commands/CreateDBClusterSnapshotCommand";
-import { CreateDBInstanceCommandInput, CreateDBInstanceCommandOutput } from "./commands/CreateDBInstanceCommand";
-import {
+import type { CreateDBInstanceCommandInput, CreateDBInstanceCommandOutput } from "./commands/CreateDBInstanceCommand";
+import type {
   CreateDBParameterGroupCommandInput,
   CreateDBParameterGroupCommandOutput,
 } from "./commands/CreateDBParameterGroupCommand";
-import {
+import type {
   CreateDBSubnetGroupCommandInput,
   CreateDBSubnetGroupCommandOutput,
 } from "./commands/CreateDBSubnetGroupCommand";
-import {
+import type {
   CreateEventSubscriptionCommandInput,
   CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand";
-import {
+import type {
   CreateGlobalClusterCommandInput,
   CreateGlobalClusterCommandOutput,
 } from "./commands/CreateGlobalClusterCommand";
-import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "./commands/DeleteDBClusterCommand";
-import {
+import type { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "./commands/DeleteDBClusterCommand";
+import type {
   DeleteDBClusterEndpointCommandInput,
   DeleteDBClusterEndpointCommandOutput,
 } from "./commands/DeleteDBClusterEndpointCommand";
-import {
+import type {
   DeleteDBClusterParameterGroupCommandInput,
   DeleteDBClusterParameterGroupCommandOutput,
 } from "./commands/DeleteDBClusterParameterGroupCommand";
-import {
+import type {
   DeleteDBClusterSnapshotCommandInput,
   DeleteDBClusterSnapshotCommandOutput,
 } from "./commands/DeleteDBClusterSnapshotCommand";
-import { DeleteDBInstanceCommandInput, DeleteDBInstanceCommandOutput } from "./commands/DeleteDBInstanceCommand";
-import {
+import type { DeleteDBInstanceCommandInput, DeleteDBInstanceCommandOutput } from "./commands/DeleteDBInstanceCommand";
+import type {
   DeleteDBParameterGroupCommandInput,
   DeleteDBParameterGroupCommandOutput,
 } from "./commands/DeleteDBParameterGroupCommand";
-import {
+import type {
   DeleteDBSubnetGroupCommandInput,
   DeleteDBSubnetGroupCommandOutput,
 } from "./commands/DeleteDBSubnetGroupCommand";
-import {
+import type {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
-import {
+import type {
   DeleteGlobalClusterCommandInput,
   DeleteGlobalClusterCommandOutput,
 } from "./commands/DeleteGlobalClusterCommand";
-import {
+import type {
   DescribeDBClusterEndpointsCommandInput,
   DescribeDBClusterEndpointsCommandOutput,
 } from "./commands/DescribeDBClusterEndpointsCommand";
-import {
+import type {
   DescribeDBClusterParameterGroupsCommandInput,
   DescribeDBClusterParameterGroupsCommandOutput,
 } from "./commands/DescribeDBClusterParameterGroupsCommand";
-import {
+import type {
   DescribeDBClusterParametersCommandInput,
   DescribeDBClusterParametersCommandOutput,
 } from "./commands/DescribeDBClusterParametersCommand";
-import { DescribeDBClustersCommandInput, DescribeDBClustersCommandOutput } from "./commands/DescribeDBClustersCommand";
-import {
+import type {
+  DescribeDBClustersCommandInput,
+  DescribeDBClustersCommandOutput,
+} from "./commands/DescribeDBClustersCommand";
+import type {
   DescribeDBClusterSnapshotAttributesCommandInput,
   DescribeDBClusterSnapshotAttributesCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotAttributesCommand";
-import {
+import type {
   DescribeDBClusterSnapshotsCommandInput,
   DescribeDBClusterSnapshotsCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotsCommand";
-import {
+import type {
   DescribeDBEngineVersionsCommandInput,
   DescribeDBEngineVersionsCommandOutput,
 } from "./commands/DescribeDBEngineVersionsCommand";
-import {
+import type {
   DescribeDBInstancesCommandInput,
   DescribeDBInstancesCommandOutput,
 } from "./commands/DescribeDBInstancesCommand";
-import {
+import type {
   DescribeDBParameterGroupsCommandInput,
   DescribeDBParameterGroupsCommandOutput,
 } from "./commands/DescribeDBParameterGroupsCommand";
-import {
+import type {
   DescribeDBParametersCommandInput,
   DescribeDBParametersCommandOutput,
 } from "./commands/DescribeDBParametersCommand";
-import {
+import type {
   DescribeDBSubnetGroupsCommandInput,
   DescribeDBSubnetGroupsCommandOutput,
 } from "./commands/DescribeDBSubnetGroupsCommand";
-import {
+import type {
   DescribeEngineDefaultClusterParametersCommandInput,
   DescribeEngineDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultClusterParametersCommand";
-import {
+import type {
   DescribeEngineDefaultParametersCommandInput,
   DescribeEngineDefaultParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultParametersCommand";
-import {
+import type {
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
-import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
-import {
+import type { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
+import type {
   DescribeEventSubscriptionsCommandInput,
   DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
-import {
+import type {
   DescribeGlobalClustersCommandInput,
   DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand";
-import {
+import type {
   DescribeOrderableDBInstanceOptionsCommandInput,
   DescribeOrderableDBInstanceOptionsCommandOutput,
 } from "./commands/DescribeOrderableDBInstanceOptionsCommand";
-import {
+import type {
   DescribePendingMaintenanceActionsCommandInput,
   DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand";
-import {
+import type {
   DescribeValidDBInstanceModificationsCommandInput,
   DescribeValidDBInstanceModificationsCommandOutput,
 } from "./commands/DescribeValidDBInstanceModificationsCommand";
-import { FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput } from "./commands/FailoverDBClusterCommand";
-import {
+import type {
+  FailoverDBClusterCommandInput,
+  FailoverDBClusterCommandOutput,
+} from "./commands/FailoverDBClusterCommand";
+import type {
   FailoverGlobalClusterCommandInput,
   FailoverGlobalClusterCommandOutput,
 } from "./commands/FailoverGlobalClusterCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput } from "./commands/ModifyDBClusterCommand";
-import {
+import type { ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput } from "./commands/ModifyDBClusterCommand";
+import type {
   ModifyDBClusterEndpointCommandInput,
   ModifyDBClusterEndpointCommandOutput,
 } from "./commands/ModifyDBClusterEndpointCommand";
-import {
+import type {
   ModifyDBClusterParameterGroupCommandInput,
   ModifyDBClusterParameterGroupCommandOutput,
 } from "./commands/ModifyDBClusterParameterGroupCommand";
-import {
+import type {
   ModifyDBClusterSnapshotAttributeCommandInput,
   ModifyDBClusterSnapshotAttributeCommandOutput,
 } from "./commands/ModifyDBClusterSnapshotAttributeCommand";
-import { ModifyDBInstanceCommandInput, ModifyDBInstanceCommandOutput } from "./commands/ModifyDBInstanceCommand";
-import {
+import type { ModifyDBInstanceCommandInput, ModifyDBInstanceCommandOutput } from "./commands/ModifyDBInstanceCommand";
+import type {
   ModifyDBParameterGroupCommandInput,
   ModifyDBParameterGroupCommandOutput,
 } from "./commands/ModifyDBParameterGroupCommand";
-import {
+import type {
   ModifyDBSubnetGroupCommandInput,
   ModifyDBSubnetGroupCommandOutput,
 } from "./commands/ModifyDBSubnetGroupCommand";
-import {
+import type {
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
-import {
+import type {
   ModifyGlobalClusterCommandInput,
   ModifyGlobalClusterCommandOutput,
 } from "./commands/ModifyGlobalClusterCommand";
-import {
+import type {
   PromoteReadReplicaDBClusterCommandInput,
   PromoteReadReplicaDBClusterCommandOutput,
 } from "./commands/PromoteReadReplicaDBClusterCommand";
-import { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "./commands/RebootDBInstanceCommand";
-import {
+import type { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "./commands/RebootDBInstanceCommand";
+import type {
   RemoveFromGlobalClusterCommandInput,
   RemoveFromGlobalClusterCommandOutput,
 } from "./commands/RemoveFromGlobalClusterCommand";
-import {
+import type {
   RemoveRoleFromDBClusterCommandInput,
   RemoveRoleFromDBClusterCommandOutput,
 } from "./commands/RemoveRoleFromDBClusterCommand";
-import {
+import type {
   RemoveSourceIdentifierFromSubscriptionCommandInput,
   RemoveSourceIdentifierFromSubscriptionCommandOutput,
 } from "./commands/RemoveSourceIdentifierFromSubscriptionCommand";
-import {
+import type {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
-import {
+import type {
   ResetDBClusterParameterGroupCommandInput,
   ResetDBClusterParameterGroupCommandOutput,
 } from "./commands/ResetDBClusterParameterGroupCommand";
-import {
+import type {
   ResetDBParameterGroupCommandInput,
   ResetDBParameterGroupCommandOutput,
 } from "./commands/ResetDBParameterGroupCommand";
-import {
+import type {
   RestoreDBClusterFromSnapshotCommandInput,
   RestoreDBClusterFromSnapshotCommandOutput,
 } from "./commands/RestoreDBClusterFromSnapshotCommand";
-import {
+import type {
   RestoreDBClusterToPointInTimeCommandInput,
   RestoreDBClusterToPointInTimeCommandOutput,
 } from "./commands/RestoreDBClusterToPointInTimeCommand";
-import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "./commands/StartDBClusterCommand";
-import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "./commands/StopDBClusterCommand";
-import {
+import type { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "./commands/StartDBClusterCommand";
+import type { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "./commands/StopDBClusterCommand";
+import type {
   SwitchoverGlobalClusterCommandInput,
   SwitchoverGlobalClusterCommandOutput,
 } from "./commands/SwitchoverGlobalClusterCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -576,7 +586,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

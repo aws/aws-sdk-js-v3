@@ -10,7 +10,7 @@
  */
 export * from "./InspectorClient";
 export * from "./Inspector";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { InspectorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

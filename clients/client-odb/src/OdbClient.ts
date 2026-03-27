@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,125 +61,137 @@ import {
   defaultOdbHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptMarketplaceRegistrationCommandInput,
   AcceptMarketplaceRegistrationCommandOutput,
 } from "./commands/AcceptMarketplaceRegistrationCommand";
-import {
+import type {
   AssociateIamRoleToResourceCommandInput,
   AssociateIamRoleToResourceCommandOutput,
 } from "./commands/AssociateIamRoleToResourceCommand";
-import {
+import type {
   CreateCloudAutonomousVmClusterCommandInput,
   CreateCloudAutonomousVmClusterCommandOutput,
 } from "./commands/CreateCloudAutonomousVmClusterCommand";
-import {
+import type {
   CreateCloudExadataInfrastructureCommandInput,
   CreateCloudExadataInfrastructureCommandOutput,
 } from "./commands/CreateCloudExadataInfrastructureCommand";
-import {
+import type {
   CreateCloudVmClusterCommandInput,
   CreateCloudVmClusterCommandOutput,
 } from "./commands/CreateCloudVmClusterCommand";
-import { CreateOdbNetworkCommandInput, CreateOdbNetworkCommandOutput } from "./commands/CreateOdbNetworkCommand";
-import {
+import type { CreateOdbNetworkCommandInput, CreateOdbNetworkCommandOutput } from "./commands/CreateOdbNetworkCommand";
+import type {
   CreateOdbPeeringConnectionCommandInput,
   CreateOdbPeeringConnectionCommandOutput,
 } from "./commands/CreateOdbPeeringConnectionCommand";
-import {
+import type {
   DeleteCloudAutonomousVmClusterCommandInput,
   DeleteCloudAutonomousVmClusterCommandOutput,
 } from "./commands/DeleteCloudAutonomousVmClusterCommand";
-import {
+import type {
   DeleteCloudExadataInfrastructureCommandInput,
   DeleteCloudExadataInfrastructureCommandOutput,
 } from "./commands/DeleteCloudExadataInfrastructureCommand";
-import {
+import type {
   DeleteCloudVmClusterCommandInput,
   DeleteCloudVmClusterCommandOutput,
 } from "./commands/DeleteCloudVmClusterCommand";
-import { DeleteOdbNetworkCommandInput, DeleteOdbNetworkCommandOutput } from "./commands/DeleteOdbNetworkCommand";
-import {
+import type { DeleteOdbNetworkCommandInput, DeleteOdbNetworkCommandOutput } from "./commands/DeleteOdbNetworkCommand";
+import type {
   DeleteOdbPeeringConnectionCommandInput,
   DeleteOdbPeeringConnectionCommandOutput,
 } from "./commands/DeleteOdbPeeringConnectionCommand";
-import {
+import type {
   DisassociateIamRoleFromResourceCommandInput,
   DisassociateIamRoleFromResourceCommandOutput,
 } from "./commands/DisassociateIamRoleFromResourceCommand";
-import {
+import type {
   GetCloudAutonomousVmClusterCommandInput,
   GetCloudAutonomousVmClusterCommandOutput,
 } from "./commands/GetCloudAutonomousVmClusterCommand";
-import {
+import type {
   GetCloudExadataInfrastructureCommandInput,
   GetCloudExadataInfrastructureCommandOutput,
 } from "./commands/GetCloudExadataInfrastructureCommand";
-import {
+import type {
   GetCloudExadataInfrastructureUnallocatedResourcesCommandInput,
   GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput,
 } from "./commands/GetCloudExadataInfrastructureUnallocatedResourcesCommand";
-import { GetCloudVmClusterCommandInput, GetCloudVmClusterCommandOutput } from "./commands/GetCloudVmClusterCommand";
-import { GetDbNodeCommandInput, GetDbNodeCommandOutput } from "./commands/GetDbNodeCommand";
-import { GetDbServerCommandInput, GetDbServerCommandOutput } from "./commands/GetDbServerCommand";
-import {
+import type {
+  GetCloudVmClusterCommandInput,
+  GetCloudVmClusterCommandOutput,
+} from "./commands/GetCloudVmClusterCommand";
+import type { GetDbNodeCommandInput, GetDbNodeCommandOutput } from "./commands/GetDbNodeCommand";
+import type { GetDbServerCommandInput, GetDbServerCommandOutput } from "./commands/GetDbServerCommand";
+import type {
   GetOciOnboardingStatusCommandInput,
   GetOciOnboardingStatusCommandOutput,
 } from "./commands/GetOciOnboardingStatusCommand";
-import { GetOdbNetworkCommandInput, GetOdbNetworkCommandOutput } from "./commands/GetOdbNetworkCommand";
-import {
+import type { GetOdbNetworkCommandInput, GetOdbNetworkCommandOutput } from "./commands/GetOdbNetworkCommand";
+import type {
   GetOdbPeeringConnectionCommandInput,
   GetOdbPeeringConnectionCommandOutput,
 } from "./commands/GetOdbPeeringConnectionCommand";
-import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "./commands/InitializeServiceCommand";
-import {
+import type {
+  InitializeServiceCommandInput,
+  InitializeServiceCommandOutput,
+} from "./commands/InitializeServiceCommand";
+import type {
   ListAutonomousVirtualMachinesCommandInput,
   ListAutonomousVirtualMachinesCommandOutput,
 } from "./commands/ListAutonomousVirtualMachinesCommand";
-import {
+import type {
   ListCloudAutonomousVmClustersCommandInput,
   ListCloudAutonomousVmClustersCommandOutput,
 } from "./commands/ListCloudAutonomousVmClustersCommand";
-import {
+import type {
   ListCloudExadataInfrastructuresCommandInput,
   ListCloudExadataInfrastructuresCommandOutput,
 } from "./commands/ListCloudExadataInfrastructuresCommand";
-import {
+import type {
   ListCloudVmClustersCommandInput,
   ListCloudVmClustersCommandOutput,
 } from "./commands/ListCloudVmClustersCommand";
-import { ListDbNodesCommandInput, ListDbNodesCommandOutput } from "./commands/ListDbNodesCommand";
-import { ListDbServersCommandInput, ListDbServersCommandOutput } from "./commands/ListDbServersCommand";
-import { ListDbSystemShapesCommandInput, ListDbSystemShapesCommandOutput } from "./commands/ListDbSystemShapesCommand";
-import { ListGiVersionsCommandInput, ListGiVersionsCommandOutput } from "./commands/ListGiVersionsCommand";
-import { ListOdbNetworksCommandInput, ListOdbNetworksCommandOutput } from "./commands/ListOdbNetworksCommand";
-import {
+import type { ListDbNodesCommandInput, ListDbNodesCommandOutput } from "./commands/ListDbNodesCommand";
+import type { ListDbServersCommandInput, ListDbServersCommandOutput } from "./commands/ListDbServersCommand";
+import type {
+  ListDbSystemShapesCommandInput,
+  ListDbSystemShapesCommandOutput,
+} from "./commands/ListDbSystemShapesCommand";
+import type { ListGiVersionsCommandInput, ListGiVersionsCommandOutput } from "./commands/ListGiVersionsCommand";
+import type { ListOdbNetworksCommandInput, ListOdbNetworksCommandOutput } from "./commands/ListOdbNetworksCommand";
+import type {
   ListOdbPeeringConnectionsCommandInput,
   ListOdbPeeringConnectionsCommandOutput,
 } from "./commands/ListOdbPeeringConnectionsCommand";
-import { ListSystemVersionsCommandInput, ListSystemVersionsCommandOutput } from "./commands/ListSystemVersionsCommand";
-import {
+import type {
+  ListSystemVersionsCommandInput,
+  ListSystemVersionsCommandOutput,
+} from "./commands/ListSystemVersionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RebootDbNodeCommandInput, RebootDbNodeCommandOutput } from "./commands/RebootDbNodeCommand";
-import { StartDbNodeCommandInput, StartDbNodeCommandOutput } from "./commands/StartDbNodeCommand";
-import { StopDbNodeCommandInput, StopDbNodeCommandOutput } from "./commands/StopDbNodeCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { RebootDbNodeCommandInput, RebootDbNodeCommandOutput } from "./commands/RebootDbNodeCommand";
+import type { StartDbNodeCommandInput, StartDbNodeCommandOutput } from "./commands/StartDbNodeCommand";
+import type { StopDbNodeCommandInput, StopDbNodeCommandOutput } from "./commands/StopDbNodeCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateCloudExadataInfrastructureCommandInput,
   UpdateCloudExadataInfrastructureCommandOutput,
 } from "./commands/UpdateCloudExadataInfrastructureCommand";
-import { UpdateOdbNetworkCommandInput, UpdateOdbNetworkCommandOutput } from "./commands/UpdateOdbNetworkCommand";
-import {
+import type { UpdateOdbNetworkCommandInput, UpdateOdbNetworkCommandOutput } from "./commands/UpdateOdbNetworkCommand";
+import type {
   UpdateOdbPeeringConnectionCommandInput,
   UpdateOdbPeeringConnectionCommandOutput,
 } from "./commands/UpdateOdbPeeringConnectionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -399,7 +409,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

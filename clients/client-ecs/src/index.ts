@@ -7,7 +7,7 @@
  */
 export * from "./ECSClient";
 export * from "./ECS";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ECSExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

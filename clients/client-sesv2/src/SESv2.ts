@@ -3,530 +3,546 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchGetMetricDataCommandInput,
+  type BatchGetMetricDataCommandOutput,
   BatchGetMetricDataCommand,
-  BatchGetMetricDataCommandInput,
-  BatchGetMetricDataCommandOutput,
 } from "./commands/BatchGetMetricDataCommand";
 import {
+  type CancelExportJobCommandInput,
+  type CancelExportJobCommandOutput,
   CancelExportJobCommand,
-  CancelExportJobCommandInput,
-  CancelExportJobCommandOutput,
 } from "./commands/CancelExportJobCommand";
 import {
+  type CreateConfigurationSetCommandInput,
+  type CreateConfigurationSetCommandOutput,
   CreateConfigurationSetCommand,
-  CreateConfigurationSetCommandInput,
-  CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand";
 import {
+  type CreateConfigurationSetEventDestinationCommandInput,
+  type CreateConfigurationSetEventDestinationCommandOutput,
   CreateConfigurationSetEventDestinationCommand,
-  CreateConfigurationSetEventDestinationCommandInput,
-  CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand";
 import {
+  type CreateContactCommandInput,
+  type CreateContactCommandOutput,
   CreateContactCommand,
-  CreateContactCommandInput,
-  CreateContactCommandOutput,
 } from "./commands/CreateContactCommand";
 import {
+  type CreateContactListCommandInput,
+  type CreateContactListCommandOutput,
   CreateContactListCommand,
-  CreateContactListCommandInput,
-  CreateContactListCommandOutput,
 } from "./commands/CreateContactListCommand";
 import {
+  type CreateCustomVerificationEmailTemplateCommandInput,
+  type CreateCustomVerificationEmailTemplateCommandOutput,
   CreateCustomVerificationEmailTemplateCommand,
-  CreateCustomVerificationEmailTemplateCommandInput,
-  CreateCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/CreateCustomVerificationEmailTemplateCommand";
 import {
+  type CreateDedicatedIpPoolCommandInput,
+  type CreateDedicatedIpPoolCommandOutput,
   CreateDedicatedIpPoolCommand,
-  CreateDedicatedIpPoolCommandInput,
-  CreateDedicatedIpPoolCommandOutput,
 } from "./commands/CreateDedicatedIpPoolCommand";
 import {
+  type CreateDeliverabilityTestReportCommandInput,
+  type CreateDeliverabilityTestReportCommandOutput,
   CreateDeliverabilityTestReportCommand,
-  CreateDeliverabilityTestReportCommandInput,
-  CreateDeliverabilityTestReportCommandOutput,
 } from "./commands/CreateDeliverabilityTestReportCommand";
 import {
+  type CreateEmailIdentityCommandInput,
+  type CreateEmailIdentityCommandOutput,
   CreateEmailIdentityCommand,
-  CreateEmailIdentityCommandInput,
-  CreateEmailIdentityCommandOutput,
 } from "./commands/CreateEmailIdentityCommand";
 import {
+  type CreateEmailIdentityPolicyCommandInput,
+  type CreateEmailIdentityPolicyCommandOutput,
   CreateEmailIdentityPolicyCommand,
-  CreateEmailIdentityPolicyCommandInput,
-  CreateEmailIdentityPolicyCommandOutput,
 } from "./commands/CreateEmailIdentityPolicyCommand";
 import {
+  type CreateEmailTemplateCommandInput,
+  type CreateEmailTemplateCommandOutput,
   CreateEmailTemplateCommand,
-  CreateEmailTemplateCommandInput,
-  CreateEmailTemplateCommandOutput,
 } from "./commands/CreateEmailTemplateCommand";
 import {
+  type CreateExportJobCommandInput,
+  type CreateExportJobCommandOutput,
   CreateExportJobCommand,
-  CreateExportJobCommandInput,
-  CreateExportJobCommandOutput,
 } from "./commands/CreateExportJobCommand";
 import {
+  type CreateImportJobCommandInput,
+  type CreateImportJobCommandOutput,
   CreateImportJobCommand,
-  CreateImportJobCommandInput,
-  CreateImportJobCommandOutput,
 } from "./commands/CreateImportJobCommand";
 import {
+  type CreateMultiRegionEndpointCommandInput,
+  type CreateMultiRegionEndpointCommandOutput,
   CreateMultiRegionEndpointCommand,
-  CreateMultiRegionEndpointCommandInput,
-  CreateMultiRegionEndpointCommandOutput,
 } from "./commands/CreateMultiRegionEndpointCommand";
 import {
+  type CreateTenantCommandInput,
+  type CreateTenantCommandOutput,
   CreateTenantCommand,
-  CreateTenantCommandInput,
-  CreateTenantCommandOutput,
 } from "./commands/CreateTenantCommand";
 import {
+  type CreateTenantResourceAssociationCommandInput,
+  type CreateTenantResourceAssociationCommandOutput,
   CreateTenantResourceAssociationCommand,
-  CreateTenantResourceAssociationCommandInput,
-  CreateTenantResourceAssociationCommandOutput,
 } from "./commands/CreateTenantResourceAssociationCommand";
 import {
+  type DeleteConfigurationSetCommandInput,
+  type DeleteConfigurationSetCommandOutput,
   DeleteConfigurationSetCommand,
-  DeleteConfigurationSetCommandInput,
-  DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand";
 import {
+  type DeleteConfigurationSetEventDestinationCommandInput,
+  type DeleteConfigurationSetEventDestinationCommandOutput,
   DeleteConfigurationSetEventDestinationCommand,
-  DeleteConfigurationSetEventDestinationCommandInput,
-  DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand";
 import {
+  type DeleteContactCommandInput,
+  type DeleteContactCommandOutput,
   DeleteContactCommand,
-  DeleteContactCommandInput,
-  DeleteContactCommandOutput,
 } from "./commands/DeleteContactCommand";
 import {
+  type DeleteContactListCommandInput,
+  type DeleteContactListCommandOutput,
   DeleteContactListCommand,
-  DeleteContactListCommandInput,
-  DeleteContactListCommandOutput,
 } from "./commands/DeleteContactListCommand";
 import {
+  type DeleteCustomVerificationEmailTemplateCommandInput,
+  type DeleteCustomVerificationEmailTemplateCommandOutput,
   DeleteCustomVerificationEmailTemplateCommand,
-  DeleteCustomVerificationEmailTemplateCommandInput,
-  DeleteCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/DeleteCustomVerificationEmailTemplateCommand";
 import {
+  type DeleteDedicatedIpPoolCommandInput,
+  type DeleteDedicatedIpPoolCommandOutput,
   DeleteDedicatedIpPoolCommand,
-  DeleteDedicatedIpPoolCommandInput,
-  DeleteDedicatedIpPoolCommandOutput,
 } from "./commands/DeleteDedicatedIpPoolCommand";
 import {
+  type DeleteEmailIdentityCommandInput,
+  type DeleteEmailIdentityCommandOutput,
   DeleteEmailIdentityCommand,
-  DeleteEmailIdentityCommandInput,
-  DeleteEmailIdentityCommandOutput,
 } from "./commands/DeleteEmailIdentityCommand";
 import {
+  type DeleteEmailIdentityPolicyCommandInput,
+  type DeleteEmailIdentityPolicyCommandOutput,
   DeleteEmailIdentityPolicyCommand,
-  DeleteEmailIdentityPolicyCommandInput,
-  DeleteEmailIdentityPolicyCommandOutput,
 } from "./commands/DeleteEmailIdentityPolicyCommand";
 import {
+  type DeleteEmailTemplateCommandInput,
+  type DeleteEmailTemplateCommandOutput,
   DeleteEmailTemplateCommand,
-  DeleteEmailTemplateCommandInput,
-  DeleteEmailTemplateCommandOutput,
 } from "./commands/DeleteEmailTemplateCommand";
 import {
+  type DeleteMultiRegionEndpointCommandInput,
+  type DeleteMultiRegionEndpointCommandOutput,
   DeleteMultiRegionEndpointCommand,
-  DeleteMultiRegionEndpointCommandInput,
-  DeleteMultiRegionEndpointCommandOutput,
 } from "./commands/DeleteMultiRegionEndpointCommand";
 import {
+  type DeleteSuppressedDestinationCommandInput,
+  type DeleteSuppressedDestinationCommandOutput,
   DeleteSuppressedDestinationCommand,
-  DeleteSuppressedDestinationCommandInput,
-  DeleteSuppressedDestinationCommandOutput,
 } from "./commands/DeleteSuppressedDestinationCommand";
 import {
+  type DeleteTenantCommandInput,
+  type DeleteTenantCommandOutput,
   DeleteTenantCommand,
-  DeleteTenantCommandInput,
-  DeleteTenantCommandOutput,
 } from "./commands/DeleteTenantCommand";
 import {
+  type DeleteTenantResourceAssociationCommandInput,
+  type DeleteTenantResourceAssociationCommandOutput,
   DeleteTenantResourceAssociationCommand,
-  DeleteTenantResourceAssociationCommandInput,
-  DeleteTenantResourceAssociationCommandOutput,
 } from "./commands/DeleteTenantResourceAssociationCommand";
-import { GetAccountCommand, GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
 import {
+  type GetAccountCommandInput,
+  type GetAccountCommandOutput,
+  GetAccountCommand,
+} from "./commands/GetAccountCommand";
+import {
+  type GetBlacklistReportsCommandInput,
+  type GetBlacklistReportsCommandOutput,
   GetBlacklistReportsCommand,
-  GetBlacklistReportsCommandInput,
-  GetBlacklistReportsCommandOutput,
 } from "./commands/GetBlacklistReportsCommand";
 import {
+  type GetConfigurationSetCommandInput,
+  type GetConfigurationSetCommandOutput,
   GetConfigurationSetCommand,
-  GetConfigurationSetCommandInput,
-  GetConfigurationSetCommandOutput,
 } from "./commands/GetConfigurationSetCommand";
 import {
+  type GetConfigurationSetEventDestinationsCommandInput,
+  type GetConfigurationSetEventDestinationsCommandOutput,
   GetConfigurationSetEventDestinationsCommand,
-  GetConfigurationSetEventDestinationsCommandInput,
-  GetConfigurationSetEventDestinationsCommandOutput,
 } from "./commands/GetConfigurationSetEventDestinationsCommand";
-import { GetContactCommand, GetContactCommandInput, GetContactCommandOutput } from "./commands/GetContactCommand";
 import {
+  type GetContactCommandInput,
+  type GetContactCommandOutput,
+  GetContactCommand,
+} from "./commands/GetContactCommand";
+import {
+  type GetContactListCommandInput,
+  type GetContactListCommandOutput,
   GetContactListCommand,
-  GetContactListCommandInput,
-  GetContactListCommandOutput,
 } from "./commands/GetContactListCommand";
 import {
+  type GetCustomVerificationEmailTemplateCommandInput,
+  type GetCustomVerificationEmailTemplateCommandOutput,
   GetCustomVerificationEmailTemplateCommand,
-  GetCustomVerificationEmailTemplateCommandInput,
-  GetCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/GetCustomVerificationEmailTemplateCommand";
 import {
+  type GetDedicatedIpCommandInput,
+  type GetDedicatedIpCommandOutput,
   GetDedicatedIpCommand,
-  GetDedicatedIpCommandInput,
-  GetDedicatedIpCommandOutput,
 } from "./commands/GetDedicatedIpCommand";
 import {
+  type GetDedicatedIpPoolCommandInput,
+  type GetDedicatedIpPoolCommandOutput,
   GetDedicatedIpPoolCommand,
-  GetDedicatedIpPoolCommandInput,
-  GetDedicatedIpPoolCommandOutput,
 } from "./commands/GetDedicatedIpPoolCommand";
 import {
+  type GetDedicatedIpsCommandInput,
+  type GetDedicatedIpsCommandOutput,
   GetDedicatedIpsCommand,
-  GetDedicatedIpsCommandInput,
-  GetDedicatedIpsCommandOutput,
 } from "./commands/GetDedicatedIpsCommand";
 import {
+  type GetDeliverabilityDashboardOptionsCommandInput,
+  type GetDeliverabilityDashboardOptionsCommandOutput,
   GetDeliverabilityDashboardOptionsCommand,
-  GetDeliverabilityDashboardOptionsCommandInput,
-  GetDeliverabilityDashboardOptionsCommandOutput,
 } from "./commands/GetDeliverabilityDashboardOptionsCommand";
 import {
+  type GetDeliverabilityTestReportCommandInput,
+  type GetDeliverabilityTestReportCommandOutput,
   GetDeliverabilityTestReportCommand,
-  GetDeliverabilityTestReportCommandInput,
-  GetDeliverabilityTestReportCommandOutput,
 } from "./commands/GetDeliverabilityTestReportCommand";
 import {
+  type GetDomainDeliverabilityCampaignCommandInput,
+  type GetDomainDeliverabilityCampaignCommandOutput,
   GetDomainDeliverabilityCampaignCommand,
-  GetDomainDeliverabilityCampaignCommandInput,
-  GetDomainDeliverabilityCampaignCommandOutput,
 } from "./commands/GetDomainDeliverabilityCampaignCommand";
 import {
+  type GetDomainStatisticsReportCommandInput,
+  type GetDomainStatisticsReportCommandOutput,
   GetDomainStatisticsReportCommand,
-  GetDomainStatisticsReportCommandInput,
-  GetDomainStatisticsReportCommandOutput,
 } from "./commands/GetDomainStatisticsReportCommand";
 import {
+  type GetEmailAddressInsightsCommandInput,
+  type GetEmailAddressInsightsCommandOutput,
   GetEmailAddressInsightsCommand,
-  GetEmailAddressInsightsCommandInput,
-  GetEmailAddressInsightsCommandOutput,
 } from "./commands/GetEmailAddressInsightsCommand";
 import {
+  type GetEmailIdentityCommandInput,
+  type GetEmailIdentityCommandOutput,
   GetEmailIdentityCommand,
-  GetEmailIdentityCommandInput,
-  GetEmailIdentityCommandOutput,
 } from "./commands/GetEmailIdentityCommand";
 import {
+  type GetEmailIdentityPoliciesCommandInput,
+  type GetEmailIdentityPoliciesCommandOutput,
   GetEmailIdentityPoliciesCommand,
-  GetEmailIdentityPoliciesCommandInput,
-  GetEmailIdentityPoliciesCommandOutput,
 } from "./commands/GetEmailIdentityPoliciesCommand";
 import {
+  type GetEmailTemplateCommandInput,
+  type GetEmailTemplateCommandOutput,
   GetEmailTemplateCommand,
-  GetEmailTemplateCommandInput,
-  GetEmailTemplateCommandOutput,
 } from "./commands/GetEmailTemplateCommand";
 import {
+  type GetExportJobCommandInput,
+  type GetExportJobCommandOutput,
   GetExportJobCommand,
-  GetExportJobCommandInput,
-  GetExportJobCommandOutput,
 } from "./commands/GetExportJobCommand";
 import {
+  type GetImportJobCommandInput,
+  type GetImportJobCommandOutput,
   GetImportJobCommand,
-  GetImportJobCommandInput,
-  GetImportJobCommandOutput,
 } from "./commands/GetImportJobCommand";
 import {
+  type GetMessageInsightsCommandInput,
+  type GetMessageInsightsCommandOutput,
   GetMessageInsightsCommand,
-  GetMessageInsightsCommandInput,
-  GetMessageInsightsCommandOutput,
 } from "./commands/GetMessageInsightsCommand";
 import {
+  type GetMultiRegionEndpointCommandInput,
+  type GetMultiRegionEndpointCommandOutput,
   GetMultiRegionEndpointCommand,
-  GetMultiRegionEndpointCommandInput,
-  GetMultiRegionEndpointCommandOutput,
 } from "./commands/GetMultiRegionEndpointCommand";
 import {
+  type GetReputationEntityCommandInput,
+  type GetReputationEntityCommandOutput,
   GetReputationEntityCommand,
-  GetReputationEntityCommandInput,
-  GetReputationEntityCommandOutput,
 } from "./commands/GetReputationEntityCommand";
 import {
+  type GetSuppressedDestinationCommandInput,
+  type GetSuppressedDestinationCommandOutput,
   GetSuppressedDestinationCommand,
-  GetSuppressedDestinationCommandInput,
-  GetSuppressedDestinationCommandOutput,
 } from "./commands/GetSuppressedDestinationCommand";
-import { GetTenantCommand, GetTenantCommandInput, GetTenantCommandOutput } from "./commands/GetTenantCommand";
+import { type GetTenantCommandInput, type GetTenantCommandOutput, GetTenantCommand } from "./commands/GetTenantCommand";
 import {
+  type ListConfigurationSetsCommandInput,
+  type ListConfigurationSetsCommandOutput,
   ListConfigurationSetsCommand,
-  ListConfigurationSetsCommandInput,
-  ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand";
 import {
+  type ListContactListsCommandInput,
+  type ListContactListsCommandOutput,
   ListContactListsCommand,
-  ListContactListsCommandInput,
-  ListContactListsCommandOutput,
 } from "./commands/ListContactListsCommand";
 import {
+  type ListContactsCommandInput,
+  type ListContactsCommandOutput,
   ListContactsCommand,
-  ListContactsCommandInput,
-  ListContactsCommandOutput,
 } from "./commands/ListContactsCommand";
 import {
+  type ListCustomVerificationEmailTemplatesCommandInput,
+  type ListCustomVerificationEmailTemplatesCommandOutput,
   ListCustomVerificationEmailTemplatesCommand,
-  ListCustomVerificationEmailTemplatesCommandInput,
-  ListCustomVerificationEmailTemplatesCommandOutput,
 } from "./commands/ListCustomVerificationEmailTemplatesCommand";
 import {
+  type ListDedicatedIpPoolsCommandInput,
+  type ListDedicatedIpPoolsCommandOutput,
   ListDedicatedIpPoolsCommand,
-  ListDedicatedIpPoolsCommandInput,
-  ListDedicatedIpPoolsCommandOutput,
 } from "./commands/ListDedicatedIpPoolsCommand";
 import {
+  type ListDeliverabilityTestReportsCommandInput,
+  type ListDeliverabilityTestReportsCommandOutput,
   ListDeliverabilityTestReportsCommand,
-  ListDeliverabilityTestReportsCommandInput,
-  ListDeliverabilityTestReportsCommandOutput,
 } from "./commands/ListDeliverabilityTestReportsCommand";
 import {
+  type ListDomainDeliverabilityCampaignsCommandInput,
+  type ListDomainDeliverabilityCampaignsCommandOutput,
   ListDomainDeliverabilityCampaignsCommand,
-  ListDomainDeliverabilityCampaignsCommandInput,
-  ListDomainDeliverabilityCampaignsCommandOutput,
 } from "./commands/ListDomainDeliverabilityCampaignsCommand";
 import {
+  type ListEmailIdentitiesCommandInput,
+  type ListEmailIdentitiesCommandOutput,
   ListEmailIdentitiesCommand,
-  ListEmailIdentitiesCommandInput,
-  ListEmailIdentitiesCommandOutput,
 } from "./commands/ListEmailIdentitiesCommand";
 import {
+  type ListEmailTemplatesCommandInput,
+  type ListEmailTemplatesCommandOutput,
   ListEmailTemplatesCommand,
-  ListEmailTemplatesCommandInput,
-  ListEmailTemplatesCommandOutput,
 } from "./commands/ListEmailTemplatesCommand";
 import {
+  type ListExportJobsCommandInput,
+  type ListExportJobsCommandOutput,
   ListExportJobsCommand,
-  ListExportJobsCommandInput,
-  ListExportJobsCommandOutput,
 } from "./commands/ListExportJobsCommand";
 import {
+  type ListImportJobsCommandInput,
+  type ListImportJobsCommandOutput,
   ListImportJobsCommand,
-  ListImportJobsCommandInput,
-  ListImportJobsCommandOutput,
 } from "./commands/ListImportJobsCommand";
 import {
+  type ListMultiRegionEndpointsCommandInput,
+  type ListMultiRegionEndpointsCommandOutput,
   ListMultiRegionEndpointsCommand,
-  ListMultiRegionEndpointsCommandInput,
-  ListMultiRegionEndpointsCommandOutput,
 } from "./commands/ListMultiRegionEndpointsCommand";
 import {
+  type ListRecommendationsCommandInput,
+  type ListRecommendationsCommandOutput,
   ListRecommendationsCommand,
-  ListRecommendationsCommandInput,
-  ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
 import {
+  type ListReputationEntitiesCommandInput,
+  type ListReputationEntitiesCommandOutput,
   ListReputationEntitiesCommand,
-  ListReputationEntitiesCommandInput,
-  ListReputationEntitiesCommandOutput,
 } from "./commands/ListReputationEntitiesCommand";
 import {
+  type ListResourceTenantsCommandInput,
+  type ListResourceTenantsCommandOutput,
   ListResourceTenantsCommand,
-  ListResourceTenantsCommandInput,
-  ListResourceTenantsCommandOutput,
 } from "./commands/ListResourceTenantsCommand";
 import {
+  type ListSuppressedDestinationsCommandInput,
+  type ListSuppressedDestinationsCommandOutput,
   ListSuppressedDestinationsCommand,
-  ListSuppressedDestinationsCommandInput,
-  ListSuppressedDestinationsCommandOutput,
 } from "./commands/ListSuppressedDestinationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTenantResourcesCommandInput,
+  type ListTenantResourcesCommandOutput,
   ListTenantResourcesCommand,
-  ListTenantResourcesCommandInput,
-  ListTenantResourcesCommandOutput,
 } from "./commands/ListTenantResourcesCommand";
-import { ListTenantsCommand, ListTenantsCommandInput, ListTenantsCommandOutput } from "./commands/ListTenantsCommand";
 import {
+  type ListTenantsCommandInput,
+  type ListTenantsCommandOutput,
+  ListTenantsCommand,
+} from "./commands/ListTenantsCommand";
+import {
+  type PutAccountDedicatedIpWarmupAttributesCommandInput,
+  type PutAccountDedicatedIpWarmupAttributesCommandOutput,
   PutAccountDedicatedIpWarmupAttributesCommand,
-  PutAccountDedicatedIpWarmupAttributesCommandInput,
-  PutAccountDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutAccountDedicatedIpWarmupAttributesCommand";
 import {
+  type PutAccountDetailsCommandInput,
+  type PutAccountDetailsCommandOutput,
   PutAccountDetailsCommand,
-  PutAccountDetailsCommandInput,
-  PutAccountDetailsCommandOutput,
 } from "./commands/PutAccountDetailsCommand";
 import {
+  type PutAccountSendingAttributesCommandInput,
+  type PutAccountSendingAttributesCommandOutput,
   PutAccountSendingAttributesCommand,
-  PutAccountSendingAttributesCommandInput,
-  PutAccountSendingAttributesCommandOutput,
 } from "./commands/PutAccountSendingAttributesCommand";
 import {
+  type PutAccountSuppressionAttributesCommandInput,
+  type PutAccountSuppressionAttributesCommandOutput,
   PutAccountSuppressionAttributesCommand,
-  PutAccountSuppressionAttributesCommandInput,
-  PutAccountSuppressionAttributesCommandOutput,
 } from "./commands/PutAccountSuppressionAttributesCommand";
 import {
+  type PutAccountVdmAttributesCommandInput,
+  type PutAccountVdmAttributesCommandOutput,
   PutAccountVdmAttributesCommand,
-  PutAccountVdmAttributesCommandInput,
-  PutAccountVdmAttributesCommandOutput,
 } from "./commands/PutAccountVdmAttributesCommand";
 import {
+  type PutConfigurationSetArchivingOptionsCommandInput,
+  type PutConfigurationSetArchivingOptionsCommandOutput,
   PutConfigurationSetArchivingOptionsCommand,
-  PutConfigurationSetArchivingOptionsCommandInput,
-  PutConfigurationSetArchivingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetArchivingOptionsCommand";
 import {
+  type PutConfigurationSetDeliveryOptionsCommandInput,
+  type PutConfigurationSetDeliveryOptionsCommandOutput,
   PutConfigurationSetDeliveryOptionsCommand,
-  PutConfigurationSetDeliveryOptionsCommandInput,
-  PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "./commands/PutConfigurationSetDeliveryOptionsCommand";
 import {
+  type PutConfigurationSetReputationOptionsCommandInput,
+  type PutConfigurationSetReputationOptionsCommandOutput,
   PutConfigurationSetReputationOptionsCommand,
-  PutConfigurationSetReputationOptionsCommandInput,
-  PutConfigurationSetReputationOptionsCommandOutput,
 } from "./commands/PutConfigurationSetReputationOptionsCommand";
 import {
+  type PutConfigurationSetSendingOptionsCommandInput,
+  type PutConfigurationSetSendingOptionsCommandOutput,
   PutConfigurationSetSendingOptionsCommand,
-  PutConfigurationSetSendingOptionsCommandInput,
-  PutConfigurationSetSendingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetSendingOptionsCommand";
 import {
+  type PutConfigurationSetSuppressionOptionsCommandInput,
+  type PutConfigurationSetSuppressionOptionsCommandOutput,
   PutConfigurationSetSuppressionOptionsCommand,
-  PutConfigurationSetSuppressionOptionsCommandInput,
-  PutConfigurationSetSuppressionOptionsCommandOutput,
 } from "./commands/PutConfigurationSetSuppressionOptionsCommand";
 import {
+  type PutConfigurationSetTrackingOptionsCommandInput,
+  type PutConfigurationSetTrackingOptionsCommandOutput,
   PutConfigurationSetTrackingOptionsCommand,
-  PutConfigurationSetTrackingOptionsCommandInput,
-  PutConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetTrackingOptionsCommand";
 import {
+  type PutConfigurationSetVdmOptionsCommandInput,
+  type PutConfigurationSetVdmOptionsCommandOutput,
   PutConfigurationSetVdmOptionsCommand,
-  PutConfigurationSetVdmOptionsCommandInput,
-  PutConfigurationSetVdmOptionsCommandOutput,
 } from "./commands/PutConfigurationSetVdmOptionsCommand";
 import {
+  type PutDedicatedIpInPoolCommandInput,
+  type PutDedicatedIpInPoolCommandOutput,
   PutDedicatedIpInPoolCommand,
-  PutDedicatedIpInPoolCommandInput,
-  PutDedicatedIpInPoolCommandOutput,
 } from "./commands/PutDedicatedIpInPoolCommand";
 import {
+  type PutDedicatedIpPoolScalingAttributesCommandInput,
+  type PutDedicatedIpPoolScalingAttributesCommandOutput,
   PutDedicatedIpPoolScalingAttributesCommand,
-  PutDedicatedIpPoolScalingAttributesCommandInput,
-  PutDedicatedIpPoolScalingAttributesCommandOutput,
 } from "./commands/PutDedicatedIpPoolScalingAttributesCommand";
 import {
+  type PutDedicatedIpWarmupAttributesCommandInput,
+  type PutDedicatedIpWarmupAttributesCommandOutput,
   PutDedicatedIpWarmupAttributesCommand,
-  PutDedicatedIpWarmupAttributesCommandInput,
-  PutDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutDedicatedIpWarmupAttributesCommand";
 import {
+  type PutDeliverabilityDashboardOptionCommandInput,
+  type PutDeliverabilityDashboardOptionCommandOutput,
   PutDeliverabilityDashboardOptionCommand,
-  PutDeliverabilityDashboardOptionCommandInput,
-  PutDeliverabilityDashboardOptionCommandOutput,
 } from "./commands/PutDeliverabilityDashboardOptionCommand";
 import {
+  type PutEmailIdentityConfigurationSetAttributesCommandInput,
+  type PutEmailIdentityConfigurationSetAttributesCommandOutput,
   PutEmailIdentityConfigurationSetAttributesCommand,
-  PutEmailIdentityConfigurationSetAttributesCommandInput,
-  PutEmailIdentityConfigurationSetAttributesCommandOutput,
 } from "./commands/PutEmailIdentityConfigurationSetAttributesCommand";
 import {
+  type PutEmailIdentityDkimAttributesCommandInput,
+  type PutEmailIdentityDkimAttributesCommandOutput,
   PutEmailIdentityDkimAttributesCommand,
-  PutEmailIdentityDkimAttributesCommandInput,
-  PutEmailIdentityDkimAttributesCommandOutput,
 } from "./commands/PutEmailIdentityDkimAttributesCommand";
 import {
+  type PutEmailIdentityDkimSigningAttributesCommandInput,
+  type PutEmailIdentityDkimSigningAttributesCommandOutput,
   PutEmailIdentityDkimSigningAttributesCommand,
-  PutEmailIdentityDkimSigningAttributesCommandInput,
-  PutEmailIdentityDkimSigningAttributesCommandOutput,
 } from "./commands/PutEmailIdentityDkimSigningAttributesCommand";
 import {
+  type PutEmailIdentityFeedbackAttributesCommandInput,
+  type PutEmailIdentityFeedbackAttributesCommandOutput,
   PutEmailIdentityFeedbackAttributesCommand,
-  PutEmailIdentityFeedbackAttributesCommandInput,
-  PutEmailIdentityFeedbackAttributesCommandOutput,
 } from "./commands/PutEmailIdentityFeedbackAttributesCommand";
 import {
+  type PutEmailIdentityMailFromAttributesCommandInput,
+  type PutEmailIdentityMailFromAttributesCommandOutput,
   PutEmailIdentityMailFromAttributesCommand,
-  PutEmailIdentityMailFromAttributesCommandInput,
-  PutEmailIdentityMailFromAttributesCommandOutput,
 } from "./commands/PutEmailIdentityMailFromAttributesCommand";
 import {
+  type PutSuppressedDestinationCommandInput,
+  type PutSuppressedDestinationCommandOutput,
   PutSuppressedDestinationCommand,
-  PutSuppressedDestinationCommandInput,
-  PutSuppressedDestinationCommandOutput,
 } from "./commands/PutSuppressedDestinationCommand";
 import {
+  type SendBulkEmailCommandInput,
+  type SendBulkEmailCommandOutput,
   SendBulkEmailCommand,
-  SendBulkEmailCommandInput,
-  SendBulkEmailCommandOutput,
 } from "./commands/SendBulkEmailCommand";
 import {
+  type SendCustomVerificationEmailCommandInput,
+  type SendCustomVerificationEmailCommandOutput,
   SendCustomVerificationEmailCommand,
-  SendCustomVerificationEmailCommandInput,
-  SendCustomVerificationEmailCommandOutput,
 } from "./commands/SendCustomVerificationEmailCommand";
-import { SendEmailCommand, SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type SendEmailCommandInput, type SendEmailCommandOutput, SendEmailCommand } from "./commands/SendEmailCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TestRenderEmailTemplateCommandInput,
+  type TestRenderEmailTemplateCommandOutput,
   TestRenderEmailTemplateCommand,
-  TestRenderEmailTemplateCommandInput,
-  TestRenderEmailTemplateCommandOutput,
 } from "./commands/TestRenderEmailTemplateCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateConfigurationSetEventDestinationCommandInput,
+  type UpdateConfigurationSetEventDestinationCommandOutput,
   UpdateConfigurationSetEventDestinationCommand,
-  UpdateConfigurationSetEventDestinationCommandInput,
-  UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
 import {
+  type UpdateContactCommandInput,
+  type UpdateContactCommandOutput,
   UpdateContactCommand,
-  UpdateContactCommandInput,
-  UpdateContactCommandOutput,
 } from "./commands/UpdateContactCommand";
 import {
+  type UpdateContactListCommandInput,
+  type UpdateContactListCommandOutput,
   UpdateContactListCommand,
-  UpdateContactListCommandInput,
-  UpdateContactListCommandOutput,
 } from "./commands/UpdateContactListCommand";
 import {
+  type UpdateCustomVerificationEmailTemplateCommandInput,
+  type UpdateCustomVerificationEmailTemplateCommandOutput,
   UpdateCustomVerificationEmailTemplateCommand,
-  UpdateCustomVerificationEmailTemplateCommandInput,
-  UpdateCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/UpdateCustomVerificationEmailTemplateCommand";
 import {
+  type UpdateEmailIdentityPolicyCommandInput,
+  type UpdateEmailIdentityPolicyCommandOutput,
   UpdateEmailIdentityPolicyCommand,
-  UpdateEmailIdentityPolicyCommandInput,
-  UpdateEmailIdentityPolicyCommandOutput,
 } from "./commands/UpdateEmailIdentityPolicyCommand";
 import {
+  type UpdateEmailTemplateCommandInput,
+  type UpdateEmailTemplateCommandOutput,
   UpdateEmailTemplateCommand,
-  UpdateEmailTemplateCommandInput,
-  UpdateEmailTemplateCommandOutput,
 } from "./commands/UpdateEmailTemplateCommand";
 import {
+  type UpdateReputationEntityCustomerManagedStatusCommandInput,
+  type UpdateReputationEntityCustomerManagedStatusCommandOutput,
   UpdateReputationEntityCustomerManagedStatusCommand,
-  UpdateReputationEntityCustomerManagedStatusCommandInput,
-  UpdateReputationEntityCustomerManagedStatusCommandOutput,
 } from "./commands/UpdateReputationEntityCustomerManagedStatusCommand";
 import {
+  type UpdateReputationEntityPolicyCommandInput,
+  type UpdateReputationEntityPolicyCommandOutput,
   UpdateReputationEntityPolicyCommand,
-  UpdateReputationEntityPolicyCommandInput,
-  UpdateReputationEntityPolicyCommandOutput,
 } from "./commands/UpdateReputationEntityPolicyCommand";
 import { paginateGetDedicatedIps } from "./pagination/GetDedicatedIpsPaginator";
 import { paginateListConfigurationSets } from "./pagination/ListConfigurationSetsPaginator";

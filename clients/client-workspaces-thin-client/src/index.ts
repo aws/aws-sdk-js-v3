@@ -7,7 +7,7 @@
  */
 export * from "./WorkSpacesThinClientClient";
 export * from "./WorkSpacesThinClient";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { WorkSpacesThinClientExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

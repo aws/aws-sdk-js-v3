@@ -3,131 +3,139 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DeleteResourcePermissionCommandInput,
+  type DeleteResourcePermissionCommandOutput,
   DeleteResourcePermissionCommand,
-  DeleteResourcePermissionCommandInput,
-  DeleteResourcePermissionCommandOutput,
 } from "./commands/DeleteResourcePermissionCommand";
 import {
+  type DeregisterApplicationCommandInput,
+  type DeregisterApplicationCommandOutput,
   DeregisterApplicationCommand,
-  DeregisterApplicationCommandInput,
-  DeregisterApplicationCommandOutput,
 } from "./commands/DeregisterApplicationCommand";
 import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
   GetApplicationCommand,
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  type GetComponentCommandInput,
+  type GetComponentCommandOutput,
   GetComponentCommand,
-  GetComponentCommandInput,
-  GetComponentCommandOutput,
 } from "./commands/GetComponentCommand";
 import {
+  type GetConfigurationCheckOperationCommandInput,
+  type GetConfigurationCheckOperationCommandOutput,
   GetConfigurationCheckOperationCommand,
-  GetConfigurationCheckOperationCommandInput,
-  GetConfigurationCheckOperationCommandOutput,
 } from "./commands/GetConfigurationCheckOperationCommand";
-import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
+  type GetDatabaseCommandInput,
+  type GetDatabaseCommandOutput,
+  GetDatabaseCommand,
+} from "./commands/GetDatabaseCommand";
+import {
+  type GetOperationCommandInput,
+  type GetOperationCommandOutput,
   GetOperationCommand,
-  GetOperationCommandInput,
-  GetOperationCommandOutput,
 } from "./commands/GetOperationCommand";
 import {
+  type GetResourcePermissionCommandInput,
+  type GetResourcePermissionCommandOutput,
   GetResourcePermissionCommand,
-  GetResourcePermissionCommandInput,
-  GetResourcePermissionCommandOutput,
 } from "./commands/GetResourcePermissionCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListComponentsCommandInput,
+  type ListComponentsCommandOutput,
   ListComponentsCommand,
-  ListComponentsCommandInput,
-  ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
 import {
+  type ListConfigurationCheckDefinitionsCommandInput,
+  type ListConfigurationCheckDefinitionsCommandOutput,
   ListConfigurationCheckDefinitionsCommand,
-  ListConfigurationCheckDefinitionsCommandInput,
-  ListConfigurationCheckDefinitionsCommandOutput,
 } from "./commands/ListConfigurationCheckDefinitionsCommand";
 import {
+  type ListConfigurationCheckOperationsCommandInput,
+  type ListConfigurationCheckOperationsCommandOutput,
   ListConfigurationCheckOperationsCommand,
-  ListConfigurationCheckOperationsCommandInput,
-  ListConfigurationCheckOperationsCommandOutput,
 } from "./commands/ListConfigurationCheckOperationsCommand";
 import {
+  type ListDatabasesCommandInput,
+  type ListDatabasesCommandOutput,
   ListDatabasesCommand,
-  ListDatabasesCommandInput,
-  ListDatabasesCommandOutput,
 } from "./commands/ListDatabasesCommand";
 import {
+  type ListOperationEventsCommandInput,
+  type ListOperationEventsCommandOutput,
   ListOperationEventsCommand,
-  ListOperationEventsCommandInput,
-  ListOperationEventsCommandOutput,
 } from "./commands/ListOperationEventsCommand";
 import {
+  type ListOperationsCommandInput,
+  type ListOperationsCommandOutput,
   ListOperationsCommand,
-  ListOperationsCommandInput,
-  ListOperationsCommandOutput,
 } from "./commands/ListOperationsCommand";
 import {
+  type ListSubCheckResultsCommandInput,
+  type ListSubCheckResultsCommandOutput,
   ListSubCheckResultsCommand,
-  ListSubCheckResultsCommandInput,
-  ListSubCheckResultsCommandOutput,
 } from "./commands/ListSubCheckResultsCommand";
 import {
+  type ListSubCheckRuleResultsCommandInput,
+  type ListSubCheckRuleResultsCommandOutput,
   ListSubCheckRuleResultsCommand,
-  ListSubCheckRuleResultsCommandInput,
-  ListSubCheckRuleResultsCommandOutput,
 } from "./commands/ListSubCheckRuleResultsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutResourcePermissionCommandInput,
+  type PutResourcePermissionCommandOutput,
   PutResourcePermissionCommand,
-  PutResourcePermissionCommandInput,
-  PutResourcePermissionCommandOutput,
 } from "./commands/PutResourcePermissionCommand";
 import {
+  type RegisterApplicationCommandInput,
+  type RegisterApplicationCommandOutput,
   RegisterApplicationCommand,
-  RegisterApplicationCommandInput,
-  RegisterApplicationCommandOutput,
 } from "./commands/RegisterApplicationCommand";
 import {
+  type StartApplicationCommandInput,
+  type StartApplicationCommandOutput,
   StartApplicationCommand,
-  StartApplicationCommandInput,
-  StartApplicationCommandOutput,
 } from "./commands/StartApplicationCommand";
 import {
+  type StartApplicationRefreshCommandInput,
+  type StartApplicationRefreshCommandOutput,
   StartApplicationRefreshCommand,
-  StartApplicationRefreshCommandInput,
-  StartApplicationRefreshCommandOutput,
 } from "./commands/StartApplicationRefreshCommand";
 import {
+  type StartConfigurationChecksCommandInput,
+  type StartConfigurationChecksCommandOutput,
   StartConfigurationChecksCommand,
-  StartConfigurationChecksCommandInput,
-  StartConfigurationChecksCommandOutput,
 } from "./commands/StartConfigurationChecksCommand";
 import {
+  type StopApplicationCommandInput,
+  type StopApplicationCommandOutput,
   StopApplicationCommand,
-  StopApplicationCommandInput,
-  StopApplicationCommandOutput,
 } from "./commands/StopApplicationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApplicationSettingsCommandInput,
+  type UpdateApplicationSettingsCommandOutput,
   UpdateApplicationSettingsCommand,
-  UpdateApplicationSettingsCommandInput,
-  UpdateApplicationSettingsCommandOutput,
 } from "./commands/UpdateApplicationSettingsCommand";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListComponents } from "./pagination/ListComponentsPaginator";

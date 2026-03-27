@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,181 +61,196 @@ import {
   defaultEMRHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddInstanceFleetCommandInput, AddInstanceFleetCommandOutput } from "./commands/AddInstanceFleetCommand";
-import { AddInstanceGroupsCommandInput, AddInstanceGroupsCommandOutput } from "./commands/AddInstanceGroupsCommand";
-import { AddJobFlowStepsCommandInput, AddJobFlowStepsCommandOutput } from "./commands/AddJobFlowStepsCommand";
-import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
-import { CancelStepsCommandInput, CancelStepsCommandOutput } from "./commands/CancelStepsCommand";
-import {
+import type { AddInstanceFleetCommandInput, AddInstanceFleetCommandOutput } from "./commands/AddInstanceFleetCommand";
+import type {
+  AddInstanceGroupsCommandInput,
+  AddInstanceGroupsCommandOutput,
+} from "./commands/AddInstanceGroupsCommand";
+import type { AddJobFlowStepsCommandInput, AddJobFlowStepsCommandOutput } from "./commands/AddJobFlowStepsCommand";
+import type { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import type { CancelStepsCommandInput, CancelStepsCommandOutput } from "./commands/CancelStepsCommand";
+import type {
   CreatePersistentAppUICommandInput,
   CreatePersistentAppUICommandOutput,
 } from "./commands/CreatePersistentAppUICommand";
-import {
+import type {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
-import { CreateStudioCommandInput, CreateStudioCommandOutput } from "./commands/CreateStudioCommand";
-import {
+import type { CreateStudioCommandInput, CreateStudioCommandOutput } from "./commands/CreateStudioCommand";
+import type {
   CreateStudioSessionMappingCommandInput,
   CreateStudioSessionMappingCommandOutput,
 } from "./commands/CreateStudioSessionMappingCommand";
-import {
+import type {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand";
-import { DeleteStudioCommandInput, DeleteStudioCommandOutput } from "./commands/DeleteStudioCommand";
-import {
+import type { DeleteStudioCommandInput, DeleteStudioCommandOutput } from "./commands/DeleteStudioCommand";
+import type {
   DeleteStudioSessionMappingCommandInput,
   DeleteStudioSessionMappingCommandOutput,
 } from "./commands/DeleteStudioSessionMappingCommand";
-import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
-import { DescribeJobFlowsCommandInput, DescribeJobFlowsCommandOutput } from "./commands/DescribeJobFlowsCommand";
-import {
+import type { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
+import type { DescribeJobFlowsCommandInput, DescribeJobFlowsCommandOutput } from "./commands/DescribeJobFlowsCommand";
+import type {
   DescribeNotebookExecutionCommandInput,
   DescribeNotebookExecutionCommandOutput,
 } from "./commands/DescribeNotebookExecutionCommand";
-import {
+import type {
   DescribePersistentAppUICommandInput,
   DescribePersistentAppUICommandOutput,
 } from "./commands/DescribePersistentAppUICommand";
-import {
+import type {
   DescribeReleaseLabelCommandInput,
   DescribeReleaseLabelCommandOutput,
 } from "./commands/DescribeReleaseLabelCommand";
-import {
+import type {
   DescribeSecurityConfigurationCommandInput,
   DescribeSecurityConfigurationCommandOutput,
 } from "./commands/DescribeSecurityConfigurationCommand";
-import { DescribeStepCommandInput, DescribeStepCommandOutput } from "./commands/DescribeStepCommand";
-import { DescribeStudioCommandInput, DescribeStudioCommandOutput } from "./commands/DescribeStudioCommand";
-import {
+import type { DescribeStepCommandInput, DescribeStepCommandOutput } from "./commands/DescribeStepCommand";
+import type { DescribeStudioCommandInput, DescribeStudioCommandOutput } from "./commands/DescribeStudioCommand";
+import type {
   GetAutoTerminationPolicyCommandInput,
   GetAutoTerminationPolicyCommandOutput,
 } from "./commands/GetAutoTerminationPolicyCommand";
-import {
+import type {
   GetBlockPublicAccessConfigurationCommandInput,
   GetBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/GetBlockPublicAccessConfigurationCommand";
-import {
+import type {
   GetClusterSessionCredentialsCommandInput,
   GetClusterSessionCredentialsCommandOutput,
 } from "./commands/GetClusterSessionCredentialsCommand";
-import {
+import type {
   GetManagedScalingPolicyCommandInput,
   GetManagedScalingPolicyCommandOutput,
 } from "./commands/GetManagedScalingPolicyCommand";
-import {
+import type {
   GetOnClusterAppUIPresignedURLCommandInput,
   GetOnClusterAppUIPresignedURLCommandOutput,
 } from "./commands/GetOnClusterAppUIPresignedURLCommand";
-import {
+import type {
   GetPersistentAppUIPresignedURLCommandInput,
   GetPersistentAppUIPresignedURLCommandOutput,
 } from "./commands/GetPersistentAppUIPresignedURLCommand";
-import {
+import type {
   GetStudioSessionMappingCommandInput,
   GetStudioSessionMappingCommandOutput,
 } from "./commands/GetStudioSessionMappingCommand";
-import {
+import type {
   ListBootstrapActionsCommandInput,
   ListBootstrapActionsCommandOutput,
 } from "./commands/ListBootstrapActionsCommand";
-import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
-import { ListInstanceFleetsCommandInput, ListInstanceFleetsCommandOutput } from "./commands/ListInstanceFleetsCommand";
-import { ListInstanceGroupsCommandInput, ListInstanceGroupsCommandOutput } from "./commands/ListInstanceGroupsCommand";
-import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
-import {
+import type { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
+import type {
+  ListInstanceFleetsCommandInput,
+  ListInstanceFleetsCommandOutput,
+} from "./commands/ListInstanceFleetsCommand";
+import type {
+  ListInstanceGroupsCommandInput,
+  ListInstanceGroupsCommandOutput,
+} from "./commands/ListInstanceGroupsCommand";
+import type { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
+import type {
   ListNotebookExecutionsCommandInput,
   ListNotebookExecutionsCommandOutput,
 } from "./commands/ListNotebookExecutionsCommand";
-import { ListReleaseLabelsCommandInput, ListReleaseLabelsCommandOutput } from "./commands/ListReleaseLabelsCommand";
-import {
+import type {
+  ListReleaseLabelsCommandInput,
+  ListReleaseLabelsCommandOutput,
+} from "./commands/ListReleaseLabelsCommand";
+import type {
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput,
 } from "./commands/ListSecurityConfigurationsCommand";
-import { ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand";
-import { ListStudiosCommandInput, ListStudiosCommandOutput } from "./commands/ListStudiosCommand";
-import {
+import type { ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand";
+import type { ListStudiosCommandInput, ListStudiosCommandOutput } from "./commands/ListStudiosCommand";
+import type {
   ListStudioSessionMappingsCommandInput,
   ListStudioSessionMappingsCommandOutput,
 } from "./commands/ListStudioSessionMappingsCommand";
-import {
+import type {
   ListSupportedInstanceTypesCommandInput,
   ListSupportedInstanceTypesCommandOutput,
 } from "./commands/ListSupportedInstanceTypesCommand";
-import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand";
-import {
+import type { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand";
+import type {
   ModifyInstanceFleetCommandInput,
   ModifyInstanceFleetCommandOutput,
 } from "./commands/ModifyInstanceFleetCommand";
-import {
+import type {
   ModifyInstanceGroupsCommandInput,
   ModifyInstanceGroupsCommandOutput,
 } from "./commands/ModifyInstanceGroupsCommand";
-import {
+import type {
   PutAutoScalingPolicyCommandInput,
   PutAutoScalingPolicyCommandOutput,
 } from "./commands/PutAutoScalingPolicyCommand";
-import {
+import type {
   PutAutoTerminationPolicyCommandInput,
   PutAutoTerminationPolicyCommandOutput,
 } from "./commands/PutAutoTerminationPolicyCommand";
-import {
+import type {
   PutBlockPublicAccessConfigurationCommandInput,
   PutBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/PutBlockPublicAccessConfigurationCommand";
-import {
+import type {
   PutManagedScalingPolicyCommandInput,
   PutManagedScalingPolicyCommandOutput,
 } from "./commands/PutManagedScalingPolicyCommand";
-import {
+import type {
   RemoveAutoScalingPolicyCommandInput,
   RemoveAutoScalingPolicyCommandOutput,
 } from "./commands/RemoveAutoScalingPolicyCommand";
-import {
+import type {
   RemoveAutoTerminationPolicyCommandInput,
   RemoveAutoTerminationPolicyCommandOutput,
 } from "./commands/RemoveAutoTerminationPolicyCommand";
-import {
+import type {
   RemoveManagedScalingPolicyCommandInput,
   RemoveManagedScalingPolicyCommandOutput,
 } from "./commands/RemoveManagedScalingPolicyCommand";
-import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
-import { RunJobFlowCommandInput, RunJobFlowCommandOutput } from "./commands/RunJobFlowCommand";
-import {
+import type { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import type { RunJobFlowCommandInput, RunJobFlowCommandOutput } from "./commands/RunJobFlowCommand";
+import type {
   SetKeepJobFlowAliveWhenNoStepsCommandInput,
   SetKeepJobFlowAliveWhenNoStepsCommandOutput,
 } from "./commands/SetKeepJobFlowAliveWhenNoStepsCommand";
-import {
+import type {
   SetTerminationProtectionCommandInput,
   SetTerminationProtectionCommandOutput,
 } from "./commands/SetTerminationProtectionCommand";
-import {
+import type {
   SetUnhealthyNodeReplacementCommandInput,
   SetUnhealthyNodeReplacementCommandOutput,
 } from "./commands/SetUnhealthyNodeReplacementCommand";
-import {
+import type {
   SetVisibleToAllUsersCommandInput,
   SetVisibleToAllUsersCommandOutput,
 } from "./commands/SetVisibleToAllUsersCommand";
-import {
+import type {
   StartNotebookExecutionCommandInput,
   StartNotebookExecutionCommandOutput,
 } from "./commands/StartNotebookExecutionCommand";
-import {
+import type {
   StopNotebookExecutionCommandInput,
   StopNotebookExecutionCommandOutput,
 } from "./commands/StopNotebookExecutionCommand";
-import { TerminateJobFlowsCommandInput, TerminateJobFlowsCommandOutput } from "./commands/TerminateJobFlowsCommand";
-import { UpdateStudioCommandInput, UpdateStudioCommandOutput } from "./commands/UpdateStudioCommand";
-import {
+import type {
+  TerminateJobFlowsCommandInput,
+  TerminateJobFlowsCommandOutput,
+} from "./commands/TerminateJobFlowsCommand";
+import type { UpdateStudioCommandInput, UpdateStudioCommandOutput } from "./commands/UpdateStudioCommand";
+import type {
   UpdateStudioSessionMappingCommandInput,
   UpdateStudioSessionMappingCommandOutput,
 } from "./commands/UpdateStudioSessionMappingCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -489,7 +502,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

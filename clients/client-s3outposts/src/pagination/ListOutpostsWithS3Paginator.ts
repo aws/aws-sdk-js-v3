@@ -8,7 +8,7 @@ import {
   ListOutpostsWithS3CommandOutput,
 } from "../commands/ListOutpostsWithS3Command";
 import { S3OutpostsClient } from "../S3OutpostsClient";
-import { S3OutpostsPaginationConfiguration } from "./Interfaces";
+import type { S3OutpostsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

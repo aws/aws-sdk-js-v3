@@ -8,7 +8,7 @@ import {
   ListSimulationsCommandOutput,
 } from "../commands/ListSimulationsCommand";
 import { SimSpaceWeaverClient } from "../SimSpaceWeaverClient";
-import { SimSpaceWeaverPaginationConfiguration } from "./Interfaces";
+import type { SimSpaceWeaverPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

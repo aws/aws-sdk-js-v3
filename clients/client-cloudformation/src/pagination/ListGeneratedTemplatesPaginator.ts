@@ -8,7 +8,7 @@ import {
   ListGeneratedTemplatesCommandInput,
   ListGeneratedTemplatesCommandOutput,
 } from "../commands/ListGeneratedTemplatesCommand";
-import { CloudFormationPaginationConfiguration } from "./Interfaces";
+import type { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

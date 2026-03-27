@@ -7,7 +7,7 @@
  */
 export * from "./MedicalImagingClient";
 export * from "./MedicalImaging";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MedicalImagingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

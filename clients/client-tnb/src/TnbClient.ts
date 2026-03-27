@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,136 +61,136 @@ import {
   defaultTnbHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CancelSolNetworkOperationCommandInput,
   CancelSolNetworkOperationCommandOutput,
 } from "./commands/CancelSolNetworkOperationCommand";
-import {
+import type {
   CreateSolFunctionPackageCommandInput,
   CreateSolFunctionPackageCommandOutput,
 } from "./commands/CreateSolFunctionPackageCommand";
-import {
+import type {
   CreateSolNetworkInstanceCommandInput,
   CreateSolNetworkInstanceCommandOutput,
 } from "./commands/CreateSolNetworkInstanceCommand";
-import {
+import type {
   CreateSolNetworkPackageCommandInput,
   CreateSolNetworkPackageCommandOutput,
 } from "./commands/CreateSolNetworkPackageCommand";
-import {
+import type {
   DeleteSolFunctionPackageCommandInput,
   DeleteSolFunctionPackageCommandOutput,
 } from "./commands/DeleteSolFunctionPackageCommand";
-import {
+import type {
   DeleteSolNetworkInstanceCommandInput,
   DeleteSolNetworkInstanceCommandOutput,
 } from "./commands/DeleteSolNetworkInstanceCommand";
-import {
+import type {
   DeleteSolNetworkPackageCommandInput,
   DeleteSolNetworkPackageCommandOutput,
 } from "./commands/DeleteSolNetworkPackageCommand";
-import {
+import type {
   GetSolFunctionInstanceCommandInput,
   GetSolFunctionInstanceCommandOutput,
 } from "./commands/GetSolFunctionInstanceCommand";
-import {
+import type {
   GetSolFunctionPackageCommandInput,
   GetSolFunctionPackageCommandOutput,
 } from "./commands/GetSolFunctionPackageCommand";
-import {
+import type {
   GetSolFunctionPackageContentCommandInput,
   GetSolFunctionPackageContentCommandOutput,
 } from "./commands/GetSolFunctionPackageContentCommand";
-import {
+import type {
   GetSolFunctionPackageDescriptorCommandInput,
   GetSolFunctionPackageDescriptorCommandOutput,
 } from "./commands/GetSolFunctionPackageDescriptorCommand";
-import {
+import type {
   GetSolNetworkInstanceCommandInput,
   GetSolNetworkInstanceCommandOutput,
 } from "./commands/GetSolNetworkInstanceCommand";
-import {
+import type {
   GetSolNetworkOperationCommandInput,
   GetSolNetworkOperationCommandOutput,
 } from "./commands/GetSolNetworkOperationCommand";
-import {
+import type {
   GetSolNetworkPackageCommandInput,
   GetSolNetworkPackageCommandOutput,
 } from "./commands/GetSolNetworkPackageCommand";
-import {
+import type {
   GetSolNetworkPackageContentCommandInput,
   GetSolNetworkPackageContentCommandOutput,
 } from "./commands/GetSolNetworkPackageContentCommand";
-import {
+import type {
   GetSolNetworkPackageDescriptorCommandInput,
   GetSolNetworkPackageDescriptorCommandOutput,
 } from "./commands/GetSolNetworkPackageDescriptorCommand";
-import {
+import type {
   InstantiateSolNetworkInstanceCommandInput,
   InstantiateSolNetworkInstanceCommandOutput,
 } from "./commands/InstantiateSolNetworkInstanceCommand";
-import {
+import type {
   ListSolFunctionInstancesCommandInput,
   ListSolFunctionInstancesCommandOutput,
 } from "./commands/ListSolFunctionInstancesCommand";
-import {
+import type {
   ListSolFunctionPackagesCommandInput,
   ListSolFunctionPackagesCommandOutput,
 } from "./commands/ListSolFunctionPackagesCommand";
-import {
+import type {
   ListSolNetworkInstancesCommandInput,
   ListSolNetworkInstancesCommandOutput,
 } from "./commands/ListSolNetworkInstancesCommand";
-import {
+import type {
   ListSolNetworkOperationsCommandInput,
   ListSolNetworkOperationsCommandOutput,
 } from "./commands/ListSolNetworkOperationsCommand";
-import {
+import type {
   ListSolNetworkPackagesCommandInput,
   ListSolNetworkPackagesCommandOutput,
 } from "./commands/ListSolNetworkPackagesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutSolFunctionPackageContentCommandInput,
   PutSolFunctionPackageContentCommandOutput,
 } from "./commands/PutSolFunctionPackageContentCommand";
-import {
+import type {
   PutSolNetworkPackageContentCommandInput,
   PutSolNetworkPackageContentCommandOutput,
 } from "./commands/PutSolNetworkPackageContentCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   TerminateSolNetworkInstanceCommandInput,
   TerminateSolNetworkInstanceCommandOutput,
 } from "./commands/TerminateSolNetworkInstanceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateSolFunctionPackageCommandInput,
   UpdateSolFunctionPackageCommandOutput,
 } from "./commands/UpdateSolFunctionPackageCommand";
-import {
+import type {
   UpdateSolNetworkInstanceCommandInput,
   UpdateSolNetworkInstanceCommandOutput,
 } from "./commands/UpdateSolNetworkInstanceCommand";
-import {
+import type {
   UpdateSolNetworkPackageCommandInput,
   UpdateSolNetworkPackageCommandOutput,
 } from "./commands/UpdateSolNetworkPackageCommand";
-import {
+import type {
   ValidateSolFunctionPackageContentCommandInput,
   ValidateSolFunctionPackageContentCommandOutput,
 } from "./commands/ValidateSolFunctionPackageContentCommand";
-import {
+import type {
   ValidateSolNetworkPackageContentCommandInput,
   ValidateSolNetworkPackageContentCommandOutput,
 } from "./commands/ValidateSolNetworkPackageContentCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -390,7 +388,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

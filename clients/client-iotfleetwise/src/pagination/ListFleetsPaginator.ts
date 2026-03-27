@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "../commands/ListFleetsCommand";
 import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
-import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
+import type { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { GetInsightsCommand, GetInsightsCommandInput, GetInsightsCommandOutput } from "../commands/GetInsightsCommand";
 import { SecurityHubClient } from "../SecurityHubClient";
-import { SecurityHubPaginationConfiguration } from "./Interfaces";
+import type { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

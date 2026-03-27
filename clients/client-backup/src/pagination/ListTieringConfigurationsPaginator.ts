@@ -8,7 +8,7 @@ import {
   ListTieringConfigurationsCommandInput,
   ListTieringConfigurationsCommandOutput,
 } from "../commands/ListTieringConfigurationsCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

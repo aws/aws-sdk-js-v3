@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
 import { RekognitionClient } from "../RekognitionClient";
-import { RekognitionPaginationConfiguration } from "./Interfaces";
+import type { RekognitionPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

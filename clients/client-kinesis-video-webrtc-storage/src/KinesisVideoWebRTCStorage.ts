@@ -3,14 +3,14 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type JoinStorageSessionAsViewerCommandInput,
+  type JoinStorageSessionAsViewerCommandOutput,
   JoinStorageSessionAsViewerCommand,
-  JoinStorageSessionAsViewerCommandInput,
-  JoinStorageSessionAsViewerCommandOutput,
 } from "./commands/JoinStorageSessionAsViewerCommand";
 import {
+  type JoinStorageSessionCommandInput,
+  type JoinStorageSessionCommandOutput,
   JoinStorageSessionCommand,
-  JoinStorageSessionCommandInput,
-  JoinStorageSessionCommandOutput,
 } from "./commands/JoinStorageSessionCommand";
 import { KinesisVideoWebRTCStorageClient } from "./KinesisVideoWebRTCStorageClient";
 

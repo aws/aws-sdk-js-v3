@@ -8,7 +8,7 @@ import {
   GetOfferingStatusCommandOutput,
 } from "../commands/GetOfferingStatusCommand";
 import { DeviceFarmClient } from "../DeviceFarmClient";
-import { DeviceFarmPaginationConfiguration } from "./Interfaces";
+import type { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

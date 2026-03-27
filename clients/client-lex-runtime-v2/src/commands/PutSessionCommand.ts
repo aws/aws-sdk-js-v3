@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
-import { type PutSessionRequest, PutSessionResponse } from "../models/models_0";
+import type { PutSessionRequest, PutSessionResponse } from "../models/models_0";
 import { PutSession$ } from "../schemas/schemas_0";
 
 /**

@@ -8,7 +8,7 @@ import {
   ListDatabasesCommandOutput,
 } from "../commands/ListDatabasesCommand";
 import { TimestreamWriteClient } from "../TimestreamWriteClient";
-import { TimestreamWritePaginationConfiguration } from "./Interfaces";
+import type { TimestreamWritePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

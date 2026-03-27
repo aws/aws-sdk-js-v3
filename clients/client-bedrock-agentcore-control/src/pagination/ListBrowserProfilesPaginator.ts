@@ -8,7 +8,7 @@ import {
   ListBrowserProfilesCommandInput,
   ListBrowserProfilesCommandOutput,
 } from "../commands/ListBrowserProfilesCommand";
-import { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

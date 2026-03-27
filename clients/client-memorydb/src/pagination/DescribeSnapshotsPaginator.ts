@@ -8,7 +8,7 @@ import {
   DescribeSnapshotsCommandOutput,
 } from "../commands/DescribeSnapshotsCommand";
 import { MemoryDBClient } from "../MemoryDBClient";
-import { MemoryDBPaginationConfiguration } from "./Interfaces";
+import type { MemoryDBPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

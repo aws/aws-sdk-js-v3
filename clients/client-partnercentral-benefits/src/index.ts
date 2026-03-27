@@ -7,7 +7,7 @@
  */
 export * from "./PartnerCentralBenefitsClient";
 export * from "./PartnerCentralBenefits";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PartnerCentralBenefitsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

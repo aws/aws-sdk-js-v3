@@ -85,7 +85,7 @@
  */
 export * from "./CodeConnectionsClient";
 export * from "./CodeConnections";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CodeConnectionsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

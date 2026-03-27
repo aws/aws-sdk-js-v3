@@ -8,7 +8,7 @@ import {
   ListCustomPluginsCommandOutput,
 } from "../commands/ListCustomPluginsCommand";
 import { KafkaConnectClient } from "../KafkaConnectClient";
-import { KafkaConnectPaginationConfiguration } from "./Interfaces";
+import type { KafkaConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

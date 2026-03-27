@@ -7,7 +7,7 @@
  */
 export * from "./LexModelsV2Client";
 export * from "./LexModelsV2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { LexModelsV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

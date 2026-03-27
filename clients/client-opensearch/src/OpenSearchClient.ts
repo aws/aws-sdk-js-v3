@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,218 +61,254 @@ import {
   defaultOpenSearchHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptInboundConnectionCommandInput,
   AcceptInboundConnectionCommandOutput,
 } from "./commands/AcceptInboundConnectionCommand";
-import { AddDataSourceCommandInput, AddDataSourceCommandOutput } from "./commands/AddDataSourceCommand";
-import {
+import type { AddDataSourceCommandInput, AddDataSourceCommandOutput } from "./commands/AddDataSourceCommand";
+import type {
   AddDirectQueryDataSourceCommandInput,
   AddDirectQueryDataSourceCommandOutput,
 } from "./commands/AddDirectQueryDataSourceCommand";
-import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
-import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
-import { AssociatePackagesCommandInput, AssociatePackagesCommandOutput } from "./commands/AssociatePackagesCommand";
-import {
+import type { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import type { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
+import type {
+  AssociatePackagesCommandInput,
+  AssociatePackagesCommandOutput,
+} from "./commands/AssociatePackagesCommand";
+import type {
   AuthorizeVpcEndpointAccessCommandInput,
   AuthorizeVpcEndpointAccessCommandOutput,
 } from "./commands/AuthorizeVpcEndpointAccessCommand";
-import {
+import type {
   CancelDomainConfigChangeCommandInput,
   CancelDomainConfigChangeCommandOutput,
 } from "./commands/CancelDomainConfigChangeCommand";
-import {
+import type {
   CancelServiceSoftwareUpdateCommandInput,
   CancelServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelServiceSoftwareUpdateCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
-import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
-import {
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import type { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import type {
   CreateOutboundConnectionCommandInput,
   CreateOutboundConnectionCommandOutput,
 } from "./commands/CreateOutboundConnectionCommand";
-import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
-import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
-import {
+import type { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
+import type {
+  CreateVpcEndpointCommandInput,
+  CreateVpcEndpointCommandOutput,
+} from "./commands/CreateVpcEndpointCommand";
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import type {
   DeleteDirectQueryDataSourceCommandInput,
   DeleteDirectQueryDataSourceCommandOutput,
 } from "./commands/DeleteDirectQueryDataSourceCommand";
-import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
-import {
+import type { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import type {
   DeleteInboundConnectionCommandInput,
   DeleteInboundConnectionCommandOutput,
 } from "./commands/DeleteInboundConnectionCommand";
-import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
-import {
+import type { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import type {
   DeleteOutboundConnectionCommandInput,
   DeleteOutboundConnectionCommandOutput,
 } from "./commands/DeleteOutboundConnectionCommand";
-import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
-import { DeleteVpcEndpointCommandInput, DeleteVpcEndpointCommandOutput } from "./commands/DeleteVpcEndpointCommand";
-import {
+import type { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
+import type {
+  DeleteVpcEndpointCommandInput,
+  DeleteVpcEndpointCommandOutput,
+} from "./commands/DeleteVpcEndpointCommand";
+import type {
   DescribeDomainAutoTunesCommandInput,
   DescribeDomainAutoTunesCommandOutput,
 } from "./commands/DescribeDomainAutoTunesCommand";
-import {
+import type {
   DescribeDomainChangeProgressCommandInput,
   DescribeDomainChangeProgressCommandOutput,
 } from "./commands/DescribeDomainChangeProgressCommand";
-import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
-import {
+import type { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
+import type {
   DescribeDomainConfigCommandInput,
   DescribeDomainConfigCommandOutput,
 } from "./commands/DescribeDomainConfigCommand";
-import {
+import type {
   DescribeDomainHealthCommandInput,
   DescribeDomainHealthCommandOutput,
 } from "./commands/DescribeDomainHealthCommand";
-import {
+import type {
   DescribeDomainNodesCommandInput,
   DescribeDomainNodesCommandOutput,
 } from "./commands/DescribeDomainNodesCommand";
-import { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "./commands/DescribeDomainsCommand";
-import {
+import type { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "./commands/DescribeDomainsCommand";
+import type {
   DescribeDryRunProgressCommandInput,
   DescribeDryRunProgressCommandOutput,
 } from "./commands/DescribeDryRunProgressCommand";
-import {
+import type {
   DescribeInboundConnectionsCommandInput,
   DescribeInboundConnectionsCommandOutput,
 } from "./commands/DescribeInboundConnectionsCommand";
-import {
+import type {
   DescribeInstanceTypeLimitsCommandInput,
   DescribeInstanceTypeLimitsCommandOutput,
 } from "./commands/DescribeInstanceTypeLimitsCommand";
-import {
+import type {
   DescribeOutboundConnectionsCommandInput,
   DescribeOutboundConnectionsCommandOutput,
 } from "./commands/DescribeOutboundConnectionsCommand";
-import { DescribePackagesCommandInput, DescribePackagesCommandOutput } from "./commands/DescribePackagesCommand";
-import {
+import type { DescribePackagesCommandInput, DescribePackagesCommandOutput } from "./commands/DescribePackagesCommand";
+import type {
   DescribeReservedInstanceOfferingsCommandInput,
   DescribeReservedInstanceOfferingsCommandOutput,
 } from "./commands/DescribeReservedInstanceOfferingsCommand";
-import {
+import type {
   DescribeReservedInstancesCommandInput,
   DescribeReservedInstancesCommandOutput,
 } from "./commands/DescribeReservedInstancesCommand";
-import {
+import type {
   DescribeVpcEndpointsCommandInput,
   DescribeVpcEndpointsCommandOutput,
 } from "./commands/DescribeVpcEndpointsCommand";
-import { DissociatePackageCommandInput, DissociatePackageCommandOutput } from "./commands/DissociatePackageCommand";
-import { DissociatePackagesCommandInput, DissociatePackagesCommandOutput } from "./commands/DissociatePackagesCommand";
-import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
-import {
+import type {
+  DissociatePackageCommandInput,
+  DissociatePackageCommandOutput,
+} from "./commands/DissociatePackageCommand";
+import type {
+  DissociatePackagesCommandInput,
+  DissociatePackagesCommandOutput,
+} from "./commands/DissociatePackagesCommand";
+import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import type {
   GetCompatibleVersionsCommandInput,
   GetCompatibleVersionsCommandOutput,
 } from "./commands/GetCompatibleVersionsCommand";
-import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
-import {
+import type { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import type {
   GetDefaultApplicationSettingCommandInput,
   GetDefaultApplicationSettingCommandOutput,
 } from "./commands/GetDefaultApplicationSettingCommand";
-import {
+import type {
   GetDirectQueryDataSourceCommandInput,
   GetDirectQueryDataSourceCommandOutput,
 } from "./commands/GetDirectQueryDataSourceCommand";
-import {
+import type {
   GetDomainMaintenanceStatusCommandInput,
   GetDomainMaintenanceStatusCommandOutput,
 } from "./commands/GetDomainMaintenanceStatusCommand";
-import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
-import {
+import type { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import type {
   GetPackageVersionHistoryCommandInput,
   GetPackageVersionHistoryCommandOutput,
 } from "./commands/GetPackageVersionHistoryCommand";
-import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "./commands/GetUpgradeHistoryCommand";
-import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
-import {
+import type {
+  GetUpgradeHistoryCommandInput,
+  GetUpgradeHistoryCommandOutput,
+} from "./commands/GetUpgradeHistoryCommand";
+import type { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import type {
   ListDirectQueryDataSourcesCommandInput,
   ListDirectQueryDataSourcesCommandOutput,
 } from "./commands/ListDirectQueryDataSourcesCommand";
-import {
+import type {
   ListDomainMaintenancesCommandInput,
   ListDomainMaintenancesCommandOutput,
 } from "./commands/ListDomainMaintenancesCommand";
-import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
-import {
+import type { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
+import type {
   ListDomainsForPackageCommandInput,
   ListDomainsForPackageCommandOutput,
 } from "./commands/ListDomainsForPackageCommand";
-import {
+import type {
   ListInstanceTypeDetailsCommandInput,
   ListInstanceTypeDetailsCommandOutput,
 } from "./commands/ListInstanceTypeDetailsCommand";
-import {
+import type {
   ListPackagesForDomainCommandInput,
   ListPackagesForDomainCommandOutput,
 } from "./commands/ListPackagesForDomainCommand";
-import {
+import type {
   ListScheduledActionsCommandInput,
   ListScheduledActionsCommandOutput,
 } from "./commands/ListScheduledActionsCommand";
-import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/ListVersionsCommand";
-import {
+import type { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import type { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/ListVersionsCommand";
+import type {
   ListVpcEndpointAccessCommandInput,
   ListVpcEndpointAccessCommandOutput,
 } from "./commands/ListVpcEndpointAccessCommand";
-import { ListVpcEndpointsCommandInput, ListVpcEndpointsCommandOutput } from "./commands/ListVpcEndpointsCommand";
-import {
+import type { ListVpcEndpointsCommandInput, ListVpcEndpointsCommandOutput } from "./commands/ListVpcEndpointsCommand";
+import type {
   ListVpcEndpointsForDomainCommandInput,
   ListVpcEndpointsForDomainCommandOutput,
 } from "./commands/ListVpcEndpointsForDomainCommand";
-import {
+import type {
   PurchaseReservedInstanceOfferingCommandInput,
   PurchaseReservedInstanceOfferingCommandOutput,
 } from "./commands/PurchaseReservedInstanceOfferingCommand";
-import {
+import type {
   PutDefaultApplicationSettingCommandInput,
   PutDefaultApplicationSettingCommandOutput,
 } from "./commands/PutDefaultApplicationSettingCommand";
-import {
+import type {
   RejectInboundConnectionCommandInput,
   RejectInboundConnectionCommandOutput,
 } from "./commands/RejectInboundConnectionCommand";
-import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
-import {
+import type { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import type {
   RevokeVpcEndpointAccessCommandInput,
   RevokeVpcEndpointAccessCommandOutput,
 } from "./commands/RevokeVpcEndpointAccessCommand";
-import {
+import type {
   StartDomainMaintenanceCommandInput,
   StartDomainMaintenanceCommandOutput,
 } from "./commands/StartDomainMaintenanceCommand";
-import {
+import type {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartServiceSoftwareUpdateCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
-import {
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import type {
   UpdateDirectQueryDataSourceCommandInput,
   UpdateDirectQueryDataSourceCommandOutput,
 } from "./commands/UpdateDirectQueryDataSourceCommand";
-import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "./commands/UpdateDomainConfigCommand";
-import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
-import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
-import { UpdatePackageScopeCommandInput, UpdatePackageScopeCommandOutput } from "./commands/UpdatePackageScopeCommand";
-import {
+import type {
+  UpdateDomainConfigCommandInput,
+  UpdateDomainConfigCommandOutput,
+} from "./commands/UpdateDomainConfigCommand";
+import type { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
+import type { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
+import type {
+  UpdatePackageScopeCommandInput,
+  UpdatePackageScopeCommandOutput,
+} from "./commands/UpdatePackageScopeCommand";
+import type {
   UpdateScheduledActionCommandInput,
   UpdateScheduledActionCommandOutput,
 } from "./commands/UpdateScheduledActionCommand";
-import { UpdateVpcEndpointCommandInput, UpdateVpcEndpointCommandOutput } from "./commands/UpdateVpcEndpointCommand";
-import { UpgradeDomainCommandInput, UpgradeDomainCommandOutput } from "./commands/UpgradeDomainCommand";
+import type {
+  UpdateVpcEndpointCommandInput,
+  UpdateVpcEndpointCommandOutput,
+} from "./commands/UpdateVpcEndpointCommand";
+import type { UpgradeDomainCommandInput, UpgradeDomainCommandOutput } from "./commands/UpgradeDomainCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -570,7 +604,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

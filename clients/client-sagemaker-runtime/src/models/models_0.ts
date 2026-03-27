@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { InternalStreamFailure, ModelStreamError } from "./errors";
+import type { InternalStreamFailure, ModelStreamError } from "./errors";
 
 /**
  * @public

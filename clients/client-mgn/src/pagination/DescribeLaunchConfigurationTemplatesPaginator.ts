@@ -8,7 +8,7 @@ import {
   DescribeLaunchConfigurationTemplatesCommandOutput,
 } from "../commands/DescribeLaunchConfigurationTemplatesCommand";
 import { MgnClient } from "../MgnClient";
-import { MgnPaginationConfiguration } from "./Interfaces";
+import type { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

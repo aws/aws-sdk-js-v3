@@ -8,7 +8,7 @@ import {
   ListStagingAccountsCommandOutput,
 } from "../commands/ListStagingAccountsCommand";
 import { DrsClient } from "../DrsClient";
-import { DrsPaginationConfiguration } from "./Interfaces";
+import type { DrsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

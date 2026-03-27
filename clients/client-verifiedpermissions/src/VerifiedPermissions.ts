@@ -3,158 +3,162 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchGetPolicyCommandInput,
+  type BatchGetPolicyCommandOutput,
   BatchGetPolicyCommand,
-  BatchGetPolicyCommandInput,
-  BatchGetPolicyCommandOutput,
 } from "./commands/BatchGetPolicyCommand";
 import {
+  type BatchIsAuthorizedCommandInput,
+  type BatchIsAuthorizedCommandOutput,
   BatchIsAuthorizedCommand,
-  BatchIsAuthorizedCommandInput,
-  BatchIsAuthorizedCommandOutput,
 } from "./commands/BatchIsAuthorizedCommand";
 import {
+  type BatchIsAuthorizedWithTokenCommandInput,
+  type BatchIsAuthorizedWithTokenCommandOutput,
   BatchIsAuthorizedWithTokenCommand,
-  BatchIsAuthorizedWithTokenCommandInput,
-  BatchIsAuthorizedWithTokenCommandOutput,
 } from "./commands/BatchIsAuthorizedWithTokenCommand";
 import {
+  type CreateIdentitySourceCommandInput,
+  type CreateIdentitySourceCommandOutput,
   CreateIdentitySourceCommand,
-  CreateIdentitySourceCommandInput,
-  CreateIdentitySourceCommandOutput,
 } from "./commands/CreateIdentitySourceCommand";
 import {
+  type CreatePolicyCommandInput,
+  type CreatePolicyCommandOutput,
   CreatePolicyCommand,
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput,
 } from "./commands/CreatePolicyCommand";
 import {
+  type CreatePolicyStoreAliasCommandInput,
+  type CreatePolicyStoreAliasCommandOutput,
   CreatePolicyStoreAliasCommand,
-  CreatePolicyStoreAliasCommandInput,
-  CreatePolicyStoreAliasCommandOutput,
 } from "./commands/CreatePolicyStoreAliasCommand";
 import {
+  type CreatePolicyStoreCommandInput,
+  type CreatePolicyStoreCommandOutput,
   CreatePolicyStoreCommand,
-  CreatePolicyStoreCommandInput,
-  CreatePolicyStoreCommandOutput,
 } from "./commands/CreatePolicyStoreCommand";
 import {
+  type CreatePolicyTemplateCommandInput,
+  type CreatePolicyTemplateCommandOutput,
   CreatePolicyTemplateCommand,
-  CreatePolicyTemplateCommandInput,
-  CreatePolicyTemplateCommandOutput,
 } from "./commands/CreatePolicyTemplateCommand";
 import {
+  type DeleteIdentitySourceCommandInput,
+  type DeleteIdentitySourceCommandOutput,
   DeleteIdentitySourceCommand,
-  DeleteIdentitySourceCommandInput,
-  DeleteIdentitySourceCommandOutput,
 } from "./commands/DeleteIdentitySourceCommand";
 import {
+  type DeletePolicyCommandInput,
+  type DeletePolicyCommandOutput,
   DeletePolicyCommand,
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  type DeletePolicyStoreAliasCommandInput,
+  type DeletePolicyStoreAliasCommandOutput,
   DeletePolicyStoreAliasCommand,
-  DeletePolicyStoreAliasCommandInput,
-  DeletePolicyStoreAliasCommandOutput,
 } from "./commands/DeletePolicyStoreAliasCommand";
 import {
+  type DeletePolicyStoreCommandInput,
+  type DeletePolicyStoreCommandOutput,
   DeletePolicyStoreCommand,
-  DeletePolicyStoreCommandInput,
-  DeletePolicyStoreCommandOutput,
 } from "./commands/DeletePolicyStoreCommand";
 import {
+  type DeletePolicyTemplateCommandInput,
+  type DeletePolicyTemplateCommandOutput,
   DeletePolicyTemplateCommand,
-  DeletePolicyTemplateCommandInput,
-  DeletePolicyTemplateCommandOutput,
 } from "./commands/DeletePolicyTemplateCommand";
 import {
+  type GetIdentitySourceCommandInput,
+  type GetIdentitySourceCommandOutput,
   GetIdentitySourceCommand,
-  GetIdentitySourceCommandInput,
-  GetIdentitySourceCommandOutput,
 } from "./commands/GetIdentitySourceCommand";
-import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { type GetPolicyCommandInput, type GetPolicyCommandOutput, GetPolicyCommand } from "./commands/GetPolicyCommand";
 import {
+  type GetPolicyStoreAliasCommandInput,
+  type GetPolicyStoreAliasCommandOutput,
   GetPolicyStoreAliasCommand,
-  GetPolicyStoreAliasCommandInput,
-  GetPolicyStoreAliasCommandOutput,
 } from "./commands/GetPolicyStoreAliasCommand";
 import {
+  type GetPolicyStoreCommandInput,
+  type GetPolicyStoreCommandOutput,
   GetPolicyStoreCommand,
-  GetPolicyStoreCommandInput,
-  GetPolicyStoreCommandOutput,
 } from "./commands/GetPolicyStoreCommand";
 import {
+  type GetPolicyTemplateCommandInput,
+  type GetPolicyTemplateCommandOutput,
   GetPolicyTemplateCommand,
-  GetPolicyTemplateCommandInput,
-  GetPolicyTemplateCommandOutput,
 } from "./commands/GetPolicyTemplateCommand";
-import { GetSchemaCommand, GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
+import { type GetSchemaCommandInput, type GetSchemaCommandOutput, GetSchemaCommand } from "./commands/GetSchemaCommand";
 import {
+  type IsAuthorizedCommandInput,
+  type IsAuthorizedCommandOutput,
   IsAuthorizedCommand,
-  IsAuthorizedCommandInput,
-  IsAuthorizedCommandOutput,
 } from "./commands/IsAuthorizedCommand";
 import {
+  type IsAuthorizedWithTokenCommandInput,
+  type IsAuthorizedWithTokenCommandOutput,
   IsAuthorizedWithTokenCommand,
-  IsAuthorizedWithTokenCommandInput,
-  IsAuthorizedWithTokenCommandOutput,
 } from "./commands/IsAuthorizedWithTokenCommand";
 import {
+  type ListIdentitySourcesCommandInput,
+  type ListIdentitySourcesCommandOutput,
   ListIdentitySourcesCommand,
-  ListIdentitySourcesCommandInput,
-  ListIdentitySourcesCommandOutput,
 } from "./commands/ListIdentitySourcesCommand";
 import {
+  type ListPoliciesCommandInput,
+  type ListPoliciesCommandOutput,
   ListPoliciesCommand,
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput,
 } from "./commands/ListPoliciesCommand";
 import {
+  type ListPolicyStoreAliasesCommandInput,
+  type ListPolicyStoreAliasesCommandOutput,
   ListPolicyStoreAliasesCommand,
-  ListPolicyStoreAliasesCommandInput,
-  ListPolicyStoreAliasesCommandOutput,
 } from "./commands/ListPolicyStoreAliasesCommand";
 import {
+  type ListPolicyStoresCommandInput,
+  type ListPolicyStoresCommandOutput,
   ListPolicyStoresCommand,
-  ListPolicyStoresCommandInput,
-  ListPolicyStoresCommandOutput,
 } from "./commands/ListPolicyStoresCommand";
 import {
+  type ListPolicyTemplatesCommandInput,
+  type ListPolicyTemplatesCommandOutput,
   ListPolicyTemplatesCommand,
-  ListPolicyTemplatesCommandInput,
-  ListPolicyTemplatesCommandOutput,
 } from "./commands/ListPolicyTemplatesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutSchemaCommand, PutSchemaCommandInput, PutSchemaCommandOutput } from "./commands/PutSchemaCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type PutSchemaCommandInput, type PutSchemaCommandOutput, PutSchemaCommand } from "./commands/PutSchemaCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateIdentitySourceCommandInput,
+  type UpdateIdentitySourceCommandOutput,
   UpdateIdentitySourceCommand,
-  UpdateIdentitySourceCommandInput,
-  UpdateIdentitySourceCommandOutput,
 } from "./commands/UpdateIdentitySourceCommand";
 import {
+  type UpdatePolicyCommandInput,
+  type UpdatePolicyCommandOutput,
   UpdatePolicyCommand,
-  UpdatePolicyCommandInput,
-  UpdatePolicyCommandOutput,
 } from "./commands/UpdatePolicyCommand";
 import {
+  type UpdatePolicyStoreCommandInput,
+  type UpdatePolicyStoreCommandOutput,
   UpdatePolicyStoreCommand,
-  UpdatePolicyStoreCommandInput,
-  UpdatePolicyStoreCommandOutput,
 } from "./commands/UpdatePolicyStoreCommand";
 import {
+  type UpdatePolicyTemplateCommandInput,
+  type UpdatePolicyTemplateCommandOutput,
   UpdatePolicyTemplateCommand,
-  UpdatePolicyTemplateCommandInput,
-  UpdatePolicyTemplateCommandOutput,
 } from "./commands/UpdatePolicyTemplateCommand";
 import { paginateListIdentitySources } from "./pagination/ListIdentitySourcesPaginator";
 import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";

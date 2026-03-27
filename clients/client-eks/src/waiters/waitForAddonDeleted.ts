@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeAddonCommand, DescribeAddonCommandInput } from "../commands/DescribeAddonCommand";
-import { EKSClient } from "../EKSClient";
+import { type DescribeAddonCommandInput, DescribeAddonCommand } from "../commands/DescribeAddonCommand";
+import type { EKSClient } from "../EKSClient";
 
 const checkState = async (client: EKSClient, input: DescribeAddonCommandInput): Promise<WaiterResult> => {
   let reason;

@@ -8,7 +8,7 @@ import {
   GetDedicatedIpsCommandOutput,
 } from "../commands/GetDedicatedIpsCommand";
 import { PinpointEmailClient } from "../PinpointEmailClient";
-import { PinpointEmailPaginationConfiguration } from "./Interfaces";
+import type { PinpointEmailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

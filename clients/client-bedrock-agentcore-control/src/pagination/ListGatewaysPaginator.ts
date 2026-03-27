@@ -8,7 +8,7 @@ import {
   ListGatewaysCommandInput,
   ListGatewaysCommandOutput,
 } from "../commands/ListGatewaysCommand";
-import { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

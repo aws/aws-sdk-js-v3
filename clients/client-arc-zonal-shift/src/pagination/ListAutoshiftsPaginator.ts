@@ -8,7 +8,7 @@ import {
   ListAutoshiftsCommandInput,
   ListAutoshiftsCommandOutput,
 } from "../commands/ListAutoshiftsCommand";
-import { ARCZonalShiftPaginationConfiguration } from "./Interfaces";
+import type { ARCZonalShiftPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,154 +61,169 @@ import {
   defaultCloudDirectoryHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddFacetToObjectCommandInput, AddFacetToObjectCommandOutput } from "./commands/AddFacetToObjectCommand";
-import { ApplySchemaCommandInput, ApplySchemaCommandOutput } from "./commands/ApplySchemaCommand";
-import { AttachObjectCommandInput, AttachObjectCommandOutput } from "./commands/AttachObjectCommand";
-import { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "./commands/AttachPolicyCommand";
-import { AttachToIndexCommandInput, AttachToIndexCommandOutput } from "./commands/AttachToIndexCommand";
-import { AttachTypedLinkCommandInput, AttachTypedLinkCommandOutput } from "./commands/AttachTypedLinkCommand";
-import { BatchReadCommandInput, BatchReadCommandOutput } from "./commands/BatchReadCommand";
-import { BatchWriteCommandInput, BatchWriteCommandOutput } from "./commands/BatchWriteCommand";
-import { CreateDirectoryCommandInput, CreateDirectoryCommandOutput } from "./commands/CreateDirectoryCommand";
-import { CreateFacetCommandInput, CreateFacetCommandOutput } from "./commands/CreateFacetCommand";
-import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
-import { CreateObjectCommandInput, CreateObjectCommandOutput } from "./commands/CreateObjectCommand";
-import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
-import {
+import type { AddFacetToObjectCommandInput, AddFacetToObjectCommandOutput } from "./commands/AddFacetToObjectCommand";
+import type { ApplySchemaCommandInput, ApplySchemaCommandOutput } from "./commands/ApplySchemaCommand";
+import type { AttachObjectCommandInput, AttachObjectCommandOutput } from "./commands/AttachObjectCommand";
+import type { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "./commands/AttachPolicyCommand";
+import type { AttachToIndexCommandInput, AttachToIndexCommandOutput } from "./commands/AttachToIndexCommand";
+import type { AttachTypedLinkCommandInput, AttachTypedLinkCommandOutput } from "./commands/AttachTypedLinkCommand";
+import type { BatchReadCommandInput, BatchReadCommandOutput } from "./commands/BatchReadCommand";
+import type { BatchWriteCommandInput, BatchWriteCommandOutput } from "./commands/BatchWriteCommand";
+import type { CreateDirectoryCommandInput, CreateDirectoryCommandOutput } from "./commands/CreateDirectoryCommand";
+import type { CreateFacetCommandInput, CreateFacetCommandOutput } from "./commands/CreateFacetCommand";
+import type { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import type { CreateObjectCommandInput, CreateObjectCommandOutput } from "./commands/CreateObjectCommand";
+import type { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
+import type {
   CreateTypedLinkFacetCommandInput,
   CreateTypedLinkFacetCommandOutput,
 } from "./commands/CreateTypedLinkFacetCommand";
-import { DeleteDirectoryCommandInput, DeleteDirectoryCommandOutput } from "./commands/DeleteDirectoryCommand";
-import { DeleteFacetCommandInput, DeleteFacetCommandOutput } from "./commands/DeleteFacetCommand";
-import { DeleteObjectCommandInput, DeleteObjectCommandOutput } from "./commands/DeleteObjectCommand";
-import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
-import {
+import type { DeleteDirectoryCommandInput, DeleteDirectoryCommandOutput } from "./commands/DeleteDirectoryCommand";
+import type { DeleteFacetCommandInput, DeleteFacetCommandOutput } from "./commands/DeleteFacetCommand";
+import type { DeleteObjectCommandInput, DeleteObjectCommandOutput } from "./commands/DeleteObjectCommand";
+import type { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
+import type {
   DeleteTypedLinkFacetCommandInput,
   DeleteTypedLinkFacetCommandOutput,
 } from "./commands/DeleteTypedLinkFacetCommand";
-import { DetachFromIndexCommandInput, DetachFromIndexCommandOutput } from "./commands/DetachFromIndexCommand";
-import { DetachObjectCommandInput, DetachObjectCommandOutput } from "./commands/DetachObjectCommand";
-import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand";
-import { DetachTypedLinkCommandInput, DetachTypedLinkCommandOutput } from "./commands/DetachTypedLinkCommand";
-import { DisableDirectoryCommandInput, DisableDirectoryCommandOutput } from "./commands/DisableDirectoryCommand";
-import { EnableDirectoryCommandInput, EnableDirectoryCommandOutput } from "./commands/EnableDirectoryCommand";
-import {
+import type { DetachFromIndexCommandInput, DetachFromIndexCommandOutput } from "./commands/DetachFromIndexCommand";
+import type { DetachObjectCommandInput, DetachObjectCommandOutput } from "./commands/DetachObjectCommand";
+import type { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand";
+import type { DetachTypedLinkCommandInput, DetachTypedLinkCommandOutput } from "./commands/DetachTypedLinkCommand";
+import type { DisableDirectoryCommandInput, DisableDirectoryCommandOutput } from "./commands/DisableDirectoryCommand";
+import type { EnableDirectoryCommandInput, EnableDirectoryCommandOutput } from "./commands/EnableDirectoryCommand";
+import type {
   GetAppliedSchemaVersionCommandInput,
   GetAppliedSchemaVersionCommandOutput,
 } from "./commands/GetAppliedSchemaVersionCommand";
-import { GetDirectoryCommandInput, GetDirectoryCommandOutput } from "./commands/GetDirectoryCommand";
-import { GetFacetCommandInput, GetFacetCommandOutput } from "./commands/GetFacetCommand";
-import { GetLinkAttributesCommandInput, GetLinkAttributesCommandOutput } from "./commands/GetLinkAttributesCommand";
-import {
+import type { GetDirectoryCommandInput, GetDirectoryCommandOutput } from "./commands/GetDirectoryCommand";
+import type { GetFacetCommandInput, GetFacetCommandOutput } from "./commands/GetFacetCommand";
+import type {
+  GetLinkAttributesCommandInput,
+  GetLinkAttributesCommandOutput,
+} from "./commands/GetLinkAttributesCommand";
+import type {
   GetObjectAttributesCommandInput,
   GetObjectAttributesCommandOutput,
 } from "./commands/GetObjectAttributesCommand";
-import {
+import type {
   GetObjectInformationCommandInput,
   GetObjectInformationCommandOutput,
 } from "./commands/GetObjectInformationCommand";
-import { GetSchemaAsJsonCommandInput, GetSchemaAsJsonCommandOutput } from "./commands/GetSchemaAsJsonCommand";
-import {
+import type { GetSchemaAsJsonCommandInput, GetSchemaAsJsonCommandOutput } from "./commands/GetSchemaAsJsonCommand";
+import type {
   GetTypedLinkFacetInformationCommandInput,
   GetTypedLinkFacetInformationCommandOutput,
 } from "./commands/GetTypedLinkFacetInformationCommand";
-import {
+import type {
   ListAppliedSchemaArnsCommandInput,
   ListAppliedSchemaArnsCommandOutput,
 } from "./commands/ListAppliedSchemaArnsCommand";
-import {
+import type {
   ListAttachedIndicesCommandInput,
   ListAttachedIndicesCommandOutput,
 } from "./commands/ListAttachedIndicesCommand";
-import {
+import type {
   ListDevelopmentSchemaArnsCommandInput,
   ListDevelopmentSchemaArnsCommandOutput,
 } from "./commands/ListDevelopmentSchemaArnsCommand";
-import { ListDirectoriesCommandInput, ListDirectoriesCommandOutput } from "./commands/ListDirectoriesCommand";
-import {
+import type { ListDirectoriesCommandInput, ListDirectoriesCommandOutput } from "./commands/ListDirectoriesCommand";
+import type {
   ListFacetAttributesCommandInput,
   ListFacetAttributesCommandOutput,
 } from "./commands/ListFacetAttributesCommand";
-import { ListFacetNamesCommandInput, ListFacetNamesCommandOutput } from "./commands/ListFacetNamesCommand";
-import {
+import type { ListFacetNamesCommandInput, ListFacetNamesCommandOutput } from "./commands/ListFacetNamesCommand";
+import type {
   ListIncomingTypedLinksCommandInput,
   ListIncomingTypedLinksCommandOutput,
 } from "./commands/ListIncomingTypedLinksCommand";
-import { ListIndexCommandInput, ListIndexCommandOutput } from "./commands/ListIndexCommand";
-import {
+import type { ListIndexCommandInput, ListIndexCommandOutput } from "./commands/ListIndexCommand";
+import type {
   ListManagedSchemaArnsCommandInput,
   ListManagedSchemaArnsCommandOutput,
 } from "./commands/ListManagedSchemaArnsCommand";
-import {
+import type {
   ListObjectAttributesCommandInput,
   ListObjectAttributesCommandOutput,
 } from "./commands/ListObjectAttributesCommand";
-import { ListObjectChildrenCommandInput, ListObjectChildrenCommandOutput } from "./commands/ListObjectChildrenCommand";
-import {
+import type {
+  ListObjectChildrenCommandInput,
+  ListObjectChildrenCommandOutput,
+} from "./commands/ListObjectChildrenCommand";
+import type {
   ListObjectParentPathsCommandInput,
   ListObjectParentPathsCommandOutput,
 } from "./commands/ListObjectParentPathsCommand";
-import { ListObjectParentsCommandInput, ListObjectParentsCommandOutput } from "./commands/ListObjectParentsCommand";
-import { ListObjectPoliciesCommandInput, ListObjectPoliciesCommandOutput } from "./commands/ListObjectPoliciesCommand";
-import {
+import type {
+  ListObjectParentsCommandInput,
+  ListObjectParentsCommandOutput,
+} from "./commands/ListObjectParentsCommand";
+import type {
+  ListObjectPoliciesCommandInput,
+  ListObjectPoliciesCommandOutput,
+} from "./commands/ListObjectPoliciesCommand";
+import type {
   ListOutgoingTypedLinksCommandInput,
   ListOutgoingTypedLinksCommandOutput,
 } from "./commands/ListOutgoingTypedLinksCommand";
-import {
+import type {
   ListPolicyAttachmentsCommandInput,
   ListPolicyAttachmentsCommandOutput,
 } from "./commands/ListPolicyAttachmentsCommand";
-import {
+import type {
   ListPublishedSchemaArnsCommandInput,
   ListPublishedSchemaArnsCommandOutput,
 } from "./commands/ListPublishedSchemaArnsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTypedLinkFacetAttributesCommandInput,
   ListTypedLinkFacetAttributesCommandOutput,
 } from "./commands/ListTypedLinkFacetAttributesCommand";
-import {
+import type {
   ListTypedLinkFacetNamesCommandInput,
   ListTypedLinkFacetNamesCommandOutput,
 } from "./commands/ListTypedLinkFacetNamesCommand";
-import { LookupPolicyCommandInput, LookupPolicyCommandOutput } from "./commands/LookupPolicyCommand";
-import { PublishSchemaCommandInput, PublishSchemaCommandOutput } from "./commands/PublishSchemaCommand";
-import { PutSchemaFromJsonCommandInput, PutSchemaFromJsonCommandOutput } from "./commands/PutSchemaFromJsonCommand";
-import {
+import type { LookupPolicyCommandInput, LookupPolicyCommandOutput } from "./commands/LookupPolicyCommand";
+import type { PublishSchemaCommandInput, PublishSchemaCommandOutput } from "./commands/PublishSchemaCommand";
+import type {
+  PutSchemaFromJsonCommandInput,
+  PutSchemaFromJsonCommandOutput,
+} from "./commands/PutSchemaFromJsonCommand";
+import type {
   RemoveFacetFromObjectCommandInput,
   RemoveFacetFromObjectCommandOutput,
 } from "./commands/RemoveFacetFromObjectCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateFacetCommandInput, UpdateFacetCommandOutput } from "./commands/UpdateFacetCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateFacetCommandInput, UpdateFacetCommandOutput } from "./commands/UpdateFacetCommand";
+import type {
   UpdateLinkAttributesCommandInput,
   UpdateLinkAttributesCommandOutput,
 } from "./commands/UpdateLinkAttributesCommand";
-import {
+import type {
   UpdateObjectAttributesCommandInput,
   UpdateObjectAttributesCommandOutput,
 } from "./commands/UpdateObjectAttributesCommand";
-import { UpdateSchemaCommandInput, UpdateSchemaCommandOutput } from "./commands/UpdateSchemaCommand";
-import {
+import type { UpdateSchemaCommandInput, UpdateSchemaCommandOutput } from "./commands/UpdateSchemaCommand";
+import type {
   UpdateTypedLinkFacetCommandInput,
   UpdateTypedLinkFacetCommandOutput,
 } from "./commands/UpdateTypedLinkFacetCommand";
-import {
+import type {
   UpgradeAppliedSchemaCommandInput,
   UpgradeAppliedSchemaCommandOutput,
 } from "./commands/UpgradeAppliedSchemaCommand";
-import {
+import type {
   UpgradePublishedSchemaCommandInput,
   UpgradePublishedSchemaCommandOutput,
 } from "./commands/UpgradePublishedSchemaCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -474,7 +487,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

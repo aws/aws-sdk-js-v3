@@ -8,7 +8,7 @@ import {
   ListProblemsCommandInput,
   ListProblemsCommandOutput,
 } from "../commands/ListProblemsCommand";
-import { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
+import type { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

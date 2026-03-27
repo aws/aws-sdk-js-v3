@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { GetChangeCommand, GetChangeCommandInput } from "../commands/GetChangeCommand";
-import { Route53Client } from "../Route53Client";
+import { type GetChangeCommandInput, GetChangeCommand } from "../commands/GetChangeCommand";
+import type { Route53Client } from "../Route53Client";
 
 const checkState = async (client: Route53Client, input: GetChangeCommandInput): Promise<WaiterResult> => {
   let reason;

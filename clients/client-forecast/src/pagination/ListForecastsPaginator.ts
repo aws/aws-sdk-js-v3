@@ -8,7 +8,7 @@ import {
   ListForecastsCommandOutput,
 } from "../commands/ListForecastsCommand";
 import { ForecastClient } from "../ForecastClient";
-import { ForecastPaginationConfiguration } from "./Interfaces";
+import type { ForecastPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -5,7 +5,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InvokeEndpointInput, InvokeEndpointOutput } from "../models/models_0";
+import type { InvokeEndpointInput, InvokeEndpointOutput } from "../models/models_0";
 import type {
   SageMakerRuntimeClientResolvedConfig,
   ServiceInputTypes,

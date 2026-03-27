@@ -9,7 +9,7 @@
  */
 export * from "./MemoryDBClient";
 export * from "./MemoryDB";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MemoryDBExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

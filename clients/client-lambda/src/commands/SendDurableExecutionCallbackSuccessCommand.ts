@@ -5,9 +5,9 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  type SendDurableExecutionCallbackSuccessResponse,
+import type {
   SendDurableExecutionCallbackSuccessRequest,
+  SendDurableExecutionCallbackSuccessResponse,
 } from "../models/models_0";
 import { SendDurableExecutionCallbackSuccess$ } from "../schemas/schemas_0";
 

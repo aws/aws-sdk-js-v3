@@ -8,7 +8,7 @@ import {
   ListCrawlersCommandOutput,
 } from "../commands/ListCrawlersCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

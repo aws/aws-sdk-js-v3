@@ -3,291 +3,303 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptResourceGroupingRecommendationsCommandInput,
+  type AcceptResourceGroupingRecommendationsCommandOutput,
   AcceptResourceGroupingRecommendationsCommand,
-  AcceptResourceGroupingRecommendationsCommandInput,
-  AcceptResourceGroupingRecommendationsCommandOutput,
 } from "./commands/AcceptResourceGroupingRecommendationsCommand";
 import {
+  type AddDraftAppVersionResourceMappingsCommandInput,
+  type AddDraftAppVersionResourceMappingsCommandOutput,
   AddDraftAppVersionResourceMappingsCommand,
-  AddDraftAppVersionResourceMappingsCommandInput,
-  AddDraftAppVersionResourceMappingsCommandOutput,
 } from "./commands/AddDraftAppVersionResourceMappingsCommand";
 import {
+  type BatchUpdateRecommendationStatusCommandInput,
+  type BatchUpdateRecommendationStatusCommandOutput,
   BatchUpdateRecommendationStatusCommand,
-  BatchUpdateRecommendationStatusCommandInput,
-  BatchUpdateRecommendationStatusCommandOutput,
 } from "./commands/BatchUpdateRecommendationStatusCommand";
-import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
+import { type CreateAppCommandInput, type CreateAppCommandOutput, CreateAppCommand } from "./commands/CreateAppCommand";
 import {
+  type CreateAppVersionAppComponentCommandInput,
+  type CreateAppVersionAppComponentCommandOutput,
   CreateAppVersionAppComponentCommand,
-  CreateAppVersionAppComponentCommandInput,
-  CreateAppVersionAppComponentCommandOutput,
 } from "./commands/CreateAppVersionAppComponentCommand";
 import {
+  type CreateAppVersionResourceCommandInput,
+  type CreateAppVersionResourceCommandOutput,
   CreateAppVersionResourceCommand,
-  CreateAppVersionResourceCommandInput,
-  CreateAppVersionResourceCommandOutput,
 } from "./commands/CreateAppVersionResourceCommand";
 import {
+  type CreateRecommendationTemplateCommandInput,
+  type CreateRecommendationTemplateCommandOutput,
   CreateRecommendationTemplateCommand,
-  CreateRecommendationTemplateCommandInput,
-  CreateRecommendationTemplateCommandOutput,
 } from "./commands/CreateRecommendationTemplateCommand";
 import {
+  type CreateResiliencyPolicyCommandInput,
+  type CreateResiliencyPolicyCommandOutput,
   CreateResiliencyPolicyCommand,
-  CreateResiliencyPolicyCommandInput,
-  CreateResiliencyPolicyCommandOutput,
 } from "./commands/CreateResiliencyPolicyCommand";
 import {
+  type DeleteAppAssessmentCommandInput,
+  type DeleteAppAssessmentCommandOutput,
   DeleteAppAssessmentCommand,
-  DeleteAppAssessmentCommandInput,
-  DeleteAppAssessmentCommandOutput,
 } from "./commands/DeleteAppAssessmentCommand";
-import { DeleteAppCommand, DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
+import { type DeleteAppCommandInput, type DeleteAppCommandOutput, DeleteAppCommand } from "./commands/DeleteAppCommand";
 import {
+  type DeleteAppInputSourceCommandInput,
+  type DeleteAppInputSourceCommandOutput,
   DeleteAppInputSourceCommand,
-  DeleteAppInputSourceCommandInput,
-  DeleteAppInputSourceCommandOutput,
 } from "./commands/DeleteAppInputSourceCommand";
 import {
+  type DeleteAppVersionAppComponentCommandInput,
+  type DeleteAppVersionAppComponentCommandOutput,
   DeleteAppVersionAppComponentCommand,
-  DeleteAppVersionAppComponentCommandInput,
-  DeleteAppVersionAppComponentCommandOutput,
 } from "./commands/DeleteAppVersionAppComponentCommand";
 import {
+  type DeleteAppVersionResourceCommandInput,
+  type DeleteAppVersionResourceCommandOutput,
   DeleteAppVersionResourceCommand,
-  DeleteAppVersionResourceCommandInput,
-  DeleteAppVersionResourceCommandOutput,
 } from "./commands/DeleteAppVersionResourceCommand";
 import {
+  type DeleteRecommendationTemplateCommandInput,
+  type DeleteRecommendationTemplateCommandOutput,
   DeleteRecommendationTemplateCommand,
-  DeleteRecommendationTemplateCommandInput,
-  DeleteRecommendationTemplateCommandOutput,
 } from "./commands/DeleteRecommendationTemplateCommand";
 import {
+  type DeleteResiliencyPolicyCommandInput,
+  type DeleteResiliencyPolicyCommandOutput,
   DeleteResiliencyPolicyCommand,
-  DeleteResiliencyPolicyCommandInput,
-  DeleteResiliencyPolicyCommandOutput,
 } from "./commands/DeleteResiliencyPolicyCommand";
 import {
+  type DescribeAppAssessmentCommandInput,
+  type DescribeAppAssessmentCommandOutput,
   DescribeAppAssessmentCommand,
-  DescribeAppAssessmentCommandInput,
-  DescribeAppAssessmentCommandOutput,
 } from "./commands/DescribeAppAssessmentCommand";
-import { DescribeAppCommand, DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
 import {
+  type DescribeAppCommandInput,
+  type DescribeAppCommandOutput,
+  DescribeAppCommand,
+} from "./commands/DescribeAppCommand";
+import {
+  type DescribeAppVersionAppComponentCommandInput,
+  type DescribeAppVersionAppComponentCommandOutput,
   DescribeAppVersionAppComponentCommand,
-  DescribeAppVersionAppComponentCommandInput,
-  DescribeAppVersionAppComponentCommandOutput,
 } from "./commands/DescribeAppVersionAppComponentCommand";
 import {
+  type DescribeAppVersionCommandInput,
+  type DescribeAppVersionCommandOutput,
   DescribeAppVersionCommand,
-  DescribeAppVersionCommandInput,
-  DescribeAppVersionCommandOutput,
 } from "./commands/DescribeAppVersionCommand";
 import {
+  type DescribeAppVersionResourceCommandInput,
+  type DescribeAppVersionResourceCommandOutput,
   DescribeAppVersionResourceCommand,
-  DescribeAppVersionResourceCommandInput,
-  DescribeAppVersionResourceCommandOutput,
 } from "./commands/DescribeAppVersionResourceCommand";
 import {
+  type DescribeAppVersionResourcesResolutionStatusCommandInput,
+  type DescribeAppVersionResourcesResolutionStatusCommandOutput,
   DescribeAppVersionResourcesResolutionStatusCommand,
-  DescribeAppVersionResourcesResolutionStatusCommandInput,
-  DescribeAppVersionResourcesResolutionStatusCommandOutput,
 } from "./commands/DescribeAppVersionResourcesResolutionStatusCommand";
 import {
+  type DescribeAppVersionTemplateCommandInput,
+  type DescribeAppVersionTemplateCommandOutput,
   DescribeAppVersionTemplateCommand,
-  DescribeAppVersionTemplateCommandInput,
-  DescribeAppVersionTemplateCommandOutput,
 } from "./commands/DescribeAppVersionTemplateCommand";
 import {
+  type DescribeDraftAppVersionResourcesImportStatusCommandInput,
+  type DescribeDraftAppVersionResourcesImportStatusCommandOutput,
   DescribeDraftAppVersionResourcesImportStatusCommand,
-  DescribeDraftAppVersionResourcesImportStatusCommandInput,
-  DescribeDraftAppVersionResourcesImportStatusCommandOutput,
 } from "./commands/DescribeDraftAppVersionResourcesImportStatusCommand";
 import {
+  type DescribeMetricsExportCommandInput,
+  type DescribeMetricsExportCommandOutput,
   DescribeMetricsExportCommand,
-  DescribeMetricsExportCommandInput,
-  DescribeMetricsExportCommandOutput,
 } from "./commands/DescribeMetricsExportCommand";
 import {
+  type DescribeResiliencyPolicyCommandInput,
+  type DescribeResiliencyPolicyCommandOutput,
   DescribeResiliencyPolicyCommand,
-  DescribeResiliencyPolicyCommandInput,
-  DescribeResiliencyPolicyCommandOutput,
 } from "./commands/DescribeResiliencyPolicyCommand";
 import {
+  type DescribeResourceGroupingRecommendationTaskCommandInput,
+  type DescribeResourceGroupingRecommendationTaskCommandOutput,
   DescribeResourceGroupingRecommendationTaskCommand,
-  DescribeResourceGroupingRecommendationTaskCommandInput,
-  DescribeResourceGroupingRecommendationTaskCommandOutput,
 } from "./commands/DescribeResourceGroupingRecommendationTaskCommand";
 import {
+  type ImportResourcesToDraftAppVersionCommandInput,
+  type ImportResourcesToDraftAppVersionCommandOutput,
   ImportResourcesToDraftAppVersionCommand,
-  ImportResourcesToDraftAppVersionCommandInput,
-  ImportResourcesToDraftAppVersionCommandOutput,
 } from "./commands/ImportResourcesToDraftAppVersionCommand";
 import {
+  type ListAlarmRecommendationsCommandInput,
+  type ListAlarmRecommendationsCommandOutput,
   ListAlarmRecommendationsCommand,
-  ListAlarmRecommendationsCommandInput,
-  ListAlarmRecommendationsCommandOutput,
 } from "./commands/ListAlarmRecommendationsCommand";
 import {
+  type ListAppAssessmentComplianceDriftsCommandInput,
+  type ListAppAssessmentComplianceDriftsCommandOutput,
   ListAppAssessmentComplianceDriftsCommand,
-  ListAppAssessmentComplianceDriftsCommandInput,
-  ListAppAssessmentComplianceDriftsCommandOutput,
 } from "./commands/ListAppAssessmentComplianceDriftsCommand";
 import {
+  type ListAppAssessmentResourceDriftsCommandInput,
+  type ListAppAssessmentResourceDriftsCommandOutput,
   ListAppAssessmentResourceDriftsCommand,
-  ListAppAssessmentResourceDriftsCommandInput,
-  ListAppAssessmentResourceDriftsCommandOutput,
 } from "./commands/ListAppAssessmentResourceDriftsCommand";
 import {
+  type ListAppAssessmentsCommandInput,
+  type ListAppAssessmentsCommandOutput,
   ListAppAssessmentsCommand,
-  ListAppAssessmentsCommandInput,
-  ListAppAssessmentsCommandOutput,
 } from "./commands/ListAppAssessmentsCommand";
 import {
+  type ListAppComponentCompliancesCommandInput,
+  type ListAppComponentCompliancesCommandOutput,
   ListAppComponentCompliancesCommand,
-  ListAppComponentCompliancesCommandInput,
-  ListAppComponentCompliancesCommandOutput,
 } from "./commands/ListAppComponentCompliancesCommand";
 import {
+  type ListAppComponentRecommendationsCommandInput,
+  type ListAppComponentRecommendationsCommandOutput,
   ListAppComponentRecommendationsCommand,
-  ListAppComponentRecommendationsCommandInput,
-  ListAppComponentRecommendationsCommandOutput,
 } from "./commands/ListAppComponentRecommendationsCommand";
 import {
+  type ListAppInputSourcesCommandInput,
+  type ListAppInputSourcesCommandOutput,
   ListAppInputSourcesCommand,
-  ListAppInputSourcesCommandInput,
-  ListAppInputSourcesCommandOutput,
 } from "./commands/ListAppInputSourcesCommand";
-import { ListAppsCommand, ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import { type ListAppsCommandInput, type ListAppsCommandOutput, ListAppsCommand } from "./commands/ListAppsCommand";
 import {
+  type ListAppVersionAppComponentsCommandInput,
+  type ListAppVersionAppComponentsCommandOutput,
   ListAppVersionAppComponentsCommand,
-  ListAppVersionAppComponentsCommandInput,
-  ListAppVersionAppComponentsCommandOutput,
 } from "./commands/ListAppVersionAppComponentsCommand";
 import {
+  type ListAppVersionResourceMappingsCommandInput,
+  type ListAppVersionResourceMappingsCommandOutput,
   ListAppVersionResourceMappingsCommand,
-  ListAppVersionResourceMappingsCommandInput,
-  ListAppVersionResourceMappingsCommandOutput,
 } from "./commands/ListAppVersionResourceMappingsCommand";
 import {
+  type ListAppVersionResourcesCommandInput,
+  type ListAppVersionResourcesCommandOutput,
   ListAppVersionResourcesCommand,
-  ListAppVersionResourcesCommandInput,
-  ListAppVersionResourcesCommandOutput,
 } from "./commands/ListAppVersionResourcesCommand";
 import {
+  type ListAppVersionsCommandInput,
+  type ListAppVersionsCommandOutput,
   ListAppVersionsCommand,
-  ListAppVersionsCommandInput,
-  ListAppVersionsCommandOutput,
 } from "./commands/ListAppVersionsCommand";
-import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import {
+  type ListMetricsCommandInput,
+  type ListMetricsCommandOutput,
+  ListMetricsCommand,
+} from "./commands/ListMetricsCommand";
+import {
+  type ListRecommendationTemplatesCommandInput,
+  type ListRecommendationTemplatesCommandOutput,
   ListRecommendationTemplatesCommand,
-  ListRecommendationTemplatesCommandInput,
-  ListRecommendationTemplatesCommandOutput,
 } from "./commands/ListRecommendationTemplatesCommand";
 import {
+  type ListResiliencyPoliciesCommandInput,
+  type ListResiliencyPoliciesCommandOutput,
   ListResiliencyPoliciesCommand,
-  ListResiliencyPoliciesCommandInput,
-  ListResiliencyPoliciesCommandOutput,
 } from "./commands/ListResiliencyPoliciesCommand";
 import {
+  type ListResourceGroupingRecommendationsCommandInput,
+  type ListResourceGroupingRecommendationsCommandOutput,
   ListResourceGroupingRecommendationsCommand,
-  ListResourceGroupingRecommendationsCommandInput,
-  ListResourceGroupingRecommendationsCommandOutput,
 } from "./commands/ListResourceGroupingRecommendationsCommand";
 import {
+  type ListSopRecommendationsCommandInput,
+  type ListSopRecommendationsCommandOutput,
   ListSopRecommendationsCommand,
-  ListSopRecommendationsCommandInput,
-  ListSopRecommendationsCommandOutput,
 } from "./commands/ListSopRecommendationsCommand";
 import {
+  type ListSuggestedResiliencyPoliciesCommandInput,
+  type ListSuggestedResiliencyPoliciesCommandOutput,
   ListSuggestedResiliencyPoliciesCommand,
-  ListSuggestedResiliencyPoliciesCommandInput,
-  ListSuggestedResiliencyPoliciesCommandOutput,
 } from "./commands/ListSuggestedResiliencyPoliciesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTestRecommendationsCommandInput,
+  type ListTestRecommendationsCommandOutput,
   ListTestRecommendationsCommand,
-  ListTestRecommendationsCommandInput,
-  ListTestRecommendationsCommandOutput,
 } from "./commands/ListTestRecommendationsCommand";
 import {
+  type ListUnsupportedAppVersionResourcesCommandInput,
+  type ListUnsupportedAppVersionResourcesCommandOutput,
   ListUnsupportedAppVersionResourcesCommand,
-  ListUnsupportedAppVersionResourcesCommandInput,
-  ListUnsupportedAppVersionResourcesCommandOutput,
 } from "./commands/ListUnsupportedAppVersionResourcesCommand";
 import {
+  type PublishAppVersionCommandInput,
+  type PublishAppVersionCommandOutput,
   PublishAppVersionCommand,
-  PublishAppVersionCommandInput,
-  PublishAppVersionCommandOutput,
 } from "./commands/PublishAppVersionCommand";
 import {
+  type PutDraftAppVersionTemplateCommandInput,
+  type PutDraftAppVersionTemplateCommandOutput,
   PutDraftAppVersionTemplateCommand,
-  PutDraftAppVersionTemplateCommandInput,
-  PutDraftAppVersionTemplateCommandOutput,
 } from "./commands/PutDraftAppVersionTemplateCommand";
 import {
+  type RejectResourceGroupingRecommendationsCommandInput,
+  type RejectResourceGroupingRecommendationsCommandOutput,
   RejectResourceGroupingRecommendationsCommand,
-  RejectResourceGroupingRecommendationsCommandInput,
-  RejectResourceGroupingRecommendationsCommandOutput,
 } from "./commands/RejectResourceGroupingRecommendationsCommand";
 import {
+  type RemoveDraftAppVersionResourceMappingsCommandInput,
+  type RemoveDraftAppVersionResourceMappingsCommandOutput,
   RemoveDraftAppVersionResourceMappingsCommand,
-  RemoveDraftAppVersionResourceMappingsCommandInput,
-  RemoveDraftAppVersionResourceMappingsCommandOutput,
 } from "./commands/RemoveDraftAppVersionResourceMappingsCommand";
 import {
+  type ResolveAppVersionResourcesCommandInput,
+  type ResolveAppVersionResourcesCommandOutput,
   ResolveAppVersionResourcesCommand,
-  ResolveAppVersionResourcesCommandInput,
-  ResolveAppVersionResourcesCommandOutput,
 } from "./commands/ResolveAppVersionResourcesCommand";
 import {
+  type StartAppAssessmentCommandInput,
+  type StartAppAssessmentCommandOutput,
   StartAppAssessmentCommand,
-  StartAppAssessmentCommandInput,
-  StartAppAssessmentCommandOutput,
 } from "./commands/StartAppAssessmentCommand";
 import {
+  type StartMetricsExportCommandInput,
+  type StartMetricsExportCommandOutput,
   StartMetricsExportCommand,
-  StartMetricsExportCommandInput,
-  StartMetricsExportCommandOutput,
 } from "./commands/StartMetricsExportCommand";
 import {
+  type StartResourceGroupingRecommendationTaskCommandInput,
+  type StartResourceGroupingRecommendationTaskCommandOutput,
   StartResourceGroupingRecommendationTaskCommand,
-  StartResourceGroupingRecommendationTaskCommandInput,
-  StartResourceGroupingRecommendationTaskCommandOutput,
 } from "./commands/StartResourceGroupingRecommendationTaskCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateAppCommand, UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
+import { type UpdateAppCommandInput, type UpdateAppCommandOutput, UpdateAppCommand } from "./commands/UpdateAppCommand";
 import {
+  type UpdateAppVersionAppComponentCommandInput,
+  type UpdateAppVersionAppComponentCommandOutput,
   UpdateAppVersionAppComponentCommand,
-  UpdateAppVersionAppComponentCommandInput,
-  UpdateAppVersionAppComponentCommandOutput,
 } from "./commands/UpdateAppVersionAppComponentCommand";
 import {
+  type UpdateAppVersionCommandInput,
+  type UpdateAppVersionCommandOutput,
   UpdateAppVersionCommand,
-  UpdateAppVersionCommandInput,
-  UpdateAppVersionCommandOutput,
 } from "./commands/UpdateAppVersionCommand";
 import {
+  type UpdateAppVersionResourceCommandInput,
+  type UpdateAppVersionResourceCommandOutput,
   UpdateAppVersionResourceCommand,
-  UpdateAppVersionResourceCommandInput,
-  UpdateAppVersionResourceCommandOutput,
 } from "./commands/UpdateAppVersionResourceCommand";
 import {
+  type UpdateResiliencyPolicyCommandInput,
+  type UpdateResiliencyPolicyCommandOutput,
   UpdateResiliencyPolicyCommand,
-  UpdateResiliencyPolicyCommandInput,
-  UpdateResiliencyPolicyCommandOutput,
 } from "./commands/UpdateResiliencyPolicyCommand";
 import { paginateListAlarmRecommendations } from "./pagination/ListAlarmRecommendationsPaginator";
 import { paginateListAppAssessmentComplianceDrifts } from "./pagination/ListAppAssessmentComplianceDriftsPaginator";

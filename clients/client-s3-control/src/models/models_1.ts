@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { JobStatus, RequestedJobStatus } from "./enums";
+import type { JobStatus, RequestedJobStatus } from "./enums";
 import type { StorageLensGroup } from "./models_0";
 
 /**

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,195 +61,204 @@ import {
   defaultLicenseManagerHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AcceptGrantCommandInput, AcceptGrantCommandOutput } from "./commands/AcceptGrantCommand";
-import { CheckInLicenseCommandInput, CheckInLicenseCommandOutput } from "./commands/CheckInLicenseCommand";
-import {
+import type { AcceptGrantCommandInput, AcceptGrantCommandOutput } from "./commands/AcceptGrantCommand";
+import type { CheckInLicenseCommandInput, CheckInLicenseCommandOutput } from "./commands/CheckInLicenseCommand";
+import type {
   CheckoutBorrowLicenseCommandInput,
   CheckoutBorrowLicenseCommandOutput,
 } from "./commands/CheckoutBorrowLicenseCommand";
-import { CheckoutLicenseCommandInput, CheckoutLicenseCommandOutput } from "./commands/CheckoutLicenseCommand";
-import { CreateGrantCommandInput, CreateGrantCommandOutput } from "./commands/CreateGrantCommand";
-import { CreateGrantVersionCommandInput, CreateGrantVersionCommandOutput } from "./commands/CreateGrantVersionCommand";
-import {
+import type { CheckoutLicenseCommandInput, CheckoutLicenseCommandOutput } from "./commands/CheckoutLicenseCommand";
+import type { CreateGrantCommandInput, CreateGrantCommandOutput } from "./commands/CreateGrantCommand";
+import type {
+  CreateGrantVersionCommandInput,
+  CreateGrantVersionCommandOutput,
+} from "./commands/CreateGrantVersionCommand";
+import type {
   CreateLicenseAssetGroupCommandInput,
   CreateLicenseAssetGroupCommandOutput,
 } from "./commands/CreateLicenseAssetGroupCommand";
-import {
+import type {
   CreateLicenseAssetRulesetCommandInput,
   CreateLicenseAssetRulesetCommandOutput,
 } from "./commands/CreateLicenseAssetRulesetCommand";
-import { CreateLicenseCommandInput, CreateLicenseCommandOutput } from "./commands/CreateLicenseCommand";
-import {
+import type { CreateLicenseCommandInput, CreateLicenseCommandOutput } from "./commands/CreateLicenseCommand";
+import type {
   CreateLicenseConfigurationCommandInput,
   CreateLicenseConfigurationCommandOutput,
 } from "./commands/CreateLicenseConfigurationCommand";
-import {
+import type {
   CreateLicenseConversionTaskForResourceCommandInput,
   CreateLicenseConversionTaskForResourceCommandOutput,
 } from "./commands/CreateLicenseConversionTaskForResourceCommand";
-import {
+import type {
   CreateLicenseManagerReportGeneratorCommandInput,
   CreateLicenseManagerReportGeneratorCommandOutput,
 } from "./commands/CreateLicenseManagerReportGeneratorCommand";
-import {
+import type {
   CreateLicenseVersionCommandInput,
   CreateLicenseVersionCommandOutput,
 } from "./commands/CreateLicenseVersionCommand";
-import { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
-import { DeleteGrantCommandInput, DeleteGrantCommandOutput } from "./commands/DeleteGrantCommand";
-import {
+import type { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
+import type { DeleteGrantCommandInput, DeleteGrantCommandOutput } from "./commands/DeleteGrantCommand";
+import type {
   DeleteLicenseAssetGroupCommandInput,
   DeleteLicenseAssetGroupCommandOutput,
 } from "./commands/DeleteLicenseAssetGroupCommand";
-import {
+import type {
   DeleteLicenseAssetRulesetCommandInput,
   DeleteLicenseAssetRulesetCommandOutput,
 } from "./commands/DeleteLicenseAssetRulesetCommand";
-import { DeleteLicenseCommandInput, DeleteLicenseCommandOutput } from "./commands/DeleteLicenseCommand";
-import {
+import type { DeleteLicenseCommandInput, DeleteLicenseCommandOutput } from "./commands/DeleteLicenseCommand";
+import type {
   DeleteLicenseConfigurationCommandInput,
   DeleteLicenseConfigurationCommandOutput,
 } from "./commands/DeleteLicenseConfigurationCommand";
-import {
+import type {
   DeleteLicenseManagerReportGeneratorCommandInput,
   DeleteLicenseManagerReportGeneratorCommandOutput,
 } from "./commands/DeleteLicenseManagerReportGeneratorCommand";
-import { DeleteTokenCommandInput, DeleteTokenCommandOutput } from "./commands/DeleteTokenCommand";
-import {
+import type { DeleteTokenCommandInput, DeleteTokenCommandOutput } from "./commands/DeleteTokenCommand";
+import type {
   ExtendLicenseConsumptionCommandInput,
   ExtendLicenseConsumptionCommandOutput,
 } from "./commands/ExtendLicenseConsumptionCommand";
-import { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "./commands/GetAccessTokenCommand";
-import { GetGrantCommandInput, GetGrantCommandOutput } from "./commands/GetGrantCommand";
-import {
+import type { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "./commands/GetAccessTokenCommand";
+import type { GetGrantCommandInput, GetGrantCommandOutput } from "./commands/GetGrantCommand";
+import type {
   GetLicenseAssetGroupCommandInput,
   GetLicenseAssetGroupCommandOutput,
 } from "./commands/GetLicenseAssetGroupCommand";
-import {
+import type {
   GetLicenseAssetRulesetCommandInput,
   GetLicenseAssetRulesetCommandOutput,
 } from "./commands/GetLicenseAssetRulesetCommand";
-import { GetLicenseCommandInput, GetLicenseCommandOutput } from "./commands/GetLicenseCommand";
-import {
+import type { GetLicenseCommandInput, GetLicenseCommandOutput } from "./commands/GetLicenseCommand";
+import type {
   GetLicenseConfigurationCommandInput,
   GetLicenseConfigurationCommandOutput,
 } from "./commands/GetLicenseConfigurationCommand";
-import {
+import type {
   GetLicenseConversionTaskCommandInput,
   GetLicenseConversionTaskCommandOutput,
 } from "./commands/GetLicenseConversionTaskCommand";
-import {
+import type {
   GetLicenseManagerReportGeneratorCommandInput,
   GetLicenseManagerReportGeneratorCommandOutput,
 } from "./commands/GetLicenseManagerReportGeneratorCommand";
-import { GetLicenseUsageCommandInput, GetLicenseUsageCommandOutput } from "./commands/GetLicenseUsageCommand";
-import { GetServiceSettingsCommandInput, GetServiceSettingsCommandOutput } from "./commands/GetServiceSettingsCommand";
-import {
+import type { GetLicenseUsageCommandInput, GetLicenseUsageCommandOutput } from "./commands/GetLicenseUsageCommand";
+import type {
+  GetServiceSettingsCommandInput,
+  GetServiceSettingsCommandOutput,
+} from "./commands/GetServiceSettingsCommand";
+import type {
   ListAssetsForLicenseAssetGroupCommandInput,
   ListAssetsForLicenseAssetGroupCommandOutput,
 } from "./commands/ListAssetsForLicenseAssetGroupCommand";
-import {
+import type {
   ListAssociationsForLicenseConfigurationCommandInput,
   ListAssociationsForLicenseConfigurationCommandOutput,
 } from "./commands/ListAssociationsForLicenseConfigurationCommand";
-import {
+import type {
   ListDistributedGrantsCommandInput,
   ListDistributedGrantsCommandOutput,
 } from "./commands/ListDistributedGrantsCommand";
-import {
+import type {
   ListFailuresForLicenseConfigurationOperationsCommandInput,
   ListFailuresForLicenseConfigurationOperationsCommandOutput,
 } from "./commands/ListFailuresForLicenseConfigurationOperationsCommand";
-import {
+import type {
   ListLicenseAssetGroupsCommandInput,
   ListLicenseAssetGroupsCommandOutput,
 } from "./commands/ListLicenseAssetGroupsCommand";
-import {
+import type {
   ListLicenseAssetRulesetsCommandInput,
   ListLicenseAssetRulesetsCommandOutput,
 } from "./commands/ListLicenseAssetRulesetsCommand";
-import {
+import type {
   ListLicenseConfigurationsCommandInput,
   ListLicenseConfigurationsCommandOutput,
 } from "./commands/ListLicenseConfigurationsCommand";
-import {
+import type {
   ListLicenseConfigurationsForOrganizationCommandInput,
   ListLicenseConfigurationsForOrganizationCommandOutput,
 } from "./commands/ListLicenseConfigurationsForOrganizationCommand";
-import {
+import type {
   ListLicenseConversionTasksCommandInput,
   ListLicenseConversionTasksCommandOutput,
 } from "./commands/ListLicenseConversionTasksCommand";
-import {
+import type {
   ListLicenseManagerReportGeneratorsCommandInput,
   ListLicenseManagerReportGeneratorsCommandOutput,
 } from "./commands/ListLicenseManagerReportGeneratorsCommand";
-import { ListLicensesCommandInput, ListLicensesCommandOutput } from "./commands/ListLicensesCommand";
-import {
+import type { ListLicensesCommandInput, ListLicensesCommandOutput } from "./commands/ListLicensesCommand";
+import type {
   ListLicenseSpecificationsForResourceCommandInput,
   ListLicenseSpecificationsForResourceCommandOutput,
 } from "./commands/ListLicenseSpecificationsForResourceCommand";
-import {
+import type {
   ListLicenseVersionsCommandInput,
   ListLicenseVersionsCommandOutput,
 } from "./commands/ListLicenseVersionsCommand";
-import { ListReceivedGrantsCommandInput, ListReceivedGrantsCommandOutput } from "./commands/ListReceivedGrantsCommand";
-import {
+import type {
+  ListReceivedGrantsCommandInput,
+  ListReceivedGrantsCommandOutput,
+} from "./commands/ListReceivedGrantsCommand";
+import type {
   ListReceivedGrantsForOrganizationCommandInput,
   ListReceivedGrantsForOrganizationCommandOutput,
 } from "./commands/ListReceivedGrantsForOrganizationCommand";
-import {
+import type {
   ListReceivedLicensesCommandInput,
   ListReceivedLicensesCommandOutput,
 } from "./commands/ListReceivedLicensesCommand";
-import {
+import type {
   ListReceivedLicensesForOrganizationCommandInput,
   ListReceivedLicensesForOrganizationCommandOutput,
 } from "./commands/ListReceivedLicensesForOrganizationCommand";
-import {
+import type {
   ListResourceInventoryCommandInput,
   ListResourceInventoryCommandOutput,
 } from "./commands/ListResourceInventoryCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTokensCommandInput, ListTokensCommandOutput } from "./commands/ListTokensCommand";
-import {
+import type { ListTokensCommandInput, ListTokensCommandOutput } from "./commands/ListTokensCommand";
+import type {
   ListUsageForLicenseConfigurationCommandInput,
   ListUsageForLicenseConfigurationCommandOutput,
 } from "./commands/ListUsageForLicenseConfigurationCommand";
-import { RejectGrantCommandInput, RejectGrantCommandOutput } from "./commands/RejectGrantCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { RejectGrantCommandInput, RejectGrantCommandOutput } from "./commands/RejectGrantCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateLicenseAssetGroupCommandInput,
   UpdateLicenseAssetGroupCommandOutput,
 } from "./commands/UpdateLicenseAssetGroupCommand";
-import {
+import type {
   UpdateLicenseAssetRulesetCommandInput,
   UpdateLicenseAssetRulesetCommandOutput,
 } from "./commands/UpdateLicenseAssetRulesetCommand";
-import {
+import type {
   UpdateLicenseConfigurationCommandInput,
   UpdateLicenseConfigurationCommandOutput,
 } from "./commands/UpdateLicenseConfigurationCommand";
-import {
+import type {
   UpdateLicenseManagerReportGeneratorCommandInput,
   UpdateLicenseManagerReportGeneratorCommandOutput,
 } from "./commands/UpdateLicenseManagerReportGeneratorCommand";
-import {
+import type {
   UpdateLicenseSpecificationsForResourceCommandInput,
   UpdateLicenseSpecificationsForResourceCommandOutput,
 } from "./commands/UpdateLicenseSpecificationsForResourceCommand";
-import {
+import type {
   UpdateServiceSettingsCommandInput,
   UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -507,7 +514,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

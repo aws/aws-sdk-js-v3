@@ -39,22 +39,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type SdkStreamMixinInjector as __SdkStreamMixinInjector,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -64,71 +62,74 @@ import {
   defaultNeptuneGraphHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
-import { CancelImportTaskCommandInput, CancelImportTaskCommandOutput } from "./commands/CancelImportTaskCommand";
-import { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
-import { CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
-import {
+import type { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
+import type { CancelImportTaskCommandInput, CancelImportTaskCommandOutput } from "./commands/CancelImportTaskCommand";
+import type { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
+import type { CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
+import type {
   CreateGraphSnapshotCommandInput,
   CreateGraphSnapshotCommandOutput,
 } from "./commands/CreateGraphSnapshotCommand";
-import {
+import type {
   CreateGraphUsingImportTaskCommandInput,
   CreateGraphUsingImportTaskCommandOutput,
 } from "./commands/CreateGraphUsingImportTaskCommand";
-import {
+import type {
   CreatePrivateGraphEndpointCommandInput,
   CreatePrivateGraphEndpointCommandOutput,
 } from "./commands/CreatePrivateGraphEndpointCommand";
-import { DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand";
-import {
+import type { DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand";
+import type {
   DeleteGraphSnapshotCommandInput,
   DeleteGraphSnapshotCommandOutput,
 } from "./commands/DeleteGraphSnapshotCommand";
-import {
+import type {
   DeletePrivateGraphEndpointCommandInput,
   DeletePrivateGraphEndpointCommandOutput,
 } from "./commands/DeletePrivateGraphEndpointCommand";
-import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "./commands/ExecuteQueryCommand";
-import { GetExportTaskCommandInput, GetExportTaskCommandOutput } from "./commands/GetExportTaskCommand";
-import { GetGraphCommandInput, GetGraphCommandOutput } from "./commands/GetGraphCommand";
-import { GetGraphSnapshotCommandInput, GetGraphSnapshotCommandOutput } from "./commands/GetGraphSnapshotCommand";
-import { GetGraphSummaryCommandInput, GetGraphSummaryCommandOutput } from "./commands/GetGraphSummaryCommand";
-import { GetImportTaskCommandInput, GetImportTaskCommandOutput } from "./commands/GetImportTaskCommand";
-import {
+import type { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "./commands/ExecuteQueryCommand";
+import type { GetExportTaskCommandInput, GetExportTaskCommandOutput } from "./commands/GetExportTaskCommand";
+import type { GetGraphCommandInput, GetGraphCommandOutput } from "./commands/GetGraphCommand";
+import type { GetGraphSnapshotCommandInput, GetGraphSnapshotCommandOutput } from "./commands/GetGraphSnapshotCommand";
+import type { GetGraphSummaryCommandInput, GetGraphSummaryCommandOutput } from "./commands/GetGraphSummaryCommand";
+import type { GetImportTaskCommandInput, GetImportTaskCommandOutput } from "./commands/GetImportTaskCommand";
+import type {
   GetPrivateGraphEndpointCommandInput,
   GetPrivateGraphEndpointCommandOutput,
 } from "./commands/GetPrivateGraphEndpointCommand";
-import { GetQueryCommandInput, GetQueryCommandOutput } from "./commands/GetQueryCommand";
-import { ListExportTasksCommandInput, ListExportTasksCommandOutput } from "./commands/ListExportTasksCommand";
-import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
-import { ListGraphSnapshotsCommandInput, ListGraphSnapshotsCommandOutput } from "./commands/ListGraphSnapshotsCommand";
-import { ListImportTasksCommandInput, ListImportTasksCommandOutput } from "./commands/ListImportTasksCommand";
-import {
+import type { GetQueryCommandInput, GetQueryCommandOutput } from "./commands/GetQueryCommand";
+import type { ListExportTasksCommandInput, ListExportTasksCommandOutput } from "./commands/ListExportTasksCommand";
+import type { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
+import type {
+  ListGraphSnapshotsCommandInput,
+  ListGraphSnapshotsCommandOutput,
+} from "./commands/ListGraphSnapshotsCommand";
+import type { ListImportTasksCommandInput, ListImportTasksCommandOutput } from "./commands/ListImportTasksCommand";
+import type {
   ListPrivateGraphEndpointsCommandInput,
   ListPrivateGraphEndpointsCommandOutput,
 } from "./commands/ListPrivateGraphEndpointsCommand";
-import { ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
-import {
+import type { ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ResetGraphCommandInput, ResetGraphCommandOutput } from "./commands/ResetGraphCommand";
-import {
+import type { ResetGraphCommandInput, ResetGraphCommandOutput } from "./commands/ResetGraphCommand";
+import type {
   RestoreGraphFromSnapshotCommandInput,
   RestoreGraphFromSnapshotCommandOutput,
 } from "./commands/RestoreGraphFromSnapshotCommand";
-import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand";
-import { StartGraphCommandInput, StartGraphCommandOutput } from "./commands/StartGraphCommand";
-import { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "./commands/StartImportTaskCommand";
-import { StopGraphCommandInput, StopGraphCommandOutput } from "./commands/StopGraphCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateGraphCommandInput, UpdateGraphCommandOutput } from "./commands/UpdateGraphCommand";
+import type { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand";
+import type { StartGraphCommandInput, StartGraphCommandOutput } from "./commands/StartGraphCommand";
+import type { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "./commands/StartImportTaskCommand";
+import type { StopGraphCommandInput, StopGraphCommandOutput } from "./commands/StopGraphCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateGraphCommandInput, UpdateGraphCommandOutput } from "./commands/UpdateGraphCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -328,7 +329,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

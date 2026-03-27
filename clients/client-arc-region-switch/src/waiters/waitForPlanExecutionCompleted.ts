@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { ARCRegionSwitchClient } from "../ARCRegionSwitchClient";
-import { GetPlanExecutionCommand, GetPlanExecutionCommandInput } from "../commands/GetPlanExecutionCommand";
+import type { ARCRegionSwitchClient } from "../ARCRegionSwitchClient";
+import { type GetPlanExecutionCommandInput, GetPlanExecutionCommand } from "../commands/GetPlanExecutionCommand";
 
 const checkState = async (client: ARCRegionSwitchClient, input: GetPlanExecutionCommandInput): Promise<WaiterResult> => {
   let reason;

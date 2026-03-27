@@ -8,7 +8,7 @@ import {
   ListMedicalScribeJobsCommandOutput,
 } from "../commands/ListMedicalScribeJobsCommand";
 import { TranscribeClient } from "../TranscribeClient";
-import { TranscribePaginationConfiguration } from "./Interfaces";
+import type { TranscribePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

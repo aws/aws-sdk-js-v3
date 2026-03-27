@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type DescribeFHIRImportJobCommandInput,
   DescribeFHIRImportJobCommand,
-  DescribeFHIRImportJobCommandInput,
 } from "../commands/DescribeFHIRImportJobCommand";
-import { HealthLakeClient } from "../HealthLakeClient";
+import type { HealthLakeClient } from "../HealthLakeClient";
 
 const checkState = async (client: HealthLakeClient, input: DescribeFHIRImportJobCommandInput): Promise<WaiterResult> => {
   let reason;

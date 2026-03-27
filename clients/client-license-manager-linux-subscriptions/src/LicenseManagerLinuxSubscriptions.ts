@@ -3,55 +3,59 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DeregisterSubscriptionProviderCommandInput,
+  type DeregisterSubscriptionProviderCommandOutput,
   DeregisterSubscriptionProviderCommand,
-  DeregisterSubscriptionProviderCommandInput,
-  DeregisterSubscriptionProviderCommandOutput,
 } from "./commands/DeregisterSubscriptionProviderCommand";
 import {
+  type GetRegisteredSubscriptionProviderCommandInput,
+  type GetRegisteredSubscriptionProviderCommandOutput,
   GetRegisteredSubscriptionProviderCommand,
-  GetRegisteredSubscriptionProviderCommandInput,
-  GetRegisteredSubscriptionProviderCommandOutput,
 } from "./commands/GetRegisteredSubscriptionProviderCommand";
 import {
+  type GetServiceSettingsCommandInput,
+  type GetServiceSettingsCommandOutput,
   GetServiceSettingsCommand,
-  GetServiceSettingsCommandInput,
-  GetServiceSettingsCommandOutput,
 } from "./commands/GetServiceSettingsCommand";
 import {
+  type ListLinuxSubscriptionInstancesCommandInput,
+  type ListLinuxSubscriptionInstancesCommandOutput,
   ListLinuxSubscriptionInstancesCommand,
-  ListLinuxSubscriptionInstancesCommandInput,
-  ListLinuxSubscriptionInstancesCommandOutput,
 } from "./commands/ListLinuxSubscriptionInstancesCommand";
 import {
+  type ListLinuxSubscriptionsCommandInput,
+  type ListLinuxSubscriptionsCommandOutput,
   ListLinuxSubscriptionsCommand,
-  ListLinuxSubscriptionsCommandInput,
-  ListLinuxSubscriptionsCommandOutput,
 } from "./commands/ListLinuxSubscriptionsCommand";
 import {
+  type ListRegisteredSubscriptionProvidersCommandInput,
+  type ListRegisteredSubscriptionProvidersCommandOutput,
   ListRegisteredSubscriptionProvidersCommand,
-  ListRegisteredSubscriptionProvidersCommandInput,
-  ListRegisteredSubscriptionProvidersCommandOutput,
 } from "./commands/ListRegisteredSubscriptionProvidersCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RegisterSubscriptionProviderCommandInput,
+  type RegisterSubscriptionProviderCommandOutput,
   RegisterSubscriptionProviderCommand,
-  RegisterSubscriptionProviderCommandInput,
-  RegisterSubscriptionProviderCommandOutput,
 } from "./commands/RegisterSubscriptionProviderCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateServiceSettingsCommandInput,
+  type UpdateServiceSettingsCommandOutput,
   UpdateServiceSettingsCommand,
-  UpdateServiceSettingsCommandInput,
-  UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
 import { LicenseManagerLinuxSubscriptionsClient } from "./LicenseManagerLinuxSubscriptionsClient";
 import { paginateListLinuxSubscriptionInstances } from "./pagination/ListLinuxSubscriptionInstancesPaginator";

@@ -8,7 +8,7 @@ import {
   ListChannelBansCommandInput,
   ListChannelBansCommandOutput,
 } from "../commands/ListChannelBansCommand";
-import { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

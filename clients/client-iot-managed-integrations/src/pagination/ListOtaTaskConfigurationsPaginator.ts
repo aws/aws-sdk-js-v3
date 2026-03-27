@@ -8,7 +8,7 @@ import {
   ListOtaTaskConfigurationsCommandOutput,
 } from "../commands/ListOtaTaskConfigurationsCommand";
 import { IoTManagedIntegrationsClient } from "../IoTManagedIntegrationsClient";
-import { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
+import type { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

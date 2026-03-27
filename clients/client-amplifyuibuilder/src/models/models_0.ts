@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   CodegenGenericDataFieldDataType,
   CodegenJobGenericDataSourceType,
   CodegenJobStatus,

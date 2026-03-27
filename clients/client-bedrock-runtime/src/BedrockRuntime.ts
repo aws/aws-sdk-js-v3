@@ -4,42 +4,50 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BedrockRuntimeClient } from "./BedrockRuntimeClient";
 import {
+  type ApplyGuardrailCommandInput,
+  type ApplyGuardrailCommandOutput,
   ApplyGuardrailCommand,
-  ApplyGuardrailCommandInput,
-  ApplyGuardrailCommandOutput,
 } from "./commands/ApplyGuardrailCommand";
-import { ConverseCommand, ConverseCommandInput, ConverseCommandOutput } from "./commands/ConverseCommand";
+import { type ConverseCommandInput, type ConverseCommandOutput, ConverseCommand } from "./commands/ConverseCommand";
 import {
+  type ConverseStreamCommandInput,
+  type ConverseStreamCommandOutput,
   ConverseStreamCommand,
-  ConverseStreamCommandInput,
-  ConverseStreamCommandOutput,
 } from "./commands/ConverseStreamCommand";
-import { CountTokensCommand, CountTokensCommandInput, CountTokensCommandOutput } from "./commands/CountTokensCommand";
 import {
+  type CountTokensCommandInput,
+  type CountTokensCommandOutput,
+  CountTokensCommand,
+} from "./commands/CountTokensCommand";
+import {
+  type GetAsyncInvokeCommandInput,
+  type GetAsyncInvokeCommandOutput,
   GetAsyncInvokeCommand,
-  GetAsyncInvokeCommandInput,
-  GetAsyncInvokeCommandOutput,
 } from "./commands/GetAsyncInvokeCommand";
-import { InvokeModelCommand, InvokeModelCommandInput, InvokeModelCommandOutput } from "./commands/InvokeModelCommand";
 import {
+  type InvokeModelCommandInput,
+  type InvokeModelCommandOutput,
+  InvokeModelCommand,
+} from "./commands/InvokeModelCommand";
+import {
+  type InvokeModelWithBidirectionalStreamCommandInput,
+  type InvokeModelWithBidirectionalStreamCommandOutput,
   InvokeModelWithBidirectionalStreamCommand,
-  InvokeModelWithBidirectionalStreamCommandInput,
-  InvokeModelWithBidirectionalStreamCommandOutput,
 } from "./commands/InvokeModelWithBidirectionalStreamCommand";
 import {
+  type InvokeModelWithResponseStreamCommandInput,
+  type InvokeModelWithResponseStreamCommandOutput,
   InvokeModelWithResponseStreamCommand,
-  InvokeModelWithResponseStreamCommandInput,
-  InvokeModelWithResponseStreamCommandOutput,
 } from "./commands/InvokeModelWithResponseStreamCommand";
 import {
+  type ListAsyncInvokesCommandInput,
+  type ListAsyncInvokesCommandOutput,
   ListAsyncInvokesCommand,
-  ListAsyncInvokesCommandInput,
-  ListAsyncInvokesCommandOutput,
 } from "./commands/ListAsyncInvokesCommand";
 import {
+  type StartAsyncInvokeCommandInput,
+  type StartAsyncInvokeCommandOutput,
   StartAsyncInvokeCommand,
-  StartAsyncInvokeCommandInput,
-  StartAsyncInvokeCommandOutput,
 } from "./commands/StartAsyncInvokeCommand";
 import { paginateListAsyncInvokes } from "./pagination/ListAsyncInvokesPaginator";
 

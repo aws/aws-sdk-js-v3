@@ -2,8 +2,8 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { EchoCommand, EchoCommandInput, EchoCommandOutput } from "./commands/EchoCommand";
-import { LengthCommand, LengthCommandInput, LengthCommandOutput } from "./commands/LengthCommand";
+import { type EchoCommandInput, type EchoCommandOutput, EchoCommand } from "./commands/EchoCommand";
+import { type LengthCommandInput, type LengthCommandOutput, LengthCommand } from "./commands/LengthCommand";
 import { EchoServiceClient } from "./EchoServiceClient";
 
 const commands = {

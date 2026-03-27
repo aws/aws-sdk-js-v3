@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type InvokeEndpointWithResponseStreamOutput, InvokeEndpointWithResponseStreamInput } from "../models/models_0";
+import type { InvokeEndpointWithResponseStreamInput, InvokeEndpointWithResponseStreamOutput } from "../models/models_0";
 import type {
   SageMakerRuntimeClientResolvedConfig,
   ServiceInputTypes,

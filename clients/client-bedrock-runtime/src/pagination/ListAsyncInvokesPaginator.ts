@@ -8,7 +8,7 @@ import {
   ListAsyncInvokesCommandInput,
   ListAsyncInvokesCommandOutput,
 } from "../commands/ListAsyncInvokesCommand";
-import { BedrockRuntimePaginationConfiguration } from "./Interfaces";
+import type { BedrockRuntimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

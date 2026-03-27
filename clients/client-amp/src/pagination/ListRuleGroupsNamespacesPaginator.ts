@@ -8,7 +8,7 @@ import {
   ListRuleGroupsNamespacesCommandInput,
   ListRuleGroupsNamespacesCommandOutput,
 } from "../commands/ListRuleGroupsNamespacesCommand";
-import { AmpPaginationConfiguration } from "./Interfaces";
+import type { AmpPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

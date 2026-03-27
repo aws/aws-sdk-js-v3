@@ -3,40 +3,44 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type CreateLifecyclePolicyCommandInput,
+  type CreateLifecyclePolicyCommandOutput,
   CreateLifecyclePolicyCommand,
-  CreateLifecyclePolicyCommandInput,
-  CreateLifecyclePolicyCommandOutput,
 } from "./commands/CreateLifecyclePolicyCommand";
 import {
+  type DeleteLifecyclePolicyCommandInput,
+  type DeleteLifecyclePolicyCommandOutput,
   DeleteLifecyclePolicyCommand,
-  DeleteLifecyclePolicyCommandInput,
-  DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
 import {
+  type GetLifecyclePoliciesCommandInput,
+  type GetLifecyclePoliciesCommandOutput,
   GetLifecyclePoliciesCommand,
-  GetLifecyclePoliciesCommandInput,
-  GetLifecyclePoliciesCommandOutput,
 } from "./commands/GetLifecyclePoliciesCommand";
 import {
+  type GetLifecyclePolicyCommandInput,
+  type GetLifecyclePolicyCommandOutput,
   GetLifecyclePolicyCommand,
-  GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput,
 } from "./commands/GetLifecyclePolicyCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateLifecyclePolicyCommandInput,
+  type UpdateLifecyclePolicyCommandOutput,
   UpdateLifecyclePolicyCommand,
-  UpdateLifecyclePolicyCommandInput,
-  UpdateLifecyclePolicyCommandOutput,
 } from "./commands/UpdateLifecyclePolicyCommand";
 import { DLMClient } from "./DLMClient";
 

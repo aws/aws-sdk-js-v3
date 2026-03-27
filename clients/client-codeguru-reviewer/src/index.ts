@@ -21,7 +21,7 @@
  */
 export * from "./CodeGuruReviewerClient";
 export * from "./CodeGuruReviewer";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CodeGuruReviewerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

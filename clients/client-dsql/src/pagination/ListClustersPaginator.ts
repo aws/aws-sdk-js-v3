@@ -8,7 +8,7 @@ import {
   ListClustersCommandOutput,
 } from "../commands/ListClustersCommand";
 import { DSQLClient } from "../DSQLClient";
-import { DSQLPaginationConfiguration } from "./Interfaces";
+import type { DSQLPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

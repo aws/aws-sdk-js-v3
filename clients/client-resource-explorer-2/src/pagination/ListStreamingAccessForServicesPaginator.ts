@@ -8,7 +8,7 @@ import {
   ListStreamingAccessForServicesCommandOutput,
 } from "../commands/ListStreamingAccessForServicesCommand";
 import { ResourceExplorer2Client } from "../ResourceExplorer2Client";
-import { ResourceExplorer2PaginationConfiguration } from "./Interfaces";
+import type { ResourceExplorer2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

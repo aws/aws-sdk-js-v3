@@ -3,231 +3,239 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateHostedZoneCommandInput,
+  type AssociateHostedZoneCommandOutput,
   AssociateHostedZoneCommand,
-  AssociateHostedZoneCommandInput,
-  AssociateHostedZoneCommandOutput,
 } from "./commands/AssociateHostedZoneCommand";
 import {
+  type BatchCreateFirewallRuleCommandInput,
+  type BatchCreateFirewallRuleCommandOutput,
   BatchCreateFirewallRuleCommand,
-  BatchCreateFirewallRuleCommandInput,
-  BatchCreateFirewallRuleCommandOutput,
 } from "./commands/BatchCreateFirewallRuleCommand";
 import {
+  type BatchDeleteFirewallRuleCommandInput,
+  type BatchDeleteFirewallRuleCommandOutput,
   BatchDeleteFirewallRuleCommand,
-  BatchDeleteFirewallRuleCommandInput,
-  BatchDeleteFirewallRuleCommandOutput,
 } from "./commands/BatchDeleteFirewallRuleCommand";
 import {
+  type BatchUpdateFirewallRuleCommandInput,
+  type BatchUpdateFirewallRuleCommandOutput,
   BatchUpdateFirewallRuleCommand,
-  BatchUpdateFirewallRuleCommandInput,
-  BatchUpdateFirewallRuleCommandOutput,
 } from "./commands/BatchUpdateFirewallRuleCommand";
 import {
+  type CreateAccessSourceCommandInput,
+  type CreateAccessSourceCommandOutput,
   CreateAccessSourceCommand,
-  CreateAccessSourceCommandInput,
-  CreateAccessSourceCommandOutput,
 } from "./commands/CreateAccessSourceCommand";
 import {
+  type CreateAccessTokenCommandInput,
+  type CreateAccessTokenCommandOutput,
   CreateAccessTokenCommand,
-  CreateAccessTokenCommandInput,
-  CreateAccessTokenCommandOutput,
 } from "./commands/CreateAccessTokenCommand";
 import {
+  type CreateDNSViewCommandInput,
+  type CreateDNSViewCommandOutput,
   CreateDNSViewCommand,
-  CreateDNSViewCommandInput,
-  CreateDNSViewCommandOutput,
 } from "./commands/CreateDNSViewCommand";
 import {
+  type CreateFirewallDomainListCommandInput,
+  type CreateFirewallDomainListCommandOutput,
   CreateFirewallDomainListCommand,
-  CreateFirewallDomainListCommandInput,
-  CreateFirewallDomainListCommandOutput,
 } from "./commands/CreateFirewallDomainListCommand";
 import {
+  type CreateFirewallRuleCommandInput,
+  type CreateFirewallRuleCommandOutput,
   CreateFirewallRuleCommand,
-  CreateFirewallRuleCommandInput,
-  CreateFirewallRuleCommandOutput,
 } from "./commands/CreateFirewallRuleCommand";
 import {
+  type CreateGlobalResolverCommandInput,
+  type CreateGlobalResolverCommandOutput,
   CreateGlobalResolverCommand,
-  CreateGlobalResolverCommandInput,
-  CreateGlobalResolverCommandOutput,
 } from "./commands/CreateGlobalResolverCommand";
 import {
+  type DeleteAccessSourceCommandInput,
+  type DeleteAccessSourceCommandOutput,
   DeleteAccessSourceCommand,
-  DeleteAccessSourceCommandInput,
-  DeleteAccessSourceCommandOutput,
 } from "./commands/DeleteAccessSourceCommand";
 import {
+  type DeleteAccessTokenCommandInput,
+  type DeleteAccessTokenCommandOutput,
   DeleteAccessTokenCommand,
-  DeleteAccessTokenCommandInput,
-  DeleteAccessTokenCommandOutput,
 } from "./commands/DeleteAccessTokenCommand";
 import {
+  type DeleteDNSViewCommandInput,
+  type DeleteDNSViewCommandOutput,
   DeleteDNSViewCommand,
-  DeleteDNSViewCommandInput,
-  DeleteDNSViewCommandOutput,
 } from "./commands/DeleteDNSViewCommand";
 import {
+  type DeleteFirewallDomainListCommandInput,
+  type DeleteFirewallDomainListCommandOutput,
   DeleteFirewallDomainListCommand,
-  DeleteFirewallDomainListCommandInput,
-  DeleteFirewallDomainListCommandOutput,
 } from "./commands/DeleteFirewallDomainListCommand";
 import {
+  type DeleteFirewallRuleCommandInput,
+  type DeleteFirewallRuleCommandOutput,
   DeleteFirewallRuleCommand,
-  DeleteFirewallRuleCommandInput,
-  DeleteFirewallRuleCommandOutput,
 } from "./commands/DeleteFirewallRuleCommand";
 import {
+  type DeleteGlobalResolverCommandInput,
+  type DeleteGlobalResolverCommandOutput,
   DeleteGlobalResolverCommand,
-  DeleteGlobalResolverCommandInput,
-  DeleteGlobalResolverCommandOutput,
 } from "./commands/DeleteGlobalResolverCommand";
 import {
+  type DisableDNSViewCommandInput,
+  type DisableDNSViewCommandOutput,
   DisableDNSViewCommand,
-  DisableDNSViewCommandInput,
-  DisableDNSViewCommandOutput,
 } from "./commands/DisableDNSViewCommand";
 import {
+  type DisassociateHostedZoneCommandInput,
+  type DisassociateHostedZoneCommandOutput,
   DisassociateHostedZoneCommand,
-  DisassociateHostedZoneCommandInput,
-  DisassociateHostedZoneCommandOutput,
 } from "./commands/DisassociateHostedZoneCommand";
 import {
+  type EnableDNSViewCommandInput,
+  type EnableDNSViewCommandOutput,
   EnableDNSViewCommand,
-  EnableDNSViewCommandInput,
-  EnableDNSViewCommandOutput,
 } from "./commands/EnableDNSViewCommand";
 import {
+  type GetAccessSourceCommandInput,
+  type GetAccessSourceCommandOutput,
   GetAccessSourceCommand,
-  GetAccessSourceCommandInput,
-  GetAccessSourceCommandOutput,
 } from "./commands/GetAccessSourceCommand";
 import {
+  type GetAccessTokenCommandInput,
+  type GetAccessTokenCommandOutput,
   GetAccessTokenCommand,
-  GetAccessTokenCommandInput,
-  GetAccessTokenCommandOutput,
 } from "./commands/GetAccessTokenCommand";
-import { GetDNSViewCommand, GetDNSViewCommandInput, GetDNSViewCommandOutput } from "./commands/GetDNSViewCommand";
 import {
+  type GetDNSViewCommandInput,
+  type GetDNSViewCommandOutput,
+  GetDNSViewCommand,
+} from "./commands/GetDNSViewCommand";
+import {
+  type GetFirewallDomainListCommandInput,
+  type GetFirewallDomainListCommandOutput,
   GetFirewallDomainListCommand,
-  GetFirewallDomainListCommandInput,
-  GetFirewallDomainListCommandOutput,
 } from "./commands/GetFirewallDomainListCommand";
 import {
+  type GetFirewallRuleCommandInput,
+  type GetFirewallRuleCommandOutput,
   GetFirewallRuleCommand,
-  GetFirewallRuleCommandInput,
-  GetFirewallRuleCommandOutput,
 } from "./commands/GetFirewallRuleCommand";
 import {
+  type GetGlobalResolverCommandInput,
+  type GetGlobalResolverCommandOutput,
   GetGlobalResolverCommand,
-  GetGlobalResolverCommandInput,
-  GetGlobalResolverCommandOutput,
 } from "./commands/GetGlobalResolverCommand";
 import {
+  type GetHostedZoneAssociationCommandInput,
+  type GetHostedZoneAssociationCommandOutput,
   GetHostedZoneAssociationCommand,
-  GetHostedZoneAssociationCommandInput,
-  GetHostedZoneAssociationCommandOutput,
 } from "./commands/GetHostedZoneAssociationCommand";
 import {
+  type GetManagedFirewallDomainListCommandInput,
+  type GetManagedFirewallDomainListCommandOutput,
   GetManagedFirewallDomainListCommand,
-  GetManagedFirewallDomainListCommandInput,
-  GetManagedFirewallDomainListCommandOutput,
 } from "./commands/GetManagedFirewallDomainListCommand";
 import {
+  type ImportFirewallDomainsCommandInput,
+  type ImportFirewallDomainsCommandOutput,
   ImportFirewallDomainsCommand,
-  ImportFirewallDomainsCommandInput,
-  ImportFirewallDomainsCommandOutput,
 } from "./commands/ImportFirewallDomainsCommand";
 import {
+  type ListAccessSourcesCommandInput,
+  type ListAccessSourcesCommandOutput,
   ListAccessSourcesCommand,
-  ListAccessSourcesCommandInput,
-  ListAccessSourcesCommandOutput,
 } from "./commands/ListAccessSourcesCommand";
 import {
+  type ListAccessTokensCommandInput,
+  type ListAccessTokensCommandOutput,
   ListAccessTokensCommand,
-  ListAccessTokensCommandInput,
-  ListAccessTokensCommandOutput,
 } from "./commands/ListAccessTokensCommand";
 import {
+  type ListDNSViewsCommandInput,
+  type ListDNSViewsCommandOutput,
   ListDNSViewsCommand,
-  ListDNSViewsCommandInput,
-  ListDNSViewsCommandOutput,
 } from "./commands/ListDNSViewsCommand";
 import {
+  type ListFirewallDomainListsCommandInput,
+  type ListFirewallDomainListsCommandOutput,
   ListFirewallDomainListsCommand,
-  ListFirewallDomainListsCommandInput,
-  ListFirewallDomainListsCommandOutput,
 } from "./commands/ListFirewallDomainListsCommand";
 import {
+  type ListFirewallDomainsCommandInput,
+  type ListFirewallDomainsCommandOutput,
   ListFirewallDomainsCommand,
-  ListFirewallDomainsCommandInput,
-  ListFirewallDomainsCommandOutput,
 } from "./commands/ListFirewallDomainsCommand";
 import {
+  type ListFirewallRulesCommandInput,
+  type ListFirewallRulesCommandOutput,
   ListFirewallRulesCommand,
-  ListFirewallRulesCommandInput,
-  ListFirewallRulesCommandOutput,
 } from "./commands/ListFirewallRulesCommand";
 import {
+  type ListGlobalResolversCommandInput,
+  type ListGlobalResolversCommandOutput,
   ListGlobalResolversCommand,
-  ListGlobalResolversCommandInput,
-  ListGlobalResolversCommandOutput,
 } from "./commands/ListGlobalResolversCommand";
 import {
+  type ListHostedZoneAssociationsCommandInput,
+  type ListHostedZoneAssociationsCommandOutput,
   ListHostedZoneAssociationsCommand,
-  ListHostedZoneAssociationsCommandInput,
-  ListHostedZoneAssociationsCommandOutput,
 } from "./commands/ListHostedZoneAssociationsCommand";
 import {
+  type ListManagedFirewallDomainListsCommandInput,
+  type ListManagedFirewallDomainListsCommandOutput,
   ListManagedFirewallDomainListsCommand,
-  ListManagedFirewallDomainListsCommandInput,
-  ListManagedFirewallDomainListsCommandOutput,
 } from "./commands/ListManagedFirewallDomainListsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccessSourceCommandInput,
+  type UpdateAccessSourceCommandOutput,
   UpdateAccessSourceCommand,
-  UpdateAccessSourceCommandInput,
-  UpdateAccessSourceCommandOutput,
 } from "./commands/UpdateAccessSourceCommand";
 import {
+  type UpdateAccessTokenCommandInput,
+  type UpdateAccessTokenCommandOutput,
   UpdateAccessTokenCommand,
-  UpdateAccessTokenCommandInput,
-  UpdateAccessTokenCommandOutput,
 } from "./commands/UpdateAccessTokenCommand";
 import {
+  type UpdateDNSViewCommandInput,
+  type UpdateDNSViewCommandOutput,
   UpdateDNSViewCommand,
-  UpdateDNSViewCommandInput,
-  UpdateDNSViewCommandOutput,
 } from "./commands/UpdateDNSViewCommand";
 import {
+  type UpdateFirewallDomainsCommandInput,
+  type UpdateFirewallDomainsCommandOutput,
   UpdateFirewallDomainsCommand,
-  UpdateFirewallDomainsCommandInput,
-  UpdateFirewallDomainsCommandOutput,
 } from "./commands/UpdateFirewallDomainsCommand";
 import {
+  type UpdateFirewallRuleCommandInput,
+  type UpdateFirewallRuleCommandOutput,
   UpdateFirewallRuleCommand,
-  UpdateFirewallRuleCommandInput,
-  UpdateFirewallRuleCommandOutput,
 } from "./commands/UpdateFirewallRuleCommand";
 import {
+  type UpdateGlobalResolverCommandInput,
+  type UpdateGlobalResolverCommandOutput,
   UpdateGlobalResolverCommand,
-  UpdateGlobalResolverCommandInput,
-  UpdateGlobalResolverCommandOutput,
 } from "./commands/UpdateGlobalResolverCommand";
 import {
+  type UpdateHostedZoneAssociationCommandInput,
+  type UpdateHostedZoneAssociationCommandOutput,
   UpdateHostedZoneAssociationCommand,
-  UpdateHostedZoneAssociationCommandInput,
-  UpdateHostedZoneAssociationCommandOutput,
 } from "./commands/UpdateHostedZoneAssociationCommand";
 import { paginateListAccessSources } from "./pagination/ListAccessSourcesPaginator";
 import { paginateListAccessTokens } from "./pagination/ListAccessTokensPaginator";

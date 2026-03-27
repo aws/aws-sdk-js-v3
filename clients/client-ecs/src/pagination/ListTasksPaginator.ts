@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListTasksCommand, ListTasksCommandInput, ListTasksCommandOutput } from "../commands/ListTasksCommand";
 import { ECSClient } from "../ECSClient";
-import { ECSPaginationConfiguration } from "./Interfaces";
+import type { ECSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

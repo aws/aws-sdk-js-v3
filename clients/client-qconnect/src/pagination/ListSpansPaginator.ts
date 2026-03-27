@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListSpansCommand, ListSpansCommandInput, ListSpansCommandOutput } from "../commands/ListSpansCommand";
 import { QConnectClient } from "../QConnectClient";
-import { QConnectPaginationConfiguration } from "./Interfaces";
+import type { QConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

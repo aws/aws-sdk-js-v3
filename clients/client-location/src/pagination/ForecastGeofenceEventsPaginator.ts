@@ -8,7 +8,7 @@ import {
   ForecastGeofenceEventsCommandOutput,
 } from "../commands/ForecastGeofenceEventsCommand";
 import { LocationClient } from "../LocationClient";
-import { LocationPaginationConfiguration } from "./Interfaces";
+import type { LocationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

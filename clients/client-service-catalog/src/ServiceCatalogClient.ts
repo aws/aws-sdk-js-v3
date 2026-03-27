@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,295 +61,310 @@ import {
   defaultServiceCatalogHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptPortfolioShareCommandInput,
   AcceptPortfolioShareCommandOutput,
 } from "./commands/AcceptPortfolioShareCommand";
-import {
+import type {
   AssociateBudgetWithResourceCommandInput,
   AssociateBudgetWithResourceCommandOutput,
 } from "./commands/AssociateBudgetWithResourceCommand";
-import {
+import type {
   AssociatePrincipalWithPortfolioCommandInput,
   AssociatePrincipalWithPortfolioCommandOutput,
 } from "./commands/AssociatePrincipalWithPortfolioCommand";
-import {
+import type {
   AssociateProductWithPortfolioCommandInput,
   AssociateProductWithPortfolioCommandOutput,
 } from "./commands/AssociateProductWithPortfolioCommand";
-import {
+import type {
   AssociateServiceActionWithProvisioningArtifactCommandInput,
   AssociateServiceActionWithProvisioningArtifactCommandOutput,
 } from "./commands/AssociateServiceActionWithProvisioningArtifactCommand";
-import {
+import type {
   AssociateTagOptionWithResourceCommandInput,
   AssociateTagOptionWithResourceCommandOutput,
 } from "./commands/AssociateTagOptionWithResourceCommand";
-import {
+import type {
   BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
   BatchAssociateServiceActionWithProvisioningArtifactCommandOutput,
 } from "./commands/BatchAssociateServiceActionWithProvisioningArtifactCommand";
-import {
+import type {
   BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
   BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput,
 } from "./commands/BatchDisassociateServiceActionFromProvisioningArtifactCommand";
-import { CopyProductCommandInput, CopyProductCommandOutput } from "./commands/CopyProductCommand";
-import { CreateConstraintCommandInput, CreateConstraintCommandOutput } from "./commands/CreateConstraintCommand";
-import { CreatePortfolioCommandInput, CreatePortfolioCommandOutput } from "./commands/CreatePortfolioCommand";
-import {
+import type { CopyProductCommandInput, CopyProductCommandOutput } from "./commands/CopyProductCommand";
+import type { CreateConstraintCommandInput, CreateConstraintCommandOutput } from "./commands/CreateConstraintCommand";
+import type { CreatePortfolioCommandInput, CreatePortfolioCommandOutput } from "./commands/CreatePortfolioCommand";
+import type {
   CreatePortfolioShareCommandInput,
   CreatePortfolioShareCommandOutput,
 } from "./commands/CreatePortfolioShareCommand";
-import { CreateProductCommandInput, CreateProductCommandOutput } from "./commands/CreateProductCommand";
-import {
+import type { CreateProductCommandInput, CreateProductCommandOutput } from "./commands/CreateProductCommand";
+import type {
   CreateProvisionedProductPlanCommandInput,
   CreateProvisionedProductPlanCommandOutput,
 } from "./commands/CreateProvisionedProductPlanCommand";
-import {
+import type {
   CreateProvisioningArtifactCommandInput,
   CreateProvisioningArtifactCommandOutput,
 } from "./commands/CreateProvisioningArtifactCommand";
-import {
+import type {
   CreateServiceActionCommandInput,
   CreateServiceActionCommandOutput,
 } from "./commands/CreateServiceActionCommand";
-import { CreateTagOptionCommandInput, CreateTagOptionCommandOutput } from "./commands/CreateTagOptionCommand";
-import { DeleteConstraintCommandInput, DeleteConstraintCommandOutput } from "./commands/DeleteConstraintCommand";
-import { DeletePortfolioCommandInput, DeletePortfolioCommandOutput } from "./commands/DeletePortfolioCommand";
-import {
+import type { CreateTagOptionCommandInput, CreateTagOptionCommandOutput } from "./commands/CreateTagOptionCommand";
+import type { DeleteConstraintCommandInput, DeleteConstraintCommandOutput } from "./commands/DeleteConstraintCommand";
+import type { DeletePortfolioCommandInput, DeletePortfolioCommandOutput } from "./commands/DeletePortfolioCommand";
+import type {
   DeletePortfolioShareCommandInput,
   DeletePortfolioShareCommandOutput,
 } from "./commands/DeletePortfolioShareCommand";
-import { DeleteProductCommandInput, DeleteProductCommandOutput } from "./commands/DeleteProductCommand";
-import {
+import type { DeleteProductCommandInput, DeleteProductCommandOutput } from "./commands/DeleteProductCommand";
+import type {
   DeleteProvisionedProductPlanCommandInput,
   DeleteProvisionedProductPlanCommandOutput,
 } from "./commands/DeleteProvisionedProductPlanCommand";
-import {
+import type {
   DeleteProvisioningArtifactCommandInput,
   DeleteProvisioningArtifactCommandOutput,
 } from "./commands/DeleteProvisioningArtifactCommand";
-import {
+import type {
   DeleteServiceActionCommandInput,
   DeleteServiceActionCommandOutput,
 } from "./commands/DeleteServiceActionCommand";
-import { DeleteTagOptionCommandInput, DeleteTagOptionCommandOutput } from "./commands/DeleteTagOptionCommand";
-import { DescribeConstraintCommandInput, DescribeConstraintCommandOutput } from "./commands/DescribeConstraintCommand";
-import {
+import type { DeleteTagOptionCommandInput, DeleteTagOptionCommandOutput } from "./commands/DeleteTagOptionCommand";
+import type {
+  DescribeConstraintCommandInput,
+  DescribeConstraintCommandOutput,
+} from "./commands/DescribeConstraintCommand";
+import type {
   DescribeCopyProductStatusCommandInput,
   DescribeCopyProductStatusCommandOutput,
 } from "./commands/DescribeCopyProductStatusCommand";
-import { DescribePortfolioCommandInput, DescribePortfolioCommandOutput } from "./commands/DescribePortfolioCommand";
-import {
+import type {
+  DescribePortfolioCommandInput,
+  DescribePortfolioCommandOutput,
+} from "./commands/DescribePortfolioCommand";
+import type {
   DescribePortfolioSharesCommandInput,
   DescribePortfolioSharesCommandOutput,
 } from "./commands/DescribePortfolioSharesCommand";
-import {
+import type {
   DescribePortfolioShareStatusCommandInput,
   DescribePortfolioShareStatusCommandOutput,
 } from "./commands/DescribePortfolioShareStatusCommand";
-import {
+import type {
   DescribeProductAsAdminCommandInput,
   DescribeProductAsAdminCommandOutput,
 } from "./commands/DescribeProductAsAdminCommand";
-import { DescribeProductCommandInput, DescribeProductCommandOutput } from "./commands/DescribeProductCommand";
-import {
+import type { DescribeProductCommandInput, DescribeProductCommandOutput } from "./commands/DescribeProductCommand";
+import type {
   DescribeProductViewCommandInput,
   DescribeProductViewCommandOutput,
 } from "./commands/DescribeProductViewCommand";
-import {
+import type {
   DescribeProvisionedProductCommandInput,
   DescribeProvisionedProductCommandOutput,
 } from "./commands/DescribeProvisionedProductCommand";
-import {
+import type {
   DescribeProvisionedProductPlanCommandInput,
   DescribeProvisionedProductPlanCommandOutput,
 } from "./commands/DescribeProvisionedProductPlanCommand";
-import {
+import type {
   DescribeProvisioningArtifactCommandInput,
   DescribeProvisioningArtifactCommandOutput,
 } from "./commands/DescribeProvisioningArtifactCommand";
-import {
+import type {
   DescribeProvisioningParametersCommandInput,
   DescribeProvisioningParametersCommandOutput,
 } from "./commands/DescribeProvisioningParametersCommand";
-import { DescribeRecordCommandInput, DescribeRecordCommandOutput } from "./commands/DescribeRecordCommand";
-import {
+import type { DescribeRecordCommandInput, DescribeRecordCommandOutput } from "./commands/DescribeRecordCommand";
+import type {
   DescribeServiceActionCommandInput,
   DescribeServiceActionCommandOutput,
 } from "./commands/DescribeServiceActionCommand";
-import {
+import type {
   DescribeServiceActionExecutionParametersCommandInput,
   DescribeServiceActionExecutionParametersCommandOutput,
 } from "./commands/DescribeServiceActionExecutionParametersCommand";
-import { DescribeTagOptionCommandInput, DescribeTagOptionCommandOutput } from "./commands/DescribeTagOptionCommand";
-import {
+import type {
+  DescribeTagOptionCommandInput,
+  DescribeTagOptionCommandOutput,
+} from "./commands/DescribeTagOptionCommand";
+import type {
   DisableAWSOrganizationsAccessCommandInput,
   DisableAWSOrganizationsAccessCommandOutput,
 } from "./commands/DisableAWSOrganizationsAccessCommand";
-import {
+import type {
   DisassociateBudgetFromResourceCommandInput,
   DisassociateBudgetFromResourceCommandOutput,
 } from "./commands/DisassociateBudgetFromResourceCommand";
-import {
+import type {
   DisassociatePrincipalFromPortfolioCommandInput,
   DisassociatePrincipalFromPortfolioCommandOutput,
 } from "./commands/DisassociatePrincipalFromPortfolioCommand";
-import {
+import type {
   DisassociateProductFromPortfolioCommandInput,
   DisassociateProductFromPortfolioCommandOutput,
 } from "./commands/DisassociateProductFromPortfolioCommand";
-import {
+import type {
   DisassociateServiceActionFromProvisioningArtifactCommandInput,
   DisassociateServiceActionFromProvisioningArtifactCommandOutput,
 } from "./commands/DisassociateServiceActionFromProvisioningArtifactCommand";
-import {
+import type {
   DisassociateTagOptionFromResourceCommandInput,
   DisassociateTagOptionFromResourceCommandOutput,
 } from "./commands/DisassociateTagOptionFromResourceCommand";
-import {
+import type {
   EnableAWSOrganizationsAccessCommandInput,
   EnableAWSOrganizationsAccessCommandOutput,
 } from "./commands/EnableAWSOrganizationsAccessCommand";
-import {
+import type {
   ExecuteProvisionedProductPlanCommandInput,
   ExecuteProvisionedProductPlanCommandOutput,
 } from "./commands/ExecuteProvisionedProductPlanCommand";
-import {
+import type {
   ExecuteProvisionedProductServiceActionCommandInput,
   ExecuteProvisionedProductServiceActionCommandOutput,
 } from "./commands/ExecuteProvisionedProductServiceActionCommand";
-import {
+import type {
   GetAWSOrganizationsAccessStatusCommandInput,
   GetAWSOrganizationsAccessStatusCommandOutput,
 } from "./commands/GetAWSOrganizationsAccessStatusCommand";
-import {
+import type {
   GetProvisionedProductOutputsCommandInput,
   GetProvisionedProductOutputsCommandOutput,
 } from "./commands/GetProvisionedProductOutputsCommand";
-import {
+import type {
   ImportAsProvisionedProductCommandInput,
   ImportAsProvisionedProductCommandOutput,
 } from "./commands/ImportAsProvisionedProductCommand";
-import {
+import type {
   ListAcceptedPortfolioSharesCommandInput,
   ListAcceptedPortfolioSharesCommandOutput,
 } from "./commands/ListAcceptedPortfolioSharesCommand";
-import {
+import type {
   ListBudgetsForResourceCommandInput,
   ListBudgetsForResourceCommandOutput,
 } from "./commands/ListBudgetsForResourceCommand";
-import {
+import type {
   ListConstraintsForPortfolioCommandInput,
   ListConstraintsForPortfolioCommandOutput,
 } from "./commands/ListConstraintsForPortfolioCommand";
-import { ListLaunchPathsCommandInput, ListLaunchPathsCommandOutput } from "./commands/ListLaunchPathsCommand";
-import {
+import type { ListLaunchPathsCommandInput, ListLaunchPathsCommandOutput } from "./commands/ListLaunchPathsCommand";
+import type {
   ListOrganizationPortfolioAccessCommandInput,
   ListOrganizationPortfolioAccessCommandOutput,
 } from "./commands/ListOrganizationPortfolioAccessCommand";
-import {
+import type {
   ListPortfolioAccessCommandInput,
   ListPortfolioAccessCommandOutput,
 } from "./commands/ListPortfolioAccessCommand";
-import { ListPortfoliosCommandInput, ListPortfoliosCommandOutput } from "./commands/ListPortfoliosCommand";
-import {
+import type { ListPortfoliosCommandInput, ListPortfoliosCommandOutput } from "./commands/ListPortfoliosCommand";
+import type {
   ListPortfoliosForProductCommandInput,
   ListPortfoliosForProductCommandOutput,
 } from "./commands/ListPortfoliosForProductCommand";
-import {
+import type {
   ListPrincipalsForPortfolioCommandInput,
   ListPrincipalsForPortfolioCommandOutput,
 } from "./commands/ListPrincipalsForPortfolioCommand";
-import {
+import type {
   ListProvisionedProductPlansCommandInput,
   ListProvisionedProductPlansCommandOutput,
 } from "./commands/ListProvisionedProductPlansCommand";
-import {
+import type {
   ListProvisioningArtifactsCommandInput,
   ListProvisioningArtifactsCommandOutput,
 } from "./commands/ListProvisioningArtifactsCommand";
-import {
+import type {
   ListProvisioningArtifactsForServiceActionCommandInput,
   ListProvisioningArtifactsForServiceActionCommandOutput,
 } from "./commands/ListProvisioningArtifactsForServiceActionCommand";
-import { ListRecordHistoryCommandInput, ListRecordHistoryCommandOutput } from "./commands/ListRecordHistoryCommand";
-import {
+import type {
+  ListRecordHistoryCommandInput,
+  ListRecordHistoryCommandOutput,
+} from "./commands/ListRecordHistoryCommand";
+import type {
   ListResourcesForTagOptionCommandInput,
   ListResourcesForTagOptionCommandOutput,
 } from "./commands/ListResourcesForTagOptionCommand";
-import { ListServiceActionsCommandInput, ListServiceActionsCommandOutput } from "./commands/ListServiceActionsCommand";
-import {
+import type {
+  ListServiceActionsCommandInput,
+  ListServiceActionsCommandOutput,
+} from "./commands/ListServiceActionsCommand";
+import type {
   ListServiceActionsForProvisioningArtifactCommandInput,
   ListServiceActionsForProvisioningArtifactCommandOutput,
 } from "./commands/ListServiceActionsForProvisioningArtifactCommand";
-import {
+import type {
   ListStackInstancesForProvisionedProductCommandInput,
   ListStackInstancesForProvisionedProductCommandOutput,
 } from "./commands/ListStackInstancesForProvisionedProductCommand";
-import { ListTagOptionsCommandInput, ListTagOptionsCommandOutput } from "./commands/ListTagOptionsCommand";
-import {
+import type { ListTagOptionsCommandInput, ListTagOptionsCommandOutput } from "./commands/ListTagOptionsCommand";
+import type {
   NotifyProvisionProductEngineWorkflowResultCommandInput,
   NotifyProvisionProductEngineWorkflowResultCommandOutput,
 } from "./commands/NotifyProvisionProductEngineWorkflowResultCommand";
-import {
+import type {
   NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
   NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput,
 } from "./commands/NotifyTerminateProvisionedProductEngineWorkflowResultCommand";
-import {
+import type {
   NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
   NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput,
 } from "./commands/NotifyUpdateProvisionedProductEngineWorkflowResultCommand";
-import { ProvisionProductCommandInput, ProvisionProductCommandOutput } from "./commands/ProvisionProductCommand";
-import {
+import type { ProvisionProductCommandInput, ProvisionProductCommandOutput } from "./commands/ProvisionProductCommand";
+import type {
   RejectPortfolioShareCommandInput,
   RejectPortfolioShareCommandOutput,
 } from "./commands/RejectPortfolioShareCommand";
-import {
+import type {
   ScanProvisionedProductsCommandInput,
   ScanProvisionedProductsCommandOutput,
 } from "./commands/ScanProvisionedProductsCommand";
-import {
+import type {
   SearchProductsAsAdminCommandInput,
   SearchProductsAsAdminCommandOutput,
 } from "./commands/SearchProductsAsAdminCommand";
-import { SearchProductsCommandInput, SearchProductsCommandOutput } from "./commands/SearchProductsCommand";
-import {
+import type { SearchProductsCommandInput, SearchProductsCommandOutput } from "./commands/SearchProductsCommand";
+import type {
   SearchProvisionedProductsCommandInput,
   SearchProvisionedProductsCommandOutput,
 } from "./commands/SearchProvisionedProductsCommand";
-import {
+import type {
   TerminateProvisionedProductCommandInput,
   TerminateProvisionedProductCommandOutput,
 } from "./commands/TerminateProvisionedProductCommand";
-import { UpdateConstraintCommandInput, UpdateConstraintCommandOutput } from "./commands/UpdateConstraintCommand";
-import { UpdatePortfolioCommandInput, UpdatePortfolioCommandOutput } from "./commands/UpdatePortfolioCommand";
-import {
+import type { UpdateConstraintCommandInput, UpdateConstraintCommandOutput } from "./commands/UpdateConstraintCommand";
+import type { UpdatePortfolioCommandInput, UpdatePortfolioCommandOutput } from "./commands/UpdatePortfolioCommand";
+import type {
   UpdatePortfolioShareCommandInput,
   UpdatePortfolioShareCommandOutput,
 } from "./commands/UpdatePortfolioShareCommand";
-import { UpdateProductCommandInput, UpdateProductCommandOutput } from "./commands/UpdateProductCommand";
-import {
+import type { UpdateProductCommandInput, UpdateProductCommandOutput } from "./commands/UpdateProductCommand";
+import type {
   UpdateProvisionedProductCommandInput,
   UpdateProvisionedProductCommandOutput,
 } from "./commands/UpdateProvisionedProductCommand";
-import {
+import type {
   UpdateProvisionedProductPropertiesCommandInput,
   UpdateProvisionedProductPropertiesCommandOutput,
 } from "./commands/UpdateProvisionedProductPropertiesCommand";
-import {
+import type {
   UpdateProvisioningArtifactCommandInput,
   UpdateProvisioningArtifactCommandOutput,
 } from "./commands/UpdateProvisioningArtifactCommand";
-import {
+import type {
   UpdateServiceActionCommandInput,
   UpdateServiceActionCommandOutput,
 } from "./commands/UpdateServiceActionCommand";
-import { UpdateTagOptionCommandInput, UpdateTagOptionCommandOutput } from "./commands/UpdateTagOptionCommand";
+import type { UpdateTagOptionCommandInput, UpdateTagOptionCommandOutput } from "./commands/UpdateTagOptionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -663,7 +676,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

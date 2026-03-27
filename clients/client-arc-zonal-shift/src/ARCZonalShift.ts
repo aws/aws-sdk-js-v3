@@ -4,79 +4,79 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ARCZonalShiftClient } from "./ARCZonalShiftClient";
 import {
+  type CancelPracticeRunCommandInput,
+  type CancelPracticeRunCommandOutput,
   CancelPracticeRunCommand,
-  CancelPracticeRunCommandInput,
-  CancelPracticeRunCommandOutput,
 } from "./commands/CancelPracticeRunCommand";
 import {
+  type CancelZonalShiftCommandInput,
+  type CancelZonalShiftCommandOutput,
   CancelZonalShiftCommand,
-  CancelZonalShiftCommandInput,
-  CancelZonalShiftCommandOutput,
 } from "./commands/CancelZonalShiftCommand";
 import {
+  type CreatePracticeRunConfigurationCommandInput,
+  type CreatePracticeRunConfigurationCommandOutput,
   CreatePracticeRunConfigurationCommand,
-  CreatePracticeRunConfigurationCommandInput,
-  CreatePracticeRunConfigurationCommandOutput,
 } from "./commands/CreatePracticeRunConfigurationCommand";
 import {
+  type DeletePracticeRunConfigurationCommandInput,
+  type DeletePracticeRunConfigurationCommandOutput,
   DeletePracticeRunConfigurationCommand,
-  DeletePracticeRunConfigurationCommandInput,
-  DeletePracticeRunConfigurationCommandOutput,
 } from "./commands/DeletePracticeRunConfigurationCommand";
 import {
+  type GetAutoshiftObserverNotificationStatusCommandInput,
+  type GetAutoshiftObserverNotificationStatusCommandOutput,
   GetAutoshiftObserverNotificationStatusCommand,
-  GetAutoshiftObserverNotificationStatusCommandInput,
-  GetAutoshiftObserverNotificationStatusCommandOutput,
 } from "./commands/GetAutoshiftObserverNotificationStatusCommand";
 import {
+  type GetManagedResourceCommandInput,
+  type GetManagedResourceCommandOutput,
   GetManagedResourceCommand,
-  GetManagedResourceCommandInput,
-  GetManagedResourceCommandOutput,
 } from "./commands/GetManagedResourceCommand";
 import {
+  type ListAutoshiftsCommandInput,
+  type ListAutoshiftsCommandOutput,
   ListAutoshiftsCommand,
-  ListAutoshiftsCommandInput,
-  ListAutoshiftsCommandOutput,
 } from "./commands/ListAutoshiftsCommand";
 import {
+  type ListManagedResourcesCommandInput,
+  type ListManagedResourcesCommandOutput,
   ListManagedResourcesCommand,
-  ListManagedResourcesCommandInput,
-  ListManagedResourcesCommandOutput,
 } from "./commands/ListManagedResourcesCommand";
 import {
+  type ListZonalShiftsCommandInput,
+  type ListZonalShiftsCommandOutput,
   ListZonalShiftsCommand,
-  ListZonalShiftsCommandInput,
-  ListZonalShiftsCommandOutput,
 } from "./commands/ListZonalShiftsCommand";
 import {
+  type StartPracticeRunCommandInput,
+  type StartPracticeRunCommandOutput,
   StartPracticeRunCommand,
-  StartPracticeRunCommandInput,
-  StartPracticeRunCommandOutput,
 } from "./commands/StartPracticeRunCommand";
 import {
+  type StartZonalShiftCommandInput,
+  type StartZonalShiftCommandOutput,
   StartZonalShiftCommand,
-  StartZonalShiftCommandInput,
-  StartZonalShiftCommandOutput,
 } from "./commands/StartZonalShiftCommand";
 import {
+  type UpdateAutoshiftObserverNotificationStatusCommandInput,
+  type UpdateAutoshiftObserverNotificationStatusCommandOutput,
   UpdateAutoshiftObserverNotificationStatusCommand,
-  UpdateAutoshiftObserverNotificationStatusCommandInput,
-  UpdateAutoshiftObserverNotificationStatusCommandOutput,
 } from "./commands/UpdateAutoshiftObserverNotificationStatusCommand";
 import {
+  type UpdatePracticeRunConfigurationCommandInput,
+  type UpdatePracticeRunConfigurationCommandOutput,
   UpdatePracticeRunConfigurationCommand,
-  UpdatePracticeRunConfigurationCommandInput,
-  UpdatePracticeRunConfigurationCommandOutput,
 } from "./commands/UpdatePracticeRunConfigurationCommand";
 import {
+  type UpdateZonalAutoshiftConfigurationCommandInput,
+  type UpdateZonalAutoshiftConfigurationCommandOutput,
   UpdateZonalAutoshiftConfigurationCommand,
-  UpdateZonalAutoshiftConfigurationCommandInput,
-  UpdateZonalAutoshiftConfigurationCommandOutput,
 } from "./commands/UpdateZonalAutoshiftConfigurationCommand";
 import {
+  type UpdateZonalShiftCommandInput,
+  type UpdateZonalShiftCommandOutput,
   UpdateZonalShiftCommand,
-  UpdateZonalShiftCommandInput,
-  UpdateZonalShiftCommandOutput,
 } from "./commands/UpdateZonalShiftCommand";
 import { paginateListAutoshifts } from "./pagination/ListAutoshiftsPaginator";
 import { paginateListManagedResources } from "./pagination/ListManagedResourcesPaginator";

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand";
 import { PanoramaClient } from "../PanoramaClient";
-import { PanoramaPaginationConfiguration } from "./Interfaces";
+import type { PanoramaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

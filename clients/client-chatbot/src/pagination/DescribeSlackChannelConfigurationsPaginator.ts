@@ -8,7 +8,7 @@ import {
   DescribeSlackChannelConfigurationsCommandInput,
   DescribeSlackChannelConfigurationsCommandOutput,
 } from "../commands/DescribeSlackChannelConfigurationsCommand";
-import { ChatbotPaginationConfiguration } from "./Interfaces";
+import type { ChatbotPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

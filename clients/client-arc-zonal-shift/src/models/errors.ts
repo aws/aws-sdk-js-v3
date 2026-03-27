@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ARCZonalShiftServiceException as __BaseException } from "./ARCZonalShiftServiceException";
-import { ConflictExceptionReason, ValidationExceptionReason } from "./enums";
+import type { ConflictExceptionReason, ValidationExceptionReason } from "./enums";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>

@@ -8,7 +8,7 @@ import {
   ListVirtualGatewaysCommandInput,
   ListVirtualGatewaysCommandOutput,
 } from "../commands/ListVirtualGatewaysCommand";
-import { AppMeshPaginationConfiguration } from "./Interfaces";
+import type { AppMeshPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

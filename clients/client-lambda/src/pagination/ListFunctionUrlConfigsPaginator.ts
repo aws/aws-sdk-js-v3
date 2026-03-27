@@ -8,7 +8,7 @@ import {
   ListFunctionUrlConfigsCommandOutput,
 } from "../commands/ListFunctionUrlConfigsCommand";
 import { LambdaClient } from "../LambdaClient";
-import { LambdaPaginationConfiguration } from "./Interfaces";
+import type { LambdaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

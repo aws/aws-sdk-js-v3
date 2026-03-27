@@ -3,60 +3,64 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type BatchAcknowledgeAlarmCommandInput,
+  type BatchAcknowledgeAlarmCommandOutput,
   BatchAcknowledgeAlarmCommand,
-  BatchAcknowledgeAlarmCommandInput,
-  BatchAcknowledgeAlarmCommandOutput,
 } from "./commands/BatchAcknowledgeAlarmCommand";
 import {
+  type BatchDeleteDetectorCommandInput,
+  type BatchDeleteDetectorCommandOutput,
   BatchDeleteDetectorCommand,
-  BatchDeleteDetectorCommandInput,
-  BatchDeleteDetectorCommandOutput,
 } from "./commands/BatchDeleteDetectorCommand";
 import {
+  type BatchDisableAlarmCommandInput,
+  type BatchDisableAlarmCommandOutput,
   BatchDisableAlarmCommand,
-  BatchDisableAlarmCommandInput,
-  BatchDisableAlarmCommandOutput,
 } from "./commands/BatchDisableAlarmCommand";
 import {
+  type BatchEnableAlarmCommandInput,
+  type BatchEnableAlarmCommandOutput,
   BatchEnableAlarmCommand,
-  BatchEnableAlarmCommandInput,
-  BatchEnableAlarmCommandOutput,
 } from "./commands/BatchEnableAlarmCommand";
 import {
+  type BatchPutMessageCommandInput,
+  type BatchPutMessageCommandOutput,
   BatchPutMessageCommand,
-  BatchPutMessageCommandInput,
-  BatchPutMessageCommandOutput,
 } from "./commands/BatchPutMessageCommand";
 import {
+  type BatchResetAlarmCommandInput,
+  type BatchResetAlarmCommandOutput,
   BatchResetAlarmCommand,
-  BatchResetAlarmCommandInput,
-  BatchResetAlarmCommandOutput,
 } from "./commands/BatchResetAlarmCommand";
 import {
+  type BatchSnoozeAlarmCommandInput,
+  type BatchSnoozeAlarmCommandOutput,
   BatchSnoozeAlarmCommand,
-  BatchSnoozeAlarmCommandInput,
-  BatchSnoozeAlarmCommandOutput,
 } from "./commands/BatchSnoozeAlarmCommand";
 import {
+  type BatchUpdateDetectorCommandInput,
+  type BatchUpdateDetectorCommandOutput,
   BatchUpdateDetectorCommand,
-  BatchUpdateDetectorCommandInput,
-  BatchUpdateDetectorCommandOutput,
 } from "./commands/BatchUpdateDetectorCommand";
 import {
+  type DescribeAlarmCommandInput,
+  type DescribeAlarmCommandOutput,
   DescribeAlarmCommand,
-  DescribeAlarmCommandInput,
-  DescribeAlarmCommandOutput,
 } from "./commands/DescribeAlarmCommand";
 import {
+  type DescribeDetectorCommandInput,
+  type DescribeDetectorCommandOutput,
   DescribeDetectorCommand,
-  DescribeDetectorCommandInput,
-  DescribeDetectorCommandOutput,
 } from "./commands/DescribeDetectorCommand";
-import { ListAlarmsCommand, ListAlarmsCommandInput, ListAlarmsCommandOutput } from "./commands/ListAlarmsCommand";
 import {
+  type ListAlarmsCommandInput,
+  type ListAlarmsCommandOutput,
+  ListAlarmsCommand,
+} from "./commands/ListAlarmsCommand";
+import {
+  type ListDetectorsCommandInput,
+  type ListDetectorsCommandOutput,
   ListDetectorsCommand,
-  ListDetectorsCommandInput,
-  ListDetectorsCommandOutput,
 } from "./commands/ListDetectorsCommand";
 import { IoTEventsDataClient } from "./IoTEventsDataClient";
 

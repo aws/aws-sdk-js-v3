@@ -7,7 +7,7 @@
  */
 export * from "./DrsClient";
 export * from "./Drs";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DrsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

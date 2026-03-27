@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import {
+import type {
   AccessDeniedErrorCode,
   InvalidCrossAccountRoleErrorCode,
   InvalidInputErrorCode,
@@ -9,7 +9,7 @@ import {
   NoSuchEntityErrorCode,
 } from "./enums";
 import { InspectorServiceException as __BaseException } from "./InspectorServiceException";
-import { AgentAlreadyRunningAssessment } from "./models_0";
+import type { AgentAlreadyRunningAssessment } from "./models_0";
 
 /**
  * <p>You do not have required permissions to access the requested resource.</p>

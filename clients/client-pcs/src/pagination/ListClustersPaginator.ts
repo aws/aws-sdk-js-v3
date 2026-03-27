@@ -8,7 +8,7 @@ import {
   ListClustersCommandOutput,
 } from "../commands/ListClustersCommand";
 import { PCSClient } from "../PCSClient";
-import { PCSPaginationConfiguration } from "./Interfaces";
+import type { PCSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

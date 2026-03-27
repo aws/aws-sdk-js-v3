@@ -8,7 +8,7 @@ import {
   ListAnomalyDetectorsCommandInput,
   ListAnomalyDetectorsCommandOutput,
 } from "../commands/ListAnomalyDetectorsCommand";
-import { AmpPaginationConfiguration } from "./Interfaces";
+import type { AmpPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

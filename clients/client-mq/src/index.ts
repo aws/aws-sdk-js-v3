@@ -7,7 +7,7 @@
  */
 export * from "./MqClient";
 export * from "./Mq";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MqExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

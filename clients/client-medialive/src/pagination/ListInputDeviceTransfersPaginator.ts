@@ -8,7 +8,7 @@ import {
   ListInputDeviceTransfersCommandOutput,
 } from "../commands/ListInputDeviceTransfersCommand";
 import { MediaLiveClient } from "../MediaLiveClient";
-import { MediaLivePaginationConfiguration } from "./Interfaces";
+import type { MediaLivePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

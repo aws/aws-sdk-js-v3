@@ -15,7 +15,7 @@
  */
 export * from "./DataSyncClient";
 export * from "./DataSync";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DataSyncExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -7,7 +7,7 @@
  */
 export * from "./S3TablesClient";
 export * from "./S3Tables";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { S3TablesExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

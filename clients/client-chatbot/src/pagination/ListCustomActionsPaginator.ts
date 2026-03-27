@@ -8,7 +8,7 @@ import {
   ListCustomActionsCommandInput,
   ListCustomActionsCommandOutput,
 } from "../commands/ListCustomActionsCommand";
-import { ChatbotPaginationConfiguration } from "./Interfaces";
+import type { ChatbotPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CodeartifactClient } from "../CodeartifactClient";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
-import { CodeartifactPaginationConfiguration } from "./Interfaces";
+import type { CodeartifactPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

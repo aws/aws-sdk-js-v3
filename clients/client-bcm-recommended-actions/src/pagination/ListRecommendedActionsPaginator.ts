@@ -8,7 +8,7 @@ import {
   ListRecommendedActionsCommandInput,
   ListRecommendedActionsCommandOutput,
 } from "../commands/ListRecommendedActionsCommand";
-import { BCMRecommendedActionsPaginationConfiguration } from "./Interfaces";
+import type { BCMRecommendedActionsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

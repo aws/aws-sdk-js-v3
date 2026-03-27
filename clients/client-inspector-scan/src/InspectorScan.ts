@@ -2,7 +2,7 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { ScanSbomCommand, ScanSbomCommandInput, ScanSbomCommandOutput } from "./commands/ScanSbomCommand";
+import { type ScanSbomCommandInput, type ScanSbomCommandOutput, ScanSbomCommand } from "./commands/ScanSbomCommand";
 import { InspectorScanClient } from "./InspectorScanClient";
 
 const commands = {

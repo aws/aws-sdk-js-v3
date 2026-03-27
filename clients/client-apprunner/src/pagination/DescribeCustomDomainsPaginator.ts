@@ -8,7 +8,7 @@ import {
   DescribeCustomDomainsCommandInput,
   DescribeCustomDomainsCommandOutput,
 } from "../commands/DescribeCustomDomainsCommand";
-import { AppRunnerPaginationConfiguration } from "./Interfaces";
+import type { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

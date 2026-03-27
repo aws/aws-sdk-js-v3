@@ -8,7 +8,7 @@ import {
   ListParallelDataCommandOutput,
 } from "../commands/ListParallelDataCommand";
 import { TranslateClient } from "../TranslateClient";
-import { TranslatePaginationConfiguration } from "./Interfaces";
+import type { TranslatePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

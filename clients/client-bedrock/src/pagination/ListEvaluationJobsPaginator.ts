@@ -8,7 +8,7 @@ import {
   ListEvaluationJobsCommandInput,
   ListEvaluationJobsCommandOutput,
 } from "../commands/ListEvaluationJobsCommand";
-import { BedrockPaginationConfiguration } from "./Interfaces";
+import type { BedrockPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

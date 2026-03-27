@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
 import { S3TablesClient } from "../S3TablesClient";
-import { S3TablesPaginationConfiguration } from "./Interfaces";
+import type { S3TablesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

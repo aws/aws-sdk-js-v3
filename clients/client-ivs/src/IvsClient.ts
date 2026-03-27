@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,90 +61,99 @@ import {
   defaultIvsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BatchGetChannelCommandInput, BatchGetChannelCommandOutput } from "./commands/BatchGetChannelCommand";
-import { BatchGetStreamKeyCommandInput, BatchGetStreamKeyCommandOutput } from "./commands/BatchGetStreamKeyCommand";
-import {
+import type { BatchGetChannelCommandInput, BatchGetChannelCommandOutput } from "./commands/BatchGetChannelCommand";
+import type {
+  BatchGetStreamKeyCommandInput,
+  BatchGetStreamKeyCommandOutput,
+} from "./commands/BatchGetStreamKeyCommand";
+import type {
   BatchStartViewerSessionRevocationCommandInput,
   BatchStartViewerSessionRevocationCommandOutput,
 } from "./commands/BatchStartViewerSessionRevocationCommand";
-import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
-import {
+import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import type {
   CreatePlaybackRestrictionPolicyCommandInput,
   CreatePlaybackRestrictionPolicyCommandOutput,
 } from "./commands/CreatePlaybackRestrictionPolicyCommand";
-import {
+import type {
   CreateRecordingConfigurationCommandInput,
   CreateRecordingConfigurationCommandOutput,
 } from "./commands/CreateRecordingConfigurationCommand";
-import { CreateStreamKeyCommandInput, CreateStreamKeyCommandOutput } from "./commands/CreateStreamKeyCommand";
-import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
-import {
+import type { CreateStreamKeyCommandInput, CreateStreamKeyCommandOutput } from "./commands/CreateStreamKeyCommand";
+import type { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import type {
   DeletePlaybackKeyPairCommandInput,
   DeletePlaybackKeyPairCommandOutput,
 } from "./commands/DeletePlaybackKeyPairCommand";
-import {
+import type {
   DeletePlaybackRestrictionPolicyCommandInput,
   DeletePlaybackRestrictionPolicyCommandOutput,
 } from "./commands/DeletePlaybackRestrictionPolicyCommand";
-import {
+import type {
   DeleteRecordingConfigurationCommandInput,
   DeleteRecordingConfigurationCommandOutput,
 } from "./commands/DeleteRecordingConfigurationCommand";
-import { DeleteStreamKeyCommandInput, DeleteStreamKeyCommandOutput } from "./commands/DeleteStreamKeyCommand";
-import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
-import { GetPlaybackKeyPairCommandInput, GetPlaybackKeyPairCommandOutput } from "./commands/GetPlaybackKeyPairCommand";
-import {
+import type { DeleteStreamKeyCommandInput, DeleteStreamKeyCommandOutput } from "./commands/DeleteStreamKeyCommand";
+import type { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
+import type {
+  GetPlaybackKeyPairCommandInput,
+  GetPlaybackKeyPairCommandOutput,
+} from "./commands/GetPlaybackKeyPairCommand";
+import type {
   GetPlaybackRestrictionPolicyCommandInput,
   GetPlaybackRestrictionPolicyCommandOutput,
 } from "./commands/GetPlaybackRestrictionPolicyCommand";
-import {
+import type {
   GetRecordingConfigurationCommandInput,
   GetRecordingConfigurationCommandOutput,
 } from "./commands/GetRecordingConfigurationCommand";
-import { GetStreamCommandInput, GetStreamCommandOutput } from "./commands/GetStreamCommand";
-import { GetStreamKeyCommandInput, GetStreamKeyCommandOutput } from "./commands/GetStreamKeyCommand";
-import { GetStreamSessionCommandInput, GetStreamSessionCommandOutput } from "./commands/GetStreamSessionCommand";
-import {
+import type { GetStreamCommandInput, GetStreamCommandOutput } from "./commands/GetStreamCommand";
+import type { GetStreamKeyCommandInput, GetStreamKeyCommandOutput } from "./commands/GetStreamKeyCommand";
+import type { GetStreamSessionCommandInput, GetStreamSessionCommandOutput } from "./commands/GetStreamSessionCommand";
+import type {
   ImportPlaybackKeyPairCommandInput,
   ImportPlaybackKeyPairCommandOutput,
 } from "./commands/ImportPlaybackKeyPairCommand";
-import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
-import {
+import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import type {
   ListPlaybackKeyPairsCommandInput,
   ListPlaybackKeyPairsCommandOutput,
 } from "./commands/ListPlaybackKeyPairsCommand";
-import {
+import type {
   ListPlaybackRestrictionPoliciesCommandInput,
   ListPlaybackRestrictionPoliciesCommandOutput,
 } from "./commands/ListPlaybackRestrictionPoliciesCommand";
-import {
+import type {
   ListRecordingConfigurationsCommandInput,
   ListRecordingConfigurationsCommandOutput,
 } from "./commands/ListRecordingConfigurationsCommand";
-import { ListStreamKeysCommandInput, ListStreamKeysCommandOutput } from "./commands/ListStreamKeysCommand";
-import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
-import { ListStreamSessionsCommandInput, ListStreamSessionsCommandOutput } from "./commands/ListStreamSessionsCommand";
-import {
+import type { ListStreamKeysCommandInput, ListStreamKeysCommandOutput } from "./commands/ListStreamKeysCommand";
+import type { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
+import type {
+  ListStreamSessionsCommandInput,
+  ListStreamSessionsCommandOutput,
+} from "./commands/ListStreamSessionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutMetadataCommandInput, PutMetadataCommandOutput } from "./commands/PutMetadataCommand";
-import {
+import type { PutMetadataCommandInput, PutMetadataCommandOutput } from "./commands/PutMetadataCommand";
+import type {
   StartViewerSessionRevocationCommandInput,
   StartViewerSessionRevocationCommandOutput,
 } from "./commands/StartViewerSessionRevocationCommand";
-import { StopStreamCommandInput, StopStreamCommandOutput } from "./commands/StopStreamCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
-import {
+import type { StopStreamCommandInput, StopStreamCommandOutput } from "./commands/StopStreamCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import type {
   UpdatePlaybackRestrictionPolicyCommandInput,
   UpdatePlaybackRestrictionPolicyCommandOutput,
 } from "./commands/UpdatePlaybackRestrictionPolicyCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -348,7 +355,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

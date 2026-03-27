@@ -8,7 +8,7 @@ import {
   ListBillEstimateInputUsageModificationsCommandInput,
   ListBillEstimateInputUsageModificationsCommandOutput,
 } from "../commands/ListBillEstimateInputUsageModificationsCommand";
-import { BCMPricingCalculatorPaginationConfiguration } from "./Interfaces";
+import type { BCMPricingCalculatorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

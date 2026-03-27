@@ -7,7 +7,7 @@
  */
 export * from "./WorkspacesInstancesClient";
 export * from "./WorkspacesInstances";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { WorkspacesInstancesExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

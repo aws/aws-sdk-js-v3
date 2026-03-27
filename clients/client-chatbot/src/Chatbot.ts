@@ -4,170 +4,174 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ChatbotClient } from "./ChatbotClient";
 import {
+  type AssociateToConfigurationCommandInput,
+  type AssociateToConfigurationCommandOutput,
   AssociateToConfigurationCommand,
-  AssociateToConfigurationCommandInput,
-  AssociateToConfigurationCommandOutput,
 } from "./commands/AssociateToConfigurationCommand";
 import {
+  type CreateChimeWebhookConfigurationCommandInput,
+  type CreateChimeWebhookConfigurationCommandOutput,
   CreateChimeWebhookConfigurationCommand,
-  CreateChimeWebhookConfigurationCommandInput,
-  CreateChimeWebhookConfigurationCommandOutput,
 } from "./commands/CreateChimeWebhookConfigurationCommand";
 import {
+  type CreateCustomActionCommandInput,
+  type CreateCustomActionCommandOutput,
   CreateCustomActionCommand,
-  CreateCustomActionCommandInput,
-  CreateCustomActionCommandOutput,
 } from "./commands/CreateCustomActionCommand";
 import {
+  type CreateMicrosoftTeamsChannelConfigurationCommandInput,
+  type CreateMicrosoftTeamsChannelConfigurationCommandOutput,
   CreateMicrosoftTeamsChannelConfigurationCommand,
-  CreateMicrosoftTeamsChannelConfigurationCommandInput,
-  CreateMicrosoftTeamsChannelConfigurationCommandOutput,
 } from "./commands/CreateMicrosoftTeamsChannelConfigurationCommand";
 import {
+  type CreateSlackChannelConfigurationCommandInput,
+  type CreateSlackChannelConfigurationCommandOutput,
   CreateSlackChannelConfigurationCommand,
-  CreateSlackChannelConfigurationCommandInput,
-  CreateSlackChannelConfigurationCommandOutput,
 } from "./commands/CreateSlackChannelConfigurationCommand";
 import {
+  type DeleteChimeWebhookConfigurationCommandInput,
+  type DeleteChimeWebhookConfigurationCommandOutput,
   DeleteChimeWebhookConfigurationCommand,
-  DeleteChimeWebhookConfigurationCommandInput,
-  DeleteChimeWebhookConfigurationCommandOutput,
 } from "./commands/DeleteChimeWebhookConfigurationCommand";
 import {
+  type DeleteCustomActionCommandInput,
+  type DeleteCustomActionCommandOutput,
   DeleteCustomActionCommand,
-  DeleteCustomActionCommandInput,
-  DeleteCustomActionCommandOutput,
 } from "./commands/DeleteCustomActionCommand";
 import {
+  type DeleteMicrosoftTeamsChannelConfigurationCommandInput,
+  type DeleteMicrosoftTeamsChannelConfigurationCommandOutput,
   DeleteMicrosoftTeamsChannelConfigurationCommand,
-  DeleteMicrosoftTeamsChannelConfigurationCommandInput,
-  DeleteMicrosoftTeamsChannelConfigurationCommandOutput,
 } from "./commands/DeleteMicrosoftTeamsChannelConfigurationCommand";
 import {
+  type DeleteMicrosoftTeamsConfiguredTeamCommandInput,
+  type DeleteMicrosoftTeamsConfiguredTeamCommandOutput,
   DeleteMicrosoftTeamsConfiguredTeamCommand,
-  DeleteMicrosoftTeamsConfiguredTeamCommandInput,
-  DeleteMicrosoftTeamsConfiguredTeamCommandOutput,
 } from "./commands/DeleteMicrosoftTeamsConfiguredTeamCommand";
 import {
+  type DeleteMicrosoftTeamsUserIdentityCommandInput,
+  type DeleteMicrosoftTeamsUserIdentityCommandOutput,
   DeleteMicrosoftTeamsUserIdentityCommand,
-  DeleteMicrosoftTeamsUserIdentityCommandInput,
-  DeleteMicrosoftTeamsUserIdentityCommandOutput,
 } from "./commands/DeleteMicrosoftTeamsUserIdentityCommand";
 import {
+  type DeleteSlackChannelConfigurationCommandInput,
+  type DeleteSlackChannelConfigurationCommandOutput,
   DeleteSlackChannelConfigurationCommand,
-  DeleteSlackChannelConfigurationCommandInput,
-  DeleteSlackChannelConfigurationCommandOutput,
 } from "./commands/DeleteSlackChannelConfigurationCommand";
 import {
+  type DeleteSlackUserIdentityCommandInput,
+  type DeleteSlackUserIdentityCommandOutput,
   DeleteSlackUserIdentityCommand,
-  DeleteSlackUserIdentityCommandInput,
-  DeleteSlackUserIdentityCommandOutput,
 } from "./commands/DeleteSlackUserIdentityCommand";
 import {
+  type DeleteSlackWorkspaceAuthorizationCommandInput,
+  type DeleteSlackWorkspaceAuthorizationCommandOutput,
   DeleteSlackWorkspaceAuthorizationCommand,
-  DeleteSlackWorkspaceAuthorizationCommandInput,
-  DeleteSlackWorkspaceAuthorizationCommandOutput,
 } from "./commands/DeleteSlackWorkspaceAuthorizationCommand";
 import {
+  type DescribeChimeWebhookConfigurationsCommandInput,
+  type DescribeChimeWebhookConfigurationsCommandOutput,
   DescribeChimeWebhookConfigurationsCommand,
-  DescribeChimeWebhookConfigurationsCommandInput,
-  DescribeChimeWebhookConfigurationsCommandOutput,
 } from "./commands/DescribeChimeWebhookConfigurationsCommand";
 import {
+  type DescribeSlackChannelConfigurationsCommandInput,
+  type DescribeSlackChannelConfigurationsCommandOutput,
   DescribeSlackChannelConfigurationsCommand,
-  DescribeSlackChannelConfigurationsCommandInput,
-  DescribeSlackChannelConfigurationsCommandOutput,
 } from "./commands/DescribeSlackChannelConfigurationsCommand";
 import {
+  type DescribeSlackUserIdentitiesCommandInput,
+  type DescribeSlackUserIdentitiesCommandOutput,
   DescribeSlackUserIdentitiesCommand,
-  DescribeSlackUserIdentitiesCommandInput,
-  DescribeSlackUserIdentitiesCommandOutput,
 } from "./commands/DescribeSlackUserIdentitiesCommand";
 import {
+  type DescribeSlackWorkspacesCommandInput,
+  type DescribeSlackWorkspacesCommandOutput,
   DescribeSlackWorkspacesCommand,
-  DescribeSlackWorkspacesCommandInput,
-  DescribeSlackWorkspacesCommandOutput,
 } from "./commands/DescribeSlackWorkspacesCommand";
 import {
+  type DisassociateFromConfigurationCommandInput,
+  type DisassociateFromConfigurationCommandOutput,
   DisassociateFromConfigurationCommand,
-  DisassociateFromConfigurationCommandInput,
-  DisassociateFromConfigurationCommandOutput,
 } from "./commands/DisassociateFromConfigurationCommand";
 import {
+  type GetAccountPreferencesCommandInput,
+  type GetAccountPreferencesCommandOutput,
   GetAccountPreferencesCommand,
-  GetAccountPreferencesCommandInput,
-  GetAccountPreferencesCommandOutput,
 } from "./commands/GetAccountPreferencesCommand";
 import {
+  type GetCustomActionCommandInput,
+  type GetCustomActionCommandOutput,
   GetCustomActionCommand,
-  GetCustomActionCommandInput,
-  GetCustomActionCommandOutput,
 } from "./commands/GetCustomActionCommand";
 import {
+  type GetMicrosoftTeamsChannelConfigurationCommandInput,
+  type GetMicrosoftTeamsChannelConfigurationCommandOutput,
   GetMicrosoftTeamsChannelConfigurationCommand,
-  GetMicrosoftTeamsChannelConfigurationCommandInput,
-  GetMicrosoftTeamsChannelConfigurationCommandOutput,
 } from "./commands/GetMicrosoftTeamsChannelConfigurationCommand";
 import {
+  type ListAssociationsCommandInput,
+  type ListAssociationsCommandOutput,
   ListAssociationsCommand,
-  ListAssociationsCommandInput,
-  ListAssociationsCommandOutput,
 } from "./commands/ListAssociationsCommand";
 import {
+  type ListCustomActionsCommandInput,
+  type ListCustomActionsCommandOutput,
   ListCustomActionsCommand,
-  ListCustomActionsCommandInput,
-  ListCustomActionsCommandOutput,
 } from "./commands/ListCustomActionsCommand";
 import {
+  type ListMicrosoftTeamsChannelConfigurationsCommandInput,
+  type ListMicrosoftTeamsChannelConfigurationsCommandOutput,
   ListMicrosoftTeamsChannelConfigurationsCommand,
-  ListMicrosoftTeamsChannelConfigurationsCommandInput,
-  ListMicrosoftTeamsChannelConfigurationsCommandOutput,
 } from "./commands/ListMicrosoftTeamsChannelConfigurationsCommand";
 import {
+  type ListMicrosoftTeamsConfiguredTeamsCommandInput,
+  type ListMicrosoftTeamsConfiguredTeamsCommandOutput,
   ListMicrosoftTeamsConfiguredTeamsCommand,
-  ListMicrosoftTeamsConfiguredTeamsCommandInput,
-  ListMicrosoftTeamsConfiguredTeamsCommandOutput,
 } from "./commands/ListMicrosoftTeamsConfiguredTeamsCommand";
 import {
+  type ListMicrosoftTeamsUserIdentitiesCommandInput,
+  type ListMicrosoftTeamsUserIdentitiesCommandOutput,
   ListMicrosoftTeamsUserIdentitiesCommand,
-  ListMicrosoftTeamsUserIdentitiesCommandInput,
-  ListMicrosoftTeamsUserIdentitiesCommandOutput,
 } from "./commands/ListMicrosoftTeamsUserIdentitiesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccountPreferencesCommandInput,
+  type UpdateAccountPreferencesCommandOutput,
   UpdateAccountPreferencesCommand,
-  UpdateAccountPreferencesCommandInput,
-  UpdateAccountPreferencesCommandOutput,
 } from "./commands/UpdateAccountPreferencesCommand";
 import {
+  type UpdateChimeWebhookConfigurationCommandInput,
+  type UpdateChimeWebhookConfigurationCommandOutput,
   UpdateChimeWebhookConfigurationCommand,
-  UpdateChimeWebhookConfigurationCommandInput,
-  UpdateChimeWebhookConfigurationCommandOutput,
 } from "./commands/UpdateChimeWebhookConfigurationCommand";
 import {
+  type UpdateCustomActionCommandInput,
+  type UpdateCustomActionCommandOutput,
   UpdateCustomActionCommand,
-  UpdateCustomActionCommandInput,
-  UpdateCustomActionCommandOutput,
 } from "./commands/UpdateCustomActionCommand";
 import {
+  type UpdateMicrosoftTeamsChannelConfigurationCommandInput,
+  type UpdateMicrosoftTeamsChannelConfigurationCommandOutput,
   UpdateMicrosoftTeamsChannelConfigurationCommand,
-  UpdateMicrosoftTeamsChannelConfigurationCommandInput,
-  UpdateMicrosoftTeamsChannelConfigurationCommandOutput,
 } from "./commands/UpdateMicrosoftTeamsChannelConfigurationCommand";
 import {
+  type UpdateSlackChannelConfigurationCommandInput,
+  type UpdateSlackChannelConfigurationCommandOutput,
   UpdateSlackChannelConfigurationCommand,
-  UpdateSlackChannelConfigurationCommandInput,
-  UpdateSlackChannelConfigurationCommandOutput,
 } from "./commands/UpdateSlackChannelConfigurationCommand";
 import { paginateDescribeChimeWebhookConfigurations } from "./pagination/DescribeChimeWebhookConfigurationsPaginator";
 import { paginateDescribeSlackChannelConfigurations } from "./pagination/DescribeSlackChannelConfigurationsPaginator";

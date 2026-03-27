@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { PostContactSummaryFailureCode, PostContactSummaryStatus, SentimentValue } from "./enums";
+import type { PostContactSummaryFailureCode, PostContactSummaryStatus, SentimentValue } from "./enums";
 
 /**
  * @public

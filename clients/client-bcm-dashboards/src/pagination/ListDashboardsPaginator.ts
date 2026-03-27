@@ -8,7 +8,7 @@ import {
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
 } from "../commands/ListDashboardsCommand";
-import { BCMDashboardsPaginationConfiguration } from "./Interfaces";
+import type { BCMDashboardsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListManagedNotificationChannelAssociationsCommandOutput,
 } from "../commands/ListManagedNotificationChannelAssociationsCommand";
 import { NotificationsClient } from "../NotificationsClient";
-import { NotificationsPaginationConfiguration } from "./Interfaces";
+import type { NotificationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

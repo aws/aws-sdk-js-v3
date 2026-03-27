@@ -8,7 +8,7 @@ import {
   ListFraudsterRegistrationJobsCommandOutput,
 } from "../commands/ListFraudsterRegistrationJobsCommand";
 import { VoiceIDClient } from "../VoiceIDClient";
-import { VoiceIDPaginationConfiguration } from "./Interfaces";
+import type { VoiceIDPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

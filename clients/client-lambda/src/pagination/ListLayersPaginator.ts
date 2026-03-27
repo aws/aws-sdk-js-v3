@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListLayersCommand, ListLayersCommandInput, ListLayersCommandOutput } from "../commands/ListLayersCommand";
 import { LambdaClient } from "../LambdaClient";
-import { LambdaPaginationConfiguration } from "./Interfaces";
+import type { LambdaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

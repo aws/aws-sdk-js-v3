@@ -8,7 +8,7 @@ import {
   ListStreamingDistributionsCommandInput,
   ListStreamingDistributionsCommandOutput,
 } from "../commands/ListStreamingDistributionsCommand";
-import { CloudFrontPaginationConfiguration } from "./Interfaces";
+import type { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListServicePrincipalNamesCommandOutput,
 } from "../commands/ListServicePrincipalNamesCommand";
 import { PcaConnectorAdClient } from "../PcaConnectorAdClient";
-import { PcaConnectorAdPaginationConfiguration } from "./Interfaces";
+import type { PcaConnectorAdPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

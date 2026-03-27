@@ -8,7 +8,7 @@
  */
 export * from "./EKSAuthClient";
 export * from "./EKSAuth";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { EKSAuthExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

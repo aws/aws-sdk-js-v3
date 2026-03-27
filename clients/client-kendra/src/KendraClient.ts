@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,178 +61,190 @@ import {
   defaultKendraHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateEntitiesToExperienceCommandInput,
   AssociateEntitiesToExperienceCommandOutput,
 } from "./commands/AssociateEntitiesToExperienceCommand";
-import {
+import type {
   AssociatePersonasToEntitiesCommandInput,
   AssociatePersonasToEntitiesCommandOutput,
 } from "./commands/AssociatePersonasToEntitiesCommand";
-import {
+import type {
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
-import {
+import type {
   BatchDeleteFeaturedResultsSetCommandInput,
   BatchDeleteFeaturedResultsSetCommandOutput,
 } from "./commands/BatchDeleteFeaturedResultsSetCommand";
-import {
+import type {
   BatchGetDocumentStatusCommandInput,
   BatchGetDocumentStatusCommandOutput,
 } from "./commands/BatchGetDocumentStatusCommand";
-import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand";
-import {
+import type { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand";
+import type {
   ClearQuerySuggestionsCommandInput,
   ClearQuerySuggestionsCommandOutput,
 } from "./commands/ClearQuerySuggestionsCommand";
-import {
+import type {
   CreateAccessControlConfigurationCommandInput,
   CreateAccessControlConfigurationCommandOutput,
 } from "./commands/CreateAccessControlConfigurationCommand";
-import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
-import { CreateExperienceCommandInput, CreateExperienceCommandOutput } from "./commands/CreateExperienceCommand";
-import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
-import {
+import type { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import type { CreateExperienceCommandInput, CreateExperienceCommandOutput } from "./commands/CreateExperienceCommand";
+import type { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
+import type {
   CreateFeaturedResultsSetCommandInput,
   CreateFeaturedResultsSetCommandOutput,
 } from "./commands/CreateFeaturedResultsSetCommand";
-import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
-import {
+import type { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import type {
   CreateQuerySuggestionsBlockListCommandInput,
   CreateQuerySuggestionsBlockListCommandOutput,
 } from "./commands/CreateQuerySuggestionsBlockListCommand";
-import { CreateThesaurusCommandInput, CreateThesaurusCommandOutput } from "./commands/CreateThesaurusCommand";
-import {
+import type { CreateThesaurusCommandInput, CreateThesaurusCommandOutput } from "./commands/CreateThesaurusCommand";
+import type {
   DeleteAccessControlConfigurationCommandInput,
   DeleteAccessControlConfigurationCommandOutput,
 } from "./commands/DeleteAccessControlConfigurationCommand";
-import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
-import { DeleteExperienceCommandInput, DeleteExperienceCommandOutput } from "./commands/DeleteExperienceCommand";
-import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
-import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
-import {
+import type { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import type { DeleteExperienceCommandInput, DeleteExperienceCommandOutput } from "./commands/DeleteExperienceCommand";
+import type { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
+import type { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import type {
   DeletePrincipalMappingCommandInput,
   DeletePrincipalMappingCommandOutput,
 } from "./commands/DeletePrincipalMappingCommand";
-import {
+import type {
   DeleteQuerySuggestionsBlockListCommandInput,
   DeleteQuerySuggestionsBlockListCommandOutput,
 } from "./commands/DeleteQuerySuggestionsBlockListCommand";
-import { DeleteThesaurusCommandInput, DeleteThesaurusCommandOutput } from "./commands/DeleteThesaurusCommand";
-import {
+import type { DeleteThesaurusCommandInput, DeleteThesaurusCommandOutput } from "./commands/DeleteThesaurusCommand";
+import type {
   DescribeAccessControlConfigurationCommandInput,
   DescribeAccessControlConfigurationCommandOutput,
 } from "./commands/DescribeAccessControlConfigurationCommand";
-import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
-import { DescribeExperienceCommandInput, DescribeExperienceCommandOutput } from "./commands/DescribeExperienceCommand";
-import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
-import {
+import type {
+  DescribeDataSourceCommandInput,
+  DescribeDataSourceCommandOutput,
+} from "./commands/DescribeDataSourceCommand";
+import type {
+  DescribeExperienceCommandInput,
+  DescribeExperienceCommandOutput,
+} from "./commands/DescribeExperienceCommand";
+import type { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
+import type {
   DescribeFeaturedResultsSetCommandInput,
   DescribeFeaturedResultsSetCommandOutput,
 } from "./commands/DescribeFeaturedResultsSetCommand";
-import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
-import {
+import type { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
+import type {
   DescribePrincipalMappingCommandInput,
   DescribePrincipalMappingCommandOutput,
 } from "./commands/DescribePrincipalMappingCommand";
-import {
+import type {
   DescribeQuerySuggestionsBlockListCommandInput,
   DescribeQuerySuggestionsBlockListCommandOutput,
 } from "./commands/DescribeQuerySuggestionsBlockListCommand";
-import {
+import type {
   DescribeQuerySuggestionsConfigCommandInput,
   DescribeQuerySuggestionsConfigCommandOutput,
 } from "./commands/DescribeQuerySuggestionsConfigCommand";
-import { DescribeThesaurusCommandInput, DescribeThesaurusCommandOutput } from "./commands/DescribeThesaurusCommand";
-import {
+import type {
+  DescribeThesaurusCommandInput,
+  DescribeThesaurusCommandOutput,
+} from "./commands/DescribeThesaurusCommand";
+import type {
   DisassociateEntitiesFromExperienceCommandInput,
   DisassociateEntitiesFromExperienceCommandOutput,
 } from "./commands/DisassociateEntitiesFromExperienceCommand";
-import {
+import type {
   DisassociatePersonasFromEntitiesCommandInput,
   DisassociatePersonasFromEntitiesCommandOutput,
 } from "./commands/DisassociatePersonasFromEntitiesCommand";
-import {
+import type {
   GetQuerySuggestionsCommandInput,
   GetQuerySuggestionsCommandOutput,
 } from "./commands/GetQuerySuggestionsCommand";
-import { GetSnapshotsCommandInput, GetSnapshotsCommandOutput } from "./commands/GetSnapshotsCommand";
-import {
+import type { GetSnapshotsCommandInput, GetSnapshotsCommandOutput } from "./commands/GetSnapshotsCommand";
+import type {
   ListAccessControlConfigurationsCommandInput,
   ListAccessControlConfigurationsCommandOutput,
 } from "./commands/ListAccessControlConfigurationsCommand";
-import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
-import {
+import type { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import type {
   ListDataSourceSyncJobsCommandInput,
   ListDataSourceSyncJobsCommandOutput,
 } from "./commands/ListDataSourceSyncJobsCommand";
-import { ListEntityPersonasCommandInput, ListEntityPersonasCommandOutput } from "./commands/ListEntityPersonasCommand";
-import {
+import type {
+  ListEntityPersonasCommandInput,
+  ListEntityPersonasCommandOutput,
+} from "./commands/ListEntityPersonasCommand";
+import type {
   ListExperienceEntitiesCommandInput,
   ListExperienceEntitiesCommandOutput,
 } from "./commands/ListExperienceEntitiesCommand";
-import { ListExperiencesCommandInput, ListExperiencesCommandOutput } from "./commands/ListExperiencesCommand";
-import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
-import {
+import type { ListExperiencesCommandInput, ListExperiencesCommandOutput } from "./commands/ListExperiencesCommand";
+import type { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
+import type {
   ListFeaturedResultsSetsCommandInput,
   ListFeaturedResultsSetsCommandOutput,
 } from "./commands/ListFeaturedResultsSetsCommand";
-import {
+import type {
   ListGroupsOlderThanOrderingIdCommandInput,
   ListGroupsOlderThanOrderingIdCommandOutput,
 } from "./commands/ListGroupsOlderThanOrderingIdCommand";
-import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
-import {
+import type { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
+import type {
   ListQuerySuggestionsBlockListsCommandInput,
   ListQuerySuggestionsBlockListsCommandOutput,
 } from "./commands/ListQuerySuggestionsBlockListsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListThesauriCommandInput, ListThesauriCommandOutput } from "./commands/ListThesauriCommand";
-import {
+import type { ListThesauriCommandInput, ListThesauriCommandOutput } from "./commands/ListThesauriCommand";
+import type {
   PutPrincipalMappingCommandInput,
   PutPrincipalMappingCommandOutput,
 } from "./commands/PutPrincipalMappingCommand";
-import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
-import { RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
-import {
+import type { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
+import type { RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
+import type {
   StartDataSourceSyncJobCommandInput,
   StartDataSourceSyncJobCommandOutput,
 } from "./commands/StartDataSourceSyncJobCommand";
-import {
+import type {
   StopDataSourceSyncJobCommandInput,
   StopDataSourceSyncJobCommandOutput,
 } from "./commands/StopDataSourceSyncJobCommand";
-import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAccessControlConfigurationCommandInput,
   UpdateAccessControlConfigurationCommandOutput,
 } from "./commands/UpdateAccessControlConfigurationCommand";
-import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
-import { UpdateExperienceCommandInput, UpdateExperienceCommandOutput } from "./commands/UpdateExperienceCommand";
-import {
+import type { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import type { UpdateExperienceCommandInput, UpdateExperienceCommandOutput } from "./commands/UpdateExperienceCommand";
+import type {
   UpdateFeaturedResultsSetCommandInput,
   UpdateFeaturedResultsSetCommandOutput,
 } from "./commands/UpdateFeaturedResultsSetCommand";
-import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
-import {
+import type { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
+import type {
   UpdateQuerySuggestionsBlockListCommandInput,
   UpdateQuerySuggestionsBlockListCommandOutput,
 } from "./commands/UpdateQuerySuggestionsBlockListCommand";
-import {
+import type {
   UpdateQuerySuggestionsConfigCommandInput,
   UpdateQuerySuggestionsConfigCommandOutput,
 } from "./commands/UpdateQuerySuggestionsConfigCommand";
-import { UpdateThesaurusCommandInput, UpdateThesaurusCommandOutput } from "./commands/UpdateThesaurusCommand";
+import type { UpdateThesaurusCommandInput, UpdateThesaurusCommandOutput } from "./commands/UpdateThesaurusCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -498,7 +508,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

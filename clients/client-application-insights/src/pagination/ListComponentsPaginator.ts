@@ -8,7 +8,7 @@ import {
   ListComponentsCommandInput,
   ListComponentsCommandOutput,
 } from "../commands/ListComponentsCommand";
-import { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
+import type { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -3,713 +3,777 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type AllocateStaticIpCommandInput,
+  type AllocateStaticIpCommandOutput,
   AllocateStaticIpCommand,
-  AllocateStaticIpCommandInput,
-  AllocateStaticIpCommandOutput,
 } from "./commands/AllocateStaticIpCommand";
 import {
+  type AttachCertificateToDistributionCommandInput,
+  type AttachCertificateToDistributionCommandOutput,
   AttachCertificateToDistributionCommand,
-  AttachCertificateToDistributionCommandInput,
-  AttachCertificateToDistributionCommandOutput,
 } from "./commands/AttachCertificateToDistributionCommand";
-import { AttachDiskCommand, AttachDiskCommandInput, AttachDiskCommandOutput } from "./commands/AttachDiskCommand";
 import {
+  type AttachDiskCommandInput,
+  type AttachDiskCommandOutput,
+  AttachDiskCommand,
+} from "./commands/AttachDiskCommand";
+import {
+  type AttachInstancesToLoadBalancerCommandInput,
+  type AttachInstancesToLoadBalancerCommandOutput,
   AttachInstancesToLoadBalancerCommand,
-  AttachInstancesToLoadBalancerCommandInput,
-  AttachInstancesToLoadBalancerCommandOutput,
 } from "./commands/AttachInstancesToLoadBalancerCommand";
 import {
+  type AttachLoadBalancerTlsCertificateCommandInput,
+  type AttachLoadBalancerTlsCertificateCommandOutput,
   AttachLoadBalancerTlsCertificateCommand,
-  AttachLoadBalancerTlsCertificateCommandInput,
-  AttachLoadBalancerTlsCertificateCommandOutput,
 } from "./commands/AttachLoadBalancerTlsCertificateCommand";
 import {
+  type AttachStaticIpCommandInput,
+  type AttachStaticIpCommandOutput,
   AttachStaticIpCommand,
-  AttachStaticIpCommandInput,
-  AttachStaticIpCommandOutput,
 } from "./commands/AttachStaticIpCommand";
 import {
+  type CloseInstancePublicPortsCommandInput,
+  type CloseInstancePublicPortsCommandOutput,
   CloseInstancePublicPortsCommand,
-  CloseInstancePublicPortsCommandInput,
-  CloseInstancePublicPortsCommandOutput,
 } from "./commands/CloseInstancePublicPortsCommand";
 import {
+  type CopySnapshotCommandInput,
+  type CopySnapshotCommandOutput,
   CopySnapshotCommand,
-  CopySnapshotCommandInput,
-  CopySnapshotCommandOutput,
 } from "./commands/CopySnapshotCommand";
 import {
+  type CreateBucketAccessKeyCommandInput,
+  type CreateBucketAccessKeyCommandOutput,
   CreateBucketAccessKeyCommand,
-  CreateBucketAccessKeyCommandInput,
-  CreateBucketAccessKeyCommandOutput,
 } from "./commands/CreateBucketAccessKeyCommand";
 import {
+  type CreateBucketCommandInput,
+  type CreateBucketCommandOutput,
   CreateBucketCommand,
-  CreateBucketCommandInput,
-  CreateBucketCommandOutput,
 } from "./commands/CreateBucketCommand";
 import {
+  type CreateCertificateCommandInput,
+  type CreateCertificateCommandOutput,
   CreateCertificateCommand,
-  CreateCertificateCommandInput,
-  CreateCertificateCommandOutput,
 } from "./commands/CreateCertificateCommand";
 import {
+  type CreateCloudFormationStackCommandInput,
+  type CreateCloudFormationStackCommandOutput,
   CreateCloudFormationStackCommand,
-  CreateCloudFormationStackCommandInput,
-  CreateCloudFormationStackCommandOutput,
 } from "./commands/CreateCloudFormationStackCommand";
 import {
+  type CreateContactMethodCommandInput,
+  type CreateContactMethodCommandOutput,
   CreateContactMethodCommand,
-  CreateContactMethodCommandInput,
-  CreateContactMethodCommandOutput,
 } from "./commands/CreateContactMethodCommand";
 import {
+  type CreateContainerServiceCommandInput,
+  type CreateContainerServiceCommandOutput,
   CreateContainerServiceCommand,
-  CreateContainerServiceCommandInput,
-  CreateContainerServiceCommandOutput,
 } from "./commands/CreateContainerServiceCommand";
 import {
+  type CreateContainerServiceDeploymentCommandInput,
+  type CreateContainerServiceDeploymentCommandOutput,
   CreateContainerServiceDeploymentCommand,
-  CreateContainerServiceDeploymentCommandInput,
-  CreateContainerServiceDeploymentCommandOutput,
 } from "./commands/CreateContainerServiceDeploymentCommand";
 import {
+  type CreateContainerServiceRegistryLoginCommandInput,
+  type CreateContainerServiceRegistryLoginCommandOutput,
   CreateContainerServiceRegistryLoginCommand,
-  CreateContainerServiceRegistryLoginCommandInput,
-  CreateContainerServiceRegistryLoginCommandOutput,
 } from "./commands/CreateContainerServiceRegistryLoginCommand";
-import { CreateDiskCommand, CreateDiskCommandInput, CreateDiskCommandOutput } from "./commands/CreateDiskCommand";
 import {
+  type CreateDiskCommandInput,
+  type CreateDiskCommandOutput,
+  CreateDiskCommand,
+} from "./commands/CreateDiskCommand";
+import {
+  type CreateDiskFromSnapshotCommandInput,
+  type CreateDiskFromSnapshotCommandOutput,
   CreateDiskFromSnapshotCommand,
-  CreateDiskFromSnapshotCommandInput,
-  CreateDiskFromSnapshotCommandOutput,
 } from "./commands/CreateDiskFromSnapshotCommand";
 import {
+  type CreateDiskSnapshotCommandInput,
+  type CreateDiskSnapshotCommandOutput,
   CreateDiskSnapshotCommand,
-  CreateDiskSnapshotCommandInput,
-  CreateDiskSnapshotCommandOutput,
 } from "./commands/CreateDiskSnapshotCommand";
 import {
+  type CreateDistributionCommandInput,
+  type CreateDistributionCommandOutput,
   CreateDistributionCommand,
-  CreateDistributionCommandInput,
-  CreateDistributionCommandOutput,
 } from "./commands/CreateDistributionCommand";
 import {
+  type CreateDomainCommandInput,
+  type CreateDomainCommandOutput,
   CreateDomainCommand,
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  type CreateDomainEntryCommandInput,
+  type CreateDomainEntryCommandOutput,
   CreateDomainEntryCommand,
-  CreateDomainEntryCommandInput,
-  CreateDomainEntryCommandOutput,
 } from "./commands/CreateDomainEntryCommand";
 import {
+  type CreateGUISessionAccessDetailsCommandInput,
+  type CreateGUISessionAccessDetailsCommandOutput,
   CreateGUISessionAccessDetailsCommand,
-  CreateGUISessionAccessDetailsCommandInput,
-  CreateGUISessionAccessDetailsCommandOutput,
 } from "./commands/CreateGUISessionAccessDetailsCommand";
 import {
+  type CreateInstancesCommandInput,
+  type CreateInstancesCommandOutput,
   CreateInstancesCommand,
-  CreateInstancesCommandInput,
-  CreateInstancesCommandOutput,
 } from "./commands/CreateInstancesCommand";
 import {
+  type CreateInstancesFromSnapshotCommandInput,
+  type CreateInstancesFromSnapshotCommandOutput,
   CreateInstancesFromSnapshotCommand,
-  CreateInstancesFromSnapshotCommandInput,
-  CreateInstancesFromSnapshotCommandOutput,
 } from "./commands/CreateInstancesFromSnapshotCommand";
 import {
+  type CreateInstanceSnapshotCommandInput,
+  type CreateInstanceSnapshotCommandOutput,
   CreateInstanceSnapshotCommand,
-  CreateInstanceSnapshotCommandInput,
-  CreateInstanceSnapshotCommandOutput,
 } from "./commands/CreateInstanceSnapshotCommand";
 import {
+  type CreateKeyPairCommandInput,
+  type CreateKeyPairCommandOutput,
   CreateKeyPairCommand,
-  CreateKeyPairCommandInput,
-  CreateKeyPairCommandOutput,
 } from "./commands/CreateKeyPairCommand";
 import {
+  type CreateLoadBalancerCommandInput,
+  type CreateLoadBalancerCommandOutput,
   CreateLoadBalancerCommand,
-  CreateLoadBalancerCommandInput,
-  CreateLoadBalancerCommandOutput,
 } from "./commands/CreateLoadBalancerCommand";
 import {
+  type CreateLoadBalancerTlsCertificateCommandInput,
+  type CreateLoadBalancerTlsCertificateCommandOutput,
   CreateLoadBalancerTlsCertificateCommand,
-  CreateLoadBalancerTlsCertificateCommandInput,
-  CreateLoadBalancerTlsCertificateCommandOutput,
 } from "./commands/CreateLoadBalancerTlsCertificateCommand";
 import {
+  type CreateRelationalDatabaseCommandInput,
+  type CreateRelationalDatabaseCommandOutput,
   CreateRelationalDatabaseCommand,
-  CreateRelationalDatabaseCommandInput,
-  CreateRelationalDatabaseCommandOutput,
 } from "./commands/CreateRelationalDatabaseCommand";
 import {
+  type CreateRelationalDatabaseFromSnapshotCommandInput,
+  type CreateRelationalDatabaseFromSnapshotCommandOutput,
   CreateRelationalDatabaseFromSnapshotCommand,
-  CreateRelationalDatabaseFromSnapshotCommandInput,
-  CreateRelationalDatabaseFromSnapshotCommandOutput,
 } from "./commands/CreateRelationalDatabaseFromSnapshotCommand";
 import {
+  type CreateRelationalDatabaseSnapshotCommandInput,
+  type CreateRelationalDatabaseSnapshotCommandOutput,
   CreateRelationalDatabaseSnapshotCommand,
-  CreateRelationalDatabaseSnapshotCommandInput,
-  CreateRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/CreateRelationalDatabaseSnapshotCommand";
-import { DeleteAlarmCommand, DeleteAlarmCommandInput, DeleteAlarmCommandOutput } from "./commands/DeleteAlarmCommand";
 import {
+  type DeleteAlarmCommandInput,
+  type DeleteAlarmCommandOutput,
+  DeleteAlarmCommand,
+} from "./commands/DeleteAlarmCommand";
+import {
+  type DeleteAutoSnapshotCommandInput,
+  type DeleteAutoSnapshotCommandOutput,
   DeleteAutoSnapshotCommand,
-  DeleteAutoSnapshotCommandInput,
-  DeleteAutoSnapshotCommandOutput,
 } from "./commands/DeleteAutoSnapshotCommand";
 import {
+  type DeleteBucketAccessKeyCommandInput,
+  type DeleteBucketAccessKeyCommandOutput,
   DeleteBucketAccessKeyCommand,
-  DeleteBucketAccessKeyCommandInput,
-  DeleteBucketAccessKeyCommandOutput,
 } from "./commands/DeleteBucketAccessKeyCommand";
 import {
+  type DeleteBucketCommandInput,
+  type DeleteBucketCommandOutput,
   DeleteBucketCommand,
-  DeleteBucketCommandInput,
-  DeleteBucketCommandOutput,
 } from "./commands/DeleteBucketCommand";
 import {
+  type DeleteCertificateCommandInput,
+  type DeleteCertificateCommandOutput,
   DeleteCertificateCommand,
-  DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput,
 } from "./commands/DeleteCertificateCommand";
 import {
+  type DeleteContactMethodCommandInput,
+  type DeleteContactMethodCommandOutput,
   DeleteContactMethodCommand,
-  DeleteContactMethodCommandInput,
-  DeleteContactMethodCommandOutput,
 } from "./commands/DeleteContactMethodCommand";
 import {
+  type DeleteContainerImageCommandInput,
+  type DeleteContainerImageCommandOutput,
   DeleteContainerImageCommand,
-  DeleteContainerImageCommandInput,
-  DeleteContainerImageCommandOutput,
 } from "./commands/DeleteContainerImageCommand";
 import {
+  type DeleteContainerServiceCommandInput,
+  type DeleteContainerServiceCommandOutput,
   DeleteContainerServiceCommand,
-  DeleteContainerServiceCommandInput,
-  DeleteContainerServiceCommandOutput,
 } from "./commands/DeleteContainerServiceCommand";
-import { DeleteDiskCommand, DeleteDiskCommandInput, DeleteDiskCommandOutput } from "./commands/DeleteDiskCommand";
 import {
+  type DeleteDiskCommandInput,
+  type DeleteDiskCommandOutput,
+  DeleteDiskCommand,
+} from "./commands/DeleteDiskCommand";
+import {
+  type DeleteDiskSnapshotCommandInput,
+  type DeleteDiskSnapshotCommandOutput,
   DeleteDiskSnapshotCommand,
-  DeleteDiskSnapshotCommandInput,
-  DeleteDiskSnapshotCommandOutput,
 } from "./commands/DeleteDiskSnapshotCommand";
 import {
+  type DeleteDistributionCommandInput,
+  type DeleteDistributionCommandOutput,
   DeleteDistributionCommand,
-  DeleteDistributionCommandInput,
-  DeleteDistributionCommandOutput,
 } from "./commands/DeleteDistributionCommand";
 import {
+  type DeleteDomainCommandInput,
+  type DeleteDomainCommandOutput,
   DeleteDomainCommand,
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
+  type DeleteDomainEntryCommandInput,
+  type DeleteDomainEntryCommandOutput,
   DeleteDomainEntryCommand,
-  DeleteDomainEntryCommandInput,
-  DeleteDomainEntryCommandOutput,
 } from "./commands/DeleteDomainEntryCommand";
 import {
+  type DeleteInstanceCommandInput,
+  type DeleteInstanceCommandOutput,
   DeleteInstanceCommand,
-  DeleteInstanceCommandInput,
-  DeleteInstanceCommandOutput,
 } from "./commands/DeleteInstanceCommand";
 import {
+  type DeleteInstanceSnapshotCommandInput,
+  type DeleteInstanceSnapshotCommandOutput,
   DeleteInstanceSnapshotCommand,
-  DeleteInstanceSnapshotCommandInput,
-  DeleteInstanceSnapshotCommandOutput,
 } from "./commands/DeleteInstanceSnapshotCommand";
 import {
+  type DeleteKeyPairCommandInput,
+  type DeleteKeyPairCommandOutput,
   DeleteKeyPairCommand,
-  DeleteKeyPairCommandInput,
-  DeleteKeyPairCommandOutput,
 } from "./commands/DeleteKeyPairCommand";
 import {
+  type DeleteKnownHostKeysCommandInput,
+  type DeleteKnownHostKeysCommandOutput,
   DeleteKnownHostKeysCommand,
-  DeleteKnownHostKeysCommandInput,
-  DeleteKnownHostKeysCommandOutput,
 } from "./commands/DeleteKnownHostKeysCommand";
 import {
+  type DeleteLoadBalancerCommandInput,
+  type DeleteLoadBalancerCommandOutput,
   DeleteLoadBalancerCommand,
-  DeleteLoadBalancerCommandInput,
-  DeleteLoadBalancerCommandOutput,
 } from "./commands/DeleteLoadBalancerCommand";
 import {
+  type DeleteLoadBalancerTlsCertificateCommandInput,
+  type DeleteLoadBalancerTlsCertificateCommandOutput,
   DeleteLoadBalancerTlsCertificateCommand,
-  DeleteLoadBalancerTlsCertificateCommandInput,
-  DeleteLoadBalancerTlsCertificateCommandOutput,
 } from "./commands/DeleteLoadBalancerTlsCertificateCommand";
 import {
+  type DeleteRelationalDatabaseCommandInput,
+  type DeleteRelationalDatabaseCommandOutput,
   DeleteRelationalDatabaseCommand,
-  DeleteRelationalDatabaseCommandInput,
-  DeleteRelationalDatabaseCommandOutput,
 } from "./commands/DeleteRelationalDatabaseCommand";
 import {
+  type DeleteRelationalDatabaseSnapshotCommandInput,
+  type DeleteRelationalDatabaseSnapshotCommandOutput,
   DeleteRelationalDatabaseSnapshotCommand,
-  DeleteRelationalDatabaseSnapshotCommandInput,
-  DeleteRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/DeleteRelationalDatabaseSnapshotCommand";
 import {
+  type DetachCertificateFromDistributionCommandInput,
+  type DetachCertificateFromDistributionCommandOutput,
   DetachCertificateFromDistributionCommand,
-  DetachCertificateFromDistributionCommandInput,
-  DetachCertificateFromDistributionCommandOutput,
 } from "./commands/DetachCertificateFromDistributionCommand";
-import { DetachDiskCommand, DetachDiskCommandInput, DetachDiskCommandOutput } from "./commands/DetachDiskCommand";
 import {
+  type DetachDiskCommandInput,
+  type DetachDiskCommandOutput,
+  DetachDiskCommand,
+} from "./commands/DetachDiskCommand";
+import {
+  type DetachInstancesFromLoadBalancerCommandInput,
+  type DetachInstancesFromLoadBalancerCommandOutput,
   DetachInstancesFromLoadBalancerCommand,
-  DetachInstancesFromLoadBalancerCommandInput,
-  DetachInstancesFromLoadBalancerCommandOutput,
 } from "./commands/DetachInstancesFromLoadBalancerCommand";
 import {
+  type DetachStaticIpCommandInput,
+  type DetachStaticIpCommandOutput,
   DetachStaticIpCommand,
-  DetachStaticIpCommandInput,
-  DetachStaticIpCommandOutput,
 } from "./commands/DetachStaticIpCommand";
 import {
+  type DisableAddOnCommandInput,
+  type DisableAddOnCommandOutput,
   DisableAddOnCommand,
-  DisableAddOnCommandInput,
-  DisableAddOnCommandOutput,
 } from "./commands/DisableAddOnCommand";
 import {
+  type DownloadDefaultKeyPairCommandInput,
+  type DownloadDefaultKeyPairCommandOutput,
   DownloadDefaultKeyPairCommand,
-  DownloadDefaultKeyPairCommandInput,
-  DownloadDefaultKeyPairCommandOutput,
 } from "./commands/DownloadDefaultKeyPairCommand";
-import { EnableAddOnCommand, EnableAddOnCommandInput, EnableAddOnCommandOutput } from "./commands/EnableAddOnCommand";
 import {
+  type EnableAddOnCommandInput,
+  type EnableAddOnCommandOutput,
+  EnableAddOnCommand,
+} from "./commands/EnableAddOnCommand";
+import {
+  type ExportSnapshotCommandInput,
+  type ExportSnapshotCommandOutput,
   ExportSnapshotCommand,
-  ExportSnapshotCommandInput,
-  ExportSnapshotCommandOutput,
 } from "./commands/ExportSnapshotCommand";
 import {
+  type GetActiveNamesCommandInput,
+  type GetActiveNamesCommandOutput,
   GetActiveNamesCommand,
-  GetActiveNamesCommandInput,
-  GetActiveNamesCommandOutput,
 } from "./commands/GetActiveNamesCommand";
-import { GetAlarmsCommand, GetAlarmsCommandInput, GetAlarmsCommandOutput } from "./commands/GetAlarmsCommand";
+import { type GetAlarmsCommandInput, type GetAlarmsCommandOutput, GetAlarmsCommand } from "./commands/GetAlarmsCommand";
 import {
+  type GetAutoSnapshotsCommandInput,
+  type GetAutoSnapshotsCommandOutput,
   GetAutoSnapshotsCommand,
-  GetAutoSnapshotsCommandInput,
-  GetAutoSnapshotsCommandOutput,
 } from "./commands/GetAutoSnapshotsCommand";
 import {
+  type GetBlueprintsCommandInput,
+  type GetBlueprintsCommandOutput,
   GetBlueprintsCommand,
-  GetBlueprintsCommandInput,
-  GetBlueprintsCommandOutput,
 } from "./commands/GetBlueprintsCommand";
 import {
+  type GetBucketAccessKeysCommandInput,
+  type GetBucketAccessKeysCommandOutput,
   GetBucketAccessKeysCommand,
-  GetBucketAccessKeysCommandInput,
-  GetBucketAccessKeysCommandOutput,
 } from "./commands/GetBucketAccessKeysCommand";
 import {
+  type GetBucketBundlesCommandInput,
+  type GetBucketBundlesCommandOutput,
   GetBucketBundlesCommand,
-  GetBucketBundlesCommandInput,
-  GetBucketBundlesCommandOutput,
 } from "./commands/GetBucketBundlesCommand";
 import {
+  type GetBucketMetricDataCommandInput,
+  type GetBucketMetricDataCommandOutput,
   GetBucketMetricDataCommand,
-  GetBucketMetricDataCommandInput,
-  GetBucketMetricDataCommandOutput,
 } from "./commands/GetBucketMetricDataCommand";
-import { GetBucketsCommand, GetBucketsCommandInput, GetBucketsCommandOutput } from "./commands/GetBucketsCommand";
-import { GetBundlesCommand, GetBundlesCommandInput, GetBundlesCommandOutput } from "./commands/GetBundlesCommand";
 import {
+  type GetBucketsCommandInput,
+  type GetBucketsCommandOutput,
+  GetBucketsCommand,
+} from "./commands/GetBucketsCommand";
+import {
+  type GetBundlesCommandInput,
+  type GetBundlesCommandOutput,
+  GetBundlesCommand,
+} from "./commands/GetBundlesCommand";
+import {
+  type GetCertificatesCommandInput,
+  type GetCertificatesCommandOutput,
   GetCertificatesCommand,
-  GetCertificatesCommandInput,
-  GetCertificatesCommandOutput,
 } from "./commands/GetCertificatesCommand";
 import {
+  type GetCloudFormationStackRecordsCommandInput,
+  type GetCloudFormationStackRecordsCommandOutput,
   GetCloudFormationStackRecordsCommand,
-  GetCloudFormationStackRecordsCommandInput,
-  GetCloudFormationStackRecordsCommandOutput,
 } from "./commands/GetCloudFormationStackRecordsCommand";
 import {
+  type GetContactMethodsCommandInput,
+  type GetContactMethodsCommandOutput,
   GetContactMethodsCommand,
-  GetContactMethodsCommandInput,
-  GetContactMethodsCommandOutput,
 } from "./commands/GetContactMethodsCommand";
 import {
+  type GetContainerAPIMetadataCommandInput,
+  type GetContainerAPIMetadataCommandOutput,
   GetContainerAPIMetadataCommand,
-  GetContainerAPIMetadataCommandInput,
-  GetContainerAPIMetadataCommandOutput,
 } from "./commands/GetContainerAPIMetadataCommand";
 import {
+  type GetContainerImagesCommandInput,
+  type GetContainerImagesCommandOutput,
   GetContainerImagesCommand,
-  GetContainerImagesCommandInput,
-  GetContainerImagesCommandOutput,
 } from "./commands/GetContainerImagesCommand";
 import {
+  type GetContainerLogCommandInput,
+  type GetContainerLogCommandOutput,
   GetContainerLogCommand,
-  GetContainerLogCommandInput,
-  GetContainerLogCommandOutput,
 } from "./commands/GetContainerLogCommand";
 import {
+  type GetContainerServiceDeploymentsCommandInput,
+  type GetContainerServiceDeploymentsCommandOutput,
   GetContainerServiceDeploymentsCommand,
-  GetContainerServiceDeploymentsCommandInput,
-  GetContainerServiceDeploymentsCommandOutput,
 } from "./commands/GetContainerServiceDeploymentsCommand";
 import {
+  type GetContainerServiceMetricDataCommandInput,
+  type GetContainerServiceMetricDataCommandOutput,
   GetContainerServiceMetricDataCommand,
-  GetContainerServiceMetricDataCommandInput,
-  GetContainerServiceMetricDataCommandOutput,
 } from "./commands/GetContainerServiceMetricDataCommand";
 import {
+  type GetContainerServicePowersCommandInput,
+  type GetContainerServicePowersCommandOutput,
   GetContainerServicePowersCommand,
-  GetContainerServicePowersCommandInput,
-  GetContainerServicePowersCommandOutput,
 } from "./commands/GetContainerServicePowersCommand";
 import {
+  type GetContainerServicesCommandInput,
+  type GetContainerServicesCommandOutput,
   GetContainerServicesCommand,
-  GetContainerServicesCommandInput,
-  GetContainerServicesCommandOutput,
 } from "./commands/GetContainerServicesCommand";
 import {
+  type GetCostEstimateCommandInput,
+  type GetCostEstimateCommandOutput,
   GetCostEstimateCommand,
-  GetCostEstimateCommandInput,
-  GetCostEstimateCommandOutput,
 } from "./commands/GetCostEstimateCommand";
-import { GetDiskCommand, GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand";
-import { GetDisksCommand, GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
+import { type GetDiskCommandInput, type GetDiskCommandOutput, GetDiskCommand } from "./commands/GetDiskCommand";
+import { type GetDisksCommandInput, type GetDisksCommandOutput, GetDisksCommand } from "./commands/GetDisksCommand";
 import {
+  type GetDiskSnapshotCommandInput,
+  type GetDiskSnapshotCommandOutput,
   GetDiskSnapshotCommand,
-  GetDiskSnapshotCommandInput,
-  GetDiskSnapshotCommandOutput,
 } from "./commands/GetDiskSnapshotCommand";
 import {
+  type GetDiskSnapshotsCommandInput,
+  type GetDiskSnapshotsCommandOutput,
   GetDiskSnapshotsCommand,
-  GetDiskSnapshotsCommandInput,
-  GetDiskSnapshotsCommandOutput,
 } from "./commands/GetDiskSnapshotsCommand";
 import {
+  type GetDistributionBundlesCommandInput,
+  type GetDistributionBundlesCommandOutput,
   GetDistributionBundlesCommand,
-  GetDistributionBundlesCommandInput,
-  GetDistributionBundlesCommandOutput,
 } from "./commands/GetDistributionBundlesCommand";
 import {
+  type GetDistributionLatestCacheResetCommandInput,
+  type GetDistributionLatestCacheResetCommandOutput,
   GetDistributionLatestCacheResetCommand,
-  GetDistributionLatestCacheResetCommandInput,
-  GetDistributionLatestCacheResetCommandOutput,
 } from "./commands/GetDistributionLatestCacheResetCommand";
 import {
+  type GetDistributionMetricDataCommandInput,
+  type GetDistributionMetricDataCommandOutput,
   GetDistributionMetricDataCommand,
-  GetDistributionMetricDataCommandInput,
-  GetDistributionMetricDataCommandOutput,
 } from "./commands/GetDistributionMetricDataCommand";
 import {
+  type GetDistributionsCommandInput,
+  type GetDistributionsCommandOutput,
   GetDistributionsCommand,
-  GetDistributionsCommandInput,
-  GetDistributionsCommandOutput,
 } from "./commands/GetDistributionsCommand";
-import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
-import { GetDomainsCommand, GetDomainsCommandInput, GetDomainsCommandOutput } from "./commands/GetDomainsCommand";
+import { type GetDomainCommandInput, type GetDomainCommandOutput, GetDomainCommand } from "./commands/GetDomainCommand";
 import {
+  type GetDomainsCommandInput,
+  type GetDomainsCommandOutput,
+  GetDomainsCommand,
+} from "./commands/GetDomainsCommand";
+import {
+  type GetExportSnapshotRecordsCommandInput,
+  type GetExportSnapshotRecordsCommandOutput,
   GetExportSnapshotRecordsCommand,
-  GetExportSnapshotRecordsCommandInput,
-  GetExportSnapshotRecordsCommandOutput,
 } from "./commands/GetExportSnapshotRecordsCommand";
 import {
+  type GetInstanceAccessDetailsCommandInput,
+  type GetInstanceAccessDetailsCommandOutput,
   GetInstanceAccessDetailsCommand,
-  GetInstanceAccessDetailsCommandInput,
-  GetInstanceAccessDetailsCommandOutput,
 } from "./commands/GetInstanceAccessDetailsCommand";
-import { GetInstanceCommand, GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
 import {
+  type GetInstanceCommandInput,
+  type GetInstanceCommandOutput,
+  GetInstanceCommand,
+} from "./commands/GetInstanceCommand";
+import {
+  type GetInstanceMetricDataCommandInput,
+  type GetInstanceMetricDataCommandOutput,
   GetInstanceMetricDataCommand,
-  GetInstanceMetricDataCommandInput,
-  GetInstanceMetricDataCommandOutput,
 } from "./commands/GetInstanceMetricDataCommand";
 import {
+  type GetInstancePortStatesCommandInput,
+  type GetInstancePortStatesCommandOutput,
   GetInstancePortStatesCommand,
-  GetInstancePortStatesCommandInput,
-  GetInstancePortStatesCommandOutput,
 } from "./commands/GetInstancePortStatesCommand";
 import {
+  type GetInstancesCommandInput,
+  type GetInstancesCommandOutput,
   GetInstancesCommand,
-  GetInstancesCommandInput,
-  GetInstancesCommandOutput,
 } from "./commands/GetInstancesCommand";
 import {
+  type GetInstanceSnapshotCommandInput,
+  type GetInstanceSnapshotCommandOutput,
   GetInstanceSnapshotCommand,
-  GetInstanceSnapshotCommandInput,
-  GetInstanceSnapshotCommandOutput,
 } from "./commands/GetInstanceSnapshotCommand";
 import {
+  type GetInstanceSnapshotsCommandInput,
+  type GetInstanceSnapshotsCommandOutput,
   GetInstanceSnapshotsCommand,
-  GetInstanceSnapshotsCommandInput,
-  GetInstanceSnapshotsCommandOutput,
 } from "./commands/GetInstanceSnapshotsCommand";
 import {
+  type GetInstanceStateCommandInput,
+  type GetInstanceStateCommandOutput,
   GetInstanceStateCommand,
-  GetInstanceStateCommandInput,
-  GetInstanceStateCommandOutput,
 } from "./commands/GetInstanceStateCommand";
-import { GetKeyPairCommand, GetKeyPairCommandInput, GetKeyPairCommandOutput } from "./commands/GetKeyPairCommand";
-import { GetKeyPairsCommand, GetKeyPairsCommandInput, GetKeyPairsCommandOutput } from "./commands/GetKeyPairsCommand";
 import {
+  type GetKeyPairCommandInput,
+  type GetKeyPairCommandOutput,
+  GetKeyPairCommand,
+} from "./commands/GetKeyPairCommand";
+import {
+  type GetKeyPairsCommandInput,
+  type GetKeyPairsCommandOutput,
+  GetKeyPairsCommand,
+} from "./commands/GetKeyPairsCommand";
+import {
+  type GetLoadBalancerCommandInput,
+  type GetLoadBalancerCommandOutput,
   GetLoadBalancerCommand,
-  GetLoadBalancerCommandInput,
-  GetLoadBalancerCommandOutput,
 } from "./commands/GetLoadBalancerCommand";
 import {
+  type GetLoadBalancerMetricDataCommandInput,
+  type GetLoadBalancerMetricDataCommandOutput,
   GetLoadBalancerMetricDataCommand,
-  GetLoadBalancerMetricDataCommandInput,
-  GetLoadBalancerMetricDataCommandOutput,
 } from "./commands/GetLoadBalancerMetricDataCommand";
 import {
+  type GetLoadBalancersCommandInput,
+  type GetLoadBalancersCommandOutput,
   GetLoadBalancersCommand,
-  GetLoadBalancersCommandInput,
-  GetLoadBalancersCommandOutput,
 } from "./commands/GetLoadBalancersCommand";
 import {
+  type GetLoadBalancerTlsCertificatesCommandInput,
+  type GetLoadBalancerTlsCertificatesCommandOutput,
   GetLoadBalancerTlsCertificatesCommand,
-  GetLoadBalancerTlsCertificatesCommandInput,
-  GetLoadBalancerTlsCertificatesCommandOutput,
 } from "./commands/GetLoadBalancerTlsCertificatesCommand";
 import {
+  type GetLoadBalancerTlsPoliciesCommandInput,
+  type GetLoadBalancerTlsPoliciesCommandOutput,
   GetLoadBalancerTlsPoliciesCommand,
-  GetLoadBalancerTlsPoliciesCommandInput,
-  GetLoadBalancerTlsPoliciesCommandOutput,
 } from "./commands/GetLoadBalancerTlsPoliciesCommand";
 import {
+  type GetOperationCommandInput,
+  type GetOperationCommandOutput,
   GetOperationCommand,
-  GetOperationCommandInput,
-  GetOperationCommandOutput,
 } from "./commands/GetOperationCommand";
 import {
+  type GetOperationsCommandInput,
+  type GetOperationsCommandOutput,
   GetOperationsCommand,
-  GetOperationsCommandInput,
-  GetOperationsCommandOutput,
 } from "./commands/GetOperationsCommand";
 import {
+  type GetOperationsForResourceCommandInput,
+  type GetOperationsForResourceCommandOutput,
   GetOperationsForResourceCommand,
-  GetOperationsForResourceCommandInput,
-  GetOperationsForResourceCommandOutput,
 } from "./commands/GetOperationsForResourceCommand";
-import { GetRegionsCommand, GetRegionsCommandInput, GetRegionsCommandOutput } from "./commands/GetRegionsCommand";
 import {
+  type GetRegionsCommandInput,
+  type GetRegionsCommandOutput,
+  GetRegionsCommand,
+} from "./commands/GetRegionsCommand";
+import {
+  type GetRelationalDatabaseBlueprintsCommandInput,
+  type GetRelationalDatabaseBlueprintsCommandOutput,
   GetRelationalDatabaseBlueprintsCommand,
-  GetRelationalDatabaseBlueprintsCommandInput,
-  GetRelationalDatabaseBlueprintsCommandOutput,
 } from "./commands/GetRelationalDatabaseBlueprintsCommand";
 import {
+  type GetRelationalDatabaseBundlesCommandInput,
+  type GetRelationalDatabaseBundlesCommandOutput,
   GetRelationalDatabaseBundlesCommand,
-  GetRelationalDatabaseBundlesCommandInput,
-  GetRelationalDatabaseBundlesCommandOutput,
 } from "./commands/GetRelationalDatabaseBundlesCommand";
 import {
+  type GetRelationalDatabaseCommandInput,
+  type GetRelationalDatabaseCommandOutput,
   GetRelationalDatabaseCommand,
-  GetRelationalDatabaseCommandInput,
-  GetRelationalDatabaseCommandOutput,
 } from "./commands/GetRelationalDatabaseCommand";
 import {
+  type GetRelationalDatabaseEventsCommandInput,
+  type GetRelationalDatabaseEventsCommandOutput,
   GetRelationalDatabaseEventsCommand,
-  GetRelationalDatabaseEventsCommandInput,
-  GetRelationalDatabaseEventsCommandOutput,
 } from "./commands/GetRelationalDatabaseEventsCommand";
 import {
+  type GetRelationalDatabaseLogEventsCommandInput,
+  type GetRelationalDatabaseLogEventsCommandOutput,
   GetRelationalDatabaseLogEventsCommand,
-  GetRelationalDatabaseLogEventsCommandInput,
-  GetRelationalDatabaseLogEventsCommandOutput,
 } from "./commands/GetRelationalDatabaseLogEventsCommand";
 import {
+  type GetRelationalDatabaseLogStreamsCommandInput,
+  type GetRelationalDatabaseLogStreamsCommandOutput,
   GetRelationalDatabaseLogStreamsCommand,
-  GetRelationalDatabaseLogStreamsCommandInput,
-  GetRelationalDatabaseLogStreamsCommandOutput,
 } from "./commands/GetRelationalDatabaseLogStreamsCommand";
 import {
+  type GetRelationalDatabaseMasterUserPasswordCommandInput,
+  type GetRelationalDatabaseMasterUserPasswordCommandOutput,
   GetRelationalDatabaseMasterUserPasswordCommand,
-  GetRelationalDatabaseMasterUserPasswordCommandInput,
-  GetRelationalDatabaseMasterUserPasswordCommandOutput,
 } from "./commands/GetRelationalDatabaseMasterUserPasswordCommand";
 import {
+  type GetRelationalDatabaseMetricDataCommandInput,
+  type GetRelationalDatabaseMetricDataCommandOutput,
   GetRelationalDatabaseMetricDataCommand,
-  GetRelationalDatabaseMetricDataCommandInput,
-  GetRelationalDatabaseMetricDataCommandOutput,
 } from "./commands/GetRelationalDatabaseMetricDataCommand";
 import {
+  type GetRelationalDatabaseParametersCommandInput,
+  type GetRelationalDatabaseParametersCommandOutput,
   GetRelationalDatabaseParametersCommand,
-  GetRelationalDatabaseParametersCommandInput,
-  GetRelationalDatabaseParametersCommandOutput,
 } from "./commands/GetRelationalDatabaseParametersCommand";
 import {
+  type GetRelationalDatabasesCommandInput,
+  type GetRelationalDatabasesCommandOutput,
   GetRelationalDatabasesCommand,
-  GetRelationalDatabasesCommandInput,
-  GetRelationalDatabasesCommandOutput,
 } from "./commands/GetRelationalDatabasesCommand";
 import {
+  type GetRelationalDatabaseSnapshotCommandInput,
+  type GetRelationalDatabaseSnapshotCommandOutput,
   GetRelationalDatabaseSnapshotCommand,
-  GetRelationalDatabaseSnapshotCommandInput,
-  GetRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/GetRelationalDatabaseSnapshotCommand";
 import {
+  type GetRelationalDatabaseSnapshotsCommandInput,
+  type GetRelationalDatabaseSnapshotsCommandOutput,
   GetRelationalDatabaseSnapshotsCommand,
-  GetRelationalDatabaseSnapshotsCommandInput,
-  GetRelationalDatabaseSnapshotsCommandOutput,
 } from "./commands/GetRelationalDatabaseSnapshotsCommand";
 import {
+  type GetSetupHistoryCommandInput,
+  type GetSetupHistoryCommandOutput,
   GetSetupHistoryCommand,
-  GetSetupHistoryCommandInput,
-  GetSetupHistoryCommandOutput,
 } from "./commands/GetSetupHistoryCommand";
-import { GetStaticIpCommand, GetStaticIpCommandInput, GetStaticIpCommandOutput } from "./commands/GetStaticIpCommand";
 import {
+  type GetStaticIpCommandInput,
+  type GetStaticIpCommandOutput,
+  GetStaticIpCommand,
+} from "./commands/GetStaticIpCommand";
+import {
+  type GetStaticIpsCommandInput,
+  type GetStaticIpsCommandOutput,
   GetStaticIpsCommand,
-  GetStaticIpsCommandInput,
-  GetStaticIpsCommandOutput,
 } from "./commands/GetStaticIpsCommand";
 import {
+  type ImportKeyPairCommandInput,
+  type ImportKeyPairCommandOutput,
   ImportKeyPairCommand,
-  ImportKeyPairCommandInput,
-  ImportKeyPairCommandOutput,
 } from "./commands/ImportKeyPairCommand";
-import { IsVpcPeeredCommand, IsVpcPeeredCommandInput, IsVpcPeeredCommandOutput } from "./commands/IsVpcPeeredCommand";
 import {
+  type IsVpcPeeredCommandInput,
+  type IsVpcPeeredCommandOutput,
+  IsVpcPeeredCommand,
+} from "./commands/IsVpcPeeredCommand";
+import {
+  type OpenInstancePublicPortsCommandInput,
+  type OpenInstancePublicPortsCommandOutput,
   OpenInstancePublicPortsCommand,
-  OpenInstancePublicPortsCommandInput,
-  OpenInstancePublicPortsCommandOutput,
 } from "./commands/OpenInstancePublicPortsCommand";
-import { PeerVpcCommand, PeerVpcCommandInput, PeerVpcCommandOutput } from "./commands/PeerVpcCommand";
-import { PutAlarmCommand, PutAlarmCommandInput, PutAlarmCommandOutput } from "./commands/PutAlarmCommand";
+import { type PeerVpcCommandInput, type PeerVpcCommandOutput, PeerVpcCommand } from "./commands/PeerVpcCommand";
+import { type PutAlarmCommandInput, type PutAlarmCommandOutput, PutAlarmCommand } from "./commands/PutAlarmCommand";
 import {
+  type PutInstancePublicPortsCommandInput,
+  type PutInstancePublicPortsCommandOutput,
   PutInstancePublicPortsCommand,
-  PutInstancePublicPortsCommandInput,
-  PutInstancePublicPortsCommandOutput,
 } from "./commands/PutInstancePublicPortsCommand";
 import {
+  type RebootInstanceCommandInput,
+  type RebootInstanceCommandOutput,
   RebootInstanceCommand,
-  RebootInstanceCommandInput,
-  RebootInstanceCommandOutput,
 } from "./commands/RebootInstanceCommand";
 import {
+  type RebootRelationalDatabaseCommandInput,
+  type RebootRelationalDatabaseCommandOutput,
   RebootRelationalDatabaseCommand,
-  RebootRelationalDatabaseCommandInput,
-  RebootRelationalDatabaseCommandOutput,
 } from "./commands/RebootRelationalDatabaseCommand";
 import {
+  type RegisterContainerImageCommandInput,
+  type RegisterContainerImageCommandOutput,
   RegisterContainerImageCommand,
-  RegisterContainerImageCommandInput,
-  RegisterContainerImageCommandOutput,
 } from "./commands/RegisterContainerImageCommand";
 import {
+  type ReleaseStaticIpCommandInput,
+  type ReleaseStaticIpCommandOutput,
   ReleaseStaticIpCommand,
-  ReleaseStaticIpCommandInput,
-  ReleaseStaticIpCommandOutput,
 } from "./commands/ReleaseStaticIpCommand";
 import {
+  type ResetDistributionCacheCommandInput,
+  type ResetDistributionCacheCommandOutput,
   ResetDistributionCacheCommand,
-  ResetDistributionCacheCommandInput,
-  ResetDistributionCacheCommandOutput,
 } from "./commands/ResetDistributionCacheCommand";
 import {
+  type SendContactMethodVerificationCommandInput,
+  type SendContactMethodVerificationCommandOutput,
   SendContactMethodVerificationCommand,
-  SendContactMethodVerificationCommandInput,
-  SendContactMethodVerificationCommandOutput,
 } from "./commands/SendContactMethodVerificationCommand";
 import {
+  type SetIpAddressTypeCommandInput,
+  type SetIpAddressTypeCommandOutput,
   SetIpAddressTypeCommand,
-  SetIpAddressTypeCommandInput,
-  SetIpAddressTypeCommandOutput,
 } from "./commands/SetIpAddressTypeCommand";
 import {
+  type SetResourceAccessForBucketCommandInput,
+  type SetResourceAccessForBucketCommandOutput,
   SetResourceAccessForBucketCommand,
-  SetResourceAccessForBucketCommandInput,
-  SetResourceAccessForBucketCommandOutput,
 } from "./commands/SetResourceAccessForBucketCommand";
 import {
+  type SetupInstanceHttpsCommandInput,
+  type SetupInstanceHttpsCommandOutput,
   SetupInstanceHttpsCommand,
-  SetupInstanceHttpsCommandInput,
-  SetupInstanceHttpsCommandOutput,
 } from "./commands/SetupInstanceHttpsCommand";
 import {
+  type StartGUISessionCommandInput,
+  type StartGUISessionCommandOutput,
   StartGUISessionCommand,
-  StartGUISessionCommandInput,
-  StartGUISessionCommandOutput,
 } from "./commands/StartGUISessionCommand";
 import {
+  type StartInstanceCommandInput,
+  type StartInstanceCommandOutput,
   StartInstanceCommand,
-  StartInstanceCommandInput,
-  StartInstanceCommandOutput,
 } from "./commands/StartInstanceCommand";
 import {
+  type StartRelationalDatabaseCommandInput,
+  type StartRelationalDatabaseCommandOutput,
   StartRelationalDatabaseCommand,
-  StartRelationalDatabaseCommandInput,
-  StartRelationalDatabaseCommandOutput,
 } from "./commands/StartRelationalDatabaseCommand";
 import {
+  type StopGUISessionCommandInput,
+  type StopGUISessionCommandOutput,
   StopGUISessionCommand,
-  StopGUISessionCommandInput,
-  StopGUISessionCommandOutput,
 } from "./commands/StopGUISessionCommand";
 import {
+  type StopInstanceCommandInput,
+  type StopInstanceCommandOutput,
   StopInstanceCommand,
-  StopInstanceCommandInput,
-  StopInstanceCommandOutput,
 } from "./commands/StopInstanceCommand";
 import {
+  type StopRelationalDatabaseCommandInput,
+  type StopRelationalDatabaseCommandOutput,
   StopRelationalDatabaseCommand,
-  StopRelationalDatabaseCommandInput,
-  StopRelationalDatabaseCommandOutput,
 } from "./commands/StopRelationalDatabaseCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TestAlarmCommand, TestAlarmCommandInput, TestAlarmCommandOutput } from "./commands/TestAlarmCommand";
-import { UnpeerVpcCommand, UnpeerVpcCommandInput, UnpeerVpcCommandOutput } from "./commands/UnpeerVpcCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import { type TestAlarmCommandInput, type TestAlarmCommandOutput, TestAlarmCommand } from "./commands/TestAlarmCommand";
+import { type UnpeerVpcCommandInput, type UnpeerVpcCommandOutput, UnpeerVpcCommand } from "./commands/UnpeerVpcCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBucketBundleCommandInput,
+  type UpdateBucketBundleCommandOutput,
   UpdateBucketBundleCommand,
-  UpdateBucketBundleCommandInput,
-  UpdateBucketBundleCommandOutput,
 } from "./commands/UpdateBucketBundleCommand";
 import {
+  type UpdateBucketCommandInput,
+  type UpdateBucketCommandOutput,
   UpdateBucketCommand,
-  UpdateBucketCommandInput,
-  UpdateBucketCommandOutput,
 } from "./commands/UpdateBucketCommand";
 import {
+  type UpdateContainerServiceCommandInput,
+  type UpdateContainerServiceCommandOutput,
   UpdateContainerServiceCommand,
-  UpdateContainerServiceCommandInput,
-  UpdateContainerServiceCommandOutput,
 } from "./commands/UpdateContainerServiceCommand";
 import {
+  type UpdateDistributionBundleCommandInput,
+  type UpdateDistributionBundleCommandOutput,
   UpdateDistributionBundleCommand,
-  UpdateDistributionBundleCommandInput,
-  UpdateDistributionBundleCommandOutput,
 } from "./commands/UpdateDistributionBundleCommand";
 import {
+  type UpdateDistributionCommandInput,
+  type UpdateDistributionCommandOutput,
   UpdateDistributionCommand,
-  UpdateDistributionCommandInput,
-  UpdateDistributionCommandOutput,
 } from "./commands/UpdateDistributionCommand";
 import {
+  type UpdateDomainEntryCommandInput,
+  type UpdateDomainEntryCommandOutput,
   UpdateDomainEntryCommand,
-  UpdateDomainEntryCommandInput,
-  UpdateDomainEntryCommandOutput,
 } from "./commands/UpdateDomainEntryCommand";
 import {
+  type UpdateInstanceMetadataOptionsCommandInput,
+  type UpdateInstanceMetadataOptionsCommandOutput,
   UpdateInstanceMetadataOptionsCommand,
-  UpdateInstanceMetadataOptionsCommandInput,
-  UpdateInstanceMetadataOptionsCommandOutput,
 } from "./commands/UpdateInstanceMetadataOptionsCommand";
 import {
+  type UpdateLoadBalancerAttributeCommandInput,
+  type UpdateLoadBalancerAttributeCommandOutput,
   UpdateLoadBalancerAttributeCommand,
-  UpdateLoadBalancerAttributeCommandInput,
-  UpdateLoadBalancerAttributeCommandOutput,
 } from "./commands/UpdateLoadBalancerAttributeCommand";
 import {
+  type UpdateRelationalDatabaseCommandInput,
+  type UpdateRelationalDatabaseCommandOutput,
   UpdateRelationalDatabaseCommand,
-  UpdateRelationalDatabaseCommandInput,
-  UpdateRelationalDatabaseCommandOutput,
 } from "./commands/UpdateRelationalDatabaseCommand";
 import {
+  type UpdateRelationalDatabaseParametersCommandInput,
+  type UpdateRelationalDatabaseParametersCommandOutput,
   UpdateRelationalDatabaseParametersCommand,
-  UpdateRelationalDatabaseParametersCommandInput,
-  UpdateRelationalDatabaseParametersCommandOutput,
 } from "./commands/UpdateRelationalDatabaseParametersCommand";
 import { LightsailClient } from "./LightsailClient";
 

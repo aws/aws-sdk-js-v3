@@ -8,7 +8,7 @@ import {
   ListEncoderConfigurationsCommandOutput,
 } from "../commands/ListEncoderConfigurationsCommand";
 import { IVSRealTimeClient } from "../IVSRealTimeClient";
-import { IVSRealTimePaginationConfiguration } from "./Interfaces";
+import type { IVSRealTimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

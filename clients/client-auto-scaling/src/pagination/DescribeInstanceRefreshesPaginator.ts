@@ -8,7 +8,7 @@ import {
   DescribeInstanceRefreshesCommandInput,
   DescribeInstanceRefreshesCommandOutput,
 } from "../commands/DescribeInstanceRefreshesCommand";
-import { AutoScalingPaginationConfiguration } from "./Interfaces";
+import type { AutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

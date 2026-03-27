@@ -82,7 +82,7 @@
  */
 export * from "./DetectiveClient";
 export * from "./Detective";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DetectiveExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -49,7 +49,7 @@
  */
 export * from "./HealthClient";
 export * from "./Health";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { HealthExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

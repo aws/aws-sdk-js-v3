@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from "../commands/ListFlowsCommand";
 import { QuickSightClient } from "../QuickSightClient";
-import { QuickSightPaginationConfiguration } from "./Interfaces";
+import type { QuickSightPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

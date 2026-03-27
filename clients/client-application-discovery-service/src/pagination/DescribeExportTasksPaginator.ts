@@ -8,7 +8,7 @@ import {
   DescribeExportTasksCommandInput,
   DescribeExportTasksCommandOutput,
 } from "../commands/DescribeExportTasksCommand";
-import { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
+import type { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

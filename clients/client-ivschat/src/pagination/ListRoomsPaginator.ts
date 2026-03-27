@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListRoomsCommand, ListRoomsCommandInput, ListRoomsCommandOutput } from "../commands/ListRoomsCommand";
 import { IvschatClient } from "../IvschatClient";
-import { IvschatPaginationConfiguration } from "./Interfaces";
+import type { IvschatPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

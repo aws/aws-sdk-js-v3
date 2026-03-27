@@ -8,7 +8,7 @@ import {
   SearchRelevantContentCommandOutput,
 } from "../commands/SearchRelevantContentCommand";
 import { QBusinessClient } from "../QBusinessClient";
-import { QBusinessPaginationConfiguration } from "./Interfaces";
+import type { QBusinessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

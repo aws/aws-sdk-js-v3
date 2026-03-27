@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,63 +61,72 @@ import {
   defaultVoiceIDHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateFraudsterCommandInput, AssociateFraudsterCommandOutput } from "./commands/AssociateFraudsterCommand";
-import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
-import { CreateWatchlistCommandInput, CreateWatchlistCommandOutput } from "./commands/CreateWatchlistCommand";
-import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
-import { DeleteFraudsterCommandInput, DeleteFraudsterCommandOutput } from "./commands/DeleteFraudsterCommand";
-import { DeleteSpeakerCommandInput, DeleteSpeakerCommandOutput } from "./commands/DeleteSpeakerCommand";
-import { DeleteWatchlistCommandInput, DeleteWatchlistCommandOutput } from "./commands/DeleteWatchlistCommand";
-import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
-import { DescribeFraudsterCommandInput, DescribeFraudsterCommandOutput } from "./commands/DescribeFraudsterCommand";
-import {
+import type {
+  AssociateFraudsterCommandInput,
+  AssociateFraudsterCommandOutput,
+} from "./commands/AssociateFraudsterCommand";
+import type { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import type { CreateWatchlistCommandInput, CreateWatchlistCommandOutput } from "./commands/CreateWatchlistCommand";
+import type { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import type { DeleteFraudsterCommandInput, DeleteFraudsterCommandOutput } from "./commands/DeleteFraudsterCommand";
+import type { DeleteSpeakerCommandInput, DeleteSpeakerCommandOutput } from "./commands/DeleteSpeakerCommand";
+import type { DeleteWatchlistCommandInput, DeleteWatchlistCommandOutput } from "./commands/DeleteWatchlistCommand";
+import type { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
+import type {
+  DescribeFraudsterCommandInput,
+  DescribeFraudsterCommandOutput,
+} from "./commands/DescribeFraudsterCommand";
+import type {
   DescribeFraudsterRegistrationJobCommandInput,
   DescribeFraudsterRegistrationJobCommandOutput,
 } from "./commands/DescribeFraudsterRegistrationJobCommand";
-import { DescribeSpeakerCommandInput, DescribeSpeakerCommandOutput } from "./commands/DescribeSpeakerCommand";
-import {
+import type { DescribeSpeakerCommandInput, DescribeSpeakerCommandOutput } from "./commands/DescribeSpeakerCommand";
+import type {
   DescribeSpeakerEnrollmentJobCommandInput,
   DescribeSpeakerEnrollmentJobCommandOutput,
 } from "./commands/DescribeSpeakerEnrollmentJobCommand";
-import { DescribeWatchlistCommandInput, DescribeWatchlistCommandOutput } from "./commands/DescribeWatchlistCommand";
-import {
+import type {
+  DescribeWatchlistCommandInput,
+  DescribeWatchlistCommandOutput,
+} from "./commands/DescribeWatchlistCommand";
+import type {
   DisassociateFraudsterCommandInput,
   DisassociateFraudsterCommandOutput,
 } from "./commands/DisassociateFraudsterCommand";
-import { EvaluateSessionCommandInput, EvaluateSessionCommandOutput } from "./commands/EvaluateSessionCommand";
-import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
-import {
+import type { EvaluateSessionCommandInput, EvaluateSessionCommandOutput } from "./commands/EvaluateSessionCommand";
+import type { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import type {
   ListFraudsterRegistrationJobsCommandInput,
   ListFraudsterRegistrationJobsCommandOutput,
 } from "./commands/ListFraudsterRegistrationJobsCommand";
-import { ListFraudstersCommandInput, ListFraudstersCommandOutput } from "./commands/ListFraudstersCommand";
-import {
+import type { ListFraudstersCommandInput, ListFraudstersCommandOutput } from "./commands/ListFraudstersCommand";
+import type {
   ListSpeakerEnrollmentJobsCommandInput,
   ListSpeakerEnrollmentJobsCommandOutput,
 } from "./commands/ListSpeakerEnrollmentJobsCommand";
-import { ListSpeakersCommandInput, ListSpeakersCommandOutput } from "./commands/ListSpeakersCommand";
-import {
+import type { ListSpeakersCommandInput, ListSpeakersCommandOutput } from "./commands/ListSpeakersCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListWatchlistsCommandInput, ListWatchlistsCommandOutput } from "./commands/ListWatchlistsCommand";
-import { OptOutSpeakerCommandInput, OptOutSpeakerCommandOutput } from "./commands/OptOutSpeakerCommand";
-import {
+import type { ListWatchlistsCommandInput, ListWatchlistsCommandOutput } from "./commands/ListWatchlistsCommand";
+import type { OptOutSpeakerCommandInput, OptOutSpeakerCommandOutput } from "./commands/OptOutSpeakerCommand";
+import type {
   StartFraudsterRegistrationJobCommandInput,
   StartFraudsterRegistrationJobCommandOutput,
 } from "./commands/StartFraudsterRegistrationJobCommand";
-import {
+import type {
   StartSpeakerEnrollmentJobCommandInput,
   StartSpeakerEnrollmentJobCommandOutput,
 } from "./commands/StartSpeakerEnrollmentJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
-import { UpdateWatchlistCommandInput, UpdateWatchlistCommandOutput } from "./commands/UpdateWatchlistCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
+import type { UpdateWatchlistCommandInput, UpdateWatchlistCommandOutput } from "./commands/UpdateWatchlistCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -309,7 +316,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

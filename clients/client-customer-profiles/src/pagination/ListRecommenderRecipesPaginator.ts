@@ -8,7 +8,7 @@ import {
   ListRecommenderRecipesCommandOutput,
 } from "../commands/ListRecommenderRecipesCommand";
 import { CustomerProfilesClient } from "../CustomerProfilesClient";
-import { CustomerProfilesPaginationConfiguration } from "./Interfaces";
+import type { CustomerProfilesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListScrapersCommandInput,
   ListScrapersCommandOutput,
 } from "../commands/ListScrapersCommand";
-import { AmpPaginationConfiguration } from "./Interfaces";
+import type { AmpPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

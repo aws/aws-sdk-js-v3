@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { GetTagKeysCommand, GetTagKeysCommandInput, GetTagKeysCommandOutput } from "../commands/GetTagKeysCommand";
 import { ResourceGroupsTaggingAPIClient } from "../ResourceGroupsTaggingAPIClient";
-import { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
+import type { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

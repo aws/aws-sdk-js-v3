@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { StreamingBlobTypes } from "@smithy/types";
+import type { StreamingBlobTypes } from "@smithy/types";
 
-import { ContentType, QueryParser } from "./enums";
+import type { ContentType, QueryParser } from "./enums";
 
 /**
  * <p>Container for the parameters to the <code>Search</code> request.</p>

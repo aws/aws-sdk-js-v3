@@ -8,7 +8,7 @@ import {
   DescribeResourcePermissionsCommandOutput,
 } from "../commands/DescribeResourcePermissionsCommand";
 import { WorkDocsClient } from "../WorkDocsClient";
-import { WorkDocsPaginationConfiguration } from "./Interfaces";
+import type { WorkDocsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

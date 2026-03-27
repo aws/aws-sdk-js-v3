@@ -8,7 +8,7 @@ import {
   ListIndexedRecoveryPointsCommandInput,
   ListIndexedRecoveryPointsCommandOutput,
 } from "../commands/ListIndexedRecoveryPointsCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

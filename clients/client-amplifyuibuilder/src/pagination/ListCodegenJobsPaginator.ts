@@ -8,7 +8,7 @@ import {
   ListCodegenJobsCommandInput,
   ListCodegenJobsCommandOutput,
 } from "../commands/ListCodegenJobsCommand";
-import { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
+import type { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

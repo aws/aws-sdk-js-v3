@@ -8,7 +8,7 @@ import {
   ListMembershipsCommandOutput,
 } from "../commands/ListMembershipsCommand";
 import { SecurityIRClient } from "../SecurityIRClient";
-import { SecurityIRPaginationConfiguration } from "./Interfaces";
+import type { SecurityIRPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

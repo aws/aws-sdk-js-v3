@@ -44,21 +44,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -68,45 +66,48 @@ import {
   defaultTimestreamWriteHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateBatchLoadTaskCommandInput,
   CreateBatchLoadTaskCommandOutput,
 } from "./commands/CreateBatchLoadTaskCommand";
-import { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "./commands/CreateDatabaseCommand";
-import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
-import { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand";
-import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
-import {
+import type { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "./commands/CreateDatabaseCommand";
+import type { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
+import type { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand";
+import type { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
+import type {
   DescribeBatchLoadTaskCommandInput,
   DescribeBatchLoadTaskCommandOutput,
 } from "./commands/DescribeBatchLoadTaskCommand";
-import { DescribeDatabaseCommandInput, DescribeDatabaseCommandOutput } from "./commands/DescribeDatabaseCommand";
+import type { DescribeDatabaseCommandInput, DescribeDatabaseCommandOutput } from "./commands/DescribeDatabaseCommand";
 import {
+  type DescribeEndpointsCommandInput,
+  type DescribeEndpointsCommandOutput,
   DescribeEndpointsCommand,
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
-import { DescribeTableCommandInput, DescribeTableCommandOutput } from "./commands/DescribeTableCommand";
-import { ListBatchLoadTasksCommandInput, ListBatchLoadTasksCommandOutput } from "./commands/ListBatchLoadTasksCommand";
-import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
-import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
-import {
+import type { DescribeTableCommandInput, DescribeTableCommandOutput } from "./commands/DescribeTableCommand";
+import type {
+  ListBatchLoadTasksCommandInput,
+  ListBatchLoadTasksCommandOutput,
+} from "./commands/ListBatchLoadTasksCommand";
+import type { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
+import type { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ResumeBatchLoadTaskCommandInput,
   ResumeBatchLoadTaskCommandOutput,
 } from "./commands/ResumeBatchLoadTaskCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "./commands/UpdateDatabaseCommand";
-import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
-import { WriteRecordsCommandInput, WriteRecordsCommandOutput } from "./commands/WriteRecordsCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "./commands/UpdateDatabaseCommand";
+import type { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
+import type { WriteRecordsCommandInput, WriteRecordsCommandOutput } from "./commands/WriteRecordsCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -276,7 +277,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

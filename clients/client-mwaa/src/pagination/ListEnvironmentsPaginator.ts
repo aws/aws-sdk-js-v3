@@ -8,7 +8,7 @@ import {
   ListEnvironmentsCommandOutput,
 } from "../commands/ListEnvironmentsCommand";
 import { MWAAClient } from "../MWAAClient";
-import { MWAAPaginationConfiguration } from "./Interfaces";
+import type { MWAAPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

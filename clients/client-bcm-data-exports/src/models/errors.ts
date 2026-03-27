@@ -2,8 +2,8 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { BCMDataExportsServiceException as __BaseException } from "./BCMDataExportsServiceException";
-import { ValidationExceptionReason } from "./enums";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>You don't have sufficient access to perform this action.</p>

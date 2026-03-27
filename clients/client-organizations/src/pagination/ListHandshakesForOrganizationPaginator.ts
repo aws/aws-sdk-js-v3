@@ -8,7 +8,7 @@ import {
   ListHandshakesForOrganizationCommandOutput,
 } from "../commands/ListHandshakesForOrganizationCommand";
 import { OrganizationsClient } from "../OrganizationsClient";
-import { OrganizationsPaginationConfiguration } from "./Interfaces";
+import type { OrganizationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

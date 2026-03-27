@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListRulesCommand, ListRulesCommandInput, ListRulesCommandOutput } from "../commands/ListRulesCommand";
 import { RbinClient } from "../RbinClient";
-import { RbinPaginationConfiguration } from "./Interfaces";
+import type { RbinPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

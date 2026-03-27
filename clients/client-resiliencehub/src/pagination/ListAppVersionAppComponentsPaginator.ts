@@ -8,7 +8,7 @@ import {
   ListAppVersionAppComponentsCommandOutput,
 } from "../commands/ListAppVersionAppComponentsCommand";
 import { ResiliencehubClient } from "../ResiliencehubClient";
-import { ResiliencehubPaginationConfiguration } from "./Interfaces";
+import type { ResiliencehubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

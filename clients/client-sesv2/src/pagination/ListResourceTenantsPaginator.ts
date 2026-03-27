@@ -8,7 +8,7 @@ import {
   ListResourceTenantsCommandOutput,
 } from "../commands/ListResourceTenantsCommand";
 import { SESv2Client } from "../SESv2Client";
-import { SESv2PaginationConfiguration } from "./Interfaces";
+import type { SESv2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

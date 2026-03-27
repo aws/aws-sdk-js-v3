@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type GetIdentityVerificationAttributesCommandInput,
   GetIdentityVerificationAttributesCommand,
-  GetIdentityVerificationAttributesCommandInput,
 } from "../commands/GetIdentityVerificationAttributesCommand";
-import { SESClient } from "../SESClient";
+import type { SESClient } from "../SESClient";
 
 const checkState = async (client: SESClient, input: GetIdentityVerificationAttributesCommandInput): Promise<WaiterResult> => {
   let reason;

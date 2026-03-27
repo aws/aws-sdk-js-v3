@@ -48,179 +48,200 @@ import type {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
-import {
+import type {
   AllQueryStringTypesCommandInput,
   AllQueryStringTypesCommandOutput,
 } from "../commands/AllQueryStringTypesCommand";
-import { BodyWithXmlNameCommandInput, BodyWithXmlNameCommandOutput } from "../commands/BodyWithXmlNameCommand";
-import {
+import type { BodyWithXmlNameCommandInput, BodyWithXmlNameCommandOutput } from "../commands/BodyWithXmlNameCommand";
+import type {
   ConstantAndVariableQueryStringCommandInput,
   ConstantAndVariableQueryStringCommandOutput,
 } from "../commands/ConstantAndVariableQueryStringCommand";
-import {
+import type {
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
 } from "../commands/ConstantQueryStringCommand";
-import {
+import type {
   ContentTypeParametersCommandInput,
   ContentTypeParametersCommandOutput,
 } from "../commands/ContentTypeParametersCommand";
-import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
-import {
+import type { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
+import type {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "../commands/EmptyInputAndEmptyOutputCommand";
-import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "../commands/EndpointOperationCommand";
-import {
+import type {
+  EndpointOperationCommandInput,
+  EndpointOperationCommandOutput,
+} from "../commands/EndpointOperationCommand";
+import type {
   EndpointWithHostLabelHeaderOperationCommandInput,
   EndpointWithHostLabelHeaderOperationCommandOutput,
 } from "../commands/EndpointWithHostLabelHeaderOperationCommand";
-import {
+import type {
   EndpointWithHostLabelOperationCommandInput,
   EndpointWithHostLabelOperationCommandOutput,
 } from "../commands/EndpointWithHostLabelOperationCommand";
-import { FlattenedXmlMapCommandInput, FlattenedXmlMapCommandOutput } from "../commands/FlattenedXmlMapCommand";
-import {
+import type { FlattenedXmlMapCommandInput, FlattenedXmlMapCommandOutput } from "../commands/FlattenedXmlMapCommand";
+import type {
   FlattenedXmlMapWithXmlNameCommandInput,
   FlattenedXmlMapWithXmlNameCommandOutput,
 } from "../commands/FlattenedXmlMapWithXmlNameCommand";
-import {
+import type {
   FlattenedXmlMapWithXmlNamespaceCommandInput,
   FlattenedXmlMapWithXmlNamespaceCommandOutput,
 } from "../commands/FlattenedXmlMapWithXmlNamespaceCommand";
-import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "../commands/FractionalSecondsCommand";
-import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
-import {
+import type {
+  FractionalSecondsCommandInput,
+  FractionalSecondsCommandOutput,
+} from "../commands/FractionalSecondsCommand";
+import type {
+  GreetingWithErrorsCommandInput,
+  GreetingWithErrorsCommandOutput,
+} from "../commands/GreetingWithErrorsCommand";
+import type {
   HttpEmptyPrefixHeadersCommandInput,
   HttpEmptyPrefixHeadersCommandOutput,
 } from "../commands/HttpEmptyPrefixHeadersCommand";
-import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "../commands/HttpEnumPayloadCommand";
-import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "../commands/HttpPayloadTraitsCommand";
-import {
+import type { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "../commands/HttpEnumPayloadCommand";
+import type {
+  HttpPayloadTraitsCommandInput,
+  HttpPayloadTraitsCommandOutput,
+} from "../commands/HttpPayloadTraitsCommand";
+import type {
   HttpPayloadTraitsWithMediaTypeCommandInput,
   HttpPayloadTraitsWithMediaTypeCommandOutput,
 } from "../commands/HttpPayloadTraitsWithMediaTypeCommand";
-import {
+import type {
   HttpPayloadWithMemberXmlNameCommandInput,
   HttpPayloadWithMemberXmlNameCommandOutput,
 } from "../commands/HttpPayloadWithMemberXmlNameCommand";
-import {
+import type {
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
 } from "../commands/HttpPayloadWithStructureCommand";
-import {
+import type {
   HttpPayloadWithUnionCommandInput,
   HttpPayloadWithUnionCommandOutput,
 } from "../commands/HttpPayloadWithUnionCommand";
-import {
+import type {
   HttpPayloadWithXmlNameCommandInput,
   HttpPayloadWithXmlNameCommandOutput,
 } from "../commands/HttpPayloadWithXmlNameCommand";
-import {
+import type {
   HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
   HttpPayloadWithXmlNamespaceAndPrefixCommandOutput,
 } from "../commands/HttpPayloadWithXmlNamespaceAndPrefixCommand";
-import {
+import type {
   HttpPayloadWithXmlNamespaceCommandInput,
   HttpPayloadWithXmlNamespaceCommandOutput,
 } from "../commands/HttpPayloadWithXmlNamespaceCommand";
-import { HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput } from "../commands/HttpPrefixHeadersCommand";
-import {
+import type {
+  HttpPrefixHeadersCommandInput,
+  HttpPrefixHeadersCommandOutput,
+} from "../commands/HttpPrefixHeadersCommand";
+import type {
   HttpRequestWithFloatLabelsCommandInput,
   HttpRequestWithFloatLabelsCommandOutput,
 } from "../commands/HttpRequestWithFloatLabelsCommand";
-import {
+import type {
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput,
 } from "../commands/HttpRequestWithGreedyLabelInPathCommand";
-import {
+import type {
   HttpRequestWithLabelsAndTimestampFormatCommandInput,
   HttpRequestWithLabelsAndTimestampFormatCommandOutput,
 } from "../commands/HttpRequestWithLabelsAndTimestampFormatCommand";
-import {
+import type {
   HttpRequestWithLabelsCommandInput,
   HttpRequestWithLabelsCommandOutput,
 } from "../commands/HttpRequestWithLabelsCommand";
-import { HttpResponseCodeCommandInput, HttpResponseCodeCommandOutput } from "../commands/HttpResponseCodeCommand";
-import { HttpStringPayloadCommandInput, HttpStringPayloadCommandOutput } from "../commands/HttpStringPayloadCommand";
-import {
+import type { HttpResponseCodeCommandInput, HttpResponseCodeCommandOutput } from "../commands/HttpResponseCodeCommand";
+import type {
+  HttpStringPayloadCommandInput,
+  HttpStringPayloadCommandOutput,
+} from "../commands/HttpStringPayloadCommand";
+import type {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
 } from "../commands/IgnoreQueryParamsInResponseCommand";
-import {
+import type {
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput,
 } from "../commands/InputAndOutputWithHeadersCommand";
-import { NestedXmlMapsCommandInput, NestedXmlMapsCommandOutput } from "../commands/NestedXmlMapsCommand";
-import {
+import type { NestedXmlMapsCommandInput, NestedXmlMapsCommandOutput } from "../commands/NestedXmlMapsCommand";
+import type {
   NestedXmlMapWithXmlNameCommandInput,
   NestedXmlMapWithXmlNameCommandOutput,
 } from "../commands/NestedXmlMapWithXmlNameCommand";
-import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "../commands/NoInputAndNoOutputCommand";
-import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "../commands/NoInputAndOutputCommand";
-import {
+import type {
+  NoInputAndNoOutputCommandInput,
+  NoInputAndNoOutputCommandOutput,
+} from "../commands/NoInputAndNoOutputCommand";
+import type { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "../commands/NoInputAndOutputCommand";
+import type {
   NullAndEmptyHeadersClientCommandInput,
   NullAndEmptyHeadersClientCommandOutput,
 } from "../commands/NullAndEmptyHeadersClientCommand";
-import {
+import type {
   NullAndEmptyHeadersServerCommandInput,
   NullAndEmptyHeadersServerCommandOutput,
 } from "../commands/NullAndEmptyHeadersServerCommand";
-import {
+import type {
   OmitsNullSerializesEmptyStringCommandInput,
   OmitsNullSerializesEmptyStringCommandOutput,
 } from "../commands/OmitsNullSerializesEmptyStringCommand";
-import {
+import type {
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,
 } from "../commands/PutWithContentEncodingCommand";
-import {
+import type {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "../commands/QueryIdempotencyTokenAutoFillCommand";
-import {
+import type {
   QueryParamsAsStringListMapCommandInput,
   QueryParamsAsStringListMapCommandOutput,
 } from "../commands/QueryParamsAsStringListMapCommand";
-import { QueryPrecedenceCommandInput, QueryPrecedenceCommandOutput } from "../commands/QueryPrecedenceCommand";
-import { RecursiveShapesCommandInput, RecursiveShapesCommandOutput } from "../commands/RecursiveShapesCommand";
-import {
+import type { QueryPrecedenceCommandInput, QueryPrecedenceCommandOutput } from "../commands/QueryPrecedenceCommand";
+import type { RecursiveShapesCommandInput, RecursiveShapesCommandOutput } from "../commands/RecursiveShapesCommand";
+import type {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "../commands/SimpleScalarPropertiesCommand";
-import {
+import type {
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput,
 } from "../commands/TimestampFormatHeadersCommand";
-import { XmlAttributesCommandInput, XmlAttributesCommandOutput } from "../commands/XmlAttributesCommand";
-import {
+import type { XmlAttributesCommandInput, XmlAttributesCommandOutput } from "../commands/XmlAttributesCommand";
+import type {
   XmlAttributesInMiddleCommandInput,
   XmlAttributesInMiddleCommandOutput,
 } from "../commands/XmlAttributesInMiddleCommand";
-import {
+import type {
   XmlAttributesOnPayloadCommandInput,
   XmlAttributesOnPayloadCommandOutput,
 } from "../commands/XmlAttributesOnPayloadCommand";
-import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "../commands/XmlBlobsCommand";
-import { XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput } from "../commands/XmlEmptyBlobsCommand";
-import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "../commands/XmlEmptyListsCommand";
-import { XmlEmptyMapsCommandInput, XmlEmptyMapsCommandOutput } from "../commands/XmlEmptyMapsCommand";
-import { XmlEmptyStringsCommandInput, XmlEmptyStringsCommandOutput } from "../commands/XmlEmptyStringsCommand";
-import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "../commands/XmlEnumsCommand";
-import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "../commands/XmlIntEnumsCommand";
-import { XmlListsCommandInput, XmlListsCommandOutput } from "../commands/XmlListsCommand";
-import { XmlMapsCommandInput, XmlMapsCommandOutput } from "../commands/XmlMapsCommand";
-import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "../commands/XmlMapsXmlNameCommand";
-import {
+import type { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "../commands/XmlBlobsCommand";
+import type { XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput } from "../commands/XmlEmptyBlobsCommand";
+import type { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "../commands/XmlEmptyListsCommand";
+import type { XmlEmptyMapsCommandInput, XmlEmptyMapsCommandOutput } from "../commands/XmlEmptyMapsCommand";
+import type { XmlEmptyStringsCommandInput, XmlEmptyStringsCommandOutput } from "../commands/XmlEmptyStringsCommand";
+import type { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "../commands/XmlEnumsCommand";
+import type { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "../commands/XmlIntEnumsCommand";
+import type { XmlListsCommandInput, XmlListsCommandOutput } from "../commands/XmlListsCommand";
+import type { XmlMapsCommandInput, XmlMapsCommandOutput } from "../commands/XmlMapsCommand";
+import type { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "../commands/XmlMapsXmlNameCommand";
+import type {
   XmlMapWithXmlNamespaceCommandInput,
   XmlMapWithXmlNamespaceCommandOutput,
 } from "../commands/XmlMapWithXmlNamespaceCommand";
-import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "../commands/XmlNamespacesCommand";
-import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../commands/XmlTimestampsCommand";
-import { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "../commands/XmlUnionsCommand";
-import { FooEnum, IntegerEnum } from "../models/enums";
+import type { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "../commands/XmlNamespacesCommand";
+import type { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../commands/XmlTimestampsCommand";
+import type { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "../commands/XmlUnionsCommand";
+import type { FooEnum, IntegerEnum } from "../models/enums";
 import { ComplexError, InvalidGreeting } from "../models/errors";
-import {
+import type {
   ComplexNestedErrorData,
   GreetingStruct,
   NestedPayload,

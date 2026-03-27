@@ -8,7 +8,7 @@ import {
   ListVpcConnectorsCommandInput,
   ListVpcConnectorsCommandOutput,
 } from "../commands/ListVpcConnectorsCommand";
-import { AppRunnerPaginationConfiguration } from "./Interfaces";
+import type { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

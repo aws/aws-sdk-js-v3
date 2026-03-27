@@ -8,7 +8,7 @@ import {
   ListDataIntegrationEventsCommandOutput,
 } from "../commands/ListDataIntegrationEventsCommand";
 import { SupplyChainClient } from "../SupplyChainClient";
-import { SupplyChainPaginationConfiguration } from "./Interfaces";
+import type { SupplyChainPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

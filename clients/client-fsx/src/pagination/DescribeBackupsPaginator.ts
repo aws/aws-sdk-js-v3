@@ -8,7 +8,7 @@ import {
   DescribeBackupsCommandOutput,
 } from "../commands/DescribeBackupsCommand";
 import { FSxClient } from "../FSxClient";
-import { FSxPaginationConfiguration } from "./Interfaces";
+import type { FSxPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

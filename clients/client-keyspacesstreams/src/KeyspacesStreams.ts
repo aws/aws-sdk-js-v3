@@ -2,14 +2,22 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { GetRecordsCommand, GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
 import {
+  type GetRecordsCommandInput,
+  type GetRecordsCommandOutput,
+  GetRecordsCommand,
+} from "./commands/GetRecordsCommand";
+import {
+  type GetShardIteratorCommandInput,
+  type GetShardIteratorCommandOutput,
   GetShardIteratorCommand,
-  GetShardIteratorCommandInput,
-  GetShardIteratorCommandOutput,
 } from "./commands/GetShardIteratorCommand";
-import { GetStreamCommand, GetStreamCommandInput, GetStreamCommandOutput } from "./commands/GetStreamCommand";
-import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
+import { type GetStreamCommandInput, type GetStreamCommandOutput, GetStreamCommand } from "./commands/GetStreamCommand";
+import {
+  type ListStreamsCommandInput,
+  type ListStreamsCommandOutput,
+  ListStreamsCommand,
+} from "./commands/ListStreamsCommand";
 import { KeyspacesStreamsClient } from "./KeyspacesStreamsClient";
 import { paginateGetStream } from "./pagination/GetStreamPaginator";
 import { paginateListStreams } from "./pagination/ListStreamsPaginator";

@@ -3,19 +3,19 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type DeleteConnectionRecordingPreferencesCommandInput,
+  type DeleteConnectionRecordingPreferencesCommandOutput,
   DeleteConnectionRecordingPreferencesCommand,
-  DeleteConnectionRecordingPreferencesCommandInput,
-  DeleteConnectionRecordingPreferencesCommandOutput,
 } from "./commands/DeleteConnectionRecordingPreferencesCommand";
 import {
+  type GetConnectionRecordingPreferencesCommandInput,
+  type GetConnectionRecordingPreferencesCommandOutput,
   GetConnectionRecordingPreferencesCommand,
-  GetConnectionRecordingPreferencesCommandInput,
-  GetConnectionRecordingPreferencesCommandOutput,
 } from "./commands/GetConnectionRecordingPreferencesCommand";
 import {
+  type UpdateConnectionRecordingPreferencesCommandInput,
+  type UpdateConnectionRecordingPreferencesCommandOutput,
   UpdateConnectionRecordingPreferencesCommand,
-  UpdateConnectionRecordingPreferencesCommandInput,
-  UpdateConnectionRecordingPreferencesCommandOutput,
 } from "./commands/UpdateConnectionRecordingPreferencesCommand";
 import { SSMGuiConnectClient } from "./SSMGuiConnectClient";
 

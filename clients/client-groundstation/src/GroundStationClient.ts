@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,81 +61,93 @@ import {
   defaultGroundStationHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelContactCommandInput, CancelContactCommandOutput } from "./commands/CancelContactCommand";
-import { CreateConfigCommandInput, CreateConfigCommandOutput } from "./commands/CreateConfigCommand";
-import {
+import type { CancelContactCommandInput, CancelContactCommandOutput } from "./commands/CancelContactCommand";
+import type { CreateConfigCommandInput, CreateConfigCommandOutput } from "./commands/CreateConfigCommand";
+import type {
   CreateDataflowEndpointGroupCommandInput,
   CreateDataflowEndpointGroupCommandOutput,
 } from "./commands/CreateDataflowEndpointGroupCommand";
-import {
+import type {
   CreateDataflowEndpointGroupV2CommandInput,
   CreateDataflowEndpointGroupV2CommandOutput,
 } from "./commands/CreateDataflowEndpointGroupV2Command";
-import { CreateEphemerisCommandInput, CreateEphemerisCommandOutput } from "./commands/CreateEphemerisCommand";
-import {
+import type { CreateEphemerisCommandInput, CreateEphemerisCommandOutput } from "./commands/CreateEphemerisCommand";
+import type {
   CreateMissionProfileCommandInput,
   CreateMissionProfileCommandOutput,
 } from "./commands/CreateMissionProfileCommand";
-import { DeleteConfigCommandInput, DeleteConfigCommandOutput } from "./commands/DeleteConfigCommand";
-import {
+import type { DeleteConfigCommandInput, DeleteConfigCommandOutput } from "./commands/DeleteConfigCommand";
+import type {
   DeleteDataflowEndpointGroupCommandInput,
   DeleteDataflowEndpointGroupCommandOutput,
 } from "./commands/DeleteDataflowEndpointGroupCommand";
-import { DeleteEphemerisCommandInput, DeleteEphemerisCommandOutput } from "./commands/DeleteEphemerisCommand";
-import {
+import type { DeleteEphemerisCommandInput, DeleteEphemerisCommandOutput } from "./commands/DeleteEphemerisCommand";
+import type {
   DeleteMissionProfileCommandInput,
   DeleteMissionProfileCommandOutput,
 } from "./commands/DeleteMissionProfileCommand";
-import { DescribeContactCommandInput, DescribeContactCommandOutput } from "./commands/DescribeContactCommand";
-import { DescribeEphemerisCommandInput, DescribeEphemerisCommandOutput } from "./commands/DescribeEphemerisCommand";
-import {
+import type { DescribeContactCommandInput, DescribeContactCommandOutput } from "./commands/DescribeContactCommand";
+import type {
+  DescribeEphemerisCommandInput,
+  DescribeEphemerisCommandOutput,
+} from "./commands/DescribeEphemerisCommand";
+import type {
   GetAgentConfigurationCommandInput,
   GetAgentConfigurationCommandOutput,
 } from "./commands/GetAgentConfigurationCommand";
-import {
+import type {
   GetAgentTaskResponseUrlCommandInput,
   GetAgentTaskResponseUrlCommandOutput,
 } from "./commands/GetAgentTaskResponseUrlCommand";
-import { GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
-import {
+import type { GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
+import type {
   GetDataflowEndpointGroupCommandInput,
   GetDataflowEndpointGroupCommandOutput,
 } from "./commands/GetDataflowEndpointGroupCommand";
-import { GetMinuteUsageCommandInput, GetMinuteUsageCommandOutput } from "./commands/GetMinuteUsageCommand";
-import { GetMissionProfileCommandInput, GetMissionProfileCommandOutput } from "./commands/GetMissionProfileCommand";
-import { GetSatelliteCommandInput, GetSatelliteCommandOutput } from "./commands/GetSatelliteCommand";
-import { ListConfigsCommandInput, ListConfigsCommandOutput } from "./commands/ListConfigsCommand";
-import { ListContactsCommandInput, ListContactsCommandOutput } from "./commands/ListContactsCommand";
-import {
+import type { GetMinuteUsageCommandInput, GetMinuteUsageCommandOutput } from "./commands/GetMinuteUsageCommand";
+import type {
+  GetMissionProfileCommandInput,
+  GetMissionProfileCommandOutput,
+} from "./commands/GetMissionProfileCommand";
+import type { GetSatelliteCommandInput, GetSatelliteCommandOutput } from "./commands/GetSatelliteCommand";
+import type { ListConfigsCommandInput, ListConfigsCommandOutput } from "./commands/ListConfigsCommand";
+import type { ListContactsCommandInput, ListContactsCommandOutput } from "./commands/ListContactsCommand";
+import type {
   ListDataflowEndpointGroupsCommandInput,
   ListDataflowEndpointGroupsCommandOutput,
 } from "./commands/ListDataflowEndpointGroupsCommand";
-import { ListEphemeridesCommandInput, ListEphemeridesCommandOutput } from "./commands/ListEphemeridesCommand";
-import { ListGroundStationsCommandInput, ListGroundStationsCommandOutput } from "./commands/ListGroundStationsCommand";
-import {
+import type { ListEphemeridesCommandInput, ListEphemeridesCommandOutput } from "./commands/ListEphemeridesCommand";
+import type {
+  ListGroundStationsCommandInput,
+  ListGroundStationsCommandOutput,
+} from "./commands/ListGroundStationsCommand";
+import type {
   ListMissionProfilesCommandInput,
   ListMissionProfilesCommandOutput,
 } from "./commands/ListMissionProfilesCommand";
-import { ListSatellitesCommandInput, ListSatellitesCommandOutput } from "./commands/ListSatellitesCommand";
-import {
+import type { ListSatellitesCommandInput, ListSatellitesCommandOutput } from "./commands/ListSatellitesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RegisterAgentCommandInput, RegisterAgentCommandOutput } from "./commands/RegisterAgentCommand";
-import { ReserveContactCommandInput, ReserveContactCommandOutput } from "./commands/ReserveContactCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAgentStatusCommandInput, UpdateAgentStatusCommandOutput } from "./commands/UpdateAgentStatusCommand";
-import { UpdateConfigCommandInput, UpdateConfigCommandOutput } from "./commands/UpdateConfigCommand";
-import { UpdateEphemerisCommandInput, UpdateEphemerisCommandOutput } from "./commands/UpdateEphemerisCommand";
-import {
+import type { RegisterAgentCommandInput, RegisterAgentCommandOutput } from "./commands/RegisterAgentCommand";
+import type { ReserveContactCommandInput, ReserveContactCommandOutput } from "./commands/ReserveContactCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAgentStatusCommandInput,
+  UpdateAgentStatusCommandOutput,
+} from "./commands/UpdateAgentStatusCommand";
+import type { UpdateConfigCommandInput, UpdateConfigCommandOutput } from "./commands/UpdateConfigCommand";
+import type { UpdateEphemerisCommandInput, UpdateEphemerisCommandOutput } from "./commands/UpdateEphemerisCommand";
+import type {
   UpdateMissionProfileCommandInput,
   UpdateMissionProfileCommandOutput,
 } from "./commands/UpdateMissionProfileCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -339,7 +349,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

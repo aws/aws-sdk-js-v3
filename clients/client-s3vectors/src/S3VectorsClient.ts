@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,41 +61,50 @@ import {
   defaultS3VectorsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
-import { CreateVectorBucketCommandInput, CreateVectorBucketCommandOutput } from "./commands/CreateVectorBucketCommand";
-import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
-import { DeleteVectorBucketCommandInput, DeleteVectorBucketCommandOutput } from "./commands/DeleteVectorBucketCommand";
-import {
+import type { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import type {
+  CreateVectorBucketCommandInput,
+  CreateVectorBucketCommandOutput,
+} from "./commands/CreateVectorBucketCommand";
+import type { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import type {
+  DeleteVectorBucketCommandInput,
+  DeleteVectorBucketCommandOutput,
+} from "./commands/DeleteVectorBucketCommand";
+import type {
   DeleteVectorBucketPolicyCommandInput,
   DeleteVectorBucketPolicyCommandOutput,
 } from "./commands/DeleteVectorBucketPolicyCommand";
-import { DeleteVectorsCommandInput, DeleteVectorsCommandOutput } from "./commands/DeleteVectorsCommand";
-import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
-import { GetVectorBucketCommandInput, GetVectorBucketCommandOutput } from "./commands/GetVectorBucketCommand";
-import {
+import type { DeleteVectorsCommandInput, DeleteVectorsCommandOutput } from "./commands/DeleteVectorsCommand";
+import type { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import type { GetVectorBucketCommandInput, GetVectorBucketCommandOutput } from "./commands/GetVectorBucketCommand";
+import type {
   GetVectorBucketPolicyCommandInput,
   GetVectorBucketPolicyCommandOutput,
 } from "./commands/GetVectorBucketPolicyCommand";
-import { GetVectorsCommandInput, GetVectorsCommandOutput } from "./commands/GetVectorsCommand";
-import { ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
-import {
+import type { GetVectorsCommandInput, GetVectorsCommandOutput } from "./commands/GetVectorsCommand";
+import type { ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListVectorBucketsCommandInput, ListVectorBucketsCommandOutput } from "./commands/ListVectorBucketsCommand";
-import { ListVectorsCommandInput, ListVectorsCommandOutput } from "./commands/ListVectorsCommand";
-import {
+import type {
+  ListVectorBucketsCommandInput,
+  ListVectorBucketsCommandOutput,
+} from "./commands/ListVectorBucketsCommand";
+import type { ListVectorsCommandInput, ListVectorsCommandOutput } from "./commands/ListVectorsCommand";
+import type {
   PutVectorBucketPolicyCommandInput,
   PutVectorBucketPolicyCommandOutput,
 } from "./commands/PutVectorBucketPolicyCommand";
-import { PutVectorsCommandInput, PutVectorsCommandOutput } from "./commands/PutVectorsCommand";
-import { QueryVectorsCommandInput, QueryVectorsCommandOutput } from "./commands/QueryVectorsCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { PutVectorsCommandInput, PutVectorsCommandOutput } from "./commands/PutVectorsCommand";
+import type { QueryVectorsCommandInput, QueryVectorsCommandOutput } from "./commands/QueryVectorsCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -267,7 +274,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

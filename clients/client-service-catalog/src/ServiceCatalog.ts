@@ -3,450 +3,454 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptPortfolioShareCommandInput,
+  type AcceptPortfolioShareCommandOutput,
   AcceptPortfolioShareCommand,
-  AcceptPortfolioShareCommandInput,
-  AcceptPortfolioShareCommandOutput,
 } from "./commands/AcceptPortfolioShareCommand";
 import {
+  type AssociateBudgetWithResourceCommandInput,
+  type AssociateBudgetWithResourceCommandOutput,
   AssociateBudgetWithResourceCommand,
-  AssociateBudgetWithResourceCommandInput,
-  AssociateBudgetWithResourceCommandOutput,
 } from "./commands/AssociateBudgetWithResourceCommand";
 import {
+  type AssociatePrincipalWithPortfolioCommandInput,
+  type AssociatePrincipalWithPortfolioCommandOutput,
   AssociatePrincipalWithPortfolioCommand,
-  AssociatePrincipalWithPortfolioCommandInput,
-  AssociatePrincipalWithPortfolioCommandOutput,
 } from "./commands/AssociatePrincipalWithPortfolioCommand";
 import {
+  type AssociateProductWithPortfolioCommandInput,
+  type AssociateProductWithPortfolioCommandOutput,
   AssociateProductWithPortfolioCommand,
-  AssociateProductWithPortfolioCommandInput,
-  AssociateProductWithPortfolioCommandOutput,
 } from "./commands/AssociateProductWithPortfolioCommand";
 import {
+  type AssociateServiceActionWithProvisioningArtifactCommandInput,
+  type AssociateServiceActionWithProvisioningArtifactCommandOutput,
   AssociateServiceActionWithProvisioningArtifactCommand,
-  AssociateServiceActionWithProvisioningArtifactCommandInput,
-  AssociateServiceActionWithProvisioningArtifactCommandOutput,
 } from "./commands/AssociateServiceActionWithProvisioningArtifactCommand";
 import {
+  type AssociateTagOptionWithResourceCommandInput,
+  type AssociateTagOptionWithResourceCommandOutput,
   AssociateTagOptionWithResourceCommand,
-  AssociateTagOptionWithResourceCommandInput,
-  AssociateTagOptionWithResourceCommandOutput,
 } from "./commands/AssociateTagOptionWithResourceCommand";
 import {
+  type BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
+  type BatchAssociateServiceActionWithProvisioningArtifactCommandOutput,
   BatchAssociateServiceActionWithProvisioningArtifactCommand,
-  BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
-  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput,
 } from "./commands/BatchAssociateServiceActionWithProvisioningArtifactCommand";
 import {
+  type BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
+  type BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput,
   BatchDisassociateServiceActionFromProvisioningArtifactCommand,
-  BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
-  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput,
 } from "./commands/BatchDisassociateServiceActionFromProvisioningArtifactCommand";
-import { CopyProductCommand, CopyProductCommandInput, CopyProductCommandOutput } from "./commands/CopyProductCommand";
 import {
+  type CopyProductCommandInput,
+  type CopyProductCommandOutput,
+  CopyProductCommand,
+} from "./commands/CopyProductCommand";
+import {
+  type CreateConstraintCommandInput,
+  type CreateConstraintCommandOutput,
   CreateConstraintCommand,
-  CreateConstraintCommandInput,
-  CreateConstraintCommandOutput,
 } from "./commands/CreateConstraintCommand";
 import {
+  type CreatePortfolioCommandInput,
+  type CreatePortfolioCommandOutput,
   CreatePortfolioCommand,
-  CreatePortfolioCommandInput,
-  CreatePortfolioCommandOutput,
 } from "./commands/CreatePortfolioCommand";
 import {
+  type CreatePortfolioShareCommandInput,
+  type CreatePortfolioShareCommandOutput,
   CreatePortfolioShareCommand,
-  CreatePortfolioShareCommandInput,
-  CreatePortfolioShareCommandOutput,
 } from "./commands/CreatePortfolioShareCommand";
 import {
+  type CreateProductCommandInput,
+  type CreateProductCommandOutput,
   CreateProductCommand,
-  CreateProductCommandInput,
-  CreateProductCommandOutput,
 } from "./commands/CreateProductCommand";
 import {
+  type CreateProvisionedProductPlanCommandInput,
+  type CreateProvisionedProductPlanCommandOutput,
   CreateProvisionedProductPlanCommand,
-  CreateProvisionedProductPlanCommandInput,
-  CreateProvisionedProductPlanCommandOutput,
 } from "./commands/CreateProvisionedProductPlanCommand";
 import {
+  type CreateProvisioningArtifactCommandInput,
+  type CreateProvisioningArtifactCommandOutput,
   CreateProvisioningArtifactCommand,
-  CreateProvisioningArtifactCommandInput,
-  CreateProvisioningArtifactCommandOutput,
 } from "./commands/CreateProvisioningArtifactCommand";
 import {
+  type CreateServiceActionCommandInput,
+  type CreateServiceActionCommandOutput,
   CreateServiceActionCommand,
-  CreateServiceActionCommandInput,
-  CreateServiceActionCommandOutput,
 } from "./commands/CreateServiceActionCommand";
 import {
+  type CreateTagOptionCommandInput,
+  type CreateTagOptionCommandOutput,
   CreateTagOptionCommand,
-  CreateTagOptionCommandInput,
-  CreateTagOptionCommandOutput,
 } from "./commands/CreateTagOptionCommand";
 import {
+  type DeleteConstraintCommandInput,
+  type DeleteConstraintCommandOutput,
   DeleteConstraintCommand,
-  DeleteConstraintCommandInput,
-  DeleteConstraintCommandOutput,
 } from "./commands/DeleteConstraintCommand";
 import {
+  type DeletePortfolioCommandInput,
+  type DeletePortfolioCommandOutput,
   DeletePortfolioCommand,
-  DeletePortfolioCommandInput,
-  DeletePortfolioCommandOutput,
 } from "./commands/DeletePortfolioCommand";
 import {
+  type DeletePortfolioShareCommandInput,
+  type DeletePortfolioShareCommandOutput,
   DeletePortfolioShareCommand,
-  DeletePortfolioShareCommandInput,
-  DeletePortfolioShareCommandOutput,
 } from "./commands/DeletePortfolioShareCommand";
 import {
+  type DeleteProductCommandInput,
+  type DeleteProductCommandOutput,
   DeleteProductCommand,
-  DeleteProductCommandInput,
-  DeleteProductCommandOutput,
 } from "./commands/DeleteProductCommand";
 import {
+  type DeleteProvisionedProductPlanCommandInput,
+  type DeleteProvisionedProductPlanCommandOutput,
   DeleteProvisionedProductPlanCommand,
-  DeleteProvisionedProductPlanCommandInput,
-  DeleteProvisionedProductPlanCommandOutput,
 } from "./commands/DeleteProvisionedProductPlanCommand";
 import {
+  type DeleteProvisioningArtifactCommandInput,
+  type DeleteProvisioningArtifactCommandOutput,
   DeleteProvisioningArtifactCommand,
-  DeleteProvisioningArtifactCommandInput,
-  DeleteProvisioningArtifactCommandOutput,
 } from "./commands/DeleteProvisioningArtifactCommand";
 import {
+  type DeleteServiceActionCommandInput,
+  type DeleteServiceActionCommandOutput,
   DeleteServiceActionCommand,
-  DeleteServiceActionCommandInput,
-  DeleteServiceActionCommandOutput,
 } from "./commands/DeleteServiceActionCommand";
 import {
+  type DeleteTagOptionCommandInput,
+  type DeleteTagOptionCommandOutput,
   DeleteTagOptionCommand,
-  DeleteTagOptionCommandInput,
-  DeleteTagOptionCommandOutput,
 } from "./commands/DeleteTagOptionCommand";
 import {
+  type DescribeConstraintCommandInput,
+  type DescribeConstraintCommandOutput,
   DescribeConstraintCommand,
-  DescribeConstraintCommandInput,
-  DescribeConstraintCommandOutput,
 } from "./commands/DescribeConstraintCommand";
 import {
+  type DescribeCopyProductStatusCommandInput,
+  type DescribeCopyProductStatusCommandOutput,
   DescribeCopyProductStatusCommand,
-  DescribeCopyProductStatusCommandInput,
-  DescribeCopyProductStatusCommandOutput,
 } from "./commands/DescribeCopyProductStatusCommand";
 import {
+  type DescribePortfolioCommandInput,
+  type DescribePortfolioCommandOutput,
   DescribePortfolioCommand,
-  DescribePortfolioCommandInput,
-  DescribePortfolioCommandOutput,
 } from "./commands/DescribePortfolioCommand";
 import {
+  type DescribePortfolioSharesCommandInput,
+  type DescribePortfolioSharesCommandOutput,
   DescribePortfolioSharesCommand,
-  DescribePortfolioSharesCommandInput,
-  DescribePortfolioSharesCommandOutput,
 } from "./commands/DescribePortfolioSharesCommand";
 import {
+  type DescribePortfolioShareStatusCommandInput,
+  type DescribePortfolioShareStatusCommandOutput,
   DescribePortfolioShareStatusCommand,
-  DescribePortfolioShareStatusCommandInput,
-  DescribePortfolioShareStatusCommandOutput,
 } from "./commands/DescribePortfolioShareStatusCommand";
 import {
+  type DescribeProductAsAdminCommandInput,
+  type DescribeProductAsAdminCommandOutput,
   DescribeProductAsAdminCommand,
-  DescribeProductAsAdminCommandInput,
-  DescribeProductAsAdminCommandOutput,
 } from "./commands/DescribeProductAsAdminCommand";
 import {
+  type DescribeProductCommandInput,
+  type DescribeProductCommandOutput,
   DescribeProductCommand,
-  DescribeProductCommandInput,
-  DescribeProductCommandOutput,
 } from "./commands/DescribeProductCommand";
 import {
+  type DescribeProductViewCommandInput,
+  type DescribeProductViewCommandOutput,
   DescribeProductViewCommand,
-  DescribeProductViewCommandInput,
-  DescribeProductViewCommandOutput,
 } from "./commands/DescribeProductViewCommand";
 import {
+  type DescribeProvisionedProductCommandInput,
+  type DescribeProvisionedProductCommandOutput,
   DescribeProvisionedProductCommand,
-  DescribeProvisionedProductCommandInput,
-  DescribeProvisionedProductCommandOutput,
 } from "./commands/DescribeProvisionedProductCommand";
 import {
+  type DescribeProvisionedProductPlanCommandInput,
+  type DescribeProvisionedProductPlanCommandOutput,
   DescribeProvisionedProductPlanCommand,
-  DescribeProvisionedProductPlanCommandInput,
-  DescribeProvisionedProductPlanCommandOutput,
 } from "./commands/DescribeProvisionedProductPlanCommand";
 import {
+  type DescribeProvisioningArtifactCommandInput,
+  type DescribeProvisioningArtifactCommandOutput,
   DescribeProvisioningArtifactCommand,
-  DescribeProvisioningArtifactCommandInput,
-  DescribeProvisioningArtifactCommandOutput,
 } from "./commands/DescribeProvisioningArtifactCommand";
 import {
+  type DescribeProvisioningParametersCommandInput,
+  type DescribeProvisioningParametersCommandOutput,
   DescribeProvisioningParametersCommand,
-  DescribeProvisioningParametersCommandInput,
-  DescribeProvisioningParametersCommandOutput,
 } from "./commands/DescribeProvisioningParametersCommand";
 import {
+  type DescribeRecordCommandInput,
+  type DescribeRecordCommandOutput,
   DescribeRecordCommand,
-  DescribeRecordCommandInput,
-  DescribeRecordCommandOutput,
 } from "./commands/DescribeRecordCommand";
 import {
+  type DescribeServiceActionCommandInput,
+  type DescribeServiceActionCommandOutput,
   DescribeServiceActionCommand,
-  DescribeServiceActionCommandInput,
-  DescribeServiceActionCommandOutput,
 } from "./commands/DescribeServiceActionCommand";
 import {
+  type DescribeServiceActionExecutionParametersCommandInput,
+  type DescribeServiceActionExecutionParametersCommandOutput,
   DescribeServiceActionExecutionParametersCommand,
-  DescribeServiceActionExecutionParametersCommandInput,
-  DescribeServiceActionExecutionParametersCommandOutput,
 } from "./commands/DescribeServiceActionExecutionParametersCommand";
 import {
+  type DescribeTagOptionCommandInput,
+  type DescribeTagOptionCommandOutput,
   DescribeTagOptionCommand,
-  DescribeTagOptionCommandInput,
-  DescribeTagOptionCommandOutput,
 } from "./commands/DescribeTagOptionCommand";
 import {
+  type DisableAWSOrganizationsAccessCommandInput,
+  type DisableAWSOrganizationsAccessCommandOutput,
   DisableAWSOrganizationsAccessCommand,
-  DisableAWSOrganizationsAccessCommandInput,
-  DisableAWSOrganizationsAccessCommandOutput,
 } from "./commands/DisableAWSOrganizationsAccessCommand";
 import {
+  type DisassociateBudgetFromResourceCommandInput,
+  type DisassociateBudgetFromResourceCommandOutput,
   DisassociateBudgetFromResourceCommand,
-  DisassociateBudgetFromResourceCommandInput,
-  DisassociateBudgetFromResourceCommandOutput,
 } from "./commands/DisassociateBudgetFromResourceCommand";
 import {
+  type DisassociatePrincipalFromPortfolioCommandInput,
+  type DisassociatePrincipalFromPortfolioCommandOutput,
   DisassociatePrincipalFromPortfolioCommand,
-  DisassociatePrincipalFromPortfolioCommandInput,
-  DisassociatePrincipalFromPortfolioCommandOutput,
 } from "./commands/DisassociatePrincipalFromPortfolioCommand";
 import {
+  type DisassociateProductFromPortfolioCommandInput,
+  type DisassociateProductFromPortfolioCommandOutput,
   DisassociateProductFromPortfolioCommand,
-  DisassociateProductFromPortfolioCommandInput,
-  DisassociateProductFromPortfolioCommandOutput,
 } from "./commands/DisassociateProductFromPortfolioCommand";
 import {
+  type DisassociateServiceActionFromProvisioningArtifactCommandInput,
+  type DisassociateServiceActionFromProvisioningArtifactCommandOutput,
   DisassociateServiceActionFromProvisioningArtifactCommand,
-  DisassociateServiceActionFromProvisioningArtifactCommandInput,
-  DisassociateServiceActionFromProvisioningArtifactCommandOutput,
 } from "./commands/DisassociateServiceActionFromProvisioningArtifactCommand";
 import {
+  type DisassociateTagOptionFromResourceCommandInput,
+  type DisassociateTagOptionFromResourceCommandOutput,
   DisassociateTagOptionFromResourceCommand,
-  DisassociateTagOptionFromResourceCommandInput,
-  DisassociateTagOptionFromResourceCommandOutput,
 } from "./commands/DisassociateTagOptionFromResourceCommand";
 import {
+  type EnableAWSOrganizationsAccessCommandInput,
+  type EnableAWSOrganizationsAccessCommandOutput,
   EnableAWSOrganizationsAccessCommand,
-  EnableAWSOrganizationsAccessCommandInput,
-  EnableAWSOrganizationsAccessCommandOutput,
 } from "./commands/EnableAWSOrganizationsAccessCommand";
 import {
+  type ExecuteProvisionedProductPlanCommandInput,
+  type ExecuteProvisionedProductPlanCommandOutput,
   ExecuteProvisionedProductPlanCommand,
-  ExecuteProvisionedProductPlanCommandInput,
-  ExecuteProvisionedProductPlanCommandOutput,
 } from "./commands/ExecuteProvisionedProductPlanCommand";
 import {
+  type ExecuteProvisionedProductServiceActionCommandInput,
+  type ExecuteProvisionedProductServiceActionCommandOutput,
   ExecuteProvisionedProductServiceActionCommand,
-  ExecuteProvisionedProductServiceActionCommandInput,
-  ExecuteProvisionedProductServiceActionCommandOutput,
 } from "./commands/ExecuteProvisionedProductServiceActionCommand";
 import {
+  type GetAWSOrganizationsAccessStatusCommandInput,
+  type GetAWSOrganizationsAccessStatusCommandOutput,
   GetAWSOrganizationsAccessStatusCommand,
-  GetAWSOrganizationsAccessStatusCommandInput,
-  GetAWSOrganizationsAccessStatusCommandOutput,
 } from "./commands/GetAWSOrganizationsAccessStatusCommand";
 import {
+  type GetProvisionedProductOutputsCommandInput,
+  type GetProvisionedProductOutputsCommandOutput,
   GetProvisionedProductOutputsCommand,
-  GetProvisionedProductOutputsCommandInput,
-  GetProvisionedProductOutputsCommandOutput,
 } from "./commands/GetProvisionedProductOutputsCommand";
 import {
+  type ImportAsProvisionedProductCommandInput,
+  type ImportAsProvisionedProductCommandOutput,
   ImportAsProvisionedProductCommand,
-  ImportAsProvisionedProductCommandInput,
-  ImportAsProvisionedProductCommandOutput,
 } from "./commands/ImportAsProvisionedProductCommand";
 import {
+  type ListAcceptedPortfolioSharesCommandInput,
+  type ListAcceptedPortfolioSharesCommandOutput,
   ListAcceptedPortfolioSharesCommand,
-  ListAcceptedPortfolioSharesCommandInput,
-  ListAcceptedPortfolioSharesCommandOutput,
 } from "./commands/ListAcceptedPortfolioSharesCommand";
 import {
+  type ListBudgetsForResourceCommandInput,
+  type ListBudgetsForResourceCommandOutput,
   ListBudgetsForResourceCommand,
-  ListBudgetsForResourceCommandInput,
-  ListBudgetsForResourceCommandOutput,
 } from "./commands/ListBudgetsForResourceCommand";
 import {
+  type ListConstraintsForPortfolioCommandInput,
+  type ListConstraintsForPortfolioCommandOutput,
   ListConstraintsForPortfolioCommand,
-  ListConstraintsForPortfolioCommandInput,
-  ListConstraintsForPortfolioCommandOutput,
 } from "./commands/ListConstraintsForPortfolioCommand";
 import {
+  type ListLaunchPathsCommandInput,
+  type ListLaunchPathsCommandOutput,
   ListLaunchPathsCommand,
-  ListLaunchPathsCommandInput,
-  ListLaunchPathsCommandOutput,
 } from "./commands/ListLaunchPathsCommand";
 import {
+  type ListOrganizationPortfolioAccessCommandInput,
+  type ListOrganizationPortfolioAccessCommandOutput,
   ListOrganizationPortfolioAccessCommand,
-  ListOrganizationPortfolioAccessCommandInput,
-  ListOrganizationPortfolioAccessCommandOutput,
 } from "./commands/ListOrganizationPortfolioAccessCommand";
 import {
+  type ListPortfolioAccessCommandInput,
+  type ListPortfolioAccessCommandOutput,
   ListPortfolioAccessCommand,
-  ListPortfolioAccessCommandInput,
-  ListPortfolioAccessCommandOutput,
 } from "./commands/ListPortfolioAccessCommand";
 import {
+  type ListPortfoliosCommandInput,
+  type ListPortfoliosCommandOutput,
   ListPortfoliosCommand,
-  ListPortfoliosCommandInput,
-  ListPortfoliosCommandOutput,
 } from "./commands/ListPortfoliosCommand";
 import {
+  type ListPortfoliosForProductCommandInput,
+  type ListPortfoliosForProductCommandOutput,
   ListPortfoliosForProductCommand,
-  ListPortfoliosForProductCommandInput,
-  ListPortfoliosForProductCommandOutput,
 } from "./commands/ListPortfoliosForProductCommand";
 import {
+  type ListPrincipalsForPortfolioCommandInput,
+  type ListPrincipalsForPortfolioCommandOutput,
   ListPrincipalsForPortfolioCommand,
-  ListPrincipalsForPortfolioCommandInput,
-  ListPrincipalsForPortfolioCommandOutput,
 } from "./commands/ListPrincipalsForPortfolioCommand";
 import {
+  type ListProvisionedProductPlansCommandInput,
+  type ListProvisionedProductPlansCommandOutput,
   ListProvisionedProductPlansCommand,
-  ListProvisionedProductPlansCommandInput,
-  ListProvisionedProductPlansCommandOutput,
 } from "./commands/ListProvisionedProductPlansCommand";
 import {
+  type ListProvisioningArtifactsCommandInput,
+  type ListProvisioningArtifactsCommandOutput,
   ListProvisioningArtifactsCommand,
-  ListProvisioningArtifactsCommandInput,
-  ListProvisioningArtifactsCommandOutput,
 } from "./commands/ListProvisioningArtifactsCommand";
 import {
+  type ListProvisioningArtifactsForServiceActionCommandInput,
+  type ListProvisioningArtifactsForServiceActionCommandOutput,
   ListProvisioningArtifactsForServiceActionCommand,
-  ListProvisioningArtifactsForServiceActionCommandInput,
-  ListProvisioningArtifactsForServiceActionCommandOutput,
 } from "./commands/ListProvisioningArtifactsForServiceActionCommand";
 import {
+  type ListRecordHistoryCommandInput,
+  type ListRecordHistoryCommandOutput,
   ListRecordHistoryCommand,
-  ListRecordHistoryCommandInput,
-  ListRecordHistoryCommandOutput,
 } from "./commands/ListRecordHistoryCommand";
 import {
+  type ListResourcesForTagOptionCommandInput,
+  type ListResourcesForTagOptionCommandOutput,
   ListResourcesForTagOptionCommand,
-  ListResourcesForTagOptionCommandInput,
-  ListResourcesForTagOptionCommandOutput,
 } from "./commands/ListResourcesForTagOptionCommand";
 import {
+  type ListServiceActionsCommandInput,
+  type ListServiceActionsCommandOutput,
   ListServiceActionsCommand,
-  ListServiceActionsCommandInput,
-  ListServiceActionsCommandOutput,
 } from "./commands/ListServiceActionsCommand";
 import {
+  type ListServiceActionsForProvisioningArtifactCommandInput,
+  type ListServiceActionsForProvisioningArtifactCommandOutput,
   ListServiceActionsForProvisioningArtifactCommand,
-  ListServiceActionsForProvisioningArtifactCommandInput,
-  ListServiceActionsForProvisioningArtifactCommandOutput,
 } from "./commands/ListServiceActionsForProvisioningArtifactCommand";
 import {
+  type ListStackInstancesForProvisionedProductCommandInput,
+  type ListStackInstancesForProvisionedProductCommandOutput,
   ListStackInstancesForProvisionedProductCommand,
-  ListStackInstancesForProvisionedProductCommandInput,
-  ListStackInstancesForProvisionedProductCommandOutput,
 } from "./commands/ListStackInstancesForProvisionedProductCommand";
 import {
+  type ListTagOptionsCommandInput,
+  type ListTagOptionsCommandOutput,
   ListTagOptionsCommand,
-  ListTagOptionsCommandInput,
-  ListTagOptionsCommandOutput,
 } from "./commands/ListTagOptionsCommand";
 import {
+  type NotifyProvisionProductEngineWorkflowResultCommandInput,
+  type NotifyProvisionProductEngineWorkflowResultCommandOutput,
   NotifyProvisionProductEngineWorkflowResultCommand,
-  NotifyProvisionProductEngineWorkflowResultCommandInput,
-  NotifyProvisionProductEngineWorkflowResultCommandOutput,
 } from "./commands/NotifyProvisionProductEngineWorkflowResultCommand";
 import {
+  type NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
+  type NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput,
   NotifyTerminateProvisionedProductEngineWorkflowResultCommand,
-  NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
-  NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput,
 } from "./commands/NotifyTerminateProvisionedProductEngineWorkflowResultCommand";
 import {
+  type NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
+  type NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput,
   NotifyUpdateProvisionedProductEngineWorkflowResultCommand,
-  NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
-  NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput,
 } from "./commands/NotifyUpdateProvisionedProductEngineWorkflowResultCommand";
 import {
+  type ProvisionProductCommandInput,
+  type ProvisionProductCommandOutput,
   ProvisionProductCommand,
-  ProvisionProductCommandInput,
-  ProvisionProductCommandOutput,
 } from "./commands/ProvisionProductCommand";
 import {
+  type RejectPortfolioShareCommandInput,
+  type RejectPortfolioShareCommandOutput,
   RejectPortfolioShareCommand,
-  RejectPortfolioShareCommandInput,
-  RejectPortfolioShareCommandOutput,
 } from "./commands/RejectPortfolioShareCommand";
 import {
+  type ScanProvisionedProductsCommandInput,
+  type ScanProvisionedProductsCommandOutput,
   ScanProvisionedProductsCommand,
-  ScanProvisionedProductsCommandInput,
-  ScanProvisionedProductsCommandOutput,
 } from "./commands/ScanProvisionedProductsCommand";
 import {
+  type SearchProductsAsAdminCommandInput,
+  type SearchProductsAsAdminCommandOutput,
   SearchProductsAsAdminCommand,
-  SearchProductsAsAdminCommandInput,
-  SearchProductsAsAdminCommandOutput,
 } from "./commands/SearchProductsAsAdminCommand";
 import {
+  type SearchProductsCommandInput,
+  type SearchProductsCommandOutput,
   SearchProductsCommand,
-  SearchProductsCommandInput,
-  SearchProductsCommandOutput,
 } from "./commands/SearchProductsCommand";
 import {
+  type SearchProvisionedProductsCommandInput,
+  type SearchProvisionedProductsCommandOutput,
   SearchProvisionedProductsCommand,
-  SearchProvisionedProductsCommandInput,
-  SearchProvisionedProductsCommandOutput,
 } from "./commands/SearchProvisionedProductsCommand";
 import {
+  type TerminateProvisionedProductCommandInput,
+  type TerminateProvisionedProductCommandOutput,
   TerminateProvisionedProductCommand,
-  TerminateProvisionedProductCommandInput,
-  TerminateProvisionedProductCommandOutput,
 } from "./commands/TerminateProvisionedProductCommand";
 import {
+  type UpdateConstraintCommandInput,
+  type UpdateConstraintCommandOutput,
   UpdateConstraintCommand,
-  UpdateConstraintCommandInput,
-  UpdateConstraintCommandOutput,
 } from "./commands/UpdateConstraintCommand";
 import {
+  type UpdatePortfolioCommandInput,
+  type UpdatePortfolioCommandOutput,
   UpdatePortfolioCommand,
-  UpdatePortfolioCommandInput,
-  UpdatePortfolioCommandOutput,
 } from "./commands/UpdatePortfolioCommand";
 import {
+  type UpdatePortfolioShareCommandInput,
+  type UpdatePortfolioShareCommandOutput,
   UpdatePortfolioShareCommand,
-  UpdatePortfolioShareCommandInput,
-  UpdatePortfolioShareCommandOutput,
 } from "./commands/UpdatePortfolioShareCommand";
 import {
+  type UpdateProductCommandInput,
+  type UpdateProductCommandOutput,
   UpdateProductCommand,
-  UpdateProductCommandInput,
-  UpdateProductCommandOutput,
 } from "./commands/UpdateProductCommand";
 import {
+  type UpdateProvisionedProductCommandInput,
+  type UpdateProvisionedProductCommandOutput,
   UpdateProvisionedProductCommand,
-  UpdateProvisionedProductCommandInput,
-  UpdateProvisionedProductCommandOutput,
 } from "./commands/UpdateProvisionedProductCommand";
 import {
+  type UpdateProvisionedProductPropertiesCommandInput,
+  type UpdateProvisionedProductPropertiesCommandOutput,
   UpdateProvisionedProductPropertiesCommand,
-  UpdateProvisionedProductPropertiesCommandInput,
-  UpdateProvisionedProductPropertiesCommandOutput,
 } from "./commands/UpdateProvisionedProductPropertiesCommand";
 import {
+  type UpdateProvisioningArtifactCommandInput,
+  type UpdateProvisioningArtifactCommandOutput,
   UpdateProvisioningArtifactCommand,
-  UpdateProvisioningArtifactCommandInput,
-  UpdateProvisioningArtifactCommandOutput,
 } from "./commands/UpdateProvisioningArtifactCommand";
 import {
+  type UpdateServiceActionCommandInput,
+  type UpdateServiceActionCommandOutput,
   UpdateServiceActionCommand,
-  UpdateServiceActionCommandInput,
-  UpdateServiceActionCommandOutput,
 } from "./commands/UpdateServiceActionCommand";
 import {
+  type UpdateTagOptionCommandInput,
+  type UpdateTagOptionCommandOutput,
   UpdateTagOptionCommand,
-  UpdateTagOptionCommandInput,
-  UpdateTagOptionCommandOutput,
 } from "./commands/UpdateTagOptionCommand";
 import { paginateDescribePortfolioShares } from "./pagination/DescribePortfolioSharesPaginator";
 import { paginateGetProvisionedProductOutputs } from "./pagination/GetProvisionedProductOutputsPaginator";

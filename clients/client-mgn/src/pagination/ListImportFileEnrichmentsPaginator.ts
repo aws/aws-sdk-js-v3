@@ -8,7 +8,7 @@ import {
   ListImportFileEnrichmentsCommandOutput,
 } from "../commands/ListImportFileEnrichmentsCommand";
 import { MgnClient } from "../MgnClient";
-import { MgnPaginationConfiguration } from "./Interfaces";
+import type { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

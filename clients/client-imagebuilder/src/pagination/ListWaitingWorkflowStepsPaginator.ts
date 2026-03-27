@@ -8,7 +8,7 @@ import {
   ListWaitingWorkflowStepsCommandOutput,
 } from "../commands/ListWaitingWorkflowStepsCommand";
 import { ImagebuilderClient } from "../ImagebuilderClient";
-import { ImagebuilderPaginationConfiguration } from "./Interfaces";
+import type { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

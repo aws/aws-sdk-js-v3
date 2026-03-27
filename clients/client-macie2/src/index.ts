@@ -7,7 +7,7 @@
  */
 export * from "./Macie2Client";
 export * from "./Macie2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { Macie2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
 import { TimestreamQueryClient } from "../TimestreamQueryClient";
-import { TimestreamQueryPaginationConfiguration } from "./Interfaces";
+import type { TimestreamQueryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

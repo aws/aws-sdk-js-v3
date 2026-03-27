@@ -7,7 +7,7 @@
  */
 export * from "./UxcClient";
 export * from "./Uxc";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { UxcExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

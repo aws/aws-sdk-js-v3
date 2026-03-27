@@ -39,22 +39,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type SdkStreamMixinInjector as __SdkStreamMixinInjector,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -64,77 +62,77 @@ import {
   defaultSageMakerGeospatialHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   DeleteEarthObservationJobCommandInput,
   DeleteEarthObservationJobCommandOutput,
 } from "./commands/DeleteEarthObservationJobCommand";
-import {
+import type {
   DeleteVectorEnrichmentJobCommandInput,
   DeleteVectorEnrichmentJobCommandOutput,
 } from "./commands/DeleteVectorEnrichmentJobCommand";
-import {
+import type {
   ExportEarthObservationJobCommandInput,
   ExportEarthObservationJobCommandOutput,
 } from "./commands/ExportEarthObservationJobCommand";
-import {
+import type {
   ExportVectorEnrichmentJobCommandInput,
   ExportVectorEnrichmentJobCommandOutput,
 } from "./commands/ExportVectorEnrichmentJobCommand";
-import {
+import type {
   GetEarthObservationJobCommandInput,
   GetEarthObservationJobCommandOutput,
 } from "./commands/GetEarthObservationJobCommand";
-import {
+import type {
   GetRasterDataCollectionCommandInput,
   GetRasterDataCollectionCommandOutput,
 } from "./commands/GetRasterDataCollectionCommand";
-import { GetTileCommandInput, GetTileCommandOutput } from "./commands/GetTileCommand";
-import {
+import type { GetTileCommandInput, GetTileCommandOutput } from "./commands/GetTileCommand";
+import type {
   GetVectorEnrichmentJobCommandInput,
   GetVectorEnrichmentJobCommandOutput,
 } from "./commands/GetVectorEnrichmentJobCommand";
-import {
+import type {
   ListEarthObservationJobsCommandInput,
   ListEarthObservationJobsCommandOutput,
 } from "./commands/ListEarthObservationJobsCommand";
-import {
+import type {
   ListRasterDataCollectionsCommandInput,
   ListRasterDataCollectionsCommandOutput,
 } from "./commands/ListRasterDataCollectionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListVectorEnrichmentJobsCommandInput,
   ListVectorEnrichmentJobsCommandOutput,
 } from "./commands/ListVectorEnrichmentJobsCommand";
-import {
+import type {
   SearchRasterDataCollectionCommandInput,
   SearchRasterDataCollectionCommandOutput,
 } from "./commands/SearchRasterDataCollectionCommand";
-import {
+import type {
   StartEarthObservationJobCommandInput,
   StartEarthObservationJobCommandOutput,
 } from "./commands/StartEarthObservationJobCommand";
-import {
+import type {
   StartVectorEnrichmentJobCommandInput,
   StartVectorEnrichmentJobCommandOutput,
 } from "./commands/StartVectorEnrichmentJobCommand";
-import {
+import type {
   StopEarthObservationJobCommandInput,
   StopEarthObservationJobCommandOutput,
 } from "./commands/StopEarthObservationJobCommand";
-import {
+import type {
   StopVectorEnrichmentJobCommandInput,
   StopVectorEnrichmentJobCommandOutput,
 } from "./commands/StopVectorEnrichmentJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -304,7 +302,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

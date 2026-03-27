@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   ConnectionScope,
   ConnectionType,
   EnvironmentStatus,
@@ -21,35 +21,34 @@ import {
   UserProfileType,
   UserSearchType,
 } from "./enums";
-import {
-  type AccountSource,
-  type ActionParameters,
-  type AdditionalAttributes,
-  type AwsLocation,
-  type ConnectionPropertiesOutput,
-  type ConnectionPropertiesPatch,
-  type Deployment,
-  type DeploymentProperties,
-  type EnvironmentDeploymentDetails,
-  type FailureCause,
-  type GrantedEntity,
-  type Model,
-  type ProvisioningProperties,
-  type UserProfileDetails,
+import type {
+  AccountSource,
+  ActionParameters,
+  AdditionalAttributes,
   AggregationListItem,
   AggregationOutput,
   AssetListingItem,
   AssetTypeItem,
+  AwsLocation,
   ColumnFilterConfiguration,
   ConfigurableEnvironmentAction,
+  ConnectionPropertiesOutput,
+  ConnectionPropertiesPatch,
   CustomParameter,
+  Deployment,
+  DeploymentProperties,
   EnvironmentConfiguration,
   EnvironmentConfigurationUserParameter,
+  EnvironmentDeploymentDetails,
   EnvironmentParameter,
+  FailureCause,
   FormEntryOutput,
   FormOutput,
+  GrantedEntity,
+  Model,
   PhysicalEndpoint,
   ProjectDeletionError,
+  ProvisioningProperties,
   Resource,
   ResourceTag,
   ResourceTagParameter,
@@ -58,8 +57,9 @@ import {
   SubscribedListing,
   SubscribedPrincipal,
   SubscriptionTargetForm,
+  UserProfileDetails,
 } from "./models_0";
-import { type SearchSort, DataProductListingItem, Filter, Import, RelationPattern, SearchInItem } from "./models_1";
+import type { DataProductListingItem, Filter, Import, RelationPattern, SearchInItem, SearchSort } from "./models_1";
 
 /**
  * <p>The details of the results of the <code>SearchListings</code> action.</p>

@@ -8,7 +8,7 @@ import {
   ListServicesCommandInput,
   ListServicesCommandOutput,
 } from "../commands/ListServicesCommand";
-import { AppRunnerPaginationConfiguration } from "./Interfaces";
+import type { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

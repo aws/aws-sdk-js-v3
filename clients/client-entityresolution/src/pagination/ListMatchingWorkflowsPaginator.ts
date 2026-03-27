@@ -8,7 +8,7 @@ import {
   ListMatchingWorkflowsCommandOutput,
 } from "../commands/ListMatchingWorkflowsCommand";
 import { EntityResolutionClient } from "../EntityResolutionClient";
-import { EntityResolutionPaginationConfiguration } from "./Interfaces";
+import type { EntityResolutionPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

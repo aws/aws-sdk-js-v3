@@ -3,65 +3,69 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchDescribeEntitiesCommandInput,
+  type BatchDescribeEntitiesCommandOutput,
   BatchDescribeEntitiesCommand,
-  BatchDescribeEntitiesCommandInput,
-  BatchDescribeEntitiesCommandOutput,
 } from "./commands/BatchDescribeEntitiesCommand";
 import {
+  type CancelChangeSetCommandInput,
+  type CancelChangeSetCommandOutput,
   CancelChangeSetCommand,
-  CancelChangeSetCommandInput,
-  CancelChangeSetCommandOutput,
 } from "./commands/CancelChangeSetCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DescribeChangeSetCommandInput,
+  type DescribeChangeSetCommandOutput,
   DescribeChangeSetCommand,
-  DescribeChangeSetCommandInput,
-  DescribeChangeSetCommandOutput,
 } from "./commands/DescribeChangeSetCommand";
 import {
+  type DescribeEntityCommandInput,
+  type DescribeEntityCommandOutput,
   DescribeEntityCommand,
-  DescribeEntityCommandInput,
-  DescribeEntityCommandOutput,
 } from "./commands/DescribeEntityCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type ListChangeSetsCommandInput,
+  type ListChangeSetsCommandOutput,
   ListChangeSetsCommand,
-  ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput,
 } from "./commands/ListChangeSetsCommand";
 import {
+  type ListEntitiesCommandInput,
+  type ListEntitiesCommandOutput,
   ListEntitiesCommand,
-  ListEntitiesCommandInput,
-  ListEntitiesCommandOutput,
 } from "./commands/ListEntitiesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type StartChangeSetCommandInput,
+  type StartChangeSetCommandOutput,
   StartChangeSetCommand,
-  StartChangeSetCommandInput,
-  StartChangeSetCommandOutput,
 } from "./commands/StartChangeSetCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { MarketplaceCatalogClient } from "./MarketplaceCatalogClient";
 import { paginateListChangeSets } from "./pagination/ListChangeSetsPaginator";

@@ -8,7 +8,7 @@ import {
   GetClientCertificatesCommandInput,
   GetClientCertificatesCommandOutput,
 } from "../commands/GetClientCertificatesCommand";
-import { APIGatewayPaginationConfiguration } from "./Interfaces";
+import type { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

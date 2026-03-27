@@ -8,7 +8,7 @@ import {
   ListFlowExecutionsCommandInput,
   ListFlowExecutionsCommandOutput,
 } from "../commands/ListFlowExecutionsCommand";
-import { BedrockAgentRuntimePaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentRuntimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

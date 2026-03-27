@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,66 +61,75 @@ import {
   defaultKinesisAnalyticsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddApplicationCloudWatchLoggingOptionCommandInput,
   AddApplicationCloudWatchLoggingOptionCommandOutput,
 } from "./commands/AddApplicationCloudWatchLoggingOptionCommand";
-import {
+import type {
   AddApplicationInputCommandInput,
   AddApplicationInputCommandOutput,
 } from "./commands/AddApplicationInputCommand";
-import {
+import type {
   AddApplicationInputProcessingConfigurationCommandInput,
   AddApplicationInputProcessingConfigurationCommandOutput,
 } from "./commands/AddApplicationInputProcessingConfigurationCommand";
-import {
+import type {
   AddApplicationOutputCommandInput,
   AddApplicationOutputCommandOutput,
 } from "./commands/AddApplicationOutputCommand";
-import {
+import type {
   AddApplicationReferenceDataSourceCommandInput,
   AddApplicationReferenceDataSourceCommandOutput,
 } from "./commands/AddApplicationReferenceDataSourceCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import {
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type {
   DeleteApplicationCloudWatchLoggingOptionCommandInput,
   DeleteApplicationCloudWatchLoggingOptionCommandOutput,
 } from "./commands/DeleteApplicationCloudWatchLoggingOptionCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import {
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type {
   DeleteApplicationInputProcessingConfigurationCommandInput,
   DeleteApplicationInputProcessingConfigurationCommandOutput,
 } from "./commands/DeleteApplicationInputProcessingConfigurationCommand";
-import {
+import type {
   DeleteApplicationOutputCommandInput,
   DeleteApplicationOutputCommandOutput,
 } from "./commands/DeleteApplicationOutputCommand";
-import {
+import type {
   DeleteApplicationReferenceDataSourceCommandInput,
   DeleteApplicationReferenceDataSourceCommandOutput,
 } from "./commands/DeleteApplicationReferenceDataSourceCommand";
-import {
+import type {
   DescribeApplicationCommandInput,
   DescribeApplicationCommandOutput,
 } from "./commands/DescribeApplicationCommand";
-import {
+import type {
   DiscoverInputSchemaCommandInput,
   DiscoverInputSchemaCommandOutput,
 } from "./commands/DiscoverInputSchemaCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import {
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartApplicationCommandInput, StartApplicationCommandOutput } from "./commands/StartApplicationCommand";
-import { StopApplicationCommandInput, StopApplicationCommandOutput } from "./commands/StopApplicationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
+import type { StartApplicationCommandInput, StartApplicationCommandOutput } from "./commands/StartApplicationCommand";
+import type { StopApplicationCommandInput, StopApplicationCommandOutput } from "./commands/StopApplicationCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -294,7 +301,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

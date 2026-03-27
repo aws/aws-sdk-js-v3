@@ -8,7 +8,7 @@ import {
   ListChildrenCommandOutput,
 } from "../commands/ListChildrenCommand";
 import { OrganizationsClient } from "../OrganizationsClient";
-import { OrganizationsPaginationConfiguration } from "./Interfaces";
+import type { OrganizationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

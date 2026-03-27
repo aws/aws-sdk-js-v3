@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput } from "../commands/ListFiltersCommand";
 import { PersonalizeClient } from "../PersonalizeClient";
-import { PersonalizePaginationConfiguration } from "./Interfaces";
+import type { PersonalizePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

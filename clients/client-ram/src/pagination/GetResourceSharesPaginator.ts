@@ -8,7 +8,7 @@ import {
   GetResourceSharesCommandOutput,
 } from "../commands/GetResourceSharesCommand";
 import { RAMClient } from "../RAMClient";
-import { RAMPaginationConfiguration } from "./Interfaces";
+import type { RAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

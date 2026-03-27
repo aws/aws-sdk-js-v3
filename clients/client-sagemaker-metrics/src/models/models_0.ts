@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { MetricQueryResultStatus, MetricStatistic, Period, PutMetricsErrorCode, XAxisType } from "./enums";
+import type { MetricQueryResultStatus, MetricStatistic, Period, PutMetricsErrorCode, XAxisType } from "./enums";
 
 /**
  * <p>Specifies a query to retrieve training metrics from SageMaker.</p>

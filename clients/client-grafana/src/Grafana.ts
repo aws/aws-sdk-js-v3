@@ -3,125 +3,129 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateLicenseCommandInput,
+  type AssociateLicenseCommandOutput,
   AssociateLicenseCommand,
-  AssociateLicenseCommandInput,
-  AssociateLicenseCommandOutput,
 } from "./commands/AssociateLicenseCommand";
 import {
+  type CreateWorkspaceApiKeyCommandInput,
+  type CreateWorkspaceApiKeyCommandOutput,
   CreateWorkspaceApiKeyCommand,
-  CreateWorkspaceApiKeyCommandInput,
-  CreateWorkspaceApiKeyCommandOutput,
 } from "./commands/CreateWorkspaceApiKeyCommand";
 import {
+  type CreateWorkspaceCommandInput,
+  type CreateWorkspaceCommandOutput,
   CreateWorkspaceCommand,
-  CreateWorkspaceCommandInput,
-  CreateWorkspaceCommandOutput,
 } from "./commands/CreateWorkspaceCommand";
 import {
+  type CreateWorkspaceServiceAccountCommandInput,
+  type CreateWorkspaceServiceAccountCommandOutput,
   CreateWorkspaceServiceAccountCommand,
-  CreateWorkspaceServiceAccountCommandInput,
-  CreateWorkspaceServiceAccountCommandOutput,
 } from "./commands/CreateWorkspaceServiceAccountCommand";
 import {
+  type CreateWorkspaceServiceAccountTokenCommandInput,
+  type CreateWorkspaceServiceAccountTokenCommandOutput,
   CreateWorkspaceServiceAccountTokenCommand,
-  CreateWorkspaceServiceAccountTokenCommandInput,
-  CreateWorkspaceServiceAccountTokenCommandOutput,
 } from "./commands/CreateWorkspaceServiceAccountTokenCommand";
 import {
+  type DeleteWorkspaceApiKeyCommandInput,
+  type DeleteWorkspaceApiKeyCommandOutput,
   DeleteWorkspaceApiKeyCommand,
-  DeleteWorkspaceApiKeyCommandInput,
-  DeleteWorkspaceApiKeyCommandOutput,
 } from "./commands/DeleteWorkspaceApiKeyCommand";
 import {
+  type DeleteWorkspaceCommandInput,
+  type DeleteWorkspaceCommandOutput,
   DeleteWorkspaceCommand,
-  DeleteWorkspaceCommandInput,
-  DeleteWorkspaceCommandOutput,
 } from "./commands/DeleteWorkspaceCommand";
 import {
+  type DeleteWorkspaceServiceAccountCommandInput,
+  type DeleteWorkspaceServiceAccountCommandOutput,
   DeleteWorkspaceServiceAccountCommand,
-  DeleteWorkspaceServiceAccountCommandInput,
-  DeleteWorkspaceServiceAccountCommandOutput,
 } from "./commands/DeleteWorkspaceServiceAccountCommand";
 import {
+  type DeleteWorkspaceServiceAccountTokenCommandInput,
+  type DeleteWorkspaceServiceAccountTokenCommandOutput,
   DeleteWorkspaceServiceAccountTokenCommand,
-  DeleteWorkspaceServiceAccountTokenCommandInput,
-  DeleteWorkspaceServiceAccountTokenCommandOutput,
 } from "./commands/DeleteWorkspaceServiceAccountTokenCommand";
 import {
+  type DescribeWorkspaceAuthenticationCommandInput,
+  type DescribeWorkspaceAuthenticationCommandOutput,
   DescribeWorkspaceAuthenticationCommand,
-  DescribeWorkspaceAuthenticationCommandInput,
-  DescribeWorkspaceAuthenticationCommandOutput,
 } from "./commands/DescribeWorkspaceAuthenticationCommand";
 import {
+  type DescribeWorkspaceCommandInput,
+  type DescribeWorkspaceCommandOutput,
   DescribeWorkspaceCommand,
-  DescribeWorkspaceCommandInput,
-  DescribeWorkspaceCommandOutput,
 } from "./commands/DescribeWorkspaceCommand";
 import {
+  type DescribeWorkspaceConfigurationCommandInput,
+  type DescribeWorkspaceConfigurationCommandOutput,
   DescribeWorkspaceConfigurationCommand,
-  DescribeWorkspaceConfigurationCommandInput,
-  DescribeWorkspaceConfigurationCommandOutput,
 } from "./commands/DescribeWorkspaceConfigurationCommand";
 import {
+  type DisassociateLicenseCommandInput,
+  type DisassociateLicenseCommandOutput,
   DisassociateLicenseCommand,
-  DisassociateLicenseCommandInput,
-  DisassociateLicenseCommandOutput,
 } from "./commands/DisassociateLicenseCommand";
 import {
+  type ListPermissionsCommandInput,
+  type ListPermissionsCommandOutput,
   ListPermissionsCommand,
-  ListPermissionsCommandInput,
-  ListPermissionsCommandOutput,
 } from "./commands/ListPermissionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVersionsCommandInput,
+  type ListVersionsCommandOutput,
   ListVersionsCommand,
-  ListVersionsCommandInput,
-  ListVersionsCommandOutput,
 } from "./commands/ListVersionsCommand";
 import {
+  type ListWorkspacesCommandInput,
+  type ListWorkspacesCommandOutput,
   ListWorkspacesCommand,
-  ListWorkspacesCommandInput,
-  ListWorkspacesCommandOutput,
 } from "./commands/ListWorkspacesCommand";
 import {
+  type ListWorkspaceServiceAccountsCommandInput,
+  type ListWorkspaceServiceAccountsCommandOutput,
   ListWorkspaceServiceAccountsCommand,
-  ListWorkspaceServiceAccountsCommandInput,
-  ListWorkspaceServiceAccountsCommandOutput,
 } from "./commands/ListWorkspaceServiceAccountsCommand";
 import {
+  type ListWorkspaceServiceAccountTokensCommandInput,
+  type ListWorkspaceServiceAccountTokensCommandOutput,
   ListWorkspaceServiceAccountTokensCommand,
-  ListWorkspaceServiceAccountTokensCommandInput,
-  ListWorkspaceServiceAccountTokensCommandOutput,
 } from "./commands/ListWorkspaceServiceAccountTokensCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdatePermissionsCommandInput,
+  type UpdatePermissionsCommandOutput,
   UpdatePermissionsCommand,
-  UpdatePermissionsCommandInput,
-  UpdatePermissionsCommandOutput,
 } from "./commands/UpdatePermissionsCommand";
 import {
+  type UpdateWorkspaceAuthenticationCommandInput,
+  type UpdateWorkspaceAuthenticationCommandOutput,
   UpdateWorkspaceAuthenticationCommand,
-  UpdateWorkspaceAuthenticationCommandInput,
-  UpdateWorkspaceAuthenticationCommandOutput,
 } from "./commands/UpdateWorkspaceAuthenticationCommand";
 import {
+  type UpdateWorkspaceCommandInput,
+  type UpdateWorkspaceCommandOutput,
   UpdateWorkspaceCommand,
-  UpdateWorkspaceCommandInput,
-  UpdateWorkspaceCommandOutput,
 } from "./commands/UpdateWorkspaceCommand";
 import {
+  type UpdateWorkspaceConfigurationCommandInput,
+  type UpdateWorkspaceConfigurationCommandOutput,
   UpdateWorkspaceConfigurationCommand,
-  UpdateWorkspaceConfigurationCommandInput,
-  UpdateWorkspaceConfigurationCommandOutput,
 } from "./commands/UpdateWorkspaceConfigurationCommand";
 import { GrafanaClient } from "./GrafanaClient";
 import { paginateListPermissions } from "./pagination/ListPermissionsPaginator";

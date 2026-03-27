@@ -8,7 +8,7 @@ import {
   ListCaseEditsCommandOutput,
 } from "../commands/ListCaseEditsCommand";
 import { SecurityIRClient } from "../SecurityIRClient";
-import { SecurityIRPaginationConfiguration } from "./Interfaces";
+import type { SecurityIRPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

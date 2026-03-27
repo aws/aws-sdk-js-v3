@@ -7,7 +7,7 @@
  */
 export * from "./S3VectorsClient";
 export * from "./S3Vectors";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { S3VectorsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

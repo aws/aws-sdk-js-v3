@@ -8,7 +8,7 @@ import {
   ListServicesByNamespaceCommandOutput,
 } from "../commands/ListServicesByNamespaceCommand";
 import { ECSClient } from "../ECSClient";
-import { ECSPaginationConfiguration } from "./Interfaces";
+import type { ECSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

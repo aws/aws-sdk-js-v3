@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   CustomTemplateBase,
   DomainStatus,
   EncryptionType,
@@ -17,7 +17,7 @@ import {
   Specialty,
   SubscriptionStatus,
 } from "./enums";
-import { InternalServerException, ValidationException } from "./errors";
+import type { InternalServerException, ValidationException } from "./errors";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   DescribeDBInstancesCommandOutput,
 } from "../commands/DescribeDBInstancesCommand";
 import { RDSClient } from "../RDSClient";
-import { RDSPaginationConfiguration } from "./Interfaces";
+import type { RDSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

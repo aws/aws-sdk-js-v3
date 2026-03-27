@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeStreamCommand, DescribeStreamCommandInput } from "../commands/DescribeStreamCommand";
-import { KinesisClient } from "../KinesisClient";
+import { type DescribeStreamCommandInput, DescribeStreamCommand } from "../commands/DescribeStreamCommand";
+import type { KinesisClient } from "../KinesisClient";
 
 const checkState = async (client: KinesisClient, input: DescribeStreamCommandInput): Promise<WaiterResult> => {
   let reason;

@@ -8,7 +8,7 @@ import {
   ListPipelinesCommandOutput,
 } from "../commands/ListPipelinesCommand";
 import { DataPipelineClient } from "../DataPipelineClient";
-import { DataPipelinePaginationConfiguration } from "./Interfaces";
+import type { DataPipelinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

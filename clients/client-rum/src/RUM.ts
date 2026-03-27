@@ -3,100 +3,104 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchCreateRumMetricDefinitionsCommandInput,
+  type BatchCreateRumMetricDefinitionsCommandOutput,
   BatchCreateRumMetricDefinitionsCommand,
-  BatchCreateRumMetricDefinitionsCommandInput,
-  BatchCreateRumMetricDefinitionsCommandOutput,
 } from "./commands/BatchCreateRumMetricDefinitionsCommand";
 import {
+  type BatchDeleteRumMetricDefinitionsCommandInput,
+  type BatchDeleteRumMetricDefinitionsCommandOutput,
   BatchDeleteRumMetricDefinitionsCommand,
-  BatchDeleteRumMetricDefinitionsCommandInput,
-  BatchDeleteRumMetricDefinitionsCommandOutput,
 } from "./commands/BatchDeleteRumMetricDefinitionsCommand";
 import {
+  type BatchGetRumMetricDefinitionsCommandInput,
+  type BatchGetRumMetricDefinitionsCommandOutput,
   BatchGetRumMetricDefinitionsCommand,
-  BatchGetRumMetricDefinitionsCommandInput,
-  BatchGetRumMetricDefinitionsCommandOutput,
 } from "./commands/BatchGetRumMetricDefinitionsCommand";
 import {
+  type CreateAppMonitorCommandInput,
+  type CreateAppMonitorCommandOutput,
   CreateAppMonitorCommand,
-  CreateAppMonitorCommandInput,
-  CreateAppMonitorCommandOutput,
 } from "./commands/CreateAppMonitorCommand";
 import {
+  type DeleteAppMonitorCommandInput,
+  type DeleteAppMonitorCommandOutput,
   DeleteAppMonitorCommand,
-  DeleteAppMonitorCommandInput,
-  DeleteAppMonitorCommandOutput,
 } from "./commands/DeleteAppMonitorCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteRumMetricsDestinationCommandInput,
+  type DeleteRumMetricsDestinationCommandOutput,
   DeleteRumMetricsDestinationCommand,
-  DeleteRumMetricsDestinationCommandInput,
-  DeleteRumMetricsDestinationCommandOutput,
 } from "./commands/DeleteRumMetricsDestinationCommand";
 import {
+  type GetAppMonitorCommandInput,
+  type GetAppMonitorCommandOutput,
   GetAppMonitorCommand,
-  GetAppMonitorCommandInput,
-  GetAppMonitorCommandOutput,
 } from "./commands/GetAppMonitorCommand";
 import {
+  type GetAppMonitorDataCommandInput,
+  type GetAppMonitorDataCommandOutput,
   GetAppMonitorDataCommand,
-  GetAppMonitorDataCommandInput,
-  GetAppMonitorDataCommandOutput,
 } from "./commands/GetAppMonitorDataCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type ListAppMonitorsCommandInput,
+  type ListAppMonitorsCommandOutput,
   ListAppMonitorsCommand,
-  ListAppMonitorsCommandInput,
-  ListAppMonitorsCommandOutput,
 } from "./commands/ListAppMonitorsCommand";
 import {
+  type ListRumMetricsDestinationsCommandInput,
+  type ListRumMetricsDestinationsCommandOutput,
   ListRumMetricsDestinationsCommand,
-  ListRumMetricsDestinationsCommandInput,
-  ListRumMetricsDestinationsCommandOutput,
 } from "./commands/ListRumMetricsDestinationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type PutRumEventsCommandInput,
+  type PutRumEventsCommandOutput,
   PutRumEventsCommand,
-  PutRumEventsCommandInput,
-  PutRumEventsCommandOutput,
 } from "./commands/PutRumEventsCommand";
 import {
+  type PutRumMetricsDestinationCommandInput,
+  type PutRumMetricsDestinationCommandOutput,
   PutRumMetricsDestinationCommand,
-  PutRumMetricsDestinationCommandInput,
-  PutRumMetricsDestinationCommandOutput,
 } from "./commands/PutRumMetricsDestinationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAppMonitorCommandInput,
+  type UpdateAppMonitorCommandOutput,
   UpdateAppMonitorCommand,
-  UpdateAppMonitorCommandInput,
-  UpdateAppMonitorCommandOutput,
 } from "./commands/UpdateAppMonitorCommand";
 import {
+  type UpdateRumMetricDefinitionCommandInput,
+  type UpdateRumMetricDefinitionCommandOutput,
   UpdateRumMetricDefinitionCommand,
-  UpdateRumMetricDefinitionCommandInput,
-  UpdateRumMetricDefinitionCommandOutput,
 } from "./commands/UpdateRumMetricDefinitionCommand";
 import { paginateBatchGetRumMetricDefinitions } from "./pagination/BatchGetRumMetricDefinitionsPaginator";
 import { paginateGetAppMonitorData } from "./pagination/GetAppMonitorDataPaginator";

@@ -8,7 +8,7 @@ import {
   ListConnectionsCommandInput,
   ListConnectionsCommandOutput,
 } from "../commands/ListConnectionsCommand";
-import { CodeStarConnectionsPaginationConfiguration } from "./Interfaces";
+import type { CodeStarConnectionsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

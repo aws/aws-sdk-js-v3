@@ -8,7 +8,7 @@ import {
   ListSigningProfilesCommandOutput,
 } from "../commands/ListSigningProfilesCommand";
 import { SignerClient } from "../SignerClient";
-import { SignerPaginationConfiguration } from "./Interfaces";
+import type { SignerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

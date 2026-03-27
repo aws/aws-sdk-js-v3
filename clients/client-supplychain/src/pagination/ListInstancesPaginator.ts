@@ -8,7 +8,7 @@ import {
   ListInstancesCommandOutput,
 } from "../commands/ListInstancesCommand";
 import { SupplyChainClient } from "../SupplyChainClient";
-import { SupplyChainPaginationConfiguration } from "./Interfaces";
+import type { SupplyChainPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

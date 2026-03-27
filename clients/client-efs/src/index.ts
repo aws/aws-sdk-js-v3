@@ -14,7 +14,7 @@
  */
 export * from "./EFSClient";
 export * from "./EFS";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { EFSExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,129 +61,156 @@ import {
   defaultCodeBuildHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BatchDeleteBuildsCommandInput, BatchDeleteBuildsCommandOutput } from "./commands/BatchDeleteBuildsCommand";
-import {
+import type {
+  BatchDeleteBuildsCommandInput,
+  BatchDeleteBuildsCommandOutput,
+} from "./commands/BatchDeleteBuildsCommand";
+import type {
   BatchGetBuildBatchesCommandInput,
   BatchGetBuildBatchesCommandOutput,
 } from "./commands/BatchGetBuildBatchesCommand";
-import { BatchGetBuildsCommandInput, BatchGetBuildsCommandOutput } from "./commands/BatchGetBuildsCommand";
-import {
+import type { BatchGetBuildsCommandInput, BatchGetBuildsCommandOutput } from "./commands/BatchGetBuildsCommand";
+import type {
   BatchGetCommandExecutionsCommandInput,
   BatchGetCommandExecutionsCommandOutput,
 } from "./commands/BatchGetCommandExecutionsCommand";
-import { BatchGetFleetsCommandInput, BatchGetFleetsCommandOutput } from "./commands/BatchGetFleetsCommand";
-import { BatchGetProjectsCommandInput, BatchGetProjectsCommandOutput } from "./commands/BatchGetProjectsCommand";
-import {
+import type { BatchGetFleetsCommandInput, BatchGetFleetsCommandOutput } from "./commands/BatchGetFleetsCommand";
+import type { BatchGetProjectsCommandInput, BatchGetProjectsCommandOutput } from "./commands/BatchGetProjectsCommand";
+import type {
   BatchGetReportGroupsCommandInput,
   BatchGetReportGroupsCommandOutput,
 } from "./commands/BatchGetReportGroupsCommand";
-import { BatchGetReportsCommandInput, BatchGetReportsCommandOutput } from "./commands/BatchGetReportsCommand";
-import { BatchGetSandboxesCommandInput, BatchGetSandboxesCommandOutput } from "./commands/BatchGetSandboxesCommand";
-import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
-import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
-import { CreateReportGroupCommandInput, CreateReportGroupCommandOutput } from "./commands/CreateReportGroupCommand";
-import { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "./commands/CreateWebhookCommand";
-import { DeleteBuildBatchCommandInput, DeleteBuildBatchCommandOutput } from "./commands/DeleteBuildBatchCommand";
-import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
-import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
-import { DeleteReportCommandInput, DeleteReportCommandOutput } from "./commands/DeleteReportCommand";
-import { DeleteReportGroupCommandInput, DeleteReportGroupCommandOutput } from "./commands/DeleteReportGroupCommand";
-import {
+import type { BatchGetReportsCommandInput, BatchGetReportsCommandOutput } from "./commands/BatchGetReportsCommand";
+import type {
+  BatchGetSandboxesCommandInput,
+  BatchGetSandboxesCommandOutput,
+} from "./commands/BatchGetSandboxesCommand";
+import type { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
+import type { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import type {
+  CreateReportGroupCommandInput,
+  CreateReportGroupCommandOutput,
+} from "./commands/CreateReportGroupCommand";
+import type { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "./commands/CreateWebhookCommand";
+import type { DeleteBuildBatchCommandInput, DeleteBuildBatchCommandOutput } from "./commands/DeleteBuildBatchCommand";
+import type { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
+import type { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import type { DeleteReportCommandInput, DeleteReportCommandOutput } from "./commands/DeleteReportCommand";
+import type {
+  DeleteReportGroupCommandInput,
+  DeleteReportGroupCommandOutput,
+} from "./commands/DeleteReportGroupCommand";
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   DeleteSourceCredentialsCommandInput,
   DeleteSourceCredentialsCommandOutput,
 } from "./commands/DeleteSourceCredentialsCommand";
-import { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand";
-import {
+import type { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand";
+import type {
   DescribeCodeCoveragesCommandInput,
   DescribeCodeCoveragesCommandOutput,
 } from "./commands/DescribeCodeCoveragesCommand";
-import { DescribeTestCasesCommandInput, DescribeTestCasesCommandOutput } from "./commands/DescribeTestCasesCommand";
-import {
+import type {
+  DescribeTestCasesCommandInput,
+  DescribeTestCasesCommandOutput,
+} from "./commands/DescribeTestCasesCommand";
+import type {
   GetReportGroupTrendCommandInput,
   GetReportGroupTrendCommandOutput,
 } from "./commands/GetReportGroupTrendCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import {
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type {
   ImportSourceCredentialsCommandInput,
   ImportSourceCredentialsCommandOutput,
 } from "./commands/ImportSourceCredentialsCommand";
-import {
+import type {
   InvalidateProjectCacheCommandInput,
   InvalidateProjectCacheCommandOutput,
 } from "./commands/InvalidateProjectCacheCommand";
-import { ListBuildBatchesCommandInput, ListBuildBatchesCommandOutput } from "./commands/ListBuildBatchesCommand";
-import {
+import type { ListBuildBatchesCommandInput, ListBuildBatchesCommandOutput } from "./commands/ListBuildBatchesCommand";
+import type {
   ListBuildBatchesForProjectCommandInput,
   ListBuildBatchesForProjectCommandOutput,
 } from "./commands/ListBuildBatchesForProjectCommand";
-import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
-import {
+import type { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
+import type {
   ListBuildsForProjectCommandInput,
   ListBuildsForProjectCommandOutput,
 } from "./commands/ListBuildsForProjectCommand";
-import {
+import type {
   ListCommandExecutionsForSandboxCommandInput,
   ListCommandExecutionsForSandboxCommandOutput,
 } from "./commands/ListCommandExecutionsForSandboxCommand";
-import {
+import type {
   ListCuratedEnvironmentImagesCommandInput,
   ListCuratedEnvironmentImagesCommandOutput,
 } from "./commands/ListCuratedEnvironmentImagesCommand";
-import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
-import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
-import { ListReportGroupsCommandInput, ListReportGroupsCommandOutput } from "./commands/ListReportGroupsCommand";
-import { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
-import {
+import type { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
+import type { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import type { ListReportGroupsCommandInput, ListReportGroupsCommandOutput } from "./commands/ListReportGroupsCommand";
+import type { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
+import type {
   ListReportsForReportGroupCommandInput,
   ListReportsForReportGroupCommandOutput,
 } from "./commands/ListReportsForReportGroupCommand";
-import { ListSandboxesCommandInput, ListSandboxesCommandOutput } from "./commands/ListSandboxesCommand";
-import {
+import type { ListSandboxesCommandInput, ListSandboxesCommandOutput } from "./commands/ListSandboxesCommand";
+import type {
   ListSandboxesForProjectCommandInput,
   ListSandboxesForProjectCommandOutput,
 } from "./commands/ListSandboxesForProjectCommand";
-import { ListSharedProjectsCommandInput, ListSharedProjectsCommandOutput } from "./commands/ListSharedProjectsCommand";
-import {
+import type {
+  ListSharedProjectsCommandInput,
+  ListSharedProjectsCommandOutput,
+} from "./commands/ListSharedProjectsCommand";
+import type {
   ListSharedReportGroupsCommandInput,
   ListSharedReportGroupsCommandOutput,
 } from "./commands/ListSharedReportGroupsCommand";
-import {
+import type {
   ListSourceCredentialsCommandInput,
   ListSourceCredentialsCommandOutput,
 } from "./commands/ListSourceCredentialsCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import { RetryBuildBatchCommandInput, RetryBuildBatchCommandOutput } from "./commands/RetryBuildBatchCommand";
-import { RetryBuildCommandInput, RetryBuildCommandOutput } from "./commands/RetryBuildCommand";
-import { StartBuildBatchCommandInput, StartBuildBatchCommandOutput } from "./commands/StartBuildBatchCommand";
-import { StartBuildCommandInput, StartBuildCommandOutput } from "./commands/StartBuildCommand";
-import {
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type { RetryBuildBatchCommandInput, RetryBuildBatchCommandOutput } from "./commands/RetryBuildBatchCommand";
+import type { RetryBuildCommandInput, RetryBuildCommandOutput } from "./commands/RetryBuildCommand";
+import type { StartBuildBatchCommandInput, StartBuildBatchCommandOutput } from "./commands/StartBuildBatchCommand";
+import type { StartBuildCommandInput, StartBuildCommandOutput } from "./commands/StartBuildCommand";
+import type {
   StartCommandExecutionCommandInput,
   StartCommandExecutionCommandOutput,
 } from "./commands/StartCommandExecutionCommand";
-import { StartSandboxCommandInput, StartSandboxCommandOutput } from "./commands/StartSandboxCommand";
-import {
+import type { StartSandboxCommandInput, StartSandboxCommandOutput } from "./commands/StartSandboxCommand";
+import type {
   StartSandboxConnectionCommandInput,
   StartSandboxConnectionCommandOutput,
 } from "./commands/StartSandboxConnectionCommand";
-import { StopBuildBatchCommandInput, StopBuildBatchCommandOutput } from "./commands/StopBuildBatchCommand";
-import { StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand";
-import { StopSandboxCommandInput, StopSandboxCommandOutput } from "./commands/StopSandboxCommand";
-import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
-import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
-import {
+import type { StopBuildBatchCommandInput, StopBuildBatchCommandOutput } from "./commands/StopBuildBatchCommand";
+import type { StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand";
+import type { StopSandboxCommandInput, StopSandboxCommandOutput } from "./commands/StopSandboxCommand";
+import type { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
+import type { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import type {
   UpdateProjectVisibilityCommandInput,
   UpdateProjectVisibilityCommandOutput,
 } from "./commands/UpdateProjectVisibilityCommand";
-import { UpdateReportGroupCommandInput, UpdateReportGroupCommandOutput } from "./commands/UpdateReportGroupCommand";
-import { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "./commands/UpdateWebhookCommand";
+import type {
+  UpdateReportGroupCommandInput,
+  UpdateReportGroupCommandOutput,
+} from "./commands/UpdateReportGroupCommand";
+import type { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "./commands/UpdateWebhookCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -435,7 +460,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -4,72 +4,84 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ChimeSDKMeetingsClient } from "./ChimeSDKMeetingsClient";
 import {
+  type BatchCreateAttendeeCommandInput,
+  type BatchCreateAttendeeCommandOutput,
   BatchCreateAttendeeCommand,
-  BatchCreateAttendeeCommandInput,
-  BatchCreateAttendeeCommandOutput,
 } from "./commands/BatchCreateAttendeeCommand";
 import {
+  type BatchUpdateAttendeeCapabilitiesExceptCommandInput,
+  type BatchUpdateAttendeeCapabilitiesExceptCommandOutput,
   BatchUpdateAttendeeCapabilitiesExceptCommand,
-  BatchUpdateAttendeeCapabilitiesExceptCommandInput,
-  BatchUpdateAttendeeCapabilitiesExceptCommandOutput,
 } from "./commands/BatchUpdateAttendeeCapabilitiesExceptCommand";
 import {
+  type CreateAttendeeCommandInput,
+  type CreateAttendeeCommandOutput,
   CreateAttendeeCommand,
-  CreateAttendeeCommandInput,
-  CreateAttendeeCommandOutput,
 } from "./commands/CreateAttendeeCommand";
 import {
+  type CreateMeetingCommandInput,
+  type CreateMeetingCommandOutput,
   CreateMeetingCommand,
-  CreateMeetingCommandInput,
-  CreateMeetingCommandOutput,
 } from "./commands/CreateMeetingCommand";
 import {
+  type CreateMeetingWithAttendeesCommandInput,
+  type CreateMeetingWithAttendeesCommandOutput,
   CreateMeetingWithAttendeesCommand,
-  CreateMeetingWithAttendeesCommandInput,
-  CreateMeetingWithAttendeesCommandOutput,
 } from "./commands/CreateMeetingWithAttendeesCommand";
 import {
+  type DeleteAttendeeCommandInput,
+  type DeleteAttendeeCommandOutput,
   DeleteAttendeeCommand,
-  DeleteAttendeeCommandInput,
-  DeleteAttendeeCommandOutput,
 } from "./commands/DeleteAttendeeCommand";
 import {
+  type DeleteMeetingCommandInput,
+  type DeleteMeetingCommandOutput,
   DeleteMeetingCommand,
-  DeleteMeetingCommandInput,
-  DeleteMeetingCommandOutput,
 } from "./commands/DeleteMeetingCommand";
-import { GetAttendeeCommand, GetAttendeeCommandInput, GetAttendeeCommandOutput } from "./commands/GetAttendeeCommand";
-import { GetMeetingCommand, GetMeetingCommandInput, GetMeetingCommandOutput } from "./commands/GetMeetingCommand";
 import {
+  type GetAttendeeCommandInput,
+  type GetAttendeeCommandOutput,
+  GetAttendeeCommand,
+} from "./commands/GetAttendeeCommand";
+import {
+  type GetMeetingCommandInput,
+  type GetMeetingCommandOutput,
+  GetMeetingCommand,
+} from "./commands/GetMeetingCommand";
+import {
+  type ListAttendeesCommandInput,
+  type ListAttendeesCommandOutput,
   ListAttendeesCommand,
-  ListAttendeesCommandInput,
-  ListAttendeesCommandOutput,
 } from "./commands/ListAttendeesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartMeetingTranscriptionCommandInput,
+  type StartMeetingTranscriptionCommandOutput,
   StartMeetingTranscriptionCommand,
-  StartMeetingTranscriptionCommandInput,
-  StartMeetingTranscriptionCommandOutput,
 } from "./commands/StartMeetingTranscriptionCommand";
 import {
+  type StopMeetingTranscriptionCommandInput,
+  type StopMeetingTranscriptionCommandOutput,
   StopMeetingTranscriptionCommand,
-  StopMeetingTranscriptionCommandInput,
-  StopMeetingTranscriptionCommandOutput,
 } from "./commands/StopMeetingTranscriptionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAttendeeCapabilitiesCommandInput,
+  type UpdateAttendeeCapabilitiesCommandOutput,
   UpdateAttendeeCapabilitiesCommand,
-  UpdateAttendeeCapabilitiesCommandInput,
-  UpdateAttendeeCapabilitiesCommandOutput,
 } from "./commands/UpdateAttendeeCapabilitiesCommand";
 import { paginateListAttendees } from "./pagination/ListAttendeesPaginator";
 

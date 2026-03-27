@@ -4,158 +4,194 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { AppMeshClient } from "./AppMeshClient";
 import {
+  type CreateGatewayRouteCommandInput,
+  type CreateGatewayRouteCommandOutput,
   CreateGatewayRouteCommand,
-  CreateGatewayRouteCommandInput,
-  CreateGatewayRouteCommandOutput,
 } from "./commands/CreateGatewayRouteCommand";
-import { CreateMeshCommand, CreateMeshCommandInput, CreateMeshCommandOutput } from "./commands/CreateMeshCommand";
-import { CreateRouteCommand, CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
 import {
+  type CreateMeshCommandInput,
+  type CreateMeshCommandOutput,
+  CreateMeshCommand,
+} from "./commands/CreateMeshCommand";
+import {
+  type CreateRouteCommandInput,
+  type CreateRouteCommandOutput,
+  CreateRouteCommand,
+} from "./commands/CreateRouteCommand";
+import {
+  type CreateVirtualGatewayCommandInput,
+  type CreateVirtualGatewayCommandOutput,
   CreateVirtualGatewayCommand,
-  CreateVirtualGatewayCommandInput,
-  CreateVirtualGatewayCommandOutput,
 } from "./commands/CreateVirtualGatewayCommand";
 import {
+  type CreateVirtualNodeCommandInput,
+  type CreateVirtualNodeCommandOutput,
   CreateVirtualNodeCommand,
-  CreateVirtualNodeCommandInput,
-  CreateVirtualNodeCommandOutput,
 } from "./commands/CreateVirtualNodeCommand";
 import {
+  type CreateVirtualRouterCommandInput,
+  type CreateVirtualRouterCommandOutput,
   CreateVirtualRouterCommand,
-  CreateVirtualRouterCommandInput,
-  CreateVirtualRouterCommandOutput,
 } from "./commands/CreateVirtualRouterCommand";
 import {
+  type CreateVirtualServiceCommandInput,
+  type CreateVirtualServiceCommandOutput,
   CreateVirtualServiceCommand,
-  CreateVirtualServiceCommandInput,
-  CreateVirtualServiceCommandOutput,
 } from "./commands/CreateVirtualServiceCommand";
 import {
+  type DeleteGatewayRouteCommandInput,
+  type DeleteGatewayRouteCommandOutput,
   DeleteGatewayRouteCommand,
-  DeleteGatewayRouteCommandInput,
-  DeleteGatewayRouteCommandOutput,
 } from "./commands/DeleteGatewayRouteCommand";
-import { DeleteMeshCommand, DeleteMeshCommandInput, DeleteMeshCommandOutput } from "./commands/DeleteMeshCommand";
-import { DeleteRouteCommand, DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
+  type DeleteMeshCommandInput,
+  type DeleteMeshCommandOutput,
+  DeleteMeshCommand,
+} from "./commands/DeleteMeshCommand";
+import {
+  type DeleteRouteCommandInput,
+  type DeleteRouteCommandOutput,
+  DeleteRouteCommand,
+} from "./commands/DeleteRouteCommand";
+import {
+  type DeleteVirtualGatewayCommandInput,
+  type DeleteVirtualGatewayCommandOutput,
   DeleteVirtualGatewayCommand,
-  DeleteVirtualGatewayCommandInput,
-  DeleteVirtualGatewayCommandOutput,
 } from "./commands/DeleteVirtualGatewayCommand";
 import {
+  type DeleteVirtualNodeCommandInput,
+  type DeleteVirtualNodeCommandOutput,
   DeleteVirtualNodeCommand,
-  DeleteVirtualNodeCommandInput,
-  DeleteVirtualNodeCommandOutput,
 } from "./commands/DeleteVirtualNodeCommand";
 import {
+  type DeleteVirtualRouterCommandInput,
+  type DeleteVirtualRouterCommandOutput,
   DeleteVirtualRouterCommand,
-  DeleteVirtualRouterCommandInput,
-  DeleteVirtualRouterCommandOutput,
 } from "./commands/DeleteVirtualRouterCommand";
 import {
+  type DeleteVirtualServiceCommandInput,
+  type DeleteVirtualServiceCommandOutput,
   DeleteVirtualServiceCommand,
-  DeleteVirtualServiceCommandInput,
-  DeleteVirtualServiceCommandOutput,
 } from "./commands/DeleteVirtualServiceCommand";
 import {
+  type DescribeGatewayRouteCommandInput,
+  type DescribeGatewayRouteCommandOutput,
   DescribeGatewayRouteCommand,
-  DescribeGatewayRouteCommandInput,
-  DescribeGatewayRouteCommandOutput,
 } from "./commands/DescribeGatewayRouteCommand";
 import {
+  type DescribeMeshCommandInput,
+  type DescribeMeshCommandOutput,
   DescribeMeshCommand,
-  DescribeMeshCommandInput,
-  DescribeMeshCommandOutput,
 } from "./commands/DescribeMeshCommand";
 import {
+  type DescribeRouteCommandInput,
+  type DescribeRouteCommandOutput,
   DescribeRouteCommand,
-  DescribeRouteCommandInput,
-  DescribeRouteCommandOutput,
 } from "./commands/DescribeRouteCommand";
 import {
+  type DescribeVirtualGatewayCommandInput,
+  type DescribeVirtualGatewayCommandOutput,
   DescribeVirtualGatewayCommand,
-  DescribeVirtualGatewayCommandInput,
-  DescribeVirtualGatewayCommandOutput,
 } from "./commands/DescribeVirtualGatewayCommand";
 import {
+  type DescribeVirtualNodeCommandInput,
+  type DescribeVirtualNodeCommandOutput,
   DescribeVirtualNodeCommand,
-  DescribeVirtualNodeCommandInput,
-  DescribeVirtualNodeCommandOutput,
 } from "./commands/DescribeVirtualNodeCommand";
 import {
+  type DescribeVirtualRouterCommandInput,
+  type DescribeVirtualRouterCommandOutput,
   DescribeVirtualRouterCommand,
-  DescribeVirtualRouterCommandInput,
-  DescribeVirtualRouterCommandOutput,
 } from "./commands/DescribeVirtualRouterCommand";
 import {
+  type DescribeVirtualServiceCommandInput,
+  type DescribeVirtualServiceCommandOutput,
   DescribeVirtualServiceCommand,
-  DescribeVirtualServiceCommandInput,
-  DescribeVirtualServiceCommandOutput,
 } from "./commands/DescribeVirtualServiceCommand";
 import {
+  type ListGatewayRoutesCommandInput,
+  type ListGatewayRoutesCommandOutput,
   ListGatewayRoutesCommand,
-  ListGatewayRoutesCommandInput,
-  ListGatewayRoutesCommandOutput,
 } from "./commands/ListGatewayRoutesCommand";
-import { ListMeshesCommand, ListMeshesCommandInput, ListMeshesCommandOutput } from "./commands/ListMeshesCommand";
-import { ListRoutesCommand, ListRoutesCommandInput, ListRoutesCommandOutput } from "./commands/ListRoutesCommand";
 import {
+  type ListMeshesCommandInput,
+  type ListMeshesCommandOutput,
+  ListMeshesCommand,
+} from "./commands/ListMeshesCommand";
+import {
+  type ListRoutesCommandInput,
+  type ListRoutesCommandOutput,
+  ListRoutesCommand,
+} from "./commands/ListRoutesCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVirtualGatewaysCommandInput,
+  type ListVirtualGatewaysCommandOutput,
   ListVirtualGatewaysCommand,
-  ListVirtualGatewaysCommandInput,
-  ListVirtualGatewaysCommandOutput,
 } from "./commands/ListVirtualGatewaysCommand";
 import {
+  type ListVirtualNodesCommandInput,
+  type ListVirtualNodesCommandOutput,
   ListVirtualNodesCommand,
-  ListVirtualNodesCommandInput,
-  ListVirtualNodesCommandOutput,
 } from "./commands/ListVirtualNodesCommand";
 import {
+  type ListVirtualRoutersCommandInput,
+  type ListVirtualRoutersCommandOutput,
   ListVirtualRoutersCommand,
-  ListVirtualRoutersCommandInput,
-  ListVirtualRoutersCommandOutput,
 } from "./commands/ListVirtualRoutersCommand";
 import {
+  type ListVirtualServicesCommandInput,
+  type ListVirtualServicesCommandOutput,
   ListVirtualServicesCommand,
-  ListVirtualServicesCommandInput,
-  ListVirtualServicesCommandOutput,
 } from "./commands/ListVirtualServicesCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateGatewayRouteCommandInput,
+  type UpdateGatewayRouteCommandOutput,
   UpdateGatewayRouteCommand,
-  UpdateGatewayRouteCommandInput,
-  UpdateGatewayRouteCommandOutput,
 } from "./commands/UpdateGatewayRouteCommand";
-import { UpdateMeshCommand, UpdateMeshCommandInput, UpdateMeshCommandOutput } from "./commands/UpdateMeshCommand";
-import { UpdateRouteCommand, UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
 import {
+  type UpdateMeshCommandInput,
+  type UpdateMeshCommandOutput,
+  UpdateMeshCommand,
+} from "./commands/UpdateMeshCommand";
+import {
+  type UpdateRouteCommandInput,
+  type UpdateRouteCommandOutput,
+  UpdateRouteCommand,
+} from "./commands/UpdateRouteCommand";
+import {
+  type UpdateVirtualGatewayCommandInput,
+  type UpdateVirtualGatewayCommandOutput,
   UpdateVirtualGatewayCommand,
-  UpdateVirtualGatewayCommandInput,
-  UpdateVirtualGatewayCommandOutput,
 } from "./commands/UpdateVirtualGatewayCommand";
 import {
+  type UpdateVirtualNodeCommandInput,
+  type UpdateVirtualNodeCommandOutput,
   UpdateVirtualNodeCommand,
-  UpdateVirtualNodeCommandInput,
-  UpdateVirtualNodeCommandOutput,
 } from "./commands/UpdateVirtualNodeCommand";
 import {
+  type UpdateVirtualRouterCommandInput,
+  type UpdateVirtualRouterCommandOutput,
   UpdateVirtualRouterCommand,
-  UpdateVirtualRouterCommandInput,
-  UpdateVirtualRouterCommandOutput,
 } from "./commands/UpdateVirtualRouterCommand";
 import {
+  type UpdateVirtualServiceCommandInput,
+  type UpdateVirtualServiceCommandOutput,
   UpdateVirtualServiceCommand,
-  UpdateVirtualServiceCommandInput,
-  UpdateVirtualServiceCommandOutput,
 } from "./commands/UpdateVirtualServiceCommand";
 import { paginateListGatewayRoutes } from "./pagination/ListGatewayRoutesPaginator";
 import { paginateListMeshes } from "./pagination/ListMeshesPaginator";

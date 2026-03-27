@@ -8,7 +8,7 @@ import {
   ListProfileAssociationsCommandOutput,
 } from "../commands/ListProfileAssociationsCommand";
 import { Route53ProfilesClient } from "../Route53ProfilesClient";
-import { Route53ProfilesPaginationConfiguration } from "./Interfaces";
+import type { Route53ProfilesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

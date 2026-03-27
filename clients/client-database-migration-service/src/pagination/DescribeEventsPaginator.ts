@@ -8,7 +8,7 @@ import {
   DescribeEventsCommandOutput,
 } from "../commands/DescribeEventsCommand";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
-import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
+import type { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

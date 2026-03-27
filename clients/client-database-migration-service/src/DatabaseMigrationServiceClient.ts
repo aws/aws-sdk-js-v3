@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,426 +61,453 @@ import {
   defaultDatabaseMigrationServiceHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
-import {
+import type {
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput,
+} from "./commands/AddTagsToResourceCommand";
+import type {
   ApplyPendingMaintenanceActionCommandInput,
   ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
-import {
+import type {
   BatchStartRecommendationsCommandInput,
   BatchStartRecommendationsCommandOutput,
 } from "./commands/BatchStartRecommendationsCommand";
-import {
+import type {
   CancelMetadataModelConversionCommandInput,
   CancelMetadataModelConversionCommandOutput,
 } from "./commands/CancelMetadataModelConversionCommand";
-import {
+import type {
   CancelMetadataModelCreationCommandInput,
   CancelMetadataModelCreationCommandOutput,
 } from "./commands/CancelMetadataModelCreationCommand";
-import {
+import type {
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/CancelReplicationTaskAssessmentRunCommand";
-import {
+import type {
   CreateDataMigrationCommandInput,
   CreateDataMigrationCommandOutput,
 } from "./commands/CreateDataMigrationCommand";
-import { CreateDataProviderCommandInput, CreateDataProviderCommandOutput } from "./commands/CreateDataProviderCommand";
-import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
-import {
+import type {
+  CreateDataProviderCommandInput,
+  CreateDataProviderCommandOutput,
+} from "./commands/CreateDataProviderCommand";
+import type { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
+import type {
   CreateEventSubscriptionCommandInput,
   CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand";
-import {
+import type {
   CreateFleetAdvisorCollectorCommandInput,
   CreateFleetAdvisorCollectorCommandOutput,
 } from "./commands/CreateFleetAdvisorCollectorCommand";
-import {
+import type {
   CreateInstanceProfileCommandInput,
   CreateInstanceProfileCommandOutput,
 } from "./commands/CreateInstanceProfileCommand";
-import {
+import type {
   CreateMigrationProjectCommandInput,
   CreateMigrationProjectCommandOutput,
 } from "./commands/CreateMigrationProjectCommand";
-import {
+import type {
   CreateReplicationConfigCommandInput,
   CreateReplicationConfigCommandOutput,
 } from "./commands/CreateReplicationConfigCommand";
-import {
+import type {
   CreateReplicationInstanceCommandInput,
   CreateReplicationInstanceCommandOutput,
 } from "./commands/CreateReplicationInstanceCommand";
-import {
+import type {
   CreateReplicationSubnetGroupCommandInput,
   CreateReplicationSubnetGroupCommandOutput,
 } from "./commands/CreateReplicationSubnetGroupCommand";
-import {
+import type {
   CreateReplicationTaskCommandInput,
   CreateReplicationTaskCommandOutput,
 } from "./commands/CreateReplicationTaskCommand";
-import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
-import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
-import {
+import type {
+  DeleteCertificateCommandInput,
+  DeleteCertificateCommandOutput,
+} from "./commands/DeleteCertificateCommand";
+import type { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import type {
   DeleteDataMigrationCommandInput,
   DeleteDataMigrationCommandOutput,
 } from "./commands/DeleteDataMigrationCommand";
-import { DeleteDataProviderCommandInput, DeleteDataProviderCommandOutput } from "./commands/DeleteDataProviderCommand";
-import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
-import {
+import type {
+  DeleteDataProviderCommandInput,
+  DeleteDataProviderCommandOutput,
+} from "./commands/DeleteDataProviderCommand";
+import type { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
+import type {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
-import {
+import type {
   DeleteFleetAdvisorCollectorCommandInput,
   DeleteFleetAdvisorCollectorCommandOutput,
 } from "./commands/DeleteFleetAdvisorCollectorCommand";
-import {
+import type {
   DeleteFleetAdvisorDatabasesCommandInput,
   DeleteFleetAdvisorDatabasesCommandOutput,
 } from "./commands/DeleteFleetAdvisorDatabasesCommand";
-import {
+import type {
   DeleteInstanceProfileCommandInput,
   DeleteInstanceProfileCommandOutput,
 } from "./commands/DeleteInstanceProfileCommand";
-import {
+import type {
   DeleteMigrationProjectCommandInput,
   DeleteMigrationProjectCommandOutput,
 } from "./commands/DeleteMigrationProjectCommand";
-import {
+import type {
   DeleteReplicationConfigCommandInput,
   DeleteReplicationConfigCommandOutput,
 } from "./commands/DeleteReplicationConfigCommand";
-import {
+import type {
   DeleteReplicationInstanceCommandInput,
   DeleteReplicationInstanceCommandOutput,
 } from "./commands/DeleteReplicationInstanceCommand";
-import {
+import type {
   DeleteReplicationSubnetGroupCommandInput,
   DeleteReplicationSubnetGroupCommandOutput,
 } from "./commands/DeleteReplicationSubnetGroupCommand";
-import {
+import type {
   DeleteReplicationTaskAssessmentRunCommandInput,
   DeleteReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/DeleteReplicationTaskAssessmentRunCommand";
-import {
+import type {
   DeleteReplicationTaskCommandInput,
   DeleteReplicationTaskCommandOutput,
 } from "./commands/DeleteReplicationTaskCommand";
-import {
+import type {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
-import {
+import type {
   DescribeApplicableIndividualAssessmentsCommandInput,
   DescribeApplicableIndividualAssessmentsCommandOutput,
 } from "./commands/DescribeApplicableIndividualAssessmentsCommand";
-import {
+import type {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand";
-import {
+import type {
   DescribeConnectionsCommandInput,
   DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand";
-import {
+import type {
   DescribeConversionConfigurationCommandInput,
   DescribeConversionConfigurationCommandOutput,
 } from "./commands/DescribeConversionConfigurationCommand";
-import {
+import type {
   DescribeDataMigrationsCommandInput,
   DescribeDataMigrationsCommandOutput,
 } from "./commands/DescribeDataMigrationsCommand";
-import {
+import type {
   DescribeDataProvidersCommandInput,
   DescribeDataProvidersCommandOutput,
 } from "./commands/DescribeDataProvidersCommand";
-import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand";
-import {
+import type {
+  DescribeEndpointsCommandInput,
+  DescribeEndpointsCommandOutput,
+} from "./commands/DescribeEndpointsCommand";
+import type {
   DescribeEndpointSettingsCommandInput,
   DescribeEndpointSettingsCommandOutput,
 } from "./commands/DescribeEndpointSettingsCommand";
-import {
+import type {
   DescribeEndpointTypesCommandInput,
   DescribeEndpointTypesCommandOutput,
 } from "./commands/DescribeEndpointTypesCommand";
-import {
+import type {
   DescribeEngineVersionsCommandInput,
   DescribeEngineVersionsCommandOutput,
 } from "./commands/DescribeEngineVersionsCommand";
-import {
+import type {
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
-import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
-import {
+import type { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
+import type {
   DescribeEventSubscriptionsCommandInput,
   DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
-import {
+import type {
   DescribeExtensionPackAssociationsCommandInput,
   DescribeExtensionPackAssociationsCommandOutput,
 } from "./commands/DescribeExtensionPackAssociationsCommand";
-import {
+import type {
   DescribeFleetAdvisorCollectorsCommandInput,
   DescribeFleetAdvisorCollectorsCommandOutput,
 } from "./commands/DescribeFleetAdvisorCollectorsCommand";
-import {
+import type {
   DescribeFleetAdvisorDatabasesCommandInput,
   DescribeFleetAdvisorDatabasesCommandOutput,
 } from "./commands/DescribeFleetAdvisorDatabasesCommand";
-import {
+import type {
   DescribeFleetAdvisorLsaAnalysisCommandInput,
   DescribeFleetAdvisorLsaAnalysisCommandOutput,
 } from "./commands/DescribeFleetAdvisorLsaAnalysisCommand";
-import {
+import type {
   DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
   DescribeFleetAdvisorSchemaObjectSummaryCommandOutput,
 } from "./commands/DescribeFleetAdvisorSchemaObjectSummaryCommand";
-import {
+import type {
   DescribeFleetAdvisorSchemasCommandInput,
   DescribeFleetAdvisorSchemasCommandOutput,
 } from "./commands/DescribeFleetAdvisorSchemasCommand";
-import {
+import type {
   DescribeInstanceProfilesCommandInput,
   DescribeInstanceProfilesCommandOutput,
 } from "./commands/DescribeInstanceProfilesCommand";
-import {
+import type {
   DescribeMetadataModelAssessmentsCommandInput,
   DescribeMetadataModelAssessmentsCommandOutput,
 } from "./commands/DescribeMetadataModelAssessmentsCommand";
-import {
+import type {
   DescribeMetadataModelChildrenCommandInput,
   DescribeMetadataModelChildrenCommandOutput,
 } from "./commands/DescribeMetadataModelChildrenCommand";
-import {
+import type {
   DescribeMetadataModelCommandInput,
   DescribeMetadataModelCommandOutput,
 } from "./commands/DescribeMetadataModelCommand";
-import {
+import type {
   DescribeMetadataModelConversionsCommandInput,
   DescribeMetadataModelConversionsCommandOutput,
 } from "./commands/DescribeMetadataModelConversionsCommand";
-import {
+import type {
   DescribeMetadataModelCreationsCommandInput,
   DescribeMetadataModelCreationsCommandOutput,
 } from "./commands/DescribeMetadataModelCreationsCommand";
-import {
+import type {
   DescribeMetadataModelExportsAsScriptCommandInput,
   DescribeMetadataModelExportsAsScriptCommandOutput,
 } from "./commands/DescribeMetadataModelExportsAsScriptCommand";
-import {
+import type {
   DescribeMetadataModelExportsToTargetCommandInput,
   DescribeMetadataModelExportsToTargetCommandOutput,
 } from "./commands/DescribeMetadataModelExportsToTargetCommand";
-import {
+import type {
   DescribeMetadataModelImportsCommandInput,
   DescribeMetadataModelImportsCommandOutput,
 } from "./commands/DescribeMetadataModelImportsCommand";
-import {
+import type {
   DescribeMigrationProjectsCommandInput,
   DescribeMigrationProjectsCommandOutput,
 } from "./commands/DescribeMigrationProjectsCommand";
-import {
+import type {
   DescribeOrderableReplicationInstancesCommandInput,
   DescribeOrderableReplicationInstancesCommandOutput,
 } from "./commands/DescribeOrderableReplicationInstancesCommand";
-import {
+import type {
   DescribePendingMaintenanceActionsCommandInput,
   DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand";
-import {
+import type {
   DescribeRecommendationLimitationsCommandInput,
   DescribeRecommendationLimitationsCommandOutput,
 } from "./commands/DescribeRecommendationLimitationsCommand";
-import {
+import type {
   DescribeRecommendationsCommandInput,
   DescribeRecommendationsCommandOutput,
 } from "./commands/DescribeRecommendationsCommand";
-import {
+import type {
   DescribeRefreshSchemasStatusCommandInput,
   DescribeRefreshSchemasStatusCommandOutput,
 } from "./commands/DescribeRefreshSchemasStatusCommand";
-import {
+import type {
   DescribeReplicationConfigsCommandInput,
   DescribeReplicationConfigsCommandOutput,
 } from "./commands/DescribeReplicationConfigsCommand";
-import {
+import type {
   DescribeReplicationInstancesCommandInput,
   DescribeReplicationInstancesCommandOutput,
 } from "./commands/DescribeReplicationInstancesCommand";
-import {
+import type {
   DescribeReplicationInstanceTaskLogsCommandInput,
   DescribeReplicationInstanceTaskLogsCommandOutput,
 } from "./commands/DescribeReplicationInstanceTaskLogsCommand";
-import {
+import type {
   DescribeReplicationsCommandInput,
   DescribeReplicationsCommandOutput,
 } from "./commands/DescribeReplicationsCommand";
-import {
+import type {
   DescribeReplicationSubnetGroupsCommandInput,
   DescribeReplicationSubnetGroupsCommandOutput,
 } from "./commands/DescribeReplicationSubnetGroupsCommand";
-import {
+import type {
   DescribeReplicationTableStatisticsCommandInput,
   DescribeReplicationTableStatisticsCommandOutput,
 } from "./commands/DescribeReplicationTableStatisticsCommand";
-import {
+import type {
   DescribeReplicationTaskAssessmentResultsCommandInput,
   DescribeReplicationTaskAssessmentResultsCommandOutput,
 } from "./commands/DescribeReplicationTaskAssessmentResultsCommand";
-import {
+import type {
   DescribeReplicationTaskAssessmentRunsCommandInput,
   DescribeReplicationTaskAssessmentRunsCommandOutput,
 } from "./commands/DescribeReplicationTaskAssessmentRunsCommand";
-import {
+import type {
   DescribeReplicationTaskIndividualAssessmentsCommandInput,
   DescribeReplicationTaskIndividualAssessmentsCommandOutput,
 } from "./commands/DescribeReplicationTaskIndividualAssessmentsCommand";
-import {
+import type {
   DescribeReplicationTasksCommandInput,
   DescribeReplicationTasksCommandOutput,
 } from "./commands/DescribeReplicationTasksCommand";
-import { DescribeSchemasCommandInput, DescribeSchemasCommandOutput } from "./commands/DescribeSchemasCommand";
-import {
+import type { DescribeSchemasCommandInput, DescribeSchemasCommandOutput } from "./commands/DescribeSchemasCommand";
+import type {
   DescribeTableStatisticsCommandInput,
   DescribeTableStatisticsCommandOutput,
 } from "./commands/DescribeTableStatisticsCommand";
-import {
+import type {
   ExportMetadataModelAssessmentCommandInput,
   ExportMetadataModelAssessmentCommandOutput,
 } from "./commands/ExportMetadataModelAssessmentCommand";
-import {
+import type {
   GetTargetSelectionRulesCommandInput,
   GetTargetSelectionRulesCommandOutput,
 } from "./commands/GetTargetSelectionRulesCommand";
-import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand";
-import {
+import type {
+  ImportCertificateCommandInput,
+  ImportCertificateCommandOutput,
+} from "./commands/ImportCertificateCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ModifyConversionConfigurationCommandInput,
   ModifyConversionConfigurationCommandOutput,
 } from "./commands/ModifyConversionConfigurationCommand";
-import {
+import type {
   ModifyDataMigrationCommandInput,
   ModifyDataMigrationCommandOutput,
 } from "./commands/ModifyDataMigrationCommand";
-import { ModifyDataProviderCommandInput, ModifyDataProviderCommandOutput } from "./commands/ModifyDataProviderCommand";
-import { ModifyEndpointCommandInput, ModifyEndpointCommandOutput } from "./commands/ModifyEndpointCommand";
-import {
+import type {
+  ModifyDataProviderCommandInput,
+  ModifyDataProviderCommandOutput,
+} from "./commands/ModifyDataProviderCommand";
+import type { ModifyEndpointCommandInput, ModifyEndpointCommandOutput } from "./commands/ModifyEndpointCommand";
+import type {
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
-import {
+import type {
   ModifyInstanceProfileCommandInput,
   ModifyInstanceProfileCommandOutput,
 } from "./commands/ModifyInstanceProfileCommand";
-import {
+import type {
   ModifyMigrationProjectCommandInput,
   ModifyMigrationProjectCommandOutput,
 } from "./commands/ModifyMigrationProjectCommand";
-import {
+import type {
   ModifyReplicationConfigCommandInput,
   ModifyReplicationConfigCommandOutput,
 } from "./commands/ModifyReplicationConfigCommand";
-import {
+import type {
   ModifyReplicationInstanceCommandInput,
   ModifyReplicationInstanceCommandOutput,
 } from "./commands/ModifyReplicationInstanceCommand";
-import {
+import type {
   ModifyReplicationSubnetGroupCommandInput,
   ModifyReplicationSubnetGroupCommandOutput,
 } from "./commands/ModifyReplicationSubnetGroupCommand";
-import {
+import type {
   ModifyReplicationTaskCommandInput,
   ModifyReplicationTaskCommandOutput,
 } from "./commands/ModifyReplicationTaskCommand";
-import {
+import type {
   MoveReplicationTaskCommandInput,
   MoveReplicationTaskCommandOutput,
 } from "./commands/MoveReplicationTaskCommand";
-import {
+import type {
   RebootReplicationInstanceCommandInput,
   RebootReplicationInstanceCommandOutput,
 } from "./commands/RebootReplicationInstanceCommand";
-import { RefreshSchemasCommandInput, RefreshSchemasCommandOutput } from "./commands/RefreshSchemasCommand";
-import {
+import type { RefreshSchemasCommandInput, RefreshSchemasCommandOutput } from "./commands/RefreshSchemasCommand";
+import type {
   ReloadReplicationTablesCommandInput,
   ReloadReplicationTablesCommandOutput,
 } from "./commands/ReloadReplicationTablesCommand";
-import { ReloadTablesCommandInput, ReloadTablesCommandOutput } from "./commands/ReloadTablesCommand";
-import {
+import type { ReloadTablesCommandInput, ReloadTablesCommandOutput } from "./commands/ReloadTablesCommand";
+import type {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
-import {
+import type {
   RunFleetAdvisorLsaAnalysisCommandInput,
   RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "./commands/RunFleetAdvisorLsaAnalysisCommand";
-import { StartDataMigrationCommandInput, StartDataMigrationCommandOutput } from "./commands/StartDataMigrationCommand";
-import {
+import type {
+  StartDataMigrationCommandInput,
+  StartDataMigrationCommandOutput,
+} from "./commands/StartDataMigrationCommand";
+import type {
   StartExtensionPackAssociationCommandInput,
   StartExtensionPackAssociationCommandOutput,
 } from "./commands/StartExtensionPackAssociationCommand";
-import {
+import type {
   StartMetadataModelAssessmentCommandInput,
   StartMetadataModelAssessmentCommandOutput,
 } from "./commands/StartMetadataModelAssessmentCommand";
-import {
+import type {
   StartMetadataModelConversionCommandInput,
   StartMetadataModelConversionCommandOutput,
 } from "./commands/StartMetadataModelConversionCommand";
-import {
+import type {
   StartMetadataModelCreationCommandInput,
   StartMetadataModelCreationCommandOutput,
 } from "./commands/StartMetadataModelCreationCommand";
-import {
+import type {
   StartMetadataModelExportAsScriptCommandInput,
   StartMetadataModelExportAsScriptCommandOutput,
 } from "./commands/StartMetadataModelExportAsScriptCommand";
-import {
+import type {
   StartMetadataModelExportToTargetCommandInput,
   StartMetadataModelExportToTargetCommandOutput,
 } from "./commands/StartMetadataModelExportToTargetCommand";
-import {
+import type {
   StartMetadataModelImportCommandInput,
   StartMetadataModelImportCommandOutput,
 } from "./commands/StartMetadataModelImportCommand";
-import {
+import type {
   StartRecommendationsCommandInput,
   StartRecommendationsCommandOutput,
 } from "./commands/StartRecommendationsCommand";
-import { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
-import {
+import type { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
+import type {
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
 } from "./commands/StartReplicationTaskAssessmentCommand";
-import {
+import type {
   StartReplicationTaskAssessmentRunCommandInput,
   StartReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/StartReplicationTaskAssessmentRunCommand";
-import {
+import type {
   StartReplicationTaskCommandInput,
   StartReplicationTaskCommandOutput,
 } from "./commands/StartReplicationTaskCommand";
-import { StopDataMigrationCommandInput, StopDataMigrationCommandOutput } from "./commands/StopDataMigrationCommand";
-import { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
-import {
+import type {
+  StopDataMigrationCommandInput,
+  StopDataMigrationCommandOutput,
+} from "./commands/StopDataMigrationCommand";
+import type { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
+import type {
   StopReplicationTaskCommandInput,
   StopReplicationTaskCommandOutput,
 } from "./commands/StopReplicationTaskCommand";
-import { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
-import {
+import type { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
+import type {
   UpdateSubscriptionsToEventBridgeCommandInput,
   UpdateSubscriptionsToEventBridgeCommandOutput,
 } from "./commands/UpdateSubscriptionsToEventBridgeCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -852,7 +877,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

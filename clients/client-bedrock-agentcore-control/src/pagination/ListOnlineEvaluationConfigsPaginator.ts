@@ -8,7 +8,7 @@ import {
   ListOnlineEvaluationConfigsCommandInput,
   ListOnlineEvaluationConfigsCommandOutput,
 } from "../commands/ListOnlineEvaluationConfigsCommand";
-import { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

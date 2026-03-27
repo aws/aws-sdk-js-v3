@@ -8,7 +8,7 @@ import {
   ListBatchLoadTasksCommandOutput,
 } from "../commands/ListBatchLoadTasksCommand";
 import { TimestreamWriteClient } from "../TimestreamWriteClient";
-import { TimestreamWritePaginationConfiguration } from "./Interfaces";
+import type { TimestreamWritePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

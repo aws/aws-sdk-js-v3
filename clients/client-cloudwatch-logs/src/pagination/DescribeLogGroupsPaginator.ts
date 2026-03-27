@@ -8,7 +8,7 @@ import {
   DescribeLogGroupsCommandInput,
   DescribeLogGroupsCommandOutput,
 } from "../commands/DescribeLogGroupsCommand";
-import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

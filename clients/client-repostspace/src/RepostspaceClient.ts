@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,38 +61,38 @@ import {
   defaultRepostspaceHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchAddChannelRoleToAccessorsCommandInput,
   BatchAddChannelRoleToAccessorsCommandOutput,
 } from "./commands/BatchAddChannelRoleToAccessorsCommand";
-import { BatchAddRoleCommandInput, BatchAddRoleCommandOutput } from "./commands/BatchAddRoleCommand";
-import {
+import type { BatchAddRoleCommandInput, BatchAddRoleCommandOutput } from "./commands/BatchAddRoleCommand";
+import type {
   BatchRemoveChannelRoleFromAccessorsCommandInput,
   BatchRemoveChannelRoleFromAccessorsCommandOutput,
 } from "./commands/BatchRemoveChannelRoleFromAccessorsCommand";
-import { BatchRemoveRoleCommandInput, BatchRemoveRoleCommandOutput } from "./commands/BatchRemoveRoleCommand";
-import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
-import { CreateSpaceCommandInput, CreateSpaceCommandOutput } from "./commands/CreateSpaceCommand";
-import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
-import { DeregisterAdminCommandInput, DeregisterAdminCommandOutput } from "./commands/DeregisterAdminCommand";
-import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
-import { GetSpaceCommandInput, GetSpaceCommandOutput } from "./commands/GetSpaceCommand";
-import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
-import { ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
-import {
+import type { BatchRemoveRoleCommandInput, BatchRemoveRoleCommandOutput } from "./commands/BatchRemoveRoleCommand";
+import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import type { CreateSpaceCommandInput, CreateSpaceCommandOutput } from "./commands/CreateSpaceCommand";
+import type { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
+import type { DeregisterAdminCommandInput, DeregisterAdminCommandOutput } from "./commands/DeregisterAdminCommand";
+import type { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
+import type { GetSpaceCommandInput, GetSpaceCommandOutput } from "./commands/GetSpaceCommand";
+import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import type { ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RegisterAdminCommandInput, RegisterAdminCommandOutput } from "./commands/RegisterAdminCommand";
-import { SendInvitesCommandInput, SendInvitesCommandOutput } from "./commands/SendInvitesCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
-import { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
+import type { RegisterAdminCommandInput, RegisterAdminCommandOutput } from "./commands/RegisterAdminCommand";
+import type { SendInvitesCommandInput, SendInvitesCommandOutput } from "./commands/SendInvitesCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import type { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -264,7 +262,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

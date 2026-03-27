@@ -8,7 +8,7 @@ import {
   ListAttendeesCommandInput,
   ListAttendeesCommandOutput,
 } from "../commands/ListAttendeesCommand";
-import { ChimeSDKMeetingsPaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKMeetingsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

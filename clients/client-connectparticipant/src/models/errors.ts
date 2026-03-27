@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConnectParticipantServiceException as __BaseException } from "./ConnectParticipantServiceException";
-import { ResourceType } from "./enums";
+import type { ResourceType } from "./enums";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>

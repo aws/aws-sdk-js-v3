@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,158 +61,161 @@ import {
   defaultTranscribeHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateCallAnalyticsCategoryCommandInput,
   CreateCallAnalyticsCategoryCommandOutput,
 } from "./commands/CreateCallAnalyticsCategoryCommand";
-import {
+import type {
   CreateLanguageModelCommandInput,
   CreateLanguageModelCommandOutput,
 } from "./commands/CreateLanguageModelCommand";
-import {
+import type {
   CreateMedicalVocabularyCommandInput,
   CreateMedicalVocabularyCommandOutput,
 } from "./commands/CreateMedicalVocabularyCommand";
-import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "./commands/CreateVocabularyCommand";
-import {
+import type { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "./commands/CreateVocabularyCommand";
+import type {
   CreateVocabularyFilterCommandInput,
   CreateVocabularyFilterCommandOutput,
 } from "./commands/CreateVocabularyFilterCommand";
-import {
+import type {
   DeleteCallAnalyticsCategoryCommandInput,
   DeleteCallAnalyticsCategoryCommandOutput,
 } from "./commands/DeleteCallAnalyticsCategoryCommand";
-import {
+import type {
   DeleteCallAnalyticsJobCommandInput,
   DeleteCallAnalyticsJobCommandOutput,
 } from "./commands/DeleteCallAnalyticsJobCommand";
-import {
+import type {
   DeleteLanguageModelCommandInput,
   DeleteLanguageModelCommandOutput,
 } from "./commands/DeleteLanguageModelCommand";
-import {
+import type {
   DeleteMedicalScribeJobCommandInput,
   DeleteMedicalScribeJobCommandOutput,
 } from "./commands/DeleteMedicalScribeJobCommand";
-import {
+import type {
   DeleteMedicalTranscriptionJobCommandInput,
   DeleteMedicalTranscriptionJobCommandOutput,
 } from "./commands/DeleteMedicalTranscriptionJobCommand";
-import {
+import type {
   DeleteMedicalVocabularyCommandInput,
   DeleteMedicalVocabularyCommandOutput,
 } from "./commands/DeleteMedicalVocabularyCommand";
-import {
+import type {
   DeleteTranscriptionJobCommandInput,
   DeleteTranscriptionJobCommandOutput,
 } from "./commands/DeleteTranscriptionJobCommand";
-import { DeleteVocabularyCommandInput, DeleteVocabularyCommandOutput } from "./commands/DeleteVocabularyCommand";
-import {
+import type { DeleteVocabularyCommandInput, DeleteVocabularyCommandOutput } from "./commands/DeleteVocabularyCommand";
+import type {
   DeleteVocabularyFilterCommandInput,
   DeleteVocabularyFilterCommandOutput,
 } from "./commands/DeleteVocabularyFilterCommand";
-import {
+import type {
   DescribeLanguageModelCommandInput,
   DescribeLanguageModelCommandOutput,
 } from "./commands/DescribeLanguageModelCommand";
-import {
+import type {
   GetCallAnalyticsCategoryCommandInput,
   GetCallAnalyticsCategoryCommandOutput,
 } from "./commands/GetCallAnalyticsCategoryCommand";
-import {
+import type {
   GetCallAnalyticsJobCommandInput,
   GetCallAnalyticsJobCommandOutput,
 } from "./commands/GetCallAnalyticsJobCommand";
-import {
+import type {
   GetMedicalScribeJobCommandInput,
   GetMedicalScribeJobCommandOutput,
 } from "./commands/GetMedicalScribeJobCommand";
-import {
+import type {
   GetMedicalTranscriptionJobCommandInput,
   GetMedicalTranscriptionJobCommandOutput,
 } from "./commands/GetMedicalTranscriptionJobCommand";
-import {
+import type {
   GetMedicalVocabularyCommandInput,
   GetMedicalVocabularyCommandOutput,
 } from "./commands/GetMedicalVocabularyCommand";
-import {
+import type {
   GetTranscriptionJobCommandInput,
   GetTranscriptionJobCommandOutput,
 } from "./commands/GetTranscriptionJobCommand";
-import { GetVocabularyCommandInput, GetVocabularyCommandOutput } from "./commands/GetVocabularyCommand";
-import {
+import type { GetVocabularyCommandInput, GetVocabularyCommandOutput } from "./commands/GetVocabularyCommand";
+import type {
   GetVocabularyFilterCommandInput,
   GetVocabularyFilterCommandOutput,
 } from "./commands/GetVocabularyFilterCommand";
-import {
+import type {
   ListCallAnalyticsCategoriesCommandInput,
   ListCallAnalyticsCategoriesCommandOutput,
 } from "./commands/ListCallAnalyticsCategoriesCommand";
-import {
+import type {
   ListCallAnalyticsJobsCommandInput,
   ListCallAnalyticsJobsCommandOutput,
 } from "./commands/ListCallAnalyticsJobsCommand";
-import { ListLanguageModelsCommandInput, ListLanguageModelsCommandOutput } from "./commands/ListLanguageModelsCommand";
-import {
+import type {
+  ListLanguageModelsCommandInput,
+  ListLanguageModelsCommandOutput,
+} from "./commands/ListLanguageModelsCommand";
+import type {
   ListMedicalScribeJobsCommandInput,
   ListMedicalScribeJobsCommandOutput,
 } from "./commands/ListMedicalScribeJobsCommand";
-import {
+import type {
   ListMedicalTranscriptionJobsCommandInput,
   ListMedicalTranscriptionJobsCommandOutput,
 } from "./commands/ListMedicalTranscriptionJobsCommand";
-import {
+import type {
   ListMedicalVocabulariesCommandInput,
   ListMedicalVocabulariesCommandOutput,
 } from "./commands/ListMedicalVocabulariesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTranscriptionJobsCommandInput,
   ListTranscriptionJobsCommandOutput,
 } from "./commands/ListTranscriptionJobsCommand";
-import { ListVocabulariesCommandInput, ListVocabulariesCommandOutput } from "./commands/ListVocabulariesCommand";
-import {
+import type { ListVocabulariesCommandInput, ListVocabulariesCommandOutput } from "./commands/ListVocabulariesCommand";
+import type {
   ListVocabularyFiltersCommandInput,
   ListVocabularyFiltersCommandOutput,
 } from "./commands/ListVocabularyFiltersCommand";
-import {
+import type {
   StartCallAnalyticsJobCommandInput,
   StartCallAnalyticsJobCommandOutput,
 } from "./commands/StartCallAnalyticsJobCommand";
-import {
+import type {
   StartMedicalScribeJobCommandInput,
   StartMedicalScribeJobCommandOutput,
 } from "./commands/StartMedicalScribeJobCommand";
-import {
+import type {
   StartMedicalTranscriptionJobCommandInput,
   StartMedicalTranscriptionJobCommandOutput,
 } from "./commands/StartMedicalTranscriptionJobCommand";
-import {
+import type {
   StartTranscriptionJobCommandInput,
   StartTranscriptionJobCommandOutput,
 } from "./commands/StartTranscriptionJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateCallAnalyticsCategoryCommandInput,
   UpdateCallAnalyticsCategoryCommandOutput,
 } from "./commands/UpdateCallAnalyticsCategoryCommand";
-import {
+import type {
   UpdateMedicalVocabularyCommandInput,
   UpdateMedicalVocabularyCommandOutput,
 } from "./commands/UpdateMedicalVocabularyCommand";
-import { UpdateVocabularyCommandInput, UpdateVocabularyCommandOutput } from "./commands/UpdateVocabularyCommand";
-import {
+import type { UpdateVocabularyCommandInput, UpdateVocabularyCommandOutput } from "./commands/UpdateVocabularyCommand";
+import type {
   UpdateVocabularyFilterCommandInput,
   UpdateVocabularyFilterCommandOutput,
 } from "./commands/UpdateVocabularyFilterCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -432,7 +433,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

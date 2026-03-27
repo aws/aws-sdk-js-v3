@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CloudHSMV2Client } from "../CloudHSMV2Client";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
-import { CloudHSMV2PaginationConfiguration } from "./Interfaces";
+import type { CloudHSMV2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

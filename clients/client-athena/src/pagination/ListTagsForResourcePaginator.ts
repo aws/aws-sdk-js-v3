@@ -8,7 +8,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import { AthenaPaginationConfiguration } from "./Interfaces";
+import type { AthenaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

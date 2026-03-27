@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListPresetsCommand, ListPresetsCommandInput, ListPresetsCommandOutput } from "../commands/ListPresetsCommand";
 import { MediaConvertClient } from "../MediaConvertClient";
-import { MediaConvertPaginationConfiguration } from "./Interfaces";
+import type { MediaConvertPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

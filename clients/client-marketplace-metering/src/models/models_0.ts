@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { UsageRecordResultStatus } from "./enums";
+import type { UsageRecordResultStatus } from "./enums";
 
 /**
  * <p>Metadata assigned to an allocation. Each tag is made up of a <code>key</code> and a

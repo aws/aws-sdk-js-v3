@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,140 +61,152 @@ import {
   defaultNeptunedataHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelGremlinQueryCommandInput, CancelGremlinQueryCommandOutput } from "./commands/CancelGremlinQueryCommand";
-import { CancelLoaderJobCommandInput, CancelLoaderJobCommandOutput } from "./commands/CancelLoaderJobCommand";
-import {
+import type {
+  CancelGremlinQueryCommandInput,
+  CancelGremlinQueryCommandOutput,
+} from "./commands/CancelGremlinQueryCommand";
+import type { CancelLoaderJobCommandInput, CancelLoaderJobCommandOutput } from "./commands/CancelLoaderJobCommand";
+import type {
   CancelMLDataProcessingJobCommandInput,
   CancelMLDataProcessingJobCommandOutput,
 } from "./commands/CancelMLDataProcessingJobCommand";
-import {
+import type {
   CancelMLModelTrainingJobCommandInput,
   CancelMLModelTrainingJobCommandOutput,
 } from "./commands/CancelMLModelTrainingJobCommand";
-import {
+import type {
   CancelMLModelTransformJobCommandInput,
   CancelMLModelTransformJobCommandOutput,
 } from "./commands/CancelMLModelTransformJobCommand";
-import {
+import type {
   CancelOpenCypherQueryCommandInput,
   CancelOpenCypherQueryCommandOutput,
 } from "./commands/CancelOpenCypherQueryCommand";
-import { CreateMLEndpointCommandInput, CreateMLEndpointCommandOutput } from "./commands/CreateMLEndpointCommand";
-import { DeleteMLEndpointCommandInput, DeleteMLEndpointCommandOutput } from "./commands/DeleteMLEndpointCommand";
-import {
+import type { CreateMLEndpointCommandInput, CreateMLEndpointCommandOutput } from "./commands/CreateMLEndpointCommand";
+import type { DeleteMLEndpointCommandInput, DeleteMLEndpointCommandOutput } from "./commands/DeleteMLEndpointCommand";
+import type {
   DeletePropertygraphStatisticsCommandInput,
   DeletePropertygraphStatisticsCommandOutput,
 } from "./commands/DeletePropertygraphStatisticsCommand";
-import {
+import type {
   DeleteSparqlStatisticsCommandInput,
   DeleteSparqlStatisticsCommandOutput,
 } from "./commands/DeleteSparqlStatisticsCommand";
-import { ExecuteFastResetCommandInput, ExecuteFastResetCommandOutput } from "./commands/ExecuteFastResetCommand";
-import {
+import type { ExecuteFastResetCommandInput, ExecuteFastResetCommandOutput } from "./commands/ExecuteFastResetCommand";
+import type {
   ExecuteGremlinExplainQueryCommandInput,
   ExecuteGremlinExplainQueryCommandOutput,
 } from "./commands/ExecuteGremlinExplainQueryCommand";
-import {
+import type {
   ExecuteGremlinProfileQueryCommandInput,
   ExecuteGremlinProfileQueryCommandOutput,
 } from "./commands/ExecuteGremlinProfileQueryCommand";
-import {
+import type {
   ExecuteGremlinQueryCommandInput,
   ExecuteGremlinQueryCommandOutput,
 } from "./commands/ExecuteGremlinQueryCommand";
-import {
+import type {
   ExecuteOpenCypherExplainQueryCommandInput,
   ExecuteOpenCypherExplainQueryCommandOutput,
 } from "./commands/ExecuteOpenCypherExplainQueryCommand";
-import {
+import type {
   ExecuteOpenCypherQueryCommandInput,
   ExecuteOpenCypherQueryCommandOutput,
 } from "./commands/ExecuteOpenCypherQueryCommand";
-import { GetEngineStatusCommandInput, GetEngineStatusCommandOutput } from "./commands/GetEngineStatusCommand";
-import {
+import type { GetEngineStatusCommandInput, GetEngineStatusCommandOutput } from "./commands/GetEngineStatusCommand";
+import type {
   GetGremlinQueryStatusCommandInput,
   GetGremlinQueryStatusCommandOutput,
 } from "./commands/GetGremlinQueryStatusCommand";
-import { GetLoaderJobStatusCommandInput, GetLoaderJobStatusCommandOutput } from "./commands/GetLoaderJobStatusCommand";
-import {
+import type {
+  GetLoaderJobStatusCommandInput,
+  GetLoaderJobStatusCommandOutput,
+} from "./commands/GetLoaderJobStatusCommand";
+import type {
   GetMLDataProcessingJobCommandInput,
   GetMLDataProcessingJobCommandOutput,
 } from "./commands/GetMLDataProcessingJobCommand";
-import { GetMLEndpointCommandInput, GetMLEndpointCommandOutput } from "./commands/GetMLEndpointCommand";
-import {
+import type { GetMLEndpointCommandInput, GetMLEndpointCommandOutput } from "./commands/GetMLEndpointCommand";
+import type {
   GetMLModelTrainingJobCommandInput,
   GetMLModelTrainingJobCommandOutput,
 } from "./commands/GetMLModelTrainingJobCommand";
-import {
+import type {
   GetMLModelTransformJobCommandInput,
   GetMLModelTransformJobCommandOutput,
 } from "./commands/GetMLModelTransformJobCommand";
-import {
+import type {
   GetOpenCypherQueryStatusCommandInput,
   GetOpenCypherQueryStatusCommandOutput,
 } from "./commands/GetOpenCypherQueryStatusCommand";
-import {
+import type {
   GetPropertygraphStatisticsCommandInput,
   GetPropertygraphStatisticsCommandOutput,
 } from "./commands/GetPropertygraphStatisticsCommand";
-import {
+import type {
   GetPropertygraphStreamCommandInput,
   GetPropertygraphStreamCommandOutput,
 } from "./commands/GetPropertygraphStreamCommand";
-import {
+import type {
   GetPropertygraphSummaryCommandInput,
   GetPropertygraphSummaryCommandOutput,
 } from "./commands/GetPropertygraphSummaryCommand";
-import { GetRDFGraphSummaryCommandInput, GetRDFGraphSummaryCommandOutput } from "./commands/GetRDFGraphSummaryCommand";
-import {
+import type {
+  GetRDFGraphSummaryCommandInput,
+  GetRDFGraphSummaryCommandOutput,
+} from "./commands/GetRDFGraphSummaryCommand";
+import type {
   GetSparqlStatisticsCommandInput,
   GetSparqlStatisticsCommandOutput,
 } from "./commands/GetSparqlStatisticsCommand";
-import { GetSparqlStreamCommandInput, GetSparqlStreamCommandOutput } from "./commands/GetSparqlStreamCommand";
-import { ListGremlinQueriesCommandInput, ListGremlinQueriesCommandOutput } from "./commands/ListGremlinQueriesCommand";
-import { ListLoaderJobsCommandInput, ListLoaderJobsCommandOutput } from "./commands/ListLoaderJobsCommand";
-import {
+import type { GetSparqlStreamCommandInput, GetSparqlStreamCommandOutput } from "./commands/GetSparqlStreamCommand";
+import type {
+  ListGremlinQueriesCommandInput,
+  ListGremlinQueriesCommandOutput,
+} from "./commands/ListGremlinQueriesCommand";
+import type { ListLoaderJobsCommandInput, ListLoaderJobsCommandOutput } from "./commands/ListLoaderJobsCommand";
+import type {
   ListMLDataProcessingJobsCommandInput,
   ListMLDataProcessingJobsCommandOutput,
 } from "./commands/ListMLDataProcessingJobsCommand";
-import { ListMLEndpointsCommandInput, ListMLEndpointsCommandOutput } from "./commands/ListMLEndpointsCommand";
-import {
+import type { ListMLEndpointsCommandInput, ListMLEndpointsCommandOutput } from "./commands/ListMLEndpointsCommand";
+import type {
   ListMLModelTrainingJobsCommandInput,
   ListMLModelTrainingJobsCommandOutput,
 } from "./commands/ListMLModelTrainingJobsCommand";
-import {
+import type {
   ListMLModelTransformJobsCommandInput,
   ListMLModelTransformJobsCommandOutput,
 } from "./commands/ListMLModelTransformJobsCommand";
-import {
+import type {
   ListOpenCypherQueriesCommandInput,
   ListOpenCypherQueriesCommandOutput,
 } from "./commands/ListOpenCypherQueriesCommand";
-import {
+import type {
   ManagePropertygraphStatisticsCommandInput,
   ManagePropertygraphStatisticsCommandOutput,
 } from "./commands/ManagePropertygraphStatisticsCommand";
-import {
+import type {
   ManageSparqlStatisticsCommandInput,
   ManageSparqlStatisticsCommandOutput,
 } from "./commands/ManageSparqlStatisticsCommand";
-import { StartLoaderJobCommandInput, StartLoaderJobCommandOutput } from "./commands/StartLoaderJobCommand";
-import {
+import type { StartLoaderJobCommandInput, StartLoaderJobCommandOutput } from "./commands/StartLoaderJobCommand";
+import type {
   StartMLDataProcessingJobCommandInput,
   StartMLDataProcessingJobCommandOutput,
 } from "./commands/StartMLDataProcessingJobCommand";
-import {
+import type {
   StartMLModelTrainingJobCommandInput,
   StartMLModelTrainingJobCommandOutput,
 } from "./commands/StartMLModelTrainingJobCommand";
-import {
+import type {
   StartMLModelTransformJobCommandInput,
   StartMLModelTransformJobCommandOutput,
 } from "./commands/StartMLModelTransformJobCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -414,7 +424,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

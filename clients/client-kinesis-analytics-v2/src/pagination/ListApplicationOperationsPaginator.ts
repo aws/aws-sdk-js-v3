@@ -8,7 +8,7 @@ import {
   ListApplicationOperationsCommandOutput,
 } from "../commands/ListApplicationOperationsCommand";
 import { KinesisAnalyticsV2Client } from "../KinesisAnalyticsV2Client";
-import { KinesisAnalyticsV2PaginationConfiguration } from "./Interfaces";
+import type { KinesisAnalyticsV2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

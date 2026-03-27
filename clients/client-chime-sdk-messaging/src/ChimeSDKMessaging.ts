@@ -4,255 +4,259 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ChimeSDKMessagingClient } from "./ChimeSDKMessagingClient";
 import {
+  type AssociateChannelFlowCommandInput,
+  type AssociateChannelFlowCommandOutput,
   AssociateChannelFlowCommand,
-  AssociateChannelFlowCommandInput,
-  AssociateChannelFlowCommandOutput,
 } from "./commands/AssociateChannelFlowCommand";
 import {
+  type BatchCreateChannelMembershipCommandInput,
+  type BatchCreateChannelMembershipCommandOutput,
   BatchCreateChannelMembershipCommand,
-  BatchCreateChannelMembershipCommandInput,
-  BatchCreateChannelMembershipCommandOutput,
 } from "./commands/BatchCreateChannelMembershipCommand";
 import {
+  type ChannelFlowCallbackCommandInput,
+  type ChannelFlowCallbackCommandOutput,
   ChannelFlowCallbackCommand,
-  ChannelFlowCallbackCommandInput,
-  ChannelFlowCallbackCommandOutput,
 } from "./commands/ChannelFlowCallbackCommand";
 import {
+  type CreateChannelBanCommandInput,
+  type CreateChannelBanCommandOutput,
   CreateChannelBanCommand,
-  CreateChannelBanCommandInput,
-  CreateChannelBanCommandOutput,
 } from "./commands/CreateChannelBanCommand";
 import {
+  type CreateChannelCommandInput,
+  type CreateChannelCommandOutput,
   CreateChannelCommand,
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  type CreateChannelFlowCommandInput,
+  type CreateChannelFlowCommandOutput,
   CreateChannelFlowCommand,
-  CreateChannelFlowCommandInput,
-  CreateChannelFlowCommandOutput,
 } from "./commands/CreateChannelFlowCommand";
 import {
+  type CreateChannelMembershipCommandInput,
+  type CreateChannelMembershipCommandOutput,
   CreateChannelMembershipCommand,
-  CreateChannelMembershipCommandInput,
-  CreateChannelMembershipCommandOutput,
 } from "./commands/CreateChannelMembershipCommand";
 import {
+  type CreateChannelModeratorCommandInput,
+  type CreateChannelModeratorCommandOutput,
   CreateChannelModeratorCommand,
-  CreateChannelModeratorCommandInput,
-  CreateChannelModeratorCommandOutput,
 } from "./commands/CreateChannelModeratorCommand";
 import {
+  type DeleteChannelBanCommandInput,
+  type DeleteChannelBanCommandOutput,
   DeleteChannelBanCommand,
-  DeleteChannelBanCommandInput,
-  DeleteChannelBanCommandOutput,
 } from "./commands/DeleteChannelBanCommand";
 import {
+  type DeleteChannelCommandInput,
+  type DeleteChannelCommandOutput,
   DeleteChannelCommand,
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
 import {
+  type DeleteChannelFlowCommandInput,
+  type DeleteChannelFlowCommandOutput,
   DeleteChannelFlowCommand,
-  DeleteChannelFlowCommandInput,
-  DeleteChannelFlowCommandOutput,
 } from "./commands/DeleteChannelFlowCommand";
 import {
+  type DeleteChannelMembershipCommandInput,
+  type DeleteChannelMembershipCommandOutput,
   DeleteChannelMembershipCommand,
-  DeleteChannelMembershipCommandInput,
-  DeleteChannelMembershipCommandOutput,
 } from "./commands/DeleteChannelMembershipCommand";
 import {
+  type DeleteChannelMessageCommandInput,
+  type DeleteChannelMessageCommandOutput,
   DeleteChannelMessageCommand,
-  DeleteChannelMessageCommandInput,
-  DeleteChannelMessageCommandOutput,
 } from "./commands/DeleteChannelMessageCommand";
 import {
+  type DeleteChannelModeratorCommandInput,
+  type DeleteChannelModeratorCommandOutput,
   DeleteChannelModeratorCommand,
-  DeleteChannelModeratorCommandInput,
-  DeleteChannelModeratorCommandOutput,
 } from "./commands/DeleteChannelModeratorCommand";
 import {
+  type DeleteMessagingStreamingConfigurationsCommandInput,
+  type DeleteMessagingStreamingConfigurationsCommandOutput,
   DeleteMessagingStreamingConfigurationsCommand,
-  DeleteMessagingStreamingConfigurationsCommandInput,
-  DeleteMessagingStreamingConfigurationsCommandOutput,
 } from "./commands/DeleteMessagingStreamingConfigurationsCommand";
 import {
+  type DescribeChannelBanCommandInput,
+  type DescribeChannelBanCommandOutput,
   DescribeChannelBanCommand,
-  DescribeChannelBanCommandInput,
-  DescribeChannelBanCommandOutput,
 } from "./commands/DescribeChannelBanCommand";
 import {
+  type DescribeChannelCommandInput,
+  type DescribeChannelCommandOutput,
   DescribeChannelCommand,
-  DescribeChannelCommandInput,
-  DescribeChannelCommandOutput,
 } from "./commands/DescribeChannelCommand";
 import {
+  type DescribeChannelFlowCommandInput,
+  type DescribeChannelFlowCommandOutput,
   DescribeChannelFlowCommand,
-  DescribeChannelFlowCommandInput,
-  DescribeChannelFlowCommandOutput,
 } from "./commands/DescribeChannelFlowCommand";
 import {
+  type DescribeChannelMembershipCommandInput,
+  type DescribeChannelMembershipCommandOutput,
   DescribeChannelMembershipCommand,
-  DescribeChannelMembershipCommandInput,
-  DescribeChannelMembershipCommandOutput,
 } from "./commands/DescribeChannelMembershipCommand";
 import {
+  type DescribeChannelMembershipForAppInstanceUserCommandInput,
+  type DescribeChannelMembershipForAppInstanceUserCommandOutput,
   DescribeChannelMembershipForAppInstanceUserCommand,
-  DescribeChannelMembershipForAppInstanceUserCommandInput,
-  DescribeChannelMembershipForAppInstanceUserCommandOutput,
 } from "./commands/DescribeChannelMembershipForAppInstanceUserCommand";
 import {
+  type DescribeChannelModeratedByAppInstanceUserCommandInput,
+  type DescribeChannelModeratedByAppInstanceUserCommandOutput,
   DescribeChannelModeratedByAppInstanceUserCommand,
-  DescribeChannelModeratedByAppInstanceUserCommandInput,
-  DescribeChannelModeratedByAppInstanceUserCommandOutput,
 } from "./commands/DescribeChannelModeratedByAppInstanceUserCommand";
 import {
+  type DescribeChannelModeratorCommandInput,
+  type DescribeChannelModeratorCommandOutput,
   DescribeChannelModeratorCommand,
-  DescribeChannelModeratorCommandInput,
-  DescribeChannelModeratorCommandOutput,
 } from "./commands/DescribeChannelModeratorCommand";
 import {
+  type DisassociateChannelFlowCommandInput,
+  type DisassociateChannelFlowCommandOutput,
   DisassociateChannelFlowCommand,
-  DisassociateChannelFlowCommandInput,
-  DisassociateChannelFlowCommandOutput,
 } from "./commands/DisassociateChannelFlowCommand";
 import {
+  type GetChannelMembershipPreferencesCommandInput,
+  type GetChannelMembershipPreferencesCommandOutput,
   GetChannelMembershipPreferencesCommand,
-  GetChannelMembershipPreferencesCommandInput,
-  GetChannelMembershipPreferencesCommandOutput,
 } from "./commands/GetChannelMembershipPreferencesCommand";
 import {
+  type GetChannelMessageCommandInput,
+  type GetChannelMessageCommandOutput,
   GetChannelMessageCommand,
-  GetChannelMessageCommandInput,
-  GetChannelMessageCommandOutput,
 } from "./commands/GetChannelMessageCommand";
 import {
+  type GetChannelMessageStatusCommandInput,
+  type GetChannelMessageStatusCommandOutput,
   GetChannelMessageStatusCommand,
-  GetChannelMessageStatusCommandInput,
-  GetChannelMessageStatusCommandOutput,
 } from "./commands/GetChannelMessageStatusCommand";
 import {
+  type GetMessagingSessionEndpointCommandInput,
+  type GetMessagingSessionEndpointCommandOutput,
   GetMessagingSessionEndpointCommand,
-  GetMessagingSessionEndpointCommandInput,
-  GetMessagingSessionEndpointCommandOutput,
 } from "./commands/GetMessagingSessionEndpointCommand";
 import {
+  type GetMessagingStreamingConfigurationsCommandInput,
+  type GetMessagingStreamingConfigurationsCommandOutput,
   GetMessagingStreamingConfigurationsCommand,
-  GetMessagingStreamingConfigurationsCommandInput,
-  GetMessagingStreamingConfigurationsCommandOutput,
 } from "./commands/GetMessagingStreamingConfigurationsCommand";
 import {
+  type ListChannelBansCommandInput,
+  type ListChannelBansCommandOutput,
   ListChannelBansCommand,
-  ListChannelBansCommandInput,
-  ListChannelBansCommandOutput,
 } from "./commands/ListChannelBansCommand";
 import {
+  type ListChannelFlowsCommandInput,
+  type ListChannelFlowsCommandOutput,
   ListChannelFlowsCommand,
-  ListChannelFlowsCommandInput,
-  ListChannelFlowsCommandOutput,
 } from "./commands/ListChannelFlowsCommand";
 import {
+  type ListChannelMembershipsCommandInput,
+  type ListChannelMembershipsCommandOutput,
   ListChannelMembershipsCommand,
-  ListChannelMembershipsCommandInput,
-  ListChannelMembershipsCommandOutput,
 } from "./commands/ListChannelMembershipsCommand";
 import {
+  type ListChannelMembershipsForAppInstanceUserCommandInput,
+  type ListChannelMembershipsForAppInstanceUserCommandOutput,
   ListChannelMembershipsForAppInstanceUserCommand,
-  ListChannelMembershipsForAppInstanceUserCommandInput,
-  ListChannelMembershipsForAppInstanceUserCommandOutput,
 } from "./commands/ListChannelMembershipsForAppInstanceUserCommand";
 import {
+  type ListChannelMessagesCommandInput,
+  type ListChannelMessagesCommandOutput,
   ListChannelMessagesCommand,
-  ListChannelMessagesCommandInput,
-  ListChannelMessagesCommandOutput,
 } from "./commands/ListChannelMessagesCommand";
 import {
+  type ListChannelModeratorsCommandInput,
+  type ListChannelModeratorsCommandOutput,
   ListChannelModeratorsCommand,
-  ListChannelModeratorsCommandInput,
-  ListChannelModeratorsCommandOutput,
 } from "./commands/ListChannelModeratorsCommand";
 import {
+  type ListChannelsAssociatedWithChannelFlowCommandInput,
+  type ListChannelsAssociatedWithChannelFlowCommandOutput,
   ListChannelsAssociatedWithChannelFlowCommand,
-  ListChannelsAssociatedWithChannelFlowCommandInput,
-  ListChannelsAssociatedWithChannelFlowCommandOutput,
 } from "./commands/ListChannelsAssociatedWithChannelFlowCommand";
 import {
+  type ListChannelsCommandInput,
+  type ListChannelsCommandOutput,
   ListChannelsCommand,
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
 import {
+  type ListChannelsModeratedByAppInstanceUserCommandInput,
+  type ListChannelsModeratedByAppInstanceUserCommandOutput,
   ListChannelsModeratedByAppInstanceUserCommand,
-  ListChannelsModeratedByAppInstanceUserCommandInput,
-  ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "./commands/ListChannelsModeratedByAppInstanceUserCommand";
 import {
+  type ListSubChannelsCommandInput,
+  type ListSubChannelsCommandOutput,
   ListSubChannelsCommand,
-  ListSubChannelsCommandInput,
-  ListSubChannelsCommandOutput,
 } from "./commands/ListSubChannelsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutChannelExpirationSettingsCommandInput,
+  type PutChannelExpirationSettingsCommandOutput,
   PutChannelExpirationSettingsCommand,
-  PutChannelExpirationSettingsCommandInput,
-  PutChannelExpirationSettingsCommandOutput,
 } from "./commands/PutChannelExpirationSettingsCommand";
 import {
+  type PutChannelMembershipPreferencesCommandInput,
+  type PutChannelMembershipPreferencesCommandOutput,
   PutChannelMembershipPreferencesCommand,
-  PutChannelMembershipPreferencesCommandInput,
-  PutChannelMembershipPreferencesCommandOutput,
 } from "./commands/PutChannelMembershipPreferencesCommand";
 import {
+  type PutMessagingStreamingConfigurationsCommandInput,
+  type PutMessagingStreamingConfigurationsCommandOutput,
   PutMessagingStreamingConfigurationsCommand,
-  PutMessagingStreamingConfigurationsCommandInput,
-  PutMessagingStreamingConfigurationsCommandOutput,
 } from "./commands/PutMessagingStreamingConfigurationsCommand";
 import {
+  type RedactChannelMessageCommandInput,
+  type RedactChannelMessageCommandOutput,
   RedactChannelMessageCommand,
-  RedactChannelMessageCommandInput,
-  RedactChannelMessageCommandOutput,
 } from "./commands/RedactChannelMessageCommand";
 import {
+  type SearchChannelsCommandInput,
+  type SearchChannelsCommandOutput,
   SearchChannelsCommand,
-  SearchChannelsCommandInput,
-  SearchChannelsCommandOutput,
 } from "./commands/SearchChannelsCommand";
 import {
+  type SendChannelMessageCommandInput,
+  type SendChannelMessageCommandOutput,
   SendChannelMessageCommand,
-  SendChannelMessageCommandInput,
-  SendChannelMessageCommandOutput,
 } from "./commands/SendChannelMessageCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateChannelCommandInput,
+  type UpdateChannelCommandOutput,
   UpdateChannelCommand,
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import {
+  type UpdateChannelFlowCommandInput,
+  type UpdateChannelFlowCommandOutput,
   UpdateChannelFlowCommand,
-  UpdateChannelFlowCommandInput,
-  UpdateChannelFlowCommandOutput,
 } from "./commands/UpdateChannelFlowCommand";
 import {
+  type UpdateChannelMessageCommandInput,
+  type UpdateChannelMessageCommandOutput,
   UpdateChannelMessageCommand,
-  UpdateChannelMessageCommandInput,
-  UpdateChannelMessageCommandOutput,
 } from "./commands/UpdateChannelMessageCommand";
 import {
+  type UpdateChannelReadMarkerCommandInput,
+  type UpdateChannelReadMarkerCommandOutput,
   UpdateChannelReadMarkerCommand,
-  UpdateChannelReadMarkerCommandInput,
-  UpdateChannelReadMarkerCommandOutput,
 } from "./commands/UpdateChannelReadMarkerCommand";
 import { paginateListChannelBans } from "./pagination/ListChannelBansPaginator";
 import { paginateListChannelFlows } from "./pagination/ListChannelFlowsPaginator";

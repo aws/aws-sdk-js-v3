@@ -8,7 +8,7 @@ import {
   GetPropertyValueHistoryCommandOutput,
 } from "../commands/GetPropertyValueHistoryCommand";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
-import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
+import type { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

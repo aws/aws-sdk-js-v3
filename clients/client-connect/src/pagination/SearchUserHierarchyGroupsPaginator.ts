@@ -8,7 +8,7 @@ import {
   SearchUserHierarchyGroupsCommandOutput,
 } from "../commands/SearchUserHierarchyGroupsCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

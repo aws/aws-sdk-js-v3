@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type DescribeCacheClustersCommandInput,
   DescribeCacheClustersCommand,
-  DescribeCacheClustersCommandInput,
 } from "../commands/DescribeCacheClustersCommand";
-import { ElastiCacheClient } from "../ElastiCacheClient";
+import type { ElastiCacheClient } from "../ElastiCacheClient";
 
 const checkState = async (client: ElastiCacheClient, input: DescribeCacheClustersCommandInput): Promise<WaiterResult> => {
   let reason;

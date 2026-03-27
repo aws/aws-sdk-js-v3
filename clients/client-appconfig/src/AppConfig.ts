@@ -10,225 +10,229 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { AppConfigClient } from "./AppConfigClient";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateConfigurationProfileCommandInput,
+  type CreateConfigurationProfileCommandOutput,
   CreateConfigurationProfileCommand,
-  CreateConfigurationProfileCommandInput,
-  CreateConfigurationProfileCommandOutput,
 } from "./commands/CreateConfigurationProfileCommand";
 import {
+  type CreateDeploymentStrategyCommandInput,
+  type CreateDeploymentStrategyCommandOutput,
   CreateDeploymentStrategyCommand,
-  CreateDeploymentStrategyCommandInput,
-  CreateDeploymentStrategyCommandOutput,
 } from "./commands/CreateDeploymentStrategyCommand";
 import {
+  type CreateEnvironmentCommandInput,
+  type CreateEnvironmentCommandOutput,
   CreateEnvironmentCommand,
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand";
 import {
+  type CreateExtensionAssociationCommandInput,
+  type CreateExtensionAssociationCommandOutput,
   CreateExtensionAssociationCommand,
-  CreateExtensionAssociationCommandInput,
-  CreateExtensionAssociationCommandOutput,
 } from "./commands/CreateExtensionAssociationCommand";
 import {
+  type CreateExtensionCommandInput,
+  type CreateExtensionCommandOutput,
   CreateExtensionCommand,
-  CreateExtensionCommandInput,
-  CreateExtensionCommandOutput,
 } from "./commands/CreateExtensionCommand";
 import {
+  type CreateHostedConfigurationVersionCommandInput,
+  type CreateHostedConfigurationVersionCommandOutput,
   CreateHostedConfigurationVersionCommand,
-  CreateHostedConfigurationVersionCommandInput,
-  CreateHostedConfigurationVersionCommandOutput,
 } from "./commands/CreateHostedConfigurationVersionCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteConfigurationProfileCommandInput,
+  type DeleteConfigurationProfileCommandOutput,
   DeleteConfigurationProfileCommand,
-  DeleteConfigurationProfileCommandInput,
-  DeleteConfigurationProfileCommandOutput,
 } from "./commands/DeleteConfigurationProfileCommand";
 import {
+  type DeleteDeploymentStrategyCommandInput,
+  type DeleteDeploymentStrategyCommandOutput,
   DeleteDeploymentStrategyCommand,
-  DeleteDeploymentStrategyCommandInput,
-  DeleteDeploymentStrategyCommandOutput,
 } from "./commands/DeleteDeploymentStrategyCommand";
 import {
+  type DeleteEnvironmentCommandInput,
+  type DeleteEnvironmentCommandOutput,
   DeleteEnvironmentCommand,
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
 import {
+  type DeleteExtensionAssociationCommandInput,
+  type DeleteExtensionAssociationCommandOutput,
   DeleteExtensionAssociationCommand,
-  DeleteExtensionAssociationCommandInput,
-  DeleteExtensionAssociationCommandOutput,
 } from "./commands/DeleteExtensionAssociationCommand";
 import {
+  type DeleteExtensionCommandInput,
+  type DeleteExtensionCommandOutput,
   DeleteExtensionCommand,
-  DeleteExtensionCommandInput,
-  DeleteExtensionCommandOutput,
 } from "./commands/DeleteExtensionCommand";
 import {
+  type DeleteHostedConfigurationVersionCommandInput,
+  type DeleteHostedConfigurationVersionCommandOutput,
   DeleteHostedConfigurationVersionCommand,
-  DeleteHostedConfigurationVersionCommandInput,
-  DeleteHostedConfigurationVersionCommandOutput,
 } from "./commands/DeleteHostedConfigurationVersionCommand";
 import {
+  type GetAccountSettingsCommandInput,
+  type GetAccountSettingsCommandOutput,
   GetAccountSettingsCommand,
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
 import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
   GetApplicationCommand,
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  type GetConfigurationCommandInput,
+  type GetConfigurationCommandOutput,
   GetConfigurationCommand,
-  GetConfigurationCommandInput,
-  GetConfigurationCommandOutput,
 } from "./commands/GetConfigurationCommand";
 import {
+  type GetConfigurationProfileCommandInput,
+  type GetConfigurationProfileCommandOutput,
   GetConfigurationProfileCommand,
-  GetConfigurationProfileCommandInput,
-  GetConfigurationProfileCommandOutput,
 } from "./commands/GetConfigurationProfileCommand";
 import {
+  type GetDeploymentCommandInput,
+  type GetDeploymentCommandOutput,
   GetDeploymentCommand,
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput,
 } from "./commands/GetDeploymentCommand";
 import {
+  type GetDeploymentStrategyCommandInput,
+  type GetDeploymentStrategyCommandOutput,
   GetDeploymentStrategyCommand,
-  GetDeploymentStrategyCommandInput,
-  GetDeploymentStrategyCommandOutput,
 } from "./commands/GetDeploymentStrategyCommand";
 import {
+  type GetEnvironmentCommandInput,
+  type GetEnvironmentCommandOutput,
   GetEnvironmentCommand,
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
 import {
+  type GetExtensionAssociationCommandInput,
+  type GetExtensionAssociationCommandOutput,
   GetExtensionAssociationCommand,
-  GetExtensionAssociationCommandInput,
-  GetExtensionAssociationCommandOutput,
 } from "./commands/GetExtensionAssociationCommand";
 import {
+  type GetExtensionCommandInput,
+  type GetExtensionCommandOutput,
   GetExtensionCommand,
-  GetExtensionCommandInput,
-  GetExtensionCommandOutput,
 } from "./commands/GetExtensionCommand";
 import {
+  type GetHostedConfigurationVersionCommandInput,
+  type GetHostedConfigurationVersionCommandOutput,
   GetHostedConfigurationVersionCommand,
-  GetHostedConfigurationVersionCommandInput,
-  GetHostedConfigurationVersionCommandOutput,
 } from "./commands/GetHostedConfigurationVersionCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListConfigurationProfilesCommandInput,
+  type ListConfigurationProfilesCommandOutput,
   ListConfigurationProfilesCommand,
-  ListConfigurationProfilesCommandInput,
-  ListConfigurationProfilesCommandOutput,
 } from "./commands/ListConfigurationProfilesCommand";
 import {
+  type ListDeploymentsCommandInput,
+  type ListDeploymentsCommandOutput,
   ListDeploymentsCommand,
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand";
 import {
+  type ListDeploymentStrategiesCommandInput,
+  type ListDeploymentStrategiesCommandOutput,
   ListDeploymentStrategiesCommand,
-  ListDeploymentStrategiesCommandInput,
-  ListDeploymentStrategiesCommandOutput,
 } from "./commands/ListDeploymentStrategiesCommand";
 import {
+  type ListEnvironmentsCommandInput,
+  type ListEnvironmentsCommandOutput,
   ListEnvironmentsCommand,
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  type ListExtensionAssociationsCommandInput,
+  type ListExtensionAssociationsCommandOutput,
   ListExtensionAssociationsCommand,
-  ListExtensionAssociationsCommandInput,
-  ListExtensionAssociationsCommandOutput,
 } from "./commands/ListExtensionAssociationsCommand";
 import {
+  type ListExtensionsCommandInput,
+  type ListExtensionsCommandOutput,
   ListExtensionsCommand,
-  ListExtensionsCommandInput,
-  ListExtensionsCommandOutput,
 } from "./commands/ListExtensionsCommand";
 import {
+  type ListHostedConfigurationVersionsCommandInput,
+  type ListHostedConfigurationVersionsCommandOutput,
   ListHostedConfigurationVersionsCommand,
-  ListHostedConfigurationVersionsCommandInput,
-  ListHostedConfigurationVersionsCommandOutput,
 } from "./commands/ListHostedConfigurationVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartDeploymentCommandInput,
+  type StartDeploymentCommandOutput,
   StartDeploymentCommand,
-  StartDeploymentCommandInput,
-  StartDeploymentCommandOutput,
 } from "./commands/StartDeploymentCommand";
 import {
+  type StopDeploymentCommandInput,
+  type StopDeploymentCommandOutput,
   StopDeploymentCommand,
-  StopDeploymentCommandInput,
-  StopDeploymentCommandOutput,
 } from "./commands/StopDeploymentCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccountSettingsCommandInput,
+  type UpdateAccountSettingsCommandOutput,
   UpdateAccountSettingsCommand,
-  UpdateAccountSettingsCommandInput,
-  UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateConfigurationProfileCommandInput,
+  type UpdateConfigurationProfileCommandOutput,
   UpdateConfigurationProfileCommand,
-  UpdateConfigurationProfileCommandInput,
-  UpdateConfigurationProfileCommandOutput,
 } from "./commands/UpdateConfigurationProfileCommand";
 import {
+  type UpdateDeploymentStrategyCommandInput,
+  type UpdateDeploymentStrategyCommandOutput,
   UpdateDeploymentStrategyCommand,
-  UpdateDeploymentStrategyCommandInput,
-  UpdateDeploymentStrategyCommandOutput,
 } from "./commands/UpdateDeploymentStrategyCommand";
 import {
+  type UpdateEnvironmentCommandInput,
+  type UpdateEnvironmentCommandOutput,
   UpdateEnvironmentCommand,
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import {
+  type UpdateExtensionAssociationCommandInput,
+  type UpdateExtensionAssociationCommandOutput,
   UpdateExtensionAssociationCommand,
-  UpdateExtensionAssociationCommandInput,
-  UpdateExtensionAssociationCommandOutput,
 } from "./commands/UpdateExtensionAssociationCommand";
 import {
+  type UpdateExtensionCommandInput,
+  type UpdateExtensionCommandOutput,
   UpdateExtensionCommand,
-  UpdateExtensionCommandInput,
-  UpdateExtensionCommandOutput,
 } from "./commands/UpdateExtensionCommand";
 import {
+  type ValidateConfigurationCommandInput,
+  type ValidateConfigurationCommandOutput,
   ValidateConfigurationCommand,
-  ValidateConfigurationCommandInput,
-  ValidateConfigurationCommandOutput,
 } from "./commands/ValidateConfigurationCommand";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListConfigurationProfiles } from "./pagination/ListConfigurationProfilesPaginator";

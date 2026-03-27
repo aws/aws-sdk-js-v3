@@ -8,7 +8,7 @@ import {
   ListPartnersCommandOutput,
 } from "../commands/ListPartnersCommand";
 import { PartnerCentralAccountClient } from "../PartnerCentralAccountClient";
-import { PartnerCentralAccountPaginationConfiguration } from "./Interfaces";
+import type { PartnerCentralAccountPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

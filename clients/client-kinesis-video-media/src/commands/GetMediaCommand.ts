@@ -9,7 +9,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoMediaClient";
-import { type GetMediaInput, GetMediaOutput } from "../models/models_0";
+import type { GetMediaInput, GetMediaOutput } from "../models/models_0";
 import { GetMedia$ } from "../schemas/schemas_0";
 
 /**

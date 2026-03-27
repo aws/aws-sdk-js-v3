@@ -8,7 +8,7 @@ import {
   ListS3TableIntegrationsCommandOutput,
 } from "../commands/ListS3TableIntegrationsCommand";
 import { ObservabilityAdminClient } from "../ObservabilityAdminClient";
-import { ObservabilityAdminPaginationConfiguration } from "./Interfaces";
+import type { ObservabilityAdminPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

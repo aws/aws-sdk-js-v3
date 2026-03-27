@@ -8,7 +8,7 @@ import {
   ListProtectedJobsCommandInput,
   ListProtectedJobsCommandOutput,
 } from "../commands/ListProtectedJobsCommand";
-import { CleanRoomsPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

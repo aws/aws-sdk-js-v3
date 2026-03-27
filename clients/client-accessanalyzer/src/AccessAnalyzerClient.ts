@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,86 +61,104 @@ import {
   defaultAccessAnalyzerHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { ApplyArchiveRuleCommandInput, ApplyArchiveRuleCommandOutput } from "./commands/ApplyArchiveRuleCommand";
-import {
+import type { ApplyArchiveRuleCommandInput, ApplyArchiveRuleCommandOutput } from "./commands/ApplyArchiveRuleCommand";
+import type {
   CancelPolicyGenerationCommandInput,
   CancelPolicyGenerationCommandOutput,
 } from "./commands/CancelPolicyGenerationCommand";
-import {
+import type {
   CheckAccessNotGrantedCommandInput,
   CheckAccessNotGrantedCommandOutput,
 } from "./commands/CheckAccessNotGrantedCommand";
-import { CheckNoNewAccessCommandInput, CheckNoNewAccessCommandOutput } from "./commands/CheckNoNewAccessCommand";
-import {
+import type { CheckNoNewAccessCommandInput, CheckNoNewAccessCommandOutput } from "./commands/CheckNoNewAccessCommand";
+import type {
   CheckNoPublicAccessCommandInput,
   CheckNoPublicAccessCommandOutput,
 } from "./commands/CheckNoPublicAccessCommand";
-import {
+import type {
   CreateAccessPreviewCommandInput,
   CreateAccessPreviewCommandOutput,
 } from "./commands/CreateAccessPreviewCommand";
-import { CreateAnalyzerCommandInput, CreateAnalyzerCommandOutput } from "./commands/CreateAnalyzerCommand";
-import { CreateArchiveRuleCommandInput, CreateArchiveRuleCommandOutput } from "./commands/CreateArchiveRuleCommand";
-import { DeleteAnalyzerCommandInput, DeleteAnalyzerCommandOutput } from "./commands/DeleteAnalyzerCommand";
-import { DeleteArchiveRuleCommandInput, DeleteArchiveRuleCommandOutput } from "./commands/DeleteArchiveRuleCommand";
-import {
+import type { CreateAnalyzerCommandInput, CreateAnalyzerCommandOutput } from "./commands/CreateAnalyzerCommand";
+import type {
+  CreateArchiveRuleCommandInput,
+  CreateArchiveRuleCommandOutput,
+} from "./commands/CreateArchiveRuleCommand";
+import type { DeleteAnalyzerCommandInput, DeleteAnalyzerCommandOutput } from "./commands/DeleteAnalyzerCommand";
+import type {
+  DeleteArchiveRuleCommandInput,
+  DeleteArchiveRuleCommandOutput,
+} from "./commands/DeleteArchiveRuleCommand";
+import type {
   GenerateFindingRecommendationCommandInput,
   GenerateFindingRecommendationCommandOutput,
 } from "./commands/GenerateFindingRecommendationCommand";
-import { GetAccessPreviewCommandInput, GetAccessPreviewCommandOutput } from "./commands/GetAccessPreviewCommand";
-import {
+import type { GetAccessPreviewCommandInput, GetAccessPreviewCommandOutput } from "./commands/GetAccessPreviewCommand";
+import type {
   GetAnalyzedResourceCommandInput,
   GetAnalyzedResourceCommandOutput,
 } from "./commands/GetAnalyzedResourceCommand";
-import { GetAnalyzerCommandInput, GetAnalyzerCommandOutput } from "./commands/GetAnalyzerCommand";
-import { GetArchiveRuleCommandInput, GetArchiveRuleCommandOutput } from "./commands/GetArchiveRuleCommand";
-import { GetFindingCommandInput, GetFindingCommandOutput } from "./commands/GetFindingCommand";
-import {
+import type { GetAnalyzerCommandInput, GetAnalyzerCommandOutput } from "./commands/GetAnalyzerCommand";
+import type { GetArchiveRuleCommandInput, GetArchiveRuleCommandOutput } from "./commands/GetArchiveRuleCommand";
+import type { GetFindingCommandInput, GetFindingCommandOutput } from "./commands/GetFindingCommand";
+import type {
   GetFindingRecommendationCommandInput,
   GetFindingRecommendationCommandOutput,
 } from "./commands/GetFindingRecommendationCommand";
-import {
+import type {
   GetFindingsStatisticsCommandInput,
   GetFindingsStatisticsCommandOutput,
 } from "./commands/GetFindingsStatisticsCommand";
-import { GetFindingV2CommandInput, GetFindingV2CommandOutput } from "./commands/GetFindingV2Command";
-import { GetGeneratedPolicyCommandInput, GetGeneratedPolicyCommandOutput } from "./commands/GetGeneratedPolicyCommand";
-import {
+import type { GetFindingV2CommandInput, GetFindingV2CommandOutput } from "./commands/GetFindingV2Command";
+import type {
+  GetGeneratedPolicyCommandInput,
+  GetGeneratedPolicyCommandOutput,
+} from "./commands/GetGeneratedPolicyCommand";
+import type {
   ListAccessPreviewFindingsCommandInput,
   ListAccessPreviewFindingsCommandOutput,
 } from "./commands/ListAccessPreviewFindingsCommand";
-import { ListAccessPreviewsCommandInput, ListAccessPreviewsCommandOutput } from "./commands/ListAccessPreviewsCommand";
-import {
+import type {
+  ListAccessPreviewsCommandInput,
+  ListAccessPreviewsCommandOutput,
+} from "./commands/ListAccessPreviewsCommand";
+import type {
   ListAnalyzedResourcesCommandInput,
   ListAnalyzedResourcesCommandOutput,
 } from "./commands/ListAnalyzedResourcesCommand";
-import { ListAnalyzersCommandInput, ListAnalyzersCommandOutput } from "./commands/ListAnalyzersCommand";
-import { ListArchiveRulesCommandInput, ListArchiveRulesCommandOutput } from "./commands/ListArchiveRulesCommand";
-import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
-import { ListFindingsV2CommandInput, ListFindingsV2CommandOutput } from "./commands/ListFindingsV2Command";
-import {
+import type { ListAnalyzersCommandInput, ListAnalyzersCommandOutput } from "./commands/ListAnalyzersCommand";
+import type { ListArchiveRulesCommandInput, ListArchiveRulesCommandOutput } from "./commands/ListArchiveRulesCommand";
+import type { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
+import type { ListFindingsV2CommandInput, ListFindingsV2CommandOutput } from "./commands/ListFindingsV2Command";
+import type {
   ListPolicyGenerationsCommandInput,
   ListPolicyGenerationsCommandOutput,
 } from "./commands/ListPolicyGenerationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   StartPolicyGenerationCommandInput,
   StartPolicyGenerationCommandOutput,
 } from "./commands/StartPolicyGenerationCommand";
-import { StartResourceScanCommandInput, StartResourceScanCommandOutput } from "./commands/StartResourceScanCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAnalyzerCommandInput, UpdateAnalyzerCommandOutput } from "./commands/UpdateAnalyzerCommand";
-import { UpdateArchiveRuleCommandInput, UpdateArchiveRuleCommandOutput } from "./commands/UpdateArchiveRuleCommand";
-import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand";
-import { ValidatePolicyCommandInput, ValidatePolicyCommandOutput } from "./commands/ValidatePolicyCommand";
+import type {
+  StartResourceScanCommandInput,
+  StartResourceScanCommandOutput,
+} from "./commands/StartResourceScanCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAnalyzerCommandInput, UpdateAnalyzerCommandOutput } from "./commands/UpdateAnalyzerCommand";
+import type {
+  UpdateArchiveRuleCommandInput,
+  UpdateArchiveRuleCommandOutput,
+} from "./commands/UpdateArchiveRuleCommand";
+import type { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand";
+import type { ValidatePolicyCommandInput, ValidatePolicyCommandOutput } from "./commands/ValidatePolicyCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -348,7 +364,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

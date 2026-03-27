@@ -3,195 +3,199 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateChannelCommandInput,
+  type AssociateChannelCommandOutput,
   AssociateChannelCommand,
-  AssociateChannelCommandInput,
-  AssociateChannelCommandOutput,
 } from "./commands/AssociateChannelCommand";
 import {
+  type AssociateManagedNotificationAccountContactCommandInput,
+  type AssociateManagedNotificationAccountContactCommandOutput,
   AssociateManagedNotificationAccountContactCommand,
-  AssociateManagedNotificationAccountContactCommandInput,
-  AssociateManagedNotificationAccountContactCommandOutput,
 } from "./commands/AssociateManagedNotificationAccountContactCommand";
 import {
+  type AssociateManagedNotificationAdditionalChannelCommandInput,
+  type AssociateManagedNotificationAdditionalChannelCommandOutput,
   AssociateManagedNotificationAdditionalChannelCommand,
-  AssociateManagedNotificationAdditionalChannelCommandInput,
-  AssociateManagedNotificationAdditionalChannelCommandOutput,
 } from "./commands/AssociateManagedNotificationAdditionalChannelCommand";
 import {
+  type AssociateOrganizationalUnitCommandInput,
+  type AssociateOrganizationalUnitCommandOutput,
   AssociateOrganizationalUnitCommand,
-  AssociateOrganizationalUnitCommandInput,
-  AssociateOrganizationalUnitCommandOutput,
 } from "./commands/AssociateOrganizationalUnitCommand";
 import {
+  type CreateEventRuleCommandInput,
+  type CreateEventRuleCommandOutput,
   CreateEventRuleCommand,
-  CreateEventRuleCommandInput,
-  CreateEventRuleCommandOutput,
 } from "./commands/CreateEventRuleCommand";
 import {
+  type CreateNotificationConfigurationCommandInput,
+  type CreateNotificationConfigurationCommandOutput,
   CreateNotificationConfigurationCommand,
-  CreateNotificationConfigurationCommandInput,
-  CreateNotificationConfigurationCommandOutput,
 } from "./commands/CreateNotificationConfigurationCommand";
 import {
+  type DeleteEventRuleCommandInput,
+  type DeleteEventRuleCommandOutput,
   DeleteEventRuleCommand,
-  DeleteEventRuleCommandInput,
-  DeleteEventRuleCommandOutput,
 } from "./commands/DeleteEventRuleCommand";
 import {
+  type DeleteNotificationConfigurationCommandInput,
+  type DeleteNotificationConfigurationCommandOutput,
   DeleteNotificationConfigurationCommand,
-  DeleteNotificationConfigurationCommandInput,
-  DeleteNotificationConfigurationCommandOutput,
 } from "./commands/DeleteNotificationConfigurationCommand";
 import {
+  type DeregisterNotificationHubCommandInput,
+  type DeregisterNotificationHubCommandOutput,
   DeregisterNotificationHubCommand,
-  DeregisterNotificationHubCommandInput,
-  DeregisterNotificationHubCommandOutput,
 } from "./commands/DeregisterNotificationHubCommand";
 import {
+  type DisableNotificationsAccessForOrganizationCommandInput,
+  type DisableNotificationsAccessForOrganizationCommandOutput,
   DisableNotificationsAccessForOrganizationCommand,
-  DisableNotificationsAccessForOrganizationCommandInput,
-  DisableNotificationsAccessForOrganizationCommandOutput,
 } from "./commands/DisableNotificationsAccessForOrganizationCommand";
 import {
+  type DisassociateChannelCommandInput,
+  type DisassociateChannelCommandOutput,
   DisassociateChannelCommand,
-  DisassociateChannelCommandInput,
-  DisassociateChannelCommandOutput,
 } from "./commands/DisassociateChannelCommand";
 import {
+  type DisassociateManagedNotificationAccountContactCommandInput,
+  type DisassociateManagedNotificationAccountContactCommandOutput,
   DisassociateManagedNotificationAccountContactCommand,
-  DisassociateManagedNotificationAccountContactCommandInput,
-  DisassociateManagedNotificationAccountContactCommandOutput,
 } from "./commands/DisassociateManagedNotificationAccountContactCommand";
 import {
+  type DisassociateManagedNotificationAdditionalChannelCommandInput,
+  type DisassociateManagedNotificationAdditionalChannelCommandOutput,
   DisassociateManagedNotificationAdditionalChannelCommand,
-  DisassociateManagedNotificationAdditionalChannelCommandInput,
-  DisassociateManagedNotificationAdditionalChannelCommandOutput,
 } from "./commands/DisassociateManagedNotificationAdditionalChannelCommand";
 import {
+  type DisassociateOrganizationalUnitCommandInput,
+  type DisassociateOrganizationalUnitCommandOutput,
   DisassociateOrganizationalUnitCommand,
-  DisassociateOrganizationalUnitCommandInput,
-  DisassociateOrganizationalUnitCommandOutput,
 } from "./commands/DisassociateOrganizationalUnitCommand";
 import {
+  type EnableNotificationsAccessForOrganizationCommandInput,
+  type EnableNotificationsAccessForOrganizationCommandOutput,
   EnableNotificationsAccessForOrganizationCommand,
-  EnableNotificationsAccessForOrganizationCommandInput,
-  EnableNotificationsAccessForOrganizationCommandOutput,
 } from "./commands/EnableNotificationsAccessForOrganizationCommand";
 import {
+  type GetEventRuleCommandInput,
+  type GetEventRuleCommandOutput,
   GetEventRuleCommand,
-  GetEventRuleCommandInput,
-  GetEventRuleCommandOutput,
 } from "./commands/GetEventRuleCommand";
 import {
+  type GetManagedNotificationChildEventCommandInput,
+  type GetManagedNotificationChildEventCommandOutput,
   GetManagedNotificationChildEventCommand,
-  GetManagedNotificationChildEventCommandInput,
-  GetManagedNotificationChildEventCommandOutput,
 } from "./commands/GetManagedNotificationChildEventCommand";
 import {
+  type GetManagedNotificationConfigurationCommandInput,
+  type GetManagedNotificationConfigurationCommandOutput,
   GetManagedNotificationConfigurationCommand,
-  GetManagedNotificationConfigurationCommandInput,
-  GetManagedNotificationConfigurationCommandOutput,
 } from "./commands/GetManagedNotificationConfigurationCommand";
 import {
+  type GetManagedNotificationEventCommandInput,
+  type GetManagedNotificationEventCommandOutput,
   GetManagedNotificationEventCommand,
-  GetManagedNotificationEventCommandInput,
-  GetManagedNotificationEventCommandOutput,
 } from "./commands/GetManagedNotificationEventCommand";
 import {
+  type GetNotificationConfigurationCommandInput,
+  type GetNotificationConfigurationCommandOutput,
   GetNotificationConfigurationCommand,
-  GetNotificationConfigurationCommandInput,
-  GetNotificationConfigurationCommandOutput,
 } from "./commands/GetNotificationConfigurationCommand";
 import {
+  type GetNotificationEventCommandInput,
+  type GetNotificationEventCommandOutput,
   GetNotificationEventCommand,
-  GetNotificationEventCommandInput,
-  GetNotificationEventCommandOutput,
 } from "./commands/GetNotificationEventCommand";
 import {
+  type GetNotificationsAccessForOrganizationCommandInput,
+  type GetNotificationsAccessForOrganizationCommandOutput,
   GetNotificationsAccessForOrganizationCommand,
-  GetNotificationsAccessForOrganizationCommandInput,
-  GetNotificationsAccessForOrganizationCommandOutput,
 } from "./commands/GetNotificationsAccessForOrganizationCommand";
 import {
+  type ListChannelsCommandInput,
+  type ListChannelsCommandOutput,
   ListChannelsCommand,
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
 import {
+  type ListEventRulesCommandInput,
+  type ListEventRulesCommandOutput,
   ListEventRulesCommand,
-  ListEventRulesCommandInput,
-  ListEventRulesCommandOutput,
 } from "./commands/ListEventRulesCommand";
 import {
+  type ListManagedNotificationChannelAssociationsCommandInput,
+  type ListManagedNotificationChannelAssociationsCommandOutput,
   ListManagedNotificationChannelAssociationsCommand,
-  ListManagedNotificationChannelAssociationsCommandInput,
-  ListManagedNotificationChannelAssociationsCommandOutput,
 } from "./commands/ListManagedNotificationChannelAssociationsCommand";
 import {
+  type ListManagedNotificationChildEventsCommandInput,
+  type ListManagedNotificationChildEventsCommandOutput,
   ListManagedNotificationChildEventsCommand,
-  ListManagedNotificationChildEventsCommandInput,
-  ListManagedNotificationChildEventsCommandOutput,
 } from "./commands/ListManagedNotificationChildEventsCommand";
 import {
+  type ListManagedNotificationConfigurationsCommandInput,
+  type ListManagedNotificationConfigurationsCommandOutput,
   ListManagedNotificationConfigurationsCommand,
-  ListManagedNotificationConfigurationsCommandInput,
-  ListManagedNotificationConfigurationsCommandOutput,
 } from "./commands/ListManagedNotificationConfigurationsCommand";
 import {
+  type ListManagedNotificationEventsCommandInput,
+  type ListManagedNotificationEventsCommandOutput,
   ListManagedNotificationEventsCommand,
-  ListManagedNotificationEventsCommandInput,
-  ListManagedNotificationEventsCommandOutput,
 } from "./commands/ListManagedNotificationEventsCommand";
 import {
+  type ListMemberAccountsCommandInput,
+  type ListMemberAccountsCommandOutput,
   ListMemberAccountsCommand,
-  ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput,
 } from "./commands/ListMemberAccountsCommand";
 import {
+  type ListNotificationConfigurationsCommandInput,
+  type ListNotificationConfigurationsCommandOutput,
   ListNotificationConfigurationsCommand,
-  ListNotificationConfigurationsCommandInput,
-  ListNotificationConfigurationsCommandOutput,
 } from "./commands/ListNotificationConfigurationsCommand";
 import {
+  type ListNotificationEventsCommandInput,
+  type ListNotificationEventsCommandOutput,
   ListNotificationEventsCommand,
-  ListNotificationEventsCommandInput,
-  ListNotificationEventsCommandOutput,
 } from "./commands/ListNotificationEventsCommand";
 import {
+  type ListNotificationHubsCommandInput,
+  type ListNotificationHubsCommandOutput,
   ListNotificationHubsCommand,
-  ListNotificationHubsCommandInput,
-  ListNotificationHubsCommandOutput,
 } from "./commands/ListNotificationHubsCommand";
 import {
+  type ListOrganizationalUnitsCommandInput,
+  type ListOrganizationalUnitsCommandOutput,
   ListOrganizationalUnitsCommand,
-  ListOrganizationalUnitsCommandInput,
-  ListOrganizationalUnitsCommandOutput,
 } from "./commands/ListOrganizationalUnitsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RegisterNotificationHubCommandInput,
+  type RegisterNotificationHubCommandOutput,
   RegisterNotificationHubCommand,
-  RegisterNotificationHubCommandInput,
-  RegisterNotificationHubCommandOutput,
 } from "./commands/RegisterNotificationHubCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateEventRuleCommandInput,
+  type UpdateEventRuleCommandOutput,
   UpdateEventRuleCommand,
-  UpdateEventRuleCommandInput,
-  UpdateEventRuleCommandOutput,
 } from "./commands/UpdateEventRuleCommand";
 import {
+  type UpdateNotificationConfigurationCommandInput,
+  type UpdateNotificationConfigurationCommandOutput,
   UpdateNotificationConfigurationCommand,
-  UpdateNotificationConfigurationCommandInput,
-  UpdateNotificationConfigurationCommandOutput,
 } from "./commands/UpdateNotificationConfigurationCommand";
 import { NotificationsClient } from "./NotificationsClient";
 import { paginateListChannels } from "./pagination/ListChannelsPaginator";

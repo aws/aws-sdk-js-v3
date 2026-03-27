@@ -3,109 +3,109 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateCreatedArtifactCommandInput,
+  type AssociateCreatedArtifactCommandOutput,
   AssociateCreatedArtifactCommand,
-  AssociateCreatedArtifactCommandInput,
-  AssociateCreatedArtifactCommandOutput,
 } from "./commands/AssociateCreatedArtifactCommand";
 import {
+  type AssociateDiscoveredResourceCommandInput,
+  type AssociateDiscoveredResourceCommandOutput,
   AssociateDiscoveredResourceCommand,
-  AssociateDiscoveredResourceCommandInput,
-  AssociateDiscoveredResourceCommandOutput,
 } from "./commands/AssociateDiscoveredResourceCommand";
 import {
+  type AssociateSourceResourceCommandInput,
+  type AssociateSourceResourceCommandOutput,
   AssociateSourceResourceCommand,
-  AssociateSourceResourceCommandInput,
-  AssociateSourceResourceCommandOutput,
 } from "./commands/AssociateSourceResourceCommand";
 import {
+  type CreateProgressUpdateStreamCommandInput,
+  type CreateProgressUpdateStreamCommandOutput,
   CreateProgressUpdateStreamCommand,
-  CreateProgressUpdateStreamCommandInput,
-  CreateProgressUpdateStreamCommandOutput,
 } from "./commands/CreateProgressUpdateStreamCommand";
 import {
+  type DeleteProgressUpdateStreamCommandInput,
+  type DeleteProgressUpdateStreamCommandOutput,
   DeleteProgressUpdateStreamCommand,
-  DeleteProgressUpdateStreamCommandInput,
-  DeleteProgressUpdateStreamCommandOutput,
 } from "./commands/DeleteProgressUpdateStreamCommand";
 import {
+  type DescribeApplicationStateCommandInput,
+  type DescribeApplicationStateCommandOutput,
   DescribeApplicationStateCommand,
-  DescribeApplicationStateCommandInput,
-  DescribeApplicationStateCommandOutput,
 } from "./commands/DescribeApplicationStateCommand";
 import {
+  type DescribeMigrationTaskCommandInput,
+  type DescribeMigrationTaskCommandOutput,
   DescribeMigrationTaskCommand,
-  DescribeMigrationTaskCommandInput,
-  DescribeMigrationTaskCommandOutput,
 } from "./commands/DescribeMigrationTaskCommand";
 import {
+  type DisassociateCreatedArtifactCommandInput,
+  type DisassociateCreatedArtifactCommandOutput,
   DisassociateCreatedArtifactCommand,
-  DisassociateCreatedArtifactCommandInput,
-  DisassociateCreatedArtifactCommandOutput,
 } from "./commands/DisassociateCreatedArtifactCommand";
 import {
+  type DisassociateDiscoveredResourceCommandInput,
+  type DisassociateDiscoveredResourceCommandOutput,
   DisassociateDiscoveredResourceCommand,
-  DisassociateDiscoveredResourceCommandInput,
-  DisassociateDiscoveredResourceCommandOutput,
 } from "./commands/DisassociateDiscoveredResourceCommand";
 import {
+  type DisassociateSourceResourceCommandInput,
+  type DisassociateSourceResourceCommandOutput,
   DisassociateSourceResourceCommand,
-  DisassociateSourceResourceCommandInput,
-  DisassociateSourceResourceCommandOutput,
 } from "./commands/DisassociateSourceResourceCommand";
 import {
+  type ImportMigrationTaskCommandInput,
+  type ImportMigrationTaskCommandOutput,
   ImportMigrationTaskCommand,
-  ImportMigrationTaskCommandInput,
-  ImportMigrationTaskCommandOutput,
 } from "./commands/ImportMigrationTaskCommand";
 import {
+  type ListApplicationStatesCommandInput,
+  type ListApplicationStatesCommandOutput,
   ListApplicationStatesCommand,
-  ListApplicationStatesCommandInput,
-  ListApplicationStatesCommandOutput,
 } from "./commands/ListApplicationStatesCommand";
 import {
+  type ListCreatedArtifactsCommandInput,
+  type ListCreatedArtifactsCommandOutput,
   ListCreatedArtifactsCommand,
-  ListCreatedArtifactsCommandInput,
-  ListCreatedArtifactsCommandOutput,
 } from "./commands/ListCreatedArtifactsCommand";
 import {
+  type ListDiscoveredResourcesCommandInput,
+  type ListDiscoveredResourcesCommandOutput,
   ListDiscoveredResourcesCommand,
-  ListDiscoveredResourcesCommandInput,
-  ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
 import {
+  type ListMigrationTasksCommandInput,
+  type ListMigrationTasksCommandOutput,
   ListMigrationTasksCommand,
-  ListMigrationTasksCommandInput,
-  ListMigrationTasksCommandOutput,
 } from "./commands/ListMigrationTasksCommand";
 import {
+  type ListMigrationTaskUpdatesCommandInput,
+  type ListMigrationTaskUpdatesCommandOutput,
   ListMigrationTaskUpdatesCommand,
-  ListMigrationTaskUpdatesCommandInput,
-  ListMigrationTaskUpdatesCommandOutput,
 } from "./commands/ListMigrationTaskUpdatesCommand";
 import {
+  type ListProgressUpdateStreamsCommandInput,
+  type ListProgressUpdateStreamsCommandOutput,
   ListProgressUpdateStreamsCommand,
-  ListProgressUpdateStreamsCommandInput,
-  ListProgressUpdateStreamsCommandOutput,
 } from "./commands/ListProgressUpdateStreamsCommand";
 import {
+  type ListSourceResourcesCommandInput,
+  type ListSourceResourcesCommandOutput,
   ListSourceResourcesCommand,
-  ListSourceResourcesCommandInput,
-  ListSourceResourcesCommandOutput,
 } from "./commands/ListSourceResourcesCommand";
 import {
+  type NotifyApplicationStateCommandInput,
+  type NotifyApplicationStateCommandOutput,
   NotifyApplicationStateCommand,
-  NotifyApplicationStateCommandInput,
-  NotifyApplicationStateCommandOutput,
 } from "./commands/NotifyApplicationStateCommand";
 import {
+  type NotifyMigrationTaskStateCommandInput,
+  type NotifyMigrationTaskStateCommandOutput,
   NotifyMigrationTaskStateCommand,
-  NotifyMigrationTaskStateCommandInput,
-  NotifyMigrationTaskStateCommandOutput,
 } from "./commands/NotifyMigrationTaskStateCommand";
 import {
+  type PutResourceAttributesCommandInput,
+  type PutResourceAttributesCommandOutput,
   PutResourceAttributesCommand,
-  PutResourceAttributesCommandInput,
-  PutResourceAttributesCommandOutput,
 } from "./commands/PutResourceAttributesCommand";
 import { MigrationHubClient } from "./MigrationHubClient";
 import { paginateListApplicationStates } from "./pagination/ListApplicationStatesPaginator";

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { AccountClient } from "../AccountClient";
 import { ListRegionsCommand, ListRegionsCommandInput, ListRegionsCommandOutput } from "../commands/ListRegionsCommand";
-import { AccountPaginationConfiguration } from "./Interfaces";
+import type { AccountPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

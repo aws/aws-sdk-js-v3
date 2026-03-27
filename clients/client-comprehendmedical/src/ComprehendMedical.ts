@@ -3,126 +3,130 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type DescribeEntitiesDetectionV2JobCommandInput,
+  type DescribeEntitiesDetectionV2JobCommandOutput,
   DescribeEntitiesDetectionV2JobCommand,
-  DescribeEntitiesDetectionV2JobCommandInput,
-  DescribeEntitiesDetectionV2JobCommandOutput,
 } from "./commands/DescribeEntitiesDetectionV2JobCommand";
 import {
+  type DescribeICD10CMInferenceJobCommandInput,
+  type DescribeICD10CMInferenceJobCommandOutput,
   DescribeICD10CMInferenceJobCommand,
-  DescribeICD10CMInferenceJobCommandInput,
-  DescribeICD10CMInferenceJobCommandOutput,
 } from "./commands/DescribeICD10CMInferenceJobCommand";
 import {
+  type DescribePHIDetectionJobCommandInput,
+  type DescribePHIDetectionJobCommandOutput,
   DescribePHIDetectionJobCommand,
-  DescribePHIDetectionJobCommandInput,
-  DescribePHIDetectionJobCommandOutput,
 } from "./commands/DescribePHIDetectionJobCommand";
 import {
+  type DescribeRxNormInferenceJobCommandInput,
+  type DescribeRxNormInferenceJobCommandOutput,
   DescribeRxNormInferenceJobCommand,
-  DescribeRxNormInferenceJobCommandInput,
-  DescribeRxNormInferenceJobCommandOutput,
 } from "./commands/DescribeRxNormInferenceJobCommand";
 import {
+  type DescribeSNOMEDCTInferenceJobCommandInput,
+  type DescribeSNOMEDCTInferenceJobCommandOutput,
   DescribeSNOMEDCTInferenceJobCommand,
-  DescribeSNOMEDCTInferenceJobCommandInput,
-  DescribeSNOMEDCTInferenceJobCommandOutput,
 } from "./commands/DescribeSNOMEDCTInferenceJobCommand";
 import {
+  type DetectEntitiesCommandInput,
+  type DetectEntitiesCommandOutput,
   DetectEntitiesCommand,
-  DetectEntitiesCommandInput,
-  DetectEntitiesCommandOutput,
 } from "./commands/DetectEntitiesCommand";
 import {
+  type DetectEntitiesV2CommandInput,
+  type DetectEntitiesV2CommandOutput,
   DetectEntitiesV2Command,
-  DetectEntitiesV2CommandInput,
-  DetectEntitiesV2CommandOutput,
 } from "./commands/DetectEntitiesV2Command";
-import { DetectPHICommand, DetectPHICommandInput, DetectPHICommandOutput } from "./commands/DetectPHICommand";
+import { type DetectPHICommandInput, type DetectPHICommandOutput, DetectPHICommand } from "./commands/DetectPHICommand";
 import {
+  type InferICD10CMCommandInput,
+  type InferICD10CMCommandOutput,
   InferICD10CMCommand,
-  InferICD10CMCommandInput,
-  InferICD10CMCommandOutput,
 } from "./commands/InferICD10CMCommand";
-import { InferRxNormCommand, InferRxNormCommandInput, InferRxNormCommandOutput } from "./commands/InferRxNormCommand";
 import {
+  type InferRxNormCommandInput,
+  type InferRxNormCommandOutput,
+  InferRxNormCommand,
+} from "./commands/InferRxNormCommand";
+import {
+  type InferSNOMEDCTCommandInput,
+  type InferSNOMEDCTCommandOutput,
   InferSNOMEDCTCommand,
-  InferSNOMEDCTCommandInput,
-  InferSNOMEDCTCommandOutput,
 } from "./commands/InferSNOMEDCTCommand";
 import {
+  type ListEntitiesDetectionV2JobsCommandInput,
+  type ListEntitiesDetectionV2JobsCommandOutput,
   ListEntitiesDetectionV2JobsCommand,
-  ListEntitiesDetectionV2JobsCommandInput,
-  ListEntitiesDetectionV2JobsCommandOutput,
 } from "./commands/ListEntitiesDetectionV2JobsCommand";
 import {
+  type ListICD10CMInferenceJobsCommandInput,
+  type ListICD10CMInferenceJobsCommandOutput,
   ListICD10CMInferenceJobsCommand,
-  ListICD10CMInferenceJobsCommandInput,
-  ListICD10CMInferenceJobsCommandOutput,
 } from "./commands/ListICD10CMInferenceJobsCommand";
 import {
+  type ListPHIDetectionJobsCommandInput,
+  type ListPHIDetectionJobsCommandOutput,
   ListPHIDetectionJobsCommand,
-  ListPHIDetectionJobsCommandInput,
-  ListPHIDetectionJobsCommandOutput,
 } from "./commands/ListPHIDetectionJobsCommand";
 import {
+  type ListRxNormInferenceJobsCommandInput,
+  type ListRxNormInferenceJobsCommandOutput,
   ListRxNormInferenceJobsCommand,
-  ListRxNormInferenceJobsCommandInput,
-  ListRxNormInferenceJobsCommandOutput,
 } from "./commands/ListRxNormInferenceJobsCommand";
 import {
+  type ListSNOMEDCTInferenceJobsCommandInput,
+  type ListSNOMEDCTInferenceJobsCommandOutput,
   ListSNOMEDCTInferenceJobsCommand,
-  ListSNOMEDCTInferenceJobsCommandInput,
-  ListSNOMEDCTInferenceJobsCommandOutput,
 } from "./commands/ListSNOMEDCTInferenceJobsCommand";
 import {
+  type StartEntitiesDetectionV2JobCommandInput,
+  type StartEntitiesDetectionV2JobCommandOutput,
   StartEntitiesDetectionV2JobCommand,
-  StartEntitiesDetectionV2JobCommandInput,
-  StartEntitiesDetectionV2JobCommandOutput,
 } from "./commands/StartEntitiesDetectionV2JobCommand";
 import {
+  type StartICD10CMInferenceJobCommandInput,
+  type StartICD10CMInferenceJobCommandOutput,
   StartICD10CMInferenceJobCommand,
-  StartICD10CMInferenceJobCommandInput,
-  StartICD10CMInferenceJobCommandOutput,
 } from "./commands/StartICD10CMInferenceJobCommand";
 import {
+  type StartPHIDetectionJobCommandInput,
+  type StartPHIDetectionJobCommandOutput,
   StartPHIDetectionJobCommand,
-  StartPHIDetectionJobCommandInput,
-  StartPHIDetectionJobCommandOutput,
 } from "./commands/StartPHIDetectionJobCommand";
 import {
+  type StartRxNormInferenceJobCommandInput,
+  type StartRxNormInferenceJobCommandOutput,
   StartRxNormInferenceJobCommand,
-  StartRxNormInferenceJobCommandInput,
-  StartRxNormInferenceJobCommandOutput,
 } from "./commands/StartRxNormInferenceJobCommand";
 import {
+  type StartSNOMEDCTInferenceJobCommandInput,
+  type StartSNOMEDCTInferenceJobCommandOutput,
   StartSNOMEDCTInferenceJobCommand,
-  StartSNOMEDCTInferenceJobCommandInput,
-  StartSNOMEDCTInferenceJobCommandOutput,
 } from "./commands/StartSNOMEDCTInferenceJobCommand";
 import {
+  type StopEntitiesDetectionV2JobCommandInput,
+  type StopEntitiesDetectionV2JobCommandOutput,
   StopEntitiesDetectionV2JobCommand,
-  StopEntitiesDetectionV2JobCommandInput,
-  StopEntitiesDetectionV2JobCommandOutput,
 } from "./commands/StopEntitiesDetectionV2JobCommand";
 import {
+  type StopICD10CMInferenceJobCommandInput,
+  type StopICD10CMInferenceJobCommandOutput,
   StopICD10CMInferenceJobCommand,
-  StopICD10CMInferenceJobCommandInput,
-  StopICD10CMInferenceJobCommandOutput,
 } from "./commands/StopICD10CMInferenceJobCommand";
 import {
+  type StopPHIDetectionJobCommandInput,
+  type StopPHIDetectionJobCommandOutput,
   StopPHIDetectionJobCommand,
-  StopPHIDetectionJobCommandInput,
-  StopPHIDetectionJobCommandOutput,
 } from "./commands/StopPHIDetectionJobCommand";
 import {
+  type StopRxNormInferenceJobCommandInput,
+  type StopRxNormInferenceJobCommandOutput,
   StopRxNormInferenceJobCommand,
-  StopRxNormInferenceJobCommandInput,
-  StopRxNormInferenceJobCommandOutput,
 } from "./commands/StopRxNormInferenceJobCommand";
 import {
+  type StopSNOMEDCTInferenceJobCommandInput,
+  type StopSNOMEDCTInferenceJobCommandOutput,
   StopSNOMEDCTInferenceJobCommand,
-  StopSNOMEDCTInferenceJobCommandInput,
-  StopSNOMEDCTInferenceJobCommandOutput,
 } from "./commands/StopSNOMEDCTInferenceJobCommand";
 import { ComprehendMedicalClient } from "./ComprehendMedicalClient";
 

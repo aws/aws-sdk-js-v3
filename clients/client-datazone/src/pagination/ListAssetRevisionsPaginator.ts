@@ -8,7 +8,7 @@ import {
   ListAssetRevisionsCommandOutput,
 } from "../commands/ListAssetRevisionsCommand";
 import { DataZoneClient } from "../DataZoneClient";
-import { DataZonePaginationConfiguration } from "./Interfaces";
+import type { DataZonePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

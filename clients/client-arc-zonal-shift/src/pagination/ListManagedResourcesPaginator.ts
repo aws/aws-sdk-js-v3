@@ -8,7 +8,7 @@ import {
   ListManagedResourcesCommandInput,
   ListManagedResourcesCommandOutput,
 } from "../commands/ListManagedResourcesCommand";
-import { ARCZonalShiftPaginationConfiguration } from "./Interfaces";
+import type { ARCZonalShiftPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

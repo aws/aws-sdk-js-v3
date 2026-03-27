@@ -8,7 +8,7 @@ import {
   GetChannelScheduleCommandOutput,
 } from "../commands/GetChannelScheduleCommand";
 import { MediaTailorClient } from "../MediaTailorClient";
-import { MediaTailorPaginationConfiguration } from "./Interfaces";
+import type { MediaTailorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

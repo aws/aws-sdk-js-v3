@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListServersCommand, ListServersCommandInput, ListServersCommandOutput } from "../commands/ListServersCommand";
 import { TransferClient } from "../TransferClient";
-import { TransferPaginationConfiguration } from "./Interfaces";
+import type { TransferPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

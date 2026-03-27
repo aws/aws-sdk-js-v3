@@ -8,7 +8,7 @@ import {
   SearchDashboardsCommandOutput,
 } from "../commands/SearchDashboardsCommand";
 import { QuickSightClient } from "../QuickSightClient";
-import { QuickSightPaginationConfiguration } from "./Interfaces";
+import type { QuickSightPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

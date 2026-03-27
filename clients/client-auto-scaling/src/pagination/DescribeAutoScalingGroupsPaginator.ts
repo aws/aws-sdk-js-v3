@@ -8,7 +8,7 @@ import {
   DescribeAutoScalingGroupsCommandInput,
   DescribeAutoScalingGroupsCommandOutput,
 } from "../commands/DescribeAutoScalingGroupsCommand";
-import { AutoScalingPaginationConfiguration } from "./Interfaces";
+import type { AutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,93 +61,102 @@ import {
   defaultServiceQuotasHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateServiceQuotaTemplateCommandInput,
   AssociateServiceQuotaTemplateCommandOutput,
 } from "./commands/AssociateServiceQuotaTemplateCommand";
-import { CreateSupportCaseCommandInput, CreateSupportCaseCommandOutput } from "./commands/CreateSupportCaseCommand";
-import {
+import type {
+  CreateSupportCaseCommandInput,
+  CreateSupportCaseCommandOutput,
+} from "./commands/CreateSupportCaseCommand";
+import type {
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
 } from "./commands/DeleteServiceQuotaIncreaseRequestFromTemplateCommand";
-import {
+import type {
   DisassociateServiceQuotaTemplateCommandInput,
   DisassociateServiceQuotaTemplateCommandOutput,
 } from "./commands/DisassociateServiceQuotaTemplateCommand";
-import {
+import type {
   GetAssociationForServiceQuotaTemplateCommandInput,
   GetAssociationForServiceQuotaTemplateCommandOutput,
 } from "./commands/GetAssociationForServiceQuotaTemplateCommand";
-import {
+import type {
   GetAutoManagementConfigurationCommandInput,
   GetAutoManagementConfigurationCommandOutput,
 } from "./commands/GetAutoManagementConfigurationCommand";
-import {
+import type {
   GetAWSDefaultServiceQuotaCommandInput,
   GetAWSDefaultServiceQuotaCommandOutput,
 } from "./commands/GetAWSDefaultServiceQuotaCommand";
-import {
+import type {
   GetQuotaUtilizationReportCommandInput,
   GetQuotaUtilizationReportCommandOutput,
 } from "./commands/GetQuotaUtilizationReportCommand";
-import {
+import type {
   GetRequestedServiceQuotaChangeCommandInput,
   GetRequestedServiceQuotaChangeCommandOutput,
 } from "./commands/GetRequestedServiceQuotaChangeCommand";
-import { GetServiceQuotaCommandInput, GetServiceQuotaCommandOutput } from "./commands/GetServiceQuotaCommand";
-import {
+import type { GetServiceQuotaCommandInput, GetServiceQuotaCommandOutput } from "./commands/GetServiceQuotaCommand";
+import type {
   GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
   GetServiceQuotaIncreaseRequestFromTemplateCommandOutput,
 } from "./commands/GetServiceQuotaIncreaseRequestFromTemplateCommand";
-import {
+import type {
   ListAWSDefaultServiceQuotasCommandInput,
   ListAWSDefaultServiceQuotasCommandOutput,
 } from "./commands/ListAWSDefaultServiceQuotasCommand";
-import {
+import type {
   ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
   ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput,
 } from "./commands/ListRequestedServiceQuotaChangeHistoryByQuotaCommand";
-import {
+import type {
   ListRequestedServiceQuotaChangeHistoryCommandInput,
   ListRequestedServiceQuotaChangeHistoryCommandOutput,
 } from "./commands/ListRequestedServiceQuotaChangeHistoryCommand";
-import {
+import type {
   ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
   ListServiceQuotaIncreaseRequestsInTemplateCommandOutput,
 } from "./commands/ListServiceQuotaIncreaseRequestsInTemplateCommand";
-import { ListServiceQuotasCommandInput, ListServiceQuotasCommandOutput } from "./commands/ListServiceQuotasCommand";
-import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
-import {
+import type {
+  ListServiceQuotasCommandInput,
+  ListServiceQuotasCommandOutput,
+} from "./commands/ListServiceQuotasCommand";
+import type { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
   PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput,
 } from "./commands/PutServiceQuotaIncreaseRequestIntoTemplateCommand";
-import {
+import type {
   RequestServiceQuotaIncreaseCommandInput,
   RequestServiceQuotaIncreaseCommandOutput,
 } from "./commands/RequestServiceQuotaIncreaseCommand";
-import {
+import type {
   StartAutoManagementCommandInput,
   StartAutoManagementCommandOutput,
 } from "./commands/StartAutoManagementCommand";
-import {
+import type {
   StartQuotaUtilizationReportCommandInput,
   StartQuotaUtilizationReportCommandOutput,
 } from "./commands/StartQuotaUtilizationReportCommand";
-import { StopAutoManagementCommandInput, StopAutoManagementCommandOutput } from "./commands/StopAutoManagementCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type {
+  StopAutoManagementCommandInput,
+  StopAutoManagementCommandOutput,
+} from "./commands/StopAutoManagementCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAutoManagementCommandInput,
   UpdateAutoManagementCommandOutput,
 } from "./commands/UpdateAutoManagementCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -333,7 +340,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

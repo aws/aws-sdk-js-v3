@@ -3,50 +3,86 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddGroupMemberCommandInput,
+  type AddGroupMemberCommandOutput,
   AddGroupMemberCommand,
-  AddGroupMemberCommandInput,
-  AddGroupMemberCommandOutput,
 } from "./commands/AddGroupMemberCommand";
-import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
-import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
-import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  type CreateGroupCommandInput,
+  type CreateGroupCommandOutput,
+  CreateGroupCommand,
+} from "./commands/CreateGroupCommand";
+import {
+  type CreateUserCommandInput,
+  type CreateUserCommandOutput,
+  CreateUserCommand,
+} from "./commands/CreateUserCommand";
+import {
+  type DeleteGroupCommandInput,
+  type DeleteGroupCommandOutput,
+  DeleteGroupCommand,
+} from "./commands/DeleteGroupCommand";
+import {
+  type DeleteUserCommandInput,
+  type DeleteUserCommandOutput,
+  DeleteUserCommand,
+} from "./commands/DeleteUserCommand";
+import {
+  type DescribeGroupCommandInput,
+  type DescribeGroupCommandOutput,
   DescribeGroupCommand,
-  DescribeGroupCommandInput,
-  DescribeGroupCommandOutput,
 } from "./commands/DescribeGroupCommand";
 import {
+  type DescribeUserCommandInput,
+  type DescribeUserCommandOutput,
   DescribeUserCommand,
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput,
 } from "./commands/DescribeUserCommand";
-import { DisableUserCommand, DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
 import {
+  type DisableUserCommandInput,
+  type DisableUserCommandOutput,
+  DisableUserCommand,
+} from "./commands/DisableUserCommand";
+import {
+  type ListGroupMembersCommandInput,
+  type ListGroupMembersCommandOutput,
   ListGroupMembersCommand,
-  ListGroupMembersCommandInput,
-  ListGroupMembersCommandOutput,
 } from "./commands/ListGroupMembersCommand";
-import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
+  type ListGroupsCommandInput,
+  type ListGroupsCommandOutput,
+  ListGroupsCommand,
+} from "./commands/ListGroupsCommand";
+import {
+  type ListGroupsForMemberCommandInput,
+  type ListGroupsForMemberCommandOutput,
   ListGroupsForMemberCommand,
-  ListGroupsForMemberCommandInput,
-  ListGroupsForMemberCommandOutput,
 } from "./commands/ListGroupsForMemberCommand";
-import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
 import {
+  type RemoveGroupMemberCommandInput,
+  type RemoveGroupMemberCommandOutput,
   RemoveGroupMemberCommand,
-  RemoveGroupMemberCommandInput,
-  RemoveGroupMemberCommandOutput,
 } from "./commands/RemoveGroupMemberCommand";
 import {
+  type SearchGroupsCommandInput,
+  type SearchGroupsCommandOutput,
   SearchGroupsCommand,
-  SearchGroupsCommandInput,
-  SearchGroupsCommandOutput,
 } from "./commands/SearchGroupsCommand";
-import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
-import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
-import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import {
+  type SearchUsersCommandInput,
+  type SearchUsersCommandOutput,
+  SearchUsersCommand,
+} from "./commands/SearchUsersCommand";
+import {
+  type UpdateGroupCommandInput,
+  type UpdateGroupCommandOutput,
+  UpdateGroupCommand,
+} from "./commands/UpdateGroupCommand";
+import {
+  type UpdateUserCommandInput,
+  type UpdateUserCommandOutput,
+  UpdateUserCommand,
+} from "./commands/UpdateUserCommand";
 import { DirectoryServiceDataClient } from "./DirectoryServiceDataClient";
 import { paginateListGroupMembers } from "./pagination/ListGroupMembersPaginator";
 import { paginateListGroupsForMember } from "./pagination/ListGroupsForMemberPaginator";

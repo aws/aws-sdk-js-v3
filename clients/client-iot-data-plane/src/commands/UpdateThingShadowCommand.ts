@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import { UpdateThingShadowRequest, UpdateThingShadowResponse } from "../models/models_0";
+import type { UpdateThingShadowRequest, UpdateThingShadowResponse } from "../models/models_0";
 import { UpdateThingShadow$ } from "../schemas/schemas_0";
 
 /**

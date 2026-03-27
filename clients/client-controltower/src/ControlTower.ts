@@ -3,136 +3,144 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateLandingZoneCommandInput,
+  type CreateLandingZoneCommandOutput,
   CreateLandingZoneCommand,
-  CreateLandingZoneCommandInput,
-  CreateLandingZoneCommandOutput,
 } from "./commands/CreateLandingZoneCommand";
 import {
+  type DeleteLandingZoneCommandInput,
+  type DeleteLandingZoneCommandOutput,
   DeleteLandingZoneCommand,
-  DeleteLandingZoneCommandInput,
-  DeleteLandingZoneCommandOutput,
 } from "./commands/DeleteLandingZoneCommand";
 import {
+  type DisableBaselineCommandInput,
+  type DisableBaselineCommandOutput,
   DisableBaselineCommand,
-  DisableBaselineCommandInput,
-  DisableBaselineCommandOutput,
 } from "./commands/DisableBaselineCommand";
 import {
+  type DisableControlCommandInput,
+  type DisableControlCommandOutput,
   DisableControlCommand,
-  DisableControlCommandInput,
-  DisableControlCommandOutput,
 } from "./commands/DisableControlCommand";
 import {
+  type EnableBaselineCommandInput,
+  type EnableBaselineCommandOutput,
   EnableBaselineCommand,
-  EnableBaselineCommandInput,
-  EnableBaselineCommandOutput,
 } from "./commands/EnableBaselineCommand";
 import {
+  type EnableControlCommandInput,
+  type EnableControlCommandOutput,
   EnableControlCommand,
-  EnableControlCommandInput,
-  EnableControlCommandOutput,
 } from "./commands/EnableControlCommand";
-import { GetBaselineCommand, GetBaselineCommandInput, GetBaselineCommandOutput } from "./commands/GetBaselineCommand";
 import {
+  type GetBaselineCommandInput,
+  type GetBaselineCommandOutput,
+  GetBaselineCommand,
+} from "./commands/GetBaselineCommand";
+import {
+  type GetBaselineOperationCommandInput,
+  type GetBaselineOperationCommandOutput,
   GetBaselineOperationCommand,
-  GetBaselineOperationCommandInput,
-  GetBaselineOperationCommandOutput,
 } from "./commands/GetBaselineOperationCommand";
 import {
+  type GetControlOperationCommandInput,
+  type GetControlOperationCommandOutput,
   GetControlOperationCommand,
-  GetControlOperationCommandInput,
-  GetControlOperationCommandOutput,
 } from "./commands/GetControlOperationCommand";
 import {
+  type GetEnabledBaselineCommandInput,
+  type GetEnabledBaselineCommandOutput,
   GetEnabledBaselineCommand,
-  GetEnabledBaselineCommandInput,
-  GetEnabledBaselineCommandOutput,
 } from "./commands/GetEnabledBaselineCommand";
 import {
+  type GetEnabledControlCommandInput,
+  type GetEnabledControlCommandOutput,
   GetEnabledControlCommand,
-  GetEnabledControlCommandInput,
-  GetEnabledControlCommandOutput,
 } from "./commands/GetEnabledControlCommand";
 import {
+  type GetLandingZoneCommandInput,
+  type GetLandingZoneCommandOutput,
   GetLandingZoneCommand,
-  GetLandingZoneCommandInput,
-  GetLandingZoneCommandOutput,
 } from "./commands/GetLandingZoneCommand";
 import {
+  type GetLandingZoneOperationCommandInput,
+  type GetLandingZoneOperationCommandOutput,
   GetLandingZoneOperationCommand,
-  GetLandingZoneOperationCommandInput,
-  GetLandingZoneOperationCommandOutput,
 } from "./commands/GetLandingZoneOperationCommand";
 import {
+  type ListBaselinesCommandInput,
+  type ListBaselinesCommandOutput,
   ListBaselinesCommand,
-  ListBaselinesCommandInput,
-  ListBaselinesCommandOutput,
 } from "./commands/ListBaselinesCommand";
 import {
+  type ListControlOperationsCommandInput,
+  type ListControlOperationsCommandOutput,
   ListControlOperationsCommand,
-  ListControlOperationsCommandInput,
-  ListControlOperationsCommandOutput,
 } from "./commands/ListControlOperationsCommand";
 import {
+  type ListEnabledBaselinesCommandInput,
+  type ListEnabledBaselinesCommandOutput,
   ListEnabledBaselinesCommand,
-  ListEnabledBaselinesCommandInput,
-  ListEnabledBaselinesCommandOutput,
 } from "./commands/ListEnabledBaselinesCommand";
 import {
+  type ListEnabledControlsCommandInput,
+  type ListEnabledControlsCommandOutput,
   ListEnabledControlsCommand,
-  ListEnabledControlsCommandInput,
-  ListEnabledControlsCommandOutput,
 } from "./commands/ListEnabledControlsCommand";
 import {
+  type ListLandingZoneOperationsCommandInput,
+  type ListLandingZoneOperationsCommandOutput,
   ListLandingZoneOperationsCommand,
-  ListLandingZoneOperationsCommandInput,
-  ListLandingZoneOperationsCommandOutput,
 } from "./commands/ListLandingZoneOperationsCommand";
 import {
+  type ListLandingZonesCommandInput,
+  type ListLandingZonesCommandOutput,
   ListLandingZonesCommand,
-  ListLandingZonesCommandInput,
-  ListLandingZonesCommandOutput,
 } from "./commands/ListLandingZonesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ResetEnabledBaselineCommandInput,
+  type ResetEnabledBaselineCommandOutput,
   ResetEnabledBaselineCommand,
-  ResetEnabledBaselineCommandInput,
-  ResetEnabledBaselineCommandOutput,
 } from "./commands/ResetEnabledBaselineCommand";
 import {
+  type ResetEnabledControlCommandInput,
+  type ResetEnabledControlCommandOutput,
   ResetEnabledControlCommand,
-  ResetEnabledControlCommandInput,
-  ResetEnabledControlCommandOutput,
 } from "./commands/ResetEnabledControlCommand";
 import {
+  type ResetLandingZoneCommandInput,
+  type ResetLandingZoneCommandOutput,
   ResetLandingZoneCommand,
-  ResetLandingZoneCommandInput,
-  ResetLandingZoneCommandOutput,
 } from "./commands/ResetLandingZoneCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateEnabledBaselineCommandInput,
+  type UpdateEnabledBaselineCommandOutput,
   UpdateEnabledBaselineCommand,
-  UpdateEnabledBaselineCommandInput,
-  UpdateEnabledBaselineCommandOutput,
 } from "./commands/UpdateEnabledBaselineCommand";
 import {
+  type UpdateEnabledControlCommandInput,
+  type UpdateEnabledControlCommandOutput,
   UpdateEnabledControlCommand,
-  UpdateEnabledControlCommandInput,
-  UpdateEnabledControlCommandOutput,
 } from "./commands/UpdateEnabledControlCommand";
 import {
+  type UpdateLandingZoneCommandInput,
+  type UpdateLandingZoneCommandOutput,
   UpdateLandingZoneCommand,
-  UpdateLandingZoneCommandInput,
-  UpdateLandingZoneCommandOutput,
 } from "./commands/UpdateLandingZoneCommand";
 import { ControlTowerClient } from "./ControlTowerClient";
 import { paginateListBaselines } from "./pagination/ListBaselinesPaginator";

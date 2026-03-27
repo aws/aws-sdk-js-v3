@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { HeadObjectCommand, HeadObjectCommandInput } from "../commands/HeadObjectCommand";
-import { S3Client } from "../S3Client";
+import { type HeadObjectCommandInput, HeadObjectCommand } from "../commands/HeadObjectCommand";
+import type { S3Client } from "../S3Client";
 
 const checkState = async (client: S3Client, input: HeadObjectCommandInput): Promise<WaiterResult> => {
   let reason;

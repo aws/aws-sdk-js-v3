@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import { ConnectHealthClient } from "../ConnectHealthClient";
-import { ConnectHealthPaginationConfiguration } from "./Interfaces";
+import type { ConnectHealthPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

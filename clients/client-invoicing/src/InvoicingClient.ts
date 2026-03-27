@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,54 +61,63 @@ import {
   defaultInvoicingHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchGetInvoiceProfileCommandInput,
   BatchGetInvoiceProfileCommandOutput,
 } from "./commands/BatchGetInvoiceProfileCommand";
-import { CreateInvoiceUnitCommandInput, CreateInvoiceUnitCommandOutput } from "./commands/CreateInvoiceUnitCommand";
-import {
+import type {
+  CreateInvoiceUnitCommandInput,
+  CreateInvoiceUnitCommandOutput,
+} from "./commands/CreateInvoiceUnitCommand";
+import type {
   CreateProcurementPortalPreferenceCommandInput,
   CreateProcurementPortalPreferenceCommandOutput,
 } from "./commands/CreateProcurementPortalPreferenceCommand";
-import { DeleteInvoiceUnitCommandInput, DeleteInvoiceUnitCommandOutput } from "./commands/DeleteInvoiceUnitCommand";
-import {
+import type {
+  DeleteInvoiceUnitCommandInput,
+  DeleteInvoiceUnitCommandOutput,
+} from "./commands/DeleteInvoiceUnitCommand";
+import type {
   DeleteProcurementPortalPreferenceCommandInput,
   DeleteProcurementPortalPreferenceCommandOutput,
 } from "./commands/DeleteProcurementPortalPreferenceCommand";
-import { GetInvoicePDFCommandInput, GetInvoicePDFCommandOutput } from "./commands/GetInvoicePDFCommand";
-import { GetInvoiceUnitCommandInput, GetInvoiceUnitCommandOutput } from "./commands/GetInvoiceUnitCommand";
-import {
+import type { GetInvoicePDFCommandInput, GetInvoicePDFCommandOutput } from "./commands/GetInvoicePDFCommand";
+import type { GetInvoiceUnitCommandInput, GetInvoiceUnitCommandOutput } from "./commands/GetInvoiceUnitCommand";
+import type {
   GetProcurementPortalPreferenceCommandInput,
   GetProcurementPortalPreferenceCommandOutput,
 } from "./commands/GetProcurementPortalPreferenceCommand";
-import {
+import type {
   ListInvoiceSummariesCommandInput,
   ListInvoiceSummariesCommandOutput,
 } from "./commands/ListInvoiceSummariesCommand";
-import { ListInvoiceUnitsCommandInput, ListInvoiceUnitsCommandOutput } from "./commands/ListInvoiceUnitsCommand";
-import {
+import type { ListInvoiceUnitsCommandInput, ListInvoiceUnitsCommandOutput } from "./commands/ListInvoiceUnitsCommand";
+import type {
   ListProcurementPortalPreferencesCommandInput,
   ListProcurementPortalPreferencesCommandOutput,
 } from "./commands/ListProcurementPortalPreferencesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutProcurementPortalPreferenceCommandInput,
   PutProcurementPortalPreferenceCommandOutput,
 } from "./commands/PutProcurementPortalPreferenceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateInvoiceUnitCommandInput, UpdateInvoiceUnitCommandOutput } from "./commands/UpdateInvoiceUnitCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateInvoiceUnitCommandInput,
+  UpdateInvoiceUnitCommandOutput,
+} from "./commands/UpdateInvoiceUnitCommand";
+import type {
   UpdateProcurementPortalPreferenceStatusCommandInput,
   UpdateProcurementPortalPreferenceStatusCommandOutput,
 } from "./commands/UpdateProcurementPortalPreferenceStatusCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -276,7 +283,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

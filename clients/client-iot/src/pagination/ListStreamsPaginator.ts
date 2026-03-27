@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/ListStreamsCommand";
 import { IoTClient } from "../IoTClient";
-import { IoTPaginationConfiguration } from "./Interfaces";
+import type { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   Gender,
   LayoutType,
   LogicalOperator,
@@ -9,25 +9,25 @@ import {
   Scope,
   Statistic,
 } from "./enums";
-import {
-  type AttributeDetails,
-  type Conditions,
-  type DataStoreRequest,
-  type DataStoreResponse,
-  type EngagementPreferences,
-  type EventTriggerLimits,
-  type FlowDefinition,
-  type MatchingRequest,
-  type MatchingResponse,
-  type Readiness,
-  type RecommenderConfig,
-  type RuleBasedMatchingRequest,
-  type RuleBasedMatchingResponse,
+import type {
   AdditionalSearchKey,
+  AttributeDetails,
+  Conditions,
+  DataStoreRequest,
+  DataStoreResponse,
+  EngagementPreferences,
   EventTriggerCondition,
+  EventTriggerLimits,
+  FlowDefinition,
+  MatchingRequest,
+  MatchingResponse,
   ObjectTypeField,
   ObjectTypeKey,
   Profile,
+  Readiness,
+  RecommenderConfig,
+  RuleBasedMatchingRequest,
+  RuleBasedMatchingResponse,
 } from "./models_0";
 
 /**

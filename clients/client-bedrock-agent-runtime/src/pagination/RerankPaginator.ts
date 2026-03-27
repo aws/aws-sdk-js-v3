@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { BedrockAgentRuntimeClient } from "../BedrockAgentRuntimeClient";
 import { RerankCommand, RerankCommandInput, RerankCommandOutput } from "../commands/RerankCommand";
-import { BedrockAgentRuntimePaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentRuntimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

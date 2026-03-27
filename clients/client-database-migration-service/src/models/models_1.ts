@@ -1,19 +1,19 @@
 // smithy-typescript generated code
-import {
+import type {
   OriginTypeValue,
   ReloadOptionValue,
   StartReplicationMigrationTypeValue,
   StartReplicationTaskTypeValue,
 } from "./enums";
-import {
-  type Connection,
-  type DataMigration,
-  type RecommendationSettings,
-  type RefreshSchemasStatus,
-  type Replication,
-  type ReplicationInstance,
-  type ReplicationTask,
-  type ReplicationTaskAssessmentRun,
+import type {
+  Connection,
+  DataMigration,
+  RecommendationSettings,
+  RefreshSchemasStatus,
+  Replication,
+  ReplicationInstance,
+  ReplicationTask,
+  ReplicationTaskAssessmentRun,
   Tag,
 } from "./models_0";
 

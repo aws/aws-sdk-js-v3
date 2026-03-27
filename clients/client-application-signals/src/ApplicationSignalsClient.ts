@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,78 +61,84 @@ import {
   defaultApplicationSignalsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchGetServiceLevelObjectiveBudgetReportCommandInput,
   BatchGetServiceLevelObjectiveBudgetReportCommandOutput,
 } from "./commands/BatchGetServiceLevelObjectiveBudgetReportCommand";
-import {
+import type {
   BatchUpdateExclusionWindowsCommandInput,
   BatchUpdateExclusionWindowsCommandOutput,
 } from "./commands/BatchUpdateExclusionWindowsCommand";
-import {
+import type {
   CreateServiceLevelObjectiveCommandInput,
   CreateServiceLevelObjectiveCommandOutput,
 } from "./commands/CreateServiceLevelObjectiveCommand";
-import {
+import type {
   DeleteGroupingConfigurationCommandInput,
   DeleteGroupingConfigurationCommandOutput,
 } from "./commands/DeleteGroupingConfigurationCommand";
-import {
+import type {
   DeleteServiceLevelObjectiveCommandInput,
   DeleteServiceLevelObjectiveCommandOutput,
 } from "./commands/DeleteServiceLevelObjectiveCommand";
-import { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
-import {
+import type { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
+import type {
   GetServiceLevelObjectiveCommandInput,
   GetServiceLevelObjectiveCommandOutput,
 } from "./commands/GetServiceLevelObjectiveCommand";
-import { ListAuditFindingsCommandInput, ListAuditFindingsCommandOutput } from "./commands/ListAuditFindingsCommand";
-import { ListEntityEventsCommandInput, ListEntityEventsCommandOutput } from "./commands/ListEntityEventsCommand";
-import {
+import type {
+  ListAuditFindingsCommandInput,
+  ListAuditFindingsCommandOutput,
+} from "./commands/ListAuditFindingsCommand";
+import type { ListEntityEventsCommandInput, ListEntityEventsCommandOutput } from "./commands/ListEntityEventsCommand";
+import type {
   ListGroupingAttributeDefinitionsCommandInput,
   ListGroupingAttributeDefinitionsCommandOutput,
 } from "./commands/ListGroupingAttributeDefinitionsCommand";
-import {
+import type {
   ListServiceDependenciesCommandInput,
   ListServiceDependenciesCommandOutput,
 } from "./commands/ListServiceDependenciesCommand";
-import {
+import type {
   ListServiceDependentsCommandInput,
   ListServiceDependentsCommandOutput,
 } from "./commands/ListServiceDependentsCommand";
-import {
+import type {
   ListServiceLevelObjectiveExclusionWindowsCommandInput,
   ListServiceLevelObjectiveExclusionWindowsCommandOutput,
 } from "./commands/ListServiceLevelObjectiveExclusionWindowsCommand";
-import {
+import type {
   ListServiceLevelObjectivesCommandInput,
   ListServiceLevelObjectivesCommandOutput,
 } from "./commands/ListServiceLevelObjectivesCommand";
-import {
+import type {
   ListServiceOperationsCommandInput,
   ListServiceOperationsCommandOutput,
 } from "./commands/ListServiceOperationsCommand";
-import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
-import { ListServiceStatesCommandInput, ListServiceStatesCommandOutput } from "./commands/ListServiceStatesCommand";
-import {
+import type { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
+import type {
+  ListServiceStatesCommandInput,
+  ListServiceStatesCommandOutput,
+} from "./commands/ListServiceStatesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutGroupingConfigurationCommandInput,
   PutGroupingConfigurationCommandOutput,
 } from "./commands/PutGroupingConfigurationCommand";
-import { StartDiscoveryCommandInput, StartDiscoveryCommandOutput } from "./commands/StartDiscoveryCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { StartDiscoveryCommandInput, StartDiscoveryCommandOutput } from "./commands/StartDiscoveryCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateServiceLevelObjectiveCommandInput,
   UpdateServiceLevelObjectiveCommandOutput,
 } from "./commands/UpdateServiceLevelObjectiveCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -312,7 +316,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

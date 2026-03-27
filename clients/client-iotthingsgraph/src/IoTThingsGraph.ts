@@ -3,171 +3,179 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateEntityToThingCommandInput,
+  type AssociateEntityToThingCommandOutput,
   AssociateEntityToThingCommand,
-  AssociateEntityToThingCommandInput,
-  AssociateEntityToThingCommandOutput,
 } from "./commands/AssociateEntityToThingCommand";
 import {
+  type CreateFlowTemplateCommandInput,
+  type CreateFlowTemplateCommandOutput,
   CreateFlowTemplateCommand,
-  CreateFlowTemplateCommandInput,
-  CreateFlowTemplateCommandOutput,
 } from "./commands/CreateFlowTemplateCommand";
 import {
+  type CreateSystemInstanceCommandInput,
+  type CreateSystemInstanceCommandOutput,
   CreateSystemInstanceCommand,
-  CreateSystemInstanceCommandInput,
-  CreateSystemInstanceCommandOutput,
 } from "./commands/CreateSystemInstanceCommand";
 import {
+  type CreateSystemTemplateCommandInput,
+  type CreateSystemTemplateCommandOutput,
   CreateSystemTemplateCommand,
-  CreateSystemTemplateCommandInput,
-  CreateSystemTemplateCommandOutput,
 } from "./commands/CreateSystemTemplateCommand";
 import {
+  type DeleteFlowTemplateCommandInput,
+  type DeleteFlowTemplateCommandOutput,
   DeleteFlowTemplateCommand,
-  DeleteFlowTemplateCommandInput,
-  DeleteFlowTemplateCommandOutput,
 } from "./commands/DeleteFlowTemplateCommand";
 import {
+  type DeleteNamespaceCommandInput,
+  type DeleteNamespaceCommandOutput,
   DeleteNamespaceCommand,
-  DeleteNamespaceCommandInput,
-  DeleteNamespaceCommandOutput,
 } from "./commands/DeleteNamespaceCommand";
 import {
+  type DeleteSystemInstanceCommandInput,
+  type DeleteSystemInstanceCommandOutput,
   DeleteSystemInstanceCommand,
-  DeleteSystemInstanceCommandInput,
-  DeleteSystemInstanceCommandOutput,
 } from "./commands/DeleteSystemInstanceCommand";
 import {
+  type DeleteSystemTemplateCommandInput,
+  type DeleteSystemTemplateCommandOutput,
   DeleteSystemTemplateCommand,
-  DeleteSystemTemplateCommandInput,
-  DeleteSystemTemplateCommandOutput,
 } from "./commands/DeleteSystemTemplateCommand";
 import {
+  type DeploySystemInstanceCommandInput,
+  type DeploySystemInstanceCommandOutput,
   DeploySystemInstanceCommand,
-  DeploySystemInstanceCommandInput,
-  DeploySystemInstanceCommandOutput,
 } from "./commands/DeploySystemInstanceCommand";
 import {
+  type DeprecateFlowTemplateCommandInput,
+  type DeprecateFlowTemplateCommandOutput,
   DeprecateFlowTemplateCommand,
-  DeprecateFlowTemplateCommandInput,
-  DeprecateFlowTemplateCommandOutput,
 } from "./commands/DeprecateFlowTemplateCommand";
 import {
+  type DeprecateSystemTemplateCommandInput,
+  type DeprecateSystemTemplateCommandOutput,
   DeprecateSystemTemplateCommand,
-  DeprecateSystemTemplateCommandInput,
-  DeprecateSystemTemplateCommandOutput,
 } from "./commands/DeprecateSystemTemplateCommand";
 import {
+  type DescribeNamespaceCommandInput,
+  type DescribeNamespaceCommandOutput,
   DescribeNamespaceCommand,
-  DescribeNamespaceCommandInput,
-  DescribeNamespaceCommandOutput,
 } from "./commands/DescribeNamespaceCommand";
 import {
+  type DissociateEntityFromThingCommandInput,
+  type DissociateEntityFromThingCommandOutput,
   DissociateEntityFromThingCommand,
-  DissociateEntityFromThingCommandInput,
-  DissociateEntityFromThingCommandOutput,
 } from "./commands/DissociateEntityFromThingCommand";
-import { GetEntitiesCommand, GetEntitiesCommandInput, GetEntitiesCommandOutput } from "./commands/GetEntitiesCommand";
 import {
+  type GetEntitiesCommandInput,
+  type GetEntitiesCommandOutput,
+  GetEntitiesCommand,
+} from "./commands/GetEntitiesCommand";
+import {
+  type GetFlowTemplateCommandInput,
+  type GetFlowTemplateCommandOutput,
   GetFlowTemplateCommand,
-  GetFlowTemplateCommandInput,
-  GetFlowTemplateCommandOutput,
 } from "./commands/GetFlowTemplateCommand";
 import {
+  type GetFlowTemplateRevisionsCommandInput,
+  type GetFlowTemplateRevisionsCommandOutput,
   GetFlowTemplateRevisionsCommand,
-  GetFlowTemplateRevisionsCommandInput,
-  GetFlowTemplateRevisionsCommandOutput,
 } from "./commands/GetFlowTemplateRevisionsCommand";
 import {
+  type GetNamespaceDeletionStatusCommandInput,
+  type GetNamespaceDeletionStatusCommandOutput,
   GetNamespaceDeletionStatusCommand,
-  GetNamespaceDeletionStatusCommandInput,
-  GetNamespaceDeletionStatusCommandOutput,
 } from "./commands/GetNamespaceDeletionStatusCommand";
 import {
+  type GetSystemInstanceCommandInput,
+  type GetSystemInstanceCommandOutput,
   GetSystemInstanceCommand,
-  GetSystemInstanceCommandInput,
-  GetSystemInstanceCommandOutput,
 } from "./commands/GetSystemInstanceCommand";
 import {
+  type GetSystemTemplateCommandInput,
+  type GetSystemTemplateCommandOutput,
   GetSystemTemplateCommand,
-  GetSystemTemplateCommandInput,
-  GetSystemTemplateCommandOutput,
 } from "./commands/GetSystemTemplateCommand";
 import {
+  type GetSystemTemplateRevisionsCommandInput,
+  type GetSystemTemplateRevisionsCommandOutput,
   GetSystemTemplateRevisionsCommand,
-  GetSystemTemplateRevisionsCommandInput,
-  GetSystemTemplateRevisionsCommandOutput,
 } from "./commands/GetSystemTemplateRevisionsCommand";
 import {
+  type GetUploadStatusCommandInput,
+  type GetUploadStatusCommandOutput,
   GetUploadStatusCommand,
-  GetUploadStatusCommandInput,
-  GetUploadStatusCommandOutput,
 } from "./commands/GetUploadStatusCommand";
 import {
+  type ListFlowExecutionMessagesCommandInput,
+  type ListFlowExecutionMessagesCommandOutput,
   ListFlowExecutionMessagesCommand,
-  ListFlowExecutionMessagesCommandInput,
-  ListFlowExecutionMessagesCommandOutput,
 } from "./commands/ListFlowExecutionMessagesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type SearchEntitiesCommandInput,
+  type SearchEntitiesCommandOutput,
   SearchEntitiesCommand,
-  SearchEntitiesCommandInput,
-  SearchEntitiesCommandOutput,
 } from "./commands/SearchEntitiesCommand";
 import {
+  type SearchFlowExecutionsCommandInput,
+  type SearchFlowExecutionsCommandOutput,
   SearchFlowExecutionsCommand,
-  SearchFlowExecutionsCommandInput,
-  SearchFlowExecutionsCommandOutput,
 } from "./commands/SearchFlowExecutionsCommand";
 import {
+  type SearchFlowTemplatesCommandInput,
+  type SearchFlowTemplatesCommandOutput,
   SearchFlowTemplatesCommand,
-  SearchFlowTemplatesCommandInput,
-  SearchFlowTemplatesCommandOutput,
 } from "./commands/SearchFlowTemplatesCommand";
 import {
+  type SearchSystemInstancesCommandInput,
+  type SearchSystemInstancesCommandOutput,
   SearchSystemInstancesCommand,
-  SearchSystemInstancesCommandInput,
-  SearchSystemInstancesCommandOutput,
 } from "./commands/SearchSystemInstancesCommand";
 import {
+  type SearchSystemTemplatesCommandInput,
+  type SearchSystemTemplatesCommandOutput,
   SearchSystemTemplatesCommand,
-  SearchSystemTemplatesCommandInput,
-  SearchSystemTemplatesCommandOutput,
 } from "./commands/SearchSystemTemplatesCommand";
 import {
+  type SearchThingsCommandInput,
+  type SearchThingsCommandOutput,
   SearchThingsCommand,
-  SearchThingsCommandInput,
-  SearchThingsCommandOutput,
 } from "./commands/SearchThingsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UndeploySystemInstanceCommandInput,
+  type UndeploySystemInstanceCommandOutput,
   UndeploySystemInstanceCommand,
-  UndeploySystemInstanceCommandInput,
-  UndeploySystemInstanceCommandOutput,
 } from "./commands/UndeploySystemInstanceCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateFlowTemplateCommandInput,
+  type UpdateFlowTemplateCommandOutput,
   UpdateFlowTemplateCommand,
-  UpdateFlowTemplateCommandInput,
-  UpdateFlowTemplateCommandOutput,
 } from "./commands/UpdateFlowTemplateCommand";
 import {
+  type UpdateSystemTemplateCommandInput,
+  type UpdateSystemTemplateCommandOutput,
   UpdateSystemTemplateCommand,
-  UpdateSystemTemplateCommandInput,
-  UpdateSystemTemplateCommandOutput,
 } from "./commands/UpdateSystemTemplateCommand";
 import {
+  type UploadEntityDefinitionsCommandInput,
+  type UploadEntityDefinitionsCommandOutput,
   UploadEntityDefinitionsCommand,
-  UploadEntityDefinitionsCommandInput,
-  UploadEntityDefinitionsCommandOutput,
 } from "./commands/UploadEntityDefinitionsCommand";
 import { IoTThingsGraphClient } from "./IoTThingsGraphClient";
 import { paginateGetFlowTemplateRevisions } from "./pagination/GetFlowTemplateRevisionsPaginator";

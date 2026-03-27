@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { QuotaCode, ServiceCode, ValidationExceptionReason } from "./enums";
-import { ThrottlingReason, ValidationExceptionField } from "./models_0";
+import type { QuotaCode, ServiceCode, ValidationExceptionReason } from "./enums";
+import type { ThrottlingReason, ValidationExceptionField } from "./models_0";
 import { PollyServiceException as __BaseException } from "./PollyServiceException";
 
 /**

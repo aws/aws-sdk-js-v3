@@ -9,280 +9,296 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AddInstanceFleetCommandInput,
+  type AddInstanceFleetCommandOutput,
   AddInstanceFleetCommand,
-  AddInstanceFleetCommandInput,
-  AddInstanceFleetCommandOutput,
 } from "./commands/AddInstanceFleetCommand";
 import {
+  type AddInstanceGroupsCommandInput,
+  type AddInstanceGroupsCommandOutput,
   AddInstanceGroupsCommand,
-  AddInstanceGroupsCommandInput,
-  AddInstanceGroupsCommandOutput,
 } from "./commands/AddInstanceGroupsCommand";
 import {
+  type AddJobFlowStepsCommandInput,
+  type AddJobFlowStepsCommandOutput,
   AddJobFlowStepsCommand,
-  AddJobFlowStepsCommandInput,
-  AddJobFlowStepsCommandOutput,
 } from "./commands/AddJobFlowStepsCommand";
-import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
-import { CancelStepsCommand, CancelStepsCommandInput, CancelStepsCommandOutput } from "./commands/CancelStepsCommand";
+import { type AddTagsCommandInput, type AddTagsCommandOutput, AddTagsCommand } from "./commands/AddTagsCommand";
 import {
+  type CancelStepsCommandInput,
+  type CancelStepsCommandOutput,
+  CancelStepsCommand,
+} from "./commands/CancelStepsCommand";
+import {
+  type CreatePersistentAppUICommandInput,
+  type CreatePersistentAppUICommandOutput,
   CreatePersistentAppUICommand,
-  CreatePersistentAppUICommandInput,
-  CreatePersistentAppUICommandOutput,
 } from "./commands/CreatePersistentAppUICommand";
 import {
+  type CreateSecurityConfigurationCommandInput,
+  type CreateSecurityConfigurationCommandOutput,
   CreateSecurityConfigurationCommand,
-  CreateSecurityConfigurationCommandInput,
-  CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
 import {
+  type CreateStudioCommandInput,
+  type CreateStudioCommandOutput,
   CreateStudioCommand,
-  CreateStudioCommandInput,
-  CreateStudioCommandOutput,
 } from "./commands/CreateStudioCommand";
 import {
+  type CreateStudioSessionMappingCommandInput,
+  type CreateStudioSessionMappingCommandOutput,
   CreateStudioSessionMappingCommand,
-  CreateStudioSessionMappingCommandInput,
-  CreateStudioSessionMappingCommandOutput,
 } from "./commands/CreateStudioSessionMappingCommand";
 import {
+  type DeleteSecurityConfigurationCommandInput,
+  type DeleteSecurityConfigurationCommandOutput,
   DeleteSecurityConfigurationCommand,
-  DeleteSecurityConfigurationCommandInput,
-  DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand";
 import {
+  type DeleteStudioCommandInput,
+  type DeleteStudioCommandOutput,
   DeleteStudioCommand,
-  DeleteStudioCommandInput,
-  DeleteStudioCommandOutput,
 } from "./commands/DeleteStudioCommand";
 import {
+  type DeleteStudioSessionMappingCommandInput,
+  type DeleteStudioSessionMappingCommandOutput,
   DeleteStudioSessionMappingCommand,
-  DeleteStudioSessionMappingCommandInput,
-  DeleteStudioSessionMappingCommandOutput,
 } from "./commands/DeleteStudioSessionMappingCommand";
 import {
+  type DescribeClusterCommandInput,
+  type DescribeClusterCommandOutput,
   DescribeClusterCommand,
-  DescribeClusterCommandInput,
-  DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand";
 import {
+  type DescribeJobFlowsCommandInput,
+  type DescribeJobFlowsCommandOutput,
   DescribeJobFlowsCommand,
-  DescribeJobFlowsCommandInput,
-  DescribeJobFlowsCommandOutput,
 } from "./commands/DescribeJobFlowsCommand";
 import {
+  type DescribeNotebookExecutionCommandInput,
+  type DescribeNotebookExecutionCommandOutput,
   DescribeNotebookExecutionCommand,
-  DescribeNotebookExecutionCommandInput,
-  DescribeNotebookExecutionCommandOutput,
 } from "./commands/DescribeNotebookExecutionCommand";
 import {
+  type DescribePersistentAppUICommandInput,
+  type DescribePersistentAppUICommandOutput,
   DescribePersistentAppUICommand,
-  DescribePersistentAppUICommandInput,
-  DescribePersistentAppUICommandOutput,
 } from "./commands/DescribePersistentAppUICommand";
 import {
+  type DescribeReleaseLabelCommandInput,
+  type DescribeReleaseLabelCommandOutput,
   DescribeReleaseLabelCommand,
-  DescribeReleaseLabelCommandInput,
-  DescribeReleaseLabelCommandOutput,
 } from "./commands/DescribeReleaseLabelCommand";
 import {
+  type DescribeSecurityConfigurationCommandInput,
+  type DescribeSecurityConfigurationCommandOutput,
   DescribeSecurityConfigurationCommand,
-  DescribeSecurityConfigurationCommandInput,
-  DescribeSecurityConfigurationCommandOutput,
 } from "./commands/DescribeSecurityConfigurationCommand";
 import {
+  type DescribeStepCommandInput,
+  type DescribeStepCommandOutput,
   DescribeStepCommand,
-  DescribeStepCommandInput,
-  DescribeStepCommandOutput,
 } from "./commands/DescribeStepCommand";
 import {
+  type DescribeStudioCommandInput,
+  type DescribeStudioCommandOutput,
   DescribeStudioCommand,
-  DescribeStudioCommandInput,
-  DescribeStudioCommandOutput,
 } from "./commands/DescribeStudioCommand";
 import {
+  type GetAutoTerminationPolicyCommandInput,
+  type GetAutoTerminationPolicyCommandOutput,
   GetAutoTerminationPolicyCommand,
-  GetAutoTerminationPolicyCommandInput,
-  GetAutoTerminationPolicyCommandOutput,
 } from "./commands/GetAutoTerminationPolicyCommand";
 import {
+  type GetBlockPublicAccessConfigurationCommandInput,
+  type GetBlockPublicAccessConfigurationCommandOutput,
   GetBlockPublicAccessConfigurationCommand,
-  GetBlockPublicAccessConfigurationCommandInput,
-  GetBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/GetBlockPublicAccessConfigurationCommand";
 import {
+  type GetClusterSessionCredentialsCommandInput,
+  type GetClusterSessionCredentialsCommandOutput,
   GetClusterSessionCredentialsCommand,
-  GetClusterSessionCredentialsCommandInput,
-  GetClusterSessionCredentialsCommandOutput,
 } from "./commands/GetClusterSessionCredentialsCommand";
 import {
+  type GetManagedScalingPolicyCommandInput,
+  type GetManagedScalingPolicyCommandOutput,
   GetManagedScalingPolicyCommand,
-  GetManagedScalingPolicyCommandInput,
-  GetManagedScalingPolicyCommandOutput,
 } from "./commands/GetManagedScalingPolicyCommand";
 import {
+  type GetOnClusterAppUIPresignedURLCommandInput,
+  type GetOnClusterAppUIPresignedURLCommandOutput,
   GetOnClusterAppUIPresignedURLCommand,
-  GetOnClusterAppUIPresignedURLCommandInput,
-  GetOnClusterAppUIPresignedURLCommandOutput,
 } from "./commands/GetOnClusterAppUIPresignedURLCommand";
 import {
+  type GetPersistentAppUIPresignedURLCommandInput,
+  type GetPersistentAppUIPresignedURLCommandOutput,
   GetPersistentAppUIPresignedURLCommand,
-  GetPersistentAppUIPresignedURLCommandInput,
-  GetPersistentAppUIPresignedURLCommandOutput,
 } from "./commands/GetPersistentAppUIPresignedURLCommand";
 import {
+  type GetStudioSessionMappingCommandInput,
+  type GetStudioSessionMappingCommandOutput,
   GetStudioSessionMappingCommand,
-  GetStudioSessionMappingCommandInput,
-  GetStudioSessionMappingCommandOutput,
 } from "./commands/GetStudioSessionMappingCommand";
 import {
+  type ListBootstrapActionsCommandInput,
+  type ListBootstrapActionsCommandOutput,
   ListBootstrapActionsCommand,
-  ListBootstrapActionsCommandInput,
-  ListBootstrapActionsCommandOutput,
 } from "./commands/ListBootstrapActionsCommand";
 import {
+  type ListClustersCommandInput,
+  type ListClustersCommandOutput,
   ListClustersCommand,
-  ListClustersCommandInput,
-  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
 import {
+  type ListInstanceFleetsCommandInput,
+  type ListInstanceFleetsCommandOutput,
   ListInstanceFleetsCommand,
-  ListInstanceFleetsCommandInput,
-  ListInstanceFleetsCommandOutput,
 } from "./commands/ListInstanceFleetsCommand";
 import {
+  type ListInstanceGroupsCommandInput,
+  type ListInstanceGroupsCommandOutput,
   ListInstanceGroupsCommand,
-  ListInstanceGroupsCommandInput,
-  ListInstanceGroupsCommandOutput,
 } from "./commands/ListInstanceGroupsCommand";
 import {
+  type ListInstancesCommandInput,
+  type ListInstancesCommandOutput,
   ListInstancesCommand,
-  ListInstancesCommandInput,
-  ListInstancesCommandOutput,
 } from "./commands/ListInstancesCommand";
 import {
+  type ListNotebookExecutionsCommandInput,
+  type ListNotebookExecutionsCommandOutput,
   ListNotebookExecutionsCommand,
-  ListNotebookExecutionsCommandInput,
-  ListNotebookExecutionsCommandOutput,
 } from "./commands/ListNotebookExecutionsCommand";
 import {
+  type ListReleaseLabelsCommandInput,
+  type ListReleaseLabelsCommandOutput,
   ListReleaseLabelsCommand,
-  ListReleaseLabelsCommandInput,
-  ListReleaseLabelsCommandOutput,
 } from "./commands/ListReleaseLabelsCommand";
 import {
+  type ListSecurityConfigurationsCommandInput,
+  type ListSecurityConfigurationsCommandOutput,
   ListSecurityConfigurationsCommand,
-  ListSecurityConfigurationsCommandInput,
-  ListSecurityConfigurationsCommandOutput,
 } from "./commands/ListSecurityConfigurationsCommand";
-import { ListStepsCommand, ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand";
-import { ListStudiosCommand, ListStudiosCommandInput, ListStudiosCommandOutput } from "./commands/ListStudiosCommand";
+import { type ListStepsCommandInput, type ListStepsCommandOutput, ListStepsCommand } from "./commands/ListStepsCommand";
 import {
+  type ListStudiosCommandInput,
+  type ListStudiosCommandOutput,
+  ListStudiosCommand,
+} from "./commands/ListStudiosCommand";
+import {
+  type ListStudioSessionMappingsCommandInput,
+  type ListStudioSessionMappingsCommandOutput,
   ListStudioSessionMappingsCommand,
-  ListStudioSessionMappingsCommandInput,
-  ListStudioSessionMappingsCommandOutput,
 } from "./commands/ListStudioSessionMappingsCommand";
 import {
+  type ListSupportedInstanceTypesCommandInput,
+  type ListSupportedInstanceTypesCommandOutput,
   ListSupportedInstanceTypesCommand,
-  ListSupportedInstanceTypesCommandInput,
-  ListSupportedInstanceTypesCommandOutput,
 } from "./commands/ListSupportedInstanceTypesCommand";
 import {
+  type ModifyClusterCommandInput,
+  type ModifyClusterCommandOutput,
   ModifyClusterCommand,
-  ModifyClusterCommandInput,
-  ModifyClusterCommandOutput,
 } from "./commands/ModifyClusterCommand";
 import {
+  type ModifyInstanceFleetCommandInput,
+  type ModifyInstanceFleetCommandOutput,
   ModifyInstanceFleetCommand,
-  ModifyInstanceFleetCommandInput,
-  ModifyInstanceFleetCommandOutput,
 } from "./commands/ModifyInstanceFleetCommand";
 import {
+  type ModifyInstanceGroupsCommandInput,
+  type ModifyInstanceGroupsCommandOutput,
   ModifyInstanceGroupsCommand,
-  ModifyInstanceGroupsCommandInput,
-  ModifyInstanceGroupsCommandOutput,
 } from "./commands/ModifyInstanceGroupsCommand";
 import {
+  type PutAutoScalingPolicyCommandInput,
+  type PutAutoScalingPolicyCommandOutput,
   PutAutoScalingPolicyCommand,
-  PutAutoScalingPolicyCommandInput,
-  PutAutoScalingPolicyCommandOutput,
 } from "./commands/PutAutoScalingPolicyCommand";
 import {
+  type PutAutoTerminationPolicyCommandInput,
+  type PutAutoTerminationPolicyCommandOutput,
   PutAutoTerminationPolicyCommand,
-  PutAutoTerminationPolicyCommandInput,
-  PutAutoTerminationPolicyCommandOutput,
 } from "./commands/PutAutoTerminationPolicyCommand";
 import {
+  type PutBlockPublicAccessConfigurationCommandInput,
+  type PutBlockPublicAccessConfigurationCommandOutput,
   PutBlockPublicAccessConfigurationCommand,
-  PutBlockPublicAccessConfigurationCommandInput,
-  PutBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/PutBlockPublicAccessConfigurationCommand";
 import {
+  type PutManagedScalingPolicyCommandInput,
+  type PutManagedScalingPolicyCommandOutput,
   PutManagedScalingPolicyCommand,
-  PutManagedScalingPolicyCommandInput,
-  PutManagedScalingPolicyCommandOutput,
 } from "./commands/PutManagedScalingPolicyCommand";
 import {
+  type RemoveAutoScalingPolicyCommandInput,
+  type RemoveAutoScalingPolicyCommandOutput,
   RemoveAutoScalingPolicyCommand,
-  RemoveAutoScalingPolicyCommandInput,
-  RemoveAutoScalingPolicyCommandOutput,
 } from "./commands/RemoveAutoScalingPolicyCommand";
 import {
+  type RemoveAutoTerminationPolicyCommandInput,
+  type RemoveAutoTerminationPolicyCommandOutput,
   RemoveAutoTerminationPolicyCommand,
-  RemoveAutoTerminationPolicyCommandInput,
-  RemoveAutoTerminationPolicyCommandOutput,
 } from "./commands/RemoveAutoTerminationPolicyCommand";
 import {
+  type RemoveManagedScalingPolicyCommandInput,
+  type RemoveManagedScalingPolicyCommandOutput,
   RemoveManagedScalingPolicyCommand,
-  RemoveManagedScalingPolicyCommandInput,
-  RemoveManagedScalingPolicyCommandOutput,
 } from "./commands/RemoveManagedScalingPolicyCommand";
-import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
-import { RunJobFlowCommand, RunJobFlowCommandInput, RunJobFlowCommandOutput } from "./commands/RunJobFlowCommand";
 import {
+  type RemoveTagsCommandInput,
+  type RemoveTagsCommandOutput,
+  RemoveTagsCommand,
+} from "./commands/RemoveTagsCommand";
+import {
+  type RunJobFlowCommandInput,
+  type RunJobFlowCommandOutput,
+  RunJobFlowCommand,
+} from "./commands/RunJobFlowCommand";
+import {
+  type SetKeepJobFlowAliveWhenNoStepsCommandInput,
+  type SetKeepJobFlowAliveWhenNoStepsCommandOutput,
   SetKeepJobFlowAliveWhenNoStepsCommand,
-  SetKeepJobFlowAliveWhenNoStepsCommandInput,
-  SetKeepJobFlowAliveWhenNoStepsCommandOutput,
 } from "./commands/SetKeepJobFlowAliveWhenNoStepsCommand";
 import {
+  type SetTerminationProtectionCommandInput,
+  type SetTerminationProtectionCommandOutput,
   SetTerminationProtectionCommand,
-  SetTerminationProtectionCommandInput,
-  SetTerminationProtectionCommandOutput,
 } from "./commands/SetTerminationProtectionCommand";
 import {
+  type SetUnhealthyNodeReplacementCommandInput,
+  type SetUnhealthyNodeReplacementCommandOutput,
   SetUnhealthyNodeReplacementCommand,
-  SetUnhealthyNodeReplacementCommandInput,
-  SetUnhealthyNodeReplacementCommandOutput,
 } from "./commands/SetUnhealthyNodeReplacementCommand";
 import {
+  type SetVisibleToAllUsersCommandInput,
+  type SetVisibleToAllUsersCommandOutput,
   SetVisibleToAllUsersCommand,
-  SetVisibleToAllUsersCommandInput,
-  SetVisibleToAllUsersCommandOutput,
 } from "./commands/SetVisibleToAllUsersCommand";
 import {
+  type StartNotebookExecutionCommandInput,
+  type StartNotebookExecutionCommandOutput,
   StartNotebookExecutionCommand,
-  StartNotebookExecutionCommandInput,
-  StartNotebookExecutionCommandOutput,
 } from "./commands/StartNotebookExecutionCommand";
 import {
+  type StopNotebookExecutionCommandInput,
+  type StopNotebookExecutionCommandOutput,
   StopNotebookExecutionCommand,
-  StopNotebookExecutionCommandInput,
-  StopNotebookExecutionCommandOutput,
 } from "./commands/StopNotebookExecutionCommand";
 import {
+  type TerminateJobFlowsCommandInput,
+  type TerminateJobFlowsCommandOutput,
   TerminateJobFlowsCommand,
-  TerminateJobFlowsCommandInput,
-  TerminateJobFlowsCommandOutput,
 } from "./commands/TerminateJobFlowsCommand";
 import {
+  type UpdateStudioCommandInput,
+  type UpdateStudioCommandOutput,
   UpdateStudioCommand,
-  UpdateStudioCommandInput,
-  UpdateStudioCommandOutput,
 } from "./commands/UpdateStudioCommand";
 import {
+  type UpdateStudioSessionMappingCommandInput,
+  type UpdateStudioSessionMappingCommandOutput,
   UpdateStudioSessionMappingCommand,
-  UpdateStudioSessionMappingCommandInput,
-  UpdateStudioSessionMappingCommandOutput,
 } from "./commands/UpdateStudioSessionMappingCommand";
 import { EMRClient } from "./EMRClient";
 import { paginateListBootstrapActions } from "./pagination/ListBootstrapActionsPaginator";

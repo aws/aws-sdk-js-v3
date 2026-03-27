@@ -8,7 +8,7 @@ import {
   DescribeEngineVersionsCommandOutput,
 } from "../commands/DescribeEngineVersionsCommand";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
-import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
+import type { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

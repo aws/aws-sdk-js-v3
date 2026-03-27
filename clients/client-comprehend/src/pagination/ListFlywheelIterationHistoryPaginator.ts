@@ -8,7 +8,7 @@ import {
   ListFlywheelIterationHistoryCommandOutput,
 } from "../commands/ListFlywheelIterationHistoryCommand";
 import { ComprehendClient } from "../ComprehendClient";
-import { ComprehendPaginationConfiguration } from "./Interfaces";
+import type { ComprehendPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

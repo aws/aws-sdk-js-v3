@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,64 +61,70 @@ import {
   defaultSnowballHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelClusterCommandInput, CancelClusterCommandOutput } from "./commands/CancelClusterCommand";
-import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
-import { CreateAddressCommandInput, CreateAddressCommandOutput } from "./commands/CreateAddressCommand";
-import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
-import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
-import {
+import type { CancelClusterCommandInput, CancelClusterCommandOutput } from "./commands/CancelClusterCommand";
+import type { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import type { CreateAddressCommandInput, CreateAddressCommandOutput } from "./commands/CreateAddressCommand";
+import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import type { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import type {
   CreateLongTermPricingCommandInput,
   CreateLongTermPricingCommandOutput,
 } from "./commands/CreateLongTermPricingCommand";
-import {
+import type {
   CreateReturnShippingLabelCommandInput,
   CreateReturnShippingLabelCommandOutput,
 } from "./commands/CreateReturnShippingLabelCommand";
-import { DescribeAddressCommandInput, DescribeAddressCommandOutput } from "./commands/DescribeAddressCommand";
-import { DescribeAddressesCommandInput, DescribeAddressesCommandOutput } from "./commands/DescribeAddressesCommand";
-import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
-import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
-import {
+import type { DescribeAddressCommandInput, DescribeAddressCommandOutput } from "./commands/DescribeAddressCommand";
+import type {
+  DescribeAddressesCommandInput,
+  DescribeAddressesCommandOutput,
+} from "./commands/DescribeAddressesCommand";
+import type { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
+import type { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
+import type {
   DescribeReturnShippingLabelCommandInput,
   DescribeReturnShippingLabelCommandOutput,
 } from "./commands/DescribeReturnShippingLabelCommand";
-import { GetJobManifestCommandInput, GetJobManifestCommandOutput } from "./commands/GetJobManifestCommand";
-import { GetJobUnlockCodeCommandInput, GetJobUnlockCodeCommandOutput } from "./commands/GetJobUnlockCodeCommand";
-import { GetSnowballUsageCommandInput, GetSnowballUsageCommandOutput } from "./commands/GetSnowballUsageCommand";
-import { GetSoftwareUpdatesCommandInput, GetSoftwareUpdatesCommandOutput } from "./commands/GetSoftwareUpdatesCommand";
-import { ListClusterJobsCommandInput, ListClusterJobsCommandOutput } from "./commands/ListClusterJobsCommand";
-import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
-import {
+import type { GetJobManifestCommandInput, GetJobManifestCommandOutput } from "./commands/GetJobManifestCommand";
+import type { GetJobUnlockCodeCommandInput, GetJobUnlockCodeCommandOutput } from "./commands/GetJobUnlockCodeCommand";
+import type { GetSnowballUsageCommandInput, GetSnowballUsageCommandOutput } from "./commands/GetSnowballUsageCommand";
+import type {
+  GetSoftwareUpdatesCommandInput,
+  GetSoftwareUpdatesCommandOutput,
+} from "./commands/GetSoftwareUpdatesCommand";
+import type { ListClusterJobsCommandInput, ListClusterJobsCommandOutput } from "./commands/ListClusterJobsCommand";
+import type { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
+import type {
   ListCompatibleImagesCommandInput,
   ListCompatibleImagesCommandOutput,
 } from "./commands/ListCompatibleImagesCommand";
-import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
-import {
+import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import type {
   ListLongTermPricingCommandInput,
   ListLongTermPricingCommandOutput,
 } from "./commands/ListLongTermPricingCommand";
-import {
+import type {
   ListPickupLocationsCommandInput,
   ListPickupLocationsCommandOutput,
 } from "./commands/ListPickupLocationsCommand";
-import {
+import type {
   ListServiceVersionsCommandInput,
   ListServiceVersionsCommandOutput,
 } from "./commands/ListServiceVersionsCommand";
-import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
-import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
-import {
+import type { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
+import type { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
+import type {
   UpdateJobShipmentStateCommandInput,
   UpdateJobShipmentStateCommandOutput,
 } from "./commands/UpdateJobShipmentStateCommand";
-import {
+import type {
   UpdateLongTermPricingCommandInput,
   UpdateLongTermPricingCommandOutput,
 } from "./commands/UpdateLongTermPricingCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -306,7 +310,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

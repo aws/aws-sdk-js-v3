@@ -8,12 +8,16 @@ import type {
 } from "@smithy/types";
 import type { WaiterResult } from "@smithy/util-waiter";
 
-import { GetExportCommand, GetExportCommandInput, GetExportCommandOutput } from "./commands/GetExportCommand";
-import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import { type GetExportCommandInput, type GetExportCommandOutput, GetExportCommand } from "./commands/GetExportCommand";
 import {
+  type ListExportsCommandInput,
+  type ListExportsCommandOutput,
+  ListExportsCommand,
+} from "./commands/ListExportsCommand";
+import {
+  type StartDomainExportCommandInput,
+  type StartDomainExportCommandOutput,
   StartDomainExportCommand,
-  StartDomainExportCommandInput,
-  StartDomainExportCommandOutput,
 } from "./commands/StartDomainExportCommand";
 import { paginateListExports } from "./pagination/ListExportsPaginator";
 import { SimpleDBv2Client } from "./SimpleDBv2Client";

@@ -3,82 +3,90 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CognitoSyncClient } from "./CognitoSyncClient";
-import { BulkPublishCommand, BulkPublishCommandInput, BulkPublishCommandOutput } from "./commands/BulkPublishCommand";
 import {
+  type BulkPublishCommandInput,
+  type BulkPublishCommandOutput,
+  BulkPublishCommand,
+} from "./commands/BulkPublishCommand";
+import {
+  type DeleteDatasetCommandInput,
+  type DeleteDatasetCommandOutput,
   DeleteDatasetCommand,
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput,
 } from "./commands/DeleteDatasetCommand";
 import {
+  type DescribeDatasetCommandInput,
+  type DescribeDatasetCommandOutput,
   DescribeDatasetCommand,
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput,
 } from "./commands/DescribeDatasetCommand";
 import {
+  type DescribeIdentityPoolUsageCommandInput,
+  type DescribeIdentityPoolUsageCommandOutput,
   DescribeIdentityPoolUsageCommand,
-  DescribeIdentityPoolUsageCommandInput,
-  DescribeIdentityPoolUsageCommandOutput,
 } from "./commands/DescribeIdentityPoolUsageCommand";
 import {
+  type DescribeIdentityUsageCommandInput,
+  type DescribeIdentityUsageCommandOutput,
   DescribeIdentityUsageCommand,
-  DescribeIdentityUsageCommandInput,
-  DescribeIdentityUsageCommandOutput,
 } from "./commands/DescribeIdentityUsageCommand";
 import {
+  type GetBulkPublishDetailsCommandInput,
+  type GetBulkPublishDetailsCommandOutput,
   GetBulkPublishDetailsCommand,
-  GetBulkPublishDetailsCommandInput,
-  GetBulkPublishDetailsCommandOutput,
 } from "./commands/GetBulkPublishDetailsCommand";
 import {
+  type GetCognitoEventsCommandInput,
+  type GetCognitoEventsCommandOutput,
   GetCognitoEventsCommand,
-  GetCognitoEventsCommandInput,
-  GetCognitoEventsCommandOutput,
 } from "./commands/GetCognitoEventsCommand";
 import {
+  type GetIdentityPoolConfigurationCommandInput,
+  type GetIdentityPoolConfigurationCommandOutput,
   GetIdentityPoolConfigurationCommand,
-  GetIdentityPoolConfigurationCommandInput,
-  GetIdentityPoolConfigurationCommandOutput,
 } from "./commands/GetIdentityPoolConfigurationCommand";
 import {
+  type ListDatasetsCommandInput,
+  type ListDatasetsCommandOutput,
   ListDatasetsCommand,
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
 import {
+  type ListIdentityPoolUsageCommandInput,
+  type ListIdentityPoolUsageCommandOutput,
   ListIdentityPoolUsageCommand,
-  ListIdentityPoolUsageCommandInput,
-  ListIdentityPoolUsageCommandOutput,
 } from "./commands/ListIdentityPoolUsageCommand";
-import { ListRecordsCommand, ListRecordsCommandInput, ListRecordsCommandOutput } from "./commands/ListRecordsCommand";
 import {
+  type ListRecordsCommandInput,
+  type ListRecordsCommandOutput,
+  ListRecordsCommand,
+} from "./commands/ListRecordsCommand";
+import {
+  type RegisterDeviceCommandInput,
+  type RegisterDeviceCommandOutput,
   RegisterDeviceCommand,
-  RegisterDeviceCommandInput,
-  RegisterDeviceCommandOutput,
 } from "./commands/RegisterDeviceCommand";
 import {
+  type SetCognitoEventsCommandInput,
+  type SetCognitoEventsCommandOutput,
   SetCognitoEventsCommand,
-  SetCognitoEventsCommandInput,
-  SetCognitoEventsCommandOutput,
 } from "./commands/SetCognitoEventsCommand";
 import {
+  type SetIdentityPoolConfigurationCommandInput,
+  type SetIdentityPoolConfigurationCommandOutput,
   SetIdentityPoolConfigurationCommand,
-  SetIdentityPoolConfigurationCommandInput,
-  SetIdentityPoolConfigurationCommandOutput,
 } from "./commands/SetIdentityPoolConfigurationCommand";
 import {
+  type SubscribeToDatasetCommandInput,
+  type SubscribeToDatasetCommandOutput,
   SubscribeToDatasetCommand,
-  SubscribeToDatasetCommandInput,
-  SubscribeToDatasetCommandOutput,
 } from "./commands/SubscribeToDatasetCommand";
 import {
+  type UnsubscribeFromDatasetCommandInput,
+  type UnsubscribeFromDatasetCommandOutput,
   UnsubscribeFromDatasetCommand,
-  UnsubscribeFromDatasetCommandInput,
-  UnsubscribeFromDatasetCommandOutput,
 } from "./commands/UnsubscribeFromDatasetCommand";
 import {
+  type UpdateRecordsCommandInput,
+  type UpdateRecordsCommandOutput,
   UpdateRecordsCommand,
-  UpdateRecordsCommandInput,
-  UpdateRecordsCommandOutput,
 } from "./commands/UpdateRecordsCommand";
 
 const commands = {

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,62 +61,74 @@ import {
   defaultDataExchangeHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AcceptDataGrantCommandInput, AcceptDataGrantCommandOutput } from "./commands/AcceptDataGrantCommand";
-import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
-import { CreateDataGrantCommandInput, CreateDataGrantCommandOutput } from "./commands/CreateDataGrantCommand";
-import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
-import { CreateEventActionCommandInput, CreateEventActionCommandOutput } from "./commands/CreateEventActionCommand";
-import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
-import { CreateRevisionCommandInput, CreateRevisionCommandOutput } from "./commands/CreateRevisionCommand";
-import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
-import { DeleteDataGrantCommandInput, DeleteDataGrantCommandOutput } from "./commands/DeleteDataGrantCommand";
-import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
-import { DeleteEventActionCommandInput, DeleteEventActionCommandOutput } from "./commands/DeleteEventActionCommand";
-import { DeleteRevisionCommandInput, DeleteRevisionCommandOutput } from "./commands/DeleteRevisionCommand";
-import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
-import { GetDataGrantCommandInput, GetDataGrantCommandOutput } from "./commands/GetDataGrantCommand";
-import { GetDataSetCommandInput, GetDataSetCommandOutput } from "./commands/GetDataSetCommand";
-import { GetEventActionCommandInput, GetEventActionCommandOutput } from "./commands/GetEventActionCommand";
-import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
-import {
+import type { AcceptDataGrantCommandInput, AcceptDataGrantCommandOutput } from "./commands/AcceptDataGrantCommand";
+import type { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import type { CreateDataGrantCommandInput, CreateDataGrantCommandOutput } from "./commands/CreateDataGrantCommand";
+import type { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
+import type {
+  CreateEventActionCommandInput,
+  CreateEventActionCommandOutput,
+} from "./commands/CreateEventActionCommand";
+import type { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import type { CreateRevisionCommandInput, CreateRevisionCommandOutput } from "./commands/CreateRevisionCommand";
+import type { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
+import type { DeleteDataGrantCommandInput, DeleteDataGrantCommandOutput } from "./commands/DeleteDataGrantCommand";
+import type { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
+import type {
+  DeleteEventActionCommandInput,
+  DeleteEventActionCommandOutput,
+} from "./commands/DeleteEventActionCommand";
+import type { DeleteRevisionCommandInput, DeleteRevisionCommandOutput } from "./commands/DeleteRevisionCommand";
+import type { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
+import type { GetDataGrantCommandInput, GetDataGrantCommandOutput } from "./commands/GetDataGrantCommand";
+import type { GetDataSetCommandInput, GetDataSetCommandOutput } from "./commands/GetDataSetCommand";
+import type { GetEventActionCommandInput, GetEventActionCommandOutput } from "./commands/GetEventActionCommand";
+import type { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import type {
   GetReceivedDataGrantCommandInput,
   GetReceivedDataGrantCommandOutput,
 } from "./commands/GetReceivedDataGrantCommand";
-import { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
-import { ListDataGrantsCommandInput, ListDataGrantsCommandOutput } from "./commands/ListDataGrantsCommand";
-import {
+import type { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
+import type { ListDataGrantsCommandInput, ListDataGrantsCommandOutput } from "./commands/ListDataGrantsCommand";
+import type {
   ListDataSetRevisionsCommandInput,
   ListDataSetRevisionsCommandOutput,
 } from "./commands/ListDataSetRevisionsCommand";
-import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "./commands/ListDataSetsCommand";
-import { ListEventActionsCommandInput, ListEventActionsCommandOutput } from "./commands/ListEventActionsCommand";
-import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
-import {
+import type { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "./commands/ListDataSetsCommand";
+import type { ListEventActionsCommandInput, ListEventActionsCommandOutput } from "./commands/ListEventActionsCommand";
+import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import type {
   ListReceivedDataGrantsCommandInput,
   ListReceivedDataGrantsCommandOutput,
 } from "./commands/ListReceivedDataGrantsCommand";
-import { ListRevisionAssetsCommandInput, ListRevisionAssetsCommandOutput } from "./commands/ListRevisionAssetsCommand";
-import {
+import type {
+  ListRevisionAssetsCommandInput,
+  ListRevisionAssetsCommandOutput,
+} from "./commands/ListRevisionAssetsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RevokeRevisionCommandInput, RevokeRevisionCommandOutput } from "./commands/RevokeRevisionCommand";
-import { SendApiAssetCommandInput, SendApiAssetCommandOutput } from "./commands/SendApiAssetCommand";
-import {
+import type { RevokeRevisionCommandInput, RevokeRevisionCommandOutput } from "./commands/RevokeRevisionCommand";
+import type { SendApiAssetCommandInput, SendApiAssetCommandOutput } from "./commands/SendApiAssetCommand";
+import type {
   SendDataSetNotificationCommandInput,
   SendDataSetNotificationCommandOutput,
 } from "./commands/SendDataSetNotificationCommand";
-import { StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
-import { UpdateDataSetCommandInput, UpdateDataSetCommandOutput } from "./commands/UpdateDataSetCommand";
-import { UpdateEventActionCommandInput, UpdateEventActionCommandOutput } from "./commands/UpdateEventActionCommand";
-import { UpdateRevisionCommandInput, UpdateRevisionCommandOutput } from "./commands/UpdateRevisionCommand";
+import type { StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
+import type { UpdateDataSetCommandInput, UpdateDataSetCommandOutput } from "./commands/UpdateDataSetCommand";
+import type {
+  UpdateEventActionCommandInput,
+  UpdateEventActionCommandOutput,
+} from "./commands/UpdateEventActionCommand";
+import type { UpdateRevisionCommandInput, UpdateRevisionCommandOutput } from "./commands/UpdateRevisionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -324,7 +334,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

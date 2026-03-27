@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes
 
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type PublishPackageVersionResult, PublishPackageVersionRequest } from "../models/models_0";
+import type { PublishPackageVersionRequest, PublishPackageVersionResult } from "../models/models_0";
 import { PublishPackageVersion$ } from "../schemas/schemas_0";
 
 /**

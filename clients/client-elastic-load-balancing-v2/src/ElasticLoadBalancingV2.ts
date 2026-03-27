@@ -9,236 +9,256 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AddListenerCertificatesCommandInput,
+  type AddListenerCertificatesCommandOutput,
   AddListenerCertificatesCommand,
-  AddListenerCertificatesCommandInput,
-  AddListenerCertificatesCommandOutput,
 } from "./commands/AddListenerCertificatesCommand";
-import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { type AddTagsCommandInput, type AddTagsCommandOutput, AddTagsCommand } from "./commands/AddTagsCommand";
 import {
+  type AddTrustStoreRevocationsCommandInput,
+  type AddTrustStoreRevocationsCommandOutput,
   AddTrustStoreRevocationsCommand,
-  AddTrustStoreRevocationsCommandInput,
-  AddTrustStoreRevocationsCommandOutput,
 } from "./commands/AddTrustStoreRevocationsCommand";
 import {
+  type CreateListenerCommandInput,
+  type CreateListenerCommandOutput,
   CreateListenerCommand,
-  CreateListenerCommandInput,
-  CreateListenerCommandOutput,
 } from "./commands/CreateListenerCommand";
 import {
+  type CreateLoadBalancerCommandInput,
+  type CreateLoadBalancerCommandOutput,
   CreateLoadBalancerCommand,
-  CreateLoadBalancerCommandInput,
-  CreateLoadBalancerCommandOutput,
 } from "./commands/CreateLoadBalancerCommand";
-import { CreateRuleCommand, CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
+  type CreateRuleCommandInput,
+  type CreateRuleCommandOutput,
+  CreateRuleCommand,
+} from "./commands/CreateRuleCommand";
+import {
+  type CreateTargetGroupCommandInput,
+  type CreateTargetGroupCommandOutput,
   CreateTargetGroupCommand,
-  CreateTargetGroupCommandInput,
-  CreateTargetGroupCommandOutput,
 } from "./commands/CreateTargetGroupCommand";
 import {
+  type CreateTrustStoreCommandInput,
+  type CreateTrustStoreCommandOutput,
   CreateTrustStoreCommand,
-  CreateTrustStoreCommandInput,
-  CreateTrustStoreCommandOutput,
 } from "./commands/CreateTrustStoreCommand";
 import {
+  type DeleteListenerCommandInput,
+  type DeleteListenerCommandOutput,
   DeleteListenerCommand,
-  DeleteListenerCommandInput,
-  DeleteListenerCommandOutput,
 } from "./commands/DeleteListenerCommand";
 import {
+  type DeleteLoadBalancerCommandInput,
+  type DeleteLoadBalancerCommandOutput,
   DeleteLoadBalancerCommand,
-  DeleteLoadBalancerCommandInput,
-  DeleteLoadBalancerCommandOutput,
 } from "./commands/DeleteLoadBalancerCommand";
-import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
+  type DeleteRuleCommandInput,
+  type DeleteRuleCommandOutput,
+  DeleteRuleCommand,
+} from "./commands/DeleteRuleCommand";
+import {
+  type DeleteSharedTrustStoreAssociationCommandInput,
+  type DeleteSharedTrustStoreAssociationCommandOutput,
   DeleteSharedTrustStoreAssociationCommand,
-  DeleteSharedTrustStoreAssociationCommandInput,
-  DeleteSharedTrustStoreAssociationCommandOutput,
 } from "./commands/DeleteSharedTrustStoreAssociationCommand";
 import {
+  type DeleteTargetGroupCommandInput,
+  type DeleteTargetGroupCommandOutput,
   DeleteTargetGroupCommand,
-  DeleteTargetGroupCommandInput,
-  DeleteTargetGroupCommandOutput,
 } from "./commands/DeleteTargetGroupCommand";
 import {
+  type DeleteTrustStoreCommandInput,
+  type DeleteTrustStoreCommandOutput,
   DeleteTrustStoreCommand,
-  DeleteTrustStoreCommandInput,
-  DeleteTrustStoreCommandOutput,
 } from "./commands/DeleteTrustStoreCommand";
 import {
+  type DeregisterTargetsCommandInput,
+  type DeregisterTargetsCommandOutput,
   DeregisterTargetsCommand,
-  DeregisterTargetsCommandInput,
-  DeregisterTargetsCommandOutput,
 } from "./commands/DeregisterTargetsCommand";
 import {
+  type DescribeAccountLimitsCommandInput,
+  type DescribeAccountLimitsCommandOutput,
   DescribeAccountLimitsCommand,
-  DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
+  type DescribeCapacityReservationCommandInput,
+  type DescribeCapacityReservationCommandOutput,
   DescribeCapacityReservationCommand,
-  DescribeCapacityReservationCommandInput,
-  DescribeCapacityReservationCommandOutput,
 } from "./commands/DescribeCapacityReservationCommand";
 import {
+  type DescribeListenerAttributesCommandInput,
+  type DescribeListenerAttributesCommandOutput,
   DescribeListenerAttributesCommand,
-  DescribeListenerAttributesCommandInput,
-  DescribeListenerAttributesCommandOutput,
 } from "./commands/DescribeListenerAttributesCommand";
 import {
+  type DescribeListenerCertificatesCommandInput,
+  type DescribeListenerCertificatesCommandOutput,
   DescribeListenerCertificatesCommand,
-  DescribeListenerCertificatesCommandInput,
-  DescribeListenerCertificatesCommandOutput,
 } from "./commands/DescribeListenerCertificatesCommand";
 import {
+  type DescribeListenersCommandInput,
+  type DescribeListenersCommandOutput,
   DescribeListenersCommand,
-  DescribeListenersCommandInput,
-  DescribeListenersCommandOutput,
 } from "./commands/DescribeListenersCommand";
 import {
+  type DescribeLoadBalancerAttributesCommandInput,
+  type DescribeLoadBalancerAttributesCommandOutput,
   DescribeLoadBalancerAttributesCommand,
-  DescribeLoadBalancerAttributesCommandInput,
-  DescribeLoadBalancerAttributesCommandOutput,
 } from "./commands/DescribeLoadBalancerAttributesCommand";
 import {
+  type DescribeLoadBalancersCommandInput,
+  type DescribeLoadBalancersCommandOutput,
   DescribeLoadBalancersCommand,
-  DescribeLoadBalancersCommandInput,
-  DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand";
 import {
+  type DescribeRulesCommandInput,
+  type DescribeRulesCommandOutput,
   DescribeRulesCommand,
-  DescribeRulesCommandInput,
-  DescribeRulesCommandOutput,
 } from "./commands/DescribeRulesCommand";
 import {
+  type DescribeSSLPoliciesCommandInput,
+  type DescribeSSLPoliciesCommandOutput,
   DescribeSSLPoliciesCommand,
-  DescribeSSLPoliciesCommandInput,
-  DescribeSSLPoliciesCommandOutput,
 } from "./commands/DescribeSSLPoliciesCommand";
 import {
+  type DescribeTagsCommandInput,
+  type DescribeTagsCommandOutput,
   DescribeTagsCommand,
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  type DescribeTargetGroupAttributesCommandInput,
+  type DescribeTargetGroupAttributesCommandOutput,
   DescribeTargetGroupAttributesCommand,
-  DescribeTargetGroupAttributesCommandInput,
-  DescribeTargetGroupAttributesCommandOutput,
 } from "./commands/DescribeTargetGroupAttributesCommand";
 import {
+  type DescribeTargetGroupsCommandInput,
+  type DescribeTargetGroupsCommandOutput,
   DescribeTargetGroupsCommand,
-  DescribeTargetGroupsCommandInput,
-  DescribeTargetGroupsCommandOutput,
 } from "./commands/DescribeTargetGroupsCommand";
 import {
+  type DescribeTargetHealthCommandInput,
+  type DescribeTargetHealthCommandOutput,
   DescribeTargetHealthCommand,
-  DescribeTargetHealthCommandInput,
-  DescribeTargetHealthCommandOutput,
 } from "./commands/DescribeTargetHealthCommand";
 import {
+  type DescribeTrustStoreAssociationsCommandInput,
+  type DescribeTrustStoreAssociationsCommandOutput,
   DescribeTrustStoreAssociationsCommand,
-  DescribeTrustStoreAssociationsCommandInput,
-  DescribeTrustStoreAssociationsCommandOutput,
 } from "./commands/DescribeTrustStoreAssociationsCommand";
 import {
+  type DescribeTrustStoreRevocationsCommandInput,
+  type DescribeTrustStoreRevocationsCommandOutput,
   DescribeTrustStoreRevocationsCommand,
-  DescribeTrustStoreRevocationsCommandInput,
-  DescribeTrustStoreRevocationsCommandOutput,
 } from "./commands/DescribeTrustStoreRevocationsCommand";
 import {
+  type DescribeTrustStoresCommandInput,
+  type DescribeTrustStoresCommandOutput,
   DescribeTrustStoresCommand,
-  DescribeTrustStoresCommandInput,
-  DescribeTrustStoresCommandOutput,
 } from "./commands/DescribeTrustStoresCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type GetTrustStoreCaCertificatesBundleCommandInput,
+  type GetTrustStoreCaCertificatesBundleCommandOutput,
   GetTrustStoreCaCertificatesBundleCommand,
-  GetTrustStoreCaCertificatesBundleCommandInput,
-  GetTrustStoreCaCertificatesBundleCommandOutput,
 } from "./commands/GetTrustStoreCaCertificatesBundleCommand";
 import {
+  type GetTrustStoreRevocationContentCommandInput,
+  type GetTrustStoreRevocationContentCommandOutput,
   GetTrustStoreRevocationContentCommand,
-  GetTrustStoreRevocationContentCommandInput,
-  GetTrustStoreRevocationContentCommandOutput,
 } from "./commands/GetTrustStoreRevocationContentCommand";
 import {
+  type ModifyCapacityReservationCommandInput,
+  type ModifyCapacityReservationCommandOutput,
   ModifyCapacityReservationCommand,
-  ModifyCapacityReservationCommandInput,
-  ModifyCapacityReservationCommandOutput,
 } from "./commands/ModifyCapacityReservationCommand";
 import {
+  type ModifyIpPoolsCommandInput,
+  type ModifyIpPoolsCommandOutput,
   ModifyIpPoolsCommand,
-  ModifyIpPoolsCommandInput,
-  ModifyIpPoolsCommandOutput,
 } from "./commands/ModifyIpPoolsCommand";
 import {
+  type ModifyListenerAttributesCommandInput,
+  type ModifyListenerAttributesCommandOutput,
   ModifyListenerAttributesCommand,
-  ModifyListenerAttributesCommandInput,
-  ModifyListenerAttributesCommandOutput,
 } from "./commands/ModifyListenerAttributesCommand";
 import {
+  type ModifyListenerCommandInput,
+  type ModifyListenerCommandOutput,
   ModifyListenerCommand,
-  ModifyListenerCommandInput,
-  ModifyListenerCommandOutput,
 } from "./commands/ModifyListenerCommand";
 import {
+  type ModifyLoadBalancerAttributesCommandInput,
+  type ModifyLoadBalancerAttributesCommandOutput,
   ModifyLoadBalancerAttributesCommand,
-  ModifyLoadBalancerAttributesCommandInput,
-  ModifyLoadBalancerAttributesCommandOutput,
 } from "./commands/ModifyLoadBalancerAttributesCommand";
-import { ModifyRuleCommand, ModifyRuleCommandInput, ModifyRuleCommandOutput } from "./commands/ModifyRuleCommand";
 import {
+  type ModifyRuleCommandInput,
+  type ModifyRuleCommandOutput,
+  ModifyRuleCommand,
+} from "./commands/ModifyRuleCommand";
+import {
+  type ModifyTargetGroupAttributesCommandInput,
+  type ModifyTargetGroupAttributesCommandOutput,
   ModifyTargetGroupAttributesCommand,
-  ModifyTargetGroupAttributesCommandInput,
-  ModifyTargetGroupAttributesCommandOutput,
 } from "./commands/ModifyTargetGroupAttributesCommand";
 import {
+  type ModifyTargetGroupCommandInput,
+  type ModifyTargetGroupCommandOutput,
   ModifyTargetGroupCommand,
-  ModifyTargetGroupCommandInput,
-  ModifyTargetGroupCommandOutput,
 } from "./commands/ModifyTargetGroupCommand";
 import {
+  type ModifyTrustStoreCommandInput,
+  type ModifyTrustStoreCommandOutput,
   ModifyTrustStoreCommand,
-  ModifyTrustStoreCommandInput,
-  ModifyTrustStoreCommandOutput,
 } from "./commands/ModifyTrustStoreCommand";
 import {
+  type RegisterTargetsCommandInput,
+  type RegisterTargetsCommandOutput,
   RegisterTargetsCommand,
-  RegisterTargetsCommandInput,
-  RegisterTargetsCommandOutput,
 } from "./commands/RegisterTargetsCommand";
 import {
+  type RemoveListenerCertificatesCommandInput,
+  type RemoveListenerCertificatesCommandOutput,
   RemoveListenerCertificatesCommand,
-  RemoveListenerCertificatesCommandInput,
-  RemoveListenerCertificatesCommandOutput,
 } from "./commands/RemoveListenerCertificatesCommand";
-import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
+  type RemoveTagsCommandInput,
+  type RemoveTagsCommandOutput,
+  RemoveTagsCommand,
+} from "./commands/RemoveTagsCommand";
+import {
+  type RemoveTrustStoreRevocationsCommandInput,
+  type RemoveTrustStoreRevocationsCommandOutput,
   RemoveTrustStoreRevocationsCommand,
-  RemoveTrustStoreRevocationsCommandInput,
-  RemoveTrustStoreRevocationsCommandOutput,
 } from "./commands/RemoveTrustStoreRevocationsCommand";
 import {
+  type SetIpAddressTypeCommandInput,
+  type SetIpAddressTypeCommandOutput,
   SetIpAddressTypeCommand,
-  SetIpAddressTypeCommandInput,
-  SetIpAddressTypeCommandOutput,
 } from "./commands/SetIpAddressTypeCommand";
 import {
+  type SetRulePrioritiesCommandInput,
+  type SetRulePrioritiesCommandOutput,
   SetRulePrioritiesCommand,
-  SetRulePrioritiesCommandInput,
-  SetRulePrioritiesCommandOutput,
 } from "./commands/SetRulePrioritiesCommand";
 import {
+  type SetSecurityGroupsCommandInput,
+  type SetSecurityGroupsCommandOutput,
   SetSecurityGroupsCommand,
-  SetSecurityGroupsCommandInput,
-  SetSecurityGroupsCommandOutput,
 } from "./commands/SetSecurityGroupsCommand";
-import { SetSubnetsCommand, SetSubnetsCommandInput, SetSubnetsCommandOutput } from "./commands/SetSubnetsCommand";
+import {
+  type SetSubnetsCommandInput,
+  type SetSubnetsCommandOutput,
+  SetSubnetsCommand,
+} from "./commands/SetSubnetsCommand";
 import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
 import { paginateDescribeAccountLimits } from "./pagination/DescribeAccountLimitsPaginator";
 import { paginateDescribeListenerCertificates } from "./pagination/DescribeListenerCertificatesPaginator";

@@ -8,7 +8,6 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAws
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isEndpointsV2Service;
 
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -76,19 +75,25 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
 
         ServiceShape service = settings.getService(model);
         if (isEndpointsV2Service(service)) {
-            new ArrayList<String>() {
-                {
-                    add("ClientInputEndpointParameters");
-                    add("ClientResolvedEndpointParameters");
-                    add("resolveClientEndpointParameters");
-                    add("EndpointParameters");
-                }
-            }.forEach(
-                name -> writer.addImport(
-                    name,
-                    null,
-                    Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters").toString()
-                )
+            writer.addRelativeTypeImport(
+                "ClientInputEndpointParameters",
+                null,
+                Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters")
+            );
+            writer.addRelativeTypeImport(
+                "ClientResolvedEndpointParameters",
+                null,
+                Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters")
+            );
+            writer.addRelativeImport(
+                "resolveClientEndpointParameters",
+                null,
+                Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters")
+            );
+            writer.addRelativeTypeImport(
+                "EndpointParameters",
+                null,
+                Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters")
             );
         } else {
             writer.addTypeImport("RegionInfoProvider", null, TypeScriptDependency.SMITHY_TYPES);

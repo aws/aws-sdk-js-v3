@@ -8,7 +8,7 @@ import {
   ListSignalMapsCommandOutput,
 } from "../commands/ListSignalMapsCommand";
 import { MediaLiveClient } from "../MediaLiveClient";
-import { MediaLivePaginationConfiguration } from "./Interfaces";
+import type { MediaLivePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

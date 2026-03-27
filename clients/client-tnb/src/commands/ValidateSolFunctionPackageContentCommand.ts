@@ -4,9 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  type ValidateSolFunctionPackageContentOutput,
+import type {
   ValidateSolFunctionPackageContentInput,
+  ValidateSolFunctionPackageContentOutput,
 } from "../models/models_0";
 import { ValidateSolFunctionPackageContent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";

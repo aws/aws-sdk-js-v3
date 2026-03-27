@@ -8,7 +8,7 @@ import {
   SearchListingsCommandOutput,
 } from "../commands/SearchListingsCommand";
 import { DataZoneClient } from "../DataZoneClient";
-import { DataZonePaginationConfiguration } from "./Interfaces";
+import type { DataZonePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

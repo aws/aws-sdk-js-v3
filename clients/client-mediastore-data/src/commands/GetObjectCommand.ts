@@ -9,7 +9,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MediaStoreDataClient";
-import { type GetObjectRequest, GetObjectResponse } from "../models/models_0";
+import type { GetObjectRequest, GetObjectResponse } from "../models/models_0";
 import { GetObject$ } from "../schemas/schemas_0";
 
 /**

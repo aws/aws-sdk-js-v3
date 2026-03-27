@@ -8,7 +8,7 @@ import {
   ListMigrationTaskUpdatesCommandOutput,
 } from "../commands/ListMigrationTaskUpdatesCommand";
 import { MigrationHubClient } from "../MigrationHubClient";
-import { MigrationHubPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

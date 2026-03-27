@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,120 +61,126 @@ import {
   defaultRAMHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptResourceShareInvitationCommandInput,
   AcceptResourceShareInvitationCommandOutput,
 } from "./commands/AcceptResourceShareInvitationCommand";
-import {
+import type {
   AssociateResourceShareCommandInput,
   AssociateResourceShareCommandOutput,
 } from "./commands/AssociateResourceShareCommand";
-import {
+import type {
   AssociateResourceSharePermissionCommandInput,
   AssociateResourceSharePermissionCommandOutput,
 } from "./commands/AssociateResourceSharePermissionCommand";
-import { CreatePermissionCommandInput, CreatePermissionCommandOutput } from "./commands/CreatePermissionCommand";
-import {
+import type { CreatePermissionCommandInput, CreatePermissionCommandOutput } from "./commands/CreatePermissionCommand";
+import type {
   CreatePermissionVersionCommandInput,
   CreatePermissionVersionCommandOutput,
 } from "./commands/CreatePermissionVersionCommand";
-import {
+import type {
   CreateResourceShareCommandInput,
   CreateResourceShareCommandOutput,
 } from "./commands/CreateResourceShareCommand";
-import { DeletePermissionCommandInput, DeletePermissionCommandOutput } from "./commands/DeletePermissionCommand";
-import {
+import type { DeletePermissionCommandInput, DeletePermissionCommandOutput } from "./commands/DeletePermissionCommand";
+import type {
   DeletePermissionVersionCommandInput,
   DeletePermissionVersionCommandOutput,
 } from "./commands/DeletePermissionVersionCommand";
-import {
+import type {
   DeleteResourceShareCommandInput,
   DeleteResourceShareCommandOutput,
 } from "./commands/DeleteResourceShareCommand";
-import {
+import type {
   DisassociateResourceShareCommandInput,
   DisassociateResourceShareCommandOutput,
 } from "./commands/DisassociateResourceShareCommand";
-import {
+import type {
   DisassociateResourceSharePermissionCommandInput,
   DisassociateResourceSharePermissionCommandOutput,
 } from "./commands/DisassociateResourceSharePermissionCommand";
-import {
+import type {
   EnableSharingWithAwsOrganizationCommandInput,
   EnableSharingWithAwsOrganizationCommandOutput,
 } from "./commands/EnableSharingWithAwsOrganizationCommand";
-import { GetPermissionCommandInput, GetPermissionCommandOutput } from "./commands/GetPermissionCommand";
-import {
+import type { GetPermissionCommandInput, GetPermissionCommandOutput } from "./commands/GetPermissionCommand";
+import type {
   GetResourcePoliciesCommandInput,
   GetResourcePoliciesCommandOutput,
 } from "./commands/GetResourcePoliciesCommand";
-import {
+import type {
   GetResourceShareAssociationsCommandInput,
   GetResourceShareAssociationsCommandOutput,
 } from "./commands/GetResourceShareAssociationsCommand";
-import {
+import type {
   GetResourceShareInvitationsCommandInput,
   GetResourceShareInvitationsCommandOutput,
 } from "./commands/GetResourceShareInvitationsCommand";
-import { GetResourceSharesCommandInput, GetResourceSharesCommandOutput } from "./commands/GetResourceSharesCommand";
-import {
+import type {
+  GetResourceSharesCommandInput,
+  GetResourceSharesCommandOutput,
+} from "./commands/GetResourceSharesCommand";
+import type {
   ListPendingInvitationResourcesCommandInput,
   ListPendingInvitationResourcesCommandOutput,
 } from "./commands/ListPendingInvitationResourcesCommand";
-import {
+import type {
   ListPermissionAssociationsCommandInput,
   ListPermissionAssociationsCommandOutput,
 } from "./commands/ListPermissionAssociationsCommand";
-import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
-import {
+import type { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
+import type {
   ListPermissionVersionsCommandInput,
   ListPermissionVersionsCommandOutput,
 } from "./commands/ListPermissionVersionsCommand";
-import { ListPrincipalsCommandInput, ListPrincipalsCommandOutput } from "./commands/ListPrincipalsCommand";
-import {
+import type { ListPrincipalsCommandInput, ListPrincipalsCommandOutput } from "./commands/ListPrincipalsCommand";
+import type {
   ListReplacePermissionAssociationsWorkCommandInput,
   ListReplacePermissionAssociationsWorkCommandOutput,
 } from "./commands/ListReplacePermissionAssociationsWorkCommand";
-import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
-import {
+import type { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
+import type {
   ListResourceSharePermissionsCommandInput,
   ListResourceSharePermissionsCommandOutput,
 } from "./commands/ListResourceSharePermissionsCommand";
-import { ListResourceTypesCommandInput, ListResourceTypesCommandOutput } from "./commands/ListResourceTypesCommand";
-import {
+import type {
+  ListResourceTypesCommandInput,
+  ListResourceTypesCommandOutput,
+} from "./commands/ListResourceTypesCommand";
+import type {
   ListSourceAssociationsCommandInput,
   ListSourceAssociationsCommandOutput,
 } from "./commands/ListSourceAssociationsCommand";
-import {
+import type {
   PromotePermissionCreatedFromPolicyCommandInput,
   PromotePermissionCreatedFromPolicyCommandOutput,
 } from "./commands/PromotePermissionCreatedFromPolicyCommand";
-import {
+import type {
   PromoteResourceShareCreatedFromPolicyCommandInput,
   PromoteResourceShareCreatedFromPolicyCommandOutput,
 } from "./commands/PromoteResourceShareCreatedFromPolicyCommand";
-import {
+import type {
   RejectResourceShareInvitationCommandInput,
   RejectResourceShareInvitationCommandOutput,
 } from "./commands/RejectResourceShareInvitationCommand";
-import {
+import type {
   ReplacePermissionAssociationsCommandInput,
   ReplacePermissionAssociationsCommandOutput,
 } from "./commands/ReplacePermissionAssociationsCommand";
-import {
+import type {
   SetDefaultPermissionVersionCommandInput,
   SetDefaultPermissionVersionCommandOutput,
 } from "./commands/SetDefaultPermissionVersionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateResourceShareCommandInput,
   UpdateResourceShareCommandOutput,
 } from "./commands/UpdateResourceShareCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -378,7 +382,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

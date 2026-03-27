@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ApplyMethod, FailoverStatus, GlobalClusterMemberSynchronizationStatus, SourceType } from "./enums";
+import type { ApplyMethod, FailoverStatus, GlobalClusterMemberSynchronizationStatus, SourceType } from "./enums";
 
 /**
  * <p>Represents the input to <a>AddSourceIdentifierToSubscription</a>.

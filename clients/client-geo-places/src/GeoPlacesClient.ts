@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,17 +61,17 @@ import {
   defaultGeoPlacesHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AutocompleteCommandInput, AutocompleteCommandOutput } from "./commands/AutocompleteCommand";
-import { GeocodeCommandInput, GeocodeCommandOutput } from "./commands/GeocodeCommand";
-import { GetPlaceCommandInput, GetPlaceCommandOutput } from "./commands/GetPlaceCommand";
-import { ReverseGeocodeCommandInput, ReverseGeocodeCommandOutput } from "./commands/ReverseGeocodeCommand";
-import { SearchNearbyCommandInput, SearchNearbyCommandOutput } from "./commands/SearchNearbyCommand";
-import { SearchTextCommandInput, SearchTextCommandOutput } from "./commands/SearchTextCommand";
-import { SuggestCommandInput, SuggestCommandOutput } from "./commands/SuggestCommand";
+import type { AutocompleteCommandInput, AutocompleteCommandOutput } from "./commands/AutocompleteCommand";
+import type { GeocodeCommandInput, GeocodeCommandOutput } from "./commands/GeocodeCommand";
+import type { GetPlaceCommandInput, GetPlaceCommandOutput } from "./commands/GetPlaceCommand";
+import type { ReverseGeocodeCommandInput, ReverseGeocodeCommandOutput } from "./commands/ReverseGeocodeCommand";
+import type { SearchNearbyCommandInput, SearchNearbyCommandOutput } from "./commands/SearchNearbyCommand";
+import type { SearchTextCommandInput, SearchTextCommandOutput } from "./commands/SearchTextCommand";
+import type { SuggestCommandInput, SuggestCommandOutput } from "./commands/SuggestCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -219,7 +217,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

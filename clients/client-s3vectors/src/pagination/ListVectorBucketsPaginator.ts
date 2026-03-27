@@ -8,7 +8,7 @@ import {
   ListVectorBucketsCommandOutput,
 } from "../commands/ListVectorBucketsCommand";
 import { S3VectorsClient } from "../S3VectorsClient";
-import { S3VectorsPaginationConfiguration } from "./Interfaces";
+import type { S3VectorsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

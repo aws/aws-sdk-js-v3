@@ -8,7 +8,7 @@ import {
   ListWorkersWithQualificationTypeCommandOutput,
 } from "../commands/ListWorkersWithQualificationTypeCommand";
 import { MTurkClient } from "../MTurkClient";
-import { MTurkPaginationConfiguration } from "./Interfaces";
+import type { MTurkPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

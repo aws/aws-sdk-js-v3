@@ -8,7 +8,7 @@ import {
   ListCoreNetworkRoutingInformationCommandOutput,
 } from "../commands/ListCoreNetworkRoutingInformationCommand";
 import { NetworkManagerClient } from "../NetworkManagerClient";
-import { NetworkManagerPaginationConfiguration } from "./Interfaces";
+import type { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -5,7 +5,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import { PublishRequest } from "../models/models_0";
+import type { PublishRequest } from "../models/models_0";
 import { Publish$ } from "../schemas/schemas_0";
 
 /**

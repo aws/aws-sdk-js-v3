@@ -8,7 +8,7 @@ import {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
 } from "../commands/ListIdentityProvidersCommand";
-import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
+import type { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

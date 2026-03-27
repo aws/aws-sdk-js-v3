@@ -3,141 +3,149 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptConnectionInvitationCommandInput,
+  type AcceptConnectionInvitationCommandOutput,
   AcceptConnectionInvitationCommand,
-  AcceptConnectionInvitationCommandInput,
-  AcceptConnectionInvitationCommandOutput,
 } from "./commands/AcceptConnectionInvitationCommand";
 import {
+  type AssociateAwsTrainingCertificationEmailDomainCommandInput,
+  type AssociateAwsTrainingCertificationEmailDomainCommandOutput,
   AssociateAwsTrainingCertificationEmailDomainCommand,
-  AssociateAwsTrainingCertificationEmailDomainCommandInput,
-  AssociateAwsTrainingCertificationEmailDomainCommandOutput,
 } from "./commands/AssociateAwsTrainingCertificationEmailDomainCommand";
 import {
+  type CancelConnectionCommandInput,
+  type CancelConnectionCommandOutput,
   CancelConnectionCommand,
-  CancelConnectionCommandInput,
-  CancelConnectionCommandOutput,
 } from "./commands/CancelConnectionCommand";
 import {
+  type CancelConnectionInvitationCommandInput,
+  type CancelConnectionInvitationCommandOutput,
   CancelConnectionInvitationCommand,
-  CancelConnectionInvitationCommandInput,
-  CancelConnectionInvitationCommandOutput,
 } from "./commands/CancelConnectionInvitationCommand";
 import {
+  type CancelProfileUpdateTaskCommandInput,
+  type CancelProfileUpdateTaskCommandOutput,
   CancelProfileUpdateTaskCommand,
-  CancelProfileUpdateTaskCommandInput,
-  CancelProfileUpdateTaskCommandOutput,
 } from "./commands/CancelProfileUpdateTaskCommand";
 import {
+  type CreateConnectionInvitationCommandInput,
+  type CreateConnectionInvitationCommandOutput,
   CreateConnectionInvitationCommand,
-  CreateConnectionInvitationCommandInput,
-  CreateConnectionInvitationCommandOutput,
 } from "./commands/CreateConnectionInvitationCommand";
 import {
+  type CreatePartnerCommandInput,
+  type CreatePartnerCommandOutput,
   CreatePartnerCommand,
-  CreatePartnerCommandInput,
-  CreatePartnerCommandOutput,
 } from "./commands/CreatePartnerCommand";
 import {
+  type DisassociateAwsTrainingCertificationEmailDomainCommandInput,
+  type DisassociateAwsTrainingCertificationEmailDomainCommandOutput,
   DisassociateAwsTrainingCertificationEmailDomainCommand,
-  DisassociateAwsTrainingCertificationEmailDomainCommandInput,
-  DisassociateAwsTrainingCertificationEmailDomainCommandOutput,
 } from "./commands/DisassociateAwsTrainingCertificationEmailDomainCommand";
 import {
+  type GetAllianceLeadContactCommandInput,
+  type GetAllianceLeadContactCommandOutput,
   GetAllianceLeadContactCommand,
-  GetAllianceLeadContactCommandInput,
-  GetAllianceLeadContactCommandOutput,
 } from "./commands/GetAllianceLeadContactCommand";
 import {
+  type GetConnectionCommandInput,
+  type GetConnectionCommandOutput,
   GetConnectionCommand,
-  GetConnectionCommandInput,
-  GetConnectionCommandOutput,
 } from "./commands/GetConnectionCommand";
 import {
+  type GetConnectionInvitationCommandInput,
+  type GetConnectionInvitationCommandOutput,
   GetConnectionInvitationCommand,
-  GetConnectionInvitationCommandInput,
-  GetConnectionInvitationCommandOutput,
 } from "./commands/GetConnectionInvitationCommand";
 import {
+  type GetConnectionPreferencesCommandInput,
+  type GetConnectionPreferencesCommandOutput,
   GetConnectionPreferencesCommand,
-  GetConnectionPreferencesCommandInput,
-  GetConnectionPreferencesCommandOutput,
 } from "./commands/GetConnectionPreferencesCommand";
-import { GetPartnerCommand, GetPartnerCommandInput, GetPartnerCommandOutput } from "./commands/GetPartnerCommand";
 import {
+  type GetPartnerCommandInput,
+  type GetPartnerCommandOutput,
+  GetPartnerCommand,
+} from "./commands/GetPartnerCommand";
+import {
+  type GetProfileUpdateTaskCommandInput,
+  type GetProfileUpdateTaskCommandOutput,
   GetProfileUpdateTaskCommand,
-  GetProfileUpdateTaskCommandInput,
-  GetProfileUpdateTaskCommandOutput,
 } from "./commands/GetProfileUpdateTaskCommand";
 import {
+  type GetProfileVisibilityCommandInput,
+  type GetProfileVisibilityCommandOutput,
   GetProfileVisibilityCommand,
-  GetProfileVisibilityCommandInput,
-  GetProfileVisibilityCommandOutput,
 } from "./commands/GetProfileVisibilityCommand";
 import {
+  type GetVerificationCommandInput,
+  type GetVerificationCommandOutput,
   GetVerificationCommand,
-  GetVerificationCommandInput,
-  GetVerificationCommandOutput,
 } from "./commands/GetVerificationCommand";
 import {
+  type ListConnectionInvitationsCommandInput,
+  type ListConnectionInvitationsCommandOutput,
   ListConnectionInvitationsCommand,
-  ListConnectionInvitationsCommandInput,
-  ListConnectionInvitationsCommandOutput,
 } from "./commands/ListConnectionInvitationsCommand";
 import {
+  type ListConnectionsCommandInput,
+  type ListConnectionsCommandOutput,
   ListConnectionsCommand,
-  ListConnectionsCommandInput,
-  ListConnectionsCommandOutput,
 } from "./commands/ListConnectionsCommand";
 import {
+  type ListPartnersCommandInput,
+  type ListPartnersCommandOutput,
   ListPartnersCommand,
-  ListPartnersCommandInput,
-  ListPartnersCommandOutput,
 } from "./commands/ListPartnersCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutAllianceLeadContactCommandInput,
+  type PutAllianceLeadContactCommandOutput,
   PutAllianceLeadContactCommand,
-  PutAllianceLeadContactCommandInput,
-  PutAllianceLeadContactCommandOutput,
 } from "./commands/PutAllianceLeadContactCommand";
 import {
+  type PutProfileVisibilityCommandInput,
+  type PutProfileVisibilityCommandOutput,
   PutProfileVisibilityCommand,
-  PutProfileVisibilityCommandInput,
-  PutProfileVisibilityCommandOutput,
 } from "./commands/PutProfileVisibilityCommand";
 import {
+  type RejectConnectionInvitationCommandInput,
+  type RejectConnectionInvitationCommandOutput,
   RejectConnectionInvitationCommand,
-  RejectConnectionInvitationCommandInput,
-  RejectConnectionInvitationCommandOutput,
 } from "./commands/RejectConnectionInvitationCommand";
 import {
+  type SendEmailVerificationCodeCommandInput,
+  type SendEmailVerificationCodeCommandOutput,
   SendEmailVerificationCodeCommand,
-  SendEmailVerificationCodeCommandInput,
-  SendEmailVerificationCodeCommandOutput,
 } from "./commands/SendEmailVerificationCodeCommand";
 import {
+  type StartProfileUpdateTaskCommandInput,
+  type StartProfileUpdateTaskCommandOutput,
   StartProfileUpdateTaskCommand,
-  StartProfileUpdateTaskCommandInput,
-  StartProfileUpdateTaskCommandOutput,
 } from "./commands/StartProfileUpdateTaskCommand";
 import {
+  type StartVerificationCommandInput,
+  type StartVerificationCommandOutput,
   StartVerificationCommand,
-  StartVerificationCommandInput,
-  StartVerificationCommandOutput,
 } from "./commands/StartVerificationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateConnectionPreferencesCommandInput,
+  type UpdateConnectionPreferencesCommandOutput,
   UpdateConnectionPreferencesCommand,
-  UpdateConnectionPreferencesCommandInput,
-  UpdateConnectionPreferencesCommandOutput,
 } from "./commands/UpdateConnectionPreferencesCommand";
 import { paginateListConnectionInvitations } from "./pagination/ListConnectionInvitationsPaginator";
 import { paginateListConnections } from "./pagination/ListConnectionsPaginator";

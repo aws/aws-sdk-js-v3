@@ -8,7 +8,7 @@ import {
   DescribeEventsCommandOutput,
 } from "../commands/DescribeEventsCommand";
 import { DocDBClient } from "../DocDBClient";
-import { DocDBPaginationConfiguration } from "./Interfaces";
+import type { DocDBPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

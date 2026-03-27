@@ -8,7 +8,7 @@ import {
   ListLogAnomalyDetectorsCommandInput,
   ListLogAnomalyDetectorsCommandOutput,
 } from "../commands/ListLogAnomalyDetectorsCommand";
-import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

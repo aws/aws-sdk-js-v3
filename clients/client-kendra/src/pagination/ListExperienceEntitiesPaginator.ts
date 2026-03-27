@@ -8,7 +8,7 @@ import {
   ListExperienceEntitiesCommandOutput,
 } from "../commands/ListExperienceEntitiesCommand";
 import { KendraClient } from "../KendraClient";
-import { KendraPaginationConfiguration } from "./Interfaces";
+import type { KendraPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

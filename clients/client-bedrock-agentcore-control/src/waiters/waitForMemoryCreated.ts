@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { BedrockAgentCoreControlClient } from "../BedrockAgentCoreControlClient";
-import { GetMemoryCommand, GetMemoryCommandInput } from "../commands/GetMemoryCommand";
+import type { BedrockAgentCoreControlClient } from "../BedrockAgentCoreControlClient";
+import { type GetMemoryCommandInput, GetMemoryCommand } from "../commands/GetMemoryCommand";
 
 const checkState = async (client: BedrockAgentCoreControlClient, input: GetMemoryCommandInput): Promise<WaiterResult> => {
   let reason;

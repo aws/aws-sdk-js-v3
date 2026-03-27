@@ -8,7 +8,7 @@ import {
   ListServicesCommandOutput,
 } from "../commands/ListServicesCommand";
 import { ServiceQuotasClient } from "../ServiceQuotasClient";
-import { ServiceQuotasPaginationConfiguration } from "./Interfaces";
+import type { ServiceQuotasPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

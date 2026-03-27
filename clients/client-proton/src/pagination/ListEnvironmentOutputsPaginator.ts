@@ -8,7 +8,7 @@ import {
   ListEnvironmentOutputsCommandOutput,
 } from "../commands/ListEnvironmentOutputsCommand";
 import { ProtonClient } from "../ProtonClient";
-import { ProtonPaginationConfiguration } from "./Interfaces";
+import type { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

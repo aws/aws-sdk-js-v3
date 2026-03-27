@@ -1,5 +1,12 @@
 // smithy-typescript generated code
-import { AlarmStateName, ComparisonOperator, CustomerActionName, ErrorCode, EventType, TriggerType } from "./enums";
+import type {
+  AlarmStateName,
+  ComparisonOperator,
+  CustomerActionName,
+  ErrorCode,
+  EventType,
+  TriggerType,
+} from "./enums";
 
 /**
  * <p>Contains the configuration information of an acknowledge action.</p>

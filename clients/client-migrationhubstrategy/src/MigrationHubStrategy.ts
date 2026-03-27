@@ -3,110 +3,114 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type GetApplicationComponentDetailsCommandInput,
+  type GetApplicationComponentDetailsCommandOutput,
   GetApplicationComponentDetailsCommand,
-  GetApplicationComponentDetailsCommandInput,
-  GetApplicationComponentDetailsCommandOutput,
 } from "./commands/GetApplicationComponentDetailsCommand";
 import {
+  type GetApplicationComponentStrategiesCommandInput,
+  type GetApplicationComponentStrategiesCommandOutput,
   GetApplicationComponentStrategiesCommand,
-  GetApplicationComponentStrategiesCommandInput,
-  GetApplicationComponentStrategiesCommandOutput,
 } from "./commands/GetApplicationComponentStrategiesCommand";
 import {
+  type GetAssessmentCommandInput,
+  type GetAssessmentCommandOutput,
   GetAssessmentCommand,
-  GetAssessmentCommandInput,
-  GetAssessmentCommandOutput,
 } from "./commands/GetAssessmentCommand";
 import {
+  type GetImportFileTaskCommandInput,
+  type GetImportFileTaskCommandOutput,
   GetImportFileTaskCommand,
-  GetImportFileTaskCommandInput,
-  GetImportFileTaskCommandOutput,
 } from "./commands/GetImportFileTaskCommand";
 import {
+  type GetLatestAssessmentIdCommandInput,
+  type GetLatestAssessmentIdCommandOutput,
   GetLatestAssessmentIdCommand,
-  GetLatestAssessmentIdCommandInput,
-  GetLatestAssessmentIdCommandOutput,
 } from "./commands/GetLatestAssessmentIdCommand";
 import {
+  type GetPortfolioPreferencesCommandInput,
+  type GetPortfolioPreferencesCommandOutput,
   GetPortfolioPreferencesCommand,
-  GetPortfolioPreferencesCommandInput,
-  GetPortfolioPreferencesCommandOutput,
 } from "./commands/GetPortfolioPreferencesCommand";
 import {
+  type GetPortfolioSummaryCommandInput,
+  type GetPortfolioSummaryCommandOutput,
   GetPortfolioSummaryCommand,
-  GetPortfolioSummaryCommandInput,
-  GetPortfolioSummaryCommandOutput,
 } from "./commands/GetPortfolioSummaryCommand";
 import {
+  type GetRecommendationReportDetailsCommandInput,
+  type GetRecommendationReportDetailsCommandOutput,
   GetRecommendationReportDetailsCommand,
-  GetRecommendationReportDetailsCommandInput,
-  GetRecommendationReportDetailsCommandOutput,
 } from "./commands/GetRecommendationReportDetailsCommand";
 import {
+  type GetServerDetailsCommandInput,
+  type GetServerDetailsCommandOutput,
   GetServerDetailsCommand,
-  GetServerDetailsCommandInput,
-  GetServerDetailsCommandOutput,
 } from "./commands/GetServerDetailsCommand";
 import {
+  type GetServerStrategiesCommandInput,
+  type GetServerStrategiesCommandOutput,
   GetServerStrategiesCommand,
-  GetServerStrategiesCommandInput,
-  GetServerStrategiesCommandOutput,
 } from "./commands/GetServerStrategiesCommand";
 import {
+  type ListAnalyzableServersCommandInput,
+  type ListAnalyzableServersCommandOutput,
   ListAnalyzableServersCommand,
-  ListAnalyzableServersCommandInput,
-  ListAnalyzableServersCommandOutput,
 } from "./commands/ListAnalyzableServersCommand";
 import {
+  type ListApplicationComponentsCommandInput,
+  type ListApplicationComponentsCommandOutput,
   ListApplicationComponentsCommand,
-  ListApplicationComponentsCommandInput,
-  ListApplicationComponentsCommandOutput,
 } from "./commands/ListApplicationComponentsCommand";
 import {
+  type ListCollectorsCommandInput,
+  type ListCollectorsCommandOutput,
   ListCollectorsCommand,
-  ListCollectorsCommandInput,
-  ListCollectorsCommandOutput,
 } from "./commands/ListCollectorsCommand";
 import {
+  type ListImportFileTaskCommandInput,
+  type ListImportFileTaskCommandOutput,
   ListImportFileTaskCommand,
-  ListImportFileTaskCommandInput,
-  ListImportFileTaskCommandOutput,
 } from "./commands/ListImportFileTaskCommand";
-import { ListServersCommand, ListServersCommandInput, ListServersCommandOutput } from "./commands/ListServersCommand";
 import {
+  type ListServersCommandInput,
+  type ListServersCommandOutput,
+  ListServersCommand,
+} from "./commands/ListServersCommand";
+import {
+  type PutPortfolioPreferencesCommandInput,
+  type PutPortfolioPreferencesCommandOutput,
   PutPortfolioPreferencesCommand,
-  PutPortfolioPreferencesCommandInput,
-  PutPortfolioPreferencesCommandOutput,
 } from "./commands/PutPortfolioPreferencesCommand";
 import {
+  type StartAssessmentCommandInput,
+  type StartAssessmentCommandOutput,
   StartAssessmentCommand,
-  StartAssessmentCommandInput,
-  StartAssessmentCommandOutput,
 } from "./commands/StartAssessmentCommand";
 import {
+  type StartImportFileTaskCommandInput,
+  type StartImportFileTaskCommandOutput,
   StartImportFileTaskCommand,
-  StartImportFileTaskCommandInput,
-  StartImportFileTaskCommandOutput,
 } from "./commands/StartImportFileTaskCommand";
 import {
+  type StartRecommendationReportGenerationCommandInput,
+  type StartRecommendationReportGenerationCommandOutput,
   StartRecommendationReportGenerationCommand,
-  StartRecommendationReportGenerationCommandInput,
-  StartRecommendationReportGenerationCommandOutput,
 } from "./commands/StartRecommendationReportGenerationCommand";
 import {
+  type StopAssessmentCommandInput,
+  type StopAssessmentCommandOutput,
   StopAssessmentCommand,
-  StopAssessmentCommandInput,
-  StopAssessmentCommandOutput,
 } from "./commands/StopAssessmentCommand";
 import {
+  type UpdateApplicationComponentConfigCommandInput,
+  type UpdateApplicationComponentConfigCommandOutput,
   UpdateApplicationComponentConfigCommand,
-  UpdateApplicationComponentConfigCommandInput,
-  UpdateApplicationComponentConfigCommandOutput,
 } from "./commands/UpdateApplicationComponentConfigCommand";
 import {
+  type UpdateServerConfigCommandInput,
+  type UpdateServerConfigCommandOutput,
   UpdateServerConfigCommand,
-  UpdateServerConfigCommandInput,
-  UpdateServerConfigCommandOutput,
 } from "./commands/UpdateServerConfigCommand";
 import { MigrationHubStrategyClient } from "./MigrationHubStrategyClient";
 import { paginateGetServerDetails } from "./pagination/GetServerDetailsPaginator";

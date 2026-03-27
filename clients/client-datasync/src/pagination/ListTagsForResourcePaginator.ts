@@ -8,7 +8,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { DataSyncClient } from "../DataSyncClient";
-import { DataSyncPaginationConfiguration } from "./Interfaces";
+import type { DataSyncPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

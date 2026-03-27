@@ -9,7 +9,7 @@
  */
 export * from "./IoTEventsClient";
 export * from "./IoTEvents";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { IoTEventsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand";
 import { DeviceFarmClient } from "../DeviceFarmClient";
-import { DeviceFarmPaginationConfiguration } from "./Interfaces";
+import type { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

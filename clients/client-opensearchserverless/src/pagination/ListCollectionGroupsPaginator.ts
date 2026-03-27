@@ -8,7 +8,7 @@ import {
   ListCollectionGroupsCommandOutput,
 } from "../commands/ListCollectionGroupsCommand";
 import { OpenSearchServerlessClient } from "../OpenSearchServerlessClient";
-import { OpenSearchServerlessPaginationConfiguration } from "./Interfaces";
+import type { OpenSearchServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

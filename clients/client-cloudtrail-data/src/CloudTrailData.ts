@@ -4,9 +4,9 @@ import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CloudTrailDataClient } from "./CloudTrailDataClient";
 import {
+  type PutAuditEventsCommandInput,
+  type PutAuditEventsCommandOutput,
   PutAuditEventsCommand,
-  PutAuditEventsCommandInput,
-  PutAuditEventsCommandOutput,
 } from "./commands/PutAuditEventsCommand";
 
 const commands = {

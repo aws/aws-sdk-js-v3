@@ -8,7 +8,7 @@ import {
   ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput,
 } from "../commands/ListRequestedServiceQuotaChangeHistoryByQuotaCommand";
 import { ServiceQuotasClient } from "../ServiceQuotasClient";
-import { ServiceQuotasPaginationConfiguration } from "./Interfaces";
+import type { ServiceQuotasPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

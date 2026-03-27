@@ -8,7 +8,7 @@ import {
   ListVirtualMachinesCommandInput,
   ListVirtualMachinesCommandOutput,
 } from "../commands/ListVirtualMachinesCommand";
-import { BackupGatewayPaginationConfiguration } from "./Interfaces";
+import type { BackupGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

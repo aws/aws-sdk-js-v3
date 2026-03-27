@@ -8,7 +8,7 @@ import {
   ListDatasetGroupsCommandOutput,
 } from "../commands/ListDatasetGroupsCommand";
 import { ForecastClient } from "../ForecastClient";
-import { ForecastPaginationConfiguration } from "./Interfaces";
+import type { ForecastPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

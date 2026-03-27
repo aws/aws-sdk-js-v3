@@ -8,7 +8,7 @@ import {
   ListFirewallDomainListsCommandOutput,
 } from "../commands/ListFirewallDomainListsCommand";
 import { Route53GlobalResolverClient } from "../Route53GlobalResolverClient";
-import { Route53GlobalResolverPaginationConfiguration } from "./Interfaces";
+import type { Route53GlobalResolverPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

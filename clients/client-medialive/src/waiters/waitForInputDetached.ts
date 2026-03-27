@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeInputCommand, DescribeInputCommandInput } from "../commands/DescribeInputCommand";
-import { MediaLiveClient } from "../MediaLiveClient";
+import { type DescribeInputCommandInput, DescribeInputCommand } from "../commands/DescribeInputCommand";
+import type { MediaLiveClient } from "../MediaLiveClient";
 
 const checkState = async (client: MediaLiveClient, input: DescribeInputCommandInput): Promise<WaiterResult> => {
   let reason;

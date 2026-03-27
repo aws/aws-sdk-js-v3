@@ -3,111 +3,119 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchGetSecretValueCommandInput,
+  type BatchGetSecretValueCommandOutput,
   BatchGetSecretValueCommand,
-  BatchGetSecretValueCommandInput,
-  BatchGetSecretValueCommandOutput,
 } from "./commands/BatchGetSecretValueCommand";
 import {
+  type CancelRotateSecretCommandInput,
+  type CancelRotateSecretCommandOutput,
   CancelRotateSecretCommand,
-  CancelRotateSecretCommandInput,
-  CancelRotateSecretCommandOutput,
 } from "./commands/CancelRotateSecretCommand";
 import {
+  type CreateSecretCommandInput,
+  type CreateSecretCommandOutput,
   CreateSecretCommand,
-  CreateSecretCommandInput,
-  CreateSecretCommandOutput,
 } from "./commands/CreateSecretCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteSecretCommandInput,
+  type DeleteSecretCommandOutput,
   DeleteSecretCommand,
-  DeleteSecretCommandInput,
-  DeleteSecretCommandOutput,
 } from "./commands/DeleteSecretCommand";
 import {
+  type DescribeSecretCommandInput,
+  type DescribeSecretCommandOutput,
   DescribeSecretCommand,
-  DescribeSecretCommandInput,
-  DescribeSecretCommandOutput,
 } from "./commands/DescribeSecretCommand";
 import {
+  type GetRandomPasswordCommandInput,
+  type GetRandomPasswordCommandOutput,
   GetRandomPasswordCommand,
-  GetRandomPasswordCommandInput,
-  GetRandomPasswordCommandOutput,
 } from "./commands/GetRandomPasswordCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type GetSecretValueCommandInput,
+  type GetSecretValueCommandOutput,
   GetSecretValueCommand,
-  GetSecretValueCommandInput,
-  GetSecretValueCommandOutput,
 } from "./commands/GetSecretValueCommand";
-import { ListSecretsCommand, ListSecretsCommandInput, ListSecretsCommandOutput } from "./commands/ListSecretsCommand";
 import {
+  type ListSecretsCommandInput,
+  type ListSecretsCommandOutput,
+  ListSecretsCommand,
+} from "./commands/ListSecretsCommand";
+import {
+  type ListSecretVersionIdsCommandInput,
+  type ListSecretVersionIdsCommandOutput,
   ListSecretVersionIdsCommand,
-  ListSecretVersionIdsCommandInput,
-  ListSecretVersionIdsCommandOutput,
 } from "./commands/ListSecretVersionIdsCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type PutSecretValueCommandInput,
+  type PutSecretValueCommandOutput,
   PutSecretValueCommand,
-  PutSecretValueCommandInput,
-  PutSecretValueCommandOutput,
 } from "./commands/PutSecretValueCommand";
 import {
+  type RemoveRegionsFromReplicationCommandInput,
+  type RemoveRegionsFromReplicationCommandOutput,
   RemoveRegionsFromReplicationCommand,
-  RemoveRegionsFromReplicationCommandInput,
-  RemoveRegionsFromReplicationCommandOutput,
 } from "./commands/RemoveRegionsFromReplicationCommand";
 import {
+  type ReplicateSecretToRegionsCommandInput,
+  type ReplicateSecretToRegionsCommandOutput,
   ReplicateSecretToRegionsCommand,
-  ReplicateSecretToRegionsCommandInput,
-  ReplicateSecretToRegionsCommandOutput,
 } from "./commands/ReplicateSecretToRegionsCommand";
 import {
+  type RestoreSecretCommandInput,
+  type RestoreSecretCommandOutput,
   RestoreSecretCommand,
-  RestoreSecretCommandInput,
-  RestoreSecretCommandOutput,
 } from "./commands/RestoreSecretCommand";
 import {
+  type RotateSecretCommandInput,
+  type RotateSecretCommandOutput,
   RotateSecretCommand,
-  RotateSecretCommandInput,
-  RotateSecretCommandOutput,
 } from "./commands/RotateSecretCommand";
 import {
+  type StopReplicationToReplicaCommandInput,
+  type StopReplicationToReplicaCommandOutput,
   StopReplicationToReplicaCommand,
-  StopReplicationToReplicaCommandInput,
-  StopReplicationToReplicaCommandOutput,
 } from "./commands/StopReplicationToReplicaCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateSecretCommandInput,
+  type UpdateSecretCommandOutput,
   UpdateSecretCommand,
-  UpdateSecretCommandInput,
-  UpdateSecretCommandOutput,
 } from "./commands/UpdateSecretCommand";
 import {
+  type UpdateSecretVersionStageCommandInput,
+  type UpdateSecretVersionStageCommandOutput,
   UpdateSecretVersionStageCommand,
-  UpdateSecretVersionStageCommandInput,
-  UpdateSecretVersionStageCommandOutput,
 } from "./commands/UpdateSecretVersionStageCommand";
 import {
+  type ValidateResourcePolicyCommandInput,
+  type ValidateResourcePolicyCommandOutput,
   ValidateResourcePolicyCommand,
-  ValidateResourcePolicyCommandInput,
-  ValidateResourcePolicyCommandOutput,
 } from "./commands/ValidateResourcePolicyCommand";
 import { paginateBatchGetSecretValue } from "./pagination/BatchGetSecretValuePaginator";
 import { paginateListSecrets } from "./pagination/ListSecretsPaginator";

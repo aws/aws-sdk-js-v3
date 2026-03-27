@@ -8,7 +8,7 @@ import {
   DescribeEnvironmentManagedActionHistoryCommandOutput,
 } from "../commands/DescribeEnvironmentManagedActionHistoryCommand";
 import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
-import { ElasticBeanstalkPaginationConfiguration } from "./Interfaces";
+import type { ElasticBeanstalkPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

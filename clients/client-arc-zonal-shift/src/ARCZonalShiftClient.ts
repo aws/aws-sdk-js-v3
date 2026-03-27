@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,46 +61,52 @@ import {
   defaultARCZonalShiftHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelPracticeRunCommandInput, CancelPracticeRunCommandOutput } from "./commands/CancelPracticeRunCommand";
-import { CancelZonalShiftCommandInput, CancelZonalShiftCommandOutput } from "./commands/CancelZonalShiftCommand";
-import {
+import type {
+  CancelPracticeRunCommandInput,
+  CancelPracticeRunCommandOutput,
+} from "./commands/CancelPracticeRunCommand";
+import type { CancelZonalShiftCommandInput, CancelZonalShiftCommandOutput } from "./commands/CancelZonalShiftCommand";
+import type {
   CreatePracticeRunConfigurationCommandInput,
   CreatePracticeRunConfigurationCommandOutput,
 } from "./commands/CreatePracticeRunConfigurationCommand";
-import {
+import type {
   DeletePracticeRunConfigurationCommandInput,
   DeletePracticeRunConfigurationCommandOutput,
 } from "./commands/DeletePracticeRunConfigurationCommand";
-import {
+import type {
   GetAutoshiftObserverNotificationStatusCommandInput,
   GetAutoshiftObserverNotificationStatusCommandOutput,
 } from "./commands/GetAutoshiftObserverNotificationStatusCommand";
-import { GetManagedResourceCommandInput, GetManagedResourceCommandOutput } from "./commands/GetManagedResourceCommand";
-import { ListAutoshiftsCommandInput, ListAutoshiftsCommandOutput } from "./commands/ListAutoshiftsCommand";
-import {
+import type {
+  GetManagedResourceCommandInput,
+  GetManagedResourceCommandOutput,
+} from "./commands/GetManagedResourceCommand";
+import type { ListAutoshiftsCommandInput, ListAutoshiftsCommandOutput } from "./commands/ListAutoshiftsCommand";
+import type {
   ListManagedResourcesCommandInput,
   ListManagedResourcesCommandOutput,
 } from "./commands/ListManagedResourcesCommand";
-import { ListZonalShiftsCommandInput, ListZonalShiftsCommandOutput } from "./commands/ListZonalShiftsCommand";
-import { StartPracticeRunCommandInput, StartPracticeRunCommandOutput } from "./commands/StartPracticeRunCommand";
-import { StartZonalShiftCommandInput, StartZonalShiftCommandOutput } from "./commands/StartZonalShiftCommand";
-import {
+import type { ListZonalShiftsCommandInput, ListZonalShiftsCommandOutput } from "./commands/ListZonalShiftsCommand";
+import type { StartPracticeRunCommandInput, StartPracticeRunCommandOutput } from "./commands/StartPracticeRunCommand";
+import type { StartZonalShiftCommandInput, StartZonalShiftCommandOutput } from "./commands/StartZonalShiftCommand";
+import type {
   UpdateAutoshiftObserverNotificationStatusCommandInput,
   UpdateAutoshiftObserverNotificationStatusCommandOutput,
 } from "./commands/UpdateAutoshiftObserverNotificationStatusCommand";
-import {
+import type {
   UpdatePracticeRunConfigurationCommandInput,
   UpdatePracticeRunConfigurationCommandOutput,
 } from "./commands/UpdatePracticeRunConfigurationCommand";
-import {
+import type {
   UpdateZonalAutoshiftConfigurationCommandInput,
   UpdateZonalAutoshiftConfigurationCommandOutput,
 } from "./commands/UpdateZonalAutoshiftConfigurationCommand";
-import { UpdateZonalShiftCommandInput, UpdateZonalShiftCommandOutput } from "./commands/UpdateZonalShiftCommand";
+import type { UpdateZonalShiftCommandInput, UpdateZonalShiftCommandOutput } from "./commands/UpdateZonalShiftCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -264,7 +268,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

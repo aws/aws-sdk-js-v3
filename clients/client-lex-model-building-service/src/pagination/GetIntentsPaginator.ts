@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { GetIntentsCommand, GetIntentsCommandInput, GetIntentsCommandOutput } from "../commands/GetIntentsCommand";
 import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient";
-import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
+import type { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

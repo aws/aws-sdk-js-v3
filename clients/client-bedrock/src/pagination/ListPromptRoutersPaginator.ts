@@ -8,7 +8,7 @@ import {
   ListPromptRoutersCommandInput,
   ListPromptRoutersCommandOutput,
 } from "../commands/ListPromptRoutersCommand";
-import { BedrockPaginationConfiguration } from "./Interfaces";
+import type { BedrockPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

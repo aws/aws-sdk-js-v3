@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand";
 import { SnowDeviceManagementClient } from "../SnowDeviceManagementClient";
-import { SnowDeviceManagementPaginationConfiguration } from "./Interfaces";
+import type { SnowDeviceManagementPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

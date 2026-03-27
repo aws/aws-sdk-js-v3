@@ -12,7 +12,7 @@
  */
 export * from "./PanoramaClient";
 export * from "./Panorama";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PanoramaExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

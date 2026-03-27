@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,79 +61,85 @@ import {
   defaultServiceDiscoveryHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateHttpNamespaceCommandInput,
   CreateHttpNamespaceCommandOutput,
 } from "./commands/CreateHttpNamespaceCommand";
-import {
+import type {
   CreatePrivateDnsNamespaceCommandInput,
   CreatePrivateDnsNamespaceCommandOutput,
 } from "./commands/CreatePrivateDnsNamespaceCommand";
-import {
+import type {
   CreatePublicDnsNamespaceCommandInput,
   CreatePublicDnsNamespaceCommandOutput,
 } from "./commands/CreatePublicDnsNamespaceCommand";
-import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
-import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
-import {
+import type { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
+import type { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
+import type {
   DeleteServiceAttributesCommandInput,
   DeleteServiceAttributesCommandOutput,
 } from "./commands/DeleteServiceAttributesCommand";
-import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
-import { DeregisterInstanceCommandInput, DeregisterInstanceCommandOutput } from "./commands/DeregisterInstanceCommand";
-import { DiscoverInstancesCommandInput, DiscoverInstancesCommandOutput } from "./commands/DiscoverInstancesCommand";
-import {
+import type { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
+import type {
+  DeregisterInstanceCommandInput,
+  DeregisterInstanceCommandOutput,
+} from "./commands/DeregisterInstanceCommand";
+import type {
+  DiscoverInstancesCommandInput,
+  DiscoverInstancesCommandOutput,
+} from "./commands/DiscoverInstancesCommand";
+import type {
   DiscoverInstancesRevisionCommandInput,
   DiscoverInstancesRevisionCommandOutput,
 } from "./commands/DiscoverInstancesRevisionCommand";
-import { GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
-import {
+import type { GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
+import type {
   GetInstancesHealthStatusCommandInput,
   GetInstancesHealthStatusCommandOutput,
 } from "./commands/GetInstancesHealthStatusCommand";
-import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
-import { GetOperationCommandInput, GetOperationCommandOutput } from "./commands/GetOperationCommand";
-import {
+import type { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
+import type { GetOperationCommandInput, GetOperationCommandOutput } from "./commands/GetOperationCommand";
+import type {
   GetServiceAttributesCommandInput,
   GetServiceAttributesCommandOutput,
 } from "./commands/GetServiceAttributesCommand";
-import { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
-import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
-import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
-import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
-import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
-import {
+import type { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
+import type { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
+import type { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
+import type { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
+import type { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RegisterInstanceCommandInput, RegisterInstanceCommandOutput } from "./commands/RegisterInstanceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { RegisterInstanceCommandInput, RegisterInstanceCommandOutput } from "./commands/RegisterInstanceCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateHttpNamespaceCommandInput,
   UpdateHttpNamespaceCommandOutput,
 } from "./commands/UpdateHttpNamespaceCommand";
-import {
+import type {
   UpdateInstanceCustomHealthStatusCommandInput,
   UpdateInstanceCustomHealthStatusCommandOutput,
 } from "./commands/UpdateInstanceCustomHealthStatusCommand";
-import {
+import type {
   UpdatePrivateDnsNamespaceCommandInput,
   UpdatePrivateDnsNamespaceCommandOutput,
 } from "./commands/UpdatePrivateDnsNamespaceCommand";
-import {
+import type {
   UpdatePublicDnsNamespaceCommandInput,
   UpdatePublicDnsNamespaceCommandOutput,
 } from "./commands/UpdatePublicDnsNamespaceCommand";
-import {
+import type {
   UpdateServiceAttributesCommandInput,
   UpdateServiceAttributesCommandOutput,
 } from "./commands/UpdateServiceAttributesCommand";
-import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
+import type { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -327,7 +331,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

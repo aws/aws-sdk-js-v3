@@ -8,7 +8,7 @@ import {
   ListMeteredProductsCommandOutput,
 } from "../commands/ListMeteredProductsCommand";
 import { DeadlineClient } from "../DeadlineClient";
-import { DeadlinePaginationConfiguration } from "./Interfaces";
+import type { DeadlinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

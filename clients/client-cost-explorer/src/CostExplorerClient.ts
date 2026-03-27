@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,168 +61,177 @@ import {
   defaultCostExplorerHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateAnomalyMonitorCommandInput,
   CreateAnomalyMonitorCommandOutput,
 } from "./commands/CreateAnomalyMonitorCommand";
-import {
+import type {
   CreateAnomalySubscriptionCommandInput,
   CreateAnomalySubscriptionCommandOutput,
 } from "./commands/CreateAnomalySubscriptionCommand";
-import {
+import type {
   CreateCostCategoryDefinitionCommandInput,
   CreateCostCategoryDefinitionCommandOutput,
 } from "./commands/CreateCostCategoryDefinitionCommand";
-import {
+import type {
   DeleteAnomalyMonitorCommandInput,
   DeleteAnomalyMonitorCommandOutput,
 } from "./commands/DeleteAnomalyMonitorCommand";
-import {
+import type {
   DeleteAnomalySubscriptionCommandInput,
   DeleteAnomalySubscriptionCommandOutput,
 } from "./commands/DeleteAnomalySubscriptionCommand";
-import {
+import type {
   DeleteCostCategoryDefinitionCommandInput,
   DeleteCostCategoryDefinitionCommandOutput,
 } from "./commands/DeleteCostCategoryDefinitionCommand";
-import {
+import type {
   DescribeCostCategoryDefinitionCommandInput,
   DescribeCostCategoryDefinitionCommandOutput,
 } from "./commands/DescribeCostCategoryDefinitionCommand";
-import { GetAnomaliesCommandInput, GetAnomaliesCommandOutput } from "./commands/GetAnomaliesCommand";
-import { GetAnomalyMonitorsCommandInput, GetAnomalyMonitorsCommandOutput } from "./commands/GetAnomalyMonitorsCommand";
-import {
+import type { GetAnomaliesCommandInput, GetAnomaliesCommandOutput } from "./commands/GetAnomaliesCommand";
+import type {
+  GetAnomalyMonitorsCommandInput,
+  GetAnomalyMonitorsCommandOutput,
+} from "./commands/GetAnomalyMonitorsCommand";
+import type {
   GetAnomalySubscriptionsCommandInput,
   GetAnomalySubscriptionsCommandOutput,
 } from "./commands/GetAnomalySubscriptionsCommand";
-import {
+import type {
   GetApproximateUsageRecordsCommandInput,
   GetApproximateUsageRecordsCommandOutput,
 } from "./commands/GetApproximateUsageRecordsCommand";
-import {
+import type {
   GetCommitmentPurchaseAnalysisCommandInput,
   GetCommitmentPurchaseAnalysisCommandOutput,
 } from "./commands/GetCommitmentPurchaseAnalysisCommand";
-import { GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput } from "./commands/GetCostAndUsageCommand";
-import {
+import type { GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput } from "./commands/GetCostAndUsageCommand";
+import type {
   GetCostAndUsageComparisonsCommandInput,
   GetCostAndUsageComparisonsCommandOutput,
 } from "./commands/GetCostAndUsageComparisonsCommand";
-import {
+import type {
   GetCostAndUsageWithResourcesCommandInput,
   GetCostAndUsageWithResourcesCommandOutput,
 } from "./commands/GetCostAndUsageWithResourcesCommand";
-import { GetCostCategoriesCommandInput, GetCostCategoriesCommandOutput } from "./commands/GetCostCategoriesCommand";
-import {
+import type {
+  GetCostCategoriesCommandInput,
+  GetCostCategoriesCommandOutput,
+} from "./commands/GetCostCategoriesCommand";
+import type {
   GetCostComparisonDriversCommandInput,
   GetCostComparisonDriversCommandOutput,
 } from "./commands/GetCostComparisonDriversCommand";
-import { GetCostForecastCommandInput, GetCostForecastCommandOutput } from "./commands/GetCostForecastCommand";
-import { GetDimensionValuesCommandInput, GetDimensionValuesCommandOutput } from "./commands/GetDimensionValuesCommand";
-import {
+import type { GetCostForecastCommandInput, GetCostForecastCommandOutput } from "./commands/GetCostForecastCommand";
+import type {
+  GetDimensionValuesCommandInput,
+  GetDimensionValuesCommandOutput,
+} from "./commands/GetDimensionValuesCommand";
+import type {
   GetReservationCoverageCommandInput,
   GetReservationCoverageCommandOutput,
 } from "./commands/GetReservationCoverageCommand";
-import {
+import type {
   GetReservationPurchaseRecommendationCommandInput,
   GetReservationPurchaseRecommendationCommandOutput,
 } from "./commands/GetReservationPurchaseRecommendationCommand";
-import {
+import type {
   GetReservationUtilizationCommandInput,
   GetReservationUtilizationCommandOutput,
 } from "./commands/GetReservationUtilizationCommand";
-import {
+import type {
   GetRightsizingRecommendationCommandInput,
   GetRightsizingRecommendationCommandOutput,
 } from "./commands/GetRightsizingRecommendationCommand";
-import {
+import type {
   GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
   GetSavingsPlanPurchaseRecommendationDetailsCommandOutput,
 } from "./commands/GetSavingsPlanPurchaseRecommendationDetailsCommand";
-import {
+import type {
   GetSavingsPlansCoverageCommandInput,
   GetSavingsPlansCoverageCommandOutput,
 } from "./commands/GetSavingsPlansCoverageCommand";
-import {
+import type {
   GetSavingsPlansPurchaseRecommendationCommandInput,
   GetSavingsPlansPurchaseRecommendationCommandOutput,
 } from "./commands/GetSavingsPlansPurchaseRecommendationCommand";
-import {
+import type {
   GetSavingsPlansUtilizationCommandInput,
   GetSavingsPlansUtilizationCommandOutput,
 } from "./commands/GetSavingsPlansUtilizationCommand";
-import {
+import type {
   GetSavingsPlansUtilizationDetailsCommandInput,
   GetSavingsPlansUtilizationDetailsCommandOutput,
 } from "./commands/GetSavingsPlansUtilizationDetailsCommand";
-import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
-import { GetUsageForecastCommandInput, GetUsageForecastCommandOutput } from "./commands/GetUsageForecastCommand";
-import {
+import type { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import type { GetUsageForecastCommandInput, GetUsageForecastCommandOutput } from "./commands/GetUsageForecastCommand";
+import type {
   ListCommitmentPurchaseAnalysesCommandInput,
   ListCommitmentPurchaseAnalysesCommandOutput,
 } from "./commands/ListCommitmentPurchaseAnalysesCommand";
-import {
+import type {
   ListCostAllocationTagBackfillHistoryCommandInput,
   ListCostAllocationTagBackfillHistoryCommandOutput,
 } from "./commands/ListCostAllocationTagBackfillHistoryCommand";
-import {
+import type {
   ListCostAllocationTagsCommandInput,
   ListCostAllocationTagsCommandOutput,
 } from "./commands/ListCostAllocationTagsCommand";
-import {
+import type {
   ListCostCategoryDefinitionsCommandInput,
   ListCostCategoryDefinitionsCommandOutput,
 } from "./commands/ListCostCategoryDefinitionsCommand";
-import {
+import type {
   ListCostCategoryResourceAssociationsCommandInput,
   ListCostCategoryResourceAssociationsCommandOutput,
 } from "./commands/ListCostCategoryResourceAssociationsCommand";
-import {
+import type {
   ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
   ListSavingsPlansPurchaseRecommendationGenerationCommandOutput,
 } from "./commands/ListSavingsPlansPurchaseRecommendationGenerationCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "./commands/ProvideAnomalyFeedbackCommand";
-import {
+import type {
   StartCommitmentPurchaseAnalysisCommandInput,
   StartCommitmentPurchaseAnalysisCommandOutput,
 } from "./commands/StartCommitmentPurchaseAnalysisCommand";
-import {
+import type {
   StartCostAllocationTagBackfillCommandInput,
   StartCostAllocationTagBackfillCommandOutput,
 } from "./commands/StartCostAllocationTagBackfillCommand";
-import {
+import type {
   StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
   StartSavingsPlansPurchaseRecommendationGenerationCommandOutput,
 } from "./commands/StartSavingsPlansPurchaseRecommendationGenerationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAnomalyMonitorCommandInput,
   UpdateAnomalyMonitorCommandOutput,
 } from "./commands/UpdateAnomalyMonitorCommand";
-import {
+import type {
   UpdateAnomalySubscriptionCommandInput,
   UpdateAnomalySubscriptionCommandOutput,
 } from "./commands/UpdateAnomalySubscriptionCommand";
-import {
+import type {
   UpdateCostAllocationTagsStatusCommandInput,
   UpdateCostAllocationTagsStatusCommandOutput,
 } from "./commands/UpdateCostAllocationTagsStatusCommand";
-import {
+import type {
   UpdateCostCategoryDefinitionCommandInput,
   UpdateCostCategoryDefinitionCommandOutput,
 } from "./commands/UpdateCostCategoryDefinitionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -450,7 +457,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

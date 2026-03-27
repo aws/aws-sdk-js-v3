@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,629 +61,701 @@ import {
   defaultGlueHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchCreatePartitionCommandInput,
   BatchCreatePartitionCommandOutput,
 } from "./commands/BatchCreatePartitionCommand";
-import {
+import type {
   BatchDeleteConnectionCommandInput,
   BatchDeleteConnectionCommandOutput,
 } from "./commands/BatchDeleteConnectionCommand";
-import {
+import type {
   BatchDeletePartitionCommandInput,
   BatchDeletePartitionCommandOutput,
 } from "./commands/BatchDeletePartitionCommand";
-import { BatchDeleteTableCommandInput, BatchDeleteTableCommandOutput } from "./commands/BatchDeleteTableCommand";
-import {
+import type { BatchDeleteTableCommandInput, BatchDeleteTableCommandOutput } from "./commands/BatchDeleteTableCommand";
+import type {
   BatchDeleteTableVersionCommandInput,
   BatchDeleteTableVersionCommandOutput,
 } from "./commands/BatchDeleteTableVersionCommand";
-import { BatchGetBlueprintsCommandInput, BatchGetBlueprintsCommandOutput } from "./commands/BatchGetBlueprintsCommand";
-import { BatchGetCrawlersCommandInput, BatchGetCrawlersCommandOutput } from "./commands/BatchGetCrawlersCommand";
-import {
+import type {
+  BatchGetBlueprintsCommandInput,
+  BatchGetBlueprintsCommandOutput,
+} from "./commands/BatchGetBlueprintsCommand";
+import type { BatchGetCrawlersCommandInput, BatchGetCrawlersCommandOutput } from "./commands/BatchGetCrawlersCommand";
+import type {
   BatchGetCustomEntityTypesCommandInput,
   BatchGetCustomEntityTypesCommandOutput,
 } from "./commands/BatchGetCustomEntityTypesCommand";
-import {
+import type {
   BatchGetDataQualityResultCommandInput,
   BatchGetDataQualityResultCommandOutput,
 } from "./commands/BatchGetDataQualityResultCommand";
-import {
+import type {
   BatchGetDevEndpointsCommandInput,
   BatchGetDevEndpointsCommandOutput,
 } from "./commands/BatchGetDevEndpointsCommand";
-import { BatchGetJobsCommandInput, BatchGetJobsCommandOutput } from "./commands/BatchGetJobsCommand";
-import { BatchGetPartitionCommandInput, BatchGetPartitionCommandOutput } from "./commands/BatchGetPartitionCommand";
-import {
+import type { BatchGetJobsCommandInput, BatchGetJobsCommandOutput } from "./commands/BatchGetJobsCommand";
+import type {
+  BatchGetPartitionCommandInput,
+  BatchGetPartitionCommandOutput,
+} from "./commands/BatchGetPartitionCommand";
+import type {
   BatchGetTableOptimizerCommandInput,
   BatchGetTableOptimizerCommandOutput,
 } from "./commands/BatchGetTableOptimizerCommand";
-import { BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput } from "./commands/BatchGetTriggersCommand";
-import { BatchGetWorkflowsCommandInput, BatchGetWorkflowsCommandOutput } from "./commands/BatchGetWorkflowsCommand";
-import {
+import type { BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput } from "./commands/BatchGetTriggersCommand";
+import type {
+  BatchGetWorkflowsCommandInput,
+  BatchGetWorkflowsCommandOutput,
+} from "./commands/BatchGetWorkflowsCommand";
+import type {
   BatchPutDataQualityStatisticAnnotationCommandInput,
   BatchPutDataQualityStatisticAnnotationCommandOutput,
 } from "./commands/BatchPutDataQualityStatisticAnnotationCommand";
-import { BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput } from "./commands/BatchStopJobRunCommand";
-import {
+import type { BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput } from "./commands/BatchStopJobRunCommand";
+import type {
   BatchUpdatePartitionCommandInput,
   BatchUpdatePartitionCommandOutput,
 } from "./commands/BatchUpdatePartitionCommand";
-import {
+import type {
   CancelDataQualityRuleRecommendationRunCommandInput,
   CancelDataQualityRuleRecommendationRunCommandOutput,
 } from "./commands/CancelDataQualityRuleRecommendationRunCommand";
-import {
+import type {
   CancelDataQualityRulesetEvaluationRunCommandInput,
   CancelDataQualityRulesetEvaluationRunCommandOutput,
 } from "./commands/CancelDataQualityRulesetEvaluationRunCommand";
-import { CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput } from "./commands/CancelMLTaskRunCommand";
-import { CancelStatementCommandInput, CancelStatementCommandOutput } from "./commands/CancelStatementCommand";
-import {
+import type { CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput } from "./commands/CancelMLTaskRunCommand";
+import type { CancelStatementCommandInput, CancelStatementCommandOutput } from "./commands/CancelStatementCommand";
+import type {
   CheckSchemaVersionValidityCommandInput,
   CheckSchemaVersionValidityCommandOutput,
 } from "./commands/CheckSchemaVersionValidityCommand";
-import { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "./commands/CreateBlueprintCommand";
-import { CreateCatalogCommandInput, CreateCatalogCommandOutput } from "./commands/CreateCatalogCommand";
-import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "./commands/CreateClassifierCommand";
-import {
+import type { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "./commands/CreateBlueprintCommand";
+import type { CreateCatalogCommandInput, CreateCatalogCommandOutput } from "./commands/CreateCatalogCommand";
+import type { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "./commands/CreateClassifierCommand";
+import type {
   CreateColumnStatisticsTaskSettingsCommandInput,
   CreateColumnStatisticsTaskSettingsCommandOutput,
 } from "./commands/CreateColumnStatisticsTaskSettingsCommand";
-import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
-import { CreateCrawlerCommandInput, CreateCrawlerCommandOutput } from "./commands/CreateCrawlerCommand";
-import {
+import type { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
+import type { CreateCrawlerCommandInput, CreateCrawlerCommandOutput } from "./commands/CreateCrawlerCommand";
+import type {
   CreateCustomEntityTypeCommandInput,
   CreateCustomEntityTypeCommandOutput,
 } from "./commands/CreateCustomEntityTypeCommand";
-import { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "./commands/CreateDatabaseCommand";
-import {
+import type { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "./commands/CreateDatabaseCommand";
+import type {
   CreateDataQualityRulesetCommandInput,
   CreateDataQualityRulesetCommandOutput,
 } from "./commands/CreateDataQualityRulesetCommand";
-import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from "./commands/CreateDevEndpointCommand";
-import {
+import type {
+  CreateDevEndpointCommandInput,
+  CreateDevEndpointCommandOutput,
+} from "./commands/CreateDevEndpointCommand";
+import type {
   CreateGlueIdentityCenterConfigurationCommandInput,
   CreateGlueIdentityCenterConfigurationCommandOutput,
 } from "./commands/CreateGlueIdentityCenterConfigurationCommand";
-import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "./commands/CreateIntegrationCommand";
-import {
+import type {
+  CreateIntegrationCommandInput,
+  CreateIntegrationCommandOutput,
+} from "./commands/CreateIntegrationCommand";
+import type {
   CreateIntegrationResourcePropertyCommandInput,
   CreateIntegrationResourcePropertyCommandOutput,
 } from "./commands/CreateIntegrationResourcePropertyCommand";
-import {
+import type {
   CreateIntegrationTablePropertiesCommandInput,
   CreateIntegrationTablePropertiesCommandOutput,
 } from "./commands/CreateIntegrationTablePropertiesCommand";
-import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
-import { CreateMLTransformCommandInput, CreateMLTransformCommandOutput } from "./commands/CreateMLTransformCommand";
-import { CreatePartitionCommandInput, CreatePartitionCommandOutput } from "./commands/CreatePartitionCommand";
-import {
+import type { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import type {
+  CreateMLTransformCommandInput,
+  CreateMLTransformCommandOutput,
+} from "./commands/CreateMLTransformCommand";
+import type { CreatePartitionCommandInput, CreatePartitionCommandOutput } from "./commands/CreatePartitionCommand";
+import type {
   CreatePartitionIndexCommandInput,
   CreatePartitionIndexCommandOutput,
 } from "./commands/CreatePartitionIndexCommand";
-import { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "./commands/CreateRegistryCommand";
-import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
-import { CreateScriptCommandInput, CreateScriptCommandOutput } from "./commands/CreateScriptCommand";
-import {
+import type { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "./commands/CreateRegistryCommand";
+import type { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
+import type { CreateScriptCommandInput, CreateScriptCommandOutput } from "./commands/CreateScriptCommand";
+import type {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
-import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
-import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
-import {
+import type { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
+import type { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
+import type {
   CreateTableOptimizerCommandInput,
   CreateTableOptimizerCommandOutput,
 } from "./commands/CreateTableOptimizerCommand";
-import { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "./commands/CreateTriggerCommand";
-import { CreateUsageProfileCommandInput, CreateUsageProfileCommandOutput } from "./commands/CreateUsageProfileCommand";
-import {
+import type { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "./commands/CreateTriggerCommand";
+import type {
+  CreateUsageProfileCommandInput,
+  CreateUsageProfileCommandOutput,
+} from "./commands/CreateUsageProfileCommand";
+import type {
   CreateUserDefinedFunctionCommandInput,
   CreateUserDefinedFunctionCommandOutput,
 } from "./commands/CreateUserDefinedFunctionCommand";
-import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
-import { DeleteBlueprintCommandInput, DeleteBlueprintCommandOutput } from "./commands/DeleteBlueprintCommand";
-import { DeleteCatalogCommandInput, DeleteCatalogCommandOutput } from "./commands/DeleteCatalogCommand";
-import { DeleteClassifierCommandInput, DeleteClassifierCommandOutput } from "./commands/DeleteClassifierCommand";
-import {
+import type { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
+import type { DeleteBlueprintCommandInput, DeleteBlueprintCommandOutput } from "./commands/DeleteBlueprintCommand";
+import type { DeleteCatalogCommandInput, DeleteCatalogCommandOutput } from "./commands/DeleteCatalogCommand";
+import type { DeleteClassifierCommandInput, DeleteClassifierCommandOutput } from "./commands/DeleteClassifierCommand";
+import type {
   DeleteColumnStatisticsForPartitionCommandInput,
   DeleteColumnStatisticsForPartitionCommandOutput,
 } from "./commands/DeleteColumnStatisticsForPartitionCommand";
-import {
+import type {
   DeleteColumnStatisticsForTableCommandInput,
   DeleteColumnStatisticsForTableCommandOutput,
 } from "./commands/DeleteColumnStatisticsForTableCommand";
-import {
+import type {
   DeleteColumnStatisticsTaskSettingsCommandInput,
   DeleteColumnStatisticsTaskSettingsCommandOutput,
 } from "./commands/DeleteColumnStatisticsTaskSettingsCommand";
-import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
-import {
+import type { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import type {
   DeleteConnectionTypeCommandInput,
   DeleteConnectionTypeCommandOutput,
 } from "./commands/DeleteConnectionTypeCommand";
-import { DeleteCrawlerCommandInput, DeleteCrawlerCommandOutput } from "./commands/DeleteCrawlerCommand";
-import {
+import type { DeleteCrawlerCommandInput, DeleteCrawlerCommandOutput } from "./commands/DeleteCrawlerCommand";
+import type {
   DeleteCustomEntityTypeCommandInput,
   DeleteCustomEntityTypeCommandOutput,
 } from "./commands/DeleteCustomEntityTypeCommand";
-import { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand";
-import {
+import type { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand";
+import type {
   DeleteDataQualityRulesetCommandInput,
   DeleteDataQualityRulesetCommandOutput,
 } from "./commands/DeleteDataQualityRulesetCommand";
-import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from "./commands/DeleteDevEndpointCommand";
-import {
+import type {
+  DeleteDevEndpointCommandInput,
+  DeleteDevEndpointCommandOutput,
+} from "./commands/DeleteDevEndpointCommand";
+import type {
   DeleteGlueIdentityCenterConfigurationCommandInput,
   DeleteGlueIdentityCenterConfigurationCommandOutput,
 } from "./commands/DeleteGlueIdentityCenterConfigurationCommand";
-import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
-import {
+import type {
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput,
+} from "./commands/DeleteIntegrationCommand";
+import type {
   DeleteIntegrationResourcePropertyCommandInput,
   DeleteIntegrationResourcePropertyCommandOutput,
 } from "./commands/DeleteIntegrationResourcePropertyCommand";
-import {
+import type {
   DeleteIntegrationTablePropertiesCommandInput,
   DeleteIntegrationTablePropertiesCommandOutput,
 } from "./commands/DeleteIntegrationTablePropertiesCommand";
-import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
-import { DeleteMLTransformCommandInput, DeleteMLTransformCommandOutput } from "./commands/DeleteMLTransformCommand";
-import { DeletePartitionCommandInput, DeletePartitionCommandOutput } from "./commands/DeletePartitionCommand";
-import {
+import type { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import type {
+  DeleteMLTransformCommandInput,
+  DeleteMLTransformCommandOutput,
+} from "./commands/DeleteMLTransformCommand";
+import type { DeletePartitionCommandInput, DeletePartitionCommandOutput } from "./commands/DeletePartitionCommand";
+import type {
   DeletePartitionIndexCommandInput,
   DeletePartitionIndexCommandOutput,
 } from "./commands/DeletePartitionIndexCommand";
-import { DeleteRegistryCommandInput, DeleteRegistryCommandOutput } from "./commands/DeleteRegistryCommand";
-import {
+import type { DeleteRegistryCommandInput, DeleteRegistryCommandOutput } from "./commands/DeleteRegistryCommand";
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
-import {
+import type { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
+import type {
   DeleteSchemaVersionsCommandInput,
   DeleteSchemaVersionsCommandOutput,
 } from "./commands/DeleteSchemaVersionsCommand";
-import {
+import type {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand";
-import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
-import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
-import {
+import type { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
+import type { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
+import type {
   DeleteTableOptimizerCommandInput,
   DeleteTableOptimizerCommandOutput,
 } from "./commands/DeleteTableOptimizerCommand";
-import { DeleteTableVersionCommandInput, DeleteTableVersionCommandOutput } from "./commands/DeleteTableVersionCommand";
-import { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "./commands/DeleteTriggerCommand";
-import { DeleteUsageProfileCommandInput, DeleteUsageProfileCommandOutput } from "./commands/DeleteUsageProfileCommand";
-import {
+import type {
+  DeleteTableVersionCommandInput,
+  DeleteTableVersionCommandOutput,
+} from "./commands/DeleteTableVersionCommand";
+import type { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "./commands/DeleteTriggerCommand";
+import type {
+  DeleteUsageProfileCommandInput,
+  DeleteUsageProfileCommandOutput,
+} from "./commands/DeleteUsageProfileCommand";
+import type {
   DeleteUserDefinedFunctionCommandInput,
   DeleteUserDefinedFunctionCommandOutput,
 } from "./commands/DeleteUserDefinedFunctionCommand";
-import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
-import {
+import type { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
+import type {
   DescribeConnectionTypeCommandInput,
   DescribeConnectionTypeCommandOutput,
 } from "./commands/DescribeConnectionTypeCommand";
-import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./commands/DescribeEntityCommand";
-import {
+import type { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./commands/DescribeEntityCommand";
+import type {
   DescribeInboundIntegrationsCommandInput,
   DescribeInboundIntegrationsCommandOutput,
 } from "./commands/DescribeInboundIntegrationsCommand";
-import {
+import type {
   DescribeIntegrationsCommandInput,
   DescribeIntegrationsCommandOutput,
 } from "./commands/DescribeIntegrationsCommand";
-import { GetBlueprintCommandInput, GetBlueprintCommandOutput } from "./commands/GetBlueprintCommand";
-import { GetBlueprintRunCommandInput, GetBlueprintRunCommandOutput } from "./commands/GetBlueprintRunCommand";
-import { GetBlueprintRunsCommandInput, GetBlueprintRunsCommandOutput } from "./commands/GetBlueprintRunsCommand";
-import { GetCatalogCommandInput, GetCatalogCommandOutput } from "./commands/GetCatalogCommand";
-import {
+import type { GetBlueprintCommandInput, GetBlueprintCommandOutput } from "./commands/GetBlueprintCommand";
+import type { GetBlueprintRunCommandInput, GetBlueprintRunCommandOutput } from "./commands/GetBlueprintRunCommand";
+import type { GetBlueprintRunsCommandInput, GetBlueprintRunsCommandOutput } from "./commands/GetBlueprintRunsCommand";
+import type { GetCatalogCommandInput, GetCatalogCommandOutput } from "./commands/GetCatalogCommand";
+import type {
   GetCatalogImportStatusCommandInput,
   GetCatalogImportStatusCommandOutput,
 } from "./commands/GetCatalogImportStatusCommand";
-import { GetCatalogsCommandInput, GetCatalogsCommandOutput } from "./commands/GetCatalogsCommand";
-import { GetClassifierCommandInput, GetClassifierCommandOutput } from "./commands/GetClassifierCommand";
-import { GetClassifiersCommandInput, GetClassifiersCommandOutput } from "./commands/GetClassifiersCommand";
-import {
+import type { GetCatalogsCommandInput, GetCatalogsCommandOutput } from "./commands/GetCatalogsCommand";
+import type { GetClassifierCommandInput, GetClassifierCommandOutput } from "./commands/GetClassifierCommand";
+import type { GetClassifiersCommandInput, GetClassifiersCommandOutput } from "./commands/GetClassifiersCommand";
+import type {
   GetColumnStatisticsForPartitionCommandInput,
   GetColumnStatisticsForPartitionCommandOutput,
 } from "./commands/GetColumnStatisticsForPartitionCommand";
-import {
+import type {
   GetColumnStatisticsForTableCommandInput,
   GetColumnStatisticsForTableCommandOutput,
 } from "./commands/GetColumnStatisticsForTableCommand";
-import {
+import type {
   GetColumnStatisticsTaskRunCommandInput,
   GetColumnStatisticsTaskRunCommandOutput,
 } from "./commands/GetColumnStatisticsTaskRunCommand";
-import {
+import type {
   GetColumnStatisticsTaskRunsCommandInput,
   GetColumnStatisticsTaskRunsCommandOutput,
 } from "./commands/GetColumnStatisticsTaskRunsCommand";
-import {
+import type {
   GetColumnStatisticsTaskSettingsCommandInput,
   GetColumnStatisticsTaskSettingsCommandOutput,
 } from "./commands/GetColumnStatisticsTaskSettingsCommand";
-import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
-import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./commands/GetConnectionsCommand";
-import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "./commands/GetCrawlerCommand";
-import { GetCrawlerMetricsCommandInput, GetCrawlerMetricsCommandOutput } from "./commands/GetCrawlerMetricsCommand";
-import { GetCrawlersCommandInput, GetCrawlersCommandOutput } from "./commands/GetCrawlersCommand";
-import {
+import type { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
+import type { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./commands/GetConnectionsCommand";
+import type { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "./commands/GetCrawlerCommand";
+import type {
+  GetCrawlerMetricsCommandInput,
+  GetCrawlerMetricsCommandOutput,
+} from "./commands/GetCrawlerMetricsCommand";
+import type { GetCrawlersCommandInput, GetCrawlersCommandOutput } from "./commands/GetCrawlersCommand";
+import type {
   GetCustomEntityTypeCommandInput,
   GetCustomEntityTypeCommandOutput,
 } from "./commands/GetCustomEntityTypeCommand";
-import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
-import { GetDatabasesCommandInput, GetDatabasesCommandOutput } from "./commands/GetDatabasesCommand";
-import {
+import type { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
+import type { GetDatabasesCommandInput, GetDatabasesCommandOutput } from "./commands/GetDatabasesCommand";
+import type {
   GetDataCatalogEncryptionSettingsCommandInput,
   GetDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/GetDataCatalogEncryptionSettingsCommand";
-import { GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput } from "./commands/GetDataflowGraphCommand";
-import {
+import type { GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput } from "./commands/GetDataflowGraphCommand";
+import type {
   GetDataQualityModelCommandInput,
   GetDataQualityModelCommandOutput,
 } from "./commands/GetDataQualityModelCommand";
-import {
+import type {
   GetDataQualityModelResultCommandInput,
   GetDataQualityModelResultCommandOutput,
 } from "./commands/GetDataQualityModelResultCommand";
-import {
+import type {
   GetDataQualityResultCommandInput,
   GetDataQualityResultCommandOutput,
 } from "./commands/GetDataQualityResultCommand";
-import {
+import type {
   GetDataQualityRuleRecommendationRunCommandInput,
   GetDataQualityRuleRecommendationRunCommandOutput,
 } from "./commands/GetDataQualityRuleRecommendationRunCommand";
-import {
+import type {
   GetDataQualityRulesetCommandInput,
   GetDataQualityRulesetCommandOutput,
 } from "./commands/GetDataQualityRulesetCommand";
-import {
+import type {
   GetDataQualityRulesetEvaluationRunCommandInput,
   GetDataQualityRulesetEvaluationRunCommandOutput,
 } from "./commands/GetDataQualityRulesetEvaluationRunCommand";
-import { GetDevEndpointCommandInput, GetDevEndpointCommandOutput } from "./commands/GetDevEndpointCommand";
-import { GetDevEndpointsCommandInput, GetDevEndpointsCommandOutput } from "./commands/GetDevEndpointsCommand";
-import { GetEntityRecordsCommandInput, GetEntityRecordsCommandOutput } from "./commands/GetEntityRecordsCommand";
-import {
+import type { GetDevEndpointCommandInput, GetDevEndpointCommandOutput } from "./commands/GetDevEndpointCommand";
+import type { GetDevEndpointsCommandInput, GetDevEndpointsCommandOutput } from "./commands/GetDevEndpointsCommand";
+import type { GetEntityRecordsCommandInput, GetEntityRecordsCommandOutput } from "./commands/GetEntityRecordsCommand";
+import type {
   GetGlueIdentityCenterConfigurationCommandInput,
   GetGlueIdentityCenterConfigurationCommandOutput,
 } from "./commands/GetGlueIdentityCenterConfigurationCommand";
-import {
+import type {
   GetIntegrationResourcePropertyCommandInput,
   GetIntegrationResourcePropertyCommandOutput,
 } from "./commands/GetIntegrationResourcePropertyCommand";
-import {
+import type {
   GetIntegrationTablePropertiesCommandInput,
   GetIntegrationTablePropertiesCommandOutput,
 } from "./commands/GetIntegrationTablePropertiesCommand";
-import { GetJobBookmarkCommandInput, GetJobBookmarkCommandOutput } from "./commands/GetJobBookmarkCommand";
-import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
-import { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
-import { GetJobRunsCommandInput, GetJobRunsCommandOutput } from "./commands/GetJobRunsCommand";
-import { GetJobsCommandInput, GetJobsCommandOutput } from "./commands/GetJobsCommand";
-import { GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetMappingCommand";
-import {
+import type { GetJobBookmarkCommandInput, GetJobBookmarkCommandOutput } from "./commands/GetJobBookmarkCommand";
+import type { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import type { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
+import type { GetJobRunsCommandInput, GetJobRunsCommandOutput } from "./commands/GetJobRunsCommand";
+import type { GetJobsCommandInput, GetJobsCommandOutput } from "./commands/GetJobsCommand";
+import type { GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetMappingCommand";
+import type {
   GetMaterializedViewRefreshTaskRunCommandInput,
   GetMaterializedViewRefreshTaskRunCommandOutput,
 } from "./commands/GetMaterializedViewRefreshTaskRunCommand";
-import { GetMLTaskRunCommandInput, GetMLTaskRunCommandOutput } from "./commands/GetMLTaskRunCommand";
-import { GetMLTaskRunsCommandInput, GetMLTaskRunsCommandOutput } from "./commands/GetMLTaskRunsCommand";
-import { GetMLTransformCommandInput, GetMLTransformCommandOutput } from "./commands/GetMLTransformCommand";
-import { GetMLTransformsCommandInput, GetMLTransformsCommandOutput } from "./commands/GetMLTransformsCommand";
-import { GetPartitionCommandInput, GetPartitionCommandOutput } from "./commands/GetPartitionCommand";
-import {
+import type { GetMLTaskRunCommandInput, GetMLTaskRunCommandOutput } from "./commands/GetMLTaskRunCommand";
+import type { GetMLTaskRunsCommandInput, GetMLTaskRunsCommandOutput } from "./commands/GetMLTaskRunsCommand";
+import type { GetMLTransformCommandInput, GetMLTransformCommandOutput } from "./commands/GetMLTransformCommand";
+import type { GetMLTransformsCommandInput, GetMLTransformsCommandOutput } from "./commands/GetMLTransformsCommand";
+import type { GetPartitionCommandInput, GetPartitionCommandOutput } from "./commands/GetPartitionCommand";
+import type {
   GetPartitionIndexesCommandInput,
   GetPartitionIndexesCommandOutput,
 } from "./commands/GetPartitionIndexesCommand";
-import { GetPartitionsCommandInput, GetPartitionsCommandOutput } from "./commands/GetPartitionsCommand";
-import { GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
-import { GetRegistryCommandInput, GetRegistryCommandOutput } from "./commands/GetRegistryCommand";
-import {
+import type { GetPartitionsCommandInput, GetPartitionsCommandOutput } from "./commands/GetPartitionsCommand";
+import type { GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
+import type { GetRegistryCommandInput, GetRegistryCommandOutput } from "./commands/GetRegistryCommand";
+import type {
   GetResourcePoliciesCommandInput,
   GetResourcePoliciesCommandOutput,
 } from "./commands/GetResourcePoliciesCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import {
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type {
   GetSchemaByDefinitionCommandInput,
   GetSchemaByDefinitionCommandOutput,
 } from "./commands/GetSchemaByDefinitionCommand";
-import { GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
-import { GetSchemaVersionCommandInput, GetSchemaVersionCommandOutput } from "./commands/GetSchemaVersionCommand";
-import {
+import type { GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
+import type { GetSchemaVersionCommandInput, GetSchemaVersionCommandOutput } from "./commands/GetSchemaVersionCommand";
+import type {
   GetSchemaVersionsDiffCommandInput,
   GetSchemaVersionsDiffCommandOutput,
 } from "./commands/GetSchemaVersionsDiffCommand";
-import {
+import type {
   GetSecurityConfigurationCommandInput,
   GetSecurityConfigurationCommandOutput,
 } from "./commands/GetSecurityConfigurationCommand";
-import {
+import type {
   GetSecurityConfigurationsCommandInput,
   GetSecurityConfigurationsCommandOutput,
 } from "./commands/GetSecurityConfigurationsCommand";
-import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
-import { GetStatementCommandInput, GetStatementCommandOutput } from "./commands/GetStatementCommand";
-import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
-import { GetTableOptimizerCommandInput, GetTableOptimizerCommandOutput } from "./commands/GetTableOptimizerCommand";
-import { GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
-import { GetTableVersionCommandInput, GetTableVersionCommandOutput } from "./commands/GetTableVersionCommand";
-import { GetTableVersionsCommandInput, GetTableVersionsCommandOutput } from "./commands/GetTableVersionsCommand";
-import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
-import { GetTriggerCommandInput, GetTriggerCommandOutput } from "./commands/GetTriggerCommand";
-import { GetTriggersCommandInput, GetTriggersCommandOutput } from "./commands/GetTriggersCommand";
-import {
+import type { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import type { GetStatementCommandInput, GetStatementCommandOutput } from "./commands/GetStatementCommand";
+import type { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import type {
+  GetTableOptimizerCommandInput,
+  GetTableOptimizerCommandOutput,
+} from "./commands/GetTableOptimizerCommand";
+import type { GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
+import type { GetTableVersionCommandInput, GetTableVersionCommandOutput } from "./commands/GetTableVersionCommand";
+import type { GetTableVersionsCommandInput, GetTableVersionsCommandOutput } from "./commands/GetTableVersionsCommand";
+import type { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import type { GetTriggerCommandInput, GetTriggerCommandOutput } from "./commands/GetTriggerCommand";
+import type { GetTriggersCommandInput, GetTriggersCommandOutput } from "./commands/GetTriggersCommand";
+import type {
   GetUnfilteredPartitionMetadataCommandInput,
   GetUnfilteredPartitionMetadataCommandOutput,
 } from "./commands/GetUnfilteredPartitionMetadataCommand";
-import {
+import type {
   GetUnfilteredPartitionsMetadataCommandInput,
   GetUnfilteredPartitionsMetadataCommandOutput,
 } from "./commands/GetUnfilteredPartitionsMetadataCommand";
-import {
+import type {
   GetUnfilteredTableMetadataCommandInput,
   GetUnfilteredTableMetadataCommandOutput,
 } from "./commands/GetUnfilteredTableMetadataCommand";
-import { GetUsageProfileCommandInput, GetUsageProfileCommandOutput } from "./commands/GetUsageProfileCommand";
-import {
+import type { GetUsageProfileCommandInput, GetUsageProfileCommandOutput } from "./commands/GetUsageProfileCommand";
+import type {
   GetUserDefinedFunctionCommandInput,
   GetUserDefinedFunctionCommandOutput,
 } from "./commands/GetUserDefinedFunctionCommand";
-import {
+import type {
   GetUserDefinedFunctionsCommandInput,
   GetUserDefinedFunctionsCommandOutput,
 } from "./commands/GetUserDefinedFunctionsCommand";
-import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
-import { GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput } from "./commands/GetWorkflowRunCommand";
-import {
+import type { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import type { GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput } from "./commands/GetWorkflowRunCommand";
+import type {
   GetWorkflowRunPropertiesCommandInput,
   GetWorkflowRunPropertiesCommandOutput,
 } from "./commands/GetWorkflowRunPropertiesCommand";
-import { GetWorkflowRunsCommandInput, GetWorkflowRunsCommandOutput } from "./commands/GetWorkflowRunsCommand";
-import {
+import type { GetWorkflowRunsCommandInput, GetWorkflowRunsCommandOutput } from "./commands/GetWorkflowRunsCommand";
+import type {
   ImportCatalogToGlueCommandInput,
   ImportCatalogToGlueCommandOutput,
 } from "./commands/ImportCatalogToGlueCommand";
-import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
-import {
+import type { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
+import type {
   ListColumnStatisticsTaskRunsCommandInput,
   ListColumnStatisticsTaskRunsCommandOutput,
 } from "./commands/ListColumnStatisticsTaskRunsCommand";
-import {
+import type {
   ListConnectionTypesCommandInput,
   ListConnectionTypesCommandOutput,
 } from "./commands/ListConnectionTypesCommand";
-import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "./commands/ListCrawlersCommand";
-import { ListCrawlsCommandInput, ListCrawlsCommandOutput } from "./commands/ListCrawlsCommand";
-import {
+import type { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "./commands/ListCrawlersCommand";
+import type { ListCrawlsCommandInput, ListCrawlsCommandOutput } from "./commands/ListCrawlsCommand";
+import type {
   ListCustomEntityTypesCommandInput,
   ListCustomEntityTypesCommandOutput,
 } from "./commands/ListCustomEntityTypesCommand";
-import {
+import type {
   ListDataQualityResultsCommandInput,
   ListDataQualityResultsCommandOutput,
 } from "./commands/ListDataQualityResultsCommand";
-import {
+import type {
   ListDataQualityRuleRecommendationRunsCommandInput,
   ListDataQualityRuleRecommendationRunsCommandOutput,
 } from "./commands/ListDataQualityRuleRecommendationRunsCommand";
-import {
+import type {
   ListDataQualityRulesetEvaluationRunsCommandInput,
   ListDataQualityRulesetEvaluationRunsCommandOutput,
 } from "./commands/ListDataQualityRulesetEvaluationRunsCommand";
-import {
+import type {
   ListDataQualityRulesetsCommandInput,
   ListDataQualityRulesetsCommandOutput,
 } from "./commands/ListDataQualityRulesetsCommand";
-import {
+import type {
   ListDataQualityStatisticAnnotationsCommandInput,
   ListDataQualityStatisticAnnotationsCommandOutput,
 } from "./commands/ListDataQualityStatisticAnnotationsCommand";
-import {
+import type {
   ListDataQualityStatisticsCommandInput,
   ListDataQualityStatisticsCommandOutput,
 } from "./commands/ListDataQualityStatisticsCommand";
-import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand";
-import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
-import {
+import type { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand";
+import type { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
+import type {
   ListIntegrationResourcePropertiesCommandInput,
   ListIntegrationResourcePropertiesCommandOutput,
 } from "./commands/ListIntegrationResourcePropertiesCommand";
-import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
-import {
+import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import type {
   ListMaterializedViewRefreshTaskRunsCommandInput,
   ListMaterializedViewRefreshTaskRunsCommandOutput,
 } from "./commands/ListMaterializedViewRefreshTaskRunsCommand";
-import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand";
-import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
-import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
-import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand";
-import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
-import { ListStatementsCommandInput, ListStatementsCommandOutput } from "./commands/ListStatementsCommand";
-import {
+import type { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand";
+import type { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
+import type { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
+import type {
+  ListSchemaVersionsCommandInput,
+  ListSchemaVersionsCommandOutput,
+} from "./commands/ListSchemaVersionsCommand";
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import type { ListStatementsCommandInput, ListStatementsCommandOutput } from "./commands/ListStatementsCommand";
+import type {
   ListTableOptimizerRunsCommandInput,
   ListTableOptimizerRunsCommandOutput,
 } from "./commands/ListTableOptimizerRunsCommand";
-import { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand";
-import { ListUsageProfilesCommandInput, ListUsageProfilesCommandOutput } from "./commands/ListUsageProfilesCommand";
-import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
-import { ModifyIntegrationCommandInput, ModifyIntegrationCommandOutput } from "./commands/ModifyIntegrationCommand";
-import {
+import type { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand";
+import type {
+  ListUsageProfilesCommandInput,
+  ListUsageProfilesCommandOutput,
+} from "./commands/ListUsageProfilesCommand";
+import type { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
+import type {
+  ModifyIntegrationCommandInput,
+  ModifyIntegrationCommandOutput,
+} from "./commands/ModifyIntegrationCommand";
+import type {
   PutDataCatalogEncryptionSettingsCommandInput,
   PutDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/PutDataCatalogEncryptionSettingsCommand";
-import {
+import type {
   PutDataQualityProfileAnnotationCommandInput,
   PutDataQualityProfileAnnotationCommandOutput,
 } from "./commands/PutDataQualityProfileAnnotationCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   PutSchemaVersionMetadataCommandInput,
   PutSchemaVersionMetadataCommandOutput,
 } from "./commands/PutSchemaVersionMetadataCommand";
-import {
+import type {
   PutWorkflowRunPropertiesCommandInput,
   PutWorkflowRunPropertiesCommandOutput,
 } from "./commands/PutWorkflowRunPropertiesCommand";
-import {
+import type {
   QuerySchemaVersionMetadataCommandInput,
   QuerySchemaVersionMetadataCommandOutput,
 } from "./commands/QuerySchemaVersionMetadataCommand";
-import {
+import type {
   RegisterConnectionTypeCommandInput,
   RegisterConnectionTypeCommandOutput,
 } from "./commands/RegisterConnectionTypeCommand";
-import {
+import type {
   RegisterSchemaVersionCommandInput,
   RegisterSchemaVersionCommandOutput,
 } from "./commands/RegisterSchemaVersionCommand";
-import {
+import type {
   RemoveSchemaVersionMetadataCommandInput,
   RemoveSchemaVersionMetadataCommandOutput,
 } from "./commands/RemoveSchemaVersionMetadataCommand";
-import { ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput } from "./commands/ResetJobBookmarkCommand";
-import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from "./commands/ResumeWorkflowRunCommand";
-import { RunStatementCommandInput, RunStatementCommandOutput } from "./commands/RunStatementCommand";
-import { SearchTablesCommandInput, SearchTablesCommandOutput } from "./commands/SearchTablesCommand";
-import { StartBlueprintRunCommandInput, StartBlueprintRunCommandOutput } from "./commands/StartBlueprintRunCommand";
-import {
+import type { ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput } from "./commands/ResetJobBookmarkCommand";
+import type {
+  ResumeWorkflowRunCommandInput,
+  ResumeWorkflowRunCommandOutput,
+} from "./commands/ResumeWorkflowRunCommand";
+import type { RunStatementCommandInput, RunStatementCommandOutput } from "./commands/RunStatementCommand";
+import type { SearchTablesCommandInput, SearchTablesCommandOutput } from "./commands/SearchTablesCommand";
+import type {
+  StartBlueprintRunCommandInput,
+  StartBlueprintRunCommandOutput,
+} from "./commands/StartBlueprintRunCommand";
+import type {
   StartColumnStatisticsTaskRunCommandInput,
   StartColumnStatisticsTaskRunCommandOutput,
 } from "./commands/StartColumnStatisticsTaskRunCommand";
-import {
+import type {
   StartColumnStatisticsTaskRunScheduleCommandInput,
   StartColumnStatisticsTaskRunScheduleCommandOutput,
 } from "./commands/StartColumnStatisticsTaskRunScheduleCommand";
-import { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "./commands/StartCrawlerCommand";
-import {
+import type { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "./commands/StartCrawlerCommand";
+import type {
   StartCrawlerScheduleCommandInput,
   StartCrawlerScheduleCommandOutput,
 } from "./commands/StartCrawlerScheduleCommand";
-import {
+import type {
   StartDataQualityRuleRecommendationRunCommandInput,
   StartDataQualityRuleRecommendationRunCommandOutput,
 } from "./commands/StartDataQualityRuleRecommendationRunCommand";
-import {
+import type {
   StartDataQualityRulesetEvaluationRunCommandInput,
   StartDataQualityRulesetEvaluationRunCommandOutput,
 } from "./commands/StartDataQualityRulesetEvaluationRunCommand";
-import {
+import type {
   StartExportLabelsTaskRunCommandInput,
   StartExportLabelsTaskRunCommandOutput,
 } from "./commands/StartExportLabelsTaskRunCommand";
-import {
+import type {
   StartImportLabelsTaskRunCommandInput,
   StartImportLabelsTaskRunCommandOutput,
 } from "./commands/StartImportLabelsTaskRunCommand";
-import { StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
-import {
+import type { StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
+import type {
   StartMaterializedViewRefreshTaskRunCommandInput,
   StartMaterializedViewRefreshTaskRunCommandOutput,
 } from "./commands/StartMaterializedViewRefreshTaskRunCommand";
-import {
+import type {
   StartMLEvaluationTaskRunCommandInput,
   StartMLEvaluationTaskRunCommandOutput,
 } from "./commands/StartMLEvaluationTaskRunCommand";
-import {
+import type {
   StartMLLabelingSetGenerationTaskRunCommandInput,
   StartMLLabelingSetGenerationTaskRunCommandOutput,
 } from "./commands/StartMLLabelingSetGenerationTaskRunCommand";
-import { StartTriggerCommandInput, StartTriggerCommandOutput } from "./commands/StartTriggerCommand";
-import { StartWorkflowRunCommandInput, StartWorkflowRunCommandOutput } from "./commands/StartWorkflowRunCommand";
-import {
+import type { StartTriggerCommandInput, StartTriggerCommandOutput } from "./commands/StartTriggerCommand";
+import type { StartWorkflowRunCommandInput, StartWorkflowRunCommandOutput } from "./commands/StartWorkflowRunCommand";
+import type {
   StopColumnStatisticsTaskRunCommandInput,
   StopColumnStatisticsTaskRunCommandOutput,
 } from "./commands/StopColumnStatisticsTaskRunCommand";
-import {
+import type {
   StopColumnStatisticsTaskRunScheduleCommandInput,
   StopColumnStatisticsTaskRunScheduleCommandOutput,
 } from "./commands/StopColumnStatisticsTaskRunScheduleCommand";
-import { StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand";
-import {
+import type { StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand";
+import type {
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand";
-import {
+import type {
   StopMaterializedViewRefreshTaskRunCommandInput,
   StopMaterializedViewRefreshTaskRunCommandOutput,
 } from "./commands/StopMaterializedViewRefreshTaskRunCommand";
-import { StopSessionCommandInput, StopSessionCommandOutput } from "./commands/StopSessionCommand";
-import { StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
-import { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "./commands/StopWorkflowRunCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateBlueprintCommandInput, UpdateBlueprintCommandOutput } from "./commands/UpdateBlueprintCommand";
-import { UpdateCatalogCommandInput, UpdateCatalogCommandOutput } from "./commands/UpdateCatalogCommand";
-import { UpdateClassifierCommandInput, UpdateClassifierCommandOutput } from "./commands/UpdateClassifierCommand";
-import {
+import type { StopSessionCommandInput, StopSessionCommandOutput } from "./commands/StopSessionCommand";
+import type { StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
+import type { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "./commands/StopWorkflowRunCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateBlueprintCommandInput, UpdateBlueprintCommandOutput } from "./commands/UpdateBlueprintCommand";
+import type { UpdateCatalogCommandInput, UpdateCatalogCommandOutput } from "./commands/UpdateCatalogCommand";
+import type { UpdateClassifierCommandInput, UpdateClassifierCommandOutput } from "./commands/UpdateClassifierCommand";
+import type {
   UpdateColumnStatisticsForPartitionCommandInput,
   UpdateColumnStatisticsForPartitionCommandOutput,
 } from "./commands/UpdateColumnStatisticsForPartitionCommand";
-import {
+import type {
   UpdateColumnStatisticsForTableCommandInput,
   UpdateColumnStatisticsForTableCommandOutput,
 } from "./commands/UpdateColumnStatisticsForTableCommand";
-import {
+import type {
   UpdateColumnStatisticsTaskSettingsCommandInput,
   UpdateColumnStatisticsTaskSettingsCommandOutput,
 } from "./commands/UpdateColumnStatisticsTaskSettingsCommand";
-import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
-import { UpdateCrawlerCommandInput, UpdateCrawlerCommandOutput } from "./commands/UpdateCrawlerCommand";
-import {
+import type { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
+import type { UpdateCrawlerCommandInput, UpdateCrawlerCommandOutput } from "./commands/UpdateCrawlerCommand";
+import type {
   UpdateCrawlerScheduleCommandInput,
   UpdateCrawlerScheduleCommandOutput,
 } from "./commands/UpdateCrawlerScheduleCommand";
-import { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "./commands/UpdateDatabaseCommand";
-import {
+import type { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "./commands/UpdateDatabaseCommand";
+import type {
   UpdateDataQualityRulesetCommandInput,
   UpdateDataQualityRulesetCommandOutput,
 } from "./commands/UpdateDataQualityRulesetCommand";
-import { UpdateDevEndpointCommandInput, UpdateDevEndpointCommandOutput } from "./commands/UpdateDevEndpointCommand";
-import {
+import type {
+  UpdateDevEndpointCommandInput,
+  UpdateDevEndpointCommandOutput,
+} from "./commands/UpdateDevEndpointCommand";
+import type {
   UpdateGlueIdentityCenterConfigurationCommandInput,
   UpdateGlueIdentityCenterConfigurationCommandOutput,
 } from "./commands/UpdateGlueIdentityCenterConfigurationCommand";
-import {
+import type {
   UpdateIntegrationResourcePropertyCommandInput,
   UpdateIntegrationResourcePropertyCommandOutput,
 } from "./commands/UpdateIntegrationResourcePropertyCommand";
-import {
+import type {
   UpdateIntegrationTablePropertiesCommandInput,
   UpdateIntegrationTablePropertiesCommandOutput,
 } from "./commands/UpdateIntegrationTablePropertiesCommand";
-import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
-import {
+import type { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
+import type {
   UpdateJobFromSourceControlCommandInput,
   UpdateJobFromSourceControlCommandOutput,
 } from "./commands/UpdateJobFromSourceControlCommand";
-import { UpdateMLTransformCommandInput, UpdateMLTransformCommandOutput } from "./commands/UpdateMLTransformCommand";
-import { UpdatePartitionCommandInput, UpdatePartitionCommandOutput } from "./commands/UpdatePartitionCommand";
-import { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "./commands/UpdateRegistryCommand";
-import { UpdateSchemaCommandInput, UpdateSchemaCommandOutput } from "./commands/UpdateSchemaCommand";
-import {
+import type {
+  UpdateMLTransformCommandInput,
+  UpdateMLTransformCommandOutput,
+} from "./commands/UpdateMLTransformCommand";
+import type { UpdatePartitionCommandInput, UpdatePartitionCommandOutput } from "./commands/UpdatePartitionCommand";
+import type { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "./commands/UpdateRegistryCommand";
+import type { UpdateSchemaCommandInput, UpdateSchemaCommandOutput } from "./commands/UpdateSchemaCommand";
+import type {
   UpdateSourceControlFromJobCommandInput,
   UpdateSourceControlFromJobCommandOutput,
 } from "./commands/UpdateSourceControlFromJobCommand";
-import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
-import {
+import type { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
+import type {
   UpdateTableOptimizerCommandInput,
   UpdateTableOptimizerCommandOutput,
 } from "./commands/UpdateTableOptimizerCommand";
-import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "./commands/UpdateTriggerCommand";
-import { UpdateUsageProfileCommandInput, UpdateUsageProfileCommandOutput } from "./commands/UpdateUsageProfileCommand";
-import {
+import type { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "./commands/UpdateTriggerCommand";
+import type {
+  UpdateUsageProfileCommandInput,
+  UpdateUsageProfileCommandOutput,
+} from "./commands/UpdateUsageProfileCommand";
+import type {
   UpdateUserDefinedFunctionCommandInput,
   UpdateUserDefinedFunctionCommandOutput,
 } from "./commands/UpdateUserDefinedFunctionCommand";
-import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
+import type { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -1347,7 +1417,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

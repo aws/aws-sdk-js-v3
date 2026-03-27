@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,99 +61,123 @@ import {
   defaultAppMeshHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateGatewayRouteCommandInput, CreateGatewayRouteCommandOutput } from "./commands/CreateGatewayRouteCommand";
-import { CreateMeshCommandInput, CreateMeshCommandOutput } from "./commands/CreateMeshCommand";
-import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
-import {
+import type {
+  CreateGatewayRouteCommandInput,
+  CreateGatewayRouteCommandOutput,
+} from "./commands/CreateGatewayRouteCommand";
+import type { CreateMeshCommandInput, CreateMeshCommandOutput } from "./commands/CreateMeshCommand";
+import type { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
+import type {
   CreateVirtualGatewayCommandInput,
   CreateVirtualGatewayCommandOutput,
 } from "./commands/CreateVirtualGatewayCommand";
-import { CreateVirtualNodeCommandInput, CreateVirtualNodeCommandOutput } from "./commands/CreateVirtualNodeCommand";
-import {
+import type {
+  CreateVirtualNodeCommandInput,
+  CreateVirtualNodeCommandOutput,
+} from "./commands/CreateVirtualNodeCommand";
+import type {
   CreateVirtualRouterCommandInput,
   CreateVirtualRouterCommandOutput,
 } from "./commands/CreateVirtualRouterCommand";
-import {
+import type {
   CreateVirtualServiceCommandInput,
   CreateVirtualServiceCommandOutput,
 } from "./commands/CreateVirtualServiceCommand";
-import { DeleteGatewayRouteCommandInput, DeleteGatewayRouteCommandOutput } from "./commands/DeleteGatewayRouteCommand";
-import { DeleteMeshCommandInput, DeleteMeshCommandOutput } from "./commands/DeleteMeshCommand";
-import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
-import {
+import type {
+  DeleteGatewayRouteCommandInput,
+  DeleteGatewayRouteCommandOutput,
+} from "./commands/DeleteGatewayRouteCommand";
+import type { DeleteMeshCommandInput, DeleteMeshCommandOutput } from "./commands/DeleteMeshCommand";
+import type { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
+import type {
   DeleteVirtualGatewayCommandInput,
   DeleteVirtualGatewayCommandOutput,
 } from "./commands/DeleteVirtualGatewayCommand";
-import { DeleteVirtualNodeCommandInput, DeleteVirtualNodeCommandOutput } from "./commands/DeleteVirtualNodeCommand";
-import {
+import type {
+  DeleteVirtualNodeCommandInput,
+  DeleteVirtualNodeCommandOutput,
+} from "./commands/DeleteVirtualNodeCommand";
+import type {
   DeleteVirtualRouterCommandInput,
   DeleteVirtualRouterCommandOutput,
 } from "./commands/DeleteVirtualRouterCommand";
-import {
+import type {
   DeleteVirtualServiceCommandInput,
   DeleteVirtualServiceCommandOutput,
 } from "./commands/DeleteVirtualServiceCommand";
-import {
+import type {
   DescribeGatewayRouteCommandInput,
   DescribeGatewayRouteCommandOutput,
 } from "./commands/DescribeGatewayRouteCommand";
-import { DescribeMeshCommandInput, DescribeMeshCommandOutput } from "./commands/DescribeMeshCommand";
-import { DescribeRouteCommandInput, DescribeRouteCommandOutput } from "./commands/DescribeRouteCommand";
-import {
+import type { DescribeMeshCommandInput, DescribeMeshCommandOutput } from "./commands/DescribeMeshCommand";
+import type { DescribeRouteCommandInput, DescribeRouteCommandOutput } from "./commands/DescribeRouteCommand";
+import type {
   DescribeVirtualGatewayCommandInput,
   DescribeVirtualGatewayCommandOutput,
 } from "./commands/DescribeVirtualGatewayCommand";
-import {
+import type {
   DescribeVirtualNodeCommandInput,
   DescribeVirtualNodeCommandOutput,
 } from "./commands/DescribeVirtualNodeCommand";
-import {
+import type {
   DescribeVirtualRouterCommandInput,
   DescribeVirtualRouterCommandOutput,
 } from "./commands/DescribeVirtualRouterCommand";
-import {
+import type {
   DescribeVirtualServiceCommandInput,
   DescribeVirtualServiceCommandOutput,
 } from "./commands/DescribeVirtualServiceCommand";
-import { ListGatewayRoutesCommandInput, ListGatewayRoutesCommandOutput } from "./commands/ListGatewayRoutesCommand";
-import { ListMeshesCommandInput, ListMeshesCommandOutput } from "./commands/ListMeshesCommand";
-import { ListRoutesCommandInput, ListRoutesCommandOutput } from "./commands/ListRoutesCommand";
-import {
+import type {
+  ListGatewayRoutesCommandInput,
+  ListGatewayRoutesCommandOutput,
+} from "./commands/ListGatewayRoutesCommand";
+import type { ListMeshesCommandInput, ListMeshesCommandOutput } from "./commands/ListMeshesCommand";
+import type { ListRoutesCommandInput, ListRoutesCommandOutput } from "./commands/ListRoutesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListVirtualGatewaysCommandInput,
   ListVirtualGatewaysCommandOutput,
 } from "./commands/ListVirtualGatewaysCommand";
-import { ListVirtualNodesCommandInput, ListVirtualNodesCommandOutput } from "./commands/ListVirtualNodesCommand";
-import { ListVirtualRoutersCommandInput, ListVirtualRoutersCommandOutput } from "./commands/ListVirtualRoutersCommand";
-import {
+import type { ListVirtualNodesCommandInput, ListVirtualNodesCommandOutput } from "./commands/ListVirtualNodesCommand";
+import type {
+  ListVirtualRoutersCommandInput,
+  ListVirtualRoutersCommandOutput,
+} from "./commands/ListVirtualRoutersCommand";
+import type {
   ListVirtualServicesCommandInput,
   ListVirtualServicesCommandOutput,
 } from "./commands/ListVirtualServicesCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateGatewayRouteCommandInput, UpdateGatewayRouteCommandOutput } from "./commands/UpdateGatewayRouteCommand";
-import { UpdateMeshCommandInput, UpdateMeshCommandOutput } from "./commands/UpdateMeshCommand";
-import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateGatewayRouteCommandInput,
+  UpdateGatewayRouteCommandOutput,
+} from "./commands/UpdateGatewayRouteCommand";
+import type { UpdateMeshCommandInput, UpdateMeshCommandOutput } from "./commands/UpdateMeshCommand";
+import type { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
+import type {
   UpdateVirtualGatewayCommandInput,
   UpdateVirtualGatewayCommandOutput,
 } from "./commands/UpdateVirtualGatewayCommand";
-import { UpdateVirtualNodeCommandInput, UpdateVirtualNodeCommandOutput } from "./commands/UpdateVirtualNodeCommand";
-import {
+import type {
+  UpdateVirtualNodeCommandInput,
+  UpdateVirtualNodeCommandOutput,
+} from "./commands/UpdateVirtualNodeCommand";
+import type {
   UpdateVirtualRouterCommandInput,
   UpdateVirtualRouterCommandOutput,
 } from "./commands/UpdateVirtualRouterCommand";
-import {
+import type {
   UpdateVirtualServiceCommandInput,
   UpdateVirtualServiceCommandOutput,
 } from "./commands/UpdateVirtualServiceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -363,7 +385,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

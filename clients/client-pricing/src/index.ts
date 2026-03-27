@@ -35,7 +35,7 @@
  */
 export * from "./PricingClient";
 export * from "./Pricing";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PricingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

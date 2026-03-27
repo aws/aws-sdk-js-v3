@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
 import { RedshiftDataClient } from "../RedshiftDataClient";
-import { RedshiftDataPaginationConfiguration } from "./Interfaces";
+import type { RedshiftDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

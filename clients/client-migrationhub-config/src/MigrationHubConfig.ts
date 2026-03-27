@@ -3,24 +3,24 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateHomeRegionControlCommandInput,
+  type CreateHomeRegionControlCommandOutput,
   CreateHomeRegionControlCommand,
-  CreateHomeRegionControlCommandInput,
-  CreateHomeRegionControlCommandOutput,
 } from "./commands/CreateHomeRegionControlCommand";
 import {
+  type DeleteHomeRegionControlCommandInput,
+  type DeleteHomeRegionControlCommandOutput,
   DeleteHomeRegionControlCommand,
-  DeleteHomeRegionControlCommandInput,
-  DeleteHomeRegionControlCommandOutput,
 } from "./commands/DeleteHomeRegionControlCommand";
 import {
+  type DescribeHomeRegionControlsCommandInput,
+  type DescribeHomeRegionControlsCommandOutput,
   DescribeHomeRegionControlsCommand,
-  DescribeHomeRegionControlsCommandInput,
-  DescribeHomeRegionControlsCommandOutput,
 } from "./commands/DescribeHomeRegionControlsCommand";
 import {
+  type GetHomeRegionCommandInput,
+  type GetHomeRegionCommandOutput,
   GetHomeRegionCommand,
-  GetHomeRegionCommandInput,
-  GetHomeRegionCommandOutput,
 } from "./commands/GetHomeRegionCommand";
 import { MigrationHubConfigClient } from "./MigrationHubConfigClient";
 import { paginateDescribeHomeRegionControls } from "./pagination/DescribeHomeRegionControlsPaginator";

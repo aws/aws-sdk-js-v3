@@ -3,71 +3,79 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateDeploymentCommandInput,
+  type CreateDeploymentCommandOutput,
   CreateDeploymentCommand,
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput,
 } from "./commands/CreateDeploymentCommand";
 import {
+  type DeleteDeploymentCommandInput,
+  type DeleteDeploymentCommandOutput,
   DeleteDeploymentCommand,
-  DeleteDeploymentCommandInput,
-  DeleteDeploymentCommandOutput,
 } from "./commands/DeleteDeploymentCommand";
 import {
+  type GetDeploymentCommandInput,
+  type GetDeploymentCommandOutput,
   GetDeploymentCommand,
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput,
 } from "./commands/GetDeploymentCommand";
 import {
+  type GetDeploymentPatternVersionCommandInput,
+  type GetDeploymentPatternVersionCommandOutput,
   GetDeploymentPatternVersionCommand,
-  GetDeploymentPatternVersionCommandInput,
-  GetDeploymentPatternVersionCommandOutput,
 } from "./commands/GetDeploymentPatternVersionCommand";
-import { GetWorkloadCommand, GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
 import {
+  type GetWorkloadCommandInput,
+  type GetWorkloadCommandOutput,
+  GetWorkloadCommand,
+} from "./commands/GetWorkloadCommand";
+import {
+  type GetWorkloadDeploymentPatternCommandInput,
+  type GetWorkloadDeploymentPatternCommandOutput,
   GetWorkloadDeploymentPatternCommand,
-  GetWorkloadDeploymentPatternCommandInput,
-  GetWorkloadDeploymentPatternCommandOutput,
 } from "./commands/GetWorkloadDeploymentPatternCommand";
 import {
+  type ListDeploymentEventsCommandInput,
+  type ListDeploymentEventsCommandOutput,
   ListDeploymentEventsCommand,
-  ListDeploymentEventsCommandInput,
-  ListDeploymentEventsCommandOutput,
 } from "./commands/ListDeploymentEventsCommand";
 import {
+  type ListDeploymentPatternVersionsCommandInput,
+  type ListDeploymentPatternVersionsCommandOutput,
   ListDeploymentPatternVersionsCommand,
-  ListDeploymentPatternVersionsCommandInput,
-  ListDeploymentPatternVersionsCommandOutput,
 } from "./commands/ListDeploymentPatternVersionsCommand";
 import {
+  type ListDeploymentsCommandInput,
+  type ListDeploymentsCommandOutput,
   ListDeploymentsCommand,
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWorkloadDeploymentPatternsCommandInput,
+  type ListWorkloadDeploymentPatternsCommandOutput,
   ListWorkloadDeploymentPatternsCommand,
-  ListWorkloadDeploymentPatternsCommandInput,
-  ListWorkloadDeploymentPatternsCommandOutput,
 } from "./commands/ListWorkloadDeploymentPatternsCommand";
 import {
+  type ListWorkloadsCommandInput,
+  type ListWorkloadsCommandOutput,
   ListWorkloadsCommand,
-  ListWorkloadsCommandInput,
-  ListWorkloadsCommandOutput,
 } from "./commands/ListWorkloadsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDeploymentCommandInput,
+  type UpdateDeploymentCommandOutput,
   UpdateDeploymentCommand,
-  UpdateDeploymentCommandInput,
-  UpdateDeploymentCommandOutput,
 } from "./commands/UpdateDeploymentCommand";
 import { LaunchWizardClient } from "./LaunchWizardClient";
 import { paginateListDeploymentEvents } from "./pagination/ListDeploymentEventsPaginator";

@@ -8,7 +8,7 @@ import {
   DescribeContinuousExportsCommandInput,
   DescribeContinuousExportsCommandOutput,
 } from "../commands/DescribeContinuousExportsCommand";
-import { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
+import type { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

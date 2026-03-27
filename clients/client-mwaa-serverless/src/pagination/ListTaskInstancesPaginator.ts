@@ -8,7 +8,7 @@ import {
   ListTaskInstancesCommandOutput,
 } from "../commands/ListTaskInstancesCommand";
 import { MWAAServerlessClient } from "../MWAAServerlessClient";
-import { MWAAServerlessPaginationConfiguration } from "./Interfaces";
+import type { MWAAServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

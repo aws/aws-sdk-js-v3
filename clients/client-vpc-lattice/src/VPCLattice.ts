@@ -3,333 +3,361 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchUpdateRuleCommandInput,
+  type BatchUpdateRuleCommandOutput,
   BatchUpdateRuleCommand,
-  BatchUpdateRuleCommandInput,
-  BatchUpdateRuleCommandOutput,
 } from "./commands/BatchUpdateRuleCommand";
 import {
+  type CreateAccessLogSubscriptionCommandInput,
+  type CreateAccessLogSubscriptionCommandOutput,
   CreateAccessLogSubscriptionCommand,
-  CreateAccessLogSubscriptionCommandInput,
-  CreateAccessLogSubscriptionCommandOutput,
 } from "./commands/CreateAccessLogSubscriptionCommand";
 import {
+  type CreateListenerCommandInput,
+  type CreateListenerCommandOutput,
   CreateListenerCommand,
-  CreateListenerCommandInput,
-  CreateListenerCommandOutput,
 } from "./commands/CreateListenerCommand";
 import {
+  type CreateResourceConfigurationCommandInput,
+  type CreateResourceConfigurationCommandOutput,
   CreateResourceConfigurationCommand,
-  CreateResourceConfigurationCommandInput,
-  CreateResourceConfigurationCommandOutput,
 } from "./commands/CreateResourceConfigurationCommand";
 import {
+  type CreateResourceGatewayCommandInput,
+  type CreateResourceGatewayCommandOutput,
   CreateResourceGatewayCommand,
-  CreateResourceGatewayCommandInput,
-  CreateResourceGatewayCommandOutput,
 } from "./commands/CreateResourceGatewayCommand";
-import { CreateRuleCommand, CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
+  type CreateRuleCommandInput,
+  type CreateRuleCommandOutput,
+  CreateRuleCommand,
+} from "./commands/CreateRuleCommand";
+import {
+  type CreateServiceCommandInput,
+  type CreateServiceCommandOutput,
   CreateServiceCommand,
-  CreateServiceCommandInput,
-  CreateServiceCommandOutput,
 } from "./commands/CreateServiceCommand";
 import {
+  type CreateServiceNetworkCommandInput,
+  type CreateServiceNetworkCommandOutput,
   CreateServiceNetworkCommand,
-  CreateServiceNetworkCommandInput,
-  CreateServiceNetworkCommandOutput,
 } from "./commands/CreateServiceNetworkCommand";
 import {
+  type CreateServiceNetworkResourceAssociationCommandInput,
+  type CreateServiceNetworkResourceAssociationCommandOutput,
   CreateServiceNetworkResourceAssociationCommand,
-  CreateServiceNetworkResourceAssociationCommandInput,
-  CreateServiceNetworkResourceAssociationCommandOutput,
 } from "./commands/CreateServiceNetworkResourceAssociationCommand";
 import {
+  type CreateServiceNetworkServiceAssociationCommandInput,
+  type CreateServiceNetworkServiceAssociationCommandOutput,
   CreateServiceNetworkServiceAssociationCommand,
-  CreateServiceNetworkServiceAssociationCommandInput,
-  CreateServiceNetworkServiceAssociationCommandOutput,
 } from "./commands/CreateServiceNetworkServiceAssociationCommand";
 import {
+  type CreateServiceNetworkVpcAssociationCommandInput,
+  type CreateServiceNetworkVpcAssociationCommandOutput,
   CreateServiceNetworkVpcAssociationCommand,
-  CreateServiceNetworkVpcAssociationCommandInput,
-  CreateServiceNetworkVpcAssociationCommandOutput,
 } from "./commands/CreateServiceNetworkVpcAssociationCommand";
 import {
+  type CreateTargetGroupCommandInput,
+  type CreateTargetGroupCommandOutput,
   CreateTargetGroupCommand,
-  CreateTargetGroupCommandInput,
-  CreateTargetGroupCommandOutput,
 } from "./commands/CreateTargetGroupCommand";
 import {
+  type DeleteAccessLogSubscriptionCommandInput,
+  type DeleteAccessLogSubscriptionCommandOutput,
   DeleteAccessLogSubscriptionCommand,
-  DeleteAccessLogSubscriptionCommandInput,
-  DeleteAccessLogSubscriptionCommandOutput,
 } from "./commands/DeleteAccessLogSubscriptionCommand";
 import {
+  type DeleteAuthPolicyCommandInput,
+  type DeleteAuthPolicyCommandOutput,
   DeleteAuthPolicyCommand,
-  DeleteAuthPolicyCommandInput,
-  DeleteAuthPolicyCommandOutput,
 } from "./commands/DeleteAuthPolicyCommand";
 import {
+  type DeleteDomainVerificationCommandInput,
+  type DeleteDomainVerificationCommandOutput,
   DeleteDomainVerificationCommand,
-  DeleteDomainVerificationCommandInput,
-  DeleteDomainVerificationCommandOutput,
 } from "./commands/DeleteDomainVerificationCommand";
 import {
+  type DeleteListenerCommandInput,
+  type DeleteListenerCommandOutput,
   DeleteListenerCommand,
-  DeleteListenerCommandInput,
-  DeleteListenerCommandOutput,
 } from "./commands/DeleteListenerCommand";
 import {
+  type DeleteResourceConfigurationCommandInput,
+  type DeleteResourceConfigurationCommandOutput,
   DeleteResourceConfigurationCommand,
-  DeleteResourceConfigurationCommandInput,
-  DeleteResourceConfigurationCommandOutput,
 } from "./commands/DeleteResourceConfigurationCommand";
 import {
+  type DeleteResourceEndpointAssociationCommandInput,
+  type DeleteResourceEndpointAssociationCommandOutput,
   DeleteResourceEndpointAssociationCommand,
-  DeleteResourceEndpointAssociationCommandInput,
-  DeleteResourceEndpointAssociationCommandOutput,
 } from "./commands/DeleteResourceEndpointAssociationCommand";
 import {
+  type DeleteResourceGatewayCommandInput,
+  type DeleteResourceGatewayCommandOutput,
   DeleteResourceGatewayCommand,
-  DeleteResourceGatewayCommandInput,
-  DeleteResourceGatewayCommandOutput,
 } from "./commands/DeleteResourceGatewayCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
+  type DeleteRuleCommandInput,
+  type DeleteRuleCommandOutput,
+  DeleteRuleCommand,
+} from "./commands/DeleteRuleCommand";
+import {
+  type DeleteServiceCommandInput,
+  type DeleteServiceCommandOutput,
   DeleteServiceCommand,
-  DeleteServiceCommandInput,
-  DeleteServiceCommandOutput,
 } from "./commands/DeleteServiceCommand";
 import {
+  type DeleteServiceNetworkCommandInput,
+  type DeleteServiceNetworkCommandOutput,
   DeleteServiceNetworkCommand,
-  DeleteServiceNetworkCommandInput,
-  DeleteServiceNetworkCommandOutput,
 } from "./commands/DeleteServiceNetworkCommand";
 import {
+  type DeleteServiceNetworkResourceAssociationCommandInput,
+  type DeleteServiceNetworkResourceAssociationCommandOutput,
   DeleteServiceNetworkResourceAssociationCommand,
-  DeleteServiceNetworkResourceAssociationCommandInput,
-  DeleteServiceNetworkResourceAssociationCommandOutput,
 } from "./commands/DeleteServiceNetworkResourceAssociationCommand";
 import {
+  type DeleteServiceNetworkServiceAssociationCommandInput,
+  type DeleteServiceNetworkServiceAssociationCommandOutput,
   DeleteServiceNetworkServiceAssociationCommand,
-  DeleteServiceNetworkServiceAssociationCommandInput,
-  DeleteServiceNetworkServiceAssociationCommandOutput,
 } from "./commands/DeleteServiceNetworkServiceAssociationCommand";
 import {
+  type DeleteServiceNetworkVpcAssociationCommandInput,
+  type DeleteServiceNetworkVpcAssociationCommandOutput,
   DeleteServiceNetworkVpcAssociationCommand,
-  DeleteServiceNetworkVpcAssociationCommandInput,
-  DeleteServiceNetworkVpcAssociationCommandOutput,
 } from "./commands/DeleteServiceNetworkVpcAssociationCommand";
 import {
+  type DeleteTargetGroupCommandInput,
+  type DeleteTargetGroupCommandOutput,
   DeleteTargetGroupCommand,
-  DeleteTargetGroupCommandInput,
-  DeleteTargetGroupCommandOutput,
 } from "./commands/DeleteTargetGroupCommand";
 import {
+  type DeregisterTargetsCommandInput,
+  type DeregisterTargetsCommandOutput,
   DeregisterTargetsCommand,
-  DeregisterTargetsCommandInput,
-  DeregisterTargetsCommandOutput,
 } from "./commands/DeregisterTargetsCommand";
 import {
+  type GetAccessLogSubscriptionCommandInput,
+  type GetAccessLogSubscriptionCommandOutput,
   GetAccessLogSubscriptionCommand,
-  GetAccessLogSubscriptionCommandInput,
-  GetAccessLogSubscriptionCommandOutput,
 } from "./commands/GetAccessLogSubscriptionCommand";
 import {
+  type GetAuthPolicyCommandInput,
+  type GetAuthPolicyCommandOutput,
   GetAuthPolicyCommand,
-  GetAuthPolicyCommandInput,
-  GetAuthPolicyCommandOutput,
 } from "./commands/GetAuthPolicyCommand";
 import {
+  type GetDomainVerificationCommandInput,
+  type GetDomainVerificationCommandOutput,
   GetDomainVerificationCommand,
-  GetDomainVerificationCommandInput,
-  GetDomainVerificationCommandOutput,
 } from "./commands/GetDomainVerificationCommand";
-import { GetListenerCommand, GetListenerCommandInput, GetListenerCommandOutput } from "./commands/GetListenerCommand";
 import {
+  type GetListenerCommandInput,
+  type GetListenerCommandOutput,
+  GetListenerCommand,
+} from "./commands/GetListenerCommand";
+import {
+  type GetResourceConfigurationCommandInput,
+  type GetResourceConfigurationCommandOutput,
   GetResourceConfigurationCommand,
-  GetResourceConfigurationCommandInput,
-  GetResourceConfigurationCommandOutput,
 } from "./commands/GetResourceConfigurationCommand";
 import {
+  type GetResourceGatewayCommandInput,
+  type GetResourceGatewayCommandOutput,
   GetResourceGatewayCommand,
-  GetResourceGatewayCommandInput,
-  GetResourceGatewayCommandOutput,
 } from "./commands/GetResourceGatewayCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
-import { GetRuleCommand, GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
-import { GetServiceCommand, GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
+import { type GetRuleCommandInput, type GetRuleCommandOutput, GetRuleCommand } from "./commands/GetRuleCommand";
 import {
+  type GetServiceCommandInput,
+  type GetServiceCommandOutput,
+  GetServiceCommand,
+} from "./commands/GetServiceCommand";
+import {
+  type GetServiceNetworkCommandInput,
+  type GetServiceNetworkCommandOutput,
   GetServiceNetworkCommand,
-  GetServiceNetworkCommandInput,
-  GetServiceNetworkCommandOutput,
 } from "./commands/GetServiceNetworkCommand";
 import {
+  type GetServiceNetworkResourceAssociationCommandInput,
+  type GetServiceNetworkResourceAssociationCommandOutput,
   GetServiceNetworkResourceAssociationCommand,
-  GetServiceNetworkResourceAssociationCommandInput,
-  GetServiceNetworkResourceAssociationCommandOutput,
 } from "./commands/GetServiceNetworkResourceAssociationCommand";
 import {
+  type GetServiceNetworkServiceAssociationCommandInput,
+  type GetServiceNetworkServiceAssociationCommandOutput,
   GetServiceNetworkServiceAssociationCommand,
-  GetServiceNetworkServiceAssociationCommandInput,
-  GetServiceNetworkServiceAssociationCommandOutput,
 } from "./commands/GetServiceNetworkServiceAssociationCommand";
 import {
+  type GetServiceNetworkVpcAssociationCommandInput,
+  type GetServiceNetworkVpcAssociationCommandOutput,
   GetServiceNetworkVpcAssociationCommand,
-  GetServiceNetworkVpcAssociationCommandInput,
-  GetServiceNetworkVpcAssociationCommandOutput,
 } from "./commands/GetServiceNetworkVpcAssociationCommand";
 import {
+  type GetTargetGroupCommandInput,
+  type GetTargetGroupCommandOutput,
   GetTargetGroupCommand,
-  GetTargetGroupCommandInput,
-  GetTargetGroupCommandOutput,
 } from "./commands/GetTargetGroupCommand";
 import {
+  type ListAccessLogSubscriptionsCommandInput,
+  type ListAccessLogSubscriptionsCommandOutput,
   ListAccessLogSubscriptionsCommand,
-  ListAccessLogSubscriptionsCommandInput,
-  ListAccessLogSubscriptionsCommandOutput,
 } from "./commands/ListAccessLogSubscriptionsCommand";
 import {
+  type ListDomainVerificationsCommandInput,
+  type ListDomainVerificationsCommandOutput,
   ListDomainVerificationsCommand,
-  ListDomainVerificationsCommandInput,
-  ListDomainVerificationsCommandOutput,
 } from "./commands/ListDomainVerificationsCommand";
 import {
+  type ListListenersCommandInput,
+  type ListListenersCommandOutput,
   ListListenersCommand,
-  ListListenersCommandInput,
-  ListListenersCommandOutput,
 } from "./commands/ListListenersCommand";
 import {
+  type ListResourceConfigurationsCommandInput,
+  type ListResourceConfigurationsCommandOutput,
   ListResourceConfigurationsCommand,
-  ListResourceConfigurationsCommandInput,
-  ListResourceConfigurationsCommandOutput,
 } from "./commands/ListResourceConfigurationsCommand";
 import {
+  type ListResourceEndpointAssociationsCommandInput,
+  type ListResourceEndpointAssociationsCommandOutput,
   ListResourceEndpointAssociationsCommand,
-  ListResourceEndpointAssociationsCommandInput,
-  ListResourceEndpointAssociationsCommandOutput,
 } from "./commands/ListResourceEndpointAssociationsCommand";
 import {
+  type ListResourceGatewaysCommandInput,
+  type ListResourceGatewaysCommandOutput,
   ListResourceGatewaysCommand,
-  ListResourceGatewaysCommandInput,
-  ListResourceGatewaysCommandOutput,
 } from "./commands/ListResourceGatewaysCommand";
-import { ListRulesCommand, ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
+import { type ListRulesCommandInput, type ListRulesCommandOutput, ListRulesCommand } from "./commands/ListRulesCommand";
 import {
+  type ListServiceNetworkResourceAssociationsCommandInput,
+  type ListServiceNetworkResourceAssociationsCommandOutput,
   ListServiceNetworkResourceAssociationsCommand,
-  ListServiceNetworkResourceAssociationsCommandInput,
-  ListServiceNetworkResourceAssociationsCommandOutput,
 } from "./commands/ListServiceNetworkResourceAssociationsCommand";
 import {
+  type ListServiceNetworksCommandInput,
+  type ListServiceNetworksCommandOutput,
   ListServiceNetworksCommand,
-  ListServiceNetworksCommandInput,
-  ListServiceNetworksCommandOutput,
 } from "./commands/ListServiceNetworksCommand";
 import {
+  type ListServiceNetworkServiceAssociationsCommandInput,
+  type ListServiceNetworkServiceAssociationsCommandOutput,
   ListServiceNetworkServiceAssociationsCommand,
-  ListServiceNetworkServiceAssociationsCommandInput,
-  ListServiceNetworkServiceAssociationsCommandOutput,
 } from "./commands/ListServiceNetworkServiceAssociationsCommand";
 import {
+  type ListServiceNetworkVpcAssociationsCommandInput,
+  type ListServiceNetworkVpcAssociationsCommandOutput,
   ListServiceNetworkVpcAssociationsCommand,
-  ListServiceNetworkVpcAssociationsCommandInput,
-  ListServiceNetworkVpcAssociationsCommandOutput,
 } from "./commands/ListServiceNetworkVpcAssociationsCommand";
 import {
+  type ListServiceNetworkVpcEndpointAssociationsCommandInput,
+  type ListServiceNetworkVpcEndpointAssociationsCommandOutput,
   ListServiceNetworkVpcEndpointAssociationsCommand,
-  ListServiceNetworkVpcEndpointAssociationsCommandInput,
-  ListServiceNetworkVpcEndpointAssociationsCommandOutput,
 } from "./commands/ListServiceNetworkVpcEndpointAssociationsCommand";
 import {
+  type ListServicesCommandInput,
+  type ListServicesCommandOutput,
   ListServicesCommand,
-  ListServicesCommandInput,
-  ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTargetGroupsCommandInput,
+  type ListTargetGroupsCommandOutput,
   ListTargetGroupsCommand,
-  ListTargetGroupsCommandInput,
-  ListTargetGroupsCommandOutput,
 } from "./commands/ListTargetGroupsCommand";
-import { ListTargetsCommand, ListTargetsCommandInput, ListTargetsCommandOutput } from "./commands/ListTargetsCommand";
 import {
+  type ListTargetsCommandInput,
+  type ListTargetsCommandOutput,
+  ListTargetsCommand,
+} from "./commands/ListTargetsCommand";
+import {
+  type PutAuthPolicyCommandInput,
+  type PutAuthPolicyCommandOutput,
   PutAuthPolicyCommand,
-  PutAuthPolicyCommandInput,
-  PutAuthPolicyCommandOutput,
 } from "./commands/PutAuthPolicyCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RegisterTargetsCommandInput,
+  type RegisterTargetsCommandOutput,
   RegisterTargetsCommand,
-  RegisterTargetsCommandInput,
-  RegisterTargetsCommandOutput,
 } from "./commands/RegisterTargetsCommand";
 import {
+  type StartDomainVerificationCommandInput,
+  type StartDomainVerificationCommandOutput,
   StartDomainVerificationCommand,
-  StartDomainVerificationCommandInput,
-  StartDomainVerificationCommandOutput,
 } from "./commands/StartDomainVerificationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccessLogSubscriptionCommandInput,
+  type UpdateAccessLogSubscriptionCommandOutput,
   UpdateAccessLogSubscriptionCommand,
-  UpdateAccessLogSubscriptionCommandInput,
-  UpdateAccessLogSubscriptionCommandOutput,
 } from "./commands/UpdateAccessLogSubscriptionCommand";
 import {
+  type UpdateListenerCommandInput,
+  type UpdateListenerCommandOutput,
   UpdateListenerCommand,
-  UpdateListenerCommandInput,
-  UpdateListenerCommandOutput,
 } from "./commands/UpdateListenerCommand";
 import {
+  type UpdateResourceConfigurationCommandInput,
+  type UpdateResourceConfigurationCommandOutput,
   UpdateResourceConfigurationCommand,
-  UpdateResourceConfigurationCommandInput,
-  UpdateResourceConfigurationCommandOutput,
 } from "./commands/UpdateResourceConfigurationCommand";
 import {
+  type UpdateResourceGatewayCommandInput,
+  type UpdateResourceGatewayCommandOutput,
   UpdateResourceGatewayCommand,
-  UpdateResourceGatewayCommandInput,
-  UpdateResourceGatewayCommandOutput,
 } from "./commands/UpdateResourceGatewayCommand";
-import { UpdateRuleCommand, UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
+  type UpdateRuleCommandInput,
+  type UpdateRuleCommandOutput,
+  UpdateRuleCommand,
+} from "./commands/UpdateRuleCommand";
+import {
+  type UpdateServiceCommandInput,
+  type UpdateServiceCommandOutput,
   UpdateServiceCommand,
-  UpdateServiceCommandInput,
-  UpdateServiceCommandOutput,
 } from "./commands/UpdateServiceCommand";
 import {
+  type UpdateServiceNetworkCommandInput,
+  type UpdateServiceNetworkCommandOutput,
   UpdateServiceNetworkCommand,
-  UpdateServiceNetworkCommandInput,
-  UpdateServiceNetworkCommandOutput,
 } from "./commands/UpdateServiceNetworkCommand";
 import {
+  type UpdateServiceNetworkVpcAssociationCommandInput,
+  type UpdateServiceNetworkVpcAssociationCommandOutput,
   UpdateServiceNetworkVpcAssociationCommand,
-  UpdateServiceNetworkVpcAssociationCommandInput,
-  UpdateServiceNetworkVpcAssociationCommandOutput,
 } from "./commands/UpdateServiceNetworkVpcAssociationCommand";
 import {
+  type UpdateTargetGroupCommandInput,
+  type UpdateTargetGroupCommandOutput,
   UpdateTargetGroupCommand,
-  UpdateTargetGroupCommandInput,
-  UpdateTargetGroupCommandOutput,
 } from "./commands/UpdateTargetGroupCommand";
 import { paginateListAccessLogSubscriptions } from "./pagination/ListAccessLogSubscriptionsPaginator";
 import { paginateListDomainVerifications } from "./pagination/ListDomainVerificationsPaginator";

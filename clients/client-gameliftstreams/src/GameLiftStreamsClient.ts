@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,61 +61,85 @@ import {
   defaultGameLiftStreamsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddStreamGroupLocationsCommandInput,
   AddStreamGroupLocationsCommandOutput,
 } from "./commands/AddStreamGroupLocationsCommand";
-import {
+import type {
   AssociateApplicationsCommandInput,
   AssociateApplicationsCommandOutput,
 } from "./commands/AssociateApplicationsCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import { CreateStreamGroupCommandInput, CreateStreamGroupCommandOutput } from "./commands/CreateStreamGroupCommand";
-import {
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type {
+  CreateStreamGroupCommandInput,
+  CreateStreamGroupCommandOutput,
+} from "./commands/CreateStreamGroupCommand";
+import type {
   CreateStreamSessionConnectionCommandInput,
   CreateStreamSessionConnectionCommandOutput,
 } from "./commands/CreateStreamSessionConnectionCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import { DeleteStreamGroupCommandInput, DeleteStreamGroupCommandOutput } from "./commands/DeleteStreamGroupCommand";
-import {
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type {
+  DeleteStreamGroupCommandInput,
+  DeleteStreamGroupCommandOutput,
+} from "./commands/DeleteStreamGroupCommand";
+import type {
   DisassociateApplicationsCommandInput,
   DisassociateApplicationsCommandOutput,
 } from "./commands/DisassociateApplicationsCommand";
-import {
+import type {
   ExportStreamSessionFilesCommandInput,
   ExportStreamSessionFilesCommandOutput,
 } from "./commands/ExportStreamSessionFilesCommand";
-import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
-import { GetStreamGroupCommandInput, GetStreamGroupCommandOutput } from "./commands/GetStreamGroupCommand";
-import { GetStreamSessionCommandInput, GetStreamSessionCommandOutput } from "./commands/GetStreamSessionCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import { ListStreamGroupsCommandInput, ListStreamGroupsCommandOutput } from "./commands/ListStreamGroupsCommand";
-import {
+import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import type { GetStreamGroupCommandInput, GetStreamGroupCommandOutput } from "./commands/GetStreamGroupCommand";
+import type { GetStreamSessionCommandInput, GetStreamSessionCommandOutput } from "./commands/GetStreamSessionCommand";
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type { ListStreamGroupsCommandInput, ListStreamGroupsCommandOutput } from "./commands/ListStreamGroupsCommand";
+import type {
   ListStreamSessionsByAccountCommandInput,
   ListStreamSessionsByAccountCommandOutput,
 } from "./commands/ListStreamSessionsByAccountCommand";
-import { ListStreamSessionsCommandInput, ListStreamSessionsCommandOutput } from "./commands/ListStreamSessionsCommand";
-import {
+import type {
+  ListStreamSessionsCommandInput,
+  ListStreamSessionsCommandOutput,
+} from "./commands/ListStreamSessionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   RemoveStreamGroupLocationsCommandInput,
   RemoveStreamGroupLocationsCommandOutput,
 } from "./commands/RemoveStreamGroupLocationsCommand";
-import { StartStreamSessionCommandInput, StartStreamSessionCommandOutput } from "./commands/StartStreamSessionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type {
+  StartStreamSessionCommandInput,
+  StartStreamSessionCommandOutput,
+} from "./commands/StartStreamSessionCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   TerminateStreamSessionCommandInput,
   TerminateStreamSessionCommandOutput,
 } from "./commands/TerminateStreamSessionCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import { UpdateStreamGroupCommandInput, UpdateStreamGroupCommandOutput } from "./commands/UpdateStreamGroupCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type {
+  UpdateStreamGroupCommandInput,
+  UpdateStreamGroupCommandOutput,
+} from "./commands/UpdateStreamGroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -297,7 +319,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -2,12 +2,12 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
-import { ResourceType } from "./enums";
-import {
-  type InvalidRequestExceptionReason,
-  type ServiceQuotaExceededExceptionReason,
+import type { ResourceType } from "./enums";
+import type {
+  InvalidRequestExceptionReason,
   ProblemDetail,
   PropertyValidationExceptionProperty,
+  ServiceQuotaExceededExceptionReason,
 } from "./models_0";
 
 /**

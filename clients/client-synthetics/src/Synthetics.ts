@@ -3,82 +3,106 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateResourceCommandInput,
+  type AssociateResourceCommandOutput,
   AssociateResourceCommand,
-  AssociateResourceCommandInput,
-  AssociateResourceCommandOutput,
 } from "./commands/AssociateResourceCommand";
 import {
+  type CreateCanaryCommandInput,
+  type CreateCanaryCommandOutput,
   CreateCanaryCommand,
-  CreateCanaryCommandInput,
-  CreateCanaryCommandOutput,
 } from "./commands/CreateCanaryCommand";
-import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
+  type CreateGroupCommandInput,
+  type CreateGroupCommandOutput,
+  CreateGroupCommand,
+} from "./commands/CreateGroupCommand";
+import {
+  type DeleteCanaryCommandInput,
+  type DeleteCanaryCommandOutput,
   DeleteCanaryCommand,
-  DeleteCanaryCommandInput,
-  DeleteCanaryCommandOutput,
 } from "./commands/DeleteCanaryCommand";
-import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
+  type DeleteGroupCommandInput,
+  type DeleteGroupCommandOutput,
+  DeleteGroupCommand,
+} from "./commands/DeleteGroupCommand";
+import {
+  type DescribeCanariesCommandInput,
+  type DescribeCanariesCommandOutput,
   DescribeCanariesCommand,
-  DescribeCanariesCommandInput,
-  DescribeCanariesCommandOutput,
 } from "./commands/DescribeCanariesCommand";
 import {
+  type DescribeCanariesLastRunCommandInput,
+  type DescribeCanariesLastRunCommandOutput,
   DescribeCanariesLastRunCommand,
-  DescribeCanariesLastRunCommandInput,
-  DescribeCanariesLastRunCommandOutput,
 } from "./commands/DescribeCanariesLastRunCommand";
 import {
+  type DescribeRuntimeVersionsCommandInput,
+  type DescribeRuntimeVersionsCommandOutput,
   DescribeRuntimeVersionsCommand,
-  DescribeRuntimeVersionsCommandInput,
-  DescribeRuntimeVersionsCommandOutput,
 } from "./commands/DescribeRuntimeVersionsCommand";
 import {
+  type DisassociateResourceCommandInput,
+  type DisassociateResourceCommandOutput,
   DisassociateResourceCommand,
-  DisassociateResourceCommandInput,
-  DisassociateResourceCommandOutput,
 } from "./commands/DisassociateResourceCommand";
-import { GetCanaryCommand, GetCanaryCommandInput, GetCanaryCommandOutput } from "./commands/GetCanaryCommand";
+import { type GetCanaryCommandInput, type GetCanaryCommandOutput, GetCanaryCommand } from "./commands/GetCanaryCommand";
 import {
+  type GetCanaryRunsCommandInput,
+  type GetCanaryRunsCommandOutput,
   GetCanaryRunsCommand,
-  GetCanaryRunsCommandInput,
-  GetCanaryRunsCommandOutput,
 } from "./commands/GetCanaryRunsCommand";
-import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import { type GetGroupCommandInput, type GetGroupCommandOutput, GetGroupCommand } from "./commands/GetGroupCommand";
 import {
+  type ListAssociatedGroupsCommandInput,
+  type ListAssociatedGroupsCommandOutput,
   ListAssociatedGroupsCommand,
-  ListAssociatedGroupsCommandInput,
-  ListAssociatedGroupsCommandOutput,
 } from "./commands/ListAssociatedGroupsCommand";
 import {
+  type ListGroupResourcesCommandInput,
+  type ListGroupResourcesCommandOutput,
   ListGroupResourcesCommand,
-  ListGroupResourcesCommandInput,
-  ListGroupResourcesCommandOutput,
 } from "./commands/ListGroupResourcesCommand";
-import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
+  type ListGroupsCommandInput,
+  type ListGroupsCommandOutput,
+  ListGroupsCommand,
+} from "./commands/ListGroupsCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartCanaryCommand, StartCanaryCommandInput, StartCanaryCommandOutput } from "./commands/StartCanaryCommand";
 import {
+  type StartCanaryCommandInput,
+  type StartCanaryCommandOutput,
+  StartCanaryCommand,
+} from "./commands/StartCanaryCommand";
+import {
+  type StartCanaryDryRunCommandInput,
+  type StartCanaryDryRunCommandOutput,
   StartCanaryDryRunCommand,
-  StartCanaryDryRunCommandInput,
-  StartCanaryDryRunCommandOutput,
 } from "./commands/StartCanaryDryRunCommand";
-import { StopCanaryCommand, StopCanaryCommandInput, StopCanaryCommandOutput } from "./commands/StopCanaryCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type StopCanaryCommandInput,
+  type StopCanaryCommandOutput,
+  StopCanaryCommand,
+} from "./commands/StopCanaryCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCanaryCommandInput,
+  type UpdateCanaryCommandOutput,
   UpdateCanaryCommand,
-  UpdateCanaryCommandInput,
-  UpdateCanaryCommandOutput,
 } from "./commands/UpdateCanaryCommand";
 import { paginateDescribeCanariesLastRun } from "./pagination/DescribeCanariesLastRunPaginator";
 import { paginateDescribeCanaries } from "./pagination/DescribeCanariesPaginator";

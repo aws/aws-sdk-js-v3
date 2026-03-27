@@ -3,60 +3,60 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type CreateDeliveryStreamCommandInput,
+  type CreateDeliveryStreamCommandOutput,
   CreateDeliveryStreamCommand,
-  CreateDeliveryStreamCommandInput,
-  CreateDeliveryStreamCommandOutput,
 } from "./commands/CreateDeliveryStreamCommand";
 import {
+  type DeleteDeliveryStreamCommandInput,
+  type DeleteDeliveryStreamCommandOutput,
   DeleteDeliveryStreamCommand,
-  DeleteDeliveryStreamCommandInput,
-  DeleteDeliveryStreamCommandOutput,
 } from "./commands/DeleteDeliveryStreamCommand";
 import {
+  type DescribeDeliveryStreamCommandInput,
+  type DescribeDeliveryStreamCommandOutput,
   DescribeDeliveryStreamCommand,
-  DescribeDeliveryStreamCommandInput,
-  DescribeDeliveryStreamCommandOutput,
 } from "./commands/DescribeDeliveryStreamCommand";
 import {
+  type ListDeliveryStreamsCommandInput,
+  type ListDeliveryStreamsCommandOutput,
   ListDeliveryStreamsCommand,
-  ListDeliveryStreamsCommandInput,
-  ListDeliveryStreamsCommandOutput,
 } from "./commands/ListDeliveryStreamsCommand";
 import {
+  type ListTagsForDeliveryStreamCommandInput,
+  type ListTagsForDeliveryStreamCommandOutput,
   ListTagsForDeliveryStreamCommand,
-  ListTagsForDeliveryStreamCommandInput,
-  ListTagsForDeliveryStreamCommandOutput,
 } from "./commands/ListTagsForDeliveryStreamCommand";
 import {
+  type PutRecordBatchCommandInput,
+  type PutRecordBatchCommandOutput,
   PutRecordBatchCommand,
-  PutRecordBatchCommandInput,
-  PutRecordBatchCommandOutput,
 } from "./commands/PutRecordBatchCommand";
-import { PutRecordCommand, PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
+import { type PutRecordCommandInput, type PutRecordCommandOutput, PutRecordCommand } from "./commands/PutRecordCommand";
 import {
+  type StartDeliveryStreamEncryptionCommandInput,
+  type StartDeliveryStreamEncryptionCommandOutput,
   StartDeliveryStreamEncryptionCommand,
-  StartDeliveryStreamEncryptionCommandInput,
-  StartDeliveryStreamEncryptionCommandOutput,
 } from "./commands/StartDeliveryStreamEncryptionCommand";
 import {
+  type StopDeliveryStreamEncryptionCommandInput,
+  type StopDeliveryStreamEncryptionCommandOutput,
   StopDeliveryStreamEncryptionCommand,
-  StopDeliveryStreamEncryptionCommandInput,
-  StopDeliveryStreamEncryptionCommandOutput,
 } from "./commands/StopDeliveryStreamEncryptionCommand";
 import {
+  type TagDeliveryStreamCommandInput,
+  type TagDeliveryStreamCommandOutput,
   TagDeliveryStreamCommand,
-  TagDeliveryStreamCommandInput,
-  TagDeliveryStreamCommandOutput,
 } from "./commands/TagDeliveryStreamCommand";
 import {
+  type UntagDeliveryStreamCommandInput,
+  type UntagDeliveryStreamCommandOutput,
   UntagDeliveryStreamCommand,
-  UntagDeliveryStreamCommandInput,
-  UntagDeliveryStreamCommandOutput,
 } from "./commands/UntagDeliveryStreamCommand";
 import {
+  type UpdateDestinationCommandInput,
+  type UpdateDestinationCommandOutput,
   UpdateDestinationCommand,
-  UpdateDestinationCommandInput,
-  UpdateDestinationCommandOutput,
 } from "./commands/UpdateDestinationCommand";
 import { FirehoseClient } from "./FirehoseClient";
 

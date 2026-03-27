@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ChimeSDKIdentityServiceException as __BaseException } from "./ChimeSDKIdentityServiceException";
-import { ErrorCode } from "./enums";
+import type { ErrorCode } from "./enums";
 
 /**
  * <p>The input parameters don't match the service's restrictions.</p>

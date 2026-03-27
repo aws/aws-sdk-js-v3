@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,519 +61,570 @@ import {
   defaultCloudFrontHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "./commands/AssociateAliasCommand";
-import {
+import type { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "./commands/AssociateAliasCommand";
+import type {
   AssociateDistributionTenantWebACLCommandInput,
   AssociateDistributionTenantWebACLCommandOutput,
 } from "./commands/AssociateDistributionTenantWebACLCommand";
-import {
+import type {
   AssociateDistributionWebACLCommandInput,
   AssociateDistributionWebACLCommandOutput,
 } from "./commands/AssociateDistributionWebACLCommand";
-import { CopyDistributionCommandInput, CopyDistributionCommandOutput } from "./commands/CopyDistributionCommand";
-import {
+import type { CopyDistributionCommandInput, CopyDistributionCommandOutput } from "./commands/CopyDistributionCommand";
+import type {
   CreateAnycastIpListCommandInput,
   CreateAnycastIpListCommandOutput,
 } from "./commands/CreateAnycastIpListCommand";
-import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "./commands/CreateCachePolicyCommand";
-import {
+import type {
+  CreateCachePolicyCommandInput,
+  CreateCachePolicyCommandOutput,
+} from "./commands/CreateCachePolicyCommand";
+import type {
   CreateCloudFrontOriginAccessIdentityCommandInput,
   CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
-import {
+import type {
   CreateConnectionFunctionCommandInput,
   CreateConnectionFunctionCommandOutput,
 } from "./commands/CreateConnectionFunctionCommand";
-import {
+import type {
   CreateConnectionGroupCommandInput,
   CreateConnectionGroupCommandOutput,
 } from "./commands/CreateConnectionGroupCommand";
-import {
+import type {
   CreateContinuousDeploymentPolicyCommandInput,
   CreateContinuousDeploymentPolicyCommandOutput,
 } from "./commands/CreateContinuousDeploymentPolicyCommand";
-import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "./commands/CreateDistributionCommand";
-import {
+import type {
+  CreateDistributionCommandInput,
+  CreateDistributionCommandOutput,
+} from "./commands/CreateDistributionCommand";
+import type {
   CreateDistributionTenantCommandInput,
   CreateDistributionTenantCommandOutput,
 } from "./commands/CreateDistributionTenantCommand";
-import {
+import type {
   CreateDistributionWithTagsCommandInput,
   CreateDistributionWithTagsCommandOutput,
 } from "./commands/CreateDistributionWithTagsCommand";
-import {
+import type {
   CreateFieldLevelEncryptionConfigCommandInput,
   CreateFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionConfigCommand";
-import {
+import type {
   CreateFieldLevelEncryptionProfileCommandInput,
   CreateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionProfileCommand";
-import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
-import { CreateInvalidationCommandInput, CreateInvalidationCommandOutput } from "./commands/CreateInvalidationCommand";
-import {
+import type { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
+import type {
+  CreateInvalidationCommandInput,
+  CreateInvalidationCommandOutput,
+} from "./commands/CreateInvalidationCommand";
+import type {
   CreateInvalidationForDistributionTenantCommandInput,
   CreateInvalidationForDistributionTenantCommandOutput,
 } from "./commands/CreateInvalidationForDistributionTenantCommand";
-import { CreateKeyGroupCommandInput, CreateKeyGroupCommandOutput } from "./commands/CreateKeyGroupCommand";
-import {
+import type { CreateKeyGroupCommandInput, CreateKeyGroupCommandOutput } from "./commands/CreateKeyGroupCommand";
+import type {
   CreateKeyValueStoreCommandInput,
   CreateKeyValueStoreCommandOutput,
 } from "./commands/CreateKeyValueStoreCommand";
-import {
+import type {
   CreateMonitoringSubscriptionCommandInput,
   CreateMonitoringSubscriptionCommandOutput,
 } from "./commands/CreateMonitoringSubscriptionCommand";
-import {
+import type {
   CreateOriginAccessControlCommandInput,
   CreateOriginAccessControlCommandOutput,
 } from "./commands/CreateOriginAccessControlCommand";
-import {
+import type {
   CreateOriginRequestPolicyCommandInput,
   CreateOriginRequestPolicyCommandOutput,
 } from "./commands/CreateOriginRequestPolicyCommand";
-import { CreatePublicKeyCommandInput, CreatePublicKeyCommandOutput } from "./commands/CreatePublicKeyCommand";
-import {
+import type { CreatePublicKeyCommandInput, CreatePublicKeyCommandOutput } from "./commands/CreatePublicKeyCommand";
+import type {
   CreateRealtimeLogConfigCommandInput,
   CreateRealtimeLogConfigCommandOutput,
 } from "./commands/CreateRealtimeLogConfigCommand";
-import {
+import type {
   CreateResponseHeadersPolicyCommandInput,
   CreateResponseHeadersPolicyCommandOutput,
 } from "./commands/CreateResponseHeadersPolicyCommand";
-import {
+import type {
   CreateStreamingDistributionCommandInput,
   CreateStreamingDistributionCommandOutput,
 } from "./commands/CreateStreamingDistributionCommand";
-import {
+import type {
   CreateStreamingDistributionWithTagsCommandInput,
   CreateStreamingDistributionWithTagsCommandOutput,
 } from "./commands/CreateStreamingDistributionWithTagsCommand";
-import { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "./commands/CreateTrustStoreCommand";
-import { CreateVpcOriginCommandInput, CreateVpcOriginCommandOutput } from "./commands/CreateVpcOriginCommand";
-import {
+import type { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "./commands/CreateTrustStoreCommand";
+import type { CreateVpcOriginCommandInput, CreateVpcOriginCommandOutput } from "./commands/CreateVpcOriginCommand";
+import type {
   DeleteAnycastIpListCommandInput,
   DeleteAnycastIpListCommandOutput,
 } from "./commands/DeleteAnycastIpListCommand";
-import { DeleteCachePolicyCommandInput, DeleteCachePolicyCommandOutput } from "./commands/DeleteCachePolicyCommand";
-import {
+import type {
+  DeleteCachePolicyCommandInput,
+  DeleteCachePolicyCommandOutput,
+} from "./commands/DeleteCachePolicyCommand";
+import type {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
-import {
+import type {
   DeleteConnectionFunctionCommandInput,
   DeleteConnectionFunctionCommandOutput,
 } from "./commands/DeleteConnectionFunctionCommand";
-import {
+import type {
   DeleteConnectionGroupCommandInput,
   DeleteConnectionGroupCommandOutput,
 } from "./commands/DeleteConnectionGroupCommand";
-import {
+import type {
   DeleteContinuousDeploymentPolicyCommandInput,
   DeleteContinuousDeploymentPolicyCommandOutput,
 } from "./commands/DeleteContinuousDeploymentPolicyCommand";
-import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "./commands/DeleteDistributionCommand";
-import {
+import type {
+  DeleteDistributionCommandInput,
+  DeleteDistributionCommandOutput,
+} from "./commands/DeleteDistributionCommand";
+import type {
   DeleteDistributionTenantCommandInput,
   DeleteDistributionTenantCommandOutput,
 } from "./commands/DeleteDistributionTenantCommand";
-import {
+import type {
   DeleteFieldLevelEncryptionConfigCommandInput,
   DeleteFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionConfigCommand";
-import {
+import type {
   DeleteFieldLevelEncryptionProfileCommandInput,
   DeleteFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand";
-import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
-import { DeleteKeyGroupCommandInput, DeleteKeyGroupCommandOutput } from "./commands/DeleteKeyGroupCommand";
-import {
+import type { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
+import type { DeleteKeyGroupCommandInput, DeleteKeyGroupCommandOutput } from "./commands/DeleteKeyGroupCommand";
+import type {
   DeleteKeyValueStoreCommandInput,
   DeleteKeyValueStoreCommandOutput,
 } from "./commands/DeleteKeyValueStoreCommand";
-import {
+import type {
   DeleteMonitoringSubscriptionCommandInput,
   DeleteMonitoringSubscriptionCommandOutput,
 } from "./commands/DeleteMonitoringSubscriptionCommand";
-import {
+import type {
   DeleteOriginAccessControlCommandInput,
   DeleteOriginAccessControlCommandOutput,
 } from "./commands/DeleteOriginAccessControlCommand";
-import {
+import type {
   DeleteOriginRequestPolicyCommandInput,
   DeleteOriginRequestPolicyCommandOutput,
 } from "./commands/DeleteOriginRequestPolicyCommand";
-import { DeletePublicKeyCommandInput, DeletePublicKeyCommandOutput } from "./commands/DeletePublicKeyCommand";
-import {
+import type { DeletePublicKeyCommandInput, DeletePublicKeyCommandOutput } from "./commands/DeletePublicKeyCommand";
+import type {
   DeleteRealtimeLogConfigCommandInput,
   DeleteRealtimeLogConfigCommandOutput,
 } from "./commands/DeleteRealtimeLogConfigCommand";
-import {
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   DeleteResponseHeadersPolicyCommandInput,
   DeleteResponseHeadersPolicyCommandOutput,
 } from "./commands/DeleteResponseHeadersPolicyCommand";
-import {
+import type {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand";
-import { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "./commands/DeleteTrustStoreCommand";
-import { DeleteVpcOriginCommandInput, DeleteVpcOriginCommandOutput } from "./commands/DeleteVpcOriginCommand";
-import {
+import type { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "./commands/DeleteTrustStoreCommand";
+import type { DeleteVpcOriginCommandInput, DeleteVpcOriginCommandOutput } from "./commands/DeleteVpcOriginCommand";
+import type {
   DescribeConnectionFunctionCommandInput,
   DescribeConnectionFunctionCommandOutput,
 } from "./commands/DescribeConnectionFunctionCommand";
-import { DescribeFunctionCommandInput, DescribeFunctionCommandOutput } from "./commands/DescribeFunctionCommand";
-import {
+import type { DescribeFunctionCommandInput, DescribeFunctionCommandOutput } from "./commands/DescribeFunctionCommand";
+import type {
   DescribeKeyValueStoreCommandInput,
   DescribeKeyValueStoreCommandOutput,
 } from "./commands/DescribeKeyValueStoreCommand";
-import {
+import type {
   DisassociateDistributionTenantWebACLCommandInput,
   DisassociateDistributionTenantWebACLCommandOutput,
 } from "./commands/DisassociateDistributionTenantWebACLCommand";
-import {
+import type {
   DisassociateDistributionWebACLCommandInput,
   DisassociateDistributionWebACLCommandOutput,
 } from "./commands/DisassociateDistributionWebACLCommand";
-import { GetAnycastIpListCommandInput, GetAnycastIpListCommandOutput } from "./commands/GetAnycastIpListCommand";
-import { GetCachePolicyCommandInput, GetCachePolicyCommandOutput } from "./commands/GetCachePolicyCommand";
-import {
+import type { GetAnycastIpListCommandInput, GetAnycastIpListCommandOutput } from "./commands/GetAnycastIpListCommand";
+import type { GetCachePolicyCommandInput, GetCachePolicyCommandOutput } from "./commands/GetCachePolicyCommand";
+import type {
   GetCachePolicyConfigCommandInput,
   GetCachePolicyConfigCommandOutput,
 } from "./commands/GetCachePolicyConfigCommand";
-import {
+import type {
   GetCloudFrontOriginAccessIdentityCommandInput,
   GetCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityCommand";
-import {
+import type {
   GetCloudFrontOriginAccessIdentityConfigCommandInput,
   GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
-import {
+import type {
   GetConnectionFunctionCommandInput,
   GetConnectionFunctionCommandOutput,
 } from "./commands/GetConnectionFunctionCommand";
-import {
+import type {
   GetConnectionGroupByRoutingEndpointCommandInput,
   GetConnectionGroupByRoutingEndpointCommandOutput,
 } from "./commands/GetConnectionGroupByRoutingEndpointCommand";
-import { GetConnectionGroupCommandInput, GetConnectionGroupCommandOutput } from "./commands/GetConnectionGroupCommand";
-import {
+import type {
+  GetConnectionGroupCommandInput,
+  GetConnectionGroupCommandOutput,
+} from "./commands/GetConnectionGroupCommand";
+import type {
   GetContinuousDeploymentPolicyCommandInput,
   GetContinuousDeploymentPolicyCommandOutput,
 } from "./commands/GetContinuousDeploymentPolicyCommand";
-import {
+import type {
   GetContinuousDeploymentPolicyConfigCommandInput,
   GetContinuousDeploymentPolicyConfigCommandOutput,
 } from "./commands/GetContinuousDeploymentPolicyConfigCommand";
-import { GetDistributionCommandInput, GetDistributionCommandOutput } from "./commands/GetDistributionCommand";
-import {
+import type { GetDistributionCommandInput, GetDistributionCommandOutput } from "./commands/GetDistributionCommand";
+import type {
   GetDistributionConfigCommandInput,
   GetDistributionConfigCommandOutput,
 } from "./commands/GetDistributionConfigCommand";
-import {
+import type {
   GetDistributionTenantByDomainCommandInput,
   GetDistributionTenantByDomainCommandOutput,
 } from "./commands/GetDistributionTenantByDomainCommand";
-import {
+import type {
   GetDistributionTenantCommandInput,
   GetDistributionTenantCommandOutput,
 } from "./commands/GetDistributionTenantCommand";
-import {
+import type {
   GetFieldLevelEncryptionCommandInput,
   GetFieldLevelEncryptionCommandOutput,
 } from "./commands/GetFieldLevelEncryptionCommand";
-import {
+import type {
   GetFieldLevelEncryptionConfigCommandInput,
   GetFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/GetFieldLevelEncryptionConfigCommand";
-import {
+import type {
   GetFieldLevelEncryptionProfileCommandInput,
   GetFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/GetFieldLevelEncryptionProfileCommand";
-import {
+import type {
   GetFieldLevelEncryptionProfileConfigCommandInput,
   GetFieldLevelEncryptionProfileConfigCommandOutput,
 } from "./commands/GetFieldLevelEncryptionProfileConfigCommand";
-import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
-import { GetInvalidationCommandInput, GetInvalidationCommandOutput } from "./commands/GetInvalidationCommand";
-import {
+import type { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
+import type { GetInvalidationCommandInput, GetInvalidationCommandOutput } from "./commands/GetInvalidationCommand";
+import type {
   GetInvalidationForDistributionTenantCommandInput,
   GetInvalidationForDistributionTenantCommandOutput,
 } from "./commands/GetInvalidationForDistributionTenantCommand";
-import { GetKeyGroupCommandInput, GetKeyGroupCommandOutput } from "./commands/GetKeyGroupCommand";
-import { GetKeyGroupConfigCommandInput, GetKeyGroupConfigCommandOutput } from "./commands/GetKeyGroupConfigCommand";
-import {
+import type { GetKeyGroupCommandInput, GetKeyGroupCommandOutput } from "./commands/GetKeyGroupCommand";
+import type {
+  GetKeyGroupConfigCommandInput,
+  GetKeyGroupConfigCommandOutput,
+} from "./commands/GetKeyGroupConfigCommand";
+import type {
   GetManagedCertificateDetailsCommandInput,
   GetManagedCertificateDetailsCommandOutput,
 } from "./commands/GetManagedCertificateDetailsCommand";
-import {
+import type {
   GetMonitoringSubscriptionCommandInput,
   GetMonitoringSubscriptionCommandOutput,
 } from "./commands/GetMonitoringSubscriptionCommand";
-import {
+import type {
   GetOriginAccessControlCommandInput,
   GetOriginAccessControlCommandOutput,
 } from "./commands/GetOriginAccessControlCommand";
-import {
+import type {
   GetOriginAccessControlConfigCommandInput,
   GetOriginAccessControlConfigCommandOutput,
 } from "./commands/GetOriginAccessControlConfigCommand";
-import {
+import type {
   GetOriginRequestPolicyCommandInput,
   GetOriginRequestPolicyCommandOutput,
 } from "./commands/GetOriginRequestPolicyCommand";
-import {
+import type {
   GetOriginRequestPolicyConfigCommandInput,
   GetOriginRequestPolicyConfigCommandOutput,
 } from "./commands/GetOriginRequestPolicyConfigCommand";
-import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand";
-import { GetPublicKeyConfigCommandInput, GetPublicKeyConfigCommandOutput } from "./commands/GetPublicKeyConfigCommand";
-import {
+import type { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand";
+import type {
+  GetPublicKeyConfigCommandInput,
+  GetPublicKeyConfigCommandOutput,
+} from "./commands/GetPublicKeyConfigCommand";
+import type {
   GetRealtimeLogConfigCommandInput,
   GetRealtimeLogConfigCommandOutput,
 } from "./commands/GetRealtimeLogConfigCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import {
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type {
   GetResponseHeadersPolicyCommandInput,
   GetResponseHeadersPolicyCommandOutput,
 } from "./commands/GetResponseHeadersPolicyCommand";
-import {
+import type {
   GetResponseHeadersPolicyConfigCommandInput,
   GetResponseHeadersPolicyConfigCommandOutput,
 } from "./commands/GetResponseHeadersPolicyConfigCommand";
-import {
+import type {
   GetStreamingDistributionCommandInput,
   GetStreamingDistributionCommandOutput,
 } from "./commands/GetStreamingDistributionCommand";
-import {
+import type {
   GetStreamingDistributionConfigCommandInput,
   GetStreamingDistributionConfigCommandOutput,
 } from "./commands/GetStreamingDistributionConfigCommand";
-import { GetTrustStoreCommandInput, GetTrustStoreCommandOutput } from "./commands/GetTrustStoreCommand";
-import { GetVpcOriginCommandInput, GetVpcOriginCommandOutput } from "./commands/GetVpcOriginCommand";
-import { ListAnycastIpListsCommandInput, ListAnycastIpListsCommandOutput } from "./commands/ListAnycastIpListsCommand";
-import { ListCachePoliciesCommandInput, ListCachePoliciesCommandOutput } from "./commands/ListCachePoliciesCommand";
-import {
+import type { GetTrustStoreCommandInput, GetTrustStoreCommandOutput } from "./commands/GetTrustStoreCommand";
+import type { GetVpcOriginCommandInput, GetVpcOriginCommandOutput } from "./commands/GetVpcOriginCommand";
+import type {
+  ListAnycastIpListsCommandInput,
+  ListAnycastIpListsCommandOutput,
+} from "./commands/ListAnycastIpListsCommand";
+import type {
+  ListCachePoliciesCommandInput,
+  ListCachePoliciesCommandOutput,
+} from "./commands/ListCachePoliciesCommand";
+import type {
   ListCloudFrontOriginAccessIdentitiesCommandInput,
   ListCloudFrontOriginAccessIdentitiesCommandOutput,
 } from "./commands/ListCloudFrontOriginAccessIdentitiesCommand";
-import {
+import type {
   ListConflictingAliasesCommandInput,
   ListConflictingAliasesCommandOutput,
 } from "./commands/ListConflictingAliasesCommand";
-import {
+import type {
   ListConnectionFunctionsCommandInput,
   ListConnectionFunctionsCommandOutput,
 } from "./commands/ListConnectionFunctionsCommand";
-import {
+import type {
   ListConnectionGroupsCommandInput,
   ListConnectionGroupsCommandOutput,
 } from "./commands/ListConnectionGroupsCommand";
-import {
+import type {
   ListContinuousDeploymentPoliciesCommandInput,
   ListContinuousDeploymentPoliciesCommandOutput,
 } from "./commands/ListContinuousDeploymentPoliciesCommand";
-import {
+import type {
   ListDistributionsByAnycastIpListIdCommandInput,
   ListDistributionsByAnycastIpListIdCommandOutput,
 } from "./commands/ListDistributionsByAnycastIpListIdCommand";
-import {
+import type {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
-import {
+import type {
   ListDistributionsByConnectionFunctionCommandInput,
   ListDistributionsByConnectionFunctionCommandOutput,
 } from "./commands/ListDistributionsByConnectionFunctionCommand";
-import {
+import type {
   ListDistributionsByConnectionModeCommandInput,
   ListDistributionsByConnectionModeCommandOutput,
 } from "./commands/ListDistributionsByConnectionModeCommand";
-import {
+import type {
   ListDistributionsByKeyGroupCommandInput,
   ListDistributionsByKeyGroupCommandOutput,
 } from "./commands/ListDistributionsByKeyGroupCommand";
-import {
+import type {
   ListDistributionsByOriginRequestPolicyIdCommandInput,
   ListDistributionsByOriginRequestPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByOriginRequestPolicyIdCommand";
-import {
+import type {
   ListDistributionsByOwnedResourceCommandInput,
   ListDistributionsByOwnedResourceCommandOutput,
 } from "./commands/ListDistributionsByOwnedResourceCommand";
-import {
+import type {
   ListDistributionsByRealtimeLogConfigCommandInput,
   ListDistributionsByRealtimeLogConfigCommandOutput,
 } from "./commands/ListDistributionsByRealtimeLogConfigCommand";
-import {
+import type {
   ListDistributionsByResponseHeadersPolicyIdCommandInput,
   ListDistributionsByResponseHeadersPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByResponseHeadersPolicyIdCommand";
-import {
+import type {
   ListDistributionsByTrustStoreCommandInput,
   ListDistributionsByTrustStoreCommandOutput,
 } from "./commands/ListDistributionsByTrustStoreCommand";
-import {
+import type {
   ListDistributionsByVpcOriginIdCommandInput,
   ListDistributionsByVpcOriginIdCommandOutput,
 } from "./commands/ListDistributionsByVpcOriginIdCommand";
-import {
+import type {
   ListDistributionsByWebACLIdCommandInput,
   ListDistributionsByWebACLIdCommandOutput,
 } from "./commands/ListDistributionsByWebACLIdCommand";
-import { ListDistributionsCommandInput, ListDistributionsCommandOutput } from "./commands/ListDistributionsCommand";
-import {
+import type {
+  ListDistributionsCommandInput,
+  ListDistributionsCommandOutput,
+} from "./commands/ListDistributionsCommand";
+import type {
   ListDistributionTenantsByCustomizationCommandInput,
   ListDistributionTenantsByCustomizationCommandOutput,
 } from "./commands/ListDistributionTenantsByCustomizationCommand";
-import {
+import type {
   ListDistributionTenantsCommandInput,
   ListDistributionTenantsCommandOutput,
 } from "./commands/ListDistributionTenantsCommand";
-import {
+import type {
   ListDomainConflictsCommandInput,
   ListDomainConflictsCommandOutput,
 } from "./commands/ListDomainConflictsCommand";
-import {
+import type {
   ListFieldLevelEncryptionConfigsCommandInput,
   ListFieldLevelEncryptionConfigsCommandOutput,
 } from "./commands/ListFieldLevelEncryptionConfigsCommand";
-import {
+import type {
   ListFieldLevelEncryptionProfilesCommandInput,
   ListFieldLevelEncryptionProfilesCommandOutput,
 } from "./commands/ListFieldLevelEncryptionProfilesCommand";
-import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
-import { ListInvalidationsCommandInput, ListInvalidationsCommandOutput } from "./commands/ListInvalidationsCommand";
-import {
+import type { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
+import type {
+  ListInvalidationsCommandInput,
+  ListInvalidationsCommandOutput,
+} from "./commands/ListInvalidationsCommand";
+import type {
   ListInvalidationsForDistributionTenantCommandInput,
   ListInvalidationsForDistributionTenantCommandOutput,
 } from "./commands/ListInvalidationsForDistributionTenantCommand";
-import { ListKeyGroupsCommandInput, ListKeyGroupsCommandOutput } from "./commands/ListKeyGroupsCommand";
-import { ListKeyValueStoresCommandInput, ListKeyValueStoresCommandOutput } from "./commands/ListKeyValueStoresCommand";
-import {
+import type { ListKeyGroupsCommandInput, ListKeyGroupsCommandOutput } from "./commands/ListKeyGroupsCommand";
+import type {
+  ListKeyValueStoresCommandInput,
+  ListKeyValueStoresCommandOutput,
+} from "./commands/ListKeyValueStoresCommand";
+import type {
   ListOriginAccessControlsCommandInput,
   ListOriginAccessControlsCommandOutput,
 } from "./commands/ListOriginAccessControlsCommand";
-import {
+import type {
   ListOriginRequestPoliciesCommandInput,
   ListOriginRequestPoliciesCommandOutput,
 } from "./commands/ListOriginRequestPoliciesCommand";
-import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
-import {
+import type { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
+import type {
   ListRealtimeLogConfigsCommandInput,
   ListRealtimeLogConfigsCommandOutput,
 } from "./commands/ListRealtimeLogConfigsCommand";
-import {
+import type {
   ListResponseHeadersPoliciesCommandInput,
   ListResponseHeadersPoliciesCommandOutput,
 } from "./commands/ListResponseHeadersPoliciesCommand";
-import {
+import type {
   ListStreamingDistributionsCommandInput,
   ListStreamingDistributionsCommandOutput,
 } from "./commands/ListStreamingDistributionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTrustStoresCommandInput, ListTrustStoresCommandOutput } from "./commands/ListTrustStoresCommand";
-import { ListVpcOriginsCommandInput, ListVpcOriginsCommandOutput } from "./commands/ListVpcOriginsCommand";
-import {
+import type { ListTrustStoresCommandInput, ListTrustStoresCommandOutput } from "./commands/ListTrustStoresCommand";
+import type { ListVpcOriginsCommandInput, ListVpcOriginsCommandOutput } from "./commands/ListVpcOriginsCommand";
+import type {
   PublishConnectionFunctionCommandInput,
   PublishConnectionFunctionCommandOutput,
 } from "./commands/PublishConnectionFunctionCommand";
-import { PublishFunctionCommandInput, PublishFunctionCommandOutput } from "./commands/PublishFunctionCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type { PublishFunctionCommandInput, PublishFunctionCommandOutput } from "./commands/PublishFunctionCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   TestConnectionFunctionCommandInput,
   TestConnectionFunctionCommandOutput,
 } from "./commands/TestConnectionFunctionCommand";
-import { TestFunctionCommandInput, TestFunctionCommandOutput } from "./commands/TestFunctionCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TestFunctionCommandInput, TestFunctionCommandOutput } from "./commands/TestFunctionCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAnycastIpListCommandInput,
   UpdateAnycastIpListCommandOutput,
 } from "./commands/UpdateAnycastIpListCommand";
-import { UpdateCachePolicyCommandInput, UpdateCachePolicyCommandOutput } from "./commands/UpdateCachePolicyCommand";
-import {
+import type {
+  UpdateCachePolicyCommandInput,
+  UpdateCachePolicyCommandOutput,
+} from "./commands/UpdateCachePolicyCommand";
+import type {
   UpdateCloudFrontOriginAccessIdentityCommandInput,
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
-import {
+import type {
   UpdateConnectionFunctionCommandInput,
   UpdateConnectionFunctionCommandOutput,
 } from "./commands/UpdateConnectionFunctionCommand";
-import {
+import type {
   UpdateConnectionGroupCommandInput,
   UpdateConnectionGroupCommandOutput,
 } from "./commands/UpdateConnectionGroupCommand";
-import {
+import type {
   UpdateContinuousDeploymentPolicyCommandInput,
   UpdateContinuousDeploymentPolicyCommandOutput,
 } from "./commands/UpdateContinuousDeploymentPolicyCommand";
-import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "./commands/UpdateDistributionCommand";
-import {
+import type {
+  UpdateDistributionCommandInput,
+  UpdateDistributionCommandOutput,
+} from "./commands/UpdateDistributionCommand";
+import type {
   UpdateDistributionTenantCommandInput,
   UpdateDistributionTenantCommandOutput,
 } from "./commands/UpdateDistributionTenantCommand";
-import {
+import type {
   UpdateDistributionWithStagingConfigCommandInput,
   UpdateDistributionWithStagingConfigCommandOutput,
 } from "./commands/UpdateDistributionWithStagingConfigCommand";
-import {
+import type {
   UpdateDomainAssociationCommandInput,
   UpdateDomainAssociationCommandOutput,
 } from "./commands/UpdateDomainAssociationCommand";
-import {
+import type {
   UpdateFieldLevelEncryptionConfigCommandInput,
   UpdateFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionConfigCommand";
-import {
+import type {
   UpdateFieldLevelEncryptionProfileCommandInput,
   UpdateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand";
-import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
-import { UpdateKeyGroupCommandInput, UpdateKeyGroupCommandOutput } from "./commands/UpdateKeyGroupCommand";
-import {
+import type { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
+import type { UpdateKeyGroupCommandInput, UpdateKeyGroupCommandOutput } from "./commands/UpdateKeyGroupCommand";
+import type {
   UpdateKeyValueStoreCommandInput,
   UpdateKeyValueStoreCommandOutput,
 } from "./commands/UpdateKeyValueStoreCommand";
-import {
+import type {
   UpdateOriginAccessControlCommandInput,
   UpdateOriginAccessControlCommandOutput,
 } from "./commands/UpdateOriginAccessControlCommand";
-import {
+import type {
   UpdateOriginRequestPolicyCommandInput,
   UpdateOriginRequestPolicyCommandOutput,
 } from "./commands/UpdateOriginRequestPolicyCommand";
-import { UpdatePublicKeyCommandInput, UpdatePublicKeyCommandOutput } from "./commands/UpdatePublicKeyCommand";
-import {
+import type { UpdatePublicKeyCommandInput, UpdatePublicKeyCommandOutput } from "./commands/UpdatePublicKeyCommand";
+import type {
   UpdateRealtimeLogConfigCommandInput,
   UpdateRealtimeLogConfigCommandOutput,
 } from "./commands/UpdateRealtimeLogConfigCommand";
-import {
+import type {
   UpdateResponseHeadersPolicyCommandInput,
   UpdateResponseHeadersPolicyCommandOutput,
 } from "./commands/UpdateResponseHeadersPolicyCommand";
-import {
+import type {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
 } from "./commands/UpdateStreamingDistributionCommand";
-import { UpdateTrustStoreCommandInput, UpdateTrustStoreCommandOutput } from "./commands/UpdateTrustStoreCommand";
-import { UpdateVpcOriginCommandInput, UpdateVpcOriginCommandOutput } from "./commands/UpdateVpcOriginCommand";
-import {
+import type { UpdateTrustStoreCommandInput, UpdateTrustStoreCommandOutput } from "./commands/UpdateTrustStoreCommand";
+import type { UpdateVpcOriginCommandInput, UpdateVpcOriginCommandOutput } from "./commands/UpdateVpcOriginCommand";
+import type {
   VerifyDnsConfigurationCommandInput,
   VerifyDnsConfigurationCommandOutput,
 } from "./commands/VerifyDnsConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -1041,7 +1090,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

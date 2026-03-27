@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { type GetPositionEstimateRequest, GetPositionEstimateResponse } from "../models/models_0";
+import type { GetPositionEstimateRequest, GetPositionEstimateResponse } from "../models/models_0";
 import { GetPositionEstimate$ } from "../schemas/schemas_0";
 
 /**

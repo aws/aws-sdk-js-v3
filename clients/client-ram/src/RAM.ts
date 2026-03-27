@@ -3,175 +3,179 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptResourceShareInvitationCommandInput,
+  type AcceptResourceShareInvitationCommandOutput,
   AcceptResourceShareInvitationCommand,
-  AcceptResourceShareInvitationCommandInput,
-  AcceptResourceShareInvitationCommandOutput,
 } from "./commands/AcceptResourceShareInvitationCommand";
 import {
+  type AssociateResourceShareCommandInput,
+  type AssociateResourceShareCommandOutput,
   AssociateResourceShareCommand,
-  AssociateResourceShareCommandInput,
-  AssociateResourceShareCommandOutput,
 } from "./commands/AssociateResourceShareCommand";
 import {
+  type AssociateResourceSharePermissionCommandInput,
+  type AssociateResourceSharePermissionCommandOutput,
   AssociateResourceSharePermissionCommand,
-  AssociateResourceSharePermissionCommandInput,
-  AssociateResourceSharePermissionCommandOutput,
 } from "./commands/AssociateResourceSharePermissionCommand";
 import {
+  type CreatePermissionCommandInput,
+  type CreatePermissionCommandOutput,
   CreatePermissionCommand,
-  CreatePermissionCommandInput,
-  CreatePermissionCommandOutput,
 } from "./commands/CreatePermissionCommand";
 import {
+  type CreatePermissionVersionCommandInput,
+  type CreatePermissionVersionCommandOutput,
   CreatePermissionVersionCommand,
-  CreatePermissionVersionCommandInput,
-  CreatePermissionVersionCommandOutput,
 } from "./commands/CreatePermissionVersionCommand";
 import {
+  type CreateResourceShareCommandInput,
+  type CreateResourceShareCommandOutput,
   CreateResourceShareCommand,
-  CreateResourceShareCommandInput,
-  CreateResourceShareCommandOutput,
 } from "./commands/CreateResourceShareCommand";
 import {
+  type DeletePermissionCommandInput,
+  type DeletePermissionCommandOutput,
   DeletePermissionCommand,
-  DeletePermissionCommandInput,
-  DeletePermissionCommandOutput,
 } from "./commands/DeletePermissionCommand";
 import {
+  type DeletePermissionVersionCommandInput,
+  type DeletePermissionVersionCommandOutput,
   DeletePermissionVersionCommand,
-  DeletePermissionVersionCommandInput,
-  DeletePermissionVersionCommandOutput,
 } from "./commands/DeletePermissionVersionCommand";
 import {
+  type DeleteResourceShareCommandInput,
+  type DeleteResourceShareCommandOutput,
   DeleteResourceShareCommand,
-  DeleteResourceShareCommandInput,
-  DeleteResourceShareCommandOutput,
 } from "./commands/DeleteResourceShareCommand";
 import {
+  type DisassociateResourceShareCommandInput,
+  type DisassociateResourceShareCommandOutput,
   DisassociateResourceShareCommand,
-  DisassociateResourceShareCommandInput,
-  DisassociateResourceShareCommandOutput,
 } from "./commands/DisassociateResourceShareCommand";
 import {
+  type DisassociateResourceSharePermissionCommandInput,
+  type DisassociateResourceSharePermissionCommandOutput,
   DisassociateResourceSharePermissionCommand,
-  DisassociateResourceSharePermissionCommandInput,
-  DisassociateResourceSharePermissionCommandOutput,
 } from "./commands/DisassociateResourceSharePermissionCommand";
 import {
+  type EnableSharingWithAwsOrganizationCommandInput,
+  type EnableSharingWithAwsOrganizationCommandOutput,
   EnableSharingWithAwsOrganizationCommand,
-  EnableSharingWithAwsOrganizationCommandInput,
-  EnableSharingWithAwsOrganizationCommandOutput,
 } from "./commands/EnableSharingWithAwsOrganizationCommand";
 import {
+  type GetPermissionCommandInput,
+  type GetPermissionCommandOutput,
   GetPermissionCommand,
-  GetPermissionCommandInput,
-  GetPermissionCommandOutput,
 } from "./commands/GetPermissionCommand";
 import {
+  type GetResourcePoliciesCommandInput,
+  type GetResourcePoliciesCommandOutput,
   GetResourcePoliciesCommand,
-  GetResourcePoliciesCommandInput,
-  GetResourcePoliciesCommandOutput,
 } from "./commands/GetResourcePoliciesCommand";
 import {
+  type GetResourceShareAssociationsCommandInput,
+  type GetResourceShareAssociationsCommandOutput,
   GetResourceShareAssociationsCommand,
-  GetResourceShareAssociationsCommandInput,
-  GetResourceShareAssociationsCommandOutput,
 } from "./commands/GetResourceShareAssociationsCommand";
 import {
+  type GetResourceShareInvitationsCommandInput,
+  type GetResourceShareInvitationsCommandOutput,
   GetResourceShareInvitationsCommand,
-  GetResourceShareInvitationsCommandInput,
-  GetResourceShareInvitationsCommandOutput,
 } from "./commands/GetResourceShareInvitationsCommand";
 import {
+  type GetResourceSharesCommandInput,
+  type GetResourceSharesCommandOutput,
   GetResourceSharesCommand,
-  GetResourceSharesCommandInput,
-  GetResourceSharesCommandOutput,
 } from "./commands/GetResourceSharesCommand";
 import {
+  type ListPendingInvitationResourcesCommandInput,
+  type ListPendingInvitationResourcesCommandOutput,
   ListPendingInvitationResourcesCommand,
-  ListPendingInvitationResourcesCommandInput,
-  ListPendingInvitationResourcesCommandOutput,
 } from "./commands/ListPendingInvitationResourcesCommand";
 import {
+  type ListPermissionAssociationsCommandInput,
+  type ListPermissionAssociationsCommandOutput,
   ListPermissionAssociationsCommand,
-  ListPermissionAssociationsCommandInput,
-  ListPermissionAssociationsCommandOutput,
 } from "./commands/ListPermissionAssociationsCommand";
 import {
+  type ListPermissionsCommandInput,
+  type ListPermissionsCommandOutput,
   ListPermissionsCommand,
-  ListPermissionsCommandInput,
-  ListPermissionsCommandOutput,
 } from "./commands/ListPermissionsCommand";
 import {
+  type ListPermissionVersionsCommandInput,
+  type ListPermissionVersionsCommandOutput,
   ListPermissionVersionsCommand,
-  ListPermissionVersionsCommandInput,
-  ListPermissionVersionsCommandOutput,
 } from "./commands/ListPermissionVersionsCommand";
 import {
+  type ListPrincipalsCommandInput,
+  type ListPrincipalsCommandOutput,
   ListPrincipalsCommand,
-  ListPrincipalsCommandInput,
-  ListPrincipalsCommandOutput,
 } from "./commands/ListPrincipalsCommand";
 import {
+  type ListReplacePermissionAssociationsWorkCommandInput,
+  type ListReplacePermissionAssociationsWorkCommandOutput,
   ListReplacePermissionAssociationsWorkCommand,
-  ListReplacePermissionAssociationsWorkCommandInput,
-  ListReplacePermissionAssociationsWorkCommandOutput,
 } from "./commands/ListReplacePermissionAssociationsWorkCommand";
 import {
+  type ListResourcesCommandInput,
+  type ListResourcesCommandOutput,
   ListResourcesCommand,
-  ListResourcesCommandInput,
-  ListResourcesCommandOutput,
 } from "./commands/ListResourcesCommand";
 import {
+  type ListResourceSharePermissionsCommandInput,
+  type ListResourceSharePermissionsCommandOutput,
   ListResourceSharePermissionsCommand,
-  ListResourceSharePermissionsCommandInput,
-  ListResourceSharePermissionsCommandOutput,
 } from "./commands/ListResourceSharePermissionsCommand";
 import {
+  type ListResourceTypesCommandInput,
+  type ListResourceTypesCommandOutput,
   ListResourceTypesCommand,
-  ListResourceTypesCommandInput,
-  ListResourceTypesCommandOutput,
 } from "./commands/ListResourceTypesCommand";
 import {
+  type ListSourceAssociationsCommandInput,
+  type ListSourceAssociationsCommandOutput,
   ListSourceAssociationsCommand,
-  ListSourceAssociationsCommandInput,
-  ListSourceAssociationsCommandOutput,
 } from "./commands/ListSourceAssociationsCommand";
 import {
+  type PromotePermissionCreatedFromPolicyCommandInput,
+  type PromotePermissionCreatedFromPolicyCommandOutput,
   PromotePermissionCreatedFromPolicyCommand,
-  PromotePermissionCreatedFromPolicyCommandInput,
-  PromotePermissionCreatedFromPolicyCommandOutput,
 } from "./commands/PromotePermissionCreatedFromPolicyCommand";
 import {
+  type PromoteResourceShareCreatedFromPolicyCommandInput,
+  type PromoteResourceShareCreatedFromPolicyCommandOutput,
   PromoteResourceShareCreatedFromPolicyCommand,
-  PromoteResourceShareCreatedFromPolicyCommandInput,
-  PromoteResourceShareCreatedFromPolicyCommandOutput,
 } from "./commands/PromoteResourceShareCreatedFromPolicyCommand";
 import {
+  type RejectResourceShareInvitationCommandInput,
+  type RejectResourceShareInvitationCommandOutput,
   RejectResourceShareInvitationCommand,
-  RejectResourceShareInvitationCommandInput,
-  RejectResourceShareInvitationCommandOutput,
 } from "./commands/RejectResourceShareInvitationCommand";
 import {
+  type ReplacePermissionAssociationsCommandInput,
+  type ReplacePermissionAssociationsCommandOutput,
   ReplacePermissionAssociationsCommand,
-  ReplacePermissionAssociationsCommandInput,
-  ReplacePermissionAssociationsCommandOutput,
 } from "./commands/ReplacePermissionAssociationsCommand";
 import {
+  type SetDefaultPermissionVersionCommandInput,
+  type SetDefaultPermissionVersionCommandOutput,
   SetDefaultPermissionVersionCommand,
-  SetDefaultPermissionVersionCommandInput,
-  SetDefaultPermissionVersionCommandOutput,
 } from "./commands/SetDefaultPermissionVersionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateResourceShareCommandInput,
+  type UpdateResourceShareCommandOutput,
   UpdateResourceShareCommand,
-  UpdateResourceShareCommandInput,
-  UpdateResourceShareCommandOutput,
 } from "./commands/UpdateResourceShareCommand";
 import { paginateGetResourcePolicies } from "./pagination/GetResourcePoliciesPaginator";
 import { paginateGetResourceShareAssociations } from "./pagination/GetResourceShareAssociationsPaginator";

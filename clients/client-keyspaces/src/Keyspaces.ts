@@ -3,56 +3,88 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateKeyspaceCommandInput,
+  type CreateKeyspaceCommandOutput,
   CreateKeyspaceCommand,
-  CreateKeyspaceCommandInput,
-  CreateKeyspaceCommandOutput,
 } from "./commands/CreateKeyspaceCommand";
-import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
-import { CreateTypeCommand, CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
 import {
+  type CreateTableCommandInput,
+  type CreateTableCommandOutput,
+  CreateTableCommand,
+} from "./commands/CreateTableCommand";
+import {
+  type CreateTypeCommandInput,
+  type CreateTypeCommandOutput,
+  CreateTypeCommand,
+} from "./commands/CreateTypeCommand";
+import {
+  type DeleteKeyspaceCommandInput,
+  type DeleteKeyspaceCommandOutput,
   DeleteKeyspaceCommand,
-  DeleteKeyspaceCommandInput,
-  DeleteKeyspaceCommandOutput,
 } from "./commands/DeleteKeyspaceCommand";
-import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
-import { DeleteTypeCommand, DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
-import { GetKeyspaceCommand, GetKeyspaceCommandInput, GetKeyspaceCommandOutput } from "./commands/GetKeyspaceCommand";
 import {
+  type DeleteTableCommandInput,
+  type DeleteTableCommandOutput,
+  DeleteTableCommand,
+} from "./commands/DeleteTableCommand";
+import {
+  type DeleteTypeCommandInput,
+  type DeleteTypeCommandOutput,
+  DeleteTypeCommand,
+} from "./commands/DeleteTypeCommand";
+import {
+  type GetKeyspaceCommandInput,
+  type GetKeyspaceCommandOutput,
+  GetKeyspaceCommand,
+} from "./commands/GetKeyspaceCommand";
+import {
+  type GetTableAutoScalingSettingsCommandInput,
+  type GetTableAutoScalingSettingsCommandOutput,
   GetTableAutoScalingSettingsCommand,
-  GetTableAutoScalingSettingsCommandInput,
-  GetTableAutoScalingSettingsCommandOutput,
 } from "./commands/GetTableAutoScalingSettingsCommand";
-import { GetTableCommand, GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
-import { GetTypeCommand, GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
+import { type GetTableCommandInput, type GetTableCommandOutput, GetTableCommand } from "./commands/GetTableCommand";
+import { type GetTypeCommandInput, type GetTypeCommandOutput, GetTypeCommand } from "./commands/GetTypeCommand";
 import {
+  type ListKeyspacesCommandInput,
+  type ListKeyspacesCommandOutput,
   ListKeyspacesCommand,
-  ListKeyspacesCommandInput,
-  ListKeyspacesCommandOutput,
 } from "./commands/ListKeyspacesCommand";
-import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
+  type ListTablesCommandInput,
+  type ListTablesCommandOutput,
+  ListTablesCommand,
+} from "./commands/ListTablesCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import { type ListTypesCommandInput, type ListTypesCommandOutput, ListTypesCommand } from "./commands/ListTypesCommand";
 import {
+  type RestoreTableCommandInput,
+  type RestoreTableCommandOutput,
   RestoreTableCommand,
-  RestoreTableCommandInput,
-  RestoreTableCommandOutput,
 } from "./commands/RestoreTableCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateKeyspaceCommandInput,
+  type UpdateKeyspaceCommandOutput,
   UpdateKeyspaceCommand,
-  UpdateKeyspaceCommandInput,
-  UpdateKeyspaceCommandOutput,
 } from "./commands/UpdateKeyspaceCommand";
-import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
+import {
+  type UpdateTableCommandInput,
+  type UpdateTableCommandOutput,
+  UpdateTableCommand,
+} from "./commands/UpdateTableCommand";
 import { KeyspacesClient } from "./KeyspacesClient";
 import { paginateListKeyspaces } from "./pagination/ListKeyspacesPaginator";
 import { paginateListTables } from "./pagination/ListTablesPaginator";

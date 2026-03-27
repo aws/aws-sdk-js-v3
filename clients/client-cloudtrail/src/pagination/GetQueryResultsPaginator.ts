@@ -8,7 +8,7 @@ import {
   GetQueryResultsCommandInput,
   GetQueryResultsCommandOutput,
 } from "../commands/GetQueryResultsCommand";
-import { CloudTrailPaginationConfiguration } from "./Interfaces";
+import type { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

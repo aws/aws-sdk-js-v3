@@ -8,7 +8,7 @@ import {
   ListVersionsCommandOutput,
 } from "../commands/ListVersionsCommand";
 import { MediaConvertClient } from "../MediaConvertClient";
-import { MediaConvertPaginationConfiguration } from "./Interfaces";
+import type { MediaConvertPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

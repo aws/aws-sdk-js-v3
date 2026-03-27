@@ -8,7 +8,7 @@ import {
   ListScheduledQueriesCommandOutput,
 } from "../commands/ListScheduledQueriesCommand";
 import { TimestreamQueryClient } from "../TimestreamQueryClient";
-import { TimestreamQueryPaginationConfiguration } from "./Interfaces";
+import type { TimestreamQueryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

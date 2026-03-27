@@ -3,117 +3,125 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AnalyzeDocumentCommandInput,
+  type AnalyzeDocumentCommandOutput,
   AnalyzeDocumentCommand,
-  AnalyzeDocumentCommandInput,
-  AnalyzeDocumentCommandOutput,
 } from "./commands/AnalyzeDocumentCommand";
 import {
+  type AnalyzeExpenseCommandInput,
+  type AnalyzeExpenseCommandOutput,
   AnalyzeExpenseCommand,
-  AnalyzeExpenseCommandInput,
-  AnalyzeExpenseCommandOutput,
 } from "./commands/AnalyzeExpenseCommand";
-import { AnalyzeIDCommand, AnalyzeIDCommandInput, AnalyzeIDCommandOutput } from "./commands/AnalyzeIDCommand";
+import { type AnalyzeIDCommandInput, type AnalyzeIDCommandOutput, AnalyzeIDCommand } from "./commands/AnalyzeIDCommand";
 import {
+  type CreateAdapterCommandInput,
+  type CreateAdapterCommandOutput,
   CreateAdapterCommand,
-  CreateAdapterCommandInput,
-  CreateAdapterCommandOutput,
 } from "./commands/CreateAdapterCommand";
 import {
+  type CreateAdapterVersionCommandInput,
+  type CreateAdapterVersionCommandOutput,
   CreateAdapterVersionCommand,
-  CreateAdapterVersionCommandInput,
-  CreateAdapterVersionCommandOutput,
 } from "./commands/CreateAdapterVersionCommand";
 import {
+  type DeleteAdapterCommandInput,
+  type DeleteAdapterCommandOutput,
   DeleteAdapterCommand,
-  DeleteAdapterCommandInput,
-  DeleteAdapterCommandOutput,
 } from "./commands/DeleteAdapterCommand";
 import {
+  type DeleteAdapterVersionCommandInput,
+  type DeleteAdapterVersionCommandOutput,
   DeleteAdapterVersionCommand,
-  DeleteAdapterVersionCommandInput,
-  DeleteAdapterVersionCommandOutput,
 } from "./commands/DeleteAdapterVersionCommand";
 import {
+  type DetectDocumentTextCommandInput,
+  type DetectDocumentTextCommandOutput,
   DetectDocumentTextCommand,
-  DetectDocumentTextCommandInput,
-  DetectDocumentTextCommandOutput,
 } from "./commands/DetectDocumentTextCommand";
-import { GetAdapterCommand, GetAdapterCommandInput, GetAdapterCommandOutput } from "./commands/GetAdapterCommand";
 import {
+  type GetAdapterCommandInput,
+  type GetAdapterCommandOutput,
+  GetAdapterCommand,
+} from "./commands/GetAdapterCommand";
+import {
+  type GetAdapterVersionCommandInput,
+  type GetAdapterVersionCommandOutput,
   GetAdapterVersionCommand,
-  GetAdapterVersionCommandInput,
-  GetAdapterVersionCommandOutput,
 } from "./commands/GetAdapterVersionCommand";
 import {
+  type GetDocumentAnalysisCommandInput,
+  type GetDocumentAnalysisCommandOutput,
   GetDocumentAnalysisCommand,
-  GetDocumentAnalysisCommandInput,
-  GetDocumentAnalysisCommandOutput,
 } from "./commands/GetDocumentAnalysisCommand";
 import {
+  type GetDocumentTextDetectionCommandInput,
+  type GetDocumentTextDetectionCommandOutput,
   GetDocumentTextDetectionCommand,
-  GetDocumentTextDetectionCommandInput,
-  GetDocumentTextDetectionCommandOutput,
 } from "./commands/GetDocumentTextDetectionCommand";
 import {
+  type GetExpenseAnalysisCommandInput,
+  type GetExpenseAnalysisCommandOutput,
   GetExpenseAnalysisCommand,
-  GetExpenseAnalysisCommandInput,
-  GetExpenseAnalysisCommandOutput,
 } from "./commands/GetExpenseAnalysisCommand";
 import {
+  type GetLendingAnalysisCommandInput,
+  type GetLendingAnalysisCommandOutput,
   GetLendingAnalysisCommand,
-  GetLendingAnalysisCommandInput,
-  GetLendingAnalysisCommandOutput,
 } from "./commands/GetLendingAnalysisCommand";
 import {
+  type GetLendingAnalysisSummaryCommandInput,
+  type GetLendingAnalysisSummaryCommandOutput,
   GetLendingAnalysisSummaryCommand,
-  GetLendingAnalysisSummaryCommandInput,
-  GetLendingAnalysisSummaryCommandOutput,
 } from "./commands/GetLendingAnalysisSummaryCommand";
 import {
+  type ListAdaptersCommandInput,
+  type ListAdaptersCommandOutput,
   ListAdaptersCommand,
-  ListAdaptersCommandInput,
-  ListAdaptersCommandOutput,
 } from "./commands/ListAdaptersCommand";
 import {
+  type ListAdapterVersionsCommandInput,
+  type ListAdapterVersionsCommandOutput,
   ListAdapterVersionsCommand,
-  ListAdapterVersionsCommandInput,
-  ListAdapterVersionsCommandOutput,
 } from "./commands/ListAdapterVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartDocumentAnalysisCommandInput,
+  type StartDocumentAnalysisCommandOutput,
   StartDocumentAnalysisCommand,
-  StartDocumentAnalysisCommandInput,
-  StartDocumentAnalysisCommandOutput,
 } from "./commands/StartDocumentAnalysisCommand";
 import {
+  type StartDocumentTextDetectionCommandInput,
+  type StartDocumentTextDetectionCommandOutput,
   StartDocumentTextDetectionCommand,
-  StartDocumentTextDetectionCommandInput,
-  StartDocumentTextDetectionCommandOutput,
 } from "./commands/StartDocumentTextDetectionCommand";
 import {
+  type StartExpenseAnalysisCommandInput,
+  type StartExpenseAnalysisCommandOutput,
   StartExpenseAnalysisCommand,
-  StartExpenseAnalysisCommandInput,
-  StartExpenseAnalysisCommandOutput,
 } from "./commands/StartExpenseAnalysisCommand";
 import {
+  type StartLendingAnalysisCommandInput,
+  type StartLendingAnalysisCommandOutput,
   StartLendingAnalysisCommand,
-  StartLendingAnalysisCommandInput,
-  StartLendingAnalysisCommandOutput,
 } from "./commands/StartLendingAnalysisCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAdapterCommandInput,
+  type UpdateAdapterCommandOutput,
   UpdateAdapterCommand,
-  UpdateAdapterCommandInput,
-  UpdateAdapterCommandOutput,
 } from "./commands/UpdateAdapterCommand";
 import { paginateListAdapters } from "./pagination/ListAdaptersPaginator";
 import { paginateListAdapterVersions } from "./pagination/ListAdapterVersionsPaginator";

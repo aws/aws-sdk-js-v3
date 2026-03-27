@@ -55,22 +55,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type EventStreamSerdeProvider as __EventStreamSerdeProvider,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -80,26 +78,26 @@ import {
   defaultBedrockRuntimeHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { ApplyGuardrailCommandInput, ApplyGuardrailCommandOutput } from "./commands/ApplyGuardrailCommand";
-import { ConverseCommandInput, ConverseCommandOutput } from "./commands/ConverseCommand";
-import { ConverseStreamCommandInput, ConverseStreamCommandOutput } from "./commands/ConverseStreamCommand";
-import { CountTokensCommandInput, CountTokensCommandOutput } from "./commands/CountTokensCommand";
-import { GetAsyncInvokeCommandInput, GetAsyncInvokeCommandOutput } from "./commands/GetAsyncInvokeCommand";
-import { InvokeModelCommandInput, InvokeModelCommandOutput } from "./commands/InvokeModelCommand";
-import {
+import type { ApplyGuardrailCommandInput, ApplyGuardrailCommandOutput } from "./commands/ApplyGuardrailCommand";
+import type { ConverseCommandInput, ConverseCommandOutput } from "./commands/ConverseCommand";
+import type { ConverseStreamCommandInput, ConverseStreamCommandOutput } from "./commands/ConverseStreamCommand";
+import type { CountTokensCommandInput, CountTokensCommandOutput } from "./commands/CountTokensCommand";
+import type { GetAsyncInvokeCommandInput, GetAsyncInvokeCommandOutput } from "./commands/GetAsyncInvokeCommand";
+import type { InvokeModelCommandInput, InvokeModelCommandOutput } from "./commands/InvokeModelCommand";
+import type {
   InvokeModelWithBidirectionalStreamCommandInput,
   InvokeModelWithBidirectionalStreamCommandOutput,
 } from "./commands/InvokeModelWithBidirectionalStreamCommand";
-import {
+import type {
   InvokeModelWithResponseStreamCommandInput,
   InvokeModelWithResponseStreamCommandOutput,
 } from "./commands/InvokeModelWithResponseStreamCommand";
-import { ListAsyncInvokesCommandInput, ListAsyncInvokesCommandOutput } from "./commands/ListAsyncInvokesCommand";
-import { StartAsyncInvokeCommandInput, StartAsyncInvokeCommandOutput } from "./commands/StartAsyncInvokeCommand";
+import type { ListAsyncInvokesCommandInput, ListAsyncInvokesCommandOutput } from "./commands/ListAsyncInvokesCommand";
+import type { StartAsyncInvokeCommandInput, StartAsyncInvokeCommandOutput } from "./commands/StartAsyncInvokeCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -251,7 +249,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

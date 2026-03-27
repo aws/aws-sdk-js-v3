@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand";
 import { MgnClient } from "../MgnClient";
-import { MgnPaginationConfiguration } from "./Interfaces";
+import type { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

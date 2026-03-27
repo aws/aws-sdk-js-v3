@@ -8,7 +8,7 @@ import {
   ListDataSourcesCommandOutput,
 } from "../commands/ListDataSourcesCommand";
 import { QuickSightClient } from "../QuickSightClient";
-import { QuickSightPaginationConfiguration } from "./Interfaces";
+import type { QuickSightPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

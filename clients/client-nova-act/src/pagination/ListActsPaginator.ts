@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListActsCommand, ListActsCommandInput, ListActsCommandOutput } from "../commands/ListActsCommand";
 import { NovaActClient } from "../NovaActClient";
-import { NovaActPaginationConfiguration } from "./Interfaces";
+import type { NovaActPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

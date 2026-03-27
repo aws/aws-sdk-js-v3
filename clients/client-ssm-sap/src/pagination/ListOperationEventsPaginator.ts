@@ -8,7 +8,7 @@ import {
   ListOperationEventsCommandOutput,
 } from "../commands/ListOperationEventsCommand";
 import { SsmSapClient } from "../SsmSapClient";
-import { SsmSapPaginationConfiguration } from "./Interfaces";
+import type { SsmSapPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

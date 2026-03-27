@@ -8,7 +8,7 @@ import {
   DescribeDBSubnetGroupsCommandOutput,
 } from "../commands/DescribeDBSubnetGroupsCommand";
 import { DocDBClient } from "../DocDBClient";
-import { DocDBPaginationConfiguration } from "./Interfaces";
+import type { DocDBPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

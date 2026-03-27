@@ -8,7 +8,7 @@ import {
   ListKeyRotationsCommandOutput,
 } from "../commands/ListKeyRotationsCommand";
 import { KMSClient } from "../KMSClient";
-import { KMSPaginationConfiguration } from "./Interfaces";
+import type { KMSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

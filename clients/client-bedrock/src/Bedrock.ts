@@ -4,490 +4,494 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BedrockClient } from "./BedrockClient";
 import {
+  type BatchDeleteEvaluationJobCommandInput,
+  type BatchDeleteEvaluationJobCommandOutput,
   BatchDeleteEvaluationJobCommand,
-  BatchDeleteEvaluationJobCommandInput,
-  BatchDeleteEvaluationJobCommandOutput,
 } from "./commands/BatchDeleteEvaluationJobCommand";
 import {
+  type CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  type CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput,
   CancelAutomatedReasoningPolicyBuildWorkflowCommand,
-  CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
-  CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput,
 } from "./commands/CancelAutomatedReasoningPolicyBuildWorkflowCommand";
 import {
+  type CreateAutomatedReasoningPolicyCommandInput,
+  type CreateAutomatedReasoningPolicyCommandOutput,
   CreateAutomatedReasoningPolicyCommand,
-  CreateAutomatedReasoningPolicyCommandInput,
-  CreateAutomatedReasoningPolicyCommandOutput,
 } from "./commands/CreateAutomatedReasoningPolicyCommand";
 import {
+  type CreateAutomatedReasoningPolicyTestCaseCommandInput,
+  type CreateAutomatedReasoningPolicyTestCaseCommandOutput,
   CreateAutomatedReasoningPolicyTestCaseCommand,
-  CreateAutomatedReasoningPolicyTestCaseCommandInput,
-  CreateAutomatedReasoningPolicyTestCaseCommandOutput,
 } from "./commands/CreateAutomatedReasoningPolicyTestCaseCommand";
 import {
+  type CreateAutomatedReasoningPolicyVersionCommandInput,
+  type CreateAutomatedReasoningPolicyVersionCommandOutput,
   CreateAutomatedReasoningPolicyVersionCommand,
-  CreateAutomatedReasoningPolicyVersionCommandInput,
-  CreateAutomatedReasoningPolicyVersionCommandOutput,
 } from "./commands/CreateAutomatedReasoningPolicyVersionCommand";
 import {
+  type CreateCustomModelCommandInput,
+  type CreateCustomModelCommandOutput,
   CreateCustomModelCommand,
-  CreateCustomModelCommandInput,
-  CreateCustomModelCommandOutput,
 } from "./commands/CreateCustomModelCommand";
 import {
+  type CreateCustomModelDeploymentCommandInput,
+  type CreateCustomModelDeploymentCommandOutput,
   CreateCustomModelDeploymentCommand,
-  CreateCustomModelDeploymentCommandInput,
-  CreateCustomModelDeploymentCommandOutput,
 } from "./commands/CreateCustomModelDeploymentCommand";
 import {
+  type CreateEvaluationJobCommandInput,
+  type CreateEvaluationJobCommandOutput,
   CreateEvaluationJobCommand,
-  CreateEvaluationJobCommandInput,
-  CreateEvaluationJobCommandOutput,
 } from "./commands/CreateEvaluationJobCommand";
 import {
+  type CreateFoundationModelAgreementCommandInput,
+  type CreateFoundationModelAgreementCommandOutput,
   CreateFoundationModelAgreementCommand,
-  CreateFoundationModelAgreementCommandInput,
-  CreateFoundationModelAgreementCommandOutput,
 } from "./commands/CreateFoundationModelAgreementCommand";
 import {
+  type CreateGuardrailCommandInput,
+  type CreateGuardrailCommandOutput,
   CreateGuardrailCommand,
-  CreateGuardrailCommandInput,
-  CreateGuardrailCommandOutput,
 } from "./commands/CreateGuardrailCommand";
 import {
+  type CreateGuardrailVersionCommandInput,
+  type CreateGuardrailVersionCommandOutput,
   CreateGuardrailVersionCommand,
-  CreateGuardrailVersionCommandInput,
-  CreateGuardrailVersionCommandOutput,
 } from "./commands/CreateGuardrailVersionCommand";
 import {
+  type CreateInferenceProfileCommandInput,
+  type CreateInferenceProfileCommandOutput,
   CreateInferenceProfileCommand,
-  CreateInferenceProfileCommandInput,
-  CreateInferenceProfileCommandOutput,
 } from "./commands/CreateInferenceProfileCommand";
 import {
+  type CreateMarketplaceModelEndpointCommandInput,
+  type CreateMarketplaceModelEndpointCommandOutput,
   CreateMarketplaceModelEndpointCommand,
-  CreateMarketplaceModelEndpointCommandInput,
-  CreateMarketplaceModelEndpointCommandOutput,
 } from "./commands/CreateMarketplaceModelEndpointCommand";
 import {
+  type CreateModelCopyJobCommandInput,
+  type CreateModelCopyJobCommandOutput,
   CreateModelCopyJobCommand,
-  CreateModelCopyJobCommandInput,
-  CreateModelCopyJobCommandOutput,
 } from "./commands/CreateModelCopyJobCommand";
 import {
+  type CreateModelCustomizationJobCommandInput,
+  type CreateModelCustomizationJobCommandOutput,
   CreateModelCustomizationJobCommand,
-  CreateModelCustomizationJobCommandInput,
-  CreateModelCustomizationJobCommandOutput,
 } from "./commands/CreateModelCustomizationJobCommand";
 import {
+  type CreateModelImportJobCommandInput,
+  type CreateModelImportJobCommandOutput,
   CreateModelImportJobCommand,
-  CreateModelImportJobCommandInput,
-  CreateModelImportJobCommandOutput,
 } from "./commands/CreateModelImportJobCommand";
 import {
+  type CreateModelInvocationJobCommandInput,
+  type CreateModelInvocationJobCommandOutput,
   CreateModelInvocationJobCommand,
-  CreateModelInvocationJobCommandInput,
-  CreateModelInvocationJobCommandOutput,
 } from "./commands/CreateModelInvocationJobCommand";
 import {
+  type CreatePromptRouterCommandInput,
+  type CreatePromptRouterCommandOutput,
   CreatePromptRouterCommand,
-  CreatePromptRouterCommandInput,
-  CreatePromptRouterCommandOutput,
 } from "./commands/CreatePromptRouterCommand";
 import {
+  type CreateProvisionedModelThroughputCommandInput,
+  type CreateProvisionedModelThroughputCommandOutput,
   CreateProvisionedModelThroughputCommand,
-  CreateProvisionedModelThroughputCommandInput,
-  CreateProvisionedModelThroughputCommandOutput,
 } from "./commands/CreateProvisionedModelThroughputCommand";
 import {
+  type DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  type DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput,
   DeleteAutomatedReasoningPolicyBuildWorkflowCommand,
-  DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
-  DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput,
 } from "./commands/DeleteAutomatedReasoningPolicyBuildWorkflowCommand";
 import {
+  type DeleteAutomatedReasoningPolicyCommandInput,
+  type DeleteAutomatedReasoningPolicyCommandOutput,
   DeleteAutomatedReasoningPolicyCommand,
-  DeleteAutomatedReasoningPolicyCommandInput,
-  DeleteAutomatedReasoningPolicyCommandOutput,
 } from "./commands/DeleteAutomatedReasoningPolicyCommand";
 import {
+  type DeleteAutomatedReasoningPolicyTestCaseCommandInput,
+  type DeleteAutomatedReasoningPolicyTestCaseCommandOutput,
   DeleteAutomatedReasoningPolicyTestCaseCommand,
-  DeleteAutomatedReasoningPolicyTestCaseCommandInput,
-  DeleteAutomatedReasoningPolicyTestCaseCommandOutput,
 } from "./commands/DeleteAutomatedReasoningPolicyTestCaseCommand";
 import {
+  type DeleteCustomModelCommandInput,
+  type DeleteCustomModelCommandOutput,
   DeleteCustomModelCommand,
-  DeleteCustomModelCommandInput,
-  DeleteCustomModelCommandOutput,
 } from "./commands/DeleteCustomModelCommand";
 import {
+  type DeleteCustomModelDeploymentCommandInput,
+  type DeleteCustomModelDeploymentCommandOutput,
   DeleteCustomModelDeploymentCommand,
-  DeleteCustomModelDeploymentCommandInput,
-  DeleteCustomModelDeploymentCommandOutput,
 } from "./commands/DeleteCustomModelDeploymentCommand";
 import {
+  type DeleteEnforcedGuardrailConfigurationCommandInput,
+  type DeleteEnforcedGuardrailConfigurationCommandOutput,
   DeleteEnforcedGuardrailConfigurationCommand,
-  DeleteEnforcedGuardrailConfigurationCommandInput,
-  DeleteEnforcedGuardrailConfigurationCommandOutput,
 } from "./commands/DeleteEnforcedGuardrailConfigurationCommand";
 import {
+  type DeleteFoundationModelAgreementCommandInput,
+  type DeleteFoundationModelAgreementCommandOutput,
   DeleteFoundationModelAgreementCommand,
-  DeleteFoundationModelAgreementCommandInput,
-  DeleteFoundationModelAgreementCommandOutput,
 } from "./commands/DeleteFoundationModelAgreementCommand";
 import {
+  type DeleteGuardrailCommandInput,
+  type DeleteGuardrailCommandOutput,
   DeleteGuardrailCommand,
-  DeleteGuardrailCommandInput,
-  DeleteGuardrailCommandOutput,
 } from "./commands/DeleteGuardrailCommand";
 import {
+  type DeleteImportedModelCommandInput,
+  type DeleteImportedModelCommandOutput,
   DeleteImportedModelCommand,
-  DeleteImportedModelCommandInput,
-  DeleteImportedModelCommandOutput,
 } from "./commands/DeleteImportedModelCommand";
 import {
+  type DeleteInferenceProfileCommandInput,
+  type DeleteInferenceProfileCommandOutput,
   DeleteInferenceProfileCommand,
-  DeleteInferenceProfileCommandInput,
-  DeleteInferenceProfileCommandOutput,
 } from "./commands/DeleteInferenceProfileCommand";
 import {
+  type DeleteMarketplaceModelEndpointCommandInput,
+  type DeleteMarketplaceModelEndpointCommandOutput,
   DeleteMarketplaceModelEndpointCommand,
-  DeleteMarketplaceModelEndpointCommandInput,
-  DeleteMarketplaceModelEndpointCommandOutput,
 } from "./commands/DeleteMarketplaceModelEndpointCommand";
 import {
+  type DeleteModelInvocationLoggingConfigurationCommandInput,
+  type DeleteModelInvocationLoggingConfigurationCommandOutput,
   DeleteModelInvocationLoggingConfigurationCommand,
-  DeleteModelInvocationLoggingConfigurationCommandInput,
-  DeleteModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/DeleteModelInvocationLoggingConfigurationCommand";
 import {
+  type DeletePromptRouterCommandInput,
+  type DeletePromptRouterCommandOutput,
   DeletePromptRouterCommand,
-  DeletePromptRouterCommandInput,
-  DeletePromptRouterCommandOutput,
 } from "./commands/DeletePromptRouterCommand";
 import {
+  type DeleteProvisionedModelThroughputCommandInput,
+  type DeleteProvisionedModelThroughputCommandOutput,
   DeleteProvisionedModelThroughputCommand,
-  DeleteProvisionedModelThroughputCommandInput,
-  DeleteProvisionedModelThroughputCommandOutput,
 } from "./commands/DeleteProvisionedModelThroughputCommand";
 import {
+  type DeregisterMarketplaceModelEndpointCommandInput,
+  type DeregisterMarketplaceModelEndpointCommandOutput,
   DeregisterMarketplaceModelEndpointCommand,
-  DeregisterMarketplaceModelEndpointCommandInput,
-  DeregisterMarketplaceModelEndpointCommandOutput,
 } from "./commands/DeregisterMarketplaceModelEndpointCommand";
 import {
+  type ExportAutomatedReasoningPolicyVersionCommandInput,
+  type ExportAutomatedReasoningPolicyVersionCommandOutput,
   ExportAutomatedReasoningPolicyVersionCommand,
-  ExportAutomatedReasoningPolicyVersionCommandInput,
-  ExportAutomatedReasoningPolicyVersionCommandOutput,
 } from "./commands/ExportAutomatedReasoningPolicyVersionCommand";
 import {
+  type GetAutomatedReasoningPolicyAnnotationsCommandInput,
+  type GetAutomatedReasoningPolicyAnnotationsCommandOutput,
   GetAutomatedReasoningPolicyAnnotationsCommand,
-  GetAutomatedReasoningPolicyAnnotationsCommandInput,
-  GetAutomatedReasoningPolicyAnnotationsCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyAnnotationsCommand";
 import {
+  type GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  type GetAutomatedReasoningPolicyBuildWorkflowCommandOutput,
   GetAutomatedReasoningPolicyBuildWorkflowCommand,
-  GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
-  GetAutomatedReasoningPolicyBuildWorkflowCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyBuildWorkflowCommand";
 import {
+  type GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
+  type GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput,
   GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand,
-  GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
-  GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand";
 import {
+  type GetAutomatedReasoningPolicyCommandInput,
+  type GetAutomatedReasoningPolicyCommandOutput,
   GetAutomatedReasoningPolicyCommand,
-  GetAutomatedReasoningPolicyCommandInput,
-  GetAutomatedReasoningPolicyCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyCommand";
 import {
+  type GetAutomatedReasoningPolicyNextScenarioCommandInput,
+  type GetAutomatedReasoningPolicyNextScenarioCommandOutput,
   GetAutomatedReasoningPolicyNextScenarioCommand,
-  GetAutomatedReasoningPolicyNextScenarioCommandInput,
-  GetAutomatedReasoningPolicyNextScenarioCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyNextScenarioCommand";
 import {
+  type GetAutomatedReasoningPolicyTestCaseCommandInput,
+  type GetAutomatedReasoningPolicyTestCaseCommandOutput,
   GetAutomatedReasoningPolicyTestCaseCommand,
-  GetAutomatedReasoningPolicyTestCaseCommandInput,
-  GetAutomatedReasoningPolicyTestCaseCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyTestCaseCommand";
 import {
+  type GetAutomatedReasoningPolicyTestResultCommandInput,
+  type GetAutomatedReasoningPolicyTestResultCommandOutput,
   GetAutomatedReasoningPolicyTestResultCommand,
-  GetAutomatedReasoningPolicyTestResultCommandInput,
-  GetAutomatedReasoningPolicyTestResultCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyTestResultCommand";
 import {
+  type GetCustomModelCommandInput,
+  type GetCustomModelCommandOutput,
   GetCustomModelCommand,
-  GetCustomModelCommandInput,
-  GetCustomModelCommandOutput,
 } from "./commands/GetCustomModelCommand";
 import {
+  type GetCustomModelDeploymentCommandInput,
+  type GetCustomModelDeploymentCommandOutput,
   GetCustomModelDeploymentCommand,
-  GetCustomModelDeploymentCommandInput,
-  GetCustomModelDeploymentCommandOutput,
 } from "./commands/GetCustomModelDeploymentCommand";
 import {
+  type GetEvaluationJobCommandInput,
+  type GetEvaluationJobCommandOutput,
   GetEvaluationJobCommand,
-  GetEvaluationJobCommandInput,
-  GetEvaluationJobCommandOutput,
 } from "./commands/GetEvaluationJobCommand";
 import {
+  type GetFoundationModelAvailabilityCommandInput,
+  type GetFoundationModelAvailabilityCommandOutput,
   GetFoundationModelAvailabilityCommand,
-  GetFoundationModelAvailabilityCommandInput,
-  GetFoundationModelAvailabilityCommandOutput,
 } from "./commands/GetFoundationModelAvailabilityCommand";
 import {
+  type GetFoundationModelCommandInput,
+  type GetFoundationModelCommandOutput,
   GetFoundationModelCommand,
-  GetFoundationModelCommandInput,
-  GetFoundationModelCommandOutput,
 } from "./commands/GetFoundationModelCommand";
 import {
+  type GetGuardrailCommandInput,
+  type GetGuardrailCommandOutput,
   GetGuardrailCommand,
-  GetGuardrailCommandInput,
-  GetGuardrailCommandOutput,
 } from "./commands/GetGuardrailCommand";
 import {
+  type GetImportedModelCommandInput,
+  type GetImportedModelCommandOutput,
   GetImportedModelCommand,
-  GetImportedModelCommandInput,
-  GetImportedModelCommandOutput,
 } from "./commands/GetImportedModelCommand";
 import {
+  type GetInferenceProfileCommandInput,
+  type GetInferenceProfileCommandOutput,
   GetInferenceProfileCommand,
-  GetInferenceProfileCommandInput,
-  GetInferenceProfileCommandOutput,
 } from "./commands/GetInferenceProfileCommand";
 import {
+  type GetMarketplaceModelEndpointCommandInput,
+  type GetMarketplaceModelEndpointCommandOutput,
   GetMarketplaceModelEndpointCommand,
-  GetMarketplaceModelEndpointCommandInput,
-  GetMarketplaceModelEndpointCommandOutput,
 } from "./commands/GetMarketplaceModelEndpointCommand";
 import {
+  type GetModelCopyJobCommandInput,
+  type GetModelCopyJobCommandOutput,
   GetModelCopyJobCommand,
-  GetModelCopyJobCommandInput,
-  GetModelCopyJobCommandOutput,
 } from "./commands/GetModelCopyJobCommand";
 import {
+  type GetModelCustomizationJobCommandInput,
+  type GetModelCustomizationJobCommandOutput,
   GetModelCustomizationJobCommand,
-  GetModelCustomizationJobCommandInput,
-  GetModelCustomizationJobCommandOutput,
 } from "./commands/GetModelCustomizationJobCommand";
 import {
+  type GetModelImportJobCommandInput,
+  type GetModelImportJobCommandOutput,
   GetModelImportJobCommand,
-  GetModelImportJobCommandInput,
-  GetModelImportJobCommandOutput,
 } from "./commands/GetModelImportJobCommand";
 import {
+  type GetModelInvocationJobCommandInput,
+  type GetModelInvocationJobCommandOutput,
   GetModelInvocationJobCommand,
-  GetModelInvocationJobCommandInput,
-  GetModelInvocationJobCommandOutput,
 } from "./commands/GetModelInvocationJobCommand";
 import {
+  type GetModelInvocationLoggingConfigurationCommandInput,
+  type GetModelInvocationLoggingConfigurationCommandOutput,
   GetModelInvocationLoggingConfigurationCommand,
-  GetModelInvocationLoggingConfigurationCommandInput,
-  GetModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/GetModelInvocationLoggingConfigurationCommand";
 import {
+  type GetPromptRouterCommandInput,
+  type GetPromptRouterCommandOutput,
   GetPromptRouterCommand,
-  GetPromptRouterCommandInput,
-  GetPromptRouterCommandOutput,
 } from "./commands/GetPromptRouterCommand";
 import {
+  type GetProvisionedModelThroughputCommandInput,
+  type GetProvisionedModelThroughputCommandOutput,
   GetProvisionedModelThroughputCommand,
-  GetProvisionedModelThroughputCommandInput,
-  GetProvisionedModelThroughputCommandOutput,
 } from "./commands/GetProvisionedModelThroughputCommand";
 import {
+  type GetUseCaseForModelAccessCommandInput,
+  type GetUseCaseForModelAccessCommandOutput,
   GetUseCaseForModelAccessCommand,
-  GetUseCaseForModelAccessCommandInput,
-  GetUseCaseForModelAccessCommandOutput,
 } from "./commands/GetUseCaseForModelAccessCommand";
 import {
+  type ListAutomatedReasoningPoliciesCommandInput,
+  type ListAutomatedReasoningPoliciesCommandOutput,
   ListAutomatedReasoningPoliciesCommand,
-  ListAutomatedReasoningPoliciesCommandInput,
-  ListAutomatedReasoningPoliciesCommandOutput,
 } from "./commands/ListAutomatedReasoningPoliciesCommand";
 import {
+  type ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
+  type ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput,
   ListAutomatedReasoningPolicyBuildWorkflowsCommand,
-  ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
-  ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput,
 } from "./commands/ListAutomatedReasoningPolicyBuildWorkflowsCommand";
 import {
+  type ListAutomatedReasoningPolicyTestCasesCommandInput,
+  type ListAutomatedReasoningPolicyTestCasesCommandOutput,
   ListAutomatedReasoningPolicyTestCasesCommand,
-  ListAutomatedReasoningPolicyTestCasesCommandInput,
-  ListAutomatedReasoningPolicyTestCasesCommandOutput,
 } from "./commands/ListAutomatedReasoningPolicyTestCasesCommand";
 import {
+  type ListAutomatedReasoningPolicyTestResultsCommandInput,
+  type ListAutomatedReasoningPolicyTestResultsCommandOutput,
   ListAutomatedReasoningPolicyTestResultsCommand,
-  ListAutomatedReasoningPolicyTestResultsCommandInput,
-  ListAutomatedReasoningPolicyTestResultsCommandOutput,
 } from "./commands/ListAutomatedReasoningPolicyTestResultsCommand";
 import {
+  type ListCustomModelDeploymentsCommandInput,
+  type ListCustomModelDeploymentsCommandOutput,
   ListCustomModelDeploymentsCommand,
-  ListCustomModelDeploymentsCommandInput,
-  ListCustomModelDeploymentsCommandOutput,
 } from "./commands/ListCustomModelDeploymentsCommand";
 import {
+  type ListCustomModelsCommandInput,
+  type ListCustomModelsCommandOutput,
   ListCustomModelsCommand,
-  ListCustomModelsCommandInput,
-  ListCustomModelsCommandOutput,
 } from "./commands/ListCustomModelsCommand";
 import {
+  type ListEnforcedGuardrailsConfigurationCommandInput,
+  type ListEnforcedGuardrailsConfigurationCommandOutput,
   ListEnforcedGuardrailsConfigurationCommand,
-  ListEnforcedGuardrailsConfigurationCommandInput,
-  ListEnforcedGuardrailsConfigurationCommandOutput,
 } from "./commands/ListEnforcedGuardrailsConfigurationCommand";
 import {
+  type ListEvaluationJobsCommandInput,
+  type ListEvaluationJobsCommandOutput,
   ListEvaluationJobsCommand,
-  ListEvaluationJobsCommandInput,
-  ListEvaluationJobsCommandOutput,
 } from "./commands/ListEvaluationJobsCommand";
 import {
+  type ListFoundationModelAgreementOffersCommandInput,
+  type ListFoundationModelAgreementOffersCommandOutput,
   ListFoundationModelAgreementOffersCommand,
-  ListFoundationModelAgreementOffersCommandInput,
-  ListFoundationModelAgreementOffersCommandOutput,
 } from "./commands/ListFoundationModelAgreementOffersCommand";
 import {
+  type ListFoundationModelsCommandInput,
+  type ListFoundationModelsCommandOutput,
   ListFoundationModelsCommand,
-  ListFoundationModelsCommandInput,
-  ListFoundationModelsCommandOutput,
 } from "./commands/ListFoundationModelsCommand";
 import {
+  type ListGuardrailsCommandInput,
+  type ListGuardrailsCommandOutput,
   ListGuardrailsCommand,
-  ListGuardrailsCommandInput,
-  ListGuardrailsCommandOutput,
 } from "./commands/ListGuardrailsCommand";
 import {
+  type ListImportedModelsCommandInput,
+  type ListImportedModelsCommandOutput,
   ListImportedModelsCommand,
-  ListImportedModelsCommandInput,
-  ListImportedModelsCommandOutput,
 } from "./commands/ListImportedModelsCommand";
 import {
+  type ListInferenceProfilesCommandInput,
+  type ListInferenceProfilesCommandOutput,
   ListInferenceProfilesCommand,
-  ListInferenceProfilesCommandInput,
-  ListInferenceProfilesCommandOutput,
 } from "./commands/ListInferenceProfilesCommand";
 import {
+  type ListMarketplaceModelEndpointsCommandInput,
+  type ListMarketplaceModelEndpointsCommandOutput,
   ListMarketplaceModelEndpointsCommand,
-  ListMarketplaceModelEndpointsCommandInput,
-  ListMarketplaceModelEndpointsCommandOutput,
 } from "./commands/ListMarketplaceModelEndpointsCommand";
 import {
+  type ListModelCopyJobsCommandInput,
+  type ListModelCopyJobsCommandOutput,
   ListModelCopyJobsCommand,
-  ListModelCopyJobsCommandInput,
-  ListModelCopyJobsCommandOutput,
 } from "./commands/ListModelCopyJobsCommand";
 import {
+  type ListModelCustomizationJobsCommandInput,
+  type ListModelCustomizationJobsCommandOutput,
   ListModelCustomizationJobsCommand,
-  ListModelCustomizationJobsCommandInput,
-  ListModelCustomizationJobsCommandOutput,
 } from "./commands/ListModelCustomizationJobsCommand";
 import {
+  type ListModelImportJobsCommandInput,
+  type ListModelImportJobsCommandOutput,
   ListModelImportJobsCommand,
-  ListModelImportJobsCommandInput,
-  ListModelImportJobsCommandOutput,
 } from "./commands/ListModelImportJobsCommand";
 import {
+  type ListModelInvocationJobsCommandInput,
+  type ListModelInvocationJobsCommandOutput,
   ListModelInvocationJobsCommand,
-  ListModelInvocationJobsCommandInput,
-  ListModelInvocationJobsCommandOutput,
 } from "./commands/ListModelInvocationJobsCommand";
 import {
+  type ListPromptRoutersCommandInput,
+  type ListPromptRoutersCommandOutput,
   ListPromptRoutersCommand,
-  ListPromptRoutersCommandInput,
-  ListPromptRoutersCommandOutput,
 } from "./commands/ListPromptRoutersCommand";
 import {
+  type ListProvisionedModelThroughputsCommandInput,
+  type ListProvisionedModelThroughputsCommandOutput,
   ListProvisionedModelThroughputsCommand,
-  ListProvisionedModelThroughputsCommandInput,
-  ListProvisionedModelThroughputsCommandOutput,
 } from "./commands/ListProvisionedModelThroughputsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutEnforcedGuardrailConfigurationCommandInput,
+  type PutEnforcedGuardrailConfigurationCommandOutput,
   PutEnforcedGuardrailConfigurationCommand,
-  PutEnforcedGuardrailConfigurationCommandInput,
-  PutEnforcedGuardrailConfigurationCommandOutput,
 } from "./commands/PutEnforcedGuardrailConfigurationCommand";
 import {
+  type PutModelInvocationLoggingConfigurationCommandInput,
+  type PutModelInvocationLoggingConfigurationCommandOutput,
   PutModelInvocationLoggingConfigurationCommand,
-  PutModelInvocationLoggingConfigurationCommandInput,
-  PutModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/PutModelInvocationLoggingConfigurationCommand";
 import {
+  type PutUseCaseForModelAccessCommandInput,
+  type PutUseCaseForModelAccessCommandOutput,
   PutUseCaseForModelAccessCommand,
-  PutUseCaseForModelAccessCommandInput,
-  PutUseCaseForModelAccessCommandOutput,
 } from "./commands/PutUseCaseForModelAccessCommand";
 import {
+  type RegisterMarketplaceModelEndpointCommandInput,
+  type RegisterMarketplaceModelEndpointCommandOutput,
   RegisterMarketplaceModelEndpointCommand,
-  RegisterMarketplaceModelEndpointCommandInput,
-  RegisterMarketplaceModelEndpointCommandOutput,
 } from "./commands/RegisterMarketplaceModelEndpointCommand";
 import {
+  type StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  type StartAutomatedReasoningPolicyBuildWorkflowCommandOutput,
   StartAutomatedReasoningPolicyBuildWorkflowCommand,
-  StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
-  StartAutomatedReasoningPolicyBuildWorkflowCommandOutput,
 } from "./commands/StartAutomatedReasoningPolicyBuildWorkflowCommand";
 import {
+  type StartAutomatedReasoningPolicyTestWorkflowCommandInput,
+  type StartAutomatedReasoningPolicyTestWorkflowCommandOutput,
   StartAutomatedReasoningPolicyTestWorkflowCommand,
-  StartAutomatedReasoningPolicyTestWorkflowCommandInput,
-  StartAutomatedReasoningPolicyTestWorkflowCommandOutput,
 } from "./commands/StartAutomatedReasoningPolicyTestWorkflowCommand";
 import {
+  type StopEvaluationJobCommandInput,
+  type StopEvaluationJobCommandOutput,
   StopEvaluationJobCommand,
-  StopEvaluationJobCommandInput,
-  StopEvaluationJobCommandOutput,
 } from "./commands/StopEvaluationJobCommand";
 import {
+  type StopModelCustomizationJobCommandInput,
+  type StopModelCustomizationJobCommandOutput,
   StopModelCustomizationJobCommand,
-  StopModelCustomizationJobCommandInput,
-  StopModelCustomizationJobCommandOutput,
 } from "./commands/StopModelCustomizationJobCommand";
 import {
+  type StopModelInvocationJobCommandInput,
+  type StopModelInvocationJobCommandOutput,
   StopModelInvocationJobCommand,
-  StopModelInvocationJobCommandInput,
-  StopModelInvocationJobCommandOutput,
 } from "./commands/StopModelInvocationJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
+  type UpdateAutomatedReasoningPolicyAnnotationsCommandOutput,
   UpdateAutomatedReasoningPolicyAnnotationsCommand,
-  UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
-  UpdateAutomatedReasoningPolicyAnnotationsCommandOutput,
 } from "./commands/UpdateAutomatedReasoningPolicyAnnotationsCommand";
 import {
+  type UpdateAutomatedReasoningPolicyCommandInput,
+  type UpdateAutomatedReasoningPolicyCommandOutput,
   UpdateAutomatedReasoningPolicyCommand,
-  UpdateAutomatedReasoningPolicyCommandInput,
-  UpdateAutomatedReasoningPolicyCommandOutput,
 } from "./commands/UpdateAutomatedReasoningPolicyCommand";
 import {
+  type UpdateAutomatedReasoningPolicyTestCaseCommandInput,
+  type UpdateAutomatedReasoningPolicyTestCaseCommandOutput,
   UpdateAutomatedReasoningPolicyTestCaseCommand,
-  UpdateAutomatedReasoningPolicyTestCaseCommandInput,
-  UpdateAutomatedReasoningPolicyTestCaseCommandOutput,
 } from "./commands/UpdateAutomatedReasoningPolicyTestCaseCommand";
 import {
+  type UpdateCustomModelDeploymentCommandInput,
+  type UpdateCustomModelDeploymentCommandOutput,
   UpdateCustomModelDeploymentCommand,
-  UpdateCustomModelDeploymentCommandInput,
-  UpdateCustomModelDeploymentCommandOutput,
 } from "./commands/UpdateCustomModelDeploymentCommand";
 import {
+  type UpdateGuardrailCommandInput,
+  type UpdateGuardrailCommandOutput,
   UpdateGuardrailCommand,
-  UpdateGuardrailCommandInput,
-  UpdateGuardrailCommandOutput,
 } from "./commands/UpdateGuardrailCommand";
 import {
+  type UpdateMarketplaceModelEndpointCommandInput,
+  type UpdateMarketplaceModelEndpointCommandOutput,
   UpdateMarketplaceModelEndpointCommand,
-  UpdateMarketplaceModelEndpointCommandInput,
-  UpdateMarketplaceModelEndpointCommandOutput,
 } from "./commands/UpdateMarketplaceModelEndpointCommand";
 import {
+  type UpdateProvisionedModelThroughputCommandInput,
+  type UpdateProvisionedModelThroughputCommandOutput,
   UpdateProvisionedModelThroughputCommand,
-  UpdateProvisionedModelThroughputCommandInput,
-  UpdateProvisionedModelThroughputCommandOutput,
 } from "./commands/UpdateProvisionedModelThroughputCommand";
 import { paginateListAutomatedReasoningPolicies } from "./pagination/ListAutomatedReasoningPoliciesPaginator";
 import {

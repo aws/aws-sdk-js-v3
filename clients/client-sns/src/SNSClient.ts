@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,124 +61,133 @@ import {
   defaultSNSHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
-import {
+import type { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
+import type {
   CheckIfPhoneNumberIsOptedOutCommandInput,
   CheckIfPhoneNumberIsOptedOutCommandOutput,
 } from "./commands/CheckIfPhoneNumberIsOptedOutCommand";
-import {
+import type {
   ConfirmSubscriptionCommandInput,
   ConfirmSubscriptionCommandOutput,
 } from "./commands/ConfirmSubscriptionCommand";
-import {
+import type {
   CreatePlatformApplicationCommandInput,
   CreatePlatformApplicationCommandOutput,
 } from "./commands/CreatePlatformApplicationCommand";
-import {
+import type {
   CreatePlatformEndpointCommandInput,
   CreatePlatformEndpointCommandOutput,
 } from "./commands/CreatePlatformEndpointCommand";
-import {
+import type {
   CreateSMSSandboxPhoneNumberCommandInput,
   CreateSMSSandboxPhoneNumberCommandOutput,
 } from "./commands/CreateSMSSandboxPhoneNumberCommand";
-import { CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
-import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
-import {
+import type { CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
+import type { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
+import type {
   DeletePlatformApplicationCommandInput,
   DeletePlatformApplicationCommandOutput,
 } from "./commands/DeletePlatformApplicationCommand";
-import {
+import type {
   DeleteSMSSandboxPhoneNumberCommandInput,
   DeleteSMSSandboxPhoneNumberCommandOutput,
 } from "./commands/DeleteSMSSandboxPhoneNumberCommand";
-import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
-import {
+import type { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
+import type {
   GetDataProtectionPolicyCommandInput,
   GetDataProtectionPolicyCommandOutput,
 } from "./commands/GetDataProtectionPolicyCommand";
-import {
+import type {
   GetEndpointAttributesCommandInput,
   GetEndpointAttributesCommandOutput,
 } from "./commands/GetEndpointAttributesCommand";
-import {
+import type {
   GetPlatformApplicationAttributesCommandInput,
   GetPlatformApplicationAttributesCommandOutput,
 } from "./commands/GetPlatformApplicationAttributesCommand";
-import { GetSMSAttributesCommandInput, GetSMSAttributesCommandOutput } from "./commands/GetSMSAttributesCommand";
-import {
+import type { GetSMSAttributesCommandInput, GetSMSAttributesCommandOutput } from "./commands/GetSMSAttributesCommand";
+import type {
   GetSMSSandboxAccountStatusCommandInput,
   GetSMSSandboxAccountStatusCommandOutput,
 } from "./commands/GetSMSSandboxAccountStatusCommand";
-import {
+import type {
   GetSubscriptionAttributesCommandInput,
   GetSubscriptionAttributesCommandOutput,
 } from "./commands/GetSubscriptionAttributesCommand";
-import { GetTopicAttributesCommandInput, GetTopicAttributesCommandOutput } from "./commands/GetTopicAttributesCommand";
-import {
+import type {
+  GetTopicAttributesCommandInput,
+  GetTopicAttributesCommandOutput,
+} from "./commands/GetTopicAttributesCommand";
+import type {
   ListEndpointsByPlatformApplicationCommandInput,
   ListEndpointsByPlatformApplicationCommandOutput,
 } from "./commands/ListEndpointsByPlatformApplicationCommand";
-import {
+import type {
   ListOriginationNumbersCommandInput,
   ListOriginationNumbersCommandOutput,
 } from "./commands/ListOriginationNumbersCommand";
-import {
+import type {
   ListPhoneNumbersOptedOutCommandInput,
   ListPhoneNumbersOptedOutCommandOutput,
 } from "./commands/ListPhoneNumbersOptedOutCommand";
-import {
+import type {
   ListPlatformApplicationsCommandInput,
   ListPlatformApplicationsCommandOutput,
 } from "./commands/ListPlatformApplicationsCommand";
-import {
+import type {
   ListSMSSandboxPhoneNumbersCommandInput,
   ListSMSSandboxPhoneNumbersCommandOutput,
 } from "./commands/ListSMSSandboxPhoneNumbersCommand";
-import {
+import type {
   ListSubscriptionsByTopicCommandInput,
   ListSubscriptionsByTopicCommandOutput,
 } from "./commands/ListSubscriptionsByTopicCommand";
-import { ListSubscriptionsCommandInput, ListSubscriptionsCommandOutput } from "./commands/ListSubscriptionsCommand";
-import {
+import type {
+  ListSubscriptionsCommandInput,
+  ListSubscriptionsCommandOutput,
+} from "./commands/ListSubscriptionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
-import { OptInPhoneNumberCommandInput, OptInPhoneNumberCommandOutput } from "./commands/OptInPhoneNumberCommand";
-import { PublishBatchCommandInput, PublishBatchCommandOutput } from "./commands/PublishBatchCommand";
-import { PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
-import {
+import type { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
+import type { OptInPhoneNumberCommandInput, OptInPhoneNumberCommandOutput } from "./commands/OptInPhoneNumberCommand";
+import type { PublishBatchCommandInput, PublishBatchCommandOutput } from "./commands/PublishBatchCommand";
+import type { PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
+import type {
   PutDataProtectionPolicyCommandInput,
   PutDataProtectionPolicyCommandOutput,
 } from "./commands/PutDataProtectionPolicyCommand";
-import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
-import {
+import type { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
+import type {
   SetEndpointAttributesCommandInput,
   SetEndpointAttributesCommandOutput,
 } from "./commands/SetEndpointAttributesCommand";
-import {
+import type {
   SetPlatformApplicationAttributesCommandInput,
   SetPlatformApplicationAttributesCommandOutput,
 } from "./commands/SetPlatformApplicationAttributesCommand";
-import { SetSMSAttributesCommandInput, SetSMSAttributesCommandOutput } from "./commands/SetSMSAttributesCommand";
-import {
+import type { SetSMSAttributesCommandInput, SetSMSAttributesCommandOutput } from "./commands/SetSMSAttributesCommand";
+import type {
   SetSubscriptionAttributesCommandInput,
   SetSubscriptionAttributesCommandOutput,
 } from "./commands/SetSubscriptionAttributesCommand";
-import { SetTopicAttributesCommandInput, SetTopicAttributesCommandOutput } from "./commands/SetTopicAttributesCommand";
-import { SubscribeCommandInput, SubscribeCommandOutput } from "./commands/SubscribeCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type {
+  SetTopicAttributesCommandInput,
+  SetTopicAttributesCommandOutput,
+} from "./commands/SetTopicAttributesCommand";
+import type { SubscribeCommandInput, SubscribeCommandOutput } from "./commands/SubscribeCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   VerifySMSSandboxPhoneNumberCommandInput,
   VerifySMSSandboxPhoneNumberCommandOutput,
 } from "./commands/VerifySMSSandboxPhoneNumberCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -396,7 +403,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

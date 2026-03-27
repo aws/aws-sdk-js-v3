@@ -8,7 +8,7 @@ import {
   ListFindingsReportsCommandInput,
   ListFindingsReportsCommandOutput,
 } from "../commands/ListFindingsReportsCommand";
-import { CodeGuruProfilerPaginationConfiguration } from "./Interfaces";
+import type { CodeGuruProfilerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,115 +61,121 @@ import {
   defaultEventBridgeHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   ActivateEventSourceCommandInput,
   ActivateEventSourceCommandOutput,
 } from "./commands/ActivateEventSourceCommand";
-import { CancelReplayCommandInput, CancelReplayCommandOutput } from "./commands/CancelReplayCommand";
-import {
+import type { CancelReplayCommandInput, CancelReplayCommandOutput } from "./commands/CancelReplayCommand";
+import type {
   CreateApiDestinationCommandInput,
   CreateApiDestinationCommandOutput,
 } from "./commands/CreateApiDestinationCommand";
-import { CreateArchiveCommandInput, CreateArchiveCommandOutput } from "./commands/CreateArchiveCommand";
-import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
-import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
-import { CreateEventBusCommandInput, CreateEventBusCommandOutput } from "./commands/CreateEventBusCommand";
-import {
+import type { CreateArchiveCommandInput, CreateArchiveCommandOutput } from "./commands/CreateArchiveCommand";
+import type { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
+import type { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
+import type { CreateEventBusCommandInput, CreateEventBusCommandOutput } from "./commands/CreateEventBusCommand";
+import type {
   CreatePartnerEventSourceCommandInput,
   CreatePartnerEventSourceCommandOutput,
 } from "./commands/CreatePartnerEventSourceCommand";
-import {
+import type {
   DeactivateEventSourceCommandInput,
   DeactivateEventSourceCommandOutput,
 } from "./commands/DeactivateEventSourceCommand";
-import {
+import type {
   DeauthorizeConnectionCommandInput,
   DeauthorizeConnectionCommandOutput,
 } from "./commands/DeauthorizeConnectionCommand";
-import {
+import type {
   DeleteApiDestinationCommandInput,
   DeleteApiDestinationCommandOutput,
 } from "./commands/DeleteApiDestinationCommand";
-import { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "./commands/DeleteArchiveCommand";
-import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
-import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
-import { DeleteEventBusCommandInput, DeleteEventBusCommandOutput } from "./commands/DeleteEventBusCommand";
-import {
+import type { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "./commands/DeleteArchiveCommand";
+import type { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import type { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
+import type { DeleteEventBusCommandInput, DeleteEventBusCommandOutput } from "./commands/DeleteEventBusCommand";
+import type {
   DeletePartnerEventSourceCommandInput,
   DeletePartnerEventSourceCommandOutput,
 } from "./commands/DeletePartnerEventSourceCommand";
-import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
-import {
+import type { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import type {
   DescribeApiDestinationCommandInput,
   DescribeApiDestinationCommandOutput,
 } from "./commands/DescribeApiDestinationCommand";
-import { DescribeArchiveCommandInput, DescribeArchiveCommandOutput } from "./commands/DescribeArchiveCommand";
-import { DescribeConnectionCommandInput, DescribeConnectionCommandOutput } from "./commands/DescribeConnectionCommand";
-import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
-import { DescribeEventBusCommandInput, DescribeEventBusCommandOutput } from "./commands/DescribeEventBusCommand";
-import {
+import type { DescribeArchiveCommandInput, DescribeArchiveCommandOutput } from "./commands/DescribeArchiveCommand";
+import type {
+  DescribeConnectionCommandInput,
+  DescribeConnectionCommandOutput,
+} from "./commands/DescribeConnectionCommand";
+import type { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
+import type { DescribeEventBusCommandInput, DescribeEventBusCommandOutput } from "./commands/DescribeEventBusCommand";
+import type {
   DescribeEventSourceCommandInput,
   DescribeEventSourceCommandOutput,
 } from "./commands/DescribeEventSourceCommand";
-import {
+import type {
   DescribePartnerEventSourceCommandInput,
   DescribePartnerEventSourceCommandOutput,
 } from "./commands/DescribePartnerEventSourceCommand";
-import { DescribeReplayCommandInput, DescribeReplayCommandOutput } from "./commands/DescribeReplayCommand";
-import { DescribeRuleCommandInput, DescribeRuleCommandOutput } from "./commands/DescribeRuleCommand";
-import { DisableRuleCommandInput, DisableRuleCommandOutput } from "./commands/DisableRuleCommand";
-import { EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand";
-import {
+import type { DescribeReplayCommandInput, DescribeReplayCommandOutput } from "./commands/DescribeReplayCommand";
+import type { DescribeRuleCommandInput, DescribeRuleCommandOutput } from "./commands/DescribeRuleCommand";
+import type { DisableRuleCommandInput, DisableRuleCommandOutput } from "./commands/DisableRuleCommand";
+import type { EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand";
+import type {
   ListApiDestinationsCommandInput,
   ListApiDestinationsCommandOutput,
 } from "./commands/ListApiDestinationsCommand";
-import { ListArchivesCommandInput, ListArchivesCommandOutput } from "./commands/ListArchivesCommand";
-import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
-import { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand";
-import { ListEventBusesCommandInput, ListEventBusesCommandOutput } from "./commands/ListEventBusesCommand";
-import { ListEventSourcesCommandInput, ListEventSourcesCommandOutput } from "./commands/ListEventSourcesCommand";
-import {
+import type { ListArchivesCommandInput, ListArchivesCommandOutput } from "./commands/ListArchivesCommand";
+import type { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
+import type { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand";
+import type { ListEventBusesCommandInput, ListEventBusesCommandOutput } from "./commands/ListEventBusesCommand";
+import type { ListEventSourcesCommandInput, ListEventSourcesCommandOutput } from "./commands/ListEventSourcesCommand";
+import type {
   ListPartnerEventSourceAccountsCommandInput,
   ListPartnerEventSourceAccountsCommandOutput,
 } from "./commands/ListPartnerEventSourceAccountsCommand";
-import {
+import type {
   ListPartnerEventSourcesCommandInput,
   ListPartnerEventSourcesCommandOutput,
 } from "./commands/ListPartnerEventSourcesCommand";
-import { ListReplaysCommandInput, ListReplaysCommandOutput } from "./commands/ListReplaysCommand";
-import {
+import type { ListReplaysCommandInput, ListReplaysCommandOutput } from "./commands/ListReplaysCommand";
+import type {
   ListRuleNamesByTargetCommandInput,
   ListRuleNamesByTargetCommandOutput,
 } from "./commands/ListRuleNamesByTargetCommand";
-import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
-import {
+import type { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTargetsByRuleCommandInput, ListTargetsByRuleCommandOutput } from "./commands/ListTargetsByRuleCommand";
-import { PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
-import { PutPartnerEventsCommandInput, PutPartnerEventsCommandOutput } from "./commands/PutPartnerEventsCommand";
-import { PutPermissionCommandInput, PutPermissionCommandOutput } from "./commands/PutPermissionCommand";
-import { PutRuleCommandInput, PutRuleCommandOutput } from "./commands/PutRuleCommand";
-import { PutTargetsCommandInput, PutTargetsCommandOutput } from "./commands/PutTargetsCommand";
-import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
-import { RemoveTargetsCommandInput, RemoveTargetsCommandOutput } from "./commands/RemoveTargetsCommand";
-import { StartReplayCommandInput, StartReplayCommandOutput } from "./commands/StartReplayCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TestEventPatternCommandInput, TestEventPatternCommandOutput } from "./commands/TestEventPatternCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type {
+  ListTargetsByRuleCommandInput,
+  ListTargetsByRuleCommandOutput,
+} from "./commands/ListTargetsByRuleCommand";
+import type { PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
+import type { PutPartnerEventsCommandInput, PutPartnerEventsCommandOutput } from "./commands/PutPartnerEventsCommand";
+import type { PutPermissionCommandInput, PutPermissionCommandOutput } from "./commands/PutPermissionCommand";
+import type { PutRuleCommandInput, PutRuleCommandOutput } from "./commands/PutRuleCommand";
+import type { PutTargetsCommandInput, PutTargetsCommandOutput } from "./commands/PutTargetsCommand";
+import type { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
+import type { RemoveTargetsCommandInput, RemoveTargetsCommandOutput } from "./commands/RemoveTargetsCommand";
+import type { StartReplayCommandInput, StartReplayCommandOutput } from "./commands/StartReplayCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TestEventPatternCommandInput, TestEventPatternCommandOutput } from "./commands/TestEventPatternCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateApiDestinationCommandInput,
   UpdateApiDestinationCommandOutput,
 } from "./commands/UpdateApiDestinationCommand";
-import { UpdateArchiveCommandInput, UpdateArchiveCommandOutput } from "./commands/UpdateArchiveCommand";
-import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
-import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand";
-import { UpdateEventBusCommandInput, UpdateEventBusCommandOutput } from "./commands/UpdateEventBusCommand";
+import type { UpdateArchiveCommandInput, UpdateArchiveCommandOutput } from "./commands/UpdateArchiveCommand";
+import type { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
+import type { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand";
+import type { UpdateEventBusCommandInput, UpdateEventBusCommandOutput } from "./commands/UpdateEventBusCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -417,7 +421,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

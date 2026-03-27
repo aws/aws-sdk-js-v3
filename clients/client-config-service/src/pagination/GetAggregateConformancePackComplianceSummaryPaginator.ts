@@ -8,7 +8,7 @@ import {
   GetAggregateConformancePackComplianceSummaryCommandOutput,
 } from "../commands/GetAggregateConformancePackComplianceSummaryCommand";
 import { ConfigServiceClient } from "../ConfigServiceClient";
-import { ConfigServicePaginationConfiguration } from "./Interfaces";
+import type { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

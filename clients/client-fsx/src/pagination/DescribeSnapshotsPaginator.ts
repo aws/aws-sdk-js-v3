@@ -8,7 +8,7 @@ import {
   DescribeSnapshotsCommandOutput,
 } from "../commands/DescribeSnapshotsCommand";
 import { FSxClient } from "../FSxClient";
-import { FSxPaginationConfiguration } from "./Interfaces";
+import type { FSxPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

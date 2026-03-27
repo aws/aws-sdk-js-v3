@@ -8,7 +8,7 @@ import {
   DescribeSubscriptionFiltersCommandInput,
   DescribeSubscriptionFiltersCommandOutput,
 } from "../commands/DescribeSubscriptionFiltersCommand";
-import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

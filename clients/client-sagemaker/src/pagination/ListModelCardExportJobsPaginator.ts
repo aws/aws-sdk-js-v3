@@ -8,7 +8,7 @@ import {
   ListModelCardExportJobsCommandOutput,
 } from "../commands/ListModelCardExportJobsCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

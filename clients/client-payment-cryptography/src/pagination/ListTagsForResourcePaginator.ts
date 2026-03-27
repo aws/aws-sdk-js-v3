@@ -8,7 +8,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PaymentCryptographyClient } from "../PaymentCryptographyClient";
-import { PaymentCryptographyPaginationConfiguration } from "./Interfaces";
+import type { PaymentCryptographyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   DescribeBackupsCommandInput,
   DescribeBackupsCommandOutput,
 } from "../commands/DescribeBackupsCommand";
-import { CloudHSMV2PaginationConfiguration } from "./Interfaces";
+import type { CloudHSMV2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

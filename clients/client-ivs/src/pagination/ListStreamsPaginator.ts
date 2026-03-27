@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/ListStreamsCommand";
 import { IvsClient } from "../IvsClient";
-import { IvsPaginationConfiguration } from "./Interfaces";
+import type { IvsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,147 +61,171 @@ import {
   defaultKafkaHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchAssociateScramSecretCommandInput,
   BatchAssociateScramSecretCommandOutput,
 } from "./commands/BatchAssociateScramSecretCommand";
-import {
+import type {
   BatchDisassociateScramSecretCommandInput,
   BatchDisassociateScramSecretCommandOutput,
 } from "./commands/BatchDisassociateScramSecretCommand";
-import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
-import { CreateClusterV2CommandInput, CreateClusterV2CommandOutput } from "./commands/CreateClusterV2Command";
-import {
+import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import type { CreateClusterV2CommandInput, CreateClusterV2CommandOutput } from "./commands/CreateClusterV2Command";
+import type {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand";
-import { CreateReplicatorCommandInput, CreateReplicatorCommandOutput } from "./commands/CreateReplicatorCommand";
-import { CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
-import {
+import type { CreateReplicatorCommandInput, CreateReplicatorCommandOutput } from "./commands/CreateReplicatorCommand";
+import type { CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
+import type {
   CreateVpcConnectionCommandInput,
   CreateVpcConnectionCommandOutput,
 } from "./commands/CreateVpcConnectionCommand";
-import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
-import {
+import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import type {
   DeleteClusterPolicyCommandInput,
   DeleteClusterPolicyCommandOutput,
 } from "./commands/DeleteClusterPolicyCommand";
-import {
+import type {
   DeleteConfigurationCommandInput,
   DeleteConfigurationCommandOutput,
 } from "./commands/DeleteConfigurationCommand";
-import { DeleteReplicatorCommandInput, DeleteReplicatorCommandOutput } from "./commands/DeleteReplicatorCommand";
-import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
-import {
+import type { DeleteReplicatorCommandInput, DeleteReplicatorCommandOutput } from "./commands/DeleteReplicatorCommand";
+import type { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
+import type {
   DeleteVpcConnectionCommandInput,
   DeleteVpcConnectionCommandOutput,
 } from "./commands/DeleteVpcConnectionCommand";
-import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
-import {
+import type { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
+import type {
   DescribeClusterOperationCommandInput,
   DescribeClusterOperationCommandOutput,
 } from "./commands/DescribeClusterOperationCommand";
-import {
+import type {
   DescribeClusterOperationV2CommandInput,
   DescribeClusterOperationV2CommandOutput,
 } from "./commands/DescribeClusterOperationV2Command";
-import { DescribeClusterV2CommandInput, DescribeClusterV2CommandOutput } from "./commands/DescribeClusterV2Command";
-import {
+import type {
+  DescribeClusterV2CommandInput,
+  DescribeClusterV2CommandOutput,
+} from "./commands/DescribeClusterV2Command";
+import type {
   DescribeConfigurationCommandInput,
   DescribeConfigurationCommandOutput,
 } from "./commands/DescribeConfigurationCommand";
-import {
+import type {
   DescribeConfigurationRevisionCommandInput,
   DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand";
-import { DescribeReplicatorCommandInput, DescribeReplicatorCommandOutput } from "./commands/DescribeReplicatorCommand";
-import { DescribeTopicCommandInput, DescribeTopicCommandOutput } from "./commands/DescribeTopicCommand";
-import {
+import type {
+  DescribeReplicatorCommandInput,
+  DescribeReplicatorCommandOutput,
+} from "./commands/DescribeReplicatorCommand";
+import type { DescribeTopicCommandInput, DescribeTopicCommandOutput } from "./commands/DescribeTopicCommand";
+import type {
   DescribeTopicPartitionsCommandInput,
   DescribeTopicPartitionsCommandOutput,
 } from "./commands/DescribeTopicPartitionsCommand";
-import {
+import type {
   DescribeVpcConnectionCommandInput,
   DescribeVpcConnectionCommandOutput,
 } from "./commands/DescribeVpcConnectionCommand";
-import {
+import type {
   GetBootstrapBrokersCommandInput,
   GetBootstrapBrokersCommandOutput,
 } from "./commands/GetBootstrapBrokersCommand";
-import { GetClusterPolicyCommandInput, GetClusterPolicyCommandOutput } from "./commands/GetClusterPolicyCommand";
-import {
+import type { GetClusterPolicyCommandInput, GetClusterPolicyCommandOutput } from "./commands/GetClusterPolicyCommand";
+import type {
   GetCompatibleKafkaVersionsCommandInput,
   GetCompatibleKafkaVersionsCommandOutput,
 } from "./commands/GetCompatibleKafkaVersionsCommand";
-import {
+import type {
   ListClientVpcConnectionsCommandInput,
   ListClientVpcConnectionsCommandOutput,
 } from "./commands/ListClientVpcConnectionsCommand";
-import {
+import type {
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
 } from "./commands/ListClusterOperationsCommand";
-import {
+import type {
   ListClusterOperationsV2CommandInput,
   ListClusterOperationsV2CommandOutput,
 } from "./commands/ListClusterOperationsV2Command";
-import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
-import { ListClustersV2CommandInput, ListClustersV2CommandOutput } from "./commands/ListClustersV2Command";
-import {
+import type { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
+import type { ListClustersV2CommandInput, ListClustersV2CommandOutput } from "./commands/ListClustersV2Command";
+import type {
   ListConfigurationRevisionsCommandInput,
   ListConfigurationRevisionsCommandOutput,
 } from "./commands/ListConfigurationRevisionsCommand";
-import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
-import { ListKafkaVersionsCommandInput, ListKafkaVersionsCommandOutput } from "./commands/ListKafkaVersionsCommand";
-import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
-import { ListReplicatorsCommandInput, ListReplicatorsCommandOutput } from "./commands/ListReplicatorsCommand";
-import { ListScramSecretsCommandInput, ListScramSecretsCommandOutput } from "./commands/ListScramSecretsCommand";
-import {
+import type {
+  ListConfigurationsCommandInput,
+  ListConfigurationsCommandOutput,
+} from "./commands/ListConfigurationsCommand";
+import type {
+  ListKafkaVersionsCommandInput,
+  ListKafkaVersionsCommandOutput,
+} from "./commands/ListKafkaVersionsCommand";
+import type { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import type { ListReplicatorsCommandInput, ListReplicatorsCommandOutput } from "./commands/ListReplicatorsCommand";
+import type { ListScramSecretsCommandInput, ListScramSecretsCommandOutput } from "./commands/ListScramSecretsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
-import { ListVpcConnectionsCommandInput, ListVpcConnectionsCommandOutput } from "./commands/ListVpcConnectionsCommand";
-import { PutClusterPolicyCommandInput, PutClusterPolicyCommandOutput } from "./commands/PutClusterPolicyCommand";
-import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand";
-import {
+import type { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
+import type {
+  ListVpcConnectionsCommandInput,
+  ListVpcConnectionsCommandOutput,
+} from "./commands/ListVpcConnectionsCommand";
+import type { PutClusterPolicyCommandInput, PutClusterPolicyCommandOutput } from "./commands/PutClusterPolicyCommand";
+import type { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand";
+import type {
   RejectClientVpcConnectionCommandInput,
   RejectClientVpcConnectionCommandOutput,
 } from "./commands/RejectClientVpcConnectionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateBrokerCountCommandInput, UpdateBrokerCountCommandOutput } from "./commands/UpdateBrokerCountCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateBrokerCountCommandInput,
+  UpdateBrokerCountCommandOutput,
+} from "./commands/UpdateBrokerCountCommand";
+import type {
   UpdateBrokerStorageCommandInput,
   UpdateBrokerStorageCommandOutput,
 } from "./commands/UpdateBrokerStorageCommand";
-import { UpdateBrokerTypeCommandInput, UpdateBrokerTypeCommandOutput } from "./commands/UpdateBrokerTypeCommand";
-import {
+import type { UpdateBrokerTypeCommandInput, UpdateBrokerTypeCommandOutput } from "./commands/UpdateBrokerTypeCommand";
+import type {
   UpdateClusterConfigurationCommandInput,
   UpdateClusterConfigurationCommandOutput,
 } from "./commands/UpdateClusterConfigurationCommand";
-import {
+import type {
   UpdateClusterKafkaVersionCommandInput,
   UpdateClusterKafkaVersionCommandOutput,
 } from "./commands/UpdateClusterKafkaVersionCommand";
-import {
+import type {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
-import { UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput } from "./commands/UpdateConnectivityCommand";
-import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand";
-import { UpdateRebalancingCommandInput, UpdateRebalancingCommandOutput } from "./commands/UpdateRebalancingCommand";
-import {
+import type {
+  UpdateConnectivityCommandInput,
+  UpdateConnectivityCommandOutput,
+} from "./commands/UpdateConnectivityCommand";
+import type { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand";
+import type {
+  UpdateRebalancingCommandInput,
+  UpdateRebalancingCommandOutput,
+} from "./commands/UpdateRebalancingCommand";
+import type {
   UpdateReplicationInfoCommandInput,
   UpdateReplicationInfoCommandOutput,
 } from "./commands/UpdateReplicationInfoCommand";
-import { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "./commands/UpdateSecurityCommand";
-import { UpdateStorageCommandInput, UpdateStorageCommandOutput } from "./commands/UpdateStorageCommand";
-import { UpdateTopicCommandInput, UpdateTopicCommandOutput } from "./commands/UpdateTopicCommand";
+import type { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "./commands/UpdateSecurityCommand";
+import type { UpdateStorageCommandInput, UpdateStorageCommandOutput } from "./commands/UpdateStorageCommand";
+import type { UpdateTopicCommandInput, UpdateTopicCommandOutput } from "./commands/UpdateTopicCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -453,7 +475,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

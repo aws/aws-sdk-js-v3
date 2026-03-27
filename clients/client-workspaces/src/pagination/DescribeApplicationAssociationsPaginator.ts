@@ -8,7 +8,7 @@ import {
   DescribeApplicationAssociationsCommandOutput,
 } from "../commands/DescribeApplicationAssociationsCommand";
 import { WorkSpacesClient } from "../WorkSpacesClient";
-import { WorkSpacesPaginationConfiguration } from "./Interfaces";
+import type { WorkSpacesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

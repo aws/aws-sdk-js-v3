@@ -8,7 +8,7 @@ import {
   ListAutomationEventsCommandOutput,
 } from "../commands/ListAutomationEventsCommand";
 import { ComputeOptimizerAutomationClient } from "../ComputeOptimizerAutomationClient";
-import { ComputeOptimizerAutomationPaginationConfiguration } from "./Interfaces";
+import type { ComputeOptimizerAutomationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

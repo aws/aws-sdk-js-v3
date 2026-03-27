@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { LanguageCodeString, NumberCapability, RouteType, SMSSandboxPhoneNumberVerificationStatus } from "./enums";
+import type { LanguageCodeString, NumberCapability, RouteType, SMSSandboxPhoneNumberVerificationStatus } from "./enums";
 
 /**
  * @public

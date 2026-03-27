@@ -8,7 +8,7 @@ import {
   ListClientDevicesAssociatedWithCoreDeviceCommandOutput,
 } from "../commands/ListClientDevicesAssociatedWithCoreDeviceCommand";
 import { GreengrassV2Client } from "../GreengrassV2Client";
-import { GreengrassV2PaginationConfiguration } from "./Interfaces";
+import type { GreengrassV2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

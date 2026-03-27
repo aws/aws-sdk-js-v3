@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   AquaConfigurationStatus,
   LakehouseIdcRegistration,
   LakehouseRegistration,
@@ -7,19 +7,19 @@ import {
   PartnerIntegrationStatus,
   UsageLimitBreachAction,
 } from "./enums";
-import {
-  type Cluster,
-  type ClusterSecurityGroup,
-  type NamespaceIdentifierUnion,
-  type RedshiftIdcApplication,
-  type ReservedNode,
-  type ResourcePolicy,
-  type ScheduledActionType,
-  type Snapshot,
-  type TableRestoreStatus,
+import type {
   AuthorizedTokenIssuer,
+  Cluster,
+  ClusterSecurityGroup,
+  NamespaceIdentifierUnion,
   Parameter,
+  RedshiftIdcApplication,
+  ReservedNode,
+  ResourcePolicy,
+  ScheduledActionType,
   ServiceIntegrationsUnion,
+  Snapshot,
+  TableRestoreStatus,
 } from "./models_0";
 
 /**

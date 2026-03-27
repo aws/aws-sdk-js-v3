@@ -3,146 +3,154 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateBillOfMaterialsImportJobCommandInput,
+  type CreateBillOfMaterialsImportJobCommandOutput,
   CreateBillOfMaterialsImportJobCommand,
-  CreateBillOfMaterialsImportJobCommandInput,
-  CreateBillOfMaterialsImportJobCommandOutput,
 } from "./commands/CreateBillOfMaterialsImportJobCommand";
 import {
+  type CreateDataIntegrationFlowCommandInput,
+  type CreateDataIntegrationFlowCommandOutput,
   CreateDataIntegrationFlowCommand,
-  CreateDataIntegrationFlowCommandInput,
-  CreateDataIntegrationFlowCommandOutput,
 } from "./commands/CreateDataIntegrationFlowCommand";
 import {
+  type CreateDataLakeDatasetCommandInput,
+  type CreateDataLakeDatasetCommandOutput,
   CreateDataLakeDatasetCommand,
-  CreateDataLakeDatasetCommandInput,
-  CreateDataLakeDatasetCommandOutput,
 } from "./commands/CreateDataLakeDatasetCommand";
 import {
+  type CreateDataLakeNamespaceCommandInput,
+  type CreateDataLakeNamespaceCommandOutput,
   CreateDataLakeNamespaceCommand,
-  CreateDataLakeNamespaceCommandInput,
-  CreateDataLakeNamespaceCommandOutput,
 } from "./commands/CreateDataLakeNamespaceCommand";
 import {
+  type CreateInstanceCommandInput,
+  type CreateInstanceCommandOutput,
   CreateInstanceCommand,
-  CreateInstanceCommandInput,
-  CreateInstanceCommandOutput,
 } from "./commands/CreateInstanceCommand";
 import {
+  type DeleteDataIntegrationFlowCommandInput,
+  type DeleteDataIntegrationFlowCommandOutput,
   DeleteDataIntegrationFlowCommand,
-  DeleteDataIntegrationFlowCommandInput,
-  DeleteDataIntegrationFlowCommandOutput,
 } from "./commands/DeleteDataIntegrationFlowCommand";
 import {
+  type DeleteDataLakeDatasetCommandInput,
+  type DeleteDataLakeDatasetCommandOutput,
   DeleteDataLakeDatasetCommand,
-  DeleteDataLakeDatasetCommandInput,
-  DeleteDataLakeDatasetCommandOutput,
 } from "./commands/DeleteDataLakeDatasetCommand";
 import {
+  type DeleteDataLakeNamespaceCommandInput,
+  type DeleteDataLakeNamespaceCommandOutput,
   DeleteDataLakeNamespaceCommand,
-  DeleteDataLakeNamespaceCommandInput,
-  DeleteDataLakeNamespaceCommandOutput,
 } from "./commands/DeleteDataLakeNamespaceCommand";
 import {
+  type DeleteInstanceCommandInput,
+  type DeleteInstanceCommandOutput,
   DeleteInstanceCommand,
-  DeleteInstanceCommandInput,
-  DeleteInstanceCommandOutput,
 } from "./commands/DeleteInstanceCommand";
 import {
+  type GetBillOfMaterialsImportJobCommandInput,
+  type GetBillOfMaterialsImportJobCommandOutput,
   GetBillOfMaterialsImportJobCommand,
-  GetBillOfMaterialsImportJobCommandInput,
-  GetBillOfMaterialsImportJobCommandOutput,
 } from "./commands/GetBillOfMaterialsImportJobCommand";
 import {
+  type GetDataIntegrationEventCommandInput,
+  type GetDataIntegrationEventCommandOutput,
   GetDataIntegrationEventCommand,
-  GetDataIntegrationEventCommandInput,
-  GetDataIntegrationEventCommandOutput,
 } from "./commands/GetDataIntegrationEventCommand";
 import {
+  type GetDataIntegrationFlowCommandInput,
+  type GetDataIntegrationFlowCommandOutput,
   GetDataIntegrationFlowCommand,
-  GetDataIntegrationFlowCommandInput,
-  GetDataIntegrationFlowCommandOutput,
 } from "./commands/GetDataIntegrationFlowCommand";
 import {
+  type GetDataIntegrationFlowExecutionCommandInput,
+  type GetDataIntegrationFlowExecutionCommandOutput,
   GetDataIntegrationFlowExecutionCommand,
-  GetDataIntegrationFlowExecutionCommandInput,
-  GetDataIntegrationFlowExecutionCommandOutput,
 } from "./commands/GetDataIntegrationFlowExecutionCommand";
 import {
+  type GetDataLakeDatasetCommandInput,
+  type GetDataLakeDatasetCommandOutput,
   GetDataLakeDatasetCommand,
-  GetDataLakeDatasetCommandInput,
-  GetDataLakeDatasetCommandOutput,
 } from "./commands/GetDataLakeDatasetCommand";
 import {
+  type GetDataLakeNamespaceCommandInput,
+  type GetDataLakeNamespaceCommandOutput,
   GetDataLakeNamespaceCommand,
-  GetDataLakeNamespaceCommandInput,
-  GetDataLakeNamespaceCommandOutput,
 } from "./commands/GetDataLakeNamespaceCommand";
-import { GetInstanceCommand, GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
 import {
+  type GetInstanceCommandInput,
+  type GetInstanceCommandOutput,
+  GetInstanceCommand,
+} from "./commands/GetInstanceCommand";
+import {
+  type ListDataIntegrationEventsCommandInput,
+  type ListDataIntegrationEventsCommandOutput,
   ListDataIntegrationEventsCommand,
-  ListDataIntegrationEventsCommandInput,
-  ListDataIntegrationEventsCommandOutput,
 } from "./commands/ListDataIntegrationEventsCommand";
 import {
+  type ListDataIntegrationFlowExecutionsCommandInput,
+  type ListDataIntegrationFlowExecutionsCommandOutput,
   ListDataIntegrationFlowExecutionsCommand,
-  ListDataIntegrationFlowExecutionsCommandInput,
-  ListDataIntegrationFlowExecutionsCommandOutput,
 } from "./commands/ListDataIntegrationFlowExecutionsCommand";
 import {
+  type ListDataIntegrationFlowsCommandInput,
+  type ListDataIntegrationFlowsCommandOutput,
   ListDataIntegrationFlowsCommand,
-  ListDataIntegrationFlowsCommandInput,
-  ListDataIntegrationFlowsCommandOutput,
 } from "./commands/ListDataIntegrationFlowsCommand";
 import {
+  type ListDataLakeDatasetsCommandInput,
+  type ListDataLakeDatasetsCommandOutput,
   ListDataLakeDatasetsCommand,
-  ListDataLakeDatasetsCommandInput,
-  ListDataLakeDatasetsCommandOutput,
 } from "./commands/ListDataLakeDatasetsCommand";
 import {
+  type ListDataLakeNamespacesCommandInput,
+  type ListDataLakeNamespacesCommandOutput,
   ListDataLakeNamespacesCommand,
-  ListDataLakeNamespacesCommandInput,
-  ListDataLakeNamespacesCommandOutput,
 } from "./commands/ListDataLakeNamespacesCommand";
 import {
+  type ListInstancesCommandInput,
+  type ListInstancesCommandOutput,
   ListInstancesCommand,
-  ListInstancesCommandInput,
-  ListInstancesCommandOutput,
 } from "./commands/ListInstancesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type SendDataIntegrationEventCommandInput,
+  type SendDataIntegrationEventCommandOutput,
   SendDataIntegrationEventCommand,
-  SendDataIntegrationEventCommandInput,
-  SendDataIntegrationEventCommandOutput,
 } from "./commands/SendDataIntegrationEventCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDataIntegrationFlowCommandInput,
+  type UpdateDataIntegrationFlowCommandOutput,
   UpdateDataIntegrationFlowCommand,
-  UpdateDataIntegrationFlowCommandInput,
-  UpdateDataIntegrationFlowCommandOutput,
 } from "./commands/UpdateDataIntegrationFlowCommand";
 import {
+  type UpdateDataLakeDatasetCommandInput,
+  type UpdateDataLakeDatasetCommandOutput,
   UpdateDataLakeDatasetCommand,
-  UpdateDataLakeDatasetCommandInput,
-  UpdateDataLakeDatasetCommandOutput,
 } from "./commands/UpdateDataLakeDatasetCommand";
 import {
+  type UpdateDataLakeNamespaceCommandInput,
+  type UpdateDataLakeNamespaceCommandOutput,
   UpdateDataLakeNamespaceCommand,
-  UpdateDataLakeNamespaceCommandInput,
-  UpdateDataLakeNamespaceCommandOutput,
 } from "./commands/UpdateDataLakeNamespaceCommand";
 import {
+  type UpdateInstanceCommandInput,
+  type UpdateInstanceCommandOutput,
   UpdateInstanceCommand,
-  UpdateInstanceCommandInput,
-  UpdateInstanceCommandOutput,
 } from "./commands/UpdateInstanceCommand";
 import { paginateListDataIntegrationEvents } from "./pagination/ListDataIntegrationEventsPaginator";
 import { paginateListDataIntegrationFlowExecutions } from "./pagination/ListDataIntegrationFlowExecutionsPaginator";

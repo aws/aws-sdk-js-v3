@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,204 +61,234 @@ import {
   defaultDirectoryServiceHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptSharedDirectoryCommandInput,
   AcceptSharedDirectoryCommandOutput,
 } from "./commands/AcceptSharedDirectoryCommand";
-import { AddIpRoutesCommandInput, AddIpRoutesCommandOutput } from "./commands/AddIpRoutesCommand";
-import { AddRegionCommandInput, AddRegionCommandOutput } from "./commands/AddRegionCommand";
-import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
-import {
+import type { AddIpRoutesCommandInput, AddIpRoutesCommandOutput } from "./commands/AddIpRoutesCommand";
+import type { AddRegionCommandInput, AddRegionCommandOutput } from "./commands/AddRegionCommand";
+import type {
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput,
+} from "./commands/AddTagsToResourceCommand";
+import type {
   CancelSchemaExtensionCommandInput,
   CancelSchemaExtensionCommandOutput,
 } from "./commands/CancelSchemaExtensionCommand";
-import { ConnectDirectoryCommandInput, ConnectDirectoryCommandOutput } from "./commands/ConnectDirectoryCommand";
-import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
-import { CreateComputerCommandInput, CreateComputerCommandOutput } from "./commands/CreateComputerCommand";
-import {
+import type { ConnectDirectoryCommandInput, ConnectDirectoryCommandOutput } from "./commands/ConnectDirectoryCommand";
+import type { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import type { CreateComputerCommandInput, CreateComputerCommandOutput } from "./commands/CreateComputerCommand";
+import type {
   CreateConditionalForwarderCommandInput,
   CreateConditionalForwarderCommandOutput,
 } from "./commands/CreateConditionalForwarderCommand";
-import { CreateDirectoryCommandInput, CreateDirectoryCommandOutput } from "./commands/CreateDirectoryCommand";
-import { CreateHybridADCommandInput, CreateHybridADCommandOutput } from "./commands/CreateHybridADCommand";
-import {
+import type { CreateDirectoryCommandInput, CreateDirectoryCommandOutput } from "./commands/CreateDirectoryCommand";
+import type { CreateHybridADCommandInput, CreateHybridADCommandOutput } from "./commands/CreateHybridADCommand";
+import type {
   CreateLogSubscriptionCommandInput,
   CreateLogSubscriptionCommandOutput,
 } from "./commands/CreateLogSubscriptionCommand";
-import { CreateMicrosoftADCommandInput, CreateMicrosoftADCommandOutput } from "./commands/CreateMicrosoftADCommand";
-import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
-import { CreateTrustCommandInput, CreateTrustCommandOutput } from "./commands/CreateTrustCommand";
-import { DeleteADAssessmentCommandInput, DeleteADAssessmentCommandOutput } from "./commands/DeleteADAssessmentCommand";
-import {
+import type {
+  CreateMicrosoftADCommandInput,
+  CreateMicrosoftADCommandOutput,
+} from "./commands/CreateMicrosoftADCommand";
+import type { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import type { CreateTrustCommandInput, CreateTrustCommandOutput } from "./commands/CreateTrustCommand";
+import type {
+  DeleteADAssessmentCommandInput,
+  DeleteADAssessmentCommandOutput,
+} from "./commands/DeleteADAssessmentCommand";
+import type {
   DeleteConditionalForwarderCommandInput,
   DeleteConditionalForwarderCommandOutput,
 } from "./commands/DeleteConditionalForwarderCommand";
-import { DeleteDirectoryCommandInput, DeleteDirectoryCommandOutput } from "./commands/DeleteDirectoryCommand";
-import {
+import type { DeleteDirectoryCommandInput, DeleteDirectoryCommandOutput } from "./commands/DeleteDirectoryCommand";
+import type {
   DeleteLogSubscriptionCommandInput,
   DeleteLogSubscriptionCommandOutput,
 } from "./commands/DeleteLogSubscriptionCommand";
-import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
-import { DeleteTrustCommandInput, DeleteTrustCommandOutput } from "./commands/DeleteTrustCommand";
-import {
+import type { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
+import type { DeleteTrustCommandInput, DeleteTrustCommandOutput } from "./commands/DeleteTrustCommand";
+import type {
   DeregisterCertificateCommandInput,
   DeregisterCertificateCommandOutput,
 } from "./commands/DeregisterCertificateCommand";
-import {
+import type {
   DeregisterEventTopicCommandInput,
   DeregisterEventTopicCommandOutput,
 } from "./commands/DeregisterEventTopicCommand";
-import {
+import type {
   DescribeADAssessmentCommandInput,
   DescribeADAssessmentCommandOutput,
 } from "./commands/DescribeADAssessmentCommand";
-import {
+import type {
   DescribeCAEnrollmentPolicyCommandInput,
   DescribeCAEnrollmentPolicyCommandOutput,
 } from "./commands/DescribeCAEnrollmentPolicyCommand";
-import {
+import type {
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
-import {
+import type {
   DescribeClientAuthenticationSettingsCommandInput,
   DescribeClientAuthenticationSettingsCommandOutput,
 } from "./commands/DescribeClientAuthenticationSettingsCommand";
-import {
+import type {
   DescribeConditionalForwardersCommandInput,
   DescribeConditionalForwardersCommandOutput,
 } from "./commands/DescribeConditionalForwardersCommand";
-import {
+import type {
   DescribeDirectoriesCommandInput,
   DescribeDirectoriesCommandOutput,
 } from "./commands/DescribeDirectoriesCommand";
-import {
+import type {
   DescribeDirectoryDataAccessCommandInput,
   DescribeDirectoryDataAccessCommandOutput,
 } from "./commands/DescribeDirectoryDataAccessCommand";
-import {
+import type {
   DescribeDomainControllersCommandInput,
   DescribeDomainControllersCommandOutput,
 } from "./commands/DescribeDomainControllersCommand";
-import {
+import type {
   DescribeEventTopicsCommandInput,
   DescribeEventTopicsCommandOutput,
 } from "./commands/DescribeEventTopicsCommand";
-import {
+import type {
   DescribeHybridADUpdateCommandInput,
   DescribeHybridADUpdateCommandOutput,
 } from "./commands/DescribeHybridADUpdateCommand";
-import {
+import type {
   DescribeLDAPSSettingsCommandInput,
   DescribeLDAPSSettingsCommandOutput,
 } from "./commands/DescribeLDAPSSettingsCommand";
-import { DescribeRegionsCommandInput, DescribeRegionsCommandOutput } from "./commands/DescribeRegionsCommand";
-import { DescribeSettingsCommandInput, DescribeSettingsCommandOutput } from "./commands/DescribeSettingsCommand";
-import {
+import type { DescribeRegionsCommandInput, DescribeRegionsCommandOutput } from "./commands/DescribeRegionsCommand";
+import type { DescribeSettingsCommandInput, DescribeSettingsCommandOutput } from "./commands/DescribeSettingsCommand";
+import type {
   DescribeSharedDirectoriesCommandInput,
   DescribeSharedDirectoriesCommandOutput,
 } from "./commands/DescribeSharedDirectoriesCommand";
-import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
-import { DescribeTrustsCommandInput, DescribeTrustsCommandOutput } from "./commands/DescribeTrustsCommand";
-import {
+import type {
+  DescribeSnapshotsCommandInput,
+  DescribeSnapshotsCommandOutput,
+} from "./commands/DescribeSnapshotsCommand";
+import type { DescribeTrustsCommandInput, DescribeTrustsCommandOutput } from "./commands/DescribeTrustsCommand";
+import type {
   DescribeUpdateDirectoryCommandInput,
   DescribeUpdateDirectoryCommandOutput,
 } from "./commands/DescribeUpdateDirectoryCommand";
-import {
+import type {
   DisableCAEnrollmentPolicyCommandInput,
   DisableCAEnrollmentPolicyCommandOutput,
 } from "./commands/DisableCAEnrollmentPolicyCommand";
-import {
+import type {
   DisableClientAuthenticationCommandInput,
   DisableClientAuthenticationCommandOutput,
 } from "./commands/DisableClientAuthenticationCommand";
-import {
+import type {
   DisableDirectoryDataAccessCommandInput,
   DisableDirectoryDataAccessCommandOutput,
 } from "./commands/DisableDirectoryDataAccessCommand";
-import { DisableLDAPSCommandInput, DisableLDAPSCommandOutput } from "./commands/DisableLDAPSCommand";
-import { DisableRadiusCommandInput, DisableRadiusCommandOutput } from "./commands/DisableRadiusCommand";
-import { DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand";
-import {
+import type { DisableLDAPSCommandInput, DisableLDAPSCommandOutput } from "./commands/DisableLDAPSCommand";
+import type { DisableRadiusCommandInput, DisableRadiusCommandOutput } from "./commands/DisableRadiusCommand";
+import type { DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand";
+import type {
   EnableCAEnrollmentPolicyCommandInput,
   EnableCAEnrollmentPolicyCommandOutput,
 } from "./commands/EnableCAEnrollmentPolicyCommand";
-import {
+import type {
   EnableClientAuthenticationCommandInput,
   EnableClientAuthenticationCommandOutput,
 } from "./commands/EnableClientAuthenticationCommand";
-import {
+import type {
   EnableDirectoryDataAccessCommandInput,
   EnableDirectoryDataAccessCommandOutput,
 } from "./commands/EnableDirectoryDataAccessCommand";
-import { EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand";
-import { EnableRadiusCommandInput, EnableRadiusCommandOutput } from "./commands/EnableRadiusCommand";
-import { EnableSsoCommandInput, EnableSsoCommandOutput } from "./commands/EnableSsoCommand";
-import { GetDirectoryLimitsCommandInput, GetDirectoryLimitsCommandOutput } from "./commands/GetDirectoryLimitsCommand";
-import { GetSnapshotLimitsCommandInput, GetSnapshotLimitsCommandOutput } from "./commands/GetSnapshotLimitsCommand";
-import { ListADAssessmentsCommandInput, ListADAssessmentsCommandOutput } from "./commands/ListADAssessmentsCommand";
-import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
-import { ListIpRoutesCommandInput, ListIpRoutesCommandOutput } from "./commands/ListIpRoutesCommand";
-import {
+import type { EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand";
+import type { EnableRadiusCommandInput, EnableRadiusCommandOutput } from "./commands/EnableRadiusCommand";
+import type { EnableSsoCommandInput, EnableSsoCommandOutput } from "./commands/EnableSsoCommand";
+import type {
+  GetDirectoryLimitsCommandInput,
+  GetDirectoryLimitsCommandOutput,
+} from "./commands/GetDirectoryLimitsCommand";
+import type {
+  GetSnapshotLimitsCommandInput,
+  GetSnapshotLimitsCommandOutput,
+} from "./commands/GetSnapshotLimitsCommand";
+import type {
+  ListADAssessmentsCommandInput,
+  ListADAssessmentsCommandOutput,
+} from "./commands/ListADAssessmentsCommand";
+import type { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
+import type { ListIpRoutesCommandInput, ListIpRoutesCommandOutput } from "./commands/ListIpRoutesCommand";
+import type {
   ListLogSubscriptionsCommandInput,
   ListLogSubscriptionsCommandOutput,
 } from "./commands/ListLogSubscriptionsCommand";
-import {
+import type {
   ListSchemaExtensionsCommandInput,
   ListSchemaExtensionsCommandOutput,
 } from "./commands/ListSchemaExtensionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   RegisterCertificateCommandInput,
   RegisterCertificateCommandOutput,
 } from "./commands/RegisterCertificateCommand";
-import { RegisterEventTopicCommandInput, RegisterEventTopicCommandOutput } from "./commands/RegisterEventTopicCommand";
-import {
+import type {
+  RegisterEventTopicCommandInput,
+  RegisterEventTopicCommandOutput,
+} from "./commands/RegisterEventTopicCommand";
+import type {
   RejectSharedDirectoryCommandInput,
   RejectSharedDirectoryCommandOutput,
 } from "./commands/RejectSharedDirectoryCommand";
-import { RemoveIpRoutesCommandInput, RemoveIpRoutesCommandOutput } from "./commands/RemoveIpRoutesCommand";
-import { RemoveRegionCommandInput, RemoveRegionCommandOutput } from "./commands/RemoveRegionCommand";
-import {
+import type { RemoveIpRoutesCommandInput, RemoveIpRoutesCommandOutput } from "./commands/RemoveIpRoutesCommand";
+import type { RemoveRegionCommandInput, RemoveRegionCommandOutput } from "./commands/RemoveRegionCommand";
+import type {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
-import { ResetUserPasswordCommandInput, ResetUserPasswordCommandOutput } from "./commands/ResetUserPasswordCommand";
-import {
+import type {
+  ResetUserPasswordCommandInput,
+  ResetUserPasswordCommandOutput,
+} from "./commands/ResetUserPasswordCommand";
+import type {
   RestoreFromSnapshotCommandInput,
   RestoreFromSnapshotCommandOutput,
 } from "./commands/RestoreFromSnapshotCommand";
-import { ShareDirectoryCommandInput, ShareDirectoryCommandOutput } from "./commands/ShareDirectoryCommand";
-import { StartADAssessmentCommandInput, StartADAssessmentCommandOutput } from "./commands/StartADAssessmentCommand";
-import {
+import type { ShareDirectoryCommandInput, ShareDirectoryCommandOutput } from "./commands/ShareDirectoryCommand";
+import type {
+  StartADAssessmentCommandInput,
+  StartADAssessmentCommandOutput,
+} from "./commands/StartADAssessmentCommand";
+import type {
   StartSchemaExtensionCommandInput,
   StartSchemaExtensionCommandOutput,
 } from "./commands/StartSchemaExtensionCommand";
-import { UnshareDirectoryCommandInput, UnshareDirectoryCommandOutput } from "./commands/UnshareDirectoryCommand";
-import {
+import type { UnshareDirectoryCommandInput, UnshareDirectoryCommandOutput } from "./commands/UnshareDirectoryCommand";
+import type {
   UpdateConditionalForwarderCommandInput,
   UpdateConditionalForwarderCommandOutput,
 } from "./commands/UpdateConditionalForwarderCommand";
-import {
+import type {
   UpdateDirectorySetupCommandInput,
   UpdateDirectorySetupCommandOutput,
 } from "./commands/UpdateDirectorySetupCommand";
-import { UpdateHybridADCommandInput, UpdateHybridADCommandOutput } from "./commands/UpdateHybridADCommand";
-import {
+import type { UpdateHybridADCommandInput, UpdateHybridADCommandOutput } from "./commands/UpdateHybridADCommand";
+import type {
   UpdateNumberOfDomainControllersCommandInput,
   UpdateNumberOfDomainControllersCommandOutput,
 } from "./commands/UpdateNumberOfDomainControllersCommand";
-import { UpdateRadiusCommandInput, UpdateRadiusCommandOutput } from "./commands/UpdateRadiusCommand";
-import { UpdateSettingsCommandInput, UpdateSettingsCommandOutput } from "./commands/UpdateSettingsCommand";
-import { UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand";
-import { VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand";
+import type { UpdateRadiusCommandInput, UpdateRadiusCommandOutput } from "./commands/UpdateRadiusCommand";
+import type { UpdateSettingsCommandInput, UpdateSettingsCommandOutput } from "./commands/UpdateSettingsCommand";
+import type { UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand";
+import type { VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -552,7 +580,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

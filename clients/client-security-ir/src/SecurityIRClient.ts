@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,46 +61,58 @@ import {
   defaultSecurityIRHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchGetMemberAccountDetailsCommandInput,
   BatchGetMemberAccountDetailsCommandOutput,
 } from "./commands/BatchGetMemberAccountDetailsCommand";
-import { CancelMembershipCommandInput, CancelMembershipCommandOutput } from "./commands/CancelMembershipCommand";
-import { CloseCaseCommandInput, CloseCaseCommandOutput } from "./commands/CloseCaseCommand";
-import { CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
-import { CreateCaseCommentCommandInput, CreateCaseCommentCommandOutput } from "./commands/CreateCaseCommentCommand";
-import { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "./commands/CreateMembershipCommand";
-import {
+import type { CancelMembershipCommandInput, CancelMembershipCommandOutput } from "./commands/CancelMembershipCommand";
+import type { CloseCaseCommandInput, CloseCaseCommandOutput } from "./commands/CloseCaseCommand";
+import type { CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
+import type {
+  CreateCaseCommentCommandInput,
+  CreateCaseCommentCommandOutput,
+} from "./commands/CreateCaseCommentCommand";
+import type { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "./commands/CreateMembershipCommand";
+import type {
   GetCaseAttachmentDownloadUrlCommandInput,
   GetCaseAttachmentDownloadUrlCommandOutput,
 } from "./commands/GetCaseAttachmentDownloadUrlCommand";
-import {
+import type {
   GetCaseAttachmentUploadUrlCommandInput,
   GetCaseAttachmentUploadUrlCommandOutput,
 } from "./commands/GetCaseAttachmentUploadUrlCommand";
-import { GetCaseCommandInput, GetCaseCommandOutput } from "./commands/GetCaseCommand";
-import { GetMembershipCommandInput, GetMembershipCommandOutput } from "./commands/GetMembershipCommand";
-import { ListCaseEditsCommandInput, ListCaseEditsCommandOutput } from "./commands/ListCaseEditsCommand";
-import { ListCasesCommandInput, ListCasesCommandOutput } from "./commands/ListCasesCommand";
-import { ListCommentsCommandInput, ListCommentsCommandOutput } from "./commands/ListCommentsCommand";
-import { ListInvestigationsCommandInput, ListInvestigationsCommandOutput } from "./commands/ListInvestigationsCommand";
-import { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "./commands/ListMembershipsCommand";
-import {
+import type { GetCaseCommandInput, GetCaseCommandOutput } from "./commands/GetCaseCommand";
+import type { GetMembershipCommandInput, GetMembershipCommandOutput } from "./commands/GetMembershipCommand";
+import type { ListCaseEditsCommandInput, ListCaseEditsCommandOutput } from "./commands/ListCaseEditsCommand";
+import type { ListCasesCommandInput, ListCasesCommandOutput } from "./commands/ListCasesCommand";
+import type { ListCommentsCommandInput, ListCommentsCommandOutput } from "./commands/ListCommentsCommand";
+import type {
+  ListInvestigationsCommandInput,
+  ListInvestigationsCommandOutput,
+} from "./commands/ListInvestigationsCommand";
+import type { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "./commands/ListMembershipsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { SendFeedbackCommandInput, SendFeedbackCommandOutput } from "./commands/SendFeedbackCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateCaseCommandInput, UpdateCaseCommandOutput } from "./commands/UpdateCaseCommand";
-import { UpdateCaseCommentCommandInput, UpdateCaseCommentCommandOutput } from "./commands/UpdateCaseCommentCommand";
-import { UpdateCaseStatusCommandInput, UpdateCaseStatusCommandOutput } from "./commands/UpdateCaseStatusCommand";
-import { UpdateMembershipCommandInput, UpdateMembershipCommandOutput } from "./commands/UpdateMembershipCommand";
-import { UpdateResolverTypeCommandInput, UpdateResolverTypeCommandOutput } from "./commands/UpdateResolverTypeCommand";
+import type { SendFeedbackCommandInput, SendFeedbackCommandOutput } from "./commands/SendFeedbackCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateCaseCommandInput, UpdateCaseCommandOutput } from "./commands/UpdateCaseCommand";
+import type {
+  UpdateCaseCommentCommandInput,
+  UpdateCaseCommentCommandOutput,
+} from "./commands/UpdateCaseCommentCommand";
+import type { UpdateCaseStatusCommandInput, UpdateCaseStatusCommandOutput } from "./commands/UpdateCaseStatusCommand";
+import type { UpdateMembershipCommandInput, UpdateMembershipCommandOutput } from "./commands/UpdateMembershipCommand";
+import type {
+  UpdateResolverTypeCommandInput,
+  UpdateResolverTypeCommandOutput,
+} from "./commands/UpdateResolverTypeCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -282,7 +292,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

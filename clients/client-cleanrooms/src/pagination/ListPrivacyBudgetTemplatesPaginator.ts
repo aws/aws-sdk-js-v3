@@ -8,7 +8,7 @@ import {
   ListPrivacyBudgetTemplatesCommandInput,
   ListPrivacyBudgetTemplatesCommandOutput,
 } from "../commands/ListPrivacyBudgetTemplatesCommand";
-import { CleanRoomsPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

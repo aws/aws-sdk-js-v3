@@ -8,7 +8,7 @@ import {
   GetBasePathMappingsCommandInput,
   GetBasePathMappingsCommandOutput,
 } from "../commands/GetBasePathMappingsCommand";
-import { APIGatewayPaginationConfiguration } from "./Interfaces";
+import type { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

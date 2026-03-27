@@ -3,18 +3,18 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DeleteObjectCommandInput,
+  type DeleteObjectCommandOutput,
   DeleteObjectCommand,
-  DeleteObjectCommandInput,
-  DeleteObjectCommandOutput,
 } from "./commands/DeleteObjectCommand";
 import {
+  type DescribeObjectCommandInput,
+  type DescribeObjectCommandOutput,
   DescribeObjectCommand,
-  DescribeObjectCommandInput,
-  DescribeObjectCommandOutput,
 } from "./commands/DescribeObjectCommand";
-import { GetObjectCommand, GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
-import { ListItemsCommand, ListItemsCommandInput, ListItemsCommandOutput } from "./commands/ListItemsCommand";
-import { PutObjectCommand, PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand";
+import { type GetObjectCommandInput, type GetObjectCommandOutput, GetObjectCommand } from "./commands/GetObjectCommand";
+import { type ListItemsCommandInput, type ListItemsCommandOutput, ListItemsCommand } from "./commands/ListItemsCommand";
+import { type PutObjectCommandInput, type PutObjectCommandOutput, PutObjectCommand } from "./commands/PutObjectCommand";
 import { MediaStoreDataClient } from "./MediaStoreDataClient";
 import { paginateListItems } from "./pagination/ListItemsPaginator";
 

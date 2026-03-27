@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { HandlerErrorCode, Operation, OperationStatus } from "./enums";
+import type { HandlerErrorCode, Operation, OperationStatus } from "./enums";
 
 /**
  * @public

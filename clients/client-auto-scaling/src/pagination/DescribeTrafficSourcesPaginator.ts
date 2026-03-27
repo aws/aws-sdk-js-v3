@@ -8,7 +8,7 @@ import {
   DescribeTrafficSourcesCommandInput,
   DescribeTrafficSourcesCommandOutput,
 } from "../commands/DescribeTrafficSourcesCommand";
-import { AutoScalingPaginationConfiguration } from "./Interfaces";
+import type { AutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

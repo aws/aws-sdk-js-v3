@@ -8,7 +8,7 @@ import {
   DescribeDataSourcesCommandOutput,
 } from "../commands/DescribeDataSourcesCommand";
 import { MachineLearningClient } from "../MachineLearningClient";
-import { MachineLearningPaginationConfiguration } from "./Interfaces";
+import type { MachineLearningPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

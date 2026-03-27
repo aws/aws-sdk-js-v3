@@ -3,65 +3,69 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreatePerformanceAnalysisReportCommandInput,
+  type CreatePerformanceAnalysisReportCommandOutput,
   CreatePerformanceAnalysisReportCommand,
-  CreatePerformanceAnalysisReportCommandInput,
-  CreatePerformanceAnalysisReportCommandOutput,
 } from "./commands/CreatePerformanceAnalysisReportCommand";
 import {
+  type DeletePerformanceAnalysisReportCommandInput,
+  type DeletePerformanceAnalysisReportCommandOutput,
   DeletePerformanceAnalysisReportCommand,
-  DeletePerformanceAnalysisReportCommandInput,
-  DeletePerformanceAnalysisReportCommandOutput,
 } from "./commands/DeletePerformanceAnalysisReportCommand";
 import {
+  type DescribeDimensionKeysCommandInput,
+  type DescribeDimensionKeysCommandOutput,
   DescribeDimensionKeysCommand,
-  DescribeDimensionKeysCommandInput,
-  DescribeDimensionKeysCommandOutput,
 } from "./commands/DescribeDimensionKeysCommand";
 import {
+  type GetDimensionKeyDetailsCommandInput,
+  type GetDimensionKeyDetailsCommandOutput,
   GetDimensionKeyDetailsCommand,
-  GetDimensionKeyDetailsCommandInput,
-  GetDimensionKeyDetailsCommandOutput,
 } from "./commands/GetDimensionKeyDetailsCommand";
 import {
+  type GetPerformanceAnalysisReportCommandInput,
+  type GetPerformanceAnalysisReportCommandOutput,
   GetPerformanceAnalysisReportCommand,
-  GetPerformanceAnalysisReportCommandInput,
-  GetPerformanceAnalysisReportCommandOutput,
 } from "./commands/GetPerformanceAnalysisReportCommand";
 import {
+  type GetResourceMetadataCommandInput,
+  type GetResourceMetadataCommandOutput,
   GetResourceMetadataCommand,
-  GetResourceMetadataCommandInput,
-  GetResourceMetadataCommandOutput,
 } from "./commands/GetResourceMetadataCommand";
 import {
+  type GetResourceMetricsCommandInput,
+  type GetResourceMetricsCommandOutput,
   GetResourceMetricsCommand,
-  GetResourceMetricsCommandInput,
-  GetResourceMetricsCommandOutput,
 } from "./commands/GetResourceMetricsCommand";
 import {
+  type ListAvailableResourceDimensionsCommandInput,
+  type ListAvailableResourceDimensionsCommandOutput,
   ListAvailableResourceDimensionsCommand,
-  ListAvailableResourceDimensionsCommandInput,
-  ListAvailableResourceDimensionsCommandOutput,
 } from "./commands/ListAvailableResourceDimensionsCommand";
 import {
+  type ListAvailableResourceMetricsCommandInput,
+  type ListAvailableResourceMetricsCommandOutput,
   ListAvailableResourceMetricsCommand,
-  ListAvailableResourceMetricsCommandInput,
-  ListAvailableResourceMetricsCommandOutput,
 } from "./commands/ListAvailableResourceMetricsCommand";
 import {
+  type ListPerformanceAnalysisReportsCommandInput,
+  type ListPerformanceAnalysisReportsCommandOutput,
   ListPerformanceAnalysisReportsCommand,
-  ListPerformanceAnalysisReportsCommandInput,
-  ListPerformanceAnalysisReportsCommandOutput,
 } from "./commands/ListPerformanceAnalysisReportsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateDescribeDimensionKeys } from "./pagination/DescribeDimensionKeysPaginator";
 import { paginateGetResourceMetrics } from "./pagination/GetResourceMetricsPaginator";

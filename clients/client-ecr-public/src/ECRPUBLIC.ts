@@ -3,111 +3,115 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchCheckLayerAvailabilityCommandInput,
+  type BatchCheckLayerAvailabilityCommandOutput,
   BatchCheckLayerAvailabilityCommand,
-  BatchCheckLayerAvailabilityCommandInput,
-  BatchCheckLayerAvailabilityCommandOutput,
 } from "./commands/BatchCheckLayerAvailabilityCommand";
 import {
+  type BatchDeleteImageCommandInput,
+  type BatchDeleteImageCommandOutput,
   BatchDeleteImageCommand,
-  BatchDeleteImageCommandInput,
-  BatchDeleteImageCommandOutput,
 } from "./commands/BatchDeleteImageCommand";
 import {
+  type CompleteLayerUploadCommandInput,
+  type CompleteLayerUploadCommandOutput,
   CompleteLayerUploadCommand,
-  CompleteLayerUploadCommandInput,
-  CompleteLayerUploadCommandOutput,
 } from "./commands/CompleteLayerUploadCommand";
 import {
+  type CreateRepositoryCommandInput,
+  type CreateRepositoryCommandOutput,
   CreateRepositoryCommand,
-  CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput,
 } from "./commands/CreateRepositoryCommand";
 import {
+  type DeleteRepositoryCommandInput,
+  type DeleteRepositoryCommandOutput,
   DeleteRepositoryCommand,
-  DeleteRepositoryCommandInput,
-  DeleteRepositoryCommandOutput,
 } from "./commands/DeleteRepositoryCommand";
 import {
+  type DeleteRepositoryPolicyCommandInput,
+  type DeleteRepositoryPolicyCommandOutput,
   DeleteRepositoryPolicyCommand,
-  DeleteRepositoryPolicyCommandInput,
-  DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
 import {
+  type DescribeImagesCommandInput,
+  type DescribeImagesCommandOutput,
   DescribeImagesCommand,
-  DescribeImagesCommandInput,
-  DescribeImagesCommandOutput,
 } from "./commands/DescribeImagesCommand";
 import {
+  type DescribeImageTagsCommandInput,
+  type DescribeImageTagsCommandOutput,
   DescribeImageTagsCommand,
-  DescribeImageTagsCommandInput,
-  DescribeImageTagsCommandOutput,
 } from "./commands/DescribeImageTagsCommand";
 import {
+  type DescribeRegistriesCommandInput,
+  type DescribeRegistriesCommandOutput,
   DescribeRegistriesCommand,
-  DescribeRegistriesCommandInput,
-  DescribeRegistriesCommandOutput,
 } from "./commands/DescribeRegistriesCommand";
 import {
+  type DescribeRepositoriesCommandInput,
+  type DescribeRepositoriesCommandOutput,
   DescribeRepositoriesCommand,
-  DescribeRepositoriesCommandInput,
-  DescribeRepositoriesCommandOutput,
 } from "./commands/DescribeRepositoriesCommand";
 import {
+  type GetAuthorizationTokenCommandInput,
+  type GetAuthorizationTokenCommandOutput,
   GetAuthorizationTokenCommand,
-  GetAuthorizationTokenCommandInput,
-  GetAuthorizationTokenCommandOutput,
 } from "./commands/GetAuthorizationTokenCommand";
 import {
+  type GetRegistryCatalogDataCommandInput,
+  type GetRegistryCatalogDataCommandOutput,
   GetRegistryCatalogDataCommand,
-  GetRegistryCatalogDataCommandInput,
-  GetRegistryCatalogDataCommandOutput,
 } from "./commands/GetRegistryCatalogDataCommand";
 import {
+  type GetRepositoryCatalogDataCommandInput,
+  type GetRepositoryCatalogDataCommandOutput,
   GetRepositoryCatalogDataCommand,
-  GetRepositoryCatalogDataCommandInput,
-  GetRepositoryCatalogDataCommandOutput,
 } from "./commands/GetRepositoryCatalogDataCommand";
 import {
+  type GetRepositoryPolicyCommandInput,
+  type GetRepositoryPolicyCommandOutput,
   GetRepositoryPolicyCommand,
-  GetRepositoryPolicyCommandInput,
-  GetRepositoryPolicyCommandOutput,
 } from "./commands/GetRepositoryPolicyCommand";
 import {
+  type InitiateLayerUploadCommandInput,
+  type InitiateLayerUploadCommandOutput,
   InitiateLayerUploadCommand,
-  InitiateLayerUploadCommandInput,
-  InitiateLayerUploadCommandOutput,
 } from "./commands/InitiateLayerUploadCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutImageCommand, PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
+import { type PutImageCommandInput, type PutImageCommandOutput, PutImageCommand } from "./commands/PutImageCommand";
 import {
+  type PutRegistryCatalogDataCommandInput,
+  type PutRegistryCatalogDataCommandOutput,
   PutRegistryCatalogDataCommand,
-  PutRegistryCatalogDataCommandInput,
-  PutRegistryCatalogDataCommandOutput,
 } from "./commands/PutRegistryCatalogDataCommand";
 import {
+  type PutRepositoryCatalogDataCommandInput,
+  type PutRepositoryCatalogDataCommandOutput,
   PutRepositoryCatalogDataCommand,
-  PutRepositoryCatalogDataCommandInput,
-  PutRepositoryCatalogDataCommandOutput,
 } from "./commands/PutRepositoryCatalogDataCommand";
 import {
+  type SetRepositoryPolicyCommandInput,
+  type SetRepositoryPolicyCommandOutput,
   SetRepositoryPolicyCommand,
-  SetRepositoryPolicyCommandInput,
-  SetRepositoryPolicyCommandOutput,
 } from "./commands/SetRepositoryPolicyCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UploadLayerPartCommandInput,
+  type UploadLayerPartCommandOutput,
   UploadLayerPartCommand,
-  UploadLayerPartCommandInput,
-  UploadLayerPartCommandOutput,
 } from "./commands/UploadLayerPartCommand";
 import { ECRPUBLICClient } from "./ECRPUBLICClient";
 import { paginateDescribeImages } from "./pagination/DescribeImagesPaginator";

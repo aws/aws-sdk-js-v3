@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListGrantsCommand, ListGrantsCommandInput, ListGrantsCommandOutput } from "../commands/ListGrantsCommand";
 import { KMSClient } from "../KMSClient";
-import { KMSPaginationConfiguration } from "./Interfaces";
+import type { KMSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

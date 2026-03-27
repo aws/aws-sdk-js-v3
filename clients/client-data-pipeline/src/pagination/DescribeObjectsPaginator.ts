@@ -8,7 +8,7 @@ import {
   DescribeObjectsCommandOutput,
 } from "../commands/DescribeObjectsCommand";
 import { DataPipelineClient } from "../DataPipelineClient";
-import { DataPipelinePaginationConfiguration } from "./Interfaces";
+import type { DataPipelinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

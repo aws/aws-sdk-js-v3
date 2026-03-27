@@ -8,7 +8,7 @@ import {
   ListReservationsCommandOutput,
 } from "../commands/ListReservationsCommand";
 import { MediaConnectClient } from "../MediaConnectClient";
-import { MediaConnectPaginationConfiguration } from "./Interfaces";
+import type { MediaConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

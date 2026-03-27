@@ -8,7 +8,7 @@ import {
   ListQuotaSharesCommandInput,
   ListQuotaSharesCommandOutput,
 } from "../commands/ListQuotaSharesCommand";
-import { BatchPaginationConfiguration } from "./Interfaces";
+import type { BatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

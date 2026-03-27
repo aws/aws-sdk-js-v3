@@ -8,7 +8,7 @@ import {
   ListMailboxPermissionsCommandOutput,
 } from "../commands/ListMailboxPermissionsCommand";
 import { WorkMailClient } from "../WorkMailClient";
-import { WorkMailPaginationConfiguration } from "./Interfaces";
+import type { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

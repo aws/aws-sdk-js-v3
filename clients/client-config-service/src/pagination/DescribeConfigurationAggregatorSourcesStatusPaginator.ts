@@ -8,7 +8,7 @@ import {
   DescribeConfigurationAggregatorSourcesStatusCommandOutput,
 } from "../commands/DescribeConfigurationAggregatorSourcesStatusCommand";
 import { ConfigServiceClient } from "../ConfigServiceClient";
-import { ConfigServicePaginationConfiguration } from "./Interfaces";
+import type { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

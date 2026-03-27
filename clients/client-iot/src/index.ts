@@ -22,7 +22,7 @@
  */
 export * from "./IoTClient";
 export * from "./IoT";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { IoTExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

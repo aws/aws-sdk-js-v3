@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,121 +61,142 @@ import {
   defaultCloudTrailHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
-import { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
-import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
-import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
-import {
+import type { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import type { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
+import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import type { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
+import type {
   CreateEventDataStoreCommandInput,
   CreateEventDataStoreCommandOutput,
 } from "./commands/CreateEventDataStoreCommand";
-import { CreateTrailCommandInput, CreateTrailCommandOutput } from "./commands/CreateTrailCommand";
-import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
-import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
-import {
+import type { CreateTrailCommandInput, CreateTrailCommandOutput } from "./commands/CreateTrailCommand";
+import type { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import type { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
+import type {
   DeleteEventDataStoreCommandInput,
   DeleteEventDataStoreCommandOutput,
 } from "./commands/DeleteEventDataStoreCommand";
-import {
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
-import {
+import type { DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
+import type {
   DeregisterOrganizationDelegatedAdminCommandInput,
   DeregisterOrganizationDelegatedAdminCommandOutput,
 } from "./commands/DeregisterOrganizationDelegatedAdminCommand";
-import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "./commands/DescribeQueryCommand";
-import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "./commands/DescribeTrailsCommand";
-import { DisableFederationCommandInput, DisableFederationCommandOutput } from "./commands/DisableFederationCommand";
-import { EnableFederationCommandInput, EnableFederationCommandOutput } from "./commands/EnableFederationCommand";
-import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "./commands/GenerateQueryCommand";
-import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
-import { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand";
-import {
+import type { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "./commands/DescribeQueryCommand";
+import type { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "./commands/DescribeTrailsCommand";
+import type {
+  DisableFederationCommandInput,
+  DisableFederationCommandOutput,
+} from "./commands/DisableFederationCommand";
+import type { EnableFederationCommandInput, EnableFederationCommandOutput } from "./commands/EnableFederationCommand";
+import type { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "./commands/GenerateQueryCommand";
+import type { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
+import type { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand";
+import type {
   GetEventConfigurationCommandInput,
   GetEventConfigurationCommandOutput,
 } from "./commands/GetEventConfigurationCommand";
-import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "./commands/GetEventDataStoreCommand";
-import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "./commands/GetEventSelectorsCommand";
-import { GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
-import {
+import type {
+  GetEventDataStoreCommandInput,
+  GetEventDataStoreCommandOutput,
+} from "./commands/GetEventDataStoreCommand";
+import type {
+  GetEventSelectorsCommandInput,
+  GetEventSelectorsCommandOutput,
+} from "./commands/GetEventSelectorsCommand";
+import type { GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
+import type {
   GetInsightSelectorsCommandInput,
   GetInsightSelectorsCommandOutput,
 } from "./commands/GetInsightSelectorsCommand";
-import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import { GetTrailCommandInput, GetTrailCommandOutput } from "./commands/GetTrailCommand";
-import { GetTrailStatusCommandInput, GetTrailStatusCommandOutput } from "./commands/GetTrailStatusCommand";
-import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
-import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
-import {
+import type { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type { GetTrailCommandInput, GetTrailCommandOutput } from "./commands/GetTrailCommand";
+import type { GetTrailStatusCommandInput, GetTrailStatusCommandOutput } from "./commands/GetTrailStatusCommand";
+import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import type { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
+import type {
   ListEventDataStoresCommandInput,
   ListEventDataStoresCommandOutput,
 } from "./commands/ListEventDataStoresCommand";
-import { ListImportFailuresCommandInput, ListImportFailuresCommandOutput } from "./commands/ListImportFailuresCommand";
-import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
-import { ListInsightsDataCommandInput, ListInsightsDataCommandOutput } from "./commands/ListInsightsDataCommand";
-import {
+import type {
+  ListImportFailuresCommandInput,
+  ListImportFailuresCommandOutput,
+} from "./commands/ListImportFailuresCommand";
+import type { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import type { ListInsightsDataCommandInput, ListInsightsDataCommandOutput } from "./commands/ListInsightsDataCommand";
+import type {
   ListInsightsMetricDataCommandInput,
   ListInsightsMetricDataCommandOutput,
 } from "./commands/ListInsightsMetricDataCommand";
-import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
-import { ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
-import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import { ListTrailsCommandInput, ListTrailsCommandOutput } from "./commands/ListTrailsCommand";
-import { LookupEventsCommandInput, LookupEventsCommandOutput } from "./commands/LookupEventsCommand";
-import {
+import type { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
+import type { ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
+import type { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import type { ListTrailsCommandInput, ListTrailsCommandOutput } from "./commands/ListTrailsCommand";
+import type { LookupEventsCommandInput, LookupEventsCommandOutput } from "./commands/LookupEventsCommand";
+import type {
   PutEventConfigurationCommandInput,
   PutEventConfigurationCommandOutput,
 } from "./commands/PutEventConfigurationCommand";
-import { PutEventSelectorsCommandInput, PutEventSelectorsCommandOutput } from "./commands/PutEventSelectorsCommand";
-import {
+import type {
+  PutEventSelectorsCommandInput,
+  PutEventSelectorsCommandOutput,
+} from "./commands/PutEventSelectorsCommand";
+import type {
   PutInsightSelectorsCommandInput,
   PutInsightSelectorsCommandOutput,
 } from "./commands/PutInsightSelectorsCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   RegisterOrganizationDelegatedAdminCommandInput,
   RegisterOrganizationDelegatedAdminCommandOutput,
 } from "./commands/RegisterOrganizationDelegatedAdminCommand";
-import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
-import {
+import type { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import type {
   RestoreEventDataStoreCommandInput,
   RestoreEventDataStoreCommandOutput,
 } from "./commands/RestoreEventDataStoreCommand";
-import {
+import type {
   SearchSampleQueriesCommandInput,
   SearchSampleQueriesCommandOutput,
 } from "./commands/SearchSampleQueriesCommand";
-import {
+import type {
   StartDashboardRefreshCommandInput,
   StartDashboardRefreshCommandOutput,
 } from "./commands/StartDashboardRefreshCommand";
-import {
+import type {
   StartEventDataStoreIngestionCommandInput,
   StartEventDataStoreIngestionCommandOutput,
 } from "./commands/StartEventDataStoreIngestionCommand";
-import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
-import { StartLoggingCommandInput, StartLoggingCommandOutput } from "./commands/StartLoggingCommand";
-import { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
-import {
+import type { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import type { StartLoggingCommandInput, StartLoggingCommandOutput } from "./commands/StartLoggingCommand";
+import type { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
+import type {
   StopEventDataStoreIngestionCommandInput,
   StopEventDataStoreIngestionCommandOutput,
 } from "./commands/StopEventDataStoreIngestionCommand";
-import { StopImportCommandInput, StopImportCommandOutput } from "./commands/StopImportCommand";
-import { StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
-import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
-import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
-import {
+import type { StopImportCommandInput, StopImportCommandOutput } from "./commands/StopImportCommand";
+import type { StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
+import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import type { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
+import type {
   UpdateEventDataStoreCommandInput,
   UpdateEventDataStoreCommandOutput,
 } from "./commands/UpdateEventDataStoreCommand";
-import { UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand";
+import type { UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -429,7 +448,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

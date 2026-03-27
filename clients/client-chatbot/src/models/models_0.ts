@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { CustomActionAttachmentCriteriaOperator } from "./enums";
+import type { CustomActionAttachmentCriteriaOperator } from "./enums";
 
 /**
  * <p>Preferences related to AWS Chatbot usage in the calling AWS account.</p>

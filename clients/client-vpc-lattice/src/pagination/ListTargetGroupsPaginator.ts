@@ -8,7 +8,7 @@ import {
   ListTargetGroupsCommandOutput,
 } from "../commands/ListTargetGroupsCommand";
 import { VPCLatticeClient } from "../VPCLatticeClient";
-import { VPCLatticePaginationConfiguration } from "./Interfaces";
+import type { VPCLatticePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   SearchResourcesCommandOutput,
 } from "../commands/SearchResourcesCommand";
 import { ResourceGroupsClient } from "../ResourceGroupsClient";
-import { ResourceGroupsPaginationConfiguration } from "./Interfaces";
+import type { ResourceGroupsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

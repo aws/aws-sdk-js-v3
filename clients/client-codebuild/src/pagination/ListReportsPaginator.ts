@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CodeBuildClient } from "../CodeBuildClient";
 import { ListReportsCommand, ListReportsCommandInput, ListReportsCommandOutput } from "../commands/ListReportsCommand";
-import { CodeBuildPaginationConfiguration } from "./Interfaces";
+import type { CodeBuildPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

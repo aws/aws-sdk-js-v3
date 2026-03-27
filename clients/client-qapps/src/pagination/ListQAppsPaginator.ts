@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListQAppsCommand, ListQAppsCommandInput, ListQAppsCommandOutput } from "../commands/ListQAppsCommand";
 import { QAppsClient } from "../QAppsClient";
-import { QAppsPaginationConfiguration } from "./Interfaces";
+import type { QAppsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

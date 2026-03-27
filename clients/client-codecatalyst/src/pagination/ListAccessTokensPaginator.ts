@@ -8,7 +8,7 @@ import {
   ListAccessTokensCommandInput,
   ListAccessTokensCommandOutput,
 } from "../commands/ListAccessTokensCommand";
-import { CodeCatalystPaginationConfiguration } from "./Interfaces";
+import type { CodeCatalystPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { GetProductsCommand, GetProductsCommandInput, GetProductsCommandOutput } from "../commands/GetProductsCommand";
 import { PricingClient } from "../PricingClient";
-import { PricingPaginationConfiguration } from "./Interfaces";
+import type { PricingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

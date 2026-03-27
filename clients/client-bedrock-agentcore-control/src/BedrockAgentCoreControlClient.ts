@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,222 +61,261 @@ import {
   defaultBedrockAgentCoreControlHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateAgentRuntimeCommandInput, CreateAgentRuntimeCommandOutput } from "./commands/CreateAgentRuntimeCommand";
-import {
+import type {
+  CreateAgentRuntimeCommandInput,
+  CreateAgentRuntimeCommandOutput,
+} from "./commands/CreateAgentRuntimeCommand";
+import type {
   CreateAgentRuntimeEndpointCommandInput,
   CreateAgentRuntimeEndpointCommandOutput,
 } from "./commands/CreateAgentRuntimeEndpointCommand";
-import {
+import type {
   CreateApiKeyCredentialProviderCommandInput,
   CreateApiKeyCredentialProviderCommandOutput,
 } from "./commands/CreateApiKeyCredentialProviderCommand";
-import { CreateBrowserCommandInput, CreateBrowserCommandOutput } from "./commands/CreateBrowserCommand";
-import {
+import type { CreateBrowserCommandInput, CreateBrowserCommandOutput } from "./commands/CreateBrowserCommand";
+import type {
   CreateBrowserProfileCommandInput,
   CreateBrowserProfileCommandOutput,
 } from "./commands/CreateBrowserProfileCommand";
-import {
+import type {
   CreateCodeInterpreterCommandInput,
   CreateCodeInterpreterCommandOutput,
 } from "./commands/CreateCodeInterpreterCommand";
-import { CreateEvaluatorCommandInput, CreateEvaluatorCommandOutput } from "./commands/CreateEvaluatorCommand";
-import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
-import {
+import type { CreateEvaluatorCommandInput, CreateEvaluatorCommandOutput } from "./commands/CreateEvaluatorCommand";
+import type { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
+import type {
   CreateGatewayTargetCommandInput,
   CreateGatewayTargetCommandOutput,
 } from "./commands/CreateGatewayTargetCommand";
-import { CreateMemoryCommandInput, CreateMemoryCommandOutput } from "./commands/CreateMemoryCommand";
-import {
+import type { CreateMemoryCommandInput, CreateMemoryCommandOutput } from "./commands/CreateMemoryCommand";
+import type {
   CreateOauth2CredentialProviderCommandInput,
   CreateOauth2CredentialProviderCommandOutput,
 } from "./commands/CreateOauth2CredentialProviderCommand";
-import {
+import type {
   CreateOnlineEvaluationConfigCommandInput,
   CreateOnlineEvaluationConfigCommandOutput,
 } from "./commands/CreateOnlineEvaluationConfigCommand";
-import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
-import { CreatePolicyEngineCommandInput, CreatePolicyEngineCommandOutput } from "./commands/CreatePolicyEngineCommand";
-import {
+import type { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
+import type {
+  CreatePolicyEngineCommandInput,
+  CreatePolicyEngineCommandOutput,
+} from "./commands/CreatePolicyEngineCommand";
+import type {
   CreateWorkloadIdentityCommandInput,
   CreateWorkloadIdentityCommandOutput,
 } from "./commands/CreateWorkloadIdentityCommand";
-import { DeleteAgentRuntimeCommandInput, DeleteAgentRuntimeCommandOutput } from "./commands/DeleteAgentRuntimeCommand";
-import {
+import type {
+  DeleteAgentRuntimeCommandInput,
+  DeleteAgentRuntimeCommandOutput,
+} from "./commands/DeleteAgentRuntimeCommand";
+import type {
   DeleteAgentRuntimeEndpointCommandInput,
   DeleteAgentRuntimeEndpointCommandOutput,
 } from "./commands/DeleteAgentRuntimeEndpointCommand";
-import {
+import type {
   DeleteApiKeyCredentialProviderCommandInput,
   DeleteApiKeyCredentialProviderCommandOutput,
 } from "./commands/DeleteApiKeyCredentialProviderCommand";
-import { DeleteBrowserCommandInput, DeleteBrowserCommandOutput } from "./commands/DeleteBrowserCommand";
-import {
+import type { DeleteBrowserCommandInput, DeleteBrowserCommandOutput } from "./commands/DeleteBrowserCommand";
+import type {
   DeleteBrowserProfileCommandInput,
   DeleteBrowserProfileCommandOutput,
 } from "./commands/DeleteBrowserProfileCommand";
-import {
+import type {
   DeleteCodeInterpreterCommandInput,
   DeleteCodeInterpreterCommandOutput,
 } from "./commands/DeleteCodeInterpreterCommand";
-import { DeleteEvaluatorCommandInput, DeleteEvaluatorCommandOutput } from "./commands/DeleteEvaluatorCommand";
-import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
-import {
+import type { DeleteEvaluatorCommandInput, DeleteEvaluatorCommandOutput } from "./commands/DeleteEvaluatorCommand";
+import type { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
+import type {
   DeleteGatewayTargetCommandInput,
   DeleteGatewayTargetCommandOutput,
 } from "./commands/DeleteGatewayTargetCommand";
-import { DeleteMemoryCommandInput, DeleteMemoryCommandOutput } from "./commands/DeleteMemoryCommand";
-import {
+import type { DeleteMemoryCommandInput, DeleteMemoryCommandOutput } from "./commands/DeleteMemoryCommand";
+import type {
   DeleteOauth2CredentialProviderCommandInput,
   DeleteOauth2CredentialProviderCommandOutput,
 } from "./commands/DeleteOauth2CredentialProviderCommand";
-import {
+import type {
   DeleteOnlineEvaluationConfigCommandInput,
   DeleteOnlineEvaluationConfigCommandOutput,
 } from "./commands/DeleteOnlineEvaluationConfigCommand";
-import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
-import { DeletePolicyEngineCommandInput, DeletePolicyEngineCommandOutput } from "./commands/DeletePolicyEngineCommand";
-import {
+import type { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
+import type {
+  DeletePolicyEngineCommandInput,
+  DeletePolicyEngineCommandOutput,
+} from "./commands/DeletePolicyEngineCommand";
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   DeleteWorkloadIdentityCommandInput,
   DeleteWorkloadIdentityCommandOutput,
 } from "./commands/DeleteWorkloadIdentityCommand";
-import { GetAgentRuntimeCommandInput, GetAgentRuntimeCommandOutput } from "./commands/GetAgentRuntimeCommand";
-import {
+import type { GetAgentRuntimeCommandInput, GetAgentRuntimeCommandOutput } from "./commands/GetAgentRuntimeCommand";
+import type {
   GetAgentRuntimeEndpointCommandInput,
   GetAgentRuntimeEndpointCommandOutput,
 } from "./commands/GetAgentRuntimeEndpointCommand";
-import {
+import type {
   GetApiKeyCredentialProviderCommandInput,
   GetApiKeyCredentialProviderCommandOutput,
 } from "./commands/GetApiKeyCredentialProviderCommand";
-import { GetBrowserCommandInput, GetBrowserCommandOutput } from "./commands/GetBrowserCommand";
-import { GetBrowserProfileCommandInput, GetBrowserProfileCommandOutput } from "./commands/GetBrowserProfileCommand";
-import { GetCodeInterpreterCommandInput, GetCodeInterpreterCommandOutput } from "./commands/GetCodeInterpreterCommand";
-import { GetEvaluatorCommandInput, GetEvaluatorCommandOutput } from "./commands/GetEvaluatorCommand";
-import { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
-import { GetGatewayTargetCommandInput, GetGatewayTargetCommandOutput } from "./commands/GetGatewayTargetCommand";
-import { GetMemoryCommandInput, GetMemoryCommandOutput } from "./commands/GetMemoryCommand";
-import {
+import type { GetBrowserCommandInput, GetBrowserCommandOutput } from "./commands/GetBrowserCommand";
+import type {
+  GetBrowserProfileCommandInput,
+  GetBrowserProfileCommandOutput,
+} from "./commands/GetBrowserProfileCommand";
+import type {
+  GetCodeInterpreterCommandInput,
+  GetCodeInterpreterCommandOutput,
+} from "./commands/GetCodeInterpreterCommand";
+import type { GetEvaluatorCommandInput, GetEvaluatorCommandOutput } from "./commands/GetEvaluatorCommand";
+import type { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
+import type { GetGatewayTargetCommandInput, GetGatewayTargetCommandOutput } from "./commands/GetGatewayTargetCommand";
+import type { GetMemoryCommandInput, GetMemoryCommandOutput } from "./commands/GetMemoryCommand";
+import type {
   GetOauth2CredentialProviderCommandInput,
   GetOauth2CredentialProviderCommandOutput,
 } from "./commands/GetOauth2CredentialProviderCommand";
-import {
+import type {
   GetOnlineEvaluationConfigCommandInput,
   GetOnlineEvaluationConfigCommandOutput,
 } from "./commands/GetOnlineEvaluationConfigCommand";
-import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
-import { GetPolicyEngineCommandInput, GetPolicyEngineCommandOutput } from "./commands/GetPolicyEngineCommand";
-import {
+import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import type { GetPolicyEngineCommandInput, GetPolicyEngineCommandOutput } from "./commands/GetPolicyEngineCommand";
+import type {
   GetPolicyGenerationCommandInput,
   GetPolicyGenerationCommandOutput,
 } from "./commands/GetPolicyGenerationCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import { GetTokenVaultCommandInput, GetTokenVaultCommandOutput } from "./commands/GetTokenVaultCommand";
-import {
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type { GetTokenVaultCommandInput, GetTokenVaultCommandOutput } from "./commands/GetTokenVaultCommand";
+import type {
   GetWorkloadIdentityCommandInput,
   GetWorkloadIdentityCommandOutput,
 } from "./commands/GetWorkloadIdentityCommand";
-import {
+import type {
   ListAgentRuntimeEndpointsCommandInput,
   ListAgentRuntimeEndpointsCommandOutput,
 } from "./commands/ListAgentRuntimeEndpointsCommand";
-import { ListAgentRuntimesCommandInput, ListAgentRuntimesCommandOutput } from "./commands/ListAgentRuntimesCommand";
-import {
+import type {
+  ListAgentRuntimesCommandInput,
+  ListAgentRuntimesCommandOutput,
+} from "./commands/ListAgentRuntimesCommand";
+import type {
   ListAgentRuntimeVersionsCommandInput,
   ListAgentRuntimeVersionsCommandOutput,
 } from "./commands/ListAgentRuntimeVersionsCommand";
-import {
+import type {
   ListApiKeyCredentialProvidersCommandInput,
   ListApiKeyCredentialProvidersCommandOutput,
 } from "./commands/ListApiKeyCredentialProvidersCommand";
-import {
+import type {
   ListBrowserProfilesCommandInput,
   ListBrowserProfilesCommandOutput,
 } from "./commands/ListBrowserProfilesCommand";
-import { ListBrowsersCommandInput, ListBrowsersCommandOutput } from "./commands/ListBrowsersCommand";
-import {
+import type { ListBrowsersCommandInput, ListBrowsersCommandOutput } from "./commands/ListBrowsersCommand";
+import type {
   ListCodeInterpretersCommandInput,
   ListCodeInterpretersCommandOutput,
 } from "./commands/ListCodeInterpretersCommand";
-import { ListEvaluatorsCommandInput, ListEvaluatorsCommandOutput } from "./commands/ListEvaluatorsCommand";
-import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
-import { ListGatewayTargetsCommandInput, ListGatewayTargetsCommandOutput } from "./commands/ListGatewayTargetsCommand";
-import { ListMemoriesCommandInput, ListMemoriesCommandOutput } from "./commands/ListMemoriesCommand";
-import {
+import type { ListEvaluatorsCommandInput, ListEvaluatorsCommandOutput } from "./commands/ListEvaluatorsCommand";
+import type { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
+import type {
+  ListGatewayTargetsCommandInput,
+  ListGatewayTargetsCommandOutput,
+} from "./commands/ListGatewayTargetsCommand";
+import type { ListMemoriesCommandInput, ListMemoriesCommandOutput } from "./commands/ListMemoriesCommand";
+import type {
   ListOauth2CredentialProvidersCommandInput,
   ListOauth2CredentialProvidersCommandOutput,
 } from "./commands/ListOauth2CredentialProvidersCommand";
-import {
+import type {
   ListOnlineEvaluationConfigsCommandInput,
   ListOnlineEvaluationConfigsCommandOutput,
 } from "./commands/ListOnlineEvaluationConfigsCommand";
-import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
-import { ListPolicyEnginesCommandInput, ListPolicyEnginesCommandOutput } from "./commands/ListPolicyEnginesCommand";
-import {
+import type { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
+import type {
+  ListPolicyEnginesCommandInput,
+  ListPolicyEnginesCommandOutput,
+} from "./commands/ListPolicyEnginesCommand";
+import type {
   ListPolicyGenerationAssetsCommandInput,
   ListPolicyGenerationAssetsCommandOutput,
 } from "./commands/ListPolicyGenerationAssetsCommand";
-import {
+import type {
   ListPolicyGenerationsCommandInput,
   ListPolicyGenerationsCommandOutput,
 } from "./commands/ListPolicyGenerationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListWorkloadIdentitiesCommandInput,
   ListWorkloadIdentitiesCommandOutput,
 } from "./commands/ListWorkloadIdentitiesCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import { SetTokenVaultCMKCommandInput, SetTokenVaultCMKCommandOutput } from "./commands/SetTokenVaultCMKCommand";
-import {
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type { SetTokenVaultCMKCommandInput, SetTokenVaultCMKCommandOutput } from "./commands/SetTokenVaultCMKCommand";
+import type {
   StartPolicyGenerationCommandInput,
   StartPolicyGenerationCommandOutput,
 } from "./commands/StartPolicyGenerationCommand";
-import {
+import type {
   SynchronizeGatewayTargetsCommandInput,
   SynchronizeGatewayTargetsCommandOutput,
 } from "./commands/SynchronizeGatewayTargetsCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAgentRuntimeCommandInput, UpdateAgentRuntimeCommandOutput } from "./commands/UpdateAgentRuntimeCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAgentRuntimeCommandInput,
+  UpdateAgentRuntimeCommandOutput,
+} from "./commands/UpdateAgentRuntimeCommand";
+import type {
   UpdateAgentRuntimeEndpointCommandInput,
   UpdateAgentRuntimeEndpointCommandOutput,
 } from "./commands/UpdateAgentRuntimeEndpointCommand";
-import {
+import type {
   UpdateApiKeyCredentialProviderCommandInput,
   UpdateApiKeyCredentialProviderCommandOutput,
 } from "./commands/UpdateApiKeyCredentialProviderCommand";
-import { UpdateEvaluatorCommandInput, UpdateEvaluatorCommandOutput } from "./commands/UpdateEvaluatorCommand";
-import { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand";
-import {
+import type { UpdateEvaluatorCommandInput, UpdateEvaluatorCommandOutput } from "./commands/UpdateEvaluatorCommand";
+import type { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand";
+import type {
   UpdateGatewayTargetCommandInput,
   UpdateGatewayTargetCommandOutput,
 } from "./commands/UpdateGatewayTargetCommand";
-import { UpdateMemoryCommandInput, UpdateMemoryCommandOutput } from "./commands/UpdateMemoryCommand";
-import {
+import type { UpdateMemoryCommandInput, UpdateMemoryCommandOutput } from "./commands/UpdateMemoryCommand";
+import type {
   UpdateOauth2CredentialProviderCommandInput,
   UpdateOauth2CredentialProviderCommandOutput,
 } from "./commands/UpdateOauth2CredentialProviderCommand";
-import {
+import type {
   UpdateOnlineEvaluationConfigCommandInput,
   UpdateOnlineEvaluationConfigCommandOutput,
 } from "./commands/UpdateOnlineEvaluationConfigCommand";
-import { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand";
-import { UpdatePolicyEngineCommandInput, UpdatePolicyEngineCommandOutput } from "./commands/UpdatePolicyEngineCommand";
-import {
+import type { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand";
+import type {
+  UpdatePolicyEngineCommandInput,
+  UpdatePolicyEngineCommandOutput,
+} from "./commands/UpdatePolicyEngineCommand";
+import type {
   UpdateWorkloadIdentityCommandInput,
   UpdateWorkloadIdentityCommandOutput,
 } from "./commands/UpdateWorkloadIdentityCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -582,7 +619,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

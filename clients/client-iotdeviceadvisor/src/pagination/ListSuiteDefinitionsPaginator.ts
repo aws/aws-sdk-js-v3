@@ -8,7 +8,7 @@ import {
   ListSuiteDefinitionsCommandOutput,
 } from "../commands/ListSuiteDefinitionsCommand";
 import { IotDeviceAdvisorClient } from "../IotDeviceAdvisorClient";
-import { IotDeviceAdvisorPaginationConfiguration } from "./Interfaces";
+import type { IotDeviceAdvisorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

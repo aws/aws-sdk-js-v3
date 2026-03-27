@@ -8,7 +8,7 @@ import {
   ListVpcIngressConnectionsCommandInput,
   ListVpcIngressConnectionsCommandOutput,
 } from "../commands/ListVpcIngressConnectionsCommand";
-import { AppRunnerPaginationConfiguration } from "./Interfaces";
+import type { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

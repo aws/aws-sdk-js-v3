@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,273 +61,309 @@ import {
   defaultIoTManagedIntegrationsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateAccountAssociationCommandInput,
   CreateAccountAssociationCommandOutput,
 } from "./commands/CreateAccountAssociationCommand";
-import {
+import type {
   CreateCloudConnectorCommandInput,
   CreateCloudConnectorCommandOutput,
 } from "./commands/CreateCloudConnectorCommand";
-import {
+import type {
   CreateConnectorDestinationCommandInput,
   CreateConnectorDestinationCommandOutput,
 } from "./commands/CreateConnectorDestinationCommand";
-import {
+import type {
   CreateCredentialLockerCommandInput,
   CreateCredentialLockerCommandOutput,
 } from "./commands/CreateCredentialLockerCommand";
-import { CreateDestinationCommandInput, CreateDestinationCommandOutput } from "./commands/CreateDestinationCommand";
-import {
+import type {
+  CreateDestinationCommandInput,
+  CreateDestinationCommandOutput,
+} from "./commands/CreateDestinationCommand";
+import type {
   CreateEventLogConfigurationCommandInput,
   CreateEventLogConfigurationCommandOutput,
 } from "./commands/CreateEventLogConfigurationCommand";
-import { CreateManagedThingCommandInput, CreateManagedThingCommandOutput } from "./commands/CreateManagedThingCommand";
-import {
+import type {
+  CreateManagedThingCommandInput,
+  CreateManagedThingCommandOutput,
+} from "./commands/CreateManagedThingCommand";
+import type {
   CreateNotificationConfigurationCommandInput,
   CreateNotificationConfigurationCommandOutput,
 } from "./commands/CreateNotificationConfigurationCommand";
-import { CreateOtaTaskCommandInput, CreateOtaTaskCommandOutput } from "./commands/CreateOtaTaskCommand";
-import {
+import type { CreateOtaTaskCommandInput, CreateOtaTaskCommandOutput } from "./commands/CreateOtaTaskCommand";
+import type {
   CreateOtaTaskConfigurationCommandInput,
   CreateOtaTaskConfigurationCommandOutput,
 } from "./commands/CreateOtaTaskConfigurationCommand";
-import {
+import type {
   CreateProvisioningProfileCommandInput,
   CreateProvisioningProfileCommandOutput,
 } from "./commands/CreateProvisioningProfileCommand";
-import {
+import type {
   DeleteAccountAssociationCommandInput,
   DeleteAccountAssociationCommandOutput,
 } from "./commands/DeleteAccountAssociationCommand";
-import {
+import type {
   DeleteCloudConnectorCommandInput,
   DeleteCloudConnectorCommandOutput,
 } from "./commands/DeleteCloudConnectorCommand";
-import {
+import type {
   DeleteConnectorDestinationCommandInput,
   DeleteConnectorDestinationCommandOutput,
 } from "./commands/DeleteConnectorDestinationCommand";
-import {
+import type {
   DeleteCredentialLockerCommandInput,
   DeleteCredentialLockerCommandOutput,
 } from "./commands/DeleteCredentialLockerCommand";
-import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "./commands/DeleteDestinationCommand";
-import {
+import type {
+  DeleteDestinationCommandInput,
+  DeleteDestinationCommandOutput,
+} from "./commands/DeleteDestinationCommand";
+import type {
   DeleteEventLogConfigurationCommandInput,
   DeleteEventLogConfigurationCommandOutput,
 } from "./commands/DeleteEventLogConfigurationCommand";
-import { DeleteManagedThingCommandInput, DeleteManagedThingCommandOutput } from "./commands/DeleteManagedThingCommand";
-import {
+import type {
+  DeleteManagedThingCommandInput,
+  DeleteManagedThingCommandOutput,
+} from "./commands/DeleteManagedThingCommand";
+import type {
   DeleteNotificationConfigurationCommandInput,
   DeleteNotificationConfigurationCommandOutput,
 } from "./commands/DeleteNotificationConfigurationCommand";
-import { DeleteOtaTaskCommandInput, DeleteOtaTaskCommandOutput } from "./commands/DeleteOtaTaskCommand";
-import {
+import type { DeleteOtaTaskCommandInput, DeleteOtaTaskCommandOutput } from "./commands/DeleteOtaTaskCommand";
+import type {
   DeleteOtaTaskConfigurationCommandInput,
   DeleteOtaTaskConfigurationCommandOutput,
 } from "./commands/DeleteOtaTaskConfigurationCommand";
-import {
+import type {
   DeleteProvisioningProfileCommandInput,
   DeleteProvisioningProfileCommandOutput,
 } from "./commands/DeleteProvisioningProfileCommand";
-import {
+import type {
   DeregisterAccountAssociationCommandInput,
   DeregisterAccountAssociationCommandOutput,
 } from "./commands/DeregisterAccountAssociationCommand";
-import {
+import type {
   GetAccountAssociationCommandInput,
   GetAccountAssociationCommandOutput,
 } from "./commands/GetAccountAssociationCommand";
-import { GetCloudConnectorCommandInput, GetCloudConnectorCommandOutput } from "./commands/GetCloudConnectorCommand";
-import {
+import type {
+  GetCloudConnectorCommandInput,
+  GetCloudConnectorCommandOutput,
+} from "./commands/GetCloudConnectorCommand";
+import type {
   GetConnectorDestinationCommandInput,
   GetConnectorDestinationCommandOutput,
 } from "./commands/GetConnectorDestinationCommand";
-import {
+import type {
   GetCredentialLockerCommandInput,
   GetCredentialLockerCommandOutput,
 } from "./commands/GetCredentialLockerCommand";
-import { GetCustomEndpointCommandInput, GetCustomEndpointCommandOutput } from "./commands/GetCustomEndpointCommand";
-import {
+import type {
+  GetCustomEndpointCommandInput,
+  GetCustomEndpointCommandOutput,
+} from "./commands/GetCustomEndpointCommand";
+import type {
   GetDefaultEncryptionConfigurationCommandInput,
   GetDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/GetDefaultEncryptionConfigurationCommand";
-import { GetDestinationCommandInput, GetDestinationCommandOutput } from "./commands/GetDestinationCommand";
-import { GetDeviceDiscoveryCommandInput, GetDeviceDiscoveryCommandOutput } from "./commands/GetDeviceDiscoveryCommand";
-import {
+import type { GetDestinationCommandInput, GetDestinationCommandOutput } from "./commands/GetDestinationCommand";
+import type {
+  GetDeviceDiscoveryCommandInput,
+  GetDeviceDiscoveryCommandOutput,
+} from "./commands/GetDeviceDiscoveryCommand";
+import type {
   GetEventLogConfigurationCommandInput,
   GetEventLogConfigurationCommandOutput,
 } from "./commands/GetEventLogConfigurationCommand";
-import {
+import type {
   GetHubConfigurationCommandInput,
   GetHubConfigurationCommandOutput,
 } from "./commands/GetHubConfigurationCommand";
-import {
+import type {
   GetManagedThingCapabilitiesCommandInput,
   GetManagedThingCapabilitiesCommandOutput,
 } from "./commands/GetManagedThingCapabilitiesCommand";
-import {
+import type {
   GetManagedThingCertificateCommandInput,
   GetManagedThingCertificateCommandOutput,
 } from "./commands/GetManagedThingCertificateCommand";
-import { GetManagedThingCommandInput, GetManagedThingCommandOutput } from "./commands/GetManagedThingCommand";
-import {
+import type { GetManagedThingCommandInput, GetManagedThingCommandOutput } from "./commands/GetManagedThingCommand";
+import type {
   GetManagedThingConnectivityDataCommandInput,
   GetManagedThingConnectivityDataCommandOutput,
 } from "./commands/GetManagedThingConnectivityDataCommand";
-import {
+import type {
   GetManagedThingMetaDataCommandInput,
   GetManagedThingMetaDataCommandOutput,
 } from "./commands/GetManagedThingMetaDataCommand";
-import {
+import type {
   GetManagedThingStateCommandInput,
   GetManagedThingStateCommandOutput,
 } from "./commands/GetManagedThingStateCommand";
-import {
+import type {
   GetNotificationConfigurationCommandInput,
   GetNotificationConfigurationCommandOutput,
 } from "./commands/GetNotificationConfigurationCommand";
-import { GetOtaTaskCommandInput, GetOtaTaskCommandOutput } from "./commands/GetOtaTaskCommand";
-import {
+import type { GetOtaTaskCommandInput, GetOtaTaskCommandOutput } from "./commands/GetOtaTaskCommand";
+import type {
   GetOtaTaskConfigurationCommandInput,
   GetOtaTaskConfigurationCommandOutput,
 } from "./commands/GetOtaTaskConfigurationCommand";
-import {
+import type {
   GetProvisioningProfileCommandInput,
   GetProvisioningProfileCommandOutput,
 } from "./commands/GetProvisioningProfileCommand";
-import {
+import type {
   GetRuntimeLogConfigurationCommandInput,
   GetRuntimeLogConfigurationCommandOutput,
 } from "./commands/GetRuntimeLogConfigurationCommand";
-import { GetSchemaVersionCommandInput, GetSchemaVersionCommandOutput } from "./commands/GetSchemaVersionCommand";
-import {
+import type { GetSchemaVersionCommandInput, GetSchemaVersionCommandOutput } from "./commands/GetSchemaVersionCommand";
+import type {
   ListAccountAssociationsCommandInput,
   ListAccountAssociationsCommandOutput,
 } from "./commands/ListAccountAssociationsCommand";
-import {
+import type {
   ListCloudConnectorsCommandInput,
   ListCloudConnectorsCommandOutput,
 } from "./commands/ListCloudConnectorsCommand";
-import {
+import type {
   ListConnectorDestinationsCommandInput,
   ListConnectorDestinationsCommandOutput,
 } from "./commands/ListConnectorDestinationsCommand";
-import {
+import type {
   ListCredentialLockersCommandInput,
   ListCredentialLockersCommandOutput,
 } from "./commands/ListCredentialLockersCommand";
-import { ListDestinationsCommandInput, ListDestinationsCommandOutput } from "./commands/ListDestinationsCommand";
-import {
+import type { ListDestinationsCommandInput, ListDestinationsCommandOutput } from "./commands/ListDestinationsCommand";
+import type {
   ListDeviceDiscoveriesCommandInput,
   ListDeviceDiscoveriesCommandOutput,
 } from "./commands/ListDeviceDiscoveriesCommand";
-import {
+import type {
   ListDiscoveredDevicesCommandInput,
   ListDiscoveredDevicesCommandOutput,
 } from "./commands/ListDiscoveredDevicesCommand";
-import {
+import type {
   ListEventLogConfigurationsCommandInput,
   ListEventLogConfigurationsCommandOutput,
 } from "./commands/ListEventLogConfigurationsCommand";
-import {
+import type {
   ListManagedThingAccountAssociationsCommandInput,
   ListManagedThingAccountAssociationsCommandOutput,
 } from "./commands/ListManagedThingAccountAssociationsCommand";
-import {
+import type {
   ListManagedThingSchemasCommandInput,
   ListManagedThingSchemasCommandOutput,
 } from "./commands/ListManagedThingSchemasCommand";
-import { ListManagedThingsCommandInput, ListManagedThingsCommandOutput } from "./commands/ListManagedThingsCommand";
-import {
+import type {
+  ListManagedThingsCommandInput,
+  ListManagedThingsCommandOutput,
+} from "./commands/ListManagedThingsCommand";
+import type {
   ListNotificationConfigurationsCommandInput,
   ListNotificationConfigurationsCommandOutput,
 } from "./commands/ListNotificationConfigurationsCommand";
-import {
+import type {
   ListOtaTaskConfigurationsCommandInput,
   ListOtaTaskConfigurationsCommandOutput,
 } from "./commands/ListOtaTaskConfigurationsCommand";
-import {
+import type {
   ListOtaTaskExecutionsCommandInput,
   ListOtaTaskExecutionsCommandOutput,
 } from "./commands/ListOtaTaskExecutionsCommand";
-import { ListOtaTasksCommandInput, ListOtaTasksCommandOutput } from "./commands/ListOtaTasksCommand";
-import {
+import type { ListOtaTasksCommandInput, ListOtaTasksCommandOutput } from "./commands/ListOtaTasksCommand";
+import type {
   ListProvisioningProfilesCommandInput,
   ListProvisioningProfilesCommandOutput,
 } from "./commands/ListProvisioningProfilesCommand";
-import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand";
-import {
+import type {
+  ListSchemaVersionsCommandInput,
+  ListSchemaVersionsCommandOutput,
+} from "./commands/ListSchemaVersionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutDefaultEncryptionConfigurationCommandInput,
   PutDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/PutDefaultEncryptionConfigurationCommand";
-import {
+import type {
   PutHubConfigurationCommandInput,
   PutHubConfigurationCommandOutput,
 } from "./commands/PutHubConfigurationCommand";
-import {
+import type {
   PutRuntimeLogConfigurationCommandInput,
   PutRuntimeLogConfigurationCommandOutput,
 } from "./commands/PutRuntimeLogConfigurationCommand";
-import {
+import type {
   RegisterAccountAssociationCommandInput,
   RegisterAccountAssociationCommandOutput,
 } from "./commands/RegisterAccountAssociationCommand";
-import {
+import type {
   RegisterCustomEndpointCommandInput,
   RegisterCustomEndpointCommandOutput,
 } from "./commands/RegisterCustomEndpointCommand";
-import {
+import type {
   ResetRuntimeLogConfigurationCommandInput,
   ResetRuntimeLogConfigurationCommandOutput,
 } from "./commands/ResetRuntimeLogConfigurationCommand";
-import { SendConnectorEventCommandInput, SendConnectorEventCommandOutput } from "./commands/SendConnectorEventCommand";
-import {
+import type {
+  SendConnectorEventCommandInput,
+  SendConnectorEventCommandOutput,
+} from "./commands/SendConnectorEventCommand";
+import type {
   SendManagedThingCommandCommandInput,
   SendManagedThingCommandCommandOutput,
 } from "./commands/SendManagedThingCommandCommand";
-import {
+import type {
   StartAccountAssociationRefreshCommandInput,
   StartAccountAssociationRefreshCommandOutput,
 } from "./commands/StartAccountAssociationRefreshCommand";
-import {
+import type {
   StartDeviceDiscoveryCommandInput,
   StartDeviceDiscoveryCommandOutput,
 } from "./commands/StartDeviceDiscoveryCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAccountAssociationCommandInput,
   UpdateAccountAssociationCommandOutput,
 } from "./commands/UpdateAccountAssociationCommand";
-import {
+import type {
   UpdateCloudConnectorCommandInput,
   UpdateCloudConnectorCommandOutput,
 } from "./commands/UpdateCloudConnectorCommand";
-import {
+import type {
   UpdateConnectorDestinationCommandInput,
   UpdateConnectorDestinationCommandOutput,
 } from "./commands/UpdateConnectorDestinationCommand";
-import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from "./commands/UpdateDestinationCommand";
-import {
+import type {
+  UpdateDestinationCommandInput,
+  UpdateDestinationCommandOutput,
+} from "./commands/UpdateDestinationCommand";
+import type {
   UpdateEventLogConfigurationCommandInput,
   UpdateEventLogConfigurationCommandOutput,
 } from "./commands/UpdateEventLogConfigurationCommand";
-import { UpdateManagedThingCommandInput, UpdateManagedThingCommandOutput } from "./commands/UpdateManagedThingCommand";
-import {
+import type {
+  UpdateManagedThingCommandInput,
+  UpdateManagedThingCommandOutput,
+} from "./commands/UpdateManagedThingCommand";
+import type {
   UpdateNotificationConfigurationCommandInput,
   UpdateNotificationConfigurationCommandOutput,
 } from "./commands/UpdateNotificationConfigurationCommand";
-import { UpdateOtaTaskCommandInput, UpdateOtaTaskCommandOutput } from "./commands/UpdateOtaTaskCommand";
+import type { UpdateOtaTaskCommandInput, UpdateOtaTaskCommandOutput } from "./commands/UpdateOtaTaskCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -627,7 +661,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type GetTileInput, GetTileOutput } from "../models/models_0";
+import type { GetTileInput, GetTileOutput } from "../models/models_0";
 import type {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,

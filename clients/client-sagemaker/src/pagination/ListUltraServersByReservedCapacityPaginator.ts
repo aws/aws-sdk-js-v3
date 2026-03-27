@@ -8,7 +8,7 @@ import {
   ListUltraServersByReservedCapacityCommandOutput,
 } from "../commands/ListUltraServersByReservedCapacityCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

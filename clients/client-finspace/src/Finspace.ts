@@ -3,238 +3,250 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateEnvironmentCommandInput,
+  type CreateEnvironmentCommandOutput,
   CreateEnvironmentCommand,
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand";
 import {
+  type CreateKxChangesetCommandInput,
+  type CreateKxChangesetCommandOutput,
   CreateKxChangesetCommand,
-  CreateKxChangesetCommandInput,
-  CreateKxChangesetCommandOutput,
 } from "./commands/CreateKxChangesetCommand";
 import {
+  type CreateKxClusterCommandInput,
+  type CreateKxClusterCommandOutput,
   CreateKxClusterCommand,
-  CreateKxClusterCommandInput,
-  CreateKxClusterCommandOutput,
 } from "./commands/CreateKxClusterCommand";
 import {
+  type CreateKxDatabaseCommandInput,
+  type CreateKxDatabaseCommandOutput,
   CreateKxDatabaseCommand,
-  CreateKxDatabaseCommandInput,
-  CreateKxDatabaseCommandOutput,
 } from "./commands/CreateKxDatabaseCommand";
 import {
+  type CreateKxDataviewCommandInput,
+  type CreateKxDataviewCommandOutput,
   CreateKxDataviewCommand,
-  CreateKxDataviewCommandInput,
-  CreateKxDataviewCommandOutput,
 } from "./commands/CreateKxDataviewCommand";
 import {
+  type CreateKxEnvironmentCommandInput,
+  type CreateKxEnvironmentCommandOutput,
   CreateKxEnvironmentCommand,
-  CreateKxEnvironmentCommandInput,
-  CreateKxEnvironmentCommandOutput,
 } from "./commands/CreateKxEnvironmentCommand";
 import {
+  type CreateKxScalingGroupCommandInput,
+  type CreateKxScalingGroupCommandOutput,
   CreateKxScalingGroupCommand,
-  CreateKxScalingGroupCommandInput,
-  CreateKxScalingGroupCommandOutput,
 } from "./commands/CreateKxScalingGroupCommand";
 import {
+  type CreateKxUserCommandInput,
+  type CreateKxUserCommandOutput,
   CreateKxUserCommand,
-  CreateKxUserCommandInput,
-  CreateKxUserCommandOutput,
 } from "./commands/CreateKxUserCommand";
 import {
+  type CreateKxVolumeCommandInput,
+  type CreateKxVolumeCommandOutput,
   CreateKxVolumeCommand,
-  CreateKxVolumeCommandInput,
-  CreateKxVolumeCommandOutput,
 } from "./commands/CreateKxVolumeCommand";
 import {
+  type DeleteEnvironmentCommandInput,
+  type DeleteEnvironmentCommandOutput,
   DeleteEnvironmentCommand,
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
 import {
+  type DeleteKxClusterCommandInput,
+  type DeleteKxClusterCommandOutput,
   DeleteKxClusterCommand,
-  DeleteKxClusterCommandInput,
-  DeleteKxClusterCommandOutput,
 } from "./commands/DeleteKxClusterCommand";
 import {
+  type DeleteKxClusterNodeCommandInput,
+  type DeleteKxClusterNodeCommandOutput,
   DeleteKxClusterNodeCommand,
-  DeleteKxClusterNodeCommandInput,
-  DeleteKxClusterNodeCommandOutput,
 } from "./commands/DeleteKxClusterNodeCommand";
 import {
+  type DeleteKxDatabaseCommandInput,
+  type DeleteKxDatabaseCommandOutput,
   DeleteKxDatabaseCommand,
-  DeleteKxDatabaseCommandInput,
-  DeleteKxDatabaseCommandOutput,
 } from "./commands/DeleteKxDatabaseCommand";
 import {
+  type DeleteKxDataviewCommandInput,
+  type DeleteKxDataviewCommandOutput,
   DeleteKxDataviewCommand,
-  DeleteKxDataviewCommandInput,
-  DeleteKxDataviewCommandOutput,
 } from "./commands/DeleteKxDataviewCommand";
 import {
+  type DeleteKxEnvironmentCommandInput,
+  type DeleteKxEnvironmentCommandOutput,
   DeleteKxEnvironmentCommand,
-  DeleteKxEnvironmentCommandInput,
-  DeleteKxEnvironmentCommandOutput,
 } from "./commands/DeleteKxEnvironmentCommand";
 import {
+  type DeleteKxScalingGroupCommandInput,
+  type DeleteKxScalingGroupCommandOutput,
   DeleteKxScalingGroupCommand,
-  DeleteKxScalingGroupCommandInput,
-  DeleteKxScalingGroupCommandOutput,
 } from "./commands/DeleteKxScalingGroupCommand";
 import {
+  type DeleteKxUserCommandInput,
+  type DeleteKxUserCommandOutput,
   DeleteKxUserCommand,
-  DeleteKxUserCommandInput,
-  DeleteKxUserCommandOutput,
 } from "./commands/DeleteKxUserCommand";
 import {
+  type DeleteKxVolumeCommandInput,
+  type DeleteKxVolumeCommandOutput,
   DeleteKxVolumeCommand,
-  DeleteKxVolumeCommandInput,
-  DeleteKxVolumeCommandOutput,
 } from "./commands/DeleteKxVolumeCommand";
 import {
+  type GetEnvironmentCommandInput,
+  type GetEnvironmentCommandOutput,
   GetEnvironmentCommand,
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
 import {
+  type GetKxChangesetCommandInput,
+  type GetKxChangesetCommandOutput,
   GetKxChangesetCommand,
-  GetKxChangesetCommandInput,
-  GetKxChangesetCommandOutput,
 } from "./commands/GetKxChangesetCommand";
 import {
+  type GetKxClusterCommandInput,
+  type GetKxClusterCommandOutput,
   GetKxClusterCommand,
-  GetKxClusterCommandInput,
-  GetKxClusterCommandOutput,
 } from "./commands/GetKxClusterCommand";
 import {
+  type GetKxConnectionStringCommandInput,
+  type GetKxConnectionStringCommandOutput,
   GetKxConnectionStringCommand,
-  GetKxConnectionStringCommandInput,
-  GetKxConnectionStringCommandOutput,
 } from "./commands/GetKxConnectionStringCommand";
 import {
+  type GetKxDatabaseCommandInput,
+  type GetKxDatabaseCommandOutput,
   GetKxDatabaseCommand,
-  GetKxDatabaseCommandInput,
-  GetKxDatabaseCommandOutput,
 } from "./commands/GetKxDatabaseCommand";
 import {
+  type GetKxDataviewCommandInput,
+  type GetKxDataviewCommandOutput,
   GetKxDataviewCommand,
-  GetKxDataviewCommandInput,
-  GetKxDataviewCommandOutput,
 } from "./commands/GetKxDataviewCommand";
 import {
+  type GetKxEnvironmentCommandInput,
+  type GetKxEnvironmentCommandOutput,
   GetKxEnvironmentCommand,
-  GetKxEnvironmentCommandInput,
-  GetKxEnvironmentCommandOutput,
 } from "./commands/GetKxEnvironmentCommand";
 import {
+  type GetKxScalingGroupCommandInput,
+  type GetKxScalingGroupCommandOutput,
   GetKxScalingGroupCommand,
-  GetKxScalingGroupCommandInput,
-  GetKxScalingGroupCommandOutput,
 } from "./commands/GetKxScalingGroupCommand";
-import { GetKxUserCommand, GetKxUserCommandInput, GetKxUserCommandOutput } from "./commands/GetKxUserCommand";
-import { GetKxVolumeCommand, GetKxVolumeCommandInput, GetKxVolumeCommandOutput } from "./commands/GetKxVolumeCommand";
+import { type GetKxUserCommandInput, type GetKxUserCommandOutput, GetKxUserCommand } from "./commands/GetKxUserCommand";
 import {
+  type GetKxVolumeCommandInput,
+  type GetKxVolumeCommandOutput,
+  GetKxVolumeCommand,
+} from "./commands/GetKxVolumeCommand";
+import {
+  type ListEnvironmentsCommandInput,
+  type ListEnvironmentsCommandOutput,
   ListEnvironmentsCommand,
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  type ListKxChangesetsCommandInput,
+  type ListKxChangesetsCommandOutput,
   ListKxChangesetsCommand,
-  ListKxChangesetsCommandInput,
-  ListKxChangesetsCommandOutput,
 } from "./commands/ListKxChangesetsCommand";
 import {
+  type ListKxClusterNodesCommandInput,
+  type ListKxClusterNodesCommandOutput,
   ListKxClusterNodesCommand,
-  ListKxClusterNodesCommandInput,
-  ListKxClusterNodesCommandOutput,
 } from "./commands/ListKxClusterNodesCommand";
 import {
+  type ListKxClustersCommandInput,
+  type ListKxClustersCommandOutput,
   ListKxClustersCommand,
-  ListKxClustersCommandInput,
-  ListKxClustersCommandOutput,
 } from "./commands/ListKxClustersCommand";
 import {
+  type ListKxDatabasesCommandInput,
+  type ListKxDatabasesCommandOutput,
   ListKxDatabasesCommand,
-  ListKxDatabasesCommandInput,
-  ListKxDatabasesCommandOutput,
 } from "./commands/ListKxDatabasesCommand";
 import {
+  type ListKxDataviewsCommandInput,
+  type ListKxDataviewsCommandOutput,
   ListKxDataviewsCommand,
-  ListKxDataviewsCommandInput,
-  ListKxDataviewsCommandOutput,
 } from "./commands/ListKxDataviewsCommand";
 import {
+  type ListKxEnvironmentsCommandInput,
+  type ListKxEnvironmentsCommandOutput,
   ListKxEnvironmentsCommand,
-  ListKxEnvironmentsCommandInput,
-  ListKxEnvironmentsCommandOutput,
 } from "./commands/ListKxEnvironmentsCommand";
 import {
+  type ListKxScalingGroupsCommandInput,
+  type ListKxScalingGroupsCommandOutput,
   ListKxScalingGroupsCommand,
-  ListKxScalingGroupsCommandInput,
-  ListKxScalingGroupsCommandOutput,
 } from "./commands/ListKxScalingGroupsCommand";
-import { ListKxUsersCommand, ListKxUsersCommandInput, ListKxUsersCommandOutput } from "./commands/ListKxUsersCommand";
 import {
+  type ListKxUsersCommandInput,
+  type ListKxUsersCommandOutput,
+  ListKxUsersCommand,
+} from "./commands/ListKxUsersCommand";
+import {
+  type ListKxVolumesCommandInput,
+  type ListKxVolumesCommandOutput,
   ListKxVolumesCommand,
-  ListKxVolumesCommandInput,
-  ListKxVolumesCommandOutput,
 } from "./commands/ListKxVolumesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateEnvironmentCommandInput,
+  type UpdateEnvironmentCommandOutput,
   UpdateEnvironmentCommand,
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import {
+  type UpdateKxClusterCodeConfigurationCommandInput,
+  type UpdateKxClusterCodeConfigurationCommandOutput,
   UpdateKxClusterCodeConfigurationCommand,
-  UpdateKxClusterCodeConfigurationCommandInput,
-  UpdateKxClusterCodeConfigurationCommandOutput,
 } from "./commands/UpdateKxClusterCodeConfigurationCommand";
 import {
+  type UpdateKxClusterDatabasesCommandInput,
+  type UpdateKxClusterDatabasesCommandOutput,
   UpdateKxClusterDatabasesCommand,
-  UpdateKxClusterDatabasesCommandInput,
-  UpdateKxClusterDatabasesCommandOutput,
 } from "./commands/UpdateKxClusterDatabasesCommand";
 import {
+  type UpdateKxDatabaseCommandInput,
+  type UpdateKxDatabaseCommandOutput,
   UpdateKxDatabaseCommand,
-  UpdateKxDatabaseCommandInput,
-  UpdateKxDatabaseCommandOutput,
 } from "./commands/UpdateKxDatabaseCommand";
 import {
+  type UpdateKxDataviewCommandInput,
+  type UpdateKxDataviewCommandOutput,
   UpdateKxDataviewCommand,
-  UpdateKxDataviewCommandInput,
-  UpdateKxDataviewCommandOutput,
 } from "./commands/UpdateKxDataviewCommand";
 import {
+  type UpdateKxEnvironmentCommandInput,
+  type UpdateKxEnvironmentCommandOutput,
   UpdateKxEnvironmentCommand,
-  UpdateKxEnvironmentCommandInput,
-  UpdateKxEnvironmentCommandOutput,
 } from "./commands/UpdateKxEnvironmentCommand";
 import {
+  type UpdateKxEnvironmentNetworkCommandInput,
+  type UpdateKxEnvironmentNetworkCommandOutput,
   UpdateKxEnvironmentNetworkCommand,
-  UpdateKxEnvironmentNetworkCommandInput,
-  UpdateKxEnvironmentNetworkCommandOutput,
 } from "./commands/UpdateKxEnvironmentNetworkCommand";
 import {
+  type UpdateKxUserCommandInput,
+  type UpdateKxUserCommandOutput,
   UpdateKxUserCommand,
-  UpdateKxUserCommandInput,
-  UpdateKxUserCommandOutput,
 } from "./commands/UpdateKxUserCommand";
 import {
+  type UpdateKxVolumeCommandInput,
+  type UpdateKxVolumeCommandOutput,
   UpdateKxVolumeCommand,
-  UpdateKxVolumeCommandInput,
-  UpdateKxVolumeCommandOutput,
 } from "./commands/UpdateKxVolumeCommand";
 import { FinspaceClient } from "./FinspaceClient";
 import { paginateListKxChangesets } from "./pagination/ListKxChangesetsPaginator";

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { GetEntitlementFilterName } from "./enums";
+import type { GetEntitlementFilterName } from "./enums";
 
 /**
  * <p>The GetEntitlementsRequest contains parameters for the GetEntitlements

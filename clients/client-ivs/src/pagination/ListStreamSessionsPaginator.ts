@@ -8,7 +8,7 @@ import {
   ListStreamSessionsCommandOutput,
 } from "../commands/ListStreamSessionsCommand";
 import { IvsClient } from "../IvsClient";
-import { IvsPaginationConfiguration } from "./Interfaces";
+import type { IvsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

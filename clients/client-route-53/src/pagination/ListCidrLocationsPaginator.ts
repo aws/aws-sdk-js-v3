@@ -8,7 +8,7 @@ import {
   ListCidrLocationsCommandOutput,
 } from "../commands/ListCidrLocationsCommand";
 import { Route53Client } from "../Route53Client";
-import { Route53PaginationConfiguration } from "./Interfaces";
+import type { Route53PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

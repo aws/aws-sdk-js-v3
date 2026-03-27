@@ -8,7 +8,7 @@ import {
   ListAppsListsCommandOutput,
 } from "../commands/ListAppsListsCommand";
 import { FMSClient } from "../FMSClient";
-import { FMSPaginationConfiguration } from "./Interfaces";
+import type { FMSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

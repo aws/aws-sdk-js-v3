@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   AttachmentContentDisposition,
   AttachmentContentTransferEncoding,
   BehaviorOnMxFailure,

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,186 +61,198 @@ import {
   defaultAuditManagerHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateAssessmentReportEvidenceFolderCommandInput,
   AssociateAssessmentReportEvidenceFolderCommandOutput,
 } from "./commands/AssociateAssessmentReportEvidenceFolderCommand";
-import {
+import type {
   BatchAssociateAssessmentReportEvidenceCommandInput,
   BatchAssociateAssessmentReportEvidenceCommandOutput,
 } from "./commands/BatchAssociateAssessmentReportEvidenceCommand";
-import {
+import type {
   BatchCreateDelegationByAssessmentCommandInput,
   BatchCreateDelegationByAssessmentCommandOutput,
 } from "./commands/BatchCreateDelegationByAssessmentCommand";
-import {
+import type {
   BatchDeleteDelegationByAssessmentCommandInput,
   BatchDeleteDelegationByAssessmentCommandOutput,
 } from "./commands/BatchDeleteDelegationByAssessmentCommand";
-import {
+import type {
   BatchDisassociateAssessmentReportEvidenceCommandInput,
   BatchDisassociateAssessmentReportEvidenceCommandOutput,
 } from "./commands/BatchDisassociateAssessmentReportEvidenceCommand";
-import {
+import type {
   BatchImportEvidenceToAssessmentControlCommandInput,
   BatchImportEvidenceToAssessmentControlCommandOutput,
 } from "./commands/BatchImportEvidenceToAssessmentControlCommand";
-import { CreateAssessmentCommandInput, CreateAssessmentCommandOutput } from "./commands/CreateAssessmentCommand";
-import {
+import type { CreateAssessmentCommandInput, CreateAssessmentCommandOutput } from "./commands/CreateAssessmentCommand";
+import type {
   CreateAssessmentFrameworkCommandInput,
   CreateAssessmentFrameworkCommandOutput,
 } from "./commands/CreateAssessmentFrameworkCommand";
-import {
+import type {
   CreateAssessmentReportCommandInput,
   CreateAssessmentReportCommandOutput,
 } from "./commands/CreateAssessmentReportCommand";
-import { CreateControlCommandInput, CreateControlCommandOutput } from "./commands/CreateControlCommand";
-import { DeleteAssessmentCommandInput, DeleteAssessmentCommandOutput } from "./commands/DeleteAssessmentCommand";
-import {
+import type { CreateControlCommandInput, CreateControlCommandOutput } from "./commands/CreateControlCommand";
+import type { DeleteAssessmentCommandInput, DeleteAssessmentCommandOutput } from "./commands/DeleteAssessmentCommand";
+import type {
   DeleteAssessmentFrameworkCommandInput,
   DeleteAssessmentFrameworkCommandOutput,
 } from "./commands/DeleteAssessmentFrameworkCommand";
-import {
+import type {
   DeleteAssessmentFrameworkShareCommandInput,
   DeleteAssessmentFrameworkShareCommandOutput,
 } from "./commands/DeleteAssessmentFrameworkShareCommand";
-import {
+import type {
   DeleteAssessmentReportCommandInput,
   DeleteAssessmentReportCommandOutput,
 } from "./commands/DeleteAssessmentReportCommand";
-import { DeleteControlCommandInput, DeleteControlCommandOutput } from "./commands/DeleteControlCommand";
-import { DeregisterAccountCommandInput, DeregisterAccountCommandOutput } from "./commands/DeregisterAccountCommand";
-import {
+import type { DeleteControlCommandInput, DeleteControlCommandOutput } from "./commands/DeleteControlCommand";
+import type {
+  DeregisterAccountCommandInput,
+  DeregisterAccountCommandOutput,
+} from "./commands/DeregisterAccountCommand";
+import type {
   DeregisterOrganizationAdminAccountCommandInput,
   DeregisterOrganizationAdminAccountCommandOutput,
 } from "./commands/DeregisterOrganizationAdminAccountCommand";
-import {
+import type {
   DisassociateAssessmentReportEvidenceFolderCommandInput,
   DisassociateAssessmentReportEvidenceFolderCommandOutput,
 } from "./commands/DisassociateAssessmentReportEvidenceFolderCommand";
-import { GetAccountStatusCommandInput, GetAccountStatusCommandOutput } from "./commands/GetAccountStatusCommand";
-import { GetAssessmentCommandInput, GetAssessmentCommandOutput } from "./commands/GetAssessmentCommand";
-import {
+import type { GetAccountStatusCommandInput, GetAccountStatusCommandOutput } from "./commands/GetAccountStatusCommand";
+import type { GetAssessmentCommandInput, GetAssessmentCommandOutput } from "./commands/GetAssessmentCommand";
+import type {
   GetAssessmentFrameworkCommandInput,
   GetAssessmentFrameworkCommandOutput,
 } from "./commands/GetAssessmentFrameworkCommand";
-import {
+import type {
   GetAssessmentReportUrlCommandInput,
   GetAssessmentReportUrlCommandOutput,
 } from "./commands/GetAssessmentReportUrlCommand";
-import { GetChangeLogsCommandInput, GetChangeLogsCommandOutput } from "./commands/GetChangeLogsCommand";
-import { GetControlCommandInput, GetControlCommandOutput } from "./commands/GetControlCommand";
-import { GetDelegationsCommandInput, GetDelegationsCommandOutput } from "./commands/GetDelegationsCommand";
-import {
+import type { GetChangeLogsCommandInput, GetChangeLogsCommandOutput } from "./commands/GetChangeLogsCommand";
+import type { GetControlCommandInput, GetControlCommandOutput } from "./commands/GetControlCommand";
+import type { GetDelegationsCommandInput, GetDelegationsCommandOutput } from "./commands/GetDelegationsCommand";
+import type {
   GetEvidenceByEvidenceFolderCommandInput,
   GetEvidenceByEvidenceFolderCommandOutput,
 } from "./commands/GetEvidenceByEvidenceFolderCommand";
-import { GetEvidenceCommandInput, GetEvidenceCommandOutput } from "./commands/GetEvidenceCommand";
-import {
+import type { GetEvidenceCommandInput, GetEvidenceCommandOutput } from "./commands/GetEvidenceCommand";
+import type {
   GetEvidenceFileUploadUrlCommandInput,
   GetEvidenceFileUploadUrlCommandOutput,
 } from "./commands/GetEvidenceFileUploadUrlCommand";
-import { GetEvidenceFolderCommandInput, GetEvidenceFolderCommandOutput } from "./commands/GetEvidenceFolderCommand";
-import {
+import type {
+  GetEvidenceFolderCommandInput,
+  GetEvidenceFolderCommandOutput,
+} from "./commands/GetEvidenceFolderCommand";
+import type {
   GetEvidenceFoldersByAssessmentCommandInput,
   GetEvidenceFoldersByAssessmentCommandOutput,
 } from "./commands/GetEvidenceFoldersByAssessmentCommand";
-import {
+import type {
   GetEvidenceFoldersByAssessmentControlCommandInput,
   GetEvidenceFoldersByAssessmentControlCommandOutput,
 } from "./commands/GetEvidenceFoldersByAssessmentControlCommand";
-import {
+import type {
   GetInsightsByAssessmentCommandInput,
   GetInsightsByAssessmentCommandOutput,
 } from "./commands/GetInsightsByAssessmentCommand";
-import { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
-import {
+import type { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
+import type {
   GetOrganizationAdminAccountCommandInput,
   GetOrganizationAdminAccountCommandOutput,
 } from "./commands/GetOrganizationAdminAccountCommand";
-import { GetServicesInScopeCommandInput, GetServicesInScopeCommandOutput } from "./commands/GetServicesInScopeCommand";
-import { GetSettingsCommandInput, GetSettingsCommandOutput } from "./commands/GetSettingsCommand";
-import {
+import type {
+  GetServicesInScopeCommandInput,
+  GetServicesInScopeCommandOutput,
+} from "./commands/GetServicesInScopeCommand";
+import type { GetSettingsCommandInput, GetSettingsCommandOutput } from "./commands/GetSettingsCommand";
+import type {
   ListAssessmentControlInsightsByControlDomainCommandInput,
   ListAssessmentControlInsightsByControlDomainCommandOutput,
 } from "./commands/ListAssessmentControlInsightsByControlDomainCommand";
-import {
+import type {
   ListAssessmentFrameworksCommandInput,
   ListAssessmentFrameworksCommandOutput,
 } from "./commands/ListAssessmentFrameworksCommand";
-import {
+import type {
   ListAssessmentFrameworkShareRequestsCommandInput,
   ListAssessmentFrameworkShareRequestsCommandOutput,
 } from "./commands/ListAssessmentFrameworkShareRequestsCommand";
-import {
+import type {
   ListAssessmentReportsCommandInput,
   ListAssessmentReportsCommandOutput,
 } from "./commands/ListAssessmentReportsCommand";
-import { ListAssessmentsCommandInput, ListAssessmentsCommandOutput } from "./commands/ListAssessmentsCommand";
-import {
+import type { ListAssessmentsCommandInput, ListAssessmentsCommandOutput } from "./commands/ListAssessmentsCommand";
+import type {
   ListControlDomainInsightsByAssessmentCommandInput,
   ListControlDomainInsightsByAssessmentCommandOutput,
 } from "./commands/ListControlDomainInsightsByAssessmentCommand";
-import {
+import type {
   ListControlDomainInsightsCommandInput,
   ListControlDomainInsightsCommandOutput,
 } from "./commands/ListControlDomainInsightsCommand";
-import {
+import type {
   ListControlInsightsByControlDomainCommandInput,
   ListControlInsightsByControlDomainCommandOutput,
 } from "./commands/ListControlInsightsByControlDomainCommand";
-import { ListControlsCommandInput, ListControlsCommandOutput } from "./commands/ListControlsCommand";
-import {
+import type { ListControlsCommandInput, ListControlsCommandOutput } from "./commands/ListControlsCommand";
+import type {
   ListKeywordsForDataSourceCommandInput,
   ListKeywordsForDataSourceCommandOutput,
 } from "./commands/ListKeywordsForDataSourceCommand";
-import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "./commands/ListNotificationsCommand";
-import {
+import type {
+  ListNotificationsCommandInput,
+  ListNotificationsCommandOutput,
+} from "./commands/ListNotificationsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RegisterAccountCommandInput, RegisterAccountCommandOutput } from "./commands/RegisterAccountCommand";
-import {
+import type { RegisterAccountCommandInput, RegisterAccountCommandOutput } from "./commands/RegisterAccountCommand";
+import type {
   RegisterOrganizationAdminAccountCommandInput,
   RegisterOrganizationAdminAccountCommandOutput,
 } from "./commands/RegisterOrganizationAdminAccountCommand";
-import {
+import type {
   StartAssessmentFrameworkShareCommandInput,
   StartAssessmentFrameworkShareCommandOutput,
 } from "./commands/StartAssessmentFrameworkShareCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAssessmentCommandInput, UpdateAssessmentCommandOutput } from "./commands/UpdateAssessmentCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAssessmentCommandInput, UpdateAssessmentCommandOutput } from "./commands/UpdateAssessmentCommand";
+import type {
   UpdateAssessmentControlCommandInput,
   UpdateAssessmentControlCommandOutput,
 } from "./commands/UpdateAssessmentControlCommand";
-import {
+import type {
   UpdateAssessmentControlSetStatusCommandInput,
   UpdateAssessmentControlSetStatusCommandOutput,
 } from "./commands/UpdateAssessmentControlSetStatusCommand";
-import {
+import type {
   UpdateAssessmentFrameworkCommandInput,
   UpdateAssessmentFrameworkCommandOutput,
 } from "./commands/UpdateAssessmentFrameworkCommand";
-import {
+import type {
   UpdateAssessmentFrameworkShareCommandInput,
   UpdateAssessmentFrameworkShareCommandOutput,
 } from "./commands/UpdateAssessmentFrameworkShareCommand";
-import {
+import type {
   UpdateAssessmentStatusCommandInput,
   UpdateAssessmentStatusCommandOutput,
 } from "./commands/UpdateAssessmentStatusCommand";
-import { UpdateControlCommandInput, UpdateControlCommandOutput } from "./commands/UpdateControlCommand";
-import { UpdateSettingsCommandInput, UpdateSettingsCommandOutput } from "./commands/UpdateSettingsCommand";
-import {
+import type { UpdateControlCommandInput, UpdateControlCommandOutput } from "./commands/UpdateControlCommand";
+import type { UpdateSettingsCommandInput, UpdateSettingsCommandOutput } from "./commands/UpdateSettingsCommand";
+import type {
   ValidateAssessmentReportIntegrityCommandInput,
   ValidateAssessmentReportIntegrityCommandOutput,
 } from "./commands/ValidateAssessmentReportIntegrityCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -498,7 +508,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

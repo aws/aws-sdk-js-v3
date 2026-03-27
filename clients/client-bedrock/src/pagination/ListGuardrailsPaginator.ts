@@ -8,7 +8,7 @@ import {
   ListGuardrailsCommandInput,
   ListGuardrailsCommandOutput,
 } from "../commands/ListGuardrailsCommand";
-import { BedrockPaginationConfiguration } from "./Interfaces";
+import type { BedrockPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

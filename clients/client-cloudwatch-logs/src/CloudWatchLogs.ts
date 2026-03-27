@@ -4,524 +4,540 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CloudWatchLogsClient } from "./CloudWatchLogsClient";
 import {
+  type AssociateKmsKeyCommandInput,
+  type AssociateKmsKeyCommandOutput,
   AssociateKmsKeyCommand,
-  AssociateKmsKeyCommandInput,
-  AssociateKmsKeyCommandOutput,
 } from "./commands/AssociateKmsKeyCommand";
 import {
+  type AssociateSourceToS3TableIntegrationCommandInput,
+  type AssociateSourceToS3TableIntegrationCommandOutput,
   AssociateSourceToS3TableIntegrationCommand,
-  AssociateSourceToS3TableIntegrationCommandInput,
-  AssociateSourceToS3TableIntegrationCommandOutput,
 } from "./commands/AssociateSourceToS3TableIntegrationCommand";
 import {
+  type CancelExportTaskCommandInput,
+  type CancelExportTaskCommandOutput,
   CancelExportTaskCommand,
-  CancelExportTaskCommandInput,
-  CancelExportTaskCommandOutput,
 } from "./commands/CancelExportTaskCommand";
 import {
+  type CancelImportTaskCommandInput,
+  type CancelImportTaskCommandOutput,
   CancelImportTaskCommand,
-  CancelImportTaskCommandInput,
-  CancelImportTaskCommandOutput,
 } from "./commands/CancelImportTaskCommand";
 import {
+  type CreateDeliveryCommandInput,
+  type CreateDeliveryCommandOutput,
   CreateDeliveryCommand,
-  CreateDeliveryCommandInput,
-  CreateDeliveryCommandOutput,
 } from "./commands/CreateDeliveryCommand";
 import {
+  type CreateExportTaskCommandInput,
+  type CreateExportTaskCommandOutput,
   CreateExportTaskCommand,
-  CreateExportTaskCommandInput,
-  CreateExportTaskCommandOutput,
 } from "./commands/CreateExportTaskCommand";
 import {
+  type CreateImportTaskCommandInput,
+  type CreateImportTaskCommandOutput,
   CreateImportTaskCommand,
-  CreateImportTaskCommandInput,
-  CreateImportTaskCommandOutput,
 } from "./commands/CreateImportTaskCommand";
 import {
+  type CreateLogAnomalyDetectorCommandInput,
+  type CreateLogAnomalyDetectorCommandOutput,
   CreateLogAnomalyDetectorCommand,
-  CreateLogAnomalyDetectorCommandInput,
-  CreateLogAnomalyDetectorCommandOutput,
 } from "./commands/CreateLogAnomalyDetectorCommand";
 import {
+  type CreateLogGroupCommandInput,
+  type CreateLogGroupCommandOutput,
   CreateLogGroupCommand,
-  CreateLogGroupCommandInput,
-  CreateLogGroupCommandOutput,
 } from "./commands/CreateLogGroupCommand";
 import {
+  type CreateLogStreamCommandInput,
+  type CreateLogStreamCommandOutput,
   CreateLogStreamCommand,
-  CreateLogStreamCommandInput,
-  CreateLogStreamCommandOutput,
 } from "./commands/CreateLogStreamCommand";
 import {
+  type CreateScheduledQueryCommandInput,
+  type CreateScheduledQueryCommandOutput,
   CreateScheduledQueryCommand,
-  CreateScheduledQueryCommandInput,
-  CreateScheduledQueryCommandOutput,
 } from "./commands/CreateScheduledQueryCommand";
 import {
+  type DeleteAccountPolicyCommandInput,
+  type DeleteAccountPolicyCommandOutput,
   DeleteAccountPolicyCommand,
-  DeleteAccountPolicyCommandInput,
-  DeleteAccountPolicyCommandOutput,
 } from "./commands/DeleteAccountPolicyCommand";
 import {
+  type DeleteDataProtectionPolicyCommandInput,
+  type DeleteDataProtectionPolicyCommandOutput,
   DeleteDataProtectionPolicyCommand,
-  DeleteDataProtectionPolicyCommandInput,
-  DeleteDataProtectionPolicyCommandOutput,
 } from "./commands/DeleteDataProtectionPolicyCommand";
 import {
+  type DeleteDeliveryCommandInput,
+  type DeleteDeliveryCommandOutput,
   DeleteDeliveryCommand,
-  DeleteDeliveryCommandInput,
-  DeleteDeliveryCommandOutput,
 } from "./commands/DeleteDeliveryCommand";
 import {
+  type DeleteDeliveryDestinationCommandInput,
+  type DeleteDeliveryDestinationCommandOutput,
   DeleteDeliveryDestinationCommand,
-  DeleteDeliveryDestinationCommandInput,
-  DeleteDeliveryDestinationCommandOutput,
 } from "./commands/DeleteDeliveryDestinationCommand";
 import {
+  type DeleteDeliveryDestinationPolicyCommandInput,
+  type DeleteDeliveryDestinationPolicyCommandOutput,
   DeleteDeliveryDestinationPolicyCommand,
-  DeleteDeliveryDestinationPolicyCommandInput,
-  DeleteDeliveryDestinationPolicyCommandOutput,
 } from "./commands/DeleteDeliveryDestinationPolicyCommand";
 import {
+  type DeleteDeliverySourceCommandInput,
+  type DeleteDeliverySourceCommandOutput,
   DeleteDeliverySourceCommand,
-  DeleteDeliverySourceCommandInput,
-  DeleteDeliverySourceCommandOutput,
 } from "./commands/DeleteDeliverySourceCommand";
 import {
+  type DeleteDestinationCommandInput,
+  type DeleteDestinationCommandOutput,
   DeleteDestinationCommand,
-  DeleteDestinationCommandInput,
-  DeleteDestinationCommandOutput,
 } from "./commands/DeleteDestinationCommand";
 import {
+  type DeleteIndexPolicyCommandInput,
+  type DeleteIndexPolicyCommandOutput,
   DeleteIndexPolicyCommand,
-  DeleteIndexPolicyCommandInput,
-  DeleteIndexPolicyCommandOutput,
 } from "./commands/DeleteIndexPolicyCommand";
 import {
+  type DeleteIntegrationCommandInput,
+  type DeleteIntegrationCommandOutput,
   DeleteIntegrationCommand,
-  DeleteIntegrationCommandInput,
-  DeleteIntegrationCommandOutput,
 } from "./commands/DeleteIntegrationCommand";
 import {
+  type DeleteLogAnomalyDetectorCommandInput,
+  type DeleteLogAnomalyDetectorCommandOutput,
   DeleteLogAnomalyDetectorCommand,
-  DeleteLogAnomalyDetectorCommandInput,
-  DeleteLogAnomalyDetectorCommandOutput,
 } from "./commands/DeleteLogAnomalyDetectorCommand";
 import {
+  type DeleteLogGroupCommandInput,
+  type DeleteLogGroupCommandOutput,
   DeleteLogGroupCommand,
-  DeleteLogGroupCommandInput,
-  DeleteLogGroupCommandOutput,
 } from "./commands/DeleteLogGroupCommand";
 import {
+  type DeleteLogStreamCommandInput,
+  type DeleteLogStreamCommandOutput,
   DeleteLogStreamCommand,
-  DeleteLogStreamCommandInput,
-  DeleteLogStreamCommandOutput,
 } from "./commands/DeleteLogStreamCommand";
 import {
+  type DeleteMetricFilterCommandInput,
+  type DeleteMetricFilterCommandOutput,
   DeleteMetricFilterCommand,
-  DeleteMetricFilterCommandInput,
-  DeleteMetricFilterCommandOutput,
 } from "./commands/DeleteMetricFilterCommand";
 import {
+  type DeleteQueryDefinitionCommandInput,
+  type DeleteQueryDefinitionCommandOutput,
   DeleteQueryDefinitionCommand,
-  DeleteQueryDefinitionCommandInput,
-  DeleteQueryDefinitionCommandOutput,
 } from "./commands/DeleteQueryDefinitionCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteRetentionPolicyCommandInput,
+  type DeleteRetentionPolicyCommandOutput,
   DeleteRetentionPolicyCommand,
-  DeleteRetentionPolicyCommandInput,
-  DeleteRetentionPolicyCommandOutput,
 } from "./commands/DeleteRetentionPolicyCommand";
 import {
+  type DeleteScheduledQueryCommandInput,
+  type DeleteScheduledQueryCommandOutput,
   DeleteScheduledQueryCommand,
-  DeleteScheduledQueryCommandInput,
-  DeleteScheduledQueryCommandOutput,
 } from "./commands/DeleteScheduledQueryCommand";
 import {
+  type DeleteSubscriptionFilterCommandInput,
+  type DeleteSubscriptionFilterCommandOutput,
   DeleteSubscriptionFilterCommand,
-  DeleteSubscriptionFilterCommandInput,
-  DeleteSubscriptionFilterCommandOutput,
 } from "./commands/DeleteSubscriptionFilterCommand";
 import {
+  type DeleteTransformerCommandInput,
+  type DeleteTransformerCommandOutput,
   DeleteTransformerCommand,
-  DeleteTransformerCommandInput,
-  DeleteTransformerCommandOutput,
 } from "./commands/DeleteTransformerCommand";
 import {
+  type DescribeAccountPoliciesCommandInput,
+  type DescribeAccountPoliciesCommandOutput,
   DescribeAccountPoliciesCommand,
-  DescribeAccountPoliciesCommandInput,
-  DescribeAccountPoliciesCommandOutput,
 } from "./commands/DescribeAccountPoliciesCommand";
 import {
+  type DescribeConfigurationTemplatesCommandInput,
+  type DescribeConfigurationTemplatesCommandOutput,
   DescribeConfigurationTemplatesCommand,
-  DescribeConfigurationTemplatesCommandInput,
-  DescribeConfigurationTemplatesCommandOutput,
 } from "./commands/DescribeConfigurationTemplatesCommand";
 import {
+  type DescribeDeliveriesCommandInput,
+  type DescribeDeliveriesCommandOutput,
   DescribeDeliveriesCommand,
-  DescribeDeliveriesCommandInput,
-  DescribeDeliveriesCommandOutput,
 } from "./commands/DescribeDeliveriesCommand";
 import {
+  type DescribeDeliveryDestinationsCommandInput,
+  type DescribeDeliveryDestinationsCommandOutput,
   DescribeDeliveryDestinationsCommand,
-  DescribeDeliveryDestinationsCommandInput,
-  DescribeDeliveryDestinationsCommandOutput,
 } from "./commands/DescribeDeliveryDestinationsCommand";
 import {
+  type DescribeDeliverySourcesCommandInput,
+  type DescribeDeliverySourcesCommandOutput,
   DescribeDeliverySourcesCommand,
-  DescribeDeliverySourcesCommandInput,
-  DescribeDeliverySourcesCommandOutput,
 } from "./commands/DescribeDeliverySourcesCommand";
 import {
+  type DescribeDestinationsCommandInput,
+  type DescribeDestinationsCommandOutput,
   DescribeDestinationsCommand,
-  DescribeDestinationsCommandInput,
-  DescribeDestinationsCommandOutput,
 } from "./commands/DescribeDestinationsCommand";
 import {
+  type DescribeExportTasksCommandInput,
+  type DescribeExportTasksCommandOutput,
   DescribeExportTasksCommand,
-  DescribeExportTasksCommandInput,
-  DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
 import {
+  type DescribeFieldIndexesCommandInput,
+  type DescribeFieldIndexesCommandOutput,
   DescribeFieldIndexesCommand,
-  DescribeFieldIndexesCommandInput,
-  DescribeFieldIndexesCommandOutput,
 } from "./commands/DescribeFieldIndexesCommand";
 import {
+  type DescribeImportTaskBatchesCommandInput,
+  type DescribeImportTaskBatchesCommandOutput,
   DescribeImportTaskBatchesCommand,
-  DescribeImportTaskBatchesCommandInput,
-  DescribeImportTaskBatchesCommandOutput,
 } from "./commands/DescribeImportTaskBatchesCommand";
 import {
+  type DescribeImportTasksCommandInput,
+  type DescribeImportTasksCommandOutput,
   DescribeImportTasksCommand,
-  DescribeImportTasksCommandInput,
-  DescribeImportTasksCommandOutput,
 } from "./commands/DescribeImportTasksCommand";
 import {
+  type DescribeIndexPoliciesCommandInput,
+  type DescribeIndexPoliciesCommandOutput,
   DescribeIndexPoliciesCommand,
-  DescribeIndexPoliciesCommandInput,
-  DescribeIndexPoliciesCommandOutput,
 } from "./commands/DescribeIndexPoliciesCommand";
 import {
+  type DescribeLogGroupsCommandInput,
+  type DescribeLogGroupsCommandOutput,
   DescribeLogGroupsCommand,
-  DescribeLogGroupsCommandInput,
-  DescribeLogGroupsCommandOutput,
 } from "./commands/DescribeLogGroupsCommand";
 import {
+  type DescribeLogStreamsCommandInput,
+  type DescribeLogStreamsCommandOutput,
   DescribeLogStreamsCommand,
-  DescribeLogStreamsCommandInput,
-  DescribeLogStreamsCommandOutput,
 } from "./commands/DescribeLogStreamsCommand";
 import {
+  type DescribeMetricFiltersCommandInput,
+  type DescribeMetricFiltersCommandOutput,
   DescribeMetricFiltersCommand,
-  DescribeMetricFiltersCommandInput,
-  DescribeMetricFiltersCommandOutput,
 } from "./commands/DescribeMetricFiltersCommand";
 import {
+  type DescribeQueriesCommandInput,
+  type DescribeQueriesCommandOutput,
   DescribeQueriesCommand,
-  DescribeQueriesCommandInput,
-  DescribeQueriesCommandOutput,
 } from "./commands/DescribeQueriesCommand";
 import {
+  type DescribeQueryDefinitionsCommandInput,
+  type DescribeQueryDefinitionsCommandOutput,
   DescribeQueryDefinitionsCommand,
-  DescribeQueryDefinitionsCommandInput,
-  DescribeQueryDefinitionsCommandOutput,
 } from "./commands/DescribeQueryDefinitionsCommand";
 import {
+  type DescribeResourcePoliciesCommandInput,
+  type DescribeResourcePoliciesCommandOutput,
   DescribeResourcePoliciesCommand,
-  DescribeResourcePoliciesCommandInput,
-  DescribeResourcePoliciesCommandOutput,
 } from "./commands/DescribeResourcePoliciesCommand";
 import {
+  type DescribeSubscriptionFiltersCommandInput,
+  type DescribeSubscriptionFiltersCommandOutput,
   DescribeSubscriptionFiltersCommand,
-  DescribeSubscriptionFiltersCommandInput,
-  DescribeSubscriptionFiltersCommandOutput,
 } from "./commands/DescribeSubscriptionFiltersCommand";
 import {
+  type DisassociateKmsKeyCommandInput,
+  type DisassociateKmsKeyCommandOutput,
   DisassociateKmsKeyCommand,
-  DisassociateKmsKeyCommandInput,
-  DisassociateKmsKeyCommandOutput,
 } from "./commands/DisassociateKmsKeyCommand";
 import {
+  type DisassociateSourceFromS3TableIntegrationCommandInput,
+  type DisassociateSourceFromS3TableIntegrationCommandOutput,
   DisassociateSourceFromS3TableIntegrationCommand,
-  DisassociateSourceFromS3TableIntegrationCommandInput,
-  DisassociateSourceFromS3TableIntegrationCommandOutput,
 } from "./commands/DisassociateSourceFromS3TableIntegrationCommand";
 import {
+  type FilterLogEventsCommandInput,
+  type FilterLogEventsCommandOutput,
   FilterLogEventsCommand,
-  FilterLogEventsCommandInput,
-  FilterLogEventsCommandOutput,
 } from "./commands/FilterLogEventsCommand";
 import {
+  type GetDataProtectionPolicyCommandInput,
+  type GetDataProtectionPolicyCommandOutput,
   GetDataProtectionPolicyCommand,
-  GetDataProtectionPolicyCommandInput,
-  GetDataProtectionPolicyCommandOutput,
 } from "./commands/GetDataProtectionPolicyCommand";
-import { GetDeliveryCommand, GetDeliveryCommandInput, GetDeliveryCommandOutput } from "./commands/GetDeliveryCommand";
 import {
+  type GetDeliveryCommandInput,
+  type GetDeliveryCommandOutput,
+  GetDeliveryCommand,
+} from "./commands/GetDeliveryCommand";
+import {
+  type GetDeliveryDestinationCommandInput,
+  type GetDeliveryDestinationCommandOutput,
   GetDeliveryDestinationCommand,
-  GetDeliveryDestinationCommandInput,
-  GetDeliveryDestinationCommandOutput,
 } from "./commands/GetDeliveryDestinationCommand";
 import {
+  type GetDeliveryDestinationPolicyCommandInput,
+  type GetDeliveryDestinationPolicyCommandOutput,
   GetDeliveryDestinationPolicyCommand,
-  GetDeliveryDestinationPolicyCommandInput,
-  GetDeliveryDestinationPolicyCommandOutput,
 } from "./commands/GetDeliveryDestinationPolicyCommand";
 import {
+  type GetDeliverySourceCommandInput,
+  type GetDeliverySourceCommandOutput,
   GetDeliverySourceCommand,
-  GetDeliverySourceCommandInput,
-  GetDeliverySourceCommandOutput,
 } from "./commands/GetDeliverySourceCommand";
 import {
+  type GetIntegrationCommandInput,
+  type GetIntegrationCommandOutput,
   GetIntegrationCommand,
-  GetIntegrationCommandInput,
-  GetIntegrationCommandOutput,
 } from "./commands/GetIntegrationCommand";
 import {
+  type GetLogAnomalyDetectorCommandInput,
+  type GetLogAnomalyDetectorCommandOutput,
   GetLogAnomalyDetectorCommand,
-  GetLogAnomalyDetectorCommandInput,
-  GetLogAnomalyDetectorCommandOutput,
 } from "./commands/GetLogAnomalyDetectorCommand";
 import {
+  type GetLogEventsCommandInput,
+  type GetLogEventsCommandOutput,
   GetLogEventsCommand,
-  GetLogEventsCommandInput,
-  GetLogEventsCommandOutput,
 } from "./commands/GetLogEventsCommand";
 import {
+  type GetLogFieldsCommandInput,
+  type GetLogFieldsCommandOutput,
   GetLogFieldsCommand,
-  GetLogFieldsCommandInput,
-  GetLogFieldsCommandOutput,
 } from "./commands/GetLogFieldsCommand";
 import {
+  type GetLogGroupFieldsCommandInput,
+  type GetLogGroupFieldsCommandOutput,
   GetLogGroupFieldsCommand,
-  GetLogGroupFieldsCommandInput,
-  GetLogGroupFieldsCommandOutput,
 } from "./commands/GetLogGroupFieldsCommand";
 import {
+  type GetLogObjectCommandInput,
+  type GetLogObjectCommandOutput,
   GetLogObjectCommand,
-  GetLogObjectCommandInput,
-  GetLogObjectCommandOutput,
 } from "./commands/GetLogObjectCommand";
 import {
+  type GetLogRecordCommandInput,
+  type GetLogRecordCommandOutput,
   GetLogRecordCommand,
-  GetLogRecordCommandInput,
-  GetLogRecordCommandOutput,
 } from "./commands/GetLogRecordCommand";
 import {
+  type GetQueryResultsCommandInput,
+  type GetQueryResultsCommandOutput,
   GetQueryResultsCommand,
-  GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand";
 import {
+  type GetScheduledQueryCommandInput,
+  type GetScheduledQueryCommandOutput,
   GetScheduledQueryCommand,
-  GetScheduledQueryCommandInput,
-  GetScheduledQueryCommandOutput,
 } from "./commands/GetScheduledQueryCommand";
 import {
+  type GetScheduledQueryHistoryCommandInput,
+  type GetScheduledQueryHistoryCommandOutput,
   GetScheduledQueryHistoryCommand,
-  GetScheduledQueryHistoryCommandInput,
-  GetScheduledQueryHistoryCommandOutput,
 } from "./commands/GetScheduledQueryHistoryCommand";
 import {
+  type GetTransformerCommandInput,
+  type GetTransformerCommandOutput,
   GetTransformerCommand,
-  GetTransformerCommandInput,
-  GetTransformerCommandOutput,
 } from "./commands/GetTransformerCommand";
 import {
+  type ListAggregateLogGroupSummariesCommandInput,
+  type ListAggregateLogGroupSummariesCommandOutput,
   ListAggregateLogGroupSummariesCommand,
-  ListAggregateLogGroupSummariesCommandInput,
-  ListAggregateLogGroupSummariesCommandOutput,
 } from "./commands/ListAggregateLogGroupSummariesCommand";
 import {
+  type ListAnomaliesCommandInput,
+  type ListAnomaliesCommandOutput,
   ListAnomaliesCommand,
-  ListAnomaliesCommandInput,
-  ListAnomaliesCommandOutput,
 } from "./commands/ListAnomaliesCommand";
 import {
+  type ListIntegrationsCommandInput,
+  type ListIntegrationsCommandOutput,
   ListIntegrationsCommand,
-  ListIntegrationsCommandInput,
-  ListIntegrationsCommandOutput,
 } from "./commands/ListIntegrationsCommand";
 import {
+  type ListLogAnomalyDetectorsCommandInput,
+  type ListLogAnomalyDetectorsCommandOutput,
   ListLogAnomalyDetectorsCommand,
-  ListLogAnomalyDetectorsCommandInput,
-  ListLogAnomalyDetectorsCommandOutput,
 } from "./commands/ListLogAnomalyDetectorsCommand";
 import {
+  type ListLogGroupsCommandInput,
+  type ListLogGroupsCommandOutput,
   ListLogGroupsCommand,
-  ListLogGroupsCommandInput,
-  ListLogGroupsCommandOutput,
 } from "./commands/ListLogGroupsCommand";
 import {
+  type ListLogGroupsForQueryCommandInput,
+  type ListLogGroupsForQueryCommandOutput,
   ListLogGroupsForQueryCommand,
-  ListLogGroupsForQueryCommandInput,
-  ListLogGroupsForQueryCommandOutput,
 } from "./commands/ListLogGroupsForQueryCommand";
 import {
+  type ListScheduledQueriesCommandInput,
+  type ListScheduledQueriesCommandOutput,
   ListScheduledQueriesCommand,
-  ListScheduledQueriesCommandInput,
-  ListScheduledQueriesCommandOutput,
 } from "./commands/ListScheduledQueriesCommand";
 import {
+  type ListSourcesForS3TableIntegrationCommandInput,
+  type ListSourcesForS3TableIntegrationCommandOutput,
   ListSourcesForS3TableIntegrationCommand,
-  ListSourcesForS3TableIntegrationCommandInput,
-  ListSourcesForS3TableIntegrationCommandOutput,
 } from "./commands/ListSourcesForS3TableIntegrationCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTagsLogGroupCommandInput,
+  type ListTagsLogGroupCommandOutput,
   ListTagsLogGroupCommand,
-  ListTagsLogGroupCommandInput,
-  ListTagsLogGroupCommandOutput,
 } from "./commands/ListTagsLogGroupCommand";
 import {
+  type PutAccountPolicyCommandInput,
+  type PutAccountPolicyCommandOutput,
   PutAccountPolicyCommand,
-  PutAccountPolicyCommandInput,
-  PutAccountPolicyCommandOutput,
 } from "./commands/PutAccountPolicyCommand";
 import {
+  type PutBearerTokenAuthenticationCommandInput,
+  type PutBearerTokenAuthenticationCommandOutput,
   PutBearerTokenAuthenticationCommand,
-  PutBearerTokenAuthenticationCommandInput,
-  PutBearerTokenAuthenticationCommandOutput,
 } from "./commands/PutBearerTokenAuthenticationCommand";
 import {
+  type PutDataProtectionPolicyCommandInput,
+  type PutDataProtectionPolicyCommandOutput,
   PutDataProtectionPolicyCommand,
-  PutDataProtectionPolicyCommandInput,
-  PutDataProtectionPolicyCommandOutput,
 } from "./commands/PutDataProtectionPolicyCommand";
 import {
+  type PutDeliveryDestinationCommandInput,
+  type PutDeliveryDestinationCommandOutput,
   PutDeliveryDestinationCommand,
-  PutDeliveryDestinationCommandInput,
-  PutDeliveryDestinationCommandOutput,
 } from "./commands/PutDeliveryDestinationCommand";
 import {
+  type PutDeliveryDestinationPolicyCommandInput,
+  type PutDeliveryDestinationPolicyCommandOutput,
   PutDeliveryDestinationPolicyCommand,
-  PutDeliveryDestinationPolicyCommandInput,
-  PutDeliveryDestinationPolicyCommandOutput,
 } from "./commands/PutDeliveryDestinationPolicyCommand";
 import {
+  type PutDeliverySourceCommandInput,
+  type PutDeliverySourceCommandOutput,
   PutDeliverySourceCommand,
-  PutDeliverySourceCommandInput,
-  PutDeliverySourceCommandOutput,
 } from "./commands/PutDeliverySourceCommand";
 import {
+  type PutDestinationCommandInput,
+  type PutDestinationCommandOutput,
   PutDestinationCommand,
-  PutDestinationCommandInput,
-  PutDestinationCommandOutput,
 } from "./commands/PutDestinationCommand";
 import {
+  type PutDestinationPolicyCommandInput,
+  type PutDestinationPolicyCommandOutput,
   PutDestinationPolicyCommand,
-  PutDestinationPolicyCommandInput,
-  PutDestinationPolicyCommandOutput,
 } from "./commands/PutDestinationPolicyCommand";
 import {
+  type PutIndexPolicyCommandInput,
+  type PutIndexPolicyCommandOutput,
   PutIndexPolicyCommand,
-  PutIndexPolicyCommandInput,
-  PutIndexPolicyCommandOutput,
 } from "./commands/PutIndexPolicyCommand";
 import {
+  type PutIntegrationCommandInput,
+  type PutIntegrationCommandOutput,
   PutIntegrationCommand,
-  PutIntegrationCommandInput,
-  PutIntegrationCommandOutput,
 } from "./commands/PutIntegrationCommand";
 import {
+  type PutLogEventsCommandInput,
+  type PutLogEventsCommandOutput,
   PutLogEventsCommand,
-  PutLogEventsCommandInput,
-  PutLogEventsCommandOutput,
 } from "./commands/PutLogEventsCommand";
 import {
+  type PutLogGroupDeletionProtectionCommandInput,
+  type PutLogGroupDeletionProtectionCommandOutput,
   PutLogGroupDeletionProtectionCommand,
-  PutLogGroupDeletionProtectionCommandInput,
-  PutLogGroupDeletionProtectionCommandOutput,
 } from "./commands/PutLogGroupDeletionProtectionCommand";
 import {
+  type PutMetricFilterCommandInput,
+  type PutMetricFilterCommandOutput,
   PutMetricFilterCommand,
-  PutMetricFilterCommandInput,
-  PutMetricFilterCommandOutput,
 } from "./commands/PutMetricFilterCommand";
 import {
+  type PutQueryDefinitionCommandInput,
+  type PutQueryDefinitionCommandOutput,
   PutQueryDefinitionCommand,
-  PutQueryDefinitionCommandInput,
-  PutQueryDefinitionCommandOutput,
 } from "./commands/PutQueryDefinitionCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type PutRetentionPolicyCommandInput,
+  type PutRetentionPolicyCommandOutput,
   PutRetentionPolicyCommand,
-  PutRetentionPolicyCommandInput,
-  PutRetentionPolicyCommandOutput,
 } from "./commands/PutRetentionPolicyCommand";
 import {
+  type PutSubscriptionFilterCommandInput,
+  type PutSubscriptionFilterCommandOutput,
   PutSubscriptionFilterCommand,
-  PutSubscriptionFilterCommandInput,
-  PutSubscriptionFilterCommandOutput,
 } from "./commands/PutSubscriptionFilterCommand";
 import {
+  type PutTransformerCommandInput,
+  type PutTransformerCommandOutput,
   PutTransformerCommand,
-  PutTransformerCommandInput,
-  PutTransformerCommandOutput,
 } from "./commands/PutTransformerCommand";
 import {
+  type StartLiveTailCommandInput,
+  type StartLiveTailCommandOutput,
   StartLiveTailCommand,
-  StartLiveTailCommandInput,
-  StartLiveTailCommandOutput,
 } from "./commands/StartLiveTailCommand";
-import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
-import { StopQueryCommand, StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
-import { TagLogGroupCommand, TagLogGroupCommandInput, TagLogGroupCommandOutput } from "./commands/TagLogGroupCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type StartQueryCommandInput,
+  type StartQueryCommandOutput,
+  StartQueryCommand,
+} from "./commands/StartQueryCommand";
+import { type StopQueryCommandInput, type StopQueryCommandOutput, StopQueryCommand } from "./commands/StopQueryCommand";
+import {
+  type TagLogGroupCommandInput,
+  type TagLogGroupCommandOutput,
+  TagLogGroupCommand,
+} from "./commands/TagLogGroupCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TestMetricFilterCommandInput,
+  type TestMetricFilterCommandOutput,
   TestMetricFilterCommand,
-  TestMetricFilterCommandInput,
-  TestMetricFilterCommandOutput,
 } from "./commands/TestMetricFilterCommand";
 import {
+  type TestTransformerCommandInput,
+  type TestTransformerCommandOutput,
   TestTransformerCommand,
-  TestTransformerCommandInput,
-  TestTransformerCommandOutput,
 } from "./commands/TestTransformerCommand";
 import {
+  type UntagLogGroupCommandInput,
+  type UntagLogGroupCommandOutput,
   UntagLogGroupCommand,
-  UntagLogGroupCommandInput,
-  UntagLogGroupCommandOutput,
 } from "./commands/UntagLogGroupCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAnomalyCommandInput,
+  type UpdateAnomalyCommandOutput,
   UpdateAnomalyCommand,
-  UpdateAnomalyCommandInput,
-  UpdateAnomalyCommandOutput,
 } from "./commands/UpdateAnomalyCommand";
 import {
+  type UpdateDeliveryConfigurationCommandInput,
+  type UpdateDeliveryConfigurationCommandOutput,
   UpdateDeliveryConfigurationCommand,
-  UpdateDeliveryConfigurationCommandInput,
-  UpdateDeliveryConfigurationCommandOutput,
 } from "./commands/UpdateDeliveryConfigurationCommand";
 import {
+  type UpdateLogAnomalyDetectorCommandInput,
+  type UpdateLogAnomalyDetectorCommandOutput,
   UpdateLogAnomalyDetectorCommand,
-  UpdateLogAnomalyDetectorCommandInput,
-  UpdateLogAnomalyDetectorCommandOutput,
 } from "./commands/UpdateLogAnomalyDetectorCommand";
 import {
+  type UpdateScheduledQueryCommandInput,
+  type UpdateScheduledQueryCommandOutput,
   UpdateScheduledQueryCommand,
-  UpdateScheduledQueryCommandInput,
-  UpdateScheduledQueryCommandOutput,
 } from "./commands/UpdateScheduledQueryCommand";
 import { paginateDescribeConfigurationTemplates } from "./pagination/DescribeConfigurationTemplatesPaginator";
 import { paginateDescribeDeliveries } from "./pagination/DescribeDeliveriesPaginator";

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListVaultsCommand, ListVaultsCommandInput, ListVaultsCommandOutput } from "../commands/ListVaultsCommand";
 import { GlacierClient } from "../GlacierClient";
-import { GlacierPaginationConfiguration } from "./Interfaces";
+import type { GlacierPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

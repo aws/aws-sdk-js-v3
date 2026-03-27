@@ -8,7 +8,7 @@ import {
   ListOrganizationsCommandOutput,
 } from "../commands/ListOrganizationsCommand";
 import { WorkMailClient } from "../WorkMailClient";
-import { WorkMailPaginationConfiguration } from "./Interfaces";
+import type { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

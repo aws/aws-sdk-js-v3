@@ -8,7 +8,7 @@ import {
   ListInvestigationsCommandOutput,
 } from "../commands/ListInvestigationsCommand";
 import { SecurityIRClient } from "../SecurityIRClient";
-import { SecurityIRPaginationConfiguration } from "./Interfaces";
+import type { SecurityIRPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   DescribeImagePermissionsCommandInput,
   DescribeImagePermissionsCommandOutput,
 } from "../commands/DescribeImagePermissionsCommand";
-import { AppStreamPaginationConfiguration } from "./Interfaces";
+import type { AppStreamPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

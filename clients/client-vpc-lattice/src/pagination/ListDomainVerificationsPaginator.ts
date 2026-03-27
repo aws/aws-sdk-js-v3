@@ -8,7 +8,7 @@ import {
   ListDomainVerificationsCommandOutput,
 } from "../commands/ListDomainVerificationsCommand";
 import { VPCLatticeClient } from "../VPCLatticeClient";
-import { VPCLatticePaginationConfiguration } from "./Interfaces";
+import type { VPCLatticePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

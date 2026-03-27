@@ -9,300 +9,324 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AssociateAccessPolicyCommandInput,
+  type AssociateAccessPolicyCommandOutput,
   AssociateAccessPolicyCommand,
-  AssociateAccessPolicyCommandInput,
-  AssociateAccessPolicyCommandOutput,
 } from "./commands/AssociateAccessPolicyCommand";
 import {
+  type AssociateEncryptionConfigCommandInput,
+  type AssociateEncryptionConfigCommandOutput,
   AssociateEncryptionConfigCommand,
-  AssociateEncryptionConfigCommandInput,
-  AssociateEncryptionConfigCommandOutput,
 } from "./commands/AssociateEncryptionConfigCommand";
 import {
+  type AssociateIdentityProviderConfigCommandInput,
+  type AssociateIdentityProviderConfigCommandOutput,
   AssociateIdentityProviderConfigCommand,
-  AssociateIdentityProviderConfigCommandInput,
-  AssociateIdentityProviderConfigCommandOutput,
 } from "./commands/AssociateIdentityProviderConfigCommand";
 import {
+  type CreateAccessEntryCommandInput,
+  type CreateAccessEntryCommandOutput,
   CreateAccessEntryCommand,
-  CreateAccessEntryCommandInput,
-  CreateAccessEntryCommandOutput,
 } from "./commands/CreateAccessEntryCommand";
-import { CreateAddonCommand, CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
 import {
+  type CreateAddonCommandInput,
+  type CreateAddonCommandOutput,
+  CreateAddonCommand,
+} from "./commands/CreateAddonCommand";
+import {
+  type CreateCapabilityCommandInput,
+  type CreateCapabilityCommandOutput,
   CreateCapabilityCommand,
-  CreateCapabilityCommandInput,
-  CreateCapabilityCommandOutput,
 } from "./commands/CreateCapabilityCommand";
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateEksAnywhereSubscriptionCommandInput,
+  type CreateEksAnywhereSubscriptionCommandOutput,
   CreateEksAnywhereSubscriptionCommand,
-  CreateEksAnywhereSubscriptionCommandInput,
-  CreateEksAnywhereSubscriptionCommandOutput,
 } from "./commands/CreateEksAnywhereSubscriptionCommand";
 import {
+  type CreateFargateProfileCommandInput,
+  type CreateFargateProfileCommandOutput,
   CreateFargateProfileCommand,
-  CreateFargateProfileCommandInput,
-  CreateFargateProfileCommandOutput,
 } from "./commands/CreateFargateProfileCommand";
 import {
+  type CreateNodegroupCommandInput,
+  type CreateNodegroupCommandOutput,
   CreateNodegroupCommand,
-  CreateNodegroupCommandInput,
-  CreateNodegroupCommandOutput,
 } from "./commands/CreateNodegroupCommand";
 import {
+  type CreatePodIdentityAssociationCommandInput,
+  type CreatePodIdentityAssociationCommandOutput,
   CreatePodIdentityAssociationCommand,
-  CreatePodIdentityAssociationCommandInput,
-  CreatePodIdentityAssociationCommandOutput,
 } from "./commands/CreatePodIdentityAssociationCommand";
 import {
+  type DeleteAccessEntryCommandInput,
+  type DeleteAccessEntryCommandOutput,
   DeleteAccessEntryCommand,
-  DeleteAccessEntryCommandInput,
-  DeleteAccessEntryCommandOutput,
 } from "./commands/DeleteAccessEntryCommand";
-import { DeleteAddonCommand, DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
 import {
+  type DeleteAddonCommandInput,
+  type DeleteAddonCommandOutput,
+  DeleteAddonCommand,
+} from "./commands/DeleteAddonCommand";
+import {
+  type DeleteCapabilityCommandInput,
+  type DeleteCapabilityCommandOutput,
   DeleteCapabilityCommand,
-  DeleteCapabilityCommandInput,
-  DeleteCapabilityCommandOutput,
 } from "./commands/DeleteCapabilityCommand";
 import {
+  type DeleteClusterCommandInput,
+  type DeleteClusterCommandOutput,
   DeleteClusterCommand,
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  type DeleteEksAnywhereSubscriptionCommandInput,
+  type DeleteEksAnywhereSubscriptionCommandOutput,
   DeleteEksAnywhereSubscriptionCommand,
-  DeleteEksAnywhereSubscriptionCommandInput,
-  DeleteEksAnywhereSubscriptionCommandOutput,
 } from "./commands/DeleteEksAnywhereSubscriptionCommand";
 import {
+  type DeleteFargateProfileCommandInput,
+  type DeleteFargateProfileCommandOutput,
   DeleteFargateProfileCommand,
-  DeleteFargateProfileCommandInput,
-  DeleteFargateProfileCommandOutput,
 } from "./commands/DeleteFargateProfileCommand";
 import {
+  type DeleteNodegroupCommandInput,
+  type DeleteNodegroupCommandOutput,
   DeleteNodegroupCommand,
-  DeleteNodegroupCommandInput,
-  DeleteNodegroupCommandOutput,
 } from "./commands/DeleteNodegroupCommand";
 import {
+  type DeletePodIdentityAssociationCommandInput,
+  type DeletePodIdentityAssociationCommandOutput,
   DeletePodIdentityAssociationCommand,
-  DeletePodIdentityAssociationCommandInput,
-  DeletePodIdentityAssociationCommandOutput,
 } from "./commands/DeletePodIdentityAssociationCommand";
 import {
+  type DeregisterClusterCommandInput,
+  type DeregisterClusterCommandOutput,
   DeregisterClusterCommand,
-  DeregisterClusterCommandInput,
-  DeregisterClusterCommandOutput,
 } from "./commands/DeregisterClusterCommand";
 import {
+  type DescribeAccessEntryCommandInput,
+  type DescribeAccessEntryCommandOutput,
   DescribeAccessEntryCommand,
-  DescribeAccessEntryCommandInput,
-  DescribeAccessEntryCommandOutput,
 } from "./commands/DescribeAccessEntryCommand";
 import {
+  type DescribeAddonCommandInput,
+  type DescribeAddonCommandOutput,
   DescribeAddonCommand,
-  DescribeAddonCommandInput,
-  DescribeAddonCommandOutput,
 } from "./commands/DescribeAddonCommand";
 import {
+  type DescribeAddonConfigurationCommandInput,
+  type DescribeAddonConfigurationCommandOutput,
   DescribeAddonConfigurationCommand,
-  DescribeAddonConfigurationCommandInput,
-  DescribeAddonConfigurationCommandOutput,
 } from "./commands/DescribeAddonConfigurationCommand";
 import {
+  type DescribeAddonVersionsCommandInput,
+  type DescribeAddonVersionsCommandOutput,
   DescribeAddonVersionsCommand,
-  DescribeAddonVersionsCommandInput,
-  DescribeAddonVersionsCommandOutput,
 } from "./commands/DescribeAddonVersionsCommand";
 import {
+  type DescribeCapabilityCommandInput,
+  type DescribeCapabilityCommandOutput,
   DescribeCapabilityCommand,
-  DescribeCapabilityCommandInput,
-  DescribeCapabilityCommandOutput,
 } from "./commands/DescribeCapabilityCommand";
 import {
+  type DescribeClusterCommandInput,
+  type DescribeClusterCommandOutput,
   DescribeClusterCommand,
-  DescribeClusterCommandInput,
-  DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand";
 import {
+  type DescribeClusterVersionsCommandInput,
+  type DescribeClusterVersionsCommandOutput,
   DescribeClusterVersionsCommand,
-  DescribeClusterVersionsCommandInput,
-  DescribeClusterVersionsCommandOutput,
 } from "./commands/DescribeClusterVersionsCommand";
 import {
+  type DescribeEksAnywhereSubscriptionCommandInput,
+  type DescribeEksAnywhereSubscriptionCommandOutput,
   DescribeEksAnywhereSubscriptionCommand,
-  DescribeEksAnywhereSubscriptionCommandInput,
-  DescribeEksAnywhereSubscriptionCommandOutput,
 } from "./commands/DescribeEksAnywhereSubscriptionCommand";
 import {
+  type DescribeFargateProfileCommandInput,
+  type DescribeFargateProfileCommandOutput,
   DescribeFargateProfileCommand,
-  DescribeFargateProfileCommandInput,
-  DescribeFargateProfileCommandOutput,
 } from "./commands/DescribeFargateProfileCommand";
 import {
+  type DescribeIdentityProviderConfigCommandInput,
+  type DescribeIdentityProviderConfigCommandOutput,
   DescribeIdentityProviderConfigCommand,
-  DescribeIdentityProviderConfigCommandInput,
-  DescribeIdentityProviderConfigCommandOutput,
 } from "./commands/DescribeIdentityProviderConfigCommand";
 import {
+  type DescribeInsightCommandInput,
+  type DescribeInsightCommandOutput,
   DescribeInsightCommand,
-  DescribeInsightCommandInput,
-  DescribeInsightCommandOutput,
 } from "./commands/DescribeInsightCommand";
 import {
+  type DescribeInsightsRefreshCommandInput,
+  type DescribeInsightsRefreshCommandOutput,
   DescribeInsightsRefreshCommand,
-  DescribeInsightsRefreshCommandInput,
-  DescribeInsightsRefreshCommandOutput,
 } from "./commands/DescribeInsightsRefreshCommand";
 import {
+  type DescribeNodegroupCommandInput,
+  type DescribeNodegroupCommandOutput,
   DescribeNodegroupCommand,
-  DescribeNodegroupCommandInput,
-  DescribeNodegroupCommandOutput,
 } from "./commands/DescribeNodegroupCommand";
 import {
+  type DescribePodIdentityAssociationCommandInput,
+  type DescribePodIdentityAssociationCommandOutput,
   DescribePodIdentityAssociationCommand,
-  DescribePodIdentityAssociationCommandInput,
-  DescribePodIdentityAssociationCommandOutput,
 } from "./commands/DescribePodIdentityAssociationCommand";
 import {
+  type DescribeUpdateCommandInput,
+  type DescribeUpdateCommandOutput,
   DescribeUpdateCommand,
-  DescribeUpdateCommandInput,
-  DescribeUpdateCommandOutput,
 } from "./commands/DescribeUpdateCommand";
 import {
+  type DisassociateAccessPolicyCommandInput,
+  type DisassociateAccessPolicyCommandOutput,
   DisassociateAccessPolicyCommand,
-  DisassociateAccessPolicyCommandInput,
-  DisassociateAccessPolicyCommandOutput,
 } from "./commands/DisassociateAccessPolicyCommand";
 import {
+  type DisassociateIdentityProviderConfigCommandInput,
+  type DisassociateIdentityProviderConfigCommandOutput,
   DisassociateIdentityProviderConfigCommand,
-  DisassociateIdentityProviderConfigCommandInput,
-  DisassociateIdentityProviderConfigCommandOutput,
 } from "./commands/DisassociateIdentityProviderConfigCommand";
 import {
+  type ListAccessEntriesCommandInput,
+  type ListAccessEntriesCommandOutput,
   ListAccessEntriesCommand,
-  ListAccessEntriesCommandInput,
-  ListAccessEntriesCommandOutput,
 } from "./commands/ListAccessEntriesCommand";
 import {
+  type ListAccessPoliciesCommandInput,
+  type ListAccessPoliciesCommandOutput,
   ListAccessPoliciesCommand,
-  ListAccessPoliciesCommandInput,
-  ListAccessPoliciesCommandOutput,
 } from "./commands/ListAccessPoliciesCommand";
-import { ListAddonsCommand, ListAddonsCommandInput, ListAddonsCommandOutput } from "./commands/ListAddonsCommand";
 import {
+  type ListAddonsCommandInput,
+  type ListAddonsCommandOutput,
+  ListAddonsCommand,
+} from "./commands/ListAddonsCommand";
+import {
+  type ListAssociatedAccessPoliciesCommandInput,
+  type ListAssociatedAccessPoliciesCommandOutput,
   ListAssociatedAccessPoliciesCommand,
-  ListAssociatedAccessPoliciesCommandInput,
-  ListAssociatedAccessPoliciesCommandOutput,
 } from "./commands/ListAssociatedAccessPoliciesCommand";
 import {
+  type ListCapabilitiesCommandInput,
+  type ListCapabilitiesCommandOutput,
   ListCapabilitiesCommand,
-  ListCapabilitiesCommandInput,
-  ListCapabilitiesCommandOutput,
 } from "./commands/ListCapabilitiesCommand";
 import {
+  type ListClustersCommandInput,
+  type ListClustersCommandOutput,
   ListClustersCommand,
-  ListClustersCommandInput,
-  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
 import {
+  type ListEksAnywhereSubscriptionsCommandInput,
+  type ListEksAnywhereSubscriptionsCommandOutput,
   ListEksAnywhereSubscriptionsCommand,
-  ListEksAnywhereSubscriptionsCommandInput,
-  ListEksAnywhereSubscriptionsCommandOutput,
 } from "./commands/ListEksAnywhereSubscriptionsCommand";
 import {
+  type ListFargateProfilesCommandInput,
+  type ListFargateProfilesCommandOutput,
   ListFargateProfilesCommand,
-  ListFargateProfilesCommandInput,
-  ListFargateProfilesCommandOutput,
 } from "./commands/ListFargateProfilesCommand";
 import {
+  type ListIdentityProviderConfigsCommandInput,
+  type ListIdentityProviderConfigsCommandOutput,
   ListIdentityProviderConfigsCommand,
-  ListIdentityProviderConfigsCommandInput,
-  ListIdentityProviderConfigsCommandOutput,
 } from "./commands/ListIdentityProviderConfigsCommand";
 import {
+  type ListInsightsCommandInput,
+  type ListInsightsCommandOutput,
   ListInsightsCommand,
-  ListInsightsCommandInput,
-  ListInsightsCommandOutput,
 } from "./commands/ListInsightsCommand";
 import {
+  type ListNodegroupsCommandInput,
+  type ListNodegroupsCommandOutput,
   ListNodegroupsCommand,
-  ListNodegroupsCommandInput,
-  ListNodegroupsCommandOutput,
 } from "./commands/ListNodegroupsCommand";
 import {
+  type ListPodIdentityAssociationsCommandInput,
+  type ListPodIdentityAssociationsCommandOutput,
   ListPodIdentityAssociationsCommand,
-  ListPodIdentityAssociationsCommandInput,
-  ListPodIdentityAssociationsCommandOutput,
 } from "./commands/ListPodIdentityAssociationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListUpdatesCommand, ListUpdatesCommandInput, ListUpdatesCommandOutput } from "./commands/ListUpdatesCommand";
 import {
+  type ListUpdatesCommandInput,
+  type ListUpdatesCommandOutput,
+  ListUpdatesCommand,
+} from "./commands/ListUpdatesCommand";
+import {
+  type RegisterClusterCommandInput,
+  type RegisterClusterCommandOutput,
   RegisterClusterCommand,
-  RegisterClusterCommandInput,
-  RegisterClusterCommandOutput,
 } from "./commands/RegisterClusterCommand";
 import {
+  type StartInsightsRefreshCommandInput,
+  type StartInsightsRefreshCommandOutput,
   StartInsightsRefreshCommand,
-  StartInsightsRefreshCommandInput,
-  StartInsightsRefreshCommandOutput,
 } from "./commands/StartInsightsRefreshCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccessEntryCommandInput,
+  type UpdateAccessEntryCommandOutput,
   UpdateAccessEntryCommand,
-  UpdateAccessEntryCommandInput,
-  UpdateAccessEntryCommandOutput,
 } from "./commands/UpdateAccessEntryCommand";
-import { UpdateAddonCommand, UpdateAddonCommandInput, UpdateAddonCommandOutput } from "./commands/UpdateAddonCommand";
 import {
+  type UpdateAddonCommandInput,
+  type UpdateAddonCommandOutput,
+  UpdateAddonCommand,
+} from "./commands/UpdateAddonCommand";
+import {
+  type UpdateCapabilityCommandInput,
+  type UpdateCapabilityCommandOutput,
   UpdateCapabilityCommand,
-  UpdateCapabilityCommandInput,
-  UpdateCapabilityCommandOutput,
 } from "./commands/UpdateCapabilityCommand";
 import {
+  type UpdateClusterConfigCommandInput,
+  type UpdateClusterConfigCommandOutput,
   UpdateClusterConfigCommand,
-  UpdateClusterConfigCommandInput,
-  UpdateClusterConfigCommandOutput,
 } from "./commands/UpdateClusterConfigCommand";
 import {
+  type UpdateClusterVersionCommandInput,
+  type UpdateClusterVersionCommandOutput,
   UpdateClusterVersionCommand,
-  UpdateClusterVersionCommandInput,
-  UpdateClusterVersionCommandOutput,
 } from "./commands/UpdateClusterVersionCommand";
 import {
+  type UpdateEksAnywhereSubscriptionCommandInput,
+  type UpdateEksAnywhereSubscriptionCommandOutput,
   UpdateEksAnywhereSubscriptionCommand,
-  UpdateEksAnywhereSubscriptionCommandInput,
-  UpdateEksAnywhereSubscriptionCommandOutput,
 } from "./commands/UpdateEksAnywhereSubscriptionCommand";
 import {
+  type UpdateNodegroupConfigCommandInput,
+  type UpdateNodegroupConfigCommandOutput,
   UpdateNodegroupConfigCommand,
-  UpdateNodegroupConfigCommandInput,
-  UpdateNodegroupConfigCommandOutput,
 } from "./commands/UpdateNodegroupConfigCommand";
 import {
+  type UpdateNodegroupVersionCommandInput,
+  type UpdateNodegroupVersionCommandOutput,
   UpdateNodegroupVersionCommand,
-  UpdateNodegroupVersionCommandInput,
-  UpdateNodegroupVersionCommandOutput,
 } from "./commands/UpdateNodegroupVersionCommand";
 import {
+  type UpdatePodIdentityAssociationCommandInput,
+  type UpdatePodIdentityAssociationCommandOutput,
   UpdatePodIdentityAssociationCommand,
-  UpdatePodIdentityAssociationCommandInput,
-  UpdatePodIdentityAssociationCommandOutput,
 } from "./commands/UpdatePodIdentityAssociationCommand";
 import { EKSClient } from "./EKSClient";
 import { paginateDescribeAddonVersions } from "./pagination/DescribeAddonVersionsPaginator";

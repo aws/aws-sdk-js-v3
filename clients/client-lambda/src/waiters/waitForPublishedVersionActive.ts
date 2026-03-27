@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type GetFunctionConfigurationCommandInput,
   GetFunctionConfigurationCommand,
-  GetFunctionConfigurationCommandInput,
 } from "../commands/GetFunctionConfigurationCommand";
-import { LambdaClient } from "../LambdaClient";
+import type { LambdaClient } from "../LambdaClient";
 
 const checkState = async (client: LambdaClient, input: GetFunctionConfigurationCommandInput): Promise<WaiterResult> => {
   let reason;

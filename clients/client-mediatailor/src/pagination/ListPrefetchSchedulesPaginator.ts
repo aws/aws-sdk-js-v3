@@ -8,7 +8,7 @@ import {
   ListPrefetchSchedulesCommandOutput,
 } from "../commands/ListPrefetchSchedulesCommand";
 import { MediaTailorClient } from "../MediaTailorClient";
-import { MediaTailorPaginationConfiguration } from "./Interfaces";
+import type { MediaTailorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

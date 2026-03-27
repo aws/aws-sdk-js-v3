@@ -8,7 +8,7 @@ import {
   GetResourcesCommandOutput,
 } from "../commands/GetResourcesCommand";
 import { ResourceGroupsTaggingAPIClient } from "../ResourceGroupsTaggingAPIClient";
-import { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
+import type { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

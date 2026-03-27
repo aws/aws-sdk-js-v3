@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,125 +61,143 @@ import {
   defaultInspectorHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddAttributesToFindingsCommandInput,
   AddAttributesToFindingsCommandOutput,
 } from "./commands/AddAttributesToFindingsCommand";
-import {
+import type {
   CreateAssessmentTargetCommandInput,
   CreateAssessmentTargetCommandOutput,
 } from "./commands/CreateAssessmentTargetCommand";
-import {
+import type {
   CreateAssessmentTemplateCommandInput,
   CreateAssessmentTemplateCommandOutput,
 } from "./commands/CreateAssessmentTemplateCommand";
-import {
+import type {
   CreateExclusionsPreviewCommandInput,
   CreateExclusionsPreviewCommandOutput,
 } from "./commands/CreateExclusionsPreviewCommand";
-import {
+import type {
   CreateResourceGroupCommandInput,
   CreateResourceGroupCommandOutput,
 } from "./commands/CreateResourceGroupCommand";
-import {
+import type {
   DeleteAssessmentRunCommandInput,
   DeleteAssessmentRunCommandOutput,
 } from "./commands/DeleteAssessmentRunCommand";
-import {
+import type {
   DeleteAssessmentTargetCommandInput,
   DeleteAssessmentTargetCommandOutput,
 } from "./commands/DeleteAssessmentTargetCommand";
-import {
+import type {
   DeleteAssessmentTemplateCommandInput,
   DeleteAssessmentTemplateCommandOutput,
 } from "./commands/DeleteAssessmentTemplateCommand";
-import {
+import type {
   DescribeAssessmentRunsCommandInput,
   DescribeAssessmentRunsCommandOutput,
 } from "./commands/DescribeAssessmentRunsCommand";
-import {
+import type {
   DescribeAssessmentTargetsCommandInput,
   DescribeAssessmentTargetsCommandOutput,
 } from "./commands/DescribeAssessmentTargetsCommand";
-import {
+import type {
   DescribeAssessmentTemplatesCommandInput,
   DescribeAssessmentTemplatesCommandOutput,
 } from "./commands/DescribeAssessmentTemplatesCommand";
-import {
+import type {
   DescribeCrossAccountAccessRoleCommandInput,
   DescribeCrossAccountAccessRoleCommandOutput,
 } from "./commands/DescribeCrossAccountAccessRoleCommand";
-import { DescribeExclusionsCommandInput, DescribeExclusionsCommandOutput } from "./commands/DescribeExclusionsCommand";
-import { DescribeFindingsCommandInput, DescribeFindingsCommandOutput } from "./commands/DescribeFindingsCommand";
-import {
+import type {
+  DescribeExclusionsCommandInput,
+  DescribeExclusionsCommandOutput,
+} from "./commands/DescribeExclusionsCommand";
+import type { DescribeFindingsCommandInput, DescribeFindingsCommandOutput } from "./commands/DescribeFindingsCommand";
+import type {
   DescribeResourceGroupsCommandInput,
   DescribeResourceGroupsCommandOutput,
 } from "./commands/DescribeResourceGroupsCommand";
-import {
+import type {
   DescribeRulesPackagesCommandInput,
   DescribeRulesPackagesCommandOutput,
 } from "./commands/DescribeRulesPackagesCommand";
-import {
+import type {
   GetAssessmentReportCommandInput,
   GetAssessmentReportCommandOutput,
 } from "./commands/GetAssessmentReportCommand";
-import {
+import type {
   GetExclusionsPreviewCommandInput,
   GetExclusionsPreviewCommandOutput,
 } from "./commands/GetExclusionsPreviewCommand";
-import {
+import type {
   GetTelemetryMetadataCommandInput,
   GetTelemetryMetadataCommandOutput,
 } from "./commands/GetTelemetryMetadataCommand";
-import {
+import type {
   ListAssessmentRunAgentsCommandInput,
   ListAssessmentRunAgentsCommandOutput,
 } from "./commands/ListAssessmentRunAgentsCommand";
-import { ListAssessmentRunsCommandInput, ListAssessmentRunsCommandOutput } from "./commands/ListAssessmentRunsCommand";
-import {
+import type {
+  ListAssessmentRunsCommandInput,
+  ListAssessmentRunsCommandOutput,
+} from "./commands/ListAssessmentRunsCommand";
+import type {
   ListAssessmentTargetsCommandInput,
   ListAssessmentTargetsCommandOutput,
 } from "./commands/ListAssessmentTargetsCommand";
-import {
+import type {
   ListAssessmentTemplatesCommandInput,
   ListAssessmentTemplatesCommandOutput,
 } from "./commands/ListAssessmentTemplatesCommand";
-import {
+import type {
   ListEventSubscriptionsCommandInput,
   ListEventSubscriptionsCommandOutput,
 } from "./commands/ListEventSubscriptionsCommand";
-import { ListExclusionsCommandInput, ListExclusionsCommandOutput } from "./commands/ListExclusionsCommand";
-import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
-import { ListRulesPackagesCommandInput, ListRulesPackagesCommandOutput } from "./commands/ListRulesPackagesCommand";
-import {
+import type { ListExclusionsCommandInput, ListExclusionsCommandOutput } from "./commands/ListExclusionsCommand";
+import type { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
+import type {
+  ListRulesPackagesCommandInput,
+  ListRulesPackagesCommandOutput,
+} from "./commands/ListRulesPackagesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PreviewAgentsCommandInput, PreviewAgentsCommandOutput } from "./commands/PreviewAgentsCommand";
-import {
+import type { PreviewAgentsCommandInput, PreviewAgentsCommandOutput } from "./commands/PreviewAgentsCommand";
+import type {
   RegisterCrossAccountAccessRoleCommandInput,
   RegisterCrossAccountAccessRoleCommandOutput,
 } from "./commands/RegisterCrossAccountAccessRoleCommand";
-import {
+import type {
   RemoveAttributesFromFindingsCommandInput,
   RemoveAttributesFromFindingsCommandOutput,
 } from "./commands/RemoveAttributesFromFindingsCommand";
-import { SetTagsForResourceCommandInput, SetTagsForResourceCommandOutput } from "./commands/SetTagsForResourceCommand";
-import { StartAssessmentRunCommandInput, StartAssessmentRunCommandOutput } from "./commands/StartAssessmentRunCommand";
-import { StopAssessmentRunCommandInput, StopAssessmentRunCommandOutput } from "./commands/StopAssessmentRunCommand";
-import { SubscribeToEventCommandInput, SubscribeToEventCommandOutput } from "./commands/SubscribeToEventCommand";
-import {
+import type {
+  SetTagsForResourceCommandInput,
+  SetTagsForResourceCommandOutput,
+} from "./commands/SetTagsForResourceCommand";
+import type {
+  StartAssessmentRunCommandInput,
+  StartAssessmentRunCommandOutput,
+} from "./commands/StartAssessmentRunCommand";
+import type {
+  StopAssessmentRunCommandInput,
+  StopAssessmentRunCommandOutput,
+} from "./commands/StopAssessmentRunCommand";
+import type { SubscribeToEventCommandInput, SubscribeToEventCommandOutput } from "./commands/SubscribeToEventCommand";
+import type {
   UnsubscribeFromEventCommandInput,
   UnsubscribeFromEventCommandOutput,
 } from "./commands/UnsubscribeFromEventCommand";
-import {
+import type {
   UpdateAssessmentTargetCommandInput,
   UpdateAssessmentTargetCommandOutput,
 } from "./commands/UpdateAssessmentTargetCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -387,7 +403,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

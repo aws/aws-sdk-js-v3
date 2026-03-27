@@ -2,68 +2,96 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
+  type CreateIndexCommandInput,
+  type CreateIndexCommandOutput,
+  CreateIndexCommand,
+} from "./commands/CreateIndexCommand";
+import {
+  type CreateVectorBucketCommandInput,
+  type CreateVectorBucketCommandOutput,
   CreateVectorBucketCommand,
-  CreateVectorBucketCommandInput,
-  CreateVectorBucketCommandOutput,
 } from "./commands/CreateVectorBucketCommand";
-import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
+  type DeleteIndexCommandInput,
+  type DeleteIndexCommandOutput,
+  DeleteIndexCommand,
+} from "./commands/DeleteIndexCommand";
+import {
+  type DeleteVectorBucketCommandInput,
+  type DeleteVectorBucketCommandOutput,
   DeleteVectorBucketCommand,
-  DeleteVectorBucketCommandInput,
-  DeleteVectorBucketCommandOutput,
 } from "./commands/DeleteVectorBucketCommand";
 import {
+  type DeleteVectorBucketPolicyCommandInput,
+  type DeleteVectorBucketPolicyCommandOutput,
   DeleteVectorBucketPolicyCommand,
-  DeleteVectorBucketPolicyCommandInput,
-  DeleteVectorBucketPolicyCommandOutput,
 } from "./commands/DeleteVectorBucketPolicyCommand";
 import {
+  type DeleteVectorsCommandInput,
+  type DeleteVectorsCommandOutput,
   DeleteVectorsCommand,
-  DeleteVectorsCommandInput,
-  DeleteVectorsCommandOutput,
 } from "./commands/DeleteVectorsCommand";
-import { GetIndexCommand, GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import { type GetIndexCommandInput, type GetIndexCommandOutput, GetIndexCommand } from "./commands/GetIndexCommand";
 import {
+  type GetVectorBucketCommandInput,
+  type GetVectorBucketCommandOutput,
   GetVectorBucketCommand,
-  GetVectorBucketCommandInput,
-  GetVectorBucketCommandOutput,
 } from "./commands/GetVectorBucketCommand";
 import {
+  type GetVectorBucketPolicyCommandInput,
+  type GetVectorBucketPolicyCommandOutput,
   GetVectorBucketPolicyCommand,
-  GetVectorBucketPolicyCommandInput,
-  GetVectorBucketPolicyCommandOutput,
 } from "./commands/GetVectorBucketPolicyCommand";
-import { GetVectorsCommand, GetVectorsCommandInput, GetVectorsCommandOutput } from "./commands/GetVectorsCommand";
-import { ListIndexesCommand, ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
 import {
+  type GetVectorsCommandInput,
+  type GetVectorsCommandOutput,
+  GetVectorsCommand,
+} from "./commands/GetVectorsCommand";
+import {
+  type ListIndexesCommandInput,
+  type ListIndexesCommandOutput,
+  ListIndexesCommand,
+} from "./commands/ListIndexesCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVectorBucketsCommandInput,
+  type ListVectorBucketsCommandOutput,
   ListVectorBucketsCommand,
-  ListVectorBucketsCommandInput,
-  ListVectorBucketsCommandOutput,
 } from "./commands/ListVectorBucketsCommand";
-import { ListVectorsCommand, ListVectorsCommandInput, ListVectorsCommandOutput } from "./commands/ListVectorsCommand";
 import {
+  type ListVectorsCommandInput,
+  type ListVectorsCommandOutput,
+  ListVectorsCommand,
+} from "./commands/ListVectorsCommand";
+import {
+  type PutVectorBucketPolicyCommandInput,
+  type PutVectorBucketPolicyCommandOutput,
   PutVectorBucketPolicyCommand,
-  PutVectorBucketPolicyCommandInput,
-  PutVectorBucketPolicyCommandOutput,
 } from "./commands/PutVectorBucketPolicyCommand";
-import { PutVectorsCommand, PutVectorsCommandInput, PutVectorsCommandOutput } from "./commands/PutVectorsCommand";
 import {
+  type PutVectorsCommandInput,
+  type PutVectorsCommandOutput,
+  PutVectorsCommand,
+} from "./commands/PutVectorsCommand";
+import {
+  type QueryVectorsCommandInput,
+  type QueryVectorsCommandOutput,
   QueryVectorsCommand,
-  QueryVectorsCommandInput,
-  QueryVectorsCommandOutput,
 } from "./commands/QueryVectorsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateListIndexes } from "./pagination/ListIndexesPaginator";
 import { paginateListVectorBuckets } from "./pagination/ListVectorBucketsPaginator";

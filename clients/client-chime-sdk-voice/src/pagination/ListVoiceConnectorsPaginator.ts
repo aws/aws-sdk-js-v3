@@ -8,7 +8,7 @@ import {
   ListVoiceConnectorsCommandInput,
   ListVoiceConnectorsCommandOutput,
 } from "../commands/ListVoiceConnectorsCommand";
-import { ChimeSDKVoicePaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKVoicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

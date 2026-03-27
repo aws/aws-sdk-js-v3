@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ChimeSDKVoiceServiceException as __BaseException } from "./ChimeSDKVoiceServiceException";
-import { ErrorCode } from "./enums";
+import type { ErrorCode } from "./enums";
 
 /**
  * <p>You don't have the permissions needed to run this action.</p>

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,89 +61,116 @@ import {
   defaultSSMIncidentsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchGetIncidentFindingsCommandInput,
   BatchGetIncidentFindingsCommandOutput,
 } from "./commands/BatchGetIncidentFindingsCommand";
-import {
+import type {
   CreateReplicationSetCommandInput,
   CreateReplicationSetCommandOutput,
 } from "./commands/CreateReplicationSetCommand";
-import { CreateResponsePlanCommandInput, CreateResponsePlanCommandOutput } from "./commands/CreateResponsePlanCommand";
-import {
+import type {
+  CreateResponsePlanCommandInput,
+  CreateResponsePlanCommandOutput,
+} from "./commands/CreateResponsePlanCommand";
+import type {
   CreateTimelineEventCommandInput,
   CreateTimelineEventCommandOutput,
 } from "./commands/CreateTimelineEventCommand";
-import {
+import type {
   DeleteIncidentRecordCommandInput,
   DeleteIncidentRecordCommandOutput,
 } from "./commands/DeleteIncidentRecordCommand";
-import {
+import type {
   DeleteReplicationSetCommandInput,
   DeleteReplicationSetCommandOutput,
 } from "./commands/DeleteReplicationSetCommand";
-import {
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteResponsePlanCommandInput, DeleteResponsePlanCommandOutput } from "./commands/DeleteResponsePlanCommand";
-import {
+import type {
+  DeleteResponsePlanCommandInput,
+  DeleteResponsePlanCommandOutput,
+} from "./commands/DeleteResponsePlanCommand";
+import type {
   DeleteTimelineEventCommandInput,
   DeleteTimelineEventCommandOutput,
 } from "./commands/DeleteTimelineEventCommand";
-import { GetIncidentRecordCommandInput, GetIncidentRecordCommandOutput } from "./commands/GetIncidentRecordCommand";
-import { GetReplicationSetCommandInput, GetReplicationSetCommandOutput } from "./commands/GetReplicationSetCommand";
-import {
+import type {
+  GetIncidentRecordCommandInput,
+  GetIncidentRecordCommandOutput,
+} from "./commands/GetIncidentRecordCommand";
+import type {
+  GetReplicationSetCommandInput,
+  GetReplicationSetCommandOutput,
+} from "./commands/GetReplicationSetCommand";
+import type {
   GetResourcePoliciesCommandInput,
   GetResourcePoliciesCommandOutput,
 } from "./commands/GetResourcePoliciesCommand";
-import { GetResponsePlanCommandInput, GetResponsePlanCommandOutput } from "./commands/GetResponsePlanCommand";
-import { GetTimelineEventCommandInput, GetTimelineEventCommandOutput } from "./commands/GetTimelineEventCommand";
-import {
+import type { GetResponsePlanCommandInput, GetResponsePlanCommandOutput } from "./commands/GetResponsePlanCommand";
+import type { GetTimelineEventCommandInput, GetTimelineEventCommandOutput } from "./commands/GetTimelineEventCommand";
+import type {
   ListIncidentFindingsCommandInput,
   ListIncidentFindingsCommandOutput,
 } from "./commands/ListIncidentFindingsCommand";
-import {
+import type {
   ListIncidentRecordsCommandInput,
   ListIncidentRecordsCommandOutput,
 } from "./commands/ListIncidentRecordsCommand";
-import { ListRelatedItemsCommandInput, ListRelatedItemsCommandOutput } from "./commands/ListRelatedItemsCommand";
-import {
+import type { ListRelatedItemsCommandInput, ListRelatedItemsCommandOutput } from "./commands/ListRelatedItemsCommand";
+import type {
   ListReplicationSetsCommandInput,
   ListReplicationSetsCommandOutput,
 } from "./commands/ListReplicationSetsCommand";
-import { ListResponsePlansCommandInput, ListResponsePlansCommandOutput } from "./commands/ListResponsePlansCommand";
-import {
+import type {
+  ListResponsePlansCommandInput,
+  ListResponsePlansCommandOutput,
+} from "./commands/ListResponsePlansCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTimelineEventsCommandInput, ListTimelineEventsCommandOutput } from "./commands/ListTimelineEventsCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import { StartIncidentCommandInput, StartIncidentCommandOutput } from "./commands/StartIncidentCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type {
+  ListTimelineEventsCommandInput,
+  ListTimelineEventsCommandOutput,
+} from "./commands/ListTimelineEventsCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type { StartIncidentCommandInput, StartIncidentCommandOutput } from "./commands/StartIncidentCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateDeletionProtectionCommandInput,
   UpdateDeletionProtectionCommandOutput,
 } from "./commands/UpdateDeletionProtectionCommand";
-import {
+import type {
   UpdateIncidentRecordCommandInput,
   UpdateIncidentRecordCommandOutput,
 } from "./commands/UpdateIncidentRecordCommand";
-import { UpdateRelatedItemsCommandInput, UpdateRelatedItemsCommandOutput } from "./commands/UpdateRelatedItemsCommand";
-import {
+import type {
+  UpdateRelatedItemsCommandInput,
+  UpdateRelatedItemsCommandOutput,
+} from "./commands/UpdateRelatedItemsCommand";
+import type {
   UpdateReplicationSetCommandInput,
   UpdateReplicationSetCommandOutput,
 } from "./commands/UpdateReplicationSetCommand";
-import { UpdateResponsePlanCommandInput, UpdateResponsePlanCommandOutput } from "./commands/UpdateResponsePlanCommand";
-import {
+import type {
+  UpdateResponsePlanCommandInput,
+  UpdateResponsePlanCommandOutput,
+} from "./commands/UpdateResponsePlanCommand";
+import type {
   UpdateTimelineEventCommandInput,
   UpdateTimelineEventCommandOutput,
 } from "./commands/UpdateTimelineEventCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -339,7 +364,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

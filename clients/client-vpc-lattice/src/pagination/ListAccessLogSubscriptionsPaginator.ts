@@ -8,7 +8,7 @@ import {
   ListAccessLogSubscriptionsCommandOutput,
 } from "../commands/ListAccessLogSubscriptionsCommand";
 import { VPCLatticeClient } from "../VPCLatticeClient";
-import { VPCLatticePaginationConfiguration } from "./Interfaces";
+import type { VPCLatticePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

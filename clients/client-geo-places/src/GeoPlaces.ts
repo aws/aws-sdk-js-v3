@@ -3,24 +3,28 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type AutocompleteCommandInput,
+  type AutocompleteCommandOutput,
   AutocompleteCommand,
-  AutocompleteCommandInput,
-  AutocompleteCommandOutput,
 } from "./commands/AutocompleteCommand";
-import { GeocodeCommand, GeocodeCommandInput, GeocodeCommandOutput } from "./commands/GeocodeCommand";
-import { GetPlaceCommand, GetPlaceCommandInput, GetPlaceCommandOutput } from "./commands/GetPlaceCommand";
+import { type GeocodeCommandInput, type GeocodeCommandOutput, GeocodeCommand } from "./commands/GeocodeCommand";
+import { type GetPlaceCommandInput, type GetPlaceCommandOutput, GetPlaceCommand } from "./commands/GetPlaceCommand";
 import {
+  type ReverseGeocodeCommandInput,
+  type ReverseGeocodeCommandOutput,
   ReverseGeocodeCommand,
-  ReverseGeocodeCommandInput,
-  ReverseGeocodeCommandOutput,
 } from "./commands/ReverseGeocodeCommand";
 import {
+  type SearchNearbyCommandInput,
+  type SearchNearbyCommandOutput,
   SearchNearbyCommand,
-  SearchNearbyCommandInput,
-  SearchNearbyCommandOutput,
 } from "./commands/SearchNearbyCommand";
-import { SearchTextCommand, SearchTextCommandInput, SearchTextCommandOutput } from "./commands/SearchTextCommand";
-import { SuggestCommand, SuggestCommandInput, SuggestCommandOutput } from "./commands/SuggestCommand";
+import {
+  type SearchTextCommandInput,
+  type SearchTextCommandOutput,
+  SearchTextCommand,
+} from "./commands/SearchTextCommand";
+import { type SuggestCommandInput, type SuggestCommandOutput, SuggestCommand } from "./commands/SuggestCommand";
 import { GeoPlacesClient } from "./GeoPlacesClient";
 
 const commands = {

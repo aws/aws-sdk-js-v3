@@ -8,7 +8,7 @@ import {
   ListRoutingControlsCommandOutput,
 } from "../commands/ListRoutingControlsCommand";
 import { Route53RecoveryClusterClient } from "../Route53RecoveryClusterClient";
-import { Route53RecoveryClusterPaginationConfiguration } from "./Interfaces";
+import type { Route53RecoveryClusterPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

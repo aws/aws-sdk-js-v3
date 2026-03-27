@@ -8,7 +8,7 @@ import {
   ListEnvironmentsCommandOutput,
 } from "../commands/ListEnvironmentsCommand";
 import { EvsClient } from "../EvsClient";
-import { EvsPaginationConfiguration } from "./Interfaces";
+import type { EvsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

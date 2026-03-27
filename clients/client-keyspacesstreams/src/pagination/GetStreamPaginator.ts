@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { GetStreamCommand, GetStreamCommandInput, GetStreamCommandOutput } from "../commands/GetStreamCommand";
 import { KeyspacesStreamsClient } from "../KeyspacesStreamsClient";
-import { KeyspacesStreamsPaginationConfiguration } from "./Interfaces";
+import type { KeyspacesStreamsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

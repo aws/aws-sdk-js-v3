@@ -8,7 +8,7 @@ import {
   GetTranscriptCommandOutput,
 } from "../commands/GetTranscriptCommand";
 import { ConnectParticipantClient } from "../ConnectParticipantClient";
-import { ConnectParticipantPaginationConfiguration } from "./Interfaces";
+import type { ConnectParticipantPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

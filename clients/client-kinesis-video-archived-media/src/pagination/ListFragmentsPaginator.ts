@@ -8,7 +8,7 @@ import {
   ListFragmentsCommandOutput,
 } from "../commands/ListFragmentsCommand";
 import { KinesisVideoArchivedMediaClient } from "../KinesisVideoArchivedMediaClient";
-import { KinesisVideoArchivedMediaPaginationConfiguration } from "./Interfaces";
+import type { KinesisVideoArchivedMediaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

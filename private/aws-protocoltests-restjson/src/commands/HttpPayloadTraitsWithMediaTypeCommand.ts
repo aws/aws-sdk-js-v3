@@ -6,7 +6,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { HttpPayloadTraitsWithMediaTypeInputOutput } from "../models/models_0";
+import type { HttpPayloadTraitsWithMediaTypeInputOutput } from "../models/models_0";
 import {
   de_HttpPayloadTraitsWithMediaTypeCommand,
   se_HttpPayloadTraitsWithMediaTypeCommand,

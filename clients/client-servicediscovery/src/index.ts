@@ -13,7 +13,7 @@
  */
 export * from "./ServiceDiscoveryClient";
 export * from "./ServiceDiscovery";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ServiceDiscoveryExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

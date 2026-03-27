@@ -12,7 +12,7 @@
  */
 export * from "./AutoScalingClient";
 export * from "./AutoScaling";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { AutoScalingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

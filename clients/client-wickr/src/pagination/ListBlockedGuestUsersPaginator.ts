@@ -8,7 +8,7 @@ import {
   ListBlockedGuestUsersCommandOutput,
 } from "../commands/ListBlockedGuestUsersCommand";
 import { WickrClient } from "../WickrClient";
-import { WickrPaginationConfiguration } from "./Interfaces";
+import type { WickrPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

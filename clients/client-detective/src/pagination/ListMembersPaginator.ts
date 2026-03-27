@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import { DetectiveClient } from "../DetectiveClient";
-import { DetectivePaginationConfiguration } from "./Interfaces";
+import type { DetectivePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -7,7 +7,7 @@
  */
 export * from "./MediaTailorClient";
 export * from "./MediaTailor";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MediaTailorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

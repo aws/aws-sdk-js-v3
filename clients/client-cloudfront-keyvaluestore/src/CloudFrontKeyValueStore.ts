@@ -3,16 +3,20 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CloudFrontKeyValueStoreClient } from "./CloudFrontKeyValueStoreClient";
-import { DeleteKeyCommand, DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
+import { type DeleteKeyCommandInput, type DeleteKeyCommandOutput, DeleteKeyCommand } from "./commands/DeleteKeyCommand";
 import {
+  type DescribeKeyValueStoreCommandInput,
+  type DescribeKeyValueStoreCommandOutput,
   DescribeKeyValueStoreCommand,
-  DescribeKeyValueStoreCommandInput,
-  DescribeKeyValueStoreCommandOutput,
 } from "./commands/DescribeKeyValueStoreCommand";
-import { GetKeyCommand, GetKeyCommandInput, GetKeyCommandOutput } from "./commands/GetKeyCommand";
-import { ListKeysCommand, ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
-import { PutKeyCommand, PutKeyCommandInput, PutKeyCommandOutput } from "./commands/PutKeyCommand";
-import { UpdateKeysCommand, UpdateKeysCommandInput, UpdateKeysCommandOutput } from "./commands/UpdateKeysCommand";
+import { type GetKeyCommandInput, type GetKeyCommandOutput, GetKeyCommand } from "./commands/GetKeyCommand";
+import { type ListKeysCommandInput, type ListKeysCommandOutput, ListKeysCommand } from "./commands/ListKeysCommand";
+import { type PutKeyCommandInput, type PutKeyCommandOutput, PutKeyCommand } from "./commands/PutKeyCommand";
+import {
+  type UpdateKeysCommandInput,
+  type UpdateKeysCommandOutput,
+  UpdateKeysCommand,
+} from "./commands/UpdateKeysCommand";
 import { paginateListKeys } from "./pagination/ListKeysPaginator";
 
 const commands = {

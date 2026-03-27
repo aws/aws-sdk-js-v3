@@ -8,7 +8,7 @@ import {
   GetSlotTypeVersionsCommandOutput,
 } from "../commands/GetSlotTypeVersionsCommand";
 import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient";
-import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
+import type { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -2,388 +2,396 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { AddRegionCommand, AddRegionCommandInput, AddRegionCommandOutput } from "./commands/AddRegionCommand";
+import { type AddRegionCommandInput, type AddRegionCommandOutput, AddRegionCommand } from "./commands/AddRegionCommand";
 import {
+  type AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
+  type AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput,
   AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
-  AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
-  AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput,
 } from "./commands/AttachCustomerManagedPolicyReferenceToPermissionSetCommand";
 import {
+  type AttachManagedPolicyToPermissionSetCommandInput,
+  type AttachManagedPolicyToPermissionSetCommandOutput,
   AttachManagedPolicyToPermissionSetCommand,
-  AttachManagedPolicyToPermissionSetCommandInput,
-  AttachManagedPolicyToPermissionSetCommandOutput,
 } from "./commands/AttachManagedPolicyToPermissionSetCommand";
 import {
+  type CreateAccountAssignmentCommandInput,
+  type CreateAccountAssignmentCommandOutput,
   CreateAccountAssignmentCommand,
-  CreateAccountAssignmentCommandInput,
-  CreateAccountAssignmentCommandOutput,
 } from "./commands/CreateAccountAssignmentCommand";
 import {
+  type CreateApplicationAssignmentCommandInput,
+  type CreateApplicationAssignmentCommandOutput,
   CreateApplicationAssignmentCommand,
-  CreateApplicationAssignmentCommandInput,
-  CreateApplicationAssignmentCommandOutput,
 } from "./commands/CreateApplicationAssignmentCommand";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateInstanceAccessControlAttributeConfigurationCommandInput,
+  type CreateInstanceAccessControlAttributeConfigurationCommandOutput,
   CreateInstanceAccessControlAttributeConfigurationCommand,
-  CreateInstanceAccessControlAttributeConfigurationCommandInput,
-  CreateInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/CreateInstanceAccessControlAttributeConfigurationCommand";
 import {
+  type CreateInstanceCommandInput,
+  type CreateInstanceCommandOutput,
   CreateInstanceCommand,
-  CreateInstanceCommandInput,
-  CreateInstanceCommandOutput,
 } from "./commands/CreateInstanceCommand";
 import {
+  type CreatePermissionSetCommandInput,
+  type CreatePermissionSetCommandOutput,
   CreatePermissionSetCommand,
-  CreatePermissionSetCommandInput,
-  CreatePermissionSetCommandOutput,
 } from "./commands/CreatePermissionSetCommand";
 import {
+  type CreateTrustedTokenIssuerCommandInput,
+  type CreateTrustedTokenIssuerCommandOutput,
   CreateTrustedTokenIssuerCommand,
-  CreateTrustedTokenIssuerCommandInput,
-  CreateTrustedTokenIssuerCommandOutput,
 } from "./commands/CreateTrustedTokenIssuerCommand";
 import {
+  type DeleteAccountAssignmentCommandInput,
+  type DeleteAccountAssignmentCommandOutput,
   DeleteAccountAssignmentCommand,
-  DeleteAccountAssignmentCommandInput,
-  DeleteAccountAssignmentCommandOutput,
 } from "./commands/DeleteAccountAssignmentCommand";
 import {
+  type DeleteApplicationAccessScopeCommandInput,
+  type DeleteApplicationAccessScopeCommandOutput,
   DeleteApplicationAccessScopeCommand,
-  DeleteApplicationAccessScopeCommandInput,
-  DeleteApplicationAccessScopeCommandOutput,
 } from "./commands/DeleteApplicationAccessScopeCommand";
 import {
+  type DeleteApplicationAssignmentCommandInput,
+  type DeleteApplicationAssignmentCommandOutput,
   DeleteApplicationAssignmentCommand,
-  DeleteApplicationAssignmentCommandInput,
-  DeleteApplicationAssignmentCommandOutput,
 } from "./commands/DeleteApplicationAssignmentCommand";
 import {
+  type DeleteApplicationAuthenticationMethodCommandInput,
+  type DeleteApplicationAuthenticationMethodCommandOutput,
   DeleteApplicationAuthenticationMethodCommand,
-  DeleteApplicationAuthenticationMethodCommandInput,
-  DeleteApplicationAuthenticationMethodCommandOutput,
 } from "./commands/DeleteApplicationAuthenticationMethodCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteApplicationGrantCommandInput,
+  type DeleteApplicationGrantCommandOutput,
   DeleteApplicationGrantCommand,
-  DeleteApplicationGrantCommandInput,
-  DeleteApplicationGrantCommandOutput,
 } from "./commands/DeleteApplicationGrantCommand";
 import {
+  type DeleteInlinePolicyFromPermissionSetCommandInput,
+  type DeleteInlinePolicyFromPermissionSetCommandOutput,
   DeleteInlinePolicyFromPermissionSetCommand,
-  DeleteInlinePolicyFromPermissionSetCommandInput,
-  DeleteInlinePolicyFromPermissionSetCommandOutput,
 } from "./commands/DeleteInlinePolicyFromPermissionSetCommand";
 import {
+  type DeleteInstanceAccessControlAttributeConfigurationCommandInput,
+  type DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
   DeleteInstanceAccessControlAttributeConfigurationCommand,
-  DeleteInstanceAccessControlAttributeConfigurationCommandInput,
-  DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/DeleteInstanceAccessControlAttributeConfigurationCommand";
 import {
+  type DeleteInstanceCommandInput,
+  type DeleteInstanceCommandOutput,
   DeleteInstanceCommand,
-  DeleteInstanceCommandInput,
-  DeleteInstanceCommandOutput,
 } from "./commands/DeleteInstanceCommand";
 import {
+  type DeletePermissionsBoundaryFromPermissionSetCommandInput,
+  type DeletePermissionsBoundaryFromPermissionSetCommandOutput,
   DeletePermissionsBoundaryFromPermissionSetCommand,
-  DeletePermissionsBoundaryFromPermissionSetCommandInput,
-  DeletePermissionsBoundaryFromPermissionSetCommandOutput,
 } from "./commands/DeletePermissionsBoundaryFromPermissionSetCommand";
 import {
+  type DeletePermissionSetCommandInput,
+  type DeletePermissionSetCommandOutput,
   DeletePermissionSetCommand,
-  DeletePermissionSetCommandInput,
-  DeletePermissionSetCommandOutput,
 } from "./commands/DeletePermissionSetCommand";
 import {
+  type DeleteTrustedTokenIssuerCommandInput,
+  type DeleteTrustedTokenIssuerCommandOutput,
   DeleteTrustedTokenIssuerCommand,
-  DeleteTrustedTokenIssuerCommandInput,
-  DeleteTrustedTokenIssuerCommandOutput,
 } from "./commands/DeleteTrustedTokenIssuerCommand";
 import {
+  type DescribeAccountAssignmentCreationStatusCommandInput,
+  type DescribeAccountAssignmentCreationStatusCommandOutput,
   DescribeAccountAssignmentCreationStatusCommand,
-  DescribeAccountAssignmentCreationStatusCommandInput,
-  DescribeAccountAssignmentCreationStatusCommandOutput,
 } from "./commands/DescribeAccountAssignmentCreationStatusCommand";
 import {
+  type DescribeAccountAssignmentDeletionStatusCommandInput,
+  type DescribeAccountAssignmentDeletionStatusCommandOutput,
   DescribeAccountAssignmentDeletionStatusCommand,
-  DescribeAccountAssignmentDeletionStatusCommandInput,
-  DescribeAccountAssignmentDeletionStatusCommandOutput,
 } from "./commands/DescribeAccountAssignmentDeletionStatusCommand";
 import {
+  type DescribeApplicationAssignmentCommandInput,
+  type DescribeApplicationAssignmentCommandOutput,
   DescribeApplicationAssignmentCommand,
-  DescribeApplicationAssignmentCommandInput,
-  DescribeApplicationAssignmentCommandOutput,
 } from "./commands/DescribeApplicationAssignmentCommand";
 import {
+  type DescribeApplicationCommandInput,
+  type DescribeApplicationCommandOutput,
   DescribeApplicationCommand,
-  DescribeApplicationCommandInput,
-  DescribeApplicationCommandOutput,
 } from "./commands/DescribeApplicationCommand";
 import {
+  type DescribeApplicationProviderCommandInput,
+  type DescribeApplicationProviderCommandOutput,
   DescribeApplicationProviderCommand,
-  DescribeApplicationProviderCommandInput,
-  DescribeApplicationProviderCommandOutput,
 } from "./commands/DescribeApplicationProviderCommand";
 import {
+  type DescribeInstanceAccessControlAttributeConfigurationCommandInput,
+  type DescribeInstanceAccessControlAttributeConfigurationCommandOutput,
   DescribeInstanceAccessControlAttributeConfigurationCommand,
-  DescribeInstanceAccessControlAttributeConfigurationCommandInput,
-  DescribeInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/DescribeInstanceAccessControlAttributeConfigurationCommand";
 import {
+  type DescribeInstanceCommandInput,
+  type DescribeInstanceCommandOutput,
   DescribeInstanceCommand,
-  DescribeInstanceCommandInput,
-  DescribeInstanceCommandOutput,
 } from "./commands/DescribeInstanceCommand";
 import {
+  type DescribePermissionSetCommandInput,
+  type DescribePermissionSetCommandOutput,
   DescribePermissionSetCommand,
-  DescribePermissionSetCommandInput,
-  DescribePermissionSetCommandOutput,
 } from "./commands/DescribePermissionSetCommand";
 import {
+  type DescribePermissionSetProvisioningStatusCommandInput,
+  type DescribePermissionSetProvisioningStatusCommandOutput,
   DescribePermissionSetProvisioningStatusCommand,
-  DescribePermissionSetProvisioningStatusCommandInput,
-  DescribePermissionSetProvisioningStatusCommandOutput,
 } from "./commands/DescribePermissionSetProvisioningStatusCommand";
 import {
+  type DescribeRegionCommandInput,
+  type DescribeRegionCommandOutput,
   DescribeRegionCommand,
-  DescribeRegionCommandInput,
-  DescribeRegionCommandOutput,
 } from "./commands/DescribeRegionCommand";
 import {
+  type DescribeTrustedTokenIssuerCommandInput,
+  type DescribeTrustedTokenIssuerCommandOutput,
   DescribeTrustedTokenIssuerCommand,
-  DescribeTrustedTokenIssuerCommandInput,
-  DescribeTrustedTokenIssuerCommandOutput,
 } from "./commands/DescribeTrustedTokenIssuerCommand";
 import {
+  type DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
+  type DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput,
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommand,
-  DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
-  DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput,
 } from "./commands/DetachCustomerManagedPolicyReferenceFromPermissionSetCommand";
 import {
+  type DetachManagedPolicyFromPermissionSetCommandInput,
+  type DetachManagedPolicyFromPermissionSetCommandOutput,
   DetachManagedPolicyFromPermissionSetCommand,
-  DetachManagedPolicyFromPermissionSetCommandInput,
-  DetachManagedPolicyFromPermissionSetCommandOutput,
 } from "./commands/DetachManagedPolicyFromPermissionSetCommand";
 import {
+  type GetApplicationAccessScopeCommandInput,
+  type GetApplicationAccessScopeCommandOutput,
   GetApplicationAccessScopeCommand,
-  GetApplicationAccessScopeCommandInput,
-  GetApplicationAccessScopeCommandOutput,
 } from "./commands/GetApplicationAccessScopeCommand";
 import {
+  type GetApplicationAssignmentConfigurationCommandInput,
+  type GetApplicationAssignmentConfigurationCommandOutput,
   GetApplicationAssignmentConfigurationCommand,
-  GetApplicationAssignmentConfigurationCommandInput,
-  GetApplicationAssignmentConfigurationCommandOutput,
 } from "./commands/GetApplicationAssignmentConfigurationCommand";
 import {
+  type GetApplicationAuthenticationMethodCommandInput,
+  type GetApplicationAuthenticationMethodCommandOutput,
   GetApplicationAuthenticationMethodCommand,
-  GetApplicationAuthenticationMethodCommandInput,
-  GetApplicationAuthenticationMethodCommandOutput,
 } from "./commands/GetApplicationAuthenticationMethodCommand";
 import {
+  type GetApplicationGrantCommandInput,
+  type GetApplicationGrantCommandOutput,
   GetApplicationGrantCommand,
-  GetApplicationGrantCommandInput,
-  GetApplicationGrantCommandOutput,
 } from "./commands/GetApplicationGrantCommand";
 import {
+  type GetApplicationSessionConfigurationCommandInput,
+  type GetApplicationSessionConfigurationCommandOutput,
   GetApplicationSessionConfigurationCommand,
-  GetApplicationSessionConfigurationCommandInput,
-  GetApplicationSessionConfigurationCommandOutput,
 } from "./commands/GetApplicationSessionConfigurationCommand";
 import {
+  type GetInlinePolicyForPermissionSetCommandInput,
+  type GetInlinePolicyForPermissionSetCommandOutput,
   GetInlinePolicyForPermissionSetCommand,
-  GetInlinePolicyForPermissionSetCommandInput,
-  GetInlinePolicyForPermissionSetCommandOutput,
 } from "./commands/GetInlinePolicyForPermissionSetCommand";
 import {
+  type GetPermissionsBoundaryForPermissionSetCommandInput,
+  type GetPermissionsBoundaryForPermissionSetCommandOutput,
   GetPermissionsBoundaryForPermissionSetCommand,
-  GetPermissionsBoundaryForPermissionSetCommandInput,
-  GetPermissionsBoundaryForPermissionSetCommandOutput,
 } from "./commands/GetPermissionsBoundaryForPermissionSetCommand";
 import {
+  type ListAccountAssignmentCreationStatusCommandInput,
+  type ListAccountAssignmentCreationStatusCommandOutput,
   ListAccountAssignmentCreationStatusCommand,
-  ListAccountAssignmentCreationStatusCommandInput,
-  ListAccountAssignmentCreationStatusCommandOutput,
 } from "./commands/ListAccountAssignmentCreationStatusCommand";
 import {
+  type ListAccountAssignmentDeletionStatusCommandInput,
+  type ListAccountAssignmentDeletionStatusCommandOutput,
   ListAccountAssignmentDeletionStatusCommand,
-  ListAccountAssignmentDeletionStatusCommandInput,
-  ListAccountAssignmentDeletionStatusCommandOutput,
 } from "./commands/ListAccountAssignmentDeletionStatusCommand";
 import {
+  type ListAccountAssignmentsCommandInput,
+  type ListAccountAssignmentsCommandOutput,
   ListAccountAssignmentsCommand,
-  ListAccountAssignmentsCommandInput,
-  ListAccountAssignmentsCommandOutput,
 } from "./commands/ListAccountAssignmentsCommand";
 import {
+  type ListAccountAssignmentsForPrincipalCommandInput,
+  type ListAccountAssignmentsForPrincipalCommandOutput,
   ListAccountAssignmentsForPrincipalCommand,
-  ListAccountAssignmentsForPrincipalCommandInput,
-  ListAccountAssignmentsForPrincipalCommandOutput,
 } from "./commands/ListAccountAssignmentsForPrincipalCommand";
 import {
+  type ListAccountsForProvisionedPermissionSetCommandInput,
+  type ListAccountsForProvisionedPermissionSetCommandOutput,
   ListAccountsForProvisionedPermissionSetCommand,
-  ListAccountsForProvisionedPermissionSetCommandInput,
-  ListAccountsForProvisionedPermissionSetCommandOutput,
 } from "./commands/ListAccountsForProvisionedPermissionSetCommand";
 import {
+  type ListApplicationAccessScopesCommandInput,
+  type ListApplicationAccessScopesCommandOutput,
   ListApplicationAccessScopesCommand,
-  ListApplicationAccessScopesCommandInput,
-  ListApplicationAccessScopesCommandOutput,
 } from "./commands/ListApplicationAccessScopesCommand";
 import {
+  type ListApplicationAssignmentsCommandInput,
+  type ListApplicationAssignmentsCommandOutput,
   ListApplicationAssignmentsCommand,
-  ListApplicationAssignmentsCommandInput,
-  ListApplicationAssignmentsCommandOutput,
 } from "./commands/ListApplicationAssignmentsCommand";
 import {
+  type ListApplicationAssignmentsForPrincipalCommandInput,
+  type ListApplicationAssignmentsForPrincipalCommandOutput,
   ListApplicationAssignmentsForPrincipalCommand,
-  ListApplicationAssignmentsForPrincipalCommandInput,
-  ListApplicationAssignmentsForPrincipalCommandOutput,
 } from "./commands/ListApplicationAssignmentsForPrincipalCommand";
 import {
+  type ListApplicationAuthenticationMethodsCommandInput,
+  type ListApplicationAuthenticationMethodsCommandOutput,
   ListApplicationAuthenticationMethodsCommand,
-  ListApplicationAuthenticationMethodsCommandInput,
-  ListApplicationAuthenticationMethodsCommandOutput,
 } from "./commands/ListApplicationAuthenticationMethodsCommand";
 import {
+  type ListApplicationGrantsCommandInput,
+  type ListApplicationGrantsCommandOutput,
   ListApplicationGrantsCommand,
-  ListApplicationGrantsCommandInput,
-  ListApplicationGrantsCommandOutput,
 } from "./commands/ListApplicationGrantsCommand";
 import {
+  type ListApplicationProvidersCommandInput,
+  type ListApplicationProvidersCommandOutput,
   ListApplicationProvidersCommand,
-  ListApplicationProvidersCommandInput,
-  ListApplicationProvidersCommandOutput,
 } from "./commands/ListApplicationProvidersCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
+  type ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput,
   ListCustomerManagedPolicyReferencesInPermissionSetCommand,
-  ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
-  ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput,
 } from "./commands/ListCustomerManagedPolicyReferencesInPermissionSetCommand";
 import {
+  type ListInstancesCommandInput,
+  type ListInstancesCommandOutput,
   ListInstancesCommand,
-  ListInstancesCommandInput,
-  ListInstancesCommandOutput,
 } from "./commands/ListInstancesCommand";
 import {
+  type ListManagedPoliciesInPermissionSetCommandInput,
+  type ListManagedPoliciesInPermissionSetCommandOutput,
   ListManagedPoliciesInPermissionSetCommand,
-  ListManagedPoliciesInPermissionSetCommandInput,
-  ListManagedPoliciesInPermissionSetCommandOutput,
 } from "./commands/ListManagedPoliciesInPermissionSetCommand";
 import {
+  type ListPermissionSetProvisioningStatusCommandInput,
+  type ListPermissionSetProvisioningStatusCommandOutput,
   ListPermissionSetProvisioningStatusCommand,
-  ListPermissionSetProvisioningStatusCommandInput,
-  ListPermissionSetProvisioningStatusCommandOutput,
 } from "./commands/ListPermissionSetProvisioningStatusCommand";
 import {
+  type ListPermissionSetsCommandInput,
+  type ListPermissionSetsCommandOutput,
   ListPermissionSetsCommand,
-  ListPermissionSetsCommandInput,
-  ListPermissionSetsCommandOutput,
 } from "./commands/ListPermissionSetsCommand";
 import {
+  type ListPermissionSetsProvisionedToAccountCommandInput,
+  type ListPermissionSetsProvisionedToAccountCommandOutput,
   ListPermissionSetsProvisionedToAccountCommand,
-  ListPermissionSetsProvisionedToAccountCommandInput,
-  ListPermissionSetsProvisionedToAccountCommandOutput,
 } from "./commands/ListPermissionSetsProvisionedToAccountCommand";
-import { ListRegionsCommand, ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
 import {
+  type ListRegionsCommandInput,
+  type ListRegionsCommandOutput,
+  ListRegionsCommand,
+} from "./commands/ListRegionsCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTrustedTokenIssuersCommandInput,
+  type ListTrustedTokenIssuersCommandOutput,
   ListTrustedTokenIssuersCommand,
-  ListTrustedTokenIssuersCommandInput,
-  ListTrustedTokenIssuersCommandOutput,
 } from "./commands/ListTrustedTokenIssuersCommand";
 import {
+  type ProvisionPermissionSetCommandInput,
+  type ProvisionPermissionSetCommandOutput,
   ProvisionPermissionSetCommand,
-  ProvisionPermissionSetCommandInput,
-  ProvisionPermissionSetCommandOutput,
 } from "./commands/ProvisionPermissionSetCommand";
 import {
+  type PutApplicationAccessScopeCommandInput,
+  type PutApplicationAccessScopeCommandOutput,
   PutApplicationAccessScopeCommand,
-  PutApplicationAccessScopeCommandInput,
-  PutApplicationAccessScopeCommandOutput,
 } from "./commands/PutApplicationAccessScopeCommand";
 import {
+  type PutApplicationAssignmentConfigurationCommandInput,
+  type PutApplicationAssignmentConfigurationCommandOutput,
   PutApplicationAssignmentConfigurationCommand,
-  PutApplicationAssignmentConfigurationCommandInput,
-  PutApplicationAssignmentConfigurationCommandOutput,
 } from "./commands/PutApplicationAssignmentConfigurationCommand";
 import {
+  type PutApplicationAuthenticationMethodCommandInput,
+  type PutApplicationAuthenticationMethodCommandOutput,
   PutApplicationAuthenticationMethodCommand,
-  PutApplicationAuthenticationMethodCommandInput,
-  PutApplicationAuthenticationMethodCommandOutput,
 } from "./commands/PutApplicationAuthenticationMethodCommand";
 import {
+  type PutApplicationGrantCommandInput,
+  type PutApplicationGrantCommandOutput,
   PutApplicationGrantCommand,
-  PutApplicationGrantCommandInput,
-  PutApplicationGrantCommandOutput,
 } from "./commands/PutApplicationGrantCommand";
 import {
+  type PutApplicationSessionConfigurationCommandInput,
+  type PutApplicationSessionConfigurationCommandOutput,
   PutApplicationSessionConfigurationCommand,
-  PutApplicationSessionConfigurationCommandInput,
-  PutApplicationSessionConfigurationCommandOutput,
 } from "./commands/PutApplicationSessionConfigurationCommand";
 import {
+  type PutInlinePolicyToPermissionSetCommandInput,
+  type PutInlinePolicyToPermissionSetCommandOutput,
   PutInlinePolicyToPermissionSetCommand,
-  PutInlinePolicyToPermissionSetCommandInput,
-  PutInlinePolicyToPermissionSetCommandOutput,
 } from "./commands/PutInlinePolicyToPermissionSetCommand";
 import {
+  type PutPermissionsBoundaryToPermissionSetCommandInput,
+  type PutPermissionsBoundaryToPermissionSetCommandOutput,
   PutPermissionsBoundaryToPermissionSetCommand,
-  PutPermissionsBoundaryToPermissionSetCommandInput,
-  PutPermissionsBoundaryToPermissionSetCommandOutput,
 } from "./commands/PutPermissionsBoundaryToPermissionSetCommand";
 import {
+  type RemoveRegionCommandInput,
+  type RemoveRegionCommandOutput,
   RemoveRegionCommand,
-  RemoveRegionCommandInput,
-  RemoveRegionCommandOutput,
 } from "./commands/RemoveRegionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateInstanceAccessControlAttributeConfigurationCommandInput,
+  type UpdateInstanceAccessControlAttributeConfigurationCommandOutput,
   UpdateInstanceAccessControlAttributeConfigurationCommand,
-  UpdateInstanceAccessControlAttributeConfigurationCommandInput,
-  UpdateInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/UpdateInstanceAccessControlAttributeConfigurationCommand";
 import {
+  type UpdateInstanceCommandInput,
+  type UpdateInstanceCommandOutput,
   UpdateInstanceCommand,
-  UpdateInstanceCommandInput,
-  UpdateInstanceCommandOutput,
 } from "./commands/UpdateInstanceCommand";
 import {
+  type UpdatePermissionSetCommandInput,
+  type UpdatePermissionSetCommandOutput,
   UpdatePermissionSetCommand,
-  UpdatePermissionSetCommandInput,
-  UpdatePermissionSetCommandOutput,
 } from "./commands/UpdatePermissionSetCommand";
 import {
+  type UpdateTrustedTokenIssuerCommandInput,
+  type UpdateTrustedTokenIssuerCommandOutput,
   UpdateTrustedTokenIssuerCommand,
-  UpdateTrustedTokenIssuerCommandInput,
-  UpdateTrustedTokenIssuerCommandOutput,
 } from "./commands/UpdateTrustedTokenIssuerCommand";
 import { paginateListAccountAssignmentCreationStatus } from "./pagination/ListAccountAssignmentCreationStatusPaginator";
 import { paginateListAccountAssignmentDeletionStatus } from "./pagination/ListAccountAssignmentDeletionStatusPaginator";

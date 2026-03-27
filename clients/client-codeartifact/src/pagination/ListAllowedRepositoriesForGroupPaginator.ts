@@ -8,7 +8,7 @@ import {
   ListAllowedRepositoriesForGroupCommandInput,
   ListAllowedRepositoriesForGroupCommandOutput,
 } from "../commands/ListAllowedRepositoriesForGroupCommand";
-import { CodeartifactPaginationConfiguration } from "./Interfaces";
+import type { CodeartifactPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

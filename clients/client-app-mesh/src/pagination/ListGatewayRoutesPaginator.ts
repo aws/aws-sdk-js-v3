@@ -8,7 +8,7 @@ import {
   ListGatewayRoutesCommandInput,
   ListGatewayRoutesCommandOutput,
 } from "../commands/ListGatewayRoutesCommand";
-import { AppMeshPaginationConfiguration } from "./Interfaces";
+import type { AppMeshPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

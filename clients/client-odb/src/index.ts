@@ -7,7 +7,7 @@
  */
 export * from "./OdbClient";
 export * from "./Odb";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { OdbExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

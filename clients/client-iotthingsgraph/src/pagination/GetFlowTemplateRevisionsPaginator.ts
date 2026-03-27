@@ -8,7 +8,7 @@ import {
   GetFlowTemplateRevisionsCommandOutput,
 } from "../commands/GetFlowTemplateRevisionsCommand";
 import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
-import { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
+import type { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

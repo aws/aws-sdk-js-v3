@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { MessageSystemAttributeName, MessageSystemAttributeNameForSends, QueueAttributeName } from "./enums";
+import type { MessageSystemAttributeName, MessageSystemAttributeNameForSends, QueueAttributeName } from "./enums";
 
 /**
  * <p></p>

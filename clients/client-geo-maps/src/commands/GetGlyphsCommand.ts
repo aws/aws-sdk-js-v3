@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoMapsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoMapsClient";
-import { type GetGlyphsRequest, GetGlyphsResponse } from "../models/models_0";
+import type { GetGlyphsRequest, GetGlyphsResponse } from "../models/models_0";
 import { GetGlyphs$ } from "../schemas/schemas_0";
 
 /**

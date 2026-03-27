@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 
-import { FilterType } from "./enums";
+import type { FilterType } from "./enums";
 
 /**
  * <p>The values of a given attribute, such as <code>Throughput Optimized HDD</code> or <code>Provisioned

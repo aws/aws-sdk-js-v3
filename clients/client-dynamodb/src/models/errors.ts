@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DynamoDBServiceException as __BaseException } from "./DynamoDBServiceException";
-import { AttributeValue, CancellationReason, ThrottlingReason } from "./models_0";
+import type { AttributeValue, CancellationReason, ThrottlingReason } from "./models_0";
 
 /**
  * <p>There is another ongoing conflicting backup control plane operation on the table.

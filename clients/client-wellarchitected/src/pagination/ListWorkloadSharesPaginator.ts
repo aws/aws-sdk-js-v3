@@ -8,7 +8,7 @@ import {
   ListWorkloadSharesCommandOutput,
 } from "../commands/ListWorkloadSharesCommand";
 import { WellArchitectedClient } from "../WellArchitectedClient";
-import { WellArchitectedPaginationConfiguration } from "./Interfaces";
+import type { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

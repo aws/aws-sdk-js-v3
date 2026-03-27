@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import { SWFClient } from "../SWFClient";
-import { SWFPaginationConfiguration } from "./Interfaces";
+import type { SWFPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

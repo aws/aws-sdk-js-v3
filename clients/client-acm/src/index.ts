@@ -7,7 +7,7 @@
  */
 export * from "./ACMClient";
 export * from "./ACM";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ACMExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

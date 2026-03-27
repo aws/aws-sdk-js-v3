@@ -21,7 +21,7 @@
  */
 export * from "./DocDBElasticClient";
 export * from "./DocDBElastic";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DocDBElasticExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

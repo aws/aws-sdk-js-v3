@@ -8,7 +8,7 @@ import {
   GetVariablesCommandOutput,
 } from "../commands/GetVariablesCommand";
 import { FraudDetectorClient } from "../FraudDetectorClient";
-import { FraudDetectorPaginationConfiguration } from "./Interfaces";
+import type { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

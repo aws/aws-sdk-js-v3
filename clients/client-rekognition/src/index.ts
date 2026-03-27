@@ -380,7 +380,7 @@
  */
 export * from "./RekognitionClient";
 export * from "./Rekognition";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { RekognitionExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

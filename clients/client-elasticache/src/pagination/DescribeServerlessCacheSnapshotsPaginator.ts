@@ -8,7 +8,7 @@ import {
   DescribeServerlessCacheSnapshotsCommandOutput,
 } from "../commands/DescribeServerlessCacheSnapshotsCommand";
 import { ElastiCacheClient } from "../ElastiCacheClient";
-import { ElastiCachePaginationConfiguration } from "./Interfaces";
+import type { ElastiCachePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

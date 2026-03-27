@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListIPSetsCommand, ListIPSetsCommandInput, ListIPSetsCommandOutput } from "../commands/ListIPSetsCommand";
 import { GuardDutyClient } from "../GuardDutyClient";
-import { GuardDutyPaginationConfiguration } from "./Interfaces";
+import type { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

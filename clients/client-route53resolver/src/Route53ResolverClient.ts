@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,240 +61,273 @@ import {
   defaultRoute53ResolverHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateFirewallRuleGroupCommandInput,
   AssociateFirewallRuleGroupCommandOutput,
 } from "./commands/AssociateFirewallRuleGroupCommand";
-import {
+import type {
   AssociateResolverEndpointIpAddressCommandInput,
   AssociateResolverEndpointIpAddressCommandOutput,
 } from "./commands/AssociateResolverEndpointIpAddressCommand";
-import {
+import type {
   AssociateResolverQueryLogConfigCommandInput,
   AssociateResolverQueryLogConfigCommandOutput,
 } from "./commands/AssociateResolverQueryLogConfigCommand";
-import {
+import type {
   AssociateResolverRuleCommandInput,
   AssociateResolverRuleCommandOutput,
 } from "./commands/AssociateResolverRuleCommand";
-import {
+import type {
   CreateFirewallDomainListCommandInput,
   CreateFirewallDomainListCommandOutput,
 } from "./commands/CreateFirewallDomainListCommand";
-import { CreateFirewallRuleCommandInput, CreateFirewallRuleCommandOutput } from "./commands/CreateFirewallRuleCommand";
-import {
+import type {
+  CreateFirewallRuleCommandInput,
+  CreateFirewallRuleCommandOutput,
+} from "./commands/CreateFirewallRuleCommand";
+import type {
   CreateFirewallRuleGroupCommandInput,
   CreateFirewallRuleGroupCommandOutput,
 } from "./commands/CreateFirewallRuleGroupCommand";
-import {
+import type {
   CreateOutpostResolverCommandInput,
   CreateOutpostResolverCommandOutput,
 } from "./commands/CreateOutpostResolverCommand";
-import {
+import type {
   CreateResolverEndpointCommandInput,
   CreateResolverEndpointCommandOutput,
 } from "./commands/CreateResolverEndpointCommand";
-import {
+import type {
   CreateResolverQueryLogConfigCommandInput,
   CreateResolverQueryLogConfigCommandOutput,
 } from "./commands/CreateResolverQueryLogConfigCommand";
-import { CreateResolverRuleCommandInput, CreateResolverRuleCommandOutput } from "./commands/CreateResolverRuleCommand";
-import {
+import type {
+  CreateResolverRuleCommandInput,
+  CreateResolverRuleCommandOutput,
+} from "./commands/CreateResolverRuleCommand";
+import type {
   DeleteFirewallDomainListCommandInput,
   DeleteFirewallDomainListCommandOutput,
 } from "./commands/DeleteFirewallDomainListCommand";
-import { DeleteFirewallRuleCommandInput, DeleteFirewallRuleCommandOutput } from "./commands/DeleteFirewallRuleCommand";
-import {
+import type {
+  DeleteFirewallRuleCommandInput,
+  DeleteFirewallRuleCommandOutput,
+} from "./commands/DeleteFirewallRuleCommand";
+import type {
   DeleteFirewallRuleGroupCommandInput,
   DeleteFirewallRuleGroupCommandOutput,
 } from "./commands/DeleteFirewallRuleGroupCommand";
-import {
+import type {
   DeleteOutpostResolverCommandInput,
   DeleteOutpostResolverCommandOutput,
 } from "./commands/DeleteOutpostResolverCommand";
-import {
+import type {
   DeleteResolverEndpointCommandInput,
   DeleteResolverEndpointCommandOutput,
 } from "./commands/DeleteResolverEndpointCommand";
-import {
+import type {
   DeleteResolverQueryLogConfigCommandInput,
   DeleteResolverQueryLogConfigCommandOutput,
 } from "./commands/DeleteResolverQueryLogConfigCommand";
-import { DeleteResolverRuleCommandInput, DeleteResolverRuleCommandOutput } from "./commands/DeleteResolverRuleCommand";
-import {
+import type {
+  DeleteResolverRuleCommandInput,
+  DeleteResolverRuleCommandOutput,
+} from "./commands/DeleteResolverRuleCommand";
+import type {
   DisassociateFirewallRuleGroupCommandInput,
   DisassociateFirewallRuleGroupCommandOutput,
 } from "./commands/DisassociateFirewallRuleGroupCommand";
-import {
+import type {
   DisassociateResolverEndpointIpAddressCommandInput,
   DisassociateResolverEndpointIpAddressCommandOutput,
 } from "./commands/DisassociateResolverEndpointIpAddressCommand";
-import {
+import type {
   DisassociateResolverQueryLogConfigCommandInput,
   DisassociateResolverQueryLogConfigCommandOutput,
 } from "./commands/DisassociateResolverQueryLogConfigCommand";
-import {
+import type {
   DisassociateResolverRuleCommandInput,
   DisassociateResolverRuleCommandOutput,
 } from "./commands/DisassociateResolverRuleCommand";
-import { GetFirewallConfigCommandInput, GetFirewallConfigCommandOutput } from "./commands/GetFirewallConfigCommand";
-import {
+import type {
+  GetFirewallConfigCommandInput,
+  GetFirewallConfigCommandOutput,
+} from "./commands/GetFirewallConfigCommand";
+import type {
   GetFirewallDomainListCommandInput,
   GetFirewallDomainListCommandOutput,
 } from "./commands/GetFirewallDomainListCommand";
-import {
+import type {
   GetFirewallRuleGroupAssociationCommandInput,
   GetFirewallRuleGroupAssociationCommandOutput,
 } from "./commands/GetFirewallRuleGroupAssociationCommand";
-import {
+import type {
   GetFirewallRuleGroupCommandInput,
   GetFirewallRuleGroupCommandOutput,
 } from "./commands/GetFirewallRuleGroupCommand";
-import {
+import type {
   GetFirewallRuleGroupPolicyCommandInput,
   GetFirewallRuleGroupPolicyCommandOutput,
 } from "./commands/GetFirewallRuleGroupPolicyCommand";
-import { GetOutpostResolverCommandInput, GetOutpostResolverCommandOutput } from "./commands/GetOutpostResolverCommand";
-import { GetResolverConfigCommandInput, GetResolverConfigCommandOutput } from "./commands/GetResolverConfigCommand";
-import {
+import type {
+  GetOutpostResolverCommandInput,
+  GetOutpostResolverCommandOutput,
+} from "./commands/GetOutpostResolverCommand";
+import type {
+  GetResolverConfigCommandInput,
+  GetResolverConfigCommandOutput,
+} from "./commands/GetResolverConfigCommand";
+import type {
   GetResolverDnssecConfigCommandInput,
   GetResolverDnssecConfigCommandOutput,
 } from "./commands/GetResolverDnssecConfigCommand";
-import {
+import type {
   GetResolverEndpointCommandInput,
   GetResolverEndpointCommandOutput,
 } from "./commands/GetResolverEndpointCommand";
-import {
+import type {
   GetResolverQueryLogConfigAssociationCommandInput,
   GetResolverQueryLogConfigAssociationCommandOutput,
 } from "./commands/GetResolverQueryLogConfigAssociationCommand";
-import {
+import type {
   GetResolverQueryLogConfigCommandInput,
   GetResolverQueryLogConfigCommandOutput,
 } from "./commands/GetResolverQueryLogConfigCommand";
-import {
+import type {
   GetResolverQueryLogConfigPolicyCommandInput,
   GetResolverQueryLogConfigPolicyCommandOutput,
 } from "./commands/GetResolverQueryLogConfigPolicyCommand";
-import {
+import type {
   GetResolverRuleAssociationCommandInput,
   GetResolverRuleAssociationCommandOutput,
 } from "./commands/GetResolverRuleAssociationCommand";
-import { GetResolverRuleCommandInput, GetResolverRuleCommandOutput } from "./commands/GetResolverRuleCommand";
-import {
+import type { GetResolverRuleCommandInput, GetResolverRuleCommandOutput } from "./commands/GetResolverRuleCommand";
+import type {
   GetResolverRulePolicyCommandInput,
   GetResolverRulePolicyCommandOutput,
 } from "./commands/GetResolverRulePolicyCommand";
-import {
+import type {
   ImportFirewallDomainsCommandInput,
   ImportFirewallDomainsCommandOutput,
 } from "./commands/ImportFirewallDomainsCommand";
-import {
+import type {
   ListFirewallConfigsCommandInput,
   ListFirewallConfigsCommandOutput,
 } from "./commands/ListFirewallConfigsCommand";
-import {
+import type {
   ListFirewallDomainListsCommandInput,
   ListFirewallDomainListsCommandOutput,
 } from "./commands/ListFirewallDomainListsCommand";
-import {
+import type {
   ListFirewallDomainsCommandInput,
   ListFirewallDomainsCommandOutput,
 } from "./commands/ListFirewallDomainsCommand";
-import {
+import type {
   ListFirewallRuleGroupAssociationsCommandInput,
   ListFirewallRuleGroupAssociationsCommandOutput,
 } from "./commands/ListFirewallRuleGroupAssociationsCommand";
-import {
+import type {
   ListFirewallRuleGroupsCommandInput,
   ListFirewallRuleGroupsCommandOutput,
 } from "./commands/ListFirewallRuleGroupsCommand";
-import { ListFirewallRulesCommandInput, ListFirewallRulesCommandOutput } from "./commands/ListFirewallRulesCommand";
-import {
+import type {
+  ListFirewallRulesCommandInput,
+  ListFirewallRulesCommandOutput,
+} from "./commands/ListFirewallRulesCommand";
+import type {
   ListOutpostResolversCommandInput,
   ListOutpostResolversCommandOutput,
 } from "./commands/ListOutpostResolversCommand";
-import {
+import type {
   ListResolverConfigsCommandInput,
   ListResolverConfigsCommandOutput,
 } from "./commands/ListResolverConfigsCommand";
-import {
+import type {
   ListResolverDnssecConfigsCommandInput,
   ListResolverDnssecConfigsCommandOutput,
 } from "./commands/ListResolverDnssecConfigsCommand";
-import {
+import type {
   ListResolverEndpointIpAddressesCommandInput,
   ListResolverEndpointIpAddressesCommandOutput,
 } from "./commands/ListResolverEndpointIpAddressesCommand";
-import {
+import type {
   ListResolverEndpointsCommandInput,
   ListResolverEndpointsCommandOutput,
 } from "./commands/ListResolverEndpointsCommand";
-import {
+import type {
   ListResolverQueryLogConfigAssociationsCommandInput,
   ListResolverQueryLogConfigAssociationsCommandOutput,
 } from "./commands/ListResolverQueryLogConfigAssociationsCommand";
-import {
+import type {
   ListResolverQueryLogConfigsCommandInput,
   ListResolverQueryLogConfigsCommandOutput,
 } from "./commands/ListResolverQueryLogConfigsCommand";
-import {
+import type {
   ListResolverRuleAssociationsCommandInput,
   ListResolverRuleAssociationsCommandOutput,
 } from "./commands/ListResolverRuleAssociationsCommand";
-import { ListResolverRulesCommandInput, ListResolverRulesCommandOutput } from "./commands/ListResolverRulesCommand";
-import {
+import type {
+  ListResolverRulesCommandInput,
+  ListResolverRulesCommandOutput,
+} from "./commands/ListResolverRulesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutFirewallRuleGroupPolicyCommandInput,
   PutFirewallRuleGroupPolicyCommandOutput,
 } from "./commands/PutFirewallRuleGroupPolicyCommand";
-import {
+import type {
   PutResolverQueryLogConfigPolicyCommandInput,
   PutResolverQueryLogConfigPolicyCommandOutput,
 } from "./commands/PutResolverQueryLogConfigPolicyCommand";
-import {
+import type {
   PutResolverRulePolicyCommandInput,
   PutResolverRulePolicyCommandOutput,
 } from "./commands/PutResolverRulePolicyCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateFirewallConfigCommandInput,
   UpdateFirewallConfigCommandOutput,
 } from "./commands/UpdateFirewallConfigCommand";
-import {
+import type {
   UpdateFirewallDomainsCommandInput,
   UpdateFirewallDomainsCommandOutput,
 } from "./commands/UpdateFirewallDomainsCommand";
-import { UpdateFirewallRuleCommandInput, UpdateFirewallRuleCommandOutput } from "./commands/UpdateFirewallRuleCommand";
-import {
+import type {
+  UpdateFirewallRuleCommandInput,
+  UpdateFirewallRuleCommandOutput,
+} from "./commands/UpdateFirewallRuleCommand";
+import type {
   UpdateFirewallRuleGroupAssociationCommandInput,
   UpdateFirewallRuleGroupAssociationCommandOutput,
 } from "./commands/UpdateFirewallRuleGroupAssociationCommand";
-import {
+import type {
   UpdateOutpostResolverCommandInput,
   UpdateOutpostResolverCommandOutput,
 } from "./commands/UpdateOutpostResolverCommand";
-import {
+import type {
   UpdateResolverConfigCommandInput,
   UpdateResolverConfigCommandOutput,
 } from "./commands/UpdateResolverConfigCommand";
-import {
+import type {
   UpdateResolverDnssecConfigCommandInput,
   UpdateResolverDnssecConfigCommandOutput,
 } from "./commands/UpdateResolverDnssecConfigCommand";
-import {
+import type {
   UpdateResolverEndpointCommandInput,
   UpdateResolverEndpointCommandOutput,
 } from "./commands/UpdateResolverEndpointCommand";
-import { UpdateResolverRuleCommandInput, UpdateResolverRuleCommandOutput } from "./commands/UpdateResolverRuleCommand";
+import type {
+  UpdateResolverRuleCommandInput,
+  UpdateResolverRuleCommandOutput,
+} from "./commands/UpdateResolverRuleCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -564,7 +595,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

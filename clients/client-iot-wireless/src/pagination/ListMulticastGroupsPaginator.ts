@@ -8,7 +8,7 @@ import {
   ListMulticastGroupsCommandOutput,
 } from "../commands/ListMulticastGroupsCommand";
 import { IoTWirelessClient } from "../IoTWirelessClient";
-import { IoTWirelessPaginationConfiguration } from "./Interfaces";
+import type { IoTWirelessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

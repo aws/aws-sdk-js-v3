@@ -8,7 +8,7 @@ import {
   ListSipMediaApplicationsCommandInput,
   ListSipMediaApplicationsCommandOutput,
 } from "../commands/ListSipMediaApplicationsCommand";
-import { ChimeSDKVoicePaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKVoicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

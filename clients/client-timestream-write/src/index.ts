@@ -19,7 +19,7 @@
  */
 export * from "./TimestreamWriteClient";
 export * from "./TimestreamWrite";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { TimestreamWriteExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

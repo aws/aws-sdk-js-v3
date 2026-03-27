@@ -8,7 +8,7 @@ import {
   ListEmailContactsCommandOutput,
 } from "../commands/ListEmailContactsCommand";
 import { NotificationsContactsClient } from "../NotificationsContactsClient";
-import { NotificationsContactsPaginationConfiguration } from "./Interfaces";
+import type { NotificationsContactsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

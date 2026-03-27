@@ -8,7 +8,7 @@ import {
   ListPermissionGroupsCommandOutput,
 } from "../commands/ListPermissionGroupsCommand";
 import { FinspaceDataClient } from "../FinspaceDataClient";
-import { FinspaceDataPaginationConfiguration } from "./Interfaces";
+import type { FinspaceDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

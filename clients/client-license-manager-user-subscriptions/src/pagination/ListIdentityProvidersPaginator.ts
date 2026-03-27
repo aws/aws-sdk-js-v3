@@ -8,7 +8,7 @@ import {
   ListIdentityProvidersCommandOutput,
 } from "../commands/ListIdentityProvidersCommand";
 import { LicenseManagerUserSubscriptionsClient } from "../LicenseManagerUserSubscriptionsClient";
-import { LicenseManagerUserSubscriptionsPaginationConfiguration } from "./Interfaces";
+import type { LicenseManagerUserSubscriptionsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

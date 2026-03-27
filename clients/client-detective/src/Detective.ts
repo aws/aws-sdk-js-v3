@@ -3,125 +3,149 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptInvitationCommandInput,
+  type AcceptInvitationCommandOutput,
   AcceptInvitationCommand,
-  AcceptInvitationCommandInput,
-  AcceptInvitationCommandOutput,
 } from "./commands/AcceptInvitationCommand";
 import {
+  type BatchGetGraphMemberDatasourcesCommandInput,
+  type BatchGetGraphMemberDatasourcesCommandOutput,
   BatchGetGraphMemberDatasourcesCommand,
-  BatchGetGraphMemberDatasourcesCommandInput,
-  BatchGetGraphMemberDatasourcesCommandOutput,
 } from "./commands/BatchGetGraphMemberDatasourcesCommand";
 import {
+  type BatchGetMembershipDatasourcesCommandInput,
+  type BatchGetMembershipDatasourcesCommandOutput,
   BatchGetMembershipDatasourcesCommand,
-  BatchGetMembershipDatasourcesCommandInput,
-  BatchGetMembershipDatasourcesCommandOutput,
 } from "./commands/BatchGetMembershipDatasourcesCommand";
-import { CreateGraphCommand, CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
 import {
+  type CreateGraphCommandInput,
+  type CreateGraphCommandOutput,
+  CreateGraphCommand,
+} from "./commands/CreateGraphCommand";
+import {
+  type CreateMembersCommandInput,
+  type CreateMembersCommandOutput,
   CreateMembersCommand,
-  CreateMembersCommandInput,
-  CreateMembersCommandOutput,
 } from "./commands/CreateMembersCommand";
-import { DeleteGraphCommand, DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand";
 import {
+  type DeleteGraphCommandInput,
+  type DeleteGraphCommandOutput,
+  DeleteGraphCommand,
+} from "./commands/DeleteGraphCommand";
+import {
+  type DeleteMembersCommandInput,
+  type DeleteMembersCommandOutput,
   DeleteMembersCommand,
-  DeleteMembersCommandInput,
-  DeleteMembersCommandOutput,
 } from "./commands/DeleteMembersCommand";
 import {
+  type DescribeOrganizationConfigurationCommandInput,
+  type DescribeOrganizationConfigurationCommandOutput,
   DescribeOrganizationConfigurationCommand,
-  DescribeOrganizationConfigurationCommandInput,
-  DescribeOrganizationConfigurationCommandOutput,
 } from "./commands/DescribeOrganizationConfigurationCommand";
 import {
+  type DisableOrganizationAdminAccountCommandInput,
+  type DisableOrganizationAdminAccountCommandOutput,
   DisableOrganizationAdminAccountCommand,
-  DisableOrganizationAdminAccountCommandInput,
-  DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand";
 import {
+  type DisassociateMembershipCommandInput,
+  type DisassociateMembershipCommandOutput,
   DisassociateMembershipCommand,
-  DisassociateMembershipCommandInput,
-  DisassociateMembershipCommandOutput,
 } from "./commands/DisassociateMembershipCommand";
 import {
+  type EnableOrganizationAdminAccountCommandInput,
+  type EnableOrganizationAdminAccountCommandOutput,
   EnableOrganizationAdminAccountCommand,
-  EnableOrganizationAdminAccountCommandInput,
-  EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
 import {
+  type GetInvestigationCommandInput,
+  type GetInvestigationCommandOutput,
   GetInvestigationCommand,
-  GetInvestigationCommandInput,
-  GetInvestigationCommandOutput,
 } from "./commands/GetInvestigationCommand";
-import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
+  type GetMembersCommandInput,
+  type GetMembersCommandOutput,
+  GetMembersCommand,
+} from "./commands/GetMembersCommand";
+import {
+  type ListDatasourcePackagesCommandInput,
+  type ListDatasourcePackagesCommandOutput,
   ListDatasourcePackagesCommand,
-  ListDatasourcePackagesCommandInput,
-  ListDatasourcePackagesCommandOutput,
 } from "./commands/ListDatasourcePackagesCommand";
-import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import {
+  type ListGraphsCommandInput,
+  type ListGraphsCommandOutput,
+  ListGraphsCommand,
+} from "./commands/ListGraphsCommand";
+import {
+  type ListIndicatorsCommandInput,
+  type ListIndicatorsCommandOutput,
   ListIndicatorsCommand,
-  ListIndicatorsCommandInput,
-  ListIndicatorsCommandOutput,
 } from "./commands/ListIndicatorsCommand";
 import {
+  type ListInvestigationsCommandInput,
+  type ListInvestigationsCommandOutput,
   ListInvestigationsCommand,
-  ListInvestigationsCommandInput,
-  ListInvestigationsCommandOutput,
 } from "./commands/ListInvestigationsCommand";
 import {
+  type ListInvitationsCommandInput,
+  type ListInvitationsCommandOutput,
   ListInvitationsCommand,
-  ListInvitationsCommandInput,
-  ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand";
-import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
+  type ListMembersCommandInput,
+  type ListMembersCommandOutput,
+  ListMembersCommand,
+} from "./commands/ListMembersCommand";
+import {
+  type ListOrganizationAdminAccountsCommandInput,
+  type ListOrganizationAdminAccountsCommandOutput,
   ListOrganizationAdminAccountsCommand,
-  ListOrganizationAdminAccountsCommandInput,
-  ListOrganizationAdminAccountsCommandOutput,
 } from "./commands/ListOrganizationAdminAccountsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RejectInvitationCommandInput,
+  type RejectInvitationCommandOutput,
   RejectInvitationCommand,
-  RejectInvitationCommandInput,
-  RejectInvitationCommandOutput,
 } from "./commands/RejectInvitationCommand";
 import {
+  type StartInvestigationCommandInput,
+  type StartInvestigationCommandOutput,
   StartInvestigationCommand,
-  StartInvestigationCommandInput,
-  StartInvestigationCommandOutput,
 } from "./commands/StartInvestigationCommand";
 import {
+  type StartMonitoringMemberCommandInput,
+  type StartMonitoringMemberCommandOutput,
   StartMonitoringMemberCommand,
-  StartMonitoringMemberCommandInput,
-  StartMonitoringMemberCommandOutput,
 } from "./commands/StartMonitoringMemberCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDatasourcePackagesCommandInput,
+  type UpdateDatasourcePackagesCommandOutput,
   UpdateDatasourcePackagesCommand,
-  UpdateDatasourcePackagesCommandInput,
-  UpdateDatasourcePackagesCommandOutput,
 } from "./commands/UpdateDatasourcePackagesCommand";
 import {
+  type UpdateInvestigationStateCommandInput,
+  type UpdateInvestigationStateCommandOutput,
   UpdateInvestigationStateCommand,
-  UpdateInvestigationStateCommandInput,
-  UpdateInvestigationStateCommandOutput,
 } from "./commands/UpdateInvestigationStateCommand";
 import {
+  type UpdateOrganizationConfigurationCommandInput,
+  type UpdateOrganizationConfigurationCommandOutput,
   UpdateOrganizationConfigurationCommand,
-  UpdateOrganizationConfigurationCommandInput,
-  UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
 import { DetectiveClient } from "./DetectiveClient";
 import { paginateListDatasourcePackages } from "./pagination/ListDatasourcePackagesPaginator";

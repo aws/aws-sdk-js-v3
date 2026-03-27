@@ -8,7 +8,7 @@ import {
   ListWorkspacesCommandInput,
   ListWorkspacesCommandOutput,
 } from "../commands/ListWorkspacesCommand";
-import { AmpPaginationConfiguration } from "./Interfaces";
+import type { AmpPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

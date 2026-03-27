@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import {
+import type {
   AccessDeniedExceptionReason,
   ConflictExceptionReason,
   ResourceType,
   ServiceQuotaExceededExceptionReason,
   ValidationExceptionReason,
 } from "./enums";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionField } from "./models_0";
 import { PinpointSMSVoiceV2ServiceException as __BaseException } from "./PinpointSMSVoiceV2ServiceException";
 
 /**

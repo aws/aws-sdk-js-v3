@@ -8,7 +8,7 @@ import {
   ListOpsItemEventsCommandOutput,
 } from "../commands/ListOpsItemEventsCommand";
 import { SSMClient } from "../SSMClient";
-import { SSMPaginationConfiguration } from "./Interfaces";
+import type { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

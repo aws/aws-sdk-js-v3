@@ -8,7 +8,7 @@ import {
   ListRealtimeContactAnalysisSegmentsCommandOutput,
 } from "../commands/ListRealtimeContactAnalysisSegmentsCommand";
 import { ConnectContactLensClient } from "../ConnectContactLensClient";
-import { ConnectContactLensPaginationConfiguration } from "./Interfaces";
+import type { ConnectContactLensPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

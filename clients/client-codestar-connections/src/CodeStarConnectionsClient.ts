@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,79 +61,85 @@ import {
   defaultCodeStarConnectionsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
-import { CreateHostCommandInput, CreateHostCommandOutput } from "./commands/CreateHostCommand";
-import {
+import type { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
+import type { CreateHostCommandInput, CreateHostCommandOutput } from "./commands/CreateHostCommand";
+import type {
   CreateRepositoryLinkCommandInput,
   CreateRepositoryLinkCommandOutput,
 } from "./commands/CreateRepositoryLinkCommand";
-import {
+import type {
   CreateSyncConfigurationCommandInput,
   CreateSyncConfigurationCommandOutput,
 } from "./commands/CreateSyncConfigurationCommand";
-import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
-import { DeleteHostCommandInput, DeleteHostCommandOutput } from "./commands/DeleteHostCommand";
-import {
+import type { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import type { DeleteHostCommandInput, DeleteHostCommandOutput } from "./commands/DeleteHostCommand";
+import type {
   DeleteRepositoryLinkCommandInput,
   DeleteRepositoryLinkCommandOutput,
 } from "./commands/DeleteRepositoryLinkCommand";
-import {
+import type {
   DeleteSyncConfigurationCommandInput,
   DeleteSyncConfigurationCommandOutput,
 } from "./commands/DeleteSyncConfigurationCommand";
-import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
-import { GetHostCommandInput, GetHostCommandOutput } from "./commands/GetHostCommand";
-import { GetRepositoryLinkCommandInput, GetRepositoryLinkCommandOutput } from "./commands/GetRepositoryLinkCommand";
-import {
+import type { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
+import type { GetHostCommandInput, GetHostCommandOutput } from "./commands/GetHostCommand";
+import type {
+  GetRepositoryLinkCommandInput,
+  GetRepositoryLinkCommandOutput,
+} from "./commands/GetRepositoryLinkCommand";
+import type {
   GetRepositorySyncStatusCommandInput,
   GetRepositorySyncStatusCommandOutput,
 } from "./commands/GetRepositorySyncStatusCommand";
-import {
+import type {
   GetResourceSyncStatusCommandInput,
   GetResourceSyncStatusCommandOutput,
 } from "./commands/GetResourceSyncStatusCommand";
-import {
+import type {
   GetSyncBlockerSummaryCommandInput,
   GetSyncBlockerSummaryCommandOutput,
 } from "./commands/GetSyncBlockerSummaryCommand";
-import {
+import type {
   GetSyncConfigurationCommandInput,
   GetSyncConfigurationCommandOutput,
 } from "./commands/GetSyncConfigurationCommand";
-import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
-import { ListHostsCommandInput, ListHostsCommandOutput } from "./commands/ListHostsCommand";
-import {
+import type { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
+import type { ListHostsCommandInput, ListHostsCommandOutput } from "./commands/ListHostsCommand";
+import type {
   ListRepositoryLinksCommandInput,
   ListRepositoryLinksCommandOutput,
 } from "./commands/ListRepositoryLinksCommand";
-import {
+import type {
   ListRepositorySyncDefinitionsCommandInput,
   ListRepositorySyncDefinitionsCommandOutput,
 } from "./commands/ListRepositorySyncDefinitionsCommand";
-import {
+import type {
   ListSyncConfigurationsCommandInput,
   ListSyncConfigurationsCommandOutput,
 } from "./commands/ListSyncConfigurationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateHostCommandInput, UpdateHostCommandOutput } from "./commands/UpdateHostCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateHostCommandInput, UpdateHostCommandOutput } from "./commands/UpdateHostCommand";
+import type {
   UpdateRepositoryLinkCommandInput,
   UpdateRepositoryLinkCommandOutput,
 } from "./commands/UpdateRepositoryLinkCommand";
-import { UpdateSyncBlockerCommandInput, UpdateSyncBlockerCommandOutput } from "./commands/UpdateSyncBlockerCommand";
-import {
+import type {
+  UpdateSyncBlockerCommandInput,
+  UpdateSyncBlockerCommandOutput,
+} from "./commands/UpdateSyncBlockerCommand";
+import type {
   UpdateSyncConfigurationCommandInput,
   UpdateSyncConfigurationCommandOutput,
 } from "./commands/UpdateSyncConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -321,7 +325,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

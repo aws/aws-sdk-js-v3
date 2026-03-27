@@ -10,7 +10,7 @@ import type {
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  StreamingTraitsWithMediaTypeInputOutput,
+  type StreamingTraitsWithMediaTypeInputOutput,
   StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {

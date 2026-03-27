@@ -13,7 +13,7 @@
  */
 export * from "./CloudSearchClient";
 export * from "./CloudSearch";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CloudSearchExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeContactCommand, DescribeContactCommandInput } from "../commands/DescribeContactCommand";
-import { GroundStationClient } from "../GroundStationClient";
+import { type DescribeContactCommandInput, DescribeContactCommand } from "../commands/DescribeContactCommand";
+import type { GroundStationClient } from "../GroundStationClient";
 
 const checkState = async (client: GroundStationClient, input: DescribeContactCommandInput): Promise<WaiterResult> => {
   let reason;

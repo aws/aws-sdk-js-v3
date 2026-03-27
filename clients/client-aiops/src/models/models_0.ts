@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { EncryptionConfigurationType } from "./enums";
+import type { EncryptionConfigurationType } from "./enums";
 
 /**
  * <p>This structure contains information about the cross-account configuration in the account. </p>

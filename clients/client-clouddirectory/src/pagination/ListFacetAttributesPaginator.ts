@@ -8,7 +8,7 @@ import {
   ListFacetAttributesCommandInput,
   ListFacetAttributesCommandOutput,
 } from "../commands/ListFacetAttributesCommand";
-import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
+import type { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

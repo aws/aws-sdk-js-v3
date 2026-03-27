@@ -3,219 +3,219 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type CancelGremlinQueryCommandInput,
+  type CancelGremlinQueryCommandOutput,
   CancelGremlinQueryCommand,
-  CancelGremlinQueryCommandInput,
-  CancelGremlinQueryCommandOutput,
 } from "./commands/CancelGremlinQueryCommand";
 import {
+  type CancelLoaderJobCommandInput,
+  type CancelLoaderJobCommandOutput,
   CancelLoaderJobCommand,
-  CancelLoaderJobCommandInput,
-  CancelLoaderJobCommandOutput,
 } from "./commands/CancelLoaderJobCommand";
 import {
+  type CancelMLDataProcessingJobCommandInput,
+  type CancelMLDataProcessingJobCommandOutput,
   CancelMLDataProcessingJobCommand,
-  CancelMLDataProcessingJobCommandInput,
-  CancelMLDataProcessingJobCommandOutput,
 } from "./commands/CancelMLDataProcessingJobCommand";
 import {
+  type CancelMLModelTrainingJobCommandInput,
+  type CancelMLModelTrainingJobCommandOutput,
   CancelMLModelTrainingJobCommand,
-  CancelMLModelTrainingJobCommandInput,
-  CancelMLModelTrainingJobCommandOutput,
 } from "./commands/CancelMLModelTrainingJobCommand";
 import {
+  type CancelMLModelTransformJobCommandInput,
+  type CancelMLModelTransformJobCommandOutput,
   CancelMLModelTransformJobCommand,
-  CancelMLModelTransformJobCommandInput,
-  CancelMLModelTransformJobCommandOutput,
 } from "./commands/CancelMLModelTransformJobCommand";
 import {
+  type CancelOpenCypherQueryCommandInput,
+  type CancelOpenCypherQueryCommandOutput,
   CancelOpenCypherQueryCommand,
-  CancelOpenCypherQueryCommandInput,
-  CancelOpenCypherQueryCommandOutput,
 } from "./commands/CancelOpenCypherQueryCommand";
 import {
+  type CreateMLEndpointCommandInput,
+  type CreateMLEndpointCommandOutput,
   CreateMLEndpointCommand,
-  CreateMLEndpointCommandInput,
-  CreateMLEndpointCommandOutput,
 } from "./commands/CreateMLEndpointCommand";
 import {
+  type DeleteMLEndpointCommandInput,
+  type DeleteMLEndpointCommandOutput,
   DeleteMLEndpointCommand,
-  DeleteMLEndpointCommandInput,
-  DeleteMLEndpointCommandOutput,
 } from "./commands/DeleteMLEndpointCommand";
 import {
+  type DeletePropertygraphStatisticsCommandInput,
+  type DeletePropertygraphStatisticsCommandOutput,
   DeletePropertygraphStatisticsCommand,
-  DeletePropertygraphStatisticsCommandInput,
-  DeletePropertygraphStatisticsCommandOutput,
 } from "./commands/DeletePropertygraphStatisticsCommand";
 import {
+  type DeleteSparqlStatisticsCommandInput,
+  type DeleteSparqlStatisticsCommandOutput,
   DeleteSparqlStatisticsCommand,
-  DeleteSparqlStatisticsCommandInput,
-  DeleteSparqlStatisticsCommandOutput,
 } from "./commands/DeleteSparqlStatisticsCommand";
 import {
+  type ExecuteFastResetCommandInput,
+  type ExecuteFastResetCommandOutput,
   ExecuteFastResetCommand,
-  ExecuteFastResetCommandInput,
-  ExecuteFastResetCommandOutput,
 } from "./commands/ExecuteFastResetCommand";
 import {
+  type ExecuteGremlinExplainQueryCommandInput,
+  type ExecuteGremlinExplainQueryCommandOutput,
   ExecuteGremlinExplainQueryCommand,
-  ExecuteGremlinExplainQueryCommandInput,
-  ExecuteGremlinExplainQueryCommandOutput,
 } from "./commands/ExecuteGremlinExplainQueryCommand";
 import {
+  type ExecuteGremlinProfileQueryCommandInput,
+  type ExecuteGremlinProfileQueryCommandOutput,
   ExecuteGremlinProfileQueryCommand,
-  ExecuteGremlinProfileQueryCommandInput,
-  ExecuteGremlinProfileQueryCommandOutput,
 } from "./commands/ExecuteGremlinProfileQueryCommand";
 import {
+  type ExecuteGremlinQueryCommandInput,
+  type ExecuteGremlinQueryCommandOutput,
   ExecuteGremlinQueryCommand,
-  ExecuteGremlinQueryCommandInput,
-  ExecuteGremlinQueryCommandOutput,
 } from "./commands/ExecuteGremlinQueryCommand";
 import {
+  type ExecuteOpenCypherExplainQueryCommandInput,
+  type ExecuteOpenCypherExplainQueryCommandOutput,
   ExecuteOpenCypherExplainQueryCommand,
-  ExecuteOpenCypherExplainQueryCommandInput,
-  ExecuteOpenCypherExplainQueryCommandOutput,
 } from "./commands/ExecuteOpenCypherExplainQueryCommand";
 import {
+  type ExecuteOpenCypherQueryCommandInput,
+  type ExecuteOpenCypherQueryCommandOutput,
   ExecuteOpenCypherQueryCommand,
-  ExecuteOpenCypherQueryCommandInput,
-  ExecuteOpenCypherQueryCommandOutput,
 } from "./commands/ExecuteOpenCypherQueryCommand";
 import {
+  type GetEngineStatusCommandInput,
+  type GetEngineStatusCommandOutput,
   GetEngineStatusCommand,
-  GetEngineStatusCommandInput,
-  GetEngineStatusCommandOutput,
 } from "./commands/GetEngineStatusCommand";
 import {
+  type GetGremlinQueryStatusCommandInput,
+  type GetGremlinQueryStatusCommandOutput,
   GetGremlinQueryStatusCommand,
-  GetGremlinQueryStatusCommandInput,
-  GetGremlinQueryStatusCommandOutput,
 } from "./commands/GetGremlinQueryStatusCommand";
 import {
+  type GetLoaderJobStatusCommandInput,
+  type GetLoaderJobStatusCommandOutput,
   GetLoaderJobStatusCommand,
-  GetLoaderJobStatusCommandInput,
-  GetLoaderJobStatusCommandOutput,
 } from "./commands/GetLoaderJobStatusCommand";
 import {
+  type GetMLDataProcessingJobCommandInput,
+  type GetMLDataProcessingJobCommandOutput,
   GetMLDataProcessingJobCommand,
-  GetMLDataProcessingJobCommandInput,
-  GetMLDataProcessingJobCommandOutput,
 } from "./commands/GetMLDataProcessingJobCommand";
 import {
+  type GetMLEndpointCommandInput,
+  type GetMLEndpointCommandOutput,
   GetMLEndpointCommand,
-  GetMLEndpointCommandInput,
-  GetMLEndpointCommandOutput,
 } from "./commands/GetMLEndpointCommand";
 import {
+  type GetMLModelTrainingJobCommandInput,
+  type GetMLModelTrainingJobCommandOutput,
   GetMLModelTrainingJobCommand,
-  GetMLModelTrainingJobCommandInput,
-  GetMLModelTrainingJobCommandOutput,
 } from "./commands/GetMLModelTrainingJobCommand";
 import {
+  type GetMLModelTransformJobCommandInput,
+  type GetMLModelTransformJobCommandOutput,
   GetMLModelTransformJobCommand,
-  GetMLModelTransformJobCommandInput,
-  GetMLModelTransformJobCommandOutput,
 } from "./commands/GetMLModelTransformJobCommand";
 import {
+  type GetOpenCypherQueryStatusCommandInput,
+  type GetOpenCypherQueryStatusCommandOutput,
   GetOpenCypherQueryStatusCommand,
-  GetOpenCypherQueryStatusCommandInput,
-  GetOpenCypherQueryStatusCommandOutput,
 } from "./commands/GetOpenCypherQueryStatusCommand";
 import {
+  type GetPropertygraphStatisticsCommandInput,
+  type GetPropertygraphStatisticsCommandOutput,
   GetPropertygraphStatisticsCommand,
-  GetPropertygraphStatisticsCommandInput,
-  GetPropertygraphStatisticsCommandOutput,
 } from "./commands/GetPropertygraphStatisticsCommand";
 import {
+  type GetPropertygraphStreamCommandInput,
+  type GetPropertygraphStreamCommandOutput,
   GetPropertygraphStreamCommand,
-  GetPropertygraphStreamCommandInput,
-  GetPropertygraphStreamCommandOutput,
 } from "./commands/GetPropertygraphStreamCommand";
 import {
+  type GetPropertygraphSummaryCommandInput,
+  type GetPropertygraphSummaryCommandOutput,
   GetPropertygraphSummaryCommand,
-  GetPropertygraphSummaryCommandInput,
-  GetPropertygraphSummaryCommandOutput,
 } from "./commands/GetPropertygraphSummaryCommand";
 import {
+  type GetRDFGraphSummaryCommandInput,
+  type GetRDFGraphSummaryCommandOutput,
   GetRDFGraphSummaryCommand,
-  GetRDFGraphSummaryCommandInput,
-  GetRDFGraphSummaryCommandOutput,
 } from "./commands/GetRDFGraphSummaryCommand";
 import {
+  type GetSparqlStatisticsCommandInput,
+  type GetSparqlStatisticsCommandOutput,
   GetSparqlStatisticsCommand,
-  GetSparqlStatisticsCommandInput,
-  GetSparqlStatisticsCommandOutput,
 } from "./commands/GetSparqlStatisticsCommand";
 import {
+  type GetSparqlStreamCommandInput,
+  type GetSparqlStreamCommandOutput,
   GetSparqlStreamCommand,
-  GetSparqlStreamCommandInput,
-  GetSparqlStreamCommandOutput,
 } from "./commands/GetSparqlStreamCommand";
 import {
+  type ListGremlinQueriesCommandInput,
+  type ListGremlinQueriesCommandOutput,
   ListGremlinQueriesCommand,
-  ListGremlinQueriesCommandInput,
-  ListGremlinQueriesCommandOutput,
 } from "./commands/ListGremlinQueriesCommand";
 import {
+  type ListLoaderJobsCommandInput,
+  type ListLoaderJobsCommandOutput,
   ListLoaderJobsCommand,
-  ListLoaderJobsCommandInput,
-  ListLoaderJobsCommandOutput,
 } from "./commands/ListLoaderJobsCommand";
 import {
+  type ListMLDataProcessingJobsCommandInput,
+  type ListMLDataProcessingJobsCommandOutput,
   ListMLDataProcessingJobsCommand,
-  ListMLDataProcessingJobsCommandInput,
-  ListMLDataProcessingJobsCommandOutput,
 } from "./commands/ListMLDataProcessingJobsCommand";
 import {
+  type ListMLEndpointsCommandInput,
+  type ListMLEndpointsCommandOutput,
   ListMLEndpointsCommand,
-  ListMLEndpointsCommandInput,
-  ListMLEndpointsCommandOutput,
 } from "./commands/ListMLEndpointsCommand";
 import {
+  type ListMLModelTrainingJobsCommandInput,
+  type ListMLModelTrainingJobsCommandOutput,
   ListMLModelTrainingJobsCommand,
-  ListMLModelTrainingJobsCommandInput,
-  ListMLModelTrainingJobsCommandOutput,
 } from "./commands/ListMLModelTrainingJobsCommand";
 import {
+  type ListMLModelTransformJobsCommandInput,
+  type ListMLModelTransformJobsCommandOutput,
   ListMLModelTransformJobsCommand,
-  ListMLModelTransformJobsCommandInput,
-  ListMLModelTransformJobsCommandOutput,
 } from "./commands/ListMLModelTransformJobsCommand";
 import {
+  type ListOpenCypherQueriesCommandInput,
+  type ListOpenCypherQueriesCommandOutput,
   ListOpenCypherQueriesCommand,
-  ListOpenCypherQueriesCommandInput,
-  ListOpenCypherQueriesCommandOutput,
 } from "./commands/ListOpenCypherQueriesCommand";
 import {
+  type ManagePropertygraphStatisticsCommandInput,
+  type ManagePropertygraphStatisticsCommandOutput,
   ManagePropertygraphStatisticsCommand,
-  ManagePropertygraphStatisticsCommandInput,
-  ManagePropertygraphStatisticsCommandOutput,
 } from "./commands/ManagePropertygraphStatisticsCommand";
 import {
+  type ManageSparqlStatisticsCommandInput,
+  type ManageSparqlStatisticsCommandOutput,
   ManageSparqlStatisticsCommand,
-  ManageSparqlStatisticsCommandInput,
-  ManageSparqlStatisticsCommandOutput,
 } from "./commands/ManageSparqlStatisticsCommand";
 import {
+  type StartLoaderJobCommandInput,
+  type StartLoaderJobCommandOutput,
   StartLoaderJobCommand,
-  StartLoaderJobCommandInput,
-  StartLoaderJobCommandOutput,
 } from "./commands/StartLoaderJobCommand";
 import {
+  type StartMLDataProcessingJobCommandInput,
+  type StartMLDataProcessingJobCommandOutput,
   StartMLDataProcessingJobCommand,
-  StartMLDataProcessingJobCommandInput,
-  StartMLDataProcessingJobCommandOutput,
 } from "./commands/StartMLDataProcessingJobCommand";
 import {
+  type StartMLModelTrainingJobCommandInput,
+  type StartMLModelTrainingJobCommandOutput,
   StartMLModelTrainingJobCommand,
-  StartMLModelTrainingJobCommandInput,
-  StartMLModelTrainingJobCommandOutput,
 } from "./commands/StartMLModelTrainingJobCommand";
 import {
+  type StartMLModelTransformJobCommandInput,
+  type StartMLModelTransformJobCommandOutput,
   StartMLModelTransformJobCommand,
-  StartMLModelTransformJobCommandInput,
-  StartMLModelTransformJobCommandOutput,
 } from "./commands/StartMLModelTransformJobCommand";
 import { NeptunedataClient } from "./NeptunedataClient";
 

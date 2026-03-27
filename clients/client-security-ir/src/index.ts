@@ -7,7 +7,7 @@
  */
 export * from "./SecurityIRClient";
 export * from "./SecurityIR";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SecurityIRExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

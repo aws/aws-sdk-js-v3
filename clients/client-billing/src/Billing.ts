@@ -4,60 +4,64 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BillingClient } from "./BillingClient";
 import {
+  type AssociateSourceViewsCommandInput,
+  type AssociateSourceViewsCommandOutput,
   AssociateSourceViewsCommand,
-  AssociateSourceViewsCommandInput,
-  AssociateSourceViewsCommandOutput,
 } from "./commands/AssociateSourceViewsCommand";
 import {
+  type CreateBillingViewCommandInput,
+  type CreateBillingViewCommandOutput,
   CreateBillingViewCommand,
-  CreateBillingViewCommandInput,
-  CreateBillingViewCommandOutput,
 } from "./commands/CreateBillingViewCommand";
 import {
+  type DeleteBillingViewCommandInput,
+  type DeleteBillingViewCommandOutput,
   DeleteBillingViewCommand,
-  DeleteBillingViewCommandInput,
-  DeleteBillingViewCommandOutput,
 } from "./commands/DeleteBillingViewCommand";
 import {
+  type DisassociateSourceViewsCommandInput,
+  type DisassociateSourceViewsCommandOutput,
   DisassociateSourceViewsCommand,
-  DisassociateSourceViewsCommandInput,
-  DisassociateSourceViewsCommandOutput,
 } from "./commands/DisassociateSourceViewsCommand";
 import {
+  type GetBillingViewCommandInput,
+  type GetBillingViewCommandOutput,
   GetBillingViewCommand,
-  GetBillingViewCommandInput,
-  GetBillingViewCommandOutput,
 } from "./commands/GetBillingViewCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type ListBillingViewsCommandInput,
+  type ListBillingViewsCommandOutput,
   ListBillingViewsCommand,
-  ListBillingViewsCommandInput,
-  ListBillingViewsCommandOutput,
 } from "./commands/ListBillingViewsCommand";
 import {
+  type ListSourceViewsForBillingViewCommandInput,
+  type ListSourceViewsForBillingViewCommandOutput,
   ListSourceViewsForBillingViewCommand,
-  ListSourceViewsForBillingViewCommandInput,
-  ListSourceViewsForBillingViewCommandOutput,
 } from "./commands/ListSourceViewsForBillingViewCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBillingViewCommandInput,
+  type UpdateBillingViewCommandOutput,
   UpdateBillingViewCommand,
-  UpdateBillingViewCommandInput,
-  UpdateBillingViewCommandOutput,
 } from "./commands/UpdateBillingViewCommand";
 import { paginateListBillingViews } from "./pagination/ListBillingViewsPaginator";
 import { paginateListSourceViewsForBillingView } from "./pagination/ListSourceViewsForBillingViewPaginator";

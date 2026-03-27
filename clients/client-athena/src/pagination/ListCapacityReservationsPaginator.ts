@@ -8,7 +8,7 @@ import {
   ListCapacityReservationsCommandInput,
   ListCapacityReservationsCommandOutput,
 } from "../commands/ListCapacityReservationsCommand";
-import { AthenaPaginationConfiguration } from "./Interfaces";
+import type { AthenaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

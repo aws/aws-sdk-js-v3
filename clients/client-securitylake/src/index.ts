@@ -32,7 +32,7 @@
  */
 export * from "./SecurityLakeClient";
 export * from "./SecurityLake";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SecurityLakeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

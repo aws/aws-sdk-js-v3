@@ -8,7 +8,7 @@ import {
   ListContentsCommandOutput,
 } from "../commands/ListContentsCommand";
 import { QConnectClient } from "../QConnectClient";
-import { QConnectPaginationConfiguration } from "./Interfaces";
+import type { QConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -7,7 +7,7 @@
  */
 export * from "./OpenSearchServerlessClient";
 export * from "./OpenSearchServerless";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { OpenSearchServerlessExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

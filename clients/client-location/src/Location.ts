@@ -3,244 +3,268 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateTrackerConsumerCommandInput,
+  type AssociateTrackerConsumerCommandOutput,
   AssociateTrackerConsumerCommand,
-  AssociateTrackerConsumerCommandInput,
-  AssociateTrackerConsumerCommandOutput,
 } from "./commands/AssociateTrackerConsumerCommand";
 import {
+  type BatchDeleteDevicePositionHistoryCommandInput,
+  type BatchDeleteDevicePositionHistoryCommandOutput,
   BatchDeleteDevicePositionHistoryCommand,
-  BatchDeleteDevicePositionHistoryCommandInput,
-  BatchDeleteDevicePositionHistoryCommandOutput,
 } from "./commands/BatchDeleteDevicePositionHistoryCommand";
 import {
+  type BatchDeleteGeofenceCommandInput,
+  type BatchDeleteGeofenceCommandOutput,
   BatchDeleteGeofenceCommand,
-  BatchDeleteGeofenceCommandInput,
-  BatchDeleteGeofenceCommandOutput,
 } from "./commands/BatchDeleteGeofenceCommand";
 import {
+  type BatchEvaluateGeofencesCommandInput,
+  type BatchEvaluateGeofencesCommandOutput,
   BatchEvaluateGeofencesCommand,
-  BatchEvaluateGeofencesCommandInput,
-  BatchEvaluateGeofencesCommandOutput,
 } from "./commands/BatchEvaluateGeofencesCommand";
 import {
+  type BatchGetDevicePositionCommandInput,
+  type BatchGetDevicePositionCommandOutput,
   BatchGetDevicePositionCommand,
-  BatchGetDevicePositionCommandInput,
-  BatchGetDevicePositionCommandOutput,
 } from "./commands/BatchGetDevicePositionCommand";
 import {
+  type BatchPutGeofenceCommandInput,
+  type BatchPutGeofenceCommandOutput,
   BatchPutGeofenceCommand,
-  BatchPutGeofenceCommandInput,
-  BatchPutGeofenceCommandOutput,
 } from "./commands/BatchPutGeofenceCommand";
 import {
+  type BatchUpdateDevicePositionCommandInput,
+  type BatchUpdateDevicePositionCommandOutput,
   BatchUpdateDevicePositionCommand,
-  BatchUpdateDevicePositionCommandInput,
-  BatchUpdateDevicePositionCommandOutput,
 } from "./commands/BatchUpdateDevicePositionCommand";
 import {
+  type CalculateRouteCommandInput,
+  type CalculateRouteCommandOutput,
   CalculateRouteCommand,
-  CalculateRouteCommandInput,
-  CalculateRouteCommandOutput,
 } from "./commands/CalculateRouteCommand";
 import {
+  type CalculateRouteMatrixCommandInput,
+  type CalculateRouteMatrixCommandOutput,
   CalculateRouteMatrixCommand,
-  CalculateRouteMatrixCommandInput,
-  CalculateRouteMatrixCommandOutput,
 } from "./commands/CalculateRouteMatrixCommand";
 import {
+  type CreateGeofenceCollectionCommandInput,
+  type CreateGeofenceCollectionCommandOutput,
   CreateGeofenceCollectionCommand,
-  CreateGeofenceCollectionCommandInput,
-  CreateGeofenceCollectionCommandOutput,
 } from "./commands/CreateGeofenceCollectionCommand";
-import { CreateKeyCommand, CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
-import { CreateMapCommand, CreateMapCommandInput, CreateMapCommandOutput } from "./commands/CreateMapCommand";
+import { type CreateKeyCommandInput, type CreateKeyCommandOutput, CreateKeyCommand } from "./commands/CreateKeyCommand";
+import { type CreateMapCommandInput, type CreateMapCommandOutput, CreateMapCommand } from "./commands/CreateMapCommand";
 import {
+  type CreatePlaceIndexCommandInput,
+  type CreatePlaceIndexCommandOutput,
   CreatePlaceIndexCommand,
-  CreatePlaceIndexCommandInput,
-  CreatePlaceIndexCommandOutput,
 } from "./commands/CreatePlaceIndexCommand";
 import {
+  type CreateRouteCalculatorCommandInput,
+  type CreateRouteCalculatorCommandOutput,
   CreateRouteCalculatorCommand,
-  CreateRouteCalculatorCommandInput,
-  CreateRouteCalculatorCommandOutput,
 } from "./commands/CreateRouteCalculatorCommand";
 import {
+  type CreateTrackerCommandInput,
+  type CreateTrackerCommandOutput,
   CreateTrackerCommand,
-  CreateTrackerCommandInput,
-  CreateTrackerCommandOutput,
 } from "./commands/CreateTrackerCommand";
 import {
+  type DeleteGeofenceCollectionCommandInput,
+  type DeleteGeofenceCollectionCommandOutput,
   DeleteGeofenceCollectionCommand,
-  DeleteGeofenceCollectionCommandInput,
-  DeleteGeofenceCollectionCommandOutput,
 } from "./commands/DeleteGeofenceCollectionCommand";
-import { DeleteKeyCommand, DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
-import { DeleteMapCommand, DeleteMapCommandInput, DeleteMapCommandOutput } from "./commands/DeleteMapCommand";
+import { type DeleteKeyCommandInput, type DeleteKeyCommandOutput, DeleteKeyCommand } from "./commands/DeleteKeyCommand";
+import { type DeleteMapCommandInput, type DeleteMapCommandOutput, DeleteMapCommand } from "./commands/DeleteMapCommand";
 import {
+  type DeletePlaceIndexCommandInput,
+  type DeletePlaceIndexCommandOutput,
   DeletePlaceIndexCommand,
-  DeletePlaceIndexCommandInput,
-  DeletePlaceIndexCommandOutput,
 } from "./commands/DeletePlaceIndexCommand";
 import {
+  type DeleteRouteCalculatorCommandInput,
+  type DeleteRouteCalculatorCommandOutput,
   DeleteRouteCalculatorCommand,
-  DeleteRouteCalculatorCommandInput,
-  DeleteRouteCalculatorCommandOutput,
 } from "./commands/DeleteRouteCalculatorCommand";
 import {
+  type DeleteTrackerCommandInput,
+  type DeleteTrackerCommandOutput,
   DeleteTrackerCommand,
-  DeleteTrackerCommandInput,
-  DeleteTrackerCommandOutput,
 } from "./commands/DeleteTrackerCommand";
 import {
+  type DescribeGeofenceCollectionCommandInput,
+  type DescribeGeofenceCollectionCommandOutput,
   DescribeGeofenceCollectionCommand,
-  DescribeGeofenceCollectionCommandInput,
-  DescribeGeofenceCollectionCommandOutput,
 } from "./commands/DescribeGeofenceCollectionCommand";
-import { DescribeKeyCommand, DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand";
-import { DescribeMapCommand, DescribeMapCommandInput, DescribeMapCommandOutput } from "./commands/DescribeMapCommand";
 import {
+  type DescribeKeyCommandInput,
+  type DescribeKeyCommandOutput,
+  DescribeKeyCommand,
+} from "./commands/DescribeKeyCommand";
+import {
+  type DescribeMapCommandInput,
+  type DescribeMapCommandOutput,
+  DescribeMapCommand,
+} from "./commands/DescribeMapCommand";
+import {
+  type DescribePlaceIndexCommandInput,
+  type DescribePlaceIndexCommandOutput,
   DescribePlaceIndexCommand,
-  DescribePlaceIndexCommandInput,
-  DescribePlaceIndexCommandOutput,
 } from "./commands/DescribePlaceIndexCommand";
 import {
+  type DescribeRouteCalculatorCommandInput,
+  type DescribeRouteCalculatorCommandOutput,
   DescribeRouteCalculatorCommand,
-  DescribeRouteCalculatorCommandInput,
-  DescribeRouteCalculatorCommandOutput,
 } from "./commands/DescribeRouteCalculatorCommand";
 import {
+  type DescribeTrackerCommandInput,
+  type DescribeTrackerCommandOutput,
   DescribeTrackerCommand,
-  DescribeTrackerCommandInput,
-  DescribeTrackerCommandOutput,
 } from "./commands/DescribeTrackerCommand";
 import {
+  type DisassociateTrackerConsumerCommandInput,
+  type DisassociateTrackerConsumerCommandOutput,
   DisassociateTrackerConsumerCommand,
-  DisassociateTrackerConsumerCommandInput,
-  DisassociateTrackerConsumerCommandOutput,
 } from "./commands/DisassociateTrackerConsumerCommand";
 import {
+  type ForecastGeofenceEventsCommandInput,
+  type ForecastGeofenceEventsCommandOutput,
   ForecastGeofenceEventsCommand,
-  ForecastGeofenceEventsCommandInput,
-  ForecastGeofenceEventsCommandOutput,
 } from "./commands/ForecastGeofenceEventsCommand";
 import {
+  type GetDevicePositionCommandInput,
+  type GetDevicePositionCommandOutput,
   GetDevicePositionCommand,
-  GetDevicePositionCommandInput,
-  GetDevicePositionCommandOutput,
 } from "./commands/GetDevicePositionCommand";
 import {
+  type GetDevicePositionHistoryCommandInput,
+  type GetDevicePositionHistoryCommandOutput,
   GetDevicePositionHistoryCommand,
-  GetDevicePositionHistoryCommandInput,
-  GetDevicePositionHistoryCommandOutput,
 } from "./commands/GetDevicePositionHistoryCommand";
-import { GetGeofenceCommand, GetGeofenceCommandInput, GetGeofenceCommandOutput } from "./commands/GetGeofenceCommand";
 import {
+  type GetGeofenceCommandInput,
+  type GetGeofenceCommandOutput,
+  GetGeofenceCommand,
+} from "./commands/GetGeofenceCommand";
+import {
+  type GetMapGlyphsCommandInput,
+  type GetMapGlyphsCommandOutput,
   GetMapGlyphsCommand,
-  GetMapGlyphsCommandInput,
-  GetMapGlyphsCommandOutput,
 } from "./commands/GetMapGlyphsCommand";
 import {
+  type GetMapSpritesCommandInput,
+  type GetMapSpritesCommandOutput,
   GetMapSpritesCommand,
-  GetMapSpritesCommandInput,
-  GetMapSpritesCommandOutput,
 } from "./commands/GetMapSpritesCommand";
 import {
+  type GetMapStyleDescriptorCommandInput,
+  type GetMapStyleDescriptorCommandOutput,
   GetMapStyleDescriptorCommand,
-  GetMapStyleDescriptorCommandInput,
-  GetMapStyleDescriptorCommandOutput,
 } from "./commands/GetMapStyleDescriptorCommand";
-import { GetMapTileCommand, GetMapTileCommandInput, GetMapTileCommandOutput } from "./commands/GetMapTileCommand";
-import { GetPlaceCommand, GetPlaceCommandInput, GetPlaceCommandOutput } from "./commands/GetPlaceCommand";
 import {
+  type GetMapTileCommandInput,
+  type GetMapTileCommandOutput,
+  GetMapTileCommand,
+} from "./commands/GetMapTileCommand";
+import { type GetPlaceCommandInput, type GetPlaceCommandOutput, GetPlaceCommand } from "./commands/GetPlaceCommand";
+import {
+  type ListDevicePositionsCommandInput,
+  type ListDevicePositionsCommandOutput,
   ListDevicePositionsCommand,
-  ListDevicePositionsCommandInput,
-  ListDevicePositionsCommandOutput,
 } from "./commands/ListDevicePositionsCommand";
 import {
+  type ListGeofenceCollectionsCommandInput,
+  type ListGeofenceCollectionsCommandOutput,
   ListGeofenceCollectionsCommand,
-  ListGeofenceCollectionsCommandInput,
-  ListGeofenceCollectionsCommandOutput,
 } from "./commands/ListGeofenceCollectionsCommand";
 import {
+  type ListGeofencesCommandInput,
+  type ListGeofencesCommandOutput,
   ListGeofencesCommand,
-  ListGeofencesCommandInput,
-  ListGeofencesCommandOutput,
 } from "./commands/ListGeofencesCommand";
-import { ListKeysCommand, ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
-import { ListMapsCommand, ListMapsCommandInput, ListMapsCommandOutput } from "./commands/ListMapsCommand";
+import { type ListKeysCommandInput, type ListKeysCommandOutput, ListKeysCommand } from "./commands/ListKeysCommand";
+import { type ListMapsCommandInput, type ListMapsCommandOutput, ListMapsCommand } from "./commands/ListMapsCommand";
 import {
+  type ListPlaceIndexesCommandInput,
+  type ListPlaceIndexesCommandOutput,
   ListPlaceIndexesCommand,
-  ListPlaceIndexesCommandInput,
-  ListPlaceIndexesCommandOutput,
 } from "./commands/ListPlaceIndexesCommand";
 import {
+  type ListRouteCalculatorsCommandInput,
+  type ListRouteCalculatorsCommandOutput,
   ListRouteCalculatorsCommand,
-  ListRouteCalculatorsCommandInput,
-  ListRouteCalculatorsCommandOutput,
 } from "./commands/ListRouteCalculatorsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTrackerConsumersCommandInput,
+  type ListTrackerConsumersCommandOutput,
   ListTrackerConsumersCommand,
-  ListTrackerConsumersCommandInput,
-  ListTrackerConsumersCommandOutput,
 } from "./commands/ListTrackerConsumersCommand";
 import {
+  type ListTrackersCommandInput,
+  type ListTrackersCommandOutput,
   ListTrackersCommand,
-  ListTrackersCommandInput,
-  ListTrackersCommandOutput,
 } from "./commands/ListTrackersCommand";
-import { PutGeofenceCommand, PutGeofenceCommandInput, PutGeofenceCommandOutput } from "./commands/PutGeofenceCommand";
 import {
+  type PutGeofenceCommandInput,
+  type PutGeofenceCommandOutput,
+  PutGeofenceCommand,
+} from "./commands/PutGeofenceCommand";
+import {
+  type SearchPlaceIndexForPositionCommandInput,
+  type SearchPlaceIndexForPositionCommandOutput,
   SearchPlaceIndexForPositionCommand,
-  SearchPlaceIndexForPositionCommandInput,
-  SearchPlaceIndexForPositionCommandOutput,
 } from "./commands/SearchPlaceIndexForPositionCommand";
 import {
+  type SearchPlaceIndexForSuggestionsCommandInput,
+  type SearchPlaceIndexForSuggestionsCommandOutput,
   SearchPlaceIndexForSuggestionsCommand,
-  SearchPlaceIndexForSuggestionsCommandInput,
-  SearchPlaceIndexForSuggestionsCommandOutput,
 } from "./commands/SearchPlaceIndexForSuggestionsCommand";
 import {
+  type SearchPlaceIndexForTextCommandInput,
+  type SearchPlaceIndexForTextCommandOutput,
   SearchPlaceIndexForTextCommand,
-  SearchPlaceIndexForTextCommandInput,
-  SearchPlaceIndexForTextCommandOutput,
 } from "./commands/SearchPlaceIndexForTextCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateGeofenceCollectionCommandInput,
+  type UpdateGeofenceCollectionCommandOutput,
   UpdateGeofenceCollectionCommand,
-  UpdateGeofenceCollectionCommandInput,
-  UpdateGeofenceCollectionCommandOutput,
 } from "./commands/UpdateGeofenceCollectionCommand";
-import { UpdateKeyCommand, UpdateKeyCommandInput, UpdateKeyCommandOutput } from "./commands/UpdateKeyCommand";
-import { UpdateMapCommand, UpdateMapCommandInput, UpdateMapCommandOutput } from "./commands/UpdateMapCommand";
+import { type UpdateKeyCommandInput, type UpdateKeyCommandOutput, UpdateKeyCommand } from "./commands/UpdateKeyCommand";
+import { type UpdateMapCommandInput, type UpdateMapCommandOutput, UpdateMapCommand } from "./commands/UpdateMapCommand";
 import {
+  type UpdatePlaceIndexCommandInput,
+  type UpdatePlaceIndexCommandOutput,
   UpdatePlaceIndexCommand,
-  UpdatePlaceIndexCommandInput,
-  UpdatePlaceIndexCommandOutput,
 } from "./commands/UpdatePlaceIndexCommand";
 import {
+  type UpdateRouteCalculatorCommandInput,
+  type UpdateRouteCalculatorCommandOutput,
   UpdateRouteCalculatorCommand,
-  UpdateRouteCalculatorCommandInput,
-  UpdateRouteCalculatorCommandOutput,
 } from "./commands/UpdateRouteCalculatorCommand";
 import {
+  type UpdateTrackerCommandInput,
+  type UpdateTrackerCommandOutput,
   UpdateTrackerCommand,
-  UpdateTrackerCommandInput,
-  UpdateTrackerCommandOutput,
 } from "./commands/UpdateTrackerCommand";
 import {
+  type VerifyDevicePositionCommandInput,
+  type VerifyDevicePositionCommandOutput,
   VerifyDevicePositionCommand,
-  VerifyDevicePositionCommandInput,
-  VerifyDevicePositionCommandOutput,
 } from "./commands/VerifyDevicePositionCommand";
 import { LocationClient } from "./LocationClient";
 import { paginateForecastGeofenceEvents } from "./pagination/ForecastGeofenceEventsPaginator";

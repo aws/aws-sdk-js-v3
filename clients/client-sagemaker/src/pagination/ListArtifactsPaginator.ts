@@ -8,7 +8,7 @@ import {
   ListArtifactsCommandOutput,
 } from "../commands/ListArtifactsCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

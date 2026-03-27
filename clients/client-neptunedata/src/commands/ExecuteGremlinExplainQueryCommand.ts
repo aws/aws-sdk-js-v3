@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type ExecuteGremlinExplainQueryInput, ExecuteGremlinExplainQueryOutput } from "../models/models_0";
+import type { ExecuteGremlinExplainQueryInput, ExecuteGremlinExplainQueryOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { ExecuteGremlinExplainQuery$ } from "../schemas/schemas_0";
 

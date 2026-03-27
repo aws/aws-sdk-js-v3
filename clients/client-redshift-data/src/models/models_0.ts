@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ResultFormatString, StatementStatusString, StatusString } from "./enums";
+import type { ResultFormatString, StatementStatusString, StatusString } from "./enums";
 
 /**
  * @public

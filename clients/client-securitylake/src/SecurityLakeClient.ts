@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,89 +61,98 @@ import {
   defaultSecurityLakeHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateAwsLogSourceCommandInput, CreateAwsLogSourceCommandOutput } from "./commands/CreateAwsLogSourceCommand";
-import {
+import type {
+  CreateAwsLogSourceCommandInput,
+  CreateAwsLogSourceCommandOutput,
+} from "./commands/CreateAwsLogSourceCommand";
+import type {
   CreateCustomLogSourceCommandInput,
   CreateCustomLogSourceCommandOutput,
 } from "./commands/CreateCustomLogSourceCommand";
-import { CreateDataLakeCommandInput, CreateDataLakeCommandOutput } from "./commands/CreateDataLakeCommand";
-import {
+import type { CreateDataLakeCommandInput, CreateDataLakeCommandOutput } from "./commands/CreateDataLakeCommand";
+import type {
   CreateDataLakeExceptionSubscriptionCommandInput,
   CreateDataLakeExceptionSubscriptionCommandOutput,
 } from "./commands/CreateDataLakeExceptionSubscriptionCommand";
-import {
+import type {
   CreateDataLakeOrganizationConfigurationCommandInput,
   CreateDataLakeOrganizationConfigurationCommandOutput,
 } from "./commands/CreateDataLakeOrganizationConfigurationCommand";
-import { CreateSubscriberCommandInput, CreateSubscriberCommandOutput } from "./commands/CreateSubscriberCommand";
-import {
+import type { CreateSubscriberCommandInput, CreateSubscriberCommandOutput } from "./commands/CreateSubscriberCommand";
+import type {
   CreateSubscriberNotificationCommandInput,
   CreateSubscriberNotificationCommandOutput,
 } from "./commands/CreateSubscriberNotificationCommand";
-import { DeleteAwsLogSourceCommandInput, DeleteAwsLogSourceCommandOutput } from "./commands/DeleteAwsLogSourceCommand";
-import {
+import type {
+  DeleteAwsLogSourceCommandInput,
+  DeleteAwsLogSourceCommandOutput,
+} from "./commands/DeleteAwsLogSourceCommand";
+import type {
   DeleteCustomLogSourceCommandInput,
   DeleteCustomLogSourceCommandOutput,
 } from "./commands/DeleteCustomLogSourceCommand";
-import { DeleteDataLakeCommandInput, DeleteDataLakeCommandOutput } from "./commands/DeleteDataLakeCommand";
-import {
+import type { DeleteDataLakeCommandInput, DeleteDataLakeCommandOutput } from "./commands/DeleteDataLakeCommand";
+import type {
   DeleteDataLakeExceptionSubscriptionCommandInput,
   DeleteDataLakeExceptionSubscriptionCommandOutput,
 } from "./commands/DeleteDataLakeExceptionSubscriptionCommand";
-import {
+import type {
   DeleteDataLakeOrganizationConfigurationCommandInput,
   DeleteDataLakeOrganizationConfigurationCommandOutput,
 } from "./commands/DeleteDataLakeOrganizationConfigurationCommand";
-import { DeleteSubscriberCommandInput, DeleteSubscriberCommandOutput } from "./commands/DeleteSubscriberCommand";
-import {
+import type { DeleteSubscriberCommandInput, DeleteSubscriberCommandOutput } from "./commands/DeleteSubscriberCommand";
+import type {
   DeleteSubscriberNotificationCommandInput,
   DeleteSubscriberNotificationCommandOutput,
 } from "./commands/DeleteSubscriberNotificationCommand";
-import {
+import type {
   DeregisterDataLakeDelegatedAdministratorCommandInput,
   DeregisterDataLakeDelegatedAdministratorCommandOutput,
 } from "./commands/DeregisterDataLakeDelegatedAdministratorCommand";
-import {
+import type {
   GetDataLakeExceptionSubscriptionCommandInput,
   GetDataLakeExceptionSubscriptionCommandOutput,
 } from "./commands/GetDataLakeExceptionSubscriptionCommand";
-import {
+import type {
   GetDataLakeOrganizationConfigurationCommandInput,
   GetDataLakeOrganizationConfigurationCommandOutput,
 } from "./commands/GetDataLakeOrganizationConfigurationCommand";
-import { GetDataLakeSourcesCommandInput, GetDataLakeSourcesCommandOutput } from "./commands/GetDataLakeSourcesCommand";
-import { GetSubscriberCommandInput, GetSubscriberCommandOutput } from "./commands/GetSubscriberCommand";
-import {
+import type {
+  GetDataLakeSourcesCommandInput,
+  GetDataLakeSourcesCommandOutput,
+} from "./commands/GetDataLakeSourcesCommand";
+import type { GetSubscriberCommandInput, GetSubscriberCommandOutput } from "./commands/GetSubscriberCommand";
+import type {
   ListDataLakeExceptionsCommandInput,
   ListDataLakeExceptionsCommandOutput,
 } from "./commands/ListDataLakeExceptionsCommand";
-import { ListDataLakesCommandInput, ListDataLakesCommandOutput } from "./commands/ListDataLakesCommand";
-import { ListLogSourcesCommandInput, ListLogSourcesCommandOutput } from "./commands/ListLogSourcesCommand";
-import { ListSubscribersCommandInput, ListSubscribersCommandOutput } from "./commands/ListSubscribersCommand";
-import {
+import type { ListDataLakesCommandInput, ListDataLakesCommandOutput } from "./commands/ListDataLakesCommand";
+import type { ListLogSourcesCommandInput, ListLogSourcesCommandOutput } from "./commands/ListLogSourcesCommand";
+import type { ListSubscribersCommandInput, ListSubscribersCommandOutput } from "./commands/ListSubscribersCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   RegisterDataLakeDelegatedAdministratorCommandInput,
   RegisterDataLakeDelegatedAdministratorCommandOutput,
 } from "./commands/RegisterDataLakeDelegatedAdministratorCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateDataLakeCommandInput, UpdateDataLakeCommandOutput } from "./commands/UpdateDataLakeCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateDataLakeCommandInput, UpdateDataLakeCommandOutput } from "./commands/UpdateDataLakeCommand";
+import type {
   UpdateDataLakeExceptionSubscriptionCommandInput,
   UpdateDataLakeExceptionSubscriptionCommandOutput,
 } from "./commands/UpdateDataLakeExceptionSubscriptionCommand";
-import { UpdateSubscriberCommandInput, UpdateSubscriberCommandOutput } from "./commands/UpdateSubscriberCommand";
-import {
+import type { UpdateSubscriberCommandInput, UpdateSubscriberCommandOutput } from "./commands/UpdateSubscriberCommand";
+import type {
   UpdateSubscriberNotificationCommandInput,
   UpdateSubscriberNotificationCommandOutput,
 } from "./commands/UpdateSubscriberNotificationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -339,7 +346,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

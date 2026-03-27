@@ -8,7 +8,7 @@ import {
   DescribeConfigurationTemplatesCommandInput,
   DescribeConfigurationTemplatesCommandOutput,
 } from "../commands/DescribeConfigurationTemplatesCommand";
-import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

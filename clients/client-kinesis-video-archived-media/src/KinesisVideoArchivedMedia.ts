@@ -2,27 +2,27 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { GetClipCommand, GetClipCommandInput, GetClipCommandOutput } from "./commands/GetClipCommand";
+import { type GetClipCommandInput, type GetClipCommandOutput, GetClipCommand } from "./commands/GetClipCommand";
 import {
+  type GetDASHStreamingSessionURLCommandInput,
+  type GetDASHStreamingSessionURLCommandOutput,
   GetDASHStreamingSessionURLCommand,
-  GetDASHStreamingSessionURLCommandInput,
-  GetDASHStreamingSessionURLCommandOutput,
 } from "./commands/GetDASHStreamingSessionURLCommand";
 import {
+  type GetHLSStreamingSessionURLCommandInput,
+  type GetHLSStreamingSessionURLCommandOutput,
   GetHLSStreamingSessionURLCommand,
-  GetHLSStreamingSessionURLCommandInput,
-  GetHLSStreamingSessionURLCommandOutput,
 } from "./commands/GetHLSStreamingSessionURLCommand";
-import { GetImagesCommand, GetImagesCommandInput, GetImagesCommandOutput } from "./commands/GetImagesCommand";
+import { type GetImagesCommandInput, type GetImagesCommandOutput, GetImagesCommand } from "./commands/GetImagesCommand";
 import {
+  type GetMediaForFragmentListCommandInput,
+  type GetMediaForFragmentListCommandOutput,
   GetMediaForFragmentListCommand,
-  GetMediaForFragmentListCommandInput,
-  GetMediaForFragmentListCommandOutput,
 } from "./commands/GetMediaForFragmentListCommand";
 import {
+  type ListFragmentsCommandInput,
+  type ListFragmentsCommandOutput,
   ListFragmentsCommand,
-  ListFragmentsCommandInput,
-  ListFragmentsCommandOutput,
 } from "./commands/ListFragmentsCommand";
 import { KinesisVideoArchivedMediaClient } from "./KinesisVideoArchivedMediaClient";
 import { paginateGetImages } from "./pagination/GetImagesPaginator";

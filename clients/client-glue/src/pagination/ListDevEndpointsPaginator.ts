@@ -8,7 +8,7 @@ import {
   ListDevEndpointsCommandOutput,
 } from "../commands/ListDevEndpointsCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

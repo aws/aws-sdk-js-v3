@@ -8,7 +8,7 @@ import {
   DescribeTapeRecoveryPointsCommandOutput,
 } from "../commands/DescribeTapeRecoveryPointsCommand";
 import { StorageGatewayClient } from "../StorageGatewayClient";
-import { StorageGatewayPaginationConfiguration } from "./Interfaces";
+import type { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -3,165 +3,169 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddApplicationCloudWatchLoggingOptionCommandInput,
+  type AddApplicationCloudWatchLoggingOptionCommandOutput,
   AddApplicationCloudWatchLoggingOptionCommand,
-  AddApplicationCloudWatchLoggingOptionCommandInput,
-  AddApplicationCloudWatchLoggingOptionCommandOutput,
 } from "./commands/AddApplicationCloudWatchLoggingOptionCommand";
 import {
+  type AddApplicationInputCommandInput,
+  type AddApplicationInputCommandOutput,
   AddApplicationInputCommand,
-  AddApplicationInputCommandInput,
-  AddApplicationInputCommandOutput,
 } from "./commands/AddApplicationInputCommand";
 import {
+  type AddApplicationInputProcessingConfigurationCommandInput,
+  type AddApplicationInputProcessingConfigurationCommandOutput,
   AddApplicationInputProcessingConfigurationCommand,
-  AddApplicationInputProcessingConfigurationCommandInput,
-  AddApplicationInputProcessingConfigurationCommandOutput,
 } from "./commands/AddApplicationInputProcessingConfigurationCommand";
 import {
+  type AddApplicationOutputCommandInput,
+  type AddApplicationOutputCommandOutput,
   AddApplicationOutputCommand,
-  AddApplicationOutputCommandInput,
-  AddApplicationOutputCommandOutput,
 } from "./commands/AddApplicationOutputCommand";
 import {
+  type AddApplicationReferenceDataSourceCommandInput,
+  type AddApplicationReferenceDataSourceCommandOutput,
   AddApplicationReferenceDataSourceCommand,
-  AddApplicationReferenceDataSourceCommandInput,
-  AddApplicationReferenceDataSourceCommandOutput,
 } from "./commands/AddApplicationReferenceDataSourceCommand";
 import {
+  type AddApplicationVpcConfigurationCommandInput,
+  type AddApplicationVpcConfigurationCommandOutput,
   AddApplicationVpcConfigurationCommand,
-  AddApplicationVpcConfigurationCommandInput,
-  AddApplicationVpcConfigurationCommandOutput,
 } from "./commands/AddApplicationVpcConfigurationCommand";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateApplicationPresignedUrlCommandInput,
+  type CreateApplicationPresignedUrlCommandOutput,
   CreateApplicationPresignedUrlCommand,
-  CreateApplicationPresignedUrlCommandInput,
-  CreateApplicationPresignedUrlCommandOutput,
 } from "./commands/CreateApplicationPresignedUrlCommand";
 import {
+  type CreateApplicationSnapshotCommandInput,
+  type CreateApplicationSnapshotCommandOutput,
   CreateApplicationSnapshotCommand,
-  CreateApplicationSnapshotCommandInput,
-  CreateApplicationSnapshotCommandOutput,
 } from "./commands/CreateApplicationSnapshotCommand";
 import {
+  type DeleteApplicationCloudWatchLoggingOptionCommandInput,
+  type DeleteApplicationCloudWatchLoggingOptionCommandOutput,
   DeleteApplicationCloudWatchLoggingOptionCommand,
-  DeleteApplicationCloudWatchLoggingOptionCommandInput,
-  DeleteApplicationCloudWatchLoggingOptionCommandOutput,
 } from "./commands/DeleteApplicationCloudWatchLoggingOptionCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteApplicationInputProcessingConfigurationCommandInput,
+  type DeleteApplicationInputProcessingConfigurationCommandOutput,
   DeleteApplicationInputProcessingConfigurationCommand,
-  DeleteApplicationInputProcessingConfigurationCommandInput,
-  DeleteApplicationInputProcessingConfigurationCommandOutput,
 } from "./commands/DeleteApplicationInputProcessingConfigurationCommand";
 import {
+  type DeleteApplicationOutputCommandInput,
+  type DeleteApplicationOutputCommandOutput,
   DeleteApplicationOutputCommand,
-  DeleteApplicationOutputCommandInput,
-  DeleteApplicationOutputCommandOutput,
 } from "./commands/DeleteApplicationOutputCommand";
 import {
+  type DeleteApplicationReferenceDataSourceCommandInput,
+  type DeleteApplicationReferenceDataSourceCommandOutput,
   DeleteApplicationReferenceDataSourceCommand,
-  DeleteApplicationReferenceDataSourceCommandInput,
-  DeleteApplicationReferenceDataSourceCommandOutput,
 } from "./commands/DeleteApplicationReferenceDataSourceCommand";
 import {
+  type DeleteApplicationSnapshotCommandInput,
+  type DeleteApplicationSnapshotCommandOutput,
   DeleteApplicationSnapshotCommand,
-  DeleteApplicationSnapshotCommandInput,
-  DeleteApplicationSnapshotCommandOutput,
 } from "./commands/DeleteApplicationSnapshotCommand";
 import {
+  type DeleteApplicationVpcConfigurationCommandInput,
+  type DeleteApplicationVpcConfigurationCommandOutput,
   DeleteApplicationVpcConfigurationCommand,
-  DeleteApplicationVpcConfigurationCommandInput,
-  DeleteApplicationVpcConfigurationCommandOutput,
 } from "./commands/DeleteApplicationVpcConfigurationCommand";
 import {
+  type DescribeApplicationCommandInput,
+  type DescribeApplicationCommandOutput,
   DescribeApplicationCommand,
-  DescribeApplicationCommandInput,
-  DescribeApplicationCommandOutput,
 } from "./commands/DescribeApplicationCommand";
 import {
+  type DescribeApplicationOperationCommandInput,
+  type DescribeApplicationOperationCommandOutput,
   DescribeApplicationOperationCommand,
-  DescribeApplicationOperationCommandInput,
-  DescribeApplicationOperationCommandOutput,
 } from "./commands/DescribeApplicationOperationCommand";
 import {
+  type DescribeApplicationSnapshotCommandInput,
+  type DescribeApplicationSnapshotCommandOutput,
   DescribeApplicationSnapshotCommand,
-  DescribeApplicationSnapshotCommandInput,
-  DescribeApplicationSnapshotCommandOutput,
 } from "./commands/DescribeApplicationSnapshotCommand";
 import {
+  type DescribeApplicationVersionCommandInput,
+  type DescribeApplicationVersionCommandOutput,
   DescribeApplicationVersionCommand,
-  DescribeApplicationVersionCommandInput,
-  DescribeApplicationVersionCommandOutput,
 } from "./commands/DescribeApplicationVersionCommand";
 import {
+  type DiscoverInputSchemaCommandInput,
+  type DiscoverInputSchemaCommandOutput,
   DiscoverInputSchemaCommand,
-  DiscoverInputSchemaCommandInput,
-  DiscoverInputSchemaCommandOutput,
 } from "./commands/DiscoverInputSchemaCommand";
 import {
+  type ListApplicationOperationsCommandInput,
+  type ListApplicationOperationsCommandOutput,
   ListApplicationOperationsCommand,
-  ListApplicationOperationsCommandInput,
-  ListApplicationOperationsCommandOutput,
 } from "./commands/ListApplicationOperationsCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListApplicationSnapshotsCommandInput,
+  type ListApplicationSnapshotsCommandOutput,
   ListApplicationSnapshotsCommand,
-  ListApplicationSnapshotsCommandInput,
-  ListApplicationSnapshotsCommandOutput,
 } from "./commands/ListApplicationSnapshotsCommand";
 import {
+  type ListApplicationVersionsCommandInput,
+  type ListApplicationVersionsCommandOutput,
   ListApplicationVersionsCommand,
-  ListApplicationVersionsCommandInput,
-  ListApplicationVersionsCommandOutput,
 } from "./commands/ListApplicationVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RollbackApplicationCommandInput,
+  type RollbackApplicationCommandOutput,
   RollbackApplicationCommand,
-  RollbackApplicationCommandInput,
-  RollbackApplicationCommandOutput,
 } from "./commands/RollbackApplicationCommand";
 import {
+  type StartApplicationCommandInput,
+  type StartApplicationCommandOutput,
   StartApplicationCommand,
-  StartApplicationCommandInput,
-  StartApplicationCommandOutput,
 } from "./commands/StartApplicationCommand";
 import {
+  type StopApplicationCommandInput,
+  type StopApplicationCommandOutput,
   StopApplicationCommand,
-  StopApplicationCommandInput,
-  StopApplicationCommandOutput,
 } from "./commands/StopApplicationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateApplicationMaintenanceConfigurationCommandInput,
+  type UpdateApplicationMaintenanceConfigurationCommandOutput,
   UpdateApplicationMaintenanceConfigurationCommand,
-  UpdateApplicationMaintenanceConfigurationCommandInput,
-  UpdateApplicationMaintenanceConfigurationCommandOutput,
 } from "./commands/UpdateApplicationMaintenanceConfigurationCommand";
 import { KinesisAnalyticsV2Client } from "./KinesisAnalyticsV2Client";
 import { paginateListApplicationOperations } from "./pagination/ListApplicationOperationsPaginator";

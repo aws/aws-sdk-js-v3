@@ -8,7 +8,7 @@ import {
   GetComplianceSummaryCommandOutput,
 } from "../commands/GetComplianceSummaryCommand";
 import { ResourceGroupsTaggingAPIClient } from "../ResourceGroupsTaggingAPIClient";
-import { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
+import type { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

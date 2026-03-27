@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListVolumesCommand, ListVolumesCommandInput, ListVolumesCommandOutput } from "../commands/ListVolumesCommand";
 import { StorageGatewayClient } from "../StorageGatewayClient";
-import { StorageGatewayPaginationConfiguration } from "./Interfaces";
+import type { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

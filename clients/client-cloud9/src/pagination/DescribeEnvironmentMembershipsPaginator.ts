@@ -8,7 +8,7 @@ import {
   DescribeEnvironmentMembershipsCommandInput,
   DescribeEnvironmentMembershipsCommandOutput,
 } from "../commands/DescribeEnvironmentMembershipsCommand";
-import { Cloud9PaginationConfiguration } from "./Interfaces";
+import type { Cloud9PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

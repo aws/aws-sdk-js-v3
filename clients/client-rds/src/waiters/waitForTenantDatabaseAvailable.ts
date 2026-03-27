@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type DescribeTenantDatabasesCommandInput,
   DescribeTenantDatabasesCommand,
-  DescribeTenantDatabasesCommandInput,
 } from "../commands/DescribeTenantDatabasesCommand";
-import { RDSClient } from "../RDSClient";
+import type { RDSClient } from "../RDSClient";
 
 const checkState = async (client: RDSClient, input: DescribeTenantDatabasesCommandInput): Promise<WaiterResult> => {
   let reason;

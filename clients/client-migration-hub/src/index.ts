@@ -12,7 +12,7 @@
  */
 export * from "./MigrationHubClient";
 export * from "./MigrationHub";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MigrationHubExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

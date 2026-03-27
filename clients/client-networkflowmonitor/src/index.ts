@@ -7,7 +7,7 @@
  */
 export * from "./NetworkFlowMonitorClient";
 export * from "./NetworkFlowMonitor";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { NetworkFlowMonitorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -3,14 +3,14 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type GetRawMessageContentCommandInput,
+  type GetRawMessageContentCommandOutput,
   GetRawMessageContentCommand,
-  GetRawMessageContentCommandInput,
-  GetRawMessageContentCommandOutput,
 } from "./commands/GetRawMessageContentCommand";
 import {
+  type PutRawMessageContentCommandInput,
+  type PutRawMessageContentCommandOutput,
   PutRawMessageContentCommand,
-  PutRawMessageContentCommandInput,
-  PutRawMessageContentCommandOutput,
 } from "./commands/PutRawMessageContentCommand";
 import { WorkMailMessageFlowClient } from "./WorkMailMessageFlowClient";
 

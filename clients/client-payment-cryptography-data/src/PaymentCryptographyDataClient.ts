@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,42 +61,42 @@ import {
   defaultPaymentCryptographyDataHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { DecryptDataCommandInput, DecryptDataCommandOutput } from "./commands/DecryptDataCommand";
-import { EncryptDataCommandInput, EncryptDataCommandOutput } from "./commands/EncryptDataCommand";
-import {
+import type { DecryptDataCommandInput, DecryptDataCommandOutput } from "./commands/DecryptDataCommand";
+import type { EncryptDataCommandInput, EncryptDataCommandOutput } from "./commands/EncryptDataCommand";
+import type {
   GenerateAs2805KekValidationCommandInput,
   GenerateAs2805KekValidationCommandOutput,
 } from "./commands/GenerateAs2805KekValidationCommand";
-import {
+import type {
   GenerateCardValidationDataCommandInput,
   GenerateCardValidationDataCommandOutput,
 } from "./commands/GenerateCardValidationDataCommand";
-import { GenerateMacCommandInput, GenerateMacCommandOutput } from "./commands/GenerateMacCommand";
-import {
+import type { GenerateMacCommandInput, GenerateMacCommandOutput } from "./commands/GenerateMacCommand";
+import type {
   GenerateMacEmvPinChangeCommandInput,
   GenerateMacEmvPinChangeCommandOutput,
 } from "./commands/GenerateMacEmvPinChangeCommand";
-import { GeneratePinDataCommandInput, GeneratePinDataCommandOutput } from "./commands/GeneratePinDataCommand";
-import { ReEncryptDataCommandInput, ReEncryptDataCommandOutput } from "./commands/ReEncryptDataCommand";
-import {
+import type { GeneratePinDataCommandInput, GeneratePinDataCommandOutput } from "./commands/GeneratePinDataCommand";
+import type { ReEncryptDataCommandInput, ReEncryptDataCommandOutput } from "./commands/ReEncryptDataCommand";
+import type {
   TranslateKeyMaterialCommandInput,
   TranslateKeyMaterialCommandOutput,
 } from "./commands/TranslateKeyMaterialCommand";
-import { TranslatePinDataCommandInput, TranslatePinDataCommandOutput } from "./commands/TranslatePinDataCommand";
-import {
+import type { TranslatePinDataCommandInput, TranslatePinDataCommandOutput } from "./commands/TranslatePinDataCommand";
+import type {
   VerifyAuthRequestCryptogramCommandInput,
   VerifyAuthRequestCryptogramCommandOutput,
 } from "./commands/VerifyAuthRequestCryptogramCommand";
-import {
+import type {
   VerifyCardValidationDataCommandInput,
   VerifyCardValidationDataCommandOutput,
 } from "./commands/VerifyCardValidationDataCommand";
-import { VerifyMacCommandInput, VerifyMacCommandOutput } from "./commands/VerifyMacCommand";
-import { VerifyPinDataCommandInput, VerifyPinDataCommandOutput } from "./commands/VerifyPinDataCommand";
+import type { VerifyMacCommandInput, VerifyMacCommandOutput } from "./commands/VerifyMacCommand";
+import type { VerifyPinDataCommandInput, VerifyPinDataCommandOutput } from "./commands/VerifyPinDataCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -258,7 +256,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

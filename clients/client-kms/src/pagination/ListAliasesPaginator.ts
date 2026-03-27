@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
 import { KMSClient } from "../KMSClient";
-import { KMSPaginationConfiguration } from "./Interfaces";
+import type { KMSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

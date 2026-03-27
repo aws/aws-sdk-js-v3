@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,176 +61,203 @@ import {
   defaultAthenaHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BatchGetNamedQueryCommandInput, BatchGetNamedQueryCommandOutput } from "./commands/BatchGetNamedQueryCommand";
-import {
+import type {
+  BatchGetNamedQueryCommandInput,
+  BatchGetNamedQueryCommandOutput,
+} from "./commands/BatchGetNamedQueryCommand";
+import type {
   BatchGetPreparedStatementCommandInput,
   BatchGetPreparedStatementCommandOutput,
 } from "./commands/BatchGetPreparedStatementCommand";
-import {
+import type {
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput,
 } from "./commands/BatchGetQueryExecutionCommand";
-import {
+import type {
   CancelCapacityReservationCommandInput,
   CancelCapacityReservationCommandOutput,
 } from "./commands/CancelCapacityReservationCommand";
-import {
+import type {
   CreateCapacityReservationCommandInput,
   CreateCapacityReservationCommandOutput,
 } from "./commands/CreateCapacityReservationCommand";
-import { CreateDataCatalogCommandInput, CreateDataCatalogCommandOutput } from "./commands/CreateDataCatalogCommand";
-import { CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput } from "./commands/CreateNamedQueryCommand";
-import { CreateNotebookCommandInput, CreateNotebookCommandOutput } from "./commands/CreateNotebookCommand";
-import {
+import type {
+  CreateDataCatalogCommandInput,
+  CreateDataCatalogCommandOutput,
+} from "./commands/CreateDataCatalogCommand";
+import type { CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput } from "./commands/CreateNamedQueryCommand";
+import type { CreateNotebookCommandInput, CreateNotebookCommandOutput } from "./commands/CreateNotebookCommand";
+import type {
   CreatePreparedStatementCommandInput,
   CreatePreparedStatementCommandOutput,
 } from "./commands/CreatePreparedStatementCommand";
-import {
+import type {
   CreatePresignedNotebookUrlCommandInput,
   CreatePresignedNotebookUrlCommandOutput,
 } from "./commands/CreatePresignedNotebookUrlCommand";
-import { CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput } from "./commands/CreateWorkGroupCommand";
-import {
+import type { CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput } from "./commands/CreateWorkGroupCommand";
+import type {
   DeleteCapacityReservationCommandInput,
   DeleteCapacityReservationCommandOutput,
 } from "./commands/DeleteCapacityReservationCommand";
-import { DeleteDataCatalogCommandInput, DeleteDataCatalogCommandOutput } from "./commands/DeleteDataCatalogCommand";
-import { DeleteNamedQueryCommandInput, DeleteNamedQueryCommandOutput } from "./commands/DeleteNamedQueryCommand";
-import { DeleteNotebookCommandInput, DeleteNotebookCommandOutput } from "./commands/DeleteNotebookCommand";
-import {
+import type {
+  DeleteDataCatalogCommandInput,
+  DeleteDataCatalogCommandOutput,
+} from "./commands/DeleteDataCatalogCommand";
+import type { DeleteNamedQueryCommandInput, DeleteNamedQueryCommandOutput } from "./commands/DeleteNamedQueryCommand";
+import type { DeleteNotebookCommandInput, DeleteNotebookCommandOutput } from "./commands/DeleteNotebookCommand";
+import type {
   DeletePreparedStatementCommandInput,
   DeletePreparedStatementCommandOutput,
 } from "./commands/DeletePreparedStatementCommand";
-import { DeleteWorkGroupCommandInput, DeleteWorkGroupCommandOutput } from "./commands/DeleteWorkGroupCommand";
-import { ExportNotebookCommandInput, ExportNotebookCommandOutput } from "./commands/ExportNotebookCommand";
-import {
+import type { DeleteWorkGroupCommandInput, DeleteWorkGroupCommandOutput } from "./commands/DeleteWorkGroupCommand";
+import type { ExportNotebookCommandInput, ExportNotebookCommandOutput } from "./commands/ExportNotebookCommand";
+import type {
   GetCalculationExecutionCodeCommandInput,
   GetCalculationExecutionCodeCommandOutput,
 } from "./commands/GetCalculationExecutionCodeCommand";
-import {
+import type {
   GetCalculationExecutionCommandInput,
   GetCalculationExecutionCommandOutput,
 } from "./commands/GetCalculationExecutionCommand";
-import {
+import type {
   GetCalculationExecutionStatusCommandInput,
   GetCalculationExecutionStatusCommandOutput,
 } from "./commands/GetCalculationExecutionStatusCommand";
-import {
+import type {
   GetCapacityAssignmentConfigurationCommandInput,
   GetCapacityAssignmentConfigurationCommandOutput,
 } from "./commands/GetCapacityAssignmentConfigurationCommand";
-import {
+import type {
   GetCapacityReservationCommandInput,
   GetCapacityReservationCommandOutput,
 } from "./commands/GetCapacityReservationCommand";
-import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
-import { GetDataCatalogCommandInput, GetDataCatalogCommandOutput } from "./commands/GetDataCatalogCommand";
-import { GetNamedQueryCommandInput, GetNamedQueryCommandOutput } from "./commands/GetNamedQueryCommand";
-import {
+import type { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
+import type { GetDataCatalogCommandInput, GetDataCatalogCommandOutput } from "./commands/GetDataCatalogCommand";
+import type { GetNamedQueryCommandInput, GetNamedQueryCommandOutput } from "./commands/GetNamedQueryCommand";
+import type {
   GetNotebookMetadataCommandInput,
   GetNotebookMetadataCommandOutput,
 } from "./commands/GetNotebookMetadataCommand";
-import {
+import type {
   GetPreparedStatementCommandInput,
   GetPreparedStatementCommandOutput,
 } from "./commands/GetPreparedStatementCommand";
-import { GetQueryExecutionCommandInput, GetQueryExecutionCommandOutput } from "./commands/GetQueryExecutionCommand";
-import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
-import {
+import type {
+  GetQueryExecutionCommandInput,
+  GetQueryExecutionCommandOutput,
+} from "./commands/GetQueryExecutionCommand";
+import type { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import type {
   GetQueryRuntimeStatisticsCommandInput,
   GetQueryRuntimeStatisticsCommandOutput,
 } from "./commands/GetQueryRuntimeStatisticsCommand";
-import {
+import type {
   GetResourceDashboardCommandInput,
   GetResourceDashboardCommandOutput,
 } from "./commands/GetResourceDashboardCommand";
-import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
-import { GetSessionEndpointCommandInput, GetSessionEndpointCommandOutput } from "./commands/GetSessionEndpointCommand";
-import { GetSessionStatusCommandInput, GetSessionStatusCommandOutput } from "./commands/GetSessionStatusCommand";
-import { GetTableMetadataCommandInput, GetTableMetadataCommandOutput } from "./commands/GetTableMetadataCommand";
-import { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "./commands/GetWorkGroupCommand";
-import { ImportNotebookCommandInput, ImportNotebookCommandOutput } from "./commands/ImportNotebookCommand";
-import {
+import type { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import type {
+  GetSessionEndpointCommandInput,
+  GetSessionEndpointCommandOutput,
+} from "./commands/GetSessionEndpointCommand";
+import type { GetSessionStatusCommandInput, GetSessionStatusCommandOutput } from "./commands/GetSessionStatusCommand";
+import type { GetTableMetadataCommandInput, GetTableMetadataCommandOutput } from "./commands/GetTableMetadataCommand";
+import type { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "./commands/GetWorkGroupCommand";
+import type { ImportNotebookCommandInput, ImportNotebookCommandOutput } from "./commands/ImportNotebookCommand";
+import type {
   ListApplicationDPUSizesCommandInput,
   ListApplicationDPUSizesCommandOutput,
 } from "./commands/ListApplicationDPUSizesCommand";
-import {
+import type {
   ListCalculationExecutionsCommandInput,
   ListCalculationExecutionsCommandOutput,
 } from "./commands/ListCalculationExecutionsCommand";
-import {
+import type {
   ListCapacityReservationsCommandInput,
   ListCapacityReservationsCommandOutput,
 } from "./commands/ListCapacityReservationsCommand";
-import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
-import { ListDataCatalogsCommandInput, ListDataCatalogsCommandOutput } from "./commands/ListDataCatalogsCommand";
-import { ListEngineVersionsCommandInput, ListEngineVersionsCommandOutput } from "./commands/ListEngineVersionsCommand";
-import { ListExecutorsCommandInput, ListExecutorsCommandOutput } from "./commands/ListExecutorsCommand";
-import { ListNamedQueriesCommandInput, ListNamedQueriesCommandOutput } from "./commands/ListNamedQueriesCommand";
-import {
+import type { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
+import type { ListDataCatalogsCommandInput, ListDataCatalogsCommandOutput } from "./commands/ListDataCatalogsCommand";
+import type {
+  ListEngineVersionsCommandInput,
+  ListEngineVersionsCommandOutput,
+} from "./commands/ListEngineVersionsCommand";
+import type { ListExecutorsCommandInput, ListExecutorsCommandOutput } from "./commands/ListExecutorsCommand";
+import type { ListNamedQueriesCommandInput, ListNamedQueriesCommandOutput } from "./commands/ListNamedQueriesCommand";
+import type {
   ListNotebookMetadataCommandInput,
   ListNotebookMetadataCommandOutput,
 } from "./commands/ListNotebookMetadataCommand";
-import {
+import type {
   ListNotebookSessionsCommandInput,
   ListNotebookSessionsCommandOutput,
 } from "./commands/ListNotebookSessionsCommand";
-import {
+import type {
   ListPreparedStatementsCommandInput,
   ListPreparedStatementsCommandOutput,
 } from "./commands/ListPreparedStatementsCommand";
-import {
+import type {
   ListQueryExecutionsCommandInput,
   ListQueryExecutionsCommandOutput,
 } from "./commands/ListQueryExecutionsCommand";
-import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
-import { ListTableMetadataCommandInput, ListTableMetadataCommandOutput } from "./commands/ListTableMetadataCommand";
-import {
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import type {
+  ListTableMetadataCommandInput,
+  ListTableMetadataCommandOutput,
+} from "./commands/ListTableMetadataCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListWorkGroupsCommandInput, ListWorkGroupsCommandOutput } from "./commands/ListWorkGroupsCommand";
-import {
+import type { ListWorkGroupsCommandInput, ListWorkGroupsCommandOutput } from "./commands/ListWorkGroupsCommand";
+import type {
   PutCapacityAssignmentConfigurationCommandInput,
   PutCapacityAssignmentConfigurationCommandOutput,
 } from "./commands/PutCapacityAssignmentConfigurationCommand";
-import {
+import type {
   StartCalculationExecutionCommandInput,
   StartCalculationExecutionCommandOutput,
 } from "./commands/StartCalculationExecutionCommand";
-import {
+import type {
   StartQueryExecutionCommandInput,
   StartQueryExecutionCommandOutput,
 } from "./commands/StartQueryExecutionCommand";
-import { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
-import {
+import type { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
+import type {
   StopCalculationExecutionCommandInput,
   StopCalculationExecutionCommandOutput,
 } from "./commands/StopCalculationExecutionCommand";
-import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from "./commands/StopQueryExecutionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type {
+  StopQueryExecutionCommandInput,
+  StopQueryExecutionCommandOutput,
+} from "./commands/StopQueryExecutionCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateCapacityReservationCommandInput,
   UpdateCapacityReservationCommandOutput,
 } from "./commands/UpdateCapacityReservationCommand";
-import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "./commands/UpdateDataCatalogCommand";
-import { UpdateNamedQueryCommandInput, UpdateNamedQueryCommandOutput } from "./commands/UpdateNamedQueryCommand";
-import { UpdateNotebookCommandInput, UpdateNotebookCommandOutput } from "./commands/UpdateNotebookCommand";
-import {
+import type {
+  UpdateDataCatalogCommandInput,
+  UpdateDataCatalogCommandOutput,
+} from "./commands/UpdateDataCatalogCommand";
+import type { UpdateNamedQueryCommandInput, UpdateNamedQueryCommandOutput } from "./commands/UpdateNamedQueryCommand";
+import type { UpdateNotebookCommandInput, UpdateNotebookCommandOutput } from "./commands/UpdateNotebookCommand";
+import type {
   UpdateNotebookMetadataCommandInput,
   UpdateNotebookMetadataCommandOutput,
 } from "./commands/UpdateNotebookMetadataCommand";
-import {
+import type {
   UpdatePreparedStatementCommandInput,
   UpdatePreparedStatementCommandOutput,
 } from "./commands/UpdatePreparedStatementCommand";
-import { UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput } from "./commands/UpdateWorkGroupCommand";
+import type { UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput } from "./commands/UpdateWorkGroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -504,7 +529,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

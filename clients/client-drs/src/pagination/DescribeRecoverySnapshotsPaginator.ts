@@ -8,7 +8,7 @@ import {
   DescribeRecoverySnapshotsCommandOutput,
 } from "../commands/DescribeRecoverySnapshotsCommand";
 import { DrsClient } from "../DrsClient";
-import { DrsPaginationConfiguration } from "./Interfaces";
+import type { DrsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

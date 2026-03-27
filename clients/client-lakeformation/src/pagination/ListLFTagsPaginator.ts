@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListLFTagsCommand, ListLFTagsCommandInput, ListLFTagsCommandOutput } from "../commands/ListLFTagsCommand";
 import { LakeFormationClient } from "../LakeFormationClient";
-import { LakeFormationPaginationConfiguration } from "./Interfaces";
+import type { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

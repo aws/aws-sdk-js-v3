@@ -8,7 +8,7 @@ import {
   ListAccountsForProvisionedPermissionSetCommandOutput,
 } from "../commands/ListAccountsForProvisionedPermissionSetCommand";
 import { SSOAdminClient } from "../SSOAdminClient";
-import { SSOAdminPaginationConfiguration } from "./Interfaces";
+import type { SSOAdminPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListImpersonationRolesCommandOutput,
 } from "../commands/ListImpersonationRolesCommand";
 import { WorkMailClient } from "../WorkMailClient";
-import { WorkMailPaginationConfiguration } from "./Interfaces";
+import type { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

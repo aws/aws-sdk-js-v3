@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListCasesCommand, ListCasesCommandInput, ListCasesCommandOutput } from "../commands/ListCasesCommand";
 import { SecurityIRClient } from "../SecurityIRClient";
-import { SecurityIRPaginationConfiguration } from "./Interfaces";
+import type { SecurityIRPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

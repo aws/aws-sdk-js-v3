@@ -11,7 +11,7 @@
  */
 export * from "./M2Client";
 export * from "./M2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { M2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

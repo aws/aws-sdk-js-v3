@@ -34,62 +34,71 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  type DocumentType as __DocumentType,
   type Endpoint as __Endpoint,
   type ResponseMetadata as __ResponseMetadata,
   type SerdeContext as __SerdeContext,
-  DocumentType as __DocumentType,
   HeaderBag as __HeaderBag,
 } from "@smithy/types";
 
-import {
+import type {
   ContentTypeParametersCommandInput,
   ContentTypeParametersCommandOutput,
 } from "../commands/ContentTypeParametersCommand";
-import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
-import { EmptyOperationCommandInput, EmptyOperationCommandOutput } from "../commands/EmptyOperationCommand";
-import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "../commands/EndpointOperationCommand";
-import {
+import type { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
+import type { EmptyOperationCommandInput, EmptyOperationCommandOutput } from "../commands/EmptyOperationCommand";
+import type {
+  EndpointOperationCommandInput,
+  EndpointOperationCommandOutput,
+} from "../commands/EndpointOperationCommand";
+import type {
   EndpointWithHostLabelOperationCommandInput,
   EndpointWithHostLabelOperationCommandOutput,
 } from "../commands/EndpointWithHostLabelOperationCommand";
-import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "../commands/FractionalSecondsCommand";
-import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
-import {
+import type {
+  FractionalSecondsCommandInput,
+  FractionalSecondsCommandOutput,
+} from "../commands/FractionalSecondsCommand";
+import type {
+  GreetingWithErrorsCommandInput,
+  GreetingWithErrorsCommandOutput,
+} from "../commands/GreetingWithErrorsCommand";
+import type {
   HostWithPathOperationCommandInput,
   HostWithPathOperationCommandOutput,
 } from "../commands/HostWithPathOperationCommand";
-import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "../commands/JsonEnumsCommand";
-import { JsonIntEnumsCommandInput, JsonIntEnumsCommandOutput } from "../commands/JsonIntEnumsCommand";
-import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "../commands/JsonUnionsCommand";
-import {
+import type { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "../commands/JsonEnumsCommand";
+import type { JsonIntEnumsCommandInput, JsonIntEnumsCommandOutput } from "../commands/JsonIntEnumsCommand";
+import type { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "../commands/JsonUnionsCommand";
+import type {
   KitchenSinkOperationCommandInput,
   KitchenSinkOperationCommandOutput,
 } from "../commands/KitchenSinkOperationCommand";
-import { NullOperationCommandInput, NullOperationCommandOutput } from "../commands/NullOperationCommand";
-import {
+import type { NullOperationCommandInput, NullOperationCommandOutput } from "../commands/NullOperationCommand";
+import type {
   OperationWithOptionalInputOutputCommandInput,
   OperationWithOptionalInputOutputCommandOutput,
 } from "../commands/OperationWithOptionalInputOutputCommand";
-import {
+import type {
   PutAndGetInlineDocumentsCommandInput,
   PutAndGetInlineDocumentsCommandOutput,
 } from "../commands/PutAndGetInlineDocumentsCommand";
-import {
+import type {
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,
 } from "../commands/PutWithContentEncodingCommand";
-import {
+import type {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "../commands/SimpleScalarPropertiesCommand";
-import {
+import type {
   SparseNullsOperationCommandInput,
   SparseNullsOperationCommandOutput,
 } from "../commands/SparseNullsOperationCommand";
-import { FooEnum, IntegerEnum } from "../models/enums";
+import type { FooEnum, IntegerEnum } from "../models/enums";
 import { ComplexError, ErrorWithMembers, ErrorWithoutMembers, FooError, InvalidGreeting } from "../models/errors";
 import { JsonProtocolServiceException as __BaseException } from "../models/JsonProtocolServiceException";
-import {
+import type {
   ComplexNestedErrorData,
   ContentTypeParametersInput,
   DatetimeOffsetsOutput,

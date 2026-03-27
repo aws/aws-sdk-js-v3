@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import { QBusinessClient } from "../QBusinessClient";
-import { QBusinessPaginationConfiguration } from "./Interfaces";
+import type { QBusinessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

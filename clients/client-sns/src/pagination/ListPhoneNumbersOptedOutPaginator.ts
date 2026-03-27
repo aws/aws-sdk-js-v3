@@ -8,7 +8,7 @@ import {
   ListPhoneNumbersOptedOutCommandOutput,
 } from "../commands/ListPhoneNumbersOptedOutCommand";
 import { SNSClient } from "../SNSClient";
-import { SNSPaginationConfiguration } from "./Interfaces";
+import type { SNSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

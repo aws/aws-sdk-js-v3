@@ -8,7 +8,7 @@ import {
   ListInferenceExecutionsCommandOutput,
 } from "../commands/ListInferenceExecutionsCommand";
 import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
-import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
+import type { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

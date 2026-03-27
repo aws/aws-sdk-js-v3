@@ -8,7 +8,7 @@ import {
   GetAppMonitorDataCommandOutput,
 } from "../commands/GetAppMonitorDataCommand";
 import { RUMClient } from "../RUMClient";
-import { RUMPaginationConfiguration } from "./Interfaces";
+import type { RUMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

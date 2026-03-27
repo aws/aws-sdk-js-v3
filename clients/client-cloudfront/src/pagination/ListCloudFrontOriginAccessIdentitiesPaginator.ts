@@ -8,7 +8,7 @@ import {
   ListCloudFrontOriginAccessIdentitiesCommandInput,
   ListCloudFrontOriginAccessIdentitiesCommandOutput,
 } from "../commands/ListCloudFrontOriginAccessIdentitiesCommand";
-import { CloudFrontPaginationConfiguration } from "./Interfaces";
+import type { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

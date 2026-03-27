@@ -8,7 +8,7 @@ import {
   ListExportTasksCommandOutput,
 } from "../commands/ListExportTasksCommand";
 import { NeptuneGraphClient } from "../NeptuneGraphClient";
-import { NeptuneGraphPaginationConfiguration } from "./Interfaces";
+import type { NeptuneGraphPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

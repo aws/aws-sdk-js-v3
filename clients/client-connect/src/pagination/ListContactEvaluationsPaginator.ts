@@ -8,7 +8,7 @@ import {
   ListContactEvaluationsCommandOutput,
 } from "../commands/ListContactEvaluationsCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

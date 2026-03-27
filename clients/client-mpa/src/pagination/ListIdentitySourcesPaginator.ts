@@ -8,7 +8,7 @@ import {
   ListIdentitySourcesCommandOutput,
 } from "../commands/ListIdentitySourcesCommand";
 import { MPAClient } from "../MPAClient";
-import { MPAPaginationConfiguration } from "./Interfaces";
+import type { MPAPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

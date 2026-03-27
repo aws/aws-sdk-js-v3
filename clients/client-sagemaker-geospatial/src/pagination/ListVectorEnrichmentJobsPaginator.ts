@@ -8,7 +8,7 @@ import {
   ListVectorEnrichmentJobsCommandOutput,
 } from "../commands/ListVectorEnrichmentJobsCommand";
 import { SageMakerGeospatialClient } from "../SageMakerGeospatialClient";
-import { SageMakerGeospatialPaginationConfiguration } from "./Interfaces";
+import type { SageMakerGeospatialPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

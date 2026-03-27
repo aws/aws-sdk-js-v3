@@ -8,7 +8,7 @@ import {
   ListWorkflowStepExecutionsCommandOutput,
 } from "../commands/ListWorkflowStepExecutionsCommand";
 import { ImagebuilderClient } from "../ImagebuilderClient";
-import { ImagebuilderPaginationConfiguration } from "./Interfaces";
+import type { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

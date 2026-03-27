@@ -8,7 +8,7 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
-import { ChimePaginationConfiguration } from "./Interfaces";
+import type { ChimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

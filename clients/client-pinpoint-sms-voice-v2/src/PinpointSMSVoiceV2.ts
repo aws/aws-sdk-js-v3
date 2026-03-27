@@ -3,439 +3,459 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateOriginationIdentityCommandInput,
+  type AssociateOriginationIdentityCommandOutput,
   AssociateOriginationIdentityCommand,
-  AssociateOriginationIdentityCommandInput,
-  AssociateOriginationIdentityCommandOutput,
 } from "./commands/AssociateOriginationIdentityCommand";
 import {
+  type AssociateProtectConfigurationCommandInput,
+  type AssociateProtectConfigurationCommandOutput,
   AssociateProtectConfigurationCommand,
-  AssociateProtectConfigurationCommandInput,
-  AssociateProtectConfigurationCommandOutput,
 } from "./commands/AssociateProtectConfigurationCommand";
 import {
+  type CarrierLookupCommandInput,
+  type CarrierLookupCommandOutput,
   CarrierLookupCommand,
-  CarrierLookupCommandInput,
-  CarrierLookupCommandOutput,
 } from "./commands/CarrierLookupCommand";
 import {
+  type CreateConfigurationSetCommandInput,
+  type CreateConfigurationSetCommandOutput,
   CreateConfigurationSetCommand,
-  CreateConfigurationSetCommandInput,
-  CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand";
 import {
+  type CreateEventDestinationCommandInput,
+  type CreateEventDestinationCommandOutput,
   CreateEventDestinationCommand,
-  CreateEventDestinationCommandInput,
-  CreateEventDestinationCommandOutput,
 } from "./commands/CreateEventDestinationCommand";
 import {
+  type CreateOptOutListCommandInput,
+  type CreateOptOutListCommandOutput,
   CreateOptOutListCommand,
-  CreateOptOutListCommandInput,
-  CreateOptOutListCommandOutput,
 } from "./commands/CreateOptOutListCommand";
-import { CreatePoolCommand, CreatePoolCommandInput, CreatePoolCommandOutput } from "./commands/CreatePoolCommand";
 import {
+  type CreatePoolCommandInput,
+  type CreatePoolCommandOutput,
+  CreatePoolCommand,
+} from "./commands/CreatePoolCommand";
+import {
+  type CreateProtectConfigurationCommandInput,
+  type CreateProtectConfigurationCommandOutput,
   CreateProtectConfigurationCommand,
-  CreateProtectConfigurationCommandInput,
-  CreateProtectConfigurationCommandOutput,
 } from "./commands/CreateProtectConfigurationCommand";
 import {
+  type CreateRegistrationAssociationCommandInput,
+  type CreateRegistrationAssociationCommandOutput,
   CreateRegistrationAssociationCommand,
-  CreateRegistrationAssociationCommandInput,
-  CreateRegistrationAssociationCommandOutput,
 } from "./commands/CreateRegistrationAssociationCommand";
 import {
+  type CreateRegistrationAttachmentCommandInput,
+  type CreateRegistrationAttachmentCommandOutput,
   CreateRegistrationAttachmentCommand,
-  CreateRegistrationAttachmentCommandInput,
-  CreateRegistrationAttachmentCommandOutput,
 } from "./commands/CreateRegistrationAttachmentCommand";
 import {
+  type CreateRegistrationCommandInput,
+  type CreateRegistrationCommandOutput,
   CreateRegistrationCommand,
-  CreateRegistrationCommandInput,
-  CreateRegistrationCommandOutput,
 } from "./commands/CreateRegistrationCommand";
 import {
+  type CreateRegistrationVersionCommandInput,
+  type CreateRegistrationVersionCommandOutput,
   CreateRegistrationVersionCommand,
-  CreateRegistrationVersionCommandInput,
-  CreateRegistrationVersionCommandOutput,
 } from "./commands/CreateRegistrationVersionCommand";
 import {
+  type CreateVerifiedDestinationNumberCommandInput,
+  type CreateVerifiedDestinationNumberCommandOutput,
   CreateVerifiedDestinationNumberCommand,
-  CreateVerifiedDestinationNumberCommandInput,
-  CreateVerifiedDestinationNumberCommandOutput,
 } from "./commands/CreateVerifiedDestinationNumberCommand";
 import {
+  type DeleteAccountDefaultProtectConfigurationCommandInput,
+  type DeleteAccountDefaultProtectConfigurationCommandOutput,
   DeleteAccountDefaultProtectConfigurationCommand,
-  DeleteAccountDefaultProtectConfigurationCommandInput,
-  DeleteAccountDefaultProtectConfigurationCommandOutput,
 } from "./commands/DeleteAccountDefaultProtectConfigurationCommand";
 import {
+  type DeleteConfigurationSetCommandInput,
+  type DeleteConfigurationSetCommandOutput,
   DeleteConfigurationSetCommand,
-  DeleteConfigurationSetCommandInput,
-  DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand";
 import {
+  type DeleteDefaultMessageTypeCommandInput,
+  type DeleteDefaultMessageTypeCommandOutput,
   DeleteDefaultMessageTypeCommand,
-  DeleteDefaultMessageTypeCommandInput,
-  DeleteDefaultMessageTypeCommandOutput,
 } from "./commands/DeleteDefaultMessageTypeCommand";
 import {
+  type DeleteDefaultSenderIdCommandInput,
+  type DeleteDefaultSenderIdCommandOutput,
   DeleteDefaultSenderIdCommand,
-  DeleteDefaultSenderIdCommandInput,
-  DeleteDefaultSenderIdCommandOutput,
 } from "./commands/DeleteDefaultSenderIdCommand";
 import {
+  type DeleteEventDestinationCommandInput,
+  type DeleteEventDestinationCommandOutput,
   DeleteEventDestinationCommand,
-  DeleteEventDestinationCommandInput,
-  DeleteEventDestinationCommandOutput,
 } from "./commands/DeleteEventDestinationCommand";
 import {
+  type DeleteKeywordCommandInput,
+  type DeleteKeywordCommandOutput,
   DeleteKeywordCommand,
-  DeleteKeywordCommandInput,
-  DeleteKeywordCommandOutput,
 } from "./commands/DeleteKeywordCommand";
 import {
+  type DeleteMediaMessageSpendLimitOverrideCommandInput,
+  type DeleteMediaMessageSpendLimitOverrideCommandOutput,
   DeleteMediaMessageSpendLimitOverrideCommand,
-  DeleteMediaMessageSpendLimitOverrideCommandInput,
-  DeleteMediaMessageSpendLimitOverrideCommandOutput,
 } from "./commands/DeleteMediaMessageSpendLimitOverrideCommand";
 import {
+  type DeleteOptedOutNumberCommandInput,
+  type DeleteOptedOutNumberCommandOutput,
   DeleteOptedOutNumberCommand,
-  DeleteOptedOutNumberCommandInput,
-  DeleteOptedOutNumberCommandOutput,
 } from "./commands/DeleteOptedOutNumberCommand";
 import {
+  type DeleteOptOutListCommandInput,
+  type DeleteOptOutListCommandOutput,
   DeleteOptOutListCommand,
-  DeleteOptOutListCommandInput,
-  DeleteOptOutListCommandOutput,
 } from "./commands/DeleteOptOutListCommand";
-import { DeletePoolCommand, DeletePoolCommandInput, DeletePoolCommandOutput } from "./commands/DeletePoolCommand";
 import {
+  type DeletePoolCommandInput,
+  type DeletePoolCommandOutput,
+  DeletePoolCommand,
+} from "./commands/DeletePoolCommand";
+import {
+  type DeleteProtectConfigurationCommandInput,
+  type DeleteProtectConfigurationCommandOutput,
   DeleteProtectConfigurationCommand,
-  DeleteProtectConfigurationCommandInput,
-  DeleteProtectConfigurationCommandOutput,
 } from "./commands/DeleteProtectConfigurationCommand";
 import {
+  type DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
+  type DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput,
   DeleteProtectConfigurationRuleSetNumberOverrideCommand,
-  DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
-  DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput,
 } from "./commands/DeleteProtectConfigurationRuleSetNumberOverrideCommand";
 import {
+  type DeleteRegistrationAttachmentCommandInput,
+  type DeleteRegistrationAttachmentCommandOutput,
   DeleteRegistrationAttachmentCommand,
-  DeleteRegistrationAttachmentCommandInput,
-  DeleteRegistrationAttachmentCommandOutput,
 } from "./commands/DeleteRegistrationAttachmentCommand";
 import {
+  type DeleteRegistrationCommandInput,
+  type DeleteRegistrationCommandOutput,
   DeleteRegistrationCommand,
-  DeleteRegistrationCommandInput,
-  DeleteRegistrationCommandOutput,
 } from "./commands/DeleteRegistrationCommand";
 import {
+  type DeleteRegistrationFieldValueCommandInput,
+  type DeleteRegistrationFieldValueCommandOutput,
   DeleteRegistrationFieldValueCommand,
-  DeleteRegistrationFieldValueCommandInput,
-  DeleteRegistrationFieldValueCommandOutput,
 } from "./commands/DeleteRegistrationFieldValueCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteTextMessageSpendLimitOverrideCommandInput,
+  type DeleteTextMessageSpendLimitOverrideCommandOutput,
   DeleteTextMessageSpendLimitOverrideCommand,
-  DeleteTextMessageSpendLimitOverrideCommandInput,
-  DeleteTextMessageSpendLimitOverrideCommandOutput,
 } from "./commands/DeleteTextMessageSpendLimitOverrideCommand";
 import {
+  type DeleteVerifiedDestinationNumberCommandInput,
+  type DeleteVerifiedDestinationNumberCommandOutput,
   DeleteVerifiedDestinationNumberCommand,
-  DeleteVerifiedDestinationNumberCommandInput,
-  DeleteVerifiedDestinationNumberCommandOutput,
 } from "./commands/DeleteVerifiedDestinationNumberCommand";
 import {
+  type DeleteVoiceMessageSpendLimitOverrideCommandInput,
+  type DeleteVoiceMessageSpendLimitOverrideCommandOutput,
   DeleteVoiceMessageSpendLimitOverrideCommand,
-  DeleteVoiceMessageSpendLimitOverrideCommandInput,
-  DeleteVoiceMessageSpendLimitOverrideCommandOutput,
 } from "./commands/DeleteVoiceMessageSpendLimitOverrideCommand";
 import {
+  type DescribeAccountAttributesCommandInput,
+  type DescribeAccountAttributesCommandOutput,
   DescribeAccountAttributesCommand,
-  DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
 import {
+  type DescribeAccountLimitsCommandInput,
+  type DescribeAccountLimitsCommandOutput,
   DescribeAccountLimitsCommand,
-  DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
+  type DescribeConfigurationSetsCommandInput,
+  type DescribeConfigurationSetsCommandOutput,
   DescribeConfigurationSetsCommand,
-  DescribeConfigurationSetsCommandInput,
-  DescribeConfigurationSetsCommandOutput,
 } from "./commands/DescribeConfigurationSetsCommand";
 import {
+  type DescribeKeywordsCommandInput,
+  type DescribeKeywordsCommandOutput,
   DescribeKeywordsCommand,
-  DescribeKeywordsCommandInput,
-  DescribeKeywordsCommandOutput,
 } from "./commands/DescribeKeywordsCommand";
 import {
+  type DescribeOptedOutNumbersCommandInput,
+  type DescribeOptedOutNumbersCommandOutput,
   DescribeOptedOutNumbersCommand,
-  DescribeOptedOutNumbersCommandInput,
-  DescribeOptedOutNumbersCommandOutput,
 } from "./commands/DescribeOptedOutNumbersCommand";
 import {
+  type DescribeOptOutListsCommandInput,
+  type DescribeOptOutListsCommandOutput,
   DescribeOptOutListsCommand,
-  DescribeOptOutListsCommandInput,
-  DescribeOptOutListsCommandOutput,
 } from "./commands/DescribeOptOutListsCommand";
 import {
+  type DescribePhoneNumbersCommandInput,
+  type DescribePhoneNumbersCommandOutput,
   DescribePhoneNumbersCommand,
-  DescribePhoneNumbersCommandInput,
-  DescribePhoneNumbersCommandOutput,
 } from "./commands/DescribePhoneNumbersCommand";
 import {
+  type DescribePoolsCommandInput,
+  type DescribePoolsCommandOutput,
   DescribePoolsCommand,
-  DescribePoolsCommandInput,
-  DescribePoolsCommandOutput,
 } from "./commands/DescribePoolsCommand";
 import {
+  type DescribeProtectConfigurationsCommandInput,
+  type DescribeProtectConfigurationsCommandOutput,
   DescribeProtectConfigurationsCommand,
-  DescribeProtectConfigurationsCommandInput,
-  DescribeProtectConfigurationsCommandOutput,
 } from "./commands/DescribeProtectConfigurationsCommand";
 import {
+  type DescribeRegistrationAttachmentsCommandInput,
+  type DescribeRegistrationAttachmentsCommandOutput,
   DescribeRegistrationAttachmentsCommand,
-  DescribeRegistrationAttachmentsCommandInput,
-  DescribeRegistrationAttachmentsCommandOutput,
 } from "./commands/DescribeRegistrationAttachmentsCommand";
 import {
+  type DescribeRegistrationFieldDefinitionsCommandInput,
+  type DescribeRegistrationFieldDefinitionsCommandOutput,
   DescribeRegistrationFieldDefinitionsCommand,
-  DescribeRegistrationFieldDefinitionsCommandInput,
-  DescribeRegistrationFieldDefinitionsCommandOutput,
 } from "./commands/DescribeRegistrationFieldDefinitionsCommand";
 import {
+  type DescribeRegistrationFieldValuesCommandInput,
+  type DescribeRegistrationFieldValuesCommandOutput,
   DescribeRegistrationFieldValuesCommand,
-  DescribeRegistrationFieldValuesCommandInput,
-  DescribeRegistrationFieldValuesCommandOutput,
 } from "./commands/DescribeRegistrationFieldValuesCommand";
 import {
+  type DescribeRegistrationsCommandInput,
+  type DescribeRegistrationsCommandOutput,
   DescribeRegistrationsCommand,
-  DescribeRegistrationsCommandInput,
-  DescribeRegistrationsCommandOutput,
 } from "./commands/DescribeRegistrationsCommand";
 import {
+  type DescribeRegistrationSectionDefinitionsCommandInput,
+  type DescribeRegistrationSectionDefinitionsCommandOutput,
   DescribeRegistrationSectionDefinitionsCommand,
-  DescribeRegistrationSectionDefinitionsCommandInput,
-  DescribeRegistrationSectionDefinitionsCommandOutput,
 } from "./commands/DescribeRegistrationSectionDefinitionsCommand";
 import {
+  type DescribeRegistrationTypeDefinitionsCommandInput,
+  type DescribeRegistrationTypeDefinitionsCommandOutput,
   DescribeRegistrationTypeDefinitionsCommand,
-  DescribeRegistrationTypeDefinitionsCommandInput,
-  DescribeRegistrationTypeDefinitionsCommandOutput,
 } from "./commands/DescribeRegistrationTypeDefinitionsCommand";
 import {
+  type DescribeRegistrationVersionsCommandInput,
+  type DescribeRegistrationVersionsCommandOutput,
   DescribeRegistrationVersionsCommand,
-  DescribeRegistrationVersionsCommandInput,
-  DescribeRegistrationVersionsCommandOutput,
 } from "./commands/DescribeRegistrationVersionsCommand";
 import {
+  type DescribeSenderIdsCommandInput,
+  type DescribeSenderIdsCommandOutput,
   DescribeSenderIdsCommand,
-  DescribeSenderIdsCommandInput,
-  DescribeSenderIdsCommandOutput,
 } from "./commands/DescribeSenderIdsCommand";
 import {
+  type DescribeSpendLimitsCommandInput,
+  type DescribeSpendLimitsCommandOutput,
   DescribeSpendLimitsCommand,
-  DescribeSpendLimitsCommandInput,
-  DescribeSpendLimitsCommandOutput,
 } from "./commands/DescribeSpendLimitsCommand";
 import {
+  type DescribeVerifiedDestinationNumbersCommandInput,
+  type DescribeVerifiedDestinationNumbersCommandOutput,
   DescribeVerifiedDestinationNumbersCommand,
-  DescribeVerifiedDestinationNumbersCommandInput,
-  DescribeVerifiedDestinationNumbersCommandOutput,
 } from "./commands/DescribeVerifiedDestinationNumbersCommand";
 import {
+  type DisassociateOriginationIdentityCommandInput,
+  type DisassociateOriginationIdentityCommandOutput,
   DisassociateOriginationIdentityCommand,
-  DisassociateOriginationIdentityCommandInput,
-  DisassociateOriginationIdentityCommandOutput,
 } from "./commands/DisassociateOriginationIdentityCommand";
 import {
+  type DisassociateProtectConfigurationCommandInput,
+  type DisassociateProtectConfigurationCommandOutput,
   DisassociateProtectConfigurationCommand,
-  DisassociateProtectConfigurationCommandInput,
-  DisassociateProtectConfigurationCommandOutput,
 } from "./commands/DisassociateProtectConfigurationCommand";
 import {
+  type DiscardRegistrationVersionCommandInput,
+  type DiscardRegistrationVersionCommandOutput,
   DiscardRegistrationVersionCommand,
-  DiscardRegistrationVersionCommandInput,
-  DiscardRegistrationVersionCommandOutput,
 } from "./commands/DiscardRegistrationVersionCommand";
 import {
+  type GetProtectConfigurationCountryRuleSetCommandInput,
+  type GetProtectConfigurationCountryRuleSetCommandOutput,
   GetProtectConfigurationCountryRuleSetCommand,
-  GetProtectConfigurationCountryRuleSetCommandInput,
-  GetProtectConfigurationCountryRuleSetCommandOutput,
 } from "./commands/GetProtectConfigurationCountryRuleSetCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type ListPoolOriginationIdentitiesCommandInput,
+  type ListPoolOriginationIdentitiesCommandOutput,
   ListPoolOriginationIdentitiesCommand,
-  ListPoolOriginationIdentitiesCommandInput,
-  ListPoolOriginationIdentitiesCommandOutput,
 } from "./commands/ListPoolOriginationIdentitiesCommand";
 import {
+  type ListProtectConfigurationRuleSetNumberOverridesCommandInput,
+  type ListProtectConfigurationRuleSetNumberOverridesCommandOutput,
   ListProtectConfigurationRuleSetNumberOverridesCommand,
-  ListProtectConfigurationRuleSetNumberOverridesCommandInput,
-  ListProtectConfigurationRuleSetNumberOverridesCommandOutput,
 } from "./commands/ListProtectConfigurationRuleSetNumberOverridesCommand";
 import {
+  type ListRegistrationAssociationsCommandInput,
+  type ListRegistrationAssociationsCommandOutput,
   ListRegistrationAssociationsCommand,
-  ListRegistrationAssociationsCommandInput,
-  ListRegistrationAssociationsCommandOutput,
 } from "./commands/ListRegistrationAssociationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutKeywordCommand, PutKeywordCommandInput, PutKeywordCommandOutput } from "./commands/PutKeywordCommand";
 import {
+  type PutKeywordCommandInput,
+  type PutKeywordCommandOutput,
+  PutKeywordCommand,
+} from "./commands/PutKeywordCommand";
+import {
+  type PutMessageFeedbackCommandInput,
+  type PutMessageFeedbackCommandOutput,
   PutMessageFeedbackCommand,
-  PutMessageFeedbackCommandInput,
-  PutMessageFeedbackCommandOutput,
 } from "./commands/PutMessageFeedbackCommand";
 import {
+  type PutOptedOutNumberCommandInput,
+  type PutOptedOutNumberCommandOutput,
   PutOptedOutNumberCommand,
-  PutOptedOutNumberCommandInput,
-  PutOptedOutNumberCommandOutput,
 } from "./commands/PutOptedOutNumberCommand";
 import {
+  type PutProtectConfigurationRuleSetNumberOverrideCommandInput,
+  type PutProtectConfigurationRuleSetNumberOverrideCommandOutput,
   PutProtectConfigurationRuleSetNumberOverrideCommand,
-  PutProtectConfigurationRuleSetNumberOverrideCommandInput,
-  PutProtectConfigurationRuleSetNumberOverrideCommandOutput,
 } from "./commands/PutProtectConfigurationRuleSetNumberOverrideCommand";
 import {
+  type PutRegistrationFieldValueCommandInput,
+  type PutRegistrationFieldValueCommandOutput,
   PutRegistrationFieldValueCommand,
-  PutRegistrationFieldValueCommandInput,
-  PutRegistrationFieldValueCommandOutput,
 } from "./commands/PutRegistrationFieldValueCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type ReleasePhoneNumberCommandInput,
+  type ReleasePhoneNumberCommandOutput,
   ReleasePhoneNumberCommand,
-  ReleasePhoneNumberCommandInput,
-  ReleasePhoneNumberCommandOutput,
 } from "./commands/ReleasePhoneNumberCommand";
 import {
+  type ReleaseSenderIdCommandInput,
+  type ReleaseSenderIdCommandOutput,
   ReleaseSenderIdCommand,
-  ReleaseSenderIdCommandInput,
-  ReleaseSenderIdCommandOutput,
 } from "./commands/ReleaseSenderIdCommand";
 import {
+  type RequestPhoneNumberCommandInput,
+  type RequestPhoneNumberCommandOutput,
   RequestPhoneNumberCommand,
-  RequestPhoneNumberCommandInput,
-  RequestPhoneNumberCommandOutput,
 } from "./commands/RequestPhoneNumberCommand";
 import {
+  type RequestSenderIdCommandInput,
+  type RequestSenderIdCommandOutput,
   RequestSenderIdCommand,
-  RequestSenderIdCommandInput,
-  RequestSenderIdCommandOutput,
 } from "./commands/RequestSenderIdCommand";
 import {
+  type SendDestinationNumberVerificationCodeCommandInput,
+  type SendDestinationNumberVerificationCodeCommandOutput,
   SendDestinationNumberVerificationCodeCommand,
-  SendDestinationNumberVerificationCodeCommandInput,
-  SendDestinationNumberVerificationCodeCommandOutput,
 } from "./commands/SendDestinationNumberVerificationCodeCommand";
 import {
+  type SendMediaMessageCommandInput,
+  type SendMediaMessageCommandOutput,
   SendMediaMessageCommand,
-  SendMediaMessageCommandInput,
-  SendMediaMessageCommandOutput,
 } from "./commands/SendMediaMessageCommand";
 import {
+  type SendTextMessageCommandInput,
+  type SendTextMessageCommandOutput,
   SendTextMessageCommand,
-  SendTextMessageCommandInput,
-  SendTextMessageCommandOutput,
 } from "./commands/SendTextMessageCommand";
 import {
+  type SendVoiceMessageCommandInput,
+  type SendVoiceMessageCommandOutput,
   SendVoiceMessageCommand,
-  SendVoiceMessageCommandInput,
-  SendVoiceMessageCommandOutput,
 } from "./commands/SendVoiceMessageCommand";
 import {
+  type SetAccountDefaultProtectConfigurationCommandInput,
+  type SetAccountDefaultProtectConfigurationCommandOutput,
   SetAccountDefaultProtectConfigurationCommand,
-  SetAccountDefaultProtectConfigurationCommandInput,
-  SetAccountDefaultProtectConfigurationCommandOutput,
 } from "./commands/SetAccountDefaultProtectConfigurationCommand";
 import {
+  type SetDefaultMessageFeedbackEnabledCommandInput,
+  type SetDefaultMessageFeedbackEnabledCommandOutput,
   SetDefaultMessageFeedbackEnabledCommand,
-  SetDefaultMessageFeedbackEnabledCommandInput,
-  SetDefaultMessageFeedbackEnabledCommandOutput,
 } from "./commands/SetDefaultMessageFeedbackEnabledCommand";
 import {
+  type SetDefaultMessageTypeCommandInput,
+  type SetDefaultMessageTypeCommandOutput,
   SetDefaultMessageTypeCommand,
-  SetDefaultMessageTypeCommandInput,
-  SetDefaultMessageTypeCommandOutput,
 } from "./commands/SetDefaultMessageTypeCommand";
 import {
+  type SetDefaultSenderIdCommandInput,
+  type SetDefaultSenderIdCommandOutput,
   SetDefaultSenderIdCommand,
-  SetDefaultSenderIdCommandInput,
-  SetDefaultSenderIdCommandOutput,
 } from "./commands/SetDefaultSenderIdCommand";
 import {
+  type SetMediaMessageSpendLimitOverrideCommandInput,
+  type SetMediaMessageSpendLimitOverrideCommandOutput,
   SetMediaMessageSpendLimitOverrideCommand,
-  SetMediaMessageSpendLimitOverrideCommandInput,
-  SetMediaMessageSpendLimitOverrideCommandOutput,
 } from "./commands/SetMediaMessageSpendLimitOverrideCommand";
 import {
+  type SetTextMessageSpendLimitOverrideCommandInput,
+  type SetTextMessageSpendLimitOverrideCommandOutput,
   SetTextMessageSpendLimitOverrideCommand,
-  SetTextMessageSpendLimitOverrideCommandInput,
-  SetTextMessageSpendLimitOverrideCommandOutput,
 } from "./commands/SetTextMessageSpendLimitOverrideCommand";
 import {
+  type SetVoiceMessageSpendLimitOverrideCommandInput,
+  type SetVoiceMessageSpendLimitOverrideCommandOutput,
   SetVoiceMessageSpendLimitOverrideCommand,
-  SetVoiceMessageSpendLimitOverrideCommandInput,
-  SetVoiceMessageSpendLimitOverrideCommandOutput,
 } from "./commands/SetVoiceMessageSpendLimitOverrideCommand";
 import {
+  type SubmitRegistrationVersionCommandInput,
+  type SubmitRegistrationVersionCommandOutput,
   SubmitRegistrationVersionCommand,
-  SubmitRegistrationVersionCommandInput,
-  SubmitRegistrationVersionCommandOutput,
 } from "./commands/SubmitRegistrationVersionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateEventDestinationCommandInput,
+  type UpdateEventDestinationCommandOutput,
   UpdateEventDestinationCommand,
-  UpdateEventDestinationCommandInput,
-  UpdateEventDestinationCommandOutput,
 } from "./commands/UpdateEventDestinationCommand";
 import {
+  type UpdatePhoneNumberCommandInput,
+  type UpdatePhoneNumberCommandOutput,
   UpdatePhoneNumberCommand,
-  UpdatePhoneNumberCommandInput,
-  UpdatePhoneNumberCommandOutput,
 } from "./commands/UpdatePhoneNumberCommand";
-import { UpdatePoolCommand, UpdatePoolCommandInput, UpdatePoolCommandOutput } from "./commands/UpdatePoolCommand";
 import {
+  type UpdatePoolCommandInput,
+  type UpdatePoolCommandOutput,
+  UpdatePoolCommand,
+} from "./commands/UpdatePoolCommand";
+import {
+  type UpdateProtectConfigurationCommandInput,
+  type UpdateProtectConfigurationCommandOutput,
   UpdateProtectConfigurationCommand,
-  UpdateProtectConfigurationCommandInput,
-  UpdateProtectConfigurationCommandOutput,
 } from "./commands/UpdateProtectConfigurationCommand";
 import {
+  type UpdateProtectConfigurationCountryRuleSetCommandInput,
+  type UpdateProtectConfigurationCountryRuleSetCommandOutput,
   UpdateProtectConfigurationCountryRuleSetCommand,
-  UpdateProtectConfigurationCountryRuleSetCommandInput,
-  UpdateProtectConfigurationCountryRuleSetCommandOutput,
 } from "./commands/UpdateProtectConfigurationCountryRuleSetCommand";
 import {
+  type UpdateSenderIdCommandInput,
+  type UpdateSenderIdCommandOutput,
   UpdateSenderIdCommand,
-  UpdateSenderIdCommandInput,
-  UpdateSenderIdCommandOutput,
 } from "./commands/UpdateSenderIdCommand";
 import {
+  type VerifyDestinationNumberCommandInput,
+  type VerifyDestinationNumberCommandOutput,
   VerifyDestinationNumberCommand,
-  VerifyDestinationNumberCommandInput,
-  VerifyDestinationNumberCommandOutput,
 } from "./commands/VerifyDestinationNumberCommand";
 import { paginateDescribeAccountAttributes } from "./pagination/DescribeAccountAttributesPaginator";
 import { paginateDescribeAccountLimits } from "./pagination/DescribeAccountLimitsPaginator";

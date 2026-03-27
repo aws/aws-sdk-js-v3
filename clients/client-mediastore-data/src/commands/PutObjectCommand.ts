@@ -9,7 +9,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MediaStoreDataClient";
-import { type PutObjectResponse, PutObjectRequest } from "../models/models_0";
+import type { PutObjectRequest, PutObjectResponse } from "../models/models_0";
 import { PutObject$ } from "../schemas/schemas_0";
 
 /**

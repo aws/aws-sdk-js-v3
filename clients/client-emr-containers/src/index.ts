@@ -30,7 +30,7 @@
  */
 export * from "./EMRContainersClient";
 export * from "./EMRContainers";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { EMRContainersExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

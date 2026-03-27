@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,250 +61,304 @@ import {
   defaultCustomerProfilesHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddProfileKeyCommandInput, AddProfileKeyCommandOutput } from "./commands/AddProfileKeyCommand";
-import {
+import type { AddProfileKeyCommandInput, AddProfileKeyCommandOutput } from "./commands/AddProfileKeyCommand";
+import type {
   BatchGetCalculatedAttributeForProfileCommandInput,
   BatchGetCalculatedAttributeForProfileCommandOutput,
 } from "./commands/BatchGetCalculatedAttributeForProfileCommand";
-import { BatchGetProfileCommandInput, BatchGetProfileCommandOutput } from "./commands/BatchGetProfileCommand";
-import {
+import type { BatchGetProfileCommandInput, BatchGetProfileCommandOutput } from "./commands/BatchGetProfileCommand";
+import type {
   CreateCalculatedAttributeDefinitionCommandInput,
   CreateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/CreateCalculatedAttributeDefinitionCommand";
-import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
-import { CreateDomainLayoutCommandInput, CreateDomainLayoutCommandOutput } from "./commands/CreateDomainLayoutCommand";
-import { CreateEventStreamCommandInput, CreateEventStreamCommandOutput } from "./commands/CreateEventStreamCommand";
-import { CreateEventTriggerCommandInput, CreateEventTriggerCommandOutput } from "./commands/CreateEventTriggerCommand";
-import {
+import type { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import type {
+  CreateDomainLayoutCommandInput,
+  CreateDomainLayoutCommandOutput,
+} from "./commands/CreateDomainLayoutCommand";
+import type {
+  CreateEventStreamCommandInput,
+  CreateEventStreamCommandOutput,
+} from "./commands/CreateEventStreamCommand";
+import type {
+  CreateEventTriggerCommandInput,
+  CreateEventTriggerCommandOutput,
+} from "./commands/CreateEventTriggerCommand";
+import type {
   CreateIntegrationWorkflowCommandInput,
   CreateIntegrationWorkflowCommandOutput,
 } from "./commands/CreateIntegrationWorkflowCommand";
-import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
-import { CreateRecommenderCommandInput, CreateRecommenderCommandOutput } from "./commands/CreateRecommenderCommand";
-import {
+import type { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import type {
+  CreateRecommenderCommandInput,
+  CreateRecommenderCommandOutput,
+} from "./commands/CreateRecommenderCommand";
+import type {
   CreateRecommenderFilterCommandInput,
   CreateRecommenderFilterCommandOutput,
 } from "./commands/CreateRecommenderFilterCommand";
-import {
+import type {
   CreateSegmentDefinitionCommandInput,
   CreateSegmentDefinitionCommandOutput,
 } from "./commands/CreateSegmentDefinitionCommand";
-import {
+import type {
   CreateSegmentEstimateCommandInput,
   CreateSegmentEstimateCommandOutput,
 } from "./commands/CreateSegmentEstimateCommand";
-import {
+import type {
   CreateSegmentSnapshotCommandInput,
   CreateSegmentSnapshotCommandOutput,
 } from "./commands/CreateSegmentSnapshotCommand";
-import { CreateUploadJobCommandInput, CreateUploadJobCommandOutput } from "./commands/CreateUploadJobCommand";
-import {
+import type { CreateUploadJobCommandInput, CreateUploadJobCommandOutput } from "./commands/CreateUploadJobCommand";
+import type {
   DeleteCalculatedAttributeDefinitionCommandInput,
   DeleteCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/DeleteCalculatedAttributeDefinitionCommand";
-import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
-import { DeleteDomainLayoutCommandInput, DeleteDomainLayoutCommandOutput } from "./commands/DeleteDomainLayoutCommand";
-import {
+import type { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import type {
+  DeleteDomainLayoutCommandInput,
+  DeleteDomainLayoutCommandOutput,
+} from "./commands/DeleteDomainLayoutCommand";
+import type {
   DeleteDomainObjectTypeCommandInput,
   DeleteDomainObjectTypeCommandOutput,
 } from "./commands/DeleteDomainObjectTypeCommand";
-import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from "./commands/DeleteEventStreamCommand";
-import { DeleteEventTriggerCommandInput, DeleteEventTriggerCommandOutput } from "./commands/DeleteEventTriggerCommand";
-import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
-import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
-import { DeleteProfileKeyCommandInput, DeleteProfileKeyCommandOutput } from "./commands/DeleteProfileKeyCommand";
-import {
+import type {
+  DeleteEventStreamCommandInput,
+  DeleteEventStreamCommandOutput,
+} from "./commands/DeleteEventStreamCommand";
+import type {
+  DeleteEventTriggerCommandInput,
+  DeleteEventTriggerCommandOutput,
+} from "./commands/DeleteEventTriggerCommand";
+import type {
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput,
+} from "./commands/DeleteIntegrationCommand";
+import type { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
+import type { DeleteProfileKeyCommandInput, DeleteProfileKeyCommandOutput } from "./commands/DeleteProfileKeyCommand";
+import type {
   DeleteProfileObjectCommandInput,
   DeleteProfileObjectCommandOutput,
 } from "./commands/DeleteProfileObjectCommand";
-import {
+import type {
   DeleteProfileObjectTypeCommandInput,
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
-import { DeleteRecommenderCommandInput, DeleteRecommenderCommandOutput } from "./commands/DeleteRecommenderCommand";
-import {
+import type {
+  DeleteRecommenderCommandInput,
+  DeleteRecommenderCommandOutput,
+} from "./commands/DeleteRecommenderCommand";
+import type {
   DeleteRecommenderFilterCommandInput,
   DeleteRecommenderFilterCommandOutput,
 } from "./commands/DeleteRecommenderFilterCommand";
-import {
+import type {
   DeleteSegmentDefinitionCommandInput,
   DeleteSegmentDefinitionCommandOutput,
 } from "./commands/DeleteSegmentDefinitionCommand";
-import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
-import {
+import type { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
+import type {
   DetectProfileObjectTypeCommandInput,
   DetectProfileObjectTypeCommandOutput,
 } from "./commands/DetectProfileObjectTypeCommand";
-import {
+import type {
   GetAutoMergingPreviewCommandInput,
   GetAutoMergingPreviewCommandOutput,
 } from "./commands/GetAutoMergingPreviewCommand";
-import {
+import type {
   GetCalculatedAttributeDefinitionCommandInput,
   GetCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/GetCalculatedAttributeDefinitionCommand";
-import {
+import type {
   GetCalculatedAttributeForProfileCommandInput,
   GetCalculatedAttributeForProfileCommandOutput,
 } from "./commands/GetCalculatedAttributeForProfileCommand";
-import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
-import { GetDomainLayoutCommandInput, GetDomainLayoutCommandOutput } from "./commands/GetDomainLayoutCommand";
-import {
+import type { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import type { GetDomainLayoutCommandInput, GetDomainLayoutCommandOutput } from "./commands/GetDomainLayoutCommand";
+import type {
   GetDomainObjectTypeCommandInput,
   GetDomainObjectTypeCommandOutput,
 } from "./commands/GetDomainObjectTypeCommand";
-import { GetEventStreamCommandInput, GetEventStreamCommandOutput } from "./commands/GetEventStreamCommand";
-import { GetEventTriggerCommandInput, GetEventTriggerCommandOutput } from "./commands/GetEventTriggerCommand";
-import {
+import type { GetEventStreamCommandInput, GetEventStreamCommandOutput } from "./commands/GetEventStreamCommand";
+import type { GetEventTriggerCommandInput, GetEventTriggerCommandOutput } from "./commands/GetEventTriggerCommand";
+import type {
   GetIdentityResolutionJobCommandInput,
   GetIdentityResolutionJobCommandOutput,
 } from "./commands/GetIdentityResolutionJobCommand";
-import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
-import { GetMatchesCommandInput, GetMatchesCommandOutput } from "./commands/GetMatchesCommand";
-import {
+import type { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
+import type { GetMatchesCommandInput, GetMatchesCommandOutput } from "./commands/GetMatchesCommand";
+import type {
   GetObjectTypeAttributeStatisticsCommandInput,
   GetObjectTypeAttributeStatisticsCommandOutput,
 } from "./commands/GetObjectTypeAttributeStatisticsCommand";
-import {
+import type {
   GetProfileHistoryRecordCommandInput,
   GetProfileHistoryRecordCommandOutput,
 } from "./commands/GetProfileHistoryRecordCommand";
-import {
+import type {
   GetProfileObjectTypeCommandInput,
   GetProfileObjectTypeCommandOutput,
 } from "./commands/GetProfileObjectTypeCommand";
-import {
+import type {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
-import {
+import type {
   GetProfileRecommendationsCommandInput,
   GetProfileRecommendationsCommandOutput,
 } from "./commands/GetProfileRecommendationsCommand";
-import { GetRecommenderCommandInput, GetRecommenderCommandOutput } from "./commands/GetRecommenderCommand";
-import {
+import type { GetRecommenderCommandInput, GetRecommenderCommandOutput } from "./commands/GetRecommenderCommand";
+import type {
   GetRecommenderFilterCommandInput,
   GetRecommenderFilterCommandOutput,
 } from "./commands/GetRecommenderFilterCommand";
-import {
+import type {
   GetSegmentDefinitionCommandInput,
   GetSegmentDefinitionCommandOutput,
 } from "./commands/GetSegmentDefinitionCommand";
-import { GetSegmentEstimateCommandInput, GetSegmentEstimateCommandOutput } from "./commands/GetSegmentEstimateCommand";
-import {
+import type {
+  GetSegmentEstimateCommandInput,
+  GetSegmentEstimateCommandOutput,
+} from "./commands/GetSegmentEstimateCommand";
+import type {
   GetSegmentMembershipCommandInput,
   GetSegmentMembershipCommandOutput,
 } from "./commands/GetSegmentMembershipCommand";
-import { GetSegmentSnapshotCommandInput, GetSegmentSnapshotCommandOutput } from "./commands/GetSegmentSnapshotCommand";
-import { GetSimilarProfilesCommandInput, GetSimilarProfilesCommandOutput } from "./commands/GetSimilarProfilesCommand";
-import { GetUploadJobCommandInput, GetUploadJobCommandOutput } from "./commands/GetUploadJobCommand";
-import { GetUploadJobPathCommandInput, GetUploadJobPathCommandOutput } from "./commands/GetUploadJobPathCommand";
-import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
-import { GetWorkflowStepsCommandInput, GetWorkflowStepsCommandOutput } from "./commands/GetWorkflowStepsCommand";
-import {
+import type {
+  GetSegmentSnapshotCommandInput,
+  GetSegmentSnapshotCommandOutput,
+} from "./commands/GetSegmentSnapshotCommand";
+import type {
+  GetSimilarProfilesCommandInput,
+  GetSimilarProfilesCommandOutput,
+} from "./commands/GetSimilarProfilesCommand";
+import type { GetUploadJobCommandInput, GetUploadJobCommandOutput } from "./commands/GetUploadJobCommand";
+import type { GetUploadJobPathCommandInput, GetUploadJobPathCommandOutput } from "./commands/GetUploadJobPathCommand";
+import type { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import type { GetWorkflowStepsCommandInput, GetWorkflowStepsCommandOutput } from "./commands/GetWorkflowStepsCommand";
+import type {
   ListAccountIntegrationsCommandInput,
   ListAccountIntegrationsCommandOutput,
 } from "./commands/ListAccountIntegrationsCommand";
-import {
+import type {
   ListCalculatedAttributeDefinitionsCommandInput,
   ListCalculatedAttributeDefinitionsCommandOutput,
 } from "./commands/ListCalculatedAttributeDefinitionsCommand";
-import {
+import type {
   ListCalculatedAttributesForProfileCommandInput,
   ListCalculatedAttributesForProfileCommandOutput,
 } from "./commands/ListCalculatedAttributesForProfileCommand";
-import { ListDomainLayoutsCommandInput, ListDomainLayoutsCommandOutput } from "./commands/ListDomainLayoutsCommand";
-import {
+import type {
+  ListDomainLayoutsCommandInput,
+  ListDomainLayoutsCommandOutput,
+} from "./commands/ListDomainLayoutsCommand";
+import type {
   ListDomainObjectTypesCommandInput,
   ListDomainObjectTypesCommandOutput,
 } from "./commands/ListDomainObjectTypesCommand";
-import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
-import { ListEventStreamsCommandInput, ListEventStreamsCommandOutput } from "./commands/ListEventStreamsCommand";
-import { ListEventTriggersCommandInput, ListEventTriggersCommandOutput } from "./commands/ListEventTriggersCommand";
-import {
+import type { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import type { ListEventStreamsCommandInput, ListEventStreamsCommandOutput } from "./commands/ListEventStreamsCommand";
+import type {
+  ListEventTriggersCommandInput,
+  ListEventTriggersCommandOutput,
+} from "./commands/ListEventTriggersCommand";
+import type {
   ListIdentityResolutionJobsCommandInput,
   ListIdentityResolutionJobsCommandOutput,
 } from "./commands/ListIdentityResolutionJobsCommand";
-import { ListIntegrationsCommandInput, ListIntegrationsCommandOutput } from "./commands/ListIntegrationsCommand";
-import {
+import type { ListIntegrationsCommandInput, ListIntegrationsCommandOutput } from "./commands/ListIntegrationsCommand";
+import type {
   ListObjectTypeAttributesCommandInput,
   ListObjectTypeAttributesCommandOutput,
 } from "./commands/ListObjectTypeAttributesCommand";
-import {
+import type {
   ListObjectTypeAttributeValuesCommandInput,
   ListObjectTypeAttributeValuesCommandOutput,
 } from "./commands/ListObjectTypeAttributeValuesCommand";
-import {
+import type {
   ListProfileAttributeValuesCommandInput,
   ListProfileAttributeValuesCommandOutput,
 } from "./commands/ListProfileAttributeValuesCommand";
-import {
+import type {
   ListProfileHistoryRecordsCommandInput,
   ListProfileHistoryRecordsCommandOutput,
 } from "./commands/ListProfileHistoryRecordsCommand";
-import { ListProfileObjectsCommandInput, ListProfileObjectsCommandOutput } from "./commands/ListProfileObjectsCommand";
-import {
+import type {
+  ListProfileObjectsCommandInput,
+  ListProfileObjectsCommandOutput,
+} from "./commands/ListProfileObjectsCommand";
+import type {
   ListProfileObjectTypesCommandInput,
   ListProfileObjectTypesCommandOutput,
 } from "./commands/ListProfileObjectTypesCommand";
-import {
+import type {
   ListProfileObjectTypeTemplatesCommandInput,
   ListProfileObjectTypeTemplatesCommandOutput,
 } from "./commands/ListProfileObjectTypeTemplatesCommand";
-import {
+import type {
   ListRecommenderFiltersCommandInput,
   ListRecommenderFiltersCommandOutput,
 } from "./commands/ListRecommenderFiltersCommand";
-import {
+import type {
   ListRecommenderRecipesCommandInput,
   ListRecommenderRecipesCommandOutput,
 } from "./commands/ListRecommenderRecipesCommand";
-import { ListRecommendersCommandInput, ListRecommendersCommandOutput } from "./commands/ListRecommendersCommand";
-import {
+import type { ListRecommendersCommandInput, ListRecommendersCommandOutput } from "./commands/ListRecommendersCommand";
+import type {
   ListRuleBasedMatchesCommandInput,
   ListRuleBasedMatchesCommandOutput,
 } from "./commands/ListRuleBasedMatchesCommand";
-import {
+import type {
   ListSegmentDefinitionsCommandInput,
   ListSegmentDefinitionsCommandOutput,
 } from "./commands/ListSegmentDefinitionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListUploadJobsCommandInput, ListUploadJobsCommandOutput } from "./commands/ListUploadJobsCommand";
-import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
-import { MergeProfilesCommandInput, MergeProfilesCommandOutput } from "./commands/MergeProfilesCommand";
-import {
+import type { ListUploadJobsCommandInput, ListUploadJobsCommandOutput } from "./commands/ListUploadJobsCommand";
+import type { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
+import type { MergeProfilesCommandInput, MergeProfilesCommandOutput } from "./commands/MergeProfilesCommand";
+import type {
   PutDomainObjectTypeCommandInput,
   PutDomainObjectTypeCommandOutput,
 } from "./commands/PutDomainObjectTypeCommand";
-import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "./commands/PutIntegrationCommand";
-import { PutProfileObjectCommandInput, PutProfileObjectCommandOutput } from "./commands/PutProfileObjectCommand";
-import {
+import type { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "./commands/PutIntegrationCommand";
+import type { PutProfileObjectCommandInput, PutProfileObjectCommandOutput } from "./commands/PutProfileObjectCommand";
+import type {
   PutProfileObjectTypeCommandInput,
   PutProfileObjectTypeCommandOutput,
 } from "./commands/PutProfileObjectTypeCommand";
-import { SearchProfilesCommandInput, SearchProfilesCommandOutput } from "./commands/SearchProfilesCommand";
-import { StartRecommenderCommandInput, StartRecommenderCommandOutput } from "./commands/StartRecommenderCommand";
-import { StartUploadJobCommandInput, StartUploadJobCommandOutput } from "./commands/StartUploadJobCommand";
-import { StopRecommenderCommandInput, StopRecommenderCommandOutput } from "./commands/StopRecommenderCommand";
-import { StopUploadJobCommandInput, StopUploadJobCommandOutput } from "./commands/StopUploadJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { SearchProfilesCommandInput, SearchProfilesCommandOutput } from "./commands/SearchProfilesCommand";
+import type { StartRecommenderCommandInput, StartRecommenderCommandOutput } from "./commands/StartRecommenderCommand";
+import type { StartUploadJobCommandInput, StartUploadJobCommandOutput } from "./commands/StartUploadJobCommand";
+import type { StopRecommenderCommandInput, StopRecommenderCommandOutput } from "./commands/StopRecommenderCommand";
+import type { StopUploadJobCommandInput, StopUploadJobCommandOutput } from "./commands/StopUploadJobCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateCalculatedAttributeDefinitionCommandInput,
   UpdateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/UpdateCalculatedAttributeDefinitionCommand";
-import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
-import { UpdateDomainLayoutCommandInput, UpdateDomainLayoutCommandOutput } from "./commands/UpdateDomainLayoutCommand";
-import { UpdateEventTriggerCommandInput, UpdateEventTriggerCommandOutput } from "./commands/UpdateEventTriggerCommand";
-import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
-import { UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput } from "./commands/UpdateRecommenderCommand";
+import type { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
+import type {
+  UpdateDomainLayoutCommandInput,
+  UpdateDomainLayoutCommandOutput,
+} from "./commands/UpdateDomainLayoutCommand";
+import type {
+  UpdateEventTriggerCommandInput,
+  UpdateEventTriggerCommandOutput,
+} from "./commands/UpdateEventTriggerCommand";
+import type { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
+import type {
+  UpdateRecommenderCommandInput,
+  UpdateRecommenderCommandOutput,
+} from "./commands/UpdateRecommenderCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -642,7 +694,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

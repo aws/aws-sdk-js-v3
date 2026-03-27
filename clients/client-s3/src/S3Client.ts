@@ -87,307 +87,328 @@ import {
   defaultS3HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AbortMultipartUploadCommandInput,
   AbortMultipartUploadCommandOutput,
 } from "./commands/AbortMultipartUploadCommand";
-import {
+import type {
   CompleteMultipartUploadCommandInput,
   CompleteMultipartUploadCommandOutput,
 } from "./commands/CompleteMultipartUploadCommand";
-import { CopyObjectCommandInput, CopyObjectCommandOutput } from "./commands/CopyObjectCommand";
-import { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand";
-import {
+import type { CopyObjectCommandInput, CopyObjectCommandOutput } from "./commands/CopyObjectCommand";
+import type { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand";
+import type {
   CreateBucketMetadataConfigurationCommandInput,
   CreateBucketMetadataConfigurationCommandOutput,
 } from "./commands/CreateBucketMetadataConfigurationCommand";
-import {
+import type {
   CreateBucketMetadataTableConfigurationCommandInput,
   CreateBucketMetadataTableConfigurationCommandOutput,
 } from "./commands/CreateBucketMetadataTableConfigurationCommand";
-import {
+import type {
   CreateMultipartUploadCommandInput,
   CreateMultipartUploadCommandOutput,
 } from "./commands/CreateMultipartUploadCommand";
 import {
+  type CreateSessionCommandInput,
+  type CreateSessionCommandOutput,
   CreateSessionCommand,
-  CreateSessionCommandInput,
-  CreateSessionCommandOutput,
 } from "./commands/CreateSessionCommand";
-import {
+import type {
   DeleteBucketAnalyticsConfigurationCommandInput,
   DeleteBucketAnalyticsConfigurationCommandOutput,
 } from "./commands/DeleteBucketAnalyticsConfigurationCommand";
-import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
-import { DeleteBucketCorsCommandInput, DeleteBucketCorsCommandOutput } from "./commands/DeleteBucketCorsCommand";
-import {
+import type { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
+import type { DeleteBucketCorsCommandInput, DeleteBucketCorsCommandOutput } from "./commands/DeleteBucketCorsCommand";
+import type {
   DeleteBucketEncryptionCommandInput,
   DeleteBucketEncryptionCommandOutput,
 } from "./commands/DeleteBucketEncryptionCommand";
-import {
+import type {
   DeleteBucketIntelligentTieringConfigurationCommandInput,
   DeleteBucketIntelligentTieringConfigurationCommandOutput,
 } from "./commands/DeleteBucketIntelligentTieringConfigurationCommand";
-import {
+import type {
   DeleteBucketInventoryConfigurationCommandInput,
   DeleteBucketInventoryConfigurationCommandOutput,
 } from "./commands/DeleteBucketInventoryConfigurationCommand";
-import {
+import type {
   DeleteBucketLifecycleCommandInput,
   DeleteBucketLifecycleCommandOutput,
 } from "./commands/DeleteBucketLifecycleCommand";
-import {
+import type {
   DeleteBucketMetadataConfigurationCommandInput,
   DeleteBucketMetadataConfigurationCommandOutput,
 } from "./commands/DeleteBucketMetadataConfigurationCommand";
-import {
+import type {
   DeleteBucketMetadataTableConfigurationCommandInput,
   DeleteBucketMetadataTableConfigurationCommandOutput,
 } from "./commands/DeleteBucketMetadataTableConfigurationCommand";
-import {
+import type {
   DeleteBucketMetricsConfigurationCommandInput,
   DeleteBucketMetricsConfigurationCommandOutput,
 } from "./commands/DeleteBucketMetricsConfigurationCommand";
-import {
+import type {
   DeleteBucketOwnershipControlsCommandInput,
   DeleteBucketOwnershipControlsCommandOutput,
 } from "./commands/DeleteBucketOwnershipControlsCommand";
-import { DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput } from "./commands/DeleteBucketPolicyCommand";
-import {
+import type {
+  DeleteBucketPolicyCommandInput,
+  DeleteBucketPolicyCommandOutput,
+} from "./commands/DeleteBucketPolicyCommand";
+import type {
   DeleteBucketReplicationCommandInput,
   DeleteBucketReplicationCommandOutput,
 } from "./commands/DeleteBucketReplicationCommand";
-import {
+import type {
   DeleteBucketTaggingCommandInput,
   DeleteBucketTaggingCommandOutput,
 } from "./commands/DeleteBucketTaggingCommand";
-import {
+import type {
   DeleteBucketWebsiteCommandInput,
   DeleteBucketWebsiteCommandOutput,
 } from "./commands/DeleteBucketWebsiteCommand";
-import { DeleteObjectCommandInput, DeleteObjectCommandOutput } from "./commands/DeleteObjectCommand";
-import { DeleteObjectsCommandInput, DeleteObjectsCommandOutput } from "./commands/DeleteObjectsCommand";
-import {
+import type { DeleteObjectCommandInput, DeleteObjectCommandOutput } from "./commands/DeleteObjectCommand";
+import type { DeleteObjectsCommandInput, DeleteObjectsCommandOutput } from "./commands/DeleteObjectsCommand";
+import type {
   DeleteObjectTaggingCommandInput,
   DeleteObjectTaggingCommandOutput,
 } from "./commands/DeleteObjectTaggingCommand";
-import {
+import type {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand";
-import { GetBucketAbacCommandInput, GetBucketAbacCommandOutput } from "./commands/GetBucketAbacCommand";
-import {
+import type { GetBucketAbacCommandInput, GetBucketAbacCommandOutput } from "./commands/GetBucketAbacCommand";
+import type {
   GetBucketAccelerateConfigurationCommandInput,
   GetBucketAccelerateConfigurationCommandOutput,
 } from "./commands/GetBucketAccelerateConfigurationCommand";
-import { GetBucketAclCommandInput, GetBucketAclCommandOutput } from "./commands/GetBucketAclCommand";
-import {
+import type { GetBucketAclCommandInput, GetBucketAclCommandOutput } from "./commands/GetBucketAclCommand";
+import type {
   GetBucketAnalyticsConfigurationCommandInput,
   GetBucketAnalyticsConfigurationCommandOutput,
 } from "./commands/GetBucketAnalyticsConfigurationCommand";
-import { GetBucketCorsCommandInput, GetBucketCorsCommandOutput } from "./commands/GetBucketCorsCommand";
-import {
+import type { GetBucketCorsCommandInput, GetBucketCorsCommandOutput } from "./commands/GetBucketCorsCommand";
+import type {
   GetBucketEncryptionCommandInput,
   GetBucketEncryptionCommandOutput,
 } from "./commands/GetBucketEncryptionCommand";
-import {
+import type {
   GetBucketIntelligentTieringConfigurationCommandInput,
   GetBucketIntelligentTieringConfigurationCommandOutput,
 } from "./commands/GetBucketIntelligentTieringConfigurationCommand";
-import {
+import type {
   GetBucketInventoryConfigurationCommandInput,
   GetBucketInventoryConfigurationCommandOutput,
 } from "./commands/GetBucketInventoryConfigurationCommand";
-import {
+import type {
   GetBucketLifecycleConfigurationCommandInput,
   GetBucketLifecycleConfigurationCommandOutput,
 } from "./commands/GetBucketLifecycleConfigurationCommand";
-import { GetBucketLocationCommandInput, GetBucketLocationCommandOutput } from "./commands/GetBucketLocationCommand";
-import { GetBucketLoggingCommandInput, GetBucketLoggingCommandOutput } from "./commands/GetBucketLoggingCommand";
-import {
+import type {
+  GetBucketLocationCommandInput,
+  GetBucketLocationCommandOutput,
+} from "./commands/GetBucketLocationCommand";
+import type { GetBucketLoggingCommandInput, GetBucketLoggingCommandOutput } from "./commands/GetBucketLoggingCommand";
+import type {
   GetBucketMetadataConfigurationCommandInput,
   GetBucketMetadataConfigurationCommandOutput,
 } from "./commands/GetBucketMetadataConfigurationCommand";
-import {
+import type {
   GetBucketMetadataTableConfigurationCommandInput,
   GetBucketMetadataTableConfigurationCommandOutput,
 } from "./commands/GetBucketMetadataTableConfigurationCommand";
-import {
+import type {
   GetBucketMetricsConfigurationCommandInput,
   GetBucketMetricsConfigurationCommandOutput,
 } from "./commands/GetBucketMetricsConfigurationCommand";
-import {
+import type {
   GetBucketNotificationConfigurationCommandInput,
   GetBucketNotificationConfigurationCommandOutput,
 } from "./commands/GetBucketNotificationConfigurationCommand";
-import {
+import type {
   GetBucketOwnershipControlsCommandInput,
   GetBucketOwnershipControlsCommandOutput,
 } from "./commands/GetBucketOwnershipControlsCommand";
-import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand";
-import {
+import type { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand";
+import type {
   GetBucketPolicyStatusCommandInput,
   GetBucketPolicyStatusCommandOutput,
 } from "./commands/GetBucketPolicyStatusCommand";
-import {
+import type {
   GetBucketReplicationCommandInput,
   GetBucketReplicationCommandOutput,
 } from "./commands/GetBucketReplicationCommand";
-import {
+import type {
   GetBucketRequestPaymentCommandInput,
   GetBucketRequestPaymentCommandOutput,
 } from "./commands/GetBucketRequestPaymentCommand";
-import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand";
-import {
+import type { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand";
+import type {
   GetBucketVersioningCommandInput,
   GetBucketVersioningCommandOutput,
 } from "./commands/GetBucketVersioningCommand";
-import { GetBucketWebsiteCommandInput, GetBucketWebsiteCommandOutput } from "./commands/GetBucketWebsiteCommand";
-import { GetObjectAclCommandInput, GetObjectAclCommandOutput } from "./commands/GetObjectAclCommand";
-import {
+import type { GetBucketWebsiteCommandInput, GetBucketWebsiteCommandOutput } from "./commands/GetBucketWebsiteCommand";
+import type { GetObjectAclCommandInput, GetObjectAclCommandOutput } from "./commands/GetObjectAclCommand";
+import type {
   GetObjectAttributesCommandInput,
   GetObjectAttributesCommandOutput,
 } from "./commands/GetObjectAttributesCommand";
-import { GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
-import { GetObjectLegalHoldCommandInput, GetObjectLegalHoldCommandOutput } from "./commands/GetObjectLegalHoldCommand";
-import {
+import type { GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
+import type {
+  GetObjectLegalHoldCommandInput,
+  GetObjectLegalHoldCommandOutput,
+} from "./commands/GetObjectLegalHoldCommand";
+import type {
   GetObjectLockConfigurationCommandInput,
   GetObjectLockConfigurationCommandOutput,
 } from "./commands/GetObjectLockConfigurationCommand";
-import { GetObjectRetentionCommandInput, GetObjectRetentionCommandOutput } from "./commands/GetObjectRetentionCommand";
-import { GetObjectTaggingCommandInput, GetObjectTaggingCommandOutput } from "./commands/GetObjectTaggingCommand";
-import { GetObjectTorrentCommandInput, GetObjectTorrentCommandOutput } from "./commands/GetObjectTorrentCommand";
-import {
+import type {
+  GetObjectRetentionCommandInput,
+  GetObjectRetentionCommandOutput,
+} from "./commands/GetObjectRetentionCommand";
+import type { GetObjectTaggingCommandInput, GetObjectTaggingCommandOutput } from "./commands/GetObjectTaggingCommand";
+import type { GetObjectTorrentCommandInput, GetObjectTorrentCommandOutput } from "./commands/GetObjectTorrentCommand";
+import type {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
 } from "./commands/GetPublicAccessBlockCommand";
-import { HeadBucketCommandInput, HeadBucketCommandOutput } from "./commands/HeadBucketCommand";
-import { HeadObjectCommandInput, HeadObjectCommandOutput } from "./commands/HeadObjectCommand";
-import {
+import type { HeadBucketCommandInput, HeadBucketCommandOutput } from "./commands/HeadBucketCommand";
+import type { HeadObjectCommandInput, HeadObjectCommandOutput } from "./commands/HeadObjectCommand";
+import type {
   ListBucketAnalyticsConfigurationsCommandInput,
   ListBucketAnalyticsConfigurationsCommandOutput,
 } from "./commands/ListBucketAnalyticsConfigurationsCommand";
-import {
+import type {
   ListBucketIntelligentTieringConfigurationsCommandInput,
   ListBucketIntelligentTieringConfigurationsCommandOutput,
 } from "./commands/ListBucketIntelligentTieringConfigurationsCommand";
-import {
+import type {
   ListBucketInventoryConfigurationsCommandInput,
   ListBucketInventoryConfigurationsCommandOutput,
 } from "./commands/ListBucketInventoryConfigurationsCommand";
-import {
+import type {
   ListBucketMetricsConfigurationsCommandInput,
   ListBucketMetricsConfigurationsCommandOutput,
 } from "./commands/ListBucketMetricsConfigurationsCommand";
-import { ListBucketsCommandInput, ListBucketsCommandOutput } from "./commands/ListBucketsCommand";
-import {
+import type { ListBucketsCommandInput, ListBucketsCommandOutput } from "./commands/ListBucketsCommand";
+import type {
   ListDirectoryBucketsCommandInput,
   ListDirectoryBucketsCommandOutput,
 } from "./commands/ListDirectoryBucketsCommand";
-import {
+import type {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput,
 } from "./commands/ListMultipartUploadsCommand";
-import { ListObjectsCommandInput, ListObjectsCommandOutput } from "./commands/ListObjectsCommand";
-import { ListObjectsV2CommandInput, ListObjectsV2CommandOutput } from "./commands/ListObjectsV2Command";
-import { ListObjectVersionsCommandInput, ListObjectVersionsCommandOutput } from "./commands/ListObjectVersionsCommand";
-import { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
-import { PutBucketAbacCommandInput, PutBucketAbacCommandOutput } from "./commands/PutBucketAbacCommand";
-import {
+import type { ListObjectsCommandInput, ListObjectsCommandOutput } from "./commands/ListObjectsCommand";
+import type { ListObjectsV2CommandInput, ListObjectsV2CommandOutput } from "./commands/ListObjectsV2Command";
+import type {
+  ListObjectVersionsCommandInput,
+  ListObjectVersionsCommandOutput,
+} from "./commands/ListObjectVersionsCommand";
+import type { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
+import type { PutBucketAbacCommandInput, PutBucketAbacCommandOutput } from "./commands/PutBucketAbacCommand";
+import type {
   PutBucketAccelerateConfigurationCommandInput,
   PutBucketAccelerateConfigurationCommandOutput,
 } from "./commands/PutBucketAccelerateConfigurationCommand";
-import { PutBucketAclCommandInput, PutBucketAclCommandOutput } from "./commands/PutBucketAclCommand";
-import {
+import type { PutBucketAclCommandInput, PutBucketAclCommandOutput } from "./commands/PutBucketAclCommand";
+import type {
   PutBucketAnalyticsConfigurationCommandInput,
   PutBucketAnalyticsConfigurationCommandOutput,
 } from "./commands/PutBucketAnalyticsConfigurationCommand";
-import { PutBucketCorsCommandInput, PutBucketCorsCommandOutput } from "./commands/PutBucketCorsCommand";
-import {
+import type { PutBucketCorsCommandInput, PutBucketCorsCommandOutput } from "./commands/PutBucketCorsCommand";
+import type {
   PutBucketEncryptionCommandInput,
   PutBucketEncryptionCommandOutput,
 } from "./commands/PutBucketEncryptionCommand";
-import {
+import type {
   PutBucketIntelligentTieringConfigurationCommandInput,
   PutBucketIntelligentTieringConfigurationCommandOutput,
 } from "./commands/PutBucketIntelligentTieringConfigurationCommand";
-import {
+import type {
   PutBucketInventoryConfigurationCommandInput,
   PutBucketInventoryConfigurationCommandOutput,
 } from "./commands/PutBucketInventoryConfigurationCommand";
-import {
+import type {
   PutBucketLifecycleConfigurationCommandInput,
   PutBucketLifecycleConfigurationCommandOutput,
 } from "./commands/PutBucketLifecycleConfigurationCommand";
-import { PutBucketLoggingCommandInput, PutBucketLoggingCommandOutput } from "./commands/PutBucketLoggingCommand";
-import {
+import type { PutBucketLoggingCommandInput, PutBucketLoggingCommandOutput } from "./commands/PutBucketLoggingCommand";
+import type {
   PutBucketMetricsConfigurationCommandInput,
   PutBucketMetricsConfigurationCommandOutput,
 } from "./commands/PutBucketMetricsConfigurationCommand";
-import {
+import type {
   PutBucketNotificationConfigurationCommandInput,
   PutBucketNotificationConfigurationCommandOutput,
 } from "./commands/PutBucketNotificationConfigurationCommand";
-import {
+import type {
   PutBucketOwnershipControlsCommandInput,
   PutBucketOwnershipControlsCommandOutput,
 } from "./commands/PutBucketOwnershipControlsCommand";
-import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand";
-import {
+import type { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand";
+import type {
   PutBucketReplicationCommandInput,
   PutBucketReplicationCommandOutput,
 } from "./commands/PutBucketReplicationCommand";
-import {
+import type {
   PutBucketRequestPaymentCommandInput,
   PutBucketRequestPaymentCommandOutput,
 } from "./commands/PutBucketRequestPaymentCommand";
-import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand";
-import {
+import type { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand";
+import type {
   PutBucketVersioningCommandInput,
   PutBucketVersioningCommandOutput,
 } from "./commands/PutBucketVersioningCommand";
-import { PutBucketWebsiteCommandInput, PutBucketWebsiteCommandOutput } from "./commands/PutBucketWebsiteCommand";
-import { PutObjectAclCommandInput, PutObjectAclCommandOutput } from "./commands/PutObjectAclCommand";
-import { PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand";
-import { PutObjectLegalHoldCommandInput, PutObjectLegalHoldCommandOutput } from "./commands/PutObjectLegalHoldCommand";
-import {
+import type { PutBucketWebsiteCommandInput, PutBucketWebsiteCommandOutput } from "./commands/PutBucketWebsiteCommand";
+import type { PutObjectAclCommandInput, PutObjectAclCommandOutput } from "./commands/PutObjectAclCommand";
+import type { PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand";
+import type {
+  PutObjectLegalHoldCommandInput,
+  PutObjectLegalHoldCommandOutput,
+} from "./commands/PutObjectLegalHoldCommand";
+import type {
   PutObjectLockConfigurationCommandInput,
   PutObjectLockConfigurationCommandOutput,
 } from "./commands/PutObjectLockConfigurationCommand";
-import { PutObjectRetentionCommandInput, PutObjectRetentionCommandOutput } from "./commands/PutObjectRetentionCommand";
-import { PutObjectTaggingCommandInput, PutObjectTaggingCommandOutput } from "./commands/PutObjectTaggingCommand";
-import {
+import type {
+  PutObjectRetentionCommandInput,
+  PutObjectRetentionCommandOutput,
+} from "./commands/PutObjectRetentionCommand";
+import type { PutObjectTaggingCommandInput, PutObjectTaggingCommandOutput } from "./commands/PutObjectTaggingCommand";
+import type {
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput,
 } from "./commands/PutPublicAccessBlockCommand";
-import { RenameObjectCommandInput, RenameObjectCommandOutput } from "./commands/RenameObjectCommand";
-import { RestoreObjectCommandInput, RestoreObjectCommandOutput } from "./commands/RestoreObjectCommand";
-import {
+import type { RenameObjectCommandInput, RenameObjectCommandOutput } from "./commands/RenameObjectCommand";
+import type { RestoreObjectCommandInput, RestoreObjectCommandOutput } from "./commands/RestoreObjectCommand";
+import type {
   SelectObjectContentCommandInput,
   SelectObjectContentCommandOutput,
 } from "./commands/SelectObjectContentCommand";
-import {
+import type {
   UpdateBucketMetadataInventoryTableConfigurationCommandInput,
   UpdateBucketMetadataInventoryTableConfigurationCommandOutput,
 } from "./commands/UpdateBucketMetadataInventoryTableConfigurationCommand";
-import {
+import type {
   UpdateBucketMetadataJournalTableConfigurationCommandInput,
   UpdateBucketMetadataJournalTableConfigurationCommandOutput,
 } from "./commands/UpdateBucketMetadataJournalTableConfigurationCommand";
-import {
+import type {
   UpdateObjectEncryptionCommandInput,
   UpdateObjectEncryptionCommandOutput,
 } from "./commands/UpdateObjectEncryptionCommand";
-import { UploadPartCommandInput, UploadPartCommandOutput } from "./commands/UploadPartCommand";
-import { UploadPartCopyCommandInput, UploadPartCopyCommandOutput } from "./commands/UploadPartCopyCommand";
-import {
+import type { UploadPartCommandInput, UploadPartCommandOutput } from "./commands/UploadPartCommand";
+import type { UploadPartCopyCommandInput, UploadPartCopyCommandOutput } from "./commands/UploadPartCopyCommand";
+import type {
   WriteGetObjectResponseCommandInput,
   WriteGetObjectResponseCommandOutput,
 } from "./commands/WriteGetObjectResponseCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";

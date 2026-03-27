@@ -8,7 +8,7 @@ import {
   ListCreatedArtifactsCommandOutput,
 } from "../commands/ListCreatedArtifactsCommand";
 import { MigrationHubClient } from "../MigrationHubClient";
-import { MigrationHubPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

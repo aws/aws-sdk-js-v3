@@ -8,7 +8,7 @@ import {
   ListIdNamespacesCommandOutput,
 } from "../commands/ListIdNamespacesCommand";
 import { EntityResolutionClient } from "../EntityResolutionClient";
-import { EntityResolutionPaginationConfiguration } from "./Interfaces";
+import type { EntityResolutionPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

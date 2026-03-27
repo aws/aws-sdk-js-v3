@@ -10,107 +10,107 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { ACMPCAClient } from "./ACMPCAClient";
 import {
+  type CreateCertificateAuthorityAuditReportCommandInput,
+  type CreateCertificateAuthorityAuditReportCommandOutput,
   CreateCertificateAuthorityAuditReportCommand,
-  CreateCertificateAuthorityAuditReportCommandInput,
-  CreateCertificateAuthorityAuditReportCommandOutput,
 } from "./commands/CreateCertificateAuthorityAuditReportCommand";
 import {
+  type CreateCertificateAuthorityCommandInput,
+  type CreateCertificateAuthorityCommandOutput,
   CreateCertificateAuthorityCommand,
-  CreateCertificateAuthorityCommandInput,
-  CreateCertificateAuthorityCommandOutput,
 } from "./commands/CreateCertificateAuthorityCommand";
 import {
+  type CreatePermissionCommandInput,
+  type CreatePermissionCommandOutput,
   CreatePermissionCommand,
-  CreatePermissionCommandInput,
-  CreatePermissionCommandOutput,
 } from "./commands/CreatePermissionCommand";
 import {
+  type DeleteCertificateAuthorityCommandInput,
+  type DeleteCertificateAuthorityCommandOutput,
   DeleteCertificateAuthorityCommand,
-  DeleteCertificateAuthorityCommandInput,
-  DeleteCertificateAuthorityCommandOutput,
 } from "./commands/DeleteCertificateAuthorityCommand";
 import {
+  type DeletePermissionCommandInput,
+  type DeletePermissionCommandOutput,
   DeletePermissionCommand,
-  DeletePermissionCommandInput,
-  DeletePermissionCommandOutput,
 } from "./commands/DeletePermissionCommand";
 import {
+  type DeletePolicyCommandInput,
+  type DeletePolicyCommandOutput,
   DeletePolicyCommand,
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  type DescribeCertificateAuthorityAuditReportCommandInput,
+  type DescribeCertificateAuthorityAuditReportCommandOutput,
   DescribeCertificateAuthorityAuditReportCommand,
-  DescribeCertificateAuthorityAuditReportCommandInput,
-  DescribeCertificateAuthorityAuditReportCommandOutput,
 } from "./commands/DescribeCertificateAuthorityAuditReportCommand";
 import {
+  type DescribeCertificateAuthorityCommandInput,
+  type DescribeCertificateAuthorityCommandOutput,
   DescribeCertificateAuthorityCommand,
-  DescribeCertificateAuthorityCommandInput,
-  DescribeCertificateAuthorityCommandOutput,
 } from "./commands/DescribeCertificateAuthorityCommand";
 import {
+  type GetCertificateAuthorityCertificateCommandInput,
+  type GetCertificateAuthorityCertificateCommandOutput,
   GetCertificateAuthorityCertificateCommand,
-  GetCertificateAuthorityCertificateCommandInput,
-  GetCertificateAuthorityCertificateCommandOutput,
 } from "./commands/GetCertificateAuthorityCertificateCommand";
 import {
+  type GetCertificateAuthorityCsrCommandInput,
+  type GetCertificateAuthorityCsrCommandOutput,
   GetCertificateAuthorityCsrCommand,
-  GetCertificateAuthorityCsrCommandInput,
-  GetCertificateAuthorityCsrCommandOutput,
 } from "./commands/GetCertificateAuthorityCsrCommand";
 import {
+  type GetCertificateCommandInput,
+  type GetCertificateCommandOutput,
   GetCertificateCommand,
-  GetCertificateCommandInput,
-  GetCertificateCommandOutput,
 } from "./commands/GetCertificateCommand";
-import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { type GetPolicyCommandInput, type GetPolicyCommandOutput, GetPolicyCommand } from "./commands/GetPolicyCommand";
 import {
+  type ImportCertificateAuthorityCertificateCommandInput,
+  type ImportCertificateAuthorityCertificateCommandOutput,
   ImportCertificateAuthorityCertificateCommand,
-  ImportCertificateAuthorityCertificateCommandInput,
-  ImportCertificateAuthorityCertificateCommandOutput,
 } from "./commands/ImportCertificateAuthorityCertificateCommand";
 import {
+  type IssueCertificateCommandInput,
+  type IssueCertificateCommandOutput,
   IssueCertificateCommand,
-  IssueCertificateCommandInput,
-  IssueCertificateCommandOutput,
 } from "./commands/IssueCertificateCommand";
 import {
+  type ListCertificateAuthoritiesCommandInput,
+  type ListCertificateAuthoritiesCommandOutput,
   ListCertificateAuthoritiesCommand,
-  ListCertificateAuthoritiesCommandInput,
-  ListCertificateAuthoritiesCommandOutput,
 } from "./commands/ListCertificateAuthoritiesCommand";
 import {
+  type ListPermissionsCommandInput,
+  type ListPermissionsCommandOutput,
   ListPermissionsCommand,
-  ListPermissionsCommandInput,
-  ListPermissionsCommandOutput,
 } from "./commands/ListPermissionsCommand";
-import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import { type ListTagsCommandInput, type ListTagsCommandOutput, ListTagsCommand } from "./commands/ListTagsCommand";
+import { type PutPolicyCommandInput, type PutPolicyCommandOutput, PutPolicyCommand } from "./commands/PutPolicyCommand";
 import {
+  type RestoreCertificateAuthorityCommandInput,
+  type RestoreCertificateAuthorityCommandOutput,
   RestoreCertificateAuthorityCommand,
-  RestoreCertificateAuthorityCommandInput,
-  RestoreCertificateAuthorityCommandOutput,
 } from "./commands/RestoreCertificateAuthorityCommand";
 import {
+  type RevokeCertificateCommandInput,
+  type RevokeCertificateCommandOutput,
   RevokeCertificateCommand,
-  RevokeCertificateCommandInput,
-  RevokeCertificateCommandOutput,
 } from "./commands/RevokeCertificateCommand";
 import {
+  type TagCertificateAuthorityCommandInput,
+  type TagCertificateAuthorityCommandOutput,
   TagCertificateAuthorityCommand,
-  TagCertificateAuthorityCommandInput,
-  TagCertificateAuthorityCommandOutput,
 } from "./commands/TagCertificateAuthorityCommand";
 import {
+  type UntagCertificateAuthorityCommandInput,
+  type UntagCertificateAuthorityCommandOutput,
   UntagCertificateAuthorityCommand,
-  UntagCertificateAuthorityCommandInput,
-  UntagCertificateAuthorityCommandOutput,
 } from "./commands/UntagCertificateAuthorityCommand";
 import {
+  type UpdateCertificateAuthorityCommandInput,
+  type UpdateCertificateAuthorityCommandOutput,
   UpdateCertificateAuthorityCommand,
-  UpdateCertificateAuthorityCommandInput,
-  UpdateCertificateAuthorityCommandOutput,
 } from "./commands/UpdateCertificateAuthorityCommand";
 import { paginateListCertificateAuthorities } from "./pagination/ListCertificateAuthoritiesPaginator";
 import { paginateListPermissions } from "./pagination/ListPermissionsPaginator";

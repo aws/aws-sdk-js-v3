@@ -8,7 +8,7 @@ import {
   ListBudgetsForResourceCommandOutput,
 } from "../commands/ListBudgetsForResourceCommand";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
-import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
+import type { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

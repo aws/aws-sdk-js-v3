@@ -3,324 +3,356 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateLensesCommandInput,
+  type AssociateLensesCommandOutput,
   AssociateLensesCommand,
-  AssociateLensesCommandInput,
-  AssociateLensesCommandOutput,
 } from "./commands/AssociateLensesCommand";
 import {
+  type AssociateProfilesCommandInput,
+  type AssociateProfilesCommandOutput,
   AssociateProfilesCommand,
-  AssociateProfilesCommandInput,
-  AssociateProfilesCommandOutput,
 } from "./commands/AssociateProfilesCommand";
 import {
+  type CreateLensShareCommandInput,
+  type CreateLensShareCommandOutput,
   CreateLensShareCommand,
-  CreateLensShareCommandInput,
-  CreateLensShareCommandOutput,
 } from "./commands/CreateLensShareCommand";
 import {
+  type CreateLensVersionCommandInput,
+  type CreateLensVersionCommandOutput,
   CreateLensVersionCommand,
-  CreateLensVersionCommandInput,
-  CreateLensVersionCommandOutput,
 } from "./commands/CreateLensVersionCommand";
 import {
+  type CreateMilestoneCommandInput,
+  type CreateMilestoneCommandOutput,
   CreateMilestoneCommand,
-  CreateMilestoneCommandInput,
-  CreateMilestoneCommandOutput,
 } from "./commands/CreateMilestoneCommand";
 import {
+  type CreateProfileCommandInput,
+  type CreateProfileCommandOutput,
   CreateProfileCommand,
-  CreateProfileCommandInput,
-  CreateProfileCommandOutput,
 } from "./commands/CreateProfileCommand";
 import {
+  type CreateProfileShareCommandInput,
+  type CreateProfileShareCommandOutput,
   CreateProfileShareCommand,
-  CreateProfileShareCommandInput,
-  CreateProfileShareCommandOutput,
 } from "./commands/CreateProfileShareCommand";
 import {
+  type CreateReviewTemplateCommandInput,
+  type CreateReviewTemplateCommandOutput,
   CreateReviewTemplateCommand,
-  CreateReviewTemplateCommandInput,
-  CreateReviewTemplateCommandOutput,
 } from "./commands/CreateReviewTemplateCommand";
 import {
+  type CreateTemplateShareCommandInput,
+  type CreateTemplateShareCommandOutput,
   CreateTemplateShareCommand,
-  CreateTemplateShareCommandInput,
-  CreateTemplateShareCommandOutput,
 } from "./commands/CreateTemplateShareCommand";
 import {
+  type CreateWorkloadCommandInput,
+  type CreateWorkloadCommandOutput,
   CreateWorkloadCommand,
-  CreateWorkloadCommandInput,
-  CreateWorkloadCommandOutput,
 } from "./commands/CreateWorkloadCommand";
 import {
+  type CreateWorkloadShareCommandInput,
+  type CreateWorkloadShareCommandOutput,
   CreateWorkloadShareCommand,
-  CreateWorkloadShareCommandInput,
-  CreateWorkloadShareCommandOutput,
 } from "./commands/CreateWorkloadShareCommand";
-import { DeleteLensCommand, DeleteLensCommandInput, DeleteLensCommandOutput } from "./commands/DeleteLensCommand";
 import {
+  type DeleteLensCommandInput,
+  type DeleteLensCommandOutput,
+  DeleteLensCommand,
+} from "./commands/DeleteLensCommand";
+import {
+  type DeleteLensShareCommandInput,
+  type DeleteLensShareCommandOutput,
   DeleteLensShareCommand,
-  DeleteLensShareCommandInput,
-  DeleteLensShareCommandOutput,
 } from "./commands/DeleteLensShareCommand";
 import {
+  type DeleteProfileCommandInput,
+  type DeleteProfileCommandOutput,
   DeleteProfileCommand,
-  DeleteProfileCommandInput,
-  DeleteProfileCommandOutput,
 } from "./commands/DeleteProfileCommand";
 import {
+  type DeleteProfileShareCommandInput,
+  type DeleteProfileShareCommandOutput,
   DeleteProfileShareCommand,
-  DeleteProfileShareCommandInput,
-  DeleteProfileShareCommandOutput,
 } from "./commands/DeleteProfileShareCommand";
 import {
+  type DeleteReviewTemplateCommandInput,
+  type DeleteReviewTemplateCommandOutput,
   DeleteReviewTemplateCommand,
-  DeleteReviewTemplateCommandInput,
-  DeleteReviewTemplateCommandOutput,
 } from "./commands/DeleteReviewTemplateCommand";
 import {
+  type DeleteTemplateShareCommandInput,
+  type DeleteTemplateShareCommandOutput,
   DeleteTemplateShareCommand,
-  DeleteTemplateShareCommandInput,
-  DeleteTemplateShareCommandOutput,
 } from "./commands/DeleteTemplateShareCommand";
 import {
+  type DeleteWorkloadCommandInput,
+  type DeleteWorkloadCommandOutput,
   DeleteWorkloadCommand,
-  DeleteWorkloadCommandInput,
-  DeleteWorkloadCommandOutput,
 } from "./commands/DeleteWorkloadCommand";
 import {
+  type DeleteWorkloadShareCommandInput,
+  type DeleteWorkloadShareCommandOutput,
   DeleteWorkloadShareCommand,
-  DeleteWorkloadShareCommandInput,
-  DeleteWorkloadShareCommandOutput,
 } from "./commands/DeleteWorkloadShareCommand";
 import {
+  type DisassociateLensesCommandInput,
+  type DisassociateLensesCommandOutput,
   DisassociateLensesCommand,
-  DisassociateLensesCommandInput,
-  DisassociateLensesCommandOutput,
 } from "./commands/DisassociateLensesCommand";
 import {
+  type DisassociateProfilesCommandInput,
+  type DisassociateProfilesCommandOutput,
   DisassociateProfilesCommand,
-  DisassociateProfilesCommandInput,
-  DisassociateProfilesCommandOutput,
 } from "./commands/DisassociateProfilesCommand";
-import { ExportLensCommand, ExportLensCommandInput, ExportLensCommandOutput } from "./commands/ExportLensCommand";
-import { GetAnswerCommand, GetAnswerCommandInput, GetAnswerCommandOutput } from "./commands/GetAnswerCommand";
 import {
+  type ExportLensCommandInput,
+  type ExportLensCommandOutput,
+  ExportLensCommand,
+} from "./commands/ExportLensCommand";
+import { type GetAnswerCommandInput, type GetAnswerCommandOutput, GetAnswerCommand } from "./commands/GetAnswerCommand";
+import {
+  type GetConsolidatedReportCommandInput,
+  type GetConsolidatedReportCommandOutput,
   GetConsolidatedReportCommand,
-  GetConsolidatedReportCommandInput,
-  GetConsolidatedReportCommandOutput,
 } from "./commands/GetConsolidatedReportCommand";
 import {
+  type GetGlobalSettingsCommandInput,
+  type GetGlobalSettingsCommandOutput,
   GetGlobalSettingsCommand,
-  GetGlobalSettingsCommandInput,
-  GetGlobalSettingsCommandOutput,
 } from "./commands/GetGlobalSettingsCommand";
-import { GetLensCommand, GetLensCommandInput, GetLensCommandOutput } from "./commands/GetLensCommand";
+import { type GetLensCommandInput, type GetLensCommandOutput, GetLensCommand } from "./commands/GetLensCommand";
 import {
+  type GetLensReviewCommandInput,
+  type GetLensReviewCommandOutput,
   GetLensReviewCommand,
-  GetLensReviewCommandInput,
-  GetLensReviewCommandOutput,
 } from "./commands/GetLensReviewCommand";
 import {
+  type GetLensReviewReportCommandInput,
+  type GetLensReviewReportCommandOutput,
   GetLensReviewReportCommand,
-  GetLensReviewReportCommandInput,
-  GetLensReviewReportCommandOutput,
 } from "./commands/GetLensReviewReportCommand";
 import {
+  type GetLensVersionDifferenceCommandInput,
+  type GetLensVersionDifferenceCommandOutput,
   GetLensVersionDifferenceCommand,
-  GetLensVersionDifferenceCommandInput,
-  GetLensVersionDifferenceCommandOutput,
 } from "./commands/GetLensVersionDifferenceCommand";
 import {
+  type GetMilestoneCommandInput,
+  type GetMilestoneCommandOutput,
   GetMilestoneCommand,
-  GetMilestoneCommandInput,
-  GetMilestoneCommandOutput,
 } from "./commands/GetMilestoneCommand";
-import { GetProfileCommand, GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
 import {
+  type GetProfileCommandInput,
+  type GetProfileCommandOutput,
+  GetProfileCommand,
+} from "./commands/GetProfileCommand";
+import {
+  type GetProfileTemplateCommandInput,
+  type GetProfileTemplateCommandOutput,
   GetProfileTemplateCommand,
-  GetProfileTemplateCommandInput,
-  GetProfileTemplateCommandOutput,
 } from "./commands/GetProfileTemplateCommand";
 import {
+  type GetReviewTemplateAnswerCommandInput,
+  type GetReviewTemplateAnswerCommandOutput,
   GetReviewTemplateAnswerCommand,
-  GetReviewTemplateAnswerCommandInput,
-  GetReviewTemplateAnswerCommandOutput,
 } from "./commands/GetReviewTemplateAnswerCommand";
 import {
+  type GetReviewTemplateCommandInput,
+  type GetReviewTemplateCommandOutput,
   GetReviewTemplateCommand,
-  GetReviewTemplateCommandInput,
-  GetReviewTemplateCommandOutput,
 } from "./commands/GetReviewTemplateCommand";
 import {
+  type GetReviewTemplateLensReviewCommandInput,
+  type GetReviewTemplateLensReviewCommandOutput,
   GetReviewTemplateLensReviewCommand,
-  GetReviewTemplateLensReviewCommandInput,
-  GetReviewTemplateLensReviewCommandOutput,
 } from "./commands/GetReviewTemplateLensReviewCommand";
-import { GetWorkloadCommand, GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
-import { ImportLensCommand, ImportLensCommandInput, ImportLensCommandOutput } from "./commands/ImportLensCommand";
-import { ListAnswersCommand, ListAnswersCommandInput, ListAnswersCommandOutput } from "./commands/ListAnswersCommand";
 import {
+  type GetWorkloadCommandInput,
+  type GetWorkloadCommandOutput,
+  GetWorkloadCommand,
+} from "./commands/GetWorkloadCommand";
+import {
+  type ImportLensCommandInput,
+  type ImportLensCommandOutput,
+  ImportLensCommand,
+} from "./commands/ImportLensCommand";
+import {
+  type ListAnswersCommandInput,
+  type ListAnswersCommandOutput,
+  ListAnswersCommand,
+} from "./commands/ListAnswersCommand";
+import {
+  type ListCheckDetailsCommandInput,
+  type ListCheckDetailsCommandOutput,
   ListCheckDetailsCommand,
-  ListCheckDetailsCommandInput,
-  ListCheckDetailsCommandOutput,
 } from "./commands/ListCheckDetailsCommand";
 import {
+  type ListCheckSummariesCommandInput,
+  type ListCheckSummariesCommandOutput,
   ListCheckSummariesCommand,
-  ListCheckSummariesCommandInput,
-  ListCheckSummariesCommandOutput,
 } from "./commands/ListCheckSummariesCommand";
-import { ListLensesCommand, ListLensesCommandInput, ListLensesCommandOutput } from "./commands/ListLensesCommand";
 import {
+  type ListLensesCommandInput,
+  type ListLensesCommandOutput,
+  ListLensesCommand,
+} from "./commands/ListLensesCommand";
+import {
+  type ListLensReviewImprovementsCommandInput,
+  type ListLensReviewImprovementsCommandOutput,
   ListLensReviewImprovementsCommand,
-  ListLensReviewImprovementsCommandInput,
-  ListLensReviewImprovementsCommandOutput,
 } from "./commands/ListLensReviewImprovementsCommand";
 import {
+  type ListLensReviewsCommandInput,
+  type ListLensReviewsCommandOutput,
   ListLensReviewsCommand,
-  ListLensReviewsCommandInput,
-  ListLensReviewsCommandOutput,
 } from "./commands/ListLensReviewsCommand";
 import {
+  type ListLensSharesCommandInput,
+  type ListLensSharesCommandOutput,
   ListLensSharesCommand,
-  ListLensSharesCommandInput,
-  ListLensSharesCommandOutput,
 } from "./commands/ListLensSharesCommand";
 import {
+  type ListMilestonesCommandInput,
+  type ListMilestonesCommandOutput,
   ListMilestonesCommand,
-  ListMilestonesCommandInput,
-  ListMilestonesCommandOutput,
 } from "./commands/ListMilestonesCommand";
 import {
+  type ListNotificationsCommandInput,
+  type ListNotificationsCommandOutput,
   ListNotificationsCommand,
-  ListNotificationsCommandInput,
-  ListNotificationsCommandOutput,
 } from "./commands/ListNotificationsCommand";
 import {
+  type ListProfileNotificationsCommandInput,
+  type ListProfileNotificationsCommandOutput,
   ListProfileNotificationsCommand,
-  ListProfileNotificationsCommandInput,
-  ListProfileNotificationsCommandOutput,
 } from "./commands/ListProfileNotificationsCommand";
 import {
+  type ListProfilesCommandInput,
+  type ListProfilesCommandOutput,
   ListProfilesCommand,
-  ListProfilesCommandInput,
-  ListProfilesCommandOutput,
 } from "./commands/ListProfilesCommand";
 import {
+  type ListProfileSharesCommandInput,
+  type ListProfileSharesCommandOutput,
   ListProfileSharesCommand,
-  ListProfileSharesCommandInput,
-  ListProfileSharesCommandOutput,
 } from "./commands/ListProfileSharesCommand";
 import {
+  type ListReviewTemplateAnswersCommandInput,
+  type ListReviewTemplateAnswersCommandOutput,
   ListReviewTemplateAnswersCommand,
-  ListReviewTemplateAnswersCommandInput,
-  ListReviewTemplateAnswersCommandOutput,
 } from "./commands/ListReviewTemplateAnswersCommand";
 import {
+  type ListReviewTemplatesCommandInput,
+  type ListReviewTemplatesCommandOutput,
   ListReviewTemplatesCommand,
-  ListReviewTemplatesCommandInput,
-  ListReviewTemplatesCommandOutput,
 } from "./commands/ListReviewTemplatesCommand";
 import {
+  type ListShareInvitationsCommandInput,
+  type ListShareInvitationsCommandOutput,
   ListShareInvitationsCommand,
-  ListShareInvitationsCommandInput,
-  ListShareInvitationsCommandOutput,
 } from "./commands/ListShareInvitationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTemplateSharesCommandInput,
+  type ListTemplateSharesCommandOutput,
   ListTemplateSharesCommand,
-  ListTemplateSharesCommandInput,
-  ListTemplateSharesCommandOutput,
 } from "./commands/ListTemplateSharesCommand";
 import {
+  type ListWorkloadsCommandInput,
+  type ListWorkloadsCommandOutput,
   ListWorkloadsCommand,
-  ListWorkloadsCommandInput,
-  ListWorkloadsCommandOutput,
 } from "./commands/ListWorkloadsCommand";
 import {
+  type ListWorkloadSharesCommandInput,
+  type ListWorkloadSharesCommandOutput,
   ListWorkloadSharesCommand,
-  ListWorkloadSharesCommandInput,
-  ListWorkloadSharesCommandOutput,
 } from "./commands/ListWorkloadSharesCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAnswerCommandInput,
+  type UpdateAnswerCommandOutput,
   UpdateAnswerCommand,
-  UpdateAnswerCommandInput,
-  UpdateAnswerCommandOutput,
 } from "./commands/UpdateAnswerCommand";
 import {
+  type UpdateGlobalSettingsCommandInput,
+  type UpdateGlobalSettingsCommandOutput,
   UpdateGlobalSettingsCommand,
-  UpdateGlobalSettingsCommandInput,
-  UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
 import {
+  type UpdateIntegrationCommandInput,
+  type UpdateIntegrationCommandOutput,
   UpdateIntegrationCommand,
-  UpdateIntegrationCommandInput,
-  UpdateIntegrationCommandOutput,
 } from "./commands/UpdateIntegrationCommand";
 import {
+  type UpdateLensReviewCommandInput,
+  type UpdateLensReviewCommandOutput,
   UpdateLensReviewCommand,
-  UpdateLensReviewCommandInput,
-  UpdateLensReviewCommandOutput,
 } from "./commands/UpdateLensReviewCommand";
 import {
+  type UpdateProfileCommandInput,
+  type UpdateProfileCommandOutput,
   UpdateProfileCommand,
-  UpdateProfileCommandInput,
-  UpdateProfileCommandOutput,
 } from "./commands/UpdateProfileCommand";
 import {
+  type UpdateReviewTemplateAnswerCommandInput,
+  type UpdateReviewTemplateAnswerCommandOutput,
   UpdateReviewTemplateAnswerCommand,
-  UpdateReviewTemplateAnswerCommandInput,
-  UpdateReviewTemplateAnswerCommandOutput,
 } from "./commands/UpdateReviewTemplateAnswerCommand";
 import {
+  type UpdateReviewTemplateCommandInput,
+  type UpdateReviewTemplateCommandOutput,
   UpdateReviewTemplateCommand,
-  UpdateReviewTemplateCommandInput,
-  UpdateReviewTemplateCommandOutput,
 } from "./commands/UpdateReviewTemplateCommand";
 import {
+  type UpdateReviewTemplateLensReviewCommandInput,
+  type UpdateReviewTemplateLensReviewCommandOutput,
   UpdateReviewTemplateLensReviewCommand,
-  UpdateReviewTemplateLensReviewCommandInput,
-  UpdateReviewTemplateLensReviewCommandOutput,
 } from "./commands/UpdateReviewTemplateLensReviewCommand";
 import {
+  type UpdateShareInvitationCommandInput,
+  type UpdateShareInvitationCommandOutput,
   UpdateShareInvitationCommand,
-  UpdateShareInvitationCommandInput,
-  UpdateShareInvitationCommandOutput,
 } from "./commands/UpdateShareInvitationCommand";
 import {
+  type UpdateWorkloadCommandInput,
+  type UpdateWorkloadCommandOutput,
   UpdateWorkloadCommand,
-  UpdateWorkloadCommandInput,
-  UpdateWorkloadCommandOutput,
 } from "./commands/UpdateWorkloadCommand";
 import {
+  type UpdateWorkloadShareCommandInput,
+  type UpdateWorkloadShareCommandOutput,
   UpdateWorkloadShareCommand,
-  UpdateWorkloadShareCommandInput,
-  UpdateWorkloadShareCommandOutput,
 } from "./commands/UpdateWorkloadShareCommand";
 import {
+  type UpgradeLensReviewCommandInput,
+  type UpgradeLensReviewCommandOutput,
   UpgradeLensReviewCommand,
-  UpgradeLensReviewCommandInput,
-  UpgradeLensReviewCommandOutput,
 } from "./commands/UpgradeLensReviewCommand";
 import {
+  type UpgradeProfileVersionCommandInput,
+  type UpgradeProfileVersionCommandOutput,
   UpgradeProfileVersionCommand,
-  UpgradeProfileVersionCommandInput,
-  UpgradeProfileVersionCommandOutput,
 } from "./commands/UpgradeProfileVersionCommand";
 import {
+  type UpgradeReviewTemplateLensReviewCommandInput,
+  type UpgradeReviewTemplateLensReviewCommandOutput,
   UpgradeReviewTemplateLensReviewCommand,
-  UpgradeReviewTemplateLensReviewCommandInput,
-  UpgradeReviewTemplateLensReviewCommandOutput,
 } from "./commands/UpgradeReviewTemplateLensReviewCommand";
 import { paginateGetConsolidatedReport } from "./pagination/GetConsolidatedReportPaginator";
 import { paginateListAnswers } from "./pagination/ListAnswersPaginator";

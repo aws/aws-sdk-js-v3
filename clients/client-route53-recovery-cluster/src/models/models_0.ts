@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { RoutingControlState } from "./enums";
+import type { RoutingControlState } from "./enums";
 
 /**
  * @public

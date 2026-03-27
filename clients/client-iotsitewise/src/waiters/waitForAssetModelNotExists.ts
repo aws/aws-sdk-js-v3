@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeAssetModelCommand, DescribeAssetModelCommandInput } from "../commands/DescribeAssetModelCommand";
-import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
+import { type DescribeAssetModelCommandInput, DescribeAssetModelCommand } from "../commands/DescribeAssetModelCommand";
+import type { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 
 const checkState = async (client: IoTSiteWiseClient, input: DescribeAssetModelCommandInput): Promise<WaiterResult> => {
   let reason;

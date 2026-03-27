@@ -8,7 +8,7 @@ import {
   ListAssociationVersionsCommandOutput,
 } from "../commands/ListAssociationVersionsCommand";
 import { SSMClient } from "../SSMClient";
-import { SSMPaginationConfiguration } from "./Interfaces";
+import type { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

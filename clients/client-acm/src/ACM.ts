@@ -10,84 +10,84 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { ACMClient } from "./ACMClient";
 import {
+  type AddTagsToCertificateCommandInput,
+  type AddTagsToCertificateCommandOutput,
   AddTagsToCertificateCommand,
-  AddTagsToCertificateCommandInput,
-  AddTagsToCertificateCommandOutput,
 } from "./commands/AddTagsToCertificateCommand";
 import {
+  type DeleteCertificateCommandInput,
+  type DeleteCertificateCommandOutput,
   DeleteCertificateCommand,
-  DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput,
 } from "./commands/DeleteCertificateCommand";
 import {
+  type DescribeCertificateCommandInput,
+  type DescribeCertificateCommandOutput,
   DescribeCertificateCommand,
-  DescribeCertificateCommandInput,
-  DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
 import {
+  type ExportCertificateCommandInput,
+  type ExportCertificateCommandOutput,
   ExportCertificateCommand,
-  ExportCertificateCommandInput,
-  ExportCertificateCommandOutput,
 } from "./commands/ExportCertificateCommand";
 import {
+  type GetAccountConfigurationCommandInput,
+  type GetAccountConfigurationCommandOutput,
   GetAccountConfigurationCommand,
-  GetAccountConfigurationCommandInput,
-  GetAccountConfigurationCommandOutput,
 } from "./commands/GetAccountConfigurationCommand";
 import {
+  type GetCertificateCommandInput,
+  type GetCertificateCommandOutput,
   GetCertificateCommand,
-  GetCertificateCommandInput,
-  GetCertificateCommandOutput,
 } from "./commands/GetCertificateCommand";
 import {
+  type ImportCertificateCommandInput,
+  type ImportCertificateCommandOutput,
   ImportCertificateCommand,
-  ImportCertificateCommandInput,
-  ImportCertificateCommandOutput,
 } from "./commands/ImportCertificateCommand";
 import {
+  type ListCertificatesCommandInput,
+  type ListCertificatesCommandOutput,
   ListCertificatesCommand,
-  ListCertificatesCommandInput,
-  ListCertificatesCommandOutput,
 } from "./commands/ListCertificatesCommand";
 import {
+  type ListTagsForCertificateCommandInput,
+  type ListTagsForCertificateCommandOutput,
   ListTagsForCertificateCommand,
-  ListTagsForCertificateCommandInput,
-  ListTagsForCertificateCommandOutput,
 } from "./commands/ListTagsForCertificateCommand";
 import {
+  type PutAccountConfigurationCommandInput,
+  type PutAccountConfigurationCommandOutput,
   PutAccountConfigurationCommand,
-  PutAccountConfigurationCommandInput,
-  PutAccountConfigurationCommandOutput,
 } from "./commands/PutAccountConfigurationCommand";
 import {
+  type RemoveTagsFromCertificateCommandInput,
+  type RemoveTagsFromCertificateCommandOutput,
   RemoveTagsFromCertificateCommand,
-  RemoveTagsFromCertificateCommandInput,
-  RemoveTagsFromCertificateCommandOutput,
 } from "./commands/RemoveTagsFromCertificateCommand";
 import {
+  type RenewCertificateCommandInput,
+  type RenewCertificateCommandOutput,
   RenewCertificateCommand,
-  RenewCertificateCommandInput,
-  RenewCertificateCommandOutput,
 } from "./commands/RenewCertificateCommand";
 import {
+  type RequestCertificateCommandInput,
+  type RequestCertificateCommandOutput,
   RequestCertificateCommand,
-  RequestCertificateCommandInput,
-  RequestCertificateCommandOutput,
 } from "./commands/RequestCertificateCommand";
 import {
+  type ResendValidationEmailCommandInput,
+  type ResendValidationEmailCommandOutput,
   ResendValidationEmailCommand,
-  ResendValidationEmailCommandInput,
-  ResendValidationEmailCommandOutput,
 } from "./commands/ResendValidationEmailCommand";
 import {
+  type RevokeCertificateCommandInput,
+  type RevokeCertificateCommandOutput,
   RevokeCertificateCommand,
-  RevokeCertificateCommandInput,
-  RevokeCertificateCommandOutput,
 } from "./commands/RevokeCertificateCommand";
 import {
+  type UpdateCertificateOptionsCommandInput,
+  type UpdateCertificateOptionsCommandOutput,
   UpdateCertificateOptionsCommand,
-  UpdateCertificateOptionsCommandInput,
-  UpdateCertificateOptionsCommandOutput,
 } from "./commands/UpdateCertificateOptionsCommand";
 import { paginateListCertificates } from "./pagination/ListCertificatesPaginator";
 import { waitUntilCertificateValidated } from "./waiters/waitForCertificateValidated";

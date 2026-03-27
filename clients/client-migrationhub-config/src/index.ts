@@ -30,7 +30,7 @@
  */
 export * from "./MigrationHubConfigClient";
 export * from "./MigrationHubConfig";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MigrationHubConfigExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

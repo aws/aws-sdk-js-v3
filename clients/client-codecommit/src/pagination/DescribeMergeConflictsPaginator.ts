@@ -8,7 +8,7 @@ import {
   DescribeMergeConflictsCommandInput,
   DescribeMergeConflictsCommandOutput,
 } from "../commands/DescribeMergeConflictsCommand";
-import { CodeCommitPaginationConfiguration } from "./Interfaces";
+import type { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

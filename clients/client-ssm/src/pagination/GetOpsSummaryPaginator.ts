@@ -8,7 +8,7 @@ import {
   GetOpsSummaryCommandOutput,
 } from "../commands/GetOpsSummaryCommand";
 import { SSMClient } from "../SSMClient";
-import { SSMPaginationConfiguration } from "./Interfaces";
+import type { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

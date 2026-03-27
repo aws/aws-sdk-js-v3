@@ -8,7 +8,7 @@ import {
   ListAccountSettingsCommandOutput,
 } from "../commands/ListAccountSettingsCommand";
 import { ECSClient } from "../ECSClient";
-import { ECSPaginationConfiguration } from "./Interfaces";
+import type { ECSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

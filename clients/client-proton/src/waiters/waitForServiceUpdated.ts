@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { GetServiceCommand, GetServiceCommandInput } from "../commands/GetServiceCommand";
-import { ProtonClient } from "../ProtonClient";
+import { type GetServiceCommandInput, GetServiceCommand } from "../commands/GetServiceCommand";
+import type { ProtonClient } from "../ProtonClient";
 
 const checkState = async (client: ProtonClient, input: GetServiceCommandInput): Promise<WaiterResult> => {
   let reason;

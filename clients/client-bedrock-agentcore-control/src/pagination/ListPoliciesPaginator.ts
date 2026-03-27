@@ -8,7 +8,7 @@ import {
   ListPoliciesCommandInput,
   ListPoliciesCommandOutput,
 } from "../commands/ListPoliciesCommand";
-import { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

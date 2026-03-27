@@ -4,36 +4,40 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ArtifactClient } from "./ArtifactClient";
 import {
+  type GetAccountSettingsCommandInput,
+  type GetAccountSettingsCommandOutput,
   GetAccountSettingsCommand,
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
-import { GetReportCommand, GetReportCommandInput, GetReportCommandOutput } from "./commands/GetReportCommand";
+import { type GetReportCommandInput, type GetReportCommandOutput, GetReportCommand } from "./commands/GetReportCommand";
 import {
+  type GetReportMetadataCommandInput,
+  type GetReportMetadataCommandOutput,
   GetReportMetadataCommand,
-  GetReportMetadataCommandInput,
-  GetReportMetadataCommandOutput,
 } from "./commands/GetReportMetadataCommand";
 import {
+  type GetTermForReportCommandInput,
+  type GetTermForReportCommandOutput,
   GetTermForReportCommand,
-  GetTermForReportCommandInput,
-  GetTermForReportCommandOutput,
 } from "./commands/GetTermForReportCommand";
 import {
+  type ListCustomerAgreementsCommandInput,
+  type ListCustomerAgreementsCommandOutput,
   ListCustomerAgreementsCommand,
-  ListCustomerAgreementsCommandInput,
-  ListCustomerAgreementsCommandOutput,
 } from "./commands/ListCustomerAgreementsCommand";
-import { ListReportsCommand, ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
 import {
+  type ListReportsCommandInput,
+  type ListReportsCommandOutput,
+  ListReportsCommand,
+} from "./commands/ListReportsCommand";
+import {
+  type ListReportVersionsCommandInput,
+  type ListReportVersionsCommandOutput,
   ListReportVersionsCommand,
-  ListReportVersionsCommandInput,
-  ListReportVersionsCommandOutput,
 } from "./commands/ListReportVersionsCommand";
 import {
+  type PutAccountSettingsCommandInput,
+  type PutAccountSettingsCommandOutput,
   PutAccountSettingsCommand,
-  PutAccountSettingsCommandInput,
-  PutAccountSettingsCommandOutput,
 } from "./commands/PutAccountSettingsCommand";
 import { paginateListCustomerAgreements } from "./pagination/ListCustomerAgreementsPaginator";
 import { paginateListReports } from "./pagination/ListReportsPaginator";

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { StreamingBlobTypes } from "@smithy/types";
+import type { StreamingBlobTypes } from "@smithy/types";
 
-import { ChecksumAggregationMethod, ChecksumAlgorithm, SSEType, Status } from "./enums";
+import type { ChecksumAggregationMethod, ChecksumAlgorithm, SSEType, Status } from "./enums";
 
 /**
  * <p>A block of data in an Amazon Elastic Block Store snapshot.</p>

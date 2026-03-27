@@ -8,7 +8,7 @@ import {
   ListSessionsCommandOutput,
 } from "../commands/ListSessionsCommand";
 import { NovaActClient } from "../NovaActClient";
-import { NovaActPaginationConfiguration } from "./Interfaces";
+import type { NovaActPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

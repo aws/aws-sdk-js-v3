@@ -3,95 +3,127 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateAccessorCommandInput,
+  type CreateAccessorCommandOutput,
   CreateAccessorCommand,
-  CreateAccessorCommandInput,
-  CreateAccessorCommandOutput,
 } from "./commands/CreateAccessorCommand";
 import {
+  type CreateMemberCommandInput,
+  type CreateMemberCommandOutput,
   CreateMemberCommand,
-  CreateMemberCommandInput,
-  CreateMemberCommandOutput,
 } from "./commands/CreateMemberCommand";
 import {
+  type CreateNetworkCommandInput,
+  type CreateNetworkCommandOutput,
   CreateNetworkCommand,
-  CreateNetworkCommandInput,
-  CreateNetworkCommandOutput,
 } from "./commands/CreateNetworkCommand";
-import { CreateNodeCommand, CreateNodeCommandInput, CreateNodeCommandOutput } from "./commands/CreateNodeCommand";
 import {
+  type CreateNodeCommandInput,
+  type CreateNodeCommandOutput,
+  CreateNodeCommand,
+} from "./commands/CreateNodeCommand";
+import {
+  type CreateProposalCommandInput,
+  type CreateProposalCommandOutput,
   CreateProposalCommand,
-  CreateProposalCommandInput,
-  CreateProposalCommandOutput,
 } from "./commands/CreateProposalCommand";
 import {
+  type DeleteAccessorCommandInput,
+  type DeleteAccessorCommandOutput,
   DeleteAccessorCommand,
-  DeleteAccessorCommandInput,
-  DeleteAccessorCommandOutput,
 } from "./commands/DeleteAccessorCommand";
 import {
+  type DeleteMemberCommandInput,
+  type DeleteMemberCommandOutput,
   DeleteMemberCommand,
-  DeleteMemberCommandInput,
-  DeleteMemberCommandOutput,
 } from "./commands/DeleteMemberCommand";
-import { DeleteNodeCommand, DeleteNodeCommandInput, DeleteNodeCommandOutput } from "./commands/DeleteNodeCommand";
-import { GetAccessorCommand, GetAccessorCommandInput, GetAccessorCommandOutput } from "./commands/GetAccessorCommand";
-import { GetMemberCommand, GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
-import { GetNetworkCommand, GetNetworkCommandInput, GetNetworkCommandOutput } from "./commands/GetNetworkCommand";
-import { GetNodeCommand, GetNodeCommandInput, GetNodeCommandOutput } from "./commands/GetNodeCommand";
-import { GetProposalCommand, GetProposalCommandInput, GetProposalCommandOutput } from "./commands/GetProposalCommand";
 import {
+  type DeleteNodeCommandInput,
+  type DeleteNodeCommandOutput,
+  DeleteNodeCommand,
+} from "./commands/DeleteNodeCommand";
+import {
+  type GetAccessorCommandInput,
+  type GetAccessorCommandOutput,
+  GetAccessorCommand,
+} from "./commands/GetAccessorCommand";
+import { type GetMemberCommandInput, type GetMemberCommandOutput, GetMemberCommand } from "./commands/GetMemberCommand";
+import {
+  type GetNetworkCommandInput,
+  type GetNetworkCommandOutput,
+  GetNetworkCommand,
+} from "./commands/GetNetworkCommand";
+import { type GetNodeCommandInput, type GetNodeCommandOutput, GetNodeCommand } from "./commands/GetNodeCommand";
+import {
+  type GetProposalCommandInput,
+  type GetProposalCommandOutput,
+  GetProposalCommand,
+} from "./commands/GetProposalCommand";
+import {
+  type ListAccessorsCommandInput,
+  type ListAccessorsCommandOutput,
   ListAccessorsCommand,
-  ListAccessorsCommandInput,
-  ListAccessorsCommandOutput,
 } from "./commands/ListAccessorsCommand";
 import {
+  type ListInvitationsCommandInput,
+  type ListInvitationsCommandOutput,
   ListInvitationsCommand,
-  ListInvitationsCommandInput,
-  ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand";
-import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
+  type ListMembersCommandInput,
+  type ListMembersCommandOutput,
+  ListMembersCommand,
+} from "./commands/ListMembersCommand";
+import {
+  type ListNetworksCommandInput,
+  type ListNetworksCommandOutput,
   ListNetworksCommand,
-  ListNetworksCommandInput,
-  ListNetworksCommandOutput,
 } from "./commands/ListNetworksCommand";
-import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import { type ListNodesCommandInput, type ListNodesCommandOutput, ListNodesCommand } from "./commands/ListNodesCommand";
 import {
+  type ListProposalsCommandInput,
+  type ListProposalsCommandOutput,
   ListProposalsCommand,
-  ListProposalsCommandInput,
-  ListProposalsCommandOutput,
 } from "./commands/ListProposalsCommand";
 import {
+  type ListProposalVotesCommandInput,
+  type ListProposalVotesCommandOutput,
   ListProposalVotesCommand,
-  ListProposalVotesCommandInput,
-  ListProposalVotesCommandOutput,
 } from "./commands/ListProposalVotesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RejectInvitationCommandInput,
+  type RejectInvitationCommandOutput,
   RejectInvitationCommand,
-  RejectInvitationCommandInput,
-  RejectInvitationCommandOutput,
 } from "./commands/RejectInvitationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateMemberCommandInput,
+  type UpdateMemberCommandOutput,
   UpdateMemberCommand,
-  UpdateMemberCommandInput,
-  UpdateMemberCommandOutput,
 } from "./commands/UpdateMemberCommand";
-import { UpdateNodeCommand, UpdateNodeCommandInput, UpdateNodeCommandOutput } from "./commands/UpdateNodeCommand";
 import {
+  type UpdateNodeCommandInput,
+  type UpdateNodeCommandOutput,
+  UpdateNodeCommand,
+} from "./commands/UpdateNodeCommand";
+import {
+  type VoteOnProposalCommandInput,
+  type VoteOnProposalCommandOutput,
   VoteOnProposalCommand,
-  VoteOnProposalCommandInput,
-  VoteOnProposalCommandOutput,
 } from "./commands/VoteOnProposalCommand";
 import { ManagedBlockchainClient } from "./ManagedBlockchainClient";
 import { paginateListAccessors } from "./pagination/ListAccessorsPaginator";

@@ -3,148 +3,160 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateSignalingChannelCommandInput,
+  type CreateSignalingChannelCommandOutput,
   CreateSignalingChannelCommand,
-  CreateSignalingChannelCommandInput,
-  CreateSignalingChannelCommandOutput,
 } from "./commands/CreateSignalingChannelCommand";
 import {
+  type CreateStreamCommandInput,
+  type CreateStreamCommandOutput,
   CreateStreamCommand,
-  CreateStreamCommandInput,
-  CreateStreamCommandOutput,
 } from "./commands/CreateStreamCommand";
 import {
+  type DeleteEdgeConfigurationCommandInput,
+  type DeleteEdgeConfigurationCommandOutput,
   DeleteEdgeConfigurationCommand,
-  DeleteEdgeConfigurationCommandInput,
-  DeleteEdgeConfigurationCommandOutput,
 } from "./commands/DeleteEdgeConfigurationCommand";
 import {
+  type DeleteSignalingChannelCommandInput,
+  type DeleteSignalingChannelCommandOutput,
   DeleteSignalingChannelCommand,
-  DeleteSignalingChannelCommandInput,
-  DeleteSignalingChannelCommandOutput,
 } from "./commands/DeleteSignalingChannelCommand";
 import {
+  type DeleteStreamCommandInput,
+  type DeleteStreamCommandOutput,
   DeleteStreamCommand,
-  DeleteStreamCommandInput,
-  DeleteStreamCommandOutput,
 } from "./commands/DeleteStreamCommand";
 import {
+  type DescribeEdgeConfigurationCommandInput,
+  type DescribeEdgeConfigurationCommandOutput,
   DescribeEdgeConfigurationCommand,
-  DescribeEdgeConfigurationCommandInput,
-  DescribeEdgeConfigurationCommandOutput,
 } from "./commands/DescribeEdgeConfigurationCommand";
 import {
+  type DescribeImageGenerationConfigurationCommandInput,
+  type DescribeImageGenerationConfigurationCommandOutput,
   DescribeImageGenerationConfigurationCommand,
-  DescribeImageGenerationConfigurationCommandInput,
-  DescribeImageGenerationConfigurationCommandOutput,
 } from "./commands/DescribeImageGenerationConfigurationCommand";
 import {
+  type DescribeMappedResourceConfigurationCommandInput,
+  type DescribeMappedResourceConfigurationCommandOutput,
   DescribeMappedResourceConfigurationCommand,
-  DescribeMappedResourceConfigurationCommandInput,
-  DescribeMappedResourceConfigurationCommandOutput,
 } from "./commands/DescribeMappedResourceConfigurationCommand";
 import {
+  type DescribeMediaStorageConfigurationCommandInput,
+  type DescribeMediaStorageConfigurationCommandOutput,
   DescribeMediaStorageConfigurationCommand,
-  DescribeMediaStorageConfigurationCommandInput,
-  DescribeMediaStorageConfigurationCommandOutput,
 } from "./commands/DescribeMediaStorageConfigurationCommand";
 import {
+  type DescribeNotificationConfigurationCommandInput,
+  type DescribeNotificationConfigurationCommandOutput,
   DescribeNotificationConfigurationCommand,
-  DescribeNotificationConfigurationCommandInput,
-  DescribeNotificationConfigurationCommandOutput,
 } from "./commands/DescribeNotificationConfigurationCommand";
 import {
+  type DescribeSignalingChannelCommandInput,
+  type DescribeSignalingChannelCommandOutput,
   DescribeSignalingChannelCommand,
-  DescribeSignalingChannelCommandInput,
-  DescribeSignalingChannelCommandOutput,
 } from "./commands/DescribeSignalingChannelCommand";
 import {
+  type DescribeStreamCommandInput,
+  type DescribeStreamCommandOutput,
   DescribeStreamCommand,
-  DescribeStreamCommandInput,
-  DescribeStreamCommandOutput,
 } from "./commands/DescribeStreamCommand";
 import {
+  type DescribeStreamStorageConfigurationCommandInput,
+  type DescribeStreamStorageConfigurationCommandOutput,
   DescribeStreamStorageConfigurationCommand,
-  DescribeStreamStorageConfigurationCommandInput,
-  DescribeStreamStorageConfigurationCommandOutput,
 } from "./commands/DescribeStreamStorageConfigurationCommand";
 import {
+  type GetDataEndpointCommandInput,
+  type GetDataEndpointCommandOutput,
   GetDataEndpointCommand,
-  GetDataEndpointCommandInput,
-  GetDataEndpointCommandOutput,
 } from "./commands/GetDataEndpointCommand";
 import {
+  type GetSignalingChannelEndpointCommandInput,
+  type GetSignalingChannelEndpointCommandOutput,
   GetSignalingChannelEndpointCommand,
-  GetSignalingChannelEndpointCommandInput,
-  GetSignalingChannelEndpointCommandOutput,
 } from "./commands/GetSignalingChannelEndpointCommand";
 import {
+  type ListEdgeAgentConfigurationsCommandInput,
+  type ListEdgeAgentConfigurationsCommandOutput,
   ListEdgeAgentConfigurationsCommand,
-  ListEdgeAgentConfigurationsCommandInput,
-  ListEdgeAgentConfigurationsCommandOutput,
 } from "./commands/ListEdgeAgentConfigurationsCommand";
 import {
+  type ListSignalingChannelsCommandInput,
+  type ListSignalingChannelsCommandOutput,
   ListSignalingChannelsCommand,
-  ListSignalingChannelsCommandInput,
-  ListSignalingChannelsCommandOutput,
 } from "./commands/ListSignalingChannelsCommand";
-import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
+  type ListStreamsCommandInput,
+  type ListStreamsCommandOutput,
+  ListStreamsCommand,
+} from "./commands/ListStreamsCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTagsForStreamCommandInput,
+  type ListTagsForStreamCommandOutput,
   ListTagsForStreamCommand,
-  ListTagsForStreamCommandInput,
-  ListTagsForStreamCommandOutput,
 } from "./commands/ListTagsForStreamCommand";
 import {
+  type StartEdgeConfigurationUpdateCommandInput,
+  type StartEdgeConfigurationUpdateCommandOutput,
   StartEdgeConfigurationUpdateCommand,
-  StartEdgeConfigurationUpdateCommandInput,
-  StartEdgeConfigurationUpdateCommandOutput,
 } from "./commands/StartEdgeConfigurationUpdateCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TagStreamCommand, TagStreamCommandInput, TagStreamCommandOutput } from "./commands/TagStreamCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import { type TagStreamCommandInput, type TagStreamCommandOutput, TagStreamCommand } from "./commands/TagStreamCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UntagStreamCommand, UntagStreamCommandInput, UntagStreamCommandOutput } from "./commands/UntagStreamCommand";
 import {
+  type UntagStreamCommandInput,
+  type UntagStreamCommandOutput,
+  UntagStreamCommand,
+} from "./commands/UntagStreamCommand";
+import {
+  type UpdateDataRetentionCommandInput,
+  type UpdateDataRetentionCommandOutput,
   UpdateDataRetentionCommand,
-  UpdateDataRetentionCommandInput,
-  UpdateDataRetentionCommandOutput,
 } from "./commands/UpdateDataRetentionCommand";
 import {
+  type UpdateImageGenerationConfigurationCommandInput,
+  type UpdateImageGenerationConfigurationCommandOutput,
   UpdateImageGenerationConfigurationCommand,
-  UpdateImageGenerationConfigurationCommandInput,
-  UpdateImageGenerationConfigurationCommandOutput,
 } from "./commands/UpdateImageGenerationConfigurationCommand";
 import {
+  type UpdateMediaStorageConfigurationCommandInput,
+  type UpdateMediaStorageConfigurationCommandOutput,
   UpdateMediaStorageConfigurationCommand,
-  UpdateMediaStorageConfigurationCommandInput,
-  UpdateMediaStorageConfigurationCommandOutput,
 } from "./commands/UpdateMediaStorageConfigurationCommand";
 import {
+  type UpdateNotificationConfigurationCommandInput,
+  type UpdateNotificationConfigurationCommandOutput,
   UpdateNotificationConfigurationCommand,
-  UpdateNotificationConfigurationCommandInput,
-  UpdateNotificationConfigurationCommandOutput,
 } from "./commands/UpdateNotificationConfigurationCommand";
 import {
+  type UpdateSignalingChannelCommandInput,
+  type UpdateSignalingChannelCommandOutput,
   UpdateSignalingChannelCommand,
-  UpdateSignalingChannelCommandInput,
-  UpdateSignalingChannelCommandOutput,
 } from "./commands/UpdateSignalingChannelCommand";
 import {
+  type UpdateStreamCommandInput,
+  type UpdateStreamCommandOutput,
   UpdateStreamCommand,
-  UpdateStreamCommandInput,
-  UpdateStreamCommandOutput,
 } from "./commands/UpdateStreamCommand";
 import {
+  type UpdateStreamStorageConfigurationCommandInput,
+  type UpdateStreamStorageConfigurationCommandOutput,
   UpdateStreamStorageConfigurationCommand,
-  UpdateStreamStorageConfigurationCommandInput,
-  UpdateStreamStorageConfigurationCommandOutput,
 } from "./commands/UpdateStreamStorageConfigurationCommand";
 import { KinesisVideoClient } from "./KinesisVideoClient";
 import { paginateDescribeMappedResourceConfiguration } from "./pagination/DescribeMappedResourceConfigurationPaginator";

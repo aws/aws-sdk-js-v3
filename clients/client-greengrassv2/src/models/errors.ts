@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionReason } from "./enums";
 import { GreengrassV2ServiceException as __BaseException } from "./GreengrassV2ServiceException";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>You don't have permission to perform the action.</p>

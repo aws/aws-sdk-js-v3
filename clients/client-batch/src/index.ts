@@ -17,7 +17,7 @@
  */
 export * from "./BatchClient";
 export * from "./Batch";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BatchExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

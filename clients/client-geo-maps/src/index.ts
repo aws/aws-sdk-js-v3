@@ -7,7 +7,7 @@
  */
 export * from "./GeoMapsClient";
 export * from "./GeoMaps";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { GeoMapsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

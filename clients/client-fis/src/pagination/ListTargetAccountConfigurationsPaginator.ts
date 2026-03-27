@@ -8,7 +8,7 @@ import {
   ListTargetAccountConfigurationsCommandOutput,
 } from "../commands/ListTargetAccountConfigurationsCommand";
 import { FisClient } from "../FisClient";
-import { FisPaginationConfiguration } from "./Interfaces";
+import type { FisPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

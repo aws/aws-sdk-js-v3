@@ -32,7 +32,7 @@
  */
 export * from "./SageMakerA2IRuntimeClient";
 export * from "./SageMakerA2IRuntime";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SageMakerA2IRuntimeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

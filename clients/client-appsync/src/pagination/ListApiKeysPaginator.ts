@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { AppSyncClient } from "../AppSyncClient";
 import { ListApiKeysCommand, ListApiKeysCommandInput, ListApiKeysCommandOutput } from "../commands/ListApiKeysCommand";
-import { AppSyncPaginationConfiguration } from "./Interfaces";
+import type { AppSyncPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

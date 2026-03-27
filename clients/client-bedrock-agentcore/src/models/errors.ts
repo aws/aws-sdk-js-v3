@@ -2,8 +2,8 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { BedrockAgentCoreServiceException as __BaseException } from "./BedrockAgentCoreServiceException";
-import { ValidationExceptionReason } from "./enums";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>

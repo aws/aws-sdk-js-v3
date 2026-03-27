@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AccessLevel, BotStatus, DataRetentionActionType, SortDirection, Status, UserStatus } from "./enums";
+import type { AccessLevel, BotStatus, DataRetentionActionType, SortDirection, Status, UserStatus } from "./enums";
 
 /**
  * <p>Represents a device where a user has logged into Wickr, containing information about the device's type, status, and login history.</p>

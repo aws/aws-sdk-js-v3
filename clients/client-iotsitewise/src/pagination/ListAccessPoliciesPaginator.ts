@@ -8,7 +8,7 @@ import {
   ListAccessPoliciesCommandOutput,
 } from "../commands/ListAccessPoliciesCommand";
 import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
-import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
+import type { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

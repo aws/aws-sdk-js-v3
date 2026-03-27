@@ -3,247 +3,251 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptInboundCrossClusterSearchConnectionCommandInput,
+  type AcceptInboundCrossClusterSearchConnectionCommandOutput,
   AcceptInboundCrossClusterSearchConnectionCommand,
-  AcceptInboundCrossClusterSearchConnectionCommandInput,
-  AcceptInboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/AcceptInboundCrossClusterSearchConnectionCommand";
-import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { type AddTagsCommandInput, type AddTagsCommandOutput, AddTagsCommand } from "./commands/AddTagsCommand";
 import {
+  type AssociatePackageCommandInput,
+  type AssociatePackageCommandOutput,
   AssociatePackageCommand,
-  AssociatePackageCommandInput,
-  AssociatePackageCommandOutput,
 } from "./commands/AssociatePackageCommand";
 import {
+  type AuthorizeVpcEndpointAccessCommandInput,
+  type AuthorizeVpcEndpointAccessCommandOutput,
   AuthorizeVpcEndpointAccessCommand,
-  AuthorizeVpcEndpointAccessCommandInput,
-  AuthorizeVpcEndpointAccessCommandOutput,
 } from "./commands/AuthorizeVpcEndpointAccessCommand";
 import {
+  type CancelDomainConfigChangeCommandInput,
+  type CancelDomainConfigChangeCommandOutput,
   CancelDomainConfigChangeCommand,
-  CancelDomainConfigChangeCommandInput,
-  CancelDomainConfigChangeCommandOutput,
 } from "./commands/CancelDomainConfigChangeCommand";
 import {
+  type CancelElasticsearchServiceSoftwareUpdateCommandInput,
+  type CancelElasticsearchServiceSoftwareUpdateCommandOutput,
   CancelElasticsearchServiceSoftwareUpdateCommand,
-  CancelElasticsearchServiceSoftwareUpdateCommandInput,
-  CancelElasticsearchServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelElasticsearchServiceSoftwareUpdateCommand";
 import {
+  type CreateElasticsearchDomainCommandInput,
+  type CreateElasticsearchDomainCommandOutput,
   CreateElasticsearchDomainCommand,
-  CreateElasticsearchDomainCommandInput,
-  CreateElasticsearchDomainCommandOutput,
 } from "./commands/CreateElasticsearchDomainCommand";
 import {
+  type CreateOutboundCrossClusterSearchConnectionCommandInput,
+  type CreateOutboundCrossClusterSearchConnectionCommandOutput,
   CreateOutboundCrossClusterSearchConnectionCommand,
-  CreateOutboundCrossClusterSearchConnectionCommandInput,
-  CreateOutboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/CreateOutboundCrossClusterSearchConnectionCommand";
 import {
+  type CreatePackageCommandInput,
+  type CreatePackageCommandOutput,
   CreatePackageCommand,
-  CreatePackageCommandInput,
-  CreatePackageCommandOutput,
 } from "./commands/CreatePackageCommand";
 import {
+  type CreateVpcEndpointCommandInput,
+  type CreateVpcEndpointCommandOutput,
   CreateVpcEndpointCommand,
-  CreateVpcEndpointCommandInput,
-  CreateVpcEndpointCommandOutput,
 } from "./commands/CreateVpcEndpointCommand";
 import {
+  type DeleteElasticsearchDomainCommandInput,
+  type DeleteElasticsearchDomainCommandOutput,
   DeleteElasticsearchDomainCommand,
-  DeleteElasticsearchDomainCommandInput,
-  DeleteElasticsearchDomainCommandOutput,
 } from "./commands/DeleteElasticsearchDomainCommand";
 import {
+  type DeleteElasticsearchServiceRoleCommandInput,
+  type DeleteElasticsearchServiceRoleCommandOutput,
   DeleteElasticsearchServiceRoleCommand,
-  DeleteElasticsearchServiceRoleCommandInput,
-  DeleteElasticsearchServiceRoleCommandOutput,
 } from "./commands/DeleteElasticsearchServiceRoleCommand";
 import {
+  type DeleteInboundCrossClusterSearchConnectionCommandInput,
+  type DeleteInboundCrossClusterSearchConnectionCommandOutput,
   DeleteInboundCrossClusterSearchConnectionCommand,
-  DeleteInboundCrossClusterSearchConnectionCommandInput,
-  DeleteInboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/DeleteInboundCrossClusterSearchConnectionCommand";
 import {
+  type DeleteOutboundCrossClusterSearchConnectionCommandInput,
+  type DeleteOutboundCrossClusterSearchConnectionCommandOutput,
   DeleteOutboundCrossClusterSearchConnectionCommand,
-  DeleteOutboundCrossClusterSearchConnectionCommandInput,
-  DeleteOutboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/DeleteOutboundCrossClusterSearchConnectionCommand";
 import {
+  type DeletePackageCommandInput,
+  type DeletePackageCommandOutput,
   DeletePackageCommand,
-  DeletePackageCommandInput,
-  DeletePackageCommandOutput,
 } from "./commands/DeletePackageCommand";
 import {
+  type DeleteVpcEndpointCommandInput,
+  type DeleteVpcEndpointCommandOutput,
   DeleteVpcEndpointCommand,
-  DeleteVpcEndpointCommandInput,
-  DeleteVpcEndpointCommandOutput,
 } from "./commands/DeleteVpcEndpointCommand";
 import {
+  type DescribeDomainAutoTunesCommandInput,
+  type DescribeDomainAutoTunesCommandOutput,
   DescribeDomainAutoTunesCommand,
-  DescribeDomainAutoTunesCommandInput,
-  DescribeDomainAutoTunesCommandOutput,
 } from "./commands/DescribeDomainAutoTunesCommand";
 import {
+  type DescribeDomainChangeProgressCommandInput,
+  type DescribeDomainChangeProgressCommandOutput,
   DescribeDomainChangeProgressCommand,
-  DescribeDomainChangeProgressCommandInput,
-  DescribeDomainChangeProgressCommandOutput,
 } from "./commands/DescribeDomainChangeProgressCommand";
 import {
+  type DescribeElasticsearchDomainCommandInput,
+  type DescribeElasticsearchDomainCommandOutput,
   DescribeElasticsearchDomainCommand,
-  DescribeElasticsearchDomainCommandInput,
-  DescribeElasticsearchDomainCommandOutput,
 } from "./commands/DescribeElasticsearchDomainCommand";
 import {
+  type DescribeElasticsearchDomainConfigCommandInput,
+  type DescribeElasticsearchDomainConfigCommandOutput,
   DescribeElasticsearchDomainConfigCommand,
-  DescribeElasticsearchDomainConfigCommandInput,
-  DescribeElasticsearchDomainConfigCommandOutput,
 } from "./commands/DescribeElasticsearchDomainConfigCommand";
 import {
+  type DescribeElasticsearchDomainsCommandInput,
+  type DescribeElasticsearchDomainsCommandOutput,
   DescribeElasticsearchDomainsCommand,
-  DescribeElasticsearchDomainsCommandInput,
-  DescribeElasticsearchDomainsCommandOutput,
 } from "./commands/DescribeElasticsearchDomainsCommand";
 import {
+  type DescribeElasticsearchInstanceTypeLimitsCommandInput,
+  type DescribeElasticsearchInstanceTypeLimitsCommandOutput,
   DescribeElasticsearchInstanceTypeLimitsCommand,
-  DescribeElasticsearchInstanceTypeLimitsCommandInput,
-  DescribeElasticsearchInstanceTypeLimitsCommandOutput,
 } from "./commands/DescribeElasticsearchInstanceTypeLimitsCommand";
 import {
+  type DescribeInboundCrossClusterSearchConnectionsCommandInput,
+  type DescribeInboundCrossClusterSearchConnectionsCommandOutput,
   DescribeInboundCrossClusterSearchConnectionsCommand,
-  DescribeInboundCrossClusterSearchConnectionsCommandInput,
-  DescribeInboundCrossClusterSearchConnectionsCommandOutput,
 } from "./commands/DescribeInboundCrossClusterSearchConnectionsCommand";
 import {
+  type DescribeOutboundCrossClusterSearchConnectionsCommandInput,
+  type DescribeOutboundCrossClusterSearchConnectionsCommandOutput,
   DescribeOutboundCrossClusterSearchConnectionsCommand,
-  DescribeOutboundCrossClusterSearchConnectionsCommandInput,
-  DescribeOutboundCrossClusterSearchConnectionsCommandOutput,
 } from "./commands/DescribeOutboundCrossClusterSearchConnectionsCommand";
 import {
+  type DescribePackagesCommandInput,
+  type DescribePackagesCommandOutput,
   DescribePackagesCommand,
-  DescribePackagesCommandInput,
-  DescribePackagesCommandOutput,
 } from "./commands/DescribePackagesCommand";
 import {
+  type DescribeReservedElasticsearchInstanceOfferingsCommandInput,
+  type DescribeReservedElasticsearchInstanceOfferingsCommandOutput,
   DescribeReservedElasticsearchInstanceOfferingsCommand,
-  DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-  DescribeReservedElasticsearchInstanceOfferingsCommandOutput,
 } from "./commands/DescribeReservedElasticsearchInstanceOfferingsCommand";
 import {
+  type DescribeReservedElasticsearchInstancesCommandInput,
+  type DescribeReservedElasticsearchInstancesCommandOutput,
   DescribeReservedElasticsearchInstancesCommand,
-  DescribeReservedElasticsearchInstancesCommandInput,
-  DescribeReservedElasticsearchInstancesCommandOutput,
 } from "./commands/DescribeReservedElasticsearchInstancesCommand";
 import {
+  type DescribeVpcEndpointsCommandInput,
+  type DescribeVpcEndpointsCommandOutput,
   DescribeVpcEndpointsCommand,
-  DescribeVpcEndpointsCommandInput,
-  DescribeVpcEndpointsCommandOutput,
 } from "./commands/DescribeVpcEndpointsCommand";
 import {
+  type DissociatePackageCommandInput,
+  type DissociatePackageCommandOutput,
   DissociatePackageCommand,
-  DissociatePackageCommandInput,
-  DissociatePackageCommandOutput,
 } from "./commands/DissociatePackageCommand";
 import {
+  type GetCompatibleElasticsearchVersionsCommandInput,
+  type GetCompatibleElasticsearchVersionsCommandOutput,
   GetCompatibleElasticsearchVersionsCommand,
-  GetCompatibleElasticsearchVersionsCommandInput,
-  GetCompatibleElasticsearchVersionsCommandOutput,
 } from "./commands/GetCompatibleElasticsearchVersionsCommand";
 import {
+  type GetPackageVersionHistoryCommandInput,
+  type GetPackageVersionHistoryCommandOutput,
   GetPackageVersionHistoryCommand,
-  GetPackageVersionHistoryCommandInput,
-  GetPackageVersionHistoryCommandOutput,
 } from "./commands/GetPackageVersionHistoryCommand";
 import {
+  type GetUpgradeHistoryCommandInput,
+  type GetUpgradeHistoryCommandOutput,
   GetUpgradeHistoryCommand,
-  GetUpgradeHistoryCommandInput,
-  GetUpgradeHistoryCommandOutput,
 } from "./commands/GetUpgradeHistoryCommand";
 import {
+  type GetUpgradeStatusCommandInput,
+  type GetUpgradeStatusCommandOutput,
   GetUpgradeStatusCommand,
-  GetUpgradeStatusCommandInput,
-  GetUpgradeStatusCommandOutput,
 } from "./commands/GetUpgradeStatusCommand";
 import {
+  type ListDomainNamesCommandInput,
+  type ListDomainNamesCommandOutput,
   ListDomainNamesCommand,
-  ListDomainNamesCommandInput,
-  ListDomainNamesCommandOutput,
 } from "./commands/ListDomainNamesCommand";
 import {
+  type ListDomainsForPackageCommandInput,
+  type ListDomainsForPackageCommandOutput,
   ListDomainsForPackageCommand,
-  ListDomainsForPackageCommandInput,
-  ListDomainsForPackageCommandOutput,
 } from "./commands/ListDomainsForPackageCommand";
 import {
+  type ListElasticsearchInstanceTypesCommandInput,
+  type ListElasticsearchInstanceTypesCommandOutput,
   ListElasticsearchInstanceTypesCommand,
-  ListElasticsearchInstanceTypesCommandInput,
-  ListElasticsearchInstanceTypesCommandOutput,
 } from "./commands/ListElasticsearchInstanceTypesCommand";
 import {
+  type ListElasticsearchVersionsCommandInput,
+  type ListElasticsearchVersionsCommandOutput,
   ListElasticsearchVersionsCommand,
-  ListElasticsearchVersionsCommandInput,
-  ListElasticsearchVersionsCommandOutput,
 } from "./commands/ListElasticsearchVersionsCommand";
 import {
+  type ListPackagesForDomainCommandInput,
+  type ListPackagesForDomainCommandOutput,
   ListPackagesForDomainCommand,
-  ListPackagesForDomainCommandInput,
-  ListPackagesForDomainCommandOutput,
 } from "./commands/ListPackagesForDomainCommand";
-import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { type ListTagsCommandInput, type ListTagsCommandOutput, ListTagsCommand } from "./commands/ListTagsCommand";
 import {
+  type ListVpcEndpointAccessCommandInput,
+  type ListVpcEndpointAccessCommandOutput,
   ListVpcEndpointAccessCommand,
-  ListVpcEndpointAccessCommandInput,
-  ListVpcEndpointAccessCommandOutput,
 } from "./commands/ListVpcEndpointAccessCommand";
 import {
+  type ListVpcEndpointsCommandInput,
+  type ListVpcEndpointsCommandOutput,
   ListVpcEndpointsCommand,
-  ListVpcEndpointsCommandInput,
-  ListVpcEndpointsCommandOutput,
 } from "./commands/ListVpcEndpointsCommand";
 import {
+  type ListVpcEndpointsForDomainCommandInput,
+  type ListVpcEndpointsForDomainCommandOutput,
   ListVpcEndpointsForDomainCommand,
-  ListVpcEndpointsForDomainCommandInput,
-  ListVpcEndpointsForDomainCommandOutput,
 } from "./commands/ListVpcEndpointsForDomainCommand";
 import {
+  type PurchaseReservedElasticsearchInstanceOfferingCommandInput,
+  type PurchaseReservedElasticsearchInstanceOfferingCommandOutput,
   PurchaseReservedElasticsearchInstanceOfferingCommand,
-  PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-  PurchaseReservedElasticsearchInstanceOfferingCommandOutput,
 } from "./commands/PurchaseReservedElasticsearchInstanceOfferingCommand";
 import {
+  type RejectInboundCrossClusterSearchConnectionCommandInput,
+  type RejectInboundCrossClusterSearchConnectionCommandOutput,
   RejectInboundCrossClusterSearchConnectionCommand,
-  RejectInboundCrossClusterSearchConnectionCommandInput,
-  RejectInboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/RejectInboundCrossClusterSearchConnectionCommand";
-import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
+  type RemoveTagsCommandInput,
+  type RemoveTagsCommandOutput,
+  RemoveTagsCommand,
+} from "./commands/RemoveTagsCommand";
+import {
+  type RevokeVpcEndpointAccessCommandInput,
+  type RevokeVpcEndpointAccessCommandOutput,
   RevokeVpcEndpointAccessCommand,
-  RevokeVpcEndpointAccessCommandInput,
-  RevokeVpcEndpointAccessCommandOutput,
 } from "./commands/RevokeVpcEndpointAccessCommand";
 import {
+  type StartElasticsearchServiceSoftwareUpdateCommandInput,
+  type StartElasticsearchServiceSoftwareUpdateCommandOutput,
   StartElasticsearchServiceSoftwareUpdateCommand,
-  StartElasticsearchServiceSoftwareUpdateCommandInput,
-  StartElasticsearchServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartElasticsearchServiceSoftwareUpdateCommand";
 import {
+  type UpdateElasticsearchDomainConfigCommandInput,
+  type UpdateElasticsearchDomainConfigCommandOutput,
   UpdateElasticsearchDomainConfigCommand,
-  UpdateElasticsearchDomainConfigCommandInput,
-  UpdateElasticsearchDomainConfigCommandOutput,
 } from "./commands/UpdateElasticsearchDomainConfigCommand";
 import {
+  type UpdatePackageCommandInput,
+  type UpdatePackageCommandOutput,
   UpdatePackageCommand,
-  UpdatePackageCommandInput,
-  UpdatePackageCommandOutput,
 } from "./commands/UpdatePackageCommand";
 import {
+  type UpdateVpcEndpointCommandInput,
+  type UpdateVpcEndpointCommandOutput,
   UpdateVpcEndpointCommand,
-  UpdateVpcEndpointCommandInput,
-  UpdateVpcEndpointCommandOutput,
 } from "./commands/UpdateVpcEndpointCommand";
 import {
+  type UpgradeElasticsearchDomainCommandInput,
+  type UpgradeElasticsearchDomainCommandOutput,
   UpgradeElasticsearchDomainCommand,
-  UpgradeElasticsearchDomainCommandInput,
-  UpgradeElasticsearchDomainCommandOutput,
 } from "./commands/UpgradeElasticsearchDomainCommand";
 import { ElasticsearchServiceClient } from "./ElasticsearchServiceClient";
 import { paginateDescribeDomainAutoTunes } from "./pagination/DescribeDomainAutoTunesPaginator";

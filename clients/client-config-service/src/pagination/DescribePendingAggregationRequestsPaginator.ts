@@ -8,7 +8,7 @@ import {
   DescribePendingAggregationRequestsCommandOutput,
 } from "../commands/DescribePendingAggregationRequestsCommand";
 import { ConfigServiceClient } from "../ConfigServiceClient";
-import { ConfigServicePaginationConfiguration } from "./Interfaces";
+import type { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

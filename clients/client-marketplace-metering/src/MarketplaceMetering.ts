@@ -3,20 +3,24 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type BatchMeterUsageCommandInput,
+  type BatchMeterUsageCommandOutput,
   BatchMeterUsageCommand,
-  BatchMeterUsageCommandInput,
-  BatchMeterUsageCommandOutput,
 } from "./commands/BatchMeterUsageCommand";
-import { MeterUsageCommand, MeterUsageCommandInput, MeterUsageCommandOutput } from "./commands/MeterUsageCommand";
 import {
+  type MeterUsageCommandInput,
+  type MeterUsageCommandOutput,
+  MeterUsageCommand,
+} from "./commands/MeterUsageCommand";
+import {
+  type RegisterUsageCommandInput,
+  type RegisterUsageCommandOutput,
   RegisterUsageCommand,
-  RegisterUsageCommandInput,
-  RegisterUsageCommandOutput,
 } from "./commands/RegisterUsageCommand";
 import {
+  type ResolveCustomerCommandInput,
+  type ResolveCustomerCommandOutput,
   ResolveCustomerCommand,
-  ResolveCustomerCommandInput,
-  ResolveCustomerCommandOutput,
 } from "./commands/ResolveCustomerCommand";
 import { MarketplaceMeteringClient } from "./MarketplaceMeteringClient";
 

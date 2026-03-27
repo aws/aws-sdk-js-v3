@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,105 +61,114 @@ import {
   defaultMediaTailorHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   ConfigureLogsForChannelCommandInput,
   ConfigureLogsForChannelCommandOutput,
 } from "./commands/ConfigureLogsForChannelCommand";
-import {
+import type {
   ConfigureLogsForPlaybackConfigurationCommandInput,
   ConfigureLogsForPlaybackConfigurationCommandOutput,
 } from "./commands/ConfigureLogsForPlaybackConfigurationCommand";
-import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
-import { CreateLiveSourceCommandInput, CreateLiveSourceCommandOutput } from "./commands/CreateLiveSourceCommand";
-import {
+import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import type { CreateLiveSourceCommandInput, CreateLiveSourceCommandOutput } from "./commands/CreateLiveSourceCommand";
+import type {
   CreatePrefetchScheduleCommandInput,
   CreatePrefetchScheduleCommandOutput,
 } from "./commands/CreatePrefetchScheduleCommand";
-import { CreateProgramCommandInput, CreateProgramCommandOutput } from "./commands/CreateProgramCommand";
-import {
+import type { CreateProgramCommandInput, CreateProgramCommandOutput } from "./commands/CreateProgramCommand";
+import type {
   CreateSourceLocationCommandInput,
   CreateSourceLocationCommandOutput,
 } from "./commands/CreateSourceLocationCommand";
-import { CreateVodSourceCommandInput, CreateVodSourceCommandOutput } from "./commands/CreateVodSourceCommand";
-import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
-import {
+import type { CreateVodSourceCommandInput, CreateVodSourceCommandOutput } from "./commands/CreateVodSourceCommand";
+import type { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import type {
   DeleteChannelPolicyCommandInput,
   DeleteChannelPolicyCommandOutput,
 } from "./commands/DeleteChannelPolicyCommand";
-import { DeleteLiveSourceCommandInput, DeleteLiveSourceCommandOutput } from "./commands/DeleteLiveSourceCommand";
-import {
+import type { DeleteLiveSourceCommandInput, DeleteLiveSourceCommandOutput } from "./commands/DeleteLiveSourceCommand";
+import type {
   DeletePlaybackConfigurationCommandInput,
   DeletePlaybackConfigurationCommandOutput,
 } from "./commands/DeletePlaybackConfigurationCommand";
-import {
+import type {
   DeletePrefetchScheduleCommandInput,
   DeletePrefetchScheduleCommandOutput,
 } from "./commands/DeletePrefetchScheduleCommand";
-import { DeleteProgramCommandInput, DeleteProgramCommandOutput } from "./commands/DeleteProgramCommand";
-import {
+import type { DeleteProgramCommandInput, DeleteProgramCommandOutput } from "./commands/DeleteProgramCommand";
+import type {
   DeleteSourceLocationCommandInput,
   DeleteSourceLocationCommandOutput,
 } from "./commands/DeleteSourceLocationCommand";
-import { DeleteVodSourceCommandInput, DeleteVodSourceCommandOutput } from "./commands/DeleteVodSourceCommand";
-import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
-import { DescribeLiveSourceCommandInput, DescribeLiveSourceCommandOutput } from "./commands/DescribeLiveSourceCommand";
-import { DescribeProgramCommandInput, DescribeProgramCommandOutput } from "./commands/DescribeProgramCommand";
-import {
+import type { DeleteVodSourceCommandInput, DeleteVodSourceCommandOutput } from "./commands/DeleteVodSourceCommand";
+import type { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
+import type {
+  DescribeLiveSourceCommandInput,
+  DescribeLiveSourceCommandOutput,
+} from "./commands/DescribeLiveSourceCommand";
+import type { DescribeProgramCommandInput, DescribeProgramCommandOutput } from "./commands/DescribeProgramCommand";
+import type {
   DescribeSourceLocationCommandInput,
   DescribeSourceLocationCommandOutput,
 } from "./commands/DescribeSourceLocationCommand";
-import { DescribeVodSourceCommandInput, DescribeVodSourceCommandOutput } from "./commands/DescribeVodSourceCommand";
-import { GetChannelPolicyCommandInput, GetChannelPolicyCommandOutput } from "./commands/GetChannelPolicyCommand";
-import { GetChannelScheduleCommandInput, GetChannelScheduleCommandOutput } from "./commands/GetChannelScheduleCommand";
-import {
+import type {
+  DescribeVodSourceCommandInput,
+  DescribeVodSourceCommandOutput,
+} from "./commands/DescribeVodSourceCommand";
+import type { GetChannelPolicyCommandInput, GetChannelPolicyCommandOutput } from "./commands/GetChannelPolicyCommand";
+import type {
+  GetChannelScheduleCommandInput,
+  GetChannelScheduleCommandOutput,
+} from "./commands/GetChannelScheduleCommand";
+import type {
   GetPlaybackConfigurationCommandInput,
   GetPlaybackConfigurationCommandOutput,
 } from "./commands/GetPlaybackConfigurationCommand";
-import {
+import type {
   GetPrefetchScheduleCommandInput,
   GetPrefetchScheduleCommandOutput,
 } from "./commands/GetPrefetchScheduleCommand";
-import { ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
-import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
-import { ListLiveSourcesCommandInput, ListLiveSourcesCommandOutput } from "./commands/ListLiveSourcesCommand";
-import {
+import type { ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
+import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import type { ListLiveSourcesCommandInput, ListLiveSourcesCommandOutput } from "./commands/ListLiveSourcesCommand";
+import type {
   ListPlaybackConfigurationsCommandInput,
   ListPlaybackConfigurationsCommandOutput,
 } from "./commands/ListPlaybackConfigurationsCommand";
-import {
+import type {
   ListPrefetchSchedulesCommandInput,
   ListPrefetchSchedulesCommandOutput,
 } from "./commands/ListPrefetchSchedulesCommand";
-import {
+import type {
   ListSourceLocationsCommandInput,
   ListSourceLocationsCommandOutput,
 } from "./commands/ListSourceLocationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListVodSourcesCommandInput, ListVodSourcesCommandOutput } from "./commands/ListVodSourcesCommand";
-import { PutChannelPolicyCommandInput, PutChannelPolicyCommandOutput } from "./commands/PutChannelPolicyCommand";
-import {
+import type { ListVodSourcesCommandInput, ListVodSourcesCommandOutput } from "./commands/ListVodSourcesCommand";
+import type { PutChannelPolicyCommandInput, PutChannelPolicyCommandOutput } from "./commands/PutChannelPolicyCommand";
+import type {
   PutPlaybackConfigurationCommandInput,
   PutPlaybackConfigurationCommandOutput,
 } from "./commands/PutPlaybackConfigurationCommand";
-import { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand";
-import { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
-import { UpdateLiveSourceCommandInput, UpdateLiveSourceCommandOutput } from "./commands/UpdateLiveSourceCommand";
-import { UpdateProgramCommandInput, UpdateProgramCommandOutput } from "./commands/UpdateProgramCommand";
-import {
+import type { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand";
+import type { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import type { UpdateLiveSourceCommandInput, UpdateLiveSourceCommandOutput } from "./commands/UpdateLiveSourceCommand";
+import type { UpdateProgramCommandInput, UpdateProgramCommandOutput } from "./commands/UpdateProgramCommand";
+import type {
   UpdateSourceLocationCommandInput,
   UpdateSourceLocationCommandOutput,
 } from "./commands/UpdateSourceLocationCommand";
-import { UpdateVodSourceCommandInput, UpdateVodSourceCommandOutput } from "./commands/UpdateVodSourceCommand";
+import type { UpdateVodSourceCommandInput, UpdateVodSourceCommandOutput } from "./commands/UpdateVodSourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -381,7 +388,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

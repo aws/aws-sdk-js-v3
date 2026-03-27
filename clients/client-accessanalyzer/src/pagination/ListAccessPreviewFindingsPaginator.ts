@@ -8,7 +8,7 @@ import {
   ListAccessPreviewFindingsCommandInput,
   ListAccessPreviewFindingsCommandOutput,
 } from "../commands/ListAccessPreviewFindingsCommand";
-import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
+import type { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

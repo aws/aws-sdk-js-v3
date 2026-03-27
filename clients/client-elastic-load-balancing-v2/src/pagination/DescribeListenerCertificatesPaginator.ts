@@ -8,7 +8,7 @@ import {
   DescribeListenerCertificatesCommandOutput,
 } from "../commands/DescribeListenerCertificatesCommand";
 import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
-import { ElasticLoadBalancingV2PaginationConfiguration } from "./Interfaces";
+import type { ElasticLoadBalancingV2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

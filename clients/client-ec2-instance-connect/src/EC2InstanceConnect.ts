@@ -3,14 +3,14 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type SendSerialConsoleSSHPublicKeyCommandInput,
+  type SendSerialConsoleSSHPublicKeyCommandOutput,
   SendSerialConsoleSSHPublicKeyCommand,
-  SendSerialConsoleSSHPublicKeyCommandInput,
-  SendSerialConsoleSSHPublicKeyCommandOutput,
 } from "./commands/SendSerialConsoleSSHPublicKeyCommand";
 import {
+  type SendSSHPublicKeyCommandInput,
+  type SendSSHPublicKeyCommandOutput,
   SendSSHPublicKeyCommand,
-  SendSSHPublicKeyCommandInput,
-  SendSSHPublicKeyCommandOutput,
 } from "./commands/SendSSHPublicKeyCommand";
 import { EC2InstanceConnectClient } from "./EC2InstanceConnectClient";
 

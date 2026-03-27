@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { CertificateField, NotificationChannel, NotificationEvent, TrustAnchorType } from "./enums";
+import type { CertificateField, NotificationChannel, NotificationEvent, TrustAnchorType } from "./enums";
 
 /**
  * <p>A single mapping entry for each supported specifier or sub-field.</p>

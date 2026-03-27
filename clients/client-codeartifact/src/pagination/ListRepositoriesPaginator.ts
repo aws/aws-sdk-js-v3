@@ -8,7 +8,7 @@ import {
   ListRepositoriesCommandInput,
   ListRepositoriesCommandOutput,
 } from "../commands/ListRepositoriesCommand";
-import { CodeartifactPaginationConfiguration } from "./Interfaces";
+import type { CodeartifactPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

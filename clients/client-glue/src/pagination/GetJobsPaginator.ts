@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { GetJobsCommand, GetJobsCommandInput, GetJobsCommandOutput } from "../commands/GetJobsCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

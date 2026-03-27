@@ -8,7 +8,7 @@ import {
   ListResiliencyPoliciesCommandOutput,
 } from "../commands/ListResiliencyPoliciesCommand";
 import { ResiliencehubClient } from "../ResiliencehubClient";
-import { ResiliencehubPaginationConfiguration } from "./Interfaces";
+import type { ResiliencehubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

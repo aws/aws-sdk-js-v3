@@ -8,7 +8,7 @@ import {
   ListRunTasksCommandOutput,
 } from "../commands/ListRunTasksCommand";
 import { OmicsClient } from "../OmicsClient";
-import { OmicsPaginationConfiguration } from "./Interfaces";
+import type { OmicsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

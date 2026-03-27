@@ -8,7 +8,7 @@ import {
   ListApplicationDPUSizesCommandInput,
   ListApplicationDPUSizesCommandOutput,
 } from "../commands/ListApplicationDPUSizesCommand";
-import { AthenaPaginationConfiguration } from "./Interfaces";
+import type { AthenaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

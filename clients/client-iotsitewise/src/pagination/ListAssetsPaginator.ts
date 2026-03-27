@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListAssetsCommand, ListAssetsCommandInput, ListAssetsCommandOutput } from "../commands/ListAssetsCommand";
 import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
-import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
+import type { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

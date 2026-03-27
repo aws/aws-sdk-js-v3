@@ -8,7 +8,7 @@ import {
   ListSecurityProfilesForTargetCommandOutput,
 } from "../commands/ListSecurityProfilesForTargetCommand";
 import { IoTClient } from "../IoTClient";
-import { IoTPaginationConfiguration } from "./Interfaces";
+import type { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListEventTypesCommandInput,
   ListEventTypesCommandOutput,
 } from "../commands/ListEventTypesCommand";
-import { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
+import type { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

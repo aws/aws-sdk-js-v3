@@ -8,7 +8,7 @@ import {
   ListDataSetRevisionsCommandOutput,
 } from "../commands/ListDataSetRevisionsCommand";
 import { DataExchangeClient } from "../DataExchangeClient";
-import { DataExchangePaginationConfiguration } from "./Interfaces";
+import type { DataExchangePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

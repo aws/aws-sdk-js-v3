@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,105 +61,120 @@ import {
   defaultWickrHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BatchCreateUserCommandInput, BatchCreateUserCommandOutput } from "./commands/BatchCreateUserCommand";
-import { BatchDeleteUserCommandInput, BatchDeleteUserCommandOutput } from "./commands/BatchDeleteUserCommand";
-import {
+import type { BatchCreateUserCommandInput, BatchCreateUserCommandOutput } from "./commands/BatchCreateUserCommand";
+import type { BatchDeleteUserCommandInput, BatchDeleteUserCommandOutput } from "./commands/BatchDeleteUserCommand";
+import type {
   BatchLookupUserUnameCommandInput,
   BatchLookupUserUnameCommandOutput,
 } from "./commands/BatchLookupUserUnameCommand";
-import { BatchReinviteUserCommandInput, BatchReinviteUserCommandOutput } from "./commands/BatchReinviteUserCommand";
-import {
+import type {
+  BatchReinviteUserCommandInput,
+  BatchReinviteUserCommandOutput,
+} from "./commands/BatchReinviteUserCommand";
+import type {
   BatchResetDevicesForUserCommandInput,
   BatchResetDevicesForUserCommandOutput,
 } from "./commands/BatchResetDevicesForUserCommand";
-import {
+import type {
   BatchToggleUserSuspendStatusCommandInput,
   BatchToggleUserSuspendStatusCommandOutput,
 } from "./commands/BatchToggleUserSuspendStatusCommand";
-import { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
-import {
+import type { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
+import type {
   CreateDataRetentionBotChallengeCommandInput,
   CreateDataRetentionBotChallengeCommandOutput,
 } from "./commands/CreateDataRetentionBotChallengeCommand";
-import {
+import type {
   CreateDataRetentionBotCommandInput,
   CreateDataRetentionBotCommandOutput,
 } from "./commands/CreateDataRetentionBotCommand";
-import { CreateNetworkCommandInput, CreateNetworkCommandOutput } from "./commands/CreateNetworkCommand";
-import {
+import type { CreateNetworkCommandInput, CreateNetworkCommandOutput } from "./commands/CreateNetworkCommand";
+import type {
   CreateSecurityGroupCommandInput,
   CreateSecurityGroupCommandOutput,
 } from "./commands/CreateSecurityGroupCommand";
-import { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
-import {
+import type { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
+import type {
   DeleteDataRetentionBotCommandInput,
   DeleteDataRetentionBotCommandOutput,
 } from "./commands/DeleteDataRetentionBotCommand";
-import { DeleteNetworkCommandInput, DeleteNetworkCommandOutput } from "./commands/DeleteNetworkCommand";
-import {
+import type { DeleteNetworkCommandInput, DeleteNetworkCommandOutput } from "./commands/DeleteNetworkCommand";
+import type {
   DeleteSecurityGroupCommandInput,
   DeleteSecurityGroupCommandOutput,
 } from "./commands/DeleteSecurityGroupCommand";
-import { GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
-import { GetBotsCountCommandInput, GetBotsCountCommandOutput } from "./commands/GetBotsCountCommand";
-import {
+import type { GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
+import type { GetBotsCountCommandInput, GetBotsCountCommandOutput } from "./commands/GetBotsCountCommand";
+import type {
   GetDataRetentionBotCommandInput,
   GetDataRetentionBotCommandOutput,
 } from "./commands/GetDataRetentionBotCommand";
-import {
+import type {
   GetGuestUserHistoryCountCommandInput,
   GetGuestUserHistoryCountCommandOutput,
 } from "./commands/GetGuestUserHistoryCountCommand";
-import { GetNetworkCommandInput, GetNetworkCommandOutput } from "./commands/GetNetworkCommand";
-import { GetNetworkSettingsCommandInput, GetNetworkSettingsCommandOutput } from "./commands/GetNetworkSettingsCommand";
-import { GetOidcInfoCommandInput, GetOidcInfoCommandOutput } from "./commands/GetOidcInfoCommand";
-import { GetOpentdfConfigCommandInput, GetOpentdfConfigCommandOutput } from "./commands/GetOpentdfConfigCommand";
-import { GetSecurityGroupCommandInput, GetSecurityGroupCommandOutput } from "./commands/GetSecurityGroupCommand";
-import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
-import { GetUsersCountCommandInput, GetUsersCountCommandOutput } from "./commands/GetUsersCountCommand";
-import {
+import type { GetNetworkCommandInput, GetNetworkCommandOutput } from "./commands/GetNetworkCommand";
+import type {
+  GetNetworkSettingsCommandInput,
+  GetNetworkSettingsCommandOutput,
+} from "./commands/GetNetworkSettingsCommand";
+import type { GetOidcInfoCommandInput, GetOidcInfoCommandOutput } from "./commands/GetOidcInfoCommand";
+import type { GetOpentdfConfigCommandInput, GetOpentdfConfigCommandOutput } from "./commands/GetOpentdfConfigCommand";
+import type { GetSecurityGroupCommandInput, GetSecurityGroupCommandOutput } from "./commands/GetSecurityGroupCommand";
+import type { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
+import type { GetUsersCountCommandInput, GetUsersCountCommandOutput } from "./commands/GetUsersCountCommand";
+import type {
   ListBlockedGuestUsersCommandInput,
   ListBlockedGuestUsersCommandOutput,
 } from "./commands/ListBlockedGuestUsersCommand";
-import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
-import { ListDevicesForUserCommandInput, ListDevicesForUserCommandOutput } from "./commands/ListDevicesForUserCommand";
-import { ListGuestUsersCommandInput, ListGuestUsersCommandOutput } from "./commands/ListGuestUsersCommand";
-import { ListNetworksCommandInput, ListNetworksCommandOutput } from "./commands/ListNetworksCommand";
-import { ListSecurityGroupsCommandInput, ListSecurityGroupsCommandOutput } from "./commands/ListSecurityGroupsCommand";
-import {
+import type { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import type {
+  ListDevicesForUserCommandInput,
+  ListDevicesForUserCommandOutput,
+} from "./commands/ListDevicesForUserCommand";
+import type { ListGuestUsersCommandInput, ListGuestUsersCommandOutput } from "./commands/ListGuestUsersCommand";
+import type { ListNetworksCommandInput, ListNetworksCommandOutput } from "./commands/ListNetworksCommand";
+import type {
+  ListSecurityGroupsCommandInput,
+  ListSecurityGroupsCommandOutput,
+} from "./commands/ListSecurityGroupsCommand";
+import type {
   ListSecurityGroupUsersCommandInput,
   ListSecurityGroupUsersCommandOutput,
 } from "./commands/ListSecurityGroupUsersCommand";
-import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import { RegisterOidcConfigCommandInput, RegisterOidcConfigCommandOutput } from "./commands/RegisterOidcConfigCommand";
-import {
+import type { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import type {
+  RegisterOidcConfigCommandInput,
+  RegisterOidcConfigCommandOutput,
+} from "./commands/RegisterOidcConfigCommand";
+import type {
   RegisterOidcConfigTestCommandInput,
   RegisterOidcConfigTestCommandOutput,
 } from "./commands/RegisterOidcConfigTestCommand";
-import {
+import type {
   RegisterOpentdfConfigCommandInput,
   RegisterOpentdfConfigCommandOutput,
 } from "./commands/RegisterOpentdfConfigCommand";
-import { UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
-import {
+import type { UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
+import type {
   UpdateDataRetentionCommandInput,
   UpdateDataRetentionCommandOutput,
 } from "./commands/UpdateDataRetentionCommand";
-import { UpdateGuestUserCommandInput, UpdateGuestUserCommandOutput } from "./commands/UpdateGuestUserCommand";
-import { UpdateNetworkCommandInput, UpdateNetworkCommandOutput } from "./commands/UpdateNetworkCommand";
-import {
+import type { UpdateGuestUserCommandInput, UpdateGuestUserCommandOutput } from "./commands/UpdateGuestUserCommand";
+import type { UpdateNetworkCommandInput, UpdateNetworkCommandOutput } from "./commands/UpdateNetworkCommand";
+import type {
   UpdateNetworkSettingsCommandInput,
   UpdateNetworkSettingsCommandOutput,
 } from "./commands/UpdateNetworkSettingsCommand";
-import {
+import type {
   UpdateSecurityGroupCommandInput,
   UpdateSecurityGroupCommandOutput,
 } from "./commands/UpdateSecurityGroupCommand";
-import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import type { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -381,7 +394,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,362 +61,377 @@ import {
   defaultConfigServiceHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateResourceTypesCommandInput,
   AssociateResourceTypesCommandOutput,
 } from "./commands/AssociateResourceTypesCommand";
-import {
+import type {
   BatchGetAggregateResourceConfigCommandInput,
   BatchGetAggregateResourceConfigCommandOutput,
 } from "./commands/BatchGetAggregateResourceConfigCommand";
-import {
+import type {
   BatchGetResourceConfigCommandInput,
   BatchGetResourceConfigCommandOutput,
 } from "./commands/BatchGetResourceConfigCommand";
-import {
+import type {
   DeleteAggregationAuthorizationCommandInput,
   DeleteAggregationAuthorizationCommandOutput,
 } from "./commands/DeleteAggregationAuthorizationCommand";
-import { DeleteConfigRuleCommandInput, DeleteConfigRuleCommandOutput } from "./commands/DeleteConfigRuleCommand";
-import {
+import type { DeleteConfigRuleCommandInput, DeleteConfigRuleCommandOutput } from "./commands/DeleteConfigRuleCommand";
+import type {
   DeleteConfigurationAggregatorCommandInput,
   DeleteConfigurationAggregatorCommandOutput,
 } from "./commands/DeleteConfigurationAggregatorCommand";
-import {
+import type {
   DeleteConfigurationRecorderCommandInput,
   DeleteConfigurationRecorderCommandOutput,
 } from "./commands/DeleteConfigurationRecorderCommand";
-import {
+import type {
   DeleteConformancePackCommandInput,
   DeleteConformancePackCommandOutput,
 } from "./commands/DeleteConformancePackCommand";
-import {
+import type {
   DeleteDeliveryChannelCommandInput,
   DeleteDeliveryChannelCommandOutput,
 } from "./commands/DeleteDeliveryChannelCommand";
-import {
+import type {
   DeleteEvaluationResultsCommandInput,
   DeleteEvaluationResultsCommandOutput,
 } from "./commands/DeleteEvaluationResultsCommand";
-import {
+import type {
   DeleteOrganizationConfigRuleCommandInput,
   DeleteOrganizationConfigRuleCommandOutput,
 } from "./commands/DeleteOrganizationConfigRuleCommand";
-import {
+import type {
   DeleteOrganizationConformancePackCommandInput,
   DeleteOrganizationConformancePackCommandOutput,
 } from "./commands/DeleteOrganizationConformancePackCommand";
-import {
+import type {
   DeletePendingAggregationRequestCommandInput,
   DeletePendingAggregationRequestCommandOutput,
 } from "./commands/DeletePendingAggregationRequestCommand";
-import {
+import type {
   DeleteRemediationConfigurationCommandInput,
   DeleteRemediationConfigurationCommandOutput,
 } from "./commands/DeleteRemediationConfigurationCommand";
-import {
+import type {
   DeleteRemediationExceptionsCommandInput,
   DeleteRemediationExceptionsCommandOutput,
 } from "./commands/DeleteRemediationExceptionsCommand";
-import {
+import type {
   DeleteResourceConfigCommandInput,
   DeleteResourceConfigCommandOutput,
 } from "./commands/DeleteResourceConfigCommand";
-import {
+import type {
   DeleteRetentionConfigurationCommandInput,
   DeleteRetentionConfigurationCommandOutput,
 } from "./commands/DeleteRetentionConfigurationCommand";
-import {
+import type {
   DeleteServiceLinkedConfigurationRecorderCommandInput,
   DeleteServiceLinkedConfigurationRecorderCommandOutput,
 } from "./commands/DeleteServiceLinkedConfigurationRecorderCommand";
-import { DeleteStoredQueryCommandInput, DeleteStoredQueryCommandOutput } from "./commands/DeleteStoredQueryCommand";
-import {
+import type {
+  DeleteStoredQueryCommandInput,
+  DeleteStoredQueryCommandOutput,
+} from "./commands/DeleteStoredQueryCommand";
+import type {
   DeliverConfigSnapshotCommandInput,
   DeliverConfigSnapshotCommandOutput,
 } from "./commands/DeliverConfigSnapshotCommand";
-import {
+import type {
   DescribeAggregateComplianceByConfigRulesCommandInput,
   DescribeAggregateComplianceByConfigRulesCommandOutput,
 } from "./commands/DescribeAggregateComplianceByConfigRulesCommand";
-import {
+import type {
   DescribeAggregateComplianceByConformancePacksCommandInput,
   DescribeAggregateComplianceByConformancePacksCommandOutput,
 } from "./commands/DescribeAggregateComplianceByConformancePacksCommand";
-import {
+import type {
   DescribeAggregationAuthorizationsCommandInput,
   DescribeAggregationAuthorizationsCommandOutput,
 } from "./commands/DescribeAggregationAuthorizationsCommand";
-import {
+import type {
   DescribeComplianceByConfigRuleCommandInput,
   DescribeComplianceByConfigRuleCommandOutput,
 } from "./commands/DescribeComplianceByConfigRuleCommand";
-import {
+import type {
   DescribeComplianceByResourceCommandInput,
   DescribeComplianceByResourceCommandOutput,
 } from "./commands/DescribeComplianceByResourceCommand";
-import {
+import type {
   DescribeConfigRuleEvaluationStatusCommandInput,
   DescribeConfigRuleEvaluationStatusCommandOutput,
 } from "./commands/DescribeConfigRuleEvaluationStatusCommand";
-import {
+import type {
   DescribeConfigRulesCommandInput,
   DescribeConfigRulesCommandOutput,
 } from "./commands/DescribeConfigRulesCommand";
-import {
+import type {
   DescribeConfigurationAggregatorsCommandInput,
   DescribeConfigurationAggregatorsCommandOutput,
 } from "./commands/DescribeConfigurationAggregatorsCommand";
-import {
+import type {
   DescribeConfigurationAggregatorSourcesStatusCommandInput,
   DescribeConfigurationAggregatorSourcesStatusCommandOutput,
 } from "./commands/DescribeConfigurationAggregatorSourcesStatusCommand";
-import {
+import type {
   DescribeConfigurationRecordersCommandInput,
   DescribeConfigurationRecordersCommandOutput,
 } from "./commands/DescribeConfigurationRecordersCommand";
-import {
+import type {
   DescribeConfigurationRecorderStatusCommandInput,
   DescribeConfigurationRecorderStatusCommandOutput,
 } from "./commands/DescribeConfigurationRecorderStatusCommand";
-import {
+import type {
   DescribeConformancePackComplianceCommandInput,
   DescribeConformancePackComplianceCommandOutput,
 } from "./commands/DescribeConformancePackComplianceCommand";
-import {
+import type {
   DescribeConformancePacksCommandInput,
   DescribeConformancePacksCommandOutput,
 } from "./commands/DescribeConformancePacksCommand";
-import {
+import type {
   DescribeConformancePackStatusCommandInput,
   DescribeConformancePackStatusCommandOutput,
 } from "./commands/DescribeConformancePackStatusCommand";
-import {
+import type {
   DescribeDeliveryChannelsCommandInput,
   DescribeDeliveryChannelsCommandOutput,
 } from "./commands/DescribeDeliveryChannelsCommand";
-import {
+import type {
   DescribeDeliveryChannelStatusCommandInput,
   DescribeDeliveryChannelStatusCommandOutput,
 } from "./commands/DescribeDeliveryChannelStatusCommand";
-import {
+import type {
   DescribeOrganizationConfigRulesCommandInput,
   DescribeOrganizationConfigRulesCommandOutput,
 } from "./commands/DescribeOrganizationConfigRulesCommand";
-import {
+import type {
   DescribeOrganizationConfigRuleStatusesCommandInput,
   DescribeOrganizationConfigRuleStatusesCommandOutput,
 } from "./commands/DescribeOrganizationConfigRuleStatusesCommand";
-import {
+import type {
   DescribeOrganizationConformancePacksCommandInput,
   DescribeOrganizationConformancePacksCommandOutput,
 } from "./commands/DescribeOrganizationConformancePacksCommand";
-import {
+import type {
   DescribeOrganizationConformancePackStatusesCommandInput,
   DescribeOrganizationConformancePackStatusesCommandOutput,
 } from "./commands/DescribeOrganizationConformancePackStatusesCommand";
-import {
+import type {
   DescribePendingAggregationRequestsCommandInput,
   DescribePendingAggregationRequestsCommandOutput,
 } from "./commands/DescribePendingAggregationRequestsCommand";
-import {
+import type {
   DescribeRemediationConfigurationsCommandInput,
   DescribeRemediationConfigurationsCommandOutput,
 } from "./commands/DescribeRemediationConfigurationsCommand";
-import {
+import type {
   DescribeRemediationExceptionsCommandInput,
   DescribeRemediationExceptionsCommandOutput,
 } from "./commands/DescribeRemediationExceptionsCommand";
-import {
+import type {
   DescribeRemediationExecutionStatusCommandInput,
   DescribeRemediationExecutionStatusCommandOutput,
 } from "./commands/DescribeRemediationExecutionStatusCommand";
-import {
+import type {
   DescribeRetentionConfigurationsCommandInput,
   DescribeRetentionConfigurationsCommandOutput,
 } from "./commands/DescribeRetentionConfigurationsCommand";
-import {
+import type {
   DisassociateResourceTypesCommandInput,
   DisassociateResourceTypesCommandOutput,
 } from "./commands/DisassociateResourceTypesCommand";
-import {
+import type {
   GetAggregateComplianceDetailsByConfigRuleCommandInput,
   GetAggregateComplianceDetailsByConfigRuleCommandOutput,
 } from "./commands/GetAggregateComplianceDetailsByConfigRuleCommand";
-import {
+import type {
   GetAggregateConfigRuleComplianceSummaryCommandInput,
   GetAggregateConfigRuleComplianceSummaryCommandOutput,
 } from "./commands/GetAggregateConfigRuleComplianceSummaryCommand";
-import {
+import type {
   GetAggregateConformancePackComplianceSummaryCommandInput,
   GetAggregateConformancePackComplianceSummaryCommandOutput,
 } from "./commands/GetAggregateConformancePackComplianceSummaryCommand";
-import {
+import type {
   GetAggregateDiscoveredResourceCountsCommandInput,
   GetAggregateDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetAggregateDiscoveredResourceCountsCommand";
-import {
+import type {
   GetAggregateResourceConfigCommandInput,
   GetAggregateResourceConfigCommandOutput,
 } from "./commands/GetAggregateResourceConfigCommand";
-import {
+import type {
   GetComplianceDetailsByConfigRuleCommandInput,
   GetComplianceDetailsByConfigRuleCommandOutput,
 } from "./commands/GetComplianceDetailsByConfigRuleCommand";
-import {
+import type {
   GetComplianceDetailsByResourceCommandInput,
   GetComplianceDetailsByResourceCommandOutput,
 } from "./commands/GetComplianceDetailsByResourceCommand";
-import {
+import type {
   GetComplianceSummaryByConfigRuleCommandInput,
   GetComplianceSummaryByConfigRuleCommandOutput,
 } from "./commands/GetComplianceSummaryByConfigRuleCommand";
-import {
+import type {
   GetComplianceSummaryByResourceTypeCommandInput,
   GetComplianceSummaryByResourceTypeCommandOutput,
 } from "./commands/GetComplianceSummaryByResourceTypeCommand";
-import {
+import type {
   GetConformancePackComplianceDetailsCommandInput,
   GetConformancePackComplianceDetailsCommandOutput,
 } from "./commands/GetConformancePackComplianceDetailsCommand";
-import {
+import type {
   GetConformancePackComplianceSummaryCommandInput,
   GetConformancePackComplianceSummaryCommandOutput,
 } from "./commands/GetConformancePackComplianceSummaryCommand";
-import {
+import type {
   GetCustomRulePolicyCommandInput,
   GetCustomRulePolicyCommandOutput,
 } from "./commands/GetCustomRulePolicyCommand";
-import {
+import type {
   GetDiscoveredResourceCountsCommandInput,
   GetDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetDiscoveredResourceCountsCommand";
-import {
+import type {
   GetOrganizationConfigRuleDetailedStatusCommandInput,
   GetOrganizationConfigRuleDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConfigRuleDetailedStatusCommand";
-import {
+import type {
   GetOrganizationConformancePackDetailedStatusCommandInput,
   GetOrganizationConformancePackDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConformancePackDetailedStatusCommand";
-import {
+import type {
   GetOrganizationCustomRulePolicyCommandInput,
   GetOrganizationCustomRulePolicyCommandOutput,
 } from "./commands/GetOrganizationCustomRulePolicyCommand";
-import {
+import type {
   GetResourceConfigHistoryCommandInput,
   GetResourceConfigHistoryCommandOutput,
 } from "./commands/GetResourceConfigHistoryCommand";
-import {
+import type {
   GetResourceEvaluationSummaryCommandInput,
   GetResourceEvaluationSummaryCommandOutput,
 } from "./commands/GetResourceEvaluationSummaryCommand";
-import { GetStoredQueryCommandInput, GetStoredQueryCommandOutput } from "./commands/GetStoredQueryCommand";
-import {
+import type { GetStoredQueryCommandInput, GetStoredQueryCommandOutput } from "./commands/GetStoredQueryCommand";
+import type {
   ListAggregateDiscoveredResourcesCommandInput,
   ListAggregateDiscoveredResourcesCommandOutput,
 } from "./commands/ListAggregateDiscoveredResourcesCommand";
-import {
+import type {
   ListConfigurationRecordersCommandInput,
   ListConfigurationRecordersCommandOutput,
 } from "./commands/ListConfigurationRecordersCommand";
-import {
+import type {
   ListConformancePackComplianceScoresCommandInput,
   ListConformancePackComplianceScoresCommandOutput,
 } from "./commands/ListConformancePackComplianceScoresCommand";
-import {
+import type {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
-import {
+import type {
   ListResourceEvaluationsCommandInput,
   ListResourceEvaluationsCommandOutput,
 } from "./commands/ListResourceEvaluationsCommand";
-import { ListStoredQueriesCommandInput, ListStoredQueriesCommandOutput } from "./commands/ListStoredQueriesCommand";
-import {
+import type {
+  ListStoredQueriesCommandInput,
+  ListStoredQueriesCommandOutput,
+} from "./commands/ListStoredQueriesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutAggregationAuthorizationCommandInput,
   PutAggregationAuthorizationCommandOutput,
 } from "./commands/PutAggregationAuthorizationCommand";
-import { PutConfigRuleCommandInput, PutConfigRuleCommandOutput } from "./commands/PutConfigRuleCommand";
-import {
+import type { PutConfigRuleCommandInput, PutConfigRuleCommandOutput } from "./commands/PutConfigRuleCommand";
+import type {
   PutConfigurationAggregatorCommandInput,
   PutConfigurationAggregatorCommandOutput,
 } from "./commands/PutConfigurationAggregatorCommand";
-import {
+import type {
   PutConfigurationRecorderCommandInput,
   PutConfigurationRecorderCommandOutput,
 } from "./commands/PutConfigurationRecorderCommand";
-import { PutConformancePackCommandInput, PutConformancePackCommandOutput } from "./commands/PutConformancePackCommand";
-import { PutDeliveryChannelCommandInput, PutDeliveryChannelCommandOutput } from "./commands/PutDeliveryChannelCommand";
-import { PutEvaluationsCommandInput, PutEvaluationsCommandOutput } from "./commands/PutEvaluationsCommand";
-import {
+import type {
+  PutConformancePackCommandInput,
+  PutConformancePackCommandOutput,
+} from "./commands/PutConformancePackCommand";
+import type {
+  PutDeliveryChannelCommandInput,
+  PutDeliveryChannelCommandOutput,
+} from "./commands/PutDeliveryChannelCommand";
+import type { PutEvaluationsCommandInput, PutEvaluationsCommandOutput } from "./commands/PutEvaluationsCommand";
+import type {
   PutExternalEvaluationCommandInput,
   PutExternalEvaluationCommandOutput,
 } from "./commands/PutExternalEvaluationCommand";
-import {
+import type {
   PutOrganizationConfigRuleCommandInput,
   PutOrganizationConfigRuleCommandOutput,
 } from "./commands/PutOrganizationConfigRuleCommand";
-import {
+import type {
   PutOrganizationConformancePackCommandInput,
   PutOrganizationConformancePackCommandOutput,
 } from "./commands/PutOrganizationConformancePackCommand";
-import {
+import type {
   PutRemediationConfigurationsCommandInput,
   PutRemediationConfigurationsCommandOutput,
 } from "./commands/PutRemediationConfigurationsCommand";
-import {
+import type {
   PutRemediationExceptionsCommandInput,
   PutRemediationExceptionsCommandOutput,
 } from "./commands/PutRemediationExceptionsCommand";
-import { PutResourceConfigCommandInput, PutResourceConfigCommandOutput } from "./commands/PutResourceConfigCommand";
-import {
+import type {
+  PutResourceConfigCommandInput,
+  PutResourceConfigCommandOutput,
+} from "./commands/PutResourceConfigCommand";
+import type {
   PutRetentionConfigurationCommandInput,
   PutRetentionConfigurationCommandOutput,
 } from "./commands/PutRetentionConfigurationCommand";
-import {
+import type {
   PutServiceLinkedConfigurationRecorderCommandInput,
   PutServiceLinkedConfigurationRecorderCommandOutput,
 } from "./commands/PutServiceLinkedConfigurationRecorderCommand";
-import { PutStoredQueryCommandInput, PutStoredQueryCommandOutput } from "./commands/PutStoredQueryCommand";
-import {
+import type { PutStoredQueryCommandInput, PutStoredQueryCommandOutput } from "./commands/PutStoredQueryCommand";
+import type {
   SelectAggregateResourceConfigCommandInput,
   SelectAggregateResourceConfigCommandOutput,
 } from "./commands/SelectAggregateResourceConfigCommand";
-import {
+import type {
   SelectResourceConfigCommandInput,
   SelectResourceConfigCommandOutput,
 } from "./commands/SelectResourceConfigCommand";
-import {
+import type {
   StartConfigRulesEvaluationCommandInput,
   StartConfigRulesEvaluationCommandOutput,
 } from "./commands/StartConfigRulesEvaluationCommand";
-import {
+import type {
   StartConfigurationRecorderCommandInput,
   StartConfigurationRecorderCommandOutput,
 } from "./commands/StartConfigurationRecorderCommand";
-import {
+import type {
   StartRemediationExecutionCommandInput,
   StartRemediationExecutionCommandOutput,
 } from "./commands/StartRemediationExecutionCommand";
-import {
+import type {
   StartResourceEvaluationCommandInput,
   StartResourceEvaluationCommandOutput,
 } from "./commands/StartResourceEvaluationCommand";
-import {
+import type {
   StopConfigurationRecorderCommandInput,
   StopConfigurationRecorderCommandOutput,
 } from "./commands/StopConfigurationRecorderCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -744,7 +757,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -8,7 +8,7 @@ import {
   ListApprovalTeamsCommandOutput,
 } from "../commands/ListApprovalTeamsCommand";
 import { MPAClient } from "../MPAClient";
-import { MPAPaginationConfiguration } from "./Interfaces";
+import type { MPAPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

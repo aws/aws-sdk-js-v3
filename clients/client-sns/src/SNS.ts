@@ -3,186 +3,206 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddPermissionCommandInput,
+  type AddPermissionCommandOutput,
   AddPermissionCommand,
-  AddPermissionCommandInput,
-  AddPermissionCommandOutput,
 } from "./commands/AddPermissionCommand";
 import {
+  type CheckIfPhoneNumberIsOptedOutCommandInput,
+  type CheckIfPhoneNumberIsOptedOutCommandOutput,
   CheckIfPhoneNumberIsOptedOutCommand,
-  CheckIfPhoneNumberIsOptedOutCommandInput,
-  CheckIfPhoneNumberIsOptedOutCommandOutput,
 } from "./commands/CheckIfPhoneNumberIsOptedOutCommand";
 import {
+  type ConfirmSubscriptionCommandInput,
+  type ConfirmSubscriptionCommandOutput,
   ConfirmSubscriptionCommand,
-  ConfirmSubscriptionCommandInput,
-  ConfirmSubscriptionCommandOutput,
 } from "./commands/ConfirmSubscriptionCommand";
 import {
+  type CreatePlatformApplicationCommandInput,
+  type CreatePlatformApplicationCommandOutput,
   CreatePlatformApplicationCommand,
-  CreatePlatformApplicationCommandInput,
-  CreatePlatformApplicationCommandOutput,
 } from "./commands/CreatePlatformApplicationCommand";
 import {
+  type CreatePlatformEndpointCommandInput,
+  type CreatePlatformEndpointCommandOutput,
   CreatePlatformEndpointCommand,
-  CreatePlatformEndpointCommandInput,
-  CreatePlatformEndpointCommandOutput,
 } from "./commands/CreatePlatformEndpointCommand";
 import {
+  type CreateSMSSandboxPhoneNumberCommandInput,
+  type CreateSMSSandboxPhoneNumberCommandOutput,
   CreateSMSSandboxPhoneNumberCommand,
-  CreateSMSSandboxPhoneNumberCommandInput,
-  CreateSMSSandboxPhoneNumberCommandOutput,
 } from "./commands/CreateSMSSandboxPhoneNumberCommand";
-import { CreateTopicCommand, CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
 import {
+  type CreateTopicCommandInput,
+  type CreateTopicCommandOutput,
+  CreateTopicCommand,
+} from "./commands/CreateTopicCommand";
+import {
+  type DeleteEndpointCommandInput,
+  type DeleteEndpointCommandOutput,
   DeleteEndpointCommand,
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput,
 } from "./commands/DeleteEndpointCommand";
 import {
+  type DeletePlatformApplicationCommandInput,
+  type DeletePlatformApplicationCommandOutput,
   DeletePlatformApplicationCommand,
-  DeletePlatformApplicationCommandInput,
-  DeletePlatformApplicationCommandOutput,
 } from "./commands/DeletePlatformApplicationCommand";
 import {
+  type DeleteSMSSandboxPhoneNumberCommandInput,
+  type DeleteSMSSandboxPhoneNumberCommandOutput,
   DeleteSMSSandboxPhoneNumberCommand,
-  DeleteSMSSandboxPhoneNumberCommandInput,
-  DeleteSMSSandboxPhoneNumberCommandOutput,
 } from "./commands/DeleteSMSSandboxPhoneNumberCommand";
-import { DeleteTopicCommand, DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
 import {
+  type DeleteTopicCommandInput,
+  type DeleteTopicCommandOutput,
+  DeleteTopicCommand,
+} from "./commands/DeleteTopicCommand";
+import {
+  type GetDataProtectionPolicyCommandInput,
+  type GetDataProtectionPolicyCommandOutput,
   GetDataProtectionPolicyCommand,
-  GetDataProtectionPolicyCommandInput,
-  GetDataProtectionPolicyCommandOutput,
 } from "./commands/GetDataProtectionPolicyCommand";
 import {
+  type GetEndpointAttributesCommandInput,
+  type GetEndpointAttributesCommandOutput,
   GetEndpointAttributesCommand,
-  GetEndpointAttributesCommandInput,
-  GetEndpointAttributesCommandOutput,
 } from "./commands/GetEndpointAttributesCommand";
 import {
+  type GetPlatformApplicationAttributesCommandInput,
+  type GetPlatformApplicationAttributesCommandOutput,
   GetPlatformApplicationAttributesCommand,
-  GetPlatformApplicationAttributesCommandInput,
-  GetPlatformApplicationAttributesCommandOutput,
 } from "./commands/GetPlatformApplicationAttributesCommand";
 import {
+  type GetSMSAttributesCommandInput,
+  type GetSMSAttributesCommandOutput,
   GetSMSAttributesCommand,
-  GetSMSAttributesCommandInput,
-  GetSMSAttributesCommandOutput,
 } from "./commands/GetSMSAttributesCommand";
 import {
+  type GetSMSSandboxAccountStatusCommandInput,
+  type GetSMSSandboxAccountStatusCommandOutput,
   GetSMSSandboxAccountStatusCommand,
-  GetSMSSandboxAccountStatusCommandInput,
-  GetSMSSandboxAccountStatusCommandOutput,
 } from "./commands/GetSMSSandboxAccountStatusCommand";
 import {
+  type GetSubscriptionAttributesCommandInput,
+  type GetSubscriptionAttributesCommandOutput,
   GetSubscriptionAttributesCommand,
-  GetSubscriptionAttributesCommandInput,
-  GetSubscriptionAttributesCommandOutput,
 } from "./commands/GetSubscriptionAttributesCommand";
 import {
+  type GetTopicAttributesCommandInput,
+  type GetTopicAttributesCommandOutput,
   GetTopicAttributesCommand,
-  GetTopicAttributesCommandInput,
-  GetTopicAttributesCommandOutput,
 } from "./commands/GetTopicAttributesCommand";
 import {
+  type ListEndpointsByPlatformApplicationCommandInput,
+  type ListEndpointsByPlatformApplicationCommandOutput,
   ListEndpointsByPlatformApplicationCommand,
-  ListEndpointsByPlatformApplicationCommandInput,
-  ListEndpointsByPlatformApplicationCommandOutput,
 } from "./commands/ListEndpointsByPlatformApplicationCommand";
 import {
+  type ListOriginationNumbersCommandInput,
+  type ListOriginationNumbersCommandOutput,
   ListOriginationNumbersCommand,
-  ListOriginationNumbersCommandInput,
-  ListOriginationNumbersCommandOutput,
 } from "./commands/ListOriginationNumbersCommand";
 import {
+  type ListPhoneNumbersOptedOutCommandInput,
+  type ListPhoneNumbersOptedOutCommandOutput,
   ListPhoneNumbersOptedOutCommand,
-  ListPhoneNumbersOptedOutCommandInput,
-  ListPhoneNumbersOptedOutCommandOutput,
 } from "./commands/ListPhoneNumbersOptedOutCommand";
 import {
+  type ListPlatformApplicationsCommandInput,
+  type ListPlatformApplicationsCommandOutput,
   ListPlatformApplicationsCommand,
-  ListPlatformApplicationsCommandInput,
-  ListPlatformApplicationsCommandOutput,
 } from "./commands/ListPlatformApplicationsCommand";
 import {
+  type ListSMSSandboxPhoneNumbersCommandInput,
+  type ListSMSSandboxPhoneNumbersCommandOutput,
   ListSMSSandboxPhoneNumbersCommand,
-  ListSMSSandboxPhoneNumbersCommandInput,
-  ListSMSSandboxPhoneNumbersCommandOutput,
 } from "./commands/ListSMSSandboxPhoneNumbersCommand";
 import {
+  type ListSubscriptionsByTopicCommandInput,
+  type ListSubscriptionsByTopicCommandOutput,
   ListSubscriptionsByTopicCommand,
-  ListSubscriptionsByTopicCommandInput,
-  ListSubscriptionsByTopicCommandOutput,
 } from "./commands/ListSubscriptionsByTopicCommand";
 import {
+  type ListSubscriptionsCommandInput,
+  type ListSubscriptionsCommandOutput,
   ListSubscriptionsCommand,
-  ListSubscriptionsCommandInput,
-  ListSubscriptionsCommandOutput,
 } from "./commands/ListSubscriptionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import {
+  type ListTopicsCommandInput,
+  type ListTopicsCommandOutput,
+  ListTopicsCommand,
+} from "./commands/ListTopicsCommand";
+import {
+  type OptInPhoneNumberCommandInput,
+  type OptInPhoneNumberCommandOutput,
   OptInPhoneNumberCommand,
-  OptInPhoneNumberCommandInput,
-  OptInPhoneNumberCommandOutput,
 } from "./commands/OptInPhoneNumberCommand";
 import {
+  type PublishBatchCommandInput,
+  type PublishBatchCommandOutput,
   PublishBatchCommand,
-  PublishBatchCommandInput,
-  PublishBatchCommandOutput,
 } from "./commands/PublishBatchCommand";
-import { PublishCommand, PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
+import { type PublishCommandInput, type PublishCommandOutput, PublishCommand } from "./commands/PublishCommand";
 import {
+  type PutDataProtectionPolicyCommandInput,
+  type PutDataProtectionPolicyCommandOutput,
   PutDataProtectionPolicyCommand,
-  PutDataProtectionPolicyCommandInput,
-  PutDataProtectionPolicyCommandOutput,
 } from "./commands/PutDataProtectionPolicyCommand";
 import {
+  type RemovePermissionCommandInput,
+  type RemovePermissionCommandOutput,
   RemovePermissionCommand,
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand";
 import {
+  type SetEndpointAttributesCommandInput,
+  type SetEndpointAttributesCommandOutput,
   SetEndpointAttributesCommand,
-  SetEndpointAttributesCommandInput,
-  SetEndpointAttributesCommandOutput,
 } from "./commands/SetEndpointAttributesCommand";
 import {
+  type SetPlatformApplicationAttributesCommandInput,
+  type SetPlatformApplicationAttributesCommandOutput,
   SetPlatformApplicationAttributesCommand,
-  SetPlatformApplicationAttributesCommandInput,
-  SetPlatformApplicationAttributesCommandOutput,
 } from "./commands/SetPlatformApplicationAttributesCommand";
 import {
+  type SetSMSAttributesCommandInput,
+  type SetSMSAttributesCommandOutput,
   SetSMSAttributesCommand,
-  SetSMSAttributesCommandInput,
-  SetSMSAttributesCommandOutput,
 } from "./commands/SetSMSAttributesCommand";
 import {
+  type SetSubscriptionAttributesCommandInput,
+  type SetSubscriptionAttributesCommandOutput,
   SetSubscriptionAttributesCommand,
-  SetSubscriptionAttributesCommandInput,
-  SetSubscriptionAttributesCommandOutput,
 } from "./commands/SetSubscriptionAttributesCommand";
 import {
+  type SetTopicAttributesCommandInput,
+  type SetTopicAttributesCommandOutput,
   SetTopicAttributesCommand,
-  SetTopicAttributesCommandInput,
-  SetTopicAttributesCommandOutput,
 } from "./commands/SetTopicAttributesCommand";
-import { SubscribeCommand, SubscribeCommandInput, SubscribeCommandOutput } from "./commands/SubscribeCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UnsubscribeCommand, UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand";
+import { type SubscribeCommandInput, type SubscribeCommandOutput, SubscribeCommand } from "./commands/SubscribeCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UnsubscribeCommandInput,
+  type UnsubscribeCommandOutput,
+  UnsubscribeCommand,
+} from "./commands/UnsubscribeCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type VerifySMSSandboxPhoneNumberCommandInput,
+  type VerifySMSSandboxPhoneNumberCommandOutput,
   VerifySMSSandboxPhoneNumberCommand,
-  VerifySMSSandboxPhoneNumberCommandInput,
-  VerifySMSSandboxPhoneNumberCommandOutput,
 } from "./commands/VerifySMSSandboxPhoneNumberCommand";
 import { paginateListEndpointsByPlatformApplication } from "./pagination/ListEndpointsByPlatformApplicationPaginator";
 import { paginateListOriginationNumbers } from "./pagination/ListOriginationNumbersPaginator";

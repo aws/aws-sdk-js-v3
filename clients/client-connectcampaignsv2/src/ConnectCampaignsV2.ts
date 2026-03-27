@@ -3,175 +3,179 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateCampaignCommandInput,
+  type CreateCampaignCommandOutput,
   CreateCampaignCommand,
-  CreateCampaignCommandInput,
-  CreateCampaignCommandOutput,
 } from "./commands/CreateCampaignCommand";
 import {
+  type DeleteCampaignChannelSubtypeConfigCommandInput,
+  type DeleteCampaignChannelSubtypeConfigCommandOutput,
   DeleteCampaignChannelSubtypeConfigCommand,
-  DeleteCampaignChannelSubtypeConfigCommandInput,
-  DeleteCampaignChannelSubtypeConfigCommandOutput,
 } from "./commands/DeleteCampaignChannelSubtypeConfigCommand";
 import {
+  type DeleteCampaignCommandInput,
+  type DeleteCampaignCommandOutput,
   DeleteCampaignCommand,
-  DeleteCampaignCommandInput,
-  DeleteCampaignCommandOutput,
 } from "./commands/DeleteCampaignCommand";
 import {
+  type DeleteCampaignCommunicationLimitsCommandInput,
+  type DeleteCampaignCommunicationLimitsCommandOutput,
   DeleteCampaignCommunicationLimitsCommand,
-  DeleteCampaignCommunicationLimitsCommandInput,
-  DeleteCampaignCommunicationLimitsCommandOutput,
 } from "./commands/DeleteCampaignCommunicationLimitsCommand";
 import {
+  type DeleteCampaignCommunicationTimeCommandInput,
+  type DeleteCampaignCommunicationTimeCommandOutput,
   DeleteCampaignCommunicationTimeCommand,
-  DeleteCampaignCommunicationTimeCommandInput,
-  DeleteCampaignCommunicationTimeCommandOutput,
 } from "./commands/DeleteCampaignCommunicationTimeCommand";
 import {
+  type DeleteConnectInstanceConfigCommandInput,
+  type DeleteConnectInstanceConfigCommandOutput,
   DeleteConnectInstanceConfigCommand,
-  DeleteConnectInstanceConfigCommandInput,
-  DeleteConnectInstanceConfigCommandOutput,
 } from "./commands/DeleteConnectInstanceConfigCommand";
 import {
+  type DeleteConnectInstanceIntegrationCommandInput,
+  type DeleteConnectInstanceIntegrationCommandOutput,
   DeleteConnectInstanceIntegrationCommand,
-  DeleteConnectInstanceIntegrationCommandInput,
-  DeleteConnectInstanceIntegrationCommandOutput,
 } from "./commands/DeleteConnectInstanceIntegrationCommand";
 import {
+  type DeleteInstanceOnboardingJobCommandInput,
+  type DeleteInstanceOnboardingJobCommandOutput,
   DeleteInstanceOnboardingJobCommand,
-  DeleteInstanceOnboardingJobCommandInput,
-  DeleteInstanceOnboardingJobCommandOutput,
 } from "./commands/DeleteInstanceOnboardingJobCommand";
 import {
+  type DescribeCampaignCommandInput,
+  type DescribeCampaignCommandOutput,
   DescribeCampaignCommand,
-  DescribeCampaignCommandInput,
-  DescribeCampaignCommandOutput,
 } from "./commands/DescribeCampaignCommand";
 import {
+  type GetCampaignStateBatchCommandInput,
+  type GetCampaignStateBatchCommandOutput,
   GetCampaignStateBatchCommand,
-  GetCampaignStateBatchCommandInput,
-  GetCampaignStateBatchCommandOutput,
 } from "./commands/GetCampaignStateBatchCommand";
 import {
+  type GetCampaignStateCommandInput,
+  type GetCampaignStateCommandOutput,
   GetCampaignStateCommand,
-  GetCampaignStateCommandInput,
-  GetCampaignStateCommandOutput,
 } from "./commands/GetCampaignStateCommand";
 import {
+  type GetConnectInstanceConfigCommandInput,
+  type GetConnectInstanceConfigCommandOutput,
   GetConnectInstanceConfigCommand,
-  GetConnectInstanceConfigCommandInput,
-  GetConnectInstanceConfigCommandOutput,
 } from "./commands/GetConnectInstanceConfigCommand";
 import {
+  type GetInstanceCommunicationLimitsCommandInput,
+  type GetInstanceCommunicationLimitsCommandOutput,
   GetInstanceCommunicationLimitsCommand,
-  GetInstanceCommunicationLimitsCommandInput,
-  GetInstanceCommunicationLimitsCommandOutput,
 } from "./commands/GetInstanceCommunicationLimitsCommand";
 import {
+  type GetInstanceOnboardingJobStatusCommandInput,
+  type GetInstanceOnboardingJobStatusCommandOutput,
   GetInstanceOnboardingJobStatusCommand,
-  GetInstanceOnboardingJobStatusCommandInput,
-  GetInstanceOnboardingJobStatusCommandOutput,
 } from "./commands/GetInstanceOnboardingJobStatusCommand";
 import {
+  type ListCampaignsCommandInput,
+  type ListCampaignsCommandOutput,
   ListCampaignsCommand,
-  ListCampaignsCommandInput,
-  ListCampaignsCommandOutput,
 } from "./commands/ListCampaignsCommand";
 import {
+  type ListConnectInstanceIntegrationsCommandInput,
+  type ListConnectInstanceIntegrationsCommandOutput,
   ListConnectInstanceIntegrationsCommand,
-  ListConnectInstanceIntegrationsCommandInput,
-  ListConnectInstanceIntegrationsCommandOutput,
 } from "./commands/ListConnectInstanceIntegrationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PauseCampaignCommandInput,
+  type PauseCampaignCommandOutput,
   PauseCampaignCommand,
-  PauseCampaignCommandInput,
-  PauseCampaignCommandOutput,
 } from "./commands/PauseCampaignCommand";
 import {
+  type PutConnectInstanceIntegrationCommandInput,
+  type PutConnectInstanceIntegrationCommandOutput,
   PutConnectInstanceIntegrationCommand,
-  PutConnectInstanceIntegrationCommandInput,
-  PutConnectInstanceIntegrationCommandOutput,
 } from "./commands/PutConnectInstanceIntegrationCommand";
 import {
+  type PutInstanceCommunicationLimitsCommandInput,
+  type PutInstanceCommunicationLimitsCommandOutput,
   PutInstanceCommunicationLimitsCommand,
-  PutInstanceCommunicationLimitsCommandInput,
-  PutInstanceCommunicationLimitsCommandOutput,
 } from "./commands/PutInstanceCommunicationLimitsCommand";
 import {
+  type PutOutboundRequestBatchCommandInput,
+  type PutOutboundRequestBatchCommandOutput,
   PutOutboundRequestBatchCommand,
-  PutOutboundRequestBatchCommandInput,
-  PutOutboundRequestBatchCommandOutput,
 } from "./commands/PutOutboundRequestBatchCommand";
 import {
+  type PutProfileOutboundRequestBatchCommandInput,
+  type PutProfileOutboundRequestBatchCommandOutput,
   PutProfileOutboundRequestBatchCommand,
-  PutProfileOutboundRequestBatchCommandInput,
-  PutProfileOutboundRequestBatchCommandOutput,
 } from "./commands/PutProfileOutboundRequestBatchCommand";
 import {
+  type ResumeCampaignCommandInput,
+  type ResumeCampaignCommandOutput,
   ResumeCampaignCommand,
-  ResumeCampaignCommandInput,
-  ResumeCampaignCommandOutput,
 } from "./commands/ResumeCampaignCommand";
 import {
+  type StartCampaignCommandInput,
+  type StartCampaignCommandOutput,
   StartCampaignCommand,
-  StartCampaignCommandInput,
-  StartCampaignCommandOutput,
 } from "./commands/StartCampaignCommand";
 import {
+  type StartInstanceOnboardingJobCommandInput,
+  type StartInstanceOnboardingJobCommandOutput,
   StartInstanceOnboardingJobCommand,
-  StartInstanceOnboardingJobCommandInput,
-  StartInstanceOnboardingJobCommandOutput,
 } from "./commands/StartInstanceOnboardingJobCommand";
 import {
+  type StopCampaignCommandInput,
+  type StopCampaignCommandOutput,
   StopCampaignCommand,
-  StopCampaignCommandInput,
-  StopCampaignCommandOutput,
 } from "./commands/StopCampaignCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCampaignChannelSubtypeConfigCommandInput,
+  type UpdateCampaignChannelSubtypeConfigCommandOutput,
   UpdateCampaignChannelSubtypeConfigCommand,
-  UpdateCampaignChannelSubtypeConfigCommandInput,
-  UpdateCampaignChannelSubtypeConfigCommandOutput,
 } from "./commands/UpdateCampaignChannelSubtypeConfigCommand";
 import {
+  type UpdateCampaignCommunicationLimitsCommandInput,
+  type UpdateCampaignCommunicationLimitsCommandOutput,
   UpdateCampaignCommunicationLimitsCommand,
-  UpdateCampaignCommunicationLimitsCommandInput,
-  UpdateCampaignCommunicationLimitsCommandOutput,
 } from "./commands/UpdateCampaignCommunicationLimitsCommand";
 import {
+  type UpdateCampaignCommunicationTimeCommandInput,
+  type UpdateCampaignCommunicationTimeCommandOutput,
   UpdateCampaignCommunicationTimeCommand,
-  UpdateCampaignCommunicationTimeCommandInput,
-  UpdateCampaignCommunicationTimeCommandOutput,
 } from "./commands/UpdateCampaignCommunicationTimeCommand";
 import {
+  type UpdateCampaignFlowAssociationCommandInput,
+  type UpdateCampaignFlowAssociationCommandOutput,
   UpdateCampaignFlowAssociationCommand,
-  UpdateCampaignFlowAssociationCommandInput,
-  UpdateCampaignFlowAssociationCommandOutput,
 } from "./commands/UpdateCampaignFlowAssociationCommand";
 import {
+  type UpdateCampaignNameCommandInput,
+  type UpdateCampaignNameCommandOutput,
   UpdateCampaignNameCommand,
-  UpdateCampaignNameCommandInput,
-  UpdateCampaignNameCommandOutput,
 } from "./commands/UpdateCampaignNameCommand";
 import {
+  type UpdateCampaignScheduleCommandInput,
+  type UpdateCampaignScheduleCommandOutput,
   UpdateCampaignScheduleCommand,
-  UpdateCampaignScheduleCommandInput,
-  UpdateCampaignScheduleCommandOutput,
 } from "./commands/UpdateCampaignScheduleCommand";
 import {
+  type UpdateCampaignSourceCommandInput,
+  type UpdateCampaignSourceCommandOutput,
   UpdateCampaignSourceCommand,
-  UpdateCampaignSourceCommandInput,
-  UpdateCampaignSourceCommandOutput,
 } from "./commands/UpdateCampaignSourceCommand";
 import { ConnectCampaignsV2Client } from "./ConnectCampaignsV2Client";
 import { paginateListCampaigns } from "./pagination/ListCampaignsPaginator";

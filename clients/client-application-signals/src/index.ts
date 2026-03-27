@@ -7,7 +7,7 @@
  */
 export * from "./ApplicationSignalsClient";
 export * from "./ApplicationSignals";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ApplicationSignalsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

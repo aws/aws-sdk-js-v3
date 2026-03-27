@@ -8,7 +8,7 @@ import {
   ListWorkspacesCommandOutput,
 } from "../commands/ListWorkspacesCommand";
 import { GrafanaClient } from "../GrafanaClient";
-import { GrafanaPaginationConfiguration } from "./Interfaces";
+import type { GrafanaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

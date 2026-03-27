@@ -8,7 +8,7 @@ import {
   GetConnectionsCommandOutput,
 } from "../commands/GetConnectionsCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

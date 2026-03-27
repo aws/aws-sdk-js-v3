@@ -8,7 +8,7 @@ import {
   ListMetricAttributionsCommandOutput,
 } from "../commands/ListMetricAttributionsCommand";
 import { PersonalizeClient } from "../PersonalizeClient";
-import { PersonalizePaginationConfiguration } from "./Interfaces";
+import type { PersonalizePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

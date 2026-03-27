@@ -3,128 +3,152 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateUserToPermissionGroupCommandInput,
+  type AssociateUserToPermissionGroupCommandOutput,
   AssociateUserToPermissionGroupCommand,
-  AssociateUserToPermissionGroupCommandInput,
-  AssociateUserToPermissionGroupCommandOutput,
 } from "./commands/AssociateUserToPermissionGroupCommand";
 import {
+  type CreateChangesetCommandInput,
+  type CreateChangesetCommandOutput,
   CreateChangesetCommand,
-  CreateChangesetCommandInput,
-  CreateChangesetCommandOutput,
 } from "./commands/CreateChangesetCommand";
 import {
+  type CreateDatasetCommandInput,
+  type CreateDatasetCommandOutput,
   CreateDatasetCommand,
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput,
 } from "./commands/CreateDatasetCommand";
 import {
+  type CreateDataViewCommandInput,
+  type CreateDataViewCommandOutput,
   CreateDataViewCommand,
-  CreateDataViewCommandInput,
-  CreateDataViewCommandOutput,
 } from "./commands/CreateDataViewCommand";
 import {
+  type CreatePermissionGroupCommandInput,
+  type CreatePermissionGroupCommandOutput,
   CreatePermissionGroupCommand,
-  CreatePermissionGroupCommandInput,
-  CreatePermissionGroupCommandOutput,
 } from "./commands/CreatePermissionGroupCommand";
-import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  type CreateUserCommandInput,
+  type CreateUserCommandOutput,
+  CreateUserCommand,
+} from "./commands/CreateUserCommand";
+import {
+  type DeleteDatasetCommandInput,
+  type DeleteDatasetCommandOutput,
   DeleteDatasetCommand,
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput,
 } from "./commands/DeleteDatasetCommand";
 import {
+  type DeletePermissionGroupCommandInput,
+  type DeletePermissionGroupCommandOutput,
   DeletePermissionGroupCommand,
-  DeletePermissionGroupCommandInput,
-  DeletePermissionGroupCommandOutput,
 } from "./commands/DeletePermissionGroupCommand";
-import { DisableUserCommand, DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
 import {
+  type DisableUserCommandInput,
+  type DisableUserCommandOutput,
+  DisableUserCommand,
+} from "./commands/DisableUserCommand";
+import {
+  type DisassociateUserFromPermissionGroupCommandInput,
+  type DisassociateUserFromPermissionGroupCommandOutput,
   DisassociateUserFromPermissionGroupCommand,
-  DisassociateUserFromPermissionGroupCommandInput,
-  DisassociateUserFromPermissionGroupCommandOutput,
 } from "./commands/DisassociateUserFromPermissionGroupCommand";
-import { EnableUserCommand, EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import {
+  type EnableUserCommandInput,
+  type EnableUserCommandOutput,
+  EnableUserCommand,
+} from "./commands/EnableUserCommand";
+import {
+  type GetChangesetCommandInput,
+  type GetChangesetCommandOutput,
   GetChangesetCommand,
-  GetChangesetCommandInput,
-  GetChangesetCommandOutput,
 } from "./commands/GetChangesetCommand";
-import { GetDatasetCommand, GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
-import { GetDataViewCommand, GetDataViewCommandInput, GetDataViewCommandOutput } from "./commands/GetDataViewCommand";
 import {
+  type GetDatasetCommandInput,
+  type GetDatasetCommandOutput,
+  GetDatasetCommand,
+} from "./commands/GetDatasetCommand";
+import {
+  type GetDataViewCommandInput,
+  type GetDataViewCommandOutput,
+  GetDataViewCommand,
+} from "./commands/GetDataViewCommand";
+import {
+  type GetExternalDataViewAccessDetailsCommandInput,
+  type GetExternalDataViewAccessDetailsCommandOutput,
   GetExternalDataViewAccessDetailsCommand,
-  GetExternalDataViewAccessDetailsCommandInput,
-  GetExternalDataViewAccessDetailsCommandOutput,
 } from "./commands/GetExternalDataViewAccessDetailsCommand";
 import {
+  type GetPermissionGroupCommandInput,
+  type GetPermissionGroupCommandOutput,
   GetPermissionGroupCommand,
-  GetPermissionGroupCommandInput,
-  GetPermissionGroupCommandOutput,
 } from "./commands/GetPermissionGroupCommand";
 import {
+  type GetProgrammaticAccessCredentialsCommandInput,
+  type GetProgrammaticAccessCredentialsCommandOutput,
   GetProgrammaticAccessCredentialsCommand,
-  GetProgrammaticAccessCredentialsCommandInput,
-  GetProgrammaticAccessCredentialsCommandOutput,
 } from "./commands/GetProgrammaticAccessCredentialsCommand";
-import { GetUserCommand, GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
+import { type GetUserCommandInput, type GetUserCommandOutput, GetUserCommand } from "./commands/GetUserCommand";
 import {
+  type GetWorkingLocationCommandInput,
+  type GetWorkingLocationCommandOutput,
   GetWorkingLocationCommand,
-  GetWorkingLocationCommandInput,
-  GetWorkingLocationCommandOutput,
 } from "./commands/GetWorkingLocationCommand";
 import {
+  type ListChangesetsCommandInput,
+  type ListChangesetsCommandOutput,
   ListChangesetsCommand,
-  ListChangesetsCommandInput,
-  ListChangesetsCommandOutput,
 } from "./commands/ListChangesetsCommand";
 import {
+  type ListDatasetsCommandInput,
+  type ListDatasetsCommandOutput,
   ListDatasetsCommand,
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
 import {
+  type ListDataViewsCommandInput,
+  type ListDataViewsCommandOutput,
   ListDataViewsCommand,
-  ListDataViewsCommandInput,
-  ListDataViewsCommandOutput,
 } from "./commands/ListDataViewsCommand";
 import {
+  type ListPermissionGroupsByUserCommandInput,
+  type ListPermissionGroupsByUserCommandOutput,
   ListPermissionGroupsByUserCommand,
-  ListPermissionGroupsByUserCommandInput,
-  ListPermissionGroupsByUserCommandOutput,
 } from "./commands/ListPermissionGroupsByUserCommand";
 import {
+  type ListPermissionGroupsCommandInput,
+  type ListPermissionGroupsCommandOutput,
   ListPermissionGroupsCommand,
-  ListPermissionGroupsCommandInput,
-  ListPermissionGroupsCommandOutput,
 } from "./commands/ListPermissionGroupsCommand";
 import {
+  type ListUsersByPermissionGroupCommandInput,
+  type ListUsersByPermissionGroupCommandOutput,
   ListUsersByPermissionGroupCommand,
-  ListUsersByPermissionGroupCommandInput,
-  ListUsersByPermissionGroupCommandOutput,
 } from "./commands/ListUsersByPermissionGroupCommand";
-import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
 import {
+  type ResetUserPasswordCommandInput,
+  type ResetUserPasswordCommandOutput,
   ResetUserPasswordCommand,
-  ResetUserPasswordCommandInput,
-  ResetUserPasswordCommandOutput,
 } from "./commands/ResetUserPasswordCommand";
 import {
+  type UpdateChangesetCommandInput,
+  type UpdateChangesetCommandOutput,
   UpdateChangesetCommand,
-  UpdateChangesetCommandInput,
-  UpdateChangesetCommandOutput,
 } from "./commands/UpdateChangesetCommand";
 import {
+  type UpdateDatasetCommandInput,
+  type UpdateDatasetCommandOutput,
   UpdateDatasetCommand,
-  UpdateDatasetCommandInput,
-  UpdateDatasetCommandOutput,
 } from "./commands/UpdateDatasetCommand";
 import {
+  type UpdatePermissionGroupCommandInput,
+  type UpdatePermissionGroupCommandOutput,
   UpdatePermissionGroupCommand,
-  UpdatePermissionGroupCommandInput,
-  UpdatePermissionGroupCommandOutput,
 } from "./commands/UpdatePermissionGroupCommand";
-import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import {
+  type UpdateUserCommandInput,
+  type UpdateUserCommandOutput,
+  UpdateUserCommand,
+} from "./commands/UpdateUserCommand";
 import { FinspaceDataClient } from "./FinspaceDataClient";
 import { paginateListChangesets } from "./pagination/ListChangesetsPaginator";
 import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";

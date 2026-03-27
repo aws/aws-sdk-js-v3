@@ -8,7 +8,7 @@ import {
   DescribePackagesCommandOutput,
 } from "../commands/DescribePackagesCommand";
 import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
-import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
+import type { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

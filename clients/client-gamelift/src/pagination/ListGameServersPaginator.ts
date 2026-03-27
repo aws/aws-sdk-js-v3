@@ -8,7 +8,7 @@ import {
   ListGameServersCommandOutput,
 } from "../commands/ListGameServersCommand";
 import { GameLiftClient } from "../GameLiftClient";
-import { GameLiftPaginationConfiguration } from "./Interfaces";
+import type { GameLiftPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

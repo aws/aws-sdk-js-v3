@@ -8,7 +8,7 @@ import {
   ListTextTranslationJobsCommandOutput,
 } from "../commands/ListTextTranslationJobsCommand";
 import { TranslateClient } from "../TranslateClient";
-import { TranslatePaginationConfiguration } from "./Interfaces";
+import type { TranslatePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

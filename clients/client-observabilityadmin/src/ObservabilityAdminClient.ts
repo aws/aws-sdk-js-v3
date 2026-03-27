@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,158 +61,161 @@ import {
   defaultObservabilityAdminHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateCentralizationRuleForOrganizationCommandInput,
   CreateCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/CreateCentralizationRuleForOrganizationCommand";
-import {
+import type {
   CreateS3TableIntegrationCommandInput,
   CreateS3TableIntegrationCommandOutput,
 } from "./commands/CreateS3TableIntegrationCommand";
-import {
+import type {
   CreateTelemetryPipelineCommandInput,
   CreateTelemetryPipelineCommandOutput,
 } from "./commands/CreateTelemetryPipelineCommand";
-import {
+import type {
   CreateTelemetryRuleCommandInput,
   CreateTelemetryRuleCommandOutput,
 } from "./commands/CreateTelemetryRuleCommand";
-import {
+import type {
   CreateTelemetryRuleForOrganizationCommandInput,
   CreateTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/CreateTelemetryRuleForOrganizationCommand";
-import {
+import type {
   DeleteCentralizationRuleForOrganizationCommandInput,
   DeleteCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/DeleteCentralizationRuleForOrganizationCommand";
-import {
+import type {
   DeleteS3TableIntegrationCommandInput,
   DeleteS3TableIntegrationCommandOutput,
 } from "./commands/DeleteS3TableIntegrationCommand";
-import {
+import type {
   DeleteTelemetryPipelineCommandInput,
   DeleteTelemetryPipelineCommandOutput,
 } from "./commands/DeleteTelemetryPipelineCommand";
-import {
+import type {
   DeleteTelemetryRuleCommandInput,
   DeleteTelemetryRuleCommandOutput,
 } from "./commands/DeleteTelemetryRuleCommand";
-import {
+import type {
   DeleteTelemetryRuleForOrganizationCommandInput,
   DeleteTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/DeleteTelemetryRuleForOrganizationCommand";
-import {
+import type {
   GetCentralizationRuleForOrganizationCommandInput,
   GetCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/GetCentralizationRuleForOrganizationCommand";
-import {
+import type {
   GetS3TableIntegrationCommandInput,
   GetS3TableIntegrationCommandOutput,
 } from "./commands/GetS3TableIntegrationCommand";
-import {
+import type {
   GetTelemetryEnrichmentStatusCommandInput,
   GetTelemetryEnrichmentStatusCommandOutput,
 } from "./commands/GetTelemetryEnrichmentStatusCommand";
-import {
+import type {
   GetTelemetryEvaluationStatusCommandInput,
   GetTelemetryEvaluationStatusCommandOutput,
 } from "./commands/GetTelemetryEvaluationStatusCommand";
-import {
+import type {
   GetTelemetryEvaluationStatusForOrganizationCommandInput,
   GetTelemetryEvaluationStatusForOrganizationCommandOutput,
 } from "./commands/GetTelemetryEvaluationStatusForOrganizationCommand";
-import {
+import type {
   GetTelemetryPipelineCommandInput,
   GetTelemetryPipelineCommandOutput,
 } from "./commands/GetTelemetryPipelineCommand";
-import { GetTelemetryRuleCommandInput, GetTelemetryRuleCommandOutput } from "./commands/GetTelemetryRuleCommand";
-import {
+import type { GetTelemetryRuleCommandInput, GetTelemetryRuleCommandOutput } from "./commands/GetTelemetryRuleCommand";
+import type {
   GetTelemetryRuleForOrganizationCommandInput,
   GetTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/GetTelemetryRuleForOrganizationCommand";
-import {
+import type {
   ListCentralizationRulesForOrganizationCommandInput,
   ListCentralizationRulesForOrganizationCommandOutput,
 } from "./commands/ListCentralizationRulesForOrganizationCommand";
-import {
+import type {
   ListResourceTelemetryCommandInput,
   ListResourceTelemetryCommandOutput,
 } from "./commands/ListResourceTelemetryCommand";
-import {
+import type {
   ListResourceTelemetryForOrganizationCommandInput,
   ListResourceTelemetryForOrganizationCommandOutput,
 } from "./commands/ListResourceTelemetryForOrganizationCommand";
-import {
+import type {
   ListS3TableIntegrationsCommandInput,
   ListS3TableIntegrationsCommandOutput,
 } from "./commands/ListS3TableIntegrationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTelemetryPipelinesCommandInput,
   ListTelemetryPipelinesCommandOutput,
 } from "./commands/ListTelemetryPipelinesCommand";
-import { ListTelemetryRulesCommandInput, ListTelemetryRulesCommandOutput } from "./commands/ListTelemetryRulesCommand";
-import {
+import type {
+  ListTelemetryRulesCommandInput,
+  ListTelemetryRulesCommandOutput,
+} from "./commands/ListTelemetryRulesCommand";
+import type {
   ListTelemetryRulesForOrganizationCommandInput,
   ListTelemetryRulesForOrganizationCommandOutput,
 } from "./commands/ListTelemetryRulesForOrganizationCommand";
-import {
+import type {
   StartTelemetryEnrichmentCommandInput,
   StartTelemetryEnrichmentCommandOutput,
 } from "./commands/StartTelemetryEnrichmentCommand";
-import {
+import type {
   StartTelemetryEvaluationCommandInput,
   StartTelemetryEvaluationCommandOutput,
 } from "./commands/StartTelemetryEvaluationCommand";
-import {
+import type {
   StartTelemetryEvaluationForOrganizationCommandInput,
   StartTelemetryEvaluationForOrganizationCommandOutput,
 } from "./commands/StartTelemetryEvaluationForOrganizationCommand";
-import {
+import type {
   StopTelemetryEnrichmentCommandInput,
   StopTelemetryEnrichmentCommandOutput,
 } from "./commands/StopTelemetryEnrichmentCommand";
-import {
+import type {
   StopTelemetryEvaluationCommandInput,
   StopTelemetryEvaluationCommandOutput,
 } from "./commands/StopTelemetryEvaluationCommand";
-import {
+import type {
   StopTelemetryEvaluationForOrganizationCommandInput,
   StopTelemetryEvaluationForOrganizationCommandOutput,
 } from "./commands/StopTelemetryEvaluationForOrganizationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   TestTelemetryPipelineCommandInput,
   TestTelemetryPipelineCommandOutput,
 } from "./commands/TestTelemetryPipelineCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateCentralizationRuleForOrganizationCommandInput,
   UpdateCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/UpdateCentralizationRuleForOrganizationCommand";
-import {
+import type {
   UpdateTelemetryPipelineCommandInput,
   UpdateTelemetryPipelineCommandOutput,
 } from "./commands/UpdateTelemetryPipelineCommand";
-import {
+import type {
   UpdateTelemetryRuleCommandInput,
   UpdateTelemetryRuleCommandOutput,
 } from "./commands/UpdateTelemetryRuleCommand";
-import {
+import type {
   UpdateTelemetryRuleForOrganizationCommandInput,
   UpdateTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/UpdateTelemetryRuleForOrganizationCommand";
-import {
+import type {
   ValidateTelemetryPipelineConfigurationCommandInput,
   ValidateTelemetryPipelineConfigurationCommandOutput,
 } from "./commands/ValidateTelemetryPipelineConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -426,7 +427,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

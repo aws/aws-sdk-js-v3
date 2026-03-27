@@ -7,7 +7,7 @@
  */
 export * from "./Route53GlobalResolverClient";
 export * from "./Route53GlobalResolver";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { Route53GlobalResolverExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

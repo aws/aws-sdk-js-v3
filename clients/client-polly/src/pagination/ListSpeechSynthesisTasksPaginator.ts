@@ -8,7 +8,7 @@ import {
   ListSpeechSynthesisTasksCommandOutput,
 } from "../commands/ListSpeechSynthesisTasksCommand";
 import { PollyClient } from "../PollyClient";
-import { PollyPaginationConfiguration } from "./Interfaces";
+import type { PollyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

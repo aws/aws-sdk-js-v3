@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type DescribeImageScanFindingsCommandInput,
   DescribeImageScanFindingsCommand,
-  DescribeImageScanFindingsCommandInput,
 } from "../commands/DescribeImageScanFindingsCommand";
-import { ECRClient } from "../ECRClient";
+import type { ECRClient } from "../ECRClient";
 
 const checkState = async (client: ECRClient, input: DescribeImageScanFindingsCommandInput): Promise<WaiterResult> => {
   let reason;

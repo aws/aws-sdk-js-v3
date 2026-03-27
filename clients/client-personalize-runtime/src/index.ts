@@ -7,7 +7,7 @@
  */
 export * from "./PersonalizeRuntimeClient";
 export * from "./PersonalizeRuntime";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PersonalizeRuntimeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

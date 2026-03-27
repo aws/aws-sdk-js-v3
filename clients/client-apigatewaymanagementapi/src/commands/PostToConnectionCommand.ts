@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PostToConnectionRequest } from "../models/models_0";
+import type { PostToConnectionRequest } from "../models/models_0";
 import { PostToConnection$ } from "../schemas/schemas_0";
 
 /**

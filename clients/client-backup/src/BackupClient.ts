@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,316 +61,340 @@ import {
   defaultBackupHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateBackupVaultMpaApprovalTeamCommandInput,
   AssociateBackupVaultMpaApprovalTeamCommandOutput,
 } from "./commands/AssociateBackupVaultMpaApprovalTeamCommand";
-import { CancelLegalHoldCommandInput, CancelLegalHoldCommandOutput } from "./commands/CancelLegalHoldCommand";
-import { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "./commands/CreateBackupPlanCommand";
-import {
+import type { CancelLegalHoldCommandInput, CancelLegalHoldCommandOutput } from "./commands/CancelLegalHoldCommand";
+import type { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "./commands/CreateBackupPlanCommand";
+import type {
   CreateBackupSelectionCommandInput,
   CreateBackupSelectionCommandOutput,
 } from "./commands/CreateBackupSelectionCommand";
-import { CreateBackupVaultCommandInput, CreateBackupVaultCommandOutput } from "./commands/CreateBackupVaultCommand";
-import { CreateFrameworkCommandInput, CreateFrameworkCommandOutput } from "./commands/CreateFrameworkCommand";
-import { CreateLegalHoldCommandInput, CreateLegalHoldCommandOutput } from "./commands/CreateLegalHoldCommand";
-import {
+import type {
+  CreateBackupVaultCommandInput,
+  CreateBackupVaultCommandOutput,
+} from "./commands/CreateBackupVaultCommand";
+import type { CreateFrameworkCommandInput, CreateFrameworkCommandOutput } from "./commands/CreateFrameworkCommand";
+import type { CreateLegalHoldCommandInput, CreateLegalHoldCommandOutput } from "./commands/CreateLegalHoldCommand";
+import type {
   CreateLogicallyAirGappedBackupVaultCommandInput,
   CreateLogicallyAirGappedBackupVaultCommandOutput,
 } from "./commands/CreateLogicallyAirGappedBackupVaultCommand";
-import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "./commands/CreateReportPlanCommand";
-import {
+import type { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "./commands/CreateReportPlanCommand";
+import type {
   CreateRestoreAccessBackupVaultCommandInput,
   CreateRestoreAccessBackupVaultCommandOutput,
 } from "./commands/CreateRestoreAccessBackupVaultCommand";
-import {
+import type {
   CreateRestoreTestingPlanCommandInput,
   CreateRestoreTestingPlanCommandOutput,
 } from "./commands/CreateRestoreTestingPlanCommand";
-import {
+import type {
   CreateRestoreTestingSelectionCommandInput,
   CreateRestoreTestingSelectionCommandOutput,
 } from "./commands/CreateRestoreTestingSelectionCommand";
-import {
+import type {
   CreateTieringConfigurationCommandInput,
   CreateTieringConfigurationCommandOutput,
 } from "./commands/CreateTieringConfigurationCommand";
-import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "./commands/DeleteBackupPlanCommand";
-import {
+import type { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "./commands/DeleteBackupPlanCommand";
+import type {
   DeleteBackupSelectionCommandInput,
   DeleteBackupSelectionCommandOutput,
 } from "./commands/DeleteBackupSelectionCommand";
-import {
+import type {
   DeleteBackupVaultAccessPolicyCommandInput,
   DeleteBackupVaultAccessPolicyCommandOutput,
 } from "./commands/DeleteBackupVaultAccessPolicyCommand";
-import { DeleteBackupVaultCommandInput, DeleteBackupVaultCommandOutput } from "./commands/DeleteBackupVaultCommand";
-import {
+import type {
+  DeleteBackupVaultCommandInput,
+  DeleteBackupVaultCommandOutput,
+} from "./commands/DeleteBackupVaultCommand";
+import type {
   DeleteBackupVaultLockConfigurationCommandInput,
   DeleteBackupVaultLockConfigurationCommandOutput,
 } from "./commands/DeleteBackupVaultLockConfigurationCommand";
-import {
+import type {
   DeleteBackupVaultNotificationsCommandInput,
   DeleteBackupVaultNotificationsCommandOutput,
 } from "./commands/DeleteBackupVaultNotificationsCommand";
-import { DeleteFrameworkCommandInput, DeleteFrameworkCommandOutput } from "./commands/DeleteFrameworkCommand";
-import {
+import type { DeleteFrameworkCommandInput, DeleteFrameworkCommandOutput } from "./commands/DeleteFrameworkCommand";
+import type {
   DeleteRecoveryPointCommandInput,
   DeleteRecoveryPointCommandOutput,
 } from "./commands/DeleteRecoveryPointCommand";
-import { DeleteReportPlanCommandInput, DeleteReportPlanCommandOutput } from "./commands/DeleteReportPlanCommand";
-import {
+import type { DeleteReportPlanCommandInput, DeleteReportPlanCommandOutput } from "./commands/DeleteReportPlanCommand";
+import type {
   DeleteRestoreTestingPlanCommandInput,
   DeleteRestoreTestingPlanCommandOutput,
 } from "./commands/DeleteRestoreTestingPlanCommand";
-import {
+import type {
   DeleteRestoreTestingSelectionCommandInput,
   DeleteRestoreTestingSelectionCommandOutput,
 } from "./commands/DeleteRestoreTestingSelectionCommand";
-import {
+import type {
   DeleteTieringConfigurationCommandInput,
   DeleteTieringConfigurationCommandOutput,
 } from "./commands/DeleteTieringConfigurationCommand";
-import { DescribeBackupJobCommandInput, DescribeBackupJobCommandOutput } from "./commands/DescribeBackupJobCommand";
-import {
+import type {
+  DescribeBackupJobCommandInput,
+  DescribeBackupJobCommandOutput,
+} from "./commands/DescribeBackupJobCommand";
+import type {
   DescribeBackupVaultCommandInput,
   DescribeBackupVaultCommandOutput,
 } from "./commands/DescribeBackupVaultCommand";
-import { DescribeCopyJobCommandInput, DescribeCopyJobCommandOutput } from "./commands/DescribeCopyJobCommand";
-import { DescribeFrameworkCommandInput, DescribeFrameworkCommandOutput } from "./commands/DescribeFrameworkCommand";
-import {
+import type { DescribeCopyJobCommandInput, DescribeCopyJobCommandOutput } from "./commands/DescribeCopyJobCommand";
+import type {
+  DescribeFrameworkCommandInput,
+  DescribeFrameworkCommandOutput,
+} from "./commands/DescribeFrameworkCommand";
+import type {
   DescribeGlobalSettingsCommandInput,
   DescribeGlobalSettingsCommandOutput,
 } from "./commands/DescribeGlobalSettingsCommand";
-import {
+import type {
   DescribeProtectedResourceCommandInput,
   DescribeProtectedResourceCommandOutput,
 } from "./commands/DescribeProtectedResourceCommand";
-import {
+import type {
   DescribeRecoveryPointCommandInput,
   DescribeRecoveryPointCommandOutput,
 } from "./commands/DescribeRecoveryPointCommand";
-import {
+import type {
   DescribeRegionSettingsCommandInput,
   DescribeRegionSettingsCommandOutput,
 } from "./commands/DescribeRegionSettingsCommand";
-import { DescribeReportJobCommandInput, DescribeReportJobCommandOutput } from "./commands/DescribeReportJobCommand";
-import { DescribeReportPlanCommandInput, DescribeReportPlanCommandOutput } from "./commands/DescribeReportPlanCommand";
-import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "./commands/DescribeRestoreJobCommand";
-import { DescribeScanJobCommandInput, DescribeScanJobCommandOutput } from "./commands/DescribeScanJobCommand";
-import {
+import type {
+  DescribeReportJobCommandInput,
+  DescribeReportJobCommandOutput,
+} from "./commands/DescribeReportJobCommand";
+import type {
+  DescribeReportPlanCommandInput,
+  DescribeReportPlanCommandOutput,
+} from "./commands/DescribeReportPlanCommand";
+import type {
+  DescribeRestoreJobCommandInput,
+  DescribeRestoreJobCommandOutput,
+} from "./commands/DescribeRestoreJobCommand";
+import type { DescribeScanJobCommandInput, DescribeScanJobCommandOutput } from "./commands/DescribeScanJobCommand";
+import type {
   DisassociateBackupVaultMpaApprovalTeamCommandInput,
   DisassociateBackupVaultMpaApprovalTeamCommandOutput,
 } from "./commands/DisassociateBackupVaultMpaApprovalTeamCommand";
-import {
+import type {
   DisassociateRecoveryPointCommandInput,
   DisassociateRecoveryPointCommandOutput,
 } from "./commands/DisassociateRecoveryPointCommand";
-import {
+import type {
   DisassociateRecoveryPointFromParentCommandInput,
   DisassociateRecoveryPointFromParentCommandOutput,
 } from "./commands/DisassociateRecoveryPointFromParentCommand";
-import {
+import type {
   ExportBackupPlanTemplateCommandInput,
   ExportBackupPlanTemplateCommandOutput,
 } from "./commands/ExportBackupPlanTemplateCommand";
-import { GetBackupPlanCommandInput, GetBackupPlanCommandOutput } from "./commands/GetBackupPlanCommand";
-import {
+import type { GetBackupPlanCommandInput, GetBackupPlanCommandOutput } from "./commands/GetBackupPlanCommand";
+import type {
   GetBackupPlanFromJSONCommandInput,
   GetBackupPlanFromJSONCommandOutput,
 } from "./commands/GetBackupPlanFromJSONCommand";
-import {
+import type {
   GetBackupPlanFromTemplateCommandInput,
   GetBackupPlanFromTemplateCommandOutput,
 } from "./commands/GetBackupPlanFromTemplateCommand";
-import { GetBackupSelectionCommandInput, GetBackupSelectionCommandOutput } from "./commands/GetBackupSelectionCommand";
-import {
+import type {
+  GetBackupSelectionCommandInput,
+  GetBackupSelectionCommandOutput,
+} from "./commands/GetBackupSelectionCommand";
+import type {
   GetBackupVaultAccessPolicyCommandInput,
   GetBackupVaultAccessPolicyCommandOutput,
 } from "./commands/GetBackupVaultAccessPolicyCommand";
-import {
+import type {
   GetBackupVaultNotificationsCommandInput,
   GetBackupVaultNotificationsCommandOutput,
 } from "./commands/GetBackupVaultNotificationsCommand";
-import { GetLegalHoldCommandInput, GetLegalHoldCommandOutput } from "./commands/GetLegalHoldCommand";
-import {
+import type { GetLegalHoldCommandInput, GetLegalHoldCommandOutput } from "./commands/GetLegalHoldCommand";
+import type {
   GetRecoveryPointIndexDetailsCommandInput,
   GetRecoveryPointIndexDetailsCommandOutput,
 } from "./commands/GetRecoveryPointIndexDetailsCommand";
-import {
+import type {
   GetRecoveryPointRestoreMetadataCommandInput,
   GetRecoveryPointRestoreMetadataCommandOutput,
 } from "./commands/GetRecoveryPointRestoreMetadataCommand";
-import {
+import type {
   GetRestoreJobMetadataCommandInput,
   GetRestoreJobMetadataCommandOutput,
 } from "./commands/GetRestoreJobMetadataCommand";
-import {
+import type {
   GetRestoreTestingInferredMetadataCommandInput,
   GetRestoreTestingInferredMetadataCommandOutput,
 } from "./commands/GetRestoreTestingInferredMetadataCommand";
-import {
+import type {
   GetRestoreTestingPlanCommandInput,
   GetRestoreTestingPlanCommandOutput,
 } from "./commands/GetRestoreTestingPlanCommand";
-import {
+import type {
   GetRestoreTestingSelectionCommandInput,
   GetRestoreTestingSelectionCommandOutput,
 } from "./commands/GetRestoreTestingSelectionCommand";
-import {
+import type {
   GetSupportedResourceTypesCommandInput,
   GetSupportedResourceTypesCommandOutput,
 } from "./commands/GetSupportedResourceTypesCommand";
-import {
+import type {
   GetTieringConfigurationCommandInput,
   GetTieringConfigurationCommandOutput,
 } from "./commands/GetTieringConfigurationCommand";
-import { ListBackupJobsCommandInput, ListBackupJobsCommandOutput } from "./commands/ListBackupJobsCommand";
-import {
+import type { ListBackupJobsCommandInput, ListBackupJobsCommandOutput } from "./commands/ListBackupJobsCommand";
+import type {
   ListBackupJobSummariesCommandInput,
   ListBackupJobSummariesCommandOutput,
 } from "./commands/ListBackupJobSummariesCommand";
-import { ListBackupPlansCommandInput, ListBackupPlansCommandOutput } from "./commands/ListBackupPlansCommand";
-import {
+import type { ListBackupPlansCommandInput, ListBackupPlansCommandOutput } from "./commands/ListBackupPlansCommand";
+import type {
   ListBackupPlanTemplatesCommandInput,
   ListBackupPlanTemplatesCommandOutput,
 } from "./commands/ListBackupPlanTemplatesCommand";
-import {
+import type {
   ListBackupPlanVersionsCommandInput,
   ListBackupPlanVersionsCommandOutput,
 } from "./commands/ListBackupPlanVersionsCommand";
-import {
+import type {
   ListBackupSelectionsCommandInput,
   ListBackupSelectionsCommandOutput,
 } from "./commands/ListBackupSelectionsCommand";
-import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "./commands/ListBackupVaultsCommand";
-import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "./commands/ListCopyJobsCommand";
-import {
+import type { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "./commands/ListBackupVaultsCommand";
+import type { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "./commands/ListCopyJobsCommand";
+import type {
   ListCopyJobSummariesCommandInput,
   ListCopyJobSummariesCommandOutput,
 } from "./commands/ListCopyJobSummariesCommand";
-import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "./commands/ListFrameworksCommand";
-import {
+import type { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "./commands/ListFrameworksCommand";
+import type {
   ListIndexedRecoveryPointsCommandInput,
   ListIndexedRecoveryPointsCommandOutput,
 } from "./commands/ListIndexedRecoveryPointsCommand";
-import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "./commands/ListLegalHoldsCommand";
-import {
+import type { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "./commands/ListLegalHoldsCommand";
+import type {
   ListProtectedResourcesByBackupVaultCommandInput,
   ListProtectedResourcesByBackupVaultCommandOutput,
 } from "./commands/ListProtectedResourcesByBackupVaultCommand";
-import {
+import type {
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
 } from "./commands/ListProtectedResourcesCommand";
-import {
+import type {
   ListRecoveryPointsByBackupVaultCommandInput,
   ListRecoveryPointsByBackupVaultCommandOutput,
 } from "./commands/ListRecoveryPointsByBackupVaultCommand";
-import {
+import type {
   ListRecoveryPointsByLegalHoldCommandInput,
   ListRecoveryPointsByLegalHoldCommandOutput,
 } from "./commands/ListRecoveryPointsByLegalHoldCommand";
-import {
+import type {
   ListRecoveryPointsByResourceCommandInput,
   ListRecoveryPointsByResourceCommandOutput,
 } from "./commands/ListRecoveryPointsByResourceCommand";
-import { ListReportJobsCommandInput, ListReportJobsCommandOutput } from "./commands/ListReportJobsCommand";
-import { ListReportPlansCommandInput, ListReportPlansCommandOutput } from "./commands/ListReportPlansCommand";
-import {
+import type { ListReportJobsCommandInput, ListReportJobsCommandOutput } from "./commands/ListReportJobsCommand";
+import type { ListReportPlansCommandInput, ListReportPlansCommandOutput } from "./commands/ListReportPlansCommand";
+import type {
   ListRestoreAccessBackupVaultsCommandInput,
   ListRestoreAccessBackupVaultsCommandOutput,
 } from "./commands/ListRestoreAccessBackupVaultsCommand";
-import {
+import type {
   ListRestoreJobsByProtectedResourceCommandInput,
   ListRestoreJobsByProtectedResourceCommandOutput,
 } from "./commands/ListRestoreJobsByProtectedResourceCommand";
-import { ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput } from "./commands/ListRestoreJobsCommand";
-import {
+import type { ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput } from "./commands/ListRestoreJobsCommand";
+import type {
   ListRestoreJobSummariesCommandInput,
   ListRestoreJobSummariesCommandOutput,
 } from "./commands/ListRestoreJobSummariesCommand";
-import {
+import type {
   ListRestoreTestingPlansCommandInput,
   ListRestoreTestingPlansCommandOutput,
 } from "./commands/ListRestoreTestingPlansCommand";
-import {
+import type {
   ListRestoreTestingSelectionsCommandInput,
   ListRestoreTestingSelectionsCommandOutput,
 } from "./commands/ListRestoreTestingSelectionsCommand";
-import { ListScanJobsCommandInput, ListScanJobsCommandOutput } from "./commands/ListScanJobsCommand";
-import {
+import type { ListScanJobsCommandInput, ListScanJobsCommandOutput } from "./commands/ListScanJobsCommand";
+import type {
   ListScanJobSummariesCommandInput,
   ListScanJobSummariesCommandOutput,
 } from "./commands/ListScanJobSummariesCommand";
-import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import {
+import type { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import type {
   ListTieringConfigurationsCommandInput,
   ListTieringConfigurationsCommandOutput,
 } from "./commands/ListTieringConfigurationsCommand";
-import {
+import type {
   PutBackupVaultAccessPolicyCommandInput,
   PutBackupVaultAccessPolicyCommandOutput,
 } from "./commands/PutBackupVaultAccessPolicyCommand";
-import {
+import type {
   PutBackupVaultLockConfigurationCommandInput,
   PutBackupVaultLockConfigurationCommandOutput,
 } from "./commands/PutBackupVaultLockConfigurationCommand";
-import {
+import type {
   PutBackupVaultNotificationsCommandInput,
   PutBackupVaultNotificationsCommandOutput,
 } from "./commands/PutBackupVaultNotificationsCommand";
-import {
+import type {
   PutRestoreValidationResultCommandInput,
   PutRestoreValidationResultCommandOutput,
 } from "./commands/PutRestoreValidationResultCommand";
-import {
+import type {
   RevokeRestoreAccessBackupVaultCommandInput,
   RevokeRestoreAccessBackupVaultCommandOutput,
 } from "./commands/RevokeRestoreAccessBackupVaultCommand";
-import { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "./commands/StartBackupJobCommand";
-import { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "./commands/StartCopyJobCommand";
-import { StartReportJobCommandInput, StartReportJobCommandOutput } from "./commands/StartReportJobCommand";
-import { StartRestoreJobCommandInput, StartRestoreJobCommandOutput } from "./commands/StartRestoreJobCommand";
-import { StartScanJobCommandInput, StartScanJobCommandOutput } from "./commands/StartScanJobCommand";
-import { StopBackupJobCommandInput, StopBackupJobCommandOutput } from "./commands/StopBackupJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateBackupPlanCommandInput, UpdateBackupPlanCommandOutput } from "./commands/UpdateBackupPlanCommand";
-import { UpdateFrameworkCommandInput, UpdateFrameworkCommandOutput } from "./commands/UpdateFrameworkCommand";
-import {
+import type { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "./commands/StartBackupJobCommand";
+import type { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "./commands/StartCopyJobCommand";
+import type { StartReportJobCommandInput, StartReportJobCommandOutput } from "./commands/StartReportJobCommand";
+import type { StartRestoreJobCommandInput, StartRestoreJobCommandOutput } from "./commands/StartRestoreJobCommand";
+import type { StartScanJobCommandInput, StartScanJobCommandOutput } from "./commands/StartScanJobCommand";
+import type { StopBackupJobCommandInput, StopBackupJobCommandOutput } from "./commands/StopBackupJobCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateBackupPlanCommandInput, UpdateBackupPlanCommandOutput } from "./commands/UpdateBackupPlanCommand";
+import type { UpdateFrameworkCommandInput, UpdateFrameworkCommandOutput } from "./commands/UpdateFrameworkCommand";
+import type {
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
-import {
+import type {
   UpdateRecoveryPointIndexSettingsCommandInput,
   UpdateRecoveryPointIndexSettingsCommandOutput,
 } from "./commands/UpdateRecoveryPointIndexSettingsCommand";
-import {
+import type {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
 } from "./commands/UpdateRecoveryPointLifecycleCommand";
-import {
+import type {
   UpdateRegionSettingsCommandInput,
   UpdateRegionSettingsCommandOutput,
 } from "./commands/UpdateRegionSettingsCommand";
-import { UpdateReportPlanCommandInput, UpdateReportPlanCommandOutput } from "./commands/UpdateReportPlanCommand";
-import {
+import type { UpdateReportPlanCommandInput, UpdateReportPlanCommandOutput } from "./commands/UpdateReportPlanCommand";
+import type {
   UpdateRestoreTestingPlanCommandInput,
   UpdateRestoreTestingPlanCommandOutput,
 } from "./commands/UpdateRestoreTestingPlanCommand";
-import {
+import type {
   UpdateRestoreTestingSelectionCommandInput,
   UpdateRestoreTestingSelectionCommandOutput,
 } from "./commands/UpdateRestoreTestingSelectionCommand";
-import {
+import type {
   UpdateTieringConfigurationCommandInput,
   UpdateTieringConfigurationCommandOutput,
 } from "./commands/UpdateTieringConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -720,7 +742,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

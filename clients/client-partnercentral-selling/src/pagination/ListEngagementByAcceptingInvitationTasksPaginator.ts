@@ -8,7 +8,7 @@ import {
   ListEngagementByAcceptingInvitationTasksCommandOutput,
 } from "../commands/ListEngagementByAcceptingInvitationTasksCommand";
 import { PartnerCentralSellingClient } from "../PartnerCentralSellingClient";
-import { PartnerCentralSellingPaginationConfiguration } from "./Interfaces";
+import type { PartnerCentralSellingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

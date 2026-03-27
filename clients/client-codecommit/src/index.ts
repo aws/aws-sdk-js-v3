@@ -392,7 +392,7 @@
  */
 export * from "./CodeCommitClient";
 export * from "./CodeCommit";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CodeCommitExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -3,72 +3,80 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type ActivateSubscriptionCommandInput,
+  type ActivateSubscriptionCommandOutput,
   ActivateSubscriptionCommand,
-  ActivateSubscriptionCommandInput,
-  ActivateSubscriptionCommandOutput,
 } from "./commands/ActivateSubscriptionCommand";
 import {
+  type CreateDomainCommandInput,
+  type CreateDomainCommandOutput,
   CreateDomainCommand,
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  type CreateSubscriptionCommandInput,
+  type CreateSubscriptionCommandOutput,
   CreateSubscriptionCommand,
-  CreateSubscriptionCommandInput,
-  CreateSubscriptionCommandOutput,
 } from "./commands/CreateSubscriptionCommand";
 import {
+  type DeactivateSubscriptionCommandInput,
+  type DeactivateSubscriptionCommandOutput,
   DeactivateSubscriptionCommand,
-  DeactivateSubscriptionCommandInput,
-  DeactivateSubscriptionCommandOutput,
 } from "./commands/DeactivateSubscriptionCommand";
 import {
+  type DeleteDomainCommandInput,
+  type DeleteDomainCommandOutput,
   DeleteDomainCommand,
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
-import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import { type GetDomainCommandInput, type GetDomainCommandOutput, GetDomainCommand } from "./commands/GetDomainCommand";
 import {
+  type GetMedicalScribeListeningSessionCommandInput,
+  type GetMedicalScribeListeningSessionCommandOutput,
   GetMedicalScribeListeningSessionCommand,
-  GetMedicalScribeListeningSessionCommandInput,
-  GetMedicalScribeListeningSessionCommandOutput,
 } from "./commands/GetMedicalScribeListeningSessionCommand";
 import {
+  type GetPatientInsightsJobCommandInput,
+  type GetPatientInsightsJobCommandOutput,
   GetPatientInsightsJobCommand,
-  GetPatientInsightsJobCommandInput,
-  GetPatientInsightsJobCommandOutput,
 } from "./commands/GetPatientInsightsJobCommand";
 import {
+  type GetSubscriptionCommandInput,
+  type GetSubscriptionCommandOutput,
   GetSubscriptionCommand,
-  GetSubscriptionCommandInput,
-  GetSubscriptionCommandOutput,
 } from "./commands/GetSubscriptionCommand";
-import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  type ListDomainsCommandInput,
+  type ListDomainsCommandOutput,
+  ListDomainsCommand,
+} from "./commands/ListDomainsCommand";
+import {
+  type ListSubscriptionsCommandInput,
+  type ListSubscriptionsCommandOutput,
   ListSubscriptionsCommand,
-  ListSubscriptionsCommandInput,
-  ListSubscriptionsCommandOutput,
 } from "./commands/ListSubscriptionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartMedicalScribeListeningSessionCommandInput,
+  type StartMedicalScribeListeningSessionCommandOutput,
   StartMedicalScribeListeningSessionCommand,
-  StartMedicalScribeListeningSessionCommandInput,
-  StartMedicalScribeListeningSessionCommandOutput,
 } from "./commands/StartMedicalScribeListeningSessionCommand";
 import {
+  type StartPatientInsightsJobCommandInput,
+  type StartPatientInsightsJobCommandOutput,
   StartPatientInsightsJobCommand,
-  StartPatientInsightsJobCommandInput,
-  StartPatientInsightsJobCommandOutput,
 } from "./commands/StartPatientInsightsJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { ConnectHealthClient } from "./ConnectHealthClient";
 import { paginateListDomains } from "./pagination/ListDomainsPaginator";

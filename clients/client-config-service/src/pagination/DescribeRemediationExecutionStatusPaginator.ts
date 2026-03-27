@@ -8,7 +8,7 @@ import {
   DescribeRemediationExecutionStatusCommandOutput,
 } from "../commands/DescribeRemediationExecutionStatusCommand";
 import { ConfigServiceClient } from "../ConfigServiceClient";
-import { ConfigServicePaginationConfiguration } from "./Interfaces";
+import type { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

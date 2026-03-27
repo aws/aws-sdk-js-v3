@@ -7,7 +7,7 @@
  */
 export * from "./KinesisVideoClient";
 export * from "./KinesisVideo";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { KinesisVideoExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

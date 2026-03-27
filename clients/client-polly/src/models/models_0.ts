@@ -1,8 +1,17 @@
 // smithy-typescript generated code
-import { StreamingBlobTypes } from "@smithy/types";
+import type { StreamingBlobTypes } from "@smithy/types";
 
-import { Engine, Gender, LanguageCode, OutputFormat, SpeechMarkType, TaskStatus, TextType, VoiceId } from "./enums";
-import {
+import type {
+  Engine,
+  Gender,
+  LanguageCode,
+  OutputFormat,
+  SpeechMarkType,
+  TaskStatus,
+  TextType,
+  VoiceId,
+} from "./enums";
+import type {
   ServiceFailureException,
   ServiceQuotaExceededException,
   ThrottlingException,

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ErrorCode, GroupByAttribute, TargetIdType } from "./enums";
+import type { ErrorCode, GroupByAttribute, TargetIdType } from "./enums";
 
 /**
  * <p>Information that shows whether a resource is compliant with the effective tag policy,

@@ -18,7 +18,7 @@
  */
 export * from "./DevOpsGuruClient";
 export * from "./DevOpsGuru";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DevOpsGuruExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

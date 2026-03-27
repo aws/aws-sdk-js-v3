@@ -8,7 +8,7 @@ import {
   ListOrganizationAdminAccountsCommandOutput,
 } from "../commands/ListOrganizationAdminAccountsCommand";
 import { GuardDutyClient } from "../GuardDutyClient";
-import { GuardDutyPaginationConfiguration } from "./Interfaces";
+import type { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

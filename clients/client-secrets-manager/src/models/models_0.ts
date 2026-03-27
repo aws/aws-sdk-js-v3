@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { FilterNameStringType, SortByType, SortOrderType, StatusType } from "./enums";
+import type { FilterNameStringType, SortByType, SortOrderType, StatusType } from "./enums";
 
 /**
  * <p>A custom type that specifies a <code>Region</code> and the <code>KmsKeyId</code> for a

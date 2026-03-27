@@ -8,7 +8,7 @@ import {
   ListUserSettingsCommandOutput,
 } from "../commands/ListUserSettingsCommand";
 import { WorkSpacesWebClient } from "../WorkSpacesWebClient";
-import { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
+import type { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

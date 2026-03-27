@@ -4,130 +4,134 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BudgetsClient } from "./BudgetsClient";
 import {
+  type CreateBudgetActionCommandInput,
+  type CreateBudgetActionCommandOutput,
   CreateBudgetActionCommand,
-  CreateBudgetActionCommandInput,
-  CreateBudgetActionCommandOutput,
 } from "./commands/CreateBudgetActionCommand";
 import {
+  type CreateBudgetCommandInput,
+  type CreateBudgetCommandOutput,
   CreateBudgetCommand,
-  CreateBudgetCommandInput,
-  CreateBudgetCommandOutput,
 } from "./commands/CreateBudgetCommand";
 import {
+  type CreateNotificationCommandInput,
+  type CreateNotificationCommandOutput,
   CreateNotificationCommand,
-  CreateNotificationCommandInput,
-  CreateNotificationCommandOutput,
 } from "./commands/CreateNotificationCommand";
 import {
+  type CreateSubscriberCommandInput,
+  type CreateSubscriberCommandOutput,
   CreateSubscriberCommand,
-  CreateSubscriberCommandInput,
-  CreateSubscriberCommandOutput,
 } from "./commands/CreateSubscriberCommand";
 import {
+  type DeleteBudgetActionCommandInput,
+  type DeleteBudgetActionCommandOutput,
   DeleteBudgetActionCommand,
-  DeleteBudgetActionCommandInput,
-  DeleteBudgetActionCommandOutput,
 } from "./commands/DeleteBudgetActionCommand";
 import {
+  type DeleteBudgetCommandInput,
+  type DeleteBudgetCommandOutput,
   DeleteBudgetCommand,
-  DeleteBudgetCommandInput,
-  DeleteBudgetCommandOutput,
 } from "./commands/DeleteBudgetCommand";
 import {
+  type DeleteNotificationCommandInput,
+  type DeleteNotificationCommandOutput,
   DeleteNotificationCommand,
-  DeleteNotificationCommandInput,
-  DeleteNotificationCommandOutput,
 } from "./commands/DeleteNotificationCommand";
 import {
+  type DeleteSubscriberCommandInput,
+  type DeleteSubscriberCommandOutput,
   DeleteSubscriberCommand,
-  DeleteSubscriberCommandInput,
-  DeleteSubscriberCommandOutput,
 } from "./commands/DeleteSubscriberCommand";
 import {
+  type DescribeBudgetActionCommandInput,
+  type DescribeBudgetActionCommandOutput,
   DescribeBudgetActionCommand,
-  DescribeBudgetActionCommandInput,
-  DescribeBudgetActionCommandOutput,
 } from "./commands/DescribeBudgetActionCommand";
 import {
+  type DescribeBudgetActionHistoriesCommandInput,
+  type DescribeBudgetActionHistoriesCommandOutput,
   DescribeBudgetActionHistoriesCommand,
-  DescribeBudgetActionHistoriesCommandInput,
-  DescribeBudgetActionHistoriesCommandOutput,
 } from "./commands/DescribeBudgetActionHistoriesCommand";
 import {
+  type DescribeBudgetActionsForAccountCommandInput,
+  type DescribeBudgetActionsForAccountCommandOutput,
   DescribeBudgetActionsForAccountCommand,
-  DescribeBudgetActionsForAccountCommandInput,
-  DescribeBudgetActionsForAccountCommandOutput,
 } from "./commands/DescribeBudgetActionsForAccountCommand";
 import {
+  type DescribeBudgetActionsForBudgetCommandInput,
+  type DescribeBudgetActionsForBudgetCommandOutput,
   DescribeBudgetActionsForBudgetCommand,
-  DescribeBudgetActionsForBudgetCommandInput,
-  DescribeBudgetActionsForBudgetCommandOutput,
 } from "./commands/DescribeBudgetActionsForBudgetCommand";
 import {
+  type DescribeBudgetCommandInput,
+  type DescribeBudgetCommandOutput,
   DescribeBudgetCommand,
-  DescribeBudgetCommandInput,
-  DescribeBudgetCommandOutput,
 } from "./commands/DescribeBudgetCommand";
 import {
+  type DescribeBudgetNotificationsForAccountCommandInput,
+  type DescribeBudgetNotificationsForAccountCommandOutput,
   DescribeBudgetNotificationsForAccountCommand,
-  DescribeBudgetNotificationsForAccountCommandInput,
-  DescribeBudgetNotificationsForAccountCommandOutput,
 } from "./commands/DescribeBudgetNotificationsForAccountCommand";
 import {
+  type DescribeBudgetPerformanceHistoryCommandInput,
+  type DescribeBudgetPerformanceHistoryCommandOutput,
   DescribeBudgetPerformanceHistoryCommand,
-  DescribeBudgetPerformanceHistoryCommandInput,
-  DescribeBudgetPerformanceHistoryCommandOutput,
 } from "./commands/DescribeBudgetPerformanceHistoryCommand";
 import {
+  type DescribeBudgetsCommandInput,
+  type DescribeBudgetsCommandOutput,
   DescribeBudgetsCommand,
-  DescribeBudgetsCommandInput,
-  DescribeBudgetsCommandOutput,
 } from "./commands/DescribeBudgetsCommand";
 import {
+  type DescribeNotificationsForBudgetCommandInput,
+  type DescribeNotificationsForBudgetCommandOutput,
   DescribeNotificationsForBudgetCommand,
-  DescribeNotificationsForBudgetCommandInput,
-  DescribeNotificationsForBudgetCommandOutput,
 } from "./commands/DescribeNotificationsForBudgetCommand";
 import {
+  type DescribeSubscribersForNotificationCommandInput,
+  type DescribeSubscribersForNotificationCommandOutput,
   DescribeSubscribersForNotificationCommand,
-  DescribeSubscribersForNotificationCommandInput,
-  DescribeSubscribersForNotificationCommandOutput,
 } from "./commands/DescribeSubscribersForNotificationCommand";
 import {
+  type ExecuteBudgetActionCommandInput,
+  type ExecuteBudgetActionCommandOutput,
   ExecuteBudgetActionCommand,
-  ExecuteBudgetActionCommandInput,
-  ExecuteBudgetActionCommandOutput,
 } from "./commands/ExecuteBudgetActionCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBudgetActionCommandInput,
+  type UpdateBudgetActionCommandOutput,
   UpdateBudgetActionCommand,
-  UpdateBudgetActionCommandInput,
-  UpdateBudgetActionCommandOutput,
 } from "./commands/UpdateBudgetActionCommand";
 import {
+  type UpdateBudgetCommandInput,
+  type UpdateBudgetCommandOutput,
   UpdateBudgetCommand,
-  UpdateBudgetCommandInput,
-  UpdateBudgetCommandOutput,
 } from "./commands/UpdateBudgetCommand";
 import {
+  type UpdateNotificationCommandInput,
+  type UpdateNotificationCommandOutput,
   UpdateNotificationCommand,
-  UpdateNotificationCommandInput,
-  UpdateNotificationCommandOutput,
 } from "./commands/UpdateNotificationCommand";
 import {
+  type UpdateSubscriberCommandInput,
+  type UpdateSubscriberCommandOutput,
   UpdateSubscriberCommand,
-  UpdateSubscriberCommandInput,
-  UpdateSubscriberCommandOutput,
 } from "./commands/UpdateSubscriberCommand";
 import { paginateDescribeBudgetActionHistories } from "./pagination/DescribeBudgetActionHistoriesPaginator";
 import { paginateDescribeBudgetActionsForAccount } from "./pagination/DescribeBudgetActionsForAccountPaginator";

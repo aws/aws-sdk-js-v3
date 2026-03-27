@@ -8,7 +8,7 @@ import {
   DescribeFileCachesCommandOutput,
 } from "../commands/DescribeFileCachesCommand";
 import { FSxClient } from "../FSxClient";
-import { FSxPaginationConfiguration } from "./Interfaces";
+import type { FSxPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

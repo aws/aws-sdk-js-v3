@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { DocumentType as __DocumentType } from "@smithy/types";
+import type { DocumentType as __DocumentType } from "@smithy/types";
 
-import {
+import type {
   ActionGroupSignature,
   ActionInvocationType,
   AgentCollaboration,
@@ -69,7 +69,7 @@ import {
   Type,
   VectorSearchRerankingConfigurationType,
 } from "./enums";
-import {
+import type {
   AccessDeniedException,
   BadGatewayException,
   ConflictException,

@@ -8,7 +8,7 @@ import {
   ListStackRefactorsCommandInput,
   ListStackRefactorsCommandOutput,
 } from "../commands/ListStackRefactorsCommand";
-import { CloudFormationPaginationConfiguration } from "./Interfaces";
+import type { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

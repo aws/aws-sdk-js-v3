@@ -3,50 +3,54 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type CreateSavingsPlanCommandInput,
+  type CreateSavingsPlanCommandOutput,
   CreateSavingsPlanCommand,
-  CreateSavingsPlanCommandInput,
-  CreateSavingsPlanCommandOutput,
 } from "./commands/CreateSavingsPlanCommand";
 import {
+  type DeleteQueuedSavingsPlanCommandInput,
+  type DeleteQueuedSavingsPlanCommandOutput,
   DeleteQueuedSavingsPlanCommand,
-  DeleteQueuedSavingsPlanCommandInput,
-  DeleteQueuedSavingsPlanCommandOutput,
 } from "./commands/DeleteQueuedSavingsPlanCommand";
 import {
+  type DescribeSavingsPlanRatesCommandInput,
+  type DescribeSavingsPlanRatesCommandOutput,
   DescribeSavingsPlanRatesCommand,
-  DescribeSavingsPlanRatesCommandInput,
-  DescribeSavingsPlanRatesCommandOutput,
 } from "./commands/DescribeSavingsPlanRatesCommand";
 import {
+  type DescribeSavingsPlansCommandInput,
+  type DescribeSavingsPlansCommandOutput,
   DescribeSavingsPlansCommand,
-  DescribeSavingsPlansCommandInput,
-  DescribeSavingsPlansCommandOutput,
 } from "./commands/DescribeSavingsPlansCommand";
 import {
+  type DescribeSavingsPlansOfferingRatesCommandInput,
+  type DescribeSavingsPlansOfferingRatesCommandOutput,
   DescribeSavingsPlansOfferingRatesCommand,
-  DescribeSavingsPlansOfferingRatesCommandInput,
-  DescribeSavingsPlansOfferingRatesCommandOutput,
 } from "./commands/DescribeSavingsPlansOfferingRatesCommand";
 import {
+  type DescribeSavingsPlansOfferingsCommandInput,
+  type DescribeSavingsPlansOfferingsCommandOutput,
   DescribeSavingsPlansOfferingsCommand,
-  DescribeSavingsPlansOfferingsCommandInput,
-  DescribeSavingsPlansOfferingsCommandOutput,
 } from "./commands/DescribeSavingsPlansOfferingsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ReturnSavingsPlanCommandInput,
+  type ReturnSavingsPlanCommandOutput,
   ReturnSavingsPlanCommand,
-  ReturnSavingsPlanCommandInput,
-  ReturnSavingsPlanCommandOutput,
 } from "./commands/ReturnSavingsPlanCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { SavingsplansClient } from "./SavingsplansClient";
 

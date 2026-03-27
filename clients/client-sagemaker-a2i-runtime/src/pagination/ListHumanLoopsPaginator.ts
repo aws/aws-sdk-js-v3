@@ -8,7 +8,7 @@ import {
   ListHumanLoopsCommandOutput,
 } from "../commands/ListHumanLoopsCommand";
 import { SageMakerA2IRuntimeClient } from "../SageMakerA2IRuntimeClient";
-import { SageMakerA2IRuntimePaginationConfiguration } from "./Interfaces";
+import type { SageMakerA2IRuntimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

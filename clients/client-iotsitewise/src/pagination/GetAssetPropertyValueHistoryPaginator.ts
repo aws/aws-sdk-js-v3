@@ -8,7 +8,7 @@ import {
   GetAssetPropertyValueHistoryCommandOutput,
 } from "../commands/GetAssetPropertyValueHistoryCommand";
 import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
-import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
+import type { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListGraphqlApisCommandInput,
   ListGraphqlApisCommandOutput,
 } from "../commands/ListGraphqlApisCommand";
-import { AppSyncPaginationConfiguration } from "./Interfaces";
+import type { AppSyncPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { GetRulesCommand, GetRulesCommandInput, GetRulesCommandOutput } from "../commands/GetRulesCommand";
 import { FraudDetectorClient } from "../FraudDetectorClient";
-import { FraudDetectorPaginationConfiguration } from "./Interfaces";
+import type { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

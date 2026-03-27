@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   AgentStatusType,
   ArtifactStatus,
   AutoEvaluationStatus,
@@ -68,36 +68,36 @@ import {
   ViewType,
   VocabularyLanguageCode,
 } from "./enums";
-import {
-  type AgentConfig,
-  type AgentHierarchyGroups,
-  type ControlPlaneAttributeFilter,
-  type DataTableLockVersion,
-  type LexV2Bot,
+import type {
   ActionSummary,
+  AgentConfig,
+  AgentHierarchyGroups,
   AgentStatus,
   AgentStatusSummary,
   AliasConfiguration,
   AnalyticsDataAssociationResult,
   Application,
+  ControlPlaneAttributeFilter,
+  DataTableLockVersion,
   Distribution,
   FlowAssociationSummary,
   FlowModule,
   InstanceStorageConfig,
   LexBot,
+  LexV2Bot,
   PrimaryValueResponse,
   SecurityProfileItem,
   TagCondition,
   UserProficiency,
 } from "./models_0";
-import {
-  type EvaluationContactParticipant,
-  type EvaluationScore,
+import type {
   Attribute,
   ContactFlow,
   ContactFlowModule,
   DataTable,
   DataTableAttribute,
+  EvaluationContactParticipant,
+  EvaluationScore,
   HierarchyGroupSummary,
   HoursOfOperation,
   HoursOfOperationOverride,

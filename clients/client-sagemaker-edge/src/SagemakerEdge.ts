@@ -3,19 +3,19 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type GetDeploymentsCommandInput,
+  type GetDeploymentsCommandOutput,
   GetDeploymentsCommand,
-  GetDeploymentsCommandInput,
-  GetDeploymentsCommandOutput,
 } from "./commands/GetDeploymentsCommand";
 import {
+  type GetDeviceRegistrationCommandInput,
+  type GetDeviceRegistrationCommandOutput,
   GetDeviceRegistrationCommand,
-  GetDeviceRegistrationCommandInput,
-  GetDeviceRegistrationCommandOutput,
 } from "./commands/GetDeviceRegistrationCommand";
 import {
+  type SendHeartbeatCommandInput,
+  type SendHeartbeatCommandOutput,
   SendHeartbeatCommand,
-  SendHeartbeatCommandInput,
-  SendHeartbeatCommandOutput,
 } from "./commands/SendHeartbeatCommand";
 import { SagemakerEdgeClient } from "./SagemakerEdgeClient";
 

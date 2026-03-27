@@ -8,7 +8,7 @@ import {
   ValidatePolicyCommandInput,
   ValidatePolicyCommandOutput,
 } from "../commands/ValidatePolicyCommand";
-import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
+import type { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

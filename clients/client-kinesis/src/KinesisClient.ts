@@ -44,22 +44,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type EventStreamSerdeProvider as __EventStreamSerdeProvider,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -69,103 +67,112 @@ import {
   defaultKinesisHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddTagsToStreamCommandInput, AddTagsToStreamCommandOutput } from "./commands/AddTagsToStreamCommand";
-import { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
-import {
+import type { AddTagsToStreamCommandInput, AddTagsToStreamCommandOutput } from "./commands/AddTagsToStreamCommand";
+import type { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
+import type {
   DecreaseStreamRetentionPeriodCommandInput,
   DecreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/DecreaseStreamRetentionPeriodCommand";
-import {
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
-import {
+import type { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
+import type {
   DeregisterStreamConsumerCommandInput,
   DeregisterStreamConsumerCommandOutput,
 } from "./commands/DeregisterStreamConsumerCommand";
-import {
+import type {
   DescribeAccountSettingsCommandInput,
   DescribeAccountSettingsCommandOutput,
 } from "./commands/DescribeAccountSettingsCommand";
-import { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "./commands/DescribeLimitsCommand";
-import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
-import {
+import type { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "./commands/DescribeLimitsCommand";
+import type { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
+import type {
   DescribeStreamConsumerCommandInput,
   DescribeStreamConsumerCommandOutput,
 } from "./commands/DescribeStreamConsumerCommand";
-import {
+import type {
   DescribeStreamSummaryCommandInput,
   DescribeStreamSummaryCommandOutput,
 } from "./commands/DescribeStreamSummaryCommand";
-import {
+import type {
   DisableEnhancedMonitoringCommandInput,
   DisableEnhancedMonitoringCommandOutput,
 } from "./commands/DisableEnhancedMonitoringCommand";
-import {
+import type {
   EnableEnhancedMonitoringCommandInput,
   EnableEnhancedMonitoringCommandOutput,
 } from "./commands/EnableEnhancedMonitoringCommand";
-import { GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import { GetShardIteratorCommandInput, GetShardIteratorCommandOutput } from "./commands/GetShardIteratorCommand";
-import {
+import type { GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type { GetShardIteratorCommandInput, GetShardIteratorCommandOutput } from "./commands/GetShardIteratorCommand";
+import type {
   IncreaseStreamRetentionPeriodCommandInput,
   IncreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/IncreaseStreamRetentionPeriodCommand";
-import { ListShardsCommandInput, ListShardsCommandOutput } from "./commands/ListShardsCommand";
-import {
+import type { ListShardsCommandInput, ListShardsCommandOutput } from "./commands/ListShardsCommand";
+import type {
   ListStreamConsumersCommandInput,
   ListStreamConsumersCommandOutput,
 } from "./commands/ListStreamConsumersCommand";
-import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
-import {
+import type { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput } from "./commands/ListTagsForStreamCommand";
-import { MergeShardsCommandInput, MergeShardsCommandOutput } from "./commands/MergeShardsCommand";
-import { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
-import { PutRecordsCommandInput, PutRecordsCommandOutput } from "./commands/PutRecordsCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type {
+  ListTagsForStreamCommandInput,
+  ListTagsForStreamCommandOutput,
+} from "./commands/ListTagsForStreamCommand";
+import type { MergeShardsCommandInput, MergeShardsCommandOutput } from "./commands/MergeShardsCommand";
+import type { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
+import type { PutRecordsCommandInput, PutRecordsCommandOutput } from "./commands/PutRecordsCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   RegisterStreamConsumerCommandInput,
   RegisterStreamConsumerCommandOutput,
 } from "./commands/RegisterStreamConsumerCommand";
-import {
+import type {
   RemoveTagsFromStreamCommandInput,
   RemoveTagsFromStreamCommandOutput,
 } from "./commands/RemoveTagsFromStreamCommand";
-import { SplitShardCommandInput, SplitShardCommandOutput } from "./commands/SplitShardCommand";
-import {
+import type { SplitShardCommandInput, SplitShardCommandOutput } from "./commands/SplitShardCommand";
+import type {
   StartStreamEncryptionCommandInput,
   StartStreamEncryptionCommandOutput,
 } from "./commands/StartStreamEncryptionCommand";
-import {
+import type {
   StopStreamEncryptionCommandInput,
   StopStreamEncryptionCommandOutput,
 } from "./commands/StopStreamEncryptionCommand";
-import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "./commands/SubscribeToShardCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "./commands/SubscribeToShardCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
-import {
+import type {
   UpdateMaxRecordSizeCommandInput,
   UpdateMaxRecordSizeCommandOutput,
 } from "./commands/UpdateMaxRecordSizeCommand";
-import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "./commands/UpdateShardCountCommand";
-import { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "./commands/UpdateStreamModeCommand";
-import {
+import type { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "./commands/UpdateShardCountCommand";
+import type { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "./commands/UpdateStreamModeCommand";
+import type {
   UpdateStreamWarmThroughputCommandInput,
   UpdateStreamWarmThroughputCommandOutput,
 } from "./commands/UpdateStreamWarmThroughputCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -375,7 +382,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

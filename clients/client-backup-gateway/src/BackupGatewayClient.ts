@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,77 +61,80 @@ import {
   defaultBackupGatewayHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateGatewayToServerCommandInput,
   AssociateGatewayToServerCommandOutput,
 } from "./commands/AssociateGatewayToServerCommand";
-import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
-import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
-import { DeleteHypervisorCommandInput, DeleteHypervisorCommandOutput } from "./commands/DeleteHypervisorCommand";
-import {
+import type { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
+import type { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
+import type { DeleteHypervisorCommandInput, DeleteHypervisorCommandOutput } from "./commands/DeleteHypervisorCommand";
+import type {
   DisassociateGatewayFromServerCommandInput,
   DisassociateGatewayFromServerCommandOutput,
 } from "./commands/DisassociateGatewayFromServerCommand";
-import {
+import type {
   GetBandwidthRateLimitScheduleCommandInput,
   GetBandwidthRateLimitScheduleCommandOutput,
 } from "./commands/GetBandwidthRateLimitScheduleCommand";
-import { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
-import { GetHypervisorCommandInput, GetHypervisorCommandOutput } from "./commands/GetHypervisorCommand";
-import {
+import type { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
+import type { GetHypervisorCommandInput, GetHypervisorCommandOutput } from "./commands/GetHypervisorCommand";
+import type {
   GetHypervisorPropertyMappingsCommandInput,
   GetHypervisorPropertyMappingsCommandOutput,
 } from "./commands/GetHypervisorPropertyMappingsCommand";
-import { GetVirtualMachineCommandInput, GetVirtualMachineCommandOutput } from "./commands/GetVirtualMachineCommand";
-import {
+import type {
+  GetVirtualMachineCommandInput,
+  GetVirtualMachineCommandOutput,
+} from "./commands/GetVirtualMachineCommand";
+import type {
   ImportHypervisorConfigurationCommandInput,
   ImportHypervisorConfigurationCommandOutput,
 } from "./commands/ImportHypervisorConfigurationCommand";
-import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
-import { ListHypervisorsCommandInput, ListHypervisorsCommandOutput } from "./commands/ListHypervisorsCommand";
-import {
+import type { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
+import type { ListHypervisorsCommandInput, ListHypervisorsCommandOutput } from "./commands/ListHypervisorsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListVirtualMachinesCommandInput,
   ListVirtualMachinesCommandOutput,
 } from "./commands/ListVirtualMachinesCommand";
-import {
+import type {
   PutBandwidthRateLimitScheduleCommandInput,
   PutBandwidthRateLimitScheduleCommandOutput,
 } from "./commands/PutBandwidthRateLimitScheduleCommand";
-import {
+import type {
   PutHypervisorPropertyMappingsCommandInput,
   PutHypervisorPropertyMappingsCommandOutput,
 } from "./commands/PutHypervisorPropertyMappingsCommand";
-import {
+import type {
   PutMaintenanceStartTimeCommandInput,
   PutMaintenanceStartTimeCommandOutput,
 } from "./commands/PutMaintenanceStartTimeCommand";
-import {
+import type {
   StartVirtualMachinesMetadataSyncCommandInput,
   StartVirtualMachinesMetadataSyncCommandOutput,
 } from "./commands/StartVirtualMachinesMetadataSyncCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   TestHypervisorConfigurationCommandInput,
   TestHypervisorConfigurationCommandOutput,
 } from "./commands/TestHypervisorConfigurationCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateGatewayInformationCommandInput,
   UpdateGatewayInformationCommandOutput,
 } from "./commands/UpdateGatewayInformationCommand";
-import {
+import type {
   UpdateGatewaySoftwareNowCommandInput,
   UpdateGatewaySoftwareNowCommandOutput,
 } from "./commands/UpdateGatewaySoftwareNowCommand";
-import { UpdateHypervisorCommandInput, UpdateHypervisorCommandOutput } from "./commands/UpdateHypervisorCommand";
+import type { UpdateHypervisorCommandInput, UpdateHypervisorCommandOutput } from "./commands/UpdateHypervisorCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -315,7 +316,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

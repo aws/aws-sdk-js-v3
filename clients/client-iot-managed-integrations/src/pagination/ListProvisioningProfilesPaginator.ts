@@ -8,7 +8,7 @@ import {
   ListProvisioningProfilesCommandOutput,
 } from "../commands/ListProvisioningProfilesCommand";
 import { IoTManagedIntegrationsClient } from "../IoTManagedIntegrationsClient";
-import { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
+import type { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

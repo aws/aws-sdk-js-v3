@@ -8,7 +8,7 @@ import {
   ListTrainedModelInferenceJobsCommandInput,
   ListTrainedModelInferenceJobsCommandOutput,
 } from "../commands/ListTrainedModelInferenceJobsCommand";
-import { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

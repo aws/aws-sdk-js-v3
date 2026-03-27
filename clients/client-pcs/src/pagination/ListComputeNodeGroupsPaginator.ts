@@ -8,7 +8,7 @@ import {
   ListComputeNodeGroupsCommandOutput,
 } from "../commands/ListComputeNodeGroupsCommand";
 import { PCSClient } from "../PCSClient";
-import { PCSPaginationConfiguration } from "./Interfaces";
+import type { PCSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

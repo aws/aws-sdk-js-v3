@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type UploadDocumentsResponse, UploadDocumentsRequest } from "../models/models_0";
+import type { UploadDocumentsRequest, UploadDocumentsResponse } from "../models/models_0";
 import { UploadDocuments$ } from "../schemas/schemas_0";
 
 /**

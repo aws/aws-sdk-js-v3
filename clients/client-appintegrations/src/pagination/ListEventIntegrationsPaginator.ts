@@ -8,7 +8,7 @@ import {
   ListEventIntegrationsCommandInput,
   ListEventIntegrationsCommandOutput,
 } from "../commands/ListEventIntegrationsCommand";
-import { AppIntegrationsPaginationConfiguration } from "./Interfaces";
+import type { AppIntegrationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

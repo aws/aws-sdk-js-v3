@@ -8,7 +8,7 @@ import {
   ListWorkloadEstimateUsageCommandInput,
   ListWorkloadEstimateUsageCommandOutput,
 } from "../commands/ListWorkloadEstimateUsageCommand";
-import { BCMPricingCalculatorPaginationConfiguration } from "./Interfaces";
+import type { BCMPricingCalculatorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

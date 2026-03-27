@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { AppMeshClient } from "../AppMeshClient";
 import { ListRoutesCommand, ListRoutesCommandInput, ListRoutesCommandOutput } from "../commands/ListRoutesCommand";
-import { AppMeshPaginationConfiguration } from "./Interfaces";
+import type { AppMeshPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   As2805KeyVariant,
   DeriveKeyUsage,
   KeyAlgorithm,

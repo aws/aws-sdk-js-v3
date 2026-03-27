@@ -8,7 +8,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { SSOAdminClient } from "../SSOAdminClient";
-import { SSOAdminPaginationConfiguration } from "./Interfaces";
+import type { SSOAdminPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

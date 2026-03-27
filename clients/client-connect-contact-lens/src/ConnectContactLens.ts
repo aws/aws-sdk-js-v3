@@ -3,9 +3,9 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type ListRealtimeContactAnalysisSegmentsCommandInput,
+  type ListRealtimeContactAnalysisSegmentsCommandOutput,
   ListRealtimeContactAnalysisSegmentsCommand,
-  ListRealtimeContactAnalysisSegmentsCommandInput,
-  ListRealtimeContactAnalysisSegmentsCommandOutput,
 } from "./commands/ListRealtimeContactAnalysisSegmentsCommand";
 import { ConnectContactLensClient } from "./ConnectContactLensClient";
 import { paginateListRealtimeContactAnalysisSegments } from "./pagination/ListRealtimeContactAnalysisSegmentsPaginator";

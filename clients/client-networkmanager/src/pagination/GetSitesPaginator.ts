@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { GetSitesCommand, GetSitesCommandInput, GetSitesCommandOutput } from "../commands/GetSitesCommand";
 import { NetworkManagerClient } from "../NetworkManagerClient";
-import { NetworkManagerPaginationConfiguration } from "./Interfaces";
+import type { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

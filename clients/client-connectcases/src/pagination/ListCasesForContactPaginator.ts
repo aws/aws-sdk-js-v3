@@ -8,7 +8,7 @@ import {
   ListCasesForContactCommandOutput,
 } from "../commands/ListCasesForContactCommand";
 import { ConnectCasesClient } from "../ConnectCasesClient";
-import { ConnectCasesPaginationConfiguration } from "./Interfaces";
+import type { ConnectCasesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

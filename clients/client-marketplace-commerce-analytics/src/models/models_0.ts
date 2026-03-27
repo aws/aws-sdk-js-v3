@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { DataSetType, SupportDataSetType } from "./enums";
+import type { DataSetType, SupportDataSetType } from "./enums";
 
 /**
  * Container for the parameters to the GenerateDataSet operation.

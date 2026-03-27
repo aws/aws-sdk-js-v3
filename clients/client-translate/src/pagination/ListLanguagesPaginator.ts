@@ -8,7 +8,7 @@ import {
   ListLanguagesCommandOutput,
 } from "../commands/ListLanguagesCommand";
 import { TranslateClient } from "../TranslateClient";
-import { TranslatePaginationConfiguration } from "./Interfaces";
+import type { TranslatePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

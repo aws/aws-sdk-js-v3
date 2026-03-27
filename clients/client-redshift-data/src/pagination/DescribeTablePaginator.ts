@@ -8,7 +8,7 @@ import {
   DescribeTableCommandOutput,
 } from "../commands/DescribeTableCommand";
 import { RedshiftDataClient } from "../RedshiftDataClient";
-import { RedshiftDataPaginationConfiguration } from "./Interfaces";
+import type { RedshiftDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

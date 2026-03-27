@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import { DirectoryServiceDataClient } from "../DirectoryServiceDataClient";
-import { DirectoryServiceDataPaginationConfiguration } from "./Interfaces";
+import type { DirectoryServiceDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

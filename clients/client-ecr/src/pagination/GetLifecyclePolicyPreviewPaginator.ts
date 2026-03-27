@@ -8,7 +8,7 @@ import {
   GetLifecyclePolicyPreviewCommandOutput,
 } from "../commands/GetLifecyclePolicyPreviewCommand";
 import { ECRClient } from "../ECRClient";
-import { ECRPaginationConfiguration } from "./Interfaces";
+import type { ECRPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

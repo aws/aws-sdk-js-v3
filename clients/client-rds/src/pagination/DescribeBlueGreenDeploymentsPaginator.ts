@@ -8,7 +8,7 @@ import {
   DescribeBlueGreenDeploymentsCommandOutput,
 } from "../commands/DescribeBlueGreenDeploymentsCommand";
 import { RDSClient } from "../RDSClient";
-import { RDSPaginationConfiguration } from "./Interfaces";
+import type { RDSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

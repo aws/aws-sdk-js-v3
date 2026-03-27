@@ -3,469 +3,477 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateAccessGrantsIdentityCenterCommandInput,
+  type AssociateAccessGrantsIdentityCenterCommandOutput,
   AssociateAccessGrantsIdentityCenterCommand,
-  AssociateAccessGrantsIdentityCenterCommandInput,
-  AssociateAccessGrantsIdentityCenterCommandOutput,
 } from "./commands/AssociateAccessGrantsIdentityCenterCommand";
 import {
+  type CreateAccessGrantCommandInput,
+  type CreateAccessGrantCommandOutput,
   CreateAccessGrantCommand,
-  CreateAccessGrantCommandInput,
-  CreateAccessGrantCommandOutput,
 } from "./commands/CreateAccessGrantCommand";
 import {
+  type CreateAccessGrantsInstanceCommandInput,
+  type CreateAccessGrantsInstanceCommandOutput,
   CreateAccessGrantsInstanceCommand,
-  CreateAccessGrantsInstanceCommandInput,
-  CreateAccessGrantsInstanceCommandOutput,
 } from "./commands/CreateAccessGrantsInstanceCommand";
 import {
+  type CreateAccessGrantsLocationCommandInput,
+  type CreateAccessGrantsLocationCommandOutput,
   CreateAccessGrantsLocationCommand,
-  CreateAccessGrantsLocationCommandInput,
-  CreateAccessGrantsLocationCommandOutput,
 } from "./commands/CreateAccessGrantsLocationCommand";
 import {
+  type CreateAccessPointCommandInput,
+  type CreateAccessPointCommandOutput,
   CreateAccessPointCommand,
-  CreateAccessPointCommandInput,
-  CreateAccessPointCommandOutput,
 } from "./commands/CreateAccessPointCommand";
 import {
+  type CreateAccessPointForObjectLambdaCommandInput,
+  type CreateAccessPointForObjectLambdaCommandOutput,
   CreateAccessPointForObjectLambdaCommand,
-  CreateAccessPointForObjectLambdaCommandInput,
-  CreateAccessPointForObjectLambdaCommandOutput,
 } from "./commands/CreateAccessPointForObjectLambdaCommand";
 import {
+  type CreateBucketCommandInput,
+  type CreateBucketCommandOutput,
   CreateBucketCommand,
-  CreateBucketCommandInput,
-  CreateBucketCommandOutput,
 } from "./commands/CreateBucketCommand";
-import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import { type CreateJobCommandInput, type CreateJobCommandOutput, CreateJobCommand } from "./commands/CreateJobCommand";
 import {
+  type CreateMultiRegionAccessPointCommandInput,
+  type CreateMultiRegionAccessPointCommandOutput,
   CreateMultiRegionAccessPointCommand,
-  CreateMultiRegionAccessPointCommandInput,
-  CreateMultiRegionAccessPointCommandOutput,
 } from "./commands/CreateMultiRegionAccessPointCommand";
 import {
+  type CreateStorageLensGroupCommandInput,
+  type CreateStorageLensGroupCommandOutput,
   CreateStorageLensGroupCommand,
-  CreateStorageLensGroupCommandInput,
-  CreateStorageLensGroupCommandOutput,
 } from "./commands/CreateStorageLensGroupCommand";
 import {
+  type DeleteAccessGrantCommandInput,
+  type DeleteAccessGrantCommandOutput,
   DeleteAccessGrantCommand,
-  DeleteAccessGrantCommandInput,
-  DeleteAccessGrantCommandOutput,
 } from "./commands/DeleteAccessGrantCommand";
 import {
+  type DeleteAccessGrantsInstanceCommandInput,
+  type DeleteAccessGrantsInstanceCommandOutput,
   DeleteAccessGrantsInstanceCommand,
-  DeleteAccessGrantsInstanceCommandInput,
-  DeleteAccessGrantsInstanceCommandOutput,
 } from "./commands/DeleteAccessGrantsInstanceCommand";
 import {
+  type DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+  type DeleteAccessGrantsInstanceResourcePolicyCommandOutput,
   DeleteAccessGrantsInstanceResourcePolicyCommand,
-  DeleteAccessGrantsInstanceResourcePolicyCommandInput,
-  DeleteAccessGrantsInstanceResourcePolicyCommandOutput,
 } from "./commands/DeleteAccessGrantsInstanceResourcePolicyCommand";
 import {
+  type DeleteAccessGrantsLocationCommandInput,
+  type DeleteAccessGrantsLocationCommandOutput,
   DeleteAccessGrantsLocationCommand,
-  DeleteAccessGrantsLocationCommandInput,
-  DeleteAccessGrantsLocationCommandOutput,
 } from "./commands/DeleteAccessGrantsLocationCommand";
 import {
+  type DeleteAccessPointCommandInput,
+  type DeleteAccessPointCommandOutput,
   DeleteAccessPointCommand,
-  DeleteAccessPointCommandInput,
-  DeleteAccessPointCommandOutput,
 } from "./commands/DeleteAccessPointCommand";
 import {
+  type DeleteAccessPointForObjectLambdaCommandInput,
+  type DeleteAccessPointForObjectLambdaCommandOutput,
   DeleteAccessPointForObjectLambdaCommand,
-  DeleteAccessPointForObjectLambdaCommandInput,
-  DeleteAccessPointForObjectLambdaCommandOutput,
 } from "./commands/DeleteAccessPointForObjectLambdaCommand";
 import {
+  type DeleteAccessPointPolicyCommandInput,
+  type DeleteAccessPointPolicyCommandOutput,
   DeleteAccessPointPolicyCommand,
-  DeleteAccessPointPolicyCommandInput,
-  DeleteAccessPointPolicyCommandOutput,
 } from "./commands/DeleteAccessPointPolicyCommand";
 import {
+  type DeleteAccessPointPolicyForObjectLambdaCommandInput,
+  type DeleteAccessPointPolicyForObjectLambdaCommandOutput,
   DeleteAccessPointPolicyForObjectLambdaCommand,
-  DeleteAccessPointPolicyForObjectLambdaCommandInput,
-  DeleteAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/DeleteAccessPointPolicyForObjectLambdaCommand";
 import {
+  type DeleteAccessPointScopeCommandInput,
+  type DeleteAccessPointScopeCommandOutput,
   DeleteAccessPointScopeCommand,
-  DeleteAccessPointScopeCommandInput,
-  DeleteAccessPointScopeCommandOutput,
 } from "./commands/DeleteAccessPointScopeCommand";
 import {
+  type DeleteBucketCommandInput,
+  type DeleteBucketCommandOutput,
   DeleteBucketCommand,
-  DeleteBucketCommandInput,
-  DeleteBucketCommandOutput,
 } from "./commands/DeleteBucketCommand";
 import {
+  type DeleteBucketLifecycleConfigurationCommandInput,
+  type DeleteBucketLifecycleConfigurationCommandOutput,
   DeleteBucketLifecycleConfigurationCommand,
-  DeleteBucketLifecycleConfigurationCommandInput,
-  DeleteBucketLifecycleConfigurationCommandOutput,
 } from "./commands/DeleteBucketLifecycleConfigurationCommand";
 import {
+  type DeleteBucketPolicyCommandInput,
+  type DeleteBucketPolicyCommandOutput,
   DeleteBucketPolicyCommand,
-  DeleteBucketPolicyCommandInput,
-  DeleteBucketPolicyCommandOutput,
 } from "./commands/DeleteBucketPolicyCommand";
 import {
+  type DeleteBucketReplicationCommandInput,
+  type DeleteBucketReplicationCommandOutput,
   DeleteBucketReplicationCommand,
-  DeleteBucketReplicationCommandInput,
-  DeleteBucketReplicationCommandOutput,
 } from "./commands/DeleteBucketReplicationCommand";
 import {
+  type DeleteBucketTaggingCommandInput,
+  type DeleteBucketTaggingCommandOutput,
   DeleteBucketTaggingCommand,
-  DeleteBucketTaggingCommandInput,
-  DeleteBucketTaggingCommandOutput,
 } from "./commands/DeleteBucketTaggingCommand";
 import {
+  type DeleteJobTaggingCommandInput,
+  type DeleteJobTaggingCommandOutput,
   DeleteJobTaggingCommand,
-  DeleteJobTaggingCommandInput,
-  DeleteJobTaggingCommandOutput,
 } from "./commands/DeleteJobTaggingCommand";
 import {
+  type DeleteMultiRegionAccessPointCommandInput,
+  type DeleteMultiRegionAccessPointCommandOutput,
   DeleteMultiRegionAccessPointCommand,
-  DeleteMultiRegionAccessPointCommandInput,
-  DeleteMultiRegionAccessPointCommandOutput,
 } from "./commands/DeleteMultiRegionAccessPointCommand";
 import {
+  type DeletePublicAccessBlockCommandInput,
+  type DeletePublicAccessBlockCommandOutput,
   DeletePublicAccessBlockCommand,
-  DeletePublicAccessBlockCommandInput,
-  DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand";
 import {
+  type DeleteStorageLensConfigurationCommandInput,
+  type DeleteStorageLensConfigurationCommandOutput,
   DeleteStorageLensConfigurationCommand,
-  DeleteStorageLensConfigurationCommandInput,
-  DeleteStorageLensConfigurationCommandOutput,
 } from "./commands/DeleteStorageLensConfigurationCommand";
 import {
+  type DeleteStorageLensConfigurationTaggingCommandInput,
+  type DeleteStorageLensConfigurationTaggingCommandOutput,
   DeleteStorageLensConfigurationTaggingCommand,
-  DeleteStorageLensConfigurationTaggingCommandInput,
-  DeleteStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/DeleteStorageLensConfigurationTaggingCommand";
 import {
+  type DeleteStorageLensGroupCommandInput,
+  type DeleteStorageLensGroupCommandOutput,
   DeleteStorageLensGroupCommand,
-  DeleteStorageLensGroupCommandInput,
-  DeleteStorageLensGroupCommandOutput,
 } from "./commands/DeleteStorageLensGroupCommand";
-import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
+  type DescribeJobCommandInput,
+  type DescribeJobCommandOutput,
+  DescribeJobCommand,
+} from "./commands/DescribeJobCommand";
+import {
+  type DescribeMultiRegionAccessPointOperationCommandInput,
+  type DescribeMultiRegionAccessPointOperationCommandOutput,
   DescribeMultiRegionAccessPointOperationCommand,
-  DescribeMultiRegionAccessPointOperationCommandInput,
-  DescribeMultiRegionAccessPointOperationCommandOutput,
 } from "./commands/DescribeMultiRegionAccessPointOperationCommand";
 import {
+  type DissociateAccessGrantsIdentityCenterCommandInput,
+  type DissociateAccessGrantsIdentityCenterCommandOutput,
   DissociateAccessGrantsIdentityCenterCommand,
-  DissociateAccessGrantsIdentityCenterCommandInput,
-  DissociateAccessGrantsIdentityCenterCommandOutput,
 } from "./commands/DissociateAccessGrantsIdentityCenterCommand";
 import {
+  type GetAccessGrantCommandInput,
+  type GetAccessGrantCommandOutput,
   GetAccessGrantCommand,
-  GetAccessGrantCommandInput,
-  GetAccessGrantCommandOutput,
 } from "./commands/GetAccessGrantCommand";
 import {
+  type GetAccessGrantsInstanceCommandInput,
+  type GetAccessGrantsInstanceCommandOutput,
   GetAccessGrantsInstanceCommand,
-  GetAccessGrantsInstanceCommandInput,
-  GetAccessGrantsInstanceCommandOutput,
 } from "./commands/GetAccessGrantsInstanceCommand";
 import {
+  type GetAccessGrantsInstanceForPrefixCommandInput,
+  type GetAccessGrantsInstanceForPrefixCommandOutput,
   GetAccessGrantsInstanceForPrefixCommand,
-  GetAccessGrantsInstanceForPrefixCommandInput,
-  GetAccessGrantsInstanceForPrefixCommandOutput,
 } from "./commands/GetAccessGrantsInstanceForPrefixCommand";
 import {
+  type GetAccessGrantsInstanceResourcePolicyCommandInput,
+  type GetAccessGrantsInstanceResourcePolicyCommandOutput,
   GetAccessGrantsInstanceResourcePolicyCommand,
-  GetAccessGrantsInstanceResourcePolicyCommandInput,
-  GetAccessGrantsInstanceResourcePolicyCommandOutput,
 } from "./commands/GetAccessGrantsInstanceResourcePolicyCommand";
 import {
+  type GetAccessGrantsLocationCommandInput,
+  type GetAccessGrantsLocationCommandOutput,
   GetAccessGrantsLocationCommand,
-  GetAccessGrantsLocationCommandInput,
-  GetAccessGrantsLocationCommandOutput,
 } from "./commands/GetAccessGrantsLocationCommand";
 import {
+  type GetAccessPointCommandInput,
+  type GetAccessPointCommandOutput,
   GetAccessPointCommand,
-  GetAccessPointCommandInput,
-  GetAccessPointCommandOutput,
 } from "./commands/GetAccessPointCommand";
 import {
+  type GetAccessPointConfigurationForObjectLambdaCommandInput,
+  type GetAccessPointConfigurationForObjectLambdaCommandOutput,
   GetAccessPointConfigurationForObjectLambdaCommand,
-  GetAccessPointConfigurationForObjectLambdaCommandInput,
-  GetAccessPointConfigurationForObjectLambdaCommandOutput,
 } from "./commands/GetAccessPointConfigurationForObjectLambdaCommand";
 import {
+  type GetAccessPointForObjectLambdaCommandInput,
+  type GetAccessPointForObjectLambdaCommandOutput,
   GetAccessPointForObjectLambdaCommand,
-  GetAccessPointForObjectLambdaCommandInput,
-  GetAccessPointForObjectLambdaCommandOutput,
 } from "./commands/GetAccessPointForObjectLambdaCommand";
 import {
+  type GetAccessPointPolicyCommandInput,
+  type GetAccessPointPolicyCommandOutput,
   GetAccessPointPolicyCommand,
-  GetAccessPointPolicyCommandInput,
-  GetAccessPointPolicyCommandOutput,
 } from "./commands/GetAccessPointPolicyCommand";
 import {
+  type GetAccessPointPolicyForObjectLambdaCommandInput,
+  type GetAccessPointPolicyForObjectLambdaCommandOutput,
   GetAccessPointPolicyForObjectLambdaCommand,
-  GetAccessPointPolicyForObjectLambdaCommandInput,
-  GetAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/GetAccessPointPolicyForObjectLambdaCommand";
 import {
+  type GetAccessPointPolicyStatusCommandInput,
+  type GetAccessPointPolicyStatusCommandOutput,
   GetAccessPointPolicyStatusCommand,
-  GetAccessPointPolicyStatusCommandInput,
-  GetAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusCommand";
 import {
+  type GetAccessPointPolicyStatusForObjectLambdaCommandInput,
+  type GetAccessPointPolicyStatusForObjectLambdaCommandOutput,
   GetAccessPointPolicyStatusForObjectLambdaCommand,
-  GetAccessPointPolicyStatusForObjectLambdaCommandInput,
-  GetAccessPointPolicyStatusForObjectLambdaCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusForObjectLambdaCommand";
 import {
+  type GetAccessPointScopeCommandInput,
+  type GetAccessPointScopeCommandOutput,
   GetAccessPointScopeCommand,
-  GetAccessPointScopeCommandInput,
-  GetAccessPointScopeCommandOutput,
 } from "./commands/GetAccessPointScopeCommand";
-import { GetBucketCommand, GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand";
+import { type GetBucketCommandInput, type GetBucketCommandOutput, GetBucketCommand } from "./commands/GetBucketCommand";
 import {
+  type GetBucketLifecycleConfigurationCommandInput,
+  type GetBucketLifecycleConfigurationCommandOutput,
   GetBucketLifecycleConfigurationCommand,
-  GetBucketLifecycleConfigurationCommandInput,
-  GetBucketLifecycleConfigurationCommandOutput,
 } from "./commands/GetBucketLifecycleConfigurationCommand";
 import {
+  type GetBucketPolicyCommandInput,
+  type GetBucketPolicyCommandOutput,
   GetBucketPolicyCommand,
-  GetBucketPolicyCommandInput,
-  GetBucketPolicyCommandOutput,
 } from "./commands/GetBucketPolicyCommand";
 import {
+  type GetBucketReplicationCommandInput,
+  type GetBucketReplicationCommandOutput,
   GetBucketReplicationCommand,
-  GetBucketReplicationCommandInput,
-  GetBucketReplicationCommandOutput,
 } from "./commands/GetBucketReplicationCommand";
 import {
+  type GetBucketTaggingCommandInput,
+  type GetBucketTaggingCommandOutput,
   GetBucketTaggingCommand,
-  GetBucketTaggingCommandInput,
-  GetBucketTaggingCommandOutput,
 } from "./commands/GetBucketTaggingCommand";
 import {
+  type GetBucketVersioningCommandInput,
+  type GetBucketVersioningCommandOutput,
   GetBucketVersioningCommand,
-  GetBucketVersioningCommandInput,
-  GetBucketVersioningCommandOutput,
 } from "./commands/GetBucketVersioningCommand";
 import {
+  type GetDataAccessCommandInput,
+  type GetDataAccessCommandOutput,
   GetDataAccessCommand,
-  GetDataAccessCommandInput,
-  GetDataAccessCommandOutput,
 } from "./commands/GetDataAccessCommand";
 import {
+  type GetJobTaggingCommandInput,
+  type GetJobTaggingCommandOutput,
   GetJobTaggingCommand,
-  GetJobTaggingCommandInput,
-  GetJobTaggingCommandOutput,
 } from "./commands/GetJobTaggingCommand";
 import {
+  type GetMultiRegionAccessPointCommandInput,
+  type GetMultiRegionAccessPointCommandOutput,
   GetMultiRegionAccessPointCommand,
-  GetMultiRegionAccessPointCommandInput,
-  GetMultiRegionAccessPointCommandOutput,
 } from "./commands/GetMultiRegionAccessPointCommand";
 import {
+  type GetMultiRegionAccessPointPolicyCommandInput,
+  type GetMultiRegionAccessPointPolicyCommandOutput,
   GetMultiRegionAccessPointPolicyCommand,
-  GetMultiRegionAccessPointPolicyCommandInput,
-  GetMultiRegionAccessPointPolicyCommandOutput,
 } from "./commands/GetMultiRegionAccessPointPolicyCommand";
 import {
+  type GetMultiRegionAccessPointPolicyStatusCommandInput,
+  type GetMultiRegionAccessPointPolicyStatusCommandOutput,
   GetMultiRegionAccessPointPolicyStatusCommand,
-  GetMultiRegionAccessPointPolicyStatusCommandInput,
-  GetMultiRegionAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetMultiRegionAccessPointPolicyStatusCommand";
 import {
+  type GetMultiRegionAccessPointRoutesCommandInput,
+  type GetMultiRegionAccessPointRoutesCommandOutput,
   GetMultiRegionAccessPointRoutesCommand,
-  GetMultiRegionAccessPointRoutesCommandInput,
-  GetMultiRegionAccessPointRoutesCommandOutput,
 } from "./commands/GetMultiRegionAccessPointRoutesCommand";
 import {
+  type GetPublicAccessBlockCommandInput,
+  type GetPublicAccessBlockCommandOutput,
   GetPublicAccessBlockCommand,
-  GetPublicAccessBlockCommandInput,
-  GetPublicAccessBlockCommandOutput,
 } from "./commands/GetPublicAccessBlockCommand";
 import {
+  type GetStorageLensConfigurationCommandInput,
+  type GetStorageLensConfigurationCommandOutput,
   GetStorageLensConfigurationCommand,
-  GetStorageLensConfigurationCommandInput,
-  GetStorageLensConfigurationCommandOutput,
 } from "./commands/GetStorageLensConfigurationCommand";
 import {
+  type GetStorageLensConfigurationTaggingCommandInput,
+  type GetStorageLensConfigurationTaggingCommandOutput,
   GetStorageLensConfigurationTaggingCommand,
-  GetStorageLensConfigurationTaggingCommandInput,
-  GetStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/GetStorageLensConfigurationTaggingCommand";
 import {
+  type GetStorageLensGroupCommandInput,
+  type GetStorageLensGroupCommandOutput,
   GetStorageLensGroupCommand,
-  GetStorageLensGroupCommandInput,
-  GetStorageLensGroupCommandOutput,
 } from "./commands/GetStorageLensGroupCommand";
 import {
+  type ListAccessGrantsCommandInput,
+  type ListAccessGrantsCommandOutput,
   ListAccessGrantsCommand,
-  ListAccessGrantsCommandInput,
-  ListAccessGrantsCommandOutput,
 } from "./commands/ListAccessGrantsCommand";
 import {
+  type ListAccessGrantsInstancesCommandInput,
+  type ListAccessGrantsInstancesCommandOutput,
   ListAccessGrantsInstancesCommand,
-  ListAccessGrantsInstancesCommandInput,
-  ListAccessGrantsInstancesCommandOutput,
 } from "./commands/ListAccessGrantsInstancesCommand";
 import {
+  type ListAccessGrantsLocationsCommandInput,
+  type ListAccessGrantsLocationsCommandOutput,
   ListAccessGrantsLocationsCommand,
-  ListAccessGrantsLocationsCommandInput,
-  ListAccessGrantsLocationsCommandOutput,
 } from "./commands/ListAccessGrantsLocationsCommand";
 import {
+  type ListAccessPointsCommandInput,
+  type ListAccessPointsCommandOutput,
   ListAccessPointsCommand,
-  ListAccessPointsCommandInput,
-  ListAccessPointsCommandOutput,
 } from "./commands/ListAccessPointsCommand";
 import {
+  type ListAccessPointsForDirectoryBucketsCommandInput,
+  type ListAccessPointsForDirectoryBucketsCommandOutput,
   ListAccessPointsForDirectoryBucketsCommand,
-  ListAccessPointsForDirectoryBucketsCommandInput,
-  ListAccessPointsForDirectoryBucketsCommandOutput,
 } from "./commands/ListAccessPointsForDirectoryBucketsCommand";
 import {
+  type ListAccessPointsForObjectLambdaCommandInput,
+  type ListAccessPointsForObjectLambdaCommandOutput,
   ListAccessPointsForObjectLambdaCommand,
-  ListAccessPointsForObjectLambdaCommandInput,
-  ListAccessPointsForObjectLambdaCommandOutput,
 } from "./commands/ListAccessPointsForObjectLambdaCommand";
 import {
+  type ListCallerAccessGrantsCommandInput,
+  type ListCallerAccessGrantsCommandOutput,
   ListCallerAccessGrantsCommand,
-  ListCallerAccessGrantsCommandInput,
-  ListCallerAccessGrantsCommandOutput,
 } from "./commands/ListCallerAccessGrantsCommand";
-import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { type ListJobsCommandInput, type ListJobsCommandOutput, ListJobsCommand } from "./commands/ListJobsCommand";
 import {
+  type ListMultiRegionAccessPointsCommandInput,
+  type ListMultiRegionAccessPointsCommandOutput,
   ListMultiRegionAccessPointsCommand,
-  ListMultiRegionAccessPointsCommandInput,
-  ListMultiRegionAccessPointsCommandOutput,
 } from "./commands/ListMultiRegionAccessPointsCommand";
 import {
+  type ListRegionalBucketsCommandInput,
+  type ListRegionalBucketsCommandOutput,
   ListRegionalBucketsCommand,
-  ListRegionalBucketsCommandInput,
-  ListRegionalBucketsCommandOutput,
 } from "./commands/ListRegionalBucketsCommand";
 import {
+  type ListStorageLensConfigurationsCommandInput,
+  type ListStorageLensConfigurationsCommandOutput,
   ListStorageLensConfigurationsCommand,
-  ListStorageLensConfigurationsCommandInput,
-  ListStorageLensConfigurationsCommandOutput,
 } from "./commands/ListStorageLensConfigurationsCommand";
 import {
+  type ListStorageLensGroupsCommandInput,
+  type ListStorageLensGroupsCommandOutput,
   ListStorageLensGroupsCommand,
-  ListStorageLensGroupsCommandInput,
-  ListStorageLensGroupsCommandOutput,
 } from "./commands/ListStorageLensGroupsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutAccessGrantsInstanceResourcePolicyCommandInput,
+  type PutAccessGrantsInstanceResourcePolicyCommandOutput,
   PutAccessGrantsInstanceResourcePolicyCommand,
-  PutAccessGrantsInstanceResourcePolicyCommandInput,
-  PutAccessGrantsInstanceResourcePolicyCommandOutput,
 } from "./commands/PutAccessGrantsInstanceResourcePolicyCommand";
 import {
+  type PutAccessPointConfigurationForObjectLambdaCommandInput,
+  type PutAccessPointConfigurationForObjectLambdaCommandOutput,
   PutAccessPointConfigurationForObjectLambdaCommand,
-  PutAccessPointConfigurationForObjectLambdaCommandInput,
-  PutAccessPointConfigurationForObjectLambdaCommandOutput,
 } from "./commands/PutAccessPointConfigurationForObjectLambdaCommand";
 import {
+  type PutAccessPointPolicyCommandInput,
+  type PutAccessPointPolicyCommandOutput,
   PutAccessPointPolicyCommand,
-  PutAccessPointPolicyCommandInput,
-  PutAccessPointPolicyCommandOutput,
 } from "./commands/PutAccessPointPolicyCommand";
 import {
+  type PutAccessPointPolicyForObjectLambdaCommandInput,
+  type PutAccessPointPolicyForObjectLambdaCommandOutput,
   PutAccessPointPolicyForObjectLambdaCommand,
-  PutAccessPointPolicyForObjectLambdaCommandInput,
-  PutAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/PutAccessPointPolicyForObjectLambdaCommand";
 import {
+  type PutAccessPointScopeCommandInput,
+  type PutAccessPointScopeCommandOutput,
   PutAccessPointScopeCommand,
-  PutAccessPointScopeCommandInput,
-  PutAccessPointScopeCommandOutput,
 } from "./commands/PutAccessPointScopeCommand";
 import {
+  type PutBucketLifecycleConfigurationCommandInput,
+  type PutBucketLifecycleConfigurationCommandOutput,
   PutBucketLifecycleConfigurationCommand,
-  PutBucketLifecycleConfigurationCommandInput,
-  PutBucketLifecycleConfigurationCommandOutput,
 } from "./commands/PutBucketLifecycleConfigurationCommand";
 import {
+  type PutBucketPolicyCommandInput,
+  type PutBucketPolicyCommandOutput,
   PutBucketPolicyCommand,
-  PutBucketPolicyCommandInput,
-  PutBucketPolicyCommandOutput,
 } from "./commands/PutBucketPolicyCommand";
 import {
+  type PutBucketReplicationCommandInput,
+  type PutBucketReplicationCommandOutput,
   PutBucketReplicationCommand,
-  PutBucketReplicationCommandInput,
-  PutBucketReplicationCommandOutput,
 } from "./commands/PutBucketReplicationCommand";
 import {
+  type PutBucketTaggingCommandInput,
+  type PutBucketTaggingCommandOutput,
   PutBucketTaggingCommand,
-  PutBucketTaggingCommandInput,
-  PutBucketTaggingCommandOutput,
 } from "./commands/PutBucketTaggingCommand";
 import {
+  type PutBucketVersioningCommandInput,
+  type PutBucketVersioningCommandOutput,
   PutBucketVersioningCommand,
-  PutBucketVersioningCommandInput,
-  PutBucketVersioningCommandOutput,
 } from "./commands/PutBucketVersioningCommand";
 import {
+  type PutJobTaggingCommandInput,
+  type PutJobTaggingCommandOutput,
   PutJobTaggingCommand,
-  PutJobTaggingCommandInput,
-  PutJobTaggingCommandOutput,
 } from "./commands/PutJobTaggingCommand";
 import {
+  type PutMultiRegionAccessPointPolicyCommandInput,
+  type PutMultiRegionAccessPointPolicyCommandOutput,
   PutMultiRegionAccessPointPolicyCommand,
-  PutMultiRegionAccessPointPolicyCommandInput,
-  PutMultiRegionAccessPointPolicyCommandOutput,
 } from "./commands/PutMultiRegionAccessPointPolicyCommand";
 import {
+  type PutPublicAccessBlockCommandInput,
+  type PutPublicAccessBlockCommandOutput,
   PutPublicAccessBlockCommand,
-  PutPublicAccessBlockCommandInput,
-  PutPublicAccessBlockCommandOutput,
 } from "./commands/PutPublicAccessBlockCommand";
 import {
+  type PutStorageLensConfigurationCommandInput,
+  type PutStorageLensConfigurationCommandOutput,
   PutStorageLensConfigurationCommand,
-  PutStorageLensConfigurationCommandInput,
-  PutStorageLensConfigurationCommandOutput,
 } from "./commands/PutStorageLensConfigurationCommand";
 import {
+  type PutStorageLensConfigurationTaggingCommandInput,
+  type PutStorageLensConfigurationTaggingCommandOutput,
   PutStorageLensConfigurationTaggingCommand,
-  PutStorageLensConfigurationTaggingCommandInput,
-  PutStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/PutStorageLensConfigurationTaggingCommand";
 import {
+  type SubmitMultiRegionAccessPointRoutesCommandInput,
+  type SubmitMultiRegionAccessPointRoutesCommandOutput,
   SubmitMultiRegionAccessPointRoutesCommand,
-  SubmitMultiRegionAccessPointRoutesCommandInput,
-  SubmitMultiRegionAccessPointRoutesCommandOutput,
 } from "./commands/SubmitMultiRegionAccessPointRoutesCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccessGrantsLocationCommandInput,
+  type UpdateAccessGrantsLocationCommandOutput,
   UpdateAccessGrantsLocationCommand,
-  UpdateAccessGrantsLocationCommandInput,
-  UpdateAccessGrantsLocationCommandOutput,
 } from "./commands/UpdateAccessGrantsLocationCommand";
 import {
+  type UpdateJobPriorityCommandInput,
+  type UpdateJobPriorityCommandOutput,
   UpdateJobPriorityCommand,
-  UpdateJobPriorityCommandInput,
-  UpdateJobPriorityCommandOutput,
 } from "./commands/UpdateJobPriorityCommand";
 import {
+  type UpdateJobStatusCommandInput,
+  type UpdateJobStatusCommandOutput,
   UpdateJobStatusCommand,
-  UpdateJobStatusCommandInput,
-  UpdateJobStatusCommandOutput,
 } from "./commands/UpdateJobStatusCommand";
 import {
+  type UpdateStorageLensGroupCommandInput,
+  type UpdateStorageLensGroupCommandOutput,
   UpdateStorageLensGroupCommand,
-  UpdateStorageLensGroupCommandInput,
-  UpdateStorageLensGroupCommandOutput,
 } from "./commands/UpdateStorageLensGroupCommand";
 import { paginateListAccessGrantsInstances } from "./pagination/ListAccessGrantsInstancesPaginator";
 import { paginateListAccessGrantsLocations } from "./pagination/ListAccessGrantsLocationsPaginator";

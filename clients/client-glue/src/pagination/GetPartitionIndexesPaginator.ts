@@ -8,7 +8,7 @@ import {
   GetPartitionIndexesCommandOutput,
 } from "../commands/GetPartitionIndexesCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

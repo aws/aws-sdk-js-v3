@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ValidationError } from "./models_0";
+import type { ValidationError } from "./models_0";
 import { ObservabilityAdminServiceException as __BaseException } from "./ObservabilityAdminServiceException";
 
 /**

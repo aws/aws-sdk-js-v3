@@ -7,7 +7,7 @@
  */
 export * from "./KafkaClient";
 export * from "./Kafka";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { KafkaExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

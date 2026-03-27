@@ -8,7 +8,7 @@ import {
   GetUnfilteredPartitionsMetadataCommandOutput,
 } from "../commands/GetUnfilteredPartitionsMetadataCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -3,77 +3,85 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddAttachmentsToSetCommandInput,
+  type AddAttachmentsToSetCommandOutput,
   AddAttachmentsToSetCommand,
-  AddAttachmentsToSetCommandInput,
-  AddAttachmentsToSetCommandOutput,
 } from "./commands/AddAttachmentsToSetCommand";
 import {
+  type AddCommunicationToCaseCommandInput,
+  type AddCommunicationToCaseCommandOutput,
   AddCommunicationToCaseCommand,
-  AddCommunicationToCaseCommandInput,
-  AddCommunicationToCaseCommandOutput,
 } from "./commands/AddCommunicationToCaseCommand";
-import { CreateCaseCommand, CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
 import {
+  type CreateCaseCommandInput,
+  type CreateCaseCommandOutput,
+  CreateCaseCommand,
+} from "./commands/CreateCaseCommand";
+import {
+  type DescribeAttachmentCommandInput,
+  type DescribeAttachmentCommandOutput,
   DescribeAttachmentCommand,
-  DescribeAttachmentCommandInput,
-  DescribeAttachmentCommandOutput,
 } from "./commands/DescribeAttachmentCommand";
 import {
+  type DescribeCasesCommandInput,
+  type DescribeCasesCommandOutput,
   DescribeCasesCommand,
-  DescribeCasesCommandInput,
-  DescribeCasesCommandOutput,
 } from "./commands/DescribeCasesCommand";
 import {
+  type DescribeCommunicationsCommandInput,
+  type DescribeCommunicationsCommandOutput,
   DescribeCommunicationsCommand,
-  DescribeCommunicationsCommandInput,
-  DescribeCommunicationsCommandOutput,
 } from "./commands/DescribeCommunicationsCommand";
 import {
+  type DescribeCreateCaseOptionsCommandInput,
+  type DescribeCreateCaseOptionsCommandOutput,
   DescribeCreateCaseOptionsCommand,
-  DescribeCreateCaseOptionsCommandInput,
-  DescribeCreateCaseOptionsCommandOutput,
 } from "./commands/DescribeCreateCaseOptionsCommand";
 import {
+  type DescribeServicesCommandInput,
+  type DescribeServicesCommandOutput,
   DescribeServicesCommand,
-  DescribeServicesCommandInput,
-  DescribeServicesCommandOutput,
 } from "./commands/DescribeServicesCommand";
 import {
+  type DescribeSeverityLevelsCommandInput,
+  type DescribeSeverityLevelsCommandOutput,
   DescribeSeverityLevelsCommand,
-  DescribeSeverityLevelsCommandInput,
-  DescribeSeverityLevelsCommandOutput,
 } from "./commands/DescribeSeverityLevelsCommand";
 import {
+  type DescribeSupportedLanguagesCommandInput,
+  type DescribeSupportedLanguagesCommandOutput,
   DescribeSupportedLanguagesCommand,
-  DescribeSupportedLanguagesCommandInput,
-  DescribeSupportedLanguagesCommandOutput,
 } from "./commands/DescribeSupportedLanguagesCommand";
 import {
+  type DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
+  type DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput,
   DescribeTrustedAdvisorCheckRefreshStatusesCommand,
-  DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
-  DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckRefreshStatusesCommand";
 import {
+  type DescribeTrustedAdvisorCheckResultCommandInput,
+  type DescribeTrustedAdvisorCheckResultCommandOutput,
   DescribeTrustedAdvisorCheckResultCommand,
-  DescribeTrustedAdvisorCheckResultCommandInput,
-  DescribeTrustedAdvisorCheckResultCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckResultCommand";
 import {
+  type DescribeTrustedAdvisorChecksCommandInput,
+  type DescribeTrustedAdvisorChecksCommandOutput,
   DescribeTrustedAdvisorChecksCommand,
-  DescribeTrustedAdvisorChecksCommandInput,
-  DescribeTrustedAdvisorChecksCommandOutput,
 } from "./commands/DescribeTrustedAdvisorChecksCommand";
 import {
+  type DescribeTrustedAdvisorCheckSummariesCommandInput,
+  type DescribeTrustedAdvisorCheckSummariesCommandOutput,
   DescribeTrustedAdvisorCheckSummariesCommand,
-  DescribeTrustedAdvisorCheckSummariesCommandInput,
-  DescribeTrustedAdvisorCheckSummariesCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckSummariesCommand";
 import {
+  type RefreshTrustedAdvisorCheckCommandInput,
+  type RefreshTrustedAdvisorCheckCommandOutput,
   RefreshTrustedAdvisorCheckCommand,
-  RefreshTrustedAdvisorCheckCommandInput,
-  RefreshTrustedAdvisorCheckCommandOutput,
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
-import { ResolveCaseCommand, ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
+import {
+  type ResolveCaseCommandInput,
+  type ResolveCaseCommandOutput,
+  ResolveCaseCommand,
+} from "./commands/ResolveCaseCommand";
 import { paginateDescribeCases } from "./pagination/DescribeCasesPaginator";
 import { paginateDescribeCommunications } from "./pagination/DescribeCommunicationsPaginator";
 import { SupportClient } from "./SupportClient";

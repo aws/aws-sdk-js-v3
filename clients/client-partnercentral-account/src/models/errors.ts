@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import {
+import type {
   AccessDeniedExceptionReason,
   ConflictExceptionReason,
   ResourceNotFoundExceptionReason,
   ServiceQuotaExceededExceptionReason,
   ValidationExceptionReason,
 } from "./enums";
-import { ValidationError } from "./models_0";
+import type { ValidationError } from "./models_0";
 import { PartnerCentralAccountServiceException as __BaseException } from "./PartnerCentralAccountServiceException";
 
 /**

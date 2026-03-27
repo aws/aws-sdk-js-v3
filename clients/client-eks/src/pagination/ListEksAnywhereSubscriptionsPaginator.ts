@@ -8,7 +8,7 @@ import {
   ListEksAnywhereSubscriptionsCommandOutput,
 } from "../commands/ListEksAnywhereSubscriptionsCommand";
 import { EKSClient } from "../EKSClient";
-import { EKSPaginationConfiguration } from "./Interfaces";
+import type { EKSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

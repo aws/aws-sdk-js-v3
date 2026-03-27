@@ -7,7 +7,7 @@
  */
 export * from "./VerifiedPermissionsClient";
 export * from "./VerifiedPermissions";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { VerifiedPermissionsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

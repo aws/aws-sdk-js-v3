@@ -3,72 +3,80 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateEnvironmentCommandInput,
+  type CreateEnvironmentCommandOutput,
   CreateEnvironmentCommand,
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand";
 import {
+  type DeleteDeviceCommandInput,
+  type DeleteDeviceCommandOutput,
   DeleteDeviceCommand,
-  DeleteDeviceCommandInput,
-  DeleteDeviceCommandOutput,
 } from "./commands/DeleteDeviceCommand";
 import {
+  type DeleteEnvironmentCommandInput,
+  type DeleteEnvironmentCommandOutput,
   DeleteEnvironmentCommand,
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
 import {
+  type DeregisterDeviceCommandInput,
+  type DeregisterDeviceCommandOutput,
   DeregisterDeviceCommand,
-  DeregisterDeviceCommandInput,
-  DeregisterDeviceCommandOutput,
 } from "./commands/DeregisterDeviceCommand";
-import { GetDeviceCommand, GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
+import { type GetDeviceCommandInput, type GetDeviceCommandOutput, GetDeviceCommand } from "./commands/GetDeviceCommand";
 import {
+  type GetEnvironmentCommandInput,
+  type GetEnvironmentCommandOutput,
   GetEnvironmentCommand,
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
 import {
+  type GetSoftwareSetCommandInput,
+  type GetSoftwareSetCommandOutput,
   GetSoftwareSetCommand,
-  GetSoftwareSetCommandInput,
-  GetSoftwareSetCommandOutput,
 } from "./commands/GetSoftwareSetCommand";
-import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import {
+  type ListDevicesCommandInput,
+  type ListDevicesCommandOutput,
+  ListDevicesCommand,
+} from "./commands/ListDevicesCommand";
+import {
+  type ListEnvironmentsCommandInput,
+  type ListEnvironmentsCommandOutput,
   ListEnvironmentsCommand,
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  type ListSoftwareSetsCommandInput,
+  type ListSoftwareSetsCommandOutput,
   ListSoftwareSetsCommand,
-  ListSoftwareSetsCommandInput,
-  ListSoftwareSetsCommandOutput,
 } from "./commands/ListSoftwareSetsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDeviceCommandInput,
+  type UpdateDeviceCommandOutput,
   UpdateDeviceCommand,
-  UpdateDeviceCommandInput,
-  UpdateDeviceCommandOutput,
 } from "./commands/UpdateDeviceCommand";
 import {
+  type UpdateEnvironmentCommandInput,
+  type UpdateEnvironmentCommandOutput,
   UpdateEnvironmentCommand,
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import {
+  type UpdateSoftwareSetCommandInput,
+  type UpdateSoftwareSetCommandOutput,
   UpdateSoftwareSetCommand,
-  UpdateSoftwareSetCommandInput,
-  UpdateSoftwareSetCommandOutput,
 } from "./commands/UpdateSoftwareSetCommand";
 import { paginateListDevices } from "./pagination/ListDevicesPaginator";
 import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";

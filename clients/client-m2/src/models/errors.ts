@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionReason } from "./enums";
 import { M2ServiceException as __BaseException } from "./M2ServiceException";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>The account or role doesn't have the right permissions to make the request.</p>

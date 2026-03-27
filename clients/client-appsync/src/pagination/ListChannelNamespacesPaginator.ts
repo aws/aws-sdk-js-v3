@@ -8,7 +8,7 @@ import {
   ListChannelNamespacesCommandInput,
   ListChannelNamespacesCommandOutput,
 } from "../commands/ListChannelNamespacesCommand";
-import { AppSyncPaginationConfiguration } from "./Interfaces";
+import type { AppSyncPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

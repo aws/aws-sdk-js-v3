@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type PostAgentProfileResponse, PostAgentProfileRequest } from "../models/models_0";
+import type { PostAgentProfileRequest, PostAgentProfileResponse } from "../models/models_0";
 import { PostAgentProfile$ } from "../schemas/schemas_0";
 
 /**

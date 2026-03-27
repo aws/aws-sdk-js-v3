@@ -84,7 +84,7 @@
  */
 export * from "./IVSRealTimeClient";
 export * from "./IVSRealTime";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { IVSRealTimeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

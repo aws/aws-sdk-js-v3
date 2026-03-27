@@ -8,7 +8,7 @@ import {
   ListDataIntegrationFlowExecutionsCommandOutput,
 } from "../commands/ListDataIntegrationFlowExecutionsCommand";
 import { SupplyChainClient } from "../SupplyChainClient";
-import { SupplyChainPaginationConfiguration } from "./Interfaces";
+import type { SupplyChainPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

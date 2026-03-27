@@ -39,22 +39,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type SdkStreamMixinInjector as __SdkStreamMixinInjector,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -64,148 +62,163 @@ import {
   defaultCodeartifactHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateExternalConnectionCommandInput,
   AssociateExternalConnectionCommandOutput,
 } from "./commands/AssociateExternalConnectionCommand";
-import {
+import type {
   CopyPackageVersionsCommandInput,
   CopyPackageVersionsCommandOutput,
 } from "./commands/CopyPackageVersionsCommand";
-import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
-import { CreatePackageGroupCommandInput, CreatePackageGroupCommandOutput } from "./commands/CreatePackageGroupCommand";
-import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
-import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
-import {
+import type { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import type {
+  CreatePackageGroupCommandInput,
+  CreatePackageGroupCommandOutput,
+} from "./commands/CreatePackageGroupCommand";
+import type { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
+import type { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import type {
   DeleteDomainPermissionsPolicyCommandInput,
   DeleteDomainPermissionsPolicyCommandOutput,
 } from "./commands/DeleteDomainPermissionsPolicyCommand";
-import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
-import { DeletePackageGroupCommandInput, DeletePackageGroupCommandOutput } from "./commands/DeletePackageGroupCommand";
-import {
+import type { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
+import type {
+  DeletePackageGroupCommandInput,
+  DeletePackageGroupCommandOutput,
+} from "./commands/DeletePackageGroupCommand";
+import type {
   DeletePackageVersionsCommandInput,
   DeletePackageVersionsCommandOutput,
 } from "./commands/DeletePackageVersionsCommand";
-import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
-import {
+import type { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
+import type {
   DeleteRepositoryPermissionsPolicyCommandInput,
   DeleteRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPermissionsPolicyCommand";
-import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
-import { DescribePackageCommandInput, DescribePackageCommandOutput } from "./commands/DescribePackageCommand";
-import {
+import type { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
+import type { DescribePackageCommandInput, DescribePackageCommandOutput } from "./commands/DescribePackageCommand";
+import type {
   DescribePackageGroupCommandInput,
   DescribePackageGroupCommandOutput,
 } from "./commands/DescribePackageGroupCommand";
-import {
+import type {
   DescribePackageVersionCommandInput,
   DescribePackageVersionCommandOutput,
 } from "./commands/DescribePackageVersionCommand";
-import { DescribeRepositoryCommandInput, DescribeRepositoryCommandOutput } from "./commands/DescribeRepositoryCommand";
-import {
+import type {
+  DescribeRepositoryCommandInput,
+  DescribeRepositoryCommandOutput,
+} from "./commands/DescribeRepositoryCommand";
+import type {
   DisassociateExternalConnectionCommandInput,
   DisassociateExternalConnectionCommandOutput,
 } from "./commands/DisassociateExternalConnectionCommand";
-import {
+import type {
   DisposePackageVersionsCommandInput,
   DisposePackageVersionsCommandOutput,
 } from "./commands/DisposePackageVersionsCommand";
-import {
+import type {
   GetAssociatedPackageGroupCommandInput,
   GetAssociatedPackageGroupCommandOutput,
 } from "./commands/GetAssociatedPackageGroupCommand";
-import {
+import type {
   GetAuthorizationTokenCommandInput,
   GetAuthorizationTokenCommandOutput,
 } from "./commands/GetAuthorizationTokenCommand";
-import {
+import type {
   GetDomainPermissionsPolicyCommandInput,
   GetDomainPermissionsPolicyCommandOutput,
 } from "./commands/GetDomainPermissionsPolicyCommand";
-import {
+import type {
   GetPackageVersionAssetCommandInput,
   GetPackageVersionAssetCommandOutput,
 } from "./commands/GetPackageVersionAssetCommand";
-import {
+import type {
   GetPackageVersionReadmeCommandInput,
   GetPackageVersionReadmeCommandOutput,
 } from "./commands/GetPackageVersionReadmeCommand";
-import {
+import type {
   GetRepositoryEndpointCommandInput,
   GetRepositoryEndpointCommandOutput,
 } from "./commands/GetRepositoryEndpointCommand";
-import {
+import type {
   GetRepositoryPermissionsPolicyCommandInput,
   GetRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/GetRepositoryPermissionsPolicyCommand";
-import {
+import type {
   ListAllowedRepositoriesForGroupCommandInput,
   ListAllowedRepositoriesForGroupCommandOutput,
 } from "./commands/ListAllowedRepositoriesForGroupCommand";
-import {
+import type {
   ListAssociatedPackagesCommandInput,
   ListAssociatedPackagesCommandOutput,
 } from "./commands/ListAssociatedPackagesCommand";
-import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
-import { ListPackageGroupsCommandInput, ListPackageGroupsCommandOutput } from "./commands/ListPackageGroupsCommand";
-import { ListPackagesCommandInput, ListPackagesCommandOutput } from "./commands/ListPackagesCommand";
-import {
+import type { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import type {
+  ListPackageGroupsCommandInput,
+  ListPackageGroupsCommandOutput,
+} from "./commands/ListPackageGroupsCommand";
+import type { ListPackagesCommandInput, ListPackagesCommandOutput } from "./commands/ListPackagesCommand";
+import type {
   ListPackageVersionAssetsCommandInput,
   ListPackageVersionAssetsCommandOutput,
 } from "./commands/ListPackageVersionAssetsCommand";
-import {
+import type {
   ListPackageVersionDependenciesCommandInput,
   ListPackageVersionDependenciesCommandOutput,
 } from "./commands/ListPackageVersionDependenciesCommand";
-import {
+import type {
   ListPackageVersionsCommandInput,
   ListPackageVersionsCommandOutput,
 } from "./commands/ListPackageVersionsCommand";
-import { ListRepositoriesCommandInput, ListRepositoriesCommandOutput } from "./commands/ListRepositoriesCommand";
-import {
+import type { ListRepositoriesCommandInput, ListRepositoriesCommandOutput } from "./commands/ListRepositoriesCommand";
+import type {
   ListRepositoriesInDomainCommandInput,
   ListRepositoriesInDomainCommandOutput,
 } from "./commands/ListRepositoriesInDomainCommand";
-import {
+import type {
   ListSubPackageGroupsCommandInput,
   ListSubPackageGroupsCommandOutput,
 } from "./commands/ListSubPackageGroupsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PublishPackageVersionCommandInput,
   PublishPackageVersionCommandOutput,
 } from "./commands/PublishPackageVersionCommand";
-import {
+import type {
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
 } from "./commands/PutDomainPermissionsPolicyCommand";
-import {
+import type {
   PutPackageOriginConfigurationCommandInput,
   PutPackageOriginConfigurationCommandOutput,
 } from "./commands/PutPackageOriginConfigurationCommand";
-import {
+import type {
   PutRepositoryPermissionsPolicyCommandInput,
   PutRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/PutRepositoryPermissionsPolicyCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdatePackageGroupCommandInput, UpdatePackageGroupCommandOutput } from "./commands/UpdatePackageGroupCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdatePackageGroupCommandInput,
+  UpdatePackageGroupCommandOutput,
+} from "./commands/UpdatePackageGroupCommand";
+import type {
   UpdatePackageGroupOriginConfigurationCommandInput,
   UpdatePackageGroupOriginConfigurationCommandOutput,
 } from "./commands/UpdatePackageGroupOriginConfigurationCommand";
-import {
+import type {
   UpdatePackageVersionsStatusCommandInput,
   UpdatePackageVersionsStatusCommandOutput,
 } from "./commands/UpdatePackageVersionsStatusCommand";
-import { UpdateRepositoryCommandInput, UpdateRepositoryCommandOutput } from "./commands/UpdateRepositoryCommand";
+import type { UpdateRepositoryCommandInput, UpdateRepositoryCommandOutput } from "./commands/UpdateRepositoryCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -433,7 +446,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

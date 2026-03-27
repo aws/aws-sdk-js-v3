@@ -8,7 +8,7 @@ import {
   ListAssociatedResourcesCommandOutput,
 } from "../commands/ListAssociatedResourcesCommand";
 import { ServiceCatalogAppRegistryClient } from "../ServiceCatalogAppRegistryClient";
-import { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
+import type { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

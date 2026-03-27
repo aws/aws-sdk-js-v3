@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   FindingType,
   PolicyEngineStatus,
   PolicyGenerationStatus,
@@ -8,13 +8,13 @@ import {
   SchemaType,
   TargetStatus,
 } from "./enums";
-import {
-  type KmsConfiguration,
-  type MetadataConfiguration,
+import type {
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
   CredentialProviderConfiguration,
+  KmsConfiguration,
   McpServerTargetConfiguration,
+  MetadataConfiguration,
   S3Configuration,
 } from "./models_0";
 

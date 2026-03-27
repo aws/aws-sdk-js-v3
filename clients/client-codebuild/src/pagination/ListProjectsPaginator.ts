@@ -8,7 +8,7 @@ import {
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
 } from "../commands/ListProjectsCommand";
-import { CodeBuildPaginationConfiguration } from "./Interfaces";
+import type { CodeBuildPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

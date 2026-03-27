@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListChecksCommand, ListChecksCommandInput, ListChecksCommandOutput } from "../commands/ListChecksCommand";
 import { TrustedAdvisorClient } from "../TrustedAdvisorClient";
-import { TrustedAdvisorPaginationConfiguration } from "./Interfaces";
+import type { TrustedAdvisorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

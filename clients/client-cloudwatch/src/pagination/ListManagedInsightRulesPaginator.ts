@@ -8,7 +8,7 @@ import {
   ListManagedInsightRulesCommandInput,
   ListManagedInsightRulesCommandOutput,
 } from "../commands/ListManagedInsightRulesCommand";
-import { CloudWatchPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListParticipantEventsCommandOutput,
 } from "../commands/ListParticipantEventsCommand";
 import { IVSRealTimeClient } from "../IVSRealTimeClient";
-import { IVSRealTimePaginationConfiguration } from "./Interfaces";
+import type { IVSRealTimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

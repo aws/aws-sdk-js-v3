@@ -8,7 +8,7 @@ import {
   ListObservabilityConfigurationsCommandInput,
   ListObservabilityConfigurationsCommandOutput,
 } from "../commands/ListObservabilityConfigurationsCommand";
-import { AppRunnerPaginationConfiguration } from "./Interfaces";
+import type { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListInvestigationGroupsCommandInput,
   ListInvestigationGroupsCommandOutput,
 } from "../commands/ListInvestigationGroupsCommand";
-import { AIOpsPaginationConfiguration } from "./Interfaces";
+import type { AIOpsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

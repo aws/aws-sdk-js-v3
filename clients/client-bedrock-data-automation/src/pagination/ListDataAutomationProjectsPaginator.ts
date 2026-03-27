@@ -8,7 +8,7 @@ import {
   ListDataAutomationProjectsCommandInput,
   ListDataAutomationProjectsCommandOutput,
 } from "../commands/ListDataAutomationProjectsCommand";
-import { BedrockDataAutomationPaginationConfiguration } from "./Interfaces";
+import type { BedrockDataAutomationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,251 +61,263 @@ import {
   defaultNetworkFirewallHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
   AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput,
 } from "./commands/AcceptNetworkFirewallTransitGatewayAttachmentCommand";
-import {
+import type {
   AssociateAvailabilityZonesCommandInput,
   AssociateAvailabilityZonesCommandOutput,
 } from "./commands/AssociateAvailabilityZonesCommand";
-import {
+import type {
   AssociateFirewallPolicyCommandInput,
   AssociateFirewallPolicyCommandOutput,
 } from "./commands/AssociateFirewallPolicyCommand";
-import { AssociateSubnetsCommandInput, AssociateSubnetsCommandOutput } from "./commands/AssociateSubnetsCommand";
-import {
+import type { AssociateSubnetsCommandInput, AssociateSubnetsCommandOutput } from "./commands/AssociateSubnetsCommand";
+import type {
   AttachRuleGroupsToProxyConfigurationCommandInput,
   AttachRuleGroupsToProxyConfigurationCommandOutput,
 } from "./commands/AttachRuleGroupsToProxyConfigurationCommand";
-import { CreateFirewallCommandInput, CreateFirewallCommandOutput } from "./commands/CreateFirewallCommand";
-import {
+import type { CreateFirewallCommandInput, CreateFirewallCommandOutput } from "./commands/CreateFirewallCommand";
+import type {
   CreateFirewallPolicyCommandInput,
   CreateFirewallPolicyCommandOutput,
 } from "./commands/CreateFirewallPolicyCommand";
-import { CreateProxyCommandInput, CreateProxyCommandOutput } from "./commands/CreateProxyCommand";
-import {
+import type { CreateProxyCommandInput, CreateProxyCommandOutput } from "./commands/CreateProxyCommand";
+import type {
   CreateProxyConfigurationCommandInput,
   CreateProxyConfigurationCommandOutput,
 } from "./commands/CreateProxyConfigurationCommand";
-import {
+import type {
   CreateProxyRuleGroupCommandInput,
   CreateProxyRuleGroupCommandOutput,
 } from "./commands/CreateProxyRuleGroupCommand";
-import { CreateProxyRulesCommandInput, CreateProxyRulesCommandOutput } from "./commands/CreateProxyRulesCommand";
-import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand";
-import {
+import type { CreateProxyRulesCommandInput, CreateProxyRulesCommandOutput } from "./commands/CreateProxyRulesCommand";
+import type { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand";
+import type {
   CreateTLSInspectionConfigurationCommandInput,
   CreateTLSInspectionConfigurationCommandOutput,
 } from "./commands/CreateTLSInspectionConfigurationCommand";
-import {
+import type {
   CreateVpcEndpointAssociationCommandInput,
   CreateVpcEndpointAssociationCommandOutput,
 } from "./commands/CreateVpcEndpointAssociationCommand";
-import { DeleteFirewallCommandInput, DeleteFirewallCommandOutput } from "./commands/DeleteFirewallCommand";
-import {
+import type { DeleteFirewallCommandInput, DeleteFirewallCommandOutput } from "./commands/DeleteFirewallCommand";
+import type {
   DeleteFirewallPolicyCommandInput,
   DeleteFirewallPolicyCommandOutput,
 } from "./commands/DeleteFirewallPolicyCommand";
-import {
+import type {
   DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
   DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput,
 } from "./commands/DeleteNetworkFirewallTransitGatewayAttachmentCommand";
-import { DeleteProxyCommandInput, DeleteProxyCommandOutput } from "./commands/DeleteProxyCommand";
-import {
+import type { DeleteProxyCommandInput, DeleteProxyCommandOutput } from "./commands/DeleteProxyCommand";
+import type {
   DeleteProxyConfigurationCommandInput,
   DeleteProxyConfigurationCommandOutput,
 } from "./commands/DeleteProxyConfigurationCommand";
-import {
+import type {
   DeleteProxyRuleGroupCommandInput,
   DeleteProxyRuleGroupCommandOutput,
 } from "./commands/DeleteProxyRuleGroupCommand";
-import { DeleteProxyRulesCommandInput, DeleteProxyRulesCommandOutput } from "./commands/DeleteProxyRulesCommand";
-import {
+import type { DeleteProxyRulesCommandInput, DeleteProxyRulesCommandOutput } from "./commands/DeleteProxyRulesCommand";
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "./commands/DeleteRuleGroupCommand";
-import {
+import type { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "./commands/DeleteRuleGroupCommand";
+import type {
   DeleteTLSInspectionConfigurationCommandInput,
   DeleteTLSInspectionConfigurationCommandOutput,
 } from "./commands/DeleteTLSInspectionConfigurationCommand";
-import {
+import type {
   DeleteVpcEndpointAssociationCommandInput,
   DeleteVpcEndpointAssociationCommandOutput,
 } from "./commands/DeleteVpcEndpointAssociationCommand";
-import { DescribeFirewallCommandInput, DescribeFirewallCommandOutput } from "./commands/DescribeFirewallCommand";
-import {
+import type { DescribeFirewallCommandInput, DescribeFirewallCommandOutput } from "./commands/DescribeFirewallCommand";
+import type {
   DescribeFirewallMetadataCommandInput,
   DescribeFirewallMetadataCommandOutput,
 } from "./commands/DescribeFirewallMetadataCommand";
-import {
+import type {
   DescribeFirewallPolicyCommandInput,
   DescribeFirewallPolicyCommandOutput,
 } from "./commands/DescribeFirewallPolicyCommand";
-import {
+import type {
   DescribeFlowOperationCommandInput,
   DescribeFlowOperationCommandOutput,
 } from "./commands/DescribeFlowOperationCommand";
-import {
+import type {
   DescribeLoggingConfigurationCommandInput,
   DescribeLoggingConfigurationCommandOutput,
 } from "./commands/DescribeLoggingConfigurationCommand";
-import { DescribeProxyCommandInput, DescribeProxyCommandOutput } from "./commands/DescribeProxyCommand";
-import {
+import type { DescribeProxyCommandInput, DescribeProxyCommandOutput } from "./commands/DescribeProxyCommand";
+import type {
   DescribeProxyConfigurationCommandInput,
   DescribeProxyConfigurationCommandOutput,
 } from "./commands/DescribeProxyConfigurationCommand";
-import { DescribeProxyRuleCommandInput, DescribeProxyRuleCommandOutput } from "./commands/DescribeProxyRuleCommand";
-import {
+import type {
+  DescribeProxyRuleCommandInput,
+  DescribeProxyRuleCommandOutput,
+} from "./commands/DescribeProxyRuleCommand";
+import type {
   DescribeProxyRuleGroupCommandInput,
   DescribeProxyRuleGroupCommandOutput,
 } from "./commands/DescribeProxyRuleGroupCommand";
-import {
+import type {
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
-import { DescribeRuleGroupCommandInput, DescribeRuleGroupCommandOutput } from "./commands/DescribeRuleGroupCommand";
-import {
+import type {
+  DescribeRuleGroupCommandInput,
+  DescribeRuleGroupCommandOutput,
+} from "./commands/DescribeRuleGroupCommand";
+import type {
   DescribeRuleGroupMetadataCommandInput,
   DescribeRuleGroupMetadataCommandOutput,
 } from "./commands/DescribeRuleGroupMetadataCommand";
-import {
+import type {
   DescribeRuleGroupSummaryCommandInput,
   DescribeRuleGroupSummaryCommandOutput,
 } from "./commands/DescribeRuleGroupSummaryCommand";
-import {
+import type {
   DescribeTLSInspectionConfigurationCommandInput,
   DescribeTLSInspectionConfigurationCommandOutput,
 } from "./commands/DescribeTLSInspectionConfigurationCommand";
-import {
+import type {
   DescribeVpcEndpointAssociationCommandInput,
   DescribeVpcEndpointAssociationCommandOutput,
 } from "./commands/DescribeVpcEndpointAssociationCommand";
-import {
+import type {
   DetachRuleGroupsFromProxyConfigurationCommandInput,
   DetachRuleGroupsFromProxyConfigurationCommandOutput,
 } from "./commands/DetachRuleGroupsFromProxyConfigurationCommand";
-import {
+import type {
   DisassociateAvailabilityZonesCommandInput,
   DisassociateAvailabilityZonesCommandOutput,
 } from "./commands/DisassociateAvailabilityZonesCommand";
-import {
+import type {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
-import {
+import type {
   GetAnalysisReportResultsCommandInput,
   GetAnalysisReportResultsCommandOutput,
 } from "./commands/GetAnalysisReportResultsCommand";
-import {
+import type {
   ListAnalysisReportsCommandInput,
   ListAnalysisReportsCommandOutput,
 } from "./commands/ListAnalysisReportsCommand";
-import {
+import type {
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
 } from "./commands/ListFirewallPoliciesCommand";
-import { ListFirewallsCommandInput, ListFirewallsCommandOutput } from "./commands/ListFirewallsCommand";
-import {
+import type { ListFirewallsCommandInput, ListFirewallsCommandOutput } from "./commands/ListFirewallsCommand";
+import type {
   ListFlowOperationResultsCommandInput,
   ListFlowOperationResultsCommandOutput,
 } from "./commands/ListFlowOperationResultsCommand";
-import { ListFlowOperationsCommandInput, ListFlowOperationsCommandOutput } from "./commands/ListFlowOperationsCommand";
-import { ListProxiesCommandInput, ListProxiesCommandOutput } from "./commands/ListProxiesCommand";
-import {
+import type {
+  ListFlowOperationsCommandInput,
+  ListFlowOperationsCommandOutput,
+} from "./commands/ListFlowOperationsCommand";
+import type { ListProxiesCommandInput, ListProxiesCommandOutput } from "./commands/ListProxiesCommand";
+import type {
   ListProxyConfigurationsCommandInput,
   ListProxyConfigurationsCommandOutput,
 } from "./commands/ListProxyConfigurationsCommand";
-import {
+import type {
   ListProxyRuleGroupsCommandInput,
   ListProxyRuleGroupsCommandOutput,
 } from "./commands/ListProxyRuleGroupsCommand";
-import { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "./commands/ListRuleGroupsCommand";
-import {
+import type { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "./commands/ListRuleGroupsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTLSInspectionConfigurationsCommandInput,
   ListTLSInspectionConfigurationsCommandOutput,
 } from "./commands/ListTLSInspectionConfigurationsCommand";
-import {
+import type {
   ListVpcEndpointAssociationsCommandInput,
   ListVpcEndpointAssociationsCommandOutput,
 } from "./commands/ListVpcEndpointAssociationsCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
   RejectNetworkFirewallTransitGatewayAttachmentCommandOutput,
 } from "./commands/RejectNetworkFirewallTransitGatewayAttachmentCommand";
-import {
+import type {
   StartAnalysisReportCommandInput,
   StartAnalysisReportCommandOutput,
 } from "./commands/StartAnalysisReportCommand";
-import { StartFlowCaptureCommandInput, StartFlowCaptureCommandOutput } from "./commands/StartFlowCaptureCommand";
-import { StartFlowFlushCommandInput, StartFlowFlushCommandOutput } from "./commands/StartFlowFlushCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { StartFlowCaptureCommandInput, StartFlowCaptureCommandOutput } from "./commands/StartFlowCaptureCommand";
+import type { StartFlowFlushCommandInput, StartFlowFlushCommandOutput } from "./commands/StartFlowFlushCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAvailabilityZoneChangeProtectionCommandInput,
   UpdateAvailabilityZoneChangeProtectionCommandOutput,
 } from "./commands/UpdateAvailabilityZoneChangeProtectionCommand";
-import {
+import type {
   UpdateFirewallAnalysisSettingsCommandInput,
   UpdateFirewallAnalysisSettingsCommandOutput,
 } from "./commands/UpdateFirewallAnalysisSettingsCommand";
-import {
+import type {
   UpdateFirewallDeleteProtectionCommandInput,
   UpdateFirewallDeleteProtectionCommandOutput,
 } from "./commands/UpdateFirewallDeleteProtectionCommand";
-import {
+import type {
   UpdateFirewallDescriptionCommandInput,
   UpdateFirewallDescriptionCommandOutput,
 } from "./commands/UpdateFirewallDescriptionCommand";
-import {
+import type {
   UpdateFirewallEncryptionConfigurationCommandInput,
   UpdateFirewallEncryptionConfigurationCommandOutput,
 } from "./commands/UpdateFirewallEncryptionConfigurationCommand";
-import {
+import type {
   UpdateFirewallPolicyChangeProtectionCommandInput,
   UpdateFirewallPolicyChangeProtectionCommandOutput,
 } from "./commands/UpdateFirewallPolicyChangeProtectionCommand";
-import {
+import type {
   UpdateFirewallPolicyCommandInput,
   UpdateFirewallPolicyCommandOutput,
 } from "./commands/UpdateFirewallPolicyCommand";
-import {
+import type {
   UpdateLoggingConfigurationCommandInput,
   UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
-import { UpdateProxyCommandInput, UpdateProxyCommandOutput } from "./commands/UpdateProxyCommand";
-import {
+import type { UpdateProxyCommandInput, UpdateProxyCommandOutput } from "./commands/UpdateProxyCommand";
+import type {
   UpdateProxyConfigurationCommandInput,
   UpdateProxyConfigurationCommandOutput,
 } from "./commands/UpdateProxyConfigurationCommand";
-import { UpdateProxyRuleCommandInput, UpdateProxyRuleCommandOutput } from "./commands/UpdateProxyRuleCommand";
-import {
+import type { UpdateProxyRuleCommandInput, UpdateProxyRuleCommandOutput } from "./commands/UpdateProxyRuleCommand";
+import type {
   UpdateProxyRuleGroupPrioritiesCommandInput,
   UpdateProxyRuleGroupPrioritiesCommandOutput,
 } from "./commands/UpdateProxyRuleGroupPrioritiesCommand";
-import {
+import type {
   UpdateProxyRulePrioritiesCommandInput,
   UpdateProxyRulePrioritiesCommandOutput,
 } from "./commands/UpdateProxyRulePrioritiesCommand";
-import { UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput } from "./commands/UpdateRuleGroupCommand";
-import {
+import type { UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput } from "./commands/UpdateRuleGroupCommand";
+import type {
   UpdateSubnetChangeProtectionCommandInput,
   UpdateSubnetChangeProtectionCommandOutput,
 } from "./commands/UpdateSubnetChangeProtectionCommand";
-import {
+import type {
   UpdateTLSInspectionConfigurationCommandInput,
   UpdateTLSInspectionConfigurationCommandOutput,
 } from "./commands/UpdateTLSInspectionConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -597,7 +607,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

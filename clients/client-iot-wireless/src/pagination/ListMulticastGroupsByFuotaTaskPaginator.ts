@@ -8,7 +8,7 @@ import {
   ListMulticastGroupsByFuotaTaskCommandOutput,
 } from "../commands/ListMulticastGroupsByFuotaTaskCommand";
 import { IoTWirelessClient } from "../IoTWirelessClient";
-import { IoTWirelessPaginationConfiguration } from "./Interfaces";
+import type { IoTWirelessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

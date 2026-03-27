@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { CloudWatchClient } from "../CloudWatchClient";
-import { GetAlarmMuteRuleCommand, GetAlarmMuteRuleCommandInput } from "../commands/GetAlarmMuteRuleCommand";
+import type { CloudWatchClient } from "../CloudWatchClient";
+import { type GetAlarmMuteRuleCommandInput, GetAlarmMuteRuleCommand } from "../commands/GetAlarmMuteRuleCommand";
 
 const checkState = async (client: CloudWatchClient, input: GetAlarmMuteRuleCommandInput): Promise<WaiterResult> => {
   let reason;

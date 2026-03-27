@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import { Inspector2Client } from "../Inspector2Client";
-import { Inspector2PaginationConfiguration } from "./Interfaces";
+import type { Inspector2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   GetCommentReactionsCommandInput,
   GetCommentReactionsCommandOutput,
 } from "../commands/GetCommentReactionsCommand";
-import { CodeCommitPaginationConfiguration } from "./Interfaces";
+import type { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

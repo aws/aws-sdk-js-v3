@@ -8,7 +8,7 @@
  */
 export * from "./ChimeSDKMediaPipelinesClient";
 export * from "./ChimeSDKMediaPipelines";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ChimeSDKMediaPipelinesExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

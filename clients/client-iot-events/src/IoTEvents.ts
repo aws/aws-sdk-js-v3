@@ -3,115 +3,135 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type CreateAlarmModelCommandInput,
+  type CreateAlarmModelCommandOutput,
   CreateAlarmModelCommand,
-  CreateAlarmModelCommandInput,
-  CreateAlarmModelCommandOutput,
 } from "./commands/CreateAlarmModelCommand";
 import {
+  type CreateDetectorModelCommandInput,
+  type CreateDetectorModelCommandOutput,
   CreateDetectorModelCommand,
-  CreateDetectorModelCommandInput,
-  CreateDetectorModelCommandOutput,
 } from "./commands/CreateDetectorModelCommand";
-import { CreateInputCommand, CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
 import {
+  type CreateInputCommandInput,
+  type CreateInputCommandOutput,
+  CreateInputCommand,
+} from "./commands/CreateInputCommand";
+import {
+  type DeleteAlarmModelCommandInput,
+  type DeleteAlarmModelCommandOutput,
   DeleteAlarmModelCommand,
-  DeleteAlarmModelCommandInput,
-  DeleteAlarmModelCommandOutput,
 } from "./commands/DeleteAlarmModelCommand";
 import {
+  type DeleteDetectorModelCommandInput,
+  type DeleteDetectorModelCommandOutput,
   DeleteDetectorModelCommand,
-  DeleteDetectorModelCommandInput,
-  DeleteDetectorModelCommandOutput,
 } from "./commands/DeleteDetectorModelCommand";
-import { DeleteInputCommand, DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
 import {
+  type DeleteInputCommandInput,
+  type DeleteInputCommandOutput,
+  DeleteInputCommand,
+} from "./commands/DeleteInputCommand";
+import {
+  type DescribeAlarmModelCommandInput,
+  type DescribeAlarmModelCommandOutput,
   DescribeAlarmModelCommand,
-  DescribeAlarmModelCommandInput,
-  DescribeAlarmModelCommandOutput,
 } from "./commands/DescribeAlarmModelCommand";
 import {
+  type DescribeDetectorModelAnalysisCommandInput,
+  type DescribeDetectorModelAnalysisCommandOutput,
   DescribeDetectorModelAnalysisCommand,
-  DescribeDetectorModelAnalysisCommandInput,
-  DescribeDetectorModelAnalysisCommandOutput,
 } from "./commands/DescribeDetectorModelAnalysisCommand";
 import {
+  type DescribeDetectorModelCommandInput,
+  type DescribeDetectorModelCommandOutput,
   DescribeDetectorModelCommand,
-  DescribeDetectorModelCommandInput,
-  DescribeDetectorModelCommandOutput,
 } from "./commands/DescribeDetectorModelCommand";
 import {
+  type DescribeInputCommandInput,
+  type DescribeInputCommandOutput,
   DescribeInputCommand,
-  DescribeInputCommandInput,
-  DescribeInputCommandOutput,
 } from "./commands/DescribeInputCommand";
 import {
+  type DescribeLoggingOptionsCommandInput,
+  type DescribeLoggingOptionsCommandOutput,
   DescribeLoggingOptionsCommand,
-  DescribeLoggingOptionsCommandInput,
-  DescribeLoggingOptionsCommandOutput,
 } from "./commands/DescribeLoggingOptionsCommand";
 import {
+  type GetDetectorModelAnalysisResultsCommandInput,
+  type GetDetectorModelAnalysisResultsCommandOutput,
   GetDetectorModelAnalysisResultsCommand,
-  GetDetectorModelAnalysisResultsCommandInput,
-  GetDetectorModelAnalysisResultsCommandOutput,
 } from "./commands/GetDetectorModelAnalysisResultsCommand";
 import {
+  type ListAlarmModelsCommandInput,
+  type ListAlarmModelsCommandOutput,
   ListAlarmModelsCommand,
-  ListAlarmModelsCommandInput,
-  ListAlarmModelsCommandOutput,
 } from "./commands/ListAlarmModelsCommand";
 import {
+  type ListAlarmModelVersionsCommandInput,
+  type ListAlarmModelVersionsCommandOutput,
   ListAlarmModelVersionsCommand,
-  ListAlarmModelVersionsCommandInput,
-  ListAlarmModelVersionsCommandOutput,
 } from "./commands/ListAlarmModelVersionsCommand";
 import {
+  type ListDetectorModelsCommandInput,
+  type ListDetectorModelsCommandOutput,
   ListDetectorModelsCommand,
-  ListDetectorModelsCommandInput,
-  ListDetectorModelsCommandOutput,
 } from "./commands/ListDetectorModelsCommand";
 import {
+  type ListDetectorModelVersionsCommandInput,
+  type ListDetectorModelVersionsCommandOutput,
   ListDetectorModelVersionsCommand,
-  ListDetectorModelVersionsCommandInput,
-  ListDetectorModelVersionsCommandOutput,
 } from "./commands/ListDetectorModelVersionsCommand";
 import {
+  type ListInputRoutingsCommandInput,
+  type ListInputRoutingsCommandOutput,
   ListInputRoutingsCommand,
-  ListInputRoutingsCommandInput,
-  ListInputRoutingsCommandOutput,
 } from "./commands/ListInputRoutingsCommand";
-import { ListInputsCommand, ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
 import {
+  type ListInputsCommandInput,
+  type ListInputsCommandOutput,
+  ListInputsCommand,
+} from "./commands/ListInputsCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutLoggingOptionsCommandInput,
+  type PutLoggingOptionsCommandOutput,
   PutLoggingOptionsCommand,
-  PutLoggingOptionsCommandInput,
-  PutLoggingOptionsCommandOutput,
 } from "./commands/PutLoggingOptionsCommand";
 import {
+  type StartDetectorModelAnalysisCommandInput,
+  type StartDetectorModelAnalysisCommandOutput,
   StartDetectorModelAnalysisCommand,
-  StartDetectorModelAnalysisCommandInput,
-  StartDetectorModelAnalysisCommandOutput,
 } from "./commands/StartDetectorModelAnalysisCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAlarmModelCommandInput,
+  type UpdateAlarmModelCommandOutput,
   UpdateAlarmModelCommand,
-  UpdateAlarmModelCommandInput,
-  UpdateAlarmModelCommandOutput,
 } from "./commands/UpdateAlarmModelCommand";
 import {
+  type UpdateDetectorModelCommandInput,
+  type UpdateDetectorModelCommandOutput,
   UpdateDetectorModelCommand,
-  UpdateDetectorModelCommandInput,
-  UpdateDetectorModelCommandOutput,
 } from "./commands/UpdateDetectorModelCommand";
-import { UpdateInputCommand, UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
+import {
+  type UpdateInputCommandInput,
+  type UpdateInputCommandOutput,
+  UpdateInputCommand,
+} from "./commands/UpdateInputCommand";
 import { IoTEventsClient } from "./IoTEventsClient";
 
 const commands = {

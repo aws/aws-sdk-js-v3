@@ -8,7 +8,7 @@ import {
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
 import { MigrationHubRefactorSpacesClient } from "../MigrationHubRefactorSpacesClient";
-import { MigrationHubRefactorSpacesPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubRefactorSpacesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

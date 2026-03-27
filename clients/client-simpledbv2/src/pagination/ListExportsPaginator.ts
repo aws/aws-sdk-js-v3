@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand";
 import { SimpleDBv2Client } from "../SimpleDBv2Client";
-import { SimpleDBv2PaginationConfiguration } from "./Interfaces";
+import type { SimpleDBv2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

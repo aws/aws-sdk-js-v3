@@ -42,7 +42,7 @@
  */
 export * from "./WorkMailClient";
 export * from "./WorkMail";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { WorkMailExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

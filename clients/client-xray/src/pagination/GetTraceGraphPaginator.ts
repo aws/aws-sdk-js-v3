@@ -8,7 +8,7 @@ import {
   GetTraceGraphCommandOutput,
 } from "../commands/GetTraceGraphCommand";
 import { XRayClient } from "../XRayClient";
-import { XRayPaginationConfiguration } from "./Interfaces";
+import type { XRayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

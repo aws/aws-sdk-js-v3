@@ -8,7 +8,7 @@ import {
   ListDatabasesCommandOutput,
 } from "../commands/ListDatabasesCommand";
 import { SsmSapClient } from "../SsmSapClient";
-import { SsmSapPaginationConfiguration } from "./Interfaces";
+import type { SsmSapPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

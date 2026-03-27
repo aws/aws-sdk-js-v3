@@ -4,30 +4,34 @@ import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { BedrockDataAutomationRuntimeClient } from "./BedrockDataAutomationRuntimeClient";
 import {
+  type GetDataAutomationStatusCommandInput,
+  type GetDataAutomationStatusCommandOutput,
   GetDataAutomationStatusCommand,
-  GetDataAutomationStatusCommandInput,
-  GetDataAutomationStatusCommandOutput,
 } from "./commands/GetDataAutomationStatusCommand";
 import {
+  type InvokeDataAutomationAsyncCommandInput,
+  type InvokeDataAutomationAsyncCommandOutput,
   InvokeDataAutomationAsyncCommand,
-  InvokeDataAutomationAsyncCommandInput,
-  InvokeDataAutomationAsyncCommandOutput,
 } from "./commands/InvokeDataAutomationAsyncCommand";
 import {
+  type InvokeDataAutomationCommandInput,
+  type InvokeDataAutomationCommandOutput,
   InvokeDataAutomationCommand,
-  InvokeDataAutomationCommandInput,
-  InvokeDataAutomationCommandOutput,
 } from "./commands/InvokeDataAutomationCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 
 const commands = {

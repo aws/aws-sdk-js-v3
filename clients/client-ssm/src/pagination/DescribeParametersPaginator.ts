@@ -8,7 +8,7 @@ import {
   DescribeParametersCommandOutput,
 } from "../commands/DescribeParametersCommand";
 import { SSMClient } from "../SSMClient";
-import { SSMPaginationConfiguration } from "./Interfaces";
+import type { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

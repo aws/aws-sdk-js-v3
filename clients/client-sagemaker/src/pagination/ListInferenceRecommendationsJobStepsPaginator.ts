@@ -8,7 +8,7 @@ import {
   ListInferenceRecommendationsJobStepsCommandOutput,
 } from "../commands/ListInferenceRecommendationsJobStepsCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

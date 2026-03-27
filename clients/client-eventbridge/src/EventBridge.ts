@@ -3,249 +3,277 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type ActivateEventSourceCommandInput,
+  type ActivateEventSourceCommandOutput,
   ActivateEventSourceCommand,
-  ActivateEventSourceCommandInput,
-  ActivateEventSourceCommandOutput,
 } from "./commands/ActivateEventSourceCommand";
 import {
+  type CancelReplayCommandInput,
+  type CancelReplayCommandOutput,
   CancelReplayCommand,
-  CancelReplayCommandInput,
-  CancelReplayCommandOutput,
 } from "./commands/CancelReplayCommand";
 import {
+  type CreateApiDestinationCommandInput,
+  type CreateApiDestinationCommandOutput,
   CreateApiDestinationCommand,
-  CreateApiDestinationCommandInput,
-  CreateApiDestinationCommandOutput,
 } from "./commands/CreateApiDestinationCommand";
 import {
+  type CreateArchiveCommandInput,
+  type CreateArchiveCommandOutput,
   CreateArchiveCommand,
-  CreateArchiveCommandInput,
-  CreateArchiveCommandOutput,
 } from "./commands/CreateArchiveCommand";
 import {
+  type CreateConnectionCommandInput,
+  type CreateConnectionCommandOutput,
   CreateConnectionCommand,
-  CreateConnectionCommandInput,
-  CreateConnectionCommandOutput,
 } from "./commands/CreateConnectionCommand";
 import {
+  type CreateEndpointCommandInput,
+  type CreateEndpointCommandOutput,
   CreateEndpointCommand,
-  CreateEndpointCommandInput,
-  CreateEndpointCommandOutput,
 } from "./commands/CreateEndpointCommand";
 import {
+  type CreateEventBusCommandInput,
+  type CreateEventBusCommandOutput,
   CreateEventBusCommand,
-  CreateEventBusCommandInput,
-  CreateEventBusCommandOutput,
 } from "./commands/CreateEventBusCommand";
 import {
+  type CreatePartnerEventSourceCommandInput,
+  type CreatePartnerEventSourceCommandOutput,
   CreatePartnerEventSourceCommand,
-  CreatePartnerEventSourceCommandInput,
-  CreatePartnerEventSourceCommandOutput,
 } from "./commands/CreatePartnerEventSourceCommand";
 import {
+  type DeactivateEventSourceCommandInput,
+  type DeactivateEventSourceCommandOutput,
   DeactivateEventSourceCommand,
-  DeactivateEventSourceCommandInput,
-  DeactivateEventSourceCommandOutput,
 } from "./commands/DeactivateEventSourceCommand";
 import {
+  type DeauthorizeConnectionCommandInput,
+  type DeauthorizeConnectionCommandOutput,
   DeauthorizeConnectionCommand,
-  DeauthorizeConnectionCommandInput,
-  DeauthorizeConnectionCommandOutput,
 } from "./commands/DeauthorizeConnectionCommand";
 import {
+  type DeleteApiDestinationCommandInput,
+  type DeleteApiDestinationCommandOutput,
   DeleteApiDestinationCommand,
-  DeleteApiDestinationCommandInput,
-  DeleteApiDestinationCommandOutput,
 } from "./commands/DeleteApiDestinationCommand";
 import {
+  type DeleteArchiveCommandInput,
+  type DeleteArchiveCommandOutput,
   DeleteArchiveCommand,
-  DeleteArchiveCommandInput,
-  DeleteArchiveCommandOutput,
 } from "./commands/DeleteArchiveCommand";
 import {
+  type DeleteConnectionCommandInput,
+  type DeleteConnectionCommandOutput,
   DeleteConnectionCommand,
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
+  type DeleteEndpointCommandInput,
+  type DeleteEndpointCommandOutput,
   DeleteEndpointCommand,
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput,
 } from "./commands/DeleteEndpointCommand";
 import {
+  type DeleteEventBusCommandInput,
+  type DeleteEventBusCommandOutput,
   DeleteEventBusCommand,
-  DeleteEventBusCommandInput,
-  DeleteEventBusCommandOutput,
 } from "./commands/DeleteEventBusCommand";
 import {
+  type DeletePartnerEventSourceCommandInput,
+  type DeletePartnerEventSourceCommandOutput,
   DeletePartnerEventSourceCommand,
-  DeletePartnerEventSourceCommandInput,
-  DeletePartnerEventSourceCommandOutput,
 } from "./commands/DeletePartnerEventSourceCommand";
-import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
+  type DeleteRuleCommandInput,
+  type DeleteRuleCommandOutput,
+  DeleteRuleCommand,
+} from "./commands/DeleteRuleCommand";
+import {
+  type DescribeApiDestinationCommandInput,
+  type DescribeApiDestinationCommandOutput,
   DescribeApiDestinationCommand,
-  DescribeApiDestinationCommandInput,
-  DescribeApiDestinationCommandOutput,
 } from "./commands/DescribeApiDestinationCommand";
 import {
+  type DescribeArchiveCommandInput,
+  type DescribeArchiveCommandOutput,
   DescribeArchiveCommand,
-  DescribeArchiveCommandInput,
-  DescribeArchiveCommandOutput,
 } from "./commands/DescribeArchiveCommand";
 import {
+  type DescribeConnectionCommandInput,
+  type DescribeConnectionCommandOutput,
   DescribeConnectionCommand,
-  DescribeConnectionCommandInput,
-  DescribeConnectionCommandOutput,
 } from "./commands/DescribeConnectionCommand";
 import {
+  type DescribeEndpointCommandInput,
+  type DescribeEndpointCommandOutput,
   DescribeEndpointCommand,
-  DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput,
 } from "./commands/DescribeEndpointCommand";
 import {
+  type DescribeEventBusCommandInput,
+  type DescribeEventBusCommandOutput,
   DescribeEventBusCommand,
-  DescribeEventBusCommandInput,
-  DescribeEventBusCommandOutput,
 } from "./commands/DescribeEventBusCommand";
 import {
+  type DescribeEventSourceCommandInput,
+  type DescribeEventSourceCommandOutput,
   DescribeEventSourceCommand,
-  DescribeEventSourceCommandInput,
-  DescribeEventSourceCommandOutput,
 } from "./commands/DescribeEventSourceCommand";
 import {
+  type DescribePartnerEventSourceCommandInput,
+  type DescribePartnerEventSourceCommandOutput,
   DescribePartnerEventSourceCommand,
-  DescribePartnerEventSourceCommandInput,
-  DescribePartnerEventSourceCommandOutput,
 } from "./commands/DescribePartnerEventSourceCommand";
 import {
+  type DescribeReplayCommandInput,
+  type DescribeReplayCommandOutput,
   DescribeReplayCommand,
-  DescribeReplayCommandInput,
-  DescribeReplayCommandOutput,
 } from "./commands/DescribeReplayCommand";
 import {
+  type DescribeRuleCommandInput,
+  type DescribeRuleCommandOutput,
   DescribeRuleCommand,
-  DescribeRuleCommandInput,
-  DescribeRuleCommandOutput,
 } from "./commands/DescribeRuleCommand";
-import { DisableRuleCommand, DisableRuleCommandInput, DisableRuleCommandOutput } from "./commands/DisableRuleCommand";
-import { EnableRuleCommand, EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand";
 import {
+  type DisableRuleCommandInput,
+  type DisableRuleCommandOutput,
+  DisableRuleCommand,
+} from "./commands/DisableRuleCommand";
+import {
+  type EnableRuleCommandInput,
+  type EnableRuleCommandOutput,
+  EnableRuleCommand,
+} from "./commands/EnableRuleCommand";
+import {
+  type ListApiDestinationsCommandInput,
+  type ListApiDestinationsCommandOutput,
   ListApiDestinationsCommand,
-  ListApiDestinationsCommandInput,
-  ListApiDestinationsCommandOutput,
 } from "./commands/ListApiDestinationsCommand";
 import {
+  type ListArchivesCommandInput,
+  type ListArchivesCommandOutput,
   ListArchivesCommand,
-  ListArchivesCommandInput,
-  ListArchivesCommandOutput,
 } from "./commands/ListArchivesCommand";
 import {
+  type ListConnectionsCommandInput,
+  type ListConnectionsCommandOutput,
   ListConnectionsCommand,
-  ListConnectionsCommandInput,
-  ListConnectionsCommandOutput,
 } from "./commands/ListConnectionsCommand";
 import {
+  type ListEndpointsCommandInput,
+  type ListEndpointsCommandOutput,
   ListEndpointsCommand,
-  ListEndpointsCommandInput,
-  ListEndpointsCommandOutput,
 } from "./commands/ListEndpointsCommand";
 import {
+  type ListEventBusesCommandInput,
+  type ListEventBusesCommandOutput,
   ListEventBusesCommand,
-  ListEventBusesCommandInput,
-  ListEventBusesCommandOutput,
 } from "./commands/ListEventBusesCommand";
 import {
+  type ListEventSourcesCommandInput,
+  type ListEventSourcesCommandOutput,
   ListEventSourcesCommand,
-  ListEventSourcesCommandInput,
-  ListEventSourcesCommandOutput,
 } from "./commands/ListEventSourcesCommand";
 import {
+  type ListPartnerEventSourceAccountsCommandInput,
+  type ListPartnerEventSourceAccountsCommandOutput,
   ListPartnerEventSourceAccountsCommand,
-  ListPartnerEventSourceAccountsCommandInput,
-  ListPartnerEventSourceAccountsCommandOutput,
 } from "./commands/ListPartnerEventSourceAccountsCommand";
 import {
+  type ListPartnerEventSourcesCommandInput,
+  type ListPartnerEventSourcesCommandOutput,
   ListPartnerEventSourcesCommand,
-  ListPartnerEventSourcesCommandInput,
-  ListPartnerEventSourcesCommandOutput,
 } from "./commands/ListPartnerEventSourcesCommand";
-import { ListReplaysCommand, ListReplaysCommandInput, ListReplaysCommandOutput } from "./commands/ListReplaysCommand";
 import {
+  type ListReplaysCommandInput,
+  type ListReplaysCommandOutput,
+  ListReplaysCommand,
+} from "./commands/ListReplaysCommand";
+import {
+  type ListRuleNamesByTargetCommandInput,
+  type ListRuleNamesByTargetCommandOutput,
   ListRuleNamesByTargetCommand,
-  ListRuleNamesByTargetCommandInput,
-  ListRuleNamesByTargetCommandOutput,
 } from "./commands/ListRuleNamesByTargetCommand";
-import { ListRulesCommand, ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
+import { type ListRulesCommandInput, type ListRulesCommandOutput, ListRulesCommand } from "./commands/ListRulesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTargetsByRuleCommandInput,
+  type ListTargetsByRuleCommandOutput,
   ListTargetsByRuleCommand,
-  ListTargetsByRuleCommandInput,
-  ListTargetsByRuleCommandOutput,
 } from "./commands/ListTargetsByRuleCommand";
-import { PutEventsCommand, PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
+import { type PutEventsCommandInput, type PutEventsCommandOutput, PutEventsCommand } from "./commands/PutEventsCommand";
 import {
+  type PutPartnerEventsCommandInput,
+  type PutPartnerEventsCommandOutput,
   PutPartnerEventsCommand,
-  PutPartnerEventsCommandInput,
-  PutPartnerEventsCommandOutput,
 } from "./commands/PutPartnerEventsCommand";
 import {
+  type PutPermissionCommandInput,
+  type PutPermissionCommandOutput,
   PutPermissionCommand,
-  PutPermissionCommandInput,
-  PutPermissionCommandOutput,
 } from "./commands/PutPermissionCommand";
-import { PutRuleCommand, PutRuleCommandInput, PutRuleCommandOutput } from "./commands/PutRuleCommand";
-import { PutTargetsCommand, PutTargetsCommandInput, PutTargetsCommandOutput } from "./commands/PutTargetsCommand";
+import { type PutRuleCommandInput, type PutRuleCommandOutput, PutRuleCommand } from "./commands/PutRuleCommand";
 import {
+  type PutTargetsCommandInput,
+  type PutTargetsCommandOutput,
+  PutTargetsCommand,
+} from "./commands/PutTargetsCommand";
+import {
+  type RemovePermissionCommandInput,
+  type RemovePermissionCommandOutput,
   RemovePermissionCommand,
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand";
 import {
+  type RemoveTargetsCommandInput,
+  type RemoveTargetsCommandOutput,
   RemoveTargetsCommand,
-  RemoveTargetsCommandInput,
-  RemoveTargetsCommandOutput,
 } from "./commands/RemoveTargetsCommand";
-import { StartReplayCommand, StartReplayCommandInput, StartReplayCommandOutput } from "./commands/StartReplayCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type StartReplayCommandInput,
+  type StartReplayCommandOutput,
+  StartReplayCommand,
+} from "./commands/StartReplayCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TestEventPatternCommandInput,
+  type TestEventPatternCommandOutput,
   TestEventPatternCommand,
-  TestEventPatternCommandInput,
-  TestEventPatternCommandOutput,
 } from "./commands/TestEventPatternCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApiDestinationCommandInput,
+  type UpdateApiDestinationCommandOutput,
   UpdateApiDestinationCommand,
-  UpdateApiDestinationCommandInput,
-  UpdateApiDestinationCommandOutput,
 } from "./commands/UpdateApiDestinationCommand";
 import {
+  type UpdateArchiveCommandInput,
+  type UpdateArchiveCommandOutput,
   UpdateArchiveCommand,
-  UpdateArchiveCommandInput,
-  UpdateArchiveCommandOutput,
 } from "./commands/UpdateArchiveCommand";
 import {
+  type UpdateConnectionCommandInput,
+  type UpdateConnectionCommandOutput,
   UpdateConnectionCommand,
-  UpdateConnectionCommandInput,
-  UpdateConnectionCommandOutput,
 } from "./commands/UpdateConnectionCommand";
 import {
+  type UpdateEndpointCommandInput,
+  type UpdateEndpointCommandOutput,
   UpdateEndpointCommand,
-  UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput,
 } from "./commands/UpdateEndpointCommand";
 import {
+  type UpdateEventBusCommandInput,
+  type UpdateEventBusCommandOutput,
   UpdateEventBusCommand,
-  UpdateEventBusCommandInput,
-  UpdateEventBusCommandOutput,
 } from "./commands/UpdateEventBusCommand";
 import { EventBridgeClient } from "./EventBridgeClient";
 

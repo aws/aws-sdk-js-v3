@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,63 +61,63 @@ import {
   defaultLicenseManagerUserSubscriptionsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateUserCommandInput, AssociateUserCommandOutput } from "./commands/AssociateUserCommand";
-import {
+import type { AssociateUserCommandInput, AssociateUserCommandOutput } from "./commands/AssociateUserCommand";
+import type {
   CreateLicenseServerEndpointCommandInput,
   CreateLicenseServerEndpointCommandOutput,
 } from "./commands/CreateLicenseServerEndpointCommand";
-import {
+import type {
   DeleteLicenseServerEndpointCommandInput,
   DeleteLicenseServerEndpointCommandOutput,
 } from "./commands/DeleteLicenseServerEndpointCommand";
-import {
+import type {
   DeregisterIdentityProviderCommandInput,
   DeregisterIdentityProviderCommandOutput,
 } from "./commands/DeregisterIdentityProviderCommand";
-import { DisassociateUserCommandInput, DisassociateUserCommandOutput } from "./commands/DisassociateUserCommand";
-import {
+import type { DisassociateUserCommandInput, DisassociateUserCommandOutput } from "./commands/DisassociateUserCommand";
+import type {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
 } from "./commands/ListIdentityProvidersCommand";
-import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
-import {
+import type { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
+import type {
   ListLicenseServerEndpointsCommandInput,
   ListLicenseServerEndpointsCommandOutput,
 } from "./commands/ListLicenseServerEndpointsCommand";
-import {
+import type {
   ListProductSubscriptionsCommandInput,
   ListProductSubscriptionsCommandOutput,
 } from "./commands/ListProductSubscriptionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListUserAssociationsCommandInput,
   ListUserAssociationsCommandOutput,
 } from "./commands/ListUserAssociationsCommand";
-import {
+import type {
   RegisterIdentityProviderCommandInput,
   RegisterIdentityProviderCommandOutput,
 } from "./commands/RegisterIdentityProviderCommand";
-import {
+import type {
   StartProductSubscriptionCommandInput,
   StartProductSubscriptionCommandOutput,
 } from "./commands/StartProductSubscriptionCommand";
-import {
+import type {
   StopProductSubscriptionCommandInput,
   StopProductSubscriptionCommandOutput,
 } from "./commands/StopProductSubscriptionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateIdentityProviderSettingsCommandInput,
   UpdateIdentityProviderSettingsCommandOutput,
 } from "./commands/UpdateIdentityProviderSettingsCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -285,7 +283,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

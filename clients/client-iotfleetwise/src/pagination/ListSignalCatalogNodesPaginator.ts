@@ -8,7 +8,7 @@ import {
   ListSignalCatalogNodesCommandOutput,
 } from "../commands/ListSignalCatalogNodesCommand";
 import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
-import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
+import type { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

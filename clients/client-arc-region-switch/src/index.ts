@@ -7,7 +7,7 @@
  */
 export * from "./ARCRegionSwitchClient";
 export * from "./ARCRegionSwitch";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ARCRegionSwitchExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

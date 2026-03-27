@@ -8,7 +8,7 @@ import {
   ListTrustAnchorsCommandOutput,
 } from "../commands/ListTrustAnchorsCommand";
 import { RolesAnywhereClient } from "../RolesAnywhereClient";
-import { RolesAnywherePaginationConfiguration } from "./Interfaces";
+import type { RolesAnywherePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

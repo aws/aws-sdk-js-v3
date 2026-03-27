@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,75 +61,81 @@ import {
   defaultEMRContainersHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelJobRunCommandInput, CancelJobRunCommandOutput } from "./commands/CancelJobRunCommand";
-import { CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput } from "./commands/CreateJobTemplateCommand";
-import {
+import type { CancelJobRunCommandInput, CancelJobRunCommandOutput } from "./commands/CancelJobRunCommand";
+import type {
+  CreateJobTemplateCommandInput,
+  CreateJobTemplateCommandOutput,
+} from "./commands/CreateJobTemplateCommand";
+import type {
   CreateManagedEndpointCommandInput,
   CreateManagedEndpointCommandOutput,
 } from "./commands/CreateManagedEndpointCommand";
-import {
+import type {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
-import {
+import type {
   CreateVirtualClusterCommandInput,
   CreateVirtualClusterCommandOutput,
 } from "./commands/CreateVirtualClusterCommand";
-import { DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput } from "./commands/DeleteJobTemplateCommand";
-import {
+import type {
+  DeleteJobTemplateCommandInput,
+  DeleteJobTemplateCommandOutput,
+} from "./commands/DeleteJobTemplateCommand";
+import type {
   DeleteManagedEndpointCommandInput,
   DeleteManagedEndpointCommandOutput,
 } from "./commands/DeleteManagedEndpointCommand";
-import {
+import type {
   DeleteVirtualClusterCommandInput,
   DeleteVirtualClusterCommandOutput,
 } from "./commands/DeleteVirtualClusterCommand";
-import { DescribeJobRunCommandInput, DescribeJobRunCommandOutput } from "./commands/DescribeJobRunCommand";
-import {
+import type { DescribeJobRunCommandInput, DescribeJobRunCommandOutput } from "./commands/DescribeJobRunCommand";
+import type {
   DescribeJobTemplateCommandInput,
   DescribeJobTemplateCommandOutput,
 } from "./commands/DescribeJobTemplateCommand";
-import {
+import type {
   DescribeManagedEndpointCommandInput,
   DescribeManagedEndpointCommandOutput,
 } from "./commands/DescribeManagedEndpointCommand";
-import {
+import type {
   DescribeSecurityConfigurationCommandInput,
   DescribeSecurityConfigurationCommandOutput,
 } from "./commands/DescribeSecurityConfigurationCommand";
-import {
+import type {
   DescribeVirtualClusterCommandInput,
   DescribeVirtualClusterCommandOutput,
 } from "./commands/DescribeVirtualClusterCommand";
-import {
+import type {
   GetManagedEndpointSessionCredentialsCommandInput,
   GetManagedEndpointSessionCredentialsCommandOutput,
 } from "./commands/GetManagedEndpointSessionCredentialsCommand";
-import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
-import { ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput } from "./commands/ListJobTemplatesCommand";
-import {
+import type { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
+import type { ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput } from "./commands/ListJobTemplatesCommand";
+import type {
   ListManagedEndpointsCommandInput,
   ListManagedEndpointsCommandOutput,
 } from "./commands/ListManagedEndpointsCommand";
-import {
+import type {
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput,
 } from "./commands/ListSecurityConfigurationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListVirtualClustersCommandInput,
   ListVirtualClustersCommandOutput,
 } from "./commands/ListVirtualClustersCommand";
-import { StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -309,7 +313,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

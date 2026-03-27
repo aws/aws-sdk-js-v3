@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,157 +61,157 @@ import {
   defaultPinpointEmailHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand";
-import {
+import type {
   CreateConfigurationSetEventDestinationCommandInput,
   CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand";
-import {
+import type {
   CreateDedicatedIpPoolCommandInput,
   CreateDedicatedIpPoolCommandOutput,
 } from "./commands/CreateDedicatedIpPoolCommand";
-import {
+import type {
   CreateDeliverabilityTestReportCommandInput,
   CreateDeliverabilityTestReportCommandOutput,
 } from "./commands/CreateDeliverabilityTestReportCommand";
-import {
+import type {
   CreateEmailIdentityCommandInput,
   CreateEmailIdentityCommandOutput,
 } from "./commands/CreateEmailIdentityCommand";
-import {
+import type {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand";
-import {
+import type {
   DeleteConfigurationSetEventDestinationCommandInput,
   DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand";
-import {
+import type {
   DeleteDedicatedIpPoolCommandInput,
   DeleteDedicatedIpPoolCommandOutput,
 } from "./commands/DeleteDedicatedIpPoolCommand";
-import {
+import type {
   DeleteEmailIdentityCommandInput,
   DeleteEmailIdentityCommandOutput,
 } from "./commands/DeleteEmailIdentityCommand";
-import { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
-import {
+import type { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
+import type {
   GetBlacklistReportsCommandInput,
   GetBlacklistReportsCommandOutput,
 } from "./commands/GetBlacklistReportsCommand";
-import {
+import type {
   GetConfigurationSetCommandInput,
   GetConfigurationSetCommandOutput,
 } from "./commands/GetConfigurationSetCommand";
-import {
+import type {
   GetConfigurationSetEventDestinationsCommandInput,
   GetConfigurationSetEventDestinationsCommandOutput,
 } from "./commands/GetConfigurationSetEventDestinationsCommand";
-import { GetDedicatedIpCommandInput, GetDedicatedIpCommandOutput } from "./commands/GetDedicatedIpCommand";
-import { GetDedicatedIpsCommandInput, GetDedicatedIpsCommandOutput } from "./commands/GetDedicatedIpsCommand";
-import {
+import type { GetDedicatedIpCommandInput, GetDedicatedIpCommandOutput } from "./commands/GetDedicatedIpCommand";
+import type { GetDedicatedIpsCommandInput, GetDedicatedIpsCommandOutput } from "./commands/GetDedicatedIpsCommand";
+import type {
   GetDeliverabilityDashboardOptionsCommandInput,
   GetDeliverabilityDashboardOptionsCommandOutput,
 } from "./commands/GetDeliverabilityDashboardOptionsCommand";
-import {
+import type {
   GetDeliverabilityTestReportCommandInput,
   GetDeliverabilityTestReportCommandOutput,
 } from "./commands/GetDeliverabilityTestReportCommand";
-import {
+import type {
   GetDomainDeliverabilityCampaignCommandInput,
   GetDomainDeliverabilityCampaignCommandOutput,
 } from "./commands/GetDomainDeliverabilityCampaignCommand";
-import {
+import type {
   GetDomainStatisticsReportCommandInput,
   GetDomainStatisticsReportCommandOutput,
 } from "./commands/GetDomainStatisticsReportCommand";
-import { GetEmailIdentityCommandInput, GetEmailIdentityCommandOutput } from "./commands/GetEmailIdentityCommand";
-import {
+import type { GetEmailIdentityCommandInput, GetEmailIdentityCommandOutput } from "./commands/GetEmailIdentityCommand";
+import type {
   ListConfigurationSetsCommandInput,
   ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand";
-import {
+import type {
   ListDedicatedIpPoolsCommandInput,
   ListDedicatedIpPoolsCommandOutput,
 } from "./commands/ListDedicatedIpPoolsCommand";
-import {
+import type {
   ListDeliverabilityTestReportsCommandInput,
   ListDeliverabilityTestReportsCommandOutput,
 } from "./commands/ListDeliverabilityTestReportsCommand";
-import {
+import type {
   ListDomainDeliverabilityCampaignsCommandInput,
   ListDomainDeliverabilityCampaignsCommandOutput,
 } from "./commands/ListDomainDeliverabilityCampaignsCommand";
-import {
+import type {
   ListEmailIdentitiesCommandInput,
   ListEmailIdentitiesCommandOutput,
 } from "./commands/ListEmailIdentitiesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutAccountDedicatedIpWarmupAttributesCommandInput,
   PutAccountDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutAccountDedicatedIpWarmupAttributesCommand";
-import {
+import type {
   PutAccountSendingAttributesCommandInput,
   PutAccountSendingAttributesCommandOutput,
 } from "./commands/PutAccountSendingAttributesCommand";
-import {
+import type {
   PutConfigurationSetDeliveryOptionsCommandInput,
   PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "./commands/PutConfigurationSetDeliveryOptionsCommand";
-import {
+import type {
   PutConfigurationSetReputationOptionsCommandInput,
   PutConfigurationSetReputationOptionsCommandOutput,
 } from "./commands/PutConfigurationSetReputationOptionsCommand";
-import {
+import type {
   PutConfigurationSetSendingOptionsCommandInput,
   PutConfigurationSetSendingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetSendingOptionsCommand";
-import {
+import type {
   PutConfigurationSetTrackingOptionsCommandInput,
   PutConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetTrackingOptionsCommand";
-import {
+import type {
   PutDedicatedIpInPoolCommandInput,
   PutDedicatedIpInPoolCommandOutput,
 } from "./commands/PutDedicatedIpInPoolCommand";
-import {
+import type {
   PutDedicatedIpWarmupAttributesCommandInput,
   PutDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutDedicatedIpWarmupAttributesCommand";
-import {
+import type {
   PutDeliverabilityDashboardOptionCommandInput,
   PutDeliverabilityDashboardOptionCommandOutput,
 } from "./commands/PutDeliverabilityDashboardOptionCommand";
-import {
+import type {
   PutEmailIdentityDkimAttributesCommandInput,
   PutEmailIdentityDkimAttributesCommandOutput,
 } from "./commands/PutEmailIdentityDkimAttributesCommand";
-import {
+import type {
   PutEmailIdentityFeedbackAttributesCommandInput,
   PutEmailIdentityFeedbackAttributesCommandOutput,
 } from "./commands/PutEmailIdentityFeedbackAttributesCommand";
-import {
+import type {
   PutEmailIdentityMailFromAttributesCommandInput,
   PutEmailIdentityMailFromAttributesCommandOutput,
 } from "./commands/PutEmailIdentityMailFromAttributesCommand";
-import { SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateConfigurationSetEventDestinationCommandInput,
   UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -429,7 +427,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

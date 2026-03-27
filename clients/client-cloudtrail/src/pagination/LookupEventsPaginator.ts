@@ -8,7 +8,7 @@ import {
   LookupEventsCommandInput,
   LookupEventsCommandOutput,
 } from "../commands/LookupEventsCommand";
-import { CloudTrailPaginationConfiguration } from "./Interfaces";
+import type { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListOfferingsCommandOutput,
 } from "../commands/ListOfferingsCommand";
 import { MediaConnectClient } from "../MediaConnectClient";
-import { MediaConnectPaginationConfiguration } from "./Interfaces";
+import type { MediaConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

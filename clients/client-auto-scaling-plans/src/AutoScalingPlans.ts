@@ -4,34 +4,34 @@ import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AutoScalingPlansClient } from "./AutoScalingPlansClient";
 import {
+  type CreateScalingPlanCommandInput,
+  type CreateScalingPlanCommandOutput,
   CreateScalingPlanCommand,
-  CreateScalingPlanCommandInput,
-  CreateScalingPlanCommandOutput,
 } from "./commands/CreateScalingPlanCommand";
 import {
+  type DeleteScalingPlanCommandInput,
+  type DeleteScalingPlanCommandOutput,
   DeleteScalingPlanCommand,
-  DeleteScalingPlanCommandInput,
-  DeleteScalingPlanCommandOutput,
 } from "./commands/DeleteScalingPlanCommand";
 import {
+  type DescribeScalingPlanResourcesCommandInput,
+  type DescribeScalingPlanResourcesCommandOutput,
   DescribeScalingPlanResourcesCommand,
-  DescribeScalingPlanResourcesCommandInput,
-  DescribeScalingPlanResourcesCommandOutput,
 } from "./commands/DescribeScalingPlanResourcesCommand";
 import {
+  type DescribeScalingPlansCommandInput,
+  type DescribeScalingPlansCommandOutput,
   DescribeScalingPlansCommand,
-  DescribeScalingPlansCommandInput,
-  DescribeScalingPlansCommandOutput,
 } from "./commands/DescribeScalingPlansCommand";
 import {
+  type GetScalingPlanResourceForecastDataCommandInput,
+  type GetScalingPlanResourceForecastDataCommandOutput,
   GetScalingPlanResourceForecastDataCommand,
-  GetScalingPlanResourceForecastDataCommandInput,
-  GetScalingPlanResourceForecastDataCommandOutput,
 } from "./commands/GetScalingPlanResourceForecastDataCommand";
 import {
+  type UpdateScalingPlanCommandInput,
+  type UpdateScalingPlanCommandOutput,
   UpdateScalingPlanCommand,
-  UpdateScalingPlanCommandInput,
-  UpdateScalingPlanCommandOutput,
 } from "./commands/UpdateScalingPlanCommand";
 
 const commands = {

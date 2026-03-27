@@ -8,7 +8,7 @@ import {
   ListEntityRecognizersCommandOutput,
 } from "../commands/ListEntityRecognizersCommand";
 import { ComprehendClient } from "../ComprehendClient";
-import { ComprehendPaginationConfiguration } from "./Interfaces";
+import type { ComprehendPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

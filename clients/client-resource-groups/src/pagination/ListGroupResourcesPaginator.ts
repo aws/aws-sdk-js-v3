@@ -8,7 +8,7 @@ import {
   ListGroupResourcesCommandOutput,
 } from "../commands/ListGroupResourcesCommand";
 import { ResourceGroupsClient } from "../ResourceGroupsClient";
-import { ResourceGroupsPaginationConfiguration } from "./Interfaces";
+import type { ResourceGroupsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

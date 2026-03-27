@@ -3,25 +3,29 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DescribeServicesCommandInput,
+  type DescribeServicesCommandOutput,
   DescribeServicesCommand,
-  DescribeServicesCommandInput,
-  DescribeServicesCommandOutput,
 } from "./commands/DescribeServicesCommand";
 import {
+  type GetAttributeValuesCommandInput,
+  type GetAttributeValuesCommandOutput,
   GetAttributeValuesCommand,
-  GetAttributeValuesCommandInput,
-  GetAttributeValuesCommandOutput,
 } from "./commands/GetAttributeValuesCommand";
 import {
+  type GetPriceListFileUrlCommandInput,
+  type GetPriceListFileUrlCommandOutput,
   GetPriceListFileUrlCommand,
-  GetPriceListFileUrlCommandInput,
-  GetPriceListFileUrlCommandOutput,
 } from "./commands/GetPriceListFileUrlCommand";
-import { GetProductsCommand, GetProductsCommandInput, GetProductsCommandOutput } from "./commands/GetProductsCommand";
 import {
+  type GetProductsCommandInput,
+  type GetProductsCommandOutput,
+  GetProductsCommand,
+} from "./commands/GetProductsCommand";
+import {
+  type ListPriceListsCommandInput,
+  type ListPriceListsCommandOutput,
   ListPriceListsCommand,
-  ListPriceListsCommandInput,
-  ListPriceListsCommandOutput,
 } from "./commands/ListPriceListsCommand";
 import { paginateDescribeServices } from "./pagination/DescribeServicesPaginator";
 import { paginateGetAttributeValues } from "./pagination/GetAttributeValuesPaginator";

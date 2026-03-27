@@ -8,142 +8,146 @@ import type {
 } from "@smithy/types";
 import type { WaiterResult } from "@smithy/util-waiter";
 
-import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { type AddTagsCommandInput, type AddTagsCommandOutput, AddTagsCommand } from "./commands/AddTagsCommand";
 import {
+  type ApplySecurityGroupsToLoadBalancerCommandInput,
+  type ApplySecurityGroupsToLoadBalancerCommandOutput,
   ApplySecurityGroupsToLoadBalancerCommand,
-  ApplySecurityGroupsToLoadBalancerCommandInput,
-  ApplySecurityGroupsToLoadBalancerCommandOutput,
 } from "./commands/ApplySecurityGroupsToLoadBalancerCommand";
 import {
+  type AttachLoadBalancerToSubnetsCommandInput,
+  type AttachLoadBalancerToSubnetsCommandOutput,
   AttachLoadBalancerToSubnetsCommand,
-  AttachLoadBalancerToSubnetsCommandInput,
-  AttachLoadBalancerToSubnetsCommandOutput,
 } from "./commands/AttachLoadBalancerToSubnetsCommand";
 import {
+  type ConfigureHealthCheckCommandInput,
+  type ConfigureHealthCheckCommandOutput,
   ConfigureHealthCheckCommand,
-  ConfigureHealthCheckCommandInput,
-  ConfigureHealthCheckCommandOutput,
 } from "./commands/ConfigureHealthCheckCommand";
 import {
+  type CreateAppCookieStickinessPolicyCommandInput,
+  type CreateAppCookieStickinessPolicyCommandOutput,
   CreateAppCookieStickinessPolicyCommand,
-  CreateAppCookieStickinessPolicyCommandInput,
-  CreateAppCookieStickinessPolicyCommandOutput,
 } from "./commands/CreateAppCookieStickinessPolicyCommand";
 import {
+  type CreateLBCookieStickinessPolicyCommandInput,
+  type CreateLBCookieStickinessPolicyCommandOutput,
   CreateLBCookieStickinessPolicyCommand,
-  CreateLBCookieStickinessPolicyCommandInput,
-  CreateLBCookieStickinessPolicyCommandOutput,
 } from "./commands/CreateLBCookieStickinessPolicyCommand";
 import {
+  type CreateLoadBalancerCommandInput,
+  type CreateLoadBalancerCommandOutput,
   CreateLoadBalancerCommand,
-  CreateLoadBalancerCommandInput,
-  CreateLoadBalancerCommandOutput,
 } from "./commands/CreateLoadBalancerCommand";
 import {
+  type CreateLoadBalancerListenersCommandInput,
+  type CreateLoadBalancerListenersCommandOutput,
   CreateLoadBalancerListenersCommand,
-  CreateLoadBalancerListenersCommandInput,
-  CreateLoadBalancerListenersCommandOutput,
 } from "./commands/CreateLoadBalancerListenersCommand";
 import {
+  type CreateLoadBalancerPolicyCommandInput,
+  type CreateLoadBalancerPolicyCommandOutput,
   CreateLoadBalancerPolicyCommand,
-  CreateLoadBalancerPolicyCommandInput,
-  CreateLoadBalancerPolicyCommandOutput,
 } from "./commands/CreateLoadBalancerPolicyCommand";
 import {
+  type DeleteLoadBalancerCommandInput,
+  type DeleteLoadBalancerCommandOutput,
   DeleteLoadBalancerCommand,
-  DeleteLoadBalancerCommandInput,
-  DeleteLoadBalancerCommandOutput,
 } from "./commands/DeleteLoadBalancerCommand";
 import {
+  type DeleteLoadBalancerListenersCommandInput,
+  type DeleteLoadBalancerListenersCommandOutput,
   DeleteLoadBalancerListenersCommand,
-  DeleteLoadBalancerListenersCommandInput,
-  DeleteLoadBalancerListenersCommandOutput,
 } from "./commands/DeleteLoadBalancerListenersCommand";
 import {
+  type DeleteLoadBalancerPolicyCommandInput,
+  type DeleteLoadBalancerPolicyCommandOutput,
   DeleteLoadBalancerPolicyCommand,
-  DeleteLoadBalancerPolicyCommandInput,
-  DeleteLoadBalancerPolicyCommandOutput,
 } from "./commands/DeleteLoadBalancerPolicyCommand";
 import {
+  type DeregisterInstancesFromLoadBalancerCommandInput,
+  type DeregisterInstancesFromLoadBalancerCommandOutput,
   DeregisterInstancesFromLoadBalancerCommand,
-  DeregisterInstancesFromLoadBalancerCommandInput,
-  DeregisterInstancesFromLoadBalancerCommandOutput,
 } from "./commands/DeregisterInstancesFromLoadBalancerCommand";
 import {
+  type DescribeAccountLimitsCommandInput,
+  type DescribeAccountLimitsCommandOutput,
   DescribeAccountLimitsCommand,
-  DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
+  type DescribeInstanceHealthCommandInput,
+  type DescribeInstanceHealthCommandOutput,
   DescribeInstanceHealthCommand,
-  DescribeInstanceHealthCommandInput,
-  DescribeInstanceHealthCommandOutput,
 } from "./commands/DescribeInstanceHealthCommand";
 import {
+  type DescribeLoadBalancerAttributesCommandInput,
+  type DescribeLoadBalancerAttributesCommandOutput,
   DescribeLoadBalancerAttributesCommand,
-  DescribeLoadBalancerAttributesCommandInput,
-  DescribeLoadBalancerAttributesCommandOutput,
 } from "./commands/DescribeLoadBalancerAttributesCommand";
 import {
+  type DescribeLoadBalancerPoliciesCommandInput,
+  type DescribeLoadBalancerPoliciesCommandOutput,
   DescribeLoadBalancerPoliciesCommand,
-  DescribeLoadBalancerPoliciesCommandInput,
-  DescribeLoadBalancerPoliciesCommandOutput,
 } from "./commands/DescribeLoadBalancerPoliciesCommand";
 import {
+  type DescribeLoadBalancerPolicyTypesCommandInput,
+  type DescribeLoadBalancerPolicyTypesCommandOutput,
   DescribeLoadBalancerPolicyTypesCommand,
-  DescribeLoadBalancerPolicyTypesCommandInput,
-  DescribeLoadBalancerPolicyTypesCommandOutput,
 } from "./commands/DescribeLoadBalancerPolicyTypesCommand";
 import {
+  type DescribeLoadBalancersCommandInput,
+  type DescribeLoadBalancersCommandOutput,
   DescribeLoadBalancersCommand,
-  DescribeLoadBalancersCommandInput,
-  DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand";
 import {
+  type DescribeTagsCommandInput,
+  type DescribeTagsCommandOutput,
   DescribeTagsCommand,
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  type DetachLoadBalancerFromSubnetsCommandInput,
+  type DetachLoadBalancerFromSubnetsCommandOutput,
   DetachLoadBalancerFromSubnetsCommand,
-  DetachLoadBalancerFromSubnetsCommandInput,
-  DetachLoadBalancerFromSubnetsCommandOutput,
 } from "./commands/DetachLoadBalancerFromSubnetsCommand";
 import {
+  type DisableAvailabilityZonesForLoadBalancerCommandInput,
+  type DisableAvailabilityZonesForLoadBalancerCommandOutput,
   DisableAvailabilityZonesForLoadBalancerCommand,
-  DisableAvailabilityZonesForLoadBalancerCommandInput,
-  DisableAvailabilityZonesForLoadBalancerCommandOutput,
 } from "./commands/DisableAvailabilityZonesForLoadBalancerCommand";
 import {
+  type EnableAvailabilityZonesForLoadBalancerCommandInput,
+  type EnableAvailabilityZonesForLoadBalancerCommandOutput,
   EnableAvailabilityZonesForLoadBalancerCommand,
-  EnableAvailabilityZonesForLoadBalancerCommandInput,
-  EnableAvailabilityZonesForLoadBalancerCommandOutput,
 } from "./commands/EnableAvailabilityZonesForLoadBalancerCommand";
 import {
+  type ModifyLoadBalancerAttributesCommandInput,
+  type ModifyLoadBalancerAttributesCommandOutput,
   ModifyLoadBalancerAttributesCommand,
-  ModifyLoadBalancerAttributesCommandInput,
-  ModifyLoadBalancerAttributesCommandOutput,
 } from "./commands/ModifyLoadBalancerAttributesCommand";
 import {
+  type RegisterInstancesWithLoadBalancerCommandInput,
+  type RegisterInstancesWithLoadBalancerCommandOutput,
   RegisterInstancesWithLoadBalancerCommand,
-  RegisterInstancesWithLoadBalancerCommandInput,
-  RegisterInstancesWithLoadBalancerCommandOutput,
 } from "./commands/RegisterInstancesWithLoadBalancerCommand";
-import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
+  type RemoveTagsCommandInput,
+  type RemoveTagsCommandOutput,
+  RemoveTagsCommand,
+} from "./commands/RemoveTagsCommand";
+import {
+  type SetLoadBalancerListenerSSLCertificateCommandInput,
+  type SetLoadBalancerListenerSSLCertificateCommandOutput,
   SetLoadBalancerListenerSSLCertificateCommand,
-  SetLoadBalancerListenerSSLCertificateCommandInput,
-  SetLoadBalancerListenerSSLCertificateCommandOutput,
 } from "./commands/SetLoadBalancerListenerSSLCertificateCommand";
 import {
+  type SetLoadBalancerPoliciesForBackendServerCommandInput,
+  type SetLoadBalancerPoliciesForBackendServerCommandOutput,
   SetLoadBalancerPoliciesForBackendServerCommand,
-  SetLoadBalancerPoliciesForBackendServerCommandInput,
-  SetLoadBalancerPoliciesForBackendServerCommandOutput,
 } from "./commands/SetLoadBalancerPoliciesForBackendServerCommand";
 import {
+  type SetLoadBalancerPoliciesOfListenerCommandInput,
+  type SetLoadBalancerPoliciesOfListenerCommandOutput,
   SetLoadBalancerPoliciesOfListenerCommand,
-  SetLoadBalancerPoliciesOfListenerCommandInput,
-  SetLoadBalancerPoliciesOfListenerCommandOutput,
 } from "./commands/SetLoadBalancerPoliciesOfListenerCommand";
 import { ElasticLoadBalancingClient } from "./ElasticLoadBalancingClient";
 import { paginateDescribeLoadBalancers } from "./pagination/DescribeLoadBalancersPaginator";

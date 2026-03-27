@@ -8,7 +8,7 @@ import {
   ListConnectorsCommandInput,
   ListConnectorsCommandOutput,
 } from "../commands/ListConnectorsCommand";
-import { AppflowPaginationConfiguration } from "./Interfaces";
+import type { AppflowPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

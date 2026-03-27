@@ -3,14 +3,14 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type BatchGetMetricsCommandInput,
+  type BatchGetMetricsCommandOutput,
   BatchGetMetricsCommand,
-  BatchGetMetricsCommandInput,
-  BatchGetMetricsCommandOutput,
 } from "./commands/BatchGetMetricsCommand";
 import {
+  type BatchPutMetricsCommandInput,
+  type BatchPutMetricsCommandOutput,
   BatchPutMetricsCommand,
-  BatchPutMetricsCommandInput,
-  BatchPutMetricsCommandOutput,
 } from "./commands/BatchPutMetricsCommand";
 import { SageMakerMetricsClient } from "./SageMakerMetricsClient";
 

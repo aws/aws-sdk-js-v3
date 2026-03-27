@@ -8,7 +8,7 @@ import {
   ListAgentKnowledgeBasesCommandInput,
   ListAgentKnowledgeBasesCommandOutput,
 } from "../commands/ListAgentKnowledgeBasesCommand";
-import { BedrockAgentPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

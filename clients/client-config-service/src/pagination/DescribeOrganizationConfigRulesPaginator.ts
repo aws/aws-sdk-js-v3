@@ -8,7 +8,7 @@ import {
   DescribeOrganizationConfigRulesCommandOutput,
 } from "../commands/DescribeOrganizationConfigRulesCommand";
 import { ConfigServiceClient } from "../ConfigServiceClient";
-import { ConfigServicePaginationConfiguration } from "./Interfaces";
+import type { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

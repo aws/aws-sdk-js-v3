@@ -8,7 +8,7 @@ import {
   DescribeClusterVersionsCommandOutput,
 } from "../commands/DescribeClusterVersionsCommand";
 import { EKSClient } from "../EKSClient";
-import { EKSPaginationConfiguration } from "./Interfaces";
+import type { EKSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

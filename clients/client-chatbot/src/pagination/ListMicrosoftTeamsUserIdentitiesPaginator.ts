@@ -8,7 +8,7 @@ import {
   ListMicrosoftTeamsUserIdentitiesCommandInput,
   ListMicrosoftTeamsUserIdentitiesCommandOutput,
 } from "../commands/ListMicrosoftTeamsUserIdentitiesCommand";
-import { ChatbotPaginationConfiguration } from "./Interfaces";
+import type { ChatbotPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

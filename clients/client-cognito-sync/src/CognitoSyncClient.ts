@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,48 +61,51 @@ import {
   defaultCognitoSyncHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BulkPublishCommandInput, BulkPublishCommandOutput } from "./commands/BulkPublishCommand";
-import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
-import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
-import {
+import type { BulkPublishCommandInput, BulkPublishCommandOutput } from "./commands/BulkPublishCommand";
+import type { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import type { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
+import type {
   DescribeIdentityPoolUsageCommandInput,
   DescribeIdentityPoolUsageCommandOutput,
 } from "./commands/DescribeIdentityPoolUsageCommand";
-import {
+import type {
   DescribeIdentityUsageCommandInput,
   DescribeIdentityUsageCommandOutput,
 } from "./commands/DescribeIdentityUsageCommand";
-import {
+import type {
   GetBulkPublishDetailsCommandInput,
   GetBulkPublishDetailsCommandOutput,
 } from "./commands/GetBulkPublishDetailsCommand";
-import { GetCognitoEventsCommandInput, GetCognitoEventsCommandOutput } from "./commands/GetCognitoEventsCommand";
-import {
+import type { GetCognitoEventsCommandInput, GetCognitoEventsCommandOutput } from "./commands/GetCognitoEventsCommand";
+import type {
   GetIdentityPoolConfigurationCommandInput,
   GetIdentityPoolConfigurationCommandOutput,
 } from "./commands/GetIdentityPoolConfigurationCommand";
-import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
-import {
+import type { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import type {
   ListIdentityPoolUsageCommandInput,
   ListIdentityPoolUsageCommandOutput,
 } from "./commands/ListIdentityPoolUsageCommand";
-import { ListRecordsCommandInput, ListRecordsCommandOutput } from "./commands/ListRecordsCommand";
-import { RegisterDeviceCommandInput, RegisterDeviceCommandOutput } from "./commands/RegisterDeviceCommand";
-import { SetCognitoEventsCommandInput, SetCognitoEventsCommandOutput } from "./commands/SetCognitoEventsCommand";
-import {
+import type { ListRecordsCommandInput, ListRecordsCommandOutput } from "./commands/ListRecordsCommand";
+import type { RegisterDeviceCommandInput, RegisterDeviceCommandOutput } from "./commands/RegisterDeviceCommand";
+import type { SetCognitoEventsCommandInput, SetCognitoEventsCommandOutput } from "./commands/SetCognitoEventsCommand";
+import type {
   SetIdentityPoolConfigurationCommandInput,
   SetIdentityPoolConfigurationCommandOutput,
 } from "./commands/SetIdentityPoolConfigurationCommand";
-import { SubscribeToDatasetCommandInput, SubscribeToDatasetCommandOutput } from "./commands/SubscribeToDatasetCommand";
-import {
+import type {
+  SubscribeToDatasetCommandInput,
+  SubscribeToDatasetCommandOutput,
+} from "./commands/SubscribeToDatasetCommand";
+import type {
   UnsubscribeFromDatasetCommandInput,
   UnsubscribeFromDatasetCommandOutput,
 } from "./commands/UnsubscribeFromDatasetCommand";
-import { UpdateRecordsCommandInput, UpdateRecordsCommandOutput } from "./commands/UpdateRecordsCommand";
+import type { UpdateRecordsCommandInput, UpdateRecordsCommandOutput } from "./commands/UpdateRecordsCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -270,7 +271,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

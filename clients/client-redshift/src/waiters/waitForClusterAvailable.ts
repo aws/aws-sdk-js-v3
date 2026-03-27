@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeClustersCommand, DescribeClustersCommandInput } from "../commands/DescribeClustersCommand";
-import { RedshiftClient } from "../RedshiftClient";
+import { type DescribeClustersCommandInput, DescribeClustersCommand } from "../commands/DescribeClustersCommand";
+import type { RedshiftClient } from "../RedshiftClient";
 
 const checkState = async (client: RedshiftClient, input: DescribeClustersCommandInput): Promise<WaiterResult> => {
   let reason;

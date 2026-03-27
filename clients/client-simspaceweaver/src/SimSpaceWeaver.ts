@@ -3,52 +3,64 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateSnapshotCommandInput,
+  type CreateSnapshotCommandOutput,
   CreateSnapshotCommand,
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
-import { DeleteAppCommand, DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
+import { type DeleteAppCommandInput, type DeleteAppCommandOutput, DeleteAppCommand } from "./commands/DeleteAppCommand";
 import {
+  type DeleteSimulationCommandInput,
+  type DeleteSimulationCommandOutput,
   DeleteSimulationCommand,
-  DeleteSimulationCommandInput,
-  DeleteSimulationCommandOutput,
 } from "./commands/DeleteSimulationCommand";
-import { DescribeAppCommand, DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
 import {
+  type DescribeAppCommandInput,
+  type DescribeAppCommandOutput,
+  DescribeAppCommand,
+} from "./commands/DescribeAppCommand";
+import {
+  type DescribeSimulationCommandInput,
+  type DescribeSimulationCommandOutput,
   DescribeSimulationCommand,
-  DescribeSimulationCommandInput,
-  DescribeSimulationCommandOutput,
 } from "./commands/DescribeSimulationCommand";
-import { ListAppsCommand, ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import { type ListAppsCommandInput, type ListAppsCommandOutput, ListAppsCommand } from "./commands/ListAppsCommand";
 import {
+  type ListSimulationsCommandInput,
+  type ListSimulationsCommandOutput,
   ListSimulationsCommand,
-  ListSimulationsCommandInput,
-  ListSimulationsCommandOutput,
 } from "./commands/ListSimulationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartAppCommand, StartAppCommandInput, StartAppCommandOutput } from "./commands/StartAppCommand";
-import { StartClockCommand, StartClockCommandInput, StartClockCommandOutput } from "./commands/StartClockCommand";
+import { type StartAppCommandInput, type StartAppCommandOutput, StartAppCommand } from "./commands/StartAppCommand";
 import {
+  type StartClockCommandInput,
+  type StartClockCommandOutput,
+  StartClockCommand,
+} from "./commands/StartClockCommand";
+import {
+  type StartSimulationCommandInput,
+  type StartSimulationCommandOutput,
   StartSimulationCommand,
-  StartSimulationCommandInput,
-  StartSimulationCommandOutput,
 } from "./commands/StartSimulationCommand";
-import { StopAppCommand, StopAppCommandInput, StopAppCommandOutput } from "./commands/StopAppCommand";
-import { StopClockCommand, StopClockCommandInput, StopClockCommandOutput } from "./commands/StopClockCommand";
+import { type StopAppCommandInput, type StopAppCommandOutput, StopAppCommand } from "./commands/StopAppCommand";
+import { type StopClockCommandInput, type StopClockCommandOutput, StopClockCommand } from "./commands/StopClockCommand";
 import {
+  type StopSimulationCommandInput,
+  type StopSimulationCommandOutput,
   StopSimulationCommand,
-  StopSimulationCommandInput,
-  StopSimulationCommandOutput,
 } from "./commands/StopSimulationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateListApps } from "./pagination/ListAppsPaginator";
 import { paginateListSimulations } from "./pagination/ListSimulationsPaginator";

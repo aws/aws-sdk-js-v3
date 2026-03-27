@@ -3,29 +3,29 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type DescribeJobExecutionCommandInput,
+  type DescribeJobExecutionCommandOutput,
   DescribeJobExecutionCommand,
-  DescribeJobExecutionCommandInput,
-  DescribeJobExecutionCommandOutput,
 } from "./commands/DescribeJobExecutionCommand";
 import {
+  type GetPendingJobExecutionsCommandInput,
+  type GetPendingJobExecutionsCommandOutput,
   GetPendingJobExecutionsCommand,
-  GetPendingJobExecutionsCommandInput,
-  GetPendingJobExecutionsCommandOutput,
 } from "./commands/GetPendingJobExecutionsCommand";
 import {
+  type StartCommandExecutionCommandInput,
+  type StartCommandExecutionCommandOutput,
   StartCommandExecutionCommand,
-  StartCommandExecutionCommandInput,
-  StartCommandExecutionCommandOutput,
 } from "./commands/StartCommandExecutionCommand";
 import {
+  type StartNextPendingJobExecutionCommandInput,
+  type StartNextPendingJobExecutionCommandOutput,
   StartNextPendingJobExecutionCommand,
-  StartNextPendingJobExecutionCommandInput,
-  StartNextPendingJobExecutionCommandOutput,
 } from "./commands/StartNextPendingJobExecutionCommand";
 import {
+  type UpdateJobExecutionCommandInput,
+  type UpdateJobExecutionCommandOutput,
   UpdateJobExecutionCommand,
-  UpdateJobExecutionCommandInput,
-  UpdateJobExecutionCommandOutput,
 } from "./commands/UpdateJobExecutionCommand";
 import { IoTJobsDataPlaneClient } from "./IoTJobsDataPlaneClient";
 

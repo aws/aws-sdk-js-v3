@@ -8,7 +8,7 @@ import {
   ListUploadJobsCommandOutput,
 } from "../commands/ListUploadJobsCommand";
 import { CustomerProfilesClient } from "../CustomerProfilesClient";
-import { CustomerProfilesPaginationConfiguration } from "./Interfaces";
+import type { CustomerProfilesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

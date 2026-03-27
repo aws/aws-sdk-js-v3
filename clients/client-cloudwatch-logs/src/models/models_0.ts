@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   ActionStatus,
   AnomalyDetectorStatus,
   DataProtectionStatus,
@@ -38,7 +38,7 @@ import {
   SuppressionUnit,
   Type,
 } from "./enums";
-import { InternalStreamingException, SessionStreamingException, SessionTimeoutException } from "./errors";
+import type { InternalStreamingException, SessionStreamingException, SessionTimeoutException } from "./errors";
 
 /**
  * <p>A structure that contains information about one CloudWatch Logs account policy.</p>

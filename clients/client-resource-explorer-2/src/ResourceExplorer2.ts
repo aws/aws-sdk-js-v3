@@ -3,121 +3,149 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateDefaultViewCommandInput,
+  type AssociateDefaultViewCommandOutput,
   AssociateDefaultViewCommand,
-  AssociateDefaultViewCommandInput,
-  AssociateDefaultViewCommandOutput,
 } from "./commands/AssociateDefaultViewCommand";
 import {
+  type BatchGetViewCommandInput,
+  type BatchGetViewCommandOutput,
   BatchGetViewCommand,
-  BatchGetViewCommandInput,
-  BatchGetViewCommandOutput,
 } from "./commands/BatchGetViewCommand";
-import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
+  type CreateIndexCommandInput,
+  type CreateIndexCommandOutput,
+  CreateIndexCommand,
+} from "./commands/CreateIndexCommand";
+import {
+  type CreateResourceExplorerSetupCommandInput,
+  type CreateResourceExplorerSetupCommandOutput,
   CreateResourceExplorerSetupCommand,
-  CreateResourceExplorerSetupCommandInput,
-  CreateResourceExplorerSetupCommandOutput,
 } from "./commands/CreateResourceExplorerSetupCommand";
-import { CreateViewCommand, CreateViewCommandInput, CreateViewCommandOutput } from "./commands/CreateViewCommand";
-import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
+  type CreateViewCommandInput,
+  type CreateViewCommandOutput,
+  CreateViewCommand,
+} from "./commands/CreateViewCommand";
+import {
+  type DeleteIndexCommandInput,
+  type DeleteIndexCommandOutput,
+  DeleteIndexCommand,
+} from "./commands/DeleteIndexCommand";
+import {
+  type DeleteResourceExplorerSetupCommandInput,
+  type DeleteResourceExplorerSetupCommandOutput,
   DeleteResourceExplorerSetupCommand,
-  DeleteResourceExplorerSetupCommandInput,
-  DeleteResourceExplorerSetupCommandOutput,
 } from "./commands/DeleteResourceExplorerSetupCommand";
-import { DeleteViewCommand, DeleteViewCommandInput, DeleteViewCommandOutput } from "./commands/DeleteViewCommand";
 import {
+  type DeleteViewCommandInput,
+  type DeleteViewCommandOutput,
+  DeleteViewCommand,
+} from "./commands/DeleteViewCommand";
+import {
+  type DisassociateDefaultViewCommandInput,
+  type DisassociateDefaultViewCommandOutput,
   DisassociateDefaultViewCommand,
-  DisassociateDefaultViewCommandInput,
-  DisassociateDefaultViewCommandOutput,
 } from "./commands/DisassociateDefaultViewCommand";
 import {
+  type GetAccountLevelServiceConfigurationCommandInput,
+  type GetAccountLevelServiceConfigurationCommandOutput,
   GetAccountLevelServiceConfigurationCommand,
-  GetAccountLevelServiceConfigurationCommandInput,
-  GetAccountLevelServiceConfigurationCommandOutput,
 } from "./commands/GetAccountLevelServiceConfigurationCommand";
 import {
+  type GetDefaultViewCommandInput,
+  type GetDefaultViewCommandOutput,
   GetDefaultViewCommand,
-  GetDefaultViewCommandInput,
-  GetDefaultViewCommandOutput,
 } from "./commands/GetDefaultViewCommand";
-import { GetIndexCommand, GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import { type GetIndexCommandInput, type GetIndexCommandOutput, GetIndexCommand } from "./commands/GetIndexCommand";
 import {
+  type GetManagedViewCommandInput,
+  type GetManagedViewCommandOutput,
   GetManagedViewCommand,
-  GetManagedViewCommandInput,
-  GetManagedViewCommandOutput,
 } from "./commands/GetManagedViewCommand";
 import {
+  type GetResourceExplorerSetupCommandInput,
+  type GetResourceExplorerSetupCommandOutput,
   GetResourceExplorerSetupCommand,
-  GetResourceExplorerSetupCommandInput,
-  GetResourceExplorerSetupCommandOutput,
 } from "./commands/GetResourceExplorerSetupCommand";
 import {
+  type GetServiceIndexCommandInput,
+  type GetServiceIndexCommandOutput,
   GetServiceIndexCommand,
-  GetServiceIndexCommandInput,
-  GetServiceIndexCommandOutput,
 } from "./commands/GetServiceIndexCommand";
 import {
+  type GetServiceViewCommandInput,
+  type GetServiceViewCommandOutput,
   GetServiceViewCommand,
-  GetServiceViewCommandInput,
-  GetServiceViewCommandOutput,
 } from "./commands/GetServiceViewCommand";
-import { GetViewCommand, GetViewCommandInput, GetViewCommandOutput } from "./commands/GetViewCommand";
-import { ListIndexesCommand, ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
+import { type GetViewCommandInput, type GetViewCommandOutput, GetViewCommand } from "./commands/GetViewCommand";
 import {
+  type ListIndexesCommandInput,
+  type ListIndexesCommandOutput,
+  ListIndexesCommand,
+} from "./commands/ListIndexesCommand";
+import {
+  type ListIndexesForMembersCommandInput,
+  type ListIndexesForMembersCommandOutput,
   ListIndexesForMembersCommand,
-  ListIndexesForMembersCommandInput,
-  ListIndexesForMembersCommandOutput,
 } from "./commands/ListIndexesForMembersCommand";
 import {
+  type ListManagedViewsCommandInput,
+  type ListManagedViewsCommandOutput,
   ListManagedViewsCommand,
-  ListManagedViewsCommandInput,
-  ListManagedViewsCommandOutput,
 } from "./commands/ListManagedViewsCommand";
 import {
+  type ListResourcesCommandInput,
+  type ListResourcesCommandOutput,
   ListResourcesCommand,
-  ListResourcesCommandInput,
-  ListResourcesCommandOutput,
 } from "./commands/ListResourcesCommand";
 import {
+  type ListServiceIndexesCommandInput,
+  type ListServiceIndexesCommandOutput,
   ListServiceIndexesCommand,
-  ListServiceIndexesCommandInput,
-  ListServiceIndexesCommandOutput,
 } from "./commands/ListServiceIndexesCommand";
 import {
+  type ListServiceViewsCommandInput,
+  type ListServiceViewsCommandOutput,
   ListServiceViewsCommand,
-  ListServiceViewsCommandInput,
-  ListServiceViewsCommandOutput,
 } from "./commands/ListServiceViewsCommand";
 import {
+  type ListStreamingAccessForServicesCommandInput,
+  type ListStreamingAccessForServicesCommandOutput,
   ListStreamingAccessForServicesCommand,
-  ListStreamingAccessForServicesCommandInput,
-  ListStreamingAccessForServicesCommandOutput,
 } from "./commands/ListStreamingAccessForServicesCommand";
 import {
+  type ListSupportedResourceTypesCommandInput,
+  type ListSupportedResourceTypesCommandOutput,
   ListSupportedResourceTypesCommand,
-  ListSupportedResourceTypesCommandInput,
-  ListSupportedResourceTypesCommandOutput,
 } from "./commands/ListSupportedResourceTypesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListViewsCommand, ListViewsCommandInput, ListViewsCommandOutput } from "./commands/ListViewsCommand";
-import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type ListViewsCommandInput, type ListViewsCommandOutput, ListViewsCommand } from "./commands/ListViewsCommand";
+import { type SearchCommandInput, type SearchCommandOutput, SearchCommand } from "./commands/SearchCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateIndexTypeCommandInput,
+  type UpdateIndexTypeCommandOutput,
   UpdateIndexTypeCommand,
-  UpdateIndexTypeCommandInput,
-  UpdateIndexTypeCommandOutput,
 } from "./commands/UpdateIndexTypeCommand";
-import { UpdateViewCommand, UpdateViewCommandInput, UpdateViewCommandOutput } from "./commands/UpdateViewCommand";
+import {
+  type UpdateViewCommandInput,
+  type UpdateViewCommandOutput,
+  UpdateViewCommand,
+} from "./commands/UpdateViewCommand";
 import { paginateGetResourceExplorerSetup } from "./pagination/GetResourceExplorerSetupPaginator";
 import { paginateListIndexesForMembers } from "./pagination/ListIndexesForMembersPaginator";
 import { paginateListIndexes } from "./pagination/ListIndexesPaginator";

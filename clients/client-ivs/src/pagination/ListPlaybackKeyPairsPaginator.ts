@@ -8,7 +8,7 @@ import {
   ListPlaybackKeyPairsCommandOutput,
 } from "../commands/ListPlaybackKeyPairsCommand";
 import { IvsClient } from "../IvsClient";
-import { IvsPaginationConfiguration } from "./Interfaces";
+import type { IvsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

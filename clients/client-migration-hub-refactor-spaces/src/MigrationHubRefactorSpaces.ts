@@ -3,97 +3,121 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateEnvironmentCommandInput,
+  type CreateEnvironmentCommandOutput,
   CreateEnvironmentCommand,
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand";
-import { CreateRouteCommand, CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
 import {
+  type CreateRouteCommandInput,
+  type CreateRouteCommandOutput,
+  CreateRouteCommand,
+} from "./commands/CreateRouteCommand";
+import {
+  type CreateServiceCommandInput,
+  type CreateServiceCommandOutput,
   CreateServiceCommand,
-  CreateServiceCommandInput,
-  CreateServiceCommandOutput,
 } from "./commands/CreateServiceCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteEnvironmentCommandInput,
+  type DeleteEnvironmentCommandOutput,
   DeleteEnvironmentCommand,
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteRouteCommand, DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
+  type DeleteRouteCommandInput,
+  type DeleteRouteCommandOutput,
+  DeleteRouteCommand,
+} from "./commands/DeleteRouteCommand";
+import {
+  type DeleteServiceCommandInput,
+  type DeleteServiceCommandOutput,
   DeleteServiceCommand,
-  DeleteServiceCommandInput,
-  DeleteServiceCommandOutput,
 } from "./commands/DeleteServiceCommand";
 import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
   GetApplicationCommand,
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  type GetEnvironmentCommandInput,
+  type GetEnvironmentCommandOutput,
   GetEnvironmentCommand,
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
-import { GetRouteCommand, GetRouteCommandInput, GetRouteCommandOutput } from "./commands/GetRouteCommand";
-import { GetServiceCommand, GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
+import { type GetRouteCommandInput, type GetRouteCommandOutput, GetRouteCommand } from "./commands/GetRouteCommand";
 import {
+  type GetServiceCommandInput,
+  type GetServiceCommandOutput,
+  GetServiceCommand,
+} from "./commands/GetServiceCommand";
+import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListEnvironmentsCommandInput,
+  type ListEnvironmentsCommandOutput,
   ListEnvironmentsCommand,
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  type ListEnvironmentVpcsCommandInput,
+  type ListEnvironmentVpcsCommandOutput,
   ListEnvironmentVpcsCommand,
-  ListEnvironmentVpcsCommandInput,
-  ListEnvironmentVpcsCommandOutput,
 } from "./commands/ListEnvironmentVpcsCommand";
-import { ListRoutesCommand, ListRoutesCommandInput, ListRoutesCommandOutput } from "./commands/ListRoutesCommand";
 import {
+  type ListRoutesCommandInput,
+  type ListRoutesCommandOutput,
+  ListRoutesCommand,
+} from "./commands/ListRoutesCommand";
+import {
+  type ListServicesCommandInput,
+  type ListServicesCommandOutput,
   ListServicesCommand,
-  ListServicesCommandInput,
-  ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateRouteCommand, UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
+import {
+  type UpdateRouteCommandInput,
+  type UpdateRouteCommandOutput,
+  UpdateRouteCommand,
+} from "./commands/UpdateRouteCommand";
 import { MigrationHubRefactorSpacesClient } from "./MigrationHubRefactorSpacesClient";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";

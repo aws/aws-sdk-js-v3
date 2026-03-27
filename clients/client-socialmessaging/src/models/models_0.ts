@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { RegistrationStatus } from "./enums";
+import type { RegistrationStatus } from "./enums";
 
 /**
  * <p>The tag for a resource.</p>

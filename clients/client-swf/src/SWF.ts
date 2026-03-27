@@ -3,191 +3,199 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CountClosedWorkflowExecutionsCommandInput,
+  type CountClosedWorkflowExecutionsCommandOutput,
   CountClosedWorkflowExecutionsCommand,
-  CountClosedWorkflowExecutionsCommandInput,
-  CountClosedWorkflowExecutionsCommandOutput,
 } from "./commands/CountClosedWorkflowExecutionsCommand";
 import {
+  type CountOpenWorkflowExecutionsCommandInput,
+  type CountOpenWorkflowExecutionsCommandOutput,
   CountOpenWorkflowExecutionsCommand,
-  CountOpenWorkflowExecutionsCommandInput,
-  CountOpenWorkflowExecutionsCommandOutput,
 } from "./commands/CountOpenWorkflowExecutionsCommand";
 import {
+  type CountPendingActivityTasksCommandInput,
+  type CountPendingActivityTasksCommandOutput,
   CountPendingActivityTasksCommand,
-  CountPendingActivityTasksCommandInput,
-  CountPendingActivityTasksCommandOutput,
 } from "./commands/CountPendingActivityTasksCommand";
 import {
+  type CountPendingDecisionTasksCommandInput,
+  type CountPendingDecisionTasksCommandOutput,
   CountPendingDecisionTasksCommand,
-  CountPendingDecisionTasksCommandInput,
-  CountPendingDecisionTasksCommandOutput,
 } from "./commands/CountPendingDecisionTasksCommand";
 import {
+  type DeleteActivityTypeCommandInput,
+  type DeleteActivityTypeCommandOutput,
   DeleteActivityTypeCommand,
-  DeleteActivityTypeCommandInput,
-  DeleteActivityTypeCommandOutput,
 } from "./commands/DeleteActivityTypeCommand";
 import {
+  type DeleteWorkflowTypeCommandInput,
+  type DeleteWorkflowTypeCommandOutput,
   DeleteWorkflowTypeCommand,
-  DeleteWorkflowTypeCommandInput,
-  DeleteWorkflowTypeCommandOutput,
 } from "./commands/DeleteWorkflowTypeCommand";
 import {
+  type DeprecateActivityTypeCommandInput,
+  type DeprecateActivityTypeCommandOutput,
   DeprecateActivityTypeCommand,
-  DeprecateActivityTypeCommandInput,
-  DeprecateActivityTypeCommandOutput,
 } from "./commands/DeprecateActivityTypeCommand";
 import {
+  type DeprecateDomainCommandInput,
+  type DeprecateDomainCommandOutput,
   DeprecateDomainCommand,
-  DeprecateDomainCommandInput,
-  DeprecateDomainCommandOutput,
 } from "./commands/DeprecateDomainCommand";
 import {
+  type DeprecateWorkflowTypeCommandInput,
+  type DeprecateWorkflowTypeCommandOutput,
   DeprecateWorkflowTypeCommand,
-  DeprecateWorkflowTypeCommandInput,
-  DeprecateWorkflowTypeCommandOutput,
 } from "./commands/DeprecateWorkflowTypeCommand";
 import {
+  type DescribeActivityTypeCommandInput,
+  type DescribeActivityTypeCommandOutput,
   DescribeActivityTypeCommand,
-  DescribeActivityTypeCommandInput,
-  DescribeActivityTypeCommandOutput,
 } from "./commands/DescribeActivityTypeCommand";
 import {
+  type DescribeDomainCommandInput,
+  type DescribeDomainCommandOutput,
   DescribeDomainCommand,
-  DescribeDomainCommandInput,
-  DescribeDomainCommandOutput,
 } from "./commands/DescribeDomainCommand";
 import {
+  type DescribeWorkflowExecutionCommandInput,
+  type DescribeWorkflowExecutionCommandOutput,
   DescribeWorkflowExecutionCommand,
-  DescribeWorkflowExecutionCommandInput,
-  DescribeWorkflowExecutionCommandOutput,
 } from "./commands/DescribeWorkflowExecutionCommand";
 import {
+  type DescribeWorkflowTypeCommandInput,
+  type DescribeWorkflowTypeCommandOutput,
   DescribeWorkflowTypeCommand,
-  DescribeWorkflowTypeCommandInput,
-  DescribeWorkflowTypeCommandOutput,
 } from "./commands/DescribeWorkflowTypeCommand";
 import {
+  type GetWorkflowExecutionHistoryCommandInput,
+  type GetWorkflowExecutionHistoryCommandOutput,
   GetWorkflowExecutionHistoryCommand,
-  GetWorkflowExecutionHistoryCommandInput,
-  GetWorkflowExecutionHistoryCommandOutput,
 } from "./commands/GetWorkflowExecutionHistoryCommand";
 import {
+  type ListActivityTypesCommandInput,
+  type ListActivityTypesCommandOutput,
   ListActivityTypesCommand,
-  ListActivityTypesCommandInput,
-  ListActivityTypesCommandOutput,
 } from "./commands/ListActivityTypesCommand";
 import {
+  type ListClosedWorkflowExecutionsCommandInput,
+  type ListClosedWorkflowExecutionsCommandOutput,
   ListClosedWorkflowExecutionsCommand,
-  ListClosedWorkflowExecutionsCommandInput,
-  ListClosedWorkflowExecutionsCommandOutput,
 } from "./commands/ListClosedWorkflowExecutionsCommand";
-import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  type ListDomainsCommandInput,
+  type ListDomainsCommandOutput,
+  ListDomainsCommand,
+} from "./commands/ListDomainsCommand";
+import {
+  type ListOpenWorkflowExecutionsCommandInput,
+  type ListOpenWorkflowExecutionsCommandOutput,
   ListOpenWorkflowExecutionsCommand,
-  ListOpenWorkflowExecutionsCommandInput,
-  ListOpenWorkflowExecutionsCommandOutput,
 } from "./commands/ListOpenWorkflowExecutionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWorkflowTypesCommandInput,
+  type ListWorkflowTypesCommandOutput,
   ListWorkflowTypesCommand,
-  ListWorkflowTypesCommandInput,
-  ListWorkflowTypesCommandOutput,
 } from "./commands/ListWorkflowTypesCommand";
 import {
+  type PollForActivityTaskCommandInput,
+  type PollForActivityTaskCommandOutput,
   PollForActivityTaskCommand,
-  PollForActivityTaskCommandInput,
-  PollForActivityTaskCommandOutput,
 } from "./commands/PollForActivityTaskCommand";
 import {
+  type PollForDecisionTaskCommandInput,
+  type PollForDecisionTaskCommandOutput,
   PollForDecisionTaskCommand,
-  PollForDecisionTaskCommandInput,
-  PollForDecisionTaskCommandOutput,
 } from "./commands/PollForDecisionTaskCommand";
 import {
+  type RecordActivityTaskHeartbeatCommandInput,
+  type RecordActivityTaskHeartbeatCommandOutput,
   RecordActivityTaskHeartbeatCommand,
-  RecordActivityTaskHeartbeatCommandInput,
-  RecordActivityTaskHeartbeatCommandOutput,
 } from "./commands/RecordActivityTaskHeartbeatCommand";
 import {
+  type RegisterActivityTypeCommandInput,
+  type RegisterActivityTypeCommandOutput,
   RegisterActivityTypeCommand,
-  RegisterActivityTypeCommandInput,
-  RegisterActivityTypeCommandOutput,
 } from "./commands/RegisterActivityTypeCommand";
 import {
+  type RegisterDomainCommandInput,
+  type RegisterDomainCommandOutput,
   RegisterDomainCommand,
-  RegisterDomainCommandInput,
-  RegisterDomainCommandOutput,
 } from "./commands/RegisterDomainCommand";
 import {
+  type RegisterWorkflowTypeCommandInput,
+  type RegisterWorkflowTypeCommandOutput,
   RegisterWorkflowTypeCommand,
-  RegisterWorkflowTypeCommandInput,
-  RegisterWorkflowTypeCommandOutput,
 } from "./commands/RegisterWorkflowTypeCommand";
 import {
+  type RequestCancelWorkflowExecutionCommandInput,
+  type RequestCancelWorkflowExecutionCommandOutput,
   RequestCancelWorkflowExecutionCommand,
-  RequestCancelWorkflowExecutionCommandInput,
-  RequestCancelWorkflowExecutionCommandOutput,
 } from "./commands/RequestCancelWorkflowExecutionCommand";
 import {
+  type RespondActivityTaskCanceledCommandInput,
+  type RespondActivityTaskCanceledCommandOutput,
   RespondActivityTaskCanceledCommand,
-  RespondActivityTaskCanceledCommandInput,
-  RespondActivityTaskCanceledCommandOutput,
 } from "./commands/RespondActivityTaskCanceledCommand";
 import {
+  type RespondActivityTaskCompletedCommandInput,
+  type RespondActivityTaskCompletedCommandOutput,
   RespondActivityTaskCompletedCommand,
-  RespondActivityTaskCompletedCommandInput,
-  RespondActivityTaskCompletedCommandOutput,
 } from "./commands/RespondActivityTaskCompletedCommand";
 import {
+  type RespondActivityTaskFailedCommandInput,
+  type RespondActivityTaskFailedCommandOutput,
   RespondActivityTaskFailedCommand,
-  RespondActivityTaskFailedCommandInput,
-  RespondActivityTaskFailedCommandOutput,
 } from "./commands/RespondActivityTaskFailedCommand";
 import {
+  type RespondDecisionTaskCompletedCommandInput,
+  type RespondDecisionTaskCompletedCommandOutput,
   RespondDecisionTaskCompletedCommand,
-  RespondDecisionTaskCompletedCommandInput,
-  RespondDecisionTaskCompletedCommandOutput,
 } from "./commands/RespondDecisionTaskCompletedCommand";
 import {
+  type SignalWorkflowExecutionCommandInput,
+  type SignalWorkflowExecutionCommandOutput,
   SignalWorkflowExecutionCommand,
-  SignalWorkflowExecutionCommandInput,
-  SignalWorkflowExecutionCommandOutput,
 } from "./commands/SignalWorkflowExecutionCommand";
 import {
+  type StartWorkflowExecutionCommandInput,
+  type StartWorkflowExecutionCommandOutput,
   StartWorkflowExecutionCommand,
-  StartWorkflowExecutionCommandInput,
-  StartWorkflowExecutionCommandOutput,
 } from "./commands/StartWorkflowExecutionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TerminateWorkflowExecutionCommandInput,
+  type TerminateWorkflowExecutionCommandOutput,
   TerminateWorkflowExecutionCommand,
-  TerminateWorkflowExecutionCommandInput,
-  TerminateWorkflowExecutionCommandOutput,
 } from "./commands/TerminateWorkflowExecutionCommand";
 import {
+  type UndeprecateActivityTypeCommandInput,
+  type UndeprecateActivityTypeCommandOutput,
   UndeprecateActivityTypeCommand,
-  UndeprecateActivityTypeCommandInput,
-  UndeprecateActivityTypeCommandOutput,
 } from "./commands/UndeprecateActivityTypeCommand";
 import {
+  type UndeprecateDomainCommandInput,
+  type UndeprecateDomainCommandOutput,
   UndeprecateDomainCommand,
-  UndeprecateDomainCommandInput,
-  UndeprecateDomainCommandOutput,
 } from "./commands/UndeprecateDomainCommand";
 import {
+  type UndeprecateWorkflowTypeCommandInput,
+  type UndeprecateWorkflowTypeCommandOutput,
   UndeprecateWorkflowTypeCommand,
-  UndeprecateWorkflowTypeCommandInput,
-  UndeprecateWorkflowTypeCommandOutput,
 } from "./commands/UndeprecateWorkflowTypeCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateGetWorkflowExecutionHistory } from "./pagination/GetWorkflowExecutionHistoryPaginator";
 import { paginateListActivityTypes } from "./pagination/ListActivityTypesPaginator";

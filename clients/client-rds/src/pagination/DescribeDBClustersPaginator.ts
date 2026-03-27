@@ -8,7 +8,7 @@ import {
   DescribeDBClustersCommandOutput,
 } from "../commands/DescribeDBClustersCommand";
 import { RDSClient } from "../RDSClient";
-import { RDSPaginationConfiguration } from "./Interfaces";
+import type { RDSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

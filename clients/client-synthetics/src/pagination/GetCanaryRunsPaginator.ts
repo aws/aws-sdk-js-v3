@@ -8,7 +8,7 @@ import {
   GetCanaryRunsCommandOutput,
 } from "../commands/GetCanaryRunsCommand";
 import { SyntheticsClient } from "../SyntheticsClient";
-import { SyntheticsPaginationConfiguration } from "./Interfaces";
+import type { SyntheticsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   GetResourcesCommandInput,
   GetResourcesCommandOutput,
 } from "../commands/GetResourcesCommand";
-import { APIGatewayPaginationConfiguration } from "./Interfaces";
+import type { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

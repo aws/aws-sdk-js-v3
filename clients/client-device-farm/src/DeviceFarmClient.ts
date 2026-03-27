@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,183 +61,210 @@ import {
   defaultDeviceFarmHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateDevicePoolCommandInput, CreateDevicePoolCommandOutput } from "./commands/CreateDevicePoolCommand";
-import {
+import type { CreateDevicePoolCommandInput, CreateDevicePoolCommandOutput } from "./commands/CreateDevicePoolCommand";
+import type {
   CreateInstanceProfileCommandInput,
   CreateInstanceProfileCommandOutput,
 } from "./commands/CreateInstanceProfileCommand";
-import {
+import type {
   CreateNetworkProfileCommandInput,
   CreateNetworkProfileCommandOutput,
 } from "./commands/CreateNetworkProfileCommand";
-import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
-import {
+import type { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import type {
   CreateRemoteAccessSessionCommandInput,
   CreateRemoteAccessSessionCommandOutput,
 } from "./commands/CreateRemoteAccessSessionCommand";
-import {
+import type {
   CreateTestGridProjectCommandInput,
   CreateTestGridProjectCommandOutput,
 } from "./commands/CreateTestGridProjectCommand";
-import { CreateTestGridUrlCommandInput, CreateTestGridUrlCommandOutput } from "./commands/CreateTestGridUrlCommand";
-import { CreateUploadCommandInput, CreateUploadCommandOutput } from "./commands/CreateUploadCommand";
-import {
+import type {
+  CreateTestGridUrlCommandInput,
+  CreateTestGridUrlCommandOutput,
+} from "./commands/CreateTestGridUrlCommand";
+import type { CreateUploadCommandInput, CreateUploadCommandOutput } from "./commands/CreateUploadCommand";
+import type {
   CreateVPCEConfigurationCommandInput,
   CreateVPCEConfigurationCommandOutput,
 } from "./commands/CreateVPCEConfigurationCommand";
-import { DeleteDevicePoolCommandInput, DeleteDevicePoolCommandOutput } from "./commands/DeleteDevicePoolCommand";
-import {
+import type { DeleteDevicePoolCommandInput, DeleteDevicePoolCommandOutput } from "./commands/DeleteDevicePoolCommand";
+import type {
   DeleteInstanceProfileCommandInput,
   DeleteInstanceProfileCommandOutput,
 } from "./commands/DeleteInstanceProfileCommand";
-import {
+import type {
   DeleteNetworkProfileCommandInput,
   DeleteNetworkProfileCommandOutput,
 } from "./commands/DeleteNetworkProfileCommand";
-import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
-import {
+import type { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import type {
   DeleteRemoteAccessSessionCommandInput,
   DeleteRemoteAccessSessionCommandOutput,
 } from "./commands/DeleteRemoteAccessSessionCommand";
-import { DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
-import {
+import type { DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
+import type {
   DeleteTestGridProjectCommandInput,
   DeleteTestGridProjectCommandOutput,
 } from "./commands/DeleteTestGridProjectCommand";
-import { DeleteUploadCommandInput, DeleteUploadCommandOutput } from "./commands/DeleteUploadCommand";
-import {
+import type { DeleteUploadCommandInput, DeleteUploadCommandOutput } from "./commands/DeleteUploadCommand";
+import type {
   DeleteVPCEConfigurationCommandInput,
   DeleteVPCEConfigurationCommandOutput,
 } from "./commands/DeleteVPCEConfigurationCommand";
-import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
-import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
-import { GetDeviceInstanceCommandInput, GetDeviceInstanceCommandOutput } from "./commands/GetDeviceInstanceCommand";
-import { GetDevicePoolCommandInput, GetDevicePoolCommandOutput } from "./commands/GetDevicePoolCommand";
-import {
+import type {
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput,
+} from "./commands/GetAccountSettingsCommand";
+import type { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
+import type {
+  GetDeviceInstanceCommandInput,
+  GetDeviceInstanceCommandOutput,
+} from "./commands/GetDeviceInstanceCommand";
+import type { GetDevicePoolCommandInput, GetDevicePoolCommandOutput } from "./commands/GetDevicePoolCommand";
+import type {
   GetDevicePoolCompatibilityCommandInput,
   GetDevicePoolCompatibilityCommandOutput,
 } from "./commands/GetDevicePoolCompatibilityCommand";
-import { GetInstanceProfileCommandInput, GetInstanceProfileCommandOutput } from "./commands/GetInstanceProfileCommand";
-import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
-import { GetNetworkProfileCommandInput, GetNetworkProfileCommandOutput } from "./commands/GetNetworkProfileCommand";
-import { GetOfferingStatusCommandInput, GetOfferingStatusCommandOutput } from "./commands/GetOfferingStatusCommand";
-import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
-import {
+import type {
+  GetInstanceProfileCommandInput,
+  GetInstanceProfileCommandOutput,
+} from "./commands/GetInstanceProfileCommand";
+import type { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import type {
+  GetNetworkProfileCommandInput,
+  GetNetworkProfileCommandOutput,
+} from "./commands/GetNetworkProfileCommand";
+import type {
+  GetOfferingStatusCommandInput,
+  GetOfferingStatusCommandOutput,
+} from "./commands/GetOfferingStatusCommand";
+import type { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
+import type {
   GetRemoteAccessSessionCommandInput,
   GetRemoteAccessSessionCommandOutput,
 } from "./commands/GetRemoteAccessSessionCommand";
-import { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
-import { GetSuiteCommandInput, GetSuiteCommandOutput } from "./commands/GetSuiteCommand";
-import { GetTestCommandInput, GetTestCommandOutput } from "./commands/GetTestCommand";
-import { GetTestGridProjectCommandInput, GetTestGridProjectCommandOutput } from "./commands/GetTestGridProjectCommand";
-import { GetTestGridSessionCommandInput, GetTestGridSessionCommandOutput } from "./commands/GetTestGridSessionCommand";
-import { GetUploadCommandInput, GetUploadCommandOutput } from "./commands/GetUploadCommand";
-import {
+import type { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
+import type { GetSuiteCommandInput, GetSuiteCommandOutput } from "./commands/GetSuiteCommand";
+import type { GetTestCommandInput, GetTestCommandOutput } from "./commands/GetTestCommand";
+import type {
+  GetTestGridProjectCommandInput,
+  GetTestGridProjectCommandOutput,
+} from "./commands/GetTestGridProjectCommand";
+import type {
+  GetTestGridSessionCommandInput,
+  GetTestGridSessionCommandOutput,
+} from "./commands/GetTestGridSessionCommand";
+import type { GetUploadCommandInput, GetUploadCommandOutput } from "./commands/GetUploadCommand";
+import type {
   GetVPCEConfigurationCommandInput,
   GetVPCEConfigurationCommandOutput,
 } from "./commands/GetVPCEConfigurationCommand";
-import {
+import type {
   InstallToRemoteAccessSessionCommandInput,
   InstallToRemoteAccessSessionCommandOutput,
 } from "./commands/InstallToRemoteAccessSessionCommand";
-import { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand";
-import {
+import type { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand";
+import type {
   ListDeviceInstancesCommandInput,
   ListDeviceInstancesCommandOutput,
 } from "./commands/ListDeviceInstancesCommand";
-import { ListDevicePoolsCommandInput, ListDevicePoolsCommandOutput } from "./commands/ListDevicePoolsCommand";
-import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
-import {
+import type { ListDevicePoolsCommandInput, ListDevicePoolsCommandOutput } from "./commands/ListDevicePoolsCommand";
+import type { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
+import type {
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput,
 } from "./commands/ListInstanceProfilesCommand";
-import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
-import {
+import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import type {
   ListNetworkProfilesCommandInput,
   ListNetworkProfilesCommandOutput,
 } from "./commands/ListNetworkProfilesCommand";
-import {
+import type {
   ListOfferingPromotionsCommandInput,
   ListOfferingPromotionsCommandOutput,
 } from "./commands/ListOfferingPromotionsCommand";
-import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand";
-import {
+import type { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand";
+import type {
   ListOfferingTransactionsCommandInput,
   ListOfferingTransactionsCommandOutput,
 } from "./commands/ListOfferingTransactionsCommand";
-import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
-import {
+import type { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import type {
   ListRemoteAccessSessionsCommandInput,
   ListRemoteAccessSessionsCommandOutput,
 } from "./commands/ListRemoteAccessSessionsCommand";
-import { ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
-import { ListSamplesCommandInput, ListSamplesCommandOutput } from "./commands/ListSamplesCommand";
-import { ListSuitesCommandInput, ListSuitesCommandOutput } from "./commands/ListSuitesCommand";
-import {
+import type { ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
+import type { ListSamplesCommandInput, ListSamplesCommandOutput } from "./commands/ListSamplesCommand";
+import type { ListSuitesCommandInput, ListSuitesCommandOutput } from "./commands/ListSuitesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTestGridProjectsCommandInput,
   ListTestGridProjectsCommandOutput,
 } from "./commands/ListTestGridProjectsCommand";
-import {
+import type {
   ListTestGridSessionActionsCommandInput,
   ListTestGridSessionActionsCommandOutput,
 } from "./commands/ListTestGridSessionActionsCommand";
-import {
+import type {
   ListTestGridSessionArtifactsCommandInput,
   ListTestGridSessionArtifactsCommandOutput,
 } from "./commands/ListTestGridSessionArtifactsCommand";
-import {
+import type {
   ListTestGridSessionsCommandInput,
   ListTestGridSessionsCommandOutput,
 } from "./commands/ListTestGridSessionsCommand";
-import { ListTestsCommandInput, ListTestsCommandOutput } from "./commands/ListTestsCommand";
-import { ListUniqueProblemsCommandInput, ListUniqueProblemsCommandOutput } from "./commands/ListUniqueProblemsCommand";
-import { ListUploadsCommandInput, ListUploadsCommandOutput } from "./commands/ListUploadsCommand";
-import {
+import type { ListTestsCommandInput, ListTestsCommandOutput } from "./commands/ListTestsCommand";
+import type {
+  ListUniqueProblemsCommandInput,
+  ListUniqueProblemsCommandOutput,
+} from "./commands/ListUniqueProblemsCommand";
+import type { ListUploadsCommandInput, ListUploadsCommandOutput } from "./commands/ListUploadsCommand";
+import type {
   ListVPCEConfigurationsCommandInput,
   ListVPCEConfigurationsCommandOutput,
 } from "./commands/ListVPCEConfigurationsCommand";
-import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
-import { RenewOfferingCommandInput, RenewOfferingCommandOutput } from "./commands/RenewOfferingCommand";
-import { ScheduleRunCommandInput, ScheduleRunCommandOutput } from "./commands/ScheduleRunCommand";
-import { StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand";
-import {
+import type { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
+import type { RenewOfferingCommandInput, RenewOfferingCommandOutput } from "./commands/RenewOfferingCommand";
+import type { ScheduleRunCommandInput, ScheduleRunCommandOutput } from "./commands/ScheduleRunCommand";
+import type { StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand";
+import type {
   StopRemoteAccessSessionCommandInput,
   StopRemoteAccessSessionCommandOutput,
 } from "./commands/StopRemoteAccessSessionCommand";
-import { StopRunCommandInput, StopRunCommandOutput } from "./commands/StopRunCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { StopRunCommandInput, StopRunCommandOutput } from "./commands/StopRunCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateDeviceInstanceCommandInput,
   UpdateDeviceInstanceCommandOutput,
 } from "./commands/UpdateDeviceInstanceCommand";
-import { UpdateDevicePoolCommandInput, UpdateDevicePoolCommandOutput } from "./commands/UpdateDevicePoolCommand";
-import {
+import type { UpdateDevicePoolCommandInput, UpdateDevicePoolCommandOutput } from "./commands/UpdateDevicePoolCommand";
+import type {
   UpdateInstanceProfileCommandInput,
   UpdateInstanceProfileCommandOutput,
 } from "./commands/UpdateInstanceProfileCommand";
-import {
+import type {
   UpdateNetworkProfileCommandInput,
   UpdateNetworkProfileCommandOutput,
 } from "./commands/UpdateNetworkProfileCommand";
-import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
-import {
+import type { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import type {
   UpdateTestGridProjectCommandInput,
   UpdateTestGridProjectCommandOutput,
 } from "./commands/UpdateTestGridProjectCommand";
-import { UpdateUploadCommandInput, UpdateUploadCommandOutput } from "./commands/UpdateUploadCommand";
-import {
+import type { UpdateUploadCommandInput, UpdateUploadCommandOutput } from "./commands/UpdateUploadCommand";
+import type {
   UpdateVPCEConfigurationCommandInput,
   UpdateVPCEConfigurationCommandOutput,
 } from "./commands/UpdateVPCEConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -525,7 +550,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

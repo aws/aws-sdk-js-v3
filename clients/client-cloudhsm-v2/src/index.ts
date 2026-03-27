@@ -8,7 +8,7 @@
  */
 export * from "./CloudHSMV2Client";
 export * from "./CloudHSMV2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CloudHSMV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

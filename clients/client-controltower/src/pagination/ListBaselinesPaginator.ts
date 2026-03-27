@@ -8,7 +8,7 @@ import {
   ListBaselinesCommandOutput,
 } from "../commands/ListBaselinesCommand";
 import { ControlTowerClient } from "../ControlTowerClient";
-import { ControlTowerPaginationConfiguration } from "./Interfaces";
+import type { ControlTowerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

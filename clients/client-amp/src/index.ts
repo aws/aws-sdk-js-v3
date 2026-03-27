@@ -7,7 +7,7 @@
  */
 export * from "./AmpClient";
 export * from "./Amp";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { AmpExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

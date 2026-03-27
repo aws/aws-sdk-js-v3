@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   AlarmState,
   CertificateProvider,
   ComparisonOperator,
@@ -35,24 +35,24 @@ import {
   TreatMissingData,
   ViewerMinimumTlsProtocolVersionEnum,
 } from "./enums";
-import {
-  type AccessRules,
-  type Bucket,
-  type BucketAccessLogConfig,
-  type BucketCorsConfig,
-  type CacheBehavior,
-  type CacheSettings,
-  type ContainerImage,
-  type ContainerService,
-  type DomainEntry,
-  type InputOrigin,
-  type PrivateRegistryAccessRequest,
-  type ResourceLocation,
+import type {
+  AccessRules,
   AvailabilityZone,
+  Bucket,
+  BucketAccessLogConfig,
+  BucketCorsConfig,
+  CacheBehavior,
   CacheBehaviorPerPath,
+  CacheSettings,
+  ContainerImage,
+  ContainerService,
+  DomainEntry,
+  InputOrigin,
   MetricDatapoint,
   Operation,
   PortInfo,
+  PrivateRegistryAccessRequest,
+  ResourceLocation,
   Tag,
 } from "./models_0";
 

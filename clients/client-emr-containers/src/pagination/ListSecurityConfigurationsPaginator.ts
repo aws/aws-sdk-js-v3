@@ -8,7 +8,7 @@ import {
   ListSecurityConfigurationsCommandOutput,
 } from "../commands/ListSecurityConfigurationsCommand";
 import { EMRContainersClient } from "../EMRContainersClient";
-import { EMRContainersPaginationConfiguration } from "./Interfaces";
+import type { EMRContainersPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

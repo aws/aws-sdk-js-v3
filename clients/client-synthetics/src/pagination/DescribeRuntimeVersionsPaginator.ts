@@ -8,7 +8,7 @@ import {
   DescribeRuntimeVersionsCommandOutput,
 } from "../commands/DescribeRuntimeVersionsCommand";
 import { SyntheticsClient } from "../SyntheticsClient";
-import { SyntheticsPaginationConfiguration } from "./Interfaces";
+import type { SyntheticsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

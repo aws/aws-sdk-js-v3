@@ -8,7 +8,7 @@ import {
   GetMetricDataCommandInput,
   GetMetricDataCommandOutput,
 } from "../commands/GetMetricDataCommand";
-import { CloudWatchPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   DescribeCommunicationsCommandOutput,
 } from "../commands/DescribeCommunicationsCommand";
 import { SupportClient } from "../SupportClient";
-import { SupportPaginationConfiguration } from "./Interfaces";
+import type { SupportPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

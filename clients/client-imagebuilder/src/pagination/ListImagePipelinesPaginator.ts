@@ -8,7 +8,7 @@ import {
   ListImagePipelinesCommandOutput,
 } from "../commands/ListImagePipelinesCommand";
 import { ImagebuilderClient } from "../ImagebuilderClient";
-import { ImagebuilderPaginationConfiguration } from "./Interfaces";
+import type { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

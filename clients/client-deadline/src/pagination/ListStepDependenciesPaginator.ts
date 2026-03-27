@@ -8,7 +8,7 @@ import {
   ListStepDependenciesCommandOutput,
 } from "../commands/ListStepDependenciesCommand";
 import { DeadlineClient } from "../DeadlineClient";
-import { DeadlinePaginationConfiguration } from "./Interfaces";
+import type { DeadlinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

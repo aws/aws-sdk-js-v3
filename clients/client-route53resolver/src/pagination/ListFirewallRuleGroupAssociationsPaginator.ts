@@ -8,7 +8,7 @@ import {
   ListFirewallRuleGroupAssociationsCommandOutput,
 } from "../commands/ListFirewallRuleGroupAssociationsCommand";
 import { Route53ResolverClient } from "../Route53ResolverClient";
-import { Route53ResolverPaginationConfiguration } from "./Interfaces";
+import type { Route53ResolverPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

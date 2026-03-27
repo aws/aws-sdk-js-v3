@@ -4,136 +4,144 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ApplicationDiscoveryServiceClient } from "./ApplicationDiscoveryServiceClient";
 import {
+  type AssociateConfigurationItemsToApplicationCommandInput,
+  type AssociateConfigurationItemsToApplicationCommandOutput,
   AssociateConfigurationItemsToApplicationCommand,
-  AssociateConfigurationItemsToApplicationCommandInput,
-  AssociateConfigurationItemsToApplicationCommandOutput,
 } from "./commands/AssociateConfigurationItemsToApplicationCommand";
 import {
+  type BatchDeleteAgentsCommandInput,
+  type BatchDeleteAgentsCommandOutput,
   BatchDeleteAgentsCommand,
-  BatchDeleteAgentsCommandInput,
-  BatchDeleteAgentsCommandOutput,
 } from "./commands/BatchDeleteAgentsCommand";
 import {
+  type BatchDeleteImportDataCommandInput,
+  type BatchDeleteImportDataCommandOutput,
   BatchDeleteImportDataCommand,
-  BatchDeleteImportDataCommandInput,
-  BatchDeleteImportDataCommandOutput,
 } from "./commands/BatchDeleteImportDataCommand";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
-import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
+  type CreateTagsCommandInput,
+  type CreateTagsCommandOutput,
+  CreateTagsCommand,
+} from "./commands/CreateTagsCommand";
+import {
+  type DeleteApplicationsCommandInput,
+  type DeleteApplicationsCommandOutput,
   DeleteApplicationsCommand,
-  DeleteApplicationsCommandInput,
-  DeleteApplicationsCommandOutput,
 } from "./commands/DeleteApplicationsCommand";
-import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
+  type DeleteTagsCommandInput,
+  type DeleteTagsCommandOutput,
+  DeleteTagsCommand,
+} from "./commands/DeleteTagsCommand";
+import {
+  type DescribeAgentsCommandInput,
+  type DescribeAgentsCommandOutput,
   DescribeAgentsCommand,
-  DescribeAgentsCommandInput,
-  DescribeAgentsCommandOutput,
 } from "./commands/DescribeAgentsCommand";
 import {
+  type DescribeBatchDeleteConfigurationTaskCommandInput,
+  type DescribeBatchDeleteConfigurationTaskCommandOutput,
   DescribeBatchDeleteConfigurationTaskCommand,
-  DescribeBatchDeleteConfigurationTaskCommandInput,
-  DescribeBatchDeleteConfigurationTaskCommandOutput,
 } from "./commands/DescribeBatchDeleteConfigurationTaskCommand";
 import {
+  type DescribeConfigurationsCommandInput,
+  type DescribeConfigurationsCommandOutput,
   DescribeConfigurationsCommand,
-  DescribeConfigurationsCommandInput,
-  DescribeConfigurationsCommandOutput,
 } from "./commands/DescribeConfigurationsCommand";
 import {
+  type DescribeContinuousExportsCommandInput,
+  type DescribeContinuousExportsCommandOutput,
   DescribeContinuousExportsCommand,
-  DescribeContinuousExportsCommandInput,
-  DescribeContinuousExportsCommandOutput,
 } from "./commands/DescribeContinuousExportsCommand";
 import {
+  type DescribeExportConfigurationsCommandInput,
+  type DescribeExportConfigurationsCommandOutput,
   DescribeExportConfigurationsCommand,
-  DescribeExportConfigurationsCommandInput,
-  DescribeExportConfigurationsCommandOutput,
 } from "./commands/DescribeExportConfigurationsCommand";
 import {
+  type DescribeExportTasksCommandInput,
+  type DescribeExportTasksCommandOutput,
   DescribeExportTasksCommand,
-  DescribeExportTasksCommandInput,
-  DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
 import {
+  type DescribeImportTasksCommandInput,
+  type DescribeImportTasksCommandOutput,
   DescribeImportTasksCommand,
-  DescribeImportTasksCommandInput,
-  DescribeImportTasksCommandOutput,
 } from "./commands/DescribeImportTasksCommand";
 import {
+  type DescribeTagsCommandInput,
+  type DescribeTagsCommandOutput,
   DescribeTagsCommand,
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  type DisassociateConfigurationItemsFromApplicationCommandInput,
+  type DisassociateConfigurationItemsFromApplicationCommandOutput,
   DisassociateConfigurationItemsFromApplicationCommand,
-  DisassociateConfigurationItemsFromApplicationCommandInput,
-  DisassociateConfigurationItemsFromApplicationCommandOutput,
 } from "./commands/DisassociateConfigurationItemsFromApplicationCommand";
 import {
+  type ExportConfigurationsCommandInput,
+  type ExportConfigurationsCommandOutput,
   ExportConfigurationsCommand,
-  ExportConfigurationsCommandInput,
-  ExportConfigurationsCommandOutput,
 } from "./commands/ExportConfigurationsCommand";
 import {
+  type GetDiscoverySummaryCommandInput,
+  type GetDiscoverySummaryCommandOutput,
   GetDiscoverySummaryCommand,
-  GetDiscoverySummaryCommandInput,
-  GetDiscoverySummaryCommandOutput,
 } from "./commands/GetDiscoverySummaryCommand";
 import {
+  type ListConfigurationsCommandInput,
+  type ListConfigurationsCommandOutput,
   ListConfigurationsCommand,
-  ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput,
 } from "./commands/ListConfigurationsCommand";
 import {
+  type ListServerNeighborsCommandInput,
+  type ListServerNeighborsCommandOutput,
   ListServerNeighborsCommand,
-  ListServerNeighborsCommandInput,
-  ListServerNeighborsCommandOutput,
 } from "./commands/ListServerNeighborsCommand";
 import {
+  type StartBatchDeleteConfigurationTaskCommandInput,
+  type StartBatchDeleteConfigurationTaskCommandOutput,
   StartBatchDeleteConfigurationTaskCommand,
-  StartBatchDeleteConfigurationTaskCommandInput,
-  StartBatchDeleteConfigurationTaskCommandOutput,
 } from "./commands/StartBatchDeleteConfigurationTaskCommand";
 import {
+  type StartContinuousExportCommandInput,
+  type StartContinuousExportCommandOutput,
   StartContinuousExportCommand,
-  StartContinuousExportCommandInput,
-  StartContinuousExportCommandOutput,
 } from "./commands/StartContinuousExportCommand";
 import {
+  type StartDataCollectionByAgentIdsCommandInput,
+  type StartDataCollectionByAgentIdsCommandOutput,
   StartDataCollectionByAgentIdsCommand,
-  StartDataCollectionByAgentIdsCommandInput,
-  StartDataCollectionByAgentIdsCommandOutput,
 } from "./commands/StartDataCollectionByAgentIdsCommand";
 import {
+  type StartExportTaskCommandInput,
+  type StartExportTaskCommandOutput,
   StartExportTaskCommand,
-  StartExportTaskCommandInput,
-  StartExportTaskCommandOutput,
 } from "./commands/StartExportTaskCommand";
 import {
+  type StartImportTaskCommandInput,
+  type StartImportTaskCommandOutput,
   StartImportTaskCommand,
-  StartImportTaskCommandInput,
-  StartImportTaskCommandOutput,
 } from "./commands/StartImportTaskCommand";
 import {
+  type StopContinuousExportCommandInput,
+  type StopContinuousExportCommandOutput,
   StopContinuousExportCommand,
-  StopContinuousExportCommandInput,
-  StopContinuousExportCommandOutput,
 } from "./commands/StopContinuousExportCommand";
 import {
+  type StopDataCollectionByAgentIdsCommandInput,
+  type StopDataCollectionByAgentIdsCommandOutput,
   StopDataCollectionByAgentIdsCommand,
-  StopDataCollectionByAgentIdsCommandInput,
-  StopDataCollectionByAgentIdsCommandOutput,
 } from "./commands/StopDataCollectionByAgentIdsCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import { paginateDescribeAgents } from "./pagination/DescribeAgentsPaginator";
 import { paginateDescribeContinuousExports } from "./pagination/DescribeContinuousExportsPaginator";

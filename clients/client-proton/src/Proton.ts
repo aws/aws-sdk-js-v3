@@ -9,431 +9,439 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AcceptEnvironmentAccountConnectionCommandInput,
+  type AcceptEnvironmentAccountConnectionCommandOutput,
   AcceptEnvironmentAccountConnectionCommand,
-  AcceptEnvironmentAccountConnectionCommandInput,
-  AcceptEnvironmentAccountConnectionCommandOutput,
 } from "./commands/AcceptEnvironmentAccountConnectionCommand";
 import {
+  type CancelComponentDeploymentCommandInput,
+  type CancelComponentDeploymentCommandOutput,
   CancelComponentDeploymentCommand,
-  CancelComponentDeploymentCommandInput,
-  CancelComponentDeploymentCommandOutput,
 } from "./commands/CancelComponentDeploymentCommand";
 import {
+  type CancelEnvironmentDeploymentCommandInput,
+  type CancelEnvironmentDeploymentCommandOutput,
   CancelEnvironmentDeploymentCommand,
-  CancelEnvironmentDeploymentCommandInput,
-  CancelEnvironmentDeploymentCommandOutput,
 } from "./commands/CancelEnvironmentDeploymentCommand";
 import {
+  type CancelServiceInstanceDeploymentCommandInput,
+  type CancelServiceInstanceDeploymentCommandOutput,
   CancelServiceInstanceDeploymentCommand,
-  CancelServiceInstanceDeploymentCommandInput,
-  CancelServiceInstanceDeploymentCommandOutput,
 } from "./commands/CancelServiceInstanceDeploymentCommand";
 import {
+  type CancelServicePipelineDeploymentCommandInput,
+  type CancelServicePipelineDeploymentCommandOutput,
   CancelServicePipelineDeploymentCommand,
-  CancelServicePipelineDeploymentCommandInput,
-  CancelServicePipelineDeploymentCommandOutput,
 } from "./commands/CancelServicePipelineDeploymentCommand";
 import {
+  type CreateComponentCommandInput,
+  type CreateComponentCommandOutput,
   CreateComponentCommand,
-  CreateComponentCommandInput,
-  CreateComponentCommandOutput,
 } from "./commands/CreateComponentCommand";
 import {
+  type CreateEnvironmentAccountConnectionCommandInput,
+  type CreateEnvironmentAccountConnectionCommandOutput,
   CreateEnvironmentAccountConnectionCommand,
-  CreateEnvironmentAccountConnectionCommandInput,
-  CreateEnvironmentAccountConnectionCommandOutput,
 } from "./commands/CreateEnvironmentAccountConnectionCommand";
 import {
+  type CreateEnvironmentCommandInput,
+  type CreateEnvironmentCommandOutput,
   CreateEnvironmentCommand,
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand";
 import {
+  type CreateEnvironmentTemplateCommandInput,
+  type CreateEnvironmentTemplateCommandOutput,
   CreateEnvironmentTemplateCommand,
-  CreateEnvironmentTemplateCommandInput,
-  CreateEnvironmentTemplateCommandOutput,
 } from "./commands/CreateEnvironmentTemplateCommand";
 import {
+  type CreateEnvironmentTemplateVersionCommandInput,
+  type CreateEnvironmentTemplateVersionCommandOutput,
   CreateEnvironmentTemplateVersionCommand,
-  CreateEnvironmentTemplateVersionCommandInput,
-  CreateEnvironmentTemplateVersionCommandOutput,
 } from "./commands/CreateEnvironmentTemplateVersionCommand";
 import {
+  type CreateRepositoryCommandInput,
+  type CreateRepositoryCommandOutput,
   CreateRepositoryCommand,
-  CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput,
 } from "./commands/CreateRepositoryCommand";
 import {
+  type CreateServiceCommandInput,
+  type CreateServiceCommandOutput,
   CreateServiceCommand,
-  CreateServiceCommandInput,
-  CreateServiceCommandOutput,
 } from "./commands/CreateServiceCommand";
 import {
+  type CreateServiceInstanceCommandInput,
+  type CreateServiceInstanceCommandOutput,
   CreateServiceInstanceCommand,
-  CreateServiceInstanceCommandInput,
-  CreateServiceInstanceCommandOutput,
 } from "./commands/CreateServiceInstanceCommand";
 import {
+  type CreateServiceSyncConfigCommandInput,
+  type CreateServiceSyncConfigCommandOutput,
   CreateServiceSyncConfigCommand,
-  CreateServiceSyncConfigCommandInput,
-  CreateServiceSyncConfigCommandOutput,
 } from "./commands/CreateServiceSyncConfigCommand";
 import {
+  type CreateServiceTemplateCommandInput,
+  type CreateServiceTemplateCommandOutput,
   CreateServiceTemplateCommand,
-  CreateServiceTemplateCommandInput,
-  CreateServiceTemplateCommandOutput,
 } from "./commands/CreateServiceTemplateCommand";
 import {
+  type CreateServiceTemplateVersionCommandInput,
+  type CreateServiceTemplateVersionCommandOutput,
   CreateServiceTemplateVersionCommand,
-  CreateServiceTemplateVersionCommandInput,
-  CreateServiceTemplateVersionCommandOutput,
 } from "./commands/CreateServiceTemplateVersionCommand";
 import {
+  type CreateTemplateSyncConfigCommandInput,
+  type CreateTemplateSyncConfigCommandOutput,
   CreateTemplateSyncConfigCommand,
-  CreateTemplateSyncConfigCommandInput,
-  CreateTemplateSyncConfigCommandOutput,
 } from "./commands/CreateTemplateSyncConfigCommand";
 import {
+  type DeleteComponentCommandInput,
+  type DeleteComponentCommandOutput,
   DeleteComponentCommand,
-  DeleteComponentCommandInput,
-  DeleteComponentCommandOutput,
 } from "./commands/DeleteComponentCommand";
 import {
+  type DeleteDeploymentCommandInput,
+  type DeleteDeploymentCommandOutput,
   DeleteDeploymentCommand,
-  DeleteDeploymentCommandInput,
-  DeleteDeploymentCommandOutput,
 } from "./commands/DeleteDeploymentCommand";
 import {
+  type DeleteEnvironmentAccountConnectionCommandInput,
+  type DeleteEnvironmentAccountConnectionCommandOutput,
   DeleteEnvironmentAccountConnectionCommand,
-  DeleteEnvironmentAccountConnectionCommandInput,
-  DeleteEnvironmentAccountConnectionCommandOutput,
 } from "./commands/DeleteEnvironmentAccountConnectionCommand";
 import {
+  type DeleteEnvironmentCommandInput,
+  type DeleteEnvironmentCommandOutput,
   DeleteEnvironmentCommand,
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
 import {
+  type DeleteEnvironmentTemplateCommandInput,
+  type DeleteEnvironmentTemplateCommandOutput,
   DeleteEnvironmentTemplateCommand,
-  DeleteEnvironmentTemplateCommandInput,
-  DeleteEnvironmentTemplateCommandOutput,
 } from "./commands/DeleteEnvironmentTemplateCommand";
 import {
+  type DeleteEnvironmentTemplateVersionCommandInput,
+  type DeleteEnvironmentTemplateVersionCommandOutput,
   DeleteEnvironmentTemplateVersionCommand,
-  DeleteEnvironmentTemplateVersionCommandInput,
-  DeleteEnvironmentTemplateVersionCommandOutput,
 } from "./commands/DeleteEnvironmentTemplateVersionCommand";
 import {
+  type DeleteRepositoryCommandInput,
+  type DeleteRepositoryCommandOutput,
   DeleteRepositoryCommand,
-  DeleteRepositoryCommandInput,
-  DeleteRepositoryCommandOutput,
 } from "./commands/DeleteRepositoryCommand";
 import {
+  type DeleteServiceCommandInput,
+  type DeleteServiceCommandOutput,
   DeleteServiceCommand,
-  DeleteServiceCommandInput,
-  DeleteServiceCommandOutput,
 } from "./commands/DeleteServiceCommand";
 import {
+  type DeleteServiceSyncConfigCommandInput,
+  type DeleteServiceSyncConfigCommandOutput,
   DeleteServiceSyncConfigCommand,
-  DeleteServiceSyncConfigCommandInput,
-  DeleteServiceSyncConfigCommandOutput,
 } from "./commands/DeleteServiceSyncConfigCommand";
 import {
+  type DeleteServiceTemplateCommandInput,
+  type DeleteServiceTemplateCommandOutput,
   DeleteServiceTemplateCommand,
-  DeleteServiceTemplateCommandInput,
-  DeleteServiceTemplateCommandOutput,
 } from "./commands/DeleteServiceTemplateCommand";
 import {
+  type DeleteServiceTemplateVersionCommandInput,
+  type DeleteServiceTemplateVersionCommandOutput,
   DeleteServiceTemplateVersionCommand,
-  DeleteServiceTemplateVersionCommandInput,
-  DeleteServiceTemplateVersionCommandOutput,
 } from "./commands/DeleteServiceTemplateVersionCommand";
 import {
+  type DeleteTemplateSyncConfigCommandInput,
+  type DeleteTemplateSyncConfigCommandOutput,
   DeleteTemplateSyncConfigCommand,
-  DeleteTemplateSyncConfigCommandInput,
-  DeleteTemplateSyncConfigCommandOutput,
 } from "./commands/DeleteTemplateSyncConfigCommand";
 import {
+  type GetAccountSettingsCommandInput,
+  type GetAccountSettingsCommandOutput,
   GetAccountSettingsCommand,
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
 import {
+  type GetComponentCommandInput,
+  type GetComponentCommandOutput,
   GetComponentCommand,
-  GetComponentCommandInput,
-  GetComponentCommandOutput,
 } from "./commands/GetComponentCommand";
 import {
+  type GetDeploymentCommandInput,
+  type GetDeploymentCommandOutput,
   GetDeploymentCommand,
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput,
 } from "./commands/GetDeploymentCommand";
 import {
+  type GetEnvironmentAccountConnectionCommandInput,
+  type GetEnvironmentAccountConnectionCommandOutput,
   GetEnvironmentAccountConnectionCommand,
-  GetEnvironmentAccountConnectionCommandInput,
-  GetEnvironmentAccountConnectionCommandOutput,
 } from "./commands/GetEnvironmentAccountConnectionCommand";
 import {
+  type GetEnvironmentCommandInput,
+  type GetEnvironmentCommandOutput,
   GetEnvironmentCommand,
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
 import {
+  type GetEnvironmentTemplateCommandInput,
+  type GetEnvironmentTemplateCommandOutput,
   GetEnvironmentTemplateCommand,
-  GetEnvironmentTemplateCommandInput,
-  GetEnvironmentTemplateCommandOutput,
 } from "./commands/GetEnvironmentTemplateCommand";
 import {
+  type GetEnvironmentTemplateVersionCommandInput,
+  type GetEnvironmentTemplateVersionCommandOutput,
   GetEnvironmentTemplateVersionCommand,
-  GetEnvironmentTemplateVersionCommandInput,
-  GetEnvironmentTemplateVersionCommandOutput,
 } from "./commands/GetEnvironmentTemplateVersionCommand";
 import {
+  type GetRepositoryCommandInput,
+  type GetRepositoryCommandOutput,
   GetRepositoryCommand,
-  GetRepositoryCommandInput,
-  GetRepositoryCommandOutput,
 } from "./commands/GetRepositoryCommand";
 import {
+  type GetRepositorySyncStatusCommandInput,
+  type GetRepositorySyncStatusCommandOutput,
   GetRepositorySyncStatusCommand,
-  GetRepositorySyncStatusCommandInput,
-  GetRepositorySyncStatusCommandOutput,
 } from "./commands/GetRepositorySyncStatusCommand";
 import {
+  type GetResourcesSummaryCommandInput,
+  type GetResourcesSummaryCommandOutput,
   GetResourcesSummaryCommand,
-  GetResourcesSummaryCommandInput,
-  GetResourcesSummaryCommandOutput,
 } from "./commands/GetResourcesSummaryCommand";
-import { GetServiceCommand, GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import {
+  type GetServiceCommandInput,
+  type GetServiceCommandOutput,
+  GetServiceCommand,
+} from "./commands/GetServiceCommand";
+import {
+  type GetServiceInstanceCommandInput,
+  type GetServiceInstanceCommandOutput,
   GetServiceInstanceCommand,
-  GetServiceInstanceCommandInput,
-  GetServiceInstanceCommandOutput,
 } from "./commands/GetServiceInstanceCommand";
 import {
+  type GetServiceInstanceSyncStatusCommandInput,
+  type GetServiceInstanceSyncStatusCommandOutput,
   GetServiceInstanceSyncStatusCommand,
-  GetServiceInstanceSyncStatusCommandInput,
-  GetServiceInstanceSyncStatusCommandOutput,
 } from "./commands/GetServiceInstanceSyncStatusCommand";
 import {
+  type GetServiceSyncBlockerSummaryCommandInput,
+  type GetServiceSyncBlockerSummaryCommandOutput,
   GetServiceSyncBlockerSummaryCommand,
-  GetServiceSyncBlockerSummaryCommandInput,
-  GetServiceSyncBlockerSummaryCommandOutput,
 } from "./commands/GetServiceSyncBlockerSummaryCommand";
 import {
+  type GetServiceSyncConfigCommandInput,
+  type GetServiceSyncConfigCommandOutput,
   GetServiceSyncConfigCommand,
-  GetServiceSyncConfigCommandInput,
-  GetServiceSyncConfigCommandOutput,
 } from "./commands/GetServiceSyncConfigCommand";
 import {
+  type GetServiceTemplateCommandInput,
+  type GetServiceTemplateCommandOutput,
   GetServiceTemplateCommand,
-  GetServiceTemplateCommandInput,
-  GetServiceTemplateCommandOutput,
 } from "./commands/GetServiceTemplateCommand";
 import {
+  type GetServiceTemplateVersionCommandInput,
+  type GetServiceTemplateVersionCommandOutput,
   GetServiceTemplateVersionCommand,
-  GetServiceTemplateVersionCommandInput,
-  GetServiceTemplateVersionCommandOutput,
 } from "./commands/GetServiceTemplateVersionCommand";
 import {
+  type GetTemplateSyncConfigCommandInput,
+  type GetTemplateSyncConfigCommandOutput,
   GetTemplateSyncConfigCommand,
-  GetTemplateSyncConfigCommandInput,
-  GetTemplateSyncConfigCommandOutput,
 } from "./commands/GetTemplateSyncConfigCommand";
 import {
+  type GetTemplateSyncStatusCommandInput,
+  type GetTemplateSyncStatusCommandOutput,
   GetTemplateSyncStatusCommand,
-  GetTemplateSyncStatusCommandInput,
-  GetTemplateSyncStatusCommandOutput,
 } from "./commands/GetTemplateSyncStatusCommand";
 import {
+  type ListComponentOutputsCommandInput,
+  type ListComponentOutputsCommandOutput,
   ListComponentOutputsCommand,
-  ListComponentOutputsCommandInput,
-  ListComponentOutputsCommandOutput,
 } from "./commands/ListComponentOutputsCommand";
 import {
+  type ListComponentProvisionedResourcesCommandInput,
+  type ListComponentProvisionedResourcesCommandOutput,
   ListComponentProvisionedResourcesCommand,
-  ListComponentProvisionedResourcesCommandInput,
-  ListComponentProvisionedResourcesCommandOutput,
 } from "./commands/ListComponentProvisionedResourcesCommand";
 import {
+  type ListComponentsCommandInput,
+  type ListComponentsCommandOutput,
   ListComponentsCommand,
-  ListComponentsCommandInput,
-  ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
 import {
+  type ListDeploymentsCommandInput,
+  type ListDeploymentsCommandOutput,
   ListDeploymentsCommand,
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand";
 import {
+  type ListEnvironmentAccountConnectionsCommandInput,
+  type ListEnvironmentAccountConnectionsCommandOutput,
   ListEnvironmentAccountConnectionsCommand,
-  ListEnvironmentAccountConnectionsCommandInput,
-  ListEnvironmentAccountConnectionsCommandOutput,
 } from "./commands/ListEnvironmentAccountConnectionsCommand";
 import {
+  type ListEnvironmentOutputsCommandInput,
+  type ListEnvironmentOutputsCommandOutput,
   ListEnvironmentOutputsCommand,
-  ListEnvironmentOutputsCommandInput,
-  ListEnvironmentOutputsCommandOutput,
 } from "./commands/ListEnvironmentOutputsCommand";
 import {
+  type ListEnvironmentProvisionedResourcesCommandInput,
+  type ListEnvironmentProvisionedResourcesCommandOutput,
   ListEnvironmentProvisionedResourcesCommand,
-  ListEnvironmentProvisionedResourcesCommandInput,
-  ListEnvironmentProvisionedResourcesCommandOutput,
 } from "./commands/ListEnvironmentProvisionedResourcesCommand";
 import {
+  type ListEnvironmentsCommandInput,
+  type ListEnvironmentsCommandOutput,
   ListEnvironmentsCommand,
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  type ListEnvironmentTemplatesCommandInput,
+  type ListEnvironmentTemplatesCommandOutput,
   ListEnvironmentTemplatesCommand,
-  ListEnvironmentTemplatesCommandInput,
-  ListEnvironmentTemplatesCommandOutput,
 } from "./commands/ListEnvironmentTemplatesCommand";
 import {
+  type ListEnvironmentTemplateVersionsCommandInput,
+  type ListEnvironmentTemplateVersionsCommandOutput,
   ListEnvironmentTemplateVersionsCommand,
-  ListEnvironmentTemplateVersionsCommandInput,
-  ListEnvironmentTemplateVersionsCommandOutput,
 } from "./commands/ListEnvironmentTemplateVersionsCommand";
 import {
+  type ListRepositoriesCommandInput,
+  type ListRepositoriesCommandOutput,
   ListRepositoriesCommand,
-  ListRepositoriesCommandInput,
-  ListRepositoriesCommandOutput,
 } from "./commands/ListRepositoriesCommand";
 import {
+  type ListRepositorySyncDefinitionsCommandInput,
+  type ListRepositorySyncDefinitionsCommandOutput,
   ListRepositorySyncDefinitionsCommand,
-  ListRepositorySyncDefinitionsCommandInput,
-  ListRepositorySyncDefinitionsCommandOutput,
 } from "./commands/ListRepositorySyncDefinitionsCommand";
 import {
+  type ListServiceInstanceOutputsCommandInput,
+  type ListServiceInstanceOutputsCommandOutput,
   ListServiceInstanceOutputsCommand,
-  ListServiceInstanceOutputsCommandInput,
-  ListServiceInstanceOutputsCommandOutput,
 } from "./commands/ListServiceInstanceOutputsCommand";
 import {
+  type ListServiceInstanceProvisionedResourcesCommandInput,
+  type ListServiceInstanceProvisionedResourcesCommandOutput,
   ListServiceInstanceProvisionedResourcesCommand,
-  ListServiceInstanceProvisionedResourcesCommandInput,
-  ListServiceInstanceProvisionedResourcesCommandOutput,
 } from "./commands/ListServiceInstanceProvisionedResourcesCommand";
 import {
+  type ListServiceInstancesCommandInput,
+  type ListServiceInstancesCommandOutput,
   ListServiceInstancesCommand,
-  ListServiceInstancesCommandInput,
-  ListServiceInstancesCommandOutput,
 } from "./commands/ListServiceInstancesCommand";
 import {
+  type ListServicePipelineOutputsCommandInput,
+  type ListServicePipelineOutputsCommandOutput,
   ListServicePipelineOutputsCommand,
-  ListServicePipelineOutputsCommandInput,
-  ListServicePipelineOutputsCommandOutput,
 } from "./commands/ListServicePipelineOutputsCommand";
 import {
+  type ListServicePipelineProvisionedResourcesCommandInput,
+  type ListServicePipelineProvisionedResourcesCommandOutput,
   ListServicePipelineProvisionedResourcesCommand,
-  ListServicePipelineProvisionedResourcesCommandInput,
-  ListServicePipelineProvisionedResourcesCommandOutput,
 } from "./commands/ListServicePipelineProvisionedResourcesCommand";
 import {
+  type ListServicesCommandInput,
+  type ListServicesCommandOutput,
   ListServicesCommand,
-  ListServicesCommandInput,
-  ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
+  type ListServiceTemplatesCommandInput,
+  type ListServiceTemplatesCommandOutput,
   ListServiceTemplatesCommand,
-  ListServiceTemplatesCommandInput,
-  ListServiceTemplatesCommandOutput,
 } from "./commands/ListServiceTemplatesCommand";
 import {
+  type ListServiceTemplateVersionsCommandInput,
+  type ListServiceTemplateVersionsCommandOutput,
   ListServiceTemplateVersionsCommand,
-  ListServiceTemplateVersionsCommandInput,
-  ListServiceTemplateVersionsCommandOutput,
 } from "./commands/ListServiceTemplateVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type NotifyResourceDeploymentStatusChangeCommandInput,
+  type NotifyResourceDeploymentStatusChangeCommandOutput,
   NotifyResourceDeploymentStatusChangeCommand,
-  NotifyResourceDeploymentStatusChangeCommandInput,
-  NotifyResourceDeploymentStatusChangeCommandOutput,
 } from "./commands/NotifyResourceDeploymentStatusChangeCommand";
 import {
+  type RejectEnvironmentAccountConnectionCommandInput,
+  type RejectEnvironmentAccountConnectionCommandOutput,
   RejectEnvironmentAccountConnectionCommand,
-  RejectEnvironmentAccountConnectionCommandInput,
-  RejectEnvironmentAccountConnectionCommandOutput,
 } from "./commands/RejectEnvironmentAccountConnectionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccountSettingsCommandInput,
+  type UpdateAccountSettingsCommandOutput,
   UpdateAccountSettingsCommand,
-  UpdateAccountSettingsCommandInput,
-  UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
 import {
+  type UpdateComponentCommandInput,
+  type UpdateComponentCommandOutput,
   UpdateComponentCommand,
-  UpdateComponentCommandInput,
-  UpdateComponentCommandOutput,
 } from "./commands/UpdateComponentCommand";
 import {
+  type UpdateEnvironmentAccountConnectionCommandInput,
+  type UpdateEnvironmentAccountConnectionCommandOutput,
   UpdateEnvironmentAccountConnectionCommand,
-  UpdateEnvironmentAccountConnectionCommandInput,
-  UpdateEnvironmentAccountConnectionCommandOutput,
 } from "./commands/UpdateEnvironmentAccountConnectionCommand";
 import {
+  type UpdateEnvironmentCommandInput,
+  type UpdateEnvironmentCommandOutput,
   UpdateEnvironmentCommand,
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import {
+  type UpdateEnvironmentTemplateCommandInput,
+  type UpdateEnvironmentTemplateCommandOutput,
   UpdateEnvironmentTemplateCommand,
-  UpdateEnvironmentTemplateCommandInput,
-  UpdateEnvironmentTemplateCommandOutput,
 } from "./commands/UpdateEnvironmentTemplateCommand";
 import {
+  type UpdateEnvironmentTemplateVersionCommandInput,
+  type UpdateEnvironmentTemplateVersionCommandOutput,
   UpdateEnvironmentTemplateVersionCommand,
-  UpdateEnvironmentTemplateVersionCommandInput,
-  UpdateEnvironmentTemplateVersionCommandOutput,
 } from "./commands/UpdateEnvironmentTemplateVersionCommand";
 import {
+  type UpdateServiceCommandInput,
+  type UpdateServiceCommandOutput,
   UpdateServiceCommand,
-  UpdateServiceCommandInput,
-  UpdateServiceCommandOutput,
 } from "./commands/UpdateServiceCommand";
 import {
+  type UpdateServiceInstanceCommandInput,
+  type UpdateServiceInstanceCommandOutput,
   UpdateServiceInstanceCommand,
-  UpdateServiceInstanceCommandInput,
-  UpdateServiceInstanceCommandOutput,
 } from "./commands/UpdateServiceInstanceCommand";
 import {
+  type UpdateServicePipelineCommandInput,
+  type UpdateServicePipelineCommandOutput,
   UpdateServicePipelineCommand,
-  UpdateServicePipelineCommandInput,
-  UpdateServicePipelineCommandOutput,
 } from "./commands/UpdateServicePipelineCommand";
 import {
+  type UpdateServiceSyncBlockerCommandInput,
+  type UpdateServiceSyncBlockerCommandOutput,
   UpdateServiceSyncBlockerCommand,
-  UpdateServiceSyncBlockerCommandInput,
-  UpdateServiceSyncBlockerCommandOutput,
 } from "./commands/UpdateServiceSyncBlockerCommand";
 import {
+  type UpdateServiceSyncConfigCommandInput,
+  type UpdateServiceSyncConfigCommandOutput,
   UpdateServiceSyncConfigCommand,
-  UpdateServiceSyncConfigCommandInput,
-  UpdateServiceSyncConfigCommandOutput,
 } from "./commands/UpdateServiceSyncConfigCommand";
 import {
+  type UpdateServiceTemplateCommandInput,
+  type UpdateServiceTemplateCommandOutput,
   UpdateServiceTemplateCommand,
-  UpdateServiceTemplateCommandInput,
-  UpdateServiceTemplateCommandOutput,
 } from "./commands/UpdateServiceTemplateCommand";
 import {
+  type UpdateServiceTemplateVersionCommandInput,
+  type UpdateServiceTemplateVersionCommandOutput,
   UpdateServiceTemplateVersionCommand,
-  UpdateServiceTemplateVersionCommandInput,
-  UpdateServiceTemplateVersionCommandOutput,
 } from "./commands/UpdateServiceTemplateVersionCommand";
 import {
+  type UpdateTemplateSyncConfigCommandInput,
+  type UpdateTemplateSyncConfigCommandOutput,
   UpdateTemplateSyncConfigCommand,
-  UpdateTemplateSyncConfigCommandInput,
-  UpdateTemplateSyncConfigCommandOutput,
 } from "./commands/UpdateTemplateSyncConfigCommand";
 import { paginateListComponentOutputs } from "./pagination/ListComponentOutputsPaginator";
 import { paginateListComponentProvisionedResources } from "./pagination/ListComponentProvisionedResourcesPaginator";

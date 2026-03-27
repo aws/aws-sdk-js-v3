@@ -8,7 +8,7 @@ import {
   ListLoggingConfigurationsCommandOutput,
 } from "../commands/ListLoggingConfigurationsCommand";
 import { IvschatClient } from "../IvschatClient";
-import { IvschatPaginationConfiguration } from "./Interfaces";
+import type { IvschatPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

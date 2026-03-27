@@ -7,7 +7,7 @@
  */
 export * from "./AccountClient";
 export * from "./Account";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { AccountExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

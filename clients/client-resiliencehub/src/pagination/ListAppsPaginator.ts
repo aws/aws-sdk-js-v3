@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListAppsCommand, ListAppsCommandInput, ListAppsCommandOutput } from "../commands/ListAppsCommand";
 import { ResiliencehubClient } from "../ResiliencehubClient";
-import { ResiliencehubPaginationConfiguration } from "./Interfaces";
+import type { ResiliencehubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

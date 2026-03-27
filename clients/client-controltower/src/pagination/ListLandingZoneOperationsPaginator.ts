@@ -8,7 +8,7 @@ import {
   ListLandingZoneOperationsCommandOutput,
 } from "../commands/ListLandingZoneOperationsCommand";
 import { ControlTowerClient } from "../ControlTowerClient";
-import { ControlTowerPaginationConfiguration } from "./Interfaces";
+import type { ControlTowerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

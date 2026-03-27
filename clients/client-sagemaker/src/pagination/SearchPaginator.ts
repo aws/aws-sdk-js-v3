@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "../commands/SearchCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

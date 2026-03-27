@@ -10,70 +10,74 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CodeGuruReviewerClient } from "./CodeGuruReviewerClient";
 import {
+  type AssociateRepositoryCommandInput,
+  type AssociateRepositoryCommandOutput,
   AssociateRepositoryCommand,
-  AssociateRepositoryCommandInput,
-  AssociateRepositoryCommandOutput,
 } from "./commands/AssociateRepositoryCommand";
 import {
+  type CreateCodeReviewCommandInput,
+  type CreateCodeReviewCommandOutput,
   CreateCodeReviewCommand,
-  CreateCodeReviewCommandInput,
-  CreateCodeReviewCommandOutput,
 } from "./commands/CreateCodeReviewCommand";
 import {
+  type DescribeCodeReviewCommandInput,
+  type DescribeCodeReviewCommandOutput,
   DescribeCodeReviewCommand,
-  DescribeCodeReviewCommandInput,
-  DescribeCodeReviewCommandOutput,
 } from "./commands/DescribeCodeReviewCommand";
 import {
+  type DescribeRecommendationFeedbackCommandInput,
+  type DescribeRecommendationFeedbackCommandOutput,
   DescribeRecommendationFeedbackCommand,
-  DescribeRecommendationFeedbackCommandInput,
-  DescribeRecommendationFeedbackCommandOutput,
 } from "./commands/DescribeRecommendationFeedbackCommand";
 import {
+  type DescribeRepositoryAssociationCommandInput,
+  type DescribeRepositoryAssociationCommandOutput,
   DescribeRepositoryAssociationCommand,
-  DescribeRepositoryAssociationCommandInput,
-  DescribeRepositoryAssociationCommandOutput,
 } from "./commands/DescribeRepositoryAssociationCommand";
 import {
+  type DisassociateRepositoryCommandInput,
+  type DisassociateRepositoryCommandOutput,
   DisassociateRepositoryCommand,
-  DisassociateRepositoryCommandInput,
-  DisassociateRepositoryCommandOutput,
 } from "./commands/DisassociateRepositoryCommand";
 import {
+  type ListCodeReviewsCommandInput,
+  type ListCodeReviewsCommandOutput,
   ListCodeReviewsCommand,
-  ListCodeReviewsCommandInput,
-  ListCodeReviewsCommandOutput,
 } from "./commands/ListCodeReviewsCommand";
 import {
+  type ListRecommendationFeedbackCommandInput,
+  type ListRecommendationFeedbackCommandOutput,
   ListRecommendationFeedbackCommand,
-  ListRecommendationFeedbackCommandInput,
-  ListRecommendationFeedbackCommandOutput,
 } from "./commands/ListRecommendationFeedbackCommand";
 import {
+  type ListRecommendationsCommandInput,
+  type ListRecommendationsCommandOutput,
   ListRecommendationsCommand,
-  ListRecommendationsCommandInput,
-  ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
 import {
+  type ListRepositoryAssociationsCommandInput,
+  type ListRepositoryAssociationsCommandOutput,
   ListRepositoryAssociationsCommand,
-  ListRepositoryAssociationsCommandInput,
-  ListRepositoryAssociationsCommandOutput,
 } from "./commands/ListRepositoryAssociationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutRecommendationFeedbackCommandInput,
+  type PutRecommendationFeedbackCommandOutput,
   PutRecommendationFeedbackCommand,
-  PutRecommendationFeedbackCommandInput,
-  PutRecommendationFeedbackCommandOutput,
 } from "./commands/PutRecommendationFeedbackCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateListCodeReviews } from "./pagination/ListCodeReviewsPaginator";
 import { paginateListRecommendationFeedback } from "./pagination/ListRecommendationFeedbackPaginator";

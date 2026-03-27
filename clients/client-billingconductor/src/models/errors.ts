@@ -2,8 +2,8 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { BillingconductorServiceException as __BaseException } from "./BillingconductorServiceException";
-import { ConflictExceptionReason, ValidationExceptionReason } from "./enums";
-import { ValidationExceptionField } from "./models_0";
+import type { ConflictExceptionReason, ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>You do not have sufficient access to perform this action. </p>

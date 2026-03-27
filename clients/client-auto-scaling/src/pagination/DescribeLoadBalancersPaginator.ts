@@ -8,7 +8,7 @@ import {
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput,
 } from "../commands/DescribeLoadBalancersCommand";
-import { AutoScalingPaginationConfiguration } from "./Interfaces";
+import type { AutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

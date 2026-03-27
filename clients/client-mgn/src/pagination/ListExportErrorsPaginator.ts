@@ -8,7 +8,7 @@ import {
   ListExportErrorsCommandOutput,
 } from "../commands/ListExportErrorsCommand";
 import { MgnClient } from "../MgnClient";
-import { MgnPaginationConfiguration } from "./Interfaces";
+import type { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

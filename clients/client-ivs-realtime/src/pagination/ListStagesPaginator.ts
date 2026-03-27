@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListStagesCommand, ListStagesCommandInput, ListStagesCommandOutput } from "../commands/ListStagesCommand";
 import { IVSRealTimeClient } from "../IVSRealTimeClient";
-import { IVSRealTimePaginationConfiguration } from "./Interfaces";
+import type { IVSRealTimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

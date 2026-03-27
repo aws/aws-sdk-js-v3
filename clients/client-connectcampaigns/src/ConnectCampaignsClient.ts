@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,62 +61,65 @@ import {
   defaultConnectCampaignsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "./commands/CreateCampaignCommand";
-import { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "./commands/DeleteCampaignCommand";
-import {
+import type { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "./commands/CreateCampaignCommand";
+import type { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "./commands/DeleteCampaignCommand";
+import type {
   DeleteConnectInstanceConfigCommandInput,
   DeleteConnectInstanceConfigCommandOutput,
 } from "./commands/DeleteConnectInstanceConfigCommand";
-import {
+import type {
   DeleteInstanceOnboardingJobCommandInput,
   DeleteInstanceOnboardingJobCommandOutput,
 } from "./commands/DeleteInstanceOnboardingJobCommand";
-import { DescribeCampaignCommandInput, DescribeCampaignCommandOutput } from "./commands/DescribeCampaignCommand";
-import {
+import type { DescribeCampaignCommandInput, DescribeCampaignCommandOutput } from "./commands/DescribeCampaignCommand";
+import type {
   GetCampaignStateBatchCommandInput,
   GetCampaignStateBatchCommandOutput,
 } from "./commands/GetCampaignStateBatchCommand";
-import { GetCampaignStateCommandInput, GetCampaignStateCommandOutput } from "./commands/GetCampaignStateCommand";
-import {
+import type { GetCampaignStateCommandInput, GetCampaignStateCommandOutput } from "./commands/GetCampaignStateCommand";
+import type {
   GetConnectInstanceConfigCommandInput,
   GetConnectInstanceConfigCommandOutput,
 } from "./commands/GetConnectInstanceConfigCommand";
-import {
+import type {
   GetInstanceOnboardingJobStatusCommandInput,
   GetInstanceOnboardingJobStatusCommandOutput,
 } from "./commands/GetInstanceOnboardingJobStatusCommand";
-import { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "./commands/ListCampaignsCommand";
-import {
+import type { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "./commands/ListCampaignsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PauseCampaignCommandInput, PauseCampaignCommandOutput } from "./commands/PauseCampaignCommand";
-import {
+import type { PauseCampaignCommandInput, PauseCampaignCommandOutput } from "./commands/PauseCampaignCommand";
+import type {
   PutDialRequestBatchCommandInput,
   PutDialRequestBatchCommandOutput,
 } from "./commands/PutDialRequestBatchCommand";
-import { ResumeCampaignCommandInput, ResumeCampaignCommandOutput } from "./commands/ResumeCampaignCommand";
-import { StartCampaignCommandInput, StartCampaignCommandOutput } from "./commands/StartCampaignCommand";
-import {
+import type { ResumeCampaignCommandInput, ResumeCampaignCommandOutput } from "./commands/ResumeCampaignCommand";
+import type { StartCampaignCommandInput, StartCampaignCommandOutput } from "./commands/StartCampaignCommand";
+import type {
   StartInstanceOnboardingJobCommandInput,
   StartInstanceOnboardingJobCommandOutput,
 } from "./commands/StartInstanceOnboardingJobCommand";
-import { StopCampaignCommandInput, StopCampaignCommandOutput } from "./commands/StopCampaignCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { StopCampaignCommandInput, StopCampaignCommandOutput } from "./commands/StopCampaignCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateCampaignDialerConfigCommandInput,
   UpdateCampaignDialerConfigCommandOutput,
 } from "./commands/UpdateCampaignDialerConfigCommand";
-import { UpdateCampaignNameCommandInput, UpdateCampaignNameCommandOutput } from "./commands/UpdateCampaignNameCommand";
-import {
+import type {
+  UpdateCampaignNameCommandInput,
+  UpdateCampaignNameCommandOutput,
+} from "./commands/UpdateCampaignNameCommand";
+import type {
   UpdateCampaignOutboundCallConfigCommandInput,
   UpdateCampaignOutboundCallConfigCommandOutput,
 } from "./commands/UpdateCampaignOutboundCallConfigCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -294,7 +295,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

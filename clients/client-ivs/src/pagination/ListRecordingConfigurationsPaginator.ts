@@ -8,7 +8,7 @@ import {
   ListRecordingConfigurationsCommandOutput,
 } from "../commands/ListRecordingConfigurationsCommand";
 import { IvsClient } from "../IvsClient";
-import { IvsPaginationConfiguration } from "./Interfaces";
+import type { IvsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

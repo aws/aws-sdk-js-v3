@@ -8,7 +8,7 @@ import {
   ListPlanExecutionsCommandInput,
   ListPlanExecutionsCommandOutput,
 } from "../commands/ListPlanExecutionsCommand";
-import { ARCRegionSwitchPaginationConfiguration } from "./Interfaces";
+import type { ARCRegionSwitchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

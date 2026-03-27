@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,166 +61,181 @@ import {
   defaultElasticsearchServiceHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptInboundCrossClusterSearchConnectionCommandInput,
   AcceptInboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/AcceptInboundCrossClusterSearchConnectionCommand";
-import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
-import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
-import {
+import type { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import type { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
+import type {
   AuthorizeVpcEndpointAccessCommandInput,
   AuthorizeVpcEndpointAccessCommandOutput,
 } from "./commands/AuthorizeVpcEndpointAccessCommand";
-import {
+import type {
   CancelDomainConfigChangeCommandInput,
   CancelDomainConfigChangeCommandOutput,
 } from "./commands/CancelDomainConfigChangeCommand";
-import {
+import type {
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
   CancelElasticsearchServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelElasticsearchServiceSoftwareUpdateCommand";
-import {
+import type {
   CreateElasticsearchDomainCommandInput,
   CreateElasticsearchDomainCommandOutput,
 } from "./commands/CreateElasticsearchDomainCommand";
-import {
+import type {
   CreateOutboundCrossClusterSearchConnectionCommandInput,
   CreateOutboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/CreateOutboundCrossClusterSearchConnectionCommand";
-import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
-import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
-import {
+import type { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
+import type {
+  CreateVpcEndpointCommandInput,
+  CreateVpcEndpointCommandOutput,
+} from "./commands/CreateVpcEndpointCommand";
+import type {
   DeleteElasticsearchDomainCommandInput,
   DeleteElasticsearchDomainCommandOutput,
 } from "./commands/DeleteElasticsearchDomainCommand";
-import {
+import type {
   DeleteElasticsearchServiceRoleCommandInput,
   DeleteElasticsearchServiceRoleCommandOutput,
 } from "./commands/DeleteElasticsearchServiceRoleCommand";
-import {
+import type {
   DeleteInboundCrossClusterSearchConnectionCommandInput,
   DeleteInboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/DeleteInboundCrossClusterSearchConnectionCommand";
-import {
+import type {
   DeleteOutboundCrossClusterSearchConnectionCommandInput,
   DeleteOutboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/DeleteOutboundCrossClusterSearchConnectionCommand";
-import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
-import { DeleteVpcEndpointCommandInput, DeleteVpcEndpointCommandOutput } from "./commands/DeleteVpcEndpointCommand";
-import {
+import type { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
+import type {
+  DeleteVpcEndpointCommandInput,
+  DeleteVpcEndpointCommandOutput,
+} from "./commands/DeleteVpcEndpointCommand";
+import type {
   DescribeDomainAutoTunesCommandInput,
   DescribeDomainAutoTunesCommandOutput,
 } from "./commands/DescribeDomainAutoTunesCommand";
-import {
+import type {
   DescribeDomainChangeProgressCommandInput,
   DescribeDomainChangeProgressCommandOutput,
 } from "./commands/DescribeDomainChangeProgressCommand";
-import {
+import type {
   DescribeElasticsearchDomainCommandInput,
   DescribeElasticsearchDomainCommandOutput,
 } from "./commands/DescribeElasticsearchDomainCommand";
-import {
+import type {
   DescribeElasticsearchDomainConfigCommandInput,
   DescribeElasticsearchDomainConfigCommandOutput,
 } from "./commands/DescribeElasticsearchDomainConfigCommand";
-import {
+import type {
   DescribeElasticsearchDomainsCommandInput,
   DescribeElasticsearchDomainsCommandOutput,
 } from "./commands/DescribeElasticsearchDomainsCommand";
-import {
+import type {
   DescribeElasticsearchInstanceTypeLimitsCommandInput,
   DescribeElasticsearchInstanceTypeLimitsCommandOutput,
 } from "./commands/DescribeElasticsearchInstanceTypeLimitsCommand";
-import {
+import type {
   DescribeInboundCrossClusterSearchConnectionsCommandInput,
   DescribeInboundCrossClusterSearchConnectionsCommandOutput,
 } from "./commands/DescribeInboundCrossClusterSearchConnectionsCommand";
-import {
+import type {
   DescribeOutboundCrossClusterSearchConnectionsCommandInput,
   DescribeOutboundCrossClusterSearchConnectionsCommandOutput,
 } from "./commands/DescribeOutboundCrossClusterSearchConnectionsCommand";
-import { DescribePackagesCommandInput, DescribePackagesCommandOutput } from "./commands/DescribePackagesCommand";
-import {
+import type { DescribePackagesCommandInput, DescribePackagesCommandOutput } from "./commands/DescribePackagesCommand";
+import type {
   DescribeReservedElasticsearchInstanceOfferingsCommandInput,
   DescribeReservedElasticsearchInstanceOfferingsCommandOutput,
 } from "./commands/DescribeReservedElasticsearchInstanceOfferingsCommand";
-import {
+import type {
   DescribeReservedElasticsearchInstancesCommandInput,
   DescribeReservedElasticsearchInstancesCommandOutput,
 } from "./commands/DescribeReservedElasticsearchInstancesCommand";
-import {
+import type {
   DescribeVpcEndpointsCommandInput,
   DescribeVpcEndpointsCommandOutput,
 } from "./commands/DescribeVpcEndpointsCommand";
-import { DissociatePackageCommandInput, DissociatePackageCommandOutput } from "./commands/DissociatePackageCommand";
-import {
+import type {
+  DissociatePackageCommandInput,
+  DissociatePackageCommandOutput,
+} from "./commands/DissociatePackageCommand";
+import type {
   GetCompatibleElasticsearchVersionsCommandInput,
   GetCompatibleElasticsearchVersionsCommandOutput,
 } from "./commands/GetCompatibleElasticsearchVersionsCommand";
-import {
+import type {
   GetPackageVersionHistoryCommandInput,
   GetPackageVersionHistoryCommandOutput,
 } from "./commands/GetPackageVersionHistoryCommand";
-import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "./commands/GetUpgradeHistoryCommand";
-import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
-import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
-import {
+import type {
+  GetUpgradeHistoryCommandInput,
+  GetUpgradeHistoryCommandOutput,
+} from "./commands/GetUpgradeHistoryCommand";
+import type { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
+import type { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
+import type {
   ListDomainsForPackageCommandInput,
   ListDomainsForPackageCommandOutput,
 } from "./commands/ListDomainsForPackageCommand";
-import {
+import type {
   ListElasticsearchInstanceTypesCommandInput,
   ListElasticsearchInstanceTypesCommandOutput,
 } from "./commands/ListElasticsearchInstanceTypesCommand";
-import {
+import type {
   ListElasticsearchVersionsCommandInput,
   ListElasticsearchVersionsCommandOutput,
 } from "./commands/ListElasticsearchVersionsCommand";
-import {
+import type {
   ListPackagesForDomainCommandInput,
   ListPackagesForDomainCommandOutput,
 } from "./commands/ListPackagesForDomainCommand";
-import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import {
+import type { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import type {
   ListVpcEndpointAccessCommandInput,
   ListVpcEndpointAccessCommandOutput,
 } from "./commands/ListVpcEndpointAccessCommand";
-import { ListVpcEndpointsCommandInput, ListVpcEndpointsCommandOutput } from "./commands/ListVpcEndpointsCommand";
-import {
+import type { ListVpcEndpointsCommandInput, ListVpcEndpointsCommandOutput } from "./commands/ListVpcEndpointsCommand";
+import type {
   ListVpcEndpointsForDomainCommandInput,
   ListVpcEndpointsForDomainCommandOutput,
 } from "./commands/ListVpcEndpointsForDomainCommand";
-import {
+import type {
   PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   PurchaseReservedElasticsearchInstanceOfferingCommandOutput,
 } from "./commands/PurchaseReservedElasticsearchInstanceOfferingCommand";
-import {
+import type {
   RejectInboundCrossClusterSearchConnectionCommandInput,
   RejectInboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/RejectInboundCrossClusterSearchConnectionCommand";
-import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
-import {
+import type { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import type {
   RevokeVpcEndpointAccessCommandInput,
   RevokeVpcEndpointAccessCommandOutput,
 } from "./commands/RevokeVpcEndpointAccessCommand";
-import {
+import type {
   StartElasticsearchServiceSoftwareUpdateCommandInput,
   StartElasticsearchServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartElasticsearchServiceSoftwareUpdateCommand";
-import {
+import type {
   UpdateElasticsearchDomainConfigCommandInput,
   UpdateElasticsearchDomainConfigCommandOutput,
 } from "./commands/UpdateElasticsearchDomainConfigCommand";
-import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
-import { UpdateVpcEndpointCommandInput, UpdateVpcEndpointCommandOutput } from "./commands/UpdateVpcEndpointCommand";
-import {
+import type { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
+import type {
+  UpdateVpcEndpointCommandInput,
+  UpdateVpcEndpointCommandOutput,
+} from "./commands/UpdateVpcEndpointCommand";
+import type {
   UpgradeElasticsearchDomainCommandInput,
   UpgradeElasticsearchDomainCommandOutput,
 } from "./commands/UpgradeElasticsearchDomainCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -456,7 +469,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

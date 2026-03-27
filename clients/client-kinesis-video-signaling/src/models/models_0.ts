@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Service } from "./enums";
+import type { Service } from "./enums";
 
 /**
  * @public

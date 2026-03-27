@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DirectoryServiceDataServiceException as __BaseException } from "./DirectoryServiceDataServiceException";
-import { AccessDeniedReason, DirectoryUnavailableReason, ValidationExceptionReason } from "./enums";
+import type { AccessDeniedReason, DirectoryUnavailableReason, ValidationExceptionReason } from "./enums";
 
 /**
  * <p> You don't have permission to perform the request or access the directory. It can also

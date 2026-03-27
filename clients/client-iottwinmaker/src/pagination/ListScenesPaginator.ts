@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListScenesCommand, ListScenesCommandInput, ListScenesCommandOutput } from "../commands/ListScenesCommand";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
-import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
+import type { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

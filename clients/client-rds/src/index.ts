@@ -7,7 +7,7 @@
  */
 export * from "./RDSClient";
 export * from "./RDS";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { RDSExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

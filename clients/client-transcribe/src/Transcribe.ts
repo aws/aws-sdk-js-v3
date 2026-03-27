@@ -9,215 +9,219 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type CreateCallAnalyticsCategoryCommandInput,
+  type CreateCallAnalyticsCategoryCommandOutput,
   CreateCallAnalyticsCategoryCommand,
-  CreateCallAnalyticsCategoryCommandInput,
-  CreateCallAnalyticsCategoryCommandOutput,
 } from "./commands/CreateCallAnalyticsCategoryCommand";
 import {
+  type CreateLanguageModelCommandInput,
+  type CreateLanguageModelCommandOutput,
   CreateLanguageModelCommand,
-  CreateLanguageModelCommandInput,
-  CreateLanguageModelCommandOutput,
 } from "./commands/CreateLanguageModelCommand";
 import {
+  type CreateMedicalVocabularyCommandInput,
+  type CreateMedicalVocabularyCommandOutput,
   CreateMedicalVocabularyCommand,
-  CreateMedicalVocabularyCommandInput,
-  CreateMedicalVocabularyCommandOutput,
 } from "./commands/CreateMedicalVocabularyCommand";
 import {
+  type CreateVocabularyCommandInput,
+  type CreateVocabularyCommandOutput,
   CreateVocabularyCommand,
-  CreateVocabularyCommandInput,
-  CreateVocabularyCommandOutput,
 } from "./commands/CreateVocabularyCommand";
 import {
+  type CreateVocabularyFilterCommandInput,
+  type CreateVocabularyFilterCommandOutput,
   CreateVocabularyFilterCommand,
-  CreateVocabularyFilterCommandInput,
-  CreateVocabularyFilterCommandOutput,
 } from "./commands/CreateVocabularyFilterCommand";
 import {
+  type DeleteCallAnalyticsCategoryCommandInput,
+  type DeleteCallAnalyticsCategoryCommandOutput,
   DeleteCallAnalyticsCategoryCommand,
-  DeleteCallAnalyticsCategoryCommandInput,
-  DeleteCallAnalyticsCategoryCommandOutput,
 } from "./commands/DeleteCallAnalyticsCategoryCommand";
 import {
+  type DeleteCallAnalyticsJobCommandInput,
+  type DeleteCallAnalyticsJobCommandOutput,
   DeleteCallAnalyticsJobCommand,
-  DeleteCallAnalyticsJobCommandInput,
-  DeleteCallAnalyticsJobCommandOutput,
 } from "./commands/DeleteCallAnalyticsJobCommand";
 import {
+  type DeleteLanguageModelCommandInput,
+  type DeleteLanguageModelCommandOutput,
   DeleteLanguageModelCommand,
-  DeleteLanguageModelCommandInput,
-  DeleteLanguageModelCommandOutput,
 } from "./commands/DeleteLanguageModelCommand";
 import {
+  type DeleteMedicalScribeJobCommandInput,
+  type DeleteMedicalScribeJobCommandOutput,
   DeleteMedicalScribeJobCommand,
-  DeleteMedicalScribeJobCommandInput,
-  DeleteMedicalScribeJobCommandOutput,
 } from "./commands/DeleteMedicalScribeJobCommand";
 import {
+  type DeleteMedicalTranscriptionJobCommandInput,
+  type DeleteMedicalTranscriptionJobCommandOutput,
   DeleteMedicalTranscriptionJobCommand,
-  DeleteMedicalTranscriptionJobCommandInput,
-  DeleteMedicalTranscriptionJobCommandOutput,
 } from "./commands/DeleteMedicalTranscriptionJobCommand";
 import {
+  type DeleteMedicalVocabularyCommandInput,
+  type DeleteMedicalVocabularyCommandOutput,
   DeleteMedicalVocabularyCommand,
-  DeleteMedicalVocabularyCommandInput,
-  DeleteMedicalVocabularyCommandOutput,
 } from "./commands/DeleteMedicalVocabularyCommand";
 import {
+  type DeleteTranscriptionJobCommandInput,
+  type DeleteTranscriptionJobCommandOutput,
   DeleteTranscriptionJobCommand,
-  DeleteTranscriptionJobCommandInput,
-  DeleteTranscriptionJobCommandOutput,
 } from "./commands/DeleteTranscriptionJobCommand";
 import {
+  type DeleteVocabularyCommandInput,
+  type DeleteVocabularyCommandOutput,
   DeleteVocabularyCommand,
-  DeleteVocabularyCommandInput,
-  DeleteVocabularyCommandOutput,
 } from "./commands/DeleteVocabularyCommand";
 import {
+  type DeleteVocabularyFilterCommandInput,
+  type DeleteVocabularyFilterCommandOutput,
   DeleteVocabularyFilterCommand,
-  DeleteVocabularyFilterCommandInput,
-  DeleteVocabularyFilterCommandOutput,
 } from "./commands/DeleteVocabularyFilterCommand";
 import {
+  type DescribeLanguageModelCommandInput,
+  type DescribeLanguageModelCommandOutput,
   DescribeLanguageModelCommand,
-  DescribeLanguageModelCommandInput,
-  DescribeLanguageModelCommandOutput,
 } from "./commands/DescribeLanguageModelCommand";
 import {
+  type GetCallAnalyticsCategoryCommandInput,
+  type GetCallAnalyticsCategoryCommandOutput,
   GetCallAnalyticsCategoryCommand,
-  GetCallAnalyticsCategoryCommandInput,
-  GetCallAnalyticsCategoryCommandOutput,
 } from "./commands/GetCallAnalyticsCategoryCommand";
 import {
+  type GetCallAnalyticsJobCommandInput,
+  type GetCallAnalyticsJobCommandOutput,
   GetCallAnalyticsJobCommand,
-  GetCallAnalyticsJobCommandInput,
-  GetCallAnalyticsJobCommandOutput,
 } from "./commands/GetCallAnalyticsJobCommand";
 import {
+  type GetMedicalScribeJobCommandInput,
+  type GetMedicalScribeJobCommandOutput,
   GetMedicalScribeJobCommand,
-  GetMedicalScribeJobCommandInput,
-  GetMedicalScribeJobCommandOutput,
 } from "./commands/GetMedicalScribeJobCommand";
 import {
+  type GetMedicalTranscriptionJobCommandInput,
+  type GetMedicalTranscriptionJobCommandOutput,
   GetMedicalTranscriptionJobCommand,
-  GetMedicalTranscriptionJobCommandInput,
-  GetMedicalTranscriptionJobCommandOutput,
 } from "./commands/GetMedicalTranscriptionJobCommand";
 import {
+  type GetMedicalVocabularyCommandInput,
+  type GetMedicalVocabularyCommandOutput,
   GetMedicalVocabularyCommand,
-  GetMedicalVocabularyCommandInput,
-  GetMedicalVocabularyCommandOutput,
 } from "./commands/GetMedicalVocabularyCommand";
 import {
+  type GetTranscriptionJobCommandInput,
+  type GetTranscriptionJobCommandOutput,
   GetTranscriptionJobCommand,
-  GetTranscriptionJobCommandInput,
-  GetTranscriptionJobCommandOutput,
 } from "./commands/GetTranscriptionJobCommand";
 import {
+  type GetVocabularyCommandInput,
+  type GetVocabularyCommandOutput,
   GetVocabularyCommand,
-  GetVocabularyCommandInput,
-  GetVocabularyCommandOutput,
 } from "./commands/GetVocabularyCommand";
 import {
+  type GetVocabularyFilterCommandInput,
+  type GetVocabularyFilterCommandOutput,
   GetVocabularyFilterCommand,
-  GetVocabularyFilterCommandInput,
-  GetVocabularyFilterCommandOutput,
 } from "./commands/GetVocabularyFilterCommand";
 import {
+  type ListCallAnalyticsCategoriesCommandInput,
+  type ListCallAnalyticsCategoriesCommandOutput,
   ListCallAnalyticsCategoriesCommand,
-  ListCallAnalyticsCategoriesCommandInput,
-  ListCallAnalyticsCategoriesCommandOutput,
 } from "./commands/ListCallAnalyticsCategoriesCommand";
 import {
+  type ListCallAnalyticsJobsCommandInput,
+  type ListCallAnalyticsJobsCommandOutput,
   ListCallAnalyticsJobsCommand,
-  ListCallAnalyticsJobsCommandInput,
-  ListCallAnalyticsJobsCommandOutput,
 } from "./commands/ListCallAnalyticsJobsCommand";
 import {
+  type ListLanguageModelsCommandInput,
+  type ListLanguageModelsCommandOutput,
   ListLanguageModelsCommand,
-  ListLanguageModelsCommandInput,
-  ListLanguageModelsCommandOutput,
 } from "./commands/ListLanguageModelsCommand";
 import {
+  type ListMedicalScribeJobsCommandInput,
+  type ListMedicalScribeJobsCommandOutput,
   ListMedicalScribeJobsCommand,
-  ListMedicalScribeJobsCommandInput,
-  ListMedicalScribeJobsCommandOutput,
 } from "./commands/ListMedicalScribeJobsCommand";
 import {
+  type ListMedicalTranscriptionJobsCommandInput,
+  type ListMedicalTranscriptionJobsCommandOutput,
   ListMedicalTranscriptionJobsCommand,
-  ListMedicalTranscriptionJobsCommandInput,
-  ListMedicalTranscriptionJobsCommandOutput,
 } from "./commands/ListMedicalTranscriptionJobsCommand";
 import {
+  type ListMedicalVocabulariesCommandInput,
+  type ListMedicalVocabulariesCommandOutput,
   ListMedicalVocabulariesCommand,
-  ListMedicalVocabulariesCommandInput,
-  ListMedicalVocabulariesCommandOutput,
 } from "./commands/ListMedicalVocabulariesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTranscriptionJobsCommandInput,
+  type ListTranscriptionJobsCommandOutput,
   ListTranscriptionJobsCommand,
-  ListTranscriptionJobsCommandInput,
-  ListTranscriptionJobsCommandOutput,
 } from "./commands/ListTranscriptionJobsCommand";
 import {
+  type ListVocabulariesCommandInput,
+  type ListVocabulariesCommandOutput,
   ListVocabulariesCommand,
-  ListVocabulariesCommandInput,
-  ListVocabulariesCommandOutput,
 } from "./commands/ListVocabulariesCommand";
 import {
+  type ListVocabularyFiltersCommandInput,
+  type ListVocabularyFiltersCommandOutput,
   ListVocabularyFiltersCommand,
-  ListVocabularyFiltersCommandInput,
-  ListVocabularyFiltersCommandOutput,
 } from "./commands/ListVocabularyFiltersCommand";
 import {
+  type StartCallAnalyticsJobCommandInput,
+  type StartCallAnalyticsJobCommandOutput,
   StartCallAnalyticsJobCommand,
-  StartCallAnalyticsJobCommandInput,
-  StartCallAnalyticsJobCommandOutput,
 } from "./commands/StartCallAnalyticsJobCommand";
 import {
+  type StartMedicalScribeJobCommandInput,
+  type StartMedicalScribeJobCommandOutput,
   StartMedicalScribeJobCommand,
-  StartMedicalScribeJobCommandInput,
-  StartMedicalScribeJobCommandOutput,
 } from "./commands/StartMedicalScribeJobCommand";
 import {
+  type StartMedicalTranscriptionJobCommandInput,
+  type StartMedicalTranscriptionJobCommandOutput,
   StartMedicalTranscriptionJobCommand,
-  StartMedicalTranscriptionJobCommandInput,
-  StartMedicalTranscriptionJobCommandOutput,
 } from "./commands/StartMedicalTranscriptionJobCommand";
 import {
+  type StartTranscriptionJobCommandInput,
+  type StartTranscriptionJobCommandOutput,
   StartTranscriptionJobCommand,
-  StartTranscriptionJobCommandInput,
-  StartTranscriptionJobCommandOutput,
 } from "./commands/StartTranscriptionJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCallAnalyticsCategoryCommandInput,
+  type UpdateCallAnalyticsCategoryCommandOutput,
   UpdateCallAnalyticsCategoryCommand,
-  UpdateCallAnalyticsCategoryCommandInput,
-  UpdateCallAnalyticsCategoryCommandOutput,
 } from "./commands/UpdateCallAnalyticsCategoryCommand";
 import {
+  type UpdateMedicalVocabularyCommandInput,
+  type UpdateMedicalVocabularyCommandOutput,
   UpdateMedicalVocabularyCommand,
-  UpdateMedicalVocabularyCommandInput,
-  UpdateMedicalVocabularyCommandOutput,
 } from "./commands/UpdateMedicalVocabularyCommand";
 import {
+  type UpdateVocabularyCommandInput,
+  type UpdateVocabularyCommandOutput,
   UpdateVocabularyCommand,
-  UpdateVocabularyCommandInput,
-  UpdateVocabularyCommandOutput,
 } from "./commands/UpdateVocabularyCommand";
 import {
+  type UpdateVocabularyFilterCommandInput,
+  type UpdateVocabularyFilterCommandOutput,
   UpdateVocabularyFilterCommand,
-  UpdateVocabularyFilterCommandInput,
-  UpdateVocabularyFilterCommandOutput,
 } from "./commands/UpdateVocabularyFilterCommand";
 import { paginateListCallAnalyticsCategories } from "./pagination/ListCallAnalyticsCategoriesPaginator";
 import { paginateListCallAnalyticsJobs } from "./pagination/ListCallAnalyticsJobsPaginator";

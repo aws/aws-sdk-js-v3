@@ -8,7 +8,7 @@ import {
   ListLakeFormationOptInsCommandOutput,
 } from "../commands/ListLakeFormationOptInsCommand";
 import { LakeFormationClient } from "../LakeFormationClient";
-import { LakeFormationPaginationConfiguration } from "./Interfaces";
+import type { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@
  */
 export * from "./Route53DomainsClient";
 export * from "./Route53Domains";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { Route53DomainsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

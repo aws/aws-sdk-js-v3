@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CodeGuruSecurityClient } from "../CodeGuruSecurityClient";
 import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "../commands/GetFindingsCommand";
-import { CodeGuruSecurityPaginationConfiguration } from "./Interfaces";
+import type { CodeGuruSecurityPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListDeviceDiscoveriesCommandOutput,
 } from "../commands/ListDeviceDiscoveriesCommand";
 import { IoTManagedIntegrationsClient } from "../IoTManagedIntegrationsClient";
-import { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
+import type { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

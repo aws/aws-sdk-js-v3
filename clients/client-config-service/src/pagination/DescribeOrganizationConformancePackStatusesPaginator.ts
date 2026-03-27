@@ -8,7 +8,7 @@ import {
   DescribeOrganizationConformancePackStatusesCommandOutput,
 } from "../commands/DescribeOrganizationConformancePackStatusesCommand";
 import { ConfigServiceClient } from "../ConfigServiceClient";
-import { ConfigServicePaginationConfiguration } from "./Interfaces";
+import type { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

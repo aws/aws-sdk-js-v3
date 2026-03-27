@@ -8,7 +8,7 @@ import {
   ListExtensibleSourceServersCommandOutput,
 } from "../commands/ListExtensibleSourceServersCommand";
 import { DrsClient } from "../DrsClient";
-import { DrsPaginationConfiguration } from "./Interfaces";
+import type { DrsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

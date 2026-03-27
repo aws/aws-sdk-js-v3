@@ -23,7 +23,7 @@
  */
 export * from "./CostAndUsageReportServiceClient";
 export * from "./CostAndUsageReportService";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CostAndUsageReportServiceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

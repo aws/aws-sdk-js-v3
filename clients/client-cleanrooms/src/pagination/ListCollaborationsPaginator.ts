@@ -8,7 +8,7 @@ import {
   ListCollaborationsCommandInput,
   ListCollaborationsCommandOutput,
 } from "../commands/ListCollaborationsCommand";
-import { CleanRoomsPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

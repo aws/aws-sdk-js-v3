@@ -9,7 +9,7 @@
  */
 export * from "./PersonalizeEventsClient";
 export * from "./PersonalizeEvents";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PersonalizeEventsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

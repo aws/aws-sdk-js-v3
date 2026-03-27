@@ -78,7 +78,7 @@
  */
 export * from "./SecurityHubClient";
 export * from "./SecurityHub";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SecurityHubExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

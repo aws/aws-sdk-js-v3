@@ -39,22 +39,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type SdkStreamMixinInjector as __SdkStreamMixinInjector,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -64,295 +62,325 @@ import {
   defaultMediaLiveHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptInputDeviceTransferCommandInput,
   AcceptInputDeviceTransferCommandOutput,
 } from "./commands/AcceptInputDeviceTransferCommand";
-import { BatchDeleteCommandInput, BatchDeleteCommandOutput } from "./commands/BatchDeleteCommand";
-import { BatchStartCommandInput, BatchStartCommandOutput } from "./commands/BatchStartCommand";
-import { BatchStopCommandInput, BatchStopCommandOutput } from "./commands/BatchStopCommand";
-import {
+import type { BatchDeleteCommandInput, BatchDeleteCommandOutput } from "./commands/BatchDeleteCommand";
+import type { BatchStartCommandInput, BatchStartCommandOutput } from "./commands/BatchStartCommand";
+import type { BatchStopCommandInput, BatchStopCommandOutput } from "./commands/BatchStopCommand";
+import type {
   BatchUpdateScheduleCommandInput,
   BatchUpdateScheduleCommandOutput,
 } from "./commands/BatchUpdateScheduleCommand";
-import {
+import type {
   CancelInputDeviceTransferCommandInput,
   CancelInputDeviceTransferCommandOutput,
 } from "./commands/CancelInputDeviceTransferCommand";
-import { ClaimDeviceCommandInput, ClaimDeviceCommandOutput } from "./commands/ClaimDeviceCommand";
-import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
-import {
+import type { ClaimDeviceCommandInput, ClaimDeviceCommandOutput } from "./commands/ClaimDeviceCommand";
+import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import type {
   CreateChannelPlacementGroupCommandInput,
   CreateChannelPlacementGroupCommandOutput,
 } from "./commands/CreateChannelPlacementGroupCommand";
-import {
+import type {
   CreateCloudWatchAlarmTemplateCommandInput,
   CreateCloudWatchAlarmTemplateCommandOutput,
 } from "./commands/CreateCloudWatchAlarmTemplateCommand";
-import {
+import type {
   CreateCloudWatchAlarmTemplateGroupCommandInput,
   CreateCloudWatchAlarmTemplateGroupCommandOutput,
 } from "./commands/CreateCloudWatchAlarmTemplateGroupCommand";
-import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
-import {
+import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import type {
   CreateEventBridgeRuleTemplateCommandInput,
   CreateEventBridgeRuleTemplateCommandOutput,
 } from "./commands/CreateEventBridgeRuleTemplateCommand";
-import {
+import type {
   CreateEventBridgeRuleTemplateGroupCommandInput,
   CreateEventBridgeRuleTemplateGroupCommandOutput,
 } from "./commands/CreateEventBridgeRuleTemplateGroupCommand";
-import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
-import {
+import type { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
+import type {
   CreateInputSecurityGroupCommandInput,
   CreateInputSecurityGroupCommandOutput,
 } from "./commands/CreateInputSecurityGroupCommand";
-import { CreateMultiplexCommandInput, CreateMultiplexCommandOutput } from "./commands/CreateMultiplexCommand";
-import {
+import type { CreateMultiplexCommandInput, CreateMultiplexCommandOutput } from "./commands/CreateMultiplexCommand";
+import type {
   CreateMultiplexProgramCommandInput,
   CreateMultiplexProgramCommandOutput,
 } from "./commands/CreateMultiplexProgramCommand";
-import { CreateNetworkCommandInput, CreateNetworkCommandOutput } from "./commands/CreateNetworkCommand";
-import { CreateNodeCommandInput, CreateNodeCommandOutput } from "./commands/CreateNodeCommand";
-import {
+import type { CreateNetworkCommandInput, CreateNetworkCommandOutput } from "./commands/CreateNetworkCommand";
+import type { CreateNodeCommandInput, CreateNodeCommandOutput } from "./commands/CreateNodeCommand";
+import type {
   CreateNodeRegistrationScriptCommandInput,
   CreateNodeRegistrationScriptCommandOutput,
 } from "./commands/CreateNodeRegistrationScriptCommand";
-import { CreatePartnerInputCommandInput, CreatePartnerInputCommandOutput } from "./commands/CreatePartnerInputCommand";
-import { CreateSdiSourceCommandInput, CreateSdiSourceCommandOutput } from "./commands/CreateSdiSourceCommand";
-import { CreateSignalMapCommandInput, CreateSignalMapCommandOutput } from "./commands/CreateSignalMapCommand";
-import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
-import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
-import {
+import type {
+  CreatePartnerInputCommandInput,
+  CreatePartnerInputCommandOutput,
+} from "./commands/CreatePartnerInputCommand";
+import type { CreateSdiSourceCommandInput, CreateSdiSourceCommandOutput } from "./commands/CreateSdiSourceCommand";
+import type { CreateSignalMapCommandInput, CreateSignalMapCommandOutput } from "./commands/CreateSignalMapCommand";
+import type { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import type { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import type {
   DeleteChannelPlacementGroupCommandInput,
   DeleteChannelPlacementGroupCommandOutput,
 } from "./commands/DeleteChannelPlacementGroupCommand";
-import {
+import type {
   DeleteCloudWatchAlarmTemplateCommandInput,
   DeleteCloudWatchAlarmTemplateCommandOutput,
 } from "./commands/DeleteCloudWatchAlarmTemplateCommand";
-import {
+import type {
   DeleteCloudWatchAlarmTemplateGroupCommandInput,
   DeleteCloudWatchAlarmTemplateGroupCommandOutput,
 } from "./commands/DeleteCloudWatchAlarmTemplateGroupCommand";
-import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
-import {
+import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import type {
   DeleteEventBridgeRuleTemplateCommandInput,
   DeleteEventBridgeRuleTemplateCommandOutput,
 } from "./commands/DeleteEventBridgeRuleTemplateCommand";
-import {
+import type {
   DeleteEventBridgeRuleTemplateGroupCommandInput,
   DeleteEventBridgeRuleTemplateGroupCommandOutput,
 } from "./commands/DeleteEventBridgeRuleTemplateGroupCommand";
-import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
-import {
+import type { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
+import type {
   DeleteInputSecurityGroupCommandInput,
   DeleteInputSecurityGroupCommandOutput,
 } from "./commands/DeleteInputSecurityGroupCommand";
-import { DeleteMultiplexCommandInput, DeleteMultiplexCommandOutput } from "./commands/DeleteMultiplexCommand";
-import {
+import type { DeleteMultiplexCommandInput, DeleteMultiplexCommandOutput } from "./commands/DeleteMultiplexCommand";
+import type {
   DeleteMultiplexProgramCommandInput,
   DeleteMultiplexProgramCommandOutput,
 } from "./commands/DeleteMultiplexProgramCommand";
-import { DeleteNetworkCommandInput, DeleteNetworkCommandOutput } from "./commands/DeleteNetworkCommand";
-import { DeleteNodeCommandInput, DeleteNodeCommandOutput } from "./commands/DeleteNodeCommand";
-import { DeleteReservationCommandInput, DeleteReservationCommandOutput } from "./commands/DeleteReservationCommand";
-import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "./commands/DeleteScheduleCommand";
-import { DeleteSdiSourceCommandInput, DeleteSdiSourceCommandOutput } from "./commands/DeleteSdiSourceCommand";
-import { DeleteSignalMapCommandInput, DeleteSignalMapCommandOutput } from "./commands/DeleteSignalMapCommand";
-import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
-import {
+import type { DeleteNetworkCommandInput, DeleteNetworkCommandOutput } from "./commands/DeleteNetworkCommand";
+import type { DeleteNodeCommandInput, DeleteNodeCommandOutput } from "./commands/DeleteNodeCommand";
+import type {
+  DeleteReservationCommandInput,
+  DeleteReservationCommandOutput,
+} from "./commands/DeleteReservationCommand";
+import type { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "./commands/DeleteScheduleCommand";
+import type { DeleteSdiSourceCommandInput, DeleteSdiSourceCommandOutput } from "./commands/DeleteSdiSourceCommand";
+import type { DeleteSignalMapCommandInput, DeleteSignalMapCommandOutput } from "./commands/DeleteSignalMapCommand";
+import type { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import type {
   DescribeAccountConfigurationCommandInput,
   DescribeAccountConfigurationCommandOutput,
 } from "./commands/DescribeAccountConfigurationCommand";
-import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
-import {
+import type { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
+import type {
   DescribeChannelPlacementGroupCommandInput,
   DescribeChannelPlacementGroupCommandOutput,
 } from "./commands/DescribeChannelPlacementGroupCommand";
-import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
-import { DescribeInputCommandInput, DescribeInputCommandOutput } from "./commands/DescribeInputCommand";
-import {
+import type { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
+import type { DescribeInputCommandInput, DescribeInputCommandOutput } from "./commands/DescribeInputCommand";
+import type {
   DescribeInputDeviceCommandInput,
   DescribeInputDeviceCommandOutput,
 } from "./commands/DescribeInputDeviceCommand";
-import {
+import type {
   DescribeInputDeviceThumbnailCommandInput,
   DescribeInputDeviceThumbnailCommandOutput,
 } from "./commands/DescribeInputDeviceThumbnailCommand";
-import {
+import type {
   DescribeInputSecurityGroupCommandInput,
   DescribeInputSecurityGroupCommandOutput,
 } from "./commands/DescribeInputSecurityGroupCommand";
-import { DescribeMultiplexCommandInput, DescribeMultiplexCommandOutput } from "./commands/DescribeMultiplexCommand";
-import {
+import type {
+  DescribeMultiplexCommandInput,
+  DescribeMultiplexCommandOutput,
+} from "./commands/DescribeMultiplexCommand";
+import type {
   DescribeMultiplexProgramCommandInput,
   DescribeMultiplexProgramCommandOutput,
 } from "./commands/DescribeMultiplexProgramCommand";
-import { DescribeNetworkCommandInput, DescribeNetworkCommandOutput } from "./commands/DescribeNetworkCommand";
-import { DescribeNodeCommandInput, DescribeNodeCommandOutput } from "./commands/DescribeNodeCommand";
-import { DescribeOfferingCommandInput, DescribeOfferingCommandOutput } from "./commands/DescribeOfferingCommand";
-import {
+import type { DescribeNetworkCommandInput, DescribeNetworkCommandOutput } from "./commands/DescribeNetworkCommand";
+import type { DescribeNodeCommandInput, DescribeNodeCommandOutput } from "./commands/DescribeNodeCommand";
+import type { DescribeOfferingCommandInput, DescribeOfferingCommandOutput } from "./commands/DescribeOfferingCommand";
+import type {
   DescribeReservationCommandInput,
   DescribeReservationCommandOutput,
 } from "./commands/DescribeReservationCommand";
-import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand";
-import { DescribeSdiSourceCommandInput, DescribeSdiSourceCommandOutput } from "./commands/DescribeSdiSourceCommand";
-import { DescribeThumbnailsCommandInput, DescribeThumbnailsCommandOutput } from "./commands/DescribeThumbnailsCommand";
-import {
+import type { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand";
+import type {
+  DescribeSdiSourceCommandInput,
+  DescribeSdiSourceCommandOutput,
+} from "./commands/DescribeSdiSourceCommand";
+import type {
+  DescribeThumbnailsCommandInput,
+  DescribeThumbnailsCommandOutput,
+} from "./commands/DescribeThumbnailsCommand";
+import type {
   GetCloudWatchAlarmTemplateCommandInput,
   GetCloudWatchAlarmTemplateCommandOutput,
 } from "./commands/GetCloudWatchAlarmTemplateCommand";
-import {
+import type {
   GetCloudWatchAlarmTemplateGroupCommandInput,
   GetCloudWatchAlarmTemplateGroupCommandOutput,
 } from "./commands/GetCloudWatchAlarmTemplateGroupCommand";
-import {
+import type {
   GetEventBridgeRuleTemplateCommandInput,
   GetEventBridgeRuleTemplateCommandOutput,
 } from "./commands/GetEventBridgeRuleTemplateCommand";
-import {
+import type {
   GetEventBridgeRuleTemplateGroupCommandInput,
   GetEventBridgeRuleTemplateGroupCommandOutput,
 } from "./commands/GetEventBridgeRuleTemplateGroupCommand";
-import { GetSignalMapCommandInput, GetSignalMapCommandOutput } from "./commands/GetSignalMapCommand";
-import { ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
-import {
+import type { GetSignalMapCommandInput, GetSignalMapCommandOutput } from "./commands/GetSignalMapCommand";
+import type { ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
+import type {
   ListChannelPlacementGroupsCommandInput,
   ListChannelPlacementGroupsCommandOutput,
 } from "./commands/ListChannelPlacementGroupsCommand";
-import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
-import {
+import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import type {
   ListCloudWatchAlarmTemplateGroupsCommandInput,
   ListCloudWatchAlarmTemplateGroupsCommandOutput,
 } from "./commands/ListCloudWatchAlarmTemplateGroupsCommand";
-import {
+import type {
   ListCloudWatchAlarmTemplatesCommandInput,
   ListCloudWatchAlarmTemplatesCommandOutput,
 } from "./commands/ListCloudWatchAlarmTemplatesCommand";
-import { ListClusterAlertsCommandInput, ListClusterAlertsCommandOutput } from "./commands/ListClusterAlertsCommand";
-import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
-import {
+import type {
+  ListClusterAlertsCommandInput,
+  ListClusterAlertsCommandOutput,
+} from "./commands/ListClusterAlertsCommand";
+import type { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
+import type {
   ListEventBridgeRuleTemplateGroupsCommandInput,
   ListEventBridgeRuleTemplateGroupsCommandOutput,
 } from "./commands/ListEventBridgeRuleTemplateGroupsCommand";
-import {
+import type {
   ListEventBridgeRuleTemplatesCommandInput,
   ListEventBridgeRuleTemplatesCommandOutput,
 } from "./commands/ListEventBridgeRuleTemplatesCommand";
-import { ListInputDevicesCommandInput, ListInputDevicesCommandOutput } from "./commands/ListInputDevicesCommand";
-import {
+import type { ListInputDevicesCommandInput, ListInputDevicesCommandOutput } from "./commands/ListInputDevicesCommand";
+import type {
   ListInputDeviceTransfersCommandInput,
   ListInputDeviceTransfersCommandOutput,
 } from "./commands/ListInputDeviceTransfersCommand";
-import { ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
-import {
+import type { ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
+import type {
   ListInputSecurityGroupsCommandInput,
   ListInputSecurityGroupsCommandOutput,
 } from "./commands/ListInputSecurityGroupsCommand";
-import {
+import type {
   ListMultiplexAlertsCommandInput,
   ListMultiplexAlertsCommandOutput,
 } from "./commands/ListMultiplexAlertsCommand";
-import { ListMultiplexesCommandInput, ListMultiplexesCommandOutput } from "./commands/ListMultiplexesCommand";
-import {
+import type { ListMultiplexesCommandInput, ListMultiplexesCommandOutput } from "./commands/ListMultiplexesCommand";
+import type {
   ListMultiplexProgramsCommandInput,
   ListMultiplexProgramsCommandOutput,
 } from "./commands/ListMultiplexProgramsCommand";
-import { ListNetworksCommandInput, ListNetworksCommandOutput } from "./commands/ListNetworksCommand";
-import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
-import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand";
-import { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
-import { ListSdiSourcesCommandInput, ListSdiSourcesCommandOutput } from "./commands/ListSdiSourcesCommand";
-import { ListSignalMapsCommandInput, ListSignalMapsCommandOutput } from "./commands/ListSignalMapsCommand";
-import {
+import type { ListNetworksCommandInput, ListNetworksCommandOutput } from "./commands/ListNetworksCommand";
+import type { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import type { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand";
+import type { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
+import type { ListSdiSourcesCommandInput, ListSdiSourcesCommandOutput } from "./commands/ListSdiSourcesCommand";
+import type { ListSignalMapsCommandInput, ListSignalMapsCommandOutput } from "./commands/ListSignalMapsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/ListVersionsCommand";
-import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
-import { RebootInputDeviceCommandInput, RebootInputDeviceCommandOutput } from "./commands/RebootInputDeviceCommand";
-import {
+import type { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/ListVersionsCommand";
+import type { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
+import type {
+  RebootInputDeviceCommandInput,
+  RebootInputDeviceCommandOutput,
+} from "./commands/RebootInputDeviceCommand";
+import type {
   RejectInputDeviceTransferCommandInput,
   RejectInputDeviceTransferCommandOutput,
 } from "./commands/RejectInputDeviceTransferCommand";
-import {
+import type {
   RestartChannelPipelinesCommandInput,
   RestartChannelPipelinesCommandOutput,
 } from "./commands/RestartChannelPipelinesCommand";
-import { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand";
-import {
+import type { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand";
+import type {
   StartDeleteMonitorDeploymentCommandInput,
   StartDeleteMonitorDeploymentCommandOutput,
 } from "./commands/StartDeleteMonitorDeploymentCommand";
-import { StartInputDeviceCommandInput, StartInputDeviceCommandOutput } from "./commands/StartInputDeviceCommand";
-import {
+import type { StartInputDeviceCommandInput, StartInputDeviceCommandOutput } from "./commands/StartInputDeviceCommand";
+import type {
   StartInputDeviceMaintenanceWindowCommandInput,
   StartInputDeviceMaintenanceWindowCommandOutput,
 } from "./commands/StartInputDeviceMaintenanceWindowCommand";
-import {
+import type {
   StartMonitorDeploymentCommandInput,
   StartMonitorDeploymentCommandOutput,
 } from "./commands/StartMonitorDeploymentCommand";
-import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "./commands/StartMultiplexCommand";
-import {
+import type { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "./commands/StartMultiplexCommand";
+import type {
   StartUpdateSignalMapCommandInput,
   StartUpdateSignalMapCommandOutput,
 } from "./commands/StartUpdateSignalMapCommand";
-import { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
-import { StopInputDeviceCommandInput, StopInputDeviceCommandOutput } from "./commands/StopInputDeviceCommand";
-import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "./commands/StopMultiplexCommand";
-import {
+import type { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
+import type { StopInputDeviceCommandInput, StopInputDeviceCommandOutput } from "./commands/StopInputDeviceCommand";
+import type { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "./commands/StopMultiplexCommand";
+import type {
   TransferInputDeviceCommandInput,
   TransferInputDeviceCommandOutput,
 } from "./commands/TransferInputDeviceCommand";
-import {
+import type {
   UpdateAccountConfigurationCommandInput,
   UpdateAccountConfigurationCommandOutput,
 } from "./commands/UpdateAccountConfigurationCommand";
-import { UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput } from "./commands/UpdateChannelClassCommand";
-import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
-import {
+import type {
+  UpdateChannelClassCommandInput,
+  UpdateChannelClassCommandOutput,
+} from "./commands/UpdateChannelClassCommand";
+import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import type {
   UpdateChannelPlacementGroupCommandInput,
   UpdateChannelPlacementGroupCommandOutput,
 } from "./commands/UpdateChannelPlacementGroupCommand";
-import {
+import type {
   UpdateCloudWatchAlarmTemplateCommandInput,
   UpdateCloudWatchAlarmTemplateCommandOutput,
 } from "./commands/UpdateCloudWatchAlarmTemplateCommand";
-import {
+import type {
   UpdateCloudWatchAlarmTemplateGroupCommandInput,
   UpdateCloudWatchAlarmTemplateGroupCommandOutput,
 } from "./commands/UpdateCloudWatchAlarmTemplateGroupCommand";
-import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
-import {
+import type { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
+import type {
   UpdateEventBridgeRuleTemplateCommandInput,
   UpdateEventBridgeRuleTemplateCommandOutput,
 } from "./commands/UpdateEventBridgeRuleTemplateCommand";
-import {
+import type {
   UpdateEventBridgeRuleTemplateGroupCommandInput,
   UpdateEventBridgeRuleTemplateGroupCommandOutput,
 } from "./commands/UpdateEventBridgeRuleTemplateGroupCommand";
-import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
-import { UpdateInputDeviceCommandInput, UpdateInputDeviceCommandOutput } from "./commands/UpdateInputDeviceCommand";
-import {
+import type { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
+import type {
+  UpdateInputDeviceCommandInput,
+  UpdateInputDeviceCommandOutput,
+} from "./commands/UpdateInputDeviceCommand";
+import type {
   UpdateInputSecurityGroupCommandInput,
   UpdateInputSecurityGroupCommandOutput,
 } from "./commands/UpdateInputSecurityGroupCommand";
-import { UpdateMultiplexCommandInput, UpdateMultiplexCommandOutput } from "./commands/UpdateMultiplexCommand";
-import {
+import type { UpdateMultiplexCommandInput, UpdateMultiplexCommandOutput } from "./commands/UpdateMultiplexCommand";
+import type {
   UpdateMultiplexProgramCommandInput,
   UpdateMultiplexProgramCommandOutput,
 } from "./commands/UpdateMultiplexProgramCommand";
-import { UpdateNetworkCommandInput, UpdateNetworkCommandOutput } from "./commands/UpdateNetworkCommand";
-import { UpdateNodeCommandInput, UpdateNodeCommandOutput } from "./commands/UpdateNodeCommand";
-import { UpdateNodeStateCommandInput, UpdateNodeStateCommandOutput } from "./commands/UpdateNodeStateCommand";
-import { UpdateReservationCommandInput, UpdateReservationCommandOutput } from "./commands/UpdateReservationCommand";
-import { UpdateSdiSourceCommandInput, UpdateSdiSourceCommandOutput } from "./commands/UpdateSdiSourceCommand";
+import type { UpdateNetworkCommandInput, UpdateNetworkCommandOutput } from "./commands/UpdateNetworkCommand";
+import type { UpdateNodeCommandInput, UpdateNodeCommandOutput } from "./commands/UpdateNodeCommand";
+import type { UpdateNodeStateCommandInput, UpdateNodeStateCommandOutput } from "./commands/UpdateNodeStateCommand";
+import type {
+  UpdateReservationCommandInput,
+  UpdateReservationCommandOutput,
+} from "./commands/UpdateReservationCommand";
+import type { UpdateSdiSourceCommandInput, UpdateSdiSourceCommandOutput } from "./commands/UpdateSdiSourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -730,7 +758,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

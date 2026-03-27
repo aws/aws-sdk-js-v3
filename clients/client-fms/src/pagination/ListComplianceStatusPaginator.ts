@@ -8,7 +8,7 @@ import {
   ListComplianceStatusCommandOutput,
 } from "../commands/ListComplianceStatusCommand";
 import { FMSClient } from "../FMSClient";
-import { FMSPaginationConfiguration } from "./Interfaces";
+import type { FMSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

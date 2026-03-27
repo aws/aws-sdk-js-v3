@@ -8,7 +8,7 @@ import {
   ListDataQualityRulesetEvaluationRunsCommandOutput,
 } from "../commands/ListDataQualityRulesetEvaluationRunsCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,181 +61,205 @@ import {
   defaultForecastHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateAutoPredictorCommandInput,
   CreateAutoPredictorCommandOutput,
 } from "./commands/CreateAutoPredictorCommand";
-import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
-import { CreateDatasetGroupCommandInput, CreateDatasetGroupCommandOutput } from "./commands/CreateDatasetGroupCommand";
-import {
+import type { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import type {
+  CreateDatasetGroupCommandInput,
+  CreateDatasetGroupCommandOutput,
+} from "./commands/CreateDatasetGroupCommand";
+import type {
   CreateDatasetImportJobCommandInput,
   CreateDatasetImportJobCommandOutput,
 } from "./commands/CreateDatasetImportJobCommand";
-import {
+import type {
   CreateExplainabilityCommandInput,
   CreateExplainabilityCommandOutput,
 } from "./commands/CreateExplainabilityCommand";
-import {
+import type {
   CreateExplainabilityExportCommandInput,
   CreateExplainabilityExportCommandOutput,
 } from "./commands/CreateExplainabilityExportCommand";
-import { CreateForecastCommandInput, CreateForecastCommandOutput } from "./commands/CreateForecastCommand";
-import {
+import type { CreateForecastCommandInput, CreateForecastCommandOutput } from "./commands/CreateForecastCommand";
+import type {
   CreateForecastExportJobCommandInput,
   CreateForecastExportJobCommandOutput,
 } from "./commands/CreateForecastExportJobCommand";
-import { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "./commands/CreateMonitorCommand";
-import {
+import type { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "./commands/CreateMonitorCommand";
+import type {
   CreatePredictorBacktestExportJobCommandInput,
   CreatePredictorBacktestExportJobCommandOutput,
 } from "./commands/CreatePredictorBacktestExportJobCommand";
-import { CreatePredictorCommandInput, CreatePredictorCommandOutput } from "./commands/CreatePredictorCommand";
-import {
+import type { CreatePredictorCommandInput, CreatePredictorCommandOutput } from "./commands/CreatePredictorCommand";
+import type {
   CreateWhatIfAnalysisCommandInput,
   CreateWhatIfAnalysisCommandOutput,
 } from "./commands/CreateWhatIfAnalysisCommand";
-import {
+import type {
   CreateWhatIfForecastCommandInput,
   CreateWhatIfForecastCommandOutput,
 } from "./commands/CreateWhatIfForecastCommand";
-import {
+import type {
   CreateWhatIfForecastExportCommandInput,
   CreateWhatIfForecastExportCommandOutput,
 } from "./commands/CreateWhatIfForecastExportCommand";
-import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
-import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "./commands/DeleteDatasetGroupCommand";
-import {
+import type { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import type {
+  DeleteDatasetGroupCommandInput,
+  DeleteDatasetGroupCommandOutput,
+} from "./commands/DeleteDatasetGroupCommand";
+import type {
   DeleteDatasetImportJobCommandInput,
   DeleteDatasetImportJobCommandOutput,
 } from "./commands/DeleteDatasetImportJobCommand";
-import {
+import type {
   DeleteExplainabilityCommandInput,
   DeleteExplainabilityCommandOutput,
 } from "./commands/DeleteExplainabilityCommand";
-import {
+import type {
   DeleteExplainabilityExportCommandInput,
   DeleteExplainabilityExportCommandOutput,
 } from "./commands/DeleteExplainabilityExportCommand";
-import { DeleteForecastCommandInput, DeleteForecastCommandOutput } from "./commands/DeleteForecastCommand";
-import {
+import type { DeleteForecastCommandInput, DeleteForecastCommandOutput } from "./commands/DeleteForecastCommand";
+import type {
   DeleteForecastExportJobCommandInput,
   DeleteForecastExportJobCommandOutput,
 } from "./commands/DeleteForecastExportJobCommand";
-import { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "./commands/DeleteMonitorCommand";
-import {
+import type { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "./commands/DeleteMonitorCommand";
+import type {
   DeletePredictorBacktestExportJobCommandInput,
   DeletePredictorBacktestExportJobCommandOutput,
 } from "./commands/DeletePredictorBacktestExportJobCommand";
-import { DeletePredictorCommandInput, DeletePredictorCommandOutput } from "./commands/DeletePredictorCommand";
-import { DeleteResourceTreeCommandInput, DeleteResourceTreeCommandOutput } from "./commands/DeleteResourceTreeCommand";
-import {
+import type { DeletePredictorCommandInput, DeletePredictorCommandOutput } from "./commands/DeletePredictorCommand";
+import type {
+  DeleteResourceTreeCommandInput,
+  DeleteResourceTreeCommandOutput,
+} from "./commands/DeleteResourceTreeCommand";
+import type {
   DeleteWhatIfAnalysisCommandInput,
   DeleteWhatIfAnalysisCommandOutput,
 } from "./commands/DeleteWhatIfAnalysisCommand";
-import {
+import type {
   DeleteWhatIfForecastCommandInput,
   DeleteWhatIfForecastCommandOutput,
 } from "./commands/DeleteWhatIfForecastCommand";
-import {
+import type {
   DeleteWhatIfForecastExportCommandInput,
   DeleteWhatIfForecastExportCommandOutput,
 } from "./commands/DeleteWhatIfForecastExportCommand";
-import {
+import type {
   DescribeAutoPredictorCommandInput,
   DescribeAutoPredictorCommandOutput,
 } from "./commands/DescribeAutoPredictorCommand";
-import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
-import {
+import type { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
+import type {
   DescribeDatasetGroupCommandInput,
   DescribeDatasetGroupCommandOutput,
 } from "./commands/DescribeDatasetGroupCommand";
-import {
+import type {
   DescribeDatasetImportJobCommandInput,
   DescribeDatasetImportJobCommandOutput,
 } from "./commands/DescribeDatasetImportJobCommand";
-import {
+import type {
   DescribeExplainabilityCommandInput,
   DescribeExplainabilityCommandOutput,
 } from "./commands/DescribeExplainabilityCommand";
-import {
+import type {
   DescribeExplainabilityExportCommandInput,
   DescribeExplainabilityExportCommandOutput,
 } from "./commands/DescribeExplainabilityExportCommand";
-import { DescribeForecastCommandInput, DescribeForecastCommandOutput } from "./commands/DescribeForecastCommand";
-import {
+import type { DescribeForecastCommandInput, DescribeForecastCommandOutput } from "./commands/DescribeForecastCommand";
+import type {
   DescribeForecastExportJobCommandInput,
   DescribeForecastExportJobCommandOutput,
 } from "./commands/DescribeForecastExportJobCommand";
-import { DescribeMonitorCommandInput, DescribeMonitorCommandOutput } from "./commands/DescribeMonitorCommand";
-import {
+import type { DescribeMonitorCommandInput, DescribeMonitorCommandOutput } from "./commands/DescribeMonitorCommand";
+import type {
   DescribePredictorBacktestExportJobCommandInput,
   DescribePredictorBacktestExportJobCommandOutput,
 } from "./commands/DescribePredictorBacktestExportJobCommand";
-import { DescribePredictorCommandInput, DescribePredictorCommandOutput } from "./commands/DescribePredictorCommand";
-import {
+import type {
+  DescribePredictorCommandInput,
+  DescribePredictorCommandOutput,
+} from "./commands/DescribePredictorCommand";
+import type {
   DescribeWhatIfAnalysisCommandInput,
   DescribeWhatIfAnalysisCommandOutput,
 } from "./commands/DescribeWhatIfAnalysisCommand";
-import {
+import type {
   DescribeWhatIfForecastCommandInput,
   DescribeWhatIfForecastCommandOutput,
 } from "./commands/DescribeWhatIfForecastCommand";
-import {
+import type {
   DescribeWhatIfForecastExportCommandInput,
   DescribeWhatIfForecastExportCommandOutput,
 } from "./commands/DescribeWhatIfForecastExportCommand";
-import { GetAccuracyMetricsCommandInput, GetAccuracyMetricsCommandOutput } from "./commands/GetAccuracyMetricsCommand";
-import { ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput } from "./commands/ListDatasetGroupsCommand";
-import {
+import type {
+  GetAccuracyMetricsCommandInput,
+  GetAccuracyMetricsCommandOutput,
+} from "./commands/GetAccuracyMetricsCommand";
+import type {
+  ListDatasetGroupsCommandInput,
+  ListDatasetGroupsCommandOutput,
+} from "./commands/ListDatasetGroupsCommand";
+import type {
   ListDatasetImportJobsCommandInput,
   ListDatasetImportJobsCommandOutput,
 } from "./commands/ListDatasetImportJobsCommand";
-import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
-import {
+import type { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import type {
   ListExplainabilitiesCommandInput,
   ListExplainabilitiesCommandOutput,
 } from "./commands/ListExplainabilitiesCommand";
-import {
+import type {
   ListExplainabilityExportsCommandInput,
   ListExplainabilityExportsCommandOutput,
 } from "./commands/ListExplainabilityExportsCommand";
-import {
+import type {
   ListForecastExportJobsCommandInput,
   ListForecastExportJobsCommandOutput,
 } from "./commands/ListForecastExportJobsCommand";
-import { ListForecastsCommandInput, ListForecastsCommandOutput } from "./commands/ListForecastsCommand";
-import {
+import type { ListForecastsCommandInput, ListForecastsCommandOutput } from "./commands/ListForecastsCommand";
+import type {
   ListMonitorEvaluationsCommandInput,
   ListMonitorEvaluationsCommandOutput,
 } from "./commands/ListMonitorEvaluationsCommand";
-import { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "./commands/ListMonitorsCommand";
-import {
+import type { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "./commands/ListMonitorsCommand";
+import type {
   ListPredictorBacktestExportJobsCommandInput,
   ListPredictorBacktestExportJobsCommandOutput,
 } from "./commands/ListPredictorBacktestExportJobsCommand";
-import { ListPredictorsCommandInput, ListPredictorsCommandOutput } from "./commands/ListPredictorsCommand";
-import {
+import type { ListPredictorsCommandInput, ListPredictorsCommandOutput } from "./commands/ListPredictorsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListWhatIfAnalysesCommandInput, ListWhatIfAnalysesCommandOutput } from "./commands/ListWhatIfAnalysesCommand";
-import {
+import type {
+  ListWhatIfAnalysesCommandInput,
+  ListWhatIfAnalysesCommandOutput,
+} from "./commands/ListWhatIfAnalysesCommand";
+import type {
   ListWhatIfForecastExportsCommandInput,
   ListWhatIfForecastExportsCommandOutput,
 } from "./commands/ListWhatIfForecastExportsCommand";
-import {
+import type {
   ListWhatIfForecastsCommandInput,
   ListWhatIfForecastsCommandOutput,
 } from "./commands/ListWhatIfForecastsCommand";
-import { ResumeResourceCommandInput, ResumeResourceCommandOutput } from "./commands/ResumeResourceCommand";
-import { StopResourceCommandInput, StopResourceCommandOutput } from "./commands/StopResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateDatasetGroupCommandInput, UpdateDatasetGroupCommandOutput } from "./commands/UpdateDatasetGroupCommand";
+import type { ResumeResourceCommandInput, ResumeResourceCommandOutput } from "./commands/ResumeResourceCommand";
+import type { StopResourceCommandInput, StopResourceCommandOutput } from "./commands/StopResourceCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateDatasetGroupCommandInput,
+  UpdateDatasetGroupCommandOutput,
+} from "./commands/UpdateDatasetGroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -495,7 +517,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

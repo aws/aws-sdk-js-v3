@@ -8,7 +8,7 @@ import {
   ListJobTemplatesCommandOutput,
 } from "../commands/ListJobTemplatesCommand";
 import { MediaConvertClient } from "../MediaConvertClient";
-import { MediaConvertPaginationConfiguration } from "./Interfaces";
+import type { MediaConvertPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListAssistantsCommandOutput,
 } from "../commands/ListAssistantsCommand";
 import { WisdomClient } from "../WisdomClient";
-import { WisdomPaginationConfiguration } from "./Interfaces";
+import type { WisdomPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

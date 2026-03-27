@@ -8,7 +8,7 @@
  */
 export * from "./FisClient";
 export * from "./Fis";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { FisExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

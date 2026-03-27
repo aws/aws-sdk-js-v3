@@ -8,7 +8,7 @@ import {
   ListTrafficDistributionGroupsCommandOutput,
 } from "../commands/ListTrafficDistributionGroupsCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

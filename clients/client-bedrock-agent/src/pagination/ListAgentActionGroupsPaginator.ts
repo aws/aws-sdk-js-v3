@@ -8,7 +8,7 @@ import {
   ListAgentActionGroupsCommandInput,
   ListAgentActionGroupsCommandOutput,
 } from "../commands/ListAgentActionGroupsCommand";
-import { BedrockAgentPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

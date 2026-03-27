@@ -8,7 +8,7 @@ import {
   DescribeSpotInstanceRequestsCommandOutput,
 } from "../commands/DescribeSpotInstanceRequestsCommand";
 import { EC2Client } from "../EC2Client";
-import { EC2PaginationConfiguration } from "./Interfaces";
+import type { EC2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

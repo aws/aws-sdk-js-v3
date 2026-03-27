@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CodeartifactServiceException as __BaseException } from "./CodeartifactServiceException";
-import { ResourceType, ValidationExceptionReason } from "./enums";
+import type { ResourceType, ValidationExceptionReason } from "./enums";
 
 /**
  * <p>

@@ -8,7 +8,7 @@ import {
   ListSourceServerActionsCommandOutput,
 } from "../commands/ListSourceServerActionsCommand";
 import { MgnClient } from "../MgnClient";
-import { MgnPaginationConfiguration } from "./Interfaces";
+import type { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

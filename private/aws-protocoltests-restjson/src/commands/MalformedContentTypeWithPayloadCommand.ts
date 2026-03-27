@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MalformedContentTypeWithPayloadInput } from "../models/models_0";
+import type { MalformedContentTypeWithPayloadInput } from "../models/models_0";
 import {
   de_MalformedContentTypeWithPayloadCommand,
   se_MalformedContentTypeWithPayloadCommand,

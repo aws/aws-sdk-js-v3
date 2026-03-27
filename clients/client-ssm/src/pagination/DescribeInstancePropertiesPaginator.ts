@@ -8,7 +8,7 @@ import {
   DescribeInstancePropertiesCommandOutput,
 } from "../commands/DescribeInstancePropertiesCommand";
 import { SSMClient } from "../SSMClient";
-import { SSMPaginationConfiguration } from "./Interfaces";
+import type { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -84,7 +84,7 @@
  */
 export * from "./MWAAClient";
 export * from "./MWAA";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MWAAExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

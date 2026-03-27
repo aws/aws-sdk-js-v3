@@ -3,90 +3,94 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateConnectorCommandInput,
+  type CreateConnectorCommandOutput,
   CreateConnectorCommand,
-  CreateConnectorCommandInput,
-  CreateConnectorCommandOutput,
 } from "./commands/CreateConnectorCommand";
 import {
+  type CreateCustomPluginCommandInput,
+  type CreateCustomPluginCommandOutput,
   CreateCustomPluginCommand,
-  CreateCustomPluginCommandInput,
-  CreateCustomPluginCommandOutput,
 } from "./commands/CreateCustomPluginCommand";
 import {
+  type CreateWorkerConfigurationCommandInput,
+  type CreateWorkerConfigurationCommandOutput,
   CreateWorkerConfigurationCommand,
-  CreateWorkerConfigurationCommandInput,
-  CreateWorkerConfigurationCommandOutput,
 } from "./commands/CreateWorkerConfigurationCommand";
 import {
+  type DeleteConnectorCommandInput,
+  type DeleteConnectorCommandOutput,
   DeleteConnectorCommand,
-  DeleteConnectorCommandInput,
-  DeleteConnectorCommandOutput,
 } from "./commands/DeleteConnectorCommand";
 import {
+  type DeleteCustomPluginCommandInput,
+  type DeleteCustomPluginCommandOutput,
   DeleteCustomPluginCommand,
-  DeleteCustomPluginCommandInput,
-  DeleteCustomPluginCommandOutput,
 } from "./commands/DeleteCustomPluginCommand";
 import {
+  type DeleteWorkerConfigurationCommandInput,
+  type DeleteWorkerConfigurationCommandOutput,
   DeleteWorkerConfigurationCommand,
-  DeleteWorkerConfigurationCommandInput,
-  DeleteWorkerConfigurationCommandOutput,
 } from "./commands/DeleteWorkerConfigurationCommand";
 import {
+  type DescribeConnectorCommandInput,
+  type DescribeConnectorCommandOutput,
   DescribeConnectorCommand,
-  DescribeConnectorCommandInput,
-  DescribeConnectorCommandOutput,
 } from "./commands/DescribeConnectorCommand";
 import {
+  type DescribeConnectorOperationCommandInput,
+  type DescribeConnectorOperationCommandOutput,
   DescribeConnectorOperationCommand,
-  DescribeConnectorOperationCommandInput,
-  DescribeConnectorOperationCommandOutput,
 } from "./commands/DescribeConnectorOperationCommand";
 import {
+  type DescribeCustomPluginCommandInput,
+  type DescribeCustomPluginCommandOutput,
   DescribeCustomPluginCommand,
-  DescribeCustomPluginCommandInput,
-  DescribeCustomPluginCommandOutput,
 } from "./commands/DescribeCustomPluginCommand";
 import {
+  type DescribeWorkerConfigurationCommandInput,
+  type DescribeWorkerConfigurationCommandOutput,
   DescribeWorkerConfigurationCommand,
-  DescribeWorkerConfigurationCommandInput,
-  DescribeWorkerConfigurationCommandOutput,
 } from "./commands/DescribeWorkerConfigurationCommand";
 import {
+  type ListConnectorOperationsCommandInput,
+  type ListConnectorOperationsCommandOutput,
   ListConnectorOperationsCommand,
-  ListConnectorOperationsCommandInput,
-  ListConnectorOperationsCommandOutput,
 } from "./commands/ListConnectorOperationsCommand";
 import {
+  type ListConnectorsCommandInput,
+  type ListConnectorsCommandOutput,
   ListConnectorsCommand,
-  ListConnectorsCommandInput,
-  ListConnectorsCommandOutput,
 } from "./commands/ListConnectorsCommand";
 import {
+  type ListCustomPluginsCommandInput,
+  type ListCustomPluginsCommandOutput,
   ListCustomPluginsCommand,
-  ListCustomPluginsCommandInput,
-  ListCustomPluginsCommandOutput,
 } from "./commands/ListCustomPluginsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWorkerConfigurationsCommandInput,
+  type ListWorkerConfigurationsCommandOutput,
   ListWorkerConfigurationsCommand,
-  ListWorkerConfigurationsCommandInput,
-  ListWorkerConfigurationsCommandOutput,
 } from "./commands/ListWorkerConfigurationsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateConnectorCommandInput,
+  type UpdateConnectorCommandOutput,
   UpdateConnectorCommand,
-  UpdateConnectorCommandInput,
-  UpdateConnectorCommandOutput,
 } from "./commands/UpdateConnectorCommand";
 import { KafkaConnectClient } from "./KafkaConnectClient";
 import { paginateListConnectorOperations } from "./pagination/ListConnectorOperationsPaginator";

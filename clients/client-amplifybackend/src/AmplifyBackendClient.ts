@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,68 +61,86 @@ import {
   defaultAmplifyBackendHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CloneBackendCommandInput, CloneBackendCommandOutput } from "./commands/CloneBackendCommand";
-import { CreateBackendAPICommandInput, CreateBackendAPICommandOutput } from "./commands/CreateBackendAPICommand";
-import { CreateBackendAuthCommandInput, CreateBackendAuthCommandOutput } from "./commands/CreateBackendAuthCommand";
-import { CreateBackendCommandInput, CreateBackendCommandOutput } from "./commands/CreateBackendCommand";
-import {
+import type { CloneBackendCommandInput, CloneBackendCommandOutput } from "./commands/CloneBackendCommand";
+import type { CreateBackendAPICommandInput, CreateBackendAPICommandOutput } from "./commands/CreateBackendAPICommand";
+import type {
+  CreateBackendAuthCommandInput,
+  CreateBackendAuthCommandOutput,
+} from "./commands/CreateBackendAuthCommand";
+import type { CreateBackendCommandInput, CreateBackendCommandOutput } from "./commands/CreateBackendCommand";
+import type {
   CreateBackendConfigCommandInput,
   CreateBackendConfigCommandOutput,
 } from "./commands/CreateBackendConfigCommand";
-import {
+import type {
   CreateBackendStorageCommandInput,
   CreateBackendStorageCommandOutput,
 } from "./commands/CreateBackendStorageCommand";
-import { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
-import { DeleteBackendAPICommandInput, DeleteBackendAPICommandOutput } from "./commands/DeleteBackendAPICommand";
-import { DeleteBackendAuthCommandInput, DeleteBackendAuthCommandOutput } from "./commands/DeleteBackendAuthCommand";
-import { DeleteBackendCommandInput, DeleteBackendCommandOutput } from "./commands/DeleteBackendCommand";
-import {
+import type { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
+import type { DeleteBackendAPICommandInput, DeleteBackendAPICommandOutput } from "./commands/DeleteBackendAPICommand";
+import type {
+  DeleteBackendAuthCommandInput,
+  DeleteBackendAuthCommandOutput,
+} from "./commands/DeleteBackendAuthCommand";
+import type { DeleteBackendCommandInput, DeleteBackendCommandOutput } from "./commands/DeleteBackendCommand";
+import type {
   DeleteBackendStorageCommandInput,
   DeleteBackendStorageCommandOutput,
 } from "./commands/DeleteBackendStorageCommand";
-import { DeleteTokenCommandInput, DeleteTokenCommandOutput } from "./commands/DeleteTokenCommand";
-import {
+import type { DeleteTokenCommandInput, DeleteTokenCommandOutput } from "./commands/DeleteTokenCommand";
+import type {
   GenerateBackendAPIModelsCommandInput,
   GenerateBackendAPIModelsCommandOutput,
 } from "./commands/GenerateBackendAPIModelsCommand";
-import { GetBackendAPICommandInput, GetBackendAPICommandOutput } from "./commands/GetBackendAPICommand";
-import {
+import type { GetBackendAPICommandInput, GetBackendAPICommandOutput } from "./commands/GetBackendAPICommand";
+import type {
   GetBackendAPIModelsCommandInput,
   GetBackendAPIModelsCommandOutput,
 } from "./commands/GetBackendAPIModelsCommand";
-import { GetBackendAuthCommandInput, GetBackendAuthCommandOutput } from "./commands/GetBackendAuthCommand";
-import { GetBackendCommandInput, GetBackendCommandOutput } from "./commands/GetBackendCommand";
-import { GetBackendJobCommandInput, GetBackendJobCommandOutput } from "./commands/GetBackendJobCommand";
-import { GetBackendStorageCommandInput, GetBackendStorageCommandOutput } from "./commands/GetBackendStorageCommand";
-import { GetTokenCommandInput, GetTokenCommandOutput } from "./commands/GetTokenCommand";
-import { ImportBackendAuthCommandInput, ImportBackendAuthCommandOutput } from "./commands/ImportBackendAuthCommand";
-import {
+import type { GetBackendAuthCommandInput, GetBackendAuthCommandOutput } from "./commands/GetBackendAuthCommand";
+import type { GetBackendCommandInput, GetBackendCommandOutput } from "./commands/GetBackendCommand";
+import type { GetBackendJobCommandInput, GetBackendJobCommandOutput } from "./commands/GetBackendJobCommand";
+import type {
+  GetBackendStorageCommandInput,
+  GetBackendStorageCommandOutput,
+} from "./commands/GetBackendStorageCommand";
+import type { GetTokenCommandInput, GetTokenCommandOutput } from "./commands/GetTokenCommand";
+import type {
+  ImportBackendAuthCommandInput,
+  ImportBackendAuthCommandOutput,
+} from "./commands/ImportBackendAuthCommand";
+import type {
   ImportBackendStorageCommandInput,
   ImportBackendStorageCommandOutput,
 } from "./commands/ImportBackendStorageCommand";
-import { ListBackendJobsCommandInput, ListBackendJobsCommandOutput } from "./commands/ListBackendJobsCommand";
-import { ListS3BucketsCommandInput, ListS3BucketsCommandOutput } from "./commands/ListS3BucketsCommand";
-import { RemoveAllBackendsCommandInput, RemoveAllBackendsCommandOutput } from "./commands/RemoveAllBackendsCommand";
-import {
+import type { ListBackendJobsCommandInput, ListBackendJobsCommandOutput } from "./commands/ListBackendJobsCommand";
+import type { ListS3BucketsCommandInput, ListS3BucketsCommandOutput } from "./commands/ListS3BucketsCommand";
+import type {
+  RemoveAllBackendsCommandInput,
+  RemoveAllBackendsCommandOutput,
+} from "./commands/RemoveAllBackendsCommand";
+import type {
   RemoveBackendConfigCommandInput,
   RemoveBackendConfigCommandOutput,
 } from "./commands/RemoveBackendConfigCommand";
-import { UpdateBackendAPICommandInput, UpdateBackendAPICommandOutput } from "./commands/UpdateBackendAPICommand";
-import { UpdateBackendAuthCommandInput, UpdateBackendAuthCommandOutput } from "./commands/UpdateBackendAuthCommand";
-import {
+import type { UpdateBackendAPICommandInput, UpdateBackendAPICommandOutput } from "./commands/UpdateBackendAPICommand";
+import type {
+  UpdateBackendAuthCommandInput,
+  UpdateBackendAuthCommandOutput,
+} from "./commands/UpdateBackendAuthCommand";
+import type {
   UpdateBackendConfigCommandInput,
   UpdateBackendConfigCommandOutput,
 } from "./commands/UpdateBackendConfigCommand";
-import { UpdateBackendJobCommandInput, UpdateBackendJobCommandOutput } from "./commands/UpdateBackendJobCommand";
-import {
+import type { UpdateBackendJobCommandInput, UpdateBackendJobCommandOutput } from "./commands/UpdateBackendJobCommand";
+import type {
   UpdateBackendStorageCommandInput,
   UpdateBackendStorageCommandOutput,
 } from "./commands/UpdateBackendStorageCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -318,7 +334,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -3,130 +3,134 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateServiceQuotaTemplateCommandInput,
+  type AssociateServiceQuotaTemplateCommandOutput,
   AssociateServiceQuotaTemplateCommand,
-  AssociateServiceQuotaTemplateCommandInput,
-  AssociateServiceQuotaTemplateCommandOutput,
 } from "./commands/AssociateServiceQuotaTemplateCommand";
 import {
+  type CreateSupportCaseCommandInput,
+  type CreateSupportCaseCommandOutput,
   CreateSupportCaseCommand,
-  CreateSupportCaseCommandInput,
-  CreateSupportCaseCommandOutput,
 } from "./commands/CreateSupportCaseCommand";
 import {
+  type DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
+  type DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
   DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
-  DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
-  DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
 } from "./commands/DeleteServiceQuotaIncreaseRequestFromTemplateCommand";
 import {
+  type DisassociateServiceQuotaTemplateCommandInput,
+  type DisassociateServiceQuotaTemplateCommandOutput,
   DisassociateServiceQuotaTemplateCommand,
-  DisassociateServiceQuotaTemplateCommandInput,
-  DisassociateServiceQuotaTemplateCommandOutput,
 } from "./commands/DisassociateServiceQuotaTemplateCommand";
 import {
+  type GetAssociationForServiceQuotaTemplateCommandInput,
+  type GetAssociationForServiceQuotaTemplateCommandOutput,
   GetAssociationForServiceQuotaTemplateCommand,
-  GetAssociationForServiceQuotaTemplateCommandInput,
-  GetAssociationForServiceQuotaTemplateCommandOutput,
 } from "./commands/GetAssociationForServiceQuotaTemplateCommand";
 import {
+  type GetAutoManagementConfigurationCommandInput,
+  type GetAutoManagementConfigurationCommandOutput,
   GetAutoManagementConfigurationCommand,
-  GetAutoManagementConfigurationCommandInput,
-  GetAutoManagementConfigurationCommandOutput,
 } from "./commands/GetAutoManagementConfigurationCommand";
 import {
+  type GetAWSDefaultServiceQuotaCommandInput,
+  type GetAWSDefaultServiceQuotaCommandOutput,
   GetAWSDefaultServiceQuotaCommand,
-  GetAWSDefaultServiceQuotaCommandInput,
-  GetAWSDefaultServiceQuotaCommandOutput,
 } from "./commands/GetAWSDefaultServiceQuotaCommand";
 import {
+  type GetQuotaUtilizationReportCommandInput,
+  type GetQuotaUtilizationReportCommandOutput,
   GetQuotaUtilizationReportCommand,
-  GetQuotaUtilizationReportCommandInput,
-  GetQuotaUtilizationReportCommandOutput,
 } from "./commands/GetQuotaUtilizationReportCommand";
 import {
+  type GetRequestedServiceQuotaChangeCommandInput,
+  type GetRequestedServiceQuotaChangeCommandOutput,
   GetRequestedServiceQuotaChangeCommand,
-  GetRequestedServiceQuotaChangeCommandInput,
-  GetRequestedServiceQuotaChangeCommandOutput,
 } from "./commands/GetRequestedServiceQuotaChangeCommand";
 import {
+  type GetServiceQuotaCommandInput,
+  type GetServiceQuotaCommandOutput,
   GetServiceQuotaCommand,
-  GetServiceQuotaCommandInput,
-  GetServiceQuotaCommandOutput,
 } from "./commands/GetServiceQuotaCommand";
 import {
+  type GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
+  type GetServiceQuotaIncreaseRequestFromTemplateCommandOutput,
   GetServiceQuotaIncreaseRequestFromTemplateCommand,
-  GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
-  GetServiceQuotaIncreaseRequestFromTemplateCommandOutput,
 } from "./commands/GetServiceQuotaIncreaseRequestFromTemplateCommand";
 import {
+  type ListAWSDefaultServiceQuotasCommandInput,
+  type ListAWSDefaultServiceQuotasCommandOutput,
   ListAWSDefaultServiceQuotasCommand,
-  ListAWSDefaultServiceQuotasCommandInput,
-  ListAWSDefaultServiceQuotasCommandOutput,
 } from "./commands/ListAWSDefaultServiceQuotasCommand";
 import {
+  type ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
+  type ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput,
   ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
-  ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
-  ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput,
 } from "./commands/ListRequestedServiceQuotaChangeHistoryByQuotaCommand";
 import {
+  type ListRequestedServiceQuotaChangeHistoryCommandInput,
+  type ListRequestedServiceQuotaChangeHistoryCommandOutput,
   ListRequestedServiceQuotaChangeHistoryCommand,
-  ListRequestedServiceQuotaChangeHistoryCommandInput,
-  ListRequestedServiceQuotaChangeHistoryCommandOutput,
 } from "./commands/ListRequestedServiceQuotaChangeHistoryCommand";
 import {
+  type ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
+  type ListServiceQuotaIncreaseRequestsInTemplateCommandOutput,
   ListServiceQuotaIncreaseRequestsInTemplateCommand,
-  ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
-  ListServiceQuotaIncreaseRequestsInTemplateCommandOutput,
 } from "./commands/ListServiceQuotaIncreaseRequestsInTemplateCommand";
 import {
+  type ListServiceQuotasCommandInput,
+  type ListServiceQuotasCommandOutput,
   ListServiceQuotasCommand,
-  ListServiceQuotasCommandInput,
-  ListServiceQuotasCommandOutput,
 } from "./commands/ListServiceQuotasCommand";
 import {
+  type ListServicesCommandInput,
+  type ListServicesCommandOutput,
   ListServicesCommand,
-  ListServicesCommandInput,
-  ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
+  type PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput,
   PutServiceQuotaIncreaseRequestIntoTemplateCommand,
-  PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
-  PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput,
 } from "./commands/PutServiceQuotaIncreaseRequestIntoTemplateCommand";
 import {
+  type RequestServiceQuotaIncreaseCommandInput,
+  type RequestServiceQuotaIncreaseCommandOutput,
   RequestServiceQuotaIncreaseCommand,
-  RequestServiceQuotaIncreaseCommandInput,
-  RequestServiceQuotaIncreaseCommandOutput,
 } from "./commands/RequestServiceQuotaIncreaseCommand";
 import {
+  type StartAutoManagementCommandInput,
+  type StartAutoManagementCommandOutput,
   StartAutoManagementCommand,
-  StartAutoManagementCommandInput,
-  StartAutoManagementCommandOutput,
 } from "./commands/StartAutoManagementCommand";
 import {
+  type StartQuotaUtilizationReportCommandInput,
+  type StartQuotaUtilizationReportCommandOutput,
   StartQuotaUtilizationReportCommand,
-  StartQuotaUtilizationReportCommandInput,
-  StartQuotaUtilizationReportCommandOutput,
 } from "./commands/StartQuotaUtilizationReportCommand";
 import {
+  type StopAutoManagementCommandInput,
+  type StopAutoManagementCommandOutput,
   StopAutoManagementCommand,
-  StopAutoManagementCommandInput,
-  StopAutoManagementCommandOutput,
 } from "./commands/StopAutoManagementCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAutoManagementCommandInput,
+  type UpdateAutoManagementCommandOutput,
   UpdateAutoManagementCommand,
-  UpdateAutoManagementCommandInput,
-  UpdateAutoManagementCommandOutput,
 } from "./commands/UpdateAutoManagementCommand";
 import { paginateListAWSDefaultServiceQuotas } from "./pagination/ListAWSDefaultServiceQuotasPaginator";
 import {

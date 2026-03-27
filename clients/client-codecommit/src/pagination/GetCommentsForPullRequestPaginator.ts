@@ -8,7 +8,7 @@ import {
   GetCommentsForPullRequestCommandInput,
   GetCommentsForPullRequestCommandOutput,
 } from "../commands/GetCommentsForPullRequestCommand";
-import { CodeCommitPaginationConfiguration } from "./Interfaces";
+import type { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

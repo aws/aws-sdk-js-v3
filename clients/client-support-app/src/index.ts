@@ -60,7 +60,7 @@
  */
 export * from "./SupportAppClient";
 export * from "./SupportApp";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SupportAppExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

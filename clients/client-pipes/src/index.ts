@@ -12,7 +12,7 @@
  */
 export * from "./PipesClient";
 export * from "./Pipes";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PipesExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

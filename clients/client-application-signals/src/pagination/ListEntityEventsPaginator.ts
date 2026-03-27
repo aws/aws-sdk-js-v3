@@ -8,7 +8,7 @@ import {
   ListEntityEventsCommandInput,
   ListEntityEventsCommandOutput,
 } from "../commands/ListEntityEventsCommand";
-import { ApplicationSignalsPaginationConfiguration } from "./Interfaces";
+import type { ApplicationSignalsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

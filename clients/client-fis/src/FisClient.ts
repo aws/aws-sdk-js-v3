@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,87 +61,87 @@ import {
   defaultFisHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateExperimentTemplateCommandInput,
   CreateExperimentTemplateCommandOutput,
 } from "./commands/CreateExperimentTemplateCommand";
-import {
+import type {
   CreateTargetAccountConfigurationCommandInput,
   CreateTargetAccountConfigurationCommandOutput,
 } from "./commands/CreateTargetAccountConfigurationCommand";
-import {
+import type {
   DeleteExperimentTemplateCommandInput,
   DeleteExperimentTemplateCommandOutput,
 } from "./commands/DeleteExperimentTemplateCommand";
-import {
+import type {
   DeleteTargetAccountConfigurationCommandInput,
   DeleteTargetAccountConfigurationCommandOutput,
 } from "./commands/DeleteTargetAccountConfigurationCommand";
-import { GetActionCommandInput, GetActionCommandOutput } from "./commands/GetActionCommand";
-import { GetExperimentCommandInput, GetExperimentCommandOutput } from "./commands/GetExperimentCommand";
-import {
+import type { GetActionCommandInput, GetActionCommandOutput } from "./commands/GetActionCommand";
+import type { GetExperimentCommandInput, GetExperimentCommandOutput } from "./commands/GetExperimentCommand";
+import type {
   GetExperimentTargetAccountConfigurationCommandInput,
   GetExperimentTargetAccountConfigurationCommandOutput,
 } from "./commands/GetExperimentTargetAccountConfigurationCommand";
-import {
+import type {
   GetExperimentTemplateCommandInput,
   GetExperimentTemplateCommandOutput,
 } from "./commands/GetExperimentTemplateCommand";
-import { GetSafetyLeverCommandInput, GetSafetyLeverCommandOutput } from "./commands/GetSafetyLeverCommand";
-import {
+import type { GetSafetyLeverCommandInput, GetSafetyLeverCommandOutput } from "./commands/GetSafetyLeverCommand";
+import type {
   GetTargetAccountConfigurationCommandInput,
   GetTargetAccountConfigurationCommandOutput,
 } from "./commands/GetTargetAccountConfigurationCommand";
-import {
+import type {
   GetTargetResourceTypeCommandInput,
   GetTargetResourceTypeCommandOutput,
 } from "./commands/GetTargetResourceTypeCommand";
-import { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
-import {
+import type { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
+import type {
   ListExperimentResolvedTargetsCommandInput,
   ListExperimentResolvedTargetsCommandOutput,
 } from "./commands/ListExperimentResolvedTargetsCommand";
-import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "./commands/ListExperimentsCommand";
-import {
+import type { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "./commands/ListExperimentsCommand";
+import type {
   ListExperimentTargetAccountConfigurationsCommandInput,
   ListExperimentTargetAccountConfigurationsCommandOutput,
 } from "./commands/ListExperimentTargetAccountConfigurationsCommand";
-import {
+import type {
   ListExperimentTemplatesCommandInput,
   ListExperimentTemplatesCommandOutput,
 } from "./commands/ListExperimentTemplatesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTargetAccountConfigurationsCommandInput,
   ListTargetAccountConfigurationsCommandOutput,
 } from "./commands/ListTargetAccountConfigurationsCommand";
-import {
+import type {
   ListTargetResourceTypesCommandInput,
   ListTargetResourceTypesCommandOutput,
 } from "./commands/ListTargetResourceTypesCommand";
-import { StartExperimentCommandInput, StartExperimentCommandOutput } from "./commands/StartExperimentCommand";
-import { StopExperimentCommandInput, StopExperimentCommandOutput } from "./commands/StopExperimentCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { StartExperimentCommandInput, StartExperimentCommandOutput } from "./commands/StartExperimentCommand";
+import type { StopExperimentCommandInput, StopExperimentCommandOutput } from "./commands/StopExperimentCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateExperimentTemplateCommandInput,
   UpdateExperimentTemplateCommandOutput,
 } from "./commands/UpdateExperimentTemplateCommand";
-import {
+import type {
   UpdateSafetyLeverStateCommandInput,
   UpdateSafetyLeverStateCommandOutput,
 } from "./commands/UpdateSafetyLeverStateCommand";
-import {
+import type {
   UpdateTargetAccountConfigurationCommandInput,
   UpdateTargetAccountConfigurationCommandOutput,
 } from "./commands/UpdateTargetAccountConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -327,7 +325,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -7,7 +7,7 @@
  */
 export * from "./BedrockAgentRuntimeClient";
 export * from "./BedrockAgentRuntime";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BedrockAgentRuntimeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

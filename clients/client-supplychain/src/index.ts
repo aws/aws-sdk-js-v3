@@ -13,7 +13,7 @@
  */
 export * from "./SupplyChainClient";
 export * from "./SupplyChain";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SupplyChainExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

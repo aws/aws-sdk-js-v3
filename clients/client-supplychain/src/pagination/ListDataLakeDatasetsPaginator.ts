@@ -8,7 +8,7 @@ import {
   ListDataLakeDatasetsCommandOutput,
 } from "../commands/ListDataLakeDatasetsCommand";
 import { SupplyChainClient } from "../SupplyChainClient";
-import { SupplyChainPaginationConfiguration } from "./Interfaces";
+import type { SupplyChainPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

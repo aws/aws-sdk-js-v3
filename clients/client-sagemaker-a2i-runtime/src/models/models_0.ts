@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ContentClassifier, HumanLoopStatus, SortOrder } from "./enums";
+import type { ContentClassifier, HumanLoopStatus, SortOrder } from "./enums";
 
 /**
  * @public

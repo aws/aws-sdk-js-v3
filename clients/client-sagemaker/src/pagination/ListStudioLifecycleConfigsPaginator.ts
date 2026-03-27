@@ -8,7 +8,7 @@ import {
   ListStudioLifecycleConfigsCommandOutput,
 } from "../commands/ListStudioLifecycleConfigsCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

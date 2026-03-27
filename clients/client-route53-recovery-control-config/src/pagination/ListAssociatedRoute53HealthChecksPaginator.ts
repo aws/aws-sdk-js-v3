@@ -8,7 +8,7 @@ import {
   ListAssociatedRoute53HealthChecksCommandOutput,
 } from "../commands/ListAssociatedRoute53HealthChecksCommand";
 import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
-import { Route53RecoveryControlConfigPaginationConfiguration } from "./Interfaces";
+import type { Route53RecoveryControlConfigPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

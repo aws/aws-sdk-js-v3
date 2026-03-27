@@ -8,7 +8,7 @@ import {
   ListInsightsCommandOutput,
 } from "../commands/ListInsightsCommand";
 import { EKSClient } from "../EKSClient";
-import { EKSPaginationConfiguration } from "./Interfaces";
+import type { EKSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

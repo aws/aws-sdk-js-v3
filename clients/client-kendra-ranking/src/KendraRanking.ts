@@ -3,41 +3,45 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateRescoreExecutionPlanCommandInput,
+  type CreateRescoreExecutionPlanCommandOutput,
   CreateRescoreExecutionPlanCommand,
-  CreateRescoreExecutionPlanCommandInput,
-  CreateRescoreExecutionPlanCommandOutput,
 } from "./commands/CreateRescoreExecutionPlanCommand";
 import {
+  type DeleteRescoreExecutionPlanCommandInput,
+  type DeleteRescoreExecutionPlanCommandOutput,
   DeleteRescoreExecutionPlanCommand,
-  DeleteRescoreExecutionPlanCommandInput,
-  DeleteRescoreExecutionPlanCommandOutput,
 } from "./commands/DeleteRescoreExecutionPlanCommand";
 import {
+  type DescribeRescoreExecutionPlanCommandInput,
+  type DescribeRescoreExecutionPlanCommandOutput,
   DescribeRescoreExecutionPlanCommand,
-  DescribeRescoreExecutionPlanCommandInput,
-  DescribeRescoreExecutionPlanCommandOutput,
 } from "./commands/DescribeRescoreExecutionPlanCommand";
 import {
+  type ListRescoreExecutionPlansCommandInput,
+  type ListRescoreExecutionPlansCommandOutput,
   ListRescoreExecutionPlansCommand,
-  ListRescoreExecutionPlansCommandInput,
-  ListRescoreExecutionPlansCommandOutput,
 } from "./commands/ListRescoreExecutionPlansCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RescoreCommand, RescoreCommandInput, RescoreCommandOutput } from "./commands/RescoreCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type RescoreCommandInput, type RescoreCommandOutput, RescoreCommand } from "./commands/RescoreCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateRescoreExecutionPlanCommandInput,
+  type UpdateRescoreExecutionPlanCommandOutput,
   UpdateRescoreExecutionPlanCommand,
-  UpdateRescoreExecutionPlanCommandInput,
-  UpdateRescoreExecutionPlanCommandOutput,
 } from "./commands/UpdateRescoreExecutionPlanCommand";
 import { KendraRankingClient } from "./KendraRankingClient";
 import { paginateListRescoreExecutionPlans } from "./pagination/ListRescoreExecutionPlansPaginator";

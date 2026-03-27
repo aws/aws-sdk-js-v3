@@ -8,7 +8,7 @@ import {
   ListInsightsDataCommandInput,
   ListInsightsDataCommandOutput,
 } from "../commands/ListInsightsDataCommand";
-import { CloudTrailPaginationConfiguration } from "./Interfaces";
+import type { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

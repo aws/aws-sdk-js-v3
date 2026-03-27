@@ -8,7 +8,7 @@ import {
   SearchWorkspaceAssociationsCommandOutput,
 } from "../commands/SearchWorkspaceAssociationsCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

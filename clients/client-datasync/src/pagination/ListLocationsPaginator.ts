@@ -8,7 +8,7 @@ import {
   ListLocationsCommandOutput,
 } from "../commands/ListLocationsCommand";
 import { DataSyncClient } from "../DataSyncClient";
-import { DataSyncPaginationConfiguration } from "./Interfaces";
+import type { DataSyncPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

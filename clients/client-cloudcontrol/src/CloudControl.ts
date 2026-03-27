@@ -10,40 +10,44 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CloudControlClient } from "./CloudControlClient";
 import {
+  type CancelResourceRequestCommandInput,
+  type CancelResourceRequestCommandOutput,
   CancelResourceRequestCommand,
-  CancelResourceRequestCommandInput,
-  CancelResourceRequestCommandOutput,
 } from "./commands/CancelResourceRequestCommand";
 import {
+  type CreateResourceCommandInput,
+  type CreateResourceCommandOutput,
   CreateResourceCommand,
-  CreateResourceCommandInput,
-  CreateResourceCommandOutput,
 } from "./commands/CreateResourceCommand";
 import {
+  type DeleteResourceCommandInput,
+  type DeleteResourceCommandOutput,
   DeleteResourceCommand,
-  DeleteResourceCommandInput,
-  DeleteResourceCommandOutput,
 } from "./commands/DeleteResourceCommand";
-import { GetResourceCommand, GetResourceCommandInput, GetResourceCommandOutput } from "./commands/GetResourceCommand";
 import {
+  type GetResourceCommandInput,
+  type GetResourceCommandOutput,
+  GetResourceCommand,
+} from "./commands/GetResourceCommand";
+import {
+  type GetResourceRequestStatusCommandInput,
+  type GetResourceRequestStatusCommandOutput,
   GetResourceRequestStatusCommand,
-  GetResourceRequestStatusCommandInput,
-  GetResourceRequestStatusCommandOutput,
 } from "./commands/GetResourceRequestStatusCommand";
 import {
+  type ListResourceRequestsCommandInput,
+  type ListResourceRequestsCommandOutput,
   ListResourceRequestsCommand,
-  ListResourceRequestsCommandInput,
-  ListResourceRequestsCommandOutput,
 } from "./commands/ListResourceRequestsCommand";
 import {
+  type ListResourcesCommandInput,
+  type ListResourcesCommandOutput,
   ListResourcesCommand,
-  ListResourcesCommandInput,
-  ListResourcesCommandOutput,
 } from "./commands/ListResourcesCommand";
 import {
+  type UpdateResourceCommandInput,
+  type UpdateResourceCommandOutput,
   UpdateResourceCommand,
-  UpdateResourceCommandInput,
-  UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand";
 import { paginateListResourceRequests } from "./pagination/ListResourceRequestsPaginator";
 import { paginateListResources } from "./pagination/ListResourcesPaginator";

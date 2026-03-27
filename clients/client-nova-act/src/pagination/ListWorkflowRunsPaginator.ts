@@ -8,7 +8,7 @@ import {
   ListWorkflowRunsCommandOutput,
 } from "../commands/ListWorkflowRunsCommand";
 import { NovaActClient } from "../NovaActClient";
-import { NovaActPaginationConfiguration } from "./Interfaces";
+import type { NovaActPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

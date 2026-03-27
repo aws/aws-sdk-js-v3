@@ -4,70 +4,74 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ApplicationAutoScalingClient } from "./ApplicationAutoScalingClient";
 import {
+  type DeleteScalingPolicyCommandInput,
+  type DeleteScalingPolicyCommandOutput,
   DeleteScalingPolicyCommand,
-  DeleteScalingPolicyCommandInput,
-  DeleteScalingPolicyCommandOutput,
 } from "./commands/DeleteScalingPolicyCommand";
 import {
+  type DeleteScheduledActionCommandInput,
+  type DeleteScheduledActionCommandOutput,
   DeleteScheduledActionCommand,
-  DeleteScheduledActionCommandInput,
-  DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand";
 import {
+  type DeregisterScalableTargetCommandInput,
+  type DeregisterScalableTargetCommandOutput,
   DeregisterScalableTargetCommand,
-  DeregisterScalableTargetCommandInput,
-  DeregisterScalableTargetCommandOutput,
 } from "./commands/DeregisterScalableTargetCommand";
 import {
+  type DescribeScalableTargetsCommandInput,
+  type DescribeScalableTargetsCommandOutput,
   DescribeScalableTargetsCommand,
-  DescribeScalableTargetsCommandInput,
-  DescribeScalableTargetsCommandOutput,
 } from "./commands/DescribeScalableTargetsCommand";
 import {
+  type DescribeScalingActivitiesCommandInput,
+  type DescribeScalingActivitiesCommandOutput,
   DescribeScalingActivitiesCommand,
-  DescribeScalingActivitiesCommandInput,
-  DescribeScalingActivitiesCommandOutput,
 } from "./commands/DescribeScalingActivitiesCommand";
 import {
+  type DescribeScalingPoliciesCommandInput,
+  type DescribeScalingPoliciesCommandOutput,
   DescribeScalingPoliciesCommand,
-  DescribeScalingPoliciesCommandInput,
-  DescribeScalingPoliciesCommandOutput,
 } from "./commands/DescribeScalingPoliciesCommand";
 import {
+  type DescribeScheduledActionsCommandInput,
+  type DescribeScheduledActionsCommandOutput,
   DescribeScheduledActionsCommand,
-  DescribeScheduledActionsCommandInput,
-  DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
 import {
+  type GetPredictiveScalingForecastCommandInput,
+  type GetPredictiveScalingForecastCommandOutput,
   GetPredictiveScalingForecastCommand,
-  GetPredictiveScalingForecastCommandInput,
-  GetPredictiveScalingForecastCommandOutput,
 } from "./commands/GetPredictiveScalingForecastCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutScalingPolicyCommandInput,
+  type PutScalingPolicyCommandOutput,
   PutScalingPolicyCommand,
-  PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput,
 } from "./commands/PutScalingPolicyCommand";
 import {
+  type PutScheduledActionCommandInput,
+  type PutScheduledActionCommandOutput,
   PutScheduledActionCommand,
-  PutScheduledActionCommandInput,
-  PutScheduledActionCommandOutput,
 } from "./commands/PutScheduledActionCommand";
 import {
+  type RegisterScalableTargetCommandInput,
+  type RegisterScalableTargetCommandOutput,
   RegisterScalableTargetCommand,
-  RegisterScalableTargetCommandInput,
-  RegisterScalableTargetCommandOutput,
 } from "./commands/RegisterScalableTargetCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateDescribeScalableTargets } from "./pagination/DescribeScalableTargetsPaginator";
 import { paginateDescribeScalingActivities } from "./pagination/DescribeScalingActivitiesPaginator";

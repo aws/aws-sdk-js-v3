@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListSecretsCommand, ListSecretsCommandInput, ListSecretsCommandOutput } from "../commands/ListSecretsCommand";
 import { SecretsManagerClient } from "../SecretsManagerClient";
-import { SecretsManagerPaginationConfiguration } from "./Interfaces";
+import type { SecretsManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

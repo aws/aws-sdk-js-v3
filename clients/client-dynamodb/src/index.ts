@@ -23,7 +23,7 @@
  */
 export * from "./DynamoDBClient";
 export * from "./DynamoDB";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DynamoDBExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

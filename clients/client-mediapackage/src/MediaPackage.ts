@@ -3,95 +3,99 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type ConfigureLogsCommandInput,
+  type ConfigureLogsCommandOutput,
   ConfigureLogsCommand,
-  ConfigureLogsCommandInput,
-  ConfigureLogsCommandOutput,
 } from "./commands/ConfigureLogsCommand";
 import {
+  type CreateChannelCommandInput,
+  type CreateChannelCommandOutput,
   CreateChannelCommand,
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  type CreateHarvestJobCommandInput,
+  type CreateHarvestJobCommandOutput,
   CreateHarvestJobCommand,
-  CreateHarvestJobCommandInput,
-  CreateHarvestJobCommandOutput,
 } from "./commands/CreateHarvestJobCommand";
 import {
+  type CreateOriginEndpointCommandInput,
+  type CreateOriginEndpointCommandOutput,
   CreateOriginEndpointCommand,
-  CreateOriginEndpointCommandInput,
-  CreateOriginEndpointCommandOutput,
 } from "./commands/CreateOriginEndpointCommand";
 import {
+  type DeleteChannelCommandInput,
+  type DeleteChannelCommandOutput,
   DeleteChannelCommand,
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
 import {
+  type DeleteOriginEndpointCommandInput,
+  type DeleteOriginEndpointCommandOutput,
   DeleteOriginEndpointCommand,
-  DeleteOriginEndpointCommandInput,
-  DeleteOriginEndpointCommandOutput,
 } from "./commands/DeleteOriginEndpointCommand";
 import {
+  type DescribeChannelCommandInput,
+  type DescribeChannelCommandOutput,
   DescribeChannelCommand,
-  DescribeChannelCommandInput,
-  DescribeChannelCommandOutput,
 } from "./commands/DescribeChannelCommand";
 import {
+  type DescribeHarvestJobCommandInput,
+  type DescribeHarvestJobCommandOutput,
   DescribeHarvestJobCommand,
-  DescribeHarvestJobCommandInput,
-  DescribeHarvestJobCommandOutput,
 } from "./commands/DescribeHarvestJobCommand";
 import {
+  type DescribeOriginEndpointCommandInput,
+  type DescribeOriginEndpointCommandOutput,
   DescribeOriginEndpointCommand,
-  DescribeOriginEndpointCommandInput,
-  DescribeOriginEndpointCommandOutput,
 } from "./commands/DescribeOriginEndpointCommand";
 import {
+  type ListChannelsCommandInput,
+  type ListChannelsCommandOutput,
   ListChannelsCommand,
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
 import {
+  type ListHarvestJobsCommandInput,
+  type ListHarvestJobsCommandOutput,
   ListHarvestJobsCommand,
-  ListHarvestJobsCommandInput,
-  ListHarvestJobsCommandOutput,
 } from "./commands/ListHarvestJobsCommand";
 import {
+  type ListOriginEndpointsCommandInput,
+  type ListOriginEndpointsCommandOutput,
   ListOriginEndpointsCommand,
-  ListOriginEndpointsCommandInput,
-  ListOriginEndpointsCommandOutput,
 } from "./commands/ListOriginEndpointsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RotateChannelCredentialsCommandInput,
+  type RotateChannelCredentialsCommandOutput,
   RotateChannelCredentialsCommand,
-  RotateChannelCredentialsCommandInput,
-  RotateChannelCredentialsCommandOutput,
 } from "./commands/RotateChannelCredentialsCommand";
 import {
+  type RotateIngestEndpointCredentialsCommandInput,
+  type RotateIngestEndpointCredentialsCommandOutput,
   RotateIngestEndpointCredentialsCommand,
-  RotateIngestEndpointCredentialsCommandInput,
-  RotateIngestEndpointCredentialsCommandOutput,
 } from "./commands/RotateIngestEndpointCredentialsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateChannelCommandInput,
+  type UpdateChannelCommandOutput,
   UpdateChannelCommand,
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import {
+  type UpdateOriginEndpointCommandInput,
+  type UpdateOriginEndpointCommandOutput,
   UpdateOriginEndpointCommand,
-  UpdateOriginEndpointCommandInput,
-  UpdateOriginEndpointCommandOutput,
 } from "./commands/UpdateOriginEndpointCommand";
 import { MediaPackageClient } from "./MediaPackageClient";
 import { paginateListChannels } from "./pagination/ListChannelsPaginator";

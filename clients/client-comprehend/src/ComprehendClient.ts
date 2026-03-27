@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,275 +61,287 @@ import {
   defaultComprehendHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchDetectDominantLanguageCommandInput,
   BatchDetectDominantLanguageCommandOutput,
 } from "./commands/BatchDetectDominantLanguageCommand";
-import {
+import type {
   BatchDetectEntitiesCommandInput,
   BatchDetectEntitiesCommandOutput,
 } from "./commands/BatchDetectEntitiesCommand";
-import {
+import type {
   BatchDetectKeyPhrasesCommandInput,
   BatchDetectKeyPhrasesCommandOutput,
 } from "./commands/BatchDetectKeyPhrasesCommand";
-import {
+import type {
   BatchDetectSentimentCommandInput,
   BatchDetectSentimentCommandOutput,
 } from "./commands/BatchDetectSentimentCommand";
-import { BatchDetectSyntaxCommandInput, BatchDetectSyntaxCommandOutput } from "./commands/BatchDetectSyntaxCommand";
-import {
+import type {
+  BatchDetectSyntaxCommandInput,
+  BatchDetectSyntaxCommandOutput,
+} from "./commands/BatchDetectSyntaxCommand";
+import type {
   BatchDetectTargetedSentimentCommandInput,
   BatchDetectTargetedSentimentCommandOutput,
 } from "./commands/BatchDetectTargetedSentimentCommand";
-import { ClassifyDocumentCommandInput, ClassifyDocumentCommandOutput } from "./commands/ClassifyDocumentCommand";
-import {
+import type { ClassifyDocumentCommandInput, ClassifyDocumentCommandOutput } from "./commands/ClassifyDocumentCommand";
+import type {
   ContainsPiiEntitiesCommandInput,
   ContainsPiiEntitiesCommandOutput,
 } from "./commands/ContainsPiiEntitiesCommand";
-import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
-import {
+import type { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import type {
   CreateDocumentClassifierCommandInput,
   CreateDocumentClassifierCommandOutput,
 } from "./commands/CreateDocumentClassifierCommand";
-import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
-import {
+import type { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
+import type {
   CreateEntityRecognizerCommandInput,
   CreateEntityRecognizerCommandOutput,
 } from "./commands/CreateEntityRecognizerCommand";
-import { CreateFlywheelCommandInput, CreateFlywheelCommandOutput } from "./commands/CreateFlywheelCommand";
-import {
+import type { CreateFlywheelCommandInput, CreateFlywheelCommandOutput } from "./commands/CreateFlywheelCommand";
+import type {
   DeleteDocumentClassifierCommandInput,
   DeleteDocumentClassifierCommandOutput,
 } from "./commands/DeleteDocumentClassifierCommand";
-import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
-import {
+import type { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
+import type {
   DeleteEntityRecognizerCommandInput,
   DeleteEntityRecognizerCommandOutput,
 } from "./commands/DeleteEntityRecognizerCommand";
-import { DeleteFlywheelCommandInput, DeleteFlywheelCommandOutput } from "./commands/DeleteFlywheelCommand";
-import {
+import type { DeleteFlywheelCommandInput, DeleteFlywheelCommandOutput } from "./commands/DeleteFlywheelCommand";
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
-import {
+import type { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
+import type {
   DescribeDocumentClassificationJobCommandInput,
   DescribeDocumentClassificationJobCommandOutput,
 } from "./commands/DescribeDocumentClassificationJobCommand";
-import {
+import type {
   DescribeDocumentClassifierCommandInput,
   DescribeDocumentClassifierCommandOutput,
 } from "./commands/DescribeDocumentClassifierCommand";
-import {
+import type {
   DescribeDominantLanguageDetectionJobCommandInput,
   DescribeDominantLanguageDetectionJobCommandOutput,
 } from "./commands/DescribeDominantLanguageDetectionJobCommand";
-import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
-import {
+import type { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
+import type {
   DescribeEntitiesDetectionJobCommandInput,
   DescribeEntitiesDetectionJobCommandOutput,
 } from "./commands/DescribeEntitiesDetectionJobCommand";
-import {
+import type {
   DescribeEntityRecognizerCommandInput,
   DescribeEntityRecognizerCommandOutput,
 } from "./commands/DescribeEntityRecognizerCommand";
-import {
+import type {
   DescribeEventsDetectionJobCommandInput,
   DescribeEventsDetectionJobCommandOutput,
 } from "./commands/DescribeEventsDetectionJobCommand";
-import { DescribeFlywheelCommandInput, DescribeFlywheelCommandOutput } from "./commands/DescribeFlywheelCommand";
-import {
+import type { DescribeFlywheelCommandInput, DescribeFlywheelCommandOutput } from "./commands/DescribeFlywheelCommand";
+import type {
   DescribeFlywheelIterationCommandInput,
   DescribeFlywheelIterationCommandOutput,
 } from "./commands/DescribeFlywheelIterationCommand";
-import {
+import type {
   DescribeKeyPhrasesDetectionJobCommandInput,
   DescribeKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/DescribeKeyPhrasesDetectionJobCommand";
-import {
+import type {
   DescribePiiEntitiesDetectionJobCommandInput,
   DescribePiiEntitiesDetectionJobCommandOutput,
 } from "./commands/DescribePiiEntitiesDetectionJobCommand";
-import {
+import type {
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
-import {
+import type {
   DescribeSentimentDetectionJobCommandInput,
   DescribeSentimentDetectionJobCommandOutput,
 } from "./commands/DescribeSentimentDetectionJobCommand";
-import {
+import type {
   DescribeTargetedSentimentDetectionJobCommandInput,
   DescribeTargetedSentimentDetectionJobCommandOutput,
 } from "./commands/DescribeTargetedSentimentDetectionJobCommand";
-import {
+import type {
   DescribeTopicsDetectionJobCommandInput,
   DescribeTopicsDetectionJobCommandOutput,
 } from "./commands/DescribeTopicsDetectionJobCommand";
-import {
+import type {
   DetectDominantLanguageCommandInput,
   DetectDominantLanguageCommandOutput,
 } from "./commands/DetectDominantLanguageCommand";
-import { DetectEntitiesCommandInput, DetectEntitiesCommandOutput } from "./commands/DetectEntitiesCommand";
-import { DetectKeyPhrasesCommandInput, DetectKeyPhrasesCommandOutput } from "./commands/DetectKeyPhrasesCommand";
-import { DetectPiiEntitiesCommandInput, DetectPiiEntitiesCommandOutput } from "./commands/DetectPiiEntitiesCommand";
-import { DetectSentimentCommandInput, DetectSentimentCommandOutput } from "./commands/DetectSentimentCommand";
-import { DetectSyntaxCommandInput, DetectSyntaxCommandOutput } from "./commands/DetectSyntaxCommand";
-import {
+import type { DetectEntitiesCommandInput, DetectEntitiesCommandOutput } from "./commands/DetectEntitiesCommand";
+import type { DetectKeyPhrasesCommandInput, DetectKeyPhrasesCommandOutput } from "./commands/DetectKeyPhrasesCommand";
+import type {
+  DetectPiiEntitiesCommandInput,
+  DetectPiiEntitiesCommandOutput,
+} from "./commands/DetectPiiEntitiesCommand";
+import type { DetectSentimentCommandInput, DetectSentimentCommandOutput } from "./commands/DetectSentimentCommand";
+import type { DetectSyntaxCommandInput, DetectSyntaxCommandOutput } from "./commands/DetectSyntaxCommand";
+import type {
   DetectTargetedSentimentCommandInput,
   DetectTargetedSentimentCommandOutput,
 } from "./commands/DetectTargetedSentimentCommand";
-import { DetectToxicContentCommandInput, DetectToxicContentCommandOutput } from "./commands/DetectToxicContentCommand";
-import { ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
-import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
-import {
+import type {
+  DetectToxicContentCommandInput,
+  DetectToxicContentCommandOutput,
+} from "./commands/DetectToxicContentCommand";
+import type { ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
+import type { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import type {
   ListDocumentClassificationJobsCommandInput,
   ListDocumentClassificationJobsCommandOutput,
 } from "./commands/ListDocumentClassificationJobsCommand";
-import {
+import type {
   ListDocumentClassifiersCommandInput,
   ListDocumentClassifiersCommandOutput,
 } from "./commands/ListDocumentClassifiersCommand";
-import {
+import type {
   ListDocumentClassifierSummariesCommandInput,
   ListDocumentClassifierSummariesCommandOutput,
 } from "./commands/ListDocumentClassifierSummariesCommand";
-import {
+import type {
   ListDominantLanguageDetectionJobsCommandInput,
   ListDominantLanguageDetectionJobsCommandOutput,
 } from "./commands/ListDominantLanguageDetectionJobsCommand";
-import { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand";
-import {
+import type { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand";
+import type {
   ListEntitiesDetectionJobsCommandInput,
   ListEntitiesDetectionJobsCommandOutput,
 } from "./commands/ListEntitiesDetectionJobsCommand";
-import {
+import type {
   ListEntityRecognizersCommandInput,
   ListEntityRecognizersCommandOutput,
 } from "./commands/ListEntityRecognizersCommand";
-import {
+import type {
   ListEntityRecognizerSummariesCommandInput,
   ListEntityRecognizerSummariesCommandOutput,
 } from "./commands/ListEntityRecognizerSummariesCommand";
-import {
+import type {
   ListEventsDetectionJobsCommandInput,
   ListEventsDetectionJobsCommandOutput,
 } from "./commands/ListEventsDetectionJobsCommand";
-import {
+import type {
   ListFlywheelIterationHistoryCommandInput,
   ListFlywheelIterationHistoryCommandOutput,
 } from "./commands/ListFlywheelIterationHistoryCommand";
-import { ListFlywheelsCommandInput, ListFlywheelsCommandOutput } from "./commands/ListFlywheelsCommand";
-import {
+import type { ListFlywheelsCommandInput, ListFlywheelsCommandOutput } from "./commands/ListFlywheelsCommand";
+import type {
   ListKeyPhrasesDetectionJobsCommandInput,
   ListKeyPhrasesDetectionJobsCommandOutput,
 } from "./commands/ListKeyPhrasesDetectionJobsCommand";
-import {
+import type {
   ListPiiEntitiesDetectionJobsCommandInput,
   ListPiiEntitiesDetectionJobsCommandOutput,
 } from "./commands/ListPiiEntitiesDetectionJobsCommand";
-import {
+import type {
   ListSentimentDetectionJobsCommandInput,
   ListSentimentDetectionJobsCommandOutput,
 } from "./commands/ListSentimentDetectionJobsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTargetedSentimentDetectionJobsCommandInput,
   ListTargetedSentimentDetectionJobsCommandOutput,
 } from "./commands/ListTargetedSentimentDetectionJobsCommand";
-import {
+import type {
   ListTopicsDetectionJobsCommandInput,
   ListTopicsDetectionJobsCommandOutput,
 } from "./commands/ListTopicsDetectionJobsCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   StartDocumentClassificationJobCommandInput,
   StartDocumentClassificationJobCommandOutput,
 } from "./commands/StartDocumentClassificationJobCommand";
-import {
+import type {
   StartDominantLanguageDetectionJobCommandInput,
   StartDominantLanguageDetectionJobCommandOutput,
 } from "./commands/StartDominantLanguageDetectionJobCommand";
-import {
+import type {
   StartEntitiesDetectionJobCommandInput,
   StartEntitiesDetectionJobCommandOutput,
 } from "./commands/StartEntitiesDetectionJobCommand";
-import {
+import type {
   StartEventsDetectionJobCommandInput,
   StartEventsDetectionJobCommandOutput,
 } from "./commands/StartEventsDetectionJobCommand";
-import {
+import type {
   StartFlywheelIterationCommandInput,
   StartFlywheelIterationCommandOutput,
 } from "./commands/StartFlywheelIterationCommand";
-import {
+import type {
   StartKeyPhrasesDetectionJobCommandInput,
   StartKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StartKeyPhrasesDetectionJobCommand";
-import {
+import type {
   StartPiiEntitiesDetectionJobCommandInput,
   StartPiiEntitiesDetectionJobCommandOutput,
 } from "./commands/StartPiiEntitiesDetectionJobCommand";
-import {
+import type {
   StartSentimentDetectionJobCommandInput,
   StartSentimentDetectionJobCommandOutput,
 } from "./commands/StartSentimentDetectionJobCommand";
-import {
+import type {
   StartTargetedSentimentDetectionJobCommandInput,
   StartTargetedSentimentDetectionJobCommandOutput,
 } from "./commands/StartTargetedSentimentDetectionJobCommand";
-import {
+import type {
   StartTopicsDetectionJobCommandInput,
   StartTopicsDetectionJobCommandOutput,
 } from "./commands/StartTopicsDetectionJobCommand";
-import {
+import type {
   StopDominantLanguageDetectionJobCommandInput,
   StopDominantLanguageDetectionJobCommandOutput,
 } from "./commands/StopDominantLanguageDetectionJobCommand";
-import {
+import type {
   StopEntitiesDetectionJobCommandInput,
   StopEntitiesDetectionJobCommandOutput,
 } from "./commands/StopEntitiesDetectionJobCommand";
-import {
+import type {
   StopEventsDetectionJobCommandInput,
   StopEventsDetectionJobCommandOutput,
 } from "./commands/StopEventsDetectionJobCommand";
-import {
+import type {
   StopKeyPhrasesDetectionJobCommandInput,
   StopKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StopKeyPhrasesDetectionJobCommand";
-import {
+import type {
   StopPiiEntitiesDetectionJobCommandInput,
   StopPiiEntitiesDetectionJobCommandOutput,
 } from "./commands/StopPiiEntitiesDetectionJobCommand";
-import {
+import type {
   StopSentimentDetectionJobCommandInput,
   StopSentimentDetectionJobCommandOutput,
 } from "./commands/StopSentimentDetectionJobCommand";
-import {
+import type {
   StopTargetedSentimentDetectionJobCommandInput,
   StopTargetedSentimentDetectionJobCommandOutput,
 } from "./commands/StopTargetedSentimentDetectionJobCommand";
-import {
+import type {
   StopTrainingDocumentClassifierCommandInput,
   StopTrainingDocumentClassifierCommandOutput,
 } from "./commands/StopTrainingDocumentClassifierCommand";
-import {
+import type {
   StopTrainingEntityRecognizerCommandInput,
   StopTrainingEntityRecognizerCommandOutput,
 } from "./commands/StopTrainingEntityRecognizerCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand";
-import { UpdateFlywheelCommandInput, UpdateFlywheelCommandOutput } from "./commands/UpdateFlywheelCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand";
+import type { UpdateFlywheelCommandInput, UpdateFlywheelCommandOutput } from "./commands/UpdateFlywheelCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -633,7 +643,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

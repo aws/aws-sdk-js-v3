@@ -10,7 +10,7 @@
  */
 export * from "./STSClient";
 export * from "./STS";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { STSExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

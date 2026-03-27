@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { B2biClient } from "../B2biClient";
-import { GetTransformerJobCommand, GetTransformerJobCommandInput } from "../commands/GetTransformerJobCommand";
+import type { B2biClient } from "../B2biClient";
+import { type GetTransformerJobCommandInput, GetTransformerJobCommand } from "../commands/GetTransformerJobCommand";
 
 const checkState = async (client: B2biClient, input: GetTransformerJobCommandInput): Promise<WaiterResult> => {
   let reason;

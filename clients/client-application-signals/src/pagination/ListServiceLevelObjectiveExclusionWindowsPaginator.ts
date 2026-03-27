@@ -8,7 +8,7 @@ import {
   ListServiceLevelObjectiveExclusionWindowsCommandInput,
   ListServiceLevelObjectiveExclusionWindowsCommandOutput,
 } from "../commands/ListServiceLevelObjectiveExclusionWindowsCommand";
-import { ApplicationSignalsPaginationConfiguration } from "./Interfaces";
+import type { ApplicationSignalsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import { IdentitystoreClient } from "../IdentitystoreClient";
-import { IdentitystorePaginationConfiguration } from "./Interfaces";
+import type { IdentitystorePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

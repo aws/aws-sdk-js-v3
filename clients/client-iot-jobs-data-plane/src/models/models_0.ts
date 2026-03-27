@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { JobExecutionStatus } from "./enums";
+import type { JobExecutionStatus } from "./enums";
 
 /**
  * <p>The list of values used to describe a specific command parameter.</p>

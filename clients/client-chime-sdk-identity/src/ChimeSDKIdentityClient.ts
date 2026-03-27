@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,112 +61,121 @@ import {
   defaultChimeSDKIdentityHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateAppInstanceAdminCommandInput,
   CreateAppInstanceAdminCommandOutput,
 } from "./commands/CreateAppInstanceAdminCommand";
-import {
+import type {
   CreateAppInstanceBotCommandInput,
   CreateAppInstanceBotCommandOutput,
 } from "./commands/CreateAppInstanceBotCommand";
-import { CreateAppInstanceCommandInput, CreateAppInstanceCommandOutput } from "./commands/CreateAppInstanceCommand";
-import {
+import type {
+  CreateAppInstanceCommandInput,
+  CreateAppInstanceCommandOutput,
+} from "./commands/CreateAppInstanceCommand";
+import type {
   CreateAppInstanceUserCommandInput,
   CreateAppInstanceUserCommandOutput,
 } from "./commands/CreateAppInstanceUserCommand";
-import {
+import type {
   DeleteAppInstanceAdminCommandInput,
   DeleteAppInstanceAdminCommandOutput,
 } from "./commands/DeleteAppInstanceAdminCommand";
-import {
+import type {
   DeleteAppInstanceBotCommandInput,
   DeleteAppInstanceBotCommandOutput,
 } from "./commands/DeleteAppInstanceBotCommand";
-import { DeleteAppInstanceCommandInput, DeleteAppInstanceCommandOutput } from "./commands/DeleteAppInstanceCommand";
-import {
+import type {
+  DeleteAppInstanceCommandInput,
+  DeleteAppInstanceCommandOutput,
+} from "./commands/DeleteAppInstanceCommand";
+import type {
   DeleteAppInstanceUserCommandInput,
   DeleteAppInstanceUserCommandOutput,
 } from "./commands/DeleteAppInstanceUserCommand";
-import {
+import type {
   DeregisterAppInstanceUserEndpointCommandInput,
   DeregisterAppInstanceUserEndpointCommandOutput,
 } from "./commands/DeregisterAppInstanceUserEndpointCommand";
-import {
+import type {
   DescribeAppInstanceAdminCommandInput,
   DescribeAppInstanceAdminCommandOutput,
 } from "./commands/DescribeAppInstanceAdminCommand";
-import {
+import type {
   DescribeAppInstanceBotCommandInput,
   DescribeAppInstanceBotCommandOutput,
 } from "./commands/DescribeAppInstanceBotCommand";
-import {
+import type {
   DescribeAppInstanceCommandInput,
   DescribeAppInstanceCommandOutput,
 } from "./commands/DescribeAppInstanceCommand";
-import {
+import type {
   DescribeAppInstanceUserCommandInput,
   DescribeAppInstanceUserCommandOutput,
 } from "./commands/DescribeAppInstanceUserCommand";
-import {
+import type {
   DescribeAppInstanceUserEndpointCommandInput,
   DescribeAppInstanceUserEndpointCommandOutput,
 } from "./commands/DescribeAppInstanceUserEndpointCommand";
-import {
+import type {
   GetAppInstanceRetentionSettingsCommandInput,
   GetAppInstanceRetentionSettingsCommandOutput,
 } from "./commands/GetAppInstanceRetentionSettingsCommand";
-import {
+import type {
   ListAppInstanceAdminsCommandInput,
   ListAppInstanceAdminsCommandOutput,
 } from "./commands/ListAppInstanceAdminsCommand";
-import {
+import type {
   ListAppInstanceBotsCommandInput,
   ListAppInstanceBotsCommandOutput,
 } from "./commands/ListAppInstanceBotsCommand";
-import { ListAppInstancesCommandInput, ListAppInstancesCommandOutput } from "./commands/ListAppInstancesCommand";
-import {
+import type { ListAppInstancesCommandInput, ListAppInstancesCommandOutput } from "./commands/ListAppInstancesCommand";
+import type {
   ListAppInstanceUserEndpointsCommandInput,
   ListAppInstanceUserEndpointsCommandOutput,
 } from "./commands/ListAppInstanceUserEndpointsCommand";
-import {
+import type {
   ListAppInstanceUsersCommandInput,
   ListAppInstanceUsersCommandOutput,
 } from "./commands/ListAppInstanceUsersCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutAppInstanceRetentionSettingsCommandInput,
   PutAppInstanceRetentionSettingsCommandOutput,
 } from "./commands/PutAppInstanceRetentionSettingsCommand";
-import {
+import type {
   PutAppInstanceUserExpirationSettingsCommandInput,
   PutAppInstanceUserExpirationSettingsCommandOutput,
 } from "./commands/PutAppInstanceUserExpirationSettingsCommand";
-import {
+import type {
   RegisterAppInstanceUserEndpointCommandInput,
   RegisterAppInstanceUserEndpointCommandOutput,
 } from "./commands/RegisterAppInstanceUserEndpointCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAppInstanceBotCommandInput,
   UpdateAppInstanceBotCommandOutput,
 } from "./commands/UpdateAppInstanceBotCommand";
-import { UpdateAppInstanceCommandInput, UpdateAppInstanceCommandOutput } from "./commands/UpdateAppInstanceCommand";
-import {
+import type {
+  UpdateAppInstanceCommandInput,
+  UpdateAppInstanceCommandOutput,
+} from "./commands/UpdateAppInstanceCommand";
+import type {
   UpdateAppInstanceUserCommandInput,
   UpdateAppInstanceUserCommandOutput,
 } from "./commands/UpdateAppInstanceUserCommand";
-import {
+import type {
   UpdateAppInstanceUserEndpointCommandInput,
   UpdateAppInstanceUserEndpointCommandOutput,
 } from "./commands/UpdateAppInstanceUserEndpointCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -360,7 +367,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

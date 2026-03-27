@@ -8,7 +8,7 @@ import {
   ListQuickConnectsCommandOutput,
 } from "../commands/ListQuickConnectsCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

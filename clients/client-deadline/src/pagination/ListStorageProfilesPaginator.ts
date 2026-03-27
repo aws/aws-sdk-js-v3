@@ -8,7 +8,7 @@ import {
   ListStorageProfilesCommandOutput,
 } from "../commands/ListStorageProfilesCommand";
 import { DeadlineClient } from "../DeadlineClient";
-import { DeadlinePaginationConfiguration } from "./Interfaces";
+import type { DeadlinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

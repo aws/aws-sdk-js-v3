@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import { Macie2Client } from "../Macie2Client";
-import { Macie2PaginationConfiguration } from "./Interfaces";
+import type { Macie2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

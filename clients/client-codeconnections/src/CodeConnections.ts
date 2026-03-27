@@ -4,115 +4,131 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CodeConnectionsClient } from "./CodeConnectionsClient";
 import {
+  type CreateConnectionCommandInput,
+  type CreateConnectionCommandOutput,
   CreateConnectionCommand,
-  CreateConnectionCommandInput,
-  CreateConnectionCommandOutput,
 } from "./commands/CreateConnectionCommand";
-import { CreateHostCommand, CreateHostCommandInput, CreateHostCommandOutput } from "./commands/CreateHostCommand";
 import {
+  type CreateHostCommandInput,
+  type CreateHostCommandOutput,
+  CreateHostCommand,
+} from "./commands/CreateHostCommand";
+import {
+  type CreateRepositoryLinkCommandInput,
+  type CreateRepositoryLinkCommandOutput,
   CreateRepositoryLinkCommand,
-  CreateRepositoryLinkCommandInput,
-  CreateRepositoryLinkCommandOutput,
 } from "./commands/CreateRepositoryLinkCommand";
 import {
+  type CreateSyncConfigurationCommandInput,
+  type CreateSyncConfigurationCommandOutput,
   CreateSyncConfigurationCommand,
-  CreateSyncConfigurationCommandInput,
-  CreateSyncConfigurationCommandOutput,
 } from "./commands/CreateSyncConfigurationCommand";
 import {
+  type DeleteConnectionCommandInput,
+  type DeleteConnectionCommandOutput,
   DeleteConnectionCommand,
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
-import { DeleteHostCommand, DeleteHostCommandInput, DeleteHostCommandOutput } from "./commands/DeleteHostCommand";
 import {
+  type DeleteHostCommandInput,
+  type DeleteHostCommandOutput,
+  DeleteHostCommand,
+} from "./commands/DeleteHostCommand";
+import {
+  type DeleteRepositoryLinkCommandInput,
+  type DeleteRepositoryLinkCommandOutput,
   DeleteRepositoryLinkCommand,
-  DeleteRepositoryLinkCommandInput,
-  DeleteRepositoryLinkCommandOutput,
 } from "./commands/DeleteRepositoryLinkCommand";
 import {
+  type DeleteSyncConfigurationCommandInput,
+  type DeleteSyncConfigurationCommandOutput,
   DeleteSyncConfigurationCommand,
-  DeleteSyncConfigurationCommandInput,
-  DeleteSyncConfigurationCommandOutput,
 } from "./commands/DeleteSyncConfigurationCommand";
 import {
+  type GetConnectionCommandInput,
+  type GetConnectionCommandOutput,
   GetConnectionCommand,
-  GetConnectionCommandInput,
-  GetConnectionCommandOutput,
 } from "./commands/GetConnectionCommand";
-import { GetHostCommand, GetHostCommandInput, GetHostCommandOutput } from "./commands/GetHostCommand";
+import { type GetHostCommandInput, type GetHostCommandOutput, GetHostCommand } from "./commands/GetHostCommand";
 import {
+  type GetRepositoryLinkCommandInput,
+  type GetRepositoryLinkCommandOutput,
   GetRepositoryLinkCommand,
-  GetRepositoryLinkCommandInput,
-  GetRepositoryLinkCommandOutput,
 } from "./commands/GetRepositoryLinkCommand";
 import {
+  type GetRepositorySyncStatusCommandInput,
+  type GetRepositorySyncStatusCommandOutput,
   GetRepositorySyncStatusCommand,
-  GetRepositorySyncStatusCommandInput,
-  GetRepositorySyncStatusCommandOutput,
 } from "./commands/GetRepositorySyncStatusCommand";
 import {
+  type GetResourceSyncStatusCommandInput,
+  type GetResourceSyncStatusCommandOutput,
   GetResourceSyncStatusCommand,
-  GetResourceSyncStatusCommandInput,
-  GetResourceSyncStatusCommandOutput,
 } from "./commands/GetResourceSyncStatusCommand";
 import {
+  type GetSyncBlockerSummaryCommandInput,
+  type GetSyncBlockerSummaryCommandOutput,
   GetSyncBlockerSummaryCommand,
-  GetSyncBlockerSummaryCommandInput,
-  GetSyncBlockerSummaryCommandOutput,
 } from "./commands/GetSyncBlockerSummaryCommand";
 import {
+  type GetSyncConfigurationCommandInput,
+  type GetSyncConfigurationCommandOutput,
   GetSyncConfigurationCommand,
-  GetSyncConfigurationCommandInput,
-  GetSyncConfigurationCommandOutput,
 } from "./commands/GetSyncConfigurationCommand";
 import {
+  type ListConnectionsCommandInput,
+  type ListConnectionsCommandOutput,
   ListConnectionsCommand,
-  ListConnectionsCommandInput,
-  ListConnectionsCommandOutput,
 } from "./commands/ListConnectionsCommand";
-import { ListHostsCommand, ListHostsCommandInput, ListHostsCommandOutput } from "./commands/ListHostsCommand";
+import { type ListHostsCommandInput, type ListHostsCommandOutput, ListHostsCommand } from "./commands/ListHostsCommand";
 import {
+  type ListRepositoryLinksCommandInput,
+  type ListRepositoryLinksCommandOutput,
   ListRepositoryLinksCommand,
-  ListRepositoryLinksCommandInput,
-  ListRepositoryLinksCommandOutput,
 } from "./commands/ListRepositoryLinksCommand";
 import {
+  type ListRepositorySyncDefinitionsCommandInput,
+  type ListRepositorySyncDefinitionsCommandOutput,
   ListRepositorySyncDefinitionsCommand,
-  ListRepositorySyncDefinitionsCommandInput,
-  ListRepositorySyncDefinitionsCommandOutput,
 } from "./commands/ListRepositorySyncDefinitionsCommand";
 import {
+  type ListSyncConfigurationsCommandInput,
+  type ListSyncConfigurationsCommandOutput,
   ListSyncConfigurationsCommand,
-  ListSyncConfigurationsCommandInput,
-  ListSyncConfigurationsCommandOutput,
 } from "./commands/ListSyncConfigurationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateHostCommand, UpdateHostCommandInput, UpdateHostCommandOutput } from "./commands/UpdateHostCommand";
 import {
+  type UpdateHostCommandInput,
+  type UpdateHostCommandOutput,
+  UpdateHostCommand,
+} from "./commands/UpdateHostCommand";
+import {
+  type UpdateRepositoryLinkCommandInput,
+  type UpdateRepositoryLinkCommandOutput,
   UpdateRepositoryLinkCommand,
-  UpdateRepositoryLinkCommandInput,
-  UpdateRepositoryLinkCommandOutput,
 } from "./commands/UpdateRepositoryLinkCommand";
 import {
+  type UpdateSyncBlockerCommandInput,
+  type UpdateSyncBlockerCommandOutput,
   UpdateSyncBlockerCommand,
-  UpdateSyncBlockerCommandInput,
-  UpdateSyncBlockerCommandOutput,
 } from "./commands/UpdateSyncBlockerCommand";
 import {
+  type UpdateSyncConfigurationCommandInput,
+  type UpdateSyncConfigurationCommandOutput,
   UpdateSyncConfigurationCommand,
-  UpdateSyncConfigurationCommandInput,
-  UpdateSyncConfigurationCommandOutput,
 } from "./commands/UpdateSyncConfigurationCommand";
 import { paginateListConnections } from "./pagination/ListConnectionsPaginator";
 import { paginateListHosts } from "./pagination/ListHostsPaginator";

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "../commands/ListQueuesCommand";
 import { SQSClient } from "../SQSClient";
-import { SQSPaginationConfiguration } from "./Interfaces";
+import type { SQSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

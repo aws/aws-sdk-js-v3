@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,70 +61,88 @@ import {
   defaultMediaPackageV2HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelHarvestJobCommandInput, CancelHarvestJobCommandOutput } from "./commands/CancelHarvestJobCommand";
-import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
-import { CreateChannelGroupCommandInput, CreateChannelGroupCommandOutput } from "./commands/CreateChannelGroupCommand";
-import { CreateHarvestJobCommandInput, CreateHarvestJobCommandOutput } from "./commands/CreateHarvestJobCommand";
-import {
+import type { CancelHarvestJobCommandInput, CancelHarvestJobCommandOutput } from "./commands/CancelHarvestJobCommand";
+import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import type {
+  CreateChannelGroupCommandInput,
+  CreateChannelGroupCommandOutput,
+} from "./commands/CreateChannelGroupCommand";
+import type { CreateHarvestJobCommandInput, CreateHarvestJobCommandOutput } from "./commands/CreateHarvestJobCommand";
+import type {
   CreateOriginEndpointCommandInput,
   CreateOriginEndpointCommandOutput,
 } from "./commands/CreateOriginEndpointCommand";
-import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
-import { DeleteChannelGroupCommandInput, DeleteChannelGroupCommandOutput } from "./commands/DeleteChannelGroupCommand";
-import {
+import type { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import type {
+  DeleteChannelGroupCommandInput,
+  DeleteChannelGroupCommandOutput,
+} from "./commands/DeleteChannelGroupCommand";
+import type {
   DeleteChannelPolicyCommandInput,
   DeleteChannelPolicyCommandOutput,
 } from "./commands/DeleteChannelPolicyCommand";
-import {
+import type {
   DeleteOriginEndpointCommandInput,
   DeleteOriginEndpointCommandOutput,
 } from "./commands/DeleteOriginEndpointCommand";
-import {
+import type {
   DeleteOriginEndpointPolicyCommandInput,
   DeleteOriginEndpointPolicyCommandOutput,
 } from "./commands/DeleteOriginEndpointPolicyCommand";
-import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
-import { GetChannelGroupCommandInput, GetChannelGroupCommandOutput } from "./commands/GetChannelGroupCommand";
-import { GetChannelPolicyCommandInput, GetChannelPolicyCommandOutput } from "./commands/GetChannelPolicyCommand";
-import { GetHarvestJobCommandInput, GetHarvestJobCommandOutput } from "./commands/GetHarvestJobCommand";
-import { GetOriginEndpointCommandInput, GetOriginEndpointCommandOutput } from "./commands/GetOriginEndpointCommand";
-import {
+import type { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
+import type { GetChannelGroupCommandInput, GetChannelGroupCommandOutput } from "./commands/GetChannelGroupCommand";
+import type { GetChannelPolicyCommandInput, GetChannelPolicyCommandOutput } from "./commands/GetChannelPolicyCommand";
+import type { GetHarvestJobCommandInput, GetHarvestJobCommandOutput } from "./commands/GetHarvestJobCommand";
+import type {
+  GetOriginEndpointCommandInput,
+  GetOriginEndpointCommandOutput,
+} from "./commands/GetOriginEndpointCommand";
+import type {
   GetOriginEndpointPolicyCommandInput,
   GetOriginEndpointPolicyCommandOutput,
 } from "./commands/GetOriginEndpointPolicyCommand";
-import { ListChannelGroupsCommandInput, ListChannelGroupsCommandOutput } from "./commands/ListChannelGroupsCommand";
-import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
-import { ListHarvestJobsCommandInput, ListHarvestJobsCommandOutput } from "./commands/ListHarvestJobsCommand";
-import {
+import type {
+  ListChannelGroupsCommandInput,
+  ListChannelGroupsCommandOutput,
+} from "./commands/ListChannelGroupsCommand";
+import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import type { ListHarvestJobsCommandInput, ListHarvestJobsCommandOutput } from "./commands/ListHarvestJobsCommand";
+import type {
   ListOriginEndpointsCommandInput,
   ListOriginEndpointsCommandOutput,
 } from "./commands/ListOriginEndpointsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutChannelPolicyCommandInput, PutChannelPolicyCommandOutput } from "./commands/PutChannelPolicyCommand";
-import {
+import type { PutChannelPolicyCommandInput, PutChannelPolicyCommandOutput } from "./commands/PutChannelPolicyCommand";
+import type {
   PutOriginEndpointPolicyCommandInput,
   PutOriginEndpointPolicyCommandOutput,
 } from "./commands/PutOriginEndpointPolicyCommand";
-import { ResetChannelStateCommandInput, ResetChannelStateCommandOutput } from "./commands/ResetChannelStateCommand";
-import {
+import type {
+  ResetChannelStateCommandInput,
+  ResetChannelStateCommandOutput,
+} from "./commands/ResetChannelStateCommand";
+import type {
   ResetOriginEndpointStateCommandInput,
   ResetOriginEndpointStateCommandOutput,
 } from "./commands/ResetOriginEndpointStateCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
-import { UpdateChannelGroupCommandInput, UpdateChannelGroupCommandOutput } from "./commands/UpdateChannelGroupCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import type {
+  UpdateChannelGroupCommandInput,
+  UpdateChannelGroupCommandOutput,
+} from "./commands/UpdateChannelGroupCommand";
+import type {
   UpdateOriginEndpointCommandInput,
   UpdateOriginEndpointCommandOutput,
 } from "./commands/UpdateOriginEndpointCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -318,7 +334,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -10,7 +10,7 @@
  */
 export * from "./ShieldClient";
 export * from "./Shield";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ShieldExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

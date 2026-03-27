@@ -8,7 +8,7 @@ import {
   ListPricingPlansCommandInput,
   ListPricingPlansCommandOutput,
 } from "../commands/ListPricingPlansCommand";
-import { BillingconductorPaginationConfiguration } from "./Interfaces";
+import type { BillingconductorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

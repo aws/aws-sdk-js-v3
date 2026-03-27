@@ -8,7 +8,7 @@ import {
   ListApiKeyCredentialProvidersCommandInput,
   ListApiKeyCredentialProvidersCommandOutput,
 } from "../commands/ListApiKeyCredentialProvidersCommand";
-import { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

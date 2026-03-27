@@ -8,7 +8,7 @@
  */
 export * from "./VoiceIDClient";
 export * from "./VoiceID";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { VoiceIDExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { type InvokeAsyncResponse, InvokeAsyncRequest } from "../models/models_0";
+import type { InvokeAsyncRequest, InvokeAsyncResponse } from "../models/models_0";
 import { InvokeAsync$ } from "../schemas/schemas_0";
 
 /**

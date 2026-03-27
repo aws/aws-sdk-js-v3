@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,405 +61,501 @@ import {
   defaultDataZoneHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AcceptPredictionsCommandInput, AcceptPredictionsCommandOutput } from "./commands/AcceptPredictionsCommand";
-import {
+import type {
+  AcceptPredictionsCommandInput,
+  AcceptPredictionsCommandOutput,
+} from "./commands/AcceptPredictionsCommand";
+import type {
   AcceptSubscriptionRequestCommandInput,
   AcceptSubscriptionRequestCommandOutput,
 } from "./commands/AcceptSubscriptionRequestCommand";
-import { AddEntityOwnerCommandInput, AddEntityOwnerCommandOutput } from "./commands/AddEntityOwnerCommand";
-import { AddPolicyGrantCommandInput, AddPolicyGrantCommandOutput } from "./commands/AddPolicyGrantCommand";
-import {
+import type { AddEntityOwnerCommandInput, AddEntityOwnerCommandOutput } from "./commands/AddEntityOwnerCommand";
+import type { AddPolicyGrantCommandInput, AddPolicyGrantCommandOutput } from "./commands/AddPolicyGrantCommand";
+import type {
   AssociateEnvironmentRoleCommandInput,
   AssociateEnvironmentRoleCommandOutput,
 } from "./commands/AssociateEnvironmentRoleCommand";
-import {
+import type {
   AssociateGovernedTermsCommandInput,
   AssociateGovernedTermsCommandOutput,
 } from "./commands/AssociateGovernedTermsCommand";
-import {
+import type {
   BatchGetAttributesMetadataCommandInput,
   BatchGetAttributesMetadataCommandOutput,
 } from "./commands/BatchGetAttributesMetadataCommand";
-import {
+import type {
   BatchPutAttributesMetadataCommandInput,
   BatchPutAttributesMetadataCommandOutput,
 } from "./commands/BatchPutAttributesMetadataCommand";
-import {
+import type {
   CancelMetadataGenerationRunCommandInput,
   CancelMetadataGenerationRunCommandOutput,
 } from "./commands/CancelMetadataGenerationRunCommand";
-import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "./commands/CancelSubscriptionCommand";
-import { CreateAccountPoolCommandInput, CreateAccountPoolCommandOutput } from "./commands/CreateAccountPoolCommand";
-import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
-import { CreateAssetFilterCommandInput, CreateAssetFilterCommandOutput } from "./commands/CreateAssetFilterCommand";
-import {
+import type {
+  CancelSubscriptionCommandInput,
+  CancelSubscriptionCommandOutput,
+} from "./commands/CancelSubscriptionCommand";
+import type {
+  CreateAccountPoolCommandInput,
+  CreateAccountPoolCommandOutput,
+} from "./commands/CreateAccountPoolCommand";
+import type { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
+import type {
+  CreateAssetFilterCommandInput,
+  CreateAssetFilterCommandOutput,
+} from "./commands/CreateAssetFilterCommand";
+import type {
   CreateAssetRevisionCommandInput,
   CreateAssetRevisionCommandOutput,
 } from "./commands/CreateAssetRevisionCommand";
-import { CreateAssetTypeCommandInput, CreateAssetTypeCommandOutput } from "./commands/CreateAssetTypeCommand";
-import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
-import { CreateDataProductCommandInput, CreateDataProductCommandOutput } from "./commands/CreateDataProductCommand";
-import {
+import type { CreateAssetTypeCommandInput, CreateAssetTypeCommandOutput } from "./commands/CreateAssetTypeCommand";
+import type { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
+import type {
+  CreateDataProductCommandInput,
+  CreateDataProductCommandOutput,
+} from "./commands/CreateDataProductCommand";
+import type {
   CreateDataProductRevisionCommandInput,
   CreateDataProductRevisionCommandOutput,
 } from "./commands/CreateDataProductRevisionCommand";
-import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
-import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
-import { CreateDomainUnitCommandInput, CreateDomainUnitCommandOutput } from "./commands/CreateDomainUnitCommand";
-import {
+import type { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import type { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import type { CreateDomainUnitCommandInput, CreateDomainUnitCommandOutput } from "./commands/CreateDomainUnitCommand";
+import type {
   CreateEnvironmentActionCommandInput,
   CreateEnvironmentActionCommandOutput,
 } from "./commands/CreateEnvironmentActionCommand";
-import {
+import type {
   CreateEnvironmentBlueprintCommandInput,
   CreateEnvironmentBlueprintCommandOutput,
 } from "./commands/CreateEnvironmentBlueprintCommand";
-import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
-import {
+import type {
+  CreateEnvironmentCommandInput,
+  CreateEnvironmentCommandOutput,
+} from "./commands/CreateEnvironmentCommand";
+import type {
   CreateEnvironmentProfileCommandInput,
   CreateEnvironmentProfileCommandOutput,
 } from "./commands/CreateEnvironmentProfileCommand";
-import { CreateFormTypeCommandInput, CreateFormTypeCommandOutput } from "./commands/CreateFormTypeCommand";
-import { CreateGlossaryCommandInput, CreateGlossaryCommandOutput } from "./commands/CreateGlossaryCommand";
-import { CreateGlossaryTermCommandInput, CreateGlossaryTermCommandOutput } from "./commands/CreateGlossaryTermCommand";
-import { CreateGroupProfileCommandInput, CreateGroupProfileCommandOutput } from "./commands/CreateGroupProfileCommand";
-import {
+import type { CreateFormTypeCommandInput, CreateFormTypeCommandOutput } from "./commands/CreateFormTypeCommand";
+import type { CreateGlossaryCommandInput, CreateGlossaryCommandOutput } from "./commands/CreateGlossaryCommand";
+import type {
+  CreateGlossaryTermCommandInput,
+  CreateGlossaryTermCommandOutput,
+} from "./commands/CreateGlossaryTermCommand";
+import type {
+  CreateGroupProfileCommandInput,
+  CreateGroupProfileCommandOutput,
+} from "./commands/CreateGroupProfileCommand";
+import type {
   CreateListingChangeSetCommandInput,
   CreateListingChangeSetCommandOutput,
 } from "./commands/CreateListingChangeSetCommand";
-import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
-import {
+import type { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import type {
   CreateProjectMembershipCommandInput,
   CreateProjectMembershipCommandOutput,
 } from "./commands/CreateProjectMembershipCommand";
-import {
+import type {
   CreateProjectProfileCommandInput,
   CreateProjectProfileCommandOutput,
 } from "./commands/CreateProjectProfileCommand";
-import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
-import {
+import type { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
+import type {
   CreateSubscriptionGrantCommandInput,
   CreateSubscriptionGrantCommandOutput,
 } from "./commands/CreateSubscriptionGrantCommand";
-import {
+import type {
   CreateSubscriptionRequestCommandInput,
   CreateSubscriptionRequestCommandOutput,
 } from "./commands/CreateSubscriptionRequestCommand";
-import {
+import type {
   CreateSubscriptionTargetCommandInput,
   CreateSubscriptionTargetCommandOutput,
 } from "./commands/CreateSubscriptionTargetCommand";
-import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "./commands/CreateUserProfileCommand";
-import { DeleteAccountPoolCommandInput, DeleteAccountPoolCommandOutput } from "./commands/DeleteAccountPoolCommand";
-import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
-import { DeleteAssetFilterCommandInput, DeleteAssetFilterCommandOutput } from "./commands/DeleteAssetFilterCommand";
-import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "./commands/DeleteAssetTypeCommand";
-import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
-import {
+import type {
+  CreateUserProfileCommandInput,
+  CreateUserProfileCommandOutput,
+} from "./commands/CreateUserProfileCommand";
+import type {
+  DeleteAccountPoolCommandInput,
+  DeleteAccountPoolCommandOutput,
+} from "./commands/DeleteAccountPoolCommand";
+import type { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
+import type {
+  DeleteAssetFilterCommandInput,
+  DeleteAssetFilterCommandOutput,
+} from "./commands/DeleteAssetFilterCommand";
+import type { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "./commands/DeleteAssetTypeCommand";
+import type { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import type {
   DeleteDataExportConfigurationCommandInput,
   DeleteDataExportConfigurationCommandOutput,
 } from "./commands/DeleteDataExportConfigurationCommand";
-import { DeleteDataProductCommandInput, DeleteDataProductCommandOutput } from "./commands/DeleteDataProductCommand";
-import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
-import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
-import { DeleteDomainUnitCommandInput, DeleteDomainUnitCommandOutput } from "./commands/DeleteDomainUnitCommand";
-import {
+import type {
+  DeleteDataProductCommandInput,
+  DeleteDataProductCommandOutput,
+} from "./commands/DeleteDataProductCommand";
+import type { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import type { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import type { DeleteDomainUnitCommandInput, DeleteDomainUnitCommandOutput } from "./commands/DeleteDomainUnitCommand";
+import type {
   DeleteEnvironmentActionCommandInput,
   DeleteEnvironmentActionCommandOutput,
 } from "./commands/DeleteEnvironmentActionCommand";
-import {
+import type {
   DeleteEnvironmentBlueprintCommandInput,
   DeleteEnvironmentBlueprintCommandOutput,
 } from "./commands/DeleteEnvironmentBlueprintCommand";
-import {
+import type {
   DeleteEnvironmentBlueprintConfigurationCommandInput,
   DeleteEnvironmentBlueprintConfigurationCommandOutput,
 } from "./commands/DeleteEnvironmentBlueprintConfigurationCommand";
-import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
-import {
+import type {
+  DeleteEnvironmentCommandInput,
+  DeleteEnvironmentCommandOutput,
+} from "./commands/DeleteEnvironmentCommand";
+import type {
   DeleteEnvironmentProfileCommandInput,
   DeleteEnvironmentProfileCommandOutput,
 } from "./commands/DeleteEnvironmentProfileCommand";
-import { DeleteFormTypeCommandInput, DeleteFormTypeCommandOutput } from "./commands/DeleteFormTypeCommand";
-import { DeleteGlossaryCommandInput, DeleteGlossaryCommandOutput } from "./commands/DeleteGlossaryCommand";
-import { DeleteGlossaryTermCommandInput, DeleteGlossaryTermCommandOutput } from "./commands/DeleteGlossaryTermCommand";
-import { DeleteListingCommandInput, DeleteListingCommandOutput } from "./commands/DeleteListingCommand";
-import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
-import {
+import type { DeleteFormTypeCommandInput, DeleteFormTypeCommandOutput } from "./commands/DeleteFormTypeCommand";
+import type { DeleteGlossaryCommandInput, DeleteGlossaryCommandOutput } from "./commands/DeleteGlossaryCommand";
+import type {
+  DeleteGlossaryTermCommandInput,
+  DeleteGlossaryTermCommandOutput,
+} from "./commands/DeleteGlossaryTermCommand";
+import type { DeleteListingCommandInput, DeleteListingCommandOutput } from "./commands/DeleteListingCommand";
+import type { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import type {
   DeleteProjectMembershipCommandInput,
   DeleteProjectMembershipCommandOutput,
 } from "./commands/DeleteProjectMembershipCommand";
-import {
+import type {
   DeleteProjectProfileCommandInput,
   DeleteProjectProfileCommandOutput,
 } from "./commands/DeleteProjectProfileCommand";
-import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
-import {
+import type { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import type {
   DeleteSubscriptionGrantCommandInput,
   DeleteSubscriptionGrantCommandOutput,
 } from "./commands/DeleteSubscriptionGrantCommand";
-import {
+import type {
   DeleteSubscriptionRequestCommandInput,
   DeleteSubscriptionRequestCommandOutput,
 } from "./commands/DeleteSubscriptionRequestCommand";
-import {
+import type {
   DeleteSubscriptionTargetCommandInput,
   DeleteSubscriptionTargetCommandOutput,
 } from "./commands/DeleteSubscriptionTargetCommand";
-import {
+import type {
   DeleteTimeSeriesDataPointsCommandInput,
   DeleteTimeSeriesDataPointsCommandOutput,
 } from "./commands/DeleteTimeSeriesDataPointsCommand";
-import {
+import type {
   DisassociateEnvironmentRoleCommandInput,
   DisassociateEnvironmentRoleCommandOutput,
 } from "./commands/DisassociateEnvironmentRoleCommand";
-import {
+import type {
   DisassociateGovernedTermsCommandInput,
   DisassociateGovernedTermsCommandOutput,
 } from "./commands/DisassociateGovernedTermsCommand";
-import { GetAccountPoolCommandInput, GetAccountPoolCommandOutput } from "./commands/GetAccountPoolCommand";
-import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
-import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "./commands/GetAssetFilterCommand";
-import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "./commands/GetAssetTypeCommand";
-import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
-import {
+import type { GetAccountPoolCommandInput, GetAccountPoolCommandOutput } from "./commands/GetAccountPoolCommand";
+import type { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
+import type { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "./commands/GetAssetFilterCommand";
+import type { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "./commands/GetAssetTypeCommand";
+import type { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
+import type {
   GetDataExportConfigurationCommandInput,
   GetDataExportConfigurationCommandOutput,
 } from "./commands/GetDataExportConfigurationCommand";
-import { GetDataProductCommandInput, GetDataProductCommandOutput } from "./commands/GetDataProductCommand";
-import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
-import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "./commands/GetDataSourceRunCommand";
-import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
-import { GetDomainUnitCommandInput, GetDomainUnitCommandOutput } from "./commands/GetDomainUnitCommand";
-import {
+import type { GetDataProductCommandInput, GetDataProductCommandOutput } from "./commands/GetDataProductCommand";
+import type { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import type { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "./commands/GetDataSourceRunCommand";
+import type { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import type { GetDomainUnitCommandInput, GetDomainUnitCommandOutput } from "./commands/GetDomainUnitCommand";
+import type {
   GetEnvironmentActionCommandInput,
   GetEnvironmentActionCommandOutput,
 } from "./commands/GetEnvironmentActionCommand";
-import {
+import type {
   GetEnvironmentBlueprintCommandInput,
   GetEnvironmentBlueprintCommandOutput,
 } from "./commands/GetEnvironmentBlueprintCommand";
-import {
+import type {
   GetEnvironmentBlueprintConfigurationCommandInput,
   GetEnvironmentBlueprintConfigurationCommandOutput,
 } from "./commands/GetEnvironmentBlueprintConfigurationCommand";
-import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
-import {
+import type { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
+import type {
   GetEnvironmentCredentialsCommandInput,
   GetEnvironmentCredentialsCommandOutput,
 } from "./commands/GetEnvironmentCredentialsCommand";
-import {
+import type {
   GetEnvironmentProfileCommandInput,
   GetEnvironmentProfileCommandOutput,
 } from "./commands/GetEnvironmentProfileCommand";
-import { GetFormTypeCommandInput, GetFormTypeCommandOutput } from "./commands/GetFormTypeCommand";
-import { GetGlossaryCommandInput, GetGlossaryCommandOutput } from "./commands/GetGlossaryCommand";
-import { GetGlossaryTermCommandInput, GetGlossaryTermCommandOutput } from "./commands/GetGlossaryTermCommand";
-import { GetGroupProfileCommandInput, GetGroupProfileCommandOutput } from "./commands/GetGroupProfileCommand";
-import {
+import type { GetFormTypeCommandInput, GetFormTypeCommandOutput } from "./commands/GetFormTypeCommand";
+import type { GetGlossaryCommandInput, GetGlossaryCommandOutput } from "./commands/GetGlossaryCommand";
+import type { GetGlossaryTermCommandInput, GetGlossaryTermCommandOutput } from "./commands/GetGlossaryTermCommand";
+import type { GetGroupProfileCommandInput, GetGroupProfileCommandOutput } from "./commands/GetGroupProfileCommand";
+import type {
   GetIamPortalLoginUrlCommandInput,
   GetIamPortalLoginUrlCommandOutput,
 } from "./commands/GetIamPortalLoginUrlCommand";
-import { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
-import { GetLineageEventCommandInput, GetLineageEventCommandOutput } from "./commands/GetLineageEventCommand";
-import { GetLineageNodeCommandInput, GetLineageNodeCommandOutput } from "./commands/GetLineageNodeCommand";
-import { GetListingCommandInput, GetListingCommandOutput } from "./commands/GetListingCommand";
-import {
+import type { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
+import type { GetLineageEventCommandInput, GetLineageEventCommandOutput } from "./commands/GetLineageEventCommand";
+import type { GetLineageNodeCommandInput, GetLineageNodeCommandOutput } from "./commands/GetLineageNodeCommand";
+import type { GetListingCommandInput, GetListingCommandOutput } from "./commands/GetListingCommand";
+import type {
   GetMetadataGenerationRunCommandInput,
   GetMetadataGenerationRunCommandOutput,
 } from "./commands/GetMetadataGenerationRunCommand";
-import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
-import { GetProjectProfileCommandInput, GetProjectProfileCommandOutput } from "./commands/GetProjectProfileCommand";
-import { GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
-import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "./commands/GetSubscriptionCommand";
-import {
+import type { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
+import type {
+  GetProjectProfileCommandInput,
+  GetProjectProfileCommandOutput,
+} from "./commands/GetProjectProfileCommand";
+import type { GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
+import type { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "./commands/GetSubscriptionCommand";
+import type {
   GetSubscriptionGrantCommandInput,
   GetSubscriptionGrantCommandOutput,
 } from "./commands/GetSubscriptionGrantCommand";
-import {
+import type {
   GetSubscriptionRequestDetailsCommandInput,
   GetSubscriptionRequestDetailsCommandOutput,
 } from "./commands/GetSubscriptionRequestDetailsCommand";
-import {
+import type {
   GetSubscriptionTargetCommandInput,
   GetSubscriptionTargetCommandOutput,
 } from "./commands/GetSubscriptionTargetCommand";
-import {
+import type {
   GetTimeSeriesDataPointCommandInput,
   GetTimeSeriesDataPointCommandOutput,
 } from "./commands/GetTimeSeriesDataPointCommand";
-import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "./commands/GetUserProfileCommand";
-import { ListAccountPoolsCommandInput, ListAccountPoolsCommandOutput } from "./commands/ListAccountPoolsCommand";
-import {
+import type { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "./commands/GetUserProfileCommand";
+import type { ListAccountPoolsCommandInput, ListAccountPoolsCommandOutput } from "./commands/ListAccountPoolsCommand";
+import type {
   ListAccountsInAccountPoolCommandInput,
   ListAccountsInAccountPoolCommandOutput,
 } from "./commands/ListAccountsInAccountPoolCommand";
-import { ListAssetFiltersCommandInput, ListAssetFiltersCommandOutput } from "./commands/ListAssetFiltersCommand";
-import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "./commands/ListAssetRevisionsCommand";
-import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
-import {
+import type { ListAssetFiltersCommandInput, ListAssetFiltersCommandOutput } from "./commands/ListAssetFiltersCommand";
+import type {
+  ListAssetRevisionsCommandInput,
+  ListAssetRevisionsCommandOutput,
+} from "./commands/ListAssetRevisionsCommand";
+import type { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
+import type {
   ListDataProductRevisionsCommandInput,
   ListDataProductRevisionsCommandOutput,
 } from "./commands/ListDataProductRevisionsCommand";
-import {
+import type {
   ListDataSourceRunActivitiesCommandInput,
   ListDataSourceRunActivitiesCommandOutput,
 } from "./commands/ListDataSourceRunActivitiesCommand";
-import { ListDataSourceRunsCommandInput, ListDataSourceRunsCommandOutput } from "./commands/ListDataSourceRunsCommand";
-import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
-import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
-import {
+import type {
+  ListDataSourceRunsCommandInput,
+  ListDataSourceRunsCommandOutput,
+} from "./commands/ListDataSourceRunsCommand";
+import type { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import type { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import type {
   ListDomainUnitsForParentCommandInput,
   ListDomainUnitsForParentCommandOutput,
 } from "./commands/ListDomainUnitsForParentCommand";
-import { ListEntityOwnersCommandInput, ListEntityOwnersCommandOutput } from "./commands/ListEntityOwnersCommand";
-import {
+import type { ListEntityOwnersCommandInput, ListEntityOwnersCommandOutput } from "./commands/ListEntityOwnersCommand";
+import type {
   ListEnvironmentActionsCommandInput,
   ListEnvironmentActionsCommandOutput,
 } from "./commands/ListEnvironmentActionsCommand";
-import {
+import type {
   ListEnvironmentBlueprintConfigurationsCommandInput,
   ListEnvironmentBlueprintConfigurationsCommandOutput,
 } from "./commands/ListEnvironmentBlueprintConfigurationsCommand";
-import {
+import type {
   ListEnvironmentBlueprintsCommandInput,
   ListEnvironmentBlueprintsCommandOutput,
 } from "./commands/ListEnvironmentBlueprintsCommand";
-import {
+import type {
   ListEnvironmentProfilesCommandInput,
   ListEnvironmentProfilesCommandOutput,
 } from "./commands/ListEnvironmentProfilesCommand";
-import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
-import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
-import { ListLineageEventsCommandInput, ListLineageEventsCommandOutput } from "./commands/ListLineageEventsCommand";
-import {
+import type { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import type { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
+import type {
+  ListLineageEventsCommandInput,
+  ListLineageEventsCommandOutput,
+} from "./commands/ListLineageEventsCommand";
+import type {
   ListLineageNodeHistoryCommandInput,
   ListLineageNodeHistoryCommandOutput,
 } from "./commands/ListLineageNodeHistoryCommand";
-import {
+import type {
   ListMetadataGenerationRunsCommandInput,
   ListMetadataGenerationRunsCommandOutput,
 } from "./commands/ListMetadataGenerationRunsCommand";
-import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "./commands/ListNotificationsCommand";
-import { ListPolicyGrantsCommandInput, ListPolicyGrantsCommandOutput } from "./commands/ListPolicyGrantsCommand";
-import {
+import type {
+  ListNotificationsCommandInput,
+  ListNotificationsCommandOutput,
+} from "./commands/ListNotificationsCommand";
+import type { ListPolicyGrantsCommandInput, ListPolicyGrantsCommandOutput } from "./commands/ListPolicyGrantsCommand";
+import type {
   ListProjectMembershipsCommandInput,
   ListProjectMembershipsCommandOutput,
 } from "./commands/ListProjectMembershipsCommand";
-import {
+import type {
   ListProjectProfilesCommandInput,
   ListProjectProfilesCommandOutput,
 } from "./commands/ListProjectProfilesCommand";
-import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
-import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
-import {
+import type { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import type { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
+import type {
   ListSubscriptionGrantsCommandInput,
   ListSubscriptionGrantsCommandOutput,
 } from "./commands/ListSubscriptionGrantsCommand";
-import {
+import type {
   ListSubscriptionRequestsCommandInput,
   ListSubscriptionRequestsCommandOutput,
 } from "./commands/ListSubscriptionRequestsCommand";
-import { ListSubscriptionsCommandInput, ListSubscriptionsCommandOutput } from "./commands/ListSubscriptionsCommand";
-import {
+import type {
+  ListSubscriptionsCommandInput,
+  ListSubscriptionsCommandOutput,
+} from "./commands/ListSubscriptionsCommand";
+import type {
   ListSubscriptionTargetsCommandInput,
   ListSubscriptionTargetsCommandOutput,
 } from "./commands/ListSubscriptionTargetsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTimeSeriesDataPointsCommandInput,
   ListTimeSeriesDataPointsCommandOutput,
 } from "./commands/ListTimeSeriesDataPointsCommand";
-import { PostLineageEventCommandInput, PostLineageEventCommandOutput } from "./commands/PostLineageEventCommand";
-import {
+import type { PostLineageEventCommandInput, PostLineageEventCommandOutput } from "./commands/PostLineageEventCommand";
+import type {
   PostTimeSeriesDataPointsCommandInput,
   PostTimeSeriesDataPointsCommandOutput,
 } from "./commands/PostTimeSeriesDataPointsCommand";
-import {
+import type {
   PutDataExportConfigurationCommandInput,
   PutDataExportConfigurationCommandOutput,
 } from "./commands/PutDataExportConfigurationCommand";
-import {
+import type {
   PutEnvironmentBlueprintConfigurationCommandInput,
   PutEnvironmentBlueprintConfigurationCommandOutput,
 } from "./commands/PutEnvironmentBlueprintConfigurationCommand";
-import { QueryGraphCommandInput, QueryGraphCommandOutput } from "./commands/QueryGraphCommand";
-import { RejectPredictionsCommandInput, RejectPredictionsCommandOutput } from "./commands/RejectPredictionsCommand";
-import {
+import type { QueryGraphCommandInput, QueryGraphCommandOutput } from "./commands/QueryGraphCommand";
+import type {
+  RejectPredictionsCommandInput,
+  RejectPredictionsCommandOutput,
+} from "./commands/RejectPredictionsCommand";
+import type {
   RejectSubscriptionRequestCommandInput,
   RejectSubscriptionRequestCommandOutput,
 } from "./commands/RejectSubscriptionRequestCommand";
-import { RemoveEntityOwnerCommandInput, RemoveEntityOwnerCommandOutput } from "./commands/RemoveEntityOwnerCommand";
-import { RemovePolicyGrantCommandInput, RemovePolicyGrantCommandOutput } from "./commands/RemovePolicyGrantCommand";
-import { RevokeSubscriptionCommandInput, RevokeSubscriptionCommandOutput } from "./commands/RevokeSubscriptionCommand";
-import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
-import {
+import type {
+  RemoveEntityOwnerCommandInput,
+  RemoveEntityOwnerCommandOutput,
+} from "./commands/RemoveEntityOwnerCommand";
+import type {
+  RemovePolicyGrantCommandInput,
+  RemovePolicyGrantCommandOutput,
+} from "./commands/RemovePolicyGrantCommand";
+import type {
+  RevokeSubscriptionCommandInput,
+  RevokeSubscriptionCommandOutput,
+} from "./commands/RevokeSubscriptionCommand";
+import type { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
+import type {
   SearchGroupProfilesCommandInput,
   SearchGroupProfilesCommandOutput,
 } from "./commands/SearchGroupProfilesCommand";
-import { SearchListingsCommandInput, SearchListingsCommandOutput } from "./commands/SearchListingsCommand";
-import { SearchTypesCommandInput, SearchTypesCommandOutput } from "./commands/SearchTypesCommand";
-import { SearchUserProfilesCommandInput, SearchUserProfilesCommandOutput } from "./commands/SearchUserProfilesCommand";
-import { StartDataSourceRunCommandInput, StartDataSourceRunCommandOutput } from "./commands/StartDataSourceRunCommand";
-import {
+import type { SearchListingsCommandInput, SearchListingsCommandOutput } from "./commands/SearchListingsCommand";
+import type { SearchTypesCommandInput, SearchTypesCommandOutput } from "./commands/SearchTypesCommand";
+import type {
+  SearchUserProfilesCommandInput,
+  SearchUserProfilesCommandOutput,
+} from "./commands/SearchUserProfilesCommand";
+import type {
+  StartDataSourceRunCommandInput,
+  StartDataSourceRunCommandOutput,
+} from "./commands/StartDataSourceRunCommand";
+import type {
   StartMetadataGenerationRunCommandInput,
   StartMetadataGenerationRunCommandOutput,
 } from "./commands/StartMetadataGenerationRunCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAccountPoolCommandInput, UpdateAccountPoolCommandOutput } from "./commands/UpdateAccountPoolCommand";
-import { UpdateAssetFilterCommandInput, UpdateAssetFilterCommandOutput } from "./commands/UpdateAssetFilterCommand";
-import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
-import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
-import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
-import { UpdateDomainUnitCommandInput, UpdateDomainUnitCommandOutput } from "./commands/UpdateDomainUnitCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAccountPoolCommandInput,
+  UpdateAccountPoolCommandOutput,
+} from "./commands/UpdateAccountPoolCommand";
+import type {
+  UpdateAssetFilterCommandInput,
+  UpdateAssetFilterCommandOutput,
+} from "./commands/UpdateAssetFilterCommand";
+import type { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
+import type { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import type { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
+import type { UpdateDomainUnitCommandInput, UpdateDomainUnitCommandOutput } from "./commands/UpdateDomainUnitCommand";
+import type {
   UpdateEnvironmentActionCommandInput,
   UpdateEnvironmentActionCommandOutput,
 } from "./commands/UpdateEnvironmentActionCommand";
-import {
+import type {
   UpdateEnvironmentBlueprintCommandInput,
   UpdateEnvironmentBlueprintCommandOutput,
 } from "./commands/UpdateEnvironmentBlueprintCommand";
-import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
-import {
+import type {
+  UpdateEnvironmentCommandInput,
+  UpdateEnvironmentCommandOutput,
+} from "./commands/UpdateEnvironmentCommand";
+import type {
   UpdateEnvironmentProfileCommandInput,
   UpdateEnvironmentProfileCommandOutput,
 } from "./commands/UpdateEnvironmentProfileCommand";
-import { UpdateGlossaryCommandInput, UpdateGlossaryCommandOutput } from "./commands/UpdateGlossaryCommand";
-import { UpdateGlossaryTermCommandInput, UpdateGlossaryTermCommandOutput } from "./commands/UpdateGlossaryTermCommand";
-import { UpdateGroupProfileCommandInput, UpdateGroupProfileCommandOutput } from "./commands/UpdateGroupProfileCommand";
-import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
-import {
+import type { UpdateGlossaryCommandInput, UpdateGlossaryCommandOutput } from "./commands/UpdateGlossaryCommand";
+import type {
+  UpdateGlossaryTermCommandInput,
+  UpdateGlossaryTermCommandOutput,
+} from "./commands/UpdateGlossaryTermCommand";
+import type {
+  UpdateGroupProfileCommandInput,
+  UpdateGroupProfileCommandOutput,
+} from "./commands/UpdateGroupProfileCommand";
+import type { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import type {
   UpdateProjectProfileCommandInput,
   UpdateProjectProfileCommandOutput,
 } from "./commands/UpdateProjectProfileCommand";
-import {
+import type {
   UpdateRootDomainUnitOwnerCommandInput,
   UpdateRootDomainUnitOwnerCommandOutput,
 } from "./commands/UpdateRootDomainUnitOwnerCommand";
-import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
-import {
+import type { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
+import type {
   UpdateSubscriptionGrantStatusCommandInput,
   UpdateSubscriptionGrantStatusCommandOutput,
 } from "./commands/UpdateSubscriptionGrantStatusCommand";
-import {
+import type {
   UpdateSubscriptionRequestCommandInput,
   UpdateSubscriptionRequestCommandOutput,
 } from "./commands/UpdateSubscriptionRequestCommand";
-import {
+import type {
   UpdateSubscriptionTargetCommandInput,
   UpdateSubscriptionTargetCommandOutput,
 } from "./commands/UpdateSubscriptionTargetCommand";
-import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from "./commands/UpdateUserProfileCommand";
+import type {
+  UpdateUserProfileCommandInput,
+  UpdateUserProfileCommandOutput,
+} from "./commands/UpdateUserProfileCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -945,7 +1039,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

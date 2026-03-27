@@ -8,7 +8,7 @@ import {
   ListInvocationsCommandInput,
   ListInvocationsCommandOutput,
 } from "../commands/ListInvocationsCommand";
-import { BedrockAgentRuntimePaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentRuntimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

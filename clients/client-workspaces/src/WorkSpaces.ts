@@ -3,451 +3,459 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptAccountLinkInvitationCommandInput,
+  type AcceptAccountLinkInvitationCommandOutput,
   AcceptAccountLinkInvitationCommand,
-  AcceptAccountLinkInvitationCommandInput,
-  AcceptAccountLinkInvitationCommandOutput,
 } from "./commands/AcceptAccountLinkInvitationCommand";
 import {
+  type AssociateConnectionAliasCommandInput,
+  type AssociateConnectionAliasCommandOutput,
   AssociateConnectionAliasCommand,
-  AssociateConnectionAliasCommandInput,
-  AssociateConnectionAliasCommandOutput,
 } from "./commands/AssociateConnectionAliasCommand";
 import {
+  type AssociateIpGroupsCommandInput,
+  type AssociateIpGroupsCommandOutput,
   AssociateIpGroupsCommand,
-  AssociateIpGroupsCommandInput,
-  AssociateIpGroupsCommandOutput,
 } from "./commands/AssociateIpGroupsCommand";
 import {
+  type AssociateWorkspaceApplicationCommandInput,
+  type AssociateWorkspaceApplicationCommandOutput,
   AssociateWorkspaceApplicationCommand,
-  AssociateWorkspaceApplicationCommandInput,
-  AssociateWorkspaceApplicationCommandOutput,
 } from "./commands/AssociateWorkspaceApplicationCommand";
 import {
+  type AuthorizeIpRulesCommandInput,
+  type AuthorizeIpRulesCommandOutput,
   AuthorizeIpRulesCommand,
-  AuthorizeIpRulesCommandInput,
-  AuthorizeIpRulesCommandOutput,
 } from "./commands/AuthorizeIpRulesCommand";
 import {
+  type CopyWorkspaceImageCommandInput,
+  type CopyWorkspaceImageCommandOutput,
   CopyWorkspaceImageCommand,
-  CopyWorkspaceImageCommandInput,
-  CopyWorkspaceImageCommandOutput,
 } from "./commands/CopyWorkspaceImageCommand";
 import {
+  type CreateAccountLinkInvitationCommandInput,
+  type CreateAccountLinkInvitationCommandOutput,
   CreateAccountLinkInvitationCommand,
-  CreateAccountLinkInvitationCommandInput,
-  CreateAccountLinkInvitationCommandOutput,
 } from "./commands/CreateAccountLinkInvitationCommand";
 import {
+  type CreateConnectClientAddInCommandInput,
+  type CreateConnectClientAddInCommandOutput,
   CreateConnectClientAddInCommand,
-  CreateConnectClientAddInCommandInput,
-  CreateConnectClientAddInCommandOutput,
 } from "./commands/CreateConnectClientAddInCommand";
 import {
+  type CreateConnectionAliasCommandInput,
+  type CreateConnectionAliasCommandOutput,
   CreateConnectionAliasCommand,
-  CreateConnectionAliasCommandInput,
-  CreateConnectionAliasCommandOutput,
 } from "./commands/CreateConnectionAliasCommand";
 import {
+  type CreateIpGroupCommandInput,
+  type CreateIpGroupCommandOutput,
   CreateIpGroupCommand,
-  CreateIpGroupCommandInput,
-  CreateIpGroupCommandOutput,
 } from "./commands/CreateIpGroupCommand";
 import {
+  type CreateStandbyWorkspacesCommandInput,
+  type CreateStandbyWorkspacesCommandOutput,
   CreateStandbyWorkspacesCommand,
-  CreateStandbyWorkspacesCommandInput,
-  CreateStandbyWorkspacesCommandOutput,
 } from "./commands/CreateStandbyWorkspacesCommand";
-import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
+  type CreateTagsCommandInput,
+  type CreateTagsCommandOutput,
+  CreateTagsCommand,
+} from "./commands/CreateTagsCommand";
+import {
+  type CreateUpdatedWorkspaceImageCommandInput,
+  type CreateUpdatedWorkspaceImageCommandOutput,
   CreateUpdatedWorkspaceImageCommand,
-  CreateUpdatedWorkspaceImageCommandInput,
-  CreateUpdatedWorkspaceImageCommandOutput,
 } from "./commands/CreateUpdatedWorkspaceImageCommand";
 import {
+  type CreateWorkspaceBundleCommandInput,
+  type CreateWorkspaceBundleCommandOutput,
   CreateWorkspaceBundleCommand,
-  CreateWorkspaceBundleCommandInput,
-  CreateWorkspaceBundleCommandOutput,
 } from "./commands/CreateWorkspaceBundleCommand";
 import {
+  type CreateWorkspaceImageCommandInput,
+  type CreateWorkspaceImageCommandOutput,
   CreateWorkspaceImageCommand,
-  CreateWorkspaceImageCommandInput,
-  CreateWorkspaceImageCommandOutput,
 } from "./commands/CreateWorkspaceImageCommand";
 import {
+  type CreateWorkspacesCommandInput,
+  type CreateWorkspacesCommandOutput,
   CreateWorkspacesCommand,
-  CreateWorkspacesCommandInput,
-  CreateWorkspacesCommandOutput,
 } from "./commands/CreateWorkspacesCommand";
 import {
+  type CreateWorkspacesPoolCommandInput,
+  type CreateWorkspacesPoolCommandOutput,
   CreateWorkspacesPoolCommand,
-  CreateWorkspacesPoolCommandInput,
-  CreateWorkspacesPoolCommandOutput,
 } from "./commands/CreateWorkspacesPoolCommand";
 import {
+  type DeleteAccountLinkInvitationCommandInput,
+  type DeleteAccountLinkInvitationCommandOutput,
   DeleteAccountLinkInvitationCommand,
-  DeleteAccountLinkInvitationCommandInput,
-  DeleteAccountLinkInvitationCommandOutput,
 } from "./commands/DeleteAccountLinkInvitationCommand";
 import {
+  type DeleteClientBrandingCommandInput,
+  type DeleteClientBrandingCommandOutput,
   DeleteClientBrandingCommand,
-  DeleteClientBrandingCommandInput,
-  DeleteClientBrandingCommandOutput,
 } from "./commands/DeleteClientBrandingCommand";
 import {
+  type DeleteConnectClientAddInCommandInput,
+  type DeleteConnectClientAddInCommandOutput,
   DeleteConnectClientAddInCommand,
-  DeleteConnectClientAddInCommandInput,
-  DeleteConnectClientAddInCommandOutput,
 } from "./commands/DeleteConnectClientAddInCommand";
 import {
+  type DeleteConnectionAliasCommandInput,
+  type DeleteConnectionAliasCommandOutput,
   DeleteConnectionAliasCommand,
-  DeleteConnectionAliasCommandInput,
-  DeleteConnectionAliasCommandOutput,
 } from "./commands/DeleteConnectionAliasCommand";
 import {
+  type DeleteIpGroupCommandInput,
+  type DeleteIpGroupCommandOutput,
   DeleteIpGroupCommand,
-  DeleteIpGroupCommandInput,
-  DeleteIpGroupCommandOutput,
 } from "./commands/DeleteIpGroupCommand";
-import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
+  type DeleteTagsCommandInput,
+  type DeleteTagsCommandOutput,
+  DeleteTagsCommand,
+} from "./commands/DeleteTagsCommand";
+import {
+  type DeleteWorkspaceBundleCommandInput,
+  type DeleteWorkspaceBundleCommandOutput,
   DeleteWorkspaceBundleCommand,
-  DeleteWorkspaceBundleCommandInput,
-  DeleteWorkspaceBundleCommandOutput,
 } from "./commands/DeleteWorkspaceBundleCommand";
 import {
+  type DeleteWorkspaceImageCommandInput,
+  type DeleteWorkspaceImageCommandOutput,
   DeleteWorkspaceImageCommand,
-  DeleteWorkspaceImageCommandInput,
-  DeleteWorkspaceImageCommandOutput,
 } from "./commands/DeleteWorkspaceImageCommand";
 import {
+  type DeployWorkspaceApplicationsCommandInput,
+  type DeployWorkspaceApplicationsCommandOutput,
   DeployWorkspaceApplicationsCommand,
-  DeployWorkspaceApplicationsCommandInput,
-  DeployWorkspaceApplicationsCommandOutput,
 } from "./commands/DeployWorkspaceApplicationsCommand";
 import {
+  type DeregisterWorkspaceDirectoryCommandInput,
+  type DeregisterWorkspaceDirectoryCommandOutput,
   DeregisterWorkspaceDirectoryCommand,
-  DeregisterWorkspaceDirectoryCommandInput,
-  DeregisterWorkspaceDirectoryCommandOutput,
 } from "./commands/DeregisterWorkspaceDirectoryCommand";
 import {
+  type DescribeAccountCommandInput,
+  type DescribeAccountCommandOutput,
   DescribeAccountCommand,
-  DescribeAccountCommandInput,
-  DescribeAccountCommandOutput,
 } from "./commands/DescribeAccountCommand";
 import {
+  type DescribeAccountModificationsCommandInput,
+  type DescribeAccountModificationsCommandOutput,
   DescribeAccountModificationsCommand,
-  DescribeAccountModificationsCommandInput,
-  DescribeAccountModificationsCommandOutput,
 } from "./commands/DescribeAccountModificationsCommand";
 import {
+  type DescribeApplicationAssociationsCommandInput,
+  type DescribeApplicationAssociationsCommandOutput,
   DescribeApplicationAssociationsCommand,
-  DescribeApplicationAssociationsCommandInput,
-  DescribeApplicationAssociationsCommandOutput,
 } from "./commands/DescribeApplicationAssociationsCommand";
 import {
+  type DescribeApplicationsCommandInput,
+  type DescribeApplicationsCommandOutput,
   DescribeApplicationsCommand,
-  DescribeApplicationsCommandInput,
-  DescribeApplicationsCommandOutput,
 } from "./commands/DescribeApplicationsCommand";
 import {
+  type DescribeBundleAssociationsCommandInput,
+  type DescribeBundleAssociationsCommandOutput,
   DescribeBundleAssociationsCommand,
-  DescribeBundleAssociationsCommandInput,
-  DescribeBundleAssociationsCommandOutput,
 } from "./commands/DescribeBundleAssociationsCommand";
 import {
+  type DescribeClientBrandingCommandInput,
+  type DescribeClientBrandingCommandOutput,
   DescribeClientBrandingCommand,
-  DescribeClientBrandingCommandInput,
-  DescribeClientBrandingCommandOutput,
 } from "./commands/DescribeClientBrandingCommand";
 import {
+  type DescribeClientPropertiesCommandInput,
+  type DescribeClientPropertiesCommandOutput,
   DescribeClientPropertiesCommand,
-  DescribeClientPropertiesCommandInput,
-  DescribeClientPropertiesCommandOutput,
 } from "./commands/DescribeClientPropertiesCommand";
 import {
+  type DescribeConnectClientAddInsCommandInput,
+  type DescribeConnectClientAddInsCommandOutput,
   DescribeConnectClientAddInsCommand,
-  DescribeConnectClientAddInsCommandInput,
-  DescribeConnectClientAddInsCommandOutput,
 } from "./commands/DescribeConnectClientAddInsCommand";
 import {
+  type DescribeConnectionAliasesCommandInput,
+  type DescribeConnectionAliasesCommandOutput,
   DescribeConnectionAliasesCommand,
-  DescribeConnectionAliasesCommandInput,
-  DescribeConnectionAliasesCommandOutput,
 } from "./commands/DescribeConnectionAliasesCommand";
 import {
+  type DescribeConnectionAliasPermissionsCommandInput,
+  type DescribeConnectionAliasPermissionsCommandOutput,
   DescribeConnectionAliasPermissionsCommand,
-  DescribeConnectionAliasPermissionsCommandInput,
-  DescribeConnectionAliasPermissionsCommandOutput,
 } from "./commands/DescribeConnectionAliasPermissionsCommand";
 import {
+  type DescribeCustomWorkspaceImageImportCommandInput,
+  type DescribeCustomWorkspaceImageImportCommandOutput,
   DescribeCustomWorkspaceImageImportCommand,
-  DescribeCustomWorkspaceImageImportCommandInput,
-  DescribeCustomWorkspaceImageImportCommandOutput,
 } from "./commands/DescribeCustomWorkspaceImageImportCommand";
 import {
+  type DescribeImageAssociationsCommandInput,
+  type DescribeImageAssociationsCommandOutput,
   DescribeImageAssociationsCommand,
-  DescribeImageAssociationsCommandInput,
-  DescribeImageAssociationsCommandOutput,
 } from "./commands/DescribeImageAssociationsCommand";
 import {
+  type DescribeIpGroupsCommandInput,
+  type DescribeIpGroupsCommandOutput,
   DescribeIpGroupsCommand,
-  DescribeIpGroupsCommandInput,
-  DescribeIpGroupsCommandOutput,
 } from "./commands/DescribeIpGroupsCommand";
 import {
+  type DescribeTagsCommandInput,
+  type DescribeTagsCommandOutput,
   DescribeTagsCommand,
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  type DescribeWorkspaceAssociationsCommandInput,
+  type DescribeWorkspaceAssociationsCommandOutput,
   DescribeWorkspaceAssociationsCommand,
-  DescribeWorkspaceAssociationsCommandInput,
-  DescribeWorkspaceAssociationsCommandOutput,
 } from "./commands/DescribeWorkspaceAssociationsCommand";
 import {
+  type DescribeWorkspaceBundlesCommandInput,
+  type DescribeWorkspaceBundlesCommandOutput,
   DescribeWorkspaceBundlesCommand,
-  DescribeWorkspaceBundlesCommandInput,
-  DescribeWorkspaceBundlesCommandOutput,
 } from "./commands/DescribeWorkspaceBundlesCommand";
 import {
+  type DescribeWorkspaceDirectoriesCommandInput,
+  type DescribeWorkspaceDirectoriesCommandOutput,
   DescribeWorkspaceDirectoriesCommand,
-  DescribeWorkspaceDirectoriesCommandInput,
-  DescribeWorkspaceDirectoriesCommandOutput,
 } from "./commands/DescribeWorkspaceDirectoriesCommand";
 import {
+  type DescribeWorkspaceImagePermissionsCommandInput,
+  type DescribeWorkspaceImagePermissionsCommandOutput,
   DescribeWorkspaceImagePermissionsCommand,
-  DescribeWorkspaceImagePermissionsCommandInput,
-  DescribeWorkspaceImagePermissionsCommandOutput,
 } from "./commands/DescribeWorkspaceImagePermissionsCommand";
 import {
+  type DescribeWorkspaceImagesCommandInput,
+  type DescribeWorkspaceImagesCommandOutput,
   DescribeWorkspaceImagesCommand,
-  DescribeWorkspaceImagesCommandInput,
-  DescribeWorkspaceImagesCommandOutput,
 } from "./commands/DescribeWorkspaceImagesCommand";
 import {
+  type DescribeWorkspacesCommandInput,
+  type DescribeWorkspacesCommandOutput,
   DescribeWorkspacesCommand,
-  DescribeWorkspacesCommandInput,
-  DescribeWorkspacesCommandOutput,
 } from "./commands/DescribeWorkspacesCommand";
 import {
+  type DescribeWorkspacesConnectionStatusCommandInput,
+  type DescribeWorkspacesConnectionStatusCommandOutput,
   DescribeWorkspacesConnectionStatusCommand,
-  DescribeWorkspacesConnectionStatusCommandInput,
-  DescribeWorkspacesConnectionStatusCommandOutput,
 } from "./commands/DescribeWorkspacesConnectionStatusCommand";
 import {
+  type DescribeWorkspaceSnapshotsCommandInput,
+  type DescribeWorkspaceSnapshotsCommandOutput,
   DescribeWorkspaceSnapshotsCommand,
-  DescribeWorkspaceSnapshotsCommandInput,
-  DescribeWorkspaceSnapshotsCommandOutput,
 } from "./commands/DescribeWorkspaceSnapshotsCommand";
 import {
+  type DescribeWorkspacesPoolsCommandInput,
+  type DescribeWorkspacesPoolsCommandOutput,
   DescribeWorkspacesPoolsCommand,
-  DescribeWorkspacesPoolsCommandInput,
-  DescribeWorkspacesPoolsCommandOutput,
 } from "./commands/DescribeWorkspacesPoolsCommand";
 import {
+  type DescribeWorkspacesPoolSessionsCommandInput,
+  type DescribeWorkspacesPoolSessionsCommandOutput,
   DescribeWorkspacesPoolSessionsCommand,
-  DescribeWorkspacesPoolSessionsCommandInput,
-  DescribeWorkspacesPoolSessionsCommandOutput,
 } from "./commands/DescribeWorkspacesPoolSessionsCommand";
 import {
+  type DisassociateConnectionAliasCommandInput,
+  type DisassociateConnectionAliasCommandOutput,
   DisassociateConnectionAliasCommand,
-  DisassociateConnectionAliasCommandInput,
-  DisassociateConnectionAliasCommandOutput,
 } from "./commands/DisassociateConnectionAliasCommand";
 import {
+  type DisassociateIpGroupsCommandInput,
+  type DisassociateIpGroupsCommandOutput,
   DisassociateIpGroupsCommand,
-  DisassociateIpGroupsCommandInput,
-  DisassociateIpGroupsCommandOutput,
 } from "./commands/DisassociateIpGroupsCommand";
 import {
+  type DisassociateWorkspaceApplicationCommandInput,
+  type DisassociateWorkspaceApplicationCommandOutput,
   DisassociateWorkspaceApplicationCommand,
-  DisassociateWorkspaceApplicationCommandInput,
-  DisassociateWorkspaceApplicationCommandOutput,
 } from "./commands/DisassociateWorkspaceApplicationCommand";
 import {
+  type GetAccountLinkCommandInput,
+  type GetAccountLinkCommandOutput,
   GetAccountLinkCommand,
-  GetAccountLinkCommandInput,
-  GetAccountLinkCommandOutput,
 } from "./commands/GetAccountLinkCommand";
 import {
+  type ImportClientBrandingCommandInput,
+  type ImportClientBrandingCommandOutput,
   ImportClientBrandingCommand,
-  ImportClientBrandingCommandInput,
-  ImportClientBrandingCommandOutput,
 } from "./commands/ImportClientBrandingCommand";
 import {
+  type ImportCustomWorkspaceImageCommandInput,
+  type ImportCustomWorkspaceImageCommandOutput,
   ImportCustomWorkspaceImageCommand,
-  ImportCustomWorkspaceImageCommandInput,
-  ImportCustomWorkspaceImageCommandOutput,
 } from "./commands/ImportCustomWorkspaceImageCommand";
 import {
+  type ImportWorkspaceImageCommandInput,
+  type ImportWorkspaceImageCommandOutput,
   ImportWorkspaceImageCommand,
-  ImportWorkspaceImageCommandInput,
-  ImportWorkspaceImageCommandOutput,
 } from "./commands/ImportWorkspaceImageCommand";
 import {
+  type ListAccountLinksCommandInput,
+  type ListAccountLinksCommandOutput,
   ListAccountLinksCommand,
-  ListAccountLinksCommandInput,
-  ListAccountLinksCommandOutput,
 } from "./commands/ListAccountLinksCommand";
 import {
+  type ListAvailableManagementCidrRangesCommandInput,
+  type ListAvailableManagementCidrRangesCommandOutput,
   ListAvailableManagementCidrRangesCommand,
-  ListAvailableManagementCidrRangesCommandInput,
-  ListAvailableManagementCidrRangesCommandOutput,
 } from "./commands/ListAvailableManagementCidrRangesCommand";
 import {
+  type MigrateWorkspaceCommandInput,
+  type MigrateWorkspaceCommandOutput,
   MigrateWorkspaceCommand,
-  MigrateWorkspaceCommandInput,
-  MigrateWorkspaceCommandOutput,
 } from "./commands/MigrateWorkspaceCommand";
 import {
+  type ModifyAccountCommandInput,
+  type ModifyAccountCommandOutput,
   ModifyAccountCommand,
-  ModifyAccountCommandInput,
-  ModifyAccountCommandOutput,
 } from "./commands/ModifyAccountCommand";
 import {
+  type ModifyCertificateBasedAuthPropertiesCommandInput,
+  type ModifyCertificateBasedAuthPropertiesCommandOutput,
   ModifyCertificateBasedAuthPropertiesCommand,
-  ModifyCertificateBasedAuthPropertiesCommandInput,
-  ModifyCertificateBasedAuthPropertiesCommandOutput,
 } from "./commands/ModifyCertificateBasedAuthPropertiesCommand";
 import {
+  type ModifyClientPropertiesCommandInput,
+  type ModifyClientPropertiesCommandOutput,
   ModifyClientPropertiesCommand,
-  ModifyClientPropertiesCommandInput,
-  ModifyClientPropertiesCommandOutput,
 } from "./commands/ModifyClientPropertiesCommand";
 import {
+  type ModifyEndpointEncryptionModeCommandInput,
+  type ModifyEndpointEncryptionModeCommandOutput,
   ModifyEndpointEncryptionModeCommand,
-  ModifyEndpointEncryptionModeCommandInput,
-  ModifyEndpointEncryptionModeCommandOutput,
 } from "./commands/ModifyEndpointEncryptionModeCommand";
 import {
+  type ModifySamlPropertiesCommandInput,
+  type ModifySamlPropertiesCommandOutput,
   ModifySamlPropertiesCommand,
-  ModifySamlPropertiesCommandInput,
-  ModifySamlPropertiesCommandOutput,
 } from "./commands/ModifySamlPropertiesCommand";
 import {
+  type ModifySelfservicePermissionsCommandInput,
+  type ModifySelfservicePermissionsCommandOutput,
   ModifySelfservicePermissionsCommand,
-  ModifySelfservicePermissionsCommandInput,
-  ModifySelfservicePermissionsCommandOutput,
 } from "./commands/ModifySelfservicePermissionsCommand";
 import {
+  type ModifyStreamingPropertiesCommandInput,
+  type ModifyStreamingPropertiesCommandOutput,
   ModifyStreamingPropertiesCommand,
-  ModifyStreamingPropertiesCommandInput,
-  ModifyStreamingPropertiesCommandOutput,
 } from "./commands/ModifyStreamingPropertiesCommand";
 import {
+  type ModifyWorkspaceAccessPropertiesCommandInput,
+  type ModifyWorkspaceAccessPropertiesCommandOutput,
   ModifyWorkspaceAccessPropertiesCommand,
-  ModifyWorkspaceAccessPropertiesCommandInput,
-  ModifyWorkspaceAccessPropertiesCommandOutput,
 } from "./commands/ModifyWorkspaceAccessPropertiesCommand";
 import {
+  type ModifyWorkspaceCreationPropertiesCommandInput,
+  type ModifyWorkspaceCreationPropertiesCommandOutput,
   ModifyWorkspaceCreationPropertiesCommand,
-  ModifyWorkspaceCreationPropertiesCommandInput,
-  ModifyWorkspaceCreationPropertiesCommandOutput,
 } from "./commands/ModifyWorkspaceCreationPropertiesCommand";
 import {
+  type ModifyWorkspacePropertiesCommandInput,
+  type ModifyWorkspacePropertiesCommandOutput,
   ModifyWorkspacePropertiesCommand,
-  ModifyWorkspacePropertiesCommandInput,
-  ModifyWorkspacePropertiesCommandOutput,
 } from "./commands/ModifyWorkspacePropertiesCommand";
 import {
+  type ModifyWorkspaceStateCommandInput,
+  type ModifyWorkspaceStateCommandOutput,
   ModifyWorkspaceStateCommand,
-  ModifyWorkspaceStateCommandInput,
-  ModifyWorkspaceStateCommandOutput,
 } from "./commands/ModifyWorkspaceStateCommand";
 import {
+  type RebootWorkspacesCommandInput,
+  type RebootWorkspacesCommandOutput,
   RebootWorkspacesCommand,
-  RebootWorkspacesCommandInput,
-  RebootWorkspacesCommandOutput,
 } from "./commands/RebootWorkspacesCommand";
 import {
+  type RebuildWorkspacesCommandInput,
+  type RebuildWorkspacesCommandOutput,
   RebuildWorkspacesCommand,
-  RebuildWorkspacesCommandInput,
-  RebuildWorkspacesCommandOutput,
 } from "./commands/RebuildWorkspacesCommand";
 import {
+  type RegisterWorkspaceDirectoryCommandInput,
+  type RegisterWorkspaceDirectoryCommandOutput,
   RegisterWorkspaceDirectoryCommand,
-  RegisterWorkspaceDirectoryCommandInput,
-  RegisterWorkspaceDirectoryCommandOutput,
 } from "./commands/RegisterWorkspaceDirectoryCommand";
 import {
+  type RejectAccountLinkInvitationCommandInput,
+  type RejectAccountLinkInvitationCommandOutput,
   RejectAccountLinkInvitationCommand,
-  RejectAccountLinkInvitationCommandInput,
-  RejectAccountLinkInvitationCommandOutput,
 } from "./commands/RejectAccountLinkInvitationCommand";
 import {
+  type RestoreWorkspaceCommandInput,
+  type RestoreWorkspaceCommandOutput,
   RestoreWorkspaceCommand,
-  RestoreWorkspaceCommandInput,
-  RestoreWorkspaceCommandOutput,
 } from "./commands/RestoreWorkspaceCommand";
 import {
+  type RevokeIpRulesCommandInput,
+  type RevokeIpRulesCommandOutput,
   RevokeIpRulesCommand,
-  RevokeIpRulesCommandInput,
-  RevokeIpRulesCommandOutput,
 } from "./commands/RevokeIpRulesCommand";
 import {
+  type StartWorkspacesCommandInput,
+  type StartWorkspacesCommandOutput,
   StartWorkspacesCommand,
-  StartWorkspacesCommandInput,
-  StartWorkspacesCommandOutput,
 } from "./commands/StartWorkspacesCommand";
 import {
+  type StartWorkspacesPoolCommandInput,
+  type StartWorkspacesPoolCommandOutput,
   StartWorkspacesPoolCommand,
-  StartWorkspacesPoolCommandInput,
-  StartWorkspacesPoolCommandOutput,
 } from "./commands/StartWorkspacesPoolCommand";
 import {
+  type StopWorkspacesCommandInput,
+  type StopWorkspacesCommandOutput,
   StopWorkspacesCommand,
-  StopWorkspacesCommandInput,
-  StopWorkspacesCommandOutput,
 } from "./commands/StopWorkspacesCommand";
 import {
+  type StopWorkspacesPoolCommandInput,
+  type StopWorkspacesPoolCommandOutput,
   StopWorkspacesPoolCommand,
-  StopWorkspacesPoolCommandInput,
-  StopWorkspacesPoolCommandOutput,
 } from "./commands/StopWorkspacesPoolCommand";
 import {
+  type TerminateWorkspacesCommandInput,
+  type TerminateWorkspacesCommandOutput,
   TerminateWorkspacesCommand,
-  TerminateWorkspacesCommandInput,
-  TerminateWorkspacesCommandOutput,
 } from "./commands/TerminateWorkspacesCommand";
 import {
+  type TerminateWorkspacesPoolCommandInput,
+  type TerminateWorkspacesPoolCommandOutput,
   TerminateWorkspacesPoolCommand,
-  TerminateWorkspacesPoolCommandInput,
-  TerminateWorkspacesPoolCommandOutput,
 } from "./commands/TerminateWorkspacesPoolCommand";
 import {
+  type TerminateWorkspacesPoolSessionCommandInput,
+  type TerminateWorkspacesPoolSessionCommandOutput,
   TerminateWorkspacesPoolSessionCommand,
-  TerminateWorkspacesPoolSessionCommandInput,
-  TerminateWorkspacesPoolSessionCommandOutput,
 } from "./commands/TerminateWorkspacesPoolSessionCommand";
 import {
+  type UpdateConnectClientAddInCommandInput,
+  type UpdateConnectClientAddInCommandOutput,
   UpdateConnectClientAddInCommand,
-  UpdateConnectClientAddInCommandInput,
-  UpdateConnectClientAddInCommandOutput,
 } from "./commands/UpdateConnectClientAddInCommand";
 import {
+  type UpdateConnectionAliasPermissionCommandInput,
+  type UpdateConnectionAliasPermissionCommandOutput,
   UpdateConnectionAliasPermissionCommand,
-  UpdateConnectionAliasPermissionCommandInput,
-  UpdateConnectionAliasPermissionCommandOutput,
 } from "./commands/UpdateConnectionAliasPermissionCommand";
 import {
+  type UpdateRulesOfIpGroupCommandInput,
+  type UpdateRulesOfIpGroupCommandOutput,
   UpdateRulesOfIpGroupCommand,
-  UpdateRulesOfIpGroupCommandInput,
-  UpdateRulesOfIpGroupCommandOutput,
 } from "./commands/UpdateRulesOfIpGroupCommand";
 import {
+  type UpdateWorkspaceBundleCommandInput,
+  type UpdateWorkspaceBundleCommandOutput,
   UpdateWorkspaceBundleCommand,
-  UpdateWorkspaceBundleCommandInput,
-  UpdateWorkspaceBundleCommandOutput,
 } from "./commands/UpdateWorkspaceBundleCommand";
 import {
+  type UpdateWorkspaceImagePermissionCommandInput,
+  type UpdateWorkspaceImagePermissionCommandOutput,
   UpdateWorkspaceImagePermissionCommand,
-  UpdateWorkspaceImagePermissionCommandInput,
-  UpdateWorkspaceImagePermissionCommandOutput,
 } from "./commands/UpdateWorkspaceImagePermissionCommand";
 import {
+  type UpdateWorkspacesPoolCommandInput,
+  type UpdateWorkspacesPoolCommandOutput,
   UpdateWorkspacesPoolCommand,
-  UpdateWorkspacesPoolCommandInput,
-  UpdateWorkspacesPoolCommandOutput,
 } from "./commands/UpdateWorkspacesPoolCommand";
 import { paginateDescribeApplicationAssociations } from "./pagination/DescribeApplicationAssociationsPaginator";
 import { paginateDescribeApplications } from "./pagination/DescribeApplicationsPaginator";

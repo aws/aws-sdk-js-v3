@@ -8,7 +8,7 @@ import {
   DescribeOrganizationConfigurationCommandOutput,
 } from "../commands/DescribeOrganizationConfigurationCommand";
 import { GuardDutyClient } from "../GuardDutyClient";
-import { GuardDutyPaginationConfiguration } from "./Interfaces";
+import type { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

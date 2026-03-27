@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListActionsCommand, ListActionsCommandInput, ListActionsCommandOutput } from "../commands/ListActionsCommand";
 import { FisClient } from "../FisClient";
-import { FisPaginationConfiguration } from "./Interfaces";
+import type { FisPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

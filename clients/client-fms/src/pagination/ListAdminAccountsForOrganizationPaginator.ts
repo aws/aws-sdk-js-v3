@@ -8,7 +8,7 @@ import {
   ListAdminAccountsForOrganizationCommandOutput,
 } from "../commands/ListAdminAccountsForOrganizationCommand";
 import { FMSClient } from "../FMSClient";
-import { FMSPaginationConfiguration } from "./Interfaces";
+import type { FMSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

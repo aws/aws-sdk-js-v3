@@ -10,220 +10,224 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { AmpClient } from "./AmpClient";
 import {
+  type CreateAlertManagerDefinitionCommandInput,
+  type CreateAlertManagerDefinitionCommandOutput,
   CreateAlertManagerDefinitionCommand,
-  CreateAlertManagerDefinitionCommandInput,
-  CreateAlertManagerDefinitionCommandOutput,
 } from "./commands/CreateAlertManagerDefinitionCommand";
 import {
+  type CreateAnomalyDetectorCommandInput,
+  type CreateAnomalyDetectorCommandOutput,
   CreateAnomalyDetectorCommand,
-  CreateAnomalyDetectorCommandInput,
-  CreateAnomalyDetectorCommandOutput,
 } from "./commands/CreateAnomalyDetectorCommand";
 import {
+  type CreateLoggingConfigurationCommandInput,
+  type CreateLoggingConfigurationCommandOutput,
   CreateLoggingConfigurationCommand,
-  CreateLoggingConfigurationCommandInput,
-  CreateLoggingConfigurationCommandOutput,
 } from "./commands/CreateLoggingConfigurationCommand";
 import {
+  type CreateQueryLoggingConfigurationCommandInput,
+  type CreateQueryLoggingConfigurationCommandOutput,
   CreateQueryLoggingConfigurationCommand,
-  CreateQueryLoggingConfigurationCommandInput,
-  CreateQueryLoggingConfigurationCommandOutput,
 } from "./commands/CreateQueryLoggingConfigurationCommand";
 import {
+  type CreateRuleGroupsNamespaceCommandInput,
+  type CreateRuleGroupsNamespaceCommandOutput,
   CreateRuleGroupsNamespaceCommand,
-  CreateRuleGroupsNamespaceCommandInput,
-  CreateRuleGroupsNamespaceCommandOutput,
 } from "./commands/CreateRuleGroupsNamespaceCommand";
 import {
+  type CreateScraperCommandInput,
+  type CreateScraperCommandOutput,
   CreateScraperCommand,
-  CreateScraperCommandInput,
-  CreateScraperCommandOutput,
 } from "./commands/CreateScraperCommand";
 import {
+  type CreateWorkspaceCommandInput,
+  type CreateWorkspaceCommandOutput,
   CreateWorkspaceCommand,
-  CreateWorkspaceCommandInput,
-  CreateWorkspaceCommandOutput,
 } from "./commands/CreateWorkspaceCommand";
 import {
+  type DeleteAlertManagerDefinitionCommandInput,
+  type DeleteAlertManagerDefinitionCommandOutput,
   DeleteAlertManagerDefinitionCommand,
-  DeleteAlertManagerDefinitionCommandInput,
-  DeleteAlertManagerDefinitionCommandOutput,
 } from "./commands/DeleteAlertManagerDefinitionCommand";
 import {
+  type DeleteAnomalyDetectorCommandInput,
+  type DeleteAnomalyDetectorCommandOutput,
   DeleteAnomalyDetectorCommand,
-  DeleteAnomalyDetectorCommandInput,
-  DeleteAnomalyDetectorCommandOutput,
 } from "./commands/DeleteAnomalyDetectorCommand";
 import {
+  type DeleteLoggingConfigurationCommandInput,
+  type DeleteLoggingConfigurationCommandOutput,
   DeleteLoggingConfigurationCommand,
-  DeleteLoggingConfigurationCommandInput,
-  DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand";
 import {
+  type DeleteQueryLoggingConfigurationCommandInput,
+  type DeleteQueryLoggingConfigurationCommandOutput,
   DeleteQueryLoggingConfigurationCommand,
-  DeleteQueryLoggingConfigurationCommandInput,
-  DeleteQueryLoggingConfigurationCommandOutput,
 } from "./commands/DeleteQueryLoggingConfigurationCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteRuleGroupsNamespaceCommandInput,
+  type DeleteRuleGroupsNamespaceCommandOutput,
   DeleteRuleGroupsNamespaceCommand,
-  DeleteRuleGroupsNamespaceCommandInput,
-  DeleteRuleGroupsNamespaceCommandOutput,
 } from "./commands/DeleteRuleGroupsNamespaceCommand";
 import {
+  type DeleteScraperCommandInput,
+  type DeleteScraperCommandOutput,
   DeleteScraperCommand,
-  DeleteScraperCommandInput,
-  DeleteScraperCommandOutput,
 } from "./commands/DeleteScraperCommand";
 import {
+  type DeleteScraperLoggingConfigurationCommandInput,
+  type DeleteScraperLoggingConfigurationCommandOutput,
   DeleteScraperLoggingConfigurationCommand,
-  DeleteScraperLoggingConfigurationCommandInput,
-  DeleteScraperLoggingConfigurationCommandOutput,
 } from "./commands/DeleteScraperLoggingConfigurationCommand";
 import {
+  type DeleteWorkspaceCommandInput,
+  type DeleteWorkspaceCommandOutput,
   DeleteWorkspaceCommand,
-  DeleteWorkspaceCommandInput,
-  DeleteWorkspaceCommandOutput,
 } from "./commands/DeleteWorkspaceCommand";
 import {
+  type DescribeAlertManagerDefinitionCommandInput,
+  type DescribeAlertManagerDefinitionCommandOutput,
   DescribeAlertManagerDefinitionCommand,
-  DescribeAlertManagerDefinitionCommandInput,
-  DescribeAlertManagerDefinitionCommandOutput,
 } from "./commands/DescribeAlertManagerDefinitionCommand";
 import {
+  type DescribeAnomalyDetectorCommandInput,
+  type DescribeAnomalyDetectorCommandOutput,
   DescribeAnomalyDetectorCommand,
-  DescribeAnomalyDetectorCommandInput,
-  DescribeAnomalyDetectorCommandOutput,
 } from "./commands/DescribeAnomalyDetectorCommand";
 import {
+  type DescribeLoggingConfigurationCommandInput,
+  type DescribeLoggingConfigurationCommandOutput,
   DescribeLoggingConfigurationCommand,
-  DescribeLoggingConfigurationCommandInput,
-  DescribeLoggingConfigurationCommandOutput,
 } from "./commands/DescribeLoggingConfigurationCommand";
 import {
+  type DescribeQueryLoggingConfigurationCommandInput,
+  type DescribeQueryLoggingConfigurationCommandOutput,
   DescribeQueryLoggingConfigurationCommand,
-  DescribeQueryLoggingConfigurationCommandInput,
-  DescribeQueryLoggingConfigurationCommandOutput,
 } from "./commands/DescribeQueryLoggingConfigurationCommand";
 import {
+  type DescribeResourcePolicyCommandInput,
+  type DescribeResourcePolicyCommandOutput,
   DescribeResourcePolicyCommand,
-  DescribeResourcePolicyCommandInput,
-  DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
 import {
+  type DescribeRuleGroupsNamespaceCommandInput,
+  type DescribeRuleGroupsNamespaceCommandOutput,
   DescribeRuleGroupsNamespaceCommand,
-  DescribeRuleGroupsNamespaceCommandInput,
-  DescribeRuleGroupsNamespaceCommandOutput,
 } from "./commands/DescribeRuleGroupsNamespaceCommand";
 import {
+  type DescribeScraperCommandInput,
+  type DescribeScraperCommandOutput,
   DescribeScraperCommand,
-  DescribeScraperCommandInput,
-  DescribeScraperCommandOutput,
 } from "./commands/DescribeScraperCommand";
 import {
+  type DescribeScraperLoggingConfigurationCommandInput,
+  type DescribeScraperLoggingConfigurationCommandOutput,
   DescribeScraperLoggingConfigurationCommand,
-  DescribeScraperLoggingConfigurationCommandInput,
-  DescribeScraperLoggingConfigurationCommandOutput,
 } from "./commands/DescribeScraperLoggingConfigurationCommand";
 import {
+  type DescribeWorkspaceCommandInput,
+  type DescribeWorkspaceCommandOutput,
   DescribeWorkspaceCommand,
-  DescribeWorkspaceCommandInput,
-  DescribeWorkspaceCommandOutput,
 } from "./commands/DescribeWorkspaceCommand";
 import {
+  type DescribeWorkspaceConfigurationCommandInput,
+  type DescribeWorkspaceConfigurationCommandOutput,
   DescribeWorkspaceConfigurationCommand,
-  DescribeWorkspaceConfigurationCommandInput,
-  DescribeWorkspaceConfigurationCommandOutput,
 } from "./commands/DescribeWorkspaceConfigurationCommand";
 import {
+  type GetDefaultScraperConfigurationCommandInput,
+  type GetDefaultScraperConfigurationCommandOutput,
   GetDefaultScraperConfigurationCommand,
-  GetDefaultScraperConfigurationCommandInput,
-  GetDefaultScraperConfigurationCommandOutput,
 } from "./commands/GetDefaultScraperConfigurationCommand";
 import {
+  type ListAnomalyDetectorsCommandInput,
+  type ListAnomalyDetectorsCommandOutput,
   ListAnomalyDetectorsCommand,
-  ListAnomalyDetectorsCommandInput,
-  ListAnomalyDetectorsCommandOutput,
 } from "./commands/ListAnomalyDetectorsCommand";
 import {
+  type ListRuleGroupsNamespacesCommandInput,
+  type ListRuleGroupsNamespacesCommandOutput,
   ListRuleGroupsNamespacesCommand,
-  ListRuleGroupsNamespacesCommandInput,
-  ListRuleGroupsNamespacesCommandOutput,
 } from "./commands/ListRuleGroupsNamespacesCommand";
 import {
+  type ListScrapersCommandInput,
+  type ListScrapersCommandOutput,
   ListScrapersCommand,
-  ListScrapersCommandInput,
-  ListScrapersCommandOutput,
 } from "./commands/ListScrapersCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWorkspacesCommandInput,
+  type ListWorkspacesCommandOutput,
   ListWorkspacesCommand,
-  ListWorkspacesCommandInput,
-  ListWorkspacesCommandOutput,
 } from "./commands/ListWorkspacesCommand";
 import {
+  type PutAlertManagerDefinitionCommandInput,
+  type PutAlertManagerDefinitionCommandOutput,
   PutAlertManagerDefinitionCommand,
-  PutAlertManagerDefinitionCommandInput,
-  PutAlertManagerDefinitionCommandOutput,
 } from "./commands/PutAlertManagerDefinitionCommand";
 import {
+  type PutAnomalyDetectorCommandInput,
+  type PutAnomalyDetectorCommandOutput,
   PutAnomalyDetectorCommand,
-  PutAnomalyDetectorCommandInput,
-  PutAnomalyDetectorCommandOutput,
 } from "./commands/PutAnomalyDetectorCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type PutRuleGroupsNamespaceCommandInput,
+  type PutRuleGroupsNamespaceCommandOutput,
   PutRuleGroupsNamespaceCommand,
-  PutRuleGroupsNamespaceCommandInput,
-  PutRuleGroupsNamespaceCommandOutput,
 } from "./commands/PutRuleGroupsNamespaceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateLoggingConfigurationCommandInput,
+  type UpdateLoggingConfigurationCommandOutput,
   UpdateLoggingConfigurationCommand,
-  UpdateLoggingConfigurationCommandInput,
-  UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
 import {
+  type UpdateQueryLoggingConfigurationCommandInput,
+  type UpdateQueryLoggingConfigurationCommandOutput,
   UpdateQueryLoggingConfigurationCommand,
-  UpdateQueryLoggingConfigurationCommandInput,
-  UpdateQueryLoggingConfigurationCommandOutput,
 } from "./commands/UpdateQueryLoggingConfigurationCommand";
 import {
+  type UpdateScraperCommandInput,
+  type UpdateScraperCommandOutput,
   UpdateScraperCommand,
-  UpdateScraperCommandInput,
-  UpdateScraperCommandOutput,
 } from "./commands/UpdateScraperCommand";
 import {
+  type UpdateScraperLoggingConfigurationCommandInput,
+  type UpdateScraperLoggingConfigurationCommandOutput,
   UpdateScraperLoggingConfigurationCommand,
-  UpdateScraperLoggingConfigurationCommandInput,
-  UpdateScraperLoggingConfigurationCommandOutput,
 } from "./commands/UpdateScraperLoggingConfigurationCommand";
 import {
+  type UpdateWorkspaceAliasCommandInput,
+  type UpdateWorkspaceAliasCommandOutput,
   UpdateWorkspaceAliasCommand,
-  UpdateWorkspaceAliasCommandInput,
-  UpdateWorkspaceAliasCommandOutput,
 } from "./commands/UpdateWorkspaceAliasCommand";
 import {
+  type UpdateWorkspaceConfigurationCommandInput,
+  type UpdateWorkspaceConfigurationCommandOutput,
   UpdateWorkspaceConfigurationCommand,
-  UpdateWorkspaceConfigurationCommandInput,
-  UpdateWorkspaceConfigurationCommandOutput,
 } from "./commands/UpdateWorkspaceConfigurationCommand";
 import { paginateListAnomalyDetectors } from "./pagination/ListAnomalyDetectorsPaginator";
 import { paginateListRuleGroupsNamespaces } from "./pagination/ListRuleGroupsNamespacesPaginator";

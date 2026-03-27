@@ -8,7 +8,7 @@ import {
   ListAssistantAssociationsCommandOutput,
 } from "../commands/ListAssistantAssociationsCommand";
 import { WisdomClient } from "../WisdomClient";
-import { WisdomPaginationConfiguration } from "./Interfaces";
+import type { WisdomPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

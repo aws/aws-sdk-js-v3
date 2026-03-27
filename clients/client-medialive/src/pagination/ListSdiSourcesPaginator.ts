@@ -8,7 +8,7 @@ import {
   ListSdiSourcesCommandOutput,
 } from "../commands/ListSdiSourcesCommand";
 import { MediaLiveClient } from "../MediaLiveClient";
-import { MediaLivePaginationConfiguration } from "./Interfaces";
+import type { MediaLivePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

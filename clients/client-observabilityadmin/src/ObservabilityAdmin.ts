@@ -3,200 +3,204 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateCentralizationRuleForOrganizationCommandInput,
+  type CreateCentralizationRuleForOrganizationCommandOutput,
   CreateCentralizationRuleForOrganizationCommand,
-  CreateCentralizationRuleForOrganizationCommandInput,
-  CreateCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/CreateCentralizationRuleForOrganizationCommand";
 import {
+  type CreateS3TableIntegrationCommandInput,
+  type CreateS3TableIntegrationCommandOutput,
   CreateS3TableIntegrationCommand,
-  CreateS3TableIntegrationCommandInput,
-  CreateS3TableIntegrationCommandOutput,
 } from "./commands/CreateS3TableIntegrationCommand";
 import {
+  type CreateTelemetryPipelineCommandInput,
+  type CreateTelemetryPipelineCommandOutput,
   CreateTelemetryPipelineCommand,
-  CreateTelemetryPipelineCommandInput,
-  CreateTelemetryPipelineCommandOutput,
 } from "./commands/CreateTelemetryPipelineCommand";
 import {
+  type CreateTelemetryRuleCommandInput,
+  type CreateTelemetryRuleCommandOutput,
   CreateTelemetryRuleCommand,
-  CreateTelemetryRuleCommandInput,
-  CreateTelemetryRuleCommandOutput,
 } from "./commands/CreateTelemetryRuleCommand";
 import {
+  type CreateTelemetryRuleForOrganizationCommandInput,
+  type CreateTelemetryRuleForOrganizationCommandOutput,
   CreateTelemetryRuleForOrganizationCommand,
-  CreateTelemetryRuleForOrganizationCommandInput,
-  CreateTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/CreateTelemetryRuleForOrganizationCommand";
 import {
+  type DeleteCentralizationRuleForOrganizationCommandInput,
+  type DeleteCentralizationRuleForOrganizationCommandOutput,
   DeleteCentralizationRuleForOrganizationCommand,
-  DeleteCentralizationRuleForOrganizationCommandInput,
-  DeleteCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/DeleteCentralizationRuleForOrganizationCommand";
 import {
+  type DeleteS3TableIntegrationCommandInput,
+  type DeleteS3TableIntegrationCommandOutput,
   DeleteS3TableIntegrationCommand,
-  DeleteS3TableIntegrationCommandInput,
-  DeleteS3TableIntegrationCommandOutput,
 } from "./commands/DeleteS3TableIntegrationCommand";
 import {
+  type DeleteTelemetryPipelineCommandInput,
+  type DeleteTelemetryPipelineCommandOutput,
   DeleteTelemetryPipelineCommand,
-  DeleteTelemetryPipelineCommandInput,
-  DeleteTelemetryPipelineCommandOutput,
 } from "./commands/DeleteTelemetryPipelineCommand";
 import {
+  type DeleteTelemetryRuleCommandInput,
+  type DeleteTelemetryRuleCommandOutput,
   DeleteTelemetryRuleCommand,
-  DeleteTelemetryRuleCommandInput,
-  DeleteTelemetryRuleCommandOutput,
 } from "./commands/DeleteTelemetryRuleCommand";
 import {
+  type DeleteTelemetryRuleForOrganizationCommandInput,
+  type DeleteTelemetryRuleForOrganizationCommandOutput,
   DeleteTelemetryRuleForOrganizationCommand,
-  DeleteTelemetryRuleForOrganizationCommandInput,
-  DeleteTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/DeleteTelemetryRuleForOrganizationCommand";
 import {
+  type GetCentralizationRuleForOrganizationCommandInput,
+  type GetCentralizationRuleForOrganizationCommandOutput,
   GetCentralizationRuleForOrganizationCommand,
-  GetCentralizationRuleForOrganizationCommandInput,
-  GetCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/GetCentralizationRuleForOrganizationCommand";
 import {
+  type GetS3TableIntegrationCommandInput,
+  type GetS3TableIntegrationCommandOutput,
   GetS3TableIntegrationCommand,
-  GetS3TableIntegrationCommandInput,
-  GetS3TableIntegrationCommandOutput,
 } from "./commands/GetS3TableIntegrationCommand";
 import {
+  type GetTelemetryEnrichmentStatusCommandInput,
+  type GetTelemetryEnrichmentStatusCommandOutput,
   GetTelemetryEnrichmentStatusCommand,
-  GetTelemetryEnrichmentStatusCommandInput,
-  GetTelemetryEnrichmentStatusCommandOutput,
 } from "./commands/GetTelemetryEnrichmentStatusCommand";
 import {
+  type GetTelemetryEvaluationStatusCommandInput,
+  type GetTelemetryEvaluationStatusCommandOutput,
   GetTelemetryEvaluationStatusCommand,
-  GetTelemetryEvaluationStatusCommandInput,
-  GetTelemetryEvaluationStatusCommandOutput,
 } from "./commands/GetTelemetryEvaluationStatusCommand";
 import {
+  type GetTelemetryEvaluationStatusForOrganizationCommandInput,
+  type GetTelemetryEvaluationStatusForOrganizationCommandOutput,
   GetTelemetryEvaluationStatusForOrganizationCommand,
-  GetTelemetryEvaluationStatusForOrganizationCommandInput,
-  GetTelemetryEvaluationStatusForOrganizationCommandOutput,
 } from "./commands/GetTelemetryEvaluationStatusForOrganizationCommand";
 import {
+  type GetTelemetryPipelineCommandInput,
+  type GetTelemetryPipelineCommandOutput,
   GetTelemetryPipelineCommand,
-  GetTelemetryPipelineCommandInput,
-  GetTelemetryPipelineCommandOutput,
 } from "./commands/GetTelemetryPipelineCommand";
 import {
+  type GetTelemetryRuleCommandInput,
+  type GetTelemetryRuleCommandOutput,
   GetTelemetryRuleCommand,
-  GetTelemetryRuleCommandInput,
-  GetTelemetryRuleCommandOutput,
 } from "./commands/GetTelemetryRuleCommand";
 import {
+  type GetTelemetryRuleForOrganizationCommandInput,
+  type GetTelemetryRuleForOrganizationCommandOutput,
   GetTelemetryRuleForOrganizationCommand,
-  GetTelemetryRuleForOrganizationCommandInput,
-  GetTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/GetTelemetryRuleForOrganizationCommand";
 import {
+  type ListCentralizationRulesForOrganizationCommandInput,
+  type ListCentralizationRulesForOrganizationCommandOutput,
   ListCentralizationRulesForOrganizationCommand,
-  ListCentralizationRulesForOrganizationCommandInput,
-  ListCentralizationRulesForOrganizationCommandOutput,
 } from "./commands/ListCentralizationRulesForOrganizationCommand";
 import {
+  type ListResourceTelemetryCommandInput,
+  type ListResourceTelemetryCommandOutput,
   ListResourceTelemetryCommand,
-  ListResourceTelemetryCommandInput,
-  ListResourceTelemetryCommandOutput,
 } from "./commands/ListResourceTelemetryCommand";
 import {
+  type ListResourceTelemetryForOrganizationCommandInput,
+  type ListResourceTelemetryForOrganizationCommandOutput,
   ListResourceTelemetryForOrganizationCommand,
-  ListResourceTelemetryForOrganizationCommandInput,
-  ListResourceTelemetryForOrganizationCommandOutput,
 } from "./commands/ListResourceTelemetryForOrganizationCommand";
 import {
+  type ListS3TableIntegrationsCommandInput,
+  type ListS3TableIntegrationsCommandOutput,
   ListS3TableIntegrationsCommand,
-  ListS3TableIntegrationsCommandInput,
-  ListS3TableIntegrationsCommandOutput,
 } from "./commands/ListS3TableIntegrationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTelemetryPipelinesCommandInput,
+  type ListTelemetryPipelinesCommandOutput,
   ListTelemetryPipelinesCommand,
-  ListTelemetryPipelinesCommandInput,
-  ListTelemetryPipelinesCommandOutput,
 } from "./commands/ListTelemetryPipelinesCommand";
 import {
+  type ListTelemetryRulesCommandInput,
+  type ListTelemetryRulesCommandOutput,
   ListTelemetryRulesCommand,
-  ListTelemetryRulesCommandInput,
-  ListTelemetryRulesCommandOutput,
 } from "./commands/ListTelemetryRulesCommand";
 import {
+  type ListTelemetryRulesForOrganizationCommandInput,
+  type ListTelemetryRulesForOrganizationCommandOutput,
   ListTelemetryRulesForOrganizationCommand,
-  ListTelemetryRulesForOrganizationCommandInput,
-  ListTelemetryRulesForOrganizationCommandOutput,
 } from "./commands/ListTelemetryRulesForOrganizationCommand";
 import {
+  type StartTelemetryEnrichmentCommandInput,
+  type StartTelemetryEnrichmentCommandOutput,
   StartTelemetryEnrichmentCommand,
-  StartTelemetryEnrichmentCommandInput,
-  StartTelemetryEnrichmentCommandOutput,
 } from "./commands/StartTelemetryEnrichmentCommand";
 import {
+  type StartTelemetryEvaluationCommandInput,
+  type StartTelemetryEvaluationCommandOutput,
   StartTelemetryEvaluationCommand,
-  StartTelemetryEvaluationCommandInput,
-  StartTelemetryEvaluationCommandOutput,
 } from "./commands/StartTelemetryEvaluationCommand";
 import {
+  type StartTelemetryEvaluationForOrganizationCommandInput,
+  type StartTelemetryEvaluationForOrganizationCommandOutput,
   StartTelemetryEvaluationForOrganizationCommand,
-  StartTelemetryEvaluationForOrganizationCommandInput,
-  StartTelemetryEvaluationForOrganizationCommandOutput,
 } from "./commands/StartTelemetryEvaluationForOrganizationCommand";
 import {
+  type StopTelemetryEnrichmentCommandInput,
+  type StopTelemetryEnrichmentCommandOutput,
   StopTelemetryEnrichmentCommand,
-  StopTelemetryEnrichmentCommandInput,
-  StopTelemetryEnrichmentCommandOutput,
 } from "./commands/StopTelemetryEnrichmentCommand";
 import {
+  type StopTelemetryEvaluationCommandInput,
+  type StopTelemetryEvaluationCommandOutput,
   StopTelemetryEvaluationCommand,
-  StopTelemetryEvaluationCommandInput,
-  StopTelemetryEvaluationCommandOutput,
 } from "./commands/StopTelemetryEvaluationCommand";
 import {
+  type StopTelemetryEvaluationForOrganizationCommandInput,
+  type StopTelemetryEvaluationForOrganizationCommandOutput,
   StopTelemetryEvaluationForOrganizationCommand,
-  StopTelemetryEvaluationForOrganizationCommandInput,
-  StopTelemetryEvaluationForOrganizationCommandOutput,
 } from "./commands/StopTelemetryEvaluationForOrganizationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TestTelemetryPipelineCommandInput,
+  type TestTelemetryPipelineCommandOutput,
   TestTelemetryPipelineCommand,
-  TestTelemetryPipelineCommandInput,
-  TestTelemetryPipelineCommandOutput,
 } from "./commands/TestTelemetryPipelineCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCentralizationRuleForOrganizationCommandInput,
+  type UpdateCentralizationRuleForOrganizationCommandOutput,
   UpdateCentralizationRuleForOrganizationCommand,
-  UpdateCentralizationRuleForOrganizationCommandInput,
-  UpdateCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/UpdateCentralizationRuleForOrganizationCommand";
 import {
+  type UpdateTelemetryPipelineCommandInput,
+  type UpdateTelemetryPipelineCommandOutput,
   UpdateTelemetryPipelineCommand,
-  UpdateTelemetryPipelineCommandInput,
-  UpdateTelemetryPipelineCommandOutput,
 } from "./commands/UpdateTelemetryPipelineCommand";
 import {
+  type UpdateTelemetryRuleCommandInput,
+  type UpdateTelemetryRuleCommandOutput,
   UpdateTelemetryRuleCommand,
-  UpdateTelemetryRuleCommandInput,
-  UpdateTelemetryRuleCommandOutput,
 } from "./commands/UpdateTelemetryRuleCommand";
 import {
+  type UpdateTelemetryRuleForOrganizationCommandInput,
+  type UpdateTelemetryRuleForOrganizationCommandOutput,
   UpdateTelemetryRuleForOrganizationCommand,
-  UpdateTelemetryRuleForOrganizationCommandInput,
-  UpdateTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/UpdateTelemetryRuleForOrganizationCommand";
 import {
+  type ValidateTelemetryPipelineConfigurationCommandInput,
+  type ValidateTelemetryPipelineConfigurationCommandOutput,
   ValidateTelemetryPipelineConfigurationCommand,
-  ValidateTelemetryPipelineConfigurationCommandInput,
-  ValidateTelemetryPipelineConfigurationCommandOutput,
 } from "./commands/ValidateTelemetryPipelineConfigurationCommand";
 import { ObservabilityAdminClient } from "./ObservabilityAdminClient";
 import {

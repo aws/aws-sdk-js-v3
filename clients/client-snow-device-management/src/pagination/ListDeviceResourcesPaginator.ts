@@ -8,7 +8,7 @@ import {
   ListDeviceResourcesCommandOutput,
 } from "../commands/ListDeviceResourcesCommand";
 import { SnowDeviceManagementClient } from "../SnowDeviceManagementClient";
-import { SnowDeviceManagementPaginationConfiguration } from "./Interfaces";
+import type { SnowDeviceManagementPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

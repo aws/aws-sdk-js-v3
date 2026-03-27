@@ -1,8 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeNatGatewaysCommand, DescribeNatGatewaysCommandInput } from "../commands/DescribeNatGatewaysCommand";
-import { EC2Client } from "../EC2Client";
+import {
+  type DescribeNatGatewaysCommandInput,
+  DescribeNatGatewaysCommand,
+} from "../commands/DescribeNatGatewaysCommand";
+import type { EC2Client } from "../EC2Client";
 
 const checkState = async (client: EC2Client, input: DescribeNatGatewaysCommandInput): Promise<WaiterResult> => {
   let reason;

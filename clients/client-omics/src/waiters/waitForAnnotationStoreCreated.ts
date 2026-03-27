@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { GetAnnotationStoreCommand, GetAnnotationStoreCommandInput } from "../commands/GetAnnotationStoreCommand";
-import { OmicsClient } from "../OmicsClient";
+import { type GetAnnotationStoreCommandInput, GetAnnotationStoreCommand } from "../commands/GetAnnotationStoreCommand";
+import type { OmicsClient } from "../OmicsClient";
 
 const checkState = async (client: OmicsClient, input: GetAnnotationStoreCommandInput): Promise<WaiterResult> => {
   let reason;

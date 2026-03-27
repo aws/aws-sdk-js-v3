@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
-import { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
+import type { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

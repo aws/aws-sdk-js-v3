@@ -44,22 +44,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type EventStreamSerdeProvider as __EventStreamSerdeProvider,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -69,258 +67,294 @@ import {
   defaultIoTSiteWiseHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateAssetsCommandInput, AssociateAssetsCommandOutput } from "./commands/AssociateAssetsCommand";
-import {
+import type { AssociateAssetsCommandInput, AssociateAssetsCommandOutput } from "./commands/AssociateAssetsCommand";
+import type {
   AssociateTimeSeriesToAssetPropertyCommandInput,
   AssociateTimeSeriesToAssetPropertyCommandOutput,
 } from "./commands/AssociateTimeSeriesToAssetPropertyCommand";
-import {
+import type {
   BatchAssociateProjectAssetsCommandInput,
   BatchAssociateProjectAssetsCommandOutput,
 } from "./commands/BatchAssociateProjectAssetsCommand";
-import {
+import type {
   BatchDisassociateProjectAssetsCommandInput,
   BatchDisassociateProjectAssetsCommandOutput,
 } from "./commands/BatchDisassociateProjectAssetsCommand";
-import {
+import type {
   BatchGetAssetPropertyAggregatesCommandInput,
   BatchGetAssetPropertyAggregatesCommandOutput,
 } from "./commands/BatchGetAssetPropertyAggregatesCommand";
-import {
+import type {
   BatchGetAssetPropertyValueCommandInput,
   BatchGetAssetPropertyValueCommandOutput,
 } from "./commands/BatchGetAssetPropertyValueCommand";
-import {
+import type {
   BatchGetAssetPropertyValueHistoryCommandInput,
   BatchGetAssetPropertyValueHistoryCommandOutput,
 } from "./commands/BatchGetAssetPropertyValueHistoryCommand";
-import {
+import type {
   BatchPutAssetPropertyValueCommandInput,
   BatchPutAssetPropertyValueCommandOutput,
 } from "./commands/BatchPutAssetPropertyValueCommand";
-import { CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput } from "./commands/CreateAccessPolicyCommand";
-import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
-import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "./commands/CreateAssetModelCommand";
-import {
+import type {
+  CreateAccessPolicyCommandInput,
+  CreateAccessPolicyCommandOutput,
+} from "./commands/CreateAccessPolicyCommand";
+import type { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
+import type { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "./commands/CreateAssetModelCommand";
+import type {
   CreateAssetModelCompositeModelCommandInput,
   CreateAssetModelCompositeModelCommandOutput,
 } from "./commands/CreateAssetModelCompositeModelCommand";
-import {
+import type {
   CreateBulkImportJobCommandInput,
   CreateBulkImportJobCommandOutput,
 } from "./commands/CreateBulkImportJobCommand";
-import {
+import type {
   CreateComputationModelCommandInput,
   CreateComputationModelCommandOutput,
 } from "./commands/CreateComputationModelCommand";
-import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
-import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
-import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
-import { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand";
-import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
-import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "./commands/DeleteAccessPolicyCommand";
-import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
-import { DeleteAssetModelCommandInput, DeleteAssetModelCommandOutput } from "./commands/DeleteAssetModelCommand";
-import {
+import type { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
+import type { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import type { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
+import type { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand";
+import type { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import type {
+  DeleteAccessPolicyCommandInput,
+  DeleteAccessPolicyCommandOutput,
+} from "./commands/DeleteAccessPolicyCommand";
+import type { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
+import type { DeleteAssetModelCommandInput, DeleteAssetModelCommandOutput } from "./commands/DeleteAssetModelCommand";
+import type {
   DeleteAssetModelCompositeModelCommandInput,
   DeleteAssetModelCompositeModelCommandOutput,
 } from "./commands/DeleteAssetModelCompositeModelCommand";
-import {
+import type {
   DeleteAssetModelInterfaceRelationshipCommandInput,
   DeleteAssetModelInterfaceRelationshipCommandOutput,
 } from "./commands/DeleteAssetModelInterfaceRelationshipCommand";
-import {
+import type {
   DeleteComputationModelCommandInput,
   DeleteComputationModelCommandOutput,
 } from "./commands/DeleteComputationModelCommand";
-import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
-import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
-import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
-import { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
-import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
-import { DeleteTimeSeriesCommandInput, DeleteTimeSeriesCommandOutput } from "./commands/DeleteTimeSeriesCommand";
-import {
+import type { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
+import type { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import type { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
+import type { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
+import type { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import type { DeleteTimeSeriesCommandInput, DeleteTimeSeriesCommandOutput } from "./commands/DeleteTimeSeriesCommand";
+import type {
   DescribeAccessPolicyCommandInput,
   DescribeAccessPolicyCommandOutput,
 } from "./commands/DescribeAccessPolicyCommand";
-import { DescribeActionCommandInput, DescribeActionCommandOutput } from "./commands/DescribeActionCommand";
-import { DescribeAssetCommandInput, DescribeAssetCommandOutput } from "./commands/DescribeAssetCommand";
-import {
+import type { DescribeActionCommandInput, DescribeActionCommandOutput } from "./commands/DescribeActionCommand";
+import type { DescribeAssetCommandInput, DescribeAssetCommandOutput } from "./commands/DescribeAssetCommand";
+import type {
   DescribeAssetCompositeModelCommandInput,
   DescribeAssetCompositeModelCommandOutput,
 } from "./commands/DescribeAssetCompositeModelCommand";
-import { DescribeAssetModelCommandInput, DescribeAssetModelCommandOutput } from "./commands/DescribeAssetModelCommand";
-import {
+import type {
+  DescribeAssetModelCommandInput,
+  DescribeAssetModelCommandOutput,
+} from "./commands/DescribeAssetModelCommand";
+import type {
   DescribeAssetModelCompositeModelCommandInput,
   DescribeAssetModelCompositeModelCommandOutput,
 } from "./commands/DescribeAssetModelCompositeModelCommand";
-import {
+import type {
   DescribeAssetModelInterfaceRelationshipCommandInput,
   DescribeAssetModelInterfaceRelationshipCommandOutput,
 } from "./commands/DescribeAssetModelInterfaceRelationshipCommand";
-import {
+import type {
   DescribeAssetPropertyCommandInput,
   DescribeAssetPropertyCommandOutput,
 } from "./commands/DescribeAssetPropertyCommand";
-import {
+import type {
   DescribeBulkImportJobCommandInput,
   DescribeBulkImportJobCommandOutput,
 } from "./commands/DescribeBulkImportJobCommand";
-import {
+import type {
   DescribeComputationModelCommandInput,
   DescribeComputationModelCommandOutput,
 } from "./commands/DescribeComputationModelCommand";
-import {
+import type {
   DescribeComputationModelExecutionSummaryCommandInput,
   DescribeComputationModelExecutionSummaryCommandOutput,
 } from "./commands/DescribeComputationModelExecutionSummaryCommand";
-import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand";
-import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
-import {
+import type {
+  DescribeDashboardCommandInput,
+  DescribeDashboardCommandOutput,
+} from "./commands/DescribeDashboardCommand";
+import type { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
+import type {
   DescribeDefaultEncryptionConfigurationCommandInput,
   DescribeDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/DescribeDefaultEncryptionConfigurationCommand";
-import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "./commands/DescribeExecutionCommand";
-import {
+import type {
+  DescribeExecutionCommandInput,
+  DescribeExecutionCommandOutput,
+} from "./commands/DescribeExecutionCommand";
+import type {
   DescribeGatewayCapabilityConfigurationCommandInput,
   DescribeGatewayCapabilityConfigurationCommandOutput,
 } from "./commands/DescribeGatewayCapabilityConfigurationCommand";
-import { DescribeGatewayCommandInput, DescribeGatewayCommandOutput } from "./commands/DescribeGatewayCommand";
-import {
+import type { DescribeGatewayCommandInput, DescribeGatewayCommandOutput } from "./commands/DescribeGatewayCommand";
+import type {
   DescribeLoggingOptionsCommandInput,
   DescribeLoggingOptionsCommandOutput,
 } from "./commands/DescribeLoggingOptionsCommand";
-import { DescribePortalCommandInput, DescribePortalCommandOutput } from "./commands/DescribePortalCommand";
-import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
-import {
+import type { DescribePortalCommandInput, DescribePortalCommandOutput } from "./commands/DescribePortalCommand";
+import type { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
+import type {
   DescribeStorageConfigurationCommandInput,
   DescribeStorageConfigurationCommandOutput,
 } from "./commands/DescribeStorageConfigurationCommand";
-import { DescribeTimeSeriesCommandInput, DescribeTimeSeriesCommandOutput } from "./commands/DescribeTimeSeriesCommand";
-import { DisassociateAssetsCommandInput, DisassociateAssetsCommandOutput } from "./commands/DisassociateAssetsCommand";
-import {
+import type {
+  DescribeTimeSeriesCommandInput,
+  DescribeTimeSeriesCommandOutput,
+} from "./commands/DescribeTimeSeriesCommand";
+import type {
+  DisassociateAssetsCommandInput,
+  DisassociateAssetsCommandOutput,
+} from "./commands/DisassociateAssetsCommand";
+import type {
   DisassociateTimeSeriesFromAssetPropertyCommandInput,
   DisassociateTimeSeriesFromAssetPropertyCommandOutput,
 } from "./commands/DisassociateTimeSeriesFromAssetPropertyCommand";
-import { ExecuteActionCommandInput, ExecuteActionCommandOutput } from "./commands/ExecuteActionCommand";
-import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "./commands/ExecuteQueryCommand";
-import {
+import type { ExecuteActionCommandInput, ExecuteActionCommandOutput } from "./commands/ExecuteActionCommand";
+import type { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "./commands/ExecuteQueryCommand";
+import type {
   GetAssetPropertyAggregatesCommandInput,
   GetAssetPropertyAggregatesCommandOutput,
 } from "./commands/GetAssetPropertyAggregatesCommand";
-import {
+import type {
   GetAssetPropertyValueCommandInput,
   GetAssetPropertyValueCommandOutput,
 } from "./commands/GetAssetPropertyValueCommand";
-import {
+import type {
   GetAssetPropertyValueHistoryCommandInput,
   GetAssetPropertyValueHistoryCommandOutput,
 } from "./commands/GetAssetPropertyValueHistoryCommand";
-import {
+import type {
   GetInterpolatedAssetPropertyValuesCommandInput,
   GetInterpolatedAssetPropertyValuesCommandOutput,
 } from "./commands/GetInterpolatedAssetPropertyValuesCommand";
-import { InvokeAssistantCommandInput, InvokeAssistantCommandOutput } from "./commands/InvokeAssistantCommand";
-import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "./commands/ListAccessPoliciesCommand";
-import { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
-import {
+import type { InvokeAssistantCommandInput, InvokeAssistantCommandOutput } from "./commands/InvokeAssistantCommand";
+import type {
+  ListAccessPoliciesCommandInput,
+  ListAccessPoliciesCommandOutput,
+} from "./commands/ListAccessPoliciesCommand";
+import type { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
+import type {
   ListAssetModelCompositeModelsCommandInput,
   ListAssetModelCompositeModelsCommandOutput,
 } from "./commands/ListAssetModelCompositeModelsCommand";
-import {
+import type {
   ListAssetModelPropertiesCommandInput,
   ListAssetModelPropertiesCommandOutput,
 } from "./commands/ListAssetModelPropertiesCommand";
-import { ListAssetModelsCommandInput, ListAssetModelsCommandOutput } from "./commands/ListAssetModelsCommand";
-import {
+import type { ListAssetModelsCommandInput, ListAssetModelsCommandOutput } from "./commands/ListAssetModelsCommand";
+import type {
   ListAssetPropertiesCommandInput,
   ListAssetPropertiesCommandOutput,
 } from "./commands/ListAssetPropertiesCommand";
-import {
+import type {
   ListAssetRelationshipsCommandInput,
   ListAssetRelationshipsCommandOutput,
 } from "./commands/ListAssetRelationshipsCommand";
-import { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
-import {
+import type { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
+import type {
   ListAssociatedAssetsCommandInput,
   ListAssociatedAssetsCommandOutput,
 } from "./commands/ListAssociatedAssetsCommand";
-import { ListBulkImportJobsCommandInput, ListBulkImportJobsCommandOutput } from "./commands/ListBulkImportJobsCommand";
-import {
+import type {
+  ListBulkImportJobsCommandInput,
+  ListBulkImportJobsCommandOutput,
+} from "./commands/ListBulkImportJobsCommand";
+import type {
   ListCompositionRelationshipsCommandInput,
   ListCompositionRelationshipsCommandOutput,
 } from "./commands/ListCompositionRelationshipsCommand";
-import {
+import type {
   ListComputationModelDataBindingUsagesCommandInput,
   ListComputationModelDataBindingUsagesCommandOutput,
 } from "./commands/ListComputationModelDataBindingUsagesCommand";
-import {
+import type {
   ListComputationModelResolveToResourcesCommandInput,
   ListComputationModelResolveToResourcesCommandOutput,
 } from "./commands/ListComputationModelResolveToResourcesCommand";
-import {
+import type {
   ListComputationModelsCommandInput,
   ListComputationModelsCommandOutput,
 } from "./commands/ListComputationModelsCommand";
-import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
-import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
-import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
-import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
-import {
+import type { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
+import type { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import type { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
+import type { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
+import type {
   ListInterfaceRelationshipsCommandInput,
   ListInterfaceRelationshipsCommandOutput,
 } from "./commands/ListInterfaceRelationshipsCommand";
-import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
-import { ListProjectAssetsCommandInput, ListProjectAssetsCommandOutput } from "./commands/ListProjectAssetsCommand";
-import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
-import {
+import type { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
+import type {
+  ListProjectAssetsCommandInput,
+  ListProjectAssetsCommandOutput,
+} from "./commands/ListProjectAssetsCommand";
+import type { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTimeSeriesCommandInput, ListTimeSeriesCommandOutput } from "./commands/ListTimeSeriesCommand";
-import {
+import type { ListTimeSeriesCommandInput, ListTimeSeriesCommandOutput } from "./commands/ListTimeSeriesCommand";
+import type {
   PutAssetModelInterfaceRelationshipCommandInput,
   PutAssetModelInterfaceRelationshipCommandOutput,
 } from "./commands/PutAssetModelInterfaceRelationshipCommand";
-import {
+import type {
   PutDefaultEncryptionConfigurationCommandInput,
   PutDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/PutDefaultEncryptionConfigurationCommand";
-import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand";
-import {
+import type {
+  PutLoggingOptionsCommandInput,
+  PutLoggingOptionsCommandOutput,
+} from "./commands/PutLoggingOptionsCommand";
+import type {
   PutStorageConfigurationCommandInput,
   PutStorageConfigurationCommandOutput,
 } from "./commands/PutStorageConfigurationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAccessPolicyCommandInput, UpdateAccessPolicyCommandOutput } from "./commands/UpdateAccessPolicyCommand";
-import { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
-import { UpdateAssetModelCommandInput, UpdateAssetModelCommandOutput } from "./commands/UpdateAssetModelCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAccessPolicyCommandInput,
+  UpdateAccessPolicyCommandOutput,
+} from "./commands/UpdateAccessPolicyCommand";
+import type { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
+import type { UpdateAssetModelCommandInput, UpdateAssetModelCommandOutput } from "./commands/UpdateAssetModelCommand";
+import type {
   UpdateAssetModelCompositeModelCommandInput,
   UpdateAssetModelCompositeModelCommandOutput,
 } from "./commands/UpdateAssetModelCompositeModelCommand";
-import {
+import type {
   UpdateAssetPropertyCommandInput,
   UpdateAssetPropertyCommandOutput,
 } from "./commands/UpdateAssetPropertyCommand";
-import {
+import type {
   UpdateComputationModelCommandInput,
   UpdateComputationModelCommandOutput,
 } from "./commands/UpdateComputationModelCommand";
-import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
-import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
-import {
+import type { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
+import type { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
+import type {
   UpdateGatewayCapabilityConfigurationCommandInput,
   UpdateGatewayCapabilityConfigurationCommandOutput,
 } from "./commands/UpdateGatewayCapabilityConfigurationCommand";
-import { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand";
-import { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "./commands/UpdatePortalCommand";
-import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import type { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand";
+import type { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "./commands/UpdatePortalCommand";
+import type { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -660,7 +694,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

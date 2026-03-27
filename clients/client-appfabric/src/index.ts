@@ -15,7 +15,7 @@
  */
 export * from "./AppFabricClient";
 export * from "./AppFabric";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { AppFabricExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

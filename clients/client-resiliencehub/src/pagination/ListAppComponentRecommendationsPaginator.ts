@@ -8,7 +8,7 @@ import {
   ListAppComponentRecommendationsCommandOutput,
 } from "../commands/ListAppComponentRecommendationsCommand";
 import { ResiliencehubClient } from "../ResiliencehubClient";
-import { ResiliencehubPaginationConfiguration } from "./Interfaces";
+import type { ResiliencehubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

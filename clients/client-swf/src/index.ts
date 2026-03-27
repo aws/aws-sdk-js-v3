@@ -19,7 +19,7 @@
  */
 export * from "./SWFClient";
 export * from "./SWF";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SWFExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

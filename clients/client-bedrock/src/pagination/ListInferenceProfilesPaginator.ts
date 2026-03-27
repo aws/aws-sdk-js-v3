@@ -8,7 +8,7 @@ import {
   ListInferenceProfilesCommandInput,
   ListInferenceProfilesCommandOutput,
 } from "../commands/ListInferenceProfilesCommand";
-import { BedrockPaginationConfiguration } from "./Interfaces";
+import type { BedrockPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

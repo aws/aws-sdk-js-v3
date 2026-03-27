@@ -8,7 +8,7 @@ import {
   ListTriggersCommandOutput,
 } from "../commands/ListTriggersCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

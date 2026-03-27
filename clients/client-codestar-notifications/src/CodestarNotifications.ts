@@ -4,53 +4,65 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CodestarNotificationsClient } from "./CodestarNotificationsClient";
 import {
+  type CreateNotificationRuleCommandInput,
+  type CreateNotificationRuleCommandOutput,
   CreateNotificationRuleCommand,
-  CreateNotificationRuleCommandInput,
-  CreateNotificationRuleCommandOutput,
 } from "./commands/CreateNotificationRuleCommand";
 import {
+  type DeleteNotificationRuleCommandInput,
+  type DeleteNotificationRuleCommandOutput,
   DeleteNotificationRuleCommand,
-  DeleteNotificationRuleCommandInput,
-  DeleteNotificationRuleCommandOutput,
 } from "./commands/DeleteNotificationRuleCommand";
 import {
+  type DeleteTargetCommandInput,
+  type DeleteTargetCommandOutput,
   DeleteTargetCommand,
-  DeleteTargetCommandInput,
-  DeleteTargetCommandOutput,
 } from "./commands/DeleteTargetCommand";
 import {
+  type DescribeNotificationRuleCommandInput,
+  type DescribeNotificationRuleCommandOutput,
   DescribeNotificationRuleCommand,
-  DescribeNotificationRuleCommandInput,
-  DescribeNotificationRuleCommandOutput,
 } from "./commands/DescribeNotificationRuleCommand";
 import {
+  type ListEventTypesCommandInput,
+  type ListEventTypesCommandOutput,
   ListEventTypesCommand,
-  ListEventTypesCommandInput,
-  ListEventTypesCommandOutput,
 } from "./commands/ListEventTypesCommand";
 import {
+  type ListNotificationRulesCommandInput,
+  type ListNotificationRulesCommandOutput,
   ListNotificationRulesCommand,
-  ListNotificationRulesCommandInput,
-  ListNotificationRulesCommandOutput,
 } from "./commands/ListNotificationRulesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTargetsCommand, ListTargetsCommandInput, ListTargetsCommandOutput } from "./commands/ListTargetsCommand";
-import { SubscribeCommand, SubscribeCommandInput, SubscribeCommandOutput } from "./commands/SubscribeCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UnsubscribeCommand, UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand";
 import {
+  type ListTargetsCommandInput,
+  type ListTargetsCommandOutput,
+  ListTargetsCommand,
+} from "./commands/ListTargetsCommand";
+import { type SubscribeCommandInput, type SubscribeCommandOutput, SubscribeCommand } from "./commands/SubscribeCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UnsubscribeCommandInput,
+  type UnsubscribeCommandOutput,
+  UnsubscribeCommand,
+} from "./commands/UnsubscribeCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateNotificationRuleCommandInput,
+  type UpdateNotificationRuleCommandOutput,
   UpdateNotificationRuleCommand,
-  UpdateNotificationRuleCommandInput,
-  UpdateNotificationRuleCommandOutput,
 } from "./commands/UpdateNotificationRuleCommand";
 import { paginateListEventTypes } from "./pagination/ListEventTypesPaginator";
 import { paginateListNotificationRules } from "./pagination/ListNotificationRulesPaginator";

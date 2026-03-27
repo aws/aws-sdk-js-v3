@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import { Route53DomainsClient } from "../Route53DomainsClient";
-import { Route53DomainsPaginationConfiguration } from "./Interfaces";
+import type { Route53DomainsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

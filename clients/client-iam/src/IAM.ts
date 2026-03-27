@@ -9,796 +9,840 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AcceptDelegationRequestCommandInput,
+  type AcceptDelegationRequestCommandOutput,
   AcceptDelegationRequestCommand,
-  AcceptDelegationRequestCommandInput,
-  AcceptDelegationRequestCommandOutput,
 } from "./commands/AcceptDelegationRequestCommand";
 import {
+  type AddClientIDToOpenIDConnectProviderCommandInput,
+  type AddClientIDToOpenIDConnectProviderCommandOutput,
   AddClientIDToOpenIDConnectProviderCommand,
-  AddClientIDToOpenIDConnectProviderCommandInput,
-  AddClientIDToOpenIDConnectProviderCommandOutput,
 } from "./commands/AddClientIDToOpenIDConnectProviderCommand";
 import {
+  type AddRoleToInstanceProfileCommandInput,
+  type AddRoleToInstanceProfileCommandOutput,
   AddRoleToInstanceProfileCommand,
-  AddRoleToInstanceProfileCommandInput,
-  AddRoleToInstanceProfileCommandOutput,
 } from "./commands/AddRoleToInstanceProfileCommand";
 import {
+  type AddUserToGroupCommandInput,
+  type AddUserToGroupCommandOutput,
   AddUserToGroupCommand,
-  AddUserToGroupCommandInput,
-  AddUserToGroupCommandOutput,
 } from "./commands/AddUserToGroupCommand";
 import {
+  type AssociateDelegationRequestCommandInput,
+  type AssociateDelegationRequestCommandOutput,
   AssociateDelegationRequestCommand,
-  AssociateDelegationRequestCommandInput,
-  AssociateDelegationRequestCommandOutput,
 } from "./commands/AssociateDelegationRequestCommand";
 import {
+  type AttachGroupPolicyCommandInput,
+  type AttachGroupPolicyCommandOutput,
   AttachGroupPolicyCommand,
-  AttachGroupPolicyCommandInput,
-  AttachGroupPolicyCommandOutput,
 } from "./commands/AttachGroupPolicyCommand";
 import {
+  type AttachRolePolicyCommandInput,
+  type AttachRolePolicyCommandOutput,
   AttachRolePolicyCommand,
-  AttachRolePolicyCommandInput,
-  AttachRolePolicyCommandOutput,
 } from "./commands/AttachRolePolicyCommand";
 import {
+  type AttachUserPolicyCommandInput,
+  type AttachUserPolicyCommandOutput,
   AttachUserPolicyCommand,
-  AttachUserPolicyCommandInput,
-  AttachUserPolicyCommandOutput,
 } from "./commands/AttachUserPolicyCommand";
 import {
+  type ChangePasswordCommandInput,
+  type ChangePasswordCommandOutput,
   ChangePasswordCommand,
-  ChangePasswordCommandInput,
-  ChangePasswordCommandOutput,
 } from "./commands/ChangePasswordCommand";
 import {
+  type CreateAccessKeyCommandInput,
+  type CreateAccessKeyCommandOutput,
   CreateAccessKeyCommand,
-  CreateAccessKeyCommandInput,
-  CreateAccessKeyCommandOutput,
 } from "./commands/CreateAccessKeyCommand";
 import {
+  type CreateAccountAliasCommandInput,
+  type CreateAccountAliasCommandOutput,
   CreateAccountAliasCommand,
-  CreateAccountAliasCommandInput,
-  CreateAccountAliasCommandOutput,
 } from "./commands/CreateAccountAliasCommand";
 import {
+  type CreateDelegationRequestCommandInput,
+  type CreateDelegationRequestCommandOutput,
   CreateDelegationRequestCommand,
-  CreateDelegationRequestCommandInput,
-  CreateDelegationRequestCommandOutput,
 } from "./commands/CreateDelegationRequestCommand";
-import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
+  type CreateGroupCommandInput,
+  type CreateGroupCommandOutput,
+  CreateGroupCommand,
+} from "./commands/CreateGroupCommand";
+import {
+  type CreateInstanceProfileCommandInput,
+  type CreateInstanceProfileCommandOutput,
   CreateInstanceProfileCommand,
-  CreateInstanceProfileCommandInput,
-  CreateInstanceProfileCommandOutput,
 } from "./commands/CreateInstanceProfileCommand";
 import {
+  type CreateLoginProfileCommandInput,
+  type CreateLoginProfileCommandOutput,
   CreateLoginProfileCommand,
-  CreateLoginProfileCommandInput,
-  CreateLoginProfileCommandOutput,
 } from "./commands/CreateLoginProfileCommand";
 import {
+  type CreateOpenIDConnectProviderCommandInput,
+  type CreateOpenIDConnectProviderCommandOutput,
   CreateOpenIDConnectProviderCommand,
-  CreateOpenIDConnectProviderCommandInput,
-  CreateOpenIDConnectProviderCommandOutput,
 } from "./commands/CreateOpenIDConnectProviderCommand";
 import {
+  type CreatePolicyCommandInput,
+  type CreatePolicyCommandOutput,
   CreatePolicyCommand,
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput,
 } from "./commands/CreatePolicyCommand";
 import {
+  type CreatePolicyVersionCommandInput,
+  type CreatePolicyVersionCommandOutput,
   CreatePolicyVersionCommand,
-  CreatePolicyVersionCommandInput,
-  CreatePolicyVersionCommandOutput,
 } from "./commands/CreatePolicyVersionCommand";
-import { CreateRoleCommand, CreateRoleCommandInput, CreateRoleCommandOutput } from "./commands/CreateRoleCommand";
 import {
+  type CreateRoleCommandInput,
+  type CreateRoleCommandOutput,
+  CreateRoleCommand,
+} from "./commands/CreateRoleCommand";
+import {
+  type CreateSAMLProviderCommandInput,
+  type CreateSAMLProviderCommandOutput,
   CreateSAMLProviderCommand,
-  CreateSAMLProviderCommandInput,
-  CreateSAMLProviderCommandOutput,
 } from "./commands/CreateSAMLProviderCommand";
 import {
+  type CreateServiceLinkedRoleCommandInput,
+  type CreateServiceLinkedRoleCommandOutput,
   CreateServiceLinkedRoleCommand,
-  CreateServiceLinkedRoleCommandInput,
-  CreateServiceLinkedRoleCommandOutput,
 } from "./commands/CreateServiceLinkedRoleCommand";
 import {
+  type CreateServiceSpecificCredentialCommandInput,
+  type CreateServiceSpecificCredentialCommandOutput,
   CreateServiceSpecificCredentialCommand,
-  CreateServiceSpecificCredentialCommandInput,
-  CreateServiceSpecificCredentialCommandOutput,
 } from "./commands/CreateServiceSpecificCredentialCommand";
-import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  type CreateUserCommandInput,
+  type CreateUserCommandOutput,
+  CreateUserCommand,
+} from "./commands/CreateUserCommand";
+import {
+  type CreateVirtualMFADeviceCommandInput,
+  type CreateVirtualMFADeviceCommandOutput,
   CreateVirtualMFADeviceCommand,
-  CreateVirtualMFADeviceCommandInput,
-  CreateVirtualMFADeviceCommandOutput,
 } from "./commands/CreateVirtualMFADeviceCommand";
 import {
+  type DeactivateMFADeviceCommandInput,
+  type DeactivateMFADeviceCommandOutput,
   DeactivateMFADeviceCommand,
-  DeactivateMFADeviceCommandInput,
-  DeactivateMFADeviceCommandOutput,
 } from "./commands/DeactivateMFADeviceCommand";
 import {
+  type DeleteAccessKeyCommandInput,
+  type DeleteAccessKeyCommandOutput,
   DeleteAccessKeyCommand,
-  DeleteAccessKeyCommandInput,
-  DeleteAccessKeyCommandOutput,
 } from "./commands/DeleteAccessKeyCommand";
 import {
+  type DeleteAccountAliasCommandInput,
+  type DeleteAccountAliasCommandOutput,
   DeleteAccountAliasCommand,
-  DeleteAccountAliasCommandInput,
-  DeleteAccountAliasCommandOutput,
 } from "./commands/DeleteAccountAliasCommand";
 import {
+  type DeleteAccountPasswordPolicyCommandInput,
+  type DeleteAccountPasswordPolicyCommandOutput,
   DeleteAccountPasswordPolicyCommand,
-  DeleteAccountPasswordPolicyCommandInput,
-  DeleteAccountPasswordPolicyCommandOutput,
 } from "./commands/DeleteAccountPasswordPolicyCommand";
-import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
+  type DeleteGroupCommandInput,
+  type DeleteGroupCommandOutput,
+  DeleteGroupCommand,
+} from "./commands/DeleteGroupCommand";
+import {
+  type DeleteGroupPolicyCommandInput,
+  type DeleteGroupPolicyCommandOutput,
   DeleteGroupPolicyCommand,
-  DeleteGroupPolicyCommandInput,
-  DeleteGroupPolicyCommandOutput,
 } from "./commands/DeleteGroupPolicyCommand";
 import {
+  type DeleteInstanceProfileCommandInput,
+  type DeleteInstanceProfileCommandOutput,
   DeleteInstanceProfileCommand,
-  DeleteInstanceProfileCommandInput,
-  DeleteInstanceProfileCommandOutput,
 } from "./commands/DeleteInstanceProfileCommand";
 import {
+  type DeleteLoginProfileCommandInput,
+  type DeleteLoginProfileCommandOutput,
   DeleteLoginProfileCommand,
-  DeleteLoginProfileCommandInput,
-  DeleteLoginProfileCommandOutput,
 } from "./commands/DeleteLoginProfileCommand";
 import {
+  type DeleteOpenIDConnectProviderCommandInput,
+  type DeleteOpenIDConnectProviderCommandOutput,
   DeleteOpenIDConnectProviderCommand,
-  DeleteOpenIDConnectProviderCommandInput,
-  DeleteOpenIDConnectProviderCommandOutput,
 } from "./commands/DeleteOpenIDConnectProviderCommand";
 import {
+  type DeletePolicyCommandInput,
+  type DeletePolicyCommandOutput,
   DeletePolicyCommand,
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  type DeletePolicyVersionCommandInput,
+  type DeletePolicyVersionCommandOutput,
   DeletePolicyVersionCommand,
-  DeletePolicyVersionCommandInput,
-  DeletePolicyVersionCommandOutput,
 } from "./commands/DeletePolicyVersionCommand";
-import { DeleteRoleCommand, DeleteRoleCommandInput, DeleteRoleCommandOutput } from "./commands/DeleteRoleCommand";
 import {
+  type DeleteRoleCommandInput,
+  type DeleteRoleCommandOutput,
+  DeleteRoleCommand,
+} from "./commands/DeleteRoleCommand";
+import {
+  type DeleteRolePermissionsBoundaryCommandInput,
+  type DeleteRolePermissionsBoundaryCommandOutput,
   DeleteRolePermissionsBoundaryCommand,
-  DeleteRolePermissionsBoundaryCommandInput,
-  DeleteRolePermissionsBoundaryCommandOutput,
 } from "./commands/DeleteRolePermissionsBoundaryCommand";
 import {
+  type DeleteRolePolicyCommandInput,
+  type DeleteRolePolicyCommandOutput,
   DeleteRolePolicyCommand,
-  DeleteRolePolicyCommandInput,
-  DeleteRolePolicyCommandOutput,
 } from "./commands/DeleteRolePolicyCommand";
 import {
+  type DeleteSAMLProviderCommandInput,
+  type DeleteSAMLProviderCommandOutput,
   DeleteSAMLProviderCommand,
-  DeleteSAMLProviderCommandInput,
-  DeleteSAMLProviderCommandOutput,
 } from "./commands/DeleteSAMLProviderCommand";
 import {
+  type DeleteServerCertificateCommandInput,
+  type DeleteServerCertificateCommandOutput,
   DeleteServerCertificateCommand,
-  DeleteServerCertificateCommandInput,
-  DeleteServerCertificateCommandOutput,
 } from "./commands/DeleteServerCertificateCommand";
 import {
+  type DeleteServiceLinkedRoleCommandInput,
+  type DeleteServiceLinkedRoleCommandOutput,
   DeleteServiceLinkedRoleCommand,
-  DeleteServiceLinkedRoleCommandInput,
-  DeleteServiceLinkedRoleCommandOutput,
 } from "./commands/DeleteServiceLinkedRoleCommand";
 import {
+  type DeleteServiceSpecificCredentialCommandInput,
+  type DeleteServiceSpecificCredentialCommandOutput,
   DeleteServiceSpecificCredentialCommand,
-  DeleteServiceSpecificCredentialCommandInput,
-  DeleteServiceSpecificCredentialCommandOutput,
 } from "./commands/DeleteServiceSpecificCredentialCommand";
 import {
+  type DeleteSigningCertificateCommandInput,
+  type DeleteSigningCertificateCommandOutput,
   DeleteSigningCertificateCommand,
-  DeleteSigningCertificateCommandInput,
-  DeleteSigningCertificateCommandOutput,
 } from "./commands/DeleteSigningCertificateCommand";
 import {
+  type DeleteSSHPublicKeyCommandInput,
+  type DeleteSSHPublicKeyCommandOutput,
   DeleteSSHPublicKeyCommand,
-  DeleteSSHPublicKeyCommandInput,
-  DeleteSSHPublicKeyCommandOutput,
 } from "./commands/DeleteSSHPublicKeyCommand";
-import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  type DeleteUserCommandInput,
+  type DeleteUserCommandOutput,
+  DeleteUserCommand,
+} from "./commands/DeleteUserCommand";
+import {
+  type DeleteUserPermissionsBoundaryCommandInput,
+  type DeleteUserPermissionsBoundaryCommandOutput,
   DeleteUserPermissionsBoundaryCommand,
-  DeleteUserPermissionsBoundaryCommandInput,
-  DeleteUserPermissionsBoundaryCommandOutput,
 } from "./commands/DeleteUserPermissionsBoundaryCommand";
 import {
+  type DeleteUserPolicyCommandInput,
+  type DeleteUserPolicyCommandOutput,
   DeleteUserPolicyCommand,
-  DeleteUserPolicyCommandInput,
-  DeleteUserPolicyCommandOutput,
 } from "./commands/DeleteUserPolicyCommand";
 import {
+  type DeleteVirtualMFADeviceCommandInput,
+  type DeleteVirtualMFADeviceCommandOutput,
   DeleteVirtualMFADeviceCommand,
-  DeleteVirtualMFADeviceCommandInput,
-  DeleteVirtualMFADeviceCommandOutput,
 } from "./commands/DeleteVirtualMFADeviceCommand";
 import {
+  type DetachGroupPolicyCommandInput,
+  type DetachGroupPolicyCommandOutput,
   DetachGroupPolicyCommand,
-  DetachGroupPolicyCommandInput,
-  DetachGroupPolicyCommandOutput,
 } from "./commands/DetachGroupPolicyCommand";
 import {
+  type DetachRolePolicyCommandInput,
+  type DetachRolePolicyCommandOutput,
   DetachRolePolicyCommand,
-  DetachRolePolicyCommandInput,
-  DetachRolePolicyCommandOutput,
 } from "./commands/DetachRolePolicyCommand";
 import {
+  type DetachUserPolicyCommandInput,
+  type DetachUserPolicyCommandOutput,
   DetachUserPolicyCommand,
-  DetachUserPolicyCommandInput,
-  DetachUserPolicyCommandOutput,
 } from "./commands/DetachUserPolicyCommand";
 import {
+  type DisableOrganizationsRootCredentialsManagementCommandInput,
+  type DisableOrganizationsRootCredentialsManagementCommandOutput,
   DisableOrganizationsRootCredentialsManagementCommand,
-  DisableOrganizationsRootCredentialsManagementCommandInput,
-  DisableOrganizationsRootCredentialsManagementCommandOutput,
 } from "./commands/DisableOrganizationsRootCredentialsManagementCommand";
 import {
+  type DisableOrganizationsRootSessionsCommandInput,
+  type DisableOrganizationsRootSessionsCommandOutput,
   DisableOrganizationsRootSessionsCommand,
-  DisableOrganizationsRootSessionsCommandInput,
-  DisableOrganizationsRootSessionsCommandOutput,
 } from "./commands/DisableOrganizationsRootSessionsCommand";
 import {
+  type DisableOutboundWebIdentityFederationCommandInput,
+  type DisableOutboundWebIdentityFederationCommandOutput,
   DisableOutboundWebIdentityFederationCommand,
-  DisableOutboundWebIdentityFederationCommandInput,
-  DisableOutboundWebIdentityFederationCommandOutput,
 } from "./commands/DisableOutboundWebIdentityFederationCommand";
 import {
+  type EnableMFADeviceCommandInput,
+  type EnableMFADeviceCommandOutput,
   EnableMFADeviceCommand,
-  EnableMFADeviceCommandInput,
-  EnableMFADeviceCommandOutput,
 } from "./commands/EnableMFADeviceCommand";
 import {
+  type EnableOrganizationsRootCredentialsManagementCommandInput,
+  type EnableOrganizationsRootCredentialsManagementCommandOutput,
   EnableOrganizationsRootCredentialsManagementCommand,
-  EnableOrganizationsRootCredentialsManagementCommandInput,
-  EnableOrganizationsRootCredentialsManagementCommandOutput,
 } from "./commands/EnableOrganizationsRootCredentialsManagementCommand";
 import {
+  type EnableOrganizationsRootSessionsCommandInput,
+  type EnableOrganizationsRootSessionsCommandOutput,
   EnableOrganizationsRootSessionsCommand,
-  EnableOrganizationsRootSessionsCommandInput,
-  EnableOrganizationsRootSessionsCommandOutput,
 } from "./commands/EnableOrganizationsRootSessionsCommand";
 import {
+  type EnableOutboundWebIdentityFederationCommandInput,
+  type EnableOutboundWebIdentityFederationCommandOutput,
   EnableOutboundWebIdentityFederationCommand,
-  EnableOutboundWebIdentityFederationCommandInput,
-  EnableOutboundWebIdentityFederationCommandOutput,
 } from "./commands/EnableOutboundWebIdentityFederationCommand";
 import {
+  type GenerateCredentialReportCommandInput,
+  type GenerateCredentialReportCommandOutput,
   GenerateCredentialReportCommand,
-  GenerateCredentialReportCommandInput,
-  GenerateCredentialReportCommandOutput,
 } from "./commands/GenerateCredentialReportCommand";
 import {
+  type GenerateOrganizationsAccessReportCommandInput,
+  type GenerateOrganizationsAccessReportCommandOutput,
   GenerateOrganizationsAccessReportCommand,
-  GenerateOrganizationsAccessReportCommandInput,
-  GenerateOrganizationsAccessReportCommandOutput,
 } from "./commands/GenerateOrganizationsAccessReportCommand";
 import {
+  type GenerateServiceLastAccessedDetailsCommandInput,
+  type GenerateServiceLastAccessedDetailsCommandOutput,
   GenerateServiceLastAccessedDetailsCommand,
-  GenerateServiceLastAccessedDetailsCommandInput,
-  GenerateServiceLastAccessedDetailsCommandOutput,
 } from "./commands/GenerateServiceLastAccessedDetailsCommand";
 import {
+  type GetAccessKeyLastUsedCommandInput,
+  type GetAccessKeyLastUsedCommandOutput,
   GetAccessKeyLastUsedCommand,
-  GetAccessKeyLastUsedCommandInput,
-  GetAccessKeyLastUsedCommandOutput,
 } from "./commands/GetAccessKeyLastUsedCommand";
 import {
+  type GetAccountAuthorizationDetailsCommandInput,
+  type GetAccountAuthorizationDetailsCommandOutput,
   GetAccountAuthorizationDetailsCommand,
-  GetAccountAuthorizationDetailsCommandInput,
-  GetAccountAuthorizationDetailsCommandOutput,
 } from "./commands/GetAccountAuthorizationDetailsCommand";
 import {
+  type GetAccountPasswordPolicyCommandInput,
+  type GetAccountPasswordPolicyCommandOutput,
   GetAccountPasswordPolicyCommand,
-  GetAccountPasswordPolicyCommandInput,
-  GetAccountPasswordPolicyCommandOutput,
 } from "./commands/GetAccountPasswordPolicyCommand";
 import {
+  type GetAccountSummaryCommandInput,
+  type GetAccountSummaryCommandOutput,
   GetAccountSummaryCommand,
-  GetAccountSummaryCommandInput,
-  GetAccountSummaryCommandOutput,
 } from "./commands/GetAccountSummaryCommand";
 import {
+  type GetContextKeysForCustomPolicyCommandInput,
+  type GetContextKeysForCustomPolicyCommandOutput,
   GetContextKeysForCustomPolicyCommand,
-  GetContextKeysForCustomPolicyCommandInput,
-  GetContextKeysForCustomPolicyCommandOutput,
 } from "./commands/GetContextKeysForCustomPolicyCommand";
 import {
+  type GetContextKeysForPrincipalPolicyCommandInput,
+  type GetContextKeysForPrincipalPolicyCommandOutput,
   GetContextKeysForPrincipalPolicyCommand,
-  GetContextKeysForPrincipalPolicyCommandInput,
-  GetContextKeysForPrincipalPolicyCommandOutput,
 } from "./commands/GetContextKeysForPrincipalPolicyCommand";
 import {
+  type GetCredentialReportCommandInput,
+  type GetCredentialReportCommandOutput,
   GetCredentialReportCommand,
-  GetCredentialReportCommandInput,
-  GetCredentialReportCommandOutput,
 } from "./commands/GetCredentialReportCommand";
 import {
+  type GetDelegationRequestCommandInput,
+  type GetDelegationRequestCommandOutput,
   GetDelegationRequestCommand,
-  GetDelegationRequestCommandInput,
-  GetDelegationRequestCommandOutput,
 } from "./commands/GetDelegationRequestCommand";
-import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import { type GetGroupCommandInput, type GetGroupCommandOutput, GetGroupCommand } from "./commands/GetGroupCommand";
 import {
+  type GetGroupPolicyCommandInput,
+  type GetGroupPolicyCommandOutput,
   GetGroupPolicyCommand,
-  GetGroupPolicyCommandInput,
-  GetGroupPolicyCommandOutput,
 } from "./commands/GetGroupPolicyCommand";
 import {
+  type GetHumanReadableSummaryCommandInput,
+  type GetHumanReadableSummaryCommandOutput,
   GetHumanReadableSummaryCommand,
-  GetHumanReadableSummaryCommandInput,
-  GetHumanReadableSummaryCommandOutput,
 } from "./commands/GetHumanReadableSummaryCommand";
 import {
+  type GetInstanceProfileCommandInput,
+  type GetInstanceProfileCommandOutput,
   GetInstanceProfileCommand,
-  GetInstanceProfileCommandInput,
-  GetInstanceProfileCommandOutput,
 } from "./commands/GetInstanceProfileCommand";
 import {
+  type GetLoginProfileCommandInput,
+  type GetLoginProfileCommandOutput,
   GetLoginProfileCommand,
-  GetLoginProfileCommandInput,
-  GetLoginProfileCommandOutput,
 } from "./commands/GetLoginProfileCommand";
 import {
+  type GetMFADeviceCommandInput,
+  type GetMFADeviceCommandOutput,
   GetMFADeviceCommand,
-  GetMFADeviceCommandInput,
-  GetMFADeviceCommandOutput,
 } from "./commands/GetMFADeviceCommand";
 import {
+  type GetOpenIDConnectProviderCommandInput,
+  type GetOpenIDConnectProviderCommandOutput,
   GetOpenIDConnectProviderCommand,
-  GetOpenIDConnectProviderCommandInput,
-  GetOpenIDConnectProviderCommandOutput,
 } from "./commands/GetOpenIDConnectProviderCommand";
 import {
+  type GetOrganizationsAccessReportCommandInput,
+  type GetOrganizationsAccessReportCommandOutput,
   GetOrganizationsAccessReportCommand,
-  GetOrganizationsAccessReportCommandInput,
-  GetOrganizationsAccessReportCommandOutput,
 } from "./commands/GetOrganizationsAccessReportCommand";
 import {
+  type GetOutboundWebIdentityFederationInfoCommandInput,
+  type GetOutboundWebIdentityFederationInfoCommandOutput,
   GetOutboundWebIdentityFederationInfoCommand,
-  GetOutboundWebIdentityFederationInfoCommandInput,
-  GetOutboundWebIdentityFederationInfoCommandOutput,
 } from "./commands/GetOutboundWebIdentityFederationInfoCommand";
-import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { type GetPolicyCommandInput, type GetPolicyCommandOutput, GetPolicyCommand } from "./commands/GetPolicyCommand";
 import {
+  type GetPolicyVersionCommandInput,
+  type GetPolicyVersionCommandOutput,
   GetPolicyVersionCommand,
-  GetPolicyVersionCommandInput,
-  GetPolicyVersionCommandOutput,
 } from "./commands/GetPolicyVersionCommand";
-import { GetRoleCommand, GetRoleCommandInput, GetRoleCommandOutput } from "./commands/GetRoleCommand";
+import { type GetRoleCommandInput, type GetRoleCommandOutput, GetRoleCommand } from "./commands/GetRoleCommand";
 import {
+  type GetRolePolicyCommandInput,
+  type GetRolePolicyCommandOutput,
   GetRolePolicyCommand,
-  GetRolePolicyCommandInput,
-  GetRolePolicyCommandOutput,
 } from "./commands/GetRolePolicyCommand";
 import {
+  type GetSAMLProviderCommandInput,
+  type GetSAMLProviderCommandOutput,
   GetSAMLProviderCommand,
-  GetSAMLProviderCommandInput,
-  GetSAMLProviderCommandOutput,
 } from "./commands/GetSAMLProviderCommand";
 import {
+  type GetServerCertificateCommandInput,
+  type GetServerCertificateCommandOutput,
   GetServerCertificateCommand,
-  GetServerCertificateCommandInput,
-  GetServerCertificateCommandOutput,
 } from "./commands/GetServerCertificateCommand";
 import {
+  type GetServiceLastAccessedDetailsCommandInput,
+  type GetServiceLastAccessedDetailsCommandOutput,
   GetServiceLastAccessedDetailsCommand,
-  GetServiceLastAccessedDetailsCommandInput,
-  GetServiceLastAccessedDetailsCommandOutput,
 } from "./commands/GetServiceLastAccessedDetailsCommand";
 import {
+  type GetServiceLastAccessedDetailsWithEntitiesCommandInput,
+  type GetServiceLastAccessedDetailsWithEntitiesCommandOutput,
   GetServiceLastAccessedDetailsWithEntitiesCommand,
-  GetServiceLastAccessedDetailsWithEntitiesCommandInput,
-  GetServiceLastAccessedDetailsWithEntitiesCommandOutput,
 } from "./commands/GetServiceLastAccessedDetailsWithEntitiesCommand";
 import {
+  type GetServiceLinkedRoleDeletionStatusCommandInput,
+  type GetServiceLinkedRoleDeletionStatusCommandOutput,
   GetServiceLinkedRoleDeletionStatusCommand,
-  GetServiceLinkedRoleDeletionStatusCommandInput,
-  GetServiceLinkedRoleDeletionStatusCommandOutput,
 } from "./commands/GetServiceLinkedRoleDeletionStatusCommand";
 import {
+  type GetSSHPublicKeyCommandInput,
+  type GetSSHPublicKeyCommandOutput,
   GetSSHPublicKeyCommand,
-  GetSSHPublicKeyCommandInput,
-  GetSSHPublicKeyCommandOutput,
 } from "./commands/GetSSHPublicKeyCommand";
-import { GetUserCommand, GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
+import { type GetUserCommandInput, type GetUserCommandOutput, GetUserCommand } from "./commands/GetUserCommand";
 import {
+  type GetUserPolicyCommandInput,
+  type GetUserPolicyCommandOutput,
   GetUserPolicyCommand,
-  GetUserPolicyCommandInput,
-  GetUserPolicyCommandOutput,
 } from "./commands/GetUserPolicyCommand";
 import {
+  type ListAccessKeysCommandInput,
+  type ListAccessKeysCommandOutput,
   ListAccessKeysCommand,
-  ListAccessKeysCommandInput,
-  ListAccessKeysCommandOutput,
 } from "./commands/ListAccessKeysCommand";
 import {
+  type ListAccountAliasesCommandInput,
+  type ListAccountAliasesCommandOutput,
   ListAccountAliasesCommand,
-  ListAccountAliasesCommandInput,
-  ListAccountAliasesCommandOutput,
 } from "./commands/ListAccountAliasesCommand";
 import {
+  type ListAttachedGroupPoliciesCommandInput,
+  type ListAttachedGroupPoliciesCommandOutput,
   ListAttachedGroupPoliciesCommand,
-  ListAttachedGroupPoliciesCommandInput,
-  ListAttachedGroupPoliciesCommandOutput,
 } from "./commands/ListAttachedGroupPoliciesCommand";
 import {
+  type ListAttachedRolePoliciesCommandInput,
+  type ListAttachedRolePoliciesCommandOutput,
   ListAttachedRolePoliciesCommand,
-  ListAttachedRolePoliciesCommandInput,
-  ListAttachedRolePoliciesCommandOutput,
 } from "./commands/ListAttachedRolePoliciesCommand";
 import {
+  type ListAttachedUserPoliciesCommandInput,
+  type ListAttachedUserPoliciesCommandOutput,
   ListAttachedUserPoliciesCommand,
-  ListAttachedUserPoliciesCommandInput,
-  ListAttachedUserPoliciesCommandOutput,
 } from "./commands/ListAttachedUserPoliciesCommand";
 import {
+  type ListDelegationRequestsCommandInput,
+  type ListDelegationRequestsCommandOutput,
   ListDelegationRequestsCommand,
-  ListDelegationRequestsCommandInput,
-  ListDelegationRequestsCommandOutput,
 } from "./commands/ListDelegationRequestsCommand";
 import {
+  type ListEntitiesForPolicyCommandInput,
+  type ListEntitiesForPolicyCommandOutput,
   ListEntitiesForPolicyCommand,
-  ListEntitiesForPolicyCommandInput,
-  ListEntitiesForPolicyCommandOutput,
 } from "./commands/ListEntitiesForPolicyCommand";
 import {
+  type ListGroupPoliciesCommandInput,
+  type ListGroupPoliciesCommandOutput,
   ListGroupPoliciesCommand,
-  ListGroupPoliciesCommandInput,
-  ListGroupPoliciesCommandOutput,
 } from "./commands/ListGroupPoliciesCommand";
-import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
+  type ListGroupsCommandInput,
+  type ListGroupsCommandOutput,
+  ListGroupsCommand,
+} from "./commands/ListGroupsCommand";
+import {
+  type ListGroupsForUserCommandInput,
+  type ListGroupsForUserCommandOutput,
   ListGroupsForUserCommand,
-  ListGroupsForUserCommandInput,
-  ListGroupsForUserCommandOutput,
 } from "./commands/ListGroupsForUserCommand";
 import {
+  type ListInstanceProfilesCommandInput,
+  type ListInstanceProfilesCommandOutput,
   ListInstanceProfilesCommand,
-  ListInstanceProfilesCommandInput,
-  ListInstanceProfilesCommandOutput,
 } from "./commands/ListInstanceProfilesCommand";
 import {
+  type ListInstanceProfilesForRoleCommandInput,
+  type ListInstanceProfilesForRoleCommandOutput,
   ListInstanceProfilesForRoleCommand,
-  ListInstanceProfilesForRoleCommandInput,
-  ListInstanceProfilesForRoleCommandOutput,
 } from "./commands/ListInstanceProfilesForRoleCommand";
 import {
+  type ListInstanceProfileTagsCommandInput,
+  type ListInstanceProfileTagsCommandOutput,
   ListInstanceProfileTagsCommand,
-  ListInstanceProfileTagsCommandInput,
-  ListInstanceProfileTagsCommandOutput,
 } from "./commands/ListInstanceProfileTagsCommand";
 import {
+  type ListMFADevicesCommandInput,
+  type ListMFADevicesCommandOutput,
   ListMFADevicesCommand,
-  ListMFADevicesCommandInput,
-  ListMFADevicesCommandOutput,
 } from "./commands/ListMFADevicesCommand";
 import {
+  type ListMFADeviceTagsCommandInput,
+  type ListMFADeviceTagsCommandOutput,
   ListMFADeviceTagsCommand,
-  ListMFADeviceTagsCommandInput,
-  ListMFADeviceTagsCommandOutput,
 } from "./commands/ListMFADeviceTagsCommand";
 import {
+  type ListOpenIDConnectProvidersCommandInput,
+  type ListOpenIDConnectProvidersCommandOutput,
   ListOpenIDConnectProvidersCommand,
-  ListOpenIDConnectProvidersCommandInput,
-  ListOpenIDConnectProvidersCommandOutput,
 } from "./commands/ListOpenIDConnectProvidersCommand";
 import {
+  type ListOpenIDConnectProviderTagsCommandInput,
+  type ListOpenIDConnectProviderTagsCommandOutput,
   ListOpenIDConnectProviderTagsCommand,
-  ListOpenIDConnectProviderTagsCommandInput,
-  ListOpenIDConnectProviderTagsCommandOutput,
 } from "./commands/ListOpenIDConnectProviderTagsCommand";
 import {
+  type ListOrganizationsFeaturesCommandInput,
+  type ListOrganizationsFeaturesCommandOutput,
   ListOrganizationsFeaturesCommand,
-  ListOrganizationsFeaturesCommandInput,
-  ListOrganizationsFeaturesCommandOutput,
 } from "./commands/ListOrganizationsFeaturesCommand";
 import {
+  type ListPoliciesCommandInput,
+  type ListPoliciesCommandOutput,
   ListPoliciesCommand,
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput,
 } from "./commands/ListPoliciesCommand";
 import {
+  type ListPoliciesGrantingServiceAccessCommandInput,
+  type ListPoliciesGrantingServiceAccessCommandOutput,
   ListPoliciesGrantingServiceAccessCommand,
-  ListPoliciesGrantingServiceAccessCommandInput,
-  ListPoliciesGrantingServiceAccessCommandOutput,
 } from "./commands/ListPoliciesGrantingServiceAccessCommand";
 import {
+  type ListPolicyTagsCommandInput,
+  type ListPolicyTagsCommandOutput,
   ListPolicyTagsCommand,
-  ListPolicyTagsCommandInput,
-  ListPolicyTagsCommandOutput,
 } from "./commands/ListPolicyTagsCommand";
 import {
+  type ListPolicyVersionsCommandInput,
+  type ListPolicyVersionsCommandOutput,
   ListPolicyVersionsCommand,
-  ListPolicyVersionsCommandInput,
-  ListPolicyVersionsCommandOutput,
 } from "./commands/ListPolicyVersionsCommand";
 import {
+  type ListRolePoliciesCommandInput,
+  type ListRolePoliciesCommandOutput,
   ListRolePoliciesCommand,
-  ListRolePoliciesCommandInput,
-  ListRolePoliciesCommandOutput,
 } from "./commands/ListRolePoliciesCommand";
-import { ListRolesCommand, ListRolesCommandInput, ListRolesCommandOutput } from "./commands/ListRolesCommand";
+import { type ListRolesCommandInput, type ListRolesCommandOutput, ListRolesCommand } from "./commands/ListRolesCommand";
 import {
+  type ListRoleTagsCommandInput,
+  type ListRoleTagsCommandOutput,
   ListRoleTagsCommand,
-  ListRoleTagsCommandInput,
-  ListRoleTagsCommandOutput,
 } from "./commands/ListRoleTagsCommand";
 import {
+  type ListSAMLProvidersCommandInput,
+  type ListSAMLProvidersCommandOutput,
   ListSAMLProvidersCommand,
-  ListSAMLProvidersCommandInput,
-  ListSAMLProvidersCommandOutput,
 } from "./commands/ListSAMLProvidersCommand";
 import {
+  type ListSAMLProviderTagsCommandInput,
+  type ListSAMLProviderTagsCommandOutput,
   ListSAMLProviderTagsCommand,
-  ListSAMLProviderTagsCommandInput,
-  ListSAMLProviderTagsCommandOutput,
 } from "./commands/ListSAMLProviderTagsCommand";
 import {
+  type ListServerCertificatesCommandInput,
+  type ListServerCertificatesCommandOutput,
   ListServerCertificatesCommand,
-  ListServerCertificatesCommandInput,
-  ListServerCertificatesCommandOutput,
 } from "./commands/ListServerCertificatesCommand";
 import {
+  type ListServerCertificateTagsCommandInput,
+  type ListServerCertificateTagsCommandOutput,
   ListServerCertificateTagsCommand,
-  ListServerCertificateTagsCommandInput,
-  ListServerCertificateTagsCommandOutput,
 } from "./commands/ListServerCertificateTagsCommand";
 import {
+  type ListServiceSpecificCredentialsCommandInput,
+  type ListServiceSpecificCredentialsCommandOutput,
   ListServiceSpecificCredentialsCommand,
-  ListServiceSpecificCredentialsCommandInput,
-  ListServiceSpecificCredentialsCommandOutput,
 } from "./commands/ListServiceSpecificCredentialsCommand";
 import {
+  type ListSigningCertificatesCommandInput,
+  type ListSigningCertificatesCommandOutput,
   ListSigningCertificatesCommand,
-  ListSigningCertificatesCommandInput,
-  ListSigningCertificatesCommandOutput,
 } from "./commands/ListSigningCertificatesCommand";
 import {
+  type ListSSHPublicKeysCommandInput,
+  type ListSSHPublicKeysCommandOutput,
   ListSSHPublicKeysCommand,
-  ListSSHPublicKeysCommandInput,
-  ListSSHPublicKeysCommandOutput,
 } from "./commands/ListSSHPublicKeysCommand";
 import {
+  type ListUserPoliciesCommandInput,
+  type ListUserPoliciesCommandOutput,
   ListUserPoliciesCommand,
-  ListUserPoliciesCommandInput,
-  ListUserPoliciesCommandOutput,
 } from "./commands/ListUserPoliciesCommand";
-import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
 import {
+  type ListUserTagsCommandInput,
+  type ListUserTagsCommandOutput,
   ListUserTagsCommand,
-  ListUserTagsCommandInput,
-  ListUserTagsCommandOutput,
 } from "./commands/ListUserTagsCommand";
 import {
+  type ListVirtualMFADevicesCommandInput,
+  type ListVirtualMFADevicesCommandOutput,
   ListVirtualMFADevicesCommand,
-  ListVirtualMFADevicesCommandInput,
-  ListVirtualMFADevicesCommandOutput,
 } from "./commands/ListVirtualMFADevicesCommand";
 import {
+  type PutGroupPolicyCommandInput,
+  type PutGroupPolicyCommandOutput,
   PutGroupPolicyCommand,
-  PutGroupPolicyCommandInput,
-  PutGroupPolicyCommandOutput,
 } from "./commands/PutGroupPolicyCommand";
 import {
+  type PutRolePermissionsBoundaryCommandInput,
+  type PutRolePermissionsBoundaryCommandOutput,
   PutRolePermissionsBoundaryCommand,
-  PutRolePermissionsBoundaryCommandInput,
-  PutRolePermissionsBoundaryCommandOutput,
 } from "./commands/PutRolePermissionsBoundaryCommand";
 import {
+  type PutRolePolicyCommandInput,
+  type PutRolePolicyCommandOutput,
   PutRolePolicyCommand,
-  PutRolePolicyCommandInput,
-  PutRolePolicyCommandOutput,
 } from "./commands/PutRolePolicyCommand";
 import {
+  type PutUserPermissionsBoundaryCommandInput,
+  type PutUserPermissionsBoundaryCommandOutput,
   PutUserPermissionsBoundaryCommand,
-  PutUserPermissionsBoundaryCommandInput,
-  PutUserPermissionsBoundaryCommandOutput,
 } from "./commands/PutUserPermissionsBoundaryCommand";
 import {
+  type PutUserPolicyCommandInput,
+  type PutUserPolicyCommandOutput,
   PutUserPolicyCommand,
-  PutUserPolicyCommandInput,
-  PutUserPolicyCommandOutput,
 } from "./commands/PutUserPolicyCommand";
 import {
+  type RejectDelegationRequestCommandInput,
+  type RejectDelegationRequestCommandOutput,
   RejectDelegationRequestCommand,
-  RejectDelegationRequestCommandInput,
-  RejectDelegationRequestCommandOutput,
 } from "./commands/RejectDelegationRequestCommand";
 import {
+  type RemoveClientIDFromOpenIDConnectProviderCommandInput,
+  type RemoveClientIDFromOpenIDConnectProviderCommandOutput,
   RemoveClientIDFromOpenIDConnectProviderCommand,
-  RemoveClientIDFromOpenIDConnectProviderCommandInput,
-  RemoveClientIDFromOpenIDConnectProviderCommandOutput,
 } from "./commands/RemoveClientIDFromOpenIDConnectProviderCommand";
 import {
+  type RemoveRoleFromInstanceProfileCommandInput,
+  type RemoveRoleFromInstanceProfileCommandOutput,
   RemoveRoleFromInstanceProfileCommand,
-  RemoveRoleFromInstanceProfileCommandInput,
-  RemoveRoleFromInstanceProfileCommandOutput,
 } from "./commands/RemoveRoleFromInstanceProfileCommand";
 import {
+  type RemoveUserFromGroupCommandInput,
+  type RemoveUserFromGroupCommandOutput,
   RemoveUserFromGroupCommand,
-  RemoveUserFromGroupCommandInput,
-  RemoveUserFromGroupCommandOutput,
 } from "./commands/RemoveUserFromGroupCommand";
 import {
+  type ResetServiceSpecificCredentialCommandInput,
+  type ResetServiceSpecificCredentialCommandOutput,
   ResetServiceSpecificCredentialCommand,
-  ResetServiceSpecificCredentialCommandInput,
-  ResetServiceSpecificCredentialCommandOutput,
 } from "./commands/ResetServiceSpecificCredentialCommand";
 import {
+  type ResyncMFADeviceCommandInput,
+  type ResyncMFADeviceCommandOutput,
   ResyncMFADeviceCommand,
-  ResyncMFADeviceCommandInput,
-  ResyncMFADeviceCommandOutput,
 } from "./commands/ResyncMFADeviceCommand";
 import {
+  type SendDelegationTokenCommandInput,
+  type SendDelegationTokenCommandOutput,
   SendDelegationTokenCommand,
-  SendDelegationTokenCommandInput,
-  SendDelegationTokenCommandOutput,
 } from "./commands/SendDelegationTokenCommand";
 import {
+  type SetDefaultPolicyVersionCommandInput,
+  type SetDefaultPolicyVersionCommandOutput,
   SetDefaultPolicyVersionCommand,
-  SetDefaultPolicyVersionCommandInput,
-  SetDefaultPolicyVersionCommandOutput,
 } from "./commands/SetDefaultPolicyVersionCommand";
 import {
+  type SetSecurityTokenServicePreferencesCommandInput,
+  type SetSecurityTokenServicePreferencesCommandOutput,
   SetSecurityTokenServicePreferencesCommand,
-  SetSecurityTokenServicePreferencesCommandInput,
-  SetSecurityTokenServicePreferencesCommandOutput,
 } from "./commands/SetSecurityTokenServicePreferencesCommand";
 import {
+  type SimulateCustomPolicyCommandInput,
+  type SimulateCustomPolicyCommandOutput,
   SimulateCustomPolicyCommand,
-  SimulateCustomPolicyCommandInput,
-  SimulateCustomPolicyCommandOutput,
 } from "./commands/SimulateCustomPolicyCommand";
 import {
+  type SimulatePrincipalPolicyCommandInput,
+  type SimulatePrincipalPolicyCommandOutput,
   SimulatePrincipalPolicyCommand,
-  SimulatePrincipalPolicyCommandInput,
-  SimulatePrincipalPolicyCommandOutput,
 } from "./commands/SimulatePrincipalPolicyCommand";
 import {
+  type TagInstanceProfileCommandInput,
+  type TagInstanceProfileCommandOutput,
   TagInstanceProfileCommand,
-  TagInstanceProfileCommandInput,
-  TagInstanceProfileCommandOutput,
 } from "./commands/TagInstanceProfileCommand";
 import {
+  type TagMFADeviceCommandInput,
+  type TagMFADeviceCommandOutput,
   TagMFADeviceCommand,
-  TagMFADeviceCommandInput,
-  TagMFADeviceCommandOutput,
 } from "./commands/TagMFADeviceCommand";
 import {
+  type TagOpenIDConnectProviderCommandInput,
+  type TagOpenIDConnectProviderCommandOutput,
   TagOpenIDConnectProviderCommand,
-  TagOpenIDConnectProviderCommandInput,
-  TagOpenIDConnectProviderCommandOutput,
 } from "./commands/TagOpenIDConnectProviderCommand";
-import { TagPolicyCommand, TagPolicyCommandInput, TagPolicyCommandOutput } from "./commands/TagPolicyCommand";
-import { TagRoleCommand, TagRoleCommandInput, TagRoleCommandOutput } from "./commands/TagRoleCommand";
+import { type TagPolicyCommandInput, type TagPolicyCommandOutput, TagPolicyCommand } from "./commands/TagPolicyCommand";
+import { type TagRoleCommandInput, type TagRoleCommandOutput, TagRoleCommand } from "./commands/TagRoleCommand";
 import {
+  type TagSAMLProviderCommandInput,
+  type TagSAMLProviderCommandOutput,
   TagSAMLProviderCommand,
-  TagSAMLProviderCommandInput,
-  TagSAMLProviderCommandOutput,
 } from "./commands/TagSAMLProviderCommand";
 import {
+  type TagServerCertificateCommandInput,
+  type TagServerCertificateCommandOutput,
   TagServerCertificateCommand,
-  TagServerCertificateCommandInput,
-  TagServerCertificateCommandOutput,
 } from "./commands/TagServerCertificateCommand";
-import { TagUserCommand, TagUserCommandInput, TagUserCommandOutput } from "./commands/TagUserCommand";
+import { type TagUserCommandInput, type TagUserCommandOutput, TagUserCommand } from "./commands/TagUserCommand";
 import {
+  type UntagInstanceProfileCommandInput,
+  type UntagInstanceProfileCommandOutput,
   UntagInstanceProfileCommand,
-  UntagInstanceProfileCommandInput,
-  UntagInstanceProfileCommandOutput,
 } from "./commands/UntagInstanceProfileCommand";
 import {
+  type UntagMFADeviceCommandInput,
+  type UntagMFADeviceCommandOutput,
   UntagMFADeviceCommand,
-  UntagMFADeviceCommandInput,
-  UntagMFADeviceCommandOutput,
 } from "./commands/UntagMFADeviceCommand";
 import {
+  type UntagOpenIDConnectProviderCommandInput,
+  type UntagOpenIDConnectProviderCommandOutput,
   UntagOpenIDConnectProviderCommand,
-  UntagOpenIDConnectProviderCommandInput,
-  UntagOpenIDConnectProviderCommandOutput,
 } from "./commands/UntagOpenIDConnectProviderCommand";
-import { UntagPolicyCommand, UntagPolicyCommandInput, UntagPolicyCommandOutput } from "./commands/UntagPolicyCommand";
-import { UntagRoleCommand, UntagRoleCommandInput, UntagRoleCommandOutput } from "./commands/UntagRoleCommand";
 import {
+  type UntagPolicyCommandInput,
+  type UntagPolicyCommandOutput,
+  UntagPolicyCommand,
+} from "./commands/UntagPolicyCommand";
+import { type UntagRoleCommandInput, type UntagRoleCommandOutput, UntagRoleCommand } from "./commands/UntagRoleCommand";
+import {
+  type UntagSAMLProviderCommandInput,
+  type UntagSAMLProviderCommandOutput,
   UntagSAMLProviderCommand,
-  UntagSAMLProviderCommandInput,
-  UntagSAMLProviderCommandOutput,
 } from "./commands/UntagSAMLProviderCommand";
 import {
+  type UntagServerCertificateCommandInput,
+  type UntagServerCertificateCommandOutput,
   UntagServerCertificateCommand,
-  UntagServerCertificateCommandInput,
-  UntagServerCertificateCommandOutput,
 } from "./commands/UntagServerCertificateCommand";
-import { UntagUserCommand, UntagUserCommandInput, UntagUserCommandOutput } from "./commands/UntagUserCommand";
+import { type UntagUserCommandInput, type UntagUserCommandOutput, UntagUserCommand } from "./commands/UntagUserCommand";
 import {
+  type UpdateAccessKeyCommandInput,
+  type UpdateAccessKeyCommandOutput,
   UpdateAccessKeyCommand,
-  UpdateAccessKeyCommandInput,
-  UpdateAccessKeyCommandOutput,
 } from "./commands/UpdateAccessKeyCommand";
 import {
+  type UpdateAccountPasswordPolicyCommandInput,
+  type UpdateAccountPasswordPolicyCommandOutput,
   UpdateAccountPasswordPolicyCommand,
-  UpdateAccountPasswordPolicyCommandInput,
-  UpdateAccountPasswordPolicyCommandOutput,
 } from "./commands/UpdateAccountPasswordPolicyCommand";
 import {
+  type UpdateAssumeRolePolicyCommandInput,
+  type UpdateAssumeRolePolicyCommandOutput,
   UpdateAssumeRolePolicyCommand,
-  UpdateAssumeRolePolicyCommandInput,
-  UpdateAssumeRolePolicyCommandOutput,
 } from "./commands/UpdateAssumeRolePolicyCommand";
 import {
+  type UpdateDelegationRequestCommandInput,
+  type UpdateDelegationRequestCommandOutput,
   UpdateDelegationRequestCommand,
-  UpdateDelegationRequestCommandInput,
-  UpdateDelegationRequestCommandOutput,
 } from "./commands/UpdateDelegationRequestCommand";
-import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
+  type UpdateGroupCommandInput,
+  type UpdateGroupCommandOutput,
+  UpdateGroupCommand,
+} from "./commands/UpdateGroupCommand";
+import {
+  type UpdateLoginProfileCommandInput,
+  type UpdateLoginProfileCommandOutput,
   UpdateLoginProfileCommand,
-  UpdateLoginProfileCommandInput,
-  UpdateLoginProfileCommandOutput,
 } from "./commands/UpdateLoginProfileCommand";
 import {
+  type UpdateOpenIDConnectProviderThumbprintCommandInput,
+  type UpdateOpenIDConnectProviderThumbprintCommandOutput,
   UpdateOpenIDConnectProviderThumbprintCommand,
-  UpdateOpenIDConnectProviderThumbprintCommandInput,
-  UpdateOpenIDConnectProviderThumbprintCommandOutput,
 } from "./commands/UpdateOpenIDConnectProviderThumbprintCommand";
-import { UpdateRoleCommand, UpdateRoleCommandInput, UpdateRoleCommandOutput } from "./commands/UpdateRoleCommand";
 import {
+  type UpdateRoleCommandInput,
+  type UpdateRoleCommandOutput,
+  UpdateRoleCommand,
+} from "./commands/UpdateRoleCommand";
+import {
+  type UpdateRoleDescriptionCommandInput,
+  type UpdateRoleDescriptionCommandOutput,
   UpdateRoleDescriptionCommand,
-  UpdateRoleDescriptionCommandInput,
-  UpdateRoleDescriptionCommandOutput,
 } from "./commands/UpdateRoleDescriptionCommand";
 import {
+  type UpdateSAMLProviderCommandInput,
+  type UpdateSAMLProviderCommandOutput,
   UpdateSAMLProviderCommand,
-  UpdateSAMLProviderCommandInput,
-  UpdateSAMLProviderCommandOutput,
 } from "./commands/UpdateSAMLProviderCommand";
 import {
+  type UpdateServerCertificateCommandInput,
+  type UpdateServerCertificateCommandOutput,
   UpdateServerCertificateCommand,
-  UpdateServerCertificateCommandInput,
-  UpdateServerCertificateCommandOutput,
 } from "./commands/UpdateServerCertificateCommand";
 import {
+  type UpdateServiceSpecificCredentialCommandInput,
+  type UpdateServiceSpecificCredentialCommandOutput,
   UpdateServiceSpecificCredentialCommand,
-  UpdateServiceSpecificCredentialCommandInput,
-  UpdateServiceSpecificCredentialCommandOutput,
 } from "./commands/UpdateServiceSpecificCredentialCommand";
 import {
+  type UpdateSigningCertificateCommandInput,
+  type UpdateSigningCertificateCommandOutput,
   UpdateSigningCertificateCommand,
-  UpdateSigningCertificateCommandInput,
-  UpdateSigningCertificateCommandOutput,
 } from "./commands/UpdateSigningCertificateCommand";
 import {
+  type UpdateSSHPublicKeyCommandInput,
+  type UpdateSSHPublicKeyCommandOutput,
   UpdateSSHPublicKeyCommand,
-  UpdateSSHPublicKeyCommandInput,
-  UpdateSSHPublicKeyCommandOutput,
 } from "./commands/UpdateSSHPublicKeyCommand";
-import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
+  type UpdateUserCommandInput,
+  type UpdateUserCommandOutput,
+  UpdateUserCommand,
+} from "./commands/UpdateUserCommand";
+import {
+  type UploadServerCertificateCommandInput,
+  type UploadServerCertificateCommandOutput,
   UploadServerCertificateCommand,
-  UploadServerCertificateCommandInput,
-  UploadServerCertificateCommandOutput,
 } from "./commands/UploadServerCertificateCommand";
 import {
+  type UploadSigningCertificateCommandInput,
+  type UploadSigningCertificateCommandOutput,
   UploadSigningCertificateCommand,
-  UploadSigningCertificateCommandInput,
-  UploadSigningCertificateCommandOutput,
 } from "./commands/UploadSigningCertificateCommand";
 import {
+  type UploadSSHPublicKeyCommandInput,
+  type UploadSSHPublicKeyCommandOutput,
   UploadSSHPublicKeyCommand,
-  UploadSSHPublicKeyCommandInput,
-  UploadSSHPublicKeyCommandOutput,
 } from "./commands/UploadSSHPublicKeyCommand";
 import { IAMClient } from "./IAMClient";
 import { paginateGetAccountAuthorizationDetails } from "./pagination/GetAccountAuthorizationDetailsPaginator";

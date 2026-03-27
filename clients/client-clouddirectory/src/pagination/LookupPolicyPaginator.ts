@@ -8,7 +8,7 @@ import {
   LookupPolicyCommandInput,
   LookupPolicyCommandOutput,
 } from "../commands/LookupPolicyCommand";
-import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
+import type { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   GetResourceCollectionCommandOutput,
 } from "../commands/GetResourceCollectionCommand";
 import { DevOpsGuruClient } from "../DevOpsGuruClient";
-import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
+import type { DevOpsGuruPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

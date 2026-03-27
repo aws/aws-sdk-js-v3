@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   ApplianceModeSupportValue,
   AutoAcceptSharedAssociationsValue,
   AutoAcceptSharedAttachmentsValue,
@@ -84,25 +84,25 @@ import {
   VpnStaticRouteSource,
   VpnTunnelBandwidth,
 } from "./enums";
-import {
-  type CarrierGateway,
-  type ClientVpnEndpointStatus,
-  type ClientVpnRouteStatus,
-  type CoipCidr,
-  type CoipPool,
-  type Subnet,
-  type TransitGatewayPeeringAttachment,
-  type TransitGatewayVpcAttachment,
-  type VerifiedAccessInstance,
-  type VerifiedAccessSseSpecificationResponse,
-  type VerifiedAccessTrustProvider,
-  type Vpc,
-  type VpcEncryptionControl,
-  type VpcPeeringConnection,
+import type {
+  CarrierGateway,
+  ClientVpnEndpointStatus,
+  ClientVpnRouteStatus,
+  CoipCidr,
+  CoipPool,
+  Subnet,
   Tag,
   TagSpecification,
+  TransitGatewayPeeringAttachment,
+  TransitGatewayVpcAttachment,
   UnsuccessfulItem,
+  VerifiedAccessInstance,
+  VerifiedAccessSseSpecificationResponse,
+  VerifiedAccessTrustProvider,
+  Vpc,
   VpcAttachment,
+  VpcEncryptionControl,
+  VpcPeeringConnection,
 } from "./models_0";
 import type {
   Ec2InstanceConnectEndpoint,

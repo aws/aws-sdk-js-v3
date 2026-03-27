@@ -3,272 +3,300 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateAddonInstanceCommandInput,
+  type CreateAddonInstanceCommandOutput,
   CreateAddonInstanceCommand,
-  CreateAddonInstanceCommandInput,
-  CreateAddonInstanceCommandOutput,
 } from "./commands/CreateAddonInstanceCommand";
 import {
+  type CreateAddonSubscriptionCommandInput,
+  type CreateAddonSubscriptionCommandOutput,
   CreateAddonSubscriptionCommand,
-  CreateAddonSubscriptionCommandInput,
-  CreateAddonSubscriptionCommandOutput,
 } from "./commands/CreateAddonSubscriptionCommand";
 import {
+  type CreateAddressListCommandInput,
+  type CreateAddressListCommandOutput,
   CreateAddressListCommand,
-  CreateAddressListCommandInput,
-  CreateAddressListCommandOutput,
 } from "./commands/CreateAddressListCommand";
 import {
+  type CreateAddressListImportJobCommandInput,
+  type CreateAddressListImportJobCommandOutput,
   CreateAddressListImportJobCommand,
-  CreateAddressListImportJobCommandInput,
-  CreateAddressListImportJobCommandOutput,
 } from "./commands/CreateAddressListImportJobCommand";
 import {
+  type CreateArchiveCommandInput,
+  type CreateArchiveCommandOutput,
   CreateArchiveCommand,
-  CreateArchiveCommandInput,
-  CreateArchiveCommandOutput,
 } from "./commands/CreateArchiveCommand";
 import {
+  type CreateIngressPointCommandInput,
+  type CreateIngressPointCommandOutput,
   CreateIngressPointCommand,
-  CreateIngressPointCommandInput,
-  CreateIngressPointCommandOutput,
 } from "./commands/CreateIngressPointCommand";
-import { CreateRelayCommand, CreateRelayCommandInput, CreateRelayCommandOutput } from "./commands/CreateRelayCommand";
 import {
+  type CreateRelayCommandInput,
+  type CreateRelayCommandOutput,
+  CreateRelayCommand,
+} from "./commands/CreateRelayCommand";
+import {
+  type CreateRuleSetCommandInput,
+  type CreateRuleSetCommandOutput,
   CreateRuleSetCommand,
-  CreateRuleSetCommandInput,
-  CreateRuleSetCommandOutput,
 } from "./commands/CreateRuleSetCommand";
 import {
+  type CreateTrafficPolicyCommandInput,
+  type CreateTrafficPolicyCommandOutput,
   CreateTrafficPolicyCommand,
-  CreateTrafficPolicyCommandInput,
-  CreateTrafficPolicyCommandOutput,
 } from "./commands/CreateTrafficPolicyCommand";
 import {
+  type DeleteAddonInstanceCommandInput,
+  type DeleteAddonInstanceCommandOutput,
   DeleteAddonInstanceCommand,
-  DeleteAddonInstanceCommandInput,
-  DeleteAddonInstanceCommandOutput,
 } from "./commands/DeleteAddonInstanceCommand";
 import {
+  type DeleteAddonSubscriptionCommandInput,
+  type DeleteAddonSubscriptionCommandOutput,
   DeleteAddonSubscriptionCommand,
-  DeleteAddonSubscriptionCommandInput,
-  DeleteAddonSubscriptionCommandOutput,
 } from "./commands/DeleteAddonSubscriptionCommand";
 import {
+  type DeleteAddressListCommandInput,
+  type DeleteAddressListCommandOutput,
   DeleteAddressListCommand,
-  DeleteAddressListCommandInput,
-  DeleteAddressListCommandOutput,
 } from "./commands/DeleteAddressListCommand";
 import {
+  type DeleteArchiveCommandInput,
+  type DeleteArchiveCommandOutput,
   DeleteArchiveCommand,
-  DeleteArchiveCommandInput,
-  DeleteArchiveCommandOutput,
 } from "./commands/DeleteArchiveCommand";
 import {
+  type DeleteIngressPointCommandInput,
+  type DeleteIngressPointCommandOutput,
   DeleteIngressPointCommand,
-  DeleteIngressPointCommandInput,
-  DeleteIngressPointCommandOutput,
 } from "./commands/DeleteIngressPointCommand";
-import { DeleteRelayCommand, DeleteRelayCommandInput, DeleteRelayCommandOutput } from "./commands/DeleteRelayCommand";
 import {
+  type DeleteRelayCommandInput,
+  type DeleteRelayCommandOutput,
+  DeleteRelayCommand,
+} from "./commands/DeleteRelayCommand";
+import {
+  type DeleteRuleSetCommandInput,
+  type DeleteRuleSetCommandOutput,
   DeleteRuleSetCommand,
-  DeleteRuleSetCommandInput,
-  DeleteRuleSetCommandOutput,
 } from "./commands/DeleteRuleSetCommand";
 import {
+  type DeleteTrafficPolicyCommandInput,
+  type DeleteTrafficPolicyCommandOutput,
   DeleteTrafficPolicyCommand,
-  DeleteTrafficPolicyCommandInput,
-  DeleteTrafficPolicyCommandOutput,
 } from "./commands/DeleteTrafficPolicyCommand";
 import {
+  type DeregisterMemberFromAddressListCommandInput,
+  type DeregisterMemberFromAddressListCommandOutput,
   DeregisterMemberFromAddressListCommand,
-  DeregisterMemberFromAddressListCommandInput,
-  DeregisterMemberFromAddressListCommandOutput,
 } from "./commands/DeregisterMemberFromAddressListCommand";
 import {
+  type GetAddonInstanceCommandInput,
+  type GetAddonInstanceCommandOutput,
   GetAddonInstanceCommand,
-  GetAddonInstanceCommandInput,
-  GetAddonInstanceCommandOutput,
 } from "./commands/GetAddonInstanceCommand";
 import {
+  type GetAddonSubscriptionCommandInput,
+  type GetAddonSubscriptionCommandOutput,
   GetAddonSubscriptionCommand,
-  GetAddonSubscriptionCommandInput,
-  GetAddonSubscriptionCommandOutput,
 } from "./commands/GetAddonSubscriptionCommand";
 import {
+  type GetAddressListCommandInput,
+  type GetAddressListCommandOutput,
   GetAddressListCommand,
-  GetAddressListCommandInput,
-  GetAddressListCommandOutput,
 } from "./commands/GetAddressListCommand";
 import {
+  type GetAddressListImportJobCommandInput,
+  type GetAddressListImportJobCommandOutput,
   GetAddressListImportJobCommand,
-  GetAddressListImportJobCommandInput,
-  GetAddressListImportJobCommandOutput,
 } from "./commands/GetAddressListImportJobCommand";
-import { GetArchiveCommand, GetArchiveCommandInput, GetArchiveCommandOutput } from "./commands/GetArchiveCommand";
 import {
+  type GetArchiveCommandInput,
+  type GetArchiveCommandOutput,
+  GetArchiveCommand,
+} from "./commands/GetArchiveCommand";
+import {
+  type GetArchiveExportCommandInput,
+  type GetArchiveExportCommandOutput,
   GetArchiveExportCommand,
-  GetArchiveExportCommandInput,
-  GetArchiveExportCommandOutput,
 } from "./commands/GetArchiveExportCommand";
 import {
+  type GetArchiveMessageCommandInput,
+  type GetArchiveMessageCommandOutput,
   GetArchiveMessageCommand,
-  GetArchiveMessageCommandInput,
-  GetArchiveMessageCommandOutput,
 } from "./commands/GetArchiveMessageCommand";
 import {
+  type GetArchiveMessageContentCommandInput,
+  type GetArchiveMessageContentCommandOutput,
   GetArchiveMessageContentCommand,
-  GetArchiveMessageContentCommandInput,
-  GetArchiveMessageContentCommandOutput,
 } from "./commands/GetArchiveMessageContentCommand";
 import {
+  type GetArchiveSearchCommandInput,
+  type GetArchiveSearchCommandOutput,
   GetArchiveSearchCommand,
-  GetArchiveSearchCommandInput,
-  GetArchiveSearchCommandOutput,
 } from "./commands/GetArchiveSearchCommand";
 import {
+  type GetArchiveSearchResultsCommandInput,
+  type GetArchiveSearchResultsCommandOutput,
   GetArchiveSearchResultsCommand,
-  GetArchiveSearchResultsCommandInput,
-  GetArchiveSearchResultsCommandOutput,
 } from "./commands/GetArchiveSearchResultsCommand";
 import {
+  type GetIngressPointCommandInput,
+  type GetIngressPointCommandOutput,
   GetIngressPointCommand,
-  GetIngressPointCommandInput,
-  GetIngressPointCommandOutput,
 } from "./commands/GetIngressPointCommand";
 import {
+  type GetMemberOfAddressListCommandInput,
+  type GetMemberOfAddressListCommandOutput,
   GetMemberOfAddressListCommand,
-  GetMemberOfAddressListCommandInput,
-  GetMemberOfAddressListCommandOutput,
 } from "./commands/GetMemberOfAddressListCommand";
-import { GetRelayCommand, GetRelayCommandInput, GetRelayCommandOutput } from "./commands/GetRelayCommand";
-import { GetRuleSetCommand, GetRuleSetCommandInput, GetRuleSetCommandOutput } from "./commands/GetRuleSetCommand";
+import { type GetRelayCommandInput, type GetRelayCommandOutput, GetRelayCommand } from "./commands/GetRelayCommand";
 import {
+  type GetRuleSetCommandInput,
+  type GetRuleSetCommandOutput,
+  GetRuleSetCommand,
+} from "./commands/GetRuleSetCommand";
+import {
+  type GetTrafficPolicyCommandInput,
+  type GetTrafficPolicyCommandOutput,
   GetTrafficPolicyCommand,
-  GetTrafficPolicyCommandInput,
-  GetTrafficPolicyCommandOutput,
 } from "./commands/GetTrafficPolicyCommand";
 import {
+  type ListAddonInstancesCommandInput,
+  type ListAddonInstancesCommandOutput,
   ListAddonInstancesCommand,
-  ListAddonInstancesCommandInput,
-  ListAddonInstancesCommandOutput,
 } from "./commands/ListAddonInstancesCommand";
 import {
+  type ListAddonSubscriptionsCommandInput,
+  type ListAddonSubscriptionsCommandOutput,
   ListAddonSubscriptionsCommand,
-  ListAddonSubscriptionsCommandInput,
-  ListAddonSubscriptionsCommandOutput,
 } from "./commands/ListAddonSubscriptionsCommand";
 import {
+  type ListAddressListImportJobsCommandInput,
+  type ListAddressListImportJobsCommandOutput,
   ListAddressListImportJobsCommand,
-  ListAddressListImportJobsCommandInput,
-  ListAddressListImportJobsCommandOutput,
 } from "./commands/ListAddressListImportJobsCommand";
 import {
+  type ListAddressListsCommandInput,
+  type ListAddressListsCommandOutput,
   ListAddressListsCommand,
-  ListAddressListsCommandInput,
-  ListAddressListsCommandOutput,
 } from "./commands/ListAddressListsCommand";
 import {
+  type ListArchiveExportsCommandInput,
+  type ListArchiveExportsCommandOutput,
   ListArchiveExportsCommand,
-  ListArchiveExportsCommandInput,
-  ListArchiveExportsCommandOutput,
 } from "./commands/ListArchiveExportsCommand";
 import {
+  type ListArchivesCommandInput,
+  type ListArchivesCommandOutput,
   ListArchivesCommand,
-  ListArchivesCommandInput,
-  ListArchivesCommandOutput,
 } from "./commands/ListArchivesCommand";
 import {
+  type ListArchiveSearchesCommandInput,
+  type ListArchiveSearchesCommandOutput,
   ListArchiveSearchesCommand,
-  ListArchiveSearchesCommandInput,
-  ListArchiveSearchesCommandOutput,
 } from "./commands/ListArchiveSearchesCommand";
 import {
+  type ListIngressPointsCommandInput,
+  type ListIngressPointsCommandOutput,
   ListIngressPointsCommand,
-  ListIngressPointsCommandInput,
-  ListIngressPointsCommandOutput,
 } from "./commands/ListIngressPointsCommand";
 import {
+  type ListMembersOfAddressListCommandInput,
+  type ListMembersOfAddressListCommandOutput,
   ListMembersOfAddressListCommand,
-  ListMembersOfAddressListCommandInput,
-  ListMembersOfAddressListCommandOutput,
 } from "./commands/ListMembersOfAddressListCommand";
-import { ListRelaysCommand, ListRelaysCommandInput, ListRelaysCommandOutput } from "./commands/ListRelaysCommand";
 import {
+  type ListRelaysCommandInput,
+  type ListRelaysCommandOutput,
+  ListRelaysCommand,
+} from "./commands/ListRelaysCommand";
+import {
+  type ListRuleSetsCommandInput,
+  type ListRuleSetsCommandOutput,
   ListRuleSetsCommand,
-  ListRuleSetsCommandInput,
-  ListRuleSetsCommandOutput,
 } from "./commands/ListRuleSetsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTrafficPoliciesCommandInput,
+  type ListTrafficPoliciesCommandOutput,
   ListTrafficPoliciesCommand,
-  ListTrafficPoliciesCommandInput,
-  ListTrafficPoliciesCommandOutput,
 } from "./commands/ListTrafficPoliciesCommand";
 import {
+  type RegisterMemberToAddressListCommandInput,
+  type RegisterMemberToAddressListCommandOutput,
   RegisterMemberToAddressListCommand,
-  RegisterMemberToAddressListCommandInput,
-  RegisterMemberToAddressListCommandOutput,
 } from "./commands/RegisterMemberToAddressListCommand";
 import {
+  type StartAddressListImportJobCommandInput,
+  type StartAddressListImportJobCommandOutput,
   StartAddressListImportJobCommand,
-  StartAddressListImportJobCommandInput,
-  StartAddressListImportJobCommandOutput,
 } from "./commands/StartAddressListImportJobCommand";
 import {
+  type StartArchiveExportCommandInput,
+  type StartArchiveExportCommandOutput,
   StartArchiveExportCommand,
-  StartArchiveExportCommandInput,
-  StartArchiveExportCommandOutput,
 } from "./commands/StartArchiveExportCommand";
 import {
+  type StartArchiveSearchCommandInput,
+  type StartArchiveSearchCommandOutput,
   StartArchiveSearchCommand,
-  StartArchiveSearchCommandInput,
-  StartArchiveSearchCommandOutput,
 } from "./commands/StartArchiveSearchCommand";
 import {
+  type StopAddressListImportJobCommandInput,
+  type StopAddressListImportJobCommandOutput,
   StopAddressListImportJobCommand,
-  StopAddressListImportJobCommandInput,
-  StopAddressListImportJobCommandOutput,
 } from "./commands/StopAddressListImportJobCommand";
 import {
+  type StopArchiveExportCommandInput,
+  type StopArchiveExportCommandOutput,
   StopArchiveExportCommand,
-  StopArchiveExportCommandInput,
-  StopArchiveExportCommandOutput,
 } from "./commands/StopArchiveExportCommand";
 import {
+  type StopArchiveSearchCommandInput,
+  type StopArchiveSearchCommandOutput,
   StopArchiveSearchCommand,
-  StopArchiveSearchCommandInput,
-  StopArchiveSearchCommandOutput,
 } from "./commands/StopArchiveSearchCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateArchiveCommandInput,
+  type UpdateArchiveCommandOutput,
   UpdateArchiveCommand,
-  UpdateArchiveCommandInput,
-  UpdateArchiveCommandOutput,
 } from "./commands/UpdateArchiveCommand";
 import {
+  type UpdateIngressPointCommandInput,
+  type UpdateIngressPointCommandOutput,
   UpdateIngressPointCommand,
-  UpdateIngressPointCommandInput,
-  UpdateIngressPointCommandOutput,
 } from "./commands/UpdateIngressPointCommand";
-import { UpdateRelayCommand, UpdateRelayCommandInput, UpdateRelayCommandOutput } from "./commands/UpdateRelayCommand";
 import {
+  type UpdateRelayCommandInput,
+  type UpdateRelayCommandOutput,
+  UpdateRelayCommand,
+} from "./commands/UpdateRelayCommand";
+import {
+  type UpdateRuleSetCommandInput,
+  type UpdateRuleSetCommandOutput,
   UpdateRuleSetCommand,
-  UpdateRuleSetCommandInput,
-  UpdateRuleSetCommandOutput,
 } from "./commands/UpdateRuleSetCommand";
 import {
+  type UpdateTrafficPolicyCommandInput,
+  type UpdateTrafficPolicyCommandOutput,
   UpdateTrafficPolicyCommand,
-  UpdateTrafficPolicyCommandInput,
-  UpdateTrafficPolicyCommandOutput,
 } from "./commands/UpdateTrafficPolicyCommand";
 import { MailManagerClient } from "./MailManagerClient";
 import { paginateListAddonInstances } from "./pagination/ListAddonInstancesPaginator";

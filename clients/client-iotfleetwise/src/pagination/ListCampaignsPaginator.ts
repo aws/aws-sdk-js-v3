@@ -8,7 +8,7 @@ import {
   ListCampaignsCommandOutput,
 } from "../commands/ListCampaignsCommand";
 import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
-import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
+import type { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   GetMigrationsCommandOutput,
 } from "../commands/GetMigrationsCommand";
 import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient";
-import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
+import type { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

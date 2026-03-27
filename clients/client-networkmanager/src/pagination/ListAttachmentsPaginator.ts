@@ -8,7 +8,7 @@ import {
   ListAttachmentsCommandOutput,
 } from "../commands/ListAttachmentsCommand";
 import { NetworkManagerClient } from "../NetworkManagerClient";
-import { NetworkManagerPaginationConfiguration } from "./Interfaces";
+import type { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

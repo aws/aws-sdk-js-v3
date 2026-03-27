@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,208 +61,223 @@ import {
   defaultDirectConnectHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptDirectConnectGatewayAssociationProposalCommandInput,
   AcceptDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/AcceptDirectConnectGatewayAssociationProposalCommand";
-import {
+import type {
   AllocateConnectionOnInterconnectCommandInput,
   AllocateConnectionOnInterconnectCommandOutput,
 } from "./commands/AllocateConnectionOnInterconnectCommand";
-import {
+import type {
   AllocateHostedConnectionCommandInput,
   AllocateHostedConnectionCommandOutput,
 } from "./commands/AllocateHostedConnectionCommand";
-import {
+import type {
   AllocatePrivateVirtualInterfaceCommandInput,
   AllocatePrivateVirtualInterfaceCommandOutput,
 } from "./commands/AllocatePrivateVirtualInterfaceCommand";
-import {
+import type {
   AllocatePublicVirtualInterfaceCommandInput,
   AllocatePublicVirtualInterfaceCommandOutput,
 } from "./commands/AllocatePublicVirtualInterfaceCommand";
-import {
+import type {
   AllocateTransitVirtualInterfaceCommandInput,
   AllocateTransitVirtualInterfaceCommandOutput,
 } from "./commands/AllocateTransitVirtualInterfaceCommand";
-import {
+import type {
   AssociateConnectionWithLagCommandInput,
   AssociateConnectionWithLagCommandOutput,
 } from "./commands/AssociateConnectionWithLagCommand";
-import {
+import type {
   AssociateHostedConnectionCommandInput,
   AssociateHostedConnectionCommandOutput,
 } from "./commands/AssociateHostedConnectionCommand";
-import { AssociateMacSecKeyCommandInput, AssociateMacSecKeyCommandOutput } from "./commands/AssociateMacSecKeyCommand";
-import {
+import type {
+  AssociateMacSecKeyCommandInput,
+  AssociateMacSecKeyCommandOutput,
+} from "./commands/AssociateMacSecKeyCommand";
+import type {
   AssociateVirtualInterfaceCommandInput,
   AssociateVirtualInterfaceCommandOutput,
 } from "./commands/AssociateVirtualInterfaceCommand";
-import { ConfirmConnectionCommandInput, ConfirmConnectionCommandOutput } from "./commands/ConfirmConnectionCommand";
-import {
+import type {
+  ConfirmConnectionCommandInput,
+  ConfirmConnectionCommandOutput,
+} from "./commands/ConfirmConnectionCommand";
+import type {
   ConfirmCustomerAgreementCommandInput,
   ConfirmCustomerAgreementCommandOutput,
 } from "./commands/ConfirmCustomerAgreementCommand";
-import {
+import type {
   ConfirmPrivateVirtualInterfaceCommandInput,
   ConfirmPrivateVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmPrivateVirtualInterfaceCommand";
-import {
+import type {
   ConfirmPublicVirtualInterfaceCommandInput,
   ConfirmPublicVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmPublicVirtualInterfaceCommand";
-import {
+import type {
   ConfirmTransitVirtualInterfaceCommandInput,
   ConfirmTransitVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmTransitVirtualInterfaceCommand";
-import { CreateBGPPeerCommandInput, CreateBGPPeerCommandOutput } from "./commands/CreateBGPPeerCommand";
-import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
-import {
+import type { CreateBGPPeerCommandInput, CreateBGPPeerCommandOutput } from "./commands/CreateBGPPeerCommand";
+import type { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
+import type {
   CreateDirectConnectGatewayAssociationCommandInput,
   CreateDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/CreateDirectConnectGatewayAssociationCommand";
-import {
+import type {
   CreateDirectConnectGatewayAssociationProposalCommandInput,
   CreateDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/CreateDirectConnectGatewayAssociationProposalCommand";
-import {
+import type {
   CreateDirectConnectGatewayCommandInput,
   CreateDirectConnectGatewayCommandOutput,
 } from "./commands/CreateDirectConnectGatewayCommand";
-import { CreateInterconnectCommandInput, CreateInterconnectCommandOutput } from "./commands/CreateInterconnectCommand";
-import { CreateLagCommandInput, CreateLagCommandOutput } from "./commands/CreateLagCommand";
-import {
+import type {
+  CreateInterconnectCommandInput,
+  CreateInterconnectCommandOutput,
+} from "./commands/CreateInterconnectCommand";
+import type { CreateLagCommandInput, CreateLagCommandOutput } from "./commands/CreateLagCommand";
+import type {
   CreatePrivateVirtualInterfaceCommandInput,
   CreatePrivateVirtualInterfaceCommandOutput,
 } from "./commands/CreatePrivateVirtualInterfaceCommand";
-import {
+import type {
   CreatePublicVirtualInterfaceCommandInput,
   CreatePublicVirtualInterfaceCommandOutput,
 } from "./commands/CreatePublicVirtualInterfaceCommand";
-import {
+import type {
   CreateTransitVirtualInterfaceCommandInput,
   CreateTransitVirtualInterfaceCommandOutput,
 } from "./commands/CreateTransitVirtualInterfaceCommand";
-import { DeleteBGPPeerCommandInput, DeleteBGPPeerCommandOutput } from "./commands/DeleteBGPPeerCommand";
-import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
-import {
+import type { DeleteBGPPeerCommandInput, DeleteBGPPeerCommandOutput } from "./commands/DeleteBGPPeerCommand";
+import type { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import type {
   DeleteDirectConnectGatewayAssociationCommandInput,
   DeleteDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayAssociationCommand";
-import {
+import type {
   DeleteDirectConnectGatewayAssociationProposalCommandInput,
   DeleteDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayAssociationProposalCommand";
-import {
+import type {
   DeleteDirectConnectGatewayCommandInput,
   DeleteDirectConnectGatewayCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayCommand";
-import { DeleteInterconnectCommandInput, DeleteInterconnectCommandOutput } from "./commands/DeleteInterconnectCommand";
-import { DeleteLagCommandInput, DeleteLagCommandOutput } from "./commands/DeleteLagCommand";
-import {
+import type {
+  DeleteInterconnectCommandInput,
+  DeleteInterconnectCommandOutput,
+} from "./commands/DeleteInterconnectCommand";
+import type { DeleteLagCommandInput, DeleteLagCommandOutput } from "./commands/DeleteLagCommand";
+import type {
   DeleteVirtualInterfaceCommandInput,
   DeleteVirtualInterfaceCommandOutput,
 } from "./commands/DeleteVirtualInterfaceCommand";
-import {
+import type {
   DescribeConnectionLoaCommandInput,
   DescribeConnectionLoaCommandOutput,
 } from "./commands/DescribeConnectionLoaCommand";
-import {
+import type {
   DescribeConnectionsCommandInput,
   DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand";
-import {
+import type {
   DescribeConnectionsOnInterconnectCommandInput,
   DescribeConnectionsOnInterconnectCommandOutput,
 } from "./commands/DescribeConnectionsOnInterconnectCommand";
-import {
+import type {
   DescribeCustomerMetadataCommandInput,
   DescribeCustomerMetadataCommandOutput,
 } from "./commands/DescribeCustomerMetadataCommand";
-import {
+import type {
   DescribeDirectConnectGatewayAssociationProposalsCommandInput,
   DescribeDirectConnectGatewayAssociationProposalsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAssociationProposalsCommand";
-import {
+import type {
   DescribeDirectConnectGatewayAssociationsCommandInput,
   DescribeDirectConnectGatewayAssociationsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAssociationsCommand";
-import {
+import type {
   DescribeDirectConnectGatewayAttachmentsCommandInput,
   DescribeDirectConnectGatewayAttachmentsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAttachmentsCommand";
-import {
+import type {
   DescribeDirectConnectGatewaysCommandInput,
   DescribeDirectConnectGatewaysCommandOutput,
 } from "./commands/DescribeDirectConnectGatewaysCommand";
-import {
+import type {
   DescribeHostedConnectionsCommandInput,
   DescribeHostedConnectionsCommandOutput,
 } from "./commands/DescribeHostedConnectionsCommand";
-import {
+import type {
   DescribeInterconnectLoaCommandInput,
   DescribeInterconnectLoaCommandOutput,
 } from "./commands/DescribeInterconnectLoaCommand";
-import {
+import type {
   DescribeInterconnectsCommandInput,
   DescribeInterconnectsCommandOutput,
 } from "./commands/DescribeInterconnectsCommand";
-import { DescribeLagsCommandInput, DescribeLagsCommandOutput } from "./commands/DescribeLagsCommand";
-import { DescribeLoaCommandInput, DescribeLoaCommandOutput } from "./commands/DescribeLoaCommand";
-import { DescribeLocationsCommandInput, DescribeLocationsCommandOutput } from "./commands/DescribeLocationsCommand";
-import {
+import type { DescribeLagsCommandInput, DescribeLagsCommandOutput } from "./commands/DescribeLagsCommand";
+import type { DescribeLoaCommandInput, DescribeLoaCommandOutput } from "./commands/DescribeLoaCommand";
+import type {
+  DescribeLocationsCommandInput,
+  DescribeLocationsCommandOutput,
+} from "./commands/DescribeLocationsCommand";
+import type {
   DescribeRouterConfigurationCommandInput,
   DescribeRouterConfigurationCommandOutput,
 } from "./commands/DescribeRouterConfigurationCommand";
-import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
-import {
+import type { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import type {
   DescribeVirtualGatewaysCommandInput,
   DescribeVirtualGatewaysCommandOutput,
 } from "./commands/DescribeVirtualGatewaysCommand";
-import {
+import type {
   DescribeVirtualInterfacesCommandInput,
   DescribeVirtualInterfacesCommandOutput,
 } from "./commands/DescribeVirtualInterfacesCommand";
-import {
+import type {
   DisassociateConnectionFromLagCommandInput,
   DisassociateConnectionFromLagCommandOutput,
 } from "./commands/DisassociateConnectionFromLagCommand";
-import {
+import type {
   DisassociateMacSecKeyCommandInput,
   DisassociateMacSecKeyCommandOutput,
 } from "./commands/DisassociateMacSecKeyCommand";
-import {
+import type {
   ListVirtualInterfaceTestHistoryCommandInput,
   ListVirtualInterfaceTestHistoryCommandOutput,
 } from "./commands/ListVirtualInterfaceTestHistoryCommand";
-import {
+import type {
   StartBgpFailoverTestCommandInput,
   StartBgpFailoverTestCommandOutput,
 } from "./commands/StartBgpFailoverTestCommand";
-import {
+import type {
   StopBgpFailoverTestCommandInput,
   StopBgpFailoverTestCommandOutput,
 } from "./commands/StopBgpFailoverTestCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
+import type {
   UpdateDirectConnectGatewayAssociationCommandInput,
   UpdateDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/UpdateDirectConnectGatewayAssociationCommand";
-import {
+import type {
   UpdateDirectConnectGatewayCommandInput,
   UpdateDirectConnectGatewayCommandOutput,
 } from "./commands/UpdateDirectConnectGatewayCommand";
-import { UpdateLagCommandInput, UpdateLagCommandOutput } from "./commands/UpdateLagCommand";
-import {
+import type { UpdateLagCommandInput, UpdateLagCommandOutput } from "./commands/UpdateLagCommand";
+import type {
   UpdateVirtualInterfaceAttributesCommandInput,
   UpdateVirtualInterfaceAttributesCommandOutput,
 } from "./commands/UpdateVirtualInterfaceAttributesCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -522,7 +535,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

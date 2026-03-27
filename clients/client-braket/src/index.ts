@@ -7,7 +7,7 @@
  */
 export * from "./BraketClient";
 export * from "./Braket";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BraketExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

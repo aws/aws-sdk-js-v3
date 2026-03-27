@@ -8,7 +8,7 @@ import {
   ListTransactionsCommandOutput,
 } from "../commands/ListTransactionsCommand";
 import { ManagedBlockchainQueryClient } from "../ManagedBlockchainQueryClient";
-import { ManagedBlockchainQueryPaginationConfiguration } from "./Interfaces";
+import type { ManagedBlockchainQueryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

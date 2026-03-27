@@ -8,7 +8,7 @@ import {
   ListContactsCommandOutput,
 } from "../commands/ListContactsCommand";
 import { GroundStationClient } from "../GroundStationClient";
-import { GroundStationPaginationConfiguration } from "./Interfaces";
+import type { GroundStationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

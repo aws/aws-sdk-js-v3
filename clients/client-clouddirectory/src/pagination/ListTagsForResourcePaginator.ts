@@ -8,7 +8,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
+import type { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

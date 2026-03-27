@@ -3,30 +3,34 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type BatchExecuteStatementCommandInput,
+  type BatchExecuteStatementCommandOutput,
   BatchExecuteStatementCommand,
-  BatchExecuteStatementCommandInput,
-  BatchExecuteStatementCommandOutput,
 } from "./commands/BatchExecuteStatementCommand";
 import {
+  type BeginTransactionCommandInput,
+  type BeginTransactionCommandOutput,
   BeginTransactionCommand,
-  BeginTransactionCommandInput,
-  BeginTransactionCommandOutput,
 } from "./commands/BeginTransactionCommand";
 import {
+  type CommitTransactionCommandInput,
+  type CommitTransactionCommandOutput,
   CommitTransactionCommand,
-  CommitTransactionCommandInput,
-  CommitTransactionCommandOutput,
 } from "./commands/CommitTransactionCommand";
-import { ExecuteSqlCommand, ExecuteSqlCommandInput, ExecuteSqlCommandOutput } from "./commands/ExecuteSqlCommand";
 import {
+  type ExecuteSqlCommandInput,
+  type ExecuteSqlCommandOutput,
+  ExecuteSqlCommand,
+} from "./commands/ExecuteSqlCommand";
+import {
+  type ExecuteStatementCommandInput,
+  type ExecuteStatementCommandOutput,
   ExecuteStatementCommand,
-  ExecuteStatementCommandInput,
-  ExecuteStatementCommandOutput,
 } from "./commands/ExecuteStatementCommand";
 import {
+  type RollbackTransactionCommandInput,
+  type RollbackTransactionCommandOutput,
   RollbackTransactionCommand,
-  RollbackTransactionCommandInput,
-  RollbackTransactionCommandOutput,
 } from "./commands/RollbackTransactionCommand";
 import { RDSDataClient } from "./RDSDataClient";
 

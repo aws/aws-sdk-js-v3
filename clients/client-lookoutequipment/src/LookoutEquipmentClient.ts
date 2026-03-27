@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,134 +61,146 @@ import {
   defaultLookoutEquipmentHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
-import {
+import type { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import type {
   CreateInferenceSchedulerCommandInput,
   CreateInferenceSchedulerCommandOutput,
 } from "./commands/CreateInferenceSchedulerCommand";
-import { CreateLabelCommandInput, CreateLabelCommandOutput } from "./commands/CreateLabelCommand";
-import { CreateLabelGroupCommandInput, CreateLabelGroupCommandOutput } from "./commands/CreateLabelGroupCommand";
-import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
-import {
+import type { CreateLabelCommandInput, CreateLabelCommandOutput } from "./commands/CreateLabelCommand";
+import type { CreateLabelGroupCommandInput, CreateLabelGroupCommandOutput } from "./commands/CreateLabelGroupCommand";
+import type { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
+import type {
   CreateRetrainingSchedulerCommandInput,
   CreateRetrainingSchedulerCommandOutput,
 } from "./commands/CreateRetrainingSchedulerCommand";
-import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
-import {
+import type { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import type {
   DeleteInferenceSchedulerCommandInput,
   DeleteInferenceSchedulerCommandOutput,
 } from "./commands/DeleteInferenceSchedulerCommand";
-import { DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
-import { DeleteLabelGroupCommandInput, DeleteLabelGroupCommandOutput } from "./commands/DeleteLabelGroupCommand";
-import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
-import {
+import type { DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
+import type { DeleteLabelGroupCommandInput, DeleteLabelGroupCommandOutput } from "./commands/DeleteLabelGroupCommand";
+import type { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   DeleteRetrainingSchedulerCommandInput,
   DeleteRetrainingSchedulerCommandOutput,
 } from "./commands/DeleteRetrainingSchedulerCommand";
-import {
+import type {
   DescribeDataIngestionJobCommandInput,
   DescribeDataIngestionJobCommandOutput,
 } from "./commands/DescribeDataIngestionJobCommand";
-import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
-import {
+import type { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
+import type {
   DescribeInferenceSchedulerCommandInput,
   DescribeInferenceSchedulerCommandOutput,
 } from "./commands/DescribeInferenceSchedulerCommand";
-import { DescribeLabelCommandInput, DescribeLabelCommandOutput } from "./commands/DescribeLabelCommand";
-import { DescribeLabelGroupCommandInput, DescribeLabelGroupCommandOutput } from "./commands/DescribeLabelGroupCommand";
-import { DescribeModelCommandInput, DescribeModelCommandOutput } from "./commands/DescribeModelCommand";
-import {
+import type { DescribeLabelCommandInput, DescribeLabelCommandOutput } from "./commands/DescribeLabelCommand";
+import type {
+  DescribeLabelGroupCommandInput,
+  DescribeLabelGroupCommandOutput,
+} from "./commands/DescribeLabelGroupCommand";
+import type { DescribeModelCommandInput, DescribeModelCommandOutput } from "./commands/DescribeModelCommand";
+import type {
   DescribeModelVersionCommandInput,
   DescribeModelVersionCommandOutput,
 } from "./commands/DescribeModelVersionCommand";
-import {
+import type {
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
-import {
+import type {
   DescribeRetrainingSchedulerCommandInput,
   DescribeRetrainingSchedulerCommandOutput,
 } from "./commands/DescribeRetrainingSchedulerCommand";
-import { ImportDatasetCommandInput, ImportDatasetCommandOutput } from "./commands/ImportDatasetCommand";
-import { ImportModelVersionCommandInput, ImportModelVersionCommandOutput } from "./commands/ImportModelVersionCommand";
-import {
+import type { ImportDatasetCommandInput, ImportDatasetCommandOutput } from "./commands/ImportDatasetCommand";
+import type {
+  ImportModelVersionCommandInput,
+  ImportModelVersionCommandOutput,
+} from "./commands/ImportModelVersionCommand";
+import type {
   ListDataIngestionJobsCommandInput,
   ListDataIngestionJobsCommandOutput,
 } from "./commands/ListDataIngestionJobsCommand";
-import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
-import {
+import type { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import type {
   ListInferenceEventsCommandInput,
   ListInferenceEventsCommandOutput,
 } from "./commands/ListInferenceEventsCommand";
-import {
+import type {
   ListInferenceExecutionsCommandInput,
   ListInferenceExecutionsCommandOutput,
 } from "./commands/ListInferenceExecutionsCommand";
-import {
+import type {
   ListInferenceSchedulersCommandInput,
   ListInferenceSchedulersCommandOutput,
 } from "./commands/ListInferenceSchedulersCommand";
-import { ListLabelGroupsCommandInput, ListLabelGroupsCommandOutput } from "./commands/ListLabelGroupsCommand";
-import { ListLabelsCommandInput, ListLabelsCommandOutput } from "./commands/ListLabelsCommand";
-import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
-import { ListModelVersionsCommandInput, ListModelVersionsCommandOutput } from "./commands/ListModelVersionsCommand";
-import {
+import type { ListLabelGroupsCommandInput, ListLabelGroupsCommandOutput } from "./commands/ListLabelGroupsCommand";
+import type { ListLabelsCommandInput, ListLabelsCommandOutput } from "./commands/ListLabelsCommand";
+import type { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
+import type {
+  ListModelVersionsCommandInput,
+  ListModelVersionsCommandOutput,
+} from "./commands/ListModelVersionsCommand";
+import type {
   ListRetrainingSchedulersCommandInput,
   ListRetrainingSchedulersCommandOutput,
 } from "./commands/ListRetrainingSchedulersCommand";
-import {
+import type {
   ListSensorStatisticsCommandInput,
   ListSensorStatisticsCommandOutput,
 } from "./commands/ListSensorStatisticsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   StartDataIngestionJobCommandInput,
   StartDataIngestionJobCommandOutput,
 } from "./commands/StartDataIngestionJobCommand";
-import {
+import type {
   StartInferenceSchedulerCommandInput,
   StartInferenceSchedulerCommandOutput,
 } from "./commands/StartInferenceSchedulerCommand";
-import {
+import type {
   StartRetrainingSchedulerCommandInput,
   StartRetrainingSchedulerCommandOutput,
 } from "./commands/StartRetrainingSchedulerCommand";
-import {
+import type {
   StopInferenceSchedulerCommandInput,
   StopInferenceSchedulerCommandOutput,
 } from "./commands/StopInferenceSchedulerCommand";
-import {
+import type {
   StopRetrainingSchedulerCommandInput,
   StopRetrainingSchedulerCommandOutput,
 } from "./commands/StopRetrainingSchedulerCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateActiveModelVersionCommandInput,
   UpdateActiveModelVersionCommandOutput,
 } from "./commands/UpdateActiveModelVersionCommand";
-import {
+import type {
   UpdateInferenceSchedulerCommandInput,
   UpdateInferenceSchedulerCommandOutput,
 } from "./commands/UpdateInferenceSchedulerCommand";
-import { UpdateLabelGroupCommandInput, UpdateLabelGroupCommandOutput } from "./commands/UpdateLabelGroupCommand";
-import { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
-import {
+import type { UpdateLabelGroupCommandInput, UpdateLabelGroupCommandOutput } from "./commands/UpdateLabelGroupCommand";
+import type { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
+import type {
   UpdateRetrainingSchedulerCommandInput,
   UpdateRetrainingSchedulerCommandOutput,
 } from "./commands/UpdateRetrainingSchedulerCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -420,7 +430,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

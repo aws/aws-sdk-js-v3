@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,89 +61,107 @@ import {
   defaultVerifiedPermissionsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BatchGetPolicyCommandInput, BatchGetPolicyCommandOutput } from "./commands/BatchGetPolicyCommand";
-import { BatchIsAuthorizedCommandInput, BatchIsAuthorizedCommandOutput } from "./commands/BatchIsAuthorizedCommand";
-import {
+import type { BatchGetPolicyCommandInput, BatchGetPolicyCommandOutput } from "./commands/BatchGetPolicyCommand";
+import type {
+  BatchIsAuthorizedCommandInput,
+  BatchIsAuthorizedCommandOutput,
+} from "./commands/BatchIsAuthorizedCommand";
+import type {
   BatchIsAuthorizedWithTokenCommandInput,
   BatchIsAuthorizedWithTokenCommandOutput,
 } from "./commands/BatchIsAuthorizedWithTokenCommand";
-import {
+import type {
   CreateIdentitySourceCommandInput,
   CreateIdentitySourceCommandOutput,
 } from "./commands/CreateIdentitySourceCommand";
-import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
-import {
+import type { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
+import type {
   CreatePolicyStoreAliasCommandInput,
   CreatePolicyStoreAliasCommandOutput,
 } from "./commands/CreatePolicyStoreAliasCommand";
-import { CreatePolicyStoreCommandInput, CreatePolicyStoreCommandOutput } from "./commands/CreatePolicyStoreCommand";
-import {
+import type {
+  CreatePolicyStoreCommandInput,
+  CreatePolicyStoreCommandOutput,
+} from "./commands/CreatePolicyStoreCommand";
+import type {
   CreatePolicyTemplateCommandInput,
   CreatePolicyTemplateCommandOutput,
 } from "./commands/CreatePolicyTemplateCommand";
-import {
+import type {
   DeleteIdentitySourceCommandInput,
   DeleteIdentitySourceCommandOutput,
 } from "./commands/DeleteIdentitySourceCommand";
-import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
-import {
+import type { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
+import type {
   DeletePolicyStoreAliasCommandInput,
   DeletePolicyStoreAliasCommandOutput,
 } from "./commands/DeletePolicyStoreAliasCommand";
-import { DeletePolicyStoreCommandInput, DeletePolicyStoreCommandOutput } from "./commands/DeletePolicyStoreCommand";
-import {
+import type {
+  DeletePolicyStoreCommandInput,
+  DeletePolicyStoreCommandOutput,
+} from "./commands/DeletePolicyStoreCommand";
+import type {
   DeletePolicyTemplateCommandInput,
   DeletePolicyTemplateCommandOutput,
 } from "./commands/DeletePolicyTemplateCommand";
-import { GetIdentitySourceCommandInput, GetIdentitySourceCommandOutput } from "./commands/GetIdentitySourceCommand";
-import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
-import {
+import type {
+  GetIdentitySourceCommandInput,
+  GetIdentitySourceCommandOutput,
+} from "./commands/GetIdentitySourceCommand";
+import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import type {
   GetPolicyStoreAliasCommandInput,
   GetPolicyStoreAliasCommandOutput,
 } from "./commands/GetPolicyStoreAliasCommand";
-import { GetPolicyStoreCommandInput, GetPolicyStoreCommandOutput } from "./commands/GetPolicyStoreCommand";
-import { GetPolicyTemplateCommandInput, GetPolicyTemplateCommandOutput } from "./commands/GetPolicyTemplateCommand";
-import { GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
-import { IsAuthorizedCommandInput, IsAuthorizedCommandOutput } from "./commands/IsAuthorizedCommand";
-import {
+import type { GetPolicyStoreCommandInput, GetPolicyStoreCommandOutput } from "./commands/GetPolicyStoreCommand";
+import type {
+  GetPolicyTemplateCommandInput,
+  GetPolicyTemplateCommandOutput,
+} from "./commands/GetPolicyTemplateCommand";
+import type { GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
+import type { IsAuthorizedCommandInput, IsAuthorizedCommandOutput } from "./commands/IsAuthorizedCommand";
+import type {
   IsAuthorizedWithTokenCommandInput,
   IsAuthorizedWithTokenCommandOutput,
 } from "./commands/IsAuthorizedWithTokenCommand";
-import {
+import type {
   ListIdentitySourcesCommandInput,
   ListIdentitySourcesCommandOutput,
 } from "./commands/ListIdentitySourcesCommand";
-import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
-import {
+import type { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
+import type {
   ListPolicyStoreAliasesCommandInput,
   ListPolicyStoreAliasesCommandOutput,
 } from "./commands/ListPolicyStoreAliasesCommand";
-import { ListPolicyStoresCommandInput, ListPolicyStoresCommandOutput } from "./commands/ListPolicyStoresCommand";
-import {
+import type { ListPolicyStoresCommandInput, ListPolicyStoresCommandOutput } from "./commands/ListPolicyStoresCommand";
+import type {
   ListPolicyTemplatesCommandInput,
   ListPolicyTemplatesCommandOutput,
 } from "./commands/ListPolicyTemplatesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutSchemaCommandInput, PutSchemaCommandOutput } from "./commands/PutSchemaCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { PutSchemaCommandInput, PutSchemaCommandOutput } from "./commands/PutSchemaCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateIdentitySourceCommandInput,
   UpdateIdentitySourceCommandOutput,
 } from "./commands/UpdateIdentitySourceCommand";
-import { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand";
-import { UpdatePolicyStoreCommandInput, UpdatePolicyStoreCommandOutput } from "./commands/UpdatePolicyStoreCommand";
-import {
+import type { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand";
+import type {
+  UpdatePolicyStoreCommandInput,
+  UpdatePolicyStoreCommandOutput,
+} from "./commands/UpdatePolicyStoreCommand";
+import type {
   UpdatePolicyTemplateCommandInput,
   UpdatePolicyTemplateCommandOutput,
 } from "./commands/UpdatePolicyTemplateCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -345,7 +361,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

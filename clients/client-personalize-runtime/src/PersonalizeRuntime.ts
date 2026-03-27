@@ -3,19 +3,19 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type GetActionRecommendationsCommandInput,
+  type GetActionRecommendationsCommandOutput,
   GetActionRecommendationsCommand,
-  GetActionRecommendationsCommandInput,
-  GetActionRecommendationsCommandOutput,
 } from "./commands/GetActionRecommendationsCommand";
 import {
+  type GetPersonalizedRankingCommandInput,
+  type GetPersonalizedRankingCommandOutput,
   GetPersonalizedRankingCommand,
-  GetPersonalizedRankingCommandInput,
-  GetPersonalizedRankingCommandOutput,
 } from "./commands/GetPersonalizedRankingCommand";
 import {
+  type GetRecommendationsCommandInput,
+  type GetRecommendationsCommandOutput,
   GetRecommendationsCommand,
-  GetRecommendationsCommandInput,
-  GetRecommendationsCommandOutput,
 } from "./commands/GetRecommendationsCommand";
 import { PersonalizeRuntimeClient } from "./PersonalizeRuntimeClient";
 

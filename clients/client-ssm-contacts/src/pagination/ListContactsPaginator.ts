@@ -8,7 +8,7 @@ import {
   ListContactsCommandOutput,
 } from "../commands/ListContactsCommand";
 import { SSMContactsClient } from "../SSMContactsClient";
-import { SSMContactsPaginationConfiguration } from "./Interfaces";
+import type { SSMContactsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

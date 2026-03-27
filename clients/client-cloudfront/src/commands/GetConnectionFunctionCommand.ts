@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type GetConnectionFunctionRequest, GetConnectionFunctionResult } from "../models/models_0";
+import type { GetConnectionFunctionRequest, GetConnectionFunctionResult } from "../models/models_0";
 import { GetConnectionFunction$ } from "../schemas/schemas_0";
 
 /**

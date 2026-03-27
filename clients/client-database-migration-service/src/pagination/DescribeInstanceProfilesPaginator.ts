@@ -8,7 +8,7 @@ import {
   DescribeInstanceProfilesCommandOutput,
 } from "../commands/DescribeInstanceProfilesCommand";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
-import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
+import type { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

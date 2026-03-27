@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "../commands/ListQueuesCommand";
 import { PCSClient } from "../PCSClient";
-import { PCSPaginationConfiguration } from "./Interfaces";
+import type { PCSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

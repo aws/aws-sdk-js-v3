@@ -9,365 +9,397 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AcceptSharedDirectoryCommandInput,
+  type AcceptSharedDirectoryCommandOutput,
   AcceptSharedDirectoryCommand,
-  AcceptSharedDirectoryCommandInput,
-  AcceptSharedDirectoryCommandOutput,
 } from "./commands/AcceptSharedDirectoryCommand";
-import { AddIpRoutesCommand, AddIpRoutesCommandInput, AddIpRoutesCommandOutput } from "./commands/AddIpRoutesCommand";
-import { AddRegionCommand, AddRegionCommandInput, AddRegionCommandOutput } from "./commands/AddRegionCommand";
 import {
+  type AddIpRoutesCommandInput,
+  type AddIpRoutesCommandOutput,
+  AddIpRoutesCommand,
+} from "./commands/AddIpRoutesCommand";
+import { type AddRegionCommandInput, type AddRegionCommandOutput, AddRegionCommand } from "./commands/AddRegionCommand";
+import {
+  type AddTagsToResourceCommandInput,
+  type AddTagsToResourceCommandOutput,
   AddTagsToResourceCommand,
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand";
 import {
+  type CancelSchemaExtensionCommandInput,
+  type CancelSchemaExtensionCommandOutput,
   CancelSchemaExtensionCommand,
-  CancelSchemaExtensionCommandInput,
-  CancelSchemaExtensionCommandOutput,
 } from "./commands/CancelSchemaExtensionCommand";
 import {
+  type ConnectDirectoryCommandInput,
+  type ConnectDirectoryCommandOutput,
   ConnectDirectoryCommand,
-  ConnectDirectoryCommandInput,
-  ConnectDirectoryCommandOutput,
 } from "./commands/ConnectDirectoryCommand";
-import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
+  type CreateAliasCommandInput,
+  type CreateAliasCommandOutput,
+  CreateAliasCommand,
+} from "./commands/CreateAliasCommand";
+import {
+  type CreateComputerCommandInput,
+  type CreateComputerCommandOutput,
   CreateComputerCommand,
-  CreateComputerCommandInput,
-  CreateComputerCommandOutput,
 } from "./commands/CreateComputerCommand";
 import {
+  type CreateConditionalForwarderCommandInput,
+  type CreateConditionalForwarderCommandOutput,
   CreateConditionalForwarderCommand,
-  CreateConditionalForwarderCommandInput,
-  CreateConditionalForwarderCommandOutput,
 } from "./commands/CreateConditionalForwarderCommand";
 import {
+  type CreateDirectoryCommandInput,
+  type CreateDirectoryCommandOutput,
   CreateDirectoryCommand,
-  CreateDirectoryCommandInput,
-  CreateDirectoryCommandOutput,
 } from "./commands/CreateDirectoryCommand";
 import {
+  type CreateHybridADCommandInput,
+  type CreateHybridADCommandOutput,
   CreateHybridADCommand,
-  CreateHybridADCommandInput,
-  CreateHybridADCommandOutput,
 } from "./commands/CreateHybridADCommand";
 import {
+  type CreateLogSubscriptionCommandInput,
+  type CreateLogSubscriptionCommandOutput,
   CreateLogSubscriptionCommand,
-  CreateLogSubscriptionCommandInput,
-  CreateLogSubscriptionCommandOutput,
 } from "./commands/CreateLogSubscriptionCommand";
 import {
+  type CreateMicrosoftADCommandInput,
+  type CreateMicrosoftADCommandOutput,
   CreateMicrosoftADCommand,
-  CreateMicrosoftADCommandInput,
-  CreateMicrosoftADCommandOutput,
 } from "./commands/CreateMicrosoftADCommand";
 import {
+  type CreateSnapshotCommandInput,
+  type CreateSnapshotCommandOutput,
   CreateSnapshotCommand,
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
-import { CreateTrustCommand, CreateTrustCommandInput, CreateTrustCommandOutput } from "./commands/CreateTrustCommand";
 import {
+  type CreateTrustCommandInput,
+  type CreateTrustCommandOutput,
+  CreateTrustCommand,
+} from "./commands/CreateTrustCommand";
+import {
+  type DeleteADAssessmentCommandInput,
+  type DeleteADAssessmentCommandOutput,
   DeleteADAssessmentCommand,
-  DeleteADAssessmentCommandInput,
-  DeleteADAssessmentCommandOutput,
 } from "./commands/DeleteADAssessmentCommand";
 import {
+  type DeleteConditionalForwarderCommandInput,
+  type DeleteConditionalForwarderCommandOutput,
   DeleteConditionalForwarderCommand,
-  DeleteConditionalForwarderCommandInput,
-  DeleteConditionalForwarderCommandOutput,
 } from "./commands/DeleteConditionalForwarderCommand";
 import {
+  type DeleteDirectoryCommandInput,
+  type DeleteDirectoryCommandOutput,
   DeleteDirectoryCommand,
-  DeleteDirectoryCommandInput,
-  DeleteDirectoryCommandOutput,
 } from "./commands/DeleteDirectoryCommand";
 import {
+  type DeleteLogSubscriptionCommandInput,
+  type DeleteLogSubscriptionCommandOutput,
   DeleteLogSubscriptionCommand,
-  DeleteLogSubscriptionCommandInput,
-  DeleteLogSubscriptionCommandOutput,
 } from "./commands/DeleteLogSubscriptionCommand";
 import {
+  type DeleteSnapshotCommandInput,
+  type DeleteSnapshotCommandOutput,
   DeleteSnapshotCommand,
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput,
 } from "./commands/DeleteSnapshotCommand";
-import { DeleteTrustCommand, DeleteTrustCommandInput, DeleteTrustCommandOutput } from "./commands/DeleteTrustCommand";
 import {
+  type DeleteTrustCommandInput,
+  type DeleteTrustCommandOutput,
+  DeleteTrustCommand,
+} from "./commands/DeleteTrustCommand";
+import {
+  type DeregisterCertificateCommandInput,
+  type DeregisterCertificateCommandOutput,
   DeregisterCertificateCommand,
-  DeregisterCertificateCommandInput,
-  DeregisterCertificateCommandOutput,
 } from "./commands/DeregisterCertificateCommand";
 import {
+  type DeregisterEventTopicCommandInput,
+  type DeregisterEventTopicCommandOutput,
   DeregisterEventTopicCommand,
-  DeregisterEventTopicCommandInput,
-  DeregisterEventTopicCommandOutput,
 } from "./commands/DeregisterEventTopicCommand";
 import {
+  type DescribeADAssessmentCommandInput,
+  type DescribeADAssessmentCommandOutput,
   DescribeADAssessmentCommand,
-  DescribeADAssessmentCommandInput,
-  DescribeADAssessmentCommandOutput,
 } from "./commands/DescribeADAssessmentCommand";
 import {
+  type DescribeCAEnrollmentPolicyCommandInput,
+  type DescribeCAEnrollmentPolicyCommandOutput,
   DescribeCAEnrollmentPolicyCommand,
-  DescribeCAEnrollmentPolicyCommandInput,
-  DescribeCAEnrollmentPolicyCommandOutput,
 } from "./commands/DescribeCAEnrollmentPolicyCommand";
 import {
+  type DescribeCertificateCommandInput,
+  type DescribeCertificateCommandOutput,
   DescribeCertificateCommand,
-  DescribeCertificateCommandInput,
-  DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
 import {
+  type DescribeClientAuthenticationSettingsCommandInput,
+  type DescribeClientAuthenticationSettingsCommandOutput,
   DescribeClientAuthenticationSettingsCommand,
-  DescribeClientAuthenticationSettingsCommandInput,
-  DescribeClientAuthenticationSettingsCommandOutput,
 } from "./commands/DescribeClientAuthenticationSettingsCommand";
 import {
+  type DescribeConditionalForwardersCommandInput,
+  type DescribeConditionalForwardersCommandOutput,
   DescribeConditionalForwardersCommand,
-  DescribeConditionalForwardersCommandInput,
-  DescribeConditionalForwardersCommandOutput,
 } from "./commands/DescribeConditionalForwardersCommand";
 import {
+  type DescribeDirectoriesCommandInput,
+  type DescribeDirectoriesCommandOutput,
   DescribeDirectoriesCommand,
-  DescribeDirectoriesCommandInput,
-  DescribeDirectoriesCommandOutput,
 } from "./commands/DescribeDirectoriesCommand";
 import {
+  type DescribeDirectoryDataAccessCommandInput,
+  type DescribeDirectoryDataAccessCommandOutput,
   DescribeDirectoryDataAccessCommand,
-  DescribeDirectoryDataAccessCommandInput,
-  DescribeDirectoryDataAccessCommandOutput,
 } from "./commands/DescribeDirectoryDataAccessCommand";
 import {
+  type DescribeDomainControllersCommandInput,
+  type DescribeDomainControllersCommandOutput,
   DescribeDomainControllersCommand,
-  DescribeDomainControllersCommandInput,
-  DescribeDomainControllersCommandOutput,
 } from "./commands/DescribeDomainControllersCommand";
 import {
+  type DescribeEventTopicsCommandInput,
+  type DescribeEventTopicsCommandOutput,
   DescribeEventTopicsCommand,
-  DescribeEventTopicsCommandInput,
-  DescribeEventTopicsCommandOutput,
 } from "./commands/DescribeEventTopicsCommand";
 import {
+  type DescribeHybridADUpdateCommandInput,
+  type DescribeHybridADUpdateCommandOutput,
   DescribeHybridADUpdateCommand,
-  DescribeHybridADUpdateCommandInput,
-  DescribeHybridADUpdateCommandOutput,
 } from "./commands/DescribeHybridADUpdateCommand";
 import {
+  type DescribeLDAPSSettingsCommandInput,
+  type DescribeLDAPSSettingsCommandOutput,
   DescribeLDAPSSettingsCommand,
-  DescribeLDAPSSettingsCommandInput,
-  DescribeLDAPSSettingsCommandOutput,
 } from "./commands/DescribeLDAPSSettingsCommand";
 import {
+  type DescribeRegionsCommandInput,
+  type DescribeRegionsCommandOutput,
   DescribeRegionsCommand,
-  DescribeRegionsCommandInput,
-  DescribeRegionsCommandOutput,
 } from "./commands/DescribeRegionsCommand";
 import {
+  type DescribeSettingsCommandInput,
+  type DescribeSettingsCommandOutput,
   DescribeSettingsCommand,
-  DescribeSettingsCommandInput,
-  DescribeSettingsCommandOutput,
 } from "./commands/DescribeSettingsCommand";
 import {
+  type DescribeSharedDirectoriesCommandInput,
+  type DescribeSharedDirectoriesCommandOutput,
   DescribeSharedDirectoriesCommand,
-  DescribeSharedDirectoriesCommandInput,
-  DescribeSharedDirectoriesCommandOutput,
 } from "./commands/DescribeSharedDirectoriesCommand";
 import {
+  type DescribeSnapshotsCommandInput,
+  type DescribeSnapshotsCommandOutput,
   DescribeSnapshotsCommand,
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput,
 } from "./commands/DescribeSnapshotsCommand";
 import {
+  type DescribeTrustsCommandInput,
+  type DescribeTrustsCommandOutput,
   DescribeTrustsCommand,
-  DescribeTrustsCommandInput,
-  DescribeTrustsCommandOutput,
 } from "./commands/DescribeTrustsCommand";
 import {
+  type DescribeUpdateDirectoryCommandInput,
+  type DescribeUpdateDirectoryCommandOutput,
   DescribeUpdateDirectoryCommand,
-  DescribeUpdateDirectoryCommandInput,
-  DescribeUpdateDirectoryCommandOutput,
 } from "./commands/DescribeUpdateDirectoryCommand";
 import {
+  type DisableCAEnrollmentPolicyCommandInput,
+  type DisableCAEnrollmentPolicyCommandOutput,
   DisableCAEnrollmentPolicyCommand,
-  DisableCAEnrollmentPolicyCommandInput,
-  DisableCAEnrollmentPolicyCommandOutput,
 } from "./commands/DisableCAEnrollmentPolicyCommand";
 import {
+  type DisableClientAuthenticationCommandInput,
+  type DisableClientAuthenticationCommandOutput,
   DisableClientAuthenticationCommand,
-  DisableClientAuthenticationCommandInput,
-  DisableClientAuthenticationCommandOutput,
 } from "./commands/DisableClientAuthenticationCommand";
 import {
+  type DisableDirectoryDataAccessCommandInput,
+  type DisableDirectoryDataAccessCommandOutput,
   DisableDirectoryDataAccessCommand,
-  DisableDirectoryDataAccessCommandInput,
-  DisableDirectoryDataAccessCommandOutput,
 } from "./commands/DisableDirectoryDataAccessCommand";
 import {
+  type DisableLDAPSCommandInput,
+  type DisableLDAPSCommandOutput,
   DisableLDAPSCommand,
-  DisableLDAPSCommandInput,
-  DisableLDAPSCommandOutput,
 } from "./commands/DisableLDAPSCommand";
 import {
+  type DisableRadiusCommandInput,
+  type DisableRadiusCommandOutput,
   DisableRadiusCommand,
-  DisableRadiusCommandInput,
-  DisableRadiusCommandOutput,
 } from "./commands/DisableRadiusCommand";
-import { DisableSsoCommand, DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand";
 import {
+  type DisableSsoCommandInput,
+  type DisableSsoCommandOutput,
+  DisableSsoCommand,
+} from "./commands/DisableSsoCommand";
+import {
+  type EnableCAEnrollmentPolicyCommandInput,
+  type EnableCAEnrollmentPolicyCommandOutput,
   EnableCAEnrollmentPolicyCommand,
-  EnableCAEnrollmentPolicyCommandInput,
-  EnableCAEnrollmentPolicyCommandOutput,
 } from "./commands/EnableCAEnrollmentPolicyCommand";
 import {
+  type EnableClientAuthenticationCommandInput,
+  type EnableClientAuthenticationCommandOutput,
   EnableClientAuthenticationCommand,
-  EnableClientAuthenticationCommandInput,
-  EnableClientAuthenticationCommandOutput,
 } from "./commands/EnableClientAuthenticationCommand";
 import {
+  type EnableDirectoryDataAccessCommandInput,
+  type EnableDirectoryDataAccessCommandOutput,
   EnableDirectoryDataAccessCommand,
-  EnableDirectoryDataAccessCommandInput,
-  EnableDirectoryDataAccessCommandOutput,
 } from "./commands/EnableDirectoryDataAccessCommand";
-import { EnableLDAPSCommand, EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand";
 import {
+  type EnableLDAPSCommandInput,
+  type EnableLDAPSCommandOutput,
+  EnableLDAPSCommand,
+} from "./commands/EnableLDAPSCommand";
+import {
+  type EnableRadiusCommandInput,
+  type EnableRadiusCommandOutput,
   EnableRadiusCommand,
-  EnableRadiusCommandInput,
-  EnableRadiusCommandOutput,
 } from "./commands/EnableRadiusCommand";
-import { EnableSsoCommand, EnableSsoCommandInput, EnableSsoCommandOutput } from "./commands/EnableSsoCommand";
+import { type EnableSsoCommandInput, type EnableSsoCommandOutput, EnableSsoCommand } from "./commands/EnableSsoCommand";
 import {
+  type GetDirectoryLimitsCommandInput,
+  type GetDirectoryLimitsCommandOutput,
   GetDirectoryLimitsCommand,
-  GetDirectoryLimitsCommandInput,
-  GetDirectoryLimitsCommandOutput,
 } from "./commands/GetDirectoryLimitsCommand";
 import {
+  type GetSnapshotLimitsCommandInput,
+  type GetSnapshotLimitsCommandOutput,
   GetSnapshotLimitsCommand,
-  GetSnapshotLimitsCommandInput,
-  GetSnapshotLimitsCommandOutput,
 } from "./commands/GetSnapshotLimitsCommand";
 import {
+  type ListADAssessmentsCommandInput,
+  type ListADAssessmentsCommandOutput,
   ListADAssessmentsCommand,
-  ListADAssessmentsCommandInput,
-  ListADAssessmentsCommandOutput,
 } from "./commands/ListADAssessmentsCommand";
 import {
+  type ListCertificatesCommandInput,
+  type ListCertificatesCommandOutput,
   ListCertificatesCommand,
-  ListCertificatesCommandInput,
-  ListCertificatesCommandOutput,
 } from "./commands/ListCertificatesCommand";
 import {
+  type ListIpRoutesCommandInput,
+  type ListIpRoutesCommandOutput,
   ListIpRoutesCommand,
-  ListIpRoutesCommandInput,
-  ListIpRoutesCommandOutput,
 } from "./commands/ListIpRoutesCommand";
 import {
+  type ListLogSubscriptionsCommandInput,
+  type ListLogSubscriptionsCommandOutput,
   ListLogSubscriptionsCommand,
-  ListLogSubscriptionsCommandInput,
-  ListLogSubscriptionsCommandOutput,
 } from "./commands/ListLogSubscriptionsCommand";
 import {
+  type ListSchemaExtensionsCommandInput,
+  type ListSchemaExtensionsCommandOutput,
   ListSchemaExtensionsCommand,
-  ListSchemaExtensionsCommandInput,
-  ListSchemaExtensionsCommandOutput,
 } from "./commands/ListSchemaExtensionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RegisterCertificateCommandInput,
+  type RegisterCertificateCommandOutput,
   RegisterCertificateCommand,
-  RegisterCertificateCommandInput,
-  RegisterCertificateCommandOutput,
 } from "./commands/RegisterCertificateCommand";
 import {
+  type RegisterEventTopicCommandInput,
+  type RegisterEventTopicCommandOutput,
   RegisterEventTopicCommand,
-  RegisterEventTopicCommandInput,
-  RegisterEventTopicCommandOutput,
 } from "./commands/RegisterEventTopicCommand";
 import {
+  type RejectSharedDirectoryCommandInput,
+  type RejectSharedDirectoryCommandOutput,
   RejectSharedDirectoryCommand,
-  RejectSharedDirectoryCommandInput,
-  RejectSharedDirectoryCommandOutput,
 } from "./commands/RejectSharedDirectoryCommand";
 import {
+  type RemoveIpRoutesCommandInput,
+  type RemoveIpRoutesCommandOutput,
   RemoveIpRoutesCommand,
-  RemoveIpRoutesCommandInput,
-  RemoveIpRoutesCommandOutput,
 } from "./commands/RemoveIpRoutesCommand";
 import {
+  type RemoveRegionCommandInput,
+  type RemoveRegionCommandOutput,
   RemoveRegionCommand,
-  RemoveRegionCommandInput,
-  RemoveRegionCommandOutput,
 } from "./commands/RemoveRegionCommand";
 import {
+  type RemoveTagsFromResourceCommandInput,
+  type RemoveTagsFromResourceCommandOutput,
   RemoveTagsFromResourceCommand,
-  RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 import {
+  type ResetUserPasswordCommandInput,
+  type ResetUserPasswordCommandOutput,
   ResetUserPasswordCommand,
-  ResetUserPasswordCommandInput,
-  ResetUserPasswordCommandOutput,
 } from "./commands/ResetUserPasswordCommand";
 import {
+  type RestoreFromSnapshotCommandInput,
+  type RestoreFromSnapshotCommandOutput,
   RestoreFromSnapshotCommand,
-  RestoreFromSnapshotCommandInput,
-  RestoreFromSnapshotCommandOutput,
 } from "./commands/RestoreFromSnapshotCommand";
 import {
+  type ShareDirectoryCommandInput,
+  type ShareDirectoryCommandOutput,
   ShareDirectoryCommand,
-  ShareDirectoryCommandInput,
-  ShareDirectoryCommandOutput,
 } from "./commands/ShareDirectoryCommand";
 import {
+  type StartADAssessmentCommandInput,
+  type StartADAssessmentCommandOutput,
   StartADAssessmentCommand,
-  StartADAssessmentCommandInput,
-  StartADAssessmentCommandOutput,
 } from "./commands/StartADAssessmentCommand";
 import {
+  type StartSchemaExtensionCommandInput,
+  type StartSchemaExtensionCommandOutput,
   StartSchemaExtensionCommand,
-  StartSchemaExtensionCommandInput,
-  StartSchemaExtensionCommandOutput,
 } from "./commands/StartSchemaExtensionCommand";
 import {
+  type UnshareDirectoryCommandInput,
+  type UnshareDirectoryCommandOutput,
   UnshareDirectoryCommand,
-  UnshareDirectoryCommandInput,
-  UnshareDirectoryCommandOutput,
 } from "./commands/UnshareDirectoryCommand";
 import {
+  type UpdateConditionalForwarderCommandInput,
+  type UpdateConditionalForwarderCommandOutput,
   UpdateConditionalForwarderCommand,
-  UpdateConditionalForwarderCommandInput,
-  UpdateConditionalForwarderCommandOutput,
 } from "./commands/UpdateConditionalForwarderCommand";
 import {
+  type UpdateDirectorySetupCommandInput,
+  type UpdateDirectorySetupCommandOutput,
   UpdateDirectorySetupCommand,
-  UpdateDirectorySetupCommandInput,
-  UpdateDirectorySetupCommandOutput,
 } from "./commands/UpdateDirectorySetupCommand";
 import {
+  type UpdateHybridADCommandInput,
+  type UpdateHybridADCommandOutput,
   UpdateHybridADCommand,
-  UpdateHybridADCommandInput,
-  UpdateHybridADCommandOutput,
 } from "./commands/UpdateHybridADCommand";
 import {
+  type UpdateNumberOfDomainControllersCommandInput,
+  type UpdateNumberOfDomainControllersCommandOutput,
   UpdateNumberOfDomainControllersCommand,
-  UpdateNumberOfDomainControllersCommandInput,
-  UpdateNumberOfDomainControllersCommandOutput,
 } from "./commands/UpdateNumberOfDomainControllersCommand";
 import {
+  type UpdateRadiusCommandInput,
+  type UpdateRadiusCommandOutput,
   UpdateRadiusCommand,
-  UpdateRadiusCommandInput,
-  UpdateRadiusCommandOutput,
 } from "./commands/UpdateRadiusCommand";
 import {
+  type UpdateSettingsCommandInput,
+  type UpdateSettingsCommandOutput,
   UpdateSettingsCommand,
-  UpdateSettingsCommandInput,
-  UpdateSettingsCommandOutput,
 } from "./commands/UpdateSettingsCommand";
-import { UpdateTrustCommand, UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand";
-import { VerifyTrustCommand, VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand";
+import {
+  type UpdateTrustCommandInput,
+  type UpdateTrustCommandOutput,
+  UpdateTrustCommand,
+} from "./commands/UpdateTrustCommand";
+import {
+  type VerifyTrustCommandInput,
+  type VerifyTrustCommandOutput,
+  VerifyTrustCommand,
+} from "./commands/VerifyTrustCommand";
 import { DirectoryServiceClient } from "./DirectoryServiceClient";
 import {
   paginateDescribeClientAuthenticationSettings,

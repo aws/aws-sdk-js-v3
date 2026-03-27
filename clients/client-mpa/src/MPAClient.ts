@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,56 +61,74 @@ import {
   defaultMPAHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelSessionCommandInput, CancelSessionCommandOutput } from "./commands/CancelSessionCommand";
-import { CreateApprovalTeamCommandInput, CreateApprovalTeamCommandOutput } from "./commands/CreateApprovalTeamCommand";
-import {
+import type { CancelSessionCommandInput, CancelSessionCommandOutput } from "./commands/CancelSessionCommand";
+import type {
+  CreateApprovalTeamCommandInput,
+  CreateApprovalTeamCommandOutput,
+} from "./commands/CreateApprovalTeamCommand";
+import type {
   CreateIdentitySourceCommandInput,
   CreateIdentitySourceCommandOutput,
 } from "./commands/CreateIdentitySourceCommand";
-import {
+import type {
   DeleteIdentitySourceCommandInput,
   DeleteIdentitySourceCommandOutput,
 } from "./commands/DeleteIdentitySourceCommand";
-import {
+import type {
   DeleteInactiveApprovalTeamVersionCommandInput,
   DeleteInactiveApprovalTeamVersionCommandOutput,
 } from "./commands/DeleteInactiveApprovalTeamVersionCommand";
-import { GetApprovalTeamCommandInput, GetApprovalTeamCommandOutput } from "./commands/GetApprovalTeamCommand";
-import { GetIdentitySourceCommandInput, GetIdentitySourceCommandOutput } from "./commands/GetIdentitySourceCommand";
-import { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
-import { ListApprovalTeamsCommandInput, ListApprovalTeamsCommandOutput } from "./commands/ListApprovalTeamsCommand";
-import {
+import type { GetApprovalTeamCommandInput, GetApprovalTeamCommandOutput } from "./commands/GetApprovalTeamCommand";
+import type {
+  GetIdentitySourceCommandInput,
+  GetIdentitySourceCommandOutput,
+} from "./commands/GetIdentitySourceCommand";
+import type { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import type {
+  ListApprovalTeamsCommandInput,
+  ListApprovalTeamsCommandOutput,
+} from "./commands/ListApprovalTeamsCommand";
+import type {
   ListIdentitySourcesCommandInput,
   ListIdentitySourcesCommandOutput,
 } from "./commands/ListIdentitySourcesCommand";
-import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
-import { ListPolicyVersionsCommandInput, ListPolicyVersionsCommandOutput } from "./commands/ListPolicyVersionsCommand";
-import {
+import type { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
+import type {
+  ListPolicyVersionsCommandInput,
+  ListPolicyVersionsCommandOutput,
+} from "./commands/ListPolicyVersionsCommand";
+import type {
   ListResourcePoliciesCommandInput,
   ListResourcePoliciesCommandOutput,
 } from "./commands/ListResourcePoliciesCommand";
-import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
-import {
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   StartActiveApprovalTeamDeletionCommandInput,
   StartActiveApprovalTeamDeletionCommandOutput,
 } from "./commands/StartActiveApprovalTeamDeletionCommand";
-import {
+import type {
   StartApprovalTeamBaselineCommandInput,
   StartApprovalTeamBaselineCommandOutput,
 } from "./commands/StartApprovalTeamBaselineCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApprovalTeamCommandInput, UpdateApprovalTeamCommandOutput } from "./commands/UpdateApprovalTeamCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateApprovalTeamCommandInput,
+  UpdateApprovalTeamCommandOutput,
+} from "./commands/UpdateApprovalTeamCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -288,7 +304,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

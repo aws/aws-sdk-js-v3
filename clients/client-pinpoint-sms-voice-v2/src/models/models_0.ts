@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   AccountAttributeName,
   AccountLimitName,
   AttachmentStatus,

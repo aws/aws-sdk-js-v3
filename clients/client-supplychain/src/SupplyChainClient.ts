@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,106 +61,109 @@ import {
   defaultSupplyChainHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateBillOfMaterialsImportJobCommandInput,
   CreateBillOfMaterialsImportJobCommandOutput,
 } from "./commands/CreateBillOfMaterialsImportJobCommand";
-import {
+import type {
   CreateDataIntegrationFlowCommandInput,
   CreateDataIntegrationFlowCommandOutput,
 } from "./commands/CreateDataIntegrationFlowCommand";
-import {
+import type {
   CreateDataLakeDatasetCommandInput,
   CreateDataLakeDatasetCommandOutput,
 } from "./commands/CreateDataLakeDatasetCommand";
-import {
+import type {
   CreateDataLakeNamespaceCommandInput,
   CreateDataLakeNamespaceCommandOutput,
 } from "./commands/CreateDataLakeNamespaceCommand";
-import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand";
-import {
+import type { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand";
+import type {
   DeleteDataIntegrationFlowCommandInput,
   DeleteDataIntegrationFlowCommandOutput,
 } from "./commands/DeleteDataIntegrationFlowCommand";
-import {
+import type {
   DeleteDataLakeDatasetCommandInput,
   DeleteDataLakeDatasetCommandOutput,
 } from "./commands/DeleteDataLakeDatasetCommand";
-import {
+import type {
   DeleteDataLakeNamespaceCommandInput,
   DeleteDataLakeNamespaceCommandOutput,
 } from "./commands/DeleteDataLakeNamespaceCommand";
-import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
-import {
+import type { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
+import type {
   GetBillOfMaterialsImportJobCommandInput,
   GetBillOfMaterialsImportJobCommandOutput,
 } from "./commands/GetBillOfMaterialsImportJobCommand";
-import {
+import type {
   GetDataIntegrationEventCommandInput,
   GetDataIntegrationEventCommandOutput,
 } from "./commands/GetDataIntegrationEventCommand";
-import {
+import type {
   GetDataIntegrationFlowCommandInput,
   GetDataIntegrationFlowCommandOutput,
 } from "./commands/GetDataIntegrationFlowCommand";
-import {
+import type {
   GetDataIntegrationFlowExecutionCommandInput,
   GetDataIntegrationFlowExecutionCommandOutput,
 } from "./commands/GetDataIntegrationFlowExecutionCommand";
-import { GetDataLakeDatasetCommandInput, GetDataLakeDatasetCommandOutput } from "./commands/GetDataLakeDatasetCommand";
-import {
+import type {
+  GetDataLakeDatasetCommandInput,
+  GetDataLakeDatasetCommandOutput,
+} from "./commands/GetDataLakeDatasetCommand";
+import type {
   GetDataLakeNamespaceCommandInput,
   GetDataLakeNamespaceCommandOutput,
 } from "./commands/GetDataLakeNamespaceCommand";
-import { GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
-import {
+import type { GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
+import type {
   ListDataIntegrationEventsCommandInput,
   ListDataIntegrationEventsCommandOutput,
 } from "./commands/ListDataIntegrationEventsCommand";
-import {
+import type {
   ListDataIntegrationFlowExecutionsCommandInput,
   ListDataIntegrationFlowExecutionsCommandOutput,
 } from "./commands/ListDataIntegrationFlowExecutionsCommand";
-import {
+import type {
   ListDataIntegrationFlowsCommandInput,
   ListDataIntegrationFlowsCommandOutput,
 } from "./commands/ListDataIntegrationFlowsCommand";
-import {
+import type {
   ListDataLakeDatasetsCommandInput,
   ListDataLakeDatasetsCommandOutput,
 } from "./commands/ListDataLakeDatasetsCommand";
-import {
+import type {
   ListDataLakeNamespacesCommandInput,
   ListDataLakeNamespacesCommandOutput,
 } from "./commands/ListDataLakeNamespacesCommand";
-import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
-import {
+import type { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   SendDataIntegrationEventCommandInput,
   SendDataIntegrationEventCommandOutput,
 } from "./commands/SendDataIntegrationEventCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateDataIntegrationFlowCommandInput,
   UpdateDataIntegrationFlowCommandOutput,
 } from "./commands/UpdateDataIntegrationFlowCommand";
-import {
+import type {
   UpdateDataLakeDatasetCommandInput,
   UpdateDataLakeDatasetCommandOutput,
 } from "./commands/UpdateDataLakeDatasetCommand";
-import {
+import type {
   UpdateDataLakeNamespaceCommandInput,
   UpdateDataLakeNamespaceCommandOutput,
 } from "./commands/UpdateDataLakeNamespaceCommand";
-import { UpdateInstanceCommandInput, UpdateInstanceCommandOutput } from "./commands/UpdateInstanceCommand";
+import type { UpdateInstanceCommandInput, UpdateInstanceCommandOutput } from "./commands/UpdateInstanceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -354,7 +355,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

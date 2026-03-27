@@ -8,7 +8,7 @@ import {
   ListRecoveryGroupsCommandOutput,
 } from "../commands/ListRecoveryGroupsCommand";
 import { Route53RecoveryReadinessClient } from "../Route53RecoveryReadinessClient";
-import { Route53RecoveryReadinessPaginationConfiguration } from "./Interfaces";
+import type { Route53RecoveryReadinessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

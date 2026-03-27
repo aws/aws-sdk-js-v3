@@ -8,7 +8,7 @@ import {
   ListIdentitiesCommandOutput,
 } from "../commands/ListIdentitiesCommand";
 import { SESClient } from "../SESClient";
-import { SESPaginationConfiguration } from "./Interfaces";
+import type { SESPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

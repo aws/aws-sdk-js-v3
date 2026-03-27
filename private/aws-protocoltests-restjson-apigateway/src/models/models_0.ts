@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ApiKeySourceType, EndpointType } from "./enums";
+import type { ApiKeySourceType, EndpointType } from "./enums";
 
 /**
  * @public

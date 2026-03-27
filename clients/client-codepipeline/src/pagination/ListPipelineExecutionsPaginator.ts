@@ -8,7 +8,7 @@ import {
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
 } from "../commands/ListPipelineExecutionsCommand";
-import { CodePipelinePaginationConfiguration } from "./Interfaces";
+import type { CodePipelinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

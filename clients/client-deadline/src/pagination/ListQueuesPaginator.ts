@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "../commands/ListQueuesCommand";
 import { DeadlineClient } from "../DeadlineClient";
-import { DeadlinePaginationConfiguration } from "./Interfaces";
+import type { DeadlinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

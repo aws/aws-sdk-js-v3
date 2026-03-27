@@ -8,7 +8,7 @@ import {
   ListHealthEventsCommandOutput,
 } from "../commands/ListHealthEventsCommand";
 import { InternetMonitorClient } from "../InternetMonitorClient";
-import { InternetMonitorPaginationConfiguration } from "./Interfaces";
+import type { InternetMonitorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

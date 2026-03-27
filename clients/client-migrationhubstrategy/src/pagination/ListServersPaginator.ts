@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListServersCommand, ListServersCommandInput, ListServersCommandOutput } from "../commands/ListServersCommand";
 import { MigrationHubStrategyClient } from "../MigrationHubStrategyClient";
-import { MigrationHubStrategyPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubStrategyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

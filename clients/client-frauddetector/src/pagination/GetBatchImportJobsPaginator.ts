@@ -8,7 +8,7 @@ import {
   GetBatchImportJobsCommandOutput,
 } from "../commands/GetBatchImportJobsCommand";
 import { FraudDetectorClient } from "../FraudDetectorClient";
-import { FraudDetectorPaginationConfiguration } from "./Interfaces";
+import type { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

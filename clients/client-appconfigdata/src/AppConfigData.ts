@@ -4,14 +4,14 @@ import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AppConfigDataClient } from "./AppConfigDataClient";
 import {
+  type GetLatestConfigurationCommandInput,
+  type GetLatestConfigurationCommandOutput,
   GetLatestConfigurationCommand,
-  GetLatestConfigurationCommandInput,
-  GetLatestConfigurationCommandOutput,
 } from "./commands/GetLatestConfigurationCommand";
 import {
+  type StartConfigurationSessionCommandInput,
+  type StartConfigurationSessionCommandOutput,
   StartConfigurationSessionCommand,
-  StartConfigurationSessionCommandInput,
-  StartConfigurationSessionCommandOutput,
 } from "./commands/StartConfigurationSessionCommand";
 
 const commands = {

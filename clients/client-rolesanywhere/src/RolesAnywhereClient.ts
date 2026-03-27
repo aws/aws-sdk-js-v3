@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,55 +61,70 @@ import {
   defaultRolesAnywhereHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
-import { CreateTrustAnchorCommandInput, CreateTrustAnchorCommandOutput } from "./commands/CreateTrustAnchorCommand";
-import {
+import type { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import type {
+  CreateTrustAnchorCommandInput,
+  CreateTrustAnchorCommandOutput,
+} from "./commands/CreateTrustAnchorCommand";
+import type {
   DeleteAttributeMappingCommandInput,
   DeleteAttributeMappingCommandOutput,
 } from "./commands/DeleteAttributeMappingCommand";
-import { DeleteCrlCommandInput, DeleteCrlCommandOutput } from "./commands/DeleteCrlCommand";
-import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
-import { DeleteTrustAnchorCommandInput, DeleteTrustAnchorCommandOutput } from "./commands/DeleteTrustAnchorCommand";
-import { DisableCrlCommandInput, DisableCrlCommandOutput } from "./commands/DisableCrlCommand";
-import { DisableProfileCommandInput, DisableProfileCommandOutput } from "./commands/DisableProfileCommand";
-import { DisableTrustAnchorCommandInput, DisableTrustAnchorCommandOutput } from "./commands/DisableTrustAnchorCommand";
-import { EnableCrlCommandInput, EnableCrlCommandOutput } from "./commands/EnableCrlCommand";
-import { EnableProfileCommandInput, EnableProfileCommandOutput } from "./commands/EnableProfileCommand";
-import { EnableTrustAnchorCommandInput, EnableTrustAnchorCommandOutput } from "./commands/EnableTrustAnchorCommand";
-import { GetCrlCommandInput, GetCrlCommandOutput } from "./commands/GetCrlCommand";
-import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
-import { GetSubjectCommandInput, GetSubjectCommandOutput } from "./commands/GetSubjectCommand";
-import { GetTrustAnchorCommandInput, GetTrustAnchorCommandOutput } from "./commands/GetTrustAnchorCommand";
-import { ImportCrlCommandInput, ImportCrlCommandOutput } from "./commands/ImportCrlCommand";
-import { ListCrlsCommandInput, ListCrlsCommandOutput } from "./commands/ListCrlsCommand";
-import { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
-import { ListSubjectsCommandInput, ListSubjectsCommandOutput } from "./commands/ListSubjectsCommand";
-import {
+import type { DeleteCrlCommandInput, DeleteCrlCommandOutput } from "./commands/DeleteCrlCommand";
+import type { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
+import type {
+  DeleteTrustAnchorCommandInput,
+  DeleteTrustAnchorCommandOutput,
+} from "./commands/DeleteTrustAnchorCommand";
+import type { DisableCrlCommandInput, DisableCrlCommandOutput } from "./commands/DisableCrlCommand";
+import type { DisableProfileCommandInput, DisableProfileCommandOutput } from "./commands/DisableProfileCommand";
+import type {
+  DisableTrustAnchorCommandInput,
+  DisableTrustAnchorCommandOutput,
+} from "./commands/DisableTrustAnchorCommand";
+import type { EnableCrlCommandInput, EnableCrlCommandOutput } from "./commands/EnableCrlCommand";
+import type { EnableProfileCommandInput, EnableProfileCommandOutput } from "./commands/EnableProfileCommand";
+import type {
+  EnableTrustAnchorCommandInput,
+  EnableTrustAnchorCommandOutput,
+} from "./commands/EnableTrustAnchorCommand";
+import type { GetCrlCommandInput, GetCrlCommandOutput } from "./commands/GetCrlCommand";
+import type { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
+import type { GetSubjectCommandInput, GetSubjectCommandOutput } from "./commands/GetSubjectCommand";
+import type { GetTrustAnchorCommandInput, GetTrustAnchorCommandOutput } from "./commands/GetTrustAnchorCommand";
+import type { ImportCrlCommandInput, ImportCrlCommandOutput } from "./commands/ImportCrlCommand";
+import type { ListCrlsCommandInput, ListCrlsCommandOutput } from "./commands/ListCrlsCommand";
+import type { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
+import type { ListSubjectsCommandInput, ListSubjectsCommandOutput } from "./commands/ListSubjectsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTrustAnchorsCommandInput, ListTrustAnchorsCommandOutput } from "./commands/ListTrustAnchorsCommand";
-import {
+import type { ListTrustAnchorsCommandInput, ListTrustAnchorsCommandOutput } from "./commands/ListTrustAnchorsCommand";
+import type {
   PutAttributeMappingCommandInput,
   PutAttributeMappingCommandOutput,
 } from "./commands/PutAttributeMappingCommand";
-import {
+import type {
   PutNotificationSettingsCommandInput,
   PutNotificationSettingsCommandOutput,
 } from "./commands/PutNotificationSettingsCommand";
-import {
+import type {
   ResetNotificationSettingsCommandInput,
   ResetNotificationSettingsCommandOutput,
 } from "./commands/ResetNotificationSettingsCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateCrlCommandInput, UpdateCrlCommandOutput } from "./commands/UpdateCrlCommand";
-import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
-import { UpdateTrustAnchorCommandInput, UpdateTrustAnchorCommandOutput } from "./commands/UpdateTrustAnchorCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateCrlCommandInput, UpdateCrlCommandOutput } from "./commands/UpdateCrlCommand";
+import type { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
+import type {
+  UpdateTrustAnchorCommandInput,
+  UpdateTrustAnchorCommandOutput,
+} from "./commands/UpdateTrustAnchorCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -303,7 +316,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

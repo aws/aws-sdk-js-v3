@@ -8,7 +8,7 @@ import {
   ListEntitlementsCommandOutput,
 } from "../commands/ListEntitlementsCommand";
 import { MediaConnectClient } from "../MediaConnectClient";
-import { MediaConnectPaginationConfiguration } from "./Interfaces";
+import type { MediaConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

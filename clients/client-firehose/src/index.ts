@@ -13,7 +13,7 @@
  */
 export * from "./FirehoseClient";
 export * from "./Firehose";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { FirehoseExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

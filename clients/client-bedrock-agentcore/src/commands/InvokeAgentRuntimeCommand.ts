@@ -13,7 +13,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InvokeAgentRuntimeRequest, InvokeAgentRuntimeResponse } from "../models/models_0";
+import type { InvokeAgentRuntimeRequest, InvokeAgentRuntimeResponse } from "../models/models_0";
 import { InvokeAgentRuntime$ } from "../schemas/schemas_0";
 
 /**

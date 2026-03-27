@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type GetProfileRequest, GetProfileResponse } from "../models/models_0";
+import type { GetProfileRequest, GetProfileResponse } from "../models/models_0";
 import { GetProfile$ } from "../schemas/schemas_0";
 
 /**

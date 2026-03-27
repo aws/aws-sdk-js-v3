@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
 import { KafkaClient } from "../KafkaClient";
-import { KafkaPaginationConfiguration } from "./Interfaces";
+import type { KafkaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

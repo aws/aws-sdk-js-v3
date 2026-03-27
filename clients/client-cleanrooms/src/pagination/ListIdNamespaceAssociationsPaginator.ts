@@ -8,7 +8,7 @@ import {
   ListIdNamespaceAssociationsCommandInput,
   ListIdNamespaceAssociationsCommandOutput,
 } from "../commands/ListIdNamespaceAssociationsCommand";
-import { CleanRoomsPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListOpenWorkflowExecutionsCommandOutput,
 } from "../commands/ListOpenWorkflowExecutionsCommand";
 import { SWFClient } from "../SWFClient";
-import { SWFPaginationConfiguration } from "./Interfaces";
+import type { SWFPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

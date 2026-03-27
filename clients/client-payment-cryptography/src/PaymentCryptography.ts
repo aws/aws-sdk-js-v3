@@ -3,83 +3,107 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddKeyReplicationRegionsCommandInput,
+  type AddKeyReplicationRegionsCommandOutput,
   AddKeyReplicationRegionsCommand,
-  AddKeyReplicationRegionsCommandInput,
-  AddKeyReplicationRegionsCommandOutput,
 } from "./commands/AddKeyReplicationRegionsCommand";
-import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
-import { CreateKeyCommand, CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
-import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
-import { DeleteKeyCommand, DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
 import {
+  type CreateAliasCommandInput,
+  type CreateAliasCommandOutput,
+  CreateAliasCommand,
+} from "./commands/CreateAliasCommand";
+import { type CreateKeyCommandInput, type CreateKeyCommandOutput, CreateKeyCommand } from "./commands/CreateKeyCommand";
+import {
+  type DeleteAliasCommandInput,
+  type DeleteAliasCommandOutput,
+  DeleteAliasCommand,
+} from "./commands/DeleteAliasCommand";
+import { type DeleteKeyCommandInput, type DeleteKeyCommandOutput, DeleteKeyCommand } from "./commands/DeleteKeyCommand";
+import {
+  type DisableDefaultKeyReplicationRegionsCommandInput,
+  type DisableDefaultKeyReplicationRegionsCommandOutput,
   DisableDefaultKeyReplicationRegionsCommand,
-  DisableDefaultKeyReplicationRegionsCommandInput,
-  DisableDefaultKeyReplicationRegionsCommandOutput,
 } from "./commands/DisableDefaultKeyReplicationRegionsCommand";
 import {
+  type EnableDefaultKeyReplicationRegionsCommandInput,
+  type EnableDefaultKeyReplicationRegionsCommandOutput,
   EnableDefaultKeyReplicationRegionsCommand,
-  EnableDefaultKeyReplicationRegionsCommandInput,
-  EnableDefaultKeyReplicationRegionsCommandOutput,
 } from "./commands/EnableDefaultKeyReplicationRegionsCommand";
-import { ExportKeyCommand, ExportKeyCommandInput, ExportKeyCommandOutput } from "./commands/ExportKeyCommand";
-import { GetAliasCommand, GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
+import { type ExportKeyCommandInput, type ExportKeyCommandOutput, ExportKeyCommand } from "./commands/ExportKeyCommand";
+import { type GetAliasCommandInput, type GetAliasCommandOutput, GetAliasCommand } from "./commands/GetAliasCommand";
 import {
+  type GetCertificateSigningRequestCommandInput,
+  type GetCertificateSigningRequestCommandOutput,
   GetCertificateSigningRequestCommand,
-  GetCertificateSigningRequestCommandInput,
-  GetCertificateSigningRequestCommandOutput,
 } from "./commands/GetCertificateSigningRequestCommand";
 import {
+  type GetDefaultKeyReplicationRegionsCommandInput,
+  type GetDefaultKeyReplicationRegionsCommandOutput,
   GetDefaultKeyReplicationRegionsCommand,
-  GetDefaultKeyReplicationRegionsCommandInput,
-  GetDefaultKeyReplicationRegionsCommandOutput,
 } from "./commands/GetDefaultKeyReplicationRegionsCommand";
-import { GetKeyCommand, GetKeyCommandInput, GetKeyCommandOutput } from "./commands/GetKeyCommand";
+import { type GetKeyCommandInput, type GetKeyCommandOutput, GetKeyCommand } from "./commands/GetKeyCommand";
 import {
+  type GetParametersForExportCommandInput,
+  type GetParametersForExportCommandOutput,
   GetParametersForExportCommand,
-  GetParametersForExportCommandInput,
-  GetParametersForExportCommandOutput,
 } from "./commands/GetParametersForExportCommand";
 import {
+  type GetParametersForImportCommandInput,
+  type GetParametersForImportCommandOutput,
   GetParametersForImportCommand,
-  GetParametersForImportCommandInput,
-  GetParametersForImportCommandOutput,
 } from "./commands/GetParametersForImportCommand";
 import {
+  type GetPublicKeyCertificateCommandInput,
+  type GetPublicKeyCertificateCommandOutput,
   GetPublicKeyCertificateCommand,
-  GetPublicKeyCertificateCommandInput,
-  GetPublicKeyCertificateCommandOutput,
 } from "./commands/GetPublicKeyCertificateCommand";
-import { ImportKeyCommand, ImportKeyCommandInput, ImportKeyCommandOutput } from "./commands/ImportKeyCommand";
-import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
-import { ListKeysCommand, ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
+import { type ImportKeyCommandInput, type ImportKeyCommandOutput, ImportKeyCommand } from "./commands/ImportKeyCommand";
 import {
+  type ListAliasesCommandInput,
+  type ListAliasesCommandOutput,
+  ListAliasesCommand,
+} from "./commands/ListAliasesCommand";
+import { type ListKeysCommandInput, type ListKeysCommandOutput, ListKeysCommand } from "./commands/ListKeysCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RemoveKeyReplicationRegionsCommandInput,
+  type RemoveKeyReplicationRegionsCommandOutput,
   RemoveKeyReplicationRegionsCommand,
-  RemoveKeyReplicationRegionsCommandInput,
-  RemoveKeyReplicationRegionsCommandOutput,
 } from "./commands/RemoveKeyReplicationRegionsCommand";
-import { RestoreKeyCommand, RestoreKeyCommandInput, RestoreKeyCommandOutput } from "./commands/RestoreKeyCommand";
 import {
+  type RestoreKeyCommandInput,
+  type RestoreKeyCommandOutput,
+  RestoreKeyCommand,
+} from "./commands/RestoreKeyCommand";
+import {
+  type StartKeyUsageCommandInput,
+  type StartKeyUsageCommandOutput,
   StartKeyUsageCommand,
-  StartKeyUsageCommandInput,
-  StartKeyUsageCommandOutput,
 } from "./commands/StartKeyUsageCommand";
 import {
+  type StopKeyUsageCommandInput,
+  type StopKeyUsageCommandOutput,
   StopKeyUsageCommand,
-  StopKeyUsageCommandInput,
-  StopKeyUsageCommandOutput,
 } from "./commands/StopKeyUsageCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
+import {
+  type UpdateAliasCommandInput,
+  type UpdateAliasCommandOutput,
+  UpdateAliasCommand,
+} from "./commands/UpdateAliasCommand";
 import { paginateListAliases } from "./pagination/ListAliasesPaginator";
 import { paginateListKeys } from "./pagination/ListKeysPaginator";
 import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";

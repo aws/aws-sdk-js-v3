@@ -3,45 +3,49 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type ActivateEmailContactCommandInput,
+  type ActivateEmailContactCommandOutput,
   ActivateEmailContactCommand,
-  ActivateEmailContactCommandInput,
-  ActivateEmailContactCommandOutput,
 } from "./commands/ActivateEmailContactCommand";
 import {
+  type CreateEmailContactCommandInput,
+  type CreateEmailContactCommandOutput,
   CreateEmailContactCommand,
-  CreateEmailContactCommandInput,
-  CreateEmailContactCommandOutput,
 } from "./commands/CreateEmailContactCommand";
 import {
+  type DeleteEmailContactCommandInput,
+  type DeleteEmailContactCommandOutput,
   DeleteEmailContactCommand,
-  DeleteEmailContactCommandInput,
-  DeleteEmailContactCommandOutput,
 } from "./commands/DeleteEmailContactCommand";
 import {
+  type GetEmailContactCommandInput,
+  type GetEmailContactCommandOutput,
   GetEmailContactCommand,
-  GetEmailContactCommandInput,
-  GetEmailContactCommandOutput,
 } from "./commands/GetEmailContactCommand";
 import {
+  type ListEmailContactsCommandInput,
+  type ListEmailContactsCommandOutput,
   ListEmailContactsCommand,
-  ListEmailContactsCommandInput,
-  ListEmailContactsCommandOutput,
 } from "./commands/ListEmailContactsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type SendActivationCodeCommandInput,
+  type SendActivationCodeCommandOutput,
   SendActivationCodeCommand,
-  SendActivationCodeCommandInput,
-  SendActivationCodeCommandOutput,
 } from "./commands/SendActivationCodeCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { NotificationsContactsClient } from "./NotificationsContactsClient";
 import { paginateListEmailContacts } from "./pagination/ListEmailContactsPaginator";

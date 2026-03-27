@@ -8,7 +8,7 @@ import {
   DescribeGroupsCommandOutput,
 } from "../commands/DescribeGroupsCommand";
 import { WorkDocsClient } from "../WorkDocsClient";
-import { WorkDocsPaginationConfiguration } from "./Interfaces";
+import type { WorkDocsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -7,7 +7,7 @@
  */
 export * from "./VPCLatticeClient";
 export * from "./VPCLattice";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { VPCLatticeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

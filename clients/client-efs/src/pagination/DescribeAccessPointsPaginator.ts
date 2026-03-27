@@ -8,7 +8,7 @@ import {
   DescribeAccessPointsCommandOutput,
 } from "../commands/DescribeAccessPointsCommand";
 import { EFSClient } from "../EFSClient";
-import { EFSPaginationConfiguration } from "./Interfaces";
+import type { EFSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

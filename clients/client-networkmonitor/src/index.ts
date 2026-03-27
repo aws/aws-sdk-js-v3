@@ -18,7 +18,7 @@
  */
 export * from "./NetworkMonitorClient";
 export * from "./NetworkMonitor";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { NetworkMonitorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

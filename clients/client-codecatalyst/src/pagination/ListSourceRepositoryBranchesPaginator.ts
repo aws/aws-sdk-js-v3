@@ -8,7 +8,7 @@ import {
   ListSourceRepositoryBranchesCommandInput,
   ListSourceRepositoryBranchesCommandOutput,
 } from "../commands/ListSourceRepositoryBranchesCommand";
-import { CodeCatalystPaginationConfiguration } from "./Interfaces";
+import type { CodeCatalystPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

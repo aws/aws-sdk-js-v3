@@ -8,7 +8,7 @@ import {
   SearchPromptsCommandOutput,
 } from "../commands/SearchPromptsCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

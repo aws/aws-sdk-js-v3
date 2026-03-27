@@ -8,7 +8,7 @@ import {
   ListAvailableResourceDimensionsCommandOutput,
 } from "../commands/ListAvailableResourceDimensionsCommand";
 import { PIClient } from "../PIClient";
-import { PIPaginationConfiguration } from "./Interfaces";
+import type { PIPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListMemoryExtractionJobsCommandInput,
   ListMemoryExtractionJobsCommandOutput,
 } from "../commands/ListMemoryExtractionJobsCommand";
-import { BedrockAgentCorePaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCorePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

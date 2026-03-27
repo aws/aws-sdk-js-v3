@@ -45,23 +45,21 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type Checksum as __Checksum,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type StreamHasher as __StreamHasher,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  StreamHasher as __StreamHasher,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 import { Readable } from "stream";
@@ -72,317 +70,335 @@ import {
   defaultS3ControlHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateAccessGrantsIdentityCenterCommandInput,
   AssociateAccessGrantsIdentityCenterCommandOutput,
 } from "./commands/AssociateAccessGrantsIdentityCenterCommand";
-import { CreateAccessGrantCommandInput, CreateAccessGrantCommandOutput } from "./commands/CreateAccessGrantCommand";
-import {
+import type {
+  CreateAccessGrantCommandInput,
+  CreateAccessGrantCommandOutput,
+} from "./commands/CreateAccessGrantCommand";
+import type {
   CreateAccessGrantsInstanceCommandInput,
   CreateAccessGrantsInstanceCommandOutput,
 } from "./commands/CreateAccessGrantsInstanceCommand";
-import {
+import type {
   CreateAccessGrantsLocationCommandInput,
   CreateAccessGrantsLocationCommandOutput,
 } from "./commands/CreateAccessGrantsLocationCommand";
-import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "./commands/CreateAccessPointCommand";
-import {
+import type {
+  CreateAccessPointCommandInput,
+  CreateAccessPointCommandOutput,
+} from "./commands/CreateAccessPointCommand";
+import type {
   CreateAccessPointForObjectLambdaCommandInput,
   CreateAccessPointForObjectLambdaCommandOutput,
 } from "./commands/CreateAccessPointForObjectLambdaCommand";
-import { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand";
-import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
-import {
+import type { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand";
+import type { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import type {
   CreateMultiRegionAccessPointCommandInput,
   CreateMultiRegionAccessPointCommandOutput,
 } from "./commands/CreateMultiRegionAccessPointCommand";
-import {
+import type {
   CreateStorageLensGroupCommandInput,
   CreateStorageLensGroupCommandOutput,
 } from "./commands/CreateStorageLensGroupCommand";
-import { DeleteAccessGrantCommandInput, DeleteAccessGrantCommandOutput } from "./commands/DeleteAccessGrantCommand";
-import {
+import type {
+  DeleteAccessGrantCommandInput,
+  DeleteAccessGrantCommandOutput,
+} from "./commands/DeleteAccessGrantCommand";
+import type {
   DeleteAccessGrantsInstanceCommandInput,
   DeleteAccessGrantsInstanceCommandOutput,
 } from "./commands/DeleteAccessGrantsInstanceCommand";
-import {
+import type {
   DeleteAccessGrantsInstanceResourcePolicyCommandInput,
   DeleteAccessGrantsInstanceResourcePolicyCommandOutput,
 } from "./commands/DeleteAccessGrantsInstanceResourcePolicyCommand";
-import {
+import type {
   DeleteAccessGrantsLocationCommandInput,
   DeleteAccessGrantsLocationCommandOutput,
 } from "./commands/DeleteAccessGrantsLocationCommand";
-import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand";
-import {
+import type {
+  DeleteAccessPointCommandInput,
+  DeleteAccessPointCommandOutput,
+} from "./commands/DeleteAccessPointCommand";
+import type {
   DeleteAccessPointForObjectLambdaCommandInput,
   DeleteAccessPointForObjectLambdaCommandOutput,
 } from "./commands/DeleteAccessPointForObjectLambdaCommand";
-import {
+import type {
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput,
 } from "./commands/DeleteAccessPointPolicyCommand";
-import {
+import type {
   DeleteAccessPointPolicyForObjectLambdaCommandInput,
   DeleteAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/DeleteAccessPointPolicyForObjectLambdaCommand";
-import {
+import type {
   DeleteAccessPointScopeCommandInput,
   DeleteAccessPointScopeCommandOutput,
 } from "./commands/DeleteAccessPointScopeCommand";
-import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
-import {
+import type { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
+import type {
   DeleteBucketLifecycleConfigurationCommandInput,
   DeleteBucketLifecycleConfigurationCommandOutput,
 } from "./commands/DeleteBucketLifecycleConfigurationCommand";
-import { DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput } from "./commands/DeleteBucketPolicyCommand";
-import {
+import type {
+  DeleteBucketPolicyCommandInput,
+  DeleteBucketPolicyCommandOutput,
+} from "./commands/DeleteBucketPolicyCommand";
+import type {
   DeleteBucketReplicationCommandInput,
   DeleteBucketReplicationCommandOutput,
 } from "./commands/DeleteBucketReplicationCommand";
-import {
+import type {
   DeleteBucketTaggingCommandInput,
   DeleteBucketTaggingCommandOutput,
 } from "./commands/DeleteBucketTaggingCommand";
-import { DeleteJobTaggingCommandInput, DeleteJobTaggingCommandOutput } from "./commands/DeleteJobTaggingCommand";
-import {
+import type { DeleteJobTaggingCommandInput, DeleteJobTaggingCommandOutput } from "./commands/DeleteJobTaggingCommand";
+import type {
   DeleteMultiRegionAccessPointCommandInput,
   DeleteMultiRegionAccessPointCommandOutput,
 } from "./commands/DeleteMultiRegionAccessPointCommand";
-import {
+import type {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand";
-import {
+import type {
   DeleteStorageLensConfigurationCommandInput,
   DeleteStorageLensConfigurationCommandOutput,
 } from "./commands/DeleteStorageLensConfigurationCommand";
-import {
+import type {
   DeleteStorageLensConfigurationTaggingCommandInput,
   DeleteStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/DeleteStorageLensConfigurationTaggingCommand";
-import {
+import type {
   DeleteStorageLensGroupCommandInput,
   DeleteStorageLensGroupCommandOutput,
 } from "./commands/DeleteStorageLensGroupCommand";
-import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
-import {
+import type { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
+import type {
   DescribeMultiRegionAccessPointOperationCommandInput,
   DescribeMultiRegionAccessPointOperationCommandOutput,
 } from "./commands/DescribeMultiRegionAccessPointOperationCommand";
-import {
+import type {
   DissociateAccessGrantsIdentityCenterCommandInput,
   DissociateAccessGrantsIdentityCenterCommandOutput,
 } from "./commands/DissociateAccessGrantsIdentityCenterCommand";
-import { GetAccessGrantCommandInput, GetAccessGrantCommandOutput } from "./commands/GetAccessGrantCommand";
-import {
+import type { GetAccessGrantCommandInput, GetAccessGrantCommandOutput } from "./commands/GetAccessGrantCommand";
+import type {
   GetAccessGrantsInstanceCommandInput,
   GetAccessGrantsInstanceCommandOutput,
 } from "./commands/GetAccessGrantsInstanceCommand";
-import {
+import type {
   GetAccessGrantsInstanceForPrefixCommandInput,
   GetAccessGrantsInstanceForPrefixCommandOutput,
 } from "./commands/GetAccessGrantsInstanceForPrefixCommand";
-import {
+import type {
   GetAccessGrantsInstanceResourcePolicyCommandInput,
   GetAccessGrantsInstanceResourcePolicyCommandOutput,
 } from "./commands/GetAccessGrantsInstanceResourcePolicyCommand";
-import {
+import type {
   GetAccessGrantsLocationCommandInput,
   GetAccessGrantsLocationCommandOutput,
 } from "./commands/GetAccessGrantsLocationCommand";
-import { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "./commands/GetAccessPointCommand";
-import {
+import type { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "./commands/GetAccessPointCommand";
+import type {
   GetAccessPointConfigurationForObjectLambdaCommandInput,
   GetAccessPointConfigurationForObjectLambdaCommandOutput,
 } from "./commands/GetAccessPointConfigurationForObjectLambdaCommand";
-import {
+import type {
   GetAccessPointForObjectLambdaCommandInput,
   GetAccessPointForObjectLambdaCommandOutput,
 } from "./commands/GetAccessPointForObjectLambdaCommand";
-import {
+import type {
   GetAccessPointPolicyCommandInput,
   GetAccessPointPolicyCommandOutput,
 } from "./commands/GetAccessPointPolicyCommand";
-import {
+import type {
   GetAccessPointPolicyForObjectLambdaCommandInput,
   GetAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/GetAccessPointPolicyForObjectLambdaCommand";
-import {
+import type {
   GetAccessPointPolicyStatusCommandInput,
   GetAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusCommand";
-import {
+import type {
   GetAccessPointPolicyStatusForObjectLambdaCommandInput,
   GetAccessPointPolicyStatusForObjectLambdaCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusForObjectLambdaCommand";
-import {
+import type {
   GetAccessPointScopeCommandInput,
   GetAccessPointScopeCommandOutput,
 } from "./commands/GetAccessPointScopeCommand";
-import { GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand";
-import {
+import type { GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand";
+import type {
   GetBucketLifecycleConfigurationCommandInput,
   GetBucketLifecycleConfigurationCommandOutput,
 } from "./commands/GetBucketLifecycleConfigurationCommand";
-import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand";
-import {
+import type { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand";
+import type {
   GetBucketReplicationCommandInput,
   GetBucketReplicationCommandOutput,
 } from "./commands/GetBucketReplicationCommand";
-import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand";
-import {
+import type { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand";
+import type {
   GetBucketVersioningCommandInput,
   GetBucketVersioningCommandOutput,
 } from "./commands/GetBucketVersioningCommand";
-import { GetDataAccessCommandInput, GetDataAccessCommandOutput } from "./commands/GetDataAccessCommand";
-import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "./commands/GetJobTaggingCommand";
-import {
+import type { GetDataAccessCommandInput, GetDataAccessCommandOutput } from "./commands/GetDataAccessCommand";
+import type { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "./commands/GetJobTaggingCommand";
+import type {
   GetMultiRegionAccessPointCommandInput,
   GetMultiRegionAccessPointCommandOutput,
 } from "./commands/GetMultiRegionAccessPointCommand";
-import {
+import type {
   GetMultiRegionAccessPointPolicyCommandInput,
   GetMultiRegionAccessPointPolicyCommandOutput,
 } from "./commands/GetMultiRegionAccessPointPolicyCommand";
-import {
+import type {
   GetMultiRegionAccessPointPolicyStatusCommandInput,
   GetMultiRegionAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetMultiRegionAccessPointPolicyStatusCommand";
-import {
+import type {
   GetMultiRegionAccessPointRoutesCommandInput,
   GetMultiRegionAccessPointRoutesCommandOutput,
 } from "./commands/GetMultiRegionAccessPointRoutesCommand";
-import {
+import type {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
 } from "./commands/GetPublicAccessBlockCommand";
-import {
+import type {
   GetStorageLensConfigurationCommandInput,
   GetStorageLensConfigurationCommandOutput,
 } from "./commands/GetStorageLensConfigurationCommand";
-import {
+import type {
   GetStorageLensConfigurationTaggingCommandInput,
   GetStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/GetStorageLensConfigurationTaggingCommand";
-import {
+import type {
   GetStorageLensGroupCommandInput,
   GetStorageLensGroupCommandOutput,
 } from "./commands/GetStorageLensGroupCommand";
-import { ListAccessGrantsCommandInput, ListAccessGrantsCommandOutput } from "./commands/ListAccessGrantsCommand";
-import {
+import type { ListAccessGrantsCommandInput, ListAccessGrantsCommandOutput } from "./commands/ListAccessGrantsCommand";
+import type {
   ListAccessGrantsInstancesCommandInput,
   ListAccessGrantsInstancesCommandOutput,
 } from "./commands/ListAccessGrantsInstancesCommand";
-import {
+import type {
   ListAccessGrantsLocationsCommandInput,
   ListAccessGrantsLocationsCommandOutput,
 } from "./commands/ListAccessGrantsLocationsCommand";
-import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand";
-import {
+import type { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand";
+import type {
   ListAccessPointsForDirectoryBucketsCommandInput,
   ListAccessPointsForDirectoryBucketsCommandOutput,
 } from "./commands/ListAccessPointsForDirectoryBucketsCommand";
-import {
+import type {
   ListAccessPointsForObjectLambdaCommandInput,
   ListAccessPointsForObjectLambdaCommandOutput,
 } from "./commands/ListAccessPointsForObjectLambdaCommand";
-import {
+import type {
   ListCallerAccessGrantsCommandInput,
   ListCallerAccessGrantsCommandOutput,
 } from "./commands/ListCallerAccessGrantsCommand";
-import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
-import {
+import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import type {
   ListMultiRegionAccessPointsCommandInput,
   ListMultiRegionAccessPointsCommandOutput,
 } from "./commands/ListMultiRegionAccessPointsCommand";
-import {
+import type {
   ListRegionalBucketsCommandInput,
   ListRegionalBucketsCommandOutput,
 } from "./commands/ListRegionalBucketsCommand";
-import {
+import type {
   ListStorageLensConfigurationsCommandInput,
   ListStorageLensConfigurationsCommandOutput,
 } from "./commands/ListStorageLensConfigurationsCommand";
-import {
+import type {
   ListStorageLensGroupsCommandInput,
   ListStorageLensGroupsCommandOutput,
 } from "./commands/ListStorageLensGroupsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutAccessGrantsInstanceResourcePolicyCommandInput,
   PutAccessGrantsInstanceResourcePolicyCommandOutput,
 } from "./commands/PutAccessGrantsInstanceResourcePolicyCommand";
-import {
+import type {
   PutAccessPointConfigurationForObjectLambdaCommandInput,
   PutAccessPointConfigurationForObjectLambdaCommandOutput,
 } from "./commands/PutAccessPointConfigurationForObjectLambdaCommand";
-import {
+import type {
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput,
 } from "./commands/PutAccessPointPolicyCommand";
-import {
+import type {
   PutAccessPointPolicyForObjectLambdaCommandInput,
   PutAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/PutAccessPointPolicyForObjectLambdaCommand";
-import {
+import type {
   PutAccessPointScopeCommandInput,
   PutAccessPointScopeCommandOutput,
 } from "./commands/PutAccessPointScopeCommand";
-import {
+import type {
   PutBucketLifecycleConfigurationCommandInput,
   PutBucketLifecycleConfigurationCommandOutput,
 } from "./commands/PutBucketLifecycleConfigurationCommand";
-import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand";
-import {
+import type { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand";
+import type {
   PutBucketReplicationCommandInput,
   PutBucketReplicationCommandOutput,
 } from "./commands/PutBucketReplicationCommand";
-import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand";
-import {
+import type { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand";
+import type {
   PutBucketVersioningCommandInput,
   PutBucketVersioningCommandOutput,
 } from "./commands/PutBucketVersioningCommand";
-import { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "./commands/PutJobTaggingCommand";
-import {
+import type { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "./commands/PutJobTaggingCommand";
+import type {
   PutMultiRegionAccessPointPolicyCommandInput,
   PutMultiRegionAccessPointPolicyCommandOutput,
 } from "./commands/PutMultiRegionAccessPointPolicyCommand";
-import {
+import type {
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput,
 } from "./commands/PutPublicAccessBlockCommand";
-import {
+import type {
   PutStorageLensConfigurationCommandInput,
   PutStorageLensConfigurationCommandOutput,
 } from "./commands/PutStorageLensConfigurationCommand";
-import {
+import type {
   PutStorageLensConfigurationTaggingCommandInput,
   PutStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/PutStorageLensConfigurationTaggingCommand";
-import {
+import type {
   SubmitMultiRegionAccessPointRoutesCommandInput,
   SubmitMultiRegionAccessPointRoutesCommandOutput,
 } from "./commands/SubmitMultiRegionAccessPointRoutesCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAccessGrantsLocationCommandInput,
   UpdateAccessGrantsLocationCommandOutput,
 } from "./commands/UpdateAccessGrantsLocationCommand";
-import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "./commands/UpdateJobPriorityCommand";
-import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "./commands/UpdateJobStatusCommand";
-import {
+import type {
+  UpdateJobPriorityCommandInput,
+  UpdateJobPriorityCommandOutput,
+} from "./commands/UpdateJobPriorityCommand";
+import type { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "./commands/UpdateJobStatusCommand";
+import type {
   UpdateStorageLensGroupCommandInput,
   UpdateStorageLensGroupCommandOutput,
 } from "./commands/UpdateStorageLensGroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -708,7 +724,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
@@ -720,7 +736,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   /**
    * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to undefined.
    */
-  useArnRegion?: boolean | undefined | Provider<boolean | undefined>;
+  useArnRegion?: boolean | undefined | __Provider<boolean | undefined>;
   /**
    * Value for how many times a request will be made at most in case of retry.
    */

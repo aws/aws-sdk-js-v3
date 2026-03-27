@@ -39,22 +39,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type SdkStreamMixinInjector as __SdkStreamMixinInjector,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -64,46 +62,49 @@ import {
   defaultMedicalImagingHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CopyImageSetCommandInput, CopyImageSetCommandOutput } from "./commands/CopyImageSetCommand";
-import { CreateDatastoreCommandInput, CreateDatastoreCommandOutput } from "./commands/CreateDatastoreCommand";
-import { DeleteDatastoreCommandInput, DeleteDatastoreCommandOutput } from "./commands/DeleteDatastoreCommand";
-import { DeleteImageSetCommandInput, DeleteImageSetCommandOutput } from "./commands/DeleteImageSetCommand";
-import { GetDatastoreCommandInput, GetDatastoreCommandOutput } from "./commands/GetDatastoreCommand";
-import { GetDICOMImportJobCommandInput, GetDICOMImportJobCommandOutput } from "./commands/GetDICOMImportJobCommand";
-import { GetImageFrameCommandInput, GetImageFrameCommandOutput } from "./commands/GetImageFrameCommand";
-import { GetImageSetCommandInput, GetImageSetCommandOutput } from "./commands/GetImageSetCommand";
-import {
+import type { CopyImageSetCommandInput, CopyImageSetCommandOutput } from "./commands/CopyImageSetCommand";
+import type { CreateDatastoreCommandInput, CreateDatastoreCommandOutput } from "./commands/CreateDatastoreCommand";
+import type { DeleteDatastoreCommandInput, DeleteDatastoreCommandOutput } from "./commands/DeleteDatastoreCommand";
+import type { DeleteImageSetCommandInput, DeleteImageSetCommandOutput } from "./commands/DeleteImageSetCommand";
+import type { GetDatastoreCommandInput, GetDatastoreCommandOutput } from "./commands/GetDatastoreCommand";
+import type {
+  GetDICOMImportJobCommandInput,
+  GetDICOMImportJobCommandOutput,
+} from "./commands/GetDICOMImportJobCommand";
+import type { GetImageFrameCommandInput, GetImageFrameCommandOutput } from "./commands/GetImageFrameCommand";
+import type { GetImageSetCommandInput, GetImageSetCommandOutput } from "./commands/GetImageSetCommand";
+import type {
   GetImageSetMetadataCommandInput,
   GetImageSetMetadataCommandOutput,
 } from "./commands/GetImageSetMetadataCommand";
-import { ListDatastoresCommandInput, ListDatastoresCommandOutput } from "./commands/ListDatastoresCommand";
-import {
+import type { ListDatastoresCommandInput, ListDatastoresCommandOutput } from "./commands/ListDatastoresCommand";
+import type {
   ListDICOMImportJobsCommandInput,
   ListDICOMImportJobsCommandOutput,
 } from "./commands/ListDICOMImportJobsCommand";
-import {
+import type {
   ListImageSetVersionsCommandInput,
   ListImageSetVersionsCommandOutput,
 } from "./commands/ListImageSetVersionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { SearchImageSetsCommandInput, SearchImageSetsCommandOutput } from "./commands/SearchImageSetsCommand";
-import {
+import type { SearchImageSetsCommandInput, SearchImageSetsCommandOutput } from "./commands/SearchImageSetsCommand";
+import type {
   StartDICOMImportJobCommandInput,
   StartDICOMImportJobCommandOutput,
 } from "./commands/StartDICOMImportJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateImageSetMetadataCommandInput,
   UpdateImageSetMetadataCommandOutput,
 } from "./commands/UpdateImageSetMetadataCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -271,7 +272,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

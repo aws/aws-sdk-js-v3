@@ -8,7 +8,7 @@ import {
   ListTelemetryRulesCommandOutput,
 } from "../commands/ListTelemetryRulesCommand";
 import { ObservabilityAdminClient } from "../ObservabilityAdminClient";
-import { ObservabilityAdminPaginationConfiguration } from "./Interfaces";
+import type { ObservabilityAdminPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

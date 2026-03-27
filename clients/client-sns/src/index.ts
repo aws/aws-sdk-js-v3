@@ -19,7 +19,7 @@
  */
 export * from "./SNSClient";
 export * from "./SNS";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SNSExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

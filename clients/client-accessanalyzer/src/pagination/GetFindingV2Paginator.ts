@@ -8,7 +8,7 @@ import {
   GetFindingV2CommandInput,
   GetFindingV2CommandOutput,
 } from "../commands/GetFindingV2Command";
-import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
+import type { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

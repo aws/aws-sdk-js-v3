@@ -3,238 +3,290 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CloudTrailClient } from "./CloudTrailClient";
-import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
-import { CancelQueryCommand, CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
+import { type AddTagsCommandInput, type AddTagsCommandOutput, AddTagsCommand } from "./commands/AddTagsCommand";
 import {
+  type CancelQueryCommandInput,
+  type CancelQueryCommandOutput,
+  CancelQueryCommand,
+} from "./commands/CancelQueryCommand";
+import {
+  type CreateChannelCommandInput,
+  type CreateChannelCommandOutput,
   CreateChannelCommand,
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  type CreateDashboardCommandInput,
+  type CreateDashboardCommandOutput,
   CreateDashboardCommand,
-  CreateDashboardCommandInput,
-  CreateDashboardCommandOutput,
 } from "./commands/CreateDashboardCommand";
 import {
+  type CreateEventDataStoreCommandInput,
+  type CreateEventDataStoreCommandOutput,
   CreateEventDataStoreCommand,
-  CreateEventDataStoreCommandInput,
-  CreateEventDataStoreCommandOutput,
 } from "./commands/CreateEventDataStoreCommand";
-import { CreateTrailCommand, CreateTrailCommandInput, CreateTrailCommandOutput } from "./commands/CreateTrailCommand";
 import {
+  type CreateTrailCommandInput,
+  type CreateTrailCommandOutput,
+  CreateTrailCommand,
+} from "./commands/CreateTrailCommand";
+import {
+  type DeleteChannelCommandInput,
+  type DeleteChannelCommandOutput,
   DeleteChannelCommand,
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
 import {
+  type DeleteDashboardCommandInput,
+  type DeleteDashboardCommandOutput,
   DeleteDashboardCommand,
-  DeleteDashboardCommandInput,
-  DeleteDashboardCommandOutput,
 } from "./commands/DeleteDashboardCommand";
 import {
+  type DeleteEventDataStoreCommandInput,
+  type DeleteEventDataStoreCommandOutput,
   DeleteEventDataStoreCommand,
-  DeleteEventDataStoreCommandInput,
-  DeleteEventDataStoreCommandOutput,
 } from "./commands/DeleteEventDataStoreCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteTrailCommand, DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
 import {
+  type DeleteTrailCommandInput,
+  type DeleteTrailCommandOutput,
+  DeleteTrailCommand,
+} from "./commands/DeleteTrailCommand";
+import {
+  type DeregisterOrganizationDelegatedAdminCommandInput,
+  type DeregisterOrganizationDelegatedAdminCommandOutput,
   DeregisterOrganizationDelegatedAdminCommand,
-  DeregisterOrganizationDelegatedAdminCommandInput,
-  DeregisterOrganizationDelegatedAdminCommandOutput,
 } from "./commands/DeregisterOrganizationDelegatedAdminCommand";
 import {
+  type DescribeQueryCommandInput,
+  type DescribeQueryCommandOutput,
   DescribeQueryCommand,
-  DescribeQueryCommandInput,
-  DescribeQueryCommandOutput,
 } from "./commands/DescribeQueryCommand";
 import {
+  type DescribeTrailsCommandInput,
+  type DescribeTrailsCommandOutput,
   DescribeTrailsCommand,
-  DescribeTrailsCommandInput,
-  DescribeTrailsCommandOutput,
 } from "./commands/DescribeTrailsCommand";
 import {
+  type DisableFederationCommandInput,
+  type DisableFederationCommandOutput,
   DisableFederationCommand,
-  DisableFederationCommandInput,
-  DisableFederationCommandOutput,
 } from "./commands/DisableFederationCommand";
 import {
+  type EnableFederationCommandInput,
+  type EnableFederationCommandOutput,
   EnableFederationCommand,
-  EnableFederationCommandInput,
-  EnableFederationCommandOutput,
 } from "./commands/EnableFederationCommand";
 import {
+  type GenerateQueryCommandInput,
+  type GenerateQueryCommandOutput,
   GenerateQueryCommand,
-  GenerateQueryCommandInput,
-  GenerateQueryCommandOutput,
 } from "./commands/GenerateQueryCommand";
-import { GetChannelCommand, GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import {
+  type GetChannelCommandInput,
+  type GetChannelCommandOutput,
+  GetChannelCommand,
+} from "./commands/GetChannelCommand";
+import {
+  type GetDashboardCommandInput,
+  type GetDashboardCommandOutput,
   GetDashboardCommand,
-  GetDashboardCommandInput,
-  GetDashboardCommandOutput,
 } from "./commands/GetDashboardCommand";
 import {
+  type GetEventConfigurationCommandInput,
+  type GetEventConfigurationCommandOutput,
   GetEventConfigurationCommand,
-  GetEventConfigurationCommandInput,
-  GetEventConfigurationCommandOutput,
 } from "./commands/GetEventConfigurationCommand";
 import {
+  type GetEventDataStoreCommandInput,
+  type GetEventDataStoreCommandOutput,
   GetEventDataStoreCommand,
-  GetEventDataStoreCommandInput,
-  GetEventDataStoreCommandOutput,
 } from "./commands/GetEventDataStoreCommand";
 import {
+  type GetEventSelectorsCommandInput,
+  type GetEventSelectorsCommandOutput,
   GetEventSelectorsCommand,
-  GetEventSelectorsCommandInput,
-  GetEventSelectorsCommandOutput,
 } from "./commands/GetEventSelectorsCommand";
-import { GetImportCommand, GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
+import { type GetImportCommandInput, type GetImportCommandOutput, GetImportCommand } from "./commands/GetImportCommand";
 import {
+  type GetInsightSelectorsCommandInput,
+  type GetInsightSelectorsCommandOutput,
   GetInsightSelectorsCommand,
-  GetInsightSelectorsCommandInput,
-  GetInsightSelectorsCommandOutput,
 } from "./commands/GetInsightSelectorsCommand";
 import {
+  type GetQueryResultsCommandInput,
+  type GetQueryResultsCommandOutput,
   GetQueryResultsCommand,
-  GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
-import { GetTrailCommand, GetTrailCommandInput, GetTrailCommandOutput } from "./commands/GetTrailCommand";
+import { type GetTrailCommandInput, type GetTrailCommandOutput, GetTrailCommand } from "./commands/GetTrailCommand";
 import {
+  type GetTrailStatusCommandInput,
+  type GetTrailStatusCommandOutput,
   GetTrailStatusCommand,
-  GetTrailStatusCommandInput,
-  GetTrailStatusCommandOutput,
 } from "./commands/GetTrailStatusCommand";
 import {
+  type ListChannelsCommandInput,
+  type ListChannelsCommandOutput,
   ListChannelsCommand,
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
 import {
+  type ListDashboardsCommandInput,
+  type ListDashboardsCommandOutput,
   ListDashboardsCommand,
-  ListDashboardsCommandInput,
-  ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
 import {
+  type ListEventDataStoresCommandInput,
+  type ListEventDataStoresCommandOutput,
   ListEventDataStoresCommand,
-  ListEventDataStoresCommandInput,
-  ListEventDataStoresCommandOutput,
 } from "./commands/ListEventDataStoresCommand";
 import {
+  type ListImportFailuresCommandInput,
+  type ListImportFailuresCommandOutput,
   ListImportFailuresCommand,
-  ListImportFailuresCommandInput,
-  ListImportFailuresCommandOutput,
 } from "./commands/ListImportFailuresCommand";
-import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
+  type ListImportsCommandInput,
+  type ListImportsCommandOutput,
+  ListImportsCommand,
+} from "./commands/ListImportsCommand";
+import {
+  type ListInsightsDataCommandInput,
+  type ListInsightsDataCommandOutput,
   ListInsightsDataCommand,
-  ListInsightsDataCommandInput,
-  ListInsightsDataCommandOutput,
 } from "./commands/ListInsightsDataCommand";
 import {
+  type ListInsightsMetricDataCommandInput,
+  type ListInsightsMetricDataCommandOutput,
   ListInsightsMetricDataCommand,
-  ListInsightsMetricDataCommandInput,
-  ListInsightsMetricDataCommandOutput,
 } from "./commands/ListInsightsMetricDataCommand";
 import {
+  type ListPublicKeysCommandInput,
+  type ListPublicKeysCommandOutput,
   ListPublicKeysCommand,
-  ListPublicKeysCommandInput,
-  ListPublicKeysCommandOutput,
 } from "./commands/ListPublicKeysCommand";
-import { ListQueriesCommand, ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
-import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import { ListTrailsCommand, ListTrailsCommandInput, ListTrailsCommandOutput } from "./commands/ListTrailsCommand";
 import {
+  type ListQueriesCommandInput,
+  type ListQueriesCommandOutput,
+  ListQueriesCommand,
+} from "./commands/ListQueriesCommand";
+import { type ListTagsCommandInput, type ListTagsCommandOutput, ListTagsCommand } from "./commands/ListTagsCommand";
+import {
+  type ListTrailsCommandInput,
+  type ListTrailsCommandOutput,
+  ListTrailsCommand,
+} from "./commands/ListTrailsCommand";
+import {
+  type LookupEventsCommandInput,
+  type LookupEventsCommandOutput,
   LookupEventsCommand,
-  LookupEventsCommandInput,
-  LookupEventsCommandOutput,
 } from "./commands/LookupEventsCommand";
 import {
+  type PutEventConfigurationCommandInput,
+  type PutEventConfigurationCommandOutput,
   PutEventConfigurationCommand,
-  PutEventConfigurationCommandInput,
-  PutEventConfigurationCommandOutput,
 } from "./commands/PutEventConfigurationCommand";
 import {
+  type PutEventSelectorsCommandInput,
+  type PutEventSelectorsCommandOutput,
   PutEventSelectorsCommand,
-  PutEventSelectorsCommandInput,
-  PutEventSelectorsCommandOutput,
 } from "./commands/PutEventSelectorsCommand";
 import {
+  type PutInsightSelectorsCommandInput,
+  type PutInsightSelectorsCommandOutput,
   PutInsightSelectorsCommand,
-  PutInsightSelectorsCommandInput,
-  PutInsightSelectorsCommandOutput,
 } from "./commands/PutInsightSelectorsCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RegisterOrganizationDelegatedAdminCommandInput,
+  type RegisterOrganizationDelegatedAdminCommandOutput,
   RegisterOrganizationDelegatedAdminCommand,
-  RegisterOrganizationDelegatedAdminCommandInput,
-  RegisterOrganizationDelegatedAdminCommandOutput,
 } from "./commands/RegisterOrganizationDelegatedAdminCommand";
-import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
+  type RemoveTagsCommandInput,
+  type RemoveTagsCommandOutput,
+  RemoveTagsCommand,
+} from "./commands/RemoveTagsCommand";
+import {
+  type RestoreEventDataStoreCommandInput,
+  type RestoreEventDataStoreCommandOutput,
   RestoreEventDataStoreCommand,
-  RestoreEventDataStoreCommandInput,
-  RestoreEventDataStoreCommandOutput,
 } from "./commands/RestoreEventDataStoreCommand";
 import {
+  type SearchSampleQueriesCommandInput,
+  type SearchSampleQueriesCommandOutput,
   SearchSampleQueriesCommand,
-  SearchSampleQueriesCommandInput,
-  SearchSampleQueriesCommandOutput,
 } from "./commands/SearchSampleQueriesCommand";
 import {
+  type StartDashboardRefreshCommandInput,
+  type StartDashboardRefreshCommandOutput,
   StartDashboardRefreshCommand,
-  StartDashboardRefreshCommandInput,
-  StartDashboardRefreshCommandOutput,
 } from "./commands/StartDashboardRefreshCommand";
 import {
+  type StartEventDataStoreIngestionCommandInput,
+  type StartEventDataStoreIngestionCommandOutput,
   StartEventDataStoreIngestionCommand,
-  StartEventDataStoreIngestionCommandInput,
-  StartEventDataStoreIngestionCommandOutput,
 } from "./commands/StartEventDataStoreIngestionCommand";
-import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import {
+  type StartImportCommandInput,
+  type StartImportCommandOutput,
+  StartImportCommand,
+} from "./commands/StartImportCommand";
+import {
+  type StartLoggingCommandInput,
+  type StartLoggingCommandOutput,
   StartLoggingCommand,
-  StartLoggingCommandInput,
-  StartLoggingCommandOutput,
 } from "./commands/StartLoggingCommand";
-import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
 import {
+  type StartQueryCommandInput,
+  type StartQueryCommandOutput,
+  StartQueryCommand,
+} from "./commands/StartQueryCommand";
+import {
+  type StopEventDataStoreIngestionCommandInput,
+  type StopEventDataStoreIngestionCommandOutput,
   StopEventDataStoreIngestionCommand,
-  StopEventDataStoreIngestionCommandInput,
-  StopEventDataStoreIngestionCommandOutput,
 } from "./commands/StopEventDataStoreIngestionCommand";
-import { StopImportCommand, StopImportCommandInput, StopImportCommandOutput } from "./commands/StopImportCommand";
-import { StopLoggingCommand, StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
 import {
+  type StopImportCommandInput,
+  type StopImportCommandOutput,
+  StopImportCommand,
+} from "./commands/StopImportCommand";
+import {
+  type StopLoggingCommandInput,
+  type StopLoggingCommandOutput,
+  StopLoggingCommand,
+} from "./commands/StopLoggingCommand";
+import {
+  type UpdateChannelCommandInput,
+  type UpdateChannelCommandOutput,
   UpdateChannelCommand,
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import {
+  type UpdateDashboardCommandInput,
+  type UpdateDashboardCommandOutput,
   UpdateDashboardCommand,
-  UpdateDashboardCommandInput,
-  UpdateDashboardCommandOutput,
 } from "./commands/UpdateDashboardCommand";
 import {
+  type UpdateEventDataStoreCommandInput,
+  type UpdateEventDataStoreCommandOutput,
   UpdateEventDataStoreCommand,
-  UpdateEventDataStoreCommandInput,
-  UpdateEventDataStoreCommandOutput,
 } from "./commands/UpdateEventDataStoreCommand";
-import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand";
+import {
+  type UpdateTrailCommandInput,
+  type UpdateTrailCommandOutput,
+  UpdateTrailCommand,
+} from "./commands/UpdateTrailCommand";
 import { paginateGetQueryResults } from "./pagination/GetQueryResultsPaginator";
 import { paginateListChannels } from "./pagination/ListChannelsPaginator";
 import { paginateListEventDataStores } from "./pagination/ListEventDataStoresPaginator";

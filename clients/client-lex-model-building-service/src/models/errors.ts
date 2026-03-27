@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ReferenceType } from "./enums";
+import type { ReferenceType } from "./enums";
 import { LexModelBuildingServiceServiceException as __BaseException } from "./LexModelBuildingServiceServiceException";
 import type { ResourceReference } from "./models_0";
 

@@ -8,7 +8,7 @@ import {
   SearchAllRelatedItemsCommandOutput,
 } from "../commands/SearchAllRelatedItemsCommand";
 import { ConnectCasesClient } from "../ConnectCasesClient";
-import { ConnectCasesPaginationConfiguration } from "./Interfaces";
+import type { ConnectCasesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

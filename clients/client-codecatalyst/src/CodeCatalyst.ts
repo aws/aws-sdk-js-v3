@@ -4,170 +4,190 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CodeCatalystClient } from "./CodeCatalystClient";
 import {
+  type CreateAccessTokenCommandInput,
+  type CreateAccessTokenCommandOutput,
   CreateAccessTokenCommand,
-  CreateAccessTokenCommandInput,
-  CreateAccessTokenCommandOutput,
 } from "./commands/CreateAccessTokenCommand";
 import {
+  type CreateDevEnvironmentCommandInput,
+  type CreateDevEnvironmentCommandOutput,
   CreateDevEnvironmentCommand,
-  CreateDevEnvironmentCommandInput,
-  CreateDevEnvironmentCommandOutput,
 } from "./commands/CreateDevEnvironmentCommand";
 import {
+  type CreateProjectCommandInput,
+  type CreateProjectCommandOutput,
   CreateProjectCommand,
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput,
 } from "./commands/CreateProjectCommand";
 import {
+  type CreateSourceRepositoryBranchCommandInput,
+  type CreateSourceRepositoryBranchCommandOutput,
   CreateSourceRepositoryBranchCommand,
-  CreateSourceRepositoryBranchCommandInput,
-  CreateSourceRepositoryBranchCommandOutput,
 } from "./commands/CreateSourceRepositoryBranchCommand";
 import {
+  type CreateSourceRepositoryCommandInput,
+  type CreateSourceRepositoryCommandOutput,
   CreateSourceRepositoryCommand,
-  CreateSourceRepositoryCommandInput,
-  CreateSourceRepositoryCommandOutput,
 } from "./commands/CreateSourceRepositoryCommand";
 import {
+  type DeleteAccessTokenCommandInput,
+  type DeleteAccessTokenCommandOutput,
   DeleteAccessTokenCommand,
-  DeleteAccessTokenCommandInput,
-  DeleteAccessTokenCommandOutput,
 } from "./commands/DeleteAccessTokenCommand";
 import {
+  type DeleteDevEnvironmentCommandInput,
+  type DeleteDevEnvironmentCommandOutput,
   DeleteDevEnvironmentCommand,
-  DeleteDevEnvironmentCommandInput,
-  DeleteDevEnvironmentCommandOutput,
 } from "./commands/DeleteDevEnvironmentCommand";
 import {
+  type DeleteProjectCommandInput,
+  type DeleteProjectCommandOutput,
   DeleteProjectCommand,
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand";
 import {
+  type DeleteSourceRepositoryCommandInput,
+  type DeleteSourceRepositoryCommandOutput,
   DeleteSourceRepositoryCommand,
-  DeleteSourceRepositoryCommandInput,
-  DeleteSourceRepositoryCommandOutput,
 } from "./commands/DeleteSourceRepositoryCommand";
-import { DeleteSpaceCommand, DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
 import {
+  type DeleteSpaceCommandInput,
+  type DeleteSpaceCommandOutput,
+  DeleteSpaceCommand,
+} from "./commands/DeleteSpaceCommand";
+import {
+  type GetDevEnvironmentCommandInput,
+  type GetDevEnvironmentCommandOutput,
   GetDevEnvironmentCommand,
-  GetDevEnvironmentCommandInput,
-  GetDevEnvironmentCommandOutput,
 } from "./commands/GetDevEnvironmentCommand";
-import { GetProjectCommand, GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
 import {
+  type GetProjectCommandInput,
+  type GetProjectCommandOutput,
+  GetProjectCommand,
+} from "./commands/GetProjectCommand";
+import {
+  type GetSourceRepositoryCloneUrlsCommandInput,
+  type GetSourceRepositoryCloneUrlsCommandOutput,
   GetSourceRepositoryCloneUrlsCommand,
-  GetSourceRepositoryCloneUrlsCommandInput,
-  GetSourceRepositoryCloneUrlsCommandOutput,
 } from "./commands/GetSourceRepositoryCloneUrlsCommand";
 import {
+  type GetSourceRepositoryCommandInput,
+  type GetSourceRepositoryCommandOutput,
   GetSourceRepositoryCommand,
-  GetSourceRepositoryCommandInput,
-  GetSourceRepositoryCommandOutput,
 } from "./commands/GetSourceRepositoryCommand";
-import { GetSpaceCommand, GetSpaceCommandInput, GetSpaceCommandOutput } from "./commands/GetSpaceCommand";
+import { type GetSpaceCommandInput, type GetSpaceCommandOutput, GetSpaceCommand } from "./commands/GetSpaceCommand";
 import {
+  type GetSubscriptionCommandInput,
+  type GetSubscriptionCommandOutput,
   GetSubscriptionCommand,
-  GetSubscriptionCommandInput,
-  GetSubscriptionCommandOutput,
 } from "./commands/GetSubscriptionCommand";
 import {
+  type GetUserDetailsCommandInput,
+  type GetUserDetailsCommandOutput,
   GetUserDetailsCommand,
-  GetUserDetailsCommandInput,
-  GetUserDetailsCommandOutput,
 } from "./commands/GetUserDetailsCommand";
-import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
+  type GetWorkflowCommandInput,
+  type GetWorkflowCommandOutput,
+  GetWorkflowCommand,
+} from "./commands/GetWorkflowCommand";
+import {
+  type GetWorkflowRunCommandInput,
+  type GetWorkflowRunCommandOutput,
   GetWorkflowRunCommand,
-  GetWorkflowRunCommandInput,
-  GetWorkflowRunCommandOutput,
 } from "./commands/GetWorkflowRunCommand";
 import {
+  type ListAccessTokensCommandInput,
+  type ListAccessTokensCommandOutput,
   ListAccessTokensCommand,
-  ListAccessTokensCommandInput,
-  ListAccessTokensCommandOutput,
 } from "./commands/ListAccessTokensCommand";
 import {
+  type ListDevEnvironmentsCommandInput,
+  type ListDevEnvironmentsCommandOutput,
   ListDevEnvironmentsCommand,
-  ListDevEnvironmentsCommandInput,
-  ListDevEnvironmentsCommandOutput,
 } from "./commands/ListDevEnvironmentsCommand";
 import {
+  type ListDevEnvironmentSessionsCommandInput,
+  type ListDevEnvironmentSessionsCommandOutput,
   ListDevEnvironmentSessionsCommand,
-  ListDevEnvironmentSessionsCommandInput,
-  ListDevEnvironmentSessionsCommandOutput,
 } from "./commands/ListDevEnvironmentSessionsCommand";
 import {
+  type ListEventLogsCommandInput,
+  type ListEventLogsCommandOutput,
   ListEventLogsCommand,
-  ListEventLogsCommandInput,
-  ListEventLogsCommandOutput,
 } from "./commands/ListEventLogsCommand";
 import {
+  type ListProjectsCommandInput,
+  type ListProjectsCommandOutput,
   ListProjectsCommand,
-  ListProjectsCommandInput,
-  ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
 import {
+  type ListSourceRepositoriesCommandInput,
+  type ListSourceRepositoriesCommandOutput,
   ListSourceRepositoriesCommand,
-  ListSourceRepositoriesCommandInput,
-  ListSourceRepositoriesCommandOutput,
 } from "./commands/ListSourceRepositoriesCommand";
 import {
+  type ListSourceRepositoryBranchesCommandInput,
+  type ListSourceRepositoryBranchesCommandOutput,
   ListSourceRepositoryBranchesCommand,
-  ListSourceRepositoryBranchesCommandInput,
-  ListSourceRepositoryBranchesCommandOutput,
 } from "./commands/ListSourceRepositoryBranchesCommand";
-import { ListSpacesCommand, ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
 import {
+  type ListSpacesCommandInput,
+  type ListSpacesCommandOutput,
+  ListSpacesCommand,
+} from "./commands/ListSpacesCommand";
+import {
+  type ListWorkflowRunsCommandInput,
+  type ListWorkflowRunsCommandOutput,
   ListWorkflowRunsCommand,
-  ListWorkflowRunsCommandInput,
-  ListWorkflowRunsCommandOutput,
 } from "./commands/ListWorkflowRunsCommand";
 import {
+  type ListWorkflowsCommandInput,
+  type ListWorkflowsCommandOutput,
   ListWorkflowsCommand,
-  ListWorkflowsCommandInput,
-  ListWorkflowsCommandOutput,
 } from "./commands/ListWorkflowsCommand";
 import {
+  type StartDevEnvironmentCommandInput,
+  type StartDevEnvironmentCommandOutput,
   StartDevEnvironmentCommand,
-  StartDevEnvironmentCommandInput,
-  StartDevEnvironmentCommandOutput,
 } from "./commands/StartDevEnvironmentCommand";
 import {
+  type StartDevEnvironmentSessionCommandInput,
+  type StartDevEnvironmentSessionCommandOutput,
   StartDevEnvironmentSessionCommand,
-  StartDevEnvironmentSessionCommandInput,
-  StartDevEnvironmentSessionCommandOutput,
 } from "./commands/StartDevEnvironmentSessionCommand";
 import {
+  type StartWorkflowRunCommandInput,
+  type StartWorkflowRunCommandOutput,
   StartWorkflowRunCommand,
-  StartWorkflowRunCommandInput,
-  StartWorkflowRunCommandOutput,
 } from "./commands/StartWorkflowRunCommand";
 import {
+  type StopDevEnvironmentCommandInput,
+  type StopDevEnvironmentCommandOutput,
   StopDevEnvironmentCommand,
-  StopDevEnvironmentCommandInput,
-  StopDevEnvironmentCommandOutput,
 } from "./commands/StopDevEnvironmentCommand";
 import {
+  type StopDevEnvironmentSessionCommandInput,
+  type StopDevEnvironmentSessionCommandOutput,
   StopDevEnvironmentSessionCommand,
-  StopDevEnvironmentSessionCommandInput,
-  StopDevEnvironmentSessionCommandOutput,
 } from "./commands/StopDevEnvironmentSessionCommand";
 import {
+  type UpdateDevEnvironmentCommandInput,
+  type UpdateDevEnvironmentCommandOutput,
   UpdateDevEnvironmentCommand,
-  UpdateDevEnvironmentCommandInput,
-  UpdateDevEnvironmentCommandOutput,
 } from "./commands/UpdateDevEnvironmentCommand";
 import {
+  type UpdateProjectCommandInput,
+  type UpdateProjectCommandOutput,
   UpdateProjectCommand,
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
-import { UpdateSpaceCommand, UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
 import {
+  type UpdateSpaceCommandInput,
+  type UpdateSpaceCommandOutput,
+  UpdateSpaceCommand,
+} from "./commands/UpdateSpaceCommand";
+import {
+  type VerifySessionCommandInput,
+  type VerifySessionCommandOutput,
   VerifySessionCommand,
-  VerifySessionCommandInput,
-  VerifySessionCommandOutput,
 } from "./commands/VerifySessionCommand";
 import { paginateListAccessTokens } from "./pagination/ListAccessTokensPaginator";
 import { paginateListDevEnvironmentSessions } from "./pagination/ListDevEnvironmentSessionsPaginator";

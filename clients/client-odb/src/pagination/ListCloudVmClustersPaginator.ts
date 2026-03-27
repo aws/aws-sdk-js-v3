@@ -8,7 +8,7 @@ import {
   ListCloudVmClustersCommandOutput,
 } from "../commands/ListCloudVmClustersCommand";
 import { OdbClient } from "../OdbClient";
-import { OdbPaginationConfiguration } from "./Interfaces";
+import type { OdbPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

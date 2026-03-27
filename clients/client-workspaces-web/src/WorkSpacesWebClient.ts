@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,238 +61,256 @@ import {
   defaultWorkSpacesWebHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateBrowserSettingsCommandInput,
   AssociateBrowserSettingsCommandOutput,
 } from "./commands/AssociateBrowserSettingsCommand";
-import {
+import type {
   AssociateDataProtectionSettingsCommandInput,
   AssociateDataProtectionSettingsCommandOutput,
 } from "./commands/AssociateDataProtectionSettingsCommand";
-import {
+import type {
   AssociateIpAccessSettingsCommandInput,
   AssociateIpAccessSettingsCommandOutput,
 } from "./commands/AssociateIpAccessSettingsCommand";
-import {
+import type {
   AssociateNetworkSettingsCommandInput,
   AssociateNetworkSettingsCommandOutput,
 } from "./commands/AssociateNetworkSettingsCommand";
-import {
+import type {
   AssociateSessionLoggerCommandInput,
   AssociateSessionLoggerCommandOutput,
 } from "./commands/AssociateSessionLoggerCommand";
-import {
+import type {
   AssociateTrustStoreCommandInput,
   AssociateTrustStoreCommandOutput,
 } from "./commands/AssociateTrustStoreCommand";
-import {
+import type {
   AssociateUserAccessLoggingSettingsCommandInput,
   AssociateUserAccessLoggingSettingsCommandOutput,
 } from "./commands/AssociateUserAccessLoggingSettingsCommand";
-import {
+import type {
   AssociateUserSettingsCommandInput,
   AssociateUserSettingsCommandOutput,
 } from "./commands/AssociateUserSettingsCommand";
-import {
+import type {
   CreateBrowserSettingsCommandInput,
   CreateBrowserSettingsCommandOutput,
 } from "./commands/CreateBrowserSettingsCommand";
-import {
+import type {
   CreateDataProtectionSettingsCommandInput,
   CreateDataProtectionSettingsCommandOutput,
 } from "./commands/CreateDataProtectionSettingsCommand";
-import {
+import type {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand";
-import {
+import type {
   CreateIpAccessSettingsCommandInput,
   CreateIpAccessSettingsCommandOutput,
 } from "./commands/CreateIpAccessSettingsCommand";
-import {
+import type {
   CreateNetworkSettingsCommandInput,
   CreateNetworkSettingsCommandOutput,
 } from "./commands/CreateNetworkSettingsCommand";
-import { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand";
-import {
+import type { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand";
+import type {
   CreateSessionLoggerCommandInput,
   CreateSessionLoggerCommandOutput,
 } from "./commands/CreateSessionLoggerCommand";
-import { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "./commands/CreateTrustStoreCommand";
-import {
+import type { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "./commands/CreateTrustStoreCommand";
+import type {
   CreateUserAccessLoggingSettingsCommandInput,
   CreateUserAccessLoggingSettingsCommandOutput,
 } from "./commands/CreateUserAccessLoggingSettingsCommand";
-import { CreateUserSettingsCommandInput, CreateUserSettingsCommandOutput } from "./commands/CreateUserSettingsCommand";
-import {
+import type {
+  CreateUserSettingsCommandInput,
+  CreateUserSettingsCommandOutput,
+} from "./commands/CreateUserSettingsCommand";
+import type {
   DeleteBrowserSettingsCommandInput,
   DeleteBrowserSettingsCommandOutput,
 } from "./commands/DeleteBrowserSettingsCommand";
-import {
+import type {
   DeleteDataProtectionSettingsCommandInput,
   DeleteDataProtectionSettingsCommandOutput,
 } from "./commands/DeleteDataProtectionSettingsCommand";
-import {
+import type {
   DeleteIdentityProviderCommandInput,
   DeleteIdentityProviderCommandOutput,
 } from "./commands/DeleteIdentityProviderCommand";
-import {
+import type {
   DeleteIpAccessSettingsCommandInput,
   DeleteIpAccessSettingsCommandOutput,
 } from "./commands/DeleteIpAccessSettingsCommand";
-import {
+import type {
   DeleteNetworkSettingsCommandInput,
   DeleteNetworkSettingsCommandOutput,
 } from "./commands/DeleteNetworkSettingsCommand";
-import { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
-import {
+import type { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
+import type {
   DeleteSessionLoggerCommandInput,
   DeleteSessionLoggerCommandOutput,
 } from "./commands/DeleteSessionLoggerCommand";
-import { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "./commands/DeleteTrustStoreCommand";
-import {
+import type { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "./commands/DeleteTrustStoreCommand";
+import type {
   DeleteUserAccessLoggingSettingsCommandInput,
   DeleteUserAccessLoggingSettingsCommandOutput,
 } from "./commands/DeleteUserAccessLoggingSettingsCommand";
-import { DeleteUserSettingsCommandInput, DeleteUserSettingsCommandOutput } from "./commands/DeleteUserSettingsCommand";
-import {
+import type {
+  DeleteUserSettingsCommandInput,
+  DeleteUserSettingsCommandOutput,
+} from "./commands/DeleteUserSettingsCommand";
+import type {
   DisassociateBrowserSettingsCommandInput,
   DisassociateBrowserSettingsCommandOutput,
 } from "./commands/DisassociateBrowserSettingsCommand";
-import {
+import type {
   DisassociateDataProtectionSettingsCommandInput,
   DisassociateDataProtectionSettingsCommandOutput,
 } from "./commands/DisassociateDataProtectionSettingsCommand";
-import {
+import type {
   DisassociateIpAccessSettingsCommandInput,
   DisassociateIpAccessSettingsCommandOutput,
 } from "./commands/DisassociateIpAccessSettingsCommand";
-import {
+import type {
   DisassociateNetworkSettingsCommandInput,
   DisassociateNetworkSettingsCommandOutput,
 } from "./commands/DisassociateNetworkSettingsCommand";
-import {
+import type {
   DisassociateSessionLoggerCommandInput,
   DisassociateSessionLoggerCommandOutput,
 } from "./commands/DisassociateSessionLoggerCommand";
-import {
+import type {
   DisassociateTrustStoreCommandInput,
   DisassociateTrustStoreCommandOutput,
 } from "./commands/DisassociateTrustStoreCommand";
-import {
+import type {
   DisassociateUserAccessLoggingSettingsCommandInput,
   DisassociateUserAccessLoggingSettingsCommandOutput,
 } from "./commands/DisassociateUserAccessLoggingSettingsCommand";
-import {
+import type {
   DisassociateUserSettingsCommandInput,
   DisassociateUserSettingsCommandOutput,
 } from "./commands/DisassociateUserSettingsCommand";
-import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
-import { GetBrowserSettingsCommandInput, GetBrowserSettingsCommandOutput } from "./commands/GetBrowserSettingsCommand";
-import {
+import type { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
+import type {
+  GetBrowserSettingsCommandInput,
+  GetBrowserSettingsCommandOutput,
+} from "./commands/GetBrowserSettingsCommand";
+import type {
   GetDataProtectionSettingsCommandInput,
   GetDataProtectionSettingsCommandOutput,
 } from "./commands/GetDataProtectionSettingsCommand";
-import {
+import type {
   GetIdentityProviderCommandInput,
   GetIdentityProviderCommandOutput,
 } from "./commands/GetIdentityProviderCommand";
-import {
+import type {
   GetIpAccessSettingsCommandInput,
   GetIpAccessSettingsCommandOutput,
 } from "./commands/GetIpAccessSettingsCommand";
-import { GetNetworkSettingsCommandInput, GetNetworkSettingsCommandOutput } from "./commands/GetNetworkSettingsCommand";
-import { GetPortalCommandInput, GetPortalCommandOutput } from "./commands/GetPortalCommand";
-import {
+import type {
+  GetNetworkSettingsCommandInput,
+  GetNetworkSettingsCommandOutput,
+} from "./commands/GetNetworkSettingsCommand";
+import type { GetPortalCommandInput, GetPortalCommandOutput } from "./commands/GetPortalCommand";
+import type {
   GetPortalServiceProviderMetadataCommandInput,
   GetPortalServiceProviderMetadataCommandOutput,
 } from "./commands/GetPortalServiceProviderMetadataCommand";
-import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
-import { GetSessionLoggerCommandInput, GetSessionLoggerCommandOutput } from "./commands/GetSessionLoggerCommand";
-import {
+import type { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import type { GetSessionLoggerCommandInput, GetSessionLoggerCommandOutput } from "./commands/GetSessionLoggerCommand";
+import type {
   GetTrustStoreCertificateCommandInput,
   GetTrustStoreCertificateCommandOutput,
 } from "./commands/GetTrustStoreCertificateCommand";
-import { GetTrustStoreCommandInput, GetTrustStoreCommandOutput } from "./commands/GetTrustStoreCommand";
-import {
+import type { GetTrustStoreCommandInput, GetTrustStoreCommandOutput } from "./commands/GetTrustStoreCommand";
+import type {
   GetUserAccessLoggingSettingsCommandInput,
   GetUserAccessLoggingSettingsCommandOutput,
 } from "./commands/GetUserAccessLoggingSettingsCommand";
-import { GetUserSettingsCommandInput, GetUserSettingsCommandOutput } from "./commands/GetUserSettingsCommand";
-import {
+import type { GetUserSettingsCommandInput, GetUserSettingsCommandOutput } from "./commands/GetUserSettingsCommand";
+import type {
   ListBrowserSettingsCommandInput,
   ListBrowserSettingsCommandOutput,
 } from "./commands/ListBrowserSettingsCommand";
-import {
+import type {
   ListDataProtectionSettingsCommandInput,
   ListDataProtectionSettingsCommandOutput,
 } from "./commands/ListDataProtectionSettingsCommand";
-import {
+import type {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
 } from "./commands/ListIdentityProvidersCommand";
-import {
+import type {
   ListIpAccessSettingsCommandInput,
   ListIpAccessSettingsCommandOutput,
 } from "./commands/ListIpAccessSettingsCommand";
-import {
+import type {
   ListNetworkSettingsCommandInput,
   ListNetworkSettingsCommandOutput,
 } from "./commands/ListNetworkSettingsCommand";
-import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
-import { ListSessionLoggersCommandInput, ListSessionLoggersCommandOutput } from "./commands/ListSessionLoggersCommand";
-import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
-import {
+import type { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
+import type {
+  ListSessionLoggersCommandInput,
+  ListSessionLoggersCommandOutput,
+} from "./commands/ListSessionLoggersCommand";
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTrustStoreCertificatesCommandInput,
   ListTrustStoreCertificatesCommandOutput,
 } from "./commands/ListTrustStoreCertificatesCommand";
-import { ListTrustStoresCommandInput, ListTrustStoresCommandOutput } from "./commands/ListTrustStoresCommand";
-import {
+import type { ListTrustStoresCommandInput, ListTrustStoresCommandOutput } from "./commands/ListTrustStoresCommand";
+import type {
   ListUserAccessLoggingSettingsCommandInput,
   ListUserAccessLoggingSettingsCommandOutput,
 } from "./commands/ListUserAccessLoggingSettingsCommand";
-import { ListUserSettingsCommandInput, ListUserSettingsCommandOutput } from "./commands/ListUserSettingsCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { ListUserSettingsCommandInput, ListUserSettingsCommandOutput } from "./commands/ListUserSettingsCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateBrowserSettingsCommandInput,
   UpdateBrowserSettingsCommandOutput,
 } from "./commands/UpdateBrowserSettingsCommand";
-import {
+import type {
   UpdateDataProtectionSettingsCommandInput,
   UpdateDataProtectionSettingsCommandOutput,
 } from "./commands/UpdateDataProtectionSettingsCommand";
-import {
+import type {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand";
-import {
+import type {
   UpdateIpAccessSettingsCommandInput,
   UpdateIpAccessSettingsCommandOutput,
 } from "./commands/UpdateIpAccessSettingsCommand";
-import {
+import type {
   UpdateNetworkSettingsCommandInput,
   UpdateNetworkSettingsCommandOutput,
 } from "./commands/UpdateNetworkSettingsCommand";
-import { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "./commands/UpdatePortalCommand";
-import {
+import type { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "./commands/UpdatePortalCommand";
+import type {
   UpdateSessionLoggerCommandInput,
   UpdateSessionLoggerCommandOutput,
 } from "./commands/UpdateSessionLoggerCommand";
-import { UpdateTrustStoreCommandInput, UpdateTrustStoreCommandOutput } from "./commands/UpdateTrustStoreCommand";
-import {
+import type { UpdateTrustStoreCommandInput, UpdateTrustStoreCommandOutput } from "./commands/UpdateTrustStoreCommand";
+import type {
   UpdateUserAccessLoggingSettingsCommandInput,
   UpdateUserAccessLoggingSettingsCommandOutput,
 } from "./commands/UpdateUserAccessLoggingSettingsCommand";
-import { UpdateUserSettingsCommandInput, UpdateUserSettingsCommandOutput } from "./commands/UpdateUserSettingsCommand";
+import type {
+  UpdateUserSettingsCommandInput,
+  UpdateUserSettingsCommandOutput,
+} from "./commands/UpdateUserSettingsCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -576,7 +592,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

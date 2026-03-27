@@ -8,7 +8,7 @@ import {
   ListDistributionsByTrustStoreCommandInput,
   ListDistributionsByTrustStoreCommandOutput,
 } from "../commands/ListDistributionsByTrustStoreCommand";
-import { CloudFrontPaginationConfiguration } from "./Interfaces";
+import type { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

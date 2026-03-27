@@ -8,7 +8,7 @@ import {
   ListTrainingDatasetsCommandInput,
   ListTrainingDatasetsCommandOutput,
 } from "../commands/ListTrainingDatasetsCommand";
-import { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

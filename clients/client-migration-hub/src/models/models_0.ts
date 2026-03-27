@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ApplicationStatus, ResourceAttributeType, Status, UpdateType } from "./enums";
+import type { ApplicationStatus, ResourceAttributeType, Status, UpdateType } from "./enums";
 
 /**
  * <p>The state of an application discovered through Migration Hub import, the AWS Agentless

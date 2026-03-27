@@ -2,8 +2,8 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DocDBElasticServiceException as __BaseException } from "./DocDBElasticServiceException";
-import { ValidationExceptionReason } from "./enums";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>

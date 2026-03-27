@@ -8,7 +8,7 @@ import {
   ListPublishingDestinationsCommandOutput,
 } from "../commands/ListPublishingDestinationsCommand";
 import { GuardDutyClient } from "../GuardDutyClient";
-import { GuardDutyPaginationConfiguration } from "./Interfaces";
+import type { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

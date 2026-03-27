@@ -8,7 +8,7 @@ import {
   DescribeProductsCommandOutput,
 } from "../commands/DescribeProductsCommand";
 import { SecurityHubClient } from "../SecurityHubClient";
-import { SecurityHubPaginationConfiguration } from "./Interfaces";
+import type { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

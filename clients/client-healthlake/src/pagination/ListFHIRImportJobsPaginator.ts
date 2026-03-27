@@ -8,7 +8,7 @@ import {
   ListFHIRImportJobsCommandOutput,
 } from "../commands/ListFHIRImportJobsCommand";
 import { HealthLakeClient } from "../HealthLakeClient";
-import { HealthLakePaginationConfiguration } from "./Interfaces";
+import type { HealthLakePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

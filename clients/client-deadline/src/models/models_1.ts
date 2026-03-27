@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   ComparisonOperator,
   JobLifecycleStatus,
   JobTargetTaskRunStatus,
@@ -19,11 +19,11 @@ import {
   UsageStatistic,
   WorkerStatus,
 } from "./enums";
-import {
-  type HostPropertiesResponse,
-  type ParameterSpace,
+import type {
   DateTimeFilterExpression,
+  HostPropertiesResponse,
   JobParameter,
+  ParameterSpace,
   TaskParameterValue,
 } from "./models_0";
 

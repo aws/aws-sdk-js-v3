@@ -15,7 +15,7 @@
  */
 export * from "./AmplifyUIBuilderClient";
 export * from "./AmplifyUIBuilder";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { AmplifyUIBuilderExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,52 +61,55 @@ import {
   defaultAccountHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptPrimaryEmailUpdateCommandInput,
   AcceptPrimaryEmailUpdateCommandOutput,
 } from "./commands/AcceptPrimaryEmailUpdateCommand";
-import {
+import type {
   DeleteAlternateContactCommandInput,
   DeleteAlternateContactCommandOutput,
 } from "./commands/DeleteAlternateContactCommand";
-import { DisableRegionCommandInput, DisableRegionCommandOutput } from "./commands/DisableRegionCommand";
-import { EnableRegionCommandInput, EnableRegionCommandOutput } from "./commands/EnableRegionCommand";
-import {
+import type { DisableRegionCommandInput, DisableRegionCommandOutput } from "./commands/DisableRegionCommand";
+import type { EnableRegionCommandInput, EnableRegionCommandOutput } from "./commands/EnableRegionCommand";
+import type {
   GetAccountInformationCommandInput,
   GetAccountInformationCommandOutput,
 } from "./commands/GetAccountInformationCommand";
-import {
+import type {
   GetAlternateContactCommandInput,
   GetAlternateContactCommandOutput,
 } from "./commands/GetAlternateContactCommand";
-import {
+import type {
   GetContactInformationCommandInput,
   GetContactInformationCommandOutput,
 } from "./commands/GetContactInformationCommand";
-import {
+import type {
   GetGovCloudAccountInformationCommandInput,
   GetGovCloudAccountInformationCommandOutput,
 } from "./commands/GetGovCloudAccountInformationCommand";
-import { GetPrimaryEmailCommandInput, GetPrimaryEmailCommandOutput } from "./commands/GetPrimaryEmailCommand";
-import { GetRegionOptStatusCommandInput, GetRegionOptStatusCommandOutput } from "./commands/GetRegionOptStatusCommand";
-import { ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
-import { PutAccountNameCommandInput, PutAccountNameCommandOutput } from "./commands/PutAccountNameCommand";
-import {
+import type { GetPrimaryEmailCommandInput, GetPrimaryEmailCommandOutput } from "./commands/GetPrimaryEmailCommand";
+import type {
+  GetRegionOptStatusCommandInput,
+  GetRegionOptStatusCommandOutput,
+} from "./commands/GetRegionOptStatusCommand";
+import type { ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
+import type { PutAccountNameCommandInput, PutAccountNameCommandOutput } from "./commands/PutAccountNameCommand";
+import type {
   PutAlternateContactCommandInput,
   PutAlternateContactCommandOutput,
 } from "./commands/PutAlternateContactCommand";
-import {
+import type {
   PutContactInformationCommandInput,
   PutContactInformationCommandOutput,
 } from "./commands/PutContactInformationCommand";
-import {
+import type {
   StartPrimaryEmailUpdateCommandInput,
   StartPrimaryEmailUpdateCommandOutput,
 } from "./commands/StartPrimaryEmailUpdateCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -270,7 +271,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

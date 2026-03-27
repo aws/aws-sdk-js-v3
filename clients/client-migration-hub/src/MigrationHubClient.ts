@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,91 +61,94 @@ import {
   defaultMigrationHubHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateCreatedArtifactCommandInput,
   AssociateCreatedArtifactCommandOutput,
 } from "./commands/AssociateCreatedArtifactCommand";
-import {
+import type {
   AssociateDiscoveredResourceCommandInput,
   AssociateDiscoveredResourceCommandOutput,
 } from "./commands/AssociateDiscoveredResourceCommand";
-import {
+import type {
   AssociateSourceResourceCommandInput,
   AssociateSourceResourceCommandOutput,
 } from "./commands/AssociateSourceResourceCommand";
-import {
+import type {
   CreateProgressUpdateStreamCommandInput,
   CreateProgressUpdateStreamCommandOutput,
 } from "./commands/CreateProgressUpdateStreamCommand";
-import {
+import type {
   DeleteProgressUpdateStreamCommandInput,
   DeleteProgressUpdateStreamCommandOutput,
 } from "./commands/DeleteProgressUpdateStreamCommand";
-import {
+import type {
   DescribeApplicationStateCommandInput,
   DescribeApplicationStateCommandOutput,
 } from "./commands/DescribeApplicationStateCommand";
-import {
+import type {
   DescribeMigrationTaskCommandInput,
   DescribeMigrationTaskCommandOutput,
 } from "./commands/DescribeMigrationTaskCommand";
-import {
+import type {
   DisassociateCreatedArtifactCommandInput,
   DisassociateCreatedArtifactCommandOutput,
 } from "./commands/DisassociateCreatedArtifactCommand";
-import {
+import type {
   DisassociateDiscoveredResourceCommandInput,
   DisassociateDiscoveredResourceCommandOutput,
 } from "./commands/DisassociateDiscoveredResourceCommand";
-import {
+import type {
   DisassociateSourceResourceCommandInput,
   DisassociateSourceResourceCommandOutput,
 } from "./commands/DisassociateSourceResourceCommand";
-import {
+import type {
   ImportMigrationTaskCommandInput,
   ImportMigrationTaskCommandOutput,
 } from "./commands/ImportMigrationTaskCommand";
-import {
+import type {
   ListApplicationStatesCommandInput,
   ListApplicationStatesCommandOutput,
 } from "./commands/ListApplicationStatesCommand";
-import {
+import type {
   ListCreatedArtifactsCommandInput,
   ListCreatedArtifactsCommandOutput,
 } from "./commands/ListCreatedArtifactsCommand";
-import {
+import type {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
-import { ListMigrationTasksCommandInput, ListMigrationTasksCommandOutput } from "./commands/ListMigrationTasksCommand";
-import {
+import type {
+  ListMigrationTasksCommandInput,
+  ListMigrationTasksCommandOutput,
+} from "./commands/ListMigrationTasksCommand";
+import type {
   ListMigrationTaskUpdatesCommandInput,
   ListMigrationTaskUpdatesCommandOutput,
 } from "./commands/ListMigrationTaskUpdatesCommand";
-import {
+import type {
   ListProgressUpdateStreamsCommandInput,
   ListProgressUpdateStreamsCommandOutput,
 } from "./commands/ListProgressUpdateStreamsCommand";
-import {
+import type {
   ListSourceResourcesCommandInput,
   ListSourceResourcesCommandOutput,
 } from "./commands/ListSourceResourcesCommand";
-import {
+import type {
   NotifyApplicationStateCommandInput,
   NotifyApplicationStateCommandOutput,
 } from "./commands/NotifyApplicationStateCommand";
-import {
+import type {
   NotifyMigrationTaskStateCommandInput,
   NotifyMigrationTaskStateCommandOutput,
 } from "./commands/NotifyMigrationTaskStateCommand";
-import {
+import type {
   PutResourceAttributesCommandInput,
   PutResourceAttributesCommandOutput,
 } from "./commands/PutResourceAttributesCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -321,7 +322,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

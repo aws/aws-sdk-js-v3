@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CloudWatchClient } from "../CloudWatchClient";
 import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "../commands/ListMetricsCommand";
-import { CloudWatchPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListWatchlistsCommandOutput,
 } from "../commands/ListWatchlistsCommand";
 import { VoiceIDClient } from "../VoiceIDClient";
-import { VoiceIDPaginationConfiguration } from "./Interfaces";
+import type { VoiceIDPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

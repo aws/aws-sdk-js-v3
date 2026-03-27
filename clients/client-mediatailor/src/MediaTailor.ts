@@ -3,212 +3,224 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type ConfigureLogsForChannelCommandInput,
+  type ConfigureLogsForChannelCommandOutput,
   ConfigureLogsForChannelCommand,
-  ConfigureLogsForChannelCommandInput,
-  ConfigureLogsForChannelCommandOutput,
 } from "./commands/ConfigureLogsForChannelCommand";
 import {
+  type ConfigureLogsForPlaybackConfigurationCommandInput,
+  type ConfigureLogsForPlaybackConfigurationCommandOutput,
   ConfigureLogsForPlaybackConfigurationCommand,
-  ConfigureLogsForPlaybackConfigurationCommandInput,
-  ConfigureLogsForPlaybackConfigurationCommandOutput,
 } from "./commands/ConfigureLogsForPlaybackConfigurationCommand";
 import {
+  type CreateChannelCommandInput,
+  type CreateChannelCommandOutput,
   CreateChannelCommand,
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  type CreateLiveSourceCommandInput,
+  type CreateLiveSourceCommandOutput,
   CreateLiveSourceCommand,
-  CreateLiveSourceCommandInput,
-  CreateLiveSourceCommandOutput,
 } from "./commands/CreateLiveSourceCommand";
 import {
+  type CreatePrefetchScheduleCommandInput,
+  type CreatePrefetchScheduleCommandOutput,
   CreatePrefetchScheduleCommand,
-  CreatePrefetchScheduleCommandInput,
-  CreatePrefetchScheduleCommandOutput,
 } from "./commands/CreatePrefetchScheduleCommand";
 import {
+  type CreateProgramCommandInput,
+  type CreateProgramCommandOutput,
   CreateProgramCommand,
-  CreateProgramCommandInput,
-  CreateProgramCommandOutput,
 } from "./commands/CreateProgramCommand";
 import {
+  type CreateSourceLocationCommandInput,
+  type CreateSourceLocationCommandOutput,
   CreateSourceLocationCommand,
-  CreateSourceLocationCommandInput,
-  CreateSourceLocationCommandOutput,
 } from "./commands/CreateSourceLocationCommand";
 import {
+  type CreateVodSourceCommandInput,
+  type CreateVodSourceCommandOutput,
   CreateVodSourceCommand,
-  CreateVodSourceCommandInput,
-  CreateVodSourceCommandOutput,
 } from "./commands/CreateVodSourceCommand";
 import {
+  type DeleteChannelCommandInput,
+  type DeleteChannelCommandOutput,
   DeleteChannelCommand,
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
 import {
+  type DeleteChannelPolicyCommandInput,
+  type DeleteChannelPolicyCommandOutput,
   DeleteChannelPolicyCommand,
-  DeleteChannelPolicyCommandInput,
-  DeleteChannelPolicyCommandOutput,
 } from "./commands/DeleteChannelPolicyCommand";
 import {
+  type DeleteLiveSourceCommandInput,
+  type DeleteLiveSourceCommandOutput,
   DeleteLiveSourceCommand,
-  DeleteLiveSourceCommandInput,
-  DeleteLiveSourceCommandOutput,
 } from "./commands/DeleteLiveSourceCommand";
 import {
+  type DeletePlaybackConfigurationCommandInput,
+  type DeletePlaybackConfigurationCommandOutput,
   DeletePlaybackConfigurationCommand,
-  DeletePlaybackConfigurationCommandInput,
-  DeletePlaybackConfigurationCommandOutput,
 } from "./commands/DeletePlaybackConfigurationCommand";
 import {
+  type DeletePrefetchScheduleCommandInput,
+  type DeletePrefetchScheduleCommandOutput,
   DeletePrefetchScheduleCommand,
-  DeletePrefetchScheduleCommandInput,
-  DeletePrefetchScheduleCommandOutput,
 } from "./commands/DeletePrefetchScheduleCommand";
 import {
+  type DeleteProgramCommandInput,
+  type DeleteProgramCommandOutput,
   DeleteProgramCommand,
-  DeleteProgramCommandInput,
-  DeleteProgramCommandOutput,
 } from "./commands/DeleteProgramCommand";
 import {
+  type DeleteSourceLocationCommandInput,
+  type DeleteSourceLocationCommandOutput,
   DeleteSourceLocationCommand,
-  DeleteSourceLocationCommandInput,
-  DeleteSourceLocationCommandOutput,
 } from "./commands/DeleteSourceLocationCommand";
 import {
+  type DeleteVodSourceCommandInput,
+  type DeleteVodSourceCommandOutput,
   DeleteVodSourceCommand,
-  DeleteVodSourceCommandInput,
-  DeleteVodSourceCommandOutput,
 } from "./commands/DeleteVodSourceCommand";
 import {
+  type DescribeChannelCommandInput,
+  type DescribeChannelCommandOutput,
   DescribeChannelCommand,
-  DescribeChannelCommandInput,
-  DescribeChannelCommandOutput,
 } from "./commands/DescribeChannelCommand";
 import {
+  type DescribeLiveSourceCommandInput,
+  type DescribeLiveSourceCommandOutput,
   DescribeLiveSourceCommand,
-  DescribeLiveSourceCommandInput,
-  DescribeLiveSourceCommandOutput,
 } from "./commands/DescribeLiveSourceCommand";
 import {
+  type DescribeProgramCommandInput,
+  type DescribeProgramCommandOutput,
   DescribeProgramCommand,
-  DescribeProgramCommandInput,
-  DescribeProgramCommandOutput,
 } from "./commands/DescribeProgramCommand";
 import {
+  type DescribeSourceLocationCommandInput,
+  type DescribeSourceLocationCommandOutput,
   DescribeSourceLocationCommand,
-  DescribeSourceLocationCommandInput,
-  DescribeSourceLocationCommandOutput,
 } from "./commands/DescribeSourceLocationCommand";
 import {
+  type DescribeVodSourceCommandInput,
+  type DescribeVodSourceCommandOutput,
   DescribeVodSourceCommand,
-  DescribeVodSourceCommandInput,
-  DescribeVodSourceCommandOutput,
 } from "./commands/DescribeVodSourceCommand";
 import {
+  type GetChannelPolicyCommandInput,
+  type GetChannelPolicyCommandOutput,
   GetChannelPolicyCommand,
-  GetChannelPolicyCommandInput,
-  GetChannelPolicyCommandOutput,
 } from "./commands/GetChannelPolicyCommand";
 import {
+  type GetChannelScheduleCommandInput,
+  type GetChannelScheduleCommandOutput,
   GetChannelScheduleCommand,
-  GetChannelScheduleCommandInput,
-  GetChannelScheduleCommandOutput,
 } from "./commands/GetChannelScheduleCommand";
 import {
+  type GetPlaybackConfigurationCommandInput,
+  type GetPlaybackConfigurationCommandOutput,
   GetPlaybackConfigurationCommand,
-  GetPlaybackConfigurationCommandInput,
-  GetPlaybackConfigurationCommandOutput,
 } from "./commands/GetPlaybackConfigurationCommand";
 import {
+  type GetPrefetchScheduleCommandInput,
+  type GetPrefetchScheduleCommandOutput,
   GetPrefetchScheduleCommand,
-  GetPrefetchScheduleCommandInput,
-  GetPrefetchScheduleCommandOutput,
 } from "./commands/GetPrefetchScheduleCommand";
-import { ListAlertsCommand, ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
 import {
+  type ListAlertsCommandInput,
+  type ListAlertsCommandOutput,
+  ListAlertsCommand,
+} from "./commands/ListAlertsCommand";
+import {
+  type ListChannelsCommandInput,
+  type ListChannelsCommandOutput,
   ListChannelsCommand,
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
 import {
+  type ListLiveSourcesCommandInput,
+  type ListLiveSourcesCommandOutput,
   ListLiveSourcesCommand,
-  ListLiveSourcesCommandInput,
-  ListLiveSourcesCommandOutput,
 } from "./commands/ListLiveSourcesCommand";
 import {
+  type ListPlaybackConfigurationsCommandInput,
+  type ListPlaybackConfigurationsCommandOutput,
   ListPlaybackConfigurationsCommand,
-  ListPlaybackConfigurationsCommandInput,
-  ListPlaybackConfigurationsCommandOutput,
 } from "./commands/ListPlaybackConfigurationsCommand";
 import {
+  type ListPrefetchSchedulesCommandInput,
+  type ListPrefetchSchedulesCommandOutput,
   ListPrefetchSchedulesCommand,
-  ListPrefetchSchedulesCommandInput,
-  ListPrefetchSchedulesCommandOutput,
 } from "./commands/ListPrefetchSchedulesCommand";
 import {
+  type ListSourceLocationsCommandInput,
+  type ListSourceLocationsCommandOutput,
   ListSourceLocationsCommand,
-  ListSourceLocationsCommandInput,
-  ListSourceLocationsCommandOutput,
 } from "./commands/ListSourceLocationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVodSourcesCommandInput,
+  type ListVodSourcesCommandOutput,
   ListVodSourcesCommand,
-  ListVodSourcesCommandInput,
-  ListVodSourcesCommandOutput,
 } from "./commands/ListVodSourcesCommand";
 import {
+  type PutChannelPolicyCommandInput,
+  type PutChannelPolicyCommandOutput,
   PutChannelPolicyCommand,
-  PutChannelPolicyCommandInput,
-  PutChannelPolicyCommandOutput,
 } from "./commands/PutChannelPolicyCommand";
 import {
+  type PutPlaybackConfigurationCommandInput,
+  type PutPlaybackConfigurationCommandOutput,
   PutPlaybackConfigurationCommand,
-  PutPlaybackConfigurationCommandInput,
-  PutPlaybackConfigurationCommandOutput,
 } from "./commands/PutPlaybackConfigurationCommand";
 import {
+  type StartChannelCommandInput,
+  type StartChannelCommandOutput,
   StartChannelCommand,
-  StartChannelCommandInput,
-  StartChannelCommandOutput,
 } from "./commands/StartChannelCommand";
-import { StopChannelCommand, StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type StopChannelCommandInput,
+  type StopChannelCommandOutput,
+  StopChannelCommand,
+} from "./commands/StopChannelCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateChannelCommandInput,
+  type UpdateChannelCommandOutput,
   UpdateChannelCommand,
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import {
+  type UpdateLiveSourceCommandInput,
+  type UpdateLiveSourceCommandOutput,
   UpdateLiveSourceCommand,
-  UpdateLiveSourceCommandInput,
-  UpdateLiveSourceCommandOutput,
 } from "./commands/UpdateLiveSourceCommand";
 import {
+  type UpdateProgramCommandInput,
+  type UpdateProgramCommandOutput,
   UpdateProgramCommand,
-  UpdateProgramCommandInput,
-  UpdateProgramCommandOutput,
 } from "./commands/UpdateProgramCommand";
 import {
+  type UpdateSourceLocationCommandInput,
+  type UpdateSourceLocationCommandOutput,
   UpdateSourceLocationCommand,
-  UpdateSourceLocationCommandInput,
-  UpdateSourceLocationCommandOutput,
 } from "./commands/UpdateSourceLocationCommand";
 import {
+  type UpdateVodSourceCommandInput,
+  type UpdateVodSourceCommandOutput,
   UpdateVodSourceCommand,
-  UpdateVodSourceCommandInput,
-  UpdateVodSourceCommandOutput,
 } from "./commands/UpdateVodSourceCommand";
 import { MediaTailorClient } from "./MediaTailorClient";
 import { paginateGetChannelSchedule } from "./pagination/GetChannelSchedulePaginator";

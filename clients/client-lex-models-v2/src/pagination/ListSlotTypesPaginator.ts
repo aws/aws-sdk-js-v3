@@ -8,7 +8,7 @@ import {
   ListSlotTypesCommandOutput,
 } from "../commands/ListSlotTypesCommand";
 import { LexModelsV2Client } from "../LexModelsV2Client";
-import { LexModelsV2PaginationConfiguration } from "./Interfaces";
+import type { LexModelsV2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

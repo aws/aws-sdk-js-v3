@@ -8,7 +8,7 @@ import {
   ListEdgePackagingJobsCommandOutput,
 } from "../commands/ListEdgePackagingJobsCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

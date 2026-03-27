@@ -8,7 +8,7 @@ import {
   ListAccountsCommandInput,
   ListAccountsCommandOutput,
 } from "../commands/ListAccountsCommand";
-import { ChimePaginationConfiguration } from "./Interfaces";
+import type { ChimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

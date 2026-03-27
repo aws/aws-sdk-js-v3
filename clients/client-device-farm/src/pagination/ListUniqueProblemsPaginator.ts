@@ -8,7 +8,7 @@ import {
   ListUniqueProblemsCommandOutput,
 } from "../commands/ListUniqueProblemsCommand";
 import { DeviceFarmClient } from "../DeviceFarmClient";
-import { DeviceFarmPaginationConfiguration } from "./Interfaces";
+import type { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

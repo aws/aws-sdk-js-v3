@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ControlBehavior, ControlRelationType, ControlScope, ControlSeverity, MappingType } from "./enums";
+import type { ControlBehavior, ControlRelationType, ControlScope, ControlSeverity, MappingType } from "./enums";
 
 /**
  * <p>A summary of the domain that a common control or an objective belongs to.</p>

@@ -3,89 +3,113 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateBrokerCommandInput,
+  type CreateBrokerCommandOutput,
   CreateBrokerCommand,
-  CreateBrokerCommandInput,
-  CreateBrokerCommandOutput,
 } from "./commands/CreateBrokerCommand";
 import {
+  type CreateConfigurationCommandInput,
+  type CreateConfigurationCommandOutput,
   CreateConfigurationCommand,
-  CreateConfigurationCommandInput,
-  CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand";
-import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
-import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  type CreateTagsCommandInput,
+  type CreateTagsCommandOutput,
+  CreateTagsCommand,
+} from "./commands/CreateTagsCommand";
+import {
+  type CreateUserCommandInput,
+  type CreateUserCommandOutput,
+  CreateUserCommand,
+} from "./commands/CreateUserCommand";
+import {
+  type DeleteBrokerCommandInput,
+  type DeleteBrokerCommandOutput,
   DeleteBrokerCommand,
-  DeleteBrokerCommandInput,
-  DeleteBrokerCommandOutput,
 } from "./commands/DeleteBrokerCommand";
 import {
+  type DeleteConfigurationCommandInput,
+  type DeleteConfigurationCommandOutput,
   DeleteConfigurationCommand,
-  DeleteConfigurationCommandInput,
-  DeleteConfigurationCommandOutput,
 } from "./commands/DeleteConfigurationCommand";
-import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
-import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  type DeleteTagsCommandInput,
+  type DeleteTagsCommandOutput,
+  DeleteTagsCommand,
+} from "./commands/DeleteTagsCommand";
+import {
+  type DeleteUserCommandInput,
+  type DeleteUserCommandOutput,
+  DeleteUserCommand,
+} from "./commands/DeleteUserCommand";
+import {
+  type DescribeBrokerCommandInput,
+  type DescribeBrokerCommandOutput,
   DescribeBrokerCommand,
-  DescribeBrokerCommandInput,
-  DescribeBrokerCommandOutput,
 } from "./commands/DescribeBrokerCommand";
 import {
+  type DescribeBrokerEngineTypesCommandInput,
+  type DescribeBrokerEngineTypesCommandOutput,
   DescribeBrokerEngineTypesCommand,
-  DescribeBrokerEngineTypesCommandInput,
-  DescribeBrokerEngineTypesCommandOutput,
 } from "./commands/DescribeBrokerEngineTypesCommand";
 import {
+  type DescribeBrokerInstanceOptionsCommandInput,
+  type DescribeBrokerInstanceOptionsCommandOutput,
   DescribeBrokerInstanceOptionsCommand,
-  DescribeBrokerInstanceOptionsCommandInput,
-  DescribeBrokerInstanceOptionsCommandOutput,
 } from "./commands/DescribeBrokerInstanceOptionsCommand";
 import {
+  type DescribeConfigurationCommandInput,
+  type DescribeConfigurationCommandOutput,
   DescribeConfigurationCommand,
-  DescribeConfigurationCommandInput,
-  DescribeConfigurationCommandOutput,
 } from "./commands/DescribeConfigurationCommand";
 import {
+  type DescribeConfigurationRevisionCommandInput,
+  type DescribeConfigurationRevisionCommandOutput,
   DescribeConfigurationRevisionCommand,
-  DescribeConfigurationRevisionCommandInput,
-  DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand";
 import {
+  type DescribeUserCommandInput,
+  type DescribeUserCommandOutput,
   DescribeUserCommand,
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput,
 } from "./commands/DescribeUserCommand";
-import { ListBrokersCommand, ListBrokersCommandInput, ListBrokersCommandOutput } from "./commands/ListBrokersCommand";
 import {
+  type ListBrokersCommandInput,
+  type ListBrokersCommandOutput,
+  ListBrokersCommand,
+} from "./commands/ListBrokersCommand";
+import {
+  type ListConfigurationRevisionsCommandInput,
+  type ListConfigurationRevisionsCommandOutput,
   ListConfigurationRevisionsCommand,
-  ListConfigurationRevisionsCommandInput,
-  ListConfigurationRevisionsCommandOutput,
 } from "./commands/ListConfigurationRevisionsCommand";
 import {
+  type ListConfigurationsCommandInput,
+  type ListConfigurationsCommandOutput,
   ListConfigurationsCommand,
-  ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput,
 } from "./commands/ListConfigurationsCommand";
-import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import { PromoteCommand, PromoteCommandInput, PromoteCommandOutput } from "./commands/PromoteCommand";
+import { type ListTagsCommandInput, type ListTagsCommandOutput, ListTagsCommand } from "./commands/ListTagsCommand";
+import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
+import { type PromoteCommandInput, type PromoteCommandOutput, PromoteCommand } from "./commands/PromoteCommand";
 import {
+  type RebootBrokerCommandInput,
+  type RebootBrokerCommandOutput,
   RebootBrokerCommand,
-  RebootBrokerCommandInput,
-  RebootBrokerCommandOutput,
 } from "./commands/RebootBrokerCommand";
 import {
+  type UpdateBrokerCommandInput,
+  type UpdateBrokerCommandOutput,
   UpdateBrokerCommand,
-  UpdateBrokerCommandInput,
-  UpdateBrokerCommandOutput,
 } from "./commands/UpdateBrokerCommand";
 import {
+  type UpdateConfigurationCommandInput,
+  type UpdateConfigurationCommandOutput,
   UpdateConfigurationCommand,
-  UpdateConfigurationCommandInput,
-  UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
-import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import {
+  type UpdateUserCommandInput,
+  type UpdateUserCommandOutput,
+  UpdateUserCommand,
+} from "./commands/UpdateUserCommand";
 import { MqClient } from "./MqClient";
 import { paginateListBrokers } from "./pagination/ListBrokersPaginator";
 

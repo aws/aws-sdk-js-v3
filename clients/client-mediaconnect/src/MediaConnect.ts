@@ -9,382 +9,402 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AddBridgeOutputsCommandInput,
+  type AddBridgeOutputsCommandOutput,
   AddBridgeOutputsCommand,
-  AddBridgeOutputsCommandInput,
-  AddBridgeOutputsCommandOutput,
 } from "./commands/AddBridgeOutputsCommand";
 import {
+  type AddBridgeSourcesCommandInput,
+  type AddBridgeSourcesCommandOutput,
   AddBridgeSourcesCommand,
-  AddBridgeSourcesCommandInput,
-  AddBridgeSourcesCommandOutput,
 } from "./commands/AddBridgeSourcesCommand";
 import {
+  type AddFlowMediaStreamsCommandInput,
+  type AddFlowMediaStreamsCommandOutput,
   AddFlowMediaStreamsCommand,
-  AddFlowMediaStreamsCommandInput,
-  AddFlowMediaStreamsCommandOutput,
 } from "./commands/AddFlowMediaStreamsCommand";
 import {
+  type AddFlowOutputsCommandInput,
+  type AddFlowOutputsCommandOutput,
   AddFlowOutputsCommand,
-  AddFlowOutputsCommandInput,
-  AddFlowOutputsCommandOutput,
 } from "./commands/AddFlowOutputsCommand";
 import {
+  type AddFlowSourcesCommandInput,
+  type AddFlowSourcesCommandOutput,
   AddFlowSourcesCommand,
-  AddFlowSourcesCommandInput,
-  AddFlowSourcesCommandOutput,
 } from "./commands/AddFlowSourcesCommand";
 import {
+  type AddFlowVpcInterfacesCommandInput,
+  type AddFlowVpcInterfacesCommandOutput,
   AddFlowVpcInterfacesCommand,
-  AddFlowVpcInterfacesCommandInput,
-  AddFlowVpcInterfacesCommandOutput,
 } from "./commands/AddFlowVpcInterfacesCommand";
 import {
+  type BatchGetRouterInputCommandInput,
+  type BatchGetRouterInputCommandOutput,
   BatchGetRouterInputCommand,
-  BatchGetRouterInputCommandInput,
-  BatchGetRouterInputCommandOutput,
 } from "./commands/BatchGetRouterInputCommand";
 import {
+  type BatchGetRouterNetworkInterfaceCommandInput,
+  type BatchGetRouterNetworkInterfaceCommandOutput,
   BatchGetRouterNetworkInterfaceCommand,
-  BatchGetRouterNetworkInterfaceCommandInput,
-  BatchGetRouterNetworkInterfaceCommandOutput,
 } from "./commands/BatchGetRouterNetworkInterfaceCommand";
 import {
+  type BatchGetRouterOutputCommandInput,
+  type BatchGetRouterOutputCommandOutput,
   BatchGetRouterOutputCommand,
-  BatchGetRouterOutputCommandInput,
-  BatchGetRouterOutputCommandOutput,
 } from "./commands/BatchGetRouterOutputCommand";
 import {
+  type CreateBridgeCommandInput,
+  type CreateBridgeCommandOutput,
   CreateBridgeCommand,
-  CreateBridgeCommandInput,
-  CreateBridgeCommandOutput,
 } from "./commands/CreateBridgeCommand";
-import { CreateFlowCommand, CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
 import {
+  type CreateFlowCommandInput,
+  type CreateFlowCommandOutput,
+  CreateFlowCommand,
+} from "./commands/CreateFlowCommand";
+import {
+  type CreateGatewayCommandInput,
+  type CreateGatewayCommandOutput,
   CreateGatewayCommand,
-  CreateGatewayCommandInput,
-  CreateGatewayCommandOutput,
 } from "./commands/CreateGatewayCommand";
 import {
+  type CreateRouterInputCommandInput,
+  type CreateRouterInputCommandOutput,
   CreateRouterInputCommand,
-  CreateRouterInputCommandInput,
-  CreateRouterInputCommandOutput,
 } from "./commands/CreateRouterInputCommand";
 import {
+  type CreateRouterNetworkInterfaceCommandInput,
+  type CreateRouterNetworkInterfaceCommandOutput,
   CreateRouterNetworkInterfaceCommand,
-  CreateRouterNetworkInterfaceCommandInput,
-  CreateRouterNetworkInterfaceCommandOutput,
 } from "./commands/CreateRouterNetworkInterfaceCommand";
 import {
+  type CreateRouterOutputCommandInput,
+  type CreateRouterOutputCommandOutput,
   CreateRouterOutputCommand,
-  CreateRouterOutputCommandInput,
-  CreateRouterOutputCommandOutput,
 } from "./commands/CreateRouterOutputCommand";
 import {
+  type DeleteBridgeCommandInput,
+  type DeleteBridgeCommandOutput,
   DeleteBridgeCommand,
-  DeleteBridgeCommandInput,
-  DeleteBridgeCommandOutput,
 } from "./commands/DeleteBridgeCommand";
-import { DeleteFlowCommand, DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
 import {
+  type DeleteFlowCommandInput,
+  type DeleteFlowCommandOutput,
+  DeleteFlowCommand,
+} from "./commands/DeleteFlowCommand";
+import {
+  type DeleteGatewayCommandInput,
+  type DeleteGatewayCommandOutput,
   DeleteGatewayCommand,
-  DeleteGatewayCommandInput,
-  DeleteGatewayCommandOutput,
 } from "./commands/DeleteGatewayCommand";
 import {
+  type DeleteRouterInputCommandInput,
+  type DeleteRouterInputCommandOutput,
   DeleteRouterInputCommand,
-  DeleteRouterInputCommandInput,
-  DeleteRouterInputCommandOutput,
 } from "./commands/DeleteRouterInputCommand";
 import {
+  type DeleteRouterNetworkInterfaceCommandInput,
+  type DeleteRouterNetworkInterfaceCommandOutput,
   DeleteRouterNetworkInterfaceCommand,
-  DeleteRouterNetworkInterfaceCommandInput,
-  DeleteRouterNetworkInterfaceCommandOutput,
 } from "./commands/DeleteRouterNetworkInterfaceCommand";
 import {
+  type DeleteRouterOutputCommandInput,
+  type DeleteRouterOutputCommandOutput,
   DeleteRouterOutputCommand,
-  DeleteRouterOutputCommandInput,
-  DeleteRouterOutputCommandOutput,
 } from "./commands/DeleteRouterOutputCommand";
 import {
+  type DeregisterGatewayInstanceCommandInput,
+  type DeregisterGatewayInstanceCommandOutput,
   DeregisterGatewayInstanceCommand,
-  DeregisterGatewayInstanceCommandInput,
-  DeregisterGatewayInstanceCommandOutput,
 } from "./commands/DeregisterGatewayInstanceCommand";
 import {
+  type DescribeBridgeCommandInput,
+  type DescribeBridgeCommandOutput,
   DescribeBridgeCommand,
-  DescribeBridgeCommandInput,
-  DescribeBridgeCommandOutput,
 } from "./commands/DescribeBridgeCommand";
 import {
+  type DescribeFlowCommandInput,
+  type DescribeFlowCommandOutput,
   DescribeFlowCommand,
-  DescribeFlowCommandInput,
-  DescribeFlowCommandOutput,
 } from "./commands/DescribeFlowCommand";
 import {
+  type DescribeFlowSourceMetadataCommandInput,
+  type DescribeFlowSourceMetadataCommandOutput,
   DescribeFlowSourceMetadataCommand,
-  DescribeFlowSourceMetadataCommandInput,
-  DescribeFlowSourceMetadataCommandOutput,
 } from "./commands/DescribeFlowSourceMetadataCommand";
 import {
+  type DescribeFlowSourceThumbnailCommandInput,
+  type DescribeFlowSourceThumbnailCommandOutput,
   DescribeFlowSourceThumbnailCommand,
-  DescribeFlowSourceThumbnailCommandInput,
-  DescribeFlowSourceThumbnailCommandOutput,
 } from "./commands/DescribeFlowSourceThumbnailCommand";
 import {
+  type DescribeGatewayCommandInput,
+  type DescribeGatewayCommandOutput,
   DescribeGatewayCommand,
-  DescribeGatewayCommandInput,
-  DescribeGatewayCommandOutput,
 } from "./commands/DescribeGatewayCommand";
 import {
+  type DescribeGatewayInstanceCommandInput,
+  type DescribeGatewayInstanceCommandOutput,
   DescribeGatewayInstanceCommand,
-  DescribeGatewayInstanceCommandInput,
-  DescribeGatewayInstanceCommandOutput,
 } from "./commands/DescribeGatewayInstanceCommand";
 import {
+  type DescribeOfferingCommandInput,
+  type DescribeOfferingCommandOutput,
   DescribeOfferingCommand,
-  DescribeOfferingCommandInput,
-  DescribeOfferingCommandOutput,
 } from "./commands/DescribeOfferingCommand";
 import {
+  type DescribeReservationCommandInput,
+  type DescribeReservationCommandOutput,
   DescribeReservationCommand,
-  DescribeReservationCommandInput,
-  DescribeReservationCommandOutput,
 } from "./commands/DescribeReservationCommand";
 import {
+  type GetRouterInputCommandInput,
+  type GetRouterInputCommandOutput,
   GetRouterInputCommand,
-  GetRouterInputCommandInput,
-  GetRouterInputCommandOutput,
 } from "./commands/GetRouterInputCommand";
 import {
+  type GetRouterInputSourceMetadataCommandInput,
+  type GetRouterInputSourceMetadataCommandOutput,
   GetRouterInputSourceMetadataCommand,
-  GetRouterInputSourceMetadataCommandInput,
-  GetRouterInputSourceMetadataCommandOutput,
 } from "./commands/GetRouterInputSourceMetadataCommand";
 import {
+  type GetRouterInputThumbnailCommandInput,
+  type GetRouterInputThumbnailCommandOutput,
   GetRouterInputThumbnailCommand,
-  GetRouterInputThumbnailCommandInput,
-  GetRouterInputThumbnailCommandOutput,
 } from "./commands/GetRouterInputThumbnailCommand";
 import {
+  type GetRouterNetworkInterfaceCommandInput,
+  type GetRouterNetworkInterfaceCommandOutput,
   GetRouterNetworkInterfaceCommand,
-  GetRouterNetworkInterfaceCommandInput,
-  GetRouterNetworkInterfaceCommandOutput,
 } from "./commands/GetRouterNetworkInterfaceCommand";
 import {
+  type GetRouterOutputCommandInput,
+  type GetRouterOutputCommandOutput,
   GetRouterOutputCommand,
-  GetRouterOutputCommandInput,
-  GetRouterOutputCommandOutput,
 } from "./commands/GetRouterOutputCommand";
 import {
+  type GrantFlowEntitlementsCommandInput,
+  type GrantFlowEntitlementsCommandOutput,
   GrantFlowEntitlementsCommand,
-  GrantFlowEntitlementsCommandInput,
-  GrantFlowEntitlementsCommandOutput,
 } from "./commands/GrantFlowEntitlementsCommand";
-import { ListBridgesCommand, ListBridgesCommandInput, ListBridgesCommandOutput } from "./commands/ListBridgesCommand";
 import {
+  type ListBridgesCommandInput,
+  type ListBridgesCommandOutput,
+  ListBridgesCommand,
+} from "./commands/ListBridgesCommand";
+import {
+  type ListEntitlementsCommandInput,
+  type ListEntitlementsCommandOutput,
   ListEntitlementsCommand,
-  ListEntitlementsCommandInput,
-  ListEntitlementsCommandOutput,
 } from "./commands/ListEntitlementsCommand";
-import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
+import { type ListFlowsCommandInput, type ListFlowsCommandOutput, ListFlowsCommand } from "./commands/ListFlowsCommand";
 import {
+  type ListGatewayInstancesCommandInput,
+  type ListGatewayInstancesCommandOutput,
   ListGatewayInstancesCommand,
-  ListGatewayInstancesCommandInput,
-  ListGatewayInstancesCommandOutput,
 } from "./commands/ListGatewayInstancesCommand";
 import {
+  type ListGatewaysCommandInput,
+  type ListGatewaysCommandOutput,
   ListGatewaysCommand,
-  ListGatewaysCommandInput,
-  ListGatewaysCommandOutput,
 } from "./commands/ListGatewaysCommand";
 import {
+  type ListOfferingsCommandInput,
+  type ListOfferingsCommandOutput,
   ListOfferingsCommand,
-  ListOfferingsCommandInput,
-  ListOfferingsCommandOutput,
 } from "./commands/ListOfferingsCommand";
 import {
+  type ListReservationsCommandInput,
+  type ListReservationsCommandOutput,
   ListReservationsCommand,
-  ListReservationsCommandInput,
-  ListReservationsCommandOutput,
 } from "./commands/ListReservationsCommand";
 import {
+  type ListRouterInputsCommandInput,
+  type ListRouterInputsCommandOutput,
   ListRouterInputsCommand,
-  ListRouterInputsCommandInput,
-  ListRouterInputsCommandOutput,
 } from "./commands/ListRouterInputsCommand";
 import {
+  type ListRouterNetworkInterfacesCommandInput,
+  type ListRouterNetworkInterfacesCommandOutput,
   ListRouterNetworkInterfacesCommand,
-  ListRouterNetworkInterfacesCommandInput,
-  ListRouterNetworkInterfacesCommandOutput,
 } from "./commands/ListRouterNetworkInterfacesCommand";
 import {
+  type ListRouterOutputsCommandInput,
+  type ListRouterOutputsCommandOutput,
   ListRouterOutputsCommand,
-  ListRouterOutputsCommandInput,
-  ListRouterOutputsCommandOutput,
 } from "./commands/ListRouterOutputsCommand";
 import {
+  type ListTagsForGlobalResourceCommandInput,
+  type ListTagsForGlobalResourceCommandOutput,
   ListTagsForGlobalResourceCommand,
-  ListTagsForGlobalResourceCommandInput,
-  ListTagsForGlobalResourceCommandOutput,
 } from "./commands/ListTagsForGlobalResourceCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PurchaseOfferingCommandInput,
+  type PurchaseOfferingCommandOutput,
   PurchaseOfferingCommand,
-  PurchaseOfferingCommandInput,
-  PurchaseOfferingCommandOutput,
 } from "./commands/PurchaseOfferingCommand";
 import {
+  type RemoveBridgeOutputCommandInput,
+  type RemoveBridgeOutputCommandOutput,
   RemoveBridgeOutputCommand,
-  RemoveBridgeOutputCommandInput,
-  RemoveBridgeOutputCommandOutput,
 } from "./commands/RemoveBridgeOutputCommand";
 import {
+  type RemoveBridgeSourceCommandInput,
+  type RemoveBridgeSourceCommandOutput,
   RemoveBridgeSourceCommand,
-  RemoveBridgeSourceCommandInput,
-  RemoveBridgeSourceCommandOutput,
 } from "./commands/RemoveBridgeSourceCommand";
 import {
+  type RemoveFlowMediaStreamCommandInput,
+  type RemoveFlowMediaStreamCommandOutput,
   RemoveFlowMediaStreamCommand,
-  RemoveFlowMediaStreamCommandInput,
-  RemoveFlowMediaStreamCommandOutput,
 } from "./commands/RemoveFlowMediaStreamCommand";
 import {
+  type RemoveFlowOutputCommandInput,
+  type RemoveFlowOutputCommandOutput,
   RemoveFlowOutputCommand,
-  RemoveFlowOutputCommandInput,
-  RemoveFlowOutputCommandOutput,
 } from "./commands/RemoveFlowOutputCommand";
 import {
+  type RemoveFlowSourceCommandInput,
+  type RemoveFlowSourceCommandOutput,
   RemoveFlowSourceCommand,
-  RemoveFlowSourceCommandInput,
-  RemoveFlowSourceCommandOutput,
 } from "./commands/RemoveFlowSourceCommand";
 import {
+  type RemoveFlowVpcInterfaceCommandInput,
+  type RemoveFlowVpcInterfaceCommandOutput,
   RemoveFlowVpcInterfaceCommand,
-  RemoveFlowVpcInterfaceCommandInput,
-  RemoveFlowVpcInterfaceCommandOutput,
 } from "./commands/RemoveFlowVpcInterfaceCommand";
 import {
+  type RestartRouterInputCommandInput,
+  type RestartRouterInputCommandOutput,
   RestartRouterInputCommand,
-  RestartRouterInputCommandInput,
-  RestartRouterInputCommandOutput,
 } from "./commands/RestartRouterInputCommand";
 import {
+  type RestartRouterOutputCommandInput,
+  type RestartRouterOutputCommandOutput,
   RestartRouterOutputCommand,
-  RestartRouterOutputCommandInput,
-  RestartRouterOutputCommandOutput,
 } from "./commands/RestartRouterOutputCommand";
 import {
+  type RevokeFlowEntitlementCommandInput,
+  type RevokeFlowEntitlementCommandOutput,
   RevokeFlowEntitlementCommand,
-  RevokeFlowEntitlementCommandInput,
-  RevokeFlowEntitlementCommandOutput,
 } from "./commands/RevokeFlowEntitlementCommand";
-import { StartFlowCommand, StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartFlowCommand";
+import { type StartFlowCommandInput, type StartFlowCommandOutput, StartFlowCommand } from "./commands/StartFlowCommand";
 import {
+  type StartRouterInputCommandInput,
+  type StartRouterInputCommandOutput,
   StartRouterInputCommand,
-  StartRouterInputCommandInput,
-  StartRouterInputCommandOutput,
 } from "./commands/StartRouterInputCommand";
 import {
+  type StartRouterOutputCommandInput,
+  type StartRouterOutputCommandOutput,
   StartRouterOutputCommand,
-  StartRouterOutputCommandInput,
-  StartRouterOutputCommandOutput,
 } from "./commands/StartRouterOutputCommand";
-import { StopFlowCommand, StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand";
+import { type StopFlowCommandInput, type StopFlowCommandOutput, StopFlowCommand } from "./commands/StopFlowCommand";
 import {
+  type StopRouterInputCommandInput,
+  type StopRouterInputCommandOutput,
   StopRouterInputCommand,
-  StopRouterInputCommandInput,
-  StopRouterInputCommandOutput,
 } from "./commands/StopRouterInputCommand";
 import {
+  type StopRouterOutputCommandInput,
+  type StopRouterOutputCommandOutput,
   StopRouterOutputCommand,
-  StopRouterOutputCommandInput,
-  StopRouterOutputCommandOutput,
 } from "./commands/StopRouterOutputCommand";
 import {
+  type TagGlobalResourceCommandInput,
+  type TagGlobalResourceCommandOutput,
   TagGlobalResourceCommand,
-  TagGlobalResourceCommandInput,
-  TagGlobalResourceCommandOutput,
 } from "./commands/TagGlobalResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TakeRouterInputCommandInput,
+  type TakeRouterInputCommandOutput,
   TakeRouterInputCommand,
-  TakeRouterInputCommandInput,
-  TakeRouterInputCommandOutput,
 } from "./commands/TakeRouterInputCommand";
 import {
+  type UntagGlobalResourceCommandInput,
+  type UntagGlobalResourceCommandOutput,
   UntagGlobalResourceCommand,
-  UntagGlobalResourceCommandInput,
-  UntagGlobalResourceCommandOutput,
 } from "./commands/UntagGlobalResourceCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBridgeCommandInput,
+  type UpdateBridgeCommandOutput,
   UpdateBridgeCommand,
-  UpdateBridgeCommandInput,
-  UpdateBridgeCommandOutput,
 } from "./commands/UpdateBridgeCommand";
 import {
+  type UpdateBridgeOutputCommandInput,
+  type UpdateBridgeOutputCommandOutput,
   UpdateBridgeOutputCommand,
-  UpdateBridgeOutputCommandInput,
-  UpdateBridgeOutputCommandOutput,
 } from "./commands/UpdateBridgeOutputCommand";
 import {
+  type UpdateBridgeSourceCommandInput,
+  type UpdateBridgeSourceCommandOutput,
   UpdateBridgeSourceCommand,
-  UpdateBridgeSourceCommandInput,
-  UpdateBridgeSourceCommandOutput,
 } from "./commands/UpdateBridgeSourceCommand";
 import {
+  type UpdateBridgeStateCommandInput,
+  type UpdateBridgeStateCommandOutput,
   UpdateBridgeStateCommand,
-  UpdateBridgeStateCommandInput,
-  UpdateBridgeStateCommandOutput,
 } from "./commands/UpdateBridgeStateCommand";
-import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 import {
+  type UpdateFlowCommandInput,
+  type UpdateFlowCommandOutput,
+  UpdateFlowCommand,
+} from "./commands/UpdateFlowCommand";
+import {
+  type UpdateFlowEntitlementCommandInput,
+  type UpdateFlowEntitlementCommandOutput,
   UpdateFlowEntitlementCommand,
-  UpdateFlowEntitlementCommandInput,
-  UpdateFlowEntitlementCommandOutput,
 } from "./commands/UpdateFlowEntitlementCommand";
 import {
+  type UpdateFlowMediaStreamCommandInput,
+  type UpdateFlowMediaStreamCommandOutput,
   UpdateFlowMediaStreamCommand,
-  UpdateFlowMediaStreamCommandInput,
-  UpdateFlowMediaStreamCommandOutput,
 } from "./commands/UpdateFlowMediaStreamCommand";
 import {
+  type UpdateFlowOutputCommandInput,
+  type UpdateFlowOutputCommandOutput,
   UpdateFlowOutputCommand,
-  UpdateFlowOutputCommandInput,
-  UpdateFlowOutputCommandOutput,
 } from "./commands/UpdateFlowOutputCommand";
 import {
+  type UpdateFlowSourceCommandInput,
+  type UpdateFlowSourceCommandOutput,
   UpdateFlowSourceCommand,
-  UpdateFlowSourceCommandInput,
-  UpdateFlowSourceCommandOutput,
 } from "./commands/UpdateFlowSourceCommand";
 import {
+  type UpdateGatewayInstanceCommandInput,
+  type UpdateGatewayInstanceCommandOutput,
   UpdateGatewayInstanceCommand,
-  UpdateGatewayInstanceCommandInput,
-  UpdateGatewayInstanceCommandOutput,
 } from "./commands/UpdateGatewayInstanceCommand";
 import {
+  type UpdateRouterInputCommandInput,
+  type UpdateRouterInputCommandOutput,
   UpdateRouterInputCommand,
-  UpdateRouterInputCommandInput,
-  UpdateRouterInputCommandOutput,
 } from "./commands/UpdateRouterInputCommand";
 import {
+  type UpdateRouterNetworkInterfaceCommandInput,
+  type UpdateRouterNetworkInterfaceCommandOutput,
   UpdateRouterNetworkInterfaceCommand,
-  UpdateRouterNetworkInterfaceCommandInput,
-  UpdateRouterNetworkInterfaceCommandOutput,
 } from "./commands/UpdateRouterNetworkInterfaceCommand";
 import {
+  type UpdateRouterOutputCommandInput,
+  type UpdateRouterOutputCommandOutput,
   UpdateRouterOutputCommand,
-  UpdateRouterOutputCommandInput,
-  UpdateRouterOutputCommandOutput,
 } from "./commands/UpdateRouterOutputCommand";
 import { MediaConnectClient } from "./MediaConnectClient";
 import { paginateListBridges } from "./pagination/ListBridgesPaginator";

@@ -3,379 +3,399 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+  type AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput,
   AcceptNetworkFirewallTransitGatewayAttachmentCommand,
-  AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
-  AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput,
 } from "./commands/AcceptNetworkFirewallTransitGatewayAttachmentCommand";
 import {
+  type AssociateAvailabilityZonesCommandInput,
+  type AssociateAvailabilityZonesCommandOutput,
   AssociateAvailabilityZonesCommand,
-  AssociateAvailabilityZonesCommandInput,
-  AssociateAvailabilityZonesCommandOutput,
 } from "./commands/AssociateAvailabilityZonesCommand";
 import {
+  type AssociateFirewallPolicyCommandInput,
+  type AssociateFirewallPolicyCommandOutput,
   AssociateFirewallPolicyCommand,
-  AssociateFirewallPolicyCommandInput,
-  AssociateFirewallPolicyCommandOutput,
 } from "./commands/AssociateFirewallPolicyCommand";
 import {
+  type AssociateSubnetsCommandInput,
+  type AssociateSubnetsCommandOutput,
   AssociateSubnetsCommand,
-  AssociateSubnetsCommandInput,
-  AssociateSubnetsCommandOutput,
 } from "./commands/AssociateSubnetsCommand";
 import {
+  type AttachRuleGroupsToProxyConfigurationCommandInput,
+  type AttachRuleGroupsToProxyConfigurationCommandOutput,
   AttachRuleGroupsToProxyConfigurationCommand,
-  AttachRuleGroupsToProxyConfigurationCommandInput,
-  AttachRuleGroupsToProxyConfigurationCommandOutput,
 } from "./commands/AttachRuleGroupsToProxyConfigurationCommand";
 import {
+  type CreateFirewallCommandInput,
+  type CreateFirewallCommandOutput,
   CreateFirewallCommand,
-  CreateFirewallCommandInput,
-  CreateFirewallCommandOutput,
 } from "./commands/CreateFirewallCommand";
 import {
+  type CreateFirewallPolicyCommandInput,
+  type CreateFirewallPolicyCommandOutput,
   CreateFirewallPolicyCommand,
-  CreateFirewallPolicyCommandInput,
-  CreateFirewallPolicyCommandOutput,
 } from "./commands/CreateFirewallPolicyCommand";
-import { CreateProxyCommand, CreateProxyCommandInput, CreateProxyCommandOutput } from "./commands/CreateProxyCommand";
 import {
+  type CreateProxyCommandInput,
+  type CreateProxyCommandOutput,
+  CreateProxyCommand,
+} from "./commands/CreateProxyCommand";
+import {
+  type CreateProxyConfigurationCommandInput,
+  type CreateProxyConfigurationCommandOutput,
   CreateProxyConfigurationCommand,
-  CreateProxyConfigurationCommandInput,
-  CreateProxyConfigurationCommandOutput,
 } from "./commands/CreateProxyConfigurationCommand";
 import {
+  type CreateProxyRuleGroupCommandInput,
+  type CreateProxyRuleGroupCommandOutput,
   CreateProxyRuleGroupCommand,
-  CreateProxyRuleGroupCommandInput,
-  CreateProxyRuleGroupCommandOutput,
 } from "./commands/CreateProxyRuleGroupCommand";
 import {
+  type CreateProxyRulesCommandInput,
+  type CreateProxyRulesCommandOutput,
   CreateProxyRulesCommand,
-  CreateProxyRulesCommandInput,
-  CreateProxyRulesCommandOutput,
 } from "./commands/CreateProxyRulesCommand";
 import {
+  type CreateRuleGroupCommandInput,
+  type CreateRuleGroupCommandOutput,
   CreateRuleGroupCommand,
-  CreateRuleGroupCommandInput,
-  CreateRuleGroupCommandOutput,
 } from "./commands/CreateRuleGroupCommand";
 import {
+  type CreateTLSInspectionConfigurationCommandInput,
+  type CreateTLSInspectionConfigurationCommandOutput,
   CreateTLSInspectionConfigurationCommand,
-  CreateTLSInspectionConfigurationCommandInput,
-  CreateTLSInspectionConfigurationCommandOutput,
 } from "./commands/CreateTLSInspectionConfigurationCommand";
 import {
+  type CreateVpcEndpointAssociationCommandInput,
+  type CreateVpcEndpointAssociationCommandOutput,
   CreateVpcEndpointAssociationCommand,
-  CreateVpcEndpointAssociationCommandInput,
-  CreateVpcEndpointAssociationCommandOutput,
 } from "./commands/CreateVpcEndpointAssociationCommand";
 import {
+  type DeleteFirewallCommandInput,
+  type DeleteFirewallCommandOutput,
   DeleteFirewallCommand,
-  DeleteFirewallCommandInput,
-  DeleteFirewallCommandOutput,
 } from "./commands/DeleteFirewallCommand";
 import {
+  type DeleteFirewallPolicyCommandInput,
+  type DeleteFirewallPolicyCommandOutput,
   DeleteFirewallPolicyCommand,
-  DeleteFirewallPolicyCommandInput,
-  DeleteFirewallPolicyCommandOutput,
 } from "./commands/DeleteFirewallPolicyCommand";
 import {
+  type DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+  type DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput,
   DeleteNetworkFirewallTransitGatewayAttachmentCommand,
-  DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
-  DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput,
 } from "./commands/DeleteNetworkFirewallTransitGatewayAttachmentCommand";
-import { DeleteProxyCommand, DeleteProxyCommandInput, DeleteProxyCommandOutput } from "./commands/DeleteProxyCommand";
 import {
+  type DeleteProxyCommandInput,
+  type DeleteProxyCommandOutput,
+  DeleteProxyCommand,
+} from "./commands/DeleteProxyCommand";
+import {
+  type DeleteProxyConfigurationCommandInput,
+  type DeleteProxyConfigurationCommandOutput,
   DeleteProxyConfigurationCommand,
-  DeleteProxyConfigurationCommandInput,
-  DeleteProxyConfigurationCommandOutput,
 } from "./commands/DeleteProxyConfigurationCommand";
 import {
+  type DeleteProxyRuleGroupCommandInput,
+  type DeleteProxyRuleGroupCommandOutput,
   DeleteProxyRuleGroupCommand,
-  DeleteProxyRuleGroupCommandInput,
-  DeleteProxyRuleGroupCommandOutput,
 } from "./commands/DeleteProxyRuleGroupCommand";
 import {
+  type DeleteProxyRulesCommandInput,
+  type DeleteProxyRulesCommandOutput,
   DeleteProxyRulesCommand,
-  DeleteProxyRulesCommandInput,
-  DeleteProxyRulesCommandOutput,
 } from "./commands/DeleteProxyRulesCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteRuleGroupCommandInput,
+  type DeleteRuleGroupCommandOutput,
   DeleteRuleGroupCommand,
-  DeleteRuleGroupCommandInput,
-  DeleteRuleGroupCommandOutput,
 } from "./commands/DeleteRuleGroupCommand";
 import {
+  type DeleteTLSInspectionConfigurationCommandInput,
+  type DeleteTLSInspectionConfigurationCommandOutput,
   DeleteTLSInspectionConfigurationCommand,
-  DeleteTLSInspectionConfigurationCommandInput,
-  DeleteTLSInspectionConfigurationCommandOutput,
 } from "./commands/DeleteTLSInspectionConfigurationCommand";
 import {
+  type DeleteVpcEndpointAssociationCommandInput,
+  type DeleteVpcEndpointAssociationCommandOutput,
   DeleteVpcEndpointAssociationCommand,
-  DeleteVpcEndpointAssociationCommandInput,
-  DeleteVpcEndpointAssociationCommandOutput,
 } from "./commands/DeleteVpcEndpointAssociationCommand";
 import {
+  type DescribeFirewallCommandInput,
+  type DescribeFirewallCommandOutput,
   DescribeFirewallCommand,
-  DescribeFirewallCommandInput,
-  DescribeFirewallCommandOutput,
 } from "./commands/DescribeFirewallCommand";
 import {
+  type DescribeFirewallMetadataCommandInput,
+  type DescribeFirewallMetadataCommandOutput,
   DescribeFirewallMetadataCommand,
-  DescribeFirewallMetadataCommandInput,
-  DescribeFirewallMetadataCommandOutput,
 } from "./commands/DescribeFirewallMetadataCommand";
 import {
+  type DescribeFirewallPolicyCommandInput,
+  type DescribeFirewallPolicyCommandOutput,
   DescribeFirewallPolicyCommand,
-  DescribeFirewallPolicyCommandInput,
-  DescribeFirewallPolicyCommandOutput,
 } from "./commands/DescribeFirewallPolicyCommand";
 import {
+  type DescribeFlowOperationCommandInput,
+  type DescribeFlowOperationCommandOutput,
   DescribeFlowOperationCommand,
-  DescribeFlowOperationCommandInput,
-  DescribeFlowOperationCommandOutput,
 } from "./commands/DescribeFlowOperationCommand";
 import {
+  type DescribeLoggingConfigurationCommandInput,
+  type DescribeLoggingConfigurationCommandOutput,
   DescribeLoggingConfigurationCommand,
-  DescribeLoggingConfigurationCommandInput,
-  DescribeLoggingConfigurationCommandOutput,
 } from "./commands/DescribeLoggingConfigurationCommand";
 import {
+  type DescribeProxyCommandInput,
+  type DescribeProxyCommandOutput,
   DescribeProxyCommand,
-  DescribeProxyCommandInput,
-  DescribeProxyCommandOutput,
 } from "./commands/DescribeProxyCommand";
 import {
+  type DescribeProxyConfigurationCommandInput,
+  type DescribeProxyConfigurationCommandOutput,
   DescribeProxyConfigurationCommand,
-  DescribeProxyConfigurationCommandInput,
-  DescribeProxyConfigurationCommandOutput,
 } from "./commands/DescribeProxyConfigurationCommand";
 import {
+  type DescribeProxyRuleCommandInput,
+  type DescribeProxyRuleCommandOutput,
   DescribeProxyRuleCommand,
-  DescribeProxyRuleCommandInput,
-  DescribeProxyRuleCommandOutput,
 } from "./commands/DescribeProxyRuleCommand";
 import {
+  type DescribeProxyRuleGroupCommandInput,
+  type DescribeProxyRuleGroupCommandOutput,
   DescribeProxyRuleGroupCommand,
-  DescribeProxyRuleGroupCommandInput,
-  DescribeProxyRuleGroupCommandOutput,
 } from "./commands/DescribeProxyRuleGroupCommand";
 import {
+  type DescribeResourcePolicyCommandInput,
+  type DescribeResourcePolicyCommandOutput,
   DescribeResourcePolicyCommand,
-  DescribeResourcePolicyCommandInput,
-  DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
 import {
+  type DescribeRuleGroupCommandInput,
+  type DescribeRuleGroupCommandOutput,
   DescribeRuleGroupCommand,
-  DescribeRuleGroupCommandInput,
-  DescribeRuleGroupCommandOutput,
 } from "./commands/DescribeRuleGroupCommand";
 import {
+  type DescribeRuleGroupMetadataCommandInput,
+  type DescribeRuleGroupMetadataCommandOutput,
   DescribeRuleGroupMetadataCommand,
-  DescribeRuleGroupMetadataCommandInput,
-  DescribeRuleGroupMetadataCommandOutput,
 } from "./commands/DescribeRuleGroupMetadataCommand";
 import {
+  type DescribeRuleGroupSummaryCommandInput,
+  type DescribeRuleGroupSummaryCommandOutput,
   DescribeRuleGroupSummaryCommand,
-  DescribeRuleGroupSummaryCommandInput,
-  DescribeRuleGroupSummaryCommandOutput,
 } from "./commands/DescribeRuleGroupSummaryCommand";
 import {
+  type DescribeTLSInspectionConfigurationCommandInput,
+  type DescribeTLSInspectionConfigurationCommandOutput,
   DescribeTLSInspectionConfigurationCommand,
-  DescribeTLSInspectionConfigurationCommandInput,
-  DescribeTLSInspectionConfigurationCommandOutput,
 } from "./commands/DescribeTLSInspectionConfigurationCommand";
 import {
+  type DescribeVpcEndpointAssociationCommandInput,
+  type DescribeVpcEndpointAssociationCommandOutput,
   DescribeVpcEndpointAssociationCommand,
-  DescribeVpcEndpointAssociationCommandInput,
-  DescribeVpcEndpointAssociationCommandOutput,
 } from "./commands/DescribeVpcEndpointAssociationCommand";
 import {
+  type DetachRuleGroupsFromProxyConfigurationCommandInput,
+  type DetachRuleGroupsFromProxyConfigurationCommandOutput,
   DetachRuleGroupsFromProxyConfigurationCommand,
-  DetachRuleGroupsFromProxyConfigurationCommandInput,
-  DetachRuleGroupsFromProxyConfigurationCommandOutput,
 } from "./commands/DetachRuleGroupsFromProxyConfigurationCommand";
 import {
+  type DisassociateAvailabilityZonesCommandInput,
+  type DisassociateAvailabilityZonesCommandOutput,
   DisassociateAvailabilityZonesCommand,
-  DisassociateAvailabilityZonesCommandInput,
-  DisassociateAvailabilityZonesCommandOutput,
 } from "./commands/DisassociateAvailabilityZonesCommand";
 import {
+  type DisassociateSubnetsCommandInput,
+  type DisassociateSubnetsCommandOutput,
   DisassociateSubnetsCommand,
-  DisassociateSubnetsCommandInput,
-  DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
 import {
+  type GetAnalysisReportResultsCommandInput,
+  type GetAnalysisReportResultsCommandOutput,
   GetAnalysisReportResultsCommand,
-  GetAnalysisReportResultsCommandInput,
-  GetAnalysisReportResultsCommandOutput,
 } from "./commands/GetAnalysisReportResultsCommand";
 import {
+  type ListAnalysisReportsCommandInput,
+  type ListAnalysisReportsCommandOutput,
   ListAnalysisReportsCommand,
-  ListAnalysisReportsCommandInput,
-  ListAnalysisReportsCommandOutput,
 } from "./commands/ListAnalysisReportsCommand";
 import {
+  type ListFirewallPoliciesCommandInput,
+  type ListFirewallPoliciesCommandOutput,
   ListFirewallPoliciesCommand,
-  ListFirewallPoliciesCommandInput,
-  ListFirewallPoliciesCommandOutput,
 } from "./commands/ListFirewallPoliciesCommand";
 import {
+  type ListFirewallsCommandInput,
+  type ListFirewallsCommandOutput,
   ListFirewallsCommand,
-  ListFirewallsCommandInput,
-  ListFirewallsCommandOutput,
 } from "./commands/ListFirewallsCommand";
 import {
+  type ListFlowOperationResultsCommandInput,
+  type ListFlowOperationResultsCommandOutput,
   ListFlowOperationResultsCommand,
-  ListFlowOperationResultsCommandInput,
-  ListFlowOperationResultsCommandOutput,
 } from "./commands/ListFlowOperationResultsCommand";
 import {
+  type ListFlowOperationsCommandInput,
+  type ListFlowOperationsCommandOutput,
   ListFlowOperationsCommand,
-  ListFlowOperationsCommandInput,
-  ListFlowOperationsCommandOutput,
 } from "./commands/ListFlowOperationsCommand";
-import { ListProxiesCommand, ListProxiesCommandInput, ListProxiesCommandOutput } from "./commands/ListProxiesCommand";
 import {
+  type ListProxiesCommandInput,
+  type ListProxiesCommandOutput,
+  ListProxiesCommand,
+} from "./commands/ListProxiesCommand";
+import {
+  type ListProxyConfigurationsCommandInput,
+  type ListProxyConfigurationsCommandOutput,
   ListProxyConfigurationsCommand,
-  ListProxyConfigurationsCommandInput,
-  ListProxyConfigurationsCommandOutput,
 } from "./commands/ListProxyConfigurationsCommand";
 import {
+  type ListProxyRuleGroupsCommandInput,
+  type ListProxyRuleGroupsCommandOutput,
   ListProxyRuleGroupsCommand,
-  ListProxyRuleGroupsCommandInput,
-  ListProxyRuleGroupsCommandOutput,
 } from "./commands/ListProxyRuleGroupsCommand";
 import {
+  type ListRuleGroupsCommandInput,
+  type ListRuleGroupsCommandOutput,
   ListRuleGroupsCommand,
-  ListRuleGroupsCommandInput,
-  ListRuleGroupsCommandOutput,
 } from "./commands/ListRuleGroupsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTLSInspectionConfigurationsCommandInput,
+  type ListTLSInspectionConfigurationsCommandOutput,
   ListTLSInspectionConfigurationsCommand,
-  ListTLSInspectionConfigurationsCommandInput,
-  ListTLSInspectionConfigurationsCommandOutput,
 } from "./commands/ListTLSInspectionConfigurationsCommand";
 import {
+  type ListVpcEndpointAssociationsCommandInput,
+  type ListVpcEndpointAssociationsCommandOutput,
   ListVpcEndpointAssociationsCommand,
-  ListVpcEndpointAssociationsCommandInput,
-  ListVpcEndpointAssociationsCommandOutput,
 } from "./commands/ListVpcEndpointAssociationsCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+  type RejectNetworkFirewallTransitGatewayAttachmentCommandOutput,
   RejectNetworkFirewallTransitGatewayAttachmentCommand,
-  RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
-  RejectNetworkFirewallTransitGatewayAttachmentCommandOutput,
 } from "./commands/RejectNetworkFirewallTransitGatewayAttachmentCommand";
 import {
+  type StartAnalysisReportCommandInput,
+  type StartAnalysisReportCommandOutput,
   StartAnalysisReportCommand,
-  StartAnalysisReportCommandInput,
-  StartAnalysisReportCommandOutput,
 } from "./commands/StartAnalysisReportCommand";
 import {
+  type StartFlowCaptureCommandInput,
+  type StartFlowCaptureCommandOutput,
   StartFlowCaptureCommand,
-  StartFlowCaptureCommandInput,
-  StartFlowCaptureCommandOutput,
 } from "./commands/StartFlowCaptureCommand";
 import {
+  type StartFlowFlushCommandInput,
+  type StartFlowFlushCommandOutput,
   StartFlowFlushCommand,
-  StartFlowFlushCommandInput,
-  StartFlowFlushCommandOutput,
 } from "./commands/StartFlowFlushCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAvailabilityZoneChangeProtectionCommandInput,
+  type UpdateAvailabilityZoneChangeProtectionCommandOutput,
   UpdateAvailabilityZoneChangeProtectionCommand,
-  UpdateAvailabilityZoneChangeProtectionCommandInput,
-  UpdateAvailabilityZoneChangeProtectionCommandOutput,
 } from "./commands/UpdateAvailabilityZoneChangeProtectionCommand";
 import {
+  type UpdateFirewallAnalysisSettingsCommandInput,
+  type UpdateFirewallAnalysisSettingsCommandOutput,
   UpdateFirewallAnalysisSettingsCommand,
-  UpdateFirewallAnalysisSettingsCommandInput,
-  UpdateFirewallAnalysisSettingsCommandOutput,
 } from "./commands/UpdateFirewallAnalysisSettingsCommand";
 import {
+  type UpdateFirewallDeleteProtectionCommandInput,
+  type UpdateFirewallDeleteProtectionCommandOutput,
   UpdateFirewallDeleteProtectionCommand,
-  UpdateFirewallDeleteProtectionCommandInput,
-  UpdateFirewallDeleteProtectionCommandOutput,
 } from "./commands/UpdateFirewallDeleteProtectionCommand";
 import {
+  type UpdateFirewallDescriptionCommandInput,
+  type UpdateFirewallDescriptionCommandOutput,
   UpdateFirewallDescriptionCommand,
-  UpdateFirewallDescriptionCommandInput,
-  UpdateFirewallDescriptionCommandOutput,
 } from "./commands/UpdateFirewallDescriptionCommand";
 import {
+  type UpdateFirewallEncryptionConfigurationCommandInput,
+  type UpdateFirewallEncryptionConfigurationCommandOutput,
   UpdateFirewallEncryptionConfigurationCommand,
-  UpdateFirewallEncryptionConfigurationCommandInput,
-  UpdateFirewallEncryptionConfigurationCommandOutput,
 } from "./commands/UpdateFirewallEncryptionConfigurationCommand";
 import {
+  type UpdateFirewallPolicyChangeProtectionCommandInput,
+  type UpdateFirewallPolicyChangeProtectionCommandOutput,
   UpdateFirewallPolicyChangeProtectionCommand,
-  UpdateFirewallPolicyChangeProtectionCommandInput,
-  UpdateFirewallPolicyChangeProtectionCommandOutput,
 } from "./commands/UpdateFirewallPolicyChangeProtectionCommand";
 import {
+  type UpdateFirewallPolicyCommandInput,
+  type UpdateFirewallPolicyCommandOutput,
   UpdateFirewallPolicyCommand,
-  UpdateFirewallPolicyCommandInput,
-  UpdateFirewallPolicyCommandOutput,
 } from "./commands/UpdateFirewallPolicyCommand";
 import {
+  type UpdateLoggingConfigurationCommandInput,
+  type UpdateLoggingConfigurationCommandOutput,
   UpdateLoggingConfigurationCommand,
-  UpdateLoggingConfigurationCommandInput,
-  UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
-import { UpdateProxyCommand, UpdateProxyCommandInput, UpdateProxyCommandOutput } from "./commands/UpdateProxyCommand";
 import {
+  type UpdateProxyCommandInput,
+  type UpdateProxyCommandOutput,
+  UpdateProxyCommand,
+} from "./commands/UpdateProxyCommand";
+import {
+  type UpdateProxyConfigurationCommandInput,
+  type UpdateProxyConfigurationCommandOutput,
   UpdateProxyConfigurationCommand,
-  UpdateProxyConfigurationCommandInput,
-  UpdateProxyConfigurationCommandOutput,
 } from "./commands/UpdateProxyConfigurationCommand";
 import {
+  type UpdateProxyRuleCommandInput,
+  type UpdateProxyRuleCommandOutput,
   UpdateProxyRuleCommand,
-  UpdateProxyRuleCommandInput,
-  UpdateProxyRuleCommandOutput,
 } from "./commands/UpdateProxyRuleCommand";
 import {
+  type UpdateProxyRuleGroupPrioritiesCommandInput,
+  type UpdateProxyRuleGroupPrioritiesCommandOutput,
   UpdateProxyRuleGroupPrioritiesCommand,
-  UpdateProxyRuleGroupPrioritiesCommandInput,
-  UpdateProxyRuleGroupPrioritiesCommandOutput,
 } from "./commands/UpdateProxyRuleGroupPrioritiesCommand";
 import {
+  type UpdateProxyRulePrioritiesCommandInput,
+  type UpdateProxyRulePrioritiesCommandOutput,
   UpdateProxyRulePrioritiesCommand,
-  UpdateProxyRulePrioritiesCommandInput,
-  UpdateProxyRulePrioritiesCommandOutput,
 } from "./commands/UpdateProxyRulePrioritiesCommand";
 import {
+  type UpdateRuleGroupCommandInput,
+  type UpdateRuleGroupCommandOutput,
   UpdateRuleGroupCommand,
-  UpdateRuleGroupCommandInput,
-  UpdateRuleGroupCommandOutput,
 } from "./commands/UpdateRuleGroupCommand";
 import {
+  type UpdateSubnetChangeProtectionCommandInput,
+  type UpdateSubnetChangeProtectionCommandOutput,
   UpdateSubnetChangeProtectionCommand,
-  UpdateSubnetChangeProtectionCommandInput,
-  UpdateSubnetChangeProtectionCommandOutput,
 } from "./commands/UpdateSubnetChangeProtectionCommand";
 import {
+  type UpdateTLSInspectionConfigurationCommandInput,
+  type UpdateTLSInspectionConfigurationCommandOutput,
   UpdateTLSInspectionConfigurationCommand,
-  UpdateTLSInspectionConfigurationCommandInput,
-  UpdateTLSInspectionConfigurationCommandOutput,
 } from "./commands/UpdateTLSInspectionConfigurationCommand";
 import { NetworkFirewallClient } from "./NetworkFirewallClient";
 import { paginateGetAnalysisReportResults } from "./pagination/GetAnalysisReportResultsPaginator";

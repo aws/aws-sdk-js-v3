@@ -9,7 +9,7 @@ import type {
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
-import { RecognizeUtteranceRequest, RecognizeUtteranceResponse } from "../models/models_0";
+import type { RecognizeUtteranceRequest, RecognizeUtteranceResponse } from "../models/models_0";
 import { RecognizeUtterance$ } from "../schemas/schemas_0";
 
 /**

@@ -9,304 +9,308 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type CreateCapacityProviderCommandInput,
+  type CreateCapacityProviderCommandOutput,
   CreateCapacityProviderCommand,
-  CreateCapacityProviderCommandInput,
-  CreateCapacityProviderCommandOutput,
 } from "./commands/CreateCapacityProviderCommand";
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateExpressGatewayServiceCommandInput,
+  type CreateExpressGatewayServiceCommandOutput,
   CreateExpressGatewayServiceCommand,
-  CreateExpressGatewayServiceCommandInput,
-  CreateExpressGatewayServiceCommandOutput,
 } from "./commands/CreateExpressGatewayServiceCommand";
 import {
+  type CreateServiceCommandInput,
+  type CreateServiceCommandOutput,
   CreateServiceCommand,
-  CreateServiceCommandInput,
-  CreateServiceCommandOutput,
 } from "./commands/CreateServiceCommand";
 import {
+  type CreateTaskSetCommandInput,
+  type CreateTaskSetCommandOutput,
   CreateTaskSetCommand,
-  CreateTaskSetCommandInput,
-  CreateTaskSetCommandOutput,
 } from "./commands/CreateTaskSetCommand";
 import {
+  type DeleteAccountSettingCommandInput,
+  type DeleteAccountSettingCommandOutput,
   DeleteAccountSettingCommand,
-  DeleteAccountSettingCommandInput,
-  DeleteAccountSettingCommandOutput,
 } from "./commands/DeleteAccountSettingCommand";
 import {
+  type DeleteAttributesCommandInput,
+  type DeleteAttributesCommandOutput,
   DeleteAttributesCommand,
-  DeleteAttributesCommandInput,
-  DeleteAttributesCommandOutput,
 } from "./commands/DeleteAttributesCommand";
 import {
+  type DeleteCapacityProviderCommandInput,
+  type DeleteCapacityProviderCommandOutput,
   DeleteCapacityProviderCommand,
-  DeleteCapacityProviderCommandInput,
-  DeleteCapacityProviderCommandOutput,
 } from "./commands/DeleteCapacityProviderCommand";
 import {
+  type DeleteClusterCommandInput,
+  type DeleteClusterCommandOutput,
   DeleteClusterCommand,
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  type DeleteExpressGatewayServiceCommandInput,
+  type DeleteExpressGatewayServiceCommandOutput,
   DeleteExpressGatewayServiceCommand,
-  DeleteExpressGatewayServiceCommandInput,
-  DeleteExpressGatewayServiceCommandOutput,
 } from "./commands/DeleteExpressGatewayServiceCommand";
 import {
+  type DeleteServiceCommandInput,
+  type DeleteServiceCommandOutput,
   DeleteServiceCommand,
-  DeleteServiceCommandInput,
-  DeleteServiceCommandOutput,
 } from "./commands/DeleteServiceCommand";
 import {
+  type DeleteTaskDefinitionsCommandInput,
+  type DeleteTaskDefinitionsCommandOutput,
   DeleteTaskDefinitionsCommand,
-  DeleteTaskDefinitionsCommandInput,
-  DeleteTaskDefinitionsCommandOutput,
 } from "./commands/DeleteTaskDefinitionsCommand";
 import {
+  type DeleteTaskSetCommandInput,
+  type DeleteTaskSetCommandOutput,
   DeleteTaskSetCommand,
-  DeleteTaskSetCommandInput,
-  DeleteTaskSetCommandOutput,
 } from "./commands/DeleteTaskSetCommand";
 import {
+  type DeregisterContainerInstanceCommandInput,
+  type DeregisterContainerInstanceCommandOutput,
   DeregisterContainerInstanceCommand,
-  DeregisterContainerInstanceCommandInput,
-  DeregisterContainerInstanceCommandOutput,
 } from "./commands/DeregisterContainerInstanceCommand";
 import {
+  type DeregisterTaskDefinitionCommandInput,
+  type DeregisterTaskDefinitionCommandOutput,
   DeregisterTaskDefinitionCommand,
-  DeregisterTaskDefinitionCommandInput,
-  DeregisterTaskDefinitionCommandOutput,
 } from "./commands/DeregisterTaskDefinitionCommand";
 import {
+  type DescribeCapacityProvidersCommandInput,
+  type DescribeCapacityProvidersCommandOutput,
   DescribeCapacityProvidersCommand,
-  DescribeCapacityProvidersCommandInput,
-  DescribeCapacityProvidersCommandOutput,
 } from "./commands/DescribeCapacityProvidersCommand";
 import {
+  type DescribeClustersCommandInput,
+  type DescribeClustersCommandOutput,
   DescribeClustersCommand,
-  DescribeClustersCommandInput,
-  DescribeClustersCommandOutput,
 } from "./commands/DescribeClustersCommand";
 import {
+  type DescribeContainerInstancesCommandInput,
+  type DescribeContainerInstancesCommandOutput,
   DescribeContainerInstancesCommand,
-  DescribeContainerInstancesCommandInput,
-  DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand";
 import {
+  type DescribeExpressGatewayServiceCommandInput,
+  type DescribeExpressGatewayServiceCommandOutput,
   DescribeExpressGatewayServiceCommand,
-  DescribeExpressGatewayServiceCommandInput,
-  DescribeExpressGatewayServiceCommandOutput,
 } from "./commands/DescribeExpressGatewayServiceCommand";
 import {
+  type DescribeServiceDeploymentsCommandInput,
+  type DescribeServiceDeploymentsCommandOutput,
   DescribeServiceDeploymentsCommand,
-  DescribeServiceDeploymentsCommandInput,
-  DescribeServiceDeploymentsCommandOutput,
 } from "./commands/DescribeServiceDeploymentsCommand";
 import {
+  type DescribeServiceRevisionsCommandInput,
+  type DescribeServiceRevisionsCommandOutput,
   DescribeServiceRevisionsCommand,
-  DescribeServiceRevisionsCommandInput,
-  DescribeServiceRevisionsCommandOutput,
 } from "./commands/DescribeServiceRevisionsCommand";
 import {
+  type DescribeServicesCommandInput,
+  type DescribeServicesCommandOutput,
   DescribeServicesCommand,
-  DescribeServicesCommandInput,
-  DescribeServicesCommandOutput,
 } from "./commands/DescribeServicesCommand";
 import {
+  type DescribeTaskDefinitionCommandInput,
+  type DescribeTaskDefinitionCommandOutput,
   DescribeTaskDefinitionCommand,
-  DescribeTaskDefinitionCommandInput,
-  DescribeTaskDefinitionCommandOutput,
 } from "./commands/DescribeTaskDefinitionCommand";
 import {
+  type DescribeTasksCommandInput,
+  type DescribeTasksCommandOutput,
   DescribeTasksCommand,
-  DescribeTasksCommandInput,
-  DescribeTasksCommandOutput,
 } from "./commands/DescribeTasksCommand";
 import {
+  type DescribeTaskSetsCommandInput,
+  type DescribeTaskSetsCommandOutput,
   DescribeTaskSetsCommand,
-  DescribeTaskSetsCommandInput,
-  DescribeTaskSetsCommandOutput,
 } from "./commands/DescribeTaskSetsCommand";
 import {
+  type DiscoverPollEndpointCommandInput,
+  type DiscoverPollEndpointCommandOutput,
   DiscoverPollEndpointCommand,
-  DiscoverPollEndpointCommandInput,
-  DiscoverPollEndpointCommandOutput,
 } from "./commands/DiscoverPollEndpointCommand";
 import {
+  type ExecuteCommandCommandInput,
+  type ExecuteCommandCommandOutput,
   ExecuteCommandCommand,
-  ExecuteCommandCommandInput,
-  ExecuteCommandCommandOutput,
 } from "./commands/ExecuteCommandCommand";
 import {
+  type GetTaskProtectionCommandInput,
+  type GetTaskProtectionCommandOutput,
   GetTaskProtectionCommand,
-  GetTaskProtectionCommandInput,
-  GetTaskProtectionCommandOutput,
 } from "./commands/GetTaskProtectionCommand";
 import {
+  type ListAccountSettingsCommandInput,
+  type ListAccountSettingsCommandOutput,
   ListAccountSettingsCommand,
-  ListAccountSettingsCommandInput,
-  ListAccountSettingsCommandOutput,
 } from "./commands/ListAccountSettingsCommand";
 import {
+  type ListAttributesCommandInput,
+  type ListAttributesCommandOutput,
   ListAttributesCommand,
-  ListAttributesCommandInput,
-  ListAttributesCommandOutput,
 } from "./commands/ListAttributesCommand";
 import {
+  type ListClustersCommandInput,
+  type ListClustersCommandOutput,
   ListClustersCommand,
-  ListClustersCommandInput,
-  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
 import {
+  type ListContainerInstancesCommandInput,
+  type ListContainerInstancesCommandOutput,
   ListContainerInstancesCommand,
-  ListContainerInstancesCommandInput,
-  ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
 import {
+  type ListServiceDeploymentsCommandInput,
+  type ListServiceDeploymentsCommandOutput,
   ListServiceDeploymentsCommand,
-  ListServiceDeploymentsCommandInput,
-  ListServiceDeploymentsCommandOutput,
 } from "./commands/ListServiceDeploymentsCommand";
 import {
+  type ListServicesByNamespaceCommandInput,
+  type ListServicesByNamespaceCommandOutput,
   ListServicesByNamespaceCommand,
-  ListServicesByNamespaceCommandInput,
-  ListServicesByNamespaceCommandOutput,
 } from "./commands/ListServicesByNamespaceCommand";
 import {
+  type ListServicesCommandInput,
+  type ListServicesCommandOutput,
   ListServicesCommand,
-  ListServicesCommandInput,
-  ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTaskDefinitionFamiliesCommandInput,
+  type ListTaskDefinitionFamiliesCommandOutput,
   ListTaskDefinitionFamiliesCommand,
-  ListTaskDefinitionFamiliesCommandInput,
-  ListTaskDefinitionFamiliesCommandOutput,
 } from "./commands/ListTaskDefinitionFamiliesCommand";
 import {
+  type ListTaskDefinitionsCommandInput,
+  type ListTaskDefinitionsCommandOutput,
   ListTaskDefinitionsCommand,
-  ListTaskDefinitionsCommandInput,
-  ListTaskDefinitionsCommandOutput,
 } from "./commands/ListTaskDefinitionsCommand";
-import { ListTasksCommand, ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
+import { type ListTasksCommandInput, type ListTasksCommandOutput, ListTasksCommand } from "./commands/ListTasksCommand";
 import {
+  type PutAccountSettingCommandInput,
+  type PutAccountSettingCommandOutput,
   PutAccountSettingCommand,
-  PutAccountSettingCommandInput,
-  PutAccountSettingCommandOutput,
 } from "./commands/PutAccountSettingCommand";
 import {
+  type PutAccountSettingDefaultCommandInput,
+  type PutAccountSettingDefaultCommandOutput,
   PutAccountSettingDefaultCommand,
-  PutAccountSettingDefaultCommandInput,
-  PutAccountSettingDefaultCommandOutput,
 } from "./commands/PutAccountSettingDefaultCommand";
 import {
+  type PutAttributesCommandInput,
+  type PutAttributesCommandOutput,
   PutAttributesCommand,
-  PutAttributesCommandInput,
-  PutAttributesCommandOutput,
 } from "./commands/PutAttributesCommand";
 import {
+  type PutClusterCapacityProvidersCommandInput,
+  type PutClusterCapacityProvidersCommandOutput,
   PutClusterCapacityProvidersCommand,
-  PutClusterCapacityProvidersCommandInput,
-  PutClusterCapacityProvidersCommandOutput,
 } from "./commands/PutClusterCapacityProvidersCommand";
 import {
+  type RegisterContainerInstanceCommandInput,
+  type RegisterContainerInstanceCommandOutput,
   RegisterContainerInstanceCommand,
-  RegisterContainerInstanceCommandInput,
-  RegisterContainerInstanceCommandOutput,
 } from "./commands/RegisterContainerInstanceCommand";
 import {
+  type RegisterTaskDefinitionCommandInput,
+  type RegisterTaskDefinitionCommandOutput,
   RegisterTaskDefinitionCommand,
-  RegisterTaskDefinitionCommandInput,
-  RegisterTaskDefinitionCommandOutput,
 } from "./commands/RegisterTaskDefinitionCommand";
-import { RunTaskCommand, RunTaskCommandInput, RunTaskCommandOutput } from "./commands/RunTaskCommand";
-import { StartTaskCommand, StartTaskCommandInput, StartTaskCommandOutput } from "./commands/StartTaskCommand";
+import { type RunTaskCommandInput, type RunTaskCommandOutput, RunTaskCommand } from "./commands/RunTaskCommand";
+import { type StartTaskCommandInput, type StartTaskCommandOutput, StartTaskCommand } from "./commands/StartTaskCommand";
 import {
+  type StopServiceDeploymentCommandInput,
+  type StopServiceDeploymentCommandOutput,
   StopServiceDeploymentCommand,
-  StopServiceDeploymentCommandInput,
-  StopServiceDeploymentCommandOutput,
 } from "./commands/StopServiceDeploymentCommand";
-import { StopTaskCommand, StopTaskCommandInput, StopTaskCommandOutput } from "./commands/StopTaskCommand";
+import { type StopTaskCommandInput, type StopTaskCommandOutput, StopTaskCommand } from "./commands/StopTaskCommand";
 import {
+  type SubmitAttachmentStateChangesCommandInput,
+  type SubmitAttachmentStateChangesCommandOutput,
   SubmitAttachmentStateChangesCommand,
-  SubmitAttachmentStateChangesCommandInput,
-  SubmitAttachmentStateChangesCommandOutput,
 } from "./commands/SubmitAttachmentStateChangesCommand";
 import {
+  type SubmitContainerStateChangeCommandInput,
+  type SubmitContainerStateChangeCommandOutput,
   SubmitContainerStateChangeCommand,
-  SubmitContainerStateChangeCommandInput,
-  SubmitContainerStateChangeCommandOutput,
 } from "./commands/SubmitContainerStateChangeCommand";
 import {
+  type SubmitTaskStateChangeCommandInput,
+  type SubmitTaskStateChangeCommandOutput,
   SubmitTaskStateChangeCommand,
-  SubmitTaskStateChangeCommandInput,
-  SubmitTaskStateChangeCommandOutput,
 } from "./commands/SubmitTaskStateChangeCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCapacityProviderCommandInput,
+  type UpdateCapacityProviderCommandOutput,
   UpdateCapacityProviderCommand,
-  UpdateCapacityProviderCommandInput,
-  UpdateCapacityProviderCommandOutput,
 } from "./commands/UpdateCapacityProviderCommand";
 import {
+  type UpdateClusterCommandInput,
+  type UpdateClusterCommandOutput,
   UpdateClusterCommand,
-  UpdateClusterCommandInput,
-  UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import {
+  type UpdateClusterSettingsCommandInput,
+  type UpdateClusterSettingsCommandOutput,
   UpdateClusterSettingsCommand,
-  UpdateClusterSettingsCommandInput,
-  UpdateClusterSettingsCommandOutput,
 } from "./commands/UpdateClusterSettingsCommand";
 import {
+  type UpdateContainerAgentCommandInput,
+  type UpdateContainerAgentCommandOutput,
   UpdateContainerAgentCommand,
-  UpdateContainerAgentCommandInput,
-  UpdateContainerAgentCommandOutput,
 } from "./commands/UpdateContainerAgentCommand";
 import {
+  type UpdateContainerInstancesStateCommandInput,
+  type UpdateContainerInstancesStateCommandOutput,
   UpdateContainerInstancesStateCommand,
-  UpdateContainerInstancesStateCommandInput,
-  UpdateContainerInstancesStateCommandOutput,
 } from "./commands/UpdateContainerInstancesStateCommand";
 import {
+  type UpdateExpressGatewayServiceCommandInput,
+  type UpdateExpressGatewayServiceCommandOutput,
   UpdateExpressGatewayServiceCommand,
-  UpdateExpressGatewayServiceCommandInput,
-  UpdateExpressGatewayServiceCommandOutput,
 } from "./commands/UpdateExpressGatewayServiceCommand";
 import {
+  type UpdateServiceCommandInput,
+  type UpdateServiceCommandOutput,
   UpdateServiceCommand,
-  UpdateServiceCommandInput,
-  UpdateServiceCommandOutput,
 } from "./commands/UpdateServiceCommand";
 import {
+  type UpdateServicePrimaryTaskSetCommandInput,
+  type UpdateServicePrimaryTaskSetCommandOutput,
   UpdateServicePrimaryTaskSetCommand,
-  UpdateServicePrimaryTaskSetCommandInput,
-  UpdateServicePrimaryTaskSetCommandOutput,
 } from "./commands/UpdateServicePrimaryTaskSetCommand";
 import {
+  type UpdateTaskProtectionCommandInput,
+  type UpdateTaskProtectionCommandOutput,
   UpdateTaskProtectionCommand,
-  UpdateTaskProtectionCommandInput,
-  UpdateTaskProtectionCommandOutput,
 } from "./commands/UpdateTaskProtectionCommand";
 import {
+  type UpdateTaskSetCommandInput,
+  type UpdateTaskSetCommandOutput,
   UpdateTaskSetCommand,
-  UpdateTaskSetCommandInput,
-  UpdateTaskSetCommandOutput,
 } from "./commands/UpdateTaskSetCommand";
 import { ECSClient } from "./ECSClient";
 import { paginateListAccountSettings } from "./pagination/ListAccountSettingsPaginator";

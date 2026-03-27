@@ -8,7 +8,7 @@ import {
   ListNetworkMigrationMapperSegmentsCommandOutput,
 } from "../commands/ListNetworkMigrationMapperSegmentsCommand";
 import { MgnClient } from "../MgnClient";
-import { MgnPaginationConfiguration } from "./Interfaces";
+import type { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

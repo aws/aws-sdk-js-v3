@@ -7,7 +7,7 @@
  */
 export * from "./FinspaceClient";
 export * from "./Finspace";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { FinspaceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

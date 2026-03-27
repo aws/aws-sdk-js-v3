@@ -25,7 +25,7 @@
  */
 export * from "./CustomerProfilesClient";
 export * from "./CustomerProfiles";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CustomerProfilesExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

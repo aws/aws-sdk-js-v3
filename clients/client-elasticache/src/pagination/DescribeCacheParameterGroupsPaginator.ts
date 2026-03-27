@@ -8,7 +8,7 @@ import {
   DescribeCacheParameterGroupsCommandOutput,
 } from "../commands/DescribeCacheParameterGroupsCommand";
 import { ElastiCacheClient } from "../ElastiCacheClient";
-import { ElastiCachePaginationConfiguration } from "./Interfaces";
+import type { ElastiCachePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

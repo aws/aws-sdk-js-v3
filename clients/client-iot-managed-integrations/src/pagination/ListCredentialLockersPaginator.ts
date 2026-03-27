@@ -8,7 +8,7 @@ import {
   ListCredentialLockersCommandOutput,
 } from "../commands/ListCredentialLockersCommand";
 import { IoTManagedIntegrationsClient } from "../IoTManagedIntegrationsClient";
-import { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
+import type { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

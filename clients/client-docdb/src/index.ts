@@ -9,7 +9,7 @@
  */
 export * from "./DocDBClient";
 export * from "./DocDB";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DocDBExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

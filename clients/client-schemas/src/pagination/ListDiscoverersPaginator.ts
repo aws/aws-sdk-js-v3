@@ -8,7 +8,7 @@ import {
   ListDiscoverersCommandOutput,
 } from "../commands/ListDiscoverersCommand";
 import { SchemasClient } from "../SchemasClient";
-import { SchemasPaginationConfiguration } from "./Interfaces";
+import type { SchemasPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

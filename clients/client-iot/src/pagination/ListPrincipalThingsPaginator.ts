@@ -8,7 +8,7 @@ import {
   ListPrincipalThingsCommandOutput,
 } from "../commands/ListPrincipalThingsCommand";
 import { IoTClient } from "../IoTClient";
-import { IoTPaginationConfiguration } from "./Interfaces";
+import type { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

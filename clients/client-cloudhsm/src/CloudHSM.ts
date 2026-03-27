@@ -4,64 +4,80 @@ import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CloudHSMClient } from "./CloudHSMClient";
 import {
+  type AddTagsToResourceCommandInput,
+  type AddTagsToResourceCommandOutput,
   AddTagsToResourceCommand,
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand";
-import { CreateHapgCommand, CreateHapgCommandInput, CreateHapgCommandOutput } from "./commands/CreateHapgCommand";
-import { CreateHsmCommand, CreateHsmCommandInput, CreateHsmCommandOutput } from "./commands/CreateHsmCommand";
 import {
+  type CreateHapgCommandInput,
+  type CreateHapgCommandOutput,
+  CreateHapgCommand,
+} from "./commands/CreateHapgCommand";
+import { type CreateHsmCommandInput, type CreateHsmCommandOutput, CreateHsmCommand } from "./commands/CreateHsmCommand";
+import {
+  type CreateLunaClientCommandInput,
+  type CreateLunaClientCommandOutput,
   CreateLunaClientCommand,
-  CreateLunaClientCommandInput,
-  CreateLunaClientCommandOutput,
 } from "./commands/CreateLunaClientCommand";
-import { DeleteHapgCommand, DeleteHapgCommandInput, DeleteHapgCommandOutput } from "./commands/DeleteHapgCommand";
-import { DeleteHsmCommand, DeleteHsmCommandInput, DeleteHsmCommandOutput } from "./commands/DeleteHsmCommand";
 import {
+  type DeleteHapgCommandInput,
+  type DeleteHapgCommandOutput,
+  DeleteHapgCommand,
+} from "./commands/DeleteHapgCommand";
+import { type DeleteHsmCommandInput, type DeleteHsmCommandOutput, DeleteHsmCommand } from "./commands/DeleteHsmCommand";
+import {
+  type DeleteLunaClientCommandInput,
+  type DeleteLunaClientCommandOutput,
   DeleteLunaClientCommand,
-  DeleteLunaClientCommandInput,
-  DeleteLunaClientCommandOutput,
 } from "./commands/DeleteLunaClientCommand";
 import {
+  type DescribeHapgCommandInput,
+  type DescribeHapgCommandOutput,
   DescribeHapgCommand,
-  DescribeHapgCommandInput,
-  DescribeHapgCommandOutput,
 } from "./commands/DescribeHapgCommand";
-import { DescribeHsmCommand, DescribeHsmCommandInput, DescribeHsmCommandOutput } from "./commands/DescribeHsmCommand";
 import {
+  type DescribeHsmCommandInput,
+  type DescribeHsmCommandOutput,
+  DescribeHsmCommand,
+} from "./commands/DescribeHsmCommand";
+import {
+  type DescribeLunaClientCommandInput,
+  type DescribeLunaClientCommandOutput,
   DescribeLunaClientCommand,
-  DescribeLunaClientCommandInput,
-  DescribeLunaClientCommandOutput,
 } from "./commands/DescribeLunaClientCommand";
-import { GetConfigCommand, GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
+import { type GetConfigCommandInput, type GetConfigCommandOutput, GetConfigCommand } from "./commands/GetConfigCommand";
 import {
+  type ListAvailableZonesCommandInput,
+  type ListAvailableZonesCommandOutput,
   ListAvailableZonesCommand,
-  ListAvailableZonesCommandInput,
-  ListAvailableZonesCommandOutput,
 } from "./commands/ListAvailableZonesCommand";
-import { ListHapgsCommand, ListHapgsCommandInput, ListHapgsCommandOutput } from "./commands/ListHapgsCommand";
-import { ListHsmsCommand, ListHsmsCommandInput, ListHsmsCommandOutput } from "./commands/ListHsmsCommand";
+import { type ListHapgsCommandInput, type ListHapgsCommandOutput, ListHapgsCommand } from "./commands/ListHapgsCommand";
+import { type ListHsmsCommandInput, type ListHsmsCommandOutput, ListHsmsCommand } from "./commands/ListHsmsCommand";
 import {
+  type ListLunaClientsCommandInput,
+  type ListLunaClientsCommandOutput,
   ListLunaClientsCommand,
-  ListLunaClientsCommandInput,
-  ListLunaClientsCommandOutput,
 } from "./commands/ListLunaClientsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ModifyHapgCommand, ModifyHapgCommandInput, ModifyHapgCommandOutput } from "./commands/ModifyHapgCommand";
-import { ModifyHsmCommand, ModifyHsmCommandInput, ModifyHsmCommandOutput } from "./commands/ModifyHsmCommand";
 import {
+  type ModifyHapgCommandInput,
+  type ModifyHapgCommandOutput,
+  ModifyHapgCommand,
+} from "./commands/ModifyHapgCommand";
+import { type ModifyHsmCommandInput, type ModifyHsmCommandOutput, ModifyHsmCommand } from "./commands/ModifyHsmCommand";
+import {
+  type ModifyLunaClientCommandInput,
+  type ModifyLunaClientCommandOutput,
   ModifyLunaClientCommand,
-  ModifyLunaClientCommandInput,
-  ModifyLunaClientCommandOutput,
 } from "./commands/ModifyLunaClientCommand";
 import {
+  type RemoveTagsFromResourceCommandInput,
+  type RemoveTagsFromResourceCommandOutput,
   RemoveTagsFromResourceCommand,
-  RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 
 const commands = {

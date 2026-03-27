@@ -8,7 +8,7 @@ import {
   ListChannelsModeratedByAppInstanceUserCommandInput,
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "../commands/ListChannelsModeratedByAppInstanceUserCommand";
-import { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -12,7 +12,7 @@
  */
 export * from "./CloudDirectoryClient";
 export * from "./CloudDirectory";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CloudDirectoryExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

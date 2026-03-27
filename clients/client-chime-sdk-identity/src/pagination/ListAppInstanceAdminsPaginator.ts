@@ -8,7 +8,7 @@ import {
   ListAppInstanceAdminsCommandInput,
   ListAppInstanceAdminsCommandOutput,
 } from "../commands/ListAppInstanceAdminsCommand";
-import { ChimeSDKIdentityPaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKIdentityPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ExportComponentsCommandInput,
   ExportComponentsCommandOutput,
 } from "../commands/ExportComponentsCommand";
-import { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
+import type { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

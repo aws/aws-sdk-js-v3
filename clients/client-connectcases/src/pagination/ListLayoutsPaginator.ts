@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListLayoutsCommand, ListLayoutsCommandInput, ListLayoutsCommandOutput } from "../commands/ListLayoutsCommand";
 import { ConnectCasesClient } from "../ConnectCasesClient";
-import { ConnectCasesPaginationConfiguration } from "./Interfaces";
+import type { ConnectCasesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

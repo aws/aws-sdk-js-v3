@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListWebAppsCommand, ListWebAppsCommandInput, ListWebAppsCommandOutput } from "../commands/ListWebAppsCommand";
 import { TransferClient } from "../TransferClient";
-import { TransferPaginationConfiguration } from "./Interfaces";
+import type { TransferPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

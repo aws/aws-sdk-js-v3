@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import { IAMClient } from "../IAMClient";
-import { IAMPaginationConfiguration } from "./Interfaces";
+import type { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

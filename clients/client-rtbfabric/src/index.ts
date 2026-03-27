@@ -7,7 +7,7 @@
  */
 export * from "./RTBFabricClient";
 export * from "./RTBFabric";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { RTBFabricExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

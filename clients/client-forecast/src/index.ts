@@ -7,7 +7,7 @@
  */
 export * from "./ForecastClient";
 export * from "./Forecast";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ForecastExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

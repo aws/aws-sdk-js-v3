@@ -8,7 +8,7 @@ import {
   DescribeAddressesCommandOutput,
 } from "../commands/DescribeAddressesCommand";
 import { SnowballClient } from "../SnowballClient";
-import { SnowballPaginationConfiguration } from "./Interfaces";
+import type { SnowballPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,112 +61,133 @@ import {
   defaultMTurkHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptQualificationRequestCommandInput,
   AcceptQualificationRequestCommandOutput,
 } from "./commands/AcceptQualificationRequestCommand";
-import { ApproveAssignmentCommandInput, ApproveAssignmentCommandOutput } from "./commands/ApproveAssignmentCommand";
-import {
+import type {
+  ApproveAssignmentCommandInput,
+  ApproveAssignmentCommandOutput,
+} from "./commands/ApproveAssignmentCommand";
+import type {
   AssociateQualificationWithWorkerCommandInput,
   AssociateQualificationWithWorkerCommandOutput,
 } from "./commands/AssociateQualificationWithWorkerCommand";
-import {
+import type {
   CreateAdditionalAssignmentsForHITCommandInput,
   CreateAdditionalAssignmentsForHITCommandOutput,
 } from "./commands/CreateAdditionalAssignmentsForHITCommand";
-import { CreateHITCommandInput, CreateHITCommandOutput } from "./commands/CreateHITCommand";
-import { CreateHITTypeCommandInput, CreateHITTypeCommandOutput } from "./commands/CreateHITTypeCommand";
-import {
+import type { CreateHITCommandInput, CreateHITCommandOutput } from "./commands/CreateHITCommand";
+import type { CreateHITTypeCommandInput, CreateHITTypeCommandOutput } from "./commands/CreateHITTypeCommand";
+import type {
   CreateHITWithHITTypeCommandInput,
   CreateHITWithHITTypeCommandOutput,
 } from "./commands/CreateHITWithHITTypeCommand";
-import {
+import type {
   CreateQualificationTypeCommandInput,
   CreateQualificationTypeCommandOutput,
 } from "./commands/CreateQualificationTypeCommand";
-import { CreateWorkerBlockCommandInput, CreateWorkerBlockCommandOutput } from "./commands/CreateWorkerBlockCommand";
-import { DeleteHITCommandInput, DeleteHITCommandOutput } from "./commands/DeleteHITCommand";
-import {
+import type {
+  CreateWorkerBlockCommandInput,
+  CreateWorkerBlockCommandOutput,
+} from "./commands/CreateWorkerBlockCommand";
+import type { DeleteHITCommandInput, DeleteHITCommandOutput } from "./commands/DeleteHITCommand";
+import type {
   DeleteQualificationTypeCommandInput,
   DeleteQualificationTypeCommandOutput,
 } from "./commands/DeleteQualificationTypeCommand";
-import { DeleteWorkerBlockCommandInput, DeleteWorkerBlockCommandOutput } from "./commands/DeleteWorkerBlockCommand";
-import {
+import type {
+  DeleteWorkerBlockCommandInput,
+  DeleteWorkerBlockCommandOutput,
+} from "./commands/DeleteWorkerBlockCommand";
+import type {
   DisassociateQualificationFromWorkerCommandInput,
   DisassociateQualificationFromWorkerCommandOutput,
 } from "./commands/DisassociateQualificationFromWorkerCommand";
-import { GetAccountBalanceCommandInput, GetAccountBalanceCommandOutput } from "./commands/GetAccountBalanceCommand";
-import { GetAssignmentCommandInput, GetAssignmentCommandOutput } from "./commands/GetAssignmentCommand";
-import { GetFileUploadURLCommandInput, GetFileUploadURLCommandOutput } from "./commands/GetFileUploadURLCommand";
-import { GetHITCommandInput, GetHITCommandOutput } from "./commands/GetHITCommand";
-import {
+import type {
+  GetAccountBalanceCommandInput,
+  GetAccountBalanceCommandOutput,
+} from "./commands/GetAccountBalanceCommand";
+import type { GetAssignmentCommandInput, GetAssignmentCommandOutput } from "./commands/GetAssignmentCommand";
+import type { GetFileUploadURLCommandInput, GetFileUploadURLCommandOutput } from "./commands/GetFileUploadURLCommand";
+import type { GetHITCommandInput, GetHITCommandOutput } from "./commands/GetHITCommand";
+import type {
   GetQualificationScoreCommandInput,
   GetQualificationScoreCommandOutput,
 } from "./commands/GetQualificationScoreCommand";
-import {
+import type {
   GetQualificationTypeCommandInput,
   GetQualificationTypeCommandOutput,
 } from "./commands/GetQualificationTypeCommand";
-import {
+import type {
   ListAssignmentsForHITCommandInput,
   ListAssignmentsForHITCommandOutput,
 } from "./commands/ListAssignmentsForHITCommand";
-import { ListBonusPaymentsCommandInput, ListBonusPaymentsCommandOutput } from "./commands/ListBonusPaymentsCommand";
-import { ListHITsCommandInput, ListHITsCommandOutput } from "./commands/ListHITsCommand";
-import {
+import type {
+  ListBonusPaymentsCommandInput,
+  ListBonusPaymentsCommandOutput,
+} from "./commands/ListBonusPaymentsCommand";
+import type { ListHITsCommandInput, ListHITsCommandOutput } from "./commands/ListHITsCommand";
+import type {
   ListHITsForQualificationTypeCommandInput,
   ListHITsForQualificationTypeCommandOutput,
 } from "./commands/ListHITsForQualificationTypeCommand";
-import {
+import type {
   ListQualificationRequestsCommandInput,
   ListQualificationRequestsCommandOutput,
 } from "./commands/ListQualificationRequestsCommand";
-import {
+import type {
   ListQualificationTypesCommandInput,
   ListQualificationTypesCommandOutput,
 } from "./commands/ListQualificationTypesCommand";
-import { ListReviewableHITsCommandInput, ListReviewableHITsCommandOutput } from "./commands/ListReviewableHITsCommand";
-import {
+import type {
+  ListReviewableHITsCommandInput,
+  ListReviewableHITsCommandOutput,
+} from "./commands/ListReviewableHITsCommand";
+import type {
   ListReviewPolicyResultsForHITCommandInput,
   ListReviewPolicyResultsForHITCommandOutput,
 } from "./commands/ListReviewPolicyResultsForHITCommand";
-import { ListWorkerBlocksCommandInput, ListWorkerBlocksCommandOutput } from "./commands/ListWorkerBlocksCommand";
-import {
+import type { ListWorkerBlocksCommandInput, ListWorkerBlocksCommandOutput } from "./commands/ListWorkerBlocksCommand";
+import type {
   ListWorkersWithQualificationTypeCommandInput,
   ListWorkersWithQualificationTypeCommandOutput,
 } from "./commands/ListWorkersWithQualificationTypeCommand";
-import { NotifyWorkersCommandInput, NotifyWorkersCommandOutput } from "./commands/NotifyWorkersCommand";
-import { RejectAssignmentCommandInput, RejectAssignmentCommandOutput } from "./commands/RejectAssignmentCommand";
-import {
+import type { NotifyWorkersCommandInput, NotifyWorkersCommandOutput } from "./commands/NotifyWorkersCommand";
+import type { RejectAssignmentCommandInput, RejectAssignmentCommandOutput } from "./commands/RejectAssignmentCommand";
+import type {
   RejectQualificationRequestCommandInput,
   RejectQualificationRequestCommandOutput,
 } from "./commands/RejectQualificationRequestCommand";
-import { SendBonusCommandInput, SendBonusCommandOutput } from "./commands/SendBonusCommand";
-import {
+import type { SendBonusCommandInput, SendBonusCommandOutput } from "./commands/SendBonusCommand";
+import type {
   SendTestEventNotificationCommandInput,
   SendTestEventNotificationCommandOutput,
 } from "./commands/SendTestEventNotificationCommand";
-import {
+import type {
   UpdateExpirationForHITCommandInput,
   UpdateExpirationForHITCommandOutput,
 } from "./commands/UpdateExpirationForHITCommand";
-import {
+import type {
   UpdateHITReviewStatusCommandInput,
   UpdateHITReviewStatusCommandOutput,
 } from "./commands/UpdateHITReviewStatusCommand";
-import { UpdateHITTypeOfHITCommandInput, UpdateHITTypeOfHITCommandOutput } from "./commands/UpdateHITTypeOfHITCommand";
-import {
+import type {
+  UpdateHITTypeOfHITCommandInput,
+  UpdateHITTypeOfHITCommandOutput,
+} from "./commands/UpdateHITTypeOfHITCommand";
+import type {
   UpdateNotificationSettingsCommandInput,
   UpdateNotificationSettingsCommandOutput,
 } from "./commands/UpdateNotificationSettingsCommand";
-import {
+import type {
   UpdateQualificationTypeCommandInput,
   UpdateQualificationTypeCommandOutput,
 } from "./commands/UpdateQualificationTypeCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -378,7 +397,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

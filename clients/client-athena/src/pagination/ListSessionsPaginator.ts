@@ -8,7 +8,7 @@ import {
   ListSessionsCommandInput,
   ListSessionsCommandOutput,
 } from "../commands/ListSessionsCommand";
-import { AthenaPaginationConfiguration } from "./Interfaces";
+import type { AthenaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

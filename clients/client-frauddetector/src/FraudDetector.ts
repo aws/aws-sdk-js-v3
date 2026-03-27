@@ -3,289 +3,345 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchCreateVariableCommandInput,
+  type BatchCreateVariableCommandOutput,
   BatchCreateVariableCommand,
-  BatchCreateVariableCommandInput,
-  BatchCreateVariableCommandOutput,
 } from "./commands/BatchCreateVariableCommand";
 import {
+  type BatchGetVariableCommandInput,
+  type BatchGetVariableCommandOutput,
   BatchGetVariableCommand,
-  BatchGetVariableCommandInput,
-  BatchGetVariableCommandOutput,
 } from "./commands/BatchGetVariableCommand";
 import {
+  type CancelBatchImportJobCommandInput,
+  type CancelBatchImportJobCommandOutput,
   CancelBatchImportJobCommand,
-  CancelBatchImportJobCommandInput,
-  CancelBatchImportJobCommandOutput,
 } from "./commands/CancelBatchImportJobCommand";
 import {
+  type CancelBatchPredictionJobCommandInput,
+  type CancelBatchPredictionJobCommandOutput,
   CancelBatchPredictionJobCommand,
-  CancelBatchPredictionJobCommandInput,
-  CancelBatchPredictionJobCommandOutput,
 } from "./commands/CancelBatchPredictionJobCommand";
 import {
+  type CreateBatchImportJobCommandInput,
+  type CreateBatchImportJobCommandOutput,
   CreateBatchImportJobCommand,
-  CreateBatchImportJobCommandInput,
-  CreateBatchImportJobCommandOutput,
 } from "./commands/CreateBatchImportJobCommand";
 import {
+  type CreateBatchPredictionJobCommandInput,
+  type CreateBatchPredictionJobCommandOutput,
   CreateBatchPredictionJobCommand,
-  CreateBatchPredictionJobCommandInput,
-  CreateBatchPredictionJobCommandOutput,
 } from "./commands/CreateBatchPredictionJobCommand";
 import {
+  type CreateDetectorVersionCommandInput,
+  type CreateDetectorVersionCommandOutput,
   CreateDetectorVersionCommand,
-  CreateDetectorVersionCommandInput,
-  CreateDetectorVersionCommandOutput,
 } from "./commands/CreateDetectorVersionCommand";
-import { CreateListCommand, CreateListCommandInput, CreateListCommandOutput } from "./commands/CreateListCommand";
-import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
+  type CreateListCommandInput,
+  type CreateListCommandOutput,
+  CreateListCommand,
+} from "./commands/CreateListCommand";
+import {
+  type CreateModelCommandInput,
+  type CreateModelCommandOutput,
+  CreateModelCommand,
+} from "./commands/CreateModelCommand";
+import {
+  type CreateModelVersionCommandInput,
+  type CreateModelVersionCommandOutput,
   CreateModelVersionCommand,
-  CreateModelVersionCommandInput,
-  CreateModelVersionCommandOutput,
 } from "./commands/CreateModelVersionCommand";
-import { CreateRuleCommand, CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
+  type CreateRuleCommandInput,
+  type CreateRuleCommandOutput,
+  CreateRuleCommand,
+} from "./commands/CreateRuleCommand";
+import {
+  type CreateVariableCommandInput,
+  type CreateVariableCommandOutput,
   CreateVariableCommand,
-  CreateVariableCommandInput,
-  CreateVariableCommandOutput,
 } from "./commands/CreateVariableCommand";
 import {
+  type DeleteBatchImportJobCommandInput,
+  type DeleteBatchImportJobCommandOutput,
   DeleteBatchImportJobCommand,
-  DeleteBatchImportJobCommandInput,
-  DeleteBatchImportJobCommandOutput,
 } from "./commands/DeleteBatchImportJobCommand";
 import {
+  type DeleteBatchPredictionJobCommandInput,
+  type DeleteBatchPredictionJobCommandOutput,
   DeleteBatchPredictionJobCommand,
-  DeleteBatchPredictionJobCommandInput,
-  DeleteBatchPredictionJobCommandOutput,
 } from "./commands/DeleteBatchPredictionJobCommand";
 import {
+  type DeleteDetectorCommandInput,
+  type DeleteDetectorCommandOutput,
   DeleteDetectorCommand,
-  DeleteDetectorCommandInput,
-  DeleteDetectorCommandOutput,
 } from "./commands/DeleteDetectorCommand";
 import {
+  type DeleteDetectorVersionCommandInput,
+  type DeleteDetectorVersionCommandOutput,
   DeleteDetectorVersionCommand,
-  DeleteDetectorVersionCommandInput,
-  DeleteDetectorVersionCommandOutput,
 } from "./commands/DeleteDetectorVersionCommand";
 import {
+  type DeleteEntityTypeCommandInput,
+  type DeleteEntityTypeCommandOutput,
   DeleteEntityTypeCommand,
-  DeleteEntityTypeCommandInput,
-  DeleteEntityTypeCommandOutput,
 } from "./commands/DeleteEntityTypeCommand";
-import { DeleteEventCommand, DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
 import {
+  type DeleteEventCommandInput,
+  type DeleteEventCommandOutput,
+  DeleteEventCommand,
+} from "./commands/DeleteEventCommand";
+import {
+  type DeleteEventsByEventTypeCommandInput,
+  type DeleteEventsByEventTypeCommandOutput,
   DeleteEventsByEventTypeCommand,
-  DeleteEventsByEventTypeCommandInput,
-  DeleteEventsByEventTypeCommandOutput,
 } from "./commands/DeleteEventsByEventTypeCommand";
 import {
+  type DeleteEventTypeCommandInput,
+  type DeleteEventTypeCommandOutput,
   DeleteEventTypeCommand,
-  DeleteEventTypeCommandInput,
-  DeleteEventTypeCommandOutput,
 } from "./commands/DeleteEventTypeCommand";
 import {
+  type DeleteExternalModelCommandInput,
+  type DeleteExternalModelCommandOutput,
   DeleteExternalModelCommand,
-  DeleteExternalModelCommandInput,
-  DeleteExternalModelCommandOutput,
 } from "./commands/DeleteExternalModelCommand";
-import { DeleteLabelCommand, DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
-import { DeleteListCommand, DeleteListCommandInput, DeleteListCommandOutput } from "./commands/DeleteListCommand";
-import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
+  type DeleteLabelCommandInput,
+  type DeleteLabelCommandOutput,
+  DeleteLabelCommand,
+} from "./commands/DeleteLabelCommand";
+import {
+  type DeleteListCommandInput,
+  type DeleteListCommandOutput,
+  DeleteListCommand,
+} from "./commands/DeleteListCommand";
+import {
+  type DeleteModelCommandInput,
+  type DeleteModelCommandOutput,
+  DeleteModelCommand,
+} from "./commands/DeleteModelCommand";
+import {
+  type DeleteModelVersionCommandInput,
+  type DeleteModelVersionCommandOutput,
   DeleteModelVersionCommand,
-  DeleteModelVersionCommandInput,
-  DeleteModelVersionCommandOutput,
 } from "./commands/DeleteModelVersionCommand";
 import {
+  type DeleteOutcomeCommandInput,
+  type DeleteOutcomeCommandOutput,
   DeleteOutcomeCommand,
-  DeleteOutcomeCommandInput,
-  DeleteOutcomeCommandOutput,
 } from "./commands/DeleteOutcomeCommand";
-import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
+  type DeleteRuleCommandInput,
+  type DeleteRuleCommandOutput,
+  DeleteRuleCommand,
+} from "./commands/DeleteRuleCommand";
+import {
+  type DeleteVariableCommandInput,
+  type DeleteVariableCommandOutput,
   DeleteVariableCommand,
-  DeleteVariableCommandInput,
-  DeleteVariableCommandOutput,
 } from "./commands/DeleteVariableCommand";
 import {
+  type DescribeDetectorCommandInput,
+  type DescribeDetectorCommandOutput,
   DescribeDetectorCommand,
-  DescribeDetectorCommandInput,
-  DescribeDetectorCommandOutput,
 } from "./commands/DescribeDetectorCommand";
 import {
+  type DescribeModelVersionsCommandInput,
+  type DescribeModelVersionsCommandOutput,
   DescribeModelVersionsCommand,
-  DescribeModelVersionsCommandInput,
-  DescribeModelVersionsCommandOutput,
 } from "./commands/DescribeModelVersionsCommand";
 import {
+  type GetBatchImportJobsCommandInput,
+  type GetBatchImportJobsCommandOutput,
   GetBatchImportJobsCommand,
-  GetBatchImportJobsCommandInput,
-  GetBatchImportJobsCommandOutput,
 } from "./commands/GetBatchImportJobsCommand";
 import {
+  type GetBatchPredictionJobsCommandInput,
+  type GetBatchPredictionJobsCommandOutput,
   GetBatchPredictionJobsCommand,
-  GetBatchPredictionJobsCommandInput,
-  GetBatchPredictionJobsCommandOutput,
 } from "./commands/GetBatchPredictionJobsCommand";
 import {
+  type GetDeleteEventsByEventTypeStatusCommandInput,
+  type GetDeleteEventsByEventTypeStatusCommandOutput,
   GetDeleteEventsByEventTypeStatusCommand,
-  GetDeleteEventsByEventTypeStatusCommandInput,
-  GetDeleteEventsByEventTypeStatusCommandOutput,
 } from "./commands/GetDeleteEventsByEventTypeStatusCommand";
 import {
+  type GetDetectorsCommandInput,
+  type GetDetectorsCommandOutput,
   GetDetectorsCommand,
-  GetDetectorsCommandInput,
-  GetDetectorsCommandOutput,
 } from "./commands/GetDetectorsCommand";
 import {
+  type GetDetectorVersionCommandInput,
+  type GetDetectorVersionCommandOutput,
   GetDetectorVersionCommand,
-  GetDetectorVersionCommandInput,
-  GetDetectorVersionCommandOutput,
 } from "./commands/GetDetectorVersionCommand";
 import {
+  type GetEntityTypesCommandInput,
+  type GetEntityTypesCommandOutput,
   GetEntityTypesCommand,
-  GetEntityTypesCommandInput,
-  GetEntityTypesCommandOutput,
 } from "./commands/GetEntityTypesCommand";
-import { GetEventCommand, GetEventCommandInput, GetEventCommandOutput } from "./commands/GetEventCommand";
+import { type GetEventCommandInput, type GetEventCommandOutput, GetEventCommand } from "./commands/GetEventCommand";
 import {
+  type GetEventPredictionCommandInput,
+  type GetEventPredictionCommandOutput,
   GetEventPredictionCommand,
-  GetEventPredictionCommandInput,
-  GetEventPredictionCommandOutput,
 } from "./commands/GetEventPredictionCommand";
 import {
+  type GetEventPredictionMetadataCommandInput,
+  type GetEventPredictionMetadataCommandOutput,
   GetEventPredictionMetadataCommand,
-  GetEventPredictionMetadataCommandInput,
-  GetEventPredictionMetadataCommandOutput,
 } from "./commands/GetEventPredictionMetadataCommand";
 import {
+  type GetEventTypesCommandInput,
+  type GetEventTypesCommandOutput,
   GetEventTypesCommand,
-  GetEventTypesCommandInput,
-  GetEventTypesCommandOutput,
 } from "./commands/GetEventTypesCommand";
 import {
+  type GetExternalModelsCommandInput,
+  type GetExternalModelsCommandOutput,
   GetExternalModelsCommand,
-  GetExternalModelsCommandInput,
-  GetExternalModelsCommandOutput,
 } from "./commands/GetExternalModelsCommand";
 import {
+  type GetKMSEncryptionKeyCommandInput,
+  type GetKMSEncryptionKeyCommandOutput,
   GetKMSEncryptionKeyCommand,
-  GetKMSEncryptionKeyCommandInput,
-  GetKMSEncryptionKeyCommandOutput,
 } from "./commands/GetKMSEncryptionKeyCommand";
-import { GetLabelsCommand, GetLabelsCommandInput, GetLabelsCommandOutput } from "./commands/GetLabelsCommand";
+import { type GetLabelsCommandInput, type GetLabelsCommandOutput, GetLabelsCommand } from "./commands/GetLabelsCommand";
 import {
+  type GetListElementsCommandInput,
+  type GetListElementsCommandOutput,
   GetListElementsCommand,
-  GetListElementsCommandInput,
-  GetListElementsCommandOutput,
 } from "./commands/GetListElementsCommand";
 import {
+  type GetListsMetadataCommandInput,
+  type GetListsMetadataCommandOutput,
   GetListsMetadataCommand,
-  GetListsMetadataCommandInput,
-  GetListsMetadataCommandOutput,
 } from "./commands/GetListsMetadataCommand";
-import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
+import { type GetModelsCommandInput, type GetModelsCommandOutput, GetModelsCommand } from "./commands/GetModelsCommand";
 import {
+  type GetModelVersionCommandInput,
+  type GetModelVersionCommandOutput,
   GetModelVersionCommand,
-  GetModelVersionCommandInput,
-  GetModelVersionCommandOutput,
 } from "./commands/GetModelVersionCommand";
-import { GetOutcomesCommand, GetOutcomesCommandInput, GetOutcomesCommandOutput } from "./commands/GetOutcomesCommand";
-import { GetRulesCommand, GetRulesCommandInput, GetRulesCommandOutput } from "./commands/GetRulesCommand";
 import {
+  type GetOutcomesCommandInput,
+  type GetOutcomesCommandOutput,
+  GetOutcomesCommand,
+} from "./commands/GetOutcomesCommand";
+import { type GetRulesCommandInput, type GetRulesCommandOutput, GetRulesCommand } from "./commands/GetRulesCommand";
+import {
+  type GetVariablesCommandInput,
+  type GetVariablesCommandOutput,
   GetVariablesCommand,
-  GetVariablesCommandInput,
-  GetVariablesCommandOutput,
 } from "./commands/GetVariablesCommand";
 import {
+  type ListEventPredictionsCommandInput,
+  type ListEventPredictionsCommandOutput,
   ListEventPredictionsCommand,
-  ListEventPredictionsCommandInput,
-  ListEventPredictionsCommandOutput,
 } from "./commands/ListEventPredictionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutDetectorCommand, PutDetectorCommandInput, PutDetectorCommandOutput } from "./commands/PutDetectorCommand";
 import {
+  type PutDetectorCommandInput,
+  type PutDetectorCommandOutput,
+  PutDetectorCommand,
+} from "./commands/PutDetectorCommand";
+import {
+  type PutEntityTypeCommandInput,
+  type PutEntityTypeCommandOutput,
   PutEntityTypeCommand,
-  PutEntityTypeCommandInput,
-  PutEntityTypeCommandOutput,
 } from "./commands/PutEntityTypeCommand";
 import {
+  type PutEventTypeCommandInput,
+  type PutEventTypeCommandOutput,
   PutEventTypeCommand,
-  PutEventTypeCommandInput,
-  PutEventTypeCommandOutput,
 } from "./commands/PutEventTypeCommand";
 import {
+  type PutExternalModelCommandInput,
+  type PutExternalModelCommandOutput,
   PutExternalModelCommand,
-  PutExternalModelCommandInput,
-  PutExternalModelCommandOutput,
 } from "./commands/PutExternalModelCommand";
 import {
+  type PutKMSEncryptionKeyCommandInput,
+  type PutKMSEncryptionKeyCommandOutput,
   PutKMSEncryptionKeyCommand,
-  PutKMSEncryptionKeyCommandInput,
-  PutKMSEncryptionKeyCommandOutput,
 } from "./commands/PutKMSEncryptionKeyCommand";
-import { PutLabelCommand, PutLabelCommandInput, PutLabelCommandOutput } from "./commands/PutLabelCommand";
-import { PutOutcomeCommand, PutOutcomeCommandInput, PutOutcomeCommandOutput } from "./commands/PutOutcomeCommand";
-import { SendEventCommand, SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type PutLabelCommandInput, type PutLabelCommandOutput, PutLabelCommand } from "./commands/PutLabelCommand";
 import {
+  type PutOutcomeCommandInput,
+  type PutOutcomeCommandOutput,
+  PutOutcomeCommand,
+} from "./commands/PutOutcomeCommand";
+import { type SendEventCommandInput, type SendEventCommandOutput, SendEventCommand } from "./commands/SendEventCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDetectorVersionCommandInput,
+  type UpdateDetectorVersionCommandOutput,
   UpdateDetectorVersionCommand,
-  UpdateDetectorVersionCommandInput,
-  UpdateDetectorVersionCommandOutput,
 } from "./commands/UpdateDetectorVersionCommand";
 import {
+  type UpdateDetectorVersionMetadataCommandInput,
+  type UpdateDetectorVersionMetadataCommandOutput,
   UpdateDetectorVersionMetadataCommand,
-  UpdateDetectorVersionMetadataCommandInput,
-  UpdateDetectorVersionMetadataCommandOutput,
 } from "./commands/UpdateDetectorVersionMetadataCommand";
 import {
+  type UpdateDetectorVersionStatusCommandInput,
+  type UpdateDetectorVersionStatusCommandOutput,
   UpdateDetectorVersionStatusCommand,
-  UpdateDetectorVersionStatusCommandInput,
-  UpdateDetectorVersionStatusCommandOutput,
 } from "./commands/UpdateDetectorVersionStatusCommand";
 import {
+  type UpdateEventLabelCommandInput,
+  type UpdateEventLabelCommandOutput,
   UpdateEventLabelCommand,
-  UpdateEventLabelCommandInput,
-  UpdateEventLabelCommandOutput,
 } from "./commands/UpdateEventLabelCommand";
-import { UpdateListCommand, UpdateListCommandInput, UpdateListCommandOutput } from "./commands/UpdateListCommand";
-import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import {
+  type UpdateListCommandInput,
+  type UpdateListCommandOutput,
+  UpdateListCommand,
+} from "./commands/UpdateListCommand";
+import {
+  type UpdateModelCommandInput,
+  type UpdateModelCommandOutput,
+  UpdateModelCommand,
+} from "./commands/UpdateModelCommand";
+import {
+  type UpdateModelVersionCommandInput,
+  type UpdateModelVersionCommandOutput,
   UpdateModelVersionCommand,
-  UpdateModelVersionCommandInput,
-  UpdateModelVersionCommandOutput,
 } from "./commands/UpdateModelVersionCommand";
 import {
+  type UpdateModelVersionStatusCommandInput,
+  type UpdateModelVersionStatusCommandOutput,
   UpdateModelVersionStatusCommand,
-  UpdateModelVersionStatusCommandInput,
-  UpdateModelVersionStatusCommandOutput,
 } from "./commands/UpdateModelVersionStatusCommand";
 import {
+  type UpdateRuleMetadataCommandInput,
+  type UpdateRuleMetadataCommandOutput,
   UpdateRuleMetadataCommand,
-  UpdateRuleMetadataCommandInput,
-  UpdateRuleMetadataCommandOutput,
 } from "./commands/UpdateRuleMetadataCommand";
 import {
+  type UpdateRuleVersionCommandInput,
+  type UpdateRuleVersionCommandOutput,
   UpdateRuleVersionCommand,
-  UpdateRuleVersionCommandInput,
-  UpdateRuleVersionCommandOutput,
 } from "./commands/UpdateRuleVersionCommand";
 import {
+  type UpdateVariableCommandInput,
+  type UpdateVariableCommandOutput,
   UpdateVariableCommand,
-  UpdateVariableCommandInput,
-  UpdateVariableCommandOutput,
 } from "./commands/UpdateVariableCommand";
 import { FraudDetectorClient } from "./FraudDetectorClient";
 import { paginateDescribeModelVersions } from "./pagination/DescribeModelVersionsPaginator";

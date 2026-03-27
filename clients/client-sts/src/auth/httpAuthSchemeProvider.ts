@@ -5,15 +5,15 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
-import {
-  type HandlerExecutionContext,
-  type HttpAuthOption,
-  type HttpAuthScheme,
-  type HttpAuthSchemeParameters,
-  type HttpAuthSchemeParametersProvider,
-  type HttpAuthSchemeProvider,
-  type Provider,
+import type {
   Client,
+  HandlerExecutionContext,
+  HttpAuthOption,
+  HttpAuthScheme,
+  HttpAuthSchemeParameters,
+  HttpAuthSchemeParametersProvider,
+  HttpAuthSchemeProvider,
+  Provider,
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 

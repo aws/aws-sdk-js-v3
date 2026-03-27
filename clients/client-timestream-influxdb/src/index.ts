@@ -8,7 +8,7 @@
  */
 export * from "./TimestreamInfluxDBClient";
 export * from "./TimestreamInfluxDB";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { TimestreamInfluxDBExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

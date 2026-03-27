@@ -1,8 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeTargetHealthCommand, DescribeTargetHealthCommandInput } from "../commands/DescribeTargetHealthCommand";
-import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
+import {
+  type DescribeTargetHealthCommandInput,
+  DescribeTargetHealthCommand,
+} from "../commands/DescribeTargetHealthCommand";
+import type { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
 
 const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeTargetHealthCommandInput): Promise<WaiterResult> => {
   let reason;

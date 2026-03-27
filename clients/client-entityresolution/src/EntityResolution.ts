@@ -3,178 +3,186 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddPolicyStatementCommandInput,
+  type AddPolicyStatementCommandOutput,
   AddPolicyStatementCommand,
-  AddPolicyStatementCommandInput,
-  AddPolicyStatementCommandOutput,
 } from "./commands/AddPolicyStatementCommand";
 import {
+  type BatchDeleteUniqueIdCommandInput,
+  type BatchDeleteUniqueIdCommandOutput,
   BatchDeleteUniqueIdCommand,
-  BatchDeleteUniqueIdCommandInput,
-  BatchDeleteUniqueIdCommandOutput,
 } from "./commands/BatchDeleteUniqueIdCommand";
 import {
+  type CreateIdMappingWorkflowCommandInput,
+  type CreateIdMappingWorkflowCommandOutput,
   CreateIdMappingWorkflowCommand,
-  CreateIdMappingWorkflowCommandInput,
-  CreateIdMappingWorkflowCommandOutput,
 } from "./commands/CreateIdMappingWorkflowCommand";
 import {
+  type CreateIdNamespaceCommandInput,
+  type CreateIdNamespaceCommandOutput,
   CreateIdNamespaceCommand,
-  CreateIdNamespaceCommandInput,
-  CreateIdNamespaceCommandOutput,
 } from "./commands/CreateIdNamespaceCommand";
 import {
+  type CreateMatchingWorkflowCommandInput,
+  type CreateMatchingWorkflowCommandOutput,
   CreateMatchingWorkflowCommand,
-  CreateMatchingWorkflowCommandInput,
-  CreateMatchingWorkflowCommandOutput,
 } from "./commands/CreateMatchingWorkflowCommand";
 import {
+  type CreateSchemaMappingCommandInput,
+  type CreateSchemaMappingCommandOutput,
   CreateSchemaMappingCommand,
-  CreateSchemaMappingCommandInput,
-  CreateSchemaMappingCommandOutput,
 } from "./commands/CreateSchemaMappingCommand";
 import {
+  type DeleteIdMappingWorkflowCommandInput,
+  type DeleteIdMappingWorkflowCommandOutput,
   DeleteIdMappingWorkflowCommand,
-  DeleteIdMappingWorkflowCommandInput,
-  DeleteIdMappingWorkflowCommandOutput,
 } from "./commands/DeleteIdMappingWorkflowCommand";
 import {
+  type DeleteIdNamespaceCommandInput,
+  type DeleteIdNamespaceCommandOutput,
   DeleteIdNamespaceCommand,
-  DeleteIdNamespaceCommandInput,
-  DeleteIdNamespaceCommandOutput,
 } from "./commands/DeleteIdNamespaceCommand";
 import {
+  type DeleteMatchingWorkflowCommandInput,
+  type DeleteMatchingWorkflowCommandOutput,
   DeleteMatchingWorkflowCommand,
-  DeleteMatchingWorkflowCommandInput,
-  DeleteMatchingWorkflowCommandOutput,
 } from "./commands/DeleteMatchingWorkflowCommand";
 import {
+  type DeletePolicyStatementCommandInput,
+  type DeletePolicyStatementCommandOutput,
   DeletePolicyStatementCommand,
-  DeletePolicyStatementCommandInput,
-  DeletePolicyStatementCommandOutput,
 } from "./commands/DeletePolicyStatementCommand";
 import {
+  type DeleteSchemaMappingCommandInput,
+  type DeleteSchemaMappingCommandOutput,
   DeleteSchemaMappingCommand,
-  DeleteSchemaMappingCommandInput,
-  DeleteSchemaMappingCommandOutput,
 } from "./commands/DeleteSchemaMappingCommand";
 import {
+  type GenerateMatchIdCommandInput,
+  type GenerateMatchIdCommandOutput,
   GenerateMatchIdCommand,
-  GenerateMatchIdCommandInput,
-  GenerateMatchIdCommandOutput,
 } from "./commands/GenerateMatchIdCommand";
 import {
+  type GetIdMappingJobCommandInput,
+  type GetIdMappingJobCommandOutput,
   GetIdMappingJobCommand,
-  GetIdMappingJobCommandInput,
-  GetIdMappingJobCommandOutput,
 } from "./commands/GetIdMappingJobCommand";
 import {
+  type GetIdMappingWorkflowCommandInput,
+  type GetIdMappingWorkflowCommandOutput,
   GetIdMappingWorkflowCommand,
-  GetIdMappingWorkflowCommandInput,
-  GetIdMappingWorkflowCommandOutput,
 } from "./commands/GetIdMappingWorkflowCommand";
 import {
+  type GetIdNamespaceCommandInput,
+  type GetIdNamespaceCommandOutput,
   GetIdNamespaceCommand,
-  GetIdNamespaceCommandInput,
-  GetIdNamespaceCommandOutput,
 } from "./commands/GetIdNamespaceCommand";
-import { GetMatchIdCommand, GetMatchIdCommandInput, GetMatchIdCommandOutput } from "./commands/GetMatchIdCommand";
 import {
+  type GetMatchIdCommandInput,
+  type GetMatchIdCommandOutput,
+  GetMatchIdCommand,
+} from "./commands/GetMatchIdCommand";
+import {
+  type GetMatchingJobCommandInput,
+  type GetMatchingJobCommandOutput,
   GetMatchingJobCommand,
-  GetMatchingJobCommandInput,
-  GetMatchingJobCommandOutput,
 } from "./commands/GetMatchingJobCommand";
 import {
+  type GetMatchingWorkflowCommandInput,
+  type GetMatchingWorkflowCommandOutput,
   GetMatchingWorkflowCommand,
-  GetMatchingWorkflowCommandInput,
-  GetMatchingWorkflowCommandOutput,
 } from "./commands/GetMatchingWorkflowCommand";
-import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { type GetPolicyCommandInput, type GetPolicyCommandOutput, GetPolicyCommand } from "./commands/GetPolicyCommand";
 import {
+  type GetProviderServiceCommandInput,
+  type GetProviderServiceCommandOutput,
   GetProviderServiceCommand,
-  GetProviderServiceCommandInput,
-  GetProviderServiceCommandOutput,
 } from "./commands/GetProviderServiceCommand";
 import {
+  type GetSchemaMappingCommandInput,
+  type GetSchemaMappingCommandOutput,
   GetSchemaMappingCommand,
-  GetSchemaMappingCommandInput,
-  GetSchemaMappingCommandOutput,
 } from "./commands/GetSchemaMappingCommand";
 import {
+  type ListIdMappingJobsCommandInput,
+  type ListIdMappingJobsCommandOutput,
   ListIdMappingJobsCommand,
-  ListIdMappingJobsCommandInput,
-  ListIdMappingJobsCommandOutput,
 } from "./commands/ListIdMappingJobsCommand";
 import {
+  type ListIdMappingWorkflowsCommandInput,
+  type ListIdMappingWorkflowsCommandOutput,
   ListIdMappingWorkflowsCommand,
-  ListIdMappingWorkflowsCommandInput,
-  ListIdMappingWorkflowsCommandOutput,
 } from "./commands/ListIdMappingWorkflowsCommand";
 import {
+  type ListIdNamespacesCommandInput,
+  type ListIdNamespacesCommandOutput,
   ListIdNamespacesCommand,
-  ListIdNamespacesCommandInput,
-  ListIdNamespacesCommandOutput,
 } from "./commands/ListIdNamespacesCommand";
 import {
+  type ListMatchingJobsCommandInput,
+  type ListMatchingJobsCommandOutput,
   ListMatchingJobsCommand,
-  ListMatchingJobsCommandInput,
-  ListMatchingJobsCommandOutput,
 } from "./commands/ListMatchingJobsCommand";
 import {
+  type ListMatchingWorkflowsCommandInput,
+  type ListMatchingWorkflowsCommandOutput,
   ListMatchingWorkflowsCommand,
-  ListMatchingWorkflowsCommandInput,
-  ListMatchingWorkflowsCommandOutput,
 } from "./commands/ListMatchingWorkflowsCommand";
 import {
+  type ListProviderServicesCommandInput,
+  type ListProviderServicesCommandOutput,
   ListProviderServicesCommand,
-  ListProviderServicesCommandInput,
-  ListProviderServicesCommandOutput,
 } from "./commands/ListProviderServicesCommand";
 import {
+  type ListSchemaMappingsCommandInput,
+  type ListSchemaMappingsCommandOutput,
   ListSchemaMappingsCommand,
-  ListSchemaMappingsCommandInput,
-  ListSchemaMappingsCommandOutput,
 } from "./commands/ListSchemaMappingsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import { type PutPolicyCommandInput, type PutPolicyCommandOutput, PutPolicyCommand } from "./commands/PutPolicyCommand";
 import {
+  type StartIdMappingJobCommandInput,
+  type StartIdMappingJobCommandOutput,
   StartIdMappingJobCommand,
-  StartIdMappingJobCommandInput,
-  StartIdMappingJobCommandOutput,
 } from "./commands/StartIdMappingJobCommand";
 import {
+  type StartMatchingJobCommandInput,
+  type StartMatchingJobCommandOutput,
   StartMatchingJobCommand,
-  StartMatchingJobCommandInput,
-  StartMatchingJobCommandOutput,
 } from "./commands/StartMatchingJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateIdMappingWorkflowCommandInput,
+  type UpdateIdMappingWorkflowCommandOutput,
   UpdateIdMappingWorkflowCommand,
-  UpdateIdMappingWorkflowCommandInput,
-  UpdateIdMappingWorkflowCommandOutput,
 } from "./commands/UpdateIdMappingWorkflowCommand";
 import {
+  type UpdateIdNamespaceCommandInput,
+  type UpdateIdNamespaceCommandOutput,
   UpdateIdNamespaceCommand,
-  UpdateIdNamespaceCommandInput,
-  UpdateIdNamespaceCommandOutput,
 } from "./commands/UpdateIdNamespaceCommand";
 import {
+  type UpdateMatchingWorkflowCommandInput,
+  type UpdateMatchingWorkflowCommandOutput,
   UpdateMatchingWorkflowCommand,
-  UpdateMatchingWorkflowCommandInput,
-  UpdateMatchingWorkflowCommandOutput,
 } from "./commands/UpdateMatchingWorkflowCommand";
 import {
+  type UpdateSchemaMappingCommandInput,
+  type UpdateSchemaMappingCommandOutput,
   UpdateSchemaMappingCommand,
-  UpdateSchemaMappingCommandInput,
-  UpdateSchemaMappingCommandOutput,
 } from "./commands/UpdateSchemaMappingCommand";
 import { EntityResolutionClient } from "./EntityResolutionClient";
 import { paginateListIdMappingJobs } from "./pagination/ListIdMappingJobsPaginator";

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,217 +61,232 @@ import {
   defaultResiliencehubHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptResourceGroupingRecommendationsCommandInput,
   AcceptResourceGroupingRecommendationsCommandOutput,
 } from "./commands/AcceptResourceGroupingRecommendationsCommand";
-import {
+import type {
   AddDraftAppVersionResourceMappingsCommandInput,
   AddDraftAppVersionResourceMappingsCommandOutput,
 } from "./commands/AddDraftAppVersionResourceMappingsCommand";
-import {
+import type {
   BatchUpdateRecommendationStatusCommandInput,
   BatchUpdateRecommendationStatusCommandOutput,
 } from "./commands/BatchUpdateRecommendationStatusCommand";
-import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
-import {
+import type { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
+import type {
   CreateAppVersionAppComponentCommandInput,
   CreateAppVersionAppComponentCommandOutput,
 } from "./commands/CreateAppVersionAppComponentCommand";
-import {
+import type {
   CreateAppVersionResourceCommandInput,
   CreateAppVersionResourceCommandOutput,
 } from "./commands/CreateAppVersionResourceCommand";
-import {
+import type {
   CreateRecommendationTemplateCommandInput,
   CreateRecommendationTemplateCommandOutput,
 } from "./commands/CreateRecommendationTemplateCommand";
-import {
+import type {
   CreateResiliencyPolicyCommandInput,
   CreateResiliencyPolicyCommandOutput,
 } from "./commands/CreateResiliencyPolicyCommand";
-import {
+import type {
   DeleteAppAssessmentCommandInput,
   DeleteAppAssessmentCommandOutput,
 } from "./commands/DeleteAppAssessmentCommand";
-import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
-import {
+import type { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
+import type {
   DeleteAppInputSourceCommandInput,
   DeleteAppInputSourceCommandOutput,
 } from "./commands/DeleteAppInputSourceCommand";
-import {
+import type {
   DeleteAppVersionAppComponentCommandInput,
   DeleteAppVersionAppComponentCommandOutput,
 } from "./commands/DeleteAppVersionAppComponentCommand";
-import {
+import type {
   DeleteAppVersionResourceCommandInput,
   DeleteAppVersionResourceCommandOutput,
 } from "./commands/DeleteAppVersionResourceCommand";
-import {
+import type {
   DeleteRecommendationTemplateCommandInput,
   DeleteRecommendationTemplateCommandOutput,
 } from "./commands/DeleteRecommendationTemplateCommand";
-import {
+import type {
   DeleteResiliencyPolicyCommandInput,
   DeleteResiliencyPolicyCommandOutput,
 } from "./commands/DeleteResiliencyPolicyCommand";
-import {
+import type {
   DescribeAppAssessmentCommandInput,
   DescribeAppAssessmentCommandOutput,
 } from "./commands/DescribeAppAssessmentCommand";
-import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
-import {
+import type { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
+import type {
   DescribeAppVersionAppComponentCommandInput,
   DescribeAppVersionAppComponentCommandOutput,
 } from "./commands/DescribeAppVersionAppComponentCommand";
-import { DescribeAppVersionCommandInput, DescribeAppVersionCommandOutput } from "./commands/DescribeAppVersionCommand";
-import {
+import type {
+  DescribeAppVersionCommandInput,
+  DescribeAppVersionCommandOutput,
+} from "./commands/DescribeAppVersionCommand";
+import type {
   DescribeAppVersionResourceCommandInput,
   DescribeAppVersionResourceCommandOutput,
 } from "./commands/DescribeAppVersionResourceCommand";
-import {
+import type {
   DescribeAppVersionResourcesResolutionStatusCommandInput,
   DescribeAppVersionResourcesResolutionStatusCommandOutput,
 } from "./commands/DescribeAppVersionResourcesResolutionStatusCommand";
-import {
+import type {
   DescribeAppVersionTemplateCommandInput,
   DescribeAppVersionTemplateCommandOutput,
 } from "./commands/DescribeAppVersionTemplateCommand";
-import {
+import type {
   DescribeDraftAppVersionResourcesImportStatusCommandInput,
   DescribeDraftAppVersionResourcesImportStatusCommandOutput,
 } from "./commands/DescribeDraftAppVersionResourcesImportStatusCommand";
-import {
+import type {
   DescribeMetricsExportCommandInput,
   DescribeMetricsExportCommandOutput,
 } from "./commands/DescribeMetricsExportCommand";
-import {
+import type {
   DescribeResiliencyPolicyCommandInput,
   DescribeResiliencyPolicyCommandOutput,
 } from "./commands/DescribeResiliencyPolicyCommand";
-import {
+import type {
   DescribeResourceGroupingRecommendationTaskCommandInput,
   DescribeResourceGroupingRecommendationTaskCommandOutput,
 } from "./commands/DescribeResourceGroupingRecommendationTaskCommand";
-import {
+import type {
   ImportResourcesToDraftAppVersionCommandInput,
   ImportResourcesToDraftAppVersionCommandOutput,
 } from "./commands/ImportResourcesToDraftAppVersionCommand";
-import {
+import type {
   ListAlarmRecommendationsCommandInput,
   ListAlarmRecommendationsCommandOutput,
 } from "./commands/ListAlarmRecommendationsCommand";
-import {
+import type {
   ListAppAssessmentComplianceDriftsCommandInput,
   ListAppAssessmentComplianceDriftsCommandOutput,
 } from "./commands/ListAppAssessmentComplianceDriftsCommand";
-import {
+import type {
   ListAppAssessmentResourceDriftsCommandInput,
   ListAppAssessmentResourceDriftsCommandOutput,
 } from "./commands/ListAppAssessmentResourceDriftsCommand";
-import { ListAppAssessmentsCommandInput, ListAppAssessmentsCommandOutput } from "./commands/ListAppAssessmentsCommand";
-import {
+import type {
+  ListAppAssessmentsCommandInput,
+  ListAppAssessmentsCommandOutput,
+} from "./commands/ListAppAssessmentsCommand";
+import type {
   ListAppComponentCompliancesCommandInput,
   ListAppComponentCompliancesCommandOutput,
 } from "./commands/ListAppComponentCompliancesCommand";
-import {
+import type {
   ListAppComponentRecommendationsCommandInput,
   ListAppComponentRecommendationsCommandOutput,
 } from "./commands/ListAppComponentRecommendationsCommand";
-import {
+import type {
   ListAppInputSourcesCommandInput,
   ListAppInputSourcesCommandOutput,
 } from "./commands/ListAppInputSourcesCommand";
-import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
-import {
+import type { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import type {
   ListAppVersionAppComponentsCommandInput,
   ListAppVersionAppComponentsCommandOutput,
 } from "./commands/ListAppVersionAppComponentsCommand";
-import {
+import type {
   ListAppVersionResourceMappingsCommandInput,
   ListAppVersionResourceMappingsCommandOutput,
 } from "./commands/ListAppVersionResourceMappingsCommand";
-import {
+import type {
   ListAppVersionResourcesCommandInput,
   ListAppVersionResourcesCommandOutput,
 } from "./commands/ListAppVersionResourcesCommand";
-import { ListAppVersionsCommandInput, ListAppVersionsCommandOutput } from "./commands/ListAppVersionsCommand";
-import { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
-import {
+import type { ListAppVersionsCommandInput, ListAppVersionsCommandOutput } from "./commands/ListAppVersionsCommand";
+import type { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
+import type {
   ListRecommendationTemplatesCommandInput,
   ListRecommendationTemplatesCommandOutput,
 } from "./commands/ListRecommendationTemplatesCommand";
-import {
+import type {
   ListResiliencyPoliciesCommandInput,
   ListResiliencyPoliciesCommandOutput,
 } from "./commands/ListResiliencyPoliciesCommand";
-import {
+import type {
   ListResourceGroupingRecommendationsCommandInput,
   ListResourceGroupingRecommendationsCommandOutput,
 } from "./commands/ListResourceGroupingRecommendationsCommand";
-import {
+import type {
   ListSopRecommendationsCommandInput,
   ListSopRecommendationsCommandOutput,
 } from "./commands/ListSopRecommendationsCommand";
-import {
+import type {
   ListSuggestedResiliencyPoliciesCommandInput,
   ListSuggestedResiliencyPoliciesCommandOutput,
 } from "./commands/ListSuggestedResiliencyPoliciesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTestRecommendationsCommandInput,
   ListTestRecommendationsCommandOutput,
 } from "./commands/ListTestRecommendationsCommand";
-import {
+import type {
   ListUnsupportedAppVersionResourcesCommandInput,
   ListUnsupportedAppVersionResourcesCommandOutput,
 } from "./commands/ListUnsupportedAppVersionResourcesCommand";
-import { PublishAppVersionCommandInput, PublishAppVersionCommandOutput } from "./commands/PublishAppVersionCommand";
-import {
+import type {
+  PublishAppVersionCommandInput,
+  PublishAppVersionCommandOutput,
+} from "./commands/PublishAppVersionCommand";
+import type {
   PutDraftAppVersionTemplateCommandInput,
   PutDraftAppVersionTemplateCommandOutput,
 } from "./commands/PutDraftAppVersionTemplateCommand";
-import {
+import type {
   RejectResourceGroupingRecommendationsCommandInput,
   RejectResourceGroupingRecommendationsCommandOutput,
 } from "./commands/RejectResourceGroupingRecommendationsCommand";
-import {
+import type {
   RemoveDraftAppVersionResourceMappingsCommandInput,
   RemoveDraftAppVersionResourceMappingsCommandOutput,
 } from "./commands/RemoveDraftAppVersionResourceMappingsCommand";
-import {
+import type {
   ResolveAppVersionResourcesCommandInput,
   ResolveAppVersionResourcesCommandOutput,
 } from "./commands/ResolveAppVersionResourcesCommand";
-import { StartAppAssessmentCommandInput, StartAppAssessmentCommandOutput } from "./commands/StartAppAssessmentCommand";
-import { StartMetricsExportCommandInput, StartMetricsExportCommandOutput } from "./commands/StartMetricsExportCommand";
-import {
+import type {
+  StartAppAssessmentCommandInput,
+  StartAppAssessmentCommandOutput,
+} from "./commands/StartAppAssessmentCommand";
+import type {
+  StartMetricsExportCommandInput,
+  StartMetricsExportCommandOutput,
+} from "./commands/StartMetricsExportCommand";
+import type {
   StartResourceGroupingRecommendationTaskCommandInput,
   StartResourceGroupingRecommendationTaskCommandOutput,
 } from "./commands/StartResourceGroupingRecommendationTaskCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
+import type {
   UpdateAppVersionAppComponentCommandInput,
   UpdateAppVersionAppComponentCommandOutput,
 } from "./commands/UpdateAppVersionAppComponentCommand";
-import { UpdateAppVersionCommandInput, UpdateAppVersionCommandOutput } from "./commands/UpdateAppVersionCommand";
-import {
+import type { UpdateAppVersionCommandInput, UpdateAppVersionCommandOutput } from "./commands/UpdateAppVersionCommand";
+import type {
   UpdateAppVersionResourceCommandInput,
   UpdateAppVersionResourceCommandOutput,
 } from "./commands/UpdateAppVersionResourceCommand";
-import {
+import type {
   UpdateResiliencyPolicyCommandInput,
   UpdateResiliencyPolicyCommandOutput,
 } from "./commands/UpdateResiliencyPolicyCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -531,7 +544,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

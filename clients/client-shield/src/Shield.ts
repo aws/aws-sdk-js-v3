@@ -3,176 +3,184 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateDRTLogBucketCommandInput,
+  type AssociateDRTLogBucketCommandOutput,
   AssociateDRTLogBucketCommand,
-  AssociateDRTLogBucketCommandInput,
-  AssociateDRTLogBucketCommandOutput,
 } from "./commands/AssociateDRTLogBucketCommand";
 import {
+  type AssociateDRTRoleCommandInput,
+  type AssociateDRTRoleCommandOutput,
   AssociateDRTRoleCommand,
-  AssociateDRTRoleCommandInput,
-  AssociateDRTRoleCommandOutput,
 } from "./commands/AssociateDRTRoleCommand";
 import {
+  type AssociateHealthCheckCommandInput,
+  type AssociateHealthCheckCommandOutput,
   AssociateHealthCheckCommand,
-  AssociateHealthCheckCommandInput,
-  AssociateHealthCheckCommandOutput,
 } from "./commands/AssociateHealthCheckCommand";
 import {
+  type AssociateProactiveEngagementDetailsCommandInput,
+  type AssociateProactiveEngagementDetailsCommandOutput,
   AssociateProactiveEngagementDetailsCommand,
-  AssociateProactiveEngagementDetailsCommandInput,
-  AssociateProactiveEngagementDetailsCommandOutput,
 } from "./commands/AssociateProactiveEngagementDetailsCommand";
 import {
+  type CreateProtectionCommandInput,
+  type CreateProtectionCommandOutput,
   CreateProtectionCommand,
-  CreateProtectionCommandInput,
-  CreateProtectionCommandOutput,
 } from "./commands/CreateProtectionCommand";
 import {
+  type CreateProtectionGroupCommandInput,
+  type CreateProtectionGroupCommandOutput,
   CreateProtectionGroupCommand,
-  CreateProtectionGroupCommandInput,
-  CreateProtectionGroupCommandOutput,
 } from "./commands/CreateProtectionGroupCommand";
 import {
+  type CreateSubscriptionCommandInput,
+  type CreateSubscriptionCommandOutput,
   CreateSubscriptionCommand,
-  CreateSubscriptionCommandInput,
-  CreateSubscriptionCommandOutput,
 } from "./commands/CreateSubscriptionCommand";
 import {
+  type DeleteProtectionCommandInput,
+  type DeleteProtectionCommandOutput,
   DeleteProtectionCommand,
-  DeleteProtectionCommandInput,
-  DeleteProtectionCommandOutput,
 } from "./commands/DeleteProtectionCommand";
 import {
+  type DeleteProtectionGroupCommandInput,
+  type DeleteProtectionGroupCommandOutput,
   DeleteProtectionGroupCommand,
-  DeleteProtectionGroupCommandInput,
-  DeleteProtectionGroupCommandOutput,
 } from "./commands/DeleteProtectionGroupCommand";
 import {
+  type DeleteSubscriptionCommandInput,
+  type DeleteSubscriptionCommandOutput,
   DeleteSubscriptionCommand,
-  DeleteSubscriptionCommandInput,
-  DeleteSubscriptionCommandOutput,
 } from "./commands/DeleteSubscriptionCommand";
 import {
+  type DescribeAttackCommandInput,
+  type DescribeAttackCommandOutput,
   DescribeAttackCommand,
-  DescribeAttackCommandInput,
-  DescribeAttackCommandOutput,
 } from "./commands/DescribeAttackCommand";
 import {
+  type DescribeAttackStatisticsCommandInput,
+  type DescribeAttackStatisticsCommandOutput,
   DescribeAttackStatisticsCommand,
-  DescribeAttackStatisticsCommandInput,
-  DescribeAttackStatisticsCommandOutput,
 } from "./commands/DescribeAttackStatisticsCommand";
 import {
+  type DescribeDRTAccessCommandInput,
+  type DescribeDRTAccessCommandOutput,
   DescribeDRTAccessCommand,
-  DescribeDRTAccessCommandInput,
-  DescribeDRTAccessCommandOutput,
 } from "./commands/DescribeDRTAccessCommand";
 import {
+  type DescribeEmergencyContactSettingsCommandInput,
+  type DescribeEmergencyContactSettingsCommandOutput,
   DescribeEmergencyContactSettingsCommand,
-  DescribeEmergencyContactSettingsCommandInput,
-  DescribeEmergencyContactSettingsCommandOutput,
 } from "./commands/DescribeEmergencyContactSettingsCommand";
 import {
+  type DescribeProtectionCommandInput,
+  type DescribeProtectionCommandOutput,
   DescribeProtectionCommand,
-  DescribeProtectionCommandInput,
-  DescribeProtectionCommandOutput,
 } from "./commands/DescribeProtectionCommand";
 import {
+  type DescribeProtectionGroupCommandInput,
+  type DescribeProtectionGroupCommandOutput,
   DescribeProtectionGroupCommand,
-  DescribeProtectionGroupCommandInput,
-  DescribeProtectionGroupCommandOutput,
 } from "./commands/DescribeProtectionGroupCommand";
 import {
+  type DescribeSubscriptionCommandInput,
+  type DescribeSubscriptionCommandOutput,
   DescribeSubscriptionCommand,
-  DescribeSubscriptionCommandInput,
-  DescribeSubscriptionCommandOutput,
 } from "./commands/DescribeSubscriptionCommand";
 import {
+  type DisableApplicationLayerAutomaticResponseCommandInput,
+  type DisableApplicationLayerAutomaticResponseCommandOutput,
   DisableApplicationLayerAutomaticResponseCommand,
-  DisableApplicationLayerAutomaticResponseCommandInput,
-  DisableApplicationLayerAutomaticResponseCommandOutput,
 } from "./commands/DisableApplicationLayerAutomaticResponseCommand";
 import {
+  type DisableProactiveEngagementCommandInput,
+  type DisableProactiveEngagementCommandOutput,
   DisableProactiveEngagementCommand,
-  DisableProactiveEngagementCommandInput,
-  DisableProactiveEngagementCommandOutput,
 } from "./commands/DisableProactiveEngagementCommand";
 import {
+  type DisassociateDRTLogBucketCommandInput,
+  type DisassociateDRTLogBucketCommandOutput,
   DisassociateDRTLogBucketCommand,
-  DisassociateDRTLogBucketCommandInput,
-  DisassociateDRTLogBucketCommandOutput,
 } from "./commands/DisassociateDRTLogBucketCommand";
 import {
+  type DisassociateDRTRoleCommandInput,
+  type DisassociateDRTRoleCommandOutput,
   DisassociateDRTRoleCommand,
-  DisassociateDRTRoleCommandInput,
-  DisassociateDRTRoleCommandOutput,
 } from "./commands/DisassociateDRTRoleCommand";
 import {
+  type DisassociateHealthCheckCommandInput,
+  type DisassociateHealthCheckCommandOutput,
   DisassociateHealthCheckCommand,
-  DisassociateHealthCheckCommandInput,
-  DisassociateHealthCheckCommandOutput,
 } from "./commands/DisassociateHealthCheckCommand";
 import {
+  type EnableApplicationLayerAutomaticResponseCommandInput,
+  type EnableApplicationLayerAutomaticResponseCommandOutput,
   EnableApplicationLayerAutomaticResponseCommand,
-  EnableApplicationLayerAutomaticResponseCommandInput,
-  EnableApplicationLayerAutomaticResponseCommandOutput,
 } from "./commands/EnableApplicationLayerAutomaticResponseCommand";
 import {
+  type EnableProactiveEngagementCommandInput,
+  type EnableProactiveEngagementCommandOutput,
   EnableProactiveEngagementCommand,
-  EnableProactiveEngagementCommandInput,
-  EnableProactiveEngagementCommandOutput,
 } from "./commands/EnableProactiveEngagementCommand";
 import {
+  type GetSubscriptionStateCommandInput,
+  type GetSubscriptionStateCommandOutput,
   GetSubscriptionStateCommand,
-  GetSubscriptionStateCommandInput,
-  GetSubscriptionStateCommandOutput,
 } from "./commands/GetSubscriptionStateCommand";
-import { ListAttacksCommand, ListAttacksCommandInput, ListAttacksCommandOutput } from "./commands/ListAttacksCommand";
 import {
+  type ListAttacksCommandInput,
+  type ListAttacksCommandOutput,
+  ListAttacksCommand,
+} from "./commands/ListAttacksCommand";
+import {
+  type ListProtectionGroupsCommandInput,
+  type ListProtectionGroupsCommandOutput,
   ListProtectionGroupsCommand,
-  ListProtectionGroupsCommandInput,
-  ListProtectionGroupsCommandOutput,
 } from "./commands/ListProtectionGroupsCommand";
 import {
+  type ListProtectionsCommandInput,
+  type ListProtectionsCommandOutput,
   ListProtectionsCommand,
-  ListProtectionsCommandInput,
-  ListProtectionsCommandOutput,
 } from "./commands/ListProtectionsCommand";
 import {
+  type ListResourcesInProtectionGroupCommandInput,
+  type ListResourcesInProtectionGroupCommandOutput,
   ListResourcesInProtectionGroupCommand,
-  ListResourcesInProtectionGroupCommandInput,
-  ListResourcesInProtectionGroupCommandOutput,
 } from "./commands/ListResourcesInProtectionGroupCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApplicationLayerAutomaticResponseCommandInput,
+  type UpdateApplicationLayerAutomaticResponseCommandOutput,
   UpdateApplicationLayerAutomaticResponseCommand,
-  UpdateApplicationLayerAutomaticResponseCommandInput,
-  UpdateApplicationLayerAutomaticResponseCommandOutput,
 } from "./commands/UpdateApplicationLayerAutomaticResponseCommand";
 import {
+  type UpdateEmergencyContactSettingsCommandInput,
+  type UpdateEmergencyContactSettingsCommandOutput,
   UpdateEmergencyContactSettingsCommand,
-  UpdateEmergencyContactSettingsCommandInput,
-  UpdateEmergencyContactSettingsCommandOutput,
 } from "./commands/UpdateEmergencyContactSettingsCommand";
 import {
+  type UpdateProtectionGroupCommandInput,
+  type UpdateProtectionGroupCommandOutput,
   UpdateProtectionGroupCommand,
-  UpdateProtectionGroupCommandInput,
-  UpdateProtectionGroupCommandOutput,
 } from "./commands/UpdateProtectionGroupCommand";
 import {
+  type UpdateSubscriptionCommandInput,
+  type UpdateSubscriptionCommandOutput,
   UpdateSubscriptionCommand,
-  UpdateSubscriptionCommandInput,
-  UpdateSubscriptionCommandOutput,
 } from "./commands/UpdateSubscriptionCommand";
 import { paginateListAttacks } from "./pagination/ListAttacksPaginator";
 import { paginateListProtectionGroups } from "./pagination/ListProtectionGroupsPaginator";

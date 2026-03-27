@@ -8,7 +8,7 @@ import {
   GetAgreementTermsCommandOutput,
 } from "../commands/GetAgreementTermsCommand";
 import { MarketplaceAgreementClient } from "../MarketplaceAgreementClient";
-import { MarketplaceAgreementPaginationConfiguration } from "./Interfaces";
+import type { MarketplaceAgreementPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListV2LoggingLevelsCommandOutput,
 } from "../commands/ListV2LoggingLevelsCommand";
 import { IoTClient } from "../IoTClient";
-import { IoTPaginationConfiguration } from "./Interfaces";
+import type { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

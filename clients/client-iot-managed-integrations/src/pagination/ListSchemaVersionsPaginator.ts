@@ -8,7 +8,7 @@ import {
   ListSchemaVersionsCommandOutput,
 } from "../commands/ListSchemaVersionsCommand";
 import { IoTManagedIntegrationsClient } from "../IoTManagedIntegrationsClient";
-import { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
+import type { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

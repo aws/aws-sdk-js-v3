@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { DocumentType as __DocumentType } from "@smithy/types";
+import type { DocumentType as __DocumentType } from "@smithy/types";
 
-import { UserStatus } from "./enums";
+import type { UserStatus } from "./enums";
 
 /**
  * <p>The address associated with the specified user.</p>

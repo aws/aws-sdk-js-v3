@@ -8,7 +8,7 @@ import {
   DescribeScalingActivitiesCommandInput,
   DescribeScalingActivitiesCommandOutput,
 } from "../commands/DescribeScalingActivitiesCommand";
-import { ApplicationAutoScalingPaginationConfiguration } from "./Interfaces";
+import type { ApplicationAutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

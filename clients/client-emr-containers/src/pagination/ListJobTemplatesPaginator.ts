@@ -8,7 +8,7 @@ import {
   ListJobTemplatesCommandOutput,
 } from "../commands/ListJobTemplatesCommand";
 import { EMRContainersClient } from "../EMRContainersClient";
-import { EMRContainersPaginationConfiguration } from "./Interfaces";
+import type { EMRContainersPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

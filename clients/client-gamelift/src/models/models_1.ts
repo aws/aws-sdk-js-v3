@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   BackfillMode,
   BalancingStrategy,
   FlexMatchMode,
@@ -9,25 +9,25 @@ import {
   PlayerSessionCreationPolicy,
   ProtectionPolicy,
 } from "./enums";
-import {
-  type AnywhereConfiguration,
-  type FilterConfiguration,
-  type GameServer,
-  type GameServerGroup,
-  type GameSession,
-  type GameSessionQueue,
-  type ManagedCapacityConfiguration,
-  type MatchmakingConfiguration,
-  type PriorityConfiguration,
-  type ResourceCreationLimitPolicy,
-  type RuntimeConfiguration,
-  type S3Location,
-  type Script,
+import type {
+  AnywhereConfiguration,
+  FilterConfiguration,
   GameProperty,
+  GameServer,
+  GameServerGroup,
+  GameSession,
+  GameSessionQueue,
   GameSessionQueueDestination,
   InstanceDefinition,
   IpPermission,
+  ManagedCapacityConfiguration,
+  MatchmakingConfiguration,
   PlayerLatencyPolicy,
+  PriorityConfiguration,
+  ResourceCreationLimitPolicy,
+  RuntimeConfiguration,
+  S3Location,
+  Script,
 } from "./models_0";
 
 /**

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ApplyMethod, FailoverStatus, SourceType } from "./enums";
+import type { ApplyMethod, FailoverStatus, SourceType } from "./enums";
 
 /**
  * @public

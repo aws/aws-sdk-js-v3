@@ -4,102 +4,118 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { AppflowClient } from "./AppflowClient";
 import {
+  type CancelFlowExecutionsCommandInput,
+  type CancelFlowExecutionsCommandOutput,
   CancelFlowExecutionsCommand,
-  CancelFlowExecutionsCommandInput,
-  CancelFlowExecutionsCommandOutput,
 } from "./commands/CancelFlowExecutionsCommand";
 import {
+  type CreateConnectorProfileCommandInput,
+  type CreateConnectorProfileCommandOutput,
   CreateConnectorProfileCommand,
-  CreateConnectorProfileCommandInput,
-  CreateConnectorProfileCommandOutput,
 } from "./commands/CreateConnectorProfileCommand";
-import { CreateFlowCommand, CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
 import {
+  type CreateFlowCommandInput,
+  type CreateFlowCommandOutput,
+  CreateFlowCommand,
+} from "./commands/CreateFlowCommand";
+import {
+  type DeleteConnectorProfileCommandInput,
+  type DeleteConnectorProfileCommandOutput,
   DeleteConnectorProfileCommand,
-  DeleteConnectorProfileCommandInput,
-  DeleteConnectorProfileCommandOutput,
 } from "./commands/DeleteConnectorProfileCommand";
-import { DeleteFlowCommand, DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
 import {
+  type DeleteFlowCommandInput,
+  type DeleteFlowCommandOutput,
+  DeleteFlowCommand,
+} from "./commands/DeleteFlowCommand";
+import {
+  type DescribeConnectorCommandInput,
+  type DescribeConnectorCommandOutput,
   DescribeConnectorCommand,
-  DescribeConnectorCommandInput,
-  DescribeConnectorCommandOutput,
 } from "./commands/DescribeConnectorCommand";
 import {
+  type DescribeConnectorEntityCommandInput,
+  type DescribeConnectorEntityCommandOutput,
   DescribeConnectorEntityCommand,
-  DescribeConnectorEntityCommandInput,
-  DescribeConnectorEntityCommandOutput,
 } from "./commands/DescribeConnectorEntityCommand";
 import {
+  type DescribeConnectorProfilesCommandInput,
+  type DescribeConnectorProfilesCommandOutput,
   DescribeConnectorProfilesCommand,
-  DescribeConnectorProfilesCommandInput,
-  DescribeConnectorProfilesCommandOutput,
 } from "./commands/DescribeConnectorProfilesCommand";
 import {
+  type DescribeConnectorsCommandInput,
+  type DescribeConnectorsCommandOutput,
   DescribeConnectorsCommand,
-  DescribeConnectorsCommandInput,
-  DescribeConnectorsCommandOutput,
 } from "./commands/DescribeConnectorsCommand";
 import {
+  type DescribeFlowCommandInput,
+  type DescribeFlowCommandOutput,
   DescribeFlowCommand,
-  DescribeFlowCommandInput,
-  DescribeFlowCommandOutput,
 } from "./commands/DescribeFlowCommand";
 import {
+  type DescribeFlowExecutionRecordsCommandInput,
+  type DescribeFlowExecutionRecordsCommandOutput,
   DescribeFlowExecutionRecordsCommand,
-  DescribeFlowExecutionRecordsCommandInput,
-  DescribeFlowExecutionRecordsCommandOutput,
 } from "./commands/DescribeFlowExecutionRecordsCommand";
 import {
+  type ListConnectorEntitiesCommandInput,
+  type ListConnectorEntitiesCommandOutput,
   ListConnectorEntitiesCommand,
-  ListConnectorEntitiesCommandInput,
-  ListConnectorEntitiesCommandOutput,
 } from "./commands/ListConnectorEntitiesCommand";
 import {
+  type ListConnectorsCommandInput,
+  type ListConnectorsCommandOutput,
   ListConnectorsCommand,
-  ListConnectorsCommandInput,
-  ListConnectorsCommandOutput,
 } from "./commands/ListConnectorsCommand";
-import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
+import { type ListFlowsCommandInput, type ListFlowsCommandOutput, ListFlowsCommand } from "./commands/ListFlowsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RegisterConnectorCommandInput,
+  type RegisterConnectorCommandOutput,
   RegisterConnectorCommand,
-  RegisterConnectorCommandInput,
-  RegisterConnectorCommandOutput,
 } from "./commands/RegisterConnectorCommand";
 import {
+  type ResetConnectorMetadataCacheCommandInput,
+  type ResetConnectorMetadataCacheCommandOutput,
   ResetConnectorMetadataCacheCommand,
-  ResetConnectorMetadataCacheCommandInput,
-  ResetConnectorMetadataCacheCommandOutput,
 } from "./commands/ResetConnectorMetadataCacheCommand";
-import { StartFlowCommand, StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartFlowCommand";
-import { StopFlowCommand, StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type StartFlowCommandInput, type StartFlowCommandOutput, StartFlowCommand } from "./commands/StartFlowCommand";
+import { type StopFlowCommandInput, type StopFlowCommandOutput, StopFlowCommand } from "./commands/StopFlowCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UnregisterConnectorCommandInput,
+  type UnregisterConnectorCommandOutput,
   UnregisterConnectorCommand,
-  UnregisterConnectorCommandInput,
-  UnregisterConnectorCommandOutput,
 } from "./commands/UnregisterConnectorCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateConnectorProfileCommandInput,
+  type UpdateConnectorProfileCommandOutput,
   UpdateConnectorProfileCommand,
-  UpdateConnectorProfileCommandInput,
-  UpdateConnectorProfileCommandOutput,
 } from "./commands/UpdateConnectorProfileCommand";
 import {
+  type UpdateConnectorRegistrationCommandInput,
+  type UpdateConnectorRegistrationCommandOutput,
   UpdateConnectorRegistrationCommand,
-  UpdateConnectorRegistrationCommandInput,
-  UpdateConnectorRegistrationCommandOutput,
 } from "./commands/UpdateConnectorRegistrationCommand";
-import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
+import {
+  type UpdateFlowCommandInput,
+  type UpdateFlowCommandOutput,
+  UpdateFlowCommand,
+} from "./commands/UpdateFlowCommand";
 import { paginateDescribeConnectorProfiles } from "./pagination/DescribeConnectorProfilesPaginator";
 import { paginateDescribeConnectors } from "./pagination/DescribeConnectorsPaginator";
 import { paginateDescribeFlowExecutionRecords } from "./pagination/DescribeFlowExecutionRecordsPaginator";

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,84 +61,87 @@ import {
   defaultGreengrassV2HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateServiceRoleToAccountCommandInput,
   AssociateServiceRoleToAccountCommandOutput,
 } from "./commands/AssociateServiceRoleToAccountCommand";
-import {
+import type {
   BatchAssociateClientDeviceWithCoreDeviceCommandInput,
   BatchAssociateClientDeviceWithCoreDeviceCommandOutput,
 } from "./commands/BatchAssociateClientDeviceWithCoreDeviceCommand";
-import {
+import type {
   BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
   BatchDisassociateClientDeviceFromCoreDeviceCommandOutput,
 } from "./commands/BatchDisassociateClientDeviceFromCoreDeviceCommand";
-import { CancelDeploymentCommandInput, CancelDeploymentCommandOutput } from "./commands/CancelDeploymentCommand";
-import {
+import type { CancelDeploymentCommandInput, CancelDeploymentCommandOutput } from "./commands/CancelDeploymentCommand";
+import type {
   CreateComponentVersionCommandInput,
   CreateComponentVersionCommandOutput,
 } from "./commands/CreateComponentVersionCommand";
-import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
-import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
-import { DeleteCoreDeviceCommandInput, DeleteCoreDeviceCommandOutput } from "./commands/DeleteCoreDeviceCommand";
-import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
-import { DescribeComponentCommandInput, DescribeComponentCommandOutput } from "./commands/DescribeComponentCommand";
-import {
+import type { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
+import type { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
+import type { DeleteCoreDeviceCommandInput, DeleteCoreDeviceCommandOutput } from "./commands/DeleteCoreDeviceCommand";
+import type { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
+import type {
+  DescribeComponentCommandInput,
+  DescribeComponentCommandOutput,
+} from "./commands/DescribeComponentCommand";
+import type {
   DisassociateServiceRoleFromAccountCommandInput,
   DisassociateServiceRoleFromAccountCommandOutput,
 } from "./commands/DisassociateServiceRoleFromAccountCommand";
-import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
-import {
+import type { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
+import type {
   GetComponentVersionArtifactCommandInput,
   GetComponentVersionArtifactCommandOutput,
 } from "./commands/GetComponentVersionArtifactCommand";
-import {
+import type {
   GetConnectivityInfoCommandInput,
   GetConnectivityInfoCommandOutput,
 } from "./commands/GetConnectivityInfoCommand";
-import { GetCoreDeviceCommandInput, GetCoreDeviceCommandOutput } from "./commands/GetCoreDeviceCommand";
-import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
-import {
+import type { GetCoreDeviceCommandInput, GetCoreDeviceCommandOutput } from "./commands/GetCoreDeviceCommand";
+import type { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
+import type {
   GetServiceRoleForAccountCommandInput,
   GetServiceRoleForAccountCommandOutput,
 } from "./commands/GetServiceRoleForAccountCommand";
-import {
+import type {
   ListClientDevicesAssociatedWithCoreDeviceCommandInput,
   ListClientDevicesAssociatedWithCoreDeviceCommandOutput,
 } from "./commands/ListClientDevicesAssociatedWithCoreDeviceCommand";
-import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
-import {
+import type { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
+import type {
   ListComponentVersionsCommandInput,
   ListComponentVersionsCommandOutput,
 } from "./commands/ListComponentVersionsCommand";
-import { ListCoreDevicesCommandInput, ListCoreDevicesCommandOutput } from "./commands/ListCoreDevicesCommand";
-import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
-import {
+import type { ListCoreDevicesCommandInput, ListCoreDevicesCommandOutput } from "./commands/ListCoreDevicesCommand";
+import type { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
+import type {
   ListEffectiveDeploymentsCommandInput,
   ListEffectiveDeploymentsCommandOutput,
 } from "./commands/ListEffectiveDeploymentsCommand";
-import {
+import type {
   ListInstalledComponentsCommandInput,
   ListInstalledComponentsCommandOutput,
 } from "./commands/ListInstalledComponentsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ResolveComponentCandidatesCommandInput,
   ResolveComponentCandidatesCommandOutput,
 } from "./commands/ResolveComponentCandidatesCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateConnectivityInfoCommandInput,
   UpdateConnectivityInfoCommandOutput,
 } from "./commands/UpdateConnectivityInfoCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -330,7 +331,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

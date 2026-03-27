@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,74 +61,74 @@ import {
   defaultNetworkFlowMonitorHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "./commands/CreateMonitorCommand";
-import { CreateScopeCommandInput, CreateScopeCommandOutput } from "./commands/CreateScopeCommand";
-import { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "./commands/DeleteMonitorCommand";
-import { DeleteScopeCommandInput, DeleteScopeCommandOutput } from "./commands/DeleteScopeCommand";
-import { GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
-import {
+import type { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "./commands/CreateMonitorCommand";
+import type { CreateScopeCommandInput, CreateScopeCommandOutput } from "./commands/CreateScopeCommand";
+import type { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "./commands/DeleteMonitorCommand";
+import type { DeleteScopeCommandInput, DeleteScopeCommandOutput } from "./commands/DeleteScopeCommand";
+import type { GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
+import type {
   GetQueryResultsMonitorTopContributorsCommandInput,
   GetQueryResultsMonitorTopContributorsCommandOutput,
 } from "./commands/GetQueryResultsMonitorTopContributorsCommand";
-import {
+import type {
   GetQueryResultsWorkloadInsightsTopContributorsCommandInput,
   GetQueryResultsWorkloadInsightsTopContributorsCommandOutput,
 } from "./commands/GetQueryResultsWorkloadInsightsTopContributorsCommand";
-import {
+import type {
   GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput,
   GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput,
 } from "./commands/GetQueryResultsWorkloadInsightsTopContributorsDataCommand";
-import {
+import type {
   GetQueryStatusMonitorTopContributorsCommandInput,
   GetQueryStatusMonitorTopContributorsCommandOutput,
 } from "./commands/GetQueryStatusMonitorTopContributorsCommand";
-import {
+import type {
   GetQueryStatusWorkloadInsightsTopContributorsCommandInput,
   GetQueryStatusWorkloadInsightsTopContributorsCommandOutput,
 } from "./commands/GetQueryStatusWorkloadInsightsTopContributorsCommand";
-import {
+import type {
   GetQueryStatusWorkloadInsightsTopContributorsDataCommandInput,
   GetQueryStatusWorkloadInsightsTopContributorsDataCommandOutput,
 } from "./commands/GetQueryStatusWorkloadInsightsTopContributorsDataCommand";
-import { GetScopeCommandInput, GetScopeCommandOutput } from "./commands/GetScopeCommand";
-import { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "./commands/ListMonitorsCommand";
-import { ListScopesCommandInput, ListScopesCommandOutput } from "./commands/ListScopesCommand";
-import {
+import type { GetScopeCommandInput, GetScopeCommandOutput } from "./commands/GetScopeCommand";
+import type { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "./commands/ListMonitorsCommand";
+import type { ListScopesCommandInput, ListScopesCommandOutput } from "./commands/ListScopesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   StartQueryMonitorTopContributorsCommandInput,
   StartQueryMonitorTopContributorsCommandOutput,
 } from "./commands/StartQueryMonitorTopContributorsCommand";
-import {
+import type {
   StartQueryWorkloadInsightsTopContributorsCommandInput,
   StartQueryWorkloadInsightsTopContributorsCommandOutput,
 } from "./commands/StartQueryWorkloadInsightsTopContributorsCommand";
-import {
+import type {
   StartQueryWorkloadInsightsTopContributorsDataCommandInput,
   StartQueryWorkloadInsightsTopContributorsDataCommandOutput,
 } from "./commands/StartQueryWorkloadInsightsTopContributorsDataCommand";
-import {
+import type {
   StopQueryMonitorTopContributorsCommandInput,
   StopQueryMonitorTopContributorsCommandOutput,
 } from "./commands/StopQueryMonitorTopContributorsCommand";
-import {
+import type {
   StopQueryWorkloadInsightsTopContributorsCommandInput,
   StopQueryWorkloadInsightsTopContributorsCommandOutput,
 } from "./commands/StopQueryWorkloadInsightsTopContributorsCommand";
-import {
+import type {
   StopQueryWorkloadInsightsTopContributorsDataCommandInput,
   StopQueryWorkloadInsightsTopContributorsDataCommandOutput,
 } from "./commands/StopQueryWorkloadInsightsTopContributorsDataCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateMonitorCommandInput, UpdateMonitorCommandOutput } from "./commands/UpdateMonitorCommand";
-import { UpdateScopeCommandInput, UpdateScopeCommandOutput } from "./commands/UpdateScopeCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateMonitorCommandInput, UpdateMonitorCommandOutput } from "./commands/UpdateMonitorCommand";
+import type { UpdateScopeCommandInput, UpdateScopeCommandOutput } from "./commands/UpdateScopeCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -312,7 +310,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

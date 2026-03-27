@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,96 +61,117 @@ import {
   defaultXRayHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BatchGetTracesCommandInput, BatchGetTracesCommandOutput } from "./commands/BatchGetTracesCommand";
-import {
+import type { BatchGetTracesCommandInput, BatchGetTracesCommandOutput } from "./commands/BatchGetTracesCommand";
+import type {
   CancelTraceRetrievalCommandInput,
   CancelTraceRetrievalCommandOutput,
 } from "./commands/CancelTraceRetrievalCommand";
-import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
-import { CreateSamplingRuleCommandInput, CreateSamplingRuleCommandOutput } from "./commands/CreateSamplingRuleCommand";
-import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
-import {
+import type { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import type {
+  CreateSamplingRuleCommandInput,
+  CreateSamplingRuleCommandOutput,
+} from "./commands/CreateSamplingRuleCommand";
+import type { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteSamplingRuleCommandInput, DeleteSamplingRuleCommandOutput } from "./commands/DeleteSamplingRuleCommand";
-import {
+import type {
+  DeleteSamplingRuleCommandInput,
+  DeleteSamplingRuleCommandOutput,
+} from "./commands/DeleteSamplingRuleCommand";
+import type {
   GetEncryptionConfigCommandInput,
   GetEncryptionConfigCommandOutput,
 } from "./commands/GetEncryptionConfigCommand";
-import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
-import { GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand";
-import { GetIndexingRulesCommandInput, GetIndexingRulesCommandOutput } from "./commands/GetIndexingRulesCommand";
-import { GetInsightCommandInput, GetInsightCommandOutput } from "./commands/GetInsightCommand";
-import { GetInsightEventsCommandInput, GetInsightEventsCommandOutput } from "./commands/GetInsightEventsCommand";
-import {
+import type { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import type { GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand";
+import type { GetIndexingRulesCommandInput, GetIndexingRulesCommandOutput } from "./commands/GetIndexingRulesCommand";
+import type { GetInsightCommandInput, GetInsightCommandOutput } from "./commands/GetInsightCommand";
+import type { GetInsightEventsCommandInput, GetInsightEventsCommandOutput } from "./commands/GetInsightEventsCommand";
+import type {
   GetInsightImpactGraphCommandInput,
   GetInsightImpactGraphCommandOutput,
 } from "./commands/GetInsightImpactGraphCommand";
-import {
+import type {
   GetInsightSummariesCommandInput,
   GetInsightSummariesCommandOutput,
 } from "./commands/GetInsightSummariesCommand";
-import {
+import type {
   GetRetrievedTracesGraphCommandInput,
   GetRetrievedTracesGraphCommandOutput,
 } from "./commands/GetRetrievedTracesGraphCommand";
-import { GetSamplingRulesCommandInput, GetSamplingRulesCommandOutput } from "./commands/GetSamplingRulesCommand";
-import {
+import type { GetSamplingRulesCommandInput, GetSamplingRulesCommandOutput } from "./commands/GetSamplingRulesCommand";
+import type {
   GetSamplingStatisticSummariesCommandInput,
   GetSamplingStatisticSummariesCommandOutput,
 } from "./commands/GetSamplingStatisticSummariesCommand";
-import { GetSamplingTargetsCommandInput, GetSamplingTargetsCommandOutput } from "./commands/GetSamplingTargetsCommand";
-import { GetServiceGraphCommandInput, GetServiceGraphCommandOutput } from "./commands/GetServiceGraphCommand";
-import {
+import type {
+  GetSamplingTargetsCommandInput,
+  GetSamplingTargetsCommandOutput,
+} from "./commands/GetSamplingTargetsCommand";
+import type { GetServiceGraphCommandInput, GetServiceGraphCommandOutput } from "./commands/GetServiceGraphCommand";
+import type {
   GetTimeSeriesServiceStatisticsCommandInput,
   GetTimeSeriesServiceStatisticsCommandOutput,
 } from "./commands/GetTimeSeriesServiceStatisticsCommand";
-import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "./commands/GetTraceGraphCommand";
-import {
+import type { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "./commands/GetTraceGraphCommand";
+import type {
   GetTraceSegmentDestinationCommandInput,
   GetTraceSegmentDestinationCommandOutput,
 } from "./commands/GetTraceSegmentDestinationCommand";
-import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "./commands/GetTraceSummariesCommand";
-import {
+import type {
+  GetTraceSummariesCommandInput,
+  GetTraceSummariesCommandOutput,
+} from "./commands/GetTraceSummariesCommand";
+import type {
   ListResourcePoliciesCommandInput,
   ListResourcePoliciesCommandOutput,
 } from "./commands/ListResourcePoliciesCommand";
-import {
+import type {
   ListRetrievedTracesCommandInput,
   ListRetrievedTracesCommandOutput,
 } from "./commands/ListRetrievedTracesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutEncryptionConfigCommandInput,
   PutEncryptionConfigCommandOutput,
 } from "./commands/PutEncryptionConfigCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   PutTelemetryRecordsCommandInput,
   PutTelemetryRecordsCommandOutput,
 } from "./commands/PutTelemetryRecordsCommand";
-import { PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput } from "./commands/PutTraceSegmentsCommand";
-import {
+import type { PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput } from "./commands/PutTraceSegmentsCommand";
+import type {
   StartTraceRetrievalCommandInput,
   StartTraceRetrievalCommandOutput,
 } from "./commands/StartTraceRetrievalCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
-import { UpdateIndexingRuleCommandInput, UpdateIndexingRuleCommandOutput } from "./commands/UpdateIndexingRuleCommand";
-import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from "./commands/UpdateSamplingRuleCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
+import type {
+  UpdateIndexingRuleCommandInput,
+  UpdateIndexingRuleCommandOutput,
+} from "./commands/UpdateIndexingRuleCommand";
+import type {
+  UpdateSamplingRuleCommandInput,
+  UpdateSamplingRuleCommandOutput,
+} from "./commands/UpdateSamplingRuleCommand";
+import type {
   UpdateTraceSegmentDestinationCommandInput,
   UpdateTraceSegmentDestinationCommandOutput,
 } from "./commands/UpdateTraceSegmentDestinationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -360,7 +379,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

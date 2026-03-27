@@ -8,7 +8,7 @@ import {
   ListControlMappingsCommandOutput,
 } from "../commands/ListControlMappingsCommand";
 import { ControlCatalogClient } from "../ControlCatalogClient";
-import { ControlCatalogPaginationConfiguration } from "./Interfaces";
+import type { ControlCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

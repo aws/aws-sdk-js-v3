@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
-import { StreamingBlobTypes } from "@smithy/types";
+import type { StreamingBlobTypes } from "@smithy/types";
 
-import {
+import type {
   ConfirmationStatus,
   ContentType,
   DialogActionType,

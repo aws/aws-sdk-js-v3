@@ -8,7 +8,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { KeyspacesClient } from "../KeyspacesClient";
-import { KeyspacesPaginationConfiguration } from "./Interfaces";
+import type { KeyspacesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

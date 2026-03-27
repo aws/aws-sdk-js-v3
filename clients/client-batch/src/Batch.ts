@@ -3,214 +3,218 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BatchClient } from "./BatchClient";
-import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { type CancelJobCommandInput, type CancelJobCommandOutput, CancelJobCommand } from "./commands/CancelJobCommand";
 import {
+  type CreateComputeEnvironmentCommandInput,
+  type CreateComputeEnvironmentCommandOutput,
   CreateComputeEnvironmentCommand,
-  CreateComputeEnvironmentCommandInput,
-  CreateComputeEnvironmentCommandOutput,
 } from "./commands/CreateComputeEnvironmentCommand";
 import {
+  type CreateConsumableResourceCommandInput,
+  type CreateConsumableResourceCommandOutput,
   CreateConsumableResourceCommand,
-  CreateConsumableResourceCommandInput,
-  CreateConsumableResourceCommandOutput,
 } from "./commands/CreateConsumableResourceCommand";
 import {
+  type CreateJobQueueCommandInput,
+  type CreateJobQueueCommandOutput,
   CreateJobQueueCommand,
-  CreateJobQueueCommandInput,
-  CreateJobQueueCommandOutput,
 } from "./commands/CreateJobQueueCommand";
 import {
+  type CreateQuotaShareCommandInput,
+  type CreateQuotaShareCommandOutput,
   CreateQuotaShareCommand,
-  CreateQuotaShareCommandInput,
-  CreateQuotaShareCommandOutput,
 } from "./commands/CreateQuotaShareCommand";
 import {
+  type CreateSchedulingPolicyCommandInput,
+  type CreateSchedulingPolicyCommandOutput,
   CreateSchedulingPolicyCommand,
-  CreateSchedulingPolicyCommandInput,
-  CreateSchedulingPolicyCommandOutput,
 } from "./commands/CreateSchedulingPolicyCommand";
 import {
+  type CreateServiceEnvironmentCommandInput,
+  type CreateServiceEnvironmentCommandOutput,
   CreateServiceEnvironmentCommand,
-  CreateServiceEnvironmentCommandInput,
-  CreateServiceEnvironmentCommandOutput,
 } from "./commands/CreateServiceEnvironmentCommand";
 import {
+  type DeleteComputeEnvironmentCommandInput,
+  type DeleteComputeEnvironmentCommandOutput,
   DeleteComputeEnvironmentCommand,
-  DeleteComputeEnvironmentCommandInput,
-  DeleteComputeEnvironmentCommandOutput,
 } from "./commands/DeleteComputeEnvironmentCommand";
 import {
+  type DeleteConsumableResourceCommandInput,
+  type DeleteConsumableResourceCommandOutput,
   DeleteConsumableResourceCommand,
-  DeleteConsumableResourceCommandInput,
-  DeleteConsumableResourceCommandOutput,
 } from "./commands/DeleteConsumableResourceCommand";
 import {
+  type DeleteJobQueueCommandInput,
+  type DeleteJobQueueCommandOutput,
   DeleteJobQueueCommand,
-  DeleteJobQueueCommandInput,
-  DeleteJobQueueCommandOutput,
 } from "./commands/DeleteJobQueueCommand";
 import {
+  type DeleteQuotaShareCommandInput,
+  type DeleteQuotaShareCommandOutput,
   DeleteQuotaShareCommand,
-  DeleteQuotaShareCommandInput,
-  DeleteQuotaShareCommandOutput,
 } from "./commands/DeleteQuotaShareCommand";
 import {
+  type DeleteSchedulingPolicyCommandInput,
+  type DeleteSchedulingPolicyCommandOutput,
   DeleteSchedulingPolicyCommand,
-  DeleteSchedulingPolicyCommandInput,
-  DeleteSchedulingPolicyCommandOutput,
 } from "./commands/DeleteSchedulingPolicyCommand";
 import {
+  type DeleteServiceEnvironmentCommandInput,
+  type DeleteServiceEnvironmentCommandOutput,
   DeleteServiceEnvironmentCommand,
-  DeleteServiceEnvironmentCommandInput,
-  DeleteServiceEnvironmentCommandOutput,
 } from "./commands/DeleteServiceEnvironmentCommand";
 import {
+  type DeregisterJobDefinitionCommandInput,
+  type DeregisterJobDefinitionCommandOutput,
   DeregisterJobDefinitionCommand,
-  DeregisterJobDefinitionCommandInput,
-  DeregisterJobDefinitionCommandOutput,
 } from "./commands/DeregisterJobDefinitionCommand";
 import {
+  type DescribeComputeEnvironmentsCommandInput,
+  type DescribeComputeEnvironmentsCommandOutput,
   DescribeComputeEnvironmentsCommand,
-  DescribeComputeEnvironmentsCommandInput,
-  DescribeComputeEnvironmentsCommandOutput,
 } from "./commands/DescribeComputeEnvironmentsCommand";
 import {
+  type DescribeConsumableResourceCommandInput,
+  type DescribeConsumableResourceCommandOutput,
   DescribeConsumableResourceCommand,
-  DescribeConsumableResourceCommandInput,
-  DescribeConsumableResourceCommandOutput,
 } from "./commands/DescribeConsumableResourceCommand";
 import {
+  type DescribeJobDefinitionsCommandInput,
+  type DescribeJobDefinitionsCommandOutput,
   DescribeJobDefinitionsCommand,
-  DescribeJobDefinitionsCommandInput,
-  DescribeJobDefinitionsCommandOutput,
 } from "./commands/DescribeJobDefinitionsCommand";
 import {
+  type DescribeJobQueuesCommandInput,
+  type DescribeJobQueuesCommandOutput,
   DescribeJobQueuesCommand,
-  DescribeJobQueuesCommandInput,
-  DescribeJobQueuesCommandOutput,
 } from "./commands/DescribeJobQueuesCommand";
 import {
+  type DescribeJobsCommandInput,
+  type DescribeJobsCommandOutput,
   DescribeJobsCommand,
-  DescribeJobsCommandInput,
-  DescribeJobsCommandOutput,
 } from "./commands/DescribeJobsCommand";
 import {
+  type DescribeQuotaShareCommandInput,
+  type DescribeQuotaShareCommandOutput,
   DescribeQuotaShareCommand,
-  DescribeQuotaShareCommandInput,
-  DescribeQuotaShareCommandOutput,
 } from "./commands/DescribeQuotaShareCommand";
 import {
+  type DescribeSchedulingPoliciesCommandInput,
+  type DescribeSchedulingPoliciesCommandOutput,
   DescribeSchedulingPoliciesCommand,
-  DescribeSchedulingPoliciesCommandInput,
-  DescribeSchedulingPoliciesCommandOutput,
 } from "./commands/DescribeSchedulingPoliciesCommand";
 import {
+  type DescribeServiceEnvironmentsCommandInput,
+  type DescribeServiceEnvironmentsCommandOutput,
   DescribeServiceEnvironmentsCommand,
-  DescribeServiceEnvironmentsCommandInput,
-  DescribeServiceEnvironmentsCommandOutput,
 } from "./commands/DescribeServiceEnvironmentsCommand";
 import {
+  type DescribeServiceJobCommandInput,
+  type DescribeServiceJobCommandOutput,
   DescribeServiceJobCommand,
-  DescribeServiceJobCommandInput,
-  DescribeServiceJobCommandOutput,
 } from "./commands/DescribeServiceJobCommand";
 import {
+  type GetJobQueueSnapshotCommandInput,
+  type GetJobQueueSnapshotCommandOutput,
   GetJobQueueSnapshotCommand,
-  GetJobQueueSnapshotCommandInput,
-  GetJobQueueSnapshotCommandOutput,
 } from "./commands/GetJobQueueSnapshotCommand";
 import {
+  type ListConsumableResourcesCommandInput,
+  type ListConsumableResourcesCommandOutput,
   ListConsumableResourcesCommand,
-  ListConsumableResourcesCommandInput,
-  ListConsumableResourcesCommandOutput,
 } from "./commands/ListConsumableResourcesCommand";
 import {
+  type ListJobsByConsumableResourceCommandInput,
+  type ListJobsByConsumableResourceCommandOutput,
   ListJobsByConsumableResourceCommand,
-  ListJobsByConsumableResourceCommandInput,
-  ListJobsByConsumableResourceCommandOutput,
 } from "./commands/ListJobsByConsumableResourceCommand";
-import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { type ListJobsCommandInput, type ListJobsCommandOutput, ListJobsCommand } from "./commands/ListJobsCommand";
 import {
+  type ListQuotaSharesCommandInput,
+  type ListQuotaSharesCommandOutput,
   ListQuotaSharesCommand,
-  ListQuotaSharesCommandInput,
-  ListQuotaSharesCommandOutput,
 } from "./commands/ListQuotaSharesCommand";
 import {
+  type ListSchedulingPoliciesCommandInput,
+  type ListSchedulingPoliciesCommandOutput,
   ListSchedulingPoliciesCommand,
-  ListSchedulingPoliciesCommandInput,
-  ListSchedulingPoliciesCommandOutput,
 } from "./commands/ListSchedulingPoliciesCommand";
 import {
+  type ListServiceJobsCommandInput,
+  type ListServiceJobsCommandOutput,
   ListServiceJobsCommand,
-  ListServiceJobsCommandInput,
-  ListServiceJobsCommandOutput,
 } from "./commands/ListServiceJobsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RegisterJobDefinitionCommandInput,
+  type RegisterJobDefinitionCommandOutput,
   RegisterJobDefinitionCommand,
-  RegisterJobDefinitionCommandInput,
-  RegisterJobDefinitionCommandOutput,
 } from "./commands/RegisterJobDefinitionCommand";
-import { SubmitJobCommand, SubmitJobCommandInput, SubmitJobCommandOutput } from "./commands/SubmitJobCommand";
+import { type SubmitJobCommandInput, type SubmitJobCommandOutput, SubmitJobCommand } from "./commands/SubmitJobCommand";
 import {
+  type SubmitServiceJobCommandInput,
+  type SubmitServiceJobCommandOutput,
   SubmitServiceJobCommand,
-  SubmitServiceJobCommandInput,
-  SubmitServiceJobCommandOutput,
 } from "./commands/SubmitServiceJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TerminateJobCommandInput,
+  type TerminateJobCommandOutput,
   TerminateJobCommand,
-  TerminateJobCommandInput,
-  TerminateJobCommandOutput,
 } from "./commands/TerminateJobCommand";
 import {
+  type TerminateServiceJobCommandInput,
+  type TerminateServiceJobCommandOutput,
   TerminateServiceJobCommand,
-  TerminateServiceJobCommandInput,
-  TerminateServiceJobCommandOutput,
 } from "./commands/TerminateServiceJobCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateComputeEnvironmentCommandInput,
+  type UpdateComputeEnvironmentCommandOutput,
   UpdateComputeEnvironmentCommand,
-  UpdateComputeEnvironmentCommandInput,
-  UpdateComputeEnvironmentCommandOutput,
 } from "./commands/UpdateComputeEnvironmentCommand";
 import {
+  type UpdateConsumableResourceCommandInput,
+  type UpdateConsumableResourceCommandOutput,
   UpdateConsumableResourceCommand,
-  UpdateConsumableResourceCommandInput,
-  UpdateConsumableResourceCommandOutput,
 } from "./commands/UpdateConsumableResourceCommand";
 import {
+  type UpdateJobQueueCommandInput,
+  type UpdateJobQueueCommandOutput,
   UpdateJobQueueCommand,
-  UpdateJobQueueCommandInput,
-  UpdateJobQueueCommandOutput,
 } from "./commands/UpdateJobQueueCommand";
 import {
+  type UpdateQuotaShareCommandInput,
+  type UpdateQuotaShareCommandOutput,
   UpdateQuotaShareCommand,
-  UpdateQuotaShareCommandInput,
-  UpdateQuotaShareCommandOutput,
 } from "./commands/UpdateQuotaShareCommand";
 import {
+  type UpdateSchedulingPolicyCommandInput,
+  type UpdateSchedulingPolicyCommandOutput,
   UpdateSchedulingPolicyCommand,
-  UpdateSchedulingPolicyCommandInput,
-  UpdateSchedulingPolicyCommandOutput,
 } from "./commands/UpdateSchedulingPolicyCommand";
 import {
+  type UpdateServiceEnvironmentCommandInput,
+  type UpdateServiceEnvironmentCommandOutput,
   UpdateServiceEnvironmentCommand,
-  UpdateServiceEnvironmentCommandInput,
-  UpdateServiceEnvironmentCommandOutput,
 } from "./commands/UpdateServiceEnvironmentCommand";
 import {
+  type UpdateServiceJobCommandInput,
+  type UpdateServiceJobCommandOutput,
   UpdateServiceJobCommand,
-  UpdateServiceJobCommandInput,
-  UpdateServiceJobCommandOutput,
 } from "./commands/UpdateServiceJobCommand";
 import { paginateDescribeComputeEnvironments } from "./pagination/DescribeComputeEnvironmentsPaginator";
 import { paginateDescribeJobDefinitions } from "./pagination/DescribeJobDefinitionsPaginator";

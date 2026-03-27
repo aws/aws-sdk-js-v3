@@ -3,141 +3,149 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateFraudsterCommandInput,
+  type AssociateFraudsterCommandOutput,
   AssociateFraudsterCommand,
-  AssociateFraudsterCommandInput,
-  AssociateFraudsterCommandOutput,
 } from "./commands/AssociateFraudsterCommand";
 import {
+  type CreateDomainCommandInput,
+  type CreateDomainCommandOutput,
   CreateDomainCommand,
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  type CreateWatchlistCommandInput,
+  type CreateWatchlistCommandOutput,
   CreateWatchlistCommand,
-  CreateWatchlistCommandInput,
-  CreateWatchlistCommandOutput,
 } from "./commands/CreateWatchlistCommand";
 import {
+  type DeleteDomainCommandInput,
+  type DeleteDomainCommandOutput,
   DeleteDomainCommand,
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
+  type DeleteFraudsterCommandInput,
+  type DeleteFraudsterCommandOutput,
   DeleteFraudsterCommand,
-  DeleteFraudsterCommandInput,
-  DeleteFraudsterCommandOutput,
 } from "./commands/DeleteFraudsterCommand";
 import {
+  type DeleteSpeakerCommandInput,
+  type DeleteSpeakerCommandOutput,
   DeleteSpeakerCommand,
-  DeleteSpeakerCommandInput,
-  DeleteSpeakerCommandOutput,
 } from "./commands/DeleteSpeakerCommand";
 import {
+  type DeleteWatchlistCommandInput,
+  type DeleteWatchlistCommandOutput,
   DeleteWatchlistCommand,
-  DeleteWatchlistCommandInput,
-  DeleteWatchlistCommandOutput,
 } from "./commands/DeleteWatchlistCommand";
 import {
+  type DescribeDomainCommandInput,
+  type DescribeDomainCommandOutput,
   DescribeDomainCommand,
-  DescribeDomainCommandInput,
-  DescribeDomainCommandOutput,
 } from "./commands/DescribeDomainCommand";
 import {
+  type DescribeFraudsterCommandInput,
+  type DescribeFraudsterCommandOutput,
   DescribeFraudsterCommand,
-  DescribeFraudsterCommandInput,
-  DescribeFraudsterCommandOutput,
 } from "./commands/DescribeFraudsterCommand";
 import {
+  type DescribeFraudsterRegistrationJobCommandInput,
+  type DescribeFraudsterRegistrationJobCommandOutput,
   DescribeFraudsterRegistrationJobCommand,
-  DescribeFraudsterRegistrationJobCommandInput,
-  DescribeFraudsterRegistrationJobCommandOutput,
 } from "./commands/DescribeFraudsterRegistrationJobCommand";
 import {
+  type DescribeSpeakerCommandInput,
+  type DescribeSpeakerCommandOutput,
   DescribeSpeakerCommand,
-  DescribeSpeakerCommandInput,
-  DescribeSpeakerCommandOutput,
 } from "./commands/DescribeSpeakerCommand";
 import {
+  type DescribeSpeakerEnrollmentJobCommandInput,
+  type DescribeSpeakerEnrollmentJobCommandOutput,
   DescribeSpeakerEnrollmentJobCommand,
-  DescribeSpeakerEnrollmentJobCommandInput,
-  DescribeSpeakerEnrollmentJobCommandOutput,
 } from "./commands/DescribeSpeakerEnrollmentJobCommand";
 import {
+  type DescribeWatchlistCommandInput,
+  type DescribeWatchlistCommandOutput,
   DescribeWatchlistCommand,
-  DescribeWatchlistCommandInput,
-  DescribeWatchlistCommandOutput,
 } from "./commands/DescribeWatchlistCommand";
 import {
+  type DisassociateFraudsterCommandInput,
+  type DisassociateFraudsterCommandOutput,
   DisassociateFraudsterCommand,
-  DisassociateFraudsterCommandInput,
-  DisassociateFraudsterCommandOutput,
 } from "./commands/DisassociateFraudsterCommand";
 import {
+  type EvaluateSessionCommandInput,
+  type EvaluateSessionCommandOutput,
   EvaluateSessionCommand,
-  EvaluateSessionCommandInput,
-  EvaluateSessionCommandOutput,
 } from "./commands/EvaluateSessionCommand";
-import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  type ListDomainsCommandInput,
+  type ListDomainsCommandOutput,
+  ListDomainsCommand,
+} from "./commands/ListDomainsCommand";
+import {
+  type ListFraudsterRegistrationJobsCommandInput,
+  type ListFraudsterRegistrationJobsCommandOutput,
   ListFraudsterRegistrationJobsCommand,
-  ListFraudsterRegistrationJobsCommandInput,
-  ListFraudsterRegistrationJobsCommandOutput,
 } from "./commands/ListFraudsterRegistrationJobsCommand";
 import {
+  type ListFraudstersCommandInput,
+  type ListFraudstersCommandOutput,
   ListFraudstersCommand,
-  ListFraudstersCommandInput,
-  ListFraudstersCommandOutput,
 } from "./commands/ListFraudstersCommand";
 import {
+  type ListSpeakerEnrollmentJobsCommandInput,
+  type ListSpeakerEnrollmentJobsCommandOutput,
   ListSpeakerEnrollmentJobsCommand,
-  ListSpeakerEnrollmentJobsCommandInput,
-  ListSpeakerEnrollmentJobsCommandOutput,
 } from "./commands/ListSpeakerEnrollmentJobsCommand";
 import {
+  type ListSpeakersCommandInput,
+  type ListSpeakersCommandOutput,
   ListSpeakersCommand,
-  ListSpeakersCommandInput,
-  ListSpeakersCommandOutput,
 } from "./commands/ListSpeakersCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWatchlistsCommandInput,
+  type ListWatchlistsCommandOutput,
   ListWatchlistsCommand,
-  ListWatchlistsCommandInput,
-  ListWatchlistsCommandOutput,
 } from "./commands/ListWatchlistsCommand";
 import {
+  type OptOutSpeakerCommandInput,
+  type OptOutSpeakerCommandOutput,
   OptOutSpeakerCommand,
-  OptOutSpeakerCommandInput,
-  OptOutSpeakerCommandOutput,
 } from "./commands/OptOutSpeakerCommand";
 import {
+  type StartFraudsterRegistrationJobCommandInput,
+  type StartFraudsterRegistrationJobCommandOutput,
   StartFraudsterRegistrationJobCommand,
-  StartFraudsterRegistrationJobCommandInput,
-  StartFraudsterRegistrationJobCommandOutput,
 } from "./commands/StartFraudsterRegistrationJobCommand";
 import {
+  type StartSpeakerEnrollmentJobCommandInput,
+  type StartSpeakerEnrollmentJobCommandOutput,
   StartSpeakerEnrollmentJobCommand,
-  StartSpeakerEnrollmentJobCommandInput,
-  StartSpeakerEnrollmentJobCommandOutput,
 } from "./commands/StartSpeakerEnrollmentJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDomainCommandInput,
+  type UpdateDomainCommandOutput,
   UpdateDomainCommand,
-  UpdateDomainCommandInput,
-  UpdateDomainCommandOutput,
 } from "./commands/UpdateDomainCommand";
 import {
+  type UpdateWatchlistCommandInput,
+  type UpdateWatchlistCommandOutput,
   UpdateWatchlistCommand,
-  UpdateWatchlistCommandInput,
-  UpdateWatchlistCommandOutput,
 } from "./commands/UpdateWatchlistCommand";
 import { paginateListDomains } from "./pagination/ListDomainsPaginator";
 import { paginateListFraudsterRegistrationJobs } from "./pagination/ListFraudsterRegistrationJobsPaginator";

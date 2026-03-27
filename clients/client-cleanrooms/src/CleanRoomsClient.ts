@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,296 +61,320 @@ import {
   defaultCleanRoomsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchGetCollaborationAnalysisTemplateCommandInput,
   BatchGetCollaborationAnalysisTemplateCommandOutput,
 } from "./commands/BatchGetCollaborationAnalysisTemplateCommand";
-import {
+import type {
   BatchGetSchemaAnalysisRuleCommandInput,
   BatchGetSchemaAnalysisRuleCommandOutput,
 } from "./commands/BatchGetSchemaAnalysisRuleCommand";
-import { BatchGetSchemaCommandInput, BatchGetSchemaCommandOutput } from "./commands/BatchGetSchemaCommand";
-import {
+import type { BatchGetSchemaCommandInput, BatchGetSchemaCommandOutput } from "./commands/BatchGetSchemaCommand";
+import type {
   CreateAnalysisTemplateCommandInput,
   CreateAnalysisTemplateCommandOutput,
 } from "./commands/CreateAnalysisTemplateCommand";
-import {
+import type {
   CreateCollaborationChangeRequestCommandInput,
   CreateCollaborationChangeRequestCommandOutput,
 } from "./commands/CreateCollaborationChangeRequestCommand";
-import {
+import type {
   CreateCollaborationCommandInput,
   CreateCollaborationCommandOutput,
 } from "./commands/CreateCollaborationCommand";
-import {
+import type {
   CreateConfiguredAudienceModelAssociationCommandInput,
   CreateConfiguredAudienceModelAssociationCommandOutput,
 } from "./commands/CreateConfiguredAudienceModelAssociationCommand";
-import {
+import type {
   CreateConfiguredTableAnalysisRuleCommandInput,
   CreateConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/CreateConfiguredTableAnalysisRuleCommand";
-import {
+import type {
   CreateConfiguredTableAssociationAnalysisRuleCommandInput,
   CreateConfiguredTableAssociationAnalysisRuleCommandOutput,
 } from "./commands/CreateConfiguredTableAssociationAnalysisRuleCommand";
-import {
+import type {
   CreateConfiguredTableAssociationCommandInput,
   CreateConfiguredTableAssociationCommandOutput,
 } from "./commands/CreateConfiguredTableAssociationCommand";
-import {
+import type {
   CreateConfiguredTableCommandInput,
   CreateConfiguredTableCommandOutput,
 } from "./commands/CreateConfiguredTableCommand";
-import {
+import type {
   CreateIdMappingTableCommandInput,
   CreateIdMappingTableCommandOutput,
 } from "./commands/CreateIdMappingTableCommand";
-import {
+import type {
   CreateIdNamespaceAssociationCommandInput,
   CreateIdNamespaceAssociationCommandOutput,
 } from "./commands/CreateIdNamespaceAssociationCommand";
-import { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "./commands/CreateMembershipCommand";
-import {
+import type { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "./commands/CreateMembershipCommand";
+import type {
   CreatePrivacyBudgetTemplateCommandInput,
   CreatePrivacyBudgetTemplateCommandOutput,
 } from "./commands/CreatePrivacyBudgetTemplateCommand";
-import {
+import type {
   DeleteAnalysisTemplateCommandInput,
   DeleteAnalysisTemplateCommandOutput,
 } from "./commands/DeleteAnalysisTemplateCommand";
-import {
+import type {
   DeleteCollaborationCommandInput,
   DeleteCollaborationCommandOutput,
 } from "./commands/DeleteCollaborationCommand";
-import {
+import type {
   DeleteConfiguredAudienceModelAssociationCommandInput,
   DeleteConfiguredAudienceModelAssociationCommandOutput,
 } from "./commands/DeleteConfiguredAudienceModelAssociationCommand";
-import {
+import type {
   DeleteConfiguredTableAnalysisRuleCommandInput,
   DeleteConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/DeleteConfiguredTableAnalysisRuleCommand";
-import {
+import type {
   DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
   DeleteConfiguredTableAssociationAnalysisRuleCommandOutput,
 } from "./commands/DeleteConfiguredTableAssociationAnalysisRuleCommand";
-import {
+import type {
   DeleteConfiguredTableAssociationCommandInput,
   DeleteConfiguredTableAssociationCommandOutput,
 } from "./commands/DeleteConfiguredTableAssociationCommand";
-import {
+import type {
   DeleteConfiguredTableCommandInput,
   DeleteConfiguredTableCommandOutput,
 } from "./commands/DeleteConfiguredTableCommand";
-import {
+import type {
   DeleteIdMappingTableCommandInput,
   DeleteIdMappingTableCommandOutput,
 } from "./commands/DeleteIdMappingTableCommand";
-import {
+import type {
   DeleteIdNamespaceAssociationCommandInput,
   DeleteIdNamespaceAssociationCommandOutput,
 } from "./commands/DeleteIdNamespaceAssociationCommand";
-import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "./commands/DeleteMemberCommand";
-import { DeleteMembershipCommandInput, DeleteMembershipCommandOutput } from "./commands/DeleteMembershipCommand";
-import {
+import type { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "./commands/DeleteMemberCommand";
+import type { DeleteMembershipCommandInput, DeleteMembershipCommandOutput } from "./commands/DeleteMembershipCommand";
+import type {
   DeletePrivacyBudgetTemplateCommandInput,
   DeletePrivacyBudgetTemplateCommandOutput,
 } from "./commands/DeletePrivacyBudgetTemplateCommand";
-import {
+import type {
   GetAnalysisTemplateCommandInput,
   GetAnalysisTemplateCommandOutput,
 } from "./commands/GetAnalysisTemplateCommand";
-import {
+import type {
   GetCollaborationAnalysisTemplateCommandInput,
   GetCollaborationAnalysisTemplateCommandOutput,
 } from "./commands/GetCollaborationAnalysisTemplateCommand";
-import {
+import type {
   GetCollaborationChangeRequestCommandInput,
   GetCollaborationChangeRequestCommandOutput,
 } from "./commands/GetCollaborationChangeRequestCommand";
-import { GetCollaborationCommandInput, GetCollaborationCommandOutput } from "./commands/GetCollaborationCommand";
-import {
+import type { GetCollaborationCommandInput, GetCollaborationCommandOutput } from "./commands/GetCollaborationCommand";
+import type {
   GetCollaborationConfiguredAudienceModelAssociationCommandInput,
   GetCollaborationConfiguredAudienceModelAssociationCommandOutput,
 } from "./commands/GetCollaborationConfiguredAudienceModelAssociationCommand";
-import {
+import type {
   GetCollaborationIdNamespaceAssociationCommandInput,
   GetCollaborationIdNamespaceAssociationCommandOutput,
 } from "./commands/GetCollaborationIdNamespaceAssociationCommand";
-import {
+import type {
   GetCollaborationPrivacyBudgetTemplateCommandInput,
   GetCollaborationPrivacyBudgetTemplateCommandOutput,
 } from "./commands/GetCollaborationPrivacyBudgetTemplateCommand";
-import {
+import type {
   GetConfiguredAudienceModelAssociationCommandInput,
   GetConfiguredAudienceModelAssociationCommandOutput,
 } from "./commands/GetConfiguredAudienceModelAssociationCommand";
-import {
+import type {
   GetConfiguredTableAnalysisRuleCommandInput,
   GetConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/GetConfiguredTableAnalysisRuleCommand";
-import {
+import type {
   GetConfiguredTableAssociationAnalysisRuleCommandInput,
   GetConfiguredTableAssociationAnalysisRuleCommandOutput,
 } from "./commands/GetConfiguredTableAssociationAnalysisRuleCommand";
-import {
+import type {
   GetConfiguredTableAssociationCommandInput,
   GetConfiguredTableAssociationCommandOutput,
 } from "./commands/GetConfiguredTableAssociationCommand";
-import { GetConfiguredTableCommandInput, GetConfiguredTableCommandOutput } from "./commands/GetConfiguredTableCommand";
-import { GetIdMappingTableCommandInput, GetIdMappingTableCommandOutput } from "./commands/GetIdMappingTableCommand";
-import {
+import type {
+  GetConfiguredTableCommandInput,
+  GetConfiguredTableCommandOutput,
+} from "./commands/GetConfiguredTableCommand";
+import type {
+  GetIdMappingTableCommandInput,
+  GetIdMappingTableCommandOutput,
+} from "./commands/GetIdMappingTableCommand";
+import type {
   GetIdNamespaceAssociationCommandInput,
   GetIdNamespaceAssociationCommandOutput,
 } from "./commands/GetIdNamespaceAssociationCommand";
-import { GetMembershipCommandInput, GetMembershipCommandOutput } from "./commands/GetMembershipCommand";
-import {
+import type { GetMembershipCommandInput, GetMembershipCommandOutput } from "./commands/GetMembershipCommand";
+import type {
   GetPrivacyBudgetTemplateCommandInput,
   GetPrivacyBudgetTemplateCommandOutput,
 } from "./commands/GetPrivacyBudgetTemplateCommand";
-import { GetProtectedJobCommandInput, GetProtectedJobCommandOutput } from "./commands/GetProtectedJobCommand";
-import { GetProtectedQueryCommandInput, GetProtectedQueryCommandOutput } from "./commands/GetProtectedQueryCommand";
-import {
+import type { GetProtectedJobCommandInput, GetProtectedJobCommandOutput } from "./commands/GetProtectedJobCommand";
+import type {
+  GetProtectedQueryCommandInput,
+  GetProtectedQueryCommandOutput,
+} from "./commands/GetProtectedQueryCommand";
+import type {
   GetSchemaAnalysisRuleCommandInput,
   GetSchemaAnalysisRuleCommandOutput,
 } from "./commands/GetSchemaAnalysisRuleCommand";
-import { GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
-import {
+import type { GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
+import type {
   ListAnalysisTemplatesCommandInput,
   ListAnalysisTemplatesCommandOutput,
 } from "./commands/ListAnalysisTemplatesCommand";
-import {
+import type {
   ListCollaborationAnalysisTemplatesCommandInput,
   ListCollaborationAnalysisTemplatesCommandOutput,
 } from "./commands/ListCollaborationAnalysisTemplatesCommand";
-import {
+import type {
   ListCollaborationChangeRequestsCommandInput,
   ListCollaborationChangeRequestsCommandOutput,
 } from "./commands/ListCollaborationChangeRequestsCommand";
-import {
+import type {
   ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
   ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
 } from "./commands/ListCollaborationConfiguredAudienceModelAssociationsCommand";
-import {
+import type {
   ListCollaborationIdNamespaceAssociationsCommandInput,
   ListCollaborationIdNamespaceAssociationsCommandOutput,
 } from "./commands/ListCollaborationIdNamespaceAssociationsCommand";
-import {
+import type {
   ListCollaborationPrivacyBudgetsCommandInput,
   ListCollaborationPrivacyBudgetsCommandOutput,
 } from "./commands/ListCollaborationPrivacyBudgetsCommand";
-import {
+import type {
   ListCollaborationPrivacyBudgetTemplatesCommandInput,
   ListCollaborationPrivacyBudgetTemplatesCommandOutput,
 } from "./commands/ListCollaborationPrivacyBudgetTemplatesCommand";
-import { ListCollaborationsCommandInput, ListCollaborationsCommandOutput } from "./commands/ListCollaborationsCommand";
-import {
+import type {
+  ListCollaborationsCommandInput,
+  ListCollaborationsCommandOutput,
+} from "./commands/ListCollaborationsCommand";
+import type {
   ListConfiguredAudienceModelAssociationsCommandInput,
   ListConfiguredAudienceModelAssociationsCommandOutput,
 } from "./commands/ListConfiguredAudienceModelAssociationsCommand";
-import {
+import type {
   ListConfiguredTableAssociationsCommandInput,
   ListConfiguredTableAssociationsCommandOutput,
 } from "./commands/ListConfiguredTableAssociationsCommand";
-import {
+import type {
   ListConfiguredTablesCommandInput,
   ListConfiguredTablesCommandOutput,
 } from "./commands/ListConfiguredTablesCommand";
-import {
+import type {
   ListIdMappingTablesCommandInput,
   ListIdMappingTablesCommandOutput,
 } from "./commands/ListIdMappingTablesCommand";
-import {
+import type {
   ListIdNamespaceAssociationsCommandInput,
   ListIdNamespaceAssociationsCommandOutput,
 } from "./commands/ListIdNamespaceAssociationsCommand";
-import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
-import { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "./commands/ListMembershipsCommand";
-import { ListPrivacyBudgetsCommandInput, ListPrivacyBudgetsCommandOutput } from "./commands/ListPrivacyBudgetsCommand";
-import {
+import type { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import type { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "./commands/ListMembershipsCommand";
+import type {
+  ListPrivacyBudgetsCommandInput,
+  ListPrivacyBudgetsCommandOutput,
+} from "./commands/ListPrivacyBudgetsCommand";
+import type {
   ListPrivacyBudgetTemplatesCommandInput,
   ListPrivacyBudgetTemplatesCommandOutput,
 } from "./commands/ListPrivacyBudgetTemplatesCommand";
-import { ListProtectedJobsCommandInput, ListProtectedJobsCommandOutput } from "./commands/ListProtectedJobsCommand";
-import {
+import type {
+  ListProtectedJobsCommandInput,
+  ListProtectedJobsCommandOutput,
+} from "./commands/ListProtectedJobsCommand";
+import type {
   ListProtectedQueriesCommandInput,
   ListProtectedQueriesCommandOutput,
 } from "./commands/ListProtectedQueriesCommand";
-import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
-import {
+import type { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PopulateIdMappingTableCommandInput,
   PopulateIdMappingTableCommandOutput,
 } from "./commands/PopulateIdMappingTableCommand";
-import {
+import type {
   PreviewPrivacyImpactCommandInput,
   PreviewPrivacyImpactCommandOutput,
 } from "./commands/PreviewPrivacyImpactCommand";
-import { StartProtectedJobCommandInput, StartProtectedJobCommandOutput } from "./commands/StartProtectedJobCommand";
-import {
+import type {
+  StartProtectedJobCommandInput,
+  StartProtectedJobCommandOutput,
+} from "./commands/StartProtectedJobCommand";
+import type {
   StartProtectedQueryCommandInput,
   StartProtectedQueryCommandOutput,
 } from "./commands/StartProtectedQueryCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAnalysisTemplateCommandInput,
   UpdateAnalysisTemplateCommandOutput,
 } from "./commands/UpdateAnalysisTemplateCommand";
-import {
+import type {
   UpdateCollaborationChangeRequestCommandInput,
   UpdateCollaborationChangeRequestCommandOutput,
 } from "./commands/UpdateCollaborationChangeRequestCommand";
-import {
+import type {
   UpdateCollaborationCommandInput,
   UpdateCollaborationCommandOutput,
 } from "./commands/UpdateCollaborationCommand";
-import {
+import type {
   UpdateConfiguredAudienceModelAssociationCommandInput,
   UpdateConfiguredAudienceModelAssociationCommandOutput,
 } from "./commands/UpdateConfiguredAudienceModelAssociationCommand";
-import {
+import type {
   UpdateConfiguredTableAnalysisRuleCommandInput,
   UpdateConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/UpdateConfiguredTableAnalysisRuleCommand";
-import {
+import type {
   UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
   UpdateConfiguredTableAssociationAnalysisRuleCommandOutput,
 } from "./commands/UpdateConfiguredTableAssociationAnalysisRuleCommand";
-import {
+import type {
   UpdateConfiguredTableAssociationCommandInput,
   UpdateConfiguredTableAssociationCommandOutput,
 } from "./commands/UpdateConfiguredTableAssociationCommand";
-import {
+import type {
   UpdateConfiguredTableCommandInput,
   UpdateConfiguredTableCommandOutput,
 } from "./commands/UpdateConfiguredTableCommand";
-import {
+import type {
   UpdateIdMappingTableCommandInput,
   UpdateIdMappingTableCommandOutput,
 } from "./commands/UpdateIdMappingTableCommand";
-import {
+import type {
   UpdateIdNamespaceAssociationCommandInput,
   UpdateIdNamespaceAssociationCommandOutput,
 } from "./commands/UpdateIdNamespaceAssociationCommand";
-import { UpdateMembershipCommandInput, UpdateMembershipCommandOutput } from "./commands/UpdateMembershipCommand";
-import {
+import type { UpdateMembershipCommandInput, UpdateMembershipCommandOutput } from "./commands/UpdateMembershipCommand";
+import type {
   UpdatePrivacyBudgetTemplateCommandInput,
   UpdatePrivacyBudgetTemplateCommandOutput,
 } from "./commands/UpdatePrivacyBudgetTemplateCommand";
-import { UpdateProtectedJobCommandInput, UpdateProtectedJobCommandOutput } from "./commands/UpdateProtectedJobCommand";
-import {
+import type {
+  UpdateProtectedJobCommandInput,
+  UpdateProtectedJobCommandOutput,
+} from "./commands/UpdateProtectedJobCommand";
+import type {
   UpdateProtectedQueryCommandInput,
   UpdateProtectedQueryCommandOutput,
 } from "./commands/UpdateProtectedQueryCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -660,7 +682,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

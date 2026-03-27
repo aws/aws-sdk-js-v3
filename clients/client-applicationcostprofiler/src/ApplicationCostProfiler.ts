@@ -4,34 +4,34 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ApplicationCostProfilerClient } from "./ApplicationCostProfilerClient";
 import {
+  type DeleteReportDefinitionCommandInput,
+  type DeleteReportDefinitionCommandOutput,
   DeleteReportDefinitionCommand,
-  DeleteReportDefinitionCommandInput,
-  DeleteReportDefinitionCommandOutput,
 } from "./commands/DeleteReportDefinitionCommand";
 import {
+  type GetReportDefinitionCommandInput,
+  type GetReportDefinitionCommandOutput,
   GetReportDefinitionCommand,
-  GetReportDefinitionCommandInput,
-  GetReportDefinitionCommandOutput,
 } from "./commands/GetReportDefinitionCommand";
 import {
+  type ImportApplicationUsageCommandInput,
+  type ImportApplicationUsageCommandOutput,
   ImportApplicationUsageCommand,
-  ImportApplicationUsageCommandInput,
-  ImportApplicationUsageCommandOutput,
 } from "./commands/ImportApplicationUsageCommand";
 import {
+  type ListReportDefinitionsCommandInput,
+  type ListReportDefinitionsCommandOutput,
   ListReportDefinitionsCommand,
-  ListReportDefinitionsCommandInput,
-  ListReportDefinitionsCommandOutput,
 } from "./commands/ListReportDefinitionsCommand";
 import {
+  type PutReportDefinitionCommandInput,
+  type PutReportDefinitionCommandOutput,
   PutReportDefinitionCommand,
-  PutReportDefinitionCommandInput,
-  PutReportDefinitionCommandOutput,
 } from "./commands/PutReportDefinitionCommand";
 import {
+  type UpdateReportDefinitionCommandInput,
+  type UpdateReportDefinitionCommandOutput,
   UpdateReportDefinitionCommand,
-  UpdateReportDefinitionCommandInput,
-  UpdateReportDefinitionCommandOutput,
 } from "./commands/UpdateReportDefinitionCommand";
 import { paginateListReportDefinitions } from "./pagination/ListReportDefinitionsPaginator";
 

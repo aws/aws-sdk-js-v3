@@ -8,7 +8,7 @@ import {
   ListRouterOutputsCommandOutput,
 } from "../commands/ListRouterOutputsCommand";
 import { MediaConnectClient } from "../MediaConnectClient";
-import { MediaConnectPaginationConfiguration } from "./Interfaces";
+import type { MediaConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

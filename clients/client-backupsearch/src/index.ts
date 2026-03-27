@@ -7,7 +7,7 @@
  */
 export * from "./BackupSearchClient";
 export * from "./BackupSearch";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BackupSearchExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

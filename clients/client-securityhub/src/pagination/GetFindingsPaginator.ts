@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "../commands/GetFindingsCommand";
 import { SecurityHubClient } from "../SecurityHubClient";
-import { SecurityHubPaginationConfiguration } from "./Interfaces";
+import type { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

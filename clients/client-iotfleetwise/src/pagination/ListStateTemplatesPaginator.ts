@@ -8,7 +8,7 @@ import {
   ListStateTemplatesCommandOutput,
 } from "../commands/ListStateTemplatesCommand";
 import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
-import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
+import type { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

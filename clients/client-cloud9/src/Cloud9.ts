@@ -4,65 +4,69 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { Cloud9Client } from "./Cloud9Client";
 import {
+  type CreateEnvironmentEC2CommandInput,
+  type CreateEnvironmentEC2CommandOutput,
   CreateEnvironmentEC2Command,
-  CreateEnvironmentEC2CommandInput,
-  CreateEnvironmentEC2CommandOutput,
 } from "./commands/CreateEnvironmentEC2Command";
 import {
+  type CreateEnvironmentMembershipCommandInput,
+  type CreateEnvironmentMembershipCommandOutput,
   CreateEnvironmentMembershipCommand,
-  CreateEnvironmentMembershipCommandInput,
-  CreateEnvironmentMembershipCommandOutput,
 } from "./commands/CreateEnvironmentMembershipCommand";
 import {
+  type DeleteEnvironmentCommandInput,
+  type DeleteEnvironmentCommandOutput,
   DeleteEnvironmentCommand,
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
 import {
+  type DeleteEnvironmentMembershipCommandInput,
+  type DeleteEnvironmentMembershipCommandOutput,
   DeleteEnvironmentMembershipCommand,
-  DeleteEnvironmentMembershipCommandInput,
-  DeleteEnvironmentMembershipCommandOutput,
 } from "./commands/DeleteEnvironmentMembershipCommand";
 import {
+  type DescribeEnvironmentMembershipsCommandInput,
+  type DescribeEnvironmentMembershipsCommandOutput,
   DescribeEnvironmentMembershipsCommand,
-  DescribeEnvironmentMembershipsCommandInput,
-  DescribeEnvironmentMembershipsCommandOutput,
 } from "./commands/DescribeEnvironmentMembershipsCommand";
 import {
+  type DescribeEnvironmentsCommandInput,
+  type DescribeEnvironmentsCommandOutput,
   DescribeEnvironmentsCommand,
-  DescribeEnvironmentsCommandInput,
-  DescribeEnvironmentsCommandOutput,
 } from "./commands/DescribeEnvironmentsCommand";
 import {
+  type DescribeEnvironmentStatusCommandInput,
+  type DescribeEnvironmentStatusCommandOutput,
   DescribeEnvironmentStatusCommand,
-  DescribeEnvironmentStatusCommandInput,
-  DescribeEnvironmentStatusCommandOutput,
 } from "./commands/DescribeEnvironmentStatusCommand";
 import {
+  type ListEnvironmentsCommandInput,
+  type ListEnvironmentsCommandOutput,
   ListEnvironmentsCommand,
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateEnvironmentCommandInput,
+  type UpdateEnvironmentCommandOutput,
   UpdateEnvironmentCommand,
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import {
+  type UpdateEnvironmentMembershipCommandInput,
+  type UpdateEnvironmentMembershipCommandOutput,
   UpdateEnvironmentMembershipCommand,
-  UpdateEnvironmentMembershipCommandInput,
-  UpdateEnvironmentMembershipCommandOutput,
 } from "./commands/UpdateEnvironmentMembershipCommand";
 import { paginateDescribeEnvironmentMemberships } from "./pagination/DescribeEnvironmentMembershipsPaginator";
 import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";

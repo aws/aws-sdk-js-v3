@@ -7,7 +7,7 @@
  */
 export * from "./RedshiftServerlessClient";
 export * from "./RedshiftServerless";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { RedshiftServerlessExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -8,7 +8,7 @@ import {
   ListGroupPoliciesCommandOutput,
 } from "../commands/ListGroupPoliciesCommand";
 import { IAMClient } from "../IAMClient";
-import { IAMPaginationConfiguration } from "./Interfaces";
+import type { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

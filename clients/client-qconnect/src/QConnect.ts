@@ -3,433 +3,461 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type ActivateMessageTemplateCommandInput,
+  type ActivateMessageTemplateCommandOutput,
   ActivateMessageTemplateCommand,
-  ActivateMessageTemplateCommandInput,
-  ActivateMessageTemplateCommandOutput,
 } from "./commands/ActivateMessageTemplateCommand";
 import {
+  type CreateAIAgentCommandInput,
+  type CreateAIAgentCommandOutput,
   CreateAIAgentCommand,
-  CreateAIAgentCommandInput,
-  CreateAIAgentCommandOutput,
 } from "./commands/CreateAIAgentCommand";
 import {
+  type CreateAIAgentVersionCommandInput,
+  type CreateAIAgentVersionCommandOutput,
   CreateAIAgentVersionCommand,
-  CreateAIAgentVersionCommandInput,
-  CreateAIAgentVersionCommandOutput,
 } from "./commands/CreateAIAgentVersionCommand";
 import {
+  type CreateAIGuardrailCommandInput,
+  type CreateAIGuardrailCommandOutput,
   CreateAIGuardrailCommand,
-  CreateAIGuardrailCommandInput,
-  CreateAIGuardrailCommandOutput,
 } from "./commands/CreateAIGuardrailCommand";
 import {
+  type CreateAIGuardrailVersionCommandInput,
+  type CreateAIGuardrailVersionCommandOutput,
   CreateAIGuardrailVersionCommand,
-  CreateAIGuardrailVersionCommandInput,
-  CreateAIGuardrailVersionCommandOutput,
 } from "./commands/CreateAIGuardrailVersionCommand";
 import {
+  type CreateAIPromptCommandInput,
+  type CreateAIPromptCommandOutput,
   CreateAIPromptCommand,
-  CreateAIPromptCommandInput,
-  CreateAIPromptCommandOutput,
 } from "./commands/CreateAIPromptCommand";
 import {
+  type CreateAIPromptVersionCommandInput,
+  type CreateAIPromptVersionCommandOutput,
   CreateAIPromptVersionCommand,
-  CreateAIPromptVersionCommandInput,
-  CreateAIPromptVersionCommandOutput,
 } from "./commands/CreateAIPromptVersionCommand";
 import {
+  type CreateAssistantAssociationCommandInput,
+  type CreateAssistantAssociationCommandOutput,
   CreateAssistantAssociationCommand,
-  CreateAssistantAssociationCommandInput,
-  CreateAssistantAssociationCommandOutput,
 } from "./commands/CreateAssistantAssociationCommand";
 import {
+  type CreateAssistantCommandInput,
+  type CreateAssistantCommandOutput,
   CreateAssistantCommand,
-  CreateAssistantCommandInput,
-  CreateAssistantCommandOutput,
 } from "./commands/CreateAssistantCommand";
 import {
+  type CreateContentAssociationCommandInput,
+  type CreateContentAssociationCommandOutput,
   CreateContentAssociationCommand,
-  CreateContentAssociationCommandInput,
-  CreateContentAssociationCommandOutput,
 } from "./commands/CreateContentAssociationCommand";
 import {
+  type CreateContentCommandInput,
+  type CreateContentCommandOutput,
   CreateContentCommand,
-  CreateContentCommandInput,
-  CreateContentCommandOutput,
 } from "./commands/CreateContentCommand";
 import {
+  type CreateKnowledgeBaseCommandInput,
+  type CreateKnowledgeBaseCommandOutput,
   CreateKnowledgeBaseCommand,
-  CreateKnowledgeBaseCommandInput,
-  CreateKnowledgeBaseCommandOutput,
 } from "./commands/CreateKnowledgeBaseCommand";
 import {
+  type CreateMessageTemplateAttachmentCommandInput,
+  type CreateMessageTemplateAttachmentCommandOutput,
   CreateMessageTemplateAttachmentCommand,
-  CreateMessageTemplateAttachmentCommandInput,
-  CreateMessageTemplateAttachmentCommandOutput,
 } from "./commands/CreateMessageTemplateAttachmentCommand";
 import {
+  type CreateMessageTemplateCommandInput,
+  type CreateMessageTemplateCommandOutput,
   CreateMessageTemplateCommand,
-  CreateMessageTemplateCommandInput,
-  CreateMessageTemplateCommandOutput,
 } from "./commands/CreateMessageTemplateCommand";
 import {
+  type CreateMessageTemplateVersionCommandInput,
+  type CreateMessageTemplateVersionCommandOutput,
   CreateMessageTemplateVersionCommand,
-  CreateMessageTemplateVersionCommandInput,
-  CreateMessageTemplateVersionCommandOutput,
 } from "./commands/CreateMessageTemplateVersionCommand";
 import {
+  type CreateQuickResponseCommandInput,
+  type CreateQuickResponseCommandOutput,
   CreateQuickResponseCommand,
-  CreateQuickResponseCommandInput,
-  CreateQuickResponseCommandOutput,
 } from "./commands/CreateQuickResponseCommand";
 import {
+  type CreateSessionCommandInput,
+  type CreateSessionCommandOutput,
   CreateSessionCommand,
-  CreateSessionCommandInput,
-  CreateSessionCommandOutput,
 } from "./commands/CreateSessionCommand";
 import {
+  type DeactivateMessageTemplateCommandInput,
+  type DeactivateMessageTemplateCommandOutput,
   DeactivateMessageTemplateCommand,
-  DeactivateMessageTemplateCommandInput,
-  DeactivateMessageTemplateCommandOutput,
 } from "./commands/DeactivateMessageTemplateCommand";
 import {
+  type DeleteAIAgentCommandInput,
+  type DeleteAIAgentCommandOutput,
   DeleteAIAgentCommand,
-  DeleteAIAgentCommandInput,
-  DeleteAIAgentCommandOutput,
 } from "./commands/DeleteAIAgentCommand";
 import {
+  type DeleteAIAgentVersionCommandInput,
+  type DeleteAIAgentVersionCommandOutput,
   DeleteAIAgentVersionCommand,
-  DeleteAIAgentVersionCommandInput,
-  DeleteAIAgentVersionCommandOutput,
 } from "./commands/DeleteAIAgentVersionCommand";
 import {
+  type DeleteAIGuardrailCommandInput,
+  type DeleteAIGuardrailCommandOutput,
   DeleteAIGuardrailCommand,
-  DeleteAIGuardrailCommandInput,
-  DeleteAIGuardrailCommandOutput,
 } from "./commands/DeleteAIGuardrailCommand";
 import {
+  type DeleteAIGuardrailVersionCommandInput,
+  type DeleteAIGuardrailVersionCommandOutput,
   DeleteAIGuardrailVersionCommand,
-  DeleteAIGuardrailVersionCommandInput,
-  DeleteAIGuardrailVersionCommandOutput,
 } from "./commands/DeleteAIGuardrailVersionCommand";
 import {
+  type DeleteAIPromptCommandInput,
+  type DeleteAIPromptCommandOutput,
   DeleteAIPromptCommand,
-  DeleteAIPromptCommandInput,
-  DeleteAIPromptCommandOutput,
 } from "./commands/DeleteAIPromptCommand";
 import {
+  type DeleteAIPromptVersionCommandInput,
+  type DeleteAIPromptVersionCommandOutput,
   DeleteAIPromptVersionCommand,
-  DeleteAIPromptVersionCommandInput,
-  DeleteAIPromptVersionCommandOutput,
 } from "./commands/DeleteAIPromptVersionCommand";
 import {
+  type DeleteAssistantAssociationCommandInput,
+  type DeleteAssistantAssociationCommandOutput,
   DeleteAssistantAssociationCommand,
-  DeleteAssistantAssociationCommandInput,
-  DeleteAssistantAssociationCommandOutput,
 } from "./commands/DeleteAssistantAssociationCommand";
 import {
+  type DeleteAssistantCommandInput,
+  type DeleteAssistantCommandOutput,
   DeleteAssistantCommand,
-  DeleteAssistantCommandInput,
-  DeleteAssistantCommandOutput,
 } from "./commands/DeleteAssistantCommand";
 import {
+  type DeleteContentAssociationCommandInput,
+  type DeleteContentAssociationCommandOutput,
   DeleteContentAssociationCommand,
-  DeleteContentAssociationCommandInput,
-  DeleteContentAssociationCommandOutput,
 } from "./commands/DeleteContentAssociationCommand";
 import {
+  type DeleteContentCommandInput,
+  type DeleteContentCommandOutput,
   DeleteContentCommand,
-  DeleteContentCommandInput,
-  DeleteContentCommandOutput,
 } from "./commands/DeleteContentCommand";
 import {
+  type DeleteImportJobCommandInput,
+  type DeleteImportJobCommandOutput,
   DeleteImportJobCommand,
-  DeleteImportJobCommandInput,
-  DeleteImportJobCommandOutput,
 } from "./commands/DeleteImportJobCommand";
 import {
+  type DeleteKnowledgeBaseCommandInput,
+  type DeleteKnowledgeBaseCommandOutput,
   DeleteKnowledgeBaseCommand,
-  DeleteKnowledgeBaseCommandInput,
-  DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
 import {
+  type DeleteMessageTemplateAttachmentCommandInput,
+  type DeleteMessageTemplateAttachmentCommandOutput,
   DeleteMessageTemplateAttachmentCommand,
-  DeleteMessageTemplateAttachmentCommandInput,
-  DeleteMessageTemplateAttachmentCommandOutput,
 } from "./commands/DeleteMessageTemplateAttachmentCommand";
 import {
+  type DeleteMessageTemplateCommandInput,
+  type DeleteMessageTemplateCommandOutput,
   DeleteMessageTemplateCommand,
-  DeleteMessageTemplateCommandInput,
-  DeleteMessageTemplateCommandOutput,
 } from "./commands/DeleteMessageTemplateCommand";
 import {
+  type DeleteQuickResponseCommandInput,
+  type DeleteQuickResponseCommandOutput,
   DeleteQuickResponseCommand,
-  DeleteQuickResponseCommandInput,
-  DeleteQuickResponseCommandOutput,
 } from "./commands/DeleteQuickResponseCommand";
-import { GetAIAgentCommand, GetAIAgentCommandInput, GetAIAgentCommandOutput } from "./commands/GetAIAgentCommand";
 import {
+  type GetAIAgentCommandInput,
+  type GetAIAgentCommandOutput,
+  GetAIAgentCommand,
+} from "./commands/GetAIAgentCommand";
+import {
+  type GetAIGuardrailCommandInput,
+  type GetAIGuardrailCommandOutput,
   GetAIGuardrailCommand,
-  GetAIGuardrailCommandInput,
-  GetAIGuardrailCommandOutput,
 } from "./commands/GetAIGuardrailCommand";
-import { GetAIPromptCommand, GetAIPromptCommandInput, GetAIPromptCommandOutput } from "./commands/GetAIPromptCommand";
 import {
+  type GetAIPromptCommandInput,
+  type GetAIPromptCommandOutput,
+  GetAIPromptCommand,
+} from "./commands/GetAIPromptCommand";
+import {
+  type GetAssistantAssociationCommandInput,
+  type GetAssistantAssociationCommandOutput,
   GetAssistantAssociationCommand,
-  GetAssistantAssociationCommandInput,
-  GetAssistantAssociationCommandOutput,
 } from "./commands/GetAssistantAssociationCommand";
 import {
+  type GetAssistantCommandInput,
+  type GetAssistantCommandOutput,
   GetAssistantCommand,
-  GetAssistantCommandInput,
-  GetAssistantCommandOutput,
 } from "./commands/GetAssistantCommand";
 import {
+  type GetContentAssociationCommandInput,
+  type GetContentAssociationCommandOutput,
   GetContentAssociationCommand,
-  GetContentAssociationCommandInput,
-  GetContentAssociationCommandOutput,
 } from "./commands/GetContentAssociationCommand";
-import { GetContentCommand, GetContentCommandInput, GetContentCommandOutput } from "./commands/GetContentCommand";
 import {
+  type GetContentCommandInput,
+  type GetContentCommandOutput,
+  GetContentCommand,
+} from "./commands/GetContentCommand";
+import {
+  type GetContentSummaryCommandInput,
+  type GetContentSummaryCommandOutput,
   GetContentSummaryCommand,
-  GetContentSummaryCommandInput,
-  GetContentSummaryCommandOutput,
 } from "./commands/GetContentSummaryCommand";
 import {
+  type GetImportJobCommandInput,
+  type GetImportJobCommandOutput,
   GetImportJobCommand,
-  GetImportJobCommandInput,
-  GetImportJobCommandOutput,
 } from "./commands/GetImportJobCommand";
 import {
+  type GetKnowledgeBaseCommandInput,
+  type GetKnowledgeBaseCommandOutput,
   GetKnowledgeBaseCommand,
-  GetKnowledgeBaseCommandInput,
-  GetKnowledgeBaseCommandOutput,
 } from "./commands/GetKnowledgeBaseCommand";
 import {
+  type GetMessageTemplateCommandInput,
+  type GetMessageTemplateCommandOutput,
   GetMessageTemplateCommand,
-  GetMessageTemplateCommandInput,
-  GetMessageTemplateCommandOutput,
 } from "./commands/GetMessageTemplateCommand";
 import {
+  type GetNextMessageCommandInput,
+  type GetNextMessageCommandOutput,
   GetNextMessageCommand,
-  GetNextMessageCommandInput,
-  GetNextMessageCommandOutput,
 } from "./commands/GetNextMessageCommand";
 import {
+  type GetQuickResponseCommandInput,
+  type GetQuickResponseCommandOutput,
   GetQuickResponseCommand,
-  GetQuickResponseCommandInput,
-  GetQuickResponseCommandOutput,
 } from "./commands/GetQuickResponseCommand";
 import {
+  type GetRecommendationsCommandInput,
+  type GetRecommendationsCommandOutput,
   GetRecommendationsCommand,
-  GetRecommendationsCommandInput,
-  GetRecommendationsCommandOutput,
 } from "./commands/GetRecommendationsCommand";
-import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import {
+  type GetSessionCommandInput,
+  type GetSessionCommandOutput,
+  GetSessionCommand,
+} from "./commands/GetSessionCommand";
+import {
+  type ListAIAgentsCommandInput,
+  type ListAIAgentsCommandOutput,
   ListAIAgentsCommand,
-  ListAIAgentsCommandInput,
-  ListAIAgentsCommandOutput,
 } from "./commands/ListAIAgentsCommand";
 import {
+  type ListAIAgentVersionsCommandInput,
+  type ListAIAgentVersionsCommandOutput,
   ListAIAgentVersionsCommand,
-  ListAIAgentVersionsCommandInput,
-  ListAIAgentVersionsCommandOutput,
 } from "./commands/ListAIAgentVersionsCommand";
 import {
+  type ListAIGuardrailsCommandInput,
+  type ListAIGuardrailsCommandOutput,
   ListAIGuardrailsCommand,
-  ListAIGuardrailsCommandInput,
-  ListAIGuardrailsCommandOutput,
 } from "./commands/ListAIGuardrailsCommand";
 import {
+  type ListAIGuardrailVersionsCommandInput,
+  type ListAIGuardrailVersionsCommandOutput,
   ListAIGuardrailVersionsCommand,
-  ListAIGuardrailVersionsCommandInput,
-  ListAIGuardrailVersionsCommandOutput,
 } from "./commands/ListAIGuardrailVersionsCommand";
 import {
+  type ListAIPromptsCommandInput,
+  type ListAIPromptsCommandOutput,
   ListAIPromptsCommand,
-  ListAIPromptsCommandInput,
-  ListAIPromptsCommandOutput,
 } from "./commands/ListAIPromptsCommand";
 import {
+  type ListAIPromptVersionsCommandInput,
+  type ListAIPromptVersionsCommandOutput,
   ListAIPromptVersionsCommand,
-  ListAIPromptVersionsCommandInput,
-  ListAIPromptVersionsCommandOutput,
 } from "./commands/ListAIPromptVersionsCommand";
 import {
+  type ListAssistantAssociationsCommandInput,
+  type ListAssistantAssociationsCommandOutput,
   ListAssistantAssociationsCommand,
-  ListAssistantAssociationsCommandInput,
-  ListAssistantAssociationsCommandOutput,
 } from "./commands/ListAssistantAssociationsCommand";
 import {
+  type ListAssistantsCommandInput,
+  type ListAssistantsCommandOutput,
   ListAssistantsCommand,
-  ListAssistantsCommandInput,
-  ListAssistantsCommandOutput,
 } from "./commands/ListAssistantsCommand";
 import {
+  type ListContentAssociationsCommandInput,
+  type ListContentAssociationsCommandOutput,
   ListContentAssociationsCommand,
-  ListContentAssociationsCommandInput,
-  ListContentAssociationsCommandOutput,
 } from "./commands/ListContentAssociationsCommand";
 import {
+  type ListContentsCommandInput,
+  type ListContentsCommandOutput,
   ListContentsCommand,
-  ListContentsCommandInput,
-  ListContentsCommandOutput,
 } from "./commands/ListContentsCommand";
 import {
+  type ListImportJobsCommandInput,
+  type ListImportJobsCommandOutput,
   ListImportJobsCommand,
-  ListImportJobsCommandInput,
-  ListImportJobsCommandOutput,
 } from "./commands/ListImportJobsCommand";
 import {
+  type ListKnowledgeBasesCommandInput,
+  type ListKnowledgeBasesCommandOutput,
   ListKnowledgeBasesCommand,
-  ListKnowledgeBasesCommandInput,
-  ListKnowledgeBasesCommandOutput,
 } from "./commands/ListKnowledgeBasesCommand";
 import {
+  type ListMessagesCommandInput,
+  type ListMessagesCommandOutput,
   ListMessagesCommand,
-  ListMessagesCommandInput,
-  ListMessagesCommandOutput,
 } from "./commands/ListMessagesCommand";
 import {
+  type ListMessageTemplatesCommandInput,
+  type ListMessageTemplatesCommandOutput,
   ListMessageTemplatesCommand,
-  ListMessageTemplatesCommandInput,
-  ListMessageTemplatesCommandOutput,
 } from "./commands/ListMessageTemplatesCommand";
 import {
+  type ListMessageTemplateVersionsCommandInput,
+  type ListMessageTemplateVersionsCommandOutput,
   ListMessageTemplateVersionsCommand,
-  ListMessageTemplateVersionsCommandInput,
-  ListMessageTemplateVersionsCommandOutput,
 } from "./commands/ListMessageTemplateVersionsCommand";
 import {
+  type ListQuickResponsesCommandInput,
+  type ListQuickResponsesCommandOutput,
   ListQuickResponsesCommand,
-  ListQuickResponsesCommandInput,
-  ListQuickResponsesCommandOutput,
 } from "./commands/ListQuickResponsesCommand";
-import { ListSpansCommand, ListSpansCommandInput, ListSpansCommandOutput } from "./commands/ListSpansCommand";
+import { type ListSpansCommandInput, type ListSpansCommandOutput, ListSpansCommand } from "./commands/ListSpansCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type NotifyRecommendationsReceivedCommandInput,
+  type NotifyRecommendationsReceivedCommandOutput,
   NotifyRecommendationsReceivedCommand,
-  NotifyRecommendationsReceivedCommandInput,
-  NotifyRecommendationsReceivedCommandOutput,
 } from "./commands/NotifyRecommendationsReceivedCommand";
-import { PutFeedbackCommand, PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import {
+  type PutFeedbackCommandInput,
+  type PutFeedbackCommandOutput,
+  PutFeedbackCommand,
+} from "./commands/PutFeedbackCommand";
+import {
+  type QueryAssistantCommandInput,
+  type QueryAssistantCommandOutput,
   QueryAssistantCommand,
-  QueryAssistantCommandInput,
-  QueryAssistantCommandOutput,
 } from "./commands/QueryAssistantCommand";
 import {
+  type RemoveAssistantAIAgentCommandInput,
+  type RemoveAssistantAIAgentCommandOutput,
   RemoveAssistantAIAgentCommand,
-  RemoveAssistantAIAgentCommandInput,
-  RemoveAssistantAIAgentCommandOutput,
 } from "./commands/RemoveAssistantAIAgentCommand";
 import {
+  type RemoveKnowledgeBaseTemplateUriCommandInput,
+  type RemoveKnowledgeBaseTemplateUriCommandOutput,
   RemoveKnowledgeBaseTemplateUriCommand,
-  RemoveKnowledgeBaseTemplateUriCommandInput,
-  RemoveKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/RemoveKnowledgeBaseTemplateUriCommand";
 import {
+  type RenderMessageTemplateCommandInput,
+  type RenderMessageTemplateCommandOutput,
   RenderMessageTemplateCommand,
-  RenderMessageTemplateCommandInput,
-  RenderMessageTemplateCommandOutput,
 } from "./commands/RenderMessageTemplateCommand";
-import { RetrieveCommand, RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
+import { type RetrieveCommandInput, type RetrieveCommandOutput, RetrieveCommand } from "./commands/RetrieveCommand";
 import {
+  type SearchContentCommandInput,
+  type SearchContentCommandOutput,
   SearchContentCommand,
-  SearchContentCommandInput,
-  SearchContentCommandOutput,
 } from "./commands/SearchContentCommand";
 import {
+  type SearchMessageTemplatesCommandInput,
+  type SearchMessageTemplatesCommandOutput,
   SearchMessageTemplatesCommand,
-  SearchMessageTemplatesCommandInput,
-  SearchMessageTemplatesCommandOutput,
 } from "./commands/SearchMessageTemplatesCommand";
 import {
+  type SearchQuickResponsesCommandInput,
+  type SearchQuickResponsesCommandOutput,
   SearchQuickResponsesCommand,
-  SearchQuickResponsesCommandInput,
-  SearchQuickResponsesCommandOutput,
 } from "./commands/SearchQuickResponsesCommand";
 import {
+  type SearchSessionsCommandInput,
+  type SearchSessionsCommandOutput,
   SearchSessionsCommand,
-  SearchSessionsCommandInput,
-  SearchSessionsCommandOutput,
 } from "./commands/SearchSessionsCommand";
-import { SendMessageCommand, SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
 import {
+  type SendMessageCommandInput,
+  type SendMessageCommandOutput,
+  SendMessageCommand,
+} from "./commands/SendMessageCommand";
+import {
+  type StartContentUploadCommandInput,
+  type StartContentUploadCommandOutput,
   StartContentUploadCommand,
-  StartContentUploadCommandInput,
-  StartContentUploadCommandOutput,
 } from "./commands/StartContentUploadCommand";
 import {
+  type StartImportJobCommandInput,
+  type StartImportJobCommandOutput,
   StartImportJobCommand,
-  StartImportJobCommandInput,
-  StartImportJobCommandOutput,
 } from "./commands/StartImportJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAIAgentCommandInput,
+  type UpdateAIAgentCommandOutput,
   UpdateAIAgentCommand,
-  UpdateAIAgentCommandInput,
-  UpdateAIAgentCommandOutput,
 } from "./commands/UpdateAIAgentCommand";
 import {
+  type UpdateAIGuardrailCommandInput,
+  type UpdateAIGuardrailCommandOutput,
   UpdateAIGuardrailCommand,
-  UpdateAIGuardrailCommandInput,
-  UpdateAIGuardrailCommandOutput,
 } from "./commands/UpdateAIGuardrailCommand";
 import {
+  type UpdateAIPromptCommandInput,
+  type UpdateAIPromptCommandOutput,
   UpdateAIPromptCommand,
-  UpdateAIPromptCommandInput,
-  UpdateAIPromptCommandOutput,
 } from "./commands/UpdateAIPromptCommand";
 import {
+  type UpdateAssistantAIAgentCommandInput,
+  type UpdateAssistantAIAgentCommandOutput,
   UpdateAssistantAIAgentCommand,
-  UpdateAssistantAIAgentCommandInput,
-  UpdateAssistantAIAgentCommandOutput,
 } from "./commands/UpdateAssistantAIAgentCommand";
 import {
+  type UpdateContentCommandInput,
+  type UpdateContentCommandOutput,
   UpdateContentCommand,
-  UpdateContentCommandInput,
-  UpdateContentCommandOutput,
 } from "./commands/UpdateContentCommand";
 import {
+  type UpdateKnowledgeBaseTemplateUriCommandInput,
+  type UpdateKnowledgeBaseTemplateUriCommandOutput,
   UpdateKnowledgeBaseTemplateUriCommand,
-  UpdateKnowledgeBaseTemplateUriCommandInput,
-  UpdateKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/UpdateKnowledgeBaseTemplateUriCommand";
 import {
+  type UpdateMessageTemplateCommandInput,
+  type UpdateMessageTemplateCommandOutput,
   UpdateMessageTemplateCommand,
-  UpdateMessageTemplateCommandInput,
-  UpdateMessageTemplateCommandOutput,
 } from "./commands/UpdateMessageTemplateCommand";
 import {
+  type UpdateMessageTemplateMetadataCommandInput,
+  type UpdateMessageTemplateMetadataCommandOutput,
   UpdateMessageTemplateMetadataCommand,
-  UpdateMessageTemplateMetadataCommandInput,
-  UpdateMessageTemplateMetadataCommandOutput,
 } from "./commands/UpdateMessageTemplateMetadataCommand";
 import {
+  type UpdateQuickResponseCommandInput,
+  type UpdateQuickResponseCommandOutput,
   UpdateQuickResponseCommand,
-  UpdateQuickResponseCommandInput,
-  UpdateQuickResponseCommandOutput,
 } from "./commands/UpdateQuickResponseCommand";
 import {
+  type UpdateSessionCommandInput,
+  type UpdateSessionCommandOutput,
   UpdateSessionCommand,
-  UpdateSessionCommandInput,
-  UpdateSessionCommandOutput,
 } from "./commands/UpdateSessionCommand";
 import {
+  type UpdateSessionDataCommandInput,
+  type UpdateSessionDataCommandOutput,
   UpdateSessionDataCommand,
-  UpdateSessionDataCommandInput,
-  UpdateSessionDataCommandOutput,
 } from "./commands/UpdateSessionDataCommand";
 import { paginateListAIAgents } from "./pagination/ListAIAgentsPaginator";
 import { paginateListAIAgentVersions } from "./pagination/ListAIAgentVersionsPaginator";

@@ -3,155 +3,175 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptDomainTransferFromAnotherAwsAccountCommandInput,
+  type AcceptDomainTransferFromAnotherAwsAccountCommandOutput,
   AcceptDomainTransferFromAnotherAwsAccountCommand,
-  AcceptDomainTransferFromAnotherAwsAccountCommandInput,
-  AcceptDomainTransferFromAnotherAwsAccountCommandOutput,
 } from "./commands/AcceptDomainTransferFromAnotherAwsAccountCommand";
 import {
+  type AssociateDelegationSignerToDomainCommandInput,
+  type AssociateDelegationSignerToDomainCommandOutput,
   AssociateDelegationSignerToDomainCommand,
-  AssociateDelegationSignerToDomainCommandInput,
-  AssociateDelegationSignerToDomainCommandOutput,
 } from "./commands/AssociateDelegationSignerToDomainCommand";
 import {
+  type CancelDomainTransferToAnotherAwsAccountCommandInput,
+  type CancelDomainTransferToAnotherAwsAccountCommandOutput,
   CancelDomainTransferToAnotherAwsAccountCommand,
-  CancelDomainTransferToAnotherAwsAccountCommandInput,
-  CancelDomainTransferToAnotherAwsAccountCommandOutput,
 } from "./commands/CancelDomainTransferToAnotherAwsAccountCommand";
 import {
+  type CheckDomainAvailabilityCommandInput,
+  type CheckDomainAvailabilityCommandOutput,
   CheckDomainAvailabilityCommand,
-  CheckDomainAvailabilityCommandInput,
-  CheckDomainAvailabilityCommandOutput,
 } from "./commands/CheckDomainAvailabilityCommand";
 import {
+  type CheckDomainTransferabilityCommandInput,
+  type CheckDomainTransferabilityCommandOutput,
   CheckDomainTransferabilityCommand,
-  CheckDomainTransferabilityCommandInput,
-  CheckDomainTransferabilityCommandOutput,
 } from "./commands/CheckDomainTransferabilityCommand";
 import {
+  type DeleteDomainCommandInput,
+  type DeleteDomainCommandOutput,
   DeleteDomainCommand,
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
+  type DeleteTagsForDomainCommandInput,
+  type DeleteTagsForDomainCommandOutput,
   DeleteTagsForDomainCommand,
-  DeleteTagsForDomainCommandInput,
-  DeleteTagsForDomainCommandOutput,
 } from "./commands/DeleteTagsForDomainCommand";
 import {
+  type DisableDomainAutoRenewCommandInput,
+  type DisableDomainAutoRenewCommandOutput,
   DisableDomainAutoRenewCommand,
-  DisableDomainAutoRenewCommandInput,
-  DisableDomainAutoRenewCommandOutput,
 } from "./commands/DisableDomainAutoRenewCommand";
 import {
+  type DisableDomainTransferLockCommandInput,
+  type DisableDomainTransferLockCommandOutput,
   DisableDomainTransferLockCommand,
-  DisableDomainTransferLockCommandInput,
-  DisableDomainTransferLockCommandOutput,
 } from "./commands/DisableDomainTransferLockCommand";
 import {
+  type DisassociateDelegationSignerFromDomainCommandInput,
+  type DisassociateDelegationSignerFromDomainCommandOutput,
   DisassociateDelegationSignerFromDomainCommand,
-  DisassociateDelegationSignerFromDomainCommandInput,
-  DisassociateDelegationSignerFromDomainCommandOutput,
 } from "./commands/DisassociateDelegationSignerFromDomainCommand";
 import {
+  type EnableDomainAutoRenewCommandInput,
+  type EnableDomainAutoRenewCommandOutput,
   EnableDomainAutoRenewCommand,
-  EnableDomainAutoRenewCommandInput,
-  EnableDomainAutoRenewCommandOutput,
 } from "./commands/EnableDomainAutoRenewCommand";
 import {
+  type EnableDomainTransferLockCommandInput,
+  type EnableDomainTransferLockCommandOutput,
   EnableDomainTransferLockCommand,
-  EnableDomainTransferLockCommandInput,
-  EnableDomainTransferLockCommandOutput,
 } from "./commands/EnableDomainTransferLockCommand";
 import {
+  type GetContactReachabilityStatusCommandInput,
+  type GetContactReachabilityStatusCommandOutput,
   GetContactReachabilityStatusCommand,
-  GetContactReachabilityStatusCommandInput,
-  GetContactReachabilityStatusCommandOutput,
 } from "./commands/GetContactReachabilityStatusCommand";
 import {
+  type GetDomainDetailCommandInput,
+  type GetDomainDetailCommandOutput,
   GetDomainDetailCommand,
-  GetDomainDetailCommandInput,
-  GetDomainDetailCommandOutput,
 } from "./commands/GetDomainDetailCommand";
 import {
+  type GetDomainSuggestionsCommandInput,
+  type GetDomainSuggestionsCommandOutput,
   GetDomainSuggestionsCommand,
-  GetDomainSuggestionsCommandInput,
-  GetDomainSuggestionsCommandOutput,
 } from "./commands/GetDomainSuggestionsCommand";
 import {
+  type GetOperationDetailCommandInput,
+  type GetOperationDetailCommandOutput,
   GetOperationDetailCommand,
-  GetOperationDetailCommandInput,
-  GetOperationDetailCommandOutput,
 } from "./commands/GetOperationDetailCommand";
-import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  type ListDomainsCommandInput,
+  type ListDomainsCommandOutput,
+  ListDomainsCommand,
+} from "./commands/ListDomainsCommand";
+import {
+  type ListOperationsCommandInput,
+  type ListOperationsCommandOutput,
   ListOperationsCommand,
-  ListOperationsCommandInput,
-  ListOperationsCommandOutput,
 } from "./commands/ListOperationsCommand";
-import { ListPricesCommand, ListPricesCommandInput, ListPricesCommandOutput } from "./commands/ListPricesCommand";
 import {
+  type ListPricesCommandInput,
+  type ListPricesCommandOutput,
+  ListPricesCommand,
+} from "./commands/ListPricesCommand";
+import {
+  type ListTagsForDomainCommandInput,
+  type ListTagsForDomainCommandOutput,
   ListTagsForDomainCommand,
-  ListTagsForDomainCommandInput,
-  ListTagsForDomainCommandOutput,
 } from "./commands/ListTagsForDomainCommand";
-import { PushDomainCommand, PushDomainCommandInput, PushDomainCommandOutput } from "./commands/PushDomainCommand";
 import {
+  type PushDomainCommandInput,
+  type PushDomainCommandOutput,
+  PushDomainCommand,
+} from "./commands/PushDomainCommand";
+import {
+  type RegisterDomainCommandInput,
+  type RegisterDomainCommandOutput,
   RegisterDomainCommand,
-  RegisterDomainCommandInput,
-  RegisterDomainCommandOutput,
 } from "./commands/RegisterDomainCommand";
 import {
+  type RejectDomainTransferFromAnotherAwsAccountCommandInput,
+  type RejectDomainTransferFromAnotherAwsAccountCommandOutput,
   RejectDomainTransferFromAnotherAwsAccountCommand,
-  RejectDomainTransferFromAnotherAwsAccountCommandInput,
-  RejectDomainTransferFromAnotherAwsAccountCommandOutput,
 } from "./commands/RejectDomainTransferFromAnotherAwsAccountCommand";
-import { RenewDomainCommand, RenewDomainCommandInput, RenewDomainCommandOutput } from "./commands/RenewDomainCommand";
 import {
+  type RenewDomainCommandInput,
+  type RenewDomainCommandOutput,
+  RenewDomainCommand,
+} from "./commands/RenewDomainCommand";
+import {
+  type ResendContactReachabilityEmailCommandInput,
+  type ResendContactReachabilityEmailCommandOutput,
   ResendContactReachabilityEmailCommand,
-  ResendContactReachabilityEmailCommandInput,
-  ResendContactReachabilityEmailCommandOutput,
 } from "./commands/ResendContactReachabilityEmailCommand";
 import {
+  type ResendOperationAuthorizationCommandInput,
+  type ResendOperationAuthorizationCommandOutput,
   ResendOperationAuthorizationCommand,
-  ResendOperationAuthorizationCommandInput,
-  ResendOperationAuthorizationCommandOutput,
 } from "./commands/ResendOperationAuthorizationCommand";
 import {
+  type RetrieveDomainAuthCodeCommandInput,
+  type RetrieveDomainAuthCodeCommandOutput,
   RetrieveDomainAuthCodeCommand,
-  RetrieveDomainAuthCodeCommandInput,
-  RetrieveDomainAuthCodeCommandOutput,
 } from "./commands/RetrieveDomainAuthCodeCommand";
 import {
+  type TransferDomainCommandInput,
+  type TransferDomainCommandOutput,
   TransferDomainCommand,
-  TransferDomainCommandInput,
-  TransferDomainCommandOutput,
 } from "./commands/TransferDomainCommand";
 import {
+  type TransferDomainToAnotherAwsAccountCommandInput,
+  type TransferDomainToAnotherAwsAccountCommandOutput,
   TransferDomainToAnotherAwsAccountCommand,
-  TransferDomainToAnotherAwsAccountCommandInput,
-  TransferDomainToAnotherAwsAccountCommandOutput,
 } from "./commands/TransferDomainToAnotherAwsAccountCommand";
 import {
+  type UpdateDomainContactCommandInput,
+  type UpdateDomainContactCommandOutput,
   UpdateDomainContactCommand,
-  UpdateDomainContactCommandInput,
-  UpdateDomainContactCommandOutput,
 } from "./commands/UpdateDomainContactCommand";
 import {
+  type UpdateDomainContactPrivacyCommandInput,
+  type UpdateDomainContactPrivacyCommandOutput,
   UpdateDomainContactPrivacyCommand,
-  UpdateDomainContactPrivacyCommandInput,
-  UpdateDomainContactPrivacyCommandOutput,
 } from "./commands/UpdateDomainContactPrivacyCommand";
 import {
+  type UpdateDomainNameserversCommandInput,
+  type UpdateDomainNameserversCommandOutput,
   UpdateDomainNameserversCommand,
-  UpdateDomainNameserversCommandInput,
-  UpdateDomainNameserversCommandOutput,
 } from "./commands/UpdateDomainNameserversCommand";
 import {
+  type UpdateTagsForDomainCommandInput,
+  type UpdateTagsForDomainCommandOutput,
   UpdateTagsForDomainCommand,
-  UpdateTagsForDomainCommandInput,
-  UpdateTagsForDomainCommandOutput,
 } from "./commands/UpdateTagsForDomainCommand";
-import { ViewBillingCommand, ViewBillingCommandInput, ViewBillingCommandOutput } from "./commands/ViewBillingCommand";
+import {
+  type ViewBillingCommandInput,
+  type ViewBillingCommandOutput,
+  ViewBillingCommand,
+} from "./commands/ViewBillingCommand";
 import { paginateListDomains } from "./pagination/ListDomainsPaginator";
 import { paginateListOperations } from "./pagination/ListOperationsPaginator";
 import { paginateListPrices } from "./pagination/ListPricesPaginator";

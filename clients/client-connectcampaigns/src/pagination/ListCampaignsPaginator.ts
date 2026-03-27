@@ -8,7 +8,7 @@ import {
   ListCampaignsCommandOutput,
 } from "../commands/ListCampaignsCommand";
 import { ConnectCampaignsClient } from "../ConnectCampaignsClient";
-import { ConnectCampaignsPaginationConfiguration } from "./Interfaces";
+import type { ConnectCampaignsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

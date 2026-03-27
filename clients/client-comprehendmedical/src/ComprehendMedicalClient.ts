@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,96 +61,96 @@ import {
   defaultComprehendMedicalHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   DescribeEntitiesDetectionV2JobCommandInput,
   DescribeEntitiesDetectionV2JobCommandOutput,
 } from "./commands/DescribeEntitiesDetectionV2JobCommand";
-import {
+import type {
   DescribeICD10CMInferenceJobCommandInput,
   DescribeICD10CMInferenceJobCommandOutput,
 } from "./commands/DescribeICD10CMInferenceJobCommand";
-import {
+import type {
   DescribePHIDetectionJobCommandInput,
   DescribePHIDetectionJobCommandOutput,
 } from "./commands/DescribePHIDetectionJobCommand";
-import {
+import type {
   DescribeRxNormInferenceJobCommandInput,
   DescribeRxNormInferenceJobCommandOutput,
 } from "./commands/DescribeRxNormInferenceJobCommand";
-import {
+import type {
   DescribeSNOMEDCTInferenceJobCommandInput,
   DescribeSNOMEDCTInferenceJobCommandOutput,
 } from "./commands/DescribeSNOMEDCTInferenceJobCommand";
-import { DetectEntitiesCommandInput, DetectEntitiesCommandOutput } from "./commands/DetectEntitiesCommand";
-import { DetectEntitiesV2CommandInput, DetectEntitiesV2CommandOutput } from "./commands/DetectEntitiesV2Command";
-import { DetectPHICommandInput, DetectPHICommandOutput } from "./commands/DetectPHICommand";
-import { InferICD10CMCommandInput, InferICD10CMCommandOutput } from "./commands/InferICD10CMCommand";
-import { InferRxNormCommandInput, InferRxNormCommandOutput } from "./commands/InferRxNormCommand";
-import { InferSNOMEDCTCommandInput, InferSNOMEDCTCommandOutput } from "./commands/InferSNOMEDCTCommand";
-import {
+import type { DetectEntitiesCommandInput, DetectEntitiesCommandOutput } from "./commands/DetectEntitiesCommand";
+import type { DetectEntitiesV2CommandInput, DetectEntitiesV2CommandOutput } from "./commands/DetectEntitiesV2Command";
+import type { DetectPHICommandInput, DetectPHICommandOutput } from "./commands/DetectPHICommand";
+import type { InferICD10CMCommandInput, InferICD10CMCommandOutput } from "./commands/InferICD10CMCommand";
+import type { InferRxNormCommandInput, InferRxNormCommandOutput } from "./commands/InferRxNormCommand";
+import type { InferSNOMEDCTCommandInput, InferSNOMEDCTCommandOutput } from "./commands/InferSNOMEDCTCommand";
+import type {
   ListEntitiesDetectionV2JobsCommandInput,
   ListEntitiesDetectionV2JobsCommandOutput,
 } from "./commands/ListEntitiesDetectionV2JobsCommand";
-import {
+import type {
   ListICD10CMInferenceJobsCommandInput,
   ListICD10CMInferenceJobsCommandOutput,
 } from "./commands/ListICD10CMInferenceJobsCommand";
-import {
+import type {
   ListPHIDetectionJobsCommandInput,
   ListPHIDetectionJobsCommandOutput,
 } from "./commands/ListPHIDetectionJobsCommand";
-import {
+import type {
   ListRxNormInferenceJobsCommandInput,
   ListRxNormInferenceJobsCommandOutput,
 } from "./commands/ListRxNormInferenceJobsCommand";
-import {
+import type {
   ListSNOMEDCTInferenceJobsCommandInput,
   ListSNOMEDCTInferenceJobsCommandOutput,
 } from "./commands/ListSNOMEDCTInferenceJobsCommand";
-import {
+import type {
   StartEntitiesDetectionV2JobCommandInput,
   StartEntitiesDetectionV2JobCommandOutput,
 } from "./commands/StartEntitiesDetectionV2JobCommand";
-import {
+import type {
   StartICD10CMInferenceJobCommandInput,
   StartICD10CMInferenceJobCommandOutput,
 } from "./commands/StartICD10CMInferenceJobCommand";
-import {
+import type {
   StartPHIDetectionJobCommandInput,
   StartPHIDetectionJobCommandOutput,
 } from "./commands/StartPHIDetectionJobCommand";
-import {
+import type {
   StartRxNormInferenceJobCommandInput,
   StartRxNormInferenceJobCommandOutput,
 } from "./commands/StartRxNormInferenceJobCommand";
-import {
+import type {
   StartSNOMEDCTInferenceJobCommandInput,
   StartSNOMEDCTInferenceJobCommandOutput,
 } from "./commands/StartSNOMEDCTInferenceJobCommand";
-import {
+import type {
   StopEntitiesDetectionV2JobCommandInput,
   StopEntitiesDetectionV2JobCommandOutput,
 } from "./commands/StopEntitiesDetectionV2JobCommand";
-import {
+import type {
   StopICD10CMInferenceJobCommandInput,
   StopICD10CMInferenceJobCommandOutput,
 } from "./commands/StopICD10CMInferenceJobCommand";
-import {
+import type {
   StopPHIDetectionJobCommandInput,
   StopPHIDetectionJobCommandOutput,
 } from "./commands/StopPHIDetectionJobCommand";
-import {
+import type {
   StopRxNormInferenceJobCommandInput,
   StopRxNormInferenceJobCommandOutput,
 } from "./commands/StopRxNormInferenceJobCommand";
-import {
+import type {
   StopSNOMEDCTInferenceJobCommandInput,
   StopSNOMEDCTInferenceJobCommandOutput,
 } from "./commands/StopSNOMEDCTInferenceJobCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -336,7 +334,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

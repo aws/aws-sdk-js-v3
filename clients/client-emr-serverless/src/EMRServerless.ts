@@ -3,68 +3,80 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelJobRunCommandInput,
+  type CancelJobRunCommandOutput,
   CancelJobRunCommand,
-  CancelJobRunCommandInput,
-  CancelJobRunCommandOutput,
 } from "./commands/CancelJobRunCommand";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
   GetApplicationCommand,
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  type GetDashboardForJobRunCommandInput,
+  type GetDashboardForJobRunCommandOutput,
   GetDashboardForJobRunCommand,
-  GetDashboardForJobRunCommandInput,
-  GetDashboardForJobRunCommandOutput,
 } from "./commands/GetDashboardForJobRunCommand";
-import { GetJobRunCommand, GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
+import { type GetJobRunCommandInput, type GetJobRunCommandOutput, GetJobRunCommand } from "./commands/GetJobRunCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListJobRunAttemptsCommandInput,
+  type ListJobRunAttemptsCommandOutput,
   ListJobRunAttemptsCommand,
-  ListJobRunAttemptsCommandInput,
-  ListJobRunAttemptsCommandOutput,
 } from "./commands/ListJobRunAttemptsCommand";
-import { ListJobRunsCommand, ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
 import {
+  type ListJobRunsCommandInput,
+  type ListJobRunsCommandOutput,
+  ListJobRunsCommand,
+} from "./commands/ListJobRunsCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartApplicationCommandInput,
+  type StartApplicationCommandOutput,
   StartApplicationCommand,
-  StartApplicationCommandInput,
-  StartApplicationCommandOutput,
 } from "./commands/StartApplicationCommand";
-import { StartJobRunCommand, StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
 import {
+  type StartJobRunCommandInput,
+  type StartJobRunCommandOutput,
+  StartJobRunCommand,
+} from "./commands/StartJobRunCommand";
+import {
+  type StopApplicationCommandInput,
+  type StopApplicationCommandOutput,
   StopApplicationCommand,
-  StopApplicationCommandInput,
-  StopApplicationCommandOutput,
 } from "./commands/StopApplicationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import { EMRServerlessClient } from "./EMRServerlessClient";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";

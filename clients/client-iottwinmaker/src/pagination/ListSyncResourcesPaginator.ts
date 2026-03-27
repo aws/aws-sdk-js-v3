@@ -8,7 +8,7 @@ import {
   ListSyncResourcesCommandOutput,
 } from "../commands/ListSyncResourcesCommand";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
-import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
+import type { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

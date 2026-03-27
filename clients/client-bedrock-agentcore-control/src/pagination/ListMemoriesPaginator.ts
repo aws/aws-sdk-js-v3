@@ -8,7 +8,7 @@ import {
   ListMemoriesCommandInput,
   ListMemoriesCommandOutput,
 } from "../commands/ListMemoriesCommand";
-import { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   GetEvidenceByEvidenceFolderCommandInput,
   GetEvidenceByEvidenceFolderCommandOutput,
 } from "../commands/GetEvidenceByEvidenceFolderCommand";
-import { AuditManagerPaginationConfiguration } from "./Interfaces";
+import type { AuditManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

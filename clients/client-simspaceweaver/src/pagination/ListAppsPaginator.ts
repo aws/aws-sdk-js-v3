@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListAppsCommand, ListAppsCommandInput, ListAppsCommandOutput } from "../commands/ListAppsCommand";
 import { SimSpaceWeaverClient } from "../SimSpaceWeaverClient";
-import { SimSpaceWeaverPaginationConfiguration } from "./Interfaces";
+import type { SimSpaceWeaverPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

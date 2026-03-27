@@ -3,9 +3,9 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type GetRevocationStatusCommandInput,
+  type GetRevocationStatusCommandOutput,
   GetRevocationStatusCommand,
-  GetRevocationStatusCommandInput,
-  GetRevocationStatusCommandOutput,
 } from "./commands/GetRevocationStatusCommand";
 import { SignerDataClient } from "./SignerDataClient";
 

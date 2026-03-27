@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,312 +61,366 @@ import {
   defaultSecurityHubHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptAdministratorInvitationCommandInput,
   AcceptAdministratorInvitationCommandOutput,
 } from "./commands/AcceptAdministratorInvitationCommand";
-import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
-import {
+import type { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
+import type {
   BatchDeleteAutomationRulesCommandInput,
   BatchDeleteAutomationRulesCommandOutput,
 } from "./commands/BatchDeleteAutomationRulesCommand";
-import {
+import type {
   BatchDisableStandardsCommandInput,
   BatchDisableStandardsCommandOutput,
 } from "./commands/BatchDisableStandardsCommand";
-import {
+import type {
   BatchEnableStandardsCommandInput,
   BatchEnableStandardsCommandOutput,
 } from "./commands/BatchEnableStandardsCommand";
-import {
+import type {
   BatchGetAutomationRulesCommandInput,
   BatchGetAutomationRulesCommandOutput,
 } from "./commands/BatchGetAutomationRulesCommand";
-import {
+import type {
   BatchGetConfigurationPolicyAssociationsCommandInput,
   BatchGetConfigurationPolicyAssociationsCommandOutput,
 } from "./commands/BatchGetConfigurationPolicyAssociationsCommand";
-import {
+import type {
   BatchGetSecurityControlsCommandInput,
   BatchGetSecurityControlsCommandOutput,
 } from "./commands/BatchGetSecurityControlsCommand";
-import {
+import type {
   BatchGetStandardsControlAssociationsCommandInput,
   BatchGetStandardsControlAssociationsCommandOutput,
 } from "./commands/BatchGetStandardsControlAssociationsCommand";
-import {
+import type {
   BatchImportFindingsCommandInput,
   BatchImportFindingsCommandOutput,
 } from "./commands/BatchImportFindingsCommand";
-import {
+import type {
   BatchUpdateAutomationRulesCommandInput,
   BatchUpdateAutomationRulesCommandOutput,
 } from "./commands/BatchUpdateAutomationRulesCommand";
-import {
+import type {
   BatchUpdateFindingsCommandInput,
   BatchUpdateFindingsCommandOutput,
 } from "./commands/BatchUpdateFindingsCommand";
-import {
+import type {
   BatchUpdateFindingsV2CommandInput,
   BatchUpdateFindingsV2CommandOutput,
 } from "./commands/BatchUpdateFindingsV2Command";
-import {
+import type {
   BatchUpdateStandardsControlAssociationsCommandInput,
   BatchUpdateStandardsControlAssociationsCommandOutput,
 } from "./commands/BatchUpdateStandardsControlAssociationsCommand";
-import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "./commands/CreateActionTargetCommand";
-import { CreateAggregatorV2CommandInput, CreateAggregatorV2CommandOutput } from "./commands/CreateAggregatorV2Command";
-import {
+import type {
+  CreateActionTargetCommandInput,
+  CreateActionTargetCommandOutput,
+} from "./commands/CreateActionTargetCommand";
+import type {
+  CreateAggregatorV2CommandInput,
+  CreateAggregatorV2CommandOutput,
+} from "./commands/CreateAggregatorV2Command";
+import type {
   CreateAutomationRuleCommandInput,
   CreateAutomationRuleCommandOutput,
 } from "./commands/CreateAutomationRuleCommand";
-import {
+import type {
   CreateAutomationRuleV2CommandInput,
   CreateAutomationRuleV2CommandOutput,
 } from "./commands/CreateAutomationRuleV2Command";
-import {
+import type {
   CreateConfigurationPolicyCommandInput,
   CreateConfigurationPolicyCommandOutput,
 } from "./commands/CreateConfigurationPolicyCommand";
-import { CreateConnectorV2CommandInput, CreateConnectorV2CommandOutput } from "./commands/CreateConnectorV2Command";
-import {
+import type {
+  CreateConnectorV2CommandInput,
+  CreateConnectorV2CommandOutput,
+} from "./commands/CreateConnectorV2Command";
+import type {
   CreateFindingAggregatorCommandInput,
   CreateFindingAggregatorCommandOutput,
 } from "./commands/CreateFindingAggregatorCommand";
-import { CreateInsightCommandInput, CreateInsightCommandOutput } from "./commands/CreateInsightCommand";
-import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
-import { CreateTicketV2CommandInput, CreateTicketV2CommandOutput } from "./commands/CreateTicketV2Command";
-import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand";
-import { DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput } from "./commands/DeleteActionTargetCommand";
-import { DeleteAggregatorV2CommandInput, DeleteAggregatorV2CommandOutput } from "./commands/DeleteAggregatorV2Command";
-import {
+import type { CreateInsightCommandInput, CreateInsightCommandOutput } from "./commands/CreateInsightCommand";
+import type { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
+import type { CreateTicketV2CommandInput, CreateTicketV2CommandOutput } from "./commands/CreateTicketV2Command";
+import type {
+  DeclineInvitationsCommandInput,
+  DeclineInvitationsCommandOutput,
+} from "./commands/DeclineInvitationsCommand";
+import type {
+  DeleteActionTargetCommandInput,
+  DeleteActionTargetCommandOutput,
+} from "./commands/DeleteActionTargetCommand";
+import type {
+  DeleteAggregatorV2CommandInput,
+  DeleteAggregatorV2CommandOutput,
+} from "./commands/DeleteAggregatorV2Command";
+import type {
   DeleteAutomationRuleV2CommandInput,
   DeleteAutomationRuleV2CommandOutput,
 } from "./commands/DeleteAutomationRuleV2Command";
-import {
+import type {
   DeleteConfigurationPolicyCommandInput,
   DeleteConfigurationPolicyCommandOutput,
 } from "./commands/DeleteConfigurationPolicyCommand";
-import { DeleteConnectorV2CommandInput, DeleteConnectorV2CommandOutput } from "./commands/DeleteConnectorV2Command";
-import {
+import type {
+  DeleteConnectorV2CommandInput,
+  DeleteConnectorV2CommandOutput,
+} from "./commands/DeleteConnectorV2Command";
+import type {
   DeleteFindingAggregatorCommandInput,
   DeleteFindingAggregatorCommandOutput,
 } from "./commands/DeleteFindingAggregatorCommand";
-import { DeleteInsightCommandInput, DeleteInsightCommandOutput } from "./commands/DeleteInsightCommand";
-import { DeleteInvitationsCommandInput, DeleteInvitationsCommandOutput } from "./commands/DeleteInvitationsCommand";
-import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand";
-import {
+import type { DeleteInsightCommandInput, DeleteInsightCommandOutput } from "./commands/DeleteInsightCommand";
+import type {
+  DeleteInvitationsCommandInput,
+  DeleteInvitationsCommandOutput,
+} from "./commands/DeleteInvitationsCommand";
+import type { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand";
+import type {
   DescribeActionTargetsCommandInput,
   DescribeActionTargetsCommandOutput,
 } from "./commands/DescribeActionTargetsCommand";
-import { DescribeHubCommandInput, DescribeHubCommandOutput } from "./commands/DescribeHubCommand";
-import {
+import type { DescribeHubCommandInput, DescribeHubCommandOutput } from "./commands/DescribeHubCommand";
+import type {
   DescribeOrganizationConfigurationCommandInput,
   DescribeOrganizationConfigurationCommandOutput,
 } from "./commands/DescribeOrganizationConfigurationCommand";
-import { DescribeProductsCommandInput, DescribeProductsCommandOutput } from "./commands/DescribeProductsCommand";
-import { DescribeProductsV2CommandInput, DescribeProductsV2CommandOutput } from "./commands/DescribeProductsV2Command";
-import {
+import type { DescribeProductsCommandInput, DescribeProductsCommandOutput } from "./commands/DescribeProductsCommand";
+import type {
+  DescribeProductsV2CommandInput,
+  DescribeProductsV2CommandOutput,
+} from "./commands/DescribeProductsV2Command";
+import type {
   DescribeSecurityHubV2CommandInput,
   DescribeSecurityHubV2CommandOutput,
 } from "./commands/DescribeSecurityHubV2Command";
-import { DescribeStandardsCommandInput, DescribeStandardsCommandOutput } from "./commands/DescribeStandardsCommand";
-import {
+import type {
+  DescribeStandardsCommandInput,
+  DescribeStandardsCommandOutput,
+} from "./commands/DescribeStandardsCommand";
+import type {
   DescribeStandardsControlsCommandInput,
   DescribeStandardsControlsCommandOutput,
 } from "./commands/DescribeStandardsControlsCommand";
-import {
+import type {
   DisableImportFindingsForProductCommandInput,
   DisableImportFindingsForProductCommandOutput,
 } from "./commands/DisableImportFindingsForProductCommand";
-import {
+import type {
   DisableOrganizationAdminAccountCommandInput,
   DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand";
-import { DisableSecurityHubCommandInput, DisableSecurityHubCommandOutput } from "./commands/DisableSecurityHubCommand";
-import {
+import type {
+  DisableSecurityHubCommandInput,
+  DisableSecurityHubCommandOutput,
+} from "./commands/DisableSecurityHubCommand";
+import type {
   DisableSecurityHubV2CommandInput,
   DisableSecurityHubV2CommandOutput,
 } from "./commands/DisableSecurityHubV2Command";
-import {
+import type {
   DisassociateFromAdministratorAccountCommandInput,
   DisassociateFromAdministratorAccountCommandOutput,
 } from "./commands/DisassociateFromAdministratorAccountCommand";
-import {
+import type {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
 } from "./commands/DisassociateFromMasterAccountCommand";
-import {
+import type {
   DisassociateMembersCommandInput,
   DisassociateMembersCommandOutput,
 } from "./commands/DisassociateMembersCommand";
-import {
+import type {
   EnableImportFindingsForProductCommandInput,
   EnableImportFindingsForProductCommandOutput,
 } from "./commands/EnableImportFindingsForProductCommand";
-import {
+import type {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
-import { EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput } from "./commands/EnableSecurityHubCommand";
-import {
+import type {
+  EnableSecurityHubCommandInput,
+  EnableSecurityHubCommandOutput,
+} from "./commands/EnableSecurityHubCommand";
+import type {
   EnableSecurityHubV2CommandInput,
   EnableSecurityHubV2CommandOutput,
 } from "./commands/EnableSecurityHubV2Command";
-import {
+import type {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
-import { GetAggregatorV2CommandInput, GetAggregatorV2CommandOutput } from "./commands/GetAggregatorV2Command";
-import {
+import type { GetAggregatorV2CommandInput, GetAggregatorV2CommandOutput } from "./commands/GetAggregatorV2Command";
+import type {
   GetAutomationRuleV2CommandInput,
   GetAutomationRuleV2CommandOutput,
 } from "./commands/GetAutomationRuleV2Command";
-import {
+import type {
   GetConfigurationPolicyAssociationCommandInput,
   GetConfigurationPolicyAssociationCommandOutput,
 } from "./commands/GetConfigurationPolicyAssociationCommand";
-import {
+import type {
   GetConfigurationPolicyCommandInput,
   GetConfigurationPolicyCommandOutput,
 } from "./commands/GetConfigurationPolicyCommand";
-import { GetConnectorV2CommandInput, GetConnectorV2CommandOutput } from "./commands/GetConnectorV2Command";
-import {
+import type { GetConnectorV2CommandInput, GetConnectorV2CommandOutput } from "./commands/GetConnectorV2Command";
+import type {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
 } from "./commands/GetEnabledStandardsCommand";
-import {
+import type {
   GetFindingAggregatorCommandInput,
   GetFindingAggregatorCommandOutput,
 } from "./commands/GetFindingAggregatorCommand";
-import { GetFindingHistoryCommandInput, GetFindingHistoryCommandOutput } from "./commands/GetFindingHistoryCommand";
-import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
-import {
+import type {
+  GetFindingHistoryCommandInput,
+  GetFindingHistoryCommandOutput,
+} from "./commands/GetFindingHistoryCommand";
+import type { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
+import type {
   GetFindingStatisticsV2CommandInput,
   GetFindingStatisticsV2CommandOutput,
 } from "./commands/GetFindingStatisticsV2Command";
-import {
+import type {
   GetFindingsTrendsV2CommandInput,
   GetFindingsTrendsV2CommandOutput,
 } from "./commands/GetFindingsTrendsV2Command";
-import { GetFindingsV2CommandInput, GetFindingsV2CommandOutput } from "./commands/GetFindingsV2Command";
-import { GetInsightResultsCommandInput, GetInsightResultsCommandOutput } from "./commands/GetInsightResultsCommand";
-import { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
-import {
+import type { GetFindingsV2CommandInput, GetFindingsV2CommandOutput } from "./commands/GetFindingsV2Command";
+import type {
+  GetInsightResultsCommandInput,
+  GetInsightResultsCommandOutput,
+} from "./commands/GetInsightResultsCommand";
+import type { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
+import type {
   GetInvitationsCountCommandInput,
   GetInvitationsCountCommandOutput,
 } from "./commands/GetInvitationsCountCommand";
-import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
-import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
-import {
+import type { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
+import type { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import type {
   GetResourcesStatisticsV2CommandInput,
   GetResourcesStatisticsV2CommandOutput,
 } from "./commands/GetResourcesStatisticsV2Command";
-import {
+import type {
   GetResourcesTrendsV2CommandInput,
   GetResourcesTrendsV2CommandOutput,
 } from "./commands/GetResourcesTrendsV2Command";
-import { GetResourcesV2CommandInput, GetResourcesV2CommandOutput } from "./commands/GetResourcesV2Command";
-import {
+import type { GetResourcesV2CommandInput, GetResourcesV2CommandOutput } from "./commands/GetResourcesV2Command";
+import type {
   GetSecurityControlDefinitionCommandInput,
   GetSecurityControlDefinitionCommandOutput,
 } from "./commands/GetSecurityControlDefinitionCommand";
-import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
-import { ListAggregatorsV2CommandInput, ListAggregatorsV2CommandOutput } from "./commands/ListAggregatorsV2Command";
-import {
+import type { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
+import type {
+  ListAggregatorsV2CommandInput,
+  ListAggregatorsV2CommandOutput,
+} from "./commands/ListAggregatorsV2Command";
+import type {
   ListAutomationRulesCommandInput,
   ListAutomationRulesCommandOutput,
 } from "./commands/ListAutomationRulesCommand";
-import {
+import type {
   ListAutomationRulesV2CommandInput,
   ListAutomationRulesV2CommandOutput,
 } from "./commands/ListAutomationRulesV2Command";
-import {
+import type {
   ListConfigurationPoliciesCommandInput,
   ListConfigurationPoliciesCommandOutput,
 } from "./commands/ListConfigurationPoliciesCommand";
-import {
+import type {
   ListConfigurationPolicyAssociationsCommandInput,
   ListConfigurationPolicyAssociationsCommandOutput,
 } from "./commands/ListConfigurationPolicyAssociationsCommand";
-import { ListConnectorsV2CommandInput, ListConnectorsV2CommandOutput } from "./commands/ListConnectorsV2Command";
-import {
+import type { ListConnectorsV2CommandInput, ListConnectorsV2CommandOutput } from "./commands/ListConnectorsV2Command";
+import type {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
 } from "./commands/ListEnabledProductsForImportCommand";
-import {
+import type {
   ListFindingAggregatorsCommandInput,
   ListFindingAggregatorsCommandOutput,
 } from "./commands/ListFindingAggregatorsCommand";
-import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
-import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
-import {
+import type { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
+import type { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import type {
   ListOrganizationAdminAccountsCommandInput,
   ListOrganizationAdminAccountsCommandOutput,
 } from "./commands/ListOrganizationAdminAccountsCommand";
-import {
+import type {
   ListSecurityControlDefinitionsCommandInput,
   ListSecurityControlDefinitionsCommandOutput,
 } from "./commands/ListSecurityControlDefinitionsCommand";
-import {
+import type {
   ListStandardsControlAssociationsCommandInput,
   ListStandardsControlAssociationsCommandOutput,
 } from "./commands/ListStandardsControlAssociationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   RegisterConnectorV2CommandInput,
   RegisterConnectorV2CommandOutput,
 } from "./commands/RegisterConnectorV2Command";
-import {
+import type {
   StartConfigurationPolicyAssociationCommandInput,
   StartConfigurationPolicyAssociationCommandOutput,
 } from "./commands/StartConfigurationPolicyAssociationCommand";
-import {
+import type {
   StartConfigurationPolicyDisassociationCommandInput,
   StartConfigurationPolicyDisassociationCommandOutput,
 } from "./commands/StartConfigurationPolicyDisassociationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "./commands/UpdateActionTargetCommand";
-import { UpdateAggregatorV2CommandInput, UpdateAggregatorV2CommandOutput } from "./commands/UpdateAggregatorV2Command";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateActionTargetCommandInput,
+  UpdateActionTargetCommandOutput,
+} from "./commands/UpdateActionTargetCommand";
+import type {
+  UpdateAggregatorV2CommandInput,
+  UpdateAggregatorV2CommandOutput,
+} from "./commands/UpdateAggregatorV2Command";
+import type {
   UpdateAutomationRuleV2CommandInput,
   UpdateAutomationRuleV2CommandOutput,
 } from "./commands/UpdateAutomationRuleV2Command";
-import {
+import type {
   UpdateConfigurationPolicyCommandInput,
   UpdateConfigurationPolicyCommandOutput,
 } from "./commands/UpdateConfigurationPolicyCommand";
-import { UpdateConnectorV2CommandInput, UpdateConnectorV2CommandOutput } from "./commands/UpdateConnectorV2Command";
-import {
+import type {
+  UpdateConnectorV2CommandInput,
+  UpdateConnectorV2CommandOutput,
+} from "./commands/UpdateConnectorV2Command";
+import type {
   UpdateFindingAggregatorCommandInput,
   UpdateFindingAggregatorCommandOutput,
 } from "./commands/UpdateFindingAggregatorCommand";
-import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand";
-import { UpdateInsightCommandInput, UpdateInsightCommandOutput } from "./commands/UpdateInsightCommand";
-import {
+import type { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand";
+import type { UpdateInsightCommandInput, UpdateInsightCommandOutput } from "./commands/UpdateInsightCommand";
+import type {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
-import {
+import type {
   UpdateSecurityControlCommandInput,
   UpdateSecurityControlCommandOutput,
 } from "./commands/UpdateSecurityControlCommand";
-import {
+import type {
   UpdateSecurityHubConfigurationCommandInput,
   UpdateSecurityHubConfigurationCommandOutput,
 } from "./commands/UpdateSecurityHubConfigurationCommand";
-import {
+import type {
   UpdateStandardsControlCommandInput,
   UpdateStandardsControlCommandOutput,
 } from "./commands/UpdateStandardsControlCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -714,7 +766,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

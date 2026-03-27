@@ -7,7 +7,7 @@
  */
 export * from "./ComprehendMedicalClient";
 export * from "./ComprehendMedical";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ComprehendMedicalExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

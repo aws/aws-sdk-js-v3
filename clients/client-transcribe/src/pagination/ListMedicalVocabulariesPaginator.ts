@@ -8,7 +8,7 @@ import {
   ListMedicalVocabulariesCommandOutput,
 } from "../commands/ListMedicalVocabulariesCommand";
 import { TranscribeClient } from "../TranscribeClient";
-import { TranscribePaginationConfiguration } from "./Interfaces";
+import type { TranscribePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

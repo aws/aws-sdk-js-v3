@@ -84,7 +84,7 @@
  */
 export * from "./CodestarNotificationsClient";
 export * from "./CodestarNotifications";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CodestarNotificationsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

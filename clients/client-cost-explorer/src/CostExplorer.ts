@@ -3,231 +3,235 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateAnomalyMonitorCommandInput,
+  type CreateAnomalyMonitorCommandOutput,
   CreateAnomalyMonitorCommand,
-  CreateAnomalyMonitorCommandInput,
-  CreateAnomalyMonitorCommandOutput,
 } from "./commands/CreateAnomalyMonitorCommand";
 import {
+  type CreateAnomalySubscriptionCommandInput,
+  type CreateAnomalySubscriptionCommandOutput,
   CreateAnomalySubscriptionCommand,
-  CreateAnomalySubscriptionCommandInput,
-  CreateAnomalySubscriptionCommandOutput,
 } from "./commands/CreateAnomalySubscriptionCommand";
 import {
+  type CreateCostCategoryDefinitionCommandInput,
+  type CreateCostCategoryDefinitionCommandOutput,
   CreateCostCategoryDefinitionCommand,
-  CreateCostCategoryDefinitionCommandInput,
-  CreateCostCategoryDefinitionCommandOutput,
 } from "./commands/CreateCostCategoryDefinitionCommand";
 import {
+  type DeleteAnomalyMonitorCommandInput,
+  type DeleteAnomalyMonitorCommandOutput,
   DeleteAnomalyMonitorCommand,
-  DeleteAnomalyMonitorCommandInput,
-  DeleteAnomalyMonitorCommandOutput,
 } from "./commands/DeleteAnomalyMonitorCommand";
 import {
+  type DeleteAnomalySubscriptionCommandInput,
+  type DeleteAnomalySubscriptionCommandOutput,
   DeleteAnomalySubscriptionCommand,
-  DeleteAnomalySubscriptionCommandInput,
-  DeleteAnomalySubscriptionCommandOutput,
 } from "./commands/DeleteAnomalySubscriptionCommand";
 import {
+  type DeleteCostCategoryDefinitionCommandInput,
+  type DeleteCostCategoryDefinitionCommandOutput,
   DeleteCostCategoryDefinitionCommand,
-  DeleteCostCategoryDefinitionCommandInput,
-  DeleteCostCategoryDefinitionCommandOutput,
 } from "./commands/DeleteCostCategoryDefinitionCommand";
 import {
+  type DescribeCostCategoryDefinitionCommandInput,
+  type DescribeCostCategoryDefinitionCommandOutput,
   DescribeCostCategoryDefinitionCommand,
-  DescribeCostCategoryDefinitionCommandInput,
-  DescribeCostCategoryDefinitionCommandOutput,
 } from "./commands/DescribeCostCategoryDefinitionCommand";
 import {
+  type GetAnomaliesCommandInput,
+  type GetAnomaliesCommandOutput,
   GetAnomaliesCommand,
-  GetAnomaliesCommandInput,
-  GetAnomaliesCommandOutput,
 } from "./commands/GetAnomaliesCommand";
 import {
+  type GetAnomalyMonitorsCommandInput,
+  type GetAnomalyMonitorsCommandOutput,
   GetAnomalyMonitorsCommand,
-  GetAnomalyMonitorsCommandInput,
-  GetAnomalyMonitorsCommandOutput,
 } from "./commands/GetAnomalyMonitorsCommand";
 import {
+  type GetAnomalySubscriptionsCommandInput,
+  type GetAnomalySubscriptionsCommandOutput,
   GetAnomalySubscriptionsCommand,
-  GetAnomalySubscriptionsCommandInput,
-  GetAnomalySubscriptionsCommandOutput,
 } from "./commands/GetAnomalySubscriptionsCommand";
 import {
+  type GetApproximateUsageRecordsCommandInput,
+  type GetApproximateUsageRecordsCommandOutput,
   GetApproximateUsageRecordsCommand,
-  GetApproximateUsageRecordsCommandInput,
-  GetApproximateUsageRecordsCommandOutput,
 } from "./commands/GetApproximateUsageRecordsCommand";
 import {
+  type GetCommitmentPurchaseAnalysisCommandInput,
+  type GetCommitmentPurchaseAnalysisCommandOutput,
   GetCommitmentPurchaseAnalysisCommand,
-  GetCommitmentPurchaseAnalysisCommandInput,
-  GetCommitmentPurchaseAnalysisCommandOutput,
 } from "./commands/GetCommitmentPurchaseAnalysisCommand";
 import {
+  type GetCostAndUsageCommandInput,
+  type GetCostAndUsageCommandOutput,
   GetCostAndUsageCommand,
-  GetCostAndUsageCommandInput,
-  GetCostAndUsageCommandOutput,
 } from "./commands/GetCostAndUsageCommand";
 import {
+  type GetCostAndUsageComparisonsCommandInput,
+  type GetCostAndUsageComparisonsCommandOutput,
   GetCostAndUsageComparisonsCommand,
-  GetCostAndUsageComparisonsCommandInput,
-  GetCostAndUsageComparisonsCommandOutput,
 } from "./commands/GetCostAndUsageComparisonsCommand";
 import {
+  type GetCostAndUsageWithResourcesCommandInput,
+  type GetCostAndUsageWithResourcesCommandOutput,
   GetCostAndUsageWithResourcesCommand,
-  GetCostAndUsageWithResourcesCommandInput,
-  GetCostAndUsageWithResourcesCommandOutput,
 } from "./commands/GetCostAndUsageWithResourcesCommand";
 import {
+  type GetCostCategoriesCommandInput,
+  type GetCostCategoriesCommandOutput,
   GetCostCategoriesCommand,
-  GetCostCategoriesCommandInput,
-  GetCostCategoriesCommandOutput,
 } from "./commands/GetCostCategoriesCommand";
 import {
+  type GetCostComparisonDriversCommandInput,
+  type GetCostComparisonDriversCommandOutput,
   GetCostComparisonDriversCommand,
-  GetCostComparisonDriversCommandInput,
-  GetCostComparisonDriversCommandOutput,
 } from "./commands/GetCostComparisonDriversCommand";
 import {
+  type GetCostForecastCommandInput,
+  type GetCostForecastCommandOutput,
   GetCostForecastCommand,
-  GetCostForecastCommandInput,
-  GetCostForecastCommandOutput,
 } from "./commands/GetCostForecastCommand";
 import {
+  type GetDimensionValuesCommandInput,
+  type GetDimensionValuesCommandOutput,
   GetDimensionValuesCommand,
-  GetDimensionValuesCommandInput,
-  GetDimensionValuesCommandOutput,
 } from "./commands/GetDimensionValuesCommand";
 import {
+  type GetReservationCoverageCommandInput,
+  type GetReservationCoverageCommandOutput,
   GetReservationCoverageCommand,
-  GetReservationCoverageCommandInput,
-  GetReservationCoverageCommandOutput,
 } from "./commands/GetReservationCoverageCommand";
 import {
+  type GetReservationPurchaseRecommendationCommandInput,
+  type GetReservationPurchaseRecommendationCommandOutput,
   GetReservationPurchaseRecommendationCommand,
-  GetReservationPurchaseRecommendationCommandInput,
-  GetReservationPurchaseRecommendationCommandOutput,
 } from "./commands/GetReservationPurchaseRecommendationCommand";
 import {
+  type GetReservationUtilizationCommandInput,
+  type GetReservationUtilizationCommandOutput,
   GetReservationUtilizationCommand,
-  GetReservationUtilizationCommandInput,
-  GetReservationUtilizationCommandOutput,
 } from "./commands/GetReservationUtilizationCommand";
 import {
+  type GetRightsizingRecommendationCommandInput,
+  type GetRightsizingRecommendationCommandOutput,
   GetRightsizingRecommendationCommand,
-  GetRightsizingRecommendationCommandInput,
-  GetRightsizingRecommendationCommandOutput,
 } from "./commands/GetRightsizingRecommendationCommand";
 import {
+  type GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
+  type GetSavingsPlanPurchaseRecommendationDetailsCommandOutput,
   GetSavingsPlanPurchaseRecommendationDetailsCommand,
-  GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
-  GetSavingsPlanPurchaseRecommendationDetailsCommandOutput,
 } from "./commands/GetSavingsPlanPurchaseRecommendationDetailsCommand";
 import {
+  type GetSavingsPlansCoverageCommandInput,
+  type GetSavingsPlansCoverageCommandOutput,
   GetSavingsPlansCoverageCommand,
-  GetSavingsPlansCoverageCommandInput,
-  GetSavingsPlansCoverageCommandOutput,
 } from "./commands/GetSavingsPlansCoverageCommand";
 import {
+  type GetSavingsPlansPurchaseRecommendationCommandInput,
+  type GetSavingsPlansPurchaseRecommendationCommandOutput,
   GetSavingsPlansPurchaseRecommendationCommand,
-  GetSavingsPlansPurchaseRecommendationCommandInput,
-  GetSavingsPlansPurchaseRecommendationCommandOutput,
 } from "./commands/GetSavingsPlansPurchaseRecommendationCommand";
 import {
+  type GetSavingsPlansUtilizationCommandInput,
+  type GetSavingsPlansUtilizationCommandOutput,
   GetSavingsPlansUtilizationCommand,
-  GetSavingsPlansUtilizationCommandInput,
-  GetSavingsPlansUtilizationCommandOutput,
 } from "./commands/GetSavingsPlansUtilizationCommand";
 import {
+  type GetSavingsPlansUtilizationDetailsCommandInput,
+  type GetSavingsPlansUtilizationDetailsCommandOutput,
   GetSavingsPlansUtilizationDetailsCommand,
-  GetSavingsPlansUtilizationDetailsCommandInput,
-  GetSavingsPlansUtilizationDetailsCommandOutput,
 } from "./commands/GetSavingsPlansUtilizationDetailsCommand";
-import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { type GetTagsCommandInput, type GetTagsCommandOutput, GetTagsCommand } from "./commands/GetTagsCommand";
 import {
+  type GetUsageForecastCommandInput,
+  type GetUsageForecastCommandOutput,
   GetUsageForecastCommand,
-  GetUsageForecastCommandInput,
-  GetUsageForecastCommandOutput,
 } from "./commands/GetUsageForecastCommand";
 import {
+  type ListCommitmentPurchaseAnalysesCommandInput,
+  type ListCommitmentPurchaseAnalysesCommandOutput,
   ListCommitmentPurchaseAnalysesCommand,
-  ListCommitmentPurchaseAnalysesCommandInput,
-  ListCommitmentPurchaseAnalysesCommandOutput,
 } from "./commands/ListCommitmentPurchaseAnalysesCommand";
 import {
+  type ListCostAllocationTagBackfillHistoryCommandInput,
+  type ListCostAllocationTagBackfillHistoryCommandOutput,
   ListCostAllocationTagBackfillHistoryCommand,
-  ListCostAllocationTagBackfillHistoryCommandInput,
-  ListCostAllocationTagBackfillHistoryCommandOutput,
 } from "./commands/ListCostAllocationTagBackfillHistoryCommand";
 import {
+  type ListCostAllocationTagsCommandInput,
+  type ListCostAllocationTagsCommandOutput,
   ListCostAllocationTagsCommand,
-  ListCostAllocationTagsCommandInput,
-  ListCostAllocationTagsCommandOutput,
 } from "./commands/ListCostAllocationTagsCommand";
 import {
+  type ListCostCategoryDefinitionsCommandInput,
+  type ListCostCategoryDefinitionsCommandOutput,
   ListCostCategoryDefinitionsCommand,
-  ListCostCategoryDefinitionsCommandInput,
-  ListCostCategoryDefinitionsCommandOutput,
 } from "./commands/ListCostCategoryDefinitionsCommand";
 import {
+  type ListCostCategoryResourceAssociationsCommandInput,
+  type ListCostCategoryResourceAssociationsCommandOutput,
   ListCostCategoryResourceAssociationsCommand,
-  ListCostCategoryResourceAssociationsCommandInput,
-  ListCostCategoryResourceAssociationsCommandOutput,
 } from "./commands/ListCostCategoryResourceAssociationsCommand";
 import {
+  type ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+  type ListSavingsPlansPurchaseRecommendationGenerationCommandOutput,
   ListSavingsPlansPurchaseRecommendationGenerationCommand,
-  ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
-  ListSavingsPlansPurchaseRecommendationGenerationCommandOutput,
 } from "./commands/ListSavingsPlansPurchaseRecommendationGenerationCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ProvideAnomalyFeedbackCommandInput,
+  type ProvideAnomalyFeedbackCommandOutput,
   ProvideAnomalyFeedbackCommand,
-  ProvideAnomalyFeedbackCommandInput,
-  ProvideAnomalyFeedbackCommandOutput,
 } from "./commands/ProvideAnomalyFeedbackCommand";
 import {
+  type StartCommitmentPurchaseAnalysisCommandInput,
+  type StartCommitmentPurchaseAnalysisCommandOutput,
   StartCommitmentPurchaseAnalysisCommand,
-  StartCommitmentPurchaseAnalysisCommandInput,
-  StartCommitmentPurchaseAnalysisCommandOutput,
 } from "./commands/StartCommitmentPurchaseAnalysisCommand";
 import {
+  type StartCostAllocationTagBackfillCommandInput,
+  type StartCostAllocationTagBackfillCommandOutput,
   StartCostAllocationTagBackfillCommand,
-  StartCostAllocationTagBackfillCommandInput,
-  StartCostAllocationTagBackfillCommandOutput,
 } from "./commands/StartCostAllocationTagBackfillCommand";
 import {
+  type StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+  type StartSavingsPlansPurchaseRecommendationGenerationCommandOutput,
   StartSavingsPlansPurchaseRecommendationGenerationCommand,
-  StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
-  StartSavingsPlansPurchaseRecommendationGenerationCommandOutput,
 } from "./commands/StartSavingsPlansPurchaseRecommendationGenerationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAnomalyMonitorCommandInput,
+  type UpdateAnomalyMonitorCommandOutput,
   UpdateAnomalyMonitorCommand,
-  UpdateAnomalyMonitorCommandInput,
-  UpdateAnomalyMonitorCommandOutput,
 } from "./commands/UpdateAnomalyMonitorCommand";
 import {
+  type UpdateAnomalySubscriptionCommandInput,
+  type UpdateAnomalySubscriptionCommandOutput,
   UpdateAnomalySubscriptionCommand,
-  UpdateAnomalySubscriptionCommandInput,
-  UpdateAnomalySubscriptionCommandOutput,
 } from "./commands/UpdateAnomalySubscriptionCommand";
 import {
+  type UpdateCostAllocationTagsStatusCommandInput,
+  type UpdateCostAllocationTagsStatusCommandOutput,
   UpdateCostAllocationTagsStatusCommand,
-  UpdateCostAllocationTagsStatusCommandInput,
-  UpdateCostAllocationTagsStatusCommandOutput,
 } from "./commands/UpdateCostAllocationTagsStatusCommand";
 import {
+  type UpdateCostCategoryDefinitionCommandInput,
+  type UpdateCostCategoryDefinitionCommandOutput,
   UpdateCostCategoryDefinitionCommand,
-  UpdateCostCategoryDefinitionCommandInput,
-  UpdateCostCategoryDefinitionCommandOutput,
 } from "./commands/UpdateCostCategoryDefinitionCommand";
 import { CostExplorerClient } from "./CostExplorerClient";
 import { paginateGetAnomalies } from "./pagination/GetAnomaliesPaginator";

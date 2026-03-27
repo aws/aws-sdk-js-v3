@@ -8,7 +8,7 @@ import {
   ListReleaseLabelsCommandOutput,
 } from "../commands/ListReleaseLabelsCommand";
 import { EMRClient } from "../EMRClient";
-import { EMRPaginationConfiguration } from "./Interfaces";
+import type { EMRPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

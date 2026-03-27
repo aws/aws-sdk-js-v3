@@ -3,26 +3,30 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type CalculateIsolinesCommandInput,
+  type CalculateIsolinesCommandOutput,
   CalculateIsolinesCommand,
-  CalculateIsolinesCommandInput,
-  CalculateIsolinesCommandOutput,
 } from "./commands/CalculateIsolinesCommand";
 import {
+  type CalculateRouteMatrixCommandInput,
+  type CalculateRouteMatrixCommandOutput,
   CalculateRouteMatrixCommand,
-  CalculateRouteMatrixCommandInput,
-  CalculateRouteMatrixCommandOutput,
 } from "./commands/CalculateRouteMatrixCommand";
 import {
+  type CalculateRoutesCommandInput,
+  type CalculateRoutesCommandOutput,
   CalculateRoutesCommand,
-  CalculateRoutesCommandInput,
-  CalculateRoutesCommandOutput,
 } from "./commands/CalculateRoutesCommand";
 import {
+  type OptimizeWaypointsCommandInput,
+  type OptimizeWaypointsCommandOutput,
   OptimizeWaypointsCommand,
-  OptimizeWaypointsCommandInput,
-  OptimizeWaypointsCommandOutput,
 } from "./commands/OptimizeWaypointsCommand";
-import { SnapToRoadsCommand, SnapToRoadsCommandInput, SnapToRoadsCommandOutput } from "./commands/SnapToRoadsCommand";
+import {
+  type SnapToRoadsCommandInput,
+  type SnapToRoadsCommandOutput,
+  SnapToRoadsCommand,
+} from "./commands/SnapToRoadsCommand";
 import { GeoRoutesClient } from "./GeoRoutesClient";
 
 const commands = {

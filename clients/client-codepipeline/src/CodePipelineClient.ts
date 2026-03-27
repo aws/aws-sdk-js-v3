@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,120 +61,129 @@ import {
   defaultCodePipelineHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AcknowledgeJobCommandInput, AcknowledgeJobCommandOutput } from "./commands/AcknowledgeJobCommand";
-import {
+import type { AcknowledgeJobCommandInput, AcknowledgeJobCommandOutput } from "./commands/AcknowledgeJobCommand";
+import type {
   AcknowledgeThirdPartyJobCommandInput,
   AcknowledgeThirdPartyJobCommandOutput,
 } from "./commands/AcknowledgeThirdPartyJobCommand";
-import {
+import type {
   CreateCustomActionTypeCommandInput,
   CreateCustomActionTypeCommandOutput,
 } from "./commands/CreateCustomActionTypeCommand";
-import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
-import {
+import type { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
+import type {
   DeleteCustomActionTypeCommandInput,
   DeleteCustomActionTypeCommandOutput,
 } from "./commands/DeleteCustomActionTypeCommand";
-import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
-import { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand";
-import {
+import type { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
+import type { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand";
+import type {
   DeregisterWebhookWithThirdPartyCommandInput,
   DeregisterWebhookWithThirdPartyCommandOutput,
 } from "./commands/DeregisterWebhookWithThirdPartyCommand";
-import {
+import type {
   DisableStageTransitionCommandInput,
   DisableStageTransitionCommandOutput,
 } from "./commands/DisableStageTransitionCommand";
-import {
+import type {
   EnableStageTransitionCommandInput,
   EnableStageTransitionCommandOutput,
 } from "./commands/EnableStageTransitionCommand";
-import { GetActionTypeCommandInput, GetActionTypeCommandOutput } from "./commands/GetActionTypeCommand";
-import { GetJobDetailsCommandInput, GetJobDetailsCommandOutput } from "./commands/GetJobDetailsCommand";
-import { GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand";
-import {
+import type { GetActionTypeCommandInput, GetActionTypeCommandOutput } from "./commands/GetActionTypeCommand";
+import type { GetJobDetailsCommandInput, GetJobDetailsCommandOutput } from "./commands/GetJobDetailsCommand";
+import type { GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand";
+import type {
   GetPipelineExecutionCommandInput,
   GetPipelineExecutionCommandOutput,
 } from "./commands/GetPipelineExecutionCommand";
-import { GetPipelineStateCommandInput, GetPipelineStateCommandOutput } from "./commands/GetPipelineStateCommand";
-import {
+import type { GetPipelineStateCommandInput, GetPipelineStateCommandOutput } from "./commands/GetPipelineStateCommand";
+import type {
   GetThirdPartyJobDetailsCommandInput,
   GetThirdPartyJobDetailsCommandOutput,
 } from "./commands/GetThirdPartyJobDetailsCommand";
-import {
+import type {
   ListActionExecutionsCommandInput,
   ListActionExecutionsCommandOutput,
 } from "./commands/ListActionExecutionsCommand";
-import { ListActionTypesCommandInput, ListActionTypesCommandOutput } from "./commands/ListActionTypesCommand";
-import {
+import type { ListActionTypesCommandInput, ListActionTypesCommandOutput } from "./commands/ListActionTypesCommand";
+import type {
   ListDeployActionExecutionTargetsCommandInput,
   ListDeployActionExecutionTargetsCommandOutput,
 } from "./commands/ListDeployActionExecutionTargetsCommand";
-import {
+import type {
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
 } from "./commands/ListPipelineExecutionsCommand";
-import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
-import { ListRuleExecutionsCommandInput, ListRuleExecutionsCommandOutput } from "./commands/ListRuleExecutionsCommand";
-import { ListRuleTypesCommandInput, ListRuleTypesCommandOutput } from "./commands/ListRuleTypesCommand";
-import {
+import type { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
+import type {
+  ListRuleExecutionsCommandInput,
+  ListRuleExecutionsCommandOutput,
+} from "./commands/ListRuleExecutionsCommand";
+import type { ListRuleTypesCommandInput, ListRuleTypesCommandOutput } from "./commands/ListRuleTypesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "./commands/ListWebhooksCommand";
-import {
+import type { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "./commands/ListWebhooksCommand";
+import type {
   OverrideStageConditionCommandInput,
   OverrideStageConditionCommandOutput,
 } from "./commands/OverrideStageConditionCommand";
-import { PollForJobsCommandInput, PollForJobsCommandOutput } from "./commands/PollForJobsCommand";
-import {
+import type { PollForJobsCommandInput, PollForJobsCommandOutput } from "./commands/PollForJobsCommand";
+import type {
   PollForThirdPartyJobsCommandInput,
   PollForThirdPartyJobsCommandOutput,
 } from "./commands/PollForThirdPartyJobsCommand";
-import { PutActionRevisionCommandInput, PutActionRevisionCommandOutput } from "./commands/PutActionRevisionCommand";
-import { PutApprovalResultCommandInput, PutApprovalResultCommandOutput } from "./commands/PutApprovalResultCommand";
-import {
+import type {
+  PutActionRevisionCommandInput,
+  PutActionRevisionCommandOutput,
+} from "./commands/PutActionRevisionCommand";
+import type {
+  PutApprovalResultCommandInput,
+  PutApprovalResultCommandOutput,
+} from "./commands/PutApprovalResultCommand";
+import type {
   PutJobFailureResultCommandInput,
   PutJobFailureResultCommandOutput,
 } from "./commands/PutJobFailureResultCommand";
-import {
+import type {
   PutJobSuccessResultCommandInput,
   PutJobSuccessResultCommandOutput,
 } from "./commands/PutJobSuccessResultCommand";
-import {
+import type {
   PutThirdPartyJobFailureResultCommandInput,
   PutThirdPartyJobFailureResultCommandOutput,
 } from "./commands/PutThirdPartyJobFailureResultCommand";
-import {
+import type {
   PutThirdPartyJobSuccessResultCommandInput,
   PutThirdPartyJobSuccessResultCommandOutput,
 } from "./commands/PutThirdPartyJobSuccessResultCommand";
-import { PutWebhookCommandInput, PutWebhookCommandOutput } from "./commands/PutWebhookCommand";
-import {
+import type { PutWebhookCommandInput, PutWebhookCommandOutput } from "./commands/PutWebhookCommand";
+import type {
   RegisterWebhookWithThirdPartyCommandInput,
   RegisterWebhookWithThirdPartyCommandOutput,
 } from "./commands/RegisterWebhookWithThirdPartyCommand";
-import {
+import type {
   RetryStageExecutionCommandInput,
   RetryStageExecutionCommandOutput,
 } from "./commands/RetryStageExecutionCommand";
-import { RollbackStageCommandInput, RollbackStageCommandOutput } from "./commands/RollbackStageCommand";
-import {
+import type { RollbackStageCommandInput, RollbackStageCommandOutput } from "./commands/RollbackStageCommand";
+import type {
   StartPipelineExecutionCommandInput,
   StartPipelineExecutionCommandOutput,
 } from "./commands/StartPipelineExecutionCommand";
-import {
+import type {
   StopPipelineExecutionCommandInput,
   StopPipelineExecutionCommandOutput,
 } from "./commands/StopPipelineExecutionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateActionTypeCommandInput, UpdateActionTypeCommandOutput } from "./commands/UpdateActionTypeCommand";
-import { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "./commands/UpdatePipelineCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateActionTypeCommandInput, UpdateActionTypeCommandOutput } from "./commands/UpdateActionTypeCommand";
+import type { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "./commands/UpdatePipelineCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -396,7 +403,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -8,7 +8,7 @@ import {
   GetDelegationsCommandInput,
   GetDelegationsCommandOutput,
 } from "../commands/GetDelegationsCommand";
-import { AuditManagerPaginationConfiguration } from "./Interfaces";
+import type { AuditManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,96 +61,99 @@ import {
   defaultPartnerCentralAccountHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptConnectionInvitationCommandInput,
   AcceptConnectionInvitationCommandOutput,
 } from "./commands/AcceptConnectionInvitationCommand";
-import {
+import type {
   AssociateAwsTrainingCertificationEmailDomainCommandInput,
   AssociateAwsTrainingCertificationEmailDomainCommandOutput,
 } from "./commands/AssociateAwsTrainingCertificationEmailDomainCommand";
-import { CancelConnectionCommandInput, CancelConnectionCommandOutput } from "./commands/CancelConnectionCommand";
-import {
+import type { CancelConnectionCommandInput, CancelConnectionCommandOutput } from "./commands/CancelConnectionCommand";
+import type {
   CancelConnectionInvitationCommandInput,
   CancelConnectionInvitationCommandOutput,
 } from "./commands/CancelConnectionInvitationCommand";
-import {
+import type {
   CancelProfileUpdateTaskCommandInput,
   CancelProfileUpdateTaskCommandOutput,
 } from "./commands/CancelProfileUpdateTaskCommand";
-import {
+import type {
   CreateConnectionInvitationCommandInput,
   CreateConnectionInvitationCommandOutput,
 } from "./commands/CreateConnectionInvitationCommand";
-import { CreatePartnerCommandInput, CreatePartnerCommandOutput } from "./commands/CreatePartnerCommand";
-import {
+import type { CreatePartnerCommandInput, CreatePartnerCommandOutput } from "./commands/CreatePartnerCommand";
+import type {
   DisassociateAwsTrainingCertificationEmailDomainCommandInput,
   DisassociateAwsTrainingCertificationEmailDomainCommandOutput,
 } from "./commands/DisassociateAwsTrainingCertificationEmailDomainCommand";
-import {
+import type {
   GetAllianceLeadContactCommandInput,
   GetAllianceLeadContactCommandOutput,
 } from "./commands/GetAllianceLeadContactCommand";
-import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
-import {
+import type { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
+import type {
   GetConnectionInvitationCommandInput,
   GetConnectionInvitationCommandOutput,
 } from "./commands/GetConnectionInvitationCommand";
-import {
+import type {
   GetConnectionPreferencesCommandInput,
   GetConnectionPreferencesCommandOutput,
 } from "./commands/GetConnectionPreferencesCommand";
-import { GetPartnerCommandInput, GetPartnerCommandOutput } from "./commands/GetPartnerCommand";
-import {
+import type { GetPartnerCommandInput, GetPartnerCommandOutput } from "./commands/GetPartnerCommand";
+import type {
   GetProfileUpdateTaskCommandInput,
   GetProfileUpdateTaskCommandOutput,
 } from "./commands/GetProfileUpdateTaskCommand";
-import {
+import type {
   GetProfileVisibilityCommandInput,
   GetProfileVisibilityCommandOutput,
 } from "./commands/GetProfileVisibilityCommand";
-import { GetVerificationCommandInput, GetVerificationCommandOutput } from "./commands/GetVerificationCommand";
-import {
+import type { GetVerificationCommandInput, GetVerificationCommandOutput } from "./commands/GetVerificationCommand";
+import type {
   ListConnectionInvitationsCommandInput,
   ListConnectionInvitationsCommandOutput,
 } from "./commands/ListConnectionInvitationsCommand";
-import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
-import { ListPartnersCommandInput, ListPartnersCommandOutput } from "./commands/ListPartnersCommand";
-import {
+import type { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
+import type { ListPartnersCommandInput, ListPartnersCommandOutput } from "./commands/ListPartnersCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutAllianceLeadContactCommandInput,
   PutAllianceLeadContactCommandOutput,
 } from "./commands/PutAllianceLeadContactCommand";
-import {
+import type {
   PutProfileVisibilityCommandInput,
   PutProfileVisibilityCommandOutput,
 } from "./commands/PutProfileVisibilityCommand";
-import {
+import type {
   RejectConnectionInvitationCommandInput,
   RejectConnectionInvitationCommandOutput,
 } from "./commands/RejectConnectionInvitationCommand";
-import {
+import type {
   SendEmailVerificationCodeCommandInput,
   SendEmailVerificationCodeCommandOutput,
 } from "./commands/SendEmailVerificationCodeCommand";
-import {
+import type {
   StartProfileUpdateTaskCommandInput,
   StartProfileUpdateTaskCommandOutput,
 } from "./commands/StartProfileUpdateTaskCommand";
-import { StartVerificationCommandInput, StartVerificationCommandOutput } from "./commands/StartVerificationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type {
+  StartVerificationCommandInput,
+  StartVerificationCommandOutput,
+} from "./commands/StartVerificationCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateConnectionPreferencesCommandInput,
   UpdateConnectionPreferencesCommandOutput,
 } from "./commands/UpdateConnectionPreferencesCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -342,7 +343,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

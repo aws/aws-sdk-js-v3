@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,139 +61,145 @@ import {
   defaultFSxHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateFileSystemAliasesCommandInput,
   AssociateFileSystemAliasesCommandOutput,
 } from "./commands/AssociateFileSystemAliasesCommand";
-import {
+import type {
   CancelDataRepositoryTaskCommandInput,
   CancelDataRepositoryTaskCommandOutput,
 } from "./commands/CancelDataRepositoryTaskCommand";
-import { CopyBackupCommandInput, CopyBackupCommandOutput } from "./commands/CopyBackupCommand";
-import {
+import type { CopyBackupCommandInput, CopyBackupCommandOutput } from "./commands/CopyBackupCommand";
+import type {
   CopySnapshotAndUpdateVolumeCommandInput,
   CopySnapshotAndUpdateVolumeCommandOutput,
 } from "./commands/CopySnapshotAndUpdateVolumeCommand";
-import {
+import type {
   CreateAndAttachS3AccessPointCommandInput,
   CreateAndAttachS3AccessPointCommandOutput,
 } from "./commands/CreateAndAttachS3AccessPointCommand";
-import { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
-import {
+import type { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
+import type {
   CreateDataRepositoryAssociationCommandInput,
   CreateDataRepositoryAssociationCommandOutput,
 } from "./commands/CreateDataRepositoryAssociationCommand";
-import {
+import type {
   CreateDataRepositoryTaskCommandInput,
   CreateDataRepositoryTaskCommandOutput,
 } from "./commands/CreateDataRepositoryTaskCommand";
-import { CreateFileCacheCommandInput, CreateFileCacheCommandOutput } from "./commands/CreateFileCacheCommand";
-import { CreateFileSystemCommandInput, CreateFileSystemCommandOutput } from "./commands/CreateFileSystemCommand";
-import {
+import type { CreateFileCacheCommandInput, CreateFileCacheCommandOutput } from "./commands/CreateFileCacheCommand";
+import type { CreateFileSystemCommandInput, CreateFileSystemCommandOutput } from "./commands/CreateFileSystemCommand";
+import type {
   CreateFileSystemFromBackupCommandInput,
   CreateFileSystemFromBackupCommandOutput,
 } from "./commands/CreateFileSystemFromBackupCommand";
-import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
-import {
+import type { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import type {
   CreateStorageVirtualMachineCommandInput,
   CreateStorageVirtualMachineCommandOutput,
 } from "./commands/CreateStorageVirtualMachineCommand";
-import { CreateVolumeCommandInput, CreateVolumeCommandOutput } from "./commands/CreateVolumeCommand";
-import {
+import type { CreateVolumeCommandInput, CreateVolumeCommandOutput } from "./commands/CreateVolumeCommand";
+import type {
   CreateVolumeFromBackupCommandInput,
   CreateVolumeFromBackupCommandOutput,
 } from "./commands/CreateVolumeFromBackupCommand";
-import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "./commands/DeleteBackupCommand";
-import {
+import type { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "./commands/DeleteBackupCommand";
+import type {
   DeleteDataRepositoryAssociationCommandInput,
   DeleteDataRepositoryAssociationCommandOutput,
 } from "./commands/DeleteDataRepositoryAssociationCommand";
-import { DeleteFileCacheCommandInput, DeleteFileCacheCommandOutput } from "./commands/DeleteFileCacheCommand";
-import { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "./commands/DeleteFileSystemCommand";
-import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
-import {
+import type { DeleteFileCacheCommandInput, DeleteFileCacheCommandOutput } from "./commands/DeleteFileCacheCommand";
+import type { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "./commands/DeleteFileSystemCommand";
+import type { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
+import type {
   DeleteStorageVirtualMachineCommandInput,
   DeleteStorageVirtualMachineCommandOutput,
 } from "./commands/DeleteStorageVirtualMachineCommand";
-import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
-import { DescribeBackupsCommandInput, DescribeBackupsCommandOutput } from "./commands/DescribeBackupsCommand";
-import {
+import type { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
+import type { DescribeBackupsCommandInput, DescribeBackupsCommandOutput } from "./commands/DescribeBackupsCommand";
+import type {
   DescribeDataRepositoryAssociationsCommandInput,
   DescribeDataRepositoryAssociationsCommandOutput,
 } from "./commands/DescribeDataRepositoryAssociationsCommand";
-import {
+import type {
   DescribeDataRepositoryTasksCommandInput,
   DescribeDataRepositoryTasksCommandOutput,
 } from "./commands/DescribeDataRepositoryTasksCommand";
-import { DescribeFileCachesCommandInput, DescribeFileCachesCommandOutput } from "./commands/DescribeFileCachesCommand";
-import {
+import type {
+  DescribeFileCachesCommandInput,
+  DescribeFileCachesCommandOutput,
+} from "./commands/DescribeFileCachesCommand";
+import type {
   DescribeFileSystemAliasesCommandInput,
   DescribeFileSystemAliasesCommandOutput,
 } from "./commands/DescribeFileSystemAliasesCommand";
-import {
+import type {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
-import {
+import type {
   DescribeS3AccessPointAttachmentsCommandInput,
   DescribeS3AccessPointAttachmentsCommandOutput,
 } from "./commands/DescribeS3AccessPointAttachmentsCommand";
-import {
+import type {
   DescribeSharedVpcConfigurationCommandInput,
   DescribeSharedVpcConfigurationCommandOutput,
 } from "./commands/DescribeSharedVpcConfigurationCommand";
-import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
-import {
+import type {
+  DescribeSnapshotsCommandInput,
+  DescribeSnapshotsCommandOutput,
+} from "./commands/DescribeSnapshotsCommand";
+import type {
   DescribeStorageVirtualMachinesCommandInput,
   DescribeStorageVirtualMachinesCommandOutput,
 } from "./commands/DescribeStorageVirtualMachinesCommand";
-import { DescribeVolumesCommandInput, DescribeVolumesCommandOutput } from "./commands/DescribeVolumesCommand";
-import {
+import type { DescribeVolumesCommandInput, DescribeVolumesCommandOutput } from "./commands/DescribeVolumesCommand";
+import type {
   DetachAndDeleteS3AccessPointCommandInput,
   DetachAndDeleteS3AccessPointCommandOutput,
 } from "./commands/DetachAndDeleteS3AccessPointCommand";
-import {
+import type {
   DisassociateFileSystemAliasesCommandInput,
   DisassociateFileSystemAliasesCommandOutput,
 } from "./commands/DisassociateFileSystemAliasesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ReleaseFileSystemNfsV3LocksCommandInput,
   ReleaseFileSystemNfsV3LocksCommandOutput,
 } from "./commands/ReleaseFileSystemNfsV3LocksCommand";
-import {
+import type {
   RestoreVolumeFromSnapshotCommandInput,
   RestoreVolumeFromSnapshotCommandOutput,
 } from "./commands/RestoreVolumeFromSnapshotCommand";
-import {
+import type {
   StartMisconfiguredStateRecoveryCommandInput,
   StartMisconfiguredStateRecoveryCommandOutput,
 } from "./commands/StartMisconfiguredStateRecoveryCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateDataRepositoryAssociationCommandInput,
   UpdateDataRepositoryAssociationCommandOutput,
 } from "./commands/UpdateDataRepositoryAssociationCommand";
-import { UpdateFileCacheCommandInput, UpdateFileCacheCommandOutput } from "./commands/UpdateFileCacheCommand";
-import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand";
-import {
+import type { UpdateFileCacheCommandInput, UpdateFileCacheCommandOutput } from "./commands/UpdateFileCacheCommand";
+import type { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand";
+import type {
   UpdateSharedVpcConfigurationCommandInput,
   UpdateSharedVpcConfigurationCommandOutput,
 } from "./commands/UpdateSharedVpcConfigurationCommand";
-import { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "./commands/UpdateSnapshotCommand";
-import {
+import type { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "./commands/UpdateSnapshotCommand";
+import type {
   UpdateStorageVirtualMachineCommandInput,
   UpdateStorageVirtualMachineCommandOutput,
 } from "./commands/UpdateStorageVirtualMachineCommand";
-import { UpdateVolumeCommandInput, UpdateVolumeCommandOutput } from "./commands/UpdateVolumeCommand";
+import type { UpdateVolumeCommandInput, UpdateVolumeCommandOutput } from "./commands/UpdateVolumeCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -423,7 +427,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -4,177 +4,189 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { AccessAnalyzerClient } from "./AccessAnalyzerClient";
 import {
+  type ApplyArchiveRuleCommandInput,
+  type ApplyArchiveRuleCommandOutput,
   ApplyArchiveRuleCommand,
-  ApplyArchiveRuleCommandInput,
-  ApplyArchiveRuleCommandOutput,
 } from "./commands/ApplyArchiveRuleCommand";
 import {
+  type CancelPolicyGenerationCommandInput,
+  type CancelPolicyGenerationCommandOutput,
   CancelPolicyGenerationCommand,
-  CancelPolicyGenerationCommandInput,
-  CancelPolicyGenerationCommandOutput,
 } from "./commands/CancelPolicyGenerationCommand";
 import {
+  type CheckAccessNotGrantedCommandInput,
+  type CheckAccessNotGrantedCommandOutput,
   CheckAccessNotGrantedCommand,
-  CheckAccessNotGrantedCommandInput,
-  CheckAccessNotGrantedCommandOutput,
 } from "./commands/CheckAccessNotGrantedCommand";
 import {
+  type CheckNoNewAccessCommandInput,
+  type CheckNoNewAccessCommandOutput,
   CheckNoNewAccessCommand,
-  CheckNoNewAccessCommandInput,
-  CheckNoNewAccessCommandOutput,
 } from "./commands/CheckNoNewAccessCommand";
 import {
+  type CheckNoPublicAccessCommandInput,
+  type CheckNoPublicAccessCommandOutput,
   CheckNoPublicAccessCommand,
-  CheckNoPublicAccessCommandInput,
-  CheckNoPublicAccessCommandOutput,
 } from "./commands/CheckNoPublicAccessCommand";
 import {
+  type CreateAccessPreviewCommandInput,
+  type CreateAccessPreviewCommandOutput,
   CreateAccessPreviewCommand,
-  CreateAccessPreviewCommandInput,
-  CreateAccessPreviewCommandOutput,
 } from "./commands/CreateAccessPreviewCommand";
 import {
+  type CreateAnalyzerCommandInput,
+  type CreateAnalyzerCommandOutput,
   CreateAnalyzerCommand,
-  CreateAnalyzerCommandInput,
-  CreateAnalyzerCommandOutput,
 } from "./commands/CreateAnalyzerCommand";
 import {
+  type CreateArchiveRuleCommandInput,
+  type CreateArchiveRuleCommandOutput,
   CreateArchiveRuleCommand,
-  CreateArchiveRuleCommandInput,
-  CreateArchiveRuleCommandOutput,
 } from "./commands/CreateArchiveRuleCommand";
 import {
+  type DeleteAnalyzerCommandInput,
+  type DeleteAnalyzerCommandOutput,
   DeleteAnalyzerCommand,
-  DeleteAnalyzerCommandInput,
-  DeleteAnalyzerCommandOutput,
 } from "./commands/DeleteAnalyzerCommand";
 import {
+  type DeleteArchiveRuleCommandInput,
+  type DeleteArchiveRuleCommandOutput,
   DeleteArchiveRuleCommand,
-  DeleteArchiveRuleCommandInput,
-  DeleteArchiveRuleCommandOutput,
 } from "./commands/DeleteArchiveRuleCommand";
 import {
+  type GenerateFindingRecommendationCommandInput,
+  type GenerateFindingRecommendationCommandOutput,
   GenerateFindingRecommendationCommand,
-  GenerateFindingRecommendationCommandInput,
-  GenerateFindingRecommendationCommandOutput,
 } from "./commands/GenerateFindingRecommendationCommand";
 import {
+  type GetAccessPreviewCommandInput,
+  type GetAccessPreviewCommandOutput,
   GetAccessPreviewCommand,
-  GetAccessPreviewCommandInput,
-  GetAccessPreviewCommandOutput,
 } from "./commands/GetAccessPreviewCommand";
 import {
+  type GetAnalyzedResourceCommandInput,
+  type GetAnalyzedResourceCommandOutput,
   GetAnalyzedResourceCommand,
-  GetAnalyzedResourceCommandInput,
-  GetAnalyzedResourceCommandOutput,
 } from "./commands/GetAnalyzedResourceCommand";
-import { GetAnalyzerCommand, GetAnalyzerCommandInput, GetAnalyzerCommandOutput } from "./commands/GetAnalyzerCommand";
 import {
+  type GetAnalyzerCommandInput,
+  type GetAnalyzerCommandOutput,
+  GetAnalyzerCommand,
+} from "./commands/GetAnalyzerCommand";
+import {
+  type GetArchiveRuleCommandInput,
+  type GetArchiveRuleCommandOutput,
   GetArchiveRuleCommand,
-  GetArchiveRuleCommandInput,
-  GetArchiveRuleCommandOutput,
 } from "./commands/GetArchiveRuleCommand";
-import { GetFindingCommand, GetFindingCommandInput, GetFindingCommandOutput } from "./commands/GetFindingCommand";
 import {
+  type GetFindingCommandInput,
+  type GetFindingCommandOutput,
+  GetFindingCommand,
+} from "./commands/GetFindingCommand";
+import {
+  type GetFindingRecommendationCommandInput,
+  type GetFindingRecommendationCommandOutput,
   GetFindingRecommendationCommand,
-  GetFindingRecommendationCommandInput,
-  GetFindingRecommendationCommandOutput,
 } from "./commands/GetFindingRecommendationCommand";
 import {
+  type GetFindingsStatisticsCommandInput,
+  type GetFindingsStatisticsCommandOutput,
   GetFindingsStatisticsCommand,
-  GetFindingsStatisticsCommandInput,
-  GetFindingsStatisticsCommandOutput,
 } from "./commands/GetFindingsStatisticsCommand";
 import {
+  type GetFindingV2CommandInput,
+  type GetFindingV2CommandOutput,
   GetFindingV2Command,
-  GetFindingV2CommandInput,
-  GetFindingV2CommandOutput,
 } from "./commands/GetFindingV2Command";
 import {
+  type GetGeneratedPolicyCommandInput,
+  type GetGeneratedPolicyCommandOutput,
   GetGeneratedPolicyCommand,
-  GetGeneratedPolicyCommandInput,
-  GetGeneratedPolicyCommandOutput,
 } from "./commands/GetGeneratedPolicyCommand";
 import {
+  type ListAccessPreviewFindingsCommandInput,
+  type ListAccessPreviewFindingsCommandOutput,
   ListAccessPreviewFindingsCommand,
-  ListAccessPreviewFindingsCommandInput,
-  ListAccessPreviewFindingsCommandOutput,
 } from "./commands/ListAccessPreviewFindingsCommand";
 import {
+  type ListAccessPreviewsCommandInput,
+  type ListAccessPreviewsCommandOutput,
   ListAccessPreviewsCommand,
-  ListAccessPreviewsCommandInput,
-  ListAccessPreviewsCommandOutput,
 } from "./commands/ListAccessPreviewsCommand";
 import {
+  type ListAnalyzedResourcesCommandInput,
+  type ListAnalyzedResourcesCommandOutput,
   ListAnalyzedResourcesCommand,
-  ListAnalyzedResourcesCommandInput,
-  ListAnalyzedResourcesCommandOutput,
 } from "./commands/ListAnalyzedResourcesCommand";
 import {
+  type ListAnalyzersCommandInput,
+  type ListAnalyzersCommandOutput,
   ListAnalyzersCommand,
-  ListAnalyzersCommandInput,
-  ListAnalyzersCommandOutput,
 } from "./commands/ListAnalyzersCommand";
 import {
+  type ListArchiveRulesCommandInput,
+  type ListArchiveRulesCommandOutput,
   ListArchiveRulesCommand,
-  ListArchiveRulesCommandInput,
-  ListArchiveRulesCommandOutput,
 } from "./commands/ListArchiveRulesCommand";
 import {
+  type ListFindingsCommandInput,
+  type ListFindingsCommandOutput,
   ListFindingsCommand,
-  ListFindingsCommandInput,
-  ListFindingsCommandOutput,
 } from "./commands/ListFindingsCommand";
 import {
+  type ListFindingsV2CommandInput,
+  type ListFindingsV2CommandOutput,
   ListFindingsV2Command,
-  ListFindingsV2CommandInput,
-  ListFindingsV2CommandOutput,
 } from "./commands/ListFindingsV2Command";
 import {
+  type ListPolicyGenerationsCommandInput,
+  type ListPolicyGenerationsCommandOutput,
   ListPolicyGenerationsCommand,
-  ListPolicyGenerationsCommandInput,
-  ListPolicyGenerationsCommandOutput,
 } from "./commands/ListPolicyGenerationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartPolicyGenerationCommandInput,
+  type StartPolicyGenerationCommandOutput,
   StartPolicyGenerationCommand,
-  StartPolicyGenerationCommandInput,
-  StartPolicyGenerationCommandOutput,
 } from "./commands/StartPolicyGenerationCommand";
 import {
+  type StartResourceScanCommandInput,
+  type StartResourceScanCommandOutput,
   StartResourceScanCommand,
-  StartResourceScanCommandInput,
-  StartResourceScanCommandOutput,
 } from "./commands/StartResourceScanCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAnalyzerCommandInput,
+  type UpdateAnalyzerCommandOutput,
   UpdateAnalyzerCommand,
-  UpdateAnalyzerCommandInput,
-  UpdateAnalyzerCommandOutput,
 } from "./commands/UpdateAnalyzerCommand";
 import {
+  type UpdateArchiveRuleCommandInput,
+  type UpdateArchiveRuleCommandOutput,
   UpdateArchiveRuleCommand,
-  UpdateArchiveRuleCommandInput,
-  UpdateArchiveRuleCommandOutput,
 } from "./commands/UpdateArchiveRuleCommand";
 import {
+  type UpdateFindingsCommandInput,
+  type UpdateFindingsCommandOutput,
   UpdateFindingsCommand,
-  UpdateFindingsCommandInput,
-  UpdateFindingsCommandOutput,
 } from "./commands/UpdateFindingsCommand";
 import {
+  type ValidatePolicyCommandInput,
+  type ValidatePolicyCommandOutput,
   ValidatePolicyCommand,
-  ValidatePolicyCommandInput,
-  ValidatePolicyCommandOutput,
 } from "./commands/ValidatePolicyCommand";
 import { paginateGetFindingRecommendation } from "./pagination/GetFindingRecommendationPaginator";
 import { paginateGetFindingV2 } from "./pagination/GetFindingV2Paginator";

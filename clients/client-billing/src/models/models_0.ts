@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { BillingViewStatus, BillingViewStatusReason, BillingViewType, Dimension, SearchOption } from "./enums";
+import type { BillingViewStatus, BillingViewStatusReason, BillingViewType, Dimension, SearchOption } from "./enums";
 
 /**
  * <p>A time range with a start and end time.</p>

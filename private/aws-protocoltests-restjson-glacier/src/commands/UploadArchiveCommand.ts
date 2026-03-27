@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import {
   type ArchiveCreationOutput,
-  UploadArchiveInput,
+  type UploadArchiveInput,
   UploadArchiveInputFilterSensitiveLog,
 } from "../models/models_0";
 import { de_UploadArchiveCommand, se_UploadArchiveCommand } from "../protocols/Aws_restJson1";

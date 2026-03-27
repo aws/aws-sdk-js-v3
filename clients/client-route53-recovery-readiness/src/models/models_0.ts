@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Readiness } from "./enums";
+import type { Readiness } from "./enums";
 
 /**
  * <p>Information about a cell.</p>

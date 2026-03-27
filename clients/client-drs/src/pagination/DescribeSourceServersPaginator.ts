@@ -8,7 +8,7 @@ import {
   DescribeSourceServersCommandOutput,
 } from "../commands/DescribeSourceServersCommand";
 import { DrsClient } from "../DrsClient";
-import { DrsPaginationConfiguration } from "./Interfaces";
+import type { DrsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

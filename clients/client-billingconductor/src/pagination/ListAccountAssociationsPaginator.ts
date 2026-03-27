@@ -8,7 +8,7 @@ import {
   ListAccountAssociationsCommandInput,
   ListAccountAssociationsCommandOutput,
 } from "../commands/ListAccountAssociationsCommand";
-import { BillingconductorPaginationConfiguration } from "./Interfaces";
+import type { BillingconductorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -9,120 +9,124 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AddStreamGroupLocationsCommandInput,
+  type AddStreamGroupLocationsCommandOutput,
   AddStreamGroupLocationsCommand,
-  AddStreamGroupLocationsCommandInput,
-  AddStreamGroupLocationsCommandOutput,
 } from "./commands/AddStreamGroupLocationsCommand";
 import {
+  type AssociateApplicationsCommandInput,
+  type AssociateApplicationsCommandOutput,
   AssociateApplicationsCommand,
-  AssociateApplicationsCommandInput,
-  AssociateApplicationsCommandOutput,
 } from "./commands/AssociateApplicationsCommand";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateStreamGroupCommandInput,
+  type CreateStreamGroupCommandOutput,
   CreateStreamGroupCommand,
-  CreateStreamGroupCommandInput,
-  CreateStreamGroupCommandOutput,
 } from "./commands/CreateStreamGroupCommand";
 import {
+  type CreateStreamSessionConnectionCommandInput,
+  type CreateStreamSessionConnectionCommandOutput,
   CreateStreamSessionConnectionCommand,
-  CreateStreamSessionConnectionCommandInput,
-  CreateStreamSessionConnectionCommandOutput,
 } from "./commands/CreateStreamSessionConnectionCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteStreamGroupCommandInput,
+  type DeleteStreamGroupCommandOutput,
   DeleteStreamGroupCommand,
-  DeleteStreamGroupCommandInput,
-  DeleteStreamGroupCommandOutput,
 } from "./commands/DeleteStreamGroupCommand";
 import {
+  type DisassociateApplicationsCommandInput,
+  type DisassociateApplicationsCommandOutput,
   DisassociateApplicationsCommand,
-  DisassociateApplicationsCommandInput,
-  DisassociateApplicationsCommandOutput,
 } from "./commands/DisassociateApplicationsCommand";
 import {
+  type ExportStreamSessionFilesCommandInput,
+  type ExportStreamSessionFilesCommandOutput,
   ExportStreamSessionFilesCommand,
-  ExportStreamSessionFilesCommandInput,
-  ExportStreamSessionFilesCommandOutput,
 } from "./commands/ExportStreamSessionFilesCommand";
 import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
   GetApplicationCommand,
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  type GetStreamGroupCommandInput,
+  type GetStreamGroupCommandOutput,
   GetStreamGroupCommand,
-  GetStreamGroupCommandInput,
-  GetStreamGroupCommandOutput,
 } from "./commands/GetStreamGroupCommand";
 import {
+  type GetStreamSessionCommandInput,
+  type GetStreamSessionCommandOutput,
   GetStreamSessionCommand,
-  GetStreamSessionCommandInput,
-  GetStreamSessionCommandOutput,
 } from "./commands/GetStreamSessionCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListStreamGroupsCommandInput,
+  type ListStreamGroupsCommandOutput,
   ListStreamGroupsCommand,
-  ListStreamGroupsCommandInput,
-  ListStreamGroupsCommandOutput,
 } from "./commands/ListStreamGroupsCommand";
 import {
+  type ListStreamSessionsByAccountCommandInput,
+  type ListStreamSessionsByAccountCommandOutput,
   ListStreamSessionsByAccountCommand,
-  ListStreamSessionsByAccountCommandInput,
-  ListStreamSessionsByAccountCommandOutput,
 } from "./commands/ListStreamSessionsByAccountCommand";
 import {
+  type ListStreamSessionsCommandInput,
+  type ListStreamSessionsCommandOutput,
   ListStreamSessionsCommand,
-  ListStreamSessionsCommandInput,
-  ListStreamSessionsCommandOutput,
 } from "./commands/ListStreamSessionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RemoveStreamGroupLocationsCommandInput,
+  type RemoveStreamGroupLocationsCommandOutput,
   RemoveStreamGroupLocationsCommand,
-  RemoveStreamGroupLocationsCommandInput,
-  RemoveStreamGroupLocationsCommandOutput,
 } from "./commands/RemoveStreamGroupLocationsCommand";
 import {
+  type StartStreamSessionCommandInput,
+  type StartStreamSessionCommandOutput,
   StartStreamSessionCommand,
-  StartStreamSessionCommandInput,
-  StartStreamSessionCommandOutput,
 } from "./commands/StartStreamSessionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TerminateStreamSessionCommandInput,
+  type TerminateStreamSessionCommandOutput,
   TerminateStreamSessionCommand,
-  TerminateStreamSessionCommandInput,
-  TerminateStreamSessionCommandOutput,
 } from "./commands/TerminateStreamSessionCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateStreamGroupCommandInput,
+  type UpdateStreamGroupCommandOutput,
   UpdateStreamGroupCommand,
-  UpdateStreamGroupCommandInput,
-  UpdateStreamGroupCommandOutput,
 } from "./commands/UpdateStreamGroupCommand";
 import { GameLiftStreamsClient } from "./GameLiftStreamsClient";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";

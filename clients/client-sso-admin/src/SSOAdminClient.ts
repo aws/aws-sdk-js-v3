@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,278 +61,290 @@ import {
   defaultSSOAdminHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddRegionCommandInput, AddRegionCommandOutput } from "./commands/AddRegionCommand";
-import {
+import type { AddRegionCommandInput, AddRegionCommandOutput } from "./commands/AddRegionCommand";
+import type {
   AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
   AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput,
 } from "./commands/AttachCustomerManagedPolicyReferenceToPermissionSetCommand";
-import {
+import type {
   AttachManagedPolicyToPermissionSetCommandInput,
   AttachManagedPolicyToPermissionSetCommandOutput,
 } from "./commands/AttachManagedPolicyToPermissionSetCommand";
-import {
+import type {
   CreateAccountAssignmentCommandInput,
   CreateAccountAssignmentCommandOutput,
 } from "./commands/CreateAccountAssignmentCommand";
-import {
+import type {
   CreateApplicationAssignmentCommandInput,
   CreateApplicationAssignmentCommandOutput,
 } from "./commands/CreateApplicationAssignmentCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import {
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type {
   CreateInstanceAccessControlAttributeConfigurationCommandInput,
   CreateInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/CreateInstanceAccessControlAttributeConfigurationCommand";
-import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand";
-import {
+import type { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand";
+import type {
   CreatePermissionSetCommandInput,
   CreatePermissionSetCommandOutput,
 } from "./commands/CreatePermissionSetCommand";
-import {
+import type {
   CreateTrustedTokenIssuerCommandInput,
   CreateTrustedTokenIssuerCommandOutput,
 } from "./commands/CreateTrustedTokenIssuerCommand";
-import {
+import type {
   DeleteAccountAssignmentCommandInput,
   DeleteAccountAssignmentCommandOutput,
 } from "./commands/DeleteAccountAssignmentCommand";
-import {
+import type {
   DeleteApplicationAccessScopeCommandInput,
   DeleteApplicationAccessScopeCommandOutput,
 } from "./commands/DeleteApplicationAccessScopeCommand";
-import {
+import type {
   DeleteApplicationAssignmentCommandInput,
   DeleteApplicationAssignmentCommandOutput,
 } from "./commands/DeleteApplicationAssignmentCommand";
-import {
+import type {
   DeleteApplicationAuthenticationMethodCommandInput,
   DeleteApplicationAuthenticationMethodCommandOutput,
 } from "./commands/DeleteApplicationAuthenticationMethodCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import {
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type {
   DeleteApplicationGrantCommandInput,
   DeleteApplicationGrantCommandOutput,
 } from "./commands/DeleteApplicationGrantCommand";
-import {
+import type {
   DeleteInlinePolicyFromPermissionSetCommandInput,
   DeleteInlinePolicyFromPermissionSetCommandOutput,
 } from "./commands/DeleteInlinePolicyFromPermissionSetCommand";
-import {
+import type {
   DeleteInstanceAccessControlAttributeConfigurationCommandInput,
   DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/DeleteInstanceAccessControlAttributeConfigurationCommand";
-import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
-import {
+import type { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
+import type {
   DeletePermissionsBoundaryFromPermissionSetCommandInput,
   DeletePermissionsBoundaryFromPermissionSetCommandOutput,
 } from "./commands/DeletePermissionsBoundaryFromPermissionSetCommand";
-import {
+import type {
   DeletePermissionSetCommandInput,
   DeletePermissionSetCommandOutput,
 } from "./commands/DeletePermissionSetCommand";
-import {
+import type {
   DeleteTrustedTokenIssuerCommandInput,
   DeleteTrustedTokenIssuerCommandOutput,
 } from "./commands/DeleteTrustedTokenIssuerCommand";
-import {
+import type {
   DescribeAccountAssignmentCreationStatusCommandInput,
   DescribeAccountAssignmentCreationStatusCommandOutput,
 } from "./commands/DescribeAccountAssignmentCreationStatusCommand";
-import {
+import type {
   DescribeAccountAssignmentDeletionStatusCommandInput,
   DescribeAccountAssignmentDeletionStatusCommandOutput,
 } from "./commands/DescribeAccountAssignmentDeletionStatusCommand";
-import {
+import type {
   DescribeApplicationAssignmentCommandInput,
   DescribeApplicationAssignmentCommandOutput,
 } from "./commands/DescribeApplicationAssignmentCommand";
-import {
+import type {
   DescribeApplicationCommandInput,
   DescribeApplicationCommandOutput,
 } from "./commands/DescribeApplicationCommand";
-import {
+import type {
   DescribeApplicationProviderCommandInput,
   DescribeApplicationProviderCommandOutput,
 } from "./commands/DescribeApplicationProviderCommand";
-import {
+import type {
   DescribeInstanceAccessControlAttributeConfigurationCommandInput,
   DescribeInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/DescribeInstanceAccessControlAttributeConfigurationCommand";
-import { DescribeInstanceCommandInput, DescribeInstanceCommandOutput } from "./commands/DescribeInstanceCommand";
-import {
+import type { DescribeInstanceCommandInput, DescribeInstanceCommandOutput } from "./commands/DescribeInstanceCommand";
+import type {
   DescribePermissionSetCommandInput,
   DescribePermissionSetCommandOutput,
 } from "./commands/DescribePermissionSetCommand";
-import {
+import type {
   DescribePermissionSetProvisioningStatusCommandInput,
   DescribePermissionSetProvisioningStatusCommandOutput,
 } from "./commands/DescribePermissionSetProvisioningStatusCommand";
-import { DescribeRegionCommandInput, DescribeRegionCommandOutput } from "./commands/DescribeRegionCommand";
-import {
+import type { DescribeRegionCommandInput, DescribeRegionCommandOutput } from "./commands/DescribeRegionCommand";
+import type {
   DescribeTrustedTokenIssuerCommandInput,
   DescribeTrustedTokenIssuerCommandOutput,
 } from "./commands/DescribeTrustedTokenIssuerCommand";
-import {
+import type {
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput,
 } from "./commands/DetachCustomerManagedPolicyReferenceFromPermissionSetCommand";
-import {
+import type {
   DetachManagedPolicyFromPermissionSetCommandInput,
   DetachManagedPolicyFromPermissionSetCommandOutput,
 } from "./commands/DetachManagedPolicyFromPermissionSetCommand";
-import {
+import type {
   GetApplicationAccessScopeCommandInput,
   GetApplicationAccessScopeCommandOutput,
 } from "./commands/GetApplicationAccessScopeCommand";
-import {
+import type {
   GetApplicationAssignmentConfigurationCommandInput,
   GetApplicationAssignmentConfigurationCommandOutput,
 } from "./commands/GetApplicationAssignmentConfigurationCommand";
-import {
+import type {
   GetApplicationAuthenticationMethodCommandInput,
   GetApplicationAuthenticationMethodCommandOutput,
 } from "./commands/GetApplicationAuthenticationMethodCommand";
-import {
+import type {
   GetApplicationGrantCommandInput,
   GetApplicationGrantCommandOutput,
 } from "./commands/GetApplicationGrantCommand";
-import {
+import type {
   GetApplicationSessionConfigurationCommandInput,
   GetApplicationSessionConfigurationCommandOutput,
 } from "./commands/GetApplicationSessionConfigurationCommand";
-import {
+import type {
   GetInlinePolicyForPermissionSetCommandInput,
   GetInlinePolicyForPermissionSetCommandOutput,
 } from "./commands/GetInlinePolicyForPermissionSetCommand";
-import {
+import type {
   GetPermissionsBoundaryForPermissionSetCommandInput,
   GetPermissionsBoundaryForPermissionSetCommandOutput,
 } from "./commands/GetPermissionsBoundaryForPermissionSetCommand";
-import {
+import type {
   ListAccountAssignmentCreationStatusCommandInput,
   ListAccountAssignmentCreationStatusCommandOutput,
 } from "./commands/ListAccountAssignmentCreationStatusCommand";
-import {
+import type {
   ListAccountAssignmentDeletionStatusCommandInput,
   ListAccountAssignmentDeletionStatusCommandOutput,
 } from "./commands/ListAccountAssignmentDeletionStatusCommand";
-import {
+import type {
   ListAccountAssignmentsCommandInput,
   ListAccountAssignmentsCommandOutput,
 } from "./commands/ListAccountAssignmentsCommand";
-import {
+import type {
   ListAccountAssignmentsForPrincipalCommandInput,
   ListAccountAssignmentsForPrincipalCommandOutput,
 } from "./commands/ListAccountAssignmentsForPrincipalCommand";
-import {
+import type {
   ListAccountsForProvisionedPermissionSetCommandInput,
   ListAccountsForProvisionedPermissionSetCommandOutput,
 } from "./commands/ListAccountsForProvisionedPermissionSetCommand";
-import {
+import type {
   ListApplicationAccessScopesCommandInput,
   ListApplicationAccessScopesCommandOutput,
 } from "./commands/ListApplicationAccessScopesCommand";
-import {
+import type {
   ListApplicationAssignmentsCommandInput,
   ListApplicationAssignmentsCommandOutput,
 } from "./commands/ListApplicationAssignmentsCommand";
-import {
+import type {
   ListApplicationAssignmentsForPrincipalCommandInput,
   ListApplicationAssignmentsForPrincipalCommandOutput,
 } from "./commands/ListApplicationAssignmentsForPrincipalCommand";
-import {
+import type {
   ListApplicationAuthenticationMethodsCommandInput,
   ListApplicationAuthenticationMethodsCommandOutput,
 } from "./commands/ListApplicationAuthenticationMethodsCommand";
-import {
+import type {
   ListApplicationGrantsCommandInput,
   ListApplicationGrantsCommandOutput,
 } from "./commands/ListApplicationGrantsCommand";
-import {
+import type {
   ListApplicationProvidersCommandInput,
   ListApplicationProvidersCommandOutput,
 } from "./commands/ListApplicationProvidersCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import {
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type {
   ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
   ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput,
 } from "./commands/ListCustomerManagedPolicyReferencesInPermissionSetCommand";
-import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
-import {
+import type { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
+import type {
   ListManagedPoliciesInPermissionSetCommandInput,
   ListManagedPoliciesInPermissionSetCommandOutput,
 } from "./commands/ListManagedPoliciesInPermissionSetCommand";
-import {
+import type {
   ListPermissionSetProvisioningStatusCommandInput,
   ListPermissionSetProvisioningStatusCommandOutput,
 } from "./commands/ListPermissionSetProvisioningStatusCommand";
-import { ListPermissionSetsCommandInput, ListPermissionSetsCommandOutput } from "./commands/ListPermissionSetsCommand";
-import {
+import type {
+  ListPermissionSetsCommandInput,
+  ListPermissionSetsCommandOutput,
+} from "./commands/ListPermissionSetsCommand";
+import type {
   ListPermissionSetsProvisionedToAccountCommandInput,
   ListPermissionSetsProvisionedToAccountCommandOutput,
 } from "./commands/ListPermissionSetsProvisionedToAccountCommand";
-import { ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
-import {
+import type { ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTrustedTokenIssuersCommandInput,
   ListTrustedTokenIssuersCommandOutput,
 } from "./commands/ListTrustedTokenIssuersCommand";
-import {
+import type {
   ProvisionPermissionSetCommandInput,
   ProvisionPermissionSetCommandOutput,
 } from "./commands/ProvisionPermissionSetCommand";
-import {
+import type {
   PutApplicationAccessScopeCommandInput,
   PutApplicationAccessScopeCommandOutput,
 } from "./commands/PutApplicationAccessScopeCommand";
-import {
+import type {
   PutApplicationAssignmentConfigurationCommandInput,
   PutApplicationAssignmentConfigurationCommandOutput,
 } from "./commands/PutApplicationAssignmentConfigurationCommand";
-import {
+import type {
   PutApplicationAuthenticationMethodCommandInput,
   PutApplicationAuthenticationMethodCommandOutput,
 } from "./commands/PutApplicationAuthenticationMethodCommand";
-import {
+import type {
   PutApplicationGrantCommandInput,
   PutApplicationGrantCommandOutput,
 } from "./commands/PutApplicationGrantCommand";
-import {
+import type {
   PutApplicationSessionConfigurationCommandInput,
   PutApplicationSessionConfigurationCommandOutput,
 } from "./commands/PutApplicationSessionConfigurationCommand";
-import {
+import type {
   PutInlinePolicyToPermissionSetCommandInput,
   PutInlinePolicyToPermissionSetCommandOutput,
 } from "./commands/PutInlinePolicyToPermissionSetCommand";
-import {
+import type {
   PutPermissionsBoundaryToPermissionSetCommandInput,
   PutPermissionsBoundaryToPermissionSetCommandOutput,
 } from "./commands/PutPermissionsBoundaryToPermissionSetCommand";
-import { RemoveRegionCommandInput, RemoveRegionCommandOutput } from "./commands/RemoveRegionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import {
+import type { RemoveRegionCommandInput, RemoveRegionCommandOutput } from "./commands/RemoveRegionCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type {
   UpdateInstanceAccessControlAttributeConfigurationCommandInput,
   UpdateInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/UpdateInstanceAccessControlAttributeConfigurationCommand";
-import { UpdateInstanceCommandInput, UpdateInstanceCommandOutput } from "./commands/UpdateInstanceCommand";
-import {
+import type { UpdateInstanceCommandInput, UpdateInstanceCommandOutput } from "./commands/UpdateInstanceCommand";
+import type {
   UpdatePermissionSetCommandInput,
   UpdatePermissionSetCommandOutput,
 } from "./commands/UpdatePermissionSetCommand";
-import {
+import type {
   UpdateTrustedTokenIssuerCommandInput,
   UpdateTrustedTokenIssuerCommandOutput,
 } from "./commands/UpdateTrustedTokenIssuerCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -624,7 +634,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

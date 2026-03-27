@@ -8,7 +8,7 @@ import {
   ListProfileTimesCommandInput,
   ListProfileTimesCommandOutput,
 } from "../commands/ListProfileTimesCommand";
-import { CodeGuruProfilerPaginationConfiguration } from "./Interfaces";
+import type { CodeGuruProfilerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

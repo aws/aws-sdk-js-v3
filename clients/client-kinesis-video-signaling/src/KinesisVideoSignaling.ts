@@ -3,14 +3,14 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type GetIceServerConfigCommandInput,
+  type GetIceServerConfigCommandOutput,
   GetIceServerConfigCommand,
-  GetIceServerConfigCommandInput,
-  GetIceServerConfigCommandOutput,
 } from "./commands/GetIceServerConfigCommand";
 import {
+  type SendAlexaOfferToMasterCommandInput,
+  type SendAlexaOfferToMasterCommandOutput,
   SendAlexaOfferToMasterCommand,
-  SendAlexaOfferToMasterCommandInput,
-  SendAlexaOfferToMasterCommandOutput,
 } from "./commands/SendAlexaOfferToMasterCommand";
 import { KinesisVideoSignalingClient } from "./KinesisVideoSignalingClient";
 

@@ -8,7 +8,7 @@ import {
   ListEphemeridesCommandOutput,
 } from "../commands/ListEphemeridesCommand";
 import { GroundStationClient } from "../GroundStationClient";
-import { GroundStationPaginationConfiguration } from "./Interfaces";
+import type { GroundStationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

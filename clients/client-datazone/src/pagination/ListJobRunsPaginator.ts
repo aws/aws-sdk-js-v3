@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListJobRunsCommand, ListJobRunsCommandInput, ListJobRunsCommandOutput } from "../commands/ListJobRunsCommand";
 import { DataZoneClient } from "../DataZoneClient";
-import { DataZonePaginationConfiguration } from "./Interfaces";
+import type { DataZonePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

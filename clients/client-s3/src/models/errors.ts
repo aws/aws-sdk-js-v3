@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { IntelligentTieringAccessTier, StorageClass } from "./enums";
+import type { IntelligentTieringAccessTier, StorageClass } from "./enums";
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
 
 /**

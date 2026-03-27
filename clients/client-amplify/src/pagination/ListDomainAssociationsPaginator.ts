@@ -8,7 +8,7 @@ import {
   ListDomainAssociationsCommandInput,
   ListDomainAssociationsCommandOutput,
 } from "../commands/ListDomainAssociationsCommand";
-import { AmplifyPaginationConfiguration } from "./Interfaces";
+import type { AmplifyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

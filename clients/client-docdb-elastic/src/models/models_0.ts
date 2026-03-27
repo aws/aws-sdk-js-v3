@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Auth, OptInType, SnapshotType, Status } from "./enums";
+import type { Auth, OptInType, SnapshotType, Status } from "./enums";
 
 /**
  * @public

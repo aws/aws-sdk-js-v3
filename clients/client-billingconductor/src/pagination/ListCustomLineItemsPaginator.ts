@@ -8,7 +8,7 @@ import {
   ListCustomLineItemsCommandInput,
   ListCustomLineItemsCommandOutput,
 } from "../commands/ListCustomLineItemsCommand";
-import { BillingconductorPaginationConfiguration } from "./Interfaces";
+import type { BillingconductorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

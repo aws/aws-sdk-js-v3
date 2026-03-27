@@ -7,7 +7,7 @@
  */
 export * from "./QAppsClient";
 export * from "./QApps";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { QAppsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

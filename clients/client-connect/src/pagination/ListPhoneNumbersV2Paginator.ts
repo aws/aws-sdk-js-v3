@@ -8,7 +8,7 @@ import {
   ListPhoneNumbersV2CommandOutput,
 } from "../commands/ListPhoneNumbersV2Command";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -7,7 +7,7 @@
  */
 export * from "./EvsClient";
 export * from "./Evs";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { EvsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

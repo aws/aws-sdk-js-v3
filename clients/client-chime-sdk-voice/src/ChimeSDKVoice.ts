@@ -4,476 +4,484 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ChimeSDKVoiceClient } from "./ChimeSDKVoiceClient";
 import {
+  type AssociatePhoneNumbersWithVoiceConnectorCommandInput,
+  type AssociatePhoneNumbersWithVoiceConnectorCommandOutput,
   AssociatePhoneNumbersWithVoiceConnectorCommand,
-  AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-  AssociatePhoneNumbersWithVoiceConnectorCommandOutput,
 } from "./commands/AssociatePhoneNumbersWithVoiceConnectorCommand";
 import {
+  type AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
+  type AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput,
   AssociatePhoneNumbersWithVoiceConnectorGroupCommand,
-  AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-  AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput,
 } from "./commands/AssociatePhoneNumbersWithVoiceConnectorGroupCommand";
 import {
+  type BatchDeletePhoneNumberCommandInput,
+  type BatchDeletePhoneNumberCommandOutput,
   BatchDeletePhoneNumberCommand,
-  BatchDeletePhoneNumberCommandInput,
-  BatchDeletePhoneNumberCommandOutput,
 } from "./commands/BatchDeletePhoneNumberCommand";
 import {
+  type BatchUpdatePhoneNumberCommandInput,
+  type BatchUpdatePhoneNumberCommandOutput,
   BatchUpdatePhoneNumberCommand,
-  BatchUpdatePhoneNumberCommandInput,
-  BatchUpdatePhoneNumberCommandOutput,
 } from "./commands/BatchUpdatePhoneNumberCommand";
 import {
+  type CreatePhoneNumberOrderCommandInput,
+  type CreatePhoneNumberOrderCommandOutput,
   CreatePhoneNumberOrderCommand,
-  CreatePhoneNumberOrderCommandInput,
-  CreatePhoneNumberOrderCommandOutput,
 } from "./commands/CreatePhoneNumberOrderCommand";
 import {
+  type CreateProxySessionCommandInput,
+  type CreateProxySessionCommandOutput,
   CreateProxySessionCommand,
-  CreateProxySessionCommandInput,
-  CreateProxySessionCommandOutput,
 } from "./commands/CreateProxySessionCommand";
 import {
+  type CreateSipMediaApplicationCallCommandInput,
+  type CreateSipMediaApplicationCallCommandOutput,
   CreateSipMediaApplicationCallCommand,
-  CreateSipMediaApplicationCallCommandInput,
-  CreateSipMediaApplicationCallCommandOutput,
 } from "./commands/CreateSipMediaApplicationCallCommand";
 import {
+  type CreateSipMediaApplicationCommandInput,
+  type CreateSipMediaApplicationCommandOutput,
   CreateSipMediaApplicationCommand,
-  CreateSipMediaApplicationCommandInput,
-  CreateSipMediaApplicationCommandOutput,
 } from "./commands/CreateSipMediaApplicationCommand";
 import {
+  type CreateSipRuleCommandInput,
+  type CreateSipRuleCommandOutput,
   CreateSipRuleCommand,
-  CreateSipRuleCommandInput,
-  CreateSipRuleCommandOutput,
 } from "./commands/CreateSipRuleCommand";
 import {
+  type CreateVoiceConnectorCommandInput,
+  type CreateVoiceConnectorCommandOutput,
   CreateVoiceConnectorCommand,
-  CreateVoiceConnectorCommandInput,
-  CreateVoiceConnectorCommandOutput,
 } from "./commands/CreateVoiceConnectorCommand";
 import {
+  type CreateVoiceConnectorGroupCommandInput,
+  type CreateVoiceConnectorGroupCommandOutput,
   CreateVoiceConnectorGroupCommand,
-  CreateVoiceConnectorGroupCommandInput,
-  CreateVoiceConnectorGroupCommandOutput,
 } from "./commands/CreateVoiceConnectorGroupCommand";
 import {
+  type CreateVoiceProfileCommandInput,
+  type CreateVoiceProfileCommandOutput,
   CreateVoiceProfileCommand,
-  CreateVoiceProfileCommandInput,
-  CreateVoiceProfileCommandOutput,
 } from "./commands/CreateVoiceProfileCommand";
 import {
+  type CreateVoiceProfileDomainCommandInput,
+  type CreateVoiceProfileDomainCommandOutput,
   CreateVoiceProfileDomainCommand,
-  CreateVoiceProfileDomainCommandInput,
-  CreateVoiceProfileDomainCommandOutput,
 } from "./commands/CreateVoiceProfileDomainCommand";
 import {
+  type DeletePhoneNumberCommandInput,
+  type DeletePhoneNumberCommandOutput,
   DeletePhoneNumberCommand,
-  DeletePhoneNumberCommandInput,
-  DeletePhoneNumberCommandOutput,
 } from "./commands/DeletePhoneNumberCommand";
 import {
+  type DeleteProxySessionCommandInput,
+  type DeleteProxySessionCommandOutput,
   DeleteProxySessionCommand,
-  DeleteProxySessionCommandInput,
-  DeleteProxySessionCommandOutput,
 } from "./commands/DeleteProxySessionCommand";
 import {
+  type DeleteSipMediaApplicationCommandInput,
+  type DeleteSipMediaApplicationCommandOutput,
   DeleteSipMediaApplicationCommand,
-  DeleteSipMediaApplicationCommandInput,
-  DeleteSipMediaApplicationCommandOutput,
 } from "./commands/DeleteSipMediaApplicationCommand";
 import {
+  type DeleteSipRuleCommandInput,
+  type DeleteSipRuleCommandOutput,
   DeleteSipRuleCommand,
-  DeleteSipRuleCommandInput,
-  DeleteSipRuleCommandOutput,
 } from "./commands/DeleteSipRuleCommand";
 import {
+  type DeleteVoiceConnectorCommandInput,
+  type DeleteVoiceConnectorCommandOutput,
   DeleteVoiceConnectorCommand,
-  DeleteVoiceConnectorCommandInput,
-  DeleteVoiceConnectorCommandOutput,
 } from "./commands/DeleteVoiceConnectorCommand";
 import {
+  type DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  type DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput,
   DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
-  DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
-  DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/DeleteVoiceConnectorEmergencyCallingConfigurationCommand";
 import {
+  type DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
+  type DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput,
   DeleteVoiceConnectorExternalSystemsConfigurationCommand,
-  DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
-  DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput,
 } from "./commands/DeleteVoiceConnectorExternalSystemsConfigurationCommand";
 import {
+  type DeleteVoiceConnectorGroupCommandInput,
+  type DeleteVoiceConnectorGroupCommandOutput,
   DeleteVoiceConnectorGroupCommand,
-  DeleteVoiceConnectorGroupCommandInput,
-  DeleteVoiceConnectorGroupCommandOutput,
 } from "./commands/DeleteVoiceConnectorGroupCommand";
 import {
+  type DeleteVoiceConnectorOriginationCommandInput,
+  type DeleteVoiceConnectorOriginationCommandOutput,
   DeleteVoiceConnectorOriginationCommand,
-  DeleteVoiceConnectorOriginationCommandInput,
-  DeleteVoiceConnectorOriginationCommandOutput,
 } from "./commands/DeleteVoiceConnectorOriginationCommand";
 import {
+  type DeleteVoiceConnectorProxyCommandInput,
+  type DeleteVoiceConnectorProxyCommandOutput,
   DeleteVoiceConnectorProxyCommand,
-  DeleteVoiceConnectorProxyCommandInput,
-  DeleteVoiceConnectorProxyCommandOutput,
 } from "./commands/DeleteVoiceConnectorProxyCommand";
 import {
+  type DeleteVoiceConnectorStreamingConfigurationCommandInput,
+  type DeleteVoiceConnectorStreamingConfigurationCommandOutput,
   DeleteVoiceConnectorStreamingConfigurationCommand,
-  DeleteVoiceConnectorStreamingConfigurationCommandInput,
-  DeleteVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/DeleteVoiceConnectorStreamingConfigurationCommand";
 import {
+  type DeleteVoiceConnectorTerminationCommandInput,
+  type DeleteVoiceConnectorTerminationCommandOutput,
   DeleteVoiceConnectorTerminationCommand,
-  DeleteVoiceConnectorTerminationCommandInput,
-  DeleteVoiceConnectorTerminationCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCommand";
 import {
+  type DeleteVoiceConnectorTerminationCredentialsCommandInput,
+  type DeleteVoiceConnectorTerminationCredentialsCommandOutput,
   DeleteVoiceConnectorTerminationCredentialsCommand,
-  DeleteVoiceConnectorTerminationCredentialsCommandInput,
-  DeleteVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCredentialsCommand";
 import {
+  type DeleteVoiceProfileCommandInput,
+  type DeleteVoiceProfileCommandOutput,
   DeleteVoiceProfileCommand,
-  DeleteVoiceProfileCommandInput,
-  DeleteVoiceProfileCommandOutput,
 } from "./commands/DeleteVoiceProfileCommand";
 import {
+  type DeleteVoiceProfileDomainCommandInput,
+  type DeleteVoiceProfileDomainCommandOutput,
   DeleteVoiceProfileDomainCommand,
-  DeleteVoiceProfileDomainCommandInput,
-  DeleteVoiceProfileDomainCommandOutput,
 } from "./commands/DeleteVoiceProfileDomainCommand";
 import {
+  type DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
+  type DisassociatePhoneNumbersFromVoiceConnectorCommandOutput,
   DisassociatePhoneNumbersFromVoiceConnectorCommand,
-  DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-  DisassociatePhoneNumbersFromVoiceConnectorCommandOutput,
 } from "./commands/DisassociatePhoneNumbersFromVoiceConnectorCommand";
 import {
+  type DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
+  type DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput,
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommand,
-  DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-  DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput,
 } from "./commands/DisassociatePhoneNumbersFromVoiceConnectorGroupCommand";
 import {
+  type GetGlobalSettingsCommandInput,
+  type GetGlobalSettingsCommandOutput,
   GetGlobalSettingsCommand,
-  GetGlobalSettingsCommandInput,
-  GetGlobalSettingsCommandOutput,
 } from "./commands/GetGlobalSettingsCommand";
 import {
+  type GetPhoneNumberCommandInput,
+  type GetPhoneNumberCommandOutput,
   GetPhoneNumberCommand,
-  GetPhoneNumberCommandInput,
-  GetPhoneNumberCommandOutput,
 } from "./commands/GetPhoneNumberCommand";
 import {
+  type GetPhoneNumberOrderCommandInput,
+  type GetPhoneNumberOrderCommandOutput,
   GetPhoneNumberOrderCommand,
-  GetPhoneNumberOrderCommandInput,
-  GetPhoneNumberOrderCommandOutput,
 } from "./commands/GetPhoneNumberOrderCommand";
 import {
+  type GetPhoneNumberSettingsCommandInput,
+  type GetPhoneNumberSettingsCommandOutput,
   GetPhoneNumberSettingsCommand,
-  GetPhoneNumberSettingsCommandInput,
-  GetPhoneNumberSettingsCommandOutput,
 } from "./commands/GetPhoneNumberSettingsCommand";
 import {
+  type GetProxySessionCommandInput,
+  type GetProxySessionCommandOutput,
   GetProxySessionCommand,
-  GetProxySessionCommandInput,
-  GetProxySessionCommandOutput,
 } from "./commands/GetProxySessionCommand";
 import {
+  type GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
+  type GetSipMediaApplicationAlexaSkillConfigurationCommandOutput,
   GetSipMediaApplicationAlexaSkillConfigurationCommand,
-  GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
-  GetSipMediaApplicationAlexaSkillConfigurationCommandOutput,
 } from "./commands/GetSipMediaApplicationAlexaSkillConfigurationCommand";
 import {
+  type GetSipMediaApplicationCommandInput,
+  type GetSipMediaApplicationCommandOutput,
   GetSipMediaApplicationCommand,
-  GetSipMediaApplicationCommandInput,
-  GetSipMediaApplicationCommandOutput,
 } from "./commands/GetSipMediaApplicationCommand";
 import {
+  type GetSipMediaApplicationLoggingConfigurationCommandInput,
+  type GetSipMediaApplicationLoggingConfigurationCommandOutput,
   GetSipMediaApplicationLoggingConfigurationCommand,
-  GetSipMediaApplicationLoggingConfigurationCommandInput,
-  GetSipMediaApplicationLoggingConfigurationCommandOutput,
 } from "./commands/GetSipMediaApplicationLoggingConfigurationCommand";
-import { GetSipRuleCommand, GetSipRuleCommandInput, GetSipRuleCommandOutput } from "./commands/GetSipRuleCommand";
 import {
+  type GetSipRuleCommandInput,
+  type GetSipRuleCommandOutput,
+  GetSipRuleCommand,
+} from "./commands/GetSipRuleCommand";
+import {
+  type GetSpeakerSearchTaskCommandInput,
+  type GetSpeakerSearchTaskCommandOutput,
   GetSpeakerSearchTaskCommand,
-  GetSpeakerSearchTaskCommandInput,
-  GetSpeakerSearchTaskCommandOutput,
 } from "./commands/GetSpeakerSearchTaskCommand";
 import {
+  type GetVoiceConnectorCommandInput,
+  type GetVoiceConnectorCommandOutput,
   GetVoiceConnectorCommand,
-  GetVoiceConnectorCommandInput,
-  GetVoiceConnectorCommandOutput,
 } from "./commands/GetVoiceConnectorCommand";
 import {
+  type GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  type GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
   GetVoiceConnectorEmergencyCallingConfigurationCommand,
-  GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
-  GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorEmergencyCallingConfigurationCommand";
 import {
+  type GetVoiceConnectorExternalSystemsConfigurationCommandInput,
+  type GetVoiceConnectorExternalSystemsConfigurationCommandOutput,
   GetVoiceConnectorExternalSystemsConfigurationCommand,
-  GetVoiceConnectorExternalSystemsConfigurationCommandInput,
-  GetVoiceConnectorExternalSystemsConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorExternalSystemsConfigurationCommand";
 import {
+  type GetVoiceConnectorGroupCommandInput,
+  type GetVoiceConnectorGroupCommandOutput,
   GetVoiceConnectorGroupCommand,
-  GetVoiceConnectorGroupCommandInput,
-  GetVoiceConnectorGroupCommandOutput,
 } from "./commands/GetVoiceConnectorGroupCommand";
 import {
+  type GetVoiceConnectorLoggingConfigurationCommandInput,
+  type GetVoiceConnectorLoggingConfigurationCommandOutput,
   GetVoiceConnectorLoggingConfigurationCommand,
-  GetVoiceConnectorLoggingConfigurationCommandInput,
-  GetVoiceConnectorLoggingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorLoggingConfigurationCommand";
 import {
+  type GetVoiceConnectorOriginationCommandInput,
+  type GetVoiceConnectorOriginationCommandOutput,
   GetVoiceConnectorOriginationCommand,
-  GetVoiceConnectorOriginationCommandInput,
-  GetVoiceConnectorOriginationCommandOutput,
 } from "./commands/GetVoiceConnectorOriginationCommand";
 import {
+  type GetVoiceConnectorProxyCommandInput,
+  type GetVoiceConnectorProxyCommandOutput,
   GetVoiceConnectorProxyCommand,
-  GetVoiceConnectorProxyCommandInput,
-  GetVoiceConnectorProxyCommandOutput,
 } from "./commands/GetVoiceConnectorProxyCommand";
 import {
+  type GetVoiceConnectorStreamingConfigurationCommandInput,
+  type GetVoiceConnectorStreamingConfigurationCommandOutput,
   GetVoiceConnectorStreamingConfigurationCommand,
-  GetVoiceConnectorStreamingConfigurationCommandInput,
-  GetVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorStreamingConfigurationCommand";
 import {
+  type GetVoiceConnectorTerminationCommandInput,
+  type GetVoiceConnectorTerminationCommandOutput,
   GetVoiceConnectorTerminationCommand,
-  GetVoiceConnectorTerminationCommandInput,
-  GetVoiceConnectorTerminationCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationCommand";
 import {
+  type GetVoiceConnectorTerminationHealthCommandInput,
+  type GetVoiceConnectorTerminationHealthCommandOutput,
   GetVoiceConnectorTerminationHealthCommand,
-  GetVoiceConnectorTerminationHealthCommandInput,
-  GetVoiceConnectorTerminationHealthCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationHealthCommand";
 import {
+  type GetVoiceProfileCommandInput,
+  type GetVoiceProfileCommandOutput,
   GetVoiceProfileCommand,
-  GetVoiceProfileCommandInput,
-  GetVoiceProfileCommandOutput,
 } from "./commands/GetVoiceProfileCommand";
 import {
+  type GetVoiceProfileDomainCommandInput,
+  type GetVoiceProfileDomainCommandOutput,
   GetVoiceProfileDomainCommand,
-  GetVoiceProfileDomainCommandInput,
-  GetVoiceProfileDomainCommandOutput,
 } from "./commands/GetVoiceProfileDomainCommand";
 import {
+  type GetVoiceToneAnalysisTaskCommandInput,
+  type GetVoiceToneAnalysisTaskCommandOutput,
   GetVoiceToneAnalysisTaskCommand,
-  GetVoiceToneAnalysisTaskCommandInput,
-  GetVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/GetVoiceToneAnalysisTaskCommand";
 import {
+  type ListAvailableVoiceConnectorRegionsCommandInput,
+  type ListAvailableVoiceConnectorRegionsCommandOutput,
   ListAvailableVoiceConnectorRegionsCommand,
-  ListAvailableVoiceConnectorRegionsCommandInput,
-  ListAvailableVoiceConnectorRegionsCommandOutput,
 } from "./commands/ListAvailableVoiceConnectorRegionsCommand";
 import {
+  type ListPhoneNumberOrdersCommandInput,
+  type ListPhoneNumberOrdersCommandOutput,
   ListPhoneNumberOrdersCommand,
-  ListPhoneNumberOrdersCommandInput,
-  ListPhoneNumberOrdersCommandOutput,
 } from "./commands/ListPhoneNumberOrdersCommand";
 import {
+  type ListPhoneNumbersCommandInput,
+  type ListPhoneNumbersCommandOutput,
   ListPhoneNumbersCommand,
-  ListPhoneNumbersCommandInput,
-  ListPhoneNumbersCommandOutput,
 } from "./commands/ListPhoneNumbersCommand";
 import {
+  type ListProxySessionsCommandInput,
+  type ListProxySessionsCommandOutput,
   ListProxySessionsCommand,
-  ListProxySessionsCommandInput,
-  ListProxySessionsCommandOutput,
 } from "./commands/ListProxySessionsCommand";
 import {
+  type ListSipMediaApplicationsCommandInput,
+  type ListSipMediaApplicationsCommandOutput,
   ListSipMediaApplicationsCommand,
-  ListSipMediaApplicationsCommandInput,
-  ListSipMediaApplicationsCommandOutput,
 } from "./commands/ListSipMediaApplicationsCommand";
 import {
+  type ListSipRulesCommandInput,
+  type ListSipRulesCommandOutput,
   ListSipRulesCommand,
-  ListSipRulesCommandInput,
-  ListSipRulesCommandOutput,
 } from "./commands/ListSipRulesCommand";
 import {
+  type ListSupportedPhoneNumberCountriesCommandInput,
+  type ListSupportedPhoneNumberCountriesCommandOutput,
   ListSupportedPhoneNumberCountriesCommand,
-  ListSupportedPhoneNumberCountriesCommandInput,
-  ListSupportedPhoneNumberCountriesCommandOutput,
 } from "./commands/ListSupportedPhoneNumberCountriesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVoiceConnectorGroupsCommandInput,
+  type ListVoiceConnectorGroupsCommandOutput,
   ListVoiceConnectorGroupsCommand,
-  ListVoiceConnectorGroupsCommandInput,
-  ListVoiceConnectorGroupsCommandOutput,
 } from "./commands/ListVoiceConnectorGroupsCommand";
 import {
+  type ListVoiceConnectorsCommandInput,
+  type ListVoiceConnectorsCommandOutput,
   ListVoiceConnectorsCommand,
-  ListVoiceConnectorsCommandInput,
-  ListVoiceConnectorsCommandOutput,
 } from "./commands/ListVoiceConnectorsCommand";
 import {
+  type ListVoiceConnectorTerminationCredentialsCommandInput,
+  type ListVoiceConnectorTerminationCredentialsCommandOutput,
   ListVoiceConnectorTerminationCredentialsCommand,
-  ListVoiceConnectorTerminationCredentialsCommandInput,
-  ListVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/ListVoiceConnectorTerminationCredentialsCommand";
 import {
+  type ListVoiceProfileDomainsCommandInput,
+  type ListVoiceProfileDomainsCommandOutput,
   ListVoiceProfileDomainsCommand,
-  ListVoiceProfileDomainsCommandInput,
-  ListVoiceProfileDomainsCommandOutput,
 } from "./commands/ListVoiceProfileDomainsCommand";
 import {
+  type ListVoiceProfilesCommandInput,
+  type ListVoiceProfilesCommandOutput,
   ListVoiceProfilesCommand,
-  ListVoiceProfilesCommandInput,
-  ListVoiceProfilesCommandOutput,
 } from "./commands/ListVoiceProfilesCommand";
 import {
+  type PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
+  type PutSipMediaApplicationAlexaSkillConfigurationCommandOutput,
   PutSipMediaApplicationAlexaSkillConfigurationCommand,
-  PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
-  PutSipMediaApplicationAlexaSkillConfigurationCommandOutput,
 } from "./commands/PutSipMediaApplicationAlexaSkillConfigurationCommand";
 import {
+  type PutSipMediaApplicationLoggingConfigurationCommandInput,
+  type PutSipMediaApplicationLoggingConfigurationCommandOutput,
   PutSipMediaApplicationLoggingConfigurationCommand,
-  PutSipMediaApplicationLoggingConfigurationCommandInput,
-  PutSipMediaApplicationLoggingConfigurationCommandOutput,
 } from "./commands/PutSipMediaApplicationLoggingConfigurationCommand";
 import {
+  type PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  type PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
   PutVoiceConnectorEmergencyCallingConfigurationCommand,
-  PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
-  PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorEmergencyCallingConfigurationCommand";
 import {
+  type PutVoiceConnectorExternalSystemsConfigurationCommandInput,
+  type PutVoiceConnectorExternalSystemsConfigurationCommandOutput,
   PutVoiceConnectorExternalSystemsConfigurationCommand,
-  PutVoiceConnectorExternalSystemsConfigurationCommandInput,
-  PutVoiceConnectorExternalSystemsConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorExternalSystemsConfigurationCommand";
 import {
+  type PutVoiceConnectorLoggingConfigurationCommandInput,
+  type PutVoiceConnectorLoggingConfigurationCommandOutput,
   PutVoiceConnectorLoggingConfigurationCommand,
-  PutVoiceConnectorLoggingConfigurationCommandInput,
-  PutVoiceConnectorLoggingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorLoggingConfigurationCommand";
 import {
+  type PutVoiceConnectorOriginationCommandInput,
+  type PutVoiceConnectorOriginationCommandOutput,
   PutVoiceConnectorOriginationCommand,
-  PutVoiceConnectorOriginationCommandInput,
-  PutVoiceConnectorOriginationCommandOutput,
 } from "./commands/PutVoiceConnectorOriginationCommand";
 import {
+  type PutVoiceConnectorProxyCommandInput,
+  type PutVoiceConnectorProxyCommandOutput,
   PutVoiceConnectorProxyCommand,
-  PutVoiceConnectorProxyCommandInput,
-  PutVoiceConnectorProxyCommandOutput,
 } from "./commands/PutVoiceConnectorProxyCommand";
 import {
+  type PutVoiceConnectorStreamingConfigurationCommandInput,
+  type PutVoiceConnectorStreamingConfigurationCommandOutput,
   PutVoiceConnectorStreamingConfigurationCommand,
-  PutVoiceConnectorStreamingConfigurationCommandInput,
-  PutVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorStreamingConfigurationCommand";
 import {
+  type PutVoiceConnectorTerminationCommandInput,
+  type PutVoiceConnectorTerminationCommandOutput,
   PutVoiceConnectorTerminationCommand,
-  PutVoiceConnectorTerminationCommandInput,
-  PutVoiceConnectorTerminationCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCommand";
 import {
+  type PutVoiceConnectorTerminationCredentialsCommandInput,
+  type PutVoiceConnectorTerminationCredentialsCommandOutput,
   PutVoiceConnectorTerminationCredentialsCommand,
-  PutVoiceConnectorTerminationCredentialsCommandInput,
-  PutVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCredentialsCommand";
 import {
+  type RestorePhoneNumberCommandInput,
+  type RestorePhoneNumberCommandOutput,
   RestorePhoneNumberCommand,
-  RestorePhoneNumberCommandInput,
-  RestorePhoneNumberCommandOutput,
 } from "./commands/RestorePhoneNumberCommand";
 import {
+  type SearchAvailablePhoneNumbersCommandInput,
+  type SearchAvailablePhoneNumbersCommandOutput,
   SearchAvailablePhoneNumbersCommand,
-  SearchAvailablePhoneNumbersCommandInput,
-  SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
+  type StartSpeakerSearchTaskCommandInput,
+  type StartSpeakerSearchTaskCommandOutput,
   StartSpeakerSearchTaskCommand,
-  StartSpeakerSearchTaskCommandInput,
-  StartSpeakerSearchTaskCommandOutput,
 } from "./commands/StartSpeakerSearchTaskCommand";
 import {
+  type StartVoiceToneAnalysisTaskCommandInput,
+  type StartVoiceToneAnalysisTaskCommandOutput,
   StartVoiceToneAnalysisTaskCommand,
-  StartVoiceToneAnalysisTaskCommandInput,
-  StartVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/StartVoiceToneAnalysisTaskCommand";
 import {
+  type StopSpeakerSearchTaskCommandInput,
+  type StopSpeakerSearchTaskCommandOutput,
   StopSpeakerSearchTaskCommand,
-  StopSpeakerSearchTaskCommandInput,
-  StopSpeakerSearchTaskCommandOutput,
 } from "./commands/StopSpeakerSearchTaskCommand";
 import {
+  type StopVoiceToneAnalysisTaskCommandInput,
+  type StopVoiceToneAnalysisTaskCommandOutput,
   StopVoiceToneAnalysisTaskCommand,
-  StopVoiceToneAnalysisTaskCommandInput,
-  StopVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/StopVoiceToneAnalysisTaskCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateGlobalSettingsCommandInput,
+  type UpdateGlobalSettingsCommandOutput,
   UpdateGlobalSettingsCommand,
-  UpdateGlobalSettingsCommandInput,
-  UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
 import {
+  type UpdatePhoneNumberCommandInput,
+  type UpdatePhoneNumberCommandOutput,
   UpdatePhoneNumberCommand,
-  UpdatePhoneNumberCommandInput,
-  UpdatePhoneNumberCommandOutput,
 } from "./commands/UpdatePhoneNumberCommand";
 import {
+  type UpdatePhoneNumberSettingsCommandInput,
+  type UpdatePhoneNumberSettingsCommandOutput,
   UpdatePhoneNumberSettingsCommand,
-  UpdatePhoneNumberSettingsCommandInput,
-  UpdatePhoneNumberSettingsCommandOutput,
 } from "./commands/UpdatePhoneNumberSettingsCommand";
 import {
+  type UpdateProxySessionCommandInput,
+  type UpdateProxySessionCommandOutput,
   UpdateProxySessionCommand,
-  UpdateProxySessionCommandInput,
-  UpdateProxySessionCommandOutput,
 } from "./commands/UpdateProxySessionCommand";
 import {
+  type UpdateSipMediaApplicationCallCommandInput,
+  type UpdateSipMediaApplicationCallCommandOutput,
   UpdateSipMediaApplicationCallCommand,
-  UpdateSipMediaApplicationCallCommandInput,
-  UpdateSipMediaApplicationCallCommandOutput,
 } from "./commands/UpdateSipMediaApplicationCallCommand";
 import {
+  type UpdateSipMediaApplicationCommandInput,
+  type UpdateSipMediaApplicationCommandOutput,
   UpdateSipMediaApplicationCommand,
-  UpdateSipMediaApplicationCommandInput,
-  UpdateSipMediaApplicationCommandOutput,
 } from "./commands/UpdateSipMediaApplicationCommand";
 import {
+  type UpdateSipRuleCommandInput,
+  type UpdateSipRuleCommandOutput,
   UpdateSipRuleCommand,
-  UpdateSipRuleCommandInput,
-  UpdateSipRuleCommandOutput,
 } from "./commands/UpdateSipRuleCommand";
 import {
+  type UpdateVoiceConnectorCommandInput,
+  type UpdateVoiceConnectorCommandOutput,
   UpdateVoiceConnectorCommand,
-  UpdateVoiceConnectorCommandInput,
-  UpdateVoiceConnectorCommandOutput,
 } from "./commands/UpdateVoiceConnectorCommand";
 import {
+  type UpdateVoiceConnectorGroupCommandInput,
+  type UpdateVoiceConnectorGroupCommandOutput,
   UpdateVoiceConnectorGroupCommand,
-  UpdateVoiceConnectorGroupCommandInput,
-  UpdateVoiceConnectorGroupCommandOutput,
 } from "./commands/UpdateVoiceConnectorGroupCommand";
 import {
+  type UpdateVoiceProfileCommandInput,
+  type UpdateVoiceProfileCommandOutput,
   UpdateVoiceProfileCommand,
-  UpdateVoiceProfileCommandInput,
-  UpdateVoiceProfileCommandOutput,
 } from "./commands/UpdateVoiceProfileCommand";
 import {
+  type UpdateVoiceProfileDomainCommandInput,
+  type UpdateVoiceProfileDomainCommandOutput,
   UpdateVoiceProfileDomainCommand,
-  UpdateVoiceProfileDomainCommandInput,
-  UpdateVoiceProfileDomainCommandOutput,
 } from "./commands/UpdateVoiceProfileDomainCommand";
 import {
+  type ValidateE911AddressCommandInput,
+  type ValidateE911AddressCommandOutput,
   ValidateE911AddressCommand,
-  ValidateE911AddressCommandInput,
-  ValidateE911AddressCommandOutput,
 } from "./commands/ValidateE911AddressCommand";
 import { paginateListPhoneNumberOrders } from "./pagination/ListPhoneNumberOrdersPaginator";
 import { paginateListPhoneNumbers } from "./pagination/ListPhoneNumbersPaginator";

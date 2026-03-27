@@ -8,7 +8,7 @@ import {
   ListEarthObservationJobsCommandOutput,
 } from "../commands/ListEarthObservationJobsCommand";
 import { SageMakerGeospatialClient } from "../SageMakerGeospatialClient";
-import { SageMakerGeospatialPaginationConfiguration } from "./Interfaces";
+import type { SageMakerGeospatialPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

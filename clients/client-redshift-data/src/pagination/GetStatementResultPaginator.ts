@@ -8,7 +8,7 @@ import {
   GetStatementResultCommandOutput,
 } from "../commands/GetStatementResultCommand";
 import { RedshiftDataClient } from "../RedshiftDataClient";
-import { RedshiftDataPaginationConfiguration } from "./Interfaces";
+import type { RedshiftDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

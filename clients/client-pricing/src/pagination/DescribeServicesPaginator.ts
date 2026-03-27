@@ -8,7 +8,7 @@ import {
   DescribeServicesCommandOutput,
 } from "../commands/DescribeServicesCommand";
 import { PricingClient } from "../PricingClient";
-import { PricingPaginationConfiguration } from "./Interfaces";
+import type { PricingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

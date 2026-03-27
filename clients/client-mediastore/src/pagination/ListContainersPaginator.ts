@@ -8,7 +8,7 @@ import {
   ListContainersCommandOutput,
 } from "../commands/ListContainersCommand";
 import { MediaStoreClient } from "../MediaStoreClient";
-import { MediaStorePaginationConfiguration } from "./Interfaces";
+import type { MediaStorePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

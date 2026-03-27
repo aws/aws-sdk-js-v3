@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionReason } from "./enums";
 import { IoTFleetWiseServiceException as __BaseException } from "./IoTFleetWiseServiceException";
-import {
+import type {
   InvalidNetworkInterface,
   InvalidSignal,
   InvalidSignalDecoder,

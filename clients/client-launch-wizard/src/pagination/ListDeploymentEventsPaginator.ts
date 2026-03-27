@@ -8,7 +8,7 @@ import {
   ListDeploymentEventsCommandOutput,
 } from "../commands/ListDeploymentEventsCommand";
 import { LaunchWizardClient } from "../LaunchWizardClient";
-import { LaunchWizardPaginationConfiguration } from "./Interfaces";
+import type { LaunchWizardPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

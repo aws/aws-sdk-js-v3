@@ -8,7 +8,7 @@ import {
   ListDomainUnitsForParentCommandOutput,
 } from "../commands/ListDomainUnitsForParentCommand";
 import { DataZoneClient } from "../DataZoneClient";
-import { DataZonePaginationConfiguration } from "./Interfaces";
+import type { DataZonePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

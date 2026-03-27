@@ -8,7 +8,7 @@ import {
   DescribeEventsForOrganizationCommandOutput,
 } from "../commands/DescribeEventsForOrganizationCommand";
 import { HealthClient } from "../HealthClient";
-import { HealthPaginationConfiguration } from "./Interfaces";
+import type { HealthPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

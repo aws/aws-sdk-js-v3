@@ -8,7 +8,7 @@ import {
   ListCostCategoryDefinitionsCommandOutput,
 } from "../commands/ListCostCategoryDefinitionsCommand";
 import { CostExplorerClient } from "../CostExplorerClient";
-import { CostExplorerPaginationConfiguration } from "./Interfaces";
+import type { CostExplorerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

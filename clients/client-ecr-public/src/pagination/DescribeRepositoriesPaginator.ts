@@ -8,7 +8,7 @@ import {
   DescribeRepositoriesCommandOutput,
 } from "../commands/DescribeRepositoriesCommand";
 import { ECRPUBLICClient } from "../ECRPUBLICClient";
-import { ECRPUBLICPaginationConfiguration } from "./Interfaces";
+import type { ECRPUBLICPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

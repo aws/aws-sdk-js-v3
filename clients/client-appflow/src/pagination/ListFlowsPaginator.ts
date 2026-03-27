@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { AppflowClient } from "../AppflowClient";
 import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from "../commands/ListFlowsCommand";
-import { AppflowPaginationConfiguration } from "./Interfaces";
+import type { AppflowPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

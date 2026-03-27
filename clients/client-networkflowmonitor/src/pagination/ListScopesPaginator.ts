@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListScopesCommand, ListScopesCommandInput, ListScopesCommandOutput } from "../commands/ListScopesCommand";
 import { NetworkFlowMonitorClient } from "../NetworkFlowMonitorClient";
-import { NetworkFlowMonitorPaginationConfiguration } from "./Interfaces";
+import type { NetworkFlowMonitorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

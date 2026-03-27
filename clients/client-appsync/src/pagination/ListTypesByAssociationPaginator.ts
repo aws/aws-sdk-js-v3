@@ -8,7 +8,7 @@ import {
   ListTypesByAssociationCommandInput,
   ListTypesByAssociationCommandOutput,
 } from "../commands/ListTypesByAssociationCommand";
-import { AppSyncPaginationConfiguration } from "./Interfaces";
+import type { AppSyncPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

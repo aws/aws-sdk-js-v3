@@ -8,7 +8,7 @@ import {
   ListNotificationsCommandInput,
   ListNotificationsCommandOutput,
 } from "../commands/ListNotificationsCommand";
-import { AuditManagerPaginationConfiguration } from "./Interfaces";
+import type { AuditManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

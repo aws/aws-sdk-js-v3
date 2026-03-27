@@ -8,7 +8,7 @@ import {
   ListSharedReportGroupsCommandInput,
   ListSharedReportGroupsCommandOutput,
 } from "../commands/ListSharedReportGroupsCommand";
-import { CodeBuildPaginationConfiguration } from "./Interfaces";
+import type { CodeBuildPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

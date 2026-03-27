@@ -7,7 +7,7 @@
  */
 export * from "./ApiGatewayManagementApiClient";
 export * from "./ApiGatewayManagementApi";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ApiGatewayManagementApiExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

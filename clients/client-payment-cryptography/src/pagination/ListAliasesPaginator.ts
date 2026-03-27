@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
 import { PaymentCryptographyClient } from "../PaymentCryptographyClient";
-import { PaymentCryptographyPaginationConfiguration } from "./Interfaces";
+import type { PaymentCryptographyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

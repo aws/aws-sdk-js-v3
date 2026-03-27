@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,112 +61,130 @@ import {
   defaultMemoryDBHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BatchUpdateClusterCommandInput, BatchUpdateClusterCommandOutput } from "./commands/BatchUpdateClusterCommand";
-import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
-import { CreateACLCommandInput, CreateACLCommandOutput } from "./commands/CreateACLCommand";
-import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
-import {
+import type {
+  BatchUpdateClusterCommandInput,
+  BatchUpdateClusterCommandOutput,
+} from "./commands/BatchUpdateClusterCommand";
+import type { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
+import type { CreateACLCommandInput, CreateACLCommandOutput } from "./commands/CreateACLCommand";
+import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import type {
   CreateMultiRegionClusterCommandInput,
   CreateMultiRegionClusterCommandOutput,
 } from "./commands/CreateMultiRegionClusterCommand";
-import {
+import type {
   CreateParameterGroupCommandInput,
   CreateParameterGroupCommandOutput,
 } from "./commands/CreateParameterGroupCommand";
-import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
-import { CreateSubnetGroupCommandInput, CreateSubnetGroupCommandOutput } from "./commands/CreateSubnetGroupCommand";
-import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import { DeleteACLCommandInput, DeleteACLCommandOutput } from "./commands/DeleteACLCommand";
-import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
-import {
+import type { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import type {
+  CreateSubnetGroupCommandInput,
+  CreateSubnetGroupCommandOutput,
+} from "./commands/CreateSubnetGroupCommand";
+import type { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import type { DeleteACLCommandInput, DeleteACLCommandOutput } from "./commands/DeleteACLCommand";
+import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import type {
   DeleteMultiRegionClusterCommandInput,
   DeleteMultiRegionClusterCommandOutput,
 } from "./commands/DeleteMultiRegionClusterCommand";
-import {
+import type {
   DeleteParameterGroupCommandInput,
   DeleteParameterGroupCommandOutput,
 } from "./commands/DeleteParameterGroupCommand";
-import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
-import { DeleteSubnetGroupCommandInput, DeleteSubnetGroupCommandOutput } from "./commands/DeleteSubnetGroupCommand";
-import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
-import { DescribeACLsCommandInput, DescribeACLsCommandOutput } from "./commands/DescribeACLsCommand";
-import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand";
-import {
+import type { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
+import type {
+  DeleteSubnetGroupCommandInput,
+  DeleteSubnetGroupCommandOutput,
+} from "./commands/DeleteSubnetGroupCommand";
+import type { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import type { DescribeACLsCommandInput, DescribeACLsCommandOutput } from "./commands/DescribeACLsCommand";
+import type { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand";
+import type {
   DescribeEngineVersionsCommandInput,
   DescribeEngineVersionsCommandOutput,
 } from "./commands/DescribeEngineVersionsCommand";
-import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
-import {
+import type { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
+import type {
   DescribeMultiRegionClustersCommandInput,
   DescribeMultiRegionClustersCommandOutput,
 } from "./commands/DescribeMultiRegionClustersCommand";
-import {
+import type {
   DescribeMultiRegionParameterGroupsCommandInput,
   DescribeMultiRegionParameterGroupsCommandOutput,
 } from "./commands/DescribeMultiRegionParameterGroupsCommand";
-import {
+import type {
   DescribeMultiRegionParametersCommandInput,
   DescribeMultiRegionParametersCommandOutput,
 } from "./commands/DescribeMultiRegionParametersCommand";
-import {
+import type {
   DescribeParameterGroupsCommandInput,
   DescribeParameterGroupsCommandOutput,
 } from "./commands/DescribeParameterGroupsCommand";
-import { DescribeParametersCommandInput, DescribeParametersCommandOutput } from "./commands/DescribeParametersCommand";
-import {
+import type {
+  DescribeParametersCommandInput,
+  DescribeParametersCommandOutput,
+} from "./commands/DescribeParametersCommand";
+import type {
   DescribeReservedNodesCommandInput,
   DescribeReservedNodesCommandOutput,
 } from "./commands/DescribeReservedNodesCommand";
-import {
+import type {
   DescribeReservedNodesOfferingsCommandInput,
   DescribeReservedNodesOfferingsCommandOutput,
 } from "./commands/DescribeReservedNodesOfferingsCommand";
-import {
+import type {
   DescribeServiceUpdatesCommandInput,
   DescribeServiceUpdatesCommandOutput,
 } from "./commands/DescribeServiceUpdatesCommand";
-import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
-import {
+import type {
+  DescribeSnapshotsCommandInput,
+  DescribeSnapshotsCommandOutput,
+} from "./commands/DescribeSnapshotsCommand";
+import type {
   DescribeSubnetGroupsCommandInput,
   DescribeSubnetGroupsCommandOutput,
 } from "./commands/DescribeSubnetGroupsCommand";
-import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./commands/DescribeUsersCommand";
-import { FailoverShardCommandInput, FailoverShardCommandOutput } from "./commands/FailoverShardCommand";
-import {
+import type { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./commands/DescribeUsersCommand";
+import type { FailoverShardCommandInput, FailoverShardCommandOutput } from "./commands/FailoverShardCommand";
+import type {
   ListAllowedMultiRegionClusterUpdatesCommandInput,
   ListAllowedMultiRegionClusterUpdatesCommandOutput,
 } from "./commands/ListAllowedMultiRegionClusterUpdatesCommand";
-import {
+import type {
   ListAllowedNodeTypeUpdatesCommandInput,
   ListAllowedNodeTypeUpdatesCommandOutput,
 } from "./commands/ListAllowedNodeTypeUpdatesCommand";
-import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import {
+import type { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import type {
   PurchaseReservedNodesOfferingCommandInput,
   PurchaseReservedNodesOfferingCommandOutput,
 } from "./commands/PurchaseReservedNodesOfferingCommand";
-import {
+import type {
   ResetParameterGroupCommandInput,
   ResetParameterGroupCommandOutput,
 } from "./commands/ResetParameterGroupCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateACLCommandInput, UpdateACLCommandOutput } from "./commands/UpdateACLCommand";
-import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateACLCommandInput, UpdateACLCommandOutput } from "./commands/UpdateACLCommand";
+import type { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
+import type {
   UpdateMultiRegionClusterCommandInput,
   UpdateMultiRegionClusterCommandOutput,
 } from "./commands/UpdateMultiRegionClusterCommand";
-import {
+import type {
   UpdateParameterGroupCommandInput,
   UpdateParameterGroupCommandOutput,
 } from "./commands/UpdateParameterGroupCommand";
-import { UpdateSubnetGroupCommandInput, UpdateSubnetGroupCommandOutput } from "./commands/UpdateSubnetGroupCommand";
-import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import type {
+  UpdateSubnetGroupCommandInput,
+  UpdateSubnetGroupCommandOutput,
+} from "./commands/UpdateSubnetGroupCommand";
+import type { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -390,7 +406,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

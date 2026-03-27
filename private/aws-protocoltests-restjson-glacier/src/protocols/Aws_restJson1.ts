@@ -23,8 +23,8 @@ import type {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UploadArchiveCommandInput, UploadArchiveCommandOutput } from "../commands/UploadArchiveCommand";
-import {
+import type { UploadArchiveCommandInput, UploadArchiveCommandOutput } from "../commands/UploadArchiveCommand";
+import type {
   UploadMultipartPartCommandInput,
   UploadMultipartPartCommandOutput,
 } from "../commands/UploadMultipartPartCommand";

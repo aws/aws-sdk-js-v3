@@ -8,7 +8,7 @@ import {
   ListProgramManagementAccountsCommandOutput,
 } from "../commands/ListProgramManagementAccountsCommand";
 import { PartnerCentralChannelClient } from "../PartnerCentralChannelClient";
-import { PartnerCentralChannelPaginationConfiguration } from "./Interfaces";
+import type { PartnerCentralChannelPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

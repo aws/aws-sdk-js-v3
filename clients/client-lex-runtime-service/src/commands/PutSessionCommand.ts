@@ -9,7 +9,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import { type PutSessionRequest, PutSessionResponse } from "../models/models_0";
+import type { PutSessionRequest, PutSessionResponse } from "../models/models_0";
 import { PutSession$ } from "../schemas/schemas_0";
 
 /**

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "../commands/ListTypesCommand";
 import { KeyspacesClient } from "../KeyspacesClient";
-import { KeyspacesPaginationConfiguration } from "./Interfaces";
+import type { KeyspacesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListSubPackageGroupsCommandInput,
   ListSubPackageGroupsCommandOutput,
 } from "../commands/ListSubPackageGroupsCommand";
-import { CodeartifactPaginationConfiguration } from "./Interfaces";
+import type { CodeartifactPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

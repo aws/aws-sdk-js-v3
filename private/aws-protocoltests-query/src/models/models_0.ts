@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { FooEnum, IntegerEnum } from "./enums";
+import type { FooEnum, IntegerEnum } from "./enums";
 
 /**
  * @public

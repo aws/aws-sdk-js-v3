@@ -10,211 +10,219 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CloudWatchClient } from "./CloudWatchClient";
 import {
+  type DeleteAlarmMuteRuleCommandInput,
+  type DeleteAlarmMuteRuleCommandOutput,
   DeleteAlarmMuteRuleCommand,
-  DeleteAlarmMuteRuleCommandInput,
-  DeleteAlarmMuteRuleCommandOutput,
 } from "./commands/DeleteAlarmMuteRuleCommand";
 import {
+  type DeleteAlarmsCommandInput,
+  type DeleteAlarmsCommandOutput,
   DeleteAlarmsCommand,
-  DeleteAlarmsCommandInput,
-  DeleteAlarmsCommandOutput,
 } from "./commands/DeleteAlarmsCommand";
 import {
+  type DeleteAnomalyDetectorCommandInput,
+  type DeleteAnomalyDetectorCommandOutput,
   DeleteAnomalyDetectorCommand,
-  DeleteAnomalyDetectorCommandInput,
-  DeleteAnomalyDetectorCommandOutput,
 } from "./commands/DeleteAnomalyDetectorCommand";
 import {
+  type DeleteDashboardsCommandInput,
+  type DeleteDashboardsCommandOutput,
   DeleteDashboardsCommand,
-  DeleteDashboardsCommandInput,
-  DeleteDashboardsCommandOutput,
 } from "./commands/DeleteDashboardsCommand";
 import {
+  type DeleteInsightRulesCommandInput,
+  type DeleteInsightRulesCommandOutput,
   DeleteInsightRulesCommand,
-  DeleteInsightRulesCommandInput,
-  DeleteInsightRulesCommandOutput,
 } from "./commands/DeleteInsightRulesCommand";
 import {
+  type DeleteMetricStreamCommandInput,
+  type DeleteMetricStreamCommandOutput,
   DeleteMetricStreamCommand,
-  DeleteMetricStreamCommandInput,
-  DeleteMetricStreamCommandOutput,
 } from "./commands/DeleteMetricStreamCommand";
 import {
+  type DescribeAlarmContributorsCommandInput,
+  type DescribeAlarmContributorsCommandOutput,
   DescribeAlarmContributorsCommand,
-  DescribeAlarmContributorsCommandInput,
-  DescribeAlarmContributorsCommandOutput,
 } from "./commands/DescribeAlarmContributorsCommand";
 import {
+  type DescribeAlarmHistoryCommandInput,
+  type DescribeAlarmHistoryCommandOutput,
   DescribeAlarmHistoryCommand,
-  DescribeAlarmHistoryCommandInput,
-  DescribeAlarmHistoryCommandOutput,
 } from "./commands/DescribeAlarmHistoryCommand";
 import {
+  type DescribeAlarmsCommandInput,
+  type DescribeAlarmsCommandOutput,
   DescribeAlarmsCommand,
-  DescribeAlarmsCommandInput,
-  DescribeAlarmsCommandOutput,
 } from "./commands/DescribeAlarmsCommand";
 import {
+  type DescribeAlarmsForMetricCommandInput,
+  type DescribeAlarmsForMetricCommandOutput,
   DescribeAlarmsForMetricCommand,
-  DescribeAlarmsForMetricCommandInput,
-  DescribeAlarmsForMetricCommandOutput,
 } from "./commands/DescribeAlarmsForMetricCommand";
 import {
+  type DescribeAnomalyDetectorsCommandInput,
+  type DescribeAnomalyDetectorsCommandOutput,
   DescribeAnomalyDetectorsCommand,
-  DescribeAnomalyDetectorsCommandInput,
-  DescribeAnomalyDetectorsCommandOutput,
 } from "./commands/DescribeAnomalyDetectorsCommand";
 import {
+  type DescribeInsightRulesCommandInput,
+  type DescribeInsightRulesCommandOutput,
   DescribeInsightRulesCommand,
-  DescribeInsightRulesCommandInput,
-  DescribeInsightRulesCommandOutput,
 } from "./commands/DescribeInsightRulesCommand";
 import {
+  type DisableAlarmActionsCommandInput,
+  type DisableAlarmActionsCommandOutput,
   DisableAlarmActionsCommand,
-  DisableAlarmActionsCommandInput,
-  DisableAlarmActionsCommandOutput,
 } from "./commands/DisableAlarmActionsCommand";
 import {
+  type DisableInsightRulesCommandInput,
+  type DisableInsightRulesCommandOutput,
   DisableInsightRulesCommand,
-  DisableInsightRulesCommandInput,
-  DisableInsightRulesCommandOutput,
 } from "./commands/DisableInsightRulesCommand";
 import {
+  type EnableAlarmActionsCommandInput,
+  type EnableAlarmActionsCommandOutput,
   EnableAlarmActionsCommand,
-  EnableAlarmActionsCommandInput,
-  EnableAlarmActionsCommandOutput,
 } from "./commands/EnableAlarmActionsCommand";
 import {
+  type EnableInsightRulesCommandInput,
+  type EnableInsightRulesCommandOutput,
   EnableInsightRulesCommand,
-  EnableInsightRulesCommandInput,
-  EnableInsightRulesCommandOutput,
 } from "./commands/EnableInsightRulesCommand";
 import {
+  type GetAlarmMuteRuleCommandInput,
+  type GetAlarmMuteRuleCommandOutput,
   GetAlarmMuteRuleCommand,
-  GetAlarmMuteRuleCommandInput,
-  GetAlarmMuteRuleCommandOutput,
 } from "./commands/GetAlarmMuteRuleCommand";
 import {
+  type GetDashboardCommandInput,
+  type GetDashboardCommandOutput,
   GetDashboardCommand,
-  GetDashboardCommandInput,
-  GetDashboardCommandOutput,
 } from "./commands/GetDashboardCommand";
 import {
+  type GetInsightRuleReportCommandInput,
+  type GetInsightRuleReportCommandOutput,
   GetInsightRuleReportCommand,
-  GetInsightRuleReportCommandInput,
-  GetInsightRuleReportCommandOutput,
 } from "./commands/GetInsightRuleReportCommand";
 import {
+  type GetMetricDataCommandInput,
+  type GetMetricDataCommandOutput,
   GetMetricDataCommand,
-  GetMetricDataCommandInput,
-  GetMetricDataCommandOutput,
 } from "./commands/GetMetricDataCommand";
 import {
+  type GetMetricStatisticsCommandInput,
+  type GetMetricStatisticsCommandOutput,
   GetMetricStatisticsCommand,
-  GetMetricStatisticsCommandInput,
-  GetMetricStatisticsCommandOutput,
 } from "./commands/GetMetricStatisticsCommand";
 import {
+  type GetMetricStreamCommandInput,
+  type GetMetricStreamCommandOutput,
   GetMetricStreamCommand,
-  GetMetricStreamCommandInput,
-  GetMetricStreamCommandOutput,
 } from "./commands/GetMetricStreamCommand";
 import {
+  type GetMetricWidgetImageCommandInput,
+  type GetMetricWidgetImageCommandOutput,
   GetMetricWidgetImageCommand,
-  GetMetricWidgetImageCommandInput,
-  GetMetricWidgetImageCommandOutput,
 } from "./commands/GetMetricWidgetImageCommand";
 import {
+  type ListAlarmMuteRulesCommandInput,
+  type ListAlarmMuteRulesCommandOutput,
   ListAlarmMuteRulesCommand,
-  ListAlarmMuteRulesCommandInput,
-  ListAlarmMuteRulesCommandOutput,
 } from "./commands/ListAlarmMuteRulesCommand";
 import {
+  type ListDashboardsCommandInput,
+  type ListDashboardsCommandOutput,
   ListDashboardsCommand,
-  ListDashboardsCommandInput,
-  ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
 import {
+  type ListManagedInsightRulesCommandInput,
+  type ListManagedInsightRulesCommandOutput,
   ListManagedInsightRulesCommand,
-  ListManagedInsightRulesCommandInput,
-  ListManagedInsightRulesCommandOutput,
 } from "./commands/ListManagedInsightRulesCommand";
-import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import {
+  type ListMetricsCommandInput,
+  type ListMetricsCommandOutput,
+  ListMetricsCommand,
+} from "./commands/ListMetricsCommand";
+import {
+  type ListMetricStreamsCommandInput,
+  type ListMetricStreamsCommandOutput,
   ListMetricStreamsCommand,
-  ListMetricStreamsCommandInput,
-  ListMetricStreamsCommandOutput,
 } from "./commands/ListMetricStreamsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutAlarmMuteRuleCommandInput,
+  type PutAlarmMuteRuleCommandOutput,
   PutAlarmMuteRuleCommand,
-  PutAlarmMuteRuleCommandInput,
-  PutAlarmMuteRuleCommandOutput,
 } from "./commands/PutAlarmMuteRuleCommand";
 import {
+  type PutAnomalyDetectorCommandInput,
+  type PutAnomalyDetectorCommandOutput,
   PutAnomalyDetectorCommand,
-  PutAnomalyDetectorCommandInput,
-  PutAnomalyDetectorCommandOutput,
 } from "./commands/PutAnomalyDetectorCommand";
 import {
+  type PutCompositeAlarmCommandInput,
+  type PutCompositeAlarmCommandOutput,
   PutCompositeAlarmCommand,
-  PutCompositeAlarmCommandInput,
-  PutCompositeAlarmCommandOutput,
 } from "./commands/PutCompositeAlarmCommand";
 import {
+  type PutDashboardCommandInput,
+  type PutDashboardCommandOutput,
   PutDashboardCommand,
-  PutDashboardCommandInput,
-  PutDashboardCommandOutput,
 } from "./commands/PutDashboardCommand";
 import {
+  type PutInsightRuleCommandInput,
+  type PutInsightRuleCommandOutput,
   PutInsightRuleCommand,
-  PutInsightRuleCommandInput,
-  PutInsightRuleCommandOutput,
 } from "./commands/PutInsightRuleCommand";
 import {
+  type PutManagedInsightRulesCommandInput,
+  type PutManagedInsightRulesCommandOutput,
   PutManagedInsightRulesCommand,
-  PutManagedInsightRulesCommandInput,
-  PutManagedInsightRulesCommandOutput,
 } from "./commands/PutManagedInsightRulesCommand";
 import {
+  type PutMetricAlarmCommandInput,
+  type PutMetricAlarmCommandOutput,
   PutMetricAlarmCommand,
-  PutMetricAlarmCommandInput,
-  PutMetricAlarmCommandOutput,
 } from "./commands/PutMetricAlarmCommand";
 import {
+  type PutMetricDataCommandInput,
+  type PutMetricDataCommandOutput,
   PutMetricDataCommand,
-  PutMetricDataCommandInput,
-  PutMetricDataCommandOutput,
 } from "./commands/PutMetricDataCommand";
 import {
+  type PutMetricStreamCommandInput,
+  type PutMetricStreamCommandOutput,
   PutMetricStreamCommand,
-  PutMetricStreamCommandInput,
-  PutMetricStreamCommandOutput,
 } from "./commands/PutMetricStreamCommand";
 import {
+  type SetAlarmStateCommandInput,
+  type SetAlarmStateCommandOutput,
   SetAlarmStateCommand,
-  SetAlarmStateCommandInput,
-  SetAlarmStateCommandOutput,
 } from "./commands/SetAlarmStateCommand";
 import {
+  type StartMetricStreamsCommandInput,
+  type StartMetricStreamsCommandOutput,
   StartMetricStreamsCommand,
-  StartMetricStreamsCommandInput,
-  StartMetricStreamsCommandOutput,
 } from "./commands/StartMetricStreamsCommand";
 import {
+  type StopMetricStreamsCommandInput,
+  type StopMetricStreamsCommandOutput,
   StopMetricStreamsCommand,
-  StopMetricStreamsCommandInput,
-  StopMetricStreamsCommandOutput,
 } from "./commands/StopMetricStreamsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateDescribeAlarmHistory } from "./pagination/DescribeAlarmHistoryPaginator";
 import { paginateDescribeAlarms } from "./pagination/DescribeAlarmsPaginator";

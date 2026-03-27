@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { GetExportTaskCommand, GetExportTaskCommandInput } from "../commands/GetExportTaskCommand";
-import { NeptuneGraphClient } from "../NeptuneGraphClient";
+import { type GetExportTaskCommandInput, GetExportTaskCommand } from "../commands/GetExportTaskCommand";
+import type { NeptuneGraphClient } from "../NeptuneGraphClient";
 
 const checkState = async (client: NeptuneGraphClient, input: GetExportTaskCommandInput): Promise<WaiterResult> => {
   let reason;

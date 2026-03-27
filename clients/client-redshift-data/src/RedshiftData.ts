@@ -3,52 +3,60 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchExecuteStatementCommandInput,
+  type BatchExecuteStatementCommandOutput,
   BatchExecuteStatementCommand,
-  BatchExecuteStatementCommandInput,
-  BatchExecuteStatementCommandOutput,
 } from "./commands/BatchExecuteStatementCommand";
 import {
+  type CancelStatementCommandInput,
+  type CancelStatementCommandOutput,
   CancelStatementCommand,
-  CancelStatementCommandInput,
-  CancelStatementCommandOutput,
 } from "./commands/CancelStatementCommand";
 import {
+  type DescribeStatementCommandInput,
+  type DescribeStatementCommandOutput,
   DescribeStatementCommand,
-  DescribeStatementCommandInput,
-  DescribeStatementCommandOutput,
 } from "./commands/DescribeStatementCommand";
 import {
+  type DescribeTableCommandInput,
+  type DescribeTableCommandOutput,
   DescribeTableCommand,
-  DescribeTableCommandInput,
-  DescribeTableCommandOutput,
 } from "./commands/DescribeTableCommand";
 import {
+  type ExecuteStatementCommandInput,
+  type ExecuteStatementCommandOutput,
   ExecuteStatementCommand,
-  ExecuteStatementCommandInput,
-  ExecuteStatementCommandOutput,
 } from "./commands/ExecuteStatementCommand";
 import {
+  type GetStatementResultCommandInput,
+  type GetStatementResultCommandOutput,
   GetStatementResultCommand,
-  GetStatementResultCommandInput,
-  GetStatementResultCommandOutput,
 } from "./commands/GetStatementResultCommand";
 import {
+  type GetStatementResultV2CommandInput,
+  type GetStatementResultV2CommandOutput,
   GetStatementResultV2Command,
-  GetStatementResultV2CommandInput,
-  GetStatementResultV2CommandOutput,
 } from "./commands/GetStatementResultV2Command";
 import {
+  type ListDatabasesCommandInput,
+  type ListDatabasesCommandOutput,
   ListDatabasesCommand,
-  ListDatabasesCommandInput,
-  ListDatabasesCommandOutput,
 } from "./commands/ListDatabasesCommand";
-import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
+  type ListSchemasCommandInput,
+  type ListSchemasCommandOutput,
+  ListSchemasCommand,
+} from "./commands/ListSchemasCommand";
+import {
+  type ListStatementsCommandInput,
+  type ListStatementsCommandOutput,
   ListStatementsCommand,
-  ListStatementsCommandInput,
-  ListStatementsCommandOutput,
 } from "./commands/ListStatementsCommand";
-import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
+import {
+  type ListTablesCommandInput,
+  type ListTablesCommandOutput,
+  ListTablesCommand,
+} from "./commands/ListTablesCommand";
 import { paginateDescribeTable } from "./pagination/DescribeTablePaginator";
 import { paginateGetStatementResult } from "./pagination/GetStatementResultPaginator";
 import { paginateGetStatementResultV2 } from "./pagination/GetStatementResultV2Paginator";

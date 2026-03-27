@@ -8,7 +8,7 @@ import {
   ListConfigurationsCommandInput,
   ListConfigurationsCommandOutput,
 } from "../commands/ListConfigurationsCommand";
-import { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
+import type { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

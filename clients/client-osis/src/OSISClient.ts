@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,62 +61,68 @@ import {
   defaultOSISHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
-import {
+import type { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
+import type {
   CreatePipelineEndpointCommandInput,
   CreatePipelineEndpointCommandOutput,
 } from "./commands/CreatePipelineEndpointCommand";
-import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
-import {
+import type { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
+import type {
   DeletePipelineEndpointCommandInput,
   DeletePipelineEndpointCommandOutput,
 } from "./commands/DeletePipelineEndpointCommand";
-import {
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   GetPipelineBlueprintCommandInput,
   GetPipelineBlueprintCommandOutput,
 } from "./commands/GetPipelineBlueprintCommand";
-import {
+import type {
   GetPipelineChangeProgressCommandInput,
   GetPipelineChangeProgressCommandOutput,
 } from "./commands/GetPipelineChangeProgressCommand";
-import { GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import {
+import type { GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type {
   ListPipelineBlueprintsCommandInput,
   ListPipelineBlueprintsCommandOutput,
 } from "./commands/ListPipelineBlueprintsCommand";
-import {
+import type {
   ListPipelineEndpointConnectionsCommandInput,
   ListPipelineEndpointConnectionsCommandOutput,
 } from "./commands/ListPipelineEndpointConnectionsCommand";
-import {
+import type {
   ListPipelineEndpointsCommandInput,
   ListPipelineEndpointsCommandOutput,
 } from "./commands/ListPipelineEndpointsCommand";
-import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
-import {
+import type { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   RevokePipelineEndpointConnectionsCommandInput,
   RevokePipelineEndpointConnectionsCommandOutput,
 } from "./commands/RevokePipelineEndpointConnectionsCommand";
-import { StartPipelineCommandInput, StartPipelineCommandOutput } from "./commands/StartPipelineCommand";
-import { StopPipelineCommandInput, StopPipelineCommandOutput } from "./commands/StopPipelineCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "./commands/UpdatePipelineCommand";
-import { ValidatePipelineCommandInput, ValidatePipelineCommandOutput } from "./commands/ValidatePipelineCommand";
+import type { StartPipelineCommandInput, StartPipelineCommandOutput } from "./commands/StartPipelineCommand";
+import type { StopPipelineCommandInput, StopPipelineCommandOutput } from "./commands/StopPipelineCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "./commands/UpdatePipelineCommand";
+import type { ValidatePipelineCommandInput, ValidatePipelineCommandOutput } from "./commands/ValidatePipelineCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -294,7 +298,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

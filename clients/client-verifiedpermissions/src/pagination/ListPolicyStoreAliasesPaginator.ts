@@ -8,7 +8,7 @@ import {
   ListPolicyStoreAliasesCommandOutput,
 } from "../commands/ListPolicyStoreAliasesCommand";
 import { VerifiedPermissionsClient } from "../VerifiedPermissionsClient";
-import { VerifiedPermissionsPaginationConfiguration } from "./Interfaces";
+import type { VerifiedPermissionsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

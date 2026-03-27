@@ -8,7 +8,7 @@ import {
   ListTerminologiesCommandOutput,
 } from "../commands/ListTerminologiesCommand";
 import { TranslateClient } from "../TranslateClient";
-import { TranslatePaginationConfiguration } from "./Interfaces";
+import type { TranslatePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

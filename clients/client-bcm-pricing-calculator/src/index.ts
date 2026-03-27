@@ -7,7 +7,7 @@
  */
 export * from "./BCMPricingCalculatorClient";
 export * from "./BCMPricingCalculator";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BCMPricingCalculatorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

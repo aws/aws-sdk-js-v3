@@ -8,7 +8,7 @@ import {
   ListTemplateSharesCommandOutput,
 } from "../commands/ListTemplateSharesCommand";
 import { WellArchitectedClient } from "../WellArchitectedClient";
-import { WellArchitectedPaginationConfiguration } from "./Interfaces";
+import type { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

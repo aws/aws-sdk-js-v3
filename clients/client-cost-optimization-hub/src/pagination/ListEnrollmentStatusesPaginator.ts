@@ -8,7 +8,7 @@ import {
   ListEnrollmentStatusesCommandOutput,
 } from "../commands/ListEnrollmentStatusesCommand";
 import { CostOptimizationHubClient } from "../CostOptimizationHubClient";
-import { CostOptimizationHubPaginationConfiguration } from "./Interfaces";
+import type { CostOptimizationHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   GetDurableExecutionHistoryCommandOutput,
 } from "../commands/GetDurableExecutionHistoryCommand";
 import { LambdaClient } from "../LambdaClient";
-import { LambdaPaginationConfiguration } from "./Interfaces";
+import type { LambdaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

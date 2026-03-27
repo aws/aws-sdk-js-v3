@@ -8,7 +8,7 @@ import {
   ListDirectoryBucketsCommandOutput,
 } from "../commands/ListDirectoryBucketsCommand";
 import { S3Client } from "../S3Client";
-import { S3PaginationConfiguration } from "./Interfaces";
+import type { S3PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

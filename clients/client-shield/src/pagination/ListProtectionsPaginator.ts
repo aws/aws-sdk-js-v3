@@ -8,7 +8,7 @@ import {
   ListProtectionsCommandOutput,
 } from "../commands/ListProtectionsCommand";
 import { ShieldClient } from "../ShieldClient";
-import { ShieldPaginationConfiguration } from "./Interfaces";
+import type { ShieldPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

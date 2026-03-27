@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { GetImagesCommand, GetImagesCommandInput, GetImagesCommandOutput } from "../commands/GetImagesCommand";
 import { KinesisVideoArchivedMediaClient } from "../KinesisVideoArchivedMediaClient";
-import { KinesisVideoArchivedMediaPaginationConfiguration } from "./Interfaces";
+import type { KinesisVideoArchivedMediaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

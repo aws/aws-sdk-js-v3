@@ -8,7 +8,7 @@ import {
   ListEdgeAgentConfigurationsCommandOutput,
 } from "../commands/ListEdgeAgentConfigurationsCommand";
 import { KinesisVideoClient } from "../KinesisVideoClient";
-import { KinesisVideoPaginationConfiguration } from "./Interfaces";
+import type { KinesisVideoPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

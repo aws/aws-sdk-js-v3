@@ -8,7 +8,7 @@ import {
   GetBotVersionsCommandOutput,
 } from "../commands/GetBotVersionsCommand";
 import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient";
-import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
+import type { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -16,7 +16,7 @@
  */
 export * from "./EC2InstanceConnectClient";
 export * from "./EC2InstanceConnect";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { EC2InstanceConnectExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

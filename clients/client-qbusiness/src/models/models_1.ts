@@ -1,19 +1,19 @@
 // smithy-typescript generated code
-import { ChatMode, ResponseConfigurationType, SubscriptionType } from "./enums";
-import {
-  type ActionExecution,
-  type AuthChallengeResponse,
-  type ChatModeConfiguration,
-  type ContentSource,
-  type DataAccessorAuthenticationDetail,
-  type DocumentAttribute,
-  type SubscriptionDetails,
+import type { ChatMode, ResponseConfigurationType, SubscriptionType } from "./enums";
+import type {
+  ActionExecution,
   ActionExecutionEvent,
   AttachmentInput,
   AttachmentInputEvent,
+  AuthChallengeResponse,
   AuthChallengeResponseEvent,
+  ChatModeConfiguration,
+  ContentSource,
+  DataAccessorAuthenticationDetail,
+  DocumentAttribute,
   EndOfInputEvent,
   ResponseConfiguration,
+  SubscriptionDetails,
   Tag,
   TextInputEvent,
   UserAlias,

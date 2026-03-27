@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type DescribeHybridADUpdateCommandInput,
   DescribeHybridADUpdateCommand,
-  DescribeHybridADUpdateCommandInput,
 } from "../commands/DescribeHybridADUpdateCommand";
-import { DirectoryServiceClient } from "../DirectoryServiceClient";
+import type { DirectoryServiceClient } from "../DirectoryServiceClient";
 
 const checkState = async (client: DirectoryServiceClient, input: DescribeHybridADUpdateCommandInput): Promise<WaiterResult> => {
   let reason;

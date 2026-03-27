@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoMapsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoMapsClient";
-import { type GetStyleDescriptorRequest, GetStyleDescriptorResponse } from "../models/models_0";
+import type { GetStyleDescriptorRequest, GetStyleDescriptorResponse } from "../models/models_0";
 import { GetStyleDescriptor$ } from "../schemas/schemas_0";
 
 /**

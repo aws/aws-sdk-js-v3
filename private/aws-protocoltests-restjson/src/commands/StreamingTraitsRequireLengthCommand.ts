@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  StreamingTraitsRequireLengthInput,
+  type StreamingTraitsRequireLengthInput,
   StreamingTraitsRequireLengthInputFilterSensitiveLog,
 } from "../models/models_0";
 import {

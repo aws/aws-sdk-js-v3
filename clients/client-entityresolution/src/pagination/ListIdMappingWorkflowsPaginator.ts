@@ -8,7 +8,7 @@ import {
   ListIdMappingWorkflowsCommandOutput,
 } from "../commands/ListIdMappingWorkflowsCommand";
 import { EntityResolutionClient } from "../EntityResolutionClient";
-import { EntityResolutionPaginationConfiguration } from "./Interfaces";
+import type { EntityResolutionPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

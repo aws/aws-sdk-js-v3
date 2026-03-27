@@ -2,7 +2,7 @@
 /* eslint-disable */
 export * from "./RpcV2ProtocolClient";
 export * from "./RpcV2Protocol";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { RpcV2ProtocolExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

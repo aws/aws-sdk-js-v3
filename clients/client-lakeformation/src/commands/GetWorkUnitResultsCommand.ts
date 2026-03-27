@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { type GetWorkUnitResultsRequest, GetWorkUnitResultsResponse } from "../models/models_0";
+import type { GetWorkUnitResultsRequest, GetWorkUnitResultsResponse } from "../models/models_0";
 import { GetWorkUnitResults$ } from "../schemas/schemas_0";
 
 /**

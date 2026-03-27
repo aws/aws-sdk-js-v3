@@ -3,185 +3,189 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelBatchJobExecutionCommandInput,
+  type CancelBatchJobExecutionCommandOutput,
   CancelBatchJobExecutionCommand,
-  CancelBatchJobExecutionCommandInput,
-  CancelBatchJobExecutionCommandOutput,
 } from "./commands/CancelBatchJobExecutionCommand";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateDataSetExportTaskCommandInput,
+  type CreateDataSetExportTaskCommandOutput,
   CreateDataSetExportTaskCommand,
-  CreateDataSetExportTaskCommandInput,
-  CreateDataSetExportTaskCommandOutput,
 } from "./commands/CreateDataSetExportTaskCommand";
 import {
+  type CreateDataSetImportTaskCommandInput,
+  type CreateDataSetImportTaskCommandOutput,
   CreateDataSetImportTaskCommand,
-  CreateDataSetImportTaskCommandInput,
-  CreateDataSetImportTaskCommandOutput,
 } from "./commands/CreateDataSetImportTaskCommand";
 import {
+  type CreateDeploymentCommandInput,
+  type CreateDeploymentCommandOutput,
   CreateDeploymentCommand,
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput,
 } from "./commands/CreateDeploymentCommand";
 import {
+  type CreateEnvironmentCommandInput,
+  type CreateEnvironmentCommandOutput,
   CreateEnvironmentCommand,
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteApplicationFromEnvironmentCommandInput,
+  type DeleteApplicationFromEnvironmentCommandOutput,
   DeleteApplicationFromEnvironmentCommand,
-  DeleteApplicationFromEnvironmentCommandInput,
-  DeleteApplicationFromEnvironmentCommandOutput,
 } from "./commands/DeleteApplicationFromEnvironmentCommand";
 import {
+  type DeleteEnvironmentCommandInput,
+  type DeleteEnvironmentCommandOutput,
   DeleteEnvironmentCommand,
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
 import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
   GetApplicationCommand,
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  type GetApplicationVersionCommandInput,
+  type GetApplicationVersionCommandOutput,
   GetApplicationVersionCommand,
-  GetApplicationVersionCommandInput,
-  GetApplicationVersionCommandOutput,
 } from "./commands/GetApplicationVersionCommand";
 import {
+  type GetBatchJobExecutionCommandInput,
+  type GetBatchJobExecutionCommandOutput,
   GetBatchJobExecutionCommand,
-  GetBatchJobExecutionCommandInput,
-  GetBatchJobExecutionCommandOutput,
 } from "./commands/GetBatchJobExecutionCommand";
 import {
+  type GetDataSetDetailsCommandInput,
+  type GetDataSetDetailsCommandOutput,
   GetDataSetDetailsCommand,
-  GetDataSetDetailsCommandInput,
-  GetDataSetDetailsCommandOutput,
 } from "./commands/GetDataSetDetailsCommand";
 import {
+  type GetDataSetExportTaskCommandInput,
+  type GetDataSetExportTaskCommandOutput,
   GetDataSetExportTaskCommand,
-  GetDataSetExportTaskCommandInput,
-  GetDataSetExportTaskCommandOutput,
 } from "./commands/GetDataSetExportTaskCommand";
 import {
+  type GetDataSetImportTaskCommandInput,
+  type GetDataSetImportTaskCommandOutput,
   GetDataSetImportTaskCommand,
-  GetDataSetImportTaskCommandInput,
-  GetDataSetImportTaskCommandOutput,
 } from "./commands/GetDataSetImportTaskCommand";
 import {
+  type GetDeploymentCommandInput,
+  type GetDeploymentCommandOutput,
   GetDeploymentCommand,
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput,
 } from "./commands/GetDeploymentCommand";
 import {
+  type GetEnvironmentCommandInput,
+  type GetEnvironmentCommandOutput,
   GetEnvironmentCommand,
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
 import {
+  type GetSignedBluinsightsUrlCommandInput,
+  type GetSignedBluinsightsUrlCommandOutput,
   GetSignedBluinsightsUrlCommand,
-  GetSignedBluinsightsUrlCommandInput,
-  GetSignedBluinsightsUrlCommandOutput,
 } from "./commands/GetSignedBluinsightsUrlCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListApplicationVersionsCommandInput,
+  type ListApplicationVersionsCommandOutput,
   ListApplicationVersionsCommand,
-  ListApplicationVersionsCommandInput,
-  ListApplicationVersionsCommandOutput,
 } from "./commands/ListApplicationVersionsCommand";
 import {
+  type ListBatchJobDefinitionsCommandInput,
+  type ListBatchJobDefinitionsCommandOutput,
   ListBatchJobDefinitionsCommand,
-  ListBatchJobDefinitionsCommandInput,
-  ListBatchJobDefinitionsCommandOutput,
 } from "./commands/ListBatchJobDefinitionsCommand";
 import {
+  type ListBatchJobExecutionsCommandInput,
+  type ListBatchJobExecutionsCommandOutput,
   ListBatchJobExecutionsCommand,
-  ListBatchJobExecutionsCommandInput,
-  ListBatchJobExecutionsCommandOutput,
 } from "./commands/ListBatchJobExecutionsCommand";
 import {
+  type ListBatchJobRestartPointsCommandInput,
+  type ListBatchJobRestartPointsCommandOutput,
   ListBatchJobRestartPointsCommand,
-  ListBatchJobRestartPointsCommandInput,
-  ListBatchJobRestartPointsCommandOutput,
 } from "./commands/ListBatchJobRestartPointsCommand";
 import {
+  type ListDataSetExportHistoryCommandInput,
+  type ListDataSetExportHistoryCommandOutput,
   ListDataSetExportHistoryCommand,
-  ListDataSetExportHistoryCommandInput,
-  ListDataSetExportHistoryCommandOutput,
 } from "./commands/ListDataSetExportHistoryCommand";
 import {
+  type ListDataSetImportHistoryCommandInput,
+  type ListDataSetImportHistoryCommandOutput,
   ListDataSetImportHistoryCommand,
-  ListDataSetImportHistoryCommandInput,
-  ListDataSetImportHistoryCommandOutput,
 } from "./commands/ListDataSetImportHistoryCommand";
 import {
+  type ListDataSetsCommandInput,
+  type ListDataSetsCommandOutput,
   ListDataSetsCommand,
-  ListDataSetsCommandInput,
-  ListDataSetsCommandOutput,
 } from "./commands/ListDataSetsCommand";
 import {
+  type ListDeploymentsCommandInput,
+  type ListDeploymentsCommandOutput,
   ListDeploymentsCommand,
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand";
 import {
+  type ListEngineVersionsCommandInput,
+  type ListEngineVersionsCommandOutput,
   ListEngineVersionsCommand,
-  ListEngineVersionsCommandInput,
-  ListEngineVersionsCommandOutput,
 } from "./commands/ListEngineVersionsCommand";
 import {
+  type ListEnvironmentsCommandInput,
+  type ListEnvironmentsCommandOutput,
   ListEnvironmentsCommand,
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartApplicationCommandInput,
+  type StartApplicationCommandOutput,
   StartApplicationCommand,
-  StartApplicationCommandInput,
-  StartApplicationCommandOutput,
 } from "./commands/StartApplicationCommand";
 import {
+  type StartBatchJobCommandInput,
+  type StartBatchJobCommandOutput,
   StartBatchJobCommand,
-  StartBatchJobCommandInput,
-  StartBatchJobCommandOutput,
 } from "./commands/StartBatchJobCommand";
 import {
+  type StopApplicationCommandInput,
+  type StopApplicationCommandOutput,
   StopApplicationCommand,
-  StopApplicationCommandInput,
-  StopApplicationCommandOutput,
 } from "./commands/StopApplicationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateEnvironmentCommandInput,
+  type UpdateEnvironmentCommandOutput,
   UpdateEnvironmentCommand,
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import { M2Client } from "./M2Client";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";

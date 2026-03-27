@@ -8,7 +8,7 @@ import {
   DescribeSourceRegionsCommandOutput,
 } from "../commands/DescribeSourceRegionsCommand";
 import { RDSClient } from "../RDSClient";
-import { RDSPaginationConfiguration } from "./Interfaces";
+import type { RDSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

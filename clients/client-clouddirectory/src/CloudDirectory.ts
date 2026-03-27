@@ -4,294 +4,322 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CloudDirectoryClient } from "./CloudDirectoryClient";
 import {
+  type AddFacetToObjectCommandInput,
+  type AddFacetToObjectCommandOutput,
   AddFacetToObjectCommand,
-  AddFacetToObjectCommandInput,
-  AddFacetToObjectCommandOutput,
 } from "./commands/AddFacetToObjectCommand";
-import { ApplySchemaCommand, ApplySchemaCommandInput, ApplySchemaCommandOutput } from "./commands/ApplySchemaCommand";
 import {
+  type ApplySchemaCommandInput,
+  type ApplySchemaCommandOutput,
+  ApplySchemaCommand,
+} from "./commands/ApplySchemaCommand";
+import {
+  type AttachObjectCommandInput,
+  type AttachObjectCommandOutput,
   AttachObjectCommand,
-  AttachObjectCommandInput,
-  AttachObjectCommandOutput,
 } from "./commands/AttachObjectCommand";
 import {
+  type AttachPolicyCommandInput,
+  type AttachPolicyCommandOutput,
   AttachPolicyCommand,
-  AttachPolicyCommandInput,
-  AttachPolicyCommandOutput,
 } from "./commands/AttachPolicyCommand";
 import {
+  type AttachToIndexCommandInput,
+  type AttachToIndexCommandOutput,
   AttachToIndexCommand,
-  AttachToIndexCommandInput,
-  AttachToIndexCommandOutput,
 } from "./commands/AttachToIndexCommand";
 import {
+  type AttachTypedLinkCommandInput,
+  type AttachTypedLinkCommandOutput,
   AttachTypedLinkCommand,
-  AttachTypedLinkCommandInput,
-  AttachTypedLinkCommandOutput,
 } from "./commands/AttachTypedLinkCommand";
-import { BatchReadCommand, BatchReadCommandInput, BatchReadCommandOutput } from "./commands/BatchReadCommand";
-import { BatchWriteCommand, BatchWriteCommandInput, BatchWriteCommandOutput } from "./commands/BatchWriteCommand";
+import { type BatchReadCommandInput, type BatchReadCommandOutput, BatchReadCommand } from "./commands/BatchReadCommand";
 import {
+  type BatchWriteCommandInput,
+  type BatchWriteCommandOutput,
+  BatchWriteCommand,
+} from "./commands/BatchWriteCommand";
+import {
+  type CreateDirectoryCommandInput,
+  type CreateDirectoryCommandOutput,
   CreateDirectoryCommand,
-  CreateDirectoryCommandInput,
-  CreateDirectoryCommandOutput,
 } from "./commands/CreateDirectoryCommand";
-import { CreateFacetCommand, CreateFacetCommandInput, CreateFacetCommandOutput } from "./commands/CreateFacetCommand";
-import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
+  type CreateFacetCommandInput,
+  type CreateFacetCommandOutput,
+  CreateFacetCommand,
+} from "./commands/CreateFacetCommand";
+import {
+  type CreateIndexCommandInput,
+  type CreateIndexCommandOutput,
+  CreateIndexCommand,
+} from "./commands/CreateIndexCommand";
+import {
+  type CreateObjectCommandInput,
+  type CreateObjectCommandOutput,
   CreateObjectCommand,
-  CreateObjectCommandInput,
-  CreateObjectCommandOutput,
 } from "./commands/CreateObjectCommand";
 import {
+  type CreateSchemaCommandInput,
+  type CreateSchemaCommandOutput,
   CreateSchemaCommand,
-  CreateSchemaCommandInput,
-  CreateSchemaCommandOutput,
 } from "./commands/CreateSchemaCommand";
 import {
+  type CreateTypedLinkFacetCommandInput,
+  type CreateTypedLinkFacetCommandOutput,
   CreateTypedLinkFacetCommand,
-  CreateTypedLinkFacetCommandInput,
-  CreateTypedLinkFacetCommandOutput,
 } from "./commands/CreateTypedLinkFacetCommand";
 import {
+  type DeleteDirectoryCommandInput,
+  type DeleteDirectoryCommandOutput,
   DeleteDirectoryCommand,
-  DeleteDirectoryCommandInput,
-  DeleteDirectoryCommandOutput,
 } from "./commands/DeleteDirectoryCommand";
-import { DeleteFacetCommand, DeleteFacetCommandInput, DeleteFacetCommandOutput } from "./commands/DeleteFacetCommand";
 import {
+  type DeleteFacetCommandInput,
+  type DeleteFacetCommandOutput,
+  DeleteFacetCommand,
+} from "./commands/DeleteFacetCommand";
+import {
+  type DeleteObjectCommandInput,
+  type DeleteObjectCommandOutput,
   DeleteObjectCommand,
-  DeleteObjectCommandInput,
-  DeleteObjectCommandOutput,
 } from "./commands/DeleteObjectCommand";
 import {
+  type DeleteSchemaCommandInput,
+  type DeleteSchemaCommandOutput,
   DeleteSchemaCommand,
-  DeleteSchemaCommandInput,
-  DeleteSchemaCommandOutput,
 } from "./commands/DeleteSchemaCommand";
 import {
+  type DeleteTypedLinkFacetCommandInput,
+  type DeleteTypedLinkFacetCommandOutput,
   DeleteTypedLinkFacetCommand,
-  DeleteTypedLinkFacetCommandInput,
-  DeleteTypedLinkFacetCommandOutput,
 } from "./commands/DeleteTypedLinkFacetCommand";
 import {
+  type DetachFromIndexCommandInput,
+  type DetachFromIndexCommandOutput,
   DetachFromIndexCommand,
-  DetachFromIndexCommandInput,
-  DetachFromIndexCommandOutput,
 } from "./commands/DetachFromIndexCommand";
 import {
+  type DetachObjectCommandInput,
+  type DetachObjectCommandOutput,
   DetachObjectCommand,
-  DetachObjectCommandInput,
-  DetachObjectCommandOutput,
 } from "./commands/DetachObjectCommand";
 import {
+  type DetachPolicyCommandInput,
+  type DetachPolicyCommandOutput,
   DetachPolicyCommand,
-  DetachPolicyCommandInput,
-  DetachPolicyCommandOutput,
 } from "./commands/DetachPolicyCommand";
 import {
+  type DetachTypedLinkCommandInput,
+  type DetachTypedLinkCommandOutput,
   DetachTypedLinkCommand,
-  DetachTypedLinkCommandInput,
-  DetachTypedLinkCommandOutput,
 } from "./commands/DetachTypedLinkCommand";
 import {
+  type DisableDirectoryCommandInput,
+  type DisableDirectoryCommandOutput,
   DisableDirectoryCommand,
-  DisableDirectoryCommandInput,
-  DisableDirectoryCommandOutput,
 } from "./commands/DisableDirectoryCommand";
 import {
+  type EnableDirectoryCommandInput,
+  type EnableDirectoryCommandOutput,
   EnableDirectoryCommand,
-  EnableDirectoryCommandInput,
-  EnableDirectoryCommandOutput,
 } from "./commands/EnableDirectoryCommand";
 import {
+  type GetAppliedSchemaVersionCommandInput,
+  type GetAppliedSchemaVersionCommandOutput,
   GetAppliedSchemaVersionCommand,
-  GetAppliedSchemaVersionCommandInput,
-  GetAppliedSchemaVersionCommandOutput,
 } from "./commands/GetAppliedSchemaVersionCommand";
 import {
+  type GetDirectoryCommandInput,
+  type GetDirectoryCommandOutput,
   GetDirectoryCommand,
-  GetDirectoryCommandInput,
-  GetDirectoryCommandOutput,
 } from "./commands/GetDirectoryCommand";
-import { GetFacetCommand, GetFacetCommandInput, GetFacetCommandOutput } from "./commands/GetFacetCommand";
+import { type GetFacetCommandInput, type GetFacetCommandOutput, GetFacetCommand } from "./commands/GetFacetCommand";
 import {
+  type GetLinkAttributesCommandInput,
+  type GetLinkAttributesCommandOutput,
   GetLinkAttributesCommand,
-  GetLinkAttributesCommandInput,
-  GetLinkAttributesCommandOutput,
 } from "./commands/GetLinkAttributesCommand";
 import {
+  type GetObjectAttributesCommandInput,
+  type GetObjectAttributesCommandOutput,
   GetObjectAttributesCommand,
-  GetObjectAttributesCommandInput,
-  GetObjectAttributesCommandOutput,
 } from "./commands/GetObjectAttributesCommand";
 import {
+  type GetObjectInformationCommandInput,
+  type GetObjectInformationCommandOutput,
   GetObjectInformationCommand,
-  GetObjectInformationCommandInput,
-  GetObjectInformationCommandOutput,
 } from "./commands/GetObjectInformationCommand";
 import {
+  type GetSchemaAsJsonCommandInput,
+  type GetSchemaAsJsonCommandOutput,
   GetSchemaAsJsonCommand,
-  GetSchemaAsJsonCommandInput,
-  GetSchemaAsJsonCommandOutput,
 } from "./commands/GetSchemaAsJsonCommand";
 import {
+  type GetTypedLinkFacetInformationCommandInput,
+  type GetTypedLinkFacetInformationCommandOutput,
   GetTypedLinkFacetInformationCommand,
-  GetTypedLinkFacetInformationCommandInput,
-  GetTypedLinkFacetInformationCommandOutput,
 } from "./commands/GetTypedLinkFacetInformationCommand";
 import {
+  type ListAppliedSchemaArnsCommandInput,
+  type ListAppliedSchemaArnsCommandOutput,
   ListAppliedSchemaArnsCommand,
-  ListAppliedSchemaArnsCommandInput,
-  ListAppliedSchemaArnsCommandOutput,
 } from "./commands/ListAppliedSchemaArnsCommand";
 import {
+  type ListAttachedIndicesCommandInput,
+  type ListAttachedIndicesCommandOutput,
   ListAttachedIndicesCommand,
-  ListAttachedIndicesCommandInput,
-  ListAttachedIndicesCommandOutput,
 } from "./commands/ListAttachedIndicesCommand";
 import {
+  type ListDevelopmentSchemaArnsCommandInput,
+  type ListDevelopmentSchemaArnsCommandOutput,
   ListDevelopmentSchemaArnsCommand,
-  ListDevelopmentSchemaArnsCommandInput,
-  ListDevelopmentSchemaArnsCommandOutput,
 } from "./commands/ListDevelopmentSchemaArnsCommand";
 import {
+  type ListDirectoriesCommandInput,
+  type ListDirectoriesCommandOutput,
   ListDirectoriesCommand,
-  ListDirectoriesCommandInput,
-  ListDirectoriesCommandOutput,
 } from "./commands/ListDirectoriesCommand";
 import {
+  type ListFacetAttributesCommandInput,
+  type ListFacetAttributesCommandOutput,
   ListFacetAttributesCommand,
-  ListFacetAttributesCommandInput,
-  ListFacetAttributesCommandOutput,
 } from "./commands/ListFacetAttributesCommand";
 import {
+  type ListFacetNamesCommandInput,
+  type ListFacetNamesCommandOutput,
   ListFacetNamesCommand,
-  ListFacetNamesCommandInput,
-  ListFacetNamesCommandOutput,
 } from "./commands/ListFacetNamesCommand";
 import {
+  type ListIncomingTypedLinksCommandInput,
+  type ListIncomingTypedLinksCommandOutput,
   ListIncomingTypedLinksCommand,
-  ListIncomingTypedLinksCommandInput,
-  ListIncomingTypedLinksCommandOutput,
 } from "./commands/ListIncomingTypedLinksCommand";
-import { ListIndexCommand, ListIndexCommandInput, ListIndexCommandOutput } from "./commands/ListIndexCommand";
+import { type ListIndexCommandInput, type ListIndexCommandOutput, ListIndexCommand } from "./commands/ListIndexCommand";
 import {
+  type ListManagedSchemaArnsCommandInput,
+  type ListManagedSchemaArnsCommandOutput,
   ListManagedSchemaArnsCommand,
-  ListManagedSchemaArnsCommandInput,
-  ListManagedSchemaArnsCommandOutput,
 } from "./commands/ListManagedSchemaArnsCommand";
 import {
+  type ListObjectAttributesCommandInput,
+  type ListObjectAttributesCommandOutput,
   ListObjectAttributesCommand,
-  ListObjectAttributesCommandInput,
-  ListObjectAttributesCommandOutput,
 } from "./commands/ListObjectAttributesCommand";
 import {
+  type ListObjectChildrenCommandInput,
+  type ListObjectChildrenCommandOutput,
   ListObjectChildrenCommand,
-  ListObjectChildrenCommandInput,
-  ListObjectChildrenCommandOutput,
 } from "./commands/ListObjectChildrenCommand";
 import {
+  type ListObjectParentPathsCommandInput,
+  type ListObjectParentPathsCommandOutput,
   ListObjectParentPathsCommand,
-  ListObjectParentPathsCommandInput,
-  ListObjectParentPathsCommandOutput,
 } from "./commands/ListObjectParentPathsCommand";
 import {
+  type ListObjectParentsCommandInput,
+  type ListObjectParentsCommandOutput,
   ListObjectParentsCommand,
-  ListObjectParentsCommandInput,
-  ListObjectParentsCommandOutput,
 } from "./commands/ListObjectParentsCommand";
 import {
+  type ListObjectPoliciesCommandInput,
+  type ListObjectPoliciesCommandOutput,
   ListObjectPoliciesCommand,
-  ListObjectPoliciesCommandInput,
-  ListObjectPoliciesCommandOutput,
 } from "./commands/ListObjectPoliciesCommand";
 import {
+  type ListOutgoingTypedLinksCommandInput,
+  type ListOutgoingTypedLinksCommandOutput,
   ListOutgoingTypedLinksCommand,
-  ListOutgoingTypedLinksCommandInput,
-  ListOutgoingTypedLinksCommandOutput,
 } from "./commands/ListOutgoingTypedLinksCommand";
 import {
+  type ListPolicyAttachmentsCommandInput,
+  type ListPolicyAttachmentsCommandOutput,
   ListPolicyAttachmentsCommand,
-  ListPolicyAttachmentsCommandInput,
-  ListPolicyAttachmentsCommandOutput,
 } from "./commands/ListPolicyAttachmentsCommand";
 import {
+  type ListPublishedSchemaArnsCommandInput,
+  type ListPublishedSchemaArnsCommandOutput,
   ListPublishedSchemaArnsCommand,
-  ListPublishedSchemaArnsCommandInput,
-  ListPublishedSchemaArnsCommandOutput,
 } from "./commands/ListPublishedSchemaArnsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTypedLinkFacetAttributesCommandInput,
+  type ListTypedLinkFacetAttributesCommandOutput,
   ListTypedLinkFacetAttributesCommand,
-  ListTypedLinkFacetAttributesCommandInput,
-  ListTypedLinkFacetAttributesCommandOutput,
 } from "./commands/ListTypedLinkFacetAttributesCommand";
 import {
+  type ListTypedLinkFacetNamesCommandInput,
+  type ListTypedLinkFacetNamesCommandOutput,
   ListTypedLinkFacetNamesCommand,
-  ListTypedLinkFacetNamesCommandInput,
-  ListTypedLinkFacetNamesCommandOutput,
 } from "./commands/ListTypedLinkFacetNamesCommand";
 import {
+  type LookupPolicyCommandInput,
+  type LookupPolicyCommandOutput,
   LookupPolicyCommand,
-  LookupPolicyCommandInput,
-  LookupPolicyCommandOutput,
 } from "./commands/LookupPolicyCommand";
 import {
+  type PublishSchemaCommandInput,
+  type PublishSchemaCommandOutput,
   PublishSchemaCommand,
-  PublishSchemaCommandInput,
-  PublishSchemaCommandOutput,
 } from "./commands/PublishSchemaCommand";
 import {
+  type PutSchemaFromJsonCommandInput,
+  type PutSchemaFromJsonCommandOutput,
   PutSchemaFromJsonCommand,
-  PutSchemaFromJsonCommandInput,
-  PutSchemaFromJsonCommandOutput,
 } from "./commands/PutSchemaFromJsonCommand";
 import {
+  type RemoveFacetFromObjectCommandInput,
+  type RemoveFacetFromObjectCommandOutput,
   RemoveFacetFromObjectCommand,
-  RemoveFacetFromObjectCommandInput,
-  RemoveFacetFromObjectCommandOutput,
 } from "./commands/RemoveFacetFromObjectCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateFacetCommand, UpdateFacetCommandInput, UpdateFacetCommandOutput } from "./commands/UpdateFacetCommand";
 import {
+  type UpdateFacetCommandInput,
+  type UpdateFacetCommandOutput,
+  UpdateFacetCommand,
+} from "./commands/UpdateFacetCommand";
+import {
+  type UpdateLinkAttributesCommandInput,
+  type UpdateLinkAttributesCommandOutput,
   UpdateLinkAttributesCommand,
-  UpdateLinkAttributesCommandInput,
-  UpdateLinkAttributesCommandOutput,
 } from "./commands/UpdateLinkAttributesCommand";
 import {
+  type UpdateObjectAttributesCommandInput,
+  type UpdateObjectAttributesCommandOutput,
   UpdateObjectAttributesCommand,
-  UpdateObjectAttributesCommandInput,
-  UpdateObjectAttributesCommandOutput,
 } from "./commands/UpdateObjectAttributesCommand";
 import {
+  type UpdateSchemaCommandInput,
+  type UpdateSchemaCommandOutput,
   UpdateSchemaCommand,
-  UpdateSchemaCommandInput,
-  UpdateSchemaCommandOutput,
 } from "./commands/UpdateSchemaCommand";
 import {
+  type UpdateTypedLinkFacetCommandInput,
+  type UpdateTypedLinkFacetCommandOutput,
   UpdateTypedLinkFacetCommand,
-  UpdateTypedLinkFacetCommandInput,
-  UpdateTypedLinkFacetCommandOutput,
 } from "./commands/UpdateTypedLinkFacetCommand";
 import {
+  type UpgradeAppliedSchemaCommandInput,
+  type UpgradeAppliedSchemaCommandOutput,
   UpgradeAppliedSchemaCommand,
-  UpgradeAppliedSchemaCommandInput,
-  UpgradeAppliedSchemaCommandOutput,
 } from "./commands/UpgradeAppliedSchemaCommand";
 import {
+  type UpgradePublishedSchemaCommandInput,
+  type UpgradePublishedSchemaCommandOutput,
   UpgradePublishedSchemaCommand,
-  UpgradePublishedSchemaCommandInput,
-  UpgradePublishedSchemaCommandOutput,
 } from "./commands/UpgradePublishedSchemaCommand";
 import { paginateListAppliedSchemaArns } from "./pagination/ListAppliedSchemaArnsPaginator";
 import { paginateListAttachedIndices } from "./pagination/ListAttachedIndicesPaginator";

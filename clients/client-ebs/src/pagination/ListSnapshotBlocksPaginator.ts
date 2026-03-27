@@ -8,7 +8,7 @@ import {
   ListSnapshotBlocksCommandOutput,
 } from "../commands/ListSnapshotBlocksCommand";
 import { EBSClient } from "../EBSClient";
-import { EBSPaginationConfiguration } from "./Interfaces";
+import type { EBSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

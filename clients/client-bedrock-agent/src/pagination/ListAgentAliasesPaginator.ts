@@ -8,7 +8,7 @@ import {
   ListAgentAliasesCommandInput,
   ListAgentAliasesCommandOutput,
 } from "../commands/ListAgentAliasesCommand";
-import { BedrockAgentPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

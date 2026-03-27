@@ -7,7 +7,7 @@
  */
 export * from "./KendraClient";
 export * from "./Kendra";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { KendraExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

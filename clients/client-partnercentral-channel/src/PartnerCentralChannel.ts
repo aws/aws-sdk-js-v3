@@ -3,85 +3,89 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptChannelHandshakeCommandInput,
+  type AcceptChannelHandshakeCommandOutput,
   AcceptChannelHandshakeCommand,
-  AcceptChannelHandshakeCommandInput,
-  AcceptChannelHandshakeCommandOutput,
 } from "./commands/AcceptChannelHandshakeCommand";
 import {
+  type CancelChannelHandshakeCommandInput,
+  type CancelChannelHandshakeCommandOutput,
   CancelChannelHandshakeCommand,
-  CancelChannelHandshakeCommandInput,
-  CancelChannelHandshakeCommandOutput,
 } from "./commands/CancelChannelHandshakeCommand";
 import {
+  type CreateChannelHandshakeCommandInput,
+  type CreateChannelHandshakeCommandOutput,
   CreateChannelHandshakeCommand,
-  CreateChannelHandshakeCommandInput,
-  CreateChannelHandshakeCommandOutput,
 } from "./commands/CreateChannelHandshakeCommand";
 import {
+  type CreateProgramManagementAccountCommandInput,
+  type CreateProgramManagementAccountCommandOutput,
   CreateProgramManagementAccountCommand,
-  CreateProgramManagementAccountCommandInput,
-  CreateProgramManagementAccountCommandOutput,
 } from "./commands/CreateProgramManagementAccountCommand";
 import {
+  type CreateRelationshipCommandInput,
+  type CreateRelationshipCommandOutput,
   CreateRelationshipCommand,
-  CreateRelationshipCommandInput,
-  CreateRelationshipCommandOutput,
 } from "./commands/CreateRelationshipCommand";
 import {
+  type DeleteProgramManagementAccountCommandInput,
+  type DeleteProgramManagementAccountCommandOutput,
   DeleteProgramManagementAccountCommand,
-  DeleteProgramManagementAccountCommandInput,
-  DeleteProgramManagementAccountCommandOutput,
 } from "./commands/DeleteProgramManagementAccountCommand";
 import {
+  type DeleteRelationshipCommandInput,
+  type DeleteRelationshipCommandOutput,
   DeleteRelationshipCommand,
-  DeleteRelationshipCommandInput,
-  DeleteRelationshipCommandOutput,
 } from "./commands/DeleteRelationshipCommand";
 import {
+  type GetRelationshipCommandInput,
+  type GetRelationshipCommandOutput,
   GetRelationshipCommand,
-  GetRelationshipCommandInput,
-  GetRelationshipCommandOutput,
 } from "./commands/GetRelationshipCommand";
 import {
+  type ListChannelHandshakesCommandInput,
+  type ListChannelHandshakesCommandOutput,
   ListChannelHandshakesCommand,
-  ListChannelHandshakesCommandInput,
-  ListChannelHandshakesCommandOutput,
 } from "./commands/ListChannelHandshakesCommand";
 import {
+  type ListProgramManagementAccountsCommandInput,
+  type ListProgramManagementAccountsCommandOutput,
   ListProgramManagementAccountsCommand,
-  ListProgramManagementAccountsCommandInput,
-  ListProgramManagementAccountsCommandOutput,
 } from "./commands/ListProgramManagementAccountsCommand";
 import {
+  type ListRelationshipsCommandInput,
+  type ListRelationshipsCommandOutput,
   ListRelationshipsCommand,
-  ListRelationshipsCommandInput,
-  ListRelationshipsCommandOutput,
 } from "./commands/ListRelationshipsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RejectChannelHandshakeCommandInput,
+  type RejectChannelHandshakeCommandOutput,
   RejectChannelHandshakeCommand,
-  RejectChannelHandshakeCommandInput,
-  RejectChannelHandshakeCommandOutput,
 } from "./commands/RejectChannelHandshakeCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateProgramManagementAccountCommandInput,
+  type UpdateProgramManagementAccountCommandOutput,
   UpdateProgramManagementAccountCommand,
-  UpdateProgramManagementAccountCommandInput,
-  UpdateProgramManagementAccountCommandOutput,
 } from "./commands/UpdateProgramManagementAccountCommand";
 import {
+  type UpdateRelationshipCommandInput,
+  type UpdateRelationshipCommandOutput,
   UpdateRelationshipCommand,
-  UpdateRelationshipCommandInput,
-  UpdateRelationshipCommandOutput,
 } from "./commands/UpdateRelationshipCommand";
 import { paginateListChannelHandshakes } from "./pagination/ListChannelHandshakesPaginator";
 import { paginateListProgramManagementAccounts } from "./pagination/ListProgramManagementAccountsPaginator";

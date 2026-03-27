@@ -3,68 +3,80 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateMonitorCommandInput,
+  type CreateMonitorCommandOutput,
   CreateMonitorCommand,
-  CreateMonitorCommandInput,
-  CreateMonitorCommandOutput,
 } from "./commands/CreateMonitorCommand";
 import {
+  type DeleteMonitorCommandInput,
+  type DeleteMonitorCommandOutput,
   DeleteMonitorCommand,
-  DeleteMonitorCommandInput,
-  DeleteMonitorCommandOutput,
 } from "./commands/DeleteMonitorCommand";
 import {
+  type GetHealthEventCommandInput,
+  type GetHealthEventCommandOutput,
   GetHealthEventCommand,
-  GetHealthEventCommandInput,
-  GetHealthEventCommandOutput,
 } from "./commands/GetHealthEventCommand";
 import {
+  type GetInternetEventCommandInput,
+  type GetInternetEventCommandOutput,
   GetInternetEventCommand,
-  GetInternetEventCommandInput,
-  GetInternetEventCommandOutput,
 } from "./commands/GetInternetEventCommand";
-import { GetMonitorCommand, GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
 import {
+  type GetMonitorCommandInput,
+  type GetMonitorCommandOutput,
+  GetMonitorCommand,
+} from "./commands/GetMonitorCommand";
+import {
+  type GetQueryResultsCommandInput,
+  type GetQueryResultsCommandOutput,
   GetQueryResultsCommand,
-  GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand";
 import {
+  type GetQueryStatusCommandInput,
+  type GetQueryStatusCommandOutput,
   GetQueryStatusCommand,
-  GetQueryStatusCommandInput,
-  GetQueryStatusCommandOutput,
 } from "./commands/GetQueryStatusCommand";
 import {
+  type ListHealthEventsCommandInput,
+  type ListHealthEventsCommandOutput,
   ListHealthEventsCommand,
-  ListHealthEventsCommandInput,
-  ListHealthEventsCommandOutput,
 } from "./commands/ListHealthEventsCommand";
 import {
+  type ListInternetEventsCommandInput,
+  type ListInternetEventsCommandOutput,
   ListInternetEventsCommand,
-  ListInternetEventsCommandInput,
-  ListInternetEventsCommandOutput,
 } from "./commands/ListInternetEventsCommand";
 import {
+  type ListMonitorsCommandInput,
+  type ListMonitorsCommandOutput,
   ListMonitorsCommand,
-  ListMonitorsCommandInput,
-  ListMonitorsCommandOutput,
 } from "./commands/ListMonitorsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
-import { StopQueryCommand, StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type StartQueryCommandInput,
+  type StartQueryCommandOutput,
+  StartQueryCommand,
+} from "./commands/StartQueryCommand";
+import { type StopQueryCommandInput, type StopQueryCommandOutput, StopQueryCommand } from "./commands/StopQueryCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateMonitorCommandInput,
+  type UpdateMonitorCommandOutput,
   UpdateMonitorCommand,
-  UpdateMonitorCommandInput,
-  UpdateMonitorCommandOutput,
 } from "./commands/UpdateMonitorCommand";
 import { InternetMonitorClient } from "./InternetMonitorClient";
 import { paginateGetQueryResults } from "./pagination/GetQueryResultsPaginator";

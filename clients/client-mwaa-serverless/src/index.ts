@@ -7,7 +7,7 @@
  */
 export * from "./MWAAServerlessClient";
 export * from "./MWAAServerless";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MWAAServerlessExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

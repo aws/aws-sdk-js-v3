@@ -8,7 +8,7 @@ import {
   DescribeClientAuthenticationSettingsCommandOutput,
 } from "../commands/DescribeClientAuthenticationSettingsCommand";
 import { DirectoryServiceClient } from "../DirectoryServiceClient";
-import { DirectoryServicePaginationConfiguration } from "./Interfaces";
+import type { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListWorkflowRunsCommandInput,
   ListWorkflowRunsCommandOutput,
 } from "../commands/ListWorkflowRunsCommand";
-import { CodeCatalystPaginationConfiguration } from "./Interfaces";
+import type { CodeCatalystPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

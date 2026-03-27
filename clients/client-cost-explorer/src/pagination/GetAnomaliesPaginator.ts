@@ -8,7 +8,7 @@ import {
   GetAnomaliesCommandOutput,
 } from "../commands/GetAnomaliesCommand";
 import { CostExplorerClient } from "../CostExplorerClient";
-import { CostExplorerPaginationConfiguration } from "./Interfaces";
+import type { CostExplorerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

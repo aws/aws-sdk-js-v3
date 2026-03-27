@@ -3,9 +3,9 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type GetBuyerDashboardCommandInput,
+  type GetBuyerDashboardCommandOutput,
   GetBuyerDashboardCommand,
-  GetBuyerDashboardCommandInput,
-  GetBuyerDashboardCommandOutput,
 } from "./commands/GetBuyerDashboardCommand";
 import { MarketplaceReportingClient } from "./MarketplaceReportingClient";
 

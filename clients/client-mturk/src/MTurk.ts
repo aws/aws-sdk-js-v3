@@ -3,179 +3,179 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptQualificationRequestCommandInput,
+  type AcceptQualificationRequestCommandOutput,
   AcceptQualificationRequestCommand,
-  AcceptQualificationRequestCommandInput,
-  AcceptQualificationRequestCommandOutput,
 } from "./commands/AcceptQualificationRequestCommand";
 import {
+  type ApproveAssignmentCommandInput,
+  type ApproveAssignmentCommandOutput,
   ApproveAssignmentCommand,
-  ApproveAssignmentCommandInput,
-  ApproveAssignmentCommandOutput,
 } from "./commands/ApproveAssignmentCommand";
 import {
+  type AssociateQualificationWithWorkerCommandInput,
+  type AssociateQualificationWithWorkerCommandOutput,
   AssociateQualificationWithWorkerCommand,
-  AssociateQualificationWithWorkerCommandInput,
-  AssociateQualificationWithWorkerCommandOutput,
 } from "./commands/AssociateQualificationWithWorkerCommand";
 import {
+  type CreateAdditionalAssignmentsForHITCommandInput,
+  type CreateAdditionalAssignmentsForHITCommandOutput,
   CreateAdditionalAssignmentsForHITCommand,
-  CreateAdditionalAssignmentsForHITCommandInput,
-  CreateAdditionalAssignmentsForHITCommandOutput,
 } from "./commands/CreateAdditionalAssignmentsForHITCommand";
-import { CreateHITCommand, CreateHITCommandInput, CreateHITCommandOutput } from "./commands/CreateHITCommand";
+import { type CreateHITCommandInput, type CreateHITCommandOutput, CreateHITCommand } from "./commands/CreateHITCommand";
 import {
+  type CreateHITTypeCommandInput,
+  type CreateHITTypeCommandOutput,
   CreateHITTypeCommand,
-  CreateHITTypeCommandInput,
-  CreateHITTypeCommandOutput,
 } from "./commands/CreateHITTypeCommand";
 import {
+  type CreateHITWithHITTypeCommandInput,
+  type CreateHITWithHITTypeCommandOutput,
   CreateHITWithHITTypeCommand,
-  CreateHITWithHITTypeCommandInput,
-  CreateHITWithHITTypeCommandOutput,
 } from "./commands/CreateHITWithHITTypeCommand";
 import {
+  type CreateQualificationTypeCommandInput,
+  type CreateQualificationTypeCommandOutput,
   CreateQualificationTypeCommand,
-  CreateQualificationTypeCommandInput,
-  CreateQualificationTypeCommandOutput,
 } from "./commands/CreateQualificationTypeCommand";
 import {
+  type CreateWorkerBlockCommandInput,
+  type CreateWorkerBlockCommandOutput,
   CreateWorkerBlockCommand,
-  CreateWorkerBlockCommandInput,
-  CreateWorkerBlockCommandOutput,
 } from "./commands/CreateWorkerBlockCommand";
-import { DeleteHITCommand, DeleteHITCommandInput, DeleteHITCommandOutput } from "./commands/DeleteHITCommand";
+import { type DeleteHITCommandInput, type DeleteHITCommandOutput, DeleteHITCommand } from "./commands/DeleteHITCommand";
 import {
+  type DeleteQualificationTypeCommandInput,
+  type DeleteQualificationTypeCommandOutput,
   DeleteQualificationTypeCommand,
-  DeleteQualificationTypeCommandInput,
-  DeleteQualificationTypeCommandOutput,
 } from "./commands/DeleteQualificationTypeCommand";
 import {
+  type DeleteWorkerBlockCommandInput,
+  type DeleteWorkerBlockCommandOutput,
   DeleteWorkerBlockCommand,
-  DeleteWorkerBlockCommandInput,
-  DeleteWorkerBlockCommandOutput,
 } from "./commands/DeleteWorkerBlockCommand";
 import {
+  type DisassociateQualificationFromWorkerCommandInput,
+  type DisassociateQualificationFromWorkerCommandOutput,
   DisassociateQualificationFromWorkerCommand,
-  DisassociateQualificationFromWorkerCommandInput,
-  DisassociateQualificationFromWorkerCommandOutput,
 } from "./commands/DisassociateQualificationFromWorkerCommand";
 import {
+  type GetAccountBalanceCommandInput,
+  type GetAccountBalanceCommandOutput,
   GetAccountBalanceCommand,
-  GetAccountBalanceCommandInput,
-  GetAccountBalanceCommandOutput,
 } from "./commands/GetAccountBalanceCommand";
 import {
+  type GetAssignmentCommandInput,
+  type GetAssignmentCommandOutput,
   GetAssignmentCommand,
-  GetAssignmentCommandInput,
-  GetAssignmentCommandOutput,
 } from "./commands/GetAssignmentCommand";
 import {
+  type GetFileUploadURLCommandInput,
+  type GetFileUploadURLCommandOutput,
   GetFileUploadURLCommand,
-  GetFileUploadURLCommandInput,
-  GetFileUploadURLCommandOutput,
 } from "./commands/GetFileUploadURLCommand";
-import { GetHITCommand, GetHITCommandInput, GetHITCommandOutput } from "./commands/GetHITCommand";
+import { type GetHITCommandInput, type GetHITCommandOutput, GetHITCommand } from "./commands/GetHITCommand";
 import {
+  type GetQualificationScoreCommandInput,
+  type GetQualificationScoreCommandOutput,
   GetQualificationScoreCommand,
-  GetQualificationScoreCommandInput,
-  GetQualificationScoreCommandOutput,
 } from "./commands/GetQualificationScoreCommand";
 import {
+  type GetQualificationTypeCommandInput,
+  type GetQualificationTypeCommandOutput,
   GetQualificationTypeCommand,
-  GetQualificationTypeCommandInput,
-  GetQualificationTypeCommandOutput,
 } from "./commands/GetQualificationTypeCommand";
 import {
+  type ListAssignmentsForHITCommandInput,
+  type ListAssignmentsForHITCommandOutput,
   ListAssignmentsForHITCommand,
-  ListAssignmentsForHITCommandInput,
-  ListAssignmentsForHITCommandOutput,
 } from "./commands/ListAssignmentsForHITCommand";
 import {
+  type ListBonusPaymentsCommandInput,
+  type ListBonusPaymentsCommandOutput,
   ListBonusPaymentsCommand,
-  ListBonusPaymentsCommandInput,
-  ListBonusPaymentsCommandOutput,
 } from "./commands/ListBonusPaymentsCommand";
-import { ListHITsCommand, ListHITsCommandInput, ListHITsCommandOutput } from "./commands/ListHITsCommand";
+import { type ListHITsCommandInput, type ListHITsCommandOutput, ListHITsCommand } from "./commands/ListHITsCommand";
 import {
+  type ListHITsForQualificationTypeCommandInput,
+  type ListHITsForQualificationTypeCommandOutput,
   ListHITsForQualificationTypeCommand,
-  ListHITsForQualificationTypeCommandInput,
-  ListHITsForQualificationTypeCommandOutput,
 } from "./commands/ListHITsForQualificationTypeCommand";
 import {
+  type ListQualificationRequestsCommandInput,
+  type ListQualificationRequestsCommandOutput,
   ListQualificationRequestsCommand,
-  ListQualificationRequestsCommandInput,
-  ListQualificationRequestsCommandOutput,
 } from "./commands/ListQualificationRequestsCommand";
 import {
+  type ListQualificationTypesCommandInput,
+  type ListQualificationTypesCommandOutput,
   ListQualificationTypesCommand,
-  ListQualificationTypesCommandInput,
-  ListQualificationTypesCommandOutput,
 } from "./commands/ListQualificationTypesCommand";
 import {
+  type ListReviewableHITsCommandInput,
+  type ListReviewableHITsCommandOutput,
   ListReviewableHITsCommand,
-  ListReviewableHITsCommandInput,
-  ListReviewableHITsCommandOutput,
 } from "./commands/ListReviewableHITsCommand";
 import {
+  type ListReviewPolicyResultsForHITCommandInput,
+  type ListReviewPolicyResultsForHITCommandOutput,
   ListReviewPolicyResultsForHITCommand,
-  ListReviewPolicyResultsForHITCommandInput,
-  ListReviewPolicyResultsForHITCommandOutput,
 } from "./commands/ListReviewPolicyResultsForHITCommand";
 import {
+  type ListWorkerBlocksCommandInput,
+  type ListWorkerBlocksCommandOutput,
   ListWorkerBlocksCommand,
-  ListWorkerBlocksCommandInput,
-  ListWorkerBlocksCommandOutput,
 } from "./commands/ListWorkerBlocksCommand";
 import {
+  type ListWorkersWithQualificationTypeCommandInput,
+  type ListWorkersWithQualificationTypeCommandOutput,
   ListWorkersWithQualificationTypeCommand,
-  ListWorkersWithQualificationTypeCommandInput,
-  ListWorkersWithQualificationTypeCommandOutput,
 } from "./commands/ListWorkersWithQualificationTypeCommand";
 import {
+  type NotifyWorkersCommandInput,
+  type NotifyWorkersCommandOutput,
   NotifyWorkersCommand,
-  NotifyWorkersCommandInput,
-  NotifyWorkersCommandOutput,
 } from "./commands/NotifyWorkersCommand";
 import {
+  type RejectAssignmentCommandInput,
+  type RejectAssignmentCommandOutput,
   RejectAssignmentCommand,
-  RejectAssignmentCommandInput,
-  RejectAssignmentCommandOutput,
 } from "./commands/RejectAssignmentCommand";
 import {
+  type RejectQualificationRequestCommandInput,
+  type RejectQualificationRequestCommandOutput,
   RejectQualificationRequestCommand,
-  RejectQualificationRequestCommandInput,
-  RejectQualificationRequestCommandOutput,
 } from "./commands/RejectQualificationRequestCommand";
-import { SendBonusCommand, SendBonusCommandInput, SendBonusCommandOutput } from "./commands/SendBonusCommand";
+import { type SendBonusCommandInput, type SendBonusCommandOutput, SendBonusCommand } from "./commands/SendBonusCommand";
 import {
+  type SendTestEventNotificationCommandInput,
+  type SendTestEventNotificationCommandOutput,
   SendTestEventNotificationCommand,
-  SendTestEventNotificationCommandInput,
-  SendTestEventNotificationCommandOutput,
 } from "./commands/SendTestEventNotificationCommand";
 import {
+  type UpdateExpirationForHITCommandInput,
+  type UpdateExpirationForHITCommandOutput,
   UpdateExpirationForHITCommand,
-  UpdateExpirationForHITCommandInput,
-  UpdateExpirationForHITCommandOutput,
 } from "./commands/UpdateExpirationForHITCommand";
 import {
+  type UpdateHITReviewStatusCommandInput,
+  type UpdateHITReviewStatusCommandOutput,
   UpdateHITReviewStatusCommand,
-  UpdateHITReviewStatusCommandInput,
-  UpdateHITReviewStatusCommandOutput,
 } from "./commands/UpdateHITReviewStatusCommand";
 import {
+  type UpdateHITTypeOfHITCommandInput,
+  type UpdateHITTypeOfHITCommandOutput,
   UpdateHITTypeOfHITCommand,
-  UpdateHITTypeOfHITCommandInput,
-  UpdateHITTypeOfHITCommandOutput,
 } from "./commands/UpdateHITTypeOfHITCommand";
 import {
+  type UpdateNotificationSettingsCommandInput,
+  type UpdateNotificationSettingsCommandOutput,
   UpdateNotificationSettingsCommand,
-  UpdateNotificationSettingsCommandInput,
-  UpdateNotificationSettingsCommandOutput,
 } from "./commands/UpdateNotificationSettingsCommand";
 import {
+  type UpdateQualificationTypeCommandInput,
+  type UpdateQualificationTypeCommandOutput,
   UpdateQualificationTypeCommand,
-  UpdateQualificationTypeCommandInput,
-  UpdateQualificationTypeCommandOutput,
 } from "./commands/UpdateQualificationTypeCommand";
 import { MTurkClient } from "./MTurkClient";
 import { paginateListAssignmentsForHIT } from "./pagination/ListAssignmentsForHITPaginator";

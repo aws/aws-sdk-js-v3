@@ -8,7 +8,7 @@ import {
   ListAccountLinksCommandOutput,
 } from "../commands/ListAccountLinksCommand";
 import { WorkSpacesClient } from "../WorkSpacesClient";
-import { WorkSpacesPaginationConfiguration } from "./Interfaces";
+import type { WorkSpacesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

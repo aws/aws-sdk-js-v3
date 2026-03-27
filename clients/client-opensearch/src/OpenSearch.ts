@@ -3,386 +3,402 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptInboundConnectionCommandInput,
+  type AcceptInboundConnectionCommandOutput,
   AcceptInboundConnectionCommand,
-  AcceptInboundConnectionCommandInput,
-  AcceptInboundConnectionCommandOutput,
 } from "./commands/AcceptInboundConnectionCommand";
 import {
+  type AddDataSourceCommandInput,
+  type AddDataSourceCommandOutput,
   AddDataSourceCommand,
-  AddDataSourceCommandInput,
-  AddDataSourceCommandOutput,
 } from "./commands/AddDataSourceCommand";
 import {
+  type AddDirectQueryDataSourceCommandInput,
+  type AddDirectQueryDataSourceCommandOutput,
   AddDirectQueryDataSourceCommand,
-  AddDirectQueryDataSourceCommandInput,
-  AddDirectQueryDataSourceCommandOutput,
 } from "./commands/AddDirectQueryDataSourceCommand";
-import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { type AddTagsCommandInput, type AddTagsCommandOutput, AddTagsCommand } from "./commands/AddTagsCommand";
 import {
+  type AssociatePackageCommandInput,
+  type AssociatePackageCommandOutput,
   AssociatePackageCommand,
-  AssociatePackageCommandInput,
-  AssociatePackageCommandOutput,
 } from "./commands/AssociatePackageCommand";
 import {
+  type AssociatePackagesCommandInput,
+  type AssociatePackagesCommandOutput,
   AssociatePackagesCommand,
-  AssociatePackagesCommandInput,
-  AssociatePackagesCommandOutput,
 } from "./commands/AssociatePackagesCommand";
 import {
+  type AuthorizeVpcEndpointAccessCommandInput,
+  type AuthorizeVpcEndpointAccessCommandOutput,
   AuthorizeVpcEndpointAccessCommand,
-  AuthorizeVpcEndpointAccessCommandInput,
-  AuthorizeVpcEndpointAccessCommandOutput,
 } from "./commands/AuthorizeVpcEndpointAccessCommand";
 import {
+  type CancelDomainConfigChangeCommandInput,
+  type CancelDomainConfigChangeCommandOutput,
   CancelDomainConfigChangeCommand,
-  CancelDomainConfigChangeCommandInput,
-  CancelDomainConfigChangeCommandOutput,
 } from "./commands/CancelDomainConfigChangeCommand";
 import {
+  type CancelServiceSoftwareUpdateCommandInput,
+  type CancelServiceSoftwareUpdateCommandOutput,
   CancelServiceSoftwareUpdateCommand,
-  CancelServiceSoftwareUpdateCommandInput,
-  CancelServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelServiceSoftwareUpdateCommand";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateDomainCommandInput,
+  type CreateDomainCommandOutput,
   CreateDomainCommand,
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
-import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
+  type CreateIndexCommandInput,
+  type CreateIndexCommandOutput,
+  CreateIndexCommand,
+} from "./commands/CreateIndexCommand";
+import {
+  type CreateOutboundConnectionCommandInput,
+  type CreateOutboundConnectionCommandOutput,
   CreateOutboundConnectionCommand,
-  CreateOutboundConnectionCommandInput,
-  CreateOutboundConnectionCommandOutput,
 } from "./commands/CreateOutboundConnectionCommand";
 import {
+  type CreatePackageCommandInput,
+  type CreatePackageCommandOutput,
   CreatePackageCommand,
-  CreatePackageCommandInput,
-  CreatePackageCommandOutput,
 } from "./commands/CreatePackageCommand";
 import {
+  type CreateVpcEndpointCommandInput,
+  type CreateVpcEndpointCommandOutput,
   CreateVpcEndpointCommand,
-  CreateVpcEndpointCommandInput,
-  CreateVpcEndpointCommandOutput,
 } from "./commands/CreateVpcEndpointCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteDataSourceCommandInput,
+  type DeleteDataSourceCommandOutput,
   DeleteDataSourceCommand,
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
 import {
+  type DeleteDirectQueryDataSourceCommandInput,
+  type DeleteDirectQueryDataSourceCommandOutput,
   DeleteDirectQueryDataSourceCommand,
-  DeleteDirectQueryDataSourceCommandInput,
-  DeleteDirectQueryDataSourceCommandOutput,
 } from "./commands/DeleteDirectQueryDataSourceCommand";
 import {
+  type DeleteDomainCommandInput,
+  type DeleteDomainCommandOutput,
   DeleteDomainCommand,
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
+  type DeleteInboundConnectionCommandInput,
+  type DeleteInboundConnectionCommandOutput,
   DeleteInboundConnectionCommand,
-  DeleteInboundConnectionCommandInput,
-  DeleteInboundConnectionCommandOutput,
 } from "./commands/DeleteInboundConnectionCommand";
-import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
+  type DeleteIndexCommandInput,
+  type DeleteIndexCommandOutput,
+  DeleteIndexCommand,
+} from "./commands/DeleteIndexCommand";
+import {
+  type DeleteOutboundConnectionCommandInput,
+  type DeleteOutboundConnectionCommandOutput,
   DeleteOutboundConnectionCommand,
-  DeleteOutboundConnectionCommandInput,
-  DeleteOutboundConnectionCommandOutput,
 } from "./commands/DeleteOutboundConnectionCommand";
 import {
+  type DeletePackageCommandInput,
+  type DeletePackageCommandOutput,
   DeletePackageCommand,
-  DeletePackageCommandInput,
-  DeletePackageCommandOutput,
 } from "./commands/DeletePackageCommand";
 import {
+  type DeleteVpcEndpointCommandInput,
+  type DeleteVpcEndpointCommandOutput,
   DeleteVpcEndpointCommand,
-  DeleteVpcEndpointCommandInput,
-  DeleteVpcEndpointCommandOutput,
 } from "./commands/DeleteVpcEndpointCommand";
 import {
+  type DescribeDomainAutoTunesCommandInput,
+  type DescribeDomainAutoTunesCommandOutput,
   DescribeDomainAutoTunesCommand,
-  DescribeDomainAutoTunesCommandInput,
-  DescribeDomainAutoTunesCommandOutput,
 } from "./commands/DescribeDomainAutoTunesCommand";
 import {
+  type DescribeDomainChangeProgressCommandInput,
+  type DescribeDomainChangeProgressCommandOutput,
   DescribeDomainChangeProgressCommand,
-  DescribeDomainChangeProgressCommandInput,
-  DescribeDomainChangeProgressCommandOutput,
 } from "./commands/DescribeDomainChangeProgressCommand";
 import {
+  type DescribeDomainCommandInput,
+  type DescribeDomainCommandOutput,
   DescribeDomainCommand,
-  DescribeDomainCommandInput,
-  DescribeDomainCommandOutput,
 } from "./commands/DescribeDomainCommand";
 import {
+  type DescribeDomainConfigCommandInput,
+  type DescribeDomainConfigCommandOutput,
   DescribeDomainConfigCommand,
-  DescribeDomainConfigCommandInput,
-  DescribeDomainConfigCommandOutput,
 } from "./commands/DescribeDomainConfigCommand";
 import {
+  type DescribeDomainHealthCommandInput,
+  type DescribeDomainHealthCommandOutput,
   DescribeDomainHealthCommand,
-  DescribeDomainHealthCommandInput,
-  DescribeDomainHealthCommandOutput,
 } from "./commands/DescribeDomainHealthCommand";
 import {
+  type DescribeDomainNodesCommandInput,
+  type DescribeDomainNodesCommandOutput,
   DescribeDomainNodesCommand,
-  DescribeDomainNodesCommandInput,
-  DescribeDomainNodesCommandOutput,
 } from "./commands/DescribeDomainNodesCommand";
 import {
+  type DescribeDomainsCommandInput,
+  type DescribeDomainsCommandOutput,
   DescribeDomainsCommand,
-  DescribeDomainsCommandInput,
-  DescribeDomainsCommandOutput,
 } from "./commands/DescribeDomainsCommand";
 import {
+  type DescribeDryRunProgressCommandInput,
+  type DescribeDryRunProgressCommandOutput,
   DescribeDryRunProgressCommand,
-  DescribeDryRunProgressCommandInput,
-  DescribeDryRunProgressCommandOutput,
 } from "./commands/DescribeDryRunProgressCommand";
 import {
+  type DescribeInboundConnectionsCommandInput,
+  type DescribeInboundConnectionsCommandOutput,
   DescribeInboundConnectionsCommand,
-  DescribeInboundConnectionsCommandInput,
-  DescribeInboundConnectionsCommandOutput,
 } from "./commands/DescribeInboundConnectionsCommand";
 import {
+  type DescribeInstanceTypeLimitsCommandInput,
+  type DescribeInstanceTypeLimitsCommandOutput,
   DescribeInstanceTypeLimitsCommand,
-  DescribeInstanceTypeLimitsCommandInput,
-  DescribeInstanceTypeLimitsCommandOutput,
 } from "./commands/DescribeInstanceTypeLimitsCommand";
 import {
+  type DescribeOutboundConnectionsCommandInput,
+  type DescribeOutboundConnectionsCommandOutput,
   DescribeOutboundConnectionsCommand,
-  DescribeOutboundConnectionsCommandInput,
-  DescribeOutboundConnectionsCommandOutput,
 } from "./commands/DescribeOutboundConnectionsCommand";
 import {
+  type DescribePackagesCommandInput,
+  type DescribePackagesCommandOutput,
   DescribePackagesCommand,
-  DescribePackagesCommandInput,
-  DescribePackagesCommandOutput,
 } from "./commands/DescribePackagesCommand";
 import {
+  type DescribeReservedInstanceOfferingsCommandInput,
+  type DescribeReservedInstanceOfferingsCommandOutput,
   DescribeReservedInstanceOfferingsCommand,
-  DescribeReservedInstanceOfferingsCommandInput,
-  DescribeReservedInstanceOfferingsCommandOutput,
 } from "./commands/DescribeReservedInstanceOfferingsCommand";
 import {
+  type DescribeReservedInstancesCommandInput,
+  type DescribeReservedInstancesCommandOutput,
   DescribeReservedInstancesCommand,
-  DescribeReservedInstancesCommandInput,
-  DescribeReservedInstancesCommandOutput,
 } from "./commands/DescribeReservedInstancesCommand";
 import {
+  type DescribeVpcEndpointsCommandInput,
+  type DescribeVpcEndpointsCommandOutput,
   DescribeVpcEndpointsCommand,
-  DescribeVpcEndpointsCommandInput,
-  DescribeVpcEndpointsCommandOutput,
 } from "./commands/DescribeVpcEndpointsCommand";
 import {
+  type DissociatePackageCommandInput,
+  type DissociatePackageCommandOutput,
   DissociatePackageCommand,
-  DissociatePackageCommandInput,
-  DissociatePackageCommandOutput,
 } from "./commands/DissociatePackageCommand";
 import {
+  type DissociatePackagesCommandInput,
+  type DissociatePackagesCommandOutput,
   DissociatePackagesCommand,
-  DissociatePackagesCommandInput,
-  DissociatePackagesCommandOutput,
 } from "./commands/DissociatePackagesCommand";
 import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
   GetApplicationCommand,
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  type GetCompatibleVersionsCommandInput,
+  type GetCompatibleVersionsCommandOutput,
   GetCompatibleVersionsCommand,
-  GetCompatibleVersionsCommandInput,
-  GetCompatibleVersionsCommandOutput,
 } from "./commands/GetCompatibleVersionsCommand";
 import {
+  type GetDataSourceCommandInput,
+  type GetDataSourceCommandOutput,
   GetDataSourceCommand,
-  GetDataSourceCommandInput,
-  GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand";
 import {
+  type GetDefaultApplicationSettingCommandInput,
+  type GetDefaultApplicationSettingCommandOutput,
   GetDefaultApplicationSettingCommand,
-  GetDefaultApplicationSettingCommandInput,
-  GetDefaultApplicationSettingCommandOutput,
 } from "./commands/GetDefaultApplicationSettingCommand";
 import {
+  type GetDirectQueryDataSourceCommandInput,
+  type GetDirectQueryDataSourceCommandOutput,
   GetDirectQueryDataSourceCommand,
-  GetDirectQueryDataSourceCommandInput,
-  GetDirectQueryDataSourceCommandOutput,
 } from "./commands/GetDirectQueryDataSourceCommand";
 import {
+  type GetDomainMaintenanceStatusCommandInput,
+  type GetDomainMaintenanceStatusCommandOutput,
   GetDomainMaintenanceStatusCommand,
-  GetDomainMaintenanceStatusCommandInput,
-  GetDomainMaintenanceStatusCommandOutput,
 } from "./commands/GetDomainMaintenanceStatusCommand";
-import { GetIndexCommand, GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import { type GetIndexCommandInput, type GetIndexCommandOutput, GetIndexCommand } from "./commands/GetIndexCommand";
 import {
+  type GetPackageVersionHistoryCommandInput,
+  type GetPackageVersionHistoryCommandOutput,
   GetPackageVersionHistoryCommand,
-  GetPackageVersionHistoryCommandInput,
-  GetPackageVersionHistoryCommandOutput,
 } from "./commands/GetPackageVersionHistoryCommand";
 import {
+  type GetUpgradeHistoryCommandInput,
+  type GetUpgradeHistoryCommandOutput,
   GetUpgradeHistoryCommand,
-  GetUpgradeHistoryCommandInput,
-  GetUpgradeHistoryCommandOutput,
 } from "./commands/GetUpgradeHistoryCommand";
 import {
+  type GetUpgradeStatusCommandInput,
+  type GetUpgradeStatusCommandOutput,
   GetUpgradeStatusCommand,
-  GetUpgradeStatusCommandInput,
-  GetUpgradeStatusCommandOutput,
 } from "./commands/GetUpgradeStatusCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListDataSourcesCommandInput,
+  type ListDataSourcesCommandOutput,
   ListDataSourcesCommand,
-  ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
 import {
+  type ListDirectQueryDataSourcesCommandInput,
+  type ListDirectQueryDataSourcesCommandOutput,
   ListDirectQueryDataSourcesCommand,
-  ListDirectQueryDataSourcesCommandInput,
-  ListDirectQueryDataSourcesCommandOutput,
 } from "./commands/ListDirectQueryDataSourcesCommand";
 import {
+  type ListDomainMaintenancesCommandInput,
+  type ListDomainMaintenancesCommandOutput,
   ListDomainMaintenancesCommand,
-  ListDomainMaintenancesCommandInput,
-  ListDomainMaintenancesCommandOutput,
 } from "./commands/ListDomainMaintenancesCommand";
 import {
+  type ListDomainNamesCommandInput,
+  type ListDomainNamesCommandOutput,
   ListDomainNamesCommand,
-  ListDomainNamesCommandInput,
-  ListDomainNamesCommandOutput,
 } from "./commands/ListDomainNamesCommand";
 import {
+  type ListDomainsForPackageCommandInput,
+  type ListDomainsForPackageCommandOutput,
   ListDomainsForPackageCommand,
-  ListDomainsForPackageCommandInput,
-  ListDomainsForPackageCommandOutput,
 } from "./commands/ListDomainsForPackageCommand";
 import {
+  type ListInstanceTypeDetailsCommandInput,
+  type ListInstanceTypeDetailsCommandOutput,
   ListInstanceTypeDetailsCommand,
-  ListInstanceTypeDetailsCommandInput,
-  ListInstanceTypeDetailsCommandOutput,
 } from "./commands/ListInstanceTypeDetailsCommand";
 import {
+  type ListPackagesForDomainCommandInput,
+  type ListPackagesForDomainCommandOutput,
   ListPackagesForDomainCommand,
-  ListPackagesForDomainCommandInput,
-  ListPackagesForDomainCommandOutput,
 } from "./commands/ListPackagesForDomainCommand";
 import {
+  type ListScheduledActionsCommandInput,
+  type ListScheduledActionsCommandOutput,
   ListScheduledActionsCommand,
-  ListScheduledActionsCommandInput,
-  ListScheduledActionsCommandOutput,
 } from "./commands/ListScheduledActionsCommand";
-import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { type ListTagsCommandInput, type ListTagsCommandOutput, ListTagsCommand } from "./commands/ListTagsCommand";
 import {
+  type ListVersionsCommandInput,
+  type ListVersionsCommandOutput,
   ListVersionsCommand,
-  ListVersionsCommandInput,
-  ListVersionsCommandOutput,
 } from "./commands/ListVersionsCommand";
 import {
+  type ListVpcEndpointAccessCommandInput,
+  type ListVpcEndpointAccessCommandOutput,
   ListVpcEndpointAccessCommand,
-  ListVpcEndpointAccessCommandInput,
-  ListVpcEndpointAccessCommandOutput,
 } from "./commands/ListVpcEndpointAccessCommand";
 import {
+  type ListVpcEndpointsCommandInput,
+  type ListVpcEndpointsCommandOutput,
   ListVpcEndpointsCommand,
-  ListVpcEndpointsCommandInput,
-  ListVpcEndpointsCommandOutput,
 } from "./commands/ListVpcEndpointsCommand";
 import {
+  type ListVpcEndpointsForDomainCommandInput,
+  type ListVpcEndpointsForDomainCommandOutput,
   ListVpcEndpointsForDomainCommand,
-  ListVpcEndpointsForDomainCommandInput,
-  ListVpcEndpointsForDomainCommandOutput,
 } from "./commands/ListVpcEndpointsForDomainCommand";
 import {
+  type PurchaseReservedInstanceOfferingCommandInput,
+  type PurchaseReservedInstanceOfferingCommandOutput,
   PurchaseReservedInstanceOfferingCommand,
-  PurchaseReservedInstanceOfferingCommandInput,
-  PurchaseReservedInstanceOfferingCommandOutput,
 } from "./commands/PurchaseReservedInstanceOfferingCommand";
 import {
+  type PutDefaultApplicationSettingCommandInput,
+  type PutDefaultApplicationSettingCommandOutput,
   PutDefaultApplicationSettingCommand,
-  PutDefaultApplicationSettingCommandInput,
-  PutDefaultApplicationSettingCommandOutput,
 } from "./commands/PutDefaultApplicationSettingCommand";
 import {
+  type RejectInboundConnectionCommandInput,
+  type RejectInboundConnectionCommandOutput,
   RejectInboundConnectionCommand,
-  RejectInboundConnectionCommandInput,
-  RejectInboundConnectionCommandOutput,
 } from "./commands/RejectInboundConnectionCommand";
-import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
+  type RemoveTagsCommandInput,
+  type RemoveTagsCommandOutput,
+  RemoveTagsCommand,
+} from "./commands/RemoveTagsCommand";
+import {
+  type RevokeVpcEndpointAccessCommandInput,
+  type RevokeVpcEndpointAccessCommandOutput,
   RevokeVpcEndpointAccessCommand,
-  RevokeVpcEndpointAccessCommandInput,
-  RevokeVpcEndpointAccessCommandOutput,
 } from "./commands/RevokeVpcEndpointAccessCommand";
 import {
+  type StartDomainMaintenanceCommandInput,
+  type StartDomainMaintenanceCommandOutput,
   StartDomainMaintenanceCommand,
-  StartDomainMaintenanceCommandInput,
-  StartDomainMaintenanceCommandOutput,
 } from "./commands/StartDomainMaintenanceCommand";
 import {
+  type StartServiceSoftwareUpdateCommandInput,
+  type StartServiceSoftwareUpdateCommandOutput,
   StartServiceSoftwareUpdateCommand,
-  StartServiceSoftwareUpdateCommandInput,
-  StartServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartServiceSoftwareUpdateCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateDataSourceCommandInput,
+  type UpdateDataSourceCommandOutput,
   UpdateDataSourceCommand,
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import {
+  type UpdateDirectQueryDataSourceCommandInput,
+  type UpdateDirectQueryDataSourceCommandOutput,
   UpdateDirectQueryDataSourceCommand,
-  UpdateDirectQueryDataSourceCommandInput,
-  UpdateDirectQueryDataSourceCommandOutput,
 } from "./commands/UpdateDirectQueryDataSourceCommand";
 import {
+  type UpdateDomainConfigCommandInput,
+  type UpdateDomainConfigCommandOutput,
   UpdateDomainConfigCommand,
-  UpdateDomainConfigCommandInput,
-  UpdateDomainConfigCommandOutput,
 } from "./commands/UpdateDomainConfigCommand";
-import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
+  type UpdateIndexCommandInput,
+  type UpdateIndexCommandOutput,
+  UpdateIndexCommand,
+} from "./commands/UpdateIndexCommand";
+import {
+  type UpdatePackageCommandInput,
+  type UpdatePackageCommandOutput,
   UpdatePackageCommand,
-  UpdatePackageCommandInput,
-  UpdatePackageCommandOutput,
 } from "./commands/UpdatePackageCommand";
 import {
+  type UpdatePackageScopeCommandInput,
+  type UpdatePackageScopeCommandOutput,
   UpdatePackageScopeCommand,
-  UpdatePackageScopeCommandInput,
-  UpdatePackageScopeCommandOutput,
 } from "./commands/UpdatePackageScopeCommand";
 import {
+  type UpdateScheduledActionCommandInput,
+  type UpdateScheduledActionCommandOutput,
   UpdateScheduledActionCommand,
-  UpdateScheduledActionCommandInput,
-  UpdateScheduledActionCommandOutput,
 } from "./commands/UpdateScheduledActionCommand";
 import {
+  type UpdateVpcEndpointCommandInput,
+  type UpdateVpcEndpointCommandOutput,
   UpdateVpcEndpointCommand,
-  UpdateVpcEndpointCommandInput,
-  UpdateVpcEndpointCommandOutput,
 } from "./commands/UpdateVpcEndpointCommand";
 import {
+  type UpgradeDomainCommandInput,
+  type UpgradeDomainCommandOutput,
   UpgradeDomainCommand,
-  UpgradeDomainCommandInput,
-  UpgradeDomainCommandOutput,
 } from "./commands/UpgradeDomainCommand";
 import { OpenSearchClient } from "./OpenSearchClient";
 import { paginateDescribeDomainAutoTunes } from "./pagination/DescribeDomainAutoTunesPaginator";

@@ -3,214 +3,230 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchGetCollectionCommandInput,
+  type BatchGetCollectionCommandOutput,
   BatchGetCollectionCommand,
-  BatchGetCollectionCommandInput,
-  BatchGetCollectionCommandOutput,
 } from "./commands/BatchGetCollectionCommand";
 import {
+  type BatchGetCollectionGroupCommandInput,
+  type BatchGetCollectionGroupCommandOutput,
   BatchGetCollectionGroupCommand,
-  BatchGetCollectionGroupCommandInput,
-  BatchGetCollectionGroupCommandOutput,
 } from "./commands/BatchGetCollectionGroupCommand";
 import {
+  type BatchGetEffectiveLifecyclePolicyCommandInput,
+  type BatchGetEffectiveLifecyclePolicyCommandOutput,
   BatchGetEffectiveLifecyclePolicyCommand,
-  BatchGetEffectiveLifecyclePolicyCommandInput,
-  BatchGetEffectiveLifecyclePolicyCommandOutput,
 } from "./commands/BatchGetEffectiveLifecyclePolicyCommand";
 import {
+  type BatchGetLifecyclePolicyCommandInput,
+  type BatchGetLifecyclePolicyCommandOutput,
   BatchGetLifecyclePolicyCommand,
-  BatchGetLifecyclePolicyCommandInput,
-  BatchGetLifecyclePolicyCommandOutput,
 } from "./commands/BatchGetLifecyclePolicyCommand";
 import {
+  type BatchGetVpcEndpointCommandInput,
+  type BatchGetVpcEndpointCommandOutput,
   BatchGetVpcEndpointCommand,
-  BatchGetVpcEndpointCommandInput,
-  BatchGetVpcEndpointCommandOutput,
 } from "./commands/BatchGetVpcEndpointCommand";
 import {
+  type CreateAccessPolicyCommandInput,
+  type CreateAccessPolicyCommandOutput,
   CreateAccessPolicyCommand,
-  CreateAccessPolicyCommandInput,
-  CreateAccessPolicyCommandOutput,
 } from "./commands/CreateAccessPolicyCommand";
 import {
+  type CreateCollectionCommandInput,
+  type CreateCollectionCommandOutput,
   CreateCollectionCommand,
-  CreateCollectionCommandInput,
-  CreateCollectionCommandOutput,
 } from "./commands/CreateCollectionCommand";
 import {
+  type CreateCollectionGroupCommandInput,
+  type CreateCollectionGroupCommandOutput,
   CreateCollectionGroupCommand,
-  CreateCollectionGroupCommandInput,
-  CreateCollectionGroupCommandOutput,
 } from "./commands/CreateCollectionGroupCommand";
-import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
+  type CreateIndexCommandInput,
+  type CreateIndexCommandOutput,
+  CreateIndexCommand,
+} from "./commands/CreateIndexCommand";
+import {
+  type CreateLifecyclePolicyCommandInput,
+  type CreateLifecyclePolicyCommandOutput,
   CreateLifecyclePolicyCommand,
-  CreateLifecyclePolicyCommandInput,
-  CreateLifecyclePolicyCommandOutput,
 } from "./commands/CreateLifecyclePolicyCommand";
 import {
+  type CreateSecurityConfigCommandInput,
+  type CreateSecurityConfigCommandOutput,
   CreateSecurityConfigCommand,
-  CreateSecurityConfigCommandInput,
-  CreateSecurityConfigCommandOutput,
 } from "./commands/CreateSecurityConfigCommand";
 import {
+  type CreateSecurityPolicyCommandInput,
+  type CreateSecurityPolicyCommandOutput,
   CreateSecurityPolicyCommand,
-  CreateSecurityPolicyCommandInput,
-  CreateSecurityPolicyCommandOutput,
 } from "./commands/CreateSecurityPolicyCommand";
 import {
+  type CreateVpcEndpointCommandInput,
+  type CreateVpcEndpointCommandOutput,
   CreateVpcEndpointCommand,
-  CreateVpcEndpointCommandInput,
-  CreateVpcEndpointCommandOutput,
 } from "./commands/CreateVpcEndpointCommand";
 import {
+  type DeleteAccessPolicyCommandInput,
+  type DeleteAccessPolicyCommandOutput,
   DeleteAccessPolicyCommand,
-  DeleteAccessPolicyCommandInput,
-  DeleteAccessPolicyCommandOutput,
 } from "./commands/DeleteAccessPolicyCommand";
 import {
+  type DeleteCollectionCommandInput,
+  type DeleteCollectionCommandOutput,
   DeleteCollectionCommand,
-  DeleteCollectionCommandInput,
-  DeleteCollectionCommandOutput,
 } from "./commands/DeleteCollectionCommand";
 import {
+  type DeleteCollectionGroupCommandInput,
+  type DeleteCollectionGroupCommandOutput,
   DeleteCollectionGroupCommand,
-  DeleteCollectionGroupCommandInput,
-  DeleteCollectionGroupCommandOutput,
 } from "./commands/DeleteCollectionGroupCommand";
-import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
+  type DeleteIndexCommandInput,
+  type DeleteIndexCommandOutput,
+  DeleteIndexCommand,
+} from "./commands/DeleteIndexCommand";
+import {
+  type DeleteLifecyclePolicyCommandInput,
+  type DeleteLifecyclePolicyCommandOutput,
   DeleteLifecyclePolicyCommand,
-  DeleteLifecyclePolicyCommandInput,
-  DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
 import {
+  type DeleteSecurityConfigCommandInput,
+  type DeleteSecurityConfigCommandOutput,
   DeleteSecurityConfigCommand,
-  DeleteSecurityConfigCommandInput,
-  DeleteSecurityConfigCommandOutput,
 } from "./commands/DeleteSecurityConfigCommand";
 import {
+  type DeleteSecurityPolicyCommandInput,
+  type DeleteSecurityPolicyCommandOutput,
   DeleteSecurityPolicyCommand,
-  DeleteSecurityPolicyCommandInput,
-  DeleteSecurityPolicyCommandOutput,
 } from "./commands/DeleteSecurityPolicyCommand";
 import {
+  type DeleteVpcEndpointCommandInput,
+  type DeleteVpcEndpointCommandOutput,
   DeleteVpcEndpointCommand,
-  DeleteVpcEndpointCommandInput,
-  DeleteVpcEndpointCommandOutput,
 } from "./commands/DeleteVpcEndpointCommand";
 import {
+  type GetAccessPolicyCommandInput,
+  type GetAccessPolicyCommandOutput,
   GetAccessPolicyCommand,
-  GetAccessPolicyCommandInput,
-  GetAccessPolicyCommandOutput,
 } from "./commands/GetAccessPolicyCommand";
 import {
+  type GetAccountSettingsCommandInput,
+  type GetAccountSettingsCommandOutput,
   GetAccountSettingsCommand,
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
-import { GetIndexCommand, GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import { type GetIndexCommandInput, type GetIndexCommandOutput, GetIndexCommand } from "./commands/GetIndexCommand";
 import {
+  type GetPoliciesStatsCommandInput,
+  type GetPoliciesStatsCommandOutput,
   GetPoliciesStatsCommand,
-  GetPoliciesStatsCommandInput,
-  GetPoliciesStatsCommandOutput,
 } from "./commands/GetPoliciesStatsCommand";
 import {
+  type GetSecurityConfigCommandInput,
+  type GetSecurityConfigCommandOutput,
   GetSecurityConfigCommand,
-  GetSecurityConfigCommandInput,
-  GetSecurityConfigCommandOutput,
 } from "./commands/GetSecurityConfigCommand";
 import {
+  type GetSecurityPolicyCommandInput,
+  type GetSecurityPolicyCommandOutput,
   GetSecurityPolicyCommand,
-  GetSecurityPolicyCommandInput,
-  GetSecurityPolicyCommandOutput,
 } from "./commands/GetSecurityPolicyCommand";
 import {
+  type ListAccessPoliciesCommandInput,
+  type ListAccessPoliciesCommandOutput,
   ListAccessPoliciesCommand,
-  ListAccessPoliciesCommandInput,
-  ListAccessPoliciesCommandOutput,
 } from "./commands/ListAccessPoliciesCommand";
 import {
+  type ListCollectionGroupsCommandInput,
+  type ListCollectionGroupsCommandOutput,
   ListCollectionGroupsCommand,
-  ListCollectionGroupsCommandInput,
-  ListCollectionGroupsCommandOutput,
 } from "./commands/ListCollectionGroupsCommand";
 import {
+  type ListCollectionsCommandInput,
+  type ListCollectionsCommandOutput,
   ListCollectionsCommand,
-  ListCollectionsCommandInput,
-  ListCollectionsCommandOutput,
 } from "./commands/ListCollectionsCommand";
 import {
+  type ListLifecyclePoliciesCommandInput,
+  type ListLifecyclePoliciesCommandOutput,
   ListLifecyclePoliciesCommand,
-  ListLifecyclePoliciesCommandInput,
-  ListLifecyclePoliciesCommandOutput,
 } from "./commands/ListLifecyclePoliciesCommand";
 import {
+  type ListSecurityConfigsCommandInput,
+  type ListSecurityConfigsCommandOutput,
   ListSecurityConfigsCommand,
-  ListSecurityConfigsCommandInput,
-  ListSecurityConfigsCommandOutput,
 } from "./commands/ListSecurityConfigsCommand";
 import {
+  type ListSecurityPoliciesCommandInput,
+  type ListSecurityPoliciesCommandOutput,
   ListSecurityPoliciesCommand,
-  ListSecurityPoliciesCommandInput,
-  ListSecurityPoliciesCommandOutput,
 } from "./commands/ListSecurityPoliciesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVpcEndpointsCommandInput,
+  type ListVpcEndpointsCommandOutput,
   ListVpcEndpointsCommand,
-  ListVpcEndpointsCommandInput,
-  ListVpcEndpointsCommandOutput,
 } from "./commands/ListVpcEndpointsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccessPolicyCommandInput,
+  type UpdateAccessPolicyCommandOutput,
   UpdateAccessPolicyCommand,
-  UpdateAccessPolicyCommandInput,
-  UpdateAccessPolicyCommandOutput,
 } from "./commands/UpdateAccessPolicyCommand";
 import {
+  type UpdateAccountSettingsCommandInput,
+  type UpdateAccountSettingsCommandOutput,
   UpdateAccountSettingsCommand,
-  UpdateAccountSettingsCommandInput,
-  UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
 import {
+  type UpdateCollectionCommandInput,
+  type UpdateCollectionCommandOutput,
   UpdateCollectionCommand,
-  UpdateCollectionCommandInput,
-  UpdateCollectionCommandOutput,
 } from "./commands/UpdateCollectionCommand";
 import {
+  type UpdateCollectionGroupCommandInput,
+  type UpdateCollectionGroupCommandOutput,
   UpdateCollectionGroupCommand,
-  UpdateCollectionGroupCommandInput,
-  UpdateCollectionGroupCommandOutput,
 } from "./commands/UpdateCollectionGroupCommand";
-import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
+  type UpdateIndexCommandInput,
+  type UpdateIndexCommandOutput,
+  UpdateIndexCommand,
+} from "./commands/UpdateIndexCommand";
+import {
+  type UpdateLifecyclePolicyCommandInput,
+  type UpdateLifecyclePolicyCommandOutput,
   UpdateLifecyclePolicyCommand,
-  UpdateLifecyclePolicyCommandInput,
-  UpdateLifecyclePolicyCommandOutput,
 } from "./commands/UpdateLifecyclePolicyCommand";
 import {
+  type UpdateSecurityConfigCommandInput,
+  type UpdateSecurityConfigCommandOutput,
   UpdateSecurityConfigCommand,
-  UpdateSecurityConfigCommandInput,
-  UpdateSecurityConfigCommandOutput,
 } from "./commands/UpdateSecurityConfigCommand";
 import {
+  type UpdateSecurityPolicyCommandInput,
+  type UpdateSecurityPolicyCommandOutput,
   UpdateSecurityPolicyCommand,
-  UpdateSecurityPolicyCommandInput,
-  UpdateSecurityPolicyCommandOutput,
 } from "./commands/UpdateSecurityPolicyCommand";
 import {
+  type UpdateVpcEndpointCommandInput,
+  type UpdateVpcEndpointCommandOutput,
   UpdateVpcEndpointCommand,
-  UpdateVpcEndpointCommandInput,
-  UpdateVpcEndpointCommandOutput,
 } from "./commands/UpdateVpcEndpointCommand";
 import { OpenSearchServerlessClient } from "./OpenSearchServerlessClient";
 import { paginateListAccessPolicies } from "./pagination/ListAccessPoliciesPaginator";

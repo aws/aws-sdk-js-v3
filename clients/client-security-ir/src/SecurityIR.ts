@@ -3,100 +3,112 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchGetMemberAccountDetailsCommandInput,
+  type BatchGetMemberAccountDetailsCommandOutput,
   BatchGetMemberAccountDetailsCommand,
-  BatchGetMemberAccountDetailsCommandInput,
-  BatchGetMemberAccountDetailsCommandOutput,
 } from "./commands/BatchGetMemberAccountDetailsCommand";
 import {
+  type CancelMembershipCommandInput,
+  type CancelMembershipCommandOutput,
   CancelMembershipCommand,
-  CancelMembershipCommandInput,
-  CancelMembershipCommandOutput,
 } from "./commands/CancelMembershipCommand";
-import { CloseCaseCommand, CloseCaseCommandInput, CloseCaseCommandOutput } from "./commands/CloseCaseCommand";
-import { CreateCaseCommand, CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
+import { type CloseCaseCommandInput, type CloseCaseCommandOutput, CloseCaseCommand } from "./commands/CloseCaseCommand";
 import {
+  type CreateCaseCommandInput,
+  type CreateCaseCommandOutput,
+  CreateCaseCommand,
+} from "./commands/CreateCaseCommand";
+import {
+  type CreateCaseCommentCommandInput,
+  type CreateCaseCommentCommandOutput,
   CreateCaseCommentCommand,
-  CreateCaseCommentCommandInput,
-  CreateCaseCommentCommandOutput,
 } from "./commands/CreateCaseCommentCommand";
 import {
+  type CreateMembershipCommandInput,
+  type CreateMembershipCommandOutput,
   CreateMembershipCommand,
-  CreateMembershipCommandInput,
-  CreateMembershipCommandOutput,
 } from "./commands/CreateMembershipCommand";
 import {
+  type GetCaseAttachmentDownloadUrlCommandInput,
+  type GetCaseAttachmentDownloadUrlCommandOutput,
   GetCaseAttachmentDownloadUrlCommand,
-  GetCaseAttachmentDownloadUrlCommandInput,
-  GetCaseAttachmentDownloadUrlCommandOutput,
 } from "./commands/GetCaseAttachmentDownloadUrlCommand";
 import {
+  type GetCaseAttachmentUploadUrlCommandInput,
+  type GetCaseAttachmentUploadUrlCommandOutput,
   GetCaseAttachmentUploadUrlCommand,
-  GetCaseAttachmentUploadUrlCommandInput,
-  GetCaseAttachmentUploadUrlCommandOutput,
 } from "./commands/GetCaseAttachmentUploadUrlCommand";
-import { GetCaseCommand, GetCaseCommandInput, GetCaseCommandOutput } from "./commands/GetCaseCommand";
+import { type GetCaseCommandInput, type GetCaseCommandOutput, GetCaseCommand } from "./commands/GetCaseCommand";
 import {
+  type GetMembershipCommandInput,
+  type GetMembershipCommandOutput,
   GetMembershipCommand,
-  GetMembershipCommandInput,
-  GetMembershipCommandOutput,
 } from "./commands/GetMembershipCommand";
 import {
+  type ListCaseEditsCommandInput,
+  type ListCaseEditsCommandOutput,
   ListCaseEditsCommand,
-  ListCaseEditsCommandInput,
-  ListCaseEditsCommandOutput,
 } from "./commands/ListCaseEditsCommand";
-import { ListCasesCommand, ListCasesCommandInput, ListCasesCommandOutput } from "./commands/ListCasesCommand";
+import { type ListCasesCommandInput, type ListCasesCommandOutput, ListCasesCommand } from "./commands/ListCasesCommand";
 import {
+  type ListCommentsCommandInput,
+  type ListCommentsCommandOutput,
   ListCommentsCommand,
-  ListCommentsCommandInput,
-  ListCommentsCommandOutput,
 } from "./commands/ListCommentsCommand";
 import {
+  type ListInvestigationsCommandInput,
+  type ListInvestigationsCommandOutput,
   ListInvestigationsCommand,
-  ListInvestigationsCommandInput,
-  ListInvestigationsCommandOutput,
 } from "./commands/ListInvestigationsCommand";
 import {
+  type ListMembershipsCommandInput,
+  type ListMembershipsCommandOutput,
   ListMembershipsCommand,
-  ListMembershipsCommandInput,
-  ListMembershipsCommandOutput,
 } from "./commands/ListMembershipsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type SendFeedbackCommandInput,
+  type SendFeedbackCommandOutput,
   SendFeedbackCommand,
-  SendFeedbackCommandInput,
-  SendFeedbackCommandOutput,
 } from "./commands/SendFeedbackCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateCaseCommand, UpdateCaseCommandInput, UpdateCaseCommandOutput } from "./commands/UpdateCaseCommand";
 import {
+  type UpdateCaseCommandInput,
+  type UpdateCaseCommandOutput,
+  UpdateCaseCommand,
+} from "./commands/UpdateCaseCommand";
+import {
+  type UpdateCaseCommentCommandInput,
+  type UpdateCaseCommentCommandOutput,
   UpdateCaseCommentCommand,
-  UpdateCaseCommentCommandInput,
-  UpdateCaseCommentCommandOutput,
 } from "./commands/UpdateCaseCommentCommand";
 import {
+  type UpdateCaseStatusCommandInput,
+  type UpdateCaseStatusCommandOutput,
   UpdateCaseStatusCommand,
-  UpdateCaseStatusCommandInput,
-  UpdateCaseStatusCommandOutput,
 } from "./commands/UpdateCaseStatusCommand";
 import {
+  type UpdateMembershipCommandInput,
+  type UpdateMembershipCommandOutput,
   UpdateMembershipCommand,
-  UpdateMembershipCommandInput,
-  UpdateMembershipCommandOutput,
 } from "./commands/UpdateMembershipCommand";
 import {
+  type UpdateResolverTypeCommandInput,
+  type UpdateResolverTypeCommandOutput,
   UpdateResolverTypeCommand,
-  UpdateResolverTypeCommandInput,
-  UpdateResolverTypeCommandOutput,
 } from "./commands/UpdateResolverTypeCommand";
 import { paginateListCaseEdits } from "./pagination/ListCaseEditsPaginator";
 import { paginateListCases } from "./pagination/ListCasesPaginator";

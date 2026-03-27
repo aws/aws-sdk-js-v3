@@ -8,7 +8,7 @@ import {
   ListDatasetsCommandOutput,
 } from "../commands/ListDatasetsCommand";
 import { DataBrewClient } from "../DataBrewClient";
-import { DataBrewPaginationConfiguration } from "./Interfaces";
+import type { DataBrewPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

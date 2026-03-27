@@ -8,7 +8,7 @@ import {
   ListAccessTokensCommandOutput,
 } from "../commands/ListAccessTokensCommand";
 import { Route53GlobalResolverClient } from "../Route53GlobalResolverClient";
-import { Route53GlobalResolverPaginationConfiguration } from "./Interfaces";
+import type { Route53GlobalResolverPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

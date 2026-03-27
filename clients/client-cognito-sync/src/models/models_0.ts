@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { BulkPublishStatus, Operation, Platform, StreamingStatus } from "./enums";
+import type { BulkPublishStatus, Operation, Platform, StreamingStatus } from "./enums";
 
 /**
  * The input for the BulkPublish operation.

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,82 +61,91 @@ import {
   defaultLexModelBuildingServiceHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateBotVersionCommandInput, CreateBotVersionCommandOutput } from "./commands/CreateBotVersionCommand";
-import {
+import type { CreateBotVersionCommandInput, CreateBotVersionCommandOutput } from "./commands/CreateBotVersionCommand";
+import type {
   CreateIntentVersionCommandInput,
   CreateIntentVersionCommandOutput,
 } from "./commands/CreateIntentVersionCommand";
-import {
+import type {
   CreateSlotTypeVersionCommandInput,
   CreateSlotTypeVersionCommandOutput,
 } from "./commands/CreateSlotTypeVersionCommand";
-import { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "./commands/DeleteBotAliasCommand";
-import {
+import type { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "./commands/DeleteBotAliasCommand";
+import type {
   DeleteBotChannelAssociationCommandInput,
   DeleteBotChannelAssociationCommandOutput,
 } from "./commands/DeleteBotChannelAssociationCommand";
-import { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
-import { DeleteBotVersionCommandInput, DeleteBotVersionCommandOutput } from "./commands/DeleteBotVersionCommand";
-import { DeleteIntentCommandInput, DeleteIntentCommandOutput } from "./commands/DeleteIntentCommand";
-import {
+import type { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
+import type { DeleteBotVersionCommandInput, DeleteBotVersionCommandOutput } from "./commands/DeleteBotVersionCommand";
+import type { DeleteIntentCommandInput, DeleteIntentCommandOutput } from "./commands/DeleteIntentCommand";
+import type {
   DeleteIntentVersionCommandInput,
   DeleteIntentVersionCommandOutput,
 } from "./commands/DeleteIntentVersionCommand";
-import { DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput } from "./commands/DeleteSlotTypeCommand";
-import {
+import type { DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput } from "./commands/DeleteSlotTypeCommand";
+import type {
   DeleteSlotTypeVersionCommandInput,
   DeleteSlotTypeVersionCommandOutput,
 } from "./commands/DeleteSlotTypeVersionCommand";
-import { DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput } from "./commands/DeleteUtterancesCommand";
-import { GetBotAliasCommandInput, GetBotAliasCommandOutput } from "./commands/GetBotAliasCommand";
-import { GetBotAliasesCommandInput, GetBotAliasesCommandOutput } from "./commands/GetBotAliasesCommand";
-import {
+import type { DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput } from "./commands/DeleteUtterancesCommand";
+import type { GetBotAliasCommandInput, GetBotAliasCommandOutput } from "./commands/GetBotAliasCommand";
+import type { GetBotAliasesCommandInput, GetBotAliasesCommandOutput } from "./commands/GetBotAliasesCommand";
+import type {
   GetBotChannelAssociationCommandInput,
   GetBotChannelAssociationCommandOutput,
 } from "./commands/GetBotChannelAssociationCommand";
-import {
+import type {
   GetBotChannelAssociationsCommandInput,
   GetBotChannelAssociationsCommandOutput,
 } from "./commands/GetBotChannelAssociationsCommand";
-import { GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
-import { GetBotsCommandInput, GetBotsCommandOutput } from "./commands/GetBotsCommand";
-import { GetBotVersionsCommandInput, GetBotVersionsCommandOutput } from "./commands/GetBotVersionsCommand";
-import { GetBuiltinIntentCommandInput, GetBuiltinIntentCommandOutput } from "./commands/GetBuiltinIntentCommand";
-import { GetBuiltinIntentsCommandInput, GetBuiltinIntentsCommandOutput } from "./commands/GetBuiltinIntentsCommand";
-import {
+import type { GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
+import type { GetBotsCommandInput, GetBotsCommandOutput } from "./commands/GetBotsCommand";
+import type { GetBotVersionsCommandInput, GetBotVersionsCommandOutput } from "./commands/GetBotVersionsCommand";
+import type { GetBuiltinIntentCommandInput, GetBuiltinIntentCommandOutput } from "./commands/GetBuiltinIntentCommand";
+import type {
+  GetBuiltinIntentsCommandInput,
+  GetBuiltinIntentsCommandOutput,
+} from "./commands/GetBuiltinIntentsCommand";
+import type {
   GetBuiltinSlotTypesCommandInput,
   GetBuiltinSlotTypesCommandOutput,
 } from "./commands/GetBuiltinSlotTypesCommand";
-import { GetExportCommandInput, GetExportCommandOutput } from "./commands/GetExportCommand";
-import { GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
-import { GetIntentCommandInput, GetIntentCommandOutput } from "./commands/GetIntentCommand";
-import { GetIntentsCommandInput, GetIntentsCommandOutput } from "./commands/GetIntentsCommand";
-import { GetIntentVersionsCommandInput, GetIntentVersionsCommandOutput } from "./commands/GetIntentVersionsCommand";
-import { GetMigrationCommandInput, GetMigrationCommandOutput } from "./commands/GetMigrationCommand";
-import { GetMigrationsCommandInput, GetMigrationsCommandOutput } from "./commands/GetMigrationsCommand";
-import { GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "./commands/GetSlotTypeCommand";
-import { GetSlotTypesCommandInput, GetSlotTypesCommandOutput } from "./commands/GetSlotTypesCommand";
-import {
+import type { GetExportCommandInput, GetExportCommandOutput } from "./commands/GetExportCommand";
+import type { GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
+import type { GetIntentCommandInput, GetIntentCommandOutput } from "./commands/GetIntentCommand";
+import type { GetIntentsCommandInput, GetIntentsCommandOutput } from "./commands/GetIntentsCommand";
+import type {
+  GetIntentVersionsCommandInput,
+  GetIntentVersionsCommandOutput,
+} from "./commands/GetIntentVersionsCommand";
+import type { GetMigrationCommandInput, GetMigrationCommandOutput } from "./commands/GetMigrationCommand";
+import type { GetMigrationsCommandInput, GetMigrationsCommandOutput } from "./commands/GetMigrationsCommand";
+import type { GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "./commands/GetSlotTypeCommand";
+import type { GetSlotTypesCommandInput, GetSlotTypesCommandOutput } from "./commands/GetSlotTypesCommand";
+import type {
   GetSlotTypeVersionsCommandInput,
   GetSlotTypeVersionsCommandOutput,
 } from "./commands/GetSlotTypeVersionsCommand";
-import { GetUtterancesViewCommandInput, GetUtterancesViewCommandOutput } from "./commands/GetUtterancesViewCommand";
-import {
+import type {
+  GetUtterancesViewCommandInput,
+  GetUtterancesViewCommandOutput,
+} from "./commands/GetUtterancesViewCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutBotAliasCommandInput, PutBotAliasCommandOutput } from "./commands/PutBotAliasCommand";
-import { PutBotCommandInput, PutBotCommandOutput } from "./commands/PutBotCommand";
-import { PutIntentCommandInput, PutIntentCommandOutput } from "./commands/PutIntentCommand";
-import { PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "./commands/PutSlotTypeCommand";
-import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
-import { StartMigrationCommandInput, StartMigrationCommandOutput } from "./commands/StartMigrationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { PutBotAliasCommandInput, PutBotAliasCommandOutput } from "./commands/PutBotAliasCommand";
+import type { PutBotCommandInput, PutBotCommandOutput } from "./commands/PutBotCommand";
+import type { PutIntentCommandInput, PutIntentCommandOutput } from "./commands/PutIntentCommand";
+import type { PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "./commands/PutSlotTypeCommand";
+import type { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import type { StartMigrationCommandInput, StartMigrationCommandOutput } from "./commands/StartMigrationCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -354,7 +361,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

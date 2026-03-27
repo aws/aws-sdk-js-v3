@@ -3,66 +3,74 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BraketClient } from "./BraketClient";
-import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { type CancelJobCommandInput, type CancelJobCommandOutput, CancelJobCommand } from "./commands/CancelJobCommand";
 import {
+  type CancelQuantumTaskCommandInput,
+  type CancelQuantumTaskCommandOutput,
   CancelQuantumTaskCommand,
-  CancelQuantumTaskCommandInput,
-  CancelQuantumTaskCommandOutput,
 } from "./commands/CancelQuantumTaskCommand";
-import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import { type CreateJobCommandInput, type CreateJobCommandOutput, CreateJobCommand } from "./commands/CreateJobCommand";
 import {
+  type CreateQuantumTaskCommandInput,
+  type CreateQuantumTaskCommandOutput,
   CreateQuantumTaskCommand,
-  CreateQuantumTaskCommandInput,
-  CreateQuantumTaskCommandOutput,
 } from "./commands/CreateQuantumTaskCommand";
 import {
+  type CreateSpendingLimitCommandInput,
+  type CreateSpendingLimitCommandOutput,
   CreateSpendingLimitCommand,
-  CreateSpendingLimitCommandInput,
-  CreateSpendingLimitCommandOutput,
 } from "./commands/CreateSpendingLimitCommand";
 import {
+  type DeleteSpendingLimitCommandInput,
+  type DeleteSpendingLimitCommandOutput,
   DeleteSpendingLimitCommand,
-  DeleteSpendingLimitCommandInput,
-  DeleteSpendingLimitCommandOutput,
 } from "./commands/DeleteSpendingLimitCommand";
-import { GetDeviceCommand, GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
-import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import { type GetDeviceCommandInput, type GetDeviceCommandOutput, GetDeviceCommand } from "./commands/GetDeviceCommand";
+import { type GetJobCommandInput, type GetJobCommandOutput, GetJobCommand } from "./commands/GetJobCommand";
 import {
+  type GetQuantumTaskCommandInput,
+  type GetQuantumTaskCommandOutput,
   GetQuantumTaskCommand,
-  GetQuantumTaskCommandInput,
-  GetQuantumTaskCommandOutput,
 } from "./commands/GetQuantumTaskCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type SearchDevicesCommandInput,
+  type SearchDevicesCommandOutput,
   SearchDevicesCommand,
-  SearchDevicesCommandInput,
-  SearchDevicesCommandOutput,
 } from "./commands/SearchDevicesCommand";
-import { SearchJobsCommand, SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
 import {
+  type SearchJobsCommandInput,
+  type SearchJobsCommandOutput,
+  SearchJobsCommand,
+} from "./commands/SearchJobsCommand";
+import {
+  type SearchQuantumTasksCommandInput,
+  type SearchQuantumTasksCommandOutput,
   SearchQuantumTasksCommand,
-  SearchQuantumTasksCommandInput,
-  SearchQuantumTasksCommandOutput,
 } from "./commands/SearchQuantumTasksCommand";
 import {
+  type SearchSpendingLimitsCommandInput,
+  type SearchSpendingLimitsCommandOutput,
   SearchSpendingLimitsCommand,
-  SearchSpendingLimitsCommandInput,
-  SearchSpendingLimitsCommandOutput,
 } from "./commands/SearchSpendingLimitsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateSpendingLimitCommandInput,
+  type UpdateSpendingLimitCommandOutput,
   UpdateSpendingLimitCommand,
-  UpdateSpendingLimitCommandInput,
-  UpdateSpendingLimitCommandOutput,
 } from "./commands/UpdateSpendingLimitCommand";
 import { paginateSearchDevices } from "./pagination/SearchDevicesPaginator";
 import { paginateSearchJobs } from "./pagination/SearchJobsPaginator";

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,287 +61,320 @@ import {
   defaultPinpointSMSVoiceV2HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateOriginationIdentityCommandInput,
   AssociateOriginationIdentityCommandOutput,
 } from "./commands/AssociateOriginationIdentityCommand";
-import {
+import type {
   AssociateProtectConfigurationCommandInput,
   AssociateProtectConfigurationCommandOutput,
 } from "./commands/AssociateProtectConfigurationCommand";
-import { CarrierLookupCommandInput, CarrierLookupCommandOutput } from "./commands/CarrierLookupCommand";
-import {
+import type { CarrierLookupCommandInput, CarrierLookupCommandOutput } from "./commands/CarrierLookupCommand";
+import type {
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand";
-import {
+import type {
   CreateEventDestinationCommandInput,
   CreateEventDestinationCommandOutput,
 } from "./commands/CreateEventDestinationCommand";
-import { CreateOptOutListCommandInput, CreateOptOutListCommandOutput } from "./commands/CreateOptOutListCommand";
-import { CreatePoolCommandInput, CreatePoolCommandOutput } from "./commands/CreatePoolCommand";
-import {
+import type { CreateOptOutListCommandInput, CreateOptOutListCommandOutput } from "./commands/CreateOptOutListCommand";
+import type { CreatePoolCommandInput, CreatePoolCommandOutput } from "./commands/CreatePoolCommand";
+import type {
   CreateProtectConfigurationCommandInput,
   CreateProtectConfigurationCommandOutput,
 } from "./commands/CreateProtectConfigurationCommand";
-import {
+import type {
   CreateRegistrationAssociationCommandInput,
   CreateRegistrationAssociationCommandOutput,
 } from "./commands/CreateRegistrationAssociationCommand";
-import {
+import type {
   CreateRegistrationAttachmentCommandInput,
   CreateRegistrationAttachmentCommandOutput,
 } from "./commands/CreateRegistrationAttachmentCommand";
-import { CreateRegistrationCommandInput, CreateRegistrationCommandOutput } from "./commands/CreateRegistrationCommand";
-import {
+import type {
+  CreateRegistrationCommandInput,
+  CreateRegistrationCommandOutput,
+} from "./commands/CreateRegistrationCommand";
+import type {
   CreateRegistrationVersionCommandInput,
   CreateRegistrationVersionCommandOutput,
 } from "./commands/CreateRegistrationVersionCommand";
-import {
+import type {
   CreateVerifiedDestinationNumberCommandInput,
   CreateVerifiedDestinationNumberCommandOutput,
 } from "./commands/CreateVerifiedDestinationNumberCommand";
-import {
+import type {
   DeleteAccountDefaultProtectConfigurationCommandInput,
   DeleteAccountDefaultProtectConfigurationCommandOutput,
 } from "./commands/DeleteAccountDefaultProtectConfigurationCommand";
-import {
+import type {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand";
-import {
+import type {
   DeleteDefaultMessageTypeCommandInput,
   DeleteDefaultMessageTypeCommandOutput,
 } from "./commands/DeleteDefaultMessageTypeCommand";
-import {
+import type {
   DeleteDefaultSenderIdCommandInput,
   DeleteDefaultSenderIdCommandOutput,
 } from "./commands/DeleteDefaultSenderIdCommand";
-import {
+import type {
   DeleteEventDestinationCommandInput,
   DeleteEventDestinationCommandOutput,
 } from "./commands/DeleteEventDestinationCommand";
-import { DeleteKeywordCommandInput, DeleteKeywordCommandOutput } from "./commands/DeleteKeywordCommand";
-import {
+import type { DeleteKeywordCommandInput, DeleteKeywordCommandOutput } from "./commands/DeleteKeywordCommand";
+import type {
   DeleteMediaMessageSpendLimitOverrideCommandInput,
   DeleteMediaMessageSpendLimitOverrideCommandOutput,
 } from "./commands/DeleteMediaMessageSpendLimitOverrideCommand";
-import {
+import type {
   DeleteOptedOutNumberCommandInput,
   DeleteOptedOutNumberCommandOutput,
 } from "./commands/DeleteOptedOutNumberCommand";
-import { DeleteOptOutListCommandInput, DeleteOptOutListCommandOutput } from "./commands/DeleteOptOutListCommand";
-import { DeletePoolCommandInput, DeletePoolCommandOutput } from "./commands/DeletePoolCommand";
-import {
+import type { DeleteOptOutListCommandInput, DeleteOptOutListCommandOutput } from "./commands/DeleteOptOutListCommand";
+import type { DeletePoolCommandInput, DeletePoolCommandOutput } from "./commands/DeletePoolCommand";
+import type {
   DeleteProtectConfigurationCommandInput,
   DeleteProtectConfigurationCommandOutput,
 } from "./commands/DeleteProtectConfigurationCommand";
-import {
+import type {
   DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
   DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput,
 } from "./commands/DeleteProtectConfigurationRuleSetNumberOverrideCommand";
-import {
+import type {
   DeleteRegistrationAttachmentCommandInput,
   DeleteRegistrationAttachmentCommandOutput,
 } from "./commands/DeleteRegistrationAttachmentCommand";
-import { DeleteRegistrationCommandInput, DeleteRegistrationCommandOutput } from "./commands/DeleteRegistrationCommand";
-import {
+import type {
+  DeleteRegistrationCommandInput,
+  DeleteRegistrationCommandOutput,
+} from "./commands/DeleteRegistrationCommand";
+import type {
   DeleteRegistrationFieldValueCommandInput,
   DeleteRegistrationFieldValueCommandOutput,
 } from "./commands/DeleteRegistrationFieldValueCommand";
-import {
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   DeleteTextMessageSpendLimitOverrideCommandInput,
   DeleteTextMessageSpendLimitOverrideCommandOutput,
 } from "./commands/DeleteTextMessageSpendLimitOverrideCommand";
-import {
+import type {
   DeleteVerifiedDestinationNumberCommandInput,
   DeleteVerifiedDestinationNumberCommandOutput,
 } from "./commands/DeleteVerifiedDestinationNumberCommand";
-import {
+import type {
   DeleteVoiceMessageSpendLimitOverrideCommandInput,
   DeleteVoiceMessageSpendLimitOverrideCommandOutput,
 } from "./commands/DeleteVoiceMessageSpendLimitOverrideCommand";
-import {
+import type {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
-import {
+import type {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
-import {
+import type {
   DescribeConfigurationSetsCommandInput,
   DescribeConfigurationSetsCommandOutput,
 } from "./commands/DescribeConfigurationSetsCommand";
-import { DescribeKeywordsCommandInput, DescribeKeywordsCommandOutput } from "./commands/DescribeKeywordsCommand";
-import {
+import type { DescribeKeywordsCommandInput, DescribeKeywordsCommandOutput } from "./commands/DescribeKeywordsCommand";
+import type {
   DescribeOptedOutNumbersCommandInput,
   DescribeOptedOutNumbersCommandOutput,
 } from "./commands/DescribeOptedOutNumbersCommand";
-import {
+import type {
   DescribeOptOutListsCommandInput,
   DescribeOptOutListsCommandOutput,
 } from "./commands/DescribeOptOutListsCommand";
-import {
+import type {
   DescribePhoneNumbersCommandInput,
   DescribePhoneNumbersCommandOutput,
 } from "./commands/DescribePhoneNumbersCommand";
-import { DescribePoolsCommandInput, DescribePoolsCommandOutput } from "./commands/DescribePoolsCommand";
-import {
+import type { DescribePoolsCommandInput, DescribePoolsCommandOutput } from "./commands/DescribePoolsCommand";
+import type {
   DescribeProtectConfigurationsCommandInput,
   DescribeProtectConfigurationsCommandOutput,
 } from "./commands/DescribeProtectConfigurationsCommand";
-import {
+import type {
   DescribeRegistrationAttachmentsCommandInput,
   DescribeRegistrationAttachmentsCommandOutput,
 } from "./commands/DescribeRegistrationAttachmentsCommand";
-import {
+import type {
   DescribeRegistrationFieldDefinitionsCommandInput,
   DescribeRegistrationFieldDefinitionsCommandOutput,
 } from "./commands/DescribeRegistrationFieldDefinitionsCommand";
-import {
+import type {
   DescribeRegistrationFieldValuesCommandInput,
   DescribeRegistrationFieldValuesCommandOutput,
 } from "./commands/DescribeRegistrationFieldValuesCommand";
-import {
+import type {
   DescribeRegistrationsCommandInput,
   DescribeRegistrationsCommandOutput,
 } from "./commands/DescribeRegistrationsCommand";
-import {
+import type {
   DescribeRegistrationSectionDefinitionsCommandInput,
   DescribeRegistrationSectionDefinitionsCommandOutput,
 } from "./commands/DescribeRegistrationSectionDefinitionsCommand";
-import {
+import type {
   DescribeRegistrationTypeDefinitionsCommandInput,
   DescribeRegistrationTypeDefinitionsCommandOutput,
 } from "./commands/DescribeRegistrationTypeDefinitionsCommand";
-import {
+import type {
   DescribeRegistrationVersionsCommandInput,
   DescribeRegistrationVersionsCommandOutput,
 } from "./commands/DescribeRegistrationVersionsCommand";
-import { DescribeSenderIdsCommandInput, DescribeSenderIdsCommandOutput } from "./commands/DescribeSenderIdsCommand";
-import {
+import type {
+  DescribeSenderIdsCommandInput,
+  DescribeSenderIdsCommandOutput,
+} from "./commands/DescribeSenderIdsCommand";
+import type {
   DescribeSpendLimitsCommandInput,
   DescribeSpendLimitsCommandOutput,
 } from "./commands/DescribeSpendLimitsCommand";
-import {
+import type {
   DescribeVerifiedDestinationNumbersCommandInput,
   DescribeVerifiedDestinationNumbersCommandOutput,
 } from "./commands/DescribeVerifiedDestinationNumbersCommand";
-import {
+import type {
   DisassociateOriginationIdentityCommandInput,
   DisassociateOriginationIdentityCommandOutput,
 } from "./commands/DisassociateOriginationIdentityCommand";
-import {
+import type {
   DisassociateProtectConfigurationCommandInput,
   DisassociateProtectConfigurationCommandOutput,
 } from "./commands/DisassociateProtectConfigurationCommand";
-import {
+import type {
   DiscardRegistrationVersionCommandInput,
   DiscardRegistrationVersionCommandOutput,
 } from "./commands/DiscardRegistrationVersionCommand";
-import {
+import type {
   GetProtectConfigurationCountryRuleSetCommandInput,
   GetProtectConfigurationCountryRuleSetCommandOutput,
 } from "./commands/GetProtectConfigurationCountryRuleSetCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import {
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type {
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
 } from "./commands/ListPoolOriginationIdentitiesCommand";
-import {
+import type {
   ListProtectConfigurationRuleSetNumberOverridesCommandInput,
   ListProtectConfigurationRuleSetNumberOverridesCommandOutput,
 } from "./commands/ListProtectConfigurationRuleSetNumberOverridesCommand";
-import {
+import type {
   ListRegistrationAssociationsCommandInput,
   ListRegistrationAssociationsCommandOutput,
 } from "./commands/ListRegistrationAssociationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutKeywordCommandInput, PutKeywordCommandOutput } from "./commands/PutKeywordCommand";
-import { PutMessageFeedbackCommandInput, PutMessageFeedbackCommandOutput } from "./commands/PutMessageFeedbackCommand";
-import { PutOptedOutNumberCommandInput, PutOptedOutNumberCommandOutput } from "./commands/PutOptedOutNumberCommand";
-import {
+import type { PutKeywordCommandInput, PutKeywordCommandOutput } from "./commands/PutKeywordCommand";
+import type {
+  PutMessageFeedbackCommandInput,
+  PutMessageFeedbackCommandOutput,
+} from "./commands/PutMessageFeedbackCommand";
+import type {
+  PutOptedOutNumberCommandInput,
+  PutOptedOutNumberCommandOutput,
+} from "./commands/PutOptedOutNumberCommand";
+import type {
   PutProtectConfigurationRuleSetNumberOverrideCommandInput,
   PutProtectConfigurationRuleSetNumberOverrideCommandOutput,
 } from "./commands/PutProtectConfigurationRuleSetNumberOverrideCommand";
-import {
+import type {
   PutRegistrationFieldValueCommandInput,
   PutRegistrationFieldValueCommandOutput,
 } from "./commands/PutRegistrationFieldValueCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "./commands/ReleasePhoneNumberCommand";
-import { ReleaseSenderIdCommandInput, ReleaseSenderIdCommandOutput } from "./commands/ReleaseSenderIdCommand";
-import { RequestPhoneNumberCommandInput, RequestPhoneNumberCommandOutput } from "./commands/RequestPhoneNumberCommand";
-import { RequestSenderIdCommandInput, RequestSenderIdCommandOutput } from "./commands/RequestSenderIdCommand";
-import {
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
+  ReleasePhoneNumberCommandInput,
+  ReleasePhoneNumberCommandOutput,
+} from "./commands/ReleasePhoneNumberCommand";
+import type { ReleaseSenderIdCommandInput, ReleaseSenderIdCommandOutput } from "./commands/ReleaseSenderIdCommand";
+import type {
+  RequestPhoneNumberCommandInput,
+  RequestPhoneNumberCommandOutput,
+} from "./commands/RequestPhoneNumberCommand";
+import type { RequestSenderIdCommandInput, RequestSenderIdCommandOutput } from "./commands/RequestSenderIdCommand";
+import type {
   SendDestinationNumberVerificationCodeCommandInput,
   SendDestinationNumberVerificationCodeCommandOutput,
 } from "./commands/SendDestinationNumberVerificationCodeCommand";
-import { SendMediaMessageCommandInput, SendMediaMessageCommandOutput } from "./commands/SendMediaMessageCommand";
-import { SendTextMessageCommandInput, SendTextMessageCommandOutput } from "./commands/SendTextMessageCommand";
-import { SendVoiceMessageCommandInput, SendVoiceMessageCommandOutput } from "./commands/SendVoiceMessageCommand";
-import {
+import type { SendMediaMessageCommandInput, SendMediaMessageCommandOutput } from "./commands/SendMediaMessageCommand";
+import type { SendTextMessageCommandInput, SendTextMessageCommandOutput } from "./commands/SendTextMessageCommand";
+import type { SendVoiceMessageCommandInput, SendVoiceMessageCommandOutput } from "./commands/SendVoiceMessageCommand";
+import type {
   SetAccountDefaultProtectConfigurationCommandInput,
   SetAccountDefaultProtectConfigurationCommandOutput,
 } from "./commands/SetAccountDefaultProtectConfigurationCommand";
-import {
+import type {
   SetDefaultMessageFeedbackEnabledCommandInput,
   SetDefaultMessageFeedbackEnabledCommandOutput,
 } from "./commands/SetDefaultMessageFeedbackEnabledCommand";
-import {
+import type {
   SetDefaultMessageTypeCommandInput,
   SetDefaultMessageTypeCommandOutput,
 } from "./commands/SetDefaultMessageTypeCommand";
-import { SetDefaultSenderIdCommandInput, SetDefaultSenderIdCommandOutput } from "./commands/SetDefaultSenderIdCommand";
-import {
+import type {
+  SetDefaultSenderIdCommandInput,
+  SetDefaultSenderIdCommandOutput,
+} from "./commands/SetDefaultSenderIdCommand";
+import type {
   SetMediaMessageSpendLimitOverrideCommandInput,
   SetMediaMessageSpendLimitOverrideCommandOutput,
 } from "./commands/SetMediaMessageSpendLimitOverrideCommand";
-import {
+import type {
   SetTextMessageSpendLimitOverrideCommandInput,
   SetTextMessageSpendLimitOverrideCommandOutput,
 } from "./commands/SetTextMessageSpendLimitOverrideCommand";
-import {
+import type {
   SetVoiceMessageSpendLimitOverrideCommandInput,
   SetVoiceMessageSpendLimitOverrideCommandOutput,
 } from "./commands/SetVoiceMessageSpendLimitOverrideCommand";
-import {
+import type {
   SubmitRegistrationVersionCommandInput,
   SubmitRegistrationVersionCommandOutput,
 } from "./commands/SubmitRegistrationVersionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateEventDestinationCommandInput,
   UpdateEventDestinationCommandOutput,
 } from "./commands/UpdateEventDestinationCommand";
-import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "./commands/UpdatePhoneNumberCommand";
-import { UpdatePoolCommandInput, UpdatePoolCommandOutput } from "./commands/UpdatePoolCommand";
-import {
+import type {
+  UpdatePhoneNumberCommandInput,
+  UpdatePhoneNumberCommandOutput,
+} from "./commands/UpdatePhoneNumberCommand";
+import type { UpdatePoolCommandInput, UpdatePoolCommandOutput } from "./commands/UpdatePoolCommand";
+import type {
   UpdateProtectConfigurationCommandInput,
   UpdateProtectConfigurationCommandOutput,
 } from "./commands/UpdateProtectConfigurationCommand";
-import {
+import type {
   UpdateProtectConfigurationCountryRuleSetCommandInput,
   UpdateProtectConfigurationCountryRuleSetCommandOutput,
 } from "./commands/UpdateProtectConfigurationCountryRuleSetCommand";
-import { UpdateSenderIdCommandInput, UpdateSenderIdCommandOutput } from "./commands/UpdateSenderIdCommand";
-import {
+import type { UpdateSenderIdCommandInput, UpdateSenderIdCommandOutput } from "./commands/UpdateSenderIdCommand";
+import type {
   VerifyDestinationNumberCommandInput,
   VerifyDestinationNumberCommandOutput,
 } from "./commands/VerifyDestinationNumberCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -657,7 +688,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

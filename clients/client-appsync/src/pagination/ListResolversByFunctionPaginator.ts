@@ -8,7 +8,7 @@ import {
   ListResolversByFunctionCommandInput,
   ListResolversByFunctionCommandOutput,
 } from "../commands/ListResolversByFunctionCommand";
-import { AppSyncPaginationConfiguration } from "./Interfaces";
+import type { AppSyncPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

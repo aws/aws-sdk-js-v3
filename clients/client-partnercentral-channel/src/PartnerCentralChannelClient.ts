@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,57 +61,69 @@ import {
   defaultPartnerCentralChannelHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptChannelHandshakeCommandInput,
   AcceptChannelHandshakeCommandOutput,
 } from "./commands/AcceptChannelHandshakeCommand";
-import {
+import type {
   CancelChannelHandshakeCommandInput,
   CancelChannelHandshakeCommandOutput,
 } from "./commands/CancelChannelHandshakeCommand";
-import {
+import type {
   CreateChannelHandshakeCommandInput,
   CreateChannelHandshakeCommandOutput,
 } from "./commands/CreateChannelHandshakeCommand";
-import {
+import type {
   CreateProgramManagementAccountCommandInput,
   CreateProgramManagementAccountCommandOutput,
 } from "./commands/CreateProgramManagementAccountCommand";
-import { CreateRelationshipCommandInput, CreateRelationshipCommandOutput } from "./commands/CreateRelationshipCommand";
-import {
+import type {
+  CreateRelationshipCommandInput,
+  CreateRelationshipCommandOutput,
+} from "./commands/CreateRelationshipCommand";
+import type {
   DeleteProgramManagementAccountCommandInput,
   DeleteProgramManagementAccountCommandOutput,
 } from "./commands/DeleteProgramManagementAccountCommand";
-import { DeleteRelationshipCommandInput, DeleteRelationshipCommandOutput } from "./commands/DeleteRelationshipCommand";
-import { GetRelationshipCommandInput, GetRelationshipCommandOutput } from "./commands/GetRelationshipCommand";
-import {
+import type {
+  DeleteRelationshipCommandInput,
+  DeleteRelationshipCommandOutput,
+} from "./commands/DeleteRelationshipCommand";
+import type { GetRelationshipCommandInput, GetRelationshipCommandOutput } from "./commands/GetRelationshipCommand";
+import type {
   ListChannelHandshakesCommandInput,
   ListChannelHandshakesCommandOutput,
 } from "./commands/ListChannelHandshakesCommand";
-import {
+import type {
   ListProgramManagementAccountsCommandInput,
   ListProgramManagementAccountsCommandOutput,
 } from "./commands/ListProgramManagementAccountsCommand";
-import { ListRelationshipsCommandInput, ListRelationshipsCommandOutput } from "./commands/ListRelationshipsCommand";
-import {
+import type {
+  ListRelationshipsCommandInput,
+  ListRelationshipsCommandOutput,
+} from "./commands/ListRelationshipsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   RejectChannelHandshakeCommandInput,
   RejectChannelHandshakeCommandOutput,
 } from "./commands/RejectChannelHandshakeCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateProgramManagementAccountCommandInput,
   UpdateProgramManagementAccountCommandOutput,
 } from "./commands/UpdateProgramManagementAccountCommand";
-import { UpdateRelationshipCommandInput, UpdateRelationshipCommandOutput } from "./commands/UpdateRelationshipCommand";
+import type {
+  UpdateRelationshipCommandInput,
+  UpdateRelationshipCommandOutput,
+} from "./commands/UpdateRelationshipCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -279,7 +289,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

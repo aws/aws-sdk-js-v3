@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,210 +61,234 @@ import {
   defaultCleanRoomsMLHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelTrainedModelCommandInput, CancelTrainedModelCommandOutput } from "./commands/CancelTrainedModelCommand";
-import {
+import type {
+  CancelTrainedModelCommandInput,
+  CancelTrainedModelCommandOutput,
+} from "./commands/CancelTrainedModelCommand";
+import type {
   CancelTrainedModelInferenceJobCommandInput,
   CancelTrainedModelInferenceJobCommandOutput,
 } from "./commands/CancelTrainedModelInferenceJobCommand";
-import {
+import type {
   CreateAudienceModelCommandInput,
   CreateAudienceModelCommandOutput,
 } from "./commands/CreateAudienceModelCommand";
-import {
+import type {
   CreateConfiguredAudienceModelCommandInput,
   CreateConfiguredAudienceModelCommandOutput,
 } from "./commands/CreateConfiguredAudienceModelCommand";
-import {
+import type {
   CreateConfiguredModelAlgorithmAssociationCommandInput,
   CreateConfiguredModelAlgorithmAssociationCommandOutput,
 } from "./commands/CreateConfiguredModelAlgorithmAssociationCommand";
-import {
+import type {
   CreateConfiguredModelAlgorithmCommandInput,
   CreateConfiguredModelAlgorithmCommandOutput,
 } from "./commands/CreateConfiguredModelAlgorithmCommand";
-import {
+import type {
   CreateMLInputChannelCommandInput,
   CreateMLInputChannelCommandOutput,
 } from "./commands/CreateMLInputChannelCommand";
-import { CreateTrainedModelCommandInput, CreateTrainedModelCommandOutput } from "./commands/CreateTrainedModelCommand";
-import {
+import type {
+  CreateTrainedModelCommandInput,
+  CreateTrainedModelCommandOutput,
+} from "./commands/CreateTrainedModelCommand";
+import type {
   CreateTrainingDatasetCommandInput,
   CreateTrainingDatasetCommandOutput,
 } from "./commands/CreateTrainingDatasetCommand";
-import {
+import type {
   DeleteAudienceGenerationJobCommandInput,
   DeleteAudienceGenerationJobCommandOutput,
 } from "./commands/DeleteAudienceGenerationJobCommand";
-import {
+import type {
   DeleteAudienceModelCommandInput,
   DeleteAudienceModelCommandOutput,
 } from "./commands/DeleteAudienceModelCommand";
-import {
+import type {
   DeleteConfiguredAudienceModelCommandInput,
   DeleteConfiguredAudienceModelCommandOutput,
 } from "./commands/DeleteConfiguredAudienceModelCommand";
-import {
+import type {
   DeleteConfiguredAudienceModelPolicyCommandInput,
   DeleteConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/DeleteConfiguredAudienceModelPolicyCommand";
-import {
+import type {
   DeleteConfiguredModelAlgorithmAssociationCommandInput,
   DeleteConfiguredModelAlgorithmAssociationCommandOutput,
 } from "./commands/DeleteConfiguredModelAlgorithmAssociationCommand";
-import {
+import type {
   DeleteConfiguredModelAlgorithmCommandInput,
   DeleteConfiguredModelAlgorithmCommandOutput,
 } from "./commands/DeleteConfiguredModelAlgorithmCommand";
-import {
+import type {
   DeleteMLConfigurationCommandInput,
   DeleteMLConfigurationCommandOutput,
 } from "./commands/DeleteMLConfigurationCommand";
-import {
+import type {
   DeleteMLInputChannelDataCommandInput,
   DeleteMLInputChannelDataCommandOutput,
 } from "./commands/DeleteMLInputChannelDataCommand";
-import {
+import type {
   DeleteTrainedModelOutputCommandInput,
   DeleteTrainedModelOutputCommandOutput,
 } from "./commands/DeleteTrainedModelOutputCommand";
-import {
+import type {
   DeleteTrainingDatasetCommandInput,
   DeleteTrainingDatasetCommandOutput,
 } from "./commands/DeleteTrainingDatasetCommand";
-import {
+import type {
   GetAudienceGenerationJobCommandInput,
   GetAudienceGenerationJobCommandOutput,
 } from "./commands/GetAudienceGenerationJobCommand";
-import { GetAudienceModelCommandInput, GetAudienceModelCommandOutput } from "./commands/GetAudienceModelCommand";
-import {
+import type { GetAudienceModelCommandInput, GetAudienceModelCommandOutput } from "./commands/GetAudienceModelCommand";
+import type {
   GetCollaborationConfiguredModelAlgorithmAssociationCommandInput,
   GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput,
 } from "./commands/GetCollaborationConfiguredModelAlgorithmAssociationCommand";
-import {
+import type {
   GetCollaborationMLInputChannelCommandInput,
   GetCollaborationMLInputChannelCommandOutput,
 } from "./commands/GetCollaborationMLInputChannelCommand";
-import {
+import type {
   GetCollaborationTrainedModelCommandInput,
   GetCollaborationTrainedModelCommandOutput,
 } from "./commands/GetCollaborationTrainedModelCommand";
-import {
+import type {
   GetConfiguredAudienceModelCommandInput,
   GetConfiguredAudienceModelCommandOutput,
 } from "./commands/GetConfiguredAudienceModelCommand";
-import {
+import type {
   GetConfiguredAudienceModelPolicyCommandInput,
   GetConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/GetConfiguredAudienceModelPolicyCommand";
-import {
+import type {
   GetConfiguredModelAlgorithmAssociationCommandInput,
   GetConfiguredModelAlgorithmAssociationCommandOutput,
 } from "./commands/GetConfiguredModelAlgorithmAssociationCommand";
-import {
+import type {
   GetConfiguredModelAlgorithmCommandInput,
   GetConfiguredModelAlgorithmCommandOutput,
 } from "./commands/GetConfiguredModelAlgorithmCommand";
-import { GetMLConfigurationCommandInput, GetMLConfigurationCommandOutput } from "./commands/GetMLConfigurationCommand";
-import { GetMLInputChannelCommandInput, GetMLInputChannelCommandOutput } from "./commands/GetMLInputChannelCommand";
-import { GetTrainedModelCommandInput, GetTrainedModelCommandOutput } from "./commands/GetTrainedModelCommand";
-import {
+import type {
+  GetMLConfigurationCommandInput,
+  GetMLConfigurationCommandOutput,
+} from "./commands/GetMLConfigurationCommand";
+import type {
+  GetMLInputChannelCommandInput,
+  GetMLInputChannelCommandOutput,
+} from "./commands/GetMLInputChannelCommand";
+import type { GetTrainedModelCommandInput, GetTrainedModelCommandOutput } from "./commands/GetTrainedModelCommand";
+import type {
   GetTrainedModelInferenceJobCommandInput,
   GetTrainedModelInferenceJobCommandOutput,
 } from "./commands/GetTrainedModelInferenceJobCommand";
-import { GetTrainingDatasetCommandInput, GetTrainingDatasetCommandOutput } from "./commands/GetTrainingDatasetCommand";
-import {
+import type {
+  GetTrainingDatasetCommandInput,
+  GetTrainingDatasetCommandOutput,
+} from "./commands/GetTrainingDatasetCommand";
+import type {
   ListAudienceExportJobsCommandInput,
   ListAudienceExportJobsCommandOutput,
 } from "./commands/ListAudienceExportJobsCommand";
-import {
+import type {
   ListAudienceGenerationJobsCommandInput,
   ListAudienceGenerationJobsCommandOutput,
 } from "./commands/ListAudienceGenerationJobsCommand";
-import { ListAudienceModelsCommandInput, ListAudienceModelsCommandOutput } from "./commands/ListAudienceModelsCommand";
-import {
+import type {
+  ListAudienceModelsCommandInput,
+  ListAudienceModelsCommandOutput,
+} from "./commands/ListAudienceModelsCommand";
+import type {
   ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
   ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput,
 } from "./commands/ListCollaborationConfiguredModelAlgorithmAssociationsCommand";
-import {
+import type {
   ListCollaborationMLInputChannelsCommandInput,
   ListCollaborationMLInputChannelsCommandOutput,
 } from "./commands/ListCollaborationMLInputChannelsCommand";
-import {
+import type {
   ListCollaborationTrainedModelExportJobsCommandInput,
   ListCollaborationTrainedModelExportJobsCommandOutput,
 } from "./commands/ListCollaborationTrainedModelExportJobsCommand";
-import {
+import type {
   ListCollaborationTrainedModelInferenceJobsCommandInput,
   ListCollaborationTrainedModelInferenceJobsCommandOutput,
 } from "./commands/ListCollaborationTrainedModelInferenceJobsCommand";
-import {
+import type {
   ListCollaborationTrainedModelsCommandInput,
   ListCollaborationTrainedModelsCommandOutput,
 } from "./commands/ListCollaborationTrainedModelsCommand";
-import {
+import type {
   ListConfiguredAudienceModelsCommandInput,
   ListConfiguredAudienceModelsCommandOutput,
 } from "./commands/ListConfiguredAudienceModelsCommand";
-import {
+import type {
   ListConfiguredModelAlgorithmAssociationsCommandInput,
   ListConfiguredModelAlgorithmAssociationsCommandOutput,
 } from "./commands/ListConfiguredModelAlgorithmAssociationsCommand";
-import {
+import type {
   ListConfiguredModelAlgorithmsCommandInput,
   ListConfiguredModelAlgorithmsCommandOutput,
 } from "./commands/ListConfiguredModelAlgorithmsCommand";
-import {
+import type {
   ListMLInputChannelsCommandInput,
   ListMLInputChannelsCommandOutput,
 } from "./commands/ListMLInputChannelsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTrainedModelInferenceJobsCommandInput,
   ListTrainedModelInferenceJobsCommandOutput,
 } from "./commands/ListTrainedModelInferenceJobsCommand";
-import { ListTrainedModelsCommandInput, ListTrainedModelsCommandOutput } from "./commands/ListTrainedModelsCommand";
-import {
+import type {
+  ListTrainedModelsCommandInput,
+  ListTrainedModelsCommandOutput,
+} from "./commands/ListTrainedModelsCommand";
+import type {
   ListTrainedModelVersionsCommandInput,
   ListTrainedModelVersionsCommandOutput,
 } from "./commands/ListTrainedModelVersionsCommand";
-import {
+import type {
   ListTrainingDatasetsCommandInput,
   ListTrainingDatasetsCommandOutput,
 } from "./commands/ListTrainingDatasetsCommand";
-import {
+import type {
   PutConfiguredAudienceModelPolicyCommandInput,
   PutConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/PutConfiguredAudienceModelPolicyCommand";
-import { PutMLConfigurationCommandInput, PutMLConfigurationCommandOutput } from "./commands/PutMLConfigurationCommand";
-import {
+import type {
+  PutMLConfigurationCommandInput,
+  PutMLConfigurationCommandOutput,
+} from "./commands/PutMLConfigurationCommand";
+import type {
   StartAudienceExportJobCommandInput,
   StartAudienceExportJobCommandOutput,
 } from "./commands/StartAudienceExportJobCommand";
-import {
+import type {
   StartAudienceGenerationJobCommandInput,
   StartAudienceGenerationJobCommandOutput,
 } from "./commands/StartAudienceGenerationJobCommand";
-import {
+import type {
   StartTrainedModelExportJobCommandInput,
   StartTrainedModelExportJobCommandOutput,
 } from "./commands/StartTrainedModelExportJobCommand";
-import {
+import type {
   StartTrainedModelInferenceJobCommandInput,
   StartTrainedModelInferenceJobCommandOutput,
 } from "./commands/StartTrainedModelInferenceJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateConfiguredAudienceModelCommandInput,
   UpdateConfiguredAudienceModelCommandOutput,
 } from "./commands/UpdateConfiguredAudienceModelCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -516,7 +538,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

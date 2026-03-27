@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "../commands/ListImagesCommand";
 import { ImagebuilderClient } from "../ImagebuilderClient";
-import { ImagebuilderPaginationConfiguration } from "./Interfaces";
+import type { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

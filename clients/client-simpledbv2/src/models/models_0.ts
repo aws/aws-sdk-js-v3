@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExportStatus, S3SseAlgorithm } from "./enums";
+import type { ExportStatus, S3SseAlgorithm } from "./enums";
 
 /**
  * Summary information about an export, including its unique identifier, current status,

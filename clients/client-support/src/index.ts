@@ -50,7 +50,7 @@
  */
 export * from "./SupportClient";
 export * from "./Support";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SupportExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

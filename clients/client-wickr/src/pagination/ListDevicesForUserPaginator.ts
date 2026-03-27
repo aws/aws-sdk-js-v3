@@ -8,7 +8,7 @@ import {
   ListDevicesForUserCommandOutput,
 } from "../commands/ListDevicesForUserCommand";
 import { WickrClient } from "../WickrClient";
-import { WickrPaginationConfiguration } from "./Interfaces";
+import type { WickrPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

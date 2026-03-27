@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListIndexesCommand, ListIndexesCommandInput, ListIndexesCommandOutput } from "../commands/ListIndexesCommand";
 import { S3VectorsClient } from "../S3VectorsClient";
-import { S3VectorsPaginationConfiguration } from "./Interfaces";
+import type { S3VectorsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

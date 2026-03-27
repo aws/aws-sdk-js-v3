@@ -3,120 +3,124 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateAttributeGroupCommandInput,
+  type AssociateAttributeGroupCommandOutput,
   AssociateAttributeGroupCommand,
-  AssociateAttributeGroupCommandInput,
-  AssociateAttributeGroupCommandOutput,
 } from "./commands/AssociateAttributeGroupCommand";
 import {
+  type AssociateResourceCommandInput,
+  type AssociateResourceCommandOutput,
   AssociateResourceCommand,
-  AssociateResourceCommandInput,
-  AssociateResourceCommandOutput,
 } from "./commands/AssociateResourceCommand";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateAttributeGroupCommandInput,
+  type CreateAttributeGroupCommandOutput,
   CreateAttributeGroupCommand,
-  CreateAttributeGroupCommandInput,
-  CreateAttributeGroupCommandOutput,
 } from "./commands/CreateAttributeGroupCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteAttributeGroupCommandInput,
+  type DeleteAttributeGroupCommandOutput,
   DeleteAttributeGroupCommand,
-  DeleteAttributeGroupCommandInput,
-  DeleteAttributeGroupCommandOutput,
 } from "./commands/DeleteAttributeGroupCommand";
 import {
+  type DisassociateAttributeGroupCommandInput,
+  type DisassociateAttributeGroupCommandOutput,
   DisassociateAttributeGroupCommand,
-  DisassociateAttributeGroupCommandInput,
-  DisassociateAttributeGroupCommandOutput,
 } from "./commands/DisassociateAttributeGroupCommand";
 import {
+  type DisassociateResourceCommandInput,
+  type DisassociateResourceCommandOutput,
   DisassociateResourceCommand,
-  DisassociateResourceCommandInput,
-  DisassociateResourceCommandOutput,
 } from "./commands/DisassociateResourceCommand";
 import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
   GetApplicationCommand,
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  type GetAssociatedResourceCommandInput,
+  type GetAssociatedResourceCommandOutput,
   GetAssociatedResourceCommand,
-  GetAssociatedResourceCommandInput,
-  GetAssociatedResourceCommandOutput,
 } from "./commands/GetAssociatedResourceCommand";
 import {
+  type GetAttributeGroupCommandInput,
+  type GetAttributeGroupCommandOutput,
   GetAttributeGroupCommand,
-  GetAttributeGroupCommandInput,
-  GetAttributeGroupCommandOutput,
 } from "./commands/GetAttributeGroupCommand";
 import {
+  type GetConfigurationCommandInput,
+  type GetConfigurationCommandOutput,
   GetConfigurationCommand,
-  GetConfigurationCommandInput,
-  GetConfigurationCommandOutput,
 } from "./commands/GetConfigurationCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListAssociatedAttributeGroupsCommandInput,
+  type ListAssociatedAttributeGroupsCommandOutput,
   ListAssociatedAttributeGroupsCommand,
-  ListAssociatedAttributeGroupsCommandInput,
-  ListAssociatedAttributeGroupsCommandOutput,
 } from "./commands/ListAssociatedAttributeGroupsCommand";
 import {
+  type ListAssociatedResourcesCommandInput,
+  type ListAssociatedResourcesCommandOutput,
   ListAssociatedResourcesCommand,
-  ListAssociatedResourcesCommandInput,
-  ListAssociatedResourcesCommandOutput,
 } from "./commands/ListAssociatedResourcesCommand";
 import {
+  type ListAttributeGroupsCommandInput,
+  type ListAttributeGroupsCommandOutput,
   ListAttributeGroupsCommand,
-  ListAttributeGroupsCommandInput,
-  ListAttributeGroupsCommandOutput,
 } from "./commands/ListAttributeGroupsCommand";
 import {
+  type ListAttributeGroupsForApplicationCommandInput,
+  type ListAttributeGroupsForApplicationCommandOutput,
   ListAttributeGroupsForApplicationCommand,
-  ListAttributeGroupsForApplicationCommandInput,
-  ListAttributeGroupsForApplicationCommandOutput,
 } from "./commands/ListAttributeGroupsForApplicationCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutConfigurationCommandInput,
+  type PutConfigurationCommandOutput,
   PutConfigurationCommand,
-  PutConfigurationCommandInput,
-  PutConfigurationCommandOutput,
 } from "./commands/PutConfigurationCommand";
 import {
+  type SyncResourceCommandInput,
+  type SyncResourceCommandOutput,
   SyncResourceCommand,
-  SyncResourceCommandInput,
-  SyncResourceCommandOutput,
 } from "./commands/SyncResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateAttributeGroupCommandInput,
+  type UpdateAttributeGroupCommandOutput,
   UpdateAttributeGroupCommand,
-  UpdateAttributeGroupCommandInput,
-  UpdateAttributeGroupCommandOutput,
 } from "./commands/UpdateAttributeGroupCommand";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListAssociatedAttributeGroups } from "./pagination/ListAssociatedAttributeGroupsPaginator";

@@ -8,7 +8,7 @@ import {
   DescribeRegistrationVersionsCommandOutput,
 } from "../commands/DescribeRegistrationVersionsCommand";
 import { PinpointSMSVoiceV2Client } from "../PinpointSMSVoiceV2Client";
-import { PinpointSMSVoiceV2PaginationConfiguration } from "./Interfaces";
+import type { PinpointSMSVoiceV2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,185 +61,215 @@ import {
   defaultApiGatewayV2HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
-import { CreateApiMappingCommandInput, CreateApiMappingCommandOutput } from "./commands/CreateApiMappingCommand";
-import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "./commands/CreateAuthorizerCommand";
-import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
-import { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "./commands/CreateDomainNameCommand";
-import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "./commands/CreateIntegrationCommand";
-import {
+import type { CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
+import type { CreateApiMappingCommandInput, CreateApiMappingCommandOutput } from "./commands/CreateApiMappingCommand";
+import type { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "./commands/CreateAuthorizerCommand";
+import type { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
+import type { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "./commands/CreateDomainNameCommand";
+import type {
+  CreateIntegrationCommandInput,
+  CreateIntegrationCommandOutput,
+} from "./commands/CreateIntegrationCommand";
+import type {
   CreateIntegrationResponseCommandInput,
   CreateIntegrationResponseCommandOutput,
 } from "./commands/CreateIntegrationResponseCommand";
-import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
-import { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand";
-import {
+import type { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
+import type { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand";
+import type {
   CreatePortalProductCommandInput,
   CreatePortalProductCommandOutput,
 } from "./commands/CreatePortalProductCommand";
-import { CreateProductPageCommandInput, CreateProductPageCommandOutput } from "./commands/CreateProductPageCommand";
-import {
+import type {
+  CreateProductPageCommandInput,
+  CreateProductPageCommandOutput,
+} from "./commands/CreateProductPageCommand";
+import type {
   CreateProductRestEndpointPageCommandInput,
   CreateProductRestEndpointPageCommandOutput,
 } from "./commands/CreateProductRestEndpointPageCommand";
-import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
-import {
+import type { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
+import type {
   CreateRouteResponseCommandInput,
   CreateRouteResponseCommandOutput,
 } from "./commands/CreateRouteResponseCommand";
-import { CreateRoutingRuleCommandInput, CreateRoutingRuleCommandOutput } from "./commands/CreateRoutingRuleCommand";
-import { CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
-import { CreateVpcLinkCommandInput, CreateVpcLinkCommandOutput } from "./commands/CreateVpcLinkCommand";
-import {
+import type {
+  CreateRoutingRuleCommandInput,
+  CreateRoutingRuleCommandOutput,
+} from "./commands/CreateRoutingRuleCommand";
+import type { CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
+import type { CreateVpcLinkCommandInput, CreateVpcLinkCommandOutput } from "./commands/CreateVpcLinkCommand";
+import type {
   DeleteAccessLogSettingsCommandInput,
   DeleteAccessLogSettingsCommandOutput,
 } from "./commands/DeleteAccessLogSettingsCommand";
-import { DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
-import { DeleteApiMappingCommandInput, DeleteApiMappingCommandOutput } from "./commands/DeleteApiMappingCommand";
-import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "./commands/DeleteAuthorizerCommand";
-import {
+import type { DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
+import type { DeleteApiMappingCommandInput, DeleteApiMappingCommandOutput } from "./commands/DeleteApiMappingCommand";
+import type { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "./commands/DeleteAuthorizerCommand";
+import type {
   DeleteCorsConfigurationCommandInput,
   DeleteCorsConfigurationCommandOutput,
 } from "./commands/DeleteCorsConfigurationCommand";
-import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
-import { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "./commands/DeleteDomainNameCommand";
-import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
-import {
+import type { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
+import type { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "./commands/DeleteDomainNameCommand";
+import type {
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput,
+} from "./commands/DeleteIntegrationCommand";
+import type {
   DeleteIntegrationResponseCommandInput,
   DeleteIntegrationResponseCommandOutput,
 } from "./commands/DeleteIntegrationResponseCommand";
-import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
-import { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
-import {
+import type { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
+import type { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
+import type {
   DeletePortalProductCommandInput,
   DeletePortalProductCommandOutput,
 } from "./commands/DeletePortalProductCommand";
-import {
+import type {
   DeletePortalProductSharingPolicyCommandInput,
   DeletePortalProductSharingPolicyCommandOutput,
 } from "./commands/DeletePortalProductSharingPolicyCommand";
-import { DeleteProductPageCommandInput, DeleteProductPageCommandOutput } from "./commands/DeleteProductPageCommand";
-import {
+import type {
+  DeleteProductPageCommandInput,
+  DeleteProductPageCommandOutput,
+} from "./commands/DeleteProductPageCommand";
+import type {
   DeleteProductRestEndpointPageCommandInput,
   DeleteProductRestEndpointPageCommandOutput,
 } from "./commands/DeleteProductRestEndpointPageCommand";
-import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
-import {
+import type { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
+import type {
   DeleteRouteRequestParameterCommandInput,
   DeleteRouteRequestParameterCommandOutput,
 } from "./commands/DeleteRouteRequestParameterCommand";
-import {
+import type {
   DeleteRouteResponseCommandInput,
   DeleteRouteResponseCommandOutput,
 } from "./commands/DeleteRouteResponseCommand";
-import {
+import type {
   DeleteRouteSettingsCommandInput,
   DeleteRouteSettingsCommandOutput,
 } from "./commands/DeleteRouteSettingsCommand";
-import { DeleteRoutingRuleCommandInput, DeleteRoutingRuleCommandOutput } from "./commands/DeleteRoutingRuleCommand";
-import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
-import { DeleteVpcLinkCommandInput, DeleteVpcLinkCommandOutput } from "./commands/DeleteVpcLinkCommand";
-import { DisablePortalCommandInput, DisablePortalCommandOutput } from "./commands/DisablePortalCommand";
-import { ExportApiCommandInput, ExportApiCommandOutput } from "./commands/ExportApiCommand";
-import { GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
-import { GetApiMappingCommandInput, GetApiMappingCommandOutput } from "./commands/GetApiMappingCommand";
-import { GetApiMappingsCommandInput, GetApiMappingsCommandOutput } from "./commands/GetApiMappingsCommand";
-import { GetApisCommandInput, GetApisCommandOutput } from "./commands/GetApisCommand";
-import { GetAuthorizerCommandInput, GetAuthorizerCommandOutput } from "./commands/GetAuthorizerCommand";
-import { GetAuthorizersCommandInput, GetAuthorizersCommandOutput } from "./commands/GetAuthorizersCommand";
-import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
-import { GetDeploymentsCommandInput, GetDeploymentsCommandOutput } from "./commands/GetDeploymentsCommand";
-import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "./commands/GetDomainNameCommand";
-import { GetDomainNamesCommandInput, GetDomainNamesCommandOutput } from "./commands/GetDomainNamesCommand";
-import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
-import {
+import type {
+  DeleteRoutingRuleCommandInput,
+  DeleteRoutingRuleCommandOutput,
+} from "./commands/DeleteRoutingRuleCommand";
+import type { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
+import type { DeleteVpcLinkCommandInput, DeleteVpcLinkCommandOutput } from "./commands/DeleteVpcLinkCommand";
+import type { DisablePortalCommandInput, DisablePortalCommandOutput } from "./commands/DisablePortalCommand";
+import type { ExportApiCommandInput, ExportApiCommandOutput } from "./commands/ExportApiCommand";
+import type { GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
+import type { GetApiMappingCommandInput, GetApiMappingCommandOutput } from "./commands/GetApiMappingCommand";
+import type { GetApiMappingsCommandInput, GetApiMappingsCommandOutput } from "./commands/GetApiMappingsCommand";
+import type { GetApisCommandInput, GetApisCommandOutput } from "./commands/GetApisCommand";
+import type { GetAuthorizerCommandInput, GetAuthorizerCommandOutput } from "./commands/GetAuthorizerCommand";
+import type { GetAuthorizersCommandInput, GetAuthorizersCommandOutput } from "./commands/GetAuthorizersCommand";
+import type { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
+import type { GetDeploymentsCommandInput, GetDeploymentsCommandOutput } from "./commands/GetDeploymentsCommand";
+import type { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "./commands/GetDomainNameCommand";
+import type { GetDomainNamesCommandInput, GetDomainNamesCommandOutput } from "./commands/GetDomainNamesCommand";
+import type { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
+import type {
   GetIntegrationResponseCommandInput,
   GetIntegrationResponseCommandOutput,
 } from "./commands/GetIntegrationResponseCommand";
-import {
+import type {
   GetIntegrationResponsesCommandInput,
   GetIntegrationResponsesCommandOutput,
 } from "./commands/GetIntegrationResponsesCommand";
-import { GetIntegrationsCommandInput, GetIntegrationsCommandOutput } from "./commands/GetIntegrationsCommand";
-import { GetModelCommandInput, GetModelCommandOutput } from "./commands/GetModelCommand";
-import { GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
-import { GetModelTemplateCommandInput, GetModelTemplateCommandOutput } from "./commands/GetModelTemplateCommand";
-import { GetPortalCommandInput, GetPortalCommandOutput } from "./commands/GetPortalCommand";
-import { GetPortalProductCommandInput, GetPortalProductCommandOutput } from "./commands/GetPortalProductCommand";
-import {
+import type { GetIntegrationsCommandInput, GetIntegrationsCommandOutput } from "./commands/GetIntegrationsCommand";
+import type { GetModelCommandInput, GetModelCommandOutput } from "./commands/GetModelCommand";
+import type { GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
+import type { GetModelTemplateCommandInput, GetModelTemplateCommandOutput } from "./commands/GetModelTemplateCommand";
+import type { GetPortalCommandInput, GetPortalCommandOutput } from "./commands/GetPortalCommand";
+import type { GetPortalProductCommandInput, GetPortalProductCommandOutput } from "./commands/GetPortalProductCommand";
+import type {
   GetPortalProductSharingPolicyCommandInput,
   GetPortalProductSharingPolicyCommandOutput,
 } from "./commands/GetPortalProductSharingPolicyCommand";
-import { GetProductPageCommandInput, GetProductPageCommandOutput } from "./commands/GetProductPageCommand";
-import {
+import type { GetProductPageCommandInput, GetProductPageCommandOutput } from "./commands/GetProductPageCommand";
+import type {
   GetProductRestEndpointPageCommandInput,
   GetProductRestEndpointPageCommandOutput,
 } from "./commands/GetProductRestEndpointPageCommand";
-import { GetRouteCommandInput, GetRouteCommandOutput } from "./commands/GetRouteCommand";
-import { GetRouteResponseCommandInput, GetRouteResponseCommandOutput } from "./commands/GetRouteResponseCommand";
-import { GetRouteResponsesCommandInput, GetRouteResponsesCommandOutput } from "./commands/GetRouteResponsesCommand";
-import { GetRoutesCommandInput, GetRoutesCommandOutput } from "./commands/GetRoutesCommand";
-import { GetRoutingRuleCommandInput, GetRoutingRuleCommandOutput } from "./commands/GetRoutingRuleCommand";
-import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
-import { GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand";
-import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
-import { GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand";
-import { GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
-import { ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
-import { ListPortalProductsCommandInput, ListPortalProductsCommandOutput } from "./commands/ListPortalProductsCommand";
-import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
-import { ListProductPagesCommandInput, ListProductPagesCommandOutput } from "./commands/ListProductPagesCommand";
-import {
+import type { GetRouteCommandInput, GetRouteCommandOutput } from "./commands/GetRouteCommand";
+import type { GetRouteResponseCommandInput, GetRouteResponseCommandOutput } from "./commands/GetRouteResponseCommand";
+import type {
+  GetRouteResponsesCommandInput,
+  GetRouteResponsesCommandOutput,
+} from "./commands/GetRouteResponsesCommand";
+import type { GetRoutesCommandInput, GetRoutesCommandOutput } from "./commands/GetRoutesCommand";
+import type { GetRoutingRuleCommandInput, GetRoutingRuleCommandOutput } from "./commands/GetRoutingRuleCommand";
+import type { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
+import type { GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand";
+import type { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import type { GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand";
+import type { GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
+import type { ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
+import type {
+  ListPortalProductsCommandInput,
+  ListPortalProductsCommandOutput,
+} from "./commands/ListPortalProductsCommand";
+import type { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
+import type { ListProductPagesCommandInput, ListProductPagesCommandOutput } from "./commands/ListProductPagesCommand";
+import type {
   ListProductRestEndpointPagesCommandInput,
   ListProductRestEndpointPagesCommandOutput,
 } from "./commands/ListProductRestEndpointPagesCommand";
-import { ListRoutingRulesCommandInput, ListRoutingRulesCommandOutput } from "./commands/ListRoutingRulesCommand";
-import { PreviewPortalCommandInput, PreviewPortalCommandOutput } from "./commands/PreviewPortalCommand";
-import { PublishPortalCommandInput, PublishPortalCommandOutput } from "./commands/PublishPortalCommand";
-import {
+import type { ListRoutingRulesCommandInput, ListRoutingRulesCommandOutput } from "./commands/ListRoutingRulesCommand";
+import type { PreviewPortalCommandInput, PreviewPortalCommandOutput } from "./commands/PreviewPortalCommand";
+import type { PublishPortalCommandInput, PublishPortalCommandOutput } from "./commands/PublishPortalCommand";
+import type {
   PutPortalProductSharingPolicyCommandInput,
   PutPortalProductSharingPolicyCommandOutput,
 } from "./commands/PutPortalProductSharingPolicyCommand";
-import { PutRoutingRuleCommandInput, PutRoutingRuleCommandOutput } from "./commands/PutRoutingRuleCommand";
-import { ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
-import {
+import type { PutRoutingRuleCommandInput, PutRoutingRuleCommandOutput } from "./commands/PutRoutingRuleCommand";
+import type { ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
+import type {
   ResetAuthorizersCacheCommandInput,
   ResetAuthorizersCacheCommandOutput,
 } from "./commands/ResetAuthorizersCacheCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
-import { UpdateApiMappingCommandInput, UpdateApiMappingCommandOutput } from "./commands/UpdateApiMappingCommand";
-import { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "./commands/UpdateAuthorizerCommand";
-import { UpdateDeploymentCommandInput, UpdateDeploymentCommandOutput } from "./commands/UpdateDeploymentCommand";
-import { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "./commands/UpdateDomainNameCommand";
-import { UpdateIntegrationCommandInput, UpdateIntegrationCommandOutput } from "./commands/UpdateIntegrationCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
+import type { UpdateApiMappingCommandInput, UpdateApiMappingCommandOutput } from "./commands/UpdateApiMappingCommand";
+import type { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "./commands/UpdateAuthorizerCommand";
+import type { UpdateDeploymentCommandInput, UpdateDeploymentCommandOutput } from "./commands/UpdateDeploymentCommand";
+import type { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "./commands/UpdateDomainNameCommand";
+import type {
+  UpdateIntegrationCommandInput,
+  UpdateIntegrationCommandOutput,
+} from "./commands/UpdateIntegrationCommand";
+import type {
   UpdateIntegrationResponseCommandInput,
   UpdateIntegrationResponseCommandOutput,
 } from "./commands/UpdateIntegrationResponseCommand";
-import { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
-import { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "./commands/UpdatePortalCommand";
-import {
+import type { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
+import type { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "./commands/UpdatePortalCommand";
+import type {
   UpdatePortalProductCommandInput,
   UpdatePortalProductCommandOutput,
 } from "./commands/UpdatePortalProductCommand";
-import { UpdateProductPageCommandInput, UpdateProductPageCommandOutput } from "./commands/UpdateProductPageCommand";
-import {
+import type {
+  UpdateProductPageCommandInput,
+  UpdateProductPageCommandOutput,
+} from "./commands/UpdateProductPageCommand";
+import type {
   UpdateProductRestEndpointPageCommandInput,
   UpdateProductRestEndpointPageCommandOutput,
 } from "./commands/UpdateProductRestEndpointPageCommand";
-import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
-import {
+import type { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
+import type {
   UpdateRouteResponseCommandInput,
   UpdateRouteResponseCommandOutput,
 } from "./commands/UpdateRouteResponseCommand";
-import { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
-import { UpdateVpcLinkCommandInput, UpdateVpcLinkCommandOutput } from "./commands/UpdateVpcLinkCommand";
+import type { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
+import type { UpdateVpcLinkCommandInput, UpdateVpcLinkCommandOutput } from "./commands/UpdateVpcLinkCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -579,7 +607,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

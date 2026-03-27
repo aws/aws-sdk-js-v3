@@ -8,7 +8,7 @@ import {
   ListInvoiceUnitsCommandOutput,
 } from "../commands/ListInvoiceUnitsCommand";
 import { InvoicingClient } from "../InvoicingClient";
-import { InvoicingPaginationConfiguration } from "./Interfaces";
+import type { InvoicingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

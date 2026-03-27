@@ -13,7 +13,7 @@
  */
 export * from "./SESv2Client";
 export * from "./SESv2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SESv2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

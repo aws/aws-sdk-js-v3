@@ -8,7 +8,7 @@ import {
   ListDataLakeExceptionsCommandOutput,
 } from "../commands/ListDataLakeExceptionsCommand";
 import { SecurityLakeClient } from "../SecurityLakeClient";
-import { SecurityLakePaginationConfiguration } from "./Interfaces";
+import type { SecurityLakePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

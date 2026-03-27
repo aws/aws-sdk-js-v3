@@ -8,7 +8,7 @@ import {
   ListClustersCommandOutput,
 } from "../commands/ListClustersCommand";
 import { SnowballClient } from "../SnowballClient";
-import { SnowballPaginationConfiguration } from "./Interfaces";
+import type { SnowballPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

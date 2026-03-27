@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,122 +61,134 @@ import {
   defaultChatbotHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateToConfigurationCommandInput,
   AssociateToConfigurationCommandOutput,
 } from "./commands/AssociateToConfigurationCommand";
-import {
+import type {
   CreateChimeWebhookConfigurationCommandInput,
   CreateChimeWebhookConfigurationCommandOutput,
 } from "./commands/CreateChimeWebhookConfigurationCommand";
-import { CreateCustomActionCommandInput, CreateCustomActionCommandOutput } from "./commands/CreateCustomActionCommand";
-import {
+import type {
+  CreateCustomActionCommandInput,
+  CreateCustomActionCommandOutput,
+} from "./commands/CreateCustomActionCommand";
+import type {
   CreateMicrosoftTeamsChannelConfigurationCommandInput,
   CreateMicrosoftTeamsChannelConfigurationCommandOutput,
 } from "./commands/CreateMicrosoftTeamsChannelConfigurationCommand";
-import {
+import type {
   CreateSlackChannelConfigurationCommandInput,
   CreateSlackChannelConfigurationCommandOutput,
 } from "./commands/CreateSlackChannelConfigurationCommand";
-import {
+import type {
   DeleteChimeWebhookConfigurationCommandInput,
   DeleteChimeWebhookConfigurationCommandOutput,
 } from "./commands/DeleteChimeWebhookConfigurationCommand";
-import { DeleteCustomActionCommandInput, DeleteCustomActionCommandOutput } from "./commands/DeleteCustomActionCommand";
-import {
+import type {
+  DeleteCustomActionCommandInput,
+  DeleteCustomActionCommandOutput,
+} from "./commands/DeleteCustomActionCommand";
+import type {
   DeleteMicrosoftTeamsChannelConfigurationCommandInput,
   DeleteMicrosoftTeamsChannelConfigurationCommandOutput,
 } from "./commands/DeleteMicrosoftTeamsChannelConfigurationCommand";
-import {
+import type {
   DeleteMicrosoftTeamsConfiguredTeamCommandInput,
   DeleteMicrosoftTeamsConfiguredTeamCommandOutput,
 } from "./commands/DeleteMicrosoftTeamsConfiguredTeamCommand";
-import {
+import type {
   DeleteMicrosoftTeamsUserIdentityCommandInput,
   DeleteMicrosoftTeamsUserIdentityCommandOutput,
 } from "./commands/DeleteMicrosoftTeamsUserIdentityCommand";
-import {
+import type {
   DeleteSlackChannelConfigurationCommandInput,
   DeleteSlackChannelConfigurationCommandOutput,
 } from "./commands/DeleteSlackChannelConfigurationCommand";
-import {
+import type {
   DeleteSlackUserIdentityCommandInput,
   DeleteSlackUserIdentityCommandOutput,
 } from "./commands/DeleteSlackUserIdentityCommand";
-import {
+import type {
   DeleteSlackWorkspaceAuthorizationCommandInput,
   DeleteSlackWorkspaceAuthorizationCommandOutput,
 } from "./commands/DeleteSlackWorkspaceAuthorizationCommand";
-import {
+import type {
   DescribeChimeWebhookConfigurationsCommandInput,
   DescribeChimeWebhookConfigurationsCommandOutput,
 } from "./commands/DescribeChimeWebhookConfigurationsCommand";
-import {
+import type {
   DescribeSlackChannelConfigurationsCommandInput,
   DescribeSlackChannelConfigurationsCommandOutput,
 } from "./commands/DescribeSlackChannelConfigurationsCommand";
-import {
+import type {
   DescribeSlackUserIdentitiesCommandInput,
   DescribeSlackUserIdentitiesCommandOutput,
 } from "./commands/DescribeSlackUserIdentitiesCommand";
-import {
+import type {
   DescribeSlackWorkspacesCommandInput,
   DescribeSlackWorkspacesCommandOutput,
 } from "./commands/DescribeSlackWorkspacesCommand";
-import {
+import type {
   DisassociateFromConfigurationCommandInput,
   DisassociateFromConfigurationCommandOutput,
 } from "./commands/DisassociateFromConfigurationCommand";
-import {
+import type {
   GetAccountPreferencesCommandInput,
   GetAccountPreferencesCommandOutput,
 } from "./commands/GetAccountPreferencesCommand";
-import { GetCustomActionCommandInput, GetCustomActionCommandOutput } from "./commands/GetCustomActionCommand";
-import {
+import type { GetCustomActionCommandInput, GetCustomActionCommandOutput } from "./commands/GetCustomActionCommand";
+import type {
   GetMicrosoftTeamsChannelConfigurationCommandInput,
   GetMicrosoftTeamsChannelConfigurationCommandOutput,
 } from "./commands/GetMicrosoftTeamsChannelConfigurationCommand";
-import { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand";
-import { ListCustomActionsCommandInput, ListCustomActionsCommandOutput } from "./commands/ListCustomActionsCommand";
-import {
+import type { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand";
+import type {
+  ListCustomActionsCommandInput,
+  ListCustomActionsCommandOutput,
+} from "./commands/ListCustomActionsCommand";
+import type {
   ListMicrosoftTeamsChannelConfigurationsCommandInput,
   ListMicrosoftTeamsChannelConfigurationsCommandOutput,
 } from "./commands/ListMicrosoftTeamsChannelConfigurationsCommand";
-import {
+import type {
   ListMicrosoftTeamsConfiguredTeamsCommandInput,
   ListMicrosoftTeamsConfiguredTeamsCommandOutput,
 } from "./commands/ListMicrosoftTeamsConfiguredTeamsCommand";
-import {
+import type {
   ListMicrosoftTeamsUserIdentitiesCommandInput,
   ListMicrosoftTeamsUserIdentitiesCommandOutput,
 } from "./commands/ListMicrosoftTeamsUserIdentitiesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAccountPreferencesCommandInput,
   UpdateAccountPreferencesCommandOutput,
 } from "./commands/UpdateAccountPreferencesCommand";
-import {
+import type {
   UpdateChimeWebhookConfigurationCommandInput,
   UpdateChimeWebhookConfigurationCommandOutput,
 } from "./commands/UpdateChimeWebhookConfigurationCommand";
-import { UpdateCustomActionCommandInput, UpdateCustomActionCommandOutput } from "./commands/UpdateCustomActionCommand";
-import {
+import type {
+  UpdateCustomActionCommandInput,
+  UpdateCustomActionCommandOutput,
+} from "./commands/UpdateCustomActionCommand";
+import type {
   UpdateMicrosoftTeamsChannelConfigurationCommandInput,
   UpdateMicrosoftTeamsChannelConfigurationCommandOutput,
 } from "./commands/UpdateMicrosoftTeamsChannelConfigurationCommand";
-import {
+import type {
   UpdateSlackChannelConfigurationCommandInput,
   UpdateSlackChannelConfigurationCommandOutput,
 } from "./commands/UpdateSlackChannelConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -378,7 +388,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

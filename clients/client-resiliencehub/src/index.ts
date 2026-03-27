@@ -11,7 +11,7 @@
  */
 export * from "./ResiliencehubClient";
 export * from "./Resiliencehub";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ResiliencehubExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ErrorDetail } from "./models_0";
+import type { ErrorDetail } from "./models_0";
 import { WickrServiceException as __BaseException } from "./WickrServiceException";
 
 /**

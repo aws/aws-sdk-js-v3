@@ -8,7 +8,7 @@ import {
   ListRetainedMessagesCommandOutput,
 } from "../commands/ListRetainedMessagesCommand";
 import { IoTDataPlaneClient } from "../IoTDataPlaneClient";
-import { IoTDataPlanePaginationConfiguration } from "./Interfaces";
+import type { IoTDataPlanePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

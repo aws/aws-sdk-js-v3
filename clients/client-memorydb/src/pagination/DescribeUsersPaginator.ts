@@ -8,7 +8,7 @@ import {
   DescribeUsersCommandOutput,
 } from "../commands/DescribeUsersCommand";
 import { MemoryDBClient } from "../MemoryDBClient";
-import { MemoryDBPaginationConfiguration } from "./Interfaces";
+import type { MemoryDBPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { BedrockAgentClient } from "../BedrockAgentClient";
 import { ListPromptsCommand, ListPromptsCommandInput, ListPromptsCommandOutput } from "../commands/ListPromptsCommand";
-import { BedrockAgentPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

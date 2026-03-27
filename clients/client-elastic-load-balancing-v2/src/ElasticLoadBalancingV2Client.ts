@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,133 +61,163 @@ import {
   defaultElasticLoadBalancingV2HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddListenerCertificatesCommandInput,
   AddListenerCertificatesCommandOutput,
 } from "./commands/AddListenerCertificatesCommand";
-import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
-import {
+import type { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import type {
   AddTrustStoreRevocationsCommandInput,
   AddTrustStoreRevocationsCommandOutput,
 } from "./commands/AddTrustStoreRevocationsCommand";
-import { CreateListenerCommandInput, CreateListenerCommandOutput } from "./commands/CreateListenerCommand";
-import { CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput } from "./commands/CreateLoadBalancerCommand";
-import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
-import { CreateTargetGroupCommandInput, CreateTargetGroupCommandOutput } from "./commands/CreateTargetGroupCommand";
-import { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "./commands/CreateTrustStoreCommand";
-import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
-import { DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput } from "./commands/DeleteLoadBalancerCommand";
-import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
-import {
+import type { CreateListenerCommandInput, CreateListenerCommandOutput } from "./commands/CreateListenerCommand";
+import type {
+  CreateLoadBalancerCommandInput,
+  CreateLoadBalancerCommandOutput,
+} from "./commands/CreateLoadBalancerCommand";
+import type { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
+import type {
+  CreateTargetGroupCommandInput,
+  CreateTargetGroupCommandOutput,
+} from "./commands/CreateTargetGroupCommand";
+import type { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "./commands/CreateTrustStoreCommand";
+import type { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
+import type {
+  DeleteLoadBalancerCommandInput,
+  DeleteLoadBalancerCommandOutput,
+} from "./commands/DeleteLoadBalancerCommand";
+import type { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import type {
   DeleteSharedTrustStoreAssociationCommandInput,
   DeleteSharedTrustStoreAssociationCommandOutput,
 } from "./commands/DeleteSharedTrustStoreAssociationCommand";
-import { DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput } from "./commands/DeleteTargetGroupCommand";
-import { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "./commands/DeleteTrustStoreCommand";
-import { DeregisterTargetsCommandInput, DeregisterTargetsCommandOutput } from "./commands/DeregisterTargetsCommand";
-import {
+import type {
+  DeleteTargetGroupCommandInput,
+  DeleteTargetGroupCommandOutput,
+} from "./commands/DeleteTargetGroupCommand";
+import type { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "./commands/DeleteTrustStoreCommand";
+import type {
+  DeregisterTargetsCommandInput,
+  DeregisterTargetsCommandOutput,
+} from "./commands/DeregisterTargetsCommand";
+import type {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
-import {
+import type {
   DescribeCapacityReservationCommandInput,
   DescribeCapacityReservationCommandOutput,
 } from "./commands/DescribeCapacityReservationCommand";
-import {
+import type {
   DescribeListenerAttributesCommandInput,
   DescribeListenerAttributesCommandOutput,
 } from "./commands/DescribeListenerAttributesCommand";
-import {
+import type {
   DescribeListenerCertificatesCommandInput,
   DescribeListenerCertificatesCommandOutput,
 } from "./commands/DescribeListenerCertificatesCommand";
-import { DescribeListenersCommandInput, DescribeListenersCommandOutput } from "./commands/DescribeListenersCommand";
-import {
+import type {
+  DescribeListenersCommandInput,
+  DescribeListenersCommandOutput,
+} from "./commands/DescribeListenersCommand";
+import type {
   DescribeLoadBalancerAttributesCommandInput,
   DescribeLoadBalancerAttributesCommandOutput,
 } from "./commands/DescribeLoadBalancerAttributesCommand";
-import {
+import type {
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand";
-import { DescribeRulesCommandInput, DescribeRulesCommandOutput } from "./commands/DescribeRulesCommand";
-import {
+import type { DescribeRulesCommandInput, DescribeRulesCommandOutput } from "./commands/DescribeRulesCommand";
+import type {
   DescribeSSLPoliciesCommandInput,
   DescribeSSLPoliciesCommandOutput,
 } from "./commands/DescribeSSLPoliciesCommand";
-import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
-import {
+import type { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import type {
   DescribeTargetGroupAttributesCommandInput,
   DescribeTargetGroupAttributesCommandOutput,
 } from "./commands/DescribeTargetGroupAttributesCommand";
-import {
+import type {
   DescribeTargetGroupsCommandInput,
   DescribeTargetGroupsCommandOutput,
 } from "./commands/DescribeTargetGroupsCommand";
-import {
+import type {
   DescribeTargetHealthCommandInput,
   DescribeTargetHealthCommandOutput,
 } from "./commands/DescribeTargetHealthCommand";
-import {
+import type {
   DescribeTrustStoreAssociationsCommandInput,
   DescribeTrustStoreAssociationsCommandOutput,
 } from "./commands/DescribeTrustStoreAssociationsCommand";
-import {
+import type {
   DescribeTrustStoreRevocationsCommandInput,
   DescribeTrustStoreRevocationsCommandOutput,
 } from "./commands/DescribeTrustStoreRevocationsCommand";
-import {
+import type {
   DescribeTrustStoresCommandInput,
   DescribeTrustStoresCommandOutput,
 } from "./commands/DescribeTrustStoresCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import {
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type {
   GetTrustStoreCaCertificatesBundleCommandInput,
   GetTrustStoreCaCertificatesBundleCommandOutput,
 } from "./commands/GetTrustStoreCaCertificatesBundleCommand";
-import {
+import type {
   GetTrustStoreRevocationContentCommandInput,
   GetTrustStoreRevocationContentCommandOutput,
 } from "./commands/GetTrustStoreRevocationContentCommand";
-import {
+import type {
   ModifyCapacityReservationCommandInput,
   ModifyCapacityReservationCommandOutput,
 } from "./commands/ModifyCapacityReservationCommand";
-import { ModifyIpPoolsCommandInput, ModifyIpPoolsCommandOutput } from "./commands/ModifyIpPoolsCommand";
-import {
+import type { ModifyIpPoolsCommandInput, ModifyIpPoolsCommandOutput } from "./commands/ModifyIpPoolsCommand";
+import type {
   ModifyListenerAttributesCommandInput,
   ModifyListenerAttributesCommandOutput,
 } from "./commands/ModifyListenerAttributesCommand";
-import { ModifyListenerCommandInput, ModifyListenerCommandOutput } from "./commands/ModifyListenerCommand";
-import {
+import type { ModifyListenerCommandInput, ModifyListenerCommandOutput } from "./commands/ModifyListenerCommand";
+import type {
   ModifyLoadBalancerAttributesCommandInput,
   ModifyLoadBalancerAttributesCommandOutput,
 } from "./commands/ModifyLoadBalancerAttributesCommand";
-import { ModifyRuleCommandInput, ModifyRuleCommandOutput } from "./commands/ModifyRuleCommand";
-import {
+import type { ModifyRuleCommandInput, ModifyRuleCommandOutput } from "./commands/ModifyRuleCommand";
+import type {
   ModifyTargetGroupAttributesCommandInput,
   ModifyTargetGroupAttributesCommandOutput,
 } from "./commands/ModifyTargetGroupAttributesCommand";
-import { ModifyTargetGroupCommandInput, ModifyTargetGroupCommandOutput } from "./commands/ModifyTargetGroupCommand";
-import { ModifyTrustStoreCommandInput, ModifyTrustStoreCommandOutput } from "./commands/ModifyTrustStoreCommand";
-import { RegisterTargetsCommandInput, RegisterTargetsCommandOutput } from "./commands/RegisterTargetsCommand";
-import {
+import type {
+  ModifyTargetGroupCommandInput,
+  ModifyTargetGroupCommandOutput,
+} from "./commands/ModifyTargetGroupCommand";
+import type { ModifyTrustStoreCommandInput, ModifyTrustStoreCommandOutput } from "./commands/ModifyTrustStoreCommand";
+import type { RegisterTargetsCommandInput, RegisterTargetsCommandOutput } from "./commands/RegisterTargetsCommand";
+import type {
   RemoveListenerCertificatesCommandInput,
   RemoveListenerCertificatesCommandOutput,
 } from "./commands/RemoveListenerCertificatesCommand";
-import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
-import {
+import type { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import type {
   RemoveTrustStoreRevocationsCommandInput,
   RemoveTrustStoreRevocationsCommandOutput,
 } from "./commands/RemoveTrustStoreRevocationsCommand";
-import { SetIpAddressTypeCommandInput, SetIpAddressTypeCommandOutput } from "./commands/SetIpAddressTypeCommand";
-import { SetRulePrioritiesCommandInput, SetRulePrioritiesCommandOutput } from "./commands/SetRulePrioritiesCommand";
-import { SetSecurityGroupsCommandInput, SetSecurityGroupsCommandOutput } from "./commands/SetSecurityGroupsCommand";
-import { SetSubnetsCommandInput, SetSubnetsCommandOutput } from "./commands/SetSubnetsCommand";
+import type { SetIpAddressTypeCommandInput, SetIpAddressTypeCommandOutput } from "./commands/SetIpAddressTypeCommand";
+import type {
+  SetRulePrioritiesCommandInput,
+  SetRulePrioritiesCommandOutput,
+} from "./commands/SetRulePrioritiesCommand";
+import type {
+  SetSecurityGroupsCommandInput,
+  SetSecurityGroupsCommandOutput,
+} from "./commands/SetSecurityGroupsCommand";
+import type { SetSubnetsCommandInput, SetSubnetsCommandOutput } from "./commands/SetSubnetsCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -423,7 +451,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

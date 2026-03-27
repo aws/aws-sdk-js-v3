@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConnectCampaignsV2ServiceException as __BaseException } from "./ConnectCampaignsV2ServiceException";
-import { CampaignState } from "./enums";
+import type { CampaignState } from "./enums";
 
 /**
  * You do not have sufficient access to perform this action.

@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type GetMedicalTranscriptionJobCommandInput,
   GetMedicalTranscriptionJobCommand,
-  GetMedicalTranscriptionJobCommandInput,
 } from "../commands/GetMedicalTranscriptionJobCommand";
-import { TranscribeClient } from "../TranscribeClient";
+import type { TranscribeClient } from "../TranscribeClient";
 
 const checkState = async (client: TranscribeClient, input: GetMedicalTranscriptionJobCommandInput): Promise<WaiterResult> => {
   let reason;

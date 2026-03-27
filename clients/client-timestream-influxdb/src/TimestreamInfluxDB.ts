@@ -3,95 +3,99 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateDbClusterCommandInput,
+  type CreateDbClusterCommandOutput,
   CreateDbClusterCommand,
-  CreateDbClusterCommandInput,
-  CreateDbClusterCommandOutput,
 } from "./commands/CreateDbClusterCommand";
 import {
+  type CreateDbInstanceCommandInput,
+  type CreateDbInstanceCommandOutput,
   CreateDbInstanceCommand,
-  CreateDbInstanceCommandInput,
-  CreateDbInstanceCommandOutput,
 } from "./commands/CreateDbInstanceCommand";
 import {
+  type CreateDbParameterGroupCommandInput,
+  type CreateDbParameterGroupCommandOutput,
   CreateDbParameterGroupCommand,
-  CreateDbParameterGroupCommandInput,
-  CreateDbParameterGroupCommandOutput,
 } from "./commands/CreateDbParameterGroupCommand";
 import {
+  type DeleteDbClusterCommandInput,
+  type DeleteDbClusterCommandOutput,
   DeleteDbClusterCommand,
-  DeleteDbClusterCommandInput,
-  DeleteDbClusterCommandOutput,
 } from "./commands/DeleteDbClusterCommand";
 import {
+  type DeleteDbInstanceCommandInput,
+  type DeleteDbInstanceCommandOutput,
   DeleteDbInstanceCommand,
-  DeleteDbInstanceCommandInput,
-  DeleteDbInstanceCommandOutput,
 } from "./commands/DeleteDbInstanceCommand";
 import {
+  type GetDbClusterCommandInput,
+  type GetDbClusterCommandOutput,
   GetDbClusterCommand,
-  GetDbClusterCommandInput,
-  GetDbClusterCommandOutput,
 } from "./commands/GetDbClusterCommand";
 import {
+  type GetDbInstanceCommandInput,
+  type GetDbInstanceCommandOutput,
   GetDbInstanceCommand,
-  GetDbInstanceCommandInput,
-  GetDbInstanceCommandOutput,
 } from "./commands/GetDbInstanceCommand";
 import {
+  type GetDbParameterGroupCommandInput,
+  type GetDbParameterGroupCommandOutput,
   GetDbParameterGroupCommand,
-  GetDbParameterGroupCommandInput,
-  GetDbParameterGroupCommandOutput,
 } from "./commands/GetDbParameterGroupCommand";
 import {
+  type ListDbClustersCommandInput,
+  type ListDbClustersCommandOutput,
   ListDbClustersCommand,
-  ListDbClustersCommandInput,
-  ListDbClustersCommandOutput,
 } from "./commands/ListDbClustersCommand";
 import {
+  type ListDbInstancesCommandInput,
+  type ListDbInstancesCommandOutput,
   ListDbInstancesCommand,
-  ListDbInstancesCommandInput,
-  ListDbInstancesCommandOutput,
 } from "./commands/ListDbInstancesCommand";
 import {
+  type ListDbInstancesForClusterCommandInput,
+  type ListDbInstancesForClusterCommandOutput,
   ListDbInstancesForClusterCommand,
-  ListDbInstancesForClusterCommandInput,
-  ListDbInstancesForClusterCommandOutput,
 } from "./commands/ListDbInstancesForClusterCommand";
 import {
+  type ListDbParameterGroupsCommandInput,
+  type ListDbParameterGroupsCommandOutput,
   ListDbParameterGroupsCommand,
-  ListDbParameterGroupsCommandInput,
-  ListDbParameterGroupsCommandOutput,
 } from "./commands/ListDbParameterGroupsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RebootDbClusterCommandInput,
+  type RebootDbClusterCommandOutput,
   RebootDbClusterCommand,
-  RebootDbClusterCommandInput,
-  RebootDbClusterCommandOutput,
 } from "./commands/RebootDbClusterCommand";
 import {
+  type RebootDbInstanceCommandInput,
+  type RebootDbInstanceCommandOutput,
   RebootDbInstanceCommand,
-  RebootDbInstanceCommandInput,
-  RebootDbInstanceCommandOutput,
 } from "./commands/RebootDbInstanceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDbClusterCommandInput,
+  type UpdateDbClusterCommandOutput,
   UpdateDbClusterCommand,
-  UpdateDbClusterCommandInput,
-  UpdateDbClusterCommandOutput,
 } from "./commands/UpdateDbClusterCommand";
 import {
+  type UpdateDbInstanceCommandInput,
+  type UpdateDbInstanceCommandOutput,
   UpdateDbInstanceCommand,
-  UpdateDbInstanceCommandInput,
-  UpdateDbInstanceCommandOutput,
 } from "./commands/UpdateDbInstanceCommand";
 import { paginateListDbClusters } from "./pagination/ListDbClustersPaginator";
 import { paginateListDbInstancesForCluster } from "./pagination/ListDbInstancesForClusterPaginator";

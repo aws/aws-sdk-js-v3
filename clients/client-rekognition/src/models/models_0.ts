@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 
-import {
+import type {
   Attribute,
   BodyPart,
   CelebrityRecognitionSortBy,

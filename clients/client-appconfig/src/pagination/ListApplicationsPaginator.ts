@@ -8,7 +8,7 @@ import {
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
-import { AppConfigPaginationConfiguration } from "./Interfaces";
+import type { AppConfigPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

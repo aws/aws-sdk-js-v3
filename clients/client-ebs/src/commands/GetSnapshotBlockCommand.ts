@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 
 import type { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type GetSnapshotBlockRequest, GetSnapshotBlockResponse } from "../models/models_0";
+import type { GetSnapshotBlockRequest, GetSnapshotBlockResponse } from "../models/models_0";
 import { GetSnapshotBlock$ } from "../schemas/schemas_0";
 
 /**

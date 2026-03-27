@@ -8,7 +8,7 @@ import {
   ListPageResolutionsCommandOutput,
 } from "../commands/ListPageResolutionsCommand";
 import { SSMContactsClient } from "../SSMContactsClient";
-import { SSMContactsPaginationConfiguration } from "./Interfaces";
+import type { SSMContactsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

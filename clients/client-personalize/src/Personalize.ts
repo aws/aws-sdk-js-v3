@@ -3,343 +3,359 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateBatchInferenceJobCommandInput,
+  type CreateBatchInferenceJobCommandOutput,
   CreateBatchInferenceJobCommand,
-  CreateBatchInferenceJobCommandInput,
-  CreateBatchInferenceJobCommandOutput,
 } from "./commands/CreateBatchInferenceJobCommand";
 import {
+  type CreateBatchSegmentJobCommandInput,
+  type CreateBatchSegmentJobCommandOutput,
   CreateBatchSegmentJobCommand,
-  CreateBatchSegmentJobCommandInput,
-  CreateBatchSegmentJobCommandOutput,
 } from "./commands/CreateBatchSegmentJobCommand";
 import {
+  type CreateCampaignCommandInput,
+  type CreateCampaignCommandOutput,
   CreateCampaignCommand,
-  CreateCampaignCommandInput,
-  CreateCampaignCommandOutput,
 } from "./commands/CreateCampaignCommand";
 import {
+  type CreateDataDeletionJobCommandInput,
+  type CreateDataDeletionJobCommandOutput,
   CreateDataDeletionJobCommand,
-  CreateDataDeletionJobCommandInput,
-  CreateDataDeletionJobCommandOutput,
 } from "./commands/CreateDataDeletionJobCommand";
 import {
+  type CreateDatasetCommandInput,
+  type CreateDatasetCommandOutput,
   CreateDatasetCommand,
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput,
 } from "./commands/CreateDatasetCommand";
 import {
+  type CreateDatasetExportJobCommandInput,
+  type CreateDatasetExportJobCommandOutput,
   CreateDatasetExportJobCommand,
-  CreateDatasetExportJobCommandInput,
-  CreateDatasetExportJobCommandOutput,
 } from "./commands/CreateDatasetExportJobCommand";
 import {
+  type CreateDatasetGroupCommandInput,
+  type CreateDatasetGroupCommandOutput,
   CreateDatasetGroupCommand,
-  CreateDatasetGroupCommandInput,
-  CreateDatasetGroupCommandOutput,
 } from "./commands/CreateDatasetGroupCommand";
 import {
+  type CreateDatasetImportJobCommandInput,
+  type CreateDatasetImportJobCommandOutput,
   CreateDatasetImportJobCommand,
-  CreateDatasetImportJobCommandInput,
-  CreateDatasetImportJobCommandOutput,
 } from "./commands/CreateDatasetImportJobCommand";
 import {
+  type CreateEventTrackerCommandInput,
+  type CreateEventTrackerCommandOutput,
   CreateEventTrackerCommand,
-  CreateEventTrackerCommandInput,
-  CreateEventTrackerCommandOutput,
 } from "./commands/CreateEventTrackerCommand";
 import {
+  type CreateFilterCommandInput,
+  type CreateFilterCommandOutput,
   CreateFilterCommand,
-  CreateFilterCommandInput,
-  CreateFilterCommandOutput,
 } from "./commands/CreateFilterCommand";
 import {
+  type CreateMetricAttributionCommandInput,
+  type CreateMetricAttributionCommandOutput,
   CreateMetricAttributionCommand,
-  CreateMetricAttributionCommandInput,
-  CreateMetricAttributionCommandOutput,
 } from "./commands/CreateMetricAttributionCommand";
 import {
+  type CreateRecommenderCommandInput,
+  type CreateRecommenderCommandOutput,
   CreateRecommenderCommand,
-  CreateRecommenderCommandInput,
-  CreateRecommenderCommandOutput,
 } from "./commands/CreateRecommenderCommand";
 import {
+  type CreateSchemaCommandInput,
+  type CreateSchemaCommandOutput,
   CreateSchemaCommand,
-  CreateSchemaCommandInput,
-  CreateSchemaCommandOutput,
 } from "./commands/CreateSchemaCommand";
 import {
+  type CreateSolutionCommandInput,
+  type CreateSolutionCommandOutput,
   CreateSolutionCommand,
-  CreateSolutionCommandInput,
-  CreateSolutionCommandOutput,
 } from "./commands/CreateSolutionCommand";
 import {
+  type CreateSolutionVersionCommandInput,
+  type CreateSolutionVersionCommandOutput,
   CreateSolutionVersionCommand,
-  CreateSolutionVersionCommandInput,
-  CreateSolutionVersionCommandOutput,
 } from "./commands/CreateSolutionVersionCommand";
 import {
+  type DeleteCampaignCommandInput,
+  type DeleteCampaignCommandOutput,
   DeleteCampaignCommand,
-  DeleteCampaignCommandInput,
-  DeleteCampaignCommandOutput,
 } from "./commands/DeleteCampaignCommand";
 import {
+  type DeleteDatasetCommandInput,
+  type DeleteDatasetCommandOutput,
   DeleteDatasetCommand,
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput,
 } from "./commands/DeleteDatasetCommand";
 import {
+  type DeleteDatasetGroupCommandInput,
+  type DeleteDatasetGroupCommandOutput,
   DeleteDatasetGroupCommand,
-  DeleteDatasetGroupCommandInput,
-  DeleteDatasetGroupCommandOutput,
 } from "./commands/DeleteDatasetGroupCommand";
 import {
+  type DeleteEventTrackerCommandInput,
+  type DeleteEventTrackerCommandOutput,
   DeleteEventTrackerCommand,
-  DeleteEventTrackerCommandInput,
-  DeleteEventTrackerCommandOutput,
 } from "./commands/DeleteEventTrackerCommand";
 import {
+  type DeleteFilterCommandInput,
+  type DeleteFilterCommandOutput,
   DeleteFilterCommand,
-  DeleteFilterCommandInput,
-  DeleteFilterCommandOutput,
 } from "./commands/DeleteFilterCommand";
 import {
+  type DeleteMetricAttributionCommandInput,
+  type DeleteMetricAttributionCommandOutput,
   DeleteMetricAttributionCommand,
-  DeleteMetricAttributionCommandInput,
-  DeleteMetricAttributionCommandOutput,
 } from "./commands/DeleteMetricAttributionCommand";
 import {
+  type DeleteRecommenderCommandInput,
+  type DeleteRecommenderCommandOutput,
   DeleteRecommenderCommand,
-  DeleteRecommenderCommandInput,
-  DeleteRecommenderCommandOutput,
 } from "./commands/DeleteRecommenderCommand";
 import {
+  type DeleteSchemaCommandInput,
+  type DeleteSchemaCommandOutput,
   DeleteSchemaCommand,
-  DeleteSchemaCommandInput,
-  DeleteSchemaCommandOutput,
 } from "./commands/DeleteSchemaCommand";
 import {
+  type DeleteSolutionCommandInput,
+  type DeleteSolutionCommandOutput,
   DeleteSolutionCommand,
-  DeleteSolutionCommandInput,
-  DeleteSolutionCommandOutput,
 } from "./commands/DeleteSolutionCommand";
 import {
+  type DescribeAlgorithmCommandInput,
+  type DescribeAlgorithmCommandOutput,
   DescribeAlgorithmCommand,
-  DescribeAlgorithmCommandInput,
-  DescribeAlgorithmCommandOutput,
 } from "./commands/DescribeAlgorithmCommand";
 import {
+  type DescribeBatchInferenceJobCommandInput,
+  type DescribeBatchInferenceJobCommandOutput,
   DescribeBatchInferenceJobCommand,
-  DescribeBatchInferenceJobCommandInput,
-  DescribeBatchInferenceJobCommandOutput,
 } from "./commands/DescribeBatchInferenceJobCommand";
 import {
+  type DescribeBatchSegmentJobCommandInput,
+  type DescribeBatchSegmentJobCommandOutput,
   DescribeBatchSegmentJobCommand,
-  DescribeBatchSegmentJobCommandInput,
-  DescribeBatchSegmentJobCommandOutput,
 } from "./commands/DescribeBatchSegmentJobCommand";
 import {
+  type DescribeCampaignCommandInput,
+  type DescribeCampaignCommandOutput,
   DescribeCampaignCommand,
-  DescribeCampaignCommandInput,
-  DescribeCampaignCommandOutput,
 } from "./commands/DescribeCampaignCommand";
 import {
+  type DescribeDataDeletionJobCommandInput,
+  type DescribeDataDeletionJobCommandOutput,
   DescribeDataDeletionJobCommand,
-  DescribeDataDeletionJobCommandInput,
-  DescribeDataDeletionJobCommandOutput,
 } from "./commands/DescribeDataDeletionJobCommand";
 import {
+  type DescribeDatasetCommandInput,
+  type DescribeDatasetCommandOutput,
   DescribeDatasetCommand,
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput,
 } from "./commands/DescribeDatasetCommand";
 import {
+  type DescribeDatasetExportJobCommandInput,
+  type DescribeDatasetExportJobCommandOutput,
   DescribeDatasetExportJobCommand,
-  DescribeDatasetExportJobCommandInput,
-  DescribeDatasetExportJobCommandOutput,
 } from "./commands/DescribeDatasetExportJobCommand";
 import {
+  type DescribeDatasetGroupCommandInput,
+  type DescribeDatasetGroupCommandOutput,
   DescribeDatasetGroupCommand,
-  DescribeDatasetGroupCommandInput,
-  DescribeDatasetGroupCommandOutput,
 } from "./commands/DescribeDatasetGroupCommand";
 import {
+  type DescribeDatasetImportJobCommandInput,
+  type DescribeDatasetImportJobCommandOutput,
   DescribeDatasetImportJobCommand,
-  DescribeDatasetImportJobCommandInput,
-  DescribeDatasetImportJobCommandOutput,
 } from "./commands/DescribeDatasetImportJobCommand";
 import {
+  type DescribeEventTrackerCommandInput,
+  type DescribeEventTrackerCommandOutput,
   DescribeEventTrackerCommand,
-  DescribeEventTrackerCommandInput,
-  DescribeEventTrackerCommandOutput,
 } from "./commands/DescribeEventTrackerCommand";
 import {
+  type DescribeFeatureTransformationCommandInput,
+  type DescribeFeatureTransformationCommandOutput,
   DescribeFeatureTransformationCommand,
-  DescribeFeatureTransformationCommandInput,
-  DescribeFeatureTransformationCommandOutput,
 } from "./commands/DescribeFeatureTransformationCommand";
 import {
+  type DescribeFilterCommandInput,
+  type DescribeFilterCommandOutput,
   DescribeFilterCommand,
-  DescribeFilterCommandInput,
-  DescribeFilterCommandOutput,
 } from "./commands/DescribeFilterCommand";
 import {
+  type DescribeMetricAttributionCommandInput,
+  type DescribeMetricAttributionCommandOutput,
   DescribeMetricAttributionCommand,
-  DescribeMetricAttributionCommandInput,
-  DescribeMetricAttributionCommandOutput,
 } from "./commands/DescribeMetricAttributionCommand";
 import {
+  type DescribeRecipeCommandInput,
+  type DescribeRecipeCommandOutput,
   DescribeRecipeCommand,
-  DescribeRecipeCommandInput,
-  DescribeRecipeCommandOutput,
 } from "./commands/DescribeRecipeCommand";
 import {
+  type DescribeRecommenderCommandInput,
+  type DescribeRecommenderCommandOutput,
   DescribeRecommenderCommand,
-  DescribeRecommenderCommandInput,
-  DescribeRecommenderCommandOutput,
 } from "./commands/DescribeRecommenderCommand";
 import {
+  type DescribeSchemaCommandInput,
+  type DescribeSchemaCommandOutput,
   DescribeSchemaCommand,
-  DescribeSchemaCommandInput,
-  DescribeSchemaCommandOutput,
 } from "./commands/DescribeSchemaCommand";
 import {
+  type DescribeSolutionCommandInput,
+  type DescribeSolutionCommandOutput,
   DescribeSolutionCommand,
-  DescribeSolutionCommandInput,
-  DescribeSolutionCommandOutput,
 } from "./commands/DescribeSolutionCommand";
 import {
+  type DescribeSolutionVersionCommandInput,
+  type DescribeSolutionVersionCommandOutput,
   DescribeSolutionVersionCommand,
-  DescribeSolutionVersionCommandInput,
-  DescribeSolutionVersionCommandOutput,
 } from "./commands/DescribeSolutionVersionCommand";
 import {
+  type GetSolutionMetricsCommandInput,
+  type GetSolutionMetricsCommandOutput,
   GetSolutionMetricsCommand,
-  GetSolutionMetricsCommandInput,
-  GetSolutionMetricsCommandOutput,
 } from "./commands/GetSolutionMetricsCommand";
 import {
+  type ListBatchInferenceJobsCommandInput,
+  type ListBatchInferenceJobsCommandOutput,
   ListBatchInferenceJobsCommand,
-  ListBatchInferenceJobsCommandInput,
-  ListBatchInferenceJobsCommandOutput,
 } from "./commands/ListBatchInferenceJobsCommand";
 import {
+  type ListBatchSegmentJobsCommandInput,
+  type ListBatchSegmentJobsCommandOutput,
   ListBatchSegmentJobsCommand,
-  ListBatchSegmentJobsCommandInput,
-  ListBatchSegmentJobsCommandOutput,
 } from "./commands/ListBatchSegmentJobsCommand";
 import {
+  type ListCampaignsCommandInput,
+  type ListCampaignsCommandOutput,
   ListCampaignsCommand,
-  ListCampaignsCommandInput,
-  ListCampaignsCommandOutput,
 } from "./commands/ListCampaignsCommand";
 import {
+  type ListDataDeletionJobsCommandInput,
+  type ListDataDeletionJobsCommandOutput,
   ListDataDeletionJobsCommand,
-  ListDataDeletionJobsCommandInput,
-  ListDataDeletionJobsCommandOutput,
 } from "./commands/ListDataDeletionJobsCommand";
 import {
+  type ListDatasetExportJobsCommandInput,
+  type ListDatasetExportJobsCommandOutput,
   ListDatasetExportJobsCommand,
-  ListDatasetExportJobsCommandInput,
-  ListDatasetExportJobsCommandOutput,
 } from "./commands/ListDatasetExportJobsCommand";
 import {
+  type ListDatasetGroupsCommandInput,
+  type ListDatasetGroupsCommandOutput,
   ListDatasetGroupsCommand,
-  ListDatasetGroupsCommandInput,
-  ListDatasetGroupsCommandOutput,
 } from "./commands/ListDatasetGroupsCommand";
 import {
+  type ListDatasetImportJobsCommandInput,
+  type ListDatasetImportJobsCommandOutput,
   ListDatasetImportJobsCommand,
-  ListDatasetImportJobsCommandInput,
-  ListDatasetImportJobsCommandOutput,
 } from "./commands/ListDatasetImportJobsCommand";
 import {
+  type ListDatasetsCommandInput,
+  type ListDatasetsCommandOutput,
   ListDatasetsCommand,
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
 import {
+  type ListEventTrackersCommandInput,
+  type ListEventTrackersCommandOutput,
   ListEventTrackersCommand,
-  ListEventTrackersCommandInput,
-  ListEventTrackersCommandOutput,
 } from "./commands/ListEventTrackersCommand";
-import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import {
+  type ListFiltersCommandInput,
+  type ListFiltersCommandOutput,
+  ListFiltersCommand,
+} from "./commands/ListFiltersCommand";
+import {
+  type ListMetricAttributionMetricsCommandInput,
+  type ListMetricAttributionMetricsCommandOutput,
   ListMetricAttributionMetricsCommand,
-  ListMetricAttributionMetricsCommandInput,
-  ListMetricAttributionMetricsCommandOutput,
 } from "./commands/ListMetricAttributionMetricsCommand";
 import {
+  type ListMetricAttributionsCommandInput,
+  type ListMetricAttributionsCommandOutput,
   ListMetricAttributionsCommand,
-  ListMetricAttributionsCommandInput,
-  ListMetricAttributionsCommandOutput,
 } from "./commands/ListMetricAttributionsCommand";
-import { ListRecipesCommand, ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
 import {
+  type ListRecipesCommandInput,
+  type ListRecipesCommandOutput,
+  ListRecipesCommand,
+} from "./commands/ListRecipesCommand";
+import {
+  type ListRecommendersCommandInput,
+  type ListRecommendersCommandOutput,
   ListRecommendersCommand,
-  ListRecommendersCommandInput,
-  ListRecommendersCommandOutput,
 } from "./commands/ListRecommendersCommand";
-import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
+  type ListSchemasCommandInput,
+  type ListSchemasCommandOutput,
+  ListSchemasCommand,
+} from "./commands/ListSchemasCommand";
+import {
+  type ListSolutionsCommandInput,
+  type ListSolutionsCommandOutput,
   ListSolutionsCommand,
-  ListSolutionsCommandInput,
-  ListSolutionsCommandOutput,
 } from "./commands/ListSolutionsCommand";
 import {
+  type ListSolutionVersionsCommandInput,
+  type ListSolutionVersionsCommandOutput,
   ListSolutionVersionsCommand,
-  ListSolutionVersionsCommandInput,
-  ListSolutionVersionsCommandOutput,
 } from "./commands/ListSolutionVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartRecommenderCommandInput,
+  type StartRecommenderCommandOutput,
   StartRecommenderCommand,
-  StartRecommenderCommandInput,
-  StartRecommenderCommandOutput,
 } from "./commands/StartRecommenderCommand";
 import {
+  type StopRecommenderCommandInput,
+  type StopRecommenderCommandOutput,
   StopRecommenderCommand,
-  StopRecommenderCommandInput,
-  StopRecommenderCommandOutput,
 } from "./commands/StopRecommenderCommand";
 import {
+  type StopSolutionVersionCreationCommandInput,
+  type StopSolutionVersionCreationCommandOutput,
   StopSolutionVersionCreationCommand,
-  StopSolutionVersionCreationCommandInput,
-  StopSolutionVersionCreationCommandOutput,
 } from "./commands/StopSolutionVersionCreationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCampaignCommandInput,
+  type UpdateCampaignCommandOutput,
   UpdateCampaignCommand,
-  UpdateCampaignCommandInput,
-  UpdateCampaignCommandOutput,
 } from "./commands/UpdateCampaignCommand";
 import {
+  type UpdateDatasetCommandInput,
+  type UpdateDatasetCommandOutput,
   UpdateDatasetCommand,
-  UpdateDatasetCommandInput,
-  UpdateDatasetCommandOutput,
 } from "./commands/UpdateDatasetCommand";
 import {
+  type UpdateMetricAttributionCommandInput,
+  type UpdateMetricAttributionCommandOutput,
   UpdateMetricAttributionCommand,
-  UpdateMetricAttributionCommandInput,
-  UpdateMetricAttributionCommandOutput,
 } from "./commands/UpdateMetricAttributionCommand";
 import {
+  type UpdateRecommenderCommandInput,
+  type UpdateRecommenderCommandOutput,
   UpdateRecommenderCommand,
-  UpdateRecommenderCommandInput,
-  UpdateRecommenderCommandOutput,
 } from "./commands/UpdateRecommenderCommand";
 import {
+  type UpdateSolutionCommandInput,
+  type UpdateSolutionCommandOutput,
   UpdateSolutionCommand,
-  UpdateSolutionCommandInput,
-  UpdateSolutionCommandOutput,
 } from "./commands/UpdateSolutionCommand";
 import { paginateListBatchInferenceJobs } from "./pagination/ListBatchInferenceJobsPaginator";
 import { paginateListBatchSegmentJobs } from "./pagination/ListBatchSegmentJobsPaginator";

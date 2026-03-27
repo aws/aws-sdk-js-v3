@@ -8,7 +8,7 @@ import {
   ListProxySessionsCommandInput,
   ListProxySessionsCommandOutput,
 } from "../commands/ListProxySessionsCommand";
-import { ChimeSDKVoicePaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKVoicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

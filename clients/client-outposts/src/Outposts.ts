@@ -3,131 +3,167 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelCapacityTaskCommandInput,
+  type CancelCapacityTaskCommandOutput,
   CancelCapacityTaskCommand,
-  CancelCapacityTaskCommandInput,
-  CancelCapacityTaskCommandOutput,
 } from "./commands/CancelCapacityTaskCommand";
-import { CancelOrderCommand, CancelOrderCommandInput, CancelOrderCommandOutput } from "./commands/CancelOrderCommand";
-import { CreateOrderCommand, CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
 import {
+  type CancelOrderCommandInput,
+  type CancelOrderCommandOutput,
+  CancelOrderCommand,
+} from "./commands/CancelOrderCommand";
+import {
+  type CreateOrderCommandInput,
+  type CreateOrderCommandOutput,
+  CreateOrderCommand,
+} from "./commands/CreateOrderCommand";
+import {
+  type CreateOutpostCommandInput,
+  type CreateOutpostCommandOutput,
   CreateOutpostCommand,
-  CreateOutpostCommandInput,
-  CreateOutpostCommandOutput,
 } from "./commands/CreateOutpostCommand";
-import { CreateSiteCommand, CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
 import {
+  type CreateSiteCommandInput,
+  type CreateSiteCommandOutput,
+  CreateSiteCommand,
+} from "./commands/CreateSiteCommand";
+import {
+  type DeleteOutpostCommandInput,
+  type DeleteOutpostCommandOutput,
   DeleteOutpostCommand,
-  DeleteOutpostCommandInput,
-  DeleteOutpostCommandOutput,
 } from "./commands/DeleteOutpostCommand";
-import { DeleteSiteCommand, DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
 import {
+  type DeleteSiteCommandInput,
+  type DeleteSiteCommandOutput,
+  DeleteSiteCommand,
+} from "./commands/DeleteSiteCommand";
+import {
+  type GetCapacityTaskCommandInput,
+  type GetCapacityTaskCommandOutput,
   GetCapacityTaskCommand,
-  GetCapacityTaskCommandInput,
-  GetCapacityTaskCommandOutput,
 } from "./commands/GetCapacityTaskCommand";
 import {
+  type GetCatalogItemCommandInput,
+  type GetCatalogItemCommandOutput,
   GetCatalogItemCommand,
-  GetCatalogItemCommandInput,
-  GetCatalogItemCommandOutput,
 } from "./commands/GetCatalogItemCommand";
 import {
+  type GetConnectionCommandInput,
+  type GetConnectionCommandOutput,
   GetConnectionCommand,
-  GetConnectionCommandInput,
-  GetConnectionCommandOutput,
 } from "./commands/GetConnectionCommand";
-import { GetOrderCommand, GetOrderCommandInput, GetOrderCommandOutput } from "./commands/GetOrderCommand";
+import { type GetOrderCommandInput, type GetOrderCommandOutput, GetOrderCommand } from "./commands/GetOrderCommand";
 import {
+  type GetOutpostBillingInformationCommandInput,
+  type GetOutpostBillingInformationCommandOutput,
   GetOutpostBillingInformationCommand,
-  GetOutpostBillingInformationCommandInput,
-  GetOutpostBillingInformationCommandOutput,
 } from "./commands/GetOutpostBillingInformationCommand";
-import { GetOutpostCommand, GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
 import {
+  type GetOutpostCommandInput,
+  type GetOutpostCommandOutput,
+  GetOutpostCommand,
+} from "./commands/GetOutpostCommand";
+import {
+  type GetOutpostInstanceTypesCommandInput,
+  type GetOutpostInstanceTypesCommandOutput,
   GetOutpostInstanceTypesCommand,
-  GetOutpostInstanceTypesCommandInput,
-  GetOutpostInstanceTypesCommandOutput,
 } from "./commands/GetOutpostInstanceTypesCommand";
 import {
+  type GetOutpostSupportedInstanceTypesCommandInput,
+  type GetOutpostSupportedInstanceTypesCommandOutput,
   GetOutpostSupportedInstanceTypesCommand,
-  GetOutpostSupportedInstanceTypesCommandInput,
-  GetOutpostSupportedInstanceTypesCommandOutput,
 } from "./commands/GetOutpostSupportedInstanceTypesCommand";
 import {
+  type GetSiteAddressCommandInput,
+  type GetSiteAddressCommandOutput,
   GetSiteAddressCommand,
-  GetSiteAddressCommandInput,
-  GetSiteAddressCommandOutput,
 } from "./commands/GetSiteAddressCommand";
-import { GetSiteCommand, GetSiteCommandInput, GetSiteCommandOutput } from "./commands/GetSiteCommand";
+import { type GetSiteCommandInput, type GetSiteCommandOutput, GetSiteCommand } from "./commands/GetSiteCommand";
 import {
+  type ListAssetInstancesCommandInput,
+  type ListAssetInstancesCommandOutput,
   ListAssetInstancesCommand,
-  ListAssetInstancesCommandInput,
-  ListAssetInstancesCommandOutput,
 } from "./commands/ListAssetInstancesCommand";
-import { ListAssetsCommand, ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
 import {
+  type ListAssetsCommandInput,
+  type ListAssetsCommandOutput,
+  ListAssetsCommand,
+} from "./commands/ListAssetsCommand";
+import {
+  type ListBlockingInstancesForCapacityTaskCommandInput,
+  type ListBlockingInstancesForCapacityTaskCommandOutput,
   ListBlockingInstancesForCapacityTaskCommand,
-  ListBlockingInstancesForCapacityTaskCommandInput,
-  ListBlockingInstancesForCapacityTaskCommandOutput,
 } from "./commands/ListBlockingInstancesForCapacityTaskCommand";
 import {
+  type ListCapacityTasksCommandInput,
+  type ListCapacityTasksCommandOutput,
   ListCapacityTasksCommand,
-  ListCapacityTasksCommandInput,
-  ListCapacityTasksCommandOutput,
 } from "./commands/ListCapacityTasksCommand";
 import {
+  type ListCatalogItemsCommandInput,
+  type ListCatalogItemsCommandOutput,
   ListCatalogItemsCommand,
-  ListCatalogItemsCommandInput,
-  ListCatalogItemsCommandOutput,
 } from "./commands/ListCatalogItemsCommand";
-import { ListOrdersCommand, ListOrdersCommandInput, ListOrdersCommandOutput } from "./commands/ListOrdersCommand";
 import {
+  type ListOrdersCommandInput,
+  type ListOrdersCommandOutput,
+  ListOrdersCommand,
+} from "./commands/ListOrdersCommand";
+import {
+  type ListOutpostsCommandInput,
+  type ListOutpostsCommandOutput,
   ListOutpostsCommand,
-  ListOutpostsCommandInput,
-  ListOutpostsCommandOutput,
 } from "./commands/ListOutpostsCommand";
-import { ListSitesCommand, ListSitesCommandInput, ListSitesCommandOutput } from "./commands/ListSitesCommand";
+import { type ListSitesCommandInput, type ListSitesCommandOutput, ListSitesCommand } from "./commands/ListSitesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartCapacityTaskCommandInput,
+  type StartCapacityTaskCommandOutput,
   StartCapacityTaskCommand,
-  StartCapacityTaskCommandInput,
-  StartCapacityTaskCommandOutput,
 } from "./commands/StartCapacityTaskCommand";
 import {
+  type StartConnectionCommandInput,
+  type StartConnectionCommandOutput,
   StartConnectionCommand,
-  StartConnectionCommandInput,
-  StartConnectionCommandOutput,
 } from "./commands/StartConnectionCommand";
 import {
+  type StartOutpostDecommissionCommandInput,
+  type StartOutpostDecommissionCommandOutput,
   StartOutpostDecommissionCommand,
-  StartOutpostDecommissionCommandInput,
-  StartOutpostDecommissionCommandOutput,
 } from "./commands/StartOutpostDecommissionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateOutpostCommandInput,
+  type UpdateOutpostCommandOutput,
   UpdateOutpostCommand,
-  UpdateOutpostCommandInput,
-  UpdateOutpostCommandOutput,
 } from "./commands/UpdateOutpostCommand";
 import {
+  type UpdateSiteAddressCommandInput,
+  type UpdateSiteAddressCommandOutput,
   UpdateSiteAddressCommand,
-  UpdateSiteAddressCommandInput,
-  UpdateSiteAddressCommandOutput,
 } from "./commands/UpdateSiteAddressCommand";
-import { UpdateSiteCommand, UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
 import {
+  type UpdateSiteCommandInput,
+  type UpdateSiteCommandOutput,
+  UpdateSiteCommand,
+} from "./commands/UpdateSiteCommand";
+import {
+  type UpdateSiteRackPhysicalPropertiesCommandInput,
+  type UpdateSiteRackPhysicalPropertiesCommandOutput,
   UpdateSiteRackPhysicalPropertiesCommand,
-  UpdateSiteRackPhysicalPropertiesCommandInput,
-  UpdateSiteRackPhysicalPropertiesCommandOutput,
 } from "./commands/UpdateSiteRackPhysicalPropertiesCommand";
 import { OutpostsClient } from "./OutpostsClient";
 import { paginateGetOutpostBillingInformation } from "./pagination/GetOutpostBillingInformationPaginator";

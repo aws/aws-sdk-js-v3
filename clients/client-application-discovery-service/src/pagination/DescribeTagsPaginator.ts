@@ -8,7 +8,7 @@ import {
   DescribeTagsCommandInput,
   DescribeTagsCommandOutput,
 } from "../commands/DescribeTagsCommand";
-import { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
+import type { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

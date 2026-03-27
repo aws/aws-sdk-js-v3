@@ -6,7 +6,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TestPayloadBlobInputOutput } from "../models/models_0";
+import type { TestPayloadBlobInputOutput } from "../models/models_0";
 import { de_TestPayloadBlobCommand, se_TestPayloadBlobCommand } from "../protocols/Aws_restJson1";
 import type {
   RestJsonProtocolClientResolvedConfig,

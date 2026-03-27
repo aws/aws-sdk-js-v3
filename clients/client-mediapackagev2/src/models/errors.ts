@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ConflictExceptionType, ResourceTypeNotFound, ValidationExceptionType } from "./enums";
+import type { ConflictExceptionType, ResourceTypeNotFound, ValidationExceptionType } from "./enums";
 import { MediaPackageV2ServiceException as __BaseException } from "./MediaPackageV2ServiceException";
 
 /**

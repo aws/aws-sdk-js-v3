@@ -2,41 +2,65 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { CreateLinkCommand, CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
-import { CreateSinkCommand, CreateSinkCommandInput, CreateSinkCommandOutput } from "./commands/CreateSinkCommand";
-import { DeleteLinkCommand, DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
-import { DeleteSinkCommand, DeleteSinkCommandInput, DeleteSinkCommandOutput } from "./commands/DeleteSinkCommand";
-import { GetLinkCommand, GetLinkCommandInput, GetLinkCommandOutput } from "./commands/GetLinkCommand";
-import { GetSinkCommand, GetSinkCommandInput, GetSinkCommandOutput } from "./commands/GetSinkCommand";
 import {
+  type CreateLinkCommandInput,
+  type CreateLinkCommandOutput,
+  CreateLinkCommand,
+} from "./commands/CreateLinkCommand";
+import {
+  type CreateSinkCommandInput,
+  type CreateSinkCommandOutput,
+  CreateSinkCommand,
+} from "./commands/CreateSinkCommand";
+import {
+  type DeleteLinkCommandInput,
+  type DeleteLinkCommandOutput,
+  DeleteLinkCommand,
+} from "./commands/DeleteLinkCommand";
+import {
+  type DeleteSinkCommandInput,
+  type DeleteSinkCommandOutput,
+  DeleteSinkCommand,
+} from "./commands/DeleteSinkCommand";
+import { type GetLinkCommandInput, type GetLinkCommandOutput, GetLinkCommand } from "./commands/GetLinkCommand";
+import { type GetSinkCommandInput, type GetSinkCommandOutput, GetSinkCommand } from "./commands/GetSinkCommand";
+import {
+  type GetSinkPolicyCommandInput,
+  type GetSinkPolicyCommandOutput,
   GetSinkPolicyCommand,
-  GetSinkPolicyCommandInput,
-  GetSinkPolicyCommandOutput,
 } from "./commands/GetSinkPolicyCommand";
 import {
+  type ListAttachedLinksCommandInput,
+  type ListAttachedLinksCommandOutput,
   ListAttachedLinksCommand,
-  ListAttachedLinksCommandInput,
-  ListAttachedLinksCommandOutput,
 } from "./commands/ListAttachedLinksCommand";
-import { ListLinksCommand, ListLinksCommandInput, ListLinksCommandOutput } from "./commands/ListLinksCommand";
-import { ListSinksCommand, ListSinksCommandInput, ListSinksCommandOutput } from "./commands/ListSinksCommand";
+import { type ListLinksCommandInput, type ListLinksCommandOutput, ListLinksCommand } from "./commands/ListLinksCommand";
+import { type ListSinksCommandInput, type ListSinksCommandOutput, ListSinksCommand } from "./commands/ListSinksCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutSinkPolicyCommandInput,
+  type PutSinkPolicyCommandOutput,
   PutSinkPolicyCommand,
-  PutSinkPolicyCommandInput,
-  PutSinkPolicyCommandOutput,
 } from "./commands/PutSinkPolicyCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateLinkCommand, UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
+import {
+  type UpdateLinkCommandInput,
+  type UpdateLinkCommandOutput,
+  UpdateLinkCommand,
+} from "./commands/UpdateLinkCommand";
 import { OAMClient } from "./OAMClient";
 import { paginateListAttachedLinks } from "./pagination/ListAttachedLinksPaginator";
 import { paginateListLinks } from "./pagination/ListLinksPaginator";

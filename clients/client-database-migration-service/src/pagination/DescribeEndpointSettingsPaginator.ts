@@ -8,7 +8,7 @@ import {
   DescribeEndpointSettingsCommandOutput,
 } from "../commands/DescribeEndpointSettingsCommand";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
-import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
+import type { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

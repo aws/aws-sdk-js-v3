@@ -7,7 +7,7 @@
  */
 export * from "./BedrockDataAutomationClient";
 export * from "./BedrockDataAutomation";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BedrockDataAutomationExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

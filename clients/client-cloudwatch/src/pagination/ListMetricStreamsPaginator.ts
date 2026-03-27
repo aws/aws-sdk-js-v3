@@ -8,7 +8,7 @@ import {
   ListMetricStreamsCommandInput,
   ListMetricStreamsCommandOutput,
 } from "../commands/ListMetricStreamsCommand";
-import { CloudWatchPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

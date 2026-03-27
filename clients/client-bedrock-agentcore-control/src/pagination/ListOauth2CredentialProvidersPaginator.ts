@@ -8,7 +8,7 @@ import {
   ListOauth2CredentialProvidersCommandInput,
   ListOauth2CredentialProvidersCommandOutput,
 } from "../commands/ListOauth2CredentialProvidersCommand";
-import { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

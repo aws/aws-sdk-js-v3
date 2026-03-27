@@ -3,197 +3,209 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateAssistantAssociationCommandInput,
+  type CreateAssistantAssociationCommandOutput,
   CreateAssistantAssociationCommand,
-  CreateAssistantAssociationCommandInput,
-  CreateAssistantAssociationCommandOutput,
 } from "./commands/CreateAssistantAssociationCommand";
 import {
+  type CreateAssistantCommandInput,
+  type CreateAssistantCommandOutput,
   CreateAssistantCommand,
-  CreateAssistantCommandInput,
-  CreateAssistantCommandOutput,
 } from "./commands/CreateAssistantCommand";
 import {
+  type CreateContentCommandInput,
+  type CreateContentCommandOutput,
   CreateContentCommand,
-  CreateContentCommandInput,
-  CreateContentCommandOutput,
 } from "./commands/CreateContentCommand";
 import {
+  type CreateKnowledgeBaseCommandInput,
+  type CreateKnowledgeBaseCommandOutput,
   CreateKnowledgeBaseCommand,
-  CreateKnowledgeBaseCommandInput,
-  CreateKnowledgeBaseCommandOutput,
 } from "./commands/CreateKnowledgeBaseCommand";
 import {
+  type CreateQuickResponseCommandInput,
+  type CreateQuickResponseCommandOutput,
   CreateQuickResponseCommand,
-  CreateQuickResponseCommandInput,
-  CreateQuickResponseCommandOutput,
 } from "./commands/CreateQuickResponseCommand";
 import {
+  type CreateSessionCommandInput,
+  type CreateSessionCommandOutput,
   CreateSessionCommand,
-  CreateSessionCommandInput,
-  CreateSessionCommandOutput,
 } from "./commands/CreateSessionCommand";
 import {
+  type DeleteAssistantAssociationCommandInput,
+  type DeleteAssistantAssociationCommandOutput,
   DeleteAssistantAssociationCommand,
-  DeleteAssistantAssociationCommandInput,
-  DeleteAssistantAssociationCommandOutput,
 } from "./commands/DeleteAssistantAssociationCommand";
 import {
+  type DeleteAssistantCommandInput,
+  type DeleteAssistantCommandOutput,
   DeleteAssistantCommand,
-  DeleteAssistantCommandInput,
-  DeleteAssistantCommandOutput,
 } from "./commands/DeleteAssistantCommand";
 import {
+  type DeleteContentCommandInput,
+  type DeleteContentCommandOutput,
   DeleteContentCommand,
-  DeleteContentCommandInput,
-  DeleteContentCommandOutput,
 } from "./commands/DeleteContentCommand";
 import {
+  type DeleteImportJobCommandInput,
+  type DeleteImportJobCommandOutput,
   DeleteImportJobCommand,
-  DeleteImportJobCommandInput,
-  DeleteImportJobCommandOutput,
 } from "./commands/DeleteImportJobCommand";
 import {
+  type DeleteKnowledgeBaseCommandInput,
+  type DeleteKnowledgeBaseCommandOutput,
   DeleteKnowledgeBaseCommand,
-  DeleteKnowledgeBaseCommandInput,
-  DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
 import {
+  type DeleteQuickResponseCommandInput,
+  type DeleteQuickResponseCommandOutput,
   DeleteQuickResponseCommand,
-  DeleteQuickResponseCommandInput,
-  DeleteQuickResponseCommandOutput,
 } from "./commands/DeleteQuickResponseCommand";
 import {
+  type GetAssistantAssociationCommandInput,
+  type GetAssistantAssociationCommandOutput,
   GetAssistantAssociationCommand,
-  GetAssistantAssociationCommandInput,
-  GetAssistantAssociationCommandOutput,
 } from "./commands/GetAssistantAssociationCommand";
 import {
+  type GetAssistantCommandInput,
+  type GetAssistantCommandOutput,
   GetAssistantCommand,
-  GetAssistantCommandInput,
-  GetAssistantCommandOutput,
 } from "./commands/GetAssistantCommand";
-import { GetContentCommand, GetContentCommandInput, GetContentCommandOutput } from "./commands/GetContentCommand";
 import {
+  type GetContentCommandInput,
+  type GetContentCommandOutput,
+  GetContentCommand,
+} from "./commands/GetContentCommand";
+import {
+  type GetContentSummaryCommandInput,
+  type GetContentSummaryCommandOutput,
   GetContentSummaryCommand,
-  GetContentSummaryCommandInput,
-  GetContentSummaryCommandOutput,
 } from "./commands/GetContentSummaryCommand";
 import {
+  type GetImportJobCommandInput,
+  type GetImportJobCommandOutput,
   GetImportJobCommand,
-  GetImportJobCommandInput,
-  GetImportJobCommandOutput,
 } from "./commands/GetImportJobCommand";
 import {
+  type GetKnowledgeBaseCommandInput,
+  type GetKnowledgeBaseCommandOutput,
   GetKnowledgeBaseCommand,
-  GetKnowledgeBaseCommandInput,
-  GetKnowledgeBaseCommandOutput,
 } from "./commands/GetKnowledgeBaseCommand";
 import {
+  type GetQuickResponseCommandInput,
+  type GetQuickResponseCommandOutput,
   GetQuickResponseCommand,
-  GetQuickResponseCommandInput,
-  GetQuickResponseCommandOutput,
 } from "./commands/GetQuickResponseCommand";
 import {
+  type GetRecommendationsCommandInput,
+  type GetRecommendationsCommandOutput,
   GetRecommendationsCommand,
-  GetRecommendationsCommandInput,
-  GetRecommendationsCommandOutput,
 } from "./commands/GetRecommendationsCommand";
-import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import {
+  type GetSessionCommandInput,
+  type GetSessionCommandOutput,
+  GetSessionCommand,
+} from "./commands/GetSessionCommand";
+import {
+  type ListAssistantAssociationsCommandInput,
+  type ListAssistantAssociationsCommandOutput,
   ListAssistantAssociationsCommand,
-  ListAssistantAssociationsCommandInput,
-  ListAssistantAssociationsCommandOutput,
 } from "./commands/ListAssistantAssociationsCommand";
 import {
+  type ListAssistantsCommandInput,
+  type ListAssistantsCommandOutput,
   ListAssistantsCommand,
-  ListAssistantsCommandInput,
-  ListAssistantsCommandOutput,
 } from "./commands/ListAssistantsCommand";
 import {
+  type ListContentsCommandInput,
+  type ListContentsCommandOutput,
   ListContentsCommand,
-  ListContentsCommandInput,
-  ListContentsCommandOutput,
 } from "./commands/ListContentsCommand";
 import {
+  type ListImportJobsCommandInput,
+  type ListImportJobsCommandOutput,
   ListImportJobsCommand,
-  ListImportJobsCommandInput,
-  ListImportJobsCommandOutput,
 } from "./commands/ListImportJobsCommand";
 import {
+  type ListKnowledgeBasesCommandInput,
+  type ListKnowledgeBasesCommandOutput,
   ListKnowledgeBasesCommand,
-  ListKnowledgeBasesCommandInput,
-  ListKnowledgeBasesCommandOutput,
 } from "./commands/ListKnowledgeBasesCommand";
 import {
+  type ListQuickResponsesCommandInput,
+  type ListQuickResponsesCommandOutput,
   ListQuickResponsesCommand,
-  ListQuickResponsesCommandInput,
-  ListQuickResponsesCommandOutput,
 } from "./commands/ListQuickResponsesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type NotifyRecommendationsReceivedCommandInput,
+  type NotifyRecommendationsReceivedCommandOutput,
   NotifyRecommendationsReceivedCommand,
-  NotifyRecommendationsReceivedCommandInput,
-  NotifyRecommendationsReceivedCommandOutput,
 } from "./commands/NotifyRecommendationsReceivedCommand";
 import {
+  type QueryAssistantCommandInput,
+  type QueryAssistantCommandOutput,
   QueryAssistantCommand,
-  QueryAssistantCommandInput,
-  QueryAssistantCommandOutput,
 } from "./commands/QueryAssistantCommand";
 import {
+  type RemoveKnowledgeBaseTemplateUriCommandInput,
+  type RemoveKnowledgeBaseTemplateUriCommandOutput,
   RemoveKnowledgeBaseTemplateUriCommand,
-  RemoveKnowledgeBaseTemplateUriCommandInput,
-  RemoveKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/RemoveKnowledgeBaseTemplateUriCommand";
 import {
+  type SearchContentCommandInput,
+  type SearchContentCommandOutput,
   SearchContentCommand,
-  SearchContentCommandInput,
-  SearchContentCommandOutput,
 } from "./commands/SearchContentCommand";
 import {
+  type SearchQuickResponsesCommandInput,
+  type SearchQuickResponsesCommandOutput,
   SearchQuickResponsesCommand,
-  SearchQuickResponsesCommandInput,
-  SearchQuickResponsesCommandOutput,
 } from "./commands/SearchQuickResponsesCommand";
 import {
+  type SearchSessionsCommandInput,
+  type SearchSessionsCommandOutput,
   SearchSessionsCommand,
-  SearchSessionsCommandInput,
-  SearchSessionsCommandOutput,
 } from "./commands/SearchSessionsCommand";
 import {
+  type StartContentUploadCommandInput,
+  type StartContentUploadCommandOutput,
   StartContentUploadCommand,
-  StartContentUploadCommandInput,
-  StartContentUploadCommandOutput,
 } from "./commands/StartContentUploadCommand";
 import {
+  type StartImportJobCommandInput,
+  type StartImportJobCommandOutput,
   StartImportJobCommand,
-  StartImportJobCommandInput,
-  StartImportJobCommandOutput,
 } from "./commands/StartImportJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateContentCommandInput,
+  type UpdateContentCommandOutput,
   UpdateContentCommand,
-  UpdateContentCommandInput,
-  UpdateContentCommandOutput,
 } from "./commands/UpdateContentCommand";
 import {
+  type UpdateKnowledgeBaseTemplateUriCommandInput,
+  type UpdateKnowledgeBaseTemplateUriCommandOutput,
   UpdateKnowledgeBaseTemplateUriCommand,
-  UpdateKnowledgeBaseTemplateUriCommandInput,
-  UpdateKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/UpdateKnowledgeBaseTemplateUriCommand";
 import {
+  type UpdateQuickResponseCommandInput,
+  type UpdateQuickResponseCommandOutput,
   UpdateQuickResponseCommand,
-  UpdateQuickResponseCommandInput,
-  UpdateQuickResponseCommandOutput,
 } from "./commands/UpdateQuickResponseCommand";
 import { paginateListAssistantAssociations } from "./pagination/ListAssistantAssociationsPaginator";
 import { paginateListAssistants } from "./pagination/ListAssistantsPaginator";

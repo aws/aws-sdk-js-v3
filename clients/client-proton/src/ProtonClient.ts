@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,277 +61,295 @@ import {
   defaultProtonHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptEnvironmentAccountConnectionCommandInput,
   AcceptEnvironmentAccountConnectionCommandOutput,
 } from "./commands/AcceptEnvironmentAccountConnectionCommand";
-import {
+import type {
   CancelComponentDeploymentCommandInput,
   CancelComponentDeploymentCommandOutput,
 } from "./commands/CancelComponentDeploymentCommand";
-import {
+import type {
   CancelEnvironmentDeploymentCommandInput,
   CancelEnvironmentDeploymentCommandOutput,
 } from "./commands/CancelEnvironmentDeploymentCommand";
-import {
+import type {
   CancelServiceInstanceDeploymentCommandInput,
   CancelServiceInstanceDeploymentCommandOutput,
 } from "./commands/CancelServiceInstanceDeploymentCommand";
-import {
+import type {
   CancelServicePipelineDeploymentCommandInput,
   CancelServicePipelineDeploymentCommandOutput,
 } from "./commands/CancelServicePipelineDeploymentCommand";
-import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
-import {
+import type { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
+import type {
   CreateEnvironmentAccountConnectionCommandInput,
   CreateEnvironmentAccountConnectionCommandOutput,
 } from "./commands/CreateEnvironmentAccountConnectionCommand";
-import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
-import {
+import type {
+  CreateEnvironmentCommandInput,
+  CreateEnvironmentCommandOutput,
+} from "./commands/CreateEnvironmentCommand";
+import type {
   CreateEnvironmentTemplateCommandInput,
   CreateEnvironmentTemplateCommandOutput,
 } from "./commands/CreateEnvironmentTemplateCommand";
-import {
+import type {
   CreateEnvironmentTemplateVersionCommandInput,
   CreateEnvironmentTemplateVersionCommandOutput,
 } from "./commands/CreateEnvironmentTemplateVersionCommand";
-import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
-import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
-import {
+import type { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
+import type { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
+import type {
   CreateServiceInstanceCommandInput,
   CreateServiceInstanceCommandOutput,
 } from "./commands/CreateServiceInstanceCommand";
-import {
+import type {
   CreateServiceSyncConfigCommandInput,
   CreateServiceSyncConfigCommandOutput,
 } from "./commands/CreateServiceSyncConfigCommand";
-import {
+import type {
   CreateServiceTemplateCommandInput,
   CreateServiceTemplateCommandOutput,
 } from "./commands/CreateServiceTemplateCommand";
-import {
+import type {
   CreateServiceTemplateVersionCommandInput,
   CreateServiceTemplateVersionCommandOutput,
 } from "./commands/CreateServiceTemplateVersionCommand";
-import {
+import type {
   CreateTemplateSyncConfigCommandInput,
   CreateTemplateSyncConfigCommandOutput,
 } from "./commands/CreateTemplateSyncConfigCommand";
-import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
-import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
-import {
+import type { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
+import type { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
+import type {
   DeleteEnvironmentAccountConnectionCommandInput,
   DeleteEnvironmentAccountConnectionCommandOutput,
 } from "./commands/DeleteEnvironmentAccountConnectionCommand";
-import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
-import {
+import type {
+  DeleteEnvironmentCommandInput,
+  DeleteEnvironmentCommandOutput,
+} from "./commands/DeleteEnvironmentCommand";
+import type {
   DeleteEnvironmentTemplateCommandInput,
   DeleteEnvironmentTemplateCommandOutput,
 } from "./commands/DeleteEnvironmentTemplateCommand";
-import {
+import type {
   DeleteEnvironmentTemplateVersionCommandInput,
   DeleteEnvironmentTemplateVersionCommandOutput,
 } from "./commands/DeleteEnvironmentTemplateVersionCommand";
-import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
-import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
-import {
+import type { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
+import type { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
+import type {
   DeleteServiceSyncConfigCommandInput,
   DeleteServiceSyncConfigCommandOutput,
 } from "./commands/DeleteServiceSyncConfigCommand";
-import {
+import type {
   DeleteServiceTemplateCommandInput,
   DeleteServiceTemplateCommandOutput,
 } from "./commands/DeleteServiceTemplateCommand";
-import {
+import type {
   DeleteServiceTemplateVersionCommandInput,
   DeleteServiceTemplateVersionCommandOutput,
 } from "./commands/DeleteServiceTemplateVersionCommand";
-import {
+import type {
   DeleteTemplateSyncConfigCommandInput,
   DeleteTemplateSyncConfigCommandOutput,
 } from "./commands/DeleteTemplateSyncConfigCommand";
-import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
-import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
-import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
-import {
+import type {
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput,
+} from "./commands/GetAccountSettingsCommand";
+import type { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
+import type { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
+import type {
   GetEnvironmentAccountConnectionCommandInput,
   GetEnvironmentAccountConnectionCommandOutput,
 } from "./commands/GetEnvironmentAccountConnectionCommand";
-import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
-import {
+import type { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
+import type {
   GetEnvironmentTemplateCommandInput,
   GetEnvironmentTemplateCommandOutput,
 } from "./commands/GetEnvironmentTemplateCommand";
-import {
+import type {
   GetEnvironmentTemplateVersionCommandInput,
   GetEnvironmentTemplateVersionCommandOutput,
 } from "./commands/GetEnvironmentTemplateVersionCommand";
-import { GetRepositoryCommandInput, GetRepositoryCommandOutput } from "./commands/GetRepositoryCommand";
-import {
+import type { GetRepositoryCommandInput, GetRepositoryCommandOutput } from "./commands/GetRepositoryCommand";
+import type {
   GetRepositorySyncStatusCommandInput,
   GetRepositorySyncStatusCommandOutput,
 } from "./commands/GetRepositorySyncStatusCommand";
-import {
+import type {
   GetResourcesSummaryCommandInput,
   GetResourcesSummaryCommandOutput,
 } from "./commands/GetResourcesSummaryCommand";
-import { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
-import { GetServiceInstanceCommandInput, GetServiceInstanceCommandOutput } from "./commands/GetServiceInstanceCommand";
-import {
+import type { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
+import type {
+  GetServiceInstanceCommandInput,
+  GetServiceInstanceCommandOutput,
+} from "./commands/GetServiceInstanceCommand";
+import type {
   GetServiceInstanceSyncStatusCommandInput,
   GetServiceInstanceSyncStatusCommandOutput,
 } from "./commands/GetServiceInstanceSyncStatusCommand";
-import {
+import type {
   GetServiceSyncBlockerSummaryCommandInput,
   GetServiceSyncBlockerSummaryCommandOutput,
 } from "./commands/GetServiceSyncBlockerSummaryCommand";
-import {
+import type {
   GetServiceSyncConfigCommandInput,
   GetServiceSyncConfigCommandOutput,
 } from "./commands/GetServiceSyncConfigCommand";
-import { GetServiceTemplateCommandInput, GetServiceTemplateCommandOutput } from "./commands/GetServiceTemplateCommand";
-import {
+import type {
+  GetServiceTemplateCommandInput,
+  GetServiceTemplateCommandOutput,
+} from "./commands/GetServiceTemplateCommand";
+import type {
   GetServiceTemplateVersionCommandInput,
   GetServiceTemplateVersionCommandOutput,
 } from "./commands/GetServiceTemplateVersionCommand";
-import {
+import type {
   GetTemplateSyncConfigCommandInput,
   GetTemplateSyncConfigCommandOutput,
 } from "./commands/GetTemplateSyncConfigCommand";
-import {
+import type {
   GetTemplateSyncStatusCommandInput,
   GetTemplateSyncStatusCommandOutput,
 } from "./commands/GetTemplateSyncStatusCommand";
-import {
+import type {
   ListComponentOutputsCommandInput,
   ListComponentOutputsCommandOutput,
 } from "./commands/ListComponentOutputsCommand";
-import {
+import type {
   ListComponentProvisionedResourcesCommandInput,
   ListComponentProvisionedResourcesCommandOutput,
 } from "./commands/ListComponentProvisionedResourcesCommand";
-import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
-import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
-import {
+import type { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
+import type { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
+import type {
   ListEnvironmentAccountConnectionsCommandInput,
   ListEnvironmentAccountConnectionsCommandOutput,
 } from "./commands/ListEnvironmentAccountConnectionsCommand";
-import {
+import type {
   ListEnvironmentOutputsCommandInput,
   ListEnvironmentOutputsCommandOutput,
 } from "./commands/ListEnvironmentOutputsCommand";
-import {
+import type {
   ListEnvironmentProvisionedResourcesCommandInput,
   ListEnvironmentProvisionedResourcesCommandOutput,
 } from "./commands/ListEnvironmentProvisionedResourcesCommand";
-import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
-import {
+import type { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import type {
   ListEnvironmentTemplatesCommandInput,
   ListEnvironmentTemplatesCommandOutput,
 } from "./commands/ListEnvironmentTemplatesCommand";
-import {
+import type {
   ListEnvironmentTemplateVersionsCommandInput,
   ListEnvironmentTemplateVersionsCommandOutput,
 } from "./commands/ListEnvironmentTemplateVersionsCommand";
-import { ListRepositoriesCommandInput, ListRepositoriesCommandOutput } from "./commands/ListRepositoriesCommand";
-import {
+import type { ListRepositoriesCommandInput, ListRepositoriesCommandOutput } from "./commands/ListRepositoriesCommand";
+import type {
   ListRepositorySyncDefinitionsCommandInput,
   ListRepositorySyncDefinitionsCommandOutput,
 } from "./commands/ListRepositorySyncDefinitionsCommand";
-import {
+import type {
   ListServiceInstanceOutputsCommandInput,
   ListServiceInstanceOutputsCommandOutput,
 } from "./commands/ListServiceInstanceOutputsCommand";
-import {
+import type {
   ListServiceInstanceProvisionedResourcesCommandInput,
   ListServiceInstanceProvisionedResourcesCommandOutput,
 } from "./commands/ListServiceInstanceProvisionedResourcesCommand";
-import {
+import type {
   ListServiceInstancesCommandInput,
   ListServiceInstancesCommandOutput,
 } from "./commands/ListServiceInstancesCommand";
-import {
+import type {
   ListServicePipelineOutputsCommandInput,
   ListServicePipelineOutputsCommandOutput,
 } from "./commands/ListServicePipelineOutputsCommand";
-import {
+import type {
   ListServicePipelineProvisionedResourcesCommandInput,
   ListServicePipelineProvisionedResourcesCommandOutput,
 } from "./commands/ListServicePipelineProvisionedResourcesCommand";
-import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
-import {
+import type { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
+import type {
   ListServiceTemplatesCommandInput,
   ListServiceTemplatesCommandOutput,
 } from "./commands/ListServiceTemplatesCommand";
-import {
+import type {
   ListServiceTemplateVersionsCommandInput,
   ListServiceTemplateVersionsCommandOutput,
 } from "./commands/ListServiceTemplateVersionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   NotifyResourceDeploymentStatusChangeCommandInput,
   NotifyResourceDeploymentStatusChangeCommandOutput,
 } from "./commands/NotifyResourceDeploymentStatusChangeCommand";
-import {
+import type {
   RejectEnvironmentAccountConnectionCommandInput,
   RejectEnvironmentAccountConnectionCommandOutput,
 } from "./commands/RejectEnvironmentAccountConnectionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
-import { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "./commands/UpdateComponentCommand";
-import {
+import type { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "./commands/UpdateComponentCommand";
+import type {
   UpdateEnvironmentAccountConnectionCommandInput,
   UpdateEnvironmentAccountConnectionCommandOutput,
 } from "./commands/UpdateEnvironmentAccountConnectionCommand";
-import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
-import {
+import type {
+  UpdateEnvironmentCommandInput,
+  UpdateEnvironmentCommandOutput,
+} from "./commands/UpdateEnvironmentCommand";
+import type {
   UpdateEnvironmentTemplateCommandInput,
   UpdateEnvironmentTemplateCommandOutput,
 } from "./commands/UpdateEnvironmentTemplateCommand";
-import {
+import type {
   UpdateEnvironmentTemplateVersionCommandInput,
   UpdateEnvironmentTemplateVersionCommandOutput,
 } from "./commands/UpdateEnvironmentTemplateVersionCommand";
-import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
-import {
+import type { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
+import type {
   UpdateServiceInstanceCommandInput,
   UpdateServiceInstanceCommandOutput,
 } from "./commands/UpdateServiceInstanceCommand";
-import {
+import type {
   UpdateServicePipelineCommandInput,
   UpdateServicePipelineCommandOutput,
 } from "./commands/UpdateServicePipelineCommand";
-import {
+import type {
   UpdateServiceSyncBlockerCommandInput,
   UpdateServiceSyncBlockerCommandOutput,
 } from "./commands/UpdateServiceSyncBlockerCommand";
-import {
+import type {
   UpdateServiceSyncConfigCommandInput,
   UpdateServiceSyncConfigCommandOutput,
 } from "./commands/UpdateServiceSyncConfigCommand";
-import {
+import type {
   UpdateServiceTemplateCommandInput,
   UpdateServiceTemplateCommandOutput,
 } from "./commands/UpdateServiceTemplateCommand";
-import {
+import type {
   UpdateServiceTemplateVersionCommandInput,
   UpdateServiceTemplateVersionCommandOutput,
 } from "./commands/UpdateServiceTemplateVersionCommand";
-import {
+import type {
   UpdateTemplateSyncConfigCommandInput,
   UpdateTemplateSyncConfigCommandOutput,
 } from "./commands/UpdateTemplateSyncConfigCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -639,7 +655,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

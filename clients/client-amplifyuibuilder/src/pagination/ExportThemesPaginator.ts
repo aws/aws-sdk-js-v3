@@ -8,7 +8,7 @@ import {
   ExportThemesCommandInput,
   ExportThemesCommandOutput,
 } from "../commands/ExportThemesCommand";
-import { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
+import type { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

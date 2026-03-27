@@ -8,7 +8,7 @@ import {
   ListLogSourcesCommandOutput,
 } from "../commands/ListLogSourcesCommand";
 import { SecurityLakeClient } from "../SecurityLakeClient";
-import { SecurityLakePaginationConfiguration } from "./Interfaces";
+import type { SecurityLakePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

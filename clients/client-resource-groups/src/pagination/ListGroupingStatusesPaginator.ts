@@ -8,7 +8,7 @@ import {
   ListGroupingStatusesCommandOutput,
 } from "../commands/ListGroupingStatusesCommand";
 import { ResourceGroupsClient } from "../ResourceGroupsClient";
-import { ResourceGroupsPaginationConfiguration } from "./Interfaces";
+import type { ResourceGroupsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

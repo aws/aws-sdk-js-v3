@@ -3,494 +3,510 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddProfileKeyCommandInput,
+  type AddProfileKeyCommandOutput,
   AddProfileKeyCommand,
-  AddProfileKeyCommandInput,
-  AddProfileKeyCommandOutput,
 } from "./commands/AddProfileKeyCommand";
 import {
+  type BatchGetCalculatedAttributeForProfileCommandInput,
+  type BatchGetCalculatedAttributeForProfileCommandOutput,
   BatchGetCalculatedAttributeForProfileCommand,
-  BatchGetCalculatedAttributeForProfileCommandInput,
-  BatchGetCalculatedAttributeForProfileCommandOutput,
 } from "./commands/BatchGetCalculatedAttributeForProfileCommand";
 import {
+  type BatchGetProfileCommandInput,
+  type BatchGetProfileCommandOutput,
   BatchGetProfileCommand,
-  BatchGetProfileCommandInput,
-  BatchGetProfileCommandOutput,
 } from "./commands/BatchGetProfileCommand";
 import {
+  type CreateCalculatedAttributeDefinitionCommandInput,
+  type CreateCalculatedAttributeDefinitionCommandOutput,
   CreateCalculatedAttributeDefinitionCommand,
-  CreateCalculatedAttributeDefinitionCommandInput,
-  CreateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/CreateCalculatedAttributeDefinitionCommand";
 import {
+  type CreateDomainCommandInput,
+  type CreateDomainCommandOutput,
   CreateDomainCommand,
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  type CreateDomainLayoutCommandInput,
+  type CreateDomainLayoutCommandOutput,
   CreateDomainLayoutCommand,
-  CreateDomainLayoutCommandInput,
-  CreateDomainLayoutCommandOutput,
 } from "./commands/CreateDomainLayoutCommand";
 import {
+  type CreateEventStreamCommandInput,
+  type CreateEventStreamCommandOutput,
   CreateEventStreamCommand,
-  CreateEventStreamCommandInput,
-  CreateEventStreamCommandOutput,
 } from "./commands/CreateEventStreamCommand";
 import {
+  type CreateEventTriggerCommandInput,
+  type CreateEventTriggerCommandOutput,
   CreateEventTriggerCommand,
-  CreateEventTriggerCommandInput,
-  CreateEventTriggerCommandOutput,
 } from "./commands/CreateEventTriggerCommand";
 import {
+  type CreateIntegrationWorkflowCommandInput,
+  type CreateIntegrationWorkflowCommandOutput,
   CreateIntegrationWorkflowCommand,
-  CreateIntegrationWorkflowCommandInput,
-  CreateIntegrationWorkflowCommandOutput,
 } from "./commands/CreateIntegrationWorkflowCommand";
 import {
+  type CreateProfileCommandInput,
+  type CreateProfileCommandOutput,
   CreateProfileCommand,
-  CreateProfileCommandInput,
-  CreateProfileCommandOutput,
 } from "./commands/CreateProfileCommand";
 import {
+  type CreateRecommenderCommandInput,
+  type CreateRecommenderCommandOutput,
   CreateRecommenderCommand,
-  CreateRecommenderCommandInput,
-  CreateRecommenderCommandOutput,
 } from "./commands/CreateRecommenderCommand";
 import {
+  type CreateRecommenderFilterCommandInput,
+  type CreateRecommenderFilterCommandOutput,
   CreateRecommenderFilterCommand,
-  CreateRecommenderFilterCommandInput,
-  CreateRecommenderFilterCommandOutput,
 } from "./commands/CreateRecommenderFilterCommand";
 import {
+  type CreateSegmentDefinitionCommandInput,
+  type CreateSegmentDefinitionCommandOutput,
   CreateSegmentDefinitionCommand,
-  CreateSegmentDefinitionCommandInput,
-  CreateSegmentDefinitionCommandOutput,
 } from "./commands/CreateSegmentDefinitionCommand";
 import {
+  type CreateSegmentEstimateCommandInput,
+  type CreateSegmentEstimateCommandOutput,
   CreateSegmentEstimateCommand,
-  CreateSegmentEstimateCommandInput,
-  CreateSegmentEstimateCommandOutput,
 } from "./commands/CreateSegmentEstimateCommand";
 import {
+  type CreateSegmentSnapshotCommandInput,
+  type CreateSegmentSnapshotCommandOutput,
   CreateSegmentSnapshotCommand,
-  CreateSegmentSnapshotCommandInput,
-  CreateSegmentSnapshotCommandOutput,
 } from "./commands/CreateSegmentSnapshotCommand";
 import {
+  type CreateUploadJobCommandInput,
+  type CreateUploadJobCommandOutput,
   CreateUploadJobCommand,
-  CreateUploadJobCommandInput,
-  CreateUploadJobCommandOutput,
 } from "./commands/CreateUploadJobCommand";
 import {
+  type DeleteCalculatedAttributeDefinitionCommandInput,
+  type DeleteCalculatedAttributeDefinitionCommandOutput,
   DeleteCalculatedAttributeDefinitionCommand,
-  DeleteCalculatedAttributeDefinitionCommandInput,
-  DeleteCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/DeleteCalculatedAttributeDefinitionCommand";
 import {
+  type DeleteDomainCommandInput,
+  type DeleteDomainCommandOutput,
   DeleteDomainCommand,
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
+  type DeleteDomainLayoutCommandInput,
+  type DeleteDomainLayoutCommandOutput,
   DeleteDomainLayoutCommand,
-  DeleteDomainLayoutCommandInput,
-  DeleteDomainLayoutCommandOutput,
 } from "./commands/DeleteDomainLayoutCommand";
 import {
+  type DeleteDomainObjectTypeCommandInput,
+  type DeleteDomainObjectTypeCommandOutput,
   DeleteDomainObjectTypeCommand,
-  DeleteDomainObjectTypeCommandInput,
-  DeleteDomainObjectTypeCommandOutput,
 } from "./commands/DeleteDomainObjectTypeCommand";
 import {
+  type DeleteEventStreamCommandInput,
+  type DeleteEventStreamCommandOutput,
   DeleteEventStreamCommand,
-  DeleteEventStreamCommandInput,
-  DeleteEventStreamCommandOutput,
 } from "./commands/DeleteEventStreamCommand";
 import {
+  type DeleteEventTriggerCommandInput,
+  type DeleteEventTriggerCommandOutput,
   DeleteEventTriggerCommand,
-  DeleteEventTriggerCommandInput,
-  DeleteEventTriggerCommandOutput,
 } from "./commands/DeleteEventTriggerCommand";
 import {
+  type DeleteIntegrationCommandInput,
+  type DeleteIntegrationCommandOutput,
   DeleteIntegrationCommand,
-  DeleteIntegrationCommandInput,
-  DeleteIntegrationCommandOutput,
 } from "./commands/DeleteIntegrationCommand";
 import {
+  type DeleteProfileCommandInput,
+  type DeleteProfileCommandOutput,
   DeleteProfileCommand,
-  DeleteProfileCommandInput,
-  DeleteProfileCommandOutput,
 } from "./commands/DeleteProfileCommand";
 import {
+  type DeleteProfileKeyCommandInput,
+  type DeleteProfileKeyCommandOutput,
   DeleteProfileKeyCommand,
-  DeleteProfileKeyCommandInput,
-  DeleteProfileKeyCommandOutput,
 } from "./commands/DeleteProfileKeyCommand";
 import {
+  type DeleteProfileObjectCommandInput,
+  type DeleteProfileObjectCommandOutput,
   DeleteProfileObjectCommand,
-  DeleteProfileObjectCommandInput,
-  DeleteProfileObjectCommandOutput,
 } from "./commands/DeleteProfileObjectCommand";
 import {
+  type DeleteProfileObjectTypeCommandInput,
+  type DeleteProfileObjectTypeCommandOutput,
   DeleteProfileObjectTypeCommand,
-  DeleteProfileObjectTypeCommandInput,
-  DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
 import {
+  type DeleteRecommenderCommandInput,
+  type DeleteRecommenderCommandOutput,
   DeleteRecommenderCommand,
-  DeleteRecommenderCommandInput,
-  DeleteRecommenderCommandOutput,
 } from "./commands/DeleteRecommenderCommand";
 import {
+  type DeleteRecommenderFilterCommandInput,
+  type DeleteRecommenderFilterCommandOutput,
   DeleteRecommenderFilterCommand,
-  DeleteRecommenderFilterCommandInput,
-  DeleteRecommenderFilterCommandOutput,
 } from "./commands/DeleteRecommenderFilterCommand";
 import {
+  type DeleteSegmentDefinitionCommandInput,
+  type DeleteSegmentDefinitionCommandOutput,
   DeleteSegmentDefinitionCommand,
-  DeleteSegmentDefinitionCommandInput,
-  DeleteSegmentDefinitionCommandOutput,
 } from "./commands/DeleteSegmentDefinitionCommand";
 import {
+  type DeleteWorkflowCommandInput,
+  type DeleteWorkflowCommandOutput,
   DeleteWorkflowCommand,
-  DeleteWorkflowCommandInput,
-  DeleteWorkflowCommandOutput,
 } from "./commands/DeleteWorkflowCommand";
 import {
+  type DetectProfileObjectTypeCommandInput,
+  type DetectProfileObjectTypeCommandOutput,
   DetectProfileObjectTypeCommand,
-  DetectProfileObjectTypeCommandInput,
-  DetectProfileObjectTypeCommandOutput,
 } from "./commands/DetectProfileObjectTypeCommand";
 import {
+  type GetAutoMergingPreviewCommandInput,
+  type GetAutoMergingPreviewCommandOutput,
   GetAutoMergingPreviewCommand,
-  GetAutoMergingPreviewCommandInput,
-  GetAutoMergingPreviewCommandOutput,
 } from "./commands/GetAutoMergingPreviewCommand";
 import {
+  type GetCalculatedAttributeDefinitionCommandInput,
+  type GetCalculatedAttributeDefinitionCommandOutput,
   GetCalculatedAttributeDefinitionCommand,
-  GetCalculatedAttributeDefinitionCommandInput,
-  GetCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/GetCalculatedAttributeDefinitionCommand";
 import {
+  type GetCalculatedAttributeForProfileCommandInput,
+  type GetCalculatedAttributeForProfileCommandOutput,
   GetCalculatedAttributeForProfileCommand,
-  GetCalculatedAttributeForProfileCommandInput,
-  GetCalculatedAttributeForProfileCommandOutput,
 } from "./commands/GetCalculatedAttributeForProfileCommand";
-import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import { type GetDomainCommandInput, type GetDomainCommandOutput, GetDomainCommand } from "./commands/GetDomainCommand";
 import {
+  type GetDomainLayoutCommandInput,
+  type GetDomainLayoutCommandOutput,
   GetDomainLayoutCommand,
-  GetDomainLayoutCommandInput,
-  GetDomainLayoutCommandOutput,
 } from "./commands/GetDomainLayoutCommand";
 import {
+  type GetDomainObjectTypeCommandInput,
+  type GetDomainObjectTypeCommandOutput,
   GetDomainObjectTypeCommand,
-  GetDomainObjectTypeCommandInput,
-  GetDomainObjectTypeCommandOutput,
 } from "./commands/GetDomainObjectTypeCommand";
 import {
+  type GetEventStreamCommandInput,
+  type GetEventStreamCommandOutput,
   GetEventStreamCommand,
-  GetEventStreamCommandInput,
-  GetEventStreamCommandOutput,
 } from "./commands/GetEventStreamCommand";
 import {
+  type GetEventTriggerCommandInput,
+  type GetEventTriggerCommandOutput,
   GetEventTriggerCommand,
-  GetEventTriggerCommandInput,
-  GetEventTriggerCommandOutput,
 } from "./commands/GetEventTriggerCommand";
 import {
+  type GetIdentityResolutionJobCommandInput,
+  type GetIdentityResolutionJobCommandOutput,
   GetIdentityResolutionJobCommand,
-  GetIdentityResolutionJobCommandInput,
-  GetIdentityResolutionJobCommandOutput,
 } from "./commands/GetIdentityResolutionJobCommand";
 import {
+  type GetIntegrationCommandInput,
+  type GetIntegrationCommandOutput,
   GetIntegrationCommand,
-  GetIntegrationCommandInput,
-  GetIntegrationCommandOutput,
 } from "./commands/GetIntegrationCommand";
-import { GetMatchesCommand, GetMatchesCommandInput, GetMatchesCommandOutput } from "./commands/GetMatchesCommand";
 import {
+  type GetMatchesCommandInput,
+  type GetMatchesCommandOutput,
+  GetMatchesCommand,
+} from "./commands/GetMatchesCommand";
+import {
+  type GetObjectTypeAttributeStatisticsCommandInput,
+  type GetObjectTypeAttributeStatisticsCommandOutput,
   GetObjectTypeAttributeStatisticsCommand,
-  GetObjectTypeAttributeStatisticsCommandInput,
-  GetObjectTypeAttributeStatisticsCommandOutput,
 } from "./commands/GetObjectTypeAttributeStatisticsCommand";
 import {
+  type GetProfileHistoryRecordCommandInput,
+  type GetProfileHistoryRecordCommandOutput,
   GetProfileHistoryRecordCommand,
-  GetProfileHistoryRecordCommandInput,
-  GetProfileHistoryRecordCommandOutput,
 } from "./commands/GetProfileHistoryRecordCommand";
 import {
+  type GetProfileObjectTypeCommandInput,
+  type GetProfileObjectTypeCommandOutput,
   GetProfileObjectTypeCommand,
-  GetProfileObjectTypeCommandInput,
-  GetProfileObjectTypeCommandOutput,
 } from "./commands/GetProfileObjectTypeCommand";
 import {
+  type GetProfileObjectTypeTemplateCommandInput,
+  type GetProfileObjectTypeTemplateCommandOutput,
   GetProfileObjectTypeTemplateCommand,
-  GetProfileObjectTypeTemplateCommandInput,
-  GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
 import {
+  type GetProfileRecommendationsCommandInput,
+  type GetProfileRecommendationsCommandOutput,
   GetProfileRecommendationsCommand,
-  GetProfileRecommendationsCommandInput,
-  GetProfileRecommendationsCommandOutput,
 } from "./commands/GetProfileRecommendationsCommand";
 import {
+  type GetRecommenderCommandInput,
+  type GetRecommenderCommandOutput,
   GetRecommenderCommand,
-  GetRecommenderCommandInput,
-  GetRecommenderCommandOutput,
 } from "./commands/GetRecommenderCommand";
 import {
+  type GetRecommenderFilterCommandInput,
+  type GetRecommenderFilterCommandOutput,
   GetRecommenderFilterCommand,
-  GetRecommenderFilterCommandInput,
-  GetRecommenderFilterCommandOutput,
 } from "./commands/GetRecommenderFilterCommand";
 import {
+  type GetSegmentDefinitionCommandInput,
+  type GetSegmentDefinitionCommandOutput,
   GetSegmentDefinitionCommand,
-  GetSegmentDefinitionCommandInput,
-  GetSegmentDefinitionCommandOutput,
 } from "./commands/GetSegmentDefinitionCommand";
 import {
+  type GetSegmentEstimateCommandInput,
+  type GetSegmentEstimateCommandOutput,
   GetSegmentEstimateCommand,
-  GetSegmentEstimateCommandInput,
-  GetSegmentEstimateCommandOutput,
 } from "./commands/GetSegmentEstimateCommand";
 import {
+  type GetSegmentMembershipCommandInput,
+  type GetSegmentMembershipCommandOutput,
   GetSegmentMembershipCommand,
-  GetSegmentMembershipCommandInput,
-  GetSegmentMembershipCommandOutput,
 } from "./commands/GetSegmentMembershipCommand";
 import {
+  type GetSegmentSnapshotCommandInput,
+  type GetSegmentSnapshotCommandOutput,
   GetSegmentSnapshotCommand,
-  GetSegmentSnapshotCommandInput,
-  GetSegmentSnapshotCommandOutput,
 } from "./commands/GetSegmentSnapshotCommand";
 import {
+  type GetSimilarProfilesCommandInput,
+  type GetSimilarProfilesCommandOutput,
   GetSimilarProfilesCommand,
-  GetSimilarProfilesCommandInput,
-  GetSimilarProfilesCommandOutput,
 } from "./commands/GetSimilarProfilesCommand";
 import {
+  type GetUploadJobCommandInput,
+  type GetUploadJobCommandOutput,
   GetUploadJobCommand,
-  GetUploadJobCommandInput,
-  GetUploadJobCommandOutput,
 } from "./commands/GetUploadJobCommand";
 import {
+  type GetUploadJobPathCommandInput,
+  type GetUploadJobPathCommandOutput,
   GetUploadJobPathCommand,
-  GetUploadJobPathCommandInput,
-  GetUploadJobPathCommandOutput,
 } from "./commands/GetUploadJobPathCommand";
-import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
+  type GetWorkflowCommandInput,
+  type GetWorkflowCommandOutput,
+  GetWorkflowCommand,
+} from "./commands/GetWorkflowCommand";
+import {
+  type GetWorkflowStepsCommandInput,
+  type GetWorkflowStepsCommandOutput,
   GetWorkflowStepsCommand,
-  GetWorkflowStepsCommandInput,
-  GetWorkflowStepsCommandOutput,
 } from "./commands/GetWorkflowStepsCommand";
 import {
+  type ListAccountIntegrationsCommandInput,
+  type ListAccountIntegrationsCommandOutput,
   ListAccountIntegrationsCommand,
-  ListAccountIntegrationsCommandInput,
-  ListAccountIntegrationsCommandOutput,
 } from "./commands/ListAccountIntegrationsCommand";
 import {
+  type ListCalculatedAttributeDefinitionsCommandInput,
+  type ListCalculatedAttributeDefinitionsCommandOutput,
   ListCalculatedAttributeDefinitionsCommand,
-  ListCalculatedAttributeDefinitionsCommandInput,
-  ListCalculatedAttributeDefinitionsCommandOutput,
 } from "./commands/ListCalculatedAttributeDefinitionsCommand";
 import {
+  type ListCalculatedAttributesForProfileCommandInput,
+  type ListCalculatedAttributesForProfileCommandOutput,
   ListCalculatedAttributesForProfileCommand,
-  ListCalculatedAttributesForProfileCommandInput,
-  ListCalculatedAttributesForProfileCommandOutput,
 } from "./commands/ListCalculatedAttributesForProfileCommand";
 import {
+  type ListDomainLayoutsCommandInput,
+  type ListDomainLayoutsCommandOutput,
   ListDomainLayoutsCommand,
-  ListDomainLayoutsCommandInput,
-  ListDomainLayoutsCommandOutput,
 } from "./commands/ListDomainLayoutsCommand";
 import {
+  type ListDomainObjectTypesCommandInput,
+  type ListDomainObjectTypesCommandOutput,
   ListDomainObjectTypesCommand,
-  ListDomainObjectTypesCommandInput,
-  ListDomainObjectTypesCommandOutput,
 } from "./commands/ListDomainObjectTypesCommand";
-import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  type ListDomainsCommandInput,
+  type ListDomainsCommandOutput,
+  ListDomainsCommand,
+} from "./commands/ListDomainsCommand";
+import {
+  type ListEventStreamsCommandInput,
+  type ListEventStreamsCommandOutput,
   ListEventStreamsCommand,
-  ListEventStreamsCommandInput,
-  ListEventStreamsCommandOutput,
 } from "./commands/ListEventStreamsCommand";
 import {
+  type ListEventTriggersCommandInput,
+  type ListEventTriggersCommandOutput,
   ListEventTriggersCommand,
-  ListEventTriggersCommandInput,
-  ListEventTriggersCommandOutput,
 } from "./commands/ListEventTriggersCommand";
 import {
+  type ListIdentityResolutionJobsCommandInput,
+  type ListIdentityResolutionJobsCommandOutput,
   ListIdentityResolutionJobsCommand,
-  ListIdentityResolutionJobsCommandInput,
-  ListIdentityResolutionJobsCommandOutput,
 } from "./commands/ListIdentityResolutionJobsCommand";
 import {
+  type ListIntegrationsCommandInput,
+  type ListIntegrationsCommandOutput,
   ListIntegrationsCommand,
-  ListIntegrationsCommandInput,
-  ListIntegrationsCommandOutput,
 } from "./commands/ListIntegrationsCommand";
 import {
+  type ListObjectTypeAttributesCommandInput,
+  type ListObjectTypeAttributesCommandOutput,
   ListObjectTypeAttributesCommand,
-  ListObjectTypeAttributesCommandInput,
-  ListObjectTypeAttributesCommandOutput,
 } from "./commands/ListObjectTypeAttributesCommand";
 import {
+  type ListObjectTypeAttributeValuesCommandInput,
+  type ListObjectTypeAttributeValuesCommandOutput,
   ListObjectTypeAttributeValuesCommand,
-  ListObjectTypeAttributeValuesCommandInput,
-  ListObjectTypeAttributeValuesCommandOutput,
 } from "./commands/ListObjectTypeAttributeValuesCommand";
 import {
+  type ListProfileAttributeValuesCommandInput,
+  type ListProfileAttributeValuesCommandOutput,
   ListProfileAttributeValuesCommand,
-  ListProfileAttributeValuesCommandInput,
-  ListProfileAttributeValuesCommandOutput,
 } from "./commands/ListProfileAttributeValuesCommand";
 import {
+  type ListProfileHistoryRecordsCommandInput,
+  type ListProfileHistoryRecordsCommandOutput,
   ListProfileHistoryRecordsCommand,
-  ListProfileHistoryRecordsCommandInput,
-  ListProfileHistoryRecordsCommandOutput,
 } from "./commands/ListProfileHistoryRecordsCommand";
 import {
+  type ListProfileObjectsCommandInput,
+  type ListProfileObjectsCommandOutput,
   ListProfileObjectsCommand,
-  ListProfileObjectsCommandInput,
-  ListProfileObjectsCommandOutput,
 } from "./commands/ListProfileObjectsCommand";
 import {
+  type ListProfileObjectTypesCommandInput,
+  type ListProfileObjectTypesCommandOutput,
   ListProfileObjectTypesCommand,
-  ListProfileObjectTypesCommandInput,
-  ListProfileObjectTypesCommandOutput,
 } from "./commands/ListProfileObjectTypesCommand";
 import {
+  type ListProfileObjectTypeTemplatesCommandInput,
+  type ListProfileObjectTypeTemplatesCommandOutput,
   ListProfileObjectTypeTemplatesCommand,
-  ListProfileObjectTypeTemplatesCommandInput,
-  ListProfileObjectTypeTemplatesCommandOutput,
 } from "./commands/ListProfileObjectTypeTemplatesCommand";
 import {
+  type ListRecommenderFiltersCommandInput,
+  type ListRecommenderFiltersCommandOutput,
   ListRecommenderFiltersCommand,
-  ListRecommenderFiltersCommandInput,
-  ListRecommenderFiltersCommandOutput,
 } from "./commands/ListRecommenderFiltersCommand";
 import {
+  type ListRecommenderRecipesCommandInput,
+  type ListRecommenderRecipesCommandOutput,
   ListRecommenderRecipesCommand,
-  ListRecommenderRecipesCommandInput,
-  ListRecommenderRecipesCommandOutput,
 } from "./commands/ListRecommenderRecipesCommand";
 import {
+  type ListRecommendersCommandInput,
+  type ListRecommendersCommandOutput,
   ListRecommendersCommand,
-  ListRecommendersCommandInput,
-  ListRecommendersCommandOutput,
 } from "./commands/ListRecommendersCommand";
 import {
+  type ListRuleBasedMatchesCommandInput,
+  type ListRuleBasedMatchesCommandOutput,
   ListRuleBasedMatchesCommand,
-  ListRuleBasedMatchesCommandInput,
-  ListRuleBasedMatchesCommandOutput,
 } from "./commands/ListRuleBasedMatchesCommand";
 import {
+  type ListSegmentDefinitionsCommandInput,
+  type ListSegmentDefinitionsCommandOutput,
   ListSegmentDefinitionsCommand,
-  ListSegmentDefinitionsCommandInput,
-  ListSegmentDefinitionsCommandOutput,
 } from "./commands/ListSegmentDefinitionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListUploadJobsCommandInput,
+  type ListUploadJobsCommandOutput,
   ListUploadJobsCommand,
-  ListUploadJobsCommandInput,
-  ListUploadJobsCommandOutput,
 } from "./commands/ListUploadJobsCommand";
 import {
+  type ListWorkflowsCommandInput,
+  type ListWorkflowsCommandOutput,
   ListWorkflowsCommand,
-  ListWorkflowsCommandInput,
-  ListWorkflowsCommandOutput,
 } from "./commands/ListWorkflowsCommand";
 import {
+  type MergeProfilesCommandInput,
+  type MergeProfilesCommandOutput,
   MergeProfilesCommand,
-  MergeProfilesCommandInput,
-  MergeProfilesCommandOutput,
 } from "./commands/MergeProfilesCommand";
 import {
+  type PutDomainObjectTypeCommandInput,
+  type PutDomainObjectTypeCommandOutput,
   PutDomainObjectTypeCommand,
-  PutDomainObjectTypeCommandInput,
-  PutDomainObjectTypeCommandOutput,
 } from "./commands/PutDomainObjectTypeCommand";
 import {
+  type PutIntegrationCommandInput,
+  type PutIntegrationCommandOutput,
   PutIntegrationCommand,
-  PutIntegrationCommandInput,
-  PutIntegrationCommandOutput,
 } from "./commands/PutIntegrationCommand";
 import {
+  type PutProfileObjectCommandInput,
+  type PutProfileObjectCommandOutput,
   PutProfileObjectCommand,
-  PutProfileObjectCommandInput,
-  PutProfileObjectCommandOutput,
 } from "./commands/PutProfileObjectCommand";
 import {
+  type PutProfileObjectTypeCommandInput,
+  type PutProfileObjectTypeCommandOutput,
   PutProfileObjectTypeCommand,
-  PutProfileObjectTypeCommandInput,
-  PutProfileObjectTypeCommandOutput,
 } from "./commands/PutProfileObjectTypeCommand";
 import {
+  type SearchProfilesCommandInput,
+  type SearchProfilesCommandOutput,
   SearchProfilesCommand,
-  SearchProfilesCommandInput,
-  SearchProfilesCommandOutput,
 } from "./commands/SearchProfilesCommand";
 import {
+  type StartRecommenderCommandInput,
+  type StartRecommenderCommandOutput,
   StartRecommenderCommand,
-  StartRecommenderCommandInput,
-  StartRecommenderCommandOutput,
 } from "./commands/StartRecommenderCommand";
 import {
+  type StartUploadJobCommandInput,
+  type StartUploadJobCommandOutput,
   StartUploadJobCommand,
-  StartUploadJobCommandInput,
-  StartUploadJobCommandOutput,
 } from "./commands/StartUploadJobCommand";
 import {
+  type StopRecommenderCommandInput,
+  type StopRecommenderCommandOutput,
   StopRecommenderCommand,
-  StopRecommenderCommandInput,
-  StopRecommenderCommandOutput,
 } from "./commands/StopRecommenderCommand";
 import {
+  type StopUploadJobCommandInput,
+  type StopUploadJobCommandOutput,
   StopUploadJobCommand,
-  StopUploadJobCommandInput,
-  StopUploadJobCommandOutput,
 } from "./commands/StopUploadJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCalculatedAttributeDefinitionCommandInput,
+  type UpdateCalculatedAttributeDefinitionCommandOutput,
   UpdateCalculatedAttributeDefinitionCommand,
-  UpdateCalculatedAttributeDefinitionCommandInput,
-  UpdateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/UpdateCalculatedAttributeDefinitionCommand";
 import {
+  type UpdateDomainCommandInput,
+  type UpdateDomainCommandOutput,
   UpdateDomainCommand,
-  UpdateDomainCommandInput,
-  UpdateDomainCommandOutput,
 } from "./commands/UpdateDomainCommand";
 import {
+  type UpdateDomainLayoutCommandInput,
+  type UpdateDomainLayoutCommandOutput,
   UpdateDomainLayoutCommand,
-  UpdateDomainLayoutCommandInput,
-  UpdateDomainLayoutCommandOutput,
 } from "./commands/UpdateDomainLayoutCommand";
 import {
+  type UpdateEventTriggerCommandInput,
+  type UpdateEventTriggerCommandOutput,
   UpdateEventTriggerCommand,
-  UpdateEventTriggerCommandInput,
-  UpdateEventTriggerCommandOutput,
 } from "./commands/UpdateEventTriggerCommand";
 import {
+  type UpdateProfileCommandInput,
+  type UpdateProfileCommandOutput,
   UpdateProfileCommand,
-  UpdateProfileCommandInput,
-  UpdateProfileCommandOutput,
 } from "./commands/UpdateProfileCommand";
 import {
+  type UpdateRecommenderCommandInput,
+  type UpdateRecommenderCommandOutput,
   UpdateRecommenderCommand,
-  UpdateRecommenderCommandInput,
-  UpdateRecommenderCommandOutput,
 } from "./commands/UpdateRecommenderCommand";
 import { CustomerProfilesClient } from "./CustomerProfilesClient";
 import { paginateGetSimilarProfiles } from "./pagination/GetSimilarProfilesPaginator";

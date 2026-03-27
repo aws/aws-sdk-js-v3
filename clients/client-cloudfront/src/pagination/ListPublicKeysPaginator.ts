@@ -8,7 +8,7 @@ import {
   ListPublicKeysCommandInput,
   ListPublicKeysCommandOutput,
 } from "../commands/ListPublicKeysCommand";
-import { CloudFrontPaginationConfiguration } from "./Interfaces";
+import type { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

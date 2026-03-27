@@ -8,7 +8,7 @@ import {
   ListStorageProfilesForQueueCommandOutput,
 } from "../commands/ListStorageProfilesForQueueCommand";
 import { DeadlineClient } from "../DeadlineClient";
-import { DeadlinePaginationConfiguration } from "./Interfaces";
+import type { DeadlinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public
