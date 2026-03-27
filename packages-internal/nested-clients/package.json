@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/nested-clients",
-  "version": "3.996.15",
+  "version": "3.996.16",
   "description": "Nested clients for AWS SDK packages.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

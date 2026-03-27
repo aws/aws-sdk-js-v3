@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1019.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1018.0...v3.1019.0) (2026-03-27)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds support for custom code-based evaluators using customer-managed Lambda functions. ([42dda2d](https://github.com/aws/aws-sdk-js-v3/commit/42dda2d1d1d60be1de02a9a11c82bf8b30d1c8e7))
+* **client-bedrock-agentcore:** Adding AgentCore Code Interpreter Node.js Runtime Support with an optional runtime field ([5a5bd74](https://github.com/aws/aws-sdk-js-v3/commit/5a5bd7431d23c50120ab155cc73f0e18dff3db97))
+* **client-omics:** AWS HealthOmics now supports VPC networking, allowing users to connect runs to external resources with NAT gateway, AWS VPC resources, and more. New Configuration APIs support configuring VPC settings. StartRun API now accepts networkingMode and configurationName parameters to enable VPC networking. ([a16cb60](https://github.com/aws/aws-sdk-js-v3/commit/a16cb606468bb8b01665ed727e6a6575e1f5d04f))
+
+
+
+
+
 # [3.1018.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1017.0...v3.1018.0) (2026-03-26)
 
 

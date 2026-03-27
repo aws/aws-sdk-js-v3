@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1019.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1018.0...v3.1019.0) (2026-03-27)
+
+
+### Features
+
+* **client-omics:** AWS HealthOmics now supports VPC networking, allowing users to connect runs to external resources with NAT gateway, AWS VPC resources, and more. New Configuration APIs support configuring VPC settings. StartRun API now accepts networkingMode and configurationName parameters to enable VPC networking. ([a16cb60](https://github.com/aws/aws-sdk-js-v3/commit/a16cb606468bb8b01665ed727e6a6575e1f5d04f))
+
+
+
+
+
 # [3.1018.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1017.0...v3.1018.0) (2026-03-26)
 
 **Note:** Version bump only for package @aws-sdk/client-omics

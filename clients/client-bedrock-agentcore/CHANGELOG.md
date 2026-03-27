@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1019.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1018.0...v3.1019.0) (2026-03-27)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Adding AgentCore Code Interpreter Node.js Runtime Support with an optional runtime field ([5a5bd74](https://github.com/aws/aws-sdk-js-v3/commit/5a5bd7431d23c50120ab155cc73f0e18dff3db97))
+
+
+
+
+
 # [3.1018.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1017.0...v3.1018.0) (2026-03-26)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

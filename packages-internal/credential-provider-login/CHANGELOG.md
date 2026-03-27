@@ -28,6 +28,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.26 (2026-03-27)
+### Chores
+* **credential-provider-login:** update dependencies.
+
+
+
 # 3.972.25 (2026-03-25)
 ### Docs
 * **packages-internal:** readme updates for internal packages ([#7885](https://github.com/aws/aws-sdk-js-v3/issues/7885)) ([2da8b4c](https://github.com/aws/aws-sdk-js-v3/commit/2da8b4cd3ee660dcb14ca79d77cf942bd3405349))

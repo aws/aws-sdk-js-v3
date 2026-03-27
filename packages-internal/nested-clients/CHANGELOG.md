@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.16 (2026-03-27)
+### Chores
+* **codegen:** import from core submodules instead of root ([#7896](https://github.com/aws/aws-sdk-js-v3/issues/7896)) ([e35edfc](https://github.com/aws/aws-sdk-js-v3/commit/e35edfcd0522060f7c544085c32c88fb0ba3cccb))
+
+
+
 # 3.996.15 (2026-03-26)
 ### Chores
 * **nested-clients:** update dependencies.

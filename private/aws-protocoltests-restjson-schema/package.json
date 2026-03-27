@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-restjson-schema",
   "description": "@aws-sdk/aws-protocoltests-restjson-schema client",
-  "version": "3.1018.0",
+  "version": "3.1019.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -23,7 +23,7 @@
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
     "@aws-sdk/core": "workspace:^3.973.25",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.26",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.27",
     "@aws-sdk/eventstream-handler-node": "workspace:^3.972.12",
     "@aws-sdk/middleware-eventstream": "workspace:^3.972.8",
     "@aws-sdk/middleware-host-header": "workspace:^3.972.8",
