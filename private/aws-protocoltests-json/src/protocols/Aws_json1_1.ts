@@ -98,27 +98,27 @@ import type {
 import type { FooEnum, IntegerEnum } from "../models/enums";
 import { ComplexError, ErrorWithMembers, ErrorWithoutMembers, FooError, InvalidGreeting } from "../models/errors";
 import { JsonProtocolServiceException as __BaseException } from "../models/JsonProtocolServiceException";
-import type {
-  ComplexNestedErrorData,
-  ContentTypeParametersInput,
-  DatetimeOffsetsOutput,
-  EmptyStruct,
-  FractionalSecondsOutput,
-  GreetingStruct,
-  HostLabelInput,
-  JsonEnumsInputOutput,
-  JsonIntEnumsInputOutput,
-  KitchenSink,
+import {
+  type ComplexNestedErrorData,
+  type ContentTypeParametersInput,
+  type DatetimeOffsetsOutput,
+  type EmptyStruct,
+  type FractionalSecondsOutput,
+  type GreetingStruct,
+  type HostLabelInput,
+  type JsonEnumsInputOutput,
+  type JsonIntEnumsInputOutput,
+  type KitchenSink,
+  type NullOperationInputOutput,
+  type OperationWithOptionalInputOutputInput,
+  type PutAndGetInlineDocumentsInputOutput,
+  type PutWithContentEncodingInput,
+  type SimpleScalarPropertiesInputOutput,
+  type SimpleStruct,
+  type SparseNullsOperationInputOutput,
+  type StructWithJsonName,
+  type UnionInputOutput,
   MyUnion,
-  NullOperationInputOutput,
-  OperationWithOptionalInputOutputInput,
-  PutAndGetInlineDocumentsInputOutput,
-  PutWithContentEncodingInput,
-  SimpleScalarPropertiesInputOutput,
-  SimpleStruct,
-  SparseNullsOperationInputOutput,
-  StructWithJsonName,
-  UnionInputOutput,
 } from "../models/models_0";
 
 /**

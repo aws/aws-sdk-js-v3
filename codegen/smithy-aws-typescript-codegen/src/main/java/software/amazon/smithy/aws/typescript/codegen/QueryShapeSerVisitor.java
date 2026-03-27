@@ -6,12 +6,12 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor;
 import software.amazon.smithy.codegen.core.CodegenException;
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
-import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
@@ -318,13 +318,18 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
     @Override
     protected void serializeUnion(GenerationContext context, UnionShape shape) {
         TypeScriptWriter writer = context.getWriter();
-        ServiceShape serviceShape = context.getService();
 
         // Set up a location to store the entry pair.
         writer.write("const entries: any = {};");
 
         // Visit over the union type, then get the right serialization for the member.
-        writer.openBlock("$L.visit(input, {", "});", shape.getId().getName(serviceShape), () -> {
+        Symbol symbol = context.getSymbolProvider()
+            .toSymbol(shape)
+            .toBuilder()
+            .putProperty("typeOnly", false)
+            .build();
+
+        writer.openBlock("$T.visit(input, {", "});", symbol, () -> {
             shape.getAllMembers().forEach((memberName, memberShape) -> {
                 writer.openBlock("$L: value => {", "},", memberName, () -> {
                     serializeNamedMember(context, memberName, memberShape, "value");

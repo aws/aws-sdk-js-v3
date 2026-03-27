@@ -421,7 +421,6 @@ import {
   type HeadersAndExplicitPayloadEvent,
   type HeadersAndImplicitPayloadEvent,
   type HeadersEvent,
-  type MyUnion,
   type NestedPayload,
   type PayloadConfig,
   type PayloadStructure,
@@ -438,9 +437,10 @@ import {
   type TopLevel,
   type UnionPayload,
   type UnionPayloadEvent,
-  type UnionWithJsonName,
   type Unit,
   EventStream,
+  MyUnion,
+  UnionWithJsonName,
 } from "../models/models_0";
 import { RestJsonProtocolServiceException as __BaseException } from "../models/RestJsonProtocolServiceException";
 

@@ -241,23 +241,23 @@ import type { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../c
 import type { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "../commands/XmlUnionsCommand";
 import type { FooEnum, IntegerEnum } from "../models/enums";
 import { ComplexError, InvalidGreeting } from "../models/errors";
-import type {
-  ComplexNestedErrorData,
-  GreetingStruct,
-  NestedPayload,
-  PayloadWithXmlName,
-  PayloadWithXmlNamespace,
-  PayloadWithXmlNamespaceAndPrefix,
-  RecursiveShapesInputOutputNested1,
-  RecursiveShapesInputOutputNested2,
-  StructureListMember,
+import {
+  type ComplexNestedErrorData,
+  type GreetingStruct,
+  type NestedPayload,
+  type PayloadWithXmlName,
+  type PayloadWithXmlNamespace,
+  type PayloadWithXmlNamespaceAndPrefix,
+  type RecursiveShapesInputOutputNested1,
+  type RecursiveShapesInputOutputNested2,
+  type StructureListMember,
+  type XmlAttributesInMiddlePayloadRequest,
+  type XmlAttributesInMiddlePayloadResponse,
+  type XmlAttributesPayloadRequest,
+  type XmlAttributesPayloadResponse,
+  type XmlNamespaceNested,
+  type XmlNestedUnionStruct,
   UnionPayload,
-  XmlAttributesInMiddlePayloadRequest,
-  XmlAttributesInMiddlePayloadResponse,
-  XmlAttributesPayloadRequest,
-  XmlAttributesPayloadResponse,
-  XmlNamespaceNested,
-  XmlNestedUnionStruct,
   XmlUnionShape,
 } from "../models/models_0";
 import { RestXmlProtocolServiceException as __BaseException } from "../models/RestXmlProtocolServiceException";
