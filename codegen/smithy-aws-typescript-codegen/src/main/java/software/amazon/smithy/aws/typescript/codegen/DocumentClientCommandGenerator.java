@@ -8,9 +8,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 import software.amazon.smithy.codegen.core.CodegenException;
@@ -54,6 +56,10 @@ final class DocumentClientCommandGenerator implements Runnable {
     private final List<MemberShape> outputMembersWithAttr;
     private final String clientCommandClassName;
     private final String clientCommandLocalName;
+    private final String helperTypePrefix;
+    private final Map<String, String> structureHelperTypeNames = new LinkedHashMap<>();
+    private final List<StructureShape> structureHelperTypes = new ArrayList<>();
+    private final Set<String> reservedHelperTypeNames = new HashSet<>();
     /**
      * Map of package name to external:local name entries.
      */
@@ -89,6 +95,9 @@ final class DocumentClientCommandGenerator implements Runnable {
 
         clientCommandClassName = symbol.getName();
         clientCommandLocalName = "__" + clientCommandClassName;
+        helperTypePrefix = DocumentClientUtils.getModifiedName(symbol.getName().replaceAll("Command$", ""));
+        reservedHelperTypeNames.add(inputTypeName);
+        reservedHelperTypeNames.add(outputTypeName);
     }
 
     @Override
@@ -320,11 +329,49 @@ final class DocumentClientCommandGenerator implements Runnable {
     }
 
     private void generateInputAndOutputTypes() {
+        collectHelperTypes(inputMembersWithAttr);
+        collectHelperTypes(outputMembersWithAttr);
+
+        for (StructureShape structureShape : structureHelperTypes) {
+            writer.write("");
+            writeNamedStructureOmitType(structureShape);
+        }
+
         writer.write("");
         writeType(inputTypeName, originalInputTypeName, operationIndex.getInput(operation), inputMembersWithAttr);
         writer.write("");
         writeType(outputTypeName, originalOutputTypeName, operationIndex.getOutput(operation), outputMembersWithAttr);
         writer.write("");
+    }
+
+    private void collectHelperTypes(List<MemberShape> membersWithAttr) {
+        for (MemberShape member : membersWithAttr) {
+            collectHelperTypes(member, new HashSet<>());
+        }
+    }
+
+    private void collectHelperTypes(MemberShape member, Set<String> parents) {
+        Shape memberTarget = model.expectShape(member.getTarget());
+        if (memberTarget.isStructureShape()) {
+            StructureShape structureTarget = (StructureShape) memberTarget;
+            String structureId = structureTarget.getId().toString();
+            if (!parents.add(structureId)) {
+                return;
+            }
+
+            List<MemberShape> membersWithAttr = getStructureMembersWithAttr(Optional.of(structureTarget));
+            for (MemberShape memberWithAttr : membersWithAttr) {
+                collectHelperTypes(memberWithAttr, parents);
+            }
+            if (!membersWithAttr.isEmpty()) {
+                getStructureHelperTypeName(structureTarget);
+            }
+            parents.remove(structureId);
+        } else if (memberTarget.isMapShape()) {
+            collectHelperTypes(((MapShape) memberTarget).getValue(), parents);
+        } else if (memberTarget instanceof CollectionShape) {
+            collectHelperTypes(((CollectionShape) memberTarget).getMember(), parents);
+        }
     }
 
     private List<MemberShape> getStructureMembersWithAttr(Optional<StructureShape> optionalShape) {
@@ -378,20 +425,18 @@ final class DocumentClientCommandGenerator implements Runnable {
         }
     }
 
-    private void writeStructureOmitType(StructureShape structureTarget) {
+    private void writeNamedStructureOmitType(StructureShape structureTarget) {
         List<MemberShape> membersWithAttr = getStructureMembersWithAttr(Optional.of(structureTarget));
         String memberUnionToOmit = membersWithAttr.stream()
             .map(memberWithAttr -> "'" + symbolProvider.toMemberName(memberWithAttr) + "'")
             .collect(Collectors.joining(" | "));
-        String typeNameToOmit = symbolProvider.toSymbol(structureTarget).getName();
-        registerTypeImport(
-            typeNameToOmit,
-            typeNameToOmit,
-            AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
-        );
+        String typeNameToOmit = getStructureBaseTypeName(structureTarget);
+
+        writer.writeDocs("@public");
         writer.openBlock(
-            "Omit<$L, $L> & {",
-            "}",
+            "export type $L = Omit<$L, $L> & {",
+            "};",
+            getStructureHelperTypeName(structureTarget),
             typeNameToOmit,
             memberUnionToOmit,
             () -> {
@@ -418,7 +463,7 @@ final class DocumentClientCommandGenerator implements Runnable {
     private void writeMemberOmitType(MemberShape member, boolean allowUndefined) {
         Shape memberTarget = model.expectShape(member.getTarget());
         if (memberTarget.isStructureShape()) {
-            writeStructureOmitType((StructureShape) memberTarget);
+            writer.write(getStructureHelperTypeName((StructureShape) memberTarget));
         } else if (memberTarget.isUnionShape()) {
             if (symbolProvider.toSymbol(memberTarget).getName().equals("AttributeValue")) {
                 writeNativeAttributeValue();
@@ -446,6 +491,40 @@ final class DocumentClientCommandGenerator implements Runnable {
         if (allowUndefined) {
             writer.write(" | undefined");
         }
+    }
+
+    private String getStructureHelperTypeName(StructureShape structureTarget) {
+        String structureId = structureTarget.getId().toString();
+        if (structureHelperTypeNames.containsKey(structureId)) {
+            return structureHelperTypeNames.get(structureId);
+        }
+
+        String shapeName = symbolProvider.toSymbol(structureTarget).getName();
+        String preferredName = shapeName.startsWith(helperTypePrefix)
+            ? shapeName
+            : helperTypePrefix + shapeName;
+        String helperTypeName = preferredName;
+        int collisionSuffix = 2;
+        while (!reservedHelperTypeNames.add(helperTypeName)) {
+            helperTypeName = preferredName + collisionSuffix++;
+        }
+
+        structureHelperTypeNames.put(structureId, helperTypeName);
+        structureHelperTypes.add(structureTarget);
+        return helperTypeName;
+    }
+
+    private String getStructureBaseTypeName(StructureShape structureTarget) {
+        String externalName = symbolProvider.toSymbol(structureTarget).getName();
+        String helperTypeName = getStructureHelperTypeName(structureTarget);
+        String localName = externalName.equals(helperTypeName) ? "Client" + externalName : externalName;
+
+        registerTypeImport(
+            externalName,
+            localName,
+            AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
+        );
+        return localName;
     }
 
     private void writeNativeAttributeValue() {
