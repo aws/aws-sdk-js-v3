@@ -9,819 +9,819 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AddRoleToDBClusterCommandInput,
+  type AddRoleToDBClusterCommandOutput,
   AddRoleToDBClusterCommand,
-  AddRoleToDBClusterCommandInput,
-  AddRoleToDBClusterCommandOutput,
 } from "./commands/AddRoleToDBClusterCommand";
 import {
+  type AddRoleToDBInstanceCommandInput,
+  type AddRoleToDBInstanceCommandOutput,
   AddRoleToDBInstanceCommand,
-  AddRoleToDBInstanceCommandInput,
-  AddRoleToDBInstanceCommandOutput,
 } from "./commands/AddRoleToDBInstanceCommand";
 import {
+  type AddSourceIdentifierToSubscriptionCommandInput,
+  type AddSourceIdentifierToSubscriptionCommandOutput,
   AddSourceIdentifierToSubscriptionCommand,
-  AddSourceIdentifierToSubscriptionCommandInput,
-  AddSourceIdentifierToSubscriptionCommandOutput,
 } from "./commands/AddSourceIdentifierToSubscriptionCommand";
 import {
+  type AddTagsToResourceCommandInput,
+  type AddTagsToResourceCommandOutput,
   AddTagsToResourceCommand,
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand";
 import {
+  type ApplyPendingMaintenanceActionCommandInput,
+  type ApplyPendingMaintenanceActionCommandOutput,
   ApplyPendingMaintenanceActionCommand,
-  ApplyPendingMaintenanceActionCommandInput,
-  ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
 import {
+  type AuthorizeDBSecurityGroupIngressCommandInput,
+  type AuthorizeDBSecurityGroupIngressCommandOutput,
   AuthorizeDBSecurityGroupIngressCommand,
-  AuthorizeDBSecurityGroupIngressCommandInput,
-  AuthorizeDBSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeDBSecurityGroupIngressCommand";
 import {
+  type BacktrackDBClusterCommandInput,
+  type BacktrackDBClusterCommandOutput,
   BacktrackDBClusterCommand,
-  BacktrackDBClusterCommandInput,
-  BacktrackDBClusterCommandOutput,
 } from "./commands/BacktrackDBClusterCommand";
 import {
+  type CancelExportTaskCommandInput,
+  type CancelExportTaskCommandOutput,
   CancelExportTaskCommand,
-  CancelExportTaskCommandInput,
-  CancelExportTaskCommandOutput,
 } from "./commands/CancelExportTaskCommand";
 import {
+  type CopyDBClusterParameterGroupCommandInput,
+  type CopyDBClusterParameterGroupCommandOutput,
   CopyDBClusterParameterGroupCommand,
-  CopyDBClusterParameterGroupCommandInput,
-  CopyDBClusterParameterGroupCommandOutput,
 } from "./commands/CopyDBClusterParameterGroupCommand";
 import {
+  type CopyDBClusterSnapshotCommandInput,
+  type CopyDBClusterSnapshotCommandOutput,
   CopyDBClusterSnapshotCommand,
-  CopyDBClusterSnapshotCommandInput,
-  CopyDBClusterSnapshotCommandOutput,
 } from "./commands/CopyDBClusterSnapshotCommand";
 import {
+  type CopyDBParameterGroupCommandInput,
+  type CopyDBParameterGroupCommandOutput,
   CopyDBParameterGroupCommand,
-  CopyDBParameterGroupCommandInput,
-  CopyDBParameterGroupCommandOutput,
 } from "./commands/CopyDBParameterGroupCommand";
 import {
+  type CopyDBSnapshotCommandInput,
+  type CopyDBSnapshotCommandOutput,
   CopyDBSnapshotCommand,
-  CopyDBSnapshotCommandInput,
-  CopyDBSnapshotCommandOutput,
 } from "./commands/CopyDBSnapshotCommand";
 import {
+  type CopyOptionGroupCommandInput,
+  type CopyOptionGroupCommandOutput,
   CopyOptionGroupCommand,
-  CopyOptionGroupCommandInput,
-  CopyOptionGroupCommandOutput,
 } from "./commands/CopyOptionGroupCommand";
 import {
+  type CreateBlueGreenDeploymentCommandInput,
+  type CreateBlueGreenDeploymentCommandOutput,
   CreateBlueGreenDeploymentCommand,
-  CreateBlueGreenDeploymentCommandInput,
-  CreateBlueGreenDeploymentCommandOutput,
 } from "./commands/CreateBlueGreenDeploymentCommand";
 import {
+  type CreateCustomDBEngineVersionCommandInput,
+  type CreateCustomDBEngineVersionCommandOutput,
   CreateCustomDBEngineVersionCommand,
-  CreateCustomDBEngineVersionCommandInput,
-  CreateCustomDBEngineVersionCommandOutput,
 } from "./commands/CreateCustomDBEngineVersionCommand";
 import {
+  type CreateDBClusterCommandInput,
+  type CreateDBClusterCommandOutput,
   CreateDBClusterCommand,
-  CreateDBClusterCommandInput,
-  CreateDBClusterCommandOutput,
 } from "./commands/CreateDBClusterCommand";
 import {
+  type CreateDBClusterEndpointCommandInput,
+  type CreateDBClusterEndpointCommandOutput,
   CreateDBClusterEndpointCommand,
-  CreateDBClusterEndpointCommandInput,
-  CreateDBClusterEndpointCommandOutput,
 } from "./commands/CreateDBClusterEndpointCommand";
 import {
+  type CreateDBClusterParameterGroupCommandInput,
+  type CreateDBClusterParameterGroupCommandOutput,
   CreateDBClusterParameterGroupCommand,
-  CreateDBClusterParameterGroupCommandInput,
-  CreateDBClusterParameterGroupCommandOutput,
 } from "./commands/CreateDBClusterParameterGroupCommand";
 import {
+  type CreateDBClusterSnapshotCommandInput,
+  type CreateDBClusterSnapshotCommandOutput,
   CreateDBClusterSnapshotCommand,
-  CreateDBClusterSnapshotCommandInput,
-  CreateDBClusterSnapshotCommandOutput,
 } from "./commands/CreateDBClusterSnapshotCommand";
 import {
+  type CreateDBInstanceCommandInput,
+  type CreateDBInstanceCommandOutput,
   CreateDBInstanceCommand,
-  CreateDBInstanceCommandInput,
-  CreateDBInstanceCommandOutput,
 } from "./commands/CreateDBInstanceCommand";
 import {
+  type CreateDBInstanceReadReplicaCommandInput,
+  type CreateDBInstanceReadReplicaCommandOutput,
   CreateDBInstanceReadReplicaCommand,
-  CreateDBInstanceReadReplicaCommandInput,
-  CreateDBInstanceReadReplicaCommandOutput,
 } from "./commands/CreateDBInstanceReadReplicaCommand";
 import {
+  type CreateDBParameterGroupCommandInput,
+  type CreateDBParameterGroupCommandOutput,
   CreateDBParameterGroupCommand,
-  CreateDBParameterGroupCommandInput,
-  CreateDBParameterGroupCommandOutput,
 } from "./commands/CreateDBParameterGroupCommand";
 import {
+  type CreateDBProxyCommandInput,
+  type CreateDBProxyCommandOutput,
   CreateDBProxyCommand,
-  CreateDBProxyCommandInput,
-  CreateDBProxyCommandOutput,
 } from "./commands/CreateDBProxyCommand";
 import {
+  type CreateDBProxyEndpointCommandInput,
+  type CreateDBProxyEndpointCommandOutput,
   CreateDBProxyEndpointCommand,
-  CreateDBProxyEndpointCommandInput,
-  CreateDBProxyEndpointCommandOutput,
 } from "./commands/CreateDBProxyEndpointCommand";
 import {
+  type CreateDBSecurityGroupCommandInput,
+  type CreateDBSecurityGroupCommandOutput,
   CreateDBSecurityGroupCommand,
-  CreateDBSecurityGroupCommandInput,
-  CreateDBSecurityGroupCommandOutput,
 } from "./commands/CreateDBSecurityGroupCommand";
 import {
+  type CreateDBShardGroupCommandInput,
+  type CreateDBShardGroupCommandOutput,
   CreateDBShardGroupCommand,
-  CreateDBShardGroupCommandInput,
-  CreateDBShardGroupCommandOutput,
 } from "./commands/CreateDBShardGroupCommand";
 import {
+  type CreateDBSnapshotCommandInput,
+  type CreateDBSnapshotCommandOutput,
   CreateDBSnapshotCommand,
-  CreateDBSnapshotCommandInput,
-  CreateDBSnapshotCommandOutput,
 } from "./commands/CreateDBSnapshotCommand";
 import {
+  type CreateDBSubnetGroupCommandInput,
+  type CreateDBSubnetGroupCommandOutput,
   CreateDBSubnetGroupCommand,
-  CreateDBSubnetGroupCommandInput,
-  CreateDBSubnetGroupCommandOutput,
 } from "./commands/CreateDBSubnetGroupCommand";
 import {
+  type CreateEventSubscriptionCommandInput,
+  type CreateEventSubscriptionCommandOutput,
   CreateEventSubscriptionCommand,
-  CreateEventSubscriptionCommandInput,
-  CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand";
 import {
+  type CreateGlobalClusterCommandInput,
+  type CreateGlobalClusterCommandOutput,
   CreateGlobalClusterCommand,
-  CreateGlobalClusterCommandInput,
-  CreateGlobalClusterCommandOutput,
 } from "./commands/CreateGlobalClusterCommand";
 import {
+  type CreateIntegrationCommandInput,
+  type CreateIntegrationCommandOutput,
   CreateIntegrationCommand,
-  CreateIntegrationCommandInput,
-  CreateIntegrationCommandOutput,
 } from "./commands/CreateIntegrationCommand";
 import {
+  type CreateOptionGroupCommandInput,
+  type CreateOptionGroupCommandOutput,
   CreateOptionGroupCommand,
-  CreateOptionGroupCommandInput,
-  CreateOptionGroupCommandOutput,
 } from "./commands/CreateOptionGroupCommand";
 import {
+  type CreateTenantDatabaseCommandInput,
+  type CreateTenantDatabaseCommandOutput,
   CreateTenantDatabaseCommand,
-  CreateTenantDatabaseCommandInput,
-  CreateTenantDatabaseCommandOutput,
 } from "./commands/CreateTenantDatabaseCommand";
 import {
+  type DeleteBlueGreenDeploymentCommandInput,
+  type DeleteBlueGreenDeploymentCommandOutput,
   DeleteBlueGreenDeploymentCommand,
-  DeleteBlueGreenDeploymentCommandInput,
-  DeleteBlueGreenDeploymentCommandOutput,
 } from "./commands/DeleteBlueGreenDeploymentCommand";
 import {
+  type DeleteCustomDBEngineVersionCommandInput,
+  type DeleteCustomDBEngineVersionCommandOutput,
   DeleteCustomDBEngineVersionCommand,
-  DeleteCustomDBEngineVersionCommandInput,
-  DeleteCustomDBEngineVersionCommandOutput,
 } from "./commands/DeleteCustomDBEngineVersionCommand";
 import {
+  type DeleteDBClusterAutomatedBackupCommandInput,
+  type DeleteDBClusterAutomatedBackupCommandOutput,
   DeleteDBClusterAutomatedBackupCommand,
-  DeleteDBClusterAutomatedBackupCommandInput,
-  DeleteDBClusterAutomatedBackupCommandOutput,
 } from "./commands/DeleteDBClusterAutomatedBackupCommand";
 import {
+  type DeleteDBClusterCommandInput,
+  type DeleteDBClusterCommandOutput,
   DeleteDBClusterCommand,
-  DeleteDBClusterCommandInput,
-  DeleteDBClusterCommandOutput,
 } from "./commands/DeleteDBClusterCommand";
 import {
+  type DeleteDBClusterEndpointCommandInput,
+  type DeleteDBClusterEndpointCommandOutput,
   DeleteDBClusterEndpointCommand,
-  DeleteDBClusterEndpointCommandInput,
-  DeleteDBClusterEndpointCommandOutput,
 } from "./commands/DeleteDBClusterEndpointCommand";
 import {
+  type DeleteDBClusterParameterGroupCommandInput,
+  type DeleteDBClusterParameterGroupCommandOutput,
   DeleteDBClusterParameterGroupCommand,
-  DeleteDBClusterParameterGroupCommandInput,
-  DeleteDBClusterParameterGroupCommandOutput,
 } from "./commands/DeleteDBClusterParameterGroupCommand";
 import {
+  type DeleteDBClusterSnapshotCommandInput,
+  type DeleteDBClusterSnapshotCommandOutput,
   DeleteDBClusterSnapshotCommand,
-  DeleteDBClusterSnapshotCommandInput,
-  DeleteDBClusterSnapshotCommandOutput,
 } from "./commands/DeleteDBClusterSnapshotCommand";
 import {
+  type DeleteDBInstanceAutomatedBackupCommandInput,
+  type DeleteDBInstanceAutomatedBackupCommandOutput,
   DeleteDBInstanceAutomatedBackupCommand,
-  DeleteDBInstanceAutomatedBackupCommandInput,
-  DeleteDBInstanceAutomatedBackupCommandOutput,
 } from "./commands/DeleteDBInstanceAutomatedBackupCommand";
 import {
+  type DeleteDBInstanceCommandInput,
+  type DeleteDBInstanceCommandOutput,
   DeleteDBInstanceCommand,
-  DeleteDBInstanceCommandInput,
-  DeleteDBInstanceCommandOutput,
 } from "./commands/DeleteDBInstanceCommand";
 import {
+  type DeleteDBParameterGroupCommandInput,
+  type DeleteDBParameterGroupCommandOutput,
   DeleteDBParameterGroupCommand,
-  DeleteDBParameterGroupCommandInput,
-  DeleteDBParameterGroupCommandOutput,
 } from "./commands/DeleteDBParameterGroupCommand";
 import {
+  type DeleteDBProxyCommandInput,
+  type DeleteDBProxyCommandOutput,
   DeleteDBProxyCommand,
-  DeleteDBProxyCommandInput,
-  DeleteDBProxyCommandOutput,
 } from "./commands/DeleteDBProxyCommand";
 import {
+  type DeleteDBProxyEndpointCommandInput,
+  type DeleteDBProxyEndpointCommandOutput,
   DeleteDBProxyEndpointCommand,
-  DeleteDBProxyEndpointCommandInput,
-  DeleteDBProxyEndpointCommandOutput,
 } from "./commands/DeleteDBProxyEndpointCommand";
 import {
+  type DeleteDBSecurityGroupCommandInput,
+  type DeleteDBSecurityGroupCommandOutput,
   DeleteDBSecurityGroupCommand,
-  DeleteDBSecurityGroupCommandInput,
-  DeleteDBSecurityGroupCommandOutput,
 } from "./commands/DeleteDBSecurityGroupCommand";
 import {
+  type DeleteDBShardGroupCommandInput,
+  type DeleteDBShardGroupCommandOutput,
   DeleteDBShardGroupCommand,
-  DeleteDBShardGroupCommandInput,
-  DeleteDBShardGroupCommandOutput,
 } from "./commands/DeleteDBShardGroupCommand";
 import {
+  type DeleteDBSnapshotCommandInput,
+  type DeleteDBSnapshotCommandOutput,
   DeleteDBSnapshotCommand,
-  DeleteDBSnapshotCommandInput,
-  DeleteDBSnapshotCommandOutput,
 } from "./commands/DeleteDBSnapshotCommand";
 import {
+  type DeleteDBSubnetGroupCommandInput,
+  type DeleteDBSubnetGroupCommandOutput,
   DeleteDBSubnetGroupCommand,
-  DeleteDBSubnetGroupCommandInput,
-  DeleteDBSubnetGroupCommandOutput,
 } from "./commands/DeleteDBSubnetGroupCommand";
 import {
+  type DeleteEventSubscriptionCommandInput,
+  type DeleteEventSubscriptionCommandOutput,
   DeleteEventSubscriptionCommand,
-  DeleteEventSubscriptionCommandInput,
-  DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
 import {
+  type DeleteGlobalClusterCommandInput,
+  type DeleteGlobalClusterCommandOutput,
   DeleteGlobalClusterCommand,
-  DeleteGlobalClusterCommandInput,
-  DeleteGlobalClusterCommandOutput,
 } from "./commands/DeleteGlobalClusterCommand";
 import {
+  type DeleteIntegrationCommandInput,
+  type DeleteIntegrationCommandOutput,
   DeleteIntegrationCommand,
-  DeleteIntegrationCommandInput,
-  DeleteIntegrationCommandOutput,
 } from "./commands/DeleteIntegrationCommand";
 import {
+  type DeleteOptionGroupCommandInput,
+  type DeleteOptionGroupCommandOutput,
   DeleteOptionGroupCommand,
-  DeleteOptionGroupCommandInput,
-  DeleteOptionGroupCommandOutput,
 } from "./commands/DeleteOptionGroupCommand";
 import {
+  type DeleteTenantDatabaseCommandInput,
+  type DeleteTenantDatabaseCommandOutput,
   DeleteTenantDatabaseCommand,
-  DeleteTenantDatabaseCommandInput,
-  DeleteTenantDatabaseCommandOutput,
 } from "./commands/DeleteTenantDatabaseCommand";
 import {
+  type DeregisterDBProxyTargetsCommandInput,
+  type DeregisterDBProxyTargetsCommandOutput,
   DeregisterDBProxyTargetsCommand,
-  DeregisterDBProxyTargetsCommandInput,
-  DeregisterDBProxyTargetsCommandOutput,
 } from "./commands/DeregisterDBProxyTargetsCommand";
 import {
+  type DescribeAccountAttributesCommandInput,
+  type DescribeAccountAttributesCommandOutput,
   DescribeAccountAttributesCommand,
-  DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
 import {
+  type DescribeBlueGreenDeploymentsCommandInput,
+  type DescribeBlueGreenDeploymentsCommandOutput,
   DescribeBlueGreenDeploymentsCommand,
-  DescribeBlueGreenDeploymentsCommandInput,
-  DescribeBlueGreenDeploymentsCommandOutput,
 } from "./commands/DescribeBlueGreenDeploymentsCommand";
 import {
+  type DescribeCertificatesCommandInput,
+  type DescribeCertificatesCommandOutput,
   DescribeCertificatesCommand,
-  DescribeCertificatesCommandInput,
-  DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand";
 import {
+  type DescribeDBClusterAutomatedBackupsCommandInput,
+  type DescribeDBClusterAutomatedBackupsCommandOutput,
   DescribeDBClusterAutomatedBackupsCommand,
-  DescribeDBClusterAutomatedBackupsCommandInput,
-  DescribeDBClusterAutomatedBackupsCommandOutput,
 } from "./commands/DescribeDBClusterAutomatedBackupsCommand";
 import {
+  type DescribeDBClusterBacktracksCommandInput,
+  type DescribeDBClusterBacktracksCommandOutput,
   DescribeDBClusterBacktracksCommand,
-  DescribeDBClusterBacktracksCommandInput,
-  DescribeDBClusterBacktracksCommandOutput,
 } from "./commands/DescribeDBClusterBacktracksCommand";
 import {
+  type DescribeDBClusterEndpointsCommandInput,
+  type DescribeDBClusterEndpointsCommandOutput,
   DescribeDBClusterEndpointsCommand,
-  DescribeDBClusterEndpointsCommandInput,
-  DescribeDBClusterEndpointsCommandOutput,
 } from "./commands/DescribeDBClusterEndpointsCommand";
 import {
+  type DescribeDBClusterParameterGroupsCommandInput,
+  type DescribeDBClusterParameterGroupsCommandOutput,
   DescribeDBClusterParameterGroupsCommand,
-  DescribeDBClusterParameterGroupsCommandInput,
-  DescribeDBClusterParameterGroupsCommandOutput,
 } from "./commands/DescribeDBClusterParameterGroupsCommand";
 import {
+  type DescribeDBClusterParametersCommandInput,
+  type DescribeDBClusterParametersCommandOutput,
   DescribeDBClusterParametersCommand,
-  DescribeDBClusterParametersCommandInput,
-  DescribeDBClusterParametersCommandOutput,
 } from "./commands/DescribeDBClusterParametersCommand";
 import {
+  type DescribeDBClustersCommandInput,
+  type DescribeDBClustersCommandOutput,
   DescribeDBClustersCommand,
-  DescribeDBClustersCommandInput,
-  DescribeDBClustersCommandOutput,
 } from "./commands/DescribeDBClustersCommand";
 import {
+  type DescribeDBClusterSnapshotAttributesCommandInput,
+  type DescribeDBClusterSnapshotAttributesCommandOutput,
   DescribeDBClusterSnapshotAttributesCommand,
-  DescribeDBClusterSnapshotAttributesCommandInput,
-  DescribeDBClusterSnapshotAttributesCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotAttributesCommand";
 import {
+  type DescribeDBClusterSnapshotsCommandInput,
+  type DescribeDBClusterSnapshotsCommandOutput,
   DescribeDBClusterSnapshotsCommand,
-  DescribeDBClusterSnapshotsCommandInput,
-  DescribeDBClusterSnapshotsCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotsCommand";
 import {
+  type DescribeDBEngineVersionsCommandInput,
+  type DescribeDBEngineVersionsCommandOutput,
   DescribeDBEngineVersionsCommand,
-  DescribeDBEngineVersionsCommandInput,
-  DescribeDBEngineVersionsCommandOutput,
 } from "./commands/DescribeDBEngineVersionsCommand";
 import {
+  type DescribeDBInstanceAutomatedBackupsCommandInput,
+  type DescribeDBInstanceAutomatedBackupsCommandOutput,
   DescribeDBInstanceAutomatedBackupsCommand,
-  DescribeDBInstanceAutomatedBackupsCommandInput,
-  DescribeDBInstanceAutomatedBackupsCommandOutput,
 } from "./commands/DescribeDBInstanceAutomatedBackupsCommand";
 import {
+  type DescribeDBInstancesCommandInput,
+  type DescribeDBInstancesCommandOutput,
   DescribeDBInstancesCommand,
-  DescribeDBInstancesCommandInput,
-  DescribeDBInstancesCommandOutput,
 } from "./commands/DescribeDBInstancesCommand";
 import {
+  type DescribeDBLogFilesCommandInput,
+  type DescribeDBLogFilesCommandOutput,
   DescribeDBLogFilesCommand,
-  DescribeDBLogFilesCommandInput,
-  DescribeDBLogFilesCommandOutput,
 } from "./commands/DescribeDBLogFilesCommand";
 import {
+  type DescribeDBMajorEngineVersionsCommandInput,
+  type DescribeDBMajorEngineVersionsCommandOutput,
   DescribeDBMajorEngineVersionsCommand,
-  DescribeDBMajorEngineVersionsCommandInput,
-  DescribeDBMajorEngineVersionsCommandOutput,
 } from "./commands/DescribeDBMajorEngineVersionsCommand";
 import {
+  type DescribeDBParameterGroupsCommandInput,
+  type DescribeDBParameterGroupsCommandOutput,
   DescribeDBParameterGroupsCommand,
-  DescribeDBParameterGroupsCommandInput,
-  DescribeDBParameterGroupsCommandOutput,
 } from "./commands/DescribeDBParameterGroupsCommand";
 import {
+  type DescribeDBParametersCommandInput,
+  type DescribeDBParametersCommandOutput,
   DescribeDBParametersCommand,
-  DescribeDBParametersCommandInput,
-  DescribeDBParametersCommandOutput,
 } from "./commands/DescribeDBParametersCommand";
 import {
+  type DescribeDBProxiesCommandInput,
+  type DescribeDBProxiesCommandOutput,
   DescribeDBProxiesCommand,
-  DescribeDBProxiesCommandInput,
-  DescribeDBProxiesCommandOutput,
 } from "./commands/DescribeDBProxiesCommand";
 import {
+  type DescribeDBProxyEndpointsCommandInput,
+  type DescribeDBProxyEndpointsCommandOutput,
   DescribeDBProxyEndpointsCommand,
-  DescribeDBProxyEndpointsCommandInput,
-  DescribeDBProxyEndpointsCommandOutput,
 } from "./commands/DescribeDBProxyEndpointsCommand";
 import {
+  type DescribeDBProxyTargetGroupsCommandInput,
+  type DescribeDBProxyTargetGroupsCommandOutput,
   DescribeDBProxyTargetGroupsCommand,
-  DescribeDBProxyTargetGroupsCommandInput,
-  DescribeDBProxyTargetGroupsCommandOutput,
 } from "./commands/DescribeDBProxyTargetGroupsCommand";
 import {
+  type DescribeDBProxyTargetsCommandInput,
+  type DescribeDBProxyTargetsCommandOutput,
   DescribeDBProxyTargetsCommand,
-  DescribeDBProxyTargetsCommandInput,
-  DescribeDBProxyTargetsCommandOutput,
 } from "./commands/DescribeDBProxyTargetsCommand";
 import {
+  type DescribeDBRecommendationsCommandInput,
+  type DescribeDBRecommendationsCommandOutput,
   DescribeDBRecommendationsCommand,
-  DescribeDBRecommendationsCommandInput,
-  DescribeDBRecommendationsCommandOutput,
 } from "./commands/DescribeDBRecommendationsCommand";
 import {
+  type DescribeDBSecurityGroupsCommandInput,
+  type DescribeDBSecurityGroupsCommandOutput,
   DescribeDBSecurityGroupsCommand,
-  DescribeDBSecurityGroupsCommandInput,
-  DescribeDBSecurityGroupsCommandOutput,
 } from "./commands/DescribeDBSecurityGroupsCommand";
 import {
+  type DescribeDBShardGroupsCommandInput,
+  type DescribeDBShardGroupsCommandOutput,
   DescribeDBShardGroupsCommand,
-  DescribeDBShardGroupsCommandInput,
-  DescribeDBShardGroupsCommandOutput,
 } from "./commands/DescribeDBShardGroupsCommand";
 import {
+  type DescribeDBSnapshotAttributesCommandInput,
+  type DescribeDBSnapshotAttributesCommandOutput,
   DescribeDBSnapshotAttributesCommand,
-  DescribeDBSnapshotAttributesCommandInput,
-  DescribeDBSnapshotAttributesCommandOutput,
 } from "./commands/DescribeDBSnapshotAttributesCommand";
 import {
+  type DescribeDBSnapshotsCommandInput,
+  type DescribeDBSnapshotsCommandOutput,
   DescribeDBSnapshotsCommand,
-  DescribeDBSnapshotsCommandInput,
-  DescribeDBSnapshotsCommandOutput,
 } from "./commands/DescribeDBSnapshotsCommand";
 import {
+  type DescribeDBSnapshotTenantDatabasesCommandInput,
+  type DescribeDBSnapshotTenantDatabasesCommandOutput,
   DescribeDBSnapshotTenantDatabasesCommand,
-  DescribeDBSnapshotTenantDatabasesCommandInput,
-  DescribeDBSnapshotTenantDatabasesCommandOutput,
 } from "./commands/DescribeDBSnapshotTenantDatabasesCommand";
 import {
+  type DescribeDBSubnetGroupsCommandInput,
+  type DescribeDBSubnetGroupsCommandOutput,
   DescribeDBSubnetGroupsCommand,
-  DescribeDBSubnetGroupsCommandInput,
-  DescribeDBSubnetGroupsCommandOutput,
 } from "./commands/DescribeDBSubnetGroupsCommand";
 import {
+  type DescribeEngineDefaultClusterParametersCommandInput,
+  type DescribeEngineDefaultClusterParametersCommandOutput,
   DescribeEngineDefaultClusterParametersCommand,
-  DescribeEngineDefaultClusterParametersCommandInput,
-  DescribeEngineDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultClusterParametersCommand";
 import {
+  type DescribeEngineDefaultParametersCommandInput,
+  type DescribeEngineDefaultParametersCommandOutput,
   DescribeEngineDefaultParametersCommand,
-  DescribeEngineDefaultParametersCommandInput,
-  DescribeEngineDefaultParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultParametersCommand";
 import {
+  type DescribeEventCategoriesCommandInput,
+  type DescribeEventCategoriesCommandOutput,
   DescribeEventCategoriesCommand,
-  DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
 import {
+  type DescribeEventsCommandInput,
+  type DescribeEventsCommandOutput,
   DescribeEventsCommand,
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  type DescribeEventSubscriptionsCommandInput,
+  type DescribeEventSubscriptionsCommandOutput,
   DescribeEventSubscriptionsCommand,
-  DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
 import {
+  type DescribeExportTasksCommandInput,
+  type DescribeExportTasksCommandOutput,
   DescribeExportTasksCommand,
-  DescribeExportTasksCommandInput,
-  DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
 import {
+  type DescribeGlobalClustersCommandInput,
+  type DescribeGlobalClustersCommandOutput,
   DescribeGlobalClustersCommand,
-  DescribeGlobalClustersCommandInput,
-  DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand";
 import {
+  type DescribeIntegrationsCommandInput,
+  type DescribeIntegrationsCommandOutput,
   DescribeIntegrationsCommand,
-  DescribeIntegrationsCommandInput,
-  DescribeIntegrationsCommandOutput,
 } from "./commands/DescribeIntegrationsCommand";
 import {
+  type DescribeOptionGroupOptionsCommandInput,
+  type DescribeOptionGroupOptionsCommandOutput,
   DescribeOptionGroupOptionsCommand,
-  DescribeOptionGroupOptionsCommandInput,
-  DescribeOptionGroupOptionsCommandOutput,
 } from "./commands/DescribeOptionGroupOptionsCommand";
 import {
+  type DescribeOptionGroupsCommandInput,
+  type DescribeOptionGroupsCommandOutput,
   DescribeOptionGroupsCommand,
-  DescribeOptionGroupsCommandInput,
-  DescribeOptionGroupsCommandOutput,
 } from "./commands/DescribeOptionGroupsCommand";
 import {
+  type DescribeOrderableDBInstanceOptionsCommandInput,
+  type DescribeOrderableDBInstanceOptionsCommandOutput,
   DescribeOrderableDBInstanceOptionsCommand,
-  DescribeOrderableDBInstanceOptionsCommandInput,
-  DescribeOrderableDBInstanceOptionsCommandOutput,
 } from "./commands/DescribeOrderableDBInstanceOptionsCommand";
 import {
+  type DescribePendingMaintenanceActionsCommandInput,
+  type DescribePendingMaintenanceActionsCommandOutput,
   DescribePendingMaintenanceActionsCommand,
-  DescribePendingMaintenanceActionsCommandInput,
-  DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand";
 import {
+  type DescribeReservedDBInstancesCommandInput,
+  type DescribeReservedDBInstancesCommandOutput,
   DescribeReservedDBInstancesCommand,
-  DescribeReservedDBInstancesCommandInput,
-  DescribeReservedDBInstancesCommandOutput,
 } from "./commands/DescribeReservedDBInstancesCommand";
 import {
+  type DescribeReservedDBInstancesOfferingsCommandInput,
+  type DescribeReservedDBInstancesOfferingsCommandOutput,
   DescribeReservedDBInstancesOfferingsCommand,
-  DescribeReservedDBInstancesOfferingsCommandInput,
-  DescribeReservedDBInstancesOfferingsCommandOutput,
 } from "./commands/DescribeReservedDBInstancesOfferingsCommand";
 import {
+  type DescribeSourceRegionsCommandInput,
+  type DescribeSourceRegionsCommandOutput,
   DescribeSourceRegionsCommand,
-  DescribeSourceRegionsCommandInput,
-  DescribeSourceRegionsCommandOutput,
 } from "./commands/DescribeSourceRegionsCommand";
 import {
+  type DescribeTenantDatabasesCommandInput,
+  type DescribeTenantDatabasesCommandOutput,
   DescribeTenantDatabasesCommand,
-  DescribeTenantDatabasesCommandInput,
-  DescribeTenantDatabasesCommandOutput,
 } from "./commands/DescribeTenantDatabasesCommand";
 import {
+  type DescribeValidDBInstanceModificationsCommandInput,
+  type DescribeValidDBInstanceModificationsCommandOutput,
   DescribeValidDBInstanceModificationsCommand,
-  DescribeValidDBInstanceModificationsCommandInput,
-  DescribeValidDBInstanceModificationsCommandOutput,
 } from "./commands/DescribeValidDBInstanceModificationsCommand";
 import {
+  type DisableHttpEndpointCommandInput,
+  type DisableHttpEndpointCommandOutput,
   DisableHttpEndpointCommand,
-  DisableHttpEndpointCommandInput,
-  DisableHttpEndpointCommandOutput,
 } from "./commands/DisableHttpEndpointCommand";
 import {
+  type DownloadDBLogFilePortionCommandInput,
+  type DownloadDBLogFilePortionCommandOutput,
   DownloadDBLogFilePortionCommand,
-  DownloadDBLogFilePortionCommandInput,
-  DownloadDBLogFilePortionCommandOutput,
 } from "./commands/DownloadDBLogFilePortionCommand";
 import {
+  type EnableHttpEndpointCommandInput,
+  type EnableHttpEndpointCommandOutput,
   EnableHttpEndpointCommand,
-  EnableHttpEndpointCommandInput,
-  EnableHttpEndpointCommandOutput,
 } from "./commands/EnableHttpEndpointCommand";
 import {
+  type FailoverDBClusterCommandInput,
+  type FailoverDBClusterCommandOutput,
   FailoverDBClusterCommand,
-  FailoverDBClusterCommandInput,
-  FailoverDBClusterCommandOutput,
 } from "./commands/FailoverDBClusterCommand";
 import {
+  type FailoverGlobalClusterCommandInput,
+  type FailoverGlobalClusterCommandOutput,
   FailoverGlobalClusterCommand,
-  FailoverGlobalClusterCommandInput,
-  FailoverGlobalClusterCommandOutput,
 } from "./commands/FailoverGlobalClusterCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ModifyActivityStreamCommandInput,
+  type ModifyActivityStreamCommandOutput,
   ModifyActivityStreamCommand,
-  ModifyActivityStreamCommandInput,
-  ModifyActivityStreamCommandOutput,
 } from "./commands/ModifyActivityStreamCommand";
 import {
+  type ModifyCertificatesCommandInput,
+  type ModifyCertificatesCommandOutput,
   ModifyCertificatesCommand,
-  ModifyCertificatesCommandInput,
-  ModifyCertificatesCommandOutput,
 } from "./commands/ModifyCertificatesCommand";
 import {
+  type ModifyCurrentDBClusterCapacityCommandInput,
+  type ModifyCurrentDBClusterCapacityCommandOutput,
   ModifyCurrentDBClusterCapacityCommand,
-  ModifyCurrentDBClusterCapacityCommandInput,
-  ModifyCurrentDBClusterCapacityCommandOutput,
 } from "./commands/ModifyCurrentDBClusterCapacityCommand";
 import {
+  type ModifyCustomDBEngineVersionCommandInput,
+  type ModifyCustomDBEngineVersionCommandOutput,
   ModifyCustomDBEngineVersionCommand,
-  ModifyCustomDBEngineVersionCommandInput,
-  ModifyCustomDBEngineVersionCommandOutput,
 } from "./commands/ModifyCustomDBEngineVersionCommand";
 import {
+  type ModifyDBClusterCommandInput,
+  type ModifyDBClusterCommandOutput,
   ModifyDBClusterCommand,
-  ModifyDBClusterCommandInput,
-  ModifyDBClusterCommandOutput,
 } from "./commands/ModifyDBClusterCommand";
 import {
+  type ModifyDBClusterEndpointCommandInput,
+  type ModifyDBClusterEndpointCommandOutput,
   ModifyDBClusterEndpointCommand,
-  ModifyDBClusterEndpointCommandInput,
-  ModifyDBClusterEndpointCommandOutput,
 } from "./commands/ModifyDBClusterEndpointCommand";
 import {
+  type ModifyDBClusterParameterGroupCommandInput,
+  type ModifyDBClusterParameterGroupCommandOutput,
   ModifyDBClusterParameterGroupCommand,
-  ModifyDBClusterParameterGroupCommandInput,
-  ModifyDBClusterParameterGroupCommandOutput,
 } from "./commands/ModifyDBClusterParameterGroupCommand";
 import {
+  type ModifyDBClusterSnapshotAttributeCommandInput,
+  type ModifyDBClusterSnapshotAttributeCommandOutput,
   ModifyDBClusterSnapshotAttributeCommand,
-  ModifyDBClusterSnapshotAttributeCommandInput,
-  ModifyDBClusterSnapshotAttributeCommandOutput,
 } from "./commands/ModifyDBClusterSnapshotAttributeCommand";
 import {
+  type ModifyDBInstanceCommandInput,
+  type ModifyDBInstanceCommandOutput,
   ModifyDBInstanceCommand,
-  ModifyDBInstanceCommandInput,
-  ModifyDBInstanceCommandOutput,
 } from "./commands/ModifyDBInstanceCommand";
 import {
+  type ModifyDBParameterGroupCommandInput,
+  type ModifyDBParameterGroupCommandOutput,
   ModifyDBParameterGroupCommand,
-  ModifyDBParameterGroupCommandInput,
-  ModifyDBParameterGroupCommandOutput,
 } from "./commands/ModifyDBParameterGroupCommand";
 import {
+  type ModifyDBProxyCommandInput,
+  type ModifyDBProxyCommandOutput,
   ModifyDBProxyCommand,
-  ModifyDBProxyCommandInput,
-  ModifyDBProxyCommandOutput,
 } from "./commands/ModifyDBProxyCommand";
 import {
+  type ModifyDBProxyEndpointCommandInput,
+  type ModifyDBProxyEndpointCommandOutput,
   ModifyDBProxyEndpointCommand,
-  ModifyDBProxyEndpointCommandInput,
-  ModifyDBProxyEndpointCommandOutput,
 } from "./commands/ModifyDBProxyEndpointCommand";
 import {
+  type ModifyDBProxyTargetGroupCommandInput,
+  type ModifyDBProxyTargetGroupCommandOutput,
   ModifyDBProxyTargetGroupCommand,
-  ModifyDBProxyTargetGroupCommandInput,
-  ModifyDBProxyTargetGroupCommandOutput,
 } from "./commands/ModifyDBProxyTargetGroupCommand";
 import {
+  type ModifyDBRecommendationCommandInput,
+  type ModifyDBRecommendationCommandOutput,
   ModifyDBRecommendationCommand,
-  ModifyDBRecommendationCommandInput,
-  ModifyDBRecommendationCommandOutput,
 } from "./commands/ModifyDBRecommendationCommand";
 import {
+  type ModifyDBShardGroupCommandInput,
+  type ModifyDBShardGroupCommandOutput,
   ModifyDBShardGroupCommand,
-  ModifyDBShardGroupCommandInput,
-  ModifyDBShardGroupCommandOutput,
 } from "./commands/ModifyDBShardGroupCommand";
 import {
+  type ModifyDBSnapshotAttributeCommandInput,
+  type ModifyDBSnapshotAttributeCommandOutput,
   ModifyDBSnapshotAttributeCommand,
-  ModifyDBSnapshotAttributeCommandInput,
-  ModifyDBSnapshotAttributeCommandOutput,
 } from "./commands/ModifyDBSnapshotAttributeCommand";
 import {
+  type ModifyDBSnapshotCommandInput,
+  type ModifyDBSnapshotCommandOutput,
   ModifyDBSnapshotCommand,
-  ModifyDBSnapshotCommandInput,
-  ModifyDBSnapshotCommandOutput,
 } from "./commands/ModifyDBSnapshotCommand";
 import {
+  type ModifyDBSubnetGroupCommandInput,
+  type ModifyDBSubnetGroupCommandOutput,
   ModifyDBSubnetGroupCommand,
-  ModifyDBSubnetGroupCommandInput,
-  ModifyDBSubnetGroupCommandOutput,
 } from "./commands/ModifyDBSubnetGroupCommand";
 import {
+  type ModifyEventSubscriptionCommandInput,
+  type ModifyEventSubscriptionCommandOutput,
   ModifyEventSubscriptionCommand,
-  ModifyEventSubscriptionCommandInput,
-  ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  type ModifyGlobalClusterCommandInput,
+  type ModifyGlobalClusterCommandOutput,
   ModifyGlobalClusterCommand,
-  ModifyGlobalClusterCommandInput,
-  ModifyGlobalClusterCommandOutput,
 } from "./commands/ModifyGlobalClusterCommand";
 import {
+  type ModifyIntegrationCommandInput,
+  type ModifyIntegrationCommandOutput,
   ModifyIntegrationCommand,
-  ModifyIntegrationCommandInput,
-  ModifyIntegrationCommandOutput,
 } from "./commands/ModifyIntegrationCommand";
 import {
+  type ModifyOptionGroupCommandInput,
+  type ModifyOptionGroupCommandOutput,
   ModifyOptionGroupCommand,
-  ModifyOptionGroupCommandInput,
-  ModifyOptionGroupCommandOutput,
 } from "./commands/ModifyOptionGroupCommand";
 import {
+  type ModifyTenantDatabaseCommandInput,
+  type ModifyTenantDatabaseCommandOutput,
   ModifyTenantDatabaseCommand,
-  ModifyTenantDatabaseCommandInput,
-  ModifyTenantDatabaseCommandOutput,
 } from "./commands/ModifyTenantDatabaseCommand";
 import {
+  type PromoteReadReplicaCommandInput,
+  type PromoteReadReplicaCommandOutput,
   PromoteReadReplicaCommand,
-  PromoteReadReplicaCommandInput,
-  PromoteReadReplicaCommandOutput,
 } from "./commands/PromoteReadReplicaCommand";
 import {
+  type PromoteReadReplicaDBClusterCommandInput,
+  type PromoteReadReplicaDBClusterCommandOutput,
   PromoteReadReplicaDBClusterCommand,
-  PromoteReadReplicaDBClusterCommandInput,
-  PromoteReadReplicaDBClusterCommandOutput,
 } from "./commands/PromoteReadReplicaDBClusterCommand";
 import {
+  type PurchaseReservedDBInstancesOfferingCommandInput,
+  type PurchaseReservedDBInstancesOfferingCommandOutput,
   PurchaseReservedDBInstancesOfferingCommand,
-  PurchaseReservedDBInstancesOfferingCommandInput,
-  PurchaseReservedDBInstancesOfferingCommandOutput,
 } from "./commands/PurchaseReservedDBInstancesOfferingCommand";
 import {
+  type RebootDBClusterCommandInput,
+  type RebootDBClusterCommandOutput,
   RebootDBClusterCommand,
-  RebootDBClusterCommandInput,
-  RebootDBClusterCommandOutput,
 } from "./commands/RebootDBClusterCommand";
 import {
+  type RebootDBInstanceCommandInput,
+  type RebootDBInstanceCommandOutput,
   RebootDBInstanceCommand,
-  RebootDBInstanceCommandInput,
-  RebootDBInstanceCommandOutput,
 } from "./commands/RebootDBInstanceCommand";
 import {
+  type RebootDBShardGroupCommandInput,
+  type RebootDBShardGroupCommandOutput,
   RebootDBShardGroupCommand,
-  RebootDBShardGroupCommandInput,
-  RebootDBShardGroupCommandOutput,
 } from "./commands/RebootDBShardGroupCommand";
 import {
+  type RegisterDBProxyTargetsCommandInput,
+  type RegisterDBProxyTargetsCommandOutput,
   RegisterDBProxyTargetsCommand,
-  RegisterDBProxyTargetsCommandInput,
-  RegisterDBProxyTargetsCommandOutput,
 } from "./commands/RegisterDBProxyTargetsCommand";
 import {
+  type RemoveFromGlobalClusterCommandInput,
+  type RemoveFromGlobalClusterCommandOutput,
   RemoveFromGlobalClusterCommand,
-  RemoveFromGlobalClusterCommandInput,
-  RemoveFromGlobalClusterCommandOutput,
 } from "./commands/RemoveFromGlobalClusterCommand";
 import {
+  type RemoveRoleFromDBClusterCommandInput,
+  type RemoveRoleFromDBClusterCommandOutput,
   RemoveRoleFromDBClusterCommand,
-  RemoveRoleFromDBClusterCommandInput,
-  RemoveRoleFromDBClusterCommandOutput,
 } from "./commands/RemoveRoleFromDBClusterCommand";
 import {
+  type RemoveRoleFromDBInstanceCommandInput,
+  type RemoveRoleFromDBInstanceCommandOutput,
   RemoveRoleFromDBInstanceCommand,
-  RemoveRoleFromDBInstanceCommandInput,
-  RemoveRoleFromDBInstanceCommandOutput,
 } from "./commands/RemoveRoleFromDBInstanceCommand";
 import {
+  type RemoveSourceIdentifierFromSubscriptionCommandInput,
+  type RemoveSourceIdentifierFromSubscriptionCommandOutput,
   RemoveSourceIdentifierFromSubscriptionCommand,
-  RemoveSourceIdentifierFromSubscriptionCommandInput,
-  RemoveSourceIdentifierFromSubscriptionCommandOutput,
 } from "./commands/RemoveSourceIdentifierFromSubscriptionCommand";
 import {
+  type RemoveTagsFromResourceCommandInput,
+  type RemoveTagsFromResourceCommandOutput,
   RemoveTagsFromResourceCommand,
-  RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 import {
+  type ResetDBClusterParameterGroupCommandInput,
+  type ResetDBClusterParameterGroupCommandOutput,
   ResetDBClusterParameterGroupCommand,
-  ResetDBClusterParameterGroupCommandInput,
-  ResetDBClusterParameterGroupCommandOutput,
 } from "./commands/ResetDBClusterParameterGroupCommand";
 import {
+  type ResetDBParameterGroupCommandInput,
+  type ResetDBParameterGroupCommandOutput,
   ResetDBParameterGroupCommand,
-  ResetDBParameterGroupCommandInput,
-  ResetDBParameterGroupCommandOutput,
 } from "./commands/ResetDBParameterGroupCommand";
 import {
+  type RestoreDBClusterFromS3CommandInput,
+  type RestoreDBClusterFromS3CommandOutput,
   RestoreDBClusterFromS3Command,
-  RestoreDBClusterFromS3CommandInput,
-  RestoreDBClusterFromS3CommandOutput,
 } from "./commands/RestoreDBClusterFromS3Command";
 import {
+  type RestoreDBClusterFromSnapshotCommandInput,
+  type RestoreDBClusterFromSnapshotCommandOutput,
   RestoreDBClusterFromSnapshotCommand,
-  RestoreDBClusterFromSnapshotCommandInput,
-  RestoreDBClusterFromSnapshotCommandOutput,
 } from "./commands/RestoreDBClusterFromSnapshotCommand";
 import {
+  type RestoreDBClusterToPointInTimeCommandInput,
+  type RestoreDBClusterToPointInTimeCommandOutput,
   RestoreDBClusterToPointInTimeCommand,
-  RestoreDBClusterToPointInTimeCommandInput,
-  RestoreDBClusterToPointInTimeCommandOutput,
 } from "./commands/RestoreDBClusterToPointInTimeCommand";
 import {
+  type RestoreDBInstanceFromDBSnapshotCommandInput,
+  type RestoreDBInstanceFromDBSnapshotCommandOutput,
   RestoreDBInstanceFromDBSnapshotCommand,
-  RestoreDBInstanceFromDBSnapshotCommandInput,
-  RestoreDBInstanceFromDBSnapshotCommandOutput,
 } from "./commands/RestoreDBInstanceFromDBSnapshotCommand";
 import {
+  type RestoreDBInstanceFromS3CommandInput,
+  type RestoreDBInstanceFromS3CommandOutput,
   RestoreDBInstanceFromS3Command,
-  RestoreDBInstanceFromS3CommandInput,
-  RestoreDBInstanceFromS3CommandOutput,
 } from "./commands/RestoreDBInstanceFromS3Command";
 import {
+  type RestoreDBInstanceToPointInTimeCommandInput,
+  type RestoreDBInstanceToPointInTimeCommandOutput,
   RestoreDBInstanceToPointInTimeCommand,
-  RestoreDBInstanceToPointInTimeCommandInput,
-  RestoreDBInstanceToPointInTimeCommandOutput,
 } from "./commands/RestoreDBInstanceToPointInTimeCommand";
 import {
+  type RevokeDBSecurityGroupIngressCommandInput,
+  type RevokeDBSecurityGroupIngressCommandOutput,
   RevokeDBSecurityGroupIngressCommand,
-  RevokeDBSecurityGroupIngressCommandInput,
-  RevokeDBSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeDBSecurityGroupIngressCommand";
 import {
+  type StartActivityStreamCommandInput,
+  type StartActivityStreamCommandOutput,
   StartActivityStreamCommand,
-  StartActivityStreamCommandInput,
-  StartActivityStreamCommandOutput,
 } from "./commands/StartActivityStreamCommand";
 import {
+  type StartDBClusterCommandInput,
+  type StartDBClusterCommandOutput,
   StartDBClusterCommand,
-  StartDBClusterCommandInput,
-  StartDBClusterCommandOutput,
 } from "./commands/StartDBClusterCommand";
 import {
+  type StartDBInstanceAutomatedBackupsReplicationCommandInput,
+  type StartDBInstanceAutomatedBackupsReplicationCommandOutput,
   StartDBInstanceAutomatedBackupsReplicationCommand,
-  StartDBInstanceAutomatedBackupsReplicationCommandInput,
-  StartDBInstanceAutomatedBackupsReplicationCommandOutput,
 } from "./commands/StartDBInstanceAutomatedBackupsReplicationCommand";
 import {
+  type StartDBInstanceCommandInput,
+  type StartDBInstanceCommandOutput,
   StartDBInstanceCommand,
-  StartDBInstanceCommandInput,
-  StartDBInstanceCommandOutput,
 } from "./commands/StartDBInstanceCommand";
 import {
+  type StartExportTaskCommandInput,
+  type StartExportTaskCommandOutput,
   StartExportTaskCommand,
-  StartExportTaskCommandInput,
-  StartExportTaskCommandOutput,
 } from "./commands/StartExportTaskCommand";
 import {
+  type StopActivityStreamCommandInput,
+  type StopActivityStreamCommandOutput,
   StopActivityStreamCommand,
-  StopActivityStreamCommandInput,
-  StopActivityStreamCommandOutput,
 } from "./commands/StopActivityStreamCommand";
 import {
+  type StopDBClusterCommandInput,
+  type StopDBClusterCommandOutput,
   StopDBClusterCommand,
-  StopDBClusterCommandInput,
-  StopDBClusterCommandOutput,
 } from "./commands/StopDBClusterCommand";
 import {
+  type StopDBInstanceAutomatedBackupsReplicationCommandInput,
+  type StopDBInstanceAutomatedBackupsReplicationCommandOutput,
   StopDBInstanceAutomatedBackupsReplicationCommand,
-  StopDBInstanceAutomatedBackupsReplicationCommandInput,
-  StopDBInstanceAutomatedBackupsReplicationCommandOutput,
 } from "./commands/StopDBInstanceAutomatedBackupsReplicationCommand";
 import {
+  type StopDBInstanceCommandInput,
+  type StopDBInstanceCommandOutput,
   StopDBInstanceCommand,
-  StopDBInstanceCommandInput,
-  StopDBInstanceCommandOutput,
 } from "./commands/StopDBInstanceCommand";
 import {
+  type SwitchoverBlueGreenDeploymentCommandInput,
+  type SwitchoverBlueGreenDeploymentCommandOutput,
   SwitchoverBlueGreenDeploymentCommand,
-  SwitchoverBlueGreenDeploymentCommandInput,
-  SwitchoverBlueGreenDeploymentCommandOutput,
 } from "./commands/SwitchoverBlueGreenDeploymentCommand";
 import {
+  type SwitchoverGlobalClusterCommandInput,
+  type SwitchoverGlobalClusterCommandOutput,
   SwitchoverGlobalClusterCommand,
-  SwitchoverGlobalClusterCommandInput,
-  SwitchoverGlobalClusterCommandOutput,
 } from "./commands/SwitchoverGlobalClusterCommand";
 import {
+  type SwitchoverReadReplicaCommandInput,
+  type SwitchoverReadReplicaCommandOutput,
   SwitchoverReadReplicaCommand,
-  SwitchoverReadReplicaCommandInput,
-  SwitchoverReadReplicaCommandOutput,
 } from "./commands/SwitchoverReadReplicaCommand";
 import { paginateDescribeBlueGreenDeployments } from "./pagination/DescribeBlueGreenDeploymentsPaginator";
 import { paginateDescribeCertificates } from "./pagination/DescribeCertificatesPaginator";

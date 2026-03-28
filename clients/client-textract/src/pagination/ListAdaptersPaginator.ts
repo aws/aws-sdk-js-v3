@@ -8,7 +8,7 @@ import {
   ListAdaptersCommandOutput,
 } from "../commands/ListAdaptersCommand";
 import { TextractClient } from "../TextractClient";
-import { TextractPaginationConfiguration } from "./Interfaces";
+import type { TextractPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

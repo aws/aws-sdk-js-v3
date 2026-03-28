@@ -9,31 +9,47 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AssociateFeedCommandInput,
+  type AssociateFeedCommandOutput,
   AssociateFeedCommand,
-  AssociateFeedCommandInput,
-  AssociateFeedCommandOutput,
 } from "./commands/AssociateFeedCommand";
-import { CreateFeedCommand, CreateFeedCommandInput, CreateFeedCommandOutput } from "./commands/CreateFeedCommand";
-import { DeleteFeedCommand, DeleteFeedCommandInput, DeleteFeedCommandOutput } from "./commands/DeleteFeedCommand";
 import {
+  type CreateFeedCommandInput,
+  type CreateFeedCommandOutput,
+  CreateFeedCommand,
+} from "./commands/CreateFeedCommand";
+import {
+  type DeleteFeedCommandInput,
+  type DeleteFeedCommandOutput,
+  DeleteFeedCommand,
+} from "./commands/DeleteFeedCommand";
+import {
+  type DisassociateFeedCommandInput,
+  type DisassociateFeedCommandOutput,
   DisassociateFeedCommand,
-  DisassociateFeedCommandInput,
-  DisassociateFeedCommandOutput,
 } from "./commands/DisassociateFeedCommand";
-import { GetFeedCommand, GetFeedCommandInput, GetFeedCommandOutput } from "./commands/GetFeedCommand";
-import { ListFeedsCommand, ListFeedsCommandInput, ListFeedsCommandOutput } from "./commands/ListFeedsCommand";
+import { type GetFeedCommandInput, type GetFeedCommandOutput, GetFeedCommand } from "./commands/GetFeedCommand";
+import { type ListFeedsCommandInput, type ListFeedsCommandOutput, ListFeedsCommand } from "./commands/ListFeedsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateFeedCommand, UpdateFeedCommandInput, UpdateFeedCommandOutput } from "./commands/UpdateFeedCommand";
+import {
+  type UpdateFeedCommandInput,
+  type UpdateFeedCommandOutput,
+  UpdateFeedCommand,
+} from "./commands/UpdateFeedCommand";
 import { ElementalInferenceClient } from "./ElementalInferenceClient";
 import { paginateListFeeds } from "./pagination/ListFeedsPaginator";
 import { waitUntilFeedDeleted } from "./waiters/waitForFeedDeleted";

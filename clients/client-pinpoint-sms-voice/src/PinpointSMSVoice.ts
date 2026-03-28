@@ -3,44 +3,44 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type CreateConfigurationSetCommandInput,
+  type CreateConfigurationSetCommandOutput,
   CreateConfigurationSetCommand,
-  CreateConfigurationSetCommandInput,
-  CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand";
 import {
+  type CreateConfigurationSetEventDestinationCommandInput,
+  type CreateConfigurationSetEventDestinationCommandOutput,
   CreateConfigurationSetEventDestinationCommand,
-  CreateConfigurationSetEventDestinationCommandInput,
-  CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand";
 import {
+  type DeleteConfigurationSetCommandInput,
+  type DeleteConfigurationSetCommandOutput,
   DeleteConfigurationSetCommand,
-  DeleteConfigurationSetCommandInput,
-  DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand";
 import {
+  type DeleteConfigurationSetEventDestinationCommandInput,
+  type DeleteConfigurationSetEventDestinationCommandOutput,
   DeleteConfigurationSetEventDestinationCommand,
-  DeleteConfigurationSetEventDestinationCommandInput,
-  DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand";
 import {
+  type GetConfigurationSetEventDestinationsCommandInput,
+  type GetConfigurationSetEventDestinationsCommandOutput,
   GetConfigurationSetEventDestinationsCommand,
-  GetConfigurationSetEventDestinationsCommandInput,
-  GetConfigurationSetEventDestinationsCommandOutput,
 } from "./commands/GetConfigurationSetEventDestinationsCommand";
 import {
+  type ListConfigurationSetsCommandInput,
+  type ListConfigurationSetsCommandOutput,
   ListConfigurationSetsCommand,
-  ListConfigurationSetsCommandInput,
-  ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand";
 import {
+  type SendVoiceMessageCommandInput,
+  type SendVoiceMessageCommandOutput,
   SendVoiceMessageCommand,
-  SendVoiceMessageCommandInput,
-  SendVoiceMessageCommandOutput,
 } from "./commands/SendVoiceMessageCommand";
 import {
+  type UpdateConfigurationSetEventDestinationCommandInput,
+  type UpdateConfigurationSetEventDestinationCommandOutput,
   UpdateConfigurationSetEventDestinationCommand,
-  UpdateConfigurationSetEventDestinationCommandInput,
-  UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
 import { PinpointSMSVoiceClient } from "./PinpointSMSVoiceClient";
 

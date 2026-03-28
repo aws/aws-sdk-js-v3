@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListBrokersCommand, ListBrokersCommandInput, ListBrokersCommandOutput } from "../commands/ListBrokersCommand";
 import { MqClient } from "../MqClient";
-import { MqPaginationConfiguration } from "./Interfaces";
+import type { MqPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

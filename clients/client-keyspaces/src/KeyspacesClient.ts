@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,35 +61,35 @@ import {
   defaultKeyspacesHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateKeyspaceCommandInput, CreateKeyspaceCommandOutput } from "./commands/CreateKeyspaceCommand";
-import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
-import { CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
-import { DeleteKeyspaceCommandInput, DeleteKeyspaceCommandOutput } from "./commands/DeleteKeyspaceCommand";
-import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
-import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
-import { GetKeyspaceCommandInput, GetKeyspaceCommandOutput } from "./commands/GetKeyspaceCommand";
-import {
+import type { CreateKeyspaceCommandInput, CreateKeyspaceCommandOutput } from "./commands/CreateKeyspaceCommand";
+import type { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
+import type { CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
+import type { DeleteKeyspaceCommandInput, DeleteKeyspaceCommandOutput } from "./commands/DeleteKeyspaceCommand";
+import type { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
+import type { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
+import type { GetKeyspaceCommandInput, GetKeyspaceCommandOutput } from "./commands/GetKeyspaceCommand";
+import type {
   GetTableAutoScalingSettingsCommandInput,
   GetTableAutoScalingSettingsCommandOutput,
 } from "./commands/GetTableAutoScalingSettingsCommand";
-import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
-import { GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
-import { ListKeyspacesCommandInput, ListKeyspacesCommandOutput } from "./commands/ListKeyspacesCommand";
-import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
-import {
+import type { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import type { GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
+import type { ListKeyspacesCommandInput, ListKeyspacesCommandOutput } from "./commands/ListKeyspacesCommand";
+import type { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
-import { RestoreTableCommandInput, RestoreTableCommandOutput } from "./commands/RestoreTableCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateKeyspaceCommandInput, UpdateKeyspaceCommandOutput } from "./commands/UpdateKeyspaceCommand";
-import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
+import type { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import type { RestoreTableCommandInput, RestoreTableCommandOutput } from "./commands/RestoreTableCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateKeyspaceCommandInput, UpdateKeyspaceCommandOutput } from "./commands/UpdateKeyspaceCommand";
+import type { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -261,7 +259,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

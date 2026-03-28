@@ -8,7 +8,7 @@ import {
   ListFunctionEventInvokeConfigsCommandOutput,
 } from "../commands/ListFunctionEventInvokeConfigsCommand";
 import { LambdaClient } from "../LambdaClient";
-import { LambdaPaginationConfiguration } from "./Interfaces";
+import type { LambdaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

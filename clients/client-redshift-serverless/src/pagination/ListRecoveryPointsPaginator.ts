@@ -8,7 +8,7 @@ import {
   ListRecoveryPointsCommandOutput,
 } from "../commands/ListRecoveryPointsCommand";
 import { RedshiftServerlessClient } from "../RedshiftServerlessClient";
-import { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
+import type { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

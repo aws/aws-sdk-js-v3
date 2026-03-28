@@ -8,7 +8,7 @@ import {
   ListInstanceProfileTagsCommandOutput,
 } from "../commands/ListInstanceProfileTagsCommand";
 import { IAMClient } from "../IAMClient";
-import { IAMPaginationConfiguration } from "./Interfaces";
+import type { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

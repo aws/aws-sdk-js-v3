@@ -8,7 +8,7 @@ import {
   ListEnforcedGuardrailsConfigurationCommandInput,
   ListEnforcedGuardrailsConfigurationCommandOutput,
 } from "../commands/ListEnforcedGuardrailsConfigurationCommand";
-import { BedrockPaginationConfiguration } from "./Interfaces";
+import type { BedrockPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

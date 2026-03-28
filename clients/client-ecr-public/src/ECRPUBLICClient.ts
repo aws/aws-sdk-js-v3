@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,72 +61,78 @@ import {
   defaultECRPUBLICHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchCheckLayerAvailabilityCommandInput,
   BatchCheckLayerAvailabilityCommandOutput,
 } from "./commands/BatchCheckLayerAvailabilityCommand";
-import { BatchDeleteImageCommandInput, BatchDeleteImageCommandOutput } from "./commands/BatchDeleteImageCommand";
-import {
+import type { BatchDeleteImageCommandInput, BatchDeleteImageCommandOutput } from "./commands/BatchDeleteImageCommand";
+import type {
   CompleteLayerUploadCommandInput,
   CompleteLayerUploadCommandOutput,
 } from "./commands/CompleteLayerUploadCommand";
-import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
-import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
-import {
+import type { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
+import type { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
+import type {
   DeleteRepositoryPolicyCommandInput,
   DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
-import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
-import { DescribeImageTagsCommandInput, DescribeImageTagsCommandOutput } from "./commands/DescribeImageTagsCommand";
-import { DescribeRegistriesCommandInput, DescribeRegistriesCommandOutput } from "./commands/DescribeRegistriesCommand";
-import {
+import type { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
+import type {
+  DescribeImageTagsCommandInput,
+  DescribeImageTagsCommandOutput,
+} from "./commands/DescribeImageTagsCommand";
+import type {
+  DescribeRegistriesCommandInput,
+  DescribeRegistriesCommandOutput,
+} from "./commands/DescribeRegistriesCommand";
+import type {
   DescribeRepositoriesCommandInput,
   DescribeRepositoriesCommandOutput,
 } from "./commands/DescribeRepositoriesCommand";
-import {
+import type {
   GetAuthorizationTokenCommandInput,
   GetAuthorizationTokenCommandOutput,
 } from "./commands/GetAuthorizationTokenCommand";
-import {
+import type {
   GetRegistryCatalogDataCommandInput,
   GetRegistryCatalogDataCommandOutput,
 } from "./commands/GetRegistryCatalogDataCommand";
-import {
+import type {
   GetRepositoryCatalogDataCommandInput,
   GetRepositoryCatalogDataCommandOutput,
 } from "./commands/GetRepositoryCatalogDataCommand";
-import {
+import type {
   GetRepositoryPolicyCommandInput,
   GetRepositoryPolicyCommandOutput,
 } from "./commands/GetRepositoryPolicyCommand";
-import {
+import type {
   InitiateLayerUploadCommandInput,
   InitiateLayerUploadCommandOutput,
 } from "./commands/InitiateLayerUploadCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
-import {
+import type { PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
+import type {
   PutRegistryCatalogDataCommandInput,
   PutRegistryCatalogDataCommandOutput,
 } from "./commands/PutRegistryCatalogDataCommand";
-import {
+import type {
   PutRepositoryCatalogDataCommandInput,
   PutRepositoryCatalogDataCommandOutput,
 } from "./commands/PutRepositoryCatalogDataCommand";
-import {
+import type {
   SetRepositoryPolicyCommandInput,
   SetRepositoryPolicyCommandOutput,
 } from "./commands/SetRepositoryPolicyCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "./commands/UploadLayerPartCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "./commands/UploadLayerPartCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -306,7 +310,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

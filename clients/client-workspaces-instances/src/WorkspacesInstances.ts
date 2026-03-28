@@ -3,61 +3,69 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateVolumeCommandInput,
+  type AssociateVolumeCommandOutput,
   AssociateVolumeCommand,
-  AssociateVolumeCommandInput,
-  AssociateVolumeCommandOutput,
 } from "./commands/AssociateVolumeCommand";
 import {
+  type CreateVolumeCommandInput,
+  type CreateVolumeCommandOutput,
   CreateVolumeCommand,
-  CreateVolumeCommandInput,
-  CreateVolumeCommandOutput,
 } from "./commands/CreateVolumeCommand";
 import {
+  type CreateWorkspaceInstanceCommandInput,
+  type CreateWorkspaceInstanceCommandOutput,
   CreateWorkspaceInstanceCommand,
-  CreateWorkspaceInstanceCommandInput,
-  CreateWorkspaceInstanceCommandOutput,
 } from "./commands/CreateWorkspaceInstanceCommand";
 import {
+  type DeleteVolumeCommandInput,
+  type DeleteVolumeCommandOutput,
   DeleteVolumeCommand,
-  DeleteVolumeCommandInput,
-  DeleteVolumeCommandOutput,
 } from "./commands/DeleteVolumeCommand";
 import {
+  type DeleteWorkspaceInstanceCommandInput,
+  type DeleteWorkspaceInstanceCommandOutput,
   DeleteWorkspaceInstanceCommand,
-  DeleteWorkspaceInstanceCommandInput,
-  DeleteWorkspaceInstanceCommandOutput,
 } from "./commands/DeleteWorkspaceInstanceCommand";
 import {
+  type DisassociateVolumeCommandInput,
+  type DisassociateVolumeCommandOutput,
   DisassociateVolumeCommand,
-  DisassociateVolumeCommandInput,
-  DisassociateVolumeCommandOutput,
 } from "./commands/DisassociateVolumeCommand";
 import {
+  type GetWorkspaceInstanceCommandInput,
+  type GetWorkspaceInstanceCommandOutput,
   GetWorkspaceInstanceCommand,
-  GetWorkspaceInstanceCommandInput,
-  GetWorkspaceInstanceCommandOutput,
 } from "./commands/GetWorkspaceInstanceCommand";
 import {
+  type ListInstanceTypesCommandInput,
+  type ListInstanceTypesCommandOutput,
   ListInstanceTypesCommand,
-  ListInstanceTypesCommandInput,
-  ListInstanceTypesCommandOutput,
 } from "./commands/ListInstanceTypesCommand";
-import { ListRegionsCommand, ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
 import {
+  type ListRegionsCommandInput,
+  type ListRegionsCommandOutput,
+  ListRegionsCommand,
+} from "./commands/ListRegionsCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWorkspaceInstancesCommandInput,
+  type ListWorkspaceInstancesCommandOutput,
   ListWorkspaceInstancesCommand,
-  ListWorkspaceInstancesCommandInput,
-  ListWorkspaceInstancesCommandOutput,
 } from "./commands/ListWorkspaceInstancesCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateListInstanceTypes } from "./pagination/ListInstanceTypesPaginator";
 import { paginateListRegions } from "./pagination/ListRegionsPaginator";

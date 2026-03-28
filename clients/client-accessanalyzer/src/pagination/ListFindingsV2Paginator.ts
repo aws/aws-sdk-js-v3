@@ -8,7 +8,7 @@ import {
   ListFindingsV2CommandInput,
   ListFindingsV2CommandOutput,
 } from "../commands/ListFindingsV2Command";
-import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
+import type { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

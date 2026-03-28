@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Supplier;
 import software.amazon.smithy.codegen.core.CodegenException;
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
@@ -359,8 +360,8 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
     protected void serializeUnion(GenerationContext context, UnionShape shape) {
         TypeScriptWriter writer = context.getWriter();
         ServiceShape serviceShape = context.getService();
-        writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
-        writer.addImport("XmlText", "__XmlText", "@aws-sdk/xml-builder");
+        writer.addImport("XmlNode", "__XmlNode", AwsDependency.XML_BUILDER);
+        writer.addImport("XmlText", "__XmlText", AwsDependency.XML_BUILDER);
 
         // Handle the @xmlName trait for the union itself.
         String nodeName = shape.getTrait(XmlNameTrait.class)
@@ -369,9 +370,14 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Create the union's node.
         writer.write("const bn = new __XmlNode($L);", stringStore.var(nodeName));
+        Symbol symbol = context.getSymbolProvider()
+            .toSymbol(shape)
+            .toBuilder()
+            .putProperty("typeOnly", false)
+            .build();
 
         // Visit over the union type, then get the right serialization for the member.
-        writer.openBlock("$L.visit(input, {", "});", shape.getId().getName(serviceShape), () -> {
+        writer.openBlock("$T.visit(input, {", "});", symbol, () -> {
             Map<String, MemberShape> members = shape.getAllMembers();
             members.forEach((memberName, memberShape) -> {
                 writer.openBlock("$L: value => {", "},", memberName, () -> {

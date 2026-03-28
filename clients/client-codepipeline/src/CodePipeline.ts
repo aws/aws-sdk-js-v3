@@ -4,208 +4,224 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CodePipelineClient } from "./CodePipelineClient";
 import {
+  type AcknowledgeJobCommandInput,
+  type AcknowledgeJobCommandOutput,
   AcknowledgeJobCommand,
-  AcknowledgeJobCommandInput,
-  AcknowledgeJobCommandOutput,
 } from "./commands/AcknowledgeJobCommand";
 import {
+  type AcknowledgeThirdPartyJobCommandInput,
+  type AcknowledgeThirdPartyJobCommandOutput,
   AcknowledgeThirdPartyJobCommand,
-  AcknowledgeThirdPartyJobCommandInput,
-  AcknowledgeThirdPartyJobCommandOutput,
 } from "./commands/AcknowledgeThirdPartyJobCommand";
 import {
+  type CreateCustomActionTypeCommandInput,
+  type CreateCustomActionTypeCommandOutput,
   CreateCustomActionTypeCommand,
-  CreateCustomActionTypeCommandInput,
-  CreateCustomActionTypeCommandOutput,
 } from "./commands/CreateCustomActionTypeCommand";
 import {
+  type CreatePipelineCommandInput,
+  type CreatePipelineCommandOutput,
   CreatePipelineCommand,
-  CreatePipelineCommandInput,
-  CreatePipelineCommandOutput,
 } from "./commands/CreatePipelineCommand";
 import {
+  type DeleteCustomActionTypeCommandInput,
+  type DeleteCustomActionTypeCommandOutput,
   DeleteCustomActionTypeCommand,
-  DeleteCustomActionTypeCommandInput,
-  DeleteCustomActionTypeCommandOutput,
 } from "./commands/DeleteCustomActionTypeCommand";
 import {
+  type DeletePipelineCommandInput,
+  type DeletePipelineCommandOutput,
   DeletePipelineCommand,
-  DeletePipelineCommandInput,
-  DeletePipelineCommandOutput,
 } from "./commands/DeletePipelineCommand";
 import {
+  type DeleteWebhookCommandInput,
+  type DeleteWebhookCommandOutput,
   DeleteWebhookCommand,
-  DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput,
 } from "./commands/DeleteWebhookCommand";
 import {
+  type DeregisterWebhookWithThirdPartyCommandInput,
+  type DeregisterWebhookWithThirdPartyCommandOutput,
   DeregisterWebhookWithThirdPartyCommand,
-  DeregisterWebhookWithThirdPartyCommandInput,
-  DeregisterWebhookWithThirdPartyCommandOutput,
 } from "./commands/DeregisterWebhookWithThirdPartyCommand";
 import {
+  type DisableStageTransitionCommandInput,
+  type DisableStageTransitionCommandOutput,
   DisableStageTransitionCommand,
-  DisableStageTransitionCommandInput,
-  DisableStageTransitionCommandOutput,
 } from "./commands/DisableStageTransitionCommand";
 import {
+  type EnableStageTransitionCommandInput,
+  type EnableStageTransitionCommandOutput,
   EnableStageTransitionCommand,
-  EnableStageTransitionCommandInput,
-  EnableStageTransitionCommandOutput,
 } from "./commands/EnableStageTransitionCommand";
 import {
+  type GetActionTypeCommandInput,
+  type GetActionTypeCommandOutput,
   GetActionTypeCommand,
-  GetActionTypeCommandInput,
-  GetActionTypeCommandOutput,
 } from "./commands/GetActionTypeCommand";
 import {
+  type GetJobDetailsCommandInput,
+  type GetJobDetailsCommandOutput,
   GetJobDetailsCommand,
-  GetJobDetailsCommandInput,
-  GetJobDetailsCommandOutput,
 } from "./commands/GetJobDetailsCommand";
-import { GetPipelineCommand, GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand";
 import {
+  type GetPipelineCommandInput,
+  type GetPipelineCommandOutput,
+  GetPipelineCommand,
+} from "./commands/GetPipelineCommand";
+import {
+  type GetPipelineExecutionCommandInput,
+  type GetPipelineExecutionCommandOutput,
   GetPipelineExecutionCommand,
-  GetPipelineExecutionCommandInput,
-  GetPipelineExecutionCommandOutput,
 } from "./commands/GetPipelineExecutionCommand";
 import {
+  type GetPipelineStateCommandInput,
+  type GetPipelineStateCommandOutput,
   GetPipelineStateCommand,
-  GetPipelineStateCommandInput,
-  GetPipelineStateCommandOutput,
 } from "./commands/GetPipelineStateCommand";
 import {
+  type GetThirdPartyJobDetailsCommandInput,
+  type GetThirdPartyJobDetailsCommandOutput,
   GetThirdPartyJobDetailsCommand,
-  GetThirdPartyJobDetailsCommandInput,
-  GetThirdPartyJobDetailsCommandOutput,
 } from "./commands/GetThirdPartyJobDetailsCommand";
 import {
+  type ListActionExecutionsCommandInput,
+  type ListActionExecutionsCommandOutput,
   ListActionExecutionsCommand,
-  ListActionExecutionsCommandInput,
-  ListActionExecutionsCommandOutput,
 } from "./commands/ListActionExecutionsCommand";
 import {
+  type ListActionTypesCommandInput,
+  type ListActionTypesCommandOutput,
   ListActionTypesCommand,
-  ListActionTypesCommandInput,
-  ListActionTypesCommandOutput,
 } from "./commands/ListActionTypesCommand";
 import {
+  type ListDeployActionExecutionTargetsCommandInput,
+  type ListDeployActionExecutionTargetsCommandOutput,
   ListDeployActionExecutionTargetsCommand,
-  ListDeployActionExecutionTargetsCommandInput,
-  ListDeployActionExecutionTargetsCommandOutput,
 } from "./commands/ListDeployActionExecutionTargetsCommand";
 import {
+  type ListPipelineExecutionsCommandInput,
+  type ListPipelineExecutionsCommandOutput,
   ListPipelineExecutionsCommand,
-  ListPipelineExecutionsCommandInput,
-  ListPipelineExecutionsCommandOutput,
 } from "./commands/ListPipelineExecutionsCommand";
 import {
+  type ListPipelinesCommandInput,
+  type ListPipelinesCommandOutput,
   ListPipelinesCommand,
-  ListPipelinesCommandInput,
-  ListPipelinesCommandOutput,
 } from "./commands/ListPipelinesCommand";
 import {
+  type ListRuleExecutionsCommandInput,
+  type ListRuleExecutionsCommandOutput,
   ListRuleExecutionsCommand,
-  ListRuleExecutionsCommandInput,
-  ListRuleExecutionsCommandOutput,
 } from "./commands/ListRuleExecutionsCommand";
 import {
+  type ListRuleTypesCommandInput,
+  type ListRuleTypesCommandOutput,
   ListRuleTypesCommand,
-  ListRuleTypesCommandInput,
-  ListRuleTypesCommandOutput,
 } from "./commands/ListRuleTypesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWebhooksCommandInput,
+  type ListWebhooksCommandOutput,
   ListWebhooksCommand,
-  ListWebhooksCommandInput,
-  ListWebhooksCommandOutput,
 } from "./commands/ListWebhooksCommand";
 import {
+  type OverrideStageConditionCommandInput,
+  type OverrideStageConditionCommandOutput,
   OverrideStageConditionCommand,
-  OverrideStageConditionCommandInput,
-  OverrideStageConditionCommandOutput,
 } from "./commands/OverrideStageConditionCommand";
-import { PollForJobsCommand, PollForJobsCommandInput, PollForJobsCommandOutput } from "./commands/PollForJobsCommand";
 import {
+  type PollForJobsCommandInput,
+  type PollForJobsCommandOutput,
+  PollForJobsCommand,
+} from "./commands/PollForJobsCommand";
+import {
+  type PollForThirdPartyJobsCommandInput,
+  type PollForThirdPartyJobsCommandOutput,
   PollForThirdPartyJobsCommand,
-  PollForThirdPartyJobsCommandInput,
-  PollForThirdPartyJobsCommandOutput,
 } from "./commands/PollForThirdPartyJobsCommand";
 import {
+  type PutActionRevisionCommandInput,
+  type PutActionRevisionCommandOutput,
   PutActionRevisionCommand,
-  PutActionRevisionCommandInput,
-  PutActionRevisionCommandOutput,
 } from "./commands/PutActionRevisionCommand";
 import {
+  type PutApprovalResultCommandInput,
+  type PutApprovalResultCommandOutput,
   PutApprovalResultCommand,
-  PutApprovalResultCommandInput,
-  PutApprovalResultCommandOutput,
 } from "./commands/PutApprovalResultCommand";
 import {
+  type PutJobFailureResultCommandInput,
+  type PutJobFailureResultCommandOutput,
   PutJobFailureResultCommand,
-  PutJobFailureResultCommandInput,
-  PutJobFailureResultCommandOutput,
 } from "./commands/PutJobFailureResultCommand";
 import {
+  type PutJobSuccessResultCommandInput,
+  type PutJobSuccessResultCommandOutput,
   PutJobSuccessResultCommand,
-  PutJobSuccessResultCommandInput,
-  PutJobSuccessResultCommandOutput,
 } from "./commands/PutJobSuccessResultCommand";
 import {
+  type PutThirdPartyJobFailureResultCommandInput,
+  type PutThirdPartyJobFailureResultCommandOutput,
   PutThirdPartyJobFailureResultCommand,
-  PutThirdPartyJobFailureResultCommandInput,
-  PutThirdPartyJobFailureResultCommandOutput,
 } from "./commands/PutThirdPartyJobFailureResultCommand";
 import {
+  type PutThirdPartyJobSuccessResultCommandInput,
+  type PutThirdPartyJobSuccessResultCommandOutput,
   PutThirdPartyJobSuccessResultCommand,
-  PutThirdPartyJobSuccessResultCommandInput,
-  PutThirdPartyJobSuccessResultCommandOutput,
 } from "./commands/PutThirdPartyJobSuccessResultCommand";
-import { PutWebhookCommand, PutWebhookCommandInput, PutWebhookCommandOutput } from "./commands/PutWebhookCommand";
 import {
+  type PutWebhookCommandInput,
+  type PutWebhookCommandOutput,
+  PutWebhookCommand,
+} from "./commands/PutWebhookCommand";
+import {
+  type RegisterWebhookWithThirdPartyCommandInput,
+  type RegisterWebhookWithThirdPartyCommandOutput,
   RegisterWebhookWithThirdPartyCommand,
-  RegisterWebhookWithThirdPartyCommandInput,
-  RegisterWebhookWithThirdPartyCommandOutput,
 } from "./commands/RegisterWebhookWithThirdPartyCommand";
 import {
+  type RetryStageExecutionCommandInput,
+  type RetryStageExecutionCommandOutput,
   RetryStageExecutionCommand,
-  RetryStageExecutionCommandInput,
-  RetryStageExecutionCommandOutput,
 } from "./commands/RetryStageExecutionCommand";
 import {
+  type RollbackStageCommandInput,
+  type RollbackStageCommandOutput,
   RollbackStageCommand,
-  RollbackStageCommandInput,
-  RollbackStageCommandOutput,
 } from "./commands/RollbackStageCommand";
 import {
+  type StartPipelineExecutionCommandInput,
+  type StartPipelineExecutionCommandOutput,
   StartPipelineExecutionCommand,
-  StartPipelineExecutionCommandInput,
-  StartPipelineExecutionCommandOutput,
 } from "./commands/StartPipelineExecutionCommand";
 import {
+  type StopPipelineExecutionCommandInput,
+  type StopPipelineExecutionCommandOutput,
   StopPipelineExecutionCommand,
-  StopPipelineExecutionCommandInput,
-  StopPipelineExecutionCommandOutput,
 } from "./commands/StopPipelineExecutionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateActionTypeCommandInput,
+  type UpdateActionTypeCommandOutput,
   UpdateActionTypeCommand,
-  UpdateActionTypeCommandInput,
-  UpdateActionTypeCommandOutput,
 } from "./commands/UpdateActionTypeCommand";
 import {
+  type UpdatePipelineCommandInput,
+  type UpdatePipelineCommandOutput,
   UpdatePipelineCommand,
-  UpdatePipelineCommandInput,
-  UpdatePipelineCommandOutput,
 } from "./commands/UpdatePipelineCommand";
 import { paginateListActionExecutions } from "./pagination/ListActionExecutionsPaginator";
 import { paginateListActionTypes } from "./pagination/ListActionTypesPaginator";

@@ -9,697 +9,709 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AcceptReservedNodeExchangeCommandInput,
+  type AcceptReservedNodeExchangeCommandOutput,
   AcceptReservedNodeExchangeCommand,
-  AcceptReservedNodeExchangeCommandInput,
-  AcceptReservedNodeExchangeCommandOutput,
 } from "./commands/AcceptReservedNodeExchangeCommand";
-import { AddPartnerCommand, AddPartnerCommandInput, AddPartnerCommandOutput } from "./commands/AddPartnerCommand";
 import {
+  type AddPartnerCommandInput,
+  type AddPartnerCommandOutput,
+  AddPartnerCommand,
+} from "./commands/AddPartnerCommand";
+import {
+  type AssociateDataShareConsumerCommandInput,
+  type AssociateDataShareConsumerCommandOutput,
   AssociateDataShareConsumerCommand,
-  AssociateDataShareConsumerCommandInput,
-  AssociateDataShareConsumerCommandOutput,
 } from "./commands/AssociateDataShareConsumerCommand";
 import {
+  type AuthorizeClusterSecurityGroupIngressCommandInput,
+  type AuthorizeClusterSecurityGroupIngressCommandOutput,
   AuthorizeClusterSecurityGroupIngressCommand,
-  AuthorizeClusterSecurityGroupIngressCommandInput,
-  AuthorizeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeClusterSecurityGroupIngressCommand";
 import {
+  type AuthorizeDataShareCommandInput,
+  type AuthorizeDataShareCommandOutput,
   AuthorizeDataShareCommand,
-  AuthorizeDataShareCommandInput,
-  AuthorizeDataShareCommandOutput,
 } from "./commands/AuthorizeDataShareCommand";
 import {
+  type AuthorizeEndpointAccessCommandInput,
+  type AuthorizeEndpointAccessCommandOutput,
   AuthorizeEndpointAccessCommand,
-  AuthorizeEndpointAccessCommandInput,
-  AuthorizeEndpointAccessCommandOutput,
 } from "./commands/AuthorizeEndpointAccessCommand";
 import {
+  type AuthorizeSnapshotAccessCommandInput,
+  type AuthorizeSnapshotAccessCommandOutput,
   AuthorizeSnapshotAccessCommand,
-  AuthorizeSnapshotAccessCommandInput,
-  AuthorizeSnapshotAccessCommandOutput,
 } from "./commands/AuthorizeSnapshotAccessCommand";
 import {
+  type BatchDeleteClusterSnapshotsCommandInput,
+  type BatchDeleteClusterSnapshotsCommandOutput,
   BatchDeleteClusterSnapshotsCommand,
-  BatchDeleteClusterSnapshotsCommandInput,
-  BatchDeleteClusterSnapshotsCommandOutput,
 } from "./commands/BatchDeleteClusterSnapshotsCommand";
 import {
+  type BatchModifyClusterSnapshotsCommandInput,
+  type BatchModifyClusterSnapshotsCommandOutput,
   BatchModifyClusterSnapshotsCommand,
-  BatchModifyClusterSnapshotsCommandInput,
-  BatchModifyClusterSnapshotsCommandOutput,
 } from "./commands/BatchModifyClusterSnapshotsCommand";
 import {
+  type CancelResizeCommandInput,
+  type CancelResizeCommandOutput,
   CancelResizeCommand,
-  CancelResizeCommandInput,
-  CancelResizeCommandOutput,
 } from "./commands/CancelResizeCommand";
 import {
+  type CopyClusterSnapshotCommandInput,
+  type CopyClusterSnapshotCommandOutput,
   CopyClusterSnapshotCommand,
-  CopyClusterSnapshotCommandInput,
-  CopyClusterSnapshotCommandOutput,
 } from "./commands/CopyClusterSnapshotCommand";
 import {
+  type CreateAuthenticationProfileCommandInput,
+  type CreateAuthenticationProfileCommandOutput,
   CreateAuthenticationProfileCommand,
-  CreateAuthenticationProfileCommandInput,
-  CreateAuthenticationProfileCommandOutput,
 } from "./commands/CreateAuthenticationProfileCommand";
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateClusterParameterGroupCommandInput,
+  type CreateClusterParameterGroupCommandOutput,
   CreateClusterParameterGroupCommand,
-  CreateClusterParameterGroupCommandInput,
-  CreateClusterParameterGroupCommandOutput,
 } from "./commands/CreateClusterParameterGroupCommand";
 import {
+  type CreateClusterSecurityGroupCommandInput,
+  type CreateClusterSecurityGroupCommandOutput,
   CreateClusterSecurityGroupCommand,
-  CreateClusterSecurityGroupCommandInput,
-  CreateClusterSecurityGroupCommandOutput,
 } from "./commands/CreateClusterSecurityGroupCommand";
 import {
+  type CreateClusterSnapshotCommandInput,
+  type CreateClusterSnapshotCommandOutput,
   CreateClusterSnapshotCommand,
-  CreateClusterSnapshotCommandInput,
-  CreateClusterSnapshotCommandOutput,
 } from "./commands/CreateClusterSnapshotCommand";
 import {
+  type CreateClusterSubnetGroupCommandInput,
+  type CreateClusterSubnetGroupCommandOutput,
   CreateClusterSubnetGroupCommand,
-  CreateClusterSubnetGroupCommandInput,
-  CreateClusterSubnetGroupCommandOutput,
 } from "./commands/CreateClusterSubnetGroupCommand";
 import {
+  type CreateCustomDomainAssociationCommandInput,
+  type CreateCustomDomainAssociationCommandOutput,
   CreateCustomDomainAssociationCommand,
-  CreateCustomDomainAssociationCommandInput,
-  CreateCustomDomainAssociationCommandOutput,
 } from "./commands/CreateCustomDomainAssociationCommand";
 import {
+  type CreateEndpointAccessCommandInput,
+  type CreateEndpointAccessCommandOutput,
   CreateEndpointAccessCommand,
-  CreateEndpointAccessCommandInput,
-  CreateEndpointAccessCommandOutput,
 } from "./commands/CreateEndpointAccessCommand";
 import {
+  type CreateEventSubscriptionCommandInput,
+  type CreateEventSubscriptionCommandOutput,
   CreateEventSubscriptionCommand,
-  CreateEventSubscriptionCommandInput,
-  CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand";
 import {
+  type CreateHsmClientCertificateCommandInput,
+  type CreateHsmClientCertificateCommandOutput,
   CreateHsmClientCertificateCommand,
-  CreateHsmClientCertificateCommandInput,
-  CreateHsmClientCertificateCommandOutput,
 } from "./commands/CreateHsmClientCertificateCommand";
 import {
+  type CreateHsmConfigurationCommandInput,
+  type CreateHsmConfigurationCommandOutput,
   CreateHsmConfigurationCommand,
-  CreateHsmConfigurationCommandInput,
-  CreateHsmConfigurationCommandOutput,
 } from "./commands/CreateHsmConfigurationCommand";
 import {
+  type CreateIntegrationCommandInput,
+  type CreateIntegrationCommandOutput,
   CreateIntegrationCommand,
-  CreateIntegrationCommandInput,
-  CreateIntegrationCommandOutput,
 } from "./commands/CreateIntegrationCommand";
 import {
+  type CreateRedshiftIdcApplicationCommandInput,
+  type CreateRedshiftIdcApplicationCommandOutput,
   CreateRedshiftIdcApplicationCommand,
-  CreateRedshiftIdcApplicationCommandInput,
-  CreateRedshiftIdcApplicationCommandOutput,
 } from "./commands/CreateRedshiftIdcApplicationCommand";
 import {
+  type CreateScheduledActionCommandInput,
+  type CreateScheduledActionCommandOutput,
   CreateScheduledActionCommand,
-  CreateScheduledActionCommandInput,
-  CreateScheduledActionCommandOutput,
 } from "./commands/CreateScheduledActionCommand";
 import {
+  type CreateSnapshotCopyGrantCommandInput,
+  type CreateSnapshotCopyGrantCommandOutput,
   CreateSnapshotCopyGrantCommand,
-  CreateSnapshotCopyGrantCommandInput,
-  CreateSnapshotCopyGrantCommandOutput,
 } from "./commands/CreateSnapshotCopyGrantCommand";
 import {
+  type CreateSnapshotScheduleCommandInput,
+  type CreateSnapshotScheduleCommandOutput,
   CreateSnapshotScheduleCommand,
-  CreateSnapshotScheduleCommandInput,
-  CreateSnapshotScheduleCommandOutput,
 } from "./commands/CreateSnapshotScheduleCommand";
-import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
+  type CreateTagsCommandInput,
+  type CreateTagsCommandOutput,
+  CreateTagsCommand,
+} from "./commands/CreateTagsCommand";
+import {
+  type CreateUsageLimitCommandInput,
+  type CreateUsageLimitCommandOutput,
   CreateUsageLimitCommand,
-  CreateUsageLimitCommandInput,
-  CreateUsageLimitCommandOutput,
 } from "./commands/CreateUsageLimitCommand";
 import {
+  type DeauthorizeDataShareCommandInput,
+  type DeauthorizeDataShareCommandOutput,
   DeauthorizeDataShareCommand,
-  DeauthorizeDataShareCommandInput,
-  DeauthorizeDataShareCommandOutput,
 } from "./commands/DeauthorizeDataShareCommand";
 import {
+  type DeleteAuthenticationProfileCommandInput,
+  type DeleteAuthenticationProfileCommandOutput,
   DeleteAuthenticationProfileCommand,
-  DeleteAuthenticationProfileCommandInput,
-  DeleteAuthenticationProfileCommandOutput,
 } from "./commands/DeleteAuthenticationProfileCommand";
 import {
+  type DeleteClusterCommandInput,
+  type DeleteClusterCommandOutput,
   DeleteClusterCommand,
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  type DeleteClusterParameterGroupCommandInput,
+  type DeleteClusterParameterGroupCommandOutput,
   DeleteClusterParameterGroupCommand,
-  DeleteClusterParameterGroupCommandInput,
-  DeleteClusterParameterGroupCommandOutput,
 } from "./commands/DeleteClusterParameterGroupCommand";
 import {
+  type DeleteClusterSecurityGroupCommandInput,
+  type DeleteClusterSecurityGroupCommandOutput,
   DeleteClusterSecurityGroupCommand,
-  DeleteClusterSecurityGroupCommandInput,
-  DeleteClusterSecurityGroupCommandOutput,
 } from "./commands/DeleteClusterSecurityGroupCommand";
 import {
+  type DeleteClusterSnapshotCommandInput,
+  type DeleteClusterSnapshotCommandOutput,
   DeleteClusterSnapshotCommand,
-  DeleteClusterSnapshotCommandInput,
-  DeleteClusterSnapshotCommandOutput,
 } from "./commands/DeleteClusterSnapshotCommand";
 import {
+  type DeleteClusterSubnetGroupCommandInput,
+  type DeleteClusterSubnetGroupCommandOutput,
   DeleteClusterSubnetGroupCommand,
-  DeleteClusterSubnetGroupCommandInput,
-  DeleteClusterSubnetGroupCommandOutput,
 } from "./commands/DeleteClusterSubnetGroupCommand";
 import {
+  type DeleteCustomDomainAssociationCommandInput,
+  type DeleteCustomDomainAssociationCommandOutput,
   DeleteCustomDomainAssociationCommand,
-  DeleteCustomDomainAssociationCommandInput,
-  DeleteCustomDomainAssociationCommandOutput,
 } from "./commands/DeleteCustomDomainAssociationCommand";
 import {
+  type DeleteEndpointAccessCommandInput,
+  type DeleteEndpointAccessCommandOutput,
   DeleteEndpointAccessCommand,
-  DeleteEndpointAccessCommandInput,
-  DeleteEndpointAccessCommandOutput,
 } from "./commands/DeleteEndpointAccessCommand";
 import {
+  type DeleteEventSubscriptionCommandInput,
+  type DeleteEventSubscriptionCommandOutput,
   DeleteEventSubscriptionCommand,
-  DeleteEventSubscriptionCommandInput,
-  DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
 import {
+  type DeleteHsmClientCertificateCommandInput,
+  type DeleteHsmClientCertificateCommandOutput,
   DeleteHsmClientCertificateCommand,
-  DeleteHsmClientCertificateCommandInput,
-  DeleteHsmClientCertificateCommandOutput,
 } from "./commands/DeleteHsmClientCertificateCommand";
 import {
+  type DeleteHsmConfigurationCommandInput,
+  type DeleteHsmConfigurationCommandOutput,
   DeleteHsmConfigurationCommand,
-  DeleteHsmConfigurationCommandInput,
-  DeleteHsmConfigurationCommandOutput,
 } from "./commands/DeleteHsmConfigurationCommand";
 import {
+  type DeleteIntegrationCommandInput,
+  type DeleteIntegrationCommandOutput,
   DeleteIntegrationCommand,
-  DeleteIntegrationCommandInput,
-  DeleteIntegrationCommandOutput,
 } from "./commands/DeleteIntegrationCommand";
 import {
+  type DeletePartnerCommandInput,
+  type DeletePartnerCommandOutput,
   DeletePartnerCommand,
-  DeletePartnerCommandInput,
-  DeletePartnerCommandOutput,
 } from "./commands/DeletePartnerCommand";
 import {
+  type DeleteRedshiftIdcApplicationCommandInput,
+  type DeleteRedshiftIdcApplicationCommandOutput,
   DeleteRedshiftIdcApplicationCommand,
-  DeleteRedshiftIdcApplicationCommandInput,
-  DeleteRedshiftIdcApplicationCommandOutput,
 } from "./commands/DeleteRedshiftIdcApplicationCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteScheduledActionCommandInput,
+  type DeleteScheduledActionCommandOutput,
   DeleteScheduledActionCommand,
-  DeleteScheduledActionCommandInput,
-  DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand";
 import {
+  type DeleteSnapshotCopyGrantCommandInput,
+  type DeleteSnapshotCopyGrantCommandOutput,
   DeleteSnapshotCopyGrantCommand,
-  DeleteSnapshotCopyGrantCommandInput,
-  DeleteSnapshotCopyGrantCommandOutput,
 } from "./commands/DeleteSnapshotCopyGrantCommand";
 import {
+  type DeleteSnapshotScheduleCommandInput,
+  type DeleteSnapshotScheduleCommandOutput,
   DeleteSnapshotScheduleCommand,
-  DeleteSnapshotScheduleCommandInput,
-  DeleteSnapshotScheduleCommandOutput,
 } from "./commands/DeleteSnapshotScheduleCommand";
-import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
+  type DeleteTagsCommandInput,
+  type DeleteTagsCommandOutput,
+  DeleteTagsCommand,
+} from "./commands/DeleteTagsCommand";
+import {
+  type DeleteUsageLimitCommandInput,
+  type DeleteUsageLimitCommandOutput,
   DeleteUsageLimitCommand,
-  DeleteUsageLimitCommandInput,
-  DeleteUsageLimitCommandOutput,
 } from "./commands/DeleteUsageLimitCommand";
 import {
+  type DeregisterNamespaceCommandInput,
+  type DeregisterNamespaceCommandOutput,
   DeregisterNamespaceCommand,
-  DeregisterNamespaceCommandInput,
-  DeregisterNamespaceCommandOutput,
 } from "./commands/DeregisterNamespaceCommand";
 import {
+  type DescribeAccountAttributesCommandInput,
+  type DescribeAccountAttributesCommandOutput,
   DescribeAccountAttributesCommand,
-  DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
 import {
+  type DescribeAuthenticationProfilesCommandInput,
+  type DescribeAuthenticationProfilesCommandOutput,
   DescribeAuthenticationProfilesCommand,
-  DescribeAuthenticationProfilesCommandInput,
-  DescribeAuthenticationProfilesCommandOutput,
 } from "./commands/DescribeAuthenticationProfilesCommand";
 import {
+  type DescribeClusterDbRevisionsCommandInput,
+  type DescribeClusterDbRevisionsCommandOutput,
   DescribeClusterDbRevisionsCommand,
-  DescribeClusterDbRevisionsCommandInput,
-  DescribeClusterDbRevisionsCommandOutput,
 } from "./commands/DescribeClusterDbRevisionsCommand";
 import {
+  type DescribeClusterParameterGroupsCommandInput,
+  type DescribeClusterParameterGroupsCommandOutput,
   DescribeClusterParameterGroupsCommand,
-  DescribeClusterParameterGroupsCommandInput,
-  DescribeClusterParameterGroupsCommandOutput,
 } from "./commands/DescribeClusterParameterGroupsCommand";
 import {
+  type DescribeClusterParametersCommandInput,
+  type DescribeClusterParametersCommandOutput,
   DescribeClusterParametersCommand,
-  DescribeClusterParametersCommandInput,
-  DescribeClusterParametersCommandOutput,
 } from "./commands/DescribeClusterParametersCommand";
 import {
+  type DescribeClustersCommandInput,
+  type DescribeClustersCommandOutput,
   DescribeClustersCommand,
-  DescribeClustersCommandInput,
-  DescribeClustersCommandOutput,
 } from "./commands/DescribeClustersCommand";
 import {
+  type DescribeClusterSecurityGroupsCommandInput,
+  type DescribeClusterSecurityGroupsCommandOutput,
   DescribeClusterSecurityGroupsCommand,
-  DescribeClusterSecurityGroupsCommandInput,
-  DescribeClusterSecurityGroupsCommandOutput,
 } from "./commands/DescribeClusterSecurityGroupsCommand";
 import {
+  type DescribeClusterSnapshotsCommandInput,
+  type DescribeClusterSnapshotsCommandOutput,
   DescribeClusterSnapshotsCommand,
-  DescribeClusterSnapshotsCommandInput,
-  DescribeClusterSnapshotsCommandOutput,
 } from "./commands/DescribeClusterSnapshotsCommand";
 import {
+  type DescribeClusterSubnetGroupsCommandInput,
+  type DescribeClusterSubnetGroupsCommandOutput,
   DescribeClusterSubnetGroupsCommand,
-  DescribeClusterSubnetGroupsCommandInput,
-  DescribeClusterSubnetGroupsCommandOutput,
 } from "./commands/DescribeClusterSubnetGroupsCommand";
 import {
+  type DescribeClusterTracksCommandInput,
+  type DescribeClusterTracksCommandOutput,
   DescribeClusterTracksCommand,
-  DescribeClusterTracksCommandInput,
-  DescribeClusterTracksCommandOutput,
 } from "./commands/DescribeClusterTracksCommand";
 import {
+  type DescribeClusterVersionsCommandInput,
+  type DescribeClusterVersionsCommandOutput,
   DescribeClusterVersionsCommand,
-  DescribeClusterVersionsCommandInput,
-  DescribeClusterVersionsCommandOutput,
 } from "./commands/DescribeClusterVersionsCommand";
 import {
+  type DescribeCustomDomainAssociationsCommandInput,
+  type DescribeCustomDomainAssociationsCommandOutput,
   DescribeCustomDomainAssociationsCommand,
-  DescribeCustomDomainAssociationsCommandInput,
-  DescribeCustomDomainAssociationsCommandOutput,
 } from "./commands/DescribeCustomDomainAssociationsCommand";
 import {
+  type DescribeDataSharesCommandInput,
+  type DescribeDataSharesCommandOutput,
   DescribeDataSharesCommand,
-  DescribeDataSharesCommandInput,
-  DescribeDataSharesCommandOutput,
 } from "./commands/DescribeDataSharesCommand";
 import {
+  type DescribeDataSharesForConsumerCommandInput,
+  type DescribeDataSharesForConsumerCommandOutput,
   DescribeDataSharesForConsumerCommand,
-  DescribeDataSharesForConsumerCommandInput,
-  DescribeDataSharesForConsumerCommandOutput,
 } from "./commands/DescribeDataSharesForConsumerCommand";
 import {
+  type DescribeDataSharesForProducerCommandInput,
+  type DescribeDataSharesForProducerCommandOutput,
   DescribeDataSharesForProducerCommand,
-  DescribeDataSharesForProducerCommandInput,
-  DescribeDataSharesForProducerCommandOutput,
 } from "./commands/DescribeDataSharesForProducerCommand";
 import {
+  type DescribeDefaultClusterParametersCommandInput,
+  type DescribeDefaultClusterParametersCommandOutput,
   DescribeDefaultClusterParametersCommand,
-  DescribeDefaultClusterParametersCommandInput,
-  DescribeDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeDefaultClusterParametersCommand";
 import {
+  type DescribeEndpointAccessCommandInput,
+  type DescribeEndpointAccessCommandOutput,
   DescribeEndpointAccessCommand,
-  DescribeEndpointAccessCommandInput,
-  DescribeEndpointAccessCommandOutput,
 } from "./commands/DescribeEndpointAccessCommand";
 import {
+  type DescribeEndpointAuthorizationCommandInput,
+  type DescribeEndpointAuthorizationCommandOutput,
   DescribeEndpointAuthorizationCommand,
-  DescribeEndpointAuthorizationCommandInput,
-  DescribeEndpointAuthorizationCommandOutput,
 } from "./commands/DescribeEndpointAuthorizationCommand";
 import {
+  type DescribeEventCategoriesCommandInput,
+  type DescribeEventCategoriesCommandOutput,
   DescribeEventCategoriesCommand,
-  DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
 import {
+  type DescribeEventsCommandInput,
+  type DescribeEventsCommandOutput,
   DescribeEventsCommand,
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  type DescribeEventSubscriptionsCommandInput,
+  type DescribeEventSubscriptionsCommandOutput,
   DescribeEventSubscriptionsCommand,
-  DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
 import {
+  type DescribeHsmClientCertificatesCommandInput,
+  type DescribeHsmClientCertificatesCommandOutput,
   DescribeHsmClientCertificatesCommand,
-  DescribeHsmClientCertificatesCommandInput,
-  DescribeHsmClientCertificatesCommandOutput,
 } from "./commands/DescribeHsmClientCertificatesCommand";
 import {
+  type DescribeHsmConfigurationsCommandInput,
+  type DescribeHsmConfigurationsCommandOutput,
   DescribeHsmConfigurationsCommand,
-  DescribeHsmConfigurationsCommandInput,
-  DescribeHsmConfigurationsCommandOutput,
 } from "./commands/DescribeHsmConfigurationsCommand";
 import {
+  type DescribeInboundIntegrationsCommandInput,
+  type DescribeInboundIntegrationsCommandOutput,
   DescribeInboundIntegrationsCommand,
-  DescribeInboundIntegrationsCommandInput,
-  DescribeInboundIntegrationsCommandOutput,
 } from "./commands/DescribeInboundIntegrationsCommand";
 import {
+  type DescribeIntegrationsCommandInput,
+  type DescribeIntegrationsCommandOutput,
   DescribeIntegrationsCommand,
-  DescribeIntegrationsCommandInput,
-  DescribeIntegrationsCommandOutput,
 } from "./commands/DescribeIntegrationsCommand";
 import {
+  type DescribeLoggingStatusCommandInput,
+  type DescribeLoggingStatusCommandOutput,
   DescribeLoggingStatusCommand,
-  DescribeLoggingStatusCommandInput,
-  DescribeLoggingStatusCommandOutput,
 } from "./commands/DescribeLoggingStatusCommand";
 import {
+  type DescribeNodeConfigurationOptionsCommandInput,
+  type DescribeNodeConfigurationOptionsCommandOutput,
   DescribeNodeConfigurationOptionsCommand,
-  DescribeNodeConfigurationOptionsCommandInput,
-  DescribeNodeConfigurationOptionsCommandOutput,
 } from "./commands/DescribeNodeConfigurationOptionsCommand";
 import {
+  type DescribeOrderableClusterOptionsCommandInput,
+  type DescribeOrderableClusterOptionsCommandOutput,
   DescribeOrderableClusterOptionsCommand,
-  DescribeOrderableClusterOptionsCommandInput,
-  DescribeOrderableClusterOptionsCommandOutput,
 } from "./commands/DescribeOrderableClusterOptionsCommand";
 import {
+  type DescribePartnersCommandInput,
+  type DescribePartnersCommandOutput,
   DescribePartnersCommand,
-  DescribePartnersCommandInput,
-  DescribePartnersCommandOutput,
 } from "./commands/DescribePartnersCommand";
 import {
+  type DescribeRedshiftIdcApplicationsCommandInput,
+  type DescribeRedshiftIdcApplicationsCommandOutput,
   DescribeRedshiftIdcApplicationsCommand,
-  DescribeRedshiftIdcApplicationsCommandInput,
-  DescribeRedshiftIdcApplicationsCommandOutput,
 } from "./commands/DescribeRedshiftIdcApplicationsCommand";
 import {
+  type DescribeReservedNodeExchangeStatusCommandInput,
+  type DescribeReservedNodeExchangeStatusCommandOutput,
   DescribeReservedNodeExchangeStatusCommand,
-  DescribeReservedNodeExchangeStatusCommandInput,
-  DescribeReservedNodeExchangeStatusCommandOutput,
 } from "./commands/DescribeReservedNodeExchangeStatusCommand";
 import {
+  type DescribeReservedNodeOfferingsCommandInput,
+  type DescribeReservedNodeOfferingsCommandOutput,
   DescribeReservedNodeOfferingsCommand,
-  DescribeReservedNodeOfferingsCommandInput,
-  DescribeReservedNodeOfferingsCommandOutput,
 } from "./commands/DescribeReservedNodeOfferingsCommand";
 import {
+  type DescribeReservedNodesCommandInput,
+  type DescribeReservedNodesCommandOutput,
   DescribeReservedNodesCommand,
-  DescribeReservedNodesCommandInput,
-  DescribeReservedNodesCommandOutput,
 } from "./commands/DescribeReservedNodesCommand";
 import {
+  type DescribeResizeCommandInput,
+  type DescribeResizeCommandOutput,
   DescribeResizeCommand,
-  DescribeResizeCommandInput,
-  DescribeResizeCommandOutput,
 } from "./commands/DescribeResizeCommand";
 import {
+  type DescribeScheduledActionsCommandInput,
+  type DescribeScheduledActionsCommandOutput,
   DescribeScheduledActionsCommand,
-  DescribeScheduledActionsCommandInput,
-  DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
 import {
+  type DescribeSnapshotCopyGrantsCommandInput,
+  type DescribeSnapshotCopyGrantsCommandOutput,
   DescribeSnapshotCopyGrantsCommand,
-  DescribeSnapshotCopyGrantsCommandInput,
-  DescribeSnapshotCopyGrantsCommandOutput,
 } from "./commands/DescribeSnapshotCopyGrantsCommand";
 import {
+  type DescribeSnapshotSchedulesCommandInput,
+  type DescribeSnapshotSchedulesCommandOutput,
   DescribeSnapshotSchedulesCommand,
-  DescribeSnapshotSchedulesCommandInput,
-  DescribeSnapshotSchedulesCommandOutput,
 } from "./commands/DescribeSnapshotSchedulesCommand";
 import {
+  type DescribeStorageCommandInput,
+  type DescribeStorageCommandOutput,
   DescribeStorageCommand,
-  DescribeStorageCommandInput,
-  DescribeStorageCommandOutput,
 } from "./commands/DescribeStorageCommand";
 import {
+  type DescribeTableRestoreStatusCommandInput,
+  type DescribeTableRestoreStatusCommandOutput,
   DescribeTableRestoreStatusCommand,
-  DescribeTableRestoreStatusCommandInput,
-  DescribeTableRestoreStatusCommandOutput,
 } from "./commands/DescribeTableRestoreStatusCommand";
 import {
+  type DescribeTagsCommandInput,
+  type DescribeTagsCommandOutput,
   DescribeTagsCommand,
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  type DescribeUsageLimitsCommandInput,
+  type DescribeUsageLimitsCommandOutput,
   DescribeUsageLimitsCommand,
-  DescribeUsageLimitsCommandInput,
-  DescribeUsageLimitsCommandOutput,
 } from "./commands/DescribeUsageLimitsCommand";
 import {
+  type DisableLoggingCommandInput,
+  type DisableLoggingCommandOutput,
   DisableLoggingCommand,
-  DisableLoggingCommandInput,
-  DisableLoggingCommandOutput,
 } from "./commands/DisableLoggingCommand";
 import {
+  type DisableSnapshotCopyCommandInput,
+  type DisableSnapshotCopyCommandOutput,
   DisableSnapshotCopyCommand,
-  DisableSnapshotCopyCommandInput,
-  DisableSnapshotCopyCommandOutput,
 } from "./commands/DisableSnapshotCopyCommand";
 import {
+  type DisassociateDataShareConsumerCommandInput,
+  type DisassociateDataShareConsumerCommandOutput,
   DisassociateDataShareConsumerCommand,
-  DisassociateDataShareConsumerCommandInput,
-  DisassociateDataShareConsumerCommandOutput,
 } from "./commands/DisassociateDataShareConsumerCommand";
 import {
+  type EnableLoggingCommandInput,
+  type EnableLoggingCommandOutput,
   EnableLoggingCommand,
-  EnableLoggingCommandInput,
-  EnableLoggingCommandOutput,
 } from "./commands/EnableLoggingCommand";
 import {
+  type EnableSnapshotCopyCommandInput,
+  type EnableSnapshotCopyCommandOutput,
   EnableSnapshotCopyCommand,
-  EnableSnapshotCopyCommandInput,
-  EnableSnapshotCopyCommandOutput,
 } from "./commands/EnableSnapshotCopyCommand";
 import {
+  type FailoverPrimaryComputeCommandInput,
+  type FailoverPrimaryComputeCommandOutput,
   FailoverPrimaryComputeCommand,
-  FailoverPrimaryComputeCommandInput,
-  FailoverPrimaryComputeCommandOutput,
 } from "./commands/FailoverPrimaryComputeCommand";
 import {
+  type GetClusterCredentialsCommandInput,
+  type GetClusterCredentialsCommandOutput,
   GetClusterCredentialsCommand,
-  GetClusterCredentialsCommandInput,
-  GetClusterCredentialsCommandOutput,
 } from "./commands/GetClusterCredentialsCommand";
 import {
+  type GetClusterCredentialsWithIAMCommandInput,
+  type GetClusterCredentialsWithIAMCommandOutput,
   GetClusterCredentialsWithIAMCommand,
-  GetClusterCredentialsWithIAMCommandInput,
-  GetClusterCredentialsWithIAMCommandOutput,
 } from "./commands/GetClusterCredentialsWithIAMCommand";
 import {
+  type GetIdentityCenterAuthTokenCommandInput,
+  type GetIdentityCenterAuthTokenCommandOutput,
   GetIdentityCenterAuthTokenCommand,
-  GetIdentityCenterAuthTokenCommandInput,
-  GetIdentityCenterAuthTokenCommandOutput,
 } from "./commands/GetIdentityCenterAuthTokenCommand";
 import {
+  type GetReservedNodeExchangeConfigurationOptionsCommandInput,
+  type GetReservedNodeExchangeConfigurationOptionsCommandOutput,
   GetReservedNodeExchangeConfigurationOptionsCommand,
-  GetReservedNodeExchangeConfigurationOptionsCommandInput,
-  GetReservedNodeExchangeConfigurationOptionsCommandOutput,
 } from "./commands/GetReservedNodeExchangeConfigurationOptionsCommand";
 import {
+  type GetReservedNodeExchangeOfferingsCommandInput,
+  type GetReservedNodeExchangeOfferingsCommandOutput,
   GetReservedNodeExchangeOfferingsCommand,
-  GetReservedNodeExchangeOfferingsCommandInput,
-  GetReservedNodeExchangeOfferingsCommandOutput,
 } from "./commands/GetReservedNodeExchangeOfferingsCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type ListRecommendationsCommandInput,
+  type ListRecommendationsCommandOutput,
   ListRecommendationsCommand,
-  ListRecommendationsCommandInput,
-  ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
 import {
+  type ModifyAquaConfigurationCommandInput,
+  type ModifyAquaConfigurationCommandOutput,
   ModifyAquaConfigurationCommand,
-  ModifyAquaConfigurationCommandInput,
-  ModifyAquaConfigurationCommandOutput,
 } from "./commands/ModifyAquaConfigurationCommand";
 import {
+  type ModifyAuthenticationProfileCommandInput,
+  type ModifyAuthenticationProfileCommandOutput,
   ModifyAuthenticationProfileCommand,
-  ModifyAuthenticationProfileCommandInput,
-  ModifyAuthenticationProfileCommandOutput,
 } from "./commands/ModifyAuthenticationProfileCommand";
 import {
+  type ModifyClusterCommandInput,
+  type ModifyClusterCommandOutput,
   ModifyClusterCommand,
-  ModifyClusterCommandInput,
-  ModifyClusterCommandOutput,
 } from "./commands/ModifyClusterCommand";
 import {
+  type ModifyClusterDbRevisionCommandInput,
+  type ModifyClusterDbRevisionCommandOutput,
   ModifyClusterDbRevisionCommand,
-  ModifyClusterDbRevisionCommandInput,
-  ModifyClusterDbRevisionCommandOutput,
 } from "./commands/ModifyClusterDbRevisionCommand";
 import {
+  type ModifyClusterIamRolesCommandInput,
+  type ModifyClusterIamRolesCommandOutput,
   ModifyClusterIamRolesCommand,
-  ModifyClusterIamRolesCommandInput,
-  ModifyClusterIamRolesCommandOutput,
 } from "./commands/ModifyClusterIamRolesCommand";
 import {
+  type ModifyClusterMaintenanceCommandInput,
+  type ModifyClusterMaintenanceCommandOutput,
   ModifyClusterMaintenanceCommand,
-  ModifyClusterMaintenanceCommandInput,
-  ModifyClusterMaintenanceCommandOutput,
 } from "./commands/ModifyClusterMaintenanceCommand";
 import {
+  type ModifyClusterParameterGroupCommandInput,
+  type ModifyClusterParameterGroupCommandOutput,
   ModifyClusterParameterGroupCommand,
-  ModifyClusterParameterGroupCommandInput,
-  ModifyClusterParameterGroupCommandOutput,
 } from "./commands/ModifyClusterParameterGroupCommand";
 import {
+  type ModifyClusterSnapshotCommandInput,
+  type ModifyClusterSnapshotCommandOutput,
   ModifyClusterSnapshotCommand,
-  ModifyClusterSnapshotCommandInput,
-  ModifyClusterSnapshotCommandOutput,
 } from "./commands/ModifyClusterSnapshotCommand";
 import {
+  type ModifyClusterSnapshotScheduleCommandInput,
+  type ModifyClusterSnapshotScheduleCommandOutput,
   ModifyClusterSnapshotScheduleCommand,
-  ModifyClusterSnapshotScheduleCommandInput,
-  ModifyClusterSnapshotScheduleCommandOutput,
 } from "./commands/ModifyClusterSnapshotScheduleCommand";
 import {
+  type ModifyClusterSubnetGroupCommandInput,
+  type ModifyClusterSubnetGroupCommandOutput,
   ModifyClusterSubnetGroupCommand,
-  ModifyClusterSubnetGroupCommandInput,
-  ModifyClusterSubnetGroupCommandOutput,
 } from "./commands/ModifyClusterSubnetGroupCommand";
 import {
+  type ModifyCustomDomainAssociationCommandInput,
+  type ModifyCustomDomainAssociationCommandOutput,
   ModifyCustomDomainAssociationCommand,
-  ModifyCustomDomainAssociationCommandInput,
-  ModifyCustomDomainAssociationCommandOutput,
 } from "./commands/ModifyCustomDomainAssociationCommand";
 import {
+  type ModifyEndpointAccessCommandInput,
+  type ModifyEndpointAccessCommandOutput,
   ModifyEndpointAccessCommand,
-  ModifyEndpointAccessCommandInput,
-  ModifyEndpointAccessCommandOutput,
 } from "./commands/ModifyEndpointAccessCommand";
 import {
+  type ModifyEventSubscriptionCommandInput,
+  type ModifyEventSubscriptionCommandOutput,
   ModifyEventSubscriptionCommand,
-  ModifyEventSubscriptionCommandInput,
-  ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  type ModifyIntegrationCommandInput,
+  type ModifyIntegrationCommandOutput,
   ModifyIntegrationCommand,
-  ModifyIntegrationCommandInput,
-  ModifyIntegrationCommandOutput,
 } from "./commands/ModifyIntegrationCommand";
 import {
+  type ModifyLakehouseConfigurationCommandInput,
+  type ModifyLakehouseConfigurationCommandOutput,
   ModifyLakehouseConfigurationCommand,
-  ModifyLakehouseConfigurationCommandInput,
-  ModifyLakehouseConfigurationCommandOutput,
 } from "./commands/ModifyLakehouseConfigurationCommand";
 import {
+  type ModifyRedshiftIdcApplicationCommandInput,
+  type ModifyRedshiftIdcApplicationCommandOutput,
   ModifyRedshiftIdcApplicationCommand,
-  ModifyRedshiftIdcApplicationCommandInput,
-  ModifyRedshiftIdcApplicationCommandOutput,
 } from "./commands/ModifyRedshiftIdcApplicationCommand";
 import {
+  type ModifyScheduledActionCommandInput,
+  type ModifyScheduledActionCommandOutput,
   ModifyScheduledActionCommand,
-  ModifyScheduledActionCommandInput,
-  ModifyScheduledActionCommandOutput,
 } from "./commands/ModifyScheduledActionCommand";
 import {
+  type ModifySnapshotCopyRetentionPeriodCommandInput,
+  type ModifySnapshotCopyRetentionPeriodCommandOutput,
   ModifySnapshotCopyRetentionPeriodCommand,
-  ModifySnapshotCopyRetentionPeriodCommandInput,
-  ModifySnapshotCopyRetentionPeriodCommandOutput,
 } from "./commands/ModifySnapshotCopyRetentionPeriodCommand";
 import {
+  type ModifySnapshotScheduleCommandInput,
+  type ModifySnapshotScheduleCommandOutput,
   ModifySnapshotScheduleCommand,
-  ModifySnapshotScheduleCommandInput,
-  ModifySnapshotScheduleCommandOutput,
 } from "./commands/ModifySnapshotScheduleCommand";
 import {
+  type ModifyUsageLimitCommandInput,
+  type ModifyUsageLimitCommandOutput,
   ModifyUsageLimitCommand,
-  ModifyUsageLimitCommandInput,
-  ModifyUsageLimitCommandOutput,
 } from "./commands/ModifyUsageLimitCommand";
 import {
+  type PauseClusterCommandInput,
+  type PauseClusterCommandOutput,
   PauseClusterCommand,
-  PauseClusterCommandInput,
-  PauseClusterCommandOutput,
 } from "./commands/PauseClusterCommand";
 import {
+  type PurchaseReservedNodeOfferingCommandInput,
+  type PurchaseReservedNodeOfferingCommandOutput,
   PurchaseReservedNodeOfferingCommand,
-  PurchaseReservedNodeOfferingCommandInput,
-  PurchaseReservedNodeOfferingCommandOutput,
 } from "./commands/PurchaseReservedNodeOfferingCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RebootClusterCommandInput,
+  type RebootClusterCommandOutput,
   RebootClusterCommand,
-  RebootClusterCommandInput,
-  RebootClusterCommandOutput,
 } from "./commands/RebootClusterCommand";
 import {
+  type RegisterNamespaceCommandInput,
+  type RegisterNamespaceCommandOutput,
   RegisterNamespaceCommand,
-  RegisterNamespaceCommandInput,
-  RegisterNamespaceCommandOutput,
 } from "./commands/RegisterNamespaceCommand";
 import {
+  type RejectDataShareCommandInput,
+  type RejectDataShareCommandOutput,
   RejectDataShareCommand,
-  RejectDataShareCommandInput,
-  RejectDataShareCommandOutput,
 } from "./commands/RejectDataShareCommand";
 import {
+  type ResetClusterParameterGroupCommandInput,
+  type ResetClusterParameterGroupCommandOutput,
   ResetClusterParameterGroupCommand,
-  ResetClusterParameterGroupCommandInput,
-  ResetClusterParameterGroupCommandOutput,
 } from "./commands/ResetClusterParameterGroupCommand";
 import {
+  type ResizeClusterCommandInput,
+  type ResizeClusterCommandOutput,
   ResizeClusterCommand,
-  ResizeClusterCommandInput,
-  ResizeClusterCommandOutput,
 } from "./commands/ResizeClusterCommand";
 import {
+  type RestoreFromClusterSnapshotCommandInput,
+  type RestoreFromClusterSnapshotCommandOutput,
   RestoreFromClusterSnapshotCommand,
-  RestoreFromClusterSnapshotCommandInput,
-  RestoreFromClusterSnapshotCommandOutput,
 } from "./commands/RestoreFromClusterSnapshotCommand";
 import {
+  type RestoreTableFromClusterSnapshotCommandInput,
+  type RestoreTableFromClusterSnapshotCommandOutput,
   RestoreTableFromClusterSnapshotCommand,
-  RestoreTableFromClusterSnapshotCommandInput,
-  RestoreTableFromClusterSnapshotCommandOutput,
 } from "./commands/RestoreTableFromClusterSnapshotCommand";
 import {
+  type ResumeClusterCommandInput,
+  type ResumeClusterCommandOutput,
   ResumeClusterCommand,
-  ResumeClusterCommandInput,
-  ResumeClusterCommandOutput,
 } from "./commands/ResumeClusterCommand";
 import {
+  type RevokeClusterSecurityGroupIngressCommandInput,
+  type RevokeClusterSecurityGroupIngressCommandOutput,
   RevokeClusterSecurityGroupIngressCommand,
-  RevokeClusterSecurityGroupIngressCommandInput,
-  RevokeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeClusterSecurityGroupIngressCommand";
 import {
+  type RevokeEndpointAccessCommandInput,
+  type RevokeEndpointAccessCommandOutput,
   RevokeEndpointAccessCommand,
-  RevokeEndpointAccessCommandInput,
-  RevokeEndpointAccessCommandOutput,
 } from "./commands/RevokeEndpointAccessCommand";
 import {
+  type RevokeSnapshotAccessCommandInput,
+  type RevokeSnapshotAccessCommandOutput,
   RevokeSnapshotAccessCommand,
-  RevokeSnapshotAccessCommandInput,
-  RevokeSnapshotAccessCommandOutput,
 } from "./commands/RevokeSnapshotAccessCommand";
 import {
+  type RotateEncryptionKeyCommandInput,
+  type RotateEncryptionKeyCommandOutput,
   RotateEncryptionKeyCommand,
-  RotateEncryptionKeyCommandInput,
-  RotateEncryptionKeyCommandOutput,
 } from "./commands/RotateEncryptionKeyCommand";
 import {
+  type UpdatePartnerStatusCommandInput,
+  type UpdatePartnerStatusCommandOutput,
   UpdatePartnerStatusCommand,
-  UpdatePartnerStatusCommandInput,
-  UpdatePartnerStatusCommandOutput,
 } from "./commands/UpdatePartnerStatusCommand";
 import { paginateDescribeClusterDbRevisions } from "./pagination/DescribeClusterDbRevisionsPaginator";
 import { paginateDescribeClusterParameterGroups } from "./pagination/DescribeClusterParameterGroupsPaginator";

@@ -8,7 +8,7 @@ import {
   ListAccessGrantsCommandOutput,
 } from "../commands/ListAccessGrantsCommand";
 import { S3ControlClient } from "../S3ControlClient";
-import { S3ControlPaginationConfiguration } from "./Interfaces";
+import type { S3ControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

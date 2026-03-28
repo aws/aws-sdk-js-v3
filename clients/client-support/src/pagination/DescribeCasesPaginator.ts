@@ -8,7 +8,7 @@ import {
   DescribeCasesCommandOutput,
 } from "../commands/DescribeCasesCommand";
 import { SupportClient } from "../SupportClient";
-import { SupportPaginationConfiguration } from "./Interfaces";
+import type { SupportPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

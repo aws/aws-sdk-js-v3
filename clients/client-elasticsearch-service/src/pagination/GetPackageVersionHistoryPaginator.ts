@@ -8,7 +8,7 @@ import {
   GetPackageVersionHistoryCommandOutput,
 } from "../commands/GetPackageVersionHistoryCommand";
 import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
-import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
+import type { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

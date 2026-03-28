@@ -9,56 +9,64 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  type DeleteClusterCommandInput,
+  type DeleteClusterCommandOutput,
   DeleteClusterCommand,
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  type DeleteClusterPolicyCommandInput,
+  type DeleteClusterPolicyCommandOutput,
   DeleteClusterPolicyCommand,
-  DeleteClusterPolicyCommandInput,
-  DeleteClusterPolicyCommandOutput,
 } from "./commands/DeleteClusterPolicyCommand";
-import { GetClusterCommand, GetClusterCommandInput, GetClusterCommandOutput } from "./commands/GetClusterCommand";
 import {
+  type GetClusterCommandInput,
+  type GetClusterCommandOutput,
+  GetClusterCommand,
+} from "./commands/GetClusterCommand";
+import {
+  type GetClusterPolicyCommandInput,
+  type GetClusterPolicyCommandOutput,
   GetClusterPolicyCommand,
-  GetClusterPolicyCommandInput,
-  GetClusterPolicyCommandOutput,
 } from "./commands/GetClusterPolicyCommand";
 import {
+  type GetVpcEndpointServiceNameCommandInput,
+  type GetVpcEndpointServiceNameCommandOutput,
   GetVpcEndpointServiceNameCommand,
-  GetVpcEndpointServiceNameCommandInput,
-  GetVpcEndpointServiceNameCommandOutput,
 } from "./commands/GetVpcEndpointServiceNameCommand";
 import {
+  type ListClustersCommandInput,
+  type ListClustersCommandOutput,
   ListClustersCommand,
-  ListClustersCommandInput,
-  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutClusterPolicyCommandInput,
+  type PutClusterPolicyCommandOutput,
   PutClusterPolicyCommand,
-  PutClusterPolicyCommandInput,
-  PutClusterPolicyCommandOutput,
 } from "./commands/PutClusterPolicyCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateClusterCommandInput,
+  type UpdateClusterCommandOutput,
   UpdateClusterCommand,
-  UpdateClusterCommandInput,
-  UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import { DSQLClient } from "./DSQLClient";
 import { paginateListClusters } from "./pagination/ListClustersPaginator";

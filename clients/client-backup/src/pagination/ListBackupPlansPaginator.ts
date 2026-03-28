@@ -8,7 +8,7 @@ import {
   ListBackupPlansCommandInput,
   ListBackupPlansCommandOutput,
 } from "../commands/ListBackupPlansCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

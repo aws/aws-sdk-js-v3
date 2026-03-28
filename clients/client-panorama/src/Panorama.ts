@@ -3,162 +3,170 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateApplicationInstanceCommandInput,
+  type CreateApplicationInstanceCommandOutput,
   CreateApplicationInstanceCommand,
-  CreateApplicationInstanceCommandInput,
-  CreateApplicationInstanceCommandOutput,
 } from "./commands/CreateApplicationInstanceCommand";
 import {
+  type CreateJobForDevicesCommandInput,
+  type CreateJobForDevicesCommandOutput,
   CreateJobForDevicesCommand,
-  CreateJobForDevicesCommandInput,
-  CreateJobForDevicesCommandOutput,
 } from "./commands/CreateJobForDevicesCommand";
 import {
+  type CreateNodeFromTemplateJobCommandInput,
+  type CreateNodeFromTemplateJobCommandOutput,
   CreateNodeFromTemplateJobCommand,
-  CreateNodeFromTemplateJobCommandInput,
-  CreateNodeFromTemplateJobCommandOutput,
 } from "./commands/CreateNodeFromTemplateJobCommand";
 import {
+  type CreatePackageCommandInput,
+  type CreatePackageCommandOutput,
   CreatePackageCommand,
-  CreatePackageCommandInput,
-  CreatePackageCommandOutput,
 } from "./commands/CreatePackageCommand";
 import {
+  type CreatePackageImportJobCommandInput,
+  type CreatePackageImportJobCommandOutput,
   CreatePackageImportJobCommand,
-  CreatePackageImportJobCommandInput,
-  CreatePackageImportJobCommandOutput,
 } from "./commands/CreatePackageImportJobCommand";
 import {
+  type DeleteDeviceCommandInput,
+  type DeleteDeviceCommandOutput,
   DeleteDeviceCommand,
-  DeleteDeviceCommandInput,
-  DeleteDeviceCommandOutput,
 } from "./commands/DeleteDeviceCommand";
 import {
+  type DeletePackageCommandInput,
+  type DeletePackageCommandOutput,
   DeletePackageCommand,
-  DeletePackageCommandInput,
-  DeletePackageCommandOutput,
 } from "./commands/DeletePackageCommand";
 import {
+  type DeregisterPackageVersionCommandInput,
+  type DeregisterPackageVersionCommandOutput,
   DeregisterPackageVersionCommand,
-  DeregisterPackageVersionCommandInput,
-  DeregisterPackageVersionCommandOutput,
 } from "./commands/DeregisterPackageVersionCommand";
 import {
+  type DescribeApplicationInstanceCommandInput,
+  type DescribeApplicationInstanceCommandOutput,
   DescribeApplicationInstanceCommand,
-  DescribeApplicationInstanceCommandInput,
-  DescribeApplicationInstanceCommandOutput,
 } from "./commands/DescribeApplicationInstanceCommand";
 import {
+  type DescribeApplicationInstanceDetailsCommandInput,
+  type DescribeApplicationInstanceDetailsCommandOutput,
   DescribeApplicationInstanceDetailsCommand,
-  DescribeApplicationInstanceDetailsCommandInput,
-  DescribeApplicationInstanceDetailsCommandOutput,
 } from "./commands/DescribeApplicationInstanceDetailsCommand";
 import {
+  type DescribeDeviceCommandInput,
+  type DescribeDeviceCommandOutput,
   DescribeDeviceCommand,
-  DescribeDeviceCommandInput,
-  DescribeDeviceCommandOutput,
 } from "./commands/DescribeDeviceCommand";
 import {
+  type DescribeDeviceJobCommandInput,
+  type DescribeDeviceJobCommandOutput,
   DescribeDeviceJobCommand,
-  DescribeDeviceJobCommandInput,
-  DescribeDeviceJobCommandOutput,
 } from "./commands/DescribeDeviceJobCommand";
 import {
+  type DescribeNodeCommandInput,
+  type DescribeNodeCommandOutput,
   DescribeNodeCommand,
-  DescribeNodeCommandInput,
-  DescribeNodeCommandOutput,
 } from "./commands/DescribeNodeCommand";
 import {
+  type DescribeNodeFromTemplateJobCommandInput,
+  type DescribeNodeFromTemplateJobCommandOutput,
   DescribeNodeFromTemplateJobCommand,
-  DescribeNodeFromTemplateJobCommandInput,
-  DescribeNodeFromTemplateJobCommandOutput,
 } from "./commands/DescribeNodeFromTemplateJobCommand";
 import {
+  type DescribePackageCommandInput,
+  type DescribePackageCommandOutput,
   DescribePackageCommand,
-  DescribePackageCommandInput,
-  DescribePackageCommandOutput,
 } from "./commands/DescribePackageCommand";
 import {
+  type DescribePackageImportJobCommandInput,
+  type DescribePackageImportJobCommandOutput,
   DescribePackageImportJobCommand,
-  DescribePackageImportJobCommandInput,
-  DescribePackageImportJobCommandOutput,
 } from "./commands/DescribePackageImportJobCommand";
 import {
+  type DescribePackageVersionCommandInput,
+  type DescribePackageVersionCommandOutput,
   DescribePackageVersionCommand,
-  DescribePackageVersionCommandInput,
-  DescribePackageVersionCommandOutput,
 } from "./commands/DescribePackageVersionCommand";
 import {
+  type ListApplicationInstanceDependenciesCommandInput,
+  type ListApplicationInstanceDependenciesCommandOutput,
   ListApplicationInstanceDependenciesCommand,
-  ListApplicationInstanceDependenciesCommandInput,
-  ListApplicationInstanceDependenciesCommandOutput,
 } from "./commands/ListApplicationInstanceDependenciesCommand";
 import {
+  type ListApplicationInstanceNodeInstancesCommandInput,
+  type ListApplicationInstanceNodeInstancesCommandOutput,
   ListApplicationInstanceNodeInstancesCommand,
-  ListApplicationInstanceNodeInstancesCommandInput,
-  ListApplicationInstanceNodeInstancesCommandOutput,
 } from "./commands/ListApplicationInstanceNodeInstancesCommand";
 import {
+  type ListApplicationInstancesCommandInput,
+  type ListApplicationInstancesCommandOutput,
   ListApplicationInstancesCommand,
-  ListApplicationInstancesCommandInput,
-  ListApplicationInstancesCommandOutput,
 } from "./commands/ListApplicationInstancesCommand";
-import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import {
+  type ListDevicesCommandInput,
+  type ListDevicesCommandOutput,
+  ListDevicesCommand,
+} from "./commands/ListDevicesCommand";
+import {
+  type ListDevicesJobsCommandInput,
+  type ListDevicesJobsCommandOutput,
   ListDevicesJobsCommand,
-  ListDevicesJobsCommandInput,
-  ListDevicesJobsCommandOutput,
 } from "./commands/ListDevicesJobsCommand";
 import {
+  type ListNodeFromTemplateJobsCommandInput,
+  type ListNodeFromTemplateJobsCommandOutput,
   ListNodeFromTemplateJobsCommand,
-  ListNodeFromTemplateJobsCommandInput,
-  ListNodeFromTemplateJobsCommandOutput,
 } from "./commands/ListNodeFromTemplateJobsCommand";
-import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import { type ListNodesCommandInput, type ListNodesCommandOutput, ListNodesCommand } from "./commands/ListNodesCommand";
 import {
+  type ListPackageImportJobsCommandInput,
+  type ListPackageImportJobsCommandOutput,
   ListPackageImportJobsCommand,
-  ListPackageImportJobsCommandInput,
-  ListPackageImportJobsCommandOutput,
 } from "./commands/ListPackageImportJobsCommand";
 import {
+  type ListPackagesCommandInput,
+  type ListPackagesCommandOutput,
   ListPackagesCommand,
-  ListPackagesCommandInput,
-  ListPackagesCommandOutput,
 } from "./commands/ListPackagesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ProvisionDeviceCommandInput,
+  type ProvisionDeviceCommandOutput,
   ProvisionDeviceCommand,
-  ProvisionDeviceCommandInput,
-  ProvisionDeviceCommandOutput,
 } from "./commands/ProvisionDeviceCommand";
 import {
+  type RegisterPackageVersionCommandInput,
+  type RegisterPackageVersionCommandOutput,
   RegisterPackageVersionCommand,
-  RegisterPackageVersionCommandInput,
-  RegisterPackageVersionCommandOutput,
 } from "./commands/RegisterPackageVersionCommand";
 import {
+  type RemoveApplicationInstanceCommandInput,
+  type RemoveApplicationInstanceCommandOutput,
   RemoveApplicationInstanceCommand,
-  RemoveApplicationInstanceCommandInput,
-  RemoveApplicationInstanceCommandOutput,
 } from "./commands/RemoveApplicationInstanceCommand";
 import {
+  type SignalApplicationInstanceNodeInstancesCommandInput,
+  type SignalApplicationInstanceNodeInstancesCommandOutput,
   SignalApplicationInstanceNodeInstancesCommand,
-  SignalApplicationInstanceNodeInstancesCommandInput,
-  SignalApplicationInstanceNodeInstancesCommandOutput,
 } from "./commands/SignalApplicationInstanceNodeInstancesCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDeviceMetadataCommandInput,
+  type UpdateDeviceMetadataCommandOutput,
   UpdateDeviceMetadataCommand,
-  UpdateDeviceMetadataCommandInput,
-  UpdateDeviceMetadataCommandOutput,
 } from "./commands/UpdateDeviceMetadataCommand";
 import { paginateListApplicationInstanceDependencies } from "./pagination/ListApplicationInstanceDependenciesPaginator";
 import {

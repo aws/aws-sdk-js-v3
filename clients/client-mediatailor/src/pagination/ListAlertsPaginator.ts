@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListAlertsCommand, ListAlertsCommandInput, ListAlertsCommandOutput } from "../commands/ListAlertsCommand";
 import { MediaTailorClient } from "../MediaTailorClient";
-import { MediaTailorPaginationConfiguration } from "./Interfaces";
+import type { MediaTailorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

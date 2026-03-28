@@ -8,7 +8,7 @@ import {
   ListServiceQuotaIncreaseRequestsInTemplateCommandOutput,
 } from "../commands/ListServiceQuotaIncreaseRequestsInTemplateCommand";
 import { ServiceQuotasClient } from "../ServiceQuotasClient";
-import { ServiceQuotasPaginationConfiguration } from "./Interfaces";
+import type { ServiceQuotasPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

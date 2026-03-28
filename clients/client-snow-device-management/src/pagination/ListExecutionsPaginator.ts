@@ -8,7 +8,7 @@ import {
   ListExecutionsCommandOutput,
 } from "../commands/ListExecutionsCommand";
 import { SnowDeviceManagementClient } from "../SnowDeviceManagementClient";
-import { SnowDeviceManagementPaginationConfiguration } from "./Interfaces";
+import type { SnowDeviceManagementPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

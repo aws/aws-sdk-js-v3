@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListSharesCommand, ListSharesCommandInput, ListSharesCommandOutput } from "../commands/ListSharesCommand";
 import { OmicsClient } from "../OmicsClient";
-import { OmicsPaginationConfiguration } from "./Interfaces";
+import type { OmicsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

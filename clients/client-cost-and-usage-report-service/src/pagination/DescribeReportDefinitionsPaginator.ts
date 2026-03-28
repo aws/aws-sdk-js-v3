@@ -8,7 +8,7 @@ import {
   DescribeReportDefinitionsCommandOutput,
 } from "../commands/DescribeReportDefinitionsCommand";
 import { CostAndUsageReportServiceClient } from "../CostAndUsageReportServiceClient";
-import { CostAndUsageReportServicePaginationConfiguration } from "./Interfaces";
+import type { CostAndUsageReportServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

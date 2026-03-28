@@ -9,599 +9,599 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AddTagsToResourceCommandInput,
+  type AddTagsToResourceCommandOutput,
   AddTagsToResourceCommand,
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand";
 import {
+  type ApplyPendingMaintenanceActionCommandInput,
+  type ApplyPendingMaintenanceActionCommandOutput,
   ApplyPendingMaintenanceActionCommand,
-  ApplyPendingMaintenanceActionCommandInput,
-  ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
 import {
+  type BatchStartRecommendationsCommandInput,
+  type BatchStartRecommendationsCommandOutput,
   BatchStartRecommendationsCommand,
-  BatchStartRecommendationsCommandInput,
-  BatchStartRecommendationsCommandOutput,
 } from "./commands/BatchStartRecommendationsCommand";
 import {
+  type CancelMetadataModelConversionCommandInput,
+  type CancelMetadataModelConversionCommandOutput,
   CancelMetadataModelConversionCommand,
-  CancelMetadataModelConversionCommandInput,
-  CancelMetadataModelConversionCommandOutput,
 } from "./commands/CancelMetadataModelConversionCommand";
 import {
+  type CancelMetadataModelCreationCommandInput,
+  type CancelMetadataModelCreationCommandOutput,
   CancelMetadataModelCreationCommand,
-  CancelMetadataModelCreationCommandInput,
-  CancelMetadataModelCreationCommandOutput,
 } from "./commands/CancelMetadataModelCreationCommand";
 import {
+  type CancelReplicationTaskAssessmentRunCommandInput,
+  type CancelReplicationTaskAssessmentRunCommandOutput,
   CancelReplicationTaskAssessmentRunCommand,
-  CancelReplicationTaskAssessmentRunCommandInput,
-  CancelReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/CancelReplicationTaskAssessmentRunCommand";
 import {
+  type CreateDataMigrationCommandInput,
+  type CreateDataMigrationCommandOutput,
   CreateDataMigrationCommand,
-  CreateDataMigrationCommandInput,
-  CreateDataMigrationCommandOutput,
 } from "./commands/CreateDataMigrationCommand";
 import {
+  type CreateDataProviderCommandInput,
+  type CreateDataProviderCommandOutput,
   CreateDataProviderCommand,
-  CreateDataProviderCommandInput,
-  CreateDataProviderCommandOutput,
 } from "./commands/CreateDataProviderCommand";
 import {
+  type CreateEndpointCommandInput,
+  type CreateEndpointCommandOutput,
   CreateEndpointCommand,
-  CreateEndpointCommandInput,
-  CreateEndpointCommandOutput,
 } from "./commands/CreateEndpointCommand";
 import {
+  type CreateEventSubscriptionCommandInput,
+  type CreateEventSubscriptionCommandOutput,
   CreateEventSubscriptionCommand,
-  CreateEventSubscriptionCommandInput,
-  CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand";
 import {
+  type CreateFleetAdvisorCollectorCommandInput,
+  type CreateFleetAdvisorCollectorCommandOutput,
   CreateFleetAdvisorCollectorCommand,
-  CreateFleetAdvisorCollectorCommandInput,
-  CreateFleetAdvisorCollectorCommandOutput,
 } from "./commands/CreateFleetAdvisorCollectorCommand";
 import {
+  type CreateInstanceProfileCommandInput,
+  type CreateInstanceProfileCommandOutput,
   CreateInstanceProfileCommand,
-  CreateInstanceProfileCommandInput,
-  CreateInstanceProfileCommandOutput,
 } from "./commands/CreateInstanceProfileCommand";
 import {
+  type CreateMigrationProjectCommandInput,
+  type CreateMigrationProjectCommandOutput,
   CreateMigrationProjectCommand,
-  CreateMigrationProjectCommandInput,
-  CreateMigrationProjectCommandOutput,
 } from "./commands/CreateMigrationProjectCommand";
 import {
+  type CreateReplicationConfigCommandInput,
+  type CreateReplicationConfigCommandOutput,
   CreateReplicationConfigCommand,
-  CreateReplicationConfigCommandInput,
-  CreateReplicationConfigCommandOutput,
 } from "./commands/CreateReplicationConfigCommand";
 import {
+  type CreateReplicationInstanceCommandInput,
+  type CreateReplicationInstanceCommandOutput,
   CreateReplicationInstanceCommand,
-  CreateReplicationInstanceCommandInput,
-  CreateReplicationInstanceCommandOutput,
 } from "./commands/CreateReplicationInstanceCommand";
 import {
+  type CreateReplicationSubnetGroupCommandInput,
+  type CreateReplicationSubnetGroupCommandOutput,
   CreateReplicationSubnetGroupCommand,
-  CreateReplicationSubnetGroupCommandInput,
-  CreateReplicationSubnetGroupCommandOutput,
 } from "./commands/CreateReplicationSubnetGroupCommand";
 import {
+  type CreateReplicationTaskCommandInput,
+  type CreateReplicationTaskCommandOutput,
   CreateReplicationTaskCommand,
-  CreateReplicationTaskCommandInput,
-  CreateReplicationTaskCommandOutput,
 } from "./commands/CreateReplicationTaskCommand";
 import {
+  type DeleteCertificateCommandInput,
+  type DeleteCertificateCommandOutput,
   DeleteCertificateCommand,
-  DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput,
 } from "./commands/DeleteCertificateCommand";
 import {
+  type DeleteConnectionCommandInput,
+  type DeleteConnectionCommandOutput,
   DeleteConnectionCommand,
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
+  type DeleteDataMigrationCommandInput,
+  type DeleteDataMigrationCommandOutput,
   DeleteDataMigrationCommand,
-  DeleteDataMigrationCommandInput,
-  DeleteDataMigrationCommandOutput,
 } from "./commands/DeleteDataMigrationCommand";
 import {
+  type DeleteDataProviderCommandInput,
+  type DeleteDataProviderCommandOutput,
   DeleteDataProviderCommand,
-  DeleteDataProviderCommandInput,
-  DeleteDataProviderCommandOutput,
 } from "./commands/DeleteDataProviderCommand";
 import {
+  type DeleteEndpointCommandInput,
+  type DeleteEndpointCommandOutput,
   DeleteEndpointCommand,
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput,
 } from "./commands/DeleteEndpointCommand";
 import {
+  type DeleteEventSubscriptionCommandInput,
+  type DeleteEventSubscriptionCommandOutput,
   DeleteEventSubscriptionCommand,
-  DeleteEventSubscriptionCommandInput,
-  DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
 import {
+  type DeleteFleetAdvisorCollectorCommandInput,
+  type DeleteFleetAdvisorCollectorCommandOutput,
   DeleteFleetAdvisorCollectorCommand,
-  DeleteFleetAdvisorCollectorCommandInput,
-  DeleteFleetAdvisorCollectorCommandOutput,
 } from "./commands/DeleteFleetAdvisorCollectorCommand";
 import {
+  type DeleteFleetAdvisorDatabasesCommandInput,
+  type DeleteFleetAdvisorDatabasesCommandOutput,
   DeleteFleetAdvisorDatabasesCommand,
-  DeleteFleetAdvisorDatabasesCommandInput,
-  DeleteFleetAdvisorDatabasesCommandOutput,
 } from "./commands/DeleteFleetAdvisorDatabasesCommand";
 import {
+  type DeleteInstanceProfileCommandInput,
+  type DeleteInstanceProfileCommandOutput,
   DeleteInstanceProfileCommand,
-  DeleteInstanceProfileCommandInput,
-  DeleteInstanceProfileCommandOutput,
 } from "./commands/DeleteInstanceProfileCommand";
 import {
+  type DeleteMigrationProjectCommandInput,
+  type DeleteMigrationProjectCommandOutput,
   DeleteMigrationProjectCommand,
-  DeleteMigrationProjectCommandInput,
-  DeleteMigrationProjectCommandOutput,
 } from "./commands/DeleteMigrationProjectCommand";
 import {
+  type DeleteReplicationConfigCommandInput,
+  type DeleteReplicationConfigCommandOutput,
   DeleteReplicationConfigCommand,
-  DeleteReplicationConfigCommandInput,
-  DeleteReplicationConfigCommandOutput,
 } from "./commands/DeleteReplicationConfigCommand";
 import {
+  type DeleteReplicationInstanceCommandInput,
+  type DeleteReplicationInstanceCommandOutput,
   DeleteReplicationInstanceCommand,
-  DeleteReplicationInstanceCommandInput,
-  DeleteReplicationInstanceCommandOutput,
 } from "./commands/DeleteReplicationInstanceCommand";
 import {
+  type DeleteReplicationSubnetGroupCommandInput,
+  type DeleteReplicationSubnetGroupCommandOutput,
   DeleteReplicationSubnetGroupCommand,
-  DeleteReplicationSubnetGroupCommandInput,
-  DeleteReplicationSubnetGroupCommandOutput,
 } from "./commands/DeleteReplicationSubnetGroupCommand";
 import {
+  type DeleteReplicationTaskAssessmentRunCommandInput,
+  type DeleteReplicationTaskAssessmentRunCommandOutput,
   DeleteReplicationTaskAssessmentRunCommand,
-  DeleteReplicationTaskAssessmentRunCommandInput,
-  DeleteReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/DeleteReplicationTaskAssessmentRunCommand";
 import {
+  type DeleteReplicationTaskCommandInput,
+  type DeleteReplicationTaskCommandOutput,
   DeleteReplicationTaskCommand,
-  DeleteReplicationTaskCommandInput,
-  DeleteReplicationTaskCommandOutput,
 } from "./commands/DeleteReplicationTaskCommand";
 import {
+  type DescribeAccountAttributesCommandInput,
+  type DescribeAccountAttributesCommandOutput,
   DescribeAccountAttributesCommand,
-  DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
 import {
+  type DescribeApplicableIndividualAssessmentsCommandInput,
+  type DescribeApplicableIndividualAssessmentsCommandOutput,
   DescribeApplicableIndividualAssessmentsCommand,
-  DescribeApplicableIndividualAssessmentsCommandInput,
-  DescribeApplicableIndividualAssessmentsCommandOutput,
 } from "./commands/DescribeApplicableIndividualAssessmentsCommand";
 import {
+  type DescribeCertificatesCommandInput,
+  type DescribeCertificatesCommandOutput,
   DescribeCertificatesCommand,
-  DescribeCertificatesCommandInput,
-  DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand";
 import {
+  type DescribeConnectionsCommandInput,
+  type DescribeConnectionsCommandOutput,
   DescribeConnectionsCommand,
-  DescribeConnectionsCommandInput,
-  DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand";
 import {
+  type DescribeConversionConfigurationCommandInput,
+  type DescribeConversionConfigurationCommandOutput,
   DescribeConversionConfigurationCommand,
-  DescribeConversionConfigurationCommandInput,
-  DescribeConversionConfigurationCommandOutput,
 } from "./commands/DescribeConversionConfigurationCommand";
 import {
+  type DescribeDataMigrationsCommandInput,
+  type DescribeDataMigrationsCommandOutput,
   DescribeDataMigrationsCommand,
-  DescribeDataMigrationsCommandInput,
-  DescribeDataMigrationsCommandOutput,
 } from "./commands/DescribeDataMigrationsCommand";
 import {
+  type DescribeDataProvidersCommandInput,
+  type DescribeDataProvidersCommandOutput,
   DescribeDataProvidersCommand,
-  DescribeDataProvidersCommandInput,
-  DescribeDataProvidersCommandOutput,
 } from "./commands/DescribeDataProvidersCommand";
 import {
+  type DescribeEndpointsCommandInput,
+  type DescribeEndpointsCommandOutput,
   DescribeEndpointsCommand,
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
 import {
+  type DescribeEndpointSettingsCommandInput,
+  type DescribeEndpointSettingsCommandOutput,
   DescribeEndpointSettingsCommand,
-  DescribeEndpointSettingsCommandInput,
-  DescribeEndpointSettingsCommandOutput,
 } from "./commands/DescribeEndpointSettingsCommand";
 import {
+  type DescribeEndpointTypesCommandInput,
+  type DescribeEndpointTypesCommandOutput,
   DescribeEndpointTypesCommand,
-  DescribeEndpointTypesCommandInput,
-  DescribeEndpointTypesCommandOutput,
 } from "./commands/DescribeEndpointTypesCommand";
 import {
+  type DescribeEngineVersionsCommandInput,
+  type DescribeEngineVersionsCommandOutput,
   DescribeEngineVersionsCommand,
-  DescribeEngineVersionsCommandInput,
-  DescribeEngineVersionsCommandOutput,
 } from "./commands/DescribeEngineVersionsCommand";
 import {
+  type DescribeEventCategoriesCommandInput,
+  type DescribeEventCategoriesCommandOutput,
   DescribeEventCategoriesCommand,
-  DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
 import {
+  type DescribeEventsCommandInput,
+  type DescribeEventsCommandOutput,
   DescribeEventsCommand,
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  type DescribeEventSubscriptionsCommandInput,
+  type DescribeEventSubscriptionsCommandOutput,
   DescribeEventSubscriptionsCommand,
-  DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
 import {
+  type DescribeExtensionPackAssociationsCommandInput,
+  type DescribeExtensionPackAssociationsCommandOutput,
   DescribeExtensionPackAssociationsCommand,
-  DescribeExtensionPackAssociationsCommandInput,
-  DescribeExtensionPackAssociationsCommandOutput,
 } from "./commands/DescribeExtensionPackAssociationsCommand";
 import {
+  type DescribeFleetAdvisorCollectorsCommandInput,
+  type DescribeFleetAdvisorCollectorsCommandOutput,
   DescribeFleetAdvisorCollectorsCommand,
-  DescribeFleetAdvisorCollectorsCommandInput,
-  DescribeFleetAdvisorCollectorsCommandOutput,
 } from "./commands/DescribeFleetAdvisorCollectorsCommand";
 import {
+  type DescribeFleetAdvisorDatabasesCommandInput,
+  type DescribeFleetAdvisorDatabasesCommandOutput,
   DescribeFleetAdvisorDatabasesCommand,
-  DescribeFleetAdvisorDatabasesCommandInput,
-  DescribeFleetAdvisorDatabasesCommandOutput,
 } from "./commands/DescribeFleetAdvisorDatabasesCommand";
 import {
+  type DescribeFleetAdvisorLsaAnalysisCommandInput,
+  type DescribeFleetAdvisorLsaAnalysisCommandOutput,
   DescribeFleetAdvisorLsaAnalysisCommand,
-  DescribeFleetAdvisorLsaAnalysisCommandInput,
-  DescribeFleetAdvisorLsaAnalysisCommandOutput,
 } from "./commands/DescribeFleetAdvisorLsaAnalysisCommand";
 import {
+  type DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
+  type DescribeFleetAdvisorSchemaObjectSummaryCommandOutput,
   DescribeFleetAdvisorSchemaObjectSummaryCommand,
-  DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
-  DescribeFleetAdvisorSchemaObjectSummaryCommandOutput,
 } from "./commands/DescribeFleetAdvisorSchemaObjectSummaryCommand";
 import {
+  type DescribeFleetAdvisorSchemasCommandInput,
+  type DescribeFleetAdvisorSchemasCommandOutput,
   DescribeFleetAdvisorSchemasCommand,
-  DescribeFleetAdvisorSchemasCommandInput,
-  DescribeFleetAdvisorSchemasCommandOutput,
 } from "./commands/DescribeFleetAdvisorSchemasCommand";
 import {
+  type DescribeInstanceProfilesCommandInput,
+  type DescribeInstanceProfilesCommandOutput,
   DescribeInstanceProfilesCommand,
-  DescribeInstanceProfilesCommandInput,
-  DescribeInstanceProfilesCommandOutput,
 } from "./commands/DescribeInstanceProfilesCommand";
 import {
+  type DescribeMetadataModelAssessmentsCommandInput,
+  type DescribeMetadataModelAssessmentsCommandOutput,
   DescribeMetadataModelAssessmentsCommand,
-  DescribeMetadataModelAssessmentsCommandInput,
-  DescribeMetadataModelAssessmentsCommandOutput,
 } from "./commands/DescribeMetadataModelAssessmentsCommand";
 import {
+  type DescribeMetadataModelChildrenCommandInput,
+  type DescribeMetadataModelChildrenCommandOutput,
   DescribeMetadataModelChildrenCommand,
-  DescribeMetadataModelChildrenCommandInput,
-  DescribeMetadataModelChildrenCommandOutput,
 } from "./commands/DescribeMetadataModelChildrenCommand";
 import {
+  type DescribeMetadataModelCommandInput,
+  type DescribeMetadataModelCommandOutput,
   DescribeMetadataModelCommand,
-  DescribeMetadataModelCommandInput,
-  DescribeMetadataModelCommandOutput,
 } from "./commands/DescribeMetadataModelCommand";
 import {
+  type DescribeMetadataModelConversionsCommandInput,
+  type DescribeMetadataModelConversionsCommandOutput,
   DescribeMetadataModelConversionsCommand,
-  DescribeMetadataModelConversionsCommandInput,
-  DescribeMetadataModelConversionsCommandOutput,
 } from "./commands/DescribeMetadataModelConversionsCommand";
 import {
+  type DescribeMetadataModelCreationsCommandInput,
+  type DescribeMetadataModelCreationsCommandOutput,
   DescribeMetadataModelCreationsCommand,
-  DescribeMetadataModelCreationsCommandInput,
-  DescribeMetadataModelCreationsCommandOutput,
 } from "./commands/DescribeMetadataModelCreationsCommand";
 import {
+  type DescribeMetadataModelExportsAsScriptCommandInput,
+  type DescribeMetadataModelExportsAsScriptCommandOutput,
   DescribeMetadataModelExportsAsScriptCommand,
-  DescribeMetadataModelExportsAsScriptCommandInput,
-  DescribeMetadataModelExportsAsScriptCommandOutput,
 } from "./commands/DescribeMetadataModelExportsAsScriptCommand";
 import {
+  type DescribeMetadataModelExportsToTargetCommandInput,
+  type DescribeMetadataModelExportsToTargetCommandOutput,
   DescribeMetadataModelExportsToTargetCommand,
-  DescribeMetadataModelExportsToTargetCommandInput,
-  DescribeMetadataModelExportsToTargetCommandOutput,
 } from "./commands/DescribeMetadataModelExportsToTargetCommand";
 import {
+  type DescribeMetadataModelImportsCommandInput,
+  type DescribeMetadataModelImportsCommandOutput,
   DescribeMetadataModelImportsCommand,
-  DescribeMetadataModelImportsCommandInput,
-  DescribeMetadataModelImportsCommandOutput,
 } from "./commands/DescribeMetadataModelImportsCommand";
 import {
+  type DescribeMigrationProjectsCommandInput,
+  type DescribeMigrationProjectsCommandOutput,
   DescribeMigrationProjectsCommand,
-  DescribeMigrationProjectsCommandInput,
-  DescribeMigrationProjectsCommandOutput,
 } from "./commands/DescribeMigrationProjectsCommand";
 import {
+  type DescribeOrderableReplicationInstancesCommandInput,
+  type DescribeOrderableReplicationInstancesCommandOutput,
   DescribeOrderableReplicationInstancesCommand,
-  DescribeOrderableReplicationInstancesCommandInput,
-  DescribeOrderableReplicationInstancesCommandOutput,
 } from "./commands/DescribeOrderableReplicationInstancesCommand";
 import {
+  type DescribePendingMaintenanceActionsCommandInput,
+  type DescribePendingMaintenanceActionsCommandOutput,
   DescribePendingMaintenanceActionsCommand,
-  DescribePendingMaintenanceActionsCommandInput,
-  DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand";
 import {
+  type DescribeRecommendationLimitationsCommandInput,
+  type DescribeRecommendationLimitationsCommandOutput,
   DescribeRecommendationLimitationsCommand,
-  DescribeRecommendationLimitationsCommandInput,
-  DescribeRecommendationLimitationsCommandOutput,
 } from "./commands/DescribeRecommendationLimitationsCommand";
 import {
+  type DescribeRecommendationsCommandInput,
+  type DescribeRecommendationsCommandOutput,
   DescribeRecommendationsCommand,
-  DescribeRecommendationsCommandInput,
-  DescribeRecommendationsCommandOutput,
 } from "./commands/DescribeRecommendationsCommand";
 import {
+  type DescribeRefreshSchemasStatusCommandInput,
+  type DescribeRefreshSchemasStatusCommandOutput,
   DescribeRefreshSchemasStatusCommand,
-  DescribeRefreshSchemasStatusCommandInput,
-  DescribeRefreshSchemasStatusCommandOutput,
 } from "./commands/DescribeRefreshSchemasStatusCommand";
 import {
+  type DescribeReplicationConfigsCommandInput,
+  type DescribeReplicationConfigsCommandOutput,
   DescribeReplicationConfigsCommand,
-  DescribeReplicationConfigsCommandInput,
-  DescribeReplicationConfigsCommandOutput,
 } from "./commands/DescribeReplicationConfigsCommand";
 import {
+  type DescribeReplicationInstancesCommandInput,
+  type DescribeReplicationInstancesCommandOutput,
   DescribeReplicationInstancesCommand,
-  DescribeReplicationInstancesCommandInput,
-  DescribeReplicationInstancesCommandOutput,
 } from "./commands/DescribeReplicationInstancesCommand";
 import {
+  type DescribeReplicationInstanceTaskLogsCommandInput,
+  type DescribeReplicationInstanceTaskLogsCommandOutput,
   DescribeReplicationInstanceTaskLogsCommand,
-  DescribeReplicationInstanceTaskLogsCommandInput,
-  DescribeReplicationInstanceTaskLogsCommandOutput,
 } from "./commands/DescribeReplicationInstanceTaskLogsCommand";
 import {
+  type DescribeReplicationsCommandInput,
+  type DescribeReplicationsCommandOutput,
   DescribeReplicationsCommand,
-  DescribeReplicationsCommandInput,
-  DescribeReplicationsCommandOutput,
 } from "./commands/DescribeReplicationsCommand";
 import {
+  type DescribeReplicationSubnetGroupsCommandInput,
+  type DescribeReplicationSubnetGroupsCommandOutput,
   DescribeReplicationSubnetGroupsCommand,
-  DescribeReplicationSubnetGroupsCommandInput,
-  DescribeReplicationSubnetGroupsCommandOutput,
 } from "./commands/DescribeReplicationSubnetGroupsCommand";
 import {
+  type DescribeReplicationTableStatisticsCommandInput,
+  type DescribeReplicationTableStatisticsCommandOutput,
   DescribeReplicationTableStatisticsCommand,
-  DescribeReplicationTableStatisticsCommandInput,
-  DescribeReplicationTableStatisticsCommandOutput,
 } from "./commands/DescribeReplicationTableStatisticsCommand";
 import {
+  type DescribeReplicationTaskAssessmentResultsCommandInput,
+  type DescribeReplicationTaskAssessmentResultsCommandOutput,
   DescribeReplicationTaskAssessmentResultsCommand,
-  DescribeReplicationTaskAssessmentResultsCommandInput,
-  DescribeReplicationTaskAssessmentResultsCommandOutput,
 } from "./commands/DescribeReplicationTaskAssessmentResultsCommand";
 import {
+  type DescribeReplicationTaskAssessmentRunsCommandInput,
+  type DescribeReplicationTaskAssessmentRunsCommandOutput,
   DescribeReplicationTaskAssessmentRunsCommand,
-  DescribeReplicationTaskAssessmentRunsCommandInput,
-  DescribeReplicationTaskAssessmentRunsCommandOutput,
 } from "./commands/DescribeReplicationTaskAssessmentRunsCommand";
 import {
+  type DescribeReplicationTaskIndividualAssessmentsCommandInput,
+  type DescribeReplicationTaskIndividualAssessmentsCommandOutput,
   DescribeReplicationTaskIndividualAssessmentsCommand,
-  DescribeReplicationTaskIndividualAssessmentsCommandInput,
-  DescribeReplicationTaskIndividualAssessmentsCommandOutput,
 } from "./commands/DescribeReplicationTaskIndividualAssessmentsCommand";
 import {
+  type DescribeReplicationTasksCommandInput,
+  type DescribeReplicationTasksCommandOutput,
   DescribeReplicationTasksCommand,
-  DescribeReplicationTasksCommandInput,
-  DescribeReplicationTasksCommandOutput,
 } from "./commands/DescribeReplicationTasksCommand";
 import {
+  type DescribeSchemasCommandInput,
+  type DescribeSchemasCommandOutput,
   DescribeSchemasCommand,
-  DescribeSchemasCommandInput,
-  DescribeSchemasCommandOutput,
 } from "./commands/DescribeSchemasCommand";
 import {
+  type DescribeTableStatisticsCommandInput,
+  type DescribeTableStatisticsCommandOutput,
   DescribeTableStatisticsCommand,
-  DescribeTableStatisticsCommandInput,
-  DescribeTableStatisticsCommandOutput,
 } from "./commands/DescribeTableStatisticsCommand";
 import {
+  type ExportMetadataModelAssessmentCommandInput,
+  type ExportMetadataModelAssessmentCommandOutput,
   ExportMetadataModelAssessmentCommand,
-  ExportMetadataModelAssessmentCommandInput,
-  ExportMetadataModelAssessmentCommandOutput,
 } from "./commands/ExportMetadataModelAssessmentCommand";
 import {
+  type GetTargetSelectionRulesCommandInput,
+  type GetTargetSelectionRulesCommandOutput,
   GetTargetSelectionRulesCommand,
-  GetTargetSelectionRulesCommandInput,
-  GetTargetSelectionRulesCommandOutput,
 } from "./commands/GetTargetSelectionRulesCommand";
 import {
+  type ImportCertificateCommandInput,
+  type ImportCertificateCommandOutput,
   ImportCertificateCommand,
-  ImportCertificateCommandInput,
-  ImportCertificateCommandOutput,
 } from "./commands/ImportCertificateCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ModifyConversionConfigurationCommandInput,
+  type ModifyConversionConfigurationCommandOutput,
   ModifyConversionConfigurationCommand,
-  ModifyConversionConfigurationCommandInput,
-  ModifyConversionConfigurationCommandOutput,
 } from "./commands/ModifyConversionConfigurationCommand";
 import {
+  type ModifyDataMigrationCommandInput,
+  type ModifyDataMigrationCommandOutput,
   ModifyDataMigrationCommand,
-  ModifyDataMigrationCommandInput,
-  ModifyDataMigrationCommandOutput,
 } from "./commands/ModifyDataMigrationCommand";
 import {
+  type ModifyDataProviderCommandInput,
+  type ModifyDataProviderCommandOutput,
   ModifyDataProviderCommand,
-  ModifyDataProviderCommandInput,
-  ModifyDataProviderCommandOutput,
 } from "./commands/ModifyDataProviderCommand";
 import {
+  type ModifyEndpointCommandInput,
+  type ModifyEndpointCommandOutput,
   ModifyEndpointCommand,
-  ModifyEndpointCommandInput,
-  ModifyEndpointCommandOutput,
 } from "./commands/ModifyEndpointCommand";
 import {
+  type ModifyEventSubscriptionCommandInput,
+  type ModifyEventSubscriptionCommandOutput,
   ModifyEventSubscriptionCommand,
-  ModifyEventSubscriptionCommandInput,
-  ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  type ModifyInstanceProfileCommandInput,
+  type ModifyInstanceProfileCommandOutput,
   ModifyInstanceProfileCommand,
-  ModifyInstanceProfileCommandInput,
-  ModifyInstanceProfileCommandOutput,
 } from "./commands/ModifyInstanceProfileCommand";
 import {
+  type ModifyMigrationProjectCommandInput,
+  type ModifyMigrationProjectCommandOutput,
   ModifyMigrationProjectCommand,
-  ModifyMigrationProjectCommandInput,
-  ModifyMigrationProjectCommandOutput,
 } from "./commands/ModifyMigrationProjectCommand";
 import {
+  type ModifyReplicationConfigCommandInput,
+  type ModifyReplicationConfigCommandOutput,
   ModifyReplicationConfigCommand,
-  ModifyReplicationConfigCommandInput,
-  ModifyReplicationConfigCommandOutput,
 } from "./commands/ModifyReplicationConfigCommand";
 import {
+  type ModifyReplicationInstanceCommandInput,
+  type ModifyReplicationInstanceCommandOutput,
   ModifyReplicationInstanceCommand,
-  ModifyReplicationInstanceCommandInput,
-  ModifyReplicationInstanceCommandOutput,
 } from "./commands/ModifyReplicationInstanceCommand";
 import {
+  type ModifyReplicationSubnetGroupCommandInput,
+  type ModifyReplicationSubnetGroupCommandOutput,
   ModifyReplicationSubnetGroupCommand,
-  ModifyReplicationSubnetGroupCommandInput,
-  ModifyReplicationSubnetGroupCommandOutput,
 } from "./commands/ModifyReplicationSubnetGroupCommand";
 import {
+  type ModifyReplicationTaskCommandInput,
+  type ModifyReplicationTaskCommandOutput,
   ModifyReplicationTaskCommand,
-  ModifyReplicationTaskCommandInput,
-  ModifyReplicationTaskCommandOutput,
 } from "./commands/ModifyReplicationTaskCommand";
 import {
+  type MoveReplicationTaskCommandInput,
+  type MoveReplicationTaskCommandOutput,
   MoveReplicationTaskCommand,
-  MoveReplicationTaskCommandInput,
-  MoveReplicationTaskCommandOutput,
 } from "./commands/MoveReplicationTaskCommand";
 import {
+  type RebootReplicationInstanceCommandInput,
+  type RebootReplicationInstanceCommandOutput,
   RebootReplicationInstanceCommand,
-  RebootReplicationInstanceCommandInput,
-  RebootReplicationInstanceCommandOutput,
 } from "./commands/RebootReplicationInstanceCommand";
 import {
+  type RefreshSchemasCommandInput,
+  type RefreshSchemasCommandOutput,
   RefreshSchemasCommand,
-  RefreshSchemasCommandInput,
-  RefreshSchemasCommandOutput,
 } from "./commands/RefreshSchemasCommand";
 import {
+  type ReloadReplicationTablesCommandInput,
+  type ReloadReplicationTablesCommandOutput,
   ReloadReplicationTablesCommand,
-  ReloadReplicationTablesCommandInput,
-  ReloadReplicationTablesCommandOutput,
 } from "./commands/ReloadReplicationTablesCommand";
 import {
+  type ReloadTablesCommandInput,
+  type ReloadTablesCommandOutput,
   ReloadTablesCommand,
-  ReloadTablesCommandInput,
-  ReloadTablesCommandOutput,
 } from "./commands/ReloadTablesCommand";
 import {
+  type RemoveTagsFromResourceCommandInput,
+  type RemoveTagsFromResourceCommandOutput,
   RemoveTagsFromResourceCommand,
-  RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 import {
+  type RunFleetAdvisorLsaAnalysisCommandInput,
+  type RunFleetAdvisorLsaAnalysisCommandOutput,
   RunFleetAdvisorLsaAnalysisCommand,
-  RunFleetAdvisorLsaAnalysisCommandInput,
-  RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "./commands/RunFleetAdvisorLsaAnalysisCommand";
 import {
+  type StartDataMigrationCommandInput,
+  type StartDataMigrationCommandOutput,
   StartDataMigrationCommand,
-  StartDataMigrationCommandInput,
-  StartDataMigrationCommandOutput,
 } from "./commands/StartDataMigrationCommand";
 import {
+  type StartExtensionPackAssociationCommandInput,
+  type StartExtensionPackAssociationCommandOutput,
   StartExtensionPackAssociationCommand,
-  StartExtensionPackAssociationCommandInput,
-  StartExtensionPackAssociationCommandOutput,
 } from "./commands/StartExtensionPackAssociationCommand";
 import {
+  type StartMetadataModelAssessmentCommandInput,
+  type StartMetadataModelAssessmentCommandOutput,
   StartMetadataModelAssessmentCommand,
-  StartMetadataModelAssessmentCommandInput,
-  StartMetadataModelAssessmentCommandOutput,
 } from "./commands/StartMetadataModelAssessmentCommand";
 import {
+  type StartMetadataModelConversionCommandInput,
+  type StartMetadataModelConversionCommandOutput,
   StartMetadataModelConversionCommand,
-  StartMetadataModelConversionCommandInput,
-  StartMetadataModelConversionCommandOutput,
 } from "./commands/StartMetadataModelConversionCommand";
 import {
+  type StartMetadataModelCreationCommandInput,
+  type StartMetadataModelCreationCommandOutput,
   StartMetadataModelCreationCommand,
-  StartMetadataModelCreationCommandInput,
-  StartMetadataModelCreationCommandOutput,
 } from "./commands/StartMetadataModelCreationCommand";
 import {
+  type StartMetadataModelExportAsScriptCommandInput,
+  type StartMetadataModelExportAsScriptCommandOutput,
   StartMetadataModelExportAsScriptCommand,
-  StartMetadataModelExportAsScriptCommandInput,
-  StartMetadataModelExportAsScriptCommandOutput,
 } from "./commands/StartMetadataModelExportAsScriptCommand";
 import {
+  type StartMetadataModelExportToTargetCommandInput,
+  type StartMetadataModelExportToTargetCommandOutput,
   StartMetadataModelExportToTargetCommand,
-  StartMetadataModelExportToTargetCommandInput,
-  StartMetadataModelExportToTargetCommandOutput,
 } from "./commands/StartMetadataModelExportToTargetCommand";
 import {
+  type StartMetadataModelImportCommandInput,
+  type StartMetadataModelImportCommandOutput,
   StartMetadataModelImportCommand,
-  StartMetadataModelImportCommandInput,
-  StartMetadataModelImportCommandOutput,
 } from "./commands/StartMetadataModelImportCommand";
 import {
+  type StartRecommendationsCommandInput,
+  type StartRecommendationsCommandOutput,
   StartRecommendationsCommand,
-  StartRecommendationsCommandInput,
-  StartRecommendationsCommandOutput,
 } from "./commands/StartRecommendationsCommand";
 import {
+  type StartReplicationCommandInput,
+  type StartReplicationCommandOutput,
   StartReplicationCommand,
-  StartReplicationCommandInput,
-  StartReplicationCommandOutput,
 } from "./commands/StartReplicationCommand";
 import {
+  type StartReplicationTaskAssessmentCommandInput,
+  type StartReplicationTaskAssessmentCommandOutput,
   StartReplicationTaskAssessmentCommand,
-  StartReplicationTaskAssessmentCommandInput,
-  StartReplicationTaskAssessmentCommandOutput,
 } from "./commands/StartReplicationTaskAssessmentCommand";
 import {
+  type StartReplicationTaskAssessmentRunCommandInput,
+  type StartReplicationTaskAssessmentRunCommandOutput,
   StartReplicationTaskAssessmentRunCommand,
-  StartReplicationTaskAssessmentRunCommandInput,
-  StartReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/StartReplicationTaskAssessmentRunCommand";
 import {
+  type StartReplicationTaskCommandInput,
+  type StartReplicationTaskCommandOutput,
   StartReplicationTaskCommand,
-  StartReplicationTaskCommandInput,
-  StartReplicationTaskCommandOutput,
 } from "./commands/StartReplicationTaskCommand";
 import {
+  type StopDataMigrationCommandInput,
+  type StopDataMigrationCommandOutput,
   StopDataMigrationCommand,
-  StopDataMigrationCommandInput,
-  StopDataMigrationCommandOutput,
 } from "./commands/StopDataMigrationCommand";
 import {
+  type StopReplicationCommandInput,
+  type StopReplicationCommandOutput,
   StopReplicationCommand,
-  StopReplicationCommandInput,
-  StopReplicationCommandOutput,
 } from "./commands/StopReplicationCommand";
 import {
+  type StopReplicationTaskCommandInput,
+  type StopReplicationTaskCommandOutput,
   StopReplicationTaskCommand,
-  StopReplicationTaskCommandInput,
-  StopReplicationTaskCommandOutput,
 } from "./commands/StopReplicationTaskCommand";
 import {
+  type TestConnectionCommandInput,
+  type TestConnectionCommandOutput,
   TestConnectionCommand,
-  TestConnectionCommandInput,
-  TestConnectionCommandOutput,
 } from "./commands/TestConnectionCommand";
 import {
+  type UpdateSubscriptionsToEventBridgeCommandInput,
+  type UpdateSubscriptionsToEventBridgeCommandOutput,
   UpdateSubscriptionsToEventBridgeCommand,
-  UpdateSubscriptionsToEventBridgeCommandInput,
-  UpdateSubscriptionsToEventBridgeCommandOutput,
 } from "./commands/UpdateSubscriptionsToEventBridgeCommand";
 import { DatabaseMigrationServiceClient } from "./DatabaseMigrationServiceClient";
 import {

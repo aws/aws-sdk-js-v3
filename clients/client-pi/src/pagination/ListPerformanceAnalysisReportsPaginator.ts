@@ -8,7 +8,7 @@ import {
   ListPerformanceAnalysisReportsCommandOutput,
 } from "../commands/ListPerformanceAnalysisReportsCommand";
 import { PIClient } from "../PIClient";
-import { PIPaginationConfiguration } from "./Interfaces";
+import type { PIPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

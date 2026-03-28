@@ -3,86 +3,94 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CopyImageSetCommandInput,
+  type CopyImageSetCommandOutput,
   CopyImageSetCommand,
-  CopyImageSetCommandInput,
-  CopyImageSetCommandOutput,
 } from "./commands/CopyImageSetCommand";
 import {
+  type CreateDatastoreCommandInput,
+  type CreateDatastoreCommandOutput,
   CreateDatastoreCommand,
-  CreateDatastoreCommandInput,
-  CreateDatastoreCommandOutput,
 } from "./commands/CreateDatastoreCommand";
 import {
+  type DeleteDatastoreCommandInput,
+  type DeleteDatastoreCommandOutput,
   DeleteDatastoreCommand,
-  DeleteDatastoreCommandInput,
-  DeleteDatastoreCommandOutput,
 } from "./commands/DeleteDatastoreCommand";
 import {
+  type DeleteImageSetCommandInput,
+  type DeleteImageSetCommandOutput,
   DeleteImageSetCommand,
-  DeleteImageSetCommandInput,
-  DeleteImageSetCommandOutput,
 } from "./commands/DeleteImageSetCommand";
 import {
+  type GetDatastoreCommandInput,
+  type GetDatastoreCommandOutput,
   GetDatastoreCommand,
-  GetDatastoreCommandInput,
-  GetDatastoreCommandOutput,
 } from "./commands/GetDatastoreCommand";
 import {
+  type GetDICOMImportJobCommandInput,
+  type GetDICOMImportJobCommandOutput,
   GetDICOMImportJobCommand,
-  GetDICOMImportJobCommandInput,
-  GetDICOMImportJobCommandOutput,
 } from "./commands/GetDICOMImportJobCommand";
 import {
+  type GetImageFrameCommandInput,
+  type GetImageFrameCommandOutput,
   GetImageFrameCommand,
-  GetImageFrameCommandInput,
-  GetImageFrameCommandOutput,
 } from "./commands/GetImageFrameCommand";
-import { GetImageSetCommand, GetImageSetCommandInput, GetImageSetCommandOutput } from "./commands/GetImageSetCommand";
 import {
+  type GetImageSetCommandInput,
+  type GetImageSetCommandOutput,
+  GetImageSetCommand,
+} from "./commands/GetImageSetCommand";
+import {
+  type GetImageSetMetadataCommandInput,
+  type GetImageSetMetadataCommandOutput,
   GetImageSetMetadataCommand,
-  GetImageSetMetadataCommandInput,
-  GetImageSetMetadataCommandOutput,
 } from "./commands/GetImageSetMetadataCommand";
 import {
+  type ListDatastoresCommandInput,
+  type ListDatastoresCommandOutput,
   ListDatastoresCommand,
-  ListDatastoresCommandInput,
-  ListDatastoresCommandOutput,
 } from "./commands/ListDatastoresCommand";
 import {
+  type ListDICOMImportJobsCommandInput,
+  type ListDICOMImportJobsCommandOutput,
   ListDICOMImportJobsCommand,
-  ListDICOMImportJobsCommandInput,
-  ListDICOMImportJobsCommandOutput,
 } from "./commands/ListDICOMImportJobsCommand";
 import {
+  type ListImageSetVersionsCommandInput,
+  type ListImageSetVersionsCommandOutput,
   ListImageSetVersionsCommand,
-  ListImageSetVersionsCommandInput,
-  ListImageSetVersionsCommandOutput,
 } from "./commands/ListImageSetVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type SearchImageSetsCommandInput,
+  type SearchImageSetsCommandOutput,
   SearchImageSetsCommand,
-  SearchImageSetsCommandInput,
-  SearchImageSetsCommandOutput,
 } from "./commands/SearchImageSetsCommand";
 import {
+  type StartDICOMImportJobCommandInput,
+  type StartDICOMImportJobCommandOutput,
   StartDICOMImportJobCommand,
-  StartDICOMImportJobCommandInput,
-  StartDICOMImportJobCommandOutput,
 } from "./commands/StartDICOMImportJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateImageSetMetadataCommandInput,
+  type UpdateImageSetMetadataCommandOutput,
   UpdateImageSetMetadataCommand,
-  UpdateImageSetMetadataCommandInput,
-  UpdateImageSetMetadataCommandOutput,
 } from "./commands/UpdateImageSetMetadataCommand";
 import { MedicalImagingClient } from "./MedicalImagingClient";
 import { paginateListDatastores } from "./pagination/ListDatastoresPaginator";

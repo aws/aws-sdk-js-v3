@@ -8,7 +8,7 @@ import {
   ListClustersCommandOutput,
 } from "../commands/ListClustersCommand";
 import { ECSClient } from "../ECSClient";
-import { ECSPaginationConfiguration } from "./Interfaces";
+import type { ECSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

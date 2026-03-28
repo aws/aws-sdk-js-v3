@@ -8,7 +8,7 @@ import {
   ListNotificationRulesCommandInput,
   ListNotificationRulesCommandOutput,
 } from "../commands/ListNotificationRulesCommand";
-import { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
+import type { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

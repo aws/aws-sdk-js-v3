@@ -8,7 +8,7 @@ import {
   ListAccountAssignmentsCommandOutput,
 } from "../commands/ListAccountAssignmentsCommand";
 import { SSOAdminClient } from "../SSOAdminClient";
-import { SSOAdminPaginationConfiguration } from "./Interfaces";
+import type { SSOAdminPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

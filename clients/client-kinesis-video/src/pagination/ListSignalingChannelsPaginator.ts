@@ -8,7 +8,7 @@ import {
   ListSignalingChannelsCommandOutput,
 } from "../commands/ListSignalingChannelsCommand";
 import { KinesisVideoClient } from "../KinesisVideoClient";
-import { KinesisVideoPaginationConfiguration } from "./Interfaces";
+import type { KinesisVideoPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListResourceTelemetryCommandOutput,
 } from "../commands/ListResourceTelemetryCommand";
 import { ObservabilityAdminClient } from "../ObservabilityAdminClient";
-import { ObservabilityAdminPaginationConfiguration } from "./Interfaces";
+import type { ObservabilityAdminPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

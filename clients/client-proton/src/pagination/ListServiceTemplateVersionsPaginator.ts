@@ -8,7 +8,7 @@ import {
   ListServiceTemplateVersionsCommandOutput,
 } from "../commands/ListServiceTemplateVersionsCommand";
 import { ProtonClient } from "../ProtonClient";
-import { ProtonPaginationConfiguration } from "./Interfaces";
+import type { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -1,8 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeControlPanelCommand, DescribeControlPanelCommandInput } from "../commands/DescribeControlPanelCommand";
-import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
+import {
+  type DescribeControlPanelCommandInput,
+  DescribeControlPanelCommand,
+} from "../commands/DescribeControlPanelCommand";
+import type { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
 
 const checkState = async (client: Route53RecoveryControlConfigClient, input: DescribeControlPanelCommandInput): Promise<WaiterResult> => {
   let reason;

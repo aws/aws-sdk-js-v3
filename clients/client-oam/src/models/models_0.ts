@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ResourceType } from "./enums";
+import type { ResourceType } from "./enums";
 
 /**
  * <p>This structure contains the <code>Filter</code> parameter which you can use to specify which log groups are to share log events from this source account to the monitoring account.</p>

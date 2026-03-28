@@ -8,7 +8,7 @@ import {
   DescribeClusterParametersCommandOutput,
 } from "../commands/DescribeClusterParametersCommand";
 import { RedshiftClient } from "../RedshiftClient";
-import { RedshiftPaginationConfiguration } from "./Interfaces";
+import type { RedshiftPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

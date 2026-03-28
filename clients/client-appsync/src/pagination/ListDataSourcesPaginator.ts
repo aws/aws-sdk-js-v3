@@ -8,7 +8,7 @@ import {
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput,
 } from "../commands/ListDataSourcesCommand";
-import { AppSyncPaginationConfiguration } from "./Interfaces";
+import type { AppSyncPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { AmplifyClient } from "../AmplifyClient";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
-import { AmplifyPaginationConfiguration } from "./Interfaces";
+import type { AmplifyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -15,7 +15,7 @@
  */
 export * from "./ECRClient";
 export * from "./ECR";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ECRExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

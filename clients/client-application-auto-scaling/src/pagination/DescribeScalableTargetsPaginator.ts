@@ -8,7 +8,7 @@ import {
   DescribeScalableTargetsCommandInput,
   DescribeScalableTargetsCommandOutput,
 } from "../commands/DescribeScalableTargetsCommand";
-import { ApplicationAutoScalingPaginationConfiguration } from "./Interfaces";
+import type { ApplicationAutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

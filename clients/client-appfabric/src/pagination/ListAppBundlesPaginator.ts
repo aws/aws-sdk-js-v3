@@ -8,7 +8,7 @@ import {
   ListAppBundlesCommandInput,
   ListAppBundlesCommandOutput,
 } from "../commands/ListAppBundlesCommand";
-import { AppFabricPaginationConfiguration } from "./Interfaces";
+import type { AppFabricPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -7,7 +7,7 @@
  */
 export * from "./ResourceExplorer2Client";
 export * from "./ResourceExplorer2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ResourceExplorer2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

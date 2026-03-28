@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
   type DescribeBatchPredictionsCommandInput,
   DescribeBatchPredictionsCommand,
 } from "../commands/DescribeBatchPredictionsCommand";
-import { MachineLearningClient } from "../MachineLearningClient";
+import type { MachineLearningClient } from "../MachineLearningClient";
 
 const checkState = async (client: MachineLearningClient, input: DescribeBatchPredictionsCommandInput): Promise<WaiterResult> => {
   let reason;

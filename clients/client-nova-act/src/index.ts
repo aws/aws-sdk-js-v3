@@ -7,7 +7,7 @@
  */
 export * from "./NovaActClient";
 export * from "./NovaAct";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { NovaActExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

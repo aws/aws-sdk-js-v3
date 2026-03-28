@@ -3,87 +3,99 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type ApplyPendingMaintenanceActionCommandInput,
+  type ApplyPendingMaintenanceActionCommandOutput,
   ApplyPendingMaintenanceActionCommand,
-  ApplyPendingMaintenanceActionCommandInput,
-  ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
 import {
+  type CopyClusterSnapshotCommandInput,
+  type CopyClusterSnapshotCommandOutput,
   CopyClusterSnapshotCommand,
-  CopyClusterSnapshotCommandInput,
-  CopyClusterSnapshotCommandOutput,
 } from "./commands/CopyClusterSnapshotCommand";
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateClusterSnapshotCommandInput,
+  type CreateClusterSnapshotCommandOutput,
   CreateClusterSnapshotCommand,
-  CreateClusterSnapshotCommandInput,
-  CreateClusterSnapshotCommandOutput,
 } from "./commands/CreateClusterSnapshotCommand";
 import {
+  type DeleteClusterCommandInput,
+  type DeleteClusterCommandOutput,
   DeleteClusterCommand,
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  type DeleteClusterSnapshotCommandInput,
+  type DeleteClusterSnapshotCommandOutput,
   DeleteClusterSnapshotCommand,
-  DeleteClusterSnapshotCommandInput,
-  DeleteClusterSnapshotCommandOutput,
 } from "./commands/DeleteClusterSnapshotCommand";
-import { GetClusterCommand, GetClusterCommandInput, GetClusterCommandOutput } from "./commands/GetClusterCommand";
 import {
+  type GetClusterCommandInput,
+  type GetClusterCommandOutput,
+  GetClusterCommand,
+} from "./commands/GetClusterCommand";
+import {
+  type GetClusterSnapshotCommandInput,
+  type GetClusterSnapshotCommandOutput,
   GetClusterSnapshotCommand,
-  GetClusterSnapshotCommandInput,
-  GetClusterSnapshotCommandOutput,
 } from "./commands/GetClusterSnapshotCommand";
 import {
+  type GetPendingMaintenanceActionCommandInput,
+  type GetPendingMaintenanceActionCommandOutput,
   GetPendingMaintenanceActionCommand,
-  GetPendingMaintenanceActionCommandInput,
-  GetPendingMaintenanceActionCommandOutput,
 } from "./commands/GetPendingMaintenanceActionCommand";
 import {
+  type ListClustersCommandInput,
+  type ListClustersCommandOutput,
   ListClustersCommand,
-  ListClustersCommandInput,
-  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
 import {
+  type ListClusterSnapshotsCommandInput,
+  type ListClusterSnapshotsCommandOutput,
   ListClusterSnapshotsCommand,
-  ListClusterSnapshotsCommandInput,
-  ListClusterSnapshotsCommandOutput,
 } from "./commands/ListClusterSnapshotsCommand";
 import {
+  type ListPendingMaintenanceActionsCommandInput,
+  type ListPendingMaintenanceActionsCommandOutput,
   ListPendingMaintenanceActionsCommand,
-  ListPendingMaintenanceActionsCommandInput,
-  ListPendingMaintenanceActionsCommandOutput,
 } from "./commands/ListPendingMaintenanceActionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RestoreClusterFromSnapshotCommandInput,
+  type RestoreClusterFromSnapshotCommandOutput,
   RestoreClusterFromSnapshotCommand,
-  RestoreClusterFromSnapshotCommandInput,
-  RestoreClusterFromSnapshotCommandOutput,
 } from "./commands/RestoreClusterFromSnapshotCommand";
 import {
+  type StartClusterCommandInput,
+  type StartClusterCommandOutput,
   StartClusterCommand,
-  StartClusterCommandInput,
-  StartClusterCommandOutput,
 } from "./commands/StartClusterCommand";
-import { StopClusterCommand, StopClusterCommandInput, StopClusterCommandOutput } from "./commands/StopClusterCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type StopClusterCommandInput,
+  type StopClusterCommandOutput,
+  StopClusterCommand,
+} from "./commands/StopClusterCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateClusterCommandInput,
+  type UpdateClusterCommandOutput,
   UpdateClusterCommand,
-  UpdateClusterCommandInput,
-  UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import { DocDBElasticClient } from "./DocDBElasticClient";
 import { paginateListClusterSnapshots } from "./pagination/ListClusterSnapshotsPaginator";

@@ -8,7 +8,7 @@ import {
   ListChannelFlowsCommandInput,
   ListChannelFlowsCommandOutput,
 } from "../commands/ListChannelFlowsCommand";
-import { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

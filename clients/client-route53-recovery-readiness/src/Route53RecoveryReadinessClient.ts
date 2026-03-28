@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,90 +61,105 @@ import {
   defaultRoute53RecoveryReadinessHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateCellCommandInput, CreateCellCommandOutput } from "./commands/CreateCellCommand";
-import {
+import type { CreateCellCommandInput, CreateCellCommandOutput } from "./commands/CreateCellCommand";
+import type {
   CreateCrossAccountAuthorizationCommandInput,
   CreateCrossAccountAuthorizationCommandOutput,
 } from "./commands/CreateCrossAccountAuthorizationCommand";
-import {
+import type {
   CreateReadinessCheckCommandInput,
   CreateReadinessCheckCommandOutput,
 } from "./commands/CreateReadinessCheckCommand";
-import {
+import type {
   CreateRecoveryGroupCommandInput,
   CreateRecoveryGroupCommandOutput,
 } from "./commands/CreateRecoveryGroupCommand";
-import { CreateResourceSetCommandInput, CreateResourceSetCommandOutput } from "./commands/CreateResourceSetCommand";
-import { DeleteCellCommandInput, DeleteCellCommandOutput } from "./commands/DeleteCellCommand";
-import {
+import type {
+  CreateResourceSetCommandInput,
+  CreateResourceSetCommandOutput,
+} from "./commands/CreateResourceSetCommand";
+import type { DeleteCellCommandInput, DeleteCellCommandOutput } from "./commands/DeleteCellCommand";
+import type {
   DeleteCrossAccountAuthorizationCommandInput,
   DeleteCrossAccountAuthorizationCommandOutput,
 } from "./commands/DeleteCrossAccountAuthorizationCommand";
-import {
+import type {
   DeleteReadinessCheckCommandInput,
   DeleteReadinessCheckCommandOutput,
 } from "./commands/DeleteReadinessCheckCommand";
-import {
+import type {
   DeleteRecoveryGroupCommandInput,
   DeleteRecoveryGroupCommandOutput,
 } from "./commands/DeleteRecoveryGroupCommand";
-import { DeleteResourceSetCommandInput, DeleteResourceSetCommandOutput } from "./commands/DeleteResourceSetCommand";
-import {
+import type {
+  DeleteResourceSetCommandInput,
+  DeleteResourceSetCommandOutput,
+} from "./commands/DeleteResourceSetCommand";
+import type {
   GetArchitectureRecommendationsCommandInput,
   GetArchitectureRecommendationsCommandOutput,
 } from "./commands/GetArchitectureRecommendationsCommand";
-import { GetCellCommandInput, GetCellCommandOutput } from "./commands/GetCellCommand";
-import {
+import type { GetCellCommandInput, GetCellCommandOutput } from "./commands/GetCellCommand";
+import type {
   GetCellReadinessSummaryCommandInput,
   GetCellReadinessSummaryCommandOutput,
 } from "./commands/GetCellReadinessSummaryCommand";
-import { GetReadinessCheckCommandInput, GetReadinessCheckCommandOutput } from "./commands/GetReadinessCheckCommand";
-import {
+import type {
+  GetReadinessCheckCommandInput,
+  GetReadinessCheckCommandOutput,
+} from "./commands/GetReadinessCheckCommand";
+import type {
   GetReadinessCheckResourceStatusCommandInput,
   GetReadinessCheckResourceStatusCommandOutput,
 } from "./commands/GetReadinessCheckResourceStatusCommand";
-import {
+import type {
   GetReadinessCheckStatusCommandInput,
   GetReadinessCheckStatusCommandOutput,
 } from "./commands/GetReadinessCheckStatusCommand";
-import { GetRecoveryGroupCommandInput, GetRecoveryGroupCommandOutput } from "./commands/GetRecoveryGroupCommand";
-import {
+import type { GetRecoveryGroupCommandInput, GetRecoveryGroupCommandOutput } from "./commands/GetRecoveryGroupCommand";
+import type {
   GetRecoveryGroupReadinessSummaryCommandInput,
   GetRecoveryGroupReadinessSummaryCommandOutput,
 } from "./commands/GetRecoveryGroupReadinessSummaryCommand";
-import { GetResourceSetCommandInput, GetResourceSetCommandOutput } from "./commands/GetResourceSetCommand";
-import { ListCellsCommandInput, ListCellsCommandOutput } from "./commands/ListCellsCommand";
-import {
+import type { GetResourceSetCommandInput, GetResourceSetCommandOutput } from "./commands/GetResourceSetCommand";
+import type { ListCellsCommandInput, ListCellsCommandOutput } from "./commands/ListCellsCommand";
+import type {
   ListCrossAccountAuthorizationsCommandInput,
   ListCrossAccountAuthorizationsCommandOutput,
 } from "./commands/ListCrossAccountAuthorizationsCommand";
-import {
+import type {
   ListReadinessChecksCommandInput,
   ListReadinessChecksCommandOutput,
 } from "./commands/ListReadinessChecksCommand";
-import { ListRecoveryGroupsCommandInput, ListRecoveryGroupsCommandOutput } from "./commands/ListRecoveryGroupsCommand";
-import { ListResourceSetsCommandInput, ListResourceSetsCommandOutput } from "./commands/ListResourceSetsCommand";
-import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
-import {
+import type {
+  ListRecoveryGroupsCommandInput,
+  ListRecoveryGroupsCommandOutput,
+} from "./commands/ListRecoveryGroupsCommand";
+import type { ListResourceSetsCommandInput, ListResourceSetsCommandOutput } from "./commands/ListResourceSetsCommand";
+import type { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
+import type {
   ListTagsForResourcesCommandInput,
   ListTagsForResourcesCommandOutput,
 } from "./commands/ListTagsForResourcesCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateCellCommandInput, UpdateCellCommandOutput } from "./commands/UpdateCellCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateCellCommandInput, UpdateCellCommandOutput } from "./commands/UpdateCellCommand";
+import type {
   UpdateReadinessCheckCommandInput,
   UpdateReadinessCheckCommandOutput,
 } from "./commands/UpdateReadinessCheckCommand";
-import {
+import type {
   UpdateRecoveryGroupCommandInput,
   UpdateRecoveryGroupCommandOutput,
 } from "./commands/UpdateRecoveryGroupCommand";
-import { UpdateResourceSetCommandInput, UpdateResourceSetCommandOutput } from "./commands/UpdateResourceSetCommand";
+import type {
+  UpdateResourceSetCommandInput,
+  UpdateResourceSetCommandOutput,
+} from "./commands/UpdateResourceSetCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -342,7 +355,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

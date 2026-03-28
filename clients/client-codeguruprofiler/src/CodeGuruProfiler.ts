@@ -4,107 +4,115 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CodeGuruProfilerClient } from "./CodeGuruProfilerClient";
 import {
+  type AddNotificationChannelsCommandInput,
+  type AddNotificationChannelsCommandOutput,
   AddNotificationChannelsCommand,
-  AddNotificationChannelsCommandInput,
-  AddNotificationChannelsCommandOutput,
 } from "./commands/AddNotificationChannelsCommand";
 import {
+  type BatchGetFrameMetricDataCommandInput,
+  type BatchGetFrameMetricDataCommandOutput,
   BatchGetFrameMetricDataCommand,
-  BatchGetFrameMetricDataCommandInput,
-  BatchGetFrameMetricDataCommandOutput,
 } from "./commands/BatchGetFrameMetricDataCommand";
 import {
+  type ConfigureAgentCommandInput,
+  type ConfigureAgentCommandOutput,
   ConfigureAgentCommand,
-  ConfigureAgentCommandInput,
-  ConfigureAgentCommandOutput,
 } from "./commands/ConfigureAgentCommand";
 import {
+  type CreateProfilingGroupCommandInput,
+  type CreateProfilingGroupCommandOutput,
   CreateProfilingGroupCommand,
-  CreateProfilingGroupCommandInput,
-  CreateProfilingGroupCommandOutput,
 } from "./commands/CreateProfilingGroupCommand";
 import {
+  type DeleteProfilingGroupCommandInput,
+  type DeleteProfilingGroupCommandOutput,
   DeleteProfilingGroupCommand,
-  DeleteProfilingGroupCommandInput,
-  DeleteProfilingGroupCommandOutput,
 } from "./commands/DeleteProfilingGroupCommand";
 import {
+  type DescribeProfilingGroupCommandInput,
+  type DescribeProfilingGroupCommandOutput,
   DescribeProfilingGroupCommand,
-  DescribeProfilingGroupCommandInput,
-  DescribeProfilingGroupCommandOutput,
 } from "./commands/DescribeProfilingGroupCommand";
 import {
+  type GetFindingsReportAccountSummaryCommandInput,
+  type GetFindingsReportAccountSummaryCommandOutput,
   GetFindingsReportAccountSummaryCommand,
-  GetFindingsReportAccountSummaryCommandInput,
-  GetFindingsReportAccountSummaryCommandOutput,
 } from "./commands/GetFindingsReportAccountSummaryCommand";
 import {
+  type GetNotificationConfigurationCommandInput,
+  type GetNotificationConfigurationCommandOutput,
   GetNotificationConfigurationCommand,
-  GetNotificationConfigurationCommandInput,
-  GetNotificationConfigurationCommandOutput,
 } from "./commands/GetNotificationConfigurationCommand";
-import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
-import { GetProfileCommand, GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
+import { type GetPolicyCommandInput, type GetPolicyCommandOutput, GetPolicyCommand } from "./commands/GetPolicyCommand";
 import {
+  type GetProfileCommandInput,
+  type GetProfileCommandOutput,
+  GetProfileCommand,
+} from "./commands/GetProfileCommand";
+import {
+  type GetRecommendationsCommandInput,
+  type GetRecommendationsCommandOutput,
   GetRecommendationsCommand,
-  GetRecommendationsCommandInput,
-  GetRecommendationsCommandOutput,
 } from "./commands/GetRecommendationsCommand";
 import {
+  type ListFindingsReportsCommandInput,
+  type ListFindingsReportsCommandOutput,
   ListFindingsReportsCommand,
-  ListFindingsReportsCommandInput,
-  ListFindingsReportsCommandOutput,
 } from "./commands/ListFindingsReportsCommand";
 import {
+  type ListProfileTimesCommandInput,
+  type ListProfileTimesCommandOutput,
   ListProfileTimesCommand,
-  ListProfileTimesCommandInput,
-  ListProfileTimesCommandOutput,
 } from "./commands/ListProfileTimesCommand";
 import {
+  type ListProfilingGroupsCommandInput,
+  type ListProfilingGroupsCommandOutput,
   ListProfilingGroupsCommand,
-  ListProfilingGroupsCommandInput,
-  ListProfilingGroupsCommandOutput,
 } from "./commands/ListProfilingGroupsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PostAgentProfileCommandInput,
+  type PostAgentProfileCommandOutput,
   PostAgentProfileCommand,
-  PostAgentProfileCommandInput,
-  PostAgentProfileCommandOutput,
 } from "./commands/PostAgentProfileCommand";
 import {
+  type PutPermissionCommandInput,
+  type PutPermissionCommandOutput,
   PutPermissionCommand,
-  PutPermissionCommandInput,
-  PutPermissionCommandOutput,
 } from "./commands/PutPermissionCommand";
 import {
+  type RemoveNotificationChannelCommandInput,
+  type RemoveNotificationChannelCommandOutput,
   RemoveNotificationChannelCommand,
-  RemoveNotificationChannelCommandInput,
-  RemoveNotificationChannelCommandOutput,
 } from "./commands/RemoveNotificationChannelCommand";
 import {
+  type RemovePermissionCommandInput,
+  type RemovePermissionCommandOutput,
   RemovePermissionCommand,
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand";
 import {
+  type SubmitFeedbackCommandInput,
+  type SubmitFeedbackCommandOutput,
   SubmitFeedbackCommand,
-  SubmitFeedbackCommandInput,
-  SubmitFeedbackCommandOutput,
 } from "./commands/SubmitFeedbackCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateProfilingGroupCommandInput,
+  type UpdateProfilingGroupCommandOutput,
   UpdateProfilingGroupCommand,
-  UpdateProfilingGroupCommandInput,
-  UpdateProfilingGroupCommandOutput,
 } from "./commands/UpdateProfilingGroupCommand";
 import { paginateGetFindingsReportAccountSummary } from "./pagination/GetFindingsReportAccountSummaryPaginator";
 import { paginateListFindingsReports } from "./pagination/ListFindingsReportsPaginator";

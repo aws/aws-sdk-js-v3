@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,244 +61,268 @@ import {
   defaultMacie2HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
-import {
+import type { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
+import type {
   BatchGetCustomDataIdentifiersCommandInput,
   BatchGetCustomDataIdentifiersCommandOutput,
 } from "./commands/BatchGetCustomDataIdentifiersCommand";
-import {
+import type {
   BatchUpdateAutomatedDiscoveryAccountsCommandInput,
   BatchUpdateAutomatedDiscoveryAccountsCommandOutput,
 } from "./commands/BatchUpdateAutomatedDiscoveryAccountsCommand";
-import { CreateAllowListCommandInput, CreateAllowListCommandOutput } from "./commands/CreateAllowListCommand";
-import {
+import type { CreateAllowListCommandInput, CreateAllowListCommandOutput } from "./commands/CreateAllowListCommand";
+import type {
   CreateClassificationJobCommandInput,
   CreateClassificationJobCommandOutput,
 } from "./commands/CreateClassificationJobCommand";
-import {
+import type {
   CreateCustomDataIdentifierCommandInput,
   CreateCustomDataIdentifierCommandOutput,
 } from "./commands/CreateCustomDataIdentifierCommand";
-import {
+import type {
   CreateFindingsFilterCommandInput,
   CreateFindingsFilterCommandOutput,
 } from "./commands/CreateFindingsFilterCommand";
-import { CreateInvitationsCommandInput, CreateInvitationsCommandOutput } from "./commands/CreateInvitationsCommand";
-import { CreateMemberCommandInput, CreateMemberCommandOutput } from "./commands/CreateMemberCommand";
-import {
+import type {
+  CreateInvitationsCommandInput,
+  CreateInvitationsCommandOutput,
+} from "./commands/CreateInvitationsCommand";
+import type { CreateMemberCommandInput, CreateMemberCommandOutput } from "./commands/CreateMemberCommand";
+import type {
   CreateSampleFindingsCommandInput,
   CreateSampleFindingsCommandOutput,
 } from "./commands/CreateSampleFindingsCommand";
-import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand";
-import { DeleteAllowListCommandInput, DeleteAllowListCommandOutput } from "./commands/DeleteAllowListCommand";
-import {
+import type {
+  DeclineInvitationsCommandInput,
+  DeclineInvitationsCommandOutput,
+} from "./commands/DeclineInvitationsCommand";
+import type { DeleteAllowListCommandInput, DeleteAllowListCommandOutput } from "./commands/DeleteAllowListCommand";
+import type {
   DeleteCustomDataIdentifierCommandInput,
   DeleteCustomDataIdentifierCommandOutput,
 } from "./commands/DeleteCustomDataIdentifierCommand";
-import {
+import type {
   DeleteFindingsFilterCommandInput,
   DeleteFindingsFilterCommandOutput,
 } from "./commands/DeleteFindingsFilterCommand";
-import { DeleteInvitationsCommandInput, DeleteInvitationsCommandOutput } from "./commands/DeleteInvitationsCommand";
-import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "./commands/DeleteMemberCommand";
-import { DescribeBucketsCommandInput, DescribeBucketsCommandOutput } from "./commands/DescribeBucketsCommand";
-import {
+import type {
+  DeleteInvitationsCommandInput,
+  DeleteInvitationsCommandOutput,
+} from "./commands/DeleteInvitationsCommand";
+import type { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "./commands/DeleteMemberCommand";
+import type { DescribeBucketsCommandInput, DescribeBucketsCommandOutput } from "./commands/DescribeBucketsCommand";
+import type {
   DescribeClassificationJobCommandInput,
   DescribeClassificationJobCommandOutput,
 } from "./commands/DescribeClassificationJobCommand";
-import {
+import type {
   DescribeOrganizationConfigurationCommandInput,
   DescribeOrganizationConfigurationCommandOutput,
 } from "./commands/DescribeOrganizationConfigurationCommand";
-import { DisableMacieCommandInput, DisableMacieCommandOutput } from "./commands/DisableMacieCommand";
-import {
+import type { DisableMacieCommandInput, DisableMacieCommandOutput } from "./commands/DisableMacieCommand";
+import type {
   DisableOrganizationAdminAccountCommandInput,
   DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand";
-import {
+import type {
   DisassociateFromAdministratorAccountCommandInput,
   DisassociateFromAdministratorAccountCommandOutput,
 } from "./commands/DisassociateFromAdministratorAccountCommand";
-import {
+import type {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
 } from "./commands/DisassociateFromMasterAccountCommand";
-import { DisassociateMemberCommandInput, DisassociateMemberCommandOutput } from "./commands/DisassociateMemberCommand";
-import { EnableMacieCommandInput, EnableMacieCommandOutput } from "./commands/EnableMacieCommand";
-import {
+import type {
+  DisassociateMemberCommandInput,
+  DisassociateMemberCommandOutput,
+} from "./commands/DisassociateMemberCommand";
+import type { EnableMacieCommandInput, EnableMacieCommandOutput } from "./commands/EnableMacieCommand";
+import type {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
-import {
+import type {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
-import { GetAllowListCommandInput, GetAllowListCommandOutput } from "./commands/GetAllowListCommand";
-import {
+import type { GetAllowListCommandInput, GetAllowListCommandOutput } from "./commands/GetAllowListCommand";
+import type {
   GetAutomatedDiscoveryConfigurationCommandInput,
   GetAutomatedDiscoveryConfigurationCommandOutput,
 } from "./commands/GetAutomatedDiscoveryConfigurationCommand";
-import {
+import type {
   GetBucketStatisticsCommandInput,
   GetBucketStatisticsCommandOutput,
 } from "./commands/GetBucketStatisticsCommand";
-import {
+import type {
   GetClassificationExportConfigurationCommandInput,
   GetClassificationExportConfigurationCommandOutput,
 } from "./commands/GetClassificationExportConfigurationCommand";
-import {
+import type {
   GetClassificationScopeCommandInput,
   GetClassificationScopeCommandOutput,
 } from "./commands/GetClassificationScopeCommand";
-import {
+import type {
   GetCustomDataIdentifierCommandInput,
   GetCustomDataIdentifierCommandOutput,
 } from "./commands/GetCustomDataIdentifierCommand";
-import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
-import { GetFindingsFilterCommandInput, GetFindingsFilterCommandOutput } from "./commands/GetFindingsFilterCommand";
-import {
+import type { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
+import type {
+  GetFindingsFilterCommandInput,
+  GetFindingsFilterCommandOutput,
+} from "./commands/GetFindingsFilterCommand";
+import type {
   GetFindingsPublicationConfigurationCommandInput,
   GetFindingsPublicationConfigurationCommandOutput,
 } from "./commands/GetFindingsPublicationConfigurationCommand";
-import {
+import type {
   GetFindingStatisticsCommandInput,
   GetFindingStatisticsCommandOutput,
 } from "./commands/GetFindingStatisticsCommand";
-import {
+import type {
   GetInvitationsCountCommandInput,
   GetInvitationsCountCommandOutput,
 } from "./commands/GetInvitationsCountCommand";
-import { GetMacieSessionCommandInput, GetMacieSessionCommandOutput } from "./commands/GetMacieSessionCommand";
-import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
-import { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
-import { GetResourceProfileCommandInput, GetResourceProfileCommandOutput } from "./commands/GetResourceProfileCommand";
-import {
+import type { GetMacieSessionCommandInput, GetMacieSessionCommandOutput } from "./commands/GetMacieSessionCommand";
+import type { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
+import type { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
+import type {
+  GetResourceProfileCommandInput,
+  GetResourceProfileCommandOutput,
+} from "./commands/GetResourceProfileCommand";
+import type {
   GetRevealConfigurationCommandInput,
   GetRevealConfigurationCommandOutput,
 } from "./commands/GetRevealConfigurationCommand";
-import {
+import type {
   GetSensitiveDataOccurrencesAvailabilityCommandInput,
   GetSensitiveDataOccurrencesAvailabilityCommandOutput,
 } from "./commands/GetSensitiveDataOccurrencesAvailabilityCommand";
-import {
+import type {
   GetSensitiveDataOccurrencesCommandInput,
   GetSensitiveDataOccurrencesCommandOutput,
 } from "./commands/GetSensitiveDataOccurrencesCommand";
-import {
+import type {
   GetSensitivityInspectionTemplateCommandInput,
   GetSensitivityInspectionTemplateCommandOutput,
 } from "./commands/GetSensitivityInspectionTemplateCommand";
-import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "./commands/GetUsageStatisticsCommand";
-import { GetUsageTotalsCommandInput, GetUsageTotalsCommandOutput } from "./commands/GetUsageTotalsCommand";
-import { ListAllowListsCommandInput, ListAllowListsCommandOutput } from "./commands/ListAllowListsCommand";
-import {
+import type {
+  GetUsageStatisticsCommandInput,
+  GetUsageStatisticsCommandOutput,
+} from "./commands/GetUsageStatisticsCommand";
+import type { GetUsageTotalsCommandInput, GetUsageTotalsCommandOutput } from "./commands/GetUsageTotalsCommand";
+import type { ListAllowListsCommandInput, ListAllowListsCommandOutput } from "./commands/ListAllowListsCommand";
+import type {
   ListAutomatedDiscoveryAccountsCommandInput,
   ListAutomatedDiscoveryAccountsCommandOutput,
 } from "./commands/ListAutomatedDiscoveryAccountsCommand";
-import {
+import type {
   ListClassificationJobsCommandInput,
   ListClassificationJobsCommandOutput,
 } from "./commands/ListClassificationJobsCommand";
-import {
+import type {
   ListClassificationScopesCommandInput,
   ListClassificationScopesCommandOutput,
 } from "./commands/ListClassificationScopesCommand";
-import {
+import type {
   ListCustomDataIdentifiersCommandInput,
   ListCustomDataIdentifiersCommandOutput,
 } from "./commands/ListCustomDataIdentifiersCommand";
-import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
-import {
+import type { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
+import type {
   ListFindingsFiltersCommandInput,
   ListFindingsFiltersCommandOutput,
 } from "./commands/ListFindingsFiltersCommand";
-import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
-import {
+import type { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
+import type {
   ListManagedDataIdentifiersCommandInput,
   ListManagedDataIdentifiersCommandOutput,
 } from "./commands/ListManagedDataIdentifiersCommand";
-import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
-import {
+import type { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import type {
   ListOrganizationAdminAccountsCommandInput,
   ListOrganizationAdminAccountsCommandOutput,
 } from "./commands/ListOrganizationAdminAccountsCommand";
-import {
+import type {
   ListResourceProfileArtifactsCommandInput,
   ListResourceProfileArtifactsCommandOutput,
 } from "./commands/ListResourceProfileArtifactsCommand";
-import {
+import type {
   ListResourceProfileDetectionsCommandInput,
   ListResourceProfileDetectionsCommandOutput,
 } from "./commands/ListResourceProfileDetectionsCommand";
-import {
+import type {
   ListSensitivityInspectionTemplatesCommandInput,
   ListSensitivityInspectionTemplatesCommandOutput,
 } from "./commands/ListSensitivityInspectionTemplatesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutClassificationExportConfigurationCommandInput,
   PutClassificationExportConfigurationCommandOutput,
 } from "./commands/PutClassificationExportConfigurationCommand";
-import {
+import type {
   PutFindingsPublicationConfigurationCommandInput,
   PutFindingsPublicationConfigurationCommandOutput,
 } from "./commands/PutFindingsPublicationConfigurationCommand";
-import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "./commands/SearchResourcesCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "./commands/SearchResourcesCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   TestCustomDataIdentifierCommandInput,
   TestCustomDataIdentifierCommandOutput,
 } from "./commands/TestCustomDataIdentifierCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAllowListCommandInput, UpdateAllowListCommandOutput } from "./commands/UpdateAllowListCommand";
-import {
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAllowListCommandInput, UpdateAllowListCommandOutput } from "./commands/UpdateAllowListCommand";
+import type {
   UpdateAutomatedDiscoveryConfigurationCommandInput,
   UpdateAutomatedDiscoveryConfigurationCommandOutput,
 } from "./commands/UpdateAutomatedDiscoveryConfigurationCommand";
-import {
+import type {
   UpdateClassificationJobCommandInput,
   UpdateClassificationJobCommandOutput,
 } from "./commands/UpdateClassificationJobCommand";
-import {
+import type {
   UpdateClassificationScopeCommandInput,
   UpdateClassificationScopeCommandOutput,
 } from "./commands/UpdateClassificationScopeCommand";
-import {
+import type {
   UpdateFindingsFilterCommandInput,
   UpdateFindingsFilterCommandOutput,
 } from "./commands/UpdateFindingsFilterCommand";
-import { UpdateMacieSessionCommandInput, UpdateMacieSessionCommandOutput } from "./commands/UpdateMacieSessionCommand";
-import {
+import type {
+  UpdateMacieSessionCommandInput,
+  UpdateMacieSessionCommandOutput,
+} from "./commands/UpdateMacieSessionCommand";
+import type {
   UpdateMemberSessionCommandInput,
   UpdateMemberSessionCommandOutput,
 } from "./commands/UpdateMemberSessionCommand";
-import {
+import type {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
-import {
+import type {
   UpdateResourceProfileCommandInput,
   UpdateResourceProfileCommandOutput,
 } from "./commands/UpdateResourceProfileCommand";
-import {
+import type {
   UpdateResourceProfileDetectionsCommandInput,
   UpdateResourceProfileDetectionsCommandOutput,
 } from "./commands/UpdateResourceProfileDetectionsCommand";
-import {
+import type {
   UpdateRevealConfigurationCommandInput,
   UpdateRevealConfigurationCommandOutput,
 } from "./commands/UpdateRevealConfigurationCommand";
-import {
+import type {
   UpdateSensitivityInspectionTemplateCommandInput,
   UpdateSensitivityInspectionTemplateCommandOutput,
 } from "./commands/UpdateSensitivityInspectionTemplateCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -594,7 +616,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

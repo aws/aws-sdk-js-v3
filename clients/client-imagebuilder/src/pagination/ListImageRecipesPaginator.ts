@@ -8,7 +8,7 @@ import {
   ListImageRecipesCommandOutput,
 } from "../commands/ListImageRecipesCommand";
 import { ImagebuilderClient } from "../ImagebuilderClient";
-import { ImagebuilderPaginationConfiguration } from "./Interfaces";
+import type { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

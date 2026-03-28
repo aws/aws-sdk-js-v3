@@ -8,7 +8,7 @@ import {
   ListBlueprintsCommandInput,
   ListBlueprintsCommandOutput,
 } from "../commands/ListBlueprintsCommand";
-import { BedrockDataAutomationPaginationConfiguration } from "./Interfaces";
+import type { BedrockDataAutomationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

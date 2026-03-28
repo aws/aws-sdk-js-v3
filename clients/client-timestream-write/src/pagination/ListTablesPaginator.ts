@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
 import { TimestreamWriteClient } from "../TimestreamWriteClient";
-import { TimestreamWritePaginationConfiguration } from "./Interfaces";
+import type { TimestreamWritePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

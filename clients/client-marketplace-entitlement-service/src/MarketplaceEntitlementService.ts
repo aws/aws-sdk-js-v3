@@ -3,9 +3,9 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type GetEntitlementsCommandInput,
+  type GetEntitlementsCommandOutput,
   GetEntitlementsCommand,
-  GetEntitlementsCommandInput,
-  GetEntitlementsCommandOutput,
 } from "./commands/GetEntitlementsCommand";
 import { MarketplaceEntitlementServiceClient } from "./MarketplaceEntitlementServiceClient";
 import { paginateGetEntitlements } from "./pagination/GetEntitlementsPaginator";

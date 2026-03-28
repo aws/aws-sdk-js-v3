@@ -3,12 +3,12 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CloudSearchDomainClient } from "./CloudSearchDomainClient";
-import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
-import { SuggestCommand, SuggestCommandInput, SuggestCommandOutput } from "./commands/SuggestCommand";
+import { type SearchCommandInput, type SearchCommandOutput, SearchCommand } from "./commands/SearchCommand";
+import { type SuggestCommandInput, type SuggestCommandOutput, SuggestCommand } from "./commands/SuggestCommand";
 import {
+  type UploadDocumentsCommandInput,
+  type UploadDocumentsCommandOutput,
   UploadDocumentsCommand,
-  UploadDocumentsCommandInput,
-  UploadDocumentsCommandOutput,
 } from "./commands/UploadDocumentsCommand";
 
 const commands = {

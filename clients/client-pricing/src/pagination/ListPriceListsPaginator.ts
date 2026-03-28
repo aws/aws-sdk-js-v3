@@ -8,7 +8,7 @@ import {
   ListPriceListsCommandOutput,
 } from "../commands/ListPriceListsCommand";
 import { PricingClient } from "../PricingClient";
-import { PricingPaginationConfiguration } from "./Interfaces";
+import type { PricingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

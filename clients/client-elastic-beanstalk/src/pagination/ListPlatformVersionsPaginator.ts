@@ -8,7 +8,7 @@ import {
   ListPlatformVersionsCommandOutput,
 } from "../commands/ListPlatformVersionsCommand";
 import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
-import { ElasticBeanstalkPaginationConfiguration } from "./Interfaces";
+import type { ElasticBeanstalkPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

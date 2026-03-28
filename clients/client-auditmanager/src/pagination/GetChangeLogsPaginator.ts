@@ -8,7 +8,7 @@ import {
   GetChangeLogsCommandInput,
   GetChangeLogsCommandOutput,
 } from "../commands/GetChangeLogsCommand";
-import { AuditManagerPaginationConfiguration } from "./Interfaces";
+import type { AuditManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   _InstanceType,
   AddressAttributeName,
   AmdSevSnpSpecification,
@@ -58,51 +58,41 @@ import {
   VpcTenancy,
   VpnEcmpSupportValue,
 } from "./enums";
-import {
-  type AddressAttribute,
-  type ByoipCidr,
-  type CapacityReservation,
-  type ClientVpnAuthorizationRuleStatus,
-  type IamInstanceProfileAssociation,
-  type IamInstanceProfileSpecification,
-  type PortRange,
-  type RouteTableAssociationState,
-  type TransitGatewayMulticastDomainAssociations,
-  type TransitGatewayPeeringAttachment,
-  type TransitGatewayVpcAttachment,
-  type VerifiedAccessInstance,
-  type VerifiedAccessSseSpecificationResponse,
-  type VerifiedAccessTrustProvider,
-  type VpcEncryptionControl,
+import type {
   AddedPrincipal,
+  AddressAttribute,
+  ByoipCidr,
+  CapacityReservation,
+  ClientVpnAuthorizationRuleStatus,
+  IamInstanceProfileAssociation,
+  IamInstanceProfileSpecification,
   IpPermission,
   NatGatewayAddress,
+  PortRange,
+  RouteTableAssociationState,
   TagSpecification,
+  TransitGatewayMulticastDomainAssociations,
+  TransitGatewayPeeringAttachment,
+  TransitGatewayVpcAttachment,
   UnsuccessfulItem,
+  VerifiedAccessInstance,
+  VerifiedAccessSseSpecificationResponse,
+  VerifiedAccessTrustProvider,
+  VpcEncryptionControl,
 } from "./models_0";
-import {
-  type CreditSpecificationRequest,
-  type IcmpTypeCode,
-  type ManagedPrefixList,
-  type OperatorRequest,
-  type Placement,
+import type {
   BlockDeviceMapping,
+  CreditSpecificationRequest,
   ElasticGpuSpecification,
+  IcmpTypeCode,
   InstanceIpv6Address,
   LocalGatewayRoute,
+  ManagedPrefixList,
+  OperatorRequest,
+  Placement,
 } from "./models_1";
-import {
-  type DnsOptionsSpecification,
-  type TrafficMirrorSession,
-  type TransitGateway,
-  type TransitGatewayMeteringPolicy,
-  type TransitGatewayPrefixListReference,
-  type VerifiedAccessEndpoint,
-  type VerifiedAccessGroup,
-  type VerifiedAccessSseSpecificationRequest,
-  type VpcBlockPublicAccessExclusion,
-  type VpnConnection,
-  type VpnTunnelLogOptionsSpecification,
+import type {
+  DnsOptionsSpecification,
   IKEVersionsRequestListValue,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsRequestListValue,
@@ -111,37 +101,47 @@ import {
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
   SubnetConfiguration,
+  TrafficMirrorSession,
+  TransitGateway,
+  TransitGatewayMeteringPolicy,
+  TransitGatewayPrefixListReference,
   TransitGatewayRoute,
+  VerifiedAccessEndpoint,
+  VerifiedAccessGroup,
+  VerifiedAccessSseSpecificationRequest,
+  VpcBlockPublicAccessExclusion,
+  VpnConnection,
+  VpnTunnelLogOptionsSpecification,
 } from "./models_2";
-import {
-  type AttributeBooleanValue,
-  type Byoasn,
-  type ClientVpnConnectionStatus,
-  type InstanceTagNotificationAttribute,
-  type IpamPoolCidr,
+import type {
+  AttributeBooleanValue,
+  Byoasn,
   CapacityBlock,
   CapacityBlockExtension,
+  ClientVpnConnectionStatus,
   Filter,
+  InstanceTagNotificationAttribute,
+  IpamPoolCidr,
 } from "./models_3";
-import {
-  type InstanceState,
-  type Monitoring,
-  type NetworkInsightsAccessScopeAnalysis,
-  type NetworkInsightsAnalysis,
-  type PublicIpv4PoolRange,
-  type RunInstancesMonitoringEnabled,
-  type SpotFleetRequestConfigData,
-  type SpotPlacement,
+import type {
   InstanceNetworkInterfaceSpecification,
+  InstanceState,
+  Monitoring,
+  NetworkInsightsAccessScopeAnalysis,
+  NetworkInsightsAnalysis,
+  PublicIpv4PoolRange,
+  RunInstancesMonitoringEnabled,
   ScheduledInstance,
+  SpotFleetRequestConfigData,
   SpotInstanceRequest,
+  SpotPlacement,
 } from "./models_4";
 import type {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
   VpcBlockPublicAccessOptions,
 } from "./models_5";
-import { type CapacityReservationSpecification, Purchase } from "./models_6";
+import type { CapacityReservationSpecification, Purchase } from "./models_6";
 
 /**
  * @public

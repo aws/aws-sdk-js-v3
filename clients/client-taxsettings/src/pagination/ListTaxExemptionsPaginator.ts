@@ -8,7 +8,7 @@ import {
   ListTaxExemptionsCommandOutput,
 } from "../commands/ListTaxExemptionsCommand";
 import { TaxSettingsClient } from "../TaxSettingsClient";
-import { TaxSettingsPaginationConfiguration } from "./Interfaces";
+import type { TaxSettingsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

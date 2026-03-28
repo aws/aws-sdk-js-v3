@@ -8,7 +8,7 @@ import {
   GetCoreNetworkChangeSetCommandOutput,
 } from "../commands/GetCoreNetworkChangeSetCommand";
 import { NetworkManagerClient } from "../NetworkManagerClient";
-import { NetworkManagerPaginationConfiguration } from "./Interfaces";
+import type { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

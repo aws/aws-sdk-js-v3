@@ -8,7 +8,7 @@ import {
   ListFunctionsCommandInput,
   ListFunctionsCommandOutput,
 } from "../commands/ListFunctionsCommand";
-import { AppSyncPaginationConfiguration } from "./Interfaces";
+import type { AppSyncPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

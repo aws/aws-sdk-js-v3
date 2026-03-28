@@ -8,7 +8,7 @@ import {
   ListCopyJobSummariesCommandInput,
   ListCopyJobSummariesCommandOutput,
 } from "../commands/ListCopyJobSummariesCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

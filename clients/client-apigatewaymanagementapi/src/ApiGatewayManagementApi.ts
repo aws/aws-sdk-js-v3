@@ -4,19 +4,19 @@ import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { ApiGatewayManagementApiClient } from "./ApiGatewayManagementApiClient";
 import {
+  type DeleteConnectionCommandInput,
+  type DeleteConnectionCommandOutput,
   DeleteConnectionCommand,
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
+  type GetConnectionCommandInput,
+  type GetConnectionCommandOutput,
   GetConnectionCommand,
-  GetConnectionCommandInput,
-  GetConnectionCommandOutput,
 } from "./commands/GetConnectionCommand";
 import {
+  type PostToConnectionCommandInput,
+  type PostToConnectionCommandOutput,
   PostToConnectionCommand,
-  PostToConnectionCommandInput,
-  PostToConnectionCommandOutput,
 } from "./commands/PostToConnectionCommand";
 
 const commands = {

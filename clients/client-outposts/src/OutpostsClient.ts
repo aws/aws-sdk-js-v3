@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,66 +61,81 @@ import {
   defaultOutpostsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelCapacityTaskCommandInput, CancelCapacityTaskCommandOutput } from "./commands/CancelCapacityTaskCommand";
-import { CancelOrderCommandInput, CancelOrderCommandOutput } from "./commands/CancelOrderCommand";
-import { CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
-import { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "./commands/CreateOutpostCommand";
-import { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
-import { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "./commands/DeleteOutpostCommand";
-import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
-import { GetCapacityTaskCommandInput, GetCapacityTaskCommandOutput } from "./commands/GetCapacityTaskCommand";
-import { GetCatalogItemCommandInput, GetCatalogItemCommandOutput } from "./commands/GetCatalogItemCommand";
-import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
-import { GetOrderCommandInput, GetOrderCommandOutput } from "./commands/GetOrderCommand";
-import {
+import type {
+  CancelCapacityTaskCommandInput,
+  CancelCapacityTaskCommandOutput,
+} from "./commands/CancelCapacityTaskCommand";
+import type { CancelOrderCommandInput, CancelOrderCommandOutput } from "./commands/CancelOrderCommand";
+import type { CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
+import type { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "./commands/CreateOutpostCommand";
+import type { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
+import type { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "./commands/DeleteOutpostCommand";
+import type { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
+import type { GetCapacityTaskCommandInput, GetCapacityTaskCommandOutput } from "./commands/GetCapacityTaskCommand";
+import type { GetCatalogItemCommandInput, GetCatalogItemCommandOutput } from "./commands/GetCatalogItemCommand";
+import type { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
+import type { GetOrderCommandInput, GetOrderCommandOutput } from "./commands/GetOrderCommand";
+import type {
   GetOutpostBillingInformationCommandInput,
   GetOutpostBillingInformationCommandOutput,
 } from "./commands/GetOutpostBillingInformationCommand";
-import { GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
-import {
+import type { GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
+import type {
   GetOutpostInstanceTypesCommandInput,
   GetOutpostInstanceTypesCommandOutput,
 } from "./commands/GetOutpostInstanceTypesCommand";
-import {
+import type {
   GetOutpostSupportedInstanceTypesCommandInput,
   GetOutpostSupportedInstanceTypesCommandOutput,
 } from "./commands/GetOutpostSupportedInstanceTypesCommand";
-import { GetSiteAddressCommandInput, GetSiteAddressCommandOutput } from "./commands/GetSiteAddressCommand";
-import { GetSiteCommandInput, GetSiteCommandOutput } from "./commands/GetSiteCommand";
-import { ListAssetInstancesCommandInput, ListAssetInstancesCommandOutput } from "./commands/ListAssetInstancesCommand";
-import { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
-import {
+import type { GetSiteAddressCommandInput, GetSiteAddressCommandOutput } from "./commands/GetSiteAddressCommand";
+import type { GetSiteCommandInput, GetSiteCommandOutput } from "./commands/GetSiteCommand";
+import type {
+  ListAssetInstancesCommandInput,
+  ListAssetInstancesCommandOutput,
+} from "./commands/ListAssetInstancesCommand";
+import type { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
+import type {
   ListBlockingInstancesForCapacityTaskCommandInput,
   ListBlockingInstancesForCapacityTaskCommandOutput,
 } from "./commands/ListBlockingInstancesForCapacityTaskCommand";
-import { ListCapacityTasksCommandInput, ListCapacityTasksCommandOutput } from "./commands/ListCapacityTasksCommand";
-import { ListCatalogItemsCommandInput, ListCatalogItemsCommandOutput } from "./commands/ListCatalogItemsCommand";
-import { ListOrdersCommandInput, ListOrdersCommandOutput } from "./commands/ListOrdersCommand";
-import { ListOutpostsCommandInput, ListOutpostsCommandOutput } from "./commands/ListOutpostsCommand";
-import { ListSitesCommandInput, ListSitesCommandOutput } from "./commands/ListSitesCommand";
-import {
+import type {
+  ListCapacityTasksCommandInput,
+  ListCapacityTasksCommandOutput,
+} from "./commands/ListCapacityTasksCommand";
+import type { ListCatalogItemsCommandInput, ListCatalogItemsCommandOutput } from "./commands/ListCatalogItemsCommand";
+import type { ListOrdersCommandInput, ListOrdersCommandOutput } from "./commands/ListOrdersCommand";
+import type { ListOutpostsCommandInput, ListOutpostsCommandOutput } from "./commands/ListOutpostsCommand";
+import type { ListSitesCommandInput, ListSitesCommandOutput } from "./commands/ListSitesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartCapacityTaskCommandInput, StartCapacityTaskCommandOutput } from "./commands/StartCapacityTaskCommand";
-import { StartConnectionCommandInput, StartConnectionCommandOutput } from "./commands/StartConnectionCommand";
-import {
+import type {
+  StartCapacityTaskCommandInput,
+  StartCapacityTaskCommandOutput,
+} from "./commands/StartCapacityTaskCommand";
+import type { StartConnectionCommandInput, StartConnectionCommandOutput } from "./commands/StartConnectionCommand";
+import type {
   StartOutpostDecommissionCommandInput,
   StartOutpostDecommissionCommandOutput,
 } from "./commands/StartOutpostDecommissionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateOutpostCommandInput, UpdateOutpostCommandOutput } from "./commands/UpdateOutpostCommand";
-import { UpdateSiteAddressCommandInput, UpdateSiteAddressCommandOutput } from "./commands/UpdateSiteAddressCommand";
-import { UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateOutpostCommandInput, UpdateOutpostCommandOutput } from "./commands/UpdateOutpostCommand";
+import type {
+  UpdateSiteAddressCommandInput,
+  UpdateSiteAddressCommandOutput,
+} from "./commands/UpdateSiteAddressCommand";
+import type { UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
+import type {
   UpdateSiteRackPhysicalPropertiesCommandInput,
   UpdateSiteRackPhysicalPropertiesCommandOutput,
 } from "./commands/UpdateSiteRackPhysicalPropertiesCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -324,7 +337,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

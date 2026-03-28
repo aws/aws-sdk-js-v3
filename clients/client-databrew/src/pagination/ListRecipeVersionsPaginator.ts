@@ -8,7 +8,7 @@ import {
   ListRecipeVersionsCommandOutput,
 } from "../commands/ListRecipeVersionsCommand";
 import { DataBrewClient } from "../DataBrewClient";
-import { DataBrewPaginationConfiguration } from "./Interfaces";
+import type { DataBrewPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListInvalidationsForDistributionTenantCommandInput,
   ListInvalidationsForDistributionTenantCommandOutput,
 } from "../commands/ListInvalidationsForDistributionTenantCommand";
-import { CloudFrontPaginationConfiguration } from "./Interfaces";
+import type { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

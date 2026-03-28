@@ -8,7 +8,7 @@ import {
   DescribeScheduledActionsCommandInput,
   DescribeScheduledActionsCommandOutput,
 } from "../commands/DescribeScheduledActionsCommand";
-import { ApplicationAutoScalingPaginationConfiguration } from "./Interfaces";
+import type { ApplicationAutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

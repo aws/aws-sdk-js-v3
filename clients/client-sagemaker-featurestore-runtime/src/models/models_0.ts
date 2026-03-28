@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { DeletionMode, ExpirationTimeResponse, TargetStore, TtlDurationUnit } from "./enums";
+import type { DeletionMode, ExpirationTimeResponse, TargetStore, TtlDurationUnit } from "./enums";
 
 /**
  * <p>The identifier that identifies the batch of Records you are retrieving in a

@@ -11,7 +11,7 @@
  */
 export * from "./SchedulerClient";
 export * from "./Scheduler";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SchedulerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

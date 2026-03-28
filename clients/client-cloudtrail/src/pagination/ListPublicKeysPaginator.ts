@@ -8,7 +8,7 @@ import {
   ListPublicKeysCommandInput,
   ListPublicKeysCommandOutput,
 } from "../commands/ListPublicKeysCommand";
-import { CloudTrailPaginationConfiguration } from "./Interfaces";
+import type { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

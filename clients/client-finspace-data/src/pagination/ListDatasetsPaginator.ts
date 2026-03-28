@@ -8,7 +8,7 @@ import {
   ListDatasetsCommandOutput,
 } from "../commands/ListDatasetsCommand";
 import { FinspaceDataClient } from "../FinspaceDataClient";
-import { FinspaceDataPaginationConfiguration } from "./Interfaces";
+import type { FinspaceDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

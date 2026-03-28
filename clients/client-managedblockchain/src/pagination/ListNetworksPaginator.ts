@@ -8,7 +8,7 @@ import {
   ListNetworksCommandOutput,
 } from "../commands/ListNetworksCommand";
 import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
-import { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
+import type { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

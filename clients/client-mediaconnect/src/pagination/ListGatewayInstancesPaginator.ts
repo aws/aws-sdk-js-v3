@@ -8,7 +8,7 @@ import {
   ListGatewayInstancesCommandOutput,
 } from "../commands/ListGatewayInstancesCommand";
 import { MediaConnectClient } from "../MediaConnectClient";
-import { MediaConnectPaginationConfiguration } from "./Interfaces";
+import type { MediaConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

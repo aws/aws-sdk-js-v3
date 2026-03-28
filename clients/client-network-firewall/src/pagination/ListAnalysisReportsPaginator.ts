@@ -8,7 +8,7 @@ import {
   ListAnalysisReportsCommandOutput,
 } from "../commands/ListAnalysisReportsCommand";
 import { NetworkFirewallClient } from "../NetworkFirewallClient";
-import { NetworkFirewallPaginationConfiguration } from "./Interfaces";
+import type { NetworkFirewallPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

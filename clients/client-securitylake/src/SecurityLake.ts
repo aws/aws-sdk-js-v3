@@ -3,155 +3,159 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateAwsLogSourceCommandInput,
+  type CreateAwsLogSourceCommandOutput,
   CreateAwsLogSourceCommand,
-  CreateAwsLogSourceCommandInput,
-  CreateAwsLogSourceCommandOutput,
 } from "./commands/CreateAwsLogSourceCommand";
 import {
+  type CreateCustomLogSourceCommandInput,
+  type CreateCustomLogSourceCommandOutput,
   CreateCustomLogSourceCommand,
-  CreateCustomLogSourceCommandInput,
-  CreateCustomLogSourceCommandOutput,
 } from "./commands/CreateCustomLogSourceCommand";
 import {
+  type CreateDataLakeCommandInput,
+  type CreateDataLakeCommandOutput,
   CreateDataLakeCommand,
-  CreateDataLakeCommandInput,
-  CreateDataLakeCommandOutput,
 } from "./commands/CreateDataLakeCommand";
 import {
+  type CreateDataLakeExceptionSubscriptionCommandInput,
+  type CreateDataLakeExceptionSubscriptionCommandOutput,
   CreateDataLakeExceptionSubscriptionCommand,
-  CreateDataLakeExceptionSubscriptionCommandInput,
-  CreateDataLakeExceptionSubscriptionCommandOutput,
 } from "./commands/CreateDataLakeExceptionSubscriptionCommand";
 import {
+  type CreateDataLakeOrganizationConfigurationCommandInput,
+  type CreateDataLakeOrganizationConfigurationCommandOutput,
   CreateDataLakeOrganizationConfigurationCommand,
-  CreateDataLakeOrganizationConfigurationCommandInput,
-  CreateDataLakeOrganizationConfigurationCommandOutput,
 } from "./commands/CreateDataLakeOrganizationConfigurationCommand";
 import {
+  type CreateSubscriberCommandInput,
+  type CreateSubscriberCommandOutput,
   CreateSubscriberCommand,
-  CreateSubscriberCommandInput,
-  CreateSubscriberCommandOutput,
 } from "./commands/CreateSubscriberCommand";
 import {
+  type CreateSubscriberNotificationCommandInput,
+  type CreateSubscriberNotificationCommandOutput,
   CreateSubscriberNotificationCommand,
-  CreateSubscriberNotificationCommandInput,
-  CreateSubscriberNotificationCommandOutput,
 } from "./commands/CreateSubscriberNotificationCommand";
 import {
+  type DeleteAwsLogSourceCommandInput,
+  type DeleteAwsLogSourceCommandOutput,
   DeleteAwsLogSourceCommand,
-  DeleteAwsLogSourceCommandInput,
-  DeleteAwsLogSourceCommandOutput,
 } from "./commands/DeleteAwsLogSourceCommand";
 import {
+  type DeleteCustomLogSourceCommandInput,
+  type DeleteCustomLogSourceCommandOutput,
   DeleteCustomLogSourceCommand,
-  DeleteCustomLogSourceCommandInput,
-  DeleteCustomLogSourceCommandOutput,
 } from "./commands/DeleteCustomLogSourceCommand";
 import {
+  type DeleteDataLakeCommandInput,
+  type DeleteDataLakeCommandOutput,
   DeleteDataLakeCommand,
-  DeleteDataLakeCommandInput,
-  DeleteDataLakeCommandOutput,
 } from "./commands/DeleteDataLakeCommand";
 import {
+  type DeleteDataLakeExceptionSubscriptionCommandInput,
+  type DeleteDataLakeExceptionSubscriptionCommandOutput,
   DeleteDataLakeExceptionSubscriptionCommand,
-  DeleteDataLakeExceptionSubscriptionCommandInput,
-  DeleteDataLakeExceptionSubscriptionCommandOutput,
 } from "./commands/DeleteDataLakeExceptionSubscriptionCommand";
 import {
+  type DeleteDataLakeOrganizationConfigurationCommandInput,
+  type DeleteDataLakeOrganizationConfigurationCommandOutput,
   DeleteDataLakeOrganizationConfigurationCommand,
-  DeleteDataLakeOrganizationConfigurationCommandInput,
-  DeleteDataLakeOrganizationConfigurationCommandOutput,
 } from "./commands/DeleteDataLakeOrganizationConfigurationCommand";
 import {
+  type DeleteSubscriberCommandInput,
+  type DeleteSubscriberCommandOutput,
   DeleteSubscriberCommand,
-  DeleteSubscriberCommandInput,
-  DeleteSubscriberCommandOutput,
 } from "./commands/DeleteSubscriberCommand";
 import {
+  type DeleteSubscriberNotificationCommandInput,
+  type DeleteSubscriberNotificationCommandOutput,
   DeleteSubscriberNotificationCommand,
-  DeleteSubscriberNotificationCommandInput,
-  DeleteSubscriberNotificationCommandOutput,
 } from "./commands/DeleteSubscriberNotificationCommand";
 import {
+  type DeregisterDataLakeDelegatedAdministratorCommandInput,
+  type DeregisterDataLakeDelegatedAdministratorCommandOutput,
   DeregisterDataLakeDelegatedAdministratorCommand,
-  DeregisterDataLakeDelegatedAdministratorCommandInput,
-  DeregisterDataLakeDelegatedAdministratorCommandOutput,
 } from "./commands/DeregisterDataLakeDelegatedAdministratorCommand";
 import {
+  type GetDataLakeExceptionSubscriptionCommandInput,
+  type GetDataLakeExceptionSubscriptionCommandOutput,
   GetDataLakeExceptionSubscriptionCommand,
-  GetDataLakeExceptionSubscriptionCommandInput,
-  GetDataLakeExceptionSubscriptionCommandOutput,
 } from "./commands/GetDataLakeExceptionSubscriptionCommand";
 import {
+  type GetDataLakeOrganizationConfigurationCommandInput,
+  type GetDataLakeOrganizationConfigurationCommandOutput,
   GetDataLakeOrganizationConfigurationCommand,
-  GetDataLakeOrganizationConfigurationCommandInput,
-  GetDataLakeOrganizationConfigurationCommandOutput,
 } from "./commands/GetDataLakeOrganizationConfigurationCommand";
 import {
+  type GetDataLakeSourcesCommandInput,
+  type GetDataLakeSourcesCommandOutput,
   GetDataLakeSourcesCommand,
-  GetDataLakeSourcesCommandInput,
-  GetDataLakeSourcesCommandOutput,
 } from "./commands/GetDataLakeSourcesCommand";
 import {
+  type GetSubscriberCommandInput,
+  type GetSubscriberCommandOutput,
   GetSubscriberCommand,
-  GetSubscriberCommandInput,
-  GetSubscriberCommandOutput,
 } from "./commands/GetSubscriberCommand";
 import {
+  type ListDataLakeExceptionsCommandInput,
+  type ListDataLakeExceptionsCommandOutput,
   ListDataLakeExceptionsCommand,
-  ListDataLakeExceptionsCommandInput,
-  ListDataLakeExceptionsCommandOutput,
 } from "./commands/ListDataLakeExceptionsCommand";
 import {
+  type ListDataLakesCommandInput,
+  type ListDataLakesCommandOutput,
   ListDataLakesCommand,
-  ListDataLakesCommandInput,
-  ListDataLakesCommandOutput,
 } from "./commands/ListDataLakesCommand";
 import {
+  type ListLogSourcesCommandInput,
+  type ListLogSourcesCommandOutput,
   ListLogSourcesCommand,
-  ListLogSourcesCommandInput,
-  ListLogSourcesCommandOutput,
 } from "./commands/ListLogSourcesCommand";
 import {
+  type ListSubscribersCommandInput,
+  type ListSubscribersCommandOutput,
   ListSubscribersCommand,
-  ListSubscribersCommandInput,
-  ListSubscribersCommandOutput,
 } from "./commands/ListSubscribersCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RegisterDataLakeDelegatedAdministratorCommandInput,
+  type RegisterDataLakeDelegatedAdministratorCommandOutput,
   RegisterDataLakeDelegatedAdministratorCommand,
-  RegisterDataLakeDelegatedAdministratorCommandInput,
-  RegisterDataLakeDelegatedAdministratorCommandOutput,
 } from "./commands/RegisterDataLakeDelegatedAdministratorCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDataLakeCommandInput,
+  type UpdateDataLakeCommandOutput,
   UpdateDataLakeCommand,
-  UpdateDataLakeCommandInput,
-  UpdateDataLakeCommandOutput,
 } from "./commands/UpdateDataLakeCommand";
 import {
+  type UpdateDataLakeExceptionSubscriptionCommandInput,
+  type UpdateDataLakeExceptionSubscriptionCommandOutput,
   UpdateDataLakeExceptionSubscriptionCommand,
-  UpdateDataLakeExceptionSubscriptionCommandInput,
-  UpdateDataLakeExceptionSubscriptionCommandOutput,
 } from "./commands/UpdateDataLakeExceptionSubscriptionCommand";
 import {
+  type UpdateSubscriberCommandInput,
+  type UpdateSubscriberCommandOutput,
   UpdateSubscriberCommand,
-  UpdateSubscriberCommandInput,
-  UpdateSubscriberCommandOutput,
 } from "./commands/UpdateSubscriberCommand";
 import {
+  type UpdateSubscriberNotificationCommandInput,
+  type UpdateSubscriberNotificationCommandOutput,
   UpdateSubscriberNotificationCommand,
-  UpdateSubscriberNotificationCommandInput,
-  UpdateSubscriberNotificationCommandOutput,
 } from "./commands/UpdateSubscriberNotificationCommand";
 import { paginateGetDataLakeSources } from "./pagination/GetDataLakeSourcesPaginator";
 import { paginateListDataLakeExceptions } from "./pagination/ListDataLakeExceptionsPaginator";

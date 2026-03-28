@@ -8,7 +8,7 @@ import {
   ListConnectorsCommandOutput,
 } from "../commands/ListConnectorsCommand";
 import { PcaConnectorAdClient } from "../PcaConnectorAdClient";
-import { PcaConnectorAdPaginationConfiguration } from "./Interfaces";
+import type { PcaConnectorAdPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

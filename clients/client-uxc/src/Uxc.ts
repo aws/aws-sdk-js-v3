@@ -3,19 +3,19 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type GetAccountCustomizationsCommandInput,
+  type GetAccountCustomizationsCommandOutput,
   GetAccountCustomizationsCommand,
-  GetAccountCustomizationsCommandInput,
-  GetAccountCustomizationsCommandOutput,
 } from "./commands/GetAccountCustomizationsCommand";
 import {
+  type ListServicesCommandInput,
+  type ListServicesCommandOutput,
   ListServicesCommand,
-  ListServicesCommandInput,
-  ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
+  type UpdateAccountCustomizationsCommandInput,
+  type UpdateAccountCustomizationsCommandOutput,
   UpdateAccountCustomizationsCommand,
-  UpdateAccountCustomizationsCommandInput,
-  UpdateAccountCustomizationsCommandOutput,
 } from "./commands/UpdateAccountCustomizationsCommand";
 import { paginateListServices } from "./pagination/ListServicesPaginator";
 import { UxcClient } from "./UxcClient";

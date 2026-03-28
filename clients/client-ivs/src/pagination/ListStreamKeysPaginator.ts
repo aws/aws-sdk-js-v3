@@ -8,7 +8,7 @@ import {
   ListStreamKeysCommandOutput,
 } from "../commands/ListStreamKeysCommand";
 import { IvsClient } from "../IvsClient";
-import { IvsPaginationConfiguration } from "./Interfaces";
+import type { IvsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

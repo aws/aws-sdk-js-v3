@@ -8,7 +8,7 @@ import {
   ListDeploymentPatternVersionsCommandOutput,
 } from "../commands/ListDeploymentPatternVersionsCommand";
 import { LaunchWizardClient } from "../LaunchWizardClient";
-import { LaunchWizardPaginationConfiguration } from "./Interfaces";
+import type { LaunchWizardPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

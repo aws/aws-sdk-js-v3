@@ -8,7 +8,7 @@ import {
   ListPullRequestsCommandInput,
   ListPullRequestsCommandOutput,
 } from "../commands/ListPullRequestsCommand";
-import { CodeCommitPaginationConfiguration } from "./Interfaces";
+import type { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

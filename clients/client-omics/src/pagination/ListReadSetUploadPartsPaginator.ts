@@ -8,7 +8,7 @@ import {
   ListReadSetUploadPartsCommandOutput,
 } from "../commands/ListReadSetUploadPartsCommand";
 import { OmicsClient } from "../OmicsClient";
-import { OmicsPaginationConfiguration } from "./Interfaces";
+import type { OmicsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListMLInputChannelsCommandInput,
   ListMLInputChannelsCommandOutput,
 } from "../commands/ListMLInputChannelsCommand";
-import { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -31,87 +31,96 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  type DocumentType as __DocumentType,
   type Endpoint as __Endpoint,
   type ResponseMetadata as __ResponseMetadata,
   type SerdeContext as __SerdeContext,
-  DocumentType as __DocumentType,
   HeaderBag as __HeaderBag,
 } from "@smithy/types";
 
-import {
+import type {
   ContentTypeParametersCommandInput,
   ContentTypeParametersCommandOutput,
 } from "../commands/ContentTypeParametersCommand";
-import {
+import type {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "../commands/EmptyInputAndEmptyOutputCommand";
-import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "../commands/EndpointOperationCommand";
-import {
+import type {
+  EndpointOperationCommandInput,
+  EndpointOperationCommandOutput,
+} from "../commands/EndpointOperationCommand";
+import type {
   EndpointWithHostLabelOperationCommandInput,
   EndpointWithHostLabelOperationCommandOutput,
 } from "../commands/EndpointWithHostLabelOperationCommand";
-import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
-import {
+import type {
+  GreetingWithErrorsCommandInput,
+  GreetingWithErrorsCommandOutput,
+} from "../commands/GreetingWithErrorsCommand";
+import type {
   HostWithPathOperationCommandInput,
   HostWithPathOperationCommandOutput,
 } from "../commands/HostWithPathOperationCommand";
-import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "../commands/JsonUnionsCommand";
-import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "../commands/NoInputAndNoOutputCommand";
-import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "../commands/NoInputAndOutputCommand";
-import {
+import type { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "../commands/JsonUnionsCommand";
+import type {
+  NoInputAndNoOutputCommandInput,
+  NoInputAndNoOutputCommandOutput,
+} from "../commands/NoInputAndNoOutputCommand";
+import type { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "../commands/NoInputAndOutputCommand";
+import type {
   OperationWithDefaultsCommandInput,
   OperationWithDefaultsCommandOutput,
 } from "../commands/OperationWithDefaultsCommand";
-import {
+import type {
   OperationWithNestedStructureCommandInput,
   OperationWithNestedStructureCommandOutput,
 } from "../commands/OperationWithNestedStructureCommand";
-import {
+import type {
   OperationWithRequiredMembersCommandInput,
   OperationWithRequiredMembersCommandOutput,
 } from "../commands/OperationWithRequiredMembersCommand";
-import {
+import type {
   OperationWithRequiredMembersWithDefaultsCommandInput,
   OperationWithRequiredMembersWithDefaultsCommandOutput,
 } from "../commands/OperationWithRequiredMembersWithDefaultsCommand";
-import {
+import type {
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,
 } from "../commands/PutWithContentEncodingCommand";
-import {
+import type {
   QueryIncompatibleOperationCommandInput,
   QueryIncompatibleOperationCommandOutput,
 } from "../commands/QueryIncompatibleOperationCommand";
-import {
+import type {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "../commands/SimpleScalarPropertiesCommand";
 import { ComplexError, FooError, InvalidGreeting } from "../models/errors";
 import { JSONRPC10ServiceException as __BaseException } from "../models/JSONRPC10ServiceException";
 import {
-  ClientOptionalDefaults,
-  ComplexNestedErrorData,
-  ContentTypeParametersInput,
-  Defaults,
-  Dialog,
-  EmptyInputAndEmptyOutputInput,
-  EndpointWithHostLabelOperationInput,
-  Farewell,
-  GreetingStruct,
-  GreetingWithErrorsInput,
-  JsonUnionsInput,
-  JsonUnionsOutput,
+  type ClientOptionalDefaults,
+  type ComplexNestedErrorData,
+  type ContentTypeParametersInput,
+  type Defaults,
+  type Dialog,
+  type EmptyInputAndEmptyOutputInput,
+  type EndpointWithHostLabelOperationInput,
+  type Farewell,
+  type GreetingStruct,
+  type GreetingWithErrorsInput,
+  type JsonUnionsInput,
+  type JsonUnionsOutput,
+  type OperationWithDefaultsInput,
+  type OperationWithDefaultsOutput,
+  type OperationWithNestedStructureInput,
+  type OperationWithRequiredMembersOutput,
+  type OperationWithRequiredMembersWithDefaultsOutput,
+  type PutWithContentEncodingInput,
+  type SimpleScalarPropertiesInput,
+  type SimpleScalarPropertiesOutput,
+  type TopLevel,
   MyUnion,
-  OperationWithDefaultsInput,
-  OperationWithDefaultsOutput,
-  OperationWithNestedStructureInput,
-  OperationWithRequiredMembersOutput,
-  OperationWithRequiredMembersWithDefaultsOutput,
-  PutWithContentEncodingInput,
-  SimpleScalarPropertiesInput,
-  SimpleScalarPropertiesOutput,
-  TopLevel,
 } from "../models/models_0";
 
 /**

@@ -8,7 +8,7 @@ import {
   ListWhatsAppMessageTemplatesCommandOutput,
 } from "../commands/ListWhatsAppMessageTemplatesCommand";
 import { SocialMessagingClient } from "../SocialMessagingClient";
-import { SocialMessagingPaginationConfiguration } from "./Interfaces";
+import type { SocialMessagingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

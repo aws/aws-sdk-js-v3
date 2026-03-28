@@ -38,7 +38,7 @@ public class AddBodyChecksumGeneratorDependency implements TypeScriptIntegration
         if (!needsBodyChecksumGeneratorDep(settings.getService(model))) {
             return;
         }
-        writer.addImport("HttpRequest", "__HttpRequest", TypeScriptDependency.SMITHY_TYPES);
+        writer.addTypeImport("HttpRequest", "__HttpRequest", TypeScriptDependency.SMITHY_TYPES);
         writer.writeDocs(
             "Function that returns body checksums.\n"
                 + "@internal"

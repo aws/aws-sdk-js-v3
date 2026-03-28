@@ -8,7 +8,7 @@ import {
   ListEventLogConfigurationsCommandOutput,
 } from "../commands/ListEventLogConfigurationsCommand";
 import { IoTManagedIntegrationsClient } from "../IoTManagedIntegrationsClient";
-import { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
+import type { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

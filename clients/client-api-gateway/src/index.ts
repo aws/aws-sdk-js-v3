@@ -8,7 +8,7 @@
  */
 export * from "./APIGatewayClient";
 export * from "./APIGateway";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { APIGatewayExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

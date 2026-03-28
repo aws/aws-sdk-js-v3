@@ -9,351 +9,351 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type ActivateKeySigningKeyCommandInput,
+  type ActivateKeySigningKeyCommandOutput,
   ActivateKeySigningKeyCommand,
-  ActivateKeySigningKeyCommandInput,
-  ActivateKeySigningKeyCommandOutput,
 } from "./commands/ActivateKeySigningKeyCommand";
 import {
+  type AssociateVPCWithHostedZoneCommandInput,
+  type AssociateVPCWithHostedZoneCommandOutput,
   AssociateVPCWithHostedZoneCommand,
-  AssociateVPCWithHostedZoneCommandInput,
-  AssociateVPCWithHostedZoneCommandOutput,
 } from "./commands/AssociateVPCWithHostedZoneCommand";
 import {
+  type ChangeCidrCollectionCommandInput,
+  type ChangeCidrCollectionCommandOutput,
   ChangeCidrCollectionCommand,
-  ChangeCidrCollectionCommandInput,
-  ChangeCidrCollectionCommandOutput,
 } from "./commands/ChangeCidrCollectionCommand";
 import {
+  type ChangeResourceRecordSetsCommandInput,
+  type ChangeResourceRecordSetsCommandOutput,
   ChangeResourceRecordSetsCommand,
-  ChangeResourceRecordSetsCommandInput,
-  ChangeResourceRecordSetsCommandOutput,
 } from "./commands/ChangeResourceRecordSetsCommand";
 import {
+  type ChangeTagsForResourceCommandInput,
+  type ChangeTagsForResourceCommandOutput,
   ChangeTagsForResourceCommand,
-  ChangeTagsForResourceCommandInput,
-  ChangeTagsForResourceCommandOutput,
 } from "./commands/ChangeTagsForResourceCommand";
 import {
+  type CreateCidrCollectionCommandInput,
+  type CreateCidrCollectionCommandOutput,
   CreateCidrCollectionCommand,
-  CreateCidrCollectionCommandInput,
-  CreateCidrCollectionCommandOutput,
 } from "./commands/CreateCidrCollectionCommand";
 import {
+  type CreateHealthCheckCommandInput,
+  type CreateHealthCheckCommandOutput,
   CreateHealthCheckCommand,
-  CreateHealthCheckCommandInput,
-  CreateHealthCheckCommandOutput,
 } from "./commands/CreateHealthCheckCommand";
 import {
+  type CreateHostedZoneCommandInput,
+  type CreateHostedZoneCommandOutput,
   CreateHostedZoneCommand,
-  CreateHostedZoneCommandInput,
-  CreateHostedZoneCommandOutput,
 } from "./commands/CreateHostedZoneCommand";
 import {
+  type CreateKeySigningKeyCommandInput,
+  type CreateKeySigningKeyCommandOutput,
   CreateKeySigningKeyCommand,
-  CreateKeySigningKeyCommandInput,
-  CreateKeySigningKeyCommandOutput,
 } from "./commands/CreateKeySigningKeyCommand";
 import {
+  type CreateQueryLoggingConfigCommandInput,
+  type CreateQueryLoggingConfigCommandOutput,
   CreateQueryLoggingConfigCommand,
-  CreateQueryLoggingConfigCommandInput,
-  CreateQueryLoggingConfigCommandOutput,
 } from "./commands/CreateQueryLoggingConfigCommand";
 import {
+  type CreateReusableDelegationSetCommandInput,
+  type CreateReusableDelegationSetCommandOutput,
   CreateReusableDelegationSetCommand,
-  CreateReusableDelegationSetCommandInput,
-  CreateReusableDelegationSetCommandOutput,
 } from "./commands/CreateReusableDelegationSetCommand";
 import {
+  type CreateTrafficPolicyCommandInput,
+  type CreateTrafficPolicyCommandOutput,
   CreateTrafficPolicyCommand,
-  CreateTrafficPolicyCommandInput,
-  CreateTrafficPolicyCommandOutput,
 } from "./commands/CreateTrafficPolicyCommand";
 import {
+  type CreateTrafficPolicyInstanceCommandInput,
+  type CreateTrafficPolicyInstanceCommandOutput,
   CreateTrafficPolicyInstanceCommand,
-  CreateTrafficPolicyInstanceCommandInput,
-  CreateTrafficPolicyInstanceCommandOutput,
 } from "./commands/CreateTrafficPolicyInstanceCommand";
 import {
+  type CreateTrafficPolicyVersionCommandInput,
+  type CreateTrafficPolicyVersionCommandOutput,
   CreateTrafficPolicyVersionCommand,
-  CreateTrafficPolicyVersionCommandInput,
-  CreateTrafficPolicyVersionCommandOutput,
 } from "./commands/CreateTrafficPolicyVersionCommand";
 import {
+  type CreateVPCAssociationAuthorizationCommandInput,
+  type CreateVPCAssociationAuthorizationCommandOutput,
   CreateVPCAssociationAuthorizationCommand,
-  CreateVPCAssociationAuthorizationCommandInput,
-  CreateVPCAssociationAuthorizationCommandOutput,
 } from "./commands/CreateVPCAssociationAuthorizationCommand";
 import {
+  type DeactivateKeySigningKeyCommandInput,
+  type DeactivateKeySigningKeyCommandOutput,
   DeactivateKeySigningKeyCommand,
-  DeactivateKeySigningKeyCommandInput,
-  DeactivateKeySigningKeyCommandOutput,
 } from "./commands/DeactivateKeySigningKeyCommand";
 import {
+  type DeleteCidrCollectionCommandInput,
+  type DeleteCidrCollectionCommandOutput,
   DeleteCidrCollectionCommand,
-  DeleteCidrCollectionCommandInput,
-  DeleteCidrCollectionCommandOutput,
 } from "./commands/DeleteCidrCollectionCommand";
 import {
+  type DeleteHealthCheckCommandInput,
+  type DeleteHealthCheckCommandOutput,
   DeleteHealthCheckCommand,
-  DeleteHealthCheckCommandInput,
-  DeleteHealthCheckCommandOutput,
 } from "./commands/DeleteHealthCheckCommand";
 import {
+  type DeleteHostedZoneCommandInput,
+  type DeleteHostedZoneCommandOutput,
   DeleteHostedZoneCommand,
-  DeleteHostedZoneCommandInput,
-  DeleteHostedZoneCommandOutput,
 } from "./commands/DeleteHostedZoneCommand";
 import {
+  type DeleteKeySigningKeyCommandInput,
+  type DeleteKeySigningKeyCommandOutput,
   DeleteKeySigningKeyCommand,
-  DeleteKeySigningKeyCommandInput,
-  DeleteKeySigningKeyCommandOutput,
 } from "./commands/DeleteKeySigningKeyCommand";
 import {
+  type DeleteQueryLoggingConfigCommandInput,
+  type DeleteQueryLoggingConfigCommandOutput,
   DeleteQueryLoggingConfigCommand,
-  DeleteQueryLoggingConfigCommandInput,
-  DeleteQueryLoggingConfigCommandOutput,
 } from "./commands/DeleteQueryLoggingConfigCommand";
 import {
+  type DeleteReusableDelegationSetCommandInput,
+  type DeleteReusableDelegationSetCommandOutput,
   DeleteReusableDelegationSetCommand,
-  DeleteReusableDelegationSetCommandInput,
-  DeleteReusableDelegationSetCommandOutput,
 } from "./commands/DeleteReusableDelegationSetCommand";
 import {
+  type DeleteTrafficPolicyCommandInput,
+  type DeleteTrafficPolicyCommandOutput,
   DeleteTrafficPolicyCommand,
-  DeleteTrafficPolicyCommandInput,
-  DeleteTrafficPolicyCommandOutput,
 } from "./commands/DeleteTrafficPolicyCommand";
 import {
+  type DeleteTrafficPolicyInstanceCommandInput,
+  type DeleteTrafficPolicyInstanceCommandOutput,
   DeleteTrafficPolicyInstanceCommand,
-  DeleteTrafficPolicyInstanceCommandInput,
-  DeleteTrafficPolicyInstanceCommandOutput,
 } from "./commands/DeleteTrafficPolicyInstanceCommand";
 import {
+  type DeleteVPCAssociationAuthorizationCommandInput,
+  type DeleteVPCAssociationAuthorizationCommandOutput,
   DeleteVPCAssociationAuthorizationCommand,
-  DeleteVPCAssociationAuthorizationCommandInput,
-  DeleteVPCAssociationAuthorizationCommandOutput,
 } from "./commands/DeleteVPCAssociationAuthorizationCommand";
 import {
+  type DisableHostedZoneDNSSECCommandInput,
+  type DisableHostedZoneDNSSECCommandOutput,
   DisableHostedZoneDNSSECCommand,
-  DisableHostedZoneDNSSECCommandInput,
-  DisableHostedZoneDNSSECCommandOutput,
 } from "./commands/DisableHostedZoneDNSSECCommand";
 import {
+  type DisassociateVPCFromHostedZoneCommandInput,
+  type DisassociateVPCFromHostedZoneCommandOutput,
   DisassociateVPCFromHostedZoneCommand,
-  DisassociateVPCFromHostedZoneCommandInput,
-  DisassociateVPCFromHostedZoneCommandOutput,
 } from "./commands/DisassociateVPCFromHostedZoneCommand";
 import {
+  type EnableHostedZoneDNSSECCommandInput,
+  type EnableHostedZoneDNSSECCommandOutput,
   EnableHostedZoneDNSSECCommand,
-  EnableHostedZoneDNSSECCommandInput,
-  EnableHostedZoneDNSSECCommandOutput,
 } from "./commands/EnableHostedZoneDNSSECCommand";
 import {
+  type GetAccountLimitCommandInput,
+  type GetAccountLimitCommandOutput,
   GetAccountLimitCommand,
-  GetAccountLimitCommandInput,
-  GetAccountLimitCommandOutput,
 } from "./commands/GetAccountLimitCommand";
-import { GetChangeCommand, GetChangeCommandInput, GetChangeCommandOutput } from "./commands/GetChangeCommand";
+import { type GetChangeCommandInput, type GetChangeCommandOutput, GetChangeCommand } from "./commands/GetChangeCommand";
 import {
+  type GetCheckerIpRangesCommandInput,
+  type GetCheckerIpRangesCommandOutput,
   GetCheckerIpRangesCommand,
-  GetCheckerIpRangesCommandInput,
-  GetCheckerIpRangesCommandOutput,
 } from "./commands/GetCheckerIpRangesCommand";
-import { GetDNSSECCommand, GetDNSSECCommandInput, GetDNSSECCommandOutput } from "./commands/GetDNSSECCommand";
+import { type GetDNSSECCommandInput, type GetDNSSECCommandOutput, GetDNSSECCommand } from "./commands/GetDNSSECCommand";
 import {
+  type GetGeoLocationCommandInput,
+  type GetGeoLocationCommandOutput,
   GetGeoLocationCommand,
-  GetGeoLocationCommandInput,
-  GetGeoLocationCommandOutput,
 } from "./commands/GetGeoLocationCommand";
 import {
+  type GetHealthCheckCommandInput,
+  type GetHealthCheckCommandOutput,
   GetHealthCheckCommand,
-  GetHealthCheckCommandInput,
-  GetHealthCheckCommandOutput,
 } from "./commands/GetHealthCheckCommand";
 import {
+  type GetHealthCheckCountCommandInput,
+  type GetHealthCheckCountCommandOutput,
   GetHealthCheckCountCommand,
-  GetHealthCheckCountCommandInput,
-  GetHealthCheckCountCommandOutput,
 } from "./commands/GetHealthCheckCountCommand";
 import {
+  type GetHealthCheckLastFailureReasonCommandInput,
+  type GetHealthCheckLastFailureReasonCommandOutput,
   GetHealthCheckLastFailureReasonCommand,
-  GetHealthCheckLastFailureReasonCommandInput,
-  GetHealthCheckLastFailureReasonCommandOutput,
 } from "./commands/GetHealthCheckLastFailureReasonCommand";
 import {
+  type GetHealthCheckStatusCommandInput,
+  type GetHealthCheckStatusCommandOutput,
   GetHealthCheckStatusCommand,
-  GetHealthCheckStatusCommandInput,
-  GetHealthCheckStatusCommandOutput,
 } from "./commands/GetHealthCheckStatusCommand";
 import {
+  type GetHostedZoneCommandInput,
+  type GetHostedZoneCommandOutput,
   GetHostedZoneCommand,
-  GetHostedZoneCommandInput,
-  GetHostedZoneCommandOutput,
 } from "./commands/GetHostedZoneCommand";
 import {
+  type GetHostedZoneCountCommandInput,
+  type GetHostedZoneCountCommandOutput,
   GetHostedZoneCountCommand,
-  GetHostedZoneCountCommandInput,
-  GetHostedZoneCountCommandOutput,
 } from "./commands/GetHostedZoneCountCommand";
 import {
+  type GetHostedZoneLimitCommandInput,
+  type GetHostedZoneLimitCommandOutput,
   GetHostedZoneLimitCommand,
-  GetHostedZoneLimitCommandInput,
-  GetHostedZoneLimitCommandOutput,
 } from "./commands/GetHostedZoneLimitCommand";
 import {
+  type GetQueryLoggingConfigCommandInput,
+  type GetQueryLoggingConfigCommandOutput,
   GetQueryLoggingConfigCommand,
-  GetQueryLoggingConfigCommandInput,
-  GetQueryLoggingConfigCommandOutput,
 } from "./commands/GetQueryLoggingConfigCommand";
 import {
+  type GetReusableDelegationSetCommandInput,
+  type GetReusableDelegationSetCommandOutput,
   GetReusableDelegationSetCommand,
-  GetReusableDelegationSetCommandInput,
-  GetReusableDelegationSetCommandOutput,
 } from "./commands/GetReusableDelegationSetCommand";
 import {
+  type GetReusableDelegationSetLimitCommandInput,
+  type GetReusableDelegationSetLimitCommandOutput,
   GetReusableDelegationSetLimitCommand,
-  GetReusableDelegationSetLimitCommandInput,
-  GetReusableDelegationSetLimitCommandOutput,
 } from "./commands/GetReusableDelegationSetLimitCommand";
 import {
+  type GetTrafficPolicyCommandInput,
+  type GetTrafficPolicyCommandOutput,
   GetTrafficPolicyCommand,
-  GetTrafficPolicyCommandInput,
-  GetTrafficPolicyCommandOutput,
 } from "./commands/GetTrafficPolicyCommand";
 import {
+  type GetTrafficPolicyInstanceCommandInput,
+  type GetTrafficPolicyInstanceCommandOutput,
   GetTrafficPolicyInstanceCommand,
-  GetTrafficPolicyInstanceCommandInput,
-  GetTrafficPolicyInstanceCommandOutput,
 } from "./commands/GetTrafficPolicyInstanceCommand";
 import {
+  type GetTrafficPolicyInstanceCountCommandInput,
+  type GetTrafficPolicyInstanceCountCommandOutput,
   GetTrafficPolicyInstanceCountCommand,
-  GetTrafficPolicyInstanceCountCommandInput,
-  GetTrafficPolicyInstanceCountCommandOutput,
 } from "./commands/GetTrafficPolicyInstanceCountCommand";
 import {
+  type ListCidrBlocksCommandInput,
+  type ListCidrBlocksCommandOutput,
   ListCidrBlocksCommand,
-  ListCidrBlocksCommandInput,
-  ListCidrBlocksCommandOutput,
 } from "./commands/ListCidrBlocksCommand";
 import {
+  type ListCidrCollectionsCommandInput,
+  type ListCidrCollectionsCommandOutput,
   ListCidrCollectionsCommand,
-  ListCidrCollectionsCommandInput,
-  ListCidrCollectionsCommandOutput,
 } from "./commands/ListCidrCollectionsCommand";
 import {
+  type ListCidrLocationsCommandInput,
+  type ListCidrLocationsCommandOutput,
   ListCidrLocationsCommand,
-  ListCidrLocationsCommandInput,
-  ListCidrLocationsCommandOutput,
 } from "./commands/ListCidrLocationsCommand";
 import {
+  type ListGeoLocationsCommandInput,
+  type ListGeoLocationsCommandOutput,
   ListGeoLocationsCommand,
-  ListGeoLocationsCommandInput,
-  ListGeoLocationsCommandOutput,
 } from "./commands/ListGeoLocationsCommand";
 import {
+  type ListHealthChecksCommandInput,
+  type ListHealthChecksCommandOutput,
   ListHealthChecksCommand,
-  ListHealthChecksCommandInput,
-  ListHealthChecksCommandOutput,
 } from "./commands/ListHealthChecksCommand";
 import {
+  type ListHostedZonesByNameCommandInput,
+  type ListHostedZonesByNameCommandOutput,
   ListHostedZonesByNameCommand,
-  ListHostedZonesByNameCommandInput,
-  ListHostedZonesByNameCommandOutput,
 } from "./commands/ListHostedZonesByNameCommand";
 import {
+  type ListHostedZonesByVPCCommandInput,
+  type ListHostedZonesByVPCCommandOutput,
   ListHostedZonesByVPCCommand,
-  ListHostedZonesByVPCCommandInput,
-  ListHostedZonesByVPCCommandOutput,
 } from "./commands/ListHostedZonesByVPCCommand";
 import {
+  type ListHostedZonesCommandInput,
+  type ListHostedZonesCommandOutput,
   ListHostedZonesCommand,
-  ListHostedZonesCommandInput,
-  ListHostedZonesCommandOutput,
 } from "./commands/ListHostedZonesCommand";
 import {
+  type ListQueryLoggingConfigsCommandInput,
+  type ListQueryLoggingConfigsCommandOutput,
   ListQueryLoggingConfigsCommand,
-  ListQueryLoggingConfigsCommandInput,
-  ListQueryLoggingConfigsCommandOutput,
 } from "./commands/ListQueryLoggingConfigsCommand";
 import {
+  type ListResourceRecordSetsCommandInput,
+  type ListResourceRecordSetsCommandOutput,
   ListResourceRecordSetsCommand,
-  ListResourceRecordSetsCommandInput,
-  ListResourceRecordSetsCommandOutput,
 } from "./commands/ListResourceRecordSetsCommand";
 import {
+  type ListReusableDelegationSetsCommandInput,
+  type ListReusableDelegationSetsCommandOutput,
   ListReusableDelegationSetsCommand,
-  ListReusableDelegationSetsCommandInput,
-  ListReusableDelegationSetsCommandOutput,
 } from "./commands/ListReusableDelegationSetsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTagsForResourcesCommandInput,
+  type ListTagsForResourcesCommandOutput,
   ListTagsForResourcesCommand,
-  ListTagsForResourcesCommandInput,
-  ListTagsForResourcesCommandOutput,
 } from "./commands/ListTagsForResourcesCommand";
 import {
+  type ListTrafficPoliciesCommandInput,
+  type ListTrafficPoliciesCommandOutput,
   ListTrafficPoliciesCommand,
-  ListTrafficPoliciesCommandInput,
-  ListTrafficPoliciesCommandOutput,
 } from "./commands/ListTrafficPoliciesCommand";
 import {
+  type ListTrafficPolicyInstancesByHostedZoneCommandInput,
+  type ListTrafficPolicyInstancesByHostedZoneCommandOutput,
   ListTrafficPolicyInstancesByHostedZoneCommand,
-  ListTrafficPolicyInstancesByHostedZoneCommandInput,
-  ListTrafficPolicyInstancesByHostedZoneCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesByHostedZoneCommand";
 import {
+  type ListTrafficPolicyInstancesByPolicyCommandInput,
+  type ListTrafficPolicyInstancesByPolicyCommandOutput,
   ListTrafficPolicyInstancesByPolicyCommand,
-  ListTrafficPolicyInstancesByPolicyCommandInput,
-  ListTrafficPolicyInstancesByPolicyCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesByPolicyCommand";
 import {
+  type ListTrafficPolicyInstancesCommandInput,
+  type ListTrafficPolicyInstancesCommandOutput,
   ListTrafficPolicyInstancesCommand,
-  ListTrafficPolicyInstancesCommandInput,
-  ListTrafficPolicyInstancesCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesCommand";
 import {
+  type ListTrafficPolicyVersionsCommandInput,
+  type ListTrafficPolicyVersionsCommandOutput,
   ListTrafficPolicyVersionsCommand,
-  ListTrafficPolicyVersionsCommandInput,
-  ListTrafficPolicyVersionsCommandOutput,
 } from "./commands/ListTrafficPolicyVersionsCommand";
 import {
+  type ListVPCAssociationAuthorizationsCommandInput,
+  type ListVPCAssociationAuthorizationsCommandOutput,
   ListVPCAssociationAuthorizationsCommand,
-  ListVPCAssociationAuthorizationsCommandInput,
-  ListVPCAssociationAuthorizationsCommandOutput,
 } from "./commands/ListVPCAssociationAuthorizationsCommand";
 import {
+  type TestDNSAnswerCommandInput,
+  type TestDNSAnswerCommandOutput,
   TestDNSAnswerCommand,
-  TestDNSAnswerCommandInput,
-  TestDNSAnswerCommandOutput,
 } from "./commands/TestDNSAnswerCommand";
 import {
+  type UpdateHealthCheckCommandInput,
+  type UpdateHealthCheckCommandOutput,
   UpdateHealthCheckCommand,
-  UpdateHealthCheckCommandInput,
-  UpdateHealthCheckCommandOutput,
 } from "./commands/UpdateHealthCheckCommand";
 import {
+  type UpdateHostedZoneCommentCommandInput,
+  type UpdateHostedZoneCommentCommandOutput,
   UpdateHostedZoneCommentCommand,
-  UpdateHostedZoneCommentCommandInput,
-  UpdateHostedZoneCommentCommandOutput,
 } from "./commands/UpdateHostedZoneCommentCommand";
 import {
+  type UpdateHostedZoneFeaturesCommandInput,
+  type UpdateHostedZoneFeaturesCommandOutput,
   UpdateHostedZoneFeaturesCommand,
-  UpdateHostedZoneFeaturesCommandInput,
-  UpdateHostedZoneFeaturesCommandOutput,
 } from "./commands/UpdateHostedZoneFeaturesCommand";
 import {
+  type UpdateTrafficPolicyCommentCommandInput,
+  type UpdateTrafficPolicyCommentCommandOutput,
   UpdateTrafficPolicyCommentCommand,
-  UpdateTrafficPolicyCommentCommandInput,
-  UpdateTrafficPolicyCommentCommandOutput,
 } from "./commands/UpdateTrafficPolicyCommentCommand";
 import {
+  type UpdateTrafficPolicyInstanceCommandInput,
+  type UpdateTrafficPolicyInstanceCommandOutput,
   UpdateTrafficPolicyInstanceCommand,
-  UpdateTrafficPolicyInstanceCommandInput,
-  UpdateTrafficPolicyInstanceCommandOutput,
 } from "./commands/UpdateTrafficPolicyInstanceCommand";
 import { paginateListCidrBlocks } from "./pagination/ListCidrBlocksPaginator";
 import { paginateListCidrCollections } from "./pagination/ListCidrCollectionsPaginator";

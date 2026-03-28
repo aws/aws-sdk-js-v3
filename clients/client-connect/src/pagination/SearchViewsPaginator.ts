@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { SearchViewsCommand, SearchViewsCommandInput, SearchViewsCommandOutput } from "../commands/SearchViewsCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

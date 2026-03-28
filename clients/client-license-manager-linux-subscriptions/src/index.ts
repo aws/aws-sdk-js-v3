@@ -8,7 +8,7 @@
  */
 export * from "./LicenseManagerLinuxSubscriptionsClient";
 export * from "./LicenseManagerLinuxSubscriptions";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { LicenseManagerLinuxSubscriptionsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

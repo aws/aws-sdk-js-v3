@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Status, StatusType } from "./enums";
+import type { Status, StatusType } from "./enums";
 
 /**
  * <p>The definition of a Quick Setup configuration.</p>

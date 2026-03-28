@@ -8,7 +8,7 @@ import {
   ListDomainConflictsCommandInput,
   ListDomainConflictsCommandOutput,
 } from "../commands/ListDomainConflictsCommand";
-import { CloudFrontPaginationConfiguration } from "./Interfaces";
+import type { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

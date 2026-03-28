@@ -8,7 +8,7 @@ import {
   ListObjectTypeAttributesCommandOutput,
 } from "../commands/ListObjectTypeAttributesCommand";
 import { CustomerProfilesClient } from "../CustomerProfilesClient";
-import { CustomerProfilesPaginationConfiguration } from "./Interfaces";
+import type { CustomerProfilesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

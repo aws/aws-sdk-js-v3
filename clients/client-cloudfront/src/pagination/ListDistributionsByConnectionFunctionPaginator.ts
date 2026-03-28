@@ -8,7 +8,7 @@ import {
   ListDistributionsByConnectionFunctionCommandInput,
   ListDistributionsByConnectionFunctionCommandOutput,
 } from "../commands/ListDistributionsByConnectionFunctionCommand";
-import { CloudFrontPaginationConfiguration } from "./Interfaces";
+import type { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

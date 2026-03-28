@@ -8,7 +8,7 @@ import {
   ListPoliciesCommandOutput,
 } from "../commands/ListPoliciesCommand";
 import { MPAClient } from "../MPAClient";
-import { MPAPaginationConfiguration } from "./Interfaces";
+import type { MPAPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

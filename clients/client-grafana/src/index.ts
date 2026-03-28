@@ -7,7 +7,7 @@
  */
 export * from "./GrafanaClient";
 export * from "./Grafana";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { GrafanaExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

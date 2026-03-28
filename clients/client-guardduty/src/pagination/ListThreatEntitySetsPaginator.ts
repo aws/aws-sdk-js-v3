@@ -8,7 +8,7 @@ import {
   ListThreatEntitySetsCommandOutput,
 } from "../commands/ListThreatEntitySetsCommand";
 import { GuardDutyClient } from "../GuardDutyClient";
-import { GuardDutyPaginationConfiguration } from "./Interfaces";
+import type { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

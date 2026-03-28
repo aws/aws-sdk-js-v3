@@ -8,7 +8,7 @@ import {
   GetFindingRecommendationCommandInput,
   GetFindingRecommendationCommandOutput,
 } from "../commands/GetFindingRecommendationCommand";
-import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
+import type { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

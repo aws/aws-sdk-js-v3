@@ -8,7 +8,7 @@ import {
   ListSecurityProfilesCommandOutput,
 } from "../commands/ListSecurityProfilesCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

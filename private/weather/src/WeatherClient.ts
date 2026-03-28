@@ -42,19 +42,18 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
-  Provider,
+import type {
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -64,35 +63,41 @@ import {
   defaultWeatherHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { OnlyCustomAuthCommandInput, OnlyCustomAuthCommandOutput } from "./commands/OnlyCustomAuthCommand";
-import {
+import type { OnlyCustomAuthCommandInput, OnlyCustomAuthCommandOutput } from "./commands/OnlyCustomAuthCommand";
+import type {
   OnlyCustomAuthOptionalCommandInput,
   OnlyCustomAuthOptionalCommandOutput,
 } from "./commands/OnlyCustomAuthOptionalCommand";
-import {
+import type {
   OnlyHttpApiKeyAndBearerAuthCommandInput,
   OnlyHttpApiKeyAndBearerAuthCommandOutput,
 } from "./commands/OnlyHttpApiKeyAndBearerAuthCommand";
-import {
+import type {
   OnlyHttpApiKeyAndBearerAuthReversedCommandInput,
   OnlyHttpApiKeyAndBearerAuthReversedCommandOutput,
 } from "./commands/OnlyHttpApiKeyAndBearerAuthReversedCommand";
-import { OnlyHttpApiKeyAuthCommandInput, OnlyHttpApiKeyAuthCommandOutput } from "./commands/OnlyHttpApiKeyAuthCommand";
-import {
+import type {
+  OnlyHttpApiKeyAuthCommandInput,
+  OnlyHttpApiKeyAuthCommandOutput,
+} from "./commands/OnlyHttpApiKeyAuthCommand";
+import type {
   OnlyHttpApiKeyAuthOptionalCommandInput,
   OnlyHttpApiKeyAuthOptionalCommandOutput,
 } from "./commands/OnlyHttpApiKeyAuthOptionalCommand";
-import { OnlyHttpBearerAuthCommandInput, OnlyHttpBearerAuthCommandOutput } from "./commands/OnlyHttpBearerAuthCommand";
-import {
+import type {
+  OnlyHttpBearerAuthCommandInput,
+  OnlyHttpBearerAuthCommandOutput,
+} from "./commands/OnlyHttpBearerAuthCommand";
+import type {
   OnlyHttpBearerAuthOptionalCommandInput,
   OnlyHttpBearerAuthOptionalCommandOutput,
 } from "./commands/OnlyHttpBearerAuthOptionalCommand";
-import { OnlySigv4AuthCommandInput, OnlySigv4AuthCommandOutput } from "./commands/OnlySigv4AuthCommand";
-import {
+import type { OnlySigv4AuthCommandInput, OnlySigv4AuthCommandOutput } from "./commands/OnlySigv4AuthCommand";
+import type {
   OnlySigv4AuthOptionalCommandInput,
   OnlySigv4AuthOptionalCommandOutput,
 } from "./commands/OnlySigv4AuthOptionalCommand";
-import { SameAsServiceCommandInput, SameAsServiceCommandOutput } from "./commands/SameAsServiceCommand";
+import type { SameAsServiceCommandInput, SameAsServiceCommandOutput } from "./commands/SameAsServiceCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -234,7 +239,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * The service name to use as the signing service for AWS Auth

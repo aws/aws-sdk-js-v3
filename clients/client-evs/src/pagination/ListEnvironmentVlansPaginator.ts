@@ -8,7 +8,7 @@ import {
   ListEnvironmentVlansCommandOutput,
 } from "../commands/ListEnvironmentVlansCommand";
 import { EvsClient } from "../EvsClient";
-import { EvsPaginationConfiguration } from "./Interfaces";
+import type { EvsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

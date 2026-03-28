@@ -8,7 +8,7 @@ import {
   ListRepositoriesCommandInput,
   ListRepositoriesCommandOutput,
 } from "../commands/ListRepositoriesCommand";
-import { CodeCommitPaginationConfiguration } from "./Interfaces";
+import type { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

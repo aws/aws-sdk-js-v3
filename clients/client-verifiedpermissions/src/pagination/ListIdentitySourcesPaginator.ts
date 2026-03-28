@@ -8,7 +8,7 @@ import {
   ListIdentitySourcesCommandOutput,
 } from "../commands/ListIdentitySourcesCommand";
 import { VerifiedPermissionsClient } from "../VerifiedPermissionsClient";
-import { VerifiedPermissionsPaginationConfiguration } from "./Interfaces";
+import type { VerifiedPermissionsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

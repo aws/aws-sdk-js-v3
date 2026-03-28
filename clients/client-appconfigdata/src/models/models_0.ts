@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { InvalidParameterProblem } from "./enums";
+import type { InvalidParameterProblem } from "./enums";
 
 /**
  * <p>Information about an invalid parameter.</p>

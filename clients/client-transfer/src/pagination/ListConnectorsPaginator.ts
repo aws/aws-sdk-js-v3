@@ -8,7 +8,7 @@ import {
   ListConnectorsCommandOutput,
 } from "../commands/ListConnectorsCommand";
 import { TransferClient } from "../TransferClient";
-import { TransferPaginationConfiguration } from "./Interfaces";
+import type { TransferPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

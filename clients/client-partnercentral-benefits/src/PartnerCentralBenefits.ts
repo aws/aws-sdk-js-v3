@@ -3,81 +3,89 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AmendBenefitApplicationCommandInput,
+  type AmendBenefitApplicationCommandOutput,
   AmendBenefitApplicationCommand,
-  AmendBenefitApplicationCommandInput,
-  AmendBenefitApplicationCommandOutput,
 } from "./commands/AmendBenefitApplicationCommand";
 import {
+  type AssociateBenefitApplicationResourceCommandInput,
+  type AssociateBenefitApplicationResourceCommandOutput,
   AssociateBenefitApplicationResourceCommand,
-  AssociateBenefitApplicationResourceCommandInput,
-  AssociateBenefitApplicationResourceCommandOutput,
 } from "./commands/AssociateBenefitApplicationResourceCommand";
 import {
+  type CancelBenefitApplicationCommandInput,
+  type CancelBenefitApplicationCommandOutput,
   CancelBenefitApplicationCommand,
-  CancelBenefitApplicationCommandInput,
-  CancelBenefitApplicationCommandOutput,
 } from "./commands/CancelBenefitApplicationCommand";
 import {
+  type CreateBenefitApplicationCommandInput,
+  type CreateBenefitApplicationCommandOutput,
   CreateBenefitApplicationCommand,
-  CreateBenefitApplicationCommandInput,
-  CreateBenefitApplicationCommandOutput,
 } from "./commands/CreateBenefitApplicationCommand";
 import {
+  type DisassociateBenefitApplicationResourceCommandInput,
+  type DisassociateBenefitApplicationResourceCommandOutput,
   DisassociateBenefitApplicationResourceCommand,
-  DisassociateBenefitApplicationResourceCommandInput,
-  DisassociateBenefitApplicationResourceCommandOutput,
 } from "./commands/DisassociateBenefitApplicationResourceCommand";
 import {
+  type GetBenefitAllocationCommandInput,
+  type GetBenefitAllocationCommandOutput,
   GetBenefitAllocationCommand,
-  GetBenefitAllocationCommandInput,
-  GetBenefitAllocationCommandOutput,
 } from "./commands/GetBenefitAllocationCommand";
 import {
+  type GetBenefitApplicationCommandInput,
+  type GetBenefitApplicationCommandOutput,
   GetBenefitApplicationCommand,
-  GetBenefitApplicationCommandInput,
-  GetBenefitApplicationCommandOutput,
 } from "./commands/GetBenefitApplicationCommand";
-import { GetBenefitCommand, GetBenefitCommandInput, GetBenefitCommandOutput } from "./commands/GetBenefitCommand";
 import {
+  type GetBenefitCommandInput,
+  type GetBenefitCommandOutput,
+  GetBenefitCommand,
+} from "./commands/GetBenefitCommand";
+import {
+  type ListBenefitAllocationsCommandInput,
+  type ListBenefitAllocationsCommandOutput,
   ListBenefitAllocationsCommand,
-  ListBenefitAllocationsCommandInput,
-  ListBenefitAllocationsCommandOutput,
 } from "./commands/ListBenefitAllocationsCommand";
 import {
+  type ListBenefitApplicationsCommandInput,
+  type ListBenefitApplicationsCommandOutput,
   ListBenefitApplicationsCommand,
-  ListBenefitApplicationsCommandInput,
-  ListBenefitApplicationsCommandOutput,
 } from "./commands/ListBenefitApplicationsCommand";
 import {
+  type ListBenefitsCommandInput,
+  type ListBenefitsCommandOutput,
   ListBenefitsCommand,
-  ListBenefitsCommandInput,
-  ListBenefitsCommandOutput,
 } from "./commands/ListBenefitsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RecallBenefitApplicationCommandInput,
+  type RecallBenefitApplicationCommandOutput,
   RecallBenefitApplicationCommand,
-  RecallBenefitApplicationCommandInput,
-  RecallBenefitApplicationCommandOutput,
 } from "./commands/RecallBenefitApplicationCommand";
 import {
+  type SubmitBenefitApplicationCommandInput,
+  type SubmitBenefitApplicationCommandOutput,
   SubmitBenefitApplicationCommand,
-  SubmitBenefitApplicationCommandInput,
-  SubmitBenefitApplicationCommandOutput,
 } from "./commands/SubmitBenefitApplicationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBenefitApplicationCommandInput,
+  type UpdateBenefitApplicationCommandOutput,
   UpdateBenefitApplicationCommand,
-  UpdateBenefitApplicationCommandInput,
-  UpdateBenefitApplicationCommandOutput,
 } from "./commands/UpdateBenefitApplicationCommand";
 import { paginateListBenefitAllocations } from "./pagination/ListBenefitAllocationsPaginator";
 import { paginateListBenefitApplications } from "./pagination/ListBenefitApplicationsPaginator";

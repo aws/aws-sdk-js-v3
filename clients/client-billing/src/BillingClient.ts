@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,34 +61,46 @@ import {
   defaultBillingHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateSourceViewsCommandInput,
   AssociateSourceViewsCommandOutput,
 } from "./commands/AssociateSourceViewsCommand";
-import { CreateBillingViewCommandInput, CreateBillingViewCommandOutput } from "./commands/CreateBillingViewCommand";
-import { DeleteBillingViewCommandInput, DeleteBillingViewCommandOutput } from "./commands/DeleteBillingViewCommand";
-import {
+import type {
+  CreateBillingViewCommandInput,
+  CreateBillingViewCommandOutput,
+} from "./commands/CreateBillingViewCommand";
+import type {
+  DeleteBillingViewCommandInput,
+  DeleteBillingViewCommandOutput,
+} from "./commands/DeleteBillingViewCommand";
+import type {
   DisassociateSourceViewsCommandInput,
   DisassociateSourceViewsCommandOutput,
 } from "./commands/DisassociateSourceViewsCommand";
-import { GetBillingViewCommandInput, GetBillingViewCommandOutput } from "./commands/GetBillingViewCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import { ListBillingViewsCommandInput, ListBillingViewsCommandOutput } from "./commands/ListBillingViewsCommand";
-import {
+import type { GetBillingViewCommandInput, GetBillingViewCommandOutput } from "./commands/GetBillingViewCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type { ListBillingViewsCommandInput, ListBillingViewsCommandOutput } from "./commands/ListBillingViewsCommand";
+import type {
   ListSourceViewsForBillingViewCommandInput,
   ListSourceViewsForBillingViewCommandOutput,
 } from "./commands/ListSourceViewsForBillingViewCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateBillingViewCommandInput, UpdateBillingViewCommandOutput } from "./commands/UpdateBillingViewCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateBillingViewCommandInput,
+  UpdateBillingViewCommandOutput,
+} from "./commands/UpdateBillingViewCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -246,7 +256,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

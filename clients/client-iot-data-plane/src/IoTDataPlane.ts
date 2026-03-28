@@ -3,40 +3,40 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DeleteConnectionCommandInput,
+  type DeleteConnectionCommandOutput,
   DeleteConnectionCommand,
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
+  type DeleteThingShadowCommandInput,
+  type DeleteThingShadowCommandOutput,
   DeleteThingShadowCommand,
-  DeleteThingShadowCommandInput,
-  DeleteThingShadowCommandOutput,
 } from "./commands/DeleteThingShadowCommand";
 import {
+  type GetRetainedMessageCommandInput,
+  type GetRetainedMessageCommandOutput,
   GetRetainedMessageCommand,
-  GetRetainedMessageCommandInput,
-  GetRetainedMessageCommandOutput,
 } from "./commands/GetRetainedMessageCommand";
 import {
+  type GetThingShadowCommandInput,
+  type GetThingShadowCommandOutput,
   GetThingShadowCommand,
-  GetThingShadowCommandInput,
-  GetThingShadowCommandOutput,
 } from "./commands/GetThingShadowCommand";
 import {
+  type ListNamedShadowsForThingCommandInput,
+  type ListNamedShadowsForThingCommandOutput,
   ListNamedShadowsForThingCommand,
-  ListNamedShadowsForThingCommandInput,
-  ListNamedShadowsForThingCommandOutput,
 } from "./commands/ListNamedShadowsForThingCommand";
 import {
+  type ListRetainedMessagesCommandInput,
+  type ListRetainedMessagesCommandOutput,
   ListRetainedMessagesCommand,
-  ListRetainedMessagesCommandInput,
-  ListRetainedMessagesCommandOutput,
 } from "./commands/ListRetainedMessagesCommand";
-import { PublishCommand, PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
+import { type PublishCommandInput, type PublishCommandOutput, PublishCommand } from "./commands/PublishCommand";
 import {
+  type UpdateThingShadowCommandInput,
+  type UpdateThingShadowCommandOutput,
   UpdateThingShadowCommand,
-  UpdateThingShadowCommandInput,
-  UpdateThingShadowCommandOutput,
 } from "./commands/UpdateThingShadowCommand";
 import { IoTDataPlaneClient } from "./IoTDataPlaneClient";
 import { paginateListRetainedMessages } from "./pagination/ListRetainedMessagesPaginator";

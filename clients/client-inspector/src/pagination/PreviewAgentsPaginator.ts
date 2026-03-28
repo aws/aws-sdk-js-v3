@@ -8,7 +8,7 @@ import {
   PreviewAgentsCommandOutput,
 } from "../commands/PreviewAgentsCommand";
 import { InspectorClient } from "../InspectorClient";
-import { InspectorPaginationConfiguration } from "./Interfaces";
+import type { InspectorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

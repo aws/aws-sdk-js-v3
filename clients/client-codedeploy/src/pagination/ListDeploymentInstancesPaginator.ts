@@ -8,7 +8,7 @@ import {
   ListDeploymentInstancesCommandInput,
   ListDeploymentInstancesCommandOutput,
 } from "../commands/ListDeploymentInstancesCommand";
-import { CodeDeployPaginationConfiguration } from "./Interfaces";
+import type { CodeDeployPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

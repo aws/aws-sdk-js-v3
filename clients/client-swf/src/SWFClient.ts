@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,133 +61,148 @@ import {
   defaultSWFHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CountClosedWorkflowExecutionsCommandInput,
   CountClosedWorkflowExecutionsCommandOutput,
 } from "./commands/CountClosedWorkflowExecutionsCommand";
-import {
+import type {
   CountOpenWorkflowExecutionsCommandInput,
   CountOpenWorkflowExecutionsCommandOutput,
 } from "./commands/CountOpenWorkflowExecutionsCommand";
-import {
+import type {
   CountPendingActivityTasksCommandInput,
   CountPendingActivityTasksCommandOutput,
 } from "./commands/CountPendingActivityTasksCommand";
-import {
+import type {
   CountPendingDecisionTasksCommandInput,
   CountPendingDecisionTasksCommandOutput,
 } from "./commands/CountPendingDecisionTasksCommand";
-import { DeleteActivityTypeCommandInput, DeleteActivityTypeCommandOutput } from "./commands/DeleteActivityTypeCommand";
-import { DeleteWorkflowTypeCommandInput, DeleteWorkflowTypeCommandOutput } from "./commands/DeleteWorkflowTypeCommand";
-import {
+import type {
+  DeleteActivityTypeCommandInput,
+  DeleteActivityTypeCommandOutput,
+} from "./commands/DeleteActivityTypeCommand";
+import type {
+  DeleteWorkflowTypeCommandInput,
+  DeleteWorkflowTypeCommandOutput,
+} from "./commands/DeleteWorkflowTypeCommand";
+import type {
   DeprecateActivityTypeCommandInput,
   DeprecateActivityTypeCommandOutput,
 } from "./commands/DeprecateActivityTypeCommand";
-import { DeprecateDomainCommandInput, DeprecateDomainCommandOutput } from "./commands/DeprecateDomainCommand";
-import {
+import type { DeprecateDomainCommandInput, DeprecateDomainCommandOutput } from "./commands/DeprecateDomainCommand";
+import type {
   DeprecateWorkflowTypeCommandInput,
   DeprecateWorkflowTypeCommandOutput,
 } from "./commands/DeprecateWorkflowTypeCommand";
-import {
+import type {
   DescribeActivityTypeCommandInput,
   DescribeActivityTypeCommandOutput,
 } from "./commands/DescribeActivityTypeCommand";
-import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
-import {
+import type { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
+import type {
   DescribeWorkflowExecutionCommandInput,
   DescribeWorkflowExecutionCommandOutput,
 } from "./commands/DescribeWorkflowExecutionCommand";
-import {
+import type {
   DescribeWorkflowTypeCommandInput,
   DescribeWorkflowTypeCommandOutput,
 } from "./commands/DescribeWorkflowTypeCommand";
-import {
+import type {
   GetWorkflowExecutionHistoryCommandInput,
   GetWorkflowExecutionHistoryCommandOutput,
 } from "./commands/GetWorkflowExecutionHistoryCommand";
-import { ListActivityTypesCommandInput, ListActivityTypesCommandOutput } from "./commands/ListActivityTypesCommand";
-import {
+import type {
+  ListActivityTypesCommandInput,
+  ListActivityTypesCommandOutput,
+} from "./commands/ListActivityTypesCommand";
+import type {
   ListClosedWorkflowExecutionsCommandInput,
   ListClosedWorkflowExecutionsCommandOutput,
 } from "./commands/ListClosedWorkflowExecutionsCommand";
-import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
-import {
+import type { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import type {
   ListOpenWorkflowExecutionsCommandInput,
   ListOpenWorkflowExecutionsCommandOutput,
 } from "./commands/ListOpenWorkflowExecutionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListWorkflowTypesCommandInput, ListWorkflowTypesCommandOutput } from "./commands/ListWorkflowTypesCommand";
-import {
+import type {
+  ListWorkflowTypesCommandInput,
+  ListWorkflowTypesCommandOutput,
+} from "./commands/ListWorkflowTypesCommand";
+import type {
   PollForActivityTaskCommandInput,
   PollForActivityTaskCommandOutput,
 } from "./commands/PollForActivityTaskCommand";
-import {
+import type {
   PollForDecisionTaskCommandInput,
   PollForDecisionTaskCommandOutput,
 } from "./commands/PollForDecisionTaskCommand";
-import {
+import type {
   RecordActivityTaskHeartbeatCommandInput,
   RecordActivityTaskHeartbeatCommandOutput,
 } from "./commands/RecordActivityTaskHeartbeatCommand";
-import {
+import type {
   RegisterActivityTypeCommandInput,
   RegisterActivityTypeCommandOutput,
 } from "./commands/RegisterActivityTypeCommand";
-import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "./commands/RegisterDomainCommand";
-import {
+import type { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "./commands/RegisterDomainCommand";
+import type {
   RegisterWorkflowTypeCommandInput,
   RegisterWorkflowTypeCommandOutput,
 } from "./commands/RegisterWorkflowTypeCommand";
-import {
+import type {
   RequestCancelWorkflowExecutionCommandInput,
   RequestCancelWorkflowExecutionCommandOutput,
 } from "./commands/RequestCancelWorkflowExecutionCommand";
-import {
+import type {
   RespondActivityTaskCanceledCommandInput,
   RespondActivityTaskCanceledCommandOutput,
 } from "./commands/RespondActivityTaskCanceledCommand";
-import {
+import type {
   RespondActivityTaskCompletedCommandInput,
   RespondActivityTaskCompletedCommandOutput,
 } from "./commands/RespondActivityTaskCompletedCommand";
-import {
+import type {
   RespondActivityTaskFailedCommandInput,
   RespondActivityTaskFailedCommandOutput,
 } from "./commands/RespondActivityTaskFailedCommand";
-import {
+import type {
   RespondDecisionTaskCompletedCommandInput,
   RespondDecisionTaskCompletedCommandOutput,
 } from "./commands/RespondDecisionTaskCompletedCommand";
-import {
+import type {
   SignalWorkflowExecutionCommandInput,
   SignalWorkflowExecutionCommandOutput,
 } from "./commands/SignalWorkflowExecutionCommand";
-import {
+import type {
   StartWorkflowExecutionCommandInput,
   StartWorkflowExecutionCommandOutput,
 } from "./commands/StartWorkflowExecutionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   TerminateWorkflowExecutionCommandInput,
   TerminateWorkflowExecutionCommandOutput,
 } from "./commands/TerminateWorkflowExecutionCommand";
-import {
+import type {
   UndeprecateActivityTypeCommandInput,
   UndeprecateActivityTypeCommandOutput,
 } from "./commands/UndeprecateActivityTypeCommand";
-import { UndeprecateDomainCommandInput, UndeprecateDomainCommandOutput } from "./commands/UndeprecateDomainCommand";
-import {
+import type {
+  UndeprecateDomainCommandInput,
+  UndeprecateDomainCommandOutput,
+} from "./commands/UndeprecateDomainCommand";
+import type {
   UndeprecateWorkflowTypeCommandInput,
   UndeprecateWorkflowTypeCommandOutput,
 } from "./commands/UndeprecateWorkflowTypeCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -399,7 +412,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -10,827 +10,839 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CloudFrontClient } from "./CloudFrontClient";
 import {
+  type AssociateAliasCommandInput,
+  type AssociateAliasCommandOutput,
   AssociateAliasCommand,
-  AssociateAliasCommandInput,
-  AssociateAliasCommandOutput,
 } from "./commands/AssociateAliasCommand";
 import {
+  type AssociateDistributionTenantWebACLCommandInput,
+  type AssociateDistributionTenantWebACLCommandOutput,
   AssociateDistributionTenantWebACLCommand,
-  AssociateDistributionTenantWebACLCommandInput,
-  AssociateDistributionTenantWebACLCommandOutput,
 } from "./commands/AssociateDistributionTenantWebACLCommand";
 import {
+  type AssociateDistributionWebACLCommandInput,
+  type AssociateDistributionWebACLCommandOutput,
   AssociateDistributionWebACLCommand,
-  AssociateDistributionWebACLCommandInput,
-  AssociateDistributionWebACLCommandOutput,
 } from "./commands/AssociateDistributionWebACLCommand";
 import {
+  type CopyDistributionCommandInput,
+  type CopyDistributionCommandOutput,
   CopyDistributionCommand,
-  CopyDistributionCommandInput,
-  CopyDistributionCommandOutput,
 } from "./commands/CopyDistributionCommand";
 import {
+  type CreateAnycastIpListCommandInput,
+  type CreateAnycastIpListCommandOutput,
   CreateAnycastIpListCommand,
-  CreateAnycastIpListCommandInput,
-  CreateAnycastIpListCommandOutput,
 } from "./commands/CreateAnycastIpListCommand";
 import {
+  type CreateCachePolicyCommandInput,
+  type CreateCachePolicyCommandOutput,
   CreateCachePolicyCommand,
-  CreateCachePolicyCommandInput,
-  CreateCachePolicyCommandOutput,
 } from "./commands/CreateCachePolicyCommand";
 import {
+  type CreateCloudFrontOriginAccessIdentityCommandInput,
+  type CreateCloudFrontOriginAccessIdentityCommandOutput,
   CreateCloudFrontOriginAccessIdentityCommand,
-  CreateCloudFrontOriginAccessIdentityCommandInput,
-  CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
 import {
+  type CreateConnectionFunctionCommandInput,
+  type CreateConnectionFunctionCommandOutput,
   CreateConnectionFunctionCommand,
-  CreateConnectionFunctionCommandInput,
-  CreateConnectionFunctionCommandOutput,
 } from "./commands/CreateConnectionFunctionCommand";
 import {
+  type CreateConnectionGroupCommandInput,
+  type CreateConnectionGroupCommandOutput,
   CreateConnectionGroupCommand,
-  CreateConnectionGroupCommandInput,
-  CreateConnectionGroupCommandOutput,
 } from "./commands/CreateConnectionGroupCommand";
 import {
+  type CreateContinuousDeploymentPolicyCommandInput,
+  type CreateContinuousDeploymentPolicyCommandOutput,
   CreateContinuousDeploymentPolicyCommand,
-  CreateContinuousDeploymentPolicyCommandInput,
-  CreateContinuousDeploymentPolicyCommandOutput,
 } from "./commands/CreateContinuousDeploymentPolicyCommand";
 import {
+  type CreateDistributionCommandInput,
+  type CreateDistributionCommandOutput,
   CreateDistributionCommand,
-  CreateDistributionCommandInput,
-  CreateDistributionCommandOutput,
 } from "./commands/CreateDistributionCommand";
 import {
+  type CreateDistributionTenantCommandInput,
+  type CreateDistributionTenantCommandOutput,
   CreateDistributionTenantCommand,
-  CreateDistributionTenantCommandInput,
-  CreateDistributionTenantCommandOutput,
 } from "./commands/CreateDistributionTenantCommand";
 import {
+  type CreateDistributionWithTagsCommandInput,
+  type CreateDistributionWithTagsCommandOutput,
   CreateDistributionWithTagsCommand,
-  CreateDistributionWithTagsCommandInput,
-  CreateDistributionWithTagsCommandOutput,
 } from "./commands/CreateDistributionWithTagsCommand";
 import {
+  type CreateFieldLevelEncryptionConfigCommandInput,
+  type CreateFieldLevelEncryptionConfigCommandOutput,
   CreateFieldLevelEncryptionConfigCommand,
-  CreateFieldLevelEncryptionConfigCommandInput,
-  CreateFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionConfigCommand";
 import {
+  type CreateFieldLevelEncryptionProfileCommandInput,
+  type CreateFieldLevelEncryptionProfileCommandOutput,
   CreateFieldLevelEncryptionProfileCommand,
-  CreateFieldLevelEncryptionProfileCommandInput,
-  CreateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionProfileCommand";
 import {
+  type CreateFunctionCommandInput,
+  type CreateFunctionCommandOutput,
   CreateFunctionCommand,
-  CreateFunctionCommandInput,
-  CreateFunctionCommandOutput,
 } from "./commands/CreateFunctionCommand";
 import {
+  type CreateInvalidationCommandInput,
+  type CreateInvalidationCommandOutput,
   CreateInvalidationCommand,
-  CreateInvalidationCommandInput,
-  CreateInvalidationCommandOutput,
 } from "./commands/CreateInvalidationCommand";
 import {
+  type CreateInvalidationForDistributionTenantCommandInput,
+  type CreateInvalidationForDistributionTenantCommandOutput,
   CreateInvalidationForDistributionTenantCommand,
-  CreateInvalidationForDistributionTenantCommandInput,
-  CreateInvalidationForDistributionTenantCommandOutput,
 } from "./commands/CreateInvalidationForDistributionTenantCommand";
 import {
+  type CreateKeyGroupCommandInput,
+  type CreateKeyGroupCommandOutput,
   CreateKeyGroupCommand,
-  CreateKeyGroupCommandInput,
-  CreateKeyGroupCommandOutput,
 } from "./commands/CreateKeyGroupCommand";
 import {
+  type CreateKeyValueStoreCommandInput,
+  type CreateKeyValueStoreCommandOutput,
   CreateKeyValueStoreCommand,
-  CreateKeyValueStoreCommandInput,
-  CreateKeyValueStoreCommandOutput,
 } from "./commands/CreateKeyValueStoreCommand";
 import {
+  type CreateMonitoringSubscriptionCommandInput,
+  type CreateMonitoringSubscriptionCommandOutput,
   CreateMonitoringSubscriptionCommand,
-  CreateMonitoringSubscriptionCommandInput,
-  CreateMonitoringSubscriptionCommandOutput,
 } from "./commands/CreateMonitoringSubscriptionCommand";
 import {
+  type CreateOriginAccessControlCommandInput,
+  type CreateOriginAccessControlCommandOutput,
   CreateOriginAccessControlCommand,
-  CreateOriginAccessControlCommandInput,
-  CreateOriginAccessControlCommandOutput,
 } from "./commands/CreateOriginAccessControlCommand";
 import {
+  type CreateOriginRequestPolicyCommandInput,
+  type CreateOriginRequestPolicyCommandOutput,
   CreateOriginRequestPolicyCommand,
-  CreateOriginRequestPolicyCommandInput,
-  CreateOriginRequestPolicyCommandOutput,
 } from "./commands/CreateOriginRequestPolicyCommand";
 import {
+  type CreatePublicKeyCommandInput,
+  type CreatePublicKeyCommandOutput,
   CreatePublicKeyCommand,
-  CreatePublicKeyCommandInput,
-  CreatePublicKeyCommandOutput,
 } from "./commands/CreatePublicKeyCommand";
 import {
+  type CreateRealtimeLogConfigCommandInput,
+  type CreateRealtimeLogConfigCommandOutput,
   CreateRealtimeLogConfigCommand,
-  CreateRealtimeLogConfigCommandInput,
-  CreateRealtimeLogConfigCommandOutput,
 } from "./commands/CreateRealtimeLogConfigCommand";
 import {
+  type CreateResponseHeadersPolicyCommandInput,
+  type CreateResponseHeadersPolicyCommandOutput,
   CreateResponseHeadersPolicyCommand,
-  CreateResponseHeadersPolicyCommandInput,
-  CreateResponseHeadersPolicyCommandOutput,
 } from "./commands/CreateResponseHeadersPolicyCommand";
 import {
+  type CreateStreamingDistributionCommandInput,
+  type CreateStreamingDistributionCommandOutput,
   CreateStreamingDistributionCommand,
-  CreateStreamingDistributionCommandInput,
-  CreateStreamingDistributionCommandOutput,
 } from "./commands/CreateStreamingDistributionCommand";
 import {
+  type CreateStreamingDistributionWithTagsCommandInput,
+  type CreateStreamingDistributionWithTagsCommandOutput,
   CreateStreamingDistributionWithTagsCommand,
-  CreateStreamingDistributionWithTagsCommandInput,
-  CreateStreamingDistributionWithTagsCommandOutput,
 } from "./commands/CreateStreamingDistributionWithTagsCommand";
 import {
+  type CreateTrustStoreCommandInput,
+  type CreateTrustStoreCommandOutput,
   CreateTrustStoreCommand,
-  CreateTrustStoreCommandInput,
-  CreateTrustStoreCommandOutput,
 } from "./commands/CreateTrustStoreCommand";
 import {
+  type CreateVpcOriginCommandInput,
+  type CreateVpcOriginCommandOutput,
   CreateVpcOriginCommand,
-  CreateVpcOriginCommandInput,
-  CreateVpcOriginCommandOutput,
 } from "./commands/CreateVpcOriginCommand";
 import {
+  type DeleteAnycastIpListCommandInput,
+  type DeleteAnycastIpListCommandOutput,
   DeleteAnycastIpListCommand,
-  DeleteAnycastIpListCommandInput,
-  DeleteAnycastIpListCommandOutput,
 } from "./commands/DeleteAnycastIpListCommand";
 import {
+  type DeleteCachePolicyCommandInput,
+  type DeleteCachePolicyCommandOutput,
   DeleteCachePolicyCommand,
-  DeleteCachePolicyCommandInput,
-  DeleteCachePolicyCommandOutput,
 } from "./commands/DeleteCachePolicyCommand";
 import {
+  type DeleteCloudFrontOriginAccessIdentityCommandInput,
+  type DeleteCloudFrontOriginAccessIdentityCommandOutput,
   DeleteCloudFrontOriginAccessIdentityCommand,
-  DeleteCloudFrontOriginAccessIdentityCommandInput,
-  DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
 import {
+  type DeleteConnectionFunctionCommandInput,
+  type DeleteConnectionFunctionCommandOutput,
   DeleteConnectionFunctionCommand,
-  DeleteConnectionFunctionCommandInput,
-  DeleteConnectionFunctionCommandOutput,
 } from "./commands/DeleteConnectionFunctionCommand";
 import {
+  type DeleteConnectionGroupCommandInput,
+  type DeleteConnectionGroupCommandOutput,
   DeleteConnectionGroupCommand,
-  DeleteConnectionGroupCommandInput,
-  DeleteConnectionGroupCommandOutput,
 } from "./commands/DeleteConnectionGroupCommand";
 import {
+  type DeleteContinuousDeploymentPolicyCommandInput,
+  type DeleteContinuousDeploymentPolicyCommandOutput,
   DeleteContinuousDeploymentPolicyCommand,
-  DeleteContinuousDeploymentPolicyCommandInput,
-  DeleteContinuousDeploymentPolicyCommandOutput,
 } from "./commands/DeleteContinuousDeploymentPolicyCommand";
 import {
+  type DeleteDistributionCommandInput,
+  type DeleteDistributionCommandOutput,
   DeleteDistributionCommand,
-  DeleteDistributionCommandInput,
-  DeleteDistributionCommandOutput,
 } from "./commands/DeleteDistributionCommand";
 import {
+  type DeleteDistributionTenantCommandInput,
+  type DeleteDistributionTenantCommandOutput,
   DeleteDistributionTenantCommand,
-  DeleteDistributionTenantCommandInput,
-  DeleteDistributionTenantCommandOutput,
 } from "./commands/DeleteDistributionTenantCommand";
 import {
+  type DeleteFieldLevelEncryptionConfigCommandInput,
+  type DeleteFieldLevelEncryptionConfigCommandOutput,
   DeleteFieldLevelEncryptionConfigCommand,
-  DeleteFieldLevelEncryptionConfigCommandInput,
-  DeleteFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionConfigCommand";
 import {
+  type DeleteFieldLevelEncryptionProfileCommandInput,
+  type DeleteFieldLevelEncryptionProfileCommandOutput,
   DeleteFieldLevelEncryptionProfileCommand,
-  DeleteFieldLevelEncryptionProfileCommandInput,
-  DeleteFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand";
 import {
+  type DeleteFunctionCommandInput,
+  type DeleteFunctionCommandOutput,
   DeleteFunctionCommand,
-  DeleteFunctionCommandInput,
-  DeleteFunctionCommandOutput,
 } from "./commands/DeleteFunctionCommand";
 import {
+  type DeleteKeyGroupCommandInput,
+  type DeleteKeyGroupCommandOutput,
   DeleteKeyGroupCommand,
-  DeleteKeyGroupCommandInput,
-  DeleteKeyGroupCommandOutput,
 } from "./commands/DeleteKeyGroupCommand";
 import {
+  type DeleteKeyValueStoreCommandInput,
+  type DeleteKeyValueStoreCommandOutput,
   DeleteKeyValueStoreCommand,
-  DeleteKeyValueStoreCommandInput,
-  DeleteKeyValueStoreCommandOutput,
 } from "./commands/DeleteKeyValueStoreCommand";
 import {
+  type DeleteMonitoringSubscriptionCommandInput,
+  type DeleteMonitoringSubscriptionCommandOutput,
   DeleteMonitoringSubscriptionCommand,
-  DeleteMonitoringSubscriptionCommandInput,
-  DeleteMonitoringSubscriptionCommandOutput,
 } from "./commands/DeleteMonitoringSubscriptionCommand";
 import {
+  type DeleteOriginAccessControlCommandInput,
+  type DeleteOriginAccessControlCommandOutput,
   DeleteOriginAccessControlCommand,
-  DeleteOriginAccessControlCommandInput,
-  DeleteOriginAccessControlCommandOutput,
 } from "./commands/DeleteOriginAccessControlCommand";
 import {
+  type DeleteOriginRequestPolicyCommandInput,
+  type DeleteOriginRequestPolicyCommandOutput,
   DeleteOriginRequestPolicyCommand,
-  DeleteOriginRequestPolicyCommandInput,
-  DeleteOriginRequestPolicyCommandOutput,
 } from "./commands/DeleteOriginRequestPolicyCommand";
 import {
+  type DeletePublicKeyCommandInput,
+  type DeletePublicKeyCommandOutput,
   DeletePublicKeyCommand,
-  DeletePublicKeyCommandInput,
-  DeletePublicKeyCommandOutput,
 } from "./commands/DeletePublicKeyCommand";
 import {
+  type DeleteRealtimeLogConfigCommandInput,
+  type DeleteRealtimeLogConfigCommandOutput,
   DeleteRealtimeLogConfigCommand,
-  DeleteRealtimeLogConfigCommandInput,
-  DeleteRealtimeLogConfigCommandOutput,
 } from "./commands/DeleteRealtimeLogConfigCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteResponseHeadersPolicyCommandInput,
+  type DeleteResponseHeadersPolicyCommandOutput,
   DeleteResponseHeadersPolicyCommand,
-  DeleteResponseHeadersPolicyCommandInput,
-  DeleteResponseHeadersPolicyCommandOutput,
 } from "./commands/DeleteResponseHeadersPolicyCommand";
 import {
+  type DeleteStreamingDistributionCommandInput,
+  type DeleteStreamingDistributionCommandOutput,
   DeleteStreamingDistributionCommand,
-  DeleteStreamingDistributionCommandInput,
-  DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand";
 import {
+  type DeleteTrustStoreCommandInput,
+  type DeleteTrustStoreCommandOutput,
   DeleteTrustStoreCommand,
-  DeleteTrustStoreCommandInput,
-  DeleteTrustStoreCommandOutput,
 } from "./commands/DeleteTrustStoreCommand";
 import {
+  type DeleteVpcOriginCommandInput,
+  type DeleteVpcOriginCommandOutput,
   DeleteVpcOriginCommand,
-  DeleteVpcOriginCommandInput,
-  DeleteVpcOriginCommandOutput,
 } from "./commands/DeleteVpcOriginCommand";
 import {
+  type DescribeConnectionFunctionCommandInput,
+  type DescribeConnectionFunctionCommandOutput,
   DescribeConnectionFunctionCommand,
-  DescribeConnectionFunctionCommandInput,
-  DescribeConnectionFunctionCommandOutput,
 } from "./commands/DescribeConnectionFunctionCommand";
 import {
+  type DescribeFunctionCommandInput,
+  type DescribeFunctionCommandOutput,
   DescribeFunctionCommand,
-  DescribeFunctionCommandInput,
-  DescribeFunctionCommandOutput,
 } from "./commands/DescribeFunctionCommand";
 import {
+  type DescribeKeyValueStoreCommandInput,
+  type DescribeKeyValueStoreCommandOutput,
   DescribeKeyValueStoreCommand,
-  DescribeKeyValueStoreCommandInput,
-  DescribeKeyValueStoreCommandOutput,
 } from "./commands/DescribeKeyValueStoreCommand";
 import {
+  type DisassociateDistributionTenantWebACLCommandInput,
+  type DisassociateDistributionTenantWebACLCommandOutput,
   DisassociateDistributionTenantWebACLCommand,
-  DisassociateDistributionTenantWebACLCommandInput,
-  DisassociateDistributionTenantWebACLCommandOutput,
 } from "./commands/DisassociateDistributionTenantWebACLCommand";
 import {
+  type DisassociateDistributionWebACLCommandInput,
+  type DisassociateDistributionWebACLCommandOutput,
   DisassociateDistributionWebACLCommand,
-  DisassociateDistributionWebACLCommandInput,
-  DisassociateDistributionWebACLCommandOutput,
 } from "./commands/DisassociateDistributionWebACLCommand";
 import {
+  type GetAnycastIpListCommandInput,
+  type GetAnycastIpListCommandOutput,
   GetAnycastIpListCommand,
-  GetAnycastIpListCommandInput,
-  GetAnycastIpListCommandOutput,
 } from "./commands/GetAnycastIpListCommand";
 import {
+  type GetCachePolicyCommandInput,
+  type GetCachePolicyCommandOutput,
   GetCachePolicyCommand,
-  GetCachePolicyCommandInput,
-  GetCachePolicyCommandOutput,
 } from "./commands/GetCachePolicyCommand";
 import {
+  type GetCachePolicyConfigCommandInput,
+  type GetCachePolicyConfigCommandOutput,
   GetCachePolicyConfigCommand,
-  GetCachePolicyConfigCommandInput,
-  GetCachePolicyConfigCommandOutput,
 } from "./commands/GetCachePolicyConfigCommand";
 import {
+  type GetCloudFrontOriginAccessIdentityCommandInput,
+  type GetCloudFrontOriginAccessIdentityCommandOutput,
   GetCloudFrontOriginAccessIdentityCommand,
-  GetCloudFrontOriginAccessIdentityCommandInput,
-  GetCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityCommand";
 import {
+  type GetCloudFrontOriginAccessIdentityConfigCommandInput,
+  type GetCloudFrontOriginAccessIdentityConfigCommandOutput,
   GetCloudFrontOriginAccessIdentityConfigCommand,
-  GetCloudFrontOriginAccessIdentityConfigCommandInput,
-  GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
 import {
+  type GetConnectionFunctionCommandInput,
+  type GetConnectionFunctionCommandOutput,
   GetConnectionFunctionCommand,
-  GetConnectionFunctionCommandInput,
-  GetConnectionFunctionCommandOutput,
 } from "./commands/GetConnectionFunctionCommand";
 import {
+  type GetConnectionGroupByRoutingEndpointCommandInput,
+  type GetConnectionGroupByRoutingEndpointCommandOutput,
   GetConnectionGroupByRoutingEndpointCommand,
-  GetConnectionGroupByRoutingEndpointCommandInput,
-  GetConnectionGroupByRoutingEndpointCommandOutput,
 } from "./commands/GetConnectionGroupByRoutingEndpointCommand";
 import {
+  type GetConnectionGroupCommandInput,
+  type GetConnectionGroupCommandOutput,
   GetConnectionGroupCommand,
-  GetConnectionGroupCommandInput,
-  GetConnectionGroupCommandOutput,
 } from "./commands/GetConnectionGroupCommand";
 import {
+  type GetContinuousDeploymentPolicyCommandInput,
+  type GetContinuousDeploymentPolicyCommandOutput,
   GetContinuousDeploymentPolicyCommand,
-  GetContinuousDeploymentPolicyCommandInput,
-  GetContinuousDeploymentPolicyCommandOutput,
 } from "./commands/GetContinuousDeploymentPolicyCommand";
 import {
+  type GetContinuousDeploymentPolicyConfigCommandInput,
+  type GetContinuousDeploymentPolicyConfigCommandOutput,
   GetContinuousDeploymentPolicyConfigCommand,
-  GetContinuousDeploymentPolicyConfigCommandInput,
-  GetContinuousDeploymentPolicyConfigCommandOutput,
 } from "./commands/GetContinuousDeploymentPolicyConfigCommand";
 import {
+  type GetDistributionCommandInput,
+  type GetDistributionCommandOutput,
   GetDistributionCommand,
-  GetDistributionCommandInput,
-  GetDistributionCommandOutput,
 } from "./commands/GetDistributionCommand";
 import {
+  type GetDistributionConfigCommandInput,
+  type GetDistributionConfigCommandOutput,
   GetDistributionConfigCommand,
-  GetDistributionConfigCommandInput,
-  GetDistributionConfigCommandOutput,
 } from "./commands/GetDistributionConfigCommand";
 import {
+  type GetDistributionTenantByDomainCommandInput,
+  type GetDistributionTenantByDomainCommandOutput,
   GetDistributionTenantByDomainCommand,
-  GetDistributionTenantByDomainCommandInput,
-  GetDistributionTenantByDomainCommandOutput,
 } from "./commands/GetDistributionTenantByDomainCommand";
 import {
+  type GetDistributionTenantCommandInput,
+  type GetDistributionTenantCommandOutput,
   GetDistributionTenantCommand,
-  GetDistributionTenantCommandInput,
-  GetDistributionTenantCommandOutput,
 } from "./commands/GetDistributionTenantCommand";
 import {
+  type GetFieldLevelEncryptionCommandInput,
+  type GetFieldLevelEncryptionCommandOutput,
   GetFieldLevelEncryptionCommand,
-  GetFieldLevelEncryptionCommandInput,
-  GetFieldLevelEncryptionCommandOutput,
 } from "./commands/GetFieldLevelEncryptionCommand";
 import {
+  type GetFieldLevelEncryptionConfigCommandInput,
+  type GetFieldLevelEncryptionConfigCommandOutput,
   GetFieldLevelEncryptionConfigCommand,
-  GetFieldLevelEncryptionConfigCommandInput,
-  GetFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/GetFieldLevelEncryptionConfigCommand";
 import {
+  type GetFieldLevelEncryptionProfileCommandInput,
+  type GetFieldLevelEncryptionProfileCommandOutput,
   GetFieldLevelEncryptionProfileCommand,
-  GetFieldLevelEncryptionProfileCommandInput,
-  GetFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/GetFieldLevelEncryptionProfileCommand";
 import {
+  type GetFieldLevelEncryptionProfileConfigCommandInput,
+  type GetFieldLevelEncryptionProfileConfigCommandOutput,
   GetFieldLevelEncryptionProfileConfigCommand,
-  GetFieldLevelEncryptionProfileConfigCommandInput,
-  GetFieldLevelEncryptionProfileConfigCommandOutput,
 } from "./commands/GetFieldLevelEncryptionProfileConfigCommand";
-import { GetFunctionCommand, GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import {
+  type GetFunctionCommandInput,
+  type GetFunctionCommandOutput,
+  GetFunctionCommand,
+} from "./commands/GetFunctionCommand";
+import {
+  type GetInvalidationCommandInput,
+  type GetInvalidationCommandOutput,
   GetInvalidationCommand,
-  GetInvalidationCommandInput,
-  GetInvalidationCommandOutput,
 } from "./commands/GetInvalidationCommand";
 import {
+  type GetInvalidationForDistributionTenantCommandInput,
+  type GetInvalidationForDistributionTenantCommandOutput,
   GetInvalidationForDistributionTenantCommand,
-  GetInvalidationForDistributionTenantCommandInput,
-  GetInvalidationForDistributionTenantCommandOutput,
 } from "./commands/GetInvalidationForDistributionTenantCommand";
-import { GetKeyGroupCommand, GetKeyGroupCommandInput, GetKeyGroupCommandOutput } from "./commands/GetKeyGroupCommand";
 import {
+  type GetKeyGroupCommandInput,
+  type GetKeyGroupCommandOutput,
+  GetKeyGroupCommand,
+} from "./commands/GetKeyGroupCommand";
+import {
+  type GetKeyGroupConfigCommandInput,
+  type GetKeyGroupConfigCommandOutput,
   GetKeyGroupConfigCommand,
-  GetKeyGroupConfigCommandInput,
-  GetKeyGroupConfigCommandOutput,
 } from "./commands/GetKeyGroupConfigCommand";
 import {
+  type GetManagedCertificateDetailsCommandInput,
+  type GetManagedCertificateDetailsCommandOutput,
   GetManagedCertificateDetailsCommand,
-  GetManagedCertificateDetailsCommandInput,
-  GetManagedCertificateDetailsCommandOutput,
 } from "./commands/GetManagedCertificateDetailsCommand";
 import {
+  type GetMonitoringSubscriptionCommandInput,
+  type GetMonitoringSubscriptionCommandOutput,
   GetMonitoringSubscriptionCommand,
-  GetMonitoringSubscriptionCommandInput,
-  GetMonitoringSubscriptionCommandOutput,
 } from "./commands/GetMonitoringSubscriptionCommand";
 import {
+  type GetOriginAccessControlCommandInput,
+  type GetOriginAccessControlCommandOutput,
   GetOriginAccessControlCommand,
-  GetOriginAccessControlCommandInput,
-  GetOriginAccessControlCommandOutput,
 } from "./commands/GetOriginAccessControlCommand";
 import {
+  type GetOriginAccessControlConfigCommandInput,
+  type GetOriginAccessControlConfigCommandOutput,
   GetOriginAccessControlConfigCommand,
-  GetOriginAccessControlConfigCommandInput,
-  GetOriginAccessControlConfigCommandOutput,
 } from "./commands/GetOriginAccessControlConfigCommand";
 import {
+  type GetOriginRequestPolicyCommandInput,
+  type GetOriginRequestPolicyCommandOutput,
   GetOriginRequestPolicyCommand,
-  GetOriginRequestPolicyCommandInput,
-  GetOriginRequestPolicyCommandOutput,
 } from "./commands/GetOriginRequestPolicyCommand";
 import {
+  type GetOriginRequestPolicyConfigCommandInput,
+  type GetOriginRequestPolicyConfigCommandOutput,
   GetOriginRequestPolicyConfigCommand,
-  GetOriginRequestPolicyConfigCommandInput,
-  GetOriginRequestPolicyConfigCommandOutput,
 } from "./commands/GetOriginRequestPolicyConfigCommand";
 import {
+  type GetPublicKeyCommandInput,
+  type GetPublicKeyCommandOutput,
   GetPublicKeyCommand,
-  GetPublicKeyCommandInput,
-  GetPublicKeyCommandOutput,
 } from "./commands/GetPublicKeyCommand";
 import {
+  type GetPublicKeyConfigCommandInput,
+  type GetPublicKeyConfigCommandOutput,
   GetPublicKeyConfigCommand,
-  GetPublicKeyConfigCommandInput,
-  GetPublicKeyConfigCommandOutput,
 } from "./commands/GetPublicKeyConfigCommand";
 import {
+  type GetRealtimeLogConfigCommandInput,
+  type GetRealtimeLogConfigCommandOutput,
   GetRealtimeLogConfigCommand,
-  GetRealtimeLogConfigCommandInput,
-  GetRealtimeLogConfigCommandOutput,
 } from "./commands/GetRealtimeLogConfigCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type GetResponseHeadersPolicyCommandInput,
+  type GetResponseHeadersPolicyCommandOutput,
   GetResponseHeadersPolicyCommand,
-  GetResponseHeadersPolicyCommandInput,
-  GetResponseHeadersPolicyCommandOutput,
 } from "./commands/GetResponseHeadersPolicyCommand";
 import {
+  type GetResponseHeadersPolicyConfigCommandInput,
+  type GetResponseHeadersPolicyConfigCommandOutput,
   GetResponseHeadersPolicyConfigCommand,
-  GetResponseHeadersPolicyConfigCommandInput,
-  GetResponseHeadersPolicyConfigCommandOutput,
 } from "./commands/GetResponseHeadersPolicyConfigCommand";
 import {
+  type GetStreamingDistributionCommandInput,
+  type GetStreamingDistributionCommandOutput,
   GetStreamingDistributionCommand,
-  GetStreamingDistributionCommandInput,
-  GetStreamingDistributionCommandOutput,
 } from "./commands/GetStreamingDistributionCommand";
 import {
+  type GetStreamingDistributionConfigCommandInput,
+  type GetStreamingDistributionConfigCommandOutput,
   GetStreamingDistributionConfigCommand,
-  GetStreamingDistributionConfigCommandInput,
-  GetStreamingDistributionConfigCommandOutput,
 } from "./commands/GetStreamingDistributionConfigCommand";
 import {
+  type GetTrustStoreCommandInput,
+  type GetTrustStoreCommandOutput,
   GetTrustStoreCommand,
-  GetTrustStoreCommandInput,
-  GetTrustStoreCommandOutput,
 } from "./commands/GetTrustStoreCommand";
 import {
+  type GetVpcOriginCommandInput,
+  type GetVpcOriginCommandOutput,
   GetVpcOriginCommand,
-  GetVpcOriginCommandInput,
-  GetVpcOriginCommandOutput,
 } from "./commands/GetVpcOriginCommand";
 import {
+  type ListAnycastIpListsCommandInput,
+  type ListAnycastIpListsCommandOutput,
   ListAnycastIpListsCommand,
-  ListAnycastIpListsCommandInput,
-  ListAnycastIpListsCommandOutput,
 } from "./commands/ListAnycastIpListsCommand";
 import {
+  type ListCachePoliciesCommandInput,
+  type ListCachePoliciesCommandOutput,
   ListCachePoliciesCommand,
-  ListCachePoliciesCommandInput,
-  ListCachePoliciesCommandOutput,
 } from "./commands/ListCachePoliciesCommand";
 import {
+  type ListCloudFrontOriginAccessIdentitiesCommandInput,
+  type ListCloudFrontOriginAccessIdentitiesCommandOutput,
   ListCloudFrontOriginAccessIdentitiesCommand,
-  ListCloudFrontOriginAccessIdentitiesCommandInput,
-  ListCloudFrontOriginAccessIdentitiesCommandOutput,
 } from "./commands/ListCloudFrontOriginAccessIdentitiesCommand";
 import {
+  type ListConflictingAliasesCommandInput,
+  type ListConflictingAliasesCommandOutput,
   ListConflictingAliasesCommand,
-  ListConflictingAliasesCommandInput,
-  ListConflictingAliasesCommandOutput,
 } from "./commands/ListConflictingAliasesCommand";
 import {
+  type ListConnectionFunctionsCommandInput,
+  type ListConnectionFunctionsCommandOutput,
   ListConnectionFunctionsCommand,
-  ListConnectionFunctionsCommandInput,
-  ListConnectionFunctionsCommandOutput,
 } from "./commands/ListConnectionFunctionsCommand";
 import {
+  type ListConnectionGroupsCommandInput,
+  type ListConnectionGroupsCommandOutput,
   ListConnectionGroupsCommand,
-  ListConnectionGroupsCommandInput,
-  ListConnectionGroupsCommandOutput,
 } from "./commands/ListConnectionGroupsCommand";
 import {
+  type ListContinuousDeploymentPoliciesCommandInput,
+  type ListContinuousDeploymentPoliciesCommandOutput,
   ListContinuousDeploymentPoliciesCommand,
-  ListContinuousDeploymentPoliciesCommandInput,
-  ListContinuousDeploymentPoliciesCommandOutput,
 } from "./commands/ListContinuousDeploymentPoliciesCommand";
 import {
+  type ListDistributionsByAnycastIpListIdCommandInput,
+  type ListDistributionsByAnycastIpListIdCommandOutput,
   ListDistributionsByAnycastIpListIdCommand,
-  ListDistributionsByAnycastIpListIdCommandInput,
-  ListDistributionsByAnycastIpListIdCommandOutput,
 } from "./commands/ListDistributionsByAnycastIpListIdCommand";
 import {
+  type ListDistributionsByCachePolicyIdCommandInput,
+  type ListDistributionsByCachePolicyIdCommandOutput,
   ListDistributionsByCachePolicyIdCommand,
-  ListDistributionsByCachePolicyIdCommandInput,
-  ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
 import {
+  type ListDistributionsByConnectionFunctionCommandInput,
+  type ListDistributionsByConnectionFunctionCommandOutput,
   ListDistributionsByConnectionFunctionCommand,
-  ListDistributionsByConnectionFunctionCommandInput,
-  ListDistributionsByConnectionFunctionCommandOutput,
 } from "./commands/ListDistributionsByConnectionFunctionCommand";
 import {
+  type ListDistributionsByConnectionModeCommandInput,
+  type ListDistributionsByConnectionModeCommandOutput,
   ListDistributionsByConnectionModeCommand,
-  ListDistributionsByConnectionModeCommandInput,
-  ListDistributionsByConnectionModeCommandOutput,
 } from "./commands/ListDistributionsByConnectionModeCommand";
 import {
+  type ListDistributionsByKeyGroupCommandInput,
+  type ListDistributionsByKeyGroupCommandOutput,
   ListDistributionsByKeyGroupCommand,
-  ListDistributionsByKeyGroupCommandInput,
-  ListDistributionsByKeyGroupCommandOutput,
 } from "./commands/ListDistributionsByKeyGroupCommand";
 import {
+  type ListDistributionsByOriginRequestPolicyIdCommandInput,
+  type ListDistributionsByOriginRequestPolicyIdCommandOutput,
   ListDistributionsByOriginRequestPolicyIdCommand,
-  ListDistributionsByOriginRequestPolicyIdCommandInput,
-  ListDistributionsByOriginRequestPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByOriginRequestPolicyIdCommand";
 import {
+  type ListDistributionsByOwnedResourceCommandInput,
+  type ListDistributionsByOwnedResourceCommandOutput,
   ListDistributionsByOwnedResourceCommand,
-  ListDistributionsByOwnedResourceCommandInput,
-  ListDistributionsByOwnedResourceCommandOutput,
 } from "./commands/ListDistributionsByOwnedResourceCommand";
 import {
+  type ListDistributionsByRealtimeLogConfigCommandInput,
+  type ListDistributionsByRealtimeLogConfigCommandOutput,
   ListDistributionsByRealtimeLogConfigCommand,
-  ListDistributionsByRealtimeLogConfigCommandInput,
-  ListDistributionsByRealtimeLogConfigCommandOutput,
 } from "./commands/ListDistributionsByRealtimeLogConfigCommand";
 import {
+  type ListDistributionsByResponseHeadersPolicyIdCommandInput,
+  type ListDistributionsByResponseHeadersPolicyIdCommandOutput,
   ListDistributionsByResponseHeadersPolicyIdCommand,
-  ListDistributionsByResponseHeadersPolicyIdCommandInput,
-  ListDistributionsByResponseHeadersPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByResponseHeadersPolicyIdCommand";
 import {
+  type ListDistributionsByTrustStoreCommandInput,
+  type ListDistributionsByTrustStoreCommandOutput,
   ListDistributionsByTrustStoreCommand,
-  ListDistributionsByTrustStoreCommandInput,
-  ListDistributionsByTrustStoreCommandOutput,
 } from "./commands/ListDistributionsByTrustStoreCommand";
 import {
+  type ListDistributionsByVpcOriginIdCommandInput,
+  type ListDistributionsByVpcOriginIdCommandOutput,
   ListDistributionsByVpcOriginIdCommand,
-  ListDistributionsByVpcOriginIdCommandInput,
-  ListDistributionsByVpcOriginIdCommandOutput,
 } from "./commands/ListDistributionsByVpcOriginIdCommand";
 import {
+  type ListDistributionsByWebACLIdCommandInput,
+  type ListDistributionsByWebACLIdCommandOutput,
   ListDistributionsByWebACLIdCommand,
-  ListDistributionsByWebACLIdCommandInput,
-  ListDistributionsByWebACLIdCommandOutput,
 } from "./commands/ListDistributionsByWebACLIdCommand";
 import {
+  type ListDistributionsCommandInput,
+  type ListDistributionsCommandOutput,
   ListDistributionsCommand,
-  ListDistributionsCommandInput,
-  ListDistributionsCommandOutput,
 } from "./commands/ListDistributionsCommand";
 import {
+  type ListDistributionTenantsByCustomizationCommandInput,
+  type ListDistributionTenantsByCustomizationCommandOutput,
   ListDistributionTenantsByCustomizationCommand,
-  ListDistributionTenantsByCustomizationCommandInput,
-  ListDistributionTenantsByCustomizationCommandOutput,
 } from "./commands/ListDistributionTenantsByCustomizationCommand";
 import {
+  type ListDistributionTenantsCommandInput,
+  type ListDistributionTenantsCommandOutput,
   ListDistributionTenantsCommand,
-  ListDistributionTenantsCommandInput,
-  ListDistributionTenantsCommandOutput,
 } from "./commands/ListDistributionTenantsCommand";
 import {
+  type ListDomainConflictsCommandInput,
+  type ListDomainConflictsCommandOutput,
   ListDomainConflictsCommand,
-  ListDomainConflictsCommandInput,
-  ListDomainConflictsCommandOutput,
 } from "./commands/ListDomainConflictsCommand";
 import {
+  type ListFieldLevelEncryptionConfigsCommandInput,
+  type ListFieldLevelEncryptionConfigsCommandOutput,
   ListFieldLevelEncryptionConfigsCommand,
-  ListFieldLevelEncryptionConfigsCommandInput,
-  ListFieldLevelEncryptionConfigsCommandOutput,
 } from "./commands/ListFieldLevelEncryptionConfigsCommand";
 import {
+  type ListFieldLevelEncryptionProfilesCommandInput,
+  type ListFieldLevelEncryptionProfilesCommandOutput,
   ListFieldLevelEncryptionProfilesCommand,
-  ListFieldLevelEncryptionProfilesCommandInput,
-  ListFieldLevelEncryptionProfilesCommandOutput,
 } from "./commands/ListFieldLevelEncryptionProfilesCommand";
 import {
+  type ListFunctionsCommandInput,
+  type ListFunctionsCommandOutput,
   ListFunctionsCommand,
-  ListFunctionsCommandInput,
-  ListFunctionsCommandOutput,
 } from "./commands/ListFunctionsCommand";
 import {
+  type ListInvalidationsCommandInput,
+  type ListInvalidationsCommandOutput,
   ListInvalidationsCommand,
-  ListInvalidationsCommandInput,
-  ListInvalidationsCommandOutput,
 } from "./commands/ListInvalidationsCommand";
 import {
+  type ListInvalidationsForDistributionTenantCommandInput,
+  type ListInvalidationsForDistributionTenantCommandOutput,
   ListInvalidationsForDistributionTenantCommand,
-  ListInvalidationsForDistributionTenantCommandInput,
-  ListInvalidationsForDistributionTenantCommandOutput,
 } from "./commands/ListInvalidationsForDistributionTenantCommand";
 import {
+  type ListKeyGroupsCommandInput,
+  type ListKeyGroupsCommandOutput,
   ListKeyGroupsCommand,
-  ListKeyGroupsCommandInput,
-  ListKeyGroupsCommandOutput,
 } from "./commands/ListKeyGroupsCommand";
 import {
+  type ListKeyValueStoresCommandInput,
+  type ListKeyValueStoresCommandOutput,
   ListKeyValueStoresCommand,
-  ListKeyValueStoresCommandInput,
-  ListKeyValueStoresCommandOutput,
 } from "./commands/ListKeyValueStoresCommand";
 import {
+  type ListOriginAccessControlsCommandInput,
+  type ListOriginAccessControlsCommandOutput,
   ListOriginAccessControlsCommand,
-  ListOriginAccessControlsCommandInput,
-  ListOriginAccessControlsCommandOutput,
 } from "./commands/ListOriginAccessControlsCommand";
 import {
+  type ListOriginRequestPoliciesCommandInput,
+  type ListOriginRequestPoliciesCommandOutput,
   ListOriginRequestPoliciesCommand,
-  ListOriginRequestPoliciesCommandInput,
-  ListOriginRequestPoliciesCommandOutput,
 } from "./commands/ListOriginRequestPoliciesCommand";
 import {
+  type ListPublicKeysCommandInput,
+  type ListPublicKeysCommandOutput,
   ListPublicKeysCommand,
-  ListPublicKeysCommandInput,
-  ListPublicKeysCommandOutput,
 } from "./commands/ListPublicKeysCommand";
 import {
+  type ListRealtimeLogConfigsCommandInput,
+  type ListRealtimeLogConfigsCommandOutput,
   ListRealtimeLogConfigsCommand,
-  ListRealtimeLogConfigsCommandInput,
-  ListRealtimeLogConfigsCommandOutput,
 } from "./commands/ListRealtimeLogConfigsCommand";
 import {
+  type ListResponseHeadersPoliciesCommandInput,
+  type ListResponseHeadersPoliciesCommandOutput,
   ListResponseHeadersPoliciesCommand,
-  ListResponseHeadersPoliciesCommandInput,
-  ListResponseHeadersPoliciesCommandOutput,
 } from "./commands/ListResponseHeadersPoliciesCommand";
 import {
+  type ListStreamingDistributionsCommandInput,
+  type ListStreamingDistributionsCommandOutput,
   ListStreamingDistributionsCommand,
-  ListStreamingDistributionsCommandInput,
-  ListStreamingDistributionsCommandOutput,
 } from "./commands/ListStreamingDistributionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTrustStoresCommandInput,
+  type ListTrustStoresCommandOutput,
   ListTrustStoresCommand,
-  ListTrustStoresCommandInput,
-  ListTrustStoresCommandOutput,
 } from "./commands/ListTrustStoresCommand";
 import {
+  type ListVpcOriginsCommandInput,
+  type ListVpcOriginsCommandOutput,
   ListVpcOriginsCommand,
-  ListVpcOriginsCommandInput,
-  ListVpcOriginsCommandOutput,
 } from "./commands/ListVpcOriginsCommand";
 import {
+  type PublishConnectionFunctionCommandInput,
+  type PublishConnectionFunctionCommandOutput,
   PublishConnectionFunctionCommand,
-  PublishConnectionFunctionCommandInput,
-  PublishConnectionFunctionCommandOutput,
 } from "./commands/PublishConnectionFunctionCommand";
 import {
+  type PublishFunctionCommandInput,
+  type PublishFunctionCommandOutput,
   PublishFunctionCommand,
-  PublishFunctionCommandInput,
-  PublishFunctionCommandOutput,
 } from "./commands/PublishFunctionCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TestConnectionFunctionCommandInput,
+  type TestConnectionFunctionCommandOutput,
   TestConnectionFunctionCommand,
-  TestConnectionFunctionCommandInput,
-  TestConnectionFunctionCommandOutput,
 } from "./commands/TestConnectionFunctionCommand";
 import {
+  type TestFunctionCommandInput,
+  type TestFunctionCommandOutput,
   TestFunctionCommand,
-  TestFunctionCommandInput,
-  TestFunctionCommandOutput,
 } from "./commands/TestFunctionCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAnycastIpListCommandInput,
+  type UpdateAnycastIpListCommandOutput,
   UpdateAnycastIpListCommand,
-  UpdateAnycastIpListCommandInput,
-  UpdateAnycastIpListCommandOutput,
 } from "./commands/UpdateAnycastIpListCommand";
 import {
+  type UpdateCachePolicyCommandInput,
+  type UpdateCachePolicyCommandOutput,
   UpdateCachePolicyCommand,
-  UpdateCachePolicyCommandInput,
-  UpdateCachePolicyCommandOutput,
 } from "./commands/UpdateCachePolicyCommand";
 import {
+  type UpdateCloudFrontOriginAccessIdentityCommandInput,
+  type UpdateCloudFrontOriginAccessIdentityCommandOutput,
   UpdateCloudFrontOriginAccessIdentityCommand,
-  UpdateCloudFrontOriginAccessIdentityCommandInput,
-  UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
 import {
+  type UpdateConnectionFunctionCommandInput,
+  type UpdateConnectionFunctionCommandOutput,
   UpdateConnectionFunctionCommand,
-  UpdateConnectionFunctionCommandInput,
-  UpdateConnectionFunctionCommandOutput,
 } from "./commands/UpdateConnectionFunctionCommand";
 import {
+  type UpdateConnectionGroupCommandInput,
+  type UpdateConnectionGroupCommandOutput,
   UpdateConnectionGroupCommand,
-  UpdateConnectionGroupCommandInput,
-  UpdateConnectionGroupCommandOutput,
 } from "./commands/UpdateConnectionGroupCommand";
 import {
+  type UpdateContinuousDeploymentPolicyCommandInput,
+  type UpdateContinuousDeploymentPolicyCommandOutput,
   UpdateContinuousDeploymentPolicyCommand,
-  UpdateContinuousDeploymentPolicyCommandInput,
-  UpdateContinuousDeploymentPolicyCommandOutput,
 } from "./commands/UpdateContinuousDeploymentPolicyCommand";
 import {
+  type UpdateDistributionCommandInput,
+  type UpdateDistributionCommandOutput,
   UpdateDistributionCommand,
-  UpdateDistributionCommandInput,
-  UpdateDistributionCommandOutput,
 } from "./commands/UpdateDistributionCommand";
 import {
+  type UpdateDistributionTenantCommandInput,
+  type UpdateDistributionTenantCommandOutput,
   UpdateDistributionTenantCommand,
-  UpdateDistributionTenantCommandInput,
-  UpdateDistributionTenantCommandOutput,
 } from "./commands/UpdateDistributionTenantCommand";
 import {
+  type UpdateDistributionWithStagingConfigCommandInput,
+  type UpdateDistributionWithStagingConfigCommandOutput,
   UpdateDistributionWithStagingConfigCommand,
-  UpdateDistributionWithStagingConfigCommandInput,
-  UpdateDistributionWithStagingConfigCommandOutput,
 } from "./commands/UpdateDistributionWithStagingConfigCommand";
 import {
+  type UpdateDomainAssociationCommandInput,
+  type UpdateDomainAssociationCommandOutput,
   UpdateDomainAssociationCommand,
-  UpdateDomainAssociationCommandInput,
-  UpdateDomainAssociationCommandOutput,
 } from "./commands/UpdateDomainAssociationCommand";
 import {
+  type UpdateFieldLevelEncryptionConfigCommandInput,
+  type UpdateFieldLevelEncryptionConfigCommandOutput,
   UpdateFieldLevelEncryptionConfigCommand,
-  UpdateFieldLevelEncryptionConfigCommandInput,
-  UpdateFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionConfigCommand";
 import {
+  type UpdateFieldLevelEncryptionProfileCommandInput,
+  type UpdateFieldLevelEncryptionProfileCommandOutput,
   UpdateFieldLevelEncryptionProfileCommand,
-  UpdateFieldLevelEncryptionProfileCommandInput,
-  UpdateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand";
 import {
+  type UpdateFunctionCommandInput,
+  type UpdateFunctionCommandOutput,
   UpdateFunctionCommand,
-  UpdateFunctionCommandInput,
-  UpdateFunctionCommandOutput,
 } from "./commands/UpdateFunctionCommand";
 import {
+  type UpdateKeyGroupCommandInput,
+  type UpdateKeyGroupCommandOutput,
   UpdateKeyGroupCommand,
-  UpdateKeyGroupCommandInput,
-  UpdateKeyGroupCommandOutput,
 } from "./commands/UpdateKeyGroupCommand";
 import {
+  type UpdateKeyValueStoreCommandInput,
+  type UpdateKeyValueStoreCommandOutput,
   UpdateKeyValueStoreCommand,
-  UpdateKeyValueStoreCommandInput,
-  UpdateKeyValueStoreCommandOutput,
 } from "./commands/UpdateKeyValueStoreCommand";
 import {
+  type UpdateOriginAccessControlCommandInput,
+  type UpdateOriginAccessControlCommandOutput,
   UpdateOriginAccessControlCommand,
-  UpdateOriginAccessControlCommandInput,
-  UpdateOriginAccessControlCommandOutput,
 } from "./commands/UpdateOriginAccessControlCommand";
 import {
+  type UpdateOriginRequestPolicyCommandInput,
+  type UpdateOriginRequestPolicyCommandOutput,
   UpdateOriginRequestPolicyCommand,
-  UpdateOriginRequestPolicyCommandInput,
-  UpdateOriginRequestPolicyCommandOutput,
 } from "./commands/UpdateOriginRequestPolicyCommand";
 import {
+  type UpdatePublicKeyCommandInput,
+  type UpdatePublicKeyCommandOutput,
   UpdatePublicKeyCommand,
-  UpdatePublicKeyCommandInput,
-  UpdatePublicKeyCommandOutput,
 } from "./commands/UpdatePublicKeyCommand";
 import {
+  type UpdateRealtimeLogConfigCommandInput,
+  type UpdateRealtimeLogConfigCommandOutput,
   UpdateRealtimeLogConfigCommand,
-  UpdateRealtimeLogConfigCommandInput,
-  UpdateRealtimeLogConfigCommandOutput,
 } from "./commands/UpdateRealtimeLogConfigCommand";
 import {
+  type UpdateResponseHeadersPolicyCommandInput,
+  type UpdateResponseHeadersPolicyCommandOutput,
   UpdateResponseHeadersPolicyCommand,
-  UpdateResponseHeadersPolicyCommandInput,
-  UpdateResponseHeadersPolicyCommandOutput,
 } from "./commands/UpdateResponseHeadersPolicyCommand";
 import {
+  type UpdateStreamingDistributionCommandInput,
+  type UpdateStreamingDistributionCommandOutput,
   UpdateStreamingDistributionCommand,
-  UpdateStreamingDistributionCommandInput,
-  UpdateStreamingDistributionCommandOutput,
 } from "./commands/UpdateStreamingDistributionCommand";
 import {
+  type UpdateTrustStoreCommandInput,
+  type UpdateTrustStoreCommandOutput,
   UpdateTrustStoreCommand,
-  UpdateTrustStoreCommandInput,
-  UpdateTrustStoreCommandOutput,
 } from "./commands/UpdateTrustStoreCommand";
 import {
+  type UpdateVpcOriginCommandInput,
+  type UpdateVpcOriginCommandOutput,
   UpdateVpcOriginCommand,
-  UpdateVpcOriginCommandInput,
-  UpdateVpcOriginCommandOutput,
 } from "./commands/UpdateVpcOriginCommand";
 import {
+  type VerifyDnsConfigurationCommandInput,
+  type VerifyDnsConfigurationCommandOutput,
   VerifyDnsConfigurationCommand,
-  VerifyDnsConfigurationCommandInput,
-  VerifyDnsConfigurationCommandOutput,
 } from "./commands/VerifyDnsConfigurationCommand";
 import {
   paginateListCloudFrontOriginAccessIdentities,

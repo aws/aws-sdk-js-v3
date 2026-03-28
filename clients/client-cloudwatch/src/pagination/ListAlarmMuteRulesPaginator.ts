@@ -8,7 +8,7 @@ import {
   ListAlarmMuteRulesCommandInput,
   ListAlarmMuteRulesCommandOutput,
 } from "../commands/ListAlarmMuteRulesCommand";
-import { CloudWatchPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

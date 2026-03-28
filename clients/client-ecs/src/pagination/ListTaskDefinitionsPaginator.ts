@@ -8,7 +8,7 @@ import {
   ListTaskDefinitionsCommandOutput,
 } from "../commands/ListTaskDefinitionsCommand";
 import { ECSClient } from "../ECSClient";
-import { ECSPaginationConfiguration } from "./Interfaces";
+import type { ECSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

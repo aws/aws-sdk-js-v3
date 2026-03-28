@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import {
+  type AwsCredentialIdentity,
+  type AwsCredentialIdentityProvider,
   type HttpAuthScheme,
-  AwsCredentialIdentity,
-  AwsCredentialIdentityProvider,
   TokenIdentity,
   TokenIdentityProvider,
 } from "@smithy/types";

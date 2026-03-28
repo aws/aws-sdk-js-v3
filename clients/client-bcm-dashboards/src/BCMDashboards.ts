@@ -4,45 +4,49 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BCMDashboardsClient } from "./BCMDashboardsClient";
 import {
+  type CreateDashboardCommandInput,
+  type CreateDashboardCommandOutput,
   CreateDashboardCommand,
-  CreateDashboardCommandInput,
-  CreateDashboardCommandOutput,
 } from "./commands/CreateDashboardCommand";
 import {
+  type DeleteDashboardCommandInput,
+  type DeleteDashboardCommandOutput,
   DeleteDashboardCommand,
-  DeleteDashboardCommandInput,
-  DeleteDashboardCommandOutput,
 } from "./commands/DeleteDashboardCommand";
 import {
+  type GetDashboardCommandInput,
+  type GetDashboardCommandOutput,
   GetDashboardCommand,
-  GetDashboardCommandInput,
-  GetDashboardCommandOutput,
 } from "./commands/GetDashboardCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type ListDashboardsCommandInput,
+  type ListDashboardsCommandOutput,
   ListDashboardsCommand,
-  ListDashboardsCommandInput,
-  ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDashboardCommandInput,
+  type UpdateDashboardCommandOutput,
   UpdateDashboardCommand,
-  UpdateDashboardCommandInput,
-  UpdateDashboardCommandOutput,
 } from "./commands/UpdateDashboardCommand";
 import { paginateListDashboards } from "./pagination/ListDashboardsPaginator";
 

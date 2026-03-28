@@ -8,7 +8,7 @@ import {
   ListNamespacesCommandOutput,
 } from "../commands/ListNamespacesCommand";
 import { ServiceDiscoveryClient } from "../ServiceDiscoveryClient";
-import { ServiceDiscoveryPaginationConfiguration } from "./Interfaces";
+import type { ServiceDiscoveryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   DescribeDeliverySourcesCommandInput,
   DescribeDeliverySourcesCommandOutput,
 } from "../commands/DescribeDeliverySourcesCommand";
-import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

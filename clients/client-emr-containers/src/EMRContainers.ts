@@ -3,107 +3,119 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelJobRunCommandInput,
+  type CancelJobRunCommandOutput,
   CancelJobRunCommand,
-  CancelJobRunCommandInput,
-  CancelJobRunCommandOutput,
 } from "./commands/CancelJobRunCommand";
 import {
+  type CreateJobTemplateCommandInput,
+  type CreateJobTemplateCommandOutput,
   CreateJobTemplateCommand,
-  CreateJobTemplateCommandInput,
-  CreateJobTemplateCommandOutput,
 } from "./commands/CreateJobTemplateCommand";
 import {
+  type CreateManagedEndpointCommandInput,
+  type CreateManagedEndpointCommandOutput,
   CreateManagedEndpointCommand,
-  CreateManagedEndpointCommandInput,
-  CreateManagedEndpointCommandOutput,
 } from "./commands/CreateManagedEndpointCommand";
 import {
+  type CreateSecurityConfigurationCommandInput,
+  type CreateSecurityConfigurationCommandOutput,
   CreateSecurityConfigurationCommand,
-  CreateSecurityConfigurationCommandInput,
-  CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
 import {
+  type CreateVirtualClusterCommandInput,
+  type CreateVirtualClusterCommandOutput,
   CreateVirtualClusterCommand,
-  CreateVirtualClusterCommandInput,
-  CreateVirtualClusterCommandOutput,
 } from "./commands/CreateVirtualClusterCommand";
 import {
+  type DeleteJobTemplateCommandInput,
+  type DeleteJobTemplateCommandOutput,
   DeleteJobTemplateCommand,
-  DeleteJobTemplateCommandInput,
-  DeleteJobTemplateCommandOutput,
 } from "./commands/DeleteJobTemplateCommand";
 import {
+  type DeleteManagedEndpointCommandInput,
+  type DeleteManagedEndpointCommandOutput,
   DeleteManagedEndpointCommand,
-  DeleteManagedEndpointCommandInput,
-  DeleteManagedEndpointCommandOutput,
 } from "./commands/DeleteManagedEndpointCommand";
 import {
+  type DeleteVirtualClusterCommandInput,
+  type DeleteVirtualClusterCommandOutput,
   DeleteVirtualClusterCommand,
-  DeleteVirtualClusterCommandInput,
-  DeleteVirtualClusterCommandOutput,
 } from "./commands/DeleteVirtualClusterCommand";
 import {
+  type DescribeJobRunCommandInput,
+  type DescribeJobRunCommandOutput,
   DescribeJobRunCommand,
-  DescribeJobRunCommandInput,
-  DescribeJobRunCommandOutput,
 } from "./commands/DescribeJobRunCommand";
 import {
+  type DescribeJobTemplateCommandInput,
+  type DescribeJobTemplateCommandOutput,
   DescribeJobTemplateCommand,
-  DescribeJobTemplateCommandInput,
-  DescribeJobTemplateCommandOutput,
 } from "./commands/DescribeJobTemplateCommand";
 import {
+  type DescribeManagedEndpointCommandInput,
+  type DescribeManagedEndpointCommandOutput,
   DescribeManagedEndpointCommand,
-  DescribeManagedEndpointCommandInput,
-  DescribeManagedEndpointCommandOutput,
 } from "./commands/DescribeManagedEndpointCommand";
 import {
+  type DescribeSecurityConfigurationCommandInput,
+  type DescribeSecurityConfigurationCommandOutput,
   DescribeSecurityConfigurationCommand,
-  DescribeSecurityConfigurationCommandInput,
-  DescribeSecurityConfigurationCommandOutput,
 } from "./commands/DescribeSecurityConfigurationCommand";
 import {
+  type DescribeVirtualClusterCommandInput,
+  type DescribeVirtualClusterCommandOutput,
   DescribeVirtualClusterCommand,
-  DescribeVirtualClusterCommandInput,
-  DescribeVirtualClusterCommandOutput,
 } from "./commands/DescribeVirtualClusterCommand";
 import {
+  type GetManagedEndpointSessionCredentialsCommandInput,
+  type GetManagedEndpointSessionCredentialsCommandOutput,
   GetManagedEndpointSessionCredentialsCommand,
-  GetManagedEndpointSessionCredentialsCommandInput,
-  GetManagedEndpointSessionCredentialsCommandOutput,
 } from "./commands/GetManagedEndpointSessionCredentialsCommand";
-import { ListJobRunsCommand, ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
 import {
+  type ListJobRunsCommandInput,
+  type ListJobRunsCommandOutput,
+  ListJobRunsCommand,
+} from "./commands/ListJobRunsCommand";
+import {
+  type ListJobTemplatesCommandInput,
+  type ListJobTemplatesCommandOutput,
   ListJobTemplatesCommand,
-  ListJobTemplatesCommandInput,
-  ListJobTemplatesCommandOutput,
 } from "./commands/ListJobTemplatesCommand";
 import {
+  type ListManagedEndpointsCommandInput,
+  type ListManagedEndpointsCommandOutput,
   ListManagedEndpointsCommand,
-  ListManagedEndpointsCommandInput,
-  ListManagedEndpointsCommandOutput,
 } from "./commands/ListManagedEndpointsCommand";
 import {
+  type ListSecurityConfigurationsCommandInput,
+  type ListSecurityConfigurationsCommandOutput,
   ListSecurityConfigurationsCommand,
-  ListSecurityConfigurationsCommandInput,
-  ListSecurityConfigurationsCommandOutput,
 } from "./commands/ListSecurityConfigurationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVirtualClustersCommandInput,
+  type ListVirtualClustersCommandOutput,
   ListVirtualClustersCommand,
-  ListVirtualClustersCommandInput,
-  ListVirtualClustersCommandOutput,
 } from "./commands/ListVirtualClustersCommand";
-import { StartJobRunCommand, StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type StartJobRunCommandInput,
+  type StartJobRunCommandOutput,
+  StartJobRunCommand,
+} from "./commands/StartJobRunCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { EMRContainersClient } from "./EMRContainersClient";
 import { paginateListJobRuns } from "./pagination/ListJobRunsPaginator";

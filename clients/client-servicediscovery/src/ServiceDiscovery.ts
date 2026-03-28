@@ -3,142 +3,154 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateHttpNamespaceCommandInput,
+  type CreateHttpNamespaceCommandOutput,
   CreateHttpNamespaceCommand,
-  CreateHttpNamespaceCommandInput,
-  CreateHttpNamespaceCommandOutput,
 } from "./commands/CreateHttpNamespaceCommand";
 import {
+  type CreatePrivateDnsNamespaceCommandInput,
+  type CreatePrivateDnsNamespaceCommandOutput,
   CreatePrivateDnsNamespaceCommand,
-  CreatePrivateDnsNamespaceCommandInput,
-  CreatePrivateDnsNamespaceCommandOutput,
 } from "./commands/CreatePrivateDnsNamespaceCommand";
 import {
+  type CreatePublicDnsNamespaceCommandInput,
+  type CreatePublicDnsNamespaceCommandOutput,
   CreatePublicDnsNamespaceCommand,
-  CreatePublicDnsNamespaceCommandInput,
-  CreatePublicDnsNamespaceCommandOutput,
 } from "./commands/CreatePublicDnsNamespaceCommand";
 import {
+  type CreateServiceCommandInput,
+  type CreateServiceCommandOutput,
   CreateServiceCommand,
-  CreateServiceCommandInput,
-  CreateServiceCommandOutput,
 } from "./commands/CreateServiceCommand";
 import {
+  type DeleteNamespaceCommandInput,
+  type DeleteNamespaceCommandOutput,
   DeleteNamespaceCommand,
-  DeleteNamespaceCommandInput,
-  DeleteNamespaceCommandOutput,
 } from "./commands/DeleteNamespaceCommand";
 import {
+  type DeleteServiceAttributesCommandInput,
+  type DeleteServiceAttributesCommandOutput,
   DeleteServiceAttributesCommand,
-  DeleteServiceAttributesCommandInput,
-  DeleteServiceAttributesCommandOutput,
 } from "./commands/DeleteServiceAttributesCommand";
 import {
+  type DeleteServiceCommandInput,
+  type DeleteServiceCommandOutput,
   DeleteServiceCommand,
-  DeleteServiceCommandInput,
-  DeleteServiceCommandOutput,
 } from "./commands/DeleteServiceCommand";
 import {
+  type DeregisterInstanceCommandInput,
+  type DeregisterInstanceCommandOutput,
   DeregisterInstanceCommand,
-  DeregisterInstanceCommandInput,
-  DeregisterInstanceCommandOutput,
 } from "./commands/DeregisterInstanceCommand";
 import {
+  type DiscoverInstancesCommandInput,
+  type DiscoverInstancesCommandOutput,
   DiscoverInstancesCommand,
-  DiscoverInstancesCommandInput,
-  DiscoverInstancesCommandOutput,
 } from "./commands/DiscoverInstancesCommand";
 import {
+  type DiscoverInstancesRevisionCommandInput,
+  type DiscoverInstancesRevisionCommandOutput,
   DiscoverInstancesRevisionCommand,
-  DiscoverInstancesRevisionCommandInput,
-  DiscoverInstancesRevisionCommandOutput,
 } from "./commands/DiscoverInstancesRevisionCommand";
-import { GetInstanceCommand, GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
 import {
+  type GetInstanceCommandInput,
+  type GetInstanceCommandOutput,
+  GetInstanceCommand,
+} from "./commands/GetInstanceCommand";
+import {
+  type GetInstancesHealthStatusCommandInput,
+  type GetInstancesHealthStatusCommandOutput,
   GetInstancesHealthStatusCommand,
-  GetInstancesHealthStatusCommandInput,
-  GetInstancesHealthStatusCommandOutput,
 } from "./commands/GetInstancesHealthStatusCommand";
 import {
+  type GetNamespaceCommandInput,
+  type GetNamespaceCommandOutput,
   GetNamespaceCommand,
-  GetNamespaceCommandInput,
-  GetNamespaceCommandOutput,
 } from "./commands/GetNamespaceCommand";
 import {
+  type GetOperationCommandInput,
+  type GetOperationCommandOutput,
   GetOperationCommand,
-  GetOperationCommandInput,
-  GetOperationCommandOutput,
 } from "./commands/GetOperationCommand";
 import {
+  type GetServiceAttributesCommandInput,
+  type GetServiceAttributesCommandOutput,
   GetServiceAttributesCommand,
-  GetServiceAttributesCommandInput,
-  GetServiceAttributesCommandOutput,
 } from "./commands/GetServiceAttributesCommand";
-import { GetServiceCommand, GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import {
+  type GetServiceCommandInput,
+  type GetServiceCommandOutput,
+  GetServiceCommand,
+} from "./commands/GetServiceCommand";
+import {
+  type ListInstancesCommandInput,
+  type ListInstancesCommandOutput,
   ListInstancesCommand,
-  ListInstancesCommandInput,
-  ListInstancesCommandOutput,
 } from "./commands/ListInstancesCommand";
 import {
+  type ListNamespacesCommandInput,
+  type ListNamespacesCommandOutput,
   ListNamespacesCommand,
-  ListNamespacesCommandInput,
-  ListNamespacesCommandOutput,
 } from "./commands/ListNamespacesCommand";
 import {
+  type ListOperationsCommandInput,
+  type ListOperationsCommandOutput,
   ListOperationsCommand,
-  ListOperationsCommandInput,
-  ListOperationsCommandOutput,
 } from "./commands/ListOperationsCommand";
 import {
+  type ListServicesCommandInput,
+  type ListServicesCommandOutput,
   ListServicesCommand,
-  ListServicesCommandInput,
-  ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RegisterInstanceCommandInput,
+  type RegisterInstanceCommandOutput,
   RegisterInstanceCommand,
-  RegisterInstanceCommandInput,
-  RegisterInstanceCommandOutput,
 } from "./commands/RegisterInstanceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateHttpNamespaceCommandInput,
+  type UpdateHttpNamespaceCommandOutput,
   UpdateHttpNamespaceCommand,
-  UpdateHttpNamespaceCommandInput,
-  UpdateHttpNamespaceCommandOutput,
 } from "./commands/UpdateHttpNamespaceCommand";
 import {
+  type UpdateInstanceCustomHealthStatusCommandInput,
+  type UpdateInstanceCustomHealthStatusCommandOutput,
   UpdateInstanceCustomHealthStatusCommand,
-  UpdateInstanceCustomHealthStatusCommandInput,
-  UpdateInstanceCustomHealthStatusCommandOutput,
 } from "./commands/UpdateInstanceCustomHealthStatusCommand";
 import {
+  type UpdatePrivateDnsNamespaceCommandInput,
+  type UpdatePrivateDnsNamespaceCommandOutput,
   UpdatePrivateDnsNamespaceCommand,
-  UpdatePrivateDnsNamespaceCommandInput,
-  UpdatePrivateDnsNamespaceCommandOutput,
 } from "./commands/UpdatePrivateDnsNamespaceCommand";
 import {
+  type UpdatePublicDnsNamespaceCommandInput,
+  type UpdatePublicDnsNamespaceCommandOutput,
   UpdatePublicDnsNamespaceCommand,
-  UpdatePublicDnsNamespaceCommandInput,
-  UpdatePublicDnsNamespaceCommandOutput,
 } from "./commands/UpdatePublicDnsNamespaceCommand";
 import {
+  type UpdateServiceAttributesCommandInput,
+  type UpdateServiceAttributesCommandOutput,
   UpdateServiceAttributesCommand,
-  UpdateServiceAttributesCommandInput,
-  UpdateServiceAttributesCommandOutput,
 } from "./commands/UpdateServiceAttributesCommand";
 import {
+  type UpdateServiceCommandInput,
+  type UpdateServiceCommandOutput,
   UpdateServiceCommand,
-  UpdateServiceCommandInput,
-  UpdateServiceCommandOutput,
 } from "./commands/UpdateServiceCommand";
 import { paginateGetInstancesHealthStatus } from "./pagination/GetInstancesHealthStatusPaginator";
 import { paginateListInstances } from "./pagination/ListInstancesPaginator";

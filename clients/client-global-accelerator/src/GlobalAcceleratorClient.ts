@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,180 +61,201 @@ import {
   defaultGlobalAcceleratorHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddCustomRoutingEndpointsCommandInput,
   AddCustomRoutingEndpointsCommandOutput,
 } from "./commands/AddCustomRoutingEndpointsCommand";
-import { AddEndpointsCommandInput, AddEndpointsCommandOutput } from "./commands/AddEndpointsCommand";
-import { AdvertiseByoipCidrCommandInput, AdvertiseByoipCidrCommandOutput } from "./commands/AdvertiseByoipCidrCommand";
-import {
+import type { AddEndpointsCommandInput, AddEndpointsCommandOutput } from "./commands/AddEndpointsCommand";
+import type {
+  AdvertiseByoipCidrCommandInput,
+  AdvertiseByoipCidrCommandOutput,
+} from "./commands/AdvertiseByoipCidrCommand";
+import type {
   AllowCustomRoutingTrafficCommandInput,
   AllowCustomRoutingTrafficCommandOutput,
 } from "./commands/AllowCustomRoutingTrafficCommand";
-import { CreateAcceleratorCommandInput, CreateAcceleratorCommandOutput } from "./commands/CreateAcceleratorCommand";
-import {
+import type {
+  CreateAcceleratorCommandInput,
+  CreateAcceleratorCommandOutput,
+} from "./commands/CreateAcceleratorCommand";
+import type {
   CreateCrossAccountAttachmentCommandInput,
   CreateCrossAccountAttachmentCommandOutput,
 } from "./commands/CreateCrossAccountAttachmentCommand";
-import {
+import type {
   CreateCustomRoutingAcceleratorCommandInput,
   CreateCustomRoutingAcceleratorCommandOutput,
 } from "./commands/CreateCustomRoutingAcceleratorCommand";
-import {
+import type {
   CreateCustomRoutingEndpointGroupCommandInput,
   CreateCustomRoutingEndpointGroupCommandOutput,
 } from "./commands/CreateCustomRoutingEndpointGroupCommand";
-import {
+import type {
   CreateCustomRoutingListenerCommandInput,
   CreateCustomRoutingListenerCommandOutput,
 } from "./commands/CreateCustomRoutingListenerCommand";
-import {
+import type {
   CreateEndpointGroupCommandInput,
   CreateEndpointGroupCommandOutput,
 } from "./commands/CreateEndpointGroupCommand";
-import { CreateListenerCommandInput, CreateListenerCommandOutput } from "./commands/CreateListenerCommand";
-import { DeleteAcceleratorCommandInput, DeleteAcceleratorCommandOutput } from "./commands/DeleteAcceleratorCommand";
-import {
+import type { CreateListenerCommandInput, CreateListenerCommandOutput } from "./commands/CreateListenerCommand";
+import type {
+  DeleteAcceleratorCommandInput,
+  DeleteAcceleratorCommandOutput,
+} from "./commands/DeleteAcceleratorCommand";
+import type {
   DeleteCrossAccountAttachmentCommandInput,
   DeleteCrossAccountAttachmentCommandOutput,
 } from "./commands/DeleteCrossAccountAttachmentCommand";
-import {
+import type {
   DeleteCustomRoutingAcceleratorCommandInput,
   DeleteCustomRoutingAcceleratorCommandOutput,
 } from "./commands/DeleteCustomRoutingAcceleratorCommand";
-import {
+import type {
   DeleteCustomRoutingEndpointGroupCommandInput,
   DeleteCustomRoutingEndpointGroupCommandOutput,
 } from "./commands/DeleteCustomRoutingEndpointGroupCommand";
-import {
+import type {
   DeleteCustomRoutingListenerCommandInput,
   DeleteCustomRoutingListenerCommandOutput,
 } from "./commands/DeleteCustomRoutingListenerCommand";
-import {
+import type {
   DeleteEndpointGroupCommandInput,
   DeleteEndpointGroupCommandOutput,
 } from "./commands/DeleteEndpointGroupCommand";
-import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
-import {
+import type { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
+import type {
   DenyCustomRoutingTrafficCommandInput,
   DenyCustomRoutingTrafficCommandOutput,
 } from "./commands/DenyCustomRoutingTrafficCommand";
-import {
+import type {
   DeprovisionByoipCidrCommandInput,
   DeprovisionByoipCidrCommandOutput,
 } from "./commands/DeprovisionByoipCidrCommand";
-import {
+import type {
   DescribeAcceleratorAttributesCommandInput,
   DescribeAcceleratorAttributesCommandOutput,
 } from "./commands/DescribeAcceleratorAttributesCommand";
-import {
+import type {
   DescribeAcceleratorCommandInput,
   DescribeAcceleratorCommandOutput,
 } from "./commands/DescribeAcceleratorCommand";
-import {
+import type {
   DescribeCrossAccountAttachmentCommandInput,
   DescribeCrossAccountAttachmentCommandOutput,
 } from "./commands/DescribeCrossAccountAttachmentCommand";
-import {
+import type {
   DescribeCustomRoutingAcceleratorAttributesCommandInput,
   DescribeCustomRoutingAcceleratorAttributesCommandOutput,
 } from "./commands/DescribeCustomRoutingAcceleratorAttributesCommand";
-import {
+import type {
   DescribeCustomRoutingAcceleratorCommandInput,
   DescribeCustomRoutingAcceleratorCommandOutput,
 } from "./commands/DescribeCustomRoutingAcceleratorCommand";
-import {
+import type {
   DescribeCustomRoutingEndpointGroupCommandInput,
   DescribeCustomRoutingEndpointGroupCommandOutput,
 } from "./commands/DescribeCustomRoutingEndpointGroupCommand";
-import {
+import type {
   DescribeCustomRoutingListenerCommandInput,
   DescribeCustomRoutingListenerCommandOutput,
 } from "./commands/DescribeCustomRoutingListenerCommand";
-import {
+import type {
   DescribeEndpointGroupCommandInput,
   DescribeEndpointGroupCommandOutput,
 } from "./commands/DescribeEndpointGroupCommand";
-import { DescribeListenerCommandInput, DescribeListenerCommandOutput } from "./commands/DescribeListenerCommand";
-import { ListAcceleratorsCommandInput, ListAcceleratorsCommandOutput } from "./commands/ListAcceleratorsCommand";
-import { ListByoipCidrsCommandInput, ListByoipCidrsCommandOutput } from "./commands/ListByoipCidrsCommand";
-import {
+import type { DescribeListenerCommandInput, DescribeListenerCommandOutput } from "./commands/DescribeListenerCommand";
+import type { ListAcceleratorsCommandInput, ListAcceleratorsCommandOutput } from "./commands/ListAcceleratorsCommand";
+import type { ListByoipCidrsCommandInput, ListByoipCidrsCommandOutput } from "./commands/ListByoipCidrsCommand";
+import type {
   ListCrossAccountAttachmentsCommandInput,
   ListCrossAccountAttachmentsCommandOutput,
 } from "./commands/ListCrossAccountAttachmentsCommand";
-import {
+import type {
   ListCrossAccountResourceAccountsCommandInput,
   ListCrossAccountResourceAccountsCommandOutput,
 } from "./commands/ListCrossAccountResourceAccountsCommand";
-import {
+import type {
   ListCrossAccountResourcesCommandInput,
   ListCrossAccountResourcesCommandOutput,
 } from "./commands/ListCrossAccountResourcesCommand";
-import {
+import type {
   ListCustomRoutingAcceleratorsCommandInput,
   ListCustomRoutingAcceleratorsCommandOutput,
 } from "./commands/ListCustomRoutingAcceleratorsCommand";
-import {
+import type {
   ListCustomRoutingEndpointGroupsCommandInput,
   ListCustomRoutingEndpointGroupsCommandOutput,
 } from "./commands/ListCustomRoutingEndpointGroupsCommand";
-import {
+import type {
   ListCustomRoutingListenersCommandInput,
   ListCustomRoutingListenersCommandOutput,
 } from "./commands/ListCustomRoutingListenersCommand";
-import {
+import type {
   ListCustomRoutingPortMappingsByDestinationCommandInput,
   ListCustomRoutingPortMappingsByDestinationCommandOutput,
 } from "./commands/ListCustomRoutingPortMappingsByDestinationCommand";
-import {
+import type {
   ListCustomRoutingPortMappingsCommandInput,
   ListCustomRoutingPortMappingsCommandOutput,
 } from "./commands/ListCustomRoutingPortMappingsCommand";
-import { ListEndpointGroupsCommandInput, ListEndpointGroupsCommandOutput } from "./commands/ListEndpointGroupsCommand";
-import { ListListenersCommandInput, ListListenersCommandOutput } from "./commands/ListListenersCommand";
-import {
+import type {
+  ListEndpointGroupsCommandInput,
+  ListEndpointGroupsCommandOutput,
+} from "./commands/ListEndpointGroupsCommand";
+import type { ListListenersCommandInput, ListListenersCommandOutput } from "./commands/ListListenersCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput } from "./commands/ProvisionByoipCidrCommand";
-import {
+import type {
+  ProvisionByoipCidrCommandInput,
+  ProvisionByoipCidrCommandOutput,
+} from "./commands/ProvisionByoipCidrCommand";
+import type {
   RemoveCustomRoutingEndpointsCommandInput,
   RemoveCustomRoutingEndpointsCommandOutput,
 } from "./commands/RemoveCustomRoutingEndpointsCommand";
-import { RemoveEndpointsCommandInput, RemoveEndpointsCommandOutput } from "./commands/RemoveEndpointsCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { RemoveEndpointsCommandInput, RemoveEndpointsCommandOutput } from "./commands/RemoveEndpointsCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAcceleratorAttributesCommandInput,
   UpdateAcceleratorAttributesCommandOutput,
 } from "./commands/UpdateAcceleratorAttributesCommand";
-import { UpdateAcceleratorCommandInput, UpdateAcceleratorCommandOutput } from "./commands/UpdateAcceleratorCommand";
-import {
+import type {
+  UpdateAcceleratorCommandInput,
+  UpdateAcceleratorCommandOutput,
+} from "./commands/UpdateAcceleratorCommand";
+import type {
   UpdateCrossAccountAttachmentCommandInput,
   UpdateCrossAccountAttachmentCommandOutput,
 } from "./commands/UpdateCrossAccountAttachmentCommand";
-import {
+import type {
   UpdateCustomRoutingAcceleratorAttributesCommandInput,
   UpdateCustomRoutingAcceleratorAttributesCommandOutput,
 } from "./commands/UpdateCustomRoutingAcceleratorAttributesCommand";
-import {
+import type {
   UpdateCustomRoutingAcceleratorCommandInput,
   UpdateCustomRoutingAcceleratorCommandOutput,
 } from "./commands/UpdateCustomRoutingAcceleratorCommand";
-import {
+import type {
   UpdateCustomRoutingListenerCommandInput,
   UpdateCustomRoutingListenerCommandOutput,
 } from "./commands/UpdateCustomRoutingListenerCommand";
-import {
+import type {
   UpdateEndpointGroupCommandInput,
   UpdateEndpointGroupCommandOutput,
 } from "./commands/UpdateEndpointGroupCommand";
-import { UpdateListenerCommandInput, UpdateListenerCommandOutput } from "./commands/UpdateListenerCommand";
-import { WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput } from "./commands/WithdrawByoipCidrCommand";
+import type { UpdateListenerCommandInput, UpdateListenerCommandOutput } from "./commands/UpdateListenerCommand";
+import type {
+  WithdrawByoipCidrCommandInput,
+  WithdrawByoipCidrCommandOutput,
+} from "./commands/WithdrawByoipCidrCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -480,7 +499,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -8,7 +8,7 @@ import {
   ListTypedLinkFacetAttributesCommandInput,
   ListTypedLinkFacetAttributesCommandOutput,
 } from "../commands/ListTypedLinkFacetAttributesCommand";
-import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
+import type { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

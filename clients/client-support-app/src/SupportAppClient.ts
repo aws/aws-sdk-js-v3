@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,41 +61,44 @@ import {
   defaultSupportAppHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateSlackChannelConfigurationCommandInput,
   CreateSlackChannelConfigurationCommandOutput,
 } from "./commands/CreateSlackChannelConfigurationCommand";
-import { DeleteAccountAliasCommandInput, DeleteAccountAliasCommandOutput } from "./commands/DeleteAccountAliasCommand";
-import {
+import type {
+  DeleteAccountAliasCommandInput,
+  DeleteAccountAliasCommandOutput,
+} from "./commands/DeleteAccountAliasCommand";
+import type {
   DeleteSlackChannelConfigurationCommandInput,
   DeleteSlackChannelConfigurationCommandOutput,
 } from "./commands/DeleteSlackChannelConfigurationCommand";
-import {
+import type {
   DeleteSlackWorkspaceConfigurationCommandInput,
   DeleteSlackWorkspaceConfigurationCommandOutput,
 } from "./commands/DeleteSlackWorkspaceConfigurationCommand";
-import { GetAccountAliasCommandInput, GetAccountAliasCommandOutput } from "./commands/GetAccountAliasCommand";
-import {
+import type { GetAccountAliasCommandInput, GetAccountAliasCommandOutput } from "./commands/GetAccountAliasCommand";
+import type {
   ListSlackChannelConfigurationsCommandInput,
   ListSlackChannelConfigurationsCommandOutput,
 } from "./commands/ListSlackChannelConfigurationsCommand";
-import {
+import type {
   ListSlackWorkspaceConfigurationsCommandInput,
   ListSlackWorkspaceConfigurationsCommandOutput,
 } from "./commands/ListSlackWorkspaceConfigurationsCommand";
-import { PutAccountAliasCommandInput, PutAccountAliasCommandOutput } from "./commands/PutAccountAliasCommand";
-import {
+import type { PutAccountAliasCommandInput, PutAccountAliasCommandOutput } from "./commands/PutAccountAliasCommand";
+import type {
   RegisterSlackWorkspaceForOrganizationCommandInput,
   RegisterSlackWorkspaceForOrganizationCommandOutput,
 } from "./commands/RegisterSlackWorkspaceForOrganizationCommand";
-import {
+import type {
   UpdateSlackChannelConfigurationCommandInput,
   UpdateSlackChannelConfigurationCommandOutput,
 } from "./commands/UpdateSlackChannelConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -249,7 +250,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

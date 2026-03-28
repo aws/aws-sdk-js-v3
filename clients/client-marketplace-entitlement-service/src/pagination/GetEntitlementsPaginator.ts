@@ -8,7 +8,7 @@ import {
   GetEntitlementsCommandOutput,
 } from "../commands/GetEntitlementsCommand";
 import { MarketplaceEntitlementServiceClient } from "../MarketplaceEntitlementServiceClient";
-import { MarketplaceEntitlementServicePaginationConfiguration } from "./Interfaces";
+import type { MarketplaceEntitlementServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

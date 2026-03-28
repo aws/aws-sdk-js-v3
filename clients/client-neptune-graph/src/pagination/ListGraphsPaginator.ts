@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "../commands/ListGraphsCommand";
 import { NeptuneGraphClient } from "../NeptuneGraphClient";
-import { NeptuneGraphPaginationConfiguration } from "./Interfaces";
+import type { NeptuneGraphPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

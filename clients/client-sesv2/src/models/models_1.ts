@@ -1,14 +1,14 @@
 // smithy-typescript generated code
-import { BehaviorOnMxFailure, ReputationEntityType, SendingStatus, SuppressionListReason } from "./enums";
-import {
-  type BulkEmailContent,
-  type Destination,
-  type EmailContent,
-  type EmailTemplateContent,
-  type EventDestinationDefinition,
-  type ListManagementOptions,
+import type { BehaviorOnMxFailure, ReputationEntityType, SendingStatus, SuppressionListReason } from "./enums";
+import type {
+  BulkEmailContent,
   BulkEmailEntry,
   BulkEmailEntryResult,
+  Destination,
+  EmailContent,
+  EmailTemplateContent,
+  EventDestinationDefinition,
+  ListManagementOptions,
   MessageTag,
   Tag,
   Topic,

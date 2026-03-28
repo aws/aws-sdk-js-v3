@@ -9,7 +9,7 @@
  */
 export * from "./KendraRankingClient";
 export * from "./KendraRanking";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { KendraRankingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

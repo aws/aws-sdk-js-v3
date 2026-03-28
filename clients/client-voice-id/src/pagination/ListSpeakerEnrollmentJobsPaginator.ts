@@ -8,7 +8,7 @@ import {
   ListSpeakerEnrollmentJobsCommandOutput,
 } from "../commands/ListSpeakerEnrollmentJobsCommand";
 import { VoiceIDClient } from "../VoiceIDClient";
-import { VoiceIDPaginationConfiguration } from "./Interfaces";
+import type { VoiceIDPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -63,8 +63,8 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
             "Whether to override the request region with the region inferred from requested resource's ARN."
                 + " Defaults to undefined."
         )
-            .addImport("Provider", "Provider", TypeScriptDependency.SMITHY_TYPES)
-            .write("useArnRegion?: boolean | undefined | Provider<boolean | undefined>;");
+            .addTypeImport("Provider", "__Provider", TypeScriptDependency.SMITHY_TYPES)
+            .write("useArnRegion?: boolean | undefined | __Provider<boolean | undefined>;");
     }
 
     @Override

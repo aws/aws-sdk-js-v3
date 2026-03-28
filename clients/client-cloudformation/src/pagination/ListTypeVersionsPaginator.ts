@@ -8,7 +8,7 @@ import {
   ListTypeVersionsCommandInput,
   ListTypeVersionsCommandOutput,
 } from "../commands/ListTypeVersionsCommand";
-import { CloudFormationPaginationConfiguration } from "./Interfaces";
+import type { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

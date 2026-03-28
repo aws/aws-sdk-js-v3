@@ -35,7 +35,7 @@
  */
 export * from "./PinpointEmailClient";
 export * from "./PinpointEmail";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PinpointEmailExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

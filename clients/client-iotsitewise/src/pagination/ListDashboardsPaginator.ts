@@ -8,7 +8,7 @@ import {
   ListDashboardsCommandOutput,
 } from "../commands/ListDashboardsCommand";
 import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
-import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
+import type { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

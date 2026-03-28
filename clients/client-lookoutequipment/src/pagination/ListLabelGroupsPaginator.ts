@@ -8,7 +8,7 @@ import {
   ListLabelGroupsCommandOutput,
 } from "../commands/ListLabelGroupsCommand";
 import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
-import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
+import type { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListLinuxSubscriptionsCommandOutput,
 } from "../commands/ListLinuxSubscriptionsCommand";
 import { LicenseManagerLinuxSubscriptionsClient } from "../LicenseManagerLinuxSubscriptionsClient";
-import { LicenseManagerLinuxSubscriptionsPaginationConfiguration } from "./Interfaces";
+import type { LicenseManagerLinuxSubscriptionsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

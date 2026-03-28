@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionReason } from "./enums";
 import { GeoMapsServiceException as __BaseException } from "./GeoMapsServiceException";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>

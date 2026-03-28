@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,69 +61,72 @@ import {
   defaultCodeGuruProfilerHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddNotificationChannelsCommandInput,
   AddNotificationChannelsCommandOutput,
 } from "./commands/AddNotificationChannelsCommand";
-import {
+import type {
   BatchGetFrameMetricDataCommandInput,
   BatchGetFrameMetricDataCommandOutput,
 } from "./commands/BatchGetFrameMetricDataCommand";
-import { ConfigureAgentCommandInput, ConfigureAgentCommandOutput } from "./commands/ConfigureAgentCommand";
-import {
+import type { ConfigureAgentCommandInput, ConfigureAgentCommandOutput } from "./commands/ConfigureAgentCommand";
+import type {
   CreateProfilingGroupCommandInput,
   CreateProfilingGroupCommandOutput,
 } from "./commands/CreateProfilingGroupCommand";
-import {
+import type {
   DeleteProfilingGroupCommandInput,
   DeleteProfilingGroupCommandOutput,
 } from "./commands/DeleteProfilingGroupCommand";
-import {
+import type {
   DescribeProfilingGroupCommandInput,
   DescribeProfilingGroupCommandOutput,
 } from "./commands/DescribeProfilingGroupCommand";
-import {
+import type {
   GetFindingsReportAccountSummaryCommandInput,
   GetFindingsReportAccountSummaryCommandOutput,
 } from "./commands/GetFindingsReportAccountSummaryCommand";
-import {
+import type {
   GetNotificationConfigurationCommandInput,
   GetNotificationConfigurationCommandOutput,
 } from "./commands/GetNotificationConfigurationCommand";
-import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
-import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
-import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "./commands/GetRecommendationsCommand";
-import {
+import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import type { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
+import type {
+  GetRecommendationsCommandInput,
+  GetRecommendationsCommandOutput,
+} from "./commands/GetRecommendationsCommand";
+import type {
   ListFindingsReportsCommandInput,
   ListFindingsReportsCommandOutput,
 } from "./commands/ListFindingsReportsCommand";
-import { ListProfileTimesCommandInput, ListProfileTimesCommandOutput } from "./commands/ListProfileTimesCommand";
-import {
+import type { ListProfileTimesCommandInput, ListProfileTimesCommandOutput } from "./commands/ListProfileTimesCommand";
+import type {
   ListProfilingGroupsCommandInput,
   ListProfilingGroupsCommandOutput,
 } from "./commands/ListProfilingGroupsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PostAgentProfileCommandInput, PostAgentProfileCommandOutput } from "./commands/PostAgentProfileCommand";
-import { PutPermissionCommandInput, PutPermissionCommandOutput } from "./commands/PutPermissionCommand";
-import {
+import type { PostAgentProfileCommandInput, PostAgentProfileCommandOutput } from "./commands/PostAgentProfileCommand";
+import type { PutPermissionCommandInput, PutPermissionCommandOutput } from "./commands/PutPermissionCommand";
+import type {
   RemoveNotificationChannelCommandInput,
   RemoveNotificationChannelCommandOutput,
 } from "./commands/RemoveNotificationChannelCommand";
-import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
-import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
+import type { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateProfilingGroupCommandInput,
   UpdateProfilingGroupCommandOutput,
 } from "./commands/UpdateProfilingGroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -303,7 +304,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

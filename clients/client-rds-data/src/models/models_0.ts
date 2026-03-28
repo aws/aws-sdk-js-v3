@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { DecimalReturnType, LongReturnType, RecordsFormatType, TypeHint } from "./enums";
+import type { DecimalReturnType, LongReturnType, RecordsFormatType, TypeHint } from "./enums";
 
 /**
  * <p>The request parameters represent the input of a request to start a SQL

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,29 +61,32 @@ import {
   defaultSimSpaceWeaverHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
-import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
-import { DeleteSimulationCommandInput, DeleteSimulationCommandOutput } from "./commands/DeleteSimulationCommand";
-import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
-import { DescribeSimulationCommandInput, DescribeSimulationCommandOutput } from "./commands/DescribeSimulationCommand";
-import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
-import { ListSimulationsCommandInput, ListSimulationsCommandOutput } from "./commands/ListSimulationsCommand";
-import {
+import type { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import type { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
+import type { DeleteSimulationCommandInput, DeleteSimulationCommandOutput } from "./commands/DeleteSimulationCommand";
+import type { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
+import type {
+  DescribeSimulationCommandInput,
+  DescribeSimulationCommandOutput,
+} from "./commands/DescribeSimulationCommand";
+import type { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import type { ListSimulationsCommandInput, ListSimulationsCommandOutput } from "./commands/ListSimulationsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartAppCommandInput, StartAppCommandOutput } from "./commands/StartAppCommand";
-import { StartClockCommandInput, StartClockCommandOutput } from "./commands/StartClockCommand";
-import { StartSimulationCommandInput, StartSimulationCommandOutput } from "./commands/StartSimulationCommand";
-import { StopAppCommandInput, StopAppCommandOutput } from "./commands/StopAppCommand";
-import { StopClockCommandInput, StopClockCommandOutput } from "./commands/StopClockCommand";
-import { StopSimulationCommandInput, StopSimulationCommandOutput } from "./commands/StopSimulationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { StartAppCommandInput, StartAppCommandOutput } from "./commands/StartAppCommand";
+import type { StartClockCommandInput, StartClockCommandOutput } from "./commands/StartClockCommand";
+import type { StartSimulationCommandInput, StartSimulationCommandOutput } from "./commands/StartSimulationCommand";
+import type { StopAppCommandInput, StopAppCommandOutput } from "./commands/StopAppCommand";
+import type { StopClockCommandInput, StopClockCommandOutput } from "./commands/StopClockCommand";
+import type { StopSimulationCommandInput, StopSimulationCommandOutput } from "./commands/StopSimulationCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -249,7 +250,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

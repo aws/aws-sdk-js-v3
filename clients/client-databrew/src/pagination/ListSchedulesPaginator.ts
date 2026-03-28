@@ -8,7 +8,7 @@ import {
   ListSchedulesCommandOutput,
 } from "../commands/ListSchedulesCommand";
 import { DataBrewClient } from "../DataBrewClient";
-import { DataBrewPaginationConfiguration } from "./Interfaces";
+import type { DataBrewPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

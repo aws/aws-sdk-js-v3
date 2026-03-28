@@ -8,7 +8,7 @@ import {
   ListAggregateLogGroupSummariesCommandInput,
   ListAggregateLogGroupSummariesCommandOutput,
 } from "../commands/ListAggregateLogGroupSummariesCommand";
-import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

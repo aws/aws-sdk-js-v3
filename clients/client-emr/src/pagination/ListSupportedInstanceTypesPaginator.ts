@@ -8,7 +8,7 @@ import {
   ListSupportedInstanceTypesCommandOutput,
 } from "../commands/ListSupportedInstanceTypesCommand";
 import { EMRClient } from "../EMRClient";
-import { EMRPaginationConfiguration } from "./Interfaces";
+import type { EMRPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

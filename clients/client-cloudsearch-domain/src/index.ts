@@ -10,7 +10,7 @@
  */
 export * from "./CloudSearchDomainClient";
 export * from "./CloudSearchDomain";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CloudSearchDomainExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

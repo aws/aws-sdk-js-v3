@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,104 +61,107 @@ import {
   defaultPanoramaHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateApplicationInstanceCommandInput,
   CreateApplicationInstanceCommandOutput,
 } from "./commands/CreateApplicationInstanceCommand";
-import {
+import type {
   CreateJobForDevicesCommandInput,
   CreateJobForDevicesCommandOutput,
 } from "./commands/CreateJobForDevicesCommand";
-import {
+import type {
   CreateNodeFromTemplateJobCommandInput,
   CreateNodeFromTemplateJobCommandOutput,
 } from "./commands/CreateNodeFromTemplateJobCommand";
-import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
-import {
+import type { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
+import type {
   CreatePackageImportJobCommandInput,
   CreatePackageImportJobCommandOutput,
 } from "./commands/CreatePackageImportJobCommand";
-import { DeleteDeviceCommandInput, DeleteDeviceCommandOutput } from "./commands/DeleteDeviceCommand";
-import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
-import {
+import type { DeleteDeviceCommandInput, DeleteDeviceCommandOutput } from "./commands/DeleteDeviceCommand";
+import type { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
+import type {
   DeregisterPackageVersionCommandInput,
   DeregisterPackageVersionCommandOutput,
 } from "./commands/DeregisterPackageVersionCommand";
-import {
+import type {
   DescribeApplicationInstanceCommandInput,
   DescribeApplicationInstanceCommandOutput,
 } from "./commands/DescribeApplicationInstanceCommand";
-import {
+import type {
   DescribeApplicationInstanceDetailsCommandInput,
   DescribeApplicationInstanceDetailsCommandOutput,
 } from "./commands/DescribeApplicationInstanceDetailsCommand";
-import { DescribeDeviceCommandInput, DescribeDeviceCommandOutput } from "./commands/DescribeDeviceCommand";
-import { DescribeDeviceJobCommandInput, DescribeDeviceJobCommandOutput } from "./commands/DescribeDeviceJobCommand";
-import { DescribeNodeCommandInput, DescribeNodeCommandOutput } from "./commands/DescribeNodeCommand";
-import {
+import type { DescribeDeviceCommandInput, DescribeDeviceCommandOutput } from "./commands/DescribeDeviceCommand";
+import type {
+  DescribeDeviceJobCommandInput,
+  DescribeDeviceJobCommandOutput,
+} from "./commands/DescribeDeviceJobCommand";
+import type { DescribeNodeCommandInput, DescribeNodeCommandOutput } from "./commands/DescribeNodeCommand";
+import type {
   DescribeNodeFromTemplateJobCommandInput,
   DescribeNodeFromTemplateJobCommandOutput,
 } from "./commands/DescribeNodeFromTemplateJobCommand";
-import { DescribePackageCommandInput, DescribePackageCommandOutput } from "./commands/DescribePackageCommand";
-import {
+import type { DescribePackageCommandInput, DescribePackageCommandOutput } from "./commands/DescribePackageCommand";
+import type {
   DescribePackageImportJobCommandInput,
   DescribePackageImportJobCommandOutput,
 } from "./commands/DescribePackageImportJobCommand";
-import {
+import type {
   DescribePackageVersionCommandInput,
   DescribePackageVersionCommandOutput,
 } from "./commands/DescribePackageVersionCommand";
-import {
+import type {
   ListApplicationInstanceDependenciesCommandInput,
   ListApplicationInstanceDependenciesCommandOutput,
 } from "./commands/ListApplicationInstanceDependenciesCommand";
-import {
+import type {
   ListApplicationInstanceNodeInstancesCommandInput,
   ListApplicationInstanceNodeInstancesCommandOutput,
 } from "./commands/ListApplicationInstanceNodeInstancesCommand";
-import {
+import type {
   ListApplicationInstancesCommandInput,
   ListApplicationInstancesCommandOutput,
 } from "./commands/ListApplicationInstancesCommand";
-import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
-import { ListDevicesJobsCommandInput, ListDevicesJobsCommandOutput } from "./commands/ListDevicesJobsCommand";
-import {
+import type { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
+import type { ListDevicesJobsCommandInput, ListDevicesJobsCommandOutput } from "./commands/ListDevicesJobsCommand";
+import type {
   ListNodeFromTemplateJobsCommandInput,
   ListNodeFromTemplateJobsCommandOutput,
 } from "./commands/ListNodeFromTemplateJobsCommand";
-import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
-import {
+import type { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import type {
   ListPackageImportJobsCommandInput,
   ListPackageImportJobsCommandOutput,
 } from "./commands/ListPackageImportJobsCommand";
-import { ListPackagesCommandInput, ListPackagesCommandOutput } from "./commands/ListPackagesCommand";
-import {
+import type { ListPackagesCommandInput, ListPackagesCommandOutput } from "./commands/ListPackagesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ProvisionDeviceCommandInput, ProvisionDeviceCommandOutput } from "./commands/ProvisionDeviceCommand";
-import {
+import type { ProvisionDeviceCommandInput, ProvisionDeviceCommandOutput } from "./commands/ProvisionDeviceCommand";
+import type {
   RegisterPackageVersionCommandInput,
   RegisterPackageVersionCommandOutput,
 } from "./commands/RegisterPackageVersionCommand";
-import {
+import type {
   RemoveApplicationInstanceCommandInput,
   RemoveApplicationInstanceCommandOutput,
 } from "./commands/RemoveApplicationInstanceCommand";
-import {
+import type {
   SignalApplicationInstanceNodeInstancesCommandInput,
   SignalApplicationInstanceNodeInstancesCommandOutput,
 } from "./commands/SignalApplicationInstanceNodeInstancesCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateDeviceMetadataCommandInput,
   UpdateDeviceMetadataCommandOutput,
 } from "./commands/UpdateDeviceMetadataCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -360,7 +361,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

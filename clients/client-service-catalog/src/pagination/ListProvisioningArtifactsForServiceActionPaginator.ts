@@ -8,7 +8,7 @@ import {
   ListProvisioningArtifactsForServiceActionCommandOutput,
 } from "../commands/ListProvisioningArtifactsForServiceActionCommand";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
-import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
+import type { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

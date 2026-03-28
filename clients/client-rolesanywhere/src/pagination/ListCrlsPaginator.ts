@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListCrlsCommand, ListCrlsCommandInput, ListCrlsCommandOutput } from "../commands/ListCrlsCommand";
 import { RolesAnywhereClient } from "../RolesAnywhereClient";
-import { RolesAnywherePaginationConfiguration } from "./Interfaces";
+import type { RolesAnywherePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

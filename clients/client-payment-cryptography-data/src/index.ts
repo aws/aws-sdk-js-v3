@@ -7,7 +7,7 @@
  */
 export * from "./PaymentCryptographyDataClient";
 export * from "./PaymentCryptographyData";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PaymentCryptographyDataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

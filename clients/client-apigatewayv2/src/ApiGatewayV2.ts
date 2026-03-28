@@ -3,404 +3,460 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ApiGatewayV2Client } from "./ApiGatewayV2Client";
-import { CreateApiCommand, CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
+import { type CreateApiCommandInput, type CreateApiCommandOutput, CreateApiCommand } from "./commands/CreateApiCommand";
 import {
+  type CreateApiMappingCommandInput,
+  type CreateApiMappingCommandOutput,
   CreateApiMappingCommand,
-  CreateApiMappingCommandInput,
-  CreateApiMappingCommandOutput,
 } from "./commands/CreateApiMappingCommand";
 import {
+  type CreateAuthorizerCommandInput,
+  type CreateAuthorizerCommandOutput,
   CreateAuthorizerCommand,
-  CreateAuthorizerCommandInput,
-  CreateAuthorizerCommandOutput,
 } from "./commands/CreateAuthorizerCommand";
 import {
+  type CreateDeploymentCommandInput,
+  type CreateDeploymentCommandOutput,
   CreateDeploymentCommand,
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput,
 } from "./commands/CreateDeploymentCommand";
 import {
+  type CreateDomainNameCommandInput,
+  type CreateDomainNameCommandOutput,
   CreateDomainNameCommand,
-  CreateDomainNameCommandInput,
-  CreateDomainNameCommandOutput,
 } from "./commands/CreateDomainNameCommand";
 import {
+  type CreateIntegrationCommandInput,
+  type CreateIntegrationCommandOutput,
   CreateIntegrationCommand,
-  CreateIntegrationCommandInput,
-  CreateIntegrationCommandOutput,
 } from "./commands/CreateIntegrationCommand";
 import {
+  type CreateIntegrationResponseCommandInput,
+  type CreateIntegrationResponseCommandOutput,
   CreateIntegrationResponseCommand,
-  CreateIntegrationResponseCommandInput,
-  CreateIntegrationResponseCommandOutput,
 } from "./commands/CreateIntegrationResponseCommand";
-import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
+  type CreateModelCommandInput,
+  type CreateModelCommandOutput,
+  CreateModelCommand,
+} from "./commands/CreateModelCommand";
+import {
+  type CreatePortalCommandInput,
+  type CreatePortalCommandOutput,
   CreatePortalCommand,
-  CreatePortalCommandInput,
-  CreatePortalCommandOutput,
 } from "./commands/CreatePortalCommand";
 import {
+  type CreatePortalProductCommandInput,
+  type CreatePortalProductCommandOutput,
   CreatePortalProductCommand,
-  CreatePortalProductCommandInput,
-  CreatePortalProductCommandOutput,
 } from "./commands/CreatePortalProductCommand";
 import {
+  type CreateProductPageCommandInput,
+  type CreateProductPageCommandOutput,
   CreateProductPageCommand,
-  CreateProductPageCommandInput,
-  CreateProductPageCommandOutput,
 } from "./commands/CreateProductPageCommand";
 import {
+  type CreateProductRestEndpointPageCommandInput,
+  type CreateProductRestEndpointPageCommandOutput,
   CreateProductRestEndpointPageCommand,
-  CreateProductRestEndpointPageCommandInput,
-  CreateProductRestEndpointPageCommandOutput,
 } from "./commands/CreateProductRestEndpointPageCommand";
-import { CreateRouteCommand, CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
 import {
+  type CreateRouteCommandInput,
+  type CreateRouteCommandOutput,
+  CreateRouteCommand,
+} from "./commands/CreateRouteCommand";
+import {
+  type CreateRouteResponseCommandInput,
+  type CreateRouteResponseCommandOutput,
   CreateRouteResponseCommand,
-  CreateRouteResponseCommandInput,
-  CreateRouteResponseCommandOutput,
 } from "./commands/CreateRouteResponseCommand";
 import {
+  type CreateRoutingRuleCommandInput,
+  type CreateRoutingRuleCommandOutput,
   CreateRoutingRuleCommand,
-  CreateRoutingRuleCommandInput,
-  CreateRoutingRuleCommandOutput,
 } from "./commands/CreateRoutingRuleCommand";
-import { CreateStageCommand, CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
 import {
+  type CreateStageCommandInput,
+  type CreateStageCommandOutput,
+  CreateStageCommand,
+} from "./commands/CreateStageCommand";
+import {
+  type CreateVpcLinkCommandInput,
+  type CreateVpcLinkCommandOutput,
   CreateVpcLinkCommand,
-  CreateVpcLinkCommandInput,
-  CreateVpcLinkCommandOutput,
 } from "./commands/CreateVpcLinkCommand";
 import {
+  type DeleteAccessLogSettingsCommandInput,
+  type DeleteAccessLogSettingsCommandOutput,
   DeleteAccessLogSettingsCommand,
-  DeleteAccessLogSettingsCommandInput,
-  DeleteAccessLogSettingsCommandOutput,
 } from "./commands/DeleteAccessLogSettingsCommand";
-import { DeleteApiCommand, DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
+import { type DeleteApiCommandInput, type DeleteApiCommandOutput, DeleteApiCommand } from "./commands/DeleteApiCommand";
 import {
+  type DeleteApiMappingCommandInput,
+  type DeleteApiMappingCommandOutput,
   DeleteApiMappingCommand,
-  DeleteApiMappingCommandInput,
-  DeleteApiMappingCommandOutput,
 } from "./commands/DeleteApiMappingCommand";
 import {
+  type DeleteAuthorizerCommandInput,
+  type DeleteAuthorizerCommandOutput,
   DeleteAuthorizerCommand,
-  DeleteAuthorizerCommandInput,
-  DeleteAuthorizerCommandOutput,
 } from "./commands/DeleteAuthorizerCommand";
 import {
+  type DeleteCorsConfigurationCommandInput,
+  type DeleteCorsConfigurationCommandOutput,
   DeleteCorsConfigurationCommand,
-  DeleteCorsConfigurationCommandInput,
-  DeleteCorsConfigurationCommandOutput,
 } from "./commands/DeleteCorsConfigurationCommand";
 import {
+  type DeleteDeploymentCommandInput,
+  type DeleteDeploymentCommandOutput,
   DeleteDeploymentCommand,
-  DeleteDeploymentCommandInput,
-  DeleteDeploymentCommandOutput,
 } from "./commands/DeleteDeploymentCommand";
 import {
+  type DeleteDomainNameCommandInput,
+  type DeleteDomainNameCommandOutput,
   DeleteDomainNameCommand,
-  DeleteDomainNameCommandInput,
-  DeleteDomainNameCommandOutput,
 } from "./commands/DeleteDomainNameCommand";
 import {
+  type DeleteIntegrationCommandInput,
+  type DeleteIntegrationCommandOutput,
   DeleteIntegrationCommand,
-  DeleteIntegrationCommandInput,
-  DeleteIntegrationCommandOutput,
 } from "./commands/DeleteIntegrationCommand";
 import {
+  type DeleteIntegrationResponseCommandInput,
+  type DeleteIntegrationResponseCommandOutput,
   DeleteIntegrationResponseCommand,
-  DeleteIntegrationResponseCommandInput,
-  DeleteIntegrationResponseCommandOutput,
 } from "./commands/DeleteIntegrationResponseCommand";
-import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
+  type DeleteModelCommandInput,
+  type DeleteModelCommandOutput,
+  DeleteModelCommand,
+} from "./commands/DeleteModelCommand";
+import {
+  type DeletePortalCommandInput,
+  type DeletePortalCommandOutput,
   DeletePortalCommand,
-  DeletePortalCommandInput,
-  DeletePortalCommandOutput,
 } from "./commands/DeletePortalCommand";
 import {
+  type DeletePortalProductCommandInput,
+  type DeletePortalProductCommandOutput,
   DeletePortalProductCommand,
-  DeletePortalProductCommandInput,
-  DeletePortalProductCommandOutput,
 } from "./commands/DeletePortalProductCommand";
 import {
+  type DeletePortalProductSharingPolicyCommandInput,
+  type DeletePortalProductSharingPolicyCommandOutput,
   DeletePortalProductSharingPolicyCommand,
-  DeletePortalProductSharingPolicyCommandInput,
-  DeletePortalProductSharingPolicyCommandOutput,
 } from "./commands/DeletePortalProductSharingPolicyCommand";
 import {
+  type DeleteProductPageCommandInput,
+  type DeleteProductPageCommandOutput,
   DeleteProductPageCommand,
-  DeleteProductPageCommandInput,
-  DeleteProductPageCommandOutput,
 } from "./commands/DeleteProductPageCommand";
 import {
+  type DeleteProductRestEndpointPageCommandInput,
+  type DeleteProductRestEndpointPageCommandOutput,
   DeleteProductRestEndpointPageCommand,
-  DeleteProductRestEndpointPageCommandInput,
-  DeleteProductRestEndpointPageCommandOutput,
 } from "./commands/DeleteProductRestEndpointPageCommand";
-import { DeleteRouteCommand, DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
+  type DeleteRouteCommandInput,
+  type DeleteRouteCommandOutput,
+  DeleteRouteCommand,
+} from "./commands/DeleteRouteCommand";
+import {
+  type DeleteRouteRequestParameterCommandInput,
+  type DeleteRouteRequestParameterCommandOutput,
   DeleteRouteRequestParameterCommand,
-  DeleteRouteRequestParameterCommandInput,
-  DeleteRouteRequestParameterCommandOutput,
 } from "./commands/DeleteRouteRequestParameterCommand";
 import {
+  type DeleteRouteResponseCommandInput,
+  type DeleteRouteResponseCommandOutput,
   DeleteRouteResponseCommand,
-  DeleteRouteResponseCommandInput,
-  DeleteRouteResponseCommandOutput,
 } from "./commands/DeleteRouteResponseCommand";
 import {
+  type DeleteRouteSettingsCommandInput,
+  type DeleteRouteSettingsCommandOutput,
   DeleteRouteSettingsCommand,
-  DeleteRouteSettingsCommandInput,
-  DeleteRouteSettingsCommandOutput,
 } from "./commands/DeleteRouteSettingsCommand";
 import {
+  type DeleteRoutingRuleCommandInput,
+  type DeleteRoutingRuleCommandOutput,
   DeleteRoutingRuleCommand,
-  DeleteRoutingRuleCommandInput,
-  DeleteRoutingRuleCommandOutput,
 } from "./commands/DeleteRoutingRuleCommand";
-import { DeleteStageCommand, DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
 import {
+  type DeleteStageCommandInput,
+  type DeleteStageCommandOutput,
+  DeleteStageCommand,
+} from "./commands/DeleteStageCommand";
+import {
+  type DeleteVpcLinkCommandInput,
+  type DeleteVpcLinkCommandOutput,
   DeleteVpcLinkCommand,
-  DeleteVpcLinkCommandInput,
-  DeleteVpcLinkCommandOutput,
 } from "./commands/DeleteVpcLinkCommand";
 import {
+  type DisablePortalCommandInput,
+  type DisablePortalCommandOutput,
   DisablePortalCommand,
-  DisablePortalCommandInput,
-  DisablePortalCommandOutput,
 } from "./commands/DisablePortalCommand";
-import { ExportApiCommand, ExportApiCommandInput, ExportApiCommandOutput } from "./commands/ExportApiCommand";
-import { GetApiCommand, GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
+import { type ExportApiCommandInput, type ExportApiCommandOutput, ExportApiCommand } from "./commands/ExportApiCommand";
+import { type GetApiCommandInput, type GetApiCommandOutput, GetApiCommand } from "./commands/GetApiCommand";
 import {
+  type GetApiMappingCommandInput,
+  type GetApiMappingCommandOutput,
   GetApiMappingCommand,
-  GetApiMappingCommandInput,
-  GetApiMappingCommandOutput,
 } from "./commands/GetApiMappingCommand";
 import {
+  type GetApiMappingsCommandInput,
+  type GetApiMappingsCommandOutput,
   GetApiMappingsCommand,
-  GetApiMappingsCommandInput,
-  GetApiMappingsCommandOutput,
 } from "./commands/GetApiMappingsCommand";
-import { GetApisCommand, GetApisCommandInput, GetApisCommandOutput } from "./commands/GetApisCommand";
+import { type GetApisCommandInput, type GetApisCommandOutput, GetApisCommand } from "./commands/GetApisCommand";
 import {
+  type GetAuthorizerCommandInput,
+  type GetAuthorizerCommandOutput,
   GetAuthorizerCommand,
-  GetAuthorizerCommandInput,
-  GetAuthorizerCommandOutput,
 } from "./commands/GetAuthorizerCommand";
 import {
+  type GetAuthorizersCommandInput,
+  type GetAuthorizersCommandOutput,
   GetAuthorizersCommand,
-  GetAuthorizersCommandInput,
-  GetAuthorizersCommandOutput,
 } from "./commands/GetAuthorizersCommand";
 import {
+  type GetDeploymentCommandInput,
+  type GetDeploymentCommandOutput,
   GetDeploymentCommand,
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput,
 } from "./commands/GetDeploymentCommand";
 import {
+  type GetDeploymentsCommandInput,
+  type GetDeploymentsCommandOutput,
   GetDeploymentsCommand,
-  GetDeploymentsCommandInput,
-  GetDeploymentsCommandOutput,
 } from "./commands/GetDeploymentsCommand";
 import {
+  type GetDomainNameCommandInput,
+  type GetDomainNameCommandOutput,
   GetDomainNameCommand,
-  GetDomainNameCommandInput,
-  GetDomainNameCommandOutput,
 } from "./commands/GetDomainNameCommand";
 import {
+  type GetDomainNamesCommandInput,
+  type GetDomainNamesCommandOutput,
   GetDomainNamesCommand,
-  GetDomainNamesCommandInput,
-  GetDomainNamesCommandOutput,
 } from "./commands/GetDomainNamesCommand";
 import {
+  type GetIntegrationCommandInput,
+  type GetIntegrationCommandOutput,
   GetIntegrationCommand,
-  GetIntegrationCommandInput,
-  GetIntegrationCommandOutput,
 } from "./commands/GetIntegrationCommand";
 import {
+  type GetIntegrationResponseCommandInput,
+  type GetIntegrationResponseCommandOutput,
   GetIntegrationResponseCommand,
-  GetIntegrationResponseCommandInput,
-  GetIntegrationResponseCommandOutput,
 } from "./commands/GetIntegrationResponseCommand";
 import {
+  type GetIntegrationResponsesCommandInput,
+  type GetIntegrationResponsesCommandOutput,
   GetIntegrationResponsesCommand,
-  GetIntegrationResponsesCommandInput,
-  GetIntegrationResponsesCommandOutput,
 } from "./commands/GetIntegrationResponsesCommand";
 import {
+  type GetIntegrationsCommandInput,
+  type GetIntegrationsCommandOutput,
   GetIntegrationsCommand,
-  GetIntegrationsCommandInput,
-  GetIntegrationsCommandOutput,
 } from "./commands/GetIntegrationsCommand";
-import { GetModelCommand, GetModelCommandInput, GetModelCommandOutput } from "./commands/GetModelCommand";
-import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
+import { type GetModelCommandInput, type GetModelCommandOutput, GetModelCommand } from "./commands/GetModelCommand";
+import { type GetModelsCommandInput, type GetModelsCommandOutput, GetModelsCommand } from "./commands/GetModelsCommand";
 import {
+  type GetModelTemplateCommandInput,
+  type GetModelTemplateCommandOutput,
   GetModelTemplateCommand,
-  GetModelTemplateCommandInput,
-  GetModelTemplateCommandOutput,
 } from "./commands/GetModelTemplateCommand";
-import { GetPortalCommand, GetPortalCommandInput, GetPortalCommandOutput } from "./commands/GetPortalCommand";
+import { type GetPortalCommandInput, type GetPortalCommandOutput, GetPortalCommand } from "./commands/GetPortalCommand";
 import {
+  type GetPortalProductCommandInput,
+  type GetPortalProductCommandOutput,
   GetPortalProductCommand,
-  GetPortalProductCommandInput,
-  GetPortalProductCommandOutput,
 } from "./commands/GetPortalProductCommand";
 import {
+  type GetPortalProductSharingPolicyCommandInput,
+  type GetPortalProductSharingPolicyCommandOutput,
   GetPortalProductSharingPolicyCommand,
-  GetPortalProductSharingPolicyCommandInput,
-  GetPortalProductSharingPolicyCommandOutput,
 } from "./commands/GetPortalProductSharingPolicyCommand";
 import {
+  type GetProductPageCommandInput,
+  type GetProductPageCommandOutput,
   GetProductPageCommand,
-  GetProductPageCommandInput,
-  GetProductPageCommandOutput,
 } from "./commands/GetProductPageCommand";
 import {
+  type GetProductRestEndpointPageCommandInput,
+  type GetProductRestEndpointPageCommandOutput,
   GetProductRestEndpointPageCommand,
-  GetProductRestEndpointPageCommandInput,
-  GetProductRestEndpointPageCommandOutput,
 } from "./commands/GetProductRestEndpointPageCommand";
-import { GetRouteCommand, GetRouteCommandInput, GetRouteCommandOutput } from "./commands/GetRouteCommand";
+import { type GetRouteCommandInput, type GetRouteCommandOutput, GetRouteCommand } from "./commands/GetRouteCommand";
 import {
+  type GetRouteResponseCommandInput,
+  type GetRouteResponseCommandOutput,
   GetRouteResponseCommand,
-  GetRouteResponseCommandInput,
-  GetRouteResponseCommandOutput,
 } from "./commands/GetRouteResponseCommand";
 import {
+  type GetRouteResponsesCommandInput,
+  type GetRouteResponsesCommandOutput,
   GetRouteResponsesCommand,
-  GetRouteResponsesCommandInput,
-  GetRouteResponsesCommandOutput,
 } from "./commands/GetRouteResponsesCommand";
-import { GetRoutesCommand, GetRoutesCommandInput, GetRoutesCommandOutput } from "./commands/GetRoutesCommand";
+import { type GetRoutesCommandInput, type GetRoutesCommandOutput, GetRoutesCommand } from "./commands/GetRoutesCommand";
 import {
+  type GetRoutingRuleCommandInput,
+  type GetRoutingRuleCommandOutput,
   GetRoutingRuleCommand,
-  GetRoutingRuleCommandInput,
-  GetRoutingRuleCommandOutput,
 } from "./commands/GetRoutingRuleCommand";
-import { GetStageCommand, GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
-import { GetStagesCommand, GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand";
-import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
-import { GetVpcLinkCommand, GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand";
-import { GetVpcLinksCommand, GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
-import { ImportApiCommand, ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
+import { type GetStageCommandInput, type GetStageCommandOutput, GetStageCommand } from "./commands/GetStageCommand";
+import { type GetStagesCommandInput, type GetStagesCommandOutput, GetStagesCommand } from "./commands/GetStagesCommand";
+import { type GetTagsCommandInput, type GetTagsCommandOutput, GetTagsCommand } from "./commands/GetTagsCommand";
 import {
+  type GetVpcLinkCommandInput,
+  type GetVpcLinkCommandOutput,
+  GetVpcLinkCommand,
+} from "./commands/GetVpcLinkCommand";
+import {
+  type GetVpcLinksCommandInput,
+  type GetVpcLinksCommandOutput,
+  GetVpcLinksCommand,
+} from "./commands/GetVpcLinksCommand";
+import { type ImportApiCommandInput, type ImportApiCommandOutput, ImportApiCommand } from "./commands/ImportApiCommand";
+import {
+  type ListPortalProductsCommandInput,
+  type ListPortalProductsCommandOutput,
   ListPortalProductsCommand,
-  ListPortalProductsCommandInput,
-  ListPortalProductsCommandOutput,
 } from "./commands/ListPortalProductsCommand";
-import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
 import {
+  type ListPortalsCommandInput,
+  type ListPortalsCommandOutput,
+  ListPortalsCommand,
+} from "./commands/ListPortalsCommand";
+import {
+  type ListProductPagesCommandInput,
+  type ListProductPagesCommandOutput,
   ListProductPagesCommand,
-  ListProductPagesCommandInput,
-  ListProductPagesCommandOutput,
 } from "./commands/ListProductPagesCommand";
 import {
+  type ListProductRestEndpointPagesCommandInput,
+  type ListProductRestEndpointPagesCommandOutput,
   ListProductRestEndpointPagesCommand,
-  ListProductRestEndpointPagesCommandInput,
-  ListProductRestEndpointPagesCommandOutput,
 } from "./commands/ListProductRestEndpointPagesCommand";
 import {
+  type ListRoutingRulesCommandInput,
+  type ListRoutingRulesCommandOutput,
   ListRoutingRulesCommand,
-  ListRoutingRulesCommandInput,
-  ListRoutingRulesCommandOutput,
 } from "./commands/ListRoutingRulesCommand";
 import {
+  type PreviewPortalCommandInput,
+  type PreviewPortalCommandOutput,
   PreviewPortalCommand,
-  PreviewPortalCommandInput,
-  PreviewPortalCommandOutput,
 } from "./commands/PreviewPortalCommand";
 import {
+  type PublishPortalCommandInput,
+  type PublishPortalCommandOutput,
   PublishPortalCommand,
-  PublishPortalCommandInput,
-  PublishPortalCommandOutput,
 } from "./commands/PublishPortalCommand";
 import {
+  type PutPortalProductSharingPolicyCommandInput,
+  type PutPortalProductSharingPolicyCommandOutput,
   PutPortalProductSharingPolicyCommand,
-  PutPortalProductSharingPolicyCommandInput,
-  PutPortalProductSharingPolicyCommandOutput,
 } from "./commands/PutPortalProductSharingPolicyCommand";
 import {
+  type PutRoutingRuleCommandInput,
+  type PutRoutingRuleCommandOutput,
   PutRoutingRuleCommand,
-  PutRoutingRuleCommandInput,
-  PutRoutingRuleCommandOutput,
 } from "./commands/PutRoutingRuleCommand";
-import { ReimportApiCommand, ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
 import {
+  type ReimportApiCommandInput,
+  type ReimportApiCommandOutput,
+  ReimportApiCommand,
+} from "./commands/ReimportApiCommand";
+import {
+  type ResetAuthorizersCacheCommandInput,
+  type ResetAuthorizersCacheCommandOutput,
   ResetAuthorizersCacheCommand,
-  ResetAuthorizersCacheCommandInput,
-  ResetAuthorizersCacheCommandOutput,
 } from "./commands/ResetAuthorizersCacheCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateApiCommand, UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
+import { type UpdateApiCommandInput, type UpdateApiCommandOutput, UpdateApiCommand } from "./commands/UpdateApiCommand";
 import {
+  type UpdateApiMappingCommandInput,
+  type UpdateApiMappingCommandOutput,
   UpdateApiMappingCommand,
-  UpdateApiMappingCommandInput,
-  UpdateApiMappingCommandOutput,
 } from "./commands/UpdateApiMappingCommand";
 import {
+  type UpdateAuthorizerCommandInput,
+  type UpdateAuthorizerCommandOutput,
   UpdateAuthorizerCommand,
-  UpdateAuthorizerCommandInput,
-  UpdateAuthorizerCommandOutput,
 } from "./commands/UpdateAuthorizerCommand";
 import {
+  type UpdateDeploymentCommandInput,
+  type UpdateDeploymentCommandOutput,
   UpdateDeploymentCommand,
-  UpdateDeploymentCommandInput,
-  UpdateDeploymentCommandOutput,
 } from "./commands/UpdateDeploymentCommand";
 import {
+  type UpdateDomainNameCommandInput,
+  type UpdateDomainNameCommandOutput,
   UpdateDomainNameCommand,
-  UpdateDomainNameCommandInput,
-  UpdateDomainNameCommandOutput,
 } from "./commands/UpdateDomainNameCommand";
 import {
+  type UpdateIntegrationCommandInput,
+  type UpdateIntegrationCommandOutput,
   UpdateIntegrationCommand,
-  UpdateIntegrationCommandInput,
-  UpdateIntegrationCommandOutput,
 } from "./commands/UpdateIntegrationCommand";
 import {
+  type UpdateIntegrationResponseCommandInput,
+  type UpdateIntegrationResponseCommandOutput,
   UpdateIntegrationResponseCommand,
-  UpdateIntegrationResponseCommandInput,
-  UpdateIntegrationResponseCommandOutput,
 } from "./commands/UpdateIntegrationResponseCommand";
-import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import {
+  type UpdateModelCommandInput,
+  type UpdateModelCommandOutput,
+  UpdateModelCommand,
+} from "./commands/UpdateModelCommand";
+import {
+  type UpdatePortalCommandInput,
+  type UpdatePortalCommandOutput,
   UpdatePortalCommand,
-  UpdatePortalCommandInput,
-  UpdatePortalCommandOutput,
 } from "./commands/UpdatePortalCommand";
 import {
+  type UpdatePortalProductCommandInput,
+  type UpdatePortalProductCommandOutput,
   UpdatePortalProductCommand,
-  UpdatePortalProductCommandInput,
-  UpdatePortalProductCommandOutput,
 } from "./commands/UpdatePortalProductCommand";
 import {
+  type UpdateProductPageCommandInput,
+  type UpdateProductPageCommandOutput,
   UpdateProductPageCommand,
-  UpdateProductPageCommandInput,
-  UpdateProductPageCommandOutput,
 } from "./commands/UpdateProductPageCommand";
 import {
+  type UpdateProductRestEndpointPageCommandInput,
+  type UpdateProductRestEndpointPageCommandOutput,
   UpdateProductRestEndpointPageCommand,
-  UpdateProductRestEndpointPageCommandInput,
-  UpdateProductRestEndpointPageCommandOutput,
 } from "./commands/UpdateProductRestEndpointPageCommand";
-import { UpdateRouteCommand, UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
 import {
+  type UpdateRouteCommandInput,
+  type UpdateRouteCommandOutput,
+  UpdateRouteCommand,
+} from "./commands/UpdateRouteCommand";
+import {
+  type UpdateRouteResponseCommandInput,
+  type UpdateRouteResponseCommandOutput,
   UpdateRouteResponseCommand,
-  UpdateRouteResponseCommandInput,
-  UpdateRouteResponseCommandOutput,
 } from "./commands/UpdateRouteResponseCommand";
-import { UpdateStageCommand, UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
 import {
+  type UpdateStageCommandInput,
+  type UpdateStageCommandOutput,
+  UpdateStageCommand,
+} from "./commands/UpdateStageCommand";
+import {
+  type UpdateVpcLinkCommandInput,
+  type UpdateVpcLinkCommandOutput,
   UpdateVpcLinkCommand,
-  UpdateVpcLinkCommandInput,
-  UpdateVpcLinkCommandOutput,
 } from "./commands/UpdateVpcLinkCommand";
 import { paginateListRoutingRules } from "./pagination/ListRoutingRulesPaginator";
 

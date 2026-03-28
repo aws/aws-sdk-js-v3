@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,75 +61,78 @@ import {
   defaultCloudSearchHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BuildSuggestersCommandInput, BuildSuggestersCommandOutput } from "./commands/BuildSuggestersCommand";
-import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
-import {
+import type { BuildSuggestersCommandInput, BuildSuggestersCommandOutput } from "./commands/BuildSuggestersCommand";
+import type { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import type {
   DefineAnalysisSchemeCommandInput,
   DefineAnalysisSchemeCommandOutput,
 } from "./commands/DefineAnalysisSchemeCommand";
-import { DefineExpressionCommandInput, DefineExpressionCommandOutput } from "./commands/DefineExpressionCommand";
-import { DefineIndexFieldCommandInput, DefineIndexFieldCommandOutput } from "./commands/DefineIndexFieldCommand";
-import { DefineSuggesterCommandInput, DefineSuggesterCommandOutput } from "./commands/DefineSuggesterCommand";
-import {
+import type { DefineExpressionCommandInput, DefineExpressionCommandOutput } from "./commands/DefineExpressionCommand";
+import type { DefineIndexFieldCommandInput, DefineIndexFieldCommandOutput } from "./commands/DefineIndexFieldCommand";
+import type { DefineSuggesterCommandInput, DefineSuggesterCommandOutput } from "./commands/DefineSuggesterCommand";
+import type {
   DeleteAnalysisSchemeCommandInput,
   DeleteAnalysisSchemeCommandOutput,
 } from "./commands/DeleteAnalysisSchemeCommand";
-import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
-import { DeleteExpressionCommandInput, DeleteExpressionCommandOutput } from "./commands/DeleteExpressionCommand";
-import { DeleteIndexFieldCommandInput, DeleteIndexFieldCommandOutput } from "./commands/DeleteIndexFieldCommand";
-import { DeleteSuggesterCommandInput, DeleteSuggesterCommandOutput } from "./commands/DeleteSuggesterCommand";
-import {
+import type { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import type { DeleteExpressionCommandInput, DeleteExpressionCommandOutput } from "./commands/DeleteExpressionCommand";
+import type { DeleteIndexFieldCommandInput, DeleteIndexFieldCommandOutput } from "./commands/DeleteIndexFieldCommand";
+import type { DeleteSuggesterCommandInput, DeleteSuggesterCommandOutput } from "./commands/DeleteSuggesterCommand";
+import type {
   DescribeAnalysisSchemesCommandInput,
   DescribeAnalysisSchemesCommandOutput,
 } from "./commands/DescribeAnalysisSchemesCommand";
-import {
+import type {
   DescribeAvailabilityOptionsCommandInput,
   DescribeAvailabilityOptionsCommandOutput,
 } from "./commands/DescribeAvailabilityOptionsCommand";
-import {
+import type {
   DescribeDomainEndpointOptionsCommandInput,
   DescribeDomainEndpointOptionsCommandOutput,
 } from "./commands/DescribeDomainEndpointOptionsCommand";
-import { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "./commands/DescribeDomainsCommand";
-import {
+import type { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "./commands/DescribeDomainsCommand";
+import type {
   DescribeExpressionsCommandInput,
   DescribeExpressionsCommandOutput,
 } from "./commands/DescribeExpressionsCommand";
-import {
+import type {
   DescribeIndexFieldsCommandInput,
   DescribeIndexFieldsCommandOutput,
 } from "./commands/DescribeIndexFieldsCommand";
-import {
+import type {
   DescribeScalingParametersCommandInput,
   DescribeScalingParametersCommandOutput,
 } from "./commands/DescribeScalingParametersCommand";
-import {
+import type {
   DescribeServiceAccessPoliciesCommandInput,
   DescribeServiceAccessPoliciesCommandOutput,
 } from "./commands/DescribeServiceAccessPoliciesCommand";
-import { DescribeSuggestersCommandInput, DescribeSuggestersCommandOutput } from "./commands/DescribeSuggestersCommand";
-import { IndexDocumentsCommandInput, IndexDocumentsCommandOutput } from "./commands/IndexDocumentsCommand";
-import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
-import {
+import type {
+  DescribeSuggestersCommandInput,
+  DescribeSuggestersCommandOutput,
+} from "./commands/DescribeSuggestersCommand";
+import type { IndexDocumentsCommandInput, IndexDocumentsCommandOutput } from "./commands/IndexDocumentsCommand";
+import type { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
+import type {
   UpdateAvailabilityOptionsCommandInput,
   UpdateAvailabilityOptionsCommandOutput,
 } from "./commands/UpdateAvailabilityOptionsCommand";
-import {
+import type {
   UpdateDomainEndpointOptionsCommandInput,
   UpdateDomainEndpointOptionsCommandOutput,
 } from "./commands/UpdateDomainEndpointOptionsCommand";
-import {
+import type {
   UpdateScalingParametersCommandInput,
   UpdateScalingParametersCommandOutput,
 } from "./commands/UpdateScalingParametersCommand";
-import {
+import type {
   UpdateServiceAccessPoliciesCommandInput,
   UpdateServiceAccessPoliciesCommandOutput,
 } from "./commands/UpdateServiceAccessPoliciesCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -315,7 +316,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

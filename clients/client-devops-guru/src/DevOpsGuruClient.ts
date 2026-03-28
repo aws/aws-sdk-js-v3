@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,107 +61,110 @@ import {
   defaultDevOpsGuruHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddNotificationChannelCommandInput,
   AddNotificationChannelCommandOutput,
 } from "./commands/AddNotificationChannelCommand";
-import { DeleteInsightCommandInput, DeleteInsightCommandOutput } from "./commands/DeleteInsightCommand";
-import {
+import type { DeleteInsightCommandInput, DeleteInsightCommandOutput } from "./commands/DeleteInsightCommand";
+import type {
   DescribeAccountHealthCommandInput,
   DescribeAccountHealthCommandOutput,
 } from "./commands/DescribeAccountHealthCommand";
-import {
+import type {
   DescribeAccountOverviewCommandInput,
   DescribeAccountOverviewCommandOutput,
 } from "./commands/DescribeAccountOverviewCommand";
-import { DescribeAnomalyCommandInput, DescribeAnomalyCommandOutput } from "./commands/DescribeAnomalyCommand";
-import {
+import type { DescribeAnomalyCommandInput, DescribeAnomalyCommandOutput } from "./commands/DescribeAnomalyCommand";
+import type {
   DescribeEventSourcesConfigCommandInput,
   DescribeEventSourcesConfigCommandOutput,
 } from "./commands/DescribeEventSourcesConfigCommand";
-import { DescribeFeedbackCommandInput, DescribeFeedbackCommandOutput } from "./commands/DescribeFeedbackCommand";
-import { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "./commands/DescribeInsightCommand";
-import {
+import type { DescribeFeedbackCommandInput, DescribeFeedbackCommandOutput } from "./commands/DescribeFeedbackCommand";
+import type { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "./commands/DescribeInsightCommand";
+import type {
   DescribeOrganizationHealthCommandInput,
   DescribeOrganizationHealthCommandOutput,
 } from "./commands/DescribeOrganizationHealthCommand";
-import {
+import type {
   DescribeOrganizationOverviewCommandInput,
   DescribeOrganizationOverviewCommandOutput,
 } from "./commands/DescribeOrganizationOverviewCommand";
-import {
+import type {
   DescribeOrganizationResourceCollectionHealthCommandInput,
   DescribeOrganizationResourceCollectionHealthCommandOutput,
 } from "./commands/DescribeOrganizationResourceCollectionHealthCommand";
-import {
+import type {
   DescribeResourceCollectionHealthCommandInput,
   DescribeResourceCollectionHealthCommandOutput,
 } from "./commands/DescribeResourceCollectionHealthCommand";
-import {
+import type {
   DescribeServiceIntegrationCommandInput,
   DescribeServiceIntegrationCommandOutput,
 } from "./commands/DescribeServiceIntegrationCommand";
-import { GetCostEstimationCommandInput, GetCostEstimationCommandOutput } from "./commands/GetCostEstimationCommand";
-import {
+import type {
+  GetCostEstimationCommandInput,
+  GetCostEstimationCommandOutput,
+} from "./commands/GetCostEstimationCommand";
+import type {
   GetResourceCollectionCommandInput,
   GetResourceCollectionCommandOutput,
 } from "./commands/GetResourceCollectionCommand";
-import {
+import type {
   ListAnomaliesForInsightCommandInput,
   ListAnomaliesForInsightCommandOutput,
 } from "./commands/ListAnomaliesForInsightCommand";
-import {
+import type {
   ListAnomalousLogGroupsCommandInput,
   ListAnomalousLogGroupsCommandOutput,
 } from "./commands/ListAnomalousLogGroupsCommand";
-import { ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
-import { ListInsightsCommandInput, ListInsightsCommandOutput } from "./commands/ListInsightsCommand";
-import {
+import type { ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
+import type { ListInsightsCommandInput, ListInsightsCommandOutput } from "./commands/ListInsightsCommand";
+import type {
   ListMonitoredResourcesCommandInput,
   ListMonitoredResourcesCommandOutput,
 } from "./commands/ListMonitoredResourcesCommand";
-import {
+import type {
   ListNotificationChannelsCommandInput,
   ListNotificationChannelsCommandOutput,
 } from "./commands/ListNotificationChannelsCommand";
-import {
+import type {
   ListOrganizationInsightsCommandInput,
   ListOrganizationInsightsCommandOutput,
 } from "./commands/ListOrganizationInsightsCommand";
-import {
+import type {
   ListRecommendationsCommandInput,
   ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
-import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
-import {
+import type { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
+import type {
   RemoveNotificationChannelCommandInput,
   RemoveNotificationChannelCommandOutput,
 } from "./commands/RemoveNotificationChannelCommand";
-import { SearchInsightsCommandInput, SearchInsightsCommandOutput } from "./commands/SearchInsightsCommand";
-import {
+import type { SearchInsightsCommandInput, SearchInsightsCommandOutput } from "./commands/SearchInsightsCommand";
+import type {
   SearchOrganizationInsightsCommandInput,
   SearchOrganizationInsightsCommandOutput,
 } from "./commands/SearchOrganizationInsightsCommand";
-import {
+import type {
   StartCostEstimationCommandInput,
   StartCostEstimationCommandOutput,
 } from "./commands/StartCostEstimationCommand";
-import {
+import type {
   UpdateEventSourcesConfigCommandInput,
   UpdateEventSourcesConfigCommandOutput,
 } from "./commands/UpdateEventSourcesConfigCommand";
-import {
+import type {
   UpdateResourceCollectionCommandInput,
   UpdateResourceCollectionCommandOutput,
 } from "./commands/UpdateResourceCollectionCommand";
-import {
+import type {
   UpdateServiceIntegrationCommandInput,
   UpdateServiceIntegrationCommandOutput,
 } from "./commands/UpdateServiceIntegrationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -357,7 +358,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

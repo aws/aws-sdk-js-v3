@@ -8,7 +8,7 @@ import {
   ListEventPredictionsCommandOutput,
 } from "../commands/ListEventPredictionsCommand";
 import { FraudDetectorClient } from "../FraudDetectorClient";
-import { FraudDetectorPaginationConfiguration } from "./Interfaces";
+import type { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

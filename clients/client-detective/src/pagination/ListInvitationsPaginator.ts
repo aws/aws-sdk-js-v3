@@ -8,7 +8,7 @@ import {
   ListInvitationsCommandOutput,
 } from "../commands/ListInvitationsCommand";
 import { DetectiveClient } from "../DetectiveClient";
-import { DetectivePaginationConfiguration } from "./Interfaces";
+import type { DetectivePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

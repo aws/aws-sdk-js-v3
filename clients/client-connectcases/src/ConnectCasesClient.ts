@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,71 +61,86 @@ import {
   defaultConnectCasesHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BatchGetCaseRuleCommandInput, BatchGetCaseRuleCommandOutput } from "./commands/BatchGetCaseRuleCommand";
-import { BatchGetFieldCommandInput, BatchGetFieldCommandOutput } from "./commands/BatchGetFieldCommand";
-import {
+import type { BatchGetCaseRuleCommandInput, BatchGetCaseRuleCommandOutput } from "./commands/BatchGetCaseRuleCommand";
+import type { BatchGetFieldCommandInput, BatchGetFieldCommandOutput } from "./commands/BatchGetFieldCommand";
+import type {
   BatchPutFieldOptionsCommandInput,
   BatchPutFieldOptionsCommandOutput,
 } from "./commands/BatchPutFieldOptionsCommand";
-import { CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
-import { CreateCaseRuleCommandInput, CreateCaseRuleCommandOutput } from "./commands/CreateCaseRuleCommand";
-import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
-import { CreateFieldCommandInput, CreateFieldCommandOutput } from "./commands/CreateFieldCommand";
-import { CreateLayoutCommandInput, CreateLayoutCommandOutput } from "./commands/CreateLayoutCommand";
-import { CreateRelatedItemCommandInput, CreateRelatedItemCommandOutput } from "./commands/CreateRelatedItemCommand";
-import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
-import { DeleteCaseCommandInput, DeleteCaseCommandOutput } from "./commands/DeleteCaseCommand";
-import { DeleteCaseRuleCommandInput, DeleteCaseRuleCommandOutput } from "./commands/DeleteCaseRuleCommand";
-import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
-import { DeleteFieldCommandInput, DeleteFieldCommandOutput } from "./commands/DeleteFieldCommand";
-import { DeleteLayoutCommandInput, DeleteLayoutCommandOutput } from "./commands/DeleteLayoutCommand";
-import { DeleteRelatedItemCommandInput, DeleteRelatedItemCommandOutput } from "./commands/DeleteRelatedItemCommand";
-import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand";
-import { GetCaseAuditEventsCommandInput, GetCaseAuditEventsCommandOutput } from "./commands/GetCaseAuditEventsCommand";
-import { GetCaseCommandInput, GetCaseCommandOutput } from "./commands/GetCaseCommand";
-import {
+import type { CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
+import type { CreateCaseRuleCommandInput, CreateCaseRuleCommandOutput } from "./commands/CreateCaseRuleCommand";
+import type { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import type { CreateFieldCommandInput, CreateFieldCommandOutput } from "./commands/CreateFieldCommand";
+import type { CreateLayoutCommandInput, CreateLayoutCommandOutput } from "./commands/CreateLayoutCommand";
+import type {
+  CreateRelatedItemCommandInput,
+  CreateRelatedItemCommandOutput,
+} from "./commands/CreateRelatedItemCommand";
+import type { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
+import type { DeleteCaseCommandInput, DeleteCaseCommandOutput } from "./commands/DeleteCaseCommand";
+import type { DeleteCaseRuleCommandInput, DeleteCaseRuleCommandOutput } from "./commands/DeleteCaseRuleCommand";
+import type { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import type { DeleteFieldCommandInput, DeleteFieldCommandOutput } from "./commands/DeleteFieldCommand";
+import type { DeleteLayoutCommandInput, DeleteLayoutCommandOutput } from "./commands/DeleteLayoutCommand";
+import type {
+  DeleteRelatedItemCommandInput,
+  DeleteRelatedItemCommandOutput,
+} from "./commands/DeleteRelatedItemCommand";
+import type { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand";
+import type {
+  GetCaseAuditEventsCommandInput,
+  GetCaseAuditEventsCommandOutput,
+} from "./commands/GetCaseAuditEventsCommand";
+import type { GetCaseCommandInput, GetCaseCommandOutput } from "./commands/GetCaseCommand";
+import type {
   GetCaseEventConfigurationCommandInput,
   GetCaseEventConfigurationCommandOutput,
 } from "./commands/GetCaseEventConfigurationCommand";
-import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
-import { GetLayoutCommandInput, GetLayoutCommandOutput } from "./commands/GetLayoutCommand";
-import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
-import { ListCaseRulesCommandInput, ListCaseRulesCommandOutput } from "./commands/ListCaseRulesCommand";
-import {
+import type { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import type { GetLayoutCommandInput, GetLayoutCommandOutput } from "./commands/GetLayoutCommand";
+import type { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
+import type { ListCaseRulesCommandInput, ListCaseRulesCommandOutput } from "./commands/ListCaseRulesCommand";
+import type {
   ListCasesForContactCommandInput,
   ListCasesForContactCommandOutput,
 } from "./commands/ListCasesForContactCommand";
-import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
-import { ListFieldOptionsCommandInput, ListFieldOptionsCommandOutput } from "./commands/ListFieldOptionsCommand";
-import { ListFieldsCommandInput, ListFieldsCommandOutput } from "./commands/ListFieldsCommand";
-import { ListLayoutsCommandInput, ListLayoutsCommandOutput } from "./commands/ListLayoutsCommand";
-import {
+import type { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import type { ListFieldOptionsCommandInput, ListFieldOptionsCommandOutput } from "./commands/ListFieldOptionsCommand";
+import type { ListFieldsCommandInput, ListFieldsCommandOutput } from "./commands/ListFieldsCommand";
+import type { ListLayoutsCommandInput, ListLayoutsCommandOutput } from "./commands/ListLayoutsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "./commands/ListTemplatesCommand";
-import {
+import type { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "./commands/ListTemplatesCommand";
+import type {
   PutCaseEventConfigurationCommandInput,
   PutCaseEventConfigurationCommandOutput,
 } from "./commands/PutCaseEventConfigurationCommand";
-import {
+import type {
   SearchAllRelatedItemsCommandInput,
   SearchAllRelatedItemsCommandOutput,
 } from "./commands/SearchAllRelatedItemsCommand";
-import { SearchCasesCommandInput, SearchCasesCommandOutput } from "./commands/SearchCasesCommand";
-import { SearchRelatedItemsCommandInput, SearchRelatedItemsCommandOutput } from "./commands/SearchRelatedItemsCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateCaseCommandInput, UpdateCaseCommandOutput } from "./commands/UpdateCaseCommand";
-import { UpdateCaseRuleCommandInput, UpdateCaseRuleCommandOutput } from "./commands/UpdateCaseRuleCommand";
-import { UpdateFieldCommandInput, UpdateFieldCommandOutput } from "./commands/UpdateFieldCommand";
-import { UpdateLayoutCommandInput, UpdateLayoutCommandOutput } from "./commands/UpdateLayoutCommand";
-import { UpdateRelatedItemCommandInput, UpdateRelatedItemCommandOutput } from "./commands/UpdateRelatedItemCommand";
-import { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "./commands/UpdateTemplateCommand";
+import type { SearchCasesCommandInput, SearchCasesCommandOutput } from "./commands/SearchCasesCommand";
+import type {
+  SearchRelatedItemsCommandInput,
+  SearchRelatedItemsCommandOutput,
+} from "./commands/SearchRelatedItemsCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateCaseCommandInput, UpdateCaseCommandOutput } from "./commands/UpdateCaseCommand";
+import type { UpdateCaseRuleCommandInput, UpdateCaseRuleCommandOutput } from "./commands/UpdateCaseRuleCommand";
+import type { UpdateFieldCommandInput, UpdateFieldCommandOutput } from "./commands/UpdateFieldCommand";
+import type { UpdateLayoutCommandInput, UpdateLayoutCommandOutput } from "./commands/UpdateLayoutCommand";
+import type {
+  UpdateRelatedItemCommandInput,
+  UpdateRelatedItemCommandOutput,
+} from "./commands/UpdateRelatedItemCommand";
+import type { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "./commands/UpdateTemplateCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -345,7 +358,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

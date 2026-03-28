@@ -3,440 +3,460 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type AssociateRoleToGroupCommandInput,
+  type AssociateRoleToGroupCommandOutput,
   AssociateRoleToGroupCommand,
-  AssociateRoleToGroupCommandInput,
-  AssociateRoleToGroupCommandOutput,
 } from "./commands/AssociateRoleToGroupCommand";
 import {
+  type AssociateServiceRoleToAccountCommandInput,
+  type AssociateServiceRoleToAccountCommandOutput,
   AssociateServiceRoleToAccountCommand,
-  AssociateServiceRoleToAccountCommandInput,
-  AssociateServiceRoleToAccountCommandOutput,
 } from "./commands/AssociateServiceRoleToAccountCommand";
 import {
+  type CreateConnectorDefinitionCommandInput,
+  type CreateConnectorDefinitionCommandOutput,
   CreateConnectorDefinitionCommand,
-  CreateConnectorDefinitionCommandInput,
-  CreateConnectorDefinitionCommandOutput,
 } from "./commands/CreateConnectorDefinitionCommand";
 import {
+  type CreateConnectorDefinitionVersionCommandInput,
+  type CreateConnectorDefinitionVersionCommandOutput,
   CreateConnectorDefinitionVersionCommand,
-  CreateConnectorDefinitionVersionCommandInput,
-  CreateConnectorDefinitionVersionCommandOutput,
 } from "./commands/CreateConnectorDefinitionVersionCommand";
 import {
+  type CreateCoreDefinitionCommandInput,
+  type CreateCoreDefinitionCommandOutput,
   CreateCoreDefinitionCommand,
-  CreateCoreDefinitionCommandInput,
-  CreateCoreDefinitionCommandOutput,
 } from "./commands/CreateCoreDefinitionCommand";
 import {
+  type CreateCoreDefinitionVersionCommandInput,
+  type CreateCoreDefinitionVersionCommandOutput,
   CreateCoreDefinitionVersionCommand,
-  CreateCoreDefinitionVersionCommandInput,
-  CreateCoreDefinitionVersionCommandOutput,
 } from "./commands/CreateCoreDefinitionVersionCommand";
 import {
+  type CreateDeploymentCommandInput,
+  type CreateDeploymentCommandOutput,
   CreateDeploymentCommand,
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput,
 } from "./commands/CreateDeploymentCommand";
 import {
+  type CreateDeviceDefinitionCommandInput,
+  type CreateDeviceDefinitionCommandOutput,
   CreateDeviceDefinitionCommand,
-  CreateDeviceDefinitionCommandInput,
-  CreateDeviceDefinitionCommandOutput,
 } from "./commands/CreateDeviceDefinitionCommand";
 import {
+  type CreateDeviceDefinitionVersionCommandInput,
+  type CreateDeviceDefinitionVersionCommandOutput,
   CreateDeviceDefinitionVersionCommand,
-  CreateDeviceDefinitionVersionCommandInput,
-  CreateDeviceDefinitionVersionCommandOutput,
 } from "./commands/CreateDeviceDefinitionVersionCommand";
 import {
+  type CreateFunctionDefinitionCommandInput,
+  type CreateFunctionDefinitionCommandOutput,
   CreateFunctionDefinitionCommand,
-  CreateFunctionDefinitionCommandInput,
-  CreateFunctionDefinitionCommandOutput,
 } from "./commands/CreateFunctionDefinitionCommand";
 import {
+  type CreateFunctionDefinitionVersionCommandInput,
+  type CreateFunctionDefinitionVersionCommandOutput,
   CreateFunctionDefinitionVersionCommand,
-  CreateFunctionDefinitionVersionCommandInput,
-  CreateFunctionDefinitionVersionCommandOutput,
 } from "./commands/CreateFunctionDefinitionVersionCommand";
 import {
+  type CreateGroupCertificateAuthorityCommandInput,
+  type CreateGroupCertificateAuthorityCommandOutput,
   CreateGroupCertificateAuthorityCommand,
-  CreateGroupCertificateAuthorityCommandInput,
-  CreateGroupCertificateAuthorityCommandOutput,
 } from "./commands/CreateGroupCertificateAuthorityCommand";
-import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
+  type CreateGroupCommandInput,
+  type CreateGroupCommandOutput,
+  CreateGroupCommand,
+} from "./commands/CreateGroupCommand";
+import {
+  type CreateGroupVersionCommandInput,
+  type CreateGroupVersionCommandOutput,
   CreateGroupVersionCommand,
-  CreateGroupVersionCommandInput,
-  CreateGroupVersionCommandOutput,
 } from "./commands/CreateGroupVersionCommand";
 import {
+  type CreateLoggerDefinitionCommandInput,
+  type CreateLoggerDefinitionCommandOutput,
   CreateLoggerDefinitionCommand,
-  CreateLoggerDefinitionCommandInput,
-  CreateLoggerDefinitionCommandOutput,
 } from "./commands/CreateLoggerDefinitionCommand";
 import {
+  type CreateLoggerDefinitionVersionCommandInput,
+  type CreateLoggerDefinitionVersionCommandOutput,
   CreateLoggerDefinitionVersionCommand,
-  CreateLoggerDefinitionVersionCommandInput,
-  CreateLoggerDefinitionVersionCommandOutput,
 } from "./commands/CreateLoggerDefinitionVersionCommand";
 import {
+  type CreateResourceDefinitionCommandInput,
+  type CreateResourceDefinitionCommandOutput,
   CreateResourceDefinitionCommand,
-  CreateResourceDefinitionCommandInput,
-  CreateResourceDefinitionCommandOutput,
 } from "./commands/CreateResourceDefinitionCommand";
 import {
+  type CreateResourceDefinitionVersionCommandInput,
+  type CreateResourceDefinitionVersionCommandOutput,
   CreateResourceDefinitionVersionCommand,
-  CreateResourceDefinitionVersionCommandInput,
-  CreateResourceDefinitionVersionCommandOutput,
 } from "./commands/CreateResourceDefinitionVersionCommand";
 import {
+  type CreateSoftwareUpdateJobCommandInput,
+  type CreateSoftwareUpdateJobCommandOutput,
   CreateSoftwareUpdateJobCommand,
-  CreateSoftwareUpdateJobCommandInput,
-  CreateSoftwareUpdateJobCommandOutput,
 } from "./commands/CreateSoftwareUpdateJobCommand";
 import {
+  type CreateSubscriptionDefinitionCommandInput,
+  type CreateSubscriptionDefinitionCommandOutput,
   CreateSubscriptionDefinitionCommand,
-  CreateSubscriptionDefinitionCommandInput,
-  CreateSubscriptionDefinitionCommandOutput,
 } from "./commands/CreateSubscriptionDefinitionCommand";
 import {
+  type CreateSubscriptionDefinitionVersionCommandInput,
+  type CreateSubscriptionDefinitionVersionCommandOutput,
   CreateSubscriptionDefinitionVersionCommand,
-  CreateSubscriptionDefinitionVersionCommandInput,
-  CreateSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/CreateSubscriptionDefinitionVersionCommand";
 import {
+  type DeleteConnectorDefinitionCommandInput,
+  type DeleteConnectorDefinitionCommandOutput,
   DeleteConnectorDefinitionCommand,
-  DeleteConnectorDefinitionCommandInput,
-  DeleteConnectorDefinitionCommandOutput,
 } from "./commands/DeleteConnectorDefinitionCommand";
 import {
+  type DeleteCoreDefinitionCommandInput,
+  type DeleteCoreDefinitionCommandOutput,
   DeleteCoreDefinitionCommand,
-  DeleteCoreDefinitionCommandInput,
-  DeleteCoreDefinitionCommandOutput,
 } from "./commands/DeleteCoreDefinitionCommand";
 import {
+  type DeleteDeviceDefinitionCommandInput,
+  type DeleteDeviceDefinitionCommandOutput,
   DeleteDeviceDefinitionCommand,
-  DeleteDeviceDefinitionCommandInput,
-  DeleteDeviceDefinitionCommandOutput,
 } from "./commands/DeleteDeviceDefinitionCommand";
 import {
+  type DeleteFunctionDefinitionCommandInput,
+  type DeleteFunctionDefinitionCommandOutput,
   DeleteFunctionDefinitionCommand,
-  DeleteFunctionDefinitionCommandInput,
-  DeleteFunctionDefinitionCommandOutput,
 } from "./commands/DeleteFunctionDefinitionCommand";
-import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
+  type DeleteGroupCommandInput,
+  type DeleteGroupCommandOutput,
+  DeleteGroupCommand,
+} from "./commands/DeleteGroupCommand";
+import {
+  type DeleteLoggerDefinitionCommandInput,
+  type DeleteLoggerDefinitionCommandOutput,
   DeleteLoggerDefinitionCommand,
-  DeleteLoggerDefinitionCommandInput,
-  DeleteLoggerDefinitionCommandOutput,
 } from "./commands/DeleteLoggerDefinitionCommand";
 import {
+  type DeleteResourceDefinitionCommandInput,
+  type DeleteResourceDefinitionCommandOutput,
   DeleteResourceDefinitionCommand,
-  DeleteResourceDefinitionCommandInput,
-  DeleteResourceDefinitionCommandOutput,
 } from "./commands/DeleteResourceDefinitionCommand";
 import {
+  type DeleteSubscriptionDefinitionCommandInput,
+  type DeleteSubscriptionDefinitionCommandOutput,
   DeleteSubscriptionDefinitionCommand,
-  DeleteSubscriptionDefinitionCommandInput,
-  DeleteSubscriptionDefinitionCommandOutput,
 } from "./commands/DeleteSubscriptionDefinitionCommand";
 import {
+  type DisassociateRoleFromGroupCommandInput,
+  type DisassociateRoleFromGroupCommandOutput,
   DisassociateRoleFromGroupCommand,
-  DisassociateRoleFromGroupCommandInput,
-  DisassociateRoleFromGroupCommandOutput,
 } from "./commands/DisassociateRoleFromGroupCommand";
 import {
+  type DisassociateServiceRoleFromAccountCommandInput,
+  type DisassociateServiceRoleFromAccountCommandOutput,
   DisassociateServiceRoleFromAccountCommand,
-  DisassociateServiceRoleFromAccountCommandInput,
-  DisassociateServiceRoleFromAccountCommandOutput,
 } from "./commands/DisassociateServiceRoleFromAccountCommand";
 import {
+  type GetAssociatedRoleCommandInput,
+  type GetAssociatedRoleCommandOutput,
   GetAssociatedRoleCommand,
-  GetAssociatedRoleCommandInput,
-  GetAssociatedRoleCommandOutput,
 } from "./commands/GetAssociatedRoleCommand";
 import {
+  type GetBulkDeploymentStatusCommandInput,
+  type GetBulkDeploymentStatusCommandOutput,
   GetBulkDeploymentStatusCommand,
-  GetBulkDeploymentStatusCommandInput,
-  GetBulkDeploymentStatusCommandOutput,
 } from "./commands/GetBulkDeploymentStatusCommand";
 import {
+  type GetConnectivityInfoCommandInput,
+  type GetConnectivityInfoCommandOutput,
   GetConnectivityInfoCommand,
-  GetConnectivityInfoCommandInput,
-  GetConnectivityInfoCommandOutput,
 } from "./commands/GetConnectivityInfoCommand";
 import {
+  type GetConnectorDefinitionCommandInput,
+  type GetConnectorDefinitionCommandOutput,
   GetConnectorDefinitionCommand,
-  GetConnectorDefinitionCommandInput,
-  GetConnectorDefinitionCommandOutput,
 } from "./commands/GetConnectorDefinitionCommand";
 import {
+  type GetConnectorDefinitionVersionCommandInput,
+  type GetConnectorDefinitionVersionCommandOutput,
   GetConnectorDefinitionVersionCommand,
-  GetConnectorDefinitionVersionCommandInput,
-  GetConnectorDefinitionVersionCommandOutput,
 } from "./commands/GetConnectorDefinitionVersionCommand";
 import {
+  type GetCoreDefinitionCommandInput,
+  type GetCoreDefinitionCommandOutput,
   GetCoreDefinitionCommand,
-  GetCoreDefinitionCommandInput,
-  GetCoreDefinitionCommandOutput,
 } from "./commands/GetCoreDefinitionCommand";
 import {
+  type GetCoreDefinitionVersionCommandInput,
+  type GetCoreDefinitionVersionCommandOutput,
   GetCoreDefinitionVersionCommand,
-  GetCoreDefinitionVersionCommandInput,
-  GetCoreDefinitionVersionCommandOutput,
 } from "./commands/GetCoreDefinitionVersionCommand";
 import {
+  type GetDeploymentStatusCommandInput,
+  type GetDeploymentStatusCommandOutput,
   GetDeploymentStatusCommand,
-  GetDeploymentStatusCommandInput,
-  GetDeploymentStatusCommandOutput,
 } from "./commands/GetDeploymentStatusCommand";
 import {
+  type GetDeviceDefinitionCommandInput,
+  type GetDeviceDefinitionCommandOutput,
   GetDeviceDefinitionCommand,
-  GetDeviceDefinitionCommandInput,
-  GetDeviceDefinitionCommandOutput,
 } from "./commands/GetDeviceDefinitionCommand";
 import {
+  type GetDeviceDefinitionVersionCommandInput,
+  type GetDeviceDefinitionVersionCommandOutput,
   GetDeviceDefinitionVersionCommand,
-  GetDeviceDefinitionVersionCommandInput,
-  GetDeviceDefinitionVersionCommandOutput,
 } from "./commands/GetDeviceDefinitionVersionCommand";
 import {
+  type GetFunctionDefinitionCommandInput,
+  type GetFunctionDefinitionCommandOutput,
   GetFunctionDefinitionCommand,
-  GetFunctionDefinitionCommandInput,
-  GetFunctionDefinitionCommandOutput,
 } from "./commands/GetFunctionDefinitionCommand";
 import {
+  type GetFunctionDefinitionVersionCommandInput,
+  type GetFunctionDefinitionVersionCommandOutput,
   GetFunctionDefinitionVersionCommand,
-  GetFunctionDefinitionVersionCommandInput,
-  GetFunctionDefinitionVersionCommandOutput,
 } from "./commands/GetFunctionDefinitionVersionCommand";
 import {
+  type GetGroupCertificateAuthorityCommandInput,
+  type GetGroupCertificateAuthorityCommandOutput,
   GetGroupCertificateAuthorityCommand,
-  GetGroupCertificateAuthorityCommandInput,
-  GetGroupCertificateAuthorityCommandOutput,
 } from "./commands/GetGroupCertificateAuthorityCommand";
 import {
+  type GetGroupCertificateConfigurationCommandInput,
+  type GetGroupCertificateConfigurationCommandOutput,
   GetGroupCertificateConfigurationCommand,
-  GetGroupCertificateConfigurationCommandInput,
-  GetGroupCertificateConfigurationCommandOutput,
 } from "./commands/GetGroupCertificateConfigurationCommand";
-import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import { type GetGroupCommandInput, type GetGroupCommandOutput, GetGroupCommand } from "./commands/GetGroupCommand";
 import {
+  type GetGroupVersionCommandInput,
+  type GetGroupVersionCommandOutput,
   GetGroupVersionCommand,
-  GetGroupVersionCommandInput,
-  GetGroupVersionCommandOutput,
 } from "./commands/GetGroupVersionCommand";
 import {
+  type GetLoggerDefinitionCommandInput,
+  type GetLoggerDefinitionCommandOutput,
   GetLoggerDefinitionCommand,
-  GetLoggerDefinitionCommandInput,
-  GetLoggerDefinitionCommandOutput,
 } from "./commands/GetLoggerDefinitionCommand";
 import {
+  type GetLoggerDefinitionVersionCommandInput,
+  type GetLoggerDefinitionVersionCommandOutput,
   GetLoggerDefinitionVersionCommand,
-  GetLoggerDefinitionVersionCommandInput,
-  GetLoggerDefinitionVersionCommandOutput,
 } from "./commands/GetLoggerDefinitionVersionCommand";
 import {
+  type GetResourceDefinitionCommandInput,
+  type GetResourceDefinitionCommandOutput,
   GetResourceDefinitionCommand,
-  GetResourceDefinitionCommandInput,
-  GetResourceDefinitionCommandOutput,
 } from "./commands/GetResourceDefinitionCommand";
 import {
+  type GetResourceDefinitionVersionCommandInput,
+  type GetResourceDefinitionVersionCommandOutput,
   GetResourceDefinitionVersionCommand,
-  GetResourceDefinitionVersionCommandInput,
-  GetResourceDefinitionVersionCommandOutput,
 } from "./commands/GetResourceDefinitionVersionCommand";
 import {
+  type GetServiceRoleForAccountCommandInput,
+  type GetServiceRoleForAccountCommandOutput,
   GetServiceRoleForAccountCommand,
-  GetServiceRoleForAccountCommandInput,
-  GetServiceRoleForAccountCommandOutput,
 } from "./commands/GetServiceRoleForAccountCommand";
 import {
+  type GetSubscriptionDefinitionCommandInput,
+  type GetSubscriptionDefinitionCommandOutput,
   GetSubscriptionDefinitionCommand,
-  GetSubscriptionDefinitionCommandInput,
-  GetSubscriptionDefinitionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionCommand";
 import {
+  type GetSubscriptionDefinitionVersionCommandInput,
+  type GetSubscriptionDefinitionVersionCommandOutput,
   GetSubscriptionDefinitionVersionCommand,
-  GetSubscriptionDefinitionVersionCommandInput,
-  GetSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionVersionCommand";
 import {
+  type GetThingRuntimeConfigurationCommandInput,
+  type GetThingRuntimeConfigurationCommandOutput,
   GetThingRuntimeConfigurationCommand,
-  GetThingRuntimeConfigurationCommandInput,
-  GetThingRuntimeConfigurationCommandOutput,
 } from "./commands/GetThingRuntimeConfigurationCommand";
 import {
+  type ListBulkDeploymentDetailedReportsCommandInput,
+  type ListBulkDeploymentDetailedReportsCommandOutput,
   ListBulkDeploymentDetailedReportsCommand,
-  ListBulkDeploymentDetailedReportsCommandInput,
-  ListBulkDeploymentDetailedReportsCommandOutput,
 } from "./commands/ListBulkDeploymentDetailedReportsCommand";
 import {
+  type ListBulkDeploymentsCommandInput,
+  type ListBulkDeploymentsCommandOutput,
   ListBulkDeploymentsCommand,
-  ListBulkDeploymentsCommandInput,
-  ListBulkDeploymentsCommandOutput,
 } from "./commands/ListBulkDeploymentsCommand";
 import {
+  type ListConnectorDefinitionsCommandInput,
+  type ListConnectorDefinitionsCommandOutput,
   ListConnectorDefinitionsCommand,
-  ListConnectorDefinitionsCommandInput,
-  ListConnectorDefinitionsCommandOutput,
 } from "./commands/ListConnectorDefinitionsCommand";
 import {
+  type ListConnectorDefinitionVersionsCommandInput,
+  type ListConnectorDefinitionVersionsCommandOutput,
   ListConnectorDefinitionVersionsCommand,
-  ListConnectorDefinitionVersionsCommandInput,
-  ListConnectorDefinitionVersionsCommandOutput,
 } from "./commands/ListConnectorDefinitionVersionsCommand";
 import {
+  type ListCoreDefinitionsCommandInput,
+  type ListCoreDefinitionsCommandOutput,
   ListCoreDefinitionsCommand,
-  ListCoreDefinitionsCommandInput,
-  ListCoreDefinitionsCommandOutput,
 } from "./commands/ListCoreDefinitionsCommand";
 import {
+  type ListCoreDefinitionVersionsCommandInput,
+  type ListCoreDefinitionVersionsCommandOutput,
   ListCoreDefinitionVersionsCommand,
-  ListCoreDefinitionVersionsCommandInput,
-  ListCoreDefinitionVersionsCommandOutput,
 } from "./commands/ListCoreDefinitionVersionsCommand";
 import {
+  type ListDeploymentsCommandInput,
+  type ListDeploymentsCommandOutput,
   ListDeploymentsCommand,
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand";
 import {
+  type ListDeviceDefinitionsCommandInput,
+  type ListDeviceDefinitionsCommandOutput,
   ListDeviceDefinitionsCommand,
-  ListDeviceDefinitionsCommandInput,
-  ListDeviceDefinitionsCommandOutput,
 } from "./commands/ListDeviceDefinitionsCommand";
 import {
+  type ListDeviceDefinitionVersionsCommandInput,
+  type ListDeviceDefinitionVersionsCommandOutput,
   ListDeviceDefinitionVersionsCommand,
-  ListDeviceDefinitionVersionsCommandInput,
-  ListDeviceDefinitionVersionsCommandOutput,
 } from "./commands/ListDeviceDefinitionVersionsCommand";
 import {
+  type ListFunctionDefinitionsCommandInput,
+  type ListFunctionDefinitionsCommandOutput,
   ListFunctionDefinitionsCommand,
-  ListFunctionDefinitionsCommandInput,
-  ListFunctionDefinitionsCommandOutput,
 } from "./commands/ListFunctionDefinitionsCommand";
 import {
+  type ListFunctionDefinitionVersionsCommandInput,
+  type ListFunctionDefinitionVersionsCommandOutput,
   ListFunctionDefinitionVersionsCommand,
-  ListFunctionDefinitionVersionsCommandInput,
-  ListFunctionDefinitionVersionsCommandOutput,
 } from "./commands/ListFunctionDefinitionVersionsCommand";
 import {
+  type ListGroupCertificateAuthoritiesCommandInput,
+  type ListGroupCertificateAuthoritiesCommandOutput,
   ListGroupCertificateAuthoritiesCommand,
-  ListGroupCertificateAuthoritiesCommandInput,
-  ListGroupCertificateAuthoritiesCommandOutput,
 } from "./commands/ListGroupCertificateAuthoritiesCommand";
-import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
+  type ListGroupsCommandInput,
+  type ListGroupsCommandOutput,
+  ListGroupsCommand,
+} from "./commands/ListGroupsCommand";
+import {
+  type ListGroupVersionsCommandInput,
+  type ListGroupVersionsCommandOutput,
   ListGroupVersionsCommand,
-  ListGroupVersionsCommandInput,
-  ListGroupVersionsCommandOutput,
 } from "./commands/ListGroupVersionsCommand";
 import {
+  type ListLoggerDefinitionsCommandInput,
+  type ListLoggerDefinitionsCommandOutput,
   ListLoggerDefinitionsCommand,
-  ListLoggerDefinitionsCommandInput,
-  ListLoggerDefinitionsCommandOutput,
 } from "./commands/ListLoggerDefinitionsCommand";
 import {
+  type ListLoggerDefinitionVersionsCommandInput,
+  type ListLoggerDefinitionVersionsCommandOutput,
   ListLoggerDefinitionVersionsCommand,
-  ListLoggerDefinitionVersionsCommandInput,
-  ListLoggerDefinitionVersionsCommandOutput,
 } from "./commands/ListLoggerDefinitionVersionsCommand";
 import {
+  type ListResourceDefinitionsCommandInput,
+  type ListResourceDefinitionsCommandOutput,
   ListResourceDefinitionsCommand,
-  ListResourceDefinitionsCommandInput,
-  ListResourceDefinitionsCommandOutput,
 } from "./commands/ListResourceDefinitionsCommand";
 import {
+  type ListResourceDefinitionVersionsCommandInput,
+  type ListResourceDefinitionVersionsCommandOutput,
   ListResourceDefinitionVersionsCommand,
-  ListResourceDefinitionVersionsCommandInput,
-  ListResourceDefinitionVersionsCommandOutput,
 } from "./commands/ListResourceDefinitionVersionsCommand";
 import {
+  type ListSubscriptionDefinitionsCommandInput,
+  type ListSubscriptionDefinitionsCommandOutput,
   ListSubscriptionDefinitionsCommand,
-  ListSubscriptionDefinitionsCommandInput,
-  ListSubscriptionDefinitionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionsCommand";
 import {
+  type ListSubscriptionDefinitionVersionsCommandInput,
+  type ListSubscriptionDefinitionVersionsCommandOutput,
   ListSubscriptionDefinitionVersionsCommand,
-  ListSubscriptionDefinitionVersionsCommandInput,
-  ListSubscriptionDefinitionVersionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ResetDeploymentsCommandInput,
+  type ResetDeploymentsCommandOutput,
   ResetDeploymentsCommand,
-  ResetDeploymentsCommandInput,
-  ResetDeploymentsCommandOutput,
 } from "./commands/ResetDeploymentsCommand";
 import {
+  type StartBulkDeploymentCommandInput,
+  type StartBulkDeploymentCommandOutput,
   StartBulkDeploymentCommand,
-  StartBulkDeploymentCommandInput,
-  StartBulkDeploymentCommandOutput,
 } from "./commands/StartBulkDeploymentCommand";
 import {
+  type StopBulkDeploymentCommandInput,
+  type StopBulkDeploymentCommandOutput,
   StopBulkDeploymentCommand,
-  StopBulkDeploymentCommandInput,
-  StopBulkDeploymentCommandOutput,
 } from "./commands/StopBulkDeploymentCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateConnectivityInfoCommandInput,
+  type UpdateConnectivityInfoCommandOutput,
   UpdateConnectivityInfoCommand,
-  UpdateConnectivityInfoCommandInput,
-  UpdateConnectivityInfoCommandOutput,
 } from "./commands/UpdateConnectivityInfoCommand";
 import {
+  type UpdateConnectorDefinitionCommandInput,
+  type UpdateConnectorDefinitionCommandOutput,
   UpdateConnectorDefinitionCommand,
-  UpdateConnectorDefinitionCommandInput,
-  UpdateConnectorDefinitionCommandOutput,
 } from "./commands/UpdateConnectorDefinitionCommand";
 import {
+  type UpdateCoreDefinitionCommandInput,
+  type UpdateCoreDefinitionCommandOutput,
   UpdateCoreDefinitionCommand,
-  UpdateCoreDefinitionCommandInput,
-  UpdateCoreDefinitionCommandOutput,
 } from "./commands/UpdateCoreDefinitionCommand";
 import {
+  type UpdateDeviceDefinitionCommandInput,
+  type UpdateDeviceDefinitionCommandOutput,
   UpdateDeviceDefinitionCommand,
-  UpdateDeviceDefinitionCommandInput,
-  UpdateDeviceDefinitionCommandOutput,
 } from "./commands/UpdateDeviceDefinitionCommand";
 import {
+  type UpdateFunctionDefinitionCommandInput,
+  type UpdateFunctionDefinitionCommandOutput,
   UpdateFunctionDefinitionCommand,
-  UpdateFunctionDefinitionCommandInput,
-  UpdateFunctionDefinitionCommandOutput,
 } from "./commands/UpdateFunctionDefinitionCommand";
 import {
+  type UpdateGroupCertificateConfigurationCommandInput,
+  type UpdateGroupCertificateConfigurationCommandOutput,
   UpdateGroupCertificateConfigurationCommand,
-  UpdateGroupCertificateConfigurationCommandInput,
-  UpdateGroupCertificateConfigurationCommandOutput,
 } from "./commands/UpdateGroupCertificateConfigurationCommand";
-import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
+  type UpdateGroupCommandInput,
+  type UpdateGroupCommandOutput,
+  UpdateGroupCommand,
+} from "./commands/UpdateGroupCommand";
+import {
+  type UpdateLoggerDefinitionCommandInput,
+  type UpdateLoggerDefinitionCommandOutput,
   UpdateLoggerDefinitionCommand,
-  UpdateLoggerDefinitionCommandInput,
-  UpdateLoggerDefinitionCommandOutput,
 } from "./commands/UpdateLoggerDefinitionCommand";
 import {
+  type UpdateResourceDefinitionCommandInput,
+  type UpdateResourceDefinitionCommandOutput,
   UpdateResourceDefinitionCommand,
-  UpdateResourceDefinitionCommandInput,
-  UpdateResourceDefinitionCommandOutput,
 } from "./commands/UpdateResourceDefinitionCommand";
 import {
+  type UpdateSubscriptionDefinitionCommandInput,
+  type UpdateSubscriptionDefinitionCommandOutput,
   UpdateSubscriptionDefinitionCommand,
-  UpdateSubscriptionDefinitionCommandInput,
-  UpdateSubscriptionDefinitionCommandOutput,
 } from "./commands/UpdateSubscriptionDefinitionCommand";
 import {
+  type UpdateThingRuntimeConfigurationCommandInput,
+  type UpdateThingRuntimeConfigurationCommandOutput,
   UpdateThingRuntimeConfigurationCommand,
-  UpdateThingRuntimeConfigurationCommandInput,
-  UpdateThingRuntimeConfigurationCommandOutput,
 } from "./commands/UpdateThingRuntimeConfigurationCommand";
 import { GreengrassClient } from "./GreengrassClient";
 

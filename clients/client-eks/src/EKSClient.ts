@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,173 +61,197 @@ import {
   defaultEKSHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateAccessPolicyCommandInput,
   AssociateAccessPolicyCommandOutput,
 } from "./commands/AssociateAccessPolicyCommand";
-import {
+import type {
   AssociateEncryptionConfigCommandInput,
   AssociateEncryptionConfigCommandOutput,
 } from "./commands/AssociateEncryptionConfigCommand";
-import {
+import type {
   AssociateIdentityProviderConfigCommandInput,
   AssociateIdentityProviderConfigCommandOutput,
 } from "./commands/AssociateIdentityProviderConfigCommand";
-import { CreateAccessEntryCommandInput, CreateAccessEntryCommandOutput } from "./commands/CreateAccessEntryCommand";
-import { CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
-import { CreateCapabilityCommandInput, CreateCapabilityCommandOutput } from "./commands/CreateCapabilityCommand";
-import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
-import {
+import type {
+  CreateAccessEntryCommandInput,
+  CreateAccessEntryCommandOutput,
+} from "./commands/CreateAccessEntryCommand";
+import type { CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
+import type { CreateCapabilityCommandInput, CreateCapabilityCommandOutput } from "./commands/CreateCapabilityCommand";
+import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import type {
   CreateEksAnywhereSubscriptionCommandInput,
   CreateEksAnywhereSubscriptionCommandOutput,
 } from "./commands/CreateEksAnywhereSubscriptionCommand";
-import {
+import type {
   CreateFargateProfileCommandInput,
   CreateFargateProfileCommandOutput,
 } from "./commands/CreateFargateProfileCommand";
-import { CreateNodegroupCommandInput, CreateNodegroupCommandOutput } from "./commands/CreateNodegroupCommand";
-import {
+import type { CreateNodegroupCommandInput, CreateNodegroupCommandOutput } from "./commands/CreateNodegroupCommand";
+import type {
   CreatePodIdentityAssociationCommandInput,
   CreatePodIdentityAssociationCommandOutput,
 } from "./commands/CreatePodIdentityAssociationCommand";
-import { DeleteAccessEntryCommandInput, DeleteAccessEntryCommandOutput } from "./commands/DeleteAccessEntryCommand";
-import { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
-import { DeleteCapabilityCommandInput, DeleteCapabilityCommandOutput } from "./commands/DeleteCapabilityCommand";
-import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
-import {
+import type {
+  DeleteAccessEntryCommandInput,
+  DeleteAccessEntryCommandOutput,
+} from "./commands/DeleteAccessEntryCommand";
+import type { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
+import type { DeleteCapabilityCommandInput, DeleteCapabilityCommandOutput } from "./commands/DeleteCapabilityCommand";
+import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import type {
   DeleteEksAnywhereSubscriptionCommandInput,
   DeleteEksAnywhereSubscriptionCommandOutput,
 } from "./commands/DeleteEksAnywhereSubscriptionCommand";
-import {
+import type {
   DeleteFargateProfileCommandInput,
   DeleteFargateProfileCommandOutput,
 } from "./commands/DeleteFargateProfileCommand";
-import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "./commands/DeleteNodegroupCommand";
-import {
+import type { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "./commands/DeleteNodegroupCommand";
+import type {
   DeletePodIdentityAssociationCommandInput,
   DeletePodIdentityAssociationCommandOutput,
 } from "./commands/DeletePodIdentityAssociationCommand";
-import { DeregisterClusterCommandInput, DeregisterClusterCommandOutput } from "./commands/DeregisterClusterCommand";
-import {
+import type {
+  DeregisterClusterCommandInput,
+  DeregisterClusterCommandOutput,
+} from "./commands/DeregisterClusterCommand";
+import type {
   DescribeAccessEntryCommandInput,
   DescribeAccessEntryCommandOutput,
 } from "./commands/DescribeAccessEntryCommand";
-import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "./commands/DescribeAddonCommand";
-import {
+import type { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "./commands/DescribeAddonCommand";
+import type {
   DescribeAddonConfigurationCommandInput,
   DescribeAddonConfigurationCommandOutput,
 } from "./commands/DescribeAddonConfigurationCommand";
-import {
+import type {
   DescribeAddonVersionsCommandInput,
   DescribeAddonVersionsCommandOutput,
 } from "./commands/DescribeAddonVersionsCommand";
-import { DescribeCapabilityCommandInput, DescribeCapabilityCommandOutput } from "./commands/DescribeCapabilityCommand";
-import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
-import {
+import type {
+  DescribeCapabilityCommandInput,
+  DescribeCapabilityCommandOutput,
+} from "./commands/DescribeCapabilityCommand";
+import type { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
+import type {
   DescribeClusterVersionsCommandInput,
   DescribeClusterVersionsCommandOutput,
 } from "./commands/DescribeClusterVersionsCommand";
-import {
+import type {
   DescribeEksAnywhereSubscriptionCommandInput,
   DescribeEksAnywhereSubscriptionCommandOutput,
 } from "./commands/DescribeEksAnywhereSubscriptionCommand";
-import {
+import type {
   DescribeFargateProfileCommandInput,
   DescribeFargateProfileCommandOutput,
 } from "./commands/DescribeFargateProfileCommand";
-import {
+import type {
   DescribeIdentityProviderConfigCommandInput,
   DescribeIdentityProviderConfigCommandOutput,
 } from "./commands/DescribeIdentityProviderConfigCommand";
-import { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "./commands/DescribeInsightCommand";
-import {
+import type { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "./commands/DescribeInsightCommand";
+import type {
   DescribeInsightsRefreshCommandInput,
   DescribeInsightsRefreshCommandOutput,
 } from "./commands/DescribeInsightsRefreshCommand";
-import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "./commands/DescribeNodegroupCommand";
-import {
+import type {
+  DescribeNodegroupCommandInput,
+  DescribeNodegroupCommandOutput,
+} from "./commands/DescribeNodegroupCommand";
+import type {
   DescribePodIdentityAssociationCommandInput,
   DescribePodIdentityAssociationCommandOutput,
 } from "./commands/DescribePodIdentityAssociationCommand";
-import { DescribeUpdateCommandInput, DescribeUpdateCommandOutput } from "./commands/DescribeUpdateCommand";
-import {
+import type { DescribeUpdateCommandInput, DescribeUpdateCommandOutput } from "./commands/DescribeUpdateCommand";
+import type {
   DisassociateAccessPolicyCommandInput,
   DisassociateAccessPolicyCommandOutput,
 } from "./commands/DisassociateAccessPolicyCommand";
-import {
+import type {
   DisassociateIdentityProviderConfigCommandInput,
   DisassociateIdentityProviderConfigCommandOutput,
 } from "./commands/DisassociateIdentityProviderConfigCommand";
-import { ListAccessEntriesCommandInput, ListAccessEntriesCommandOutput } from "./commands/ListAccessEntriesCommand";
-import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "./commands/ListAccessPoliciesCommand";
-import { ListAddonsCommandInput, ListAddonsCommandOutput } from "./commands/ListAddonsCommand";
-import {
+import type {
+  ListAccessEntriesCommandInput,
+  ListAccessEntriesCommandOutput,
+} from "./commands/ListAccessEntriesCommand";
+import type {
+  ListAccessPoliciesCommandInput,
+  ListAccessPoliciesCommandOutput,
+} from "./commands/ListAccessPoliciesCommand";
+import type { ListAddonsCommandInput, ListAddonsCommandOutput } from "./commands/ListAddonsCommand";
+import type {
   ListAssociatedAccessPoliciesCommandInput,
   ListAssociatedAccessPoliciesCommandOutput,
 } from "./commands/ListAssociatedAccessPoliciesCommand";
-import { ListCapabilitiesCommandInput, ListCapabilitiesCommandOutput } from "./commands/ListCapabilitiesCommand";
-import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
-import {
+import type { ListCapabilitiesCommandInput, ListCapabilitiesCommandOutput } from "./commands/ListCapabilitiesCommand";
+import type { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
+import type {
   ListEksAnywhereSubscriptionsCommandInput,
   ListEksAnywhereSubscriptionsCommandOutput,
 } from "./commands/ListEksAnywhereSubscriptionsCommand";
-import {
+import type {
   ListFargateProfilesCommandInput,
   ListFargateProfilesCommandOutput,
 } from "./commands/ListFargateProfilesCommand";
-import {
+import type {
   ListIdentityProviderConfigsCommandInput,
   ListIdentityProviderConfigsCommandOutput,
 } from "./commands/ListIdentityProviderConfigsCommand";
-import { ListInsightsCommandInput, ListInsightsCommandOutput } from "./commands/ListInsightsCommand";
-import { ListNodegroupsCommandInput, ListNodegroupsCommandOutput } from "./commands/ListNodegroupsCommand";
-import {
+import type { ListInsightsCommandInput, ListInsightsCommandOutput } from "./commands/ListInsightsCommand";
+import type { ListNodegroupsCommandInput, ListNodegroupsCommandOutput } from "./commands/ListNodegroupsCommand";
+import type {
   ListPodIdentityAssociationsCommandInput,
   ListPodIdentityAssociationsCommandOutput,
 } from "./commands/ListPodIdentityAssociationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListUpdatesCommandInput, ListUpdatesCommandOutput } from "./commands/ListUpdatesCommand";
-import { RegisterClusterCommandInput, RegisterClusterCommandOutput } from "./commands/RegisterClusterCommand";
-import {
+import type { ListUpdatesCommandInput, ListUpdatesCommandOutput } from "./commands/ListUpdatesCommand";
+import type { RegisterClusterCommandInput, RegisterClusterCommandOutput } from "./commands/RegisterClusterCommand";
+import type {
   StartInsightsRefreshCommandInput,
   StartInsightsRefreshCommandOutput,
 } from "./commands/StartInsightsRefreshCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAccessEntryCommandInput, UpdateAccessEntryCommandOutput } from "./commands/UpdateAccessEntryCommand";
-import { UpdateAddonCommandInput, UpdateAddonCommandOutput } from "./commands/UpdateAddonCommand";
-import { UpdateCapabilityCommandInput, UpdateCapabilityCommandOutput } from "./commands/UpdateCapabilityCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAccessEntryCommandInput,
+  UpdateAccessEntryCommandOutput,
+} from "./commands/UpdateAccessEntryCommand";
+import type { UpdateAddonCommandInput, UpdateAddonCommandOutput } from "./commands/UpdateAddonCommand";
+import type { UpdateCapabilityCommandInput, UpdateCapabilityCommandOutput } from "./commands/UpdateCapabilityCommand";
+import type {
   UpdateClusterConfigCommandInput,
   UpdateClusterConfigCommandOutput,
 } from "./commands/UpdateClusterConfigCommand";
-import {
+import type {
   UpdateClusterVersionCommandInput,
   UpdateClusterVersionCommandOutput,
 } from "./commands/UpdateClusterVersionCommand";
-import {
+import type {
   UpdateEksAnywhereSubscriptionCommandInput,
   UpdateEksAnywhereSubscriptionCommandOutput,
 } from "./commands/UpdateEksAnywhereSubscriptionCommand";
-import {
+import type {
   UpdateNodegroupConfigCommandInput,
   UpdateNodegroupConfigCommandOutput,
 } from "./commands/UpdateNodegroupConfigCommand";
-import {
+import type {
   UpdateNodegroupVersionCommandInput,
   UpdateNodegroupVersionCommandOutput,
 } from "./commands/UpdateNodegroupVersionCommand";
-import {
+import type {
   UpdatePodIdentityAssociationCommandInput,
   UpdatePodIdentityAssociationCommandOutput,
 } from "./commands/UpdatePodIdentityAssociationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -489,7 +511,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

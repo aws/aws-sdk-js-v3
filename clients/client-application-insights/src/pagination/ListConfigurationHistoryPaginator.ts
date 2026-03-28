@@ -8,7 +8,7 @@ import {
   ListConfigurationHistoryCommandInput,
   ListConfigurationHistoryCommandOutput,
 } from "../commands/ListConfigurationHistoryCommand";
-import { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
+import type { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

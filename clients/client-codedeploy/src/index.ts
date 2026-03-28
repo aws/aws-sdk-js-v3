@@ -99,7 +99,7 @@
  */
 export * from "./CodeDeployClient";
 export * from "./CodeDeploy";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CodeDeployExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

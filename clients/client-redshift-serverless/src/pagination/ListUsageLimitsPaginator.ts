@@ -8,7 +8,7 @@ import {
   ListUsageLimitsCommandOutput,
 } from "../commands/ListUsageLimitsCommand";
 import { RedshiftServerlessClient } from "../RedshiftServerlessClient";
-import { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
+import type { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

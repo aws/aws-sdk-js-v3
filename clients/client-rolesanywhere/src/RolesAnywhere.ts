@@ -3,114 +3,130 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateProfileCommandInput,
+  type CreateProfileCommandOutput,
   CreateProfileCommand,
-  CreateProfileCommandInput,
-  CreateProfileCommandOutput,
 } from "./commands/CreateProfileCommand";
 import {
+  type CreateTrustAnchorCommandInput,
+  type CreateTrustAnchorCommandOutput,
   CreateTrustAnchorCommand,
-  CreateTrustAnchorCommandInput,
-  CreateTrustAnchorCommandOutput,
 } from "./commands/CreateTrustAnchorCommand";
 import {
+  type DeleteAttributeMappingCommandInput,
+  type DeleteAttributeMappingCommandOutput,
   DeleteAttributeMappingCommand,
-  DeleteAttributeMappingCommandInput,
-  DeleteAttributeMappingCommandOutput,
 } from "./commands/DeleteAttributeMappingCommand";
-import { DeleteCrlCommand, DeleteCrlCommandInput, DeleteCrlCommandOutput } from "./commands/DeleteCrlCommand";
+import { type DeleteCrlCommandInput, type DeleteCrlCommandOutput, DeleteCrlCommand } from "./commands/DeleteCrlCommand";
 import {
+  type DeleteProfileCommandInput,
+  type DeleteProfileCommandOutput,
   DeleteProfileCommand,
-  DeleteProfileCommandInput,
-  DeleteProfileCommandOutput,
 } from "./commands/DeleteProfileCommand";
 import {
+  type DeleteTrustAnchorCommandInput,
+  type DeleteTrustAnchorCommandOutput,
   DeleteTrustAnchorCommand,
-  DeleteTrustAnchorCommandInput,
-  DeleteTrustAnchorCommandOutput,
 } from "./commands/DeleteTrustAnchorCommand";
-import { DisableCrlCommand, DisableCrlCommandInput, DisableCrlCommandOutput } from "./commands/DisableCrlCommand";
 import {
+  type DisableCrlCommandInput,
+  type DisableCrlCommandOutput,
+  DisableCrlCommand,
+} from "./commands/DisableCrlCommand";
+import {
+  type DisableProfileCommandInput,
+  type DisableProfileCommandOutput,
   DisableProfileCommand,
-  DisableProfileCommandInput,
-  DisableProfileCommandOutput,
 } from "./commands/DisableProfileCommand";
 import {
+  type DisableTrustAnchorCommandInput,
+  type DisableTrustAnchorCommandOutput,
   DisableTrustAnchorCommand,
-  DisableTrustAnchorCommandInput,
-  DisableTrustAnchorCommandOutput,
 } from "./commands/DisableTrustAnchorCommand";
-import { EnableCrlCommand, EnableCrlCommandInput, EnableCrlCommandOutput } from "./commands/EnableCrlCommand";
+import { type EnableCrlCommandInput, type EnableCrlCommandOutput, EnableCrlCommand } from "./commands/EnableCrlCommand";
 import {
+  type EnableProfileCommandInput,
+  type EnableProfileCommandOutput,
   EnableProfileCommand,
-  EnableProfileCommandInput,
-  EnableProfileCommandOutput,
 } from "./commands/EnableProfileCommand";
 import {
+  type EnableTrustAnchorCommandInput,
+  type EnableTrustAnchorCommandOutput,
   EnableTrustAnchorCommand,
-  EnableTrustAnchorCommandInput,
-  EnableTrustAnchorCommandOutput,
 } from "./commands/EnableTrustAnchorCommand";
-import { GetCrlCommand, GetCrlCommandInput, GetCrlCommandOutput } from "./commands/GetCrlCommand";
-import { GetProfileCommand, GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
-import { GetSubjectCommand, GetSubjectCommandInput, GetSubjectCommandOutput } from "./commands/GetSubjectCommand";
+import { type GetCrlCommandInput, type GetCrlCommandOutput, GetCrlCommand } from "./commands/GetCrlCommand";
 import {
+  type GetProfileCommandInput,
+  type GetProfileCommandOutput,
+  GetProfileCommand,
+} from "./commands/GetProfileCommand";
+import {
+  type GetSubjectCommandInput,
+  type GetSubjectCommandOutput,
+  GetSubjectCommand,
+} from "./commands/GetSubjectCommand";
+import {
+  type GetTrustAnchorCommandInput,
+  type GetTrustAnchorCommandOutput,
   GetTrustAnchorCommand,
-  GetTrustAnchorCommandInput,
-  GetTrustAnchorCommandOutput,
 } from "./commands/GetTrustAnchorCommand";
-import { ImportCrlCommand, ImportCrlCommandInput, ImportCrlCommandOutput } from "./commands/ImportCrlCommand";
-import { ListCrlsCommand, ListCrlsCommandInput, ListCrlsCommandOutput } from "./commands/ListCrlsCommand";
+import { type ImportCrlCommandInput, type ImportCrlCommandOutput, ImportCrlCommand } from "./commands/ImportCrlCommand";
+import { type ListCrlsCommandInput, type ListCrlsCommandOutput, ListCrlsCommand } from "./commands/ListCrlsCommand";
 import {
+  type ListProfilesCommandInput,
+  type ListProfilesCommandOutput,
   ListProfilesCommand,
-  ListProfilesCommandInput,
-  ListProfilesCommandOutput,
 } from "./commands/ListProfilesCommand";
 import {
+  type ListSubjectsCommandInput,
+  type ListSubjectsCommandOutput,
   ListSubjectsCommand,
-  ListSubjectsCommandInput,
-  ListSubjectsCommandOutput,
 } from "./commands/ListSubjectsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTrustAnchorsCommandInput,
+  type ListTrustAnchorsCommandOutput,
   ListTrustAnchorsCommand,
-  ListTrustAnchorsCommandInput,
-  ListTrustAnchorsCommandOutput,
 } from "./commands/ListTrustAnchorsCommand";
 import {
+  type PutAttributeMappingCommandInput,
+  type PutAttributeMappingCommandOutput,
   PutAttributeMappingCommand,
-  PutAttributeMappingCommandInput,
-  PutAttributeMappingCommandOutput,
 } from "./commands/PutAttributeMappingCommand";
 import {
+  type PutNotificationSettingsCommandInput,
+  type PutNotificationSettingsCommandOutput,
   PutNotificationSettingsCommand,
-  PutNotificationSettingsCommandInput,
-  PutNotificationSettingsCommandOutput,
 } from "./commands/PutNotificationSettingsCommand";
 import {
+  type ResetNotificationSettingsCommandInput,
+  type ResetNotificationSettingsCommandOutput,
   ResetNotificationSettingsCommand,
-  ResetNotificationSettingsCommandInput,
-  ResetNotificationSettingsCommandOutput,
 } from "./commands/ResetNotificationSettingsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateCrlCommand, UpdateCrlCommandInput, UpdateCrlCommandOutput } from "./commands/UpdateCrlCommand";
+import { type UpdateCrlCommandInput, type UpdateCrlCommandOutput, UpdateCrlCommand } from "./commands/UpdateCrlCommand";
 import {
+  type UpdateProfileCommandInput,
+  type UpdateProfileCommandOutput,
   UpdateProfileCommand,
-  UpdateProfileCommandInput,
-  UpdateProfileCommandOutput,
 } from "./commands/UpdateProfileCommand";
 import {
+  type UpdateTrustAnchorCommandInput,
+  type UpdateTrustAnchorCommandOutput,
   UpdateTrustAnchorCommand,
-  UpdateTrustAnchorCommandInput,
-  UpdateTrustAnchorCommandOutput,
 } from "./commands/UpdateTrustAnchorCommand";
 import { paginateListCrls } from "./pagination/ListCrlsPaginator";
 import { paginateListProfiles } from "./pagination/ListProfilesPaginator";

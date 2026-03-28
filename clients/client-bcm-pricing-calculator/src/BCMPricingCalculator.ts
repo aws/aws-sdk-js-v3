@@ -4,180 +4,184 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BCMPricingCalculatorClient } from "./BCMPricingCalculatorClient";
 import {
+  type BatchCreateBillScenarioCommitmentModificationCommandInput,
+  type BatchCreateBillScenarioCommitmentModificationCommandOutput,
   BatchCreateBillScenarioCommitmentModificationCommand,
-  BatchCreateBillScenarioCommitmentModificationCommandInput,
-  BatchCreateBillScenarioCommitmentModificationCommandOutput,
 } from "./commands/BatchCreateBillScenarioCommitmentModificationCommand";
 import {
+  type BatchCreateBillScenarioUsageModificationCommandInput,
+  type BatchCreateBillScenarioUsageModificationCommandOutput,
   BatchCreateBillScenarioUsageModificationCommand,
-  BatchCreateBillScenarioUsageModificationCommandInput,
-  BatchCreateBillScenarioUsageModificationCommandOutput,
 } from "./commands/BatchCreateBillScenarioUsageModificationCommand";
 import {
+  type BatchCreateWorkloadEstimateUsageCommandInput,
+  type BatchCreateWorkloadEstimateUsageCommandOutput,
   BatchCreateWorkloadEstimateUsageCommand,
-  BatchCreateWorkloadEstimateUsageCommandInput,
-  BatchCreateWorkloadEstimateUsageCommandOutput,
 } from "./commands/BatchCreateWorkloadEstimateUsageCommand";
 import {
+  type BatchDeleteBillScenarioCommitmentModificationCommandInput,
+  type BatchDeleteBillScenarioCommitmentModificationCommandOutput,
   BatchDeleteBillScenarioCommitmentModificationCommand,
-  BatchDeleteBillScenarioCommitmentModificationCommandInput,
-  BatchDeleteBillScenarioCommitmentModificationCommandOutput,
 } from "./commands/BatchDeleteBillScenarioCommitmentModificationCommand";
 import {
+  type BatchDeleteBillScenarioUsageModificationCommandInput,
+  type BatchDeleteBillScenarioUsageModificationCommandOutput,
   BatchDeleteBillScenarioUsageModificationCommand,
-  BatchDeleteBillScenarioUsageModificationCommandInput,
-  BatchDeleteBillScenarioUsageModificationCommandOutput,
 } from "./commands/BatchDeleteBillScenarioUsageModificationCommand";
 import {
+  type BatchDeleteWorkloadEstimateUsageCommandInput,
+  type BatchDeleteWorkloadEstimateUsageCommandOutput,
   BatchDeleteWorkloadEstimateUsageCommand,
-  BatchDeleteWorkloadEstimateUsageCommandInput,
-  BatchDeleteWorkloadEstimateUsageCommandOutput,
 } from "./commands/BatchDeleteWorkloadEstimateUsageCommand";
 import {
+  type BatchUpdateBillScenarioCommitmentModificationCommandInput,
+  type BatchUpdateBillScenarioCommitmentModificationCommandOutput,
   BatchUpdateBillScenarioCommitmentModificationCommand,
-  BatchUpdateBillScenarioCommitmentModificationCommandInput,
-  BatchUpdateBillScenarioCommitmentModificationCommandOutput,
 } from "./commands/BatchUpdateBillScenarioCommitmentModificationCommand";
 import {
+  type BatchUpdateBillScenarioUsageModificationCommandInput,
+  type BatchUpdateBillScenarioUsageModificationCommandOutput,
   BatchUpdateBillScenarioUsageModificationCommand,
-  BatchUpdateBillScenarioUsageModificationCommandInput,
-  BatchUpdateBillScenarioUsageModificationCommandOutput,
 } from "./commands/BatchUpdateBillScenarioUsageModificationCommand";
 import {
+  type BatchUpdateWorkloadEstimateUsageCommandInput,
+  type BatchUpdateWorkloadEstimateUsageCommandOutput,
   BatchUpdateWorkloadEstimateUsageCommand,
-  BatchUpdateWorkloadEstimateUsageCommandInput,
-  BatchUpdateWorkloadEstimateUsageCommandOutput,
 } from "./commands/BatchUpdateWorkloadEstimateUsageCommand";
 import {
+  type CreateBillEstimateCommandInput,
+  type CreateBillEstimateCommandOutput,
   CreateBillEstimateCommand,
-  CreateBillEstimateCommandInput,
-  CreateBillEstimateCommandOutput,
 } from "./commands/CreateBillEstimateCommand";
 import {
+  type CreateBillScenarioCommandInput,
+  type CreateBillScenarioCommandOutput,
   CreateBillScenarioCommand,
-  CreateBillScenarioCommandInput,
-  CreateBillScenarioCommandOutput,
 } from "./commands/CreateBillScenarioCommand";
 import {
+  type CreateWorkloadEstimateCommandInput,
+  type CreateWorkloadEstimateCommandOutput,
   CreateWorkloadEstimateCommand,
-  CreateWorkloadEstimateCommandInput,
-  CreateWorkloadEstimateCommandOutput,
 } from "./commands/CreateWorkloadEstimateCommand";
 import {
+  type DeleteBillEstimateCommandInput,
+  type DeleteBillEstimateCommandOutput,
   DeleteBillEstimateCommand,
-  DeleteBillEstimateCommandInput,
-  DeleteBillEstimateCommandOutput,
 } from "./commands/DeleteBillEstimateCommand";
 import {
+  type DeleteBillScenarioCommandInput,
+  type DeleteBillScenarioCommandOutput,
   DeleteBillScenarioCommand,
-  DeleteBillScenarioCommandInput,
-  DeleteBillScenarioCommandOutput,
 } from "./commands/DeleteBillScenarioCommand";
 import {
+  type DeleteWorkloadEstimateCommandInput,
+  type DeleteWorkloadEstimateCommandOutput,
   DeleteWorkloadEstimateCommand,
-  DeleteWorkloadEstimateCommandInput,
-  DeleteWorkloadEstimateCommandOutput,
 } from "./commands/DeleteWorkloadEstimateCommand";
 import {
+  type GetBillEstimateCommandInput,
+  type GetBillEstimateCommandOutput,
   GetBillEstimateCommand,
-  GetBillEstimateCommandInput,
-  GetBillEstimateCommandOutput,
 } from "./commands/GetBillEstimateCommand";
 import {
+  type GetBillScenarioCommandInput,
+  type GetBillScenarioCommandOutput,
   GetBillScenarioCommand,
-  GetBillScenarioCommandInput,
-  GetBillScenarioCommandOutput,
 } from "./commands/GetBillScenarioCommand";
 import {
+  type GetPreferencesCommandInput,
+  type GetPreferencesCommandOutput,
   GetPreferencesCommand,
-  GetPreferencesCommandInput,
-  GetPreferencesCommandOutput,
 } from "./commands/GetPreferencesCommand";
 import {
+  type GetWorkloadEstimateCommandInput,
+  type GetWorkloadEstimateCommandOutput,
   GetWorkloadEstimateCommand,
-  GetWorkloadEstimateCommandInput,
-  GetWorkloadEstimateCommandOutput,
 } from "./commands/GetWorkloadEstimateCommand";
 import {
+  type ListBillEstimateCommitmentsCommandInput,
+  type ListBillEstimateCommitmentsCommandOutput,
   ListBillEstimateCommitmentsCommand,
-  ListBillEstimateCommitmentsCommandInput,
-  ListBillEstimateCommitmentsCommandOutput,
 } from "./commands/ListBillEstimateCommitmentsCommand";
 import {
+  type ListBillEstimateInputCommitmentModificationsCommandInput,
+  type ListBillEstimateInputCommitmentModificationsCommandOutput,
   ListBillEstimateInputCommitmentModificationsCommand,
-  ListBillEstimateInputCommitmentModificationsCommandInput,
-  ListBillEstimateInputCommitmentModificationsCommandOutput,
 } from "./commands/ListBillEstimateInputCommitmentModificationsCommand";
 import {
+  type ListBillEstimateInputUsageModificationsCommandInput,
+  type ListBillEstimateInputUsageModificationsCommandOutput,
   ListBillEstimateInputUsageModificationsCommand,
-  ListBillEstimateInputUsageModificationsCommandInput,
-  ListBillEstimateInputUsageModificationsCommandOutput,
 } from "./commands/ListBillEstimateInputUsageModificationsCommand";
 import {
+  type ListBillEstimateLineItemsCommandInput,
+  type ListBillEstimateLineItemsCommandOutput,
   ListBillEstimateLineItemsCommand,
-  ListBillEstimateLineItemsCommandInput,
-  ListBillEstimateLineItemsCommandOutput,
 } from "./commands/ListBillEstimateLineItemsCommand";
 import {
+  type ListBillEstimatesCommandInput,
+  type ListBillEstimatesCommandOutput,
   ListBillEstimatesCommand,
-  ListBillEstimatesCommandInput,
-  ListBillEstimatesCommandOutput,
 } from "./commands/ListBillEstimatesCommand";
 import {
+  type ListBillScenarioCommitmentModificationsCommandInput,
+  type ListBillScenarioCommitmentModificationsCommandOutput,
   ListBillScenarioCommitmentModificationsCommand,
-  ListBillScenarioCommitmentModificationsCommandInput,
-  ListBillScenarioCommitmentModificationsCommandOutput,
 } from "./commands/ListBillScenarioCommitmentModificationsCommand";
 import {
+  type ListBillScenariosCommandInput,
+  type ListBillScenariosCommandOutput,
   ListBillScenariosCommand,
-  ListBillScenariosCommandInput,
-  ListBillScenariosCommandOutput,
 } from "./commands/ListBillScenariosCommand";
 import {
+  type ListBillScenarioUsageModificationsCommandInput,
+  type ListBillScenarioUsageModificationsCommandOutput,
   ListBillScenarioUsageModificationsCommand,
-  ListBillScenarioUsageModificationsCommandInput,
-  ListBillScenarioUsageModificationsCommandOutput,
 } from "./commands/ListBillScenarioUsageModificationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWorkloadEstimatesCommandInput,
+  type ListWorkloadEstimatesCommandOutput,
   ListWorkloadEstimatesCommand,
-  ListWorkloadEstimatesCommandInput,
-  ListWorkloadEstimatesCommandOutput,
 } from "./commands/ListWorkloadEstimatesCommand";
 import {
+  type ListWorkloadEstimateUsageCommandInput,
+  type ListWorkloadEstimateUsageCommandOutput,
   ListWorkloadEstimateUsageCommand,
-  ListWorkloadEstimateUsageCommandInput,
-  ListWorkloadEstimateUsageCommandOutput,
 } from "./commands/ListWorkloadEstimateUsageCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBillEstimateCommandInput,
+  type UpdateBillEstimateCommandOutput,
   UpdateBillEstimateCommand,
-  UpdateBillEstimateCommandInput,
-  UpdateBillEstimateCommandOutput,
 } from "./commands/UpdateBillEstimateCommand";
 import {
+  type UpdateBillScenarioCommandInput,
+  type UpdateBillScenarioCommandOutput,
   UpdateBillScenarioCommand,
-  UpdateBillScenarioCommandInput,
-  UpdateBillScenarioCommandOutput,
 } from "./commands/UpdateBillScenarioCommand";
 import {
+  type UpdatePreferencesCommandInput,
+  type UpdatePreferencesCommandOutput,
   UpdatePreferencesCommand,
-  UpdatePreferencesCommandInput,
-  UpdatePreferencesCommandOutput,
 } from "./commands/UpdatePreferencesCommand";
 import {
+  type UpdateWorkloadEstimateCommandInput,
+  type UpdateWorkloadEstimateCommandOutput,
   UpdateWorkloadEstimateCommand,
-  UpdateWorkloadEstimateCommandInput,
-  UpdateWorkloadEstimateCommandOutput,
 } from "./commands/UpdateWorkloadEstimateCommand";
 import { paginateListBillEstimateCommitments } from "./pagination/ListBillEstimateCommitmentsPaginator";
 import {

@@ -8,7 +8,7 @@ import {
   ListJobRunAttemptsCommandOutput,
 } from "../commands/ListJobRunAttemptsCommand";
 import { EMRServerlessClient } from "../EMRServerlessClient";
-import { EMRServerlessPaginationConfiguration } from "./Interfaces";
+import type { EMRServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

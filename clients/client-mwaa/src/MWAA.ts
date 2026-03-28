@@ -3,60 +3,64 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateCliTokenCommandInput,
+  type CreateCliTokenCommandOutput,
   CreateCliTokenCommand,
-  CreateCliTokenCommandInput,
-  CreateCliTokenCommandOutput,
 } from "./commands/CreateCliTokenCommand";
 import {
+  type CreateEnvironmentCommandInput,
+  type CreateEnvironmentCommandOutput,
   CreateEnvironmentCommand,
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand";
 import {
+  type CreateWebLoginTokenCommandInput,
+  type CreateWebLoginTokenCommandOutput,
   CreateWebLoginTokenCommand,
-  CreateWebLoginTokenCommandInput,
-  CreateWebLoginTokenCommandOutput,
 } from "./commands/CreateWebLoginTokenCommand";
 import {
+  type DeleteEnvironmentCommandInput,
+  type DeleteEnvironmentCommandOutput,
   DeleteEnvironmentCommand,
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
 import {
+  type GetEnvironmentCommandInput,
+  type GetEnvironmentCommandOutput,
   GetEnvironmentCommand,
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
 import {
+  type InvokeRestApiCommandInput,
+  type InvokeRestApiCommandOutput,
   InvokeRestApiCommand,
-  InvokeRestApiCommandInput,
-  InvokeRestApiCommandOutput,
 } from "./commands/InvokeRestApiCommand";
 import {
+  type ListEnvironmentsCommandInput,
+  type ListEnvironmentsCommandOutput,
   ListEnvironmentsCommand,
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PublishMetricsCommandInput,
+  type PublishMetricsCommandOutput,
   PublishMetricsCommand,
-  PublishMetricsCommandInput,
-  PublishMetricsCommandOutput,
 } from "./commands/PublishMetricsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateEnvironmentCommandInput,
+  type UpdateEnvironmentCommandOutput,
   UpdateEnvironmentCommand,
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import { MWAAClient } from "./MWAAClient";
 import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";

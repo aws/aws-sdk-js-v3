@@ -8,7 +8,7 @@ import {
   GetResourcePoliciesCommandOutput,
 } from "../commands/GetResourcePoliciesCommand";
 import { SSMIncidentsClient } from "../SSMIncidentsClient";
-import { SSMIncidentsPaginationConfiguration } from "./Interfaces";
+import type { SSMIncidentsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

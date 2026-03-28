@@ -8,7 +8,7 @@ import {
   ListTimelineEventsCommandOutput,
 } from "../commands/ListTimelineEventsCommand";
 import { SSMIncidentsClient } from "../SSMIncidentsClient";
-import { SSMIncidentsPaginationConfiguration } from "./Interfaces";
+import type { SSMIncidentsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

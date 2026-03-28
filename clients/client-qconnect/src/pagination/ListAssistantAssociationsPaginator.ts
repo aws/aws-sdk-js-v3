@@ -8,7 +8,7 @@ import {
   ListAssistantAssociationsCommandOutput,
 } from "../commands/ListAssistantAssociationsCommand";
 import { QConnectClient } from "../QConnectClient";
-import { QConnectPaginationConfiguration } from "./Interfaces";
+import type { QConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

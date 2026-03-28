@@ -8,7 +8,7 @@ import {
   ListConfigurationRecordersCommandOutput,
 } from "../commands/ListConfigurationRecordersCommand";
 import { ConfigServiceClient } from "../ConfigServiceClient";
-import { ConfigServicePaginationConfiguration } from "./Interfaces";
+import type { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

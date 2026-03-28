@@ -3,315 +3,319 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateAutoPredictorCommandInput,
+  type CreateAutoPredictorCommandOutput,
   CreateAutoPredictorCommand,
-  CreateAutoPredictorCommandInput,
-  CreateAutoPredictorCommandOutput,
 } from "./commands/CreateAutoPredictorCommand";
 import {
+  type CreateDatasetCommandInput,
+  type CreateDatasetCommandOutput,
   CreateDatasetCommand,
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput,
 } from "./commands/CreateDatasetCommand";
 import {
+  type CreateDatasetGroupCommandInput,
+  type CreateDatasetGroupCommandOutput,
   CreateDatasetGroupCommand,
-  CreateDatasetGroupCommandInput,
-  CreateDatasetGroupCommandOutput,
 } from "./commands/CreateDatasetGroupCommand";
 import {
+  type CreateDatasetImportJobCommandInput,
+  type CreateDatasetImportJobCommandOutput,
   CreateDatasetImportJobCommand,
-  CreateDatasetImportJobCommandInput,
-  CreateDatasetImportJobCommandOutput,
 } from "./commands/CreateDatasetImportJobCommand";
 import {
+  type CreateExplainabilityCommandInput,
+  type CreateExplainabilityCommandOutput,
   CreateExplainabilityCommand,
-  CreateExplainabilityCommandInput,
-  CreateExplainabilityCommandOutput,
 } from "./commands/CreateExplainabilityCommand";
 import {
+  type CreateExplainabilityExportCommandInput,
+  type CreateExplainabilityExportCommandOutput,
   CreateExplainabilityExportCommand,
-  CreateExplainabilityExportCommandInput,
-  CreateExplainabilityExportCommandOutput,
 } from "./commands/CreateExplainabilityExportCommand";
 import {
+  type CreateForecastCommandInput,
+  type CreateForecastCommandOutput,
   CreateForecastCommand,
-  CreateForecastCommandInput,
-  CreateForecastCommandOutput,
 } from "./commands/CreateForecastCommand";
 import {
+  type CreateForecastExportJobCommandInput,
+  type CreateForecastExportJobCommandOutput,
   CreateForecastExportJobCommand,
-  CreateForecastExportJobCommandInput,
-  CreateForecastExportJobCommandOutput,
 } from "./commands/CreateForecastExportJobCommand";
 import {
+  type CreateMonitorCommandInput,
+  type CreateMonitorCommandOutput,
   CreateMonitorCommand,
-  CreateMonitorCommandInput,
-  CreateMonitorCommandOutput,
 } from "./commands/CreateMonitorCommand";
 import {
+  type CreatePredictorBacktestExportJobCommandInput,
+  type CreatePredictorBacktestExportJobCommandOutput,
   CreatePredictorBacktestExportJobCommand,
-  CreatePredictorBacktestExportJobCommandInput,
-  CreatePredictorBacktestExportJobCommandOutput,
 } from "./commands/CreatePredictorBacktestExportJobCommand";
 import {
+  type CreatePredictorCommandInput,
+  type CreatePredictorCommandOutput,
   CreatePredictorCommand,
-  CreatePredictorCommandInput,
-  CreatePredictorCommandOutput,
 } from "./commands/CreatePredictorCommand";
 import {
+  type CreateWhatIfAnalysisCommandInput,
+  type CreateWhatIfAnalysisCommandOutput,
   CreateWhatIfAnalysisCommand,
-  CreateWhatIfAnalysisCommandInput,
-  CreateWhatIfAnalysisCommandOutput,
 } from "./commands/CreateWhatIfAnalysisCommand";
 import {
+  type CreateWhatIfForecastCommandInput,
+  type CreateWhatIfForecastCommandOutput,
   CreateWhatIfForecastCommand,
-  CreateWhatIfForecastCommandInput,
-  CreateWhatIfForecastCommandOutput,
 } from "./commands/CreateWhatIfForecastCommand";
 import {
+  type CreateWhatIfForecastExportCommandInput,
+  type CreateWhatIfForecastExportCommandOutput,
   CreateWhatIfForecastExportCommand,
-  CreateWhatIfForecastExportCommandInput,
-  CreateWhatIfForecastExportCommandOutput,
 } from "./commands/CreateWhatIfForecastExportCommand";
 import {
+  type DeleteDatasetCommandInput,
+  type DeleteDatasetCommandOutput,
   DeleteDatasetCommand,
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput,
 } from "./commands/DeleteDatasetCommand";
 import {
+  type DeleteDatasetGroupCommandInput,
+  type DeleteDatasetGroupCommandOutput,
   DeleteDatasetGroupCommand,
-  DeleteDatasetGroupCommandInput,
-  DeleteDatasetGroupCommandOutput,
 } from "./commands/DeleteDatasetGroupCommand";
 import {
+  type DeleteDatasetImportJobCommandInput,
+  type DeleteDatasetImportJobCommandOutput,
   DeleteDatasetImportJobCommand,
-  DeleteDatasetImportJobCommandInput,
-  DeleteDatasetImportJobCommandOutput,
 } from "./commands/DeleteDatasetImportJobCommand";
 import {
+  type DeleteExplainabilityCommandInput,
+  type DeleteExplainabilityCommandOutput,
   DeleteExplainabilityCommand,
-  DeleteExplainabilityCommandInput,
-  DeleteExplainabilityCommandOutput,
 } from "./commands/DeleteExplainabilityCommand";
 import {
+  type DeleteExplainabilityExportCommandInput,
+  type DeleteExplainabilityExportCommandOutput,
   DeleteExplainabilityExportCommand,
-  DeleteExplainabilityExportCommandInput,
-  DeleteExplainabilityExportCommandOutput,
 } from "./commands/DeleteExplainabilityExportCommand";
 import {
+  type DeleteForecastCommandInput,
+  type DeleteForecastCommandOutput,
   DeleteForecastCommand,
-  DeleteForecastCommandInput,
-  DeleteForecastCommandOutput,
 } from "./commands/DeleteForecastCommand";
 import {
+  type DeleteForecastExportJobCommandInput,
+  type DeleteForecastExportJobCommandOutput,
   DeleteForecastExportJobCommand,
-  DeleteForecastExportJobCommandInput,
-  DeleteForecastExportJobCommandOutput,
 } from "./commands/DeleteForecastExportJobCommand";
 import {
+  type DeleteMonitorCommandInput,
+  type DeleteMonitorCommandOutput,
   DeleteMonitorCommand,
-  DeleteMonitorCommandInput,
-  DeleteMonitorCommandOutput,
 } from "./commands/DeleteMonitorCommand";
 import {
+  type DeletePredictorBacktestExportJobCommandInput,
+  type DeletePredictorBacktestExportJobCommandOutput,
   DeletePredictorBacktestExportJobCommand,
-  DeletePredictorBacktestExportJobCommandInput,
-  DeletePredictorBacktestExportJobCommandOutput,
 } from "./commands/DeletePredictorBacktestExportJobCommand";
 import {
+  type DeletePredictorCommandInput,
+  type DeletePredictorCommandOutput,
   DeletePredictorCommand,
-  DeletePredictorCommandInput,
-  DeletePredictorCommandOutput,
 } from "./commands/DeletePredictorCommand";
 import {
+  type DeleteResourceTreeCommandInput,
+  type DeleteResourceTreeCommandOutput,
   DeleteResourceTreeCommand,
-  DeleteResourceTreeCommandInput,
-  DeleteResourceTreeCommandOutput,
 } from "./commands/DeleteResourceTreeCommand";
 import {
+  type DeleteWhatIfAnalysisCommandInput,
+  type DeleteWhatIfAnalysisCommandOutput,
   DeleteWhatIfAnalysisCommand,
-  DeleteWhatIfAnalysisCommandInput,
-  DeleteWhatIfAnalysisCommandOutput,
 } from "./commands/DeleteWhatIfAnalysisCommand";
 import {
+  type DeleteWhatIfForecastCommandInput,
+  type DeleteWhatIfForecastCommandOutput,
   DeleteWhatIfForecastCommand,
-  DeleteWhatIfForecastCommandInput,
-  DeleteWhatIfForecastCommandOutput,
 } from "./commands/DeleteWhatIfForecastCommand";
 import {
+  type DeleteWhatIfForecastExportCommandInput,
+  type DeleteWhatIfForecastExportCommandOutput,
   DeleteWhatIfForecastExportCommand,
-  DeleteWhatIfForecastExportCommandInput,
-  DeleteWhatIfForecastExportCommandOutput,
 } from "./commands/DeleteWhatIfForecastExportCommand";
 import {
+  type DescribeAutoPredictorCommandInput,
+  type DescribeAutoPredictorCommandOutput,
   DescribeAutoPredictorCommand,
-  DescribeAutoPredictorCommandInput,
-  DescribeAutoPredictorCommandOutput,
 } from "./commands/DescribeAutoPredictorCommand";
 import {
+  type DescribeDatasetCommandInput,
+  type DescribeDatasetCommandOutput,
   DescribeDatasetCommand,
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput,
 } from "./commands/DescribeDatasetCommand";
 import {
+  type DescribeDatasetGroupCommandInput,
+  type DescribeDatasetGroupCommandOutput,
   DescribeDatasetGroupCommand,
-  DescribeDatasetGroupCommandInput,
-  DescribeDatasetGroupCommandOutput,
 } from "./commands/DescribeDatasetGroupCommand";
 import {
+  type DescribeDatasetImportJobCommandInput,
+  type DescribeDatasetImportJobCommandOutput,
   DescribeDatasetImportJobCommand,
-  DescribeDatasetImportJobCommandInput,
-  DescribeDatasetImportJobCommandOutput,
 } from "./commands/DescribeDatasetImportJobCommand";
 import {
+  type DescribeExplainabilityCommandInput,
+  type DescribeExplainabilityCommandOutput,
   DescribeExplainabilityCommand,
-  DescribeExplainabilityCommandInput,
-  DescribeExplainabilityCommandOutput,
 } from "./commands/DescribeExplainabilityCommand";
 import {
+  type DescribeExplainabilityExportCommandInput,
+  type DescribeExplainabilityExportCommandOutput,
   DescribeExplainabilityExportCommand,
-  DescribeExplainabilityExportCommandInput,
-  DescribeExplainabilityExportCommandOutput,
 } from "./commands/DescribeExplainabilityExportCommand";
 import {
+  type DescribeForecastCommandInput,
+  type DescribeForecastCommandOutput,
   DescribeForecastCommand,
-  DescribeForecastCommandInput,
-  DescribeForecastCommandOutput,
 } from "./commands/DescribeForecastCommand";
 import {
+  type DescribeForecastExportJobCommandInput,
+  type DescribeForecastExportJobCommandOutput,
   DescribeForecastExportJobCommand,
-  DescribeForecastExportJobCommandInput,
-  DescribeForecastExportJobCommandOutput,
 } from "./commands/DescribeForecastExportJobCommand";
 import {
+  type DescribeMonitorCommandInput,
+  type DescribeMonitorCommandOutput,
   DescribeMonitorCommand,
-  DescribeMonitorCommandInput,
-  DescribeMonitorCommandOutput,
 } from "./commands/DescribeMonitorCommand";
 import {
+  type DescribePredictorBacktestExportJobCommandInput,
+  type DescribePredictorBacktestExportJobCommandOutput,
   DescribePredictorBacktestExportJobCommand,
-  DescribePredictorBacktestExportJobCommandInput,
-  DescribePredictorBacktestExportJobCommandOutput,
 } from "./commands/DescribePredictorBacktestExportJobCommand";
 import {
+  type DescribePredictorCommandInput,
+  type DescribePredictorCommandOutput,
   DescribePredictorCommand,
-  DescribePredictorCommandInput,
-  DescribePredictorCommandOutput,
 } from "./commands/DescribePredictorCommand";
 import {
+  type DescribeWhatIfAnalysisCommandInput,
+  type DescribeWhatIfAnalysisCommandOutput,
   DescribeWhatIfAnalysisCommand,
-  DescribeWhatIfAnalysisCommandInput,
-  DescribeWhatIfAnalysisCommandOutput,
 } from "./commands/DescribeWhatIfAnalysisCommand";
 import {
+  type DescribeWhatIfForecastCommandInput,
+  type DescribeWhatIfForecastCommandOutput,
   DescribeWhatIfForecastCommand,
-  DescribeWhatIfForecastCommandInput,
-  DescribeWhatIfForecastCommandOutput,
 } from "./commands/DescribeWhatIfForecastCommand";
 import {
+  type DescribeWhatIfForecastExportCommandInput,
+  type DescribeWhatIfForecastExportCommandOutput,
   DescribeWhatIfForecastExportCommand,
-  DescribeWhatIfForecastExportCommandInput,
-  DescribeWhatIfForecastExportCommandOutput,
 } from "./commands/DescribeWhatIfForecastExportCommand";
 import {
+  type GetAccuracyMetricsCommandInput,
+  type GetAccuracyMetricsCommandOutput,
   GetAccuracyMetricsCommand,
-  GetAccuracyMetricsCommandInput,
-  GetAccuracyMetricsCommandOutput,
 } from "./commands/GetAccuracyMetricsCommand";
 import {
+  type ListDatasetGroupsCommandInput,
+  type ListDatasetGroupsCommandOutput,
   ListDatasetGroupsCommand,
-  ListDatasetGroupsCommandInput,
-  ListDatasetGroupsCommandOutput,
 } from "./commands/ListDatasetGroupsCommand";
 import {
+  type ListDatasetImportJobsCommandInput,
+  type ListDatasetImportJobsCommandOutput,
   ListDatasetImportJobsCommand,
-  ListDatasetImportJobsCommandInput,
-  ListDatasetImportJobsCommandOutput,
 } from "./commands/ListDatasetImportJobsCommand";
 import {
+  type ListDatasetsCommandInput,
+  type ListDatasetsCommandOutput,
   ListDatasetsCommand,
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
 import {
+  type ListExplainabilitiesCommandInput,
+  type ListExplainabilitiesCommandOutput,
   ListExplainabilitiesCommand,
-  ListExplainabilitiesCommandInput,
-  ListExplainabilitiesCommandOutput,
 } from "./commands/ListExplainabilitiesCommand";
 import {
+  type ListExplainabilityExportsCommandInput,
+  type ListExplainabilityExportsCommandOutput,
   ListExplainabilityExportsCommand,
-  ListExplainabilityExportsCommandInput,
-  ListExplainabilityExportsCommandOutput,
 } from "./commands/ListExplainabilityExportsCommand";
 import {
+  type ListForecastExportJobsCommandInput,
+  type ListForecastExportJobsCommandOutput,
   ListForecastExportJobsCommand,
-  ListForecastExportJobsCommandInput,
-  ListForecastExportJobsCommandOutput,
 } from "./commands/ListForecastExportJobsCommand";
 import {
+  type ListForecastsCommandInput,
+  type ListForecastsCommandOutput,
   ListForecastsCommand,
-  ListForecastsCommandInput,
-  ListForecastsCommandOutput,
 } from "./commands/ListForecastsCommand";
 import {
+  type ListMonitorEvaluationsCommandInput,
+  type ListMonitorEvaluationsCommandOutput,
   ListMonitorEvaluationsCommand,
-  ListMonitorEvaluationsCommandInput,
-  ListMonitorEvaluationsCommandOutput,
 } from "./commands/ListMonitorEvaluationsCommand";
 import {
+  type ListMonitorsCommandInput,
+  type ListMonitorsCommandOutput,
   ListMonitorsCommand,
-  ListMonitorsCommandInput,
-  ListMonitorsCommandOutput,
 } from "./commands/ListMonitorsCommand";
 import {
+  type ListPredictorBacktestExportJobsCommandInput,
+  type ListPredictorBacktestExportJobsCommandOutput,
   ListPredictorBacktestExportJobsCommand,
-  ListPredictorBacktestExportJobsCommandInput,
-  ListPredictorBacktestExportJobsCommandOutput,
 } from "./commands/ListPredictorBacktestExportJobsCommand";
 import {
+  type ListPredictorsCommandInput,
+  type ListPredictorsCommandOutput,
   ListPredictorsCommand,
-  ListPredictorsCommandInput,
-  ListPredictorsCommandOutput,
 } from "./commands/ListPredictorsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWhatIfAnalysesCommandInput,
+  type ListWhatIfAnalysesCommandOutput,
   ListWhatIfAnalysesCommand,
-  ListWhatIfAnalysesCommandInput,
-  ListWhatIfAnalysesCommandOutput,
 } from "./commands/ListWhatIfAnalysesCommand";
 import {
+  type ListWhatIfForecastExportsCommandInput,
+  type ListWhatIfForecastExportsCommandOutput,
   ListWhatIfForecastExportsCommand,
-  ListWhatIfForecastExportsCommandInput,
-  ListWhatIfForecastExportsCommandOutput,
 } from "./commands/ListWhatIfForecastExportsCommand";
 import {
+  type ListWhatIfForecastsCommandInput,
+  type ListWhatIfForecastsCommandOutput,
   ListWhatIfForecastsCommand,
-  ListWhatIfForecastsCommandInput,
-  ListWhatIfForecastsCommandOutput,
 } from "./commands/ListWhatIfForecastsCommand";
 import {
+  type ResumeResourceCommandInput,
+  type ResumeResourceCommandOutput,
   ResumeResourceCommand,
-  ResumeResourceCommandInput,
-  ResumeResourceCommandOutput,
 } from "./commands/ResumeResourceCommand";
 import {
+  type StopResourceCommandInput,
+  type StopResourceCommandOutput,
   StopResourceCommand,
-  StopResourceCommandInput,
-  StopResourceCommandOutput,
 } from "./commands/StopResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDatasetGroupCommandInput,
+  type UpdateDatasetGroupCommandOutput,
   UpdateDatasetGroupCommand,
-  UpdateDatasetGroupCommandInput,
-  UpdateDatasetGroupCommandOutput,
 } from "./commands/UpdateDatasetGroupCommand";
 import { ForecastClient } from "./ForecastClient";
 import { paginateListDatasetGroups } from "./pagination/ListDatasetGroupsPaginator";

@@ -8,7 +8,7 @@ import {
   ListManagedThingSchemasCommandOutput,
 } from "../commands/ListManagedThingSchemasCommand";
 import { IoTManagedIntegrationsClient } from "../IoTManagedIntegrationsClient";
-import { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
+import type { IoTManagedIntegrationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

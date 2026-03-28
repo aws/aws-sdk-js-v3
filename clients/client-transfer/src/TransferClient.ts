@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,114 +61,144 @@ import {
   defaultTransferHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateAccessCommandInput, CreateAccessCommandOutput } from "./commands/CreateAccessCommand";
-import { CreateAgreementCommandInput, CreateAgreementCommandOutput } from "./commands/CreateAgreementCommand";
-import { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./commands/CreateConnectorCommand";
-import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
-import { CreateServerCommandInput, CreateServerCommandOutput } from "./commands/CreateServerCommand";
-import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import { CreateWebAppCommandInput, CreateWebAppCommandOutput } from "./commands/CreateWebAppCommand";
-import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
-import { DeleteAccessCommandInput, DeleteAccessCommandOutput } from "./commands/DeleteAccessCommand";
-import { DeleteAgreementCommandInput, DeleteAgreementCommandOutput } from "./commands/DeleteAgreementCommand";
-import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
-import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
-import { DeleteHostKeyCommandInput, DeleteHostKeyCommandOutput } from "./commands/DeleteHostKeyCommand";
-import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
-import { DeleteServerCommandInput, DeleteServerCommandOutput } from "./commands/DeleteServerCommand";
-import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "./commands/DeleteSshPublicKeyCommand";
-import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
-import { DeleteWebAppCommandInput, DeleteWebAppCommandOutput } from "./commands/DeleteWebAppCommand";
-import {
+import type { CreateAccessCommandInput, CreateAccessCommandOutput } from "./commands/CreateAccessCommand";
+import type { CreateAgreementCommandInput, CreateAgreementCommandOutput } from "./commands/CreateAgreementCommand";
+import type { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./commands/CreateConnectorCommand";
+import type { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import type { CreateServerCommandInput, CreateServerCommandOutput } from "./commands/CreateServerCommand";
+import type { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import type { CreateWebAppCommandInput, CreateWebAppCommandOutput } from "./commands/CreateWebAppCommand";
+import type { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
+import type { DeleteAccessCommandInput, DeleteAccessCommandOutput } from "./commands/DeleteAccessCommand";
+import type { DeleteAgreementCommandInput, DeleteAgreementCommandOutput } from "./commands/DeleteAgreementCommand";
+import type {
+  DeleteCertificateCommandInput,
+  DeleteCertificateCommandOutput,
+} from "./commands/DeleteCertificateCommand";
+import type { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
+import type { DeleteHostKeyCommandInput, DeleteHostKeyCommandOutput } from "./commands/DeleteHostKeyCommand";
+import type { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
+import type { DeleteServerCommandInput, DeleteServerCommandOutput } from "./commands/DeleteServerCommand";
+import type {
+  DeleteSshPublicKeyCommandInput,
+  DeleteSshPublicKeyCommandOutput,
+} from "./commands/DeleteSshPublicKeyCommand";
+import type { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import type { DeleteWebAppCommandInput, DeleteWebAppCommandOutput } from "./commands/DeleteWebAppCommand";
+import type {
   DeleteWebAppCustomizationCommandInput,
   DeleteWebAppCustomizationCommandOutput,
 } from "./commands/DeleteWebAppCustomizationCommand";
-import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
-import { DescribeAccessCommandInput, DescribeAccessCommandOutput } from "./commands/DescribeAccessCommand";
-import { DescribeAgreementCommandInput, DescribeAgreementCommandOutput } from "./commands/DescribeAgreementCommand";
-import {
+import type { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
+import type { DescribeAccessCommandInput, DescribeAccessCommandOutput } from "./commands/DescribeAccessCommand";
+import type {
+  DescribeAgreementCommandInput,
+  DescribeAgreementCommandOutput,
+} from "./commands/DescribeAgreementCommand";
+import type {
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
-import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "./commands/DescribeConnectorCommand";
-import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "./commands/DescribeExecutionCommand";
-import { DescribeHostKeyCommandInput, DescribeHostKeyCommandOutput } from "./commands/DescribeHostKeyCommand";
-import { DescribeProfileCommandInput, DescribeProfileCommandOutput } from "./commands/DescribeProfileCommand";
-import {
+import type {
+  DescribeConnectorCommandInput,
+  DescribeConnectorCommandOutput,
+} from "./commands/DescribeConnectorCommand";
+import type {
+  DescribeExecutionCommandInput,
+  DescribeExecutionCommandOutput,
+} from "./commands/DescribeExecutionCommand";
+import type { DescribeHostKeyCommandInput, DescribeHostKeyCommandOutput } from "./commands/DescribeHostKeyCommand";
+import type { DescribeProfileCommandInput, DescribeProfileCommandOutput } from "./commands/DescribeProfileCommand";
+import type {
   DescribeSecurityPolicyCommandInput,
   DescribeSecurityPolicyCommandOutput,
 } from "./commands/DescribeSecurityPolicyCommand";
-import { DescribeServerCommandInput, DescribeServerCommandOutput } from "./commands/DescribeServerCommand";
-import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
-import { DescribeWebAppCommandInput, DescribeWebAppCommandOutput } from "./commands/DescribeWebAppCommand";
-import {
+import type { DescribeServerCommandInput, DescribeServerCommandOutput } from "./commands/DescribeServerCommand";
+import type { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
+import type { DescribeWebAppCommandInput, DescribeWebAppCommandOutput } from "./commands/DescribeWebAppCommand";
+import type {
   DescribeWebAppCustomizationCommandInput,
   DescribeWebAppCustomizationCommandOutput,
 } from "./commands/DescribeWebAppCustomizationCommand";
-import { DescribeWorkflowCommandInput, DescribeWorkflowCommandOutput } from "./commands/DescribeWorkflowCommand";
-import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand";
-import { ImportHostKeyCommandInput, ImportHostKeyCommandOutput } from "./commands/ImportHostKeyCommand";
-import { ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput } from "./commands/ImportSshPublicKeyCommand";
-import { ListAccessesCommandInput, ListAccessesCommandOutput } from "./commands/ListAccessesCommand";
-import { ListAgreementsCommandInput, ListAgreementsCommandOutput } from "./commands/ListAgreementsCommand";
-import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
-import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
-import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
-import {
+import type { DescribeWorkflowCommandInput, DescribeWorkflowCommandOutput } from "./commands/DescribeWorkflowCommand";
+import type {
+  ImportCertificateCommandInput,
+  ImportCertificateCommandOutput,
+} from "./commands/ImportCertificateCommand";
+import type { ImportHostKeyCommandInput, ImportHostKeyCommandOutput } from "./commands/ImportHostKeyCommand";
+import type {
+  ImportSshPublicKeyCommandInput,
+  ImportSshPublicKeyCommandOutput,
+} from "./commands/ImportSshPublicKeyCommand";
+import type { ListAccessesCommandInput, ListAccessesCommandOutput } from "./commands/ListAccessesCommand";
+import type { ListAgreementsCommandInput, ListAgreementsCommandOutput } from "./commands/ListAgreementsCommand";
+import type { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
+import type { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
+import type { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
+import type {
   ListFileTransferResultsCommandInput,
   ListFileTransferResultsCommandOutput,
 } from "./commands/ListFileTransferResultsCommand";
-import { ListHostKeysCommandInput, ListHostKeysCommandOutput } from "./commands/ListHostKeysCommand";
-import { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
-import {
+import type { ListHostKeysCommandInput, ListHostKeysCommandOutput } from "./commands/ListHostKeysCommand";
+import type { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
+import type {
   ListSecurityPoliciesCommandInput,
   ListSecurityPoliciesCommandOutput,
 } from "./commands/ListSecurityPoliciesCommand";
-import { ListServersCommandInput, ListServersCommandOutput } from "./commands/ListServersCommand";
-import {
+import type { ListServersCommandInput, ListServersCommandOutput } from "./commands/ListServersCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import { ListWebAppsCommandInput, ListWebAppsCommandOutput } from "./commands/ListWebAppsCommand";
-import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
-import {
+import type { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import type { ListWebAppsCommandInput, ListWebAppsCommandOutput } from "./commands/ListWebAppsCommand";
+import type { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
+import type {
   SendWorkflowStepStateCommandInput,
   SendWorkflowStepStateCommandOutput,
 } from "./commands/SendWorkflowStepStateCommand";
-import {
+import type {
   StartDirectoryListingCommandInput,
   StartDirectoryListingCommandOutput,
 } from "./commands/StartDirectoryListingCommand";
-import { StartFileTransferCommandInput, StartFileTransferCommandOutput } from "./commands/StartFileTransferCommand";
-import { StartRemoteDeleteCommandInput, StartRemoteDeleteCommandOutput } from "./commands/StartRemoteDeleteCommand";
-import { StartRemoteMoveCommandInput, StartRemoteMoveCommandOutput } from "./commands/StartRemoteMoveCommand";
-import { StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
-import { StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
-import {
+import type {
+  StartFileTransferCommandInput,
+  StartFileTransferCommandOutput,
+} from "./commands/StartFileTransferCommand";
+import type {
+  StartRemoteDeleteCommandInput,
+  StartRemoteDeleteCommandOutput,
+} from "./commands/StartRemoteDeleteCommand";
+import type { StartRemoteMoveCommandInput, StartRemoteMoveCommandOutput } from "./commands/StartRemoteMoveCommand";
+import type { StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
+import type { StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
+import type {
   TestIdentityProviderCommandInput,
   TestIdentityProviderCommandOutput,
 } from "./commands/TestIdentityProviderCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAccessCommandInput, UpdateAccessCommandOutput } from "./commands/UpdateAccessCommand";
-import { UpdateAgreementCommandInput, UpdateAgreementCommandOutput } from "./commands/UpdateAgreementCommand";
-import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "./commands/UpdateCertificateCommand";
-import { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
-import { UpdateHostKeyCommandInput, UpdateHostKeyCommandOutput } from "./commands/UpdateHostKeyCommand";
-import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
-import { UpdateServerCommandInput, UpdateServerCommandOutput } from "./commands/UpdateServerCommand";
-import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { UpdateWebAppCommandInput, UpdateWebAppCommandOutput } from "./commands/UpdateWebAppCommand";
-import {
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAccessCommandInput, UpdateAccessCommandOutput } from "./commands/UpdateAccessCommand";
+import type { UpdateAgreementCommandInput, UpdateAgreementCommandOutput } from "./commands/UpdateAgreementCommand";
+import type {
+  UpdateCertificateCommandInput,
+  UpdateCertificateCommandOutput,
+} from "./commands/UpdateCertificateCommand";
+import type { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
+import type { UpdateHostKeyCommandInput, UpdateHostKeyCommandOutput } from "./commands/UpdateHostKeyCommand";
+import type { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
+import type { UpdateServerCommandInput, UpdateServerCommandOutput } from "./commands/UpdateServerCommand";
+import type { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import type { UpdateWebAppCommandInput, UpdateWebAppCommandOutput } from "./commands/UpdateWebAppCommand";
+import type {
   UpdateWebAppCustomizationCommandInput,
   UpdateWebAppCustomizationCommandOutput,
 } from "./commands/UpdateWebAppCustomizationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -444,7 +472,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

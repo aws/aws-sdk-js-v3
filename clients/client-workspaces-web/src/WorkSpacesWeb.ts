@@ -3,363 +3,375 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateBrowserSettingsCommandInput,
+  type AssociateBrowserSettingsCommandOutput,
   AssociateBrowserSettingsCommand,
-  AssociateBrowserSettingsCommandInput,
-  AssociateBrowserSettingsCommandOutput,
 } from "./commands/AssociateBrowserSettingsCommand";
 import {
+  type AssociateDataProtectionSettingsCommandInput,
+  type AssociateDataProtectionSettingsCommandOutput,
   AssociateDataProtectionSettingsCommand,
-  AssociateDataProtectionSettingsCommandInput,
-  AssociateDataProtectionSettingsCommandOutput,
 } from "./commands/AssociateDataProtectionSettingsCommand";
 import {
+  type AssociateIpAccessSettingsCommandInput,
+  type AssociateIpAccessSettingsCommandOutput,
   AssociateIpAccessSettingsCommand,
-  AssociateIpAccessSettingsCommandInput,
-  AssociateIpAccessSettingsCommandOutput,
 } from "./commands/AssociateIpAccessSettingsCommand";
 import {
+  type AssociateNetworkSettingsCommandInput,
+  type AssociateNetworkSettingsCommandOutput,
   AssociateNetworkSettingsCommand,
-  AssociateNetworkSettingsCommandInput,
-  AssociateNetworkSettingsCommandOutput,
 } from "./commands/AssociateNetworkSettingsCommand";
 import {
+  type AssociateSessionLoggerCommandInput,
+  type AssociateSessionLoggerCommandOutput,
   AssociateSessionLoggerCommand,
-  AssociateSessionLoggerCommandInput,
-  AssociateSessionLoggerCommandOutput,
 } from "./commands/AssociateSessionLoggerCommand";
 import {
+  type AssociateTrustStoreCommandInput,
+  type AssociateTrustStoreCommandOutput,
   AssociateTrustStoreCommand,
-  AssociateTrustStoreCommandInput,
-  AssociateTrustStoreCommandOutput,
 } from "./commands/AssociateTrustStoreCommand";
 import {
+  type AssociateUserAccessLoggingSettingsCommandInput,
+  type AssociateUserAccessLoggingSettingsCommandOutput,
   AssociateUserAccessLoggingSettingsCommand,
-  AssociateUserAccessLoggingSettingsCommandInput,
-  AssociateUserAccessLoggingSettingsCommandOutput,
 } from "./commands/AssociateUserAccessLoggingSettingsCommand";
 import {
+  type AssociateUserSettingsCommandInput,
+  type AssociateUserSettingsCommandOutput,
   AssociateUserSettingsCommand,
-  AssociateUserSettingsCommandInput,
-  AssociateUserSettingsCommandOutput,
 } from "./commands/AssociateUserSettingsCommand";
 import {
+  type CreateBrowserSettingsCommandInput,
+  type CreateBrowserSettingsCommandOutput,
   CreateBrowserSettingsCommand,
-  CreateBrowserSettingsCommandInput,
-  CreateBrowserSettingsCommandOutput,
 } from "./commands/CreateBrowserSettingsCommand";
 import {
+  type CreateDataProtectionSettingsCommandInput,
+  type CreateDataProtectionSettingsCommandOutput,
   CreateDataProtectionSettingsCommand,
-  CreateDataProtectionSettingsCommandInput,
-  CreateDataProtectionSettingsCommandOutput,
 } from "./commands/CreateDataProtectionSettingsCommand";
 import {
+  type CreateIdentityProviderCommandInput,
+  type CreateIdentityProviderCommandOutput,
   CreateIdentityProviderCommand,
-  CreateIdentityProviderCommandInput,
-  CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand";
 import {
+  type CreateIpAccessSettingsCommandInput,
+  type CreateIpAccessSettingsCommandOutput,
   CreateIpAccessSettingsCommand,
-  CreateIpAccessSettingsCommandInput,
-  CreateIpAccessSettingsCommandOutput,
 } from "./commands/CreateIpAccessSettingsCommand";
 import {
+  type CreateNetworkSettingsCommandInput,
+  type CreateNetworkSettingsCommandOutput,
   CreateNetworkSettingsCommand,
-  CreateNetworkSettingsCommandInput,
-  CreateNetworkSettingsCommandOutput,
 } from "./commands/CreateNetworkSettingsCommand";
 import {
+  type CreatePortalCommandInput,
+  type CreatePortalCommandOutput,
   CreatePortalCommand,
-  CreatePortalCommandInput,
-  CreatePortalCommandOutput,
 } from "./commands/CreatePortalCommand";
 import {
+  type CreateSessionLoggerCommandInput,
+  type CreateSessionLoggerCommandOutput,
   CreateSessionLoggerCommand,
-  CreateSessionLoggerCommandInput,
-  CreateSessionLoggerCommandOutput,
 } from "./commands/CreateSessionLoggerCommand";
 import {
+  type CreateTrustStoreCommandInput,
+  type CreateTrustStoreCommandOutput,
   CreateTrustStoreCommand,
-  CreateTrustStoreCommandInput,
-  CreateTrustStoreCommandOutput,
 } from "./commands/CreateTrustStoreCommand";
 import {
+  type CreateUserAccessLoggingSettingsCommandInput,
+  type CreateUserAccessLoggingSettingsCommandOutput,
   CreateUserAccessLoggingSettingsCommand,
-  CreateUserAccessLoggingSettingsCommandInput,
-  CreateUserAccessLoggingSettingsCommandOutput,
 } from "./commands/CreateUserAccessLoggingSettingsCommand";
 import {
+  type CreateUserSettingsCommandInput,
+  type CreateUserSettingsCommandOutput,
   CreateUserSettingsCommand,
-  CreateUserSettingsCommandInput,
-  CreateUserSettingsCommandOutput,
 } from "./commands/CreateUserSettingsCommand";
 import {
+  type DeleteBrowserSettingsCommandInput,
+  type DeleteBrowserSettingsCommandOutput,
   DeleteBrowserSettingsCommand,
-  DeleteBrowserSettingsCommandInput,
-  DeleteBrowserSettingsCommandOutput,
 } from "./commands/DeleteBrowserSettingsCommand";
 import {
+  type DeleteDataProtectionSettingsCommandInput,
+  type DeleteDataProtectionSettingsCommandOutput,
   DeleteDataProtectionSettingsCommand,
-  DeleteDataProtectionSettingsCommandInput,
-  DeleteDataProtectionSettingsCommandOutput,
 } from "./commands/DeleteDataProtectionSettingsCommand";
 import {
+  type DeleteIdentityProviderCommandInput,
+  type DeleteIdentityProviderCommandOutput,
   DeleteIdentityProviderCommand,
-  DeleteIdentityProviderCommandInput,
-  DeleteIdentityProviderCommandOutput,
 } from "./commands/DeleteIdentityProviderCommand";
 import {
+  type DeleteIpAccessSettingsCommandInput,
+  type DeleteIpAccessSettingsCommandOutput,
   DeleteIpAccessSettingsCommand,
-  DeleteIpAccessSettingsCommandInput,
-  DeleteIpAccessSettingsCommandOutput,
 } from "./commands/DeleteIpAccessSettingsCommand";
 import {
+  type DeleteNetworkSettingsCommandInput,
+  type DeleteNetworkSettingsCommandOutput,
   DeleteNetworkSettingsCommand,
-  DeleteNetworkSettingsCommandInput,
-  DeleteNetworkSettingsCommandOutput,
 } from "./commands/DeleteNetworkSettingsCommand";
 import {
+  type DeletePortalCommandInput,
+  type DeletePortalCommandOutput,
   DeletePortalCommand,
-  DeletePortalCommandInput,
-  DeletePortalCommandOutput,
 } from "./commands/DeletePortalCommand";
 import {
+  type DeleteSessionLoggerCommandInput,
+  type DeleteSessionLoggerCommandOutput,
   DeleteSessionLoggerCommand,
-  DeleteSessionLoggerCommandInput,
-  DeleteSessionLoggerCommandOutput,
 } from "./commands/DeleteSessionLoggerCommand";
 import {
+  type DeleteTrustStoreCommandInput,
+  type DeleteTrustStoreCommandOutput,
   DeleteTrustStoreCommand,
-  DeleteTrustStoreCommandInput,
-  DeleteTrustStoreCommandOutput,
 } from "./commands/DeleteTrustStoreCommand";
 import {
+  type DeleteUserAccessLoggingSettingsCommandInput,
+  type DeleteUserAccessLoggingSettingsCommandOutput,
   DeleteUserAccessLoggingSettingsCommand,
-  DeleteUserAccessLoggingSettingsCommandInput,
-  DeleteUserAccessLoggingSettingsCommandOutput,
 } from "./commands/DeleteUserAccessLoggingSettingsCommand";
 import {
+  type DeleteUserSettingsCommandInput,
+  type DeleteUserSettingsCommandOutput,
   DeleteUserSettingsCommand,
-  DeleteUserSettingsCommandInput,
-  DeleteUserSettingsCommandOutput,
 } from "./commands/DeleteUserSettingsCommand";
 import {
+  type DisassociateBrowserSettingsCommandInput,
+  type DisassociateBrowserSettingsCommandOutput,
   DisassociateBrowserSettingsCommand,
-  DisassociateBrowserSettingsCommandInput,
-  DisassociateBrowserSettingsCommandOutput,
 } from "./commands/DisassociateBrowserSettingsCommand";
 import {
+  type DisassociateDataProtectionSettingsCommandInput,
+  type DisassociateDataProtectionSettingsCommandOutput,
   DisassociateDataProtectionSettingsCommand,
-  DisassociateDataProtectionSettingsCommandInput,
-  DisassociateDataProtectionSettingsCommandOutput,
 } from "./commands/DisassociateDataProtectionSettingsCommand";
 import {
+  type DisassociateIpAccessSettingsCommandInput,
+  type DisassociateIpAccessSettingsCommandOutput,
   DisassociateIpAccessSettingsCommand,
-  DisassociateIpAccessSettingsCommandInput,
-  DisassociateIpAccessSettingsCommandOutput,
 } from "./commands/DisassociateIpAccessSettingsCommand";
 import {
+  type DisassociateNetworkSettingsCommandInput,
+  type DisassociateNetworkSettingsCommandOutput,
   DisassociateNetworkSettingsCommand,
-  DisassociateNetworkSettingsCommandInput,
-  DisassociateNetworkSettingsCommandOutput,
 } from "./commands/DisassociateNetworkSettingsCommand";
 import {
+  type DisassociateSessionLoggerCommandInput,
+  type DisassociateSessionLoggerCommandOutput,
   DisassociateSessionLoggerCommand,
-  DisassociateSessionLoggerCommandInput,
-  DisassociateSessionLoggerCommandOutput,
 } from "./commands/DisassociateSessionLoggerCommand";
 import {
+  type DisassociateTrustStoreCommandInput,
+  type DisassociateTrustStoreCommandOutput,
   DisassociateTrustStoreCommand,
-  DisassociateTrustStoreCommandInput,
-  DisassociateTrustStoreCommandOutput,
 } from "./commands/DisassociateTrustStoreCommand";
 import {
+  type DisassociateUserAccessLoggingSettingsCommandInput,
+  type DisassociateUserAccessLoggingSettingsCommandOutput,
   DisassociateUserAccessLoggingSettingsCommand,
-  DisassociateUserAccessLoggingSettingsCommandInput,
-  DisassociateUserAccessLoggingSettingsCommandOutput,
 } from "./commands/DisassociateUserAccessLoggingSettingsCommand";
 import {
+  type DisassociateUserSettingsCommandInput,
+  type DisassociateUserSettingsCommandOutput,
   DisassociateUserSettingsCommand,
-  DisassociateUserSettingsCommandInput,
-  DisassociateUserSettingsCommandOutput,
 } from "./commands/DisassociateUserSettingsCommand";
 import {
+  type ExpireSessionCommandInput,
+  type ExpireSessionCommandOutput,
   ExpireSessionCommand,
-  ExpireSessionCommandInput,
-  ExpireSessionCommandOutput,
 } from "./commands/ExpireSessionCommand";
 import {
+  type GetBrowserSettingsCommandInput,
+  type GetBrowserSettingsCommandOutput,
   GetBrowserSettingsCommand,
-  GetBrowserSettingsCommandInput,
-  GetBrowserSettingsCommandOutput,
 } from "./commands/GetBrowserSettingsCommand";
 import {
+  type GetDataProtectionSettingsCommandInput,
+  type GetDataProtectionSettingsCommandOutput,
   GetDataProtectionSettingsCommand,
-  GetDataProtectionSettingsCommandInput,
-  GetDataProtectionSettingsCommandOutput,
 } from "./commands/GetDataProtectionSettingsCommand";
 import {
+  type GetIdentityProviderCommandInput,
+  type GetIdentityProviderCommandOutput,
   GetIdentityProviderCommand,
-  GetIdentityProviderCommandInput,
-  GetIdentityProviderCommandOutput,
 } from "./commands/GetIdentityProviderCommand";
 import {
+  type GetIpAccessSettingsCommandInput,
+  type GetIpAccessSettingsCommandOutput,
   GetIpAccessSettingsCommand,
-  GetIpAccessSettingsCommandInput,
-  GetIpAccessSettingsCommandOutput,
 } from "./commands/GetIpAccessSettingsCommand";
 import {
+  type GetNetworkSettingsCommandInput,
+  type GetNetworkSettingsCommandOutput,
   GetNetworkSettingsCommand,
-  GetNetworkSettingsCommandInput,
-  GetNetworkSettingsCommandOutput,
 } from "./commands/GetNetworkSettingsCommand";
-import { GetPortalCommand, GetPortalCommandInput, GetPortalCommandOutput } from "./commands/GetPortalCommand";
+import { type GetPortalCommandInput, type GetPortalCommandOutput, GetPortalCommand } from "./commands/GetPortalCommand";
 import {
+  type GetPortalServiceProviderMetadataCommandInput,
+  type GetPortalServiceProviderMetadataCommandOutput,
   GetPortalServiceProviderMetadataCommand,
-  GetPortalServiceProviderMetadataCommandInput,
-  GetPortalServiceProviderMetadataCommandOutput,
 } from "./commands/GetPortalServiceProviderMetadataCommand";
-import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import {
+  type GetSessionCommandInput,
+  type GetSessionCommandOutput,
+  GetSessionCommand,
+} from "./commands/GetSessionCommand";
+import {
+  type GetSessionLoggerCommandInput,
+  type GetSessionLoggerCommandOutput,
   GetSessionLoggerCommand,
-  GetSessionLoggerCommandInput,
-  GetSessionLoggerCommandOutput,
 } from "./commands/GetSessionLoggerCommand";
 import {
+  type GetTrustStoreCertificateCommandInput,
+  type GetTrustStoreCertificateCommandOutput,
   GetTrustStoreCertificateCommand,
-  GetTrustStoreCertificateCommandInput,
-  GetTrustStoreCertificateCommandOutput,
 } from "./commands/GetTrustStoreCertificateCommand";
 import {
+  type GetTrustStoreCommandInput,
+  type GetTrustStoreCommandOutput,
   GetTrustStoreCommand,
-  GetTrustStoreCommandInput,
-  GetTrustStoreCommandOutput,
 } from "./commands/GetTrustStoreCommand";
 import {
+  type GetUserAccessLoggingSettingsCommandInput,
+  type GetUserAccessLoggingSettingsCommandOutput,
   GetUserAccessLoggingSettingsCommand,
-  GetUserAccessLoggingSettingsCommandInput,
-  GetUserAccessLoggingSettingsCommandOutput,
 } from "./commands/GetUserAccessLoggingSettingsCommand";
 import {
+  type GetUserSettingsCommandInput,
+  type GetUserSettingsCommandOutput,
   GetUserSettingsCommand,
-  GetUserSettingsCommandInput,
-  GetUserSettingsCommandOutput,
 } from "./commands/GetUserSettingsCommand";
 import {
+  type ListBrowserSettingsCommandInput,
+  type ListBrowserSettingsCommandOutput,
   ListBrowserSettingsCommand,
-  ListBrowserSettingsCommandInput,
-  ListBrowserSettingsCommandOutput,
 } from "./commands/ListBrowserSettingsCommand";
 import {
+  type ListDataProtectionSettingsCommandInput,
+  type ListDataProtectionSettingsCommandOutput,
   ListDataProtectionSettingsCommand,
-  ListDataProtectionSettingsCommandInput,
-  ListDataProtectionSettingsCommandOutput,
 } from "./commands/ListDataProtectionSettingsCommand";
 import {
+  type ListIdentityProvidersCommandInput,
+  type ListIdentityProvidersCommandOutput,
   ListIdentityProvidersCommand,
-  ListIdentityProvidersCommandInput,
-  ListIdentityProvidersCommandOutput,
 } from "./commands/ListIdentityProvidersCommand";
 import {
+  type ListIpAccessSettingsCommandInput,
+  type ListIpAccessSettingsCommandOutput,
   ListIpAccessSettingsCommand,
-  ListIpAccessSettingsCommandInput,
-  ListIpAccessSettingsCommandOutput,
 } from "./commands/ListIpAccessSettingsCommand";
 import {
+  type ListNetworkSettingsCommandInput,
+  type ListNetworkSettingsCommandOutput,
   ListNetworkSettingsCommand,
-  ListNetworkSettingsCommandInput,
-  ListNetworkSettingsCommandOutput,
 } from "./commands/ListNetworkSettingsCommand";
-import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
 import {
+  type ListPortalsCommandInput,
+  type ListPortalsCommandOutput,
+  ListPortalsCommand,
+} from "./commands/ListPortalsCommand";
+import {
+  type ListSessionLoggersCommandInput,
+  type ListSessionLoggersCommandOutput,
   ListSessionLoggersCommand,
-  ListSessionLoggersCommandInput,
-  ListSessionLoggersCommandOutput,
 } from "./commands/ListSessionLoggersCommand";
 import {
+  type ListSessionsCommandInput,
+  type ListSessionsCommandOutput,
   ListSessionsCommand,
-  ListSessionsCommandInput,
-  ListSessionsCommandOutput,
 } from "./commands/ListSessionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTrustStoreCertificatesCommandInput,
+  type ListTrustStoreCertificatesCommandOutput,
   ListTrustStoreCertificatesCommand,
-  ListTrustStoreCertificatesCommandInput,
-  ListTrustStoreCertificatesCommandOutput,
 } from "./commands/ListTrustStoreCertificatesCommand";
 import {
+  type ListTrustStoresCommandInput,
+  type ListTrustStoresCommandOutput,
   ListTrustStoresCommand,
-  ListTrustStoresCommandInput,
-  ListTrustStoresCommandOutput,
 } from "./commands/ListTrustStoresCommand";
 import {
+  type ListUserAccessLoggingSettingsCommandInput,
+  type ListUserAccessLoggingSettingsCommandOutput,
   ListUserAccessLoggingSettingsCommand,
-  ListUserAccessLoggingSettingsCommandInput,
-  ListUserAccessLoggingSettingsCommandOutput,
 } from "./commands/ListUserAccessLoggingSettingsCommand";
 import {
+  type ListUserSettingsCommandInput,
+  type ListUserSettingsCommandOutput,
   ListUserSettingsCommand,
-  ListUserSettingsCommandInput,
-  ListUserSettingsCommandOutput,
 } from "./commands/ListUserSettingsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBrowserSettingsCommandInput,
+  type UpdateBrowserSettingsCommandOutput,
   UpdateBrowserSettingsCommand,
-  UpdateBrowserSettingsCommandInput,
-  UpdateBrowserSettingsCommandOutput,
 } from "./commands/UpdateBrowserSettingsCommand";
 import {
+  type UpdateDataProtectionSettingsCommandInput,
+  type UpdateDataProtectionSettingsCommandOutput,
   UpdateDataProtectionSettingsCommand,
-  UpdateDataProtectionSettingsCommandInput,
-  UpdateDataProtectionSettingsCommandOutput,
 } from "./commands/UpdateDataProtectionSettingsCommand";
 import {
+  type UpdateIdentityProviderCommandInput,
+  type UpdateIdentityProviderCommandOutput,
   UpdateIdentityProviderCommand,
-  UpdateIdentityProviderCommandInput,
-  UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand";
 import {
+  type UpdateIpAccessSettingsCommandInput,
+  type UpdateIpAccessSettingsCommandOutput,
   UpdateIpAccessSettingsCommand,
-  UpdateIpAccessSettingsCommandInput,
-  UpdateIpAccessSettingsCommandOutput,
 } from "./commands/UpdateIpAccessSettingsCommand";
 import {
+  type UpdateNetworkSettingsCommandInput,
+  type UpdateNetworkSettingsCommandOutput,
   UpdateNetworkSettingsCommand,
-  UpdateNetworkSettingsCommandInput,
-  UpdateNetworkSettingsCommandOutput,
 } from "./commands/UpdateNetworkSettingsCommand";
 import {
+  type UpdatePortalCommandInput,
+  type UpdatePortalCommandOutput,
   UpdatePortalCommand,
-  UpdatePortalCommandInput,
-  UpdatePortalCommandOutput,
 } from "./commands/UpdatePortalCommand";
 import {
+  type UpdateSessionLoggerCommandInput,
+  type UpdateSessionLoggerCommandOutput,
   UpdateSessionLoggerCommand,
-  UpdateSessionLoggerCommandInput,
-  UpdateSessionLoggerCommandOutput,
 } from "./commands/UpdateSessionLoggerCommand";
 import {
+  type UpdateTrustStoreCommandInput,
+  type UpdateTrustStoreCommandOutput,
   UpdateTrustStoreCommand,
-  UpdateTrustStoreCommandInput,
-  UpdateTrustStoreCommandOutput,
 } from "./commands/UpdateTrustStoreCommand";
 import {
+  type UpdateUserAccessLoggingSettingsCommandInput,
+  type UpdateUserAccessLoggingSettingsCommandOutput,
   UpdateUserAccessLoggingSettingsCommand,
-  UpdateUserAccessLoggingSettingsCommandInput,
-  UpdateUserAccessLoggingSettingsCommandOutput,
 } from "./commands/UpdateUserAccessLoggingSettingsCommand";
 import {
+  type UpdateUserSettingsCommandInput,
+  type UpdateUserSettingsCommandOutput,
   UpdateUserSettingsCommand,
-  UpdateUserSettingsCommandInput,
-  UpdateUserSettingsCommandOutput,
 } from "./commands/UpdateUserSettingsCommand";
 import { paginateListBrowserSettings } from "./pagination/ListBrowserSettingsPaginator";
 import { paginateListDataProtectionSettings } from "./pagination/ListDataProtectionSettingsPaginator";

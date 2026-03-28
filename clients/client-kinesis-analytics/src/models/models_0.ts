@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ApplicationStatus, InputStartingPosition, RecordFormatType } from "./enums";
+import type { ApplicationStatus, InputStartingPosition, RecordFormatType } from "./enums";
 
 /**
  * <p>Provides a description of CloudWatch logging options, including the log stream

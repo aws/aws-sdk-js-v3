@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListPartsCommand, ListPartsCommandInput, ListPartsCommandOutput } from "../commands/ListPartsCommand";
 import { S3Client } from "../S3Client";
-import { S3PaginationConfiguration } from "./Interfaces";
+import type { S3PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

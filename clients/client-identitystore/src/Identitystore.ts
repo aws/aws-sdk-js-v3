@@ -2,61 +2,93 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
+  type CreateGroupCommandInput,
+  type CreateGroupCommandOutput,
+  CreateGroupCommand,
+} from "./commands/CreateGroupCommand";
+import {
+  type CreateGroupMembershipCommandInput,
+  type CreateGroupMembershipCommandOutput,
   CreateGroupMembershipCommand,
-  CreateGroupMembershipCommandInput,
-  CreateGroupMembershipCommandOutput,
 } from "./commands/CreateGroupMembershipCommand";
-import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
+  type CreateUserCommandInput,
+  type CreateUserCommandOutput,
+  CreateUserCommand,
+} from "./commands/CreateUserCommand";
+import {
+  type DeleteGroupCommandInput,
+  type DeleteGroupCommandOutput,
+  DeleteGroupCommand,
+} from "./commands/DeleteGroupCommand";
+import {
+  type DeleteGroupMembershipCommandInput,
+  type DeleteGroupMembershipCommandOutput,
   DeleteGroupMembershipCommand,
-  DeleteGroupMembershipCommandInput,
-  DeleteGroupMembershipCommandOutput,
 } from "./commands/DeleteGroupMembershipCommand";
-import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  type DeleteUserCommandInput,
+  type DeleteUserCommandOutput,
+  DeleteUserCommand,
+} from "./commands/DeleteUserCommand";
+import {
+  type DescribeGroupCommandInput,
+  type DescribeGroupCommandOutput,
   DescribeGroupCommand,
-  DescribeGroupCommandInput,
-  DescribeGroupCommandOutput,
 } from "./commands/DescribeGroupCommand";
 import {
+  type DescribeGroupMembershipCommandInput,
+  type DescribeGroupMembershipCommandOutput,
   DescribeGroupMembershipCommand,
-  DescribeGroupMembershipCommandInput,
-  DescribeGroupMembershipCommandOutput,
 } from "./commands/DescribeGroupMembershipCommand";
 import {
+  type DescribeUserCommandInput,
+  type DescribeUserCommandOutput,
   DescribeUserCommand,
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput,
 } from "./commands/DescribeUserCommand";
-import { GetGroupIdCommand, GetGroupIdCommandInput, GetGroupIdCommandOutput } from "./commands/GetGroupIdCommand";
 import {
+  type GetGroupIdCommandInput,
+  type GetGroupIdCommandOutput,
+  GetGroupIdCommand,
+} from "./commands/GetGroupIdCommand";
+import {
+  type GetGroupMembershipIdCommandInput,
+  type GetGroupMembershipIdCommandOutput,
   GetGroupMembershipIdCommand,
-  GetGroupMembershipIdCommandInput,
-  GetGroupMembershipIdCommandOutput,
 } from "./commands/GetGroupMembershipIdCommand";
-import { GetUserIdCommand, GetUserIdCommandInput, GetUserIdCommandOutput } from "./commands/GetUserIdCommand";
+import { type GetUserIdCommandInput, type GetUserIdCommandOutput, GetUserIdCommand } from "./commands/GetUserIdCommand";
 import {
+  type IsMemberInGroupsCommandInput,
+  type IsMemberInGroupsCommandOutput,
   IsMemberInGroupsCommand,
-  IsMemberInGroupsCommandInput,
-  IsMemberInGroupsCommandOutput,
 } from "./commands/IsMemberInGroupsCommand";
 import {
+  type ListGroupMembershipsCommandInput,
+  type ListGroupMembershipsCommandOutput,
   ListGroupMembershipsCommand,
-  ListGroupMembershipsCommandInput,
-  ListGroupMembershipsCommandOutput,
 } from "./commands/ListGroupMembershipsCommand";
 import {
+  type ListGroupMembershipsForMemberCommandInput,
+  type ListGroupMembershipsForMemberCommandOutput,
   ListGroupMembershipsForMemberCommand,
-  ListGroupMembershipsForMemberCommandInput,
-  ListGroupMembershipsForMemberCommandOutput,
 } from "./commands/ListGroupMembershipsForMemberCommand";
-import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
-import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
-import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import {
+  type ListGroupsCommandInput,
+  type ListGroupsCommandOutput,
+  ListGroupsCommand,
+} from "./commands/ListGroupsCommand";
+import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
+import {
+  type UpdateGroupCommandInput,
+  type UpdateGroupCommandOutput,
+  UpdateGroupCommand,
+} from "./commands/UpdateGroupCommand";
+import {
+  type UpdateUserCommandInput,
+  type UpdateUserCommandOutput,
+  UpdateUserCommand,
+} from "./commands/UpdateUserCommand";
 import { IdentitystoreClient } from "./IdentitystoreClient";
 import { paginateListGroupMembershipsForMember } from "./pagination/ListGroupMembershipsForMemberPaginator";
 import { paginateListGroupMemberships } from "./pagination/ListGroupMembershipsPaginator";

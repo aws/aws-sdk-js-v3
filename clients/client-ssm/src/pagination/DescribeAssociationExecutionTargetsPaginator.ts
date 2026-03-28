@@ -8,7 +8,7 @@ import {
   DescribeAssociationExecutionTargetsCommandOutput,
 } from "../commands/DescribeAssociationExecutionTargetsCommand";
 import { SSMClient } from "../SSMClient";
-import { SSMPaginationConfiguration } from "./Interfaces";
+import type { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

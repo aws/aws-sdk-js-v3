@@ -8,7 +8,7 @@ import {
   SearchTablesByLFTagsCommandOutput,
 } from "../commands/SearchTablesByLFTagsCommand";
 import { LakeFormationClient } from "../LakeFormationClient";
-import { LakeFormationPaginationConfiguration } from "./Interfaces";
+import type { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListRestoreTestingSelectionsCommandInput,
   ListRestoreTestingSelectionsCommandOutput,
 } from "../commands/ListRestoreTestingSelectionsCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

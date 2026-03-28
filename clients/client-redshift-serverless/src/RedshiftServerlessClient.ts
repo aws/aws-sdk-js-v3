@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,165 +61,186 @@ import {
   defaultRedshiftServerlessHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   ConvertRecoveryPointToSnapshotCommandInput,
   ConvertRecoveryPointToSnapshotCommandOutput,
 } from "./commands/ConvertRecoveryPointToSnapshotCommand";
-import {
+import type {
   CreateCustomDomainAssociationCommandInput,
   CreateCustomDomainAssociationCommandOutput,
 } from "./commands/CreateCustomDomainAssociationCommand";
-import {
+import type {
   CreateEndpointAccessCommandInput,
   CreateEndpointAccessCommandOutput,
 } from "./commands/CreateEndpointAccessCommand";
-import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
-import { CreateReservationCommandInput, CreateReservationCommandOutput } from "./commands/CreateReservationCommand";
-import {
+import type { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
+import type {
+  CreateReservationCommandInput,
+  CreateReservationCommandOutput,
+} from "./commands/CreateReservationCommand";
+import type {
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
 } from "./commands/CreateScheduledActionCommand";
-import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
-import {
+import type { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import type {
   CreateSnapshotCopyConfigurationCommandInput,
   CreateSnapshotCopyConfigurationCommandOutput,
 } from "./commands/CreateSnapshotCopyConfigurationCommand";
-import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "./commands/CreateUsageLimitCommand";
-import { CreateWorkgroupCommandInput, CreateWorkgroupCommandOutput } from "./commands/CreateWorkgroupCommand";
-import {
+import type { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "./commands/CreateUsageLimitCommand";
+import type { CreateWorkgroupCommandInput, CreateWorkgroupCommandOutput } from "./commands/CreateWorkgroupCommand";
+import type {
   DeleteCustomDomainAssociationCommandInput,
   DeleteCustomDomainAssociationCommandOutput,
 } from "./commands/DeleteCustomDomainAssociationCommand";
-import {
+import type {
   DeleteEndpointAccessCommandInput,
   DeleteEndpointAccessCommandOutput,
 } from "./commands/DeleteEndpointAccessCommand";
-import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
-import {
+import type { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand";
-import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
-import {
+import type { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
+import type {
   DeleteSnapshotCopyConfigurationCommandInput,
   DeleteSnapshotCopyConfigurationCommandOutput,
 } from "./commands/DeleteSnapshotCopyConfigurationCommand";
-import { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "./commands/DeleteUsageLimitCommand";
-import { DeleteWorkgroupCommandInput, DeleteWorkgroupCommandOutput } from "./commands/DeleteWorkgroupCommand";
-import { GetCredentialsCommandInput, GetCredentialsCommandOutput } from "./commands/GetCredentialsCommand";
-import {
+import type { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "./commands/DeleteUsageLimitCommand";
+import type { DeleteWorkgroupCommandInput, DeleteWorkgroupCommandOutput } from "./commands/DeleteWorkgroupCommand";
+import type { GetCredentialsCommandInput, GetCredentialsCommandOutput } from "./commands/GetCredentialsCommand";
+import type {
   GetCustomDomainAssociationCommandInput,
   GetCustomDomainAssociationCommandOutput,
 } from "./commands/GetCustomDomainAssociationCommand";
-import { GetEndpointAccessCommandInput, GetEndpointAccessCommandOutput } from "./commands/GetEndpointAccessCommand";
-import {
+import type {
+  GetEndpointAccessCommandInput,
+  GetEndpointAccessCommandOutput,
+} from "./commands/GetEndpointAccessCommand";
+import type {
   GetIdentityCenterAuthTokenCommandInput,
   GetIdentityCenterAuthTokenCommandOutput,
 } from "./commands/GetIdentityCenterAuthTokenCommand";
-import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
-import { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "./commands/GetRecoveryPointCommand";
-import { GetReservationCommandInput, GetReservationCommandOutput } from "./commands/GetReservationCommand";
-import {
+import type { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
+import type { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "./commands/GetRecoveryPointCommand";
+import type { GetReservationCommandInput, GetReservationCommandOutput } from "./commands/GetReservationCommand";
+import type {
   GetReservationOfferingCommandInput,
   GetReservationOfferingCommandOutput,
 } from "./commands/GetReservationOfferingCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import { GetScheduledActionCommandInput, GetScheduledActionCommandOutput } from "./commands/GetScheduledActionCommand";
-import { GetSnapshotCommandInput, GetSnapshotCommandOutput } from "./commands/GetSnapshotCommand";
-import {
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type {
+  GetScheduledActionCommandInput,
+  GetScheduledActionCommandOutput,
+} from "./commands/GetScheduledActionCommand";
+import type { GetSnapshotCommandInput, GetSnapshotCommandOutput } from "./commands/GetSnapshotCommand";
+import type {
   GetTableRestoreStatusCommandInput,
   GetTableRestoreStatusCommandOutput,
 } from "./commands/GetTableRestoreStatusCommand";
-import { GetTrackCommandInput, GetTrackCommandOutput } from "./commands/GetTrackCommand";
-import { GetUsageLimitCommandInput, GetUsageLimitCommandOutput } from "./commands/GetUsageLimitCommand";
-import { GetWorkgroupCommandInput, GetWorkgroupCommandOutput } from "./commands/GetWorkgroupCommand";
-import {
+import type { GetTrackCommandInput, GetTrackCommandOutput } from "./commands/GetTrackCommand";
+import type { GetUsageLimitCommandInput, GetUsageLimitCommandOutput } from "./commands/GetUsageLimitCommand";
+import type { GetWorkgroupCommandInput, GetWorkgroupCommandOutput } from "./commands/GetWorkgroupCommand";
+import type {
   ListCustomDomainAssociationsCommandInput,
   ListCustomDomainAssociationsCommandOutput,
 } from "./commands/ListCustomDomainAssociationsCommand";
-import { ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput } from "./commands/ListEndpointAccessCommand";
-import {
+import type {
+  ListEndpointAccessCommandInput,
+  ListEndpointAccessCommandOutput,
+} from "./commands/ListEndpointAccessCommand";
+import type {
   ListManagedWorkgroupsCommandInput,
   ListManagedWorkgroupsCommandOutput,
 } from "./commands/ListManagedWorkgroupsCommand";
-import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
-import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "./commands/ListRecoveryPointsCommand";
-import {
+import type { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
+import type {
+  ListRecoveryPointsCommandInput,
+  ListRecoveryPointsCommandOutput,
+} from "./commands/ListRecoveryPointsCommand";
+import type {
   ListReservationOfferingsCommandInput,
   ListReservationOfferingsCommandOutput,
 } from "./commands/ListReservationOfferingsCommand";
-import { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
-import {
+import type { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
+import type {
   ListScheduledActionsCommandInput,
   ListScheduledActionsCommandOutput,
 } from "./commands/ListScheduledActionsCommand";
-import {
+import type {
   ListSnapshotCopyConfigurationsCommandInput,
   ListSnapshotCopyConfigurationsCommandOutput,
 } from "./commands/ListSnapshotCopyConfigurationsCommand";
-import { ListSnapshotsCommandInput, ListSnapshotsCommandOutput } from "./commands/ListSnapshotsCommand";
-import {
+import type { ListSnapshotsCommandInput, ListSnapshotsCommandOutput } from "./commands/ListSnapshotsCommand";
+import type {
   ListTableRestoreStatusCommandInput,
   ListTableRestoreStatusCommandOutput,
 } from "./commands/ListTableRestoreStatusCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTracksCommandInput, ListTracksCommandOutput } from "./commands/ListTracksCommand";
-import { ListUsageLimitsCommandInput, ListUsageLimitsCommandOutput } from "./commands/ListUsageLimitsCommand";
-import { ListWorkgroupsCommandInput, ListWorkgroupsCommandOutput } from "./commands/ListWorkgroupsCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type { ListTracksCommandInput, ListTracksCommandOutput } from "./commands/ListTracksCommand";
+import type { ListUsageLimitsCommandInput, ListUsageLimitsCommandOutput } from "./commands/ListUsageLimitsCommand";
+import type { ListWorkgroupsCommandInput, ListWorkgroupsCommandOutput } from "./commands/ListWorkgroupsCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   RestoreFromRecoveryPointCommandInput,
   RestoreFromRecoveryPointCommandOutput,
 } from "./commands/RestoreFromRecoveryPointCommand";
-import {
+import type {
   RestoreFromSnapshotCommandInput,
   RestoreFromSnapshotCommandOutput,
 } from "./commands/RestoreFromSnapshotCommand";
-import {
+import type {
   RestoreTableFromRecoveryPointCommandInput,
   RestoreTableFromRecoveryPointCommandOutput,
 } from "./commands/RestoreTableFromRecoveryPointCommand";
-import {
+import type {
   RestoreTableFromSnapshotCommandInput,
   RestoreTableFromSnapshotCommandOutput,
 } from "./commands/RestoreTableFromSnapshotCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateCustomDomainAssociationCommandInput,
   UpdateCustomDomainAssociationCommandOutput,
 } from "./commands/UpdateCustomDomainAssociationCommand";
-import {
+import type {
   UpdateEndpointAccessCommandInput,
   UpdateEndpointAccessCommandOutput,
 } from "./commands/UpdateEndpointAccessCommand";
-import {
+import type {
   UpdateLakehouseConfigurationCommandInput,
   UpdateLakehouseConfigurationCommandOutput,
 } from "./commands/UpdateLakehouseConfigurationCommand";
-import { UpdateNamespaceCommandInput, UpdateNamespaceCommandOutput } from "./commands/UpdateNamespaceCommand";
-import {
+import type { UpdateNamespaceCommandInput, UpdateNamespaceCommandOutput } from "./commands/UpdateNamespaceCommand";
+import type {
   UpdateScheduledActionCommandInput,
   UpdateScheduledActionCommandOutput,
 } from "./commands/UpdateScheduledActionCommand";
-import { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "./commands/UpdateSnapshotCommand";
-import {
+import type { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "./commands/UpdateSnapshotCommand";
+import type {
   UpdateSnapshotCopyConfigurationCommandInput,
   UpdateSnapshotCopyConfigurationCommandOutput,
 } from "./commands/UpdateSnapshotCopyConfigurationCommand";
-import { UpdateUsageLimitCommandInput, UpdateUsageLimitCommandOutput } from "./commands/UpdateUsageLimitCommand";
-import { UpdateWorkgroupCommandInput, UpdateWorkgroupCommandOutput } from "./commands/UpdateWorkgroupCommand";
+import type { UpdateUsageLimitCommandInput, UpdateUsageLimitCommandOutput } from "./commands/UpdateUsageLimitCommand";
+import type { UpdateWorkgroupCommandInput, UpdateWorkgroupCommandOutput } from "./commands/UpdateWorkgroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -483,7 +502,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

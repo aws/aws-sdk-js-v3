@@ -8,7 +8,7 @@ import {
   ListVirtualMFADevicesCommandOutput,
 } from "../commands/ListVirtualMFADevicesCommand";
 import { IAMClient } from "../IAMClient";
-import { IAMPaginationConfiguration } from "./Interfaces";
+import type { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

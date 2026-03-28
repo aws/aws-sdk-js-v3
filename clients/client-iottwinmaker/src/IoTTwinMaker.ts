@@ -3,172 +3,196 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchPutPropertyValuesCommandInput,
+  type BatchPutPropertyValuesCommandOutput,
   BatchPutPropertyValuesCommand,
-  BatchPutPropertyValuesCommandInput,
-  BatchPutPropertyValuesCommandOutput,
 } from "./commands/BatchPutPropertyValuesCommand";
 import {
+  type CancelMetadataTransferJobCommandInput,
+  type CancelMetadataTransferJobCommandOutput,
   CancelMetadataTransferJobCommand,
-  CancelMetadataTransferJobCommandInput,
-  CancelMetadataTransferJobCommandOutput,
 } from "./commands/CancelMetadataTransferJobCommand";
 import {
+  type CreateComponentTypeCommandInput,
+  type CreateComponentTypeCommandOutput,
   CreateComponentTypeCommand,
-  CreateComponentTypeCommandInput,
-  CreateComponentTypeCommandOutput,
 } from "./commands/CreateComponentTypeCommand";
 import {
+  type CreateEntityCommandInput,
+  type CreateEntityCommandOutput,
   CreateEntityCommand,
-  CreateEntityCommandInput,
-  CreateEntityCommandOutput,
 } from "./commands/CreateEntityCommand";
 import {
+  type CreateMetadataTransferJobCommandInput,
+  type CreateMetadataTransferJobCommandOutput,
   CreateMetadataTransferJobCommand,
-  CreateMetadataTransferJobCommandInput,
-  CreateMetadataTransferJobCommandOutput,
 } from "./commands/CreateMetadataTransferJobCommand";
-import { CreateSceneCommand, CreateSceneCommandInput, CreateSceneCommandOutput } from "./commands/CreateSceneCommand";
 import {
+  type CreateSceneCommandInput,
+  type CreateSceneCommandOutput,
+  CreateSceneCommand,
+} from "./commands/CreateSceneCommand";
+import {
+  type CreateSyncJobCommandInput,
+  type CreateSyncJobCommandOutput,
   CreateSyncJobCommand,
-  CreateSyncJobCommandInput,
-  CreateSyncJobCommandOutput,
 } from "./commands/CreateSyncJobCommand";
 import {
+  type CreateWorkspaceCommandInput,
+  type CreateWorkspaceCommandOutput,
   CreateWorkspaceCommand,
-  CreateWorkspaceCommandInput,
-  CreateWorkspaceCommandOutput,
 } from "./commands/CreateWorkspaceCommand";
 import {
+  type DeleteComponentTypeCommandInput,
+  type DeleteComponentTypeCommandOutput,
   DeleteComponentTypeCommand,
-  DeleteComponentTypeCommandInput,
-  DeleteComponentTypeCommandOutput,
 } from "./commands/DeleteComponentTypeCommand";
 import {
+  type DeleteEntityCommandInput,
+  type DeleteEntityCommandOutput,
   DeleteEntityCommand,
-  DeleteEntityCommandInput,
-  DeleteEntityCommandOutput,
 } from "./commands/DeleteEntityCommand";
-import { DeleteSceneCommand, DeleteSceneCommandInput, DeleteSceneCommandOutput } from "./commands/DeleteSceneCommand";
 import {
+  type DeleteSceneCommandInput,
+  type DeleteSceneCommandOutput,
+  DeleteSceneCommand,
+} from "./commands/DeleteSceneCommand";
+import {
+  type DeleteSyncJobCommandInput,
+  type DeleteSyncJobCommandOutput,
   DeleteSyncJobCommand,
-  DeleteSyncJobCommandInput,
-  DeleteSyncJobCommandOutput,
 } from "./commands/DeleteSyncJobCommand";
 import {
+  type DeleteWorkspaceCommandInput,
+  type DeleteWorkspaceCommandOutput,
   DeleteWorkspaceCommand,
-  DeleteWorkspaceCommandInput,
-  DeleteWorkspaceCommandOutput,
 } from "./commands/DeleteWorkspaceCommand";
 import {
+  type ExecuteQueryCommandInput,
+  type ExecuteQueryCommandOutput,
   ExecuteQueryCommand,
-  ExecuteQueryCommandInput,
-  ExecuteQueryCommandOutput,
 } from "./commands/ExecuteQueryCommand";
 import {
+  type GetComponentTypeCommandInput,
+  type GetComponentTypeCommandOutput,
   GetComponentTypeCommand,
-  GetComponentTypeCommandInput,
-  GetComponentTypeCommandOutput,
 } from "./commands/GetComponentTypeCommand";
-import { GetEntityCommand, GetEntityCommandInput, GetEntityCommandOutput } from "./commands/GetEntityCommand";
+import { type GetEntityCommandInput, type GetEntityCommandOutput, GetEntityCommand } from "./commands/GetEntityCommand";
 import {
+  type GetMetadataTransferJobCommandInput,
+  type GetMetadataTransferJobCommandOutput,
   GetMetadataTransferJobCommand,
-  GetMetadataTransferJobCommandInput,
-  GetMetadataTransferJobCommandOutput,
 } from "./commands/GetMetadataTransferJobCommand";
 import {
+  type GetPricingPlanCommandInput,
+  type GetPricingPlanCommandOutput,
   GetPricingPlanCommand,
-  GetPricingPlanCommandInput,
-  GetPricingPlanCommandOutput,
 } from "./commands/GetPricingPlanCommand";
 import {
+  type GetPropertyValueCommandInput,
+  type GetPropertyValueCommandOutput,
   GetPropertyValueCommand,
-  GetPropertyValueCommandInput,
-  GetPropertyValueCommandOutput,
 } from "./commands/GetPropertyValueCommand";
 import {
+  type GetPropertyValueHistoryCommandInput,
+  type GetPropertyValueHistoryCommandOutput,
   GetPropertyValueHistoryCommand,
-  GetPropertyValueHistoryCommandInput,
-  GetPropertyValueHistoryCommandOutput,
 } from "./commands/GetPropertyValueHistoryCommand";
-import { GetSceneCommand, GetSceneCommandInput, GetSceneCommandOutput } from "./commands/GetSceneCommand";
-import { GetSyncJobCommand, GetSyncJobCommandInput, GetSyncJobCommandOutput } from "./commands/GetSyncJobCommand";
+import { type GetSceneCommandInput, type GetSceneCommandOutput, GetSceneCommand } from "./commands/GetSceneCommand";
 import {
+  type GetSyncJobCommandInput,
+  type GetSyncJobCommandOutput,
+  GetSyncJobCommand,
+} from "./commands/GetSyncJobCommand";
+import {
+  type GetWorkspaceCommandInput,
+  type GetWorkspaceCommandOutput,
   GetWorkspaceCommand,
-  GetWorkspaceCommandInput,
-  GetWorkspaceCommandOutput,
 } from "./commands/GetWorkspaceCommand";
 import {
+  type ListComponentsCommandInput,
+  type ListComponentsCommandOutput,
   ListComponentsCommand,
-  ListComponentsCommandInput,
-  ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
 import {
+  type ListComponentTypesCommandInput,
+  type ListComponentTypesCommandOutput,
   ListComponentTypesCommand,
-  ListComponentTypesCommandInput,
-  ListComponentTypesCommandOutput,
 } from "./commands/ListComponentTypesCommand";
 import {
+  type ListEntitiesCommandInput,
+  type ListEntitiesCommandOutput,
   ListEntitiesCommand,
-  ListEntitiesCommandInput,
-  ListEntitiesCommandOutput,
 } from "./commands/ListEntitiesCommand";
 import {
+  type ListMetadataTransferJobsCommandInput,
+  type ListMetadataTransferJobsCommandOutput,
   ListMetadataTransferJobsCommand,
-  ListMetadataTransferJobsCommandInput,
-  ListMetadataTransferJobsCommandOutput,
 } from "./commands/ListMetadataTransferJobsCommand";
 import {
+  type ListPropertiesCommandInput,
+  type ListPropertiesCommandOutput,
   ListPropertiesCommand,
-  ListPropertiesCommandInput,
-  ListPropertiesCommandOutput,
 } from "./commands/ListPropertiesCommand";
-import { ListScenesCommand, ListScenesCommandInput, ListScenesCommandOutput } from "./commands/ListScenesCommand";
 import {
+  type ListScenesCommandInput,
+  type ListScenesCommandOutput,
+  ListScenesCommand,
+} from "./commands/ListScenesCommand";
+import {
+  type ListSyncJobsCommandInput,
+  type ListSyncJobsCommandOutput,
   ListSyncJobsCommand,
-  ListSyncJobsCommandInput,
-  ListSyncJobsCommandOutput,
 } from "./commands/ListSyncJobsCommand";
 import {
+  type ListSyncResourcesCommandInput,
+  type ListSyncResourcesCommandOutput,
   ListSyncResourcesCommand,
-  ListSyncResourcesCommandInput,
-  ListSyncResourcesCommandOutput,
 } from "./commands/ListSyncResourcesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWorkspacesCommandInput,
+  type ListWorkspacesCommandOutput,
   ListWorkspacesCommand,
-  ListWorkspacesCommandInput,
-  ListWorkspacesCommandOutput,
 } from "./commands/ListWorkspacesCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateComponentTypeCommandInput,
+  type UpdateComponentTypeCommandOutput,
   UpdateComponentTypeCommand,
-  UpdateComponentTypeCommandInput,
-  UpdateComponentTypeCommandOutput,
 } from "./commands/UpdateComponentTypeCommand";
 import {
+  type UpdateEntityCommandInput,
+  type UpdateEntityCommandOutput,
   UpdateEntityCommand,
-  UpdateEntityCommandInput,
-  UpdateEntityCommandOutput,
 } from "./commands/UpdateEntityCommand";
 import {
+  type UpdatePricingPlanCommandInput,
+  type UpdatePricingPlanCommandOutput,
   UpdatePricingPlanCommand,
-  UpdatePricingPlanCommandInput,
-  UpdatePricingPlanCommandOutput,
 } from "./commands/UpdatePricingPlanCommand";
-import { UpdateSceneCommand, UpdateSceneCommandInput, UpdateSceneCommandOutput } from "./commands/UpdateSceneCommand";
 import {
+  type UpdateSceneCommandInput,
+  type UpdateSceneCommandOutput,
+  UpdateSceneCommand,
+} from "./commands/UpdateSceneCommand";
+import {
+  type UpdateWorkspaceCommandInput,
+  type UpdateWorkspaceCommandOutput,
   UpdateWorkspaceCommand,
-  UpdateWorkspaceCommandInput,
-  UpdateWorkspaceCommandOutput,
 } from "./commands/UpdateWorkspaceCommand";
 import { IoTTwinMakerClient } from "./IoTTwinMakerClient";
 import { paginateExecuteQuery } from "./pagination/ExecuteQueryPaginator";

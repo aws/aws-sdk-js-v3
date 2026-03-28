@@ -8,7 +8,7 @@ import {
   DescribeDBClusterParametersCommandOutput,
 } from "../commands/DescribeDBClusterParametersCommand";
 import { DocDBClient } from "../DocDBClient";
-import { DocDBPaginationConfiguration } from "./Interfaces";
+import type { DocDBPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

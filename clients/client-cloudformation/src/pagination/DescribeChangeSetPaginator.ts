@@ -8,7 +8,7 @@ import {
   DescribeChangeSetCommandInput,
   DescribeChangeSetCommandOutput,
 } from "../commands/DescribeChangeSetCommand";
-import { CloudFormationPaginationConfiguration } from "./Interfaces";
+import type { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

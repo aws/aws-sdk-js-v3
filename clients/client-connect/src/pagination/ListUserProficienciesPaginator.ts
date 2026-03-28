@@ -8,7 +8,7 @@ import {
   ListUserProficienciesCommandOutput,
 } from "../commands/ListUserProficienciesCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

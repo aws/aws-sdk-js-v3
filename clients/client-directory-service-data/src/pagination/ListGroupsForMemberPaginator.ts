@@ -8,7 +8,7 @@ import {
   ListGroupsForMemberCommandOutput,
 } from "../commands/ListGroupsForMemberCommand";
 import { DirectoryServiceDataClient } from "../DirectoryServiceDataClient";
-import { DirectoryServiceDataPaginationConfiguration } from "./Interfaces";
+import type { DirectoryServiceDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

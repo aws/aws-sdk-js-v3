@@ -8,7 +8,7 @@ import {
   ListStreamConsumersCommandOutput,
 } from "../commands/ListStreamConsumersCommand";
 import { KinesisClient } from "../KinesisClient";
-import { KinesisPaginationConfiguration } from "./Interfaces";
+import type { KinesisPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

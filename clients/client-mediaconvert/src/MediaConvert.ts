@@ -3,111 +3,139 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateCertificateCommandInput,
+  type AssociateCertificateCommandOutput,
   AssociateCertificateCommand,
-  AssociateCertificateCommandInput,
-  AssociateCertificateCommandOutput,
 } from "./commands/AssociateCertificateCommand";
-import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
-import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import { type CancelJobCommandInput, type CancelJobCommandOutput, CancelJobCommand } from "./commands/CancelJobCommand";
+import { type CreateJobCommandInput, type CreateJobCommandOutput, CreateJobCommand } from "./commands/CreateJobCommand";
 import {
+  type CreateJobTemplateCommandInput,
+  type CreateJobTemplateCommandOutput,
   CreateJobTemplateCommand,
-  CreateJobTemplateCommandInput,
-  CreateJobTemplateCommandOutput,
 } from "./commands/CreateJobTemplateCommand";
 import {
+  type CreatePresetCommandInput,
+  type CreatePresetCommandOutput,
   CreatePresetCommand,
-  CreatePresetCommandInput,
-  CreatePresetCommandOutput,
 } from "./commands/CreatePresetCommand";
-import { CreateQueueCommand, CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import {
+  type CreateQueueCommandInput,
+  type CreateQueueCommandOutput,
+  CreateQueueCommand,
+} from "./commands/CreateQueueCommand";
+import {
+  type CreateResourceShareCommandInput,
+  type CreateResourceShareCommandOutput,
   CreateResourceShareCommand,
-  CreateResourceShareCommandInput,
-  CreateResourceShareCommandOutput,
 } from "./commands/CreateResourceShareCommand";
 import {
+  type DeleteJobTemplateCommandInput,
+  type DeleteJobTemplateCommandOutput,
   DeleteJobTemplateCommand,
-  DeleteJobTemplateCommandInput,
-  DeleteJobTemplateCommandOutput,
 } from "./commands/DeleteJobTemplateCommand";
 import {
+  type DeletePolicyCommandInput,
+  type DeletePolicyCommandOutput,
   DeletePolicyCommand,
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  type DeletePresetCommandInput,
+  type DeletePresetCommandOutput,
   DeletePresetCommand,
-  DeletePresetCommandInput,
-  DeletePresetCommandOutput,
 } from "./commands/DeletePresetCommand";
-import { DeleteQueueCommand, DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
 import {
+  type DeleteQueueCommandInput,
+  type DeleteQueueCommandOutput,
+  DeleteQueueCommand,
+} from "./commands/DeleteQueueCommand";
+import {
+  type DescribeEndpointsCommandInput,
+  type DescribeEndpointsCommandOutput,
   DescribeEndpointsCommand,
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
 import {
+  type DisassociateCertificateCommandInput,
+  type DisassociateCertificateCommandOutput,
   DisassociateCertificateCommand,
-  DisassociateCertificateCommandInput,
-  DisassociateCertificateCommandOutput,
 } from "./commands/DisassociateCertificateCommand";
-import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import { type GetJobCommandInput, type GetJobCommandOutput, GetJobCommand } from "./commands/GetJobCommand";
 import {
+  type GetJobsQueryResultsCommandInput,
+  type GetJobsQueryResultsCommandOutput,
   GetJobsQueryResultsCommand,
-  GetJobsQueryResultsCommandInput,
-  GetJobsQueryResultsCommandOutput,
 } from "./commands/GetJobsQueryResultsCommand";
 import {
+  type GetJobTemplateCommandInput,
+  type GetJobTemplateCommandOutput,
   GetJobTemplateCommand,
-  GetJobTemplateCommandInput,
-  GetJobTemplateCommandOutput,
 } from "./commands/GetJobTemplateCommand";
-import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
-import { GetPresetCommand, GetPresetCommandInput, GetPresetCommandOutput } from "./commands/GetPresetCommand";
-import { GetQueueCommand, GetQueueCommandInput, GetQueueCommandOutput } from "./commands/GetQueueCommand";
-import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { type GetPolicyCommandInput, type GetPolicyCommandOutput, GetPolicyCommand } from "./commands/GetPolicyCommand";
+import { type GetPresetCommandInput, type GetPresetCommandOutput, GetPresetCommand } from "./commands/GetPresetCommand";
+import { type GetQueueCommandInput, type GetQueueCommandOutput, GetQueueCommand } from "./commands/GetQueueCommand";
+import { type ListJobsCommandInput, type ListJobsCommandOutput, ListJobsCommand } from "./commands/ListJobsCommand";
 import {
+  type ListJobTemplatesCommandInput,
+  type ListJobTemplatesCommandOutput,
   ListJobTemplatesCommand,
-  ListJobTemplatesCommandInput,
-  ListJobTemplatesCommandOutput,
 } from "./commands/ListJobTemplatesCommand";
-import { ListPresetsCommand, ListPresetsCommandInput, ListPresetsCommandOutput } from "./commands/ListPresetsCommand";
-import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import {
+  type ListPresetsCommandInput,
+  type ListPresetsCommandOutput,
+  ListPresetsCommand,
+} from "./commands/ListPresetsCommand";
+import {
+  type ListQueuesCommandInput,
+  type ListQueuesCommandOutput,
+  ListQueuesCommand,
+} from "./commands/ListQueuesCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVersionsCommandInput,
+  type ListVersionsCommandOutput,
   ListVersionsCommand,
-  ListVersionsCommandInput,
-  ListVersionsCommandOutput,
 } from "./commands/ListVersionsCommand";
-import { ProbeCommand, ProbeCommandInput, ProbeCommandOutput } from "./commands/ProbeCommand";
-import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
-import { SearchJobsCommand, SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
+import { type ProbeCommandInput, type ProbeCommandOutput, ProbeCommand } from "./commands/ProbeCommand";
+import { type PutPolicyCommandInput, type PutPolicyCommandOutput, PutPolicyCommand } from "./commands/PutPolicyCommand";
 import {
+  type SearchJobsCommandInput,
+  type SearchJobsCommandOutput,
+  SearchJobsCommand,
+} from "./commands/SearchJobsCommand";
+import {
+  type StartJobsQueryCommandInput,
+  type StartJobsQueryCommandOutput,
   StartJobsQueryCommand,
-  StartJobsQueryCommandInput,
-  StartJobsQueryCommandOutput,
 } from "./commands/StartJobsQueryCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateJobTemplateCommandInput,
+  type UpdateJobTemplateCommandOutput,
   UpdateJobTemplateCommand,
-  UpdateJobTemplateCommandInput,
-  UpdateJobTemplateCommandOutput,
 } from "./commands/UpdateJobTemplateCommand";
 import {
+  type UpdatePresetCommandInput,
+  type UpdatePresetCommandOutput,
   UpdatePresetCommand,
-  UpdatePresetCommandInput,
-  UpdatePresetCommandOutput,
 } from "./commands/UpdatePresetCommand";
-import { UpdateQueueCommand, UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand";
+import {
+  type UpdateQueueCommandInput,
+  type UpdateQueueCommandOutput,
+  UpdateQueueCommand,
+} from "./commands/UpdateQueueCommand";
 import { MediaConvertClient } from "./MediaConvertClient";
 import { paginateDescribeEndpoints } from "./pagination/DescribeEndpointsPaginator";
 import { paginateListJobs } from "./pagination/ListJobsPaginator";

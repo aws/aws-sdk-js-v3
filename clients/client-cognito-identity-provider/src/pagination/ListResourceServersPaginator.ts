@@ -8,7 +8,7 @@ import {
   ListResourceServersCommandInput,
   ListResourceServersCommandOutput,
 } from "../commands/ListResourceServersCommand";
-import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
+import type { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

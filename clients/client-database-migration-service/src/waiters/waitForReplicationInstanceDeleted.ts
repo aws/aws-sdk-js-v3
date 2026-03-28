@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type DescribeReplicationInstancesCommandInput,
   DescribeReplicationInstancesCommand,
-  DescribeReplicationInstancesCommandInput,
 } from "../commands/DescribeReplicationInstancesCommand";
-import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
+import type { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
 
 const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeReplicationInstancesCommandInput): Promise<WaiterResult> => {
   let reason;

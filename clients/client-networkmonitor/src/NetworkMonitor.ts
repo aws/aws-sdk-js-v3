@@ -3,41 +3,61 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateMonitorCommandInput,
+  type CreateMonitorCommandOutput,
   CreateMonitorCommand,
-  CreateMonitorCommandInput,
-  CreateMonitorCommandOutput,
 } from "./commands/CreateMonitorCommand";
-import { CreateProbeCommand, CreateProbeCommandInput, CreateProbeCommandOutput } from "./commands/CreateProbeCommand";
 import {
+  type CreateProbeCommandInput,
+  type CreateProbeCommandOutput,
+  CreateProbeCommand,
+} from "./commands/CreateProbeCommand";
+import {
+  type DeleteMonitorCommandInput,
+  type DeleteMonitorCommandOutput,
   DeleteMonitorCommand,
-  DeleteMonitorCommandInput,
-  DeleteMonitorCommandOutput,
 } from "./commands/DeleteMonitorCommand";
-import { DeleteProbeCommand, DeleteProbeCommandInput, DeleteProbeCommandOutput } from "./commands/DeleteProbeCommand";
-import { GetMonitorCommand, GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
-import { GetProbeCommand, GetProbeCommandInput, GetProbeCommandOutput } from "./commands/GetProbeCommand";
 import {
+  type DeleteProbeCommandInput,
+  type DeleteProbeCommandOutput,
+  DeleteProbeCommand,
+} from "./commands/DeleteProbeCommand";
+import {
+  type GetMonitorCommandInput,
+  type GetMonitorCommandOutput,
+  GetMonitorCommand,
+} from "./commands/GetMonitorCommand";
+import { type GetProbeCommandInput, type GetProbeCommandOutput, GetProbeCommand } from "./commands/GetProbeCommand";
+import {
+  type ListMonitorsCommandInput,
+  type ListMonitorsCommandOutput,
   ListMonitorsCommand,
-  ListMonitorsCommandInput,
-  ListMonitorsCommandOutput,
 } from "./commands/ListMonitorsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateMonitorCommandInput,
+  type UpdateMonitorCommandOutput,
   UpdateMonitorCommand,
-  UpdateMonitorCommandInput,
-  UpdateMonitorCommandOutput,
 } from "./commands/UpdateMonitorCommand";
-import { UpdateProbeCommand, UpdateProbeCommandInput, UpdateProbeCommandOutput } from "./commands/UpdateProbeCommand";
+import {
+  type UpdateProbeCommandInput,
+  type UpdateProbeCommandOutput,
+  UpdateProbeCommand,
+} from "./commands/UpdateProbeCommand";
 import { NetworkMonitorClient } from "./NetworkMonitorClient";
 import { paginateListMonitors } from "./pagination/ListMonitorsPaginator";
 

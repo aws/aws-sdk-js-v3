@@ -8,7 +8,7 @@ import {
   ListSipRulesCommandInput,
   ListSipRulesCommandOutput,
 } from "../commands/ListSipRulesCommand";
-import { ChimeSDKVoicePaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKVoicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

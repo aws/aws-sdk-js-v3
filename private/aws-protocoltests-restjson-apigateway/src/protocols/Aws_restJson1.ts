@@ -28,10 +28,10 @@ import type {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetRestApisCommandInput, GetRestApisCommandOutput } from "../commands/GetRestApisCommand";
+import type { GetRestApisCommandInput, GetRestApisCommandOutput } from "../commands/GetRestApisCommand";
 import { APIGatewayServiceException as __BaseException } from "../models/APIGatewayServiceException";
 import { BadRequestException, TooManyRequestsException, UnauthorizedException } from "../models/errors";
-import { RestApi } from "../models/models_0";
+import type { RestApi } from "../models/models_0";
 
 /**
  * serializeAws_restJson1GetRestApisCommand

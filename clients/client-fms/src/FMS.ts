@@ -3,194 +3,206 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateAdminAccountCommandInput,
+  type AssociateAdminAccountCommandOutput,
   AssociateAdminAccountCommand,
-  AssociateAdminAccountCommandInput,
-  AssociateAdminAccountCommandOutput,
 } from "./commands/AssociateAdminAccountCommand";
 import {
+  type AssociateThirdPartyFirewallCommandInput,
+  type AssociateThirdPartyFirewallCommandOutput,
   AssociateThirdPartyFirewallCommand,
-  AssociateThirdPartyFirewallCommandInput,
-  AssociateThirdPartyFirewallCommandOutput,
 } from "./commands/AssociateThirdPartyFirewallCommand";
 import {
+  type BatchAssociateResourceCommandInput,
+  type BatchAssociateResourceCommandOutput,
   BatchAssociateResourceCommand,
-  BatchAssociateResourceCommandInput,
-  BatchAssociateResourceCommandOutput,
 } from "./commands/BatchAssociateResourceCommand";
 import {
+  type BatchDisassociateResourceCommandInput,
+  type BatchDisassociateResourceCommandOutput,
   BatchDisassociateResourceCommand,
-  BatchDisassociateResourceCommandInput,
-  BatchDisassociateResourceCommandOutput,
 } from "./commands/BatchDisassociateResourceCommand";
 import {
+  type DeleteAppsListCommandInput,
+  type DeleteAppsListCommandOutput,
   DeleteAppsListCommand,
-  DeleteAppsListCommandInput,
-  DeleteAppsListCommandOutput,
 } from "./commands/DeleteAppsListCommand";
 import {
+  type DeleteNotificationChannelCommandInput,
+  type DeleteNotificationChannelCommandOutput,
   DeleteNotificationChannelCommand,
-  DeleteNotificationChannelCommandInput,
-  DeleteNotificationChannelCommandOutput,
 } from "./commands/DeleteNotificationChannelCommand";
 import {
+  type DeletePolicyCommandInput,
+  type DeletePolicyCommandOutput,
   DeletePolicyCommand,
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  type DeleteProtocolsListCommandInput,
+  type DeleteProtocolsListCommandOutput,
   DeleteProtocolsListCommand,
-  DeleteProtocolsListCommandInput,
-  DeleteProtocolsListCommandOutput,
 } from "./commands/DeleteProtocolsListCommand";
 import {
+  type DeleteResourceSetCommandInput,
+  type DeleteResourceSetCommandOutput,
   DeleteResourceSetCommand,
-  DeleteResourceSetCommandInput,
-  DeleteResourceSetCommandOutput,
 } from "./commands/DeleteResourceSetCommand";
 import {
+  type DisassociateAdminAccountCommandInput,
+  type DisassociateAdminAccountCommandOutput,
   DisassociateAdminAccountCommand,
-  DisassociateAdminAccountCommandInput,
-  DisassociateAdminAccountCommandOutput,
 } from "./commands/DisassociateAdminAccountCommand";
 import {
+  type DisassociateThirdPartyFirewallCommandInput,
+  type DisassociateThirdPartyFirewallCommandOutput,
   DisassociateThirdPartyFirewallCommand,
-  DisassociateThirdPartyFirewallCommandInput,
-  DisassociateThirdPartyFirewallCommandOutput,
 } from "./commands/DisassociateThirdPartyFirewallCommand";
 import {
+  type GetAdminAccountCommandInput,
+  type GetAdminAccountCommandOutput,
   GetAdminAccountCommand,
-  GetAdminAccountCommandInput,
-  GetAdminAccountCommandOutput,
 } from "./commands/GetAdminAccountCommand";
 import {
+  type GetAdminScopeCommandInput,
+  type GetAdminScopeCommandOutput,
   GetAdminScopeCommand,
-  GetAdminScopeCommandInput,
-  GetAdminScopeCommandOutput,
 } from "./commands/GetAdminScopeCommand";
-import { GetAppsListCommand, GetAppsListCommandInput, GetAppsListCommandOutput } from "./commands/GetAppsListCommand";
 import {
+  type GetAppsListCommandInput,
+  type GetAppsListCommandOutput,
+  GetAppsListCommand,
+} from "./commands/GetAppsListCommand";
+import {
+  type GetComplianceDetailCommandInput,
+  type GetComplianceDetailCommandOutput,
   GetComplianceDetailCommand,
-  GetComplianceDetailCommandInput,
-  GetComplianceDetailCommandOutput,
 } from "./commands/GetComplianceDetailCommand";
 import {
+  type GetNotificationChannelCommandInput,
+  type GetNotificationChannelCommandOutput,
   GetNotificationChannelCommand,
-  GetNotificationChannelCommandInput,
-  GetNotificationChannelCommandOutput,
 } from "./commands/GetNotificationChannelCommand";
-import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { type GetPolicyCommandInput, type GetPolicyCommandOutput, GetPolicyCommand } from "./commands/GetPolicyCommand";
 import {
+  type GetProtectionStatusCommandInput,
+  type GetProtectionStatusCommandOutput,
   GetProtectionStatusCommand,
-  GetProtectionStatusCommandInput,
-  GetProtectionStatusCommandOutput,
 } from "./commands/GetProtectionStatusCommand";
 import {
+  type GetProtocolsListCommandInput,
+  type GetProtocolsListCommandOutput,
   GetProtocolsListCommand,
-  GetProtocolsListCommandInput,
-  GetProtocolsListCommandOutput,
 } from "./commands/GetProtocolsListCommand";
 import {
+  type GetResourceSetCommandInput,
+  type GetResourceSetCommandOutput,
   GetResourceSetCommand,
-  GetResourceSetCommandInput,
-  GetResourceSetCommandOutput,
 } from "./commands/GetResourceSetCommand";
 import {
+  type GetThirdPartyFirewallAssociationStatusCommandInput,
+  type GetThirdPartyFirewallAssociationStatusCommandOutput,
   GetThirdPartyFirewallAssociationStatusCommand,
-  GetThirdPartyFirewallAssociationStatusCommandInput,
-  GetThirdPartyFirewallAssociationStatusCommandOutput,
 } from "./commands/GetThirdPartyFirewallAssociationStatusCommand";
 import {
+  type GetViolationDetailsCommandInput,
+  type GetViolationDetailsCommandOutput,
   GetViolationDetailsCommand,
-  GetViolationDetailsCommandInput,
-  GetViolationDetailsCommandOutput,
 } from "./commands/GetViolationDetailsCommand";
 import {
+  type ListAdminAccountsForOrganizationCommandInput,
+  type ListAdminAccountsForOrganizationCommandOutput,
   ListAdminAccountsForOrganizationCommand,
-  ListAdminAccountsForOrganizationCommandInput,
-  ListAdminAccountsForOrganizationCommandOutput,
 } from "./commands/ListAdminAccountsForOrganizationCommand";
 import {
+  type ListAdminsManagingAccountCommandInput,
+  type ListAdminsManagingAccountCommandOutput,
   ListAdminsManagingAccountCommand,
-  ListAdminsManagingAccountCommandInput,
-  ListAdminsManagingAccountCommandOutput,
 } from "./commands/ListAdminsManagingAccountCommand";
 import {
+  type ListAppsListsCommandInput,
+  type ListAppsListsCommandOutput,
   ListAppsListsCommand,
-  ListAppsListsCommandInput,
-  ListAppsListsCommandOutput,
 } from "./commands/ListAppsListsCommand";
 import {
+  type ListComplianceStatusCommandInput,
+  type ListComplianceStatusCommandOutput,
   ListComplianceStatusCommand,
-  ListComplianceStatusCommandInput,
-  ListComplianceStatusCommandOutput,
 } from "./commands/ListComplianceStatusCommand";
 import {
+  type ListDiscoveredResourcesCommandInput,
+  type ListDiscoveredResourcesCommandOutput,
   ListDiscoveredResourcesCommand,
-  ListDiscoveredResourcesCommandInput,
-  ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
 import {
+  type ListMemberAccountsCommandInput,
+  type ListMemberAccountsCommandOutput,
   ListMemberAccountsCommand,
-  ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput,
 } from "./commands/ListMemberAccountsCommand";
 import {
+  type ListPoliciesCommandInput,
+  type ListPoliciesCommandOutput,
   ListPoliciesCommand,
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput,
 } from "./commands/ListPoliciesCommand";
 import {
+  type ListProtocolsListsCommandInput,
+  type ListProtocolsListsCommandOutput,
   ListProtocolsListsCommand,
-  ListProtocolsListsCommandInput,
-  ListProtocolsListsCommandOutput,
 } from "./commands/ListProtocolsListsCommand";
 import {
+  type ListResourceSetResourcesCommandInput,
+  type ListResourceSetResourcesCommandOutput,
   ListResourceSetResourcesCommand,
-  ListResourceSetResourcesCommandInput,
-  ListResourceSetResourcesCommandOutput,
 } from "./commands/ListResourceSetResourcesCommand";
 import {
+  type ListResourceSetsCommandInput,
+  type ListResourceSetsCommandOutput,
   ListResourceSetsCommand,
-  ListResourceSetsCommandInput,
-  ListResourceSetsCommandOutput,
 } from "./commands/ListResourceSetsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListThirdPartyFirewallFirewallPoliciesCommandInput,
+  type ListThirdPartyFirewallFirewallPoliciesCommandOutput,
   ListThirdPartyFirewallFirewallPoliciesCommand,
-  ListThirdPartyFirewallFirewallPoliciesCommandInput,
-  ListThirdPartyFirewallFirewallPoliciesCommandOutput,
 } from "./commands/ListThirdPartyFirewallFirewallPoliciesCommand";
 import {
+  type PutAdminAccountCommandInput,
+  type PutAdminAccountCommandOutput,
   PutAdminAccountCommand,
-  PutAdminAccountCommandInput,
-  PutAdminAccountCommandOutput,
 } from "./commands/PutAdminAccountCommand";
-import { PutAppsListCommand, PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand";
 import {
+  type PutAppsListCommandInput,
+  type PutAppsListCommandOutput,
+  PutAppsListCommand,
+} from "./commands/PutAppsListCommand";
+import {
+  type PutNotificationChannelCommandInput,
+  type PutNotificationChannelCommandOutput,
   PutNotificationChannelCommand,
-  PutNotificationChannelCommandInput,
-  PutNotificationChannelCommandOutput,
 } from "./commands/PutNotificationChannelCommand";
-import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import { type PutPolicyCommandInput, type PutPolicyCommandOutput, PutPolicyCommand } from "./commands/PutPolicyCommand";
 import {
+  type PutProtocolsListCommandInput,
+  type PutProtocolsListCommandOutput,
   PutProtocolsListCommand,
-  PutProtocolsListCommandInput,
-  PutProtocolsListCommandOutput,
 } from "./commands/PutProtocolsListCommand";
 import {
+  type PutResourceSetCommandInput,
+  type PutResourceSetCommandOutput,
   PutResourceSetCommand,
-  PutResourceSetCommandInput,
-  PutResourceSetCommandOutput,
 } from "./commands/PutResourceSetCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { FMSClient } from "./FMSClient";
 import { paginateListAdminAccountsForOrganization } from "./pagination/ListAdminAccountsForOrganizationPaginator";

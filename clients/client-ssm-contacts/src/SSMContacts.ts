@@ -2,184 +2,200 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { AcceptPageCommand, AcceptPageCommandInput, AcceptPageCommandOutput } from "./commands/AcceptPageCommand";
 import {
+  type AcceptPageCommandInput,
+  type AcceptPageCommandOutput,
+  AcceptPageCommand,
+} from "./commands/AcceptPageCommand";
+import {
+  type ActivateContactChannelCommandInput,
+  type ActivateContactChannelCommandOutput,
   ActivateContactChannelCommand,
-  ActivateContactChannelCommandInput,
-  ActivateContactChannelCommandOutput,
 } from "./commands/ActivateContactChannelCommand";
 import {
+  type CreateContactChannelCommandInput,
+  type CreateContactChannelCommandOutput,
   CreateContactChannelCommand,
-  CreateContactChannelCommandInput,
-  CreateContactChannelCommandOutput,
 } from "./commands/CreateContactChannelCommand";
 import {
+  type CreateContactCommandInput,
+  type CreateContactCommandOutput,
   CreateContactCommand,
-  CreateContactCommandInput,
-  CreateContactCommandOutput,
 } from "./commands/CreateContactCommand";
 import {
+  type CreateRotationCommandInput,
+  type CreateRotationCommandOutput,
   CreateRotationCommand,
-  CreateRotationCommandInput,
-  CreateRotationCommandOutput,
 } from "./commands/CreateRotationCommand";
 import {
+  type CreateRotationOverrideCommandInput,
+  type CreateRotationOverrideCommandOutput,
   CreateRotationOverrideCommand,
-  CreateRotationOverrideCommandInput,
-  CreateRotationOverrideCommandOutput,
 } from "./commands/CreateRotationOverrideCommand";
 import {
+  type DeactivateContactChannelCommandInput,
+  type DeactivateContactChannelCommandOutput,
   DeactivateContactChannelCommand,
-  DeactivateContactChannelCommandInput,
-  DeactivateContactChannelCommandOutput,
 } from "./commands/DeactivateContactChannelCommand";
 import {
+  type DeleteContactChannelCommandInput,
+  type DeleteContactChannelCommandOutput,
   DeleteContactChannelCommand,
-  DeleteContactChannelCommandInput,
-  DeleteContactChannelCommandOutput,
 } from "./commands/DeleteContactChannelCommand";
 import {
+  type DeleteContactCommandInput,
+  type DeleteContactCommandOutput,
   DeleteContactCommand,
-  DeleteContactCommandInput,
-  DeleteContactCommandOutput,
 } from "./commands/DeleteContactCommand";
 import {
+  type DeleteRotationCommandInput,
+  type DeleteRotationCommandOutput,
   DeleteRotationCommand,
-  DeleteRotationCommandInput,
-  DeleteRotationCommandOutput,
 } from "./commands/DeleteRotationCommand";
 import {
+  type DeleteRotationOverrideCommandInput,
+  type DeleteRotationOverrideCommandOutput,
   DeleteRotationOverrideCommand,
-  DeleteRotationOverrideCommandInput,
-  DeleteRotationOverrideCommandOutput,
 } from "./commands/DeleteRotationOverrideCommand";
 import {
+  type DescribeEngagementCommandInput,
+  type DescribeEngagementCommandOutput,
   DescribeEngagementCommand,
-  DescribeEngagementCommandInput,
-  DescribeEngagementCommandOutput,
 } from "./commands/DescribeEngagementCommand";
 import {
+  type DescribePageCommandInput,
+  type DescribePageCommandOutput,
   DescribePageCommand,
-  DescribePageCommandInput,
-  DescribePageCommandOutput,
 } from "./commands/DescribePageCommand";
 import {
+  type GetContactChannelCommandInput,
+  type GetContactChannelCommandOutput,
   GetContactChannelCommand,
-  GetContactChannelCommandInput,
-  GetContactChannelCommandOutput,
 } from "./commands/GetContactChannelCommand";
-import { GetContactCommand, GetContactCommandInput, GetContactCommandOutput } from "./commands/GetContactCommand";
 import {
+  type GetContactCommandInput,
+  type GetContactCommandOutput,
+  GetContactCommand,
+} from "./commands/GetContactCommand";
+import {
+  type GetContactPolicyCommandInput,
+  type GetContactPolicyCommandOutput,
   GetContactPolicyCommand,
-  GetContactPolicyCommandInput,
-  GetContactPolicyCommandOutput,
 } from "./commands/GetContactPolicyCommand";
-import { GetRotationCommand, GetRotationCommandInput, GetRotationCommandOutput } from "./commands/GetRotationCommand";
 import {
+  type GetRotationCommandInput,
+  type GetRotationCommandOutput,
+  GetRotationCommand,
+} from "./commands/GetRotationCommand";
+import {
+  type GetRotationOverrideCommandInput,
+  type GetRotationOverrideCommandOutput,
   GetRotationOverrideCommand,
-  GetRotationOverrideCommandInput,
-  GetRotationOverrideCommandOutput,
 } from "./commands/GetRotationOverrideCommand";
 import {
+  type ListContactChannelsCommandInput,
+  type ListContactChannelsCommandOutput,
   ListContactChannelsCommand,
-  ListContactChannelsCommandInput,
-  ListContactChannelsCommandOutput,
 } from "./commands/ListContactChannelsCommand";
 import {
+  type ListContactsCommandInput,
+  type ListContactsCommandOutput,
   ListContactsCommand,
-  ListContactsCommandInput,
-  ListContactsCommandOutput,
 } from "./commands/ListContactsCommand";
 import {
+  type ListEngagementsCommandInput,
+  type ListEngagementsCommandOutput,
   ListEngagementsCommand,
-  ListEngagementsCommandInput,
-  ListEngagementsCommandOutput,
 } from "./commands/ListEngagementsCommand";
 import {
+  type ListPageReceiptsCommandInput,
+  type ListPageReceiptsCommandOutput,
   ListPageReceiptsCommand,
-  ListPageReceiptsCommandInput,
-  ListPageReceiptsCommandOutput,
 } from "./commands/ListPageReceiptsCommand";
 import {
+  type ListPageResolutionsCommandInput,
+  type ListPageResolutionsCommandOutput,
   ListPageResolutionsCommand,
-  ListPageResolutionsCommandInput,
-  ListPageResolutionsCommandOutput,
 } from "./commands/ListPageResolutionsCommand";
 import {
+  type ListPagesByContactCommandInput,
+  type ListPagesByContactCommandOutput,
   ListPagesByContactCommand,
-  ListPagesByContactCommandInput,
-  ListPagesByContactCommandOutput,
 } from "./commands/ListPagesByContactCommand";
 import {
+  type ListPagesByEngagementCommandInput,
+  type ListPagesByEngagementCommandOutput,
   ListPagesByEngagementCommand,
-  ListPagesByEngagementCommandInput,
-  ListPagesByEngagementCommandOutput,
 } from "./commands/ListPagesByEngagementCommand";
 import {
+  type ListPreviewRotationShiftsCommandInput,
+  type ListPreviewRotationShiftsCommandOutput,
   ListPreviewRotationShiftsCommand,
-  ListPreviewRotationShiftsCommandInput,
-  ListPreviewRotationShiftsCommandOutput,
 } from "./commands/ListPreviewRotationShiftsCommand";
 import {
+  type ListRotationOverridesCommandInput,
+  type ListRotationOverridesCommandOutput,
   ListRotationOverridesCommand,
-  ListRotationOverridesCommandInput,
-  ListRotationOverridesCommandOutput,
 } from "./commands/ListRotationOverridesCommand";
 import {
+  type ListRotationsCommandInput,
+  type ListRotationsCommandOutput,
   ListRotationsCommand,
-  ListRotationsCommandInput,
-  ListRotationsCommandOutput,
 } from "./commands/ListRotationsCommand";
 import {
+  type ListRotationShiftsCommandInput,
+  type ListRotationShiftsCommandOutput,
   ListRotationShiftsCommand,
-  ListRotationShiftsCommandInput,
-  ListRotationShiftsCommandOutput,
 } from "./commands/ListRotationShiftsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutContactPolicyCommandInput,
+  type PutContactPolicyCommandOutput,
   PutContactPolicyCommand,
-  PutContactPolicyCommandInput,
-  PutContactPolicyCommandOutput,
 } from "./commands/PutContactPolicyCommand";
 import {
+  type SendActivationCodeCommandInput,
+  type SendActivationCodeCommandOutput,
   SendActivationCodeCommand,
-  SendActivationCodeCommandInput,
-  SendActivationCodeCommandOutput,
 } from "./commands/SendActivationCodeCommand";
 import {
+  type StartEngagementCommandInput,
+  type StartEngagementCommandOutput,
   StartEngagementCommand,
-  StartEngagementCommandInput,
-  StartEngagementCommandOutput,
 } from "./commands/StartEngagementCommand";
 import {
+  type StopEngagementCommandInput,
+  type StopEngagementCommandOutput,
   StopEngagementCommand,
-  StopEngagementCommandInput,
-  StopEngagementCommandOutput,
 } from "./commands/StopEngagementCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateContactChannelCommandInput,
+  type UpdateContactChannelCommandOutput,
   UpdateContactChannelCommand,
-  UpdateContactChannelCommandInput,
-  UpdateContactChannelCommandOutput,
 } from "./commands/UpdateContactChannelCommand";
 import {
+  type UpdateContactCommandInput,
+  type UpdateContactCommandOutput,
   UpdateContactCommand,
-  UpdateContactCommandInput,
-  UpdateContactCommandOutput,
 } from "./commands/UpdateContactCommand";
 import {
+  type UpdateRotationCommandInput,
+  type UpdateRotationCommandOutput,
   UpdateRotationCommand,
-  UpdateRotationCommandInput,
-  UpdateRotationCommandOutput,
 } from "./commands/UpdateRotationCommand";
 import { paginateListContactChannels } from "./pagination/ListContactChannelsPaginator";
 import { paginateListContacts } from "./pagination/ListContactsPaginator";

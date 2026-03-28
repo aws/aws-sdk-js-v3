@@ -8,7 +8,7 @@ import {
   ListConsumableResourcesCommandInput,
   ListConsumableResourcesCommandOutput,
 } from "../commands/ListConsumableResourcesCommand";
-import { BatchPaginationConfiguration } from "./Interfaces";
+import type { BatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

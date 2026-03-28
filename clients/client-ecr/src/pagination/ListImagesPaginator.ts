@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "../commands/ListImagesCommand";
 import { ECRClient } from "../ECRClient";
-import { ECRPaginationConfiguration } from "./Interfaces";
+import type { ECRPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

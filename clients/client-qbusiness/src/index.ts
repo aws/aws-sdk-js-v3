@@ -7,7 +7,7 @@
  */
 export * from "./QBusinessClient";
 export * from "./QBusiness";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { QBusinessExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

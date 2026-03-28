@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ValidationExceptionErrorCode } from "./enums";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionErrorCode } from "./enums";
+import type { ValidationExceptionField } from "./models_0";
 import { TaxSettingsServiceException as __BaseException } from "./TaxSettingsServiceException";
 
 /**

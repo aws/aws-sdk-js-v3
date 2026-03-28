@@ -8,7 +8,7 @@ import {
   ListLinkedWhatsAppBusinessAccountsCommandOutput,
 } from "../commands/ListLinkedWhatsAppBusinessAccountsCommand";
 import { SocialMessagingClient } from "../SocialMessagingClient";
-import { SocialMessagingPaginationConfiguration } from "./Interfaces";
+import type { SocialMessagingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

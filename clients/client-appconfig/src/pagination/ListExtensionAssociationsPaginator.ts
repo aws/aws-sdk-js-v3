@@ -8,7 +8,7 @@ import {
   ListExtensionAssociationsCommandInput,
   ListExtensionAssociationsCommandOutput,
 } from "../commands/ListExtensionAssociationsCommand";
-import { AppConfigPaginationConfiguration } from "./Interfaces";
+import type { AppConfigPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

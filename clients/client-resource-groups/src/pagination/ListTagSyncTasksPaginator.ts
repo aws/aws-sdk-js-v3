@@ -8,7 +8,7 @@ import {
   ListTagSyncTasksCommandOutput,
 } from "../commands/ListTagSyncTasksCommand";
 import { ResourceGroupsClient } from "../ResourceGroupsClient";
-import { ResourceGroupsPaginationConfiguration } from "./Interfaces";
+import type { ResourceGroupsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

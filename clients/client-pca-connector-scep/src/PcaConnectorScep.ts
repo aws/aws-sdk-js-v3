@@ -3,60 +3,64 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateChallengeCommandInput,
+  type CreateChallengeCommandOutput,
   CreateChallengeCommand,
-  CreateChallengeCommandInput,
-  CreateChallengeCommandOutput,
 } from "./commands/CreateChallengeCommand";
 import {
+  type CreateConnectorCommandInput,
+  type CreateConnectorCommandOutput,
   CreateConnectorCommand,
-  CreateConnectorCommandInput,
-  CreateConnectorCommandOutput,
 } from "./commands/CreateConnectorCommand";
 import {
+  type DeleteChallengeCommandInput,
+  type DeleteChallengeCommandOutput,
   DeleteChallengeCommand,
-  DeleteChallengeCommandInput,
-  DeleteChallengeCommandOutput,
 } from "./commands/DeleteChallengeCommand";
 import {
+  type DeleteConnectorCommandInput,
+  type DeleteConnectorCommandOutput,
   DeleteConnectorCommand,
-  DeleteConnectorCommandInput,
-  DeleteConnectorCommandOutput,
 } from "./commands/DeleteConnectorCommand";
 import {
+  type GetChallengeMetadataCommandInput,
+  type GetChallengeMetadataCommandOutput,
   GetChallengeMetadataCommand,
-  GetChallengeMetadataCommandInput,
-  GetChallengeMetadataCommandOutput,
 } from "./commands/GetChallengeMetadataCommand";
 import {
+  type GetChallengePasswordCommandInput,
+  type GetChallengePasswordCommandOutput,
   GetChallengePasswordCommand,
-  GetChallengePasswordCommandInput,
-  GetChallengePasswordCommandOutput,
 } from "./commands/GetChallengePasswordCommand";
 import {
+  type GetConnectorCommandInput,
+  type GetConnectorCommandOutput,
   GetConnectorCommand,
-  GetConnectorCommandInput,
-  GetConnectorCommandOutput,
 } from "./commands/GetConnectorCommand";
 import {
+  type ListChallengeMetadataCommandInput,
+  type ListChallengeMetadataCommandOutput,
   ListChallengeMetadataCommand,
-  ListChallengeMetadataCommandInput,
-  ListChallengeMetadataCommandOutput,
 } from "./commands/ListChallengeMetadataCommand";
 import {
+  type ListConnectorsCommandInput,
+  type ListConnectorsCommandOutput,
   ListConnectorsCommand,
-  ListConnectorsCommandInput,
-  ListConnectorsCommandOutput,
 } from "./commands/ListConnectorsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateListChallengeMetadata } from "./pagination/ListChallengeMetadataPaginator";
 import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";

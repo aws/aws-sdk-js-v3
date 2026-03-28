@@ -8,7 +8,7 @@ import {
   GetDeploymentsCommandInput,
   GetDeploymentsCommandOutput,
 } from "../commands/GetDeploymentsCommand";
-import { APIGatewayPaginationConfiguration } from "./Interfaces";
+import type { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

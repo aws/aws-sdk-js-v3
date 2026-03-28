@@ -8,7 +8,7 @@ import {
   ListFrameworksCommandInput,
   ListFrameworksCommandOutput,
 } from "../commands/ListFrameworksCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,90 +61,105 @@ import {
   defaultQAppsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateLibraryItemReviewCommandInput,
   AssociateLibraryItemReviewCommandOutput,
 } from "./commands/AssociateLibraryItemReviewCommand";
-import {
+import type {
   AssociateQAppWithUserCommandInput,
   AssociateQAppWithUserCommandOutput,
 } from "./commands/AssociateQAppWithUserCommand";
-import {
+import type {
   BatchCreateCategoryCommandInput,
   BatchCreateCategoryCommandOutput,
 } from "./commands/BatchCreateCategoryCommand";
-import {
+import type {
   BatchDeleteCategoryCommandInput,
   BatchDeleteCategoryCommandOutput,
 } from "./commands/BatchDeleteCategoryCommand";
-import {
+import type {
   BatchUpdateCategoryCommandInput,
   BatchUpdateCategoryCommandOutput,
 } from "./commands/BatchUpdateCategoryCommand";
-import { CreateLibraryItemCommandInput, CreateLibraryItemCommandOutput } from "./commands/CreateLibraryItemCommand";
-import { CreatePresignedUrlCommandInput, CreatePresignedUrlCommandOutput } from "./commands/CreatePresignedUrlCommand";
-import { CreateQAppCommandInput, CreateQAppCommandOutput } from "./commands/CreateQAppCommand";
-import { DeleteLibraryItemCommandInput, DeleteLibraryItemCommandOutput } from "./commands/DeleteLibraryItemCommand";
-import { DeleteQAppCommandInput, DeleteQAppCommandOutput } from "./commands/DeleteQAppCommand";
-import {
+import type {
+  CreateLibraryItemCommandInput,
+  CreateLibraryItemCommandOutput,
+} from "./commands/CreateLibraryItemCommand";
+import type {
+  CreatePresignedUrlCommandInput,
+  CreatePresignedUrlCommandOutput,
+} from "./commands/CreatePresignedUrlCommand";
+import type { CreateQAppCommandInput, CreateQAppCommandOutput } from "./commands/CreateQAppCommand";
+import type {
+  DeleteLibraryItemCommandInput,
+  DeleteLibraryItemCommandOutput,
+} from "./commands/DeleteLibraryItemCommand";
+import type { DeleteQAppCommandInput, DeleteQAppCommandOutput } from "./commands/DeleteQAppCommand";
+import type {
   DescribeQAppPermissionsCommandInput,
   DescribeQAppPermissionsCommandOutput,
 } from "./commands/DescribeQAppPermissionsCommand";
-import {
+import type {
   DisassociateLibraryItemReviewCommandInput,
   DisassociateLibraryItemReviewCommandOutput,
 } from "./commands/DisassociateLibraryItemReviewCommand";
-import {
+import type {
   DisassociateQAppFromUserCommandInput,
   DisassociateQAppFromUserCommandOutput,
 } from "./commands/DisassociateQAppFromUserCommand";
-import {
+import type {
   ExportQAppSessionDataCommandInput,
   ExportQAppSessionDataCommandOutput,
 } from "./commands/ExportQAppSessionDataCommand";
-import { GetLibraryItemCommandInput, GetLibraryItemCommandOutput } from "./commands/GetLibraryItemCommand";
-import { GetQAppCommandInput, GetQAppCommandOutput } from "./commands/GetQAppCommand";
-import { GetQAppSessionCommandInput, GetQAppSessionCommandOutput } from "./commands/GetQAppSessionCommand";
-import {
+import type { GetLibraryItemCommandInput, GetLibraryItemCommandOutput } from "./commands/GetLibraryItemCommand";
+import type { GetQAppCommandInput, GetQAppCommandOutput } from "./commands/GetQAppCommand";
+import type { GetQAppSessionCommandInput, GetQAppSessionCommandOutput } from "./commands/GetQAppSessionCommand";
+import type {
   GetQAppSessionMetadataCommandInput,
   GetQAppSessionMetadataCommandOutput,
 } from "./commands/GetQAppSessionMetadataCommand";
-import { ImportDocumentCommandInput, ImportDocumentCommandOutput } from "./commands/ImportDocumentCommand";
-import { ListCategoriesCommandInput, ListCategoriesCommandOutput } from "./commands/ListCategoriesCommand";
-import { ListLibraryItemsCommandInput, ListLibraryItemsCommandOutput } from "./commands/ListLibraryItemsCommand";
-import { ListQAppsCommandInput, ListQAppsCommandOutput } from "./commands/ListQAppsCommand";
-import {
+import type { ImportDocumentCommandInput, ImportDocumentCommandOutput } from "./commands/ImportDocumentCommand";
+import type { ListCategoriesCommandInput, ListCategoriesCommandOutput } from "./commands/ListCategoriesCommand";
+import type { ListLibraryItemsCommandInput, ListLibraryItemsCommandOutput } from "./commands/ListLibraryItemsCommand";
+import type { ListQAppsCommandInput, ListQAppsCommandOutput } from "./commands/ListQAppsCommand";
+import type {
   ListQAppSessionDataCommandInput,
   ListQAppSessionDataCommandOutput,
 } from "./commands/ListQAppSessionDataCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PredictQAppCommandInput, PredictQAppCommandOutput } from "./commands/PredictQAppCommand";
-import { StartQAppSessionCommandInput, StartQAppSessionCommandOutput } from "./commands/StartQAppSessionCommand";
-import { StopQAppSessionCommandInput, StopQAppSessionCommandOutput } from "./commands/StopQAppSessionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateLibraryItemCommandInput, UpdateLibraryItemCommandOutput } from "./commands/UpdateLibraryItemCommand";
-import {
+import type { PredictQAppCommandInput, PredictQAppCommandOutput } from "./commands/PredictQAppCommand";
+import type { StartQAppSessionCommandInput, StartQAppSessionCommandOutput } from "./commands/StartQAppSessionCommand";
+import type { StopQAppSessionCommandInput, StopQAppSessionCommandOutput } from "./commands/StopQAppSessionCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateLibraryItemCommandInput,
+  UpdateLibraryItemCommandOutput,
+} from "./commands/UpdateLibraryItemCommand";
+import type {
   UpdateLibraryItemMetadataCommandInput,
   UpdateLibraryItemMetadataCommandOutput,
 } from "./commands/UpdateLibraryItemMetadataCommand";
-import { UpdateQAppCommandInput, UpdateQAppCommandOutput } from "./commands/UpdateQAppCommand";
-import {
+import type { UpdateQAppCommandInput, UpdateQAppCommandOutput } from "./commands/UpdateQAppCommand";
+import type {
   UpdateQAppPermissionsCommandInput,
   UpdateQAppPermissionsCommandOutput,
 } from "./commands/UpdateQAppPermissionsCommand";
-import { UpdateQAppSessionCommandInput, UpdateQAppSessionCommandOutput } from "./commands/UpdateQAppSessionCommand";
-import {
+import type {
+  UpdateQAppSessionCommandInput,
+  UpdateQAppSessionCommandOutput,
+} from "./commands/UpdateQAppSessionCommand";
+import type {
   UpdateQAppSessionMetadataCommandInput,
   UpdateQAppSessionMetadataCommandOutput,
 } from "./commands/UpdateQAppSessionMetadataCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -348,7 +361,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

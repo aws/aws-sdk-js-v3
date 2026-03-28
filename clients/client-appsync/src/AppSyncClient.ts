@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,153 +61,156 @@ import {
   defaultAppSyncHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateApiCommandInput, AssociateApiCommandOutput } from "./commands/AssociateApiCommand";
-import {
+import type { AssociateApiCommandInput, AssociateApiCommandOutput } from "./commands/AssociateApiCommand";
+import type {
   AssociateMergedGraphqlApiCommandInput,
   AssociateMergedGraphqlApiCommandOutput,
 } from "./commands/AssociateMergedGraphqlApiCommand";
-import {
+import type {
   AssociateSourceGraphqlApiCommandInput,
   AssociateSourceGraphqlApiCommandOutput,
 } from "./commands/AssociateSourceGraphqlApiCommand";
-import { CreateApiCacheCommandInput, CreateApiCacheCommandOutput } from "./commands/CreateApiCacheCommand";
-import { CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
-import { CreateApiKeyCommandInput, CreateApiKeyCommandOutput } from "./commands/CreateApiKeyCommand";
-import {
+import type { CreateApiCacheCommandInput, CreateApiCacheCommandOutput } from "./commands/CreateApiCacheCommand";
+import type { CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
+import type { CreateApiKeyCommandInput, CreateApiKeyCommandOutput } from "./commands/CreateApiKeyCommand";
+import type {
   CreateChannelNamespaceCommandInput,
   CreateChannelNamespaceCommandOutput,
 } from "./commands/CreateChannelNamespaceCommand";
-import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
-import { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "./commands/CreateDomainNameCommand";
-import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
-import { CreateGraphqlApiCommandInput, CreateGraphqlApiCommandOutput } from "./commands/CreateGraphqlApiCommand";
-import { CreateResolverCommandInput, CreateResolverCommandOutput } from "./commands/CreateResolverCommand";
-import { CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
-import { DeleteApiCacheCommandInput, DeleteApiCacheCommandOutput } from "./commands/DeleteApiCacheCommand";
-import { DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
-import { DeleteApiKeyCommandInput, DeleteApiKeyCommandOutput } from "./commands/DeleteApiKeyCommand";
-import {
+import type { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import type { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "./commands/CreateDomainNameCommand";
+import type { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
+import type { CreateGraphqlApiCommandInput, CreateGraphqlApiCommandOutput } from "./commands/CreateGraphqlApiCommand";
+import type { CreateResolverCommandInput, CreateResolverCommandOutput } from "./commands/CreateResolverCommand";
+import type { CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
+import type { DeleteApiCacheCommandInput, DeleteApiCacheCommandOutput } from "./commands/DeleteApiCacheCommand";
+import type { DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
+import type { DeleteApiKeyCommandInput, DeleteApiKeyCommandOutput } from "./commands/DeleteApiKeyCommand";
+import type {
   DeleteChannelNamespaceCommandInput,
   DeleteChannelNamespaceCommandOutput,
 } from "./commands/DeleteChannelNamespaceCommand";
-import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
-import { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "./commands/DeleteDomainNameCommand";
-import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
-import { DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput } from "./commands/DeleteGraphqlApiCommand";
-import { DeleteResolverCommandInput, DeleteResolverCommandOutput } from "./commands/DeleteResolverCommand";
-import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
-import { DisassociateApiCommandInput, DisassociateApiCommandOutput } from "./commands/DisassociateApiCommand";
-import {
+import type { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import type { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "./commands/DeleteDomainNameCommand";
+import type { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
+import type { DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput } from "./commands/DeleteGraphqlApiCommand";
+import type { DeleteResolverCommandInput, DeleteResolverCommandOutput } from "./commands/DeleteResolverCommand";
+import type { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
+import type { DisassociateApiCommandInput, DisassociateApiCommandOutput } from "./commands/DisassociateApiCommand";
+import type {
   DisassociateMergedGraphqlApiCommandInput,
   DisassociateMergedGraphqlApiCommandOutput,
 } from "./commands/DisassociateMergedGraphqlApiCommand";
-import {
+import type {
   DisassociateSourceGraphqlApiCommandInput,
   DisassociateSourceGraphqlApiCommandOutput,
 } from "./commands/DisassociateSourceGraphqlApiCommand";
-import { EvaluateCodeCommandInput, EvaluateCodeCommandOutput } from "./commands/EvaluateCodeCommand";
-import {
+import type { EvaluateCodeCommandInput, EvaluateCodeCommandOutput } from "./commands/EvaluateCodeCommand";
+import type {
   EvaluateMappingTemplateCommandInput,
   EvaluateMappingTemplateCommandOutput,
 } from "./commands/EvaluateMappingTemplateCommand";
-import { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "./commands/FlushApiCacheCommand";
-import { GetApiAssociationCommandInput, GetApiAssociationCommandOutput } from "./commands/GetApiAssociationCommand";
-import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
-import { GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
-import {
+import type { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "./commands/FlushApiCacheCommand";
+import type {
+  GetApiAssociationCommandInput,
+  GetApiAssociationCommandOutput,
+} from "./commands/GetApiAssociationCommand";
+import type { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
+import type { GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
+import type {
   GetChannelNamespaceCommandInput,
   GetChannelNamespaceCommandOutput,
 } from "./commands/GetChannelNamespaceCommand";
-import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
-import {
+import type { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import type {
   GetDataSourceIntrospectionCommandInput,
   GetDataSourceIntrospectionCommandOutput,
 } from "./commands/GetDataSourceIntrospectionCommand";
-import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "./commands/GetDomainNameCommand";
-import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
-import { GetGraphqlApiCommandInput, GetGraphqlApiCommandOutput } from "./commands/GetGraphqlApiCommand";
-import {
+import type { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "./commands/GetDomainNameCommand";
+import type { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
+import type { GetGraphqlApiCommandInput, GetGraphqlApiCommandOutput } from "./commands/GetGraphqlApiCommand";
+import type {
   GetGraphqlApiEnvironmentVariablesCommandInput,
   GetGraphqlApiEnvironmentVariablesCommandOutput,
 } from "./commands/GetGraphqlApiEnvironmentVariablesCommand";
-import {
+import type {
   GetIntrospectionSchemaCommandInput,
   GetIntrospectionSchemaCommandOutput,
 } from "./commands/GetIntrospectionSchemaCommand";
-import { GetResolverCommandInput, GetResolverCommandOutput } from "./commands/GetResolverCommand";
-import {
+import type { GetResolverCommandInput, GetResolverCommandOutput } from "./commands/GetResolverCommand";
+import type {
   GetSchemaCreationStatusCommandInput,
   GetSchemaCreationStatusCommandOutput,
 } from "./commands/GetSchemaCreationStatusCommand";
-import {
+import type {
   GetSourceApiAssociationCommandInput,
   GetSourceApiAssociationCommandOutput,
 } from "./commands/GetSourceApiAssociationCommand";
-import { GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
-import { ListApiKeysCommandInput, ListApiKeysCommandOutput } from "./commands/ListApiKeysCommand";
-import { ListApisCommandInput, ListApisCommandOutput } from "./commands/ListApisCommand";
-import {
+import type { GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
+import type { ListApiKeysCommandInput, ListApiKeysCommandOutput } from "./commands/ListApiKeysCommand";
+import type { ListApisCommandInput, ListApisCommandOutput } from "./commands/ListApisCommand";
+import type {
   ListChannelNamespacesCommandInput,
   ListChannelNamespacesCommandOutput,
 } from "./commands/ListChannelNamespacesCommand";
-import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
-import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
-import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
-import { ListGraphqlApisCommandInput, ListGraphqlApisCommandOutput } from "./commands/ListGraphqlApisCommand";
-import {
+import type { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import type { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
+import type { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
+import type { ListGraphqlApisCommandInput, ListGraphqlApisCommandOutput } from "./commands/ListGraphqlApisCommand";
+import type {
   ListResolversByFunctionCommandInput,
   ListResolversByFunctionCommandOutput,
 } from "./commands/ListResolversByFunctionCommand";
-import { ListResolversCommandInput, ListResolversCommandOutput } from "./commands/ListResolversCommand";
-import {
+import type { ListResolversCommandInput, ListResolversCommandOutput } from "./commands/ListResolversCommand";
+import type {
   ListSourceApiAssociationsCommandInput,
   ListSourceApiAssociationsCommandOutput,
 } from "./commands/ListSourceApiAssociationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTypesByAssociationCommandInput,
   ListTypesByAssociationCommandOutput,
 } from "./commands/ListTypesByAssociationCommand";
-import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
-import {
+import type { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import type {
   PutGraphqlApiEnvironmentVariablesCommandInput,
   PutGraphqlApiEnvironmentVariablesCommandOutput,
 } from "./commands/PutGraphqlApiEnvironmentVariablesCommand";
-import {
+import type {
   StartDataSourceIntrospectionCommandInput,
   StartDataSourceIntrospectionCommandOutput,
 } from "./commands/StartDataSourceIntrospectionCommand";
-import {
+import type {
   StartSchemaCreationCommandInput,
   StartSchemaCreationCommandOutput,
 } from "./commands/StartSchemaCreationCommand";
-import { StartSchemaMergeCommandInput, StartSchemaMergeCommandOutput } from "./commands/StartSchemaMergeCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApiCacheCommandInput, UpdateApiCacheCommandOutput } from "./commands/UpdateApiCacheCommand";
-import { UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
-import { UpdateApiKeyCommandInput, UpdateApiKeyCommandOutput } from "./commands/UpdateApiKeyCommand";
-import {
+import type { StartSchemaMergeCommandInput, StartSchemaMergeCommandOutput } from "./commands/StartSchemaMergeCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateApiCacheCommandInput, UpdateApiCacheCommandOutput } from "./commands/UpdateApiCacheCommand";
+import type { UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
+import type { UpdateApiKeyCommandInput, UpdateApiKeyCommandOutput } from "./commands/UpdateApiKeyCommand";
+import type {
   UpdateChannelNamespaceCommandInput,
   UpdateChannelNamespaceCommandOutput,
 } from "./commands/UpdateChannelNamespaceCommand";
-import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
-import { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "./commands/UpdateDomainNameCommand";
-import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
-import { UpdateGraphqlApiCommandInput, UpdateGraphqlApiCommandOutput } from "./commands/UpdateGraphqlApiCommand";
-import { UpdateResolverCommandInput, UpdateResolverCommandOutput } from "./commands/UpdateResolverCommand";
-import {
+import type { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import type { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "./commands/UpdateDomainNameCommand";
+import type { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
+import type { UpdateGraphqlApiCommandInput, UpdateGraphqlApiCommandOutput } from "./commands/UpdateGraphqlApiCommand";
+import type { UpdateResolverCommandInput, UpdateResolverCommandOutput } from "./commands/UpdateResolverCommand";
+import type {
   UpdateSourceApiAssociationCommandInput,
   UpdateSourceApiAssociationCommandOutput,
 } from "./commands/UpdateSourceApiAssociationCommand";
-import { UpdateTypeCommandInput, UpdateTypeCommandOutput } from "./commands/UpdateTypeCommand";
+import type { UpdateTypeCommandInput, UpdateTypeCommandOutput } from "./commands/UpdateTypeCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -489,7 +490,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

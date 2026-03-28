@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { AmplifyUIBuilderClient } from "../AmplifyUIBuilderClient";
 import { ExportFormsCommand, ExportFormsCommandInput, ExportFormsCommandOutput } from "../commands/ExportFormsCommand";
-import { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
+import type { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -7,7 +7,7 @@
  */
 export * from "./CodeGuruSecurityClient";
 export * from "./CodeGuruSecurity";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CodeGuruSecurityExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

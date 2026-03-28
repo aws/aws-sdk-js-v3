@@ -8,7 +8,7 @@ import {
   ListAssessmentTemplatesCommandOutput,
 } from "../commands/ListAssessmentTemplatesCommand";
 import { InspectorClient } from "../InspectorClient";
-import { InspectorPaginationConfiguration } from "./Interfaces";
+import type { InspectorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { StreamingBlobTypes } from "@smithy/types";
+import type { StreamingBlobTypes } from "@smithy/types";
 
-import {
+import type {
   ConfirmationState,
   ConversationMode,
   DialogActionType,
@@ -14,7 +14,7 @@ import {
   Shape,
   StyleType,
 } from "./enums";
-import {
+import type {
   AccessDeniedException,
   BadGatewayException,
   ConflictException,

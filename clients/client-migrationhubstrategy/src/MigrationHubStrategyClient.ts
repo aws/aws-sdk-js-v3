@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,71 +61,80 @@ import {
   defaultMigrationHubStrategyHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   GetApplicationComponentDetailsCommandInput,
   GetApplicationComponentDetailsCommandOutput,
 } from "./commands/GetApplicationComponentDetailsCommand";
-import {
+import type {
   GetApplicationComponentStrategiesCommandInput,
   GetApplicationComponentStrategiesCommandOutput,
 } from "./commands/GetApplicationComponentStrategiesCommand";
-import { GetAssessmentCommandInput, GetAssessmentCommandOutput } from "./commands/GetAssessmentCommand";
-import { GetImportFileTaskCommandInput, GetImportFileTaskCommandOutput } from "./commands/GetImportFileTaskCommand";
-import {
+import type { GetAssessmentCommandInput, GetAssessmentCommandOutput } from "./commands/GetAssessmentCommand";
+import type {
+  GetImportFileTaskCommandInput,
+  GetImportFileTaskCommandOutput,
+} from "./commands/GetImportFileTaskCommand";
+import type {
   GetLatestAssessmentIdCommandInput,
   GetLatestAssessmentIdCommandOutput,
 } from "./commands/GetLatestAssessmentIdCommand";
-import {
+import type {
   GetPortfolioPreferencesCommandInput,
   GetPortfolioPreferencesCommandOutput,
 } from "./commands/GetPortfolioPreferencesCommand";
-import {
+import type {
   GetPortfolioSummaryCommandInput,
   GetPortfolioSummaryCommandOutput,
 } from "./commands/GetPortfolioSummaryCommand";
-import {
+import type {
   GetRecommendationReportDetailsCommandInput,
   GetRecommendationReportDetailsCommandOutput,
 } from "./commands/GetRecommendationReportDetailsCommand";
-import { GetServerDetailsCommandInput, GetServerDetailsCommandOutput } from "./commands/GetServerDetailsCommand";
-import {
+import type { GetServerDetailsCommandInput, GetServerDetailsCommandOutput } from "./commands/GetServerDetailsCommand";
+import type {
   GetServerStrategiesCommandInput,
   GetServerStrategiesCommandOutput,
 } from "./commands/GetServerStrategiesCommand";
-import {
+import type {
   ListAnalyzableServersCommandInput,
   ListAnalyzableServersCommandOutput,
 } from "./commands/ListAnalyzableServersCommand";
-import {
+import type {
   ListApplicationComponentsCommandInput,
   ListApplicationComponentsCommandOutput,
 } from "./commands/ListApplicationComponentsCommand";
-import { ListCollectorsCommandInput, ListCollectorsCommandOutput } from "./commands/ListCollectorsCommand";
-import { ListImportFileTaskCommandInput, ListImportFileTaskCommandOutput } from "./commands/ListImportFileTaskCommand";
-import { ListServersCommandInput, ListServersCommandOutput } from "./commands/ListServersCommand";
-import {
+import type { ListCollectorsCommandInput, ListCollectorsCommandOutput } from "./commands/ListCollectorsCommand";
+import type {
+  ListImportFileTaskCommandInput,
+  ListImportFileTaskCommandOutput,
+} from "./commands/ListImportFileTaskCommand";
+import type { ListServersCommandInput, ListServersCommandOutput } from "./commands/ListServersCommand";
+import type {
   PutPortfolioPreferencesCommandInput,
   PutPortfolioPreferencesCommandOutput,
 } from "./commands/PutPortfolioPreferencesCommand";
-import { StartAssessmentCommandInput, StartAssessmentCommandOutput } from "./commands/StartAssessmentCommand";
-import {
+import type { StartAssessmentCommandInput, StartAssessmentCommandOutput } from "./commands/StartAssessmentCommand";
+import type {
   StartImportFileTaskCommandInput,
   StartImportFileTaskCommandOutput,
 } from "./commands/StartImportFileTaskCommand";
-import {
+import type {
   StartRecommendationReportGenerationCommandInput,
   StartRecommendationReportGenerationCommandOutput,
 } from "./commands/StartRecommendationReportGenerationCommand";
-import { StopAssessmentCommandInput, StopAssessmentCommandOutput } from "./commands/StopAssessmentCommand";
-import {
+import type { StopAssessmentCommandInput, StopAssessmentCommandOutput } from "./commands/StopAssessmentCommand";
+import type {
   UpdateApplicationComponentConfigCommandInput,
   UpdateApplicationComponentConfigCommandOutput,
 } from "./commands/UpdateApplicationComponentConfigCommand";
-import { UpdateServerConfigCommandInput, UpdateServerConfigCommandOutput } from "./commands/UpdateServerConfigCommand";
+import type {
+  UpdateServerConfigCommandInput,
+  UpdateServerConfigCommandOutput,
+} from "./commands/UpdateServerConfigCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -303,7 +310,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

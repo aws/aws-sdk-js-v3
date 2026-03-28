@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,112 +61,139 @@ import {
   defaultBCMPricingCalculatorHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchCreateBillScenarioCommitmentModificationCommandInput,
   BatchCreateBillScenarioCommitmentModificationCommandOutput,
 } from "./commands/BatchCreateBillScenarioCommitmentModificationCommand";
-import {
+import type {
   BatchCreateBillScenarioUsageModificationCommandInput,
   BatchCreateBillScenarioUsageModificationCommandOutput,
 } from "./commands/BatchCreateBillScenarioUsageModificationCommand";
-import {
+import type {
   BatchCreateWorkloadEstimateUsageCommandInput,
   BatchCreateWorkloadEstimateUsageCommandOutput,
 } from "./commands/BatchCreateWorkloadEstimateUsageCommand";
-import {
+import type {
   BatchDeleteBillScenarioCommitmentModificationCommandInput,
   BatchDeleteBillScenarioCommitmentModificationCommandOutput,
 } from "./commands/BatchDeleteBillScenarioCommitmentModificationCommand";
-import {
+import type {
   BatchDeleteBillScenarioUsageModificationCommandInput,
   BatchDeleteBillScenarioUsageModificationCommandOutput,
 } from "./commands/BatchDeleteBillScenarioUsageModificationCommand";
-import {
+import type {
   BatchDeleteWorkloadEstimateUsageCommandInput,
   BatchDeleteWorkloadEstimateUsageCommandOutput,
 } from "./commands/BatchDeleteWorkloadEstimateUsageCommand";
-import {
+import type {
   BatchUpdateBillScenarioCommitmentModificationCommandInput,
   BatchUpdateBillScenarioCommitmentModificationCommandOutput,
 } from "./commands/BatchUpdateBillScenarioCommitmentModificationCommand";
-import {
+import type {
   BatchUpdateBillScenarioUsageModificationCommandInput,
   BatchUpdateBillScenarioUsageModificationCommandOutput,
 } from "./commands/BatchUpdateBillScenarioUsageModificationCommand";
-import {
+import type {
   BatchUpdateWorkloadEstimateUsageCommandInput,
   BatchUpdateWorkloadEstimateUsageCommandOutput,
 } from "./commands/BatchUpdateWorkloadEstimateUsageCommand";
-import { CreateBillEstimateCommandInput, CreateBillEstimateCommandOutput } from "./commands/CreateBillEstimateCommand";
-import { CreateBillScenarioCommandInput, CreateBillScenarioCommandOutput } from "./commands/CreateBillScenarioCommand";
-import {
+import type {
+  CreateBillEstimateCommandInput,
+  CreateBillEstimateCommandOutput,
+} from "./commands/CreateBillEstimateCommand";
+import type {
+  CreateBillScenarioCommandInput,
+  CreateBillScenarioCommandOutput,
+} from "./commands/CreateBillScenarioCommand";
+import type {
   CreateWorkloadEstimateCommandInput,
   CreateWorkloadEstimateCommandOutput,
 } from "./commands/CreateWorkloadEstimateCommand";
-import { DeleteBillEstimateCommandInput, DeleteBillEstimateCommandOutput } from "./commands/DeleteBillEstimateCommand";
-import { DeleteBillScenarioCommandInput, DeleteBillScenarioCommandOutput } from "./commands/DeleteBillScenarioCommand";
-import {
+import type {
+  DeleteBillEstimateCommandInput,
+  DeleteBillEstimateCommandOutput,
+} from "./commands/DeleteBillEstimateCommand";
+import type {
+  DeleteBillScenarioCommandInput,
+  DeleteBillScenarioCommandOutput,
+} from "./commands/DeleteBillScenarioCommand";
+import type {
   DeleteWorkloadEstimateCommandInput,
   DeleteWorkloadEstimateCommandOutput,
 } from "./commands/DeleteWorkloadEstimateCommand";
-import { GetBillEstimateCommandInput, GetBillEstimateCommandOutput } from "./commands/GetBillEstimateCommand";
-import { GetBillScenarioCommandInput, GetBillScenarioCommandOutput } from "./commands/GetBillScenarioCommand";
-import { GetPreferencesCommandInput, GetPreferencesCommandOutput } from "./commands/GetPreferencesCommand";
-import {
+import type { GetBillEstimateCommandInput, GetBillEstimateCommandOutput } from "./commands/GetBillEstimateCommand";
+import type { GetBillScenarioCommandInput, GetBillScenarioCommandOutput } from "./commands/GetBillScenarioCommand";
+import type { GetPreferencesCommandInput, GetPreferencesCommandOutput } from "./commands/GetPreferencesCommand";
+import type {
   GetWorkloadEstimateCommandInput,
   GetWorkloadEstimateCommandOutput,
 } from "./commands/GetWorkloadEstimateCommand";
-import {
+import type {
   ListBillEstimateCommitmentsCommandInput,
   ListBillEstimateCommitmentsCommandOutput,
 } from "./commands/ListBillEstimateCommitmentsCommand";
-import {
+import type {
   ListBillEstimateInputCommitmentModificationsCommandInput,
   ListBillEstimateInputCommitmentModificationsCommandOutput,
 } from "./commands/ListBillEstimateInputCommitmentModificationsCommand";
-import {
+import type {
   ListBillEstimateInputUsageModificationsCommandInput,
   ListBillEstimateInputUsageModificationsCommandOutput,
 } from "./commands/ListBillEstimateInputUsageModificationsCommand";
-import {
+import type {
   ListBillEstimateLineItemsCommandInput,
   ListBillEstimateLineItemsCommandOutput,
 } from "./commands/ListBillEstimateLineItemsCommand";
-import { ListBillEstimatesCommandInput, ListBillEstimatesCommandOutput } from "./commands/ListBillEstimatesCommand";
-import {
+import type {
+  ListBillEstimatesCommandInput,
+  ListBillEstimatesCommandOutput,
+} from "./commands/ListBillEstimatesCommand";
+import type {
   ListBillScenarioCommitmentModificationsCommandInput,
   ListBillScenarioCommitmentModificationsCommandOutput,
 } from "./commands/ListBillScenarioCommitmentModificationsCommand";
-import { ListBillScenariosCommandInput, ListBillScenariosCommandOutput } from "./commands/ListBillScenariosCommand";
-import {
+import type {
+  ListBillScenariosCommandInput,
+  ListBillScenariosCommandOutput,
+} from "./commands/ListBillScenariosCommand";
+import type {
   ListBillScenarioUsageModificationsCommandInput,
   ListBillScenarioUsageModificationsCommandOutput,
 } from "./commands/ListBillScenarioUsageModificationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListWorkloadEstimatesCommandInput,
   ListWorkloadEstimatesCommandOutput,
 } from "./commands/ListWorkloadEstimatesCommand";
-import {
+import type {
   ListWorkloadEstimateUsageCommandInput,
   ListWorkloadEstimateUsageCommandOutput,
 } from "./commands/ListWorkloadEstimateUsageCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateBillEstimateCommandInput, UpdateBillEstimateCommandOutput } from "./commands/UpdateBillEstimateCommand";
-import { UpdateBillScenarioCommandInput, UpdateBillScenarioCommandOutput } from "./commands/UpdateBillScenarioCommand";
-import { UpdatePreferencesCommandInput, UpdatePreferencesCommandOutput } from "./commands/UpdatePreferencesCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateBillEstimateCommandInput,
+  UpdateBillEstimateCommandOutput,
+} from "./commands/UpdateBillEstimateCommand";
+import type {
+  UpdateBillScenarioCommandInput,
+  UpdateBillScenarioCommandOutput,
+} from "./commands/UpdateBillScenarioCommand";
+import type {
+  UpdatePreferencesCommandInput,
+  UpdatePreferencesCommandOutput,
+} from "./commands/UpdatePreferencesCommand";
+import type {
   UpdateWorkloadEstimateCommandInput,
   UpdateWorkloadEstimateCommandOutput,
 } from "./commands/UpdateWorkloadEstimateCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -372,7 +397,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

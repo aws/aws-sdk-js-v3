@@ -3,195 +3,215 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptMarketplaceRegistrationCommandInput,
+  type AcceptMarketplaceRegistrationCommandOutput,
   AcceptMarketplaceRegistrationCommand,
-  AcceptMarketplaceRegistrationCommandInput,
-  AcceptMarketplaceRegistrationCommandOutput,
 } from "./commands/AcceptMarketplaceRegistrationCommand";
 import {
+  type AssociateIamRoleToResourceCommandInput,
+  type AssociateIamRoleToResourceCommandOutput,
   AssociateIamRoleToResourceCommand,
-  AssociateIamRoleToResourceCommandInput,
-  AssociateIamRoleToResourceCommandOutput,
 } from "./commands/AssociateIamRoleToResourceCommand";
 import {
+  type CreateCloudAutonomousVmClusterCommandInput,
+  type CreateCloudAutonomousVmClusterCommandOutput,
   CreateCloudAutonomousVmClusterCommand,
-  CreateCloudAutonomousVmClusterCommandInput,
-  CreateCloudAutonomousVmClusterCommandOutput,
 } from "./commands/CreateCloudAutonomousVmClusterCommand";
 import {
+  type CreateCloudExadataInfrastructureCommandInput,
+  type CreateCloudExadataInfrastructureCommandOutput,
   CreateCloudExadataInfrastructureCommand,
-  CreateCloudExadataInfrastructureCommandInput,
-  CreateCloudExadataInfrastructureCommandOutput,
 } from "./commands/CreateCloudExadataInfrastructureCommand";
 import {
+  type CreateCloudVmClusterCommandInput,
+  type CreateCloudVmClusterCommandOutput,
   CreateCloudVmClusterCommand,
-  CreateCloudVmClusterCommandInput,
-  CreateCloudVmClusterCommandOutput,
 } from "./commands/CreateCloudVmClusterCommand";
 import {
+  type CreateOdbNetworkCommandInput,
+  type CreateOdbNetworkCommandOutput,
   CreateOdbNetworkCommand,
-  CreateOdbNetworkCommandInput,
-  CreateOdbNetworkCommandOutput,
 } from "./commands/CreateOdbNetworkCommand";
 import {
+  type CreateOdbPeeringConnectionCommandInput,
+  type CreateOdbPeeringConnectionCommandOutput,
   CreateOdbPeeringConnectionCommand,
-  CreateOdbPeeringConnectionCommandInput,
-  CreateOdbPeeringConnectionCommandOutput,
 } from "./commands/CreateOdbPeeringConnectionCommand";
 import {
+  type DeleteCloudAutonomousVmClusterCommandInput,
+  type DeleteCloudAutonomousVmClusterCommandOutput,
   DeleteCloudAutonomousVmClusterCommand,
-  DeleteCloudAutonomousVmClusterCommandInput,
-  DeleteCloudAutonomousVmClusterCommandOutput,
 } from "./commands/DeleteCloudAutonomousVmClusterCommand";
 import {
+  type DeleteCloudExadataInfrastructureCommandInput,
+  type DeleteCloudExadataInfrastructureCommandOutput,
   DeleteCloudExadataInfrastructureCommand,
-  DeleteCloudExadataInfrastructureCommandInput,
-  DeleteCloudExadataInfrastructureCommandOutput,
 } from "./commands/DeleteCloudExadataInfrastructureCommand";
 import {
+  type DeleteCloudVmClusterCommandInput,
+  type DeleteCloudVmClusterCommandOutput,
   DeleteCloudVmClusterCommand,
-  DeleteCloudVmClusterCommandInput,
-  DeleteCloudVmClusterCommandOutput,
 } from "./commands/DeleteCloudVmClusterCommand";
 import {
+  type DeleteOdbNetworkCommandInput,
+  type DeleteOdbNetworkCommandOutput,
   DeleteOdbNetworkCommand,
-  DeleteOdbNetworkCommandInput,
-  DeleteOdbNetworkCommandOutput,
 } from "./commands/DeleteOdbNetworkCommand";
 import {
+  type DeleteOdbPeeringConnectionCommandInput,
+  type DeleteOdbPeeringConnectionCommandOutput,
   DeleteOdbPeeringConnectionCommand,
-  DeleteOdbPeeringConnectionCommandInput,
-  DeleteOdbPeeringConnectionCommandOutput,
 } from "./commands/DeleteOdbPeeringConnectionCommand";
 import {
+  type DisassociateIamRoleFromResourceCommandInput,
+  type DisassociateIamRoleFromResourceCommandOutput,
   DisassociateIamRoleFromResourceCommand,
-  DisassociateIamRoleFromResourceCommandInput,
-  DisassociateIamRoleFromResourceCommandOutput,
 } from "./commands/DisassociateIamRoleFromResourceCommand";
 import {
+  type GetCloudAutonomousVmClusterCommandInput,
+  type GetCloudAutonomousVmClusterCommandOutput,
   GetCloudAutonomousVmClusterCommand,
-  GetCloudAutonomousVmClusterCommandInput,
-  GetCloudAutonomousVmClusterCommandOutput,
 } from "./commands/GetCloudAutonomousVmClusterCommand";
 import {
+  type GetCloudExadataInfrastructureCommandInput,
+  type GetCloudExadataInfrastructureCommandOutput,
   GetCloudExadataInfrastructureCommand,
-  GetCloudExadataInfrastructureCommandInput,
-  GetCloudExadataInfrastructureCommandOutput,
 } from "./commands/GetCloudExadataInfrastructureCommand";
 import {
+  type GetCloudExadataInfrastructureUnallocatedResourcesCommandInput,
+  type GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput,
   GetCloudExadataInfrastructureUnallocatedResourcesCommand,
-  GetCloudExadataInfrastructureUnallocatedResourcesCommandInput,
-  GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput,
 } from "./commands/GetCloudExadataInfrastructureUnallocatedResourcesCommand";
 import {
+  type GetCloudVmClusterCommandInput,
+  type GetCloudVmClusterCommandOutput,
   GetCloudVmClusterCommand,
-  GetCloudVmClusterCommandInput,
-  GetCloudVmClusterCommandOutput,
 } from "./commands/GetCloudVmClusterCommand";
-import { GetDbNodeCommand, GetDbNodeCommandInput, GetDbNodeCommandOutput } from "./commands/GetDbNodeCommand";
-import { GetDbServerCommand, GetDbServerCommandInput, GetDbServerCommandOutput } from "./commands/GetDbServerCommand";
+import { type GetDbNodeCommandInput, type GetDbNodeCommandOutput, GetDbNodeCommand } from "./commands/GetDbNodeCommand";
 import {
+  type GetDbServerCommandInput,
+  type GetDbServerCommandOutput,
+  GetDbServerCommand,
+} from "./commands/GetDbServerCommand";
+import {
+  type GetOciOnboardingStatusCommandInput,
+  type GetOciOnboardingStatusCommandOutput,
   GetOciOnboardingStatusCommand,
-  GetOciOnboardingStatusCommandInput,
-  GetOciOnboardingStatusCommandOutput,
 } from "./commands/GetOciOnboardingStatusCommand";
 import {
+  type GetOdbNetworkCommandInput,
+  type GetOdbNetworkCommandOutput,
   GetOdbNetworkCommand,
-  GetOdbNetworkCommandInput,
-  GetOdbNetworkCommandOutput,
 } from "./commands/GetOdbNetworkCommand";
 import {
+  type GetOdbPeeringConnectionCommandInput,
+  type GetOdbPeeringConnectionCommandOutput,
   GetOdbPeeringConnectionCommand,
-  GetOdbPeeringConnectionCommandInput,
-  GetOdbPeeringConnectionCommandOutput,
 } from "./commands/GetOdbPeeringConnectionCommand";
 import {
+  type InitializeServiceCommandInput,
+  type InitializeServiceCommandOutput,
   InitializeServiceCommand,
-  InitializeServiceCommandInput,
-  InitializeServiceCommandOutput,
 } from "./commands/InitializeServiceCommand";
 import {
+  type ListAutonomousVirtualMachinesCommandInput,
+  type ListAutonomousVirtualMachinesCommandOutput,
   ListAutonomousVirtualMachinesCommand,
-  ListAutonomousVirtualMachinesCommandInput,
-  ListAutonomousVirtualMachinesCommandOutput,
 } from "./commands/ListAutonomousVirtualMachinesCommand";
 import {
+  type ListCloudAutonomousVmClustersCommandInput,
+  type ListCloudAutonomousVmClustersCommandOutput,
   ListCloudAutonomousVmClustersCommand,
-  ListCloudAutonomousVmClustersCommandInput,
-  ListCloudAutonomousVmClustersCommandOutput,
 } from "./commands/ListCloudAutonomousVmClustersCommand";
 import {
+  type ListCloudExadataInfrastructuresCommandInput,
+  type ListCloudExadataInfrastructuresCommandOutput,
   ListCloudExadataInfrastructuresCommand,
-  ListCloudExadataInfrastructuresCommandInput,
-  ListCloudExadataInfrastructuresCommandOutput,
 } from "./commands/ListCloudExadataInfrastructuresCommand";
 import {
+  type ListCloudVmClustersCommandInput,
+  type ListCloudVmClustersCommandOutput,
   ListCloudVmClustersCommand,
-  ListCloudVmClustersCommandInput,
-  ListCloudVmClustersCommandOutput,
 } from "./commands/ListCloudVmClustersCommand";
-import { ListDbNodesCommand, ListDbNodesCommandInput, ListDbNodesCommandOutput } from "./commands/ListDbNodesCommand";
 import {
+  type ListDbNodesCommandInput,
+  type ListDbNodesCommandOutput,
+  ListDbNodesCommand,
+} from "./commands/ListDbNodesCommand";
+import {
+  type ListDbServersCommandInput,
+  type ListDbServersCommandOutput,
   ListDbServersCommand,
-  ListDbServersCommandInput,
-  ListDbServersCommandOutput,
 } from "./commands/ListDbServersCommand";
 import {
+  type ListDbSystemShapesCommandInput,
+  type ListDbSystemShapesCommandOutput,
   ListDbSystemShapesCommand,
-  ListDbSystemShapesCommandInput,
-  ListDbSystemShapesCommandOutput,
 } from "./commands/ListDbSystemShapesCommand";
 import {
+  type ListGiVersionsCommandInput,
+  type ListGiVersionsCommandOutput,
   ListGiVersionsCommand,
-  ListGiVersionsCommandInput,
-  ListGiVersionsCommandOutput,
 } from "./commands/ListGiVersionsCommand";
 import {
+  type ListOdbNetworksCommandInput,
+  type ListOdbNetworksCommandOutput,
   ListOdbNetworksCommand,
-  ListOdbNetworksCommandInput,
-  ListOdbNetworksCommandOutput,
 } from "./commands/ListOdbNetworksCommand";
 import {
+  type ListOdbPeeringConnectionsCommandInput,
+  type ListOdbPeeringConnectionsCommandOutput,
   ListOdbPeeringConnectionsCommand,
-  ListOdbPeeringConnectionsCommandInput,
-  ListOdbPeeringConnectionsCommandOutput,
 } from "./commands/ListOdbPeeringConnectionsCommand";
 import {
+  type ListSystemVersionsCommandInput,
+  type ListSystemVersionsCommandOutput,
   ListSystemVersionsCommand,
-  ListSystemVersionsCommandInput,
-  ListSystemVersionsCommandOutput,
 } from "./commands/ListSystemVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RebootDbNodeCommandInput,
+  type RebootDbNodeCommandOutput,
   RebootDbNodeCommand,
-  RebootDbNodeCommandInput,
-  RebootDbNodeCommandOutput,
 } from "./commands/RebootDbNodeCommand";
-import { StartDbNodeCommand, StartDbNodeCommandInput, StartDbNodeCommandOutput } from "./commands/StartDbNodeCommand";
-import { StopDbNodeCommand, StopDbNodeCommandInput, StopDbNodeCommandOutput } from "./commands/StopDbNodeCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type StartDbNodeCommandInput,
+  type StartDbNodeCommandOutput,
+  StartDbNodeCommand,
+} from "./commands/StartDbNodeCommand";
+import {
+  type StopDbNodeCommandInput,
+  type StopDbNodeCommandOutput,
+  StopDbNodeCommand,
+} from "./commands/StopDbNodeCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCloudExadataInfrastructureCommandInput,
+  type UpdateCloudExadataInfrastructureCommandOutput,
   UpdateCloudExadataInfrastructureCommand,
-  UpdateCloudExadataInfrastructureCommandInput,
-  UpdateCloudExadataInfrastructureCommandOutput,
 } from "./commands/UpdateCloudExadataInfrastructureCommand";
 import {
+  type UpdateOdbNetworkCommandInput,
+  type UpdateOdbNetworkCommandOutput,
   UpdateOdbNetworkCommand,
-  UpdateOdbNetworkCommandInput,
-  UpdateOdbNetworkCommandOutput,
 } from "./commands/UpdateOdbNetworkCommand";
 import {
+  type UpdateOdbPeeringConnectionCommandInput,
+  type UpdateOdbPeeringConnectionCommandOutput,
   UpdateOdbPeeringConnectionCommand,
-  UpdateOdbPeeringConnectionCommandInput,
-  UpdateOdbPeeringConnectionCommandOutput,
 } from "./commands/UpdateOdbPeeringConnectionCommand";
 import { OdbClient } from "./OdbClient";
 import { paginateListAutonomousVirtualMachines } from "./pagination/ListAutonomousVirtualMachinesPaginator";

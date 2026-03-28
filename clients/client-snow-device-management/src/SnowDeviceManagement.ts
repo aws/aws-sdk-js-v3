@@ -2,50 +2,66 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { CancelTaskCommand, CancelTaskCommandInput, CancelTaskCommandOutput } from "./commands/CancelTaskCommand";
-import { CreateTaskCommand, CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
 import {
+  type CancelTaskCommandInput,
+  type CancelTaskCommandOutput,
+  CancelTaskCommand,
+} from "./commands/CancelTaskCommand";
+import {
+  type CreateTaskCommandInput,
+  type CreateTaskCommandOutput,
+  CreateTaskCommand,
+} from "./commands/CreateTaskCommand";
+import {
+  type DescribeDeviceCommandInput,
+  type DescribeDeviceCommandOutput,
   DescribeDeviceCommand,
-  DescribeDeviceCommandInput,
-  DescribeDeviceCommandOutput,
 } from "./commands/DescribeDeviceCommand";
 import {
+  type DescribeDeviceEc2InstancesCommandInput,
+  type DescribeDeviceEc2InstancesCommandOutput,
   DescribeDeviceEc2InstancesCommand,
-  DescribeDeviceEc2InstancesCommandInput,
-  DescribeDeviceEc2InstancesCommandOutput,
 } from "./commands/DescribeDeviceEc2InstancesCommand";
 import {
+  type DescribeExecutionCommandInput,
+  type DescribeExecutionCommandOutput,
   DescribeExecutionCommand,
-  DescribeExecutionCommandInput,
-  DescribeExecutionCommandOutput,
 } from "./commands/DescribeExecutionCommand";
 import {
+  type DescribeTaskCommandInput,
+  type DescribeTaskCommandOutput,
   DescribeTaskCommand,
-  DescribeTaskCommandInput,
-  DescribeTaskCommandOutput,
 } from "./commands/DescribeTaskCommand";
 import {
+  type ListDeviceResourcesCommandInput,
+  type ListDeviceResourcesCommandOutput,
   ListDeviceResourcesCommand,
-  ListDeviceResourcesCommandInput,
-  ListDeviceResourcesCommandOutput,
 } from "./commands/ListDeviceResourcesCommand";
-import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import {
+  type ListDevicesCommandInput,
+  type ListDevicesCommandOutput,
+  ListDevicesCommand,
+} from "./commands/ListDevicesCommand";
+import {
+  type ListExecutionsCommandInput,
+  type ListExecutionsCommandOutput,
   ListExecutionsCommand,
-  ListExecutionsCommandInput,
-  ListExecutionsCommandOutput,
 } from "./commands/ListExecutionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTasksCommand, ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type ListTasksCommandInput, type ListTasksCommandOutput, ListTasksCommand } from "./commands/ListTasksCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateListDeviceResources } from "./pagination/ListDeviceResourcesPaginator";
 import { paginateListDevices } from "./pagination/ListDevicesPaginator";

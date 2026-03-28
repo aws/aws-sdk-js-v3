@@ -8,7 +8,7 @@ import {
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
 } from "../commands/ListDashboardsCommand";
-import { CloudWatchPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

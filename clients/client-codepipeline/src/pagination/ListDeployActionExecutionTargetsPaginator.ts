@@ -8,7 +8,7 @@ import {
   ListDeployActionExecutionTargetsCommandInput,
   ListDeployActionExecutionTargetsCommandOutput,
 } from "../commands/ListDeployActionExecutionTargetsCommand";
-import { CodePipelinePaginationConfiguration } from "./Interfaces";
+import type { CodePipelinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

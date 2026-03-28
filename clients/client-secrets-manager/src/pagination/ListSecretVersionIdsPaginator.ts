@@ -8,7 +8,7 @@ import {
   ListSecretVersionIdsCommandOutput,
 } from "../commands/ListSecretVersionIdsCommand";
 import { SecretsManagerClient } from "../SecretsManagerClient";
-import { SecretsManagerPaginationConfiguration } from "./Interfaces";
+import type { SecretsManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

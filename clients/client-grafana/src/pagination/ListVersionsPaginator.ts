@@ -8,7 +8,7 @@ import {
   ListVersionsCommandOutput,
 } from "../commands/ListVersionsCommand";
 import { GrafanaClient } from "../GrafanaClient";
-import { GrafanaPaginationConfiguration } from "./Interfaces";
+import type { GrafanaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

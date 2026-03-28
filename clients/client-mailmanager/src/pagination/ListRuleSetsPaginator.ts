@@ -8,7 +8,7 @@ import {
   ListRuleSetsCommandOutput,
 } from "../commands/ListRuleSetsCommand";
 import { MailManagerClient } from "../MailManagerClient";
-import { MailManagerPaginationConfiguration } from "./Interfaces";
+import type { MailManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -11,7 +11,7 @@
  */
 export * from "./IoTSecureTunnelingClient";
 export * from "./IoTSecureTunneling";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { IoTSecureTunnelingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

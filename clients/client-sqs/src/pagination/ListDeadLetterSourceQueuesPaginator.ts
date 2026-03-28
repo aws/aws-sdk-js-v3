@@ -8,7 +8,7 @@ import {
   ListDeadLetterSourceQueuesCommandOutput,
 } from "../commands/ListDeadLetterSourceQueuesCommand";
 import { SQSClient } from "../SQSClient";
-import { SQSPaginationConfiguration } from "./Interfaces";
+import type { SQSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

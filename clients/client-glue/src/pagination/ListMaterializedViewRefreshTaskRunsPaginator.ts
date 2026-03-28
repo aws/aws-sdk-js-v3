@@ -8,7 +8,7 @@ import {
   ListMaterializedViewRefreshTaskRunsCommandOutput,
 } from "../commands/ListMaterializedViewRefreshTaskRunsCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

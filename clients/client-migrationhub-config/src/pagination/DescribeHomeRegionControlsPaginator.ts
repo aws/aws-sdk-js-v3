@@ -8,7 +8,7 @@ import {
   DescribeHomeRegionControlsCommandOutput,
 } from "../commands/DescribeHomeRegionControlsCommand";
 import { MigrationHubConfigClient } from "../MigrationHubConfigClient";
-import { MigrationHubConfigPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubConfigPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

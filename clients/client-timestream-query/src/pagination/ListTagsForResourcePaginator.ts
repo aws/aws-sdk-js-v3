@@ -8,7 +8,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { TimestreamQueryClient } from "../TimestreamQueryClient";
-import { TimestreamQueryPaginationConfiguration } from "./Interfaces";
+import type { TimestreamQueryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

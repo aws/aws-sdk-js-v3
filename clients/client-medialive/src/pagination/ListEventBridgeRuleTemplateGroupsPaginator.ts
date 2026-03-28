@@ -8,7 +8,7 @@ import {
   ListEventBridgeRuleTemplateGroupsCommandOutput,
 } from "../commands/ListEventBridgeRuleTemplateGroupsCommand";
 import { MediaLiveClient } from "../MediaLiveClient";
-import { MediaLivePaginationConfiguration } from "./Interfaces";
+import type { MediaLivePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CloudTrailClient } from "../CloudTrailClient";
 import { ListTrailsCommand, ListTrailsCommandInput, ListTrailsCommandOutput } from "../commands/ListTrailsCommand";
-import { CloudTrailPaginationConfiguration } from "./Interfaces";
+import type { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -10,414 +10,446 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CloudFormationClient } from "./CloudFormationClient";
 import {
+  type ActivateOrganizationsAccessCommandInput,
+  type ActivateOrganizationsAccessCommandOutput,
   ActivateOrganizationsAccessCommand,
-  ActivateOrganizationsAccessCommandInput,
-  ActivateOrganizationsAccessCommandOutput,
 } from "./commands/ActivateOrganizationsAccessCommand";
 import {
+  type ActivateTypeCommandInput,
+  type ActivateTypeCommandOutput,
   ActivateTypeCommand,
-  ActivateTypeCommandInput,
-  ActivateTypeCommandOutput,
 } from "./commands/ActivateTypeCommand";
 import {
+  type BatchDescribeTypeConfigurationsCommandInput,
+  type BatchDescribeTypeConfigurationsCommandOutput,
   BatchDescribeTypeConfigurationsCommand,
-  BatchDescribeTypeConfigurationsCommandInput,
-  BatchDescribeTypeConfigurationsCommandOutput,
 } from "./commands/BatchDescribeTypeConfigurationsCommand";
 import {
+  type CancelUpdateStackCommandInput,
+  type CancelUpdateStackCommandOutput,
   CancelUpdateStackCommand,
-  CancelUpdateStackCommandInput,
-  CancelUpdateStackCommandOutput,
 } from "./commands/CancelUpdateStackCommand";
 import {
+  type ContinueUpdateRollbackCommandInput,
+  type ContinueUpdateRollbackCommandOutput,
   ContinueUpdateRollbackCommand,
-  ContinueUpdateRollbackCommandInput,
-  ContinueUpdateRollbackCommandOutput,
 } from "./commands/ContinueUpdateRollbackCommand";
 import {
+  type CreateChangeSetCommandInput,
+  type CreateChangeSetCommandOutput,
   CreateChangeSetCommand,
-  CreateChangeSetCommandInput,
-  CreateChangeSetCommandOutput,
 } from "./commands/CreateChangeSetCommand";
 import {
+  type CreateGeneratedTemplateCommandInput,
+  type CreateGeneratedTemplateCommandOutput,
   CreateGeneratedTemplateCommand,
-  CreateGeneratedTemplateCommandInput,
-  CreateGeneratedTemplateCommandOutput,
 } from "./commands/CreateGeneratedTemplateCommand";
-import { CreateStackCommand, CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
+  type CreateStackCommandInput,
+  type CreateStackCommandOutput,
+  CreateStackCommand,
+} from "./commands/CreateStackCommand";
+import {
+  type CreateStackInstancesCommandInput,
+  type CreateStackInstancesCommandOutput,
   CreateStackInstancesCommand,
-  CreateStackInstancesCommandInput,
-  CreateStackInstancesCommandOutput,
 } from "./commands/CreateStackInstancesCommand";
 import {
+  type CreateStackRefactorCommandInput,
+  type CreateStackRefactorCommandOutput,
   CreateStackRefactorCommand,
-  CreateStackRefactorCommandInput,
-  CreateStackRefactorCommandOutput,
 } from "./commands/CreateStackRefactorCommand";
 import {
+  type CreateStackSetCommandInput,
+  type CreateStackSetCommandOutput,
   CreateStackSetCommand,
-  CreateStackSetCommandInput,
-  CreateStackSetCommandOutput,
 } from "./commands/CreateStackSetCommand";
 import {
+  type DeactivateOrganizationsAccessCommandInput,
+  type DeactivateOrganizationsAccessCommandOutput,
   DeactivateOrganizationsAccessCommand,
-  DeactivateOrganizationsAccessCommandInput,
-  DeactivateOrganizationsAccessCommandOutput,
 } from "./commands/DeactivateOrganizationsAccessCommand";
 import {
+  type DeactivateTypeCommandInput,
+  type DeactivateTypeCommandOutput,
   DeactivateTypeCommand,
-  DeactivateTypeCommandInput,
-  DeactivateTypeCommandOutput,
 } from "./commands/DeactivateTypeCommand";
 import {
+  type DeleteChangeSetCommandInput,
+  type DeleteChangeSetCommandOutput,
   DeleteChangeSetCommand,
-  DeleteChangeSetCommandInput,
-  DeleteChangeSetCommandOutput,
 } from "./commands/DeleteChangeSetCommand";
 import {
+  type DeleteGeneratedTemplateCommandInput,
+  type DeleteGeneratedTemplateCommandOutput,
   DeleteGeneratedTemplateCommand,
-  DeleteGeneratedTemplateCommandInput,
-  DeleteGeneratedTemplateCommandOutput,
 } from "./commands/DeleteGeneratedTemplateCommand";
-import { DeleteStackCommand, DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
 import {
+  type DeleteStackCommandInput,
+  type DeleteStackCommandOutput,
+  DeleteStackCommand,
+} from "./commands/DeleteStackCommand";
+import {
+  type DeleteStackInstancesCommandInput,
+  type DeleteStackInstancesCommandOutput,
   DeleteStackInstancesCommand,
-  DeleteStackInstancesCommandInput,
-  DeleteStackInstancesCommandOutput,
 } from "./commands/DeleteStackInstancesCommand";
 import {
+  type DeleteStackSetCommandInput,
+  type DeleteStackSetCommandOutput,
   DeleteStackSetCommand,
-  DeleteStackSetCommandInput,
-  DeleteStackSetCommandOutput,
 } from "./commands/DeleteStackSetCommand";
 import {
+  type DeregisterTypeCommandInput,
+  type DeregisterTypeCommandOutput,
   DeregisterTypeCommand,
-  DeregisterTypeCommandInput,
-  DeregisterTypeCommandOutput,
 } from "./commands/DeregisterTypeCommand";
 import {
+  type DescribeAccountLimitsCommandInput,
+  type DescribeAccountLimitsCommandOutput,
   DescribeAccountLimitsCommand,
-  DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
+  type DescribeChangeSetCommandInput,
+  type DescribeChangeSetCommandOutput,
   DescribeChangeSetCommand,
-  DescribeChangeSetCommandInput,
-  DescribeChangeSetCommandOutput,
 } from "./commands/DescribeChangeSetCommand";
 import {
+  type DescribeChangeSetHooksCommandInput,
+  type DescribeChangeSetHooksCommandOutput,
   DescribeChangeSetHooksCommand,
-  DescribeChangeSetHooksCommandInput,
-  DescribeChangeSetHooksCommandOutput,
 } from "./commands/DescribeChangeSetHooksCommand";
 import {
+  type DescribeEventsCommandInput,
+  type DescribeEventsCommandOutput,
   DescribeEventsCommand,
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  type DescribeGeneratedTemplateCommandInput,
+  type DescribeGeneratedTemplateCommandOutput,
   DescribeGeneratedTemplateCommand,
-  DescribeGeneratedTemplateCommandInput,
-  DescribeGeneratedTemplateCommandOutput,
 } from "./commands/DescribeGeneratedTemplateCommand";
 import {
+  type DescribeOrganizationsAccessCommandInput,
+  type DescribeOrganizationsAccessCommandOutput,
   DescribeOrganizationsAccessCommand,
-  DescribeOrganizationsAccessCommandInput,
-  DescribeOrganizationsAccessCommandOutput,
 } from "./commands/DescribeOrganizationsAccessCommand";
 import {
+  type DescribePublisherCommandInput,
+  type DescribePublisherCommandOutput,
   DescribePublisherCommand,
-  DescribePublisherCommandInput,
-  DescribePublisherCommandOutput,
 } from "./commands/DescribePublisherCommand";
 import {
+  type DescribeResourceScanCommandInput,
+  type DescribeResourceScanCommandOutput,
   DescribeResourceScanCommand,
-  DescribeResourceScanCommandInput,
-  DescribeResourceScanCommandOutput,
 } from "./commands/DescribeResourceScanCommand";
 import {
+  type DescribeStackDriftDetectionStatusCommandInput,
+  type DescribeStackDriftDetectionStatusCommandOutput,
   DescribeStackDriftDetectionStatusCommand,
-  DescribeStackDriftDetectionStatusCommandInput,
-  DescribeStackDriftDetectionStatusCommandOutput,
 } from "./commands/DescribeStackDriftDetectionStatusCommand";
 import {
+  type DescribeStackEventsCommandInput,
+  type DescribeStackEventsCommandOutput,
   DescribeStackEventsCommand,
-  DescribeStackEventsCommandInput,
-  DescribeStackEventsCommandOutput,
 } from "./commands/DescribeStackEventsCommand";
 import {
+  type DescribeStackInstanceCommandInput,
+  type DescribeStackInstanceCommandOutput,
   DescribeStackInstanceCommand,
-  DescribeStackInstanceCommandInput,
-  DescribeStackInstanceCommandOutput,
 } from "./commands/DescribeStackInstanceCommand";
 import {
+  type DescribeStackRefactorCommandInput,
+  type DescribeStackRefactorCommandOutput,
   DescribeStackRefactorCommand,
-  DescribeStackRefactorCommandInput,
-  DescribeStackRefactorCommandOutput,
 } from "./commands/DescribeStackRefactorCommand";
 import {
+  type DescribeStackResourceCommandInput,
+  type DescribeStackResourceCommandOutput,
   DescribeStackResourceCommand,
-  DescribeStackResourceCommandInput,
-  DescribeStackResourceCommandOutput,
 } from "./commands/DescribeStackResourceCommand";
 import {
+  type DescribeStackResourceDriftsCommandInput,
+  type DescribeStackResourceDriftsCommandOutput,
   DescribeStackResourceDriftsCommand,
-  DescribeStackResourceDriftsCommandInput,
-  DescribeStackResourceDriftsCommandOutput,
 } from "./commands/DescribeStackResourceDriftsCommand";
 import {
+  type DescribeStackResourcesCommandInput,
+  type DescribeStackResourcesCommandOutput,
   DescribeStackResourcesCommand,
-  DescribeStackResourcesCommandInput,
-  DescribeStackResourcesCommandOutput,
 } from "./commands/DescribeStackResourcesCommand";
 import {
+  type DescribeStacksCommandInput,
+  type DescribeStacksCommandOutput,
   DescribeStacksCommand,
-  DescribeStacksCommandInput,
-  DescribeStacksCommandOutput,
 } from "./commands/DescribeStacksCommand";
 import {
+  type DescribeStackSetCommandInput,
+  type DescribeStackSetCommandOutput,
   DescribeStackSetCommand,
-  DescribeStackSetCommandInput,
-  DescribeStackSetCommandOutput,
 } from "./commands/DescribeStackSetCommand";
 import {
+  type DescribeStackSetOperationCommandInput,
+  type DescribeStackSetOperationCommandOutput,
   DescribeStackSetOperationCommand,
-  DescribeStackSetOperationCommandInput,
-  DescribeStackSetOperationCommandOutput,
 } from "./commands/DescribeStackSetOperationCommand";
 import {
+  type DescribeTypeCommandInput,
+  type DescribeTypeCommandOutput,
   DescribeTypeCommand,
-  DescribeTypeCommandInput,
-  DescribeTypeCommandOutput,
 } from "./commands/DescribeTypeCommand";
 import {
+  type DescribeTypeRegistrationCommandInput,
+  type DescribeTypeRegistrationCommandOutput,
   DescribeTypeRegistrationCommand,
-  DescribeTypeRegistrationCommandInput,
-  DescribeTypeRegistrationCommandOutput,
 } from "./commands/DescribeTypeRegistrationCommand";
 import {
+  type DetectStackDriftCommandInput,
+  type DetectStackDriftCommandOutput,
   DetectStackDriftCommand,
-  DetectStackDriftCommandInput,
-  DetectStackDriftCommandOutput,
 } from "./commands/DetectStackDriftCommand";
 import {
+  type DetectStackResourceDriftCommandInput,
+  type DetectStackResourceDriftCommandOutput,
   DetectStackResourceDriftCommand,
-  DetectStackResourceDriftCommandInput,
-  DetectStackResourceDriftCommandOutput,
 } from "./commands/DetectStackResourceDriftCommand";
 import {
+  type DetectStackSetDriftCommandInput,
+  type DetectStackSetDriftCommandOutput,
   DetectStackSetDriftCommand,
-  DetectStackSetDriftCommandInput,
-  DetectStackSetDriftCommandOutput,
 } from "./commands/DetectStackSetDriftCommand";
 import {
+  type EstimateTemplateCostCommandInput,
+  type EstimateTemplateCostCommandOutput,
   EstimateTemplateCostCommand,
-  EstimateTemplateCostCommandInput,
-  EstimateTemplateCostCommandOutput,
 } from "./commands/EstimateTemplateCostCommand";
 import {
+  type ExecuteChangeSetCommandInput,
+  type ExecuteChangeSetCommandOutput,
   ExecuteChangeSetCommand,
-  ExecuteChangeSetCommandInput,
-  ExecuteChangeSetCommandOutput,
 } from "./commands/ExecuteChangeSetCommand";
 import {
+  type ExecuteStackRefactorCommandInput,
+  type ExecuteStackRefactorCommandOutput,
   ExecuteStackRefactorCommand,
-  ExecuteStackRefactorCommandInput,
-  ExecuteStackRefactorCommandOutput,
 } from "./commands/ExecuteStackRefactorCommand";
 import {
+  type GetGeneratedTemplateCommandInput,
+  type GetGeneratedTemplateCommandOutput,
   GetGeneratedTemplateCommand,
-  GetGeneratedTemplateCommandInput,
-  GetGeneratedTemplateCommandOutput,
 } from "./commands/GetGeneratedTemplateCommand";
 import {
+  type GetHookResultCommandInput,
+  type GetHookResultCommandOutput,
   GetHookResultCommand,
-  GetHookResultCommandInput,
-  GetHookResultCommandOutput,
 } from "./commands/GetHookResultCommand";
 import {
+  type GetStackPolicyCommandInput,
+  type GetStackPolicyCommandOutput,
   GetStackPolicyCommand,
-  GetStackPolicyCommandInput,
-  GetStackPolicyCommandOutput,
 } from "./commands/GetStackPolicyCommand";
-import { GetTemplateCommand, GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
 import {
+  type GetTemplateCommandInput,
+  type GetTemplateCommandOutput,
+  GetTemplateCommand,
+} from "./commands/GetTemplateCommand";
+import {
+  type GetTemplateSummaryCommandInput,
+  type GetTemplateSummaryCommandOutput,
   GetTemplateSummaryCommand,
-  GetTemplateSummaryCommandInput,
-  GetTemplateSummaryCommandOutput,
 } from "./commands/GetTemplateSummaryCommand";
 import {
+  type ImportStacksToStackSetCommandInput,
+  type ImportStacksToStackSetCommandOutput,
   ImportStacksToStackSetCommand,
-  ImportStacksToStackSetCommandInput,
-  ImportStacksToStackSetCommandOutput,
 } from "./commands/ImportStacksToStackSetCommand";
 import {
+  type ListChangeSetsCommandInput,
+  type ListChangeSetsCommandOutput,
   ListChangeSetsCommand,
-  ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput,
 } from "./commands/ListChangeSetsCommand";
-import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import {
+  type ListExportsCommandInput,
+  type ListExportsCommandOutput,
+  ListExportsCommand,
+} from "./commands/ListExportsCommand";
+import {
+  type ListGeneratedTemplatesCommandInput,
+  type ListGeneratedTemplatesCommandOutput,
   ListGeneratedTemplatesCommand,
-  ListGeneratedTemplatesCommandInput,
-  ListGeneratedTemplatesCommandOutput,
 } from "./commands/ListGeneratedTemplatesCommand";
 import {
+  type ListHookResultsCommandInput,
+  type ListHookResultsCommandOutput,
   ListHookResultsCommand,
-  ListHookResultsCommandInput,
-  ListHookResultsCommandOutput,
 } from "./commands/ListHookResultsCommand";
-import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
+  type ListImportsCommandInput,
+  type ListImportsCommandOutput,
+  ListImportsCommand,
+} from "./commands/ListImportsCommand";
+import {
+  type ListResourceScanRelatedResourcesCommandInput,
+  type ListResourceScanRelatedResourcesCommandOutput,
   ListResourceScanRelatedResourcesCommand,
-  ListResourceScanRelatedResourcesCommandInput,
-  ListResourceScanRelatedResourcesCommandOutput,
 } from "./commands/ListResourceScanRelatedResourcesCommand";
 import {
+  type ListResourceScanResourcesCommandInput,
+  type ListResourceScanResourcesCommandOutput,
   ListResourceScanResourcesCommand,
-  ListResourceScanResourcesCommandInput,
-  ListResourceScanResourcesCommandOutput,
 } from "./commands/ListResourceScanResourcesCommand";
 import {
+  type ListResourceScansCommandInput,
+  type ListResourceScansCommandOutput,
   ListResourceScansCommand,
-  ListResourceScansCommandInput,
-  ListResourceScansCommandOutput,
 } from "./commands/ListResourceScansCommand";
 import {
+  type ListStackInstanceResourceDriftsCommandInput,
+  type ListStackInstanceResourceDriftsCommandOutput,
   ListStackInstanceResourceDriftsCommand,
-  ListStackInstanceResourceDriftsCommandInput,
-  ListStackInstanceResourceDriftsCommandOutput,
 } from "./commands/ListStackInstanceResourceDriftsCommand";
 import {
+  type ListStackInstancesCommandInput,
+  type ListStackInstancesCommandOutput,
   ListStackInstancesCommand,
-  ListStackInstancesCommandInput,
-  ListStackInstancesCommandOutput,
 } from "./commands/ListStackInstancesCommand";
 import {
+  type ListStackRefactorActionsCommandInput,
+  type ListStackRefactorActionsCommandOutput,
   ListStackRefactorActionsCommand,
-  ListStackRefactorActionsCommandInput,
-  ListStackRefactorActionsCommandOutput,
 } from "./commands/ListStackRefactorActionsCommand";
 import {
+  type ListStackRefactorsCommandInput,
+  type ListStackRefactorsCommandOutput,
   ListStackRefactorsCommand,
-  ListStackRefactorsCommandInput,
-  ListStackRefactorsCommandOutput,
 } from "./commands/ListStackRefactorsCommand";
 import {
+  type ListStackResourcesCommandInput,
+  type ListStackResourcesCommandOutput,
   ListStackResourcesCommand,
-  ListStackResourcesCommandInput,
-  ListStackResourcesCommandOutput,
 } from "./commands/ListStackResourcesCommand";
-import { ListStacksCommand, ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
 import {
+  type ListStacksCommandInput,
+  type ListStacksCommandOutput,
+  ListStacksCommand,
+} from "./commands/ListStacksCommand";
+import {
+  type ListStackSetAutoDeploymentTargetsCommandInput,
+  type ListStackSetAutoDeploymentTargetsCommandOutput,
   ListStackSetAutoDeploymentTargetsCommand,
-  ListStackSetAutoDeploymentTargetsCommandInput,
-  ListStackSetAutoDeploymentTargetsCommandOutput,
 } from "./commands/ListStackSetAutoDeploymentTargetsCommand";
 import {
+  type ListStackSetOperationResultsCommandInput,
+  type ListStackSetOperationResultsCommandOutput,
   ListStackSetOperationResultsCommand,
-  ListStackSetOperationResultsCommandInput,
-  ListStackSetOperationResultsCommandOutput,
 } from "./commands/ListStackSetOperationResultsCommand";
 import {
+  type ListStackSetOperationsCommandInput,
+  type ListStackSetOperationsCommandOutput,
   ListStackSetOperationsCommand,
-  ListStackSetOperationsCommandInput,
-  ListStackSetOperationsCommandOutput,
 } from "./commands/ListStackSetOperationsCommand";
 import {
+  type ListStackSetsCommandInput,
+  type ListStackSetsCommandOutput,
   ListStackSetsCommand,
-  ListStackSetsCommandInput,
-  ListStackSetsCommandOutput,
 } from "./commands/ListStackSetsCommand";
 import {
+  type ListTypeRegistrationsCommandInput,
+  type ListTypeRegistrationsCommandOutput,
   ListTypeRegistrationsCommand,
-  ListTypeRegistrationsCommandInput,
-  ListTypeRegistrationsCommandOutput,
 } from "./commands/ListTypeRegistrationsCommand";
-import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import { type ListTypesCommandInput, type ListTypesCommandOutput, ListTypesCommand } from "./commands/ListTypesCommand";
 import {
+  type ListTypeVersionsCommandInput,
+  type ListTypeVersionsCommandOutput,
   ListTypeVersionsCommand,
-  ListTypeVersionsCommandInput,
-  ListTypeVersionsCommandOutput,
 } from "./commands/ListTypeVersionsCommand";
-import { PublishTypeCommand, PublishTypeCommandInput, PublishTypeCommandOutput } from "./commands/PublishTypeCommand";
 import {
+  type PublishTypeCommandInput,
+  type PublishTypeCommandOutput,
+  PublishTypeCommand,
+} from "./commands/PublishTypeCommand";
+import {
+  type RecordHandlerProgressCommandInput,
+  type RecordHandlerProgressCommandOutput,
   RecordHandlerProgressCommand,
-  RecordHandlerProgressCommandInput,
-  RecordHandlerProgressCommandOutput,
 } from "./commands/RecordHandlerProgressCommand";
 import {
+  type RegisterPublisherCommandInput,
+  type RegisterPublisherCommandOutput,
   RegisterPublisherCommand,
-  RegisterPublisherCommandInput,
-  RegisterPublisherCommandOutput,
 } from "./commands/RegisterPublisherCommand";
 import {
+  type RegisterTypeCommandInput,
+  type RegisterTypeCommandOutput,
   RegisterTypeCommand,
-  RegisterTypeCommandInput,
-  RegisterTypeCommandOutput,
 } from "./commands/RegisterTypeCommand";
 import {
+  type RollbackStackCommandInput,
+  type RollbackStackCommandOutput,
   RollbackStackCommand,
-  RollbackStackCommandInput,
-  RollbackStackCommandOutput,
 } from "./commands/RollbackStackCommand";
 import {
+  type SetStackPolicyCommandInput,
+  type SetStackPolicyCommandOutput,
   SetStackPolicyCommand,
-  SetStackPolicyCommandInput,
-  SetStackPolicyCommandOutput,
 } from "./commands/SetStackPolicyCommand";
 import {
+  type SetTypeConfigurationCommandInput,
+  type SetTypeConfigurationCommandOutput,
   SetTypeConfigurationCommand,
-  SetTypeConfigurationCommandInput,
-  SetTypeConfigurationCommandOutput,
 } from "./commands/SetTypeConfigurationCommand";
 import {
+  type SetTypeDefaultVersionCommandInput,
+  type SetTypeDefaultVersionCommandOutput,
   SetTypeDefaultVersionCommand,
-  SetTypeDefaultVersionCommandInput,
-  SetTypeDefaultVersionCommandOutput,
 } from "./commands/SetTypeDefaultVersionCommand";
 import {
+  type SignalResourceCommandInput,
+  type SignalResourceCommandOutput,
   SignalResourceCommand,
-  SignalResourceCommandInput,
-  SignalResourceCommandOutput,
 } from "./commands/SignalResourceCommand";
 import {
+  type StartResourceScanCommandInput,
+  type StartResourceScanCommandOutput,
   StartResourceScanCommand,
-  StartResourceScanCommandInput,
-  StartResourceScanCommandOutput,
 } from "./commands/StartResourceScanCommand";
 import {
+  type StopStackSetOperationCommandInput,
+  type StopStackSetOperationCommandOutput,
   StopStackSetOperationCommand,
-  StopStackSetOperationCommandInput,
-  StopStackSetOperationCommandOutput,
 } from "./commands/StopStackSetOperationCommand";
-import { TestTypeCommand, TestTypeCommandInput, TestTypeCommandOutput } from "./commands/TestTypeCommand";
+import { type TestTypeCommandInput, type TestTypeCommandOutput, TestTypeCommand } from "./commands/TestTypeCommand";
 import {
+  type UpdateGeneratedTemplateCommandInput,
+  type UpdateGeneratedTemplateCommandOutput,
   UpdateGeneratedTemplateCommand,
-  UpdateGeneratedTemplateCommandInput,
-  UpdateGeneratedTemplateCommandOutput,
 } from "./commands/UpdateGeneratedTemplateCommand";
-import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
+  type UpdateStackCommandInput,
+  type UpdateStackCommandOutput,
+  UpdateStackCommand,
+} from "./commands/UpdateStackCommand";
+import {
+  type UpdateStackInstancesCommandInput,
+  type UpdateStackInstancesCommandOutput,
   UpdateStackInstancesCommand,
-  UpdateStackInstancesCommandInput,
-  UpdateStackInstancesCommandOutput,
 } from "./commands/UpdateStackInstancesCommand";
 import {
+  type UpdateStackSetCommandInput,
+  type UpdateStackSetCommandOutput,
   UpdateStackSetCommand,
-  UpdateStackSetCommandInput,
-  UpdateStackSetCommandOutput,
 } from "./commands/UpdateStackSetCommand";
 import {
+  type UpdateTerminationProtectionCommandInput,
+  type UpdateTerminationProtectionCommandOutput,
   UpdateTerminationProtectionCommand,
-  UpdateTerminationProtectionCommandInput,
-  UpdateTerminationProtectionCommandOutput,
 } from "./commands/UpdateTerminationProtectionCommand";
 import {
+  type ValidateTemplateCommandInput,
+  type ValidateTemplateCommandOutput,
   ValidateTemplateCommand,
-  ValidateTemplateCommandInput,
-  ValidateTemplateCommandOutput,
 } from "./commands/ValidateTemplateCommand";
 import { paginateDescribeAccountLimits } from "./pagination/DescribeAccountLimitsPaginator";
 import { paginateDescribeChangeSet } from "./pagination/DescribeChangeSetPaginator";

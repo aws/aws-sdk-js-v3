@@ -3,74 +3,74 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateApplicationVersionCommandInput,
+  type CreateApplicationVersionCommandOutput,
   CreateApplicationVersionCommand,
-  CreateApplicationVersionCommandInput,
-  CreateApplicationVersionCommandOutput,
 } from "./commands/CreateApplicationVersionCommand";
 import {
+  type CreateCloudFormationChangeSetCommandInput,
+  type CreateCloudFormationChangeSetCommandOutput,
   CreateCloudFormationChangeSetCommand,
-  CreateCloudFormationChangeSetCommandInput,
-  CreateCloudFormationChangeSetCommandOutput,
 } from "./commands/CreateCloudFormationChangeSetCommand";
 import {
+  type CreateCloudFormationTemplateCommandInput,
+  type CreateCloudFormationTemplateCommandOutput,
   CreateCloudFormationTemplateCommand,
-  CreateCloudFormationTemplateCommandInput,
-  CreateCloudFormationTemplateCommandOutput,
 } from "./commands/CreateCloudFormationTemplateCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
   GetApplicationCommand,
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  type GetApplicationPolicyCommandInput,
+  type GetApplicationPolicyCommandOutput,
   GetApplicationPolicyCommand,
-  GetApplicationPolicyCommandInput,
-  GetApplicationPolicyCommandOutput,
 } from "./commands/GetApplicationPolicyCommand";
 import {
+  type GetCloudFormationTemplateCommandInput,
+  type GetCloudFormationTemplateCommandOutput,
   GetCloudFormationTemplateCommand,
-  GetCloudFormationTemplateCommandInput,
-  GetCloudFormationTemplateCommandOutput,
 } from "./commands/GetCloudFormationTemplateCommand";
 import {
+  type ListApplicationDependenciesCommandInput,
+  type ListApplicationDependenciesCommandOutput,
   ListApplicationDependenciesCommand,
-  ListApplicationDependenciesCommandInput,
-  ListApplicationDependenciesCommandOutput,
 } from "./commands/ListApplicationDependenciesCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListApplicationVersionsCommandInput,
+  type ListApplicationVersionsCommandOutput,
   ListApplicationVersionsCommand,
-  ListApplicationVersionsCommandInput,
-  ListApplicationVersionsCommandOutput,
 } from "./commands/ListApplicationVersionsCommand";
 import {
+  type PutApplicationPolicyCommandInput,
+  type PutApplicationPolicyCommandOutput,
   PutApplicationPolicyCommand,
-  PutApplicationPolicyCommandInput,
-  PutApplicationPolicyCommandOutput,
 } from "./commands/PutApplicationPolicyCommand";
 import {
+  type UnshareApplicationCommandInput,
+  type UnshareApplicationCommandOutput,
   UnshareApplicationCommand,
-  UnshareApplicationCommandInput,
-  UnshareApplicationCommandOutput,
 } from "./commands/UnshareApplicationCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import { paginateListApplicationDependencies } from "./pagination/ListApplicationDependenciesPaginator";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";

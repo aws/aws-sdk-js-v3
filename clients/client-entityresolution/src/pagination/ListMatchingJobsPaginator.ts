@@ -8,7 +8,7 @@ import {
   ListMatchingJobsCommandOutput,
 } from "../commands/ListMatchingJobsCommand";
 import { EntityResolutionClient } from "../EntityResolutionClient";
-import { EntityResolutionPaginationConfiguration } from "./Interfaces";
+import type { EntityResolutionPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

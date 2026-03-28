@@ -3,106 +3,114 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreatePipelineCommandInput,
+  type CreatePipelineCommandOutput,
   CreatePipelineCommand,
-  CreatePipelineCommandInput,
-  CreatePipelineCommandOutput,
 } from "./commands/CreatePipelineCommand";
 import {
+  type CreatePipelineEndpointCommandInput,
+  type CreatePipelineEndpointCommandOutput,
   CreatePipelineEndpointCommand,
-  CreatePipelineEndpointCommandInput,
-  CreatePipelineEndpointCommandOutput,
 } from "./commands/CreatePipelineEndpointCommand";
 import {
+  type DeletePipelineCommandInput,
+  type DeletePipelineCommandOutput,
   DeletePipelineCommand,
-  DeletePipelineCommandInput,
-  DeletePipelineCommandOutput,
 } from "./commands/DeletePipelineCommand";
 import {
+  type DeletePipelineEndpointCommandInput,
+  type DeletePipelineEndpointCommandOutput,
   DeletePipelineEndpointCommand,
-  DeletePipelineEndpointCommandInput,
-  DeletePipelineEndpointCommandOutput,
 } from "./commands/DeletePipelineEndpointCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type GetPipelineBlueprintCommandInput,
+  type GetPipelineBlueprintCommandOutput,
   GetPipelineBlueprintCommand,
-  GetPipelineBlueprintCommandInput,
-  GetPipelineBlueprintCommandOutput,
 } from "./commands/GetPipelineBlueprintCommand";
 import {
+  type GetPipelineChangeProgressCommandInput,
+  type GetPipelineChangeProgressCommandOutput,
   GetPipelineChangeProgressCommand,
-  GetPipelineChangeProgressCommandInput,
-  GetPipelineChangeProgressCommandOutput,
 } from "./commands/GetPipelineChangeProgressCommand";
-import { GetPipelineCommand, GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand";
 import {
+  type GetPipelineCommandInput,
+  type GetPipelineCommandOutput,
+  GetPipelineCommand,
+} from "./commands/GetPipelineCommand";
+import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type ListPipelineBlueprintsCommandInput,
+  type ListPipelineBlueprintsCommandOutput,
   ListPipelineBlueprintsCommand,
-  ListPipelineBlueprintsCommandInput,
-  ListPipelineBlueprintsCommandOutput,
 } from "./commands/ListPipelineBlueprintsCommand";
 import {
+  type ListPipelineEndpointConnectionsCommandInput,
+  type ListPipelineEndpointConnectionsCommandOutput,
   ListPipelineEndpointConnectionsCommand,
-  ListPipelineEndpointConnectionsCommandInput,
-  ListPipelineEndpointConnectionsCommandOutput,
 } from "./commands/ListPipelineEndpointConnectionsCommand";
 import {
+  type ListPipelineEndpointsCommandInput,
+  type ListPipelineEndpointsCommandOutput,
   ListPipelineEndpointsCommand,
-  ListPipelineEndpointsCommandInput,
-  ListPipelineEndpointsCommandOutput,
 } from "./commands/ListPipelineEndpointsCommand";
 import {
+  type ListPipelinesCommandInput,
+  type ListPipelinesCommandOutput,
   ListPipelinesCommand,
-  ListPipelinesCommandInput,
-  ListPipelinesCommandOutput,
 } from "./commands/ListPipelinesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RevokePipelineEndpointConnectionsCommandInput,
+  type RevokePipelineEndpointConnectionsCommandOutput,
   RevokePipelineEndpointConnectionsCommand,
-  RevokePipelineEndpointConnectionsCommandInput,
-  RevokePipelineEndpointConnectionsCommandOutput,
 } from "./commands/RevokePipelineEndpointConnectionsCommand";
 import {
+  type StartPipelineCommandInput,
+  type StartPipelineCommandOutput,
   StartPipelineCommand,
-  StartPipelineCommandInput,
-  StartPipelineCommandOutput,
 } from "./commands/StartPipelineCommand";
 import {
+  type StopPipelineCommandInput,
+  type StopPipelineCommandOutput,
   StopPipelineCommand,
-  StopPipelineCommandInput,
-  StopPipelineCommandOutput,
 } from "./commands/StopPipelineCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdatePipelineCommandInput,
+  type UpdatePipelineCommandOutput,
   UpdatePipelineCommand,
-  UpdatePipelineCommandInput,
-  UpdatePipelineCommandOutput,
 } from "./commands/UpdatePipelineCommand";
 import {
+  type ValidatePipelineCommandInput,
+  type ValidatePipelineCommandOutput,
   ValidatePipelineCommand,
-  ValidatePipelineCommandInput,
-  ValidatePipelineCommandOutput,
 } from "./commands/ValidatePipelineCommand";
 import { OSISClient } from "./OSISClient";
 import { paginateListPipelineEndpointConnections } from "./pagination/ListPipelineEndpointConnectionsPaginator";

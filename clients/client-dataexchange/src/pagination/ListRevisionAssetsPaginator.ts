@@ -8,7 +8,7 @@ import {
   ListRevisionAssetsCommandOutput,
 } from "../commands/ListRevisionAssetsCommand";
 import { DataExchangeClient } from "../DataExchangeClient";
-import { DataExchangePaginationConfiguration } from "./Interfaces";
+import type { DataExchangePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

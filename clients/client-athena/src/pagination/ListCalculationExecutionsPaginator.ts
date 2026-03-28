@@ -8,7 +8,7 @@ import {
   ListCalculationExecutionsCommandInput,
   ListCalculationExecutionsCommandOutput,
 } from "../commands/ListCalculationExecutionsCommand";
-import { AthenaPaginationConfiguration } from "./Interfaces";
+import type { AthenaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

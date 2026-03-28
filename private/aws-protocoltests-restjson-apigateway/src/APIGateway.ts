@@ -3,7 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { APIGatewayClient } from "./APIGatewayClient";
-import { GetRestApisCommand, GetRestApisCommandInput, GetRestApisCommandOutput } from "./commands/GetRestApisCommand";
+import {
+  type GetRestApisCommandInput,
+  type GetRestApisCommandOutput,
+  GetRestApisCommand,
+} from "./commands/GetRestApisCommand";
 import { paginateGetRestApis } from "./pagination/GetRestApisPaginator";
 
 const commands = {

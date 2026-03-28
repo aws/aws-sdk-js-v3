@@ -8,7 +8,7 @@ import {
   ListArchiveExportsCommandOutput,
 } from "../commands/ListArchiveExportsCommand";
 import { MailManagerClient } from "../MailManagerClient";
-import { MailManagerPaginationConfiguration } from "./Interfaces";
+import type { MailManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,222 +61,246 @@ import {
   defaultImagebuilderHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CancelImageCreationCommandInput,
   CancelImageCreationCommandOutput,
 } from "./commands/CancelImageCreationCommand";
-import {
+import type {
   CancelLifecycleExecutionCommandInput,
   CancelLifecycleExecutionCommandOutput,
 } from "./commands/CancelLifecycleExecutionCommand";
-import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
-import {
+import type { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
+import type {
   CreateContainerRecipeCommandInput,
   CreateContainerRecipeCommandOutput,
 } from "./commands/CreateContainerRecipeCommand";
-import {
+import type {
   CreateDistributionConfigurationCommandInput,
   CreateDistributionConfigurationCommandOutput,
 } from "./commands/CreateDistributionConfigurationCommand";
-import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
-import {
+import type { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
+import type {
   CreateImagePipelineCommandInput,
   CreateImagePipelineCommandOutput,
 } from "./commands/CreateImagePipelineCommand";
-import { CreateImageRecipeCommandInput, CreateImageRecipeCommandOutput } from "./commands/CreateImageRecipeCommand";
-import {
+import type {
+  CreateImageRecipeCommandInput,
+  CreateImageRecipeCommandOutput,
+} from "./commands/CreateImageRecipeCommand";
+import type {
   CreateInfrastructureConfigurationCommandInput,
   CreateInfrastructureConfigurationCommandOutput,
 } from "./commands/CreateInfrastructureConfigurationCommand";
-import {
+import type {
   CreateLifecyclePolicyCommandInput,
   CreateLifecyclePolicyCommandOutput,
 } from "./commands/CreateLifecyclePolicyCommand";
-import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
-import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
-import {
+import type { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
+import type { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
+import type {
   DeleteContainerRecipeCommandInput,
   DeleteContainerRecipeCommandOutput,
 } from "./commands/DeleteContainerRecipeCommand";
-import {
+import type {
   DeleteDistributionConfigurationCommandInput,
   DeleteDistributionConfigurationCommandOutput,
 } from "./commands/DeleteDistributionConfigurationCommand";
-import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
-import {
+import type { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
+import type {
   DeleteImagePipelineCommandInput,
   DeleteImagePipelineCommandOutput,
 } from "./commands/DeleteImagePipelineCommand";
-import { DeleteImageRecipeCommandInput, DeleteImageRecipeCommandOutput } from "./commands/DeleteImageRecipeCommand";
-import {
+import type {
+  DeleteImageRecipeCommandInput,
+  DeleteImageRecipeCommandOutput,
+} from "./commands/DeleteImageRecipeCommand";
+import type {
   DeleteInfrastructureConfigurationCommandInput,
   DeleteInfrastructureConfigurationCommandOutput,
 } from "./commands/DeleteInfrastructureConfigurationCommand";
-import {
+import type {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
-import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
-import { DistributeImageCommandInput, DistributeImageCommandOutput } from "./commands/DistributeImageCommand";
-import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
-import { GetComponentPolicyCommandInput, GetComponentPolicyCommandOutput } from "./commands/GetComponentPolicyCommand";
-import { GetContainerRecipeCommandInput, GetContainerRecipeCommandOutput } from "./commands/GetContainerRecipeCommand";
-import {
+import type { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
+import type { DistributeImageCommandInput, DistributeImageCommandOutput } from "./commands/DistributeImageCommand";
+import type { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
+import type {
+  GetComponentPolicyCommandInput,
+  GetComponentPolicyCommandOutput,
+} from "./commands/GetComponentPolicyCommand";
+import type {
+  GetContainerRecipeCommandInput,
+  GetContainerRecipeCommandOutput,
+} from "./commands/GetContainerRecipeCommand";
+import type {
   GetContainerRecipePolicyCommandInput,
   GetContainerRecipePolicyCommandOutput,
 } from "./commands/GetContainerRecipePolicyCommand";
-import {
+import type {
   GetDistributionConfigurationCommandInput,
   GetDistributionConfigurationCommandOutput,
 } from "./commands/GetDistributionConfigurationCommand";
-import { GetImageCommandInput, GetImageCommandOutput } from "./commands/GetImageCommand";
-import { GetImagePipelineCommandInput, GetImagePipelineCommandOutput } from "./commands/GetImagePipelineCommand";
-import { GetImagePolicyCommandInput, GetImagePolicyCommandOutput } from "./commands/GetImagePolicyCommand";
-import { GetImageRecipeCommandInput, GetImageRecipeCommandOutput } from "./commands/GetImageRecipeCommand";
-import {
+import type { GetImageCommandInput, GetImageCommandOutput } from "./commands/GetImageCommand";
+import type { GetImagePipelineCommandInput, GetImagePipelineCommandOutput } from "./commands/GetImagePipelineCommand";
+import type { GetImagePolicyCommandInput, GetImagePolicyCommandOutput } from "./commands/GetImagePolicyCommand";
+import type { GetImageRecipeCommandInput, GetImageRecipeCommandOutput } from "./commands/GetImageRecipeCommand";
+import type {
   GetImageRecipePolicyCommandInput,
   GetImageRecipePolicyCommandOutput,
 } from "./commands/GetImageRecipePolicyCommand";
-import {
+import type {
   GetInfrastructureConfigurationCommandInput,
   GetInfrastructureConfigurationCommandOutput,
 } from "./commands/GetInfrastructureConfigurationCommand";
-import {
+import type {
   GetLifecycleExecutionCommandInput,
   GetLifecycleExecutionCommandOutput,
 } from "./commands/GetLifecycleExecutionCommand";
-import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "./commands/GetLifecyclePolicyCommand";
-import {
+import type {
+  GetLifecyclePolicyCommandInput,
+  GetLifecyclePolicyCommandOutput,
+} from "./commands/GetLifecyclePolicyCommand";
+import type {
   GetMarketplaceResourceCommandInput,
   GetMarketplaceResourceCommandOutput,
 } from "./commands/GetMarketplaceResourceCommand";
-import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
-import {
+import type { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import type {
   GetWorkflowExecutionCommandInput,
   GetWorkflowExecutionCommandOutput,
 } from "./commands/GetWorkflowExecutionCommand";
-import {
+import type {
   GetWorkflowStepExecutionCommandInput,
   GetWorkflowStepExecutionCommandOutput,
 } from "./commands/GetWorkflowStepExecutionCommand";
-import { ImportComponentCommandInput, ImportComponentCommandOutput } from "./commands/ImportComponentCommand";
-import { ImportDiskImageCommandInput, ImportDiskImageCommandOutput } from "./commands/ImportDiskImageCommand";
-import { ImportVmImageCommandInput, ImportVmImageCommandOutput } from "./commands/ImportVmImageCommand";
-import {
+import type { ImportComponentCommandInput, ImportComponentCommandOutput } from "./commands/ImportComponentCommand";
+import type { ImportDiskImageCommandInput, ImportDiskImageCommandOutput } from "./commands/ImportDiskImageCommand";
+import type { ImportVmImageCommandInput, ImportVmImageCommandOutput } from "./commands/ImportVmImageCommand";
+import type {
   ListComponentBuildVersionsCommandInput,
   ListComponentBuildVersionsCommandOutput,
 } from "./commands/ListComponentBuildVersionsCommand";
-import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
-import {
+import type { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
+import type {
   ListContainerRecipesCommandInput,
   ListContainerRecipesCommandOutput,
 } from "./commands/ListContainerRecipesCommand";
-import {
+import type {
   ListDistributionConfigurationsCommandInput,
   ListDistributionConfigurationsCommandOutput,
 } from "./commands/ListDistributionConfigurationsCommand";
-import {
+import type {
   ListImageBuildVersionsCommandInput,
   ListImageBuildVersionsCommandOutput,
 } from "./commands/ListImageBuildVersionsCommand";
-import { ListImagePackagesCommandInput, ListImagePackagesCommandOutput } from "./commands/ListImagePackagesCommand";
-import {
+import type {
+  ListImagePackagesCommandInput,
+  ListImagePackagesCommandOutput,
+} from "./commands/ListImagePackagesCommand";
+import type {
   ListImagePipelineImagesCommandInput,
   ListImagePipelineImagesCommandOutput,
 } from "./commands/ListImagePipelineImagesCommand";
-import { ListImagePipelinesCommandInput, ListImagePipelinesCommandOutput } from "./commands/ListImagePipelinesCommand";
-import { ListImageRecipesCommandInput, ListImageRecipesCommandOutput } from "./commands/ListImageRecipesCommand";
-import {
+import type {
+  ListImagePipelinesCommandInput,
+  ListImagePipelinesCommandOutput,
+} from "./commands/ListImagePipelinesCommand";
+import type { ListImageRecipesCommandInput, ListImageRecipesCommandOutput } from "./commands/ListImageRecipesCommand";
+import type {
   ListImageScanFindingAggregationsCommandInput,
   ListImageScanFindingAggregationsCommandOutput,
 } from "./commands/ListImageScanFindingAggregationsCommand";
-import {
+import type {
   ListImageScanFindingsCommandInput,
   ListImageScanFindingsCommandOutput,
 } from "./commands/ListImageScanFindingsCommand";
-import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
-import {
+import type { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
+import type {
   ListInfrastructureConfigurationsCommandInput,
   ListInfrastructureConfigurationsCommandOutput,
 } from "./commands/ListInfrastructureConfigurationsCommand";
-import {
+import type {
   ListLifecycleExecutionResourcesCommandInput,
   ListLifecycleExecutionResourcesCommandOutput,
 } from "./commands/ListLifecycleExecutionResourcesCommand";
-import {
+import type {
   ListLifecycleExecutionsCommandInput,
   ListLifecycleExecutionsCommandOutput,
 } from "./commands/ListLifecycleExecutionsCommand";
-import {
+import type {
   ListLifecyclePoliciesCommandInput,
   ListLifecyclePoliciesCommandOutput,
 } from "./commands/ListLifecyclePoliciesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListWaitingWorkflowStepsCommandInput,
   ListWaitingWorkflowStepsCommandOutput,
 } from "./commands/ListWaitingWorkflowStepsCommand";
-import {
+import type {
   ListWorkflowBuildVersionsCommandInput,
   ListWorkflowBuildVersionsCommandOutput,
 } from "./commands/ListWorkflowBuildVersionsCommand";
-import {
+import type {
   ListWorkflowExecutionsCommandInput,
   ListWorkflowExecutionsCommandOutput,
 } from "./commands/ListWorkflowExecutionsCommand";
-import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
-import {
+import type { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
+import type {
   ListWorkflowStepExecutionsCommandInput,
   ListWorkflowStepExecutionsCommandOutput,
 } from "./commands/ListWorkflowStepExecutionsCommand";
-import { PutComponentPolicyCommandInput, PutComponentPolicyCommandOutput } from "./commands/PutComponentPolicyCommand";
-import {
+import type {
+  PutComponentPolicyCommandInput,
+  PutComponentPolicyCommandOutput,
+} from "./commands/PutComponentPolicyCommand";
+import type {
   PutContainerRecipePolicyCommandInput,
   PutContainerRecipePolicyCommandOutput,
 } from "./commands/PutContainerRecipePolicyCommand";
-import { PutImagePolicyCommandInput, PutImagePolicyCommandOutput } from "./commands/PutImagePolicyCommand";
-import {
+import type { PutImagePolicyCommandInput, PutImagePolicyCommandOutput } from "./commands/PutImagePolicyCommand";
+import type {
   PutImageRecipePolicyCommandInput,
   PutImageRecipePolicyCommandOutput,
 } from "./commands/PutImageRecipePolicyCommand";
-import { RetryImageCommandInput, RetryImageCommandOutput } from "./commands/RetryImageCommand";
-import {
+import type { RetryImageCommandInput, RetryImageCommandOutput } from "./commands/RetryImageCommand";
+import type {
   SendWorkflowStepActionCommandInput,
   SendWorkflowStepActionCommandOutput,
 } from "./commands/SendWorkflowStepActionCommand";
-import {
+import type {
   StartImagePipelineExecutionCommandInput,
   StartImagePipelineExecutionCommandOutput,
 } from "./commands/StartImagePipelineExecutionCommand";
-import {
+import type {
   StartResourceStateUpdateCommandInput,
   StartResourceStateUpdateCommandOutput,
 } from "./commands/StartResourceStateUpdateCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateDistributionConfigurationCommandInput,
   UpdateDistributionConfigurationCommandOutput,
 } from "./commands/UpdateDistributionConfigurationCommand";
-import {
+import type {
   UpdateImagePipelineCommandInput,
   UpdateImagePipelineCommandOutput,
 } from "./commands/UpdateImagePipelineCommand";
-import {
+import type {
   UpdateInfrastructureConfigurationCommandInput,
   UpdateInfrastructureConfigurationCommandOutput,
 } from "./commands/UpdateInfrastructureConfigurationCommand";
-import {
+import type {
   UpdateLifecyclePolicyCommandInput,
   UpdateLifecyclePolicyCommandOutput,
 } from "./commands/UpdateLifecyclePolicyCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -564,7 +586,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

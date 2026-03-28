@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,241 +61,262 @@ import {
   defaultGuardDutyHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptAdministratorInvitationCommandInput,
   AcceptAdministratorInvitationCommandOutput,
 } from "./commands/AcceptAdministratorInvitationCommand";
-import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
-import { ArchiveFindingsCommandInput, ArchiveFindingsCommandOutput } from "./commands/ArchiveFindingsCommand";
-import { CreateDetectorCommandInput, CreateDetectorCommandOutput } from "./commands/CreateDetectorCommand";
-import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
-import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
-import {
+import type { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
+import type { ArchiveFindingsCommandInput, ArchiveFindingsCommandOutput } from "./commands/ArchiveFindingsCommand";
+import type { CreateDetectorCommandInput, CreateDetectorCommandOutput } from "./commands/CreateDetectorCommand";
+import type { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
+import type { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
+import type {
   CreateMalwareProtectionPlanCommandInput,
   CreateMalwareProtectionPlanCommandOutput,
 } from "./commands/CreateMalwareProtectionPlanCommand";
-import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
-import {
+import type { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
+import type {
   CreatePublishingDestinationCommandInput,
   CreatePublishingDestinationCommandOutput,
 } from "./commands/CreatePublishingDestinationCommand";
-import {
+import type {
   CreateSampleFindingsCommandInput,
   CreateSampleFindingsCommandOutput,
 } from "./commands/CreateSampleFindingsCommand";
-import {
+import type {
   CreateThreatEntitySetCommandInput,
   CreateThreatEntitySetCommandOutput,
 } from "./commands/CreateThreatEntitySetCommand";
-import {
+import type {
   CreateThreatIntelSetCommandInput,
   CreateThreatIntelSetCommandOutput,
 } from "./commands/CreateThreatIntelSetCommand";
-import {
+import type {
   CreateTrustedEntitySetCommandInput,
   CreateTrustedEntitySetCommandOutput,
 } from "./commands/CreateTrustedEntitySetCommand";
-import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand";
-import { DeleteDetectorCommandInput, DeleteDetectorCommandOutput } from "./commands/DeleteDetectorCommand";
-import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
-import { DeleteInvitationsCommandInput, DeleteInvitationsCommandOutput } from "./commands/DeleteInvitationsCommand";
-import { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
-import {
+import type {
+  DeclineInvitationsCommandInput,
+  DeclineInvitationsCommandOutput,
+} from "./commands/DeclineInvitationsCommand";
+import type { DeleteDetectorCommandInput, DeleteDetectorCommandOutput } from "./commands/DeleteDetectorCommand";
+import type { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
+import type {
+  DeleteInvitationsCommandInput,
+  DeleteInvitationsCommandOutput,
+} from "./commands/DeleteInvitationsCommand";
+import type { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
+import type {
   DeleteMalwareProtectionPlanCommandInput,
   DeleteMalwareProtectionPlanCommandOutput,
 } from "./commands/DeleteMalwareProtectionPlanCommand";
-import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand";
-import {
+import type { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand";
+import type {
   DeletePublishingDestinationCommandInput,
   DeletePublishingDestinationCommandOutput,
 } from "./commands/DeletePublishingDestinationCommand";
-import {
+import type {
   DeleteThreatEntitySetCommandInput,
   DeleteThreatEntitySetCommandOutput,
 } from "./commands/DeleteThreatEntitySetCommand";
-import {
+import type {
   DeleteThreatIntelSetCommandInput,
   DeleteThreatIntelSetCommandOutput,
 } from "./commands/DeleteThreatIntelSetCommand";
-import {
+import type {
   DeleteTrustedEntitySetCommandInput,
   DeleteTrustedEntitySetCommandOutput,
 } from "./commands/DeleteTrustedEntitySetCommand";
-import {
+import type {
   DescribeMalwareScansCommandInput,
   DescribeMalwareScansCommandOutput,
 } from "./commands/DescribeMalwareScansCommand";
-import {
+import type {
   DescribeOrganizationConfigurationCommandInput,
   DescribeOrganizationConfigurationCommandOutput,
 } from "./commands/DescribeOrganizationConfigurationCommand";
-import {
+import type {
   DescribePublishingDestinationCommandInput,
   DescribePublishingDestinationCommandOutput,
 } from "./commands/DescribePublishingDestinationCommand";
-import {
+import type {
   DisableOrganizationAdminAccountCommandInput,
   DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand";
-import {
+import type {
   DisassociateFromAdministratorAccountCommandInput,
   DisassociateFromAdministratorAccountCommandOutput,
 } from "./commands/DisassociateFromAdministratorAccountCommand";
-import {
+import type {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
 } from "./commands/DisassociateFromMasterAccountCommand";
-import {
+import type {
   DisassociateMembersCommandInput,
   DisassociateMembersCommandOutput,
 } from "./commands/DisassociateMembersCommand";
-import {
+import type {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
-import {
+import type {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
-import {
+import type {
   GetCoverageStatisticsCommandInput,
   GetCoverageStatisticsCommandOutput,
 } from "./commands/GetCoverageStatisticsCommand";
-import { GetDetectorCommandInput, GetDetectorCommandOutput } from "./commands/GetDetectorCommand";
-import { GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand";
-import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
-import {
+import type { GetDetectorCommandInput, GetDetectorCommandOutput } from "./commands/GetDetectorCommand";
+import type { GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand";
+import type { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
+import type {
   GetFindingsStatisticsCommandInput,
   GetFindingsStatisticsCommandOutput,
 } from "./commands/GetFindingsStatisticsCommand";
-import {
+import type {
   GetInvitationsCountCommandInput,
   GetInvitationsCountCommandOutput,
 } from "./commands/GetInvitationsCountCommand";
-import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
-import {
+import type { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
+import type {
   GetMalwareProtectionPlanCommandInput,
   GetMalwareProtectionPlanCommandOutput,
 } from "./commands/GetMalwareProtectionPlanCommand";
-import { GetMalwareScanCommandInput, GetMalwareScanCommandOutput } from "./commands/GetMalwareScanCommand";
-import {
+import type { GetMalwareScanCommandInput, GetMalwareScanCommandOutput } from "./commands/GetMalwareScanCommand";
+import type {
   GetMalwareScanSettingsCommandInput,
   GetMalwareScanSettingsCommandOutput,
 } from "./commands/GetMalwareScanSettingsCommand";
-import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
-import { GetMemberDetectorsCommandInput, GetMemberDetectorsCommandOutput } from "./commands/GetMemberDetectorsCommand";
-import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
-import {
+import type { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
+import type {
+  GetMemberDetectorsCommandInput,
+  GetMemberDetectorsCommandOutput,
+} from "./commands/GetMemberDetectorsCommand";
+import type { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import type {
   GetOrganizationStatisticsCommandInput,
   GetOrganizationStatisticsCommandOutput,
 } from "./commands/GetOrganizationStatisticsCommand";
-import {
+import type {
   GetRemainingFreeTrialDaysCommandInput,
   GetRemainingFreeTrialDaysCommandOutput,
 } from "./commands/GetRemainingFreeTrialDaysCommand";
-import { GetThreatEntitySetCommandInput, GetThreatEntitySetCommandOutput } from "./commands/GetThreatEntitySetCommand";
-import { GetThreatIntelSetCommandInput, GetThreatIntelSetCommandOutput } from "./commands/GetThreatIntelSetCommand";
-import {
+import type {
+  GetThreatEntitySetCommandInput,
+  GetThreatEntitySetCommandOutput,
+} from "./commands/GetThreatEntitySetCommand";
+import type {
+  GetThreatIntelSetCommandInput,
+  GetThreatIntelSetCommandOutput,
+} from "./commands/GetThreatIntelSetCommand";
+import type {
   GetTrustedEntitySetCommandInput,
   GetTrustedEntitySetCommandOutput,
 } from "./commands/GetTrustedEntitySetCommand";
-import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "./commands/GetUsageStatisticsCommand";
-import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
-import { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
-import { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "./commands/ListDetectorsCommand";
-import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
-import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
-import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
-import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
-import {
+import type {
+  GetUsageStatisticsCommandInput,
+  GetUsageStatisticsCommandOutput,
+} from "./commands/GetUsageStatisticsCommand";
+import type { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
+import type { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
+import type { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "./commands/ListDetectorsCommand";
+import type { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
+import type { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
+import type { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
+import type { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
+import type {
   ListMalwareProtectionPlansCommandInput,
   ListMalwareProtectionPlansCommandOutput,
 } from "./commands/ListMalwareProtectionPlansCommand";
-import { ListMalwareScansCommandInput, ListMalwareScansCommandOutput } from "./commands/ListMalwareScansCommand";
-import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
-import {
+import type { ListMalwareScansCommandInput, ListMalwareScansCommandOutput } from "./commands/ListMalwareScansCommand";
+import type { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import type {
   ListOrganizationAdminAccountsCommandInput,
   ListOrganizationAdminAccountsCommandOutput,
 } from "./commands/ListOrganizationAdminAccountsCommand";
-import {
+import type {
   ListPublishingDestinationsCommandInput,
   ListPublishingDestinationsCommandOutput,
 } from "./commands/ListPublishingDestinationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListThreatEntitySetsCommandInput,
   ListThreatEntitySetsCommandOutput,
 } from "./commands/ListThreatEntitySetsCommand";
-import {
+import type {
   ListThreatIntelSetsCommandInput,
   ListThreatIntelSetsCommandOutput,
 } from "./commands/ListThreatIntelSetsCommand";
-import {
+import type {
   ListTrustedEntitySetsCommandInput,
   ListTrustedEntitySetsCommandOutput,
 } from "./commands/ListTrustedEntitySetsCommand";
-import {
+import type {
   SendObjectMalwareScanCommandInput,
   SendObjectMalwareScanCommandOutput,
 } from "./commands/SendObjectMalwareScanCommand";
-import { StartMalwareScanCommandInput, StartMalwareScanCommandOutput } from "./commands/StartMalwareScanCommand";
-import {
+import type { StartMalwareScanCommandInput, StartMalwareScanCommandOutput } from "./commands/StartMalwareScanCommand";
+import type {
   StartMonitoringMembersCommandInput,
   StartMonitoringMembersCommandOutput,
 } from "./commands/StartMonitoringMembersCommand";
-import {
+import type {
   StopMonitoringMembersCommandInput,
   StopMonitoringMembersCommandOutput,
 } from "./commands/StopMonitoringMembersCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UnarchiveFindingsCommandInput, UnarchiveFindingsCommandOutput } from "./commands/UnarchiveFindingsCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateDetectorCommandInput, UpdateDetectorCommandOutput } from "./commands/UpdateDetectorCommand";
-import { UpdateFilterCommandInput, UpdateFilterCommandOutput } from "./commands/UpdateFilterCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
+  UnarchiveFindingsCommandInput,
+  UnarchiveFindingsCommandOutput,
+} from "./commands/UnarchiveFindingsCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateDetectorCommandInput, UpdateDetectorCommandOutput } from "./commands/UpdateDetectorCommand";
+import type { UpdateFilterCommandInput, UpdateFilterCommandOutput } from "./commands/UpdateFilterCommand";
+import type {
   UpdateFindingsFeedbackCommandInput,
   UpdateFindingsFeedbackCommandOutput,
 } from "./commands/UpdateFindingsFeedbackCommand";
-import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
-import {
+import type { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
+import type {
   UpdateMalwareProtectionPlanCommandInput,
   UpdateMalwareProtectionPlanCommandOutput,
 } from "./commands/UpdateMalwareProtectionPlanCommand";
-import {
+import type {
   UpdateMalwareScanSettingsCommandInput,
   UpdateMalwareScanSettingsCommandOutput,
 } from "./commands/UpdateMalwareScanSettingsCommand";
-import {
+import type {
   UpdateMemberDetectorsCommandInput,
   UpdateMemberDetectorsCommandOutput,
 } from "./commands/UpdateMemberDetectorsCommand";
-import {
+import type {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
-import {
+import type {
   UpdatePublishingDestinationCommandInput,
   UpdatePublishingDestinationCommandOutput,
 } from "./commands/UpdatePublishingDestinationCommand";
-import {
+import type {
   UpdateThreatEntitySetCommandInput,
   UpdateThreatEntitySetCommandOutput,
 } from "./commands/UpdateThreatEntitySetCommand";
-import {
+import type {
   UpdateThreatIntelSetCommandInput,
   UpdateThreatIntelSetCommandOutput,
 } from "./commands/UpdateThreatIntelSetCommand";
-import {
+import type {
   UpdateTrustedEntitySetCommandInput,
   UpdateTrustedEntitySetCommandOutput,
 } from "./commands/UpdateTrustedEntitySetCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -603,7 +622,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

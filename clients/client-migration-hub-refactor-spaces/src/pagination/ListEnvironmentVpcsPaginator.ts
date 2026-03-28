@@ -8,7 +8,7 @@ import {
   ListEnvironmentVpcsCommandOutput,
 } from "../commands/ListEnvironmentVpcsCommand";
 import { MigrationHubRefactorSpacesClient } from "../MigrationHubRefactorSpacesClient";
-import { MigrationHubRefactorSpacesPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubRefactorSpacesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

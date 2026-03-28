@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListTunnelsCommand, ListTunnelsCommandInput, ListTunnelsCommandOutput } from "../commands/ListTunnelsCommand";
 import { IoTSecureTunnelingClient } from "../IoTSecureTunnelingClient";
-import { IoTSecureTunnelingPaginationConfiguration } from "./Interfaces";
+import type { IoTSecureTunnelingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

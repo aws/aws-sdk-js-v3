@@ -4,134 +4,134 @@ import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CloudSearchClient } from "./CloudSearchClient";
 import {
+  type BuildSuggestersCommandInput,
+  type BuildSuggestersCommandOutput,
   BuildSuggestersCommand,
-  BuildSuggestersCommandInput,
-  BuildSuggestersCommandOutput,
 } from "./commands/BuildSuggestersCommand";
 import {
+  type CreateDomainCommandInput,
+  type CreateDomainCommandOutput,
   CreateDomainCommand,
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  type DefineAnalysisSchemeCommandInput,
+  type DefineAnalysisSchemeCommandOutput,
   DefineAnalysisSchemeCommand,
-  DefineAnalysisSchemeCommandInput,
-  DefineAnalysisSchemeCommandOutput,
 } from "./commands/DefineAnalysisSchemeCommand";
 import {
+  type DefineExpressionCommandInput,
+  type DefineExpressionCommandOutput,
   DefineExpressionCommand,
-  DefineExpressionCommandInput,
-  DefineExpressionCommandOutput,
 } from "./commands/DefineExpressionCommand";
 import {
+  type DefineIndexFieldCommandInput,
+  type DefineIndexFieldCommandOutput,
   DefineIndexFieldCommand,
-  DefineIndexFieldCommandInput,
-  DefineIndexFieldCommandOutput,
 } from "./commands/DefineIndexFieldCommand";
 import {
+  type DefineSuggesterCommandInput,
+  type DefineSuggesterCommandOutput,
   DefineSuggesterCommand,
-  DefineSuggesterCommandInput,
-  DefineSuggesterCommandOutput,
 } from "./commands/DefineSuggesterCommand";
 import {
+  type DeleteAnalysisSchemeCommandInput,
+  type DeleteAnalysisSchemeCommandOutput,
   DeleteAnalysisSchemeCommand,
-  DeleteAnalysisSchemeCommandInput,
-  DeleteAnalysisSchemeCommandOutput,
 } from "./commands/DeleteAnalysisSchemeCommand";
 import {
+  type DeleteDomainCommandInput,
+  type DeleteDomainCommandOutput,
   DeleteDomainCommand,
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
+  type DeleteExpressionCommandInput,
+  type DeleteExpressionCommandOutput,
   DeleteExpressionCommand,
-  DeleteExpressionCommandInput,
-  DeleteExpressionCommandOutput,
 } from "./commands/DeleteExpressionCommand";
 import {
+  type DeleteIndexFieldCommandInput,
+  type DeleteIndexFieldCommandOutput,
   DeleteIndexFieldCommand,
-  DeleteIndexFieldCommandInput,
-  DeleteIndexFieldCommandOutput,
 } from "./commands/DeleteIndexFieldCommand";
 import {
+  type DeleteSuggesterCommandInput,
+  type DeleteSuggesterCommandOutput,
   DeleteSuggesterCommand,
-  DeleteSuggesterCommandInput,
-  DeleteSuggesterCommandOutput,
 } from "./commands/DeleteSuggesterCommand";
 import {
+  type DescribeAnalysisSchemesCommandInput,
+  type DescribeAnalysisSchemesCommandOutput,
   DescribeAnalysisSchemesCommand,
-  DescribeAnalysisSchemesCommandInput,
-  DescribeAnalysisSchemesCommandOutput,
 } from "./commands/DescribeAnalysisSchemesCommand";
 import {
+  type DescribeAvailabilityOptionsCommandInput,
+  type DescribeAvailabilityOptionsCommandOutput,
   DescribeAvailabilityOptionsCommand,
-  DescribeAvailabilityOptionsCommandInput,
-  DescribeAvailabilityOptionsCommandOutput,
 } from "./commands/DescribeAvailabilityOptionsCommand";
 import {
+  type DescribeDomainEndpointOptionsCommandInput,
+  type DescribeDomainEndpointOptionsCommandOutput,
   DescribeDomainEndpointOptionsCommand,
-  DescribeDomainEndpointOptionsCommandInput,
-  DescribeDomainEndpointOptionsCommandOutput,
 } from "./commands/DescribeDomainEndpointOptionsCommand";
 import {
+  type DescribeDomainsCommandInput,
+  type DescribeDomainsCommandOutput,
   DescribeDomainsCommand,
-  DescribeDomainsCommandInput,
-  DescribeDomainsCommandOutput,
 } from "./commands/DescribeDomainsCommand";
 import {
+  type DescribeExpressionsCommandInput,
+  type DescribeExpressionsCommandOutput,
   DescribeExpressionsCommand,
-  DescribeExpressionsCommandInput,
-  DescribeExpressionsCommandOutput,
 } from "./commands/DescribeExpressionsCommand";
 import {
+  type DescribeIndexFieldsCommandInput,
+  type DescribeIndexFieldsCommandOutput,
   DescribeIndexFieldsCommand,
-  DescribeIndexFieldsCommandInput,
-  DescribeIndexFieldsCommandOutput,
 } from "./commands/DescribeIndexFieldsCommand";
 import {
+  type DescribeScalingParametersCommandInput,
+  type DescribeScalingParametersCommandOutput,
   DescribeScalingParametersCommand,
-  DescribeScalingParametersCommandInput,
-  DescribeScalingParametersCommandOutput,
 } from "./commands/DescribeScalingParametersCommand";
 import {
+  type DescribeServiceAccessPoliciesCommandInput,
+  type DescribeServiceAccessPoliciesCommandOutput,
   DescribeServiceAccessPoliciesCommand,
-  DescribeServiceAccessPoliciesCommandInput,
-  DescribeServiceAccessPoliciesCommandOutput,
 } from "./commands/DescribeServiceAccessPoliciesCommand";
 import {
+  type DescribeSuggestersCommandInput,
+  type DescribeSuggestersCommandOutput,
   DescribeSuggestersCommand,
-  DescribeSuggestersCommandInput,
-  DescribeSuggestersCommandOutput,
 } from "./commands/DescribeSuggestersCommand";
 import {
+  type IndexDocumentsCommandInput,
+  type IndexDocumentsCommandOutput,
   IndexDocumentsCommand,
-  IndexDocumentsCommandInput,
-  IndexDocumentsCommandOutput,
 } from "./commands/IndexDocumentsCommand";
 import {
+  type ListDomainNamesCommandInput,
+  type ListDomainNamesCommandOutput,
   ListDomainNamesCommand,
-  ListDomainNamesCommandInput,
-  ListDomainNamesCommandOutput,
 } from "./commands/ListDomainNamesCommand";
 import {
+  type UpdateAvailabilityOptionsCommandInput,
+  type UpdateAvailabilityOptionsCommandOutput,
   UpdateAvailabilityOptionsCommand,
-  UpdateAvailabilityOptionsCommandInput,
-  UpdateAvailabilityOptionsCommandOutput,
 } from "./commands/UpdateAvailabilityOptionsCommand";
 import {
+  type UpdateDomainEndpointOptionsCommandInput,
+  type UpdateDomainEndpointOptionsCommandOutput,
   UpdateDomainEndpointOptionsCommand,
-  UpdateDomainEndpointOptionsCommandInput,
-  UpdateDomainEndpointOptionsCommandOutput,
 } from "./commands/UpdateDomainEndpointOptionsCommand";
 import {
+  type UpdateScalingParametersCommandInput,
+  type UpdateScalingParametersCommandOutput,
   UpdateScalingParametersCommand,
-  UpdateScalingParametersCommandInput,
-  UpdateScalingParametersCommandOutput,
 } from "./commands/UpdateScalingParametersCommand";
 import {
+  type UpdateServiceAccessPoliciesCommandInput,
+  type UpdateServiceAccessPoliciesCommandOutput,
   UpdateServiceAccessPoliciesCommand,
-  UpdateServiceAccessPoliciesCommandInput,
-  UpdateServiceAccessPoliciesCommandOutput,
 } from "./commands/UpdateServiceAccessPoliciesCommand";
 
 const commands = {

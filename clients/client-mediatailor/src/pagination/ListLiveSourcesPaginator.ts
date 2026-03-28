@@ -8,7 +8,7 @@ import {
   ListLiveSourcesCommandOutput,
 } from "../commands/ListLiveSourcesCommand";
 import { MediaTailorClient } from "../MediaTailorClient";
-import { MediaTailorPaginationConfiguration } from "./Interfaces";
+import type { MediaTailorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

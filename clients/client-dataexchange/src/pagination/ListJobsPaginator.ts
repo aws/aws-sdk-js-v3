@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import { DataExchangeClient } from "../DataExchangeClient";
-import { DataExchangePaginationConfiguration } from "./Interfaces";
+import type { DataExchangePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

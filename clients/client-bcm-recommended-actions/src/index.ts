@@ -7,7 +7,7 @@
  */
 export * from "./BCMRecommendedActionsClient";
 export * from "./BCMRecommendedActions";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BCMRecommendedActionsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

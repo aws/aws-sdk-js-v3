@@ -8,7 +8,7 @@ import {
   DescribeTagsCommandInput,
   DescribeTagsCommandOutput,
 } from "../commands/DescribeTagsCommand";
-import { AutoScalingPaginationConfiguration } from "./Interfaces";
+import type { AutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

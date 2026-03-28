@@ -3,21 +3,21 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type GetRoleCredentialsCommandInput,
+  type GetRoleCredentialsCommandOutput,
   GetRoleCredentialsCommand,
-  GetRoleCredentialsCommandInput,
-  GetRoleCredentialsCommandOutput,
 } from "./commands/GetRoleCredentialsCommand";
 import {
+  type ListAccountRolesCommandInput,
+  type ListAccountRolesCommandOutput,
   ListAccountRolesCommand,
-  ListAccountRolesCommandInput,
-  ListAccountRolesCommandOutput,
 } from "./commands/ListAccountRolesCommand";
 import {
+  type ListAccountsCommandInput,
+  type ListAccountsCommandOutput,
   ListAccountsCommand,
-  ListAccountsCommandInput,
-  ListAccountsCommandOutput,
 } from "./commands/ListAccountsCommand";
-import { LogoutCommand, LogoutCommandInput, LogoutCommandOutput } from "./commands/LogoutCommand";
+import { type LogoutCommandInput, type LogoutCommandOutput, LogoutCommand } from "./commands/LogoutCommand";
 import { paginateListAccountRoles } from "./pagination/ListAccountRolesPaginator";
 import { paginateListAccounts } from "./pagination/ListAccountsPaginator";
 import { SSOClient } from "./SSOClient";

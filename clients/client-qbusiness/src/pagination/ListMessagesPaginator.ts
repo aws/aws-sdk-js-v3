@@ -8,7 +8,7 @@ import {
   ListMessagesCommandOutput,
 } from "../commands/ListMessagesCommand";
 import { QBusinessClient } from "../QBusinessClient";
-import { QBusinessPaginationConfiguration } from "./Interfaces";
+import type { QBusinessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

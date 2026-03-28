@@ -8,7 +8,7 @@ import {
   ListSearchJobBackupsCommandInput,
   ListSearchJobBackupsCommandOutput,
 } from "../commands/ListSearchJobBackupsCommand";
-import { BackupSearchPaginationConfiguration } from "./Interfaces";
+import type { BackupSearchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

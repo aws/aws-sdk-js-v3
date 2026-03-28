@@ -8,7 +8,7 @@ import {
   ListTrustedTokenIssuersCommandOutput,
 } from "../commands/ListTrustedTokenIssuersCommand";
 import { SSOAdminClient } from "../SSOAdminClient";
-import { SSOAdminPaginationConfiguration } from "./Interfaces";
+import type { SSOAdminPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

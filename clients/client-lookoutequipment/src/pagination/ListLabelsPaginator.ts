@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListLabelsCommand, ListLabelsCommandInput, ListLabelsCommandOutput } from "../commands/ListLabelsCommand";
 import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
-import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
+import type { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

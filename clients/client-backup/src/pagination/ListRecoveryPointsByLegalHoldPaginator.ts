@@ -8,7 +8,7 @@ import {
   ListRecoveryPointsByLegalHoldCommandInput,
   ListRecoveryPointsByLegalHoldCommandOutput,
 } from "../commands/ListRecoveryPointsByLegalHoldCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

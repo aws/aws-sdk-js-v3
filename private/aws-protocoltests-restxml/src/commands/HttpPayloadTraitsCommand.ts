@@ -6,7 +6,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { HttpPayloadTraitsInputOutput } from "../models/models_0";
+import type { HttpPayloadTraitsInputOutput } from "../models/models_0";
 import { de_HttpPayloadTraitsCommand, se_HttpPayloadTraitsCommand } from "../protocols/Aws_restXml";
 import type {
   RestXmlProtocolClientResolvedConfig,

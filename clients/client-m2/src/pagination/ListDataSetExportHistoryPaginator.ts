@@ -8,7 +8,7 @@ import {
   ListDataSetExportHistoryCommandOutput,
 } from "../commands/ListDataSetExportHistoryCommand";
 import { M2Client } from "../M2Client";
-import { M2PaginationConfiguration } from "./Interfaces";
+import type { M2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -3,236 +3,244 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateFileSystemAliasesCommandInput,
+  type AssociateFileSystemAliasesCommandOutput,
   AssociateFileSystemAliasesCommand,
-  AssociateFileSystemAliasesCommandInput,
-  AssociateFileSystemAliasesCommandOutput,
 } from "./commands/AssociateFileSystemAliasesCommand";
 import {
+  type CancelDataRepositoryTaskCommandInput,
+  type CancelDataRepositoryTaskCommandOutput,
   CancelDataRepositoryTaskCommand,
-  CancelDataRepositoryTaskCommandInput,
-  CancelDataRepositoryTaskCommandOutput,
 } from "./commands/CancelDataRepositoryTaskCommand";
-import { CopyBackupCommand, CopyBackupCommandInput, CopyBackupCommandOutput } from "./commands/CopyBackupCommand";
 import {
+  type CopyBackupCommandInput,
+  type CopyBackupCommandOutput,
+  CopyBackupCommand,
+} from "./commands/CopyBackupCommand";
+import {
+  type CopySnapshotAndUpdateVolumeCommandInput,
+  type CopySnapshotAndUpdateVolumeCommandOutput,
   CopySnapshotAndUpdateVolumeCommand,
-  CopySnapshotAndUpdateVolumeCommandInput,
-  CopySnapshotAndUpdateVolumeCommandOutput,
 } from "./commands/CopySnapshotAndUpdateVolumeCommand";
 import {
+  type CreateAndAttachS3AccessPointCommandInput,
+  type CreateAndAttachS3AccessPointCommandOutput,
   CreateAndAttachS3AccessPointCommand,
-  CreateAndAttachS3AccessPointCommandInput,
-  CreateAndAttachS3AccessPointCommandOutput,
 } from "./commands/CreateAndAttachS3AccessPointCommand";
 import {
+  type CreateBackupCommandInput,
+  type CreateBackupCommandOutput,
   CreateBackupCommand,
-  CreateBackupCommandInput,
-  CreateBackupCommandOutput,
 } from "./commands/CreateBackupCommand";
 import {
+  type CreateDataRepositoryAssociationCommandInput,
+  type CreateDataRepositoryAssociationCommandOutput,
   CreateDataRepositoryAssociationCommand,
-  CreateDataRepositoryAssociationCommandInput,
-  CreateDataRepositoryAssociationCommandOutput,
 } from "./commands/CreateDataRepositoryAssociationCommand";
 import {
+  type CreateDataRepositoryTaskCommandInput,
+  type CreateDataRepositoryTaskCommandOutput,
   CreateDataRepositoryTaskCommand,
-  CreateDataRepositoryTaskCommandInput,
-  CreateDataRepositoryTaskCommandOutput,
 } from "./commands/CreateDataRepositoryTaskCommand";
 import {
+  type CreateFileCacheCommandInput,
+  type CreateFileCacheCommandOutput,
   CreateFileCacheCommand,
-  CreateFileCacheCommandInput,
-  CreateFileCacheCommandOutput,
 } from "./commands/CreateFileCacheCommand";
 import {
+  type CreateFileSystemCommandInput,
+  type CreateFileSystemCommandOutput,
   CreateFileSystemCommand,
-  CreateFileSystemCommandInput,
-  CreateFileSystemCommandOutput,
 } from "./commands/CreateFileSystemCommand";
 import {
+  type CreateFileSystemFromBackupCommandInput,
+  type CreateFileSystemFromBackupCommandOutput,
   CreateFileSystemFromBackupCommand,
-  CreateFileSystemFromBackupCommandInput,
-  CreateFileSystemFromBackupCommandOutput,
 } from "./commands/CreateFileSystemFromBackupCommand";
 import {
+  type CreateSnapshotCommandInput,
+  type CreateSnapshotCommandOutput,
   CreateSnapshotCommand,
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
 import {
+  type CreateStorageVirtualMachineCommandInput,
+  type CreateStorageVirtualMachineCommandOutput,
   CreateStorageVirtualMachineCommand,
-  CreateStorageVirtualMachineCommandInput,
-  CreateStorageVirtualMachineCommandOutput,
 } from "./commands/CreateStorageVirtualMachineCommand";
 import {
+  type CreateVolumeCommandInput,
+  type CreateVolumeCommandOutput,
   CreateVolumeCommand,
-  CreateVolumeCommandInput,
-  CreateVolumeCommandOutput,
 } from "./commands/CreateVolumeCommand";
 import {
+  type CreateVolumeFromBackupCommandInput,
+  type CreateVolumeFromBackupCommandOutput,
   CreateVolumeFromBackupCommand,
-  CreateVolumeFromBackupCommandInput,
-  CreateVolumeFromBackupCommandOutput,
 } from "./commands/CreateVolumeFromBackupCommand";
 import {
+  type DeleteBackupCommandInput,
+  type DeleteBackupCommandOutput,
   DeleteBackupCommand,
-  DeleteBackupCommandInput,
-  DeleteBackupCommandOutput,
 } from "./commands/DeleteBackupCommand";
 import {
+  type DeleteDataRepositoryAssociationCommandInput,
+  type DeleteDataRepositoryAssociationCommandOutput,
   DeleteDataRepositoryAssociationCommand,
-  DeleteDataRepositoryAssociationCommandInput,
-  DeleteDataRepositoryAssociationCommandOutput,
 } from "./commands/DeleteDataRepositoryAssociationCommand";
 import {
+  type DeleteFileCacheCommandInput,
+  type DeleteFileCacheCommandOutput,
   DeleteFileCacheCommand,
-  DeleteFileCacheCommandInput,
-  DeleteFileCacheCommandOutput,
 } from "./commands/DeleteFileCacheCommand";
 import {
+  type DeleteFileSystemCommandInput,
+  type DeleteFileSystemCommandOutput,
   DeleteFileSystemCommand,
-  DeleteFileSystemCommandInput,
-  DeleteFileSystemCommandOutput,
 } from "./commands/DeleteFileSystemCommand";
 import {
+  type DeleteSnapshotCommandInput,
+  type DeleteSnapshotCommandOutput,
   DeleteSnapshotCommand,
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput,
 } from "./commands/DeleteSnapshotCommand";
 import {
+  type DeleteStorageVirtualMachineCommandInput,
+  type DeleteStorageVirtualMachineCommandOutput,
   DeleteStorageVirtualMachineCommand,
-  DeleteStorageVirtualMachineCommandInput,
-  DeleteStorageVirtualMachineCommandOutput,
 } from "./commands/DeleteStorageVirtualMachineCommand";
 import {
+  type DeleteVolumeCommandInput,
+  type DeleteVolumeCommandOutput,
   DeleteVolumeCommand,
-  DeleteVolumeCommandInput,
-  DeleteVolumeCommandOutput,
 } from "./commands/DeleteVolumeCommand";
 import {
+  type DescribeBackupsCommandInput,
+  type DescribeBackupsCommandOutput,
   DescribeBackupsCommand,
-  DescribeBackupsCommandInput,
-  DescribeBackupsCommandOutput,
 } from "./commands/DescribeBackupsCommand";
 import {
+  type DescribeDataRepositoryAssociationsCommandInput,
+  type DescribeDataRepositoryAssociationsCommandOutput,
   DescribeDataRepositoryAssociationsCommand,
-  DescribeDataRepositoryAssociationsCommandInput,
-  DescribeDataRepositoryAssociationsCommandOutput,
 } from "./commands/DescribeDataRepositoryAssociationsCommand";
 import {
+  type DescribeDataRepositoryTasksCommandInput,
+  type DescribeDataRepositoryTasksCommandOutput,
   DescribeDataRepositoryTasksCommand,
-  DescribeDataRepositoryTasksCommandInput,
-  DescribeDataRepositoryTasksCommandOutput,
 } from "./commands/DescribeDataRepositoryTasksCommand";
 import {
+  type DescribeFileCachesCommandInput,
+  type DescribeFileCachesCommandOutput,
   DescribeFileCachesCommand,
-  DescribeFileCachesCommandInput,
-  DescribeFileCachesCommandOutput,
 } from "./commands/DescribeFileCachesCommand";
 import {
+  type DescribeFileSystemAliasesCommandInput,
+  type DescribeFileSystemAliasesCommandOutput,
   DescribeFileSystemAliasesCommand,
-  DescribeFileSystemAliasesCommandInput,
-  DescribeFileSystemAliasesCommandOutput,
 } from "./commands/DescribeFileSystemAliasesCommand";
 import {
+  type DescribeFileSystemsCommandInput,
+  type DescribeFileSystemsCommandOutput,
   DescribeFileSystemsCommand,
-  DescribeFileSystemsCommandInput,
-  DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
 import {
+  type DescribeS3AccessPointAttachmentsCommandInput,
+  type DescribeS3AccessPointAttachmentsCommandOutput,
   DescribeS3AccessPointAttachmentsCommand,
-  DescribeS3AccessPointAttachmentsCommandInput,
-  DescribeS3AccessPointAttachmentsCommandOutput,
 } from "./commands/DescribeS3AccessPointAttachmentsCommand";
 import {
+  type DescribeSharedVpcConfigurationCommandInput,
+  type DescribeSharedVpcConfigurationCommandOutput,
   DescribeSharedVpcConfigurationCommand,
-  DescribeSharedVpcConfigurationCommandInput,
-  DescribeSharedVpcConfigurationCommandOutput,
 } from "./commands/DescribeSharedVpcConfigurationCommand";
 import {
+  type DescribeSnapshotsCommandInput,
+  type DescribeSnapshotsCommandOutput,
   DescribeSnapshotsCommand,
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput,
 } from "./commands/DescribeSnapshotsCommand";
 import {
+  type DescribeStorageVirtualMachinesCommandInput,
+  type DescribeStorageVirtualMachinesCommandOutput,
   DescribeStorageVirtualMachinesCommand,
-  DescribeStorageVirtualMachinesCommandInput,
-  DescribeStorageVirtualMachinesCommandOutput,
 } from "./commands/DescribeStorageVirtualMachinesCommand";
 import {
+  type DescribeVolumesCommandInput,
+  type DescribeVolumesCommandOutput,
   DescribeVolumesCommand,
-  DescribeVolumesCommandInput,
-  DescribeVolumesCommandOutput,
 } from "./commands/DescribeVolumesCommand";
 import {
+  type DetachAndDeleteS3AccessPointCommandInput,
+  type DetachAndDeleteS3AccessPointCommandOutput,
   DetachAndDeleteS3AccessPointCommand,
-  DetachAndDeleteS3AccessPointCommandInput,
-  DetachAndDeleteS3AccessPointCommandOutput,
 } from "./commands/DetachAndDeleteS3AccessPointCommand";
 import {
+  type DisassociateFileSystemAliasesCommandInput,
+  type DisassociateFileSystemAliasesCommandOutput,
   DisassociateFileSystemAliasesCommand,
-  DisassociateFileSystemAliasesCommandInput,
-  DisassociateFileSystemAliasesCommandOutput,
 } from "./commands/DisassociateFileSystemAliasesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ReleaseFileSystemNfsV3LocksCommandInput,
+  type ReleaseFileSystemNfsV3LocksCommandOutput,
   ReleaseFileSystemNfsV3LocksCommand,
-  ReleaseFileSystemNfsV3LocksCommandInput,
-  ReleaseFileSystemNfsV3LocksCommandOutput,
 } from "./commands/ReleaseFileSystemNfsV3LocksCommand";
 import {
+  type RestoreVolumeFromSnapshotCommandInput,
+  type RestoreVolumeFromSnapshotCommandOutput,
   RestoreVolumeFromSnapshotCommand,
-  RestoreVolumeFromSnapshotCommandInput,
-  RestoreVolumeFromSnapshotCommandOutput,
 } from "./commands/RestoreVolumeFromSnapshotCommand";
 import {
+  type StartMisconfiguredStateRecoveryCommandInput,
+  type StartMisconfiguredStateRecoveryCommandOutput,
   StartMisconfiguredStateRecoveryCommand,
-  StartMisconfiguredStateRecoveryCommandInput,
-  StartMisconfiguredStateRecoveryCommandOutput,
 } from "./commands/StartMisconfiguredStateRecoveryCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDataRepositoryAssociationCommandInput,
+  type UpdateDataRepositoryAssociationCommandOutput,
   UpdateDataRepositoryAssociationCommand,
-  UpdateDataRepositoryAssociationCommandInput,
-  UpdateDataRepositoryAssociationCommandOutput,
 } from "./commands/UpdateDataRepositoryAssociationCommand";
 import {
+  type UpdateFileCacheCommandInput,
+  type UpdateFileCacheCommandOutput,
   UpdateFileCacheCommand,
-  UpdateFileCacheCommandInput,
-  UpdateFileCacheCommandOutput,
 } from "./commands/UpdateFileCacheCommand";
 import {
+  type UpdateFileSystemCommandInput,
+  type UpdateFileSystemCommandOutput,
   UpdateFileSystemCommand,
-  UpdateFileSystemCommandInput,
-  UpdateFileSystemCommandOutput,
 } from "./commands/UpdateFileSystemCommand";
 import {
+  type UpdateSharedVpcConfigurationCommandInput,
+  type UpdateSharedVpcConfigurationCommandOutput,
   UpdateSharedVpcConfigurationCommand,
-  UpdateSharedVpcConfigurationCommandInput,
-  UpdateSharedVpcConfigurationCommandOutput,
 } from "./commands/UpdateSharedVpcConfigurationCommand";
 import {
+  type UpdateSnapshotCommandInput,
+  type UpdateSnapshotCommandOutput,
   UpdateSnapshotCommand,
-  UpdateSnapshotCommandInput,
-  UpdateSnapshotCommandOutput,
 } from "./commands/UpdateSnapshotCommand";
 import {
+  type UpdateStorageVirtualMachineCommandInput,
+  type UpdateStorageVirtualMachineCommandOutput,
   UpdateStorageVirtualMachineCommand,
-  UpdateStorageVirtualMachineCommandInput,
-  UpdateStorageVirtualMachineCommandOutput,
 } from "./commands/UpdateStorageVirtualMachineCommand";
 import {
+  type UpdateVolumeCommandInput,
+  type UpdateVolumeCommandOutput,
   UpdateVolumeCommand,
-  UpdateVolumeCommandInput,
-  UpdateVolumeCommandOutput,
 } from "./commands/UpdateVolumeCommand";
 import { FSxClient } from "./FSxClient";
 import { paginateDescribeBackups } from "./pagination/DescribeBackupsPaginator";

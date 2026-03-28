@@ -8,7 +8,7 @@ import {
   ListManagedAccountsCommandOutput,
 } from "../commands/ListManagedAccountsCommand";
 import { MgnClient } from "../MgnClient";
-import { MgnPaginationConfiguration } from "./Interfaces";
+import type { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

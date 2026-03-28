@@ -8,7 +8,7 @@ import {
   ListAssociatedAttributeGroupsCommandOutput,
 } from "../commands/ListAssociatedAttributeGroupsCommand";
 import { ServiceCatalogAppRegistryClient } from "../ServiceCatalogAppRegistryClient";
-import { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
+import type { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

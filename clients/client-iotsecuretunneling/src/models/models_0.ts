@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ClientMode, ConnectionStatus, TunnelStatus } from "./enums";
+import type { ClientMode, ConnectionStatus, TunnelStatus } from "./enums";
 
 /**
  * @public

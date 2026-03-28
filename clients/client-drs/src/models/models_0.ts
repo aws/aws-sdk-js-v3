@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   DataReplicationErrorString,
   DataReplicationInitiationStepName,
   DataReplicationInitiationStepStatus,

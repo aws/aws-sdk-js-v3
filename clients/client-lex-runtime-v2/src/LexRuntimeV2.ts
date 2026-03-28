@@ -3,26 +3,34 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type DeleteSessionCommandInput,
+  type DeleteSessionCommandOutput,
   DeleteSessionCommand,
-  DeleteSessionCommandInput,
-  DeleteSessionCommandOutput,
 } from "./commands/DeleteSessionCommand";
-import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
-import { PutSessionCommand, PutSessionCommandInput, PutSessionCommandOutput } from "./commands/PutSessionCommand";
 import {
+  type GetSessionCommandInput,
+  type GetSessionCommandOutput,
+  GetSessionCommand,
+} from "./commands/GetSessionCommand";
+import {
+  type PutSessionCommandInput,
+  type PutSessionCommandOutput,
+  PutSessionCommand,
+} from "./commands/PutSessionCommand";
+import {
+  type RecognizeTextCommandInput,
+  type RecognizeTextCommandOutput,
   RecognizeTextCommand,
-  RecognizeTextCommandInput,
-  RecognizeTextCommandOutput,
 } from "./commands/RecognizeTextCommand";
 import {
+  type RecognizeUtteranceCommandInput,
+  type RecognizeUtteranceCommandOutput,
   RecognizeUtteranceCommand,
-  RecognizeUtteranceCommandInput,
-  RecognizeUtteranceCommandOutput,
 } from "./commands/RecognizeUtteranceCommand";
 import {
+  type StartConversationCommandInput,
+  type StartConversationCommandOutput,
   StartConversationCommand,
-  StartConversationCommandInput,
-  StartConversationCommandOutput,
 } from "./commands/StartConversationCommand";
 import { LexRuntimeV2Client } from "./LexRuntimeV2Client";
 

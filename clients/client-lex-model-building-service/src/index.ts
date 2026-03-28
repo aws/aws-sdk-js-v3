@@ -10,7 +10,7 @@
  */
 export * from "./LexModelBuildingServiceClient";
 export * from "./LexModelBuildingService";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { LexModelBuildingServiceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

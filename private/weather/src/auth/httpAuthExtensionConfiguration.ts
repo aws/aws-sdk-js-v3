@@ -2,9 +2,9 @@
 import {
   type ApiKeyIdentity,
   type ApiKeyIdentityProvider,
+  type AwsCredentialIdentity,
+  type AwsCredentialIdentityProvider,
   type HttpAuthScheme,
-  AwsCredentialIdentity,
-  AwsCredentialIdentityProvider,
   TokenIdentity,
   TokenIdentityProvider,
 } from "@smithy/types";

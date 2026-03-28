@@ -8,7 +8,7 @@ import {
   ListRestoreJobsCommandInput,
   ListRestoreJobsCommandOutput,
 } from "../commands/ListRestoreJobsCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

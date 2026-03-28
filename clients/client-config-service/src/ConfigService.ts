@@ -3,485 +3,489 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateResourceTypesCommandInput,
+  type AssociateResourceTypesCommandOutput,
   AssociateResourceTypesCommand,
-  AssociateResourceTypesCommandInput,
-  AssociateResourceTypesCommandOutput,
 } from "./commands/AssociateResourceTypesCommand";
 import {
+  type BatchGetAggregateResourceConfigCommandInput,
+  type BatchGetAggregateResourceConfigCommandOutput,
   BatchGetAggregateResourceConfigCommand,
-  BatchGetAggregateResourceConfigCommandInput,
-  BatchGetAggregateResourceConfigCommandOutput,
 } from "./commands/BatchGetAggregateResourceConfigCommand";
 import {
+  type BatchGetResourceConfigCommandInput,
+  type BatchGetResourceConfigCommandOutput,
   BatchGetResourceConfigCommand,
-  BatchGetResourceConfigCommandInput,
-  BatchGetResourceConfigCommandOutput,
 } from "./commands/BatchGetResourceConfigCommand";
 import {
+  type DeleteAggregationAuthorizationCommandInput,
+  type DeleteAggregationAuthorizationCommandOutput,
   DeleteAggregationAuthorizationCommand,
-  DeleteAggregationAuthorizationCommandInput,
-  DeleteAggregationAuthorizationCommandOutput,
 } from "./commands/DeleteAggregationAuthorizationCommand";
 import {
+  type DeleteConfigRuleCommandInput,
+  type DeleteConfigRuleCommandOutput,
   DeleteConfigRuleCommand,
-  DeleteConfigRuleCommandInput,
-  DeleteConfigRuleCommandOutput,
 } from "./commands/DeleteConfigRuleCommand";
 import {
+  type DeleteConfigurationAggregatorCommandInput,
+  type DeleteConfigurationAggregatorCommandOutput,
   DeleteConfigurationAggregatorCommand,
-  DeleteConfigurationAggregatorCommandInput,
-  DeleteConfigurationAggregatorCommandOutput,
 } from "./commands/DeleteConfigurationAggregatorCommand";
 import {
+  type DeleteConfigurationRecorderCommandInput,
+  type DeleteConfigurationRecorderCommandOutput,
   DeleteConfigurationRecorderCommand,
-  DeleteConfigurationRecorderCommandInput,
-  DeleteConfigurationRecorderCommandOutput,
 } from "./commands/DeleteConfigurationRecorderCommand";
 import {
+  type DeleteConformancePackCommandInput,
+  type DeleteConformancePackCommandOutput,
   DeleteConformancePackCommand,
-  DeleteConformancePackCommandInput,
-  DeleteConformancePackCommandOutput,
 } from "./commands/DeleteConformancePackCommand";
 import {
+  type DeleteDeliveryChannelCommandInput,
+  type DeleteDeliveryChannelCommandOutput,
   DeleteDeliveryChannelCommand,
-  DeleteDeliveryChannelCommandInput,
-  DeleteDeliveryChannelCommandOutput,
 } from "./commands/DeleteDeliveryChannelCommand";
 import {
+  type DeleteEvaluationResultsCommandInput,
+  type DeleteEvaluationResultsCommandOutput,
   DeleteEvaluationResultsCommand,
-  DeleteEvaluationResultsCommandInput,
-  DeleteEvaluationResultsCommandOutput,
 } from "./commands/DeleteEvaluationResultsCommand";
 import {
+  type DeleteOrganizationConfigRuleCommandInput,
+  type DeleteOrganizationConfigRuleCommandOutput,
   DeleteOrganizationConfigRuleCommand,
-  DeleteOrganizationConfigRuleCommandInput,
-  DeleteOrganizationConfigRuleCommandOutput,
 } from "./commands/DeleteOrganizationConfigRuleCommand";
 import {
+  type DeleteOrganizationConformancePackCommandInput,
+  type DeleteOrganizationConformancePackCommandOutput,
   DeleteOrganizationConformancePackCommand,
-  DeleteOrganizationConformancePackCommandInput,
-  DeleteOrganizationConformancePackCommandOutput,
 } from "./commands/DeleteOrganizationConformancePackCommand";
 import {
+  type DeletePendingAggregationRequestCommandInput,
+  type DeletePendingAggregationRequestCommandOutput,
   DeletePendingAggregationRequestCommand,
-  DeletePendingAggregationRequestCommandInput,
-  DeletePendingAggregationRequestCommandOutput,
 } from "./commands/DeletePendingAggregationRequestCommand";
 import {
+  type DeleteRemediationConfigurationCommandInput,
+  type DeleteRemediationConfigurationCommandOutput,
   DeleteRemediationConfigurationCommand,
-  DeleteRemediationConfigurationCommandInput,
-  DeleteRemediationConfigurationCommandOutput,
 } from "./commands/DeleteRemediationConfigurationCommand";
 import {
+  type DeleteRemediationExceptionsCommandInput,
+  type DeleteRemediationExceptionsCommandOutput,
   DeleteRemediationExceptionsCommand,
-  DeleteRemediationExceptionsCommandInput,
-  DeleteRemediationExceptionsCommandOutput,
 } from "./commands/DeleteRemediationExceptionsCommand";
 import {
+  type DeleteResourceConfigCommandInput,
+  type DeleteResourceConfigCommandOutput,
   DeleteResourceConfigCommand,
-  DeleteResourceConfigCommandInput,
-  DeleteResourceConfigCommandOutput,
 } from "./commands/DeleteResourceConfigCommand";
 import {
+  type DeleteRetentionConfigurationCommandInput,
+  type DeleteRetentionConfigurationCommandOutput,
   DeleteRetentionConfigurationCommand,
-  DeleteRetentionConfigurationCommandInput,
-  DeleteRetentionConfigurationCommandOutput,
 } from "./commands/DeleteRetentionConfigurationCommand";
 import {
+  type DeleteServiceLinkedConfigurationRecorderCommandInput,
+  type DeleteServiceLinkedConfigurationRecorderCommandOutput,
   DeleteServiceLinkedConfigurationRecorderCommand,
-  DeleteServiceLinkedConfigurationRecorderCommandInput,
-  DeleteServiceLinkedConfigurationRecorderCommandOutput,
 } from "./commands/DeleteServiceLinkedConfigurationRecorderCommand";
 import {
+  type DeleteStoredQueryCommandInput,
+  type DeleteStoredQueryCommandOutput,
   DeleteStoredQueryCommand,
-  DeleteStoredQueryCommandInput,
-  DeleteStoredQueryCommandOutput,
 } from "./commands/DeleteStoredQueryCommand";
 import {
+  type DeliverConfigSnapshotCommandInput,
+  type DeliverConfigSnapshotCommandOutput,
   DeliverConfigSnapshotCommand,
-  DeliverConfigSnapshotCommandInput,
-  DeliverConfigSnapshotCommandOutput,
 } from "./commands/DeliverConfigSnapshotCommand";
 import {
+  type DescribeAggregateComplianceByConfigRulesCommandInput,
+  type DescribeAggregateComplianceByConfigRulesCommandOutput,
   DescribeAggregateComplianceByConfigRulesCommand,
-  DescribeAggregateComplianceByConfigRulesCommandInput,
-  DescribeAggregateComplianceByConfigRulesCommandOutput,
 } from "./commands/DescribeAggregateComplianceByConfigRulesCommand";
 import {
+  type DescribeAggregateComplianceByConformancePacksCommandInput,
+  type DescribeAggregateComplianceByConformancePacksCommandOutput,
   DescribeAggregateComplianceByConformancePacksCommand,
-  DescribeAggregateComplianceByConformancePacksCommandInput,
-  DescribeAggregateComplianceByConformancePacksCommandOutput,
 } from "./commands/DescribeAggregateComplianceByConformancePacksCommand";
 import {
+  type DescribeAggregationAuthorizationsCommandInput,
+  type DescribeAggregationAuthorizationsCommandOutput,
   DescribeAggregationAuthorizationsCommand,
-  DescribeAggregationAuthorizationsCommandInput,
-  DescribeAggregationAuthorizationsCommandOutput,
 } from "./commands/DescribeAggregationAuthorizationsCommand";
 import {
+  type DescribeComplianceByConfigRuleCommandInput,
+  type DescribeComplianceByConfigRuleCommandOutput,
   DescribeComplianceByConfigRuleCommand,
-  DescribeComplianceByConfigRuleCommandInput,
-  DescribeComplianceByConfigRuleCommandOutput,
 } from "./commands/DescribeComplianceByConfigRuleCommand";
 import {
+  type DescribeComplianceByResourceCommandInput,
+  type DescribeComplianceByResourceCommandOutput,
   DescribeComplianceByResourceCommand,
-  DescribeComplianceByResourceCommandInput,
-  DescribeComplianceByResourceCommandOutput,
 } from "./commands/DescribeComplianceByResourceCommand";
 import {
+  type DescribeConfigRuleEvaluationStatusCommandInput,
+  type DescribeConfigRuleEvaluationStatusCommandOutput,
   DescribeConfigRuleEvaluationStatusCommand,
-  DescribeConfigRuleEvaluationStatusCommandInput,
-  DescribeConfigRuleEvaluationStatusCommandOutput,
 } from "./commands/DescribeConfigRuleEvaluationStatusCommand";
 import {
+  type DescribeConfigRulesCommandInput,
+  type DescribeConfigRulesCommandOutput,
   DescribeConfigRulesCommand,
-  DescribeConfigRulesCommandInput,
-  DescribeConfigRulesCommandOutput,
 } from "./commands/DescribeConfigRulesCommand";
 import {
+  type DescribeConfigurationAggregatorsCommandInput,
+  type DescribeConfigurationAggregatorsCommandOutput,
   DescribeConfigurationAggregatorsCommand,
-  DescribeConfigurationAggregatorsCommandInput,
-  DescribeConfigurationAggregatorsCommandOutput,
 } from "./commands/DescribeConfigurationAggregatorsCommand";
 import {
+  type DescribeConfigurationAggregatorSourcesStatusCommandInput,
+  type DescribeConfigurationAggregatorSourcesStatusCommandOutput,
   DescribeConfigurationAggregatorSourcesStatusCommand,
-  DescribeConfigurationAggregatorSourcesStatusCommandInput,
-  DescribeConfigurationAggregatorSourcesStatusCommandOutput,
 } from "./commands/DescribeConfigurationAggregatorSourcesStatusCommand";
 import {
+  type DescribeConfigurationRecordersCommandInput,
+  type DescribeConfigurationRecordersCommandOutput,
   DescribeConfigurationRecordersCommand,
-  DescribeConfigurationRecordersCommandInput,
-  DescribeConfigurationRecordersCommandOutput,
 } from "./commands/DescribeConfigurationRecordersCommand";
 import {
+  type DescribeConfigurationRecorderStatusCommandInput,
+  type DescribeConfigurationRecorderStatusCommandOutput,
   DescribeConfigurationRecorderStatusCommand,
-  DescribeConfigurationRecorderStatusCommandInput,
-  DescribeConfigurationRecorderStatusCommandOutput,
 } from "./commands/DescribeConfigurationRecorderStatusCommand";
 import {
+  type DescribeConformancePackComplianceCommandInput,
+  type DescribeConformancePackComplianceCommandOutput,
   DescribeConformancePackComplianceCommand,
-  DescribeConformancePackComplianceCommandInput,
-  DescribeConformancePackComplianceCommandOutput,
 } from "./commands/DescribeConformancePackComplianceCommand";
 import {
+  type DescribeConformancePacksCommandInput,
+  type DescribeConformancePacksCommandOutput,
   DescribeConformancePacksCommand,
-  DescribeConformancePacksCommandInput,
-  DescribeConformancePacksCommandOutput,
 } from "./commands/DescribeConformancePacksCommand";
 import {
+  type DescribeConformancePackStatusCommandInput,
+  type DescribeConformancePackStatusCommandOutput,
   DescribeConformancePackStatusCommand,
-  DescribeConformancePackStatusCommandInput,
-  DescribeConformancePackStatusCommandOutput,
 } from "./commands/DescribeConformancePackStatusCommand";
 import {
+  type DescribeDeliveryChannelsCommandInput,
+  type DescribeDeliveryChannelsCommandOutput,
   DescribeDeliveryChannelsCommand,
-  DescribeDeliveryChannelsCommandInput,
-  DescribeDeliveryChannelsCommandOutput,
 } from "./commands/DescribeDeliveryChannelsCommand";
 import {
+  type DescribeDeliveryChannelStatusCommandInput,
+  type DescribeDeliveryChannelStatusCommandOutput,
   DescribeDeliveryChannelStatusCommand,
-  DescribeDeliveryChannelStatusCommandInput,
-  DescribeDeliveryChannelStatusCommandOutput,
 } from "./commands/DescribeDeliveryChannelStatusCommand";
 import {
+  type DescribeOrganizationConfigRulesCommandInput,
+  type DescribeOrganizationConfigRulesCommandOutput,
   DescribeOrganizationConfigRulesCommand,
-  DescribeOrganizationConfigRulesCommandInput,
-  DescribeOrganizationConfigRulesCommandOutput,
 } from "./commands/DescribeOrganizationConfigRulesCommand";
 import {
+  type DescribeOrganizationConfigRuleStatusesCommandInput,
+  type DescribeOrganizationConfigRuleStatusesCommandOutput,
   DescribeOrganizationConfigRuleStatusesCommand,
-  DescribeOrganizationConfigRuleStatusesCommandInput,
-  DescribeOrganizationConfigRuleStatusesCommandOutput,
 } from "./commands/DescribeOrganizationConfigRuleStatusesCommand";
 import {
+  type DescribeOrganizationConformancePacksCommandInput,
+  type DescribeOrganizationConformancePacksCommandOutput,
   DescribeOrganizationConformancePacksCommand,
-  DescribeOrganizationConformancePacksCommandInput,
-  DescribeOrganizationConformancePacksCommandOutput,
 } from "./commands/DescribeOrganizationConformancePacksCommand";
 import {
+  type DescribeOrganizationConformancePackStatusesCommandInput,
+  type DescribeOrganizationConformancePackStatusesCommandOutput,
   DescribeOrganizationConformancePackStatusesCommand,
-  DescribeOrganizationConformancePackStatusesCommandInput,
-  DescribeOrganizationConformancePackStatusesCommandOutput,
 } from "./commands/DescribeOrganizationConformancePackStatusesCommand";
 import {
+  type DescribePendingAggregationRequestsCommandInput,
+  type DescribePendingAggregationRequestsCommandOutput,
   DescribePendingAggregationRequestsCommand,
-  DescribePendingAggregationRequestsCommandInput,
-  DescribePendingAggregationRequestsCommandOutput,
 } from "./commands/DescribePendingAggregationRequestsCommand";
 import {
+  type DescribeRemediationConfigurationsCommandInput,
+  type DescribeRemediationConfigurationsCommandOutput,
   DescribeRemediationConfigurationsCommand,
-  DescribeRemediationConfigurationsCommandInput,
-  DescribeRemediationConfigurationsCommandOutput,
 } from "./commands/DescribeRemediationConfigurationsCommand";
 import {
+  type DescribeRemediationExceptionsCommandInput,
+  type DescribeRemediationExceptionsCommandOutput,
   DescribeRemediationExceptionsCommand,
-  DescribeRemediationExceptionsCommandInput,
-  DescribeRemediationExceptionsCommandOutput,
 } from "./commands/DescribeRemediationExceptionsCommand";
 import {
+  type DescribeRemediationExecutionStatusCommandInput,
+  type DescribeRemediationExecutionStatusCommandOutput,
   DescribeRemediationExecutionStatusCommand,
-  DescribeRemediationExecutionStatusCommandInput,
-  DescribeRemediationExecutionStatusCommandOutput,
 } from "./commands/DescribeRemediationExecutionStatusCommand";
 import {
+  type DescribeRetentionConfigurationsCommandInput,
+  type DescribeRetentionConfigurationsCommandOutput,
   DescribeRetentionConfigurationsCommand,
-  DescribeRetentionConfigurationsCommandInput,
-  DescribeRetentionConfigurationsCommandOutput,
 } from "./commands/DescribeRetentionConfigurationsCommand";
 import {
+  type DisassociateResourceTypesCommandInput,
+  type DisassociateResourceTypesCommandOutput,
   DisassociateResourceTypesCommand,
-  DisassociateResourceTypesCommandInput,
-  DisassociateResourceTypesCommandOutput,
 } from "./commands/DisassociateResourceTypesCommand";
 import {
+  type GetAggregateComplianceDetailsByConfigRuleCommandInput,
+  type GetAggregateComplianceDetailsByConfigRuleCommandOutput,
   GetAggregateComplianceDetailsByConfigRuleCommand,
-  GetAggregateComplianceDetailsByConfigRuleCommandInput,
-  GetAggregateComplianceDetailsByConfigRuleCommandOutput,
 } from "./commands/GetAggregateComplianceDetailsByConfigRuleCommand";
 import {
+  type GetAggregateConfigRuleComplianceSummaryCommandInput,
+  type GetAggregateConfigRuleComplianceSummaryCommandOutput,
   GetAggregateConfigRuleComplianceSummaryCommand,
-  GetAggregateConfigRuleComplianceSummaryCommandInput,
-  GetAggregateConfigRuleComplianceSummaryCommandOutput,
 } from "./commands/GetAggregateConfigRuleComplianceSummaryCommand";
 import {
+  type GetAggregateConformancePackComplianceSummaryCommandInput,
+  type GetAggregateConformancePackComplianceSummaryCommandOutput,
   GetAggregateConformancePackComplianceSummaryCommand,
-  GetAggregateConformancePackComplianceSummaryCommandInput,
-  GetAggregateConformancePackComplianceSummaryCommandOutput,
 } from "./commands/GetAggregateConformancePackComplianceSummaryCommand";
 import {
+  type GetAggregateDiscoveredResourceCountsCommandInput,
+  type GetAggregateDiscoveredResourceCountsCommandOutput,
   GetAggregateDiscoveredResourceCountsCommand,
-  GetAggregateDiscoveredResourceCountsCommandInput,
-  GetAggregateDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetAggregateDiscoveredResourceCountsCommand";
 import {
+  type GetAggregateResourceConfigCommandInput,
+  type GetAggregateResourceConfigCommandOutput,
   GetAggregateResourceConfigCommand,
-  GetAggregateResourceConfigCommandInput,
-  GetAggregateResourceConfigCommandOutput,
 } from "./commands/GetAggregateResourceConfigCommand";
 import {
+  type GetComplianceDetailsByConfigRuleCommandInput,
+  type GetComplianceDetailsByConfigRuleCommandOutput,
   GetComplianceDetailsByConfigRuleCommand,
-  GetComplianceDetailsByConfigRuleCommandInput,
-  GetComplianceDetailsByConfigRuleCommandOutput,
 } from "./commands/GetComplianceDetailsByConfigRuleCommand";
 import {
+  type GetComplianceDetailsByResourceCommandInput,
+  type GetComplianceDetailsByResourceCommandOutput,
   GetComplianceDetailsByResourceCommand,
-  GetComplianceDetailsByResourceCommandInput,
-  GetComplianceDetailsByResourceCommandOutput,
 } from "./commands/GetComplianceDetailsByResourceCommand";
 import {
+  type GetComplianceSummaryByConfigRuleCommandInput,
+  type GetComplianceSummaryByConfigRuleCommandOutput,
   GetComplianceSummaryByConfigRuleCommand,
-  GetComplianceSummaryByConfigRuleCommandInput,
-  GetComplianceSummaryByConfigRuleCommandOutput,
 } from "./commands/GetComplianceSummaryByConfigRuleCommand";
 import {
+  type GetComplianceSummaryByResourceTypeCommandInput,
+  type GetComplianceSummaryByResourceTypeCommandOutput,
   GetComplianceSummaryByResourceTypeCommand,
-  GetComplianceSummaryByResourceTypeCommandInput,
-  GetComplianceSummaryByResourceTypeCommandOutput,
 } from "./commands/GetComplianceSummaryByResourceTypeCommand";
 import {
+  type GetConformancePackComplianceDetailsCommandInput,
+  type GetConformancePackComplianceDetailsCommandOutput,
   GetConformancePackComplianceDetailsCommand,
-  GetConformancePackComplianceDetailsCommandInput,
-  GetConformancePackComplianceDetailsCommandOutput,
 } from "./commands/GetConformancePackComplianceDetailsCommand";
 import {
+  type GetConformancePackComplianceSummaryCommandInput,
+  type GetConformancePackComplianceSummaryCommandOutput,
   GetConformancePackComplianceSummaryCommand,
-  GetConformancePackComplianceSummaryCommandInput,
-  GetConformancePackComplianceSummaryCommandOutput,
 } from "./commands/GetConformancePackComplianceSummaryCommand";
 import {
+  type GetCustomRulePolicyCommandInput,
+  type GetCustomRulePolicyCommandOutput,
   GetCustomRulePolicyCommand,
-  GetCustomRulePolicyCommandInput,
-  GetCustomRulePolicyCommandOutput,
 } from "./commands/GetCustomRulePolicyCommand";
 import {
+  type GetDiscoveredResourceCountsCommandInput,
+  type GetDiscoveredResourceCountsCommandOutput,
   GetDiscoveredResourceCountsCommand,
-  GetDiscoveredResourceCountsCommandInput,
-  GetDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetDiscoveredResourceCountsCommand";
 import {
+  type GetOrganizationConfigRuleDetailedStatusCommandInput,
+  type GetOrganizationConfigRuleDetailedStatusCommandOutput,
   GetOrganizationConfigRuleDetailedStatusCommand,
-  GetOrganizationConfigRuleDetailedStatusCommandInput,
-  GetOrganizationConfigRuleDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConfigRuleDetailedStatusCommand";
 import {
+  type GetOrganizationConformancePackDetailedStatusCommandInput,
+  type GetOrganizationConformancePackDetailedStatusCommandOutput,
   GetOrganizationConformancePackDetailedStatusCommand,
-  GetOrganizationConformancePackDetailedStatusCommandInput,
-  GetOrganizationConformancePackDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConformancePackDetailedStatusCommand";
 import {
+  type GetOrganizationCustomRulePolicyCommandInput,
+  type GetOrganizationCustomRulePolicyCommandOutput,
   GetOrganizationCustomRulePolicyCommand,
-  GetOrganizationCustomRulePolicyCommandInput,
-  GetOrganizationCustomRulePolicyCommandOutput,
 } from "./commands/GetOrganizationCustomRulePolicyCommand";
 import {
+  type GetResourceConfigHistoryCommandInput,
+  type GetResourceConfigHistoryCommandOutput,
   GetResourceConfigHistoryCommand,
-  GetResourceConfigHistoryCommandInput,
-  GetResourceConfigHistoryCommandOutput,
 } from "./commands/GetResourceConfigHistoryCommand";
 import {
+  type GetResourceEvaluationSummaryCommandInput,
+  type GetResourceEvaluationSummaryCommandOutput,
   GetResourceEvaluationSummaryCommand,
-  GetResourceEvaluationSummaryCommandInput,
-  GetResourceEvaluationSummaryCommandOutput,
 } from "./commands/GetResourceEvaluationSummaryCommand";
 import {
+  type GetStoredQueryCommandInput,
+  type GetStoredQueryCommandOutput,
   GetStoredQueryCommand,
-  GetStoredQueryCommandInput,
-  GetStoredQueryCommandOutput,
 } from "./commands/GetStoredQueryCommand";
 import {
+  type ListAggregateDiscoveredResourcesCommandInput,
+  type ListAggregateDiscoveredResourcesCommandOutput,
   ListAggregateDiscoveredResourcesCommand,
-  ListAggregateDiscoveredResourcesCommandInput,
-  ListAggregateDiscoveredResourcesCommandOutput,
 } from "./commands/ListAggregateDiscoveredResourcesCommand";
 import {
+  type ListConfigurationRecordersCommandInput,
+  type ListConfigurationRecordersCommandOutput,
   ListConfigurationRecordersCommand,
-  ListConfigurationRecordersCommandInput,
-  ListConfigurationRecordersCommandOutput,
 } from "./commands/ListConfigurationRecordersCommand";
 import {
+  type ListConformancePackComplianceScoresCommandInput,
+  type ListConformancePackComplianceScoresCommandOutput,
   ListConformancePackComplianceScoresCommand,
-  ListConformancePackComplianceScoresCommandInput,
-  ListConformancePackComplianceScoresCommandOutput,
 } from "./commands/ListConformancePackComplianceScoresCommand";
 import {
+  type ListDiscoveredResourcesCommandInput,
+  type ListDiscoveredResourcesCommandOutput,
   ListDiscoveredResourcesCommand,
-  ListDiscoveredResourcesCommandInput,
-  ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
 import {
+  type ListResourceEvaluationsCommandInput,
+  type ListResourceEvaluationsCommandOutput,
   ListResourceEvaluationsCommand,
-  ListResourceEvaluationsCommandInput,
-  ListResourceEvaluationsCommandOutput,
 } from "./commands/ListResourceEvaluationsCommand";
 import {
+  type ListStoredQueriesCommandInput,
+  type ListStoredQueriesCommandOutput,
   ListStoredQueriesCommand,
-  ListStoredQueriesCommandInput,
-  ListStoredQueriesCommandOutput,
 } from "./commands/ListStoredQueriesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutAggregationAuthorizationCommandInput,
+  type PutAggregationAuthorizationCommandOutput,
   PutAggregationAuthorizationCommand,
-  PutAggregationAuthorizationCommandInput,
-  PutAggregationAuthorizationCommandOutput,
 } from "./commands/PutAggregationAuthorizationCommand";
 import {
+  type PutConfigRuleCommandInput,
+  type PutConfigRuleCommandOutput,
   PutConfigRuleCommand,
-  PutConfigRuleCommandInput,
-  PutConfigRuleCommandOutput,
 } from "./commands/PutConfigRuleCommand";
 import {
+  type PutConfigurationAggregatorCommandInput,
+  type PutConfigurationAggregatorCommandOutput,
   PutConfigurationAggregatorCommand,
-  PutConfigurationAggregatorCommandInput,
-  PutConfigurationAggregatorCommandOutput,
 } from "./commands/PutConfigurationAggregatorCommand";
 import {
+  type PutConfigurationRecorderCommandInput,
+  type PutConfigurationRecorderCommandOutput,
   PutConfigurationRecorderCommand,
-  PutConfigurationRecorderCommandInput,
-  PutConfigurationRecorderCommandOutput,
 } from "./commands/PutConfigurationRecorderCommand";
 import {
+  type PutConformancePackCommandInput,
+  type PutConformancePackCommandOutput,
   PutConformancePackCommand,
-  PutConformancePackCommandInput,
-  PutConformancePackCommandOutput,
 } from "./commands/PutConformancePackCommand";
 import {
+  type PutDeliveryChannelCommandInput,
+  type PutDeliveryChannelCommandOutput,
   PutDeliveryChannelCommand,
-  PutDeliveryChannelCommandInput,
-  PutDeliveryChannelCommandOutput,
 } from "./commands/PutDeliveryChannelCommand";
 import {
+  type PutEvaluationsCommandInput,
+  type PutEvaluationsCommandOutput,
   PutEvaluationsCommand,
-  PutEvaluationsCommandInput,
-  PutEvaluationsCommandOutput,
 } from "./commands/PutEvaluationsCommand";
 import {
+  type PutExternalEvaluationCommandInput,
+  type PutExternalEvaluationCommandOutput,
   PutExternalEvaluationCommand,
-  PutExternalEvaluationCommandInput,
-  PutExternalEvaluationCommandOutput,
 } from "./commands/PutExternalEvaluationCommand";
 import {
+  type PutOrganizationConfigRuleCommandInput,
+  type PutOrganizationConfigRuleCommandOutput,
   PutOrganizationConfigRuleCommand,
-  PutOrganizationConfigRuleCommandInput,
-  PutOrganizationConfigRuleCommandOutput,
 } from "./commands/PutOrganizationConfigRuleCommand";
 import {
+  type PutOrganizationConformancePackCommandInput,
+  type PutOrganizationConformancePackCommandOutput,
   PutOrganizationConformancePackCommand,
-  PutOrganizationConformancePackCommandInput,
-  PutOrganizationConformancePackCommandOutput,
 } from "./commands/PutOrganizationConformancePackCommand";
 import {
+  type PutRemediationConfigurationsCommandInput,
+  type PutRemediationConfigurationsCommandOutput,
   PutRemediationConfigurationsCommand,
-  PutRemediationConfigurationsCommandInput,
-  PutRemediationConfigurationsCommandOutput,
 } from "./commands/PutRemediationConfigurationsCommand";
 import {
+  type PutRemediationExceptionsCommandInput,
+  type PutRemediationExceptionsCommandOutput,
   PutRemediationExceptionsCommand,
-  PutRemediationExceptionsCommandInput,
-  PutRemediationExceptionsCommandOutput,
 } from "./commands/PutRemediationExceptionsCommand";
 import {
+  type PutResourceConfigCommandInput,
+  type PutResourceConfigCommandOutput,
   PutResourceConfigCommand,
-  PutResourceConfigCommandInput,
-  PutResourceConfigCommandOutput,
 } from "./commands/PutResourceConfigCommand";
 import {
+  type PutRetentionConfigurationCommandInput,
+  type PutRetentionConfigurationCommandOutput,
   PutRetentionConfigurationCommand,
-  PutRetentionConfigurationCommandInput,
-  PutRetentionConfigurationCommandOutput,
 } from "./commands/PutRetentionConfigurationCommand";
 import {
+  type PutServiceLinkedConfigurationRecorderCommandInput,
+  type PutServiceLinkedConfigurationRecorderCommandOutput,
   PutServiceLinkedConfigurationRecorderCommand,
-  PutServiceLinkedConfigurationRecorderCommandInput,
-  PutServiceLinkedConfigurationRecorderCommandOutput,
 } from "./commands/PutServiceLinkedConfigurationRecorderCommand";
 import {
+  type PutStoredQueryCommandInput,
+  type PutStoredQueryCommandOutput,
   PutStoredQueryCommand,
-  PutStoredQueryCommandInput,
-  PutStoredQueryCommandOutput,
 } from "./commands/PutStoredQueryCommand";
 import {
+  type SelectAggregateResourceConfigCommandInput,
+  type SelectAggregateResourceConfigCommandOutput,
   SelectAggregateResourceConfigCommand,
-  SelectAggregateResourceConfigCommandInput,
-  SelectAggregateResourceConfigCommandOutput,
 } from "./commands/SelectAggregateResourceConfigCommand";
 import {
+  type SelectResourceConfigCommandInput,
+  type SelectResourceConfigCommandOutput,
   SelectResourceConfigCommand,
-  SelectResourceConfigCommandInput,
-  SelectResourceConfigCommandOutput,
 } from "./commands/SelectResourceConfigCommand";
 import {
+  type StartConfigRulesEvaluationCommandInput,
+  type StartConfigRulesEvaluationCommandOutput,
   StartConfigRulesEvaluationCommand,
-  StartConfigRulesEvaluationCommandInput,
-  StartConfigRulesEvaluationCommandOutput,
 } from "./commands/StartConfigRulesEvaluationCommand";
 import {
+  type StartConfigurationRecorderCommandInput,
+  type StartConfigurationRecorderCommandOutput,
   StartConfigurationRecorderCommand,
-  StartConfigurationRecorderCommandInput,
-  StartConfigurationRecorderCommandOutput,
 } from "./commands/StartConfigurationRecorderCommand";
 import {
+  type StartRemediationExecutionCommandInput,
+  type StartRemediationExecutionCommandOutput,
   StartRemediationExecutionCommand,
-  StartRemediationExecutionCommandInput,
-  StartRemediationExecutionCommandOutput,
 } from "./commands/StartRemediationExecutionCommand";
 import {
+  type StartResourceEvaluationCommandInput,
+  type StartResourceEvaluationCommandOutput,
   StartResourceEvaluationCommand,
-  StartResourceEvaluationCommandInput,
-  StartResourceEvaluationCommandOutput,
 } from "./commands/StartResourceEvaluationCommand";
 import {
+  type StopConfigurationRecorderCommandInput,
+  type StopConfigurationRecorderCommandOutput,
   StopConfigurationRecorderCommand,
-  StopConfigurationRecorderCommandInput,
-  StopConfigurationRecorderCommandOutput,
 } from "./commands/StopConfigurationRecorderCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { ConfigServiceClient } from "./ConfigServiceClient";
 import {

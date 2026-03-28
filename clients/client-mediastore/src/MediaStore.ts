@@ -3,105 +3,109 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateContainerCommandInput,
+  type CreateContainerCommandOutput,
   CreateContainerCommand,
-  CreateContainerCommandInput,
-  CreateContainerCommandOutput,
 } from "./commands/CreateContainerCommand";
 import {
+  type DeleteContainerCommandInput,
+  type DeleteContainerCommandOutput,
   DeleteContainerCommand,
-  DeleteContainerCommandInput,
-  DeleteContainerCommandOutput,
 } from "./commands/DeleteContainerCommand";
 import {
+  type DeleteContainerPolicyCommandInput,
+  type DeleteContainerPolicyCommandOutput,
   DeleteContainerPolicyCommand,
-  DeleteContainerPolicyCommandInput,
-  DeleteContainerPolicyCommandOutput,
 } from "./commands/DeleteContainerPolicyCommand";
 import {
+  type DeleteCorsPolicyCommandInput,
+  type DeleteCorsPolicyCommandOutput,
   DeleteCorsPolicyCommand,
-  DeleteCorsPolicyCommandInput,
-  DeleteCorsPolicyCommandOutput,
 } from "./commands/DeleteCorsPolicyCommand";
 import {
+  type DeleteLifecyclePolicyCommandInput,
+  type DeleteLifecyclePolicyCommandOutput,
   DeleteLifecyclePolicyCommand,
-  DeleteLifecyclePolicyCommandInput,
-  DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
 import {
+  type DeleteMetricPolicyCommandInput,
+  type DeleteMetricPolicyCommandOutput,
   DeleteMetricPolicyCommand,
-  DeleteMetricPolicyCommandInput,
-  DeleteMetricPolicyCommandOutput,
 } from "./commands/DeleteMetricPolicyCommand";
 import {
+  type DescribeContainerCommandInput,
+  type DescribeContainerCommandOutput,
   DescribeContainerCommand,
-  DescribeContainerCommandInput,
-  DescribeContainerCommandOutput,
 } from "./commands/DescribeContainerCommand";
 import {
+  type GetContainerPolicyCommandInput,
+  type GetContainerPolicyCommandOutput,
   GetContainerPolicyCommand,
-  GetContainerPolicyCommandInput,
-  GetContainerPolicyCommandOutput,
 } from "./commands/GetContainerPolicyCommand";
 import {
+  type GetCorsPolicyCommandInput,
+  type GetCorsPolicyCommandOutput,
   GetCorsPolicyCommand,
-  GetCorsPolicyCommandInput,
-  GetCorsPolicyCommandOutput,
 } from "./commands/GetCorsPolicyCommand";
 import {
+  type GetLifecyclePolicyCommandInput,
+  type GetLifecyclePolicyCommandOutput,
   GetLifecyclePolicyCommand,
-  GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput,
 } from "./commands/GetLifecyclePolicyCommand";
 import {
+  type GetMetricPolicyCommandInput,
+  type GetMetricPolicyCommandOutput,
   GetMetricPolicyCommand,
-  GetMetricPolicyCommandInput,
-  GetMetricPolicyCommandOutput,
 } from "./commands/GetMetricPolicyCommand";
 import {
+  type ListContainersCommandInput,
+  type ListContainersCommandOutput,
   ListContainersCommand,
-  ListContainersCommandInput,
-  ListContainersCommandOutput,
 } from "./commands/ListContainersCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutContainerPolicyCommandInput,
+  type PutContainerPolicyCommandOutput,
   PutContainerPolicyCommand,
-  PutContainerPolicyCommandInput,
-  PutContainerPolicyCommandOutput,
 } from "./commands/PutContainerPolicyCommand";
 import {
+  type PutCorsPolicyCommandInput,
+  type PutCorsPolicyCommandOutput,
   PutCorsPolicyCommand,
-  PutCorsPolicyCommandInput,
-  PutCorsPolicyCommandOutput,
 } from "./commands/PutCorsPolicyCommand";
 import {
+  type PutLifecyclePolicyCommandInput,
+  type PutLifecyclePolicyCommandOutput,
   PutLifecyclePolicyCommand,
-  PutLifecyclePolicyCommandInput,
-  PutLifecyclePolicyCommandOutput,
 } from "./commands/PutLifecyclePolicyCommand";
 import {
+  type PutMetricPolicyCommandInput,
+  type PutMetricPolicyCommandOutput,
   PutMetricPolicyCommand,
-  PutMetricPolicyCommandInput,
-  PutMetricPolicyCommandOutput,
 } from "./commands/PutMetricPolicyCommand";
 import {
+  type StartAccessLoggingCommandInput,
+  type StartAccessLoggingCommandOutput,
   StartAccessLoggingCommand,
-  StartAccessLoggingCommandInput,
-  StartAccessLoggingCommandOutput,
 } from "./commands/StartAccessLoggingCommand";
 import {
+  type StopAccessLoggingCommandInput,
+  type StopAccessLoggingCommandOutput,
   StopAccessLoggingCommand,
-  StopAccessLoggingCommandInput,
-  StopAccessLoggingCommandOutput,
 } from "./commands/StopAccessLoggingCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { MediaStoreClient } from "./MediaStoreClient";
 import { paginateListContainers } from "./pagination/ListContainersPaginator";

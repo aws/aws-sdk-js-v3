@@ -7,7 +7,7 @@
  */
 export * from "./CostOptimizationHubClient";
 export * from "./CostOptimizationHub";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CostOptimizationHubExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

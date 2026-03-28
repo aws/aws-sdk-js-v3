@@ -7,7 +7,7 @@
  */
 export * from "./ArtifactClient";
 export * from "./Artifact";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ArtifactExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

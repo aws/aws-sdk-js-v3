@@ -8,7 +8,7 @@ import {
   ListComponentsCommandOutput,
 } from "../commands/ListComponentsCommand";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
-import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
+import type { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

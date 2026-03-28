@@ -3,9 +3,9 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type InvokeEndpointWithBidirectionalStreamCommandInput,
+  type InvokeEndpointWithBidirectionalStreamCommandOutput,
   InvokeEndpointWithBidirectionalStreamCommand,
-  InvokeEndpointWithBidirectionalStreamCommandInput,
-  InvokeEndpointWithBidirectionalStreamCommandOutput,
 } from "./commands/InvokeEndpointWithBidirectionalStreamCommand";
 import { SageMakerRuntimeHTTP2Client } from "./SageMakerRuntimeHTTP2Client";
 

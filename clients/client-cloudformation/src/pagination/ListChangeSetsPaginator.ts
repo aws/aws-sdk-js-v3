@@ -8,7 +8,7 @@ import {
   ListChangeSetsCommandInput,
   ListChangeSetsCommandOutput,
 } from "../commands/ListChangeSetsCommand";
-import { CloudFormationPaginationConfiguration } from "./Interfaces";
+import type { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

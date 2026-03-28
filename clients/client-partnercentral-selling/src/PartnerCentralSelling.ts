@@ -3,210 +3,214 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptEngagementInvitationCommandInput,
+  type AcceptEngagementInvitationCommandOutput,
   AcceptEngagementInvitationCommand,
-  AcceptEngagementInvitationCommandInput,
-  AcceptEngagementInvitationCommandOutput,
 } from "./commands/AcceptEngagementInvitationCommand";
 import {
+  type AssignOpportunityCommandInput,
+  type AssignOpportunityCommandOutput,
   AssignOpportunityCommand,
-  AssignOpportunityCommandInput,
-  AssignOpportunityCommandOutput,
 } from "./commands/AssignOpportunityCommand";
 import {
+  type AssociateOpportunityCommandInput,
+  type AssociateOpportunityCommandOutput,
   AssociateOpportunityCommand,
-  AssociateOpportunityCommandInput,
-  AssociateOpportunityCommandOutput,
 } from "./commands/AssociateOpportunityCommand";
 import {
+  type CreateEngagementCommandInput,
+  type CreateEngagementCommandOutput,
   CreateEngagementCommand,
-  CreateEngagementCommandInput,
-  CreateEngagementCommandOutput,
 } from "./commands/CreateEngagementCommand";
 import {
+  type CreateEngagementContextCommandInput,
+  type CreateEngagementContextCommandOutput,
   CreateEngagementContextCommand,
-  CreateEngagementContextCommandInput,
-  CreateEngagementContextCommandOutput,
 } from "./commands/CreateEngagementContextCommand";
 import {
+  type CreateEngagementInvitationCommandInput,
+  type CreateEngagementInvitationCommandOutput,
   CreateEngagementInvitationCommand,
-  CreateEngagementInvitationCommandInput,
-  CreateEngagementInvitationCommandOutput,
 } from "./commands/CreateEngagementInvitationCommand";
 import {
+  type CreateOpportunityCommandInput,
+  type CreateOpportunityCommandOutput,
   CreateOpportunityCommand,
-  CreateOpportunityCommandInput,
-  CreateOpportunityCommandOutput,
 } from "./commands/CreateOpportunityCommand";
 import {
+  type CreateResourceSnapshotCommandInput,
+  type CreateResourceSnapshotCommandOutput,
   CreateResourceSnapshotCommand,
-  CreateResourceSnapshotCommandInput,
-  CreateResourceSnapshotCommandOutput,
 } from "./commands/CreateResourceSnapshotCommand";
 import {
+  type CreateResourceSnapshotJobCommandInput,
+  type CreateResourceSnapshotJobCommandOutput,
   CreateResourceSnapshotJobCommand,
-  CreateResourceSnapshotJobCommandInput,
-  CreateResourceSnapshotJobCommandOutput,
 } from "./commands/CreateResourceSnapshotJobCommand";
 import {
+  type DeleteResourceSnapshotJobCommandInput,
+  type DeleteResourceSnapshotJobCommandOutput,
   DeleteResourceSnapshotJobCommand,
-  DeleteResourceSnapshotJobCommandInput,
-  DeleteResourceSnapshotJobCommandOutput,
 } from "./commands/DeleteResourceSnapshotJobCommand";
 import {
+  type DisassociateOpportunityCommandInput,
+  type DisassociateOpportunityCommandOutput,
   DisassociateOpportunityCommand,
-  DisassociateOpportunityCommandInput,
-  DisassociateOpportunityCommandOutput,
 } from "./commands/DisassociateOpportunityCommand";
 import {
+  type GetAwsOpportunitySummaryCommandInput,
+  type GetAwsOpportunitySummaryCommandOutput,
   GetAwsOpportunitySummaryCommand,
-  GetAwsOpportunitySummaryCommandInput,
-  GetAwsOpportunitySummaryCommandOutput,
 } from "./commands/GetAwsOpportunitySummaryCommand";
 import {
+  type GetEngagementCommandInput,
+  type GetEngagementCommandOutput,
   GetEngagementCommand,
-  GetEngagementCommandInput,
-  GetEngagementCommandOutput,
 } from "./commands/GetEngagementCommand";
 import {
+  type GetEngagementInvitationCommandInput,
+  type GetEngagementInvitationCommandOutput,
   GetEngagementInvitationCommand,
-  GetEngagementInvitationCommandInput,
-  GetEngagementInvitationCommandOutput,
 } from "./commands/GetEngagementInvitationCommand";
 import {
+  type GetOpportunityCommandInput,
+  type GetOpportunityCommandOutput,
   GetOpportunityCommand,
-  GetOpportunityCommandInput,
-  GetOpportunityCommandOutput,
 } from "./commands/GetOpportunityCommand";
 import {
+  type GetResourceSnapshotCommandInput,
+  type GetResourceSnapshotCommandOutput,
   GetResourceSnapshotCommand,
-  GetResourceSnapshotCommandInput,
-  GetResourceSnapshotCommandOutput,
 } from "./commands/GetResourceSnapshotCommand";
 import {
+  type GetResourceSnapshotJobCommandInput,
+  type GetResourceSnapshotJobCommandOutput,
   GetResourceSnapshotJobCommand,
-  GetResourceSnapshotJobCommandInput,
-  GetResourceSnapshotJobCommandOutput,
 } from "./commands/GetResourceSnapshotJobCommand";
 import {
+  type GetSellingSystemSettingsCommandInput,
+  type GetSellingSystemSettingsCommandOutput,
   GetSellingSystemSettingsCommand,
-  GetSellingSystemSettingsCommandInput,
-  GetSellingSystemSettingsCommandOutput,
 } from "./commands/GetSellingSystemSettingsCommand";
 import {
+  type ListEngagementByAcceptingInvitationTasksCommandInput,
+  type ListEngagementByAcceptingInvitationTasksCommandOutput,
   ListEngagementByAcceptingInvitationTasksCommand,
-  ListEngagementByAcceptingInvitationTasksCommandInput,
-  ListEngagementByAcceptingInvitationTasksCommandOutput,
 } from "./commands/ListEngagementByAcceptingInvitationTasksCommand";
 import {
+  type ListEngagementFromOpportunityTasksCommandInput,
+  type ListEngagementFromOpportunityTasksCommandOutput,
   ListEngagementFromOpportunityTasksCommand,
-  ListEngagementFromOpportunityTasksCommandInput,
-  ListEngagementFromOpportunityTasksCommandOutput,
 } from "./commands/ListEngagementFromOpportunityTasksCommand";
 import {
+  type ListEngagementInvitationsCommandInput,
+  type ListEngagementInvitationsCommandOutput,
   ListEngagementInvitationsCommand,
-  ListEngagementInvitationsCommandInput,
-  ListEngagementInvitationsCommandOutput,
 } from "./commands/ListEngagementInvitationsCommand";
 import {
+  type ListEngagementMembersCommandInput,
+  type ListEngagementMembersCommandOutput,
   ListEngagementMembersCommand,
-  ListEngagementMembersCommandInput,
-  ListEngagementMembersCommandOutput,
 } from "./commands/ListEngagementMembersCommand";
 import {
+  type ListEngagementResourceAssociationsCommandInput,
+  type ListEngagementResourceAssociationsCommandOutput,
   ListEngagementResourceAssociationsCommand,
-  ListEngagementResourceAssociationsCommandInput,
-  ListEngagementResourceAssociationsCommandOutput,
 } from "./commands/ListEngagementResourceAssociationsCommand";
 import {
+  type ListEngagementsCommandInput,
+  type ListEngagementsCommandOutput,
   ListEngagementsCommand,
-  ListEngagementsCommandInput,
-  ListEngagementsCommandOutput,
 } from "./commands/ListEngagementsCommand";
 import {
+  type ListOpportunitiesCommandInput,
+  type ListOpportunitiesCommandOutput,
   ListOpportunitiesCommand,
-  ListOpportunitiesCommandInput,
-  ListOpportunitiesCommandOutput,
 } from "./commands/ListOpportunitiesCommand";
 import {
+  type ListOpportunityFromEngagementTasksCommandInput,
+  type ListOpportunityFromEngagementTasksCommandOutput,
   ListOpportunityFromEngagementTasksCommand,
-  ListOpportunityFromEngagementTasksCommandInput,
-  ListOpportunityFromEngagementTasksCommandOutput,
 } from "./commands/ListOpportunityFromEngagementTasksCommand";
 import {
+  type ListResourceSnapshotJobsCommandInput,
+  type ListResourceSnapshotJobsCommandOutput,
   ListResourceSnapshotJobsCommand,
-  ListResourceSnapshotJobsCommandInput,
-  ListResourceSnapshotJobsCommandOutput,
 } from "./commands/ListResourceSnapshotJobsCommand";
 import {
+  type ListResourceSnapshotsCommandInput,
+  type ListResourceSnapshotsCommandOutput,
   ListResourceSnapshotsCommand,
-  ListResourceSnapshotsCommandInput,
-  ListResourceSnapshotsCommandOutput,
 } from "./commands/ListResourceSnapshotsCommand";
 import {
+  type ListSolutionsCommandInput,
+  type ListSolutionsCommandOutput,
   ListSolutionsCommand,
-  ListSolutionsCommandInput,
-  ListSolutionsCommandOutput,
 } from "./commands/ListSolutionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutSellingSystemSettingsCommandInput,
+  type PutSellingSystemSettingsCommandOutput,
   PutSellingSystemSettingsCommand,
-  PutSellingSystemSettingsCommandInput,
-  PutSellingSystemSettingsCommandOutput,
 } from "./commands/PutSellingSystemSettingsCommand";
 import {
+  type RejectEngagementInvitationCommandInput,
+  type RejectEngagementInvitationCommandOutput,
   RejectEngagementInvitationCommand,
-  RejectEngagementInvitationCommandInput,
-  RejectEngagementInvitationCommandOutput,
 } from "./commands/RejectEngagementInvitationCommand";
 import {
+  type StartEngagementByAcceptingInvitationTaskCommandInput,
+  type StartEngagementByAcceptingInvitationTaskCommandOutput,
   StartEngagementByAcceptingInvitationTaskCommand,
-  StartEngagementByAcceptingInvitationTaskCommandInput,
-  StartEngagementByAcceptingInvitationTaskCommandOutput,
 } from "./commands/StartEngagementByAcceptingInvitationTaskCommand";
 import {
+  type StartEngagementFromOpportunityTaskCommandInput,
+  type StartEngagementFromOpportunityTaskCommandOutput,
   StartEngagementFromOpportunityTaskCommand,
-  StartEngagementFromOpportunityTaskCommandInput,
-  StartEngagementFromOpportunityTaskCommandOutput,
 } from "./commands/StartEngagementFromOpportunityTaskCommand";
 import {
+  type StartOpportunityFromEngagementTaskCommandInput,
+  type StartOpportunityFromEngagementTaskCommandOutput,
   StartOpportunityFromEngagementTaskCommand,
-  StartOpportunityFromEngagementTaskCommandInput,
-  StartOpportunityFromEngagementTaskCommandOutput,
 } from "./commands/StartOpportunityFromEngagementTaskCommand";
 import {
+  type StartResourceSnapshotJobCommandInput,
+  type StartResourceSnapshotJobCommandOutput,
   StartResourceSnapshotJobCommand,
-  StartResourceSnapshotJobCommandInput,
-  StartResourceSnapshotJobCommandOutput,
 } from "./commands/StartResourceSnapshotJobCommand";
 import {
+  type StopResourceSnapshotJobCommandInput,
+  type StopResourceSnapshotJobCommandOutput,
   StopResourceSnapshotJobCommand,
-  StopResourceSnapshotJobCommandInput,
-  StopResourceSnapshotJobCommandOutput,
 } from "./commands/StopResourceSnapshotJobCommand";
 import {
+  type SubmitOpportunityCommandInput,
+  type SubmitOpportunityCommandOutput,
   SubmitOpportunityCommand,
-  SubmitOpportunityCommandInput,
-  SubmitOpportunityCommandOutput,
 } from "./commands/SubmitOpportunityCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateEngagementContextCommandInput,
+  type UpdateEngagementContextCommandOutput,
   UpdateEngagementContextCommand,
-  UpdateEngagementContextCommandInput,
-  UpdateEngagementContextCommandOutput,
 } from "./commands/UpdateEngagementContextCommand";
 import {
+  type UpdateOpportunityCommandInput,
+  type UpdateOpportunityCommandOutput,
   UpdateOpportunityCommand,
-  UpdateOpportunityCommandInput,
-  UpdateOpportunityCommandOutput,
 } from "./commands/UpdateOpportunityCommand";
 import {
   paginateListEngagementByAcceptingInvitationTasks,

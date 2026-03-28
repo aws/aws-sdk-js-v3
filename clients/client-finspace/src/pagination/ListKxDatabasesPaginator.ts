@@ -8,7 +8,7 @@ import {
   ListKxDatabasesCommandOutput,
 } from "../commands/ListKxDatabasesCommand";
 import { FinspaceClient } from "../FinspaceClient";
-import { FinspacePaginationConfiguration } from "./Interfaces";
+import type { FinspacePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

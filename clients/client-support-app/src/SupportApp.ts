@@ -3,54 +3,54 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateSlackChannelConfigurationCommandInput,
+  type CreateSlackChannelConfigurationCommandOutput,
   CreateSlackChannelConfigurationCommand,
-  CreateSlackChannelConfigurationCommandInput,
-  CreateSlackChannelConfigurationCommandOutput,
 } from "./commands/CreateSlackChannelConfigurationCommand";
 import {
+  type DeleteAccountAliasCommandInput,
+  type DeleteAccountAliasCommandOutput,
   DeleteAccountAliasCommand,
-  DeleteAccountAliasCommandInput,
-  DeleteAccountAliasCommandOutput,
 } from "./commands/DeleteAccountAliasCommand";
 import {
+  type DeleteSlackChannelConfigurationCommandInput,
+  type DeleteSlackChannelConfigurationCommandOutput,
   DeleteSlackChannelConfigurationCommand,
-  DeleteSlackChannelConfigurationCommandInput,
-  DeleteSlackChannelConfigurationCommandOutput,
 } from "./commands/DeleteSlackChannelConfigurationCommand";
 import {
+  type DeleteSlackWorkspaceConfigurationCommandInput,
+  type DeleteSlackWorkspaceConfigurationCommandOutput,
   DeleteSlackWorkspaceConfigurationCommand,
-  DeleteSlackWorkspaceConfigurationCommandInput,
-  DeleteSlackWorkspaceConfigurationCommandOutput,
 } from "./commands/DeleteSlackWorkspaceConfigurationCommand";
 import {
+  type GetAccountAliasCommandInput,
+  type GetAccountAliasCommandOutput,
   GetAccountAliasCommand,
-  GetAccountAliasCommandInput,
-  GetAccountAliasCommandOutput,
 } from "./commands/GetAccountAliasCommand";
 import {
+  type ListSlackChannelConfigurationsCommandInput,
+  type ListSlackChannelConfigurationsCommandOutput,
   ListSlackChannelConfigurationsCommand,
-  ListSlackChannelConfigurationsCommandInput,
-  ListSlackChannelConfigurationsCommandOutput,
 } from "./commands/ListSlackChannelConfigurationsCommand";
 import {
+  type ListSlackWorkspaceConfigurationsCommandInput,
+  type ListSlackWorkspaceConfigurationsCommandOutput,
   ListSlackWorkspaceConfigurationsCommand,
-  ListSlackWorkspaceConfigurationsCommandInput,
-  ListSlackWorkspaceConfigurationsCommandOutput,
 } from "./commands/ListSlackWorkspaceConfigurationsCommand";
 import {
+  type PutAccountAliasCommandInput,
+  type PutAccountAliasCommandOutput,
   PutAccountAliasCommand,
-  PutAccountAliasCommandInput,
-  PutAccountAliasCommandOutput,
 } from "./commands/PutAccountAliasCommand";
 import {
+  type RegisterSlackWorkspaceForOrganizationCommandInput,
+  type RegisterSlackWorkspaceForOrganizationCommandOutput,
   RegisterSlackWorkspaceForOrganizationCommand,
-  RegisterSlackWorkspaceForOrganizationCommandInput,
-  RegisterSlackWorkspaceForOrganizationCommandOutput,
 } from "./commands/RegisterSlackWorkspaceForOrganizationCommand";
 import {
+  type UpdateSlackChannelConfigurationCommandInput,
+  type UpdateSlackChannelConfigurationCommandOutput,
   UpdateSlackChannelConfigurationCommand,
-  UpdateSlackChannelConfigurationCommandInput,
-  UpdateSlackChannelConfigurationCommandOutput,
 } from "./commands/UpdateSlackChannelConfigurationCommand";
 import { paginateListSlackChannelConfigurations } from "./pagination/ListSlackChannelConfigurationsPaginator";
 import { paginateListSlackWorkspaceConfigurations } from "./pagination/ListSlackWorkspaceConfigurationsPaginator";

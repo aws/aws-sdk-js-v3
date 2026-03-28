@@ -8,7 +8,7 @@ import {
   ListControlPanelsCommandOutput,
 } from "../commands/ListControlPanelsCommand";
 import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
-import { Route53RecoveryControlConfigPaginationConfiguration } from "./Interfaces";
+import type { Route53RecoveryControlConfigPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

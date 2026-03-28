@@ -8,7 +8,7 @@ import {
   ListLogPatternSetsCommandInput,
   ListLogPatternSetsCommandOutput,
 } from "../commands/ListLogPatternSetsCommand";
-import { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
+import type { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

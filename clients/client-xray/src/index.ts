@@ -8,7 +8,7 @@
  */
 export * from "./XRayClient";
 export * from "./XRay";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { XRayExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

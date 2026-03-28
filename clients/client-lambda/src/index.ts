@@ -7,7 +7,7 @@
  */
 export * from "./LambdaClient";
 export * from "./Lambda";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { LambdaExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

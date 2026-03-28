@@ -3,138 +3,146 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AmplifyClient } from "./AmplifyClient";
-import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
+import { type CreateAppCommandInput, type CreateAppCommandOutput, CreateAppCommand } from "./commands/CreateAppCommand";
 import {
+  type CreateBackendEnvironmentCommandInput,
+  type CreateBackendEnvironmentCommandOutput,
   CreateBackendEnvironmentCommand,
-  CreateBackendEnvironmentCommandInput,
-  CreateBackendEnvironmentCommandOutput,
 } from "./commands/CreateBackendEnvironmentCommand";
 import {
+  type CreateBranchCommandInput,
+  type CreateBranchCommandOutput,
   CreateBranchCommand,
-  CreateBranchCommandInput,
-  CreateBranchCommandOutput,
 } from "./commands/CreateBranchCommand";
 import {
+  type CreateDeploymentCommandInput,
+  type CreateDeploymentCommandOutput,
   CreateDeploymentCommand,
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput,
 } from "./commands/CreateDeploymentCommand";
 import {
+  type CreateDomainAssociationCommandInput,
+  type CreateDomainAssociationCommandOutput,
   CreateDomainAssociationCommand,
-  CreateDomainAssociationCommandInput,
-  CreateDomainAssociationCommandOutput,
 } from "./commands/CreateDomainAssociationCommand";
 import {
+  type CreateWebhookCommandInput,
+  type CreateWebhookCommandOutput,
   CreateWebhookCommand,
-  CreateWebhookCommandInput,
-  CreateWebhookCommandOutput,
 } from "./commands/CreateWebhookCommand";
-import { DeleteAppCommand, DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
+import { type DeleteAppCommandInput, type DeleteAppCommandOutput, DeleteAppCommand } from "./commands/DeleteAppCommand";
 import {
+  type DeleteBackendEnvironmentCommandInput,
+  type DeleteBackendEnvironmentCommandOutput,
   DeleteBackendEnvironmentCommand,
-  DeleteBackendEnvironmentCommandInput,
-  DeleteBackendEnvironmentCommandOutput,
 } from "./commands/DeleteBackendEnvironmentCommand";
 import {
+  type DeleteBranchCommandInput,
+  type DeleteBranchCommandOutput,
   DeleteBranchCommand,
-  DeleteBranchCommandInput,
-  DeleteBranchCommandOutput,
 } from "./commands/DeleteBranchCommand";
 import {
+  type DeleteDomainAssociationCommandInput,
+  type DeleteDomainAssociationCommandOutput,
   DeleteDomainAssociationCommand,
-  DeleteDomainAssociationCommandInput,
-  DeleteDomainAssociationCommandOutput,
 } from "./commands/DeleteDomainAssociationCommand";
-import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import { type DeleteJobCommandInput, type DeleteJobCommandOutput, DeleteJobCommand } from "./commands/DeleteJobCommand";
 import {
+  type DeleteWebhookCommandInput,
+  type DeleteWebhookCommandOutput,
   DeleteWebhookCommand,
-  DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput,
 } from "./commands/DeleteWebhookCommand";
 import {
+  type GenerateAccessLogsCommandInput,
+  type GenerateAccessLogsCommandOutput,
   GenerateAccessLogsCommand,
-  GenerateAccessLogsCommandInput,
-  GenerateAccessLogsCommandOutput,
 } from "./commands/GenerateAccessLogsCommand";
-import { GetAppCommand, GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
+import { type GetAppCommandInput, type GetAppCommandOutput, GetAppCommand } from "./commands/GetAppCommand";
 import {
+  type GetArtifactUrlCommandInput,
+  type GetArtifactUrlCommandOutput,
   GetArtifactUrlCommand,
-  GetArtifactUrlCommandInput,
-  GetArtifactUrlCommandOutput,
 } from "./commands/GetArtifactUrlCommand";
 import {
+  type GetBackendEnvironmentCommandInput,
+  type GetBackendEnvironmentCommandOutput,
   GetBackendEnvironmentCommand,
-  GetBackendEnvironmentCommandInput,
-  GetBackendEnvironmentCommandOutput,
 } from "./commands/GetBackendEnvironmentCommand";
-import { GetBranchCommand, GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
+import { type GetBranchCommandInput, type GetBranchCommandOutput, GetBranchCommand } from "./commands/GetBranchCommand";
 import {
+  type GetDomainAssociationCommandInput,
+  type GetDomainAssociationCommandOutput,
   GetDomainAssociationCommand,
-  GetDomainAssociationCommandInput,
-  GetDomainAssociationCommandOutput,
 } from "./commands/GetDomainAssociationCommand";
-import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
-import { GetWebhookCommand, GetWebhookCommandInput, GetWebhookCommandOutput } from "./commands/GetWebhookCommand";
-import { ListAppsCommand, ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import { type GetJobCommandInput, type GetJobCommandOutput, GetJobCommand } from "./commands/GetJobCommand";
 import {
+  type GetWebhookCommandInput,
+  type GetWebhookCommandOutput,
+  GetWebhookCommand,
+} from "./commands/GetWebhookCommand";
+import { type ListAppsCommandInput, type ListAppsCommandOutput, ListAppsCommand } from "./commands/ListAppsCommand";
+import {
+  type ListArtifactsCommandInput,
+  type ListArtifactsCommandOutput,
   ListArtifactsCommand,
-  ListArtifactsCommandInput,
-  ListArtifactsCommandOutput,
 } from "./commands/ListArtifactsCommand";
 import {
+  type ListBackendEnvironmentsCommandInput,
+  type ListBackendEnvironmentsCommandOutput,
   ListBackendEnvironmentsCommand,
-  ListBackendEnvironmentsCommandInput,
-  ListBackendEnvironmentsCommandOutput,
 } from "./commands/ListBackendEnvironmentsCommand";
 import {
+  type ListBranchesCommandInput,
+  type ListBranchesCommandOutput,
   ListBranchesCommand,
-  ListBranchesCommandInput,
-  ListBranchesCommandOutput,
 } from "./commands/ListBranchesCommand";
 import {
+  type ListDomainAssociationsCommandInput,
+  type ListDomainAssociationsCommandOutput,
   ListDomainAssociationsCommand,
-  ListDomainAssociationsCommandInput,
-  ListDomainAssociationsCommandOutput,
 } from "./commands/ListDomainAssociationsCommand";
-import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { type ListJobsCommandInput, type ListJobsCommandOutput, ListJobsCommand } from "./commands/ListJobsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWebhooksCommandInput,
+  type ListWebhooksCommandOutput,
   ListWebhooksCommand,
-  ListWebhooksCommandInput,
-  ListWebhooksCommandOutput,
 } from "./commands/ListWebhooksCommand";
 import {
+  type StartDeploymentCommandInput,
+  type StartDeploymentCommandOutput,
   StartDeploymentCommand,
-  StartDeploymentCommandInput,
-  StartDeploymentCommandOutput,
 } from "./commands/StartDeploymentCommand";
-import { StartJobCommand, StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
-import { StopJobCommand, StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type StartJobCommandInput, type StartJobCommandOutput, StartJobCommand } from "./commands/StartJobCommand";
+import { type StopJobCommandInput, type StopJobCommandOutput, StopJobCommand } from "./commands/StopJobCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateAppCommand, UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
+import { type UpdateAppCommandInput, type UpdateAppCommandOutput, UpdateAppCommand } from "./commands/UpdateAppCommand";
 import {
+  type UpdateBranchCommandInput,
+  type UpdateBranchCommandOutput,
   UpdateBranchCommand,
-  UpdateBranchCommandInput,
-  UpdateBranchCommandOutput,
 } from "./commands/UpdateBranchCommand";
 import {
+  type UpdateDomainAssociationCommandInput,
+  type UpdateDomainAssociationCommandOutput,
   UpdateDomainAssociationCommand,
-  UpdateDomainAssociationCommandInput,
-  UpdateDomainAssociationCommandOutput,
 } from "./commands/UpdateDomainAssociationCommand";
 import {
+  type UpdateWebhookCommandInput,
+  type UpdateWebhookCommandOutput,
   UpdateWebhookCommand,
-  UpdateWebhookCommandInput,
-  UpdateWebhookCommandOutput,
 } from "./commands/UpdateWebhookCommand";
 import { paginateListApps } from "./pagination/ListAppsPaginator";
 import { paginateListBranches } from "./pagination/ListBranchesPaginator";

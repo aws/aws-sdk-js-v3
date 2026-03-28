@@ -203,7 +203,7 @@
  */
 export * from "./CodePipelineClient";
 export * from "./CodePipeline";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CodePipelineExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

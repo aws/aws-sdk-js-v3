@@ -8,7 +8,7 @@ import {
   ListEnabledProductsForImportCommandOutput,
 } from "../commands/ListEnabledProductsForImportCommand";
 import { SecurityHubClient } from "../SecurityHubClient";
-import { SecurityHubPaginationConfiguration } from "./Interfaces";
+import type { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

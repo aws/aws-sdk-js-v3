@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { EmailContactStatus } from "./enums";
+import type { EmailContactStatus } from "./enums";
 
 /**
  * @public

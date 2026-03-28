@@ -1,7 +1,14 @@
 // smithy-typescript generated code
-import { DocumentType as __DocumentType } from "@smithy/types";
+import type { DocumentType as __DocumentType } from "@smithy/types";
 
-import { EncryptionType, EngineVersion, RunType, TaskInstanceStatus, WorkflowRunStatus, WorkflowStatus } from "./enums";
+import type {
+  EncryptionType,
+  EngineVersion,
+  RunType,
+  TaskInstanceStatus,
+  WorkflowRunStatus,
+  WorkflowStatus,
+} from "./enums";
 
 /**
  * @public

@@ -44,21 +44,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -68,56 +66,56 @@ import {
   defaultTimestreamQueryHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
-import {
+import type { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
+import type {
   CreateScheduledQueryCommandInput,
   CreateScheduledQueryCommandOutput,
 } from "./commands/CreateScheduledQueryCommand";
-import {
+import type {
   DeleteScheduledQueryCommandInput,
   DeleteScheduledQueryCommandOutput,
 } from "./commands/DeleteScheduledQueryCommand";
-import {
+import type {
   DescribeAccountSettingsCommandInput,
   DescribeAccountSettingsCommandOutput,
 } from "./commands/DescribeAccountSettingsCommand";
 import {
+  type DescribeEndpointsCommandInput,
+  type DescribeEndpointsCommandOutput,
   DescribeEndpointsCommand,
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
-import {
+import type {
   DescribeScheduledQueryCommandInput,
   DescribeScheduledQueryCommandOutput,
 } from "./commands/DescribeScheduledQueryCommand";
-import {
+import type {
   ExecuteScheduledQueryCommandInput,
   ExecuteScheduledQueryCommandOutput,
 } from "./commands/ExecuteScheduledQueryCommand";
-import {
+import type {
   ListScheduledQueriesCommandInput,
   ListScheduledQueriesCommandOutput,
 } from "./commands/ListScheduledQueriesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PrepareQueryCommandInput, PrepareQueryCommandOutput } from "./commands/PrepareQueryCommand";
-import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { PrepareQueryCommandInput, PrepareQueryCommandOutput } from "./commands/PrepareQueryCommand";
+import type { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
-import {
+import type {
   UpdateScheduledQueryCommandInput,
   UpdateScheduledQueryCommandOutput,
 } from "./commands/UpdateScheduledQueryCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -279,7 +277,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

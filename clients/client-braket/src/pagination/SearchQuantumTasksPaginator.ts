@@ -8,7 +8,7 @@ import {
   SearchQuantumTasksCommandInput,
   SearchQuantumTasksCommandOutput,
 } from "../commands/SearchQuantumTasksCommand";
-import { BraketPaginationConfiguration } from "./Interfaces";
+import type { BraketPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

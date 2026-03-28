@@ -8,7 +8,7 @@ import {
   DescribeTestCasesCommandInput,
   DescribeTestCasesCommandOutput,
 } from "../commands/DescribeTestCasesCommand";
-import { CodeBuildPaginationConfiguration } from "./Interfaces";
+import type { CodeBuildPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

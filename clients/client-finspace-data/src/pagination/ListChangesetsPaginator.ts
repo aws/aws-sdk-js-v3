@@ -8,7 +8,7 @@ import {
   ListChangesetsCommandOutput,
 } from "../commands/ListChangesetsCommand";
 import { FinspaceDataClient } from "../FinspaceDataClient";
-import { FinspaceDataPaginationConfiguration } from "./Interfaces";
+import type { FinspaceDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

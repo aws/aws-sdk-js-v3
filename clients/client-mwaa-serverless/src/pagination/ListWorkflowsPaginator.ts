@@ -8,7 +8,7 @@ import {
   ListWorkflowsCommandOutput,
 } from "../commands/ListWorkflowsCommand";
 import { MWAAServerlessClient } from "../MWAAServerlessClient";
-import { MWAAServerlessPaginationConfiguration } from "./Interfaces";
+import type { MWAAServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

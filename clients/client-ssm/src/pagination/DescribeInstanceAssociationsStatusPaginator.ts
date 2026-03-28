@@ -8,7 +8,7 @@ import {
   DescribeInstanceAssociationsStatusCommandOutput,
 } from "../commands/DescribeInstanceAssociationsStatusCommand";
 import { SSMClient } from "../SSMClient";
-import { SSMPaginationConfiguration } from "./Interfaces";
+import type { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

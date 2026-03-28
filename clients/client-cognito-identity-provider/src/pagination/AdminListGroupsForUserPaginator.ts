@@ -8,7 +8,7 @@ import {
   AdminListGroupsForUserCommandInput,
   AdminListGroupsForUserCommandOutput,
 } from "../commands/AdminListGroupsForUserCommand";
-import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
+import type { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

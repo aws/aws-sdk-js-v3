@@ -8,7 +8,7 @@ import {
   ListInvitationsCommandOutput,
 } from "../commands/ListInvitationsCommand";
 import { GuardDutyClient } from "../GuardDutyClient";
-import { GuardDutyPaginationConfiguration } from "./Interfaces";
+import type { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

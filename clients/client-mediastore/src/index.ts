@@ -8,7 +8,7 @@
  */
 export * from "./MediaStoreClient";
 export * from "./MediaStore";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MediaStoreExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

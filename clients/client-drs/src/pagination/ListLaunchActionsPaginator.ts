@@ -8,7 +8,7 @@ import {
   ListLaunchActionsCommandOutput,
 } from "../commands/ListLaunchActionsCommand";
 import { DrsClient } from "../DrsClient";
-import { DrsPaginationConfiguration } from "./Interfaces";
+import type { DrsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

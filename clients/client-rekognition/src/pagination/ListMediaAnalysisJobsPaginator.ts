@@ -8,7 +8,7 @@ import {
   ListMediaAnalysisJobsCommandOutput,
 } from "../commands/ListMediaAnalysisJobsCommand";
 import { RekognitionClient } from "../RekognitionClient";
-import { RekognitionPaginationConfiguration } from "./Interfaces";
+import type { RekognitionPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

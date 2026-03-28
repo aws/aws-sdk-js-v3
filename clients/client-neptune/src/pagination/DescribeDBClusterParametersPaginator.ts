@@ -8,7 +8,7 @@ import {
   DescribeDBClusterParametersCommandOutput,
 } from "../commands/DescribeDBClusterParametersCommand";
 import { NeptuneClient } from "../NeptuneClient";
-import { NeptunePaginationConfiguration } from "./Interfaces";
+import type { NeptunePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

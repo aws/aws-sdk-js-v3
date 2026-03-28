@@ -5,7 +5,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { type UpdateResourcePositionResponse, UpdateResourcePositionRequest } from "../models/models_1";
+import type { UpdateResourcePositionRequest, UpdateResourcePositionResponse } from "../models/models_1";
 import { UpdateResourcePosition$ } from "../schemas/schemas_0";
 
 /**

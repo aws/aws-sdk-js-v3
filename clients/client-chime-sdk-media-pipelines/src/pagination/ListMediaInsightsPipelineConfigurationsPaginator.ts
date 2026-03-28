@@ -8,7 +8,7 @@ import {
   ListMediaInsightsPipelineConfigurationsCommandInput,
   ListMediaInsightsPipelineConfigurationsCommandOutput,
 } from "../commands/ListMediaInsightsPipelineConfigurationsCommand";
-import { ChimeSDKMediaPipelinesPaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKMediaPipelinesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

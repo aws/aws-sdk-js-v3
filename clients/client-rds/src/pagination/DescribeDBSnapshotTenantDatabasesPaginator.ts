@@ -8,7 +8,7 @@ import {
   DescribeDBSnapshotTenantDatabasesCommandOutput,
 } from "../commands/DescribeDBSnapshotTenantDatabasesCommand";
 import { RDSClient } from "../RDSClient";
-import { RDSPaginationConfiguration } from "./Interfaces";
+import type { RDSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

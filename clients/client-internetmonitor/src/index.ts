@@ -22,7 +22,7 @@
  */
 export * from "./InternetMonitorClient";
 export * from "./InternetMonitor";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { InternetMonitorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

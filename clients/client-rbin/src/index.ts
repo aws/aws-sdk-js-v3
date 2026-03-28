@@ -18,7 +18,7 @@
  */
 export * from "./RbinClient";
 export * from "./Rbin";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { RbinExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

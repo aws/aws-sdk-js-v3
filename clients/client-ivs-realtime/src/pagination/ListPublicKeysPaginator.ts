@@ -8,7 +8,7 @@ import {
   ListPublicKeysCommandOutput,
 } from "../commands/ListPublicKeysCommand";
 import { IVSRealTimeClient } from "../IVSRealTimeClient";
-import { IVSRealTimePaginationConfiguration } from "./Interfaces";
+import type { IVSRealTimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

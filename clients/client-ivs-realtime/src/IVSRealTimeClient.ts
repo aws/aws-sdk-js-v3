@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,109 +61,112 @@ import {
   defaultIVSRealTimeHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateEncoderConfigurationCommandInput,
   CreateEncoderConfigurationCommandOutput,
 } from "./commands/CreateEncoderConfigurationCommand";
-import {
+import type {
   CreateIngestConfigurationCommandInput,
   CreateIngestConfigurationCommandOutput,
 } from "./commands/CreateIngestConfigurationCommand";
-import {
+import type {
   CreateParticipantTokenCommandInput,
   CreateParticipantTokenCommandOutput,
 } from "./commands/CreateParticipantTokenCommand";
-import { CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
-import {
+import type { CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
+import type {
   CreateStorageConfigurationCommandInput,
   CreateStorageConfigurationCommandOutput,
 } from "./commands/CreateStorageConfigurationCommand";
-import {
+import type {
   DeleteEncoderConfigurationCommandInput,
   DeleteEncoderConfigurationCommandOutput,
 } from "./commands/DeleteEncoderConfigurationCommand";
-import {
+import type {
   DeleteIngestConfigurationCommandInput,
   DeleteIngestConfigurationCommandOutput,
 } from "./commands/DeleteIngestConfigurationCommand";
-import { DeletePublicKeyCommandInput, DeletePublicKeyCommandOutput } from "./commands/DeletePublicKeyCommand";
-import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
-import {
+import type { DeletePublicKeyCommandInput, DeletePublicKeyCommandOutput } from "./commands/DeletePublicKeyCommand";
+import type { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
+import type {
   DeleteStorageConfigurationCommandInput,
   DeleteStorageConfigurationCommandOutput,
 } from "./commands/DeleteStorageConfigurationCommand";
-import {
+import type {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
-import { GetCompositionCommandInput, GetCompositionCommandOutput } from "./commands/GetCompositionCommand";
-import {
+import type { GetCompositionCommandInput, GetCompositionCommandOutput } from "./commands/GetCompositionCommand";
+import type {
   GetEncoderConfigurationCommandInput,
   GetEncoderConfigurationCommandOutput,
 } from "./commands/GetEncoderConfigurationCommand";
-import {
+import type {
   GetIngestConfigurationCommandInput,
   GetIngestConfigurationCommandOutput,
 } from "./commands/GetIngestConfigurationCommand";
-import { GetParticipantCommandInput, GetParticipantCommandOutput } from "./commands/GetParticipantCommand";
-import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand";
-import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
-import { GetStageSessionCommandInput, GetStageSessionCommandOutput } from "./commands/GetStageSessionCommand";
-import {
+import type { GetParticipantCommandInput, GetParticipantCommandOutput } from "./commands/GetParticipantCommand";
+import type { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand";
+import type { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
+import type { GetStageSessionCommandInput, GetStageSessionCommandOutput } from "./commands/GetStageSessionCommand";
+import type {
   GetStorageConfigurationCommandInput,
   GetStorageConfigurationCommandOutput,
 } from "./commands/GetStorageConfigurationCommand";
-import { ImportPublicKeyCommandInput, ImportPublicKeyCommandOutput } from "./commands/ImportPublicKeyCommand";
-import { ListCompositionsCommandInput, ListCompositionsCommandOutput } from "./commands/ListCompositionsCommand";
-import {
+import type { ImportPublicKeyCommandInput, ImportPublicKeyCommandOutput } from "./commands/ImportPublicKeyCommand";
+import type { ListCompositionsCommandInput, ListCompositionsCommandOutput } from "./commands/ListCompositionsCommand";
+import type {
   ListEncoderConfigurationsCommandInput,
   ListEncoderConfigurationsCommandOutput,
 } from "./commands/ListEncoderConfigurationsCommand";
-import {
+import type {
   ListIngestConfigurationsCommandInput,
   ListIngestConfigurationsCommandOutput,
 } from "./commands/ListIngestConfigurationsCommand";
-import {
+import type {
   ListParticipantEventsCommandInput,
   ListParticipantEventsCommandOutput,
 } from "./commands/ListParticipantEventsCommand";
-import {
+import type {
   ListParticipantReplicasCommandInput,
   ListParticipantReplicasCommandOutput,
 } from "./commands/ListParticipantReplicasCommand";
-import { ListParticipantsCommandInput, ListParticipantsCommandOutput } from "./commands/ListParticipantsCommand";
-import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
-import { ListStagesCommandInput, ListStagesCommandOutput } from "./commands/ListStagesCommand";
-import { ListStageSessionsCommandInput, ListStageSessionsCommandOutput } from "./commands/ListStageSessionsCommand";
-import {
+import type { ListParticipantsCommandInput, ListParticipantsCommandOutput } from "./commands/ListParticipantsCommand";
+import type { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
+import type { ListStagesCommandInput, ListStagesCommandOutput } from "./commands/ListStagesCommand";
+import type {
+  ListStageSessionsCommandInput,
+  ListStageSessionsCommandOutput,
+} from "./commands/ListStageSessionsCommand";
+import type {
   ListStorageConfigurationsCommandInput,
   ListStorageConfigurationsCommandOutput,
 } from "./commands/ListStorageConfigurationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartCompositionCommandInput, StartCompositionCommandOutput } from "./commands/StartCompositionCommand";
-import {
+import type { StartCompositionCommandInput, StartCompositionCommandOutput } from "./commands/StartCompositionCommand";
+import type {
   StartParticipantReplicationCommandInput,
   StartParticipantReplicationCommandOutput,
 } from "./commands/StartParticipantReplicationCommand";
-import { StopCompositionCommandInput, StopCompositionCommandOutput } from "./commands/StopCompositionCommand";
-import {
+import type { StopCompositionCommandInput, StopCompositionCommandOutput } from "./commands/StopCompositionCommand";
+import type {
   StopParticipantReplicationCommandInput,
   StopParticipantReplicationCommandOutput,
 } from "./commands/StopParticipantReplicationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateIngestConfigurationCommandInput,
   UpdateIngestConfigurationCommandOutput,
 } from "./commands/UpdateIngestConfigurationCommand";
-import { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
+import type { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -375,7 +376,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

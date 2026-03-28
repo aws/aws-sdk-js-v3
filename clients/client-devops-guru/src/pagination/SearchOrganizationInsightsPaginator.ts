@@ -8,7 +8,7 @@ import {
   SearchOrganizationInsightsCommandOutput,
 } from "../commands/SearchOrganizationInsightsCommand";
 import { DevOpsGuruClient } from "../DevOpsGuruClient";
-import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
+import type { DevOpsGuruPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -3,74 +3,74 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DescribeAffectedAccountsForOrganizationCommandInput,
+  type DescribeAffectedAccountsForOrganizationCommandOutput,
   DescribeAffectedAccountsForOrganizationCommand,
-  DescribeAffectedAccountsForOrganizationCommandInput,
-  DescribeAffectedAccountsForOrganizationCommandOutput,
 } from "./commands/DescribeAffectedAccountsForOrganizationCommand";
 import {
+  type DescribeAffectedEntitiesCommandInput,
+  type DescribeAffectedEntitiesCommandOutput,
   DescribeAffectedEntitiesCommand,
-  DescribeAffectedEntitiesCommandInput,
-  DescribeAffectedEntitiesCommandOutput,
 } from "./commands/DescribeAffectedEntitiesCommand";
 import {
+  type DescribeAffectedEntitiesForOrganizationCommandInput,
+  type DescribeAffectedEntitiesForOrganizationCommandOutput,
   DescribeAffectedEntitiesForOrganizationCommand,
-  DescribeAffectedEntitiesForOrganizationCommandInput,
-  DescribeAffectedEntitiesForOrganizationCommandOutput,
 } from "./commands/DescribeAffectedEntitiesForOrganizationCommand";
 import {
+  type DescribeEntityAggregatesCommandInput,
+  type DescribeEntityAggregatesCommandOutput,
   DescribeEntityAggregatesCommand,
-  DescribeEntityAggregatesCommandInput,
-  DescribeEntityAggregatesCommandOutput,
 } from "./commands/DescribeEntityAggregatesCommand";
 import {
+  type DescribeEntityAggregatesForOrganizationCommandInput,
+  type DescribeEntityAggregatesForOrganizationCommandOutput,
   DescribeEntityAggregatesForOrganizationCommand,
-  DescribeEntityAggregatesForOrganizationCommandInput,
-  DescribeEntityAggregatesForOrganizationCommandOutput,
 } from "./commands/DescribeEntityAggregatesForOrganizationCommand";
 import {
+  type DescribeEventAggregatesCommandInput,
+  type DescribeEventAggregatesCommandOutput,
   DescribeEventAggregatesCommand,
-  DescribeEventAggregatesCommandInput,
-  DescribeEventAggregatesCommandOutput,
 } from "./commands/DescribeEventAggregatesCommand";
 import {
+  type DescribeEventDetailsCommandInput,
+  type DescribeEventDetailsCommandOutput,
   DescribeEventDetailsCommand,
-  DescribeEventDetailsCommandInput,
-  DescribeEventDetailsCommandOutput,
 } from "./commands/DescribeEventDetailsCommand";
 import {
+  type DescribeEventDetailsForOrganizationCommandInput,
+  type DescribeEventDetailsForOrganizationCommandOutput,
   DescribeEventDetailsForOrganizationCommand,
-  DescribeEventDetailsForOrganizationCommandInput,
-  DescribeEventDetailsForOrganizationCommandOutput,
 } from "./commands/DescribeEventDetailsForOrganizationCommand";
 import {
+  type DescribeEventsCommandInput,
+  type DescribeEventsCommandOutput,
   DescribeEventsCommand,
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  type DescribeEventsForOrganizationCommandInput,
+  type DescribeEventsForOrganizationCommandOutput,
   DescribeEventsForOrganizationCommand,
-  DescribeEventsForOrganizationCommandInput,
-  DescribeEventsForOrganizationCommandOutput,
 } from "./commands/DescribeEventsForOrganizationCommand";
 import {
+  type DescribeEventTypesCommandInput,
+  type DescribeEventTypesCommandOutput,
   DescribeEventTypesCommand,
-  DescribeEventTypesCommandInput,
-  DescribeEventTypesCommandOutput,
 } from "./commands/DescribeEventTypesCommand";
 import {
+  type DescribeHealthServiceStatusForOrganizationCommandInput,
+  type DescribeHealthServiceStatusForOrganizationCommandOutput,
   DescribeHealthServiceStatusForOrganizationCommand,
-  DescribeHealthServiceStatusForOrganizationCommandInput,
-  DescribeHealthServiceStatusForOrganizationCommandOutput,
 } from "./commands/DescribeHealthServiceStatusForOrganizationCommand";
 import {
+  type DisableHealthServiceAccessForOrganizationCommandInput,
+  type DisableHealthServiceAccessForOrganizationCommandOutput,
   DisableHealthServiceAccessForOrganizationCommand,
-  DisableHealthServiceAccessForOrganizationCommandInput,
-  DisableHealthServiceAccessForOrganizationCommandOutput,
 } from "./commands/DisableHealthServiceAccessForOrganizationCommand";
 import {
+  type EnableHealthServiceAccessForOrganizationCommandInput,
+  type EnableHealthServiceAccessForOrganizationCommandOutput,
   EnableHealthServiceAccessForOrganizationCommand,
-  EnableHealthServiceAccessForOrganizationCommandInput,
-  EnableHealthServiceAccessForOrganizationCommandOutput,
 } from "./commands/EnableHealthServiceAccessForOrganizationCommand";
 import { HealthClient } from "./HealthClient";
 import {

@@ -8,7 +8,7 @@ import {
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
 import { ServiceCatalogAppRegistryClient } from "../ServiceCatalogAppRegistryClient";
-import { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
+import type { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

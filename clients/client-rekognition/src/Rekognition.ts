@@ -9,335 +9,371 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AssociateFacesCommandInput,
+  type AssociateFacesCommandOutput,
   AssociateFacesCommand,
-  AssociateFacesCommandInput,
-  AssociateFacesCommandOutput,
 } from "./commands/AssociateFacesCommand";
 import {
+  type CompareFacesCommandInput,
+  type CompareFacesCommandOutput,
   CompareFacesCommand,
-  CompareFacesCommandInput,
-  CompareFacesCommandOutput,
 } from "./commands/CompareFacesCommand";
 import {
+  type CopyProjectVersionCommandInput,
+  type CopyProjectVersionCommandOutput,
   CopyProjectVersionCommand,
-  CopyProjectVersionCommandInput,
-  CopyProjectVersionCommandOutput,
 } from "./commands/CopyProjectVersionCommand";
 import {
+  type CreateCollectionCommandInput,
+  type CreateCollectionCommandOutput,
   CreateCollectionCommand,
-  CreateCollectionCommandInput,
-  CreateCollectionCommandOutput,
 } from "./commands/CreateCollectionCommand";
 import {
+  type CreateDatasetCommandInput,
+  type CreateDatasetCommandOutput,
   CreateDatasetCommand,
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput,
 } from "./commands/CreateDatasetCommand";
 import {
+  type CreateFaceLivenessSessionCommandInput,
+  type CreateFaceLivenessSessionCommandOutput,
   CreateFaceLivenessSessionCommand,
-  CreateFaceLivenessSessionCommandInput,
-  CreateFaceLivenessSessionCommandOutput,
 } from "./commands/CreateFaceLivenessSessionCommand";
 import {
+  type CreateProjectCommandInput,
+  type CreateProjectCommandOutput,
   CreateProjectCommand,
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput,
 } from "./commands/CreateProjectCommand";
 import {
+  type CreateProjectVersionCommandInput,
+  type CreateProjectVersionCommandOutput,
   CreateProjectVersionCommand,
-  CreateProjectVersionCommandInput,
-  CreateProjectVersionCommandOutput,
 } from "./commands/CreateProjectVersionCommand";
 import {
+  type CreateStreamProcessorCommandInput,
+  type CreateStreamProcessorCommandOutput,
   CreateStreamProcessorCommand,
-  CreateStreamProcessorCommandInput,
-  CreateStreamProcessorCommandOutput,
 } from "./commands/CreateStreamProcessorCommand";
-import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  type CreateUserCommandInput,
+  type CreateUserCommandOutput,
+  CreateUserCommand,
+} from "./commands/CreateUserCommand";
+import {
+  type DeleteCollectionCommandInput,
+  type DeleteCollectionCommandOutput,
   DeleteCollectionCommand,
-  DeleteCollectionCommandInput,
-  DeleteCollectionCommandOutput,
 } from "./commands/DeleteCollectionCommand";
 import {
+  type DeleteDatasetCommandInput,
+  type DeleteDatasetCommandOutput,
   DeleteDatasetCommand,
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput,
 } from "./commands/DeleteDatasetCommand";
-import { DeleteFacesCommand, DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand";
 import {
+  type DeleteFacesCommandInput,
+  type DeleteFacesCommandOutput,
+  DeleteFacesCommand,
+} from "./commands/DeleteFacesCommand";
+import {
+  type DeleteProjectCommandInput,
+  type DeleteProjectCommandOutput,
   DeleteProjectCommand,
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand";
 import {
+  type DeleteProjectPolicyCommandInput,
+  type DeleteProjectPolicyCommandOutput,
   DeleteProjectPolicyCommand,
-  DeleteProjectPolicyCommandInput,
-  DeleteProjectPolicyCommandOutput,
 } from "./commands/DeleteProjectPolicyCommand";
 import {
+  type DeleteProjectVersionCommandInput,
+  type DeleteProjectVersionCommandOutput,
   DeleteProjectVersionCommand,
-  DeleteProjectVersionCommandInput,
-  DeleteProjectVersionCommandOutput,
 } from "./commands/DeleteProjectVersionCommand";
 import {
+  type DeleteStreamProcessorCommandInput,
+  type DeleteStreamProcessorCommandOutput,
   DeleteStreamProcessorCommand,
-  DeleteStreamProcessorCommandInput,
-  DeleteStreamProcessorCommandOutput,
 } from "./commands/DeleteStreamProcessorCommand";
-import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  type DeleteUserCommandInput,
+  type DeleteUserCommandOutput,
+  DeleteUserCommand,
+} from "./commands/DeleteUserCommand";
+import {
+  type DescribeCollectionCommandInput,
+  type DescribeCollectionCommandOutput,
   DescribeCollectionCommand,
-  DescribeCollectionCommandInput,
-  DescribeCollectionCommandOutput,
 } from "./commands/DescribeCollectionCommand";
 import {
+  type DescribeDatasetCommandInput,
+  type DescribeDatasetCommandOutput,
   DescribeDatasetCommand,
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput,
 } from "./commands/DescribeDatasetCommand";
 import {
+  type DescribeProjectsCommandInput,
+  type DescribeProjectsCommandOutput,
   DescribeProjectsCommand,
-  DescribeProjectsCommandInput,
-  DescribeProjectsCommandOutput,
 } from "./commands/DescribeProjectsCommand";
 import {
+  type DescribeProjectVersionsCommandInput,
+  type DescribeProjectVersionsCommandOutput,
   DescribeProjectVersionsCommand,
-  DescribeProjectVersionsCommandInput,
-  DescribeProjectVersionsCommandOutput,
 } from "./commands/DescribeProjectVersionsCommand";
 import {
+  type DescribeStreamProcessorCommandInput,
+  type DescribeStreamProcessorCommandOutput,
   DescribeStreamProcessorCommand,
-  DescribeStreamProcessorCommandInput,
-  DescribeStreamProcessorCommandOutput,
 } from "./commands/DescribeStreamProcessorCommand";
 import {
+  type DetectCustomLabelsCommandInput,
+  type DetectCustomLabelsCommandOutput,
   DetectCustomLabelsCommand,
-  DetectCustomLabelsCommandInput,
-  DetectCustomLabelsCommandOutput,
 } from "./commands/DetectCustomLabelsCommand";
-import { DetectFacesCommand, DetectFacesCommandInput, DetectFacesCommandOutput } from "./commands/DetectFacesCommand";
 import {
+  type DetectFacesCommandInput,
+  type DetectFacesCommandOutput,
+  DetectFacesCommand,
+} from "./commands/DetectFacesCommand";
+import {
+  type DetectLabelsCommandInput,
+  type DetectLabelsCommandOutput,
   DetectLabelsCommand,
-  DetectLabelsCommandInput,
-  DetectLabelsCommandOutput,
 } from "./commands/DetectLabelsCommand";
 import {
+  type DetectModerationLabelsCommandInput,
+  type DetectModerationLabelsCommandOutput,
   DetectModerationLabelsCommand,
-  DetectModerationLabelsCommandInput,
-  DetectModerationLabelsCommandOutput,
 } from "./commands/DetectModerationLabelsCommand";
 import {
+  type DetectProtectiveEquipmentCommandInput,
+  type DetectProtectiveEquipmentCommandOutput,
   DetectProtectiveEquipmentCommand,
-  DetectProtectiveEquipmentCommandInput,
-  DetectProtectiveEquipmentCommandOutput,
 } from "./commands/DetectProtectiveEquipmentCommand";
-import { DetectTextCommand, DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand";
 import {
+  type DetectTextCommandInput,
+  type DetectTextCommandOutput,
+  DetectTextCommand,
+} from "./commands/DetectTextCommand";
+import {
+  type DisassociateFacesCommandInput,
+  type DisassociateFacesCommandOutput,
   DisassociateFacesCommand,
-  DisassociateFacesCommandInput,
-  DisassociateFacesCommandOutput,
 } from "./commands/DisassociateFacesCommand";
 import {
+  type DistributeDatasetEntriesCommandInput,
+  type DistributeDatasetEntriesCommandOutput,
   DistributeDatasetEntriesCommand,
-  DistributeDatasetEntriesCommandInput,
-  DistributeDatasetEntriesCommandOutput,
 } from "./commands/DistributeDatasetEntriesCommand";
 import {
+  type GetCelebrityInfoCommandInput,
+  type GetCelebrityInfoCommandOutput,
   GetCelebrityInfoCommand,
-  GetCelebrityInfoCommandInput,
-  GetCelebrityInfoCommandOutput,
 } from "./commands/GetCelebrityInfoCommand";
 import {
+  type GetCelebrityRecognitionCommandInput,
+  type GetCelebrityRecognitionCommandOutput,
   GetCelebrityRecognitionCommand,
-  GetCelebrityRecognitionCommandInput,
-  GetCelebrityRecognitionCommandOutput,
 } from "./commands/GetCelebrityRecognitionCommand";
 import {
+  type GetContentModerationCommandInput,
+  type GetContentModerationCommandOutput,
   GetContentModerationCommand,
-  GetContentModerationCommandInput,
-  GetContentModerationCommandOutput,
 } from "./commands/GetContentModerationCommand";
 import {
+  type GetFaceDetectionCommandInput,
+  type GetFaceDetectionCommandOutput,
   GetFaceDetectionCommand,
-  GetFaceDetectionCommandInput,
-  GetFaceDetectionCommandOutput,
 } from "./commands/GetFaceDetectionCommand";
 import {
+  type GetFaceLivenessSessionResultsCommandInput,
+  type GetFaceLivenessSessionResultsCommandOutput,
   GetFaceLivenessSessionResultsCommand,
-  GetFaceLivenessSessionResultsCommandInput,
-  GetFaceLivenessSessionResultsCommandOutput,
 } from "./commands/GetFaceLivenessSessionResultsCommand";
 import {
+  type GetFaceSearchCommandInput,
+  type GetFaceSearchCommandOutput,
   GetFaceSearchCommand,
-  GetFaceSearchCommandInput,
-  GetFaceSearchCommandOutput,
 } from "./commands/GetFaceSearchCommand";
 import {
+  type GetLabelDetectionCommandInput,
+  type GetLabelDetectionCommandOutput,
   GetLabelDetectionCommand,
-  GetLabelDetectionCommandInput,
-  GetLabelDetectionCommandOutput,
 } from "./commands/GetLabelDetectionCommand";
 import {
+  type GetMediaAnalysisJobCommandInput,
+  type GetMediaAnalysisJobCommandOutput,
   GetMediaAnalysisJobCommand,
-  GetMediaAnalysisJobCommandInput,
-  GetMediaAnalysisJobCommandOutput,
 } from "./commands/GetMediaAnalysisJobCommand";
 import {
+  type GetPersonTrackingCommandInput,
+  type GetPersonTrackingCommandOutput,
   GetPersonTrackingCommand,
-  GetPersonTrackingCommandInput,
-  GetPersonTrackingCommandOutput,
 } from "./commands/GetPersonTrackingCommand";
 import {
+  type GetSegmentDetectionCommandInput,
+  type GetSegmentDetectionCommandOutput,
   GetSegmentDetectionCommand,
-  GetSegmentDetectionCommandInput,
-  GetSegmentDetectionCommandOutput,
 } from "./commands/GetSegmentDetectionCommand";
 import {
+  type GetTextDetectionCommandInput,
+  type GetTextDetectionCommandOutput,
   GetTextDetectionCommand,
-  GetTextDetectionCommandInput,
-  GetTextDetectionCommandOutput,
 } from "./commands/GetTextDetectionCommand";
-import { IndexFacesCommand, IndexFacesCommandInput, IndexFacesCommandOutput } from "./commands/IndexFacesCommand";
 import {
+  type IndexFacesCommandInput,
+  type IndexFacesCommandOutput,
+  IndexFacesCommand,
+} from "./commands/IndexFacesCommand";
+import {
+  type ListCollectionsCommandInput,
+  type ListCollectionsCommandOutput,
   ListCollectionsCommand,
-  ListCollectionsCommandInput,
-  ListCollectionsCommandOutput,
 } from "./commands/ListCollectionsCommand";
 import {
+  type ListDatasetEntriesCommandInput,
+  type ListDatasetEntriesCommandOutput,
   ListDatasetEntriesCommand,
-  ListDatasetEntriesCommandInput,
-  ListDatasetEntriesCommandOutput,
 } from "./commands/ListDatasetEntriesCommand";
 import {
+  type ListDatasetLabelsCommandInput,
+  type ListDatasetLabelsCommandOutput,
   ListDatasetLabelsCommand,
-  ListDatasetLabelsCommandInput,
-  ListDatasetLabelsCommandOutput,
 } from "./commands/ListDatasetLabelsCommand";
-import { ListFacesCommand, ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
+import { type ListFacesCommandInput, type ListFacesCommandOutput, ListFacesCommand } from "./commands/ListFacesCommand";
 import {
+  type ListMediaAnalysisJobsCommandInput,
+  type ListMediaAnalysisJobsCommandOutput,
   ListMediaAnalysisJobsCommand,
-  ListMediaAnalysisJobsCommandInput,
-  ListMediaAnalysisJobsCommandOutput,
 } from "./commands/ListMediaAnalysisJobsCommand";
 import {
+  type ListProjectPoliciesCommandInput,
+  type ListProjectPoliciesCommandOutput,
   ListProjectPoliciesCommand,
-  ListProjectPoliciesCommandInput,
-  ListProjectPoliciesCommandOutput,
 } from "./commands/ListProjectPoliciesCommand";
 import {
+  type ListStreamProcessorsCommandInput,
+  type ListStreamProcessorsCommandOutput,
   ListStreamProcessorsCommand,
-  ListStreamProcessorsCommandInput,
-  ListStreamProcessorsCommandOutput,
 } from "./commands/ListStreamProcessorsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
 import {
+  type PutProjectPolicyCommandInput,
+  type PutProjectPolicyCommandOutput,
   PutProjectPolicyCommand,
-  PutProjectPolicyCommandInput,
-  PutProjectPolicyCommandOutput,
 } from "./commands/PutProjectPolicyCommand";
 import {
+  type RecognizeCelebritiesCommandInput,
+  type RecognizeCelebritiesCommandOutput,
   RecognizeCelebritiesCommand,
-  RecognizeCelebritiesCommandInput,
-  RecognizeCelebritiesCommandOutput,
 } from "./commands/RecognizeCelebritiesCommand";
 import {
+  type SearchFacesByImageCommandInput,
+  type SearchFacesByImageCommandOutput,
   SearchFacesByImageCommand,
-  SearchFacesByImageCommandInput,
-  SearchFacesByImageCommandOutput,
 } from "./commands/SearchFacesByImageCommand";
-import { SearchFacesCommand, SearchFacesCommandInput, SearchFacesCommandOutput } from "./commands/SearchFacesCommand";
 import {
+  type SearchFacesCommandInput,
+  type SearchFacesCommandOutput,
+  SearchFacesCommand,
+} from "./commands/SearchFacesCommand";
+import {
+  type SearchUsersByImageCommandInput,
+  type SearchUsersByImageCommandOutput,
   SearchUsersByImageCommand,
-  SearchUsersByImageCommandInput,
-  SearchUsersByImageCommandOutput,
 } from "./commands/SearchUsersByImageCommand";
-import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import {
+  type SearchUsersCommandInput,
+  type SearchUsersCommandOutput,
+  SearchUsersCommand,
+} from "./commands/SearchUsersCommand";
+import {
+  type StartCelebrityRecognitionCommandInput,
+  type StartCelebrityRecognitionCommandOutput,
   StartCelebrityRecognitionCommand,
-  StartCelebrityRecognitionCommandInput,
-  StartCelebrityRecognitionCommandOutput,
 } from "./commands/StartCelebrityRecognitionCommand";
 import {
+  type StartContentModerationCommandInput,
+  type StartContentModerationCommandOutput,
   StartContentModerationCommand,
-  StartContentModerationCommandInput,
-  StartContentModerationCommandOutput,
 } from "./commands/StartContentModerationCommand";
 import {
+  type StartFaceDetectionCommandInput,
+  type StartFaceDetectionCommandOutput,
   StartFaceDetectionCommand,
-  StartFaceDetectionCommandInput,
-  StartFaceDetectionCommandOutput,
 } from "./commands/StartFaceDetectionCommand";
 import {
+  type StartFaceSearchCommandInput,
+  type StartFaceSearchCommandOutput,
   StartFaceSearchCommand,
-  StartFaceSearchCommandInput,
-  StartFaceSearchCommandOutput,
 } from "./commands/StartFaceSearchCommand";
 import {
+  type StartLabelDetectionCommandInput,
+  type StartLabelDetectionCommandOutput,
   StartLabelDetectionCommand,
-  StartLabelDetectionCommandInput,
-  StartLabelDetectionCommandOutput,
 } from "./commands/StartLabelDetectionCommand";
 import {
+  type StartMediaAnalysisJobCommandInput,
+  type StartMediaAnalysisJobCommandOutput,
   StartMediaAnalysisJobCommand,
-  StartMediaAnalysisJobCommandInput,
-  StartMediaAnalysisJobCommandOutput,
 } from "./commands/StartMediaAnalysisJobCommand";
 import {
+  type StartPersonTrackingCommandInput,
+  type StartPersonTrackingCommandOutput,
   StartPersonTrackingCommand,
-  StartPersonTrackingCommandInput,
-  StartPersonTrackingCommandOutput,
 } from "./commands/StartPersonTrackingCommand";
 import {
+  type StartProjectVersionCommandInput,
+  type StartProjectVersionCommandOutput,
   StartProjectVersionCommand,
-  StartProjectVersionCommandInput,
-  StartProjectVersionCommandOutput,
 } from "./commands/StartProjectVersionCommand";
 import {
+  type StartSegmentDetectionCommandInput,
+  type StartSegmentDetectionCommandOutput,
   StartSegmentDetectionCommand,
-  StartSegmentDetectionCommandInput,
-  StartSegmentDetectionCommandOutput,
 } from "./commands/StartSegmentDetectionCommand";
 import {
+  type StartStreamProcessorCommandInput,
+  type StartStreamProcessorCommandOutput,
   StartStreamProcessorCommand,
-  StartStreamProcessorCommandInput,
-  StartStreamProcessorCommandOutput,
 } from "./commands/StartStreamProcessorCommand";
 import {
+  type StartTextDetectionCommandInput,
+  type StartTextDetectionCommandOutput,
   StartTextDetectionCommand,
-  StartTextDetectionCommandInput,
-  StartTextDetectionCommandOutput,
 } from "./commands/StartTextDetectionCommand";
 import {
+  type StopProjectVersionCommandInput,
+  type StopProjectVersionCommandOutput,
   StopProjectVersionCommand,
-  StopProjectVersionCommandInput,
-  StopProjectVersionCommandOutput,
 } from "./commands/StopProjectVersionCommand";
 import {
+  type StopStreamProcessorCommandInput,
+  type StopStreamProcessorCommandOutput,
   StopStreamProcessorCommand,
-  StopStreamProcessorCommandInput,
-  StopStreamProcessorCommandOutput,
 } from "./commands/StopStreamProcessorCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDatasetEntriesCommandInput,
+  type UpdateDatasetEntriesCommandOutput,
   UpdateDatasetEntriesCommand,
-  UpdateDatasetEntriesCommandInput,
-  UpdateDatasetEntriesCommandOutput,
 } from "./commands/UpdateDatasetEntriesCommand";
 import {
+  type UpdateStreamProcessorCommandInput,
+  type UpdateStreamProcessorCommandOutput,
   UpdateStreamProcessorCommand,
-  UpdateStreamProcessorCommandInput,
-  UpdateStreamProcessorCommandOutput,
 } from "./commands/UpdateStreamProcessorCommand";
 import { paginateDescribeProjects } from "./pagination/DescribeProjectsPaginator";
 import { paginateDescribeProjectVersions } from "./pagination/DescribeProjectVersionsPaginator";

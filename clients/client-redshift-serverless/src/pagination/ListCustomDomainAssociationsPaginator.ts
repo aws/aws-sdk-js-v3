@@ -8,7 +8,7 @@ import {
   ListCustomDomainAssociationsCommandOutput,
 } from "../commands/ListCustomDomainAssociationsCommand";
 import { RedshiftServerlessClient } from "../RedshiftServerlessClient";
-import { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
+import type { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

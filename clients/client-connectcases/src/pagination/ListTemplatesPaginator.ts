@@ -8,7 +8,7 @@ import {
   ListTemplatesCommandOutput,
 } from "../commands/ListTemplatesCommand";
 import { ConnectCasesClient } from "../ConnectCasesClient";
-import { ConnectCasesPaginationConfiguration } from "./Interfaces";
+import type { ConnectCasesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

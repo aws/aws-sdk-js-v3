@@ -8,7 +8,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { StorageGatewayClient } from "../StorageGatewayClient";
-import { StorageGatewayPaginationConfiguration } from "./Interfaces";
+import type { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

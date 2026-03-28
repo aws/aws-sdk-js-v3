@@ -8,7 +8,7 @@ import {
   ListGroupMembershipsCommandOutput,
 } from "../commands/ListGroupMembershipsCommand";
 import { QuickSightClient } from "../QuickSightClient";
-import { QuickSightPaginationConfiguration } from "./Interfaces";
+import type { QuickSightPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

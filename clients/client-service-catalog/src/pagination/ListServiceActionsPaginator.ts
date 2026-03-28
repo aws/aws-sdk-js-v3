@@ -8,7 +8,7 @@ import {
   ListServiceActionsCommandOutput,
 } from "../commands/ListServiceActionsCommand";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
-import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
+import type { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

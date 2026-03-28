@@ -8,7 +8,7 @@ import {
   SearchChannelsCommandInput,
   SearchChannelsCommandOutput,
 } from "../commands/SearchChannelsCommand";
-import { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

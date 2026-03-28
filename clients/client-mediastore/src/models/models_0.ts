@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ContainerLevelMetrics, ContainerStatus, MethodName } from "./enums";
+import type { ContainerLevelMetrics, ContainerStatus, MethodName } from "./enums";
 
 /**
  * <p>This section describes operations that you can perform on an AWS Elemental MediaStore

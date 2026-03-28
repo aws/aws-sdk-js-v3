@@ -8,7 +8,7 @@ import {
   ListApplicationVersionsCommandOutput,
 } from "../commands/ListApplicationVersionsCommand";
 import { ServerlessApplicationRepositoryClient } from "../ServerlessApplicationRepositoryClient";
-import { ServerlessApplicationRepositoryPaginationConfiguration } from "./Interfaces";
+import type { ServerlessApplicationRepositoryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

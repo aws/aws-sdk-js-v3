@@ -8,7 +8,7 @@ import {
   ListSandboxesForProjectCommandInput,
   ListSandboxesForProjectCommandOutput,
 } from "../commands/ListSandboxesForProjectCommand";
-import { CodeBuildPaginationConfiguration } from "./Interfaces";
+import type { CodeBuildPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DetectiveServiceException as __BaseException } from "./DetectiveServiceException";
-import { ErrorCode } from "./enums";
+import type { ErrorCode } from "./enums";
 
 /**
  * <p>The request issuer does not have permission to access this resource or perform this

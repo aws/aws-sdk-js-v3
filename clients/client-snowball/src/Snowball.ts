@@ -3,119 +3,123 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelClusterCommandInput,
+  type CancelClusterCommandOutput,
   CancelClusterCommand,
-  CancelClusterCommandInput,
-  CancelClusterCommandOutput,
 } from "./commands/CancelClusterCommand";
-import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { type CancelJobCommandInput, type CancelJobCommandOutput, CancelJobCommand } from "./commands/CancelJobCommand";
 import {
+  type CreateAddressCommandInput,
+  type CreateAddressCommandOutput,
   CreateAddressCommand,
-  CreateAddressCommandInput,
-  CreateAddressCommandOutput,
 } from "./commands/CreateAddressCommand";
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
-import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import { type CreateJobCommandInput, type CreateJobCommandOutput, CreateJobCommand } from "./commands/CreateJobCommand";
 import {
+  type CreateLongTermPricingCommandInput,
+  type CreateLongTermPricingCommandOutput,
   CreateLongTermPricingCommand,
-  CreateLongTermPricingCommandInput,
-  CreateLongTermPricingCommandOutput,
 } from "./commands/CreateLongTermPricingCommand";
 import {
+  type CreateReturnShippingLabelCommandInput,
+  type CreateReturnShippingLabelCommandOutput,
   CreateReturnShippingLabelCommand,
-  CreateReturnShippingLabelCommandInput,
-  CreateReturnShippingLabelCommandOutput,
 } from "./commands/CreateReturnShippingLabelCommand";
 import {
+  type DescribeAddressCommandInput,
+  type DescribeAddressCommandOutput,
   DescribeAddressCommand,
-  DescribeAddressCommandInput,
-  DescribeAddressCommandOutput,
 } from "./commands/DescribeAddressCommand";
 import {
+  type DescribeAddressesCommandInput,
+  type DescribeAddressesCommandOutput,
   DescribeAddressesCommand,
-  DescribeAddressesCommandInput,
-  DescribeAddressesCommandOutput,
 } from "./commands/DescribeAddressesCommand";
 import {
+  type DescribeClusterCommandInput,
+  type DescribeClusterCommandOutput,
   DescribeClusterCommand,
-  DescribeClusterCommandInput,
-  DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand";
-import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
+  type DescribeJobCommandInput,
+  type DescribeJobCommandOutput,
+  DescribeJobCommand,
+} from "./commands/DescribeJobCommand";
+import {
+  type DescribeReturnShippingLabelCommandInput,
+  type DescribeReturnShippingLabelCommandOutput,
   DescribeReturnShippingLabelCommand,
-  DescribeReturnShippingLabelCommandInput,
-  DescribeReturnShippingLabelCommandOutput,
 } from "./commands/DescribeReturnShippingLabelCommand";
 import {
+  type GetJobManifestCommandInput,
+  type GetJobManifestCommandOutput,
   GetJobManifestCommand,
-  GetJobManifestCommandInput,
-  GetJobManifestCommandOutput,
 } from "./commands/GetJobManifestCommand";
 import {
+  type GetJobUnlockCodeCommandInput,
+  type GetJobUnlockCodeCommandOutput,
   GetJobUnlockCodeCommand,
-  GetJobUnlockCodeCommandInput,
-  GetJobUnlockCodeCommandOutput,
 } from "./commands/GetJobUnlockCodeCommand";
 import {
+  type GetSnowballUsageCommandInput,
+  type GetSnowballUsageCommandOutput,
   GetSnowballUsageCommand,
-  GetSnowballUsageCommandInput,
-  GetSnowballUsageCommandOutput,
 } from "./commands/GetSnowballUsageCommand";
 import {
+  type GetSoftwareUpdatesCommandInput,
+  type GetSoftwareUpdatesCommandOutput,
   GetSoftwareUpdatesCommand,
-  GetSoftwareUpdatesCommandInput,
-  GetSoftwareUpdatesCommandOutput,
 } from "./commands/GetSoftwareUpdatesCommand";
 import {
+  type ListClusterJobsCommandInput,
+  type ListClusterJobsCommandOutput,
   ListClusterJobsCommand,
-  ListClusterJobsCommandInput,
-  ListClusterJobsCommandOutput,
 } from "./commands/ListClusterJobsCommand";
 import {
+  type ListClustersCommandInput,
+  type ListClustersCommandOutput,
   ListClustersCommand,
-  ListClustersCommandInput,
-  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
 import {
+  type ListCompatibleImagesCommandInput,
+  type ListCompatibleImagesCommandOutput,
   ListCompatibleImagesCommand,
-  ListCompatibleImagesCommandInput,
-  ListCompatibleImagesCommandOutput,
 } from "./commands/ListCompatibleImagesCommand";
-import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { type ListJobsCommandInput, type ListJobsCommandOutput, ListJobsCommand } from "./commands/ListJobsCommand";
 import {
+  type ListLongTermPricingCommandInput,
+  type ListLongTermPricingCommandOutput,
   ListLongTermPricingCommand,
-  ListLongTermPricingCommandInput,
-  ListLongTermPricingCommandOutput,
 } from "./commands/ListLongTermPricingCommand";
 import {
+  type ListPickupLocationsCommandInput,
+  type ListPickupLocationsCommandOutput,
   ListPickupLocationsCommand,
-  ListPickupLocationsCommandInput,
-  ListPickupLocationsCommandOutput,
 } from "./commands/ListPickupLocationsCommand";
 import {
+  type ListServiceVersionsCommandInput,
+  type ListServiceVersionsCommandOutput,
   ListServiceVersionsCommand,
-  ListServiceVersionsCommandInput,
-  ListServiceVersionsCommandOutput,
 } from "./commands/ListServiceVersionsCommand";
 import {
+  type UpdateClusterCommandInput,
+  type UpdateClusterCommandOutput,
   UpdateClusterCommand,
-  UpdateClusterCommandInput,
-  UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
-import { UpdateJobCommand, UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
+import { type UpdateJobCommandInput, type UpdateJobCommandOutput, UpdateJobCommand } from "./commands/UpdateJobCommand";
 import {
+  type UpdateJobShipmentStateCommandInput,
+  type UpdateJobShipmentStateCommandOutput,
   UpdateJobShipmentStateCommand,
-  UpdateJobShipmentStateCommandInput,
-  UpdateJobShipmentStateCommandOutput,
 } from "./commands/UpdateJobShipmentStateCommand";
 import {
+  type UpdateLongTermPricingCommandInput,
+  type UpdateLongTermPricingCommandOutput,
   UpdateLongTermPricingCommand,
-  UpdateLongTermPricingCommandInput,
-  UpdateLongTermPricingCommandOutput,
 } from "./commands/UpdateLongTermPricingCommand";
 import { paginateDescribeAddresses } from "./pagination/DescribeAddressesPaginator";
 import { paginateListClusterJobs } from "./pagination/ListClusterJobsPaginator";

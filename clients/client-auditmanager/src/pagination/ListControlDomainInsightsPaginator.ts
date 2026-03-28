@@ -8,7 +8,7 @@ import {
   ListControlDomainInsightsCommandInput,
   ListControlDomainInsightsCommandOutput,
 } from "../commands/ListControlDomainInsightsCommand";
-import { AuditManagerPaginationConfiguration } from "./Interfaces";
+import type { AuditManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

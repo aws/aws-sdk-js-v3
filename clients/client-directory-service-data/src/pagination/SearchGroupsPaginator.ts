@@ -8,7 +8,7 @@ import {
   SearchGroupsCommandOutput,
 } from "../commands/SearchGroupsCommand";
 import { DirectoryServiceDataClient } from "../DirectoryServiceDataClient";
-import { DirectoryServiceDataPaginationConfiguration } from "./Interfaces";
+import type { DirectoryServiceDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

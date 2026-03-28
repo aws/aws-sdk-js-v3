@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,264 +61,282 @@ import {
   defaultDeadlineHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateMemberToFarmCommandInput,
   AssociateMemberToFarmCommandOutput,
 } from "./commands/AssociateMemberToFarmCommand";
-import {
+import type {
   AssociateMemberToFleetCommandInput,
   AssociateMemberToFleetCommandOutput,
 } from "./commands/AssociateMemberToFleetCommand";
-import {
+import type {
   AssociateMemberToJobCommandInput,
   AssociateMemberToJobCommandOutput,
 } from "./commands/AssociateMemberToJobCommand";
-import {
+import type {
   AssociateMemberToQueueCommandInput,
   AssociateMemberToQueueCommandOutput,
 } from "./commands/AssociateMemberToQueueCommand";
-import {
+import type {
   AssumeFleetRoleForReadCommandInput,
   AssumeFleetRoleForReadCommandOutput,
 } from "./commands/AssumeFleetRoleForReadCommand";
-import {
+import type {
   AssumeFleetRoleForWorkerCommandInput,
   AssumeFleetRoleForWorkerCommandOutput,
 } from "./commands/AssumeFleetRoleForWorkerCommand";
-import {
+import type {
   AssumeQueueRoleForReadCommandInput,
   AssumeQueueRoleForReadCommandOutput,
 } from "./commands/AssumeQueueRoleForReadCommand";
-import {
+import type {
   AssumeQueueRoleForUserCommandInput,
   AssumeQueueRoleForUserCommandOutput,
 } from "./commands/AssumeQueueRoleForUserCommand";
-import {
+import type {
   AssumeQueueRoleForWorkerCommandInput,
   AssumeQueueRoleForWorkerCommandOutput,
 } from "./commands/AssumeQueueRoleForWorkerCommand";
-import { BatchGetJobEntityCommandInput, BatchGetJobEntityCommandOutput } from "./commands/BatchGetJobEntityCommand";
-import { CopyJobTemplateCommandInput, CopyJobTemplateCommandOutput } from "./commands/CopyJobTemplateCommand";
-import { CreateBudgetCommandInput, CreateBudgetCommandOutput } from "./commands/CreateBudgetCommand";
-import { CreateFarmCommandInput, CreateFarmCommandOutput } from "./commands/CreateFarmCommand";
-import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
-import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
-import {
+import type {
+  BatchGetJobEntityCommandInput,
+  BatchGetJobEntityCommandOutput,
+} from "./commands/BatchGetJobEntityCommand";
+import type { CopyJobTemplateCommandInput, CopyJobTemplateCommandOutput } from "./commands/CopyJobTemplateCommand";
+import type { CreateBudgetCommandInput, CreateBudgetCommandOutput } from "./commands/CreateBudgetCommand";
+import type { CreateFarmCommandInput, CreateFarmCommandOutput } from "./commands/CreateFarmCommand";
+import type { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
+import type { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import type {
   CreateLicenseEndpointCommandInput,
   CreateLicenseEndpointCommandOutput,
 } from "./commands/CreateLicenseEndpointCommand";
-import { CreateLimitCommandInput, CreateLimitCommandOutput } from "./commands/CreateLimitCommand";
-import { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "./commands/CreateMonitorCommand";
-import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
-import {
+import type { CreateLimitCommandInput, CreateLimitCommandOutput } from "./commands/CreateLimitCommand";
+import type { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "./commands/CreateMonitorCommand";
+import type { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
+import type {
   CreateQueueEnvironmentCommandInput,
   CreateQueueEnvironmentCommandOutput,
 } from "./commands/CreateQueueEnvironmentCommand";
-import {
+import type {
   CreateQueueFleetAssociationCommandInput,
   CreateQueueFleetAssociationCommandOutput,
 } from "./commands/CreateQueueFleetAssociationCommand";
-import {
+import type {
   CreateQueueLimitAssociationCommandInput,
   CreateQueueLimitAssociationCommandOutput,
 } from "./commands/CreateQueueLimitAssociationCommand";
-import {
+import type {
   CreateStorageProfileCommandInput,
   CreateStorageProfileCommandOutput,
 } from "./commands/CreateStorageProfileCommand";
-import { CreateWorkerCommandInput, CreateWorkerCommandOutput } from "./commands/CreateWorkerCommand";
-import { DeleteBudgetCommandInput, DeleteBudgetCommandOutput } from "./commands/DeleteBudgetCommand";
-import { DeleteFarmCommandInput, DeleteFarmCommandOutput } from "./commands/DeleteFarmCommand";
-import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
-import {
+import type { CreateWorkerCommandInput, CreateWorkerCommandOutput } from "./commands/CreateWorkerCommand";
+import type { DeleteBudgetCommandInput, DeleteBudgetCommandOutput } from "./commands/DeleteBudgetCommand";
+import type { DeleteFarmCommandInput, DeleteFarmCommandOutput } from "./commands/DeleteFarmCommand";
+import type { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
+import type {
   DeleteLicenseEndpointCommandInput,
   DeleteLicenseEndpointCommandOutput,
 } from "./commands/DeleteLicenseEndpointCommand";
-import { DeleteLimitCommandInput, DeleteLimitCommandOutput } from "./commands/DeleteLimitCommand";
-import {
+import type { DeleteLimitCommandInput, DeleteLimitCommandOutput } from "./commands/DeleteLimitCommand";
+import type {
   DeleteMeteredProductCommandInput,
   DeleteMeteredProductCommandOutput,
 } from "./commands/DeleteMeteredProductCommand";
-import { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "./commands/DeleteMonitorCommand";
-import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
-import {
+import type { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "./commands/DeleteMonitorCommand";
+import type { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
+import type {
   DeleteQueueEnvironmentCommandInput,
   DeleteQueueEnvironmentCommandOutput,
 } from "./commands/DeleteQueueEnvironmentCommand";
-import {
+import type {
   DeleteQueueFleetAssociationCommandInput,
   DeleteQueueFleetAssociationCommandOutput,
 } from "./commands/DeleteQueueFleetAssociationCommand";
-import {
+import type {
   DeleteQueueLimitAssociationCommandInput,
   DeleteQueueLimitAssociationCommandOutput,
 } from "./commands/DeleteQueueLimitAssociationCommand";
-import {
+import type {
   DeleteStorageProfileCommandInput,
   DeleteStorageProfileCommandOutput,
 } from "./commands/DeleteStorageProfileCommand";
-import { DeleteWorkerCommandInput, DeleteWorkerCommandOutput } from "./commands/DeleteWorkerCommand";
-import {
+import type { DeleteWorkerCommandInput, DeleteWorkerCommandOutput } from "./commands/DeleteWorkerCommand";
+import type {
   DisassociateMemberFromFarmCommandInput,
   DisassociateMemberFromFarmCommandOutput,
 } from "./commands/DisassociateMemberFromFarmCommand";
-import {
+import type {
   DisassociateMemberFromFleetCommandInput,
   DisassociateMemberFromFleetCommandOutput,
 } from "./commands/DisassociateMemberFromFleetCommand";
-import {
+import type {
   DisassociateMemberFromJobCommandInput,
   DisassociateMemberFromJobCommandOutput,
 } from "./commands/DisassociateMemberFromJobCommand";
-import {
+import type {
   DisassociateMemberFromQueueCommandInput,
   DisassociateMemberFromQueueCommandOutput,
 } from "./commands/DisassociateMemberFromQueueCommand";
-import { GetBudgetCommandInput, GetBudgetCommandOutput } from "./commands/GetBudgetCommand";
-import { GetFarmCommandInput, GetFarmCommandOutput } from "./commands/GetFarmCommand";
-import { GetFleetCommandInput, GetFleetCommandOutput } from "./commands/GetFleetCommand";
-import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
-import { GetLicenseEndpointCommandInput, GetLicenseEndpointCommandOutput } from "./commands/GetLicenseEndpointCommand";
-import { GetLimitCommandInput, GetLimitCommandOutput } from "./commands/GetLimitCommand";
-import { GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
-import { GetQueueCommandInput, GetQueueCommandOutput } from "./commands/GetQueueCommand";
-import {
+import type { GetBudgetCommandInput, GetBudgetCommandOutput } from "./commands/GetBudgetCommand";
+import type { GetFarmCommandInput, GetFarmCommandOutput } from "./commands/GetFarmCommand";
+import type { GetFleetCommandInput, GetFleetCommandOutput } from "./commands/GetFleetCommand";
+import type { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import type {
+  GetLicenseEndpointCommandInput,
+  GetLicenseEndpointCommandOutput,
+} from "./commands/GetLicenseEndpointCommand";
+import type { GetLimitCommandInput, GetLimitCommandOutput } from "./commands/GetLimitCommand";
+import type { GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
+import type { GetQueueCommandInput, GetQueueCommandOutput } from "./commands/GetQueueCommand";
+import type {
   GetQueueEnvironmentCommandInput,
   GetQueueEnvironmentCommandOutput,
 } from "./commands/GetQueueEnvironmentCommand";
-import {
+import type {
   GetQueueFleetAssociationCommandInput,
   GetQueueFleetAssociationCommandOutput,
 } from "./commands/GetQueueFleetAssociationCommand";
-import {
+import type {
   GetQueueLimitAssociationCommandInput,
   GetQueueLimitAssociationCommandOutput,
 } from "./commands/GetQueueLimitAssociationCommand";
-import { GetSessionActionCommandInput, GetSessionActionCommandOutput } from "./commands/GetSessionActionCommand";
-import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
-import {
+import type { GetSessionActionCommandInput, GetSessionActionCommandOutput } from "./commands/GetSessionActionCommand";
+import type { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import type {
   GetSessionsStatisticsAggregationCommandInput,
   GetSessionsStatisticsAggregationCommandOutput,
 } from "./commands/GetSessionsStatisticsAggregationCommand";
-import { GetStepCommandInput, GetStepCommandOutput } from "./commands/GetStepCommand";
-import { GetStorageProfileCommandInput, GetStorageProfileCommandOutput } from "./commands/GetStorageProfileCommand";
-import {
+import type { GetStepCommandInput, GetStepCommandOutput } from "./commands/GetStepCommand";
+import type {
+  GetStorageProfileCommandInput,
+  GetStorageProfileCommandOutput,
+} from "./commands/GetStorageProfileCommand";
+import type {
   GetStorageProfileForQueueCommandInput,
   GetStorageProfileForQueueCommandOutput,
 } from "./commands/GetStorageProfileForQueueCommand";
-import { GetTaskCommandInput, GetTaskCommandOutput } from "./commands/GetTaskCommand";
-import { GetWorkerCommandInput, GetWorkerCommandOutput } from "./commands/GetWorkerCommand";
-import {
+import type { GetTaskCommandInput, GetTaskCommandOutput } from "./commands/GetTaskCommand";
+import type { GetWorkerCommandInput, GetWorkerCommandOutput } from "./commands/GetWorkerCommand";
+import type {
   ListAvailableMeteredProductsCommandInput,
   ListAvailableMeteredProductsCommandOutput,
 } from "./commands/ListAvailableMeteredProductsCommand";
-import { ListBudgetsCommandInput, ListBudgetsCommandOutput } from "./commands/ListBudgetsCommand";
-import { ListFarmMembersCommandInput, ListFarmMembersCommandOutput } from "./commands/ListFarmMembersCommand";
-import { ListFarmsCommandInput, ListFarmsCommandOutput } from "./commands/ListFarmsCommand";
-import { ListFleetMembersCommandInput, ListFleetMembersCommandOutput } from "./commands/ListFleetMembersCommand";
-import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
-import { ListJobMembersCommandInput, ListJobMembersCommandOutput } from "./commands/ListJobMembersCommand";
-import {
+import type { ListBudgetsCommandInput, ListBudgetsCommandOutput } from "./commands/ListBudgetsCommand";
+import type { ListFarmMembersCommandInput, ListFarmMembersCommandOutput } from "./commands/ListFarmMembersCommand";
+import type { ListFarmsCommandInput, ListFarmsCommandOutput } from "./commands/ListFarmsCommand";
+import type { ListFleetMembersCommandInput, ListFleetMembersCommandOutput } from "./commands/ListFleetMembersCommand";
+import type { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
+import type { ListJobMembersCommandInput, ListJobMembersCommandOutput } from "./commands/ListJobMembersCommand";
+import type {
   ListJobParameterDefinitionsCommandInput,
   ListJobParameterDefinitionsCommandOutput,
 } from "./commands/ListJobParameterDefinitionsCommand";
-import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
-import {
+import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import type {
   ListLicenseEndpointsCommandInput,
   ListLicenseEndpointsCommandOutput,
 } from "./commands/ListLicenseEndpointsCommand";
-import { ListLimitsCommandInput, ListLimitsCommandOutput } from "./commands/ListLimitsCommand";
-import {
+import type { ListLimitsCommandInput, ListLimitsCommandOutput } from "./commands/ListLimitsCommand";
+import type {
   ListMeteredProductsCommandInput,
   ListMeteredProductsCommandOutput,
 } from "./commands/ListMeteredProductsCommand";
-import { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "./commands/ListMonitorsCommand";
-import {
+import type { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "./commands/ListMonitorsCommand";
+import type {
   ListQueueEnvironmentsCommandInput,
   ListQueueEnvironmentsCommandOutput,
 } from "./commands/ListQueueEnvironmentsCommand";
-import {
+import type {
   ListQueueFleetAssociationsCommandInput,
   ListQueueFleetAssociationsCommandOutput,
 } from "./commands/ListQueueFleetAssociationsCommand";
-import {
+import type {
   ListQueueLimitAssociationsCommandInput,
   ListQueueLimitAssociationsCommandOutput,
 } from "./commands/ListQueueLimitAssociationsCommand";
-import { ListQueueMembersCommandInput, ListQueueMembersCommandOutput } from "./commands/ListQueueMembersCommand";
-import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
-import { ListSessionActionsCommandInput, ListSessionActionsCommandOutput } from "./commands/ListSessionActionsCommand";
-import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
-import {
+import type { ListQueueMembersCommandInput, ListQueueMembersCommandOutput } from "./commands/ListQueueMembersCommand";
+import type { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
+import type {
+  ListSessionActionsCommandInput,
+  ListSessionActionsCommandOutput,
+} from "./commands/ListSessionActionsCommand";
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import type {
   ListSessionsForWorkerCommandInput,
   ListSessionsForWorkerCommandOutput,
 } from "./commands/ListSessionsForWorkerCommand";
-import { ListStepConsumersCommandInput, ListStepConsumersCommandOutput } from "./commands/ListStepConsumersCommand";
-import {
+import type {
+  ListStepConsumersCommandInput,
+  ListStepConsumersCommandOutput,
+} from "./commands/ListStepConsumersCommand";
+import type {
   ListStepDependenciesCommandInput,
   ListStepDependenciesCommandOutput,
 } from "./commands/ListStepDependenciesCommand";
-import { ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand";
-import {
+import type { ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand";
+import type {
   ListStorageProfilesCommandInput,
   ListStorageProfilesCommandOutput,
 } from "./commands/ListStorageProfilesCommand";
-import {
+import type {
   ListStorageProfilesForQueueCommandInput,
   ListStorageProfilesForQueueCommandOutput,
 } from "./commands/ListStorageProfilesForQueueCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
-import { ListWorkersCommandInput, ListWorkersCommandOutput } from "./commands/ListWorkersCommand";
-import { PutMeteredProductCommandInput, PutMeteredProductCommandOutput } from "./commands/PutMeteredProductCommand";
-import { SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
-import { SearchStepsCommandInput, SearchStepsCommandOutput } from "./commands/SearchStepsCommand";
-import { SearchTasksCommandInput, SearchTasksCommandOutput } from "./commands/SearchTasksCommand";
-import { SearchWorkersCommandInput, SearchWorkersCommandOutput } from "./commands/SearchWorkersCommand";
-import {
+import type { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
+import type { ListWorkersCommandInput, ListWorkersCommandOutput } from "./commands/ListWorkersCommand";
+import type {
+  PutMeteredProductCommandInput,
+  PutMeteredProductCommandOutput,
+} from "./commands/PutMeteredProductCommand";
+import type { SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
+import type { SearchStepsCommandInput, SearchStepsCommandOutput } from "./commands/SearchStepsCommand";
+import type { SearchTasksCommandInput, SearchTasksCommandOutput } from "./commands/SearchTasksCommand";
+import type { SearchWorkersCommandInput, SearchWorkersCommandOutput } from "./commands/SearchWorkersCommand";
+import type {
   StartSessionsStatisticsAggregationCommandInput,
   StartSessionsStatisticsAggregationCommandOutput,
 } from "./commands/StartSessionsStatisticsAggregationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateBudgetCommandInput, UpdateBudgetCommandOutput } from "./commands/UpdateBudgetCommand";
-import { UpdateFarmCommandInput, UpdateFarmCommandOutput } from "./commands/UpdateFarmCommand";
-import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
-import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
-import { UpdateLimitCommandInput, UpdateLimitCommandOutput } from "./commands/UpdateLimitCommand";
-import { UpdateMonitorCommandInput, UpdateMonitorCommandOutput } from "./commands/UpdateMonitorCommand";
-import { UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateBudgetCommandInput, UpdateBudgetCommandOutput } from "./commands/UpdateBudgetCommand";
+import type { UpdateFarmCommandInput, UpdateFarmCommandOutput } from "./commands/UpdateFarmCommand";
+import type { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
+import type { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
+import type { UpdateLimitCommandInput, UpdateLimitCommandOutput } from "./commands/UpdateLimitCommand";
+import type { UpdateMonitorCommandInput, UpdateMonitorCommandOutput } from "./commands/UpdateMonitorCommand";
+import type { UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand";
+import type {
   UpdateQueueEnvironmentCommandInput,
   UpdateQueueEnvironmentCommandOutput,
 } from "./commands/UpdateQueueEnvironmentCommand";
-import {
+import type {
   UpdateQueueFleetAssociationCommandInput,
   UpdateQueueFleetAssociationCommandOutput,
 } from "./commands/UpdateQueueFleetAssociationCommand";
-import {
+import type {
   UpdateQueueLimitAssociationCommandInput,
   UpdateQueueLimitAssociationCommandOutput,
 } from "./commands/UpdateQueueLimitAssociationCommand";
-import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "./commands/UpdateSessionCommand";
-import { UpdateStepCommandInput, UpdateStepCommandOutput } from "./commands/UpdateStepCommand";
-import {
+import type { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "./commands/UpdateSessionCommand";
+import type { UpdateStepCommandInput, UpdateStepCommandOutput } from "./commands/UpdateStepCommand";
+import type {
   UpdateStorageProfileCommandInput,
   UpdateStorageProfileCommandOutput,
 } from "./commands/UpdateStorageProfileCommand";
-import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
-import { UpdateWorkerCommandInput, UpdateWorkerCommandOutput } from "./commands/UpdateWorkerCommand";
-import {
+import type { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
+import type { UpdateWorkerCommandInput, UpdateWorkerCommandOutput } from "./commands/UpdateWorkerCommand";
+import type {
   UpdateWorkerScheduleCommandInput,
   UpdateWorkerScheduleCommandOutput,
 } from "./commands/UpdateWorkerScheduleCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -678,7 +694,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

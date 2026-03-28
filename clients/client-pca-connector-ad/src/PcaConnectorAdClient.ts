@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,77 +61,77 @@ import {
   defaultPcaConnectorAdHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./commands/CreateConnectorCommand";
-import {
+import type { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./commands/CreateConnectorCommand";
+import type {
   CreateDirectoryRegistrationCommandInput,
   CreateDirectoryRegistrationCommandOutput,
 } from "./commands/CreateDirectoryRegistrationCommand";
-import {
+import type {
   CreateServicePrincipalNameCommandInput,
   CreateServicePrincipalNameCommandOutput,
 } from "./commands/CreateServicePrincipalNameCommand";
-import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
-import {
+import type { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
+import type {
   CreateTemplateGroupAccessControlEntryCommandInput,
   CreateTemplateGroupAccessControlEntryCommandOutput,
 } from "./commands/CreateTemplateGroupAccessControlEntryCommand";
-import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
-import {
+import type { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
+import type {
   DeleteDirectoryRegistrationCommandInput,
   DeleteDirectoryRegistrationCommandOutput,
 } from "./commands/DeleteDirectoryRegistrationCommand";
-import {
+import type {
   DeleteServicePrincipalNameCommandInput,
   DeleteServicePrincipalNameCommandOutput,
 } from "./commands/DeleteServicePrincipalNameCommand";
-import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand";
-import {
+import type { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand";
+import type {
   DeleteTemplateGroupAccessControlEntryCommandInput,
   DeleteTemplateGroupAccessControlEntryCommandOutput,
 } from "./commands/DeleteTemplateGroupAccessControlEntryCommand";
-import { GetConnectorCommandInput, GetConnectorCommandOutput } from "./commands/GetConnectorCommand";
-import {
+import type { GetConnectorCommandInput, GetConnectorCommandOutput } from "./commands/GetConnectorCommand";
+import type {
   GetDirectoryRegistrationCommandInput,
   GetDirectoryRegistrationCommandOutput,
 } from "./commands/GetDirectoryRegistrationCommand";
-import {
+import type {
   GetServicePrincipalNameCommandInput,
   GetServicePrincipalNameCommandOutput,
 } from "./commands/GetServicePrincipalNameCommand";
-import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
-import {
+import type { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
+import type {
   GetTemplateGroupAccessControlEntryCommandInput,
   GetTemplateGroupAccessControlEntryCommandOutput,
 } from "./commands/GetTemplateGroupAccessControlEntryCommand";
-import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
-import {
+import type { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
+import type {
   ListDirectoryRegistrationsCommandInput,
   ListDirectoryRegistrationsCommandOutput,
 } from "./commands/ListDirectoryRegistrationsCommand";
-import {
+import type {
   ListServicePrincipalNamesCommandInput,
   ListServicePrincipalNamesCommandOutput,
 } from "./commands/ListServicePrincipalNamesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTemplateGroupAccessControlEntriesCommandInput,
   ListTemplateGroupAccessControlEntriesCommandOutput,
 } from "./commands/ListTemplateGroupAccessControlEntriesCommand";
-import { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "./commands/ListTemplatesCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "./commands/UpdateTemplateCommand";
-import {
+import type { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "./commands/ListTemplatesCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "./commands/UpdateTemplateCommand";
+import type {
   UpdateTemplateGroupAccessControlEntryCommandInput,
   UpdateTemplateGroupAccessControlEntryCommandOutput,
 } from "./commands/UpdateTemplateGroupAccessControlEntryCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -315,7 +313,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

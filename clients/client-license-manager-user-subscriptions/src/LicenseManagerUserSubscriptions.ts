@@ -3,85 +3,89 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateUserCommandInput,
+  type AssociateUserCommandOutput,
   AssociateUserCommand,
-  AssociateUserCommandInput,
-  AssociateUserCommandOutput,
 } from "./commands/AssociateUserCommand";
 import {
+  type CreateLicenseServerEndpointCommandInput,
+  type CreateLicenseServerEndpointCommandOutput,
   CreateLicenseServerEndpointCommand,
-  CreateLicenseServerEndpointCommandInput,
-  CreateLicenseServerEndpointCommandOutput,
 } from "./commands/CreateLicenseServerEndpointCommand";
 import {
+  type DeleteLicenseServerEndpointCommandInput,
+  type DeleteLicenseServerEndpointCommandOutput,
   DeleteLicenseServerEndpointCommand,
-  DeleteLicenseServerEndpointCommandInput,
-  DeleteLicenseServerEndpointCommandOutput,
 } from "./commands/DeleteLicenseServerEndpointCommand";
 import {
+  type DeregisterIdentityProviderCommandInput,
+  type DeregisterIdentityProviderCommandOutput,
   DeregisterIdentityProviderCommand,
-  DeregisterIdentityProviderCommandInput,
-  DeregisterIdentityProviderCommandOutput,
 } from "./commands/DeregisterIdentityProviderCommand";
 import {
+  type DisassociateUserCommandInput,
+  type DisassociateUserCommandOutput,
   DisassociateUserCommand,
-  DisassociateUserCommandInput,
-  DisassociateUserCommandOutput,
 } from "./commands/DisassociateUserCommand";
 import {
+  type ListIdentityProvidersCommandInput,
+  type ListIdentityProvidersCommandOutput,
   ListIdentityProvidersCommand,
-  ListIdentityProvidersCommandInput,
-  ListIdentityProvidersCommandOutput,
 } from "./commands/ListIdentityProvidersCommand";
 import {
+  type ListInstancesCommandInput,
+  type ListInstancesCommandOutput,
   ListInstancesCommand,
-  ListInstancesCommandInput,
-  ListInstancesCommandOutput,
 } from "./commands/ListInstancesCommand";
 import {
+  type ListLicenseServerEndpointsCommandInput,
+  type ListLicenseServerEndpointsCommandOutput,
   ListLicenseServerEndpointsCommand,
-  ListLicenseServerEndpointsCommandInput,
-  ListLicenseServerEndpointsCommandOutput,
 } from "./commands/ListLicenseServerEndpointsCommand";
 import {
+  type ListProductSubscriptionsCommandInput,
+  type ListProductSubscriptionsCommandOutput,
   ListProductSubscriptionsCommand,
-  ListProductSubscriptionsCommandInput,
-  ListProductSubscriptionsCommandOutput,
 } from "./commands/ListProductSubscriptionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListUserAssociationsCommandInput,
+  type ListUserAssociationsCommandOutput,
   ListUserAssociationsCommand,
-  ListUserAssociationsCommandInput,
-  ListUserAssociationsCommandOutput,
 } from "./commands/ListUserAssociationsCommand";
 import {
+  type RegisterIdentityProviderCommandInput,
+  type RegisterIdentityProviderCommandOutput,
   RegisterIdentityProviderCommand,
-  RegisterIdentityProviderCommandInput,
-  RegisterIdentityProviderCommandOutput,
 } from "./commands/RegisterIdentityProviderCommand";
 import {
+  type StartProductSubscriptionCommandInput,
+  type StartProductSubscriptionCommandOutput,
   StartProductSubscriptionCommand,
-  StartProductSubscriptionCommandInput,
-  StartProductSubscriptionCommandOutput,
 } from "./commands/StartProductSubscriptionCommand";
 import {
+  type StopProductSubscriptionCommandInput,
+  type StopProductSubscriptionCommandOutput,
   StopProductSubscriptionCommand,
-  StopProductSubscriptionCommandInput,
-  StopProductSubscriptionCommandOutput,
 } from "./commands/StopProductSubscriptionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateIdentityProviderSettingsCommandInput,
+  type UpdateIdentityProviderSettingsCommandOutput,
   UpdateIdentityProviderSettingsCommand,
-  UpdateIdentityProviderSettingsCommandInput,
-  UpdateIdentityProviderSettingsCommandOutput,
 } from "./commands/UpdateIdentityProviderSettingsCommand";
 import { LicenseManagerUserSubscriptionsClient } from "./LicenseManagerUserSubscriptionsClient";
 import { paginateListIdentityProviders } from "./pagination/ListIdentityProvidersPaginator";

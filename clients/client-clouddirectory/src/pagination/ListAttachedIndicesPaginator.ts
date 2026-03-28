@@ -8,7 +8,7 @@ import {
   ListAttachedIndicesCommandInput,
   ListAttachedIndicesCommandOutput,
 } from "../commands/ListAttachedIndicesCommand";
-import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
+import type { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

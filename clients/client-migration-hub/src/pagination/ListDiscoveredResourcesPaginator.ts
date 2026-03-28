@@ -8,7 +8,7 @@ import {
   ListDiscoveredResourcesCommandOutput,
 } from "../commands/ListDiscoveredResourcesCommand";
 import { MigrationHubClient } from "../MigrationHubClient";
-import { MigrationHubPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

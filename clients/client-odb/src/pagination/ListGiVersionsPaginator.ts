@@ -8,7 +8,7 @@ import {
   ListGiVersionsCommandOutput,
 } from "../commands/ListGiVersionsCommand";
 import { OdbClient } from "../OdbClient";
-import { OdbPaginationConfiguration } from "./Interfaces";
+import type { OdbPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

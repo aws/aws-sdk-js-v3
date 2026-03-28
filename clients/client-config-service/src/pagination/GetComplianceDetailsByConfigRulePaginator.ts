@@ -8,7 +8,7 @@ import {
   GetComplianceDetailsByConfigRuleCommandOutput,
 } from "../commands/GetComplianceDetailsByConfigRuleCommand";
 import { ConfigServiceClient } from "../ConfigServiceClient";
-import { ConfigServicePaginationConfiguration } from "./Interfaces";
+import type { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

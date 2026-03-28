@@ -8,7 +8,7 @@ import {
   ListPoliciesCommandOutput,
 } from "../commands/ListPoliciesCommand";
 import { FMSClient } from "../FMSClient";
-import { FMSPaginationConfiguration } from "./Interfaces";
+import type { FMSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

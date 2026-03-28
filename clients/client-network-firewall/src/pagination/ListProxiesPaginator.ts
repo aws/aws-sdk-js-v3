@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListProxiesCommand, ListProxiesCommandInput, ListProxiesCommandOutput } from "../commands/ListProxiesCommand";
 import { NetworkFirewallClient } from "../NetworkFirewallClient";
-import { NetworkFirewallPaginationConfiguration } from "./Interfaces";
+import type { NetworkFirewallPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

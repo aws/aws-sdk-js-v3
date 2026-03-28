@@ -9,7 +9,7 @@ import type {
 } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
+import { type StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
 import { de_StreamingTraitsCommand, se_StreamingTraitsCommand } from "../protocols/Aws_restJson1";
 import type {
   RestJsonProtocolClientResolvedConfig,

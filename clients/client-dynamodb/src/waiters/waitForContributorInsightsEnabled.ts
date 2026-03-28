@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type DescribeContributorInsightsCommandInput,
   DescribeContributorInsightsCommand,
-  DescribeContributorInsightsCommandInput,
 } from "../commands/DescribeContributorInsightsCommand";
-import { DynamoDBClient } from "../DynamoDBClient";
+import type { DynamoDBClient } from "../DynamoDBClient";
 
 const checkState = async (client: DynamoDBClient, input: DescribeContributorInsightsCommandInput): Promise<WaiterResult> => {
   let reason;

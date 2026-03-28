@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,49 +61,70 @@ import {
   defaultB2biHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateCapabilityCommandInput, CreateCapabilityCommandOutput } from "./commands/CreateCapabilityCommand";
-import { CreatePartnershipCommandInput, CreatePartnershipCommandOutput } from "./commands/CreatePartnershipCommand";
-import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
-import {
+import type { CreateCapabilityCommandInput, CreateCapabilityCommandOutput } from "./commands/CreateCapabilityCommand";
+import type {
+  CreatePartnershipCommandInput,
+  CreatePartnershipCommandOutput,
+} from "./commands/CreatePartnershipCommand";
+import type { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import type {
   CreateStarterMappingTemplateCommandInput,
   CreateStarterMappingTemplateCommandOutput,
 } from "./commands/CreateStarterMappingTemplateCommand";
-import { CreateTransformerCommandInput, CreateTransformerCommandOutput } from "./commands/CreateTransformerCommand";
-import { DeleteCapabilityCommandInput, DeleteCapabilityCommandOutput } from "./commands/DeleteCapabilityCommand";
-import { DeletePartnershipCommandInput, DeletePartnershipCommandOutput } from "./commands/DeletePartnershipCommand";
-import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
-import { DeleteTransformerCommandInput, DeleteTransformerCommandOutput } from "./commands/DeleteTransformerCommand";
-import { GenerateMappingCommandInput, GenerateMappingCommandOutput } from "./commands/GenerateMappingCommand";
-import { GetCapabilityCommandInput, GetCapabilityCommandOutput } from "./commands/GetCapabilityCommand";
-import { GetPartnershipCommandInput, GetPartnershipCommandOutput } from "./commands/GetPartnershipCommand";
-import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
-import { GetTransformerCommandInput, GetTransformerCommandOutput } from "./commands/GetTransformerCommand";
-import { GetTransformerJobCommandInput, GetTransformerJobCommandOutput } from "./commands/GetTransformerJobCommand";
-import { ListCapabilitiesCommandInput, ListCapabilitiesCommandOutput } from "./commands/ListCapabilitiesCommand";
-import { ListPartnershipsCommandInput, ListPartnershipsCommandOutput } from "./commands/ListPartnershipsCommand";
-import { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
-import {
+import type {
+  CreateTransformerCommandInput,
+  CreateTransformerCommandOutput,
+} from "./commands/CreateTransformerCommand";
+import type { DeleteCapabilityCommandInput, DeleteCapabilityCommandOutput } from "./commands/DeleteCapabilityCommand";
+import type {
+  DeletePartnershipCommandInput,
+  DeletePartnershipCommandOutput,
+} from "./commands/DeletePartnershipCommand";
+import type { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
+import type {
+  DeleteTransformerCommandInput,
+  DeleteTransformerCommandOutput,
+} from "./commands/DeleteTransformerCommand";
+import type { GenerateMappingCommandInput, GenerateMappingCommandOutput } from "./commands/GenerateMappingCommand";
+import type { GetCapabilityCommandInput, GetCapabilityCommandOutput } from "./commands/GetCapabilityCommand";
+import type { GetPartnershipCommandInput, GetPartnershipCommandOutput } from "./commands/GetPartnershipCommand";
+import type { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
+import type { GetTransformerCommandInput, GetTransformerCommandOutput } from "./commands/GetTransformerCommand";
+import type {
+  GetTransformerJobCommandInput,
+  GetTransformerJobCommandOutput,
+} from "./commands/GetTransformerJobCommand";
+import type { ListCapabilitiesCommandInput, ListCapabilitiesCommandOutput } from "./commands/ListCapabilitiesCommand";
+import type { ListPartnershipsCommandInput, ListPartnershipsCommandOutput } from "./commands/ListPartnershipsCommand";
+import type { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTransformersCommandInput, ListTransformersCommandOutput } from "./commands/ListTransformersCommand";
-import {
+import type { ListTransformersCommandInput, ListTransformersCommandOutput } from "./commands/ListTransformersCommand";
+import type {
   StartTransformerJobCommandInput,
   StartTransformerJobCommandOutput,
 } from "./commands/StartTransformerJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TestConversionCommandInput, TestConversionCommandOutput } from "./commands/TestConversionCommand";
-import { TestMappingCommandInput, TestMappingCommandOutput } from "./commands/TestMappingCommand";
-import { TestParsingCommandInput, TestParsingCommandOutput } from "./commands/TestParsingCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateCapabilityCommandInput, UpdateCapabilityCommandOutput } from "./commands/UpdateCapabilityCommand";
-import { UpdatePartnershipCommandInput, UpdatePartnershipCommandOutput } from "./commands/UpdatePartnershipCommand";
-import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
-import { UpdateTransformerCommandInput, UpdateTransformerCommandOutput } from "./commands/UpdateTransformerCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TestConversionCommandInput, TestConversionCommandOutput } from "./commands/TestConversionCommand";
+import type { TestMappingCommandInput, TestMappingCommandOutput } from "./commands/TestMappingCommand";
+import type { TestParsingCommandInput, TestParsingCommandOutput } from "./commands/TestParsingCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateCapabilityCommandInput, UpdateCapabilityCommandOutput } from "./commands/UpdateCapabilityCommand";
+import type {
+  UpdatePartnershipCommandInput,
+  UpdatePartnershipCommandOutput,
+} from "./commands/UpdatePartnershipCommand";
+import type { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
+import type {
+  UpdateTransformerCommandInput,
+  UpdateTransformerCommandOutput,
+} from "./commands/UpdateTransformerCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -297,7 +316,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type GetConfigurationRequest, Configuration } from "../models/models_0";
+import type { Configuration, GetConfigurationRequest } from "../models/models_0";
 import { GetConfiguration$ } from "../schemas/schemas_0";
 
 /**

@@ -21,7 +21,7 @@
  */
 export * from "./SyntheticsClient";
 export * from "./Synthetics";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SyntheticsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

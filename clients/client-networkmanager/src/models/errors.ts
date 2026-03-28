@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ValidationExceptionReason } from "./enums";
-import { CoreNetworkPolicyError, ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionReason } from "./enums";
+import type { CoreNetworkPolicyError, ValidationExceptionField } from "./models_0";
 import { NetworkManagerServiceException as __BaseException } from "./NetworkManagerServiceException";
 
 /**

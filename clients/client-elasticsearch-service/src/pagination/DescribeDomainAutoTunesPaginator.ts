@@ -8,7 +8,7 @@ import {
   DescribeDomainAutoTunesCommandOutput,
 } from "../commands/DescribeDomainAutoTunesCommand";
 import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
-import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
+import type { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

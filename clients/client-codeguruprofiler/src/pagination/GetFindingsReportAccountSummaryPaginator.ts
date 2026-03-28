@@ -8,7 +8,7 @@ import {
   GetFindingsReportAccountSummaryCommandInput,
   GetFindingsReportAccountSummaryCommandOutput,
 } from "../commands/GetFindingsReportAccountSummaryCommand";
-import { CodeGuruProfilerPaginationConfiguration } from "./Interfaces";
+import type { CodeGuruProfilerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { AccessDeniedExceptionErrorCode, ValidationExceptionReason } from "./enums";
-import { ValidationExceptionError } from "./models_0";
+import type { AccessDeniedExceptionErrorCode, ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionError } from "./models_0";
 import { PartnerCentralSellingServiceException as __BaseException } from "./PartnerCentralSellingServiceException";
 
 /**

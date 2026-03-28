@@ -8,7 +8,7 @@ import {
   ListTestGridSessionActionsCommandOutput,
 } from "../commands/ListTestGridSessionActionsCommand";
 import { DeviceFarmClient } from "../DeviceFarmClient";
-import { DeviceFarmPaginationConfiguration } from "./Interfaces";
+import type { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

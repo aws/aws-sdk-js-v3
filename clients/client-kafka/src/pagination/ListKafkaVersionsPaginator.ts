@@ -8,7 +8,7 @@ import {
   ListKafkaVersionsCommandOutput,
 } from "../commands/ListKafkaVersionsCommand";
 import { KafkaClient } from "../KafkaClient";
-import { KafkaPaginationConfiguration } from "./Interfaces";
+import type { KafkaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

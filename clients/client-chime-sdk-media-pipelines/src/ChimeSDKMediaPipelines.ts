@@ -4,155 +4,159 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ChimeSDKMediaPipelinesClient } from "./ChimeSDKMediaPipelinesClient";
 import {
+  type CreateMediaCapturePipelineCommandInput,
+  type CreateMediaCapturePipelineCommandOutput,
   CreateMediaCapturePipelineCommand,
-  CreateMediaCapturePipelineCommandInput,
-  CreateMediaCapturePipelineCommandOutput,
 } from "./commands/CreateMediaCapturePipelineCommand";
 import {
+  type CreateMediaConcatenationPipelineCommandInput,
+  type CreateMediaConcatenationPipelineCommandOutput,
   CreateMediaConcatenationPipelineCommand,
-  CreateMediaConcatenationPipelineCommandInput,
-  CreateMediaConcatenationPipelineCommandOutput,
 } from "./commands/CreateMediaConcatenationPipelineCommand";
 import {
+  type CreateMediaInsightsPipelineCommandInput,
+  type CreateMediaInsightsPipelineCommandOutput,
   CreateMediaInsightsPipelineCommand,
-  CreateMediaInsightsPipelineCommandInput,
-  CreateMediaInsightsPipelineCommandOutput,
 } from "./commands/CreateMediaInsightsPipelineCommand";
 import {
+  type CreateMediaInsightsPipelineConfigurationCommandInput,
+  type CreateMediaInsightsPipelineConfigurationCommandOutput,
   CreateMediaInsightsPipelineConfigurationCommand,
-  CreateMediaInsightsPipelineConfigurationCommandInput,
-  CreateMediaInsightsPipelineConfigurationCommandOutput,
 } from "./commands/CreateMediaInsightsPipelineConfigurationCommand";
 import {
+  type CreateMediaLiveConnectorPipelineCommandInput,
+  type CreateMediaLiveConnectorPipelineCommandOutput,
   CreateMediaLiveConnectorPipelineCommand,
-  CreateMediaLiveConnectorPipelineCommandInput,
-  CreateMediaLiveConnectorPipelineCommandOutput,
 } from "./commands/CreateMediaLiveConnectorPipelineCommand";
 import {
+  type CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  type CreateMediaPipelineKinesisVideoStreamPoolCommandOutput,
   CreateMediaPipelineKinesisVideoStreamPoolCommand,
-  CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
-  CreateMediaPipelineKinesisVideoStreamPoolCommandOutput,
 } from "./commands/CreateMediaPipelineKinesisVideoStreamPoolCommand";
 import {
+  type CreateMediaStreamPipelineCommandInput,
+  type CreateMediaStreamPipelineCommandOutput,
   CreateMediaStreamPipelineCommand,
-  CreateMediaStreamPipelineCommandInput,
-  CreateMediaStreamPipelineCommandOutput,
 } from "./commands/CreateMediaStreamPipelineCommand";
 import {
+  type DeleteMediaCapturePipelineCommandInput,
+  type DeleteMediaCapturePipelineCommandOutput,
   DeleteMediaCapturePipelineCommand,
-  DeleteMediaCapturePipelineCommandInput,
-  DeleteMediaCapturePipelineCommandOutput,
 } from "./commands/DeleteMediaCapturePipelineCommand";
 import {
+  type DeleteMediaInsightsPipelineConfigurationCommandInput,
+  type DeleteMediaInsightsPipelineConfigurationCommandOutput,
   DeleteMediaInsightsPipelineConfigurationCommand,
-  DeleteMediaInsightsPipelineConfigurationCommandInput,
-  DeleteMediaInsightsPipelineConfigurationCommandOutput,
 } from "./commands/DeleteMediaInsightsPipelineConfigurationCommand";
 import {
+  type DeleteMediaPipelineCommandInput,
+  type DeleteMediaPipelineCommandOutput,
   DeleteMediaPipelineCommand,
-  DeleteMediaPipelineCommandInput,
-  DeleteMediaPipelineCommandOutput,
 } from "./commands/DeleteMediaPipelineCommand";
 import {
+  type DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
+  type DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput,
   DeleteMediaPipelineKinesisVideoStreamPoolCommand,
-  DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
-  DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput,
 } from "./commands/DeleteMediaPipelineKinesisVideoStreamPoolCommand";
 import {
+  type GetMediaCapturePipelineCommandInput,
+  type GetMediaCapturePipelineCommandOutput,
   GetMediaCapturePipelineCommand,
-  GetMediaCapturePipelineCommandInput,
-  GetMediaCapturePipelineCommandOutput,
 } from "./commands/GetMediaCapturePipelineCommand";
 import {
+  type GetMediaInsightsPipelineConfigurationCommandInput,
+  type GetMediaInsightsPipelineConfigurationCommandOutput,
   GetMediaInsightsPipelineConfigurationCommand,
-  GetMediaInsightsPipelineConfigurationCommandInput,
-  GetMediaInsightsPipelineConfigurationCommandOutput,
 } from "./commands/GetMediaInsightsPipelineConfigurationCommand";
 import {
+  type GetMediaPipelineCommandInput,
+  type GetMediaPipelineCommandOutput,
   GetMediaPipelineCommand,
-  GetMediaPipelineCommandInput,
-  GetMediaPipelineCommandOutput,
 } from "./commands/GetMediaPipelineCommand";
 import {
+  type GetMediaPipelineKinesisVideoStreamPoolCommandInput,
+  type GetMediaPipelineKinesisVideoStreamPoolCommandOutput,
   GetMediaPipelineKinesisVideoStreamPoolCommand,
-  GetMediaPipelineKinesisVideoStreamPoolCommandInput,
-  GetMediaPipelineKinesisVideoStreamPoolCommandOutput,
 } from "./commands/GetMediaPipelineKinesisVideoStreamPoolCommand";
 import {
+  type GetSpeakerSearchTaskCommandInput,
+  type GetSpeakerSearchTaskCommandOutput,
   GetSpeakerSearchTaskCommand,
-  GetSpeakerSearchTaskCommandInput,
-  GetSpeakerSearchTaskCommandOutput,
 } from "./commands/GetSpeakerSearchTaskCommand";
 import {
+  type GetVoiceToneAnalysisTaskCommandInput,
+  type GetVoiceToneAnalysisTaskCommandOutput,
   GetVoiceToneAnalysisTaskCommand,
-  GetVoiceToneAnalysisTaskCommandInput,
-  GetVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/GetVoiceToneAnalysisTaskCommand";
 import {
+  type ListMediaCapturePipelinesCommandInput,
+  type ListMediaCapturePipelinesCommandOutput,
   ListMediaCapturePipelinesCommand,
-  ListMediaCapturePipelinesCommandInput,
-  ListMediaCapturePipelinesCommandOutput,
 } from "./commands/ListMediaCapturePipelinesCommand";
 import {
+  type ListMediaInsightsPipelineConfigurationsCommandInput,
+  type ListMediaInsightsPipelineConfigurationsCommandOutput,
   ListMediaInsightsPipelineConfigurationsCommand,
-  ListMediaInsightsPipelineConfigurationsCommandInput,
-  ListMediaInsightsPipelineConfigurationsCommandOutput,
 } from "./commands/ListMediaInsightsPipelineConfigurationsCommand";
 import {
+  type ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
+  type ListMediaPipelineKinesisVideoStreamPoolsCommandOutput,
   ListMediaPipelineKinesisVideoStreamPoolsCommand,
-  ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
-  ListMediaPipelineKinesisVideoStreamPoolsCommandOutput,
 } from "./commands/ListMediaPipelineKinesisVideoStreamPoolsCommand";
 import {
+  type ListMediaPipelinesCommandInput,
+  type ListMediaPipelinesCommandOutput,
   ListMediaPipelinesCommand,
-  ListMediaPipelinesCommandInput,
-  ListMediaPipelinesCommandOutput,
 } from "./commands/ListMediaPipelinesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartSpeakerSearchTaskCommandInput,
+  type StartSpeakerSearchTaskCommandOutput,
   StartSpeakerSearchTaskCommand,
-  StartSpeakerSearchTaskCommandInput,
-  StartSpeakerSearchTaskCommandOutput,
 } from "./commands/StartSpeakerSearchTaskCommand";
 import {
+  type StartVoiceToneAnalysisTaskCommandInput,
+  type StartVoiceToneAnalysisTaskCommandOutput,
   StartVoiceToneAnalysisTaskCommand,
-  StartVoiceToneAnalysisTaskCommandInput,
-  StartVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/StartVoiceToneAnalysisTaskCommand";
 import {
+  type StopSpeakerSearchTaskCommandInput,
+  type StopSpeakerSearchTaskCommandOutput,
   StopSpeakerSearchTaskCommand,
-  StopSpeakerSearchTaskCommandInput,
-  StopSpeakerSearchTaskCommandOutput,
 } from "./commands/StopSpeakerSearchTaskCommand";
 import {
+  type StopVoiceToneAnalysisTaskCommandInput,
+  type StopVoiceToneAnalysisTaskCommandOutput,
   StopVoiceToneAnalysisTaskCommand,
-  StopVoiceToneAnalysisTaskCommandInput,
-  StopVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/StopVoiceToneAnalysisTaskCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateMediaInsightsPipelineConfigurationCommandInput,
+  type UpdateMediaInsightsPipelineConfigurationCommandOutput,
   UpdateMediaInsightsPipelineConfigurationCommand,
-  UpdateMediaInsightsPipelineConfigurationCommandInput,
-  UpdateMediaInsightsPipelineConfigurationCommandOutput,
 } from "./commands/UpdateMediaInsightsPipelineConfigurationCommand";
 import {
+  type UpdateMediaInsightsPipelineStatusCommandInput,
+  type UpdateMediaInsightsPipelineStatusCommandOutput,
   UpdateMediaInsightsPipelineStatusCommand,
-  UpdateMediaInsightsPipelineStatusCommandInput,
-  UpdateMediaInsightsPipelineStatusCommandOutput,
 } from "./commands/UpdateMediaInsightsPipelineStatusCommand";
 import {
+  type UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  type UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput,
   UpdateMediaPipelineKinesisVideoStreamPoolCommand,
-  UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
-  UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput,
 } from "./commands/UpdateMediaPipelineKinesisVideoStreamPoolCommand";
 import { paginateListMediaCapturePipelines } from "./pagination/ListMediaCapturePipelinesPaginator";
 import {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { GroupScope, GroupType, MemberType, UpdateType } from "./enums";
+import type { GroupScope, GroupType, MemberType, UpdateType } from "./enums";
 
 /**
  * @public

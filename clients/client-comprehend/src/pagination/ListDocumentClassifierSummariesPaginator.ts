@@ -8,7 +8,7 @@ import {
   ListDocumentClassifierSummariesCommandOutput,
 } from "../commands/ListDocumentClassifierSummariesCommand";
 import { ComprehendClient } from "../ComprehendClient";
-import { ComprehendPaginationConfiguration } from "./Interfaces";
+import type { ComprehendPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

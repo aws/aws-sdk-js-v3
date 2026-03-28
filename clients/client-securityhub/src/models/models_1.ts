@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   AwsIamAccessKeyStatus,
   AwsS3BucketNotificationConfigurationS3KeyFilterRuleName,
   ComplianceStatus,
@@ -9,10 +9,7 @@ import {
   NetworkDirection,
   SeverityLabel,
 } from "./enums";
-import {
-  type AwsEcsTaskDefinitionProxyConfigurationDetails,
-  type AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
-  type AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
+import type {
   Actor,
   AssociatedStandard,
   AvailabilityZone,
@@ -20,6 +17,9 @@ import {
   AwsEcsTaskDefinitionContainerDefinitionsDetails,
   AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
   AwsEcsTaskDefinitionPlacementConstraintsDetails,
+  AwsEcsTaskDefinitionProxyConfigurationDetails,
+  AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
+  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
   RelatedFinding,
 } from "./models_0";
 

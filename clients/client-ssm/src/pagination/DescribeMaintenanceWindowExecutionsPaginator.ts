@@ -8,7 +8,7 @@ import {
   DescribeMaintenanceWindowExecutionsCommandOutput,
 } from "../commands/DescribeMaintenanceWindowExecutionsCommand";
 import { SSMClient } from "../SSMClient";
-import { SSMPaginationConfiguration } from "./Interfaces";
+import type { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

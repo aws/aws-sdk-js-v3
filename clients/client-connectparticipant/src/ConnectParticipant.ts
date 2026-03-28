@@ -3,51 +3,55 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelParticipantAuthenticationCommandInput,
+  type CancelParticipantAuthenticationCommandOutput,
   CancelParticipantAuthenticationCommand,
-  CancelParticipantAuthenticationCommandInput,
-  CancelParticipantAuthenticationCommandOutput,
 } from "./commands/CancelParticipantAuthenticationCommand";
 import {
+  type CompleteAttachmentUploadCommandInput,
+  type CompleteAttachmentUploadCommandOutput,
   CompleteAttachmentUploadCommand,
-  CompleteAttachmentUploadCommandInput,
-  CompleteAttachmentUploadCommandOutput,
 } from "./commands/CompleteAttachmentUploadCommand";
 import {
+  type CreateParticipantConnectionCommandInput,
+  type CreateParticipantConnectionCommandOutput,
   CreateParticipantConnectionCommand,
-  CreateParticipantConnectionCommandInput,
-  CreateParticipantConnectionCommandOutput,
 } from "./commands/CreateParticipantConnectionCommand";
 import {
+  type DescribeViewCommandInput,
+  type DescribeViewCommandOutput,
   DescribeViewCommand,
-  DescribeViewCommandInput,
-  DescribeViewCommandOutput,
 } from "./commands/DescribeViewCommand";
 import {
+  type DisconnectParticipantCommandInput,
+  type DisconnectParticipantCommandOutput,
   DisconnectParticipantCommand,
-  DisconnectParticipantCommandInput,
-  DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
 import {
+  type GetAttachmentCommandInput,
+  type GetAttachmentCommandOutput,
   GetAttachmentCommand,
-  GetAttachmentCommandInput,
-  GetAttachmentCommandOutput,
 } from "./commands/GetAttachmentCommand";
 import {
+  type GetAuthenticationUrlCommandInput,
+  type GetAuthenticationUrlCommandOutput,
   GetAuthenticationUrlCommand,
-  GetAuthenticationUrlCommandInput,
-  GetAuthenticationUrlCommandOutput,
 } from "./commands/GetAuthenticationUrlCommand";
 import {
+  type GetTranscriptCommandInput,
+  type GetTranscriptCommandOutput,
   GetTranscriptCommand,
-  GetTranscriptCommandInput,
-  GetTranscriptCommandOutput,
 } from "./commands/GetTranscriptCommand";
-import { SendEventCommand, SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
-import { SendMessageCommand, SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
+import { type SendEventCommandInput, type SendEventCommandOutput, SendEventCommand } from "./commands/SendEventCommand";
 import {
+  type SendMessageCommandInput,
+  type SendMessageCommandOutput,
+  SendMessageCommand,
+} from "./commands/SendMessageCommand";
+import {
+  type StartAttachmentUploadCommandInput,
+  type StartAttachmentUploadCommandOutput,
   StartAttachmentUploadCommand,
-  StartAttachmentUploadCommandInput,
-  StartAttachmentUploadCommandOutput,
 } from "./commands/StartAttachmentUploadCommand";
 import { ConnectParticipantClient } from "./ConnectParticipantClient";
 import { paginateGetTranscript } from "./pagination/GetTranscriptPaginator";

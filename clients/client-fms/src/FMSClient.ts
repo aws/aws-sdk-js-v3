@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,115 +61,124 @@ import {
   defaultFMSHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateAdminAccountCommandInput,
   AssociateAdminAccountCommandOutput,
 } from "./commands/AssociateAdminAccountCommand";
-import {
+import type {
   AssociateThirdPartyFirewallCommandInput,
   AssociateThirdPartyFirewallCommandOutput,
 } from "./commands/AssociateThirdPartyFirewallCommand";
-import {
+import type {
   BatchAssociateResourceCommandInput,
   BatchAssociateResourceCommandOutput,
 } from "./commands/BatchAssociateResourceCommand";
-import {
+import type {
   BatchDisassociateResourceCommandInput,
   BatchDisassociateResourceCommandOutput,
 } from "./commands/BatchDisassociateResourceCommand";
-import { DeleteAppsListCommandInput, DeleteAppsListCommandOutput } from "./commands/DeleteAppsListCommand";
-import {
+import type { DeleteAppsListCommandInput, DeleteAppsListCommandOutput } from "./commands/DeleteAppsListCommand";
+import type {
   DeleteNotificationChannelCommandInput,
   DeleteNotificationChannelCommandOutput,
 } from "./commands/DeleteNotificationChannelCommand";
-import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
-import {
+import type { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
+import type {
   DeleteProtocolsListCommandInput,
   DeleteProtocolsListCommandOutput,
 } from "./commands/DeleteProtocolsListCommand";
-import { DeleteResourceSetCommandInput, DeleteResourceSetCommandOutput } from "./commands/DeleteResourceSetCommand";
-import {
+import type {
+  DeleteResourceSetCommandInput,
+  DeleteResourceSetCommandOutput,
+} from "./commands/DeleteResourceSetCommand";
+import type {
   DisassociateAdminAccountCommandInput,
   DisassociateAdminAccountCommandOutput,
 } from "./commands/DisassociateAdminAccountCommand";
-import {
+import type {
   DisassociateThirdPartyFirewallCommandInput,
   DisassociateThirdPartyFirewallCommandOutput,
 } from "./commands/DisassociateThirdPartyFirewallCommand";
-import { GetAdminAccountCommandInput, GetAdminAccountCommandOutput } from "./commands/GetAdminAccountCommand";
-import { GetAdminScopeCommandInput, GetAdminScopeCommandOutput } from "./commands/GetAdminScopeCommand";
-import { GetAppsListCommandInput, GetAppsListCommandOutput } from "./commands/GetAppsListCommand";
-import {
+import type { GetAdminAccountCommandInput, GetAdminAccountCommandOutput } from "./commands/GetAdminAccountCommand";
+import type { GetAdminScopeCommandInput, GetAdminScopeCommandOutput } from "./commands/GetAdminScopeCommand";
+import type { GetAppsListCommandInput, GetAppsListCommandOutput } from "./commands/GetAppsListCommand";
+import type {
   GetComplianceDetailCommandInput,
   GetComplianceDetailCommandOutput,
 } from "./commands/GetComplianceDetailCommand";
-import {
+import type {
   GetNotificationChannelCommandInput,
   GetNotificationChannelCommandOutput,
 } from "./commands/GetNotificationChannelCommand";
-import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
-import {
+import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import type {
   GetProtectionStatusCommandInput,
   GetProtectionStatusCommandOutput,
 } from "./commands/GetProtectionStatusCommand";
-import { GetProtocolsListCommandInput, GetProtocolsListCommandOutput } from "./commands/GetProtocolsListCommand";
-import { GetResourceSetCommandInput, GetResourceSetCommandOutput } from "./commands/GetResourceSetCommand";
-import {
+import type { GetProtocolsListCommandInput, GetProtocolsListCommandOutput } from "./commands/GetProtocolsListCommand";
+import type { GetResourceSetCommandInput, GetResourceSetCommandOutput } from "./commands/GetResourceSetCommand";
+import type {
   GetThirdPartyFirewallAssociationStatusCommandInput,
   GetThirdPartyFirewallAssociationStatusCommandOutput,
 } from "./commands/GetThirdPartyFirewallAssociationStatusCommand";
-import {
+import type {
   GetViolationDetailsCommandInput,
   GetViolationDetailsCommandOutput,
 } from "./commands/GetViolationDetailsCommand";
-import {
+import type {
   ListAdminAccountsForOrganizationCommandInput,
   ListAdminAccountsForOrganizationCommandOutput,
 } from "./commands/ListAdminAccountsForOrganizationCommand";
-import {
+import type {
   ListAdminsManagingAccountCommandInput,
   ListAdminsManagingAccountCommandOutput,
 } from "./commands/ListAdminsManagingAccountCommand";
-import { ListAppsListsCommandInput, ListAppsListsCommandOutput } from "./commands/ListAppsListsCommand";
-import {
+import type { ListAppsListsCommandInput, ListAppsListsCommandOutput } from "./commands/ListAppsListsCommand";
+import type {
   ListComplianceStatusCommandInput,
   ListComplianceStatusCommandOutput,
 } from "./commands/ListComplianceStatusCommand";
-import {
+import type {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
-import { ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput } from "./commands/ListMemberAccountsCommand";
-import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
-import { ListProtocolsListsCommandInput, ListProtocolsListsCommandOutput } from "./commands/ListProtocolsListsCommand";
-import {
+import type {
+  ListMemberAccountsCommandInput,
+  ListMemberAccountsCommandOutput,
+} from "./commands/ListMemberAccountsCommand";
+import type { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
+import type {
+  ListProtocolsListsCommandInput,
+  ListProtocolsListsCommandOutput,
+} from "./commands/ListProtocolsListsCommand";
+import type {
   ListResourceSetResourcesCommandInput,
   ListResourceSetResourcesCommandOutput,
 } from "./commands/ListResourceSetResourcesCommand";
-import { ListResourceSetsCommandInput, ListResourceSetsCommandOutput } from "./commands/ListResourceSetsCommand";
-import {
+import type { ListResourceSetsCommandInput, ListResourceSetsCommandOutput } from "./commands/ListResourceSetsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListThirdPartyFirewallFirewallPoliciesCommandInput,
   ListThirdPartyFirewallFirewallPoliciesCommandOutput,
 } from "./commands/ListThirdPartyFirewallFirewallPoliciesCommand";
-import { PutAdminAccountCommandInput, PutAdminAccountCommandOutput } from "./commands/PutAdminAccountCommand";
-import { PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand";
-import {
+import type { PutAdminAccountCommandInput, PutAdminAccountCommandOutput } from "./commands/PutAdminAccountCommand";
+import type { PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand";
+import type {
   PutNotificationChannelCommandInput,
   PutNotificationChannelCommandOutput,
 } from "./commands/PutNotificationChannelCommand";
-import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
-import { PutProtocolsListCommandInput, PutProtocolsListCommandOutput } from "./commands/PutProtocolsListCommand";
-import { PutResourceSetCommandInput, PutResourceSetCommandOutput } from "./commands/PutResourceSetCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import type { PutProtocolsListCommandInput, PutProtocolsListCommandOutput } from "./commands/PutProtocolsListCommand";
+import type { PutResourceSetCommandInput, PutResourceSetCommandOutput } from "./commands/PutResourceSetCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -387,7 +394,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

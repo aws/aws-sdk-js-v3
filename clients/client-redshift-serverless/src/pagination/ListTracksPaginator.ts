@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListTracksCommand, ListTracksCommandInput, ListTracksCommandOutput } from "../commands/ListTracksCommand";
 import { RedshiftServerlessClient } from "../RedshiftServerlessClient";
-import { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
+import type { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

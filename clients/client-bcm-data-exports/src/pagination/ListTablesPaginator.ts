@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { BCMDataExportsClient } from "../BCMDataExportsClient";
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
-import { BCMDataExportsPaginationConfiguration } from "./Interfaces";
+import type { BCMDataExportsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListReportDefinitionsCommandInput,
   ListReportDefinitionsCommandOutput,
 } from "../commands/ListReportDefinitionsCommand";
-import { ApplicationCostProfilerPaginationConfiguration } from "./Interfaces";
+import type { ApplicationCostProfilerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

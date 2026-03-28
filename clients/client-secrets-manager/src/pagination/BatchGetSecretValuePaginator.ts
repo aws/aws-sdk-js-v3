@@ -8,7 +8,7 @@ import {
   BatchGetSecretValueCommandOutput,
 } from "../commands/BatchGetSecretValueCommand";
 import { SecretsManagerClient } from "../SecretsManagerClient";
-import { SecretsManagerPaginationConfiguration } from "./Interfaces";
+import type { SecretsManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

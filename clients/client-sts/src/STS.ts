@@ -2,52 +2,60 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { AssumeRoleCommand, AssumeRoleCommandInput, AssumeRoleCommandOutput } from "./commands/AssumeRoleCommand";
 import {
+  type AssumeRoleCommandInput,
+  type AssumeRoleCommandOutput,
+  AssumeRoleCommand,
+} from "./commands/AssumeRoleCommand";
+import {
+  type AssumeRoleWithSAMLCommandInput,
+  type AssumeRoleWithSAMLCommandOutput,
   AssumeRoleWithSAMLCommand,
-  AssumeRoleWithSAMLCommandInput,
-  AssumeRoleWithSAMLCommandOutput,
 } from "./commands/AssumeRoleWithSAMLCommand";
 import {
+  type AssumeRoleWithWebIdentityCommandInput,
+  type AssumeRoleWithWebIdentityCommandOutput,
   AssumeRoleWithWebIdentityCommand,
-  AssumeRoleWithWebIdentityCommandInput,
-  AssumeRoleWithWebIdentityCommandOutput,
 } from "./commands/AssumeRoleWithWebIdentityCommand";
-import { AssumeRootCommand, AssumeRootCommandInput, AssumeRootCommandOutput } from "./commands/AssumeRootCommand";
 import {
+  type AssumeRootCommandInput,
+  type AssumeRootCommandOutput,
+  AssumeRootCommand,
+} from "./commands/AssumeRootCommand";
+import {
+  type DecodeAuthorizationMessageCommandInput,
+  type DecodeAuthorizationMessageCommandOutput,
   DecodeAuthorizationMessageCommand,
-  DecodeAuthorizationMessageCommandInput,
-  DecodeAuthorizationMessageCommandOutput,
 } from "./commands/DecodeAuthorizationMessageCommand";
 import {
+  type GetAccessKeyInfoCommandInput,
+  type GetAccessKeyInfoCommandOutput,
   GetAccessKeyInfoCommand,
-  GetAccessKeyInfoCommandInput,
-  GetAccessKeyInfoCommandOutput,
 } from "./commands/GetAccessKeyInfoCommand";
 import {
+  type GetCallerIdentityCommandInput,
+  type GetCallerIdentityCommandOutput,
   GetCallerIdentityCommand,
-  GetCallerIdentityCommandInput,
-  GetCallerIdentityCommandOutput,
 } from "./commands/GetCallerIdentityCommand";
 import {
+  type GetDelegatedAccessTokenCommandInput,
+  type GetDelegatedAccessTokenCommandOutput,
   GetDelegatedAccessTokenCommand,
-  GetDelegatedAccessTokenCommandInput,
-  GetDelegatedAccessTokenCommandOutput,
 } from "./commands/GetDelegatedAccessTokenCommand";
 import {
+  type GetFederationTokenCommandInput,
+  type GetFederationTokenCommandOutput,
   GetFederationTokenCommand,
-  GetFederationTokenCommandInput,
-  GetFederationTokenCommandOutput,
 } from "./commands/GetFederationTokenCommand";
 import {
+  type GetSessionTokenCommandInput,
+  type GetSessionTokenCommandOutput,
   GetSessionTokenCommand,
-  GetSessionTokenCommandInput,
-  GetSessionTokenCommandOutput,
 } from "./commands/GetSessionTokenCommand";
 import {
+  type GetWebIdentityTokenCommandInput,
+  type GetWebIdentityTokenCommandOutput,
   GetWebIdentityTokenCommand,
-  GetWebIdentityTokenCommandInput,
-  GetWebIdentityTokenCommandOutput,
 } from "./commands/GetWebIdentityTokenCommand";
 import { STSClient } from "./STSClient";
 

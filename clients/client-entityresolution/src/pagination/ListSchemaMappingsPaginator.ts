@@ -8,7 +8,7 @@ import {
   ListSchemaMappingsCommandOutput,
 } from "../commands/ListSchemaMappingsCommand";
 import { EntityResolutionClient } from "../EntityResolutionClient";
-import { EntityResolutionPaginationConfiguration } from "./Interfaces";
+import type { EntityResolutionPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

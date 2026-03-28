@@ -8,7 +8,7 @@ import {
   ListMembershipsCommandInput,
   ListMembershipsCommandOutput,
 } from "../commands/ListMembershipsCommand";
-import { CleanRoomsPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

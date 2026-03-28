@@ -8,7 +8,7 @@ import {
   ListCollaborationMLInputChannelsCommandInput,
   ListCollaborationMLInputChannelsCommandOutput,
 } from "../commands/ListCollaborationMLInputChannelsCommand";
-import { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

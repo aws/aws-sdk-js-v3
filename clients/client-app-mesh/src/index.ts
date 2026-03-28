@@ -21,7 +21,7 @@
  */
 export * from "./AppMeshClient";
 export * from "./AppMesh";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { AppMeshExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

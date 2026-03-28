@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,168 +61,183 @@ import {
   defaultDrsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateSourceNetworkStackCommandInput,
   AssociateSourceNetworkStackCommandOutput,
 } from "./commands/AssociateSourceNetworkStackCommand";
-import {
+import type {
   CreateExtendedSourceServerCommandInput,
   CreateExtendedSourceServerCommandOutput,
 } from "./commands/CreateExtendedSourceServerCommand";
-import {
+import type {
   CreateLaunchConfigurationTemplateCommandInput,
   CreateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/CreateLaunchConfigurationTemplateCommand";
-import {
+import type {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
-import {
+import type {
   CreateSourceNetworkCommandInput,
   CreateSourceNetworkCommandOutput,
 } from "./commands/CreateSourceNetworkCommand";
-import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
-import { DeleteLaunchActionCommandInput, DeleteLaunchActionCommandOutput } from "./commands/DeleteLaunchActionCommand";
-import {
+import type { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import type {
+  DeleteLaunchActionCommandInput,
+  DeleteLaunchActionCommandOutput,
+} from "./commands/DeleteLaunchActionCommand";
+import type {
   DeleteLaunchConfigurationTemplateCommandInput,
   DeleteLaunchConfigurationTemplateCommandOutput,
 } from "./commands/DeleteLaunchConfigurationTemplateCommand";
-import {
+import type {
   DeleteRecoveryInstanceCommandInput,
   DeleteRecoveryInstanceCommandOutput,
 } from "./commands/DeleteRecoveryInstanceCommand";
-import {
+import type {
   DeleteReplicationConfigurationTemplateCommandInput,
   DeleteReplicationConfigurationTemplateCommandOutput,
 } from "./commands/DeleteReplicationConfigurationTemplateCommand";
-import {
+import type {
   DeleteSourceNetworkCommandInput,
   DeleteSourceNetworkCommandOutput,
 } from "./commands/DeleteSourceNetworkCommand";
-import { DeleteSourceServerCommandInput, DeleteSourceServerCommandOutput } from "./commands/DeleteSourceServerCommand";
-import {
+import type {
+  DeleteSourceServerCommandInput,
+  DeleteSourceServerCommandOutput,
+} from "./commands/DeleteSourceServerCommand";
+import type {
   DescribeJobLogItemsCommandInput,
   DescribeJobLogItemsCommandOutput,
 } from "./commands/DescribeJobLogItemsCommand";
-import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "./commands/DescribeJobsCommand";
-import {
+import type { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "./commands/DescribeJobsCommand";
+import type {
   DescribeLaunchConfigurationTemplatesCommandInput,
   DescribeLaunchConfigurationTemplatesCommandOutput,
 } from "./commands/DescribeLaunchConfigurationTemplatesCommand";
-import {
+import type {
   DescribeRecoveryInstancesCommandInput,
   DescribeRecoveryInstancesCommandOutput,
 } from "./commands/DescribeRecoveryInstancesCommand";
-import {
+import type {
   DescribeRecoverySnapshotsCommandInput,
   DescribeRecoverySnapshotsCommandOutput,
 } from "./commands/DescribeRecoverySnapshotsCommand";
-import {
+import type {
   DescribeReplicationConfigurationTemplatesCommandInput,
   DescribeReplicationConfigurationTemplatesCommandOutput,
 } from "./commands/DescribeReplicationConfigurationTemplatesCommand";
-import {
+import type {
   DescribeSourceNetworksCommandInput,
   DescribeSourceNetworksCommandOutput,
 } from "./commands/DescribeSourceNetworksCommand";
-import {
+import type {
   DescribeSourceServersCommandInput,
   DescribeSourceServersCommandOutput,
 } from "./commands/DescribeSourceServersCommand";
-import {
+import type {
   DisconnectRecoveryInstanceCommandInput,
   DisconnectRecoveryInstanceCommandOutput,
 } from "./commands/DisconnectRecoveryInstanceCommand";
-import {
+import type {
   DisconnectSourceServerCommandInput,
   DisconnectSourceServerCommandOutput,
 } from "./commands/DisconnectSourceServerCommand";
-import {
+import type {
   ExportSourceNetworkCfnTemplateCommandInput,
   ExportSourceNetworkCfnTemplateCommandOutput,
 } from "./commands/ExportSourceNetworkCfnTemplateCommand";
-import {
+import type {
   GetFailbackReplicationConfigurationCommandInput,
   GetFailbackReplicationConfigurationCommandOutput,
 } from "./commands/GetFailbackReplicationConfigurationCommand";
-import {
+import type {
   GetLaunchConfigurationCommandInput,
   GetLaunchConfigurationCommandOutput,
 } from "./commands/GetLaunchConfigurationCommand";
-import {
+import type {
   GetReplicationConfigurationCommandInput,
   GetReplicationConfigurationCommandOutput,
 } from "./commands/GetReplicationConfigurationCommand";
-import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "./commands/InitializeServiceCommand";
-import {
+import type {
+  InitializeServiceCommandInput,
+  InitializeServiceCommandOutput,
+} from "./commands/InitializeServiceCommand";
+import type {
   ListExtensibleSourceServersCommandInput,
   ListExtensibleSourceServersCommandOutput,
 } from "./commands/ListExtensibleSourceServersCommand";
-import { ListLaunchActionsCommandInput, ListLaunchActionsCommandOutput } from "./commands/ListLaunchActionsCommand";
-import {
+import type {
+  ListLaunchActionsCommandInput,
+  ListLaunchActionsCommandOutput,
+} from "./commands/ListLaunchActionsCommand";
+import type {
   ListStagingAccountsCommandInput,
   ListStagingAccountsCommandOutput,
 } from "./commands/ListStagingAccountsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutLaunchActionCommandInput, PutLaunchActionCommandOutput } from "./commands/PutLaunchActionCommand";
-import {
+import type { PutLaunchActionCommandInput, PutLaunchActionCommandOutput } from "./commands/PutLaunchActionCommand";
+import type {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
 } from "./commands/RetryDataReplicationCommand";
-import { ReverseReplicationCommandInput, ReverseReplicationCommandOutput } from "./commands/ReverseReplicationCommand";
-import {
+import type {
+  ReverseReplicationCommandInput,
+  ReverseReplicationCommandOutput,
+} from "./commands/ReverseReplicationCommand";
+import type {
   StartFailbackLaunchCommandInput,
   StartFailbackLaunchCommandOutput,
 } from "./commands/StartFailbackLaunchCommand";
-import { StartRecoveryCommandInput, StartRecoveryCommandOutput } from "./commands/StartRecoveryCommand";
-import { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
-import {
+import type { StartRecoveryCommandInput, StartRecoveryCommandOutput } from "./commands/StartRecoveryCommand";
+import type { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
+import type {
   StartSourceNetworkRecoveryCommandInput,
   StartSourceNetworkRecoveryCommandOutput,
 } from "./commands/StartSourceNetworkRecoveryCommand";
-import {
+import type {
   StartSourceNetworkReplicationCommandInput,
   StartSourceNetworkReplicationCommandOutput,
 } from "./commands/StartSourceNetworkReplicationCommand";
-import { StopFailbackCommandInput, StopFailbackCommandOutput } from "./commands/StopFailbackCommand";
-import { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
-import {
+import type { StopFailbackCommandInput, StopFailbackCommandOutput } from "./commands/StopFailbackCommand";
+import type { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
+import type {
   StopSourceNetworkReplicationCommandInput,
   StopSourceNetworkReplicationCommandOutput,
 } from "./commands/StopSourceNetworkReplicationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   TerminateRecoveryInstancesCommandInput,
   TerminateRecoveryInstancesCommandOutput,
 } from "./commands/TerminateRecoveryInstancesCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateFailbackReplicationConfigurationCommandInput,
   UpdateFailbackReplicationConfigurationCommandOutput,
 } from "./commands/UpdateFailbackReplicationConfigurationCommand";
-import {
+import type {
   UpdateLaunchConfigurationCommandInput,
   UpdateLaunchConfigurationCommandOutput,
 } from "./commands/UpdateLaunchConfigurationCommand";
-import {
+import type {
   UpdateLaunchConfigurationTemplateCommandInput,
   UpdateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/UpdateLaunchConfigurationTemplateCommand";
-import {
+import type {
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
 } from "./commands/UpdateReplicationConfigurationCommand";
-import {
+import type {
   UpdateReplicationConfigurationTemplateCommandInput,
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -456,7 +469,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

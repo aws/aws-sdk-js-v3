@@ -8,7 +8,7 @@
  */
 export * from "./LakeFormationClient";
 export * from "./LakeFormation";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { LakeFormationExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

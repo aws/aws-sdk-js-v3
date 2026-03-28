@@ -7,7 +7,7 @@
  */
 export * from "./RepostspaceClient";
 export * from "./Repostspace";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { RepostspaceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

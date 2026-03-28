@@ -4,130 +4,134 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { AppFabricClient } from "./AppFabricClient";
 import {
+  type BatchGetUserAccessTasksCommandInput,
+  type BatchGetUserAccessTasksCommandOutput,
   BatchGetUserAccessTasksCommand,
-  BatchGetUserAccessTasksCommandInput,
-  BatchGetUserAccessTasksCommandOutput,
 } from "./commands/BatchGetUserAccessTasksCommand";
 import {
+  type ConnectAppAuthorizationCommandInput,
+  type ConnectAppAuthorizationCommandOutput,
   ConnectAppAuthorizationCommand,
-  ConnectAppAuthorizationCommandInput,
-  ConnectAppAuthorizationCommandOutput,
 } from "./commands/ConnectAppAuthorizationCommand";
 import {
+  type CreateAppAuthorizationCommandInput,
+  type CreateAppAuthorizationCommandOutput,
   CreateAppAuthorizationCommand,
-  CreateAppAuthorizationCommandInput,
-  CreateAppAuthorizationCommandOutput,
 } from "./commands/CreateAppAuthorizationCommand";
 import {
+  type CreateAppBundleCommandInput,
+  type CreateAppBundleCommandOutput,
   CreateAppBundleCommand,
-  CreateAppBundleCommandInput,
-  CreateAppBundleCommandOutput,
 } from "./commands/CreateAppBundleCommand";
 import {
+  type CreateIngestionCommandInput,
+  type CreateIngestionCommandOutput,
   CreateIngestionCommand,
-  CreateIngestionCommandInput,
-  CreateIngestionCommandOutput,
 } from "./commands/CreateIngestionCommand";
 import {
+  type CreateIngestionDestinationCommandInput,
+  type CreateIngestionDestinationCommandOutput,
   CreateIngestionDestinationCommand,
-  CreateIngestionDestinationCommandInput,
-  CreateIngestionDestinationCommandOutput,
 } from "./commands/CreateIngestionDestinationCommand";
 import {
+  type DeleteAppAuthorizationCommandInput,
+  type DeleteAppAuthorizationCommandOutput,
   DeleteAppAuthorizationCommand,
-  DeleteAppAuthorizationCommandInput,
-  DeleteAppAuthorizationCommandOutput,
 } from "./commands/DeleteAppAuthorizationCommand";
 import {
+  type DeleteAppBundleCommandInput,
+  type DeleteAppBundleCommandOutput,
   DeleteAppBundleCommand,
-  DeleteAppBundleCommandInput,
-  DeleteAppBundleCommandOutput,
 } from "./commands/DeleteAppBundleCommand";
 import {
+  type DeleteIngestionCommandInput,
+  type DeleteIngestionCommandOutput,
   DeleteIngestionCommand,
-  DeleteIngestionCommandInput,
-  DeleteIngestionCommandOutput,
 } from "./commands/DeleteIngestionCommand";
 import {
+  type DeleteIngestionDestinationCommandInput,
+  type DeleteIngestionDestinationCommandOutput,
   DeleteIngestionDestinationCommand,
-  DeleteIngestionDestinationCommandInput,
-  DeleteIngestionDestinationCommandOutput,
 } from "./commands/DeleteIngestionDestinationCommand";
 import {
+  type GetAppAuthorizationCommandInput,
+  type GetAppAuthorizationCommandOutput,
   GetAppAuthorizationCommand,
-  GetAppAuthorizationCommandInput,
-  GetAppAuthorizationCommandOutput,
 } from "./commands/GetAppAuthorizationCommand";
 import {
+  type GetAppBundleCommandInput,
+  type GetAppBundleCommandOutput,
   GetAppBundleCommand,
-  GetAppBundleCommandInput,
-  GetAppBundleCommandOutput,
 } from "./commands/GetAppBundleCommand";
 import {
+  type GetIngestionCommandInput,
+  type GetIngestionCommandOutput,
   GetIngestionCommand,
-  GetIngestionCommandInput,
-  GetIngestionCommandOutput,
 } from "./commands/GetIngestionCommand";
 import {
+  type GetIngestionDestinationCommandInput,
+  type GetIngestionDestinationCommandOutput,
   GetIngestionDestinationCommand,
-  GetIngestionDestinationCommandInput,
-  GetIngestionDestinationCommandOutput,
 } from "./commands/GetIngestionDestinationCommand";
 import {
+  type ListAppAuthorizationsCommandInput,
+  type ListAppAuthorizationsCommandOutput,
   ListAppAuthorizationsCommand,
-  ListAppAuthorizationsCommandInput,
-  ListAppAuthorizationsCommandOutput,
 } from "./commands/ListAppAuthorizationsCommand";
 import {
+  type ListAppBundlesCommandInput,
+  type ListAppBundlesCommandOutput,
   ListAppBundlesCommand,
-  ListAppBundlesCommandInput,
-  ListAppBundlesCommandOutput,
 } from "./commands/ListAppBundlesCommand";
 import {
+  type ListIngestionDestinationsCommandInput,
+  type ListIngestionDestinationsCommandOutput,
   ListIngestionDestinationsCommand,
-  ListIngestionDestinationsCommandInput,
-  ListIngestionDestinationsCommandOutput,
 } from "./commands/ListIngestionDestinationsCommand";
 import {
+  type ListIngestionsCommandInput,
+  type ListIngestionsCommandOutput,
   ListIngestionsCommand,
-  ListIngestionsCommandInput,
-  ListIngestionsCommandOutput,
 } from "./commands/ListIngestionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartIngestionCommandInput,
+  type StartIngestionCommandOutput,
   StartIngestionCommand,
-  StartIngestionCommandInput,
-  StartIngestionCommandOutput,
 } from "./commands/StartIngestionCommand";
 import {
+  type StartUserAccessTasksCommandInput,
+  type StartUserAccessTasksCommandOutput,
   StartUserAccessTasksCommand,
-  StartUserAccessTasksCommandInput,
-  StartUserAccessTasksCommandOutput,
 } from "./commands/StartUserAccessTasksCommand";
 import {
+  type StopIngestionCommandInput,
+  type StopIngestionCommandOutput,
   StopIngestionCommand,
-  StopIngestionCommandInput,
-  StopIngestionCommandOutput,
 } from "./commands/StopIngestionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAppAuthorizationCommandInput,
+  type UpdateAppAuthorizationCommandOutput,
   UpdateAppAuthorizationCommand,
-  UpdateAppAuthorizationCommandInput,
-  UpdateAppAuthorizationCommandOutput,
 } from "./commands/UpdateAppAuthorizationCommand";
 import {
+  type UpdateIngestionDestinationCommandInput,
+  type UpdateIngestionDestinationCommandOutput,
   UpdateIngestionDestinationCommand,
-  UpdateIngestionDestinationCommandInput,
-  UpdateIngestionDestinationCommandOutput,
 } from "./commands/UpdateIngestionDestinationCommand";
 import { paginateListAppAuthorizations } from "./pagination/ListAppAuthorizationsPaginator";
 import { paginateListAppBundles } from "./pagination/ListAppBundlesPaginator";

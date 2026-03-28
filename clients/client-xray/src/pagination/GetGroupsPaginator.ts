@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { GetGroupsCommand, GetGroupsCommandInput, GetGroupsCommandOutput } from "../commands/GetGroupsCommand";
 import { XRayClient } from "../XRayClient";
-import { XRayPaginationConfiguration } from "./Interfaces";
+import type { XRayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

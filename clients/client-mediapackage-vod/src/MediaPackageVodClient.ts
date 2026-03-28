@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,57 +61,57 @@ import {
   defaultMediaPackageVodHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { ConfigureLogsCommandInput, ConfigureLogsCommandOutput } from "./commands/ConfigureLogsCommand";
-import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
-import {
+import type { ConfigureLogsCommandInput, ConfigureLogsCommandOutput } from "./commands/ConfigureLogsCommand";
+import type { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
+import type {
   CreatePackagingConfigurationCommandInput,
   CreatePackagingConfigurationCommandOutput,
 } from "./commands/CreatePackagingConfigurationCommand";
-import {
+import type {
   CreatePackagingGroupCommandInput,
   CreatePackagingGroupCommandOutput,
 } from "./commands/CreatePackagingGroupCommand";
-import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
-import {
+import type { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
+import type {
   DeletePackagingConfigurationCommandInput,
   DeletePackagingConfigurationCommandOutput,
 } from "./commands/DeletePackagingConfigurationCommand";
-import {
+import type {
   DeletePackagingGroupCommandInput,
   DeletePackagingGroupCommandOutput,
 } from "./commands/DeletePackagingGroupCommand";
-import { DescribeAssetCommandInput, DescribeAssetCommandOutput } from "./commands/DescribeAssetCommand";
-import {
+import type { DescribeAssetCommandInput, DescribeAssetCommandOutput } from "./commands/DescribeAssetCommand";
+import type {
   DescribePackagingConfigurationCommandInput,
   DescribePackagingConfigurationCommandOutput,
 } from "./commands/DescribePackagingConfigurationCommand";
-import {
+import type {
   DescribePackagingGroupCommandInput,
   DescribePackagingGroupCommandOutput,
 } from "./commands/DescribePackagingGroupCommand";
-import { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
-import {
+import type { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
+import type {
   ListPackagingConfigurationsCommandInput,
   ListPackagingConfigurationsCommandOutput,
 } from "./commands/ListPackagingConfigurationsCommand";
-import {
+import type {
   ListPackagingGroupsCommandInput,
   ListPackagingGroupsCommandOutput,
 } from "./commands/ListPackagingGroupsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdatePackagingGroupCommandInput,
   UpdatePackagingGroupCommandOutput,
 } from "./commands/UpdatePackagingGroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -279,7 +277,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

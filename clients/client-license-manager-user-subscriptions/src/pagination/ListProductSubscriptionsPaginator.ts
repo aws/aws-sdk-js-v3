@@ -8,7 +8,7 @@ import {
   ListProductSubscriptionsCommandOutput,
 } from "../commands/ListProductSubscriptionsCommand";
 import { LicenseManagerUserSubscriptionsClient } from "../LicenseManagerUserSubscriptionsClient";
-import { LicenseManagerUserSubscriptionsPaginationConfiguration } from "./Interfaces";
+import type { LicenseManagerUserSubscriptionsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

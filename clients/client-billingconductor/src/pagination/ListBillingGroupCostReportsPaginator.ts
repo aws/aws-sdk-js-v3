@@ -8,7 +8,7 @@ import {
   ListBillingGroupCostReportsCommandInput,
   ListBillingGroupCostReportsCommandOutput,
 } from "../commands/ListBillingGroupCostReportsCommand";
-import { BillingconductorPaginationConfiguration } from "./Interfaces";
+import type { BillingconductorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

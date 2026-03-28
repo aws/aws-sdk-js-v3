@@ -8,7 +8,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { FSxClient } from "../FSxClient";
-import { FSxPaginationConfiguration } from "./Interfaces";
+import type { FSxPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

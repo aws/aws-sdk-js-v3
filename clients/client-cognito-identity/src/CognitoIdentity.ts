@@ -4,111 +4,115 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CognitoIdentityClient } from "./CognitoIdentityClient";
 import {
+  type CreateIdentityPoolCommandInput,
+  type CreateIdentityPoolCommandOutput,
   CreateIdentityPoolCommand,
-  CreateIdentityPoolCommandInput,
-  CreateIdentityPoolCommandOutput,
 } from "./commands/CreateIdentityPoolCommand";
 import {
+  type DeleteIdentitiesCommandInput,
+  type DeleteIdentitiesCommandOutput,
   DeleteIdentitiesCommand,
-  DeleteIdentitiesCommandInput,
-  DeleteIdentitiesCommandOutput,
 } from "./commands/DeleteIdentitiesCommand";
 import {
+  type DeleteIdentityPoolCommandInput,
+  type DeleteIdentityPoolCommandOutput,
   DeleteIdentityPoolCommand,
-  DeleteIdentityPoolCommandInput,
-  DeleteIdentityPoolCommandOutput,
 } from "./commands/DeleteIdentityPoolCommand";
 import {
+  type DescribeIdentityCommandInput,
+  type DescribeIdentityCommandOutput,
   DescribeIdentityCommand,
-  DescribeIdentityCommandInput,
-  DescribeIdentityCommandOutput,
 } from "./commands/DescribeIdentityCommand";
 import {
+  type DescribeIdentityPoolCommandInput,
+  type DescribeIdentityPoolCommandOutput,
   DescribeIdentityPoolCommand,
-  DescribeIdentityPoolCommandInput,
-  DescribeIdentityPoolCommandOutput,
 } from "./commands/DescribeIdentityPoolCommand";
 import {
+  type GetCredentialsForIdentityCommandInput,
+  type GetCredentialsForIdentityCommandOutput,
   GetCredentialsForIdentityCommand,
-  GetCredentialsForIdentityCommandInput,
-  GetCredentialsForIdentityCommandOutput,
 } from "./commands/GetCredentialsForIdentityCommand";
-import { GetIdCommand, GetIdCommandInput, GetIdCommandOutput } from "./commands/GetIdCommand";
+import { type GetIdCommandInput, type GetIdCommandOutput, GetIdCommand } from "./commands/GetIdCommand";
 import {
+  type GetIdentityPoolRolesCommandInput,
+  type GetIdentityPoolRolesCommandOutput,
   GetIdentityPoolRolesCommand,
-  GetIdentityPoolRolesCommandInput,
-  GetIdentityPoolRolesCommandOutput,
 } from "./commands/GetIdentityPoolRolesCommand";
 import {
+  type GetOpenIdTokenCommandInput,
+  type GetOpenIdTokenCommandOutput,
   GetOpenIdTokenCommand,
-  GetOpenIdTokenCommandInput,
-  GetOpenIdTokenCommandOutput,
 } from "./commands/GetOpenIdTokenCommand";
 import {
+  type GetOpenIdTokenForDeveloperIdentityCommandInput,
+  type GetOpenIdTokenForDeveloperIdentityCommandOutput,
   GetOpenIdTokenForDeveloperIdentityCommand,
-  GetOpenIdTokenForDeveloperIdentityCommandInput,
-  GetOpenIdTokenForDeveloperIdentityCommandOutput,
 } from "./commands/GetOpenIdTokenForDeveloperIdentityCommand";
 import {
+  type GetPrincipalTagAttributeMapCommandInput,
+  type GetPrincipalTagAttributeMapCommandOutput,
   GetPrincipalTagAttributeMapCommand,
-  GetPrincipalTagAttributeMapCommandInput,
-  GetPrincipalTagAttributeMapCommandOutput,
 } from "./commands/GetPrincipalTagAttributeMapCommand";
 import {
+  type ListIdentitiesCommandInput,
+  type ListIdentitiesCommandOutput,
   ListIdentitiesCommand,
-  ListIdentitiesCommandInput,
-  ListIdentitiesCommandOutput,
 } from "./commands/ListIdentitiesCommand";
 import {
+  type ListIdentityPoolsCommandInput,
+  type ListIdentityPoolsCommandOutput,
   ListIdentityPoolsCommand,
-  ListIdentityPoolsCommandInput,
-  ListIdentityPoolsCommandOutput,
 } from "./commands/ListIdentityPoolsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type LookupDeveloperIdentityCommandInput,
+  type LookupDeveloperIdentityCommandOutput,
   LookupDeveloperIdentityCommand,
-  LookupDeveloperIdentityCommandInput,
-  LookupDeveloperIdentityCommandOutput,
 } from "./commands/LookupDeveloperIdentityCommand";
 import {
+  type MergeDeveloperIdentitiesCommandInput,
+  type MergeDeveloperIdentitiesCommandOutput,
   MergeDeveloperIdentitiesCommand,
-  MergeDeveloperIdentitiesCommandInput,
-  MergeDeveloperIdentitiesCommandOutput,
 } from "./commands/MergeDeveloperIdentitiesCommand";
 import {
+  type SetIdentityPoolRolesCommandInput,
+  type SetIdentityPoolRolesCommandOutput,
   SetIdentityPoolRolesCommand,
-  SetIdentityPoolRolesCommandInput,
-  SetIdentityPoolRolesCommandOutput,
 } from "./commands/SetIdentityPoolRolesCommand";
 import {
+  type SetPrincipalTagAttributeMapCommandInput,
+  type SetPrincipalTagAttributeMapCommandOutput,
   SetPrincipalTagAttributeMapCommand,
-  SetPrincipalTagAttributeMapCommandInput,
-  SetPrincipalTagAttributeMapCommandOutput,
 } from "./commands/SetPrincipalTagAttributeMapCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UnlinkDeveloperIdentityCommandInput,
+  type UnlinkDeveloperIdentityCommandOutput,
   UnlinkDeveloperIdentityCommand,
-  UnlinkDeveloperIdentityCommandInput,
-  UnlinkDeveloperIdentityCommandOutput,
 } from "./commands/UnlinkDeveloperIdentityCommand";
 import {
+  type UnlinkIdentityCommandInput,
+  type UnlinkIdentityCommandOutput,
   UnlinkIdentityCommand,
-  UnlinkIdentityCommandInput,
-  UnlinkIdentityCommandOutput,
 } from "./commands/UnlinkIdentityCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateIdentityPoolCommandInput,
+  type UpdateIdentityPoolCommandOutput,
   UpdateIdentityPoolCommand,
-  UpdateIdentityPoolCommandInput,
-  UpdateIdentityPoolCommandOutput,
 } from "./commands/UpdateIdentityPoolCommand";
 import { paginateListIdentityPools } from "./pagination/ListIdentityPoolsPaginator";
 

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,171 +61,204 @@ import {
   defaultPersonalizeHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateBatchInferenceJobCommandInput,
   CreateBatchInferenceJobCommandOutput,
 } from "./commands/CreateBatchInferenceJobCommand";
-import {
+import type {
   CreateBatchSegmentJobCommandInput,
   CreateBatchSegmentJobCommandOutput,
 } from "./commands/CreateBatchSegmentJobCommand";
-import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "./commands/CreateCampaignCommand";
-import {
+import type { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "./commands/CreateCampaignCommand";
+import type {
   CreateDataDeletionJobCommandInput,
   CreateDataDeletionJobCommandOutput,
 } from "./commands/CreateDataDeletionJobCommand";
-import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
-import {
+import type { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import type {
   CreateDatasetExportJobCommandInput,
   CreateDatasetExportJobCommandOutput,
 } from "./commands/CreateDatasetExportJobCommand";
-import { CreateDatasetGroupCommandInput, CreateDatasetGroupCommandOutput } from "./commands/CreateDatasetGroupCommand";
-import {
+import type {
+  CreateDatasetGroupCommandInput,
+  CreateDatasetGroupCommandOutput,
+} from "./commands/CreateDatasetGroupCommand";
+import type {
   CreateDatasetImportJobCommandInput,
   CreateDatasetImportJobCommandOutput,
 } from "./commands/CreateDatasetImportJobCommand";
-import { CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput } from "./commands/CreateEventTrackerCommand";
-import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
-import {
+import type {
+  CreateEventTrackerCommandInput,
+  CreateEventTrackerCommandOutput,
+} from "./commands/CreateEventTrackerCommand";
+import type { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
+import type {
   CreateMetricAttributionCommandInput,
   CreateMetricAttributionCommandOutput,
 } from "./commands/CreateMetricAttributionCommand";
-import { CreateRecommenderCommandInput, CreateRecommenderCommandOutput } from "./commands/CreateRecommenderCommand";
-import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
-import { CreateSolutionCommandInput, CreateSolutionCommandOutput } from "./commands/CreateSolutionCommand";
-import {
+import type {
+  CreateRecommenderCommandInput,
+  CreateRecommenderCommandOutput,
+} from "./commands/CreateRecommenderCommand";
+import type { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
+import type { CreateSolutionCommandInput, CreateSolutionCommandOutput } from "./commands/CreateSolutionCommand";
+import type {
   CreateSolutionVersionCommandInput,
   CreateSolutionVersionCommandOutput,
 } from "./commands/CreateSolutionVersionCommand";
-import { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "./commands/DeleteCampaignCommand";
-import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
-import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "./commands/DeleteDatasetGroupCommand";
-import { DeleteEventTrackerCommandInput, DeleteEventTrackerCommandOutput } from "./commands/DeleteEventTrackerCommand";
-import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
-import {
+import type { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "./commands/DeleteCampaignCommand";
+import type { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import type {
+  DeleteDatasetGroupCommandInput,
+  DeleteDatasetGroupCommandOutput,
+} from "./commands/DeleteDatasetGroupCommand";
+import type {
+  DeleteEventTrackerCommandInput,
+  DeleteEventTrackerCommandOutput,
+} from "./commands/DeleteEventTrackerCommand";
+import type { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
+import type {
   DeleteMetricAttributionCommandInput,
   DeleteMetricAttributionCommandOutput,
 } from "./commands/DeleteMetricAttributionCommand";
-import { DeleteRecommenderCommandInput, DeleteRecommenderCommandOutput } from "./commands/DeleteRecommenderCommand";
-import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
-import { DeleteSolutionCommandInput, DeleteSolutionCommandOutput } from "./commands/DeleteSolutionCommand";
-import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "./commands/DescribeAlgorithmCommand";
-import {
+import type {
+  DeleteRecommenderCommandInput,
+  DeleteRecommenderCommandOutput,
+} from "./commands/DeleteRecommenderCommand";
+import type { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
+import type { DeleteSolutionCommandInput, DeleteSolutionCommandOutput } from "./commands/DeleteSolutionCommand";
+import type {
+  DescribeAlgorithmCommandInput,
+  DescribeAlgorithmCommandOutput,
+} from "./commands/DescribeAlgorithmCommand";
+import type {
   DescribeBatchInferenceJobCommandInput,
   DescribeBatchInferenceJobCommandOutput,
 } from "./commands/DescribeBatchInferenceJobCommand";
-import {
+import type {
   DescribeBatchSegmentJobCommandInput,
   DescribeBatchSegmentJobCommandOutput,
 } from "./commands/DescribeBatchSegmentJobCommand";
-import { DescribeCampaignCommandInput, DescribeCampaignCommandOutput } from "./commands/DescribeCampaignCommand";
-import {
+import type { DescribeCampaignCommandInput, DescribeCampaignCommandOutput } from "./commands/DescribeCampaignCommand";
+import type {
   DescribeDataDeletionJobCommandInput,
   DescribeDataDeletionJobCommandOutput,
 } from "./commands/DescribeDataDeletionJobCommand";
-import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
-import {
+import type { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
+import type {
   DescribeDatasetExportJobCommandInput,
   DescribeDatasetExportJobCommandOutput,
 } from "./commands/DescribeDatasetExportJobCommand";
-import {
+import type {
   DescribeDatasetGroupCommandInput,
   DescribeDatasetGroupCommandOutput,
 } from "./commands/DescribeDatasetGroupCommand";
-import {
+import type {
   DescribeDatasetImportJobCommandInput,
   DescribeDatasetImportJobCommandOutput,
 } from "./commands/DescribeDatasetImportJobCommand";
-import {
+import type {
   DescribeEventTrackerCommandInput,
   DescribeEventTrackerCommandOutput,
 } from "./commands/DescribeEventTrackerCommand";
-import {
+import type {
   DescribeFeatureTransformationCommandInput,
   DescribeFeatureTransformationCommandOutput,
 } from "./commands/DescribeFeatureTransformationCommand";
-import { DescribeFilterCommandInput, DescribeFilterCommandOutput } from "./commands/DescribeFilterCommand";
-import {
+import type { DescribeFilterCommandInput, DescribeFilterCommandOutput } from "./commands/DescribeFilterCommand";
+import type {
   DescribeMetricAttributionCommandInput,
   DescribeMetricAttributionCommandOutput,
 } from "./commands/DescribeMetricAttributionCommand";
-import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "./commands/DescribeRecipeCommand";
-import {
+import type { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "./commands/DescribeRecipeCommand";
+import type {
   DescribeRecommenderCommandInput,
   DescribeRecommenderCommandOutput,
 } from "./commands/DescribeRecommenderCommand";
-import { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "./commands/DescribeSchemaCommand";
-import { DescribeSolutionCommandInput, DescribeSolutionCommandOutput } from "./commands/DescribeSolutionCommand";
-import {
+import type { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "./commands/DescribeSchemaCommand";
+import type { DescribeSolutionCommandInput, DescribeSolutionCommandOutput } from "./commands/DescribeSolutionCommand";
+import type {
   DescribeSolutionVersionCommandInput,
   DescribeSolutionVersionCommandOutput,
 } from "./commands/DescribeSolutionVersionCommand";
-import { GetSolutionMetricsCommandInput, GetSolutionMetricsCommandOutput } from "./commands/GetSolutionMetricsCommand";
-import {
+import type {
+  GetSolutionMetricsCommandInput,
+  GetSolutionMetricsCommandOutput,
+} from "./commands/GetSolutionMetricsCommand";
+import type {
   ListBatchInferenceJobsCommandInput,
   ListBatchInferenceJobsCommandOutput,
 } from "./commands/ListBatchInferenceJobsCommand";
-import {
+import type {
   ListBatchSegmentJobsCommandInput,
   ListBatchSegmentJobsCommandOutput,
 } from "./commands/ListBatchSegmentJobsCommand";
-import { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "./commands/ListCampaignsCommand";
-import {
+import type { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "./commands/ListCampaignsCommand";
+import type {
   ListDataDeletionJobsCommandInput,
   ListDataDeletionJobsCommandOutput,
 } from "./commands/ListDataDeletionJobsCommand";
-import {
+import type {
   ListDatasetExportJobsCommandInput,
   ListDatasetExportJobsCommandOutput,
 } from "./commands/ListDatasetExportJobsCommand";
-import { ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput } from "./commands/ListDatasetGroupsCommand";
-import {
+import type {
+  ListDatasetGroupsCommandInput,
+  ListDatasetGroupsCommandOutput,
+} from "./commands/ListDatasetGroupsCommand";
+import type {
   ListDatasetImportJobsCommandInput,
   ListDatasetImportJobsCommandOutput,
 } from "./commands/ListDatasetImportJobsCommand";
-import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
-import { ListEventTrackersCommandInput, ListEventTrackersCommandOutput } from "./commands/ListEventTrackersCommand";
-import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
-import {
+import type { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import type {
+  ListEventTrackersCommandInput,
+  ListEventTrackersCommandOutput,
+} from "./commands/ListEventTrackersCommand";
+import type { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
+import type {
   ListMetricAttributionMetricsCommandInput,
   ListMetricAttributionMetricsCommandOutput,
 } from "./commands/ListMetricAttributionMetricsCommand";
-import {
+import type {
   ListMetricAttributionsCommandInput,
   ListMetricAttributionsCommandOutput,
 } from "./commands/ListMetricAttributionsCommand";
-import { ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
-import { ListRecommendersCommandInput, ListRecommendersCommandOutput } from "./commands/ListRecommendersCommand";
-import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
-import { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "./commands/ListSolutionsCommand";
-import {
+import type { ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
+import type { ListRecommendersCommandInput, ListRecommendersCommandOutput } from "./commands/ListRecommendersCommand";
+import type { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
+import type { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "./commands/ListSolutionsCommand";
+import type {
   ListSolutionVersionsCommandInput,
   ListSolutionVersionsCommandOutput,
 } from "./commands/ListSolutionVersionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartRecommenderCommandInput, StartRecommenderCommandOutput } from "./commands/StartRecommenderCommand";
-import { StopRecommenderCommandInput, StopRecommenderCommandOutput } from "./commands/StopRecommenderCommand";
-import {
+import type { StartRecommenderCommandInput, StartRecommenderCommandOutput } from "./commands/StartRecommenderCommand";
+import type { StopRecommenderCommandInput, StopRecommenderCommandOutput } from "./commands/StopRecommenderCommand";
+import type {
   StopSolutionVersionCreationCommandInput,
   StopSolutionVersionCreationCommandOutput,
 } from "./commands/StopSolutionVersionCreationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand";
-import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand";
+import type { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
+import type {
   UpdateMetricAttributionCommandInput,
   UpdateMetricAttributionCommandOutput,
 } from "./commands/UpdateMetricAttributionCommand";
-import { UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput } from "./commands/UpdateRecommenderCommand";
-import { UpdateSolutionCommandInput, UpdateSolutionCommandOutput } from "./commands/UpdateSolutionCommand";
+import type {
+  UpdateRecommenderCommandInput,
+  UpdateRecommenderCommandOutput,
+} from "./commands/UpdateRecommenderCommand";
+import type { UpdateSolutionCommandInput, UpdateSolutionCommandOutput } from "./commands/UpdateSolutionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -501,7 +532,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

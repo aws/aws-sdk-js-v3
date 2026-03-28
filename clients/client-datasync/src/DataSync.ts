@@ -3,233 +3,265 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelTaskExecutionCommandInput,
+  type CancelTaskExecutionCommandOutput,
   CancelTaskExecutionCommand,
-  CancelTaskExecutionCommandInput,
-  CancelTaskExecutionCommandOutput,
 } from "./commands/CancelTaskExecutionCommand";
-import { CreateAgentCommand, CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
 import {
+  type CreateAgentCommandInput,
+  type CreateAgentCommandOutput,
+  CreateAgentCommand,
+} from "./commands/CreateAgentCommand";
+import {
+  type CreateLocationAzureBlobCommandInput,
+  type CreateLocationAzureBlobCommandOutput,
   CreateLocationAzureBlobCommand,
-  CreateLocationAzureBlobCommandInput,
-  CreateLocationAzureBlobCommandOutput,
 } from "./commands/CreateLocationAzureBlobCommand";
 import {
+  type CreateLocationEfsCommandInput,
+  type CreateLocationEfsCommandOutput,
   CreateLocationEfsCommand,
-  CreateLocationEfsCommandInput,
-  CreateLocationEfsCommandOutput,
 } from "./commands/CreateLocationEfsCommand";
 import {
+  type CreateLocationFsxLustreCommandInput,
+  type CreateLocationFsxLustreCommandOutput,
   CreateLocationFsxLustreCommand,
-  CreateLocationFsxLustreCommandInput,
-  CreateLocationFsxLustreCommandOutput,
 } from "./commands/CreateLocationFsxLustreCommand";
 import {
+  type CreateLocationFsxOntapCommandInput,
+  type CreateLocationFsxOntapCommandOutput,
   CreateLocationFsxOntapCommand,
-  CreateLocationFsxOntapCommandInput,
-  CreateLocationFsxOntapCommandOutput,
 } from "./commands/CreateLocationFsxOntapCommand";
 import {
+  type CreateLocationFsxOpenZfsCommandInput,
+  type CreateLocationFsxOpenZfsCommandOutput,
   CreateLocationFsxOpenZfsCommand,
-  CreateLocationFsxOpenZfsCommandInput,
-  CreateLocationFsxOpenZfsCommandOutput,
 } from "./commands/CreateLocationFsxOpenZfsCommand";
 import {
+  type CreateLocationFsxWindowsCommandInput,
+  type CreateLocationFsxWindowsCommandOutput,
   CreateLocationFsxWindowsCommand,
-  CreateLocationFsxWindowsCommandInput,
-  CreateLocationFsxWindowsCommandOutput,
 } from "./commands/CreateLocationFsxWindowsCommand";
 import {
+  type CreateLocationHdfsCommandInput,
+  type CreateLocationHdfsCommandOutput,
   CreateLocationHdfsCommand,
-  CreateLocationHdfsCommandInput,
-  CreateLocationHdfsCommandOutput,
 } from "./commands/CreateLocationHdfsCommand";
 import {
+  type CreateLocationNfsCommandInput,
+  type CreateLocationNfsCommandOutput,
   CreateLocationNfsCommand,
-  CreateLocationNfsCommandInput,
-  CreateLocationNfsCommandOutput,
 } from "./commands/CreateLocationNfsCommand";
 import {
+  type CreateLocationObjectStorageCommandInput,
+  type CreateLocationObjectStorageCommandOutput,
   CreateLocationObjectStorageCommand,
-  CreateLocationObjectStorageCommandInput,
-  CreateLocationObjectStorageCommandOutput,
 } from "./commands/CreateLocationObjectStorageCommand";
 import {
+  type CreateLocationS3CommandInput,
+  type CreateLocationS3CommandOutput,
   CreateLocationS3Command,
-  CreateLocationS3CommandInput,
-  CreateLocationS3CommandOutput,
 } from "./commands/CreateLocationS3Command";
 import {
+  type CreateLocationSmbCommandInput,
+  type CreateLocationSmbCommandOutput,
   CreateLocationSmbCommand,
-  CreateLocationSmbCommandInput,
-  CreateLocationSmbCommandOutput,
 } from "./commands/CreateLocationSmbCommand";
-import { CreateTaskCommand, CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
-import { DeleteAgentCommand, DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand";
 import {
+  type CreateTaskCommandInput,
+  type CreateTaskCommandOutput,
+  CreateTaskCommand,
+} from "./commands/CreateTaskCommand";
+import {
+  type DeleteAgentCommandInput,
+  type DeleteAgentCommandOutput,
+  DeleteAgentCommand,
+} from "./commands/DeleteAgentCommand";
+import {
+  type DeleteLocationCommandInput,
+  type DeleteLocationCommandOutput,
   DeleteLocationCommand,
-  DeleteLocationCommandInput,
-  DeleteLocationCommandOutput,
 } from "./commands/DeleteLocationCommand";
-import { DeleteTaskCommand, DeleteTaskCommandInput, DeleteTaskCommandOutput } from "./commands/DeleteTaskCommand";
 import {
+  type DeleteTaskCommandInput,
+  type DeleteTaskCommandOutput,
+  DeleteTaskCommand,
+} from "./commands/DeleteTaskCommand";
+import {
+  type DescribeAgentCommandInput,
+  type DescribeAgentCommandOutput,
   DescribeAgentCommand,
-  DescribeAgentCommandInput,
-  DescribeAgentCommandOutput,
 } from "./commands/DescribeAgentCommand";
 import {
+  type DescribeLocationAzureBlobCommandInput,
+  type DescribeLocationAzureBlobCommandOutput,
   DescribeLocationAzureBlobCommand,
-  DescribeLocationAzureBlobCommandInput,
-  DescribeLocationAzureBlobCommandOutput,
 } from "./commands/DescribeLocationAzureBlobCommand";
 import {
+  type DescribeLocationEfsCommandInput,
+  type DescribeLocationEfsCommandOutput,
   DescribeLocationEfsCommand,
-  DescribeLocationEfsCommandInput,
-  DescribeLocationEfsCommandOutput,
 } from "./commands/DescribeLocationEfsCommand";
 import {
+  type DescribeLocationFsxLustreCommandInput,
+  type DescribeLocationFsxLustreCommandOutput,
   DescribeLocationFsxLustreCommand,
-  DescribeLocationFsxLustreCommandInput,
-  DescribeLocationFsxLustreCommandOutput,
 } from "./commands/DescribeLocationFsxLustreCommand";
 import {
+  type DescribeLocationFsxOntapCommandInput,
+  type DescribeLocationFsxOntapCommandOutput,
   DescribeLocationFsxOntapCommand,
-  DescribeLocationFsxOntapCommandInput,
-  DescribeLocationFsxOntapCommandOutput,
 } from "./commands/DescribeLocationFsxOntapCommand";
 import {
+  type DescribeLocationFsxOpenZfsCommandInput,
+  type DescribeLocationFsxOpenZfsCommandOutput,
   DescribeLocationFsxOpenZfsCommand,
-  DescribeLocationFsxOpenZfsCommandInput,
-  DescribeLocationFsxOpenZfsCommandOutput,
 } from "./commands/DescribeLocationFsxOpenZfsCommand";
 import {
+  type DescribeLocationFsxWindowsCommandInput,
+  type DescribeLocationFsxWindowsCommandOutput,
   DescribeLocationFsxWindowsCommand,
-  DescribeLocationFsxWindowsCommandInput,
-  DescribeLocationFsxWindowsCommandOutput,
 } from "./commands/DescribeLocationFsxWindowsCommand";
 import {
+  type DescribeLocationHdfsCommandInput,
+  type DescribeLocationHdfsCommandOutput,
   DescribeLocationHdfsCommand,
-  DescribeLocationHdfsCommandInput,
-  DescribeLocationHdfsCommandOutput,
 } from "./commands/DescribeLocationHdfsCommand";
 import {
+  type DescribeLocationNfsCommandInput,
+  type DescribeLocationNfsCommandOutput,
   DescribeLocationNfsCommand,
-  DescribeLocationNfsCommandInput,
-  DescribeLocationNfsCommandOutput,
 } from "./commands/DescribeLocationNfsCommand";
 import {
+  type DescribeLocationObjectStorageCommandInput,
+  type DescribeLocationObjectStorageCommandOutput,
   DescribeLocationObjectStorageCommand,
-  DescribeLocationObjectStorageCommandInput,
-  DescribeLocationObjectStorageCommandOutput,
 } from "./commands/DescribeLocationObjectStorageCommand";
 import {
+  type DescribeLocationS3CommandInput,
+  type DescribeLocationS3CommandOutput,
   DescribeLocationS3Command,
-  DescribeLocationS3CommandInput,
-  DescribeLocationS3CommandOutput,
 } from "./commands/DescribeLocationS3Command";
 import {
+  type DescribeLocationSmbCommandInput,
+  type DescribeLocationSmbCommandOutput,
   DescribeLocationSmbCommand,
-  DescribeLocationSmbCommandInput,
-  DescribeLocationSmbCommandOutput,
 } from "./commands/DescribeLocationSmbCommand";
 import {
+  type DescribeTaskCommandInput,
+  type DescribeTaskCommandOutput,
   DescribeTaskCommand,
-  DescribeTaskCommandInput,
-  DescribeTaskCommandOutput,
 } from "./commands/DescribeTaskCommand";
 import {
+  type DescribeTaskExecutionCommandInput,
+  type DescribeTaskExecutionCommandOutput,
   DescribeTaskExecutionCommand,
-  DescribeTaskExecutionCommandInput,
-  DescribeTaskExecutionCommandOutput,
 } from "./commands/DescribeTaskExecutionCommand";
-import { ListAgentsCommand, ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
 import {
+  type ListAgentsCommandInput,
+  type ListAgentsCommandOutput,
+  ListAgentsCommand,
+} from "./commands/ListAgentsCommand";
+import {
+  type ListLocationsCommandInput,
+  type ListLocationsCommandOutput,
   ListLocationsCommand,
-  ListLocationsCommandInput,
-  ListLocationsCommandOutput,
 } from "./commands/ListLocationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTaskExecutionsCommandInput,
+  type ListTaskExecutionsCommandOutput,
   ListTaskExecutionsCommand,
-  ListTaskExecutionsCommandInput,
-  ListTaskExecutionsCommandOutput,
 } from "./commands/ListTaskExecutionsCommand";
-import { ListTasksCommand, ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
+import { type ListTasksCommandInput, type ListTasksCommandOutput, ListTasksCommand } from "./commands/ListTasksCommand";
 import {
+  type StartTaskExecutionCommandInput,
+  type StartTaskExecutionCommandOutput,
   StartTaskExecutionCommand,
-  StartTaskExecutionCommandInput,
-  StartTaskExecutionCommandOutput,
 } from "./commands/StartTaskExecutionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateAgentCommand, UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
 import {
+  type UpdateAgentCommandInput,
+  type UpdateAgentCommandOutput,
+  UpdateAgentCommand,
+} from "./commands/UpdateAgentCommand";
+import {
+  type UpdateLocationAzureBlobCommandInput,
+  type UpdateLocationAzureBlobCommandOutput,
   UpdateLocationAzureBlobCommand,
-  UpdateLocationAzureBlobCommandInput,
-  UpdateLocationAzureBlobCommandOutput,
 } from "./commands/UpdateLocationAzureBlobCommand";
 import {
+  type UpdateLocationEfsCommandInput,
+  type UpdateLocationEfsCommandOutput,
   UpdateLocationEfsCommand,
-  UpdateLocationEfsCommandInput,
-  UpdateLocationEfsCommandOutput,
 } from "./commands/UpdateLocationEfsCommand";
 import {
+  type UpdateLocationFsxLustreCommandInput,
+  type UpdateLocationFsxLustreCommandOutput,
   UpdateLocationFsxLustreCommand,
-  UpdateLocationFsxLustreCommandInput,
-  UpdateLocationFsxLustreCommandOutput,
 } from "./commands/UpdateLocationFsxLustreCommand";
 import {
+  type UpdateLocationFsxOntapCommandInput,
+  type UpdateLocationFsxOntapCommandOutput,
   UpdateLocationFsxOntapCommand,
-  UpdateLocationFsxOntapCommandInput,
-  UpdateLocationFsxOntapCommandOutput,
 } from "./commands/UpdateLocationFsxOntapCommand";
 import {
+  type UpdateLocationFsxOpenZfsCommandInput,
+  type UpdateLocationFsxOpenZfsCommandOutput,
   UpdateLocationFsxOpenZfsCommand,
-  UpdateLocationFsxOpenZfsCommandInput,
-  UpdateLocationFsxOpenZfsCommandOutput,
 } from "./commands/UpdateLocationFsxOpenZfsCommand";
 import {
+  type UpdateLocationFsxWindowsCommandInput,
+  type UpdateLocationFsxWindowsCommandOutput,
   UpdateLocationFsxWindowsCommand,
-  UpdateLocationFsxWindowsCommandInput,
-  UpdateLocationFsxWindowsCommandOutput,
 } from "./commands/UpdateLocationFsxWindowsCommand";
 import {
+  type UpdateLocationHdfsCommandInput,
+  type UpdateLocationHdfsCommandOutput,
   UpdateLocationHdfsCommand,
-  UpdateLocationHdfsCommandInput,
-  UpdateLocationHdfsCommandOutput,
 } from "./commands/UpdateLocationHdfsCommand";
 import {
+  type UpdateLocationNfsCommandInput,
+  type UpdateLocationNfsCommandOutput,
   UpdateLocationNfsCommand,
-  UpdateLocationNfsCommandInput,
-  UpdateLocationNfsCommandOutput,
 } from "./commands/UpdateLocationNfsCommand";
 import {
+  type UpdateLocationObjectStorageCommandInput,
+  type UpdateLocationObjectStorageCommandOutput,
   UpdateLocationObjectStorageCommand,
-  UpdateLocationObjectStorageCommandInput,
-  UpdateLocationObjectStorageCommandOutput,
 } from "./commands/UpdateLocationObjectStorageCommand";
 import {
+  type UpdateLocationS3CommandInput,
+  type UpdateLocationS3CommandOutput,
   UpdateLocationS3Command,
-  UpdateLocationS3CommandInput,
-  UpdateLocationS3CommandOutput,
 } from "./commands/UpdateLocationS3Command";
 import {
+  type UpdateLocationSmbCommandInput,
+  type UpdateLocationSmbCommandOutput,
   UpdateLocationSmbCommand,
-  UpdateLocationSmbCommandInput,
-  UpdateLocationSmbCommandOutput,
 } from "./commands/UpdateLocationSmbCommand";
-import { UpdateTaskCommand, UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
 import {
+  type UpdateTaskCommandInput,
+  type UpdateTaskCommandOutput,
+  UpdateTaskCommand,
+} from "./commands/UpdateTaskCommand";
+import {
+  type UpdateTaskExecutionCommandInput,
+  type UpdateTaskExecutionCommandOutput,
   UpdateTaskExecutionCommand,
-  UpdateTaskExecutionCommandInput,
-  UpdateTaskExecutionCommandOutput,
 } from "./commands/UpdateTaskExecutionCommand";
 import { DataSyncClient } from "./DataSyncClient";
 import { paginateListAgents } from "./pagination/ListAgentsPaginator";

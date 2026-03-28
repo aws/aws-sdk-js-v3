@@ -8,7 +8,7 @@ import {
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
 import { OpenSearchClient } from "../OpenSearchClient";
-import { OpenSearchPaginationConfiguration } from "./Interfaces";
+import type { OpenSearchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

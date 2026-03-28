@@ -8,7 +8,7 @@ import {
   ListRequesterGatewaysCommandOutput,
 } from "../commands/ListRequesterGatewaysCommand";
 import { RTBFabricClient } from "../RTBFabricClient";
-import { RTBFabricPaginationConfiguration } from "./Interfaces";
+import type { RTBFabricPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

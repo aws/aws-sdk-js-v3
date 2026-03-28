@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AmbiguousRoleResolutionType, ErrorCode, MappingRuleMatchType, RoleMappingType } from "./enums";
+import type { AmbiguousRoleResolutionType, ErrorCode, MappingRuleMatchType, RoleMappingType } from "./enums";
 
 /**
  * <p>A provider representing an Amazon Cognito user pool and its client ID.</p>

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,130 +61,139 @@ import {
   defaultBatchHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
-import {
+import type { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import type {
   CreateComputeEnvironmentCommandInput,
   CreateComputeEnvironmentCommandOutput,
 } from "./commands/CreateComputeEnvironmentCommand";
-import {
+import type {
   CreateConsumableResourceCommandInput,
   CreateConsumableResourceCommandOutput,
 } from "./commands/CreateConsumableResourceCommand";
-import { CreateJobQueueCommandInput, CreateJobQueueCommandOutput } from "./commands/CreateJobQueueCommand";
-import { CreateQuotaShareCommandInput, CreateQuotaShareCommandOutput } from "./commands/CreateQuotaShareCommand";
-import {
+import type { CreateJobQueueCommandInput, CreateJobQueueCommandOutput } from "./commands/CreateJobQueueCommand";
+import type { CreateQuotaShareCommandInput, CreateQuotaShareCommandOutput } from "./commands/CreateQuotaShareCommand";
+import type {
   CreateSchedulingPolicyCommandInput,
   CreateSchedulingPolicyCommandOutput,
 } from "./commands/CreateSchedulingPolicyCommand";
-import {
+import type {
   CreateServiceEnvironmentCommandInput,
   CreateServiceEnvironmentCommandOutput,
 } from "./commands/CreateServiceEnvironmentCommand";
-import {
+import type {
   DeleteComputeEnvironmentCommandInput,
   DeleteComputeEnvironmentCommandOutput,
 } from "./commands/DeleteComputeEnvironmentCommand";
-import {
+import type {
   DeleteConsumableResourceCommandInput,
   DeleteConsumableResourceCommandOutput,
 } from "./commands/DeleteConsumableResourceCommand";
-import { DeleteJobQueueCommandInput, DeleteJobQueueCommandOutput } from "./commands/DeleteJobQueueCommand";
-import { DeleteQuotaShareCommandInput, DeleteQuotaShareCommandOutput } from "./commands/DeleteQuotaShareCommand";
-import {
+import type { DeleteJobQueueCommandInput, DeleteJobQueueCommandOutput } from "./commands/DeleteJobQueueCommand";
+import type { DeleteQuotaShareCommandInput, DeleteQuotaShareCommandOutput } from "./commands/DeleteQuotaShareCommand";
+import type {
   DeleteSchedulingPolicyCommandInput,
   DeleteSchedulingPolicyCommandOutput,
 } from "./commands/DeleteSchedulingPolicyCommand";
-import {
+import type {
   DeleteServiceEnvironmentCommandInput,
   DeleteServiceEnvironmentCommandOutput,
 } from "./commands/DeleteServiceEnvironmentCommand";
-import {
+import type {
   DeregisterJobDefinitionCommandInput,
   DeregisterJobDefinitionCommandOutput,
 } from "./commands/DeregisterJobDefinitionCommand";
-import {
+import type {
   DescribeComputeEnvironmentsCommandInput,
   DescribeComputeEnvironmentsCommandOutput,
 } from "./commands/DescribeComputeEnvironmentsCommand";
-import {
+import type {
   DescribeConsumableResourceCommandInput,
   DescribeConsumableResourceCommandOutput,
 } from "./commands/DescribeConsumableResourceCommand";
-import {
+import type {
   DescribeJobDefinitionsCommandInput,
   DescribeJobDefinitionsCommandOutput,
 } from "./commands/DescribeJobDefinitionsCommand";
-import { DescribeJobQueuesCommandInput, DescribeJobQueuesCommandOutput } from "./commands/DescribeJobQueuesCommand";
-import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "./commands/DescribeJobsCommand";
-import { DescribeQuotaShareCommandInput, DescribeQuotaShareCommandOutput } from "./commands/DescribeQuotaShareCommand";
-import {
+import type {
+  DescribeJobQueuesCommandInput,
+  DescribeJobQueuesCommandOutput,
+} from "./commands/DescribeJobQueuesCommand";
+import type { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "./commands/DescribeJobsCommand";
+import type {
+  DescribeQuotaShareCommandInput,
+  DescribeQuotaShareCommandOutput,
+} from "./commands/DescribeQuotaShareCommand";
+import type {
   DescribeSchedulingPoliciesCommandInput,
   DescribeSchedulingPoliciesCommandOutput,
 } from "./commands/DescribeSchedulingPoliciesCommand";
-import {
+import type {
   DescribeServiceEnvironmentsCommandInput,
   DescribeServiceEnvironmentsCommandOutput,
 } from "./commands/DescribeServiceEnvironmentsCommand";
-import { DescribeServiceJobCommandInput, DescribeServiceJobCommandOutput } from "./commands/DescribeServiceJobCommand";
-import {
+import type {
+  DescribeServiceJobCommandInput,
+  DescribeServiceJobCommandOutput,
+} from "./commands/DescribeServiceJobCommand";
+import type {
   GetJobQueueSnapshotCommandInput,
   GetJobQueueSnapshotCommandOutput,
 } from "./commands/GetJobQueueSnapshotCommand";
-import {
+import type {
   ListConsumableResourcesCommandInput,
   ListConsumableResourcesCommandOutput,
 } from "./commands/ListConsumableResourcesCommand";
-import {
+import type {
   ListJobsByConsumableResourceCommandInput,
   ListJobsByConsumableResourceCommandOutput,
 } from "./commands/ListJobsByConsumableResourceCommand";
-import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
-import { ListQuotaSharesCommandInput, ListQuotaSharesCommandOutput } from "./commands/ListQuotaSharesCommand";
-import {
+import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import type { ListQuotaSharesCommandInput, ListQuotaSharesCommandOutput } from "./commands/ListQuotaSharesCommand";
+import type {
   ListSchedulingPoliciesCommandInput,
   ListSchedulingPoliciesCommandOutput,
 } from "./commands/ListSchedulingPoliciesCommand";
-import { ListServiceJobsCommandInput, ListServiceJobsCommandOutput } from "./commands/ListServiceJobsCommand";
-import {
+import type { ListServiceJobsCommandInput, ListServiceJobsCommandOutput } from "./commands/ListServiceJobsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   RegisterJobDefinitionCommandInput,
   RegisterJobDefinitionCommandOutput,
 } from "./commands/RegisterJobDefinitionCommand";
-import { SubmitJobCommandInput, SubmitJobCommandOutput } from "./commands/SubmitJobCommand";
-import { SubmitServiceJobCommandInput, SubmitServiceJobCommandOutput } from "./commands/SubmitServiceJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TerminateJobCommandInput, TerminateJobCommandOutput } from "./commands/TerminateJobCommand";
-import {
+import type { SubmitJobCommandInput, SubmitJobCommandOutput } from "./commands/SubmitJobCommand";
+import type { SubmitServiceJobCommandInput, SubmitServiceJobCommandOutput } from "./commands/SubmitServiceJobCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TerminateJobCommandInput, TerminateJobCommandOutput } from "./commands/TerminateJobCommand";
+import type {
   TerminateServiceJobCommandInput,
   TerminateServiceJobCommandOutput,
 } from "./commands/TerminateServiceJobCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateComputeEnvironmentCommandInput,
   UpdateComputeEnvironmentCommandOutput,
 } from "./commands/UpdateComputeEnvironmentCommand";
-import {
+import type {
   UpdateConsumableResourceCommandInput,
   UpdateConsumableResourceCommandOutput,
 } from "./commands/UpdateConsumableResourceCommand";
-import { UpdateJobQueueCommandInput, UpdateJobQueueCommandOutput } from "./commands/UpdateJobQueueCommand";
-import { UpdateQuotaShareCommandInput, UpdateQuotaShareCommandOutput } from "./commands/UpdateQuotaShareCommand";
-import {
+import type { UpdateJobQueueCommandInput, UpdateJobQueueCommandOutput } from "./commands/UpdateJobQueueCommand";
+import type { UpdateQuotaShareCommandInput, UpdateQuotaShareCommandOutput } from "./commands/UpdateQuotaShareCommand";
+import type {
   UpdateSchedulingPolicyCommandInput,
   UpdateSchedulingPolicyCommandOutput,
 } from "./commands/UpdateSchedulingPolicyCommand";
-import {
+import type {
   UpdateServiceEnvironmentCommandInput,
   UpdateServiceEnvironmentCommandOutput,
 } from "./commands/UpdateServiceEnvironmentCommand";
-import { UpdateServiceJobCommandInput, UpdateServiceJobCommandOutput } from "./commands/UpdateServiceJobCommand";
+import type { UpdateServiceJobCommandInput, UpdateServiceJobCommandOutput } from "./commands/UpdateServiceJobCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -408,7 +415,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

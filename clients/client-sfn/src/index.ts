@@ -16,7 +16,7 @@
  */
 export * from "./SFNClient";
 export * from "./SFN";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SFNExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

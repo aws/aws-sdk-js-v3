@@ -8,7 +8,7 @@ import {
   DescribeReservedNodesOfferingsCommandOutput,
 } from "../commands/DescribeReservedNodesOfferingsCommand";
 import { MemoryDBClient } from "../MemoryDBClient";
-import { MemoryDBPaginationConfiguration } from "./Interfaces";
+import type { MemoryDBPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

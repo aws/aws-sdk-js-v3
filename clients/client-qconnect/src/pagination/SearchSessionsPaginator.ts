@@ -8,7 +8,7 @@ import {
   SearchSessionsCommandOutput,
 } from "../commands/SearchSessionsCommand";
 import { QConnectClient } from "../QConnectClient";
-import { QConnectPaginationConfiguration } from "./Interfaces";
+import type { QConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

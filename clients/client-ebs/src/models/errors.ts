@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { EBSServiceException as __BaseException } from "./EBSServiceException";
-import {
+import type {
   AccessDeniedExceptionReason,
   RequestThrottledExceptionReason,
   ResourceNotFoundExceptionReason,

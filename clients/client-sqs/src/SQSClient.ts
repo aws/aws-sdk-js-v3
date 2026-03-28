@@ -45,23 +45,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
   Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
-  EndpointV2 as __EndpointV2,
-  Hash as __Hash,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
   HashConstructor as __HashConstructor,
-  Provider,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -71,51 +68,60 @@ import {
   defaultSQSHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
-import {
+import type { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
+import type {
   CancelMessageMoveTaskCommandInput,
   CancelMessageMoveTaskCommandOutput,
 } from "./commands/CancelMessageMoveTaskCommand";
-import {
+import type {
   ChangeMessageVisibilityBatchCommandInput,
   ChangeMessageVisibilityBatchCommandOutput,
 } from "./commands/ChangeMessageVisibilityBatchCommand";
-import {
+import type {
   ChangeMessageVisibilityCommandInput,
   ChangeMessageVisibilityCommandOutput,
 } from "./commands/ChangeMessageVisibilityCommand";
-import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
-import { DeleteMessageBatchCommandInput, DeleteMessageBatchCommandOutput } from "./commands/DeleteMessageBatchCommand";
-import { DeleteMessageCommandInput, DeleteMessageCommandOutput } from "./commands/DeleteMessageCommand";
-import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
-import { GetQueueAttributesCommandInput, GetQueueAttributesCommandOutput } from "./commands/GetQueueAttributesCommand";
-import { GetQueueUrlCommandInput, GetQueueUrlCommandOutput } from "./commands/GetQueueUrlCommand";
-import {
+import type { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
+import type {
+  DeleteMessageBatchCommandInput,
+  DeleteMessageBatchCommandOutput,
+} from "./commands/DeleteMessageBatchCommand";
+import type { DeleteMessageCommandInput, DeleteMessageCommandOutput } from "./commands/DeleteMessageCommand";
+import type { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
+import type {
+  GetQueueAttributesCommandInput,
+  GetQueueAttributesCommandOutput,
+} from "./commands/GetQueueAttributesCommand";
+import type { GetQueueUrlCommandInput, GetQueueUrlCommandOutput } from "./commands/GetQueueUrlCommand";
+import type {
   ListDeadLetterSourceQueuesCommandInput,
   ListDeadLetterSourceQueuesCommandOutput,
 } from "./commands/ListDeadLetterSourceQueuesCommand";
-import {
+import type {
   ListMessageMoveTasksCommandInput,
   ListMessageMoveTasksCommandOutput,
 } from "./commands/ListMessageMoveTasksCommand";
-import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
-import { ListQueueTagsCommandInput, ListQueueTagsCommandOutput } from "./commands/ListQueueTagsCommand";
-import { PurgeQueueCommandInput, PurgeQueueCommandOutput } from "./commands/PurgeQueueCommand";
-import { ReceiveMessageCommandInput, ReceiveMessageCommandOutput } from "./commands/ReceiveMessageCommand";
-import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
-import { SendMessageBatchCommandInput, SendMessageBatchCommandOutput } from "./commands/SendMessageBatchCommand";
-import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
-import { SetQueueAttributesCommandInput, SetQueueAttributesCommandOutput } from "./commands/SetQueueAttributesCommand";
-import {
+import type { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
+import type { ListQueueTagsCommandInput, ListQueueTagsCommandOutput } from "./commands/ListQueueTagsCommand";
+import type { PurgeQueueCommandInput, PurgeQueueCommandOutput } from "./commands/PurgeQueueCommand";
+import type { ReceiveMessageCommandInput, ReceiveMessageCommandOutput } from "./commands/ReceiveMessageCommand";
+import type { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
+import type { SendMessageBatchCommandInput, SendMessageBatchCommandOutput } from "./commands/SendMessageBatchCommand";
+import type { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
+import type {
+  SetQueueAttributesCommandInput,
+  SetQueueAttributesCommandOutput,
+} from "./commands/SetQueueAttributesCommand";
+import type {
   StartMessageMoveTaskCommandInput,
   StartMessageMoveTaskCommandOutput,
 } from "./commands/StartMessageMoveTaskCommand";
-import { TagQueueCommandInput, TagQueueCommandOutput } from "./commands/TagQueueCommand";
-import { UntagQueueCommandInput, UntagQueueCommandOutput } from "./commands/UntagQueueCommand";
+import type { TagQueueCommandInput, TagQueueCommandOutput } from "./commands/TagQueueCommand";
+import type { UntagQueueCommandInput, UntagQueueCommandOutput } from "./commands/UntagQueueCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -293,7 +299,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

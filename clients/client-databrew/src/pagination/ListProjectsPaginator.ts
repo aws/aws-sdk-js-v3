@@ -8,7 +8,7 @@ import {
   ListProjectsCommandOutput,
 } from "../commands/ListProjectsCommand";
 import { DataBrewClient } from "../DataBrewClient";
-import { DataBrewPaginationConfiguration } from "./Interfaces";
+import type { DataBrewPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

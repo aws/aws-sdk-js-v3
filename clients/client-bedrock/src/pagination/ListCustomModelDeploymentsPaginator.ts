@@ -8,7 +8,7 @@ import {
   ListCustomModelDeploymentsCommandInput,
   ListCustomModelDeploymentsCommandOutput,
 } from "../commands/ListCustomModelDeploymentsCommand";
-import { BedrockPaginationConfiguration } from "./Interfaces";
+import type { BedrockPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

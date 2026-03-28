@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,441 +61,483 @@ import {
   defaultSSMHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
-import {
+import type {
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput,
+} from "./commands/AddTagsToResourceCommand";
+import type {
   AssociateOpsItemRelatedItemCommandInput,
   AssociateOpsItemRelatedItemCommandOutput,
 } from "./commands/AssociateOpsItemRelatedItemCommand";
-import { CancelCommandCommandInput, CancelCommandCommandOutput } from "./commands/CancelCommandCommand";
-import {
+import type { CancelCommandCommandInput, CancelCommandCommandOutput } from "./commands/CancelCommandCommand";
+import type {
   CancelMaintenanceWindowExecutionCommandInput,
   CancelMaintenanceWindowExecutionCommandOutput,
 } from "./commands/CancelMaintenanceWindowExecutionCommand";
-import { CreateActivationCommandInput, CreateActivationCommandOutput } from "./commands/CreateActivationCommand";
-import {
+import type { CreateActivationCommandInput, CreateActivationCommandOutput } from "./commands/CreateActivationCommand";
+import type {
   CreateAssociationBatchCommandInput,
   CreateAssociationBatchCommandOutput,
 } from "./commands/CreateAssociationBatchCommand";
-import { CreateAssociationCommandInput, CreateAssociationCommandOutput } from "./commands/CreateAssociationCommand";
-import { CreateDocumentCommandInput, CreateDocumentCommandOutput } from "./commands/CreateDocumentCommand";
-import {
+import type {
+  CreateAssociationCommandInput,
+  CreateAssociationCommandOutput,
+} from "./commands/CreateAssociationCommand";
+import type { CreateDocumentCommandInput, CreateDocumentCommandOutput } from "./commands/CreateDocumentCommand";
+import type {
   CreateMaintenanceWindowCommandInput,
   CreateMaintenanceWindowCommandOutput,
 } from "./commands/CreateMaintenanceWindowCommand";
-import { CreateOpsItemCommandInput, CreateOpsItemCommandOutput } from "./commands/CreateOpsItemCommand";
-import { CreateOpsMetadataCommandInput, CreateOpsMetadataCommandOutput } from "./commands/CreateOpsMetadataCommand";
-import {
+import type { CreateOpsItemCommandInput, CreateOpsItemCommandOutput } from "./commands/CreateOpsItemCommand";
+import type {
+  CreateOpsMetadataCommandInput,
+  CreateOpsMetadataCommandOutput,
+} from "./commands/CreateOpsMetadataCommand";
+import type {
   CreatePatchBaselineCommandInput,
   CreatePatchBaselineCommandOutput,
 } from "./commands/CreatePatchBaselineCommand";
-import {
+import type {
   CreateResourceDataSyncCommandInput,
   CreateResourceDataSyncCommandOutput,
 } from "./commands/CreateResourceDataSyncCommand";
-import { DeleteActivationCommandInput, DeleteActivationCommandOutput } from "./commands/DeleteActivationCommand";
-import { DeleteAssociationCommandInput, DeleteAssociationCommandOutput } from "./commands/DeleteAssociationCommand";
-import { DeleteDocumentCommandInput, DeleteDocumentCommandOutput } from "./commands/DeleteDocumentCommand";
-import { DeleteInventoryCommandInput, DeleteInventoryCommandOutput } from "./commands/DeleteInventoryCommand";
-import {
+import type { DeleteActivationCommandInput, DeleteActivationCommandOutput } from "./commands/DeleteActivationCommand";
+import type {
+  DeleteAssociationCommandInput,
+  DeleteAssociationCommandOutput,
+} from "./commands/DeleteAssociationCommand";
+import type { DeleteDocumentCommandInput, DeleteDocumentCommandOutput } from "./commands/DeleteDocumentCommand";
+import type { DeleteInventoryCommandInput, DeleteInventoryCommandOutput } from "./commands/DeleteInventoryCommand";
+import type {
   DeleteMaintenanceWindowCommandInput,
   DeleteMaintenanceWindowCommandOutput,
 } from "./commands/DeleteMaintenanceWindowCommand";
-import { DeleteOpsItemCommandInput, DeleteOpsItemCommandOutput } from "./commands/DeleteOpsItemCommand";
-import { DeleteOpsMetadataCommandInput, DeleteOpsMetadataCommandOutput } from "./commands/DeleteOpsMetadataCommand";
-import { DeleteParameterCommandInput, DeleteParameterCommandOutput } from "./commands/DeleteParameterCommand";
-import { DeleteParametersCommandInput, DeleteParametersCommandOutput } from "./commands/DeleteParametersCommand";
-import {
+import type { DeleteOpsItemCommandInput, DeleteOpsItemCommandOutput } from "./commands/DeleteOpsItemCommand";
+import type {
+  DeleteOpsMetadataCommandInput,
+  DeleteOpsMetadataCommandOutput,
+} from "./commands/DeleteOpsMetadataCommand";
+import type { DeleteParameterCommandInput, DeleteParameterCommandOutput } from "./commands/DeleteParameterCommand";
+import type { DeleteParametersCommandInput, DeleteParametersCommandOutput } from "./commands/DeleteParametersCommand";
+import type {
   DeletePatchBaselineCommandInput,
   DeletePatchBaselineCommandOutput,
 } from "./commands/DeletePatchBaselineCommand";
-import {
+import type {
   DeleteResourceDataSyncCommandInput,
   DeleteResourceDataSyncCommandOutput,
 } from "./commands/DeleteResourceDataSyncCommand";
-import {
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   DeregisterManagedInstanceCommandInput,
   DeregisterManagedInstanceCommandOutput,
 } from "./commands/DeregisterManagedInstanceCommand";
-import {
+import type {
   DeregisterPatchBaselineForPatchGroupCommandInput,
   DeregisterPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/DeregisterPatchBaselineForPatchGroupCommand";
-import {
+import type {
   DeregisterTargetFromMaintenanceWindowCommandInput,
   DeregisterTargetFromMaintenanceWindowCommandOutput,
 } from "./commands/DeregisterTargetFromMaintenanceWindowCommand";
-import {
+import type {
   DeregisterTaskFromMaintenanceWindowCommandInput,
   DeregisterTaskFromMaintenanceWindowCommandOutput,
 } from "./commands/DeregisterTaskFromMaintenanceWindowCommand";
-import {
+import type {
   DescribeActivationsCommandInput,
   DescribeActivationsCommandOutput,
 } from "./commands/DescribeActivationsCommand";
-import {
+import type {
   DescribeAssociationCommandInput,
   DescribeAssociationCommandOutput,
 } from "./commands/DescribeAssociationCommand";
-import {
+import type {
   DescribeAssociationExecutionsCommandInput,
   DescribeAssociationExecutionsCommandOutput,
 } from "./commands/DescribeAssociationExecutionsCommand";
-import {
+import type {
   DescribeAssociationExecutionTargetsCommandInput,
   DescribeAssociationExecutionTargetsCommandOutput,
 } from "./commands/DescribeAssociationExecutionTargetsCommand";
-import {
+import type {
   DescribeAutomationExecutionsCommandInput,
   DescribeAutomationExecutionsCommandOutput,
 } from "./commands/DescribeAutomationExecutionsCommand";
-import {
+import type {
   DescribeAutomationStepExecutionsCommandInput,
   DescribeAutomationStepExecutionsCommandOutput,
 } from "./commands/DescribeAutomationStepExecutionsCommand";
-import {
+import type {
   DescribeAvailablePatchesCommandInput,
   DescribeAvailablePatchesCommandOutput,
 } from "./commands/DescribeAvailablePatchesCommand";
-import { DescribeDocumentCommandInput, DescribeDocumentCommandOutput } from "./commands/DescribeDocumentCommand";
-import {
+import type { DescribeDocumentCommandInput, DescribeDocumentCommandOutput } from "./commands/DescribeDocumentCommand";
+import type {
   DescribeDocumentPermissionCommandInput,
   DescribeDocumentPermissionCommandOutput,
 } from "./commands/DescribeDocumentPermissionCommand";
-import {
+import type {
   DescribeEffectiveInstanceAssociationsCommandInput,
   DescribeEffectiveInstanceAssociationsCommandOutput,
 } from "./commands/DescribeEffectiveInstanceAssociationsCommand";
-import {
+import type {
   DescribeEffectivePatchesForPatchBaselineCommandInput,
   DescribeEffectivePatchesForPatchBaselineCommandOutput,
 } from "./commands/DescribeEffectivePatchesForPatchBaselineCommand";
-import {
+import type {
   DescribeInstanceAssociationsStatusCommandInput,
   DescribeInstanceAssociationsStatusCommandOutput,
 } from "./commands/DescribeInstanceAssociationsStatusCommand";
-import {
+import type {
   DescribeInstanceInformationCommandInput,
   DescribeInstanceInformationCommandOutput,
 } from "./commands/DescribeInstanceInformationCommand";
-import {
+import type {
   DescribeInstancePatchesCommandInput,
   DescribeInstancePatchesCommandOutput,
 } from "./commands/DescribeInstancePatchesCommand";
-import {
+import type {
   DescribeInstancePatchStatesCommandInput,
   DescribeInstancePatchStatesCommandOutput,
 } from "./commands/DescribeInstancePatchStatesCommand";
-import {
+import type {
   DescribeInstancePatchStatesForPatchGroupCommandInput,
   DescribeInstancePatchStatesForPatchGroupCommandOutput,
 } from "./commands/DescribeInstancePatchStatesForPatchGroupCommand";
-import {
+import type {
   DescribeInstancePropertiesCommandInput,
   DescribeInstancePropertiesCommandOutput,
 } from "./commands/DescribeInstancePropertiesCommand";
-import {
+import type {
   DescribeInventoryDeletionsCommandInput,
   DescribeInventoryDeletionsCommandOutput,
 } from "./commands/DescribeInventoryDeletionsCommand";
-import {
+import type {
   DescribeMaintenanceWindowExecutionsCommandInput,
   DescribeMaintenanceWindowExecutionsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowExecutionsCommand";
-import {
+import type {
   DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
   DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowExecutionTaskInvocationsCommand";
-import {
+import type {
   DescribeMaintenanceWindowExecutionTasksCommandInput,
   DescribeMaintenanceWindowExecutionTasksCommandOutput,
 } from "./commands/DescribeMaintenanceWindowExecutionTasksCommand";
-import {
+import type {
   DescribeMaintenanceWindowScheduleCommandInput,
   DescribeMaintenanceWindowScheduleCommandOutput,
 } from "./commands/DescribeMaintenanceWindowScheduleCommand";
-import {
+import type {
   DescribeMaintenanceWindowsCommandInput,
   DescribeMaintenanceWindowsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowsCommand";
-import {
+import type {
   DescribeMaintenanceWindowsForTargetCommandInput,
   DescribeMaintenanceWindowsForTargetCommandOutput,
 } from "./commands/DescribeMaintenanceWindowsForTargetCommand";
-import {
+import type {
   DescribeMaintenanceWindowTargetsCommandInput,
   DescribeMaintenanceWindowTargetsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowTargetsCommand";
-import {
+import type {
   DescribeMaintenanceWindowTasksCommandInput,
   DescribeMaintenanceWindowTasksCommandOutput,
 } from "./commands/DescribeMaintenanceWindowTasksCommand";
-import { DescribeOpsItemsCommandInput, DescribeOpsItemsCommandOutput } from "./commands/DescribeOpsItemsCommand";
-import { DescribeParametersCommandInput, DescribeParametersCommandOutput } from "./commands/DescribeParametersCommand";
-import {
+import type { DescribeOpsItemsCommandInput, DescribeOpsItemsCommandOutput } from "./commands/DescribeOpsItemsCommand";
+import type {
+  DescribeParametersCommandInput,
+  DescribeParametersCommandOutput,
+} from "./commands/DescribeParametersCommand";
+import type {
   DescribePatchBaselinesCommandInput,
   DescribePatchBaselinesCommandOutput,
 } from "./commands/DescribePatchBaselinesCommand";
-import {
+import type {
   DescribePatchGroupsCommandInput,
   DescribePatchGroupsCommandOutput,
 } from "./commands/DescribePatchGroupsCommand";
-import {
+import type {
   DescribePatchGroupStateCommandInput,
   DescribePatchGroupStateCommandOutput,
 } from "./commands/DescribePatchGroupStateCommand";
-import {
+import type {
   DescribePatchPropertiesCommandInput,
   DescribePatchPropertiesCommandOutput,
 } from "./commands/DescribePatchPropertiesCommand";
-import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "./commands/DescribeSessionsCommand";
-import {
+import type { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "./commands/DescribeSessionsCommand";
+import type {
   DisassociateOpsItemRelatedItemCommandInput,
   DisassociateOpsItemRelatedItemCommandOutput,
 } from "./commands/DisassociateOpsItemRelatedItemCommand";
-import { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "./commands/GetAccessTokenCommand";
-import {
+import type { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "./commands/GetAccessTokenCommand";
+import type {
   GetAutomationExecutionCommandInput,
   GetAutomationExecutionCommandOutput,
 } from "./commands/GetAutomationExecutionCommand";
-import { GetCalendarStateCommandInput, GetCalendarStateCommandOutput } from "./commands/GetCalendarStateCommand";
-import {
+import type { GetCalendarStateCommandInput, GetCalendarStateCommandOutput } from "./commands/GetCalendarStateCommand";
+import type {
   GetCommandInvocationCommandInput,
   GetCommandInvocationCommandOutput,
 } from "./commands/GetCommandInvocationCommand";
-import {
+import type {
   GetConnectionStatusCommandInput,
   GetConnectionStatusCommandOutput,
 } from "./commands/GetConnectionStatusCommand";
-import {
+import type {
   GetDefaultPatchBaselineCommandInput,
   GetDefaultPatchBaselineCommandOutput,
 } from "./commands/GetDefaultPatchBaselineCommand";
-import {
+import type {
   GetDeployablePatchSnapshotForInstanceCommandInput,
   GetDeployablePatchSnapshotForInstanceCommandOutput,
 } from "./commands/GetDeployablePatchSnapshotForInstanceCommand";
-import { GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
-import {
+import type { GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
+import type {
   GetExecutionPreviewCommandInput,
   GetExecutionPreviewCommandOutput,
 } from "./commands/GetExecutionPreviewCommand";
-import { GetInventoryCommandInput, GetInventoryCommandOutput } from "./commands/GetInventoryCommand";
-import { GetInventorySchemaCommandInput, GetInventorySchemaCommandOutput } from "./commands/GetInventorySchemaCommand";
-import {
+import type { GetInventoryCommandInput, GetInventoryCommandOutput } from "./commands/GetInventoryCommand";
+import type {
+  GetInventorySchemaCommandInput,
+  GetInventorySchemaCommandOutput,
+} from "./commands/GetInventorySchemaCommand";
+import type {
   GetMaintenanceWindowCommandInput,
   GetMaintenanceWindowCommandOutput,
 } from "./commands/GetMaintenanceWindowCommand";
-import {
+import type {
   GetMaintenanceWindowExecutionCommandInput,
   GetMaintenanceWindowExecutionCommandOutput,
 } from "./commands/GetMaintenanceWindowExecutionCommand";
-import {
+import type {
   GetMaintenanceWindowExecutionTaskCommandInput,
   GetMaintenanceWindowExecutionTaskCommandOutput,
 } from "./commands/GetMaintenanceWindowExecutionTaskCommand";
-import {
+import type {
   GetMaintenanceWindowExecutionTaskInvocationCommandInput,
   GetMaintenanceWindowExecutionTaskInvocationCommandOutput,
 } from "./commands/GetMaintenanceWindowExecutionTaskInvocationCommand";
-import {
+import type {
   GetMaintenanceWindowTaskCommandInput,
   GetMaintenanceWindowTaskCommandOutput,
 } from "./commands/GetMaintenanceWindowTaskCommand";
-import { GetOpsItemCommandInput, GetOpsItemCommandOutput } from "./commands/GetOpsItemCommand";
-import { GetOpsMetadataCommandInput, GetOpsMetadataCommandOutput } from "./commands/GetOpsMetadataCommand";
-import { GetOpsSummaryCommandInput, GetOpsSummaryCommandOutput } from "./commands/GetOpsSummaryCommand";
-import { GetParameterCommandInput, GetParameterCommandOutput } from "./commands/GetParameterCommand";
-import {
+import type { GetOpsItemCommandInput, GetOpsItemCommandOutput } from "./commands/GetOpsItemCommand";
+import type { GetOpsMetadataCommandInput, GetOpsMetadataCommandOutput } from "./commands/GetOpsMetadataCommand";
+import type { GetOpsSummaryCommandInput, GetOpsSummaryCommandOutput } from "./commands/GetOpsSummaryCommand";
+import type { GetParameterCommandInput, GetParameterCommandOutput } from "./commands/GetParameterCommand";
+import type {
   GetParameterHistoryCommandInput,
   GetParameterHistoryCommandOutput,
 } from "./commands/GetParameterHistoryCommand";
-import {
+import type {
   GetParametersByPathCommandInput,
   GetParametersByPathCommandOutput,
 } from "./commands/GetParametersByPathCommand";
-import { GetParametersCommandInput, GetParametersCommandOutput } from "./commands/GetParametersCommand";
-import { GetPatchBaselineCommandInput, GetPatchBaselineCommandOutput } from "./commands/GetPatchBaselineCommand";
-import {
+import type { GetParametersCommandInput, GetParametersCommandOutput } from "./commands/GetParametersCommand";
+import type { GetPatchBaselineCommandInput, GetPatchBaselineCommandOutput } from "./commands/GetPatchBaselineCommand";
+import type {
   GetPatchBaselineForPatchGroupCommandInput,
   GetPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/GetPatchBaselineForPatchGroupCommand";
-import {
+import type {
   GetResourcePoliciesCommandInput,
   GetResourcePoliciesCommandOutput,
 } from "./commands/GetResourcePoliciesCommand";
-import { GetServiceSettingCommandInput, GetServiceSettingCommandOutput } from "./commands/GetServiceSettingCommand";
-import {
+import type {
+  GetServiceSettingCommandInput,
+  GetServiceSettingCommandOutput,
+} from "./commands/GetServiceSettingCommand";
+import type {
   LabelParameterVersionCommandInput,
   LabelParameterVersionCommandOutput,
 } from "./commands/LabelParameterVersionCommand";
-import { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand";
-import {
+import type { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand";
+import type {
   ListAssociationVersionsCommandInput,
   ListAssociationVersionsCommandOutput,
 } from "./commands/ListAssociationVersionsCommand";
-import {
+import type {
   ListCommandInvocationsCommandInput,
   ListCommandInvocationsCommandOutput,
 } from "./commands/ListCommandInvocationsCommand";
-import { ListCommandsCommandInput, ListCommandsCommandOutput } from "./commands/ListCommandsCommand";
-import {
+import type { ListCommandsCommandInput, ListCommandsCommandOutput } from "./commands/ListCommandsCommand";
+import type {
   ListComplianceItemsCommandInput,
   ListComplianceItemsCommandOutput,
 } from "./commands/ListComplianceItemsCommand";
-import {
+import type {
   ListComplianceSummariesCommandInput,
   ListComplianceSummariesCommandOutput,
 } from "./commands/ListComplianceSummariesCommand";
-import {
+import type {
   ListDocumentMetadataHistoryCommandInput,
   ListDocumentMetadataHistoryCommandOutput,
 } from "./commands/ListDocumentMetadataHistoryCommand";
-import { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "./commands/ListDocumentsCommand";
-import {
+import type { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "./commands/ListDocumentsCommand";
+import type {
   ListDocumentVersionsCommandInput,
   ListDocumentVersionsCommandOutput,
 } from "./commands/ListDocumentVersionsCommand";
-import {
+import type {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand";
-import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
-import { ListNodesSummaryCommandInput, ListNodesSummaryCommandOutput } from "./commands/ListNodesSummaryCommand";
-import { ListOpsItemEventsCommandInput, ListOpsItemEventsCommandOutput } from "./commands/ListOpsItemEventsCommand";
-import {
+import type { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import type { ListNodesSummaryCommandInput, ListNodesSummaryCommandOutput } from "./commands/ListNodesSummaryCommand";
+import type {
+  ListOpsItemEventsCommandInput,
+  ListOpsItemEventsCommandOutput,
+} from "./commands/ListOpsItemEventsCommand";
+import type {
   ListOpsItemRelatedItemsCommandInput,
   ListOpsItemRelatedItemsCommandOutput,
 } from "./commands/ListOpsItemRelatedItemsCommand";
-import { ListOpsMetadataCommandInput, ListOpsMetadataCommandOutput } from "./commands/ListOpsMetadataCommand";
-import {
+import type { ListOpsMetadataCommandInput, ListOpsMetadataCommandOutput } from "./commands/ListOpsMetadataCommand";
+import type {
   ListResourceComplianceSummariesCommandInput,
   ListResourceComplianceSummariesCommandOutput,
 } from "./commands/ListResourceComplianceSummariesCommand";
-import {
+import type {
   ListResourceDataSyncCommandInput,
   ListResourceDataSyncCommandOutput,
 } from "./commands/ListResourceDataSyncCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ModifyDocumentPermissionCommandInput,
   ModifyDocumentPermissionCommandOutput,
 } from "./commands/ModifyDocumentPermissionCommand";
-import { PutComplianceItemsCommandInput, PutComplianceItemsCommandOutput } from "./commands/PutComplianceItemsCommand";
-import { PutInventoryCommandInput, PutInventoryCommandOutput } from "./commands/PutInventoryCommand";
-import { PutParameterCommandInput, PutParameterCommandOutput } from "./commands/PutParameterCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type {
+  PutComplianceItemsCommandInput,
+  PutComplianceItemsCommandOutput,
+} from "./commands/PutComplianceItemsCommand";
+import type { PutInventoryCommandInput, PutInventoryCommandOutput } from "./commands/PutInventoryCommand";
+import type { PutParameterCommandInput, PutParameterCommandOutput } from "./commands/PutParameterCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   RegisterDefaultPatchBaselineCommandInput,
   RegisterDefaultPatchBaselineCommandOutput,
 } from "./commands/RegisterDefaultPatchBaselineCommand";
-import {
+import type {
   RegisterPatchBaselineForPatchGroupCommandInput,
   RegisterPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/RegisterPatchBaselineForPatchGroupCommand";
-import {
+import type {
   RegisterTargetWithMaintenanceWindowCommandInput,
   RegisterTargetWithMaintenanceWindowCommandOutput,
 } from "./commands/RegisterTargetWithMaintenanceWindowCommand";
-import {
+import type {
   RegisterTaskWithMaintenanceWindowCommandInput,
   RegisterTaskWithMaintenanceWindowCommandOutput,
 } from "./commands/RegisterTaskWithMaintenanceWindowCommand";
-import {
+import type {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
-import {
+import type {
   ResetServiceSettingCommandInput,
   ResetServiceSettingCommandOutput,
 } from "./commands/ResetServiceSettingCommand";
-import { ResumeSessionCommandInput, ResumeSessionCommandOutput } from "./commands/ResumeSessionCommand";
-import {
+import type { ResumeSessionCommandInput, ResumeSessionCommandOutput } from "./commands/ResumeSessionCommand";
+import type {
   SendAutomationSignalCommandInput,
   SendAutomationSignalCommandOutput,
 } from "./commands/SendAutomationSignalCommand";
-import { SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand";
-import { StartAccessRequestCommandInput, StartAccessRequestCommandOutput } from "./commands/StartAccessRequestCommand";
-import {
+import type { SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand";
+import type {
+  StartAccessRequestCommandInput,
+  StartAccessRequestCommandOutput,
+} from "./commands/StartAccessRequestCommand";
+import type {
   StartAssociationsOnceCommandInput,
   StartAssociationsOnceCommandOutput,
 } from "./commands/StartAssociationsOnceCommand";
-import {
+import type {
   StartAutomationExecutionCommandInput,
   StartAutomationExecutionCommandOutput,
 } from "./commands/StartAutomationExecutionCommand";
-import {
+import type {
   StartChangeRequestExecutionCommandInput,
   StartChangeRequestExecutionCommandOutput,
 } from "./commands/StartChangeRequestExecutionCommand";
-import {
+import type {
   StartExecutionPreviewCommandInput,
   StartExecutionPreviewCommandOutput,
 } from "./commands/StartExecutionPreviewCommand";
-import { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
-import {
+import type { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
+import type {
   StopAutomationExecutionCommandInput,
   StopAutomationExecutionCommandOutput,
 } from "./commands/StopAutomationExecutionCommand";
-import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
-import {
+import type { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
+import type {
   UnlabelParameterVersionCommandInput,
   UnlabelParameterVersionCommandOutput,
 } from "./commands/UnlabelParameterVersionCommand";
-import { UpdateAssociationCommandInput, UpdateAssociationCommandOutput } from "./commands/UpdateAssociationCommand";
-import {
+import type {
+  UpdateAssociationCommandInput,
+  UpdateAssociationCommandOutput,
+} from "./commands/UpdateAssociationCommand";
+import type {
   UpdateAssociationStatusCommandInput,
   UpdateAssociationStatusCommandOutput,
 } from "./commands/UpdateAssociationStatusCommand";
-import { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "./commands/UpdateDocumentCommand";
-import {
+import type { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "./commands/UpdateDocumentCommand";
+import type {
   UpdateDocumentDefaultVersionCommandInput,
   UpdateDocumentDefaultVersionCommandOutput,
 } from "./commands/UpdateDocumentDefaultVersionCommand";
-import {
+import type {
   UpdateDocumentMetadataCommandInput,
   UpdateDocumentMetadataCommandOutput,
 } from "./commands/UpdateDocumentMetadataCommand";
-import {
+import type {
   UpdateMaintenanceWindowCommandInput,
   UpdateMaintenanceWindowCommandOutput,
 } from "./commands/UpdateMaintenanceWindowCommand";
-import {
+import type {
   UpdateMaintenanceWindowTargetCommandInput,
   UpdateMaintenanceWindowTargetCommandOutput,
 } from "./commands/UpdateMaintenanceWindowTargetCommand";
-import {
+import type {
   UpdateMaintenanceWindowTaskCommandInput,
   UpdateMaintenanceWindowTaskCommandOutput,
 } from "./commands/UpdateMaintenanceWindowTaskCommand";
-import {
+import type {
   UpdateManagedInstanceRoleCommandInput,
   UpdateManagedInstanceRoleCommandOutput,
 } from "./commands/UpdateManagedInstanceRoleCommand";
-import { UpdateOpsItemCommandInput, UpdateOpsItemCommandOutput } from "./commands/UpdateOpsItemCommand";
-import { UpdateOpsMetadataCommandInput, UpdateOpsMetadataCommandOutput } from "./commands/UpdateOpsMetadataCommand";
-import {
+import type { UpdateOpsItemCommandInput, UpdateOpsItemCommandOutput } from "./commands/UpdateOpsItemCommand";
+import type {
+  UpdateOpsMetadataCommandInput,
+  UpdateOpsMetadataCommandOutput,
+} from "./commands/UpdateOpsMetadataCommand";
+import type {
   UpdatePatchBaselineCommandInput,
   UpdatePatchBaselineCommandOutput,
 } from "./commands/UpdatePatchBaselineCommand";
-import {
+import type {
   UpdateResourceDataSyncCommandInput,
   UpdateResourceDataSyncCommandOutput,
 } from "./commands/UpdateResourceDataSyncCommand";
-import {
+import type {
   UpdateServiceSettingCommandInput,
   UpdateServiceSettingCommandOutput,
 } from "./commands/UpdateServiceSettingCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -921,7 +961,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

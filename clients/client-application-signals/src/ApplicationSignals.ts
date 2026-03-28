@@ -4,111 +4,119 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ApplicationSignalsClient } from "./ApplicationSignalsClient";
 import {
+  type BatchGetServiceLevelObjectiveBudgetReportCommandInput,
+  type BatchGetServiceLevelObjectiveBudgetReportCommandOutput,
   BatchGetServiceLevelObjectiveBudgetReportCommand,
-  BatchGetServiceLevelObjectiveBudgetReportCommandInput,
-  BatchGetServiceLevelObjectiveBudgetReportCommandOutput,
 } from "./commands/BatchGetServiceLevelObjectiveBudgetReportCommand";
 import {
+  type BatchUpdateExclusionWindowsCommandInput,
+  type BatchUpdateExclusionWindowsCommandOutput,
   BatchUpdateExclusionWindowsCommand,
-  BatchUpdateExclusionWindowsCommandInput,
-  BatchUpdateExclusionWindowsCommandOutput,
 } from "./commands/BatchUpdateExclusionWindowsCommand";
 import {
+  type CreateServiceLevelObjectiveCommandInput,
+  type CreateServiceLevelObjectiveCommandOutput,
   CreateServiceLevelObjectiveCommand,
-  CreateServiceLevelObjectiveCommandInput,
-  CreateServiceLevelObjectiveCommandOutput,
 } from "./commands/CreateServiceLevelObjectiveCommand";
 import {
+  type DeleteGroupingConfigurationCommandInput,
+  type DeleteGroupingConfigurationCommandOutput,
   DeleteGroupingConfigurationCommand,
-  DeleteGroupingConfigurationCommandInput,
-  DeleteGroupingConfigurationCommandOutput,
 } from "./commands/DeleteGroupingConfigurationCommand";
 import {
+  type DeleteServiceLevelObjectiveCommandInput,
+  type DeleteServiceLevelObjectiveCommandOutput,
   DeleteServiceLevelObjectiveCommand,
-  DeleteServiceLevelObjectiveCommandInput,
-  DeleteServiceLevelObjectiveCommandOutput,
 } from "./commands/DeleteServiceLevelObjectiveCommand";
-import { GetServiceCommand, GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import {
+  type GetServiceCommandInput,
+  type GetServiceCommandOutput,
+  GetServiceCommand,
+} from "./commands/GetServiceCommand";
+import {
+  type GetServiceLevelObjectiveCommandInput,
+  type GetServiceLevelObjectiveCommandOutput,
   GetServiceLevelObjectiveCommand,
-  GetServiceLevelObjectiveCommandInput,
-  GetServiceLevelObjectiveCommandOutput,
 } from "./commands/GetServiceLevelObjectiveCommand";
 import {
+  type ListAuditFindingsCommandInput,
+  type ListAuditFindingsCommandOutput,
   ListAuditFindingsCommand,
-  ListAuditFindingsCommandInput,
-  ListAuditFindingsCommandOutput,
 } from "./commands/ListAuditFindingsCommand";
 import {
+  type ListEntityEventsCommandInput,
+  type ListEntityEventsCommandOutput,
   ListEntityEventsCommand,
-  ListEntityEventsCommandInput,
-  ListEntityEventsCommandOutput,
 } from "./commands/ListEntityEventsCommand";
 import {
+  type ListGroupingAttributeDefinitionsCommandInput,
+  type ListGroupingAttributeDefinitionsCommandOutput,
   ListGroupingAttributeDefinitionsCommand,
-  ListGroupingAttributeDefinitionsCommandInput,
-  ListGroupingAttributeDefinitionsCommandOutput,
 } from "./commands/ListGroupingAttributeDefinitionsCommand";
 import {
+  type ListServiceDependenciesCommandInput,
+  type ListServiceDependenciesCommandOutput,
   ListServiceDependenciesCommand,
-  ListServiceDependenciesCommandInput,
-  ListServiceDependenciesCommandOutput,
 } from "./commands/ListServiceDependenciesCommand";
 import {
+  type ListServiceDependentsCommandInput,
+  type ListServiceDependentsCommandOutput,
   ListServiceDependentsCommand,
-  ListServiceDependentsCommandInput,
-  ListServiceDependentsCommandOutput,
 } from "./commands/ListServiceDependentsCommand";
 import {
+  type ListServiceLevelObjectiveExclusionWindowsCommandInput,
+  type ListServiceLevelObjectiveExclusionWindowsCommandOutput,
   ListServiceLevelObjectiveExclusionWindowsCommand,
-  ListServiceLevelObjectiveExclusionWindowsCommandInput,
-  ListServiceLevelObjectiveExclusionWindowsCommandOutput,
 } from "./commands/ListServiceLevelObjectiveExclusionWindowsCommand";
 import {
+  type ListServiceLevelObjectivesCommandInput,
+  type ListServiceLevelObjectivesCommandOutput,
   ListServiceLevelObjectivesCommand,
-  ListServiceLevelObjectivesCommandInput,
-  ListServiceLevelObjectivesCommandOutput,
 } from "./commands/ListServiceLevelObjectivesCommand";
 import {
+  type ListServiceOperationsCommandInput,
+  type ListServiceOperationsCommandOutput,
   ListServiceOperationsCommand,
-  ListServiceOperationsCommandInput,
-  ListServiceOperationsCommandOutput,
 } from "./commands/ListServiceOperationsCommand";
 import {
+  type ListServicesCommandInput,
+  type ListServicesCommandOutput,
   ListServicesCommand,
-  ListServicesCommandInput,
-  ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
+  type ListServiceStatesCommandInput,
+  type ListServiceStatesCommandOutput,
   ListServiceStatesCommand,
-  ListServiceStatesCommandInput,
-  ListServiceStatesCommandOutput,
 } from "./commands/ListServiceStatesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutGroupingConfigurationCommandInput,
+  type PutGroupingConfigurationCommandOutput,
   PutGroupingConfigurationCommand,
-  PutGroupingConfigurationCommandInput,
-  PutGroupingConfigurationCommandOutput,
 } from "./commands/PutGroupingConfigurationCommand";
 import {
+  type StartDiscoveryCommandInput,
+  type StartDiscoveryCommandOutput,
   StartDiscoveryCommand,
-  StartDiscoveryCommandInput,
-  StartDiscoveryCommandOutput,
 } from "./commands/StartDiscoveryCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateServiceLevelObjectiveCommandInput,
+  type UpdateServiceLevelObjectiveCommandOutput,
   UpdateServiceLevelObjectiveCommand,
-  UpdateServiceLevelObjectiveCommandInput,
-  UpdateServiceLevelObjectiveCommandOutput,
 } from "./commands/UpdateServiceLevelObjectiveCommand";
 import { paginateListEntityEvents } from "./pagination/ListEntityEventsPaginator";
 import { paginateListServiceDependencies } from "./pagination/ListServiceDependenciesPaginator";

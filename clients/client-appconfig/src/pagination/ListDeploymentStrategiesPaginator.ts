@@ -8,7 +8,7 @@ import {
   ListDeploymentStrategiesCommandInput,
   ListDeploymentStrategiesCommandOutput,
 } from "../commands/ListDeploymentStrategiesCommand";
-import { AppConfigPaginationConfiguration } from "./Interfaces";
+import type { AppConfigPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

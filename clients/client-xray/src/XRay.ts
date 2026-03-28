@@ -3,166 +3,186 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchGetTracesCommandInput,
+  type BatchGetTracesCommandOutput,
   BatchGetTracesCommand,
-  BatchGetTracesCommandInput,
-  BatchGetTracesCommandOutput,
 } from "./commands/BatchGetTracesCommand";
 import {
+  type CancelTraceRetrievalCommandInput,
+  type CancelTraceRetrievalCommandOutput,
   CancelTraceRetrievalCommand,
-  CancelTraceRetrievalCommandInput,
-  CancelTraceRetrievalCommandOutput,
 } from "./commands/CancelTraceRetrievalCommand";
-import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
+  type CreateGroupCommandInput,
+  type CreateGroupCommandOutput,
+  CreateGroupCommand,
+} from "./commands/CreateGroupCommand";
+import {
+  type CreateSamplingRuleCommandInput,
+  type CreateSamplingRuleCommandOutput,
   CreateSamplingRuleCommand,
-  CreateSamplingRuleCommandInput,
-  CreateSamplingRuleCommandOutput,
 } from "./commands/CreateSamplingRuleCommand";
-import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
+  type DeleteGroupCommandInput,
+  type DeleteGroupCommandOutput,
+  DeleteGroupCommand,
+} from "./commands/DeleteGroupCommand";
+import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteSamplingRuleCommandInput,
+  type DeleteSamplingRuleCommandOutput,
   DeleteSamplingRuleCommand,
-  DeleteSamplingRuleCommandInput,
-  DeleteSamplingRuleCommandOutput,
 } from "./commands/DeleteSamplingRuleCommand";
 import {
+  type GetEncryptionConfigCommandInput,
+  type GetEncryptionConfigCommandOutput,
   GetEncryptionConfigCommand,
-  GetEncryptionConfigCommandInput,
-  GetEncryptionConfigCommandOutput,
 } from "./commands/GetEncryptionConfigCommand";
-import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
-import { GetGroupsCommand, GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand";
+import { type GetGroupCommandInput, type GetGroupCommandOutput, GetGroupCommand } from "./commands/GetGroupCommand";
+import { type GetGroupsCommandInput, type GetGroupsCommandOutput, GetGroupsCommand } from "./commands/GetGroupsCommand";
 import {
+  type GetIndexingRulesCommandInput,
+  type GetIndexingRulesCommandOutput,
   GetIndexingRulesCommand,
-  GetIndexingRulesCommandInput,
-  GetIndexingRulesCommandOutput,
 } from "./commands/GetIndexingRulesCommand";
-import { GetInsightCommand, GetInsightCommandInput, GetInsightCommandOutput } from "./commands/GetInsightCommand";
 import {
+  type GetInsightCommandInput,
+  type GetInsightCommandOutput,
+  GetInsightCommand,
+} from "./commands/GetInsightCommand";
+import {
+  type GetInsightEventsCommandInput,
+  type GetInsightEventsCommandOutput,
   GetInsightEventsCommand,
-  GetInsightEventsCommandInput,
-  GetInsightEventsCommandOutput,
 } from "./commands/GetInsightEventsCommand";
 import {
+  type GetInsightImpactGraphCommandInput,
+  type GetInsightImpactGraphCommandOutput,
   GetInsightImpactGraphCommand,
-  GetInsightImpactGraphCommandInput,
-  GetInsightImpactGraphCommandOutput,
 } from "./commands/GetInsightImpactGraphCommand";
 import {
+  type GetInsightSummariesCommandInput,
+  type GetInsightSummariesCommandOutput,
   GetInsightSummariesCommand,
-  GetInsightSummariesCommandInput,
-  GetInsightSummariesCommandOutput,
 } from "./commands/GetInsightSummariesCommand";
 import {
+  type GetRetrievedTracesGraphCommandInput,
+  type GetRetrievedTracesGraphCommandOutput,
   GetRetrievedTracesGraphCommand,
-  GetRetrievedTracesGraphCommandInput,
-  GetRetrievedTracesGraphCommandOutput,
 } from "./commands/GetRetrievedTracesGraphCommand";
 import {
+  type GetSamplingRulesCommandInput,
+  type GetSamplingRulesCommandOutput,
   GetSamplingRulesCommand,
-  GetSamplingRulesCommandInput,
-  GetSamplingRulesCommandOutput,
 } from "./commands/GetSamplingRulesCommand";
 import {
+  type GetSamplingStatisticSummariesCommandInput,
+  type GetSamplingStatisticSummariesCommandOutput,
   GetSamplingStatisticSummariesCommand,
-  GetSamplingStatisticSummariesCommandInput,
-  GetSamplingStatisticSummariesCommandOutput,
 } from "./commands/GetSamplingStatisticSummariesCommand";
 import {
+  type GetSamplingTargetsCommandInput,
+  type GetSamplingTargetsCommandOutput,
   GetSamplingTargetsCommand,
-  GetSamplingTargetsCommandInput,
-  GetSamplingTargetsCommandOutput,
 } from "./commands/GetSamplingTargetsCommand";
 import {
+  type GetServiceGraphCommandInput,
+  type GetServiceGraphCommandOutput,
   GetServiceGraphCommand,
-  GetServiceGraphCommandInput,
-  GetServiceGraphCommandOutput,
 } from "./commands/GetServiceGraphCommand";
 import {
+  type GetTimeSeriesServiceStatisticsCommandInput,
+  type GetTimeSeriesServiceStatisticsCommandOutput,
   GetTimeSeriesServiceStatisticsCommand,
-  GetTimeSeriesServiceStatisticsCommandInput,
-  GetTimeSeriesServiceStatisticsCommandOutput,
 } from "./commands/GetTimeSeriesServiceStatisticsCommand";
 import {
+  type GetTraceGraphCommandInput,
+  type GetTraceGraphCommandOutput,
   GetTraceGraphCommand,
-  GetTraceGraphCommandInput,
-  GetTraceGraphCommandOutput,
 } from "./commands/GetTraceGraphCommand";
 import {
+  type GetTraceSegmentDestinationCommandInput,
+  type GetTraceSegmentDestinationCommandOutput,
   GetTraceSegmentDestinationCommand,
-  GetTraceSegmentDestinationCommandInput,
-  GetTraceSegmentDestinationCommandOutput,
 } from "./commands/GetTraceSegmentDestinationCommand";
 import {
+  type GetTraceSummariesCommandInput,
+  type GetTraceSummariesCommandOutput,
   GetTraceSummariesCommand,
-  GetTraceSummariesCommandInput,
-  GetTraceSummariesCommandOutput,
 } from "./commands/GetTraceSummariesCommand";
 import {
+  type ListResourcePoliciesCommandInput,
+  type ListResourcePoliciesCommandOutput,
   ListResourcePoliciesCommand,
-  ListResourcePoliciesCommandInput,
-  ListResourcePoliciesCommandOutput,
 } from "./commands/ListResourcePoliciesCommand";
 import {
+  type ListRetrievedTracesCommandInput,
+  type ListRetrievedTracesCommandOutput,
   ListRetrievedTracesCommand,
-  ListRetrievedTracesCommandInput,
-  ListRetrievedTracesCommandOutput,
 } from "./commands/ListRetrievedTracesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutEncryptionConfigCommandInput,
+  type PutEncryptionConfigCommandOutput,
   PutEncryptionConfigCommand,
-  PutEncryptionConfigCommandInput,
-  PutEncryptionConfigCommandOutput,
 } from "./commands/PutEncryptionConfigCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type PutTelemetryRecordsCommandInput,
+  type PutTelemetryRecordsCommandOutput,
   PutTelemetryRecordsCommand,
-  PutTelemetryRecordsCommandInput,
-  PutTelemetryRecordsCommandOutput,
 } from "./commands/PutTelemetryRecordsCommand";
 import {
+  type PutTraceSegmentsCommandInput,
+  type PutTraceSegmentsCommandOutput,
   PutTraceSegmentsCommand,
-  PutTraceSegmentsCommandInput,
-  PutTraceSegmentsCommandOutput,
 } from "./commands/PutTraceSegmentsCommand";
 import {
+  type StartTraceRetrievalCommandInput,
+  type StartTraceRetrievalCommandOutput,
   StartTraceRetrievalCommand,
-  StartTraceRetrievalCommandInput,
-  StartTraceRetrievalCommandOutput,
 } from "./commands/StartTraceRetrievalCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
+  type UpdateGroupCommandInput,
+  type UpdateGroupCommandOutput,
+  UpdateGroupCommand,
+} from "./commands/UpdateGroupCommand";
+import {
+  type UpdateIndexingRuleCommandInput,
+  type UpdateIndexingRuleCommandOutput,
   UpdateIndexingRuleCommand,
-  UpdateIndexingRuleCommandInput,
-  UpdateIndexingRuleCommandOutput,
 } from "./commands/UpdateIndexingRuleCommand";
 import {
+  type UpdateSamplingRuleCommandInput,
+  type UpdateSamplingRuleCommandOutput,
   UpdateSamplingRuleCommand,
-  UpdateSamplingRuleCommandInput,
-  UpdateSamplingRuleCommandOutput,
 } from "./commands/UpdateSamplingRuleCommand";
 import {
+  type UpdateTraceSegmentDestinationCommandInput,
+  type UpdateTraceSegmentDestinationCommandOutput,
   UpdateTraceSegmentDestinationCommand,
-  UpdateTraceSegmentDestinationCommandInput,
-  UpdateTraceSegmentDestinationCommandOutput,
 } from "./commands/UpdateTraceSegmentDestinationCommand";
 import { paginateBatchGetTraces } from "./pagination/BatchGetTracesPaginator";
 import { paginateGetGroups } from "./pagination/GetGroupsPaginator";

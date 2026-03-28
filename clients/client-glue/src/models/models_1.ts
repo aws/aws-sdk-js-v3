@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { DocumentType as __DocumentType } from "@smithy/types";
+import type { DocumentType as __DocumentType } from "@smithy/types";
 
-import {
+import type {
   AllowFullTableExternalDataAccessEnum,
   AuthenticationType,
   BlueprintRunState,
@@ -60,38 +60,38 @@ import {
   ViewDialect,
   WorkerType,
 } from "./enums";
-import {
-  type AuthConfiguration,
-  type AuthenticationConfiguration,
-  type Blueprint,
-  type ConnectionsList,
-  type DatabaseIdentifier,
-  type DataQualityAggregatedMetrics,
-  type DataQualityTargetTable,
-  type ErrorDetail,
-  type EventBatchingCondition,
-  type FederatedCatalog,
-  type FederatedDatabase,
-  type PartitionInput,
-  type PhysicalConnectionRequirements,
-  type Predicate,
-  type Schedule,
-  type SchemaId,
-  type StorageDescriptor,
-  type TableOptimizerConfiguration,
-  type TargetRedshiftCatalog,
+import type {
   Action,
+  AuthConfiguration,
+  AuthenticationConfiguration,
+  Blueprint,
   Column,
+  ConnectionsList,
   Crawler,
+  DatabaseIdentifier,
+  DataQualityAggregatedMetrics,
   DataQualityAnalyzerResult,
   DataQualityObservation,
   DataQualityRuleResult,
+  DataQualityTargetTable,
   DataSource,
   DevEndpoint,
+  ErrorDetail,
+  EventBatchingCondition,
+  FederatedCatalog,
+  FederatedDatabase,
   GlueTable,
   JobRun,
+  PartitionInput,
+  PhysicalConnectionRequirements,
+  Predicate,
   PrincipalPermissions,
   Property,
+  Schedule,
+  SchemaId,
+  StorageDescriptor,
+  TableOptimizerConfiguration,
+  TargetRedshiftCatalog,
 } from "./models_0";
 
 /**

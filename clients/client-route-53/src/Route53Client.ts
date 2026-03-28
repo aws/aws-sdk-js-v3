@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,231 +61,252 @@ import {
   defaultRoute53HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   ActivateKeySigningKeyCommandInput,
   ActivateKeySigningKeyCommandOutput,
 } from "./commands/ActivateKeySigningKeyCommand";
-import {
+import type {
   AssociateVPCWithHostedZoneCommandInput,
   AssociateVPCWithHostedZoneCommandOutput,
 } from "./commands/AssociateVPCWithHostedZoneCommand";
-import {
+import type {
   ChangeCidrCollectionCommandInput,
   ChangeCidrCollectionCommandOutput,
 } from "./commands/ChangeCidrCollectionCommand";
-import {
+import type {
   ChangeResourceRecordSetsCommandInput,
   ChangeResourceRecordSetsCommandOutput,
 } from "./commands/ChangeResourceRecordSetsCommand";
-import {
+import type {
   ChangeTagsForResourceCommandInput,
   ChangeTagsForResourceCommandOutput,
 } from "./commands/ChangeTagsForResourceCommand";
-import {
+import type {
   CreateCidrCollectionCommandInput,
   CreateCidrCollectionCommandOutput,
 } from "./commands/CreateCidrCollectionCommand";
-import { CreateHealthCheckCommandInput, CreateHealthCheckCommandOutput } from "./commands/CreateHealthCheckCommand";
-import { CreateHostedZoneCommandInput, CreateHostedZoneCommandOutput } from "./commands/CreateHostedZoneCommand";
-import {
+import type {
+  CreateHealthCheckCommandInput,
+  CreateHealthCheckCommandOutput,
+} from "./commands/CreateHealthCheckCommand";
+import type { CreateHostedZoneCommandInput, CreateHostedZoneCommandOutput } from "./commands/CreateHostedZoneCommand";
+import type {
   CreateKeySigningKeyCommandInput,
   CreateKeySigningKeyCommandOutput,
 } from "./commands/CreateKeySigningKeyCommand";
-import {
+import type {
   CreateQueryLoggingConfigCommandInput,
   CreateQueryLoggingConfigCommandOutput,
 } from "./commands/CreateQueryLoggingConfigCommand";
-import {
+import type {
   CreateReusableDelegationSetCommandInput,
   CreateReusableDelegationSetCommandOutput,
 } from "./commands/CreateReusableDelegationSetCommand";
-import {
+import type {
   CreateTrafficPolicyCommandInput,
   CreateTrafficPolicyCommandOutput,
 } from "./commands/CreateTrafficPolicyCommand";
-import {
+import type {
   CreateTrafficPolicyInstanceCommandInput,
   CreateTrafficPolicyInstanceCommandOutput,
 } from "./commands/CreateTrafficPolicyInstanceCommand";
-import {
+import type {
   CreateTrafficPolicyVersionCommandInput,
   CreateTrafficPolicyVersionCommandOutput,
 } from "./commands/CreateTrafficPolicyVersionCommand";
-import {
+import type {
   CreateVPCAssociationAuthorizationCommandInput,
   CreateVPCAssociationAuthorizationCommandOutput,
 } from "./commands/CreateVPCAssociationAuthorizationCommand";
-import {
+import type {
   DeactivateKeySigningKeyCommandInput,
   DeactivateKeySigningKeyCommandOutput,
 } from "./commands/DeactivateKeySigningKeyCommand";
-import {
+import type {
   DeleteCidrCollectionCommandInput,
   DeleteCidrCollectionCommandOutput,
 } from "./commands/DeleteCidrCollectionCommand";
-import { DeleteHealthCheckCommandInput, DeleteHealthCheckCommandOutput } from "./commands/DeleteHealthCheckCommand";
-import { DeleteHostedZoneCommandInput, DeleteHostedZoneCommandOutput } from "./commands/DeleteHostedZoneCommand";
-import {
+import type {
+  DeleteHealthCheckCommandInput,
+  DeleteHealthCheckCommandOutput,
+} from "./commands/DeleteHealthCheckCommand";
+import type { DeleteHostedZoneCommandInput, DeleteHostedZoneCommandOutput } from "./commands/DeleteHostedZoneCommand";
+import type {
   DeleteKeySigningKeyCommandInput,
   DeleteKeySigningKeyCommandOutput,
 } from "./commands/DeleteKeySigningKeyCommand";
-import {
+import type {
   DeleteQueryLoggingConfigCommandInput,
   DeleteQueryLoggingConfigCommandOutput,
 } from "./commands/DeleteQueryLoggingConfigCommand";
-import {
+import type {
   DeleteReusableDelegationSetCommandInput,
   DeleteReusableDelegationSetCommandOutput,
 } from "./commands/DeleteReusableDelegationSetCommand";
-import {
+import type {
   DeleteTrafficPolicyCommandInput,
   DeleteTrafficPolicyCommandOutput,
 } from "./commands/DeleteTrafficPolicyCommand";
-import {
+import type {
   DeleteTrafficPolicyInstanceCommandInput,
   DeleteTrafficPolicyInstanceCommandOutput,
 } from "./commands/DeleteTrafficPolicyInstanceCommand";
-import {
+import type {
   DeleteVPCAssociationAuthorizationCommandInput,
   DeleteVPCAssociationAuthorizationCommandOutput,
 } from "./commands/DeleteVPCAssociationAuthorizationCommand";
-import {
+import type {
   DisableHostedZoneDNSSECCommandInput,
   DisableHostedZoneDNSSECCommandOutput,
 } from "./commands/DisableHostedZoneDNSSECCommand";
-import {
+import type {
   DisassociateVPCFromHostedZoneCommandInput,
   DisassociateVPCFromHostedZoneCommandOutput,
 } from "./commands/DisassociateVPCFromHostedZoneCommand";
-import {
+import type {
   EnableHostedZoneDNSSECCommandInput,
   EnableHostedZoneDNSSECCommandOutput,
 } from "./commands/EnableHostedZoneDNSSECCommand";
-import { GetAccountLimitCommandInput, GetAccountLimitCommandOutput } from "./commands/GetAccountLimitCommand";
-import { GetChangeCommandInput, GetChangeCommandOutput } from "./commands/GetChangeCommand";
-import { GetCheckerIpRangesCommandInput, GetCheckerIpRangesCommandOutput } from "./commands/GetCheckerIpRangesCommand";
-import { GetDNSSECCommandInput, GetDNSSECCommandOutput } from "./commands/GetDNSSECCommand";
-import { GetGeoLocationCommandInput, GetGeoLocationCommandOutput } from "./commands/GetGeoLocationCommand";
-import { GetHealthCheckCommandInput, GetHealthCheckCommandOutput } from "./commands/GetHealthCheckCommand";
-import {
+import type { GetAccountLimitCommandInput, GetAccountLimitCommandOutput } from "./commands/GetAccountLimitCommand";
+import type { GetChangeCommandInput, GetChangeCommandOutput } from "./commands/GetChangeCommand";
+import type {
+  GetCheckerIpRangesCommandInput,
+  GetCheckerIpRangesCommandOutput,
+} from "./commands/GetCheckerIpRangesCommand";
+import type { GetDNSSECCommandInput, GetDNSSECCommandOutput } from "./commands/GetDNSSECCommand";
+import type { GetGeoLocationCommandInput, GetGeoLocationCommandOutput } from "./commands/GetGeoLocationCommand";
+import type { GetHealthCheckCommandInput, GetHealthCheckCommandOutput } from "./commands/GetHealthCheckCommand";
+import type {
   GetHealthCheckCountCommandInput,
   GetHealthCheckCountCommandOutput,
 } from "./commands/GetHealthCheckCountCommand";
-import {
+import type {
   GetHealthCheckLastFailureReasonCommandInput,
   GetHealthCheckLastFailureReasonCommandOutput,
 } from "./commands/GetHealthCheckLastFailureReasonCommand";
-import {
+import type {
   GetHealthCheckStatusCommandInput,
   GetHealthCheckStatusCommandOutput,
 } from "./commands/GetHealthCheckStatusCommand";
-import { GetHostedZoneCommandInput, GetHostedZoneCommandOutput } from "./commands/GetHostedZoneCommand";
-import { GetHostedZoneCountCommandInput, GetHostedZoneCountCommandOutput } from "./commands/GetHostedZoneCountCommand";
-import { GetHostedZoneLimitCommandInput, GetHostedZoneLimitCommandOutput } from "./commands/GetHostedZoneLimitCommand";
-import {
+import type { GetHostedZoneCommandInput, GetHostedZoneCommandOutput } from "./commands/GetHostedZoneCommand";
+import type {
+  GetHostedZoneCountCommandInput,
+  GetHostedZoneCountCommandOutput,
+} from "./commands/GetHostedZoneCountCommand";
+import type {
+  GetHostedZoneLimitCommandInput,
+  GetHostedZoneLimitCommandOutput,
+} from "./commands/GetHostedZoneLimitCommand";
+import type {
   GetQueryLoggingConfigCommandInput,
   GetQueryLoggingConfigCommandOutput,
 } from "./commands/GetQueryLoggingConfigCommand";
-import {
+import type {
   GetReusableDelegationSetCommandInput,
   GetReusableDelegationSetCommandOutput,
 } from "./commands/GetReusableDelegationSetCommand";
-import {
+import type {
   GetReusableDelegationSetLimitCommandInput,
   GetReusableDelegationSetLimitCommandOutput,
 } from "./commands/GetReusableDelegationSetLimitCommand";
-import { GetTrafficPolicyCommandInput, GetTrafficPolicyCommandOutput } from "./commands/GetTrafficPolicyCommand";
-import {
+import type { GetTrafficPolicyCommandInput, GetTrafficPolicyCommandOutput } from "./commands/GetTrafficPolicyCommand";
+import type {
   GetTrafficPolicyInstanceCommandInput,
   GetTrafficPolicyInstanceCommandOutput,
 } from "./commands/GetTrafficPolicyInstanceCommand";
-import {
+import type {
   GetTrafficPolicyInstanceCountCommandInput,
   GetTrafficPolicyInstanceCountCommandOutput,
 } from "./commands/GetTrafficPolicyInstanceCountCommand";
-import { ListCidrBlocksCommandInput, ListCidrBlocksCommandOutput } from "./commands/ListCidrBlocksCommand";
-import {
+import type { ListCidrBlocksCommandInput, ListCidrBlocksCommandOutput } from "./commands/ListCidrBlocksCommand";
+import type {
   ListCidrCollectionsCommandInput,
   ListCidrCollectionsCommandOutput,
 } from "./commands/ListCidrCollectionsCommand";
-import { ListCidrLocationsCommandInput, ListCidrLocationsCommandOutput } from "./commands/ListCidrLocationsCommand";
-import { ListGeoLocationsCommandInput, ListGeoLocationsCommandOutput } from "./commands/ListGeoLocationsCommand";
-import { ListHealthChecksCommandInput, ListHealthChecksCommandOutput } from "./commands/ListHealthChecksCommand";
-import {
+import type {
+  ListCidrLocationsCommandInput,
+  ListCidrLocationsCommandOutput,
+} from "./commands/ListCidrLocationsCommand";
+import type { ListGeoLocationsCommandInput, ListGeoLocationsCommandOutput } from "./commands/ListGeoLocationsCommand";
+import type { ListHealthChecksCommandInput, ListHealthChecksCommandOutput } from "./commands/ListHealthChecksCommand";
+import type {
   ListHostedZonesByNameCommandInput,
   ListHostedZonesByNameCommandOutput,
 } from "./commands/ListHostedZonesByNameCommand";
-import {
+import type {
   ListHostedZonesByVPCCommandInput,
   ListHostedZonesByVPCCommandOutput,
 } from "./commands/ListHostedZonesByVPCCommand";
-import { ListHostedZonesCommandInput, ListHostedZonesCommandOutput } from "./commands/ListHostedZonesCommand";
-import {
+import type { ListHostedZonesCommandInput, ListHostedZonesCommandOutput } from "./commands/ListHostedZonesCommand";
+import type {
   ListQueryLoggingConfigsCommandInput,
   ListQueryLoggingConfigsCommandOutput,
 } from "./commands/ListQueryLoggingConfigsCommand";
-import {
+import type {
   ListResourceRecordSetsCommandInput,
   ListResourceRecordSetsCommandOutput,
 } from "./commands/ListResourceRecordSetsCommand";
-import {
+import type {
   ListReusableDelegationSetsCommandInput,
   ListReusableDelegationSetsCommandOutput,
 } from "./commands/ListReusableDelegationSetsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTagsForResourcesCommandInput,
   ListTagsForResourcesCommandOutput,
 } from "./commands/ListTagsForResourcesCommand";
-import {
+import type {
   ListTrafficPoliciesCommandInput,
   ListTrafficPoliciesCommandOutput,
 } from "./commands/ListTrafficPoliciesCommand";
-import {
+import type {
   ListTrafficPolicyInstancesByHostedZoneCommandInput,
   ListTrafficPolicyInstancesByHostedZoneCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesByHostedZoneCommand";
-import {
+import type {
   ListTrafficPolicyInstancesByPolicyCommandInput,
   ListTrafficPolicyInstancesByPolicyCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesByPolicyCommand";
-import {
+import type {
   ListTrafficPolicyInstancesCommandInput,
   ListTrafficPolicyInstancesCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesCommand";
-import {
+import type {
   ListTrafficPolicyVersionsCommandInput,
   ListTrafficPolicyVersionsCommandOutput,
 } from "./commands/ListTrafficPolicyVersionsCommand";
-import {
+import type {
   ListVPCAssociationAuthorizationsCommandInput,
   ListVPCAssociationAuthorizationsCommandOutput,
 } from "./commands/ListVPCAssociationAuthorizationsCommand";
-import { TestDNSAnswerCommandInput, TestDNSAnswerCommandOutput } from "./commands/TestDNSAnswerCommand";
-import { UpdateHealthCheckCommandInput, UpdateHealthCheckCommandOutput } from "./commands/UpdateHealthCheckCommand";
-import {
+import type { TestDNSAnswerCommandInput, TestDNSAnswerCommandOutput } from "./commands/TestDNSAnswerCommand";
+import type {
+  UpdateHealthCheckCommandInput,
+  UpdateHealthCheckCommandOutput,
+} from "./commands/UpdateHealthCheckCommand";
+import type {
   UpdateHostedZoneCommentCommandInput,
   UpdateHostedZoneCommentCommandOutput,
 } from "./commands/UpdateHostedZoneCommentCommand";
-import {
+import type {
   UpdateHostedZoneFeaturesCommandInput,
   UpdateHostedZoneFeaturesCommandOutput,
 } from "./commands/UpdateHostedZoneFeaturesCommand";
-import {
+import type {
   UpdateTrafficPolicyCommentCommandInput,
   UpdateTrafficPolicyCommentCommandOutput,
 } from "./commands/UpdateTrafficPolicyCommentCommand";
-import {
+import type {
   UpdateTrafficPolicyInstanceCommandInput,
   UpdateTrafficPolicyInstanceCommandOutput,
 } from "./commands/UpdateTrafficPolicyInstanceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -561,7 +580,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

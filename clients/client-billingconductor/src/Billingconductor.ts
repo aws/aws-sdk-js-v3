@@ -4,160 +4,164 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BillingconductorClient } from "./BillingconductorClient";
 import {
+  type AssociateAccountsCommandInput,
+  type AssociateAccountsCommandOutput,
   AssociateAccountsCommand,
-  AssociateAccountsCommandInput,
-  AssociateAccountsCommandOutput,
 } from "./commands/AssociateAccountsCommand";
 import {
+  type AssociatePricingRulesCommandInput,
+  type AssociatePricingRulesCommandOutput,
   AssociatePricingRulesCommand,
-  AssociatePricingRulesCommandInput,
-  AssociatePricingRulesCommandOutput,
 } from "./commands/AssociatePricingRulesCommand";
 import {
+  type BatchAssociateResourcesToCustomLineItemCommandInput,
+  type BatchAssociateResourcesToCustomLineItemCommandOutput,
   BatchAssociateResourcesToCustomLineItemCommand,
-  BatchAssociateResourcesToCustomLineItemCommandInput,
-  BatchAssociateResourcesToCustomLineItemCommandOutput,
 } from "./commands/BatchAssociateResourcesToCustomLineItemCommand";
 import {
+  type BatchDisassociateResourcesFromCustomLineItemCommandInput,
+  type BatchDisassociateResourcesFromCustomLineItemCommandOutput,
   BatchDisassociateResourcesFromCustomLineItemCommand,
-  BatchDisassociateResourcesFromCustomLineItemCommandInput,
-  BatchDisassociateResourcesFromCustomLineItemCommandOutput,
 } from "./commands/BatchDisassociateResourcesFromCustomLineItemCommand";
 import {
+  type CreateBillingGroupCommandInput,
+  type CreateBillingGroupCommandOutput,
   CreateBillingGroupCommand,
-  CreateBillingGroupCommandInput,
-  CreateBillingGroupCommandOutput,
 } from "./commands/CreateBillingGroupCommand";
 import {
+  type CreateCustomLineItemCommandInput,
+  type CreateCustomLineItemCommandOutput,
   CreateCustomLineItemCommand,
-  CreateCustomLineItemCommandInput,
-  CreateCustomLineItemCommandOutput,
 } from "./commands/CreateCustomLineItemCommand";
 import {
+  type CreatePricingPlanCommandInput,
+  type CreatePricingPlanCommandOutput,
   CreatePricingPlanCommand,
-  CreatePricingPlanCommandInput,
-  CreatePricingPlanCommandOutput,
 } from "./commands/CreatePricingPlanCommand";
 import {
+  type CreatePricingRuleCommandInput,
+  type CreatePricingRuleCommandOutput,
   CreatePricingRuleCommand,
-  CreatePricingRuleCommandInput,
-  CreatePricingRuleCommandOutput,
 } from "./commands/CreatePricingRuleCommand";
 import {
+  type DeleteBillingGroupCommandInput,
+  type DeleteBillingGroupCommandOutput,
   DeleteBillingGroupCommand,
-  DeleteBillingGroupCommandInput,
-  DeleteBillingGroupCommandOutput,
 } from "./commands/DeleteBillingGroupCommand";
 import {
+  type DeleteCustomLineItemCommandInput,
+  type DeleteCustomLineItemCommandOutput,
   DeleteCustomLineItemCommand,
-  DeleteCustomLineItemCommandInput,
-  DeleteCustomLineItemCommandOutput,
 } from "./commands/DeleteCustomLineItemCommand";
 import {
+  type DeletePricingPlanCommandInput,
+  type DeletePricingPlanCommandOutput,
   DeletePricingPlanCommand,
-  DeletePricingPlanCommandInput,
-  DeletePricingPlanCommandOutput,
 } from "./commands/DeletePricingPlanCommand";
 import {
+  type DeletePricingRuleCommandInput,
+  type DeletePricingRuleCommandOutput,
   DeletePricingRuleCommand,
-  DeletePricingRuleCommandInput,
-  DeletePricingRuleCommandOutput,
 } from "./commands/DeletePricingRuleCommand";
 import {
+  type DisassociateAccountsCommandInput,
+  type DisassociateAccountsCommandOutput,
   DisassociateAccountsCommand,
-  DisassociateAccountsCommandInput,
-  DisassociateAccountsCommandOutput,
 } from "./commands/DisassociateAccountsCommand";
 import {
+  type DisassociatePricingRulesCommandInput,
+  type DisassociatePricingRulesCommandOutput,
   DisassociatePricingRulesCommand,
-  DisassociatePricingRulesCommandInput,
-  DisassociatePricingRulesCommandOutput,
 } from "./commands/DisassociatePricingRulesCommand";
 import {
+  type GetBillingGroupCostReportCommandInput,
+  type GetBillingGroupCostReportCommandOutput,
   GetBillingGroupCostReportCommand,
-  GetBillingGroupCostReportCommandInput,
-  GetBillingGroupCostReportCommandOutput,
 } from "./commands/GetBillingGroupCostReportCommand";
 import {
+  type ListAccountAssociationsCommandInput,
+  type ListAccountAssociationsCommandOutput,
   ListAccountAssociationsCommand,
-  ListAccountAssociationsCommandInput,
-  ListAccountAssociationsCommandOutput,
 } from "./commands/ListAccountAssociationsCommand";
 import {
+  type ListBillingGroupCostReportsCommandInput,
+  type ListBillingGroupCostReportsCommandOutput,
   ListBillingGroupCostReportsCommand,
-  ListBillingGroupCostReportsCommandInput,
-  ListBillingGroupCostReportsCommandOutput,
 } from "./commands/ListBillingGroupCostReportsCommand";
 import {
+  type ListBillingGroupsCommandInput,
+  type ListBillingGroupsCommandOutput,
   ListBillingGroupsCommand,
-  ListBillingGroupsCommandInput,
-  ListBillingGroupsCommandOutput,
 } from "./commands/ListBillingGroupsCommand";
 import {
+  type ListCustomLineItemsCommandInput,
+  type ListCustomLineItemsCommandOutput,
   ListCustomLineItemsCommand,
-  ListCustomLineItemsCommandInput,
-  ListCustomLineItemsCommandOutput,
 } from "./commands/ListCustomLineItemsCommand";
 import {
+  type ListCustomLineItemVersionsCommandInput,
+  type ListCustomLineItemVersionsCommandOutput,
   ListCustomLineItemVersionsCommand,
-  ListCustomLineItemVersionsCommandInput,
-  ListCustomLineItemVersionsCommandOutput,
 } from "./commands/ListCustomLineItemVersionsCommand";
 import {
+  type ListPricingPlansAssociatedWithPricingRuleCommandInput,
+  type ListPricingPlansAssociatedWithPricingRuleCommandOutput,
   ListPricingPlansAssociatedWithPricingRuleCommand,
-  ListPricingPlansAssociatedWithPricingRuleCommandInput,
-  ListPricingPlansAssociatedWithPricingRuleCommandOutput,
 } from "./commands/ListPricingPlansAssociatedWithPricingRuleCommand";
 import {
+  type ListPricingPlansCommandInput,
+  type ListPricingPlansCommandOutput,
   ListPricingPlansCommand,
-  ListPricingPlansCommandInput,
-  ListPricingPlansCommandOutput,
 } from "./commands/ListPricingPlansCommand";
 import {
+  type ListPricingRulesAssociatedToPricingPlanCommandInput,
+  type ListPricingRulesAssociatedToPricingPlanCommandOutput,
   ListPricingRulesAssociatedToPricingPlanCommand,
-  ListPricingRulesAssociatedToPricingPlanCommandInput,
-  ListPricingRulesAssociatedToPricingPlanCommandOutput,
 } from "./commands/ListPricingRulesAssociatedToPricingPlanCommand";
 import {
+  type ListPricingRulesCommandInput,
+  type ListPricingRulesCommandOutput,
   ListPricingRulesCommand,
-  ListPricingRulesCommandInput,
-  ListPricingRulesCommandOutput,
 } from "./commands/ListPricingRulesCommand";
 import {
+  type ListResourcesAssociatedToCustomLineItemCommandInput,
+  type ListResourcesAssociatedToCustomLineItemCommandOutput,
   ListResourcesAssociatedToCustomLineItemCommand,
-  ListResourcesAssociatedToCustomLineItemCommandInput,
-  ListResourcesAssociatedToCustomLineItemCommandOutput,
 } from "./commands/ListResourcesAssociatedToCustomLineItemCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBillingGroupCommandInput,
+  type UpdateBillingGroupCommandOutput,
   UpdateBillingGroupCommand,
-  UpdateBillingGroupCommandInput,
-  UpdateBillingGroupCommandOutput,
 } from "./commands/UpdateBillingGroupCommand";
 import {
+  type UpdateCustomLineItemCommandInput,
+  type UpdateCustomLineItemCommandOutput,
   UpdateCustomLineItemCommand,
-  UpdateCustomLineItemCommandInput,
-  UpdateCustomLineItemCommandOutput,
 } from "./commands/UpdateCustomLineItemCommand";
 import {
+  type UpdatePricingPlanCommandInput,
+  type UpdatePricingPlanCommandOutput,
   UpdatePricingPlanCommand,
-  UpdatePricingPlanCommandInput,
-  UpdatePricingPlanCommandOutput,
 } from "./commands/UpdatePricingPlanCommand";
 import {
+  type UpdatePricingRuleCommandInput,
+  type UpdatePricingRuleCommandOutput,
   UpdatePricingRuleCommand,
-  UpdatePricingRuleCommandInput,
-  UpdatePricingRuleCommandOutput,
 } from "./commands/UpdatePricingRuleCommand";
 import { paginateGetBillingGroupCostReport } from "./pagination/GetBillingGroupCostReportPaginator";
 import { paginateListAccountAssociations } from "./pagination/ListAccountAssociationsPaginator";

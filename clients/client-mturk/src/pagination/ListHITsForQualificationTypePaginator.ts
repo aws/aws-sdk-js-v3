@@ -8,7 +8,7 @@ import {
   ListHITsForQualificationTypeCommandOutput,
 } from "../commands/ListHITsForQualificationTypeCommand";
 import { MTurkClient } from "../MTurkClient";
-import { MTurkPaginationConfiguration } from "./Interfaces";
+import type { MTurkPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

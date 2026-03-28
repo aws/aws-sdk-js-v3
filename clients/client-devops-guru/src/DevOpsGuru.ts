@@ -3,151 +3,159 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddNotificationChannelCommandInput,
+  type AddNotificationChannelCommandOutput,
   AddNotificationChannelCommand,
-  AddNotificationChannelCommandInput,
-  AddNotificationChannelCommandOutput,
 } from "./commands/AddNotificationChannelCommand";
 import {
+  type DeleteInsightCommandInput,
+  type DeleteInsightCommandOutput,
   DeleteInsightCommand,
-  DeleteInsightCommandInput,
-  DeleteInsightCommandOutput,
 } from "./commands/DeleteInsightCommand";
 import {
+  type DescribeAccountHealthCommandInput,
+  type DescribeAccountHealthCommandOutput,
   DescribeAccountHealthCommand,
-  DescribeAccountHealthCommandInput,
-  DescribeAccountHealthCommandOutput,
 } from "./commands/DescribeAccountHealthCommand";
 import {
+  type DescribeAccountOverviewCommandInput,
+  type DescribeAccountOverviewCommandOutput,
   DescribeAccountOverviewCommand,
-  DescribeAccountOverviewCommandInput,
-  DescribeAccountOverviewCommandOutput,
 } from "./commands/DescribeAccountOverviewCommand";
 import {
+  type DescribeAnomalyCommandInput,
+  type DescribeAnomalyCommandOutput,
   DescribeAnomalyCommand,
-  DescribeAnomalyCommandInput,
-  DescribeAnomalyCommandOutput,
 } from "./commands/DescribeAnomalyCommand";
 import {
+  type DescribeEventSourcesConfigCommandInput,
+  type DescribeEventSourcesConfigCommandOutput,
   DescribeEventSourcesConfigCommand,
-  DescribeEventSourcesConfigCommandInput,
-  DescribeEventSourcesConfigCommandOutput,
 } from "./commands/DescribeEventSourcesConfigCommand";
 import {
+  type DescribeFeedbackCommandInput,
+  type DescribeFeedbackCommandOutput,
   DescribeFeedbackCommand,
-  DescribeFeedbackCommandInput,
-  DescribeFeedbackCommandOutput,
 } from "./commands/DescribeFeedbackCommand";
 import {
+  type DescribeInsightCommandInput,
+  type DescribeInsightCommandOutput,
   DescribeInsightCommand,
-  DescribeInsightCommandInput,
-  DescribeInsightCommandOutput,
 } from "./commands/DescribeInsightCommand";
 import {
+  type DescribeOrganizationHealthCommandInput,
+  type DescribeOrganizationHealthCommandOutput,
   DescribeOrganizationHealthCommand,
-  DescribeOrganizationHealthCommandInput,
-  DescribeOrganizationHealthCommandOutput,
 } from "./commands/DescribeOrganizationHealthCommand";
 import {
+  type DescribeOrganizationOverviewCommandInput,
+  type DescribeOrganizationOverviewCommandOutput,
   DescribeOrganizationOverviewCommand,
-  DescribeOrganizationOverviewCommandInput,
-  DescribeOrganizationOverviewCommandOutput,
 } from "./commands/DescribeOrganizationOverviewCommand";
 import {
+  type DescribeOrganizationResourceCollectionHealthCommandInput,
+  type DescribeOrganizationResourceCollectionHealthCommandOutput,
   DescribeOrganizationResourceCollectionHealthCommand,
-  DescribeOrganizationResourceCollectionHealthCommandInput,
-  DescribeOrganizationResourceCollectionHealthCommandOutput,
 } from "./commands/DescribeOrganizationResourceCollectionHealthCommand";
 import {
+  type DescribeResourceCollectionHealthCommandInput,
+  type DescribeResourceCollectionHealthCommandOutput,
   DescribeResourceCollectionHealthCommand,
-  DescribeResourceCollectionHealthCommandInput,
-  DescribeResourceCollectionHealthCommandOutput,
 } from "./commands/DescribeResourceCollectionHealthCommand";
 import {
+  type DescribeServiceIntegrationCommandInput,
+  type DescribeServiceIntegrationCommandOutput,
   DescribeServiceIntegrationCommand,
-  DescribeServiceIntegrationCommandInput,
-  DescribeServiceIntegrationCommandOutput,
 } from "./commands/DescribeServiceIntegrationCommand";
 import {
+  type GetCostEstimationCommandInput,
+  type GetCostEstimationCommandOutput,
   GetCostEstimationCommand,
-  GetCostEstimationCommandInput,
-  GetCostEstimationCommandOutput,
 } from "./commands/GetCostEstimationCommand";
 import {
+  type GetResourceCollectionCommandInput,
+  type GetResourceCollectionCommandOutput,
   GetResourceCollectionCommand,
-  GetResourceCollectionCommandInput,
-  GetResourceCollectionCommandOutput,
 } from "./commands/GetResourceCollectionCommand";
 import {
+  type ListAnomaliesForInsightCommandInput,
+  type ListAnomaliesForInsightCommandOutput,
   ListAnomaliesForInsightCommand,
-  ListAnomaliesForInsightCommandInput,
-  ListAnomaliesForInsightCommandOutput,
 } from "./commands/ListAnomaliesForInsightCommand";
 import {
+  type ListAnomalousLogGroupsCommandInput,
+  type ListAnomalousLogGroupsCommandOutput,
   ListAnomalousLogGroupsCommand,
-  ListAnomalousLogGroupsCommandInput,
-  ListAnomalousLogGroupsCommandOutput,
 } from "./commands/ListAnomalousLogGroupsCommand";
-import { ListEventsCommand, ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
 import {
+  type ListEventsCommandInput,
+  type ListEventsCommandOutput,
+  ListEventsCommand,
+} from "./commands/ListEventsCommand";
+import {
+  type ListInsightsCommandInput,
+  type ListInsightsCommandOutput,
   ListInsightsCommand,
-  ListInsightsCommandInput,
-  ListInsightsCommandOutput,
 } from "./commands/ListInsightsCommand";
 import {
+  type ListMonitoredResourcesCommandInput,
+  type ListMonitoredResourcesCommandOutput,
   ListMonitoredResourcesCommand,
-  ListMonitoredResourcesCommandInput,
-  ListMonitoredResourcesCommandOutput,
 } from "./commands/ListMonitoredResourcesCommand";
 import {
+  type ListNotificationChannelsCommandInput,
+  type ListNotificationChannelsCommandOutput,
   ListNotificationChannelsCommand,
-  ListNotificationChannelsCommandInput,
-  ListNotificationChannelsCommandOutput,
 } from "./commands/ListNotificationChannelsCommand";
 import {
+  type ListOrganizationInsightsCommandInput,
+  type ListOrganizationInsightsCommandOutput,
   ListOrganizationInsightsCommand,
-  ListOrganizationInsightsCommandInput,
-  ListOrganizationInsightsCommandOutput,
 } from "./commands/ListOrganizationInsightsCommand";
 import {
+  type ListRecommendationsCommandInput,
+  type ListRecommendationsCommandOutput,
   ListRecommendationsCommand,
-  ListRecommendationsCommandInput,
-  ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
-import { PutFeedbackCommand, PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import {
+  type PutFeedbackCommandInput,
+  type PutFeedbackCommandOutput,
+  PutFeedbackCommand,
+} from "./commands/PutFeedbackCommand";
+import {
+  type RemoveNotificationChannelCommandInput,
+  type RemoveNotificationChannelCommandOutput,
   RemoveNotificationChannelCommand,
-  RemoveNotificationChannelCommandInput,
-  RemoveNotificationChannelCommandOutput,
 } from "./commands/RemoveNotificationChannelCommand";
 import {
+  type SearchInsightsCommandInput,
+  type SearchInsightsCommandOutput,
   SearchInsightsCommand,
-  SearchInsightsCommandInput,
-  SearchInsightsCommandOutput,
 } from "./commands/SearchInsightsCommand";
 import {
+  type SearchOrganizationInsightsCommandInput,
+  type SearchOrganizationInsightsCommandOutput,
   SearchOrganizationInsightsCommand,
-  SearchOrganizationInsightsCommandInput,
-  SearchOrganizationInsightsCommandOutput,
 } from "./commands/SearchOrganizationInsightsCommand";
 import {
+  type StartCostEstimationCommandInput,
+  type StartCostEstimationCommandOutput,
   StartCostEstimationCommand,
-  StartCostEstimationCommandInput,
-  StartCostEstimationCommandOutput,
 } from "./commands/StartCostEstimationCommand";
 import {
+  type UpdateEventSourcesConfigCommandInput,
+  type UpdateEventSourcesConfigCommandOutput,
   UpdateEventSourcesConfigCommand,
-  UpdateEventSourcesConfigCommandInput,
-  UpdateEventSourcesConfigCommandOutput,
 } from "./commands/UpdateEventSourcesConfigCommand";
 import {
+  type UpdateResourceCollectionCommandInput,
+  type UpdateResourceCollectionCommandOutput,
   UpdateResourceCollectionCommand,
-  UpdateResourceCollectionCommandInput,
-  UpdateResourceCollectionCommandOutput,
 } from "./commands/UpdateResourceCollectionCommand";
 import {
+  type UpdateServiceIntegrationCommandInput,
+  type UpdateServiceIntegrationCommandOutput,
   UpdateServiceIntegrationCommand,
-  UpdateServiceIntegrationCommandInput,
-  UpdateServiceIntegrationCommandOutput,
 } from "./commands/UpdateServiceIntegrationCommand";
 import { DevOpsGuruClient } from "./DevOpsGuruClient";
 import {

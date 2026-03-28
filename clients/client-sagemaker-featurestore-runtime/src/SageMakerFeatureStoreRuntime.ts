@@ -3,17 +3,17 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type BatchGetRecordCommandInput,
+  type BatchGetRecordCommandOutput,
   BatchGetRecordCommand,
-  BatchGetRecordCommandInput,
-  BatchGetRecordCommandOutput,
 } from "./commands/BatchGetRecordCommand";
 import {
+  type DeleteRecordCommandInput,
+  type DeleteRecordCommandOutput,
   DeleteRecordCommand,
-  DeleteRecordCommandInput,
-  DeleteRecordCommandOutput,
 } from "./commands/DeleteRecordCommand";
-import { GetRecordCommand, GetRecordCommandInput, GetRecordCommandOutput } from "./commands/GetRecordCommand";
-import { PutRecordCommand, PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
+import { type GetRecordCommandInput, type GetRecordCommandOutput, GetRecordCommand } from "./commands/GetRecordCommand";
+import { type PutRecordCommandInput, type PutRecordCommandOutput, PutRecordCommand } from "./commands/PutRecordCommand";
 import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRuntimeClient";
 
 const commands = {

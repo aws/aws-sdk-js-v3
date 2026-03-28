@@ -8,7 +8,7 @@ import {
   ListRecoveryPointsByBackupVaultCommandInput,
   ListRecoveryPointsByBackupVaultCommandOutput,
 } from "../commands/ListRecoveryPointsByBackupVaultCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListTargetResourceTypesCommandOutput,
 } from "../commands/ListTargetResourceTypesCommand";
 import { FisClient } from "../FisClient";
-import { FisPaginationConfiguration } from "./Interfaces";
+import type { FisPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CloudFrontKeyValueStoreClient } from "../CloudFrontKeyValueStoreClient";
 import { ListKeysCommand, ListKeysCommandInput, ListKeysCommandOutput } from "../commands/ListKeysCommand";
-import { CloudFrontKeyValueStorePaginationConfiguration } from "./Interfaces";
+import type { CloudFrontKeyValueStorePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

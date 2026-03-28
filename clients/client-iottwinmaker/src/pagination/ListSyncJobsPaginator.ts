@@ -8,7 +8,7 @@ import {
   ListSyncJobsCommandOutput,
 } from "../commands/ListSyncJobsCommand";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
-import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
+import type { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

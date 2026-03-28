@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,57 +61,66 @@ import {
   defaultRUMHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchCreateRumMetricDefinitionsCommandInput,
   BatchCreateRumMetricDefinitionsCommandOutput,
 } from "./commands/BatchCreateRumMetricDefinitionsCommand";
-import {
+import type {
   BatchDeleteRumMetricDefinitionsCommandInput,
   BatchDeleteRumMetricDefinitionsCommandOutput,
 } from "./commands/BatchDeleteRumMetricDefinitionsCommand";
-import {
+import type {
   BatchGetRumMetricDefinitionsCommandInput,
   BatchGetRumMetricDefinitionsCommandOutput,
 } from "./commands/BatchGetRumMetricDefinitionsCommand";
-import { CreateAppMonitorCommandInput, CreateAppMonitorCommandOutput } from "./commands/CreateAppMonitorCommand";
-import { DeleteAppMonitorCommandInput, DeleteAppMonitorCommandOutput } from "./commands/DeleteAppMonitorCommand";
-import {
+import type { CreateAppMonitorCommandInput, CreateAppMonitorCommandOutput } from "./commands/CreateAppMonitorCommand";
+import type { DeleteAppMonitorCommandInput, DeleteAppMonitorCommandOutput } from "./commands/DeleteAppMonitorCommand";
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   DeleteRumMetricsDestinationCommandInput,
   DeleteRumMetricsDestinationCommandOutput,
 } from "./commands/DeleteRumMetricsDestinationCommand";
-import { GetAppMonitorCommandInput, GetAppMonitorCommandOutput } from "./commands/GetAppMonitorCommand";
-import { GetAppMonitorDataCommandInput, GetAppMonitorDataCommandOutput } from "./commands/GetAppMonitorDataCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import { ListAppMonitorsCommandInput, ListAppMonitorsCommandOutput } from "./commands/ListAppMonitorsCommand";
-import {
+import type { GetAppMonitorCommandInput, GetAppMonitorCommandOutput } from "./commands/GetAppMonitorCommand";
+import type {
+  GetAppMonitorDataCommandInput,
+  GetAppMonitorDataCommandOutput,
+} from "./commands/GetAppMonitorDataCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type { ListAppMonitorsCommandInput, ListAppMonitorsCommandOutput } from "./commands/ListAppMonitorsCommand";
+import type {
   ListRumMetricsDestinationsCommandInput,
   ListRumMetricsDestinationsCommandOutput,
 } from "./commands/ListRumMetricsDestinationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import { PutRumEventsCommandInput, PutRumEventsCommandOutput } from "./commands/PutRumEventsCommand";
-import {
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type { PutRumEventsCommandInput, PutRumEventsCommandOutput } from "./commands/PutRumEventsCommand";
+import type {
   PutRumMetricsDestinationCommandInput,
   PutRumMetricsDestinationCommandOutput,
 } from "./commands/PutRumMetricsDestinationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAppMonitorCommandInput, UpdateAppMonitorCommandOutput } from "./commands/UpdateAppMonitorCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAppMonitorCommandInput, UpdateAppMonitorCommandOutput } from "./commands/UpdateAppMonitorCommand";
+import type {
   UpdateRumMetricDefinitionCommandInput,
   UpdateRumMetricDefinitionCommandOutput,
 } from "./commands/UpdateRumMetricDefinitionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -285,7 +292,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

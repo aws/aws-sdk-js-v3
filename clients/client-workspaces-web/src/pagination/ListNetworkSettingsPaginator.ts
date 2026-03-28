@@ -8,7 +8,7 @@ import {
   ListNetworkSettingsCommandOutput,
 } from "../commands/ListNetworkSettingsCommand";
 import { WorkSpacesWebClient } from "../WorkSpacesWebClient";
-import { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
+import type { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

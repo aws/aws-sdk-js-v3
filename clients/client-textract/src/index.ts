@@ -9,7 +9,7 @@
  */
 export * from "./TextractClient";
 export * from "./Textract";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { TextractExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

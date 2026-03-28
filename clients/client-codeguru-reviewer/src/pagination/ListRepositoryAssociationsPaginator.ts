@@ -8,7 +8,7 @@ import {
   ListRepositoryAssociationsCommandInput,
   ListRepositoryAssociationsCommandOutput,
 } from "../commands/ListRepositoryAssociationsCommand";
-import { CodeGuruReviewerPaginationConfiguration } from "./Interfaces";
+import type { CodeGuruReviewerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

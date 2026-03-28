@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type ExecuteOpenCypherExplainQueryInput, ExecuteOpenCypherExplainQueryOutput } from "../models/models_0";
+import type { ExecuteOpenCypherExplainQueryInput, ExecuteOpenCypherExplainQueryOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { ExecuteOpenCypherExplainQuery$ } from "../schemas/schemas_0";
 

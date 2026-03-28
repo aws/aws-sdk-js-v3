@@ -9,381 +9,413 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AddLayerVersionPermissionCommandInput,
+  type AddLayerVersionPermissionCommandOutput,
   AddLayerVersionPermissionCommand,
-  AddLayerVersionPermissionCommandInput,
-  AddLayerVersionPermissionCommandOutput,
 } from "./commands/AddLayerVersionPermissionCommand";
 import {
+  type AddPermissionCommandInput,
+  type AddPermissionCommandOutput,
   AddPermissionCommand,
-  AddPermissionCommandInput,
-  AddPermissionCommandOutput,
 } from "./commands/AddPermissionCommand";
 import {
+  type CheckpointDurableExecutionCommandInput,
+  type CheckpointDurableExecutionCommandOutput,
   CheckpointDurableExecutionCommand,
-  CheckpointDurableExecutionCommandInput,
-  CheckpointDurableExecutionCommandOutput,
 } from "./commands/CheckpointDurableExecutionCommand";
-import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
+  type CreateAliasCommandInput,
+  type CreateAliasCommandOutput,
+  CreateAliasCommand,
+} from "./commands/CreateAliasCommand";
+import {
+  type CreateCapacityProviderCommandInput,
+  type CreateCapacityProviderCommandOutput,
   CreateCapacityProviderCommand,
-  CreateCapacityProviderCommandInput,
-  CreateCapacityProviderCommandOutput,
 } from "./commands/CreateCapacityProviderCommand";
 import {
+  type CreateCodeSigningConfigCommandInput,
+  type CreateCodeSigningConfigCommandOutput,
   CreateCodeSigningConfigCommand,
-  CreateCodeSigningConfigCommandInput,
-  CreateCodeSigningConfigCommandOutput,
 } from "./commands/CreateCodeSigningConfigCommand";
 import {
+  type CreateEventSourceMappingCommandInput,
+  type CreateEventSourceMappingCommandOutput,
   CreateEventSourceMappingCommand,
-  CreateEventSourceMappingCommandInput,
-  CreateEventSourceMappingCommandOutput,
 } from "./commands/CreateEventSourceMappingCommand";
 import {
+  type CreateFunctionCommandInput,
+  type CreateFunctionCommandOutput,
   CreateFunctionCommand,
-  CreateFunctionCommandInput,
-  CreateFunctionCommandOutput,
 } from "./commands/CreateFunctionCommand";
 import {
+  type CreateFunctionUrlConfigCommandInput,
+  type CreateFunctionUrlConfigCommandOutput,
   CreateFunctionUrlConfigCommand,
-  CreateFunctionUrlConfigCommandInput,
-  CreateFunctionUrlConfigCommandOutput,
 } from "./commands/CreateFunctionUrlConfigCommand";
-import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import {
+  type DeleteAliasCommandInput,
+  type DeleteAliasCommandOutput,
+  DeleteAliasCommand,
+} from "./commands/DeleteAliasCommand";
+import {
+  type DeleteCapacityProviderCommandInput,
+  type DeleteCapacityProviderCommandOutput,
   DeleteCapacityProviderCommand,
-  DeleteCapacityProviderCommandInput,
-  DeleteCapacityProviderCommandOutput,
 } from "./commands/DeleteCapacityProviderCommand";
 import {
+  type DeleteCodeSigningConfigCommandInput,
+  type DeleteCodeSigningConfigCommandOutput,
   DeleteCodeSigningConfigCommand,
-  DeleteCodeSigningConfigCommandInput,
-  DeleteCodeSigningConfigCommandOutput,
 } from "./commands/DeleteCodeSigningConfigCommand";
 import {
+  type DeleteEventSourceMappingCommandInput,
+  type DeleteEventSourceMappingCommandOutput,
   DeleteEventSourceMappingCommand,
-  DeleteEventSourceMappingCommandInput,
-  DeleteEventSourceMappingCommandOutput,
 } from "./commands/DeleteEventSourceMappingCommand";
 import {
+  type DeleteFunctionCodeSigningConfigCommandInput,
+  type DeleteFunctionCodeSigningConfigCommandOutput,
   DeleteFunctionCodeSigningConfigCommand,
-  DeleteFunctionCodeSigningConfigCommandInput,
-  DeleteFunctionCodeSigningConfigCommandOutput,
 } from "./commands/DeleteFunctionCodeSigningConfigCommand";
 import {
+  type DeleteFunctionCommandInput,
+  type DeleteFunctionCommandOutput,
   DeleteFunctionCommand,
-  DeleteFunctionCommandInput,
-  DeleteFunctionCommandOutput,
 } from "./commands/DeleteFunctionCommand";
 import {
+  type DeleteFunctionConcurrencyCommandInput,
+  type DeleteFunctionConcurrencyCommandOutput,
   DeleteFunctionConcurrencyCommand,
-  DeleteFunctionConcurrencyCommandInput,
-  DeleteFunctionConcurrencyCommandOutput,
 } from "./commands/DeleteFunctionConcurrencyCommand";
 import {
+  type DeleteFunctionEventInvokeConfigCommandInput,
+  type DeleteFunctionEventInvokeConfigCommandOutput,
   DeleteFunctionEventInvokeConfigCommand,
-  DeleteFunctionEventInvokeConfigCommandInput,
-  DeleteFunctionEventInvokeConfigCommandOutput,
 } from "./commands/DeleteFunctionEventInvokeConfigCommand";
 import {
+  type DeleteFunctionUrlConfigCommandInput,
+  type DeleteFunctionUrlConfigCommandOutput,
   DeleteFunctionUrlConfigCommand,
-  DeleteFunctionUrlConfigCommandInput,
-  DeleteFunctionUrlConfigCommandOutput,
 } from "./commands/DeleteFunctionUrlConfigCommand";
 import {
+  type DeleteLayerVersionCommandInput,
+  type DeleteLayerVersionCommandOutput,
   DeleteLayerVersionCommand,
-  DeleteLayerVersionCommandInput,
-  DeleteLayerVersionCommandOutput,
 } from "./commands/DeleteLayerVersionCommand";
 import {
+  type DeleteProvisionedConcurrencyConfigCommandInput,
+  type DeleteProvisionedConcurrencyConfigCommandOutput,
   DeleteProvisionedConcurrencyConfigCommand,
-  DeleteProvisionedConcurrencyConfigCommandInput,
-  DeleteProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/DeleteProvisionedConcurrencyConfigCommand";
 import {
+  type GetAccountSettingsCommandInput,
+  type GetAccountSettingsCommandOutput,
   GetAccountSettingsCommand,
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
-import { GetAliasCommand, GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
+import { type GetAliasCommandInput, type GetAliasCommandOutput, GetAliasCommand } from "./commands/GetAliasCommand";
 import {
+  type GetCapacityProviderCommandInput,
+  type GetCapacityProviderCommandOutput,
   GetCapacityProviderCommand,
-  GetCapacityProviderCommandInput,
-  GetCapacityProviderCommandOutput,
 } from "./commands/GetCapacityProviderCommand";
 import {
+  type GetCodeSigningConfigCommandInput,
+  type GetCodeSigningConfigCommandOutput,
   GetCodeSigningConfigCommand,
-  GetCodeSigningConfigCommandInput,
-  GetCodeSigningConfigCommandOutput,
 } from "./commands/GetCodeSigningConfigCommand";
 import {
+  type GetDurableExecutionCommandInput,
+  type GetDurableExecutionCommandOutput,
   GetDurableExecutionCommand,
-  GetDurableExecutionCommandInput,
-  GetDurableExecutionCommandOutput,
 } from "./commands/GetDurableExecutionCommand";
 import {
+  type GetDurableExecutionHistoryCommandInput,
+  type GetDurableExecutionHistoryCommandOutput,
   GetDurableExecutionHistoryCommand,
-  GetDurableExecutionHistoryCommandInput,
-  GetDurableExecutionHistoryCommandOutput,
 } from "./commands/GetDurableExecutionHistoryCommand";
 import {
+  type GetDurableExecutionStateCommandInput,
+  type GetDurableExecutionStateCommandOutput,
   GetDurableExecutionStateCommand,
-  GetDurableExecutionStateCommandInput,
-  GetDurableExecutionStateCommandOutput,
 } from "./commands/GetDurableExecutionStateCommand";
 import {
+  type GetEventSourceMappingCommandInput,
+  type GetEventSourceMappingCommandOutput,
   GetEventSourceMappingCommand,
-  GetEventSourceMappingCommandInput,
-  GetEventSourceMappingCommandOutput,
 } from "./commands/GetEventSourceMappingCommand";
 import {
+  type GetFunctionCodeSigningConfigCommandInput,
+  type GetFunctionCodeSigningConfigCommandOutput,
   GetFunctionCodeSigningConfigCommand,
-  GetFunctionCodeSigningConfigCommandInput,
-  GetFunctionCodeSigningConfigCommandOutput,
 } from "./commands/GetFunctionCodeSigningConfigCommand";
-import { GetFunctionCommand, GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import {
+  type GetFunctionCommandInput,
+  type GetFunctionCommandOutput,
+  GetFunctionCommand,
+} from "./commands/GetFunctionCommand";
+import {
+  type GetFunctionConcurrencyCommandInput,
+  type GetFunctionConcurrencyCommandOutput,
   GetFunctionConcurrencyCommand,
-  GetFunctionConcurrencyCommandInput,
-  GetFunctionConcurrencyCommandOutput,
 } from "./commands/GetFunctionConcurrencyCommand";
 import {
+  type GetFunctionConfigurationCommandInput,
+  type GetFunctionConfigurationCommandOutput,
   GetFunctionConfigurationCommand,
-  GetFunctionConfigurationCommandInput,
-  GetFunctionConfigurationCommandOutput,
 } from "./commands/GetFunctionConfigurationCommand";
 import {
+  type GetFunctionEventInvokeConfigCommandInput,
+  type GetFunctionEventInvokeConfigCommandOutput,
   GetFunctionEventInvokeConfigCommand,
-  GetFunctionEventInvokeConfigCommandInput,
-  GetFunctionEventInvokeConfigCommandOutput,
 } from "./commands/GetFunctionEventInvokeConfigCommand";
 import {
+  type GetFunctionRecursionConfigCommandInput,
+  type GetFunctionRecursionConfigCommandOutput,
   GetFunctionRecursionConfigCommand,
-  GetFunctionRecursionConfigCommandInput,
-  GetFunctionRecursionConfigCommandOutput,
 } from "./commands/GetFunctionRecursionConfigCommand";
 import {
+  type GetFunctionScalingConfigCommandInput,
+  type GetFunctionScalingConfigCommandOutput,
   GetFunctionScalingConfigCommand,
-  GetFunctionScalingConfigCommandInput,
-  GetFunctionScalingConfigCommandOutput,
 } from "./commands/GetFunctionScalingConfigCommand";
 import {
+  type GetFunctionUrlConfigCommandInput,
+  type GetFunctionUrlConfigCommandOutput,
   GetFunctionUrlConfigCommand,
-  GetFunctionUrlConfigCommandInput,
-  GetFunctionUrlConfigCommandOutput,
 } from "./commands/GetFunctionUrlConfigCommand";
 import {
+  type GetLayerVersionByArnCommandInput,
+  type GetLayerVersionByArnCommandOutput,
   GetLayerVersionByArnCommand,
-  GetLayerVersionByArnCommandInput,
-  GetLayerVersionByArnCommandOutput,
 } from "./commands/GetLayerVersionByArnCommand";
 import {
+  type GetLayerVersionCommandInput,
+  type GetLayerVersionCommandOutput,
   GetLayerVersionCommand,
-  GetLayerVersionCommandInput,
-  GetLayerVersionCommandOutput,
 } from "./commands/GetLayerVersionCommand";
 import {
+  type GetLayerVersionPolicyCommandInput,
+  type GetLayerVersionPolicyCommandOutput,
   GetLayerVersionPolicyCommand,
-  GetLayerVersionPolicyCommandInput,
-  GetLayerVersionPolicyCommandOutput,
 } from "./commands/GetLayerVersionPolicyCommand";
-import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { type GetPolicyCommandInput, type GetPolicyCommandOutput, GetPolicyCommand } from "./commands/GetPolicyCommand";
 import {
+  type GetProvisionedConcurrencyConfigCommandInput,
+  type GetProvisionedConcurrencyConfigCommandOutput,
   GetProvisionedConcurrencyConfigCommand,
-  GetProvisionedConcurrencyConfigCommandInput,
-  GetProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/GetProvisionedConcurrencyConfigCommand";
 import {
+  type GetRuntimeManagementConfigCommandInput,
+  type GetRuntimeManagementConfigCommandOutput,
   GetRuntimeManagementConfigCommand,
-  GetRuntimeManagementConfigCommandInput,
-  GetRuntimeManagementConfigCommandOutput,
 } from "./commands/GetRuntimeManagementConfigCommand";
-import { InvokeAsyncCommand, InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/InvokeAsyncCommand";
-import { InvokeCommand, InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
 import {
+  type InvokeAsyncCommandInput,
+  type InvokeAsyncCommandOutput,
+  InvokeAsyncCommand,
+} from "./commands/InvokeAsyncCommand";
+import { type InvokeCommandInput, type InvokeCommandOutput, InvokeCommand } from "./commands/InvokeCommand";
+import {
+  type InvokeWithResponseStreamCommandInput,
+  type InvokeWithResponseStreamCommandOutput,
   InvokeWithResponseStreamCommand,
-  InvokeWithResponseStreamCommandInput,
-  InvokeWithResponseStreamCommandOutput,
 } from "./commands/InvokeWithResponseStreamCommand";
-import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
+  type ListAliasesCommandInput,
+  type ListAliasesCommandOutput,
+  ListAliasesCommand,
+} from "./commands/ListAliasesCommand";
+import {
+  type ListCapacityProvidersCommandInput,
+  type ListCapacityProvidersCommandOutput,
   ListCapacityProvidersCommand,
-  ListCapacityProvidersCommandInput,
-  ListCapacityProvidersCommandOutput,
 } from "./commands/ListCapacityProvidersCommand";
 import {
+  type ListCodeSigningConfigsCommandInput,
+  type ListCodeSigningConfigsCommandOutput,
   ListCodeSigningConfigsCommand,
-  ListCodeSigningConfigsCommandInput,
-  ListCodeSigningConfigsCommandOutput,
 } from "./commands/ListCodeSigningConfigsCommand";
 import {
+  type ListDurableExecutionsByFunctionCommandInput,
+  type ListDurableExecutionsByFunctionCommandOutput,
   ListDurableExecutionsByFunctionCommand,
-  ListDurableExecutionsByFunctionCommandInput,
-  ListDurableExecutionsByFunctionCommandOutput,
 } from "./commands/ListDurableExecutionsByFunctionCommand";
 import {
+  type ListEventSourceMappingsCommandInput,
+  type ListEventSourceMappingsCommandOutput,
   ListEventSourceMappingsCommand,
-  ListEventSourceMappingsCommandInput,
-  ListEventSourceMappingsCommandOutput,
 } from "./commands/ListEventSourceMappingsCommand";
 import {
+  type ListFunctionEventInvokeConfigsCommandInput,
+  type ListFunctionEventInvokeConfigsCommandOutput,
   ListFunctionEventInvokeConfigsCommand,
-  ListFunctionEventInvokeConfigsCommandInput,
-  ListFunctionEventInvokeConfigsCommandOutput,
 } from "./commands/ListFunctionEventInvokeConfigsCommand";
 import {
+  type ListFunctionsByCodeSigningConfigCommandInput,
+  type ListFunctionsByCodeSigningConfigCommandOutput,
   ListFunctionsByCodeSigningConfigCommand,
-  ListFunctionsByCodeSigningConfigCommandInput,
-  ListFunctionsByCodeSigningConfigCommandOutput,
 } from "./commands/ListFunctionsByCodeSigningConfigCommand";
 import {
+  type ListFunctionsCommandInput,
+  type ListFunctionsCommandOutput,
   ListFunctionsCommand,
-  ListFunctionsCommandInput,
-  ListFunctionsCommandOutput,
 } from "./commands/ListFunctionsCommand";
 import {
+  type ListFunctionUrlConfigsCommandInput,
+  type ListFunctionUrlConfigsCommandOutput,
   ListFunctionUrlConfigsCommand,
-  ListFunctionUrlConfigsCommandInput,
-  ListFunctionUrlConfigsCommandOutput,
 } from "./commands/ListFunctionUrlConfigsCommand";
 import {
+  type ListFunctionVersionsByCapacityProviderCommandInput,
+  type ListFunctionVersionsByCapacityProviderCommandOutput,
   ListFunctionVersionsByCapacityProviderCommand,
-  ListFunctionVersionsByCapacityProviderCommandInput,
-  ListFunctionVersionsByCapacityProviderCommandOutput,
 } from "./commands/ListFunctionVersionsByCapacityProviderCommand";
-import { ListLayersCommand, ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
 import {
+  type ListLayersCommandInput,
+  type ListLayersCommandOutput,
+  ListLayersCommand,
+} from "./commands/ListLayersCommand";
+import {
+  type ListLayerVersionsCommandInput,
+  type ListLayerVersionsCommandOutput,
   ListLayerVersionsCommand,
-  ListLayerVersionsCommandInput,
-  ListLayerVersionsCommandOutput,
 } from "./commands/ListLayerVersionsCommand";
 import {
+  type ListProvisionedConcurrencyConfigsCommandInput,
+  type ListProvisionedConcurrencyConfigsCommandOutput,
   ListProvisionedConcurrencyConfigsCommand,
-  ListProvisionedConcurrencyConfigsCommandInput,
-  ListProvisionedConcurrencyConfigsCommandOutput,
 } from "./commands/ListProvisionedConcurrencyConfigsCommand";
-import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { type ListTagsCommandInput, type ListTagsCommandOutput, ListTagsCommand } from "./commands/ListTagsCommand";
 import {
+  type ListVersionsByFunctionCommandInput,
+  type ListVersionsByFunctionCommandOutput,
   ListVersionsByFunctionCommand,
-  ListVersionsByFunctionCommandInput,
-  ListVersionsByFunctionCommandOutput,
 } from "./commands/ListVersionsByFunctionCommand";
 import {
+  type PublishLayerVersionCommandInput,
+  type PublishLayerVersionCommandOutput,
   PublishLayerVersionCommand,
-  PublishLayerVersionCommandInput,
-  PublishLayerVersionCommandOutput,
 } from "./commands/PublishLayerVersionCommand";
 import {
+  type PublishVersionCommandInput,
+  type PublishVersionCommandOutput,
   PublishVersionCommand,
-  PublishVersionCommandInput,
-  PublishVersionCommandOutput,
 } from "./commands/PublishVersionCommand";
 import {
+  type PutFunctionCodeSigningConfigCommandInput,
+  type PutFunctionCodeSigningConfigCommandOutput,
   PutFunctionCodeSigningConfigCommand,
-  PutFunctionCodeSigningConfigCommandInput,
-  PutFunctionCodeSigningConfigCommandOutput,
 } from "./commands/PutFunctionCodeSigningConfigCommand";
 import {
+  type PutFunctionConcurrencyCommandInput,
+  type PutFunctionConcurrencyCommandOutput,
   PutFunctionConcurrencyCommand,
-  PutFunctionConcurrencyCommandInput,
-  PutFunctionConcurrencyCommandOutput,
 } from "./commands/PutFunctionConcurrencyCommand";
 import {
+  type PutFunctionEventInvokeConfigCommandInput,
+  type PutFunctionEventInvokeConfigCommandOutput,
   PutFunctionEventInvokeConfigCommand,
-  PutFunctionEventInvokeConfigCommandInput,
-  PutFunctionEventInvokeConfigCommandOutput,
 } from "./commands/PutFunctionEventInvokeConfigCommand";
 import {
+  type PutFunctionRecursionConfigCommandInput,
+  type PutFunctionRecursionConfigCommandOutput,
   PutFunctionRecursionConfigCommand,
-  PutFunctionRecursionConfigCommandInput,
-  PutFunctionRecursionConfigCommandOutput,
 } from "./commands/PutFunctionRecursionConfigCommand";
 import {
+  type PutFunctionScalingConfigCommandInput,
+  type PutFunctionScalingConfigCommandOutput,
   PutFunctionScalingConfigCommand,
-  PutFunctionScalingConfigCommandInput,
-  PutFunctionScalingConfigCommandOutput,
 } from "./commands/PutFunctionScalingConfigCommand";
 import {
+  type PutProvisionedConcurrencyConfigCommandInput,
+  type PutProvisionedConcurrencyConfigCommandOutput,
   PutProvisionedConcurrencyConfigCommand,
-  PutProvisionedConcurrencyConfigCommandInput,
-  PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
 import {
+  type PutRuntimeManagementConfigCommandInput,
+  type PutRuntimeManagementConfigCommandOutput,
   PutRuntimeManagementConfigCommand,
-  PutRuntimeManagementConfigCommandInput,
-  PutRuntimeManagementConfigCommandOutput,
 } from "./commands/PutRuntimeManagementConfigCommand";
 import {
+  type RemoveLayerVersionPermissionCommandInput,
+  type RemoveLayerVersionPermissionCommandOutput,
   RemoveLayerVersionPermissionCommand,
-  RemoveLayerVersionPermissionCommandInput,
-  RemoveLayerVersionPermissionCommandOutput,
 } from "./commands/RemoveLayerVersionPermissionCommand";
 import {
+  type RemovePermissionCommandInput,
+  type RemovePermissionCommandOutput,
   RemovePermissionCommand,
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand";
 import {
+  type SendDurableExecutionCallbackFailureCommandInput,
+  type SendDurableExecutionCallbackFailureCommandOutput,
   SendDurableExecutionCallbackFailureCommand,
-  SendDurableExecutionCallbackFailureCommandInput,
-  SendDurableExecutionCallbackFailureCommandOutput,
 } from "./commands/SendDurableExecutionCallbackFailureCommand";
 import {
+  type SendDurableExecutionCallbackHeartbeatCommandInput,
+  type SendDurableExecutionCallbackHeartbeatCommandOutput,
   SendDurableExecutionCallbackHeartbeatCommand,
-  SendDurableExecutionCallbackHeartbeatCommandInput,
-  SendDurableExecutionCallbackHeartbeatCommandOutput,
 } from "./commands/SendDurableExecutionCallbackHeartbeatCommand";
 import {
+  type SendDurableExecutionCallbackSuccessCommandInput,
+  type SendDurableExecutionCallbackSuccessCommandOutput,
   SendDurableExecutionCallbackSuccessCommand,
-  SendDurableExecutionCallbackSuccessCommandInput,
-  SendDurableExecutionCallbackSuccessCommandOutput,
 } from "./commands/SendDurableExecutionCallbackSuccessCommand";
 import {
+  type StopDurableExecutionCommandInput,
+  type StopDurableExecutionCommandOutput,
   StopDurableExecutionCommand,
-  StopDurableExecutionCommandInput,
-  StopDurableExecutionCommandOutput,
 } from "./commands/StopDurableExecutionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
 import {
+  type UpdateAliasCommandInput,
+  type UpdateAliasCommandOutput,
+  UpdateAliasCommand,
+} from "./commands/UpdateAliasCommand";
+import {
+  type UpdateCapacityProviderCommandInput,
+  type UpdateCapacityProviderCommandOutput,
   UpdateCapacityProviderCommand,
-  UpdateCapacityProviderCommandInput,
-  UpdateCapacityProviderCommandOutput,
 } from "./commands/UpdateCapacityProviderCommand";
 import {
+  type UpdateCodeSigningConfigCommandInput,
+  type UpdateCodeSigningConfigCommandOutput,
   UpdateCodeSigningConfigCommand,
-  UpdateCodeSigningConfigCommandInput,
-  UpdateCodeSigningConfigCommandOutput,
 } from "./commands/UpdateCodeSigningConfigCommand";
 import {
+  type UpdateEventSourceMappingCommandInput,
+  type UpdateEventSourceMappingCommandOutput,
   UpdateEventSourceMappingCommand,
-  UpdateEventSourceMappingCommandInput,
-  UpdateEventSourceMappingCommandOutput,
 } from "./commands/UpdateEventSourceMappingCommand";
 import {
+  type UpdateFunctionCodeCommandInput,
+  type UpdateFunctionCodeCommandOutput,
   UpdateFunctionCodeCommand,
-  UpdateFunctionCodeCommandInput,
-  UpdateFunctionCodeCommandOutput,
 } from "./commands/UpdateFunctionCodeCommand";
 import {
+  type UpdateFunctionConfigurationCommandInput,
+  type UpdateFunctionConfigurationCommandOutput,
   UpdateFunctionConfigurationCommand,
-  UpdateFunctionConfigurationCommandInput,
-  UpdateFunctionConfigurationCommandOutput,
 } from "./commands/UpdateFunctionConfigurationCommand";
 import {
+  type UpdateFunctionEventInvokeConfigCommandInput,
+  type UpdateFunctionEventInvokeConfigCommandOutput,
   UpdateFunctionEventInvokeConfigCommand,
-  UpdateFunctionEventInvokeConfigCommandInput,
-  UpdateFunctionEventInvokeConfigCommandOutput,
 } from "./commands/UpdateFunctionEventInvokeConfigCommand";
 import {
+  type UpdateFunctionUrlConfigCommandInput,
+  type UpdateFunctionUrlConfigCommandOutput,
   UpdateFunctionUrlConfigCommand,
-  UpdateFunctionUrlConfigCommandInput,
-  UpdateFunctionUrlConfigCommandOutput,
 } from "./commands/UpdateFunctionUrlConfigCommand";
 import { LambdaClient } from "./LambdaClient";
 import { paginateGetDurableExecutionHistory } from "./pagination/GetDurableExecutionHistoryPaginator";

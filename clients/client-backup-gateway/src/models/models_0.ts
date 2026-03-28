@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { GatewayType, HypervisorState, SyncMetadataStatus } from "./enums";
+import type { GatewayType, HypervisorState, SyncMetadataStatus } from "./enums";
 
 /**
  * @public

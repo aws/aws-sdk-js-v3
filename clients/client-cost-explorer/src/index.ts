@@ -22,7 +22,7 @@
  */
 export * from "./CostExplorerClient";
 export * from "./CostExplorer";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CostExplorerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

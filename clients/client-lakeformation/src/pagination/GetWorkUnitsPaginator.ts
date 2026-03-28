@@ -8,7 +8,7 @@ import {
   GetWorkUnitsCommandOutput,
 } from "../commands/GetWorkUnitsCommand";
 import { LakeFormationClient } from "../LakeFormationClient";
-import { LakeFormationPaginationConfiguration } from "./Interfaces";
+import type { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -2,59 +2,71 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { DecryptDataCommand, DecryptDataCommandInput, DecryptDataCommandOutput } from "./commands/DecryptDataCommand";
-import { EncryptDataCommand, EncryptDataCommandInput, EncryptDataCommandOutput } from "./commands/EncryptDataCommand";
 import {
+  type DecryptDataCommandInput,
+  type DecryptDataCommandOutput,
+  DecryptDataCommand,
+} from "./commands/DecryptDataCommand";
+import {
+  type EncryptDataCommandInput,
+  type EncryptDataCommandOutput,
+  EncryptDataCommand,
+} from "./commands/EncryptDataCommand";
+import {
+  type GenerateAs2805KekValidationCommandInput,
+  type GenerateAs2805KekValidationCommandOutput,
   GenerateAs2805KekValidationCommand,
-  GenerateAs2805KekValidationCommandInput,
-  GenerateAs2805KekValidationCommandOutput,
 } from "./commands/GenerateAs2805KekValidationCommand";
 import {
+  type GenerateCardValidationDataCommandInput,
+  type GenerateCardValidationDataCommandOutput,
   GenerateCardValidationDataCommand,
-  GenerateCardValidationDataCommandInput,
-  GenerateCardValidationDataCommandOutput,
 } from "./commands/GenerateCardValidationDataCommand";
-import { GenerateMacCommand, GenerateMacCommandInput, GenerateMacCommandOutput } from "./commands/GenerateMacCommand";
 import {
+  type GenerateMacCommandInput,
+  type GenerateMacCommandOutput,
+  GenerateMacCommand,
+} from "./commands/GenerateMacCommand";
+import {
+  type GenerateMacEmvPinChangeCommandInput,
+  type GenerateMacEmvPinChangeCommandOutput,
   GenerateMacEmvPinChangeCommand,
-  GenerateMacEmvPinChangeCommandInput,
-  GenerateMacEmvPinChangeCommandOutput,
 } from "./commands/GenerateMacEmvPinChangeCommand";
 import {
+  type GeneratePinDataCommandInput,
+  type GeneratePinDataCommandOutput,
   GeneratePinDataCommand,
-  GeneratePinDataCommandInput,
-  GeneratePinDataCommandOutput,
 } from "./commands/GeneratePinDataCommand";
 import {
+  type ReEncryptDataCommandInput,
+  type ReEncryptDataCommandOutput,
   ReEncryptDataCommand,
-  ReEncryptDataCommandInput,
-  ReEncryptDataCommandOutput,
 } from "./commands/ReEncryptDataCommand";
 import {
+  type TranslateKeyMaterialCommandInput,
+  type TranslateKeyMaterialCommandOutput,
   TranslateKeyMaterialCommand,
-  TranslateKeyMaterialCommandInput,
-  TranslateKeyMaterialCommandOutput,
 } from "./commands/TranslateKeyMaterialCommand";
 import {
+  type TranslatePinDataCommandInput,
+  type TranslatePinDataCommandOutput,
   TranslatePinDataCommand,
-  TranslatePinDataCommandInput,
-  TranslatePinDataCommandOutput,
 } from "./commands/TranslatePinDataCommand";
 import {
+  type VerifyAuthRequestCryptogramCommandInput,
+  type VerifyAuthRequestCryptogramCommandOutput,
   VerifyAuthRequestCryptogramCommand,
-  VerifyAuthRequestCryptogramCommandInput,
-  VerifyAuthRequestCryptogramCommandOutput,
 } from "./commands/VerifyAuthRequestCryptogramCommand";
 import {
+  type VerifyCardValidationDataCommandInput,
+  type VerifyCardValidationDataCommandOutput,
   VerifyCardValidationDataCommand,
-  VerifyCardValidationDataCommandInput,
-  VerifyCardValidationDataCommandOutput,
 } from "./commands/VerifyCardValidationDataCommand";
-import { VerifyMacCommand, VerifyMacCommandInput, VerifyMacCommandOutput } from "./commands/VerifyMacCommand";
+import { type VerifyMacCommandInput, type VerifyMacCommandOutput, VerifyMacCommand } from "./commands/VerifyMacCommand";
 import {
+  type VerifyPinDataCommandInput,
+  type VerifyPinDataCommandOutput,
   VerifyPinDataCommand,
-  VerifyPinDataCommandInput,
-  VerifyPinDataCommandOutput,
 } from "./commands/VerifyPinDataCommand";
 import { PaymentCryptographyDataClient } from "./PaymentCryptographyDataClient";
 

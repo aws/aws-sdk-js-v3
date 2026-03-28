@@ -8,7 +8,7 @@ import {
   ListInsightsMetricDataCommandInput,
   ListInsightsMetricDataCommandOutput,
 } from "../commands/ListInsightsMetricDataCommand";
-import { CloudTrailPaginationConfiguration } from "./Interfaces";
+import type { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

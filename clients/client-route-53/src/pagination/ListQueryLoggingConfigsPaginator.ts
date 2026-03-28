@@ -8,7 +8,7 @@ import {
   ListQueryLoggingConfigsCommandOutput,
 } from "../commands/ListQueryLoggingConfigsCommand";
 import { Route53Client } from "../Route53Client";
-import { Route53PaginationConfiguration } from "./Interfaces";
+import type { Route53PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -46,7 +46,7 @@
  */
 export * from "./Route53RecoveryClusterClient";
 export * from "./Route53RecoveryCluster";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { Route53RecoveryClusterExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

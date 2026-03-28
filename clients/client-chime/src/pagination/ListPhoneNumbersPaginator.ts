@@ -8,7 +8,7 @@ import {
   ListPhoneNumbersCommandInput,
   ListPhoneNumbersCommandOutput,
 } from "../commands/ListPhoneNumbersCommand";
-import { ChimePaginationConfiguration } from "./Interfaces";
+import type { ChimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

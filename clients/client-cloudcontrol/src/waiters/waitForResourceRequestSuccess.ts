@@ -1,10 +1,16 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
-
-import { CloudControlClient } from "../CloudControlClient";
 import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
+
+import type { CloudControlClient } from "../CloudControlClient";
+import {
+  type GetResourceRequestStatusCommandInput,
   GetResourceRequestStatusCommand,
-  GetResourceRequestStatusCommandInput,
 } from "../commands/GetResourceRequestStatusCommand";
 
 const checkState = async (client: CloudControlClient, input: GetResourceRequestStatusCommandInput): Promise<WaiterResult> => {

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,44 +61,44 @@ import {
   defaultAmplifyUIBuilderHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
-import { CreateFormCommandInput, CreateFormCommandOutput } from "./commands/CreateFormCommand";
-import { CreateThemeCommandInput, CreateThemeCommandOutput } from "./commands/CreateThemeCommand";
-import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
-import { DeleteFormCommandInput, DeleteFormCommandOutput } from "./commands/DeleteFormCommand";
-import { DeleteThemeCommandInput, DeleteThemeCommandOutput } from "./commands/DeleteThemeCommand";
-import {
+import type { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
+import type { CreateFormCommandInput, CreateFormCommandOutput } from "./commands/CreateFormCommand";
+import type { CreateThemeCommandInput, CreateThemeCommandOutput } from "./commands/CreateThemeCommand";
+import type { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
+import type { DeleteFormCommandInput, DeleteFormCommandOutput } from "./commands/DeleteFormCommand";
+import type { DeleteThemeCommandInput, DeleteThemeCommandOutput } from "./commands/DeleteThemeCommand";
+import type {
   ExchangeCodeForTokenCommandInput,
   ExchangeCodeForTokenCommandOutput,
 } from "./commands/ExchangeCodeForTokenCommand";
-import { ExportComponentsCommandInput, ExportComponentsCommandOutput } from "./commands/ExportComponentsCommand";
-import { ExportFormsCommandInput, ExportFormsCommandOutput } from "./commands/ExportFormsCommand";
-import { ExportThemesCommandInput, ExportThemesCommandOutput } from "./commands/ExportThemesCommand";
-import { GetCodegenJobCommandInput, GetCodegenJobCommandOutput } from "./commands/GetCodegenJobCommand";
-import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
-import { GetFormCommandInput, GetFormCommandOutput } from "./commands/GetFormCommand";
-import { GetMetadataCommandInput, GetMetadataCommandOutput } from "./commands/GetMetadataCommand";
-import { GetThemeCommandInput, GetThemeCommandOutput } from "./commands/GetThemeCommand";
-import { ListCodegenJobsCommandInput, ListCodegenJobsCommandOutput } from "./commands/ListCodegenJobsCommand";
-import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
-import { ListFormsCommandInput, ListFormsCommandOutput } from "./commands/ListFormsCommand";
-import {
+import type { ExportComponentsCommandInput, ExportComponentsCommandOutput } from "./commands/ExportComponentsCommand";
+import type { ExportFormsCommandInput, ExportFormsCommandOutput } from "./commands/ExportFormsCommand";
+import type { ExportThemesCommandInput, ExportThemesCommandOutput } from "./commands/ExportThemesCommand";
+import type { GetCodegenJobCommandInput, GetCodegenJobCommandOutput } from "./commands/GetCodegenJobCommand";
+import type { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
+import type { GetFormCommandInput, GetFormCommandOutput } from "./commands/GetFormCommand";
+import type { GetMetadataCommandInput, GetMetadataCommandOutput } from "./commands/GetMetadataCommand";
+import type { GetThemeCommandInput, GetThemeCommandOutput } from "./commands/GetThemeCommand";
+import type { ListCodegenJobsCommandInput, ListCodegenJobsCommandOutput } from "./commands/ListCodegenJobsCommand";
+import type { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
+import type { ListFormsCommandInput, ListFormsCommandOutput } from "./commands/ListFormsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
-import { PutMetadataFlagCommandInput, PutMetadataFlagCommandOutput } from "./commands/PutMetadataFlagCommand";
-import { RefreshTokenCommandInput, RefreshTokenCommandOutput } from "./commands/RefreshTokenCommand";
-import { StartCodegenJobCommandInput, StartCodegenJobCommandOutput } from "./commands/StartCodegenJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "./commands/UpdateComponentCommand";
-import { UpdateFormCommandInput, UpdateFormCommandOutput } from "./commands/UpdateFormCommand";
-import { UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
+import type { ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
+import type { PutMetadataFlagCommandInput, PutMetadataFlagCommandOutput } from "./commands/PutMetadataFlagCommand";
+import type { RefreshTokenCommandInput, RefreshTokenCommandOutput } from "./commands/RefreshTokenCommand";
+import type { StartCodegenJobCommandInput, StartCodegenJobCommandOutput } from "./commands/StartCodegenJobCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "./commands/UpdateComponentCommand";
+import type { UpdateFormCommandInput, UpdateFormCommandOutput } from "./commands/UpdateFormCommand";
+import type { UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -288,7 +286,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -41,7 +41,7 @@
  */
 export * from "./AutoScalingPlansClient";
 export * from "./AutoScalingPlans";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { AutoScalingPlansExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

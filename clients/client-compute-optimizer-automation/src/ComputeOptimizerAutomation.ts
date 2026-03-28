@@ -3,115 +3,119 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateAccountsCommandInput,
+  type AssociateAccountsCommandOutput,
   AssociateAccountsCommand,
-  AssociateAccountsCommandInput,
-  AssociateAccountsCommandOutput,
 } from "./commands/AssociateAccountsCommand";
 import {
+  type CreateAutomationRuleCommandInput,
+  type CreateAutomationRuleCommandOutput,
   CreateAutomationRuleCommand,
-  CreateAutomationRuleCommandInput,
-  CreateAutomationRuleCommandOutput,
 } from "./commands/CreateAutomationRuleCommand";
 import {
+  type DeleteAutomationRuleCommandInput,
+  type DeleteAutomationRuleCommandOutput,
   DeleteAutomationRuleCommand,
-  DeleteAutomationRuleCommandInput,
-  DeleteAutomationRuleCommandOutput,
 } from "./commands/DeleteAutomationRuleCommand";
 import {
+  type DisassociateAccountsCommandInput,
+  type DisassociateAccountsCommandOutput,
   DisassociateAccountsCommand,
-  DisassociateAccountsCommandInput,
-  DisassociateAccountsCommandOutput,
 } from "./commands/DisassociateAccountsCommand";
 import {
+  type GetAutomationEventCommandInput,
+  type GetAutomationEventCommandOutput,
   GetAutomationEventCommand,
-  GetAutomationEventCommandInput,
-  GetAutomationEventCommandOutput,
 } from "./commands/GetAutomationEventCommand";
 import {
+  type GetAutomationRuleCommandInput,
+  type GetAutomationRuleCommandOutput,
   GetAutomationRuleCommand,
-  GetAutomationRuleCommandInput,
-  GetAutomationRuleCommandOutput,
 } from "./commands/GetAutomationRuleCommand";
 import {
+  type GetEnrollmentConfigurationCommandInput,
+  type GetEnrollmentConfigurationCommandOutput,
   GetEnrollmentConfigurationCommand,
-  GetEnrollmentConfigurationCommandInput,
-  GetEnrollmentConfigurationCommandOutput,
 } from "./commands/GetEnrollmentConfigurationCommand";
 import {
+  type ListAccountsCommandInput,
+  type ListAccountsCommandOutput,
   ListAccountsCommand,
-  ListAccountsCommandInput,
-  ListAccountsCommandOutput,
 } from "./commands/ListAccountsCommand";
 import {
+  type ListAutomationEventsCommandInput,
+  type ListAutomationEventsCommandOutput,
   ListAutomationEventsCommand,
-  ListAutomationEventsCommandInput,
-  ListAutomationEventsCommandOutput,
 } from "./commands/ListAutomationEventsCommand";
 import {
+  type ListAutomationEventStepsCommandInput,
+  type ListAutomationEventStepsCommandOutput,
   ListAutomationEventStepsCommand,
-  ListAutomationEventStepsCommandInput,
-  ListAutomationEventStepsCommandOutput,
 } from "./commands/ListAutomationEventStepsCommand";
 import {
+  type ListAutomationEventSummariesCommandInput,
+  type ListAutomationEventSummariesCommandOutput,
   ListAutomationEventSummariesCommand,
-  ListAutomationEventSummariesCommandInput,
-  ListAutomationEventSummariesCommandOutput,
 } from "./commands/ListAutomationEventSummariesCommand";
 import {
+  type ListAutomationRulePreviewCommandInput,
+  type ListAutomationRulePreviewCommandOutput,
   ListAutomationRulePreviewCommand,
-  ListAutomationRulePreviewCommandInput,
-  ListAutomationRulePreviewCommandOutput,
 } from "./commands/ListAutomationRulePreviewCommand";
 import {
+  type ListAutomationRulePreviewSummariesCommandInput,
+  type ListAutomationRulePreviewSummariesCommandOutput,
   ListAutomationRulePreviewSummariesCommand,
-  ListAutomationRulePreviewSummariesCommandInput,
-  ListAutomationRulePreviewSummariesCommandOutput,
 } from "./commands/ListAutomationRulePreviewSummariesCommand";
 import {
+  type ListAutomationRulesCommandInput,
+  type ListAutomationRulesCommandOutput,
   ListAutomationRulesCommand,
-  ListAutomationRulesCommandInput,
-  ListAutomationRulesCommandOutput,
 } from "./commands/ListAutomationRulesCommand";
 import {
+  type ListRecommendedActionsCommandInput,
+  type ListRecommendedActionsCommandOutput,
   ListRecommendedActionsCommand,
-  ListRecommendedActionsCommandInput,
-  ListRecommendedActionsCommandOutput,
 } from "./commands/ListRecommendedActionsCommand";
 import {
+  type ListRecommendedActionSummariesCommandInput,
+  type ListRecommendedActionSummariesCommandOutput,
   ListRecommendedActionSummariesCommand,
-  ListRecommendedActionSummariesCommandInput,
-  ListRecommendedActionSummariesCommandOutput,
 } from "./commands/ListRecommendedActionSummariesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RollbackAutomationEventCommandInput,
+  type RollbackAutomationEventCommandOutput,
   RollbackAutomationEventCommand,
-  RollbackAutomationEventCommandInput,
-  RollbackAutomationEventCommandOutput,
 } from "./commands/RollbackAutomationEventCommand";
 import {
+  type StartAutomationEventCommandInput,
+  type StartAutomationEventCommandOutput,
   StartAutomationEventCommand,
-  StartAutomationEventCommandInput,
-  StartAutomationEventCommandOutput,
 } from "./commands/StartAutomationEventCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAutomationRuleCommandInput,
+  type UpdateAutomationRuleCommandOutput,
   UpdateAutomationRuleCommand,
-  UpdateAutomationRuleCommandInput,
-  UpdateAutomationRuleCommandOutput,
 } from "./commands/UpdateAutomationRuleCommand";
 import {
+  type UpdateEnrollmentConfigurationCommandInput,
+  type UpdateEnrollmentConfigurationCommandOutput,
   UpdateEnrollmentConfigurationCommand,
-  UpdateEnrollmentConfigurationCommandInput,
-  UpdateEnrollmentConfigurationCommandOutput,
 } from "./commands/UpdateEnrollmentConfigurationCommand";
 import { ComputeOptimizerAutomationClient } from "./ComputeOptimizerAutomationClient";
 import { paginateListAccounts } from "./pagination/ListAccountsPaginator";

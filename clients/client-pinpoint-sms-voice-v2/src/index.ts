@@ -7,7 +7,7 @@
  */
 export * from "./PinpointSMSVoiceV2Client";
 export * from "./PinpointSMSVoiceV2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PinpointSMSVoiceV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

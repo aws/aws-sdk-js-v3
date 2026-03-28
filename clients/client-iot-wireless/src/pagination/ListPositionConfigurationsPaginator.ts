@@ -8,7 +8,7 @@ import {
   ListPositionConfigurationsCommandOutput,
 } from "../commands/ListPositionConfigurationsCommand";
 import { IoTWirelessClient } from "../IoTWirelessClient";
-import { IoTWirelessPaginationConfiguration } from "./Interfaces";
+import type { IoTWirelessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

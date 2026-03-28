@@ -8,7 +8,7 @@ import {
   ListSlackWorkspaceConfigurationsCommandOutput,
 } from "../commands/ListSlackWorkspaceConfigurationsCommand";
 import { SupportAppClient } from "../SupportAppClient";
-import { SupportAppPaginationConfiguration } from "./Interfaces";
+import type { SupportAppPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

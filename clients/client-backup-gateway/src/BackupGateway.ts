@@ -4,121 +4,129 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BackupGatewayClient } from "./BackupGatewayClient";
 import {
+  type AssociateGatewayToServerCommandInput,
+  type AssociateGatewayToServerCommandOutput,
   AssociateGatewayToServerCommand,
-  AssociateGatewayToServerCommandInput,
-  AssociateGatewayToServerCommandOutput,
 } from "./commands/AssociateGatewayToServerCommand";
 import {
+  type CreateGatewayCommandInput,
+  type CreateGatewayCommandOutput,
   CreateGatewayCommand,
-  CreateGatewayCommandInput,
-  CreateGatewayCommandOutput,
 } from "./commands/CreateGatewayCommand";
 import {
+  type DeleteGatewayCommandInput,
+  type DeleteGatewayCommandOutput,
   DeleteGatewayCommand,
-  DeleteGatewayCommandInput,
-  DeleteGatewayCommandOutput,
 } from "./commands/DeleteGatewayCommand";
 import {
+  type DeleteHypervisorCommandInput,
+  type DeleteHypervisorCommandOutput,
   DeleteHypervisorCommand,
-  DeleteHypervisorCommandInput,
-  DeleteHypervisorCommandOutput,
 } from "./commands/DeleteHypervisorCommand";
 import {
+  type DisassociateGatewayFromServerCommandInput,
+  type DisassociateGatewayFromServerCommandOutput,
   DisassociateGatewayFromServerCommand,
-  DisassociateGatewayFromServerCommandInput,
-  DisassociateGatewayFromServerCommandOutput,
 } from "./commands/DisassociateGatewayFromServerCommand";
 import {
+  type GetBandwidthRateLimitScheduleCommandInput,
+  type GetBandwidthRateLimitScheduleCommandOutput,
   GetBandwidthRateLimitScheduleCommand,
-  GetBandwidthRateLimitScheduleCommandInput,
-  GetBandwidthRateLimitScheduleCommandOutput,
 } from "./commands/GetBandwidthRateLimitScheduleCommand";
-import { GetGatewayCommand, GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
 import {
+  type GetGatewayCommandInput,
+  type GetGatewayCommandOutput,
+  GetGatewayCommand,
+} from "./commands/GetGatewayCommand";
+import {
+  type GetHypervisorCommandInput,
+  type GetHypervisorCommandOutput,
   GetHypervisorCommand,
-  GetHypervisorCommandInput,
-  GetHypervisorCommandOutput,
 } from "./commands/GetHypervisorCommand";
 import {
+  type GetHypervisorPropertyMappingsCommandInput,
+  type GetHypervisorPropertyMappingsCommandOutput,
   GetHypervisorPropertyMappingsCommand,
-  GetHypervisorPropertyMappingsCommandInput,
-  GetHypervisorPropertyMappingsCommandOutput,
 } from "./commands/GetHypervisorPropertyMappingsCommand";
 import {
+  type GetVirtualMachineCommandInput,
+  type GetVirtualMachineCommandOutput,
   GetVirtualMachineCommand,
-  GetVirtualMachineCommandInput,
-  GetVirtualMachineCommandOutput,
 } from "./commands/GetVirtualMachineCommand";
 import {
+  type ImportHypervisorConfigurationCommandInput,
+  type ImportHypervisorConfigurationCommandOutput,
   ImportHypervisorConfigurationCommand,
-  ImportHypervisorConfigurationCommandInput,
-  ImportHypervisorConfigurationCommandOutput,
 } from "./commands/ImportHypervisorConfigurationCommand";
 import {
+  type ListGatewaysCommandInput,
+  type ListGatewaysCommandOutput,
   ListGatewaysCommand,
-  ListGatewaysCommandInput,
-  ListGatewaysCommandOutput,
 } from "./commands/ListGatewaysCommand";
 import {
+  type ListHypervisorsCommandInput,
+  type ListHypervisorsCommandOutput,
   ListHypervisorsCommand,
-  ListHypervisorsCommandInput,
-  ListHypervisorsCommandOutput,
 } from "./commands/ListHypervisorsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVirtualMachinesCommandInput,
+  type ListVirtualMachinesCommandOutput,
   ListVirtualMachinesCommand,
-  ListVirtualMachinesCommandInput,
-  ListVirtualMachinesCommandOutput,
 } from "./commands/ListVirtualMachinesCommand";
 import {
+  type PutBandwidthRateLimitScheduleCommandInput,
+  type PutBandwidthRateLimitScheduleCommandOutput,
   PutBandwidthRateLimitScheduleCommand,
-  PutBandwidthRateLimitScheduleCommandInput,
-  PutBandwidthRateLimitScheduleCommandOutput,
 } from "./commands/PutBandwidthRateLimitScheduleCommand";
 import {
+  type PutHypervisorPropertyMappingsCommandInput,
+  type PutHypervisorPropertyMappingsCommandOutput,
   PutHypervisorPropertyMappingsCommand,
-  PutHypervisorPropertyMappingsCommandInput,
-  PutHypervisorPropertyMappingsCommandOutput,
 } from "./commands/PutHypervisorPropertyMappingsCommand";
 import {
+  type PutMaintenanceStartTimeCommandInput,
+  type PutMaintenanceStartTimeCommandOutput,
   PutMaintenanceStartTimeCommand,
-  PutMaintenanceStartTimeCommandInput,
-  PutMaintenanceStartTimeCommandOutput,
 } from "./commands/PutMaintenanceStartTimeCommand";
 import {
+  type StartVirtualMachinesMetadataSyncCommandInput,
+  type StartVirtualMachinesMetadataSyncCommandOutput,
   StartVirtualMachinesMetadataSyncCommand,
-  StartVirtualMachinesMetadataSyncCommandInput,
-  StartVirtualMachinesMetadataSyncCommandOutput,
 } from "./commands/StartVirtualMachinesMetadataSyncCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TestHypervisorConfigurationCommandInput,
+  type TestHypervisorConfigurationCommandOutput,
   TestHypervisorConfigurationCommand,
-  TestHypervisorConfigurationCommandInput,
-  TestHypervisorConfigurationCommandOutput,
 } from "./commands/TestHypervisorConfigurationCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateGatewayInformationCommandInput,
+  type UpdateGatewayInformationCommandOutput,
   UpdateGatewayInformationCommand,
-  UpdateGatewayInformationCommandInput,
-  UpdateGatewayInformationCommandOutput,
 } from "./commands/UpdateGatewayInformationCommand";
 import {
+  type UpdateGatewaySoftwareNowCommandInput,
+  type UpdateGatewaySoftwareNowCommandOutput,
   UpdateGatewaySoftwareNowCommand,
-  UpdateGatewaySoftwareNowCommandInput,
-  UpdateGatewaySoftwareNowCommandOutput,
 } from "./commands/UpdateGatewaySoftwareNowCommand";
 import {
+  type UpdateHypervisorCommandInput,
+  type UpdateHypervisorCommandOutput,
   UpdateHypervisorCommand,
-  UpdateHypervisorCommandInput,
-  UpdateHypervisorCommandOutput,
 } from "./commands/UpdateHypervisorCommand";
 import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
 import { paginateListHypervisors } from "./pagination/ListHypervisorsPaginator";

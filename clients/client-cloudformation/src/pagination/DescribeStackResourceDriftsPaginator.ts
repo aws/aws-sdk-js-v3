@@ -8,7 +8,7 @@ import {
   DescribeStackResourceDriftsCommandInput,
   DescribeStackResourceDriftsCommandOutput,
 } from "../commands/DescribeStackResourceDriftsCommand";
-import { CloudFormationPaginationConfiguration } from "./Interfaces";
+import type { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

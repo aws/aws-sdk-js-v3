@@ -8,7 +8,7 @@ import {
   ListAnalysisTemplatesCommandInput,
   ListAnalysisTemplatesCommandOutput,
 } from "../commands/ListAnalysisTemplatesCommand";
-import { CleanRoomsPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

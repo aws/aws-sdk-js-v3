@@ -18,7 +18,7 @@
  */
 export * from "./CloudFormationClient";
 export * from "./CloudFormation";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CloudFormationExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

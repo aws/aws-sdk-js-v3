@@ -8,7 +8,7 @@ import {
   ListAttachedLinksCommandOutput,
 } from "../commands/ListAttachedLinksCommand";
 import { OAMClient } from "../OAMClient";
-import { OAMPaginationConfiguration } from "./Interfaces";
+import type { OAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

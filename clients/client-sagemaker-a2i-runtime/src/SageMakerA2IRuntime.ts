@@ -3,29 +3,29 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DeleteHumanLoopCommandInput,
+  type DeleteHumanLoopCommandOutput,
   DeleteHumanLoopCommand,
-  DeleteHumanLoopCommandInput,
-  DeleteHumanLoopCommandOutput,
 } from "./commands/DeleteHumanLoopCommand";
 import {
+  type DescribeHumanLoopCommandInput,
+  type DescribeHumanLoopCommandOutput,
   DescribeHumanLoopCommand,
-  DescribeHumanLoopCommandInput,
-  DescribeHumanLoopCommandOutput,
 } from "./commands/DescribeHumanLoopCommand";
 import {
+  type ListHumanLoopsCommandInput,
+  type ListHumanLoopsCommandOutput,
   ListHumanLoopsCommand,
-  ListHumanLoopsCommandInput,
-  ListHumanLoopsCommandOutput,
 } from "./commands/ListHumanLoopsCommand";
 import {
+  type StartHumanLoopCommandInput,
+  type StartHumanLoopCommandOutput,
   StartHumanLoopCommand,
-  StartHumanLoopCommandInput,
-  StartHumanLoopCommandOutput,
 } from "./commands/StartHumanLoopCommand";
 import {
+  type StopHumanLoopCommandInput,
+  type StopHumanLoopCommandOutput,
   StopHumanLoopCommand,
-  StopHumanLoopCommandInput,
-  StopHumanLoopCommandOutput,
 } from "./commands/StopHumanLoopCommand";
 import { paginateListHumanLoops } from "./pagination/ListHumanLoopsPaginator";
 import { SageMakerA2IRuntimeClient } from "./SageMakerA2IRuntimeClient";

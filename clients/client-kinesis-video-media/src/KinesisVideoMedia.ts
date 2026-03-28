@@ -2,7 +2,7 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { GetMediaCommand, GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
+import { type GetMediaCommandInput, type GetMediaCommandOutput, GetMediaCommand } from "./commands/GetMediaCommand";
 import { KinesisVideoMediaClient } from "./KinesisVideoMediaClient";
 
 const commands = {

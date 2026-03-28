@@ -8,7 +8,7 @@ import {
   FilterLogEventsCommandInput,
   FilterLogEventsCommandOutput,
 } from "../commands/FilterLogEventsCommand";
-import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

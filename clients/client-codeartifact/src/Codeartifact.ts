@@ -4,236 +4,244 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CodeartifactClient } from "./CodeartifactClient";
 import {
+  type AssociateExternalConnectionCommandInput,
+  type AssociateExternalConnectionCommandOutput,
   AssociateExternalConnectionCommand,
-  AssociateExternalConnectionCommandInput,
-  AssociateExternalConnectionCommandOutput,
 } from "./commands/AssociateExternalConnectionCommand";
 import {
+  type CopyPackageVersionsCommandInput,
+  type CopyPackageVersionsCommandOutput,
   CopyPackageVersionsCommand,
-  CopyPackageVersionsCommandInput,
-  CopyPackageVersionsCommandOutput,
 } from "./commands/CopyPackageVersionsCommand";
 import {
+  type CreateDomainCommandInput,
+  type CreateDomainCommandOutput,
   CreateDomainCommand,
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  type CreatePackageGroupCommandInput,
+  type CreatePackageGroupCommandOutput,
   CreatePackageGroupCommand,
-  CreatePackageGroupCommandInput,
-  CreatePackageGroupCommandOutput,
 } from "./commands/CreatePackageGroupCommand";
 import {
+  type CreateRepositoryCommandInput,
+  type CreateRepositoryCommandOutput,
   CreateRepositoryCommand,
-  CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput,
 } from "./commands/CreateRepositoryCommand";
 import {
+  type DeleteDomainCommandInput,
+  type DeleteDomainCommandOutput,
   DeleteDomainCommand,
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
+  type DeleteDomainPermissionsPolicyCommandInput,
+  type DeleteDomainPermissionsPolicyCommandOutput,
   DeleteDomainPermissionsPolicyCommand,
-  DeleteDomainPermissionsPolicyCommandInput,
-  DeleteDomainPermissionsPolicyCommandOutput,
 } from "./commands/DeleteDomainPermissionsPolicyCommand";
 import {
+  type DeletePackageCommandInput,
+  type DeletePackageCommandOutput,
   DeletePackageCommand,
-  DeletePackageCommandInput,
-  DeletePackageCommandOutput,
 } from "./commands/DeletePackageCommand";
 import {
+  type DeletePackageGroupCommandInput,
+  type DeletePackageGroupCommandOutput,
   DeletePackageGroupCommand,
-  DeletePackageGroupCommandInput,
-  DeletePackageGroupCommandOutput,
 } from "./commands/DeletePackageGroupCommand";
 import {
+  type DeletePackageVersionsCommandInput,
+  type DeletePackageVersionsCommandOutput,
   DeletePackageVersionsCommand,
-  DeletePackageVersionsCommandInput,
-  DeletePackageVersionsCommandOutput,
 } from "./commands/DeletePackageVersionsCommand";
 import {
+  type DeleteRepositoryCommandInput,
+  type DeleteRepositoryCommandOutput,
   DeleteRepositoryCommand,
-  DeleteRepositoryCommandInput,
-  DeleteRepositoryCommandOutput,
 } from "./commands/DeleteRepositoryCommand";
 import {
+  type DeleteRepositoryPermissionsPolicyCommandInput,
+  type DeleteRepositoryPermissionsPolicyCommandOutput,
   DeleteRepositoryPermissionsPolicyCommand,
-  DeleteRepositoryPermissionsPolicyCommandInput,
-  DeleteRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPermissionsPolicyCommand";
 import {
+  type DescribeDomainCommandInput,
+  type DescribeDomainCommandOutput,
   DescribeDomainCommand,
-  DescribeDomainCommandInput,
-  DescribeDomainCommandOutput,
 } from "./commands/DescribeDomainCommand";
 import {
+  type DescribePackageCommandInput,
+  type DescribePackageCommandOutput,
   DescribePackageCommand,
-  DescribePackageCommandInput,
-  DescribePackageCommandOutput,
 } from "./commands/DescribePackageCommand";
 import {
+  type DescribePackageGroupCommandInput,
+  type DescribePackageGroupCommandOutput,
   DescribePackageGroupCommand,
-  DescribePackageGroupCommandInput,
-  DescribePackageGroupCommandOutput,
 } from "./commands/DescribePackageGroupCommand";
 import {
+  type DescribePackageVersionCommandInput,
+  type DescribePackageVersionCommandOutput,
   DescribePackageVersionCommand,
-  DescribePackageVersionCommandInput,
-  DescribePackageVersionCommandOutput,
 } from "./commands/DescribePackageVersionCommand";
 import {
+  type DescribeRepositoryCommandInput,
+  type DescribeRepositoryCommandOutput,
   DescribeRepositoryCommand,
-  DescribeRepositoryCommandInput,
-  DescribeRepositoryCommandOutput,
 } from "./commands/DescribeRepositoryCommand";
 import {
+  type DisassociateExternalConnectionCommandInput,
+  type DisassociateExternalConnectionCommandOutput,
   DisassociateExternalConnectionCommand,
-  DisassociateExternalConnectionCommandInput,
-  DisassociateExternalConnectionCommandOutput,
 } from "./commands/DisassociateExternalConnectionCommand";
 import {
+  type DisposePackageVersionsCommandInput,
+  type DisposePackageVersionsCommandOutput,
   DisposePackageVersionsCommand,
-  DisposePackageVersionsCommandInput,
-  DisposePackageVersionsCommandOutput,
 } from "./commands/DisposePackageVersionsCommand";
 import {
+  type GetAssociatedPackageGroupCommandInput,
+  type GetAssociatedPackageGroupCommandOutput,
   GetAssociatedPackageGroupCommand,
-  GetAssociatedPackageGroupCommandInput,
-  GetAssociatedPackageGroupCommandOutput,
 } from "./commands/GetAssociatedPackageGroupCommand";
 import {
+  type GetAuthorizationTokenCommandInput,
+  type GetAuthorizationTokenCommandOutput,
   GetAuthorizationTokenCommand,
-  GetAuthorizationTokenCommandInput,
-  GetAuthorizationTokenCommandOutput,
 } from "./commands/GetAuthorizationTokenCommand";
 import {
+  type GetDomainPermissionsPolicyCommandInput,
+  type GetDomainPermissionsPolicyCommandOutput,
   GetDomainPermissionsPolicyCommand,
-  GetDomainPermissionsPolicyCommandInput,
-  GetDomainPermissionsPolicyCommandOutput,
 } from "./commands/GetDomainPermissionsPolicyCommand";
 import {
+  type GetPackageVersionAssetCommandInput,
+  type GetPackageVersionAssetCommandOutput,
   GetPackageVersionAssetCommand,
-  GetPackageVersionAssetCommandInput,
-  GetPackageVersionAssetCommandOutput,
 } from "./commands/GetPackageVersionAssetCommand";
 import {
+  type GetPackageVersionReadmeCommandInput,
+  type GetPackageVersionReadmeCommandOutput,
   GetPackageVersionReadmeCommand,
-  GetPackageVersionReadmeCommandInput,
-  GetPackageVersionReadmeCommandOutput,
 } from "./commands/GetPackageVersionReadmeCommand";
 import {
+  type GetRepositoryEndpointCommandInput,
+  type GetRepositoryEndpointCommandOutput,
   GetRepositoryEndpointCommand,
-  GetRepositoryEndpointCommandInput,
-  GetRepositoryEndpointCommandOutput,
 } from "./commands/GetRepositoryEndpointCommand";
 import {
+  type GetRepositoryPermissionsPolicyCommandInput,
+  type GetRepositoryPermissionsPolicyCommandOutput,
   GetRepositoryPermissionsPolicyCommand,
-  GetRepositoryPermissionsPolicyCommandInput,
-  GetRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/GetRepositoryPermissionsPolicyCommand";
 import {
+  type ListAllowedRepositoriesForGroupCommandInput,
+  type ListAllowedRepositoriesForGroupCommandOutput,
   ListAllowedRepositoriesForGroupCommand,
-  ListAllowedRepositoriesForGroupCommandInput,
-  ListAllowedRepositoriesForGroupCommandOutput,
 } from "./commands/ListAllowedRepositoriesForGroupCommand";
 import {
+  type ListAssociatedPackagesCommandInput,
+  type ListAssociatedPackagesCommandOutput,
   ListAssociatedPackagesCommand,
-  ListAssociatedPackagesCommandInput,
-  ListAssociatedPackagesCommandOutput,
 } from "./commands/ListAssociatedPackagesCommand";
-import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  type ListDomainsCommandInput,
+  type ListDomainsCommandOutput,
+  ListDomainsCommand,
+} from "./commands/ListDomainsCommand";
+import {
+  type ListPackageGroupsCommandInput,
+  type ListPackageGroupsCommandOutput,
   ListPackageGroupsCommand,
-  ListPackageGroupsCommandInput,
-  ListPackageGroupsCommandOutput,
 } from "./commands/ListPackageGroupsCommand";
 import {
+  type ListPackagesCommandInput,
+  type ListPackagesCommandOutput,
   ListPackagesCommand,
-  ListPackagesCommandInput,
-  ListPackagesCommandOutput,
 } from "./commands/ListPackagesCommand";
 import {
+  type ListPackageVersionAssetsCommandInput,
+  type ListPackageVersionAssetsCommandOutput,
   ListPackageVersionAssetsCommand,
-  ListPackageVersionAssetsCommandInput,
-  ListPackageVersionAssetsCommandOutput,
 } from "./commands/ListPackageVersionAssetsCommand";
 import {
+  type ListPackageVersionDependenciesCommandInput,
+  type ListPackageVersionDependenciesCommandOutput,
   ListPackageVersionDependenciesCommand,
-  ListPackageVersionDependenciesCommandInput,
-  ListPackageVersionDependenciesCommandOutput,
 } from "./commands/ListPackageVersionDependenciesCommand";
 import {
+  type ListPackageVersionsCommandInput,
+  type ListPackageVersionsCommandOutput,
   ListPackageVersionsCommand,
-  ListPackageVersionsCommandInput,
-  ListPackageVersionsCommandOutput,
 } from "./commands/ListPackageVersionsCommand";
 import {
+  type ListRepositoriesCommandInput,
+  type ListRepositoriesCommandOutput,
   ListRepositoriesCommand,
-  ListRepositoriesCommandInput,
-  ListRepositoriesCommandOutput,
 } from "./commands/ListRepositoriesCommand";
 import {
+  type ListRepositoriesInDomainCommandInput,
+  type ListRepositoriesInDomainCommandOutput,
   ListRepositoriesInDomainCommand,
-  ListRepositoriesInDomainCommandInput,
-  ListRepositoriesInDomainCommandOutput,
 } from "./commands/ListRepositoriesInDomainCommand";
 import {
+  type ListSubPackageGroupsCommandInput,
+  type ListSubPackageGroupsCommandOutput,
   ListSubPackageGroupsCommand,
-  ListSubPackageGroupsCommandInput,
-  ListSubPackageGroupsCommandOutput,
 } from "./commands/ListSubPackageGroupsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PublishPackageVersionCommandInput,
+  type PublishPackageVersionCommandOutput,
   PublishPackageVersionCommand,
-  PublishPackageVersionCommandInput,
-  PublishPackageVersionCommandOutput,
 } from "./commands/PublishPackageVersionCommand";
 import {
+  type PutDomainPermissionsPolicyCommandInput,
+  type PutDomainPermissionsPolicyCommandOutput,
   PutDomainPermissionsPolicyCommand,
-  PutDomainPermissionsPolicyCommandInput,
-  PutDomainPermissionsPolicyCommandOutput,
 } from "./commands/PutDomainPermissionsPolicyCommand";
 import {
+  type PutPackageOriginConfigurationCommandInput,
+  type PutPackageOriginConfigurationCommandOutput,
   PutPackageOriginConfigurationCommand,
-  PutPackageOriginConfigurationCommandInput,
-  PutPackageOriginConfigurationCommandOutput,
 } from "./commands/PutPackageOriginConfigurationCommand";
 import {
+  type PutRepositoryPermissionsPolicyCommandInput,
+  type PutRepositoryPermissionsPolicyCommandOutput,
   PutRepositoryPermissionsPolicyCommand,
-  PutRepositoryPermissionsPolicyCommandInput,
-  PutRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/PutRepositoryPermissionsPolicyCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdatePackageGroupCommandInput,
+  type UpdatePackageGroupCommandOutput,
   UpdatePackageGroupCommand,
-  UpdatePackageGroupCommandInput,
-  UpdatePackageGroupCommandOutput,
 } from "./commands/UpdatePackageGroupCommand";
 import {
+  type UpdatePackageGroupOriginConfigurationCommandInput,
+  type UpdatePackageGroupOriginConfigurationCommandOutput,
   UpdatePackageGroupOriginConfigurationCommand,
-  UpdatePackageGroupOriginConfigurationCommandInput,
-  UpdatePackageGroupOriginConfigurationCommandOutput,
 } from "./commands/UpdatePackageGroupOriginConfigurationCommand";
 import {
+  type UpdatePackageVersionsStatusCommandInput,
+  type UpdatePackageVersionsStatusCommandOutput,
   UpdatePackageVersionsStatusCommand,
-  UpdatePackageVersionsStatusCommandInput,
-  UpdatePackageVersionsStatusCommandOutput,
 } from "./commands/UpdatePackageVersionsStatusCommand";
 import {
+  type UpdateRepositoryCommandInput,
+  type UpdateRepositoryCommandOutput,
   UpdateRepositoryCommand,
-  UpdateRepositoryCommandInput,
-  UpdateRepositoryCommandOutput,
 } from "./commands/UpdateRepositoryCommand";
 import { paginateListAllowedRepositoriesForGroup } from "./pagination/ListAllowedRepositoriesForGroupPaginator";
 import { paginateListAssociatedPackages } from "./pagination/ListAssociatedPackagesPaginator";

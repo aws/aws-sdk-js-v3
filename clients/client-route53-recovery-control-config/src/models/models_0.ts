@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { NetworkType, RuleType, Status } from "./enums";
+import type { NetworkType, RuleType, Status } from "./enums";
 
 /**
  * <p>A cluster endpoint. Specify an endpoint when you want to set or retrieve a routing control state in the cluster.</p>

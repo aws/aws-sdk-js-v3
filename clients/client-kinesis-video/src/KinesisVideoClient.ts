@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,105 +61,108 @@ import {
   defaultKinesisVideoHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateSignalingChannelCommandInput,
   CreateSignalingChannelCommandOutput,
 } from "./commands/CreateSignalingChannelCommand";
-import { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
-import {
+import type { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
+import type {
   DeleteEdgeConfigurationCommandInput,
   DeleteEdgeConfigurationCommandOutput,
 } from "./commands/DeleteEdgeConfigurationCommand";
-import {
+import type {
   DeleteSignalingChannelCommandInput,
   DeleteSignalingChannelCommandOutput,
 } from "./commands/DeleteSignalingChannelCommand";
-import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
-import {
+import type { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
+import type {
   DescribeEdgeConfigurationCommandInput,
   DescribeEdgeConfigurationCommandOutput,
 } from "./commands/DescribeEdgeConfigurationCommand";
-import {
+import type {
   DescribeImageGenerationConfigurationCommandInput,
   DescribeImageGenerationConfigurationCommandOutput,
 } from "./commands/DescribeImageGenerationConfigurationCommand";
-import {
+import type {
   DescribeMappedResourceConfigurationCommandInput,
   DescribeMappedResourceConfigurationCommandOutput,
 } from "./commands/DescribeMappedResourceConfigurationCommand";
-import {
+import type {
   DescribeMediaStorageConfigurationCommandInput,
   DescribeMediaStorageConfigurationCommandOutput,
 } from "./commands/DescribeMediaStorageConfigurationCommand";
-import {
+import type {
   DescribeNotificationConfigurationCommandInput,
   DescribeNotificationConfigurationCommandOutput,
 } from "./commands/DescribeNotificationConfigurationCommand";
-import {
+import type {
   DescribeSignalingChannelCommandInput,
   DescribeSignalingChannelCommandOutput,
 } from "./commands/DescribeSignalingChannelCommand";
-import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
-import {
+import type { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
+import type {
   DescribeStreamStorageConfigurationCommandInput,
   DescribeStreamStorageConfigurationCommandOutput,
 } from "./commands/DescribeStreamStorageConfigurationCommand";
-import { GetDataEndpointCommandInput, GetDataEndpointCommandOutput } from "./commands/GetDataEndpointCommand";
-import {
+import type { GetDataEndpointCommandInput, GetDataEndpointCommandOutput } from "./commands/GetDataEndpointCommand";
+import type {
   GetSignalingChannelEndpointCommandInput,
   GetSignalingChannelEndpointCommandOutput,
 } from "./commands/GetSignalingChannelEndpointCommand";
-import {
+import type {
   ListEdgeAgentConfigurationsCommandInput,
   ListEdgeAgentConfigurationsCommandOutput,
 } from "./commands/ListEdgeAgentConfigurationsCommand";
-import {
+import type {
   ListSignalingChannelsCommandInput,
   ListSignalingChannelsCommandOutput,
 } from "./commands/ListSignalingChannelsCommand";
-import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
-import {
+import type { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput } from "./commands/ListTagsForStreamCommand";
-import {
+import type {
+  ListTagsForStreamCommandInput,
+  ListTagsForStreamCommandOutput,
+} from "./commands/ListTagsForStreamCommand";
+import type {
   StartEdgeConfigurationUpdateCommandInput,
   StartEdgeConfigurationUpdateCommandOutput,
 } from "./commands/StartEdgeConfigurationUpdateCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TagStreamCommandInput, TagStreamCommandOutput } from "./commands/TagStreamCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UntagStreamCommandInput, UntagStreamCommandOutput } from "./commands/UntagStreamCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TagStreamCommandInput, TagStreamCommandOutput } from "./commands/TagStreamCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UntagStreamCommandInput, UntagStreamCommandOutput } from "./commands/UntagStreamCommand";
+import type {
   UpdateDataRetentionCommandInput,
   UpdateDataRetentionCommandOutput,
 } from "./commands/UpdateDataRetentionCommand";
-import {
+import type {
   UpdateImageGenerationConfigurationCommandInput,
   UpdateImageGenerationConfigurationCommandOutput,
 } from "./commands/UpdateImageGenerationConfigurationCommand";
-import {
+import type {
   UpdateMediaStorageConfigurationCommandInput,
   UpdateMediaStorageConfigurationCommandOutput,
 } from "./commands/UpdateMediaStorageConfigurationCommand";
-import {
+import type {
   UpdateNotificationConfigurationCommandInput,
   UpdateNotificationConfigurationCommandOutput,
 } from "./commands/UpdateNotificationConfigurationCommand";
-import {
+import type {
   UpdateSignalingChannelCommandInput,
   UpdateSignalingChannelCommandOutput,
 } from "./commands/UpdateSignalingChannelCommand";
-import { UpdateStreamCommandInput, UpdateStreamCommandOutput } from "./commands/UpdateStreamCommand";
-import {
+import type { UpdateStreamCommandInput, UpdateStreamCommandOutput } from "./commands/UpdateStreamCommand";
+import type {
   UpdateStreamStorageConfigurationCommandInput,
   UpdateStreamStorageConfigurationCommandOutput,
 } from "./commands/UpdateStreamStorageConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -357,7 +358,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

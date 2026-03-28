@@ -8,7 +8,7 @@ import {
   ListVpcEndpointsCommandOutput,
 } from "../commands/ListVpcEndpointsCommand";
 import { OpenSearchServerlessClient } from "../OpenSearchServerlessClient";
-import { OpenSearchServerlessPaginationConfiguration } from "./Interfaces";
+import type { OpenSearchServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

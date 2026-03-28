@@ -3,280 +3,284 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddCustomRoutingEndpointsCommandInput,
+  type AddCustomRoutingEndpointsCommandOutput,
   AddCustomRoutingEndpointsCommand,
-  AddCustomRoutingEndpointsCommandInput,
-  AddCustomRoutingEndpointsCommandOutput,
 } from "./commands/AddCustomRoutingEndpointsCommand";
 import {
+  type AddEndpointsCommandInput,
+  type AddEndpointsCommandOutput,
   AddEndpointsCommand,
-  AddEndpointsCommandInput,
-  AddEndpointsCommandOutput,
 } from "./commands/AddEndpointsCommand";
 import {
+  type AdvertiseByoipCidrCommandInput,
+  type AdvertiseByoipCidrCommandOutput,
   AdvertiseByoipCidrCommand,
-  AdvertiseByoipCidrCommandInput,
-  AdvertiseByoipCidrCommandOutput,
 } from "./commands/AdvertiseByoipCidrCommand";
 import {
+  type AllowCustomRoutingTrafficCommandInput,
+  type AllowCustomRoutingTrafficCommandOutput,
   AllowCustomRoutingTrafficCommand,
-  AllowCustomRoutingTrafficCommandInput,
-  AllowCustomRoutingTrafficCommandOutput,
 } from "./commands/AllowCustomRoutingTrafficCommand";
 import {
+  type CreateAcceleratorCommandInput,
+  type CreateAcceleratorCommandOutput,
   CreateAcceleratorCommand,
-  CreateAcceleratorCommandInput,
-  CreateAcceleratorCommandOutput,
 } from "./commands/CreateAcceleratorCommand";
 import {
+  type CreateCrossAccountAttachmentCommandInput,
+  type CreateCrossAccountAttachmentCommandOutput,
   CreateCrossAccountAttachmentCommand,
-  CreateCrossAccountAttachmentCommandInput,
-  CreateCrossAccountAttachmentCommandOutput,
 } from "./commands/CreateCrossAccountAttachmentCommand";
 import {
+  type CreateCustomRoutingAcceleratorCommandInput,
+  type CreateCustomRoutingAcceleratorCommandOutput,
   CreateCustomRoutingAcceleratorCommand,
-  CreateCustomRoutingAcceleratorCommandInput,
-  CreateCustomRoutingAcceleratorCommandOutput,
 } from "./commands/CreateCustomRoutingAcceleratorCommand";
 import {
+  type CreateCustomRoutingEndpointGroupCommandInput,
+  type CreateCustomRoutingEndpointGroupCommandOutput,
   CreateCustomRoutingEndpointGroupCommand,
-  CreateCustomRoutingEndpointGroupCommandInput,
-  CreateCustomRoutingEndpointGroupCommandOutput,
 } from "./commands/CreateCustomRoutingEndpointGroupCommand";
 import {
+  type CreateCustomRoutingListenerCommandInput,
+  type CreateCustomRoutingListenerCommandOutput,
   CreateCustomRoutingListenerCommand,
-  CreateCustomRoutingListenerCommandInput,
-  CreateCustomRoutingListenerCommandOutput,
 } from "./commands/CreateCustomRoutingListenerCommand";
 import {
+  type CreateEndpointGroupCommandInput,
+  type CreateEndpointGroupCommandOutput,
   CreateEndpointGroupCommand,
-  CreateEndpointGroupCommandInput,
-  CreateEndpointGroupCommandOutput,
 } from "./commands/CreateEndpointGroupCommand";
 import {
+  type CreateListenerCommandInput,
+  type CreateListenerCommandOutput,
   CreateListenerCommand,
-  CreateListenerCommandInput,
-  CreateListenerCommandOutput,
 } from "./commands/CreateListenerCommand";
 import {
+  type DeleteAcceleratorCommandInput,
+  type DeleteAcceleratorCommandOutput,
   DeleteAcceleratorCommand,
-  DeleteAcceleratorCommandInput,
-  DeleteAcceleratorCommandOutput,
 } from "./commands/DeleteAcceleratorCommand";
 import {
+  type DeleteCrossAccountAttachmentCommandInput,
+  type DeleteCrossAccountAttachmentCommandOutput,
   DeleteCrossAccountAttachmentCommand,
-  DeleteCrossAccountAttachmentCommandInput,
-  DeleteCrossAccountAttachmentCommandOutput,
 } from "./commands/DeleteCrossAccountAttachmentCommand";
 import {
+  type DeleteCustomRoutingAcceleratorCommandInput,
+  type DeleteCustomRoutingAcceleratorCommandOutput,
   DeleteCustomRoutingAcceleratorCommand,
-  DeleteCustomRoutingAcceleratorCommandInput,
-  DeleteCustomRoutingAcceleratorCommandOutput,
 } from "./commands/DeleteCustomRoutingAcceleratorCommand";
 import {
+  type DeleteCustomRoutingEndpointGroupCommandInput,
+  type DeleteCustomRoutingEndpointGroupCommandOutput,
   DeleteCustomRoutingEndpointGroupCommand,
-  DeleteCustomRoutingEndpointGroupCommandInput,
-  DeleteCustomRoutingEndpointGroupCommandOutput,
 } from "./commands/DeleteCustomRoutingEndpointGroupCommand";
 import {
+  type DeleteCustomRoutingListenerCommandInput,
+  type DeleteCustomRoutingListenerCommandOutput,
   DeleteCustomRoutingListenerCommand,
-  DeleteCustomRoutingListenerCommandInput,
-  DeleteCustomRoutingListenerCommandOutput,
 } from "./commands/DeleteCustomRoutingListenerCommand";
 import {
+  type DeleteEndpointGroupCommandInput,
+  type DeleteEndpointGroupCommandOutput,
   DeleteEndpointGroupCommand,
-  DeleteEndpointGroupCommandInput,
-  DeleteEndpointGroupCommandOutput,
 } from "./commands/DeleteEndpointGroupCommand";
 import {
+  type DeleteListenerCommandInput,
+  type DeleteListenerCommandOutput,
   DeleteListenerCommand,
-  DeleteListenerCommandInput,
-  DeleteListenerCommandOutput,
 } from "./commands/DeleteListenerCommand";
 import {
+  type DenyCustomRoutingTrafficCommandInput,
+  type DenyCustomRoutingTrafficCommandOutput,
   DenyCustomRoutingTrafficCommand,
-  DenyCustomRoutingTrafficCommandInput,
-  DenyCustomRoutingTrafficCommandOutput,
 } from "./commands/DenyCustomRoutingTrafficCommand";
 import {
+  type DeprovisionByoipCidrCommandInput,
+  type DeprovisionByoipCidrCommandOutput,
   DeprovisionByoipCidrCommand,
-  DeprovisionByoipCidrCommandInput,
-  DeprovisionByoipCidrCommandOutput,
 } from "./commands/DeprovisionByoipCidrCommand";
 import {
+  type DescribeAcceleratorAttributesCommandInput,
+  type DescribeAcceleratorAttributesCommandOutput,
   DescribeAcceleratorAttributesCommand,
-  DescribeAcceleratorAttributesCommandInput,
-  DescribeAcceleratorAttributesCommandOutput,
 } from "./commands/DescribeAcceleratorAttributesCommand";
 import {
+  type DescribeAcceleratorCommandInput,
+  type DescribeAcceleratorCommandOutput,
   DescribeAcceleratorCommand,
-  DescribeAcceleratorCommandInput,
-  DescribeAcceleratorCommandOutput,
 } from "./commands/DescribeAcceleratorCommand";
 import {
+  type DescribeCrossAccountAttachmentCommandInput,
+  type DescribeCrossAccountAttachmentCommandOutput,
   DescribeCrossAccountAttachmentCommand,
-  DescribeCrossAccountAttachmentCommandInput,
-  DescribeCrossAccountAttachmentCommandOutput,
 } from "./commands/DescribeCrossAccountAttachmentCommand";
 import {
+  type DescribeCustomRoutingAcceleratorAttributesCommandInput,
+  type DescribeCustomRoutingAcceleratorAttributesCommandOutput,
   DescribeCustomRoutingAcceleratorAttributesCommand,
-  DescribeCustomRoutingAcceleratorAttributesCommandInput,
-  DescribeCustomRoutingAcceleratorAttributesCommandOutput,
 } from "./commands/DescribeCustomRoutingAcceleratorAttributesCommand";
 import {
+  type DescribeCustomRoutingAcceleratorCommandInput,
+  type DescribeCustomRoutingAcceleratorCommandOutput,
   DescribeCustomRoutingAcceleratorCommand,
-  DescribeCustomRoutingAcceleratorCommandInput,
-  DescribeCustomRoutingAcceleratorCommandOutput,
 } from "./commands/DescribeCustomRoutingAcceleratorCommand";
 import {
+  type DescribeCustomRoutingEndpointGroupCommandInput,
+  type DescribeCustomRoutingEndpointGroupCommandOutput,
   DescribeCustomRoutingEndpointGroupCommand,
-  DescribeCustomRoutingEndpointGroupCommandInput,
-  DescribeCustomRoutingEndpointGroupCommandOutput,
 } from "./commands/DescribeCustomRoutingEndpointGroupCommand";
 import {
+  type DescribeCustomRoutingListenerCommandInput,
+  type DescribeCustomRoutingListenerCommandOutput,
   DescribeCustomRoutingListenerCommand,
-  DescribeCustomRoutingListenerCommandInput,
-  DescribeCustomRoutingListenerCommandOutput,
 } from "./commands/DescribeCustomRoutingListenerCommand";
 import {
+  type DescribeEndpointGroupCommandInput,
+  type DescribeEndpointGroupCommandOutput,
   DescribeEndpointGroupCommand,
-  DescribeEndpointGroupCommandInput,
-  DescribeEndpointGroupCommandOutput,
 } from "./commands/DescribeEndpointGroupCommand";
 import {
+  type DescribeListenerCommandInput,
+  type DescribeListenerCommandOutput,
   DescribeListenerCommand,
-  DescribeListenerCommandInput,
-  DescribeListenerCommandOutput,
 } from "./commands/DescribeListenerCommand";
 import {
+  type ListAcceleratorsCommandInput,
+  type ListAcceleratorsCommandOutput,
   ListAcceleratorsCommand,
-  ListAcceleratorsCommandInput,
-  ListAcceleratorsCommandOutput,
 } from "./commands/ListAcceleratorsCommand";
 import {
+  type ListByoipCidrsCommandInput,
+  type ListByoipCidrsCommandOutput,
   ListByoipCidrsCommand,
-  ListByoipCidrsCommandInput,
-  ListByoipCidrsCommandOutput,
 } from "./commands/ListByoipCidrsCommand";
 import {
+  type ListCrossAccountAttachmentsCommandInput,
+  type ListCrossAccountAttachmentsCommandOutput,
   ListCrossAccountAttachmentsCommand,
-  ListCrossAccountAttachmentsCommandInput,
-  ListCrossAccountAttachmentsCommandOutput,
 } from "./commands/ListCrossAccountAttachmentsCommand";
 import {
+  type ListCrossAccountResourceAccountsCommandInput,
+  type ListCrossAccountResourceAccountsCommandOutput,
   ListCrossAccountResourceAccountsCommand,
-  ListCrossAccountResourceAccountsCommandInput,
-  ListCrossAccountResourceAccountsCommandOutput,
 } from "./commands/ListCrossAccountResourceAccountsCommand";
 import {
+  type ListCrossAccountResourcesCommandInput,
+  type ListCrossAccountResourcesCommandOutput,
   ListCrossAccountResourcesCommand,
-  ListCrossAccountResourcesCommandInput,
-  ListCrossAccountResourcesCommandOutput,
 } from "./commands/ListCrossAccountResourcesCommand";
 import {
+  type ListCustomRoutingAcceleratorsCommandInput,
+  type ListCustomRoutingAcceleratorsCommandOutput,
   ListCustomRoutingAcceleratorsCommand,
-  ListCustomRoutingAcceleratorsCommandInput,
-  ListCustomRoutingAcceleratorsCommandOutput,
 } from "./commands/ListCustomRoutingAcceleratorsCommand";
 import {
+  type ListCustomRoutingEndpointGroupsCommandInput,
+  type ListCustomRoutingEndpointGroupsCommandOutput,
   ListCustomRoutingEndpointGroupsCommand,
-  ListCustomRoutingEndpointGroupsCommandInput,
-  ListCustomRoutingEndpointGroupsCommandOutput,
 } from "./commands/ListCustomRoutingEndpointGroupsCommand";
 import {
+  type ListCustomRoutingListenersCommandInput,
+  type ListCustomRoutingListenersCommandOutput,
   ListCustomRoutingListenersCommand,
-  ListCustomRoutingListenersCommandInput,
-  ListCustomRoutingListenersCommandOutput,
 } from "./commands/ListCustomRoutingListenersCommand";
 import {
+  type ListCustomRoutingPortMappingsByDestinationCommandInput,
+  type ListCustomRoutingPortMappingsByDestinationCommandOutput,
   ListCustomRoutingPortMappingsByDestinationCommand,
-  ListCustomRoutingPortMappingsByDestinationCommandInput,
-  ListCustomRoutingPortMappingsByDestinationCommandOutput,
 } from "./commands/ListCustomRoutingPortMappingsByDestinationCommand";
 import {
+  type ListCustomRoutingPortMappingsCommandInput,
+  type ListCustomRoutingPortMappingsCommandOutput,
   ListCustomRoutingPortMappingsCommand,
-  ListCustomRoutingPortMappingsCommandInput,
-  ListCustomRoutingPortMappingsCommandOutput,
 } from "./commands/ListCustomRoutingPortMappingsCommand";
 import {
+  type ListEndpointGroupsCommandInput,
+  type ListEndpointGroupsCommandOutput,
   ListEndpointGroupsCommand,
-  ListEndpointGroupsCommandInput,
-  ListEndpointGroupsCommandOutput,
 } from "./commands/ListEndpointGroupsCommand";
 import {
+  type ListListenersCommandInput,
+  type ListListenersCommandOutput,
   ListListenersCommand,
-  ListListenersCommandInput,
-  ListListenersCommandOutput,
 } from "./commands/ListListenersCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ProvisionByoipCidrCommandInput,
+  type ProvisionByoipCidrCommandOutput,
   ProvisionByoipCidrCommand,
-  ProvisionByoipCidrCommandInput,
-  ProvisionByoipCidrCommandOutput,
 } from "./commands/ProvisionByoipCidrCommand";
 import {
+  type RemoveCustomRoutingEndpointsCommandInput,
+  type RemoveCustomRoutingEndpointsCommandOutput,
   RemoveCustomRoutingEndpointsCommand,
-  RemoveCustomRoutingEndpointsCommandInput,
-  RemoveCustomRoutingEndpointsCommandOutput,
 } from "./commands/RemoveCustomRoutingEndpointsCommand";
 import {
+  type RemoveEndpointsCommandInput,
+  type RemoveEndpointsCommandOutput,
   RemoveEndpointsCommand,
-  RemoveEndpointsCommandInput,
-  RemoveEndpointsCommandOutput,
 } from "./commands/RemoveEndpointsCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAcceleratorAttributesCommandInput,
+  type UpdateAcceleratorAttributesCommandOutput,
   UpdateAcceleratorAttributesCommand,
-  UpdateAcceleratorAttributesCommandInput,
-  UpdateAcceleratorAttributesCommandOutput,
 } from "./commands/UpdateAcceleratorAttributesCommand";
 import {
+  type UpdateAcceleratorCommandInput,
+  type UpdateAcceleratorCommandOutput,
   UpdateAcceleratorCommand,
-  UpdateAcceleratorCommandInput,
-  UpdateAcceleratorCommandOutput,
 } from "./commands/UpdateAcceleratorCommand";
 import {
+  type UpdateCrossAccountAttachmentCommandInput,
+  type UpdateCrossAccountAttachmentCommandOutput,
   UpdateCrossAccountAttachmentCommand,
-  UpdateCrossAccountAttachmentCommandInput,
-  UpdateCrossAccountAttachmentCommandOutput,
 } from "./commands/UpdateCrossAccountAttachmentCommand";
 import {
+  type UpdateCustomRoutingAcceleratorAttributesCommandInput,
+  type UpdateCustomRoutingAcceleratorAttributesCommandOutput,
   UpdateCustomRoutingAcceleratorAttributesCommand,
-  UpdateCustomRoutingAcceleratorAttributesCommandInput,
-  UpdateCustomRoutingAcceleratorAttributesCommandOutput,
 } from "./commands/UpdateCustomRoutingAcceleratorAttributesCommand";
 import {
+  type UpdateCustomRoutingAcceleratorCommandInput,
+  type UpdateCustomRoutingAcceleratorCommandOutput,
   UpdateCustomRoutingAcceleratorCommand,
-  UpdateCustomRoutingAcceleratorCommandInput,
-  UpdateCustomRoutingAcceleratorCommandOutput,
 } from "./commands/UpdateCustomRoutingAcceleratorCommand";
 import {
+  type UpdateCustomRoutingListenerCommandInput,
+  type UpdateCustomRoutingListenerCommandOutput,
   UpdateCustomRoutingListenerCommand,
-  UpdateCustomRoutingListenerCommandInput,
-  UpdateCustomRoutingListenerCommandOutput,
 } from "./commands/UpdateCustomRoutingListenerCommand";
 import {
+  type UpdateEndpointGroupCommandInput,
+  type UpdateEndpointGroupCommandOutput,
   UpdateEndpointGroupCommand,
-  UpdateEndpointGroupCommandInput,
-  UpdateEndpointGroupCommandOutput,
 } from "./commands/UpdateEndpointGroupCommand";
 import {
+  type UpdateListenerCommandInput,
+  type UpdateListenerCommandOutput,
   UpdateListenerCommand,
-  UpdateListenerCommandInput,
-  UpdateListenerCommandOutput,
 } from "./commands/UpdateListenerCommand";
 import {
+  type WithdrawByoipCidrCommandInput,
+  type WithdrawByoipCidrCommandOutput,
   WithdrawByoipCidrCommand,
-  WithdrawByoipCidrCommandInput,
-  WithdrawByoipCidrCommandOutput,
 } from "./commands/WithdrawByoipCidrCommand";
 import { GlobalAcceleratorClient } from "./GlobalAcceleratorClient";
 import { paginateListAccelerators } from "./pagination/ListAcceleratorsPaginator";

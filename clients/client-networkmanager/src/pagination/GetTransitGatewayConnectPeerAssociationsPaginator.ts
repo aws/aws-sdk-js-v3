@@ -8,7 +8,7 @@ import {
   GetTransitGatewayConnectPeerAssociationsCommandOutput,
 } from "../commands/GetTransitGatewayConnectPeerAssociationsCommand";
 import { NetworkManagerClient } from "../NetworkManagerClient";
-import { NetworkManagerPaginationConfiguration } from "./Interfaces";
+import type { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

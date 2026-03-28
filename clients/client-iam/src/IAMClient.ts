@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,462 +61,537 @@ import {
   defaultIAMHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptDelegationRequestCommandInput,
   AcceptDelegationRequestCommandOutput,
 } from "./commands/AcceptDelegationRequestCommand";
-import {
+import type {
   AddClientIDToOpenIDConnectProviderCommandInput,
   AddClientIDToOpenIDConnectProviderCommandOutput,
 } from "./commands/AddClientIDToOpenIDConnectProviderCommand";
-import {
+import type {
   AddRoleToInstanceProfileCommandInput,
   AddRoleToInstanceProfileCommandOutput,
 } from "./commands/AddRoleToInstanceProfileCommand";
-import { AddUserToGroupCommandInput, AddUserToGroupCommandOutput } from "./commands/AddUserToGroupCommand";
-import {
+import type { AddUserToGroupCommandInput, AddUserToGroupCommandOutput } from "./commands/AddUserToGroupCommand";
+import type {
   AssociateDelegationRequestCommandInput,
   AssociateDelegationRequestCommandOutput,
 } from "./commands/AssociateDelegationRequestCommand";
-import { AttachGroupPolicyCommandInput, AttachGroupPolicyCommandOutput } from "./commands/AttachGroupPolicyCommand";
-import { AttachRolePolicyCommandInput, AttachRolePolicyCommandOutput } from "./commands/AttachRolePolicyCommand";
-import { AttachUserPolicyCommandInput, AttachUserPolicyCommandOutput } from "./commands/AttachUserPolicyCommand";
-import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand";
-import { CreateAccessKeyCommandInput, CreateAccessKeyCommandOutput } from "./commands/CreateAccessKeyCommand";
-import { CreateAccountAliasCommandInput, CreateAccountAliasCommandOutput } from "./commands/CreateAccountAliasCommand";
-import {
+import type {
+  AttachGroupPolicyCommandInput,
+  AttachGroupPolicyCommandOutput,
+} from "./commands/AttachGroupPolicyCommand";
+import type { AttachRolePolicyCommandInput, AttachRolePolicyCommandOutput } from "./commands/AttachRolePolicyCommand";
+import type { AttachUserPolicyCommandInput, AttachUserPolicyCommandOutput } from "./commands/AttachUserPolicyCommand";
+import type { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand";
+import type { CreateAccessKeyCommandInput, CreateAccessKeyCommandOutput } from "./commands/CreateAccessKeyCommand";
+import type {
+  CreateAccountAliasCommandInput,
+  CreateAccountAliasCommandOutput,
+} from "./commands/CreateAccountAliasCommand";
+import type {
   CreateDelegationRequestCommandInput,
   CreateDelegationRequestCommandOutput,
 } from "./commands/CreateDelegationRequestCommand";
-import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
-import {
+import type { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import type {
   CreateInstanceProfileCommandInput,
   CreateInstanceProfileCommandOutput,
 } from "./commands/CreateInstanceProfileCommand";
-import { CreateLoginProfileCommandInput, CreateLoginProfileCommandOutput } from "./commands/CreateLoginProfileCommand";
-import {
+import type {
+  CreateLoginProfileCommandInput,
+  CreateLoginProfileCommandOutput,
+} from "./commands/CreateLoginProfileCommand";
+import type {
   CreateOpenIDConnectProviderCommandInput,
   CreateOpenIDConnectProviderCommandOutput,
 } from "./commands/CreateOpenIDConnectProviderCommand";
-import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
-import {
+import type { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
+import type {
   CreatePolicyVersionCommandInput,
   CreatePolicyVersionCommandOutput,
 } from "./commands/CreatePolicyVersionCommand";
-import { CreateRoleCommandInput, CreateRoleCommandOutput } from "./commands/CreateRoleCommand";
-import { CreateSAMLProviderCommandInput, CreateSAMLProviderCommandOutput } from "./commands/CreateSAMLProviderCommand";
-import {
+import type { CreateRoleCommandInput, CreateRoleCommandOutput } from "./commands/CreateRoleCommand";
+import type {
+  CreateSAMLProviderCommandInput,
+  CreateSAMLProviderCommandOutput,
+} from "./commands/CreateSAMLProviderCommand";
+import type {
   CreateServiceLinkedRoleCommandInput,
   CreateServiceLinkedRoleCommandOutput,
 } from "./commands/CreateServiceLinkedRoleCommand";
-import {
+import type {
   CreateServiceSpecificCredentialCommandInput,
   CreateServiceSpecificCredentialCommandOutput,
 } from "./commands/CreateServiceSpecificCredentialCommand";
-import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import {
+import type { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import type {
   CreateVirtualMFADeviceCommandInput,
   CreateVirtualMFADeviceCommandOutput,
 } from "./commands/CreateVirtualMFADeviceCommand";
-import {
+import type {
   DeactivateMFADeviceCommandInput,
   DeactivateMFADeviceCommandOutput,
 } from "./commands/DeactivateMFADeviceCommand";
-import { DeleteAccessKeyCommandInput, DeleteAccessKeyCommandOutput } from "./commands/DeleteAccessKeyCommand";
-import { DeleteAccountAliasCommandInput, DeleteAccountAliasCommandOutput } from "./commands/DeleteAccountAliasCommand";
-import {
+import type { DeleteAccessKeyCommandInput, DeleteAccessKeyCommandOutput } from "./commands/DeleteAccessKeyCommand";
+import type {
+  DeleteAccountAliasCommandInput,
+  DeleteAccountAliasCommandOutput,
+} from "./commands/DeleteAccountAliasCommand";
+import type {
   DeleteAccountPasswordPolicyCommandInput,
   DeleteAccountPasswordPolicyCommandOutput,
 } from "./commands/DeleteAccountPasswordPolicyCommand";
-import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
-import { DeleteGroupPolicyCommandInput, DeleteGroupPolicyCommandOutput } from "./commands/DeleteGroupPolicyCommand";
-import {
+import type { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import type {
+  DeleteGroupPolicyCommandInput,
+  DeleteGroupPolicyCommandOutput,
+} from "./commands/DeleteGroupPolicyCommand";
+import type {
   DeleteInstanceProfileCommandInput,
   DeleteInstanceProfileCommandOutput,
 } from "./commands/DeleteInstanceProfileCommand";
-import { DeleteLoginProfileCommandInput, DeleteLoginProfileCommandOutput } from "./commands/DeleteLoginProfileCommand";
-import {
+import type {
+  DeleteLoginProfileCommandInput,
+  DeleteLoginProfileCommandOutput,
+} from "./commands/DeleteLoginProfileCommand";
+import type {
   DeleteOpenIDConnectProviderCommandInput,
   DeleteOpenIDConnectProviderCommandOutput,
 } from "./commands/DeleteOpenIDConnectProviderCommand";
-import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
-import {
+import type { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
+import type {
   DeletePolicyVersionCommandInput,
   DeletePolicyVersionCommandOutput,
 } from "./commands/DeletePolicyVersionCommand";
-import { DeleteRoleCommandInput, DeleteRoleCommandOutput } from "./commands/DeleteRoleCommand";
-import {
+import type { DeleteRoleCommandInput, DeleteRoleCommandOutput } from "./commands/DeleteRoleCommand";
+import type {
   DeleteRolePermissionsBoundaryCommandInput,
   DeleteRolePermissionsBoundaryCommandOutput,
 } from "./commands/DeleteRolePermissionsBoundaryCommand";
-import { DeleteRolePolicyCommandInput, DeleteRolePolicyCommandOutput } from "./commands/DeleteRolePolicyCommand";
-import { DeleteSAMLProviderCommandInput, DeleteSAMLProviderCommandOutput } from "./commands/DeleteSAMLProviderCommand";
-import {
+import type { DeleteRolePolicyCommandInput, DeleteRolePolicyCommandOutput } from "./commands/DeleteRolePolicyCommand";
+import type {
+  DeleteSAMLProviderCommandInput,
+  DeleteSAMLProviderCommandOutput,
+} from "./commands/DeleteSAMLProviderCommand";
+import type {
   DeleteServerCertificateCommandInput,
   DeleteServerCertificateCommandOutput,
 } from "./commands/DeleteServerCertificateCommand";
-import {
+import type {
   DeleteServiceLinkedRoleCommandInput,
   DeleteServiceLinkedRoleCommandOutput,
 } from "./commands/DeleteServiceLinkedRoleCommand";
-import {
+import type {
   DeleteServiceSpecificCredentialCommandInput,
   DeleteServiceSpecificCredentialCommandOutput,
 } from "./commands/DeleteServiceSpecificCredentialCommand";
-import {
+import type {
   DeleteSigningCertificateCommandInput,
   DeleteSigningCertificateCommandOutput,
 } from "./commands/DeleteSigningCertificateCommand";
-import { DeleteSSHPublicKeyCommandInput, DeleteSSHPublicKeyCommandOutput } from "./commands/DeleteSSHPublicKeyCommand";
-import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
-import {
+import type {
+  DeleteSSHPublicKeyCommandInput,
+  DeleteSSHPublicKeyCommandOutput,
+} from "./commands/DeleteSSHPublicKeyCommand";
+import type { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import type {
   DeleteUserPermissionsBoundaryCommandInput,
   DeleteUserPermissionsBoundaryCommandOutput,
 } from "./commands/DeleteUserPermissionsBoundaryCommand";
-import { DeleteUserPolicyCommandInput, DeleteUserPolicyCommandOutput } from "./commands/DeleteUserPolicyCommand";
-import {
+import type { DeleteUserPolicyCommandInput, DeleteUserPolicyCommandOutput } from "./commands/DeleteUserPolicyCommand";
+import type {
   DeleteVirtualMFADeviceCommandInput,
   DeleteVirtualMFADeviceCommandOutput,
 } from "./commands/DeleteVirtualMFADeviceCommand";
-import { DetachGroupPolicyCommandInput, DetachGroupPolicyCommandOutput } from "./commands/DetachGroupPolicyCommand";
-import { DetachRolePolicyCommandInput, DetachRolePolicyCommandOutput } from "./commands/DetachRolePolicyCommand";
-import { DetachUserPolicyCommandInput, DetachUserPolicyCommandOutput } from "./commands/DetachUserPolicyCommand";
-import {
+import type {
+  DetachGroupPolicyCommandInput,
+  DetachGroupPolicyCommandOutput,
+} from "./commands/DetachGroupPolicyCommand";
+import type { DetachRolePolicyCommandInput, DetachRolePolicyCommandOutput } from "./commands/DetachRolePolicyCommand";
+import type { DetachUserPolicyCommandInput, DetachUserPolicyCommandOutput } from "./commands/DetachUserPolicyCommand";
+import type {
   DisableOrganizationsRootCredentialsManagementCommandInput,
   DisableOrganizationsRootCredentialsManagementCommandOutput,
 } from "./commands/DisableOrganizationsRootCredentialsManagementCommand";
-import {
+import type {
   DisableOrganizationsRootSessionsCommandInput,
   DisableOrganizationsRootSessionsCommandOutput,
 } from "./commands/DisableOrganizationsRootSessionsCommand";
-import {
+import type {
   DisableOutboundWebIdentityFederationCommandInput,
   DisableOutboundWebIdentityFederationCommandOutput,
 } from "./commands/DisableOutboundWebIdentityFederationCommand";
-import { EnableMFADeviceCommandInput, EnableMFADeviceCommandOutput } from "./commands/EnableMFADeviceCommand";
-import {
+import type { EnableMFADeviceCommandInput, EnableMFADeviceCommandOutput } from "./commands/EnableMFADeviceCommand";
+import type {
   EnableOrganizationsRootCredentialsManagementCommandInput,
   EnableOrganizationsRootCredentialsManagementCommandOutput,
 } from "./commands/EnableOrganizationsRootCredentialsManagementCommand";
-import {
+import type {
   EnableOrganizationsRootSessionsCommandInput,
   EnableOrganizationsRootSessionsCommandOutput,
 } from "./commands/EnableOrganizationsRootSessionsCommand";
-import {
+import type {
   EnableOutboundWebIdentityFederationCommandInput,
   EnableOutboundWebIdentityFederationCommandOutput,
 } from "./commands/EnableOutboundWebIdentityFederationCommand";
-import {
+import type {
   GenerateCredentialReportCommandInput,
   GenerateCredentialReportCommandOutput,
 } from "./commands/GenerateCredentialReportCommand";
-import {
+import type {
   GenerateOrganizationsAccessReportCommandInput,
   GenerateOrganizationsAccessReportCommandOutput,
 } from "./commands/GenerateOrganizationsAccessReportCommand";
-import {
+import type {
   GenerateServiceLastAccessedDetailsCommandInput,
   GenerateServiceLastAccessedDetailsCommandOutput,
 } from "./commands/GenerateServiceLastAccessedDetailsCommand";
-import {
+import type {
   GetAccessKeyLastUsedCommandInput,
   GetAccessKeyLastUsedCommandOutput,
 } from "./commands/GetAccessKeyLastUsedCommand";
-import {
+import type {
   GetAccountAuthorizationDetailsCommandInput,
   GetAccountAuthorizationDetailsCommandOutput,
 } from "./commands/GetAccountAuthorizationDetailsCommand";
-import {
+import type {
   GetAccountPasswordPolicyCommandInput,
   GetAccountPasswordPolicyCommandOutput,
 } from "./commands/GetAccountPasswordPolicyCommand";
-import { GetAccountSummaryCommandInput, GetAccountSummaryCommandOutput } from "./commands/GetAccountSummaryCommand";
-import {
+import type {
+  GetAccountSummaryCommandInput,
+  GetAccountSummaryCommandOutput,
+} from "./commands/GetAccountSummaryCommand";
+import type {
   GetContextKeysForCustomPolicyCommandInput,
   GetContextKeysForCustomPolicyCommandOutput,
 } from "./commands/GetContextKeysForCustomPolicyCommand";
-import {
+import type {
   GetContextKeysForPrincipalPolicyCommandInput,
   GetContextKeysForPrincipalPolicyCommandOutput,
 } from "./commands/GetContextKeysForPrincipalPolicyCommand";
-import {
+import type {
   GetCredentialReportCommandInput,
   GetCredentialReportCommandOutput,
 } from "./commands/GetCredentialReportCommand";
-import {
+import type {
   GetDelegationRequestCommandInput,
   GetDelegationRequestCommandOutput,
 } from "./commands/GetDelegationRequestCommand";
-import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
-import { GetGroupPolicyCommandInput, GetGroupPolicyCommandOutput } from "./commands/GetGroupPolicyCommand";
-import {
+import type { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import type { GetGroupPolicyCommandInput, GetGroupPolicyCommandOutput } from "./commands/GetGroupPolicyCommand";
+import type {
   GetHumanReadableSummaryCommandInput,
   GetHumanReadableSummaryCommandOutput,
 } from "./commands/GetHumanReadableSummaryCommand";
-import { GetInstanceProfileCommandInput, GetInstanceProfileCommandOutput } from "./commands/GetInstanceProfileCommand";
-import { GetLoginProfileCommandInput, GetLoginProfileCommandOutput } from "./commands/GetLoginProfileCommand";
-import { GetMFADeviceCommandInput, GetMFADeviceCommandOutput } from "./commands/GetMFADeviceCommand";
-import {
+import type {
+  GetInstanceProfileCommandInput,
+  GetInstanceProfileCommandOutput,
+} from "./commands/GetInstanceProfileCommand";
+import type { GetLoginProfileCommandInput, GetLoginProfileCommandOutput } from "./commands/GetLoginProfileCommand";
+import type { GetMFADeviceCommandInput, GetMFADeviceCommandOutput } from "./commands/GetMFADeviceCommand";
+import type {
   GetOpenIDConnectProviderCommandInput,
   GetOpenIDConnectProviderCommandOutput,
 } from "./commands/GetOpenIDConnectProviderCommand";
-import {
+import type {
   GetOrganizationsAccessReportCommandInput,
   GetOrganizationsAccessReportCommandOutput,
 } from "./commands/GetOrganizationsAccessReportCommand";
-import {
+import type {
   GetOutboundWebIdentityFederationInfoCommandInput,
   GetOutboundWebIdentityFederationInfoCommandOutput,
 } from "./commands/GetOutboundWebIdentityFederationInfoCommand";
-import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
-import { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand";
-import { GetRoleCommandInput, GetRoleCommandOutput } from "./commands/GetRoleCommand";
-import { GetRolePolicyCommandInput, GetRolePolicyCommandOutput } from "./commands/GetRolePolicyCommand";
-import { GetSAMLProviderCommandInput, GetSAMLProviderCommandOutput } from "./commands/GetSAMLProviderCommand";
-import {
+import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import type { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand";
+import type { GetRoleCommandInput, GetRoleCommandOutput } from "./commands/GetRoleCommand";
+import type { GetRolePolicyCommandInput, GetRolePolicyCommandOutput } from "./commands/GetRolePolicyCommand";
+import type { GetSAMLProviderCommandInput, GetSAMLProviderCommandOutput } from "./commands/GetSAMLProviderCommand";
+import type {
   GetServerCertificateCommandInput,
   GetServerCertificateCommandOutput,
 } from "./commands/GetServerCertificateCommand";
-import {
+import type {
   GetServiceLastAccessedDetailsCommandInput,
   GetServiceLastAccessedDetailsCommandOutput,
 } from "./commands/GetServiceLastAccessedDetailsCommand";
-import {
+import type {
   GetServiceLastAccessedDetailsWithEntitiesCommandInput,
   GetServiceLastAccessedDetailsWithEntitiesCommandOutput,
 } from "./commands/GetServiceLastAccessedDetailsWithEntitiesCommand";
-import {
+import type {
   GetServiceLinkedRoleDeletionStatusCommandInput,
   GetServiceLinkedRoleDeletionStatusCommandOutput,
 } from "./commands/GetServiceLinkedRoleDeletionStatusCommand";
-import { GetSSHPublicKeyCommandInput, GetSSHPublicKeyCommandOutput } from "./commands/GetSSHPublicKeyCommand";
-import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
-import { GetUserPolicyCommandInput, GetUserPolicyCommandOutput } from "./commands/GetUserPolicyCommand";
-import { ListAccessKeysCommandInput, ListAccessKeysCommandOutput } from "./commands/ListAccessKeysCommand";
-import { ListAccountAliasesCommandInput, ListAccountAliasesCommandOutput } from "./commands/ListAccountAliasesCommand";
-import {
+import type { GetSSHPublicKeyCommandInput, GetSSHPublicKeyCommandOutput } from "./commands/GetSSHPublicKeyCommand";
+import type { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
+import type { GetUserPolicyCommandInput, GetUserPolicyCommandOutput } from "./commands/GetUserPolicyCommand";
+import type { ListAccessKeysCommandInput, ListAccessKeysCommandOutput } from "./commands/ListAccessKeysCommand";
+import type {
+  ListAccountAliasesCommandInput,
+  ListAccountAliasesCommandOutput,
+} from "./commands/ListAccountAliasesCommand";
+import type {
   ListAttachedGroupPoliciesCommandInput,
   ListAttachedGroupPoliciesCommandOutput,
 } from "./commands/ListAttachedGroupPoliciesCommand";
-import {
+import type {
   ListAttachedRolePoliciesCommandInput,
   ListAttachedRolePoliciesCommandOutput,
 } from "./commands/ListAttachedRolePoliciesCommand";
-import {
+import type {
   ListAttachedUserPoliciesCommandInput,
   ListAttachedUserPoliciesCommandOutput,
 } from "./commands/ListAttachedUserPoliciesCommand";
-import {
+import type {
   ListDelegationRequestsCommandInput,
   ListDelegationRequestsCommandOutput,
 } from "./commands/ListDelegationRequestsCommand";
-import {
+import type {
   ListEntitiesForPolicyCommandInput,
   ListEntitiesForPolicyCommandOutput,
 } from "./commands/ListEntitiesForPolicyCommand";
-import { ListGroupPoliciesCommandInput, ListGroupPoliciesCommandOutput } from "./commands/ListGroupPoliciesCommand";
-import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
-import { ListGroupsForUserCommandInput, ListGroupsForUserCommandOutput } from "./commands/ListGroupsForUserCommand";
-import {
+import type {
+  ListGroupPoliciesCommandInput,
+  ListGroupPoliciesCommandOutput,
+} from "./commands/ListGroupPoliciesCommand";
+import type { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import type {
+  ListGroupsForUserCommandInput,
+  ListGroupsForUserCommandOutput,
+} from "./commands/ListGroupsForUserCommand";
+import type {
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput,
 } from "./commands/ListInstanceProfilesCommand";
-import {
+import type {
   ListInstanceProfilesForRoleCommandInput,
   ListInstanceProfilesForRoleCommandOutput,
 } from "./commands/ListInstanceProfilesForRoleCommand";
-import {
+import type {
   ListInstanceProfileTagsCommandInput,
   ListInstanceProfileTagsCommandOutput,
 } from "./commands/ListInstanceProfileTagsCommand";
-import { ListMFADevicesCommandInput, ListMFADevicesCommandOutput } from "./commands/ListMFADevicesCommand";
-import { ListMFADeviceTagsCommandInput, ListMFADeviceTagsCommandOutput } from "./commands/ListMFADeviceTagsCommand";
-import {
+import type { ListMFADevicesCommandInput, ListMFADevicesCommandOutput } from "./commands/ListMFADevicesCommand";
+import type {
+  ListMFADeviceTagsCommandInput,
+  ListMFADeviceTagsCommandOutput,
+} from "./commands/ListMFADeviceTagsCommand";
+import type {
   ListOpenIDConnectProvidersCommandInput,
   ListOpenIDConnectProvidersCommandOutput,
 } from "./commands/ListOpenIDConnectProvidersCommand";
-import {
+import type {
   ListOpenIDConnectProviderTagsCommandInput,
   ListOpenIDConnectProviderTagsCommandOutput,
 } from "./commands/ListOpenIDConnectProviderTagsCommand";
-import {
+import type {
   ListOrganizationsFeaturesCommandInput,
   ListOrganizationsFeaturesCommandOutput,
 } from "./commands/ListOrganizationsFeaturesCommand";
-import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
-import {
+import type { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
+import type {
   ListPoliciesGrantingServiceAccessCommandInput,
   ListPoliciesGrantingServiceAccessCommandOutput,
 } from "./commands/ListPoliciesGrantingServiceAccessCommand";
-import { ListPolicyTagsCommandInput, ListPolicyTagsCommandOutput } from "./commands/ListPolicyTagsCommand";
-import { ListPolicyVersionsCommandInput, ListPolicyVersionsCommandOutput } from "./commands/ListPolicyVersionsCommand";
-import { ListRolePoliciesCommandInput, ListRolePoliciesCommandOutput } from "./commands/ListRolePoliciesCommand";
-import { ListRolesCommandInput, ListRolesCommandOutput } from "./commands/ListRolesCommand";
-import { ListRoleTagsCommandInput, ListRoleTagsCommandOutput } from "./commands/ListRoleTagsCommand";
-import { ListSAMLProvidersCommandInput, ListSAMLProvidersCommandOutput } from "./commands/ListSAMLProvidersCommand";
-import {
+import type { ListPolicyTagsCommandInput, ListPolicyTagsCommandOutput } from "./commands/ListPolicyTagsCommand";
+import type {
+  ListPolicyVersionsCommandInput,
+  ListPolicyVersionsCommandOutput,
+} from "./commands/ListPolicyVersionsCommand";
+import type { ListRolePoliciesCommandInput, ListRolePoliciesCommandOutput } from "./commands/ListRolePoliciesCommand";
+import type { ListRolesCommandInput, ListRolesCommandOutput } from "./commands/ListRolesCommand";
+import type { ListRoleTagsCommandInput, ListRoleTagsCommandOutput } from "./commands/ListRoleTagsCommand";
+import type {
+  ListSAMLProvidersCommandInput,
+  ListSAMLProvidersCommandOutput,
+} from "./commands/ListSAMLProvidersCommand";
+import type {
   ListSAMLProviderTagsCommandInput,
   ListSAMLProviderTagsCommandOutput,
 } from "./commands/ListSAMLProviderTagsCommand";
-import {
+import type {
   ListServerCertificatesCommandInput,
   ListServerCertificatesCommandOutput,
 } from "./commands/ListServerCertificatesCommand";
-import {
+import type {
   ListServerCertificateTagsCommandInput,
   ListServerCertificateTagsCommandOutput,
 } from "./commands/ListServerCertificateTagsCommand";
-import {
+import type {
   ListServiceSpecificCredentialsCommandInput,
   ListServiceSpecificCredentialsCommandOutput,
 } from "./commands/ListServiceSpecificCredentialsCommand";
-import {
+import type {
   ListSigningCertificatesCommandInput,
   ListSigningCertificatesCommandOutput,
 } from "./commands/ListSigningCertificatesCommand";
-import { ListSSHPublicKeysCommandInput, ListSSHPublicKeysCommandOutput } from "./commands/ListSSHPublicKeysCommand";
-import { ListUserPoliciesCommandInput, ListUserPoliciesCommandOutput } from "./commands/ListUserPoliciesCommand";
-import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import { ListUserTagsCommandInput, ListUserTagsCommandOutput } from "./commands/ListUserTagsCommand";
-import {
+import type {
+  ListSSHPublicKeysCommandInput,
+  ListSSHPublicKeysCommandOutput,
+} from "./commands/ListSSHPublicKeysCommand";
+import type { ListUserPoliciesCommandInput, ListUserPoliciesCommandOutput } from "./commands/ListUserPoliciesCommand";
+import type { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import type { ListUserTagsCommandInput, ListUserTagsCommandOutput } from "./commands/ListUserTagsCommand";
+import type {
   ListVirtualMFADevicesCommandInput,
   ListVirtualMFADevicesCommandOutput,
 } from "./commands/ListVirtualMFADevicesCommand";
-import { PutGroupPolicyCommandInput, PutGroupPolicyCommandOutput } from "./commands/PutGroupPolicyCommand";
-import {
+import type { PutGroupPolicyCommandInput, PutGroupPolicyCommandOutput } from "./commands/PutGroupPolicyCommand";
+import type {
   PutRolePermissionsBoundaryCommandInput,
   PutRolePermissionsBoundaryCommandOutput,
 } from "./commands/PutRolePermissionsBoundaryCommand";
-import { PutRolePolicyCommandInput, PutRolePolicyCommandOutput } from "./commands/PutRolePolicyCommand";
-import {
+import type { PutRolePolicyCommandInput, PutRolePolicyCommandOutput } from "./commands/PutRolePolicyCommand";
+import type {
   PutUserPermissionsBoundaryCommandInput,
   PutUserPermissionsBoundaryCommandOutput,
 } from "./commands/PutUserPermissionsBoundaryCommand";
-import { PutUserPolicyCommandInput, PutUserPolicyCommandOutput } from "./commands/PutUserPolicyCommand";
-import {
+import type { PutUserPolicyCommandInput, PutUserPolicyCommandOutput } from "./commands/PutUserPolicyCommand";
+import type {
   RejectDelegationRequestCommandInput,
   RejectDelegationRequestCommandOutput,
 } from "./commands/RejectDelegationRequestCommand";
-import {
+import type {
   RemoveClientIDFromOpenIDConnectProviderCommandInput,
   RemoveClientIDFromOpenIDConnectProviderCommandOutput,
 } from "./commands/RemoveClientIDFromOpenIDConnectProviderCommand";
-import {
+import type {
   RemoveRoleFromInstanceProfileCommandInput,
   RemoveRoleFromInstanceProfileCommandOutput,
 } from "./commands/RemoveRoleFromInstanceProfileCommand";
-import {
+import type {
   RemoveUserFromGroupCommandInput,
   RemoveUserFromGroupCommandOutput,
 } from "./commands/RemoveUserFromGroupCommand";
-import {
+import type {
   ResetServiceSpecificCredentialCommandInput,
   ResetServiceSpecificCredentialCommandOutput,
 } from "./commands/ResetServiceSpecificCredentialCommand";
-import { ResyncMFADeviceCommandInput, ResyncMFADeviceCommandOutput } from "./commands/ResyncMFADeviceCommand";
-import {
+import type { ResyncMFADeviceCommandInput, ResyncMFADeviceCommandOutput } from "./commands/ResyncMFADeviceCommand";
+import type {
   SendDelegationTokenCommandInput,
   SendDelegationTokenCommandOutput,
 } from "./commands/SendDelegationTokenCommand";
-import {
+import type {
   SetDefaultPolicyVersionCommandInput,
   SetDefaultPolicyVersionCommandOutput,
 } from "./commands/SetDefaultPolicyVersionCommand";
-import {
+import type {
   SetSecurityTokenServicePreferencesCommandInput,
   SetSecurityTokenServicePreferencesCommandOutput,
 } from "./commands/SetSecurityTokenServicePreferencesCommand";
-import {
+import type {
   SimulateCustomPolicyCommandInput,
   SimulateCustomPolicyCommandOutput,
 } from "./commands/SimulateCustomPolicyCommand";
-import {
+import type {
   SimulatePrincipalPolicyCommandInput,
   SimulatePrincipalPolicyCommandOutput,
 } from "./commands/SimulatePrincipalPolicyCommand";
-import { TagInstanceProfileCommandInput, TagInstanceProfileCommandOutput } from "./commands/TagInstanceProfileCommand";
-import { TagMFADeviceCommandInput, TagMFADeviceCommandOutput } from "./commands/TagMFADeviceCommand";
-import {
+import type {
+  TagInstanceProfileCommandInput,
+  TagInstanceProfileCommandOutput,
+} from "./commands/TagInstanceProfileCommand";
+import type { TagMFADeviceCommandInput, TagMFADeviceCommandOutput } from "./commands/TagMFADeviceCommand";
+import type {
   TagOpenIDConnectProviderCommandInput,
   TagOpenIDConnectProviderCommandOutput,
 } from "./commands/TagOpenIDConnectProviderCommand";
-import { TagPolicyCommandInput, TagPolicyCommandOutput } from "./commands/TagPolicyCommand";
-import { TagRoleCommandInput, TagRoleCommandOutput } from "./commands/TagRoleCommand";
-import { TagSAMLProviderCommandInput, TagSAMLProviderCommandOutput } from "./commands/TagSAMLProviderCommand";
-import {
+import type { TagPolicyCommandInput, TagPolicyCommandOutput } from "./commands/TagPolicyCommand";
+import type { TagRoleCommandInput, TagRoleCommandOutput } from "./commands/TagRoleCommand";
+import type { TagSAMLProviderCommandInput, TagSAMLProviderCommandOutput } from "./commands/TagSAMLProviderCommand";
+import type {
   TagServerCertificateCommandInput,
   TagServerCertificateCommandOutput,
 } from "./commands/TagServerCertificateCommand";
-import { TagUserCommandInput, TagUserCommandOutput } from "./commands/TagUserCommand";
-import {
+import type { TagUserCommandInput, TagUserCommandOutput } from "./commands/TagUserCommand";
+import type {
   UntagInstanceProfileCommandInput,
   UntagInstanceProfileCommandOutput,
 } from "./commands/UntagInstanceProfileCommand";
-import { UntagMFADeviceCommandInput, UntagMFADeviceCommandOutput } from "./commands/UntagMFADeviceCommand";
-import {
+import type { UntagMFADeviceCommandInput, UntagMFADeviceCommandOutput } from "./commands/UntagMFADeviceCommand";
+import type {
   UntagOpenIDConnectProviderCommandInput,
   UntagOpenIDConnectProviderCommandOutput,
 } from "./commands/UntagOpenIDConnectProviderCommand";
-import { UntagPolicyCommandInput, UntagPolicyCommandOutput } from "./commands/UntagPolicyCommand";
-import { UntagRoleCommandInput, UntagRoleCommandOutput } from "./commands/UntagRoleCommand";
-import { UntagSAMLProviderCommandInput, UntagSAMLProviderCommandOutput } from "./commands/UntagSAMLProviderCommand";
-import {
+import type { UntagPolicyCommandInput, UntagPolicyCommandOutput } from "./commands/UntagPolicyCommand";
+import type { UntagRoleCommandInput, UntagRoleCommandOutput } from "./commands/UntagRoleCommand";
+import type {
+  UntagSAMLProviderCommandInput,
+  UntagSAMLProviderCommandOutput,
+} from "./commands/UntagSAMLProviderCommand";
+import type {
   UntagServerCertificateCommandInput,
   UntagServerCertificateCommandOutput,
 } from "./commands/UntagServerCertificateCommand";
-import { UntagUserCommandInput, UntagUserCommandOutput } from "./commands/UntagUserCommand";
-import { UpdateAccessKeyCommandInput, UpdateAccessKeyCommandOutput } from "./commands/UpdateAccessKeyCommand";
-import {
+import type { UntagUserCommandInput, UntagUserCommandOutput } from "./commands/UntagUserCommand";
+import type { UpdateAccessKeyCommandInput, UpdateAccessKeyCommandOutput } from "./commands/UpdateAccessKeyCommand";
+import type {
   UpdateAccountPasswordPolicyCommandInput,
   UpdateAccountPasswordPolicyCommandOutput,
 } from "./commands/UpdateAccountPasswordPolicyCommand";
-import {
+import type {
   UpdateAssumeRolePolicyCommandInput,
   UpdateAssumeRolePolicyCommandOutput,
 } from "./commands/UpdateAssumeRolePolicyCommand";
-import {
+import type {
   UpdateDelegationRequestCommandInput,
   UpdateDelegationRequestCommandOutput,
 } from "./commands/UpdateDelegationRequestCommand";
-import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
-import { UpdateLoginProfileCommandInput, UpdateLoginProfileCommandOutput } from "./commands/UpdateLoginProfileCommand";
-import {
+import type { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
+import type {
+  UpdateLoginProfileCommandInput,
+  UpdateLoginProfileCommandOutput,
+} from "./commands/UpdateLoginProfileCommand";
+import type {
   UpdateOpenIDConnectProviderThumbprintCommandInput,
   UpdateOpenIDConnectProviderThumbprintCommandOutput,
 } from "./commands/UpdateOpenIDConnectProviderThumbprintCommand";
-import { UpdateRoleCommandInput, UpdateRoleCommandOutput } from "./commands/UpdateRoleCommand";
-import {
+import type { UpdateRoleCommandInput, UpdateRoleCommandOutput } from "./commands/UpdateRoleCommand";
+import type {
   UpdateRoleDescriptionCommandInput,
   UpdateRoleDescriptionCommandOutput,
 } from "./commands/UpdateRoleDescriptionCommand";
-import { UpdateSAMLProviderCommandInput, UpdateSAMLProviderCommandOutput } from "./commands/UpdateSAMLProviderCommand";
-import {
+import type {
+  UpdateSAMLProviderCommandInput,
+  UpdateSAMLProviderCommandOutput,
+} from "./commands/UpdateSAMLProviderCommand";
+import type {
   UpdateServerCertificateCommandInput,
   UpdateServerCertificateCommandOutput,
 } from "./commands/UpdateServerCertificateCommand";
-import {
+import type {
   UpdateServiceSpecificCredentialCommandInput,
   UpdateServiceSpecificCredentialCommandOutput,
 } from "./commands/UpdateServiceSpecificCredentialCommand";
-import {
+import type {
   UpdateSigningCertificateCommandInput,
   UpdateSigningCertificateCommandOutput,
 } from "./commands/UpdateSigningCertificateCommand";
-import { UpdateSSHPublicKeyCommandInput, UpdateSSHPublicKeyCommandOutput } from "./commands/UpdateSSHPublicKeyCommand";
-import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import {
+import type {
+  UpdateSSHPublicKeyCommandInput,
+  UpdateSSHPublicKeyCommandOutput,
+} from "./commands/UpdateSSHPublicKeyCommand";
+import type { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import type {
   UploadServerCertificateCommandInput,
   UploadServerCertificateCommandOutput,
 } from "./commands/UploadServerCertificateCommand";
-import {
+import type {
   UploadSigningCertificateCommandInput,
   UploadSigningCertificateCommandOutput,
 } from "./commands/UploadSigningCertificateCommand";
-import { UploadSSHPublicKeyCommandInput, UploadSSHPublicKeyCommandOutput } from "./commands/UploadSSHPublicKeyCommand";
+import type {
+  UploadSSHPublicKeyCommandInput,
+  UploadSSHPublicKeyCommandOutput,
+} from "./commands/UploadSSHPublicKeyCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -1002,7 +1075,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

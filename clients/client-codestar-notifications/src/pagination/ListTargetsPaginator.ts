@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CodestarNotificationsClient } from "../CodestarNotificationsClient";
 import { ListTargetsCommand, ListTargetsCommandInput, ListTargetsCommandOutput } from "../commands/ListTargetsCommand";
-import { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
+import type { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,428 +4,440 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CleanRoomsClient } from "./CleanRoomsClient";
 import {
+  type BatchGetCollaborationAnalysisTemplateCommandInput,
+  type BatchGetCollaborationAnalysisTemplateCommandOutput,
   BatchGetCollaborationAnalysisTemplateCommand,
-  BatchGetCollaborationAnalysisTemplateCommandInput,
-  BatchGetCollaborationAnalysisTemplateCommandOutput,
 } from "./commands/BatchGetCollaborationAnalysisTemplateCommand";
 import {
+  type BatchGetSchemaAnalysisRuleCommandInput,
+  type BatchGetSchemaAnalysisRuleCommandOutput,
   BatchGetSchemaAnalysisRuleCommand,
-  BatchGetSchemaAnalysisRuleCommandInput,
-  BatchGetSchemaAnalysisRuleCommandOutput,
 } from "./commands/BatchGetSchemaAnalysisRuleCommand";
 import {
+  type BatchGetSchemaCommandInput,
+  type BatchGetSchemaCommandOutput,
   BatchGetSchemaCommand,
-  BatchGetSchemaCommandInput,
-  BatchGetSchemaCommandOutput,
 } from "./commands/BatchGetSchemaCommand";
 import {
+  type CreateAnalysisTemplateCommandInput,
+  type CreateAnalysisTemplateCommandOutput,
   CreateAnalysisTemplateCommand,
-  CreateAnalysisTemplateCommandInput,
-  CreateAnalysisTemplateCommandOutput,
 } from "./commands/CreateAnalysisTemplateCommand";
 import {
+  type CreateCollaborationChangeRequestCommandInput,
+  type CreateCollaborationChangeRequestCommandOutput,
   CreateCollaborationChangeRequestCommand,
-  CreateCollaborationChangeRequestCommandInput,
-  CreateCollaborationChangeRequestCommandOutput,
 } from "./commands/CreateCollaborationChangeRequestCommand";
 import {
+  type CreateCollaborationCommandInput,
+  type CreateCollaborationCommandOutput,
   CreateCollaborationCommand,
-  CreateCollaborationCommandInput,
-  CreateCollaborationCommandOutput,
 } from "./commands/CreateCollaborationCommand";
 import {
+  type CreateConfiguredAudienceModelAssociationCommandInput,
+  type CreateConfiguredAudienceModelAssociationCommandOutput,
   CreateConfiguredAudienceModelAssociationCommand,
-  CreateConfiguredAudienceModelAssociationCommandInput,
-  CreateConfiguredAudienceModelAssociationCommandOutput,
 } from "./commands/CreateConfiguredAudienceModelAssociationCommand";
 import {
+  type CreateConfiguredTableAnalysisRuleCommandInput,
+  type CreateConfiguredTableAnalysisRuleCommandOutput,
   CreateConfiguredTableAnalysisRuleCommand,
-  CreateConfiguredTableAnalysisRuleCommandInput,
-  CreateConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/CreateConfiguredTableAnalysisRuleCommand";
 import {
+  type CreateConfiguredTableAssociationAnalysisRuleCommandInput,
+  type CreateConfiguredTableAssociationAnalysisRuleCommandOutput,
   CreateConfiguredTableAssociationAnalysisRuleCommand,
-  CreateConfiguredTableAssociationAnalysisRuleCommandInput,
-  CreateConfiguredTableAssociationAnalysisRuleCommandOutput,
 } from "./commands/CreateConfiguredTableAssociationAnalysisRuleCommand";
 import {
+  type CreateConfiguredTableAssociationCommandInput,
+  type CreateConfiguredTableAssociationCommandOutput,
   CreateConfiguredTableAssociationCommand,
-  CreateConfiguredTableAssociationCommandInput,
-  CreateConfiguredTableAssociationCommandOutput,
 } from "./commands/CreateConfiguredTableAssociationCommand";
 import {
+  type CreateConfiguredTableCommandInput,
+  type CreateConfiguredTableCommandOutput,
   CreateConfiguredTableCommand,
-  CreateConfiguredTableCommandInput,
-  CreateConfiguredTableCommandOutput,
 } from "./commands/CreateConfiguredTableCommand";
 import {
+  type CreateIdMappingTableCommandInput,
+  type CreateIdMappingTableCommandOutput,
   CreateIdMappingTableCommand,
-  CreateIdMappingTableCommandInput,
-  CreateIdMappingTableCommandOutput,
 } from "./commands/CreateIdMappingTableCommand";
 import {
+  type CreateIdNamespaceAssociationCommandInput,
+  type CreateIdNamespaceAssociationCommandOutput,
   CreateIdNamespaceAssociationCommand,
-  CreateIdNamespaceAssociationCommandInput,
-  CreateIdNamespaceAssociationCommandOutput,
 } from "./commands/CreateIdNamespaceAssociationCommand";
 import {
+  type CreateMembershipCommandInput,
+  type CreateMembershipCommandOutput,
   CreateMembershipCommand,
-  CreateMembershipCommandInput,
-  CreateMembershipCommandOutput,
 } from "./commands/CreateMembershipCommand";
 import {
+  type CreatePrivacyBudgetTemplateCommandInput,
+  type CreatePrivacyBudgetTemplateCommandOutput,
   CreatePrivacyBudgetTemplateCommand,
-  CreatePrivacyBudgetTemplateCommandInput,
-  CreatePrivacyBudgetTemplateCommandOutput,
 } from "./commands/CreatePrivacyBudgetTemplateCommand";
 import {
+  type DeleteAnalysisTemplateCommandInput,
+  type DeleteAnalysisTemplateCommandOutput,
   DeleteAnalysisTemplateCommand,
-  DeleteAnalysisTemplateCommandInput,
-  DeleteAnalysisTemplateCommandOutput,
 } from "./commands/DeleteAnalysisTemplateCommand";
 import {
+  type DeleteCollaborationCommandInput,
+  type DeleteCollaborationCommandOutput,
   DeleteCollaborationCommand,
-  DeleteCollaborationCommandInput,
-  DeleteCollaborationCommandOutput,
 } from "./commands/DeleteCollaborationCommand";
 import {
+  type DeleteConfiguredAudienceModelAssociationCommandInput,
+  type DeleteConfiguredAudienceModelAssociationCommandOutput,
   DeleteConfiguredAudienceModelAssociationCommand,
-  DeleteConfiguredAudienceModelAssociationCommandInput,
-  DeleteConfiguredAudienceModelAssociationCommandOutput,
 } from "./commands/DeleteConfiguredAudienceModelAssociationCommand";
 import {
+  type DeleteConfiguredTableAnalysisRuleCommandInput,
+  type DeleteConfiguredTableAnalysisRuleCommandOutput,
   DeleteConfiguredTableAnalysisRuleCommand,
-  DeleteConfiguredTableAnalysisRuleCommandInput,
-  DeleteConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/DeleteConfiguredTableAnalysisRuleCommand";
 import {
+  type DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
+  type DeleteConfiguredTableAssociationAnalysisRuleCommandOutput,
   DeleteConfiguredTableAssociationAnalysisRuleCommand,
-  DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
-  DeleteConfiguredTableAssociationAnalysisRuleCommandOutput,
 } from "./commands/DeleteConfiguredTableAssociationAnalysisRuleCommand";
 import {
+  type DeleteConfiguredTableAssociationCommandInput,
+  type DeleteConfiguredTableAssociationCommandOutput,
   DeleteConfiguredTableAssociationCommand,
-  DeleteConfiguredTableAssociationCommandInput,
-  DeleteConfiguredTableAssociationCommandOutput,
 } from "./commands/DeleteConfiguredTableAssociationCommand";
 import {
+  type DeleteConfiguredTableCommandInput,
+  type DeleteConfiguredTableCommandOutput,
   DeleteConfiguredTableCommand,
-  DeleteConfiguredTableCommandInput,
-  DeleteConfiguredTableCommandOutput,
 } from "./commands/DeleteConfiguredTableCommand";
 import {
+  type DeleteIdMappingTableCommandInput,
+  type DeleteIdMappingTableCommandOutput,
   DeleteIdMappingTableCommand,
-  DeleteIdMappingTableCommandInput,
-  DeleteIdMappingTableCommandOutput,
 } from "./commands/DeleteIdMappingTableCommand";
 import {
+  type DeleteIdNamespaceAssociationCommandInput,
+  type DeleteIdNamespaceAssociationCommandOutput,
   DeleteIdNamespaceAssociationCommand,
-  DeleteIdNamespaceAssociationCommandInput,
-  DeleteIdNamespaceAssociationCommandOutput,
 } from "./commands/DeleteIdNamespaceAssociationCommand";
 import {
+  type DeleteMemberCommandInput,
+  type DeleteMemberCommandOutput,
   DeleteMemberCommand,
-  DeleteMemberCommandInput,
-  DeleteMemberCommandOutput,
 } from "./commands/DeleteMemberCommand";
 import {
+  type DeleteMembershipCommandInput,
+  type DeleteMembershipCommandOutput,
   DeleteMembershipCommand,
-  DeleteMembershipCommandInput,
-  DeleteMembershipCommandOutput,
 } from "./commands/DeleteMembershipCommand";
 import {
+  type DeletePrivacyBudgetTemplateCommandInput,
+  type DeletePrivacyBudgetTemplateCommandOutput,
   DeletePrivacyBudgetTemplateCommand,
-  DeletePrivacyBudgetTemplateCommandInput,
-  DeletePrivacyBudgetTemplateCommandOutput,
 } from "./commands/DeletePrivacyBudgetTemplateCommand";
 import {
+  type GetAnalysisTemplateCommandInput,
+  type GetAnalysisTemplateCommandOutput,
   GetAnalysisTemplateCommand,
-  GetAnalysisTemplateCommandInput,
-  GetAnalysisTemplateCommandOutput,
 } from "./commands/GetAnalysisTemplateCommand";
 import {
+  type GetCollaborationAnalysisTemplateCommandInput,
+  type GetCollaborationAnalysisTemplateCommandOutput,
   GetCollaborationAnalysisTemplateCommand,
-  GetCollaborationAnalysisTemplateCommandInput,
-  GetCollaborationAnalysisTemplateCommandOutput,
 } from "./commands/GetCollaborationAnalysisTemplateCommand";
 import {
+  type GetCollaborationChangeRequestCommandInput,
+  type GetCollaborationChangeRequestCommandOutput,
   GetCollaborationChangeRequestCommand,
-  GetCollaborationChangeRequestCommandInput,
-  GetCollaborationChangeRequestCommandOutput,
 } from "./commands/GetCollaborationChangeRequestCommand";
 import {
+  type GetCollaborationCommandInput,
+  type GetCollaborationCommandOutput,
   GetCollaborationCommand,
-  GetCollaborationCommandInput,
-  GetCollaborationCommandOutput,
 } from "./commands/GetCollaborationCommand";
 import {
+  type GetCollaborationConfiguredAudienceModelAssociationCommandInput,
+  type GetCollaborationConfiguredAudienceModelAssociationCommandOutput,
   GetCollaborationConfiguredAudienceModelAssociationCommand,
-  GetCollaborationConfiguredAudienceModelAssociationCommandInput,
-  GetCollaborationConfiguredAudienceModelAssociationCommandOutput,
 } from "./commands/GetCollaborationConfiguredAudienceModelAssociationCommand";
 import {
+  type GetCollaborationIdNamespaceAssociationCommandInput,
+  type GetCollaborationIdNamespaceAssociationCommandOutput,
   GetCollaborationIdNamespaceAssociationCommand,
-  GetCollaborationIdNamespaceAssociationCommandInput,
-  GetCollaborationIdNamespaceAssociationCommandOutput,
 } from "./commands/GetCollaborationIdNamespaceAssociationCommand";
 import {
+  type GetCollaborationPrivacyBudgetTemplateCommandInput,
+  type GetCollaborationPrivacyBudgetTemplateCommandOutput,
   GetCollaborationPrivacyBudgetTemplateCommand,
-  GetCollaborationPrivacyBudgetTemplateCommandInput,
-  GetCollaborationPrivacyBudgetTemplateCommandOutput,
 } from "./commands/GetCollaborationPrivacyBudgetTemplateCommand";
 import {
+  type GetConfiguredAudienceModelAssociationCommandInput,
+  type GetConfiguredAudienceModelAssociationCommandOutput,
   GetConfiguredAudienceModelAssociationCommand,
-  GetConfiguredAudienceModelAssociationCommandInput,
-  GetConfiguredAudienceModelAssociationCommandOutput,
 } from "./commands/GetConfiguredAudienceModelAssociationCommand";
 import {
+  type GetConfiguredTableAnalysisRuleCommandInput,
+  type GetConfiguredTableAnalysisRuleCommandOutput,
   GetConfiguredTableAnalysisRuleCommand,
-  GetConfiguredTableAnalysisRuleCommandInput,
-  GetConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/GetConfiguredTableAnalysisRuleCommand";
 import {
+  type GetConfiguredTableAssociationAnalysisRuleCommandInput,
+  type GetConfiguredTableAssociationAnalysisRuleCommandOutput,
   GetConfiguredTableAssociationAnalysisRuleCommand,
-  GetConfiguredTableAssociationAnalysisRuleCommandInput,
-  GetConfiguredTableAssociationAnalysisRuleCommandOutput,
 } from "./commands/GetConfiguredTableAssociationAnalysisRuleCommand";
 import {
+  type GetConfiguredTableAssociationCommandInput,
+  type GetConfiguredTableAssociationCommandOutput,
   GetConfiguredTableAssociationCommand,
-  GetConfiguredTableAssociationCommandInput,
-  GetConfiguredTableAssociationCommandOutput,
 } from "./commands/GetConfiguredTableAssociationCommand";
 import {
+  type GetConfiguredTableCommandInput,
+  type GetConfiguredTableCommandOutput,
   GetConfiguredTableCommand,
-  GetConfiguredTableCommandInput,
-  GetConfiguredTableCommandOutput,
 } from "./commands/GetConfiguredTableCommand";
 import {
+  type GetIdMappingTableCommandInput,
+  type GetIdMappingTableCommandOutput,
   GetIdMappingTableCommand,
-  GetIdMappingTableCommandInput,
-  GetIdMappingTableCommandOutput,
 } from "./commands/GetIdMappingTableCommand";
 import {
+  type GetIdNamespaceAssociationCommandInput,
+  type GetIdNamespaceAssociationCommandOutput,
   GetIdNamespaceAssociationCommand,
-  GetIdNamespaceAssociationCommandInput,
-  GetIdNamespaceAssociationCommandOutput,
 } from "./commands/GetIdNamespaceAssociationCommand";
 import {
+  type GetMembershipCommandInput,
+  type GetMembershipCommandOutput,
   GetMembershipCommand,
-  GetMembershipCommandInput,
-  GetMembershipCommandOutput,
 } from "./commands/GetMembershipCommand";
 import {
+  type GetPrivacyBudgetTemplateCommandInput,
+  type GetPrivacyBudgetTemplateCommandOutput,
   GetPrivacyBudgetTemplateCommand,
-  GetPrivacyBudgetTemplateCommandInput,
-  GetPrivacyBudgetTemplateCommandOutput,
 } from "./commands/GetPrivacyBudgetTemplateCommand";
 import {
+  type GetProtectedJobCommandInput,
+  type GetProtectedJobCommandOutput,
   GetProtectedJobCommand,
-  GetProtectedJobCommandInput,
-  GetProtectedJobCommandOutput,
 } from "./commands/GetProtectedJobCommand";
 import {
+  type GetProtectedQueryCommandInput,
+  type GetProtectedQueryCommandOutput,
   GetProtectedQueryCommand,
-  GetProtectedQueryCommandInput,
-  GetProtectedQueryCommandOutput,
 } from "./commands/GetProtectedQueryCommand";
 import {
+  type GetSchemaAnalysisRuleCommandInput,
+  type GetSchemaAnalysisRuleCommandOutput,
   GetSchemaAnalysisRuleCommand,
-  GetSchemaAnalysisRuleCommandInput,
-  GetSchemaAnalysisRuleCommandOutput,
 } from "./commands/GetSchemaAnalysisRuleCommand";
-import { GetSchemaCommand, GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
+import { type GetSchemaCommandInput, type GetSchemaCommandOutput, GetSchemaCommand } from "./commands/GetSchemaCommand";
 import {
+  type ListAnalysisTemplatesCommandInput,
+  type ListAnalysisTemplatesCommandOutput,
   ListAnalysisTemplatesCommand,
-  ListAnalysisTemplatesCommandInput,
-  ListAnalysisTemplatesCommandOutput,
 } from "./commands/ListAnalysisTemplatesCommand";
 import {
+  type ListCollaborationAnalysisTemplatesCommandInput,
+  type ListCollaborationAnalysisTemplatesCommandOutput,
   ListCollaborationAnalysisTemplatesCommand,
-  ListCollaborationAnalysisTemplatesCommandInput,
-  ListCollaborationAnalysisTemplatesCommandOutput,
 } from "./commands/ListCollaborationAnalysisTemplatesCommand";
 import {
+  type ListCollaborationChangeRequestsCommandInput,
+  type ListCollaborationChangeRequestsCommandOutput,
   ListCollaborationChangeRequestsCommand,
-  ListCollaborationChangeRequestsCommandInput,
-  ListCollaborationChangeRequestsCommandOutput,
 } from "./commands/ListCollaborationChangeRequestsCommand";
 import {
+  type ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
+  type ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
   ListCollaborationConfiguredAudienceModelAssociationsCommand,
-  ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
-  ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
 } from "./commands/ListCollaborationConfiguredAudienceModelAssociationsCommand";
 import {
+  type ListCollaborationIdNamespaceAssociationsCommandInput,
+  type ListCollaborationIdNamespaceAssociationsCommandOutput,
   ListCollaborationIdNamespaceAssociationsCommand,
-  ListCollaborationIdNamespaceAssociationsCommandInput,
-  ListCollaborationIdNamespaceAssociationsCommandOutput,
 } from "./commands/ListCollaborationIdNamespaceAssociationsCommand";
 import {
+  type ListCollaborationPrivacyBudgetsCommandInput,
+  type ListCollaborationPrivacyBudgetsCommandOutput,
   ListCollaborationPrivacyBudgetsCommand,
-  ListCollaborationPrivacyBudgetsCommandInput,
-  ListCollaborationPrivacyBudgetsCommandOutput,
 } from "./commands/ListCollaborationPrivacyBudgetsCommand";
 import {
+  type ListCollaborationPrivacyBudgetTemplatesCommandInput,
+  type ListCollaborationPrivacyBudgetTemplatesCommandOutput,
   ListCollaborationPrivacyBudgetTemplatesCommand,
-  ListCollaborationPrivacyBudgetTemplatesCommandInput,
-  ListCollaborationPrivacyBudgetTemplatesCommandOutput,
 } from "./commands/ListCollaborationPrivacyBudgetTemplatesCommand";
 import {
+  type ListCollaborationsCommandInput,
+  type ListCollaborationsCommandOutput,
   ListCollaborationsCommand,
-  ListCollaborationsCommandInput,
-  ListCollaborationsCommandOutput,
 } from "./commands/ListCollaborationsCommand";
 import {
+  type ListConfiguredAudienceModelAssociationsCommandInput,
+  type ListConfiguredAudienceModelAssociationsCommandOutput,
   ListConfiguredAudienceModelAssociationsCommand,
-  ListConfiguredAudienceModelAssociationsCommandInput,
-  ListConfiguredAudienceModelAssociationsCommandOutput,
 } from "./commands/ListConfiguredAudienceModelAssociationsCommand";
 import {
+  type ListConfiguredTableAssociationsCommandInput,
+  type ListConfiguredTableAssociationsCommandOutput,
   ListConfiguredTableAssociationsCommand,
-  ListConfiguredTableAssociationsCommandInput,
-  ListConfiguredTableAssociationsCommandOutput,
 } from "./commands/ListConfiguredTableAssociationsCommand";
 import {
+  type ListConfiguredTablesCommandInput,
+  type ListConfiguredTablesCommandOutput,
   ListConfiguredTablesCommand,
-  ListConfiguredTablesCommandInput,
-  ListConfiguredTablesCommandOutput,
 } from "./commands/ListConfiguredTablesCommand";
 import {
+  type ListIdMappingTablesCommandInput,
+  type ListIdMappingTablesCommandOutput,
   ListIdMappingTablesCommand,
-  ListIdMappingTablesCommandInput,
-  ListIdMappingTablesCommandOutput,
 } from "./commands/ListIdMappingTablesCommand";
 import {
+  type ListIdNamespaceAssociationsCommandInput,
+  type ListIdNamespaceAssociationsCommandOutput,
   ListIdNamespaceAssociationsCommand,
-  ListIdNamespaceAssociationsCommandInput,
-  ListIdNamespaceAssociationsCommandOutput,
 } from "./commands/ListIdNamespaceAssociationsCommand";
-import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
+  type ListMembersCommandInput,
+  type ListMembersCommandOutput,
+  ListMembersCommand,
+} from "./commands/ListMembersCommand";
+import {
+  type ListMembershipsCommandInput,
+  type ListMembershipsCommandOutput,
   ListMembershipsCommand,
-  ListMembershipsCommandInput,
-  ListMembershipsCommandOutput,
 } from "./commands/ListMembershipsCommand";
 import {
+  type ListPrivacyBudgetsCommandInput,
+  type ListPrivacyBudgetsCommandOutput,
   ListPrivacyBudgetsCommand,
-  ListPrivacyBudgetsCommandInput,
-  ListPrivacyBudgetsCommandOutput,
 } from "./commands/ListPrivacyBudgetsCommand";
 import {
+  type ListPrivacyBudgetTemplatesCommandInput,
+  type ListPrivacyBudgetTemplatesCommandOutput,
   ListPrivacyBudgetTemplatesCommand,
-  ListPrivacyBudgetTemplatesCommandInput,
-  ListPrivacyBudgetTemplatesCommandOutput,
 } from "./commands/ListPrivacyBudgetTemplatesCommand";
 import {
+  type ListProtectedJobsCommandInput,
+  type ListProtectedJobsCommandOutput,
   ListProtectedJobsCommand,
-  ListProtectedJobsCommandInput,
-  ListProtectedJobsCommandOutput,
 } from "./commands/ListProtectedJobsCommand";
 import {
+  type ListProtectedQueriesCommandInput,
+  type ListProtectedQueriesCommandOutput,
   ListProtectedQueriesCommand,
-  ListProtectedQueriesCommandInput,
-  ListProtectedQueriesCommandOutput,
 } from "./commands/ListProtectedQueriesCommand";
-import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
+  type ListSchemasCommandInput,
+  type ListSchemasCommandOutput,
+  ListSchemasCommand,
+} from "./commands/ListSchemasCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PopulateIdMappingTableCommandInput,
+  type PopulateIdMappingTableCommandOutput,
   PopulateIdMappingTableCommand,
-  PopulateIdMappingTableCommandInput,
-  PopulateIdMappingTableCommandOutput,
 } from "./commands/PopulateIdMappingTableCommand";
 import {
+  type PreviewPrivacyImpactCommandInput,
+  type PreviewPrivacyImpactCommandOutput,
   PreviewPrivacyImpactCommand,
-  PreviewPrivacyImpactCommandInput,
-  PreviewPrivacyImpactCommandOutput,
 } from "./commands/PreviewPrivacyImpactCommand";
 import {
+  type StartProtectedJobCommandInput,
+  type StartProtectedJobCommandOutput,
   StartProtectedJobCommand,
-  StartProtectedJobCommandInput,
-  StartProtectedJobCommandOutput,
 } from "./commands/StartProtectedJobCommand";
 import {
+  type StartProtectedQueryCommandInput,
+  type StartProtectedQueryCommandOutput,
   StartProtectedQueryCommand,
-  StartProtectedQueryCommandInput,
-  StartProtectedQueryCommandOutput,
 } from "./commands/StartProtectedQueryCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAnalysisTemplateCommandInput,
+  type UpdateAnalysisTemplateCommandOutput,
   UpdateAnalysisTemplateCommand,
-  UpdateAnalysisTemplateCommandInput,
-  UpdateAnalysisTemplateCommandOutput,
 } from "./commands/UpdateAnalysisTemplateCommand";
 import {
+  type UpdateCollaborationChangeRequestCommandInput,
+  type UpdateCollaborationChangeRequestCommandOutput,
   UpdateCollaborationChangeRequestCommand,
-  UpdateCollaborationChangeRequestCommandInput,
-  UpdateCollaborationChangeRequestCommandOutput,
 } from "./commands/UpdateCollaborationChangeRequestCommand";
 import {
+  type UpdateCollaborationCommandInput,
+  type UpdateCollaborationCommandOutput,
   UpdateCollaborationCommand,
-  UpdateCollaborationCommandInput,
-  UpdateCollaborationCommandOutput,
 } from "./commands/UpdateCollaborationCommand";
 import {
+  type UpdateConfiguredAudienceModelAssociationCommandInput,
+  type UpdateConfiguredAudienceModelAssociationCommandOutput,
   UpdateConfiguredAudienceModelAssociationCommand,
-  UpdateConfiguredAudienceModelAssociationCommandInput,
-  UpdateConfiguredAudienceModelAssociationCommandOutput,
 } from "./commands/UpdateConfiguredAudienceModelAssociationCommand";
 import {
+  type UpdateConfiguredTableAnalysisRuleCommandInput,
+  type UpdateConfiguredTableAnalysisRuleCommandOutput,
   UpdateConfiguredTableAnalysisRuleCommand,
-  UpdateConfiguredTableAnalysisRuleCommandInput,
-  UpdateConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/UpdateConfiguredTableAnalysisRuleCommand";
 import {
+  type UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
+  type UpdateConfiguredTableAssociationAnalysisRuleCommandOutput,
   UpdateConfiguredTableAssociationAnalysisRuleCommand,
-  UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
-  UpdateConfiguredTableAssociationAnalysisRuleCommandOutput,
 } from "./commands/UpdateConfiguredTableAssociationAnalysisRuleCommand";
 import {
+  type UpdateConfiguredTableAssociationCommandInput,
+  type UpdateConfiguredTableAssociationCommandOutput,
   UpdateConfiguredTableAssociationCommand,
-  UpdateConfiguredTableAssociationCommandInput,
-  UpdateConfiguredTableAssociationCommandOutput,
 } from "./commands/UpdateConfiguredTableAssociationCommand";
 import {
+  type UpdateConfiguredTableCommandInput,
+  type UpdateConfiguredTableCommandOutput,
   UpdateConfiguredTableCommand,
-  UpdateConfiguredTableCommandInput,
-  UpdateConfiguredTableCommandOutput,
 } from "./commands/UpdateConfiguredTableCommand";
 import {
+  type UpdateIdMappingTableCommandInput,
+  type UpdateIdMappingTableCommandOutput,
   UpdateIdMappingTableCommand,
-  UpdateIdMappingTableCommandInput,
-  UpdateIdMappingTableCommandOutput,
 } from "./commands/UpdateIdMappingTableCommand";
 import {
+  type UpdateIdNamespaceAssociationCommandInput,
+  type UpdateIdNamespaceAssociationCommandOutput,
   UpdateIdNamespaceAssociationCommand,
-  UpdateIdNamespaceAssociationCommandInput,
-  UpdateIdNamespaceAssociationCommandOutput,
 } from "./commands/UpdateIdNamespaceAssociationCommand";
 import {
+  type UpdateMembershipCommandInput,
+  type UpdateMembershipCommandOutput,
   UpdateMembershipCommand,
-  UpdateMembershipCommandInput,
-  UpdateMembershipCommandOutput,
 } from "./commands/UpdateMembershipCommand";
 import {
+  type UpdatePrivacyBudgetTemplateCommandInput,
+  type UpdatePrivacyBudgetTemplateCommandOutput,
   UpdatePrivacyBudgetTemplateCommand,
-  UpdatePrivacyBudgetTemplateCommandInput,
-  UpdatePrivacyBudgetTemplateCommandOutput,
 } from "./commands/UpdatePrivacyBudgetTemplateCommand";
 import {
+  type UpdateProtectedJobCommandInput,
+  type UpdateProtectedJobCommandOutput,
   UpdateProtectedJobCommand,
-  UpdateProtectedJobCommandInput,
-  UpdateProtectedJobCommandOutput,
 } from "./commands/UpdateProtectedJobCommand";
 import {
+  type UpdateProtectedQueryCommandInput,
+  type UpdateProtectedQueryCommandOutput,
   UpdateProtectedQueryCommand,
-  UpdateProtectedQueryCommandInput,
-  UpdateProtectedQueryCommandOutput,
 } from "./commands/UpdateProtectedQueryCommand";
 import { paginateListAnalysisTemplates } from "./pagination/ListAnalysisTemplatesPaginator";
 import { paginateListCollaborationAnalysisTemplates } from "./pagination/ListCollaborationAnalysisTemplatesPaginator";

@@ -8,7 +8,7 @@ import {
   ListSourcesForS3TableIntegrationCommandInput,
   ListSourcesForS3TableIntegrationCommandOutput,
 } from "../commands/ListSourcesForS3TableIntegrationCommand";
-import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

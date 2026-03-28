@@ -7,7 +7,7 @@
  */
 export * from "./MailManagerClient";
 export * from "./MailManager";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MailManagerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

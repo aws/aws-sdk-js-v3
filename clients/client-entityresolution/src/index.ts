@@ -7,7 +7,7 @@
  */
 export * from "./EntityResolutionClient";
 export * from "./EntityResolution";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { EntityResolutionExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

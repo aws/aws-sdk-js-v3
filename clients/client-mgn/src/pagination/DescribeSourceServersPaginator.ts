@@ -8,7 +8,7 @@ import {
   DescribeSourceServersCommandOutput,
 } from "../commands/DescribeSourceServersCommand";
 import { MgnClient } from "../MgnClient";
-import { MgnPaginationConfiguration } from "./Interfaces";
+import type { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   GetFindingsV2CommandOutput,
 } from "../commands/GetFindingsV2Command";
 import { SecurityHubClient } from "../SecurityHubClient";
-import { SecurityHubPaginationConfiguration } from "./Interfaces";
+import type { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

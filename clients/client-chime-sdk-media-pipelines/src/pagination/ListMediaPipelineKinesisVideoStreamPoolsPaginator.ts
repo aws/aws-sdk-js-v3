@@ -8,7 +8,7 @@ import {
   ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
   ListMediaPipelineKinesisVideoStreamPoolsCommandOutput,
 } from "../commands/ListMediaPipelineKinesisVideoStreamPoolsCommand";
-import { ChimeSDKMediaPipelinesPaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKMediaPipelinesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

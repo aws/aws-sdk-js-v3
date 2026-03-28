@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,99 +61,123 @@ import {
   defaultEntityResolutionHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddPolicyStatementCommandInput, AddPolicyStatementCommandOutput } from "./commands/AddPolicyStatementCommand";
-import {
+import type {
+  AddPolicyStatementCommandInput,
+  AddPolicyStatementCommandOutput,
+} from "./commands/AddPolicyStatementCommand";
+import type {
   BatchDeleteUniqueIdCommandInput,
   BatchDeleteUniqueIdCommandOutput,
 } from "./commands/BatchDeleteUniqueIdCommand";
-import {
+import type {
   CreateIdMappingWorkflowCommandInput,
   CreateIdMappingWorkflowCommandOutput,
 } from "./commands/CreateIdMappingWorkflowCommand";
-import { CreateIdNamespaceCommandInput, CreateIdNamespaceCommandOutput } from "./commands/CreateIdNamespaceCommand";
-import {
+import type {
+  CreateIdNamespaceCommandInput,
+  CreateIdNamespaceCommandOutput,
+} from "./commands/CreateIdNamespaceCommand";
+import type {
   CreateMatchingWorkflowCommandInput,
   CreateMatchingWorkflowCommandOutput,
 } from "./commands/CreateMatchingWorkflowCommand";
-import {
+import type {
   CreateSchemaMappingCommandInput,
   CreateSchemaMappingCommandOutput,
 } from "./commands/CreateSchemaMappingCommand";
-import {
+import type {
   DeleteIdMappingWorkflowCommandInput,
   DeleteIdMappingWorkflowCommandOutput,
 } from "./commands/DeleteIdMappingWorkflowCommand";
-import { DeleteIdNamespaceCommandInput, DeleteIdNamespaceCommandOutput } from "./commands/DeleteIdNamespaceCommand";
-import {
+import type {
+  DeleteIdNamespaceCommandInput,
+  DeleteIdNamespaceCommandOutput,
+} from "./commands/DeleteIdNamespaceCommand";
+import type {
   DeleteMatchingWorkflowCommandInput,
   DeleteMatchingWorkflowCommandOutput,
 } from "./commands/DeleteMatchingWorkflowCommand";
-import {
+import type {
   DeletePolicyStatementCommandInput,
   DeletePolicyStatementCommandOutput,
 } from "./commands/DeletePolicyStatementCommand";
-import {
+import type {
   DeleteSchemaMappingCommandInput,
   DeleteSchemaMappingCommandOutput,
 } from "./commands/DeleteSchemaMappingCommand";
-import { GenerateMatchIdCommandInput, GenerateMatchIdCommandOutput } from "./commands/GenerateMatchIdCommand";
-import { GetIdMappingJobCommandInput, GetIdMappingJobCommandOutput } from "./commands/GetIdMappingJobCommand";
-import {
+import type { GenerateMatchIdCommandInput, GenerateMatchIdCommandOutput } from "./commands/GenerateMatchIdCommand";
+import type { GetIdMappingJobCommandInput, GetIdMappingJobCommandOutput } from "./commands/GetIdMappingJobCommand";
+import type {
   GetIdMappingWorkflowCommandInput,
   GetIdMappingWorkflowCommandOutput,
 } from "./commands/GetIdMappingWorkflowCommand";
-import { GetIdNamespaceCommandInput, GetIdNamespaceCommandOutput } from "./commands/GetIdNamespaceCommand";
-import { GetMatchIdCommandInput, GetMatchIdCommandOutput } from "./commands/GetMatchIdCommand";
-import { GetMatchingJobCommandInput, GetMatchingJobCommandOutput } from "./commands/GetMatchingJobCommand";
-import {
+import type { GetIdNamespaceCommandInput, GetIdNamespaceCommandOutput } from "./commands/GetIdNamespaceCommand";
+import type { GetMatchIdCommandInput, GetMatchIdCommandOutput } from "./commands/GetMatchIdCommand";
+import type { GetMatchingJobCommandInput, GetMatchingJobCommandOutput } from "./commands/GetMatchingJobCommand";
+import type {
   GetMatchingWorkflowCommandInput,
   GetMatchingWorkflowCommandOutput,
 } from "./commands/GetMatchingWorkflowCommand";
-import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
-import { GetProviderServiceCommandInput, GetProviderServiceCommandOutput } from "./commands/GetProviderServiceCommand";
-import { GetSchemaMappingCommandInput, GetSchemaMappingCommandOutput } from "./commands/GetSchemaMappingCommand";
-import { ListIdMappingJobsCommandInput, ListIdMappingJobsCommandOutput } from "./commands/ListIdMappingJobsCommand";
-import {
+import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import type {
+  GetProviderServiceCommandInput,
+  GetProviderServiceCommandOutput,
+} from "./commands/GetProviderServiceCommand";
+import type { GetSchemaMappingCommandInput, GetSchemaMappingCommandOutput } from "./commands/GetSchemaMappingCommand";
+import type {
+  ListIdMappingJobsCommandInput,
+  ListIdMappingJobsCommandOutput,
+} from "./commands/ListIdMappingJobsCommand";
+import type {
   ListIdMappingWorkflowsCommandInput,
   ListIdMappingWorkflowsCommandOutput,
 } from "./commands/ListIdMappingWorkflowsCommand";
-import { ListIdNamespacesCommandInput, ListIdNamespacesCommandOutput } from "./commands/ListIdNamespacesCommand";
-import { ListMatchingJobsCommandInput, ListMatchingJobsCommandOutput } from "./commands/ListMatchingJobsCommand";
-import {
+import type { ListIdNamespacesCommandInput, ListIdNamespacesCommandOutput } from "./commands/ListIdNamespacesCommand";
+import type { ListMatchingJobsCommandInput, ListMatchingJobsCommandOutput } from "./commands/ListMatchingJobsCommand";
+import type {
   ListMatchingWorkflowsCommandInput,
   ListMatchingWorkflowsCommandOutput,
 } from "./commands/ListMatchingWorkflowsCommand";
-import {
+import type {
   ListProviderServicesCommandInput,
   ListProviderServicesCommandOutput,
 } from "./commands/ListProviderServicesCommand";
-import { ListSchemaMappingsCommandInput, ListSchemaMappingsCommandOutput } from "./commands/ListSchemaMappingsCommand";
-import {
+import type {
+  ListSchemaMappingsCommandInput,
+  ListSchemaMappingsCommandOutput,
+} from "./commands/ListSchemaMappingsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
-import { StartIdMappingJobCommandInput, StartIdMappingJobCommandOutput } from "./commands/StartIdMappingJobCommand";
-import { StartMatchingJobCommandInput, StartMatchingJobCommandOutput } from "./commands/StartMatchingJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import type {
+  StartIdMappingJobCommandInput,
+  StartIdMappingJobCommandOutput,
+} from "./commands/StartIdMappingJobCommand";
+import type { StartMatchingJobCommandInput, StartMatchingJobCommandOutput } from "./commands/StartMatchingJobCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateIdMappingWorkflowCommandInput,
   UpdateIdMappingWorkflowCommandOutput,
 } from "./commands/UpdateIdMappingWorkflowCommand";
-import { UpdateIdNamespaceCommandInput, UpdateIdNamespaceCommandOutput } from "./commands/UpdateIdNamespaceCommand";
-import {
+import type {
+  UpdateIdNamespaceCommandInput,
+  UpdateIdNamespaceCommandOutput,
+} from "./commands/UpdateIdNamespaceCommand";
+import type {
   UpdateMatchingWorkflowCommandInput,
   UpdateMatchingWorkflowCommandOutput,
 } from "./commands/UpdateMatchingWorkflowCommand";
-import {
+import type {
   UpdateSchemaMappingCommandInput,
   UpdateSchemaMappingCommandOutput,
 } from "./commands/UpdateSchemaMappingCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -363,7 +385,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

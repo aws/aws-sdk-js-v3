@@ -8,7 +8,7 @@ import {
   ListHoursOfOperationsCommandOutput,
 } from "../commands/ListHoursOfOperationsCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

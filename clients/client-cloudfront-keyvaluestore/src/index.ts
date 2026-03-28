@@ -7,7 +7,7 @@
  */
 export * from "./CloudFrontKeyValueStoreClient";
 export * from "./CloudFrontKeyValueStore";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CloudFrontKeyValueStoreExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

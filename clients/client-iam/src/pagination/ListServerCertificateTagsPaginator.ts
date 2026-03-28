@@ -8,7 +8,7 @@ import {
   ListServerCertificateTagsCommandOutput,
 } from "../commands/ListServerCertificateTagsCommand";
 import { IAMClient } from "../IAMClient";
-import { IAMPaginationConfiguration } from "./Interfaces";
+import type { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

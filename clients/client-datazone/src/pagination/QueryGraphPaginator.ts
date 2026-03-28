@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { QueryGraphCommand, QueryGraphCommandInput, QueryGraphCommandOutput } from "../commands/QueryGraphCommand";
 import { DataZoneClient } from "../DataZoneClient";
-import { DataZonePaginationConfiguration } from "./Interfaces";
+import type { DataZonePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

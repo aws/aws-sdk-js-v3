@@ -3,97 +3,105 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateParameterGroupCommandInput,
+  type CreateParameterGroupCommandOutput,
   CreateParameterGroupCommand,
-  CreateParameterGroupCommandInput,
-  CreateParameterGroupCommandOutput,
 } from "./commands/CreateParameterGroupCommand";
 import {
+  type CreateSubnetGroupCommandInput,
+  type CreateSubnetGroupCommandOutput,
   CreateSubnetGroupCommand,
-  CreateSubnetGroupCommandInput,
-  CreateSubnetGroupCommandOutput,
 } from "./commands/CreateSubnetGroupCommand";
 import {
+  type DecreaseReplicationFactorCommandInput,
+  type DecreaseReplicationFactorCommandOutput,
   DecreaseReplicationFactorCommand,
-  DecreaseReplicationFactorCommandInput,
-  DecreaseReplicationFactorCommandOutput,
 } from "./commands/DecreaseReplicationFactorCommand";
 import {
+  type DeleteClusterCommandInput,
+  type DeleteClusterCommandOutput,
   DeleteClusterCommand,
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  type DeleteParameterGroupCommandInput,
+  type DeleteParameterGroupCommandOutput,
   DeleteParameterGroupCommand,
-  DeleteParameterGroupCommandInput,
-  DeleteParameterGroupCommandOutput,
 } from "./commands/DeleteParameterGroupCommand";
 import {
+  type DeleteSubnetGroupCommandInput,
+  type DeleteSubnetGroupCommandOutput,
   DeleteSubnetGroupCommand,
-  DeleteSubnetGroupCommandInput,
-  DeleteSubnetGroupCommandOutput,
 } from "./commands/DeleteSubnetGroupCommand";
 import {
+  type DescribeClustersCommandInput,
+  type DescribeClustersCommandOutput,
   DescribeClustersCommand,
-  DescribeClustersCommandInput,
-  DescribeClustersCommandOutput,
 } from "./commands/DescribeClustersCommand";
 import {
+  type DescribeDefaultParametersCommandInput,
+  type DescribeDefaultParametersCommandOutput,
   DescribeDefaultParametersCommand,
-  DescribeDefaultParametersCommandInput,
-  DescribeDefaultParametersCommandOutput,
 } from "./commands/DescribeDefaultParametersCommand";
 import {
+  type DescribeEventsCommandInput,
+  type DescribeEventsCommandOutput,
   DescribeEventsCommand,
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  type DescribeParameterGroupsCommandInput,
+  type DescribeParameterGroupsCommandOutput,
   DescribeParameterGroupsCommand,
-  DescribeParameterGroupsCommandInput,
-  DescribeParameterGroupsCommandOutput,
 } from "./commands/DescribeParameterGroupsCommand";
 import {
+  type DescribeParametersCommandInput,
+  type DescribeParametersCommandOutput,
   DescribeParametersCommand,
-  DescribeParametersCommandInput,
-  DescribeParametersCommandOutput,
 } from "./commands/DescribeParametersCommand";
 import {
+  type DescribeSubnetGroupsCommandInput,
+  type DescribeSubnetGroupsCommandOutput,
   DescribeSubnetGroupsCommand,
-  DescribeSubnetGroupsCommandInput,
-  DescribeSubnetGroupsCommandOutput,
 } from "./commands/DescribeSubnetGroupsCommand";
 import {
+  type IncreaseReplicationFactorCommandInput,
+  type IncreaseReplicationFactorCommandOutput,
   IncreaseReplicationFactorCommand,
-  IncreaseReplicationFactorCommandInput,
-  IncreaseReplicationFactorCommandOutput,
 } from "./commands/IncreaseReplicationFactorCommand";
-import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import { RebootNodeCommand, RebootNodeCommandInput, RebootNodeCommandOutput } from "./commands/RebootNodeCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type ListTagsCommandInput, type ListTagsCommandOutput, ListTagsCommand } from "./commands/ListTagsCommand";
 import {
+  type RebootNodeCommandInput,
+  type RebootNodeCommandOutput,
+  RebootNodeCommand,
+} from "./commands/RebootNodeCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateClusterCommandInput,
+  type UpdateClusterCommandOutput,
   UpdateClusterCommand,
-  UpdateClusterCommandInput,
-  UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import {
+  type UpdateParameterGroupCommandInput,
+  type UpdateParameterGroupCommandOutput,
   UpdateParameterGroupCommand,
-  UpdateParameterGroupCommandInput,
-  UpdateParameterGroupCommandOutput,
 } from "./commands/UpdateParameterGroupCommand";
 import {
+  type UpdateSubnetGroupCommandInput,
+  type UpdateSubnetGroupCommandOutput,
   UpdateSubnetGroupCommand,
-  UpdateSubnetGroupCommandInput,
-  UpdateSubnetGroupCommandOutput,
 } from "./commands/UpdateSubnetGroupCommand";
 import { DAXClient } from "./DAXClient";
 

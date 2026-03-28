@@ -8,7 +8,7 @@ import {
   ListServiceJobsCommandInput,
   ListServiceJobsCommandOutput,
 } from "../commands/ListServiceJobsCommand";
-import { BatchPaginationConfiguration } from "./Interfaces";
+import type { BatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

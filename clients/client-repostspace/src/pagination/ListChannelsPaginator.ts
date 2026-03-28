@@ -8,7 +8,7 @@ import {
   ListChannelsCommandOutput,
 } from "../commands/ListChannelsCommand";
 import { RepostspaceClient } from "../RepostspaceClient";
-import { RepostspacePaginationConfiguration } from "./Interfaces";
+import type { RepostspacePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

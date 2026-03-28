@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AccountType, NotificationSeverityLevel } from "./enums";
+import type { AccountType, NotificationSeverityLevel } from "./enums";
 
 /**
  * @public

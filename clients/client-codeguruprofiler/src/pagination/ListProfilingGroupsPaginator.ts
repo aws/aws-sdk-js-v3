@@ -8,7 +8,7 @@ import {
   ListProfilingGroupsCommandInput,
   ListProfilingGroupsCommandOutput,
 } from "../commands/ListProfilingGroupsCommand";
-import { CodeGuruProfilerPaginationConfiguration } from "./Interfaces";
+import type { CodeGuruProfilerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

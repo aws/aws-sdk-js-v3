@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CodeCatalystClient } from "../CodeCatalystClient";
 import { ListSpacesCommand, ListSpacesCommandInput, ListSpacesCommandOutput } from "../commands/ListSpacesCommand";
-import { CodeCatalystPaginationConfiguration } from "./Interfaces";
+import type { CodeCatalystPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

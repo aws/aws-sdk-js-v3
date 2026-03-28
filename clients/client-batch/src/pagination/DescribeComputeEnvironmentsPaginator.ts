@@ -8,7 +8,7 @@ import {
   DescribeComputeEnvironmentsCommandInput,
   DescribeComputeEnvironmentsCommandOutput,
 } from "../commands/DescribeComputeEnvironmentsCommand";
-import { BatchPaginationConfiguration } from "./Interfaces";
+import type { BatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

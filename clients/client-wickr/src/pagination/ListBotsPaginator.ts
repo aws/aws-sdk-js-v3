@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "../commands/ListBotsCommand";
 import { WickrClient } from "../WickrClient";
-import { WickrPaginationConfiguration } from "./Interfaces";
+import type { WickrPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

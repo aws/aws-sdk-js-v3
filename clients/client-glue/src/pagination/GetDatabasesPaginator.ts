@@ -8,7 +8,7 @@ import {
   GetDatabasesCommandOutput,
 } from "../commands/GetDatabasesCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

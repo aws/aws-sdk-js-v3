@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,185 +61,206 @@ import {
   defaultECRHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchCheckLayerAvailabilityCommandInput,
   BatchCheckLayerAvailabilityCommandOutput,
 } from "./commands/BatchCheckLayerAvailabilityCommand";
-import { BatchDeleteImageCommandInput, BatchDeleteImageCommandOutput } from "./commands/BatchDeleteImageCommand";
-import { BatchGetImageCommandInput, BatchGetImageCommandOutput } from "./commands/BatchGetImageCommand";
-import {
+import type { BatchDeleteImageCommandInput, BatchDeleteImageCommandOutput } from "./commands/BatchDeleteImageCommand";
+import type { BatchGetImageCommandInput, BatchGetImageCommandOutput } from "./commands/BatchGetImageCommand";
+import type {
   BatchGetRepositoryScanningConfigurationCommandInput,
   BatchGetRepositoryScanningConfigurationCommandOutput,
 } from "./commands/BatchGetRepositoryScanningConfigurationCommand";
-import {
+import type {
   CompleteLayerUploadCommandInput,
   CompleteLayerUploadCommandOutput,
 } from "./commands/CompleteLayerUploadCommand";
-import {
+import type {
   CreatePullThroughCacheRuleCommandInput,
   CreatePullThroughCacheRuleCommandOutput,
 } from "./commands/CreatePullThroughCacheRuleCommand";
-import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
-import {
+import type { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
+import type {
   CreateRepositoryCreationTemplateCommandInput,
   CreateRepositoryCreationTemplateCommandOutput,
 } from "./commands/CreateRepositoryCreationTemplateCommand";
-import {
+import type {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
-import {
+import type {
   DeletePullThroughCacheRuleCommandInput,
   DeletePullThroughCacheRuleCommandOutput,
 } from "./commands/DeletePullThroughCacheRuleCommand";
-import {
+import type {
   DeleteRegistryPolicyCommandInput,
   DeleteRegistryPolicyCommandOutput,
 } from "./commands/DeleteRegistryPolicyCommand";
-import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
-import {
+import type { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
+import type {
   DeleteRepositoryCreationTemplateCommandInput,
   DeleteRepositoryCreationTemplateCommandOutput,
 } from "./commands/DeleteRepositoryCreationTemplateCommand";
-import {
+import type {
   DeleteRepositoryPolicyCommandInput,
   DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
-import {
+import type {
   DeleteSigningConfigurationCommandInput,
   DeleteSigningConfigurationCommandOutput,
 } from "./commands/DeleteSigningConfigurationCommand";
-import {
+import type {
   DeregisterPullTimeUpdateExclusionCommandInput,
   DeregisterPullTimeUpdateExclusionCommandOutput,
 } from "./commands/DeregisterPullTimeUpdateExclusionCommand";
-import {
+import type {
   DescribeImageReplicationStatusCommandInput,
   DescribeImageReplicationStatusCommandOutput,
 } from "./commands/DescribeImageReplicationStatusCommand";
-import {
+import type {
   DescribeImageScanFindingsCommandInput,
   DescribeImageScanFindingsCommandOutput,
 } from "./commands/DescribeImageScanFindingsCommand";
-import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
-import {
+import type { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
+import type {
   DescribeImageSigningStatusCommandInput,
   DescribeImageSigningStatusCommandOutput,
 } from "./commands/DescribeImageSigningStatusCommand";
-import {
+import type {
   DescribePullThroughCacheRulesCommandInput,
   DescribePullThroughCacheRulesCommandOutput,
 } from "./commands/DescribePullThroughCacheRulesCommand";
-import { DescribeRegistryCommandInput, DescribeRegistryCommandOutput } from "./commands/DescribeRegistryCommand";
-import {
+import type { DescribeRegistryCommandInput, DescribeRegistryCommandOutput } from "./commands/DescribeRegistryCommand";
+import type {
   DescribeRepositoriesCommandInput,
   DescribeRepositoriesCommandOutput,
 } from "./commands/DescribeRepositoriesCommand";
-import {
+import type {
   DescribeRepositoryCreationTemplatesCommandInput,
   DescribeRepositoryCreationTemplatesCommandOutput,
 } from "./commands/DescribeRepositoryCreationTemplatesCommand";
-import { GetAccountSettingCommandInput, GetAccountSettingCommandOutput } from "./commands/GetAccountSettingCommand";
-import {
+import type {
+  GetAccountSettingCommandInput,
+  GetAccountSettingCommandOutput,
+} from "./commands/GetAccountSettingCommand";
+import type {
   GetAuthorizationTokenCommandInput,
   GetAuthorizationTokenCommandOutput,
 } from "./commands/GetAuthorizationTokenCommand";
-import {
+import type {
   GetDownloadUrlForLayerCommandInput,
   GetDownloadUrlForLayerCommandOutput,
 } from "./commands/GetDownloadUrlForLayerCommand";
-import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "./commands/GetLifecyclePolicyCommand";
-import {
+import type {
+  GetLifecyclePolicyCommandInput,
+  GetLifecyclePolicyCommandOutput,
+} from "./commands/GetLifecyclePolicyCommand";
+import type {
   GetLifecyclePolicyPreviewCommandInput,
   GetLifecyclePolicyPreviewCommandOutput,
 } from "./commands/GetLifecyclePolicyPreviewCommand";
-import { GetRegistryPolicyCommandInput, GetRegistryPolicyCommandOutput } from "./commands/GetRegistryPolicyCommand";
-import {
+import type {
+  GetRegistryPolicyCommandInput,
+  GetRegistryPolicyCommandOutput,
+} from "./commands/GetRegistryPolicyCommand";
+import type {
   GetRegistryScanningConfigurationCommandInput,
   GetRegistryScanningConfigurationCommandOutput,
 } from "./commands/GetRegistryScanningConfigurationCommand";
-import {
+import type {
   GetRepositoryPolicyCommandInput,
   GetRepositoryPolicyCommandOutput,
 } from "./commands/GetRepositoryPolicyCommand";
-import {
+import type {
   GetSigningConfigurationCommandInput,
   GetSigningConfigurationCommandOutput,
 } from "./commands/GetSigningConfigurationCommand";
-import {
+import type {
   InitiateLayerUploadCommandInput,
   InitiateLayerUploadCommandOutput,
 } from "./commands/InitiateLayerUploadCommand";
-import { ListImageReferrersCommandInput, ListImageReferrersCommandOutput } from "./commands/ListImageReferrersCommand";
-import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
-import {
+import type {
+  ListImageReferrersCommandInput,
+  ListImageReferrersCommandOutput,
+} from "./commands/ListImageReferrersCommand";
+import type { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
+import type {
   ListPullTimeUpdateExclusionsCommandInput,
   ListPullTimeUpdateExclusionsCommandOutput,
 } from "./commands/ListPullTimeUpdateExclusionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutAccountSettingCommandInput, PutAccountSettingCommandOutput } from "./commands/PutAccountSettingCommand";
-import { PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
-import {
+import type {
+  PutAccountSettingCommandInput,
+  PutAccountSettingCommandOutput,
+} from "./commands/PutAccountSettingCommand";
+import type { PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
+import type {
   PutImageScanningConfigurationCommandInput,
   PutImageScanningConfigurationCommandOutput,
 } from "./commands/PutImageScanningConfigurationCommand";
-import {
+import type {
   PutImageTagMutabilityCommandInput,
   PutImageTagMutabilityCommandOutput,
 } from "./commands/PutImageTagMutabilityCommand";
-import { PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput } from "./commands/PutLifecyclePolicyCommand";
-import { PutRegistryPolicyCommandInput, PutRegistryPolicyCommandOutput } from "./commands/PutRegistryPolicyCommand";
-import {
+import type {
+  PutLifecyclePolicyCommandInput,
+  PutLifecyclePolicyCommandOutput,
+} from "./commands/PutLifecyclePolicyCommand";
+import type {
+  PutRegistryPolicyCommandInput,
+  PutRegistryPolicyCommandOutput,
+} from "./commands/PutRegistryPolicyCommand";
+import type {
   PutRegistryScanningConfigurationCommandInput,
   PutRegistryScanningConfigurationCommandOutput,
 } from "./commands/PutRegistryScanningConfigurationCommand";
-import {
+import type {
   PutReplicationConfigurationCommandInput,
   PutReplicationConfigurationCommandOutput,
 } from "./commands/PutReplicationConfigurationCommand";
-import {
+import type {
   PutSigningConfigurationCommandInput,
   PutSigningConfigurationCommandOutput,
 } from "./commands/PutSigningConfigurationCommand";
-import {
+import type {
   RegisterPullTimeUpdateExclusionCommandInput,
   RegisterPullTimeUpdateExclusionCommandOutput,
 } from "./commands/RegisterPullTimeUpdateExclusionCommand";
-import {
+import type {
   SetRepositoryPolicyCommandInput,
   SetRepositoryPolicyCommandOutput,
 } from "./commands/SetRepositoryPolicyCommand";
-import { StartImageScanCommandInput, StartImageScanCommandOutput } from "./commands/StartImageScanCommand";
-import {
+import type { StartImageScanCommandInput, StartImageScanCommandOutput } from "./commands/StartImageScanCommand";
+import type {
   StartLifecyclePolicyPreviewCommandInput,
   StartLifecyclePolicyPreviewCommandOutput,
 } from "./commands/StartLifecyclePolicyPreviewCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateImageStorageClassCommandInput,
   UpdateImageStorageClassCommandOutput,
 } from "./commands/UpdateImageStorageClassCommand";
-import {
+import type {
   UpdatePullThroughCacheRuleCommandInput,
   UpdatePullThroughCacheRuleCommandOutput,
 } from "./commands/UpdatePullThroughCacheRuleCommand";
-import {
+import type {
   UpdateRepositoryCreationTemplateCommandInput,
   UpdateRepositoryCreationTemplateCommandOutput,
 } from "./commands/UpdateRepositoryCreationTemplateCommand";
-import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "./commands/UploadLayerPartCommand";
-import {
+import type { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "./commands/UploadLayerPartCommand";
+import type {
   ValidatePullThroughCacheRuleCommandInput,
   ValidatePullThroughCacheRuleCommandOutput,
 } from "./commands/ValidatePullThroughCacheRuleCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -489,7 +508,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

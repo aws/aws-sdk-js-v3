@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ConnectorStatus, ConnectorStatusReason, ConnectorType } from "./enums";
+import type { ConnectorStatus, ConnectorStatusReason, ConnectorType } from "./enums";
 
 /**
  * <p>For Connector for SCEP for general-purpose. An object containing information about the specified connector's SCEP challenge passwords.</p>

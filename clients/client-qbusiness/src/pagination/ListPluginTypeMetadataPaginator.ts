@@ -8,7 +8,7 @@ import {
   ListPluginTypeMetadataCommandOutput,
 } from "../commands/ListPluginTypeMetadataCommand";
 import { QBusinessClient } from "../QBusinessClient";
-import { QBusinessPaginationConfiguration } from "./Interfaces";
+import type { QBusinessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

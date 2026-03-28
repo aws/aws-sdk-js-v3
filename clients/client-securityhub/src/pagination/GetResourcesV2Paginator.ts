@@ -8,7 +8,7 @@ import {
   GetResourcesV2CommandOutput,
 } from "../commands/GetResourcesV2Command";
 import { SecurityHubClient } from "../SecurityHubClient";
-import { SecurityHubPaginationConfiguration } from "./Interfaces";
+import type { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,308 +4,348 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BedrockAgentClient } from "./BedrockAgentClient";
 import {
+  type AssociateAgentCollaboratorCommandInput,
+  type AssociateAgentCollaboratorCommandOutput,
   AssociateAgentCollaboratorCommand,
-  AssociateAgentCollaboratorCommandInput,
-  AssociateAgentCollaboratorCommandOutput,
 } from "./commands/AssociateAgentCollaboratorCommand";
 import {
+  type AssociateAgentKnowledgeBaseCommandInput,
+  type AssociateAgentKnowledgeBaseCommandOutput,
   AssociateAgentKnowledgeBaseCommand,
-  AssociateAgentKnowledgeBaseCommandInput,
-  AssociateAgentKnowledgeBaseCommandOutput,
 } from "./commands/AssociateAgentKnowledgeBaseCommand";
 import {
+  type CreateAgentActionGroupCommandInput,
+  type CreateAgentActionGroupCommandOutput,
   CreateAgentActionGroupCommand,
-  CreateAgentActionGroupCommandInput,
-  CreateAgentActionGroupCommandOutput,
 } from "./commands/CreateAgentActionGroupCommand";
 import {
+  type CreateAgentAliasCommandInput,
+  type CreateAgentAliasCommandOutput,
   CreateAgentAliasCommand,
-  CreateAgentAliasCommandInput,
-  CreateAgentAliasCommandOutput,
 } from "./commands/CreateAgentAliasCommand";
-import { CreateAgentCommand, CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
 import {
+  type CreateAgentCommandInput,
+  type CreateAgentCommandOutput,
+  CreateAgentCommand,
+} from "./commands/CreateAgentCommand";
+import {
+  type CreateDataSourceCommandInput,
+  type CreateDataSourceCommandOutput,
   CreateDataSourceCommand,
-  CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput,
 } from "./commands/CreateDataSourceCommand";
 import {
+  type CreateFlowAliasCommandInput,
+  type CreateFlowAliasCommandOutput,
   CreateFlowAliasCommand,
-  CreateFlowAliasCommandInput,
-  CreateFlowAliasCommandOutput,
 } from "./commands/CreateFlowAliasCommand";
-import { CreateFlowCommand, CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
 import {
+  type CreateFlowCommandInput,
+  type CreateFlowCommandOutput,
+  CreateFlowCommand,
+} from "./commands/CreateFlowCommand";
+import {
+  type CreateFlowVersionCommandInput,
+  type CreateFlowVersionCommandOutput,
   CreateFlowVersionCommand,
-  CreateFlowVersionCommandInput,
-  CreateFlowVersionCommandOutput,
 } from "./commands/CreateFlowVersionCommand";
 import {
+  type CreateKnowledgeBaseCommandInput,
+  type CreateKnowledgeBaseCommandOutput,
   CreateKnowledgeBaseCommand,
-  CreateKnowledgeBaseCommandInput,
-  CreateKnowledgeBaseCommandOutput,
 } from "./commands/CreateKnowledgeBaseCommand";
 import {
+  type CreatePromptCommandInput,
+  type CreatePromptCommandOutput,
   CreatePromptCommand,
-  CreatePromptCommandInput,
-  CreatePromptCommandOutput,
 } from "./commands/CreatePromptCommand";
 import {
+  type CreatePromptVersionCommandInput,
+  type CreatePromptVersionCommandOutput,
   CreatePromptVersionCommand,
-  CreatePromptVersionCommandInput,
-  CreatePromptVersionCommandOutput,
 } from "./commands/CreatePromptVersionCommand";
 import {
+  type DeleteAgentActionGroupCommandInput,
+  type DeleteAgentActionGroupCommandOutput,
   DeleteAgentActionGroupCommand,
-  DeleteAgentActionGroupCommandInput,
-  DeleteAgentActionGroupCommandOutput,
 } from "./commands/DeleteAgentActionGroupCommand";
 import {
+  type DeleteAgentAliasCommandInput,
+  type DeleteAgentAliasCommandOutput,
   DeleteAgentAliasCommand,
-  DeleteAgentAliasCommandInput,
-  DeleteAgentAliasCommandOutput,
 } from "./commands/DeleteAgentAliasCommand";
-import { DeleteAgentCommand, DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand";
 import {
+  type DeleteAgentCommandInput,
+  type DeleteAgentCommandOutput,
+  DeleteAgentCommand,
+} from "./commands/DeleteAgentCommand";
+import {
+  type DeleteAgentVersionCommandInput,
+  type DeleteAgentVersionCommandOutput,
   DeleteAgentVersionCommand,
-  DeleteAgentVersionCommandInput,
-  DeleteAgentVersionCommandOutput,
 } from "./commands/DeleteAgentVersionCommand";
 import {
+  type DeleteDataSourceCommandInput,
+  type DeleteDataSourceCommandOutput,
   DeleteDataSourceCommand,
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
 import {
+  type DeleteFlowAliasCommandInput,
+  type DeleteFlowAliasCommandOutput,
   DeleteFlowAliasCommand,
-  DeleteFlowAliasCommandInput,
-  DeleteFlowAliasCommandOutput,
 } from "./commands/DeleteFlowAliasCommand";
-import { DeleteFlowCommand, DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
 import {
+  type DeleteFlowCommandInput,
+  type DeleteFlowCommandOutput,
+  DeleteFlowCommand,
+} from "./commands/DeleteFlowCommand";
+import {
+  type DeleteFlowVersionCommandInput,
+  type DeleteFlowVersionCommandOutput,
   DeleteFlowVersionCommand,
-  DeleteFlowVersionCommandInput,
-  DeleteFlowVersionCommandOutput,
 } from "./commands/DeleteFlowVersionCommand";
 import {
+  type DeleteKnowledgeBaseCommandInput,
+  type DeleteKnowledgeBaseCommandOutput,
   DeleteKnowledgeBaseCommand,
-  DeleteKnowledgeBaseCommandInput,
-  DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
 import {
+  type DeleteKnowledgeBaseDocumentsCommandInput,
+  type DeleteKnowledgeBaseDocumentsCommandOutput,
   DeleteKnowledgeBaseDocumentsCommand,
-  DeleteKnowledgeBaseDocumentsCommandInput,
-  DeleteKnowledgeBaseDocumentsCommandOutput,
 } from "./commands/DeleteKnowledgeBaseDocumentsCommand";
 import {
+  type DeletePromptCommandInput,
+  type DeletePromptCommandOutput,
   DeletePromptCommand,
-  DeletePromptCommandInput,
-  DeletePromptCommandOutput,
 } from "./commands/DeletePromptCommand";
 import {
+  type DisassociateAgentCollaboratorCommandInput,
+  type DisassociateAgentCollaboratorCommandOutput,
   DisassociateAgentCollaboratorCommand,
-  DisassociateAgentCollaboratorCommandInput,
-  DisassociateAgentCollaboratorCommandOutput,
 } from "./commands/DisassociateAgentCollaboratorCommand";
 import {
+  type DisassociateAgentKnowledgeBaseCommandInput,
+  type DisassociateAgentKnowledgeBaseCommandOutput,
   DisassociateAgentKnowledgeBaseCommand,
-  DisassociateAgentKnowledgeBaseCommandInput,
-  DisassociateAgentKnowledgeBaseCommandOutput,
 } from "./commands/DisassociateAgentKnowledgeBaseCommand";
 import {
+  type GetAgentActionGroupCommandInput,
+  type GetAgentActionGroupCommandOutput,
   GetAgentActionGroupCommand,
-  GetAgentActionGroupCommandInput,
-  GetAgentActionGroupCommandOutput,
 } from "./commands/GetAgentActionGroupCommand";
 import {
+  type GetAgentAliasCommandInput,
+  type GetAgentAliasCommandOutput,
   GetAgentAliasCommand,
-  GetAgentAliasCommandInput,
-  GetAgentAliasCommandOutput,
 } from "./commands/GetAgentAliasCommand";
 import {
+  type GetAgentCollaboratorCommandInput,
+  type GetAgentCollaboratorCommandOutput,
   GetAgentCollaboratorCommand,
-  GetAgentCollaboratorCommandInput,
-  GetAgentCollaboratorCommandOutput,
 } from "./commands/GetAgentCollaboratorCommand";
-import { GetAgentCommand, GetAgentCommandInput, GetAgentCommandOutput } from "./commands/GetAgentCommand";
+import { type GetAgentCommandInput, type GetAgentCommandOutput, GetAgentCommand } from "./commands/GetAgentCommand";
 import {
+  type GetAgentKnowledgeBaseCommandInput,
+  type GetAgentKnowledgeBaseCommandOutput,
   GetAgentKnowledgeBaseCommand,
-  GetAgentKnowledgeBaseCommandInput,
-  GetAgentKnowledgeBaseCommandOutput,
 } from "./commands/GetAgentKnowledgeBaseCommand";
 import {
+  type GetAgentVersionCommandInput,
+  type GetAgentVersionCommandOutput,
   GetAgentVersionCommand,
-  GetAgentVersionCommandInput,
-  GetAgentVersionCommandOutput,
 } from "./commands/GetAgentVersionCommand";
 import {
+  type GetDataSourceCommandInput,
+  type GetDataSourceCommandOutput,
   GetDataSourceCommand,
-  GetDataSourceCommandInput,
-  GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand";
 import {
+  type GetFlowAliasCommandInput,
+  type GetFlowAliasCommandOutput,
   GetFlowAliasCommand,
-  GetFlowAliasCommandInput,
-  GetFlowAliasCommandOutput,
 } from "./commands/GetFlowAliasCommand";
-import { GetFlowCommand, GetFlowCommandInput, GetFlowCommandOutput } from "./commands/GetFlowCommand";
+import { type GetFlowCommandInput, type GetFlowCommandOutput, GetFlowCommand } from "./commands/GetFlowCommand";
 import {
+  type GetFlowVersionCommandInput,
+  type GetFlowVersionCommandOutput,
   GetFlowVersionCommand,
-  GetFlowVersionCommandInput,
-  GetFlowVersionCommandOutput,
 } from "./commands/GetFlowVersionCommand";
 import {
+  type GetIngestionJobCommandInput,
+  type GetIngestionJobCommandOutput,
   GetIngestionJobCommand,
-  GetIngestionJobCommandInput,
-  GetIngestionJobCommandOutput,
 } from "./commands/GetIngestionJobCommand";
 import {
+  type GetKnowledgeBaseCommandInput,
+  type GetKnowledgeBaseCommandOutput,
   GetKnowledgeBaseCommand,
-  GetKnowledgeBaseCommandInput,
-  GetKnowledgeBaseCommandOutput,
 } from "./commands/GetKnowledgeBaseCommand";
 import {
+  type GetKnowledgeBaseDocumentsCommandInput,
+  type GetKnowledgeBaseDocumentsCommandOutput,
   GetKnowledgeBaseDocumentsCommand,
-  GetKnowledgeBaseDocumentsCommandInput,
-  GetKnowledgeBaseDocumentsCommandOutput,
 } from "./commands/GetKnowledgeBaseDocumentsCommand";
-import { GetPromptCommand, GetPromptCommandInput, GetPromptCommandOutput } from "./commands/GetPromptCommand";
+import { type GetPromptCommandInput, type GetPromptCommandOutput, GetPromptCommand } from "./commands/GetPromptCommand";
 import {
+  type IngestKnowledgeBaseDocumentsCommandInput,
+  type IngestKnowledgeBaseDocumentsCommandOutput,
   IngestKnowledgeBaseDocumentsCommand,
-  IngestKnowledgeBaseDocumentsCommandInput,
-  IngestKnowledgeBaseDocumentsCommandOutput,
 } from "./commands/IngestKnowledgeBaseDocumentsCommand";
 import {
+  type ListAgentActionGroupsCommandInput,
+  type ListAgentActionGroupsCommandOutput,
   ListAgentActionGroupsCommand,
-  ListAgentActionGroupsCommandInput,
-  ListAgentActionGroupsCommandOutput,
 } from "./commands/ListAgentActionGroupsCommand";
 import {
+  type ListAgentAliasesCommandInput,
+  type ListAgentAliasesCommandOutput,
   ListAgentAliasesCommand,
-  ListAgentAliasesCommandInput,
-  ListAgentAliasesCommandOutput,
 } from "./commands/ListAgentAliasesCommand";
 import {
+  type ListAgentCollaboratorsCommandInput,
+  type ListAgentCollaboratorsCommandOutput,
   ListAgentCollaboratorsCommand,
-  ListAgentCollaboratorsCommandInput,
-  ListAgentCollaboratorsCommandOutput,
 } from "./commands/ListAgentCollaboratorsCommand";
 import {
+  type ListAgentKnowledgeBasesCommandInput,
+  type ListAgentKnowledgeBasesCommandOutput,
   ListAgentKnowledgeBasesCommand,
-  ListAgentKnowledgeBasesCommandInput,
-  ListAgentKnowledgeBasesCommandOutput,
 } from "./commands/ListAgentKnowledgeBasesCommand";
-import { ListAgentsCommand, ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
 import {
+  type ListAgentsCommandInput,
+  type ListAgentsCommandOutput,
+  ListAgentsCommand,
+} from "./commands/ListAgentsCommand";
+import {
+  type ListAgentVersionsCommandInput,
+  type ListAgentVersionsCommandOutput,
   ListAgentVersionsCommand,
-  ListAgentVersionsCommandInput,
-  ListAgentVersionsCommandOutput,
 } from "./commands/ListAgentVersionsCommand";
 import {
+  type ListDataSourcesCommandInput,
+  type ListDataSourcesCommandOutput,
   ListDataSourcesCommand,
-  ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
 import {
+  type ListFlowAliasesCommandInput,
+  type ListFlowAliasesCommandOutput,
   ListFlowAliasesCommand,
-  ListFlowAliasesCommandInput,
-  ListFlowAliasesCommandOutput,
 } from "./commands/ListFlowAliasesCommand";
-import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
+import { type ListFlowsCommandInput, type ListFlowsCommandOutput, ListFlowsCommand } from "./commands/ListFlowsCommand";
 import {
+  type ListFlowVersionsCommandInput,
+  type ListFlowVersionsCommandOutput,
   ListFlowVersionsCommand,
-  ListFlowVersionsCommandInput,
-  ListFlowVersionsCommandOutput,
 } from "./commands/ListFlowVersionsCommand";
 import {
+  type ListIngestionJobsCommandInput,
+  type ListIngestionJobsCommandOutput,
   ListIngestionJobsCommand,
-  ListIngestionJobsCommandInput,
-  ListIngestionJobsCommandOutput,
 } from "./commands/ListIngestionJobsCommand";
 import {
+  type ListKnowledgeBaseDocumentsCommandInput,
+  type ListKnowledgeBaseDocumentsCommandOutput,
   ListKnowledgeBaseDocumentsCommand,
-  ListKnowledgeBaseDocumentsCommandInput,
-  ListKnowledgeBaseDocumentsCommandOutput,
 } from "./commands/ListKnowledgeBaseDocumentsCommand";
 import {
+  type ListKnowledgeBasesCommandInput,
+  type ListKnowledgeBasesCommandOutput,
   ListKnowledgeBasesCommand,
-  ListKnowledgeBasesCommandInput,
-  ListKnowledgeBasesCommandOutput,
 } from "./commands/ListKnowledgeBasesCommand";
-import { ListPromptsCommand, ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
 import {
+  type ListPromptsCommandInput,
+  type ListPromptsCommandOutput,
+  ListPromptsCommand,
+} from "./commands/ListPromptsCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PrepareAgentCommandInput,
+  type PrepareAgentCommandOutput,
   PrepareAgentCommand,
-  PrepareAgentCommandInput,
-  PrepareAgentCommandOutput,
 } from "./commands/PrepareAgentCommand";
-import { PrepareFlowCommand, PrepareFlowCommandInput, PrepareFlowCommandOutput } from "./commands/PrepareFlowCommand";
 import {
+  type PrepareFlowCommandInput,
+  type PrepareFlowCommandOutput,
+  PrepareFlowCommand,
+} from "./commands/PrepareFlowCommand";
+import {
+  type StartIngestionJobCommandInput,
+  type StartIngestionJobCommandOutput,
   StartIngestionJobCommand,
-  StartIngestionJobCommandInput,
-  StartIngestionJobCommandOutput,
 } from "./commands/StartIngestionJobCommand";
 import {
+  type StopIngestionJobCommandInput,
+  type StopIngestionJobCommandOutput,
   StopIngestionJobCommand,
-  StopIngestionJobCommandInput,
-  StopIngestionJobCommandOutput,
 } from "./commands/StopIngestionJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAgentActionGroupCommandInput,
+  type UpdateAgentActionGroupCommandOutput,
   UpdateAgentActionGroupCommand,
-  UpdateAgentActionGroupCommandInput,
-  UpdateAgentActionGroupCommandOutput,
 } from "./commands/UpdateAgentActionGroupCommand";
 import {
+  type UpdateAgentAliasCommandInput,
+  type UpdateAgentAliasCommandOutput,
   UpdateAgentAliasCommand,
-  UpdateAgentAliasCommandInput,
-  UpdateAgentAliasCommandOutput,
 } from "./commands/UpdateAgentAliasCommand";
 import {
+  type UpdateAgentCollaboratorCommandInput,
+  type UpdateAgentCollaboratorCommandOutput,
   UpdateAgentCollaboratorCommand,
-  UpdateAgentCollaboratorCommandInput,
-  UpdateAgentCollaboratorCommandOutput,
 } from "./commands/UpdateAgentCollaboratorCommand";
-import { UpdateAgentCommand, UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
 import {
+  type UpdateAgentCommandInput,
+  type UpdateAgentCommandOutput,
+  UpdateAgentCommand,
+} from "./commands/UpdateAgentCommand";
+import {
+  type UpdateAgentKnowledgeBaseCommandInput,
+  type UpdateAgentKnowledgeBaseCommandOutput,
   UpdateAgentKnowledgeBaseCommand,
-  UpdateAgentKnowledgeBaseCommandInput,
-  UpdateAgentKnowledgeBaseCommandOutput,
 } from "./commands/UpdateAgentKnowledgeBaseCommand";
 import {
+  type UpdateDataSourceCommandInput,
+  type UpdateDataSourceCommandOutput,
   UpdateDataSourceCommand,
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import {
+  type UpdateFlowAliasCommandInput,
+  type UpdateFlowAliasCommandOutput,
   UpdateFlowAliasCommand,
-  UpdateFlowAliasCommandInput,
-  UpdateFlowAliasCommandOutput,
 } from "./commands/UpdateFlowAliasCommand";
-import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 import {
+  type UpdateFlowCommandInput,
+  type UpdateFlowCommandOutput,
+  UpdateFlowCommand,
+} from "./commands/UpdateFlowCommand";
+import {
+  type UpdateKnowledgeBaseCommandInput,
+  type UpdateKnowledgeBaseCommandOutput,
   UpdateKnowledgeBaseCommand,
-  UpdateKnowledgeBaseCommandInput,
-  UpdateKnowledgeBaseCommandOutput,
 } from "./commands/UpdateKnowledgeBaseCommand";
 import {
+  type UpdatePromptCommandInput,
+  type UpdatePromptCommandOutput,
   UpdatePromptCommand,
-  UpdatePromptCommandInput,
-  UpdatePromptCommandOutput,
 } from "./commands/UpdatePromptCommand";
 import {
+  type ValidateFlowDefinitionCommandInput,
+  type ValidateFlowDefinitionCommandOutput,
   ValidateFlowDefinitionCommand,
-  ValidateFlowDefinitionCommandInput,
-  ValidateFlowDefinitionCommandOutput,
 } from "./commands/ValidateFlowDefinitionCommand";
 import { paginateListAgentActionGroups } from "./pagination/ListAgentActionGroupsPaginator";
 import { paginateListAgentAliases } from "./pagination/ListAgentAliasesPaginator";

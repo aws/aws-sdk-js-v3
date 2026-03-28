@@ -8,7 +8,7 @@ import {
   ListReservationsCommandOutput,
 } from "../commands/ListReservationsCommand";
 import { RedshiftServerlessClient } from "../RedshiftServerlessClient";
-import { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
+import type { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

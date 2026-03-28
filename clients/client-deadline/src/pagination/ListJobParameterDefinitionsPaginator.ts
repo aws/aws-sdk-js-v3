@@ -8,7 +8,7 @@ import {
   ListJobParameterDefinitionsCommandOutput,
 } from "../commands/ListJobParameterDefinitionsCommand";
 import { DeadlineClient } from "../DeadlineClient";
-import { DeadlinePaginationConfiguration } from "./Interfaces";
+import type { DeadlinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

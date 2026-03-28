@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   AggregateType,
   AssetErrorCode,
   AssetModelState,
@@ -55,7 +55,7 @@ import {
   TraversalType,
   WarmTierState,
 } from "./enums";
-import {
+import type {
   AccessDeniedException,
   ConflictingOperationException,
   InternalFailureException,

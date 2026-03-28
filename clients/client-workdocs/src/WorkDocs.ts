@@ -3,205 +3,221 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AbortDocumentVersionUploadCommandInput,
+  type AbortDocumentVersionUploadCommandOutput,
   AbortDocumentVersionUploadCommand,
-  AbortDocumentVersionUploadCommandInput,
-  AbortDocumentVersionUploadCommandOutput,
 } from "./commands/AbortDocumentVersionUploadCommand";
 import {
+  type ActivateUserCommandInput,
+  type ActivateUserCommandOutput,
   ActivateUserCommand,
-  ActivateUserCommandInput,
-  ActivateUserCommandOutput,
 } from "./commands/ActivateUserCommand";
 import {
+  type AddResourcePermissionsCommandInput,
+  type AddResourcePermissionsCommandOutput,
   AddResourcePermissionsCommand,
-  AddResourcePermissionsCommandInput,
-  AddResourcePermissionsCommandOutput,
 } from "./commands/AddResourcePermissionsCommand";
 import {
+  type CreateCommentCommandInput,
+  type CreateCommentCommandOutput,
   CreateCommentCommand,
-  CreateCommentCommandInput,
-  CreateCommentCommandOutput,
 } from "./commands/CreateCommentCommand";
 import {
+  type CreateCustomMetadataCommandInput,
+  type CreateCustomMetadataCommandOutput,
   CreateCustomMetadataCommand,
-  CreateCustomMetadataCommandInput,
-  CreateCustomMetadataCommandOutput,
 } from "./commands/CreateCustomMetadataCommand";
 import {
+  type CreateFolderCommandInput,
+  type CreateFolderCommandOutput,
   CreateFolderCommand,
-  CreateFolderCommandInput,
-  CreateFolderCommandOutput,
 } from "./commands/CreateFolderCommand";
 import {
+  type CreateLabelsCommandInput,
+  type CreateLabelsCommandOutput,
   CreateLabelsCommand,
-  CreateLabelsCommandInput,
-  CreateLabelsCommandOutput,
 } from "./commands/CreateLabelsCommand";
 import {
+  type CreateNotificationSubscriptionCommandInput,
+  type CreateNotificationSubscriptionCommandOutput,
   CreateNotificationSubscriptionCommand,
-  CreateNotificationSubscriptionCommandInput,
-  CreateNotificationSubscriptionCommandOutput,
 } from "./commands/CreateNotificationSubscriptionCommand";
-import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  type CreateUserCommandInput,
+  type CreateUserCommandOutput,
+  CreateUserCommand,
+} from "./commands/CreateUserCommand";
+import {
+  type DeactivateUserCommandInput,
+  type DeactivateUserCommandOutput,
   DeactivateUserCommand,
-  DeactivateUserCommandInput,
-  DeactivateUserCommandOutput,
 } from "./commands/DeactivateUserCommand";
 import {
+  type DeleteCommentCommandInput,
+  type DeleteCommentCommandOutput,
   DeleteCommentCommand,
-  DeleteCommentCommandInput,
-  DeleteCommentCommandOutput,
 } from "./commands/DeleteCommentCommand";
 import {
+  type DeleteCustomMetadataCommandInput,
+  type DeleteCustomMetadataCommandOutput,
   DeleteCustomMetadataCommand,
-  DeleteCustomMetadataCommandInput,
-  DeleteCustomMetadataCommandOutput,
 } from "./commands/DeleteCustomMetadataCommand";
 import {
+  type DeleteDocumentCommandInput,
+  type DeleteDocumentCommandOutput,
   DeleteDocumentCommand,
-  DeleteDocumentCommandInput,
-  DeleteDocumentCommandOutput,
 } from "./commands/DeleteDocumentCommand";
 import {
+  type DeleteDocumentVersionCommandInput,
+  type DeleteDocumentVersionCommandOutput,
   DeleteDocumentVersionCommand,
-  DeleteDocumentVersionCommandInput,
-  DeleteDocumentVersionCommandOutput,
 } from "./commands/DeleteDocumentVersionCommand";
 import {
+  type DeleteFolderCommandInput,
+  type DeleteFolderCommandOutput,
   DeleteFolderCommand,
-  DeleteFolderCommandInput,
-  DeleteFolderCommandOutput,
 } from "./commands/DeleteFolderCommand";
 import {
+  type DeleteFolderContentsCommandInput,
+  type DeleteFolderContentsCommandOutput,
   DeleteFolderContentsCommand,
-  DeleteFolderContentsCommandInput,
-  DeleteFolderContentsCommandOutput,
 } from "./commands/DeleteFolderContentsCommand";
 import {
+  type DeleteLabelsCommandInput,
+  type DeleteLabelsCommandOutput,
   DeleteLabelsCommand,
-  DeleteLabelsCommandInput,
-  DeleteLabelsCommandOutput,
 } from "./commands/DeleteLabelsCommand";
 import {
+  type DeleteNotificationSubscriptionCommandInput,
+  type DeleteNotificationSubscriptionCommandOutput,
   DeleteNotificationSubscriptionCommand,
-  DeleteNotificationSubscriptionCommandInput,
-  DeleteNotificationSubscriptionCommandOutput,
 } from "./commands/DeleteNotificationSubscriptionCommand";
-import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  type DeleteUserCommandInput,
+  type DeleteUserCommandOutput,
+  DeleteUserCommand,
+} from "./commands/DeleteUserCommand";
+import {
+  type DescribeActivitiesCommandInput,
+  type DescribeActivitiesCommandOutput,
   DescribeActivitiesCommand,
-  DescribeActivitiesCommandInput,
-  DescribeActivitiesCommandOutput,
 } from "./commands/DescribeActivitiesCommand";
 import {
+  type DescribeCommentsCommandInput,
+  type DescribeCommentsCommandOutput,
   DescribeCommentsCommand,
-  DescribeCommentsCommandInput,
-  DescribeCommentsCommandOutput,
 } from "./commands/DescribeCommentsCommand";
 import {
+  type DescribeDocumentVersionsCommandInput,
+  type DescribeDocumentVersionsCommandOutput,
   DescribeDocumentVersionsCommand,
-  DescribeDocumentVersionsCommandInput,
-  DescribeDocumentVersionsCommandOutput,
 } from "./commands/DescribeDocumentVersionsCommand";
 import {
+  type DescribeFolderContentsCommandInput,
+  type DescribeFolderContentsCommandOutput,
   DescribeFolderContentsCommand,
-  DescribeFolderContentsCommandInput,
-  DescribeFolderContentsCommandOutput,
 } from "./commands/DescribeFolderContentsCommand";
 import {
+  type DescribeGroupsCommandInput,
+  type DescribeGroupsCommandOutput,
   DescribeGroupsCommand,
-  DescribeGroupsCommandInput,
-  DescribeGroupsCommandOutput,
 } from "./commands/DescribeGroupsCommand";
 import {
+  type DescribeNotificationSubscriptionsCommandInput,
+  type DescribeNotificationSubscriptionsCommandOutput,
   DescribeNotificationSubscriptionsCommand,
-  DescribeNotificationSubscriptionsCommandInput,
-  DescribeNotificationSubscriptionsCommandOutput,
 } from "./commands/DescribeNotificationSubscriptionsCommand";
 import {
+  type DescribeResourcePermissionsCommandInput,
+  type DescribeResourcePermissionsCommandOutput,
   DescribeResourcePermissionsCommand,
-  DescribeResourcePermissionsCommandInput,
-  DescribeResourcePermissionsCommandOutput,
 } from "./commands/DescribeResourcePermissionsCommand";
 import {
+  type DescribeRootFoldersCommandInput,
+  type DescribeRootFoldersCommandOutput,
   DescribeRootFoldersCommand,
-  DescribeRootFoldersCommandInput,
-  DescribeRootFoldersCommandOutput,
 } from "./commands/DescribeRootFoldersCommand";
 import {
+  type DescribeUsersCommandInput,
+  type DescribeUsersCommandOutput,
   DescribeUsersCommand,
-  DescribeUsersCommandInput,
-  DescribeUsersCommandOutput,
 } from "./commands/DescribeUsersCommand";
 import {
+  type GetCurrentUserCommandInput,
+  type GetCurrentUserCommandOutput,
   GetCurrentUserCommand,
-  GetCurrentUserCommandInput,
-  GetCurrentUserCommandOutput,
 } from "./commands/GetCurrentUserCommand";
-import { GetDocumentCommand, GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
 import {
+  type GetDocumentCommandInput,
+  type GetDocumentCommandOutput,
+  GetDocumentCommand,
+} from "./commands/GetDocumentCommand";
+import {
+  type GetDocumentPathCommandInput,
+  type GetDocumentPathCommandOutput,
   GetDocumentPathCommand,
-  GetDocumentPathCommandInput,
-  GetDocumentPathCommandOutput,
 } from "./commands/GetDocumentPathCommand";
 import {
+  type GetDocumentVersionCommandInput,
+  type GetDocumentVersionCommandOutput,
   GetDocumentVersionCommand,
-  GetDocumentVersionCommandInput,
-  GetDocumentVersionCommandOutput,
 } from "./commands/GetDocumentVersionCommand";
-import { GetFolderCommand, GetFolderCommandInput, GetFolderCommandOutput } from "./commands/GetFolderCommand";
+import { type GetFolderCommandInput, type GetFolderCommandOutput, GetFolderCommand } from "./commands/GetFolderCommand";
 import {
+  type GetFolderPathCommandInput,
+  type GetFolderPathCommandOutput,
   GetFolderPathCommand,
-  GetFolderPathCommandInput,
-  GetFolderPathCommandOutput,
 } from "./commands/GetFolderPathCommand";
 import {
+  type GetResourcesCommandInput,
+  type GetResourcesCommandOutput,
   GetResourcesCommand,
-  GetResourcesCommandInput,
-  GetResourcesCommandOutput,
 } from "./commands/GetResourcesCommand";
 import {
+  type InitiateDocumentVersionUploadCommandInput,
+  type InitiateDocumentVersionUploadCommandOutput,
   InitiateDocumentVersionUploadCommand,
-  InitiateDocumentVersionUploadCommandInput,
-  InitiateDocumentVersionUploadCommandOutput,
 } from "./commands/InitiateDocumentVersionUploadCommand";
 import {
+  type RemoveAllResourcePermissionsCommandInput,
+  type RemoveAllResourcePermissionsCommandOutput,
   RemoveAllResourcePermissionsCommand,
-  RemoveAllResourcePermissionsCommandInput,
-  RemoveAllResourcePermissionsCommandOutput,
 } from "./commands/RemoveAllResourcePermissionsCommand";
 import {
+  type RemoveResourcePermissionCommandInput,
+  type RemoveResourcePermissionCommandOutput,
   RemoveResourcePermissionCommand,
-  RemoveResourcePermissionCommandInput,
-  RemoveResourcePermissionCommandOutput,
 } from "./commands/RemoveResourcePermissionCommand";
 import {
+  type RestoreDocumentVersionsCommandInput,
+  type RestoreDocumentVersionsCommandOutput,
   RestoreDocumentVersionsCommand,
-  RestoreDocumentVersionsCommandInput,
-  RestoreDocumentVersionsCommandOutput,
 } from "./commands/RestoreDocumentVersionsCommand";
 import {
+  type SearchResourcesCommandInput,
+  type SearchResourcesCommandOutput,
   SearchResourcesCommand,
-  SearchResourcesCommandInput,
-  SearchResourcesCommandOutput,
 } from "./commands/SearchResourcesCommand";
 import {
+  type UpdateDocumentCommandInput,
+  type UpdateDocumentCommandOutput,
   UpdateDocumentCommand,
-  UpdateDocumentCommandInput,
-  UpdateDocumentCommandOutput,
 } from "./commands/UpdateDocumentCommand";
 import {
+  type UpdateDocumentVersionCommandInput,
+  type UpdateDocumentVersionCommandOutput,
   UpdateDocumentVersionCommand,
-  UpdateDocumentVersionCommandInput,
-  UpdateDocumentVersionCommandOutput,
 } from "./commands/UpdateDocumentVersionCommand";
 import {
+  type UpdateFolderCommandInput,
+  type UpdateFolderCommandOutput,
   UpdateFolderCommand,
-  UpdateFolderCommandInput,
-  UpdateFolderCommandOutput,
 } from "./commands/UpdateFolderCommand";
-import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import {
+  type UpdateUserCommandInput,
+  type UpdateUserCommandOutput,
+  UpdateUserCommand,
+} from "./commands/UpdateUserCommand";
 import { paginateDescribeActivities } from "./pagination/DescribeActivitiesPaginator";
 import { paginateDescribeComments } from "./pagination/DescribeCommentsPaginator";
 import { paginateDescribeDocumentVersions } from "./pagination/DescribeDocumentVersionsPaginator";

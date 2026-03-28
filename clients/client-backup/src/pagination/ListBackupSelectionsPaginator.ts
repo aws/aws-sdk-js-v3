@@ -8,7 +8,7 @@ import {
   ListBackupSelectionsCommandInput,
   ListBackupSelectionsCommandOutput,
 } from "../commands/ListBackupSelectionsCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

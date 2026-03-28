@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListAnswersCommand, ListAnswersCommandInput, ListAnswersCommandOutput } from "../commands/ListAnswersCommand";
 import { WellArchitectedClient } from "../WellArchitectedClient";
-import { WellArchitectedPaginationConfiguration } from "./Interfaces";
+import type { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -7,7 +7,7 @@
  */
 export * from "./LocationClient";
 export * from "./Location";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { LocationExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -8,7 +8,7 @@ import {
   ListResourceSharePermissionsCommandOutput,
 } from "../commands/ListResourceSharePermissionsCommand";
 import { RAMClient } from "../RAMClient";
-import { RAMPaginationConfiguration } from "./Interfaces";
+import type { RAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

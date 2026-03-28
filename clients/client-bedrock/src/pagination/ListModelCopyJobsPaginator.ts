@@ -8,7 +8,7 @@ import {
   ListModelCopyJobsCommandInput,
   ListModelCopyJobsCommandOutput,
 } from "../commands/ListModelCopyJobsCommand";
-import { BedrockPaginationConfiguration } from "./Interfaces";
+import type { BedrockPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

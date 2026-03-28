@@ -44,22 +44,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type EventStreamSerdeProvider as __EventStreamSerdeProvider,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -69,59 +67,80 @@ import {
   defaultBedrockAgentRuntimeHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateInvocationCommandInput, CreateInvocationCommandOutput } from "./commands/CreateInvocationCommand";
-import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
-import { DeleteAgentMemoryCommandInput, DeleteAgentMemoryCommandOutput } from "./commands/DeleteAgentMemoryCommand";
-import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
-import { EndSessionCommandInput, EndSessionCommandOutput } from "./commands/EndSessionCommand";
-import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "./commands/GenerateQueryCommand";
-import { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "./commands/GetAgentMemoryCommand";
-import {
+import type { CreateInvocationCommandInput, CreateInvocationCommandOutput } from "./commands/CreateInvocationCommand";
+import type { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
+import type {
+  DeleteAgentMemoryCommandInput,
+  DeleteAgentMemoryCommandOutput,
+} from "./commands/DeleteAgentMemoryCommand";
+import type { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
+import type { EndSessionCommandInput, EndSessionCommandOutput } from "./commands/EndSessionCommand";
+import type { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "./commands/GenerateQueryCommand";
+import type { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "./commands/GetAgentMemoryCommand";
+import type {
   GetExecutionFlowSnapshotCommandInput,
   GetExecutionFlowSnapshotCommandOutput,
 } from "./commands/GetExecutionFlowSnapshotCommand";
-import { GetFlowExecutionCommandInput, GetFlowExecutionCommandOutput } from "./commands/GetFlowExecutionCommand";
-import { GetInvocationStepCommandInput, GetInvocationStepCommandOutput } from "./commands/GetInvocationStepCommand";
-import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
-import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "./commands/InvokeAgentCommand";
-import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "./commands/InvokeFlowCommand";
-import { InvokeInlineAgentCommandInput, InvokeInlineAgentCommandOutput } from "./commands/InvokeInlineAgentCommand";
-import {
+import type { GetFlowExecutionCommandInput, GetFlowExecutionCommandOutput } from "./commands/GetFlowExecutionCommand";
+import type {
+  GetInvocationStepCommandInput,
+  GetInvocationStepCommandOutput,
+} from "./commands/GetInvocationStepCommand";
+import type { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import type { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "./commands/InvokeAgentCommand";
+import type { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "./commands/InvokeFlowCommand";
+import type {
+  InvokeInlineAgentCommandInput,
+  InvokeInlineAgentCommandOutput,
+} from "./commands/InvokeInlineAgentCommand";
+import type {
   ListFlowExecutionEventsCommandInput,
   ListFlowExecutionEventsCommandOutput,
 } from "./commands/ListFlowExecutionEventsCommand";
-import { ListFlowExecutionsCommandInput, ListFlowExecutionsCommandOutput } from "./commands/ListFlowExecutionsCommand";
-import { ListInvocationsCommandInput, ListInvocationsCommandOutput } from "./commands/ListInvocationsCommand";
-import {
+import type {
+  ListFlowExecutionsCommandInput,
+  ListFlowExecutionsCommandOutput,
+} from "./commands/ListFlowExecutionsCommand";
+import type { ListInvocationsCommandInput, ListInvocationsCommandOutput } from "./commands/ListInvocationsCommand";
+import type {
   ListInvocationStepsCommandInput,
   ListInvocationStepsCommandOutput,
 } from "./commands/ListInvocationStepsCommand";
-import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
-import {
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { OptimizePromptCommandInput, OptimizePromptCommandOutput } from "./commands/OptimizePromptCommand";
-import { PutInvocationStepCommandInput, PutInvocationStepCommandOutput } from "./commands/PutInvocationStepCommand";
-import { RerankCommandInput, RerankCommandOutput } from "./commands/RerankCommand";
-import {
+import type { OptimizePromptCommandInput, OptimizePromptCommandOutput } from "./commands/OptimizePromptCommand";
+import type {
+  PutInvocationStepCommandInput,
+  PutInvocationStepCommandOutput,
+} from "./commands/PutInvocationStepCommand";
+import type { RerankCommandInput, RerankCommandOutput } from "./commands/RerankCommand";
+import type {
   RetrieveAndGenerateCommandInput,
   RetrieveAndGenerateCommandOutput,
 } from "./commands/RetrieveAndGenerateCommand";
-import {
+import type {
   RetrieveAndGenerateStreamCommandInput,
   RetrieveAndGenerateStreamCommandOutput,
 } from "./commands/RetrieveAndGenerateStreamCommand";
-import { RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
-import { StartFlowExecutionCommandInput, StartFlowExecutionCommandOutput } from "./commands/StartFlowExecutionCommand";
-import { StopFlowExecutionCommandInput, StopFlowExecutionCommandOutput } from "./commands/StopFlowExecutionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "./commands/UpdateSessionCommand";
+import type { RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
+import type {
+  StartFlowExecutionCommandInput,
+  StartFlowExecutionCommandOutput,
+} from "./commands/StartFlowExecutionCommand";
+import type {
+  StopFlowExecutionCommandInput,
+  StopFlowExecutionCommandOutput,
+} from "./commands/StopFlowExecutionCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "./commands/UpdateSessionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -315,7 +334,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

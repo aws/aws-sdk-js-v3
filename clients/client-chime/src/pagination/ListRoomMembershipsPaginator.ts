@@ -8,7 +8,7 @@ import {
   ListRoomMembershipsCommandInput,
   ListRoomMembershipsCommandOutput,
 } from "../commands/ListRoomMembershipsCommand";
-import { ChimePaginationConfiguration } from "./Interfaces";
+import type { ChimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

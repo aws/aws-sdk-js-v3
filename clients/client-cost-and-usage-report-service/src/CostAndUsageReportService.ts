@@ -3,35 +3,39 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DeleteReportDefinitionCommandInput,
+  type DeleteReportDefinitionCommandOutput,
   DeleteReportDefinitionCommand,
-  DeleteReportDefinitionCommandInput,
-  DeleteReportDefinitionCommandOutput,
 } from "./commands/DeleteReportDefinitionCommand";
 import {
+  type DescribeReportDefinitionsCommandInput,
+  type DescribeReportDefinitionsCommandOutput,
   DescribeReportDefinitionsCommand,
-  DescribeReportDefinitionsCommandInput,
-  DescribeReportDefinitionsCommandOutput,
 } from "./commands/DescribeReportDefinitionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ModifyReportDefinitionCommandInput,
+  type ModifyReportDefinitionCommandOutput,
   ModifyReportDefinitionCommand,
-  ModifyReportDefinitionCommandInput,
-  ModifyReportDefinitionCommandOutput,
 } from "./commands/ModifyReportDefinitionCommand";
 import {
+  type PutReportDefinitionCommandInput,
+  type PutReportDefinitionCommandOutput,
   PutReportDefinitionCommand,
-  PutReportDefinitionCommandInput,
-  PutReportDefinitionCommandOutput,
 } from "./commands/PutReportDefinitionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { CostAndUsageReportServiceClient } from "./CostAndUsageReportServiceClient";
 import { paginateDescribeReportDefinitions } from "./pagination/DescribeReportDefinitionsPaginator";

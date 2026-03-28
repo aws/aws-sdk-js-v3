@@ -8,7 +8,7 @@ import {
   ListRetrieversCommandOutput,
 } from "../commands/ListRetrieversCommand";
 import { QBusinessClient } from "../QBusinessClient";
-import { QBusinessPaginationConfiguration } from "./Interfaces";
+import type { QBusinessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

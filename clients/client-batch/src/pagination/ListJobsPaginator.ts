@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { BatchClient } from "../BatchClient";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
-import { BatchPaginationConfiguration } from "./Interfaces";
+import type { BatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

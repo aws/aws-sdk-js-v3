@@ -3,121 +3,129 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateConnectorCommandInput,
+  type CreateConnectorCommandOutput,
   CreateConnectorCommand,
-  CreateConnectorCommandInput,
-  CreateConnectorCommandOutput,
 } from "./commands/CreateConnectorCommand";
 import {
+  type CreateDirectoryRegistrationCommandInput,
+  type CreateDirectoryRegistrationCommandOutput,
   CreateDirectoryRegistrationCommand,
-  CreateDirectoryRegistrationCommandInput,
-  CreateDirectoryRegistrationCommandOutput,
 } from "./commands/CreateDirectoryRegistrationCommand";
 import {
+  type CreateServicePrincipalNameCommandInput,
+  type CreateServicePrincipalNameCommandOutput,
   CreateServicePrincipalNameCommand,
-  CreateServicePrincipalNameCommandInput,
-  CreateServicePrincipalNameCommandOutput,
 } from "./commands/CreateServicePrincipalNameCommand";
 import {
+  type CreateTemplateCommandInput,
+  type CreateTemplateCommandOutput,
   CreateTemplateCommand,
-  CreateTemplateCommandInput,
-  CreateTemplateCommandOutput,
 } from "./commands/CreateTemplateCommand";
 import {
+  type CreateTemplateGroupAccessControlEntryCommandInput,
+  type CreateTemplateGroupAccessControlEntryCommandOutput,
   CreateTemplateGroupAccessControlEntryCommand,
-  CreateTemplateGroupAccessControlEntryCommandInput,
-  CreateTemplateGroupAccessControlEntryCommandOutput,
 } from "./commands/CreateTemplateGroupAccessControlEntryCommand";
 import {
+  type DeleteConnectorCommandInput,
+  type DeleteConnectorCommandOutput,
   DeleteConnectorCommand,
-  DeleteConnectorCommandInput,
-  DeleteConnectorCommandOutput,
 } from "./commands/DeleteConnectorCommand";
 import {
+  type DeleteDirectoryRegistrationCommandInput,
+  type DeleteDirectoryRegistrationCommandOutput,
   DeleteDirectoryRegistrationCommand,
-  DeleteDirectoryRegistrationCommandInput,
-  DeleteDirectoryRegistrationCommandOutput,
 } from "./commands/DeleteDirectoryRegistrationCommand";
 import {
+  type DeleteServicePrincipalNameCommandInput,
+  type DeleteServicePrincipalNameCommandOutput,
   DeleteServicePrincipalNameCommand,
-  DeleteServicePrincipalNameCommandInput,
-  DeleteServicePrincipalNameCommandOutput,
 } from "./commands/DeleteServicePrincipalNameCommand";
 import {
+  type DeleteTemplateCommandInput,
+  type DeleteTemplateCommandOutput,
   DeleteTemplateCommand,
-  DeleteTemplateCommandInput,
-  DeleteTemplateCommandOutput,
 } from "./commands/DeleteTemplateCommand";
 import {
+  type DeleteTemplateGroupAccessControlEntryCommandInput,
+  type DeleteTemplateGroupAccessControlEntryCommandOutput,
   DeleteTemplateGroupAccessControlEntryCommand,
-  DeleteTemplateGroupAccessControlEntryCommandInput,
-  DeleteTemplateGroupAccessControlEntryCommandOutput,
 } from "./commands/DeleteTemplateGroupAccessControlEntryCommand";
 import {
+  type GetConnectorCommandInput,
+  type GetConnectorCommandOutput,
   GetConnectorCommand,
-  GetConnectorCommandInput,
-  GetConnectorCommandOutput,
 } from "./commands/GetConnectorCommand";
 import {
+  type GetDirectoryRegistrationCommandInput,
+  type GetDirectoryRegistrationCommandOutput,
   GetDirectoryRegistrationCommand,
-  GetDirectoryRegistrationCommandInput,
-  GetDirectoryRegistrationCommandOutput,
 } from "./commands/GetDirectoryRegistrationCommand";
 import {
+  type GetServicePrincipalNameCommandInput,
+  type GetServicePrincipalNameCommandOutput,
   GetServicePrincipalNameCommand,
-  GetServicePrincipalNameCommandInput,
-  GetServicePrincipalNameCommandOutput,
 } from "./commands/GetServicePrincipalNameCommand";
-import { GetTemplateCommand, GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
 import {
+  type GetTemplateCommandInput,
+  type GetTemplateCommandOutput,
+  GetTemplateCommand,
+} from "./commands/GetTemplateCommand";
+import {
+  type GetTemplateGroupAccessControlEntryCommandInput,
+  type GetTemplateGroupAccessControlEntryCommandOutput,
   GetTemplateGroupAccessControlEntryCommand,
-  GetTemplateGroupAccessControlEntryCommandInput,
-  GetTemplateGroupAccessControlEntryCommandOutput,
 } from "./commands/GetTemplateGroupAccessControlEntryCommand";
 import {
+  type ListConnectorsCommandInput,
+  type ListConnectorsCommandOutput,
   ListConnectorsCommand,
-  ListConnectorsCommandInput,
-  ListConnectorsCommandOutput,
 } from "./commands/ListConnectorsCommand";
 import {
+  type ListDirectoryRegistrationsCommandInput,
+  type ListDirectoryRegistrationsCommandOutput,
   ListDirectoryRegistrationsCommand,
-  ListDirectoryRegistrationsCommandInput,
-  ListDirectoryRegistrationsCommandOutput,
 } from "./commands/ListDirectoryRegistrationsCommand";
 import {
+  type ListServicePrincipalNamesCommandInput,
+  type ListServicePrincipalNamesCommandOutput,
   ListServicePrincipalNamesCommand,
-  ListServicePrincipalNamesCommandInput,
-  ListServicePrincipalNamesCommandOutput,
 } from "./commands/ListServicePrincipalNamesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTemplateGroupAccessControlEntriesCommandInput,
+  type ListTemplateGroupAccessControlEntriesCommandOutput,
   ListTemplateGroupAccessControlEntriesCommand,
-  ListTemplateGroupAccessControlEntriesCommandInput,
-  ListTemplateGroupAccessControlEntriesCommandOutput,
 } from "./commands/ListTemplateGroupAccessControlEntriesCommand";
 import {
+  type ListTemplatesCommandInput,
+  type ListTemplatesCommandOutput,
   ListTemplatesCommand,
-  ListTemplatesCommandInput,
-  ListTemplatesCommandOutput,
 } from "./commands/ListTemplatesCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateTemplateCommandInput,
+  type UpdateTemplateCommandOutput,
   UpdateTemplateCommand,
-  UpdateTemplateCommandInput,
-  UpdateTemplateCommandOutput,
 } from "./commands/UpdateTemplateCommand";
 import {
+  type UpdateTemplateGroupAccessControlEntryCommandInput,
+  type UpdateTemplateGroupAccessControlEntryCommandOutput,
   UpdateTemplateGroupAccessControlEntryCommand,
-  UpdateTemplateGroupAccessControlEntryCommandInput,
-  UpdateTemplateGroupAccessControlEntryCommandOutput,
 } from "./commands/UpdateTemplateGroupAccessControlEntryCommand";
 import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";
 import { paginateListDirectoryRegistrations } from "./pagination/ListDirectoryRegistrationsPaginator";

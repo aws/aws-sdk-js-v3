@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,56 +61,68 @@ import {
   defaultSignerHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddProfilePermissionCommandInput,
   AddProfilePermissionCommandOutput,
 } from "./commands/AddProfilePermissionCommand";
-import {
+import type {
   CancelSigningProfileCommandInput,
   CancelSigningProfileCommandOutput,
 } from "./commands/CancelSigningProfileCommand";
-import { DescribeSigningJobCommandInput, DescribeSigningJobCommandOutput } from "./commands/DescribeSigningJobCommand";
-import {
+import type {
+  DescribeSigningJobCommandInput,
+  DescribeSigningJobCommandOutput,
+} from "./commands/DescribeSigningJobCommand";
+import type {
   GetRevocationStatusCommandInput,
   GetRevocationStatusCommandOutput,
 } from "./commands/GetRevocationStatusCommand";
-import { GetSigningPlatformCommandInput, GetSigningPlatformCommandOutput } from "./commands/GetSigningPlatformCommand";
-import { GetSigningProfileCommandInput, GetSigningProfileCommandOutput } from "./commands/GetSigningProfileCommand";
-import {
+import type {
+  GetSigningPlatformCommandInput,
+  GetSigningPlatformCommandOutput,
+} from "./commands/GetSigningPlatformCommand";
+import type {
+  GetSigningProfileCommandInput,
+  GetSigningProfileCommandOutput,
+} from "./commands/GetSigningProfileCommand";
+import type {
   ListProfilePermissionsCommandInput,
   ListProfilePermissionsCommandOutput,
 } from "./commands/ListProfilePermissionsCommand";
-import { ListSigningJobsCommandInput, ListSigningJobsCommandOutput } from "./commands/ListSigningJobsCommand";
-import {
+import type { ListSigningJobsCommandInput, ListSigningJobsCommandOutput } from "./commands/ListSigningJobsCommand";
+import type {
   ListSigningPlatformsCommandInput,
   ListSigningPlatformsCommandOutput,
 } from "./commands/ListSigningPlatformsCommand";
-import {
+import type {
   ListSigningProfilesCommandInput,
   ListSigningProfilesCommandOutput,
 } from "./commands/ListSigningProfilesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutSigningProfileCommandInput, PutSigningProfileCommandOutput } from "./commands/PutSigningProfileCommand";
-import {
+import type {
+  PutSigningProfileCommandInput,
+  PutSigningProfileCommandOutput,
+} from "./commands/PutSigningProfileCommand";
+import type {
   RemoveProfilePermissionCommandInput,
   RemoveProfilePermissionCommandOutput,
 } from "./commands/RemoveProfilePermissionCommand";
-import { RevokeSignatureCommandInput, RevokeSignatureCommandOutput } from "./commands/RevokeSignatureCommand";
-import {
+import type { RevokeSignatureCommandInput, RevokeSignatureCommandOutput } from "./commands/RevokeSignatureCommand";
+import type {
   RevokeSigningProfileCommandInput,
   RevokeSigningProfileCommandOutput,
 } from "./commands/RevokeSigningProfileCommand";
-import { SignPayloadCommandInput, SignPayloadCommandOutput } from "./commands/SignPayloadCommand";
-import { StartSigningJobCommandInput, StartSigningJobCommandOutput } from "./commands/StartSigningJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { SignPayloadCommandInput, SignPayloadCommandOutput } from "./commands/SignPayloadCommand";
+import type { StartSigningJobCommandInput, StartSigningJobCommandOutput } from "./commands/StartSigningJobCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -282,7 +292,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

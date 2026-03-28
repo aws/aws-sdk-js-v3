@@ -8,7 +8,7 @@ import {
   ListIngestionsCommandInput,
   ListIngestionsCommandOutput,
 } from "../commands/ListIngestionsCommand";
-import { AppFabricPaginationConfiguration } from "./Interfaces";
+import type { AppFabricPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

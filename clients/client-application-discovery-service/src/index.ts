@@ -112,7 +112,7 @@
  */
 export * from "./ApplicationDiscoveryServiceClient";
 export * from "./ApplicationDiscoveryService";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ApplicationDiscoveryServiceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

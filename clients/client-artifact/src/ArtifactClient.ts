@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,21 +61,33 @@ import {
   defaultArtifactHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
-import { GetReportCommandInput, GetReportCommandOutput } from "./commands/GetReportCommand";
-import { GetReportMetadataCommandInput, GetReportMetadataCommandOutput } from "./commands/GetReportMetadataCommand";
-import { GetTermForReportCommandInput, GetTermForReportCommandOutput } from "./commands/GetTermForReportCommand";
-import {
+import type {
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput,
+} from "./commands/GetAccountSettingsCommand";
+import type { GetReportCommandInput, GetReportCommandOutput } from "./commands/GetReportCommand";
+import type {
+  GetReportMetadataCommandInput,
+  GetReportMetadataCommandOutput,
+} from "./commands/GetReportMetadataCommand";
+import type { GetTermForReportCommandInput, GetTermForReportCommandOutput } from "./commands/GetTermForReportCommand";
+import type {
   ListCustomerAgreementsCommandInput,
   ListCustomerAgreementsCommandOutput,
 } from "./commands/ListCustomerAgreementsCommand";
-import { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
-import { ListReportVersionsCommandInput, ListReportVersionsCommandOutput } from "./commands/ListReportVersionsCommand";
-import { PutAccountSettingsCommandInput, PutAccountSettingsCommandOutput } from "./commands/PutAccountSettingsCommand";
+import type { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
+import type {
+  ListReportVersionsCommandInput,
+  ListReportVersionsCommandOutput,
+} from "./commands/ListReportVersionsCommand";
+import type {
+  PutAccountSettingsCommandInput,
+  PutAccountSettingsCommandOutput,
+} from "./commands/PutAccountSettingsCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -225,7 +235,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -8,7 +8,7 @@ import {
   ListServicesCommandOutput,
 } from "../commands/ListServicesCommand";
 import { UxcClient } from "../UxcClient";
-import { UxcPaginationConfiguration } from "./Interfaces";
+import type { UxcPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

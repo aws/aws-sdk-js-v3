@@ -8,7 +8,7 @@ import {
   ListServicesCommandOutput,
 } from "../commands/ListServicesCommand";
 import { VPCLatticeClient } from "../VPCLatticeClient";
-import { VPCLatticePaginationConfiguration } from "./Interfaces";
+import type { VPCLatticePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

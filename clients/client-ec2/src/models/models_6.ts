@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   _InstanceType,
   Affinity,
   AnalysisStatus,
@@ -86,81 +86,81 @@ import {
   VolumeState,
   VolumeType,
 } from "./enums";
-import {
-  type AddressAttribute,
-  type ClientConnectOptions,
-  type ClientLoginBannerOptions,
-  type ClientRouteEnforcementOptions,
-  type ConnectionLogOptions,
-  type EnaSrdSpecification,
-  type InstanceEventWindow,
-  type OperatorResponse,
-  type SubnetAssociation,
+import type {
   AccessScopeAnalysisFinding,
   AddIpamOperatingRegion,
   AddIpamOrganizationalUnitExclusion,
   AddPrefixListEntry,
+  AddressAttribute,
+  ClientConnectOptions,
+  ClientLoginBannerOptions,
+  ClientRouteEnforcementOptions,
+  ConnectionLogOptions,
+  EnaSrdSpecification,
+  InstanceEventWindow,
   IpamPoolAllocation,
+  OperatorResponse,
   RouteServerAssociation,
+  SubnetAssociation,
   Tag,
   TagSpecification,
   TargetConfigurationRequest,
   TransitGatewayPolicyTableAssociation,
   UnsuccessfulItem,
 } from "./models_0";
-import {
-  type AttributeValue,
-  type CapacityReservationTarget,
-  type ConnectionTrackingSpecificationRequest,
-  type ExternalAuthorityConfiguration,
-  type InstanceRequirementsRequest,
-  type Ipam,
-  type IpamPool,
-  type IpamPrefixListResolver,
-  type IpamPrefixListResolverTarget,
-  type IpamResourceDiscovery,
-  type IpamScope,
-  type LaunchTemplate,
-  type LocalGatewayRoute,
-  type ManagedPrefixList,
-  type NetworkInsightsAccessScopeContent,
-  type Placement,
-  type ResponseLaunchTemplateData,
-  type RouteServer,
-  type TargetCapacitySpecificationRequest,
+import type {
+  AttributeValue,
+  CapacityReservationTarget,
+  ConnectionTrackingSpecificationRequest,
+  ExternalAuthorityConfiguration,
   FleetLaunchTemplateConfigRequest,
   InstanceEventWindowTimeRangeRequest,
+  InstanceRequirementsRequest,
+  Ipam,
+  IpamPool,
+  IpamPrefixListResolver,
   IpamPrefixListResolverRuleRequest,
+  IpamPrefixListResolverTarget,
+  IpamResourceDiscovery,
   IpamResourceTag,
+  IpamScope,
+  LaunchTemplate,
+  LocalGatewayRoute,
+  ManagedPrefixList,
+  NetworkInsightsAccessScopeContent,
+  Placement,
   RequestIpamResourceTag,
+  ResponseLaunchTemplateData,
+  RouteServer,
+  TargetCapacitySpecificationRequest,
 } from "./models_1";
-import {
-  type TrafficMirrorFilter,
-  type TrafficMirrorFilterRule,
-  type TrafficMirrorPortRangeRequest,
+import type {
   SubnetCidrReservation,
+  TrafficMirrorFilter,
+  TrafficMirrorFilterRule,
+  TrafficMirrorPortRangeRequest,
   TransitGatewayMeteringPolicyEntry,
   TransitGatewayPrefixListReference,
 } from "./models_2";
-import {
-  type AttributeBooleanValue,
-  type ConversionTask,
-  type FpgaImageAttribute,
-  type SnapshotTaskDetail,
+import type {
+  AttributeBooleanValue,
+  ConversionTask,
   Filter,
+  FpgaImageAttribute,
   ImportImageLicenseConfigurationResponse,
   IpamPoolCidr,
   LaunchPermission,
   SnapshotDetail,
+  SnapshotTaskDetail,
 } from "./models_3";
-import {
-  type InstanceMetadataOptionsResponse,
-  type InstanceStatusEvent,
+import type {
   CreateVolumePermission,
+  InstanceMetadataOptionsResponse,
+  InstanceStatusEvent,
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
 } from "./models_4";
-import { RegionalSummary, RouteServerPropagation } from "./models_5";
+import type { RegionalSummary, RouteServerPropagation } from "./models_5";
 
 /**
  * <p>A summary report for the attribute across all Regions.</p>

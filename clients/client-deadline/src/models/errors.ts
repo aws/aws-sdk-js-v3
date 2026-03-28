@@ -2,8 +2,8 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DeadlineServiceException as __BaseException } from "./DeadlineServiceException";
-import { ConflictExceptionReason, ServiceQuotaExceededExceptionReason, ValidationExceptionReason } from "./enums";
-import { ValidationExceptionField } from "./models_0";
+import type { ConflictExceptionReason, ServiceQuotaExceededExceptionReason, ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>You don't have permission to perform the action.</p>

@@ -8,7 +8,7 @@ import {
   ListTrustStoreCertificatesCommandOutput,
 } from "../commands/ListTrustStoreCertificatesCommand";
 import { WorkSpacesWebClient } from "../WorkSpacesWebClient";
-import { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
+import type { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand";
 import { WorkSpacesThinClientClient } from "../WorkSpacesThinClientClient";
-import { WorkSpacesThinClientPaginationConfiguration } from "./Interfaces";
+import type { WorkSpacesThinClientPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

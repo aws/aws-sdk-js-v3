@@ -8,7 +8,7 @@ import {
   ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
   ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
 } from "../commands/ListCollaborationConfiguredAudienceModelAssociationsCommand";
-import { CleanRoomsPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

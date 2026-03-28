@@ -7,7 +7,7 @@
  */
 export * from "./ControlTowerClient";
 export * from "./ControlTower";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ControlTowerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

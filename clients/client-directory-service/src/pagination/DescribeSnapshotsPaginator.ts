@@ -8,7 +8,7 @@ import {
   DescribeSnapshotsCommandOutput,
 } from "../commands/DescribeSnapshotsCommand";
 import { DirectoryServiceClient } from "../DirectoryServiceClient";
-import { DirectoryServicePaginationConfiguration } from "./Interfaces";
+import type { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

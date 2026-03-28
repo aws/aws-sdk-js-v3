@@ -7,7 +7,7 @@
  */
 export * from "./FreeTierClient";
 export * from "./FreeTier";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { FreeTierExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

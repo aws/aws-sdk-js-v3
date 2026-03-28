@@ -8,7 +8,7 @@ import {
   SearchTablesCommandOutput,
 } from "../commands/SearchTablesCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

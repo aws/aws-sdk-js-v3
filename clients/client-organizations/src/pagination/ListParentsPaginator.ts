@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListParentsCommand, ListParentsCommandInput, ListParentsCommandOutput } from "../commands/ListParentsCommand";
 import { OrganizationsClient } from "../OrganizationsClient";
-import { OrganizationsPaginationConfiguration } from "./Interfaces";
+import type { OrganizationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

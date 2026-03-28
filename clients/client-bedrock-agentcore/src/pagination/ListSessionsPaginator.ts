@@ -8,7 +8,7 @@ import {
   ListSessionsCommandInput,
   ListSessionsCommandOutput,
 } from "../commands/ListSessionsCommand";
-import { BedrockAgentCorePaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCorePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

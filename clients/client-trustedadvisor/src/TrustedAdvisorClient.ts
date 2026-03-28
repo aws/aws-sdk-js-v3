@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,48 +61,51 @@ import {
   defaultTrustedAdvisorHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchUpdateRecommendationResourceExclusionCommandInput,
   BatchUpdateRecommendationResourceExclusionCommandOutput,
 } from "./commands/BatchUpdateRecommendationResourceExclusionCommand";
-import {
+import type {
   GetOrganizationRecommendationCommandInput,
   GetOrganizationRecommendationCommandOutput,
 } from "./commands/GetOrganizationRecommendationCommand";
-import { GetRecommendationCommandInput, GetRecommendationCommandOutput } from "./commands/GetRecommendationCommand";
-import { ListChecksCommandInput, ListChecksCommandOutput } from "./commands/ListChecksCommand";
-import {
+import type {
+  GetRecommendationCommandInput,
+  GetRecommendationCommandOutput,
+} from "./commands/GetRecommendationCommand";
+import type { ListChecksCommandInput, ListChecksCommandOutput } from "./commands/ListChecksCommand";
+import type {
   ListOrganizationRecommendationAccountsCommandInput,
   ListOrganizationRecommendationAccountsCommandOutput,
 } from "./commands/ListOrganizationRecommendationAccountsCommand";
-import {
+import type {
   ListOrganizationRecommendationResourcesCommandInput,
   ListOrganizationRecommendationResourcesCommandOutput,
 } from "./commands/ListOrganizationRecommendationResourcesCommand";
-import {
+import type {
   ListOrganizationRecommendationsCommandInput,
   ListOrganizationRecommendationsCommandOutput,
 } from "./commands/ListOrganizationRecommendationsCommand";
-import {
+import type {
   ListRecommendationResourcesCommandInput,
   ListRecommendationResourcesCommandOutput,
 } from "./commands/ListRecommendationResourcesCommand";
-import {
+import type {
   ListRecommendationsCommandInput,
   ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
-import {
+import type {
   UpdateOrganizationRecommendationLifecycleCommandInput,
   UpdateOrganizationRecommendationLifecycleCommandOutput,
 } from "./commands/UpdateOrganizationRecommendationLifecycleCommand";
-import {
+import type {
   UpdateRecommendationLifecycleCommandInput,
   UpdateRecommendationLifecycleCommandOutput,
 } from "./commands/UpdateRecommendationLifecycleCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -258,7 +259,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -10,7 +10,7 @@
  */
 export * from "./WisdomClient";
 export * from "./Wisdom";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { WisdomExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -8,7 +8,7 @@ import {
   ListWorkloadIdentitiesCommandInput,
   ListWorkloadIdentitiesCommandOutput,
 } from "../commands/ListWorkloadIdentitiesCommand";
-import { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

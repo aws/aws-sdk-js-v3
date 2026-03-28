@@ -8,7 +8,7 @@ import {
   DescribeStackEventsCommandInput,
   DescribeStackEventsCommandOutput,
 } from "../commands/DescribeStackEventsCommand";
-import { CloudFormationPaginationConfiguration } from "./Interfaces";
+import type { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

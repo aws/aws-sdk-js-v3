@@ -8,7 +8,7 @@ import {
   ListWorkspacesCommandOutput,
 } from "../commands/ListWorkspacesCommand";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
-import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
+import type { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,40 +61,43 @@ import {
   defaultManagedBlockchainHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateAccessorCommandInput, CreateAccessorCommandOutput } from "./commands/CreateAccessorCommand";
-import { CreateMemberCommandInput, CreateMemberCommandOutput } from "./commands/CreateMemberCommand";
-import { CreateNetworkCommandInput, CreateNetworkCommandOutput } from "./commands/CreateNetworkCommand";
-import { CreateNodeCommandInput, CreateNodeCommandOutput } from "./commands/CreateNodeCommand";
-import { CreateProposalCommandInput, CreateProposalCommandOutput } from "./commands/CreateProposalCommand";
-import { DeleteAccessorCommandInput, DeleteAccessorCommandOutput } from "./commands/DeleteAccessorCommand";
-import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "./commands/DeleteMemberCommand";
-import { DeleteNodeCommandInput, DeleteNodeCommandOutput } from "./commands/DeleteNodeCommand";
-import { GetAccessorCommandInput, GetAccessorCommandOutput } from "./commands/GetAccessorCommand";
-import { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
-import { GetNetworkCommandInput, GetNetworkCommandOutput } from "./commands/GetNetworkCommand";
-import { GetNodeCommandInput, GetNodeCommandOutput } from "./commands/GetNodeCommand";
-import { GetProposalCommandInput, GetProposalCommandOutput } from "./commands/GetProposalCommand";
-import { ListAccessorsCommandInput, ListAccessorsCommandOutput } from "./commands/ListAccessorsCommand";
-import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
-import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
-import { ListNetworksCommandInput, ListNetworksCommandOutput } from "./commands/ListNetworksCommand";
-import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
-import { ListProposalsCommandInput, ListProposalsCommandOutput } from "./commands/ListProposalsCommand";
-import { ListProposalVotesCommandInput, ListProposalVotesCommandOutput } from "./commands/ListProposalVotesCommand";
-import {
+import type { CreateAccessorCommandInput, CreateAccessorCommandOutput } from "./commands/CreateAccessorCommand";
+import type { CreateMemberCommandInput, CreateMemberCommandOutput } from "./commands/CreateMemberCommand";
+import type { CreateNetworkCommandInput, CreateNetworkCommandOutput } from "./commands/CreateNetworkCommand";
+import type { CreateNodeCommandInput, CreateNodeCommandOutput } from "./commands/CreateNodeCommand";
+import type { CreateProposalCommandInput, CreateProposalCommandOutput } from "./commands/CreateProposalCommand";
+import type { DeleteAccessorCommandInput, DeleteAccessorCommandOutput } from "./commands/DeleteAccessorCommand";
+import type { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "./commands/DeleteMemberCommand";
+import type { DeleteNodeCommandInput, DeleteNodeCommandOutput } from "./commands/DeleteNodeCommand";
+import type { GetAccessorCommandInput, GetAccessorCommandOutput } from "./commands/GetAccessorCommand";
+import type { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
+import type { GetNetworkCommandInput, GetNetworkCommandOutput } from "./commands/GetNetworkCommand";
+import type { GetNodeCommandInput, GetNodeCommandOutput } from "./commands/GetNodeCommand";
+import type { GetProposalCommandInput, GetProposalCommandOutput } from "./commands/GetProposalCommand";
+import type { ListAccessorsCommandInput, ListAccessorsCommandOutput } from "./commands/ListAccessorsCommand";
+import type { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
+import type { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import type { ListNetworksCommandInput, ListNetworksCommandOutput } from "./commands/ListNetworksCommand";
+import type { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import type { ListProposalsCommandInput, ListProposalsCommandOutput } from "./commands/ListProposalsCommand";
+import type {
+  ListProposalVotesCommandInput,
+  ListProposalVotesCommandOutput,
+} from "./commands/ListProposalVotesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "./commands/RejectInvitationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateMemberCommandInput, UpdateMemberCommandOutput } from "./commands/UpdateMemberCommand";
-import { UpdateNodeCommandInput, UpdateNodeCommandOutput } from "./commands/UpdateNodeCommand";
-import { VoteOnProposalCommandInput, VoteOnProposalCommandOutput } from "./commands/VoteOnProposalCommand";
+import type { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "./commands/RejectInvitationCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateMemberCommandInput, UpdateMemberCommandOutput } from "./commands/UpdateMemberCommand";
+import type { UpdateNodeCommandInput, UpdateNodeCommandOutput } from "./commands/UpdateNodeCommand";
+import type { VoteOnProposalCommandInput, VoteOnProposalCommandOutput } from "./commands/VoteOnProposalCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -282,7 +283,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

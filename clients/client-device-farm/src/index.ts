@@ -21,7 +21,7 @@
  */
 export * from "./DeviceFarmClient";
 export * from "./DeviceFarm";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DeviceFarmExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

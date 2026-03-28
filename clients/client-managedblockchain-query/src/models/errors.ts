@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ResourceType, ValidationExceptionReason } from "./enums";
+import type { ResourceType, ValidationExceptionReason } from "./enums";
 import { ManagedBlockchainQueryServiceException as __BaseException } from "./ManagedBlockchainQueryServiceException";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>The Amazon Web Services account doesn’t have access to this resource. </p>

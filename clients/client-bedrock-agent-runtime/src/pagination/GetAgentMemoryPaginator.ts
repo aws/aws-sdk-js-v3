@@ -8,7 +8,7 @@ import {
   GetAgentMemoryCommandInput,
   GetAgentMemoryCommandOutput,
 } from "../commands/GetAgentMemoryCommand";
-import { BedrockAgentRuntimePaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentRuntimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

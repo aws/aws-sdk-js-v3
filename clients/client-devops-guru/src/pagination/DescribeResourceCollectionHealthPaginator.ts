@@ -8,7 +8,7 @@ import {
   DescribeResourceCollectionHealthCommandOutput,
 } from "../commands/DescribeResourceCollectionHealthCommand";
 import { DevOpsGuruClient } from "../DevOpsGuruClient";
-import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
+import type { DevOpsGuruPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CloudDirectoryClient } from "../CloudDirectoryClient";
 import { ListIndexCommand, ListIndexCommandInput, ListIndexCommandOutput } from "../commands/ListIndexCommand";
-import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
+import type { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

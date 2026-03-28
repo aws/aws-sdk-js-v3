@@ -15,7 +15,7 @@
  */
 export * from "./BackupGatewayClient";
 export * from "./BackupGateway";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BackupGatewayExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

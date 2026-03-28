@@ -3,154 +3,182 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateBotVersionCommandInput,
+  type CreateBotVersionCommandOutput,
   CreateBotVersionCommand,
-  CreateBotVersionCommandInput,
-  CreateBotVersionCommandOutput,
 } from "./commands/CreateBotVersionCommand";
 import {
+  type CreateIntentVersionCommandInput,
+  type CreateIntentVersionCommandOutput,
   CreateIntentVersionCommand,
-  CreateIntentVersionCommandInput,
-  CreateIntentVersionCommandOutput,
 } from "./commands/CreateIntentVersionCommand";
 import {
+  type CreateSlotTypeVersionCommandInput,
+  type CreateSlotTypeVersionCommandOutput,
   CreateSlotTypeVersionCommand,
-  CreateSlotTypeVersionCommandInput,
-  CreateSlotTypeVersionCommandOutput,
 } from "./commands/CreateSlotTypeVersionCommand";
 import {
+  type DeleteBotAliasCommandInput,
+  type DeleteBotAliasCommandOutput,
   DeleteBotAliasCommand,
-  DeleteBotAliasCommandInput,
-  DeleteBotAliasCommandOutput,
 } from "./commands/DeleteBotAliasCommand";
 import {
+  type DeleteBotChannelAssociationCommandInput,
+  type DeleteBotChannelAssociationCommandOutput,
   DeleteBotChannelAssociationCommand,
-  DeleteBotChannelAssociationCommandInput,
-  DeleteBotChannelAssociationCommandOutput,
 } from "./commands/DeleteBotChannelAssociationCommand";
-import { DeleteBotCommand, DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
+import { type DeleteBotCommandInput, type DeleteBotCommandOutput, DeleteBotCommand } from "./commands/DeleteBotCommand";
 import {
+  type DeleteBotVersionCommandInput,
+  type DeleteBotVersionCommandOutput,
   DeleteBotVersionCommand,
-  DeleteBotVersionCommandInput,
-  DeleteBotVersionCommandOutput,
 } from "./commands/DeleteBotVersionCommand";
 import {
+  type DeleteIntentCommandInput,
+  type DeleteIntentCommandOutput,
   DeleteIntentCommand,
-  DeleteIntentCommandInput,
-  DeleteIntentCommandOutput,
 } from "./commands/DeleteIntentCommand";
 import {
+  type DeleteIntentVersionCommandInput,
+  type DeleteIntentVersionCommandOutput,
   DeleteIntentVersionCommand,
-  DeleteIntentVersionCommandInput,
-  DeleteIntentVersionCommandOutput,
 } from "./commands/DeleteIntentVersionCommand";
 import {
+  type DeleteSlotTypeCommandInput,
+  type DeleteSlotTypeCommandOutput,
   DeleteSlotTypeCommand,
-  DeleteSlotTypeCommandInput,
-  DeleteSlotTypeCommandOutput,
 } from "./commands/DeleteSlotTypeCommand";
 import {
+  type DeleteSlotTypeVersionCommandInput,
+  type DeleteSlotTypeVersionCommandOutput,
   DeleteSlotTypeVersionCommand,
-  DeleteSlotTypeVersionCommandInput,
-  DeleteSlotTypeVersionCommandOutput,
 } from "./commands/DeleteSlotTypeVersionCommand";
 import {
+  type DeleteUtterancesCommandInput,
+  type DeleteUtterancesCommandOutput,
   DeleteUtterancesCommand,
-  DeleteUtterancesCommandInput,
-  DeleteUtterancesCommandOutput,
 } from "./commands/DeleteUtterancesCommand";
-import { GetBotAliasCommand, GetBotAliasCommandInput, GetBotAliasCommandOutput } from "./commands/GetBotAliasCommand";
 import {
+  type GetBotAliasCommandInput,
+  type GetBotAliasCommandOutput,
+  GetBotAliasCommand,
+} from "./commands/GetBotAliasCommand";
+import {
+  type GetBotAliasesCommandInput,
+  type GetBotAliasesCommandOutput,
   GetBotAliasesCommand,
-  GetBotAliasesCommandInput,
-  GetBotAliasesCommandOutput,
 } from "./commands/GetBotAliasesCommand";
 import {
+  type GetBotChannelAssociationCommandInput,
+  type GetBotChannelAssociationCommandOutput,
   GetBotChannelAssociationCommand,
-  GetBotChannelAssociationCommandInput,
-  GetBotChannelAssociationCommandOutput,
 } from "./commands/GetBotChannelAssociationCommand";
 import {
+  type GetBotChannelAssociationsCommandInput,
+  type GetBotChannelAssociationsCommandOutput,
   GetBotChannelAssociationsCommand,
-  GetBotChannelAssociationsCommandInput,
-  GetBotChannelAssociationsCommandOutput,
 } from "./commands/GetBotChannelAssociationsCommand";
-import { GetBotCommand, GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
-import { GetBotsCommand, GetBotsCommandInput, GetBotsCommandOutput } from "./commands/GetBotsCommand";
+import { type GetBotCommandInput, type GetBotCommandOutput, GetBotCommand } from "./commands/GetBotCommand";
+import { type GetBotsCommandInput, type GetBotsCommandOutput, GetBotsCommand } from "./commands/GetBotsCommand";
 import {
+  type GetBotVersionsCommandInput,
+  type GetBotVersionsCommandOutput,
   GetBotVersionsCommand,
-  GetBotVersionsCommandInput,
-  GetBotVersionsCommandOutput,
 } from "./commands/GetBotVersionsCommand";
 import {
+  type GetBuiltinIntentCommandInput,
+  type GetBuiltinIntentCommandOutput,
   GetBuiltinIntentCommand,
-  GetBuiltinIntentCommandInput,
-  GetBuiltinIntentCommandOutput,
 } from "./commands/GetBuiltinIntentCommand";
 import {
+  type GetBuiltinIntentsCommandInput,
+  type GetBuiltinIntentsCommandOutput,
   GetBuiltinIntentsCommand,
-  GetBuiltinIntentsCommandInput,
-  GetBuiltinIntentsCommandOutput,
 } from "./commands/GetBuiltinIntentsCommand";
 import {
+  type GetBuiltinSlotTypesCommandInput,
+  type GetBuiltinSlotTypesCommandOutput,
   GetBuiltinSlotTypesCommand,
-  GetBuiltinSlotTypesCommandInput,
-  GetBuiltinSlotTypesCommandOutput,
 } from "./commands/GetBuiltinSlotTypesCommand";
-import { GetExportCommand, GetExportCommandInput, GetExportCommandOutput } from "./commands/GetExportCommand";
-import { GetImportCommand, GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
-import { GetIntentCommand, GetIntentCommandInput, GetIntentCommandOutput } from "./commands/GetIntentCommand";
-import { GetIntentsCommand, GetIntentsCommandInput, GetIntentsCommandOutput } from "./commands/GetIntentsCommand";
+import { type GetExportCommandInput, type GetExportCommandOutput, GetExportCommand } from "./commands/GetExportCommand";
+import { type GetImportCommandInput, type GetImportCommandOutput, GetImportCommand } from "./commands/GetImportCommand";
+import { type GetIntentCommandInput, type GetIntentCommandOutput, GetIntentCommand } from "./commands/GetIntentCommand";
 import {
+  type GetIntentsCommandInput,
+  type GetIntentsCommandOutput,
+  GetIntentsCommand,
+} from "./commands/GetIntentsCommand";
+import {
+  type GetIntentVersionsCommandInput,
+  type GetIntentVersionsCommandOutput,
   GetIntentVersionsCommand,
-  GetIntentVersionsCommandInput,
-  GetIntentVersionsCommandOutput,
 } from "./commands/GetIntentVersionsCommand";
 import {
+  type GetMigrationCommandInput,
+  type GetMigrationCommandOutput,
   GetMigrationCommand,
-  GetMigrationCommandInput,
-  GetMigrationCommandOutput,
 } from "./commands/GetMigrationCommand";
 import {
+  type GetMigrationsCommandInput,
+  type GetMigrationsCommandOutput,
   GetMigrationsCommand,
-  GetMigrationsCommandInput,
-  GetMigrationsCommandOutput,
 } from "./commands/GetMigrationsCommand";
-import { GetSlotTypeCommand, GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "./commands/GetSlotTypeCommand";
 import {
+  type GetSlotTypeCommandInput,
+  type GetSlotTypeCommandOutput,
+  GetSlotTypeCommand,
+} from "./commands/GetSlotTypeCommand";
+import {
+  type GetSlotTypesCommandInput,
+  type GetSlotTypesCommandOutput,
   GetSlotTypesCommand,
-  GetSlotTypesCommandInput,
-  GetSlotTypesCommandOutput,
 } from "./commands/GetSlotTypesCommand";
 import {
+  type GetSlotTypeVersionsCommandInput,
+  type GetSlotTypeVersionsCommandOutput,
   GetSlotTypeVersionsCommand,
-  GetSlotTypeVersionsCommandInput,
-  GetSlotTypeVersionsCommandOutput,
 } from "./commands/GetSlotTypeVersionsCommand";
 import {
+  type GetUtterancesViewCommandInput,
+  type GetUtterancesViewCommandOutput,
   GetUtterancesViewCommand,
-  GetUtterancesViewCommandInput,
-  GetUtterancesViewCommandOutput,
 } from "./commands/GetUtterancesViewCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutBotAliasCommand, PutBotAliasCommandInput, PutBotAliasCommandOutput } from "./commands/PutBotAliasCommand";
-import { PutBotCommand, PutBotCommandInput, PutBotCommandOutput } from "./commands/PutBotCommand";
-import { PutIntentCommand, PutIntentCommandInput, PutIntentCommandOutput } from "./commands/PutIntentCommand";
-import { PutSlotTypeCommand, PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "./commands/PutSlotTypeCommand";
-import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import {
+  type PutBotAliasCommandInput,
+  type PutBotAliasCommandOutput,
+  PutBotAliasCommand,
+} from "./commands/PutBotAliasCommand";
+import { type PutBotCommandInput, type PutBotCommandOutput, PutBotCommand } from "./commands/PutBotCommand";
+import { type PutIntentCommandInput, type PutIntentCommandOutput, PutIntentCommand } from "./commands/PutIntentCommand";
+import {
+  type PutSlotTypeCommandInput,
+  type PutSlotTypeCommandOutput,
+  PutSlotTypeCommand,
+} from "./commands/PutSlotTypeCommand";
+import {
+  type StartImportCommandInput,
+  type StartImportCommandOutput,
+  StartImportCommand,
+} from "./commands/StartImportCommand";
+import {
+  type StartMigrationCommandInput,
+  type StartMigrationCommandOutput,
   StartMigrationCommand,
-  StartMigrationCommandInput,
-  StartMigrationCommandOutput,
 } from "./commands/StartMigrationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { LexModelBuildingServiceClient } from "./LexModelBuildingServiceClient";
 import { paginateGetBotAliases } from "./pagination/GetBotAliasesPaginator";

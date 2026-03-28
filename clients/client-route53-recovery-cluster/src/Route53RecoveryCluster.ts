@@ -3,24 +3,24 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type GetRoutingControlStateCommandInput,
+  type GetRoutingControlStateCommandOutput,
   GetRoutingControlStateCommand,
-  GetRoutingControlStateCommandInput,
-  GetRoutingControlStateCommandOutput,
 } from "./commands/GetRoutingControlStateCommand";
 import {
+  type ListRoutingControlsCommandInput,
+  type ListRoutingControlsCommandOutput,
   ListRoutingControlsCommand,
-  ListRoutingControlsCommandInput,
-  ListRoutingControlsCommandOutput,
 } from "./commands/ListRoutingControlsCommand";
 import {
+  type UpdateRoutingControlStateCommandInput,
+  type UpdateRoutingControlStateCommandOutput,
   UpdateRoutingControlStateCommand,
-  UpdateRoutingControlStateCommandInput,
-  UpdateRoutingControlStateCommandOutput,
 } from "./commands/UpdateRoutingControlStateCommand";
 import {
+  type UpdateRoutingControlStatesCommandInput,
+  type UpdateRoutingControlStatesCommandOutput,
   UpdateRoutingControlStatesCommand,
-  UpdateRoutingControlStatesCommandInput,
-  UpdateRoutingControlStatesCommandOutput,
 } from "./commands/UpdateRoutingControlStatesCommand";
 import { paginateListRoutingControls } from "./pagination/ListRoutingControlsPaginator";
 import { Route53RecoveryClusterClient } from "./Route53RecoveryClusterClient";

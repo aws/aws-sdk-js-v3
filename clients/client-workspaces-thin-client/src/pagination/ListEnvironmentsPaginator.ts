@@ -8,7 +8,7 @@ import {
   ListEnvironmentsCommandOutput,
 } from "../commands/ListEnvironmentsCommand";
 import { WorkSpacesThinClientClient } from "../WorkSpacesThinClientClient";
-import { WorkSpacesThinClientPaginationConfiguration } from "./Interfaces";
+import type { WorkSpacesThinClientPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

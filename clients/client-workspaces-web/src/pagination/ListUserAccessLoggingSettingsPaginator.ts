@@ -8,7 +8,7 @@ import {
   ListUserAccessLoggingSettingsCommandOutput,
 } from "../commands/ListUserAccessLoggingSettingsCommand";
 import { WorkSpacesWebClient } from "../WorkSpacesWebClient";
-import { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
+import type { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

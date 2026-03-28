@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { GetStreamGroupCommand, GetStreamGroupCommandInput } from "../commands/GetStreamGroupCommand";
-import { GameLiftStreamsClient } from "../GameLiftStreamsClient";
+import { type GetStreamGroupCommandInput, GetStreamGroupCommand } from "../commands/GetStreamGroupCommand";
+import type { GameLiftStreamsClient } from "../GameLiftStreamsClient";
 
 const checkState = async (client: GameLiftStreamsClient, input: GetStreamGroupCommandInput): Promise<WaiterResult> => {
   let reason;

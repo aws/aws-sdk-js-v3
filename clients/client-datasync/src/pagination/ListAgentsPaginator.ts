@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListAgentsCommand, ListAgentsCommandInput, ListAgentsCommandOutput } from "../commands/ListAgentsCommand";
 import { DataSyncClient } from "../DataSyncClient";
-import { DataSyncPaginationConfiguration } from "./Interfaces";
+import type { DataSyncPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

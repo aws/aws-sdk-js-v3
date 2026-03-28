@@ -7,7 +7,7 @@
  */
 export * from "./SageMakerGeospatialClient";
 export * from "./SageMakerGeospatial";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SageMakerGeospatialExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

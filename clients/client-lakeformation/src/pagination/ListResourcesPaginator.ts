@@ -8,7 +8,7 @@ import {
   ListResourcesCommandOutput,
 } from "../commands/ListResourcesCommand";
 import { LakeFormationClient } from "../LakeFormationClient";
-import { LakeFormationPaginationConfiguration } from "./Interfaces";
+import type { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -3,29 +3,29 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type GetMedicalScribeStreamCommandInput,
+  type GetMedicalScribeStreamCommandOutput,
   GetMedicalScribeStreamCommand,
-  GetMedicalScribeStreamCommandInput,
-  GetMedicalScribeStreamCommandOutput,
 } from "./commands/GetMedicalScribeStreamCommand";
 import {
+  type StartCallAnalyticsStreamTranscriptionCommandInput,
+  type StartCallAnalyticsStreamTranscriptionCommandOutput,
   StartCallAnalyticsStreamTranscriptionCommand,
-  StartCallAnalyticsStreamTranscriptionCommandInput,
-  StartCallAnalyticsStreamTranscriptionCommandOutput,
 } from "./commands/StartCallAnalyticsStreamTranscriptionCommand";
 import {
+  type StartMedicalScribeStreamCommandInput,
+  type StartMedicalScribeStreamCommandOutput,
   StartMedicalScribeStreamCommand,
-  StartMedicalScribeStreamCommandInput,
-  StartMedicalScribeStreamCommandOutput,
 } from "./commands/StartMedicalScribeStreamCommand";
 import {
+  type StartMedicalStreamTranscriptionCommandInput,
+  type StartMedicalStreamTranscriptionCommandOutput,
   StartMedicalStreamTranscriptionCommand,
-  StartMedicalStreamTranscriptionCommandInput,
-  StartMedicalStreamTranscriptionCommandOutput,
 } from "./commands/StartMedicalStreamTranscriptionCommand";
 import {
+  type StartStreamTranscriptionCommandInput,
+  type StartStreamTranscriptionCommandOutput,
   StartStreamTranscriptionCommand,
-  StartStreamTranscriptionCommandInput,
-  StartStreamTranscriptionCommandOutput,
 } from "./commands/StartStreamTranscriptionCommand";
 import { TranscribeStreamingClient } from "./TranscribeStreamingClient";
 

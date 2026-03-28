@@ -8,7 +8,7 @@ import {
   ListSubscriptionsCommandOutput,
 } from "../commands/ListSubscriptionsCommand";
 import { ConnectHealthClient } from "../ConnectHealthClient";
-import { ConnectHealthPaginationConfiguration } from "./Interfaces";
+import type { ConnectHealthPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
-import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
+import type { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
-import { FooEnum, IntegerEnum, StringEnum, TestEnum, TestIntEnum } from "./enums";
-import { ErrorEvent } from "./errors";
+import type { FooEnum, IntegerEnum, StringEnum, TestEnum, TestIntEnum } from "./enums";
+import type { ErrorEvent } from "./errors";
 
 /**
  * @public

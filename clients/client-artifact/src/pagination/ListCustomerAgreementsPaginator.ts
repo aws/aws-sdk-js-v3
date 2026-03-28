@@ -8,7 +8,7 @@ import {
   ListCustomerAgreementsCommandInput,
   ListCustomerAgreementsCommandOutput,
 } from "../commands/ListCustomerAgreementsCommand";
-import { ArtifactPaginationConfiguration } from "./Interfaces";
+import type { ArtifactPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListEmailIdentitiesCommandOutput,
 } from "../commands/ListEmailIdentitiesCommand";
 import { PinpointEmailClient } from "../PinpointEmailClient";
-import { PinpointEmailPaginationConfiguration } from "./Interfaces";
+import type { PinpointEmailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

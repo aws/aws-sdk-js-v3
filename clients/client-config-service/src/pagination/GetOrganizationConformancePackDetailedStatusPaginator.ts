@@ -8,7 +8,7 @@ import {
   GetOrganizationConformancePackDetailedStatusCommandOutput,
 } from "../commands/GetOrganizationConformancePackDetailedStatusCommand";
 import { ConfigServiceClient } from "../ConfigServiceClient";
-import { ConfigServicePaginationConfiguration } from "./Interfaces";
+import type { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { KendraServiceException as __BaseException } from "./KendraServiceException";
-import { ConflictingItem } from "./models_0";
+import type { ConflictingItem } from "./models_0";
 
 /**
  * <p>You don't have sufficient access to perform this action. Please ensure you have the

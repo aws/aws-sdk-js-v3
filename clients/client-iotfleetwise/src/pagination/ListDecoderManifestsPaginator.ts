@@ -8,7 +8,7 @@ import {
   ListDecoderManifestsCommandOutput,
 } from "../commands/ListDecoderManifestsCommand";
 import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
-import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
+import type { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

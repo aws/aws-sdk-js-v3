@@ -8,7 +8,7 @@ import {
   ListMembersOfAddressListCommandOutput,
 } from "../commands/ListMembersOfAddressListCommand";
 import { MailManagerClient } from "../MailManagerClient";
-import { MailManagerPaginationConfiguration } from "./Interfaces";
+import type { MailManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

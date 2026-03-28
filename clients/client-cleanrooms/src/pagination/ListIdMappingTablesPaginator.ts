@@ -8,7 +8,7 @@ import {
   ListIdMappingTablesCommandInput,
   ListIdMappingTablesCommandOutput,
 } from "../commands/ListIdMappingTablesCommand";
-import { CleanRoomsPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

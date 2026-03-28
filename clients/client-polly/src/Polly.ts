@@ -3,46 +3,54 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DeleteLexiconCommandInput,
+  type DeleteLexiconCommandOutput,
   DeleteLexiconCommand,
-  DeleteLexiconCommandInput,
-  DeleteLexiconCommandOutput,
 } from "./commands/DeleteLexiconCommand";
 import {
+  type DescribeVoicesCommandInput,
+  type DescribeVoicesCommandOutput,
   DescribeVoicesCommand,
-  DescribeVoicesCommandInput,
-  DescribeVoicesCommandOutput,
 } from "./commands/DescribeVoicesCommand";
-import { GetLexiconCommand, GetLexiconCommandInput, GetLexiconCommandOutput } from "./commands/GetLexiconCommand";
 import {
+  type GetLexiconCommandInput,
+  type GetLexiconCommandOutput,
+  GetLexiconCommand,
+} from "./commands/GetLexiconCommand";
+import {
+  type GetSpeechSynthesisTaskCommandInput,
+  type GetSpeechSynthesisTaskCommandOutput,
   GetSpeechSynthesisTaskCommand,
-  GetSpeechSynthesisTaskCommandInput,
-  GetSpeechSynthesisTaskCommandOutput,
 } from "./commands/GetSpeechSynthesisTaskCommand";
 import {
+  type ListLexiconsCommandInput,
+  type ListLexiconsCommandOutput,
   ListLexiconsCommand,
-  ListLexiconsCommandInput,
-  ListLexiconsCommandOutput,
 } from "./commands/ListLexiconsCommand";
 import {
+  type ListSpeechSynthesisTasksCommandInput,
+  type ListSpeechSynthesisTasksCommandOutput,
   ListSpeechSynthesisTasksCommand,
-  ListSpeechSynthesisTasksCommandInput,
-  ListSpeechSynthesisTasksCommandOutput,
 } from "./commands/ListSpeechSynthesisTasksCommand";
-import { PutLexiconCommand, PutLexiconCommandInput, PutLexiconCommandOutput } from "./commands/PutLexiconCommand";
 import {
+  type PutLexiconCommandInput,
+  type PutLexiconCommandOutput,
+  PutLexiconCommand,
+} from "./commands/PutLexiconCommand";
+import {
+  type StartSpeechSynthesisStreamCommandInput,
+  type StartSpeechSynthesisStreamCommandOutput,
   StartSpeechSynthesisStreamCommand,
-  StartSpeechSynthesisStreamCommandInput,
-  StartSpeechSynthesisStreamCommandOutput,
 } from "./commands/StartSpeechSynthesisStreamCommand";
 import {
+  type StartSpeechSynthesisTaskCommandInput,
+  type StartSpeechSynthesisTaskCommandOutput,
   StartSpeechSynthesisTaskCommand,
-  StartSpeechSynthesisTaskCommandInput,
-  StartSpeechSynthesisTaskCommandOutput,
 } from "./commands/StartSpeechSynthesisTaskCommand";
 import {
+  type SynthesizeSpeechCommandInput,
+  type SynthesizeSpeechCommandOutput,
   SynthesizeSpeechCommand,
-  SynthesizeSpeechCommandInput,
-  SynthesizeSpeechCommandOutput,
 } from "./commands/SynthesizeSpeechCommand";
 import { paginateListSpeechSynthesisTasks } from "./pagination/ListSpeechSynthesisTasksPaginator";
 import { PollyClient } from "./PollyClient";

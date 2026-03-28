@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListCellsCommand, ListCellsCommandInput, ListCellsCommandOutput } from "../commands/ListCellsCommand";
 import { Route53RecoveryReadinessClient } from "../Route53RecoveryReadinessClient";
-import { Route53RecoveryReadinessPaginationConfiguration } from "./Interfaces";
+import type { Route53RecoveryReadinessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

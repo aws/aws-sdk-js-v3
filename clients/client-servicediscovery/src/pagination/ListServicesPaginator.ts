@@ -8,7 +8,7 @@ import {
   ListServicesCommandOutput,
 } from "../commands/ListServicesCommand";
 import { ServiceDiscoveryClient } from "../ServiceDiscoveryClient";
-import { ServiceDiscoveryPaginationConfiguration } from "./Interfaces";
+import type { ServiceDiscoveryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

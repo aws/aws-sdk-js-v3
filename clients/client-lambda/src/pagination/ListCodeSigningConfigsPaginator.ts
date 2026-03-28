@@ -8,7 +8,7 @@ import {
   ListCodeSigningConfigsCommandOutput,
 } from "../commands/ListCodeSigningConfigsCommand";
 import { LambdaClient } from "../LambdaClient";
-import { LambdaPaginationConfiguration } from "./Interfaces";
+import type { LambdaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

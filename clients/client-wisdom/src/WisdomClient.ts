@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,93 +61,108 @@ import {
   defaultWisdomHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateAssistantAssociationCommandInput,
   CreateAssistantAssociationCommandOutput,
 } from "./commands/CreateAssistantAssociationCommand";
-import { CreateAssistantCommandInput, CreateAssistantCommandOutput } from "./commands/CreateAssistantCommand";
-import { CreateContentCommandInput, CreateContentCommandOutput } from "./commands/CreateContentCommand";
-import {
+import type { CreateAssistantCommandInput, CreateAssistantCommandOutput } from "./commands/CreateAssistantCommand";
+import type { CreateContentCommandInput, CreateContentCommandOutput } from "./commands/CreateContentCommand";
+import type {
   CreateKnowledgeBaseCommandInput,
   CreateKnowledgeBaseCommandOutput,
 } from "./commands/CreateKnowledgeBaseCommand";
-import {
+import type {
   CreateQuickResponseCommandInput,
   CreateQuickResponseCommandOutput,
 } from "./commands/CreateQuickResponseCommand";
-import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
-import {
+import type { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
+import type {
   DeleteAssistantAssociationCommandInput,
   DeleteAssistantAssociationCommandOutput,
 } from "./commands/DeleteAssistantAssociationCommand";
-import { DeleteAssistantCommandInput, DeleteAssistantCommandOutput } from "./commands/DeleteAssistantCommand";
-import { DeleteContentCommandInput, DeleteContentCommandOutput } from "./commands/DeleteContentCommand";
-import { DeleteImportJobCommandInput, DeleteImportJobCommandOutput } from "./commands/DeleteImportJobCommand";
-import {
+import type { DeleteAssistantCommandInput, DeleteAssistantCommandOutput } from "./commands/DeleteAssistantCommand";
+import type { DeleteContentCommandInput, DeleteContentCommandOutput } from "./commands/DeleteContentCommand";
+import type { DeleteImportJobCommandInput, DeleteImportJobCommandOutput } from "./commands/DeleteImportJobCommand";
+import type {
   DeleteKnowledgeBaseCommandInput,
   DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
-import {
+import type {
   DeleteQuickResponseCommandInput,
   DeleteQuickResponseCommandOutput,
 } from "./commands/DeleteQuickResponseCommand";
-import {
+import type {
   GetAssistantAssociationCommandInput,
   GetAssistantAssociationCommandOutput,
 } from "./commands/GetAssistantAssociationCommand";
-import { GetAssistantCommandInput, GetAssistantCommandOutput } from "./commands/GetAssistantCommand";
-import { GetContentCommandInput, GetContentCommandOutput } from "./commands/GetContentCommand";
-import { GetContentSummaryCommandInput, GetContentSummaryCommandOutput } from "./commands/GetContentSummaryCommand";
-import { GetImportJobCommandInput, GetImportJobCommandOutput } from "./commands/GetImportJobCommand";
-import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "./commands/GetKnowledgeBaseCommand";
-import { GetQuickResponseCommandInput, GetQuickResponseCommandOutput } from "./commands/GetQuickResponseCommand";
-import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "./commands/GetRecommendationsCommand";
-import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
-import {
+import type { GetAssistantCommandInput, GetAssistantCommandOutput } from "./commands/GetAssistantCommand";
+import type { GetContentCommandInput, GetContentCommandOutput } from "./commands/GetContentCommand";
+import type {
+  GetContentSummaryCommandInput,
+  GetContentSummaryCommandOutput,
+} from "./commands/GetContentSummaryCommand";
+import type { GetImportJobCommandInput, GetImportJobCommandOutput } from "./commands/GetImportJobCommand";
+import type { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "./commands/GetKnowledgeBaseCommand";
+import type { GetQuickResponseCommandInput, GetQuickResponseCommandOutput } from "./commands/GetQuickResponseCommand";
+import type {
+  GetRecommendationsCommandInput,
+  GetRecommendationsCommandOutput,
+} from "./commands/GetRecommendationsCommand";
+import type { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import type {
   ListAssistantAssociationsCommandInput,
   ListAssistantAssociationsCommandOutput,
 } from "./commands/ListAssistantAssociationsCommand";
-import { ListAssistantsCommandInput, ListAssistantsCommandOutput } from "./commands/ListAssistantsCommand";
-import { ListContentsCommandInput, ListContentsCommandOutput } from "./commands/ListContentsCommand";
-import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "./commands/ListImportJobsCommand";
-import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "./commands/ListKnowledgeBasesCommand";
-import { ListQuickResponsesCommandInput, ListQuickResponsesCommandOutput } from "./commands/ListQuickResponsesCommand";
-import {
+import type { ListAssistantsCommandInput, ListAssistantsCommandOutput } from "./commands/ListAssistantsCommand";
+import type { ListContentsCommandInput, ListContentsCommandOutput } from "./commands/ListContentsCommand";
+import type { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "./commands/ListImportJobsCommand";
+import type {
+  ListKnowledgeBasesCommandInput,
+  ListKnowledgeBasesCommandOutput,
+} from "./commands/ListKnowledgeBasesCommand";
+import type {
+  ListQuickResponsesCommandInput,
+  ListQuickResponsesCommandOutput,
+} from "./commands/ListQuickResponsesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   NotifyRecommendationsReceivedCommandInput,
   NotifyRecommendationsReceivedCommandOutput,
 } from "./commands/NotifyRecommendationsReceivedCommand";
-import { QueryAssistantCommandInput, QueryAssistantCommandOutput } from "./commands/QueryAssistantCommand";
-import {
+import type { QueryAssistantCommandInput, QueryAssistantCommandOutput } from "./commands/QueryAssistantCommand";
+import type {
   RemoveKnowledgeBaseTemplateUriCommandInput,
   RemoveKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/RemoveKnowledgeBaseTemplateUriCommand";
-import { SearchContentCommandInput, SearchContentCommandOutput } from "./commands/SearchContentCommand";
-import {
+import type { SearchContentCommandInput, SearchContentCommandOutput } from "./commands/SearchContentCommand";
+import type {
   SearchQuickResponsesCommandInput,
   SearchQuickResponsesCommandOutput,
 } from "./commands/SearchQuickResponsesCommand";
-import { SearchSessionsCommandInput, SearchSessionsCommandOutput } from "./commands/SearchSessionsCommand";
-import { StartContentUploadCommandInput, StartContentUploadCommandOutput } from "./commands/StartContentUploadCommand";
-import { StartImportJobCommandInput, StartImportJobCommandOutput } from "./commands/StartImportJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateContentCommandInput, UpdateContentCommandOutput } from "./commands/UpdateContentCommand";
-import {
+import type { SearchSessionsCommandInput, SearchSessionsCommandOutput } from "./commands/SearchSessionsCommand";
+import type {
+  StartContentUploadCommandInput,
+  StartContentUploadCommandOutput,
+} from "./commands/StartContentUploadCommand";
+import type { StartImportJobCommandInput, StartImportJobCommandOutput } from "./commands/StartImportJobCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateContentCommandInput, UpdateContentCommandOutput } from "./commands/UpdateContentCommand";
+import type {
   UpdateKnowledgeBaseTemplateUriCommandInput,
   UpdateKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/UpdateKnowledgeBaseTemplateUriCommand";
-import {
+import type {
   UpdateQuickResponseCommandInput,
   UpdateQuickResponseCommandOutput,
 } from "./commands/UpdateQuickResponseCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -363,7 +376,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

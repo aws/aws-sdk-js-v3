@@ -8,7 +8,7 @@ import {
   ListSubChannelsCommandInput,
   ListSubChannelsCommandOutput,
 } from "../commands/ListSubChannelsCommand";
-import { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   SearchGroupsCommandOutput,
 } from "../commands/SearchGroupsCommand";
 import { QuickSightClient } from "../QuickSightClient";
-import { QuickSightPaginationConfiguration } from "./Interfaces";
+import type { QuickSightPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

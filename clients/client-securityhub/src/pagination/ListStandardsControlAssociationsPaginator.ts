@@ -8,7 +8,7 @@ import {
   ListStandardsControlAssociationsCommandOutput,
 } from "../commands/ListStandardsControlAssociationsCommand";
 import { SecurityHubClient } from "../SecurityHubClient";
-import { SecurityHubPaginationConfiguration } from "./Interfaces";
+import type { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

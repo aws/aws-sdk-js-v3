@@ -8,7 +8,7 @@ import {
   ListControlsCommandInput,
   ListControlsCommandOutput,
 } from "../commands/ListControlsCommand";
-import { AuditManagerPaginationConfiguration } from "./Interfaces";
+import type { AuditManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

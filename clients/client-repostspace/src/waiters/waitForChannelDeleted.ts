@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { GetChannelCommand, GetChannelCommandInput } from "../commands/GetChannelCommand";
-import { RepostspaceClient } from "../RepostspaceClient";
+import { type GetChannelCommandInput, GetChannelCommand } from "../commands/GetChannelCommand";
+import type { RepostspaceClient } from "../RepostspaceClient";
 
 const checkState = async (client: RepostspaceClient, input: GetChannelCommandInput): Promise<WaiterResult> => {
   let reason;

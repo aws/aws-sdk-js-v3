@@ -4,93 +4,133 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { AmplifyUIBuilderClient } from "./AmplifyUIBuilderClient";
 import {
+  type CreateComponentCommandInput,
+  type CreateComponentCommandOutput,
   CreateComponentCommand,
-  CreateComponentCommandInput,
-  CreateComponentCommandOutput,
 } from "./commands/CreateComponentCommand";
-import { CreateFormCommand, CreateFormCommandInput, CreateFormCommandOutput } from "./commands/CreateFormCommand";
-import { CreateThemeCommand, CreateThemeCommandInput, CreateThemeCommandOutput } from "./commands/CreateThemeCommand";
 import {
+  type CreateFormCommandInput,
+  type CreateFormCommandOutput,
+  CreateFormCommand,
+} from "./commands/CreateFormCommand";
+import {
+  type CreateThemeCommandInput,
+  type CreateThemeCommandOutput,
+  CreateThemeCommand,
+} from "./commands/CreateThemeCommand";
+import {
+  type DeleteComponentCommandInput,
+  type DeleteComponentCommandOutput,
   DeleteComponentCommand,
-  DeleteComponentCommandInput,
-  DeleteComponentCommandOutput,
 } from "./commands/DeleteComponentCommand";
-import { DeleteFormCommand, DeleteFormCommandInput, DeleteFormCommandOutput } from "./commands/DeleteFormCommand";
-import { DeleteThemeCommand, DeleteThemeCommandInput, DeleteThemeCommandOutput } from "./commands/DeleteThemeCommand";
 import {
+  type DeleteFormCommandInput,
+  type DeleteFormCommandOutput,
+  DeleteFormCommand,
+} from "./commands/DeleteFormCommand";
+import {
+  type DeleteThemeCommandInput,
+  type DeleteThemeCommandOutput,
+  DeleteThemeCommand,
+} from "./commands/DeleteThemeCommand";
+import {
+  type ExchangeCodeForTokenCommandInput,
+  type ExchangeCodeForTokenCommandOutput,
   ExchangeCodeForTokenCommand,
-  ExchangeCodeForTokenCommandInput,
-  ExchangeCodeForTokenCommandOutput,
 } from "./commands/ExchangeCodeForTokenCommand";
 import {
+  type ExportComponentsCommandInput,
+  type ExportComponentsCommandOutput,
   ExportComponentsCommand,
-  ExportComponentsCommandInput,
-  ExportComponentsCommandOutput,
 } from "./commands/ExportComponentsCommand";
-import { ExportFormsCommand, ExportFormsCommandInput, ExportFormsCommandOutput } from "./commands/ExportFormsCommand";
 import {
+  type ExportFormsCommandInput,
+  type ExportFormsCommandOutput,
+  ExportFormsCommand,
+} from "./commands/ExportFormsCommand";
+import {
+  type ExportThemesCommandInput,
+  type ExportThemesCommandOutput,
   ExportThemesCommand,
-  ExportThemesCommandInput,
-  ExportThemesCommandOutput,
 } from "./commands/ExportThemesCommand";
 import {
+  type GetCodegenJobCommandInput,
+  type GetCodegenJobCommandOutput,
   GetCodegenJobCommand,
-  GetCodegenJobCommandInput,
-  GetCodegenJobCommandOutput,
 } from "./commands/GetCodegenJobCommand";
 import {
+  type GetComponentCommandInput,
+  type GetComponentCommandOutput,
   GetComponentCommand,
-  GetComponentCommandInput,
-  GetComponentCommandOutput,
 } from "./commands/GetComponentCommand";
-import { GetFormCommand, GetFormCommandInput, GetFormCommandOutput } from "./commands/GetFormCommand";
-import { GetMetadataCommand, GetMetadataCommandInput, GetMetadataCommandOutput } from "./commands/GetMetadataCommand";
-import { GetThemeCommand, GetThemeCommandInput, GetThemeCommandOutput } from "./commands/GetThemeCommand";
+import { type GetFormCommandInput, type GetFormCommandOutput, GetFormCommand } from "./commands/GetFormCommand";
 import {
+  type GetMetadataCommandInput,
+  type GetMetadataCommandOutput,
+  GetMetadataCommand,
+} from "./commands/GetMetadataCommand";
+import { type GetThemeCommandInput, type GetThemeCommandOutput, GetThemeCommand } from "./commands/GetThemeCommand";
+import {
+  type ListCodegenJobsCommandInput,
+  type ListCodegenJobsCommandOutput,
   ListCodegenJobsCommand,
-  ListCodegenJobsCommandInput,
-  ListCodegenJobsCommandOutput,
 } from "./commands/ListCodegenJobsCommand";
 import {
+  type ListComponentsCommandInput,
+  type ListComponentsCommandOutput,
   ListComponentsCommand,
-  ListComponentsCommandInput,
-  ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
-import { ListFormsCommand, ListFormsCommandInput, ListFormsCommandOutput } from "./commands/ListFormsCommand";
+import { type ListFormsCommandInput, type ListFormsCommandOutput, ListFormsCommand } from "./commands/ListFormsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListThemesCommand, ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
 import {
+  type ListThemesCommandInput,
+  type ListThemesCommandOutput,
+  ListThemesCommand,
+} from "./commands/ListThemesCommand";
+import {
+  type PutMetadataFlagCommandInput,
+  type PutMetadataFlagCommandOutput,
   PutMetadataFlagCommand,
-  PutMetadataFlagCommandInput,
-  PutMetadataFlagCommandOutput,
 } from "./commands/PutMetadataFlagCommand";
 import {
+  type RefreshTokenCommandInput,
+  type RefreshTokenCommandOutput,
   RefreshTokenCommand,
-  RefreshTokenCommandInput,
-  RefreshTokenCommandOutput,
 } from "./commands/RefreshTokenCommand";
 import {
+  type StartCodegenJobCommandInput,
+  type StartCodegenJobCommandOutput,
   StartCodegenJobCommand,
-  StartCodegenJobCommandInput,
-  StartCodegenJobCommandOutput,
 } from "./commands/StartCodegenJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateComponentCommandInput,
+  type UpdateComponentCommandOutput,
   UpdateComponentCommand,
-  UpdateComponentCommandInput,
-  UpdateComponentCommandOutput,
 } from "./commands/UpdateComponentCommand";
-import { UpdateFormCommand, UpdateFormCommandInput, UpdateFormCommandOutput } from "./commands/UpdateFormCommand";
-import { UpdateThemeCommand, UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
+import {
+  type UpdateFormCommandInput,
+  type UpdateFormCommandOutput,
+  UpdateFormCommand,
+} from "./commands/UpdateFormCommand";
+import {
+  type UpdateThemeCommandInput,
+  type UpdateThemeCommandOutput,
+  UpdateThemeCommand,
+} from "./commands/UpdateThemeCommand";
 import { paginateExportComponents } from "./pagination/ExportComponentsPaginator";
 import { paginateExportForms } from "./pagination/ExportFormsPaginator";
 import { paginateExportThemes } from "./pagination/ExportThemesPaginator";

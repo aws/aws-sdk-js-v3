@@ -4,342 +4,354 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { AthenaClient } from "./AthenaClient";
 import {
+  type BatchGetNamedQueryCommandInput,
+  type BatchGetNamedQueryCommandOutput,
   BatchGetNamedQueryCommand,
-  BatchGetNamedQueryCommandInput,
-  BatchGetNamedQueryCommandOutput,
 } from "./commands/BatchGetNamedQueryCommand";
 import {
+  type BatchGetPreparedStatementCommandInput,
+  type BatchGetPreparedStatementCommandOutput,
   BatchGetPreparedStatementCommand,
-  BatchGetPreparedStatementCommandInput,
-  BatchGetPreparedStatementCommandOutput,
 } from "./commands/BatchGetPreparedStatementCommand";
 import {
+  type BatchGetQueryExecutionCommandInput,
+  type BatchGetQueryExecutionCommandOutput,
   BatchGetQueryExecutionCommand,
-  BatchGetQueryExecutionCommandInput,
-  BatchGetQueryExecutionCommandOutput,
 } from "./commands/BatchGetQueryExecutionCommand";
 import {
+  type CancelCapacityReservationCommandInput,
+  type CancelCapacityReservationCommandOutput,
   CancelCapacityReservationCommand,
-  CancelCapacityReservationCommandInput,
-  CancelCapacityReservationCommandOutput,
 } from "./commands/CancelCapacityReservationCommand";
 import {
+  type CreateCapacityReservationCommandInput,
+  type CreateCapacityReservationCommandOutput,
   CreateCapacityReservationCommand,
-  CreateCapacityReservationCommandInput,
-  CreateCapacityReservationCommandOutput,
 } from "./commands/CreateCapacityReservationCommand";
 import {
+  type CreateDataCatalogCommandInput,
+  type CreateDataCatalogCommandOutput,
   CreateDataCatalogCommand,
-  CreateDataCatalogCommandInput,
-  CreateDataCatalogCommandOutput,
 } from "./commands/CreateDataCatalogCommand";
 import {
+  type CreateNamedQueryCommandInput,
+  type CreateNamedQueryCommandOutput,
   CreateNamedQueryCommand,
-  CreateNamedQueryCommandInput,
-  CreateNamedQueryCommandOutput,
 } from "./commands/CreateNamedQueryCommand";
 import {
+  type CreateNotebookCommandInput,
+  type CreateNotebookCommandOutput,
   CreateNotebookCommand,
-  CreateNotebookCommandInput,
-  CreateNotebookCommandOutput,
 } from "./commands/CreateNotebookCommand";
 import {
+  type CreatePreparedStatementCommandInput,
+  type CreatePreparedStatementCommandOutput,
   CreatePreparedStatementCommand,
-  CreatePreparedStatementCommandInput,
-  CreatePreparedStatementCommandOutput,
 } from "./commands/CreatePreparedStatementCommand";
 import {
+  type CreatePresignedNotebookUrlCommandInput,
+  type CreatePresignedNotebookUrlCommandOutput,
   CreatePresignedNotebookUrlCommand,
-  CreatePresignedNotebookUrlCommandInput,
-  CreatePresignedNotebookUrlCommandOutput,
 } from "./commands/CreatePresignedNotebookUrlCommand";
 import {
+  type CreateWorkGroupCommandInput,
+  type CreateWorkGroupCommandOutput,
   CreateWorkGroupCommand,
-  CreateWorkGroupCommandInput,
-  CreateWorkGroupCommandOutput,
 } from "./commands/CreateWorkGroupCommand";
 import {
+  type DeleteCapacityReservationCommandInput,
+  type DeleteCapacityReservationCommandOutput,
   DeleteCapacityReservationCommand,
-  DeleteCapacityReservationCommandInput,
-  DeleteCapacityReservationCommandOutput,
 } from "./commands/DeleteCapacityReservationCommand";
 import {
+  type DeleteDataCatalogCommandInput,
+  type DeleteDataCatalogCommandOutput,
   DeleteDataCatalogCommand,
-  DeleteDataCatalogCommandInput,
-  DeleteDataCatalogCommandOutput,
 } from "./commands/DeleteDataCatalogCommand";
 import {
+  type DeleteNamedQueryCommandInput,
+  type DeleteNamedQueryCommandOutput,
   DeleteNamedQueryCommand,
-  DeleteNamedQueryCommandInput,
-  DeleteNamedQueryCommandOutput,
 } from "./commands/DeleteNamedQueryCommand";
 import {
+  type DeleteNotebookCommandInput,
+  type DeleteNotebookCommandOutput,
   DeleteNotebookCommand,
-  DeleteNotebookCommandInput,
-  DeleteNotebookCommandOutput,
 } from "./commands/DeleteNotebookCommand";
 import {
+  type DeletePreparedStatementCommandInput,
+  type DeletePreparedStatementCommandOutput,
   DeletePreparedStatementCommand,
-  DeletePreparedStatementCommandInput,
-  DeletePreparedStatementCommandOutput,
 } from "./commands/DeletePreparedStatementCommand";
 import {
+  type DeleteWorkGroupCommandInput,
+  type DeleteWorkGroupCommandOutput,
   DeleteWorkGroupCommand,
-  DeleteWorkGroupCommandInput,
-  DeleteWorkGroupCommandOutput,
 } from "./commands/DeleteWorkGroupCommand";
 import {
+  type ExportNotebookCommandInput,
+  type ExportNotebookCommandOutput,
   ExportNotebookCommand,
-  ExportNotebookCommandInput,
-  ExportNotebookCommandOutput,
 } from "./commands/ExportNotebookCommand";
 import {
+  type GetCalculationExecutionCodeCommandInput,
+  type GetCalculationExecutionCodeCommandOutput,
   GetCalculationExecutionCodeCommand,
-  GetCalculationExecutionCodeCommandInput,
-  GetCalculationExecutionCodeCommandOutput,
 } from "./commands/GetCalculationExecutionCodeCommand";
 import {
+  type GetCalculationExecutionCommandInput,
+  type GetCalculationExecutionCommandOutput,
   GetCalculationExecutionCommand,
-  GetCalculationExecutionCommandInput,
-  GetCalculationExecutionCommandOutput,
 } from "./commands/GetCalculationExecutionCommand";
 import {
+  type GetCalculationExecutionStatusCommandInput,
+  type GetCalculationExecutionStatusCommandOutput,
   GetCalculationExecutionStatusCommand,
-  GetCalculationExecutionStatusCommandInput,
-  GetCalculationExecutionStatusCommandOutput,
 } from "./commands/GetCalculationExecutionStatusCommand";
 import {
+  type GetCapacityAssignmentConfigurationCommandInput,
+  type GetCapacityAssignmentConfigurationCommandOutput,
   GetCapacityAssignmentConfigurationCommand,
-  GetCapacityAssignmentConfigurationCommandInput,
-  GetCapacityAssignmentConfigurationCommandOutput,
 } from "./commands/GetCapacityAssignmentConfigurationCommand";
 import {
+  type GetCapacityReservationCommandInput,
+  type GetCapacityReservationCommandOutput,
   GetCapacityReservationCommand,
-  GetCapacityReservationCommandInput,
-  GetCapacityReservationCommandOutput,
 } from "./commands/GetCapacityReservationCommand";
-import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
+  type GetDatabaseCommandInput,
+  type GetDatabaseCommandOutput,
+  GetDatabaseCommand,
+} from "./commands/GetDatabaseCommand";
+import {
+  type GetDataCatalogCommandInput,
+  type GetDataCatalogCommandOutput,
   GetDataCatalogCommand,
-  GetDataCatalogCommandInput,
-  GetDataCatalogCommandOutput,
 } from "./commands/GetDataCatalogCommand";
 import {
+  type GetNamedQueryCommandInput,
+  type GetNamedQueryCommandOutput,
   GetNamedQueryCommand,
-  GetNamedQueryCommandInput,
-  GetNamedQueryCommandOutput,
 } from "./commands/GetNamedQueryCommand";
 import {
+  type GetNotebookMetadataCommandInput,
+  type GetNotebookMetadataCommandOutput,
   GetNotebookMetadataCommand,
-  GetNotebookMetadataCommandInput,
-  GetNotebookMetadataCommandOutput,
 } from "./commands/GetNotebookMetadataCommand";
 import {
+  type GetPreparedStatementCommandInput,
+  type GetPreparedStatementCommandOutput,
   GetPreparedStatementCommand,
-  GetPreparedStatementCommandInput,
-  GetPreparedStatementCommandOutput,
 } from "./commands/GetPreparedStatementCommand";
 import {
+  type GetQueryExecutionCommandInput,
+  type GetQueryExecutionCommandOutput,
   GetQueryExecutionCommand,
-  GetQueryExecutionCommandInput,
-  GetQueryExecutionCommandOutput,
 } from "./commands/GetQueryExecutionCommand";
 import {
+  type GetQueryResultsCommandInput,
+  type GetQueryResultsCommandOutput,
   GetQueryResultsCommand,
-  GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand";
 import {
+  type GetQueryRuntimeStatisticsCommandInput,
+  type GetQueryRuntimeStatisticsCommandOutput,
   GetQueryRuntimeStatisticsCommand,
-  GetQueryRuntimeStatisticsCommandInput,
-  GetQueryRuntimeStatisticsCommandOutput,
 } from "./commands/GetQueryRuntimeStatisticsCommand";
 import {
+  type GetResourceDashboardCommandInput,
+  type GetResourceDashboardCommandOutput,
   GetResourceDashboardCommand,
-  GetResourceDashboardCommandInput,
-  GetResourceDashboardCommandOutput,
 } from "./commands/GetResourceDashboardCommand";
-import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import {
+  type GetSessionCommandInput,
+  type GetSessionCommandOutput,
+  GetSessionCommand,
+} from "./commands/GetSessionCommand";
+import {
+  type GetSessionEndpointCommandInput,
+  type GetSessionEndpointCommandOutput,
   GetSessionEndpointCommand,
-  GetSessionEndpointCommandInput,
-  GetSessionEndpointCommandOutput,
 } from "./commands/GetSessionEndpointCommand";
 import {
+  type GetSessionStatusCommandInput,
+  type GetSessionStatusCommandOutput,
   GetSessionStatusCommand,
-  GetSessionStatusCommandInput,
-  GetSessionStatusCommandOutput,
 } from "./commands/GetSessionStatusCommand";
 import {
+  type GetTableMetadataCommandInput,
+  type GetTableMetadataCommandOutput,
   GetTableMetadataCommand,
-  GetTableMetadataCommandInput,
-  GetTableMetadataCommandOutput,
 } from "./commands/GetTableMetadataCommand";
 import {
+  type GetWorkGroupCommandInput,
+  type GetWorkGroupCommandOutput,
   GetWorkGroupCommand,
-  GetWorkGroupCommandInput,
-  GetWorkGroupCommandOutput,
 } from "./commands/GetWorkGroupCommand";
 import {
+  type ImportNotebookCommandInput,
+  type ImportNotebookCommandOutput,
   ImportNotebookCommand,
-  ImportNotebookCommandInput,
-  ImportNotebookCommandOutput,
 } from "./commands/ImportNotebookCommand";
 import {
+  type ListApplicationDPUSizesCommandInput,
+  type ListApplicationDPUSizesCommandOutput,
   ListApplicationDPUSizesCommand,
-  ListApplicationDPUSizesCommandInput,
-  ListApplicationDPUSizesCommandOutput,
 } from "./commands/ListApplicationDPUSizesCommand";
 import {
+  type ListCalculationExecutionsCommandInput,
+  type ListCalculationExecutionsCommandOutput,
   ListCalculationExecutionsCommand,
-  ListCalculationExecutionsCommandInput,
-  ListCalculationExecutionsCommandOutput,
 } from "./commands/ListCalculationExecutionsCommand";
 import {
+  type ListCapacityReservationsCommandInput,
+  type ListCapacityReservationsCommandOutput,
   ListCapacityReservationsCommand,
-  ListCapacityReservationsCommandInput,
-  ListCapacityReservationsCommandOutput,
 } from "./commands/ListCapacityReservationsCommand";
 import {
+  type ListDatabasesCommandInput,
+  type ListDatabasesCommandOutput,
   ListDatabasesCommand,
-  ListDatabasesCommandInput,
-  ListDatabasesCommandOutput,
 } from "./commands/ListDatabasesCommand";
 import {
+  type ListDataCatalogsCommandInput,
+  type ListDataCatalogsCommandOutput,
   ListDataCatalogsCommand,
-  ListDataCatalogsCommandInput,
-  ListDataCatalogsCommandOutput,
 } from "./commands/ListDataCatalogsCommand";
 import {
+  type ListEngineVersionsCommandInput,
+  type ListEngineVersionsCommandOutput,
   ListEngineVersionsCommand,
-  ListEngineVersionsCommandInput,
-  ListEngineVersionsCommandOutput,
 } from "./commands/ListEngineVersionsCommand";
 import {
+  type ListExecutorsCommandInput,
+  type ListExecutorsCommandOutput,
   ListExecutorsCommand,
-  ListExecutorsCommandInput,
-  ListExecutorsCommandOutput,
 } from "./commands/ListExecutorsCommand";
 import {
+  type ListNamedQueriesCommandInput,
+  type ListNamedQueriesCommandOutput,
   ListNamedQueriesCommand,
-  ListNamedQueriesCommandInput,
-  ListNamedQueriesCommandOutput,
 } from "./commands/ListNamedQueriesCommand";
 import {
+  type ListNotebookMetadataCommandInput,
+  type ListNotebookMetadataCommandOutput,
   ListNotebookMetadataCommand,
-  ListNotebookMetadataCommandInput,
-  ListNotebookMetadataCommandOutput,
 } from "./commands/ListNotebookMetadataCommand";
 import {
+  type ListNotebookSessionsCommandInput,
+  type ListNotebookSessionsCommandOutput,
   ListNotebookSessionsCommand,
-  ListNotebookSessionsCommandInput,
-  ListNotebookSessionsCommandOutput,
 } from "./commands/ListNotebookSessionsCommand";
 import {
+  type ListPreparedStatementsCommandInput,
+  type ListPreparedStatementsCommandOutput,
   ListPreparedStatementsCommand,
-  ListPreparedStatementsCommandInput,
-  ListPreparedStatementsCommandOutput,
 } from "./commands/ListPreparedStatementsCommand";
 import {
+  type ListQueryExecutionsCommandInput,
+  type ListQueryExecutionsCommandOutput,
   ListQueryExecutionsCommand,
-  ListQueryExecutionsCommandInput,
-  ListQueryExecutionsCommandOutput,
 } from "./commands/ListQueryExecutionsCommand";
 import {
+  type ListSessionsCommandInput,
+  type ListSessionsCommandOutput,
   ListSessionsCommand,
-  ListSessionsCommandInput,
-  ListSessionsCommandOutput,
 } from "./commands/ListSessionsCommand";
 import {
+  type ListTableMetadataCommandInput,
+  type ListTableMetadataCommandOutput,
   ListTableMetadataCommand,
-  ListTableMetadataCommandInput,
-  ListTableMetadataCommandOutput,
 } from "./commands/ListTableMetadataCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWorkGroupsCommandInput,
+  type ListWorkGroupsCommandOutput,
   ListWorkGroupsCommand,
-  ListWorkGroupsCommandInput,
-  ListWorkGroupsCommandOutput,
 } from "./commands/ListWorkGroupsCommand";
 import {
+  type PutCapacityAssignmentConfigurationCommandInput,
+  type PutCapacityAssignmentConfigurationCommandOutput,
   PutCapacityAssignmentConfigurationCommand,
-  PutCapacityAssignmentConfigurationCommandInput,
-  PutCapacityAssignmentConfigurationCommandOutput,
 } from "./commands/PutCapacityAssignmentConfigurationCommand";
 import {
+  type StartCalculationExecutionCommandInput,
+  type StartCalculationExecutionCommandOutput,
   StartCalculationExecutionCommand,
-  StartCalculationExecutionCommandInput,
-  StartCalculationExecutionCommandOutput,
 } from "./commands/StartCalculationExecutionCommand";
 import {
+  type StartQueryExecutionCommandInput,
+  type StartQueryExecutionCommandOutput,
   StartQueryExecutionCommand,
-  StartQueryExecutionCommandInput,
-  StartQueryExecutionCommandOutput,
 } from "./commands/StartQueryExecutionCommand";
 import {
+  type StartSessionCommandInput,
+  type StartSessionCommandOutput,
   StartSessionCommand,
-  StartSessionCommandInput,
-  StartSessionCommandOutput,
 } from "./commands/StartSessionCommand";
 import {
+  type StopCalculationExecutionCommandInput,
+  type StopCalculationExecutionCommandOutput,
   StopCalculationExecutionCommand,
-  StopCalculationExecutionCommandInput,
-  StopCalculationExecutionCommandOutput,
 } from "./commands/StopCalculationExecutionCommand";
 import {
+  type StopQueryExecutionCommandInput,
+  type StopQueryExecutionCommandOutput,
   StopQueryExecutionCommand,
-  StopQueryExecutionCommandInput,
-  StopQueryExecutionCommandOutput,
 } from "./commands/StopQueryExecutionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TerminateSessionCommandInput,
+  type TerminateSessionCommandOutput,
   TerminateSessionCommand,
-  TerminateSessionCommandInput,
-  TerminateSessionCommandOutput,
 } from "./commands/TerminateSessionCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCapacityReservationCommandInput,
+  type UpdateCapacityReservationCommandOutput,
   UpdateCapacityReservationCommand,
-  UpdateCapacityReservationCommandInput,
-  UpdateCapacityReservationCommandOutput,
 } from "./commands/UpdateCapacityReservationCommand";
 import {
+  type UpdateDataCatalogCommandInput,
+  type UpdateDataCatalogCommandOutput,
   UpdateDataCatalogCommand,
-  UpdateDataCatalogCommandInput,
-  UpdateDataCatalogCommandOutput,
 } from "./commands/UpdateDataCatalogCommand";
 import {
+  type UpdateNamedQueryCommandInput,
+  type UpdateNamedQueryCommandOutput,
   UpdateNamedQueryCommand,
-  UpdateNamedQueryCommandInput,
-  UpdateNamedQueryCommandOutput,
 } from "./commands/UpdateNamedQueryCommand";
 import {
+  type UpdateNotebookCommandInput,
+  type UpdateNotebookCommandOutput,
   UpdateNotebookCommand,
-  UpdateNotebookCommandInput,
-  UpdateNotebookCommandOutput,
 } from "./commands/UpdateNotebookCommand";
 import {
+  type UpdateNotebookMetadataCommandInput,
+  type UpdateNotebookMetadataCommandOutput,
   UpdateNotebookMetadataCommand,
-  UpdateNotebookMetadataCommandInput,
-  UpdateNotebookMetadataCommandOutput,
 } from "./commands/UpdateNotebookMetadataCommand";
 import {
+  type UpdatePreparedStatementCommandInput,
+  type UpdatePreparedStatementCommandOutput,
   UpdatePreparedStatementCommand,
-  UpdatePreparedStatementCommandInput,
-  UpdatePreparedStatementCommandOutput,
 } from "./commands/UpdatePreparedStatementCommand";
 import {
+  type UpdateWorkGroupCommandInput,
+  type UpdateWorkGroupCommandOutput,
   UpdateWorkGroupCommand,
-  UpdateWorkGroupCommandInput,
-  UpdateWorkGroupCommandOutput,
 } from "./commands/UpdateWorkGroupCommand";
 import { paginateGetQueryResults } from "./pagination/GetQueryResultsPaginator";
 import { paginateListApplicationDPUSizes } from "./pagination/ListApplicationDPUSizesPaginator";

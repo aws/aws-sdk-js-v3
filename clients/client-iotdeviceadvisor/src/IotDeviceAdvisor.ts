@@ -3,62 +3,74 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateSuiteDefinitionCommandInput,
+  type CreateSuiteDefinitionCommandOutput,
   CreateSuiteDefinitionCommand,
-  CreateSuiteDefinitionCommandInput,
-  CreateSuiteDefinitionCommandOutput,
 } from "./commands/CreateSuiteDefinitionCommand";
 import {
+  type DeleteSuiteDefinitionCommandInput,
+  type DeleteSuiteDefinitionCommandOutput,
   DeleteSuiteDefinitionCommand,
-  DeleteSuiteDefinitionCommandInput,
-  DeleteSuiteDefinitionCommandOutput,
 } from "./commands/DeleteSuiteDefinitionCommand";
-import { GetEndpointCommand, GetEndpointCommandInput, GetEndpointCommandOutput } from "./commands/GetEndpointCommand";
 import {
+  type GetEndpointCommandInput,
+  type GetEndpointCommandOutput,
+  GetEndpointCommand,
+} from "./commands/GetEndpointCommand";
+import {
+  type GetSuiteDefinitionCommandInput,
+  type GetSuiteDefinitionCommandOutput,
   GetSuiteDefinitionCommand,
-  GetSuiteDefinitionCommandInput,
-  GetSuiteDefinitionCommandOutput,
 } from "./commands/GetSuiteDefinitionCommand";
-import { GetSuiteRunCommand, GetSuiteRunCommandInput, GetSuiteRunCommandOutput } from "./commands/GetSuiteRunCommand";
 import {
+  type GetSuiteRunCommandInput,
+  type GetSuiteRunCommandOutput,
+  GetSuiteRunCommand,
+} from "./commands/GetSuiteRunCommand";
+import {
+  type GetSuiteRunReportCommandInput,
+  type GetSuiteRunReportCommandOutput,
   GetSuiteRunReportCommand,
-  GetSuiteRunReportCommandInput,
-  GetSuiteRunReportCommandOutput,
 } from "./commands/GetSuiteRunReportCommand";
 import {
+  type ListSuiteDefinitionsCommandInput,
+  type ListSuiteDefinitionsCommandOutput,
   ListSuiteDefinitionsCommand,
-  ListSuiteDefinitionsCommandInput,
-  ListSuiteDefinitionsCommandOutput,
 } from "./commands/ListSuiteDefinitionsCommand";
 import {
+  type ListSuiteRunsCommandInput,
+  type ListSuiteRunsCommandOutput,
   ListSuiteRunsCommand,
-  ListSuiteRunsCommandInput,
-  ListSuiteRunsCommandOutput,
 } from "./commands/ListSuiteRunsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartSuiteRunCommandInput,
+  type StartSuiteRunCommandOutput,
   StartSuiteRunCommand,
-  StartSuiteRunCommandInput,
-  StartSuiteRunCommandOutput,
 } from "./commands/StartSuiteRunCommand";
 import {
+  type StopSuiteRunCommandInput,
+  type StopSuiteRunCommandOutput,
   StopSuiteRunCommand,
-  StopSuiteRunCommandInput,
-  StopSuiteRunCommandOutput,
 } from "./commands/StopSuiteRunCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateSuiteDefinitionCommandInput,
+  type UpdateSuiteDefinitionCommandOutput,
   UpdateSuiteDefinitionCommand,
-  UpdateSuiteDefinitionCommandInput,
-  UpdateSuiteDefinitionCommandOutput,
 } from "./commands/UpdateSuiteDefinitionCommand";
 import { IotDeviceAdvisorClient } from "./IotDeviceAdvisorClient";
 import { paginateListSuiteDefinitions } from "./pagination/ListSuiteDefinitionsPaginator";

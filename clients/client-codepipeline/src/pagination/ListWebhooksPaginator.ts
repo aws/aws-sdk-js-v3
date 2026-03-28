@@ -8,7 +8,7 @@ import {
   ListWebhooksCommandInput,
   ListWebhooksCommandOutput,
 } from "../commands/ListWebhooksCommand";
-import { CodePipelinePaginationConfiguration } from "./Interfaces";
+import type { CodePipelinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

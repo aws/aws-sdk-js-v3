@@ -3,45 +3,49 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DescribeReportCreationCommandInput,
+  type DescribeReportCreationCommandOutput,
   DescribeReportCreationCommand,
-  DescribeReportCreationCommandInput,
-  DescribeReportCreationCommandOutput,
 } from "./commands/DescribeReportCreationCommand";
 import {
+  type GetComplianceSummaryCommandInput,
+  type GetComplianceSummaryCommandOutput,
   GetComplianceSummaryCommand,
-  GetComplianceSummaryCommandInput,
-  GetComplianceSummaryCommandOutput,
 } from "./commands/GetComplianceSummaryCommand";
 import {
+  type GetResourcesCommandInput,
+  type GetResourcesCommandOutput,
   GetResourcesCommand,
-  GetResourcesCommandInput,
-  GetResourcesCommandOutput,
 } from "./commands/GetResourcesCommand";
-import { GetTagKeysCommand, GetTagKeysCommandInput, GetTagKeysCommandOutput } from "./commands/GetTagKeysCommand";
 import {
+  type GetTagKeysCommandInput,
+  type GetTagKeysCommandOutput,
+  GetTagKeysCommand,
+} from "./commands/GetTagKeysCommand";
+import {
+  type GetTagValuesCommandInput,
+  type GetTagValuesCommandOutput,
   GetTagValuesCommand,
-  GetTagValuesCommandInput,
-  GetTagValuesCommandOutput,
 } from "./commands/GetTagValuesCommand";
 import {
+  type ListRequiredTagsCommandInput,
+  type ListRequiredTagsCommandOutput,
   ListRequiredTagsCommand,
-  ListRequiredTagsCommandInput,
-  ListRequiredTagsCommandOutput,
 } from "./commands/ListRequiredTagsCommand";
 import {
+  type StartReportCreationCommandInput,
+  type StartReportCreationCommandOutput,
   StartReportCreationCommand,
-  StartReportCreationCommandInput,
-  StartReportCreationCommandOutput,
 } from "./commands/StartReportCreationCommand";
 import {
+  type TagResourcesCommandInput,
+  type TagResourcesCommandOutput,
   TagResourcesCommand,
-  TagResourcesCommandInput,
-  TagResourcesCommandOutput,
 } from "./commands/TagResourcesCommand";
 import {
+  type UntagResourcesCommandInput,
+  type UntagResourcesCommandOutput,
   UntagResourcesCommand,
-  UntagResourcesCommandInput,
-  UntagResourcesCommandOutput,
 } from "./commands/UntagResourcesCommand";
 import { paginateGetComplianceSummary } from "./pagination/GetComplianceSummaryPaginator";
 import { paginateGetResources } from "./pagination/GetResourcesPaginator";

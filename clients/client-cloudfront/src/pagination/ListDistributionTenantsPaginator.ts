@@ -8,7 +8,7 @@ import {
   ListDistributionTenantsCommandInput,
   ListDistributionTenantsCommandOutput,
 } from "../commands/ListDistributionTenantsCommand";
-import { CloudFrontPaginationConfiguration } from "./Interfaces";
+import type { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

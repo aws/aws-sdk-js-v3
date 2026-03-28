@@ -8,7 +8,7 @@ import {
   ListPendingInvitationResourcesCommandOutput,
 } from "../commands/ListPendingInvitationResourcesCommand";
 import { RAMClient } from "../RAMClient";
-import { RAMPaginationConfiguration } from "./Interfaces";
+import type { RAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

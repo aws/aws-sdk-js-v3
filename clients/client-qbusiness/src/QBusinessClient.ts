@@ -50,22 +50,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type EventStreamSerdeProvider as __EventStreamSerdeProvider,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -75,162 +73,210 @@ import {
   defaultQBusinessHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociatePermissionCommandInput,
   AssociatePermissionCommandOutput,
 } from "./commands/AssociatePermissionCommand";
-import {
+import type {
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
-import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand";
-import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "./commands/CancelSubscriptionCommand";
-import { ChatCommandInput, ChatCommandOutput } from "./commands/ChatCommand";
-import { ChatSyncCommandInput, ChatSyncCommandOutput } from "./commands/ChatSyncCommand";
-import {
+import type { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand";
+import type {
+  CancelSubscriptionCommandInput,
+  CancelSubscriptionCommandOutput,
+} from "./commands/CancelSubscriptionCommand";
+import type { ChatCommandInput, ChatCommandOutput } from "./commands/ChatCommand";
+import type { ChatSyncCommandInput, ChatSyncCommandOutput } from "./commands/ChatSyncCommand";
+import type {
   CheckDocumentAccessCommandInput,
   CheckDocumentAccessCommandOutput,
 } from "./commands/CheckDocumentAccessCommand";
-import {
+import type {
   CreateAnonymousWebExperienceUrlCommandInput,
   CreateAnonymousWebExperienceUrlCommandOutput,
 } from "./commands/CreateAnonymousWebExperienceUrlCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import {
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type {
   CreateChatResponseConfigurationCommandInput,
   CreateChatResponseConfigurationCommandOutput,
 } from "./commands/CreateChatResponseConfigurationCommand";
-import { CreateDataAccessorCommandInput, CreateDataAccessorCommandOutput } from "./commands/CreateDataAccessorCommand";
-import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
-import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
-import { CreatePluginCommandInput, CreatePluginCommandOutput } from "./commands/CreatePluginCommand";
-import { CreateRetrieverCommandInput, CreateRetrieverCommandOutput } from "./commands/CreateRetrieverCommand";
-import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "./commands/CreateSubscriptionCommand";
-import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import {
+import type {
+  CreateDataAccessorCommandInput,
+  CreateDataAccessorCommandOutput,
+} from "./commands/CreateDataAccessorCommand";
+import type { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import type { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import type { CreatePluginCommandInput, CreatePluginCommandOutput } from "./commands/CreatePluginCommand";
+import type { CreateRetrieverCommandInput, CreateRetrieverCommandOutput } from "./commands/CreateRetrieverCommand";
+import type {
+  CreateSubscriptionCommandInput,
+  CreateSubscriptionCommandOutput,
+} from "./commands/CreateSubscriptionCommand";
+import type { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import type {
   CreateWebExperienceCommandInput,
   CreateWebExperienceCommandOutput,
 } from "./commands/CreateWebExperienceCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import { DeleteAttachmentCommandInput, DeleteAttachmentCommandOutput } from "./commands/DeleteAttachmentCommand";
-import {
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type { DeleteAttachmentCommandInput, DeleteAttachmentCommandOutput } from "./commands/DeleteAttachmentCommand";
+import type {
   DeleteChatControlsConfigurationCommandInput,
   DeleteChatControlsConfigurationCommandOutput,
 } from "./commands/DeleteChatControlsConfigurationCommand";
-import {
+import type {
   DeleteChatResponseConfigurationCommandInput,
   DeleteChatResponseConfigurationCommandOutput,
 } from "./commands/DeleteChatResponseConfigurationCommand";
-import { DeleteConversationCommandInput, DeleteConversationCommandOutput } from "./commands/DeleteConversationCommand";
-import { DeleteDataAccessorCommandInput, DeleteDataAccessorCommandOutput } from "./commands/DeleteDataAccessorCommand";
-import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
-import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
-import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
-import { DeletePluginCommandInput, DeletePluginCommandOutput } from "./commands/DeletePluginCommand";
-import { DeleteRetrieverCommandInput, DeleteRetrieverCommandOutput } from "./commands/DeleteRetrieverCommand";
-import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
-import {
+import type {
+  DeleteConversationCommandInput,
+  DeleteConversationCommandOutput,
+} from "./commands/DeleteConversationCommand";
+import type {
+  DeleteDataAccessorCommandInput,
+  DeleteDataAccessorCommandOutput,
+} from "./commands/DeleteDataAccessorCommand";
+import type { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import type { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import type { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import type { DeletePluginCommandInput, DeletePluginCommandOutput } from "./commands/DeletePluginCommand";
+import type { DeleteRetrieverCommandInput, DeleteRetrieverCommandOutput } from "./commands/DeleteRetrieverCommand";
+import type { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import type {
   DeleteWebExperienceCommandInput,
   DeleteWebExperienceCommandOutput,
 } from "./commands/DeleteWebExperienceCommand";
-import {
+import type {
   DisassociatePermissionCommandInput,
   DisassociatePermissionCommandOutput,
 } from "./commands/DisassociatePermissionCommand";
-import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
-import {
+import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import type {
   GetChatControlsConfigurationCommandInput,
   GetChatControlsConfigurationCommandOutput,
 } from "./commands/GetChatControlsConfigurationCommand";
-import {
+import type {
   GetChatResponseConfigurationCommandInput,
   GetChatResponseConfigurationCommandOutput,
 } from "./commands/GetChatResponseConfigurationCommand";
-import { GetDataAccessorCommandInput, GetDataAccessorCommandOutput } from "./commands/GetDataAccessorCommand";
-import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
-import { GetDocumentContentCommandInput, GetDocumentContentCommandOutput } from "./commands/GetDocumentContentCommand";
-import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
-import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
-import { GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
-import { GetPluginCommandInput, GetPluginCommandOutput } from "./commands/GetPluginCommand";
-import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
-import { GetRetrieverCommandInput, GetRetrieverCommandOutput } from "./commands/GetRetrieverCommand";
-import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
-import { GetWebExperienceCommandInput, GetWebExperienceCommandOutput } from "./commands/GetWebExperienceCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "./commands/ListAttachmentsCommand";
-import {
+import type { GetDataAccessorCommandInput, GetDataAccessorCommandOutput } from "./commands/GetDataAccessorCommand";
+import type { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import type {
+  GetDocumentContentCommandInput,
+  GetDocumentContentCommandOutput,
+} from "./commands/GetDocumentContentCommand";
+import type { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import type { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import type { GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
+import type { GetPluginCommandInput, GetPluginCommandOutput } from "./commands/GetPluginCommand";
+import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import type { GetRetrieverCommandInput, GetRetrieverCommandOutput } from "./commands/GetRetrieverCommand";
+import type { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
+import type { GetWebExperienceCommandInput, GetWebExperienceCommandOutput } from "./commands/GetWebExperienceCommand";
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "./commands/ListAttachmentsCommand";
+import type {
   ListChatResponseConfigurationsCommandInput,
   ListChatResponseConfigurationsCommandOutput,
 } from "./commands/ListChatResponseConfigurationsCommand";
-import { ListConversationsCommandInput, ListConversationsCommandOutput } from "./commands/ListConversationsCommand";
-import { ListDataAccessorsCommandInput, ListDataAccessorsCommandOutput } from "./commands/ListDataAccessorsCommand";
-import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
-import {
+import type {
+  ListConversationsCommandInput,
+  ListConversationsCommandOutput,
+} from "./commands/ListConversationsCommand";
+import type {
+  ListDataAccessorsCommandInput,
+  ListDataAccessorsCommandOutput,
+} from "./commands/ListDataAccessorsCommand";
+import type { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import type {
   ListDataSourceSyncJobsCommandInput,
   ListDataSourceSyncJobsCommandOutput,
 } from "./commands/ListDataSourceSyncJobsCommand";
-import { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "./commands/ListDocumentsCommand";
-import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
-import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
-import { ListMessagesCommandInput, ListMessagesCommandOutput } from "./commands/ListMessagesCommand";
-import { ListPluginActionsCommandInput, ListPluginActionsCommandOutput } from "./commands/ListPluginActionsCommand";
-import { ListPluginsCommandInput, ListPluginsCommandOutput } from "./commands/ListPluginsCommand";
-import {
+import type { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "./commands/ListDocumentsCommand";
+import type { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import type { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
+import type { ListMessagesCommandInput, ListMessagesCommandOutput } from "./commands/ListMessagesCommand";
+import type {
+  ListPluginActionsCommandInput,
+  ListPluginActionsCommandOutput,
+} from "./commands/ListPluginActionsCommand";
+import type { ListPluginsCommandInput, ListPluginsCommandOutput } from "./commands/ListPluginsCommand";
+import type {
   ListPluginTypeActionsCommandInput,
   ListPluginTypeActionsCommandOutput,
 } from "./commands/ListPluginTypeActionsCommand";
-import {
+import type {
   ListPluginTypeMetadataCommandInput,
   ListPluginTypeMetadataCommandOutput,
 } from "./commands/ListPluginTypeMetadataCommand";
-import { ListRetrieversCommandInput, ListRetrieversCommandOutput } from "./commands/ListRetrieversCommand";
-import { ListSubscriptionsCommandInput, ListSubscriptionsCommandOutput } from "./commands/ListSubscriptionsCommand";
-import {
+import type { ListRetrieversCommandInput, ListRetrieversCommandOutput } from "./commands/ListRetrieversCommand";
+import type {
+  ListSubscriptionsCommandInput,
+  ListSubscriptionsCommandOutput,
+} from "./commands/ListSubscriptionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListWebExperiencesCommandInput, ListWebExperiencesCommandOutput } from "./commands/ListWebExperiencesCommand";
-import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
-import { PutGroupCommandInput, PutGroupCommandOutput } from "./commands/PutGroupCommand";
-import {
+import type {
+  ListWebExperiencesCommandInput,
+  ListWebExperiencesCommandOutput,
+} from "./commands/ListWebExperiencesCommand";
+import type { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
+import type { PutGroupCommandInput, PutGroupCommandOutput } from "./commands/PutGroupCommand";
+import type {
   SearchRelevantContentCommandInput,
   SearchRelevantContentCommandOutput,
 } from "./commands/SearchRelevantContentCommand";
-import {
+import type {
   StartDataSourceSyncJobCommandInput,
   StartDataSourceSyncJobCommandOutput,
 } from "./commands/StartDataSourceSyncJobCommand";
-import {
+import type {
   StopDataSourceSyncJobCommandInput,
   StopDataSourceSyncJobCommandOutput,
 } from "./commands/StopDataSourceSyncJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type {
   UpdateChatControlsConfigurationCommandInput,
   UpdateChatControlsConfigurationCommandOutput,
 } from "./commands/UpdateChatControlsConfigurationCommand";
-import {
+import type {
   UpdateChatResponseConfigurationCommandInput,
   UpdateChatResponseConfigurationCommandOutput,
 } from "./commands/UpdateChatResponseConfigurationCommand";
-import { UpdateDataAccessorCommandInput, UpdateDataAccessorCommandOutput } from "./commands/UpdateDataAccessorCommand";
-import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
-import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
-import { UpdatePluginCommandInput, UpdatePluginCommandOutput } from "./commands/UpdatePluginCommand";
-import { UpdateRetrieverCommandInput, UpdateRetrieverCommandOutput } from "./commands/UpdateRetrieverCommand";
-import { UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput } from "./commands/UpdateSubscriptionCommand";
-import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import {
+import type {
+  UpdateDataAccessorCommandInput,
+  UpdateDataAccessorCommandOutput,
+} from "./commands/UpdateDataAccessorCommand";
+import type { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import type { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
+import type { UpdatePluginCommandInput, UpdatePluginCommandOutput } from "./commands/UpdatePluginCommand";
+import type { UpdateRetrieverCommandInput, UpdateRetrieverCommandOutput } from "./commands/UpdateRetrieverCommand";
+import type {
+  UpdateSubscriptionCommandInput,
+  UpdateSubscriptionCommandOutput,
+} from "./commands/UpdateSubscriptionCommand";
+import type { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import type {
   UpdateWebExperienceCommandInput,
   UpdateWebExperienceCommandOutput,
 } from "./commands/UpdateWebExperienceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -528,7 +574,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

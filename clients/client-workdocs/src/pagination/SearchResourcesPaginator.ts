@@ -8,7 +8,7 @@ import {
   SearchResourcesCommandOutput,
 } from "../commands/SearchResourcesCommand";
 import { WorkDocsClient } from "../WorkDocsClient";
-import { WorkDocsPaginationConfiguration } from "./Interfaces";
+import type { WorkDocsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   SearchSpendingLimitsCommandInput,
   SearchSpendingLimitsCommandOutput,
 } from "../commands/SearchSpendingLimitsCommand";
-import { BraketPaginationConfiguration } from "./Interfaces";
+import type { BraketPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

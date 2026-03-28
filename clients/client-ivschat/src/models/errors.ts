@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ResourceType, ValidationExceptionReason } from "./enums";
+import type { ResourceType, ValidationExceptionReason } from "./enums";
 import { IvschatServiceException as __BaseException } from "./IvschatServiceException";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p/>

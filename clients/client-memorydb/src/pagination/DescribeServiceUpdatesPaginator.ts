@@ -8,7 +8,7 @@ import {
   DescribeServiceUpdatesCommandOutput,
 } from "../commands/DescribeServiceUpdatesCommand";
 import { MemoryDBClient } from "../MemoryDBClient";
-import { MemoryDBPaginationConfiguration } from "./Interfaces";
+import type { MemoryDBPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

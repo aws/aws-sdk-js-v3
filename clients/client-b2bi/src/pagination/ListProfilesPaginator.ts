@@ -8,7 +8,7 @@ import {
   ListProfilesCommandInput,
   ListProfilesCommandOutput,
 } from "../commands/ListProfilesCommand";
-import { B2biPaginationConfiguration } from "./Interfaces";
+import type { B2biPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

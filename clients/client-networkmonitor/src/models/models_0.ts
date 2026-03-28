@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AddressFamily, MonitorState, ProbeState, Protocol } from "./enums";
+import type { AddressFamily, MonitorState, ProbeState, Protocol } from "./enums";
 
 /**
  * <p>Creates a monitor probe.</p>

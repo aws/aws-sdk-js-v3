@@ -8,7 +8,7 @@ import {
   ListDedicatedIpPoolsCommandOutput,
 } from "../commands/ListDedicatedIpPoolsCommand";
 import { PinpointEmailClient } from "../PinpointEmailClient";
-import { PinpointEmailPaginationConfiguration } from "./Interfaces";
+import type { PinpointEmailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

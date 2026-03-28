@@ -10,7 +10,7 @@
  */
 export * from "./MarketplaceDeploymentClient";
 export * from "./MarketplaceDeployment";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MarketplaceDeploymentExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

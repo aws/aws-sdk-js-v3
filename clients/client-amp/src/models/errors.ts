@@ -2,8 +2,8 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AmpServiceException as __BaseException } from "./AmpServiceException";
-import { ValidationExceptionReason } from "./enums";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>

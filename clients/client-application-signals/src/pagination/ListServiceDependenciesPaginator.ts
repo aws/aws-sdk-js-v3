@@ -8,7 +8,7 @@ import {
   ListServiceDependenciesCommandInput,
   ListServiceDependenciesCommandOutput,
 } from "../commands/ListServiceDependenciesCommand";
-import { ApplicationSignalsPaginationConfiguration } from "./Interfaces";
+import type { ApplicationSignalsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

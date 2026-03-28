@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { OperatorType, TaskStatus } from "./enums";
+import type { OperatorType, TaskStatus } from "./enums";
 
 /**
  * <p>A value or list of parameter values. </p>

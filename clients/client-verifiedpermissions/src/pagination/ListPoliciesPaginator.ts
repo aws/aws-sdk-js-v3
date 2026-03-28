@@ -8,7 +8,7 @@ import {
   ListPoliciesCommandOutput,
 } from "../commands/ListPoliciesCommand";
 import { VerifiedPermissionsClient } from "../VerifiedPermissionsClient";
-import { VerifiedPermissionsPaginationConfiguration } from "./Interfaces";
+import type { VerifiedPermissionsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

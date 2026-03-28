@@ -8,7 +8,7 @@ import {
   ListDeploymentsCommandOutput,
 } from "../commands/ListDeploymentsCommand";
 import { ProtonClient } from "../ProtonClient";
-import { ProtonPaginationConfiguration } from "./Interfaces";
+import type { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

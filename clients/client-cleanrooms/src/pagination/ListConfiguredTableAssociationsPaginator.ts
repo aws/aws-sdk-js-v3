@@ -8,7 +8,7 @@ import {
   ListConfiguredTableAssociationsCommandInput,
   ListConfiguredTableAssociationsCommandOutput,
 } from "../commands/ListConfiguredTableAssociationsCommand";
-import { CleanRoomsPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListUsersInGroupCommandInput,
   ListUsersInGroupCommandOutput,
 } from "../commands/ListUsersInGroupCommand";
-import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
+import type { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListChangedBlocksCommandOutput,
 } from "../commands/ListChangedBlocksCommand";
 import { EBSClient } from "../EBSClient";
-import { EBSPaginationConfiguration } from "./Interfaces";
+import type { EBSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

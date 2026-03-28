@@ -44,23 +44,21 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type EventStreamSerdeProvider as __EventStreamSerdeProvider,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type SdkStreamMixinInjector as __SdkStreamMixinInjector,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -70,110 +68,131 @@ import {
   defaultBedrockAgentCoreHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchCreateMemoryRecordsCommandInput,
   BatchCreateMemoryRecordsCommandOutput,
 } from "./commands/BatchCreateMemoryRecordsCommand";
-import {
+import type {
   BatchDeleteMemoryRecordsCommandInput,
   BatchDeleteMemoryRecordsCommandOutput,
 } from "./commands/BatchDeleteMemoryRecordsCommand";
-import {
+import type {
   BatchUpdateMemoryRecordsCommandInput,
   BatchUpdateMemoryRecordsCommandOutput,
 } from "./commands/BatchUpdateMemoryRecordsCommand";
-import {
+import type {
   CompleteResourceTokenAuthCommandInput,
   CompleteResourceTokenAuthCommandOutput,
 } from "./commands/CompleteResourceTokenAuthCommand";
-import { CreateEventCommandInput, CreateEventCommandOutput } from "./commands/CreateEventCommand";
-import { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
-import { DeleteMemoryRecordCommandInput, DeleteMemoryRecordCommandOutput } from "./commands/DeleteMemoryRecordCommand";
-import { EvaluateCommandInput, EvaluateCommandOutput } from "./commands/EvaluateCommand";
-import { GetAgentCardCommandInput, GetAgentCardCommandOutput } from "./commands/GetAgentCardCommand";
-import { GetBrowserSessionCommandInput, GetBrowserSessionCommandOutput } from "./commands/GetBrowserSessionCommand";
-import {
+import type { CreateEventCommandInput, CreateEventCommandOutput } from "./commands/CreateEventCommand";
+import type { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
+import type {
+  DeleteMemoryRecordCommandInput,
+  DeleteMemoryRecordCommandOutput,
+} from "./commands/DeleteMemoryRecordCommand";
+import type { EvaluateCommandInput, EvaluateCommandOutput } from "./commands/EvaluateCommand";
+import type { GetAgentCardCommandInput, GetAgentCardCommandOutput } from "./commands/GetAgentCardCommand";
+import type {
+  GetBrowserSessionCommandInput,
+  GetBrowserSessionCommandOutput,
+} from "./commands/GetBrowserSessionCommand";
+import type {
   GetCodeInterpreterSessionCommandInput,
   GetCodeInterpreterSessionCommandOutput,
 } from "./commands/GetCodeInterpreterSessionCommand";
-import { GetEventCommandInput, GetEventCommandOutput } from "./commands/GetEventCommand";
-import { GetMemoryRecordCommandInput, GetMemoryRecordCommandOutput } from "./commands/GetMemoryRecordCommand";
-import { GetResourceApiKeyCommandInput, GetResourceApiKeyCommandOutput } from "./commands/GetResourceApiKeyCommand";
-import {
+import type { GetEventCommandInput, GetEventCommandOutput } from "./commands/GetEventCommand";
+import type { GetMemoryRecordCommandInput, GetMemoryRecordCommandOutput } from "./commands/GetMemoryRecordCommand";
+import type {
+  GetResourceApiKeyCommandInput,
+  GetResourceApiKeyCommandOutput,
+} from "./commands/GetResourceApiKeyCommand";
+import type {
   GetResourceOauth2TokenCommandInput,
   GetResourceOauth2TokenCommandOutput,
 } from "./commands/GetResourceOauth2TokenCommand";
-import {
+import type {
   GetWorkloadAccessTokenCommandInput,
   GetWorkloadAccessTokenCommandOutput,
 } from "./commands/GetWorkloadAccessTokenCommand";
-import {
+import type {
   GetWorkloadAccessTokenForJWTCommandInput,
   GetWorkloadAccessTokenForJWTCommandOutput,
 } from "./commands/GetWorkloadAccessTokenForJWTCommand";
-import {
+import type {
   GetWorkloadAccessTokenForUserIdCommandInput,
   GetWorkloadAccessTokenForUserIdCommandOutput,
 } from "./commands/GetWorkloadAccessTokenForUserIdCommand";
-import { InvokeAgentRuntimeCommandInput, InvokeAgentRuntimeCommandOutput } from "./commands/InvokeAgentRuntimeCommand";
-import {
+import type {
+  InvokeAgentRuntimeCommandInput,
+  InvokeAgentRuntimeCommandOutput,
+} from "./commands/InvokeAgentRuntimeCommand";
+import type {
   InvokeAgentRuntimeCommandCommandInput,
   InvokeAgentRuntimeCommandCommandOutput,
 } from "./commands/InvokeAgentRuntimeCommandCommand";
-import {
+import type {
   InvokeCodeInterpreterCommandInput,
   InvokeCodeInterpreterCommandOutput,
 } from "./commands/InvokeCodeInterpreterCommand";
-import { ListActorsCommandInput, ListActorsCommandOutput } from "./commands/ListActorsCommand";
-import {
+import type { ListActorsCommandInput, ListActorsCommandOutput } from "./commands/ListActorsCommand";
+import type {
   ListBrowserSessionsCommandInput,
   ListBrowserSessionsCommandOutput,
 } from "./commands/ListBrowserSessionsCommand";
-import {
+import type {
   ListCodeInterpreterSessionsCommandInput,
   ListCodeInterpreterSessionsCommandOutput,
 } from "./commands/ListCodeInterpreterSessionsCommand";
-import { ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
-import {
+import type { ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
+import type {
   ListMemoryExtractionJobsCommandInput,
   ListMemoryExtractionJobsCommandOutput,
 } from "./commands/ListMemoryExtractionJobsCommand";
-import { ListMemoryRecordsCommandInput, ListMemoryRecordsCommandOutput } from "./commands/ListMemoryRecordsCommand";
-import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
-import {
+import type {
+  ListMemoryRecordsCommandInput,
+  ListMemoryRecordsCommandOutput,
+} from "./commands/ListMemoryRecordsCommand";
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import type {
   RetrieveMemoryRecordsCommandInput,
   RetrieveMemoryRecordsCommandOutput,
 } from "./commands/RetrieveMemoryRecordsCommand";
-import {
+import type {
   SaveBrowserSessionProfileCommandInput,
   SaveBrowserSessionProfileCommandOutput,
 } from "./commands/SaveBrowserSessionProfileCommand";
-import {
+import type {
   StartBrowserSessionCommandInput,
   StartBrowserSessionCommandOutput,
 } from "./commands/StartBrowserSessionCommand";
-import {
+import type {
   StartCodeInterpreterSessionCommandInput,
   StartCodeInterpreterSessionCommandOutput,
 } from "./commands/StartCodeInterpreterSessionCommand";
-import {
+import type {
   StartMemoryExtractionJobCommandInput,
   StartMemoryExtractionJobCommandOutput,
 } from "./commands/StartMemoryExtractionJobCommand";
-import { StopBrowserSessionCommandInput, StopBrowserSessionCommandOutput } from "./commands/StopBrowserSessionCommand";
-import {
+import type {
+  StopBrowserSessionCommandInput,
+  StopBrowserSessionCommandOutput,
+} from "./commands/StopBrowserSessionCommand";
+import type {
   StopCodeInterpreterSessionCommandInput,
   StopCodeInterpreterSessionCommandOutput,
 } from "./commands/StopCodeInterpreterSessionCommand";
-import { StopRuntimeSessionCommandInput, StopRuntimeSessionCommandOutput } from "./commands/StopRuntimeSessionCommand";
-import {
+import type {
+  StopRuntimeSessionCommandInput,
+  StopRuntimeSessionCommandOutput,
+} from "./commands/StopRuntimeSessionCommand";
+import type {
   UpdateBrowserStreamCommandInput,
   UpdateBrowserStreamCommandOutput,
 } from "./commands/UpdateBrowserStreamCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -379,7 +398,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

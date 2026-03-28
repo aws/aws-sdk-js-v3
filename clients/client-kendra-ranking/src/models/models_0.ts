@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { RescoreExecutionPlanStatus } from "./enums";
+import type { RescoreExecutionPlanStatus } from "./enums";
 
 /**
  * <p>Sets additional capacity units configured for your

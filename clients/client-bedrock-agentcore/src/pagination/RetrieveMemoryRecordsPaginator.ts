@@ -8,7 +8,7 @@ import {
   RetrieveMemoryRecordsCommandInput,
   RetrieveMemoryRecordsCommandOutput,
 } from "../commands/RetrieveMemoryRecordsCommand";
-import { BedrockAgentCorePaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCorePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

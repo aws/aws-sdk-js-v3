@@ -3,14 +3,18 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type PutActionInteractionsCommandInput,
+  type PutActionInteractionsCommandOutput,
   PutActionInteractionsCommand,
-  PutActionInteractionsCommandInput,
-  PutActionInteractionsCommandOutput,
 } from "./commands/PutActionInteractionsCommand";
-import { PutActionsCommand, PutActionsCommandInput, PutActionsCommandOutput } from "./commands/PutActionsCommand";
-import { PutEventsCommand, PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
-import { PutItemsCommand, PutItemsCommandInput, PutItemsCommandOutput } from "./commands/PutItemsCommand";
-import { PutUsersCommand, PutUsersCommandInput, PutUsersCommandOutput } from "./commands/PutUsersCommand";
+import {
+  type PutActionsCommandInput,
+  type PutActionsCommandOutput,
+  PutActionsCommand,
+} from "./commands/PutActionsCommand";
+import { type PutEventsCommandInput, type PutEventsCommandOutput, PutEventsCommand } from "./commands/PutEventsCommand";
+import { type PutItemsCommandInput, type PutItemsCommandOutput, PutItemsCommand } from "./commands/PutItemsCommand";
+import { type PutUsersCommandInput, type PutUsersCommandOutput, PutUsersCommand } from "./commands/PutUsersCommand";
 import { PersonalizeEventsClient } from "./PersonalizeEventsClient";
 
 const commands = {

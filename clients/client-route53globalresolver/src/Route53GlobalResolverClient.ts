@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,123 +61,159 @@ import {
   defaultRoute53GlobalResolverHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateHostedZoneCommandInput,
   AssociateHostedZoneCommandOutput,
 } from "./commands/AssociateHostedZoneCommand";
-import {
+import type {
   BatchCreateFirewallRuleCommandInput,
   BatchCreateFirewallRuleCommandOutput,
 } from "./commands/BatchCreateFirewallRuleCommand";
-import {
+import type {
   BatchDeleteFirewallRuleCommandInput,
   BatchDeleteFirewallRuleCommandOutput,
 } from "./commands/BatchDeleteFirewallRuleCommand";
-import {
+import type {
   BatchUpdateFirewallRuleCommandInput,
   BatchUpdateFirewallRuleCommandOutput,
 } from "./commands/BatchUpdateFirewallRuleCommand";
-import { CreateAccessSourceCommandInput, CreateAccessSourceCommandOutput } from "./commands/CreateAccessSourceCommand";
-import { CreateAccessTokenCommandInput, CreateAccessTokenCommandOutput } from "./commands/CreateAccessTokenCommand";
-import { CreateDNSViewCommandInput, CreateDNSViewCommandOutput } from "./commands/CreateDNSViewCommand";
-import {
+import type {
+  CreateAccessSourceCommandInput,
+  CreateAccessSourceCommandOutput,
+} from "./commands/CreateAccessSourceCommand";
+import type {
+  CreateAccessTokenCommandInput,
+  CreateAccessTokenCommandOutput,
+} from "./commands/CreateAccessTokenCommand";
+import type { CreateDNSViewCommandInput, CreateDNSViewCommandOutput } from "./commands/CreateDNSViewCommand";
+import type {
   CreateFirewallDomainListCommandInput,
   CreateFirewallDomainListCommandOutput,
 } from "./commands/CreateFirewallDomainListCommand";
-import { CreateFirewallRuleCommandInput, CreateFirewallRuleCommandOutput } from "./commands/CreateFirewallRuleCommand";
-import {
+import type {
+  CreateFirewallRuleCommandInput,
+  CreateFirewallRuleCommandOutput,
+} from "./commands/CreateFirewallRuleCommand";
+import type {
   CreateGlobalResolverCommandInput,
   CreateGlobalResolverCommandOutput,
 } from "./commands/CreateGlobalResolverCommand";
-import { DeleteAccessSourceCommandInput, DeleteAccessSourceCommandOutput } from "./commands/DeleteAccessSourceCommand";
-import { DeleteAccessTokenCommandInput, DeleteAccessTokenCommandOutput } from "./commands/DeleteAccessTokenCommand";
-import { DeleteDNSViewCommandInput, DeleteDNSViewCommandOutput } from "./commands/DeleteDNSViewCommand";
-import {
+import type {
+  DeleteAccessSourceCommandInput,
+  DeleteAccessSourceCommandOutput,
+} from "./commands/DeleteAccessSourceCommand";
+import type {
+  DeleteAccessTokenCommandInput,
+  DeleteAccessTokenCommandOutput,
+} from "./commands/DeleteAccessTokenCommand";
+import type { DeleteDNSViewCommandInput, DeleteDNSViewCommandOutput } from "./commands/DeleteDNSViewCommand";
+import type {
   DeleteFirewallDomainListCommandInput,
   DeleteFirewallDomainListCommandOutput,
 } from "./commands/DeleteFirewallDomainListCommand";
-import { DeleteFirewallRuleCommandInput, DeleteFirewallRuleCommandOutput } from "./commands/DeleteFirewallRuleCommand";
-import {
+import type {
+  DeleteFirewallRuleCommandInput,
+  DeleteFirewallRuleCommandOutput,
+} from "./commands/DeleteFirewallRuleCommand";
+import type {
   DeleteGlobalResolverCommandInput,
   DeleteGlobalResolverCommandOutput,
 } from "./commands/DeleteGlobalResolverCommand";
-import { DisableDNSViewCommandInput, DisableDNSViewCommandOutput } from "./commands/DisableDNSViewCommand";
-import {
+import type { DisableDNSViewCommandInput, DisableDNSViewCommandOutput } from "./commands/DisableDNSViewCommand";
+import type {
   DisassociateHostedZoneCommandInput,
   DisassociateHostedZoneCommandOutput,
 } from "./commands/DisassociateHostedZoneCommand";
-import { EnableDNSViewCommandInput, EnableDNSViewCommandOutput } from "./commands/EnableDNSViewCommand";
-import { GetAccessSourceCommandInput, GetAccessSourceCommandOutput } from "./commands/GetAccessSourceCommand";
-import { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "./commands/GetAccessTokenCommand";
-import { GetDNSViewCommandInput, GetDNSViewCommandOutput } from "./commands/GetDNSViewCommand";
-import {
+import type { EnableDNSViewCommandInput, EnableDNSViewCommandOutput } from "./commands/EnableDNSViewCommand";
+import type { GetAccessSourceCommandInput, GetAccessSourceCommandOutput } from "./commands/GetAccessSourceCommand";
+import type { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "./commands/GetAccessTokenCommand";
+import type { GetDNSViewCommandInput, GetDNSViewCommandOutput } from "./commands/GetDNSViewCommand";
+import type {
   GetFirewallDomainListCommandInput,
   GetFirewallDomainListCommandOutput,
 } from "./commands/GetFirewallDomainListCommand";
-import { GetFirewallRuleCommandInput, GetFirewallRuleCommandOutput } from "./commands/GetFirewallRuleCommand";
-import { GetGlobalResolverCommandInput, GetGlobalResolverCommandOutput } from "./commands/GetGlobalResolverCommand";
-import {
+import type { GetFirewallRuleCommandInput, GetFirewallRuleCommandOutput } from "./commands/GetFirewallRuleCommand";
+import type {
+  GetGlobalResolverCommandInput,
+  GetGlobalResolverCommandOutput,
+} from "./commands/GetGlobalResolverCommand";
+import type {
   GetHostedZoneAssociationCommandInput,
   GetHostedZoneAssociationCommandOutput,
 } from "./commands/GetHostedZoneAssociationCommand";
-import {
+import type {
   GetManagedFirewallDomainListCommandInput,
   GetManagedFirewallDomainListCommandOutput,
 } from "./commands/GetManagedFirewallDomainListCommand";
-import {
+import type {
   ImportFirewallDomainsCommandInput,
   ImportFirewallDomainsCommandOutput,
 } from "./commands/ImportFirewallDomainsCommand";
-import { ListAccessSourcesCommandInput, ListAccessSourcesCommandOutput } from "./commands/ListAccessSourcesCommand";
-import { ListAccessTokensCommandInput, ListAccessTokensCommandOutput } from "./commands/ListAccessTokensCommand";
-import { ListDNSViewsCommandInput, ListDNSViewsCommandOutput } from "./commands/ListDNSViewsCommand";
-import {
+import type {
+  ListAccessSourcesCommandInput,
+  ListAccessSourcesCommandOutput,
+} from "./commands/ListAccessSourcesCommand";
+import type { ListAccessTokensCommandInput, ListAccessTokensCommandOutput } from "./commands/ListAccessTokensCommand";
+import type { ListDNSViewsCommandInput, ListDNSViewsCommandOutput } from "./commands/ListDNSViewsCommand";
+import type {
   ListFirewallDomainListsCommandInput,
   ListFirewallDomainListsCommandOutput,
 } from "./commands/ListFirewallDomainListsCommand";
-import {
+import type {
   ListFirewallDomainsCommandInput,
   ListFirewallDomainsCommandOutput,
 } from "./commands/ListFirewallDomainsCommand";
-import { ListFirewallRulesCommandInput, ListFirewallRulesCommandOutput } from "./commands/ListFirewallRulesCommand";
-import {
+import type {
+  ListFirewallRulesCommandInput,
+  ListFirewallRulesCommandOutput,
+} from "./commands/ListFirewallRulesCommand";
+import type {
   ListGlobalResolversCommandInput,
   ListGlobalResolversCommandOutput,
 } from "./commands/ListGlobalResolversCommand";
-import {
+import type {
   ListHostedZoneAssociationsCommandInput,
   ListHostedZoneAssociationsCommandOutput,
 } from "./commands/ListHostedZoneAssociationsCommand";
-import {
+import type {
   ListManagedFirewallDomainListsCommandInput,
   ListManagedFirewallDomainListsCommandOutput,
 } from "./commands/ListManagedFirewallDomainListsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAccessSourceCommandInput, UpdateAccessSourceCommandOutput } from "./commands/UpdateAccessSourceCommand";
-import { UpdateAccessTokenCommandInput, UpdateAccessTokenCommandOutput } from "./commands/UpdateAccessTokenCommand";
-import { UpdateDNSViewCommandInput, UpdateDNSViewCommandOutput } from "./commands/UpdateDNSViewCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAccessSourceCommandInput,
+  UpdateAccessSourceCommandOutput,
+} from "./commands/UpdateAccessSourceCommand";
+import type {
+  UpdateAccessTokenCommandInput,
+  UpdateAccessTokenCommandOutput,
+} from "./commands/UpdateAccessTokenCommand";
+import type { UpdateDNSViewCommandInput, UpdateDNSViewCommandOutput } from "./commands/UpdateDNSViewCommand";
+import type {
   UpdateFirewallDomainsCommandInput,
   UpdateFirewallDomainsCommandOutput,
 } from "./commands/UpdateFirewallDomainsCommand";
-import { UpdateFirewallRuleCommandInput, UpdateFirewallRuleCommandOutput } from "./commands/UpdateFirewallRuleCommand";
-import {
+import type {
+  UpdateFirewallRuleCommandInput,
+  UpdateFirewallRuleCommandOutput,
+} from "./commands/UpdateFirewallRuleCommand";
+import type {
   UpdateGlobalResolverCommandInput,
   UpdateGlobalResolverCommandOutput,
 } from "./commands/UpdateGlobalResolverCommand";
-import {
+import type {
   UpdateHostedZoneAssociationCommandInput,
   UpdateHostedZoneAssociationCommandOutput,
 } from "./commands/UpdateHostedZoneAssociationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -405,7 +439,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

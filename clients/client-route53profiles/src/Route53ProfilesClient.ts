@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,53 +61,53 @@ import {
   defaultRoute53ProfilesHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateProfileCommandInput, AssociateProfileCommandOutput } from "./commands/AssociateProfileCommand";
-import {
+import type { AssociateProfileCommandInput, AssociateProfileCommandOutput } from "./commands/AssociateProfileCommand";
+import type {
   AssociateResourceToProfileCommandInput,
   AssociateResourceToProfileCommandOutput,
 } from "./commands/AssociateResourceToProfileCommand";
-import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
-import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
-import {
+import type { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import type { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
+import type {
   DisassociateProfileCommandInput,
   DisassociateProfileCommandOutput,
 } from "./commands/DisassociateProfileCommand";
-import {
+import type {
   DisassociateResourceFromProfileCommandInput,
   DisassociateResourceFromProfileCommandOutput,
 } from "./commands/DisassociateResourceFromProfileCommand";
-import {
+import type {
   GetProfileAssociationCommandInput,
   GetProfileAssociationCommandOutput,
 } from "./commands/GetProfileAssociationCommand";
-import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
-import {
+import type { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
+import type {
   GetProfileResourceAssociationCommandInput,
   GetProfileResourceAssociationCommandOutput,
 } from "./commands/GetProfileResourceAssociationCommand";
-import {
+import type {
   ListProfileAssociationsCommandInput,
   ListProfileAssociationsCommandOutput,
 } from "./commands/ListProfileAssociationsCommand";
-import {
+import type {
   ListProfileResourceAssociationsCommandInput,
   ListProfileResourceAssociationsCommandOutput,
 } from "./commands/ListProfileResourceAssociationsCommand";
-import { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
-import {
+import type { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateProfileResourceAssociationCommandInput,
   UpdateProfileResourceAssociationCommandOutput,
 } from "./commands/UpdateProfileResourceAssociationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -273,7 +271,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

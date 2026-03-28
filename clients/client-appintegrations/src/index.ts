@@ -40,7 +40,7 @@
  */
 export * from "./AppIntegrationsClient";
 export * from "./AppIntegrations";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { AppIntegrationsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

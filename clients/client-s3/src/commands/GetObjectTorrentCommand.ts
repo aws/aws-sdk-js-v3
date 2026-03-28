@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type GetObjectTorrentRequest, GetObjectTorrentOutput } from "../models/models_0";
+import type { GetObjectTorrentOutput, GetObjectTorrentRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetObjectTorrent$ } from "../schemas/schemas_0";
 

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,185 +61,191 @@ import {
   defaultECSHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateCapacityProviderCommandInput,
   CreateCapacityProviderCommandOutput,
 } from "./commands/CreateCapacityProviderCommand";
-import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
-import {
+import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import type {
   CreateExpressGatewayServiceCommandInput,
   CreateExpressGatewayServiceCommandOutput,
 } from "./commands/CreateExpressGatewayServiceCommand";
-import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
-import { CreateTaskSetCommandInput, CreateTaskSetCommandOutput } from "./commands/CreateTaskSetCommand";
-import {
+import type { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
+import type { CreateTaskSetCommandInput, CreateTaskSetCommandOutput } from "./commands/CreateTaskSetCommand";
+import type {
   DeleteAccountSettingCommandInput,
   DeleteAccountSettingCommandOutput,
 } from "./commands/DeleteAccountSettingCommand";
-import { DeleteAttributesCommandInput, DeleteAttributesCommandOutput } from "./commands/DeleteAttributesCommand";
-import {
+import type { DeleteAttributesCommandInput, DeleteAttributesCommandOutput } from "./commands/DeleteAttributesCommand";
+import type {
   DeleteCapacityProviderCommandInput,
   DeleteCapacityProviderCommandOutput,
 } from "./commands/DeleteCapacityProviderCommand";
-import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
-import {
+import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import type {
   DeleteExpressGatewayServiceCommandInput,
   DeleteExpressGatewayServiceCommandOutput,
 } from "./commands/DeleteExpressGatewayServiceCommand";
-import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
-import {
+import type { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
+import type {
   DeleteTaskDefinitionsCommandInput,
   DeleteTaskDefinitionsCommandOutput,
 } from "./commands/DeleteTaskDefinitionsCommand";
-import { DeleteTaskSetCommandInput, DeleteTaskSetCommandOutput } from "./commands/DeleteTaskSetCommand";
-import {
+import type { DeleteTaskSetCommandInput, DeleteTaskSetCommandOutput } from "./commands/DeleteTaskSetCommand";
+import type {
   DeregisterContainerInstanceCommandInput,
   DeregisterContainerInstanceCommandOutput,
 } from "./commands/DeregisterContainerInstanceCommand";
-import {
+import type {
   DeregisterTaskDefinitionCommandInput,
   DeregisterTaskDefinitionCommandOutput,
 } from "./commands/DeregisterTaskDefinitionCommand";
-import {
+import type {
   DescribeCapacityProvidersCommandInput,
   DescribeCapacityProvidersCommandOutput,
 } from "./commands/DescribeCapacityProvidersCommand";
-import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand";
-import {
+import type { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand";
+import type {
   DescribeContainerInstancesCommandInput,
   DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand";
-import {
+import type {
   DescribeExpressGatewayServiceCommandInput,
   DescribeExpressGatewayServiceCommandOutput,
 } from "./commands/DescribeExpressGatewayServiceCommand";
-import {
+import type {
   DescribeServiceDeploymentsCommandInput,
   DescribeServiceDeploymentsCommandOutput,
 } from "./commands/DescribeServiceDeploymentsCommand";
-import {
+import type {
   DescribeServiceRevisionsCommandInput,
   DescribeServiceRevisionsCommandOutput,
 } from "./commands/DescribeServiceRevisionsCommand";
-import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
-import {
+import type { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
+import type {
   DescribeTaskDefinitionCommandInput,
   DescribeTaskDefinitionCommandOutput,
 } from "./commands/DescribeTaskDefinitionCommand";
-import { DescribeTasksCommandInput, DescribeTasksCommandOutput } from "./commands/DescribeTasksCommand";
-import { DescribeTaskSetsCommandInput, DescribeTaskSetsCommandOutput } from "./commands/DescribeTaskSetsCommand";
-import {
+import type { DescribeTasksCommandInput, DescribeTasksCommandOutput } from "./commands/DescribeTasksCommand";
+import type { DescribeTaskSetsCommandInput, DescribeTaskSetsCommandOutput } from "./commands/DescribeTaskSetsCommand";
+import type {
   DiscoverPollEndpointCommandInput,
   DiscoverPollEndpointCommandOutput,
 } from "./commands/DiscoverPollEndpointCommand";
-import { ExecuteCommandCommandInput, ExecuteCommandCommandOutput } from "./commands/ExecuteCommandCommand";
-import { GetTaskProtectionCommandInput, GetTaskProtectionCommandOutput } from "./commands/GetTaskProtectionCommand";
-import {
+import type { ExecuteCommandCommandInput, ExecuteCommandCommandOutput } from "./commands/ExecuteCommandCommand";
+import type {
+  GetTaskProtectionCommandInput,
+  GetTaskProtectionCommandOutput,
+} from "./commands/GetTaskProtectionCommand";
+import type {
   ListAccountSettingsCommandInput,
   ListAccountSettingsCommandOutput,
 } from "./commands/ListAccountSettingsCommand";
-import { ListAttributesCommandInput, ListAttributesCommandOutput } from "./commands/ListAttributesCommand";
-import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
-import {
+import type { ListAttributesCommandInput, ListAttributesCommandOutput } from "./commands/ListAttributesCommand";
+import type { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
+import type {
   ListContainerInstancesCommandInput,
   ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
-import {
+import type {
   ListServiceDeploymentsCommandInput,
   ListServiceDeploymentsCommandOutput,
 } from "./commands/ListServiceDeploymentsCommand";
-import {
+import type {
   ListServicesByNamespaceCommandInput,
   ListServicesByNamespaceCommandOutput,
 } from "./commands/ListServicesByNamespaceCommand";
-import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
-import {
+import type { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTaskDefinitionFamiliesCommandInput,
   ListTaskDefinitionFamiliesCommandOutput,
 } from "./commands/ListTaskDefinitionFamiliesCommand";
-import {
+import type {
   ListTaskDefinitionsCommandInput,
   ListTaskDefinitionsCommandOutput,
 } from "./commands/ListTaskDefinitionsCommand";
-import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
-import { PutAccountSettingCommandInput, PutAccountSettingCommandOutput } from "./commands/PutAccountSettingCommand";
-import {
+import type { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
+import type {
+  PutAccountSettingCommandInput,
+  PutAccountSettingCommandOutput,
+} from "./commands/PutAccountSettingCommand";
+import type {
   PutAccountSettingDefaultCommandInput,
   PutAccountSettingDefaultCommandOutput,
 } from "./commands/PutAccountSettingDefaultCommand";
-import { PutAttributesCommandInput, PutAttributesCommandOutput } from "./commands/PutAttributesCommand";
-import {
+import type { PutAttributesCommandInput, PutAttributesCommandOutput } from "./commands/PutAttributesCommand";
+import type {
   PutClusterCapacityProvidersCommandInput,
   PutClusterCapacityProvidersCommandOutput,
 } from "./commands/PutClusterCapacityProvidersCommand";
-import {
+import type {
   RegisterContainerInstanceCommandInput,
   RegisterContainerInstanceCommandOutput,
 } from "./commands/RegisterContainerInstanceCommand";
-import {
+import type {
   RegisterTaskDefinitionCommandInput,
   RegisterTaskDefinitionCommandOutput,
 } from "./commands/RegisterTaskDefinitionCommand";
-import { RunTaskCommandInput, RunTaskCommandOutput } from "./commands/RunTaskCommand";
-import { StartTaskCommandInput, StartTaskCommandOutput } from "./commands/StartTaskCommand";
-import {
+import type { RunTaskCommandInput, RunTaskCommandOutput } from "./commands/RunTaskCommand";
+import type { StartTaskCommandInput, StartTaskCommandOutput } from "./commands/StartTaskCommand";
+import type {
   StopServiceDeploymentCommandInput,
   StopServiceDeploymentCommandOutput,
 } from "./commands/StopServiceDeploymentCommand";
-import { StopTaskCommandInput, StopTaskCommandOutput } from "./commands/StopTaskCommand";
-import {
+import type { StopTaskCommandInput, StopTaskCommandOutput } from "./commands/StopTaskCommand";
+import type {
   SubmitAttachmentStateChangesCommandInput,
   SubmitAttachmentStateChangesCommandOutput,
 } from "./commands/SubmitAttachmentStateChangesCommand";
-import {
+import type {
   SubmitContainerStateChangeCommandInput,
   SubmitContainerStateChangeCommandOutput,
 } from "./commands/SubmitContainerStateChangeCommand";
-import {
+import type {
   SubmitTaskStateChangeCommandInput,
   SubmitTaskStateChangeCommandOutput,
 } from "./commands/SubmitTaskStateChangeCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateCapacityProviderCommandInput,
   UpdateCapacityProviderCommandOutput,
 } from "./commands/UpdateCapacityProviderCommand";
-import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
-import {
+import type { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
+import type {
   UpdateClusterSettingsCommandInput,
   UpdateClusterSettingsCommandOutput,
 } from "./commands/UpdateClusterSettingsCommand";
-import {
+import type {
   UpdateContainerAgentCommandInput,
   UpdateContainerAgentCommandOutput,
 } from "./commands/UpdateContainerAgentCommand";
-import {
+import type {
   UpdateContainerInstancesStateCommandInput,
   UpdateContainerInstancesStateCommandOutput,
 } from "./commands/UpdateContainerInstancesStateCommand";
-import {
+import type {
   UpdateExpressGatewayServiceCommandInput,
   UpdateExpressGatewayServiceCommandOutput,
 } from "./commands/UpdateExpressGatewayServiceCommand";
-import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
-import {
+import type { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
+import type {
   UpdateServicePrimaryTaskSetCommandInput,
   UpdateServicePrimaryTaskSetCommandOutput,
 } from "./commands/UpdateServicePrimaryTaskSetCommand";
-import {
+import type {
   UpdateTaskProtectionCommandInput,
   UpdateTaskProtectionCommandOutput,
 } from "./commands/UpdateTaskProtectionCommand";
-import { UpdateTaskSetCommandInput, UpdateTaskSetCommandOutput } from "./commands/UpdateTaskSetCommand";
+import type { UpdateTaskSetCommandInput, UpdateTaskSetCommandOutput } from "./commands/UpdateTaskSetCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -501,7 +505,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -8,7 +8,7 @@ import {
   ListVirtualClustersCommandOutput,
 } from "../commands/ListVirtualClustersCommand";
 import { EMRContainersClient } from "../EMRContainersClient";
-import { EMRContainersPaginationConfiguration } from "./Interfaces";
+import type { EMRContainersPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

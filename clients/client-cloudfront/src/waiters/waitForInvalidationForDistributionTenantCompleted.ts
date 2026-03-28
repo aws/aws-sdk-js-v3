@@ -1,10 +1,16 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
-
-import { CloudFrontClient } from "../CloudFrontClient";
 import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
+
+import type { CloudFrontClient } from "../CloudFrontClient";
+import {
+  type GetInvalidationForDistributionTenantCommandInput,
   GetInvalidationForDistributionTenantCommand,
-  GetInvalidationForDistributionTenantCommandInput,
 } from "../commands/GetInvalidationForDistributionTenantCommand";
 
 const checkState = async (client: CloudFrontClient, input: GetInvalidationForDistributionTenantCommandInput): Promise<WaiterResult> => {

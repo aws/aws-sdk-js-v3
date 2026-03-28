@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListEventsCommand, ListEventsCommandInput, ListEventsCommandOutput } from "../commands/ListEventsCommand";
 import { DevOpsGuruClient } from "../DevOpsGuruClient";
-import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
+import type { DevOpsGuruPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

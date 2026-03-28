@@ -8,7 +8,7 @@ import {
   ListAutomationRulePreviewSummariesCommandOutput,
 } from "../commands/ListAutomationRulePreviewSummariesCommand";
 import { ComputeOptimizerAutomationClient } from "../ComputeOptimizerAutomationClient";
-import { ComputeOptimizerAutomationPaginationConfiguration } from "./Interfaces";
+import type { ComputeOptimizerAutomationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

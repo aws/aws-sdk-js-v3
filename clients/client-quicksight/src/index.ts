@@ -11,7 +11,7 @@
  */
 export * from "./QuickSightClient";
 export * from "./QuickSight";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { QuickSightExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

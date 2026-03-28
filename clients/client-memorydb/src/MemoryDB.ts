@@ -3,198 +3,214 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchUpdateClusterCommandInput,
+  type BatchUpdateClusterCommandOutput,
   BatchUpdateClusterCommand,
-  BatchUpdateClusterCommandInput,
-  BatchUpdateClusterCommandOutput,
 } from "./commands/BatchUpdateClusterCommand";
 import {
+  type CopySnapshotCommandInput,
+  type CopySnapshotCommandOutput,
   CopySnapshotCommand,
-  CopySnapshotCommandInput,
-  CopySnapshotCommandOutput,
 } from "./commands/CopySnapshotCommand";
-import { CreateACLCommand, CreateACLCommandInput, CreateACLCommandOutput } from "./commands/CreateACLCommand";
+import { type CreateACLCommandInput, type CreateACLCommandOutput, CreateACLCommand } from "./commands/CreateACLCommand";
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateMultiRegionClusterCommandInput,
+  type CreateMultiRegionClusterCommandOutput,
   CreateMultiRegionClusterCommand,
-  CreateMultiRegionClusterCommandInput,
-  CreateMultiRegionClusterCommandOutput,
 } from "./commands/CreateMultiRegionClusterCommand";
 import {
+  type CreateParameterGroupCommandInput,
+  type CreateParameterGroupCommandOutput,
   CreateParameterGroupCommand,
-  CreateParameterGroupCommandInput,
-  CreateParameterGroupCommandOutput,
 } from "./commands/CreateParameterGroupCommand";
 import {
+  type CreateSnapshotCommandInput,
+  type CreateSnapshotCommandOutput,
   CreateSnapshotCommand,
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
 import {
+  type CreateSubnetGroupCommandInput,
+  type CreateSubnetGroupCommandOutput,
   CreateSubnetGroupCommand,
-  CreateSubnetGroupCommandInput,
-  CreateSubnetGroupCommandOutput,
 } from "./commands/CreateSubnetGroupCommand";
-import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import { DeleteACLCommand, DeleteACLCommandInput, DeleteACLCommandOutput } from "./commands/DeleteACLCommand";
 import {
+  type CreateUserCommandInput,
+  type CreateUserCommandOutput,
+  CreateUserCommand,
+} from "./commands/CreateUserCommand";
+import { type DeleteACLCommandInput, type DeleteACLCommandOutput, DeleteACLCommand } from "./commands/DeleteACLCommand";
+import {
+  type DeleteClusterCommandInput,
+  type DeleteClusterCommandOutput,
   DeleteClusterCommand,
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  type DeleteMultiRegionClusterCommandInput,
+  type DeleteMultiRegionClusterCommandOutput,
   DeleteMultiRegionClusterCommand,
-  DeleteMultiRegionClusterCommandInput,
-  DeleteMultiRegionClusterCommandOutput,
 } from "./commands/DeleteMultiRegionClusterCommand";
 import {
+  type DeleteParameterGroupCommandInput,
+  type DeleteParameterGroupCommandOutput,
   DeleteParameterGroupCommand,
-  DeleteParameterGroupCommandInput,
-  DeleteParameterGroupCommandOutput,
 } from "./commands/DeleteParameterGroupCommand";
 import {
+  type DeleteSnapshotCommandInput,
+  type DeleteSnapshotCommandOutput,
   DeleteSnapshotCommand,
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput,
 } from "./commands/DeleteSnapshotCommand";
 import {
+  type DeleteSubnetGroupCommandInput,
+  type DeleteSubnetGroupCommandOutput,
   DeleteSubnetGroupCommand,
-  DeleteSubnetGroupCommandInput,
-  DeleteSubnetGroupCommandOutput,
 } from "./commands/DeleteSubnetGroupCommand";
-import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  type DeleteUserCommandInput,
+  type DeleteUserCommandOutput,
+  DeleteUserCommand,
+} from "./commands/DeleteUserCommand";
+import {
+  type DescribeACLsCommandInput,
+  type DescribeACLsCommandOutput,
   DescribeACLsCommand,
-  DescribeACLsCommandInput,
-  DescribeACLsCommandOutput,
 } from "./commands/DescribeACLsCommand";
 import {
+  type DescribeClustersCommandInput,
+  type DescribeClustersCommandOutput,
   DescribeClustersCommand,
-  DescribeClustersCommandInput,
-  DescribeClustersCommandOutput,
 } from "./commands/DescribeClustersCommand";
 import {
+  type DescribeEngineVersionsCommandInput,
+  type DescribeEngineVersionsCommandOutput,
   DescribeEngineVersionsCommand,
-  DescribeEngineVersionsCommandInput,
-  DescribeEngineVersionsCommandOutput,
 } from "./commands/DescribeEngineVersionsCommand";
 import {
+  type DescribeEventsCommandInput,
+  type DescribeEventsCommandOutput,
   DescribeEventsCommand,
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  type DescribeMultiRegionClustersCommandInput,
+  type DescribeMultiRegionClustersCommandOutput,
   DescribeMultiRegionClustersCommand,
-  DescribeMultiRegionClustersCommandInput,
-  DescribeMultiRegionClustersCommandOutput,
 } from "./commands/DescribeMultiRegionClustersCommand";
 import {
+  type DescribeMultiRegionParameterGroupsCommandInput,
+  type DescribeMultiRegionParameterGroupsCommandOutput,
   DescribeMultiRegionParameterGroupsCommand,
-  DescribeMultiRegionParameterGroupsCommandInput,
-  DescribeMultiRegionParameterGroupsCommandOutput,
 } from "./commands/DescribeMultiRegionParameterGroupsCommand";
 import {
+  type DescribeMultiRegionParametersCommandInput,
+  type DescribeMultiRegionParametersCommandOutput,
   DescribeMultiRegionParametersCommand,
-  DescribeMultiRegionParametersCommandInput,
-  DescribeMultiRegionParametersCommandOutput,
 } from "./commands/DescribeMultiRegionParametersCommand";
 import {
+  type DescribeParameterGroupsCommandInput,
+  type DescribeParameterGroupsCommandOutput,
   DescribeParameterGroupsCommand,
-  DescribeParameterGroupsCommandInput,
-  DescribeParameterGroupsCommandOutput,
 } from "./commands/DescribeParameterGroupsCommand";
 import {
+  type DescribeParametersCommandInput,
+  type DescribeParametersCommandOutput,
   DescribeParametersCommand,
-  DescribeParametersCommandInput,
-  DescribeParametersCommandOutput,
 } from "./commands/DescribeParametersCommand";
 import {
+  type DescribeReservedNodesCommandInput,
+  type DescribeReservedNodesCommandOutput,
   DescribeReservedNodesCommand,
-  DescribeReservedNodesCommandInput,
-  DescribeReservedNodesCommandOutput,
 } from "./commands/DescribeReservedNodesCommand";
 import {
+  type DescribeReservedNodesOfferingsCommandInput,
+  type DescribeReservedNodesOfferingsCommandOutput,
   DescribeReservedNodesOfferingsCommand,
-  DescribeReservedNodesOfferingsCommandInput,
-  DescribeReservedNodesOfferingsCommandOutput,
 } from "./commands/DescribeReservedNodesOfferingsCommand";
 import {
+  type DescribeServiceUpdatesCommandInput,
+  type DescribeServiceUpdatesCommandOutput,
   DescribeServiceUpdatesCommand,
-  DescribeServiceUpdatesCommandInput,
-  DescribeServiceUpdatesCommandOutput,
 } from "./commands/DescribeServiceUpdatesCommand";
 import {
+  type DescribeSnapshotsCommandInput,
+  type DescribeSnapshotsCommandOutput,
   DescribeSnapshotsCommand,
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput,
 } from "./commands/DescribeSnapshotsCommand";
 import {
+  type DescribeSubnetGroupsCommandInput,
+  type DescribeSubnetGroupsCommandOutput,
   DescribeSubnetGroupsCommand,
-  DescribeSubnetGroupsCommandInput,
-  DescribeSubnetGroupsCommandOutput,
 } from "./commands/DescribeSubnetGroupsCommand";
 import {
+  type DescribeUsersCommandInput,
+  type DescribeUsersCommandOutput,
   DescribeUsersCommand,
-  DescribeUsersCommandInput,
-  DescribeUsersCommandOutput,
 } from "./commands/DescribeUsersCommand";
 import {
+  type FailoverShardCommandInput,
+  type FailoverShardCommandOutput,
   FailoverShardCommand,
-  FailoverShardCommandInput,
-  FailoverShardCommandOutput,
 } from "./commands/FailoverShardCommand";
 import {
+  type ListAllowedMultiRegionClusterUpdatesCommandInput,
+  type ListAllowedMultiRegionClusterUpdatesCommandOutput,
   ListAllowedMultiRegionClusterUpdatesCommand,
-  ListAllowedMultiRegionClusterUpdatesCommandInput,
-  ListAllowedMultiRegionClusterUpdatesCommandOutput,
 } from "./commands/ListAllowedMultiRegionClusterUpdatesCommand";
 import {
+  type ListAllowedNodeTypeUpdatesCommandInput,
+  type ListAllowedNodeTypeUpdatesCommandOutput,
   ListAllowedNodeTypeUpdatesCommand,
-  ListAllowedNodeTypeUpdatesCommandInput,
-  ListAllowedNodeTypeUpdatesCommandOutput,
 } from "./commands/ListAllowedNodeTypeUpdatesCommand";
-import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { type ListTagsCommandInput, type ListTagsCommandOutput, ListTagsCommand } from "./commands/ListTagsCommand";
 import {
+  type PurchaseReservedNodesOfferingCommandInput,
+  type PurchaseReservedNodesOfferingCommandOutput,
   PurchaseReservedNodesOfferingCommand,
-  PurchaseReservedNodesOfferingCommandInput,
-  PurchaseReservedNodesOfferingCommandOutput,
 } from "./commands/PurchaseReservedNodesOfferingCommand";
 import {
+  type ResetParameterGroupCommandInput,
+  type ResetParameterGroupCommandOutput,
   ResetParameterGroupCommand,
-  ResetParameterGroupCommandInput,
-  ResetParameterGroupCommandOutput,
 } from "./commands/ResetParameterGroupCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateACLCommand, UpdateACLCommandInput, UpdateACLCommandOutput } from "./commands/UpdateACLCommand";
+import { type UpdateACLCommandInput, type UpdateACLCommandOutput, UpdateACLCommand } from "./commands/UpdateACLCommand";
 import {
+  type UpdateClusterCommandInput,
+  type UpdateClusterCommandOutput,
   UpdateClusterCommand,
-  UpdateClusterCommandInput,
-  UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import {
+  type UpdateMultiRegionClusterCommandInput,
+  type UpdateMultiRegionClusterCommandOutput,
   UpdateMultiRegionClusterCommand,
-  UpdateMultiRegionClusterCommandInput,
-  UpdateMultiRegionClusterCommandOutput,
 } from "./commands/UpdateMultiRegionClusterCommand";
 import {
+  type UpdateParameterGroupCommandInput,
+  type UpdateParameterGroupCommandOutput,
   UpdateParameterGroupCommand,
-  UpdateParameterGroupCommandInput,
-  UpdateParameterGroupCommandOutput,
 } from "./commands/UpdateParameterGroupCommand";
 import {
+  type UpdateSubnetGroupCommandInput,
+  type UpdateSubnetGroupCommandOutput,
   UpdateSubnetGroupCommand,
-  UpdateSubnetGroupCommandInput,
-  UpdateSubnetGroupCommandOutput,
 } from "./commands/UpdateSubnetGroupCommand";
-import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import {
+  type UpdateUserCommandInput,
+  type UpdateUserCommandOutput,
+  UpdateUserCommand,
+} from "./commands/UpdateUserCommand";
 import { MemoryDBClient } from "./MemoryDBClient";
 import { paginateDescribeACLs } from "./pagination/DescribeACLsPaginator";
 import { paginateDescribeClusters } from "./pagination/DescribeClustersPaginator";

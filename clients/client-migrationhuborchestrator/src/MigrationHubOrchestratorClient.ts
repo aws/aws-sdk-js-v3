@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,65 +61,83 @@ import {
   defaultMigrationHubOrchestratorHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
-import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
-import { CreateWorkflowStepCommandInput, CreateWorkflowStepCommandOutput } from "./commands/CreateWorkflowStepCommand";
-import {
+import type { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
+import type { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
+import type {
+  CreateWorkflowStepCommandInput,
+  CreateWorkflowStepCommandOutput,
+} from "./commands/CreateWorkflowStepCommand";
+import type {
   CreateWorkflowStepGroupCommandInput,
   CreateWorkflowStepGroupCommandOutput,
 } from "./commands/CreateWorkflowStepGroupCommand";
-import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand";
-import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
-import { DeleteWorkflowStepCommandInput, DeleteWorkflowStepCommandOutput } from "./commands/DeleteWorkflowStepCommand";
-import {
+import type { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand";
+import type { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
+import type {
+  DeleteWorkflowStepCommandInput,
+  DeleteWorkflowStepCommandOutput,
+} from "./commands/DeleteWorkflowStepCommand";
+import type {
   DeleteWorkflowStepGroupCommandInput,
   DeleteWorkflowStepGroupCommandOutput,
 } from "./commands/DeleteWorkflowStepGroupCommand";
-import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
-import { GetTemplateStepCommandInput, GetTemplateStepCommandOutput } from "./commands/GetTemplateStepCommand";
-import {
+import type { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
+import type { GetTemplateStepCommandInput, GetTemplateStepCommandOutput } from "./commands/GetTemplateStepCommand";
+import type {
   GetTemplateStepGroupCommandInput,
   GetTemplateStepGroupCommandOutput,
 } from "./commands/GetTemplateStepGroupCommand";
-import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
-import { GetWorkflowStepCommandInput, GetWorkflowStepCommandOutput } from "./commands/GetWorkflowStepCommand";
-import {
+import type { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import type { GetWorkflowStepCommandInput, GetWorkflowStepCommandOutput } from "./commands/GetWorkflowStepCommand";
+import type {
   GetWorkflowStepGroupCommandInput,
   GetWorkflowStepGroupCommandOutput,
 } from "./commands/GetWorkflowStepGroupCommand";
-import { ListPluginsCommandInput, ListPluginsCommandOutput } from "./commands/ListPluginsCommand";
-import {
+import type { ListPluginsCommandInput, ListPluginsCommandOutput } from "./commands/ListPluginsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "./commands/ListTemplatesCommand";
-import {
+import type { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "./commands/ListTemplatesCommand";
+import type {
   ListTemplateStepGroupsCommandInput,
   ListTemplateStepGroupsCommandOutput,
 } from "./commands/ListTemplateStepGroupsCommand";
-import { ListTemplateStepsCommandInput, ListTemplateStepsCommandOutput } from "./commands/ListTemplateStepsCommand";
-import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
-import {
+import type {
+  ListTemplateStepsCommandInput,
+  ListTemplateStepsCommandOutput,
+} from "./commands/ListTemplateStepsCommand";
+import type { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
+import type {
   ListWorkflowStepGroupsCommandInput,
   ListWorkflowStepGroupsCommandOutput,
 } from "./commands/ListWorkflowStepGroupsCommand";
-import { ListWorkflowStepsCommandInput, ListWorkflowStepsCommandOutput } from "./commands/ListWorkflowStepsCommand";
-import { RetryWorkflowStepCommandInput, RetryWorkflowStepCommandOutput } from "./commands/RetryWorkflowStepCommand";
-import { StartWorkflowCommandInput, StartWorkflowCommandOutput } from "./commands/StartWorkflowCommand";
-import { StopWorkflowCommandInput, StopWorkflowCommandOutput } from "./commands/StopWorkflowCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "./commands/UpdateTemplateCommand";
-import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
-import { UpdateWorkflowStepCommandInput, UpdateWorkflowStepCommandOutput } from "./commands/UpdateWorkflowStepCommand";
-import {
+import type {
+  ListWorkflowStepsCommandInput,
+  ListWorkflowStepsCommandOutput,
+} from "./commands/ListWorkflowStepsCommand";
+import type {
+  RetryWorkflowStepCommandInput,
+  RetryWorkflowStepCommandOutput,
+} from "./commands/RetryWorkflowStepCommand";
+import type { StartWorkflowCommandInput, StartWorkflowCommandOutput } from "./commands/StartWorkflowCommand";
+import type { StopWorkflowCommandInput, StopWorkflowCommandOutput } from "./commands/StopWorkflowCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "./commands/UpdateTemplateCommand";
+import type { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
+import type {
+  UpdateWorkflowStepCommandInput,
+  UpdateWorkflowStepCommandOutput,
+} from "./commands/UpdateWorkflowStepCommand";
+import type {
   UpdateWorkflowStepGroupCommandInput,
   UpdateWorkflowStepGroupCommandOutput,
 } from "./commands/UpdateWorkflowStepGroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -315,7 +331,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

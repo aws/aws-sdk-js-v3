@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,91 +61,106 @@ import {
   defaultSSMContactsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AcceptPageCommandInput, AcceptPageCommandOutput } from "./commands/AcceptPageCommand";
-import {
+import type { AcceptPageCommandInput, AcceptPageCommandOutput } from "./commands/AcceptPageCommand";
+import type {
   ActivateContactChannelCommandInput,
   ActivateContactChannelCommandOutput,
 } from "./commands/ActivateContactChannelCommand";
-import {
+import type {
   CreateContactChannelCommandInput,
   CreateContactChannelCommandOutput,
 } from "./commands/CreateContactChannelCommand";
-import { CreateContactCommandInput, CreateContactCommandOutput } from "./commands/CreateContactCommand";
-import { CreateRotationCommandInput, CreateRotationCommandOutput } from "./commands/CreateRotationCommand";
-import {
+import type { CreateContactCommandInput, CreateContactCommandOutput } from "./commands/CreateContactCommand";
+import type { CreateRotationCommandInput, CreateRotationCommandOutput } from "./commands/CreateRotationCommand";
+import type {
   CreateRotationOverrideCommandInput,
   CreateRotationOverrideCommandOutput,
 } from "./commands/CreateRotationOverrideCommand";
-import {
+import type {
   DeactivateContactChannelCommandInput,
   DeactivateContactChannelCommandOutput,
 } from "./commands/DeactivateContactChannelCommand";
-import {
+import type {
   DeleteContactChannelCommandInput,
   DeleteContactChannelCommandOutput,
 } from "./commands/DeleteContactChannelCommand";
-import { DeleteContactCommandInput, DeleteContactCommandOutput } from "./commands/DeleteContactCommand";
-import { DeleteRotationCommandInput, DeleteRotationCommandOutput } from "./commands/DeleteRotationCommand";
-import {
+import type { DeleteContactCommandInput, DeleteContactCommandOutput } from "./commands/DeleteContactCommand";
+import type { DeleteRotationCommandInput, DeleteRotationCommandOutput } from "./commands/DeleteRotationCommand";
+import type {
   DeleteRotationOverrideCommandInput,
   DeleteRotationOverrideCommandOutput,
 } from "./commands/DeleteRotationOverrideCommand";
-import { DescribeEngagementCommandInput, DescribeEngagementCommandOutput } from "./commands/DescribeEngagementCommand";
-import { DescribePageCommandInput, DescribePageCommandOutput } from "./commands/DescribePageCommand";
-import { GetContactChannelCommandInput, GetContactChannelCommandOutput } from "./commands/GetContactChannelCommand";
-import { GetContactCommandInput, GetContactCommandOutput } from "./commands/GetContactCommand";
-import { GetContactPolicyCommandInput, GetContactPolicyCommandOutput } from "./commands/GetContactPolicyCommand";
-import { GetRotationCommandInput, GetRotationCommandOutput } from "./commands/GetRotationCommand";
-import {
+import type {
+  DescribeEngagementCommandInput,
+  DescribeEngagementCommandOutput,
+} from "./commands/DescribeEngagementCommand";
+import type { DescribePageCommandInput, DescribePageCommandOutput } from "./commands/DescribePageCommand";
+import type {
+  GetContactChannelCommandInput,
+  GetContactChannelCommandOutput,
+} from "./commands/GetContactChannelCommand";
+import type { GetContactCommandInput, GetContactCommandOutput } from "./commands/GetContactCommand";
+import type { GetContactPolicyCommandInput, GetContactPolicyCommandOutput } from "./commands/GetContactPolicyCommand";
+import type { GetRotationCommandInput, GetRotationCommandOutput } from "./commands/GetRotationCommand";
+import type {
   GetRotationOverrideCommandInput,
   GetRotationOverrideCommandOutput,
 } from "./commands/GetRotationOverrideCommand";
-import {
+import type {
   ListContactChannelsCommandInput,
   ListContactChannelsCommandOutput,
 } from "./commands/ListContactChannelsCommand";
-import { ListContactsCommandInput, ListContactsCommandOutput } from "./commands/ListContactsCommand";
-import { ListEngagementsCommandInput, ListEngagementsCommandOutput } from "./commands/ListEngagementsCommand";
-import { ListPageReceiptsCommandInput, ListPageReceiptsCommandOutput } from "./commands/ListPageReceiptsCommand";
-import {
+import type { ListContactsCommandInput, ListContactsCommandOutput } from "./commands/ListContactsCommand";
+import type { ListEngagementsCommandInput, ListEngagementsCommandOutput } from "./commands/ListEngagementsCommand";
+import type { ListPageReceiptsCommandInput, ListPageReceiptsCommandOutput } from "./commands/ListPageReceiptsCommand";
+import type {
   ListPageResolutionsCommandInput,
   ListPageResolutionsCommandOutput,
 } from "./commands/ListPageResolutionsCommand";
-import { ListPagesByContactCommandInput, ListPagesByContactCommandOutput } from "./commands/ListPagesByContactCommand";
-import {
+import type {
+  ListPagesByContactCommandInput,
+  ListPagesByContactCommandOutput,
+} from "./commands/ListPagesByContactCommand";
+import type {
   ListPagesByEngagementCommandInput,
   ListPagesByEngagementCommandOutput,
 } from "./commands/ListPagesByEngagementCommand";
-import {
+import type {
   ListPreviewRotationShiftsCommandInput,
   ListPreviewRotationShiftsCommandOutput,
 } from "./commands/ListPreviewRotationShiftsCommand";
-import {
+import type {
   ListRotationOverridesCommandInput,
   ListRotationOverridesCommandOutput,
 } from "./commands/ListRotationOverridesCommand";
-import { ListRotationsCommandInput, ListRotationsCommandOutput } from "./commands/ListRotationsCommand";
-import { ListRotationShiftsCommandInput, ListRotationShiftsCommandOutput } from "./commands/ListRotationShiftsCommand";
-import {
+import type { ListRotationsCommandInput, ListRotationsCommandOutput } from "./commands/ListRotationsCommand";
+import type {
+  ListRotationShiftsCommandInput,
+  ListRotationShiftsCommandOutput,
+} from "./commands/ListRotationShiftsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutContactPolicyCommandInput, PutContactPolicyCommandOutput } from "./commands/PutContactPolicyCommand";
-import { SendActivationCodeCommandInput, SendActivationCodeCommandOutput } from "./commands/SendActivationCodeCommand";
-import { StartEngagementCommandInput, StartEngagementCommandOutput } from "./commands/StartEngagementCommand";
-import { StopEngagementCommandInput, StopEngagementCommandOutput } from "./commands/StopEngagementCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { PutContactPolicyCommandInput, PutContactPolicyCommandOutput } from "./commands/PutContactPolicyCommand";
+import type {
+  SendActivationCodeCommandInput,
+  SendActivationCodeCommandOutput,
+} from "./commands/SendActivationCodeCommand";
+import type { StartEngagementCommandInput, StartEngagementCommandOutput } from "./commands/StartEngagementCommand";
+import type { StopEngagementCommandInput, StopEngagementCommandOutput } from "./commands/StopEngagementCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateContactChannelCommandInput,
   UpdateContactChannelCommandOutput,
 } from "./commands/UpdateContactChannelCommand";
-import { UpdateContactCommandInput, UpdateContactCommandOutput } from "./commands/UpdateContactCommand";
-import { UpdateRotationCommandInput, UpdateRotationCommandOutput } from "./commands/UpdateRotationCommand";
+import type { UpdateContactCommandInput, UpdateContactCommandOutput } from "./commands/UpdateContactCommand";
+import type { UpdateRotationCommandInput, UpdateRotationCommandOutput } from "./commands/UpdateRotationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -357,7 +370,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

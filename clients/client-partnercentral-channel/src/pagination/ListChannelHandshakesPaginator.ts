@@ -8,7 +8,7 @@ import {
   ListChannelHandshakesCommandOutput,
 } from "../commands/ListChannelHandshakesCommand";
 import { PartnerCentralChannelClient } from "../PartnerCentralChannelClient";
-import { PartnerCentralChannelPaginationConfiguration } from "./Interfaces";
+import type { PartnerCentralChannelPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

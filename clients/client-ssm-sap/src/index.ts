@@ -7,7 +7,7 @@
  */
 export * from "./SsmSapClient";
 export * from "./SsmSap";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SsmSapExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

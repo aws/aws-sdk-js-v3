@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListComputeCommand, ListComputeCommandInput, ListComputeCommandOutput } from "../commands/ListComputeCommand";
 import { GameLiftClient } from "../GameLiftClient";
-import { GameLiftPaginationConfiguration } from "./Interfaces";
+import type { GameLiftPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

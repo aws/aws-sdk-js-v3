@@ -2,27 +2,35 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { GetControlCommand, GetControlCommandInput, GetControlCommandOutput } from "./commands/GetControlCommand";
 import {
+  type GetControlCommandInput,
+  type GetControlCommandOutput,
+  GetControlCommand,
+} from "./commands/GetControlCommand";
+import {
+  type ListCommonControlsCommandInput,
+  type ListCommonControlsCommandOutput,
   ListCommonControlsCommand,
-  ListCommonControlsCommandInput,
-  ListCommonControlsCommandOutput,
 } from "./commands/ListCommonControlsCommand";
 import {
+  type ListControlMappingsCommandInput,
+  type ListControlMappingsCommandOutput,
   ListControlMappingsCommand,
-  ListControlMappingsCommandInput,
-  ListControlMappingsCommandOutput,
 } from "./commands/ListControlMappingsCommand";
 import {
+  type ListControlsCommandInput,
+  type ListControlsCommandOutput,
   ListControlsCommand,
-  ListControlsCommandInput,
-  ListControlsCommandOutput,
 } from "./commands/ListControlsCommand";
-import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  type ListDomainsCommandInput,
+  type ListDomainsCommandOutput,
+  ListDomainsCommand,
+} from "./commands/ListDomainsCommand";
+import {
+  type ListObjectivesCommandInput,
+  type ListObjectivesCommandOutput,
   ListObjectivesCommand,
-  ListObjectivesCommandInput,
-  ListObjectivesCommandOutput,
 } from "./commands/ListObjectivesCommand";
 import { ControlCatalogClient } from "./ControlCatalogClient";
 import { paginateListCommonControls } from "./pagination/ListCommonControlsPaginator";

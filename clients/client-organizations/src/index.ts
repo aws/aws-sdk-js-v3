@@ -77,7 +77,7 @@
  */
 export * from "./OrganizationsClient";
 export * from "./Organizations";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { OrganizationsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

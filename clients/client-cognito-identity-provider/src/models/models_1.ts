@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   DeletionProtectionType,
   ExplicitAuthFlowsType,
   OAuthFlowType,
@@ -11,26 +11,26 @@ import {
   VerifiedAttributeType,
   VerifySoftwareTokenResponseType,
 } from "./enums";
-import {
-  type AccountRecoverySettingType,
-  type AdminCreateUserConfigType,
-  type AnalyticsConfigurationType,
-  type CustomDomainConfigType,
-  type DeviceConfigurationType,
-  type EmailConfigurationType,
-  type LambdaConfigType,
-  type RefreshTokenRotationType,
-  type ResourceServerType,
-  type SmsConfigurationType,
-  type TermsType,
-  type TokenValidityUnitsType,
-  type UserAttributeUpdateSettingsType,
-  type UserPoolAddOnsType,
-  type UserPoolClientType,
-  type UserPoolPolicyType,
-  type VerificationMessageTemplateType,
+import type {
+  AccountRecoverySettingType,
+  AdminCreateUserConfigType,
+  AnalyticsConfigurationType,
   AttributeType,
   CodeDeliveryDetailsType,
+  CustomDomainConfigType,
+  DeviceConfigurationType,
+  EmailConfigurationType,
+  LambdaConfigType,
+  RefreshTokenRotationType,
+  ResourceServerType,
+  SmsConfigurationType,
+  TermsType,
+  TokenValidityUnitsType,
+  UserAttributeUpdateSettingsType,
+  UserPoolAddOnsType,
+  UserPoolClientType,
+  UserPoolPolicyType,
+  VerificationMessageTemplateType,
 } from "./models_0";
 
 /**

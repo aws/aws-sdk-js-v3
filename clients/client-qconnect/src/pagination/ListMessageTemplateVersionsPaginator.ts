@@ -8,7 +8,7 @@ import {
   ListMessageTemplateVersionsCommandOutput,
 } from "../commands/ListMessageTemplateVersionsCommand";
 import { QConnectClient } from "../QConnectClient";
-import { QConnectPaginationConfiguration } from "./Interfaces";
+import type { QConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

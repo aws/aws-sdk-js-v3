@@ -7,7 +7,7 @@
  */
 export * from "./SSOAdminClient";
 export * from "./SSOAdmin";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SSOAdminExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

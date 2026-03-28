@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,322 +61,361 @@ import {
   defaultChimeSDKVoiceHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociatePhoneNumbersWithVoiceConnectorCommandInput,
   AssociatePhoneNumbersWithVoiceConnectorCommandOutput,
 } from "./commands/AssociatePhoneNumbersWithVoiceConnectorCommand";
-import {
+import type {
   AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
   AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput,
 } from "./commands/AssociatePhoneNumbersWithVoiceConnectorGroupCommand";
-import {
+import type {
   BatchDeletePhoneNumberCommandInput,
   BatchDeletePhoneNumberCommandOutput,
 } from "./commands/BatchDeletePhoneNumberCommand";
-import {
+import type {
   BatchUpdatePhoneNumberCommandInput,
   BatchUpdatePhoneNumberCommandOutput,
 } from "./commands/BatchUpdatePhoneNumberCommand";
-import {
+import type {
   CreatePhoneNumberOrderCommandInput,
   CreatePhoneNumberOrderCommandOutput,
 } from "./commands/CreatePhoneNumberOrderCommand";
-import { CreateProxySessionCommandInput, CreateProxySessionCommandOutput } from "./commands/CreateProxySessionCommand";
-import {
+import type {
+  CreateProxySessionCommandInput,
+  CreateProxySessionCommandOutput,
+} from "./commands/CreateProxySessionCommand";
+import type {
   CreateSipMediaApplicationCallCommandInput,
   CreateSipMediaApplicationCallCommandOutput,
 } from "./commands/CreateSipMediaApplicationCallCommand";
-import {
+import type {
   CreateSipMediaApplicationCommandInput,
   CreateSipMediaApplicationCommandOutput,
 } from "./commands/CreateSipMediaApplicationCommand";
-import { CreateSipRuleCommandInput, CreateSipRuleCommandOutput } from "./commands/CreateSipRuleCommand";
-import {
+import type { CreateSipRuleCommandInput, CreateSipRuleCommandOutput } from "./commands/CreateSipRuleCommand";
+import type {
   CreateVoiceConnectorCommandInput,
   CreateVoiceConnectorCommandOutput,
 } from "./commands/CreateVoiceConnectorCommand";
-import {
+import type {
   CreateVoiceConnectorGroupCommandInput,
   CreateVoiceConnectorGroupCommandOutput,
 } from "./commands/CreateVoiceConnectorGroupCommand";
-import { CreateVoiceProfileCommandInput, CreateVoiceProfileCommandOutput } from "./commands/CreateVoiceProfileCommand";
-import {
+import type {
+  CreateVoiceProfileCommandInput,
+  CreateVoiceProfileCommandOutput,
+} from "./commands/CreateVoiceProfileCommand";
+import type {
   CreateVoiceProfileDomainCommandInput,
   CreateVoiceProfileDomainCommandOutput,
 } from "./commands/CreateVoiceProfileDomainCommand";
-import { DeletePhoneNumberCommandInput, DeletePhoneNumberCommandOutput } from "./commands/DeletePhoneNumberCommand";
-import { DeleteProxySessionCommandInput, DeleteProxySessionCommandOutput } from "./commands/DeleteProxySessionCommand";
-import {
+import type {
+  DeletePhoneNumberCommandInput,
+  DeletePhoneNumberCommandOutput,
+} from "./commands/DeletePhoneNumberCommand";
+import type {
+  DeleteProxySessionCommandInput,
+  DeleteProxySessionCommandOutput,
+} from "./commands/DeleteProxySessionCommand";
+import type {
   DeleteSipMediaApplicationCommandInput,
   DeleteSipMediaApplicationCommandOutput,
 } from "./commands/DeleteSipMediaApplicationCommand";
-import { DeleteSipRuleCommandInput, DeleteSipRuleCommandOutput } from "./commands/DeleteSipRuleCommand";
-import {
+import type { DeleteSipRuleCommandInput, DeleteSipRuleCommandOutput } from "./commands/DeleteSipRuleCommand";
+import type {
   DeleteVoiceConnectorCommandInput,
   DeleteVoiceConnectorCommandOutput,
 } from "./commands/DeleteVoiceConnectorCommand";
-import {
+import type {
   DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
   DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/DeleteVoiceConnectorEmergencyCallingConfigurationCommand";
-import {
+import type {
   DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
   DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput,
 } from "./commands/DeleteVoiceConnectorExternalSystemsConfigurationCommand";
-import {
+import type {
   DeleteVoiceConnectorGroupCommandInput,
   DeleteVoiceConnectorGroupCommandOutput,
 } from "./commands/DeleteVoiceConnectorGroupCommand";
-import {
+import type {
   DeleteVoiceConnectorOriginationCommandInput,
   DeleteVoiceConnectorOriginationCommandOutput,
 } from "./commands/DeleteVoiceConnectorOriginationCommand";
-import {
+import type {
   DeleteVoiceConnectorProxyCommandInput,
   DeleteVoiceConnectorProxyCommandOutput,
 } from "./commands/DeleteVoiceConnectorProxyCommand";
-import {
+import type {
   DeleteVoiceConnectorStreamingConfigurationCommandInput,
   DeleteVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/DeleteVoiceConnectorStreamingConfigurationCommand";
-import {
+import type {
   DeleteVoiceConnectorTerminationCommandInput,
   DeleteVoiceConnectorTerminationCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCommand";
-import {
+import type {
   DeleteVoiceConnectorTerminationCredentialsCommandInput,
   DeleteVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCredentialsCommand";
-import { DeleteVoiceProfileCommandInput, DeleteVoiceProfileCommandOutput } from "./commands/DeleteVoiceProfileCommand";
-import {
+import type {
+  DeleteVoiceProfileCommandInput,
+  DeleteVoiceProfileCommandOutput,
+} from "./commands/DeleteVoiceProfileCommand";
+import type {
   DeleteVoiceProfileDomainCommandInput,
   DeleteVoiceProfileDomainCommandOutput,
 } from "./commands/DeleteVoiceProfileDomainCommand";
-import {
+import type {
   DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
   DisassociatePhoneNumbersFromVoiceConnectorCommandOutput,
 } from "./commands/DisassociatePhoneNumbersFromVoiceConnectorCommand";
-import {
+import type {
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput,
 } from "./commands/DisassociatePhoneNumbersFromVoiceConnectorGroupCommand";
-import { GetGlobalSettingsCommandInput, GetGlobalSettingsCommandOutput } from "./commands/GetGlobalSettingsCommand";
-import { GetPhoneNumberCommandInput, GetPhoneNumberCommandOutput } from "./commands/GetPhoneNumberCommand";
-import {
+import type {
+  GetGlobalSettingsCommandInput,
+  GetGlobalSettingsCommandOutput,
+} from "./commands/GetGlobalSettingsCommand";
+import type { GetPhoneNumberCommandInput, GetPhoneNumberCommandOutput } from "./commands/GetPhoneNumberCommand";
+import type {
   GetPhoneNumberOrderCommandInput,
   GetPhoneNumberOrderCommandOutput,
 } from "./commands/GetPhoneNumberOrderCommand";
-import {
+import type {
   GetPhoneNumberSettingsCommandInput,
   GetPhoneNumberSettingsCommandOutput,
 } from "./commands/GetPhoneNumberSettingsCommand";
-import { GetProxySessionCommandInput, GetProxySessionCommandOutput } from "./commands/GetProxySessionCommand";
-import {
+import type { GetProxySessionCommandInput, GetProxySessionCommandOutput } from "./commands/GetProxySessionCommand";
+import type {
   GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
   GetSipMediaApplicationAlexaSkillConfigurationCommandOutput,
 } from "./commands/GetSipMediaApplicationAlexaSkillConfigurationCommand";
-import {
+import type {
   GetSipMediaApplicationCommandInput,
   GetSipMediaApplicationCommandOutput,
 } from "./commands/GetSipMediaApplicationCommand";
-import {
+import type {
   GetSipMediaApplicationLoggingConfigurationCommandInput,
   GetSipMediaApplicationLoggingConfigurationCommandOutput,
 } from "./commands/GetSipMediaApplicationLoggingConfigurationCommand";
-import { GetSipRuleCommandInput, GetSipRuleCommandOutput } from "./commands/GetSipRuleCommand";
-import {
+import type { GetSipRuleCommandInput, GetSipRuleCommandOutput } from "./commands/GetSipRuleCommand";
+import type {
   GetSpeakerSearchTaskCommandInput,
   GetSpeakerSearchTaskCommandOutput,
 } from "./commands/GetSpeakerSearchTaskCommand";
-import { GetVoiceConnectorCommandInput, GetVoiceConnectorCommandOutput } from "./commands/GetVoiceConnectorCommand";
-import {
+import type {
+  GetVoiceConnectorCommandInput,
+  GetVoiceConnectorCommandOutput,
+} from "./commands/GetVoiceConnectorCommand";
+import type {
   GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
   GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorEmergencyCallingConfigurationCommand";
-import {
+import type {
   GetVoiceConnectorExternalSystemsConfigurationCommandInput,
   GetVoiceConnectorExternalSystemsConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorExternalSystemsConfigurationCommand";
-import {
+import type {
   GetVoiceConnectorGroupCommandInput,
   GetVoiceConnectorGroupCommandOutput,
 } from "./commands/GetVoiceConnectorGroupCommand";
-import {
+import type {
   GetVoiceConnectorLoggingConfigurationCommandInput,
   GetVoiceConnectorLoggingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorLoggingConfigurationCommand";
-import {
+import type {
   GetVoiceConnectorOriginationCommandInput,
   GetVoiceConnectorOriginationCommandOutput,
 } from "./commands/GetVoiceConnectorOriginationCommand";
-import {
+import type {
   GetVoiceConnectorProxyCommandInput,
   GetVoiceConnectorProxyCommandOutput,
 } from "./commands/GetVoiceConnectorProxyCommand";
-import {
+import type {
   GetVoiceConnectorStreamingConfigurationCommandInput,
   GetVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorStreamingConfigurationCommand";
-import {
+import type {
   GetVoiceConnectorTerminationCommandInput,
   GetVoiceConnectorTerminationCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationCommand";
-import {
+import type {
   GetVoiceConnectorTerminationHealthCommandInput,
   GetVoiceConnectorTerminationHealthCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationHealthCommand";
-import { GetVoiceProfileCommandInput, GetVoiceProfileCommandOutput } from "./commands/GetVoiceProfileCommand";
-import {
+import type { GetVoiceProfileCommandInput, GetVoiceProfileCommandOutput } from "./commands/GetVoiceProfileCommand";
+import type {
   GetVoiceProfileDomainCommandInput,
   GetVoiceProfileDomainCommandOutput,
 } from "./commands/GetVoiceProfileDomainCommand";
-import {
+import type {
   GetVoiceToneAnalysisTaskCommandInput,
   GetVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/GetVoiceToneAnalysisTaskCommand";
-import {
+import type {
   ListAvailableVoiceConnectorRegionsCommandInput,
   ListAvailableVoiceConnectorRegionsCommandOutput,
 } from "./commands/ListAvailableVoiceConnectorRegionsCommand";
-import {
+import type {
   ListPhoneNumberOrdersCommandInput,
   ListPhoneNumberOrdersCommandOutput,
 } from "./commands/ListPhoneNumberOrdersCommand";
-import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand";
-import { ListProxySessionsCommandInput, ListProxySessionsCommandOutput } from "./commands/ListProxySessionsCommand";
-import {
+import type { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand";
+import type {
+  ListProxySessionsCommandInput,
+  ListProxySessionsCommandOutput,
+} from "./commands/ListProxySessionsCommand";
+import type {
   ListSipMediaApplicationsCommandInput,
   ListSipMediaApplicationsCommandOutput,
 } from "./commands/ListSipMediaApplicationsCommand";
-import { ListSipRulesCommandInput, ListSipRulesCommandOutput } from "./commands/ListSipRulesCommand";
-import {
+import type { ListSipRulesCommandInput, ListSipRulesCommandOutput } from "./commands/ListSipRulesCommand";
+import type {
   ListSupportedPhoneNumberCountriesCommandInput,
   ListSupportedPhoneNumberCountriesCommandOutput,
 } from "./commands/ListSupportedPhoneNumberCountriesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListVoiceConnectorGroupsCommandInput,
   ListVoiceConnectorGroupsCommandOutput,
 } from "./commands/ListVoiceConnectorGroupsCommand";
-import {
+import type {
   ListVoiceConnectorsCommandInput,
   ListVoiceConnectorsCommandOutput,
 } from "./commands/ListVoiceConnectorsCommand";
-import {
+import type {
   ListVoiceConnectorTerminationCredentialsCommandInput,
   ListVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/ListVoiceConnectorTerminationCredentialsCommand";
-import {
+import type {
   ListVoiceProfileDomainsCommandInput,
   ListVoiceProfileDomainsCommandOutput,
 } from "./commands/ListVoiceProfileDomainsCommand";
-import { ListVoiceProfilesCommandInput, ListVoiceProfilesCommandOutput } from "./commands/ListVoiceProfilesCommand";
-import {
+import type {
+  ListVoiceProfilesCommandInput,
+  ListVoiceProfilesCommandOutput,
+} from "./commands/ListVoiceProfilesCommand";
+import type {
   PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
   PutSipMediaApplicationAlexaSkillConfigurationCommandOutput,
 } from "./commands/PutSipMediaApplicationAlexaSkillConfigurationCommand";
-import {
+import type {
   PutSipMediaApplicationLoggingConfigurationCommandInput,
   PutSipMediaApplicationLoggingConfigurationCommandOutput,
 } from "./commands/PutSipMediaApplicationLoggingConfigurationCommand";
-import {
+import type {
   PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
   PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorEmergencyCallingConfigurationCommand";
-import {
+import type {
   PutVoiceConnectorExternalSystemsConfigurationCommandInput,
   PutVoiceConnectorExternalSystemsConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorExternalSystemsConfigurationCommand";
-import {
+import type {
   PutVoiceConnectorLoggingConfigurationCommandInput,
   PutVoiceConnectorLoggingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorLoggingConfigurationCommand";
-import {
+import type {
   PutVoiceConnectorOriginationCommandInput,
   PutVoiceConnectorOriginationCommandOutput,
 } from "./commands/PutVoiceConnectorOriginationCommand";
-import {
+import type {
   PutVoiceConnectorProxyCommandInput,
   PutVoiceConnectorProxyCommandOutput,
 } from "./commands/PutVoiceConnectorProxyCommand";
-import {
+import type {
   PutVoiceConnectorStreamingConfigurationCommandInput,
   PutVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorStreamingConfigurationCommand";
-import {
+import type {
   PutVoiceConnectorTerminationCommandInput,
   PutVoiceConnectorTerminationCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCommand";
-import {
+import type {
   PutVoiceConnectorTerminationCredentialsCommandInput,
   PutVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCredentialsCommand";
-import { RestorePhoneNumberCommandInput, RestorePhoneNumberCommandOutput } from "./commands/RestorePhoneNumberCommand";
-import {
+import type {
+  RestorePhoneNumberCommandInput,
+  RestorePhoneNumberCommandOutput,
+} from "./commands/RestorePhoneNumberCommand";
+import type {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
-import {
+import type {
   StartSpeakerSearchTaskCommandInput,
   StartSpeakerSearchTaskCommandOutput,
 } from "./commands/StartSpeakerSearchTaskCommand";
-import {
+import type {
   StartVoiceToneAnalysisTaskCommandInput,
   StartVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/StartVoiceToneAnalysisTaskCommand";
-import {
+import type {
   StopSpeakerSearchTaskCommandInput,
   StopSpeakerSearchTaskCommandOutput,
 } from "./commands/StopSpeakerSearchTaskCommand";
-import {
+import type {
   StopVoiceToneAnalysisTaskCommandInput,
   StopVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/StopVoiceToneAnalysisTaskCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
-import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "./commands/UpdatePhoneNumberCommand";
-import {
+import type {
+  UpdatePhoneNumberCommandInput,
+  UpdatePhoneNumberCommandOutput,
+} from "./commands/UpdatePhoneNumberCommand";
+import type {
   UpdatePhoneNumberSettingsCommandInput,
   UpdatePhoneNumberSettingsCommandOutput,
 } from "./commands/UpdatePhoneNumberSettingsCommand";
-import { UpdateProxySessionCommandInput, UpdateProxySessionCommandOutput } from "./commands/UpdateProxySessionCommand";
-import {
+import type {
+  UpdateProxySessionCommandInput,
+  UpdateProxySessionCommandOutput,
+} from "./commands/UpdateProxySessionCommand";
+import type {
   UpdateSipMediaApplicationCallCommandInput,
   UpdateSipMediaApplicationCallCommandOutput,
 } from "./commands/UpdateSipMediaApplicationCallCommand";
-import {
+import type {
   UpdateSipMediaApplicationCommandInput,
   UpdateSipMediaApplicationCommandOutput,
 } from "./commands/UpdateSipMediaApplicationCommand";
-import { UpdateSipRuleCommandInput, UpdateSipRuleCommandOutput } from "./commands/UpdateSipRuleCommand";
-import {
+import type { UpdateSipRuleCommandInput, UpdateSipRuleCommandOutput } from "./commands/UpdateSipRuleCommand";
+import type {
   UpdateVoiceConnectorCommandInput,
   UpdateVoiceConnectorCommandOutput,
 } from "./commands/UpdateVoiceConnectorCommand";
-import {
+import type {
   UpdateVoiceConnectorGroupCommandInput,
   UpdateVoiceConnectorGroupCommandOutput,
 } from "./commands/UpdateVoiceConnectorGroupCommand";
-import { UpdateVoiceProfileCommandInput, UpdateVoiceProfileCommandOutput } from "./commands/UpdateVoiceProfileCommand";
-import {
+import type {
+  UpdateVoiceProfileCommandInput,
+  UpdateVoiceProfileCommandOutput,
+} from "./commands/UpdateVoiceProfileCommand";
+import type {
   UpdateVoiceProfileDomainCommandInput,
   UpdateVoiceProfileDomainCommandOutput,
 } from "./commands/UpdateVoiceProfileDomainCommand";
-import {
+import type {
   ValidateE911AddressCommandInput,
   ValidateE911AddressCommandOutput,
 } from "./commands/ValidateE911AddressCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -702,7 +739,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

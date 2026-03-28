@@ -3,56 +3,64 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateScheduleCommandInput,
+  type CreateScheduleCommandOutput,
   CreateScheduleCommand,
-  CreateScheduleCommandInput,
-  CreateScheduleCommandOutput,
 } from "./commands/CreateScheduleCommand";
 import {
+  type CreateScheduleGroupCommandInput,
+  type CreateScheduleGroupCommandOutput,
   CreateScheduleGroupCommand,
-  CreateScheduleGroupCommandInput,
-  CreateScheduleGroupCommandOutput,
 } from "./commands/CreateScheduleGroupCommand";
 import {
+  type DeleteScheduleCommandInput,
+  type DeleteScheduleCommandOutput,
   DeleteScheduleCommand,
-  DeleteScheduleCommandInput,
-  DeleteScheduleCommandOutput,
 } from "./commands/DeleteScheduleCommand";
 import {
+  type DeleteScheduleGroupCommandInput,
+  type DeleteScheduleGroupCommandOutput,
   DeleteScheduleGroupCommand,
-  DeleteScheduleGroupCommandInput,
-  DeleteScheduleGroupCommandOutput,
 } from "./commands/DeleteScheduleGroupCommand";
-import { GetScheduleCommand, GetScheduleCommandInput, GetScheduleCommandOutput } from "./commands/GetScheduleCommand";
 import {
+  type GetScheduleCommandInput,
+  type GetScheduleCommandOutput,
+  GetScheduleCommand,
+} from "./commands/GetScheduleCommand";
+import {
+  type GetScheduleGroupCommandInput,
+  type GetScheduleGroupCommandOutput,
   GetScheduleGroupCommand,
-  GetScheduleGroupCommandInput,
-  GetScheduleGroupCommandOutput,
 } from "./commands/GetScheduleGroupCommand";
 import {
+  type ListScheduleGroupsCommandInput,
+  type ListScheduleGroupsCommandOutput,
   ListScheduleGroupsCommand,
-  ListScheduleGroupsCommandInput,
-  ListScheduleGroupsCommandOutput,
 } from "./commands/ListScheduleGroupsCommand";
 import {
+  type ListSchedulesCommandInput,
+  type ListSchedulesCommandOutput,
   ListSchedulesCommand,
-  ListSchedulesCommandInput,
-  ListSchedulesCommandOutput,
 } from "./commands/ListSchedulesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateScheduleCommandInput,
+  type UpdateScheduleCommandOutput,
   UpdateScheduleCommand,
-  UpdateScheduleCommandInput,
-  UpdateScheduleCommandOutput,
 } from "./commands/UpdateScheduleCommand";
 import { paginateListScheduleGroups } from "./pagination/ListScheduleGroupsPaginator";
 import { paginateListSchedules } from "./pagination/ListSchedulesPaginator";

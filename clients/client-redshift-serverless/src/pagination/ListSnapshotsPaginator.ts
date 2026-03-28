@@ -8,7 +8,7 @@ import {
   ListSnapshotsCommandOutput,
 } from "../commands/ListSnapshotsCommand";
 import { RedshiftServerlessClient } from "../RedshiftServerlessClient";
-import { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
+import type { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

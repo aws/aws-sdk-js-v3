@@ -3,71 +3,79 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateWorkflowCommandInput,
+  type CreateWorkflowCommandOutput,
   CreateWorkflowCommand,
-  CreateWorkflowCommandInput,
-  CreateWorkflowCommandOutput,
 } from "./commands/CreateWorkflowCommand";
 import {
+  type DeleteWorkflowCommandInput,
+  type DeleteWorkflowCommandOutput,
   DeleteWorkflowCommand,
-  DeleteWorkflowCommandInput,
-  DeleteWorkflowCommandOutput,
 } from "./commands/DeleteWorkflowCommand";
 import {
+  type GetTaskInstanceCommandInput,
+  type GetTaskInstanceCommandOutput,
   GetTaskInstanceCommand,
-  GetTaskInstanceCommandInput,
-  GetTaskInstanceCommandOutput,
 } from "./commands/GetTaskInstanceCommand";
-import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
+  type GetWorkflowCommandInput,
+  type GetWorkflowCommandOutput,
+  GetWorkflowCommand,
+} from "./commands/GetWorkflowCommand";
+import {
+  type GetWorkflowRunCommandInput,
+  type GetWorkflowRunCommandOutput,
   GetWorkflowRunCommand,
-  GetWorkflowRunCommandInput,
-  GetWorkflowRunCommandOutput,
 } from "./commands/GetWorkflowRunCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTaskInstancesCommandInput,
+  type ListTaskInstancesCommandOutput,
   ListTaskInstancesCommand,
-  ListTaskInstancesCommandInput,
-  ListTaskInstancesCommandOutput,
 } from "./commands/ListTaskInstancesCommand";
 import {
+  type ListWorkflowRunsCommandInput,
+  type ListWorkflowRunsCommandOutput,
   ListWorkflowRunsCommand,
-  ListWorkflowRunsCommandInput,
-  ListWorkflowRunsCommandOutput,
 } from "./commands/ListWorkflowRunsCommand";
 import {
+  type ListWorkflowsCommandInput,
+  type ListWorkflowsCommandOutput,
   ListWorkflowsCommand,
-  ListWorkflowsCommandInput,
-  ListWorkflowsCommandOutput,
 } from "./commands/ListWorkflowsCommand";
 import {
+  type ListWorkflowVersionsCommandInput,
+  type ListWorkflowVersionsCommandOutput,
   ListWorkflowVersionsCommand,
-  ListWorkflowVersionsCommandInput,
-  ListWorkflowVersionsCommandOutput,
 } from "./commands/ListWorkflowVersionsCommand";
 import {
+  type StartWorkflowRunCommandInput,
+  type StartWorkflowRunCommandOutput,
   StartWorkflowRunCommand,
-  StartWorkflowRunCommandInput,
-  StartWorkflowRunCommandOutput,
 } from "./commands/StartWorkflowRunCommand";
 import {
+  type StopWorkflowRunCommandInput,
+  type StopWorkflowRunCommandOutput,
   StopWorkflowRunCommand,
-  StopWorkflowRunCommandInput,
-  StopWorkflowRunCommandOutput,
 } from "./commands/StopWorkflowRunCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateWorkflowCommandInput,
+  type UpdateWorkflowCommandOutput,
   UpdateWorkflowCommand,
-  UpdateWorkflowCommandInput,
-  UpdateWorkflowCommandOutput,
 } from "./commands/UpdateWorkflowCommand";
 import { MWAAServerlessClient } from "./MWAAServerlessClient";
 import { paginateListTaskInstances } from "./pagination/ListTaskInstancesPaginator";

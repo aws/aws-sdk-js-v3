@@ -3,55 +3,59 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchUpdateRecommendationResourceExclusionCommandInput,
+  type BatchUpdateRecommendationResourceExclusionCommandOutput,
   BatchUpdateRecommendationResourceExclusionCommand,
-  BatchUpdateRecommendationResourceExclusionCommandInput,
-  BatchUpdateRecommendationResourceExclusionCommandOutput,
 } from "./commands/BatchUpdateRecommendationResourceExclusionCommand";
 import {
+  type GetOrganizationRecommendationCommandInput,
+  type GetOrganizationRecommendationCommandOutput,
   GetOrganizationRecommendationCommand,
-  GetOrganizationRecommendationCommandInput,
-  GetOrganizationRecommendationCommandOutput,
 } from "./commands/GetOrganizationRecommendationCommand";
 import {
+  type GetRecommendationCommandInput,
+  type GetRecommendationCommandOutput,
   GetRecommendationCommand,
-  GetRecommendationCommandInput,
-  GetRecommendationCommandOutput,
 } from "./commands/GetRecommendationCommand";
-import { ListChecksCommand, ListChecksCommandInput, ListChecksCommandOutput } from "./commands/ListChecksCommand";
 import {
+  type ListChecksCommandInput,
+  type ListChecksCommandOutput,
+  ListChecksCommand,
+} from "./commands/ListChecksCommand";
+import {
+  type ListOrganizationRecommendationAccountsCommandInput,
+  type ListOrganizationRecommendationAccountsCommandOutput,
   ListOrganizationRecommendationAccountsCommand,
-  ListOrganizationRecommendationAccountsCommandInput,
-  ListOrganizationRecommendationAccountsCommandOutput,
 } from "./commands/ListOrganizationRecommendationAccountsCommand";
 import {
+  type ListOrganizationRecommendationResourcesCommandInput,
+  type ListOrganizationRecommendationResourcesCommandOutput,
   ListOrganizationRecommendationResourcesCommand,
-  ListOrganizationRecommendationResourcesCommandInput,
-  ListOrganizationRecommendationResourcesCommandOutput,
 } from "./commands/ListOrganizationRecommendationResourcesCommand";
 import {
+  type ListOrganizationRecommendationsCommandInput,
+  type ListOrganizationRecommendationsCommandOutput,
   ListOrganizationRecommendationsCommand,
-  ListOrganizationRecommendationsCommandInput,
-  ListOrganizationRecommendationsCommandOutput,
 } from "./commands/ListOrganizationRecommendationsCommand";
 import {
+  type ListRecommendationResourcesCommandInput,
+  type ListRecommendationResourcesCommandOutput,
   ListRecommendationResourcesCommand,
-  ListRecommendationResourcesCommandInput,
-  ListRecommendationResourcesCommandOutput,
 } from "./commands/ListRecommendationResourcesCommand";
 import {
+  type ListRecommendationsCommandInput,
+  type ListRecommendationsCommandOutput,
   ListRecommendationsCommand,
-  ListRecommendationsCommandInput,
-  ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
 import {
+  type UpdateOrganizationRecommendationLifecycleCommandInput,
+  type UpdateOrganizationRecommendationLifecycleCommandOutput,
   UpdateOrganizationRecommendationLifecycleCommand,
-  UpdateOrganizationRecommendationLifecycleCommandInput,
-  UpdateOrganizationRecommendationLifecycleCommandOutput,
 } from "./commands/UpdateOrganizationRecommendationLifecycleCommand";
 import {
+  type UpdateRecommendationLifecycleCommandInput,
+  type UpdateRecommendationLifecycleCommandOutput,
   UpdateRecommendationLifecycleCommand,
-  UpdateRecommendationLifecycleCommandInput,
-  UpdateRecommendationLifecycleCommandOutput,
 } from "./commands/UpdateRecommendationLifecycleCommand";
 import { paginateListChecks } from "./pagination/ListChecksPaginator";
 import {

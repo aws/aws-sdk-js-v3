@@ -8,7 +8,7 @@ import {
   ListContainerGroupDefinitionsCommandOutput,
 } from "../commands/ListContainerGroupDefinitionsCommand";
 import { GameLiftClient } from "../GameLiftClient";
-import { GameLiftPaginationConfiguration } from "./Interfaces";
+import type { GameLiftPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

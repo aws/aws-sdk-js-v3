@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import { VoiceIDClient } from "../VoiceIDClient";
-import { VoiceIDPaginationConfiguration } from "./Interfaces";
+import type { VoiceIDPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

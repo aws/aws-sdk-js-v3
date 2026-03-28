@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,78 +61,78 @@ import {
   defaultAppFabricHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchGetUserAccessTasksCommandInput,
   BatchGetUserAccessTasksCommandOutput,
 } from "./commands/BatchGetUserAccessTasksCommand";
-import {
+import type {
   ConnectAppAuthorizationCommandInput,
   ConnectAppAuthorizationCommandOutput,
 } from "./commands/ConnectAppAuthorizationCommand";
-import {
+import type {
   CreateAppAuthorizationCommandInput,
   CreateAppAuthorizationCommandOutput,
 } from "./commands/CreateAppAuthorizationCommand";
-import { CreateAppBundleCommandInput, CreateAppBundleCommandOutput } from "./commands/CreateAppBundleCommand";
-import { CreateIngestionCommandInput, CreateIngestionCommandOutput } from "./commands/CreateIngestionCommand";
-import {
+import type { CreateAppBundleCommandInput, CreateAppBundleCommandOutput } from "./commands/CreateAppBundleCommand";
+import type { CreateIngestionCommandInput, CreateIngestionCommandOutput } from "./commands/CreateIngestionCommand";
+import type {
   CreateIngestionDestinationCommandInput,
   CreateIngestionDestinationCommandOutput,
 } from "./commands/CreateIngestionDestinationCommand";
-import {
+import type {
   DeleteAppAuthorizationCommandInput,
   DeleteAppAuthorizationCommandOutput,
 } from "./commands/DeleteAppAuthorizationCommand";
-import { DeleteAppBundleCommandInput, DeleteAppBundleCommandOutput } from "./commands/DeleteAppBundleCommand";
-import { DeleteIngestionCommandInput, DeleteIngestionCommandOutput } from "./commands/DeleteIngestionCommand";
-import {
+import type { DeleteAppBundleCommandInput, DeleteAppBundleCommandOutput } from "./commands/DeleteAppBundleCommand";
+import type { DeleteIngestionCommandInput, DeleteIngestionCommandOutput } from "./commands/DeleteIngestionCommand";
+import type {
   DeleteIngestionDestinationCommandInput,
   DeleteIngestionDestinationCommandOutput,
 } from "./commands/DeleteIngestionDestinationCommand";
-import {
+import type {
   GetAppAuthorizationCommandInput,
   GetAppAuthorizationCommandOutput,
 } from "./commands/GetAppAuthorizationCommand";
-import { GetAppBundleCommandInput, GetAppBundleCommandOutput } from "./commands/GetAppBundleCommand";
-import { GetIngestionCommandInput, GetIngestionCommandOutput } from "./commands/GetIngestionCommand";
-import {
+import type { GetAppBundleCommandInput, GetAppBundleCommandOutput } from "./commands/GetAppBundleCommand";
+import type { GetIngestionCommandInput, GetIngestionCommandOutput } from "./commands/GetIngestionCommand";
+import type {
   GetIngestionDestinationCommandInput,
   GetIngestionDestinationCommandOutput,
 } from "./commands/GetIngestionDestinationCommand";
-import {
+import type {
   ListAppAuthorizationsCommandInput,
   ListAppAuthorizationsCommandOutput,
 } from "./commands/ListAppAuthorizationsCommand";
-import { ListAppBundlesCommandInput, ListAppBundlesCommandOutput } from "./commands/ListAppBundlesCommand";
-import {
+import type { ListAppBundlesCommandInput, ListAppBundlesCommandOutput } from "./commands/ListAppBundlesCommand";
+import type {
   ListIngestionDestinationsCommandInput,
   ListIngestionDestinationsCommandOutput,
 } from "./commands/ListIngestionDestinationsCommand";
-import { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "./commands/ListIngestionsCommand";
-import {
+import type { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "./commands/ListIngestionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartIngestionCommandInput, StartIngestionCommandOutput } from "./commands/StartIngestionCommand";
-import {
+import type { StartIngestionCommandInput, StartIngestionCommandOutput } from "./commands/StartIngestionCommand";
+import type {
   StartUserAccessTasksCommandInput,
   StartUserAccessTasksCommandOutput,
 } from "./commands/StartUserAccessTasksCommand";
-import { StopIngestionCommandInput, StopIngestionCommandOutput } from "./commands/StopIngestionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { StopIngestionCommandInput, StopIngestionCommandOutput } from "./commands/StopIngestionCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAppAuthorizationCommandInput,
   UpdateAppAuthorizationCommandOutput,
 } from "./commands/UpdateAppAuthorizationCommand";
-import {
+import type {
   UpdateIngestionDestinationCommandInput,
   UpdateIngestionDestinationCommandOutput,
 } from "./commands/UpdateIngestionDestinationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -318,7 +316,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

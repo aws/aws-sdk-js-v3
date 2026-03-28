@@ -8,7 +8,7 @@ import {
   ListConfiguredModelAlgorithmAssociationsCommandInput,
   ListConfiguredModelAlgorithmAssociationsCommandOutput,
 } from "../commands/ListConfiguredModelAlgorithmAssociationsCommand";
-import { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

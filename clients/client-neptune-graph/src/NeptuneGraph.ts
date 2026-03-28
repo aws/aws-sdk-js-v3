@@ -9,127 +9,163 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type CancelExportTaskCommandInput,
+  type CancelExportTaskCommandOutput,
   CancelExportTaskCommand,
-  CancelExportTaskCommandInput,
-  CancelExportTaskCommandOutput,
 } from "./commands/CancelExportTaskCommand";
 import {
+  type CancelImportTaskCommandInput,
+  type CancelImportTaskCommandOutput,
   CancelImportTaskCommand,
-  CancelImportTaskCommandInput,
-  CancelImportTaskCommandOutput,
 } from "./commands/CancelImportTaskCommand";
-import { CancelQueryCommand, CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
-import { CreateGraphCommand, CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
 import {
+  type CancelQueryCommandInput,
+  type CancelQueryCommandOutput,
+  CancelQueryCommand,
+} from "./commands/CancelQueryCommand";
+import {
+  type CreateGraphCommandInput,
+  type CreateGraphCommandOutput,
+  CreateGraphCommand,
+} from "./commands/CreateGraphCommand";
+import {
+  type CreateGraphSnapshotCommandInput,
+  type CreateGraphSnapshotCommandOutput,
   CreateGraphSnapshotCommand,
-  CreateGraphSnapshotCommandInput,
-  CreateGraphSnapshotCommandOutput,
 } from "./commands/CreateGraphSnapshotCommand";
 import {
+  type CreateGraphUsingImportTaskCommandInput,
+  type CreateGraphUsingImportTaskCommandOutput,
   CreateGraphUsingImportTaskCommand,
-  CreateGraphUsingImportTaskCommandInput,
-  CreateGraphUsingImportTaskCommandOutput,
 } from "./commands/CreateGraphUsingImportTaskCommand";
 import {
+  type CreatePrivateGraphEndpointCommandInput,
+  type CreatePrivateGraphEndpointCommandOutput,
   CreatePrivateGraphEndpointCommand,
-  CreatePrivateGraphEndpointCommandInput,
-  CreatePrivateGraphEndpointCommandOutput,
 } from "./commands/CreatePrivateGraphEndpointCommand";
-import { DeleteGraphCommand, DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand";
 import {
+  type DeleteGraphCommandInput,
+  type DeleteGraphCommandOutput,
+  DeleteGraphCommand,
+} from "./commands/DeleteGraphCommand";
+import {
+  type DeleteGraphSnapshotCommandInput,
+  type DeleteGraphSnapshotCommandOutput,
   DeleteGraphSnapshotCommand,
-  DeleteGraphSnapshotCommandInput,
-  DeleteGraphSnapshotCommandOutput,
 } from "./commands/DeleteGraphSnapshotCommand";
 import {
+  type DeletePrivateGraphEndpointCommandInput,
+  type DeletePrivateGraphEndpointCommandOutput,
   DeletePrivateGraphEndpointCommand,
-  DeletePrivateGraphEndpointCommandInput,
-  DeletePrivateGraphEndpointCommandOutput,
 } from "./commands/DeletePrivateGraphEndpointCommand";
 import {
+  type ExecuteQueryCommandInput,
+  type ExecuteQueryCommandOutput,
   ExecuteQueryCommand,
-  ExecuteQueryCommandInput,
-  ExecuteQueryCommandOutput,
 } from "./commands/ExecuteQueryCommand";
 import {
+  type GetExportTaskCommandInput,
+  type GetExportTaskCommandOutput,
   GetExportTaskCommand,
-  GetExportTaskCommandInput,
-  GetExportTaskCommandOutput,
 } from "./commands/GetExportTaskCommand";
-import { GetGraphCommand, GetGraphCommandInput, GetGraphCommandOutput } from "./commands/GetGraphCommand";
+import { type GetGraphCommandInput, type GetGraphCommandOutput, GetGraphCommand } from "./commands/GetGraphCommand";
 import {
+  type GetGraphSnapshotCommandInput,
+  type GetGraphSnapshotCommandOutput,
   GetGraphSnapshotCommand,
-  GetGraphSnapshotCommandInput,
-  GetGraphSnapshotCommandOutput,
 } from "./commands/GetGraphSnapshotCommand";
 import {
+  type GetGraphSummaryCommandInput,
+  type GetGraphSummaryCommandOutput,
   GetGraphSummaryCommand,
-  GetGraphSummaryCommandInput,
-  GetGraphSummaryCommandOutput,
 } from "./commands/GetGraphSummaryCommand";
 import {
+  type GetImportTaskCommandInput,
+  type GetImportTaskCommandOutput,
   GetImportTaskCommand,
-  GetImportTaskCommandInput,
-  GetImportTaskCommandOutput,
 } from "./commands/GetImportTaskCommand";
 import {
+  type GetPrivateGraphEndpointCommandInput,
+  type GetPrivateGraphEndpointCommandOutput,
   GetPrivateGraphEndpointCommand,
-  GetPrivateGraphEndpointCommandInput,
-  GetPrivateGraphEndpointCommandOutput,
 } from "./commands/GetPrivateGraphEndpointCommand";
-import { GetQueryCommand, GetQueryCommandInput, GetQueryCommandOutput } from "./commands/GetQueryCommand";
+import { type GetQueryCommandInput, type GetQueryCommandOutput, GetQueryCommand } from "./commands/GetQueryCommand";
 import {
+  type ListExportTasksCommandInput,
+  type ListExportTasksCommandOutput,
   ListExportTasksCommand,
-  ListExportTasksCommandInput,
-  ListExportTasksCommandOutput,
 } from "./commands/ListExportTasksCommand";
-import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import {
+  type ListGraphsCommandInput,
+  type ListGraphsCommandOutput,
+  ListGraphsCommand,
+} from "./commands/ListGraphsCommand";
+import {
+  type ListGraphSnapshotsCommandInput,
+  type ListGraphSnapshotsCommandOutput,
   ListGraphSnapshotsCommand,
-  ListGraphSnapshotsCommandInput,
-  ListGraphSnapshotsCommandOutput,
 } from "./commands/ListGraphSnapshotsCommand";
 import {
+  type ListImportTasksCommandInput,
+  type ListImportTasksCommandOutput,
   ListImportTasksCommand,
-  ListImportTasksCommandInput,
-  ListImportTasksCommandOutput,
 } from "./commands/ListImportTasksCommand";
 import {
+  type ListPrivateGraphEndpointsCommandInput,
+  type ListPrivateGraphEndpointsCommandOutput,
   ListPrivateGraphEndpointsCommand,
-  ListPrivateGraphEndpointsCommandInput,
-  ListPrivateGraphEndpointsCommandOutput,
 } from "./commands/ListPrivateGraphEndpointsCommand";
-import { ListQueriesCommand, ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
 import {
+  type ListQueriesCommandInput,
+  type ListQueriesCommandOutput,
+  ListQueriesCommand,
+} from "./commands/ListQueriesCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ResetGraphCommand, ResetGraphCommandInput, ResetGraphCommandOutput } from "./commands/ResetGraphCommand";
 import {
+  type ResetGraphCommandInput,
+  type ResetGraphCommandOutput,
+  ResetGraphCommand,
+} from "./commands/ResetGraphCommand";
+import {
+  type RestoreGraphFromSnapshotCommandInput,
+  type RestoreGraphFromSnapshotCommandOutput,
   RestoreGraphFromSnapshotCommand,
-  RestoreGraphFromSnapshotCommandInput,
-  RestoreGraphFromSnapshotCommandOutput,
 } from "./commands/RestoreGraphFromSnapshotCommand";
 import {
+  type StartExportTaskCommandInput,
+  type StartExportTaskCommandOutput,
   StartExportTaskCommand,
-  StartExportTaskCommandInput,
-  StartExportTaskCommandOutput,
 } from "./commands/StartExportTaskCommand";
-import { StartGraphCommand, StartGraphCommandInput, StartGraphCommandOutput } from "./commands/StartGraphCommand";
 import {
+  type StartGraphCommandInput,
+  type StartGraphCommandOutput,
+  StartGraphCommand,
+} from "./commands/StartGraphCommand";
+import {
+  type StartImportTaskCommandInput,
+  type StartImportTaskCommandOutput,
   StartImportTaskCommand,
-  StartImportTaskCommandInput,
-  StartImportTaskCommandOutput,
 } from "./commands/StartImportTaskCommand";
-import { StopGraphCommand, StopGraphCommandInput, StopGraphCommandOutput } from "./commands/StopGraphCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type StopGraphCommandInput, type StopGraphCommandOutput, StopGraphCommand } from "./commands/StopGraphCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateGraphCommand, UpdateGraphCommandInput, UpdateGraphCommandOutput } from "./commands/UpdateGraphCommand";
+import {
+  type UpdateGraphCommandInput,
+  type UpdateGraphCommandOutput,
+  UpdateGraphCommand,
+} from "./commands/UpdateGraphCommand";
 import { NeptuneGraphClient } from "./NeptuneGraphClient";
 import { paginateListExportTasks } from "./pagination/ListExportTasksPaginator";
 import { paginateListGraphSnapshots } from "./pagination/ListGraphSnapshotsPaginator";

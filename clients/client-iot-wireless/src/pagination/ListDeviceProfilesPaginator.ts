@@ -8,7 +8,7 @@ import {
   ListDeviceProfilesCommandOutput,
 } from "../commands/ListDeviceProfilesCommand";
 import { IoTWirelessClient } from "../IoTWirelessClient";
-import { IoTWirelessPaginationConfiguration } from "./Interfaces";
+import type { IoTWirelessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

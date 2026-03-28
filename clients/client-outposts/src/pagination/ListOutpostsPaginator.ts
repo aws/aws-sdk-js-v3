@@ -8,7 +8,7 @@ import {
   ListOutpostsCommandOutput,
 } from "../commands/ListOutpostsCommand";
 import { OutpostsClient } from "../OutpostsClient";
-import { OutpostsPaginationConfiguration } from "./Interfaces";
+import type { OutpostsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

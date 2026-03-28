@@ -17,7 +17,7 @@
  */
 export * from "./IoTDataPlaneClient";
 export * from "./IoTDataPlane";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { IoTDataPlaneExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

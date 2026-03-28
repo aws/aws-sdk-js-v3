@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,66 +61,66 @@ import {
   defaultPartnerCentralBenefitsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AmendBenefitApplicationCommandInput,
   AmendBenefitApplicationCommandOutput,
 } from "./commands/AmendBenefitApplicationCommand";
-import {
+import type {
   AssociateBenefitApplicationResourceCommandInput,
   AssociateBenefitApplicationResourceCommandOutput,
 } from "./commands/AssociateBenefitApplicationResourceCommand";
-import {
+import type {
   CancelBenefitApplicationCommandInput,
   CancelBenefitApplicationCommandOutput,
 } from "./commands/CancelBenefitApplicationCommand";
-import {
+import type {
   CreateBenefitApplicationCommandInput,
   CreateBenefitApplicationCommandOutput,
 } from "./commands/CreateBenefitApplicationCommand";
-import {
+import type {
   DisassociateBenefitApplicationResourceCommandInput,
   DisassociateBenefitApplicationResourceCommandOutput,
 } from "./commands/DisassociateBenefitApplicationResourceCommand";
-import {
+import type {
   GetBenefitAllocationCommandInput,
   GetBenefitAllocationCommandOutput,
 } from "./commands/GetBenefitAllocationCommand";
-import {
+import type {
   GetBenefitApplicationCommandInput,
   GetBenefitApplicationCommandOutput,
 } from "./commands/GetBenefitApplicationCommand";
-import { GetBenefitCommandInput, GetBenefitCommandOutput } from "./commands/GetBenefitCommand";
-import {
+import type { GetBenefitCommandInput, GetBenefitCommandOutput } from "./commands/GetBenefitCommand";
+import type {
   ListBenefitAllocationsCommandInput,
   ListBenefitAllocationsCommandOutput,
 } from "./commands/ListBenefitAllocationsCommand";
-import {
+import type {
   ListBenefitApplicationsCommandInput,
   ListBenefitApplicationsCommandOutput,
 } from "./commands/ListBenefitApplicationsCommand";
-import { ListBenefitsCommandInput, ListBenefitsCommandOutput } from "./commands/ListBenefitsCommand";
-import {
+import type { ListBenefitsCommandInput, ListBenefitsCommandOutput } from "./commands/ListBenefitsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   RecallBenefitApplicationCommandInput,
   RecallBenefitApplicationCommandOutput,
 } from "./commands/RecallBenefitApplicationCommand";
-import {
+import type {
   SubmitBenefitApplicationCommandInput,
   SubmitBenefitApplicationCommandOutput,
 } from "./commands/SubmitBenefitApplicationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateBenefitApplicationCommandInput,
   UpdateBenefitApplicationCommandOutput,
 } from "./commands/UpdateBenefitApplicationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -288,7 +286,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

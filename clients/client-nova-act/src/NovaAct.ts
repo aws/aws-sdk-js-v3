@@ -2,69 +2,73 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { CreateActCommand, CreateActCommandInput, CreateActCommandOutput } from "./commands/CreateActCommand";
+import { type CreateActCommandInput, type CreateActCommandOutput, CreateActCommand } from "./commands/CreateActCommand";
 import {
+  type CreateSessionCommandInput,
+  type CreateSessionCommandOutput,
   CreateSessionCommand,
-  CreateSessionCommandInput,
-  CreateSessionCommandOutput,
 } from "./commands/CreateSessionCommand";
 import {
+  type CreateWorkflowDefinitionCommandInput,
+  type CreateWorkflowDefinitionCommandOutput,
   CreateWorkflowDefinitionCommand,
-  CreateWorkflowDefinitionCommandInput,
-  CreateWorkflowDefinitionCommandOutput,
 } from "./commands/CreateWorkflowDefinitionCommand";
 import {
+  type CreateWorkflowRunCommandInput,
+  type CreateWorkflowRunCommandOutput,
   CreateWorkflowRunCommand,
-  CreateWorkflowRunCommandInput,
-  CreateWorkflowRunCommandOutput,
 } from "./commands/CreateWorkflowRunCommand";
 import {
+  type DeleteWorkflowDefinitionCommandInput,
+  type DeleteWorkflowDefinitionCommandOutput,
   DeleteWorkflowDefinitionCommand,
-  DeleteWorkflowDefinitionCommandInput,
-  DeleteWorkflowDefinitionCommandOutput,
 } from "./commands/DeleteWorkflowDefinitionCommand";
 import {
+  type DeleteWorkflowRunCommandInput,
+  type DeleteWorkflowRunCommandOutput,
   DeleteWorkflowRunCommand,
-  DeleteWorkflowRunCommandInput,
-  DeleteWorkflowRunCommandOutput,
 } from "./commands/DeleteWorkflowRunCommand";
 import {
+  type GetWorkflowDefinitionCommandInput,
+  type GetWorkflowDefinitionCommandOutput,
   GetWorkflowDefinitionCommand,
-  GetWorkflowDefinitionCommandInput,
-  GetWorkflowDefinitionCommandOutput,
 } from "./commands/GetWorkflowDefinitionCommand";
 import {
+  type GetWorkflowRunCommandInput,
+  type GetWorkflowRunCommandOutput,
   GetWorkflowRunCommand,
-  GetWorkflowRunCommandInput,
-  GetWorkflowRunCommandOutput,
 } from "./commands/GetWorkflowRunCommand";
 import {
+  type InvokeActStepCommandInput,
+  type InvokeActStepCommandOutput,
   InvokeActStepCommand,
-  InvokeActStepCommandInput,
-  InvokeActStepCommandOutput,
 } from "./commands/InvokeActStepCommand";
-import { ListActsCommand, ListActsCommandInput, ListActsCommandOutput } from "./commands/ListActsCommand";
-import { ListModelsCommand, ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
+import { type ListActsCommandInput, type ListActsCommandOutput, ListActsCommand } from "./commands/ListActsCommand";
 import {
+  type ListModelsCommandInput,
+  type ListModelsCommandOutput,
+  ListModelsCommand,
+} from "./commands/ListModelsCommand";
+import {
+  type ListSessionsCommandInput,
+  type ListSessionsCommandOutput,
   ListSessionsCommand,
-  ListSessionsCommandInput,
-  ListSessionsCommandOutput,
 } from "./commands/ListSessionsCommand";
 import {
+  type ListWorkflowDefinitionsCommandInput,
+  type ListWorkflowDefinitionsCommandOutput,
   ListWorkflowDefinitionsCommand,
-  ListWorkflowDefinitionsCommandInput,
-  ListWorkflowDefinitionsCommandOutput,
 } from "./commands/ListWorkflowDefinitionsCommand";
 import {
+  type ListWorkflowRunsCommandInput,
+  type ListWorkflowRunsCommandOutput,
   ListWorkflowRunsCommand,
-  ListWorkflowRunsCommandInput,
-  ListWorkflowRunsCommandOutput,
 } from "./commands/ListWorkflowRunsCommand";
-import { UpdateActCommand, UpdateActCommandInput, UpdateActCommandOutput } from "./commands/UpdateActCommand";
+import { type UpdateActCommandInput, type UpdateActCommandOutput, UpdateActCommand } from "./commands/UpdateActCommand";
 import {
+  type UpdateWorkflowRunCommandInput,
+  type UpdateWorkflowRunCommandOutput,
   UpdateWorkflowRunCommand,
-  UpdateWorkflowRunCommandInput,
-  UpdateWorkflowRunCommandOutput,
 } from "./commands/UpdateWorkflowRunCommand";
 import { NovaActClient } from "./NovaActClient";
 import { paginateListActs } from "./pagination/ListActsPaginator";

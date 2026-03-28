@@ -8,7 +8,7 @@ import {
   ListDeviceFleetsCommandOutput,
 } from "../commands/ListDeviceFleetsCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

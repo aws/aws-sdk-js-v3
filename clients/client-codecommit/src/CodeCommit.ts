@@ -4,363 +4,375 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CodeCommitClient } from "./CodeCommitClient";
 import {
+  type AssociateApprovalRuleTemplateWithRepositoryCommandInput,
+  type AssociateApprovalRuleTemplateWithRepositoryCommandOutput,
   AssociateApprovalRuleTemplateWithRepositoryCommand,
-  AssociateApprovalRuleTemplateWithRepositoryCommandInput,
-  AssociateApprovalRuleTemplateWithRepositoryCommandOutput,
 } from "./commands/AssociateApprovalRuleTemplateWithRepositoryCommand";
 import {
+  type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
+  type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput,
   BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput,
 } from "./commands/BatchAssociateApprovalRuleTemplateWithRepositoriesCommand";
 import {
+  type BatchDescribeMergeConflictsCommandInput,
+  type BatchDescribeMergeConflictsCommandOutput,
   BatchDescribeMergeConflictsCommand,
-  BatchDescribeMergeConflictsCommandInput,
-  BatchDescribeMergeConflictsCommandOutput,
 } from "./commands/BatchDescribeMergeConflictsCommand";
 import {
+  type BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
+  type BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput,
   BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand,
-  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
-  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput,
 } from "./commands/BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand";
 import {
+  type BatchGetCommitsCommandInput,
+  type BatchGetCommitsCommandOutput,
   BatchGetCommitsCommand,
-  BatchGetCommitsCommandInput,
-  BatchGetCommitsCommandOutput,
 } from "./commands/BatchGetCommitsCommand";
 import {
+  type BatchGetRepositoriesCommandInput,
+  type BatchGetRepositoriesCommandOutput,
   BatchGetRepositoriesCommand,
-  BatchGetRepositoriesCommandInput,
-  BatchGetRepositoriesCommandOutput,
 } from "./commands/BatchGetRepositoriesCommand";
 import {
+  type CreateApprovalRuleTemplateCommandInput,
+  type CreateApprovalRuleTemplateCommandOutput,
   CreateApprovalRuleTemplateCommand,
-  CreateApprovalRuleTemplateCommandInput,
-  CreateApprovalRuleTemplateCommandOutput,
 } from "./commands/CreateApprovalRuleTemplateCommand";
 import {
+  type CreateBranchCommandInput,
+  type CreateBranchCommandOutput,
   CreateBranchCommand,
-  CreateBranchCommandInput,
-  CreateBranchCommandOutput,
 } from "./commands/CreateBranchCommand";
 import {
+  type CreateCommitCommandInput,
+  type CreateCommitCommandOutput,
   CreateCommitCommand,
-  CreateCommitCommandInput,
-  CreateCommitCommandOutput,
 } from "./commands/CreateCommitCommand";
 import {
+  type CreatePullRequestApprovalRuleCommandInput,
+  type CreatePullRequestApprovalRuleCommandOutput,
   CreatePullRequestApprovalRuleCommand,
-  CreatePullRequestApprovalRuleCommandInput,
-  CreatePullRequestApprovalRuleCommandOutput,
 } from "./commands/CreatePullRequestApprovalRuleCommand";
 import {
+  type CreatePullRequestCommandInput,
+  type CreatePullRequestCommandOutput,
   CreatePullRequestCommand,
-  CreatePullRequestCommandInput,
-  CreatePullRequestCommandOutput,
 } from "./commands/CreatePullRequestCommand";
 import {
+  type CreateRepositoryCommandInput,
+  type CreateRepositoryCommandOutput,
   CreateRepositoryCommand,
-  CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput,
 } from "./commands/CreateRepositoryCommand";
 import {
+  type CreateUnreferencedMergeCommitCommandInput,
+  type CreateUnreferencedMergeCommitCommandOutput,
   CreateUnreferencedMergeCommitCommand,
-  CreateUnreferencedMergeCommitCommandInput,
-  CreateUnreferencedMergeCommitCommandOutput,
 } from "./commands/CreateUnreferencedMergeCommitCommand";
 import {
+  type DeleteApprovalRuleTemplateCommandInput,
+  type DeleteApprovalRuleTemplateCommandOutput,
   DeleteApprovalRuleTemplateCommand,
-  DeleteApprovalRuleTemplateCommandInput,
-  DeleteApprovalRuleTemplateCommandOutput,
 } from "./commands/DeleteApprovalRuleTemplateCommand";
 import {
+  type DeleteBranchCommandInput,
+  type DeleteBranchCommandOutput,
   DeleteBranchCommand,
-  DeleteBranchCommandInput,
-  DeleteBranchCommandOutput,
 } from "./commands/DeleteBranchCommand";
 import {
+  type DeleteCommentContentCommandInput,
+  type DeleteCommentContentCommandOutput,
   DeleteCommentContentCommand,
-  DeleteCommentContentCommandInput,
-  DeleteCommentContentCommandOutput,
 } from "./commands/DeleteCommentContentCommand";
-import { DeleteFileCommand, DeleteFileCommandInput, DeleteFileCommandOutput } from "./commands/DeleteFileCommand";
 import {
+  type DeleteFileCommandInput,
+  type DeleteFileCommandOutput,
+  DeleteFileCommand,
+} from "./commands/DeleteFileCommand";
+import {
+  type DeletePullRequestApprovalRuleCommandInput,
+  type DeletePullRequestApprovalRuleCommandOutput,
   DeletePullRequestApprovalRuleCommand,
-  DeletePullRequestApprovalRuleCommandInput,
-  DeletePullRequestApprovalRuleCommandOutput,
 } from "./commands/DeletePullRequestApprovalRuleCommand";
 import {
+  type DeleteRepositoryCommandInput,
+  type DeleteRepositoryCommandOutput,
   DeleteRepositoryCommand,
-  DeleteRepositoryCommandInput,
-  DeleteRepositoryCommandOutput,
 } from "./commands/DeleteRepositoryCommand";
 import {
+  type DescribeMergeConflictsCommandInput,
+  type DescribeMergeConflictsCommandOutput,
   DescribeMergeConflictsCommand,
-  DescribeMergeConflictsCommandInput,
-  DescribeMergeConflictsCommandOutput,
 } from "./commands/DescribeMergeConflictsCommand";
 import {
+  type DescribePullRequestEventsCommandInput,
+  type DescribePullRequestEventsCommandOutput,
   DescribePullRequestEventsCommand,
-  DescribePullRequestEventsCommandInput,
-  DescribePullRequestEventsCommandOutput,
 } from "./commands/DescribePullRequestEventsCommand";
 import {
+  type DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
+  type DisassociateApprovalRuleTemplateFromRepositoryCommandOutput,
   DisassociateApprovalRuleTemplateFromRepositoryCommand,
-  DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
-  DisassociateApprovalRuleTemplateFromRepositoryCommandOutput,
 } from "./commands/DisassociateApprovalRuleTemplateFromRepositoryCommand";
 import {
+  type EvaluatePullRequestApprovalRulesCommandInput,
+  type EvaluatePullRequestApprovalRulesCommandOutput,
   EvaluatePullRequestApprovalRulesCommand,
-  EvaluatePullRequestApprovalRulesCommandInput,
-  EvaluatePullRequestApprovalRulesCommandOutput,
 } from "./commands/EvaluatePullRequestApprovalRulesCommand";
 import {
+  type GetApprovalRuleTemplateCommandInput,
+  type GetApprovalRuleTemplateCommandOutput,
   GetApprovalRuleTemplateCommand,
-  GetApprovalRuleTemplateCommandInput,
-  GetApprovalRuleTemplateCommandOutput,
 } from "./commands/GetApprovalRuleTemplateCommand";
-import { GetBlobCommand, GetBlobCommandInput, GetBlobCommandOutput } from "./commands/GetBlobCommand";
-import { GetBranchCommand, GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
-import { GetCommentCommand, GetCommentCommandInput, GetCommentCommandOutput } from "./commands/GetCommentCommand";
+import { type GetBlobCommandInput, type GetBlobCommandOutput, GetBlobCommand } from "./commands/GetBlobCommand";
+import { type GetBranchCommandInput, type GetBranchCommandOutput, GetBranchCommand } from "./commands/GetBranchCommand";
 import {
+  type GetCommentCommandInput,
+  type GetCommentCommandOutput,
+  GetCommentCommand,
+} from "./commands/GetCommentCommand";
+import {
+  type GetCommentReactionsCommandInput,
+  type GetCommentReactionsCommandOutput,
   GetCommentReactionsCommand,
-  GetCommentReactionsCommandInput,
-  GetCommentReactionsCommandOutput,
 } from "./commands/GetCommentReactionsCommand";
 import {
+  type GetCommentsForComparedCommitCommandInput,
+  type GetCommentsForComparedCommitCommandOutput,
   GetCommentsForComparedCommitCommand,
-  GetCommentsForComparedCommitCommandInput,
-  GetCommentsForComparedCommitCommandOutput,
 } from "./commands/GetCommentsForComparedCommitCommand";
 import {
+  type GetCommentsForPullRequestCommandInput,
+  type GetCommentsForPullRequestCommandOutput,
   GetCommentsForPullRequestCommand,
-  GetCommentsForPullRequestCommandInput,
-  GetCommentsForPullRequestCommandOutput,
 } from "./commands/GetCommentsForPullRequestCommand";
-import { GetCommitCommand, GetCommitCommandInput, GetCommitCommandOutput } from "./commands/GetCommitCommand";
+import { type GetCommitCommandInput, type GetCommitCommandOutput, GetCommitCommand } from "./commands/GetCommitCommand";
 import {
+  type GetDifferencesCommandInput,
+  type GetDifferencesCommandOutput,
   GetDifferencesCommand,
-  GetDifferencesCommandInput,
-  GetDifferencesCommandOutput,
 } from "./commands/GetDifferencesCommand";
-import { GetFileCommand, GetFileCommandInput, GetFileCommandOutput } from "./commands/GetFileCommand";
-import { GetFolderCommand, GetFolderCommandInput, GetFolderCommandOutput } from "./commands/GetFolderCommand";
+import { type GetFileCommandInput, type GetFileCommandOutput, GetFileCommand } from "./commands/GetFileCommand";
+import { type GetFolderCommandInput, type GetFolderCommandOutput, GetFolderCommand } from "./commands/GetFolderCommand";
 import {
+  type GetMergeCommitCommandInput,
+  type GetMergeCommitCommandOutput,
   GetMergeCommitCommand,
-  GetMergeCommitCommandInput,
-  GetMergeCommitCommandOutput,
 } from "./commands/GetMergeCommitCommand";
 import {
+  type GetMergeConflictsCommandInput,
+  type GetMergeConflictsCommandOutput,
   GetMergeConflictsCommand,
-  GetMergeConflictsCommandInput,
-  GetMergeConflictsCommandOutput,
 } from "./commands/GetMergeConflictsCommand";
 import {
+  type GetMergeOptionsCommandInput,
+  type GetMergeOptionsCommandOutput,
   GetMergeOptionsCommand,
-  GetMergeOptionsCommandInput,
-  GetMergeOptionsCommandOutput,
 } from "./commands/GetMergeOptionsCommand";
 import {
+  type GetPullRequestApprovalStatesCommandInput,
+  type GetPullRequestApprovalStatesCommandOutput,
   GetPullRequestApprovalStatesCommand,
-  GetPullRequestApprovalStatesCommandInput,
-  GetPullRequestApprovalStatesCommandOutput,
 } from "./commands/GetPullRequestApprovalStatesCommand";
 import {
+  type GetPullRequestCommandInput,
+  type GetPullRequestCommandOutput,
   GetPullRequestCommand,
-  GetPullRequestCommandInput,
-  GetPullRequestCommandOutput,
 } from "./commands/GetPullRequestCommand";
 import {
+  type GetPullRequestOverrideStateCommandInput,
+  type GetPullRequestOverrideStateCommandOutput,
   GetPullRequestOverrideStateCommand,
-  GetPullRequestOverrideStateCommandInput,
-  GetPullRequestOverrideStateCommandOutput,
 } from "./commands/GetPullRequestOverrideStateCommand";
 import {
+  type GetRepositoryCommandInput,
+  type GetRepositoryCommandOutput,
   GetRepositoryCommand,
-  GetRepositoryCommandInput,
-  GetRepositoryCommandOutput,
 } from "./commands/GetRepositoryCommand";
 import {
+  type GetRepositoryTriggersCommandInput,
+  type GetRepositoryTriggersCommandOutput,
   GetRepositoryTriggersCommand,
-  GetRepositoryTriggersCommandInput,
-  GetRepositoryTriggersCommandOutput,
 } from "./commands/GetRepositoryTriggersCommand";
 import {
+  type ListApprovalRuleTemplatesCommandInput,
+  type ListApprovalRuleTemplatesCommandOutput,
   ListApprovalRuleTemplatesCommand,
-  ListApprovalRuleTemplatesCommandInput,
-  ListApprovalRuleTemplatesCommandOutput,
 } from "./commands/ListApprovalRuleTemplatesCommand";
 import {
+  type ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
+  type ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput,
   ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
-  ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
-  ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput,
 } from "./commands/ListAssociatedApprovalRuleTemplatesForRepositoryCommand";
 import {
+  type ListBranchesCommandInput,
+  type ListBranchesCommandOutput,
   ListBranchesCommand,
-  ListBranchesCommandInput,
-  ListBranchesCommandOutput,
 } from "./commands/ListBranchesCommand";
 import {
+  type ListFileCommitHistoryCommandInput,
+  type ListFileCommitHistoryCommandOutput,
   ListFileCommitHistoryCommand,
-  ListFileCommitHistoryCommandInput,
-  ListFileCommitHistoryCommandOutput,
 } from "./commands/ListFileCommitHistoryCommand";
 import {
+  type ListPullRequestsCommandInput,
+  type ListPullRequestsCommandOutput,
   ListPullRequestsCommand,
-  ListPullRequestsCommandInput,
-  ListPullRequestsCommandOutput,
 } from "./commands/ListPullRequestsCommand";
 import {
+  type ListRepositoriesCommandInput,
+  type ListRepositoriesCommandOutput,
   ListRepositoriesCommand,
-  ListRepositoriesCommandInput,
-  ListRepositoriesCommandOutput,
 } from "./commands/ListRepositoriesCommand";
 import {
+  type ListRepositoriesForApprovalRuleTemplateCommandInput,
+  type ListRepositoriesForApprovalRuleTemplateCommandOutput,
   ListRepositoriesForApprovalRuleTemplateCommand,
-  ListRepositoriesForApprovalRuleTemplateCommandInput,
-  ListRepositoriesForApprovalRuleTemplateCommandOutput,
 } from "./commands/ListRepositoriesForApprovalRuleTemplateCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type MergeBranchesByFastForwardCommandInput,
+  type MergeBranchesByFastForwardCommandOutput,
   MergeBranchesByFastForwardCommand,
-  MergeBranchesByFastForwardCommandInput,
-  MergeBranchesByFastForwardCommandOutput,
 } from "./commands/MergeBranchesByFastForwardCommand";
 import {
+  type MergeBranchesBySquashCommandInput,
+  type MergeBranchesBySquashCommandOutput,
   MergeBranchesBySquashCommand,
-  MergeBranchesBySquashCommandInput,
-  MergeBranchesBySquashCommandOutput,
 } from "./commands/MergeBranchesBySquashCommand";
 import {
+  type MergeBranchesByThreeWayCommandInput,
+  type MergeBranchesByThreeWayCommandOutput,
   MergeBranchesByThreeWayCommand,
-  MergeBranchesByThreeWayCommandInput,
-  MergeBranchesByThreeWayCommandOutput,
 } from "./commands/MergeBranchesByThreeWayCommand";
 import {
+  type MergePullRequestByFastForwardCommandInput,
+  type MergePullRequestByFastForwardCommandOutput,
   MergePullRequestByFastForwardCommand,
-  MergePullRequestByFastForwardCommandInput,
-  MergePullRequestByFastForwardCommandOutput,
 } from "./commands/MergePullRequestByFastForwardCommand";
 import {
+  type MergePullRequestBySquashCommandInput,
+  type MergePullRequestBySquashCommandOutput,
   MergePullRequestBySquashCommand,
-  MergePullRequestBySquashCommandInput,
-  MergePullRequestBySquashCommandOutput,
 } from "./commands/MergePullRequestBySquashCommand";
 import {
+  type MergePullRequestByThreeWayCommandInput,
+  type MergePullRequestByThreeWayCommandOutput,
   MergePullRequestByThreeWayCommand,
-  MergePullRequestByThreeWayCommandInput,
-  MergePullRequestByThreeWayCommandOutput,
 } from "./commands/MergePullRequestByThreeWayCommand";
 import {
+  type OverridePullRequestApprovalRulesCommandInput,
+  type OverridePullRequestApprovalRulesCommandOutput,
   OverridePullRequestApprovalRulesCommand,
-  OverridePullRequestApprovalRulesCommandInput,
-  OverridePullRequestApprovalRulesCommandOutput,
 } from "./commands/OverridePullRequestApprovalRulesCommand";
 import {
+  type PostCommentForComparedCommitCommandInput,
+  type PostCommentForComparedCommitCommandOutput,
   PostCommentForComparedCommitCommand,
-  PostCommentForComparedCommitCommandInput,
-  PostCommentForComparedCommitCommandOutput,
 } from "./commands/PostCommentForComparedCommitCommand";
 import {
+  type PostCommentForPullRequestCommandInput,
+  type PostCommentForPullRequestCommandOutput,
   PostCommentForPullRequestCommand,
-  PostCommentForPullRequestCommandInput,
-  PostCommentForPullRequestCommandOutput,
 } from "./commands/PostCommentForPullRequestCommand";
 import {
+  type PostCommentReplyCommandInput,
+  type PostCommentReplyCommandOutput,
   PostCommentReplyCommand,
-  PostCommentReplyCommandInput,
-  PostCommentReplyCommandOutput,
 } from "./commands/PostCommentReplyCommand";
 import {
+  type PutCommentReactionCommandInput,
+  type PutCommentReactionCommandOutput,
   PutCommentReactionCommand,
-  PutCommentReactionCommandInput,
-  PutCommentReactionCommandOutput,
 } from "./commands/PutCommentReactionCommand";
-import { PutFileCommand, PutFileCommandInput, PutFileCommandOutput } from "./commands/PutFileCommand";
+import { type PutFileCommandInput, type PutFileCommandOutput, PutFileCommand } from "./commands/PutFileCommand";
 import {
+  type PutRepositoryTriggersCommandInput,
+  type PutRepositoryTriggersCommandOutput,
   PutRepositoryTriggersCommand,
-  PutRepositoryTriggersCommandInput,
-  PutRepositoryTriggersCommandOutput,
 } from "./commands/PutRepositoryTriggersCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TestRepositoryTriggersCommandInput,
+  type TestRepositoryTriggersCommandOutput,
   TestRepositoryTriggersCommand,
-  TestRepositoryTriggersCommandInput,
-  TestRepositoryTriggersCommandOutput,
 } from "./commands/TestRepositoryTriggersCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApprovalRuleTemplateContentCommandInput,
+  type UpdateApprovalRuleTemplateContentCommandOutput,
   UpdateApprovalRuleTemplateContentCommand,
-  UpdateApprovalRuleTemplateContentCommandInput,
-  UpdateApprovalRuleTemplateContentCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateContentCommand";
 import {
+  type UpdateApprovalRuleTemplateDescriptionCommandInput,
+  type UpdateApprovalRuleTemplateDescriptionCommandOutput,
   UpdateApprovalRuleTemplateDescriptionCommand,
-  UpdateApprovalRuleTemplateDescriptionCommandInput,
-  UpdateApprovalRuleTemplateDescriptionCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateDescriptionCommand";
 import {
+  type UpdateApprovalRuleTemplateNameCommandInput,
+  type UpdateApprovalRuleTemplateNameCommandOutput,
   UpdateApprovalRuleTemplateNameCommand,
-  UpdateApprovalRuleTemplateNameCommandInput,
-  UpdateApprovalRuleTemplateNameCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateNameCommand";
 import {
+  type UpdateCommentCommandInput,
+  type UpdateCommentCommandOutput,
   UpdateCommentCommand,
-  UpdateCommentCommandInput,
-  UpdateCommentCommandOutput,
 } from "./commands/UpdateCommentCommand";
 import {
+  type UpdateDefaultBranchCommandInput,
+  type UpdateDefaultBranchCommandOutput,
   UpdateDefaultBranchCommand,
-  UpdateDefaultBranchCommandInput,
-  UpdateDefaultBranchCommandOutput,
 } from "./commands/UpdateDefaultBranchCommand";
 import {
+  type UpdatePullRequestApprovalRuleContentCommandInput,
+  type UpdatePullRequestApprovalRuleContentCommandOutput,
   UpdatePullRequestApprovalRuleContentCommand,
-  UpdatePullRequestApprovalRuleContentCommandInput,
-  UpdatePullRequestApprovalRuleContentCommandOutput,
 } from "./commands/UpdatePullRequestApprovalRuleContentCommand";
 import {
+  type UpdatePullRequestApprovalStateCommandInput,
+  type UpdatePullRequestApprovalStateCommandOutput,
   UpdatePullRequestApprovalStateCommand,
-  UpdatePullRequestApprovalStateCommandInput,
-  UpdatePullRequestApprovalStateCommandOutput,
 } from "./commands/UpdatePullRequestApprovalStateCommand";
 import {
+  type UpdatePullRequestDescriptionCommandInput,
+  type UpdatePullRequestDescriptionCommandOutput,
   UpdatePullRequestDescriptionCommand,
-  UpdatePullRequestDescriptionCommandInput,
-  UpdatePullRequestDescriptionCommandOutput,
 } from "./commands/UpdatePullRequestDescriptionCommand";
 import {
+  type UpdatePullRequestStatusCommandInput,
+  type UpdatePullRequestStatusCommandOutput,
   UpdatePullRequestStatusCommand,
-  UpdatePullRequestStatusCommandInput,
-  UpdatePullRequestStatusCommandOutput,
 } from "./commands/UpdatePullRequestStatusCommand";
 import {
+  type UpdatePullRequestTitleCommandInput,
+  type UpdatePullRequestTitleCommandOutput,
   UpdatePullRequestTitleCommand,
-  UpdatePullRequestTitleCommandInput,
-  UpdatePullRequestTitleCommandOutput,
 } from "./commands/UpdatePullRequestTitleCommand";
 import {
+  type UpdateRepositoryDescriptionCommandInput,
+  type UpdateRepositoryDescriptionCommandOutput,
   UpdateRepositoryDescriptionCommand,
-  UpdateRepositoryDescriptionCommandInput,
-  UpdateRepositoryDescriptionCommandOutput,
 } from "./commands/UpdateRepositoryDescriptionCommand";
 import {
+  type UpdateRepositoryEncryptionKeyCommandInput,
+  type UpdateRepositoryEncryptionKeyCommandOutput,
   UpdateRepositoryEncryptionKeyCommand,
-  UpdateRepositoryEncryptionKeyCommandInput,
-  UpdateRepositoryEncryptionKeyCommandOutput,
 } from "./commands/UpdateRepositoryEncryptionKeyCommand";
 import {
+  type UpdateRepositoryNameCommandInput,
+  type UpdateRepositoryNameCommandOutput,
   UpdateRepositoryNameCommand,
-  UpdateRepositoryNameCommandInput,
-  UpdateRepositoryNameCommandOutput,
 } from "./commands/UpdateRepositoryNameCommand";
 import { paginateDescribeMergeConflicts } from "./pagination/DescribeMergeConflictsPaginator";
 import { paginateDescribePullRequestEvents } from "./pagination/DescribePullRequestEventsPaginator";

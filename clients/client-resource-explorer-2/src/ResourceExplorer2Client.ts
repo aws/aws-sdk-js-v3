@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,72 +61,75 @@ import {
   defaultResourceExplorer2HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateDefaultViewCommandInput,
   AssociateDefaultViewCommandOutput,
 } from "./commands/AssociateDefaultViewCommand";
-import { BatchGetViewCommandInput, BatchGetViewCommandOutput } from "./commands/BatchGetViewCommand";
-import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
-import {
+import type { BatchGetViewCommandInput, BatchGetViewCommandOutput } from "./commands/BatchGetViewCommand";
+import type { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import type {
   CreateResourceExplorerSetupCommandInput,
   CreateResourceExplorerSetupCommandOutput,
 } from "./commands/CreateResourceExplorerSetupCommand";
-import { CreateViewCommandInput, CreateViewCommandOutput } from "./commands/CreateViewCommand";
-import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
-import {
+import type { CreateViewCommandInput, CreateViewCommandOutput } from "./commands/CreateViewCommand";
+import type { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import type {
   DeleteResourceExplorerSetupCommandInput,
   DeleteResourceExplorerSetupCommandOutput,
 } from "./commands/DeleteResourceExplorerSetupCommand";
-import { DeleteViewCommandInput, DeleteViewCommandOutput } from "./commands/DeleteViewCommand";
-import {
+import type { DeleteViewCommandInput, DeleteViewCommandOutput } from "./commands/DeleteViewCommand";
+import type {
   DisassociateDefaultViewCommandInput,
   DisassociateDefaultViewCommandOutput,
 } from "./commands/DisassociateDefaultViewCommand";
-import {
+import type {
   GetAccountLevelServiceConfigurationCommandInput,
   GetAccountLevelServiceConfigurationCommandOutput,
 } from "./commands/GetAccountLevelServiceConfigurationCommand";
-import { GetDefaultViewCommandInput, GetDefaultViewCommandOutput } from "./commands/GetDefaultViewCommand";
-import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
-import { GetManagedViewCommandInput, GetManagedViewCommandOutput } from "./commands/GetManagedViewCommand";
-import {
+import type { GetDefaultViewCommandInput, GetDefaultViewCommandOutput } from "./commands/GetDefaultViewCommand";
+import type { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import type { GetManagedViewCommandInput, GetManagedViewCommandOutput } from "./commands/GetManagedViewCommand";
+import type {
   GetResourceExplorerSetupCommandInput,
   GetResourceExplorerSetupCommandOutput,
 } from "./commands/GetResourceExplorerSetupCommand";
-import { GetServiceIndexCommandInput, GetServiceIndexCommandOutput } from "./commands/GetServiceIndexCommand";
-import { GetServiceViewCommandInput, GetServiceViewCommandOutput } from "./commands/GetServiceViewCommand";
-import { GetViewCommandInput, GetViewCommandOutput } from "./commands/GetViewCommand";
-import { ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
-import {
+import type { GetServiceIndexCommandInput, GetServiceIndexCommandOutput } from "./commands/GetServiceIndexCommand";
+import type { GetServiceViewCommandInput, GetServiceViewCommandOutput } from "./commands/GetServiceViewCommand";
+import type { GetViewCommandInput, GetViewCommandOutput } from "./commands/GetViewCommand";
+import type { ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
+import type {
   ListIndexesForMembersCommandInput,
   ListIndexesForMembersCommandOutput,
 } from "./commands/ListIndexesForMembersCommand";
-import { ListManagedViewsCommandInput, ListManagedViewsCommandOutput } from "./commands/ListManagedViewsCommand";
-import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
-import { ListServiceIndexesCommandInput, ListServiceIndexesCommandOutput } from "./commands/ListServiceIndexesCommand";
-import { ListServiceViewsCommandInput, ListServiceViewsCommandOutput } from "./commands/ListServiceViewsCommand";
-import {
+import type { ListManagedViewsCommandInput, ListManagedViewsCommandOutput } from "./commands/ListManagedViewsCommand";
+import type { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
+import type {
+  ListServiceIndexesCommandInput,
+  ListServiceIndexesCommandOutput,
+} from "./commands/ListServiceIndexesCommand";
+import type { ListServiceViewsCommandInput, ListServiceViewsCommandOutput } from "./commands/ListServiceViewsCommand";
+import type {
   ListStreamingAccessForServicesCommandInput,
   ListStreamingAccessForServicesCommandOutput,
 } from "./commands/ListStreamingAccessForServicesCommand";
-import {
+import type {
   ListSupportedResourceTypesCommandInput,
   ListSupportedResourceTypesCommandOutput,
 } from "./commands/ListSupportedResourceTypesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListViewsCommandInput, ListViewsCommandOutput } from "./commands/ListViewsCommand";
-import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateIndexTypeCommandInput, UpdateIndexTypeCommandOutput } from "./commands/UpdateIndexTypeCommand";
-import { UpdateViewCommandInput, UpdateViewCommandOutput } from "./commands/UpdateViewCommand";
+import type { ListViewsCommandInput, ListViewsCommandOutput } from "./commands/ListViewsCommand";
+import type { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateIndexTypeCommandInput, UpdateIndexTypeCommandOutput } from "./commands/UpdateIndexTypeCommand";
+import type { UpdateViewCommandInput, UpdateViewCommandOutput } from "./commands/UpdateViewCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -324,7 +325,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

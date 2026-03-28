@@ -8,7 +8,7 @@ import {
   ListFlowVersionsCommandInput,
   ListFlowVersionsCommandOutput,
 } from "../commands/ListFlowVersionsCommand";
-import { BedrockAgentPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

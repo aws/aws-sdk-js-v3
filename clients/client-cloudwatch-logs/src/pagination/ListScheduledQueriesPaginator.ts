@@ -8,7 +8,7 @@ import {
   ListScheduledQueriesCommandInput,
   ListScheduledQueriesCommandOutput,
 } from "../commands/ListScheduledQueriesCommand";
-import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

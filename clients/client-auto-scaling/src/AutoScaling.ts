@@ -10,322 +10,334 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { AutoScalingClient } from "./AutoScalingClient";
 import {
+  type AttachInstancesCommandInput,
+  type AttachInstancesCommandOutput,
   AttachInstancesCommand,
-  AttachInstancesCommandInput,
-  AttachInstancesCommandOutput,
 } from "./commands/AttachInstancesCommand";
 import {
+  type AttachLoadBalancersCommandInput,
+  type AttachLoadBalancersCommandOutput,
   AttachLoadBalancersCommand,
-  AttachLoadBalancersCommandInput,
-  AttachLoadBalancersCommandOutput,
 } from "./commands/AttachLoadBalancersCommand";
 import {
+  type AttachLoadBalancerTargetGroupsCommandInput,
+  type AttachLoadBalancerTargetGroupsCommandOutput,
   AttachLoadBalancerTargetGroupsCommand,
-  AttachLoadBalancerTargetGroupsCommandInput,
-  AttachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/AttachLoadBalancerTargetGroupsCommand";
 import {
+  type AttachTrafficSourcesCommandInput,
+  type AttachTrafficSourcesCommandOutput,
   AttachTrafficSourcesCommand,
-  AttachTrafficSourcesCommandInput,
-  AttachTrafficSourcesCommandOutput,
 } from "./commands/AttachTrafficSourcesCommand";
 import {
+  type BatchDeleteScheduledActionCommandInput,
+  type BatchDeleteScheduledActionCommandOutput,
   BatchDeleteScheduledActionCommand,
-  BatchDeleteScheduledActionCommandInput,
-  BatchDeleteScheduledActionCommandOutput,
 } from "./commands/BatchDeleteScheduledActionCommand";
 import {
+  type BatchPutScheduledUpdateGroupActionCommandInput,
+  type BatchPutScheduledUpdateGroupActionCommandOutput,
   BatchPutScheduledUpdateGroupActionCommand,
-  BatchPutScheduledUpdateGroupActionCommandInput,
-  BatchPutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/BatchPutScheduledUpdateGroupActionCommand";
 import {
+  type CancelInstanceRefreshCommandInput,
+  type CancelInstanceRefreshCommandOutput,
   CancelInstanceRefreshCommand,
-  CancelInstanceRefreshCommandInput,
-  CancelInstanceRefreshCommandOutput,
 } from "./commands/CancelInstanceRefreshCommand";
 import {
+  type CompleteLifecycleActionCommandInput,
+  type CompleteLifecycleActionCommandOutput,
   CompleteLifecycleActionCommand,
-  CompleteLifecycleActionCommandInput,
-  CompleteLifecycleActionCommandOutput,
 } from "./commands/CompleteLifecycleActionCommand";
 import {
+  type CreateAutoScalingGroupCommandInput,
+  type CreateAutoScalingGroupCommandOutput,
   CreateAutoScalingGroupCommand,
-  CreateAutoScalingGroupCommandInput,
-  CreateAutoScalingGroupCommandOutput,
 } from "./commands/CreateAutoScalingGroupCommand";
 import {
+  type CreateLaunchConfigurationCommandInput,
+  type CreateLaunchConfigurationCommandOutput,
   CreateLaunchConfigurationCommand,
-  CreateLaunchConfigurationCommandInput,
-  CreateLaunchConfigurationCommandOutput,
 } from "./commands/CreateLaunchConfigurationCommand";
 import {
+  type CreateOrUpdateTagsCommandInput,
+  type CreateOrUpdateTagsCommandOutput,
   CreateOrUpdateTagsCommand,
-  CreateOrUpdateTagsCommandInput,
-  CreateOrUpdateTagsCommandOutput,
 } from "./commands/CreateOrUpdateTagsCommand";
 import {
+  type DeleteAutoScalingGroupCommandInput,
+  type DeleteAutoScalingGroupCommandOutput,
   DeleteAutoScalingGroupCommand,
-  DeleteAutoScalingGroupCommandInput,
-  DeleteAutoScalingGroupCommandOutput,
 } from "./commands/DeleteAutoScalingGroupCommand";
 import {
+  type DeleteLaunchConfigurationCommandInput,
+  type DeleteLaunchConfigurationCommandOutput,
   DeleteLaunchConfigurationCommand,
-  DeleteLaunchConfigurationCommandInput,
-  DeleteLaunchConfigurationCommandOutput,
 } from "./commands/DeleteLaunchConfigurationCommand";
 import {
+  type DeleteLifecycleHookCommandInput,
+  type DeleteLifecycleHookCommandOutput,
   DeleteLifecycleHookCommand,
-  DeleteLifecycleHookCommandInput,
-  DeleteLifecycleHookCommandOutput,
 } from "./commands/DeleteLifecycleHookCommand";
 import {
+  type DeleteNotificationConfigurationCommandInput,
+  type DeleteNotificationConfigurationCommandOutput,
   DeleteNotificationConfigurationCommand,
-  DeleteNotificationConfigurationCommandInput,
-  DeleteNotificationConfigurationCommandOutput,
 } from "./commands/DeleteNotificationConfigurationCommand";
 import {
+  type DeletePolicyCommandInput,
+  type DeletePolicyCommandOutput,
   DeletePolicyCommand,
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  type DeleteScheduledActionCommandInput,
+  type DeleteScheduledActionCommandOutput,
   DeleteScheduledActionCommand,
-  DeleteScheduledActionCommandInput,
-  DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand";
-import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
+  type DeleteTagsCommandInput,
+  type DeleteTagsCommandOutput,
+  DeleteTagsCommand,
+} from "./commands/DeleteTagsCommand";
+import {
+  type DeleteWarmPoolCommandInput,
+  type DeleteWarmPoolCommandOutput,
   DeleteWarmPoolCommand,
-  DeleteWarmPoolCommandInput,
-  DeleteWarmPoolCommandOutput,
 } from "./commands/DeleteWarmPoolCommand";
 import {
+  type DescribeAccountLimitsCommandInput,
+  type DescribeAccountLimitsCommandOutput,
   DescribeAccountLimitsCommand,
-  DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
+  type DescribeAdjustmentTypesCommandInput,
+  type DescribeAdjustmentTypesCommandOutput,
   DescribeAdjustmentTypesCommand,
-  DescribeAdjustmentTypesCommandInput,
-  DescribeAdjustmentTypesCommandOutput,
 } from "./commands/DescribeAdjustmentTypesCommand";
 import {
+  type DescribeAutoScalingGroupsCommandInput,
+  type DescribeAutoScalingGroupsCommandOutput,
   DescribeAutoScalingGroupsCommand,
-  DescribeAutoScalingGroupsCommandInput,
-  DescribeAutoScalingGroupsCommandOutput,
 } from "./commands/DescribeAutoScalingGroupsCommand";
 import {
+  type DescribeAutoScalingInstancesCommandInput,
+  type DescribeAutoScalingInstancesCommandOutput,
   DescribeAutoScalingInstancesCommand,
-  DescribeAutoScalingInstancesCommandInput,
-  DescribeAutoScalingInstancesCommandOutput,
 } from "./commands/DescribeAutoScalingInstancesCommand";
 import {
+  type DescribeAutoScalingNotificationTypesCommandInput,
+  type DescribeAutoScalingNotificationTypesCommandOutput,
   DescribeAutoScalingNotificationTypesCommand,
-  DescribeAutoScalingNotificationTypesCommandInput,
-  DescribeAutoScalingNotificationTypesCommandOutput,
 } from "./commands/DescribeAutoScalingNotificationTypesCommand";
 import {
+  type DescribeInstanceRefreshesCommandInput,
+  type DescribeInstanceRefreshesCommandOutput,
   DescribeInstanceRefreshesCommand,
-  DescribeInstanceRefreshesCommandInput,
-  DescribeInstanceRefreshesCommandOutput,
 } from "./commands/DescribeInstanceRefreshesCommand";
 import {
+  type DescribeLaunchConfigurationsCommandInput,
+  type DescribeLaunchConfigurationsCommandOutput,
   DescribeLaunchConfigurationsCommand,
-  DescribeLaunchConfigurationsCommandInput,
-  DescribeLaunchConfigurationsCommandOutput,
 } from "./commands/DescribeLaunchConfigurationsCommand";
 import {
+  type DescribeLifecycleHooksCommandInput,
+  type DescribeLifecycleHooksCommandOutput,
   DescribeLifecycleHooksCommand,
-  DescribeLifecycleHooksCommandInput,
-  DescribeLifecycleHooksCommandOutput,
 } from "./commands/DescribeLifecycleHooksCommand";
 import {
+  type DescribeLifecycleHookTypesCommandInput,
+  type DescribeLifecycleHookTypesCommandOutput,
   DescribeLifecycleHookTypesCommand,
-  DescribeLifecycleHookTypesCommandInput,
-  DescribeLifecycleHookTypesCommandOutput,
 } from "./commands/DescribeLifecycleHookTypesCommand";
 import {
+  type DescribeLoadBalancersCommandInput,
+  type DescribeLoadBalancersCommandOutput,
   DescribeLoadBalancersCommand,
-  DescribeLoadBalancersCommandInput,
-  DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand";
 import {
+  type DescribeLoadBalancerTargetGroupsCommandInput,
+  type DescribeLoadBalancerTargetGroupsCommandOutput,
   DescribeLoadBalancerTargetGroupsCommand,
-  DescribeLoadBalancerTargetGroupsCommandInput,
-  DescribeLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/DescribeLoadBalancerTargetGroupsCommand";
 import {
+  type DescribeMetricCollectionTypesCommandInput,
+  type DescribeMetricCollectionTypesCommandOutput,
   DescribeMetricCollectionTypesCommand,
-  DescribeMetricCollectionTypesCommandInput,
-  DescribeMetricCollectionTypesCommandOutput,
 } from "./commands/DescribeMetricCollectionTypesCommand";
 import {
+  type DescribeNotificationConfigurationsCommandInput,
+  type DescribeNotificationConfigurationsCommandOutput,
   DescribeNotificationConfigurationsCommand,
-  DescribeNotificationConfigurationsCommandInput,
-  DescribeNotificationConfigurationsCommandOutput,
 } from "./commands/DescribeNotificationConfigurationsCommand";
 import {
+  type DescribePoliciesCommandInput,
+  type DescribePoliciesCommandOutput,
   DescribePoliciesCommand,
-  DescribePoliciesCommandInput,
-  DescribePoliciesCommandOutput,
 } from "./commands/DescribePoliciesCommand";
 import {
+  type DescribeScalingActivitiesCommandInput,
+  type DescribeScalingActivitiesCommandOutput,
   DescribeScalingActivitiesCommand,
-  DescribeScalingActivitiesCommandInput,
-  DescribeScalingActivitiesCommandOutput,
 } from "./commands/DescribeScalingActivitiesCommand";
 import {
+  type DescribeScalingProcessTypesCommandInput,
+  type DescribeScalingProcessTypesCommandOutput,
   DescribeScalingProcessTypesCommand,
-  DescribeScalingProcessTypesCommandInput,
-  DescribeScalingProcessTypesCommandOutput,
 } from "./commands/DescribeScalingProcessTypesCommand";
 import {
+  type DescribeScheduledActionsCommandInput,
+  type DescribeScheduledActionsCommandOutput,
   DescribeScheduledActionsCommand,
-  DescribeScheduledActionsCommandInput,
-  DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
 import {
+  type DescribeTagsCommandInput,
+  type DescribeTagsCommandOutput,
   DescribeTagsCommand,
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  type DescribeTerminationPolicyTypesCommandInput,
+  type DescribeTerminationPolicyTypesCommandOutput,
   DescribeTerminationPolicyTypesCommand,
-  DescribeTerminationPolicyTypesCommandInput,
-  DescribeTerminationPolicyTypesCommandOutput,
 } from "./commands/DescribeTerminationPolicyTypesCommand";
 import {
+  type DescribeTrafficSourcesCommandInput,
+  type DescribeTrafficSourcesCommandOutput,
   DescribeTrafficSourcesCommand,
-  DescribeTrafficSourcesCommandInput,
-  DescribeTrafficSourcesCommandOutput,
 } from "./commands/DescribeTrafficSourcesCommand";
 import {
+  type DescribeWarmPoolCommandInput,
+  type DescribeWarmPoolCommandOutput,
   DescribeWarmPoolCommand,
-  DescribeWarmPoolCommandInput,
-  DescribeWarmPoolCommandOutput,
 } from "./commands/DescribeWarmPoolCommand";
 import {
+  type DetachInstancesCommandInput,
+  type DetachInstancesCommandOutput,
   DetachInstancesCommand,
-  DetachInstancesCommandInput,
-  DetachInstancesCommandOutput,
 } from "./commands/DetachInstancesCommand";
 import {
+  type DetachLoadBalancersCommandInput,
+  type DetachLoadBalancersCommandOutput,
   DetachLoadBalancersCommand,
-  DetachLoadBalancersCommandInput,
-  DetachLoadBalancersCommandOutput,
 } from "./commands/DetachLoadBalancersCommand";
 import {
+  type DetachLoadBalancerTargetGroupsCommandInput,
+  type DetachLoadBalancerTargetGroupsCommandOutput,
   DetachLoadBalancerTargetGroupsCommand,
-  DetachLoadBalancerTargetGroupsCommandInput,
-  DetachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/DetachLoadBalancerTargetGroupsCommand";
 import {
+  type DetachTrafficSourcesCommandInput,
+  type DetachTrafficSourcesCommandOutput,
   DetachTrafficSourcesCommand,
-  DetachTrafficSourcesCommandInput,
-  DetachTrafficSourcesCommandOutput,
 } from "./commands/DetachTrafficSourcesCommand";
 import {
+  type DisableMetricsCollectionCommandInput,
+  type DisableMetricsCollectionCommandOutput,
   DisableMetricsCollectionCommand,
-  DisableMetricsCollectionCommandInput,
-  DisableMetricsCollectionCommandOutput,
 } from "./commands/DisableMetricsCollectionCommand";
 import {
+  type EnableMetricsCollectionCommandInput,
+  type EnableMetricsCollectionCommandOutput,
   EnableMetricsCollectionCommand,
-  EnableMetricsCollectionCommandInput,
-  EnableMetricsCollectionCommandOutput,
 } from "./commands/EnableMetricsCollectionCommand";
 import {
+  type EnterStandbyCommandInput,
+  type EnterStandbyCommandOutput,
   EnterStandbyCommand,
-  EnterStandbyCommandInput,
-  EnterStandbyCommandOutput,
 } from "./commands/EnterStandbyCommand";
 import {
+  type ExecutePolicyCommandInput,
+  type ExecutePolicyCommandOutput,
   ExecutePolicyCommand,
-  ExecutePolicyCommandInput,
-  ExecutePolicyCommandOutput,
 } from "./commands/ExecutePolicyCommand";
-import { ExitStandbyCommand, ExitStandbyCommandInput, ExitStandbyCommandOutput } from "./commands/ExitStandbyCommand";
 import {
+  type ExitStandbyCommandInput,
+  type ExitStandbyCommandOutput,
+  ExitStandbyCommand,
+} from "./commands/ExitStandbyCommand";
+import {
+  type GetPredictiveScalingForecastCommandInput,
+  type GetPredictiveScalingForecastCommandOutput,
   GetPredictiveScalingForecastCommand,
-  GetPredictiveScalingForecastCommandInput,
-  GetPredictiveScalingForecastCommandOutput,
 } from "./commands/GetPredictiveScalingForecastCommand";
 import {
+  type LaunchInstancesCommandInput,
+  type LaunchInstancesCommandOutput,
   LaunchInstancesCommand,
-  LaunchInstancesCommandInput,
-  LaunchInstancesCommandOutput,
 } from "./commands/LaunchInstancesCommand";
 import {
+  type PutLifecycleHookCommandInput,
+  type PutLifecycleHookCommandOutput,
   PutLifecycleHookCommand,
-  PutLifecycleHookCommandInput,
-  PutLifecycleHookCommandOutput,
 } from "./commands/PutLifecycleHookCommand";
 import {
+  type PutNotificationConfigurationCommandInput,
+  type PutNotificationConfigurationCommandOutput,
   PutNotificationConfigurationCommand,
-  PutNotificationConfigurationCommandInput,
-  PutNotificationConfigurationCommandOutput,
 } from "./commands/PutNotificationConfigurationCommand";
 import {
+  type PutScalingPolicyCommandInput,
+  type PutScalingPolicyCommandOutput,
   PutScalingPolicyCommand,
-  PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput,
 } from "./commands/PutScalingPolicyCommand";
 import {
+  type PutScheduledUpdateGroupActionCommandInput,
+  type PutScheduledUpdateGroupActionCommandOutput,
   PutScheduledUpdateGroupActionCommand,
-  PutScheduledUpdateGroupActionCommandInput,
-  PutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/PutScheduledUpdateGroupActionCommand";
-import { PutWarmPoolCommand, PutWarmPoolCommandInput, PutWarmPoolCommandOutput } from "./commands/PutWarmPoolCommand";
 import {
+  type PutWarmPoolCommandInput,
+  type PutWarmPoolCommandOutput,
+  PutWarmPoolCommand,
+} from "./commands/PutWarmPoolCommand";
+import {
+  type RecordLifecycleActionHeartbeatCommandInput,
+  type RecordLifecycleActionHeartbeatCommandOutput,
   RecordLifecycleActionHeartbeatCommand,
-  RecordLifecycleActionHeartbeatCommandInput,
-  RecordLifecycleActionHeartbeatCommandOutput,
 } from "./commands/RecordLifecycleActionHeartbeatCommand";
 import {
+  type ResumeProcessesCommandInput,
+  type ResumeProcessesCommandOutput,
   ResumeProcessesCommand,
-  ResumeProcessesCommandInput,
-  ResumeProcessesCommandOutput,
 } from "./commands/ResumeProcessesCommand";
 import {
+  type RollbackInstanceRefreshCommandInput,
+  type RollbackInstanceRefreshCommandOutput,
   RollbackInstanceRefreshCommand,
-  RollbackInstanceRefreshCommandInput,
-  RollbackInstanceRefreshCommandOutput,
 } from "./commands/RollbackInstanceRefreshCommand";
 import {
+  type SetDesiredCapacityCommandInput,
+  type SetDesiredCapacityCommandOutput,
   SetDesiredCapacityCommand,
-  SetDesiredCapacityCommandInput,
-  SetDesiredCapacityCommandOutput,
 } from "./commands/SetDesiredCapacityCommand";
 import {
+  type SetInstanceHealthCommandInput,
+  type SetInstanceHealthCommandOutput,
   SetInstanceHealthCommand,
-  SetInstanceHealthCommandInput,
-  SetInstanceHealthCommandOutput,
 } from "./commands/SetInstanceHealthCommand";
 import {
+  type SetInstanceProtectionCommandInput,
+  type SetInstanceProtectionCommandOutput,
   SetInstanceProtectionCommand,
-  SetInstanceProtectionCommandInput,
-  SetInstanceProtectionCommandOutput,
 } from "./commands/SetInstanceProtectionCommand";
 import {
+  type StartInstanceRefreshCommandInput,
+  type StartInstanceRefreshCommandOutput,
   StartInstanceRefreshCommand,
-  StartInstanceRefreshCommandInput,
-  StartInstanceRefreshCommandOutput,
 } from "./commands/StartInstanceRefreshCommand";
 import {
+  type SuspendProcessesCommandInput,
+  type SuspendProcessesCommandOutput,
   SuspendProcessesCommand,
-  SuspendProcessesCommandInput,
-  SuspendProcessesCommandOutput,
 } from "./commands/SuspendProcessesCommand";
 import {
+  type TerminateInstanceInAutoScalingGroupCommandInput,
+  type TerminateInstanceInAutoScalingGroupCommandOutput,
   TerminateInstanceInAutoScalingGroupCommand,
-  TerminateInstanceInAutoScalingGroupCommandInput,
-  TerminateInstanceInAutoScalingGroupCommandOutput,
 } from "./commands/TerminateInstanceInAutoScalingGroupCommand";
 import {
+  type UpdateAutoScalingGroupCommandInput,
+  type UpdateAutoScalingGroupCommandOutput,
   UpdateAutoScalingGroupCommand,
-  UpdateAutoScalingGroupCommandInput,
-  UpdateAutoScalingGroupCommandOutput,
 } from "./commands/UpdateAutoScalingGroupCommand";
 import { paginateDescribeAutoScalingGroups } from "./pagination/DescribeAutoScalingGroupsPaginator";
 import { paginateDescribeAutoScalingInstances } from "./pagination/DescribeAutoScalingInstancesPaginator";

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,122 +61,155 @@ import {
   defaultOpenSearchServerlessHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BatchGetCollectionCommandInput, BatchGetCollectionCommandOutput } from "./commands/BatchGetCollectionCommand";
-import {
+import type {
+  BatchGetCollectionCommandInput,
+  BatchGetCollectionCommandOutput,
+} from "./commands/BatchGetCollectionCommand";
+import type {
   BatchGetCollectionGroupCommandInput,
   BatchGetCollectionGroupCommandOutput,
 } from "./commands/BatchGetCollectionGroupCommand";
-import {
+import type {
   BatchGetEffectiveLifecyclePolicyCommandInput,
   BatchGetEffectiveLifecyclePolicyCommandOutput,
 } from "./commands/BatchGetEffectiveLifecyclePolicyCommand";
-import {
+import type {
   BatchGetLifecyclePolicyCommandInput,
   BatchGetLifecyclePolicyCommandOutput,
 } from "./commands/BatchGetLifecyclePolicyCommand";
-import {
+import type {
   BatchGetVpcEndpointCommandInput,
   BatchGetVpcEndpointCommandOutput,
 } from "./commands/BatchGetVpcEndpointCommand";
-import { CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput } from "./commands/CreateAccessPolicyCommand";
-import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
-import {
+import type {
+  CreateAccessPolicyCommandInput,
+  CreateAccessPolicyCommandOutput,
+} from "./commands/CreateAccessPolicyCommand";
+import type { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
+import type {
   CreateCollectionGroupCommandInput,
   CreateCollectionGroupCommandOutput,
 } from "./commands/CreateCollectionGroupCommand";
-import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
-import {
+import type { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import type {
   CreateLifecyclePolicyCommandInput,
   CreateLifecyclePolicyCommandOutput,
 } from "./commands/CreateLifecyclePolicyCommand";
-import {
+import type {
   CreateSecurityConfigCommandInput,
   CreateSecurityConfigCommandOutput,
 } from "./commands/CreateSecurityConfigCommand";
-import {
+import type {
   CreateSecurityPolicyCommandInput,
   CreateSecurityPolicyCommandOutput,
 } from "./commands/CreateSecurityPolicyCommand";
-import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
-import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "./commands/DeleteAccessPolicyCommand";
-import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand";
-import {
+import type {
+  CreateVpcEndpointCommandInput,
+  CreateVpcEndpointCommandOutput,
+} from "./commands/CreateVpcEndpointCommand";
+import type {
+  DeleteAccessPolicyCommandInput,
+  DeleteAccessPolicyCommandOutput,
+} from "./commands/DeleteAccessPolicyCommand";
+import type { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand";
+import type {
   DeleteCollectionGroupCommandInput,
   DeleteCollectionGroupCommandOutput,
 } from "./commands/DeleteCollectionGroupCommand";
-import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
-import {
+import type { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import type {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
-import {
+import type {
   DeleteSecurityConfigCommandInput,
   DeleteSecurityConfigCommandOutput,
 } from "./commands/DeleteSecurityConfigCommand";
-import {
+import type {
   DeleteSecurityPolicyCommandInput,
   DeleteSecurityPolicyCommandOutput,
 } from "./commands/DeleteSecurityPolicyCommand";
-import { DeleteVpcEndpointCommandInput, DeleteVpcEndpointCommandOutput } from "./commands/DeleteVpcEndpointCommand";
-import { GetAccessPolicyCommandInput, GetAccessPolicyCommandOutput } from "./commands/GetAccessPolicyCommand";
-import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
-import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
-import { GetPoliciesStatsCommandInput, GetPoliciesStatsCommandOutput } from "./commands/GetPoliciesStatsCommand";
-import { GetSecurityConfigCommandInput, GetSecurityConfigCommandOutput } from "./commands/GetSecurityConfigCommand";
-import { GetSecurityPolicyCommandInput, GetSecurityPolicyCommandOutput } from "./commands/GetSecurityPolicyCommand";
-import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "./commands/ListAccessPoliciesCommand";
-import {
+import type {
+  DeleteVpcEndpointCommandInput,
+  DeleteVpcEndpointCommandOutput,
+} from "./commands/DeleteVpcEndpointCommand";
+import type { GetAccessPolicyCommandInput, GetAccessPolicyCommandOutput } from "./commands/GetAccessPolicyCommand";
+import type {
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput,
+} from "./commands/GetAccountSettingsCommand";
+import type { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import type { GetPoliciesStatsCommandInput, GetPoliciesStatsCommandOutput } from "./commands/GetPoliciesStatsCommand";
+import type {
+  GetSecurityConfigCommandInput,
+  GetSecurityConfigCommandOutput,
+} from "./commands/GetSecurityConfigCommand";
+import type {
+  GetSecurityPolicyCommandInput,
+  GetSecurityPolicyCommandOutput,
+} from "./commands/GetSecurityPolicyCommand";
+import type {
+  ListAccessPoliciesCommandInput,
+  ListAccessPoliciesCommandOutput,
+} from "./commands/ListAccessPoliciesCommand";
+import type {
   ListCollectionGroupsCommandInput,
   ListCollectionGroupsCommandOutput,
 } from "./commands/ListCollectionGroupsCommand";
-import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./commands/ListCollectionsCommand";
-import {
+import type { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./commands/ListCollectionsCommand";
+import type {
   ListLifecyclePoliciesCommandInput,
   ListLifecyclePoliciesCommandOutput,
 } from "./commands/ListLifecyclePoliciesCommand";
-import {
+import type {
   ListSecurityConfigsCommandInput,
   ListSecurityConfigsCommandOutput,
 } from "./commands/ListSecurityConfigsCommand";
-import {
+import type {
   ListSecurityPoliciesCommandInput,
   ListSecurityPoliciesCommandOutput,
 } from "./commands/ListSecurityPoliciesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListVpcEndpointsCommandInput, ListVpcEndpointsCommandOutput } from "./commands/ListVpcEndpointsCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAccessPolicyCommandInput, UpdateAccessPolicyCommandOutput } from "./commands/UpdateAccessPolicyCommand";
-import {
+import type { ListVpcEndpointsCommandInput, ListVpcEndpointsCommandOutput } from "./commands/ListVpcEndpointsCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAccessPolicyCommandInput,
+  UpdateAccessPolicyCommandOutput,
+} from "./commands/UpdateAccessPolicyCommand";
+import type {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
-import { UpdateCollectionCommandInput, UpdateCollectionCommandOutput } from "./commands/UpdateCollectionCommand";
-import {
+import type { UpdateCollectionCommandInput, UpdateCollectionCommandOutput } from "./commands/UpdateCollectionCommand";
+import type {
   UpdateCollectionGroupCommandInput,
   UpdateCollectionGroupCommandOutput,
 } from "./commands/UpdateCollectionGroupCommand";
-import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
-import {
+import type { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
+import type {
   UpdateLifecyclePolicyCommandInput,
   UpdateLifecyclePolicyCommandOutput,
 } from "./commands/UpdateLifecyclePolicyCommand";
-import {
+import type {
   UpdateSecurityConfigCommandInput,
   UpdateSecurityConfigCommandOutput,
 } from "./commands/UpdateSecurityConfigCommand";
-import {
+import type {
   UpdateSecurityPolicyCommandInput,
   UpdateSecurityPolicyCommandOutput,
 } from "./commands/UpdateSecurityPolicyCommand";
-import { UpdateVpcEndpointCommandInput, UpdateVpcEndpointCommandOutput } from "./commands/UpdateVpcEndpointCommand";
+import type {
+  UpdateVpcEndpointCommandInput,
+  UpdateVpcEndpointCommandOutput,
+} from "./commands/UpdateVpcEndpointCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -402,7 +433,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

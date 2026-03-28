@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,111 +61,129 @@ import {
   defaultKMSHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelKeyDeletionCommandInput, CancelKeyDeletionCommandOutput } from "./commands/CancelKeyDeletionCommand";
-import {
+import type {
+  CancelKeyDeletionCommandInput,
+  CancelKeyDeletionCommandOutput,
+} from "./commands/CancelKeyDeletionCommand";
+import type {
   ConnectCustomKeyStoreCommandInput,
   ConnectCustomKeyStoreCommandOutput,
 } from "./commands/ConnectCustomKeyStoreCommand";
-import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
-import {
+import type { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import type {
   CreateCustomKeyStoreCommandInput,
   CreateCustomKeyStoreCommandOutput,
 } from "./commands/CreateCustomKeyStoreCommand";
-import { CreateGrantCommandInput, CreateGrantCommandOutput } from "./commands/CreateGrantCommand";
-import { CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
-import { DecryptCommandInput, DecryptCommandOutput } from "./commands/DecryptCommand";
-import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
-import {
+import type { CreateGrantCommandInput, CreateGrantCommandOutput } from "./commands/CreateGrantCommand";
+import type { CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
+import type { DecryptCommandInput, DecryptCommandOutput } from "./commands/DecryptCommand";
+import type { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import type {
   DeleteCustomKeyStoreCommandInput,
   DeleteCustomKeyStoreCommandOutput,
 } from "./commands/DeleteCustomKeyStoreCommand";
-import {
+import type {
   DeleteImportedKeyMaterialCommandInput,
   DeleteImportedKeyMaterialCommandOutput,
 } from "./commands/DeleteImportedKeyMaterialCommand";
-import { DeriveSharedSecretCommandInput, DeriveSharedSecretCommandOutput } from "./commands/DeriveSharedSecretCommand";
-import {
+import type {
+  DeriveSharedSecretCommandInput,
+  DeriveSharedSecretCommandOutput,
+} from "./commands/DeriveSharedSecretCommand";
+import type {
   DescribeCustomKeyStoresCommandInput,
   DescribeCustomKeyStoresCommandOutput,
 } from "./commands/DescribeCustomKeyStoresCommand";
-import { DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand";
-import { DisableKeyCommandInput, DisableKeyCommandOutput } from "./commands/DisableKeyCommand";
-import { DisableKeyRotationCommandInput, DisableKeyRotationCommandOutput } from "./commands/DisableKeyRotationCommand";
-import {
+import type { DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand";
+import type { DisableKeyCommandInput, DisableKeyCommandOutput } from "./commands/DisableKeyCommand";
+import type {
+  DisableKeyRotationCommandInput,
+  DisableKeyRotationCommandOutput,
+} from "./commands/DisableKeyRotationCommand";
+import type {
   DisconnectCustomKeyStoreCommandInput,
   DisconnectCustomKeyStoreCommandOutput,
 } from "./commands/DisconnectCustomKeyStoreCommand";
-import { EnableKeyCommandInput, EnableKeyCommandOutput } from "./commands/EnableKeyCommand";
-import { EnableKeyRotationCommandInput, EnableKeyRotationCommandOutput } from "./commands/EnableKeyRotationCommand";
-import { EncryptCommandInput, EncryptCommandOutput } from "./commands/EncryptCommand";
-import { GenerateDataKeyCommandInput, GenerateDataKeyCommandOutput } from "./commands/GenerateDataKeyCommand";
-import {
+import type { EnableKeyCommandInput, EnableKeyCommandOutput } from "./commands/EnableKeyCommand";
+import type {
+  EnableKeyRotationCommandInput,
+  EnableKeyRotationCommandOutput,
+} from "./commands/EnableKeyRotationCommand";
+import type { EncryptCommandInput, EncryptCommandOutput } from "./commands/EncryptCommand";
+import type { GenerateDataKeyCommandInput, GenerateDataKeyCommandOutput } from "./commands/GenerateDataKeyCommand";
+import type {
   GenerateDataKeyPairCommandInput,
   GenerateDataKeyPairCommandOutput,
 } from "./commands/GenerateDataKeyPairCommand";
-import {
+import type {
   GenerateDataKeyPairWithoutPlaintextCommandInput,
   GenerateDataKeyPairWithoutPlaintextCommandOutput,
 } from "./commands/GenerateDataKeyPairWithoutPlaintextCommand";
-import {
+import type {
   GenerateDataKeyWithoutPlaintextCommandInput,
   GenerateDataKeyWithoutPlaintextCommandOutput,
 } from "./commands/GenerateDataKeyWithoutPlaintextCommand";
-import { GenerateMacCommandInput, GenerateMacCommandOutput } from "./commands/GenerateMacCommand";
-import { GenerateRandomCommandInput, GenerateRandomCommandOutput } from "./commands/GenerateRandomCommand";
-import { GetKeyPolicyCommandInput, GetKeyPolicyCommandOutput } from "./commands/GetKeyPolicyCommand";
-import {
+import type { GenerateMacCommandInput, GenerateMacCommandOutput } from "./commands/GenerateMacCommand";
+import type { GenerateRandomCommandInput, GenerateRandomCommandOutput } from "./commands/GenerateRandomCommand";
+import type { GetKeyPolicyCommandInput, GetKeyPolicyCommandOutput } from "./commands/GetKeyPolicyCommand";
+import type {
   GetKeyRotationStatusCommandInput,
   GetKeyRotationStatusCommandOutput,
 } from "./commands/GetKeyRotationStatusCommand";
-import {
+import type {
   GetParametersForImportCommandInput,
   GetParametersForImportCommandOutput,
 } from "./commands/GetParametersForImportCommand";
-import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand";
-import { ImportKeyMaterialCommandInput, ImportKeyMaterialCommandOutput } from "./commands/ImportKeyMaterialCommand";
-import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
-import { ListGrantsCommandInput, ListGrantsCommandOutput } from "./commands/ListGrantsCommand";
-import { ListKeyPoliciesCommandInput, ListKeyPoliciesCommandOutput } from "./commands/ListKeyPoliciesCommand";
-import { ListKeyRotationsCommandInput, ListKeyRotationsCommandOutput } from "./commands/ListKeyRotationsCommand";
-import { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
-import { ListResourceTagsCommandInput, ListResourceTagsCommandOutput } from "./commands/ListResourceTagsCommand";
-import {
+import type { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand";
+import type {
+  ImportKeyMaterialCommandInput,
+  ImportKeyMaterialCommandOutput,
+} from "./commands/ImportKeyMaterialCommand";
+import type { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
+import type { ListGrantsCommandInput, ListGrantsCommandOutput } from "./commands/ListGrantsCommand";
+import type { ListKeyPoliciesCommandInput, ListKeyPoliciesCommandOutput } from "./commands/ListKeyPoliciesCommand";
+import type { ListKeyRotationsCommandInput, ListKeyRotationsCommandOutput } from "./commands/ListKeyRotationsCommand";
+import type { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
+import type { ListResourceTagsCommandInput, ListResourceTagsCommandOutput } from "./commands/ListResourceTagsCommand";
+import type {
   ListRetirableGrantsCommandInput,
   ListRetirableGrantsCommandOutput,
 } from "./commands/ListRetirableGrantsCommand";
-import { PutKeyPolicyCommandInput, PutKeyPolicyCommandOutput } from "./commands/PutKeyPolicyCommand";
-import { ReEncryptCommandInput, ReEncryptCommandOutput } from "./commands/ReEncryptCommand";
-import { ReplicateKeyCommandInput, ReplicateKeyCommandOutput } from "./commands/ReplicateKeyCommand";
-import { RetireGrantCommandInput, RetireGrantCommandOutput } from "./commands/RetireGrantCommand";
-import { RevokeGrantCommandInput, RevokeGrantCommandOutput } from "./commands/RevokeGrantCommand";
-import { RotateKeyOnDemandCommandInput, RotateKeyOnDemandCommandOutput } from "./commands/RotateKeyOnDemandCommand";
-import {
+import type { PutKeyPolicyCommandInput, PutKeyPolicyCommandOutput } from "./commands/PutKeyPolicyCommand";
+import type { ReEncryptCommandInput, ReEncryptCommandOutput } from "./commands/ReEncryptCommand";
+import type { ReplicateKeyCommandInput, ReplicateKeyCommandOutput } from "./commands/ReplicateKeyCommand";
+import type { RetireGrantCommandInput, RetireGrantCommandOutput } from "./commands/RetireGrantCommand";
+import type { RevokeGrantCommandInput, RevokeGrantCommandOutput } from "./commands/RevokeGrantCommand";
+import type {
+  RotateKeyOnDemandCommandInput,
+  RotateKeyOnDemandCommandOutput,
+} from "./commands/RotateKeyOnDemandCommand";
+import type {
   ScheduleKeyDeletionCommandInput,
   ScheduleKeyDeletionCommandOutput,
 } from "./commands/ScheduleKeyDeletionCommand";
-import { SignCommandInput, SignCommandOutput } from "./commands/SignCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
-import {
+import type { SignCommandInput, SignCommandOutput } from "./commands/SignCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
+import type {
   UpdateCustomKeyStoreCommandInput,
   UpdateCustomKeyStoreCommandOutput,
 } from "./commands/UpdateCustomKeyStoreCommand";
-import {
+import type {
   UpdateKeyDescriptionCommandInput,
   UpdateKeyDescriptionCommandOutput,
 } from "./commands/UpdateKeyDescriptionCommand";
-import {
+import type {
   UpdatePrimaryRegionCommandInput,
   UpdatePrimaryRegionCommandOutput,
 } from "./commands/UpdatePrimaryRegionCommand";
-import { VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand";
-import { VerifyMacCommandInput, VerifyMacCommandOutput } from "./commands/VerifyMacCommand";
+import type { VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand";
+import type { VerifyMacCommandInput, VerifyMacCommandOutput } from "./commands/VerifyMacCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -405,7 +421,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

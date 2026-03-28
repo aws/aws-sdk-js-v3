@@ -8,7 +8,7 @@ import {
   ListCompatibleImagesCommandOutput,
 } from "../commands/ListCompatibleImagesCommand";
 import { SnowballClient } from "../SnowballClient";
-import { SnowballPaginationConfiguration } from "./Interfaces";
+import type { SnowballPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

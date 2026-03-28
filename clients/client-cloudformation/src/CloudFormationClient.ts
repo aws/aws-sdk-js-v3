@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,235 +61,265 @@ import {
   defaultCloudFormationHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   ActivateOrganizationsAccessCommandInput,
   ActivateOrganizationsAccessCommandOutput,
 } from "./commands/ActivateOrganizationsAccessCommand";
-import { ActivateTypeCommandInput, ActivateTypeCommandOutput } from "./commands/ActivateTypeCommand";
-import {
+import type { ActivateTypeCommandInput, ActivateTypeCommandOutput } from "./commands/ActivateTypeCommand";
+import type {
   BatchDescribeTypeConfigurationsCommandInput,
   BatchDescribeTypeConfigurationsCommandOutput,
 } from "./commands/BatchDescribeTypeConfigurationsCommand";
-import { CancelUpdateStackCommandInput, CancelUpdateStackCommandOutput } from "./commands/CancelUpdateStackCommand";
-import {
+import type {
+  CancelUpdateStackCommandInput,
+  CancelUpdateStackCommandOutput,
+} from "./commands/CancelUpdateStackCommand";
+import type {
   ContinueUpdateRollbackCommandInput,
   ContinueUpdateRollbackCommandOutput,
 } from "./commands/ContinueUpdateRollbackCommand";
-import { CreateChangeSetCommandInput, CreateChangeSetCommandOutput } from "./commands/CreateChangeSetCommand";
-import {
+import type { CreateChangeSetCommandInput, CreateChangeSetCommandOutput } from "./commands/CreateChangeSetCommand";
+import type {
   CreateGeneratedTemplateCommandInput,
   CreateGeneratedTemplateCommandOutput,
 } from "./commands/CreateGeneratedTemplateCommand";
-import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
-import {
+import type { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
+import type {
   CreateStackInstancesCommandInput,
   CreateStackInstancesCommandOutput,
 } from "./commands/CreateStackInstancesCommand";
-import {
+import type {
   CreateStackRefactorCommandInput,
   CreateStackRefactorCommandOutput,
 } from "./commands/CreateStackRefactorCommand";
-import { CreateStackSetCommandInput, CreateStackSetCommandOutput } from "./commands/CreateStackSetCommand";
-import {
+import type { CreateStackSetCommandInput, CreateStackSetCommandOutput } from "./commands/CreateStackSetCommand";
+import type {
   DeactivateOrganizationsAccessCommandInput,
   DeactivateOrganizationsAccessCommandOutput,
 } from "./commands/DeactivateOrganizationsAccessCommand";
-import { DeactivateTypeCommandInput, DeactivateTypeCommandOutput } from "./commands/DeactivateTypeCommand";
-import { DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput } from "./commands/DeleteChangeSetCommand";
-import {
+import type { DeactivateTypeCommandInput, DeactivateTypeCommandOutput } from "./commands/DeactivateTypeCommand";
+import type { DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput } from "./commands/DeleteChangeSetCommand";
+import type {
   DeleteGeneratedTemplateCommandInput,
   DeleteGeneratedTemplateCommandOutput,
 } from "./commands/DeleteGeneratedTemplateCommand";
-import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
-import {
+import type { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
+import type {
   DeleteStackInstancesCommandInput,
   DeleteStackInstancesCommandOutput,
 } from "./commands/DeleteStackInstancesCommand";
-import { DeleteStackSetCommandInput, DeleteStackSetCommandOutput } from "./commands/DeleteStackSetCommand";
-import { DeregisterTypeCommandInput, DeregisterTypeCommandOutput } from "./commands/DeregisterTypeCommand";
-import {
+import type { DeleteStackSetCommandInput, DeleteStackSetCommandOutput } from "./commands/DeleteStackSetCommand";
+import type { DeregisterTypeCommandInput, DeregisterTypeCommandOutput } from "./commands/DeregisterTypeCommand";
+import type {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
-import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "./commands/DescribeChangeSetCommand";
-import {
+import type {
+  DescribeChangeSetCommandInput,
+  DescribeChangeSetCommandOutput,
+} from "./commands/DescribeChangeSetCommand";
+import type {
   DescribeChangeSetHooksCommandInput,
   DescribeChangeSetHooksCommandOutput,
 } from "./commands/DescribeChangeSetHooksCommand";
-import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
-import {
+import type { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
+import type {
   DescribeGeneratedTemplateCommandInput,
   DescribeGeneratedTemplateCommandOutput,
 } from "./commands/DescribeGeneratedTemplateCommand";
-import {
+import type {
   DescribeOrganizationsAccessCommandInput,
   DescribeOrganizationsAccessCommandOutput,
 } from "./commands/DescribeOrganizationsAccessCommand";
-import { DescribePublisherCommandInput, DescribePublisherCommandOutput } from "./commands/DescribePublisherCommand";
-import {
+import type {
+  DescribePublisherCommandInput,
+  DescribePublisherCommandOutput,
+} from "./commands/DescribePublisherCommand";
+import type {
   DescribeResourceScanCommandInput,
   DescribeResourceScanCommandOutput,
 } from "./commands/DescribeResourceScanCommand";
-import {
+import type {
   DescribeStackDriftDetectionStatusCommandInput,
   DescribeStackDriftDetectionStatusCommandOutput,
 } from "./commands/DescribeStackDriftDetectionStatusCommand";
-import {
+import type {
   DescribeStackEventsCommandInput,
   DescribeStackEventsCommandOutput,
 } from "./commands/DescribeStackEventsCommand";
-import {
+import type {
   DescribeStackInstanceCommandInput,
   DescribeStackInstanceCommandOutput,
 } from "./commands/DescribeStackInstanceCommand";
-import {
+import type {
   DescribeStackRefactorCommandInput,
   DescribeStackRefactorCommandOutput,
 } from "./commands/DescribeStackRefactorCommand";
-import {
+import type {
   DescribeStackResourceCommandInput,
   DescribeStackResourceCommandOutput,
 } from "./commands/DescribeStackResourceCommand";
-import {
+import type {
   DescribeStackResourceDriftsCommandInput,
   DescribeStackResourceDriftsCommandOutput,
 } from "./commands/DescribeStackResourceDriftsCommand";
-import {
+import type {
   DescribeStackResourcesCommandInput,
   DescribeStackResourcesCommandOutput,
 } from "./commands/DescribeStackResourcesCommand";
-import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand";
-import { DescribeStackSetCommandInput, DescribeStackSetCommandOutput } from "./commands/DescribeStackSetCommand";
-import {
+import type { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand";
+import type { DescribeStackSetCommandInput, DescribeStackSetCommandOutput } from "./commands/DescribeStackSetCommand";
+import type {
   DescribeStackSetOperationCommandInput,
   DescribeStackSetOperationCommandOutput,
 } from "./commands/DescribeStackSetOperationCommand";
-import { DescribeTypeCommandInput, DescribeTypeCommandOutput } from "./commands/DescribeTypeCommand";
-import {
+import type { DescribeTypeCommandInput, DescribeTypeCommandOutput } from "./commands/DescribeTypeCommand";
+import type {
   DescribeTypeRegistrationCommandInput,
   DescribeTypeRegistrationCommandOutput,
 } from "./commands/DescribeTypeRegistrationCommand";
-import { DetectStackDriftCommandInput, DetectStackDriftCommandOutput } from "./commands/DetectStackDriftCommand";
-import {
+import type { DetectStackDriftCommandInput, DetectStackDriftCommandOutput } from "./commands/DetectStackDriftCommand";
+import type {
   DetectStackResourceDriftCommandInput,
   DetectStackResourceDriftCommandOutput,
 } from "./commands/DetectStackResourceDriftCommand";
-import {
+import type {
   DetectStackSetDriftCommandInput,
   DetectStackSetDriftCommandOutput,
 } from "./commands/DetectStackSetDriftCommand";
-import {
+import type {
   EstimateTemplateCostCommandInput,
   EstimateTemplateCostCommandOutput,
 } from "./commands/EstimateTemplateCostCommand";
-import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "./commands/ExecuteChangeSetCommand";
-import {
+import type { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "./commands/ExecuteChangeSetCommand";
+import type {
   ExecuteStackRefactorCommandInput,
   ExecuteStackRefactorCommandOutput,
 } from "./commands/ExecuteStackRefactorCommand";
-import {
+import type {
   GetGeneratedTemplateCommandInput,
   GetGeneratedTemplateCommandOutput,
 } from "./commands/GetGeneratedTemplateCommand";
-import { GetHookResultCommandInput, GetHookResultCommandOutput } from "./commands/GetHookResultCommand";
-import { GetStackPolicyCommandInput, GetStackPolicyCommandOutput } from "./commands/GetStackPolicyCommand";
-import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
-import { GetTemplateSummaryCommandInput, GetTemplateSummaryCommandOutput } from "./commands/GetTemplateSummaryCommand";
-import {
+import type { GetHookResultCommandInput, GetHookResultCommandOutput } from "./commands/GetHookResultCommand";
+import type { GetStackPolicyCommandInput, GetStackPolicyCommandOutput } from "./commands/GetStackPolicyCommand";
+import type { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
+import type {
+  GetTemplateSummaryCommandInput,
+  GetTemplateSummaryCommandOutput,
+} from "./commands/GetTemplateSummaryCommand";
+import type {
   ImportStacksToStackSetCommandInput,
   ImportStacksToStackSetCommandOutput,
 } from "./commands/ImportStacksToStackSetCommand";
-import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand";
-import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
-import {
+import type { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand";
+import type { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import type {
   ListGeneratedTemplatesCommandInput,
   ListGeneratedTemplatesCommandOutput,
 } from "./commands/ListGeneratedTemplatesCommand";
-import { ListHookResultsCommandInput, ListHookResultsCommandOutput } from "./commands/ListHookResultsCommand";
-import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
-import {
+import type { ListHookResultsCommandInput, ListHookResultsCommandOutput } from "./commands/ListHookResultsCommand";
+import type { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import type {
   ListResourceScanRelatedResourcesCommandInput,
   ListResourceScanRelatedResourcesCommandOutput,
 } from "./commands/ListResourceScanRelatedResourcesCommand";
-import {
+import type {
   ListResourceScanResourcesCommandInput,
   ListResourceScanResourcesCommandOutput,
 } from "./commands/ListResourceScanResourcesCommand";
-import { ListResourceScansCommandInput, ListResourceScansCommandOutput } from "./commands/ListResourceScansCommand";
-import {
+import type {
+  ListResourceScansCommandInput,
+  ListResourceScansCommandOutput,
+} from "./commands/ListResourceScansCommand";
+import type {
   ListStackInstanceResourceDriftsCommandInput,
   ListStackInstanceResourceDriftsCommandOutput,
 } from "./commands/ListStackInstanceResourceDriftsCommand";
-import { ListStackInstancesCommandInput, ListStackInstancesCommandOutput } from "./commands/ListStackInstancesCommand";
-import {
+import type {
+  ListStackInstancesCommandInput,
+  ListStackInstancesCommandOutput,
+} from "./commands/ListStackInstancesCommand";
+import type {
   ListStackRefactorActionsCommandInput,
   ListStackRefactorActionsCommandOutput,
 } from "./commands/ListStackRefactorActionsCommand";
-import { ListStackRefactorsCommandInput, ListStackRefactorsCommandOutput } from "./commands/ListStackRefactorsCommand";
-import { ListStackResourcesCommandInput, ListStackResourcesCommandOutput } from "./commands/ListStackResourcesCommand";
-import { ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
-import {
+import type {
+  ListStackRefactorsCommandInput,
+  ListStackRefactorsCommandOutput,
+} from "./commands/ListStackRefactorsCommand";
+import type {
+  ListStackResourcesCommandInput,
+  ListStackResourcesCommandOutput,
+} from "./commands/ListStackResourcesCommand";
+import type { ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
+import type {
   ListStackSetAutoDeploymentTargetsCommandInput,
   ListStackSetAutoDeploymentTargetsCommandOutput,
 } from "./commands/ListStackSetAutoDeploymentTargetsCommand";
-import {
+import type {
   ListStackSetOperationResultsCommandInput,
   ListStackSetOperationResultsCommandOutput,
 } from "./commands/ListStackSetOperationResultsCommand";
-import {
+import type {
   ListStackSetOperationsCommandInput,
   ListStackSetOperationsCommandOutput,
 } from "./commands/ListStackSetOperationsCommand";
-import { ListStackSetsCommandInput, ListStackSetsCommandOutput } from "./commands/ListStackSetsCommand";
-import {
+import type { ListStackSetsCommandInput, ListStackSetsCommandOutput } from "./commands/ListStackSetsCommand";
+import type {
   ListTypeRegistrationsCommandInput,
   ListTypeRegistrationsCommandOutput,
 } from "./commands/ListTypeRegistrationsCommand";
-import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
-import { ListTypeVersionsCommandInput, ListTypeVersionsCommandOutput } from "./commands/ListTypeVersionsCommand";
-import { PublishTypeCommandInput, PublishTypeCommandOutput } from "./commands/PublishTypeCommand";
-import {
+import type { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import type { ListTypeVersionsCommandInput, ListTypeVersionsCommandOutput } from "./commands/ListTypeVersionsCommand";
+import type { PublishTypeCommandInput, PublishTypeCommandOutput } from "./commands/PublishTypeCommand";
+import type {
   RecordHandlerProgressCommandInput,
   RecordHandlerProgressCommandOutput,
 } from "./commands/RecordHandlerProgressCommand";
-import { RegisterPublisherCommandInput, RegisterPublisherCommandOutput } from "./commands/RegisterPublisherCommand";
-import { RegisterTypeCommandInput, RegisterTypeCommandOutput } from "./commands/RegisterTypeCommand";
-import { RollbackStackCommandInput, RollbackStackCommandOutput } from "./commands/RollbackStackCommand";
-import { SetStackPolicyCommandInput, SetStackPolicyCommandOutput } from "./commands/SetStackPolicyCommand";
-import {
+import type {
+  RegisterPublisherCommandInput,
+  RegisterPublisherCommandOutput,
+} from "./commands/RegisterPublisherCommand";
+import type { RegisterTypeCommandInput, RegisterTypeCommandOutput } from "./commands/RegisterTypeCommand";
+import type { RollbackStackCommandInput, RollbackStackCommandOutput } from "./commands/RollbackStackCommand";
+import type { SetStackPolicyCommandInput, SetStackPolicyCommandOutput } from "./commands/SetStackPolicyCommand";
+import type {
   SetTypeConfigurationCommandInput,
   SetTypeConfigurationCommandOutput,
 } from "./commands/SetTypeConfigurationCommand";
-import {
+import type {
   SetTypeDefaultVersionCommandInput,
   SetTypeDefaultVersionCommandOutput,
 } from "./commands/SetTypeDefaultVersionCommand";
-import { SignalResourceCommandInput, SignalResourceCommandOutput } from "./commands/SignalResourceCommand";
-import { StartResourceScanCommandInput, StartResourceScanCommandOutput } from "./commands/StartResourceScanCommand";
-import {
+import type { SignalResourceCommandInput, SignalResourceCommandOutput } from "./commands/SignalResourceCommand";
+import type {
+  StartResourceScanCommandInput,
+  StartResourceScanCommandOutput,
+} from "./commands/StartResourceScanCommand";
+import type {
   StopStackSetOperationCommandInput,
   StopStackSetOperationCommandOutput,
 } from "./commands/StopStackSetOperationCommand";
-import { TestTypeCommandInput, TestTypeCommandOutput } from "./commands/TestTypeCommand";
-import {
+import type { TestTypeCommandInput, TestTypeCommandOutput } from "./commands/TestTypeCommand";
+import type {
   UpdateGeneratedTemplateCommandInput,
   UpdateGeneratedTemplateCommandOutput,
 } from "./commands/UpdateGeneratedTemplateCommand";
-import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
-import {
+import type { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
+import type {
   UpdateStackInstancesCommandInput,
   UpdateStackInstancesCommandOutput,
 } from "./commands/UpdateStackInstancesCommand";
-import { UpdateStackSetCommandInput, UpdateStackSetCommandOutput } from "./commands/UpdateStackSetCommand";
-import {
+import type { UpdateStackSetCommandInput, UpdateStackSetCommandOutput } from "./commands/UpdateStackSetCommand";
+import type {
   UpdateTerminationProtectionCommandInput,
   UpdateTerminationProtectionCommandOutput,
 } from "./commands/UpdateTerminationProtectionCommand";
-import { ValidateTemplateCommandInput, ValidateTemplateCommandOutput } from "./commands/ValidateTemplateCommand";
+import type { ValidateTemplateCommandInput, ValidateTemplateCommandOutput } from "./commands/ValidateTemplateCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -603,7 +631,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

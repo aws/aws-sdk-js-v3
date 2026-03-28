@@ -1,5 +1,13 @@
 // smithy-typescript generated code
-import { _InstanceType, CheckResult, CheckType, EnvironmentState, HostState, VcfVersion, VlanState } from "./enums";
+import type {
+  _InstanceType,
+  CheckResult,
+  CheckType,
+  EnvironmentState,
+  HostState,
+  VcfVersion,
+  VlanState,
+} from "./enums";
 
 /**
  * @public

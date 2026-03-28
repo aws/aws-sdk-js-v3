@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListAttacksCommand, ListAttacksCommandInput, ListAttacksCommandOutput } from "../commands/ListAttacksCommand";
 import { ShieldClient } from "../ShieldClient";
-import { ShieldPaginationConfiguration } from "./Interfaces";
+import type { ShieldPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

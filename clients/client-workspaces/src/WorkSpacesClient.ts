@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,305 +61,320 @@ import {
   defaultWorkSpacesHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptAccountLinkInvitationCommandInput,
   AcceptAccountLinkInvitationCommandOutput,
 } from "./commands/AcceptAccountLinkInvitationCommand";
-import {
+import type {
   AssociateConnectionAliasCommandInput,
   AssociateConnectionAliasCommandOutput,
 } from "./commands/AssociateConnectionAliasCommand";
-import { AssociateIpGroupsCommandInput, AssociateIpGroupsCommandOutput } from "./commands/AssociateIpGroupsCommand";
-import {
+import type {
+  AssociateIpGroupsCommandInput,
+  AssociateIpGroupsCommandOutput,
+} from "./commands/AssociateIpGroupsCommand";
+import type {
   AssociateWorkspaceApplicationCommandInput,
   AssociateWorkspaceApplicationCommandOutput,
 } from "./commands/AssociateWorkspaceApplicationCommand";
-import { AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput } from "./commands/AuthorizeIpRulesCommand";
-import { CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput } from "./commands/CopyWorkspaceImageCommand";
-import {
+import type { AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput } from "./commands/AuthorizeIpRulesCommand";
+import type {
+  CopyWorkspaceImageCommandInput,
+  CopyWorkspaceImageCommandOutput,
+} from "./commands/CopyWorkspaceImageCommand";
+import type {
   CreateAccountLinkInvitationCommandInput,
   CreateAccountLinkInvitationCommandOutput,
 } from "./commands/CreateAccountLinkInvitationCommand";
-import {
+import type {
   CreateConnectClientAddInCommandInput,
   CreateConnectClientAddInCommandOutput,
 } from "./commands/CreateConnectClientAddInCommand";
-import {
+import type {
   CreateConnectionAliasCommandInput,
   CreateConnectionAliasCommandOutput,
 } from "./commands/CreateConnectionAliasCommand";
-import { CreateIpGroupCommandInput, CreateIpGroupCommandOutput } from "./commands/CreateIpGroupCommand";
-import {
+import type { CreateIpGroupCommandInput, CreateIpGroupCommandOutput } from "./commands/CreateIpGroupCommand";
+import type {
   CreateStandbyWorkspacesCommandInput,
   CreateStandbyWorkspacesCommandOutput,
 } from "./commands/CreateStandbyWorkspacesCommand";
-import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
-import {
+import type { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import type {
   CreateUpdatedWorkspaceImageCommandInput,
   CreateUpdatedWorkspaceImageCommandOutput,
 } from "./commands/CreateUpdatedWorkspaceImageCommand";
-import {
+import type {
   CreateWorkspaceBundleCommandInput,
   CreateWorkspaceBundleCommandOutput,
 } from "./commands/CreateWorkspaceBundleCommand";
-import {
+import type {
   CreateWorkspaceImageCommandInput,
   CreateWorkspaceImageCommandOutput,
 } from "./commands/CreateWorkspaceImageCommand";
-import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "./commands/CreateWorkspacesCommand";
-import {
+import type { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "./commands/CreateWorkspacesCommand";
+import type {
   CreateWorkspacesPoolCommandInput,
   CreateWorkspacesPoolCommandOutput,
 } from "./commands/CreateWorkspacesPoolCommand";
-import {
+import type {
   DeleteAccountLinkInvitationCommandInput,
   DeleteAccountLinkInvitationCommandOutput,
 } from "./commands/DeleteAccountLinkInvitationCommand";
-import {
+import type {
   DeleteClientBrandingCommandInput,
   DeleteClientBrandingCommandOutput,
 } from "./commands/DeleteClientBrandingCommand";
-import {
+import type {
   DeleteConnectClientAddInCommandInput,
   DeleteConnectClientAddInCommandOutput,
 } from "./commands/DeleteConnectClientAddInCommand";
-import {
+import type {
   DeleteConnectionAliasCommandInput,
   DeleteConnectionAliasCommandOutput,
 } from "./commands/DeleteConnectionAliasCommand";
-import { DeleteIpGroupCommandInput, DeleteIpGroupCommandOutput } from "./commands/DeleteIpGroupCommand";
-import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
-import {
+import type { DeleteIpGroupCommandInput, DeleteIpGroupCommandOutput } from "./commands/DeleteIpGroupCommand";
+import type { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import type {
   DeleteWorkspaceBundleCommandInput,
   DeleteWorkspaceBundleCommandOutput,
 } from "./commands/DeleteWorkspaceBundleCommand";
-import {
+import type {
   DeleteWorkspaceImageCommandInput,
   DeleteWorkspaceImageCommandOutput,
 } from "./commands/DeleteWorkspaceImageCommand";
-import {
+import type {
   DeployWorkspaceApplicationsCommandInput,
   DeployWorkspaceApplicationsCommandOutput,
 } from "./commands/DeployWorkspaceApplicationsCommand";
-import {
+import type {
   DeregisterWorkspaceDirectoryCommandInput,
   DeregisterWorkspaceDirectoryCommandOutput,
 } from "./commands/DeregisterWorkspaceDirectoryCommand";
-import { DescribeAccountCommandInput, DescribeAccountCommandOutput } from "./commands/DescribeAccountCommand";
-import {
+import type { DescribeAccountCommandInput, DescribeAccountCommandOutput } from "./commands/DescribeAccountCommand";
+import type {
   DescribeAccountModificationsCommandInput,
   DescribeAccountModificationsCommandOutput,
 } from "./commands/DescribeAccountModificationsCommand";
-import {
+import type {
   DescribeApplicationAssociationsCommandInput,
   DescribeApplicationAssociationsCommandOutput,
 } from "./commands/DescribeApplicationAssociationsCommand";
-import {
+import type {
   DescribeApplicationsCommandInput,
   DescribeApplicationsCommandOutput,
 } from "./commands/DescribeApplicationsCommand";
-import {
+import type {
   DescribeBundleAssociationsCommandInput,
   DescribeBundleAssociationsCommandOutput,
 } from "./commands/DescribeBundleAssociationsCommand";
-import {
+import type {
   DescribeClientBrandingCommandInput,
   DescribeClientBrandingCommandOutput,
 } from "./commands/DescribeClientBrandingCommand";
-import {
+import type {
   DescribeClientPropertiesCommandInput,
   DescribeClientPropertiesCommandOutput,
 } from "./commands/DescribeClientPropertiesCommand";
-import {
+import type {
   DescribeConnectClientAddInsCommandInput,
   DescribeConnectClientAddInsCommandOutput,
 } from "./commands/DescribeConnectClientAddInsCommand";
-import {
+import type {
   DescribeConnectionAliasesCommandInput,
   DescribeConnectionAliasesCommandOutput,
 } from "./commands/DescribeConnectionAliasesCommand";
-import {
+import type {
   DescribeConnectionAliasPermissionsCommandInput,
   DescribeConnectionAliasPermissionsCommandOutput,
 } from "./commands/DescribeConnectionAliasPermissionsCommand";
-import {
+import type {
   DescribeCustomWorkspaceImageImportCommandInput,
   DescribeCustomWorkspaceImageImportCommandOutput,
 } from "./commands/DescribeCustomWorkspaceImageImportCommand";
-import {
+import type {
   DescribeImageAssociationsCommandInput,
   DescribeImageAssociationsCommandOutput,
 } from "./commands/DescribeImageAssociationsCommand";
-import { DescribeIpGroupsCommandInput, DescribeIpGroupsCommandOutput } from "./commands/DescribeIpGroupsCommand";
-import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
-import {
+import type { DescribeIpGroupsCommandInput, DescribeIpGroupsCommandOutput } from "./commands/DescribeIpGroupsCommand";
+import type { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import type {
   DescribeWorkspaceAssociationsCommandInput,
   DescribeWorkspaceAssociationsCommandOutput,
 } from "./commands/DescribeWorkspaceAssociationsCommand";
-import {
+import type {
   DescribeWorkspaceBundlesCommandInput,
   DescribeWorkspaceBundlesCommandOutput,
 } from "./commands/DescribeWorkspaceBundlesCommand";
-import {
+import type {
   DescribeWorkspaceDirectoriesCommandInput,
   DescribeWorkspaceDirectoriesCommandOutput,
 } from "./commands/DescribeWorkspaceDirectoriesCommand";
-import {
+import type {
   DescribeWorkspaceImagePermissionsCommandInput,
   DescribeWorkspaceImagePermissionsCommandOutput,
 } from "./commands/DescribeWorkspaceImagePermissionsCommand";
-import {
+import type {
   DescribeWorkspaceImagesCommandInput,
   DescribeWorkspaceImagesCommandOutput,
 } from "./commands/DescribeWorkspaceImagesCommand";
-import { DescribeWorkspacesCommandInput, DescribeWorkspacesCommandOutput } from "./commands/DescribeWorkspacesCommand";
-import {
+import type {
+  DescribeWorkspacesCommandInput,
+  DescribeWorkspacesCommandOutput,
+} from "./commands/DescribeWorkspacesCommand";
+import type {
   DescribeWorkspacesConnectionStatusCommandInput,
   DescribeWorkspacesConnectionStatusCommandOutput,
 } from "./commands/DescribeWorkspacesConnectionStatusCommand";
-import {
+import type {
   DescribeWorkspaceSnapshotsCommandInput,
   DescribeWorkspaceSnapshotsCommandOutput,
 } from "./commands/DescribeWorkspaceSnapshotsCommand";
-import {
+import type {
   DescribeWorkspacesPoolsCommandInput,
   DescribeWorkspacesPoolsCommandOutput,
 } from "./commands/DescribeWorkspacesPoolsCommand";
-import {
+import type {
   DescribeWorkspacesPoolSessionsCommandInput,
   DescribeWorkspacesPoolSessionsCommandOutput,
 } from "./commands/DescribeWorkspacesPoolSessionsCommand";
-import {
+import type {
   DisassociateConnectionAliasCommandInput,
   DisassociateConnectionAliasCommandOutput,
 } from "./commands/DisassociateConnectionAliasCommand";
-import {
+import type {
   DisassociateIpGroupsCommandInput,
   DisassociateIpGroupsCommandOutput,
 } from "./commands/DisassociateIpGroupsCommand";
-import {
+import type {
   DisassociateWorkspaceApplicationCommandInput,
   DisassociateWorkspaceApplicationCommandOutput,
 } from "./commands/DisassociateWorkspaceApplicationCommand";
-import { GetAccountLinkCommandInput, GetAccountLinkCommandOutput } from "./commands/GetAccountLinkCommand";
-import {
+import type { GetAccountLinkCommandInput, GetAccountLinkCommandOutput } from "./commands/GetAccountLinkCommand";
+import type {
   ImportClientBrandingCommandInput,
   ImportClientBrandingCommandOutput,
 } from "./commands/ImportClientBrandingCommand";
-import {
+import type {
   ImportCustomWorkspaceImageCommandInput,
   ImportCustomWorkspaceImageCommandOutput,
 } from "./commands/ImportCustomWorkspaceImageCommand";
-import {
+import type {
   ImportWorkspaceImageCommandInput,
   ImportWorkspaceImageCommandOutput,
 } from "./commands/ImportWorkspaceImageCommand";
-import { ListAccountLinksCommandInput, ListAccountLinksCommandOutput } from "./commands/ListAccountLinksCommand";
-import {
+import type { ListAccountLinksCommandInput, ListAccountLinksCommandOutput } from "./commands/ListAccountLinksCommand";
+import type {
   ListAvailableManagementCidrRangesCommandInput,
   ListAvailableManagementCidrRangesCommandOutput,
 } from "./commands/ListAvailableManagementCidrRangesCommand";
-import { MigrateWorkspaceCommandInput, MigrateWorkspaceCommandOutput } from "./commands/MigrateWorkspaceCommand";
-import { ModifyAccountCommandInput, ModifyAccountCommandOutput } from "./commands/ModifyAccountCommand";
-import {
+import type { MigrateWorkspaceCommandInput, MigrateWorkspaceCommandOutput } from "./commands/MigrateWorkspaceCommand";
+import type { ModifyAccountCommandInput, ModifyAccountCommandOutput } from "./commands/ModifyAccountCommand";
+import type {
   ModifyCertificateBasedAuthPropertiesCommandInput,
   ModifyCertificateBasedAuthPropertiesCommandOutput,
 } from "./commands/ModifyCertificateBasedAuthPropertiesCommand";
-import {
+import type {
   ModifyClientPropertiesCommandInput,
   ModifyClientPropertiesCommandOutput,
 } from "./commands/ModifyClientPropertiesCommand";
-import {
+import type {
   ModifyEndpointEncryptionModeCommandInput,
   ModifyEndpointEncryptionModeCommandOutput,
 } from "./commands/ModifyEndpointEncryptionModeCommand";
-import {
+import type {
   ModifySamlPropertiesCommandInput,
   ModifySamlPropertiesCommandOutput,
 } from "./commands/ModifySamlPropertiesCommand";
-import {
+import type {
   ModifySelfservicePermissionsCommandInput,
   ModifySelfservicePermissionsCommandOutput,
 } from "./commands/ModifySelfservicePermissionsCommand";
-import {
+import type {
   ModifyStreamingPropertiesCommandInput,
   ModifyStreamingPropertiesCommandOutput,
 } from "./commands/ModifyStreamingPropertiesCommand";
-import {
+import type {
   ModifyWorkspaceAccessPropertiesCommandInput,
   ModifyWorkspaceAccessPropertiesCommandOutput,
 } from "./commands/ModifyWorkspaceAccessPropertiesCommand";
-import {
+import type {
   ModifyWorkspaceCreationPropertiesCommandInput,
   ModifyWorkspaceCreationPropertiesCommandOutput,
 } from "./commands/ModifyWorkspaceCreationPropertiesCommand";
-import {
+import type {
   ModifyWorkspacePropertiesCommandInput,
   ModifyWorkspacePropertiesCommandOutput,
 } from "./commands/ModifyWorkspacePropertiesCommand";
-import {
+import type {
   ModifyWorkspaceStateCommandInput,
   ModifyWorkspaceStateCommandOutput,
 } from "./commands/ModifyWorkspaceStateCommand";
-import { RebootWorkspacesCommandInput, RebootWorkspacesCommandOutput } from "./commands/RebootWorkspacesCommand";
-import { RebuildWorkspacesCommandInput, RebuildWorkspacesCommandOutput } from "./commands/RebuildWorkspacesCommand";
-import {
+import type { RebootWorkspacesCommandInput, RebootWorkspacesCommandOutput } from "./commands/RebootWorkspacesCommand";
+import type {
+  RebuildWorkspacesCommandInput,
+  RebuildWorkspacesCommandOutput,
+} from "./commands/RebuildWorkspacesCommand";
+import type {
   RegisterWorkspaceDirectoryCommandInput,
   RegisterWorkspaceDirectoryCommandOutput,
 } from "./commands/RegisterWorkspaceDirectoryCommand";
-import {
+import type {
   RejectAccountLinkInvitationCommandInput,
   RejectAccountLinkInvitationCommandOutput,
 } from "./commands/RejectAccountLinkInvitationCommand";
-import { RestoreWorkspaceCommandInput, RestoreWorkspaceCommandOutput } from "./commands/RestoreWorkspaceCommand";
-import { RevokeIpRulesCommandInput, RevokeIpRulesCommandOutput } from "./commands/RevokeIpRulesCommand";
-import { StartWorkspacesCommandInput, StartWorkspacesCommandOutput } from "./commands/StartWorkspacesCommand";
-import {
+import type { RestoreWorkspaceCommandInput, RestoreWorkspaceCommandOutput } from "./commands/RestoreWorkspaceCommand";
+import type { RevokeIpRulesCommandInput, RevokeIpRulesCommandOutput } from "./commands/RevokeIpRulesCommand";
+import type { StartWorkspacesCommandInput, StartWorkspacesCommandOutput } from "./commands/StartWorkspacesCommand";
+import type {
   StartWorkspacesPoolCommandInput,
   StartWorkspacesPoolCommandOutput,
 } from "./commands/StartWorkspacesPoolCommand";
-import { StopWorkspacesCommandInput, StopWorkspacesCommandOutput } from "./commands/StopWorkspacesCommand";
-import { StopWorkspacesPoolCommandInput, StopWorkspacesPoolCommandOutput } from "./commands/StopWorkspacesPoolCommand";
-import {
+import type { StopWorkspacesCommandInput, StopWorkspacesCommandOutput } from "./commands/StopWorkspacesCommand";
+import type {
+  StopWorkspacesPoolCommandInput,
+  StopWorkspacesPoolCommandOutput,
+} from "./commands/StopWorkspacesPoolCommand";
+import type {
   TerminateWorkspacesCommandInput,
   TerminateWorkspacesCommandOutput,
 } from "./commands/TerminateWorkspacesCommand";
-import {
+import type {
   TerminateWorkspacesPoolCommandInput,
   TerminateWorkspacesPoolCommandOutput,
 } from "./commands/TerminateWorkspacesPoolCommand";
-import {
+import type {
   TerminateWorkspacesPoolSessionCommandInput,
   TerminateWorkspacesPoolSessionCommandOutput,
 } from "./commands/TerminateWorkspacesPoolSessionCommand";
-import {
+import type {
   UpdateConnectClientAddInCommandInput,
   UpdateConnectClientAddInCommandOutput,
 } from "./commands/UpdateConnectClientAddInCommand";
-import {
+import type {
   UpdateConnectionAliasPermissionCommandInput,
   UpdateConnectionAliasPermissionCommandOutput,
 } from "./commands/UpdateConnectionAliasPermissionCommand";
-import {
+import type {
   UpdateRulesOfIpGroupCommandInput,
   UpdateRulesOfIpGroupCommandOutput,
 } from "./commands/UpdateRulesOfIpGroupCommand";
-import {
+import type {
   UpdateWorkspaceBundleCommandInput,
   UpdateWorkspaceBundleCommandOutput,
 } from "./commands/UpdateWorkspaceBundleCommand";
-import {
+import type {
   UpdateWorkspaceImagePermissionCommandInput,
   UpdateWorkspaceImagePermissionCommandOutput,
 } from "./commands/UpdateWorkspaceImagePermissionCommand";
-import {
+import type {
   UpdateWorkspacesPoolCommandInput,
   UpdateWorkspacesPoolCommandOutput,
 } from "./commands/UpdateWorkspacesPoolCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -675,7 +688,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

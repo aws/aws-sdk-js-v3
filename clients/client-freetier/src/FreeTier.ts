@@ -3,29 +3,29 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type GetAccountActivityCommandInput,
+  type GetAccountActivityCommandOutput,
   GetAccountActivityCommand,
-  GetAccountActivityCommandInput,
-  GetAccountActivityCommandOutput,
 } from "./commands/GetAccountActivityCommand";
 import {
+  type GetAccountPlanStateCommandInput,
+  type GetAccountPlanStateCommandOutput,
   GetAccountPlanStateCommand,
-  GetAccountPlanStateCommandInput,
-  GetAccountPlanStateCommandOutput,
 } from "./commands/GetAccountPlanStateCommand";
 import {
+  type GetFreeTierUsageCommandInput,
+  type GetFreeTierUsageCommandOutput,
   GetFreeTierUsageCommand,
-  GetFreeTierUsageCommandInput,
-  GetFreeTierUsageCommandOutput,
 } from "./commands/GetFreeTierUsageCommand";
 import {
+  type ListAccountActivitiesCommandInput,
+  type ListAccountActivitiesCommandOutput,
   ListAccountActivitiesCommand,
-  ListAccountActivitiesCommandInput,
-  ListAccountActivitiesCommandOutput,
 } from "./commands/ListAccountActivitiesCommand";
 import {
+  type UpgradeAccountPlanCommandInput,
+  type UpgradeAccountPlanCommandOutput,
   UpgradeAccountPlanCommand,
-  UpgradeAccountPlanCommandInput,
-  UpgradeAccountPlanCommandOutput,
 } from "./commands/UpgradeAccountPlanCommand";
 import { FreeTierClient } from "./FreeTierClient";
 import { paginateGetFreeTierUsage } from "./pagination/GetFreeTierUsagePaginator";

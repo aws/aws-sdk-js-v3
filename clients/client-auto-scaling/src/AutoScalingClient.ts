@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,214 +61,223 @@ import {
   defaultAutoScalingHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AttachInstancesCommandInput, AttachInstancesCommandOutput } from "./commands/AttachInstancesCommand";
-import {
+import type { AttachInstancesCommandInput, AttachInstancesCommandOutput } from "./commands/AttachInstancesCommand";
+import type {
   AttachLoadBalancersCommandInput,
   AttachLoadBalancersCommandOutput,
 } from "./commands/AttachLoadBalancersCommand";
-import {
+import type {
   AttachLoadBalancerTargetGroupsCommandInput,
   AttachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/AttachLoadBalancerTargetGroupsCommand";
-import {
+import type {
   AttachTrafficSourcesCommandInput,
   AttachTrafficSourcesCommandOutput,
 } from "./commands/AttachTrafficSourcesCommand";
-import {
+import type {
   BatchDeleteScheduledActionCommandInput,
   BatchDeleteScheduledActionCommandOutput,
 } from "./commands/BatchDeleteScheduledActionCommand";
-import {
+import type {
   BatchPutScheduledUpdateGroupActionCommandInput,
   BatchPutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/BatchPutScheduledUpdateGroupActionCommand";
-import {
+import type {
   CancelInstanceRefreshCommandInput,
   CancelInstanceRefreshCommandOutput,
 } from "./commands/CancelInstanceRefreshCommand";
-import {
+import type {
   CompleteLifecycleActionCommandInput,
   CompleteLifecycleActionCommandOutput,
 } from "./commands/CompleteLifecycleActionCommand";
-import {
+import type {
   CreateAutoScalingGroupCommandInput,
   CreateAutoScalingGroupCommandOutput,
 } from "./commands/CreateAutoScalingGroupCommand";
-import {
+import type {
   CreateLaunchConfigurationCommandInput,
   CreateLaunchConfigurationCommandOutput,
 } from "./commands/CreateLaunchConfigurationCommand";
-import { CreateOrUpdateTagsCommandInput, CreateOrUpdateTagsCommandOutput } from "./commands/CreateOrUpdateTagsCommand";
-import {
+import type {
+  CreateOrUpdateTagsCommandInput,
+  CreateOrUpdateTagsCommandOutput,
+} from "./commands/CreateOrUpdateTagsCommand";
+import type {
   DeleteAutoScalingGroupCommandInput,
   DeleteAutoScalingGroupCommandOutput,
 } from "./commands/DeleteAutoScalingGroupCommand";
-import {
+import type {
   DeleteLaunchConfigurationCommandInput,
   DeleteLaunchConfigurationCommandOutput,
 } from "./commands/DeleteLaunchConfigurationCommand";
-import {
+import type {
   DeleteLifecycleHookCommandInput,
   DeleteLifecycleHookCommandOutput,
 } from "./commands/DeleteLifecycleHookCommand";
-import {
+import type {
   DeleteNotificationConfigurationCommandInput,
   DeleteNotificationConfigurationCommandOutput,
 } from "./commands/DeleteNotificationConfigurationCommand";
-import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
-import {
+import type { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
+import type {
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand";
-import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
-import { DeleteWarmPoolCommandInput, DeleteWarmPoolCommandOutput } from "./commands/DeleteWarmPoolCommand";
-import {
+import type { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import type { DeleteWarmPoolCommandInput, DeleteWarmPoolCommandOutput } from "./commands/DeleteWarmPoolCommand";
+import type {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
-import {
+import type {
   DescribeAdjustmentTypesCommandInput,
   DescribeAdjustmentTypesCommandOutput,
 } from "./commands/DescribeAdjustmentTypesCommand";
-import {
+import type {
   DescribeAutoScalingGroupsCommandInput,
   DescribeAutoScalingGroupsCommandOutput,
 } from "./commands/DescribeAutoScalingGroupsCommand";
-import {
+import type {
   DescribeAutoScalingInstancesCommandInput,
   DescribeAutoScalingInstancesCommandOutput,
 } from "./commands/DescribeAutoScalingInstancesCommand";
-import {
+import type {
   DescribeAutoScalingNotificationTypesCommandInput,
   DescribeAutoScalingNotificationTypesCommandOutput,
 } from "./commands/DescribeAutoScalingNotificationTypesCommand";
-import {
+import type {
   DescribeInstanceRefreshesCommandInput,
   DescribeInstanceRefreshesCommandOutput,
 } from "./commands/DescribeInstanceRefreshesCommand";
-import {
+import type {
   DescribeLaunchConfigurationsCommandInput,
   DescribeLaunchConfigurationsCommandOutput,
 } from "./commands/DescribeLaunchConfigurationsCommand";
-import {
+import type {
   DescribeLifecycleHooksCommandInput,
   DescribeLifecycleHooksCommandOutput,
 } from "./commands/DescribeLifecycleHooksCommand";
-import {
+import type {
   DescribeLifecycleHookTypesCommandInput,
   DescribeLifecycleHookTypesCommandOutput,
 } from "./commands/DescribeLifecycleHookTypesCommand";
-import {
+import type {
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand";
-import {
+import type {
   DescribeLoadBalancerTargetGroupsCommandInput,
   DescribeLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/DescribeLoadBalancerTargetGroupsCommand";
-import {
+import type {
   DescribeMetricCollectionTypesCommandInput,
   DescribeMetricCollectionTypesCommandOutput,
 } from "./commands/DescribeMetricCollectionTypesCommand";
-import {
+import type {
   DescribeNotificationConfigurationsCommandInput,
   DescribeNotificationConfigurationsCommandOutput,
 } from "./commands/DescribeNotificationConfigurationsCommand";
-import { DescribePoliciesCommandInput, DescribePoliciesCommandOutput } from "./commands/DescribePoliciesCommand";
-import {
+import type { DescribePoliciesCommandInput, DescribePoliciesCommandOutput } from "./commands/DescribePoliciesCommand";
+import type {
   DescribeScalingActivitiesCommandInput,
   DescribeScalingActivitiesCommandOutput,
 } from "./commands/DescribeScalingActivitiesCommand";
-import {
+import type {
   DescribeScalingProcessTypesCommandInput,
   DescribeScalingProcessTypesCommandOutput,
 } from "./commands/DescribeScalingProcessTypesCommand";
-import {
+import type {
   DescribeScheduledActionsCommandInput,
   DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
-import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
-import {
+import type { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import type {
   DescribeTerminationPolicyTypesCommandInput,
   DescribeTerminationPolicyTypesCommandOutput,
 } from "./commands/DescribeTerminationPolicyTypesCommand";
-import {
+import type {
   DescribeTrafficSourcesCommandInput,
   DescribeTrafficSourcesCommandOutput,
 } from "./commands/DescribeTrafficSourcesCommand";
-import { DescribeWarmPoolCommandInput, DescribeWarmPoolCommandOutput } from "./commands/DescribeWarmPoolCommand";
-import { DetachInstancesCommandInput, DetachInstancesCommandOutput } from "./commands/DetachInstancesCommand";
-import {
+import type { DescribeWarmPoolCommandInput, DescribeWarmPoolCommandOutput } from "./commands/DescribeWarmPoolCommand";
+import type { DetachInstancesCommandInput, DetachInstancesCommandOutput } from "./commands/DetachInstancesCommand";
+import type {
   DetachLoadBalancersCommandInput,
   DetachLoadBalancersCommandOutput,
 } from "./commands/DetachLoadBalancersCommand";
-import {
+import type {
   DetachLoadBalancerTargetGroupsCommandInput,
   DetachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/DetachLoadBalancerTargetGroupsCommand";
-import {
+import type {
   DetachTrafficSourcesCommandInput,
   DetachTrafficSourcesCommandOutput,
 } from "./commands/DetachTrafficSourcesCommand";
-import {
+import type {
   DisableMetricsCollectionCommandInput,
   DisableMetricsCollectionCommandOutput,
 } from "./commands/DisableMetricsCollectionCommand";
-import {
+import type {
   EnableMetricsCollectionCommandInput,
   EnableMetricsCollectionCommandOutput,
 } from "./commands/EnableMetricsCollectionCommand";
-import { EnterStandbyCommandInput, EnterStandbyCommandOutput } from "./commands/EnterStandbyCommand";
-import { ExecutePolicyCommandInput, ExecutePolicyCommandOutput } from "./commands/ExecutePolicyCommand";
-import { ExitStandbyCommandInput, ExitStandbyCommandOutput } from "./commands/ExitStandbyCommand";
-import {
+import type { EnterStandbyCommandInput, EnterStandbyCommandOutput } from "./commands/EnterStandbyCommand";
+import type { ExecutePolicyCommandInput, ExecutePolicyCommandOutput } from "./commands/ExecutePolicyCommand";
+import type { ExitStandbyCommandInput, ExitStandbyCommandOutput } from "./commands/ExitStandbyCommand";
+import type {
   GetPredictiveScalingForecastCommandInput,
   GetPredictiveScalingForecastCommandOutput,
 } from "./commands/GetPredictiveScalingForecastCommand";
-import { LaunchInstancesCommandInput, LaunchInstancesCommandOutput } from "./commands/LaunchInstancesCommand";
-import { PutLifecycleHookCommandInput, PutLifecycleHookCommandOutput } from "./commands/PutLifecycleHookCommand";
-import {
+import type { LaunchInstancesCommandInput, LaunchInstancesCommandOutput } from "./commands/LaunchInstancesCommand";
+import type { PutLifecycleHookCommandInput, PutLifecycleHookCommandOutput } from "./commands/PutLifecycleHookCommand";
+import type {
   PutNotificationConfigurationCommandInput,
   PutNotificationConfigurationCommandOutput,
 } from "./commands/PutNotificationConfigurationCommand";
-import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand";
-import {
+import type { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand";
+import type {
   PutScheduledUpdateGroupActionCommandInput,
   PutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/PutScheduledUpdateGroupActionCommand";
-import { PutWarmPoolCommandInput, PutWarmPoolCommandOutput } from "./commands/PutWarmPoolCommand";
-import {
+import type { PutWarmPoolCommandInput, PutWarmPoolCommandOutput } from "./commands/PutWarmPoolCommand";
+import type {
   RecordLifecycleActionHeartbeatCommandInput,
   RecordLifecycleActionHeartbeatCommandOutput,
 } from "./commands/RecordLifecycleActionHeartbeatCommand";
-import { ResumeProcessesCommandInput, ResumeProcessesCommandOutput } from "./commands/ResumeProcessesCommand";
-import {
+import type { ResumeProcessesCommandInput, ResumeProcessesCommandOutput } from "./commands/ResumeProcessesCommand";
+import type {
   RollbackInstanceRefreshCommandInput,
   RollbackInstanceRefreshCommandOutput,
 } from "./commands/RollbackInstanceRefreshCommand";
-import { SetDesiredCapacityCommandInput, SetDesiredCapacityCommandOutput } from "./commands/SetDesiredCapacityCommand";
-import { SetInstanceHealthCommandInput, SetInstanceHealthCommandOutput } from "./commands/SetInstanceHealthCommand";
-import {
+import type {
+  SetDesiredCapacityCommandInput,
+  SetDesiredCapacityCommandOutput,
+} from "./commands/SetDesiredCapacityCommand";
+import type {
+  SetInstanceHealthCommandInput,
+  SetInstanceHealthCommandOutput,
+} from "./commands/SetInstanceHealthCommand";
+import type {
   SetInstanceProtectionCommandInput,
   SetInstanceProtectionCommandOutput,
 } from "./commands/SetInstanceProtectionCommand";
-import {
+import type {
   StartInstanceRefreshCommandInput,
   StartInstanceRefreshCommandOutput,
 } from "./commands/StartInstanceRefreshCommand";
-import { SuspendProcessesCommandInput, SuspendProcessesCommandOutput } from "./commands/SuspendProcessesCommand";
-import {
+import type { SuspendProcessesCommandInput, SuspendProcessesCommandOutput } from "./commands/SuspendProcessesCommand";
+import type {
   TerminateInstanceInAutoScalingGroupCommandInput,
   TerminateInstanceInAutoScalingGroupCommandOutput,
 } from "./commands/TerminateInstanceInAutoScalingGroupCommand";
-import {
+import type {
   UpdateAutoScalingGroupCommandInput,
   UpdateAutoScalingGroupCommandOutput,
 } from "./commands/UpdateAutoScalingGroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -534,7 +541,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

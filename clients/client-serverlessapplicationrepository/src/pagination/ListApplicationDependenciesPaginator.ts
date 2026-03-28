@@ -8,7 +8,7 @@ import {
   ListApplicationDependenciesCommandOutput,
 } from "../commands/ListApplicationDependenciesCommand";
 import { ServerlessApplicationRepositoryClient } from "../ServerlessApplicationRepositoryClient";
-import { ServerlessApplicationRepositoryPaginationConfiguration } from "./Interfaces";
+import type { ServerlessApplicationRepositoryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

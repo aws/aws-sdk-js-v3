@@ -8,7 +8,7 @@ import {
   DescribeReplicationConfigurationsCommandOutput,
 } from "../commands/DescribeReplicationConfigurationsCommand";
 import { EFSClient } from "../EFSClient";
-import { EFSPaginationConfiguration } from "./Interfaces";
+import type { EFSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

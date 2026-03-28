@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AthenaServiceException as __BaseException } from "./AthenaServiceException";
-import { ThrottleReason } from "./enums";
+import type { ThrottleReason } from "./enums";
 
 /**
  * <p>Indicates a platform issue, which may be due to a transient condition or

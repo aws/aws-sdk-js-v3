@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { InvocationRequest, InvocationResponse } from "../models/models_0";
+import type { InvocationRequest, InvocationResponse } from "../models/models_0";
 import { Invoke$ } from "../schemas/schemas_0";
 
 /**

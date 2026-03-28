@@ -7,7 +7,7 @@
  */
 export * from "./ElementalInferenceClient";
 export * from "./ElementalInference";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ElementalInferenceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

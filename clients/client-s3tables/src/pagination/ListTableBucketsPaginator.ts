@@ -8,7 +8,7 @@ import {
   ListTableBucketsCommandOutput,
 } from "../commands/ListTableBucketsCommand";
 import { S3TablesClient } from "../S3TablesClient";
-import { S3TablesPaginationConfiguration } from "./Interfaces";
+import type { S3TablesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

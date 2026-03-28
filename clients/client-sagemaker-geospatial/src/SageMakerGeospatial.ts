@@ -3,91 +3,95 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DeleteEarthObservationJobCommandInput,
+  type DeleteEarthObservationJobCommandOutput,
   DeleteEarthObservationJobCommand,
-  DeleteEarthObservationJobCommandInput,
-  DeleteEarthObservationJobCommandOutput,
 } from "./commands/DeleteEarthObservationJobCommand";
 import {
+  type DeleteVectorEnrichmentJobCommandInput,
+  type DeleteVectorEnrichmentJobCommandOutput,
   DeleteVectorEnrichmentJobCommand,
-  DeleteVectorEnrichmentJobCommandInput,
-  DeleteVectorEnrichmentJobCommandOutput,
 } from "./commands/DeleteVectorEnrichmentJobCommand";
 import {
+  type ExportEarthObservationJobCommandInput,
+  type ExportEarthObservationJobCommandOutput,
   ExportEarthObservationJobCommand,
-  ExportEarthObservationJobCommandInput,
-  ExportEarthObservationJobCommandOutput,
 } from "./commands/ExportEarthObservationJobCommand";
 import {
+  type ExportVectorEnrichmentJobCommandInput,
+  type ExportVectorEnrichmentJobCommandOutput,
   ExportVectorEnrichmentJobCommand,
-  ExportVectorEnrichmentJobCommandInput,
-  ExportVectorEnrichmentJobCommandOutput,
 } from "./commands/ExportVectorEnrichmentJobCommand";
 import {
+  type GetEarthObservationJobCommandInput,
+  type GetEarthObservationJobCommandOutput,
   GetEarthObservationJobCommand,
-  GetEarthObservationJobCommandInput,
-  GetEarthObservationJobCommandOutput,
 } from "./commands/GetEarthObservationJobCommand";
 import {
+  type GetRasterDataCollectionCommandInput,
+  type GetRasterDataCollectionCommandOutput,
   GetRasterDataCollectionCommand,
-  GetRasterDataCollectionCommandInput,
-  GetRasterDataCollectionCommandOutput,
 } from "./commands/GetRasterDataCollectionCommand";
-import { GetTileCommand, GetTileCommandInput, GetTileCommandOutput } from "./commands/GetTileCommand";
+import { type GetTileCommandInput, type GetTileCommandOutput, GetTileCommand } from "./commands/GetTileCommand";
 import {
+  type GetVectorEnrichmentJobCommandInput,
+  type GetVectorEnrichmentJobCommandOutput,
   GetVectorEnrichmentJobCommand,
-  GetVectorEnrichmentJobCommandInput,
-  GetVectorEnrichmentJobCommandOutput,
 } from "./commands/GetVectorEnrichmentJobCommand";
 import {
+  type ListEarthObservationJobsCommandInput,
+  type ListEarthObservationJobsCommandOutput,
   ListEarthObservationJobsCommand,
-  ListEarthObservationJobsCommandInput,
-  ListEarthObservationJobsCommandOutput,
 } from "./commands/ListEarthObservationJobsCommand";
 import {
+  type ListRasterDataCollectionsCommandInput,
+  type ListRasterDataCollectionsCommandOutput,
   ListRasterDataCollectionsCommand,
-  ListRasterDataCollectionsCommandInput,
-  ListRasterDataCollectionsCommandOutput,
 } from "./commands/ListRasterDataCollectionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVectorEnrichmentJobsCommandInput,
+  type ListVectorEnrichmentJobsCommandOutput,
   ListVectorEnrichmentJobsCommand,
-  ListVectorEnrichmentJobsCommandInput,
-  ListVectorEnrichmentJobsCommandOutput,
 } from "./commands/ListVectorEnrichmentJobsCommand";
 import {
+  type SearchRasterDataCollectionCommandInput,
+  type SearchRasterDataCollectionCommandOutput,
   SearchRasterDataCollectionCommand,
-  SearchRasterDataCollectionCommandInput,
-  SearchRasterDataCollectionCommandOutput,
 } from "./commands/SearchRasterDataCollectionCommand";
 import {
+  type StartEarthObservationJobCommandInput,
+  type StartEarthObservationJobCommandOutput,
   StartEarthObservationJobCommand,
-  StartEarthObservationJobCommandInput,
-  StartEarthObservationJobCommandOutput,
 } from "./commands/StartEarthObservationJobCommand";
 import {
+  type StartVectorEnrichmentJobCommandInput,
+  type StartVectorEnrichmentJobCommandOutput,
   StartVectorEnrichmentJobCommand,
-  StartVectorEnrichmentJobCommandInput,
-  StartVectorEnrichmentJobCommandOutput,
 } from "./commands/StartVectorEnrichmentJobCommand";
 import {
+  type StopEarthObservationJobCommandInput,
+  type StopEarthObservationJobCommandOutput,
   StopEarthObservationJobCommand,
-  StopEarthObservationJobCommandInput,
-  StopEarthObservationJobCommandOutput,
 } from "./commands/StopEarthObservationJobCommand";
 import {
+  type StopVectorEnrichmentJobCommandInput,
+  type StopVectorEnrichmentJobCommandOutput,
   StopVectorEnrichmentJobCommand,
-  StopVectorEnrichmentJobCommandInput,
-  StopVectorEnrichmentJobCommandOutput,
 } from "./commands/StopVectorEnrichmentJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateListEarthObservationJobs } from "./pagination/ListEarthObservationJobsPaginator";
 import { paginateListRasterDataCollections } from "./pagination/ListRasterDataCollectionsPaginator";

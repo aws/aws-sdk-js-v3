@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type GetSolNetworkPackageContentInput, GetSolNetworkPackageContentOutput } from "../models/models_0";
+import type { GetSolNetworkPackageContentInput, GetSolNetworkPackageContentOutput } from "../models/models_0";
 import { GetSolNetworkPackageContent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 

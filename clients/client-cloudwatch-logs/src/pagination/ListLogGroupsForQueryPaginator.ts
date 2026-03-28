@@ -8,7 +8,7 @@ import {
   ListLogGroupsForQueryCommandInput,
   ListLogGroupsForQueryCommandOutput,
 } from "../commands/ListLogGroupsForQueryCommand";
-import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

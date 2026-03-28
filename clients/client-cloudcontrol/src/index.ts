@@ -8,7 +8,7 @@
  */
 export * from "./CloudControlClient";
 export * from "./CloudControl";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CloudControlExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

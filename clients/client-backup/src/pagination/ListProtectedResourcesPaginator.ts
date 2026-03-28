@@ -8,7 +8,7 @@ import {
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
 } from "../commands/ListProtectedResourcesCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

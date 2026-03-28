@@ -8,7 +8,7 @@ import {
   ListWorkerConfigurationsCommandOutput,
 } from "../commands/ListWorkerConfigurationsCommand";
 import { KafkaConnectClient } from "../KafkaConnectClient";
-import { KafkaConnectPaginationConfiguration } from "./Interfaces";
+import type { KafkaConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

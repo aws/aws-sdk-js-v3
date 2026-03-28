@@ -350,7 +350,7 @@
  */
 export * from "./CodeartifactClient";
 export * from "./Codeartifact";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CodeartifactExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

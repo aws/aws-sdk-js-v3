@@ -8,7 +8,7 @@ import {
   DescribeLoadBalancersCommandOutput,
 } from "../commands/DescribeLoadBalancersCommand";
 import { ElasticLoadBalancingClient } from "../ElasticLoadBalancingClient";
-import { ElasticLoadBalancingPaginationConfiguration } from "./Interfaces";
+import type { ElasticLoadBalancingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

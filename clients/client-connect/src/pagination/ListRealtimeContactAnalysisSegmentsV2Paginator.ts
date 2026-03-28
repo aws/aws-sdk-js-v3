@@ -8,7 +8,7 @@ import {
   ListRealtimeContactAnalysisSegmentsV2CommandOutput,
 } from "../commands/ListRealtimeContactAnalysisSegmentsV2Command";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

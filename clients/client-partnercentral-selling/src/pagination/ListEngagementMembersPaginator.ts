@@ -8,7 +8,7 @@ import {
   ListEngagementMembersCommandOutput,
 } from "../commands/ListEngagementMembersCommand";
 import { PartnerCentralSellingClient } from "../PartnerCentralSellingClient";
-import { PartnerCentralSellingPaginationConfiguration } from "./Interfaces";
+import type { PartnerCentralSellingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

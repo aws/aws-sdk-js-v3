@@ -7,7 +7,7 @@
  */
 export * from "./MarketplaceAgreementClient";
 export * from "./MarketplaceAgreement";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MarketplaceAgreementExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

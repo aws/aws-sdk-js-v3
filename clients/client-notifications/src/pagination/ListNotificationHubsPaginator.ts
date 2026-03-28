@@ -8,7 +8,7 @@ import {
   ListNotificationHubsCommandOutput,
 } from "../commands/ListNotificationHubsCommand";
 import { NotificationsClient } from "../NotificationsClient";
-import { NotificationsPaginationConfiguration } from "./Interfaces";
+import type { NotificationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

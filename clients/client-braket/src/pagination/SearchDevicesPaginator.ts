@@ -8,7 +8,7 @@ import {
   SearchDevicesCommandInput,
   SearchDevicesCommandOutput,
 } from "../commands/SearchDevicesCommand";
-import { BraketPaginationConfiguration } from "./Interfaces";
+import type { BraketPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,244 +61,268 @@ import {
   defaultElastiCacheHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
-import {
+import type {
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput,
+} from "./commands/AddTagsToResourceCommand";
+import type {
   AuthorizeCacheSecurityGroupIngressCommandInput,
   AuthorizeCacheSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeCacheSecurityGroupIngressCommand";
-import {
+import type {
   BatchApplyUpdateActionCommandInput,
   BatchApplyUpdateActionCommandOutput,
 } from "./commands/BatchApplyUpdateActionCommand";
-import {
+import type {
   BatchStopUpdateActionCommandInput,
   BatchStopUpdateActionCommandOutput,
 } from "./commands/BatchStopUpdateActionCommand";
-import { CompleteMigrationCommandInput, CompleteMigrationCommandOutput } from "./commands/CompleteMigrationCommand";
-import {
+import type {
+  CompleteMigrationCommandInput,
+  CompleteMigrationCommandOutput,
+} from "./commands/CompleteMigrationCommand";
+import type {
   CopyServerlessCacheSnapshotCommandInput,
   CopyServerlessCacheSnapshotCommandOutput,
 } from "./commands/CopyServerlessCacheSnapshotCommand";
-import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
-import { CreateCacheClusterCommandInput, CreateCacheClusterCommandOutput } from "./commands/CreateCacheClusterCommand";
-import {
+import type { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
+import type {
+  CreateCacheClusterCommandInput,
+  CreateCacheClusterCommandOutput,
+} from "./commands/CreateCacheClusterCommand";
+import type {
   CreateCacheParameterGroupCommandInput,
   CreateCacheParameterGroupCommandOutput,
 } from "./commands/CreateCacheParameterGroupCommand";
-import {
+import type {
   CreateCacheSecurityGroupCommandInput,
   CreateCacheSecurityGroupCommandOutput,
 } from "./commands/CreateCacheSecurityGroupCommand";
-import {
+import type {
   CreateCacheSubnetGroupCommandInput,
   CreateCacheSubnetGroupCommandOutput,
 } from "./commands/CreateCacheSubnetGroupCommand";
-import {
+import type {
   CreateGlobalReplicationGroupCommandInput,
   CreateGlobalReplicationGroupCommandOutput,
 } from "./commands/CreateGlobalReplicationGroupCommand";
-import {
+import type {
   CreateReplicationGroupCommandInput,
   CreateReplicationGroupCommandOutput,
 } from "./commands/CreateReplicationGroupCommand";
-import {
+import type {
   CreateServerlessCacheCommandInput,
   CreateServerlessCacheCommandOutput,
 } from "./commands/CreateServerlessCacheCommand";
-import {
+import type {
   CreateServerlessCacheSnapshotCommandInput,
   CreateServerlessCacheSnapshotCommandOutput,
 } from "./commands/CreateServerlessCacheSnapshotCommand";
-import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
-import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import { CreateUserGroupCommandInput, CreateUserGroupCommandOutput } from "./commands/CreateUserGroupCommand";
-import {
+import type { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import type { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import type { CreateUserGroupCommandInput, CreateUserGroupCommandOutput } from "./commands/CreateUserGroupCommand";
+import type {
   DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
   DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
 } from "./commands/DecreaseNodeGroupsInGlobalReplicationGroupCommand";
-import {
+import type {
   DecreaseReplicaCountCommandInput,
   DecreaseReplicaCountCommandOutput,
 } from "./commands/DecreaseReplicaCountCommand";
-import { DeleteCacheClusterCommandInput, DeleteCacheClusterCommandOutput } from "./commands/DeleteCacheClusterCommand";
-import {
+import type {
+  DeleteCacheClusterCommandInput,
+  DeleteCacheClusterCommandOutput,
+} from "./commands/DeleteCacheClusterCommand";
+import type {
   DeleteCacheParameterGroupCommandInput,
   DeleteCacheParameterGroupCommandOutput,
 } from "./commands/DeleteCacheParameterGroupCommand";
-import {
+import type {
   DeleteCacheSecurityGroupCommandInput,
   DeleteCacheSecurityGroupCommandOutput,
 } from "./commands/DeleteCacheSecurityGroupCommand";
-import {
+import type {
   DeleteCacheSubnetGroupCommandInput,
   DeleteCacheSubnetGroupCommandOutput,
 } from "./commands/DeleteCacheSubnetGroupCommand";
-import {
+import type {
   DeleteGlobalReplicationGroupCommandInput,
   DeleteGlobalReplicationGroupCommandOutput,
 } from "./commands/DeleteGlobalReplicationGroupCommand";
-import {
+import type {
   DeleteReplicationGroupCommandInput,
   DeleteReplicationGroupCommandOutput,
 } from "./commands/DeleteReplicationGroupCommand";
-import {
+import type {
   DeleteServerlessCacheCommandInput,
   DeleteServerlessCacheCommandOutput,
 } from "./commands/DeleteServerlessCacheCommand";
-import {
+import type {
   DeleteServerlessCacheSnapshotCommandInput,
   DeleteServerlessCacheSnapshotCommandOutput,
 } from "./commands/DeleteServerlessCacheSnapshotCommand";
-import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
-import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
-import { DeleteUserGroupCommandInput, DeleteUserGroupCommandOutput } from "./commands/DeleteUserGroupCommand";
-import {
+import type { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
+import type { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import type { DeleteUserGroupCommandInput, DeleteUserGroupCommandOutput } from "./commands/DeleteUserGroupCommand";
+import type {
   DescribeCacheClustersCommandInput,
   DescribeCacheClustersCommandOutput,
 } from "./commands/DescribeCacheClustersCommand";
-import {
+import type {
   DescribeCacheEngineVersionsCommandInput,
   DescribeCacheEngineVersionsCommandOutput,
 } from "./commands/DescribeCacheEngineVersionsCommand";
-import {
+import type {
   DescribeCacheParameterGroupsCommandInput,
   DescribeCacheParameterGroupsCommandOutput,
 } from "./commands/DescribeCacheParameterGroupsCommand";
-import {
+import type {
   DescribeCacheParametersCommandInput,
   DescribeCacheParametersCommandOutput,
 } from "./commands/DescribeCacheParametersCommand";
-import {
+import type {
   DescribeCacheSecurityGroupsCommandInput,
   DescribeCacheSecurityGroupsCommandOutput,
 } from "./commands/DescribeCacheSecurityGroupsCommand";
-import {
+import type {
   DescribeCacheSubnetGroupsCommandInput,
   DescribeCacheSubnetGroupsCommandOutput,
 } from "./commands/DescribeCacheSubnetGroupsCommand";
-import {
+import type {
   DescribeEngineDefaultParametersCommandInput,
   DescribeEngineDefaultParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultParametersCommand";
-import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
-import {
+import type { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
+import type {
   DescribeGlobalReplicationGroupsCommandInput,
   DescribeGlobalReplicationGroupsCommandOutput,
 } from "./commands/DescribeGlobalReplicationGroupsCommand";
-import {
+import type {
   DescribeReplicationGroupsCommandInput,
   DescribeReplicationGroupsCommandOutput,
 } from "./commands/DescribeReplicationGroupsCommand";
-import {
+import type {
   DescribeReservedCacheNodesCommandInput,
   DescribeReservedCacheNodesCommandOutput,
 } from "./commands/DescribeReservedCacheNodesCommand";
-import {
+import type {
   DescribeReservedCacheNodesOfferingsCommandInput,
   DescribeReservedCacheNodesOfferingsCommandOutput,
 } from "./commands/DescribeReservedCacheNodesOfferingsCommand";
-import {
+import type {
   DescribeServerlessCachesCommandInput,
   DescribeServerlessCachesCommandOutput,
 } from "./commands/DescribeServerlessCachesCommand";
-import {
+import type {
   DescribeServerlessCacheSnapshotsCommandInput,
   DescribeServerlessCacheSnapshotsCommandOutput,
 } from "./commands/DescribeServerlessCacheSnapshotsCommand";
-import {
+import type {
   DescribeServiceUpdatesCommandInput,
   DescribeServiceUpdatesCommandOutput,
 } from "./commands/DescribeServiceUpdatesCommand";
-import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
-import {
+import type {
+  DescribeSnapshotsCommandInput,
+  DescribeSnapshotsCommandOutput,
+} from "./commands/DescribeSnapshotsCommand";
+import type {
   DescribeUpdateActionsCommandInput,
   DescribeUpdateActionsCommandOutput,
 } from "./commands/DescribeUpdateActionsCommand";
-import { DescribeUserGroupsCommandInput, DescribeUserGroupsCommandOutput } from "./commands/DescribeUserGroupsCommand";
-import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./commands/DescribeUsersCommand";
-import {
+import type {
+  DescribeUserGroupsCommandInput,
+  DescribeUserGroupsCommandOutput,
+} from "./commands/DescribeUserGroupsCommand";
+import type { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./commands/DescribeUsersCommand";
+import type {
   DisassociateGlobalReplicationGroupCommandInput,
   DisassociateGlobalReplicationGroupCommandOutput,
 } from "./commands/DisassociateGlobalReplicationGroupCommand";
-import {
+import type {
   ExportServerlessCacheSnapshotCommandInput,
   ExportServerlessCacheSnapshotCommandOutput,
 } from "./commands/ExportServerlessCacheSnapshotCommand";
-import {
+import type {
   FailoverGlobalReplicationGroupCommandInput,
   FailoverGlobalReplicationGroupCommandOutput,
 } from "./commands/FailoverGlobalReplicationGroupCommand";
-import {
+import type {
   IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
   IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
 } from "./commands/IncreaseNodeGroupsInGlobalReplicationGroupCommand";
-import {
+import type {
   IncreaseReplicaCountCommandInput,
   IncreaseReplicaCountCommandOutput,
 } from "./commands/IncreaseReplicaCountCommand";
-import {
+import type {
   ListAllowedNodeTypeModificationsCommandInput,
   ListAllowedNodeTypeModificationsCommandOutput,
 } from "./commands/ListAllowedNodeTypeModificationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ModifyCacheClusterCommandInput, ModifyCacheClusterCommandOutput } from "./commands/ModifyCacheClusterCommand";
-import {
+import type {
+  ModifyCacheClusterCommandInput,
+  ModifyCacheClusterCommandOutput,
+} from "./commands/ModifyCacheClusterCommand";
+import type {
   ModifyCacheParameterGroupCommandInput,
   ModifyCacheParameterGroupCommandOutput,
 } from "./commands/ModifyCacheParameterGroupCommand";
-import {
+import type {
   ModifyCacheSubnetGroupCommandInput,
   ModifyCacheSubnetGroupCommandOutput,
 } from "./commands/ModifyCacheSubnetGroupCommand";
-import {
+import type {
   ModifyGlobalReplicationGroupCommandInput,
   ModifyGlobalReplicationGroupCommandOutput,
 } from "./commands/ModifyGlobalReplicationGroupCommand";
-import {
+import type {
   ModifyReplicationGroupCommandInput,
   ModifyReplicationGroupCommandOutput,
 } from "./commands/ModifyReplicationGroupCommand";
-import {
+import type {
   ModifyReplicationGroupShardConfigurationCommandInput,
   ModifyReplicationGroupShardConfigurationCommandOutput,
 } from "./commands/ModifyReplicationGroupShardConfigurationCommand";
-import {
+import type {
   ModifyServerlessCacheCommandInput,
   ModifyServerlessCacheCommandOutput,
 } from "./commands/ModifyServerlessCacheCommand";
-import { ModifyUserCommandInput, ModifyUserCommandOutput } from "./commands/ModifyUserCommand";
-import { ModifyUserGroupCommandInput, ModifyUserGroupCommandOutput } from "./commands/ModifyUserGroupCommand";
-import {
+import type { ModifyUserCommandInput, ModifyUserCommandOutput } from "./commands/ModifyUserCommand";
+import type { ModifyUserGroupCommandInput, ModifyUserGroupCommandOutput } from "./commands/ModifyUserGroupCommand";
+import type {
   PurchaseReservedCacheNodesOfferingCommandInput,
   PurchaseReservedCacheNodesOfferingCommandOutput,
 } from "./commands/PurchaseReservedCacheNodesOfferingCommand";
-import {
+import type {
   RebalanceSlotsInGlobalReplicationGroupCommandInput,
   RebalanceSlotsInGlobalReplicationGroupCommandOutput,
 } from "./commands/RebalanceSlotsInGlobalReplicationGroupCommand";
-import { RebootCacheClusterCommandInput, RebootCacheClusterCommandOutput } from "./commands/RebootCacheClusterCommand";
-import {
+import type {
+  RebootCacheClusterCommandInput,
+  RebootCacheClusterCommandOutput,
+} from "./commands/RebootCacheClusterCommand";
+import type {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
-import {
+import type {
   ResetCacheParameterGroupCommandInput,
   ResetCacheParameterGroupCommandOutput,
 } from "./commands/ResetCacheParameterGroupCommand";
-import {
+import type {
   RevokeCacheSecurityGroupIngressCommandInput,
   RevokeCacheSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeCacheSecurityGroupIngressCommand";
-import { StartMigrationCommandInput, StartMigrationCommandOutput } from "./commands/StartMigrationCommand";
-import { TestFailoverCommandInput, TestFailoverCommandOutput } from "./commands/TestFailoverCommand";
-import { TestMigrationCommandInput, TestMigrationCommandOutput } from "./commands/TestMigrationCommand";
+import type { StartMigrationCommandInput, StartMigrationCommandOutput } from "./commands/StartMigrationCommand";
+import type { TestFailoverCommandInput, TestFailoverCommandOutput } from "./commands/TestFailoverCommand";
+import type { TestMigrationCommandInput, TestMigrationCommandOutput } from "./commands/TestMigrationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -582,7 +604,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

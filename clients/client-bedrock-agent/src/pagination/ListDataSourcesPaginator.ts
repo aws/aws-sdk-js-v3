@@ -8,7 +8,7 @@ import {
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput,
 } from "../commands/ListDataSourcesCommand";
-import { BedrockAgentPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

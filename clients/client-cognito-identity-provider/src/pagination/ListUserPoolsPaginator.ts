@@ -8,7 +8,7 @@ import {
   ListUserPoolsCommandInput,
   ListUserPoolsCommandOutput,
 } from "../commands/ListUserPoolsCommand";
-import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
+import type { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   SearchEntitiesCommandOutput,
 } from "../commands/SearchEntitiesCommand";
 import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
-import { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
+import type { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,78 +61,90 @@ import {
   defaultAppIntegrationsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import {
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type {
   CreateDataIntegrationAssociationCommandInput,
   CreateDataIntegrationAssociationCommandOutput,
 } from "./commands/CreateDataIntegrationAssociationCommand";
-import {
+import type {
   CreateDataIntegrationCommandInput,
   CreateDataIntegrationCommandOutput,
 } from "./commands/CreateDataIntegrationCommand";
-import {
+import type {
   CreateEventIntegrationCommandInput,
   CreateEventIntegrationCommandOutput,
 } from "./commands/CreateEventIntegrationCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import {
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type {
   DeleteDataIntegrationCommandInput,
   DeleteDataIntegrationCommandOutput,
 } from "./commands/DeleteDataIntegrationCommand";
-import {
+import type {
   DeleteEventIntegrationCommandInput,
   DeleteEventIntegrationCommandOutput,
 } from "./commands/DeleteEventIntegrationCommand";
-import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
-import { GetDataIntegrationCommandInput, GetDataIntegrationCommandOutput } from "./commands/GetDataIntegrationCommand";
-import {
+import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import type {
+  GetDataIntegrationCommandInput,
+  GetDataIntegrationCommandOutput,
+} from "./commands/GetDataIntegrationCommand";
+import type {
   GetEventIntegrationCommandInput,
   GetEventIntegrationCommandOutput,
 } from "./commands/GetEventIntegrationCommand";
-import {
+import type {
   ListApplicationAssociationsCommandInput,
   ListApplicationAssociationsCommandOutput,
 } from "./commands/ListApplicationAssociationsCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import {
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type {
   ListDataIntegrationAssociationsCommandInput,
   ListDataIntegrationAssociationsCommandOutput,
 } from "./commands/ListDataIntegrationAssociationsCommand";
-import {
+import type {
   ListDataIntegrationsCommandInput,
   ListDataIntegrationsCommandOutput,
 } from "./commands/ListDataIntegrationsCommand";
-import {
+import type {
   ListEventIntegrationAssociationsCommandInput,
   ListEventIntegrationAssociationsCommandOutput,
 } from "./commands/ListEventIntegrationAssociationsCommand";
-import {
+import type {
   ListEventIntegrationsCommandInput,
   ListEventIntegrationsCommandOutput,
 } from "./commands/ListEventIntegrationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type {
   UpdateDataIntegrationAssociationCommandInput,
   UpdateDataIntegrationAssociationCommandOutput,
 } from "./commands/UpdateDataIntegrationAssociationCommand";
-import {
+import type {
   UpdateDataIntegrationCommandInput,
   UpdateDataIntegrationCommandOutput,
 } from "./commands/UpdateDataIntegrationCommand";
-import {
+import type {
   UpdateEventIntegrationCommandInput,
   UpdateEventIntegrationCommandOutput,
 } from "./commands/UpdateEventIntegrationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -312,7 +322,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

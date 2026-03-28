@@ -8,7 +8,7 @@ import {
   ListEvaluatorsCommandInput,
   ListEvaluatorsCommandOutput,
 } from "../commands/ListEvaluatorsCommand";
-import { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -2,19 +2,23 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { GetGlyphsCommand, GetGlyphsCommandInput, GetGlyphsCommandOutput } from "./commands/GetGlyphsCommand";
-import { GetSpritesCommand, GetSpritesCommandInput, GetSpritesCommandOutput } from "./commands/GetSpritesCommand";
+import { type GetGlyphsCommandInput, type GetGlyphsCommandOutput, GetGlyphsCommand } from "./commands/GetGlyphsCommand";
 import {
+  type GetSpritesCommandInput,
+  type GetSpritesCommandOutput,
+  GetSpritesCommand,
+} from "./commands/GetSpritesCommand";
+import {
+  type GetStaticMapCommandInput,
+  type GetStaticMapCommandOutput,
   GetStaticMapCommand,
-  GetStaticMapCommandInput,
-  GetStaticMapCommandOutput,
 } from "./commands/GetStaticMapCommand";
 import {
+  type GetStyleDescriptorCommandInput,
+  type GetStyleDescriptorCommandOutput,
   GetStyleDescriptorCommand,
-  GetStyleDescriptorCommandInput,
-  GetStyleDescriptorCommandOutput,
 } from "./commands/GetStyleDescriptorCommand";
-import { GetTileCommand, GetTileCommandInput, GetTileCommandOutput } from "./commands/GetTileCommand";
+import { type GetTileCommandInput, type GetTileCommandOutput, GetTileCommand } from "./commands/GetTileCommand";
 import { GeoMapsClient } from "./GeoMapsClient";
 
 const commands = {

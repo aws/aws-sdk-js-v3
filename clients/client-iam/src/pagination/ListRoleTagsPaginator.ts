@@ -8,7 +8,7 @@ import {
   ListRoleTagsCommandOutput,
 } from "../commands/ListRoleTagsCommand";
 import { IAMClient } from "../IAMClient";
-import { IAMPaginationConfiguration } from "./Interfaces";
+import type { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

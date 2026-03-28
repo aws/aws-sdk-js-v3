@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   ConsumerStatus,
   EncryptionType,
   MetricsName,
@@ -11,7 +11,7 @@ import {
   StreamMode,
   StreamStatus,
 } from "./enums";
-import {
+import type {
   InternalFailureException,
   KMSAccessDeniedException,
   KMSDisabledException,

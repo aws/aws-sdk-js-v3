@@ -8,7 +8,7 @@ import {
   ListVodSourcesCommandOutput,
 } from "../commands/ListVodSourcesCommand";
 import { MediaTailorClient } from "../MediaTailorClient";
-import { MediaTailorPaginationConfiguration } from "./Interfaces";
+import type { MediaTailorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

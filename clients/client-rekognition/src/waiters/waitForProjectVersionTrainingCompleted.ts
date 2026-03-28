@@ -1,11 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
 import {
+  type DescribeProjectVersionsCommandInput,
   DescribeProjectVersionsCommand,
-  DescribeProjectVersionsCommandInput,
 } from "../commands/DescribeProjectVersionsCommand";
-import { RekognitionClient } from "../RekognitionClient";
+import type { RekognitionClient } from "../RekognitionClient";
 
 const checkState = async (client: RekognitionClient, input: DescribeProjectVersionsCommandInput): Promise<WaiterResult> => {
   let reason;

@@ -41,7 +41,7 @@
  */
 export * from "./CloudWatchLogsClient";
 export * from "./CloudWatchLogs";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CloudWatchLogsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

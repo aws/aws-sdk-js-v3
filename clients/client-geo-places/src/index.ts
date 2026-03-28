@@ -7,7 +7,7 @@
  */
 export * from "./GeoPlacesClient";
 export * from "./GeoPlaces";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { GeoPlacesExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

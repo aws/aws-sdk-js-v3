@@ -8,7 +8,7 @@ import {
   ListTestGridProjectsCommandOutput,
 } from "../commands/ListTestGridProjectsCommand";
 import { DeviceFarmClient } from "../DeviceFarmClient";
-import { DeviceFarmPaginationConfiguration } from "./Interfaces";
+import type { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListArchiveRulesCommandInput,
   ListArchiveRulesCommandOutput,
 } from "../commands/ListArchiveRulesCommand";
-import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
+import type { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

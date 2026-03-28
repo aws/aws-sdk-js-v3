@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { GetWorkflowVersionCommand, GetWorkflowVersionCommandInput } from "../commands/GetWorkflowVersionCommand";
-import { OmicsClient } from "../OmicsClient";
+import { type GetWorkflowVersionCommandInput, GetWorkflowVersionCommand } from "../commands/GetWorkflowVersionCommand";
+import type { OmicsClient } from "../OmicsClient";
 
 const checkState = async (client: OmicsClient, input: GetWorkflowVersionCommandInput): Promise<WaiterResult> => {
   let reason;

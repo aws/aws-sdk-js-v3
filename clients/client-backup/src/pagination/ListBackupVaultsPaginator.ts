@@ -8,7 +8,7 @@ import {
   ListBackupVaultsCommandInput,
   ListBackupVaultsCommandOutput,
 } from "../commands/ListBackupVaultsCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

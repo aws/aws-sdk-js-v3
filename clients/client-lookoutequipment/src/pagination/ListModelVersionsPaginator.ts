@@ -8,7 +8,7 @@ import {
   ListModelVersionsCommandOutput,
 } from "../commands/ListModelVersionsCommand";
 import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
-import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
+import type { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

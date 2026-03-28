@@ -8,7 +8,7 @@ import {
   GetWorkflowRunsCommandOutput,
 } from "../commands/GetWorkflowRunsCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

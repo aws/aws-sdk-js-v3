@@ -8,7 +8,7 @@ import {
   ListRetirableGrantsCommandOutput,
 } from "../commands/ListRetirableGrantsCommand";
 import { KMSClient } from "../KMSClient";
-import { KMSPaginationConfiguration } from "./Interfaces";
+import type { KMSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

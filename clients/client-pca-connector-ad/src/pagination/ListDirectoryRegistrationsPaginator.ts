@@ -8,7 +8,7 @@ import {
   ListDirectoryRegistrationsCommandOutput,
 } from "../commands/ListDirectoryRegistrationsCommand";
 import { PcaConnectorAdClient } from "../PcaConnectorAdClient";
-import { PcaConnectorAdPaginationConfiguration } from "./Interfaces";
+import type { PcaConnectorAdPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -37,7 +37,7 @@
  */
 export * from "./CognitoIdentityProviderClient";
 export * from "./CognitoIdentityProvider";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { CognitoIdentityProviderExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

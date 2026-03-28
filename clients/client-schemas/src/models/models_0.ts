@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 
-import { CodeGenerationStatus, DiscovererState, Type } from "./enums";
+import type { CodeGenerationStatus, DiscovererState, Type } from "./enums";
 
 /**
  * @public

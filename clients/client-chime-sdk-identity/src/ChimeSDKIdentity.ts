@@ -4,150 +4,154 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ChimeSDKIdentityClient } from "./ChimeSDKIdentityClient";
 import {
+  type CreateAppInstanceAdminCommandInput,
+  type CreateAppInstanceAdminCommandOutput,
   CreateAppInstanceAdminCommand,
-  CreateAppInstanceAdminCommandInput,
-  CreateAppInstanceAdminCommandOutput,
 } from "./commands/CreateAppInstanceAdminCommand";
 import {
+  type CreateAppInstanceBotCommandInput,
+  type CreateAppInstanceBotCommandOutput,
   CreateAppInstanceBotCommand,
-  CreateAppInstanceBotCommandInput,
-  CreateAppInstanceBotCommandOutput,
 } from "./commands/CreateAppInstanceBotCommand";
 import {
+  type CreateAppInstanceCommandInput,
+  type CreateAppInstanceCommandOutput,
   CreateAppInstanceCommand,
-  CreateAppInstanceCommandInput,
-  CreateAppInstanceCommandOutput,
 } from "./commands/CreateAppInstanceCommand";
 import {
+  type CreateAppInstanceUserCommandInput,
+  type CreateAppInstanceUserCommandOutput,
   CreateAppInstanceUserCommand,
-  CreateAppInstanceUserCommandInput,
-  CreateAppInstanceUserCommandOutput,
 } from "./commands/CreateAppInstanceUserCommand";
 import {
+  type DeleteAppInstanceAdminCommandInput,
+  type DeleteAppInstanceAdminCommandOutput,
   DeleteAppInstanceAdminCommand,
-  DeleteAppInstanceAdminCommandInput,
-  DeleteAppInstanceAdminCommandOutput,
 } from "./commands/DeleteAppInstanceAdminCommand";
 import {
+  type DeleteAppInstanceBotCommandInput,
+  type DeleteAppInstanceBotCommandOutput,
   DeleteAppInstanceBotCommand,
-  DeleteAppInstanceBotCommandInput,
-  DeleteAppInstanceBotCommandOutput,
 } from "./commands/DeleteAppInstanceBotCommand";
 import {
+  type DeleteAppInstanceCommandInput,
+  type DeleteAppInstanceCommandOutput,
   DeleteAppInstanceCommand,
-  DeleteAppInstanceCommandInput,
-  DeleteAppInstanceCommandOutput,
 } from "./commands/DeleteAppInstanceCommand";
 import {
+  type DeleteAppInstanceUserCommandInput,
+  type DeleteAppInstanceUserCommandOutput,
   DeleteAppInstanceUserCommand,
-  DeleteAppInstanceUserCommandInput,
-  DeleteAppInstanceUserCommandOutput,
 } from "./commands/DeleteAppInstanceUserCommand";
 import {
+  type DeregisterAppInstanceUserEndpointCommandInput,
+  type DeregisterAppInstanceUserEndpointCommandOutput,
   DeregisterAppInstanceUserEndpointCommand,
-  DeregisterAppInstanceUserEndpointCommandInput,
-  DeregisterAppInstanceUserEndpointCommandOutput,
 } from "./commands/DeregisterAppInstanceUserEndpointCommand";
 import {
+  type DescribeAppInstanceAdminCommandInput,
+  type DescribeAppInstanceAdminCommandOutput,
   DescribeAppInstanceAdminCommand,
-  DescribeAppInstanceAdminCommandInput,
-  DescribeAppInstanceAdminCommandOutput,
 } from "./commands/DescribeAppInstanceAdminCommand";
 import {
+  type DescribeAppInstanceBotCommandInput,
+  type DescribeAppInstanceBotCommandOutput,
   DescribeAppInstanceBotCommand,
-  DescribeAppInstanceBotCommandInput,
-  DescribeAppInstanceBotCommandOutput,
 } from "./commands/DescribeAppInstanceBotCommand";
 import {
+  type DescribeAppInstanceCommandInput,
+  type DescribeAppInstanceCommandOutput,
   DescribeAppInstanceCommand,
-  DescribeAppInstanceCommandInput,
-  DescribeAppInstanceCommandOutput,
 } from "./commands/DescribeAppInstanceCommand";
 import {
+  type DescribeAppInstanceUserCommandInput,
+  type DescribeAppInstanceUserCommandOutput,
   DescribeAppInstanceUserCommand,
-  DescribeAppInstanceUserCommandInput,
-  DescribeAppInstanceUserCommandOutput,
 } from "./commands/DescribeAppInstanceUserCommand";
 import {
+  type DescribeAppInstanceUserEndpointCommandInput,
+  type DescribeAppInstanceUserEndpointCommandOutput,
   DescribeAppInstanceUserEndpointCommand,
-  DescribeAppInstanceUserEndpointCommandInput,
-  DescribeAppInstanceUserEndpointCommandOutput,
 } from "./commands/DescribeAppInstanceUserEndpointCommand";
 import {
+  type GetAppInstanceRetentionSettingsCommandInput,
+  type GetAppInstanceRetentionSettingsCommandOutput,
   GetAppInstanceRetentionSettingsCommand,
-  GetAppInstanceRetentionSettingsCommandInput,
-  GetAppInstanceRetentionSettingsCommandOutput,
 } from "./commands/GetAppInstanceRetentionSettingsCommand";
 import {
+  type ListAppInstanceAdminsCommandInput,
+  type ListAppInstanceAdminsCommandOutput,
   ListAppInstanceAdminsCommand,
-  ListAppInstanceAdminsCommandInput,
-  ListAppInstanceAdminsCommandOutput,
 } from "./commands/ListAppInstanceAdminsCommand";
 import {
+  type ListAppInstanceBotsCommandInput,
+  type ListAppInstanceBotsCommandOutput,
   ListAppInstanceBotsCommand,
-  ListAppInstanceBotsCommandInput,
-  ListAppInstanceBotsCommandOutput,
 } from "./commands/ListAppInstanceBotsCommand";
 import {
+  type ListAppInstancesCommandInput,
+  type ListAppInstancesCommandOutput,
   ListAppInstancesCommand,
-  ListAppInstancesCommandInput,
-  ListAppInstancesCommandOutput,
 } from "./commands/ListAppInstancesCommand";
 import {
+  type ListAppInstanceUserEndpointsCommandInput,
+  type ListAppInstanceUserEndpointsCommandOutput,
   ListAppInstanceUserEndpointsCommand,
-  ListAppInstanceUserEndpointsCommandInput,
-  ListAppInstanceUserEndpointsCommandOutput,
 } from "./commands/ListAppInstanceUserEndpointsCommand";
 import {
+  type ListAppInstanceUsersCommandInput,
+  type ListAppInstanceUsersCommandOutput,
   ListAppInstanceUsersCommand,
-  ListAppInstanceUsersCommandInput,
-  ListAppInstanceUsersCommandOutput,
 } from "./commands/ListAppInstanceUsersCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutAppInstanceRetentionSettingsCommandInput,
+  type PutAppInstanceRetentionSettingsCommandOutput,
   PutAppInstanceRetentionSettingsCommand,
-  PutAppInstanceRetentionSettingsCommandInput,
-  PutAppInstanceRetentionSettingsCommandOutput,
 } from "./commands/PutAppInstanceRetentionSettingsCommand";
 import {
+  type PutAppInstanceUserExpirationSettingsCommandInput,
+  type PutAppInstanceUserExpirationSettingsCommandOutput,
   PutAppInstanceUserExpirationSettingsCommand,
-  PutAppInstanceUserExpirationSettingsCommandInput,
-  PutAppInstanceUserExpirationSettingsCommandOutput,
 } from "./commands/PutAppInstanceUserExpirationSettingsCommand";
 import {
+  type RegisterAppInstanceUserEndpointCommandInput,
+  type RegisterAppInstanceUserEndpointCommandOutput,
   RegisterAppInstanceUserEndpointCommand,
-  RegisterAppInstanceUserEndpointCommandInput,
-  RegisterAppInstanceUserEndpointCommandOutput,
 } from "./commands/RegisterAppInstanceUserEndpointCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAppInstanceBotCommandInput,
+  type UpdateAppInstanceBotCommandOutput,
   UpdateAppInstanceBotCommand,
-  UpdateAppInstanceBotCommandInput,
-  UpdateAppInstanceBotCommandOutput,
 } from "./commands/UpdateAppInstanceBotCommand";
 import {
+  type UpdateAppInstanceCommandInput,
+  type UpdateAppInstanceCommandOutput,
   UpdateAppInstanceCommand,
-  UpdateAppInstanceCommandInput,
-  UpdateAppInstanceCommandOutput,
 } from "./commands/UpdateAppInstanceCommand";
 import {
+  type UpdateAppInstanceUserCommandInput,
+  type UpdateAppInstanceUserCommandOutput,
   UpdateAppInstanceUserCommand,
-  UpdateAppInstanceUserCommandInput,
-  UpdateAppInstanceUserCommandOutput,
 } from "./commands/UpdateAppInstanceUserCommand";
 import {
+  type UpdateAppInstanceUserEndpointCommandInput,
+  type UpdateAppInstanceUserEndpointCommandOutput,
   UpdateAppInstanceUserEndpointCommand,
-  UpdateAppInstanceUserEndpointCommandInput,
-  UpdateAppInstanceUserEndpointCommandOutput,
 } from "./commands/UpdateAppInstanceUserEndpointCommand";
 import { paginateListAppInstanceAdmins } from "./pagination/ListAppInstanceAdminsPaginator";
 import { paginateListAppInstanceBots } from "./pagination/ListAppInstanceBotsPaginator";

@@ -11,7 +11,7 @@
  */
 export * from "./MigrationHubOrchestratorClient";
 export * from "./MigrationHubOrchestrator";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MigrationHubOrchestratorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

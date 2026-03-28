@@ -8,7 +8,7 @@ import {
   ListSourceLocationsCommandOutput,
 } from "../commands/ListSourceLocationsCommand";
 import { MediaTailorClient } from "../MediaTailorClient";
-import { MediaTailorPaginationConfiguration } from "./Interfaces";
+import type { MediaTailorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

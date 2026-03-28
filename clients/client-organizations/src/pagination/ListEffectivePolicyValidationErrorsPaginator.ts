@@ -8,7 +8,7 @@ import {
   ListEffectivePolicyValidationErrorsCommandOutput,
 } from "../commands/ListEffectivePolicyValidationErrorsCommand";
 import { OrganizationsClient } from "../OrganizationsClient";
-import { OrganizationsPaginationConfiguration } from "./Interfaces";
+import type { OrganizationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

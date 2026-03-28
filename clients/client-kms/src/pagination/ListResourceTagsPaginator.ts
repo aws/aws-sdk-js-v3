@@ -8,7 +8,7 @@ import {
   ListResourceTagsCommandOutput,
 } from "../commands/ListResourceTagsCommand";
 import { KMSClient } from "../KMSClient";
-import { KMSPaginationConfiguration } from "./Interfaces";
+import type { KMSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

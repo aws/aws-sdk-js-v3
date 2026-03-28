@@ -7,7 +7,7 @@
  */
 export * from "./SagemakerEdgeClient";
 export * from "./SagemakerEdge";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SagemakerEdgeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

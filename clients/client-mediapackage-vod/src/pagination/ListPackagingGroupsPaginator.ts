@@ -8,7 +8,7 @@ import {
   ListPackagingGroupsCommandOutput,
 } from "../commands/ListPackagingGroupsCommand";
 import { MediaPackageVodClient } from "../MediaPackageVodClient";
-import { MediaPackageVodPaginationConfiguration } from "./Interfaces";
+import type { MediaPackageVodPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListStackResourcesCommandInput,
   ListStackResourcesCommandOutput,
 } from "../commands/ListStackResourcesCommand";
-import { CloudFormationPaginationConfiguration } from "./Interfaces";
+import type { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { DocumentType as __DocumentType } from "@smithy/types";
+import type { DocumentType as __DocumentType } from "@smithy/types";
 
-import {
+import type {
   AgentStatus,
   EmbeddingDataType,
   FlowNodeType,
@@ -13,16 +13,11 @@ import {
   PromptTemplateType,
   SupplementalDataStorageLocationType,
 } from "./enums";
-import {
-  type AgentKnowledgeBase,
-  type AgentVersion,
-  type KendraKnowledgeBaseConfiguration,
-  type PromptInferenceConfiguration,
-  type PromptTemplateConfiguration,
-  type S3Location,
-  type SqlKnowledgeBaseConfiguration,
+import type {
   AgentFlowNodeConfiguration,
+  AgentKnowledgeBase,
   AgentKnowledgeBaseSummary,
+  AgentVersion,
   AgentVersionSummary,
   AudioConfiguration,
   CollectorFlowNodeConfiguration,
@@ -34,6 +29,7 @@ import {
   InlineCodeFlowNodeConfiguration,
   InputFlowNodeConfiguration,
   IteratorFlowNodeConfiguration,
+  KendraKnowledgeBaseConfiguration,
   KnowledgeBaseFlowNodeConfiguration,
   LambdaFunctionFlowNodeConfiguration,
   LexFlowNodeConfiguration,
@@ -41,7 +37,11 @@ import {
   LoopInputFlowNodeConfiguration,
   OutputFlowNodeConfiguration,
   PromptFlowNodeConfiguration,
+  PromptInferenceConfiguration,
+  PromptTemplateConfiguration,
   RetrievalFlowNodeConfiguration,
+  S3Location,
+  SqlKnowledgeBaseConfiguration,
   StorageFlowNodeConfiguration,
   VideoConfiguration,
 } from "./models_0";

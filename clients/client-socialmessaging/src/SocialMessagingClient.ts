@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,88 +61,88 @@ import {
   defaultSocialMessagingHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateWhatsAppBusinessAccountCommandInput,
   AssociateWhatsAppBusinessAccountCommandOutput,
 } from "./commands/AssociateWhatsAppBusinessAccountCommand";
-import {
+import type {
   CreateWhatsAppMessageTemplateCommandInput,
   CreateWhatsAppMessageTemplateCommandOutput,
 } from "./commands/CreateWhatsAppMessageTemplateCommand";
-import {
+import type {
   CreateWhatsAppMessageTemplateFromLibraryCommandInput,
   CreateWhatsAppMessageTemplateFromLibraryCommandOutput,
 } from "./commands/CreateWhatsAppMessageTemplateFromLibraryCommand";
-import {
+import type {
   CreateWhatsAppMessageTemplateMediaCommandInput,
   CreateWhatsAppMessageTemplateMediaCommandOutput,
 } from "./commands/CreateWhatsAppMessageTemplateMediaCommand";
-import {
+import type {
   DeleteWhatsAppMessageMediaCommandInput,
   DeleteWhatsAppMessageMediaCommandOutput,
 } from "./commands/DeleteWhatsAppMessageMediaCommand";
-import {
+import type {
   DeleteWhatsAppMessageTemplateCommandInput,
   DeleteWhatsAppMessageTemplateCommandOutput,
 } from "./commands/DeleteWhatsAppMessageTemplateCommand";
-import {
+import type {
   DisassociateWhatsAppBusinessAccountCommandInput,
   DisassociateWhatsAppBusinessAccountCommandOutput,
 } from "./commands/DisassociateWhatsAppBusinessAccountCommand";
-import {
+import type {
   GetLinkedWhatsAppBusinessAccountCommandInput,
   GetLinkedWhatsAppBusinessAccountCommandOutput,
 } from "./commands/GetLinkedWhatsAppBusinessAccountCommand";
-import {
+import type {
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput,
 } from "./commands/GetLinkedWhatsAppBusinessAccountPhoneNumberCommand";
-import {
+import type {
   GetWhatsAppMessageMediaCommandInput,
   GetWhatsAppMessageMediaCommandOutput,
 } from "./commands/GetWhatsAppMessageMediaCommand";
-import {
+import type {
   GetWhatsAppMessageTemplateCommandInput,
   GetWhatsAppMessageTemplateCommandOutput,
 } from "./commands/GetWhatsAppMessageTemplateCommand";
-import {
+import type {
   ListLinkedWhatsAppBusinessAccountsCommandInput,
   ListLinkedWhatsAppBusinessAccountsCommandOutput,
 } from "./commands/ListLinkedWhatsAppBusinessAccountsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListWhatsAppMessageTemplatesCommandInput,
   ListWhatsAppMessageTemplatesCommandOutput,
 } from "./commands/ListWhatsAppMessageTemplatesCommand";
-import {
+import type {
   ListWhatsAppTemplateLibraryCommandInput,
   ListWhatsAppTemplateLibraryCommandOutput,
 } from "./commands/ListWhatsAppTemplateLibraryCommand";
-import {
+import type {
   PostWhatsAppMessageMediaCommandInput,
   PostWhatsAppMessageMediaCommandOutput,
 } from "./commands/PostWhatsAppMessageMediaCommand";
-import {
+import type {
   PutWhatsAppBusinessAccountEventDestinationsCommandInput,
   PutWhatsAppBusinessAccountEventDestinationsCommandOutput,
 } from "./commands/PutWhatsAppBusinessAccountEventDestinationsCommand";
-import {
+import type {
   SendWhatsAppMessageCommandInput,
   SendWhatsAppMessageCommandOutput,
 } from "./commands/SendWhatsAppMessageCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateWhatsAppMessageTemplateCommandInput,
   UpdateWhatsAppMessageTemplateCommandOutput,
 } from "./commands/UpdateWhatsAppMessageTemplateCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -318,7 +316,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

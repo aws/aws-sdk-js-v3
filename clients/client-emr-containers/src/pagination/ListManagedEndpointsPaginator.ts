@@ -8,7 +8,7 @@ import {
   ListManagedEndpointsCommandOutput,
 } from "../commands/ListManagedEndpointsCommand";
 import { EMRContainersClient } from "../EMRContainersClient";
-import { EMRContainersPaginationConfiguration } from "./Interfaces";
+import type { EMRContainersPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

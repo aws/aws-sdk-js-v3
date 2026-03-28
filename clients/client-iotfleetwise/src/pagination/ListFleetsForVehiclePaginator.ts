@@ -8,7 +8,7 @@ import {
   ListFleetsForVehicleCommandOutput,
 } from "../commands/ListFleetsForVehicleCommand";
 import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
-import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
+import type { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

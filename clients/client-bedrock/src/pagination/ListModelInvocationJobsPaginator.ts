@@ -8,7 +8,7 @@ import {
   ListModelInvocationJobsCommandInput,
   ListModelInvocationJobsCommandOutput,
 } from "../commands/ListModelInvocationJobsCommand";
-import { BedrockPaginationConfiguration } from "./Interfaces";
+import type { BedrockPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

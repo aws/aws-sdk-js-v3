@@ -8,7 +8,7 @@
  */
 export * from "./SigninClient";
 export * from "./Signin";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SigninExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

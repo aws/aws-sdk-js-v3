@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeBotVersionCommand, DescribeBotVersionCommandInput } from "../commands/DescribeBotVersionCommand";
-import { LexModelsV2Client } from "../LexModelsV2Client";
+import { type DescribeBotVersionCommandInput, DescribeBotVersionCommand } from "../commands/DescribeBotVersionCommand";
+import type { LexModelsV2Client } from "../LexModelsV2Client";
 
 const checkState = async (client: LexModelsV2Client, input: DescribeBotVersionCommandInput): Promise<WaiterResult> => {
   let reason;

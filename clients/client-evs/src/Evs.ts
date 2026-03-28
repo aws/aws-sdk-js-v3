@@ -3,66 +3,74 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateEipToVlanCommandInput,
+  type AssociateEipToVlanCommandOutput,
   AssociateEipToVlanCommand,
-  AssociateEipToVlanCommandInput,
-  AssociateEipToVlanCommandOutput,
 } from "./commands/AssociateEipToVlanCommand";
 import {
+  type CreateEnvironmentCommandInput,
+  type CreateEnvironmentCommandOutput,
   CreateEnvironmentCommand,
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand";
 import {
+  type CreateEnvironmentHostCommandInput,
+  type CreateEnvironmentHostCommandOutput,
   CreateEnvironmentHostCommand,
-  CreateEnvironmentHostCommandInput,
-  CreateEnvironmentHostCommandOutput,
 } from "./commands/CreateEnvironmentHostCommand";
 import {
+  type DeleteEnvironmentCommandInput,
+  type DeleteEnvironmentCommandOutput,
   DeleteEnvironmentCommand,
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
 import {
+  type DeleteEnvironmentHostCommandInput,
+  type DeleteEnvironmentHostCommandOutput,
   DeleteEnvironmentHostCommand,
-  DeleteEnvironmentHostCommandInput,
-  DeleteEnvironmentHostCommandOutput,
 } from "./commands/DeleteEnvironmentHostCommand";
 import {
+  type DisassociateEipFromVlanCommandInput,
+  type DisassociateEipFromVlanCommandOutput,
   DisassociateEipFromVlanCommand,
-  DisassociateEipFromVlanCommandInput,
-  DisassociateEipFromVlanCommandOutput,
 } from "./commands/DisassociateEipFromVlanCommand";
 import {
+  type GetEnvironmentCommandInput,
+  type GetEnvironmentCommandOutput,
   GetEnvironmentCommand,
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
-import { GetVersionsCommand, GetVersionsCommandInput, GetVersionsCommandOutput } from "./commands/GetVersionsCommand";
 import {
+  type GetVersionsCommandInput,
+  type GetVersionsCommandOutput,
+  GetVersionsCommand,
+} from "./commands/GetVersionsCommand";
+import {
+  type ListEnvironmentHostsCommandInput,
+  type ListEnvironmentHostsCommandOutput,
   ListEnvironmentHostsCommand,
-  ListEnvironmentHostsCommandInput,
-  ListEnvironmentHostsCommandOutput,
 } from "./commands/ListEnvironmentHostsCommand";
 import {
+  type ListEnvironmentsCommandInput,
+  type ListEnvironmentsCommandOutput,
   ListEnvironmentsCommand,
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  type ListEnvironmentVlansCommandInput,
+  type ListEnvironmentVlansCommandOutput,
   ListEnvironmentVlansCommand,
-  ListEnvironmentVlansCommandInput,
-  ListEnvironmentVlansCommandOutput,
 } from "./commands/ListEnvironmentVlansCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { EvsClient } from "./EvsClient";
 import { paginateListEnvironmentHosts } from "./pagination/ListEnvironmentHostsPaginator";

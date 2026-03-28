@@ -8,7 +8,7 @@ import {
   DescribeMappedResourceConfigurationCommandOutput,
 } from "../commands/DescribeMappedResourceConfigurationCommand";
 import { KinesisVideoClient } from "../KinesisVideoClient";
-import { KinesisVideoPaginationConfiguration } from "./Interfaces";
+import type { KinesisVideoPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

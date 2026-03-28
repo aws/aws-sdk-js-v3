@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,91 +61,91 @@ import {
   defaultRTBFabricHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AcceptLinkCommandInput, AcceptLinkCommandOutput } from "./commands/AcceptLinkCommand";
-import {
+import type { AcceptLinkCommandInput, AcceptLinkCommandOutput } from "./commands/AcceptLinkCommand";
+import type {
   CreateInboundExternalLinkCommandInput,
   CreateInboundExternalLinkCommandOutput,
 } from "./commands/CreateInboundExternalLinkCommand";
-import { CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
-import {
+import type { CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
+import type {
   CreateOutboundExternalLinkCommandInput,
   CreateOutboundExternalLinkCommandOutput,
 } from "./commands/CreateOutboundExternalLinkCommand";
-import {
+import type {
   CreateRequesterGatewayCommandInput,
   CreateRequesterGatewayCommandOutput,
 } from "./commands/CreateRequesterGatewayCommand";
-import {
+import type {
   CreateResponderGatewayCommandInput,
   CreateResponderGatewayCommandOutput,
 } from "./commands/CreateResponderGatewayCommand";
-import {
+import type {
   DeleteInboundExternalLinkCommandInput,
   DeleteInboundExternalLinkCommandOutput,
 } from "./commands/DeleteInboundExternalLinkCommand";
-import { DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
-import {
+import type { DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
+import type {
   DeleteOutboundExternalLinkCommandInput,
   DeleteOutboundExternalLinkCommandOutput,
 } from "./commands/DeleteOutboundExternalLinkCommand";
-import {
+import type {
   DeleteRequesterGatewayCommandInput,
   DeleteRequesterGatewayCommandOutput,
 } from "./commands/DeleteRequesterGatewayCommand";
-import {
+import type {
   DeleteResponderGatewayCommandInput,
   DeleteResponderGatewayCommandOutput,
 } from "./commands/DeleteResponderGatewayCommand";
-import {
+import type {
   GetInboundExternalLinkCommandInput,
   GetInboundExternalLinkCommandOutput,
 } from "./commands/GetInboundExternalLinkCommand";
-import { GetLinkCommandInput, GetLinkCommandOutput } from "./commands/GetLinkCommand";
-import {
+import type { GetLinkCommandInput, GetLinkCommandOutput } from "./commands/GetLinkCommand";
+import type {
   GetOutboundExternalLinkCommandInput,
   GetOutboundExternalLinkCommandOutput,
 } from "./commands/GetOutboundExternalLinkCommand";
-import {
+import type {
   GetRequesterGatewayCommandInput,
   GetRequesterGatewayCommandOutput,
 } from "./commands/GetRequesterGatewayCommand";
-import {
+import type {
   GetResponderGatewayCommandInput,
   GetResponderGatewayCommandOutput,
 } from "./commands/GetResponderGatewayCommand";
-import { ListLinksCommandInput, ListLinksCommandOutput } from "./commands/ListLinksCommand";
-import {
+import type { ListLinksCommandInput, ListLinksCommandOutput } from "./commands/ListLinksCommand";
+import type {
   ListRequesterGatewaysCommandInput,
   ListRequesterGatewaysCommandOutput,
 } from "./commands/ListRequesterGatewaysCommand";
-import {
+import type {
   ListResponderGatewaysCommandInput,
   ListResponderGatewaysCommandOutput,
 } from "./commands/ListResponderGatewaysCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RejectLinkCommandInput, RejectLinkCommandOutput } from "./commands/RejectLinkCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
-import {
+import type { RejectLinkCommandInput, RejectLinkCommandOutput } from "./commands/RejectLinkCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
+import type {
   UpdateLinkModuleFlowCommandInput,
   UpdateLinkModuleFlowCommandOutput,
 } from "./commands/UpdateLinkModuleFlowCommand";
-import {
+import type {
   UpdateRequesterGatewayCommandInput,
   UpdateRequesterGatewayCommandOutput,
 } from "./commands/UpdateRequesterGatewayCommand";
-import {
+import type {
   UpdateResponderGatewayCommandInput,
   UpdateResponderGatewayCommandOutput,
 } from "./commands/UpdateResponderGatewayCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -333,7 +331,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

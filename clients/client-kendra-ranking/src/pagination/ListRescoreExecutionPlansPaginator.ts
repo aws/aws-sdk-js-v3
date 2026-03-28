@@ -8,7 +8,7 @@ import {
   ListRescoreExecutionPlansCommandOutput,
 } from "../commands/ListRescoreExecutionPlansCommand";
 import { KendraRankingClient } from "../KendraRankingClient";
-import { KendraRankingPaginationConfiguration } from "./Interfaces";
+import type { KendraRankingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

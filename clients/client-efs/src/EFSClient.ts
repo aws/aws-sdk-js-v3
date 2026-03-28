@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,95 +61,107 @@ import {
   defaultEFSHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "./commands/CreateAccessPointCommand";
-import { CreateFileSystemCommandInput, CreateFileSystemCommandOutput } from "./commands/CreateFileSystemCommand";
-import { CreateMountTargetCommandInput, CreateMountTargetCommandOutput } from "./commands/CreateMountTargetCommand";
-import {
+import type {
+  CreateAccessPointCommandInput,
+  CreateAccessPointCommandOutput,
+} from "./commands/CreateAccessPointCommand";
+import type { CreateFileSystemCommandInput, CreateFileSystemCommandOutput } from "./commands/CreateFileSystemCommand";
+import type {
+  CreateMountTargetCommandInput,
+  CreateMountTargetCommandOutput,
+} from "./commands/CreateMountTargetCommand";
+import type {
   CreateReplicationConfigurationCommandInput,
   CreateReplicationConfigurationCommandOutput,
 } from "./commands/CreateReplicationConfigurationCommand";
-import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
-import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand";
-import { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "./commands/DeleteFileSystemCommand";
-import {
+import type { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import type {
+  DeleteAccessPointCommandInput,
+  DeleteAccessPointCommandOutput,
+} from "./commands/DeleteAccessPointCommand";
+import type { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "./commands/DeleteFileSystemCommand";
+import type {
   DeleteFileSystemPolicyCommandInput,
   DeleteFileSystemPolicyCommandOutput,
 } from "./commands/DeleteFileSystemPolicyCommand";
-import { DeleteMountTargetCommandInput, DeleteMountTargetCommandOutput } from "./commands/DeleteMountTargetCommand";
-import {
+import type {
+  DeleteMountTargetCommandInput,
+  DeleteMountTargetCommandOutput,
+} from "./commands/DeleteMountTargetCommand";
+import type {
   DeleteReplicationConfigurationCommandInput,
   DeleteReplicationConfigurationCommandOutput,
 } from "./commands/DeleteReplicationConfigurationCommand";
-import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
-import {
+import type { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import type {
   DescribeAccessPointsCommandInput,
   DescribeAccessPointsCommandOutput,
 } from "./commands/DescribeAccessPointsCommand";
-import {
+import type {
   DescribeAccountPreferencesCommandInput,
   DescribeAccountPreferencesCommandOutput,
 } from "./commands/DescribeAccountPreferencesCommand";
-import {
+import type {
   DescribeBackupPolicyCommandInput,
   DescribeBackupPolicyCommandOutput,
 } from "./commands/DescribeBackupPolicyCommand";
-import {
+import type {
   DescribeFileSystemPolicyCommandInput,
   DescribeFileSystemPolicyCommandOutput,
 } from "./commands/DescribeFileSystemPolicyCommand";
-import {
+import type {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
-import {
+import type {
   DescribeLifecycleConfigurationCommandInput,
   DescribeLifecycleConfigurationCommandOutput,
 } from "./commands/DescribeLifecycleConfigurationCommand";
-import {
+import type {
   DescribeMountTargetsCommandInput,
   DescribeMountTargetsCommandOutput,
 } from "./commands/DescribeMountTargetsCommand";
-import {
+import type {
   DescribeMountTargetSecurityGroupsCommandInput,
   DescribeMountTargetSecurityGroupsCommandOutput,
 } from "./commands/DescribeMountTargetSecurityGroupsCommand";
-import {
+import type {
   DescribeReplicationConfigurationsCommandInput,
   DescribeReplicationConfigurationsCommandOutput,
 } from "./commands/DescribeReplicationConfigurationsCommand";
-import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
-import {
+import type { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ModifyMountTargetSecurityGroupsCommandInput,
   ModifyMountTargetSecurityGroupsCommandOutput,
 } from "./commands/ModifyMountTargetSecurityGroupsCommand";
-import {
+import type {
   PutAccountPreferencesCommandInput,
   PutAccountPreferencesCommandOutput,
 } from "./commands/PutAccountPreferencesCommand";
-import { PutBackupPolicyCommandInput, PutBackupPolicyCommandOutput } from "./commands/PutBackupPolicyCommand";
-import {
+import type { PutBackupPolicyCommandInput, PutBackupPolicyCommandOutput } from "./commands/PutBackupPolicyCommand";
+import type {
   PutFileSystemPolicyCommandInput,
   PutFileSystemPolicyCommandOutput,
 } from "./commands/PutFileSystemPolicyCommand";
-import {
+import type {
   PutLifecycleConfigurationCommandInput,
   PutLifecycleConfigurationCommandOutput,
 } from "./commands/PutLifecycleConfigurationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand";
+import type {
   UpdateFileSystemProtectionCommandInput,
   UpdateFileSystemProtectionCommandOutput,
 } from "./commands/UpdateFileSystemProtectionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -345,7 +355,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

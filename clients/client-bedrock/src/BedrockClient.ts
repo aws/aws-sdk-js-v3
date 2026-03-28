@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,327 +61,363 @@ import {
   defaultBedrockHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchDeleteEvaluationJobCommandInput,
   BatchDeleteEvaluationJobCommandOutput,
 } from "./commands/BatchDeleteEvaluationJobCommand";
-import {
+import type {
   CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
   CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput,
 } from "./commands/CancelAutomatedReasoningPolicyBuildWorkflowCommand";
-import {
+import type {
   CreateAutomatedReasoningPolicyCommandInput,
   CreateAutomatedReasoningPolicyCommandOutput,
 } from "./commands/CreateAutomatedReasoningPolicyCommand";
-import {
+import type {
   CreateAutomatedReasoningPolicyTestCaseCommandInput,
   CreateAutomatedReasoningPolicyTestCaseCommandOutput,
 } from "./commands/CreateAutomatedReasoningPolicyTestCaseCommand";
-import {
+import type {
   CreateAutomatedReasoningPolicyVersionCommandInput,
   CreateAutomatedReasoningPolicyVersionCommandOutput,
 } from "./commands/CreateAutomatedReasoningPolicyVersionCommand";
-import { CreateCustomModelCommandInput, CreateCustomModelCommandOutput } from "./commands/CreateCustomModelCommand";
-import {
+import type {
+  CreateCustomModelCommandInput,
+  CreateCustomModelCommandOutput,
+} from "./commands/CreateCustomModelCommand";
+import type {
   CreateCustomModelDeploymentCommandInput,
   CreateCustomModelDeploymentCommandOutput,
 } from "./commands/CreateCustomModelDeploymentCommand";
-import {
+import type {
   CreateEvaluationJobCommandInput,
   CreateEvaluationJobCommandOutput,
 } from "./commands/CreateEvaluationJobCommand";
-import {
+import type {
   CreateFoundationModelAgreementCommandInput,
   CreateFoundationModelAgreementCommandOutput,
 } from "./commands/CreateFoundationModelAgreementCommand";
-import { CreateGuardrailCommandInput, CreateGuardrailCommandOutput } from "./commands/CreateGuardrailCommand";
-import {
+import type { CreateGuardrailCommandInput, CreateGuardrailCommandOutput } from "./commands/CreateGuardrailCommand";
+import type {
   CreateGuardrailVersionCommandInput,
   CreateGuardrailVersionCommandOutput,
 } from "./commands/CreateGuardrailVersionCommand";
-import {
+import type {
   CreateInferenceProfileCommandInput,
   CreateInferenceProfileCommandOutput,
 } from "./commands/CreateInferenceProfileCommand";
-import {
+import type {
   CreateMarketplaceModelEndpointCommandInput,
   CreateMarketplaceModelEndpointCommandOutput,
 } from "./commands/CreateMarketplaceModelEndpointCommand";
-import { CreateModelCopyJobCommandInput, CreateModelCopyJobCommandOutput } from "./commands/CreateModelCopyJobCommand";
-import {
+import type {
+  CreateModelCopyJobCommandInput,
+  CreateModelCopyJobCommandOutput,
+} from "./commands/CreateModelCopyJobCommand";
+import type {
   CreateModelCustomizationJobCommandInput,
   CreateModelCustomizationJobCommandOutput,
 } from "./commands/CreateModelCustomizationJobCommand";
-import {
+import type {
   CreateModelImportJobCommandInput,
   CreateModelImportJobCommandOutput,
 } from "./commands/CreateModelImportJobCommand";
-import {
+import type {
   CreateModelInvocationJobCommandInput,
   CreateModelInvocationJobCommandOutput,
 } from "./commands/CreateModelInvocationJobCommand";
-import { CreatePromptRouterCommandInput, CreatePromptRouterCommandOutput } from "./commands/CreatePromptRouterCommand";
-import {
+import type {
+  CreatePromptRouterCommandInput,
+  CreatePromptRouterCommandOutput,
+} from "./commands/CreatePromptRouterCommand";
+import type {
   CreateProvisionedModelThroughputCommandInput,
   CreateProvisionedModelThroughputCommandOutput,
 } from "./commands/CreateProvisionedModelThroughputCommand";
-import {
+import type {
   DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
   DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput,
 } from "./commands/DeleteAutomatedReasoningPolicyBuildWorkflowCommand";
-import {
+import type {
   DeleteAutomatedReasoningPolicyCommandInput,
   DeleteAutomatedReasoningPolicyCommandOutput,
 } from "./commands/DeleteAutomatedReasoningPolicyCommand";
-import {
+import type {
   DeleteAutomatedReasoningPolicyTestCaseCommandInput,
   DeleteAutomatedReasoningPolicyTestCaseCommandOutput,
 } from "./commands/DeleteAutomatedReasoningPolicyTestCaseCommand";
-import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "./commands/DeleteCustomModelCommand";
-import {
+import type {
+  DeleteCustomModelCommandInput,
+  DeleteCustomModelCommandOutput,
+} from "./commands/DeleteCustomModelCommand";
+import type {
   DeleteCustomModelDeploymentCommandInput,
   DeleteCustomModelDeploymentCommandOutput,
 } from "./commands/DeleteCustomModelDeploymentCommand";
-import {
+import type {
   DeleteEnforcedGuardrailConfigurationCommandInput,
   DeleteEnforcedGuardrailConfigurationCommandOutput,
 } from "./commands/DeleteEnforcedGuardrailConfigurationCommand";
-import {
+import type {
   DeleteFoundationModelAgreementCommandInput,
   DeleteFoundationModelAgreementCommandOutput,
 } from "./commands/DeleteFoundationModelAgreementCommand";
-import { DeleteGuardrailCommandInput, DeleteGuardrailCommandOutput } from "./commands/DeleteGuardrailCommand";
-import {
+import type { DeleteGuardrailCommandInput, DeleteGuardrailCommandOutput } from "./commands/DeleteGuardrailCommand";
+import type {
   DeleteImportedModelCommandInput,
   DeleteImportedModelCommandOutput,
 } from "./commands/DeleteImportedModelCommand";
-import {
+import type {
   DeleteInferenceProfileCommandInput,
   DeleteInferenceProfileCommandOutput,
 } from "./commands/DeleteInferenceProfileCommand";
-import {
+import type {
   DeleteMarketplaceModelEndpointCommandInput,
   DeleteMarketplaceModelEndpointCommandOutput,
 } from "./commands/DeleteMarketplaceModelEndpointCommand";
-import {
+import type {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/DeleteModelInvocationLoggingConfigurationCommand";
-import { DeletePromptRouterCommandInput, DeletePromptRouterCommandOutput } from "./commands/DeletePromptRouterCommand";
-import {
+import type {
+  DeletePromptRouterCommandInput,
+  DeletePromptRouterCommandOutput,
+} from "./commands/DeletePromptRouterCommand";
+import type {
   DeleteProvisionedModelThroughputCommandInput,
   DeleteProvisionedModelThroughputCommandOutput,
 } from "./commands/DeleteProvisionedModelThroughputCommand";
-import {
+import type {
   DeregisterMarketplaceModelEndpointCommandInput,
   DeregisterMarketplaceModelEndpointCommandOutput,
 } from "./commands/DeregisterMarketplaceModelEndpointCommand";
-import {
+import type {
   ExportAutomatedReasoningPolicyVersionCommandInput,
   ExportAutomatedReasoningPolicyVersionCommandOutput,
 } from "./commands/ExportAutomatedReasoningPolicyVersionCommand";
-import {
+import type {
   GetAutomatedReasoningPolicyAnnotationsCommandInput,
   GetAutomatedReasoningPolicyAnnotationsCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyAnnotationsCommand";
-import {
+import type {
   GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
   GetAutomatedReasoningPolicyBuildWorkflowCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyBuildWorkflowCommand";
-import {
+import type {
   GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
   GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand";
-import {
+import type {
   GetAutomatedReasoningPolicyCommandInput,
   GetAutomatedReasoningPolicyCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyCommand";
-import {
+import type {
   GetAutomatedReasoningPolicyNextScenarioCommandInput,
   GetAutomatedReasoningPolicyNextScenarioCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyNextScenarioCommand";
-import {
+import type {
   GetAutomatedReasoningPolicyTestCaseCommandInput,
   GetAutomatedReasoningPolicyTestCaseCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyTestCaseCommand";
-import {
+import type {
   GetAutomatedReasoningPolicyTestResultCommandInput,
   GetAutomatedReasoningPolicyTestResultCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyTestResultCommand";
-import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "./commands/GetCustomModelCommand";
-import {
+import type { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "./commands/GetCustomModelCommand";
+import type {
   GetCustomModelDeploymentCommandInput,
   GetCustomModelDeploymentCommandOutput,
 } from "./commands/GetCustomModelDeploymentCommand";
-import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "./commands/GetEvaluationJobCommand";
-import {
+import type { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "./commands/GetEvaluationJobCommand";
+import type {
   GetFoundationModelAvailabilityCommandInput,
   GetFoundationModelAvailabilityCommandOutput,
 } from "./commands/GetFoundationModelAvailabilityCommand";
-import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "./commands/GetFoundationModelCommand";
-import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "./commands/GetGuardrailCommand";
-import { GetImportedModelCommandInput, GetImportedModelCommandOutput } from "./commands/GetImportedModelCommand";
-import {
+import type {
+  GetFoundationModelCommandInput,
+  GetFoundationModelCommandOutput,
+} from "./commands/GetFoundationModelCommand";
+import type { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "./commands/GetGuardrailCommand";
+import type { GetImportedModelCommandInput, GetImportedModelCommandOutput } from "./commands/GetImportedModelCommand";
+import type {
   GetInferenceProfileCommandInput,
   GetInferenceProfileCommandOutput,
 } from "./commands/GetInferenceProfileCommand";
-import {
+import type {
   GetMarketplaceModelEndpointCommandInput,
   GetMarketplaceModelEndpointCommandOutput,
 } from "./commands/GetMarketplaceModelEndpointCommand";
-import { GetModelCopyJobCommandInput, GetModelCopyJobCommandOutput } from "./commands/GetModelCopyJobCommand";
-import {
+import type { GetModelCopyJobCommandInput, GetModelCopyJobCommandOutput } from "./commands/GetModelCopyJobCommand";
+import type {
   GetModelCustomizationJobCommandInput,
   GetModelCustomizationJobCommandOutput,
 } from "./commands/GetModelCustomizationJobCommand";
-import { GetModelImportJobCommandInput, GetModelImportJobCommandOutput } from "./commands/GetModelImportJobCommand";
-import {
+import type {
+  GetModelImportJobCommandInput,
+  GetModelImportJobCommandOutput,
+} from "./commands/GetModelImportJobCommand";
+import type {
   GetModelInvocationJobCommandInput,
   GetModelInvocationJobCommandOutput,
 } from "./commands/GetModelInvocationJobCommand";
-import {
+import type {
   GetModelInvocationLoggingConfigurationCommandInput,
   GetModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/GetModelInvocationLoggingConfigurationCommand";
-import { GetPromptRouterCommandInput, GetPromptRouterCommandOutput } from "./commands/GetPromptRouterCommand";
-import {
+import type { GetPromptRouterCommandInput, GetPromptRouterCommandOutput } from "./commands/GetPromptRouterCommand";
+import type {
   GetProvisionedModelThroughputCommandInput,
   GetProvisionedModelThroughputCommandOutput,
 } from "./commands/GetProvisionedModelThroughputCommand";
-import {
+import type {
   GetUseCaseForModelAccessCommandInput,
   GetUseCaseForModelAccessCommandOutput,
 } from "./commands/GetUseCaseForModelAccessCommand";
-import {
+import type {
   ListAutomatedReasoningPoliciesCommandInput,
   ListAutomatedReasoningPoliciesCommandOutput,
 } from "./commands/ListAutomatedReasoningPoliciesCommand";
-import {
+import type {
   ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
   ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput,
 } from "./commands/ListAutomatedReasoningPolicyBuildWorkflowsCommand";
-import {
+import type {
   ListAutomatedReasoningPolicyTestCasesCommandInput,
   ListAutomatedReasoningPolicyTestCasesCommandOutput,
 } from "./commands/ListAutomatedReasoningPolicyTestCasesCommand";
-import {
+import type {
   ListAutomatedReasoningPolicyTestResultsCommandInput,
   ListAutomatedReasoningPolicyTestResultsCommandOutput,
 } from "./commands/ListAutomatedReasoningPolicyTestResultsCommand";
-import {
+import type {
   ListCustomModelDeploymentsCommandInput,
   ListCustomModelDeploymentsCommandOutput,
 } from "./commands/ListCustomModelDeploymentsCommand";
-import { ListCustomModelsCommandInput, ListCustomModelsCommandOutput } from "./commands/ListCustomModelsCommand";
-import {
+import type { ListCustomModelsCommandInput, ListCustomModelsCommandOutput } from "./commands/ListCustomModelsCommand";
+import type {
   ListEnforcedGuardrailsConfigurationCommandInput,
   ListEnforcedGuardrailsConfigurationCommandOutput,
 } from "./commands/ListEnforcedGuardrailsConfigurationCommand";
-import { ListEvaluationJobsCommandInput, ListEvaluationJobsCommandOutput } from "./commands/ListEvaluationJobsCommand";
-import {
+import type {
+  ListEvaluationJobsCommandInput,
+  ListEvaluationJobsCommandOutput,
+} from "./commands/ListEvaluationJobsCommand";
+import type {
   ListFoundationModelAgreementOffersCommandInput,
   ListFoundationModelAgreementOffersCommandOutput,
 } from "./commands/ListFoundationModelAgreementOffersCommand";
-import {
+import type {
   ListFoundationModelsCommandInput,
   ListFoundationModelsCommandOutput,
 } from "./commands/ListFoundationModelsCommand";
-import { ListGuardrailsCommandInput, ListGuardrailsCommandOutput } from "./commands/ListGuardrailsCommand";
-import { ListImportedModelsCommandInput, ListImportedModelsCommandOutput } from "./commands/ListImportedModelsCommand";
-import {
+import type { ListGuardrailsCommandInput, ListGuardrailsCommandOutput } from "./commands/ListGuardrailsCommand";
+import type {
+  ListImportedModelsCommandInput,
+  ListImportedModelsCommandOutput,
+} from "./commands/ListImportedModelsCommand";
+import type {
   ListInferenceProfilesCommandInput,
   ListInferenceProfilesCommandOutput,
 } from "./commands/ListInferenceProfilesCommand";
-import {
+import type {
   ListMarketplaceModelEndpointsCommandInput,
   ListMarketplaceModelEndpointsCommandOutput,
 } from "./commands/ListMarketplaceModelEndpointsCommand";
-import { ListModelCopyJobsCommandInput, ListModelCopyJobsCommandOutput } from "./commands/ListModelCopyJobsCommand";
-import {
+import type {
+  ListModelCopyJobsCommandInput,
+  ListModelCopyJobsCommandOutput,
+} from "./commands/ListModelCopyJobsCommand";
+import type {
   ListModelCustomizationJobsCommandInput,
   ListModelCustomizationJobsCommandOutput,
 } from "./commands/ListModelCustomizationJobsCommand";
-import {
+import type {
   ListModelImportJobsCommandInput,
   ListModelImportJobsCommandOutput,
 } from "./commands/ListModelImportJobsCommand";
-import {
+import type {
   ListModelInvocationJobsCommandInput,
   ListModelInvocationJobsCommandOutput,
 } from "./commands/ListModelInvocationJobsCommand";
-import { ListPromptRoutersCommandInput, ListPromptRoutersCommandOutput } from "./commands/ListPromptRoutersCommand";
-import {
+import type {
+  ListPromptRoutersCommandInput,
+  ListPromptRoutersCommandOutput,
+} from "./commands/ListPromptRoutersCommand";
+import type {
   ListProvisionedModelThroughputsCommandInput,
   ListProvisionedModelThroughputsCommandOutput,
 } from "./commands/ListProvisionedModelThroughputsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutEnforcedGuardrailConfigurationCommandInput,
   PutEnforcedGuardrailConfigurationCommandOutput,
 } from "./commands/PutEnforcedGuardrailConfigurationCommand";
-import {
+import type {
   PutModelInvocationLoggingConfigurationCommandInput,
   PutModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/PutModelInvocationLoggingConfigurationCommand";
-import {
+import type {
   PutUseCaseForModelAccessCommandInput,
   PutUseCaseForModelAccessCommandOutput,
 } from "./commands/PutUseCaseForModelAccessCommand";
-import {
+import type {
   RegisterMarketplaceModelEndpointCommandInput,
   RegisterMarketplaceModelEndpointCommandOutput,
 } from "./commands/RegisterMarketplaceModelEndpointCommand";
-import {
+import type {
   StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
   StartAutomatedReasoningPolicyBuildWorkflowCommandOutput,
 } from "./commands/StartAutomatedReasoningPolicyBuildWorkflowCommand";
-import {
+import type {
   StartAutomatedReasoningPolicyTestWorkflowCommandInput,
   StartAutomatedReasoningPolicyTestWorkflowCommandOutput,
 } from "./commands/StartAutomatedReasoningPolicyTestWorkflowCommand";
-import { StopEvaluationJobCommandInput, StopEvaluationJobCommandOutput } from "./commands/StopEvaluationJobCommand";
-import {
+import type {
+  StopEvaluationJobCommandInput,
+  StopEvaluationJobCommandOutput,
+} from "./commands/StopEvaluationJobCommand";
+import type {
   StopModelCustomizationJobCommandInput,
   StopModelCustomizationJobCommandOutput,
 } from "./commands/StopModelCustomizationJobCommand";
-import {
+import type {
   StopModelInvocationJobCommandInput,
   StopModelInvocationJobCommandOutput,
 } from "./commands/StopModelInvocationJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
   UpdateAutomatedReasoningPolicyAnnotationsCommandOutput,
 } from "./commands/UpdateAutomatedReasoningPolicyAnnotationsCommand";
-import {
+import type {
   UpdateAutomatedReasoningPolicyCommandInput,
   UpdateAutomatedReasoningPolicyCommandOutput,
 } from "./commands/UpdateAutomatedReasoningPolicyCommand";
-import {
+import type {
   UpdateAutomatedReasoningPolicyTestCaseCommandInput,
   UpdateAutomatedReasoningPolicyTestCaseCommandOutput,
 } from "./commands/UpdateAutomatedReasoningPolicyTestCaseCommand";
-import {
+import type {
   UpdateCustomModelDeploymentCommandInput,
   UpdateCustomModelDeploymentCommandOutput,
 } from "./commands/UpdateCustomModelDeploymentCommand";
-import { UpdateGuardrailCommandInput, UpdateGuardrailCommandOutput } from "./commands/UpdateGuardrailCommand";
-import {
+import type { UpdateGuardrailCommandInput, UpdateGuardrailCommandOutput } from "./commands/UpdateGuardrailCommand";
+import type {
   UpdateMarketplaceModelEndpointCommandInput,
   UpdateMarketplaceModelEndpointCommandOutput,
 } from "./commands/UpdateMarketplaceModelEndpointCommand";
-import {
+import type {
   UpdateProvisionedModelThroughputCommandInput,
   UpdateProvisionedModelThroughputCommandOutput,
 } from "./commands/UpdateProvisionedModelThroughputCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -711,7 +745,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

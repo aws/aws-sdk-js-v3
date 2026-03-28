@@ -8,7 +8,7 @@ import {
   ListDataViewsCommandOutput,
 } from "../commands/ListDataViewsCommand";
 import { FinspaceDataClient } from "../FinspaceDataClient";
-import { FinspaceDataPaginationConfiguration } from "./Interfaces";
+import type { FinspaceDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

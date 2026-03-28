@@ -8,7 +8,7 @@ import {
   ListAddonSubscriptionsCommandOutput,
 } from "../commands/ListAddonSubscriptionsCommand";
 import { MailManagerClient } from "../MailManagerClient";
-import { MailManagerPaginationConfiguration } from "./Interfaces";
+import type { MailManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

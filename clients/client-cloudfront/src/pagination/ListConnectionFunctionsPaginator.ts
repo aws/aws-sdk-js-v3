@@ -8,7 +8,7 @@ import {
   ListConnectionFunctionsCommandInput,
   ListConnectionFunctionsCommandOutput,
 } from "../commands/ListConnectionFunctionsCommand";
-import { CloudFrontPaginationConfiguration } from "./Interfaces";
+import type { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

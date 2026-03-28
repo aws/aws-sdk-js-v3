@@ -8,7 +8,7 @@ import {
   ListTapePoolsCommandOutput,
 } from "../commands/ListTapePoolsCommand";
 import { StorageGatewayClient } from "../StorageGatewayClient";
-import { StorageGatewayPaginationConfiguration } from "./Interfaces";
+import type { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

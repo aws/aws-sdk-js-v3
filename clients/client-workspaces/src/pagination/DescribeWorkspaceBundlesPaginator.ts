@@ -8,7 +8,7 @@ import {
   DescribeWorkspaceBundlesCommandOutput,
 } from "../commands/DescribeWorkspaceBundlesCommand";
 import { WorkSpacesClient } from "../WorkSpacesClient";
-import { WorkSpacesPaginationConfiguration } from "./Interfaces";
+import type { WorkSpacesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,55 +4,59 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { AIOpsClient } from "./AIOpsClient";
 import {
+  type CreateInvestigationGroupCommandInput,
+  type CreateInvestigationGroupCommandOutput,
   CreateInvestigationGroupCommand,
-  CreateInvestigationGroupCommandInput,
-  CreateInvestigationGroupCommandOutput,
 } from "./commands/CreateInvestigationGroupCommand";
 import {
+  type DeleteInvestigationGroupCommandInput,
+  type DeleteInvestigationGroupCommandOutput,
   DeleteInvestigationGroupCommand,
-  DeleteInvestigationGroupCommandInput,
-  DeleteInvestigationGroupCommandOutput,
 } from "./commands/DeleteInvestigationGroupCommand";
 import {
+  type DeleteInvestigationGroupPolicyCommandInput,
+  type DeleteInvestigationGroupPolicyCommandOutput,
   DeleteInvestigationGroupPolicyCommand,
-  DeleteInvestigationGroupPolicyCommandInput,
-  DeleteInvestigationGroupPolicyCommandOutput,
 } from "./commands/DeleteInvestigationGroupPolicyCommand";
 import {
+  type GetInvestigationGroupCommandInput,
+  type GetInvestigationGroupCommandOutput,
   GetInvestigationGroupCommand,
-  GetInvestigationGroupCommandInput,
-  GetInvestigationGroupCommandOutput,
 } from "./commands/GetInvestigationGroupCommand";
 import {
+  type GetInvestigationGroupPolicyCommandInput,
+  type GetInvestigationGroupPolicyCommandOutput,
   GetInvestigationGroupPolicyCommand,
-  GetInvestigationGroupPolicyCommandInput,
-  GetInvestigationGroupPolicyCommandOutput,
 } from "./commands/GetInvestigationGroupPolicyCommand";
 import {
+  type ListInvestigationGroupsCommandInput,
+  type ListInvestigationGroupsCommandOutput,
   ListInvestigationGroupsCommand,
-  ListInvestigationGroupsCommandInput,
-  ListInvestigationGroupsCommandOutput,
 } from "./commands/ListInvestigationGroupsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutInvestigationGroupPolicyCommandInput,
+  type PutInvestigationGroupPolicyCommandOutput,
   PutInvestigationGroupPolicyCommand,
-  PutInvestigationGroupPolicyCommandInput,
-  PutInvestigationGroupPolicyCommandOutput,
 } from "./commands/PutInvestigationGroupPolicyCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateInvestigationGroupCommandInput,
+  type UpdateInvestigationGroupCommandOutput,
   UpdateInvestigationGroupCommand,
-  UpdateInvestigationGroupCommandInput,
-  UpdateInvestigationGroupCommandOutput,
 } from "./commands/UpdateInvestigationGroupCommand";
 import { paginateListInvestigationGroups } from "./pagination/ListInvestigationGroupsPaginator";
 

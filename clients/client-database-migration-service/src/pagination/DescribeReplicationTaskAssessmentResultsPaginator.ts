@@ -8,7 +8,7 @@ import {
   DescribeReplicationTaskAssessmentResultsCommandOutput,
 } from "../commands/DescribeReplicationTaskAssessmentResultsCommand";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
-import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
+import type { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

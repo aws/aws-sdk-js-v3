@@ -8,7 +8,7 @@ import {
   ListCloudExadataInfrastructuresCommandOutput,
 } from "../commands/ListCloudExadataInfrastructuresCommand";
 import { OdbClient } from "../OdbClient";
-import { OdbPaginationConfiguration } from "./Interfaces";
+import type { OdbPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListResourceDelegatesCommandOutput,
 } from "../commands/ListResourceDelegatesCommand";
 import { WorkMailClient } from "../WorkMailClient";
-import { WorkMailPaginationConfiguration } from "./Interfaces";
+import type { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

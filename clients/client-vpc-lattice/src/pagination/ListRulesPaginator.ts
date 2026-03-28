@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListRulesCommand, ListRulesCommandInput, ListRulesCommandOutput } from "../commands/ListRulesCommand";
 import { VPCLatticeClient } from "../VPCLatticeClient";
-import { VPCLatticePaginationConfiguration } from "./Interfaces";
+import type { VPCLatticePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

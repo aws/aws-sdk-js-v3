@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } from "../commands/ListTopicsCommand";
 import { SNSClient } from "../SNSClient";
-import { SNSPaginationConfiguration } from "./Interfaces";
+import type { SNSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

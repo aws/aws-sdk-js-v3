@@ -8,7 +8,7 @@ import {
   ListChatResponseConfigurationsCommandOutput,
 } from "../commands/ListChatResponseConfigurationsCommand";
 import { QBusinessClient } from "../QBusinessClient";
-import { QBusinessPaginationConfiguration } from "./Interfaces";
+import type { QBusinessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

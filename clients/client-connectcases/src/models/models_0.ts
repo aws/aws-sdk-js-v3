@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   AuditEventType,
   CommentBodyTextType,
   DomainStatus,

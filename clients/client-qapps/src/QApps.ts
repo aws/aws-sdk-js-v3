@@ -3,151 +3,171 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateLibraryItemReviewCommandInput,
+  type AssociateLibraryItemReviewCommandOutput,
   AssociateLibraryItemReviewCommand,
-  AssociateLibraryItemReviewCommandInput,
-  AssociateLibraryItemReviewCommandOutput,
 } from "./commands/AssociateLibraryItemReviewCommand";
 import {
+  type AssociateQAppWithUserCommandInput,
+  type AssociateQAppWithUserCommandOutput,
   AssociateQAppWithUserCommand,
-  AssociateQAppWithUserCommandInput,
-  AssociateQAppWithUserCommandOutput,
 } from "./commands/AssociateQAppWithUserCommand";
 import {
+  type BatchCreateCategoryCommandInput,
+  type BatchCreateCategoryCommandOutput,
   BatchCreateCategoryCommand,
-  BatchCreateCategoryCommandInput,
-  BatchCreateCategoryCommandOutput,
 } from "./commands/BatchCreateCategoryCommand";
 import {
+  type BatchDeleteCategoryCommandInput,
+  type BatchDeleteCategoryCommandOutput,
   BatchDeleteCategoryCommand,
-  BatchDeleteCategoryCommandInput,
-  BatchDeleteCategoryCommandOutput,
 } from "./commands/BatchDeleteCategoryCommand";
 import {
+  type BatchUpdateCategoryCommandInput,
+  type BatchUpdateCategoryCommandOutput,
   BatchUpdateCategoryCommand,
-  BatchUpdateCategoryCommandInput,
-  BatchUpdateCategoryCommandOutput,
 } from "./commands/BatchUpdateCategoryCommand";
 import {
+  type CreateLibraryItemCommandInput,
+  type CreateLibraryItemCommandOutput,
   CreateLibraryItemCommand,
-  CreateLibraryItemCommandInput,
-  CreateLibraryItemCommandOutput,
 } from "./commands/CreateLibraryItemCommand";
 import {
+  type CreatePresignedUrlCommandInput,
+  type CreatePresignedUrlCommandOutput,
   CreatePresignedUrlCommand,
-  CreatePresignedUrlCommandInput,
-  CreatePresignedUrlCommandOutput,
 } from "./commands/CreatePresignedUrlCommand";
-import { CreateQAppCommand, CreateQAppCommandInput, CreateQAppCommandOutput } from "./commands/CreateQAppCommand";
 import {
+  type CreateQAppCommandInput,
+  type CreateQAppCommandOutput,
+  CreateQAppCommand,
+} from "./commands/CreateQAppCommand";
+import {
+  type DeleteLibraryItemCommandInput,
+  type DeleteLibraryItemCommandOutput,
   DeleteLibraryItemCommand,
-  DeleteLibraryItemCommandInput,
-  DeleteLibraryItemCommandOutput,
 } from "./commands/DeleteLibraryItemCommand";
-import { DeleteQAppCommand, DeleteQAppCommandInput, DeleteQAppCommandOutput } from "./commands/DeleteQAppCommand";
 import {
+  type DeleteQAppCommandInput,
+  type DeleteQAppCommandOutput,
+  DeleteQAppCommand,
+} from "./commands/DeleteQAppCommand";
+import {
+  type DescribeQAppPermissionsCommandInput,
+  type DescribeQAppPermissionsCommandOutput,
   DescribeQAppPermissionsCommand,
-  DescribeQAppPermissionsCommandInput,
-  DescribeQAppPermissionsCommandOutput,
 } from "./commands/DescribeQAppPermissionsCommand";
 import {
+  type DisassociateLibraryItemReviewCommandInput,
+  type DisassociateLibraryItemReviewCommandOutput,
   DisassociateLibraryItemReviewCommand,
-  DisassociateLibraryItemReviewCommandInput,
-  DisassociateLibraryItemReviewCommandOutput,
 } from "./commands/DisassociateLibraryItemReviewCommand";
 import {
+  type DisassociateQAppFromUserCommandInput,
+  type DisassociateQAppFromUserCommandOutput,
   DisassociateQAppFromUserCommand,
-  DisassociateQAppFromUserCommandInput,
-  DisassociateQAppFromUserCommandOutput,
 } from "./commands/DisassociateQAppFromUserCommand";
 import {
+  type ExportQAppSessionDataCommandInput,
+  type ExportQAppSessionDataCommandOutput,
   ExportQAppSessionDataCommand,
-  ExportQAppSessionDataCommandInput,
-  ExportQAppSessionDataCommandOutput,
 } from "./commands/ExportQAppSessionDataCommand";
 import {
+  type GetLibraryItemCommandInput,
+  type GetLibraryItemCommandOutput,
   GetLibraryItemCommand,
-  GetLibraryItemCommandInput,
-  GetLibraryItemCommandOutput,
 } from "./commands/GetLibraryItemCommand";
-import { GetQAppCommand, GetQAppCommandInput, GetQAppCommandOutput } from "./commands/GetQAppCommand";
+import { type GetQAppCommandInput, type GetQAppCommandOutput, GetQAppCommand } from "./commands/GetQAppCommand";
 import {
+  type GetQAppSessionCommandInput,
+  type GetQAppSessionCommandOutput,
   GetQAppSessionCommand,
-  GetQAppSessionCommandInput,
-  GetQAppSessionCommandOutput,
 } from "./commands/GetQAppSessionCommand";
 import {
+  type GetQAppSessionMetadataCommandInput,
+  type GetQAppSessionMetadataCommandOutput,
   GetQAppSessionMetadataCommand,
-  GetQAppSessionMetadataCommandInput,
-  GetQAppSessionMetadataCommandOutput,
 } from "./commands/GetQAppSessionMetadataCommand";
 import {
+  type ImportDocumentCommandInput,
+  type ImportDocumentCommandOutput,
   ImportDocumentCommand,
-  ImportDocumentCommandInput,
-  ImportDocumentCommandOutput,
 } from "./commands/ImportDocumentCommand";
 import {
+  type ListCategoriesCommandInput,
+  type ListCategoriesCommandOutput,
   ListCategoriesCommand,
-  ListCategoriesCommandInput,
-  ListCategoriesCommandOutput,
 } from "./commands/ListCategoriesCommand";
 import {
+  type ListLibraryItemsCommandInput,
+  type ListLibraryItemsCommandOutput,
   ListLibraryItemsCommand,
-  ListLibraryItemsCommandInput,
-  ListLibraryItemsCommandOutput,
 } from "./commands/ListLibraryItemsCommand";
-import { ListQAppsCommand, ListQAppsCommandInput, ListQAppsCommandOutput } from "./commands/ListQAppsCommand";
+import { type ListQAppsCommandInput, type ListQAppsCommandOutput, ListQAppsCommand } from "./commands/ListQAppsCommand";
 import {
+  type ListQAppSessionDataCommandInput,
+  type ListQAppSessionDataCommandOutput,
   ListQAppSessionDataCommand,
-  ListQAppSessionDataCommandInput,
-  ListQAppSessionDataCommandOutput,
 } from "./commands/ListQAppSessionDataCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PredictQAppCommand, PredictQAppCommandInput, PredictQAppCommandOutput } from "./commands/PredictQAppCommand";
 import {
+  type PredictQAppCommandInput,
+  type PredictQAppCommandOutput,
+  PredictQAppCommand,
+} from "./commands/PredictQAppCommand";
+import {
+  type StartQAppSessionCommandInput,
+  type StartQAppSessionCommandOutput,
   StartQAppSessionCommand,
-  StartQAppSessionCommandInput,
-  StartQAppSessionCommandOutput,
 } from "./commands/StartQAppSessionCommand";
 import {
+  type StopQAppSessionCommandInput,
+  type StopQAppSessionCommandOutput,
   StopQAppSessionCommand,
-  StopQAppSessionCommandInput,
-  StopQAppSessionCommandOutput,
 } from "./commands/StopQAppSessionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateLibraryItemCommandInput,
+  type UpdateLibraryItemCommandOutput,
   UpdateLibraryItemCommand,
-  UpdateLibraryItemCommandInput,
-  UpdateLibraryItemCommandOutput,
 } from "./commands/UpdateLibraryItemCommand";
 import {
+  type UpdateLibraryItemMetadataCommandInput,
+  type UpdateLibraryItemMetadataCommandOutput,
   UpdateLibraryItemMetadataCommand,
-  UpdateLibraryItemMetadataCommandInput,
-  UpdateLibraryItemMetadataCommandOutput,
 } from "./commands/UpdateLibraryItemMetadataCommand";
-import { UpdateQAppCommand, UpdateQAppCommandInput, UpdateQAppCommandOutput } from "./commands/UpdateQAppCommand";
 import {
+  type UpdateQAppCommandInput,
+  type UpdateQAppCommandOutput,
+  UpdateQAppCommand,
+} from "./commands/UpdateQAppCommand";
+import {
+  type UpdateQAppPermissionsCommandInput,
+  type UpdateQAppPermissionsCommandOutput,
   UpdateQAppPermissionsCommand,
-  UpdateQAppPermissionsCommandInput,
-  UpdateQAppPermissionsCommandOutput,
 } from "./commands/UpdateQAppPermissionsCommand";
 import {
+  type UpdateQAppSessionCommandInput,
+  type UpdateQAppSessionCommandOutput,
   UpdateQAppSessionCommand,
-  UpdateQAppSessionCommandInput,
-  UpdateQAppSessionCommandOutput,
 } from "./commands/UpdateQAppSessionCommand";
 import {
+  type UpdateQAppSessionMetadataCommandInput,
+  type UpdateQAppSessionMetadataCommandOutput,
   UpdateQAppSessionMetadataCommand,
-  UpdateQAppSessionMetadataCommandInput,
-  UpdateQAppSessionMetadataCommandOutput,
 } from "./commands/UpdateQAppSessionMetadataCommand";
 import { paginateListLibraryItems } from "./pagination/ListLibraryItemsPaginator";
 import { paginateListQApps } from "./pagination/ListQAppsPaginator";

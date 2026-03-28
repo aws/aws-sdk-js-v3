@@ -3,361 +3,385 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelImageCreationCommandInput,
+  type CancelImageCreationCommandOutput,
   CancelImageCreationCommand,
-  CancelImageCreationCommandInput,
-  CancelImageCreationCommandOutput,
 } from "./commands/CancelImageCreationCommand";
 import {
+  type CancelLifecycleExecutionCommandInput,
+  type CancelLifecycleExecutionCommandOutput,
   CancelLifecycleExecutionCommand,
-  CancelLifecycleExecutionCommandInput,
-  CancelLifecycleExecutionCommandOutput,
 } from "./commands/CancelLifecycleExecutionCommand";
 import {
+  type CreateComponentCommandInput,
+  type CreateComponentCommandOutput,
   CreateComponentCommand,
-  CreateComponentCommandInput,
-  CreateComponentCommandOutput,
 } from "./commands/CreateComponentCommand";
 import {
+  type CreateContainerRecipeCommandInput,
+  type CreateContainerRecipeCommandOutput,
   CreateContainerRecipeCommand,
-  CreateContainerRecipeCommandInput,
-  CreateContainerRecipeCommandOutput,
 } from "./commands/CreateContainerRecipeCommand";
 import {
+  type CreateDistributionConfigurationCommandInput,
+  type CreateDistributionConfigurationCommandOutput,
   CreateDistributionConfigurationCommand,
-  CreateDistributionConfigurationCommandInput,
-  CreateDistributionConfigurationCommandOutput,
 } from "./commands/CreateDistributionConfigurationCommand";
-import { CreateImageCommand, CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
+  type CreateImageCommandInput,
+  type CreateImageCommandOutput,
+  CreateImageCommand,
+} from "./commands/CreateImageCommand";
+import {
+  type CreateImagePipelineCommandInput,
+  type CreateImagePipelineCommandOutput,
   CreateImagePipelineCommand,
-  CreateImagePipelineCommandInput,
-  CreateImagePipelineCommandOutput,
 } from "./commands/CreateImagePipelineCommand";
 import {
+  type CreateImageRecipeCommandInput,
+  type CreateImageRecipeCommandOutput,
   CreateImageRecipeCommand,
-  CreateImageRecipeCommandInput,
-  CreateImageRecipeCommandOutput,
 } from "./commands/CreateImageRecipeCommand";
 import {
+  type CreateInfrastructureConfigurationCommandInput,
+  type CreateInfrastructureConfigurationCommandOutput,
   CreateInfrastructureConfigurationCommand,
-  CreateInfrastructureConfigurationCommandInput,
-  CreateInfrastructureConfigurationCommandOutput,
 } from "./commands/CreateInfrastructureConfigurationCommand";
 import {
+  type CreateLifecyclePolicyCommandInput,
+  type CreateLifecyclePolicyCommandOutput,
   CreateLifecyclePolicyCommand,
-  CreateLifecyclePolicyCommandInput,
-  CreateLifecyclePolicyCommandOutput,
 } from "./commands/CreateLifecyclePolicyCommand";
 import {
+  type CreateWorkflowCommandInput,
+  type CreateWorkflowCommandOutput,
   CreateWorkflowCommand,
-  CreateWorkflowCommandInput,
-  CreateWorkflowCommandOutput,
 } from "./commands/CreateWorkflowCommand";
 import {
+  type DeleteComponentCommandInput,
+  type DeleteComponentCommandOutput,
   DeleteComponentCommand,
-  DeleteComponentCommandInput,
-  DeleteComponentCommandOutput,
 } from "./commands/DeleteComponentCommand";
 import {
+  type DeleteContainerRecipeCommandInput,
+  type DeleteContainerRecipeCommandOutput,
   DeleteContainerRecipeCommand,
-  DeleteContainerRecipeCommandInput,
-  DeleteContainerRecipeCommandOutput,
 } from "./commands/DeleteContainerRecipeCommand";
 import {
+  type DeleteDistributionConfigurationCommandInput,
+  type DeleteDistributionConfigurationCommandOutput,
   DeleteDistributionConfigurationCommand,
-  DeleteDistributionConfigurationCommandInput,
-  DeleteDistributionConfigurationCommandOutput,
 } from "./commands/DeleteDistributionConfigurationCommand";
-import { DeleteImageCommand, DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
 import {
+  type DeleteImageCommandInput,
+  type DeleteImageCommandOutput,
+  DeleteImageCommand,
+} from "./commands/DeleteImageCommand";
+import {
+  type DeleteImagePipelineCommandInput,
+  type DeleteImagePipelineCommandOutput,
   DeleteImagePipelineCommand,
-  DeleteImagePipelineCommandInput,
-  DeleteImagePipelineCommandOutput,
 } from "./commands/DeleteImagePipelineCommand";
 import {
+  type DeleteImageRecipeCommandInput,
+  type DeleteImageRecipeCommandOutput,
   DeleteImageRecipeCommand,
-  DeleteImageRecipeCommandInput,
-  DeleteImageRecipeCommandOutput,
 } from "./commands/DeleteImageRecipeCommand";
 import {
+  type DeleteInfrastructureConfigurationCommandInput,
+  type DeleteInfrastructureConfigurationCommandOutput,
   DeleteInfrastructureConfigurationCommand,
-  DeleteInfrastructureConfigurationCommandInput,
-  DeleteInfrastructureConfigurationCommandOutput,
 } from "./commands/DeleteInfrastructureConfigurationCommand";
 import {
+  type DeleteLifecyclePolicyCommandInput,
+  type DeleteLifecyclePolicyCommandOutput,
   DeleteLifecyclePolicyCommand,
-  DeleteLifecyclePolicyCommandInput,
-  DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
 import {
+  type DeleteWorkflowCommandInput,
+  type DeleteWorkflowCommandOutput,
   DeleteWorkflowCommand,
-  DeleteWorkflowCommandInput,
-  DeleteWorkflowCommandOutput,
 } from "./commands/DeleteWorkflowCommand";
 import {
+  type DistributeImageCommandInput,
+  type DistributeImageCommandOutput,
   DistributeImageCommand,
-  DistributeImageCommandInput,
-  DistributeImageCommandOutput,
 } from "./commands/DistributeImageCommand";
 import {
+  type GetComponentCommandInput,
+  type GetComponentCommandOutput,
   GetComponentCommand,
-  GetComponentCommandInput,
-  GetComponentCommandOutput,
 } from "./commands/GetComponentCommand";
 import {
+  type GetComponentPolicyCommandInput,
+  type GetComponentPolicyCommandOutput,
   GetComponentPolicyCommand,
-  GetComponentPolicyCommandInput,
-  GetComponentPolicyCommandOutput,
 } from "./commands/GetComponentPolicyCommand";
 import {
+  type GetContainerRecipeCommandInput,
+  type GetContainerRecipeCommandOutput,
   GetContainerRecipeCommand,
-  GetContainerRecipeCommandInput,
-  GetContainerRecipeCommandOutput,
 } from "./commands/GetContainerRecipeCommand";
 import {
+  type GetContainerRecipePolicyCommandInput,
+  type GetContainerRecipePolicyCommandOutput,
   GetContainerRecipePolicyCommand,
-  GetContainerRecipePolicyCommandInput,
-  GetContainerRecipePolicyCommandOutput,
 } from "./commands/GetContainerRecipePolicyCommand";
 import {
+  type GetDistributionConfigurationCommandInput,
+  type GetDistributionConfigurationCommandOutput,
   GetDistributionConfigurationCommand,
-  GetDistributionConfigurationCommandInput,
-  GetDistributionConfigurationCommandOutput,
 } from "./commands/GetDistributionConfigurationCommand";
-import { GetImageCommand, GetImageCommandInput, GetImageCommandOutput } from "./commands/GetImageCommand";
+import { type GetImageCommandInput, type GetImageCommandOutput, GetImageCommand } from "./commands/GetImageCommand";
 import {
+  type GetImagePipelineCommandInput,
+  type GetImagePipelineCommandOutput,
   GetImagePipelineCommand,
-  GetImagePipelineCommandInput,
-  GetImagePipelineCommandOutput,
 } from "./commands/GetImagePipelineCommand";
 import {
+  type GetImagePolicyCommandInput,
+  type GetImagePolicyCommandOutput,
   GetImagePolicyCommand,
-  GetImagePolicyCommandInput,
-  GetImagePolicyCommandOutput,
 } from "./commands/GetImagePolicyCommand";
 import {
+  type GetImageRecipeCommandInput,
+  type GetImageRecipeCommandOutput,
   GetImageRecipeCommand,
-  GetImageRecipeCommandInput,
-  GetImageRecipeCommandOutput,
 } from "./commands/GetImageRecipeCommand";
 import {
+  type GetImageRecipePolicyCommandInput,
+  type GetImageRecipePolicyCommandOutput,
   GetImageRecipePolicyCommand,
-  GetImageRecipePolicyCommandInput,
-  GetImageRecipePolicyCommandOutput,
 } from "./commands/GetImageRecipePolicyCommand";
 import {
+  type GetInfrastructureConfigurationCommandInput,
+  type GetInfrastructureConfigurationCommandOutput,
   GetInfrastructureConfigurationCommand,
-  GetInfrastructureConfigurationCommandInput,
-  GetInfrastructureConfigurationCommandOutput,
 } from "./commands/GetInfrastructureConfigurationCommand";
 import {
+  type GetLifecycleExecutionCommandInput,
+  type GetLifecycleExecutionCommandOutput,
   GetLifecycleExecutionCommand,
-  GetLifecycleExecutionCommandInput,
-  GetLifecycleExecutionCommandOutput,
 } from "./commands/GetLifecycleExecutionCommand";
 import {
+  type GetLifecyclePolicyCommandInput,
+  type GetLifecyclePolicyCommandOutput,
   GetLifecyclePolicyCommand,
-  GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput,
 } from "./commands/GetLifecyclePolicyCommand";
 import {
+  type GetMarketplaceResourceCommandInput,
+  type GetMarketplaceResourceCommandOutput,
   GetMarketplaceResourceCommand,
-  GetMarketplaceResourceCommandInput,
-  GetMarketplaceResourceCommandOutput,
 } from "./commands/GetMarketplaceResourceCommand";
-import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
+  type GetWorkflowCommandInput,
+  type GetWorkflowCommandOutput,
+  GetWorkflowCommand,
+} from "./commands/GetWorkflowCommand";
+import {
+  type GetWorkflowExecutionCommandInput,
+  type GetWorkflowExecutionCommandOutput,
   GetWorkflowExecutionCommand,
-  GetWorkflowExecutionCommandInput,
-  GetWorkflowExecutionCommandOutput,
 } from "./commands/GetWorkflowExecutionCommand";
 import {
+  type GetWorkflowStepExecutionCommandInput,
+  type GetWorkflowStepExecutionCommandOutput,
   GetWorkflowStepExecutionCommand,
-  GetWorkflowStepExecutionCommandInput,
-  GetWorkflowStepExecutionCommandOutput,
 } from "./commands/GetWorkflowStepExecutionCommand";
 import {
+  type ImportComponentCommandInput,
+  type ImportComponentCommandOutput,
   ImportComponentCommand,
-  ImportComponentCommandInput,
-  ImportComponentCommandOutput,
 } from "./commands/ImportComponentCommand";
 import {
+  type ImportDiskImageCommandInput,
+  type ImportDiskImageCommandOutput,
   ImportDiskImageCommand,
-  ImportDiskImageCommandInput,
-  ImportDiskImageCommandOutput,
 } from "./commands/ImportDiskImageCommand";
 import {
+  type ImportVmImageCommandInput,
+  type ImportVmImageCommandOutput,
   ImportVmImageCommand,
-  ImportVmImageCommandInput,
-  ImportVmImageCommandOutput,
 } from "./commands/ImportVmImageCommand";
 import {
+  type ListComponentBuildVersionsCommandInput,
+  type ListComponentBuildVersionsCommandOutput,
   ListComponentBuildVersionsCommand,
-  ListComponentBuildVersionsCommandInput,
-  ListComponentBuildVersionsCommandOutput,
 } from "./commands/ListComponentBuildVersionsCommand";
 import {
+  type ListComponentsCommandInput,
+  type ListComponentsCommandOutput,
   ListComponentsCommand,
-  ListComponentsCommandInput,
-  ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
 import {
+  type ListContainerRecipesCommandInput,
+  type ListContainerRecipesCommandOutput,
   ListContainerRecipesCommand,
-  ListContainerRecipesCommandInput,
-  ListContainerRecipesCommandOutput,
 } from "./commands/ListContainerRecipesCommand";
 import {
+  type ListDistributionConfigurationsCommandInput,
+  type ListDistributionConfigurationsCommandOutput,
   ListDistributionConfigurationsCommand,
-  ListDistributionConfigurationsCommandInput,
-  ListDistributionConfigurationsCommandOutput,
 } from "./commands/ListDistributionConfigurationsCommand";
 import {
+  type ListImageBuildVersionsCommandInput,
+  type ListImageBuildVersionsCommandOutput,
   ListImageBuildVersionsCommand,
-  ListImageBuildVersionsCommandInput,
-  ListImageBuildVersionsCommandOutput,
 } from "./commands/ListImageBuildVersionsCommand";
 import {
+  type ListImagePackagesCommandInput,
+  type ListImagePackagesCommandOutput,
   ListImagePackagesCommand,
-  ListImagePackagesCommandInput,
-  ListImagePackagesCommandOutput,
 } from "./commands/ListImagePackagesCommand";
 import {
+  type ListImagePipelineImagesCommandInput,
+  type ListImagePipelineImagesCommandOutput,
   ListImagePipelineImagesCommand,
-  ListImagePipelineImagesCommandInput,
-  ListImagePipelineImagesCommandOutput,
 } from "./commands/ListImagePipelineImagesCommand";
 import {
+  type ListImagePipelinesCommandInput,
+  type ListImagePipelinesCommandOutput,
   ListImagePipelinesCommand,
-  ListImagePipelinesCommandInput,
-  ListImagePipelinesCommandOutput,
 } from "./commands/ListImagePipelinesCommand";
 import {
+  type ListImageRecipesCommandInput,
+  type ListImageRecipesCommandOutput,
   ListImageRecipesCommand,
-  ListImageRecipesCommandInput,
-  ListImageRecipesCommandOutput,
 } from "./commands/ListImageRecipesCommand";
 import {
+  type ListImageScanFindingAggregationsCommandInput,
+  type ListImageScanFindingAggregationsCommandOutput,
   ListImageScanFindingAggregationsCommand,
-  ListImageScanFindingAggregationsCommandInput,
-  ListImageScanFindingAggregationsCommandOutput,
 } from "./commands/ListImageScanFindingAggregationsCommand";
 import {
+  type ListImageScanFindingsCommandInput,
+  type ListImageScanFindingsCommandOutput,
   ListImageScanFindingsCommand,
-  ListImageScanFindingsCommandInput,
-  ListImageScanFindingsCommandOutput,
 } from "./commands/ListImageScanFindingsCommand";
-import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
+  type ListImagesCommandInput,
+  type ListImagesCommandOutput,
+  ListImagesCommand,
+} from "./commands/ListImagesCommand";
+import {
+  type ListInfrastructureConfigurationsCommandInput,
+  type ListInfrastructureConfigurationsCommandOutput,
   ListInfrastructureConfigurationsCommand,
-  ListInfrastructureConfigurationsCommandInput,
-  ListInfrastructureConfigurationsCommandOutput,
 } from "./commands/ListInfrastructureConfigurationsCommand";
 import {
+  type ListLifecycleExecutionResourcesCommandInput,
+  type ListLifecycleExecutionResourcesCommandOutput,
   ListLifecycleExecutionResourcesCommand,
-  ListLifecycleExecutionResourcesCommandInput,
-  ListLifecycleExecutionResourcesCommandOutput,
 } from "./commands/ListLifecycleExecutionResourcesCommand";
 import {
+  type ListLifecycleExecutionsCommandInput,
+  type ListLifecycleExecutionsCommandOutput,
   ListLifecycleExecutionsCommand,
-  ListLifecycleExecutionsCommandInput,
-  ListLifecycleExecutionsCommandOutput,
 } from "./commands/ListLifecycleExecutionsCommand";
 import {
+  type ListLifecyclePoliciesCommandInput,
+  type ListLifecyclePoliciesCommandOutput,
   ListLifecyclePoliciesCommand,
-  ListLifecyclePoliciesCommandInput,
-  ListLifecyclePoliciesCommandOutput,
 } from "./commands/ListLifecyclePoliciesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWaitingWorkflowStepsCommandInput,
+  type ListWaitingWorkflowStepsCommandOutput,
   ListWaitingWorkflowStepsCommand,
-  ListWaitingWorkflowStepsCommandInput,
-  ListWaitingWorkflowStepsCommandOutput,
 } from "./commands/ListWaitingWorkflowStepsCommand";
 import {
+  type ListWorkflowBuildVersionsCommandInput,
+  type ListWorkflowBuildVersionsCommandOutput,
   ListWorkflowBuildVersionsCommand,
-  ListWorkflowBuildVersionsCommandInput,
-  ListWorkflowBuildVersionsCommandOutput,
 } from "./commands/ListWorkflowBuildVersionsCommand";
 import {
+  type ListWorkflowExecutionsCommandInput,
+  type ListWorkflowExecutionsCommandOutput,
   ListWorkflowExecutionsCommand,
-  ListWorkflowExecutionsCommandInput,
-  ListWorkflowExecutionsCommandOutput,
 } from "./commands/ListWorkflowExecutionsCommand";
 import {
+  type ListWorkflowsCommandInput,
+  type ListWorkflowsCommandOutput,
   ListWorkflowsCommand,
-  ListWorkflowsCommandInput,
-  ListWorkflowsCommandOutput,
 } from "./commands/ListWorkflowsCommand";
 import {
+  type ListWorkflowStepExecutionsCommandInput,
+  type ListWorkflowStepExecutionsCommandOutput,
   ListWorkflowStepExecutionsCommand,
-  ListWorkflowStepExecutionsCommandInput,
-  ListWorkflowStepExecutionsCommandOutput,
 } from "./commands/ListWorkflowStepExecutionsCommand";
 import {
+  type PutComponentPolicyCommandInput,
+  type PutComponentPolicyCommandOutput,
   PutComponentPolicyCommand,
-  PutComponentPolicyCommandInput,
-  PutComponentPolicyCommandOutput,
 } from "./commands/PutComponentPolicyCommand";
 import {
+  type PutContainerRecipePolicyCommandInput,
+  type PutContainerRecipePolicyCommandOutput,
   PutContainerRecipePolicyCommand,
-  PutContainerRecipePolicyCommandInput,
-  PutContainerRecipePolicyCommandOutput,
 } from "./commands/PutContainerRecipePolicyCommand";
 import {
+  type PutImagePolicyCommandInput,
+  type PutImagePolicyCommandOutput,
   PutImagePolicyCommand,
-  PutImagePolicyCommandInput,
-  PutImagePolicyCommandOutput,
 } from "./commands/PutImagePolicyCommand";
 import {
+  type PutImageRecipePolicyCommandInput,
+  type PutImageRecipePolicyCommandOutput,
   PutImageRecipePolicyCommand,
-  PutImageRecipePolicyCommandInput,
-  PutImageRecipePolicyCommandOutput,
 } from "./commands/PutImageRecipePolicyCommand";
-import { RetryImageCommand, RetryImageCommandInput, RetryImageCommandOutput } from "./commands/RetryImageCommand";
 import {
+  type RetryImageCommandInput,
+  type RetryImageCommandOutput,
+  RetryImageCommand,
+} from "./commands/RetryImageCommand";
+import {
+  type SendWorkflowStepActionCommandInput,
+  type SendWorkflowStepActionCommandOutput,
   SendWorkflowStepActionCommand,
-  SendWorkflowStepActionCommandInput,
-  SendWorkflowStepActionCommandOutput,
 } from "./commands/SendWorkflowStepActionCommand";
 import {
+  type StartImagePipelineExecutionCommandInput,
+  type StartImagePipelineExecutionCommandOutput,
   StartImagePipelineExecutionCommand,
-  StartImagePipelineExecutionCommandInput,
-  StartImagePipelineExecutionCommandOutput,
 } from "./commands/StartImagePipelineExecutionCommand";
 import {
+  type StartResourceStateUpdateCommandInput,
+  type StartResourceStateUpdateCommandOutput,
   StartResourceStateUpdateCommand,
-  StartResourceStateUpdateCommandInput,
-  StartResourceStateUpdateCommandOutput,
 } from "./commands/StartResourceStateUpdateCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDistributionConfigurationCommandInput,
+  type UpdateDistributionConfigurationCommandOutput,
   UpdateDistributionConfigurationCommand,
-  UpdateDistributionConfigurationCommandInput,
-  UpdateDistributionConfigurationCommandOutput,
 } from "./commands/UpdateDistributionConfigurationCommand";
 import {
+  type UpdateImagePipelineCommandInput,
+  type UpdateImagePipelineCommandOutput,
   UpdateImagePipelineCommand,
-  UpdateImagePipelineCommandInput,
-  UpdateImagePipelineCommandOutput,
 } from "./commands/UpdateImagePipelineCommand";
 import {
+  type UpdateInfrastructureConfigurationCommandInput,
+  type UpdateInfrastructureConfigurationCommandOutput,
   UpdateInfrastructureConfigurationCommand,
-  UpdateInfrastructureConfigurationCommandInput,
-  UpdateInfrastructureConfigurationCommandOutput,
 } from "./commands/UpdateInfrastructureConfigurationCommand";
 import {
+  type UpdateLifecyclePolicyCommandInput,
+  type UpdateLifecyclePolicyCommandOutput,
   UpdateLifecyclePolicyCommand,
-  UpdateLifecyclePolicyCommandInput,
-  UpdateLifecyclePolicyCommandOutput,
 } from "./commands/UpdateLifecyclePolicyCommand";
 import { ImagebuilderClient } from "./ImagebuilderClient";
 import { paginateListComponentBuildVersions } from "./pagination/ListComponentBuildVersionsPaginator";

@@ -8,7 +8,7 @@ import {
   ListFlowOperationResultsCommandOutput,
 } from "../commands/ListFlowOperationResultsCommand";
 import { NetworkFirewallClient } from "../NetworkFirewallClient";
-import { NetworkFirewallPaginationConfiguration } from "./Interfaces";
+import type { NetworkFirewallPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

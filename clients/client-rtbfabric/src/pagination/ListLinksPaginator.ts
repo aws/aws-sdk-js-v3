@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListLinksCommand, ListLinksCommandInput, ListLinksCommandOutput } from "../commands/ListLinksCommand";
 import { RTBFabricClient } from "../RTBFabricClient";
-import { RTBFabricPaginationConfiguration } from "./Interfaces";
+import type { RTBFabricPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

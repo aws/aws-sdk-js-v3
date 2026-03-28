@@ -8,7 +8,7 @@ import {
   GetCustomerGatewayAssociationsCommandOutput,
 } from "../commands/GetCustomerGatewayAssociationsCommand";
 import { NetworkManagerClient } from "../NetworkManagerClient";
-import { NetworkManagerPaginationConfiguration } from "./Interfaces";
+import type { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

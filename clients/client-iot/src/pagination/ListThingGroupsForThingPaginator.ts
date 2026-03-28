@@ -8,7 +8,7 @@ import {
   ListThingGroupsForThingCommandOutput,
 } from "../commands/ListThingGroupsForThingCommand";
 import { IoTClient } from "../IoTClient";
-import { IoTPaginationConfiguration } from "./Interfaces";
+import type { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

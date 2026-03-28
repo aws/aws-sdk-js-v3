@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,89 +61,104 @@ import {
   defaultApplicationDiscoveryServiceHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateConfigurationItemsToApplicationCommandInput,
   AssociateConfigurationItemsToApplicationCommandOutput,
 } from "./commands/AssociateConfigurationItemsToApplicationCommand";
-import { BatchDeleteAgentsCommandInput, BatchDeleteAgentsCommandOutput } from "./commands/BatchDeleteAgentsCommand";
-import {
+import type {
+  BatchDeleteAgentsCommandInput,
+  BatchDeleteAgentsCommandOutput,
+} from "./commands/BatchDeleteAgentsCommand";
+import type {
   BatchDeleteImportDataCommandInput,
   BatchDeleteImportDataCommandOutput,
 } from "./commands/BatchDeleteImportDataCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
-import { DeleteApplicationsCommandInput, DeleteApplicationsCommandOutput } from "./commands/DeleteApplicationsCommand";
-import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
-import { DescribeAgentsCommandInput, DescribeAgentsCommandOutput } from "./commands/DescribeAgentsCommand";
-import {
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import type {
+  DeleteApplicationsCommandInput,
+  DeleteApplicationsCommandOutput,
+} from "./commands/DeleteApplicationsCommand";
+import type { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import type { DescribeAgentsCommandInput, DescribeAgentsCommandOutput } from "./commands/DescribeAgentsCommand";
+import type {
   DescribeBatchDeleteConfigurationTaskCommandInput,
   DescribeBatchDeleteConfigurationTaskCommandOutput,
 } from "./commands/DescribeBatchDeleteConfigurationTaskCommand";
-import {
+import type {
   DescribeConfigurationsCommandInput,
   DescribeConfigurationsCommandOutput,
 } from "./commands/DescribeConfigurationsCommand";
-import {
+import type {
   DescribeContinuousExportsCommandInput,
   DescribeContinuousExportsCommandOutput,
 } from "./commands/DescribeContinuousExportsCommand";
-import {
+import type {
   DescribeExportConfigurationsCommandInput,
   DescribeExportConfigurationsCommandOutput,
 } from "./commands/DescribeExportConfigurationsCommand";
-import {
+import type {
   DescribeExportTasksCommandInput,
   DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
-import {
+import type {
   DescribeImportTasksCommandInput,
   DescribeImportTasksCommandOutput,
 } from "./commands/DescribeImportTasksCommand";
-import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
-import {
+import type { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import type {
   DisassociateConfigurationItemsFromApplicationCommandInput,
   DisassociateConfigurationItemsFromApplicationCommandOutput,
 } from "./commands/DisassociateConfigurationItemsFromApplicationCommand";
-import {
+import type {
   ExportConfigurationsCommandInput,
   ExportConfigurationsCommandOutput,
 } from "./commands/ExportConfigurationsCommand";
-import {
+import type {
   GetDiscoverySummaryCommandInput,
   GetDiscoverySummaryCommandOutput,
 } from "./commands/GetDiscoverySummaryCommand";
-import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
-import {
+import type {
+  ListConfigurationsCommandInput,
+  ListConfigurationsCommandOutput,
+} from "./commands/ListConfigurationsCommand";
+import type {
   ListServerNeighborsCommandInput,
   ListServerNeighborsCommandOutput,
 } from "./commands/ListServerNeighborsCommand";
-import {
+import type {
   StartBatchDeleteConfigurationTaskCommandInput,
   StartBatchDeleteConfigurationTaskCommandOutput,
 } from "./commands/StartBatchDeleteConfigurationTaskCommand";
-import {
+import type {
   StartContinuousExportCommandInput,
   StartContinuousExportCommandOutput,
 } from "./commands/StartContinuousExportCommand";
-import {
+import type {
   StartDataCollectionByAgentIdsCommandInput,
   StartDataCollectionByAgentIdsCommandOutput,
 } from "./commands/StartDataCollectionByAgentIdsCommand";
-import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand";
-import { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "./commands/StartImportTaskCommand";
-import {
+import type { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand";
+import type { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "./commands/StartImportTaskCommand";
+import type {
   StopContinuousExportCommandInput,
   StopContinuousExportCommandOutput,
 } from "./commands/StopContinuousExportCommand";
-import {
+import type {
   StopDataCollectionByAgentIdsCommandInput,
   StopDataCollectionByAgentIdsCommandOutput,
 } from "./commands/StopDataCollectionByAgentIdsCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -333,7 +346,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

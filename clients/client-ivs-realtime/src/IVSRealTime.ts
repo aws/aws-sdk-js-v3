@@ -3,176 +3,196 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateEncoderConfigurationCommandInput,
+  type CreateEncoderConfigurationCommandOutput,
   CreateEncoderConfigurationCommand,
-  CreateEncoderConfigurationCommandInput,
-  CreateEncoderConfigurationCommandOutput,
 } from "./commands/CreateEncoderConfigurationCommand";
 import {
+  type CreateIngestConfigurationCommandInput,
+  type CreateIngestConfigurationCommandOutput,
   CreateIngestConfigurationCommand,
-  CreateIngestConfigurationCommandInput,
-  CreateIngestConfigurationCommandOutput,
 } from "./commands/CreateIngestConfigurationCommand";
 import {
+  type CreateParticipantTokenCommandInput,
+  type CreateParticipantTokenCommandOutput,
   CreateParticipantTokenCommand,
-  CreateParticipantTokenCommandInput,
-  CreateParticipantTokenCommandOutput,
 } from "./commands/CreateParticipantTokenCommand";
-import { CreateStageCommand, CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
 import {
+  type CreateStageCommandInput,
+  type CreateStageCommandOutput,
+  CreateStageCommand,
+} from "./commands/CreateStageCommand";
+import {
+  type CreateStorageConfigurationCommandInput,
+  type CreateStorageConfigurationCommandOutput,
   CreateStorageConfigurationCommand,
-  CreateStorageConfigurationCommandInput,
-  CreateStorageConfigurationCommandOutput,
 } from "./commands/CreateStorageConfigurationCommand";
 import {
+  type DeleteEncoderConfigurationCommandInput,
+  type DeleteEncoderConfigurationCommandOutput,
   DeleteEncoderConfigurationCommand,
-  DeleteEncoderConfigurationCommandInput,
-  DeleteEncoderConfigurationCommandOutput,
 } from "./commands/DeleteEncoderConfigurationCommand";
 import {
+  type DeleteIngestConfigurationCommandInput,
+  type DeleteIngestConfigurationCommandOutput,
   DeleteIngestConfigurationCommand,
-  DeleteIngestConfigurationCommandInput,
-  DeleteIngestConfigurationCommandOutput,
 } from "./commands/DeleteIngestConfigurationCommand";
 import {
+  type DeletePublicKeyCommandInput,
+  type DeletePublicKeyCommandOutput,
   DeletePublicKeyCommand,
-  DeletePublicKeyCommandInput,
-  DeletePublicKeyCommandOutput,
 } from "./commands/DeletePublicKeyCommand";
-import { DeleteStageCommand, DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
 import {
+  type DeleteStageCommandInput,
+  type DeleteStageCommandOutput,
+  DeleteStageCommand,
+} from "./commands/DeleteStageCommand";
+import {
+  type DeleteStorageConfigurationCommandInput,
+  type DeleteStorageConfigurationCommandOutput,
   DeleteStorageConfigurationCommand,
-  DeleteStorageConfigurationCommandInput,
-  DeleteStorageConfigurationCommandOutput,
 } from "./commands/DeleteStorageConfigurationCommand";
 import {
+  type DisconnectParticipantCommandInput,
+  type DisconnectParticipantCommandOutput,
   DisconnectParticipantCommand,
-  DisconnectParticipantCommandInput,
-  DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
 import {
+  type GetCompositionCommandInput,
+  type GetCompositionCommandOutput,
   GetCompositionCommand,
-  GetCompositionCommandInput,
-  GetCompositionCommandOutput,
 } from "./commands/GetCompositionCommand";
 import {
+  type GetEncoderConfigurationCommandInput,
+  type GetEncoderConfigurationCommandOutput,
   GetEncoderConfigurationCommand,
-  GetEncoderConfigurationCommandInput,
-  GetEncoderConfigurationCommandOutput,
 } from "./commands/GetEncoderConfigurationCommand";
 import {
+  type GetIngestConfigurationCommandInput,
+  type GetIngestConfigurationCommandOutput,
   GetIngestConfigurationCommand,
-  GetIngestConfigurationCommandInput,
-  GetIngestConfigurationCommandOutput,
 } from "./commands/GetIngestConfigurationCommand";
 import {
+  type GetParticipantCommandInput,
+  type GetParticipantCommandOutput,
   GetParticipantCommand,
-  GetParticipantCommandInput,
-  GetParticipantCommandOutput,
 } from "./commands/GetParticipantCommand";
 import {
+  type GetPublicKeyCommandInput,
+  type GetPublicKeyCommandOutput,
   GetPublicKeyCommand,
-  GetPublicKeyCommandInput,
-  GetPublicKeyCommandOutput,
 } from "./commands/GetPublicKeyCommand";
-import { GetStageCommand, GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
+import { type GetStageCommandInput, type GetStageCommandOutput, GetStageCommand } from "./commands/GetStageCommand";
 import {
+  type GetStageSessionCommandInput,
+  type GetStageSessionCommandOutput,
   GetStageSessionCommand,
-  GetStageSessionCommandInput,
-  GetStageSessionCommandOutput,
 } from "./commands/GetStageSessionCommand";
 import {
+  type GetStorageConfigurationCommandInput,
+  type GetStorageConfigurationCommandOutput,
   GetStorageConfigurationCommand,
-  GetStorageConfigurationCommandInput,
-  GetStorageConfigurationCommandOutput,
 } from "./commands/GetStorageConfigurationCommand";
 import {
+  type ImportPublicKeyCommandInput,
+  type ImportPublicKeyCommandOutput,
   ImportPublicKeyCommand,
-  ImportPublicKeyCommandInput,
-  ImportPublicKeyCommandOutput,
 } from "./commands/ImportPublicKeyCommand";
 import {
+  type ListCompositionsCommandInput,
+  type ListCompositionsCommandOutput,
   ListCompositionsCommand,
-  ListCompositionsCommandInput,
-  ListCompositionsCommandOutput,
 } from "./commands/ListCompositionsCommand";
 import {
+  type ListEncoderConfigurationsCommandInput,
+  type ListEncoderConfigurationsCommandOutput,
   ListEncoderConfigurationsCommand,
-  ListEncoderConfigurationsCommandInput,
-  ListEncoderConfigurationsCommandOutput,
 } from "./commands/ListEncoderConfigurationsCommand";
 import {
+  type ListIngestConfigurationsCommandInput,
+  type ListIngestConfigurationsCommandOutput,
   ListIngestConfigurationsCommand,
-  ListIngestConfigurationsCommandInput,
-  ListIngestConfigurationsCommandOutput,
 } from "./commands/ListIngestConfigurationsCommand";
 import {
+  type ListParticipantEventsCommandInput,
+  type ListParticipantEventsCommandOutput,
   ListParticipantEventsCommand,
-  ListParticipantEventsCommandInput,
-  ListParticipantEventsCommandOutput,
 } from "./commands/ListParticipantEventsCommand";
 import {
+  type ListParticipantReplicasCommandInput,
+  type ListParticipantReplicasCommandOutput,
   ListParticipantReplicasCommand,
-  ListParticipantReplicasCommandInput,
-  ListParticipantReplicasCommandOutput,
 } from "./commands/ListParticipantReplicasCommand";
 import {
+  type ListParticipantsCommandInput,
+  type ListParticipantsCommandOutput,
   ListParticipantsCommand,
-  ListParticipantsCommandInput,
-  ListParticipantsCommandOutput,
 } from "./commands/ListParticipantsCommand";
 import {
+  type ListPublicKeysCommandInput,
+  type ListPublicKeysCommandOutput,
   ListPublicKeysCommand,
-  ListPublicKeysCommandInput,
-  ListPublicKeysCommandOutput,
 } from "./commands/ListPublicKeysCommand";
-import { ListStagesCommand, ListStagesCommandInput, ListStagesCommandOutput } from "./commands/ListStagesCommand";
 import {
+  type ListStagesCommandInput,
+  type ListStagesCommandOutput,
+  ListStagesCommand,
+} from "./commands/ListStagesCommand";
+import {
+  type ListStageSessionsCommandInput,
+  type ListStageSessionsCommandOutput,
   ListStageSessionsCommand,
-  ListStageSessionsCommandInput,
-  ListStageSessionsCommandOutput,
 } from "./commands/ListStageSessionsCommand";
 import {
+  type ListStorageConfigurationsCommandInput,
+  type ListStorageConfigurationsCommandOutput,
   ListStorageConfigurationsCommand,
-  ListStorageConfigurationsCommandInput,
-  ListStorageConfigurationsCommandOutput,
 } from "./commands/ListStorageConfigurationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartCompositionCommandInput,
+  type StartCompositionCommandOutput,
   StartCompositionCommand,
-  StartCompositionCommandInput,
-  StartCompositionCommandOutput,
 } from "./commands/StartCompositionCommand";
 import {
+  type StartParticipantReplicationCommandInput,
+  type StartParticipantReplicationCommandOutput,
   StartParticipantReplicationCommand,
-  StartParticipantReplicationCommandInput,
-  StartParticipantReplicationCommandOutput,
 } from "./commands/StartParticipantReplicationCommand";
 import {
+  type StopCompositionCommandInput,
+  type StopCompositionCommandOutput,
   StopCompositionCommand,
-  StopCompositionCommandInput,
-  StopCompositionCommandOutput,
 } from "./commands/StopCompositionCommand";
 import {
+  type StopParticipantReplicationCommandInput,
+  type StopParticipantReplicationCommandOutput,
   StopParticipantReplicationCommand,
-  StopParticipantReplicationCommandInput,
-  StopParticipantReplicationCommandOutput,
 } from "./commands/StopParticipantReplicationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateIngestConfigurationCommandInput,
+  type UpdateIngestConfigurationCommandOutput,
   UpdateIngestConfigurationCommand,
-  UpdateIngestConfigurationCommandInput,
-  UpdateIngestConfigurationCommandOutput,
 } from "./commands/UpdateIngestConfigurationCommand";
-import { UpdateStageCommand, UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
+import {
+  type UpdateStageCommandInput,
+  type UpdateStageCommandOutput,
+  UpdateStageCommand,
+} from "./commands/UpdateStageCommand";
 import { IVSRealTimeClient } from "./IVSRealTimeClient";
 import { paginateListCompositions } from "./pagination/ListCompositionsPaginator";
 import { paginateListEncoderConfigurations } from "./pagination/ListEncoderConfigurationsPaginator";

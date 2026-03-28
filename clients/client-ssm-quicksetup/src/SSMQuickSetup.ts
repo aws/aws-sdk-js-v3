@@ -3,70 +3,74 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateConfigurationManagerCommandInput,
+  type CreateConfigurationManagerCommandOutput,
   CreateConfigurationManagerCommand,
-  CreateConfigurationManagerCommandInput,
-  CreateConfigurationManagerCommandOutput,
 } from "./commands/CreateConfigurationManagerCommand";
 import {
+  type DeleteConfigurationManagerCommandInput,
+  type DeleteConfigurationManagerCommandOutput,
   DeleteConfigurationManagerCommand,
-  DeleteConfigurationManagerCommandInput,
-  DeleteConfigurationManagerCommandOutput,
 } from "./commands/DeleteConfigurationManagerCommand";
 import {
+  type GetConfigurationCommandInput,
+  type GetConfigurationCommandOutput,
   GetConfigurationCommand,
-  GetConfigurationCommandInput,
-  GetConfigurationCommandOutput,
 } from "./commands/GetConfigurationCommand";
 import {
+  type GetConfigurationManagerCommandInput,
+  type GetConfigurationManagerCommandOutput,
   GetConfigurationManagerCommand,
-  GetConfigurationManagerCommandInput,
-  GetConfigurationManagerCommandOutput,
 } from "./commands/GetConfigurationManagerCommand";
 import {
+  type GetServiceSettingsCommandInput,
+  type GetServiceSettingsCommandOutput,
   GetServiceSettingsCommand,
-  GetServiceSettingsCommandInput,
-  GetServiceSettingsCommandOutput,
 } from "./commands/GetServiceSettingsCommand";
 import {
+  type ListConfigurationManagersCommandInput,
+  type ListConfigurationManagersCommandOutput,
   ListConfigurationManagersCommand,
-  ListConfigurationManagersCommandInput,
-  ListConfigurationManagersCommandOutput,
 } from "./commands/ListConfigurationManagersCommand";
 import {
+  type ListConfigurationsCommandInput,
+  type ListConfigurationsCommandOutput,
   ListConfigurationsCommand,
-  ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput,
 } from "./commands/ListConfigurationsCommand";
 import {
+  type ListQuickSetupTypesCommandInput,
+  type ListQuickSetupTypesCommandOutput,
   ListQuickSetupTypesCommand,
-  ListQuickSetupTypesCommandInput,
-  ListQuickSetupTypesCommandOutput,
 } from "./commands/ListQuickSetupTypesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateConfigurationDefinitionCommandInput,
+  type UpdateConfigurationDefinitionCommandOutput,
   UpdateConfigurationDefinitionCommand,
-  UpdateConfigurationDefinitionCommandInput,
-  UpdateConfigurationDefinitionCommandOutput,
 } from "./commands/UpdateConfigurationDefinitionCommand";
 import {
+  type UpdateConfigurationManagerCommandInput,
+  type UpdateConfigurationManagerCommandOutput,
   UpdateConfigurationManagerCommand,
-  UpdateConfigurationManagerCommandInput,
-  UpdateConfigurationManagerCommandOutput,
 } from "./commands/UpdateConfigurationManagerCommand";
 import {
+  type UpdateServiceSettingsCommandInput,
+  type UpdateServiceSettingsCommandOutput,
   UpdateServiceSettingsCommand,
-  UpdateServiceSettingsCommandInput,
-  UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
 import { paginateListConfigurationManagers } from "./pagination/ListConfigurationManagersPaginator";
 import { paginateListConfigurations } from "./pagination/ListConfigurationsPaginator";

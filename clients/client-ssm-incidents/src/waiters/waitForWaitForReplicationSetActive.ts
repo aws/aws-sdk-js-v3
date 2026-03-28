@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { GetReplicationSetCommand, GetReplicationSetCommandInput } from "../commands/GetReplicationSetCommand";
-import { SSMIncidentsClient } from "../SSMIncidentsClient";
+import { type GetReplicationSetCommandInput, GetReplicationSetCommand } from "../commands/GetReplicationSetCommand";
+import type { SSMIncidentsClient } from "../SSMIncidentsClient";
 
 const checkState = async (client: SSMIncidentsClient, input: GetReplicationSetCommandInput): Promise<WaiterResult> => {
   let reason;

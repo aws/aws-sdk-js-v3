@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,96 +61,117 @@ import {
   defaultFinspaceHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
-import { CreateKxChangesetCommandInput, CreateKxChangesetCommandOutput } from "./commands/CreateKxChangesetCommand";
-import { CreateKxClusterCommandInput, CreateKxClusterCommandOutput } from "./commands/CreateKxClusterCommand";
-import { CreateKxDatabaseCommandInput, CreateKxDatabaseCommandOutput } from "./commands/CreateKxDatabaseCommand";
-import { CreateKxDataviewCommandInput, CreateKxDataviewCommandOutput } from "./commands/CreateKxDataviewCommand";
-import {
+import type {
+  CreateEnvironmentCommandInput,
+  CreateEnvironmentCommandOutput,
+} from "./commands/CreateEnvironmentCommand";
+import type {
+  CreateKxChangesetCommandInput,
+  CreateKxChangesetCommandOutput,
+} from "./commands/CreateKxChangesetCommand";
+import type { CreateKxClusterCommandInput, CreateKxClusterCommandOutput } from "./commands/CreateKxClusterCommand";
+import type { CreateKxDatabaseCommandInput, CreateKxDatabaseCommandOutput } from "./commands/CreateKxDatabaseCommand";
+import type { CreateKxDataviewCommandInput, CreateKxDataviewCommandOutput } from "./commands/CreateKxDataviewCommand";
+import type {
   CreateKxEnvironmentCommandInput,
   CreateKxEnvironmentCommandOutput,
 } from "./commands/CreateKxEnvironmentCommand";
-import {
+import type {
   CreateKxScalingGroupCommandInput,
   CreateKxScalingGroupCommandOutput,
 } from "./commands/CreateKxScalingGroupCommand";
-import { CreateKxUserCommandInput, CreateKxUserCommandOutput } from "./commands/CreateKxUserCommand";
-import { CreateKxVolumeCommandInput, CreateKxVolumeCommandOutput } from "./commands/CreateKxVolumeCommand";
-import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
-import { DeleteKxClusterCommandInput, DeleteKxClusterCommandOutput } from "./commands/DeleteKxClusterCommand";
-import {
+import type { CreateKxUserCommandInput, CreateKxUserCommandOutput } from "./commands/CreateKxUserCommand";
+import type { CreateKxVolumeCommandInput, CreateKxVolumeCommandOutput } from "./commands/CreateKxVolumeCommand";
+import type {
+  DeleteEnvironmentCommandInput,
+  DeleteEnvironmentCommandOutput,
+} from "./commands/DeleteEnvironmentCommand";
+import type { DeleteKxClusterCommandInput, DeleteKxClusterCommandOutput } from "./commands/DeleteKxClusterCommand";
+import type {
   DeleteKxClusterNodeCommandInput,
   DeleteKxClusterNodeCommandOutput,
 } from "./commands/DeleteKxClusterNodeCommand";
-import { DeleteKxDatabaseCommandInput, DeleteKxDatabaseCommandOutput } from "./commands/DeleteKxDatabaseCommand";
-import { DeleteKxDataviewCommandInput, DeleteKxDataviewCommandOutput } from "./commands/DeleteKxDataviewCommand";
-import {
+import type { DeleteKxDatabaseCommandInput, DeleteKxDatabaseCommandOutput } from "./commands/DeleteKxDatabaseCommand";
+import type { DeleteKxDataviewCommandInput, DeleteKxDataviewCommandOutput } from "./commands/DeleteKxDataviewCommand";
+import type {
   DeleteKxEnvironmentCommandInput,
   DeleteKxEnvironmentCommandOutput,
 } from "./commands/DeleteKxEnvironmentCommand";
-import {
+import type {
   DeleteKxScalingGroupCommandInput,
   DeleteKxScalingGroupCommandOutput,
 } from "./commands/DeleteKxScalingGroupCommand";
-import { DeleteKxUserCommandInput, DeleteKxUserCommandOutput } from "./commands/DeleteKxUserCommand";
-import { DeleteKxVolumeCommandInput, DeleteKxVolumeCommandOutput } from "./commands/DeleteKxVolumeCommand";
-import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
-import { GetKxChangesetCommandInput, GetKxChangesetCommandOutput } from "./commands/GetKxChangesetCommand";
-import { GetKxClusterCommandInput, GetKxClusterCommandOutput } from "./commands/GetKxClusterCommand";
-import {
+import type { DeleteKxUserCommandInput, DeleteKxUserCommandOutput } from "./commands/DeleteKxUserCommand";
+import type { DeleteKxVolumeCommandInput, DeleteKxVolumeCommandOutput } from "./commands/DeleteKxVolumeCommand";
+import type { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
+import type { GetKxChangesetCommandInput, GetKxChangesetCommandOutput } from "./commands/GetKxChangesetCommand";
+import type { GetKxClusterCommandInput, GetKxClusterCommandOutput } from "./commands/GetKxClusterCommand";
+import type {
   GetKxConnectionStringCommandInput,
   GetKxConnectionStringCommandOutput,
 } from "./commands/GetKxConnectionStringCommand";
-import { GetKxDatabaseCommandInput, GetKxDatabaseCommandOutput } from "./commands/GetKxDatabaseCommand";
-import { GetKxDataviewCommandInput, GetKxDataviewCommandOutput } from "./commands/GetKxDataviewCommand";
-import { GetKxEnvironmentCommandInput, GetKxEnvironmentCommandOutput } from "./commands/GetKxEnvironmentCommand";
-import { GetKxScalingGroupCommandInput, GetKxScalingGroupCommandOutput } from "./commands/GetKxScalingGroupCommand";
-import { GetKxUserCommandInput, GetKxUserCommandOutput } from "./commands/GetKxUserCommand";
-import { GetKxVolumeCommandInput, GetKxVolumeCommandOutput } from "./commands/GetKxVolumeCommand";
-import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
-import { ListKxChangesetsCommandInput, ListKxChangesetsCommandOutput } from "./commands/ListKxChangesetsCommand";
-import { ListKxClusterNodesCommandInput, ListKxClusterNodesCommandOutput } from "./commands/ListKxClusterNodesCommand";
-import { ListKxClustersCommandInput, ListKxClustersCommandOutput } from "./commands/ListKxClustersCommand";
-import { ListKxDatabasesCommandInput, ListKxDatabasesCommandOutput } from "./commands/ListKxDatabasesCommand";
-import { ListKxDataviewsCommandInput, ListKxDataviewsCommandOutput } from "./commands/ListKxDataviewsCommand";
-import { ListKxEnvironmentsCommandInput, ListKxEnvironmentsCommandOutput } from "./commands/ListKxEnvironmentsCommand";
-import {
+import type { GetKxDatabaseCommandInput, GetKxDatabaseCommandOutput } from "./commands/GetKxDatabaseCommand";
+import type { GetKxDataviewCommandInput, GetKxDataviewCommandOutput } from "./commands/GetKxDataviewCommand";
+import type { GetKxEnvironmentCommandInput, GetKxEnvironmentCommandOutput } from "./commands/GetKxEnvironmentCommand";
+import type {
+  GetKxScalingGroupCommandInput,
+  GetKxScalingGroupCommandOutput,
+} from "./commands/GetKxScalingGroupCommand";
+import type { GetKxUserCommandInput, GetKxUserCommandOutput } from "./commands/GetKxUserCommand";
+import type { GetKxVolumeCommandInput, GetKxVolumeCommandOutput } from "./commands/GetKxVolumeCommand";
+import type { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import type { ListKxChangesetsCommandInput, ListKxChangesetsCommandOutput } from "./commands/ListKxChangesetsCommand";
+import type {
+  ListKxClusterNodesCommandInput,
+  ListKxClusterNodesCommandOutput,
+} from "./commands/ListKxClusterNodesCommand";
+import type { ListKxClustersCommandInput, ListKxClustersCommandOutput } from "./commands/ListKxClustersCommand";
+import type { ListKxDatabasesCommandInput, ListKxDatabasesCommandOutput } from "./commands/ListKxDatabasesCommand";
+import type { ListKxDataviewsCommandInput, ListKxDataviewsCommandOutput } from "./commands/ListKxDataviewsCommand";
+import type {
+  ListKxEnvironmentsCommandInput,
+  ListKxEnvironmentsCommandOutput,
+} from "./commands/ListKxEnvironmentsCommand";
+import type {
   ListKxScalingGroupsCommandInput,
   ListKxScalingGroupsCommandOutput,
 } from "./commands/ListKxScalingGroupsCommand";
-import { ListKxUsersCommandInput, ListKxUsersCommandOutput } from "./commands/ListKxUsersCommand";
-import { ListKxVolumesCommandInput, ListKxVolumesCommandOutput } from "./commands/ListKxVolumesCommand";
-import {
+import type { ListKxUsersCommandInput, ListKxUsersCommandOutput } from "./commands/ListKxUsersCommand";
+import type { ListKxVolumesCommandInput, ListKxVolumesCommandOutput } from "./commands/ListKxVolumesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateEnvironmentCommandInput,
+  UpdateEnvironmentCommandOutput,
+} from "./commands/UpdateEnvironmentCommand";
+import type {
   UpdateKxClusterCodeConfigurationCommandInput,
   UpdateKxClusterCodeConfigurationCommandOutput,
 } from "./commands/UpdateKxClusterCodeConfigurationCommand";
-import {
+import type {
   UpdateKxClusterDatabasesCommandInput,
   UpdateKxClusterDatabasesCommandOutput,
 } from "./commands/UpdateKxClusterDatabasesCommand";
-import { UpdateKxDatabaseCommandInput, UpdateKxDatabaseCommandOutput } from "./commands/UpdateKxDatabaseCommand";
-import { UpdateKxDataviewCommandInput, UpdateKxDataviewCommandOutput } from "./commands/UpdateKxDataviewCommand";
-import {
+import type { UpdateKxDatabaseCommandInput, UpdateKxDatabaseCommandOutput } from "./commands/UpdateKxDatabaseCommand";
+import type { UpdateKxDataviewCommandInput, UpdateKxDataviewCommandOutput } from "./commands/UpdateKxDataviewCommand";
+import type {
   UpdateKxEnvironmentCommandInput,
   UpdateKxEnvironmentCommandOutput,
 } from "./commands/UpdateKxEnvironmentCommand";
-import {
+import type {
   UpdateKxEnvironmentNetworkCommandInput,
   UpdateKxEnvironmentNetworkCommandOutput,
 } from "./commands/UpdateKxEnvironmentNetworkCommand";
-import { UpdateKxUserCommandInput, UpdateKxUserCommandOutput } from "./commands/UpdateKxUserCommand";
-import { UpdateKxVolumeCommandInput, UpdateKxVolumeCommandOutput } from "./commands/UpdateKxVolumeCommand";
+import type { UpdateKxUserCommandInput, UpdateKxUserCommandOutput } from "./commands/UpdateKxUserCommand";
+import type { UpdateKxVolumeCommandInput, UpdateKxVolumeCommandOutput } from "./commands/UpdateKxVolumeCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -384,7 +403,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

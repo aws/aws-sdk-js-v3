@@ -8,7 +8,7 @@ import {
   DescribeDimensionKeysCommandOutput,
 } from "../commands/DescribeDimensionKeysCommand";
 import { PIClient } from "../PIClient";
-import { PIPaginationConfiguration } from "./Interfaces";
+import type { PIPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

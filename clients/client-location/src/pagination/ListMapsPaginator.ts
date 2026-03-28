@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListMapsCommand, ListMapsCommandInput, ListMapsCommandOutput } from "../commands/ListMapsCommand";
 import { LocationClient } from "../LocationClient";
-import { LocationPaginationConfiguration } from "./Interfaces";
+import type { LocationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

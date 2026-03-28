@@ -7,7 +7,7 @@
  */
 export * from "./MediaPackageV2Client";
 export * from "./MediaPackageV2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MediaPackageV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

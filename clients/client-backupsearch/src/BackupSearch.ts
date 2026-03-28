@@ -4,60 +4,64 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BackupSearchClient } from "./BackupSearchClient";
 import {
+  type GetSearchJobCommandInput,
+  type GetSearchJobCommandOutput,
   GetSearchJobCommand,
-  GetSearchJobCommandInput,
-  GetSearchJobCommandOutput,
 } from "./commands/GetSearchJobCommand";
 import {
+  type GetSearchResultExportJobCommandInput,
+  type GetSearchResultExportJobCommandOutput,
   GetSearchResultExportJobCommand,
-  GetSearchResultExportJobCommandInput,
-  GetSearchResultExportJobCommandOutput,
 } from "./commands/GetSearchResultExportJobCommand";
 import {
+  type ListSearchJobBackupsCommandInput,
+  type ListSearchJobBackupsCommandOutput,
   ListSearchJobBackupsCommand,
-  ListSearchJobBackupsCommandInput,
-  ListSearchJobBackupsCommandOutput,
 } from "./commands/ListSearchJobBackupsCommand";
 import {
+  type ListSearchJobResultsCommandInput,
+  type ListSearchJobResultsCommandOutput,
   ListSearchJobResultsCommand,
-  ListSearchJobResultsCommandInput,
-  ListSearchJobResultsCommandOutput,
 } from "./commands/ListSearchJobResultsCommand";
 import {
+  type ListSearchJobsCommandInput,
+  type ListSearchJobsCommandOutput,
   ListSearchJobsCommand,
-  ListSearchJobsCommandInput,
-  ListSearchJobsCommandOutput,
 } from "./commands/ListSearchJobsCommand";
 import {
+  type ListSearchResultExportJobsCommandInput,
+  type ListSearchResultExportJobsCommandOutput,
   ListSearchResultExportJobsCommand,
-  ListSearchResultExportJobsCommandInput,
-  ListSearchResultExportJobsCommandOutput,
 } from "./commands/ListSearchResultExportJobsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartSearchJobCommandInput,
+  type StartSearchJobCommandOutput,
   StartSearchJobCommand,
-  StartSearchJobCommandInput,
-  StartSearchJobCommandOutput,
 } from "./commands/StartSearchJobCommand";
 import {
+  type StartSearchResultExportJobCommandInput,
+  type StartSearchResultExportJobCommandOutput,
   StartSearchResultExportJobCommand,
-  StartSearchResultExportJobCommandInput,
-  StartSearchResultExportJobCommandOutput,
 } from "./commands/StartSearchResultExportJobCommand";
 import {
+  type StopSearchJobCommandInput,
+  type StopSearchJobCommandOutput,
   StopSearchJobCommand,
-  StopSearchJobCommandInput,
-  StopSearchJobCommandOutput,
 } from "./commands/StopSearchJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateListSearchJobBackups } from "./pagination/ListSearchJobBackupsPaginator";
 import { paginateListSearchJobResults } from "./pagination/ListSearchJobResultsPaginator";

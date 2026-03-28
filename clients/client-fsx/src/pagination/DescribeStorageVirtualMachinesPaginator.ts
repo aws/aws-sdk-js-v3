@@ -8,7 +8,7 @@ import {
   DescribeStorageVirtualMachinesCommandOutput,
 } from "../commands/DescribeStorageVirtualMachinesCommand";
 import { FSxClient } from "../FSxClient";
-import { FSxPaginationConfiguration } from "./Interfaces";
+import type { FSxPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

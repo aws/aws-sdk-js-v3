@@ -8,7 +8,7 @@ import {
   ListIngestionsCommandOutput,
 } from "../commands/ListIngestionsCommand";
 import { QuickSightClient } from "../QuickSightClient";
-import { QuickSightPaginationConfiguration } from "./Interfaces";
+import type { QuickSightPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

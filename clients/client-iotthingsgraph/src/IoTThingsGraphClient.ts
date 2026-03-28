@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,108 +61,126 @@ import {
   defaultIoTThingsGraphHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateEntityToThingCommandInput,
   AssociateEntityToThingCommandOutput,
 } from "./commands/AssociateEntityToThingCommand";
-import { CreateFlowTemplateCommandInput, CreateFlowTemplateCommandOutput } from "./commands/CreateFlowTemplateCommand";
-import {
+import type {
+  CreateFlowTemplateCommandInput,
+  CreateFlowTemplateCommandOutput,
+} from "./commands/CreateFlowTemplateCommand";
+import type {
   CreateSystemInstanceCommandInput,
   CreateSystemInstanceCommandOutput,
 } from "./commands/CreateSystemInstanceCommand";
-import {
+import type {
   CreateSystemTemplateCommandInput,
   CreateSystemTemplateCommandOutput,
 } from "./commands/CreateSystemTemplateCommand";
-import { DeleteFlowTemplateCommandInput, DeleteFlowTemplateCommandOutput } from "./commands/DeleteFlowTemplateCommand";
-import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
-import {
+import type {
+  DeleteFlowTemplateCommandInput,
+  DeleteFlowTemplateCommandOutput,
+} from "./commands/DeleteFlowTemplateCommand";
+import type { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
+import type {
   DeleteSystemInstanceCommandInput,
   DeleteSystemInstanceCommandOutput,
 } from "./commands/DeleteSystemInstanceCommand";
-import {
+import type {
   DeleteSystemTemplateCommandInput,
   DeleteSystemTemplateCommandOutput,
 } from "./commands/DeleteSystemTemplateCommand";
-import {
+import type {
   DeploySystemInstanceCommandInput,
   DeploySystemInstanceCommandOutput,
 } from "./commands/DeploySystemInstanceCommand";
-import {
+import type {
   DeprecateFlowTemplateCommandInput,
   DeprecateFlowTemplateCommandOutput,
 } from "./commands/DeprecateFlowTemplateCommand";
-import {
+import type {
   DeprecateSystemTemplateCommandInput,
   DeprecateSystemTemplateCommandOutput,
 } from "./commands/DeprecateSystemTemplateCommand";
-import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "./commands/DescribeNamespaceCommand";
-import {
+import type {
+  DescribeNamespaceCommandInput,
+  DescribeNamespaceCommandOutput,
+} from "./commands/DescribeNamespaceCommand";
+import type {
   DissociateEntityFromThingCommandInput,
   DissociateEntityFromThingCommandOutput,
 } from "./commands/DissociateEntityFromThingCommand";
-import { GetEntitiesCommandInput, GetEntitiesCommandOutput } from "./commands/GetEntitiesCommand";
-import { GetFlowTemplateCommandInput, GetFlowTemplateCommandOutput } from "./commands/GetFlowTemplateCommand";
-import {
+import type { GetEntitiesCommandInput, GetEntitiesCommandOutput } from "./commands/GetEntitiesCommand";
+import type { GetFlowTemplateCommandInput, GetFlowTemplateCommandOutput } from "./commands/GetFlowTemplateCommand";
+import type {
   GetFlowTemplateRevisionsCommandInput,
   GetFlowTemplateRevisionsCommandOutput,
 } from "./commands/GetFlowTemplateRevisionsCommand";
-import {
+import type {
   GetNamespaceDeletionStatusCommandInput,
   GetNamespaceDeletionStatusCommandOutput,
 } from "./commands/GetNamespaceDeletionStatusCommand";
-import { GetSystemInstanceCommandInput, GetSystemInstanceCommandOutput } from "./commands/GetSystemInstanceCommand";
-import { GetSystemTemplateCommandInput, GetSystemTemplateCommandOutput } from "./commands/GetSystemTemplateCommand";
-import {
+import type {
+  GetSystemInstanceCommandInput,
+  GetSystemInstanceCommandOutput,
+} from "./commands/GetSystemInstanceCommand";
+import type {
+  GetSystemTemplateCommandInput,
+  GetSystemTemplateCommandOutput,
+} from "./commands/GetSystemTemplateCommand";
+import type {
   GetSystemTemplateRevisionsCommandInput,
   GetSystemTemplateRevisionsCommandOutput,
 } from "./commands/GetSystemTemplateRevisionsCommand";
-import { GetUploadStatusCommandInput, GetUploadStatusCommandOutput } from "./commands/GetUploadStatusCommand";
-import {
+import type { GetUploadStatusCommandInput, GetUploadStatusCommandOutput } from "./commands/GetUploadStatusCommand";
+import type {
   ListFlowExecutionMessagesCommandInput,
   ListFlowExecutionMessagesCommandOutput,
 } from "./commands/ListFlowExecutionMessagesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { SearchEntitiesCommandInput, SearchEntitiesCommandOutput } from "./commands/SearchEntitiesCommand";
-import {
+import type { SearchEntitiesCommandInput, SearchEntitiesCommandOutput } from "./commands/SearchEntitiesCommand";
+import type {
   SearchFlowExecutionsCommandInput,
   SearchFlowExecutionsCommandOutput,
 } from "./commands/SearchFlowExecutionsCommand";
-import {
+import type {
   SearchFlowTemplatesCommandInput,
   SearchFlowTemplatesCommandOutput,
 } from "./commands/SearchFlowTemplatesCommand";
-import {
+import type {
   SearchSystemInstancesCommandInput,
   SearchSystemInstancesCommandOutput,
 } from "./commands/SearchSystemInstancesCommand";
-import {
+import type {
   SearchSystemTemplatesCommandInput,
   SearchSystemTemplatesCommandOutput,
 } from "./commands/SearchSystemTemplatesCommand";
-import { SearchThingsCommandInput, SearchThingsCommandOutput } from "./commands/SearchThingsCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type { SearchThingsCommandInput, SearchThingsCommandOutput } from "./commands/SearchThingsCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   UndeploySystemInstanceCommandInput,
   UndeploySystemInstanceCommandOutput,
 } from "./commands/UndeploySystemInstanceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateFlowTemplateCommandInput, UpdateFlowTemplateCommandOutput } from "./commands/UpdateFlowTemplateCommand";
-import {
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateFlowTemplateCommandInput,
+  UpdateFlowTemplateCommandOutput,
+} from "./commands/UpdateFlowTemplateCommand";
+import type {
   UpdateSystemTemplateCommandInput,
   UpdateSystemTemplateCommandOutput,
 } from "./commands/UpdateSystemTemplateCommand";
-import {
+import type {
   UploadEntityDefinitionsCommandInput,
   UploadEntityDefinitionsCommandOutput,
 } from "./commands/UploadEntityDefinitionsCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -366,7 +382,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

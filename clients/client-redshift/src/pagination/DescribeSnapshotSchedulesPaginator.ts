@@ -8,7 +8,7 @@ import {
   DescribeSnapshotSchedulesCommandOutput,
 } from "../commands/DescribeSnapshotSchedulesCommand";
 import { RedshiftClient } from "../RedshiftClient";
-import { RedshiftPaginationConfiguration } from "./Interfaces";
+import type { RedshiftPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

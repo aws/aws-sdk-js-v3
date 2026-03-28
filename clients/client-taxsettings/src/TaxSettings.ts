@@ -3,84 +3,84 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchDeleteTaxRegistrationCommandInput,
+  type BatchDeleteTaxRegistrationCommandOutput,
   BatchDeleteTaxRegistrationCommand,
-  BatchDeleteTaxRegistrationCommandInput,
-  BatchDeleteTaxRegistrationCommandOutput,
 } from "./commands/BatchDeleteTaxRegistrationCommand";
 import {
+  type BatchGetTaxExemptionsCommandInput,
+  type BatchGetTaxExemptionsCommandOutput,
   BatchGetTaxExemptionsCommand,
-  BatchGetTaxExemptionsCommandInput,
-  BatchGetTaxExemptionsCommandOutput,
 } from "./commands/BatchGetTaxExemptionsCommand";
 import {
+  type BatchPutTaxRegistrationCommandInput,
+  type BatchPutTaxRegistrationCommandOutput,
   BatchPutTaxRegistrationCommand,
-  BatchPutTaxRegistrationCommandInput,
-  BatchPutTaxRegistrationCommandOutput,
 } from "./commands/BatchPutTaxRegistrationCommand";
 import {
+  type DeleteSupplementalTaxRegistrationCommandInput,
+  type DeleteSupplementalTaxRegistrationCommandOutput,
   DeleteSupplementalTaxRegistrationCommand,
-  DeleteSupplementalTaxRegistrationCommandInput,
-  DeleteSupplementalTaxRegistrationCommandOutput,
 } from "./commands/DeleteSupplementalTaxRegistrationCommand";
 import {
+  type DeleteTaxRegistrationCommandInput,
+  type DeleteTaxRegistrationCommandOutput,
   DeleteTaxRegistrationCommand,
-  DeleteTaxRegistrationCommandInput,
-  DeleteTaxRegistrationCommandOutput,
 } from "./commands/DeleteTaxRegistrationCommand";
 import {
+  type GetTaxExemptionTypesCommandInput,
+  type GetTaxExemptionTypesCommandOutput,
   GetTaxExemptionTypesCommand,
-  GetTaxExemptionTypesCommandInput,
-  GetTaxExemptionTypesCommandOutput,
 } from "./commands/GetTaxExemptionTypesCommand";
 import {
+  type GetTaxInheritanceCommandInput,
+  type GetTaxInheritanceCommandOutput,
   GetTaxInheritanceCommand,
-  GetTaxInheritanceCommandInput,
-  GetTaxInheritanceCommandOutput,
 } from "./commands/GetTaxInheritanceCommand";
 import {
+  type GetTaxRegistrationCommandInput,
+  type GetTaxRegistrationCommandOutput,
   GetTaxRegistrationCommand,
-  GetTaxRegistrationCommandInput,
-  GetTaxRegistrationCommandOutput,
 } from "./commands/GetTaxRegistrationCommand";
 import {
+  type GetTaxRegistrationDocumentCommandInput,
+  type GetTaxRegistrationDocumentCommandOutput,
   GetTaxRegistrationDocumentCommand,
-  GetTaxRegistrationDocumentCommandInput,
-  GetTaxRegistrationDocumentCommandOutput,
 } from "./commands/GetTaxRegistrationDocumentCommand";
 import {
+  type ListSupplementalTaxRegistrationsCommandInput,
+  type ListSupplementalTaxRegistrationsCommandOutput,
   ListSupplementalTaxRegistrationsCommand,
-  ListSupplementalTaxRegistrationsCommandInput,
-  ListSupplementalTaxRegistrationsCommandOutput,
 } from "./commands/ListSupplementalTaxRegistrationsCommand";
 import {
+  type ListTaxExemptionsCommandInput,
+  type ListTaxExemptionsCommandOutput,
   ListTaxExemptionsCommand,
-  ListTaxExemptionsCommandInput,
-  ListTaxExemptionsCommandOutput,
 } from "./commands/ListTaxExemptionsCommand";
 import {
+  type ListTaxRegistrationsCommandInput,
+  type ListTaxRegistrationsCommandOutput,
   ListTaxRegistrationsCommand,
-  ListTaxRegistrationsCommandInput,
-  ListTaxRegistrationsCommandOutput,
 } from "./commands/ListTaxRegistrationsCommand";
 import {
+  type PutSupplementalTaxRegistrationCommandInput,
+  type PutSupplementalTaxRegistrationCommandOutput,
   PutSupplementalTaxRegistrationCommand,
-  PutSupplementalTaxRegistrationCommandInput,
-  PutSupplementalTaxRegistrationCommandOutput,
 } from "./commands/PutSupplementalTaxRegistrationCommand";
 import {
+  type PutTaxExemptionCommandInput,
+  type PutTaxExemptionCommandOutput,
   PutTaxExemptionCommand,
-  PutTaxExemptionCommandInput,
-  PutTaxExemptionCommandOutput,
 } from "./commands/PutTaxExemptionCommand";
 import {
+  type PutTaxInheritanceCommandInput,
+  type PutTaxInheritanceCommandOutput,
   PutTaxInheritanceCommand,
-  PutTaxInheritanceCommandInput,
-  PutTaxInheritanceCommandOutput,
 } from "./commands/PutTaxInheritanceCommand";
 import {
+  type PutTaxRegistrationCommandInput,
+  type PutTaxRegistrationCommandOutput,
   PutTaxRegistrationCommand,
-  PutTaxRegistrationCommandInput,
-  PutTaxRegistrationCommandOutput,
 } from "./commands/PutTaxRegistrationCommand";
 import { paginateListSupplementalTaxRegistrations } from "./pagination/ListSupplementalTaxRegistrationsPaginator";
 import { paginateListTaxExemptions } from "./pagination/ListTaxExemptionsPaginator";

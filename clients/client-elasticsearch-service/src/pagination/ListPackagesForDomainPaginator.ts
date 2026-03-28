@@ -8,7 +8,7 @@ import {
   ListPackagesForDomainCommandOutput,
 } from "../commands/ListPackagesForDomainCommand";
 import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
-import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
+import type { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

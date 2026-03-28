@@ -8,7 +8,7 @@ import {
   ListPackageVersionsCommandInput,
   ListPackageVersionsCommandOutput,
 } from "../commands/ListPackageVersionsCommand";
-import { CodeartifactPaginationConfiguration } from "./Interfaces";
+import type { CodeartifactPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

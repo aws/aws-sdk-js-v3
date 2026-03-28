@@ -3,34 +3,34 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CompleteSnapshotCommandInput,
+  type CompleteSnapshotCommandOutput,
   CompleteSnapshotCommand,
-  CompleteSnapshotCommandInput,
-  CompleteSnapshotCommandOutput,
 } from "./commands/CompleteSnapshotCommand";
 import {
+  type GetSnapshotBlockCommandInput,
+  type GetSnapshotBlockCommandOutput,
   GetSnapshotBlockCommand,
-  GetSnapshotBlockCommandInput,
-  GetSnapshotBlockCommandOutput,
 } from "./commands/GetSnapshotBlockCommand";
 import {
+  type ListChangedBlocksCommandInput,
+  type ListChangedBlocksCommandOutput,
   ListChangedBlocksCommand,
-  ListChangedBlocksCommandInput,
-  ListChangedBlocksCommandOutput,
 } from "./commands/ListChangedBlocksCommand";
 import {
+  type ListSnapshotBlocksCommandInput,
+  type ListSnapshotBlocksCommandOutput,
   ListSnapshotBlocksCommand,
-  ListSnapshotBlocksCommandInput,
-  ListSnapshotBlocksCommandOutput,
 } from "./commands/ListSnapshotBlocksCommand";
 import {
+  type PutSnapshotBlockCommandInput,
+  type PutSnapshotBlockCommandOutput,
   PutSnapshotBlockCommand,
-  PutSnapshotBlockCommandInput,
-  PutSnapshotBlockCommandOutput,
 } from "./commands/PutSnapshotBlockCommand";
 import {
+  type StartSnapshotCommandInput,
+  type StartSnapshotCommandOutput,
   StartSnapshotCommand,
-  StartSnapshotCommandInput,
-  StartSnapshotCommandOutput,
 } from "./commands/StartSnapshotCommand";
 import { EBSClient } from "./EBSClient";
 import { paginateListChangedBlocks } from "./pagination/ListChangedBlocksPaginator";

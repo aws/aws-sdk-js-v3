@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ApplicationType, ContactHandlingScope, ExecutionMode, ExecutionStatus } from "./enums";
+import type { ApplicationType, ContactHandlingScope, ExecutionMode, ExecutionStatus } from "./enums";
 
 /**
  * <p>The contact handling configuration for the application.</p>

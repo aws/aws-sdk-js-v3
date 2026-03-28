@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { InternalServerExceptionReason, ValidationExceptionReason } from "./enums";
+import type { InternalServerExceptionReason, ValidationExceptionReason } from "./enums";
 import { InspectorScanServiceException as __BaseException } from "./InspectorScanServiceException";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>You do not have sufficient access to perform this action. </p>

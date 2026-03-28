@@ -8,7 +8,7 @@ import {
   ListInvitationsCommandOutput,
 } from "../commands/ListInvitationsCommand";
 import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
-import { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
+import type { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

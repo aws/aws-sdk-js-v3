@@ -8,7 +8,7 @@ import {
   ListCodeReviewsCommandInput,
   ListCodeReviewsCommandOutput,
 } from "../commands/ListCodeReviewsCommand";
-import { CodeGuruReviewerPaginationConfiguration } from "./Interfaces";
+import type { CodeGuruReviewerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

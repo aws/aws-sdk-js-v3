@@ -8,7 +8,7 @@ import {
   ListBuildBatchesForProjectCommandInput,
   ListBuildBatchesForProjectCommandOutput,
 } from "../commands/ListBuildBatchesForProjectCommand";
-import { CodeBuildPaginationConfiguration } from "./Interfaces";
+import type { CodeBuildPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

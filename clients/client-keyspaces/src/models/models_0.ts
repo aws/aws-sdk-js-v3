@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   CdcPropagateTags,
   CdcStatus,
   ClientSideTimestampsStatus,

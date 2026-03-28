@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ChimeServiceException as __BaseException } from "./ChimeServiceException";
-import { ErrorCode } from "./enums";
+import type { ErrorCode } from "./enums";
 
 /**
  * <p>You don't have permissions to perform the requested operation.</p>

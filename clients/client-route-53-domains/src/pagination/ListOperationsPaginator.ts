@@ -8,7 +8,7 @@ import {
   ListOperationsCommandOutput,
 } from "../commands/ListOperationsCommand";
 import { Route53DomainsClient } from "../Route53DomainsClient";
-import { Route53DomainsPaginationConfiguration } from "./Interfaces";
+import type { Route53DomainsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

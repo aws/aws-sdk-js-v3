@@ -8,7 +8,7 @@ import {
   DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
   DescribeAppBlockBuilderAppBlockAssociationsCommandOutput,
 } from "../commands/DescribeAppBlockBuilderAppBlockAssociationsCommand";
-import { AppStreamPaginationConfiguration } from "./Interfaces";
+import type { AppStreamPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

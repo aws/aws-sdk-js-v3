@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { FeedStatus, OutputStatus } from "./enums";
+import type { FeedStatus, OutputStatus } from "./enums";
 
 /**
  * <p>A type of OutputConfig, used when the output in a feed is for the clip feature.</p>

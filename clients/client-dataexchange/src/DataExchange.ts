@@ -3,145 +3,165 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptDataGrantCommandInput,
+  type AcceptDataGrantCommandOutput,
   AcceptDataGrantCommand,
-  AcceptDataGrantCommandInput,
-  AcceptDataGrantCommandOutput,
 } from "./commands/AcceptDataGrantCommand";
-import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { type CancelJobCommandInput, type CancelJobCommandOutput, CancelJobCommand } from "./commands/CancelJobCommand";
 import {
+  type CreateDataGrantCommandInput,
+  type CreateDataGrantCommandOutput,
   CreateDataGrantCommand,
-  CreateDataGrantCommandInput,
-  CreateDataGrantCommandOutput,
 } from "./commands/CreateDataGrantCommand";
 import {
+  type CreateDataSetCommandInput,
+  type CreateDataSetCommandOutput,
   CreateDataSetCommand,
-  CreateDataSetCommandInput,
-  CreateDataSetCommandOutput,
 } from "./commands/CreateDataSetCommand";
 import {
+  type CreateEventActionCommandInput,
+  type CreateEventActionCommandOutput,
   CreateEventActionCommand,
-  CreateEventActionCommandInput,
-  CreateEventActionCommandOutput,
 } from "./commands/CreateEventActionCommand";
-import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import { type CreateJobCommandInput, type CreateJobCommandOutput, CreateJobCommand } from "./commands/CreateJobCommand";
 import {
+  type CreateRevisionCommandInput,
+  type CreateRevisionCommandOutput,
   CreateRevisionCommand,
-  CreateRevisionCommandInput,
-  CreateRevisionCommandOutput,
 } from "./commands/CreateRevisionCommand";
-import { DeleteAssetCommand, DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import {
+  type DeleteAssetCommandInput,
+  type DeleteAssetCommandOutput,
+  DeleteAssetCommand,
+} from "./commands/DeleteAssetCommand";
+import {
+  type DeleteDataGrantCommandInput,
+  type DeleteDataGrantCommandOutput,
   DeleteDataGrantCommand,
-  DeleteDataGrantCommandInput,
-  DeleteDataGrantCommandOutput,
 } from "./commands/DeleteDataGrantCommand";
 import {
+  type DeleteDataSetCommandInput,
+  type DeleteDataSetCommandOutput,
   DeleteDataSetCommand,
-  DeleteDataSetCommandInput,
-  DeleteDataSetCommandOutput,
 } from "./commands/DeleteDataSetCommand";
 import {
+  type DeleteEventActionCommandInput,
+  type DeleteEventActionCommandOutput,
   DeleteEventActionCommand,
-  DeleteEventActionCommandInput,
-  DeleteEventActionCommandOutput,
 } from "./commands/DeleteEventActionCommand";
 import {
+  type DeleteRevisionCommandInput,
+  type DeleteRevisionCommandOutput,
   DeleteRevisionCommand,
-  DeleteRevisionCommandInput,
-  DeleteRevisionCommandOutput,
 } from "./commands/DeleteRevisionCommand";
-import { GetAssetCommand, GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
+import { type GetAssetCommandInput, type GetAssetCommandOutput, GetAssetCommand } from "./commands/GetAssetCommand";
 import {
+  type GetDataGrantCommandInput,
+  type GetDataGrantCommandOutput,
   GetDataGrantCommand,
-  GetDataGrantCommandInput,
-  GetDataGrantCommandOutput,
 } from "./commands/GetDataGrantCommand";
-import { GetDataSetCommand, GetDataSetCommandInput, GetDataSetCommandOutput } from "./commands/GetDataSetCommand";
 import {
+  type GetDataSetCommandInput,
+  type GetDataSetCommandOutput,
+  GetDataSetCommand,
+} from "./commands/GetDataSetCommand";
+import {
+  type GetEventActionCommandInput,
+  type GetEventActionCommandOutput,
   GetEventActionCommand,
-  GetEventActionCommandInput,
-  GetEventActionCommandOutput,
 } from "./commands/GetEventActionCommand";
-import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import { type GetJobCommandInput, type GetJobCommandOutput, GetJobCommand } from "./commands/GetJobCommand";
 import {
+  type GetReceivedDataGrantCommandInput,
+  type GetReceivedDataGrantCommandOutput,
   GetReceivedDataGrantCommand,
-  GetReceivedDataGrantCommandInput,
-  GetReceivedDataGrantCommandOutput,
 } from "./commands/GetReceivedDataGrantCommand";
-import { GetRevisionCommand, GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
 import {
+  type GetRevisionCommandInput,
+  type GetRevisionCommandOutput,
+  GetRevisionCommand,
+} from "./commands/GetRevisionCommand";
+import {
+  type ListDataGrantsCommandInput,
+  type ListDataGrantsCommandOutput,
   ListDataGrantsCommand,
-  ListDataGrantsCommandInput,
-  ListDataGrantsCommandOutput,
 } from "./commands/ListDataGrantsCommand";
 import {
+  type ListDataSetRevisionsCommandInput,
+  type ListDataSetRevisionsCommandOutput,
   ListDataSetRevisionsCommand,
-  ListDataSetRevisionsCommandInput,
-  ListDataSetRevisionsCommandOutput,
 } from "./commands/ListDataSetRevisionsCommand";
 import {
+  type ListDataSetsCommandInput,
+  type ListDataSetsCommandOutput,
   ListDataSetsCommand,
-  ListDataSetsCommandInput,
-  ListDataSetsCommandOutput,
 } from "./commands/ListDataSetsCommand";
 import {
+  type ListEventActionsCommandInput,
+  type ListEventActionsCommandOutput,
   ListEventActionsCommand,
-  ListEventActionsCommandInput,
-  ListEventActionsCommandOutput,
 } from "./commands/ListEventActionsCommand";
-import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { type ListJobsCommandInput, type ListJobsCommandOutput, ListJobsCommand } from "./commands/ListJobsCommand";
 import {
+  type ListReceivedDataGrantsCommandInput,
+  type ListReceivedDataGrantsCommandOutput,
   ListReceivedDataGrantsCommand,
-  ListReceivedDataGrantsCommandInput,
-  ListReceivedDataGrantsCommandOutput,
 } from "./commands/ListReceivedDataGrantsCommand";
 import {
+  type ListRevisionAssetsCommandInput,
+  type ListRevisionAssetsCommandOutput,
   ListRevisionAssetsCommand,
-  ListRevisionAssetsCommandInput,
-  ListRevisionAssetsCommandOutput,
 } from "./commands/ListRevisionAssetsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RevokeRevisionCommandInput,
+  type RevokeRevisionCommandOutput,
   RevokeRevisionCommand,
-  RevokeRevisionCommandInput,
-  RevokeRevisionCommandOutput,
 } from "./commands/RevokeRevisionCommand";
 import {
+  type SendApiAssetCommandInput,
+  type SendApiAssetCommandOutput,
   SendApiAssetCommand,
-  SendApiAssetCommandInput,
-  SendApiAssetCommandOutput,
 } from "./commands/SendApiAssetCommand";
 import {
+  type SendDataSetNotificationCommandInput,
+  type SendDataSetNotificationCommandOutput,
   SendDataSetNotificationCommand,
-  SendDataSetNotificationCommandInput,
-  SendDataSetNotificationCommandOutput,
 } from "./commands/SendDataSetNotificationCommand";
-import { StartJobCommand, StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type StartJobCommandInput, type StartJobCommandOutput, StartJobCommand } from "./commands/StartJobCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateAssetCommand, UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
 import {
+  type UpdateAssetCommandInput,
+  type UpdateAssetCommandOutput,
+  UpdateAssetCommand,
+} from "./commands/UpdateAssetCommand";
+import {
+  type UpdateDataSetCommandInput,
+  type UpdateDataSetCommandOutput,
   UpdateDataSetCommand,
-  UpdateDataSetCommandInput,
-  UpdateDataSetCommandOutput,
 } from "./commands/UpdateDataSetCommand";
 import {
+  type UpdateEventActionCommandInput,
+  type UpdateEventActionCommandOutput,
   UpdateEventActionCommand,
-  UpdateEventActionCommandInput,
-  UpdateEventActionCommandOutput,
 } from "./commands/UpdateEventActionCommand";
 import {
+  type UpdateRevisionCommandInput,
+  type UpdateRevisionCommandOutput,
   UpdateRevisionCommand,
-  UpdateRevisionCommandInput,
-  UpdateRevisionCommandOutput,
 } from "./commands/UpdateRevisionCommand";
 import { DataExchangeClient } from "./DataExchangeClient";
 import { paginateListDataGrants } from "./pagination/ListDataGrantsPaginator";

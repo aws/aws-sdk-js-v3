@@ -8,7 +8,7 @@ import {
   ListModelQualityJobDefinitionsCommandOutput,
 } from "../commands/ListModelQualityJobDefinitionsCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

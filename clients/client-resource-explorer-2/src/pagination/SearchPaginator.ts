@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "../commands/SearchCommand";
 import { ResourceExplorer2Client } from "../ResourceExplorer2Client";
-import { ResourceExplorer2PaginationConfiguration } from "./Interfaces";
+import type { ResourceExplorer2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

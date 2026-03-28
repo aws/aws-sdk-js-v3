@@ -7,7 +7,7 @@
  */
 export * from "./ConnectHealthClient";
 export * from "./ConnectHealth";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ConnectHealthExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

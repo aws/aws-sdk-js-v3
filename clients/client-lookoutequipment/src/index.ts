@@ -8,7 +8,7 @@
  */
 export * from "./LookoutEquipmentClient";
 export * from "./LookoutEquipment";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { LookoutEquipmentExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

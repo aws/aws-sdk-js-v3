@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ClusterStatus, EncryptionStatus, EncryptionType } from "./enums";
+import type { ClusterStatus, EncryptionStatus, EncryptionType } from "./enums";
 
 /**
  * <p>Defines the structure for multi-Region cluster configurations, containing the witness region and linked cluster settings.</p>

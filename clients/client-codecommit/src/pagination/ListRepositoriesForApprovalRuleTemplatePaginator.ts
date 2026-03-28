@@ -8,7 +8,7 @@ import {
   ListRepositoriesForApprovalRuleTemplateCommandInput,
   ListRepositoriesForApprovalRuleTemplateCommandOutput,
 } from "../commands/ListRepositoriesForApprovalRuleTemplateCommand";
-import { CodeCommitPaginationConfiguration } from "./Interfaces";
+import type { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

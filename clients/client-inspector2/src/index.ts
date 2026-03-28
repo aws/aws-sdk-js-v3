@@ -8,7 +8,7 @@
  */
 export * from "./Inspector2Client";
 export * from "./Inspector2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { Inspector2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

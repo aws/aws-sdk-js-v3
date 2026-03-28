@@ -9,282 +9,290 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type BatchCheckLayerAvailabilityCommandInput,
+  type BatchCheckLayerAvailabilityCommandOutput,
   BatchCheckLayerAvailabilityCommand,
-  BatchCheckLayerAvailabilityCommandInput,
-  BatchCheckLayerAvailabilityCommandOutput,
 } from "./commands/BatchCheckLayerAvailabilityCommand";
 import {
+  type BatchDeleteImageCommandInput,
+  type BatchDeleteImageCommandOutput,
   BatchDeleteImageCommand,
-  BatchDeleteImageCommandInput,
-  BatchDeleteImageCommandOutput,
 } from "./commands/BatchDeleteImageCommand";
 import {
+  type BatchGetImageCommandInput,
+  type BatchGetImageCommandOutput,
   BatchGetImageCommand,
-  BatchGetImageCommandInput,
-  BatchGetImageCommandOutput,
 } from "./commands/BatchGetImageCommand";
 import {
+  type BatchGetRepositoryScanningConfigurationCommandInput,
+  type BatchGetRepositoryScanningConfigurationCommandOutput,
   BatchGetRepositoryScanningConfigurationCommand,
-  BatchGetRepositoryScanningConfigurationCommandInput,
-  BatchGetRepositoryScanningConfigurationCommandOutput,
 } from "./commands/BatchGetRepositoryScanningConfigurationCommand";
 import {
+  type CompleteLayerUploadCommandInput,
+  type CompleteLayerUploadCommandOutput,
   CompleteLayerUploadCommand,
-  CompleteLayerUploadCommandInput,
-  CompleteLayerUploadCommandOutput,
 } from "./commands/CompleteLayerUploadCommand";
 import {
+  type CreatePullThroughCacheRuleCommandInput,
+  type CreatePullThroughCacheRuleCommandOutput,
   CreatePullThroughCacheRuleCommand,
-  CreatePullThroughCacheRuleCommandInput,
-  CreatePullThroughCacheRuleCommandOutput,
 } from "./commands/CreatePullThroughCacheRuleCommand";
 import {
+  type CreateRepositoryCommandInput,
+  type CreateRepositoryCommandOutput,
   CreateRepositoryCommand,
-  CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput,
 } from "./commands/CreateRepositoryCommand";
 import {
+  type CreateRepositoryCreationTemplateCommandInput,
+  type CreateRepositoryCreationTemplateCommandOutput,
   CreateRepositoryCreationTemplateCommand,
-  CreateRepositoryCreationTemplateCommandInput,
-  CreateRepositoryCreationTemplateCommandOutput,
 } from "./commands/CreateRepositoryCreationTemplateCommand";
 import {
+  type DeleteLifecyclePolicyCommandInput,
+  type DeleteLifecyclePolicyCommandOutput,
   DeleteLifecyclePolicyCommand,
-  DeleteLifecyclePolicyCommandInput,
-  DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
 import {
+  type DeletePullThroughCacheRuleCommandInput,
+  type DeletePullThroughCacheRuleCommandOutput,
   DeletePullThroughCacheRuleCommand,
-  DeletePullThroughCacheRuleCommandInput,
-  DeletePullThroughCacheRuleCommandOutput,
 } from "./commands/DeletePullThroughCacheRuleCommand";
 import {
+  type DeleteRegistryPolicyCommandInput,
+  type DeleteRegistryPolicyCommandOutput,
   DeleteRegistryPolicyCommand,
-  DeleteRegistryPolicyCommandInput,
-  DeleteRegistryPolicyCommandOutput,
 } from "./commands/DeleteRegistryPolicyCommand";
 import {
+  type DeleteRepositoryCommandInput,
+  type DeleteRepositoryCommandOutput,
   DeleteRepositoryCommand,
-  DeleteRepositoryCommandInput,
-  DeleteRepositoryCommandOutput,
 } from "./commands/DeleteRepositoryCommand";
 import {
+  type DeleteRepositoryCreationTemplateCommandInput,
+  type DeleteRepositoryCreationTemplateCommandOutput,
   DeleteRepositoryCreationTemplateCommand,
-  DeleteRepositoryCreationTemplateCommandInput,
-  DeleteRepositoryCreationTemplateCommandOutput,
 } from "./commands/DeleteRepositoryCreationTemplateCommand";
 import {
+  type DeleteRepositoryPolicyCommandInput,
+  type DeleteRepositoryPolicyCommandOutput,
   DeleteRepositoryPolicyCommand,
-  DeleteRepositoryPolicyCommandInput,
-  DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
 import {
+  type DeleteSigningConfigurationCommandInput,
+  type DeleteSigningConfigurationCommandOutput,
   DeleteSigningConfigurationCommand,
-  DeleteSigningConfigurationCommandInput,
-  DeleteSigningConfigurationCommandOutput,
 } from "./commands/DeleteSigningConfigurationCommand";
 import {
+  type DeregisterPullTimeUpdateExclusionCommandInput,
+  type DeregisterPullTimeUpdateExclusionCommandOutput,
   DeregisterPullTimeUpdateExclusionCommand,
-  DeregisterPullTimeUpdateExclusionCommandInput,
-  DeregisterPullTimeUpdateExclusionCommandOutput,
 } from "./commands/DeregisterPullTimeUpdateExclusionCommand";
 import {
+  type DescribeImageReplicationStatusCommandInput,
+  type DescribeImageReplicationStatusCommandOutput,
   DescribeImageReplicationStatusCommand,
-  DescribeImageReplicationStatusCommandInput,
-  DescribeImageReplicationStatusCommandOutput,
 } from "./commands/DescribeImageReplicationStatusCommand";
 import {
+  type DescribeImageScanFindingsCommandInput,
+  type DescribeImageScanFindingsCommandOutput,
   DescribeImageScanFindingsCommand,
-  DescribeImageScanFindingsCommandInput,
-  DescribeImageScanFindingsCommandOutput,
 } from "./commands/DescribeImageScanFindingsCommand";
 import {
+  type DescribeImagesCommandInput,
+  type DescribeImagesCommandOutput,
   DescribeImagesCommand,
-  DescribeImagesCommandInput,
-  DescribeImagesCommandOutput,
 } from "./commands/DescribeImagesCommand";
 import {
+  type DescribeImageSigningStatusCommandInput,
+  type DescribeImageSigningStatusCommandOutput,
   DescribeImageSigningStatusCommand,
-  DescribeImageSigningStatusCommandInput,
-  DescribeImageSigningStatusCommandOutput,
 } from "./commands/DescribeImageSigningStatusCommand";
 import {
+  type DescribePullThroughCacheRulesCommandInput,
+  type DescribePullThroughCacheRulesCommandOutput,
   DescribePullThroughCacheRulesCommand,
-  DescribePullThroughCacheRulesCommandInput,
-  DescribePullThroughCacheRulesCommandOutput,
 } from "./commands/DescribePullThroughCacheRulesCommand";
 import {
+  type DescribeRegistryCommandInput,
+  type DescribeRegistryCommandOutput,
   DescribeRegistryCommand,
-  DescribeRegistryCommandInput,
-  DescribeRegistryCommandOutput,
 } from "./commands/DescribeRegistryCommand";
 import {
+  type DescribeRepositoriesCommandInput,
+  type DescribeRepositoriesCommandOutput,
   DescribeRepositoriesCommand,
-  DescribeRepositoriesCommandInput,
-  DescribeRepositoriesCommandOutput,
 } from "./commands/DescribeRepositoriesCommand";
 import {
+  type DescribeRepositoryCreationTemplatesCommandInput,
+  type DescribeRepositoryCreationTemplatesCommandOutput,
   DescribeRepositoryCreationTemplatesCommand,
-  DescribeRepositoryCreationTemplatesCommandInput,
-  DescribeRepositoryCreationTemplatesCommandOutput,
 } from "./commands/DescribeRepositoryCreationTemplatesCommand";
 import {
+  type GetAccountSettingCommandInput,
+  type GetAccountSettingCommandOutput,
   GetAccountSettingCommand,
-  GetAccountSettingCommandInput,
-  GetAccountSettingCommandOutput,
 } from "./commands/GetAccountSettingCommand";
 import {
+  type GetAuthorizationTokenCommandInput,
+  type GetAuthorizationTokenCommandOutput,
   GetAuthorizationTokenCommand,
-  GetAuthorizationTokenCommandInput,
-  GetAuthorizationTokenCommandOutput,
 } from "./commands/GetAuthorizationTokenCommand";
 import {
+  type GetDownloadUrlForLayerCommandInput,
+  type GetDownloadUrlForLayerCommandOutput,
   GetDownloadUrlForLayerCommand,
-  GetDownloadUrlForLayerCommandInput,
-  GetDownloadUrlForLayerCommandOutput,
 } from "./commands/GetDownloadUrlForLayerCommand";
 import {
+  type GetLifecyclePolicyCommandInput,
+  type GetLifecyclePolicyCommandOutput,
   GetLifecyclePolicyCommand,
-  GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput,
 } from "./commands/GetLifecyclePolicyCommand";
 import {
+  type GetLifecyclePolicyPreviewCommandInput,
+  type GetLifecyclePolicyPreviewCommandOutput,
   GetLifecyclePolicyPreviewCommand,
-  GetLifecyclePolicyPreviewCommandInput,
-  GetLifecyclePolicyPreviewCommandOutput,
 } from "./commands/GetLifecyclePolicyPreviewCommand";
 import {
+  type GetRegistryPolicyCommandInput,
+  type GetRegistryPolicyCommandOutput,
   GetRegistryPolicyCommand,
-  GetRegistryPolicyCommandInput,
-  GetRegistryPolicyCommandOutput,
 } from "./commands/GetRegistryPolicyCommand";
 import {
+  type GetRegistryScanningConfigurationCommandInput,
+  type GetRegistryScanningConfigurationCommandOutput,
   GetRegistryScanningConfigurationCommand,
-  GetRegistryScanningConfigurationCommandInput,
-  GetRegistryScanningConfigurationCommandOutput,
 } from "./commands/GetRegistryScanningConfigurationCommand";
 import {
+  type GetRepositoryPolicyCommandInput,
+  type GetRepositoryPolicyCommandOutput,
   GetRepositoryPolicyCommand,
-  GetRepositoryPolicyCommandInput,
-  GetRepositoryPolicyCommandOutput,
 } from "./commands/GetRepositoryPolicyCommand";
 import {
+  type GetSigningConfigurationCommandInput,
+  type GetSigningConfigurationCommandOutput,
   GetSigningConfigurationCommand,
-  GetSigningConfigurationCommandInput,
-  GetSigningConfigurationCommandOutput,
 } from "./commands/GetSigningConfigurationCommand";
 import {
+  type InitiateLayerUploadCommandInput,
+  type InitiateLayerUploadCommandOutput,
   InitiateLayerUploadCommand,
-  InitiateLayerUploadCommandInput,
-  InitiateLayerUploadCommandOutput,
 } from "./commands/InitiateLayerUploadCommand";
 import {
+  type ListImageReferrersCommandInput,
+  type ListImageReferrersCommandOutput,
   ListImageReferrersCommand,
-  ListImageReferrersCommandInput,
-  ListImageReferrersCommandOutput,
 } from "./commands/ListImageReferrersCommand";
-import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
+  type ListImagesCommandInput,
+  type ListImagesCommandOutput,
+  ListImagesCommand,
+} from "./commands/ListImagesCommand";
+import {
+  type ListPullTimeUpdateExclusionsCommandInput,
+  type ListPullTimeUpdateExclusionsCommandOutput,
   ListPullTimeUpdateExclusionsCommand,
-  ListPullTimeUpdateExclusionsCommandInput,
-  ListPullTimeUpdateExclusionsCommandOutput,
 } from "./commands/ListPullTimeUpdateExclusionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutAccountSettingCommandInput,
+  type PutAccountSettingCommandOutput,
   PutAccountSettingCommand,
-  PutAccountSettingCommandInput,
-  PutAccountSettingCommandOutput,
 } from "./commands/PutAccountSettingCommand";
-import { PutImageCommand, PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
+import { type PutImageCommandInput, type PutImageCommandOutput, PutImageCommand } from "./commands/PutImageCommand";
 import {
+  type PutImageScanningConfigurationCommandInput,
+  type PutImageScanningConfigurationCommandOutput,
   PutImageScanningConfigurationCommand,
-  PutImageScanningConfigurationCommandInput,
-  PutImageScanningConfigurationCommandOutput,
 } from "./commands/PutImageScanningConfigurationCommand";
 import {
+  type PutImageTagMutabilityCommandInput,
+  type PutImageTagMutabilityCommandOutput,
   PutImageTagMutabilityCommand,
-  PutImageTagMutabilityCommandInput,
-  PutImageTagMutabilityCommandOutput,
 } from "./commands/PutImageTagMutabilityCommand";
 import {
+  type PutLifecyclePolicyCommandInput,
+  type PutLifecyclePolicyCommandOutput,
   PutLifecyclePolicyCommand,
-  PutLifecyclePolicyCommandInput,
-  PutLifecyclePolicyCommandOutput,
 } from "./commands/PutLifecyclePolicyCommand";
 import {
+  type PutRegistryPolicyCommandInput,
+  type PutRegistryPolicyCommandOutput,
   PutRegistryPolicyCommand,
-  PutRegistryPolicyCommandInput,
-  PutRegistryPolicyCommandOutput,
 } from "./commands/PutRegistryPolicyCommand";
 import {
+  type PutRegistryScanningConfigurationCommandInput,
+  type PutRegistryScanningConfigurationCommandOutput,
   PutRegistryScanningConfigurationCommand,
-  PutRegistryScanningConfigurationCommandInput,
-  PutRegistryScanningConfigurationCommandOutput,
 } from "./commands/PutRegistryScanningConfigurationCommand";
 import {
+  type PutReplicationConfigurationCommandInput,
+  type PutReplicationConfigurationCommandOutput,
   PutReplicationConfigurationCommand,
-  PutReplicationConfigurationCommandInput,
-  PutReplicationConfigurationCommandOutput,
 } from "./commands/PutReplicationConfigurationCommand";
 import {
+  type PutSigningConfigurationCommandInput,
+  type PutSigningConfigurationCommandOutput,
   PutSigningConfigurationCommand,
-  PutSigningConfigurationCommandInput,
-  PutSigningConfigurationCommandOutput,
 } from "./commands/PutSigningConfigurationCommand";
 import {
+  type RegisterPullTimeUpdateExclusionCommandInput,
+  type RegisterPullTimeUpdateExclusionCommandOutput,
   RegisterPullTimeUpdateExclusionCommand,
-  RegisterPullTimeUpdateExclusionCommandInput,
-  RegisterPullTimeUpdateExclusionCommandOutput,
 } from "./commands/RegisterPullTimeUpdateExclusionCommand";
 import {
+  type SetRepositoryPolicyCommandInput,
+  type SetRepositoryPolicyCommandOutput,
   SetRepositoryPolicyCommand,
-  SetRepositoryPolicyCommandInput,
-  SetRepositoryPolicyCommandOutput,
 } from "./commands/SetRepositoryPolicyCommand";
 import {
+  type StartImageScanCommandInput,
+  type StartImageScanCommandOutput,
   StartImageScanCommand,
-  StartImageScanCommandInput,
-  StartImageScanCommandOutput,
 } from "./commands/StartImageScanCommand";
 import {
+  type StartLifecyclePolicyPreviewCommandInput,
+  type StartLifecyclePolicyPreviewCommandOutput,
   StartLifecyclePolicyPreviewCommand,
-  StartLifecyclePolicyPreviewCommandInput,
-  StartLifecyclePolicyPreviewCommandOutput,
 } from "./commands/StartLifecyclePolicyPreviewCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateImageStorageClassCommandInput,
+  type UpdateImageStorageClassCommandOutput,
   UpdateImageStorageClassCommand,
-  UpdateImageStorageClassCommandInput,
-  UpdateImageStorageClassCommandOutput,
 } from "./commands/UpdateImageStorageClassCommand";
 import {
+  type UpdatePullThroughCacheRuleCommandInput,
+  type UpdatePullThroughCacheRuleCommandOutput,
   UpdatePullThroughCacheRuleCommand,
-  UpdatePullThroughCacheRuleCommandInput,
-  UpdatePullThroughCacheRuleCommandOutput,
 } from "./commands/UpdatePullThroughCacheRuleCommand";
 import {
+  type UpdateRepositoryCreationTemplateCommandInput,
+  type UpdateRepositoryCreationTemplateCommandOutput,
   UpdateRepositoryCreationTemplateCommand,
-  UpdateRepositoryCreationTemplateCommandInput,
-  UpdateRepositoryCreationTemplateCommandOutput,
 } from "./commands/UpdateRepositoryCreationTemplateCommand";
 import {
+  type UploadLayerPartCommandInput,
+  type UploadLayerPartCommandOutput,
   UploadLayerPartCommand,
-  UploadLayerPartCommandInput,
-  UploadLayerPartCommandOutput,
 } from "./commands/UploadLayerPartCommand";
 import {
+  type ValidatePullThroughCacheRuleCommandInput,
+  type ValidatePullThroughCacheRuleCommandOutput,
   ValidatePullThroughCacheRuleCommand,
-  ValidatePullThroughCacheRuleCommandInput,
-  ValidatePullThroughCacheRuleCommandOutput,
 } from "./commands/ValidatePullThroughCacheRuleCommand";
 import { ECRClient } from "./ECRClient";
 import { paginateDescribeImageScanFindings } from "./pagination/DescribeImageScanFindingsPaginator";

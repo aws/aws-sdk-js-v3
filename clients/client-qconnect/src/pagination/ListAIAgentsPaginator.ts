@@ -8,7 +8,7 @@ import {
   ListAIAgentsCommandOutput,
 } from "../commands/ListAIAgentsCommand";
 import { QConnectClient } from "../QConnectClient";
-import { QConnectPaginationConfiguration } from "./Interfaces";
+import type { QConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

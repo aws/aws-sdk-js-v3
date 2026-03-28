@@ -8,7 +8,7 @@ import {
   ListRecommendationsCommandOutput,
 } from "../commands/ListRecommendationsCommand";
 import { DevOpsGuruClient } from "../DevOpsGuruClient";
-import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
+import type { DevOpsGuruPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { StreamingBlobTypes } from "@smithy/types";
+import type { StreamingBlobTypes } from "@smithy/types";
 
-import { ItemType, StorageClass, UploadAvailability } from "./enums";
+import type { ItemType, StorageClass, UploadAvailability } from "./enums";
 
 /**
  * @public

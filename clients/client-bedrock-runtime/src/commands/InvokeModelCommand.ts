@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InvokeModelRequest, InvokeModelResponse } from "../models/models_0";
+import type { InvokeModelRequest, InvokeModelResponse } from "../models/models_0";
 import { InvokeModel$ } from "../schemas/schemas_0";
 
 /**

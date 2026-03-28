@@ -4,295 +4,299 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CleanRoomsMLClient } from "./CleanRoomsMLClient";
 import {
+  type CancelTrainedModelCommandInput,
+  type CancelTrainedModelCommandOutput,
   CancelTrainedModelCommand,
-  CancelTrainedModelCommandInput,
-  CancelTrainedModelCommandOutput,
 } from "./commands/CancelTrainedModelCommand";
 import {
+  type CancelTrainedModelInferenceJobCommandInput,
+  type CancelTrainedModelInferenceJobCommandOutput,
   CancelTrainedModelInferenceJobCommand,
-  CancelTrainedModelInferenceJobCommandInput,
-  CancelTrainedModelInferenceJobCommandOutput,
 } from "./commands/CancelTrainedModelInferenceJobCommand";
 import {
+  type CreateAudienceModelCommandInput,
+  type CreateAudienceModelCommandOutput,
   CreateAudienceModelCommand,
-  CreateAudienceModelCommandInput,
-  CreateAudienceModelCommandOutput,
 } from "./commands/CreateAudienceModelCommand";
 import {
+  type CreateConfiguredAudienceModelCommandInput,
+  type CreateConfiguredAudienceModelCommandOutput,
   CreateConfiguredAudienceModelCommand,
-  CreateConfiguredAudienceModelCommandInput,
-  CreateConfiguredAudienceModelCommandOutput,
 } from "./commands/CreateConfiguredAudienceModelCommand";
 import {
+  type CreateConfiguredModelAlgorithmAssociationCommandInput,
+  type CreateConfiguredModelAlgorithmAssociationCommandOutput,
   CreateConfiguredModelAlgorithmAssociationCommand,
-  CreateConfiguredModelAlgorithmAssociationCommandInput,
-  CreateConfiguredModelAlgorithmAssociationCommandOutput,
 } from "./commands/CreateConfiguredModelAlgorithmAssociationCommand";
 import {
+  type CreateConfiguredModelAlgorithmCommandInput,
+  type CreateConfiguredModelAlgorithmCommandOutput,
   CreateConfiguredModelAlgorithmCommand,
-  CreateConfiguredModelAlgorithmCommandInput,
-  CreateConfiguredModelAlgorithmCommandOutput,
 } from "./commands/CreateConfiguredModelAlgorithmCommand";
 import {
+  type CreateMLInputChannelCommandInput,
+  type CreateMLInputChannelCommandOutput,
   CreateMLInputChannelCommand,
-  CreateMLInputChannelCommandInput,
-  CreateMLInputChannelCommandOutput,
 } from "./commands/CreateMLInputChannelCommand";
 import {
+  type CreateTrainedModelCommandInput,
+  type CreateTrainedModelCommandOutput,
   CreateTrainedModelCommand,
-  CreateTrainedModelCommandInput,
-  CreateTrainedModelCommandOutput,
 } from "./commands/CreateTrainedModelCommand";
 import {
+  type CreateTrainingDatasetCommandInput,
+  type CreateTrainingDatasetCommandOutput,
   CreateTrainingDatasetCommand,
-  CreateTrainingDatasetCommandInput,
-  CreateTrainingDatasetCommandOutput,
 } from "./commands/CreateTrainingDatasetCommand";
 import {
+  type DeleteAudienceGenerationJobCommandInput,
+  type DeleteAudienceGenerationJobCommandOutput,
   DeleteAudienceGenerationJobCommand,
-  DeleteAudienceGenerationJobCommandInput,
-  DeleteAudienceGenerationJobCommandOutput,
 } from "./commands/DeleteAudienceGenerationJobCommand";
 import {
+  type DeleteAudienceModelCommandInput,
+  type DeleteAudienceModelCommandOutput,
   DeleteAudienceModelCommand,
-  DeleteAudienceModelCommandInput,
-  DeleteAudienceModelCommandOutput,
 } from "./commands/DeleteAudienceModelCommand";
 import {
+  type DeleteConfiguredAudienceModelCommandInput,
+  type DeleteConfiguredAudienceModelCommandOutput,
   DeleteConfiguredAudienceModelCommand,
-  DeleteConfiguredAudienceModelCommandInput,
-  DeleteConfiguredAudienceModelCommandOutput,
 } from "./commands/DeleteConfiguredAudienceModelCommand";
 import {
+  type DeleteConfiguredAudienceModelPolicyCommandInput,
+  type DeleteConfiguredAudienceModelPolicyCommandOutput,
   DeleteConfiguredAudienceModelPolicyCommand,
-  DeleteConfiguredAudienceModelPolicyCommandInput,
-  DeleteConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/DeleteConfiguredAudienceModelPolicyCommand";
 import {
+  type DeleteConfiguredModelAlgorithmAssociationCommandInput,
+  type DeleteConfiguredModelAlgorithmAssociationCommandOutput,
   DeleteConfiguredModelAlgorithmAssociationCommand,
-  DeleteConfiguredModelAlgorithmAssociationCommandInput,
-  DeleteConfiguredModelAlgorithmAssociationCommandOutput,
 } from "./commands/DeleteConfiguredModelAlgorithmAssociationCommand";
 import {
+  type DeleteConfiguredModelAlgorithmCommandInput,
+  type DeleteConfiguredModelAlgorithmCommandOutput,
   DeleteConfiguredModelAlgorithmCommand,
-  DeleteConfiguredModelAlgorithmCommandInput,
-  DeleteConfiguredModelAlgorithmCommandOutput,
 } from "./commands/DeleteConfiguredModelAlgorithmCommand";
 import {
+  type DeleteMLConfigurationCommandInput,
+  type DeleteMLConfigurationCommandOutput,
   DeleteMLConfigurationCommand,
-  DeleteMLConfigurationCommandInput,
-  DeleteMLConfigurationCommandOutput,
 } from "./commands/DeleteMLConfigurationCommand";
 import {
+  type DeleteMLInputChannelDataCommandInput,
+  type DeleteMLInputChannelDataCommandOutput,
   DeleteMLInputChannelDataCommand,
-  DeleteMLInputChannelDataCommandInput,
-  DeleteMLInputChannelDataCommandOutput,
 } from "./commands/DeleteMLInputChannelDataCommand";
 import {
+  type DeleteTrainedModelOutputCommandInput,
+  type DeleteTrainedModelOutputCommandOutput,
   DeleteTrainedModelOutputCommand,
-  DeleteTrainedModelOutputCommandInput,
-  DeleteTrainedModelOutputCommandOutput,
 } from "./commands/DeleteTrainedModelOutputCommand";
 import {
+  type DeleteTrainingDatasetCommandInput,
+  type DeleteTrainingDatasetCommandOutput,
   DeleteTrainingDatasetCommand,
-  DeleteTrainingDatasetCommandInput,
-  DeleteTrainingDatasetCommandOutput,
 } from "./commands/DeleteTrainingDatasetCommand";
 import {
+  type GetAudienceGenerationJobCommandInput,
+  type GetAudienceGenerationJobCommandOutput,
   GetAudienceGenerationJobCommand,
-  GetAudienceGenerationJobCommandInput,
-  GetAudienceGenerationJobCommandOutput,
 } from "./commands/GetAudienceGenerationJobCommand";
 import {
+  type GetAudienceModelCommandInput,
+  type GetAudienceModelCommandOutput,
   GetAudienceModelCommand,
-  GetAudienceModelCommandInput,
-  GetAudienceModelCommandOutput,
 } from "./commands/GetAudienceModelCommand";
 import {
+  type GetCollaborationConfiguredModelAlgorithmAssociationCommandInput,
+  type GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput,
   GetCollaborationConfiguredModelAlgorithmAssociationCommand,
-  GetCollaborationConfiguredModelAlgorithmAssociationCommandInput,
-  GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput,
 } from "./commands/GetCollaborationConfiguredModelAlgorithmAssociationCommand";
 import {
+  type GetCollaborationMLInputChannelCommandInput,
+  type GetCollaborationMLInputChannelCommandOutput,
   GetCollaborationMLInputChannelCommand,
-  GetCollaborationMLInputChannelCommandInput,
-  GetCollaborationMLInputChannelCommandOutput,
 } from "./commands/GetCollaborationMLInputChannelCommand";
 import {
+  type GetCollaborationTrainedModelCommandInput,
+  type GetCollaborationTrainedModelCommandOutput,
   GetCollaborationTrainedModelCommand,
-  GetCollaborationTrainedModelCommandInput,
-  GetCollaborationTrainedModelCommandOutput,
 } from "./commands/GetCollaborationTrainedModelCommand";
 import {
+  type GetConfiguredAudienceModelCommandInput,
+  type GetConfiguredAudienceModelCommandOutput,
   GetConfiguredAudienceModelCommand,
-  GetConfiguredAudienceModelCommandInput,
-  GetConfiguredAudienceModelCommandOutput,
 } from "./commands/GetConfiguredAudienceModelCommand";
 import {
+  type GetConfiguredAudienceModelPolicyCommandInput,
+  type GetConfiguredAudienceModelPolicyCommandOutput,
   GetConfiguredAudienceModelPolicyCommand,
-  GetConfiguredAudienceModelPolicyCommandInput,
-  GetConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/GetConfiguredAudienceModelPolicyCommand";
 import {
+  type GetConfiguredModelAlgorithmAssociationCommandInput,
+  type GetConfiguredModelAlgorithmAssociationCommandOutput,
   GetConfiguredModelAlgorithmAssociationCommand,
-  GetConfiguredModelAlgorithmAssociationCommandInput,
-  GetConfiguredModelAlgorithmAssociationCommandOutput,
 } from "./commands/GetConfiguredModelAlgorithmAssociationCommand";
 import {
+  type GetConfiguredModelAlgorithmCommandInput,
+  type GetConfiguredModelAlgorithmCommandOutput,
   GetConfiguredModelAlgorithmCommand,
-  GetConfiguredModelAlgorithmCommandInput,
-  GetConfiguredModelAlgorithmCommandOutput,
 } from "./commands/GetConfiguredModelAlgorithmCommand";
 import {
+  type GetMLConfigurationCommandInput,
+  type GetMLConfigurationCommandOutput,
   GetMLConfigurationCommand,
-  GetMLConfigurationCommandInput,
-  GetMLConfigurationCommandOutput,
 } from "./commands/GetMLConfigurationCommand";
 import {
+  type GetMLInputChannelCommandInput,
+  type GetMLInputChannelCommandOutput,
   GetMLInputChannelCommand,
-  GetMLInputChannelCommandInput,
-  GetMLInputChannelCommandOutput,
 } from "./commands/GetMLInputChannelCommand";
 import {
+  type GetTrainedModelCommandInput,
+  type GetTrainedModelCommandOutput,
   GetTrainedModelCommand,
-  GetTrainedModelCommandInput,
-  GetTrainedModelCommandOutput,
 } from "./commands/GetTrainedModelCommand";
 import {
+  type GetTrainedModelInferenceJobCommandInput,
+  type GetTrainedModelInferenceJobCommandOutput,
   GetTrainedModelInferenceJobCommand,
-  GetTrainedModelInferenceJobCommandInput,
-  GetTrainedModelInferenceJobCommandOutput,
 } from "./commands/GetTrainedModelInferenceJobCommand";
 import {
+  type GetTrainingDatasetCommandInput,
+  type GetTrainingDatasetCommandOutput,
   GetTrainingDatasetCommand,
-  GetTrainingDatasetCommandInput,
-  GetTrainingDatasetCommandOutput,
 } from "./commands/GetTrainingDatasetCommand";
 import {
+  type ListAudienceExportJobsCommandInput,
+  type ListAudienceExportJobsCommandOutput,
   ListAudienceExportJobsCommand,
-  ListAudienceExportJobsCommandInput,
-  ListAudienceExportJobsCommandOutput,
 } from "./commands/ListAudienceExportJobsCommand";
 import {
+  type ListAudienceGenerationJobsCommandInput,
+  type ListAudienceGenerationJobsCommandOutput,
   ListAudienceGenerationJobsCommand,
-  ListAudienceGenerationJobsCommandInput,
-  ListAudienceGenerationJobsCommandOutput,
 } from "./commands/ListAudienceGenerationJobsCommand";
 import {
+  type ListAudienceModelsCommandInput,
+  type ListAudienceModelsCommandOutput,
   ListAudienceModelsCommand,
-  ListAudienceModelsCommandInput,
-  ListAudienceModelsCommandOutput,
 } from "./commands/ListAudienceModelsCommand";
 import {
+  type ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
+  type ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput,
   ListCollaborationConfiguredModelAlgorithmAssociationsCommand,
-  ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
-  ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput,
 } from "./commands/ListCollaborationConfiguredModelAlgorithmAssociationsCommand";
 import {
+  type ListCollaborationMLInputChannelsCommandInput,
+  type ListCollaborationMLInputChannelsCommandOutput,
   ListCollaborationMLInputChannelsCommand,
-  ListCollaborationMLInputChannelsCommandInput,
-  ListCollaborationMLInputChannelsCommandOutput,
 } from "./commands/ListCollaborationMLInputChannelsCommand";
 import {
+  type ListCollaborationTrainedModelExportJobsCommandInput,
+  type ListCollaborationTrainedModelExportJobsCommandOutput,
   ListCollaborationTrainedModelExportJobsCommand,
-  ListCollaborationTrainedModelExportJobsCommandInput,
-  ListCollaborationTrainedModelExportJobsCommandOutput,
 } from "./commands/ListCollaborationTrainedModelExportJobsCommand";
 import {
+  type ListCollaborationTrainedModelInferenceJobsCommandInput,
+  type ListCollaborationTrainedModelInferenceJobsCommandOutput,
   ListCollaborationTrainedModelInferenceJobsCommand,
-  ListCollaborationTrainedModelInferenceJobsCommandInput,
-  ListCollaborationTrainedModelInferenceJobsCommandOutput,
 } from "./commands/ListCollaborationTrainedModelInferenceJobsCommand";
 import {
+  type ListCollaborationTrainedModelsCommandInput,
+  type ListCollaborationTrainedModelsCommandOutput,
   ListCollaborationTrainedModelsCommand,
-  ListCollaborationTrainedModelsCommandInput,
-  ListCollaborationTrainedModelsCommandOutput,
 } from "./commands/ListCollaborationTrainedModelsCommand";
 import {
+  type ListConfiguredAudienceModelsCommandInput,
+  type ListConfiguredAudienceModelsCommandOutput,
   ListConfiguredAudienceModelsCommand,
-  ListConfiguredAudienceModelsCommandInput,
-  ListConfiguredAudienceModelsCommandOutput,
 } from "./commands/ListConfiguredAudienceModelsCommand";
 import {
+  type ListConfiguredModelAlgorithmAssociationsCommandInput,
+  type ListConfiguredModelAlgorithmAssociationsCommandOutput,
   ListConfiguredModelAlgorithmAssociationsCommand,
-  ListConfiguredModelAlgorithmAssociationsCommandInput,
-  ListConfiguredModelAlgorithmAssociationsCommandOutput,
 } from "./commands/ListConfiguredModelAlgorithmAssociationsCommand";
 import {
+  type ListConfiguredModelAlgorithmsCommandInput,
+  type ListConfiguredModelAlgorithmsCommandOutput,
   ListConfiguredModelAlgorithmsCommand,
-  ListConfiguredModelAlgorithmsCommandInput,
-  ListConfiguredModelAlgorithmsCommandOutput,
 } from "./commands/ListConfiguredModelAlgorithmsCommand";
 import {
+  type ListMLInputChannelsCommandInput,
+  type ListMLInputChannelsCommandOutput,
   ListMLInputChannelsCommand,
-  ListMLInputChannelsCommandInput,
-  ListMLInputChannelsCommandOutput,
 } from "./commands/ListMLInputChannelsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTrainedModelInferenceJobsCommandInput,
+  type ListTrainedModelInferenceJobsCommandOutput,
   ListTrainedModelInferenceJobsCommand,
-  ListTrainedModelInferenceJobsCommandInput,
-  ListTrainedModelInferenceJobsCommandOutput,
 } from "./commands/ListTrainedModelInferenceJobsCommand";
 import {
+  type ListTrainedModelsCommandInput,
+  type ListTrainedModelsCommandOutput,
   ListTrainedModelsCommand,
-  ListTrainedModelsCommandInput,
-  ListTrainedModelsCommandOutput,
 } from "./commands/ListTrainedModelsCommand";
 import {
+  type ListTrainedModelVersionsCommandInput,
+  type ListTrainedModelVersionsCommandOutput,
   ListTrainedModelVersionsCommand,
-  ListTrainedModelVersionsCommandInput,
-  ListTrainedModelVersionsCommandOutput,
 } from "./commands/ListTrainedModelVersionsCommand";
 import {
+  type ListTrainingDatasetsCommandInput,
+  type ListTrainingDatasetsCommandOutput,
   ListTrainingDatasetsCommand,
-  ListTrainingDatasetsCommandInput,
-  ListTrainingDatasetsCommandOutput,
 } from "./commands/ListTrainingDatasetsCommand";
 import {
+  type PutConfiguredAudienceModelPolicyCommandInput,
+  type PutConfiguredAudienceModelPolicyCommandOutput,
   PutConfiguredAudienceModelPolicyCommand,
-  PutConfiguredAudienceModelPolicyCommandInput,
-  PutConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/PutConfiguredAudienceModelPolicyCommand";
 import {
+  type PutMLConfigurationCommandInput,
+  type PutMLConfigurationCommandOutput,
   PutMLConfigurationCommand,
-  PutMLConfigurationCommandInput,
-  PutMLConfigurationCommandOutput,
 } from "./commands/PutMLConfigurationCommand";
 import {
+  type StartAudienceExportJobCommandInput,
+  type StartAudienceExportJobCommandOutput,
   StartAudienceExportJobCommand,
-  StartAudienceExportJobCommandInput,
-  StartAudienceExportJobCommandOutput,
 } from "./commands/StartAudienceExportJobCommand";
 import {
+  type StartAudienceGenerationJobCommandInput,
+  type StartAudienceGenerationJobCommandOutput,
   StartAudienceGenerationJobCommand,
-  StartAudienceGenerationJobCommandInput,
-  StartAudienceGenerationJobCommandOutput,
 } from "./commands/StartAudienceGenerationJobCommand";
 import {
+  type StartTrainedModelExportJobCommandInput,
+  type StartTrainedModelExportJobCommandOutput,
   StartTrainedModelExportJobCommand,
-  StartTrainedModelExportJobCommandInput,
-  StartTrainedModelExportJobCommandOutput,
 } from "./commands/StartTrainedModelExportJobCommand";
 import {
+  type StartTrainedModelInferenceJobCommandInput,
+  type StartTrainedModelInferenceJobCommandOutput,
   StartTrainedModelInferenceJobCommand,
-  StartTrainedModelInferenceJobCommandInput,
-  StartTrainedModelInferenceJobCommandOutput,
 } from "./commands/StartTrainedModelInferenceJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateConfiguredAudienceModelCommandInput,
+  type UpdateConfiguredAudienceModelCommandOutput,
   UpdateConfiguredAudienceModelCommand,
-  UpdateConfiguredAudienceModelCommandInput,
-  UpdateConfiguredAudienceModelCommandOutput,
 } from "./commands/UpdateConfiguredAudienceModelCommand";
 import { paginateListAudienceExportJobs } from "./pagination/ListAudienceExportJobsPaginator";
 import { paginateListAudienceGenerationJobs } from "./pagination/ListAudienceGenerationJobsPaginator";

@@ -8,7 +8,7 @@ import {
   GetPlanExecutionCommandInput,
   GetPlanExecutionCommandOutput,
 } from "../commands/GetPlanExecutionCommand";
-import { ARCRegionSwitchPaginationConfiguration } from "./Interfaces";
+import type { ARCRegionSwitchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

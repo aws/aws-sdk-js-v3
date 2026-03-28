@@ -8,7 +8,7 @@ import {
   ListRuleExecutionsCommandInput,
   ListRuleExecutionsCommandOutput,
 } from "../commands/ListRuleExecutionsCommand";
-import { CodePipelinePaginationConfiguration } from "./Interfaces";
+import type { CodePipelinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

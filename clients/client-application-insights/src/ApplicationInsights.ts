@@ -3,162 +3,170 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ApplicationInsightsClient } from "./ApplicationInsightsClient";
-import { AddWorkloadCommand, AddWorkloadCommandInput, AddWorkloadCommandOutput } from "./commands/AddWorkloadCommand";
 import {
+  type AddWorkloadCommandInput,
+  type AddWorkloadCommandOutput,
+  AddWorkloadCommand,
+} from "./commands/AddWorkloadCommand";
+import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateComponentCommandInput,
+  type CreateComponentCommandOutput,
   CreateComponentCommand,
-  CreateComponentCommandInput,
-  CreateComponentCommandOutput,
 } from "./commands/CreateComponentCommand";
 import {
+  type CreateLogPatternCommandInput,
+  type CreateLogPatternCommandOutput,
   CreateLogPatternCommand,
-  CreateLogPatternCommandInput,
-  CreateLogPatternCommandOutput,
 } from "./commands/CreateLogPatternCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteComponentCommandInput,
+  type DeleteComponentCommandOutput,
   DeleteComponentCommand,
-  DeleteComponentCommandInput,
-  DeleteComponentCommandOutput,
 } from "./commands/DeleteComponentCommand";
 import {
+  type DeleteLogPatternCommandInput,
+  type DeleteLogPatternCommandOutput,
   DeleteLogPatternCommand,
-  DeleteLogPatternCommandInput,
-  DeleteLogPatternCommandOutput,
 } from "./commands/DeleteLogPatternCommand";
 import {
+  type DescribeApplicationCommandInput,
+  type DescribeApplicationCommandOutput,
   DescribeApplicationCommand,
-  DescribeApplicationCommandInput,
-  DescribeApplicationCommandOutput,
 } from "./commands/DescribeApplicationCommand";
 import {
+  type DescribeComponentCommandInput,
+  type DescribeComponentCommandOutput,
   DescribeComponentCommand,
-  DescribeComponentCommandInput,
-  DescribeComponentCommandOutput,
 } from "./commands/DescribeComponentCommand";
 import {
+  type DescribeComponentConfigurationCommandInput,
+  type DescribeComponentConfigurationCommandOutput,
   DescribeComponentConfigurationCommand,
-  DescribeComponentConfigurationCommandInput,
-  DescribeComponentConfigurationCommandOutput,
 } from "./commands/DescribeComponentConfigurationCommand";
 import {
+  type DescribeComponentConfigurationRecommendationCommandInput,
+  type DescribeComponentConfigurationRecommendationCommandOutput,
   DescribeComponentConfigurationRecommendationCommand,
-  DescribeComponentConfigurationRecommendationCommandInput,
-  DescribeComponentConfigurationRecommendationCommandOutput,
 } from "./commands/DescribeComponentConfigurationRecommendationCommand";
 import {
+  type DescribeLogPatternCommandInput,
+  type DescribeLogPatternCommandOutput,
   DescribeLogPatternCommand,
-  DescribeLogPatternCommandInput,
-  DescribeLogPatternCommandOutput,
 } from "./commands/DescribeLogPatternCommand";
 import {
+  type DescribeObservationCommandInput,
+  type DescribeObservationCommandOutput,
   DescribeObservationCommand,
-  DescribeObservationCommandInput,
-  DescribeObservationCommandOutput,
 } from "./commands/DescribeObservationCommand";
 import {
+  type DescribeProblemCommandInput,
+  type DescribeProblemCommandOutput,
   DescribeProblemCommand,
-  DescribeProblemCommandInput,
-  DescribeProblemCommandOutput,
 } from "./commands/DescribeProblemCommand";
 import {
+  type DescribeProblemObservationsCommandInput,
+  type DescribeProblemObservationsCommandOutput,
   DescribeProblemObservationsCommand,
-  DescribeProblemObservationsCommandInput,
-  DescribeProblemObservationsCommandOutput,
 } from "./commands/DescribeProblemObservationsCommand";
 import {
+  type DescribeWorkloadCommandInput,
+  type DescribeWorkloadCommandOutput,
   DescribeWorkloadCommand,
-  DescribeWorkloadCommandInput,
-  DescribeWorkloadCommandOutput,
 } from "./commands/DescribeWorkloadCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListComponentsCommandInput,
+  type ListComponentsCommandOutput,
   ListComponentsCommand,
-  ListComponentsCommandInput,
-  ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
 import {
+  type ListConfigurationHistoryCommandInput,
+  type ListConfigurationHistoryCommandOutput,
   ListConfigurationHistoryCommand,
-  ListConfigurationHistoryCommandInput,
-  ListConfigurationHistoryCommandOutput,
 } from "./commands/ListConfigurationHistoryCommand";
 import {
+  type ListLogPatternsCommandInput,
+  type ListLogPatternsCommandOutput,
   ListLogPatternsCommand,
-  ListLogPatternsCommandInput,
-  ListLogPatternsCommandOutput,
 } from "./commands/ListLogPatternsCommand";
 import {
+  type ListLogPatternSetsCommandInput,
+  type ListLogPatternSetsCommandOutput,
   ListLogPatternSetsCommand,
-  ListLogPatternSetsCommandInput,
-  ListLogPatternSetsCommandOutput,
 } from "./commands/ListLogPatternSetsCommand";
 import {
+  type ListProblemsCommandInput,
+  type ListProblemsCommandOutput,
   ListProblemsCommand,
-  ListProblemsCommandInput,
-  ListProblemsCommandOutput,
 } from "./commands/ListProblemsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWorkloadsCommandInput,
+  type ListWorkloadsCommandOutput,
   ListWorkloadsCommand,
-  ListWorkloadsCommandInput,
-  ListWorkloadsCommandOutput,
 } from "./commands/ListWorkloadsCommand";
 import {
+  type RemoveWorkloadCommandInput,
+  type RemoveWorkloadCommandOutput,
   RemoveWorkloadCommand,
-  RemoveWorkloadCommandInput,
-  RemoveWorkloadCommandOutput,
 } from "./commands/RemoveWorkloadCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateComponentCommandInput,
+  type UpdateComponentCommandOutput,
   UpdateComponentCommand,
-  UpdateComponentCommandInput,
-  UpdateComponentCommandOutput,
 } from "./commands/UpdateComponentCommand";
 import {
+  type UpdateComponentConfigurationCommandInput,
+  type UpdateComponentConfigurationCommandOutput,
   UpdateComponentConfigurationCommand,
-  UpdateComponentConfigurationCommandInput,
-  UpdateComponentConfigurationCommandOutput,
 } from "./commands/UpdateComponentConfigurationCommand";
 import {
+  type UpdateLogPatternCommandInput,
+  type UpdateLogPatternCommandOutput,
   UpdateLogPatternCommand,
-  UpdateLogPatternCommandInput,
-  UpdateLogPatternCommandOutput,
 } from "./commands/UpdateLogPatternCommand";
 import {
+  type UpdateProblemCommandInput,
+  type UpdateProblemCommandOutput,
   UpdateProblemCommand,
-  UpdateProblemCommandInput,
-  UpdateProblemCommandOutput,
 } from "./commands/UpdateProblemCommand";
 import {
+  type UpdateWorkloadCommandInput,
+  type UpdateWorkloadCommandOutput,
   UpdateWorkloadCommand,
-  UpdateWorkloadCommandInput,
-  UpdateWorkloadCommandOutput,
 } from "./commands/UpdateWorkloadCommand";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListComponents } from "./pagination/ListComponentsPaginator";

@@ -8,7 +8,7 @@ import {
   ListImageScanFindingsCommandOutput,
 } from "../commands/ListImageScanFindingsCommand";
 import { ImagebuilderClient } from "../ImagebuilderClient";
-import { ImagebuilderPaginationConfiguration } from "./Interfaces";
+import type { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

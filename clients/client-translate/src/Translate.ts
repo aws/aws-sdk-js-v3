@@ -3,95 +3,99 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateParallelDataCommandInput,
+  type CreateParallelDataCommandOutput,
   CreateParallelDataCommand,
-  CreateParallelDataCommandInput,
-  CreateParallelDataCommandOutput,
 } from "./commands/CreateParallelDataCommand";
 import {
+  type DeleteParallelDataCommandInput,
+  type DeleteParallelDataCommandOutput,
   DeleteParallelDataCommand,
-  DeleteParallelDataCommandInput,
-  DeleteParallelDataCommandOutput,
 } from "./commands/DeleteParallelDataCommand";
 import {
+  type DeleteTerminologyCommandInput,
+  type DeleteTerminologyCommandOutput,
   DeleteTerminologyCommand,
-  DeleteTerminologyCommandInput,
-  DeleteTerminologyCommandOutput,
 } from "./commands/DeleteTerminologyCommand";
 import {
+  type DescribeTextTranslationJobCommandInput,
+  type DescribeTextTranslationJobCommandOutput,
   DescribeTextTranslationJobCommand,
-  DescribeTextTranslationJobCommandInput,
-  DescribeTextTranslationJobCommandOutput,
 } from "./commands/DescribeTextTranslationJobCommand";
 import {
+  type GetParallelDataCommandInput,
+  type GetParallelDataCommandOutput,
   GetParallelDataCommand,
-  GetParallelDataCommandInput,
-  GetParallelDataCommandOutput,
 } from "./commands/GetParallelDataCommand";
 import {
+  type GetTerminologyCommandInput,
+  type GetTerminologyCommandOutput,
   GetTerminologyCommand,
-  GetTerminologyCommandInput,
-  GetTerminologyCommandOutput,
 } from "./commands/GetTerminologyCommand";
 import {
+  type ImportTerminologyCommandInput,
+  type ImportTerminologyCommandOutput,
   ImportTerminologyCommand,
-  ImportTerminologyCommandInput,
-  ImportTerminologyCommandOutput,
 } from "./commands/ImportTerminologyCommand";
 import {
+  type ListLanguagesCommandInput,
+  type ListLanguagesCommandOutput,
   ListLanguagesCommand,
-  ListLanguagesCommandInput,
-  ListLanguagesCommandOutput,
 } from "./commands/ListLanguagesCommand";
 import {
+  type ListParallelDataCommandInput,
+  type ListParallelDataCommandOutput,
   ListParallelDataCommand,
-  ListParallelDataCommandInput,
-  ListParallelDataCommandOutput,
 } from "./commands/ListParallelDataCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTerminologiesCommandInput,
+  type ListTerminologiesCommandOutput,
   ListTerminologiesCommand,
-  ListTerminologiesCommandInput,
-  ListTerminologiesCommandOutput,
 } from "./commands/ListTerminologiesCommand";
 import {
+  type ListTextTranslationJobsCommandInput,
+  type ListTextTranslationJobsCommandOutput,
   ListTextTranslationJobsCommand,
-  ListTextTranslationJobsCommandInput,
-  ListTextTranslationJobsCommandOutput,
 } from "./commands/ListTextTranslationJobsCommand";
 import {
+  type StartTextTranslationJobCommandInput,
+  type StartTextTranslationJobCommandOutput,
   StartTextTranslationJobCommand,
-  StartTextTranslationJobCommandInput,
-  StartTextTranslationJobCommandOutput,
 } from "./commands/StartTextTranslationJobCommand";
 import {
+  type StopTextTranslationJobCommandInput,
+  type StopTextTranslationJobCommandOutput,
   StopTextTranslationJobCommand,
-  StopTextTranslationJobCommandInput,
-  StopTextTranslationJobCommandOutput,
 } from "./commands/StopTextTranslationJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TranslateDocumentCommandInput,
+  type TranslateDocumentCommandOutput,
   TranslateDocumentCommand,
-  TranslateDocumentCommandInput,
-  TranslateDocumentCommandOutput,
 } from "./commands/TranslateDocumentCommand";
 import {
+  type TranslateTextCommandInput,
+  type TranslateTextCommandOutput,
   TranslateTextCommand,
-  TranslateTextCommandInput,
-  TranslateTextCommandOutput,
 } from "./commands/TranslateTextCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateParallelDataCommandInput,
+  type UpdateParallelDataCommandOutput,
   UpdateParallelDataCommand,
-  UpdateParallelDataCommandInput,
-  UpdateParallelDataCommandOutput,
 } from "./commands/UpdateParallelDataCommand";
 import { paginateListLanguages } from "./pagination/ListLanguagesPaginator";
 import { paginateListParallelData } from "./pagination/ListParallelDataPaginator";

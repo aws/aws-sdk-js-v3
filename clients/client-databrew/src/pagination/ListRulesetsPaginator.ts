@@ -8,7 +8,7 @@ import {
   ListRulesetsCommandOutput,
 } from "../commands/ListRulesetsCommand";
 import { DataBrewClient } from "../DataBrewClient";
-import { DataBrewPaginationConfiguration } from "./Interfaces";
+import type { DataBrewPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

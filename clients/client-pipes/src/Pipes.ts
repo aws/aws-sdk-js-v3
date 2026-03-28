@@ -2,28 +2,44 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { CreatePipeCommand, CreatePipeCommandInput, CreatePipeCommandOutput } from "./commands/CreatePipeCommand";
-import { DeletePipeCommand, DeletePipeCommandInput, DeletePipeCommandOutput } from "./commands/DeletePipeCommand";
 import {
+  type CreatePipeCommandInput,
+  type CreatePipeCommandOutput,
+  CreatePipeCommand,
+} from "./commands/CreatePipeCommand";
+import {
+  type DeletePipeCommandInput,
+  type DeletePipeCommandOutput,
+  DeletePipeCommand,
+} from "./commands/DeletePipeCommand";
+import {
+  type DescribePipeCommandInput,
+  type DescribePipeCommandOutput,
   DescribePipeCommand,
-  DescribePipeCommandInput,
-  DescribePipeCommandOutput,
 } from "./commands/DescribePipeCommand";
-import { ListPipesCommand, ListPipesCommandInput, ListPipesCommandOutput } from "./commands/ListPipesCommand";
+import { type ListPipesCommandInput, type ListPipesCommandOutput, ListPipesCommand } from "./commands/ListPipesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartPipeCommand, StartPipeCommandInput, StartPipeCommandOutput } from "./commands/StartPipeCommand";
-import { StopPipeCommand, StopPipeCommandInput, StopPipeCommandOutput } from "./commands/StopPipeCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type StartPipeCommandInput, type StartPipeCommandOutput, StartPipeCommand } from "./commands/StartPipeCommand";
+import { type StopPipeCommandInput, type StopPipeCommandOutput, StopPipeCommand } from "./commands/StopPipeCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdatePipeCommand, UpdatePipeCommandInput, UpdatePipeCommandOutput } from "./commands/UpdatePipeCommand";
+import {
+  type UpdatePipeCommandInput,
+  type UpdatePipeCommandOutput,
+  UpdatePipeCommand,
+} from "./commands/UpdatePipeCommand";
 import { paginateListPipes } from "./pagination/ListPipesPaginator";
 import { PipesClient } from "./PipesClient";
 

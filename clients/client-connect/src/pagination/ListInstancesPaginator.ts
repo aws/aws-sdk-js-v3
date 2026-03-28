@@ -8,7 +8,7 @@ import {
   ListInstancesCommandOutput,
 } from "../commands/ListInstancesCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

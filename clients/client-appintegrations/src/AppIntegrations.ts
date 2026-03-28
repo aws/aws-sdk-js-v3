@@ -4,115 +4,119 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { AppIntegrationsClient } from "./AppIntegrationsClient";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateDataIntegrationAssociationCommandInput,
+  type CreateDataIntegrationAssociationCommandOutput,
   CreateDataIntegrationAssociationCommand,
-  CreateDataIntegrationAssociationCommandInput,
-  CreateDataIntegrationAssociationCommandOutput,
 } from "./commands/CreateDataIntegrationAssociationCommand";
 import {
+  type CreateDataIntegrationCommandInput,
+  type CreateDataIntegrationCommandOutput,
   CreateDataIntegrationCommand,
-  CreateDataIntegrationCommandInput,
-  CreateDataIntegrationCommandOutput,
 } from "./commands/CreateDataIntegrationCommand";
 import {
+  type CreateEventIntegrationCommandInput,
+  type CreateEventIntegrationCommandOutput,
   CreateEventIntegrationCommand,
-  CreateEventIntegrationCommandInput,
-  CreateEventIntegrationCommandOutput,
 } from "./commands/CreateEventIntegrationCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteDataIntegrationCommandInput,
+  type DeleteDataIntegrationCommandOutput,
   DeleteDataIntegrationCommand,
-  DeleteDataIntegrationCommandInput,
-  DeleteDataIntegrationCommandOutput,
 } from "./commands/DeleteDataIntegrationCommand";
 import {
+  type DeleteEventIntegrationCommandInput,
+  type DeleteEventIntegrationCommandOutput,
   DeleteEventIntegrationCommand,
-  DeleteEventIntegrationCommandInput,
-  DeleteEventIntegrationCommandOutput,
 } from "./commands/DeleteEventIntegrationCommand";
 import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
   GetApplicationCommand,
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  type GetDataIntegrationCommandInput,
+  type GetDataIntegrationCommandOutput,
   GetDataIntegrationCommand,
-  GetDataIntegrationCommandInput,
-  GetDataIntegrationCommandOutput,
 } from "./commands/GetDataIntegrationCommand";
 import {
+  type GetEventIntegrationCommandInput,
+  type GetEventIntegrationCommandOutput,
   GetEventIntegrationCommand,
-  GetEventIntegrationCommandInput,
-  GetEventIntegrationCommandOutput,
 } from "./commands/GetEventIntegrationCommand";
 import {
+  type ListApplicationAssociationsCommandInput,
+  type ListApplicationAssociationsCommandOutput,
   ListApplicationAssociationsCommand,
-  ListApplicationAssociationsCommandInput,
-  ListApplicationAssociationsCommandOutput,
 } from "./commands/ListApplicationAssociationsCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListDataIntegrationAssociationsCommandInput,
+  type ListDataIntegrationAssociationsCommandOutput,
   ListDataIntegrationAssociationsCommand,
-  ListDataIntegrationAssociationsCommandInput,
-  ListDataIntegrationAssociationsCommandOutput,
 } from "./commands/ListDataIntegrationAssociationsCommand";
 import {
+  type ListDataIntegrationsCommandInput,
+  type ListDataIntegrationsCommandOutput,
   ListDataIntegrationsCommand,
-  ListDataIntegrationsCommandInput,
-  ListDataIntegrationsCommandOutput,
 } from "./commands/ListDataIntegrationsCommand";
 import {
+  type ListEventIntegrationAssociationsCommandInput,
+  type ListEventIntegrationAssociationsCommandOutput,
   ListEventIntegrationAssociationsCommand,
-  ListEventIntegrationAssociationsCommandInput,
-  ListEventIntegrationAssociationsCommandOutput,
 } from "./commands/ListEventIntegrationAssociationsCommand";
 import {
+  type ListEventIntegrationsCommandInput,
+  type ListEventIntegrationsCommandOutput,
   ListEventIntegrationsCommand,
-  ListEventIntegrationsCommandInput,
-  ListEventIntegrationsCommandOutput,
 } from "./commands/ListEventIntegrationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateDataIntegrationAssociationCommandInput,
+  type UpdateDataIntegrationAssociationCommandOutput,
   UpdateDataIntegrationAssociationCommand,
-  UpdateDataIntegrationAssociationCommandInput,
-  UpdateDataIntegrationAssociationCommandOutput,
 } from "./commands/UpdateDataIntegrationAssociationCommand";
 import {
+  type UpdateDataIntegrationCommandInput,
+  type UpdateDataIntegrationCommandOutput,
   UpdateDataIntegrationCommand,
-  UpdateDataIntegrationCommandInput,
-  UpdateDataIntegrationCommandOutput,
 } from "./commands/UpdateDataIntegrationCommand";
 import {
+  type UpdateEventIntegrationCommandInput,
+  type UpdateEventIntegrationCommandOutput,
   UpdateEventIntegrationCommand,
-  UpdateEventIntegrationCommandInput,
-  UpdateEventIntegrationCommandOutput,
 } from "./commands/UpdateEventIntegrationCommand";
 import { paginateListApplicationAssociations } from "./pagination/ListApplicationAssociationsPaginator";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";

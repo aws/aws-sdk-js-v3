@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListIndicesCommand, ListIndicesCommandInput, ListIndicesCommandOutput } from "../commands/ListIndicesCommand";
 import { KendraClient } from "../KendraClient";
-import { KendraPaginationConfiguration } from "./Interfaces";
+import type { KendraPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

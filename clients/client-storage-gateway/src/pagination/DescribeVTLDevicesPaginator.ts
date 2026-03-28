@@ -8,7 +8,7 @@ import {
   DescribeVTLDevicesCommandOutput,
 } from "../commands/DescribeVTLDevicesCommand";
 import { StorageGatewayClient } from "../StorageGatewayClient";
-import { StorageGatewayPaginationConfiguration } from "./Interfaces";
+import type { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListModelPackagesCommandOutput,
 } from "../commands/ListModelPackagesCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

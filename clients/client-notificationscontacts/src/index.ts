@@ -7,7 +7,7 @@
  */
 export * from "./NotificationsContactsClient";
 export * from "./NotificationsContacts";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { NotificationsContactsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -8,7 +8,7 @@ import {
   ListSecurityGroupsCommandOutput,
 } from "../commands/ListSecurityGroupsCommand";
 import { WickrClient } from "../WickrClient";
-import { WickrPaginationConfiguration } from "./Interfaces";
+import type { WickrPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

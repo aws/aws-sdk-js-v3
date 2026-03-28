@@ -3,421 +3,429 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchDetectDominantLanguageCommandInput,
+  type BatchDetectDominantLanguageCommandOutput,
   BatchDetectDominantLanguageCommand,
-  BatchDetectDominantLanguageCommandInput,
-  BatchDetectDominantLanguageCommandOutput,
 } from "./commands/BatchDetectDominantLanguageCommand";
 import {
+  type BatchDetectEntitiesCommandInput,
+  type BatchDetectEntitiesCommandOutput,
   BatchDetectEntitiesCommand,
-  BatchDetectEntitiesCommandInput,
-  BatchDetectEntitiesCommandOutput,
 } from "./commands/BatchDetectEntitiesCommand";
 import {
+  type BatchDetectKeyPhrasesCommandInput,
+  type BatchDetectKeyPhrasesCommandOutput,
   BatchDetectKeyPhrasesCommand,
-  BatchDetectKeyPhrasesCommandInput,
-  BatchDetectKeyPhrasesCommandOutput,
 } from "./commands/BatchDetectKeyPhrasesCommand";
 import {
+  type BatchDetectSentimentCommandInput,
+  type BatchDetectSentimentCommandOutput,
   BatchDetectSentimentCommand,
-  BatchDetectSentimentCommandInput,
-  BatchDetectSentimentCommandOutput,
 } from "./commands/BatchDetectSentimentCommand";
 import {
+  type BatchDetectSyntaxCommandInput,
+  type BatchDetectSyntaxCommandOutput,
   BatchDetectSyntaxCommand,
-  BatchDetectSyntaxCommandInput,
-  BatchDetectSyntaxCommandOutput,
 } from "./commands/BatchDetectSyntaxCommand";
 import {
+  type BatchDetectTargetedSentimentCommandInput,
+  type BatchDetectTargetedSentimentCommandOutput,
   BatchDetectTargetedSentimentCommand,
-  BatchDetectTargetedSentimentCommandInput,
-  BatchDetectTargetedSentimentCommandOutput,
 } from "./commands/BatchDetectTargetedSentimentCommand";
 import {
+  type ClassifyDocumentCommandInput,
+  type ClassifyDocumentCommandOutput,
   ClassifyDocumentCommand,
-  ClassifyDocumentCommandInput,
-  ClassifyDocumentCommandOutput,
 } from "./commands/ClassifyDocumentCommand";
 import {
+  type ContainsPiiEntitiesCommandInput,
+  type ContainsPiiEntitiesCommandOutput,
   ContainsPiiEntitiesCommand,
-  ContainsPiiEntitiesCommandInput,
-  ContainsPiiEntitiesCommandOutput,
 } from "./commands/ContainsPiiEntitiesCommand";
 import {
+  type CreateDatasetCommandInput,
+  type CreateDatasetCommandOutput,
   CreateDatasetCommand,
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput,
 } from "./commands/CreateDatasetCommand";
 import {
+  type CreateDocumentClassifierCommandInput,
+  type CreateDocumentClassifierCommandOutput,
   CreateDocumentClassifierCommand,
-  CreateDocumentClassifierCommandInput,
-  CreateDocumentClassifierCommandOutput,
 } from "./commands/CreateDocumentClassifierCommand";
 import {
+  type CreateEndpointCommandInput,
+  type CreateEndpointCommandOutput,
   CreateEndpointCommand,
-  CreateEndpointCommandInput,
-  CreateEndpointCommandOutput,
 } from "./commands/CreateEndpointCommand";
 import {
+  type CreateEntityRecognizerCommandInput,
+  type CreateEntityRecognizerCommandOutput,
   CreateEntityRecognizerCommand,
-  CreateEntityRecognizerCommandInput,
-  CreateEntityRecognizerCommandOutput,
 } from "./commands/CreateEntityRecognizerCommand";
 import {
+  type CreateFlywheelCommandInput,
+  type CreateFlywheelCommandOutput,
   CreateFlywheelCommand,
-  CreateFlywheelCommandInput,
-  CreateFlywheelCommandOutput,
 } from "./commands/CreateFlywheelCommand";
 import {
+  type DeleteDocumentClassifierCommandInput,
+  type DeleteDocumentClassifierCommandOutput,
   DeleteDocumentClassifierCommand,
-  DeleteDocumentClassifierCommandInput,
-  DeleteDocumentClassifierCommandOutput,
 } from "./commands/DeleteDocumentClassifierCommand";
 import {
+  type DeleteEndpointCommandInput,
+  type DeleteEndpointCommandOutput,
   DeleteEndpointCommand,
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput,
 } from "./commands/DeleteEndpointCommand";
 import {
+  type DeleteEntityRecognizerCommandInput,
+  type DeleteEntityRecognizerCommandOutput,
   DeleteEntityRecognizerCommand,
-  DeleteEntityRecognizerCommandInput,
-  DeleteEntityRecognizerCommandOutput,
 } from "./commands/DeleteEntityRecognizerCommand";
 import {
+  type DeleteFlywheelCommandInput,
+  type DeleteFlywheelCommandOutput,
   DeleteFlywheelCommand,
-  DeleteFlywheelCommandInput,
-  DeleteFlywheelCommandOutput,
 } from "./commands/DeleteFlywheelCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DescribeDatasetCommandInput,
+  type DescribeDatasetCommandOutput,
   DescribeDatasetCommand,
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput,
 } from "./commands/DescribeDatasetCommand";
 import {
+  type DescribeDocumentClassificationJobCommandInput,
+  type DescribeDocumentClassificationJobCommandOutput,
   DescribeDocumentClassificationJobCommand,
-  DescribeDocumentClassificationJobCommandInput,
-  DescribeDocumentClassificationJobCommandOutput,
 } from "./commands/DescribeDocumentClassificationJobCommand";
 import {
+  type DescribeDocumentClassifierCommandInput,
+  type DescribeDocumentClassifierCommandOutput,
   DescribeDocumentClassifierCommand,
-  DescribeDocumentClassifierCommandInput,
-  DescribeDocumentClassifierCommandOutput,
 } from "./commands/DescribeDocumentClassifierCommand";
 import {
+  type DescribeDominantLanguageDetectionJobCommandInput,
+  type DescribeDominantLanguageDetectionJobCommandOutput,
   DescribeDominantLanguageDetectionJobCommand,
-  DescribeDominantLanguageDetectionJobCommandInput,
-  DescribeDominantLanguageDetectionJobCommandOutput,
 } from "./commands/DescribeDominantLanguageDetectionJobCommand";
 import {
+  type DescribeEndpointCommandInput,
+  type DescribeEndpointCommandOutput,
   DescribeEndpointCommand,
-  DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput,
 } from "./commands/DescribeEndpointCommand";
 import {
+  type DescribeEntitiesDetectionJobCommandInput,
+  type DescribeEntitiesDetectionJobCommandOutput,
   DescribeEntitiesDetectionJobCommand,
-  DescribeEntitiesDetectionJobCommandInput,
-  DescribeEntitiesDetectionJobCommandOutput,
 } from "./commands/DescribeEntitiesDetectionJobCommand";
 import {
+  type DescribeEntityRecognizerCommandInput,
+  type DescribeEntityRecognizerCommandOutput,
   DescribeEntityRecognizerCommand,
-  DescribeEntityRecognizerCommandInput,
-  DescribeEntityRecognizerCommandOutput,
 } from "./commands/DescribeEntityRecognizerCommand";
 import {
+  type DescribeEventsDetectionJobCommandInput,
+  type DescribeEventsDetectionJobCommandOutput,
   DescribeEventsDetectionJobCommand,
-  DescribeEventsDetectionJobCommandInput,
-  DescribeEventsDetectionJobCommandOutput,
 } from "./commands/DescribeEventsDetectionJobCommand";
 import {
+  type DescribeFlywheelCommandInput,
+  type DescribeFlywheelCommandOutput,
   DescribeFlywheelCommand,
-  DescribeFlywheelCommandInput,
-  DescribeFlywheelCommandOutput,
 } from "./commands/DescribeFlywheelCommand";
 import {
+  type DescribeFlywheelIterationCommandInput,
+  type DescribeFlywheelIterationCommandOutput,
   DescribeFlywheelIterationCommand,
-  DescribeFlywheelIterationCommandInput,
-  DescribeFlywheelIterationCommandOutput,
 } from "./commands/DescribeFlywheelIterationCommand";
 import {
+  type DescribeKeyPhrasesDetectionJobCommandInput,
+  type DescribeKeyPhrasesDetectionJobCommandOutput,
   DescribeKeyPhrasesDetectionJobCommand,
-  DescribeKeyPhrasesDetectionJobCommandInput,
-  DescribeKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/DescribeKeyPhrasesDetectionJobCommand";
 import {
+  type DescribePiiEntitiesDetectionJobCommandInput,
+  type DescribePiiEntitiesDetectionJobCommandOutput,
   DescribePiiEntitiesDetectionJobCommand,
-  DescribePiiEntitiesDetectionJobCommandInput,
-  DescribePiiEntitiesDetectionJobCommandOutput,
 } from "./commands/DescribePiiEntitiesDetectionJobCommand";
 import {
+  type DescribeResourcePolicyCommandInput,
+  type DescribeResourcePolicyCommandOutput,
   DescribeResourcePolicyCommand,
-  DescribeResourcePolicyCommandInput,
-  DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
 import {
+  type DescribeSentimentDetectionJobCommandInput,
+  type DescribeSentimentDetectionJobCommandOutput,
   DescribeSentimentDetectionJobCommand,
-  DescribeSentimentDetectionJobCommandInput,
-  DescribeSentimentDetectionJobCommandOutput,
 } from "./commands/DescribeSentimentDetectionJobCommand";
 import {
+  type DescribeTargetedSentimentDetectionJobCommandInput,
+  type DescribeTargetedSentimentDetectionJobCommandOutput,
   DescribeTargetedSentimentDetectionJobCommand,
-  DescribeTargetedSentimentDetectionJobCommandInput,
-  DescribeTargetedSentimentDetectionJobCommandOutput,
 } from "./commands/DescribeTargetedSentimentDetectionJobCommand";
 import {
+  type DescribeTopicsDetectionJobCommandInput,
+  type DescribeTopicsDetectionJobCommandOutput,
   DescribeTopicsDetectionJobCommand,
-  DescribeTopicsDetectionJobCommandInput,
-  DescribeTopicsDetectionJobCommandOutput,
 } from "./commands/DescribeTopicsDetectionJobCommand";
 import {
+  type DetectDominantLanguageCommandInput,
+  type DetectDominantLanguageCommandOutput,
   DetectDominantLanguageCommand,
-  DetectDominantLanguageCommandInput,
-  DetectDominantLanguageCommandOutput,
 } from "./commands/DetectDominantLanguageCommand";
 import {
+  type DetectEntitiesCommandInput,
+  type DetectEntitiesCommandOutput,
   DetectEntitiesCommand,
-  DetectEntitiesCommandInput,
-  DetectEntitiesCommandOutput,
 } from "./commands/DetectEntitiesCommand";
 import {
+  type DetectKeyPhrasesCommandInput,
+  type DetectKeyPhrasesCommandOutput,
   DetectKeyPhrasesCommand,
-  DetectKeyPhrasesCommandInput,
-  DetectKeyPhrasesCommandOutput,
 } from "./commands/DetectKeyPhrasesCommand";
 import {
+  type DetectPiiEntitiesCommandInput,
+  type DetectPiiEntitiesCommandOutput,
   DetectPiiEntitiesCommand,
-  DetectPiiEntitiesCommandInput,
-  DetectPiiEntitiesCommandOutput,
 } from "./commands/DetectPiiEntitiesCommand";
 import {
+  type DetectSentimentCommandInput,
+  type DetectSentimentCommandOutput,
   DetectSentimentCommand,
-  DetectSentimentCommandInput,
-  DetectSentimentCommandOutput,
 } from "./commands/DetectSentimentCommand";
 import {
+  type DetectSyntaxCommandInput,
+  type DetectSyntaxCommandOutput,
   DetectSyntaxCommand,
-  DetectSyntaxCommandInput,
-  DetectSyntaxCommandOutput,
 } from "./commands/DetectSyntaxCommand";
 import {
+  type DetectTargetedSentimentCommandInput,
+  type DetectTargetedSentimentCommandOutput,
   DetectTargetedSentimentCommand,
-  DetectTargetedSentimentCommandInput,
-  DetectTargetedSentimentCommandOutput,
 } from "./commands/DetectTargetedSentimentCommand";
 import {
+  type DetectToxicContentCommandInput,
+  type DetectToxicContentCommandOutput,
   DetectToxicContentCommand,
-  DetectToxicContentCommandInput,
-  DetectToxicContentCommandOutput,
 } from "./commands/DetectToxicContentCommand";
-import { ImportModelCommand, ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
 import {
+  type ImportModelCommandInput,
+  type ImportModelCommandOutput,
+  ImportModelCommand,
+} from "./commands/ImportModelCommand";
+import {
+  type ListDatasetsCommandInput,
+  type ListDatasetsCommandOutput,
   ListDatasetsCommand,
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
 import {
+  type ListDocumentClassificationJobsCommandInput,
+  type ListDocumentClassificationJobsCommandOutput,
   ListDocumentClassificationJobsCommand,
-  ListDocumentClassificationJobsCommandInput,
-  ListDocumentClassificationJobsCommandOutput,
 } from "./commands/ListDocumentClassificationJobsCommand";
 import {
+  type ListDocumentClassifiersCommandInput,
+  type ListDocumentClassifiersCommandOutput,
   ListDocumentClassifiersCommand,
-  ListDocumentClassifiersCommandInput,
-  ListDocumentClassifiersCommandOutput,
 } from "./commands/ListDocumentClassifiersCommand";
 import {
+  type ListDocumentClassifierSummariesCommandInput,
+  type ListDocumentClassifierSummariesCommandOutput,
   ListDocumentClassifierSummariesCommand,
-  ListDocumentClassifierSummariesCommandInput,
-  ListDocumentClassifierSummariesCommandOutput,
 } from "./commands/ListDocumentClassifierSummariesCommand";
 import {
+  type ListDominantLanguageDetectionJobsCommandInput,
+  type ListDominantLanguageDetectionJobsCommandOutput,
   ListDominantLanguageDetectionJobsCommand,
-  ListDominantLanguageDetectionJobsCommandInput,
-  ListDominantLanguageDetectionJobsCommandOutput,
 } from "./commands/ListDominantLanguageDetectionJobsCommand";
 import {
+  type ListEndpointsCommandInput,
+  type ListEndpointsCommandOutput,
   ListEndpointsCommand,
-  ListEndpointsCommandInput,
-  ListEndpointsCommandOutput,
 } from "./commands/ListEndpointsCommand";
 import {
+  type ListEntitiesDetectionJobsCommandInput,
+  type ListEntitiesDetectionJobsCommandOutput,
   ListEntitiesDetectionJobsCommand,
-  ListEntitiesDetectionJobsCommandInput,
-  ListEntitiesDetectionJobsCommandOutput,
 } from "./commands/ListEntitiesDetectionJobsCommand";
 import {
+  type ListEntityRecognizersCommandInput,
+  type ListEntityRecognizersCommandOutput,
   ListEntityRecognizersCommand,
-  ListEntityRecognizersCommandInput,
-  ListEntityRecognizersCommandOutput,
 } from "./commands/ListEntityRecognizersCommand";
 import {
+  type ListEntityRecognizerSummariesCommandInput,
+  type ListEntityRecognizerSummariesCommandOutput,
   ListEntityRecognizerSummariesCommand,
-  ListEntityRecognizerSummariesCommandInput,
-  ListEntityRecognizerSummariesCommandOutput,
 } from "./commands/ListEntityRecognizerSummariesCommand";
 import {
+  type ListEventsDetectionJobsCommandInput,
+  type ListEventsDetectionJobsCommandOutput,
   ListEventsDetectionJobsCommand,
-  ListEventsDetectionJobsCommandInput,
-  ListEventsDetectionJobsCommandOutput,
 } from "./commands/ListEventsDetectionJobsCommand";
 import {
+  type ListFlywheelIterationHistoryCommandInput,
+  type ListFlywheelIterationHistoryCommandOutput,
   ListFlywheelIterationHistoryCommand,
-  ListFlywheelIterationHistoryCommandInput,
-  ListFlywheelIterationHistoryCommandOutput,
 } from "./commands/ListFlywheelIterationHistoryCommand";
 import {
+  type ListFlywheelsCommandInput,
+  type ListFlywheelsCommandOutput,
   ListFlywheelsCommand,
-  ListFlywheelsCommandInput,
-  ListFlywheelsCommandOutput,
 } from "./commands/ListFlywheelsCommand";
 import {
+  type ListKeyPhrasesDetectionJobsCommandInput,
+  type ListKeyPhrasesDetectionJobsCommandOutput,
   ListKeyPhrasesDetectionJobsCommand,
-  ListKeyPhrasesDetectionJobsCommandInput,
-  ListKeyPhrasesDetectionJobsCommandOutput,
 } from "./commands/ListKeyPhrasesDetectionJobsCommand";
 import {
+  type ListPiiEntitiesDetectionJobsCommandInput,
+  type ListPiiEntitiesDetectionJobsCommandOutput,
   ListPiiEntitiesDetectionJobsCommand,
-  ListPiiEntitiesDetectionJobsCommandInput,
-  ListPiiEntitiesDetectionJobsCommandOutput,
 } from "./commands/ListPiiEntitiesDetectionJobsCommand";
 import {
+  type ListSentimentDetectionJobsCommandInput,
+  type ListSentimentDetectionJobsCommandOutput,
   ListSentimentDetectionJobsCommand,
-  ListSentimentDetectionJobsCommandInput,
-  ListSentimentDetectionJobsCommandOutput,
 } from "./commands/ListSentimentDetectionJobsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTargetedSentimentDetectionJobsCommandInput,
+  type ListTargetedSentimentDetectionJobsCommandOutput,
   ListTargetedSentimentDetectionJobsCommand,
-  ListTargetedSentimentDetectionJobsCommandInput,
-  ListTargetedSentimentDetectionJobsCommandOutput,
 } from "./commands/ListTargetedSentimentDetectionJobsCommand";
 import {
+  type ListTopicsDetectionJobsCommandInput,
+  type ListTopicsDetectionJobsCommandOutput,
   ListTopicsDetectionJobsCommand,
-  ListTopicsDetectionJobsCommandInput,
-  ListTopicsDetectionJobsCommandOutput,
 } from "./commands/ListTopicsDetectionJobsCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type StartDocumentClassificationJobCommandInput,
+  type StartDocumentClassificationJobCommandOutput,
   StartDocumentClassificationJobCommand,
-  StartDocumentClassificationJobCommandInput,
-  StartDocumentClassificationJobCommandOutput,
 } from "./commands/StartDocumentClassificationJobCommand";
 import {
+  type StartDominantLanguageDetectionJobCommandInput,
+  type StartDominantLanguageDetectionJobCommandOutput,
   StartDominantLanguageDetectionJobCommand,
-  StartDominantLanguageDetectionJobCommandInput,
-  StartDominantLanguageDetectionJobCommandOutput,
 } from "./commands/StartDominantLanguageDetectionJobCommand";
 import {
+  type StartEntitiesDetectionJobCommandInput,
+  type StartEntitiesDetectionJobCommandOutput,
   StartEntitiesDetectionJobCommand,
-  StartEntitiesDetectionJobCommandInput,
-  StartEntitiesDetectionJobCommandOutput,
 } from "./commands/StartEntitiesDetectionJobCommand";
 import {
+  type StartEventsDetectionJobCommandInput,
+  type StartEventsDetectionJobCommandOutput,
   StartEventsDetectionJobCommand,
-  StartEventsDetectionJobCommandInput,
-  StartEventsDetectionJobCommandOutput,
 } from "./commands/StartEventsDetectionJobCommand";
 import {
+  type StartFlywheelIterationCommandInput,
+  type StartFlywheelIterationCommandOutput,
   StartFlywheelIterationCommand,
-  StartFlywheelIterationCommandInput,
-  StartFlywheelIterationCommandOutput,
 } from "./commands/StartFlywheelIterationCommand";
 import {
+  type StartKeyPhrasesDetectionJobCommandInput,
+  type StartKeyPhrasesDetectionJobCommandOutput,
   StartKeyPhrasesDetectionJobCommand,
-  StartKeyPhrasesDetectionJobCommandInput,
-  StartKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StartKeyPhrasesDetectionJobCommand";
 import {
+  type StartPiiEntitiesDetectionJobCommandInput,
+  type StartPiiEntitiesDetectionJobCommandOutput,
   StartPiiEntitiesDetectionJobCommand,
-  StartPiiEntitiesDetectionJobCommandInput,
-  StartPiiEntitiesDetectionJobCommandOutput,
 } from "./commands/StartPiiEntitiesDetectionJobCommand";
 import {
+  type StartSentimentDetectionJobCommandInput,
+  type StartSentimentDetectionJobCommandOutput,
   StartSentimentDetectionJobCommand,
-  StartSentimentDetectionJobCommandInput,
-  StartSentimentDetectionJobCommandOutput,
 } from "./commands/StartSentimentDetectionJobCommand";
 import {
+  type StartTargetedSentimentDetectionJobCommandInput,
+  type StartTargetedSentimentDetectionJobCommandOutput,
   StartTargetedSentimentDetectionJobCommand,
-  StartTargetedSentimentDetectionJobCommandInput,
-  StartTargetedSentimentDetectionJobCommandOutput,
 } from "./commands/StartTargetedSentimentDetectionJobCommand";
 import {
+  type StartTopicsDetectionJobCommandInput,
+  type StartTopicsDetectionJobCommandOutput,
   StartTopicsDetectionJobCommand,
-  StartTopicsDetectionJobCommandInput,
-  StartTopicsDetectionJobCommandOutput,
 } from "./commands/StartTopicsDetectionJobCommand";
 import {
+  type StopDominantLanguageDetectionJobCommandInput,
+  type StopDominantLanguageDetectionJobCommandOutput,
   StopDominantLanguageDetectionJobCommand,
-  StopDominantLanguageDetectionJobCommandInput,
-  StopDominantLanguageDetectionJobCommandOutput,
 } from "./commands/StopDominantLanguageDetectionJobCommand";
 import {
+  type StopEntitiesDetectionJobCommandInput,
+  type StopEntitiesDetectionJobCommandOutput,
   StopEntitiesDetectionJobCommand,
-  StopEntitiesDetectionJobCommandInput,
-  StopEntitiesDetectionJobCommandOutput,
 } from "./commands/StopEntitiesDetectionJobCommand";
 import {
+  type StopEventsDetectionJobCommandInput,
+  type StopEventsDetectionJobCommandOutput,
   StopEventsDetectionJobCommand,
-  StopEventsDetectionJobCommandInput,
-  StopEventsDetectionJobCommandOutput,
 } from "./commands/StopEventsDetectionJobCommand";
 import {
+  type StopKeyPhrasesDetectionJobCommandInput,
+  type StopKeyPhrasesDetectionJobCommandOutput,
   StopKeyPhrasesDetectionJobCommand,
-  StopKeyPhrasesDetectionJobCommandInput,
-  StopKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StopKeyPhrasesDetectionJobCommand";
 import {
+  type StopPiiEntitiesDetectionJobCommandInput,
+  type StopPiiEntitiesDetectionJobCommandOutput,
   StopPiiEntitiesDetectionJobCommand,
-  StopPiiEntitiesDetectionJobCommandInput,
-  StopPiiEntitiesDetectionJobCommandOutput,
 } from "./commands/StopPiiEntitiesDetectionJobCommand";
 import {
+  type StopSentimentDetectionJobCommandInput,
+  type StopSentimentDetectionJobCommandOutput,
   StopSentimentDetectionJobCommand,
-  StopSentimentDetectionJobCommandInput,
-  StopSentimentDetectionJobCommandOutput,
 } from "./commands/StopSentimentDetectionJobCommand";
 import {
+  type StopTargetedSentimentDetectionJobCommandInput,
+  type StopTargetedSentimentDetectionJobCommandOutput,
   StopTargetedSentimentDetectionJobCommand,
-  StopTargetedSentimentDetectionJobCommandInput,
-  StopTargetedSentimentDetectionJobCommandOutput,
 } from "./commands/StopTargetedSentimentDetectionJobCommand";
 import {
+  type StopTrainingDocumentClassifierCommandInput,
+  type StopTrainingDocumentClassifierCommandOutput,
   StopTrainingDocumentClassifierCommand,
-  StopTrainingDocumentClassifierCommandInput,
-  StopTrainingDocumentClassifierCommandOutput,
 } from "./commands/StopTrainingDocumentClassifierCommand";
 import {
+  type StopTrainingEntityRecognizerCommandInput,
+  type StopTrainingEntityRecognizerCommandOutput,
   StopTrainingEntityRecognizerCommand,
-  StopTrainingEntityRecognizerCommandInput,
-  StopTrainingEntityRecognizerCommandOutput,
 } from "./commands/StopTrainingEntityRecognizerCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateEndpointCommandInput,
+  type UpdateEndpointCommandOutput,
   UpdateEndpointCommand,
-  UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput,
 } from "./commands/UpdateEndpointCommand";
 import {
+  type UpdateFlywheelCommandInput,
+  type UpdateFlywheelCommandOutput,
   UpdateFlywheelCommand,
-  UpdateFlywheelCommandInput,
-  UpdateFlywheelCommandOutput,
 } from "./commands/UpdateFlywheelCommand";
 import { ComprehendClient } from "./ComprehendClient";
 import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";

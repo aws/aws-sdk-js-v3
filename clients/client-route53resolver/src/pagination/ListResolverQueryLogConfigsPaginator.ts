@@ -8,7 +8,7 @@ import {
   ListResolverQueryLogConfigsCommandOutput,
 } from "../commands/ListResolverQueryLogConfigsCommand";
 import { Route53ResolverClient } from "../Route53ResolverClient";
-import { Route53ResolverPaginationConfiguration } from "./Interfaces";
+import type { Route53ResolverPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

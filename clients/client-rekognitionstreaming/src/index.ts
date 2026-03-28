@@ -28,7 +28,7 @@
  */
 export * from "./RekognitionStreamingClient";
 export * from "./RekognitionStreaming";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { RekognitionStreamingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

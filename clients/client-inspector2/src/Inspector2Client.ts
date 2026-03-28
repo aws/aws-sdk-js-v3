@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,235 +61,241 @@ import {
   defaultInspector2HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateMemberCommandInput, AssociateMemberCommandOutput } from "./commands/AssociateMemberCommand";
-import {
+import type { AssociateMemberCommandInput, AssociateMemberCommandOutput } from "./commands/AssociateMemberCommand";
+import type {
   BatchAssociateCodeSecurityScanConfigurationCommandInput,
   BatchAssociateCodeSecurityScanConfigurationCommandOutput,
 } from "./commands/BatchAssociateCodeSecurityScanConfigurationCommand";
-import {
+import type {
   BatchDisassociateCodeSecurityScanConfigurationCommandInput,
   BatchDisassociateCodeSecurityScanConfigurationCommandOutput,
 } from "./commands/BatchDisassociateCodeSecurityScanConfigurationCommand";
-import {
+import type {
   BatchGetAccountStatusCommandInput,
   BatchGetAccountStatusCommandOutput,
 } from "./commands/BatchGetAccountStatusCommand";
-import {
+import type {
   BatchGetCodeSnippetCommandInput,
   BatchGetCodeSnippetCommandOutput,
 } from "./commands/BatchGetCodeSnippetCommand";
-import {
+import type {
   BatchGetFindingDetailsCommandInput,
   BatchGetFindingDetailsCommandOutput,
 } from "./commands/BatchGetFindingDetailsCommand";
-import {
+import type {
   BatchGetFreeTrialInfoCommandInput,
   BatchGetFreeTrialInfoCommandOutput,
 } from "./commands/BatchGetFreeTrialInfoCommand";
-import {
+import type {
   BatchGetMemberEc2DeepInspectionStatusCommandInput,
   BatchGetMemberEc2DeepInspectionStatusCommandOutput,
 } from "./commands/BatchGetMemberEc2DeepInspectionStatusCommand";
-import {
+import type {
   BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
   BatchUpdateMemberEc2DeepInspectionStatusCommandOutput,
 } from "./commands/BatchUpdateMemberEc2DeepInspectionStatusCommand";
-import {
+import type {
   CancelFindingsReportCommandInput,
   CancelFindingsReportCommandOutput,
 } from "./commands/CancelFindingsReportCommand";
-import { CancelSbomExportCommandInput, CancelSbomExportCommandOutput } from "./commands/CancelSbomExportCommand";
-import {
+import type { CancelSbomExportCommandInput, CancelSbomExportCommandOutput } from "./commands/CancelSbomExportCommand";
+import type {
   CreateCisScanConfigurationCommandInput,
   CreateCisScanConfigurationCommandOutput,
 } from "./commands/CreateCisScanConfigurationCommand";
-import {
+import type {
   CreateCodeSecurityIntegrationCommandInput,
   CreateCodeSecurityIntegrationCommandOutput,
 } from "./commands/CreateCodeSecurityIntegrationCommand";
-import {
+import type {
   CreateCodeSecurityScanConfigurationCommandInput,
   CreateCodeSecurityScanConfigurationCommandOutput,
 } from "./commands/CreateCodeSecurityScanConfigurationCommand";
-import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
-import {
+import type { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
+import type {
   CreateFindingsReportCommandInput,
   CreateFindingsReportCommandOutput,
 } from "./commands/CreateFindingsReportCommand";
-import { CreateSbomExportCommandInput, CreateSbomExportCommandOutput } from "./commands/CreateSbomExportCommand";
-import {
+import type { CreateSbomExportCommandInput, CreateSbomExportCommandOutput } from "./commands/CreateSbomExportCommand";
+import type {
   DeleteCisScanConfigurationCommandInput,
   DeleteCisScanConfigurationCommandOutput,
 } from "./commands/DeleteCisScanConfigurationCommand";
-import {
+import type {
   DeleteCodeSecurityIntegrationCommandInput,
   DeleteCodeSecurityIntegrationCommandOutput,
 } from "./commands/DeleteCodeSecurityIntegrationCommand";
-import {
+import type {
   DeleteCodeSecurityScanConfigurationCommandInput,
   DeleteCodeSecurityScanConfigurationCommandOutput,
 } from "./commands/DeleteCodeSecurityScanConfigurationCommand";
-import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
-import {
+import type { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
+import type {
   DescribeOrganizationConfigurationCommandInput,
   DescribeOrganizationConfigurationCommandOutput,
 } from "./commands/DescribeOrganizationConfigurationCommand";
-import { DisableCommandInput, DisableCommandOutput } from "./commands/DisableCommand";
-import {
+import type { DisableCommandInput, DisableCommandOutput } from "./commands/DisableCommand";
+import type {
   DisableDelegatedAdminAccountCommandInput,
   DisableDelegatedAdminAccountCommandOutput,
 } from "./commands/DisableDelegatedAdminAccountCommand";
-import { DisassociateMemberCommandInput, DisassociateMemberCommandOutput } from "./commands/DisassociateMemberCommand";
-import { EnableCommandInput, EnableCommandOutput } from "./commands/EnableCommand";
-import {
+import type {
+  DisassociateMemberCommandInput,
+  DisassociateMemberCommandOutput,
+} from "./commands/DisassociateMemberCommand";
+import type { EnableCommandInput, EnableCommandOutput } from "./commands/EnableCommand";
+import type {
   EnableDelegatedAdminAccountCommandInput,
   EnableDelegatedAdminAccountCommandOutput,
 } from "./commands/EnableDelegatedAdminAccountCommand";
-import { GetCisScanReportCommandInput, GetCisScanReportCommandOutput } from "./commands/GetCisScanReportCommand";
-import {
+import type { GetCisScanReportCommandInput, GetCisScanReportCommandOutput } from "./commands/GetCisScanReportCommand";
+import type {
   GetCisScanResultDetailsCommandInput,
   GetCisScanResultDetailsCommandOutput,
 } from "./commands/GetCisScanResultDetailsCommand";
-import {
+import type {
   GetClustersForImageCommandInput,
   GetClustersForImageCommandOutput,
 } from "./commands/GetClustersForImageCommand";
-import {
+import type {
   GetCodeSecurityIntegrationCommandInput,
   GetCodeSecurityIntegrationCommandOutput,
 } from "./commands/GetCodeSecurityIntegrationCommand";
-import {
+import type {
   GetCodeSecurityScanCommandInput,
   GetCodeSecurityScanCommandOutput,
 } from "./commands/GetCodeSecurityScanCommand";
-import {
+import type {
   GetCodeSecurityScanConfigurationCommandInput,
   GetCodeSecurityScanConfigurationCommandOutput,
 } from "./commands/GetCodeSecurityScanConfigurationCommand";
-import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
-import {
+import type { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
+import type {
   GetDelegatedAdminAccountCommandInput,
   GetDelegatedAdminAccountCommandOutput,
 } from "./commands/GetDelegatedAdminAccountCommand";
-import {
+import type {
   GetEc2DeepInspectionConfigurationCommandInput,
   GetEc2DeepInspectionConfigurationCommandOutput,
 } from "./commands/GetEc2DeepInspectionConfigurationCommand";
-import { GetEncryptionKeyCommandInput, GetEncryptionKeyCommandOutput } from "./commands/GetEncryptionKeyCommand";
-import {
+import type { GetEncryptionKeyCommandInput, GetEncryptionKeyCommandOutput } from "./commands/GetEncryptionKeyCommand";
+import type {
   GetFindingsReportStatusCommandInput,
   GetFindingsReportStatusCommandOutput,
 } from "./commands/GetFindingsReportStatusCommand";
-import { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
-import { GetSbomExportCommandInput, GetSbomExportCommandOutput } from "./commands/GetSbomExportCommand";
-import {
+import type { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
+import type { GetSbomExportCommandInput, GetSbomExportCommandOutput } from "./commands/GetSbomExportCommand";
+import type {
   ListAccountPermissionsCommandInput,
   ListAccountPermissionsCommandOutput,
 } from "./commands/ListAccountPermissionsCommand";
-import {
+import type {
   ListCisScanConfigurationsCommandInput,
   ListCisScanConfigurationsCommandOutput,
 } from "./commands/ListCisScanConfigurationsCommand";
-import {
+import type {
   ListCisScanResultsAggregatedByChecksCommandInput,
   ListCisScanResultsAggregatedByChecksCommandOutput,
 } from "./commands/ListCisScanResultsAggregatedByChecksCommand";
-import {
+import type {
   ListCisScanResultsAggregatedByTargetResourceCommandInput,
   ListCisScanResultsAggregatedByTargetResourceCommandOutput,
 } from "./commands/ListCisScanResultsAggregatedByTargetResourceCommand";
-import { ListCisScansCommandInput, ListCisScansCommandOutput } from "./commands/ListCisScansCommand";
-import {
+import type { ListCisScansCommandInput, ListCisScansCommandOutput } from "./commands/ListCisScansCommand";
+import type {
   ListCodeSecurityIntegrationsCommandInput,
   ListCodeSecurityIntegrationsCommandOutput,
 } from "./commands/ListCodeSecurityIntegrationsCommand";
-import {
+import type {
   ListCodeSecurityScanConfigurationAssociationsCommandInput,
   ListCodeSecurityScanConfigurationAssociationsCommandOutput,
 } from "./commands/ListCodeSecurityScanConfigurationAssociationsCommand";
-import {
+import type {
   ListCodeSecurityScanConfigurationsCommandInput,
   ListCodeSecurityScanConfigurationsCommandOutput,
 } from "./commands/ListCodeSecurityScanConfigurationsCommand";
-import { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
-import {
+import type { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
+import type {
   ListCoverageStatisticsCommandInput,
   ListCoverageStatisticsCommandOutput,
 } from "./commands/ListCoverageStatisticsCommand";
-import {
+import type {
   ListDelegatedAdminAccountsCommandInput,
   ListDelegatedAdminAccountsCommandOutput,
 } from "./commands/ListDelegatedAdminAccountsCommand";
-import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
-import {
+import type { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
+import type {
   ListFindingAggregationsCommandInput,
   ListFindingAggregationsCommandOutput,
 } from "./commands/ListFindingAggregationsCommand";
-import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
-import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
-import {
+import type { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
+import type { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListUsageTotalsCommandInput, ListUsageTotalsCommandOutput } from "./commands/ListUsageTotalsCommand";
-import { ResetEncryptionKeyCommandInput, ResetEncryptionKeyCommandOutput } from "./commands/ResetEncryptionKeyCommand";
-import {
+import type { ListUsageTotalsCommandInput, ListUsageTotalsCommandOutput } from "./commands/ListUsageTotalsCommand";
+import type {
+  ResetEncryptionKeyCommandInput,
+  ResetEncryptionKeyCommandOutput,
+} from "./commands/ResetEncryptionKeyCommand";
+import type {
   SearchVulnerabilitiesCommandInput,
   SearchVulnerabilitiesCommandOutput,
 } from "./commands/SearchVulnerabilitiesCommand";
-import {
+import type {
   SendCisSessionHealthCommandInput,
   SendCisSessionHealthCommandOutput,
 } from "./commands/SendCisSessionHealthCommand";
-import {
+import type {
   SendCisSessionTelemetryCommandInput,
   SendCisSessionTelemetryCommandOutput,
 } from "./commands/SendCisSessionTelemetryCommand";
-import { StartCisSessionCommandInput, StartCisSessionCommandOutput } from "./commands/StartCisSessionCommand";
-import {
+import type { StartCisSessionCommandInput, StartCisSessionCommandOutput } from "./commands/StartCisSessionCommand";
+import type {
   StartCodeSecurityScanCommandInput,
   StartCodeSecurityScanCommandOutput,
 } from "./commands/StartCodeSecurityScanCommand";
-import { StopCisSessionCommandInput, StopCisSessionCommandOutput } from "./commands/StopCisSessionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { StopCisSessionCommandInput, StopCisSessionCommandOutput } from "./commands/StopCisSessionCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateCisScanConfigurationCommandInput,
   UpdateCisScanConfigurationCommandOutput,
 } from "./commands/UpdateCisScanConfigurationCommand";
-import {
+import type {
   UpdateCodeSecurityIntegrationCommandInput,
   UpdateCodeSecurityIntegrationCommandOutput,
 } from "./commands/UpdateCodeSecurityIntegrationCommand";
-import {
+import type {
   UpdateCodeSecurityScanConfigurationCommandInput,
   UpdateCodeSecurityScanConfigurationCommandOutput,
 } from "./commands/UpdateCodeSecurityScanConfigurationCommand";
-import {
+import type {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
-import {
+import type {
   UpdateEc2DeepInspectionConfigurationCommandInput,
   UpdateEc2DeepInspectionConfigurationCommandOutput,
 } from "./commands/UpdateEc2DeepInspectionConfigurationCommand";
-import {
+import type {
   UpdateEncryptionKeyCommandInput,
   UpdateEncryptionKeyCommandOutput,
 } from "./commands/UpdateEncryptionKeyCommand";
-import { UpdateFilterCommandInput, UpdateFilterCommandOutput } from "./commands/UpdateFilterCommand";
-import {
+import type { UpdateFilterCommandInput, UpdateFilterCommandOutput } from "./commands/UpdateFilterCommand";
+import type {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
-import {
+import type {
   UpdateOrgEc2DeepInspectionConfigurationCommandInput,
   UpdateOrgEc2DeepInspectionConfigurationCommandOutput,
 } from "./commands/UpdateOrgEc2DeepInspectionConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -573,7 +577,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

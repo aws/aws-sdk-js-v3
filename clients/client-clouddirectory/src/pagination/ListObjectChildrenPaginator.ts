@@ -8,7 +8,7 @@ import {
   ListObjectChildrenCommandInput,
   ListObjectChildrenCommandOutput,
 } from "../commands/ListObjectChildrenCommand";
-import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
+import type { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

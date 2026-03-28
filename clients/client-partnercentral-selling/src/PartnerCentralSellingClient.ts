@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,142 +61,157 @@ import {
   defaultPartnerCentralSellingHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptEngagementInvitationCommandInput,
   AcceptEngagementInvitationCommandOutput,
 } from "./commands/AcceptEngagementInvitationCommand";
-import { AssignOpportunityCommandInput, AssignOpportunityCommandOutput } from "./commands/AssignOpportunityCommand";
-import {
+import type {
+  AssignOpportunityCommandInput,
+  AssignOpportunityCommandOutput,
+} from "./commands/AssignOpportunityCommand";
+import type {
   AssociateOpportunityCommandInput,
   AssociateOpportunityCommandOutput,
 } from "./commands/AssociateOpportunityCommand";
-import { CreateEngagementCommandInput, CreateEngagementCommandOutput } from "./commands/CreateEngagementCommand";
-import {
+import type { CreateEngagementCommandInput, CreateEngagementCommandOutput } from "./commands/CreateEngagementCommand";
+import type {
   CreateEngagementContextCommandInput,
   CreateEngagementContextCommandOutput,
 } from "./commands/CreateEngagementContextCommand";
-import {
+import type {
   CreateEngagementInvitationCommandInput,
   CreateEngagementInvitationCommandOutput,
 } from "./commands/CreateEngagementInvitationCommand";
-import { CreateOpportunityCommandInput, CreateOpportunityCommandOutput } from "./commands/CreateOpportunityCommand";
-import {
+import type {
+  CreateOpportunityCommandInput,
+  CreateOpportunityCommandOutput,
+} from "./commands/CreateOpportunityCommand";
+import type {
   CreateResourceSnapshotCommandInput,
   CreateResourceSnapshotCommandOutput,
 } from "./commands/CreateResourceSnapshotCommand";
-import {
+import type {
   CreateResourceSnapshotJobCommandInput,
   CreateResourceSnapshotJobCommandOutput,
 } from "./commands/CreateResourceSnapshotJobCommand";
-import {
+import type {
   DeleteResourceSnapshotJobCommandInput,
   DeleteResourceSnapshotJobCommandOutput,
 } from "./commands/DeleteResourceSnapshotJobCommand";
-import {
+import type {
   DisassociateOpportunityCommandInput,
   DisassociateOpportunityCommandOutput,
 } from "./commands/DisassociateOpportunityCommand";
-import {
+import type {
   GetAwsOpportunitySummaryCommandInput,
   GetAwsOpportunitySummaryCommandOutput,
 } from "./commands/GetAwsOpportunitySummaryCommand";
-import { GetEngagementCommandInput, GetEngagementCommandOutput } from "./commands/GetEngagementCommand";
-import {
+import type { GetEngagementCommandInput, GetEngagementCommandOutput } from "./commands/GetEngagementCommand";
+import type {
   GetEngagementInvitationCommandInput,
   GetEngagementInvitationCommandOutput,
 } from "./commands/GetEngagementInvitationCommand";
-import { GetOpportunityCommandInput, GetOpportunityCommandOutput } from "./commands/GetOpportunityCommand";
-import {
+import type { GetOpportunityCommandInput, GetOpportunityCommandOutput } from "./commands/GetOpportunityCommand";
+import type {
   GetResourceSnapshotCommandInput,
   GetResourceSnapshotCommandOutput,
 } from "./commands/GetResourceSnapshotCommand";
-import {
+import type {
   GetResourceSnapshotJobCommandInput,
   GetResourceSnapshotJobCommandOutput,
 } from "./commands/GetResourceSnapshotJobCommand";
-import {
+import type {
   GetSellingSystemSettingsCommandInput,
   GetSellingSystemSettingsCommandOutput,
 } from "./commands/GetSellingSystemSettingsCommand";
-import {
+import type {
   ListEngagementByAcceptingInvitationTasksCommandInput,
   ListEngagementByAcceptingInvitationTasksCommandOutput,
 } from "./commands/ListEngagementByAcceptingInvitationTasksCommand";
-import {
+import type {
   ListEngagementFromOpportunityTasksCommandInput,
   ListEngagementFromOpportunityTasksCommandOutput,
 } from "./commands/ListEngagementFromOpportunityTasksCommand";
-import {
+import type {
   ListEngagementInvitationsCommandInput,
   ListEngagementInvitationsCommandOutput,
 } from "./commands/ListEngagementInvitationsCommand";
-import {
+import type {
   ListEngagementMembersCommandInput,
   ListEngagementMembersCommandOutput,
 } from "./commands/ListEngagementMembersCommand";
-import {
+import type {
   ListEngagementResourceAssociationsCommandInput,
   ListEngagementResourceAssociationsCommandOutput,
 } from "./commands/ListEngagementResourceAssociationsCommand";
-import { ListEngagementsCommandInput, ListEngagementsCommandOutput } from "./commands/ListEngagementsCommand";
-import { ListOpportunitiesCommandInput, ListOpportunitiesCommandOutput } from "./commands/ListOpportunitiesCommand";
-import {
+import type { ListEngagementsCommandInput, ListEngagementsCommandOutput } from "./commands/ListEngagementsCommand";
+import type {
+  ListOpportunitiesCommandInput,
+  ListOpportunitiesCommandOutput,
+} from "./commands/ListOpportunitiesCommand";
+import type {
   ListOpportunityFromEngagementTasksCommandInput,
   ListOpportunityFromEngagementTasksCommandOutput,
 } from "./commands/ListOpportunityFromEngagementTasksCommand";
-import {
+import type {
   ListResourceSnapshotJobsCommandInput,
   ListResourceSnapshotJobsCommandOutput,
 } from "./commands/ListResourceSnapshotJobsCommand";
-import {
+import type {
   ListResourceSnapshotsCommandInput,
   ListResourceSnapshotsCommandOutput,
 } from "./commands/ListResourceSnapshotsCommand";
-import { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "./commands/ListSolutionsCommand";
-import {
+import type { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "./commands/ListSolutionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutSellingSystemSettingsCommandInput,
   PutSellingSystemSettingsCommandOutput,
 } from "./commands/PutSellingSystemSettingsCommand";
-import {
+import type {
   RejectEngagementInvitationCommandInput,
   RejectEngagementInvitationCommandOutput,
 } from "./commands/RejectEngagementInvitationCommand";
-import {
+import type {
   StartEngagementByAcceptingInvitationTaskCommandInput,
   StartEngagementByAcceptingInvitationTaskCommandOutput,
 } from "./commands/StartEngagementByAcceptingInvitationTaskCommand";
-import {
+import type {
   StartEngagementFromOpportunityTaskCommandInput,
   StartEngagementFromOpportunityTaskCommandOutput,
 } from "./commands/StartEngagementFromOpportunityTaskCommand";
-import {
+import type {
   StartOpportunityFromEngagementTaskCommandInput,
   StartOpportunityFromEngagementTaskCommandOutput,
 } from "./commands/StartOpportunityFromEngagementTaskCommand";
-import {
+import type {
   StartResourceSnapshotJobCommandInput,
   StartResourceSnapshotJobCommandOutput,
 } from "./commands/StartResourceSnapshotJobCommand";
-import {
+import type {
   StopResourceSnapshotJobCommandInput,
   StopResourceSnapshotJobCommandOutput,
 } from "./commands/StopResourceSnapshotJobCommand";
-import { SubmitOpportunityCommandInput, SubmitOpportunityCommandOutput } from "./commands/SubmitOpportunityCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type {
+  SubmitOpportunityCommandInput,
+  SubmitOpportunityCommandOutput,
+} from "./commands/SubmitOpportunityCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateEngagementContextCommandInput,
   UpdateEngagementContextCommandOutput,
 } from "./commands/UpdateEngagementContextCommand";
-import { UpdateOpportunityCommandInput, UpdateOpportunityCommandOutput } from "./commands/UpdateOpportunityCommand";
+import type {
+  UpdateOpportunityCommandInput,
+  UpdateOpportunityCommandOutput,
+} from "./commands/UpdateOpportunityCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -414,7 +427,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

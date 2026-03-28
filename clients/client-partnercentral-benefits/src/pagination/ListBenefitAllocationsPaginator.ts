@@ -8,7 +8,7 @@ import {
   ListBenefitAllocationsCommandOutput,
 } from "../commands/ListBenefitAllocationsCommand";
 import { PartnerCentralBenefitsClient } from "../PartnerCentralBenefitsClient";
-import { PartnerCentralBenefitsPaginationConfiguration } from "./Interfaces";
+import type { PartnerCentralBenefitsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

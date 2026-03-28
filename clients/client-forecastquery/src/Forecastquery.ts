@@ -3,14 +3,14 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type QueryForecastCommandInput,
+  type QueryForecastCommandOutput,
   QueryForecastCommand,
-  QueryForecastCommandInput,
-  QueryForecastCommandOutput,
 } from "./commands/QueryForecastCommand";
 import {
+  type QueryWhatIfForecastCommandInput,
+  type QueryWhatIfForecastCommandOutput,
   QueryWhatIfForecastCommand,
-  QueryWhatIfForecastCommandInput,
-  QueryWhatIfForecastCommandOutput,
 } from "./commands/QueryWhatIfForecastCommand";
 import { ForecastqueryClient } from "./ForecastqueryClient";
 

@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { BedrockDataAutomationServiceException as __BaseException } from "./BedrockDataAutomationServiceException";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * This exception is thrown when a request is denied per access permissions

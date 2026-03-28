@@ -3,87 +3,103 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelTagSyncTaskCommandInput,
+  type CancelTagSyncTaskCommandOutput,
   CancelTagSyncTaskCommand,
-  CancelTagSyncTaskCommandInput,
-  CancelTagSyncTaskCommandOutput,
 } from "./commands/CancelTagSyncTaskCommand";
-import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
-import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
+  type CreateGroupCommandInput,
+  type CreateGroupCommandOutput,
+  CreateGroupCommand,
+} from "./commands/CreateGroupCommand";
+import {
+  type DeleteGroupCommandInput,
+  type DeleteGroupCommandOutput,
+  DeleteGroupCommand,
+} from "./commands/DeleteGroupCommand";
+import {
+  type GetAccountSettingsCommandInput,
+  type GetAccountSettingsCommandOutput,
   GetAccountSettingsCommand,
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
-import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import { type GetGroupCommandInput, type GetGroupCommandOutput, GetGroupCommand } from "./commands/GetGroupCommand";
 import {
+  type GetGroupConfigurationCommandInput,
+  type GetGroupConfigurationCommandOutput,
   GetGroupConfigurationCommand,
-  GetGroupConfigurationCommandInput,
-  GetGroupConfigurationCommandOutput,
 } from "./commands/GetGroupConfigurationCommand";
 import {
+  type GetGroupQueryCommandInput,
+  type GetGroupQueryCommandOutput,
   GetGroupQueryCommand,
-  GetGroupQueryCommandInput,
-  GetGroupQueryCommandOutput,
 } from "./commands/GetGroupQueryCommand";
-import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { type GetTagsCommandInput, type GetTagsCommandOutput, GetTagsCommand } from "./commands/GetTagsCommand";
 import {
+  type GetTagSyncTaskCommandInput,
+  type GetTagSyncTaskCommandOutput,
   GetTagSyncTaskCommand,
-  GetTagSyncTaskCommandInput,
-  GetTagSyncTaskCommandOutput,
 } from "./commands/GetTagSyncTaskCommand";
 import {
+  type GroupResourcesCommandInput,
+  type GroupResourcesCommandOutput,
   GroupResourcesCommand,
-  GroupResourcesCommandInput,
-  GroupResourcesCommandOutput,
 } from "./commands/GroupResourcesCommand";
 import {
+  type ListGroupingStatusesCommandInput,
+  type ListGroupingStatusesCommandOutput,
   ListGroupingStatusesCommand,
-  ListGroupingStatusesCommandInput,
-  ListGroupingStatusesCommandOutput,
 } from "./commands/ListGroupingStatusesCommand";
 import {
+  type ListGroupResourcesCommandInput,
+  type ListGroupResourcesCommandOutput,
   ListGroupResourcesCommand,
-  ListGroupResourcesCommandInput,
-  ListGroupResourcesCommandOutput,
 } from "./commands/ListGroupResourcesCommand";
-import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
+  type ListGroupsCommandInput,
+  type ListGroupsCommandOutput,
+  ListGroupsCommand,
+} from "./commands/ListGroupsCommand";
+import {
+  type ListTagSyncTasksCommandInput,
+  type ListTagSyncTasksCommandOutput,
   ListTagSyncTasksCommand,
-  ListTagSyncTasksCommandInput,
-  ListTagSyncTasksCommandOutput,
 } from "./commands/ListTagSyncTasksCommand";
 import {
+  type PutGroupConfigurationCommandInput,
+  type PutGroupConfigurationCommandOutput,
   PutGroupConfigurationCommand,
-  PutGroupConfigurationCommandInput,
-  PutGroupConfigurationCommandOutput,
 } from "./commands/PutGroupConfigurationCommand";
 import {
+  type SearchResourcesCommandInput,
+  type SearchResourcesCommandOutput,
   SearchResourcesCommand,
-  SearchResourcesCommandInput,
-  SearchResourcesCommandOutput,
 } from "./commands/SearchResourcesCommand";
 import {
+  type StartTagSyncTaskCommandInput,
+  type StartTagSyncTaskCommandOutput,
   StartTagSyncTaskCommand,
-  StartTagSyncTaskCommandInput,
-  StartTagSyncTaskCommandOutput,
 } from "./commands/StartTagSyncTaskCommand";
-import { TagCommand, TagCommandInput, TagCommandOutput } from "./commands/TagCommand";
+import { type TagCommandInput, type TagCommandOutput, TagCommand } from "./commands/TagCommand";
 import {
+  type UngroupResourcesCommandInput,
+  type UngroupResourcesCommandOutput,
   UngroupResourcesCommand,
-  UngroupResourcesCommandInput,
-  UngroupResourcesCommandOutput,
 } from "./commands/UngroupResourcesCommand";
-import { UntagCommand, UntagCommandInput, UntagCommandOutput } from "./commands/UntagCommand";
+import { type UntagCommandInput, type UntagCommandOutput, UntagCommand } from "./commands/UntagCommand";
 import {
+  type UpdateAccountSettingsCommandInput,
+  type UpdateAccountSettingsCommandOutput,
   UpdateAccountSettingsCommand,
-  UpdateAccountSettingsCommandInput,
-  UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
-import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
+  type UpdateGroupCommandInput,
+  type UpdateGroupCommandOutput,
+  UpdateGroupCommand,
+} from "./commands/UpdateGroupCommand";
+import {
+  type UpdateGroupQueryCommandInput,
+  type UpdateGroupQueryCommandOutput,
   UpdateGroupQueryCommand,
-  UpdateGroupQueryCommandInput,
-  UpdateGroupQueryCommandOutput,
 } from "./commands/UpdateGroupQueryCommand";
 import { paginateListGroupingStatuses } from "./pagination/ListGroupingStatusesPaginator";
 import { paginateListGroupResources } from "./pagination/ListGroupResourcesPaginator";

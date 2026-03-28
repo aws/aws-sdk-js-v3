@@ -8,7 +8,7 @@ import {
   ListTransformJobsCommandOutput,
 } from "../commands/ListTransformJobsCommand";
 import { SageMakerClient } from "../SageMakerClient";
-import { SageMakerPaginationConfiguration } from "./Interfaces";
+import type { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

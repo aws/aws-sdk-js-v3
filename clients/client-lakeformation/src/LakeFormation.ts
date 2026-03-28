@@ -3,289 +3,305 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddLFTagsToResourceCommandInput,
+  type AddLFTagsToResourceCommandOutput,
   AddLFTagsToResourceCommand,
-  AddLFTagsToResourceCommandInput,
-  AddLFTagsToResourceCommandOutput,
 } from "./commands/AddLFTagsToResourceCommand";
 import {
+  type AssumeDecoratedRoleWithSAMLCommandInput,
+  type AssumeDecoratedRoleWithSAMLCommandOutput,
   AssumeDecoratedRoleWithSAMLCommand,
-  AssumeDecoratedRoleWithSAMLCommandInput,
-  AssumeDecoratedRoleWithSAMLCommandOutput,
 } from "./commands/AssumeDecoratedRoleWithSAMLCommand";
 import {
+  type BatchGrantPermissionsCommandInput,
+  type BatchGrantPermissionsCommandOutput,
   BatchGrantPermissionsCommand,
-  BatchGrantPermissionsCommandInput,
-  BatchGrantPermissionsCommandOutput,
 } from "./commands/BatchGrantPermissionsCommand";
 import {
+  type BatchRevokePermissionsCommandInput,
+  type BatchRevokePermissionsCommandOutput,
   BatchRevokePermissionsCommand,
-  BatchRevokePermissionsCommandInput,
-  BatchRevokePermissionsCommandOutput,
 } from "./commands/BatchRevokePermissionsCommand";
 import {
+  type CancelTransactionCommandInput,
+  type CancelTransactionCommandOutput,
   CancelTransactionCommand,
-  CancelTransactionCommandInput,
-  CancelTransactionCommandOutput,
 } from "./commands/CancelTransactionCommand";
 import {
+  type CommitTransactionCommandInput,
+  type CommitTransactionCommandOutput,
   CommitTransactionCommand,
-  CommitTransactionCommandInput,
-  CommitTransactionCommandOutput,
 } from "./commands/CommitTransactionCommand";
 import {
+  type CreateDataCellsFilterCommandInput,
+  type CreateDataCellsFilterCommandOutput,
   CreateDataCellsFilterCommand,
-  CreateDataCellsFilterCommandInput,
-  CreateDataCellsFilterCommandOutput,
 } from "./commands/CreateDataCellsFilterCommand";
 import {
+  type CreateLakeFormationIdentityCenterConfigurationCommandInput,
+  type CreateLakeFormationIdentityCenterConfigurationCommandOutput,
   CreateLakeFormationIdentityCenterConfigurationCommand,
-  CreateLakeFormationIdentityCenterConfigurationCommandInput,
-  CreateLakeFormationIdentityCenterConfigurationCommandOutput,
 } from "./commands/CreateLakeFormationIdentityCenterConfigurationCommand";
 import {
+  type CreateLakeFormationOptInCommandInput,
+  type CreateLakeFormationOptInCommandOutput,
   CreateLakeFormationOptInCommand,
-  CreateLakeFormationOptInCommandInput,
-  CreateLakeFormationOptInCommandOutput,
 } from "./commands/CreateLakeFormationOptInCommand";
-import { CreateLFTagCommand, CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
 import {
+  type CreateLFTagCommandInput,
+  type CreateLFTagCommandOutput,
+  CreateLFTagCommand,
+} from "./commands/CreateLFTagCommand";
+import {
+  type CreateLFTagExpressionCommandInput,
+  type CreateLFTagExpressionCommandOutput,
   CreateLFTagExpressionCommand,
-  CreateLFTagExpressionCommandInput,
-  CreateLFTagExpressionCommandOutput,
 } from "./commands/CreateLFTagExpressionCommand";
 import {
+  type DeleteDataCellsFilterCommandInput,
+  type DeleteDataCellsFilterCommandOutput,
   DeleteDataCellsFilterCommand,
-  DeleteDataCellsFilterCommandInput,
-  DeleteDataCellsFilterCommandOutput,
 } from "./commands/DeleteDataCellsFilterCommand";
 import {
+  type DeleteLakeFormationIdentityCenterConfigurationCommandInput,
+  type DeleteLakeFormationIdentityCenterConfigurationCommandOutput,
   DeleteLakeFormationIdentityCenterConfigurationCommand,
-  DeleteLakeFormationIdentityCenterConfigurationCommandInput,
-  DeleteLakeFormationIdentityCenterConfigurationCommandOutput,
 } from "./commands/DeleteLakeFormationIdentityCenterConfigurationCommand";
 import {
+  type DeleteLakeFormationOptInCommandInput,
+  type DeleteLakeFormationOptInCommandOutput,
   DeleteLakeFormationOptInCommand,
-  DeleteLakeFormationOptInCommandInput,
-  DeleteLakeFormationOptInCommandOutput,
 } from "./commands/DeleteLakeFormationOptInCommand";
-import { DeleteLFTagCommand, DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
 import {
+  type DeleteLFTagCommandInput,
+  type DeleteLFTagCommandOutput,
+  DeleteLFTagCommand,
+} from "./commands/DeleteLFTagCommand";
+import {
+  type DeleteLFTagExpressionCommandInput,
+  type DeleteLFTagExpressionCommandOutput,
   DeleteLFTagExpressionCommand,
-  DeleteLFTagExpressionCommandInput,
-  DeleteLFTagExpressionCommandOutput,
 } from "./commands/DeleteLFTagExpressionCommand";
 import {
+  type DeleteObjectsOnCancelCommandInput,
+  type DeleteObjectsOnCancelCommandOutput,
   DeleteObjectsOnCancelCommand,
-  DeleteObjectsOnCancelCommandInput,
-  DeleteObjectsOnCancelCommandOutput,
 } from "./commands/DeleteObjectsOnCancelCommand";
 import {
+  type DeregisterResourceCommandInput,
+  type DeregisterResourceCommandOutput,
   DeregisterResourceCommand,
-  DeregisterResourceCommandInput,
-  DeregisterResourceCommandOutput,
 } from "./commands/DeregisterResourceCommand";
 import {
+  type DescribeLakeFormationIdentityCenterConfigurationCommandInput,
+  type DescribeLakeFormationIdentityCenterConfigurationCommandOutput,
   DescribeLakeFormationIdentityCenterConfigurationCommand,
-  DescribeLakeFormationIdentityCenterConfigurationCommandInput,
-  DescribeLakeFormationIdentityCenterConfigurationCommandOutput,
 } from "./commands/DescribeLakeFormationIdentityCenterConfigurationCommand";
 import {
+  type DescribeResourceCommandInput,
+  type DescribeResourceCommandOutput,
   DescribeResourceCommand,
-  DescribeResourceCommandInput,
-  DescribeResourceCommandOutput,
 } from "./commands/DescribeResourceCommand";
 import {
+  type DescribeTransactionCommandInput,
+  type DescribeTransactionCommandOutput,
   DescribeTransactionCommand,
-  DescribeTransactionCommandInput,
-  DescribeTransactionCommandOutput,
 } from "./commands/DescribeTransactionCommand";
 import {
+  type ExtendTransactionCommandInput,
+  type ExtendTransactionCommandOutput,
   ExtendTransactionCommand,
-  ExtendTransactionCommandInput,
-  ExtendTransactionCommandOutput,
 } from "./commands/ExtendTransactionCommand";
 import {
+  type GetDataCellsFilterCommandInput,
+  type GetDataCellsFilterCommandOutput,
   GetDataCellsFilterCommand,
-  GetDataCellsFilterCommandInput,
-  GetDataCellsFilterCommandOutput,
 } from "./commands/GetDataCellsFilterCommand";
 import {
+  type GetDataLakePrincipalCommandInput,
+  type GetDataLakePrincipalCommandOutput,
   GetDataLakePrincipalCommand,
-  GetDataLakePrincipalCommandInput,
-  GetDataLakePrincipalCommandOutput,
 } from "./commands/GetDataLakePrincipalCommand";
 import {
+  type GetDataLakeSettingsCommandInput,
+  type GetDataLakeSettingsCommandOutput,
   GetDataLakeSettingsCommand,
-  GetDataLakeSettingsCommandInput,
-  GetDataLakeSettingsCommandOutput,
 } from "./commands/GetDataLakeSettingsCommand";
 import {
+  type GetEffectivePermissionsForPathCommandInput,
+  type GetEffectivePermissionsForPathCommandOutput,
   GetEffectivePermissionsForPathCommand,
-  GetEffectivePermissionsForPathCommandInput,
-  GetEffectivePermissionsForPathCommandOutput,
 } from "./commands/GetEffectivePermissionsForPathCommand";
-import { GetLFTagCommand, GetLFTagCommandInput, GetLFTagCommandOutput } from "./commands/GetLFTagCommand";
+import { type GetLFTagCommandInput, type GetLFTagCommandOutput, GetLFTagCommand } from "./commands/GetLFTagCommand";
 import {
+  type GetLFTagExpressionCommandInput,
+  type GetLFTagExpressionCommandOutput,
   GetLFTagExpressionCommand,
-  GetLFTagExpressionCommandInput,
-  GetLFTagExpressionCommandOutput,
 } from "./commands/GetLFTagExpressionCommand";
 import {
+  type GetQueryStateCommandInput,
+  type GetQueryStateCommandOutput,
   GetQueryStateCommand,
-  GetQueryStateCommandInput,
-  GetQueryStateCommandOutput,
 } from "./commands/GetQueryStateCommand";
 import {
+  type GetQueryStatisticsCommandInput,
+  type GetQueryStatisticsCommandOutput,
   GetQueryStatisticsCommand,
-  GetQueryStatisticsCommandInput,
-  GetQueryStatisticsCommandOutput,
 } from "./commands/GetQueryStatisticsCommand";
 import {
+  type GetResourceLFTagsCommandInput,
+  type GetResourceLFTagsCommandOutput,
   GetResourceLFTagsCommand,
-  GetResourceLFTagsCommandInput,
-  GetResourceLFTagsCommandOutput,
 } from "./commands/GetResourceLFTagsCommand";
 import {
+  type GetTableObjectsCommandInput,
+  type GetTableObjectsCommandOutput,
   GetTableObjectsCommand,
-  GetTableObjectsCommandInput,
-  GetTableObjectsCommandOutput,
 } from "./commands/GetTableObjectsCommand";
 import {
+  type GetTemporaryDataLocationCredentialsCommandInput,
+  type GetTemporaryDataLocationCredentialsCommandOutput,
   GetTemporaryDataLocationCredentialsCommand,
-  GetTemporaryDataLocationCredentialsCommandInput,
-  GetTemporaryDataLocationCredentialsCommandOutput,
 } from "./commands/GetTemporaryDataLocationCredentialsCommand";
 import {
+  type GetTemporaryGluePartitionCredentialsCommandInput,
+  type GetTemporaryGluePartitionCredentialsCommandOutput,
   GetTemporaryGluePartitionCredentialsCommand,
-  GetTemporaryGluePartitionCredentialsCommandInput,
-  GetTemporaryGluePartitionCredentialsCommandOutput,
 } from "./commands/GetTemporaryGluePartitionCredentialsCommand";
 import {
+  type GetTemporaryGlueTableCredentialsCommandInput,
+  type GetTemporaryGlueTableCredentialsCommandOutput,
   GetTemporaryGlueTableCredentialsCommand,
-  GetTemporaryGlueTableCredentialsCommandInput,
-  GetTemporaryGlueTableCredentialsCommandOutput,
 } from "./commands/GetTemporaryGlueTableCredentialsCommand";
 import {
+  type GetWorkUnitResultsCommandInput,
+  type GetWorkUnitResultsCommandOutput,
   GetWorkUnitResultsCommand,
-  GetWorkUnitResultsCommandInput,
-  GetWorkUnitResultsCommandOutput,
 } from "./commands/GetWorkUnitResultsCommand";
 import {
+  type GetWorkUnitsCommandInput,
+  type GetWorkUnitsCommandOutput,
   GetWorkUnitsCommand,
-  GetWorkUnitsCommandInput,
-  GetWorkUnitsCommandOutput,
 } from "./commands/GetWorkUnitsCommand";
 import {
+  type GrantPermissionsCommandInput,
+  type GrantPermissionsCommandOutput,
   GrantPermissionsCommand,
-  GrantPermissionsCommandInput,
-  GrantPermissionsCommandOutput,
 } from "./commands/GrantPermissionsCommand";
 import {
+  type ListDataCellsFilterCommandInput,
+  type ListDataCellsFilterCommandOutput,
   ListDataCellsFilterCommand,
-  ListDataCellsFilterCommandInput,
-  ListDataCellsFilterCommandOutput,
 } from "./commands/ListDataCellsFilterCommand";
 import {
+  type ListLakeFormationOptInsCommandInput,
+  type ListLakeFormationOptInsCommandOutput,
   ListLakeFormationOptInsCommand,
-  ListLakeFormationOptInsCommandInput,
-  ListLakeFormationOptInsCommandOutput,
 } from "./commands/ListLakeFormationOptInsCommand";
 import {
+  type ListLFTagExpressionsCommandInput,
+  type ListLFTagExpressionsCommandOutput,
   ListLFTagExpressionsCommand,
-  ListLFTagExpressionsCommandInput,
-  ListLFTagExpressionsCommandOutput,
 } from "./commands/ListLFTagExpressionsCommand";
-import { ListLFTagsCommand, ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
 import {
+  type ListLFTagsCommandInput,
+  type ListLFTagsCommandOutput,
+  ListLFTagsCommand,
+} from "./commands/ListLFTagsCommand";
+import {
+  type ListPermissionsCommandInput,
+  type ListPermissionsCommandOutput,
   ListPermissionsCommand,
-  ListPermissionsCommandInput,
-  ListPermissionsCommandOutput,
 } from "./commands/ListPermissionsCommand";
 import {
+  type ListResourcesCommandInput,
+  type ListResourcesCommandOutput,
   ListResourcesCommand,
-  ListResourcesCommandInput,
-  ListResourcesCommandOutput,
 } from "./commands/ListResourcesCommand";
 import {
+  type ListTableStorageOptimizersCommandInput,
+  type ListTableStorageOptimizersCommandOutput,
   ListTableStorageOptimizersCommand,
-  ListTableStorageOptimizersCommandInput,
-  ListTableStorageOptimizersCommandOutput,
 } from "./commands/ListTableStorageOptimizersCommand";
 import {
+  type ListTransactionsCommandInput,
+  type ListTransactionsCommandOutput,
   ListTransactionsCommand,
-  ListTransactionsCommandInput,
-  ListTransactionsCommandOutput,
 } from "./commands/ListTransactionsCommand";
 import {
+  type PutDataLakeSettingsCommandInput,
+  type PutDataLakeSettingsCommandOutput,
   PutDataLakeSettingsCommand,
-  PutDataLakeSettingsCommandInput,
-  PutDataLakeSettingsCommandOutput,
 } from "./commands/PutDataLakeSettingsCommand";
 import {
+  type RegisterResourceCommandInput,
+  type RegisterResourceCommandOutput,
   RegisterResourceCommand,
-  RegisterResourceCommandInput,
-  RegisterResourceCommandOutput,
 } from "./commands/RegisterResourceCommand";
 import {
+  type RemoveLFTagsFromResourceCommandInput,
+  type RemoveLFTagsFromResourceCommandOutput,
   RemoveLFTagsFromResourceCommand,
-  RemoveLFTagsFromResourceCommandInput,
-  RemoveLFTagsFromResourceCommandOutput,
 } from "./commands/RemoveLFTagsFromResourceCommand";
 import {
+  type RevokePermissionsCommandInput,
+  type RevokePermissionsCommandOutput,
   RevokePermissionsCommand,
-  RevokePermissionsCommandInput,
-  RevokePermissionsCommandOutput,
 } from "./commands/RevokePermissionsCommand";
 import {
+  type SearchDatabasesByLFTagsCommandInput,
+  type SearchDatabasesByLFTagsCommandOutput,
   SearchDatabasesByLFTagsCommand,
-  SearchDatabasesByLFTagsCommandInput,
-  SearchDatabasesByLFTagsCommandOutput,
 } from "./commands/SearchDatabasesByLFTagsCommand";
 import {
+  type SearchTablesByLFTagsCommandInput,
+  type SearchTablesByLFTagsCommandOutput,
   SearchTablesByLFTagsCommand,
-  SearchTablesByLFTagsCommandInput,
-  SearchTablesByLFTagsCommandOutput,
 } from "./commands/SearchTablesByLFTagsCommand";
 import {
+  type StartQueryPlanningCommandInput,
+  type StartQueryPlanningCommandOutput,
   StartQueryPlanningCommand,
-  StartQueryPlanningCommandInput,
-  StartQueryPlanningCommandOutput,
 } from "./commands/StartQueryPlanningCommand";
 import {
+  type StartTransactionCommandInput,
+  type StartTransactionCommandOutput,
   StartTransactionCommand,
-  StartTransactionCommandInput,
-  StartTransactionCommandOutput,
 } from "./commands/StartTransactionCommand";
 import {
+  type UpdateDataCellsFilterCommandInput,
+  type UpdateDataCellsFilterCommandOutput,
   UpdateDataCellsFilterCommand,
-  UpdateDataCellsFilterCommandInput,
-  UpdateDataCellsFilterCommandOutput,
 } from "./commands/UpdateDataCellsFilterCommand";
 import {
+  type UpdateLakeFormationIdentityCenterConfigurationCommandInput,
+  type UpdateLakeFormationIdentityCenterConfigurationCommandOutput,
   UpdateLakeFormationIdentityCenterConfigurationCommand,
-  UpdateLakeFormationIdentityCenterConfigurationCommandInput,
-  UpdateLakeFormationIdentityCenterConfigurationCommandOutput,
 } from "./commands/UpdateLakeFormationIdentityCenterConfigurationCommand";
-import { UpdateLFTagCommand, UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import {
+  type UpdateLFTagCommandInput,
+  type UpdateLFTagCommandOutput,
+  UpdateLFTagCommand,
+} from "./commands/UpdateLFTagCommand";
+import {
+  type UpdateLFTagExpressionCommandInput,
+  type UpdateLFTagExpressionCommandOutput,
   UpdateLFTagExpressionCommand,
-  UpdateLFTagExpressionCommandInput,
-  UpdateLFTagExpressionCommandOutput,
 } from "./commands/UpdateLFTagExpressionCommand";
 import {
+  type UpdateResourceCommandInput,
+  type UpdateResourceCommandOutput,
   UpdateResourceCommand,
-  UpdateResourceCommandInput,
-  UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand";
 import {
+  type UpdateTableObjectsCommandInput,
+  type UpdateTableObjectsCommandOutput,
   UpdateTableObjectsCommand,
-  UpdateTableObjectsCommandInput,
-  UpdateTableObjectsCommandOutput,
 } from "./commands/UpdateTableObjectsCommand";
 import {
+  type UpdateTableStorageOptimizerCommandInput,
+  type UpdateTableStorageOptimizerCommandOutput,
   UpdateTableStorageOptimizerCommand,
-  UpdateTableStorageOptimizerCommandInput,
-  UpdateTableStorageOptimizerCommandOutput,
 } from "./commands/UpdateTableStorageOptimizerCommand";
 import { LakeFormationClient } from "./LakeFormationClient";
 import { paginateGetEffectivePermissionsForPath } from "./pagination/GetEffectivePermissionsForPathPaginator";

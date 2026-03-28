@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ActionType, Feature, FilterName, MatchOption, Severity } from "./enums";
+import type { ActionType, Feature, FilterName, MatchOption, Severity } from "./enums";
 
 /**
  * <p>Describes a filter that returns a more specific list of recommended actions.</p>

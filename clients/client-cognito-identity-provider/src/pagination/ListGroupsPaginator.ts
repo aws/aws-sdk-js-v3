@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CognitoIdentityProviderClient } from "../CognitoIdentityProviderClient";
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
-import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
+import type { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

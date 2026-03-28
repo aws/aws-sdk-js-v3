@@ -12,7 +12,7 @@
  */
 export * from "./IoTThingsGraphClient";
 export * from "./IoTThingsGraph";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { IoTThingsGraphExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

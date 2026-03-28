@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,86 +61,107 @@ import {
   defaultSFNHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateActivityCommandInput, CreateActivityCommandOutput } from "./commands/CreateActivityCommand";
-import {
+import type { CreateActivityCommandInput, CreateActivityCommandOutput } from "./commands/CreateActivityCommand";
+import type {
   CreateStateMachineAliasCommandInput,
   CreateStateMachineAliasCommandOutput,
 } from "./commands/CreateStateMachineAliasCommand";
-import { CreateStateMachineCommandInput, CreateStateMachineCommandOutput } from "./commands/CreateStateMachineCommand";
-import { DeleteActivityCommandInput, DeleteActivityCommandOutput } from "./commands/DeleteActivityCommand";
-import {
+import type {
+  CreateStateMachineCommandInput,
+  CreateStateMachineCommandOutput,
+} from "./commands/CreateStateMachineCommand";
+import type { DeleteActivityCommandInput, DeleteActivityCommandOutput } from "./commands/DeleteActivityCommand";
+import type {
   DeleteStateMachineAliasCommandInput,
   DeleteStateMachineAliasCommandOutput,
 } from "./commands/DeleteStateMachineAliasCommand";
-import { DeleteStateMachineCommandInput, DeleteStateMachineCommandOutput } from "./commands/DeleteStateMachineCommand";
-import {
+import type {
+  DeleteStateMachineCommandInput,
+  DeleteStateMachineCommandOutput,
+} from "./commands/DeleteStateMachineCommand";
+import type {
   DeleteStateMachineVersionCommandInput,
   DeleteStateMachineVersionCommandOutput,
 } from "./commands/DeleteStateMachineVersionCommand";
-import { DescribeActivityCommandInput, DescribeActivityCommandOutput } from "./commands/DescribeActivityCommand";
-import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "./commands/DescribeExecutionCommand";
-import { DescribeMapRunCommandInput, DescribeMapRunCommandOutput } from "./commands/DescribeMapRunCommand";
-import {
+import type { DescribeActivityCommandInput, DescribeActivityCommandOutput } from "./commands/DescribeActivityCommand";
+import type {
+  DescribeExecutionCommandInput,
+  DescribeExecutionCommandOutput,
+} from "./commands/DescribeExecutionCommand";
+import type { DescribeMapRunCommandInput, DescribeMapRunCommandOutput } from "./commands/DescribeMapRunCommand";
+import type {
   DescribeStateMachineAliasCommandInput,
   DescribeStateMachineAliasCommandOutput,
 } from "./commands/DescribeStateMachineAliasCommand";
-import {
+import type {
   DescribeStateMachineCommandInput,
   DescribeStateMachineCommandOutput,
 } from "./commands/DescribeStateMachineCommand";
-import {
+import type {
   DescribeStateMachineForExecutionCommandInput,
   DescribeStateMachineForExecutionCommandOutput,
 } from "./commands/DescribeStateMachineForExecutionCommand";
-import { GetActivityTaskCommandInput, GetActivityTaskCommandOutput } from "./commands/GetActivityTaskCommand";
-import {
+import type { GetActivityTaskCommandInput, GetActivityTaskCommandOutput } from "./commands/GetActivityTaskCommand";
+import type {
   GetExecutionHistoryCommandInput,
   GetExecutionHistoryCommandOutput,
 } from "./commands/GetExecutionHistoryCommand";
-import { ListActivitiesCommandInput, ListActivitiesCommandOutput } from "./commands/ListActivitiesCommand";
-import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
-import { ListMapRunsCommandInput, ListMapRunsCommandOutput } from "./commands/ListMapRunsCommand";
-import {
+import type { ListActivitiesCommandInput, ListActivitiesCommandOutput } from "./commands/ListActivitiesCommand";
+import type { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
+import type { ListMapRunsCommandInput, ListMapRunsCommandOutput } from "./commands/ListMapRunsCommand";
+import type {
   ListStateMachineAliasesCommandInput,
   ListStateMachineAliasesCommandOutput,
 } from "./commands/ListStateMachineAliasesCommand";
-import { ListStateMachinesCommandInput, ListStateMachinesCommandOutput } from "./commands/ListStateMachinesCommand";
-import {
+import type {
+  ListStateMachinesCommandInput,
+  ListStateMachinesCommandOutput,
+} from "./commands/ListStateMachinesCommand";
+import type {
   ListStateMachineVersionsCommandInput,
   ListStateMachineVersionsCommandOutput,
 } from "./commands/ListStateMachineVersionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PublishStateMachineVersionCommandInput,
   PublishStateMachineVersionCommandOutput,
 } from "./commands/PublishStateMachineVersionCommand";
-import { RedriveExecutionCommandInput, RedriveExecutionCommandOutput } from "./commands/RedriveExecutionCommand";
-import { SendTaskFailureCommandInput, SendTaskFailureCommandOutput } from "./commands/SendTaskFailureCommand";
-import { SendTaskHeartbeatCommandInput, SendTaskHeartbeatCommandOutput } from "./commands/SendTaskHeartbeatCommand";
-import { SendTaskSuccessCommandInput, SendTaskSuccessCommandOutput } from "./commands/SendTaskSuccessCommand";
-import { StartExecutionCommandInput, StartExecutionCommandOutput } from "./commands/StartExecutionCommand";
-import { StartSyncExecutionCommandInput, StartSyncExecutionCommandOutput } from "./commands/StartSyncExecutionCommand";
-import { StopExecutionCommandInput, StopExecutionCommandOutput } from "./commands/StopExecutionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TestStateCommandInput, TestStateCommandOutput } from "./commands/TestStateCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateMapRunCommandInput, UpdateMapRunCommandOutput } from "./commands/UpdateMapRunCommand";
-import {
+import type { RedriveExecutionCommandInput, RedriveExecutionCommandOutput } from "./commands/RedriveExecutionCommand";
+import type { SendTaskFailureCommandInput, SendTaskFailureCommandOutput } from "./commands/SendTaskFailureCommand";
+import type {
+  SendTaskHeartbeatCommandInput,
+  SendTaskHeartbeatCommandOutput,
+} from "./commands/SendTaskHeartbeatCommand";
+import type { SendTaskSuccessCommandInput, SendTaskSuccessCommandOutput } from "./commands/SendTaskSuccessCommand";
+import type { StartExecutionCommandInput, StartExecutionCommandOutput } from "./commands/StartExecutionCommand";
+import type {
+  StartSyncExecutionCommandInput,
+  StartSyncExecutionCommandOutput,
+} from "./commands/StartSyncExecutionCommand";
+import type { StopExecutionCommandInput, StopExecutionCommandOutput } from "./commands/StopExecutionCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TestStateCommandInput, TestStateCommandOutput } from "./commands/TestStateCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateMapRunCommandInput, UpdateMapRunCommandOutput } from "./commands/UpdateMapRunCommand";
+import type {
   UpdateStateMachineAliasCommandInput,
   UpdateStateMachineAliasCommandOutput,
 } from "./commands/UpdateStateMachineAliasCommand";
-import { UpdateStateMachineCommandInput, UpdateStateMachineCommandOutput } from "./commands/UpdateStateMachineCommand";
-import {
+import type {
+  UpdateStateMachineCommandInput,
+  UpdateStateMachineCommandOutput,
+} from "./commands/UpdateStateMachineCommand";
+import type {
   ValidateStateMachineDefinitionCommandInput,
   ValidateStateMachineDefinitionCommandOutput,
 } from "./commands/ValidateStateMachineDefinitionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -348,7 +367,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

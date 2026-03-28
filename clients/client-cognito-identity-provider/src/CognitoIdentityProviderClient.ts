@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,345 +61,375 @@ import {
   defaultCognitoIdentityProviderHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddCustomAttributesCommandInput,
   AddCustomAttributesCommandOutput,
 } from "./commands/AddCustomAttributesCommand";
-import {
+import type {
   AddUserPoolClientSecretCommandInput,
   AddUserPoolClientSecretCommandOutput,
 } from "./commands/AddUserPoolClientSecretCommand";
-import {
+import type {
   AdminAddUserToGroupCommandInput,
   AdminAddUserToGroupCommandOutput,
 } from "./commands/AdminAddUserToGroupCommand";
-import { AdminConfirmSignUpCommandInput, AdminConfirmSignUpCommandOutput } from "./commands/AdminConfirmSignUpCommand";
-import { AdminCreateUserCommandInput, AdminCreateUserCommandOutput } from "./commands/AdminCreateUserCommand";
-import {
+import type {
+  AdminConfirmSignUpCommandInput,
+  AdminConfirmSignUpCommandOutput,
+} from "./commands/AdminConfirmSignUpCommand";
+import type { AdminCreateUserCommandInput, AdminCreateUserCommandOutput } from "./commands/AdminCreateUserCommand";
+import type {
   AdminDeleteUserAttributesCommandInput,
   AdminDeleteUserAttributesCommandOutput,
 } from "./commands/AdminDeleteUserAttributesCommand";
-import { AdminDeleteUserCommandInput, AdminDeleteUserCommandOutput } from "./commands/AdminDeleteUserCommand";
-import {
+import type { AdminDeleteUserCommandInput, AdminDeleteUserCommandOutput } from "./commands/AdminDeleteUserCommand";
+import type {
   AdminDisableProviderForUserCommandInput,
   AdminDisableProviderForUserCommandOutput,
 } from "./commands/AdminDisableProviderForUserCommand";
-import { AdminDisableUserCommandInput, AdminDisableUserCommandOutput } from "./commands/AdminDisableUserCommand";
-import { AdminEnableUserCommandInput, AdminEnableUserCommandOutput } from "./commands/AdminEnableUserCommand";
-import { AdminForgetDeviceCommandInput, AdminForgetDeviceCommandOutput } from "./commands/AdminForgetDeviceCommand";
-import { AdminGetDeviceCommandInput, AdminGetDeviceCommandOutput } from "./commands/AdminGetDeviceCommand";
-import { AdminGetUserCommandInput, AdminGetUserCommandOutput } from "./commands/AdminGetUserCommand";
-import { AdminInitiateAuthCommandInput, AdminInitiateAuthCommandOutput } from "./commands/AdminInitiateAuthCommand";
-import {
+import type { AdminDisableUserCommandInput, AdminDisableUserCommandOutput } from "./commands/AdminDisableUserCommand";
+import type { AdminEnableUserCommandInput, AdminEnableUserCommandOutput } from "./commands/AdminEnableUserCommand";
+import type {
+  AdminForgetDeviceCommandInput,
+  AdminForgetDeviceCommandOutput,
+} from "./commands/AdminForgetDeviceCommand";
+import type { AdminGetDeviceCommandInput, AdminGetDeviceCommandOutput } from "./commands/AdminGetDeviceCommand";
+import type { AdminGetUserCommandInput, AdminGetUserCommandOutput } from "./commands/AdminGetUserCommand";
+import type {
+  AdminInitiateAuthCommandInput,
+  AdminInitiateAuthCommandOutput,
+} from "./commands/AdminInitiateAuthCommand";
+import type {
   AdminLinkProviderForUserCommandInput,
   AdminLinkProviderForUserCommandOutput,
 } from "./commands/AdminLinkProviderForUserCommand";
-import { AdminListDevicesCommandInput, AdminListDevicesCommandOutput } from "./commands/AdminListDevicesCommand";
-import {
+import type { AdminListDevicesCommandInput, AdminListDevicesCommandOutput } from "./commands/AdminListDevicesCommand";
+import type {
   AdminListGroupsForUserCommandInput,
   AdminListGroupsForUserCommandOutput,
 } from "./commands/AdminListGroupsForUserCommand";
-import {
+import type {
   AdminListUserAuthEventsCommandInput,
   AdminListUserAuthEventsCommandOutput,
 } from "./commands/AdminListUserAuthEventsCommand";
-import {
+import type {
   AdminRemoveUserFromGroupCommandInput,
   AdminRemoveUserFromGroupCommandOutput,
 } from "./commands/AdminRemoveUserFromGroupCommand";
-import {
+import type {
   AdminResetUserPasswordCommandInput,
   AdminResetUserPasswordCommandOutput,
 } from "./commands/AdminResetUserPasswordCommand";
-import {
+import type {
   AdminRespondToAuthChallengeCommandInput,
   AdminRespondToAuthChallengeCommandOutput,
 } from "./commands/AdminRespondToAuthChallengeCommand";
-import {
+import type {
   AdminSetUserMFAPreferenceCommandInput,
   AdminSetUserMFAPreferenceCommandOutput,
 } from "./commands/AdminSetUserMFAPreferenceCommand";
-import {
+import type {
   AdminSetUserPasswordCommandInput,
   AdminSetUserPasswordCommandOutput,
 } from "./commands/AdminSetUserPasswordCommand";
-import {
+import type {
   AdminSetUserSettingsCommandInput,
   AdminSetUserSettingsCommandOutput,
 } from "./commands/AdminSetUserSettingsCommand";
-import {
+import type {
   AdminUpdateAuthEventFeedbackCommandInput,
   AdminUpdateAuthEventFeedbackCommandOutput,
 } from "./commands/AdminUpdateAuthEventFeedbackCommand";
-import {
+import type {
   AdminUpdateDeviceStatusCommandInput,
   AdminUpdateDeviceStatusCommandOutput,
 } from "./commands/AdminUpdateDeviceStatusCommand";
-import {
+import type {
   AdminUpdateUserAttributesCommandInput,
   AdminUpdateUserAttributesCommandOutput,
 } from "./commands/AdminUpdateUserAttributesCommand";
-import {
+import type {
   AdminUserGlobalSignOutCommandInput,
   AdminUserGlobalSignOutCommandOutput,
 } from "./commands/AdminUserGlobalSignOutCommand";
-import {
+import type {
   AssociateSoftwareTokenCommandInput,
   AssociateSoftwareTokenCommandOutput,
 } from "./commands/AssociateSoftwareTokenCommand";
-import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand";
-import {
+import type { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand";
+import type {
   CompleteWebAuthnRegistrationCommandInput,
   CompleteWebAuthnRegistrationCommandOutput,
 } from "./commands/CompleteWebAuthnRegistrationCommand";
-import { ConfirmDeviceCommandInput, ConfirmDeviceCommandOutput } from "./commands/ConfirmDeviceCommand";
-import {
+import type { ConfirmDeviceCommandInput, ConfirmDeviceCommandOutput } from "./commands/ConfirmDeviceCommand";
+import type {
   ConfirmForgotPasswordCommandInput,
   ConfirmForgotPasswordCommandOutput,
 } from "./commands/ConfirmForgotPasswordCommand";
-import { ConfirmSignUpCommandInput, ConfirmSignUpCommandOutput } from "./commands/ConfirmSignUpCommand";
-import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
-import {
+import type { ConfirmSignUpCommandInput, ConfirmSignUpCommandOutput } from "./commands/ConfirmSignUpCommand";
+import type { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import type {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand";
-import {
+import type {
   CreateManagedLoginBrandingCommandInput,
   CreateManagedLoginBrandingCommandOutput,
 } from "./commands/CreateManagedLoginBrandingCommand";
-import {
+import type {
   CreateResourceServerCommandInput,
   CreateResourceServerCommandOutput,
 } from "./commands/CreateResourceServerCommand";
-import { CreateTermsCommandInput, CreateTermsCommandOutput } from "./commands/CreateTermsCommand";
-import {
+import type { CreateTermsCommandInput, CreateTermsCommandOutput } from "./commands/CreateTermsCommand";
+import type {
   CreateUserImportJobCommandInput,
   CreateUserImportJobCommandOutput,
 } from "./commands/CreateUserImportJobCommand";
-import {
+import type {
   CreateUserPoolClientCommandInput,
   CreateUserPoolClientCommandOutput,
 } from "./commands/CreateUserPoolClientCommand";
-import { CreateUserPoolCommandInput, CreateUserPoolCommandOutput } from "./commands/CreateUserPoolCommand";
-import {
+import type { CreateUserPoolCommandInput, CreateUserPoolCommandOutput } from "./commands/CreateUserPoolCommand";
+import type {
   CreateUserPoolDomainCommandInput,
   CreateUserPoolDomainCommandOutput,
 } from "./commands/CreateUserPoolDomainCommand";
-import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
-import {
+import type { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import type {
   DeleteIdentityProviderCommandInput,
   DeleteIdentityProviderCommandOutput,
 } from "./commands/DeleteIdentityProviderCommand";
-import {
+import type {
   DeleteManagedLoginBrandingCommandInput,
   DeleteManagedLoginBrandingCommandOutput,
 } from "./commands/DeleteManagedLoginBrandingCommand";
-import {
+import type {
   DeleteResourceServerCommandInput,
   DeleteResourceServerCommandOutput,
 } from "./commands/DeleteResourceServerCommand";
-import { DeleteTermsCommandInput, DeleteTermsCommandOutput } from "./commands/DeleteTermsCommand";
-import {
+import type { DeleteTermsCommandInput, DeleteTermsCommandOutput } from "./commands/DeleteTermsCommand";
+import type {
   DeleteUserAttributesCommandInput,
   DeleteUserAttributesCommandOutput,
 } from "./commands/DeleteUserAttributesCommand";
-import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
-import {
+import type { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import type {
   DeleteUserPoolClientCommandInput,
   DeleteUserPoolClientCommandOutput,
 } from "./commands/DeleteUserPoolClientCommand";
-import {
+import type {
   DeleteUserPoolClientSecretCommandInput,
   DeleteUserPoolClientSecretCommandOutput,
 } from "./commands/DeleteUserPoolClientSecretCommand";
-import { DeleteUserPoolCommandInput, DeleteUserPoolCommandOutput } from "./commands/DeleteUserPoolCommand";
-import {
+import type { DeleteUserPoolCommandInput, DeleteUserPoolCommandOutput } from "./commands/DeleteUserPoolCommand";
+import type {
   DeleteUserPoolDomainCommandInput,
   DeleteUserPoolDomainCommandOutput,
 } from "./commands/DeleteUserPoolDomainCommand";
-import {
+import type {
   DeleteWebAuthnCredentialCommandInput,
   DeleteWebAuthnCredentialCommandOutput,
 } from "./commands/DeleteWebAuthnCredentialCommand";
-import {
+import type {
   DescribeIdentityProviderCommandInput,
   DescribeIdentityProviderCommandOutput,
 } from "./commands/DescribeIdentityProviderCommand";
-import {
+import type {
   DescribeManagedLoginBrandingByClientCommandInput,
   DescribeManagedLoginBrandingByClientCommandOutput,
 } from "./commands/DescribeManagedLoginBrandingByClientCommand";
-import {
+import type {
   DescribeManagedLoginBrandingCommandInput,
   DescribeManagedLoginBrandingCommandOutput,
 } from "./commands/DescribeManagedLoginBrandingCommand";
-import {
+import type {
   DescribeResourceServerCommandInput,
   DescribeResourceServerCommandOutput,
 } from "./commands/DescribeResourceServerCommand";
-import {
+import type {
   DescribeRiskConfigurationCommandInput,
   DescribeRiskConfigurationCommandOutput,
 } from "./commands/DescribeRiskConfigurationCommand";
-import { DescribeTermsCommandInput, DescribeTermsCommandOutput } from "./commands/DescribeTermsCommand";
-import {
+import type { DescribeTermsCommandInput, DescribeTermsCommandOutput } from "./commands/DescribeTermsCommand";
+import type {
   DescribeUserImportJobCommandInput,
   DescribeUserImportJobCommandOutput,
 } from "./commands/DescribeUserImportJobCommand";
-import {
+import type {
   DescribeUserPoolClientCommandInput,
   DescribeUserPoolClientCommandOutput,
 } from "./commands/DescribeUserPoolClientCommand";
-import { DescribeUserPoolCommandInput, DescribeUserPoolCommandOutput } from "./commands/DescribeUserPoolCommand";
-import {
+import type { DescribeUserPoolCommandInput, DescribeUserPoolCommandOutput } from "./commands/DescribeUserPoolCommand";
+import type {
   DescribeUserPoolDomainCommandInput,
   DescribeUserPoolDomainCommandOutput,
 } from "./commands/DescribeUserPoolDomainCommand";
-import { ForgetDeviceCommandInput, ForgetDeviceCommandOutput } from "./commands/ForgetDeviceCommand";
-import { ForgotPasswordCommandInput, ForgotPasswordCommandOutput } from "./commands/ForgotPasswordCommand";
-import { GetCSVHeaderCommandInput, GetCSVHeaderCommandOutput } from "./commands/GetCSVHeaderCommand";
-import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
-import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
-import {
+import type { ForgetDeviceCommandInput, ForgetDeviceCommandOutput } from "./commands/ForgetDeviceCommand";
+import type { ForgotPasswordCommandInput, ForgotPasswordCommandOutput } from "./commands/ForgotPasswordCommand";
+import type { GetCSVHeaderCommandInput, GetCSVHeaderCommandOutput } from "./commands/GetCSVHeaderCommand";
+import type { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
+import type { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import type {
   GetIdentityProviderByIdentifierCommandInput,
   GetIdentityProviderByIdentifierCommandOutput,
 } from "./commands/GetIdentityProviderByIdentifierCommand";
-import {
+import type {
   GetLogDeliveryConfigurationCommandInput,
   GetLogDeliveryConfigurationCommandOutput,
 } from "./commands/GetLogDeliveryConfigurationCommand";
-import {
+import type {
   GetSigningCertificateCommandInput,
   GetSigningCertificateCommandOutput,
 } from "./commands/GetSigningCertificateCommand";
-import {
+import type {
   GetTokensFromRefreshTokenCommandInput,
   GetTokensFromRefreshTokenCommandOutput,
 } from "./commands/GetTokensFromRefreshTokenCommand";
-import { GetUICustomizationCommandInput, GetUICustomizationCommandOutput } from "./commands/GetUICustomizationCommand";
-import {
+import type {
+  GetUICustomizationCommandInput,
+  GetUICustomizationCommandOutput,
+} from "./commands/GetUICustomizationCommand";
+import type {
   GetUserAttributeVerificationCodeCommandInput,
   GetUserAttributeVerificationCodeCommandOutput,
 } from "./commands/GetUserAttributeVerificationCodeCommand";
-import { GetUserAuthFactorsCommandInput, GetUserAuthFactorsCommandOutput } from "./commands/GetUserAuthFactorsCommand";
-import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
-import {
+import type {
+  GetUserAuthFactorsCommandInput,
+  GetUserAuthFactorsCommandOutput,
+} from "./commands/GetUserAuthFactorsCommand";
+import type { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
+import type {
   GetUserPoolMfaConfigCommandInput,
   GetUserPoolMfaConfigCommandOutput,
 } from "./commands/GetUserPoolMfaConfigCommand";
-import { GlobalSignOutCommandInput, GlobalSignOutCommandOutput } from "./commands/GlobalSignOutCommand";
-import { InitiateAuthCommandInput, InitiateAuthCommandOutput } from "./commands/InitiateAuthCommand";
-import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
-import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
-import {
+import type { GlobalSignOutCommandInput, GlobalSignOutCommandOutput } from "./commands/GlobalSignOutCommand";
+import type { InitiateAuthCommandInput, InitiateAuthCommandOutput } from "./commands/InitiateAuthCommand";
+import type { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
+import type { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import type {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
 } from "./commands/ListIdentityProvidersCommand";
-import {
+import type {
   ListResourceServersCommandInput,
   ListResourceServersCommandOutput,
 } from "./commands/ListResourceServersCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTermsCommandInput, ListTermsCommandOutput } from "./commands/ListTermsCommand";
-import { ListUserImportJobsCommandInput, ListUserImportJobsCommandOutput } from "./commands/ListUserImportJobsCommand";
-import {
+import type { ListTermsCommandInput, ListTermsCommandOutput } from "./commands/ListTermsCommand";
+import type {
+  ListUserImportJobsCommandInput,
+  ListUserImportJobsCommandOutput,
+} from "./commands/ListUserImportJobsCommand";
+import type {
   ListUserPoolClientsCommandInput,
   ListUserPoolClientsCommandOutput,
 } from "./commands/ListUserPoolClientsCommand";
-import {
+import type {
   ListUserPoolClientSecretsCommandInput,
   ListUserPoolClientSecretsCommandOutput,
 } from "./commands/ListUserPoolClientSecretsCommand";
-import { ListUserPoolsCommandInput, ListUserPoolsCommandOutput } from "./commands/ListUserPoolsCommand";
-import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import { ListUsersInGroupCommandInput, ListUsersInGroupCommandOutput } from "./commands/ListUsersInGroupCommand";
-import {
+import type { ListUserPoolsCommandInput, ListUserPoolsCommandOutput } from "./commands/ListUserPoolsCommand";
+import type { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import type { ListUsersInGroupCommandInput, ListUsersInGroupCommandOutput } from "./commands/ListUsersInGroupCommand";
+import type {
   ListWebAuthnCredentialsCommandInput,
   ListWebAuthnCredentialsCommandOutput,
 } from "./commands/ListWebAuthnCredentialsCommand";
-import {
+import type {
   ResendConfirmationCodeCommandInput,
   ResendConfirmationCodeCommandOutput,
 } from "./commands/ResendConfirmationCodeCommand";
-import {
+import type {
   RespondToAuthChallengeCommandInput,
   RespondToAuthChallengeCommandOutput,
 } from "./commands/RespondToAuthChallengeCommand";
-import { RevokeTokenCommandInput, RevokeTokenCommandOutput } from "./commands/RevokeTokenCommand";
-import {
+import type { RevokeTokenCommandInput, RevokeTokenCommandOutput } from "./commands/RevokeTokenCommand";
+import type {
   SetLogDeliveryConfigurationCommandInput,
   SetLogDeliveryConfigurationCommandOutput,
 } from "./commands/SetLogDeliveryConfigurationCommand";
-import {
+import type {
   SetRiskConfigurationCommandInput,
   SetRiskConfigurationCommandOutput,
 } from "./commands/SetRiskConfigurationCommand";
-import { SetUICustomizationCommandInput, SetUICustomizationCommandOutput } from "./commands/SetUICustomizationCommand";
-import {
+import type {
+  SetUICustomizationCommandInput,
+  SetUICustomizationCommandOutput,
+} from "./commands/SetUICustomizationCommand";
+import type {
   SetUserMFAPreferenceCommandInput,
   SetUserMFAPreferenceCommandOutput,
 } from "./commands/SetUserMFAPreferenceCommand";
-import {
+import type {
   SetUserPoolMfaConfigCommandInput,
   SetUserPoolMfaConfigCommandOutput,
 } from "./commands/SetUserPoolMfaConfigCommand";
-import { SetUserSettingsCommandInput, SetUserSettingsCommandOutput } from "./commands/SetUserSettingsCommand";
-import { SignUpCommandInput, SignUpCommandOutput } from "./commands/SignUpCommand";
-import { StartUserImportJobCommandInput, StartUserImportJobCommandOutput } from "./commands/StartUserImportJobCommand";
-import {
+import type { SetUserSettingsCommandInput, SetUserSettingsCommandOutput } from "./commands/SetUserSettingsCommand";
+import type { SignUpCommandInput, SignUpCommandOutput } from "./commands/SignUpCommand";
+import type {
+  StartUserImportJobCommandInput,
+  StartUserImportJobCommandOutput,
+} from "./commands/StartUserImportJobCommand";
+import type {
   StartWebAuthnRegistrationCommandInput,
   StartWebAuthnRegistrationCommandOutput,
 } from "./commands/StartWebAuthnRegistrationCommand";
-import { StopUserImportJobCommandInput, StopUserImportJobCommandOutput } from "./commands/StopUserImportJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type {
+  StopUserImportJobCommandInput,
+  StopUserImportJobCommandOutput,
+} from "./commands/StopUserImportJobCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAuthEventFeedbackCommandInput,
   UpdateAuthEventFeedbackCommandOutput,
 } from "./commands/UpdateAuthEventFeedbackCommand";
-import { UpdateDeviceStatusCommandInput, UpdateDeviceStatusCommandOutput } from "./commands/UpdateDeviceStatusCommand";
-import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
-import {
+import type {
+  UpdateDeviceStatusCommandInput,
+  UpdateDeviceStatusCommandOutput,
+} from "./commands/UpdateDeviceStatusCommand";
+import type { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
+import type {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand";
-import {
+import type {
   UpdateManagedLoginBrandingCommandInput,
   UpdateManagedLoginBrandingCommandOutput,
 } from "./commands/UpdateManagedLoginBrandingCommand";
-import {
+import type {
   UpdateResourceServerCommandInput,
   UpdateResourceServerCommandOutput,
 } from "./commands/UpdateResourceServerCommand";
-import { UpdateTermsCommandInput, UpdateTermsCommandOutput } from "./commands/UpdateTermsCommand";
-import {
+import type { UpdateTermsCommandInput, UpdateTermsCommandOutput } from "./commands/UpdateTermsCommand";
+import type {
   UpdateUserAttributesCommandInput,
   UpdateUserAttributesCommandOutput,
 } from "./commands/UpdateUserAttributesCommand";
-import {
+import type {
   UpdateUserPoolClientCommandInput,
   UpdateUserPoolClientCommandOutput,
 } from "./commands/UpdateUserPoolClientCommand";
-import { UpdateUserPoolCommandInput, UpdateUserPoolCommandOutput } from "./commands/UpdateUserPoolCommand";
-import {
+import type { UpdateUserPoolCommandInput, UpdateUserPoolCommandOutput } from "./commands/UpdateUserPoolCommand";
+import type {
   UpdateUserPoolDomainCommandInput,
   UpdateUserPoolDomainCommandOutput,
 } from "./commands/UpdateUserPoolDomainCommand";
-import {
+import type {
   VerifySoftwareTokenCommandInput,
   VerifySoftwareTokenCommandOutput,
 } from "./commands/VerifySoftwareTokenCommand";
-import {
+import type {
   VerifyUserAttributeCommandInput,
   VerifyUserAttributeCommandOutput,
 } from "./commands/VerifyUserAttributeCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -777,7 +805,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

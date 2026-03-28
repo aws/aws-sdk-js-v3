@@ -8,7 +8,7 @@ import {
   ListDatasetsCommandOutput,
 } from "../commands/ListDatasetsCommand";
 import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
-import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
+import type { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

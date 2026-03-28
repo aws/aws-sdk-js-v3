@@ -8,7 +8,7 @@ import {
   DescribeWarmPoolCommandInput,
   DescribeWarmPoolCommandOutput,
 } from "../commands/DescribeWarmPoolCommand";
-import { AutoScalingPaginationConfiguration } from "./Interfaces";
+import type { AutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

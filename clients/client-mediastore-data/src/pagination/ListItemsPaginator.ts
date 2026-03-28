@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListItemsCommand, ListItemsCommandInput, ListItemsCommandOutput } from "../commands/ListItemsCommand";
 import { MediaStoreDataClient } from "../MediaStoreDataClient";
-import { MediaStoreDataPaginationConfiguration } from "./Interfaces";
+import type { MediaStoreDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

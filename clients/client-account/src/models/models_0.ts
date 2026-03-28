@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AlternateContactType, AwsAccountState, PrimaryEmailUpdateStatus, RegionOptStatus } from "./enums";
+import type { AlternateContactType, AwsAccountState, PrimaryEmailUpdateStatus, RegionOptStatus } from "./enums";
 
 /**
  * @public

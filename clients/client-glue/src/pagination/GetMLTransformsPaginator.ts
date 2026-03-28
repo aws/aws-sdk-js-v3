@@ -8,7 +8,7 @@ import {
   GetMLTransformsCommandOutput,
 } from "../commands/GetMLTransformsCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListEnvironmentsCommandInput,
   ListEnvironmentsCommandOutput,
 } from "../commands/ListEnvironmentsCommand";
-import { AppConfigPaginationConfiguration } from "./Interfaces";
+import type { AppConfigPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

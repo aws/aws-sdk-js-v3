@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CloudFormationClient } from "../CloudFormationClient";
 import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "../commands/ListTypesCommand";
-import { CloudFormationPaginationConfiguration } from "./Interfaces";
+import type { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

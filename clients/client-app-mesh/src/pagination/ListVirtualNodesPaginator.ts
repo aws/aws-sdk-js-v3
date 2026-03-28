@@ -8,7 +8,7 @@ import {
   ListVirtualNodesCommandInput,
   ListVirtualNodesCommandOutput,
 } from "../commands/ListVirtualNodesCommand";
-import { AppMeshPaginationConfiguration } from "./Interfaces";
+import type { AppMeshPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

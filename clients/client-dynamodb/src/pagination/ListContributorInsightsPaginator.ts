@@ -8,7 +8,7 @@ import {
   ListContributorInsightsCommandOutput,
 } from "../commands/ListContributorInsightsCommand";
 import { DynamoDBClient } from "../DynamoDBClient";
-import { DynamoDBPaginationConfiguration } from "./Interfaces";
+import type { DynamoDBPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

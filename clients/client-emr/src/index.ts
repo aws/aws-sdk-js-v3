@@ -9,7 +9,7 @@
  */
 export * from "./EMRClient";
 export * from "./EMR";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { EMRExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

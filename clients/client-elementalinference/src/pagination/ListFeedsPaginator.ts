@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListFeedsCommand, ListFeedsCommandInput, ListFeedsCommandOutput } from "../commands/ListFeedsCommand";
 import { ElementalInferenceClient } from "../ElementalInferenceClient";
-import { ElementalInferencePaginationConfiguration } from "./Interfaces";
+import type { ElementalInferencePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

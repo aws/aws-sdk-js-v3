@@ -26,7 +26,7 @@
  */
 export * from "./ServerlessApplicationRepositoryClient";
 export * from "./ServerlessApplicationRepository";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ServerlessApplicationRepositoryExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

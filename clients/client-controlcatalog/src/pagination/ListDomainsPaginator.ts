@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import { ControlCatalogClient } from "../ControlCatalogClient";
-import { ControlCatalogPaginationConfiguration } from "./Interfaces";
+import type { ControlCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

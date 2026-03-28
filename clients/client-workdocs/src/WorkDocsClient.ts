@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,108 +61,114 @@ import {
   defaultWorkDocsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AbortDocumentVersionUploadCommandInput,
   AbortDocumentVersionUploadCommandOutput,
 } from "./commands/AbortDocumentVersionUploadCommand";
-import { ActivateUserCommandInput, ActivateUserCommandOutput } from "./commands/ActivateUserCommand";
-import {
+import type { ActivateUserCommandInput, ActivateUserCommandOutput } from "./commands/ActivateUserCommand";
+import type {
   AddResourcePermissionsCommandInput,
   AddResourcePermissionsCommandOutput,
 } from "./commands/AddResourcePermissionsCommand";
-import { CreateCommentCommandInput, CreateCommentCommandOutput } from "./commands/CreateCommentCommand";
-import {
+import type { CreateCommentCommandInput, CreateCommentCommandOutput } from "./commands/CreateCommentCommand";
+import type {
   CreateCustomMetadataCommandInput,
   CreateCustomMetadataCommandOutput,
 } from "./commands/CreateCustomMetadataCommand";
-import { CreateFolderCommandInput, CreateFolderCommandOutput } from "./commands/CreateFolderCommand";
-import { CreateLabelsCommandInput, CreateLabelsCommandOutput } from "./commands/CreateLabelsCommand";
-import {
+import type { CreateFolderCommandInput, CreateFolderCommandOutput } from "./commands/CreateFolderCommand";
+import type { CreateLabelsCommandInput, CreateLabelsCommandOutput } from "./commands/CreateLabelsCommand";
+import type {
   CreateNotificationSubscriptionCommandInput,
   CreateNotificationSubscriptionCommandOutput,
 } from "./commands/CreateNotificationSubscriptionCommand";
-import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import { DeactivateUserCommandInput, DeactivateUserCommandOutput } from "./commands/DeactivateUserCommand";
-import { DeleteCommentCommandInput, DeleteCommentCommandOutput } from "./commands/DeleteCommentCommand";
-import {
+import type { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import type { DeactivateUserCommandInput, DeactivateUserCommandOutput } from "./commands/DeactivateUserCommand";
+import type { DeleteCommentCommandInput, DeleteCommentCommandOutput } from "./commands/DeleteCommentCommand";
+import type {
   DeleteCustomMetadataCommandInput,
   DeleteCustomMetadataCommandOutput,
 } from "./commands/DeleteCustomMetadataCommand";
-import { DeleteDocumentCommandInput, DeleteDocumentCommandOutput } from "./commands/DeleteDocumentCommand";
-import {
+import type { DeleteDocumentCommandInput, DeleteDocumentCommandOutput } from "./commands/DeleteDocumentCommand";
+import type {
   DeleteDocumentVersionCommandInput,
   DeleteDocumentVersionCommandOutput,
 } from "./commands/DeleteDocumentVersionCommand";
-import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "./commands/DeleteFolderCommand";
-import {
+import type { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "./commands/DeleteFolderCommand";
+import type {
   DeleteFolderContentsCommandInput,
   DeleteFolderContentsCommandOutput,
 } from "./commands/DeleteFolderContentsCommand";
-import { DeleteLabelsCommandInput, DeleteLabelsCommandOutput } from "./commands/DeleteLabelsCommand";
-import {
+import type { DeleteLabelsCommandInput, DeleteLabelsCommandOutput } from "./commands/DeleteLabelsCommand";
+import type {
   DeleteNotificationSubscriptionCommandInput,
   DeleteNotificationSubscriptionCommandOutput,
 } from "./commands/DeleteNotificationSubscriptionCommand";
-import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
-import { DescribeActivitiesCommandInput, DescribeActivitiesCommandOutput } from "./commands/DescribeActivitiesCommand";
-import { DescribeCommentsCommandInput, DescribeCommentsCommandOutput } from "./commands/DescribeCommentsCommand";
-import {
+import type { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import type {
+  DescribeActivitiesCommandInput,
+  DescribeActivitiesCommandOutput,
+} from "./commands/DescribeActivitiesCommand";
+import type { DescribeCommentsCommandInput, DescribeCommentsCommandOutput } from "./commands/DescribeCommentsCommand";
+import type {
   DescribeDocumentVersionsCommandInput,
   DescribeDocumentVersionsCommandOutput,
 } from "./commands/DescribeDocumentVersionsCommand";
-import {
+import type {
   DescribeFolderContentsCommandInput,
   DescribeFolderContentsCommandOutput,
 } from "./commands/DescribeFolderContentsCommand";
-import { DescribeGroupsCommandInput, DescribeGroupsCommandOutput } from "./commands/DescribeGroupsCommand";
-import {
+import type { DescribeGroupsCommandInput, DescribeGroupsCommandOutput } from "./commands/DescribeGroupsCommand";
+import type {
   DescribeNotificationSubscriptionsCommandInput,
   DescribeNotificationSubscriptionsCommandOutput,
 } from "./commands/DescribeNotificationSubscriptionsCommand";
-import {
+import type {
   DescribeResourcePermissionsCommandInput,
   DescribeResourcePermissionsCommandOutput,
 } from "./commands/DescribeResourcePermissionsCommand";
-import {
+import type {
   DescribeRootFoldersCommandInput,
   DescribeRootFoldersCommandOutput,
 } from "./commands/DescribeRootFoldersCommand";
-import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./commands/DescribeUsersCommand";
-import { GetCurrentUserCommandInput, GetCurrentUserCommandOutput } from "./commands/GetCurrentUserCommand";
-import { GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
-import { GetDocumentPathCommandInput, GetDocumentPathCommandOutput } from "./commands/GetDocumentPathCommand";
-import { GetDocumentVersionCommandInput, GetDocumentVersionCommandOutput } from "./commands/GetDocumentVersionCommand";
-import { GetFolderCommandInput, GetFolderCommandOutput } from "./commands/GetFolderCommand";
-import { GetFolderPathCommandInput, GetFolderPathCommandOutput } from "./commands/GetFolderPathCommand";
-import { GetResourcesCommandInput, GetResourcesCommandOutput } from "./commands/GetResourcesCommand";
-import {
+import type { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./commands/DescribeUsersCommand";
+import type { GetCurrentUserCommandInput, GetCurrentUserCommandOutput } from "./commands/GetCurrentUserCommand";
+import type { GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
+import type { GetDocumentPathCommandInput, GetDocumentPathCommandOutput } from "./commands/GetDocumentPathCommand";
+import type {
+  GetDocumentVersionCommandInput,
+  GetDocumentVersionCommandOutput,
+} from "./commands/GetDocumentVersionCommand";
+import type { GetFolderCommandInput, GetFolderCommandOutput } from "./commands/GetFolderCommand";
+import type { GetFolderPathCommandInput, GetFolderPathCommandOutput } from "./commands/GetFolderPathCommand";
+import type { GetResourcesCommandInput, GetResourcesCommandOutput } from "./commands/GetResourcesCommand";
+import type {
   InitiateDocumentVersionUploadCommandInput,
   InitiateDocumentVersionUploadCommandOutput,
 } from "./commands/InitiateDocumentVersionUploadCommand";
-import {
+import type {
   RemoveAllResourcePermissionsCommandInput,
   RemoveAllResourcePermissionsCommandOutput,
 } from "./commands/RemoveAllResourcePermissionsCommand";
-import {
+import type {
   RemoveResourcePermissionCommandInput,
   RemoveResourcePermissionCommandOutput,
 } from "./commands/RemoveResourcePermissionCommand";
-import {
+import type {
   RestoreDocumentVersionsCommandInput,
   RestoreDocumentVersionsCommandOutput,
 } from "./commands/RestoreDocumentVersionsCommand";
-import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "./commands/SearchResourcesCommand";
-import { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "./commands/UpdateDocumentCommand";
-import {
+import type { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "./commands/SearchResourcesCommand";
+import type { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "./commands/UpdateDocumentCommand";
+import type {
   UpdateDocumentVersionCommandInput,
   UpdateDocumentVersionCommandOutput,
 } from "./commands/UpdateDocumentVersionCommand";
-import { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "./commands/UpdateFolderCommand";
-import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import type { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "./commands/UpdateFolderCommand";
+import type { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -384,7 +388,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

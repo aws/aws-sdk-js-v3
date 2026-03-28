@@ -1,17 +1,17 @@
 // smithy-typescript generated code
-import { AgentCollaboration, OrchestrationType } from "./enums";
-import {
-  type CustomOrchestration,
-  type GuardrailConfigurationWithArn,
-  type InlineBedrockModelConfigurations,
-  type InlineSessionState,
-  type PromptCreationConfigurations,
-  type PromptOverrideConfiguration,
-  type StreamingConfigurations,
+import type { AgentCollaboration, OrchestrationType } from "./enums";
+import type {
   AgentActionGroup,
   Collaborator,
   CollaboratorConfiguration,
+  CustomOrchestration,
+  GuardrailConfigurationWithArn,
+  InlineBedrockModelConfigurations,
+  InlineSessionState,
   KnowledgeBase,
+  PromptCreationConfigurations,
+  PromptOverrideConfiguration,
+  StreamingConfigurations,
 } from "./models_0";
 
 /**

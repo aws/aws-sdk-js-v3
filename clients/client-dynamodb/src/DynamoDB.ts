@@ -9,229 +9,273 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type BatchExecuteStatementCommandInput,
+  type BatchExecuteStatementCommandOutput,
   BatchExecuteStatementCommand,
-  BatchExecuteStatementCommandInput,
-  BatchExecuteStatementCommandOutput,
 } from "./commands/BatchExecuteStatementCommand";
 import {
+  type BatchGetItemCommandInput,
+  type BatchGetItemCommandOutput,
   BatchGetItemCommand,
-  BatchGetItemCommandInput,
-  BatchGetItemCommandOutput,
 } from "./commands/BatchGetItemCommand";
 import {
+  type BatchWriteItemCommandInput,
+  type BatchWriteItemCommandOutput,
   BatchWriteItemCommand,
-  BatchWriteItemCommandInput,
-  BatchWriteItemCommandOutput,
 } from "./commands/BatchWriteItemCommand";
 import {
+  type CreateBackupCommandInput,
+  type CreateBackupCommandOutput,
   CreateBackupCommand,
-  CreateBackupCommandInput,
-  CreateBackupCommandOutput,
 } from "./commands/CreateBackupCommand";
 import {
+  type CreateGlobalTableCommandInput,
+  type CreateGlobalTableCommandOutput,
   CreateGlobalTableCommand,
-  CreateGlobalTableCommandInput,
-  CreateGlobalTableCommandOutput,
 } from "./commands/CreateGlobalTableCommand";
-import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import {
+  type CreateTableCommandInput,
+  type CreateTableCommandOutput,
+  CreateTableCommand,
+} from "./commands/CreateTableCommand";
+import {
+  type DeleteBackupCommandInput,
+  type DeleteBackupCommandOutput,
   DeleteBackupCommand,
-  DeleteBackupCommandInput,
-  DeleteBackupCommandOutput,
 } from "./commands/DeleteBackupCommand";
-import { DeleteItemCommand, DeleteItemCommandInput, DeleteItemCommandOutput } from "./commands/DeleteItemCommand";
 import {
+  type DeleteItemCommandInput,
+  type DeleteItemCommandOutput,
+  DeleteItemCommand,
+} from "./commands/DeleteItemCommand";
+import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import {
+  type DeleteTableCommandInput,
+  type DeleteTableCommandOutput,
+  DeleteTableCommand,
+} from "./commands/DeleteTableCommand";
+import {
+  type DescribeBackupCommandInput,
+  type DescribeBackupCommandOutput,
   DescribeBackupCommand,
-  DescribeBackupCommandInput,
-  DescribeBackupCommandOutput,
 } from "./commands/DescribeBackupCommand";
 import {
+  type DescribeContinuousBackupsCommandInput,
+  type DescribeContinuousBackupsCommandOutput,
   DescribeContinuousBackupsCommand,
-  DescribeContinuousBackupsCommandInput,
-  DescribeContinuousBackupsCommandOutput,
 } from "./commands/DescribeContinuousBackupsCommand";
 import {
+  type DescribeContributorInsightsCommandInput,
+  type DescribeContributorInsightsCommandOutput,
   DescribeContributorInsightsCommand,
-  DescribeContributorInsightsCommandInput,
-  DescribeContributorInsightsCommandOutput,
 } from "./commands/DescribeContributorInsightsCommand";
 import {
+  type DescribeEndpointsCommandInput,
+  type DescribeEndpointsCommandOutput,
   DescribeEndpointsCommand,
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
 import {
+  type DescribeExportCommandInput,
+  type DescribeExportCommandOutput,
   DescribeExportCommand,
-  DescribeExportCommandInput,
-  DescribeExportCommandOutput,
 } from "./commands/DescribeExportCommand";
 import {
+  type DescribeGlobalTableCommandInput,
+  type DescribeGlobalTableCommandOutput,
   DescribeGlobalTableCommand,
-  DescribeGlobalTableCommandInput,
-  DescribeGlobalTableCommandOutput,
 } from "./commands/DescribeGlobalTableCommand";
 import {
+  type DescribeGlobalTableSettingsCommandInput,
+  type DescribeGlobalTableSettingsCommandOutput,
   DescribeGlobalTableSettingsCommand,
-  DescribeGlobalTableSettingsCommandInput,
-  DescribeGlobalTableSettingsCommandOutput,
 } from "./commands/DescribeGlobalTableSettingsCommand";
 import {
+  type DescribeImportCommandInput,
+  type DescribeImportCommandOutput,
   DescribeImportCommand,
-  DescribeImportCommandInput,
-  DescribeImportCommandOutput,
 } from "./commands/DescribeImportCommand";
 import {
+  type DescribeKinesisStreamingDestinationCommandInput,
+  type DescribeKinesisStreamingDestinationCommandOutput,
   DescribeKinesisStreamingDestinationCommand,
-  DescribeKinesisStreamingDestinationCommandInput,
-  DescribeKinesisStreamingDestinationCommandOutput,
 } from "./commands/DescribeKinesisStreamingDestinationCommand";
 import {
+  type DescribeLimitsCommandInput,
+  type DescribeLimitsCommandOutput,
   DescribeLimitsCommand,
-  DescribeLimitsCommandInput,
-  DescribeLimitsCommandOutput,
 } from "./commands/DescribeLimitsCommand";
 import {
+  type DescribeTableCommandInput,
+  type DescribeTableCommandOutput,
   DescribeTableCommand,
-  DescribeTableCommandInput,
-  DescribeTableCommandOutput,
 } from "./commands/DescribeTableCommand";
 import {
+  type DescribeTableReplicaAutoScalingCommandInput,
+  type DescribeTableReplicaAutoScalingCommandOutput,
   DescribeTableReplicaAutoScalingCommand,
-  DescribeTableReplicaAutoScalingCommandInput,
-  DescribeTableReplicaAutoScalingCommandOutput,
 } from "./commands/DescribeTableReplicaAutoScalingCommand";
 import {
+  type DescribeTimeToLiveCommandInput,
+  type DescribeTimeToLiveCommandOutput,
   DescribeTimeToLiveCommand,
-  DescribeTimeToLiveCommandInput,
-  DescribeTimeToLiveCommandOutput,
 } from "./commands/DescribeTimeToLiveCommand";
 import {
+  type DisableKinesisStreamingDestinationCommandInput,
+  type DisableKinesisStreamingDestinationCommandOutput,
   DisableKinesisStreamingDestinationCommand,
-  DisableKinesisStreamingDestinationCommandInput,
-  DisableKinesisStreamingDestinationCommandOutput,
 } from "./commands/DisableKinesisStreamingDestinationCommand";
 import {
+  type EnableKinesisStreamingDestinationCommandInput,
+  type EnableKinesisStreamingDestinationCommandOutput,
   EnableKinesisStreamingDestinationCommand,
-  EnableKinesisStreamingDestinationCommandInput,
-  EnableKinesisStreamingDestinationCommandOutput,
 } from "./commands/EnableKinesisStreamingDestinationCommand";
 import {
+  type ExecuteStatementCommandInput,
+  type ExecuteStatementCommandOutput,
   ExecuteStatementCommand,
-  ExecuteStatementCommandInput,
-  ExecuteStatementCommandOutput,
 } from "./commands/ExecuteStatementCommand";
 import {
+  type ExecuteTransactionCommandInput,
+  type ExecuteTransactionCommandOutput,
   ExecuteTransactionCommand,
-  ExecuteTransactionCommandInput,
-  ExecuteTransactionCommandOutput,
 } from "./commands/ExecuteTransactionCommand";
 import {
+  type ExportTableToPointInTimeCommandInput,
+  type ExportTableToPointInTimeCommandOutput,
   ExportTableToPointInTimeCommand,
-  ExportTableToPointInTimeCommandInput,
-  ExportTableToPointInTimeCommandOutput,
 } from "./commands/ExportTableToPointInTimeCommand";
-import { GetItemCommand, GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
+import { type GetItemCommandInput, type GetItemCommandOutput, GetItemCommand } from "./commands/GetItemCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
-import { ImportTableCommand, ImportTableCommandInput, ImportTableCommandOutput } from "./commands/ImportTableCommand";
-import { ListBackupsCommand, ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
+  type ImportTableCommandInput,
+  type ImportTableCommandOutput,
+  ImportTableCommand,
+} from "./commands/ImportTableCommand";
+import {
+  type ListBackupsCommandInput,
+  type ListBackupsCommandOutput,
+  ListBackupsCommand,
+} from "./commands/ListBackupsCommand";
+import {
+  type ListContributorInsightsCommandInput,
+  type ListContributorInsightsCommandOutput,
   ListContributorInsightsCommand,
-  ListContributorInsightsCommandInput,
-  ListContributorInsightsCommandOutput,
 } from "./commands/ListContributorInsightsCommand";
-import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import {
+  type ListExportsCommandInput,
+  type ListExportsCommandOutput,
+  ListExportsCommand,
+} from "./commands/ListExportsCommand";
+import {
+  type ListGlobalTablesCommandInput,
+  type ListGlobalTablesCommandOutput,
   ListGlobalTablesCommand,
-  ListGlobalTablesCommandInput,
-  ListGlobalTablesCommandOutput,
 } from "./commands/ListGlobalTablesCommand";
-import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
-import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
+  type ListImportsCommandInput,
+  type ListImportsCommandOutput,
+  ListImportsCommand,
+} from "./commands/ListImportsCommand";
+import {
+  type ListTablesCommandInput,
+  type ListTablesCommandOutput,
+  ListTablesCommand,
+} from "./commands/ListTablesCommand";
+import {
+  type ListTagsOfResourceCommandInput,
+  type ListTagsOfResourceCommandOutput,
   ListTagsOfResourceCommand,
-  ListTagsOfResourceCommandInput,
-  ListTagsOfResourceCommandOutput,
 } from "./commands/ListTagsOfResourceCommand";
-import { PutItemCommand, PutItemCommandInput, PutItemCommandOutput } from "./commands/PutItemCommand";
+import { type PutItemCommandInput, type PutItemCommandOutput, PutItemCommand } from "./commands/PutItemCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
-import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
+import { type QueryCommandInput, type QueryCommandOutput, QueryCommand } from "./commands/QueryCommand";
 import {
+  type RestoreTableFromBackupCommandInput,
+  type RestoreTableFromBackupCommandOutput,
   RestoreTableFromBackupCommand,
-  RestoreTableFromBackupCommandInput,
-  RestoreTableFromBackupCommandOutput,
 } from "./commands/RestoreTableFromBackupCommand";
 import {
+  type RestoreTableToPointInTimeCommandInput,
+  type RestoreTableToPointInTimeCommandOutput,
   RestoreTableToPointInTimeCommand,
-  RestoreTableToPointInTimeCommandInput,
-  RestoreTableToPointInTimeCommandOutput,
 } from "./commands/RestoreTableToPointInTimeCommand";
-import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type ScanCommandInput, type ScanCommandOutput, ScanCommand } from "./commands/ScanCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TransactGetItemsCommandInput,
+  type TransactGetItemsCommandOutput,
   TransactGetItemsCommand,
-  TransactGetItemsCommandInput,
-  TransactGetItemsCommandOutput,
 } from "./commands/TransactGetItemsCommand";
 import {
+  type TransactWriteItemsCommandInput,
+  type TransactWriteItemsCommandOutput,
   TransactWriteItemsCommand,
-  TransactWriteItemsCommandInput,
-  TransactWriteItemsCommandOutput,
 } from "./commands/TransactWriteItemsCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateContinuousBackupsCommandInput,
+  type UpdateContinuousBackupsCommandOutput,
   UpdateContinuousBackupsCommand,
-  UpdateContinuousBackupsCommandInput,
-  UpdateContinuousBackupsCommandOutput,
 } from "./commands/UpdateContinuousBackupsCommand";
 import {
+  type UpdateContributorInsightsCommandInput,
+  type UpdateContributorInsightsCommandOutput,
   UpdateContributorInsightsCommand,
-  UpdateContributorInsightsCommandInput,
-  UpdateContributorInsightsCommandOutput,
 } from "./commands/UpdateContributorInsightsCommand";
 import {
+  type UpdateGlobalTableCommandInput,
+  type UpdateGlobalTableCommandOutput,
   UpdateGlobalTableCommand,
-  UpdateGlobalTableCommandInput,
-  UpdateGlobalTableCommandOutput,
 } from "./commands/UpdateGlobalTableCommand";
 import {
+  type UpdateGlobalTableSettingsCommandInput,
+  type UpdateGlobalTableSettingsCommandOutput,
   UpdateGlobalTableSettingsCommand,
-  UpdateGlobalTableSettingsCommandInput,
-  UpdateGlobalTableSettingsCommandOutput,
 } from "./commands/UpdateGlobalTableSettingsCommand";
-import { UpdateItemCommand, UpdateItemCommandInput, UpdateItemCommandOutput } from "./commands/UpdateItemCommand";
 import {
+  type UpdateItemCommandInput,
+  type UpdateItemCommandOutput,
+  UpdateItemCommand,
+} from "./commands/UpdateItemCommand";
+import {
+  type UpdateKinesisStreamingDestinationCommandInput,
+  type UpdateKinesisStreamingDestinationCommandOutput,
   UpdateKinesisStreamingDestinationCommand,
-  UpdateKinesisStreamingDestinationCommandInput,
-  UpdateKinesisStreamingDestinationCommandOutput,
 } from "./commands/UpdateKinesisStreamingDestinationCommand";
-import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
+  type UpdateTableCommandInput,
+  type UpdateTableCommandOutput,
+  UpdateTableCommand,
+} from "./commands/UpdateTableCommand";
+import {
+  type UpdateTableReplicaAutoScalingCommandInput,
+  type UpdateTableReplicaAutoScalingCommandOutput,
   UpdateTableReplicaAutoScalingCommand,
-  UpdateTableReplicaAutoScalingCommandInput,
-  UpdateTableReplicaAutoScalingCommandOutput,
 } from "./commands/UpdateTableReplicaAutoScalingCommand";
 import {
+  type UpdateTimeToLiveCommandInput,
+  type UpdateTimeToLiveCommandOutput,
   UpdateTimeToLiveCommand,
-  UpdateTimeToLiveCommandInput,
-  UpdateTimeToLiveCommandOutput,
 } from "./commands/UpdateTimeToLiveCommand";
 import { DynamoDBClient } from "./DynamoDBClient";
 import { paginateListContributorInsights } from "./pagination/ListContributorInsightsPaginator";

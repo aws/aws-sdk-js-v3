@@ -8,7 +8,7 @@ import {
   ListMultipartUploadsCommandOutput,
 } from "../commands/ListMultipartUploadsCommand";
 import { GlacierClient } from "../GlacierClient";
-import { GlacierPaginationConfiguration } from "./Interfaces";
+import type { GlacierPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

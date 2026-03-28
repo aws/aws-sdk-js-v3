@@ -8,7 +8,7 @@ import {
   ListKeyValueStoresCommandInput,
   ListKeyValueStoresCommandOutput,
 } from "../commands/ListKeyValueStoresCommand";
-import { CloudFrontPaginationConfiguration } from "./Interfaces";
+import type { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

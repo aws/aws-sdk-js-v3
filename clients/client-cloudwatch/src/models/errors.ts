@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CloudWatchServiceException as __BaseException } from "./CloudWatchServiceException";
-import { DashboardValidationMessage } from "./models_0";
+import type { DashboardValidationMessage } from "./models_0";
 
 /**
  * <p>More than one process tried to modify a resource at the same time.</p>

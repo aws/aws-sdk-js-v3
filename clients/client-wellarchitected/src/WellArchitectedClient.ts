@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,160 +61,205 @@ import {
   defaultWellArchitectedHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateLensesCommandInput, AssociateLensesCommandOutput } from "./commands/AssociateLensesCommand";
-import { AssociateProfilesCommandInput, AssociateProfilesCommandOutput } from "./commands/AssociateProfilesCommand";
-import { CreateLensShareCommandInput, CreateLensShareCommandOutput } from "./commands/CreateLensShareCommand";
-import { CreateLensVersionCommandInput, CreateLensVersionCommandOutput } from "./commands/CreateLensVersionCommand";
-import { CreateMilestoneCommandInput, CreateMilestoneCommandOutput } from "./commands/CreateMilestoneCommand";
-import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
-import { CreateProfileShareCommandInput, CreateProfileShareCommandOutput } from "./commands/CreateProfileShareCommand";
-import {
+import type { AssociateLensesCommandInput, AssociateLensesCommandOutput } from "./commands/AssociateLensesCommand";
+import type {
+  AssociateProfilesCommandInput,
+  AssociateProfilesCommandOutput,
+} from "./commands/AssociateProfilesCommand";
+import type { CreateLensShareCommandInput, CreateLensShareCommandOutput } from "./commands/CreateLensShareCommand";
+import type {
+  CreateLensVersionCommandInput,
+  CreateLensVersionCommandOutput,
+} from "./commands/CreateLensVersionCommand";
+import type { CreateMilestoneCommandInput, CreateMilestoneCommandOutput } from "./commands/CreateMilestoneCommand";
+import type { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import type {
+  CreateProfileShareCommandInput,
+  CreateProfileShareCommandOutput,
+} from "./commands/CreateProfileShareCommand";
+import type {
   CreateReviewTemplateCommandInput,
   CreateReviewTemplateCommandOutput,
 } from "./commands/CreateReviewTemplateCommand";
-import {
+import type {
   CreateTemplateShareCommandInput,
   CreateTemplateShareCommandOutput,
 } from "./commands/CreateTemplateShareCommand";
-import { CreateWorkloadCommandInput, CreateWorkloadCommandOutput } from "./commands/CreateWorkloadCommand";
-import {
+import type { CreateWorkloadCommandInput, CreateWorkloadCommandOutput } from "./commands/CreateWorkloadCommand";
+import type {
   CreateWorkloadShareCommandInput,
   CreateWorkloadShareCommandOutput,
 } from "./commands/CreateWorkloadShareCommand";
-import { DeleteLensCommandInput, DeleteLensCommandOutput } from "./commands/DeleteLensCommand";
-import { DeleteLensShareCommandInput, DeleteLensShareCommandOutput } from "./commands/DeleteLensShareCommand";
-import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
-import { DeleteProfileShareCommandInput, DeleteProfileShareCommandOutput } from "./commands/DeleteProfileShareCommand";
-import {
+import type { DeleteLensCommandInput, DeleteLensCommandOutput } from "./commands/DeleteLensCommand";
+import type { DeleteLensShareCommandInput, DeleteLensShareCommandOutput } from "./commands/DeleteLensShareCommand";
+import type { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
+import type {
+  DeleteProfileShareCommandInput,
+  DeleteProfileShareCommandOutput,
+} from "./commands/DeleteProfileShareCommand";
+import type {
   DeleteReviewTemplateCommandInput,
   DeleteReviewTemplateCommandOutput,
 } from "./commands/DeleteReviewTemplateCommand";
-import {
+import type {
   DeleteTemplateShareCommandInput,
   DeleteTemplateShareCommandOutput,
 } from "./commands/DeleteTemplateShareCommand";
-import { DeleteWorkloadCommandInput, DeleteWorkloadCommandOutput } from "./commands/DeleteWorkloadCommand";
-import {
+import type { DeleteWorkloadCommandInput, DeleteWorkloadCommandOutput } from "./commands/DeleteWorkloadCommand";
+import type {
   DeleteWorkloadShareCommandInput,
   DeleteWorkloadShareCommandOutput,
 } from "./commands/DeleteWorkloadShareCommand";
-import { DisassociateLensesCommandInput, DisassociateLensesCommandOutput } from "./commands/DisassociateLensesCommand";
-import {
+import type {
+  DisassociateLensesCommandInput,
+  DisassociateLensesCommandOutput,
+} from "./commands/DisassociateLensesCommand";
+import type {
   DisassociateProfilesCommandInput,
   DisassociateProfilesCommandOutput,
 } from "./commands/DisassociateProfilesCommand";
-import { ExportLensCommandInput, ExportLensCommandOutput } from "./commands/ExportLensCommand";
-import { GetAnswerCommandInput, GetAnswerCommandOutput } from "./commands/GetAnswerCommand";
-import {
+import type { ExportLensCommandInput, ExportLensCommandOutput } from "./commands/ExportLensCommand";
+import type { GetAnswerCommandInput, GetAnswerCommandOutput } from "./commands/GetAnswerCommand";
+import type {
   GetConsolidatedReportCommandInput,
   GetConsolidatedReportCommandOutput,
 } from "./commands/GetConsolidatedReportCommand";
-import { GetGlobalSettingsCommandInput, GetGlobalSettingsCommandOutput } from "./commands/GetGlobalSettingsCommand";
-import { GetLensCommandInput, GetLensCommandOutput } from "./commands/GetLensCommand";
-import { GetLensReviewCommandInput, GetLensReviewCommandOutput } from "./commands/GetLensReviewCommand";
-import {
+import type {
+  GetGlobalSettingsCommandInput,
+  GetGlobalSettingsCommandOutput,
+} from "./commands/GetGlobalSettingsCommand";
+import type { GetLensCommandInput, GetLensCommandOutput } from "./commands/GetLensCommand";
+import type { GetLensReviewCommandInput, GetLensReviewCommandOutput } from "./commands/GetLensReviewCommand";
+import type {
   GetLensReviewReportCommandInput,
   GetLensReviewReportCommandOutput,
 } from "./commands/GetLensReviewReportCommand";
-import {
+import type {
   GetLensVersionDifferenceCommandInput,
   GetLensVersionDifferenceCommandOutput,
 } from "./commands/GetLensVersionDifferenceCommand";
-import { GetMilestoneCommandInput, GetMilestoneCommandOutput } from "./commands/GetMilestoneCommand";
-import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
-import { GetProfileTemplateCommandInput, GetProfileTemplateCommandOutput } from "./commands/GetProfileTemplateCommand";
-import {
+import type { GetMilestoneCommandInput, GetMilestoneCommandOutput } from "./commands/GetMilestoneCommand";
+import type { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
+import type {
+  GetProfileTemplateCommandInput,
+  GetProfileTemplateCommandOutput,
+} from "./commands/GetProfileTemplateCommand";
+import type {
   GetReviewTemplateAnswerCommandInput,
   GetReviewTemplateAnswerCommandOutput,
 } from "./commands/GetReviewTemplateAnswerCommand";
-import { GetReviewTemplateCommandInput, GetReviewTemplateCommandOutput } from "./commands/GetReviewTemplateCommand";
-import {
+import type {
+  GetReviewTemplateCommandInput,
+  GetReviewTemplateCommandOutput,
+} from "./commands/GetReviewTemplateCommand";
+import type {
   GetReviewTemplateLensReviewCommandInput,
   GetReviewTemplateLensReviewCommandOutput,
 } from "./commands/GetReviewTemplateLensReviewCommand";
-import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
-import { ImportLensCommandInput, ImportLensCommandOutput } from "./commands/ImportLensCommand";
-import { ListAnswersCommandInput, ListAnswersCommandOutput } from "./commands/ListAnswersCommand";
-import { ListCheckDetailsCommandInput, ListCheckDetailsCommandOutput } from "./commands/ListCheckDetailsCommand";
-import { ListCheckSummariesCommandInput, ListCheckSummariesCommandOutput } from "./commands/ListCheckSummariesCommand";
-import { ListLensesCommandInput, ListLensesCommandOutput } from "./commands/ListLensesCommand";
-import {
+import type { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
+import type { ImportLensCommandInput, ImportLensCommandOutput } from "./commands/ImportLensCommand";
+import type { ListAnswersCommandInput, ListAnswersCommandOutput } from "./commands/ListAnswersCommand";
+import type { ListCheckDetailsCommandInput, ListCheckDetailsCommandOutput } from "./commands/ListCheckDetailsCommand";
+import type {
+  ListCheckSummariesCommandInput,
+  ListCheckSummariesCommandOutput,
+} from "./commands/ListCheckSummariesCommand";
+import type { ListLensesCommandInput, ListLensesCommandOutput } from "./commands/ListLensesCommand";
+import type {
   ListLensReviewImprovementsCommandInput,
   ListLensReviewImprovementsCommandOutput,
 } from "./commands/ListLensReviewImprovementsCommand";
-import { ListLensReviewsCommandInput, ListLensReviewsCommandOutput } from "./commands/ListLensReviewsCommand";
-import { ListLensSharesCommandInput, ListLensSharesCommandOutput } from "./commands/ListLensSharesCommand";
-import { ListMilestonesCommandInput, ListMilestonesCommandOutput } from "./commands/ListMilestonesCommand";
-import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "./commands/ListNotificationsCommand";
-import {
+import type { ListLensReviewsCommandInput, ListLensReviewsCommandOutput } from "./commands/ListLensReviewsCommand";
+import type { ListLensSharesCommandInput, ListLensSharesCommandOutput } from "./commands/ListLensSharesCommand";
+import type { ListMilestonesCommandInput, ListMilestonesCommandOutput } from "./commands/ListMilestonesCommand";
+import type {
+  ListNotificationsCommandInput,
+  ListNotificationsCommandOutput,
+} from "./commands/ListNotificationsCommand";
+import type {
   ListProfileNotificationsCommandInput,
   ListProfileNotificationsCommandOutput,
 } from "./commands/ListProfileNotificationsCommand";
-import { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
-import { ListProfileSharesCommandInput, ListProfileSharesCommandOutput } from "./commands/ListProfileSharesCommand";
-import {
+import type { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
+import type {
+  ListProfileSharesCommandInput,
+  ListProfileSharesCommandOutput,
+} from "./commands/ListProfileSharesCommand";
+import type {
   ListReviewTemplateAnswersCommandInput,
   ListReviewTemplateAnswersCommandOutput,
 } from "./commands/ListReviewTemplateAnswersCommand";
-import {
+import type {
   ListReviewTemplatesCommandInput,
   ListReviewTemplatesCommandOutput,
 } from "./commands/ListReviewTemplatesCommand";
-import {
+import type {
   ListShareInvitationsCommandInput,
   ListShareInvitationsCommandOutput,
 } from "./commands/ListShareInvitationsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTemplateSharesCommandInput, ListTemplateSharesCommandOutput } from "./commands/ListTemplateSharesCommand";
-import { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "./commands/ListWorkloadsCommand";
-import { ListWorkloadSharesCommandInput, ListWorkloadSharesCommandOutput } from "./commands/ListWorkloadSharesCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAnswerCommandInput, UpdateAnswerCommandOutput } from "./commands/UpdateAnswerCommand";
-import {
+import type {
+  ListTemplateSharesCommandInput,
+  ListTemplateSharesCommandOutput,
+} from "./commands/ListTemplateSharesCommand";
+import type { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "./commands/ListWorkloadsCommand";
+import type {
+  ListWorkloadSharesCommandInput,
+  ListWorkloadSharesCommandOutput,
+} from "./commands/ListWorkloadSharesCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAnswerCommandInput, UpdateAnswerCommandOutput } from "./commands/UpdateAnswerCommand";
+import type {
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
-import { UpdateIntegrationCommandInput, UpdateIntegrationCommandOutput } from "./commands/UpdateIntegrationCommand";
-import { UpdateLensReviewCommandInput, UpdateLensReviewCommandOutput } from "./commands/UpdateLensReviewCommand";
-import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
-import {
+import type {
+  UpdateIntegrationCommandInput,
+  UpdateIntegrationCommandOutput,
+} from "./commands/UpdateIntegrationCommand";
+import type { UpdateLensReviewCommandInput, UpdateLensReviewCommandOutput } from "./commands/UpdateLensReviewCommand";
+import type { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
+import type {
   UpdateReviewTemplateAnswerCommandInput,
   UpdateReviewTemplateAnswerCommandOutput,
 } from "./commands/UpdateReviewTemplateAnswerCommand";
-import {
+import type {
   UpdateReviewTemplateCommandInput,
   UpdateReviewTemplateCommandOutput,
 } from "./commands/UpdateReviewTemplateCommand";
-import {
+import type {
   UpdateReviewTemplateLensReviewCommandInput,
   UpdateReviewTemplateLensReviewCommandOutput,
 } from "./commands/UpdateReviewTemplateLensReviewCommand";
-import {
+import type {
   UpdateShareInvitationCommandInput,
   UpdateShareInvitationCommandOutput,
 } from "./commands/UpdateShareInvitationCommand";
-import { UpdateWorkloadCommandInput, UpdateWorkloadCommandOutput } from "./commands/UpdateWorkloadCommand";
-import {
+import type { UpdateWorkloadCommandInput, UpdateWorkloadCommandOutput } from "./commands/UpdateWorkloadCommand";
+import type {
   UpdateWorkloadShareCommandInput,
   UpdateWorkloadShareCommandOutput,
 } from "./commands/UpdateWorkloadShareCommand";
-import { UpgradeLensReviewCommandInput, UpgradeLensReviewCommandOutput } from "./commands/UpgradeLensReviewCommand";
-import {
+import type {
+  UpgradeLensReviewCommandInput,
+  UpgradeLensReviewCommandOutput,
+} from "./commands/UpgradeLensReviewCommand";
+import type {
   UpgradeProfileVersionCommandInput,
   UpgradeProfileVersionCommandOutput,
 } from "./commands/UpgradeProfileVersionCommand";
-import {
+import type {
   UpgradeReviewTemplateLensReviewCommandInput,
   UpgradeReviewTemplateLensReviewCommandOutput,
 } from "./commands/UpgradeReviewTemplateLensReviewCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -492,7 +535,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

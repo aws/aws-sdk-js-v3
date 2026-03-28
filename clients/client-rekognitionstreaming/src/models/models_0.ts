@@ -1,6 +1,6 @@
 // smithy-typescript generated code
-import { ChallengeType, LightChallengeType } from "./enums";
-import {
+import type { ChallengeType, LightChallengeType } from "./enums";
+import type {
   InternalServerException,
   ServiceQuotaExceededException,
   ServiceUnavailableException,

@@ -7,7 +7,7 @@
  */
 export * from "./PinpointClient";
 export * from "./Pinpoint";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PinpointExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

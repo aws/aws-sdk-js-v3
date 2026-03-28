@@ -3,391 +3,431 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptAdministratorInvitationCommandInput,
+  type AcceptAdministratorInvitationCommandOutput,
   AcceptAdministratorInvitationCommand,
-  AcceptAdministratorInvitationCommandInput,
-  AcceptAdministratorInvitationCommandOutput,
 } from "./commands/AcceptAdministratorInvitationCommand";
 import {
+  type AcceptInvitationCommandInput,
+  type AcceptInvitationCommandOutput,
   AcceptInvitationCommand,
-  AcceptInvitationCommandInput,
-  AcceptInvitationCommandOutput,
 } from "./commands/AcceptInvitationCommand";
 import {
+  type ArchiveFindingsCommandInput,
+  type ArchiveFindingsCommandOutput,
   ArchiveFindingsCommand,
-  ArchiveFindingsCommandInput,
-  ArchiveFindingsCommandOutput,
 } from "./commands/ArchiveFindingsCommand";
 import {
+  type CreateDetectorCommandInput,
+  type CreateDetectorCommandOutput,
   CreateDetectorCommand,
-  CreateDetectorCommandInput,
-  CreateDetectorCommandOutput,
 } from "./commands/CreateDetectorCommand";
 import {
+  type CreateFilterCommandInput,
+  type CreateFilterCommandOutput,
   CreateFilterCommand,
-  CreateFilterCommandInput,
-  CreateFilterCommandOutput,
 } from "./commands/CreateFilterCommand";
-import { CreateIPSetCommand, CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
+  type CreateIPSetCommandInput,
+  type CreateIPSetCommandOutput,
+  CreateIPSetCommand,
+} from "./commands/CreateIPSetCommand";
+import {
+  type CreateMalwareProtectionPlanCommandInput,
+  type CreateMalwareProtectionPlanCommandOutput,
   CreateMalwareProtectionPlanCommand,
-  CreateMalwareProtectionPlanCommandInput,
-  CreateMalwareProtectionPlanCommandOutput,
 } from "./commands/CreateMalwareProtectionPlanCommand";
 import {
+  type CreateMembersCommandInput,
+  type CreateMembersCommandOutput,
   CreateMembersCommand,
-  CreateMembersCommandInput,
-  CreateMembersCommandOutput,
 } from "./commands/CreateMembersCommand";
 import {
+  type CreatePublishingDestinationCommandInput,
+  type CreatePublishingDestinationCommandOutput,
   CreatePublishingDestinationCommand,
-  CreatePublishingDestinationCommandInput,
-  CreatePublishingDestinationCommandOutput,
 } from "./commands/CreatePublishingDestinationCommand";
 import {
+  type CreateSampleFindingsCommandInput,
+  type CreateSampleFindingsCommandOutput,
   CreateSampleFindingsCommand,
-  CreateSampleFindingsCommandInput,
-  CreateSampleFindingsCommandOutput,
 } from "./commands/CreateSampleFindingsCommand";
 import {
+  type CreateThreatEntitySetCommandInput,
+  type CreateThreatEntitySetCommandOutput,
   CreateThreatEntitySetCommand,
-  CreateThreatEntitySetCommandInput,
-  CreateThreatEntitySetCommandOutput,
 } from "./commands/CreateThreatEntitySetCommand";
 import {
+  type CreateThreatIntelSetCommandInput,
+  type CreateThreatIntelSetCommandOutput,
   CreateThreatIntelSetCommand,
-  CreateThreatIntelSetCommandInput,
-  CreateThreatIntelSetCommandOutput,
 } from "./commands/CreateThreatIntelSetCommand";
 import {
+  type CreateTrustedEntitySetCommandInput,
+  type CreateTrustedEntitySetCommandOutput,
   CreateTrustedEntitySetCommand,
-  CreateTrustedEntitySetCommandInput,
-  CreateTrustedEntitySetCommandOutput,
 } from "./commands/CreateTrustedEntitySetCommand";
 import {
+  type DeclineInvitationsCommandInput,
+  type DeclineInvitationsCommandOutput,
   DeclineInvitationsCommand,
-  DeclineInvitationsCommandInput,
-  DeclineInvitationsCommandOutput,
 } from "./commands/DeclineInvitationsCommand";
 import {
+  type DeleteDetectorCommandInput,
+  type DeleteDetectorCommandOutput,
   DeleteDetectorCommand,
-  DeleteDetectorCommandInput,
-  DeleteDetectorCommandOutput,
 } from "./commands/DeleteDetectorCommand";
 import {
+  type DeleteFilterCommandInput,
+  type DeleteFilterCommandOutput,
   DeleteFilterCommand,
-  DeleteFilterCommandInput,
-  DeleteFilterCommandOutput,
 } from "./commands/DeleteFilterCommand";
 import {
+  type DeleteInvitationsCommandInput,
+  type DeleteInvitationsCommandOutput,
   DeleteInvitationsCommand,
-  DeleteInvitationsCommandInput,
-  DeleteInvitationsCommandOutput,
 } from "./commands/DeleteInvitationsCommand";
-import { DeleteIPSetCommand, DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
 import {
+  type DeleteIPSetCommandInput,
+  type DeleteIPSetCommandOutput,
+  DeleteIPSetCommand,
+} from "./commands/DeleteIPSetCommand";
+import {
+  type DeleteMalwareProtectionPlanCommandInput,
+  type DeleteMalwareProtectionPlanCommandOutput,
   DeleteMalwareProtectionPlanCommand,
-  DeleteMalwareProtectionPlanCommandInput,
-  DeleteMalwareProtectionPlanCommandOutput,
 } from "./commands/DeleteMalwareProtectionPlanCommand";
 import {
+  type DeleteMembersCommandInput,
+  type DeleteMembersCommandOutput,
   DeleteMembersCommand,
-  DeleteMembersCommandInput,
-  DeleteMembersCommandOutput,
 } from "./commands/DeleteMembersCommand";
 import {
+  type DeletePublishingDestinationCommandInput,
+  type DeletePublishingDestinationCommandOutput,
   DeletePublishingDestinationCommand,
-  DeletePublishingDestinationCommandInput,
-  DeletePublishingDestinationCommandOutput,
 } from "./commands/DeletePublishingDestinationCommand";
 import {
+  type DeleteThreatEntitySetCommandInput,
+  type DeleteThreatEntitySetCommandOutput,
   DeleteThreatEntitySetCommand,
-  DeleteThreatEntitySetCommandInput,
-  DeleteThreatEntitySetCommandOutput,
 } from "./commands/DeleteThreatEntitySetCommand";
 import {
+  type DeleteThreatIntelSetCommandInput,
+  type DeleteThreatIntelSetCommandOutput,
   DeleteThreatIntelSetCommand,
-  DeleteThreatIntelSetCommandInput,
-  DeleteThreatIntelSetCommandOutput,
 } from "./commands/DeleteThreatIntelSetCommand";
 import {
+  type DeleteTrustedEntitySetCommandInput,
+  type DeleteTrustedEntitySetCommandOutput,
   DeleteTrustedEntitySetCommand,
-  DeleteTrustedEntitySetCommandInput,
-  DeleteTrustedEntitySetCommandOutput,
 } from "./commands/DeleteTrustedEntitySetCommand";
 import {
+  type DescribeMalwareScansCommandInput,
+  type DescribeMalwareScansCommandOutput,
   DescribeMalwareScansCommand,
-  DescribeMalwareScansCommandInput,
-  DescribeMalwareScansCommandOutput,
 } from "./commands/DescribeMalwareScansCommand";
 import {
+  type DescribeOrganizationConfigurationCommandInput,
+  type DescribeOrganizationConfigurationCommandOutput,
   DescribeOrganizationConfigurationCommand,
-  DescribeOrganizationConfigurationCommandInput,
-  DescribeOrganizationConfigurationCommandOutput,
 } from "./commands/DescribeOrganizationConfigurationCommand";
 import {
+  type DescribePublishingDestinationCommandInput,
+  type DescribePublishingDestinationCommandOutput,
   DescribePublishingDestinationCommand,
-  DescribePublishingDestinationCommandInput,
-  DescribePublishingDestinationCommandOutput,
 } from "./commands/DescribePublishingDestinationCommand";
 import {
+  type DisableOrganizationAdminAccountCommandInput,
+  type DisableOrganizationAdminAccountCommandOutput,
   DisableOrganizationAdminAccountCommand,
-  DisableOrganizationAdminAccountCommandInput,
-  DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand";
 import {
+  type DisassociateFromAdministratorAccountCommandInput,
+  type DisassociateFromAdministratorAccountCommandOutput,
   DisassociateFromAdministratorAccountCommand,
-  DisassociateFromAdministratorAccountCommandInput,
-  DisassociateFromAdministratorAccountCommandOutput,
 } from "./commands/DisassociateFromAdministratorAccountCommand";
 import {
+  type DisassociateFromMasterAccountCommandInput,
+  type DisassociateFromMasterAccountCommandOutput,
   DisassociateFromMasterAccountCommand,
-  DisassociateFromMasterAccountCommandInput,
-  DisassociateFromMasterAccountCommandOutput,
 } from "./commands/DisassociateFromMasterAccountCommand";
 import {
+  type DisassociateMembersCommandInput,
+  type DisassociateMembersCommandOutput,
   DisassociateMembersCommand,
-  DisassociateMembersCommandInput,
-  DisassociateMembersCommandOutput,
 } from "./commands/DisassociateMembersCommand";
 import {
+  type EnableOrganizationAdminAccountCommandInput,
+  type EnableOrganizationAdminAccountCommandOutput,
   EnableOrganizationAdminAccountCommand,
-  EnableOrganizationAdminAccountCommandInput,
-  EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
 import {
+  type GetAdministratorAccountCommandInput,
+  type GetAdministratorAccountCommandOutput,
   GetAdministratorAccountCommand,
-  GetAdministratorAccountCommandInput,
-  GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
 import {
+  type GetCoverageStatisticsCommandInput,
+  type GetCoverageStatisticsCommandOutput,
   GetCoverageStatisticsCommand,
-  GetCoverageStatisticsCommandInput,
-  GetCoverageStatisticsCommandOutput,
 } from "./commands/GetCoverageStatisticsCommand";
-import { GetDetectorCommand, GetDetectorCommandInput, GetDetectorCommandOutput } from "./commands/GetDetectorCommand";
-import { GetFilterCommand, GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand";
-import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
 import {
+  type GetDetectorCommandInput,
+  type GetDetectorCommandOutput,
+  GetDetectorCommand,
+} from "./commands/GetDetectorCommand";
+import { type GetFilterCommandInput, type GetFilterCommandOutput, GetFilterCommand } from "./commands/GetFilterCommand";
+import {
+  type GetFindingsCommandInput,
+  type GetFindingsCommandOutput,
+  GetFindingsCommand,
+} from "./commands/GetFindingsCommand";
+import {
+  type GetFindingsStatisticsCommandInput,
+  type GetFindingsStatisticsCommandOutput,
   GetFindingsStatisticsCommand,
-  GetFindingsStatisticsCommandInput,
-  GetFindingsStatisticsCommandOutput,
 } from "./commands/GetFindingsStatisticsCommand";
 import {
+  type GetInvitationsCountCommandInput,
+  type GetInvitationsCountCommandOutput,
   GetInvitationsCountCommand,
-  GetInvitationsCountCommandInput,
-  GetInvitationsCountCommandOutput,
 } from "./commands/GetInvitationsCountCommand";
-import { GetIPSetCommand, GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
+import { type GetIPSetCommandInput, type GetIPSetCommandOutput, GetIPSetCommand } from "./commands/GetIPSetCommand";
 import {
+  type GetMalwareProtectionPlanCommandInput,
+  type GetMalwareProtectionPlanCommandOutput,
   GetMalwareProtectionPlanCommand,
-  GetMalwareProtectionPlanCommandInput,
-  GetMalwareProtectionPlanCommandOutput,
 } from "./commands/GetMalwareProtectionPlanCommand";
 import {
+  type GetMalwareScanCommandInput,
+  type GetMalwareScanCommandOutput,
   GetMalwareScanCommand,
-  GetMalwareScanCommandInput,
-  GetMalwareScanCommandOutput,
 } from "./commands/GetMalwareScanCommand";
 import {
+  type GetMalwareScanSettingsCommandInput,
+  type GetMalwareScanSettingsCommandOutput,
   GetMalwareScanSettingsCommand,
-  GetMalwareScanSettingsCommandInput,
-  GetMalwareScanSettingsCommandOutput,
 } from "./commands/GetMalwareScanSettingsCommand";
 import {
+  type GetMasterAccountCommandInput,
+  type GetMasterAccountCommandOutput,
   GetMasterAccountCommand,
-  GetMasterAccountCommandInput,
-  GetMasterAccountCommandOutput,
 } from "./commands/GetMasterAccountCommand";
 import {
+  type GetMemberDetectorsCommandInput,
+  type GetMemberDetectorsCommandOutput,
   GetMemberDetectorsCommand,
-  GetMemberDetectorsCommandInput,
-  GetMemberDetectorsCommandOutput,
 } from "./commands/GetMemberDetectorsCommand";
-import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
+  type GetMembersCommandInput,
+  type GetMembersCommandOutput,
+  GetMembersCommand,
+} from "./commands/GetMembersCommand";
+import {
+  type GetOrganizationStatisticsCommandInput,
+  type GetOrganizationStatisticsCommandOutput,
   GetOrganizationStatisticsCommand,
-  GetOrganizationStatisticsCommandInput,
-  GetOrganizationStatisticsCommandOutput,
 } from "./commands/GetOrganizationStatisticsCommand";
 import {
+  type GetRemainingFreeTrialDaysCommandInput,
+  type GetRemainingFreeTrialDaysCommandOutput,
   GetRemainingFreeTrialDaysCommand,
-  GetRemainingFreeTrialDaysCommandInput,
-  GetRemainingFreeTrialDaysCommandOutput,
 } from "./commands/GetRemainingFreeTrialDaysCommand";
 import {
+  type GetThreatEntitySetCommandInput,
+  type GetThreatEntitySetCommandOutput,
   GetThreatEntitySetCommand,
-  GetThreatEntitySetCommandInput,
-  GetThreatEntitySetCommandOutput,
 } from "./commands/GetThreatEntitySetCommand";
 import {
+  type GetThreatIntelSetCommandInput,
+  type GetThreatIntelSetCommandOutput,
   GetThreatIntelSetCommand,
-  GetThreatIntelSetCommandInput,
-  GetThreatIntelSetCommandOutput,
 } from "./commands/GetThreatIntelSetCommand";
 import {
+  type GetTrustedEntitySetCommandInput,
+  type GetTrustedEntitySetCommandOutput,
   GetTrustedEntitySetCommand,
-  GetTrustedEntitySetCommandInput,
-  GetTrustedEntitySetCommandOutput,
 } from "./commands/GetTrustedEntitySetCommand";
 import {
+  type GetUsageStatisticsCommandInput,
+  type GetUsageStatisticsCommandOutput,
   GetUsageStatisticsCommand,
-  GetUsageStatisticsCommandInput,
-  GetUsageStatisticsCommandOutput,
 } from "./commands/GetUsageStatisticsCommand";
 import {
+  type InviteMembersCommandInput,
+  type InviteMembersCommandOutput,
   InviteMembersCommand,
-  InviteMembersCommandInput,
-  InviteMembersCommandOutput,
 } from "./commands/InviteMembersCommand";
 import {
+  type ListCoverageCommandInput,
+  type ListCoverageCommandOutput,
   ListCoverageCommand,
-  ListCoverageCommandInput,
-  ListCoverageCommandOutput,
 } from "./commands/ListCoverageCommand";
 import {
+  type ListDetectorsCommandInput,
+  type ListDetectorsCommandOutput,
   ListDetectorsCommand,
-  ListDetectorsCommandInput,
-  ListDetectorsCommandOutput,
 } from "./commands/ListDetectorsCommand";
-import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import {
+  type ListFiltersCommandInput,
+  type ListFiltersCommandOutput,
+  ListFiltersCommand,
+} from "./commands/ListFiltersCommand";
+import {
+  type ListFindingsCommandInput,
+  type ListFindingsCommandOutput,
   ListFindingsCommand,
-  ListFindingsCommandInput,
-  ListFindingsCommandOutput,
 } from "./commands/ListFindingsCommand";
 import {
+  type ListInvitationsCommandInput,
+  type ListInvitationsCommandOutput,
   ListInvitationsCommand,
-  ListInvitationsCommandInput,
-  ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand";
-import { ListIPSetsCommand, ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import {
+  type ListIPSetsCommandInput,
+  type ListIPSetsCommandOutput,
+  ListIPSetsCommand,
+} from "./commands/ListIPSetsCommand";
+import {
+  type ListMalwareProtectionPlansCommandInput,
+  type ListMalwareProtectionPlansCommandOutput,
   ListMalwareProtectionPlansCommand,
-  ListMalwareProtectionPlansCommandInput,
-  ListMalwareProtectionPlansCommandOutput,
 } from "./commands/ListMalwareProtectionPlansCommand";
 import {
+  type ListMalwareScansCommandInput,
+  type ListMalwareScansCommandOutput,
   ListMalwareScansCommand,
-  ListMalwareScansCommandInput,
-  ListMalwareScansCommandOutput,
 } from "./commands/ListMalwareScansCommand";
-import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
+  type ListMembersCommandInput,
+  type ListMembersCommandOutput,
+  ListMembersCommand,
+} from "./commands/ListMembersCommand";
+import {
+  type ListOrganizationAdminAccountsCommandInput,
+  type ListOrganizationAdminAccountsCommandOutput,
   ListOrganizationAdminAccountsCommand,
-  ListOrganizationAdminAccountsCommandInput,
-  ListOrganizationAdminAccountsCommandOutput,
 } from "./commands/ListOrganizationAdminAccountsCommand";
 import {
+  type ListPublishingDestinationsCommandInput,
+  type ListPublishingDestinationsCommandOutput,
   ListPublishingDestinationsCommand,
-  ListPublishingDestinationsCommandInput,
-  ListPublishingDestinationsCommandOutput,
 } from "./commands/ListPublishingDestinationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListThreatEntitySetsCommandInput,
+  type ListThreatEntitySetsCommandOutput,
   ListThreatEntitySetsCommand,
-  ListThreatEntitySetsCommandInput,
-  ListThreatEntitySetsCommandOutput,
 } from "./commands/ListThreatEntitySetsCommand";
 import {
+  type ListThreatIntelSetsCommandInput,
+  type ListThreatIntelSetsCommandOutput,
   ListThreatIntelSetsCommand,
-  ListThreatIntelSetsCommandInput,
-  ListThreatIntelSetsCommandOutput,
 } from "./commands/ListThreatIntelSetsCommand";
 import {
+  type ListTrustedEntitySetsCommandInput,
+  type ListTrustedEntitySetsCommandOutput,
   ListTrustedEntitySetsCommand,
-  ListTrustedEntitySetsCommandInput,
-  ListTrustedEntitySetsCommandOutput,
 } from "./commands/ListTrustedEntitySetsCommand";
 import {
+  type SendObjectMalwareScanCommandInput,
+  type SendObjectMalwareScanCommandOutput,
   SendObjectMalwareScanCommand,
-  SendObjectMalwareScanCommandInput,
-  SendObjectMalwareScanCommandOutput,
 } from "./commands/SendObjectMalwareScanCommand";
 import {
+  type StartMalwareScanCommandInput,
+  type StartMalwareScanCommandOutput,
   StartMalwareScanCommand,
-  StartMalwareScanCommandInput,
-  StartMalwareScanCommandOutput,
 } from "./commands/StartMalwareScanCommand";
 import {
+  type StartMonitoringMembersCommandInput,
+  type StartMonitoringMembersCommandOutput,
   StartMonitoringMembersCommand,
-  StartMonitoringMembersCommandInput,
-  StartMonitoringMembersCommandOutput,
 } from "./commands/StartMonitoringMembersCommand";
 import {
+  type StopMonitoringMembersCommandInput,
+  type StopMonitoringMembersCommandOutput,
   StopMonitoringMembersCommand,
-  StopMonitoringMembersCommandInput,
-  StopMonitoringMembersCommandOutput,
 } from "./commands/StopMonitoringMembersCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UnarchiveFindingsCommandInput,
+  type UnarchiveFindingsCommandOutput,
   UnarchiveFindingsCommand,
-  UnarchiveFindingsCommandInput,
-  UnarchiveFindingsCommandOutput,
 } from "./commands/UnarchiveFindingsCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDetectorCommandInput,
+  type UpdateDetectorCommandOutput,
   UpdateDetectorCommand,
-  UpdateDetectorCommandInput,
-  UpdateDetectorCommandOutput,
 } from "./commands/UpdateDetectorCommand";
 import {
+  type UpdateFilterCommandInput,
+  type UpdateFilterCommandOutput,
   UpdateFilterCommand,
-  UpdateFilterCommandInput,
-  UpdateFilterCommandOutput,
 } from "./commands/UpdateFilterCommand";
 import {
+  type UpdateFindingsFeedbackCommandInput,
+  type UpdateFindingsFeedbackCommandOutput,
   UpdateFindingsFeedbackCommand,
-  UpdateFindingsFeedbackCommandInput,
-  UpdateFindingsFeedbackCommandOutput,
 } from "./commands/UpdateFindingsFeedbackCommand";
-import { UpdateIPSetCommand, UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
 import {
+  type UpdateIPSetCommandInput,
+  type UpdateIPSetCommandOutput,
+  UpdateIPSetCommand,
+} from "./commands/UpdateIPSetCommand";
+import {
+  type UpdateMalwareProtectionPlanCommandInput,
+  type UpdateMalwareProtectionPlanCommandOutput,
   UpdateMalwareProtectionPlanCommand,
-  UpdateMalwareProtectionPlanCommandInput,
-  UpdateMalwareProtectionPlanCommandOutput,
 } from "./commands/UpdateMalwareProtectionPlanCommand";
 import {
+  type UpdateMalwareScanSettingsCommandInput,
+  type UpdateMalwareScanSettingsCommandOutput,
   UpdateMalwareScanSettingsCommand,
-  UpdateMalwareScanSettingsCommandInput,
-  UpdateMalwareScanSettingsCommandOutput,
 } from "./commands/UpdateMalwareScanSettingsCommand";
 import {
+  type UpdateMemberDetectorsCommandInput,
+  type UpdateMemberDetectorsCommandOutput,
   UpdateMemberDetectorsCommand,
-  UpdateMemberDetectorsCommandInput,
-  UpdateMemberDetectorsCommandOutput,
 } from "./commands/UpdateMemberDetectorsCommand";
 import {
+  type UpdateOrganizationConfigurationCommandInput,
+  type UpdateOrganizationConfigurationCommandOutput,
   UpdateOrganizationConfigurationCommand,
-  UpdateOrganizationConfigurationCommandInput,
-  UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
 import {
+  type UpdatePublishingDestinationCommandInput,
+  type UpdatePublishingDestinationCommandOutput,
   UpdatePublishingDestinationCommand,
-  UpdatePublishingDestinationCommandInput,
-  UpdatePublishingDestinationCommandOutput,
 } from "./commands/UpdatePublishingDestinationCommand";
 import {
+  type UpdateThreatEntitySetCommandInput,
+  type UpdateThreatEntitySetCommandOutput,
   UpdateThreatEntitySetCommand,
-  UpdateThreatEntitySetCommandInput,
-  UpdateThreatEntitySetCommandOutput,
 } from "./commands/UpdateThreatEntitySetCommand";
 import {
+  type UpdateThreatIntelSetCommandInput,
+  type UpdateThreatIntelSetCommandOutput,
   UpdateThreatIntelSetCommand,
-  UpdateThreatIntelSetCommandInput,
-  UpdateThreatIntelSetCommandOutput,
 } from "./commands/UpdateThreatIntelSetCommand";
 import {
+  type UpdateTrustedEntitySetCommandInput,
+  type UpdateTrustedEntitySetCommandOutput,
   UpdateTrustedEntitySetCommand,
-  UpdateTrustedEntitySetCommandInput,
-  UpdateTrustedEntitySetCommandOutput,
 } from "./commands/UpdateTrustedEntitySetCommand";
 import { GuardDutyClient } from "./GuardDutyClient";
 import { paginateDescribeMalwareScans } from "./pagination/DescribeMalwareScansPaginator";

@@ -3,72 +3,96 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateComputeNodeGroupCommandInput,
+  type CreateComputeNodeGroupCommandOutput,
   CreateComputeNodeGroupCommand,
-  CreateComputeNodeGroupCommandInput,
-  CreateComputeNodeGroupCommandOutput,
 } from "./commands/CreateComputeNodeGroupCommand";
-import { CreateQueueCommand, CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import {
+  type CreateQueueCommandInput,
+  type CreateQueueCommandOutput,
+  CreateQueueCommand,
+} from "./commands/CreateQueueCommand";
+import {
+  type DeleteClusterCommandInput,
+  type DeleteClusterCommandOutput,
   DeleteClusterCommand,
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  type DeleteComputeNodeGroupCommandInput,
+  type DeleteComputeNodeGroupCommandOutput,
   DeleteComputeNodeGroupCommand,
-  DeleteComputeNodeGroupCommandInput,
-  DeleteComputeNodeGroupCommandOutput,
 } from "./commands/DeleteComputeNodeGroupCommand";
-import { DeleteQueueCommand, DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
-import { GetClusterCommand, GetClusterCommandInput, GetClusterCommandOutput } from "./commands/GetClusterCommand";
 import {
+  type DeleteQueueCommandInput,
+  type DeleteQueueCommandOutput,
+  DeleteQueueCommand,
+} from "./commands/DeleteQueueCommand";
+import {
+  type GetClusterCommandInput,
+  type GetClusterCommandOutput,
+  GetClusterCommand,
+} from "./commands/GetClusterCommand";
+import {
+  type GetComputeNodeGroupCommandInput,
+  type GetComputeNodeGroupCommandOutput,
   GetComputeNodeGroupCommand,
-  GetComputeNodeGroupCommandInput,
-  GetComputeNodeGroupCommandOutput,
 } from "./commands/GetComputeNodeGroupCommand";
-import { GetQueueCommand, GetQueueCommandInput, GetQueueCommandOutput } from "./commands/GetQueueCommand";
+import { type GetQueueCommandInput, type GetQueueCommandOutput, GetQueueCommand } from "./commands/GetQueueCommand";
 import {
+  type ListClustersCommandInput,
+  type ListClustersCommandOutput,
   ListClustersCommand,
-  ListClustersCommandInput,
-  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
 import {
+  type ListComputeNodeGroupsCommandInput,
+  type ListComputeNodeGroupsCommandOutput,
   ListComputeNodeGroupsCommand,
-  ListComputeNodeGroupsCommandInput,
-  ListComputeNodeGroupsCommandOutput,
 } from "./commands/ListComputeNodeGroupsCommand";
-import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import {
+  type ListQueuesCommandInput,
+  type ListQueuesCommandOutput,
+  ListQueuesCommand,
+} from "./commands/ListQueuesCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RegisterComputeNodeGroupInstanceCommandInput,
+  type RegisterComputeNodeGroupInstanceCommandOutput,
   RegisterComputeNodeGroupInstanceCommand,
-  RegisterComputeNodeGroupInstanceCommandInput,
-  RegisterComputeNodeGroupInstanceCommandOutput,
 } from "./commands/RegisterComputeNodeGroupInstanceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateClusterCommandInput,
+  type UpdateClusterCommandOutput,
   UpdateClusterCommand,
-  UpdateClusterCommandInput,
-  UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import {
+  type UpdateComputeNodeGroupCommandInput,
+  type UpdateComputeNodeGroupCommandOutput,
   UpdateComputeNodeGroupCommand,
-  UpdateComputeNodeGroupCommandInput,
-  UpdateComputeNodeGroupCommandOutput,
 } from "./commands/UpdateComputeNodeGroupCommand";
-import { UpdateQueueCommand, UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand";
+import {
+  type UpdateQueueCommandInput,
+  type UpdateQueueCommandOutput,
+  UpdateQueueCommand,
+} from "./commands/UpdateQueueCommand";
 import { paginateListClusters } from "./pagination/ListClustersPaginator";
 import { paginateListComputeNodeGroups } from "./pagination/ListComputeNodeGroupsPaginator";
 import { paginateListQueues } from "./pagination/ListQueuesPaginator";

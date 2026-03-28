@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListPipesCommand, ListPipesCommandInput, ListPipesCommandOutput } from "../commands/ListPipesCommand";
 import { PipesClient } from "../PipesClient";
-import { PipesPaginationConfiguration } from "./Interfaces";
+import type { PipesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

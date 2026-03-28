@@ -8,7 +8,7 @@ import {
   ListCoreNetworksCommandOutput,
 } from "../commands/ListCoreNetworksCommand";
 import { NetworkManagerClient } from "../NetworkManagerClient";
-import { NetworkManagerPaginationConfiguration } from "./Interfaces";
+import type { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

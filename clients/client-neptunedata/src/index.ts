@@ -7,7 +7,7 @@
  */
 export * from "./NeptunedataClient";
 export * from "./Neptunedata";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { NeptunedataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

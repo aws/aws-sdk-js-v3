@@ -3,49 +3,49 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchGetTokenBalanceCommandInput,
+  type BatchGetTokenBalanceCommandOutput,
   BatchGetTokenBalanceCommand,
-  BatchGetTokenBalanceCommandInput,
-  BatchGetTokenBalanceCommandOutput,
 } from "./commands/BatchGetTokenBalanceCommand";
 import {
+  type GetAssetContractCommandInput,
+  type GetAssetContractCommandOutput,
   GetAssetContractCommand,
-  GetAssetContractCommandInput,
-  GetAssetContractCommandOutput,
 } from "./commands/GetAssetContractCommand";
 import {
+  type GetTokenBalanceCommandInput,
+  type GetTokenBalanceCommandOutput,
   GetTokenBalanceCommand,
-  GetTokenBalanceCommandInput,
-  GetTokenBalanceCommandOutput,
 } from "./commands/GetTokenBalanceCommand";
 import {
+  type GetTransactionCommandInput,
+  type GetTransactionCommandOutput,
   GetTransactionCommand,
-  GetTransactionCommandInput,
-  GetTransactionCommandOutput,
 } from "./commands/GetTransactionCommand";
 import {
+  type ListAssetContractsCommandInput,
+  type ListAssetContractsCommandOutput,
   ListAssetContractsCommand,
-  ListAssetContractsCommandInput,
-  ListAssetContractsCommandOutput,
 } from "./commands/ListAssetContractsCommand";
 import {
+  type ListFilteredTransactionEventsCommandInput,
+  type ListFilteredTransactionEventsCommandOutput,
   ListFilteredTransactionEventsCommand,
-  ListFilteredTransactionEventsCommandInput,
-  ListFilteredTransactionEventsCommandOutput,
 } from "./commands/ListFilteredTransactionEventsCommand";
 import {
+  type ListTokenBalancesCommandInput,
+  type ListTokenBalancesCommandOutput,
   ListTokenBalancesCommand,
-  ListTokenBalancesCommandInput,
-  ListTokenBalancesCommandOutput,
 } from "./commands/ListTokenBalancesCommand";
 import {
+  type ListTransactionEventsCommandInput,
+  type ListTransactionEventsCommandOutput,
   ListTransactionEventsCommand,
-  ListTransactionEventsCommandInput,
-  ListTransactionEventsCommandOutput,
 } from "./commands/ListTransactionEventsCommand";
 import {
+  type ListTransactionsCommandInput,
+  type ListTransactionsCommandOutput,
   ListTransactionsCommand,
-  ListTransactionsCommandInput,
-  ListTransactionsCommandOutput,
 } from "./commands/ListTransactionsCommand";
 import { ManagedBlockchainQueryClient } from "./ManagedBlockchainQueryClient";
 import { paginateListAssetContracts } from "./pagination/ListAssetContractsPaginator";

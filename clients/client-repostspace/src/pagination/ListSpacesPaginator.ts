@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListSpacesCommand, ListSpacesCommandInput, ListSpacesCommandOutput } from "../commands/ListSpacesCommand";
 import { RepostspaceClient } from "../RepostspaceClient";
-import { RepostspacePaginationConfiguration } from "./Interfaces";
+import type { RepostspacePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

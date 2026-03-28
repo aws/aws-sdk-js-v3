@@ -7,7 +7,7 @@
  */
 export * from "./OmicsClient";
 export * from "./Omics";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { OmicsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

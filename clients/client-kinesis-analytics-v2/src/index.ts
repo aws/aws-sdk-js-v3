@@ -12,7 +12,7 @@
  */
 export * from "./KinesisAnalyticsV2Client";
 export * from "./KinesisAnalyticsV2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { KinesisAnalyticsV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

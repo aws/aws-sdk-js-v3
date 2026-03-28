@@ -8,7 +8,7 @@ import {
   ListImageBuildVersionsCommandOutput,
 } from "../commands/ListImageBuildVersionsCommand";
 import { ImagebuilderClient } from "../ImagebuilderClient";
-import { ImagebuilderPaginationConfiguration } from "./Interfaces";
+import type { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

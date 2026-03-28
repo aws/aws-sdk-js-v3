@@ -8,7 +8,7 @@ import {
   GetNetworkResourcesCommandOutput,
 } from "../commands/GetNetworkResourcesCommand";
 import { NetworkManagerClient } from "../NetworkManagerClient";
-import { NetworkManagerPaginationConfiguration } from "./Interfaces";
+import type { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

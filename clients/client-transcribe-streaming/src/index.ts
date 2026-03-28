@@ -36,7 +36,7 @@
  */
 export * from "./TranscribeStreamingClient";
 export * from "./TranscribeStreaming";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { TranscribeStreamingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

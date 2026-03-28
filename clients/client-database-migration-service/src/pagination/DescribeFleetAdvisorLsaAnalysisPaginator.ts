@@ -8,7 +8,7 @@ import {
   DescribeFleetAdvisorLsaAnalysisCommandOutput,
 } from "../commands/DescribeFleetAdvisorLsaAnalysisCommand";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
-import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
+import type { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

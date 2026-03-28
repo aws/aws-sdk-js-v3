@@ -8,7 +8,7 @@ import {
   ListAnnotationStoreVersionsCommandOutput,
 } from "../commands/ListAnnotationStoreVersionsCommand";
 import { OmicsClient } from "../OmicsClient";
-import { OmicsPaginationConfiguration } from "./Interfaces";
+import type { OmicsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

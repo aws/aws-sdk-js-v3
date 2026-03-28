@@ -9,167 +9,195 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AddTagsToStreamCommandInput,
+  type AddTagsToStreamCommandOutput,
   AddTagsToStreamCommand,
-  AddTagsToStreamCommandInput,
-  AddTagsToStreamCommandOutput,
 } from "./commands/AddTagsToStreamCommand";
 import {
+  type CreateStreamCommandInput,
+  type CreateStreamCommandOutput,
   CreateStreamCommand,
-  CreateStreamCommandInput,
-  CreateStreamCommandOutput,
 } from "./commands/CreateStreamCommand";
 import {
+  type DecreaseStreamRetentionPeriodCommandInput,
+  type DecreaseStreamRetentionPeriodCommandOutput,
   DecreaseStreamRetentionPeriodCommand,
-  DecreaseStreamRetentionPeriodCommandInput,
-  DecreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/DecreaseStreamRetentionPeriodCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteStreamCommandInput,
+  type DeleteStreamCommandOutput,
   DeleteStreamCommand,
-  DeleteStreamCommandInput,
-  DeleteStreamCommandOutput,
 } from "./commands/DeleteStreamCommand";
 import {
+  type DeregisterStreamConsumerCommandInput,
+  type DeregisterStreamConsumerCommandOutput,
   DeregisterStreamConsumerCommand,
-  DeregisterStreamConsumerCommandInput,
-  DeregisterStreamConsumerCommandOutput,
 } from "./commands/DeregisterStreamConsumerCommand";
 import {
+  type DescribeAccountSettingsCommandInput,
+  type DescribeAccountSettingsCommandOutput,
   DescribeAccountSettingsCommand,
-  DescribeAccountSettingsCommandInput,
-  DescribeAccountSettingsCommandOutput,
 } from "./commands/DescribeAccountSettingsCommand";
 import {
+  type DescribeLimitsCommandInput,
+  type DescribeLimitsCommandOutput,
   DescribeLimitsCommand,
-  DescribeLimitsCommandInput,
-  DescribeLimitsCommandOutput,
 } from "./commands/DescribeLimitsCommand";
 import {
+  type DescribeStreamCommandInput,
+  type DescribeStreamCommandOutput,
   DescribeStreamCommand,
-  DescribeStreamCommandInput,
-  DescribeStreamCommandOutput,
 } from "./commands/DescribeStreamCommand";
 import {
+  type DescribeStreamConsumerCommandInput,
+  type DescribeStreamConsumerCommandOutput,
   DescribeStreamConsumerCommand,
-  DescribeStreamConsumerCommandInput,
-  DescribeStreamConsumerCommandOutput,
 } from "./commands/DescribeStreamConsumerCommand";
 import {
+  type DescribeStreamSummaryCommandInput,
+  type DescribeStreamSummaryCommandOutput,
   DescribeStreamSummaryCommand,
-  DescribeStreamSummaryCommandInput,
-  DescribeStreamSummaryCommandOutput,
 } from "./commands/DescribeStreamSummaryCommand";
 import {
+  type DisableEnhancedMonitoringCommandInput,
+  type DisableEnhancedMonitoringCommandOutput,
   DisableEnhancedMonitoringCommand,
-  DisableEnhancedMonitoringCommandInput,
-  DisableEnhancedMonitoringCommandOutput,
 } from "./commands/DisableEnhancedMonitoringCommand";
 import {
+  type EnableEnhancedMonitoringCommandInput,
+  type EnableEnhancedMonitoringCommandOutput,
   EnableEnhancedMonitoringCommand,
-  EnableEnhancedMonitoringCommandInput,
-  EnableEnhancedMonitoringCommandOutput,
 } from "./commands/EnableEnhancedMonitoringCommand";
-import { GetRecordsCommand, GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
 import {
+  type GetRecordsCommandInput,
+  type GetRecordsCommandOutput,
+  GetRecordsCommand,
+} from "./commands/GetRecordsCommand";
+import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type GetShardIteratorCommandInput,
+  type GetShardIteratorCommandOutput,
   GetShardIteratorCommand,
-  GetShardIteratorCommandInput,
-  GetShardIteratorCommandOutput,
 } from "./commands/GetShardIteratorCommand";
 import {
+  type IncreaseStreamRetentionPeriodCommandInput,
+  type IncreaseStreamRetentionPeriodCommandOutput,
   IncreaseStreamRetentionPeriodCommand,
-  IncreaseStreamRetentionPeriodCommandInput,
-  IncreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/IncreaseStreamRetentionPeriodCommand";
-import { ListShardsCommand, ListShardsCommandInput, ListShardsCommandOutput } from "./commands/ListShardsCommand";
 import {
+  type ListShardsCommandInput,
+  type ListShardsCommandOutput,
+  ListShardsCommand,
+} from "./commands/ListShardsCommand";
+import {
+  type ListStreamConsumersCommandInput,
+  type ListStreamConsumersCommandOutput,
   ListStreamConsumersCommand,
-  ListStreamConsumersCommandInput,
-  ListStreamConsumersCommandOutput,
 } from "./commands/ListStreamConsumersCommand";
-import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
+  type ListStreamsCommandInput,
+  type ListStreamsCommandOutput,
+  ListStreamsCommand,
+} from "./commands/ListStreamsCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTagsForStreamCommandInput,
+  type ListTagsForStreamCommandOutput,
   ListTagsForStreamCommand,
-  ListTagsForStreamCommandInput,
-  ListTagsForStreamCommandOutput,
 } from "./commands/ListTagsForStreamCommand";
-import { MergeShardsCommand, MergeShardsCommandInput, MergeShardsCommandOutput } from "./commands/MergeShardsCommand";
-import { PutRecordCommand, PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
-import { PutRecordsCommand, PutRecordsCommandInput, PutRecordsCommandOutput } from "./commands/PutRecordsCommand";
 import {
+  type MergeShardsCommandInput,
+  type MergeShardsCommandOutput,
+  MergeShardsCommand,
+} from "./commands/MergeShardsCommand";
+import { type PutRecordCommandInput, type PutRecordCommandOutput, PutRecordCommand } from "./commands/PutRecordCommand";
+import {
+  type PutRecordsCommandInput,
+  type PutRecordsCommandOutput,
+  PutRecordsCommand,
+} from "./commands/PutRecordsCommand";
+import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RegisterStreamConsumerCommandInput,
+  type RegisterStreamConsumerCommandOutput,
   RegisterStreamConsumerCommand,
-  RegisterStreamConsumerCommandInput,
-  RegisterStreamConsumerCommandOutput,
 } from "./commands/RegisterStreamConsumerCommand";
 import {
+  type RemoveTagsFromStreamCommandInput,
+  type RemoveTagsFromStreamCommandOutput,
   RemoveTagsFromStreamCommand,
-  RemoveTagsFromStreamCommandInput,
-  RemoveTagsFromStreamCommandOutput,
 } from "./commands/RemoveTagsFromStreamCommand";
-import { SplitShardCommand, SplitShardCommandInput, SplitShardCommandOutput } from "./commands/SplitShardCommand";
 import {
+  type SplitShardCommandInput,
+  type SplitShardCommandOutput,
+  SplitShardCommand,
+} from "./commands/SplitShardCommand";
+import {
+  type StartStreamEncryptionCommandInput,
+  type StartStreamEncryptionCommandOutput,
   StartStreamEncryptionCommand,
-  StartStreamEncryptionCommandInput,
-  StartStreamEncryptionCommandOutput,
 } from "./commands/StartStreamEncryptionCommand";
 import {
+  type StopStreamEncryptionCommandInput,
+  type StopStreamEncryptionCommandOutput,
   StopStreamEncryptionCommand,
-  StopStreamEncryptionCommandInput,
-  StopStreamEncryptionCommandOutput,
 } from "./commands/StopStreamEncryptionCommand";
 import {
+  type SubscribeToShardCommandInput,
+  type SubscribeToShardCommandOutput,
   SubscribeToShardCommand,
-  SubscribeToShardCommandInput,
-  SubscribeToShardCommandOutput,
 } from "./commands/SubscribeToShardCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccountSettingsCommandInput,
+  type UpdateAccountSettingsCommandOutput,
   UpdateAccountSettingsCommand,
-  UpdateAccountSettingsCommandInput,
-  UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
 import {
+  type UpdateMaxRecordSizeCommandInput,
+  type UpdateMaxRecordSizeCommandOutput,
   UpdateMaxRecordSizeCommand,
-  UpdateMaxRecordSizeCommandInput,
-  UpdateMaxRecordSizeCommandOutput,
 } from "./commands/UpdateMaxRecordSizeCommand";
 import {
+  type UpdateShardCountCommandInput,
+  type UpdateShardCountCommandOutput,
   UpdateShardCountCommand,
-  UpdateShardCountCommandInput,
-  UpdateShardCountCommandOutput,
 } from "./commands/UpdateShardCountCommand";
 import {
+  type UpdateStreamModeCommandInput,
+  type UpdateStreamModeCommandOutput,
   UpdateStreamModeCommand,
-  UpdateStreamModeCommandInput,
-  UpdateStreamModeCommandOutput,
 } from "./commands/UpdateStreamModeCommand";
 import {
+  type UpdateStreamWarmThroughputCommandInput,
+  type UpdateStreamWarmThroughputCommandOutput,
   UpdateStreamWarmThroughputCommand,
-  UpdateStreamWarmThroughputCommandInput,
-  UpdateStreamWarmThroughputCommandOutput,
 } from "./commands/UpdateStreamWarmThroughputCommand";
 import { KinesisClient } from "./KinesisClient";
 import { paginateListStreamConsumers } from "./pagination/ListStreamConsumersPaginator";

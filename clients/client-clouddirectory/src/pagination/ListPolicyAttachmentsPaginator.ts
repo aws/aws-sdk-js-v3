@@ -8,7 +8,7 @@ import {
   ListPolicyAttachmentsCommandInput,
   ListPolicyAttachmentsCommandOutput,
 } from "../commands/ListPolicyAttachmentsCommand";
-import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
+import type { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -12,7 +12,7 @@
  */
 export * from "./SnowballClient";
 export * from "./Snowball";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SnowballExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -8,7 +8,7 @@ import {
   ListDatasetImportJobsCommandOutput,
 } from "../commands/ListDatasetImportJobsCommand";
 import { PersonalizeClient } from "../PersonalizeClient";
-import { PersonalizePaginationConfiguration } from "./Interfaces";
+import type { PersonalizePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -18,7 +18,7 @@
  */
 export * from "./ApplicationInsightsClient";
 export * from "./ApplicationInsights";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ApplicationInsightsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,47 +61,56 @@ import {
   defaultSyntheticsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateResourceCommandInput, AssociateResourceCommandOutput } from "./commands/AssociateResourceCommand";
-import { CreateCanaryCommandInput, CreateCanaryCommandOutput } from "./commands/CreateCanaryCommand";
-import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
-import { DeleteCanaryCommandInput, DeleteCanaryCommandOutput } from "./commands/DeleteCanaryCommand";
-import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
-import { DescribeCanariesCommandInput, DescribeCanariesCommandOutput } from "./commands/DescribeCanariesCommand";
-import {
+import type {
+  AssociateResourceCommandInput,
+  AssociateResourceCommandOutput,
+} from "./commands/AssociateResourceCommand";
+import type { CreateCanaryCommandInput, CreateCanaryCommandOutput } from "./commands/CreateCanaryCommand";
+import type { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import type { DeleteCanaryCommandInput, DeleteCanaryCommandOutput } from "./commands/DeleteCanaryCommand";
+import type { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import type { DescribeCanariesCommandInput, DescribeCanariesCommandOutput } from "./commands/DescribeCanariesCommand";
+import type {
   DescribeCanariesLastRunCommandInput,
   DescribeCanariesLastRunCommandOutput,
 } from "./commands/DescribeCanariesLastRunCommand";
-import {
+import type {
   DescribeRuntimeVersionsCommandInput,
   DescribeRuntimeVersionsCommandOutput,
 } from "./commands/DescribeRuntimeVersionsCommand";
-import {
+import type {
   DisassociateResourceCommandInput,
   DisassociateResourceCommandOutput,
 } from "./commands/DisassociateResourceCommand";
-import { GetCanaryCommandInput, GetCanaryCommandOutput } from "./commands/GetCanaryCommand";
-import { GetCanaryRunsCommandInput, GetCanaryRunsCommandOutput } from "./commands/GetCanaryRunsCommand";
-import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
-import {
+import type { GetCanaryCommandInput, GetCanaryCommandOutput } from "./commands/GetCanaryCommand";
+import type { GetCanaryRunsCommandInput, GetCanaryRunsCommandOutput } from "./commands/GetCanaryRunsCommand";
+import type { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import type {
   ListAssociatedGroupsCommandInput,
   ListAssociatedGroupsCommandOutput,
 } from "./commands/ListAssociatedGroupsCommand";
-import { ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput } from "./commands/ListGroupResourcesCommand";
-import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
-import {
+import type {
+  ListGroupResourcesCommandInput,
+  ListGroupResourcesCommandOutput,
+} from "./commands/ListGroupResourcesCommand";
+import type { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartCanaryCommandInput, StartCanaryCommandOutput } from "./commands/StartCanaryCommand";
-import { StartCanaryDryRunCommandInput, StartCanaryDryRunCommandOutput } from "./commands/StartCanaryDryRunCommand";
-import { StopCanaryCommandInput, StopCanaryCommandOutput } from "./commands/StopCanaryCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateCanaryCommandInput, UpdateCanaryCommandOutput } from "./commands/UpdateCanaryCommand";
+import type { StartCanaryCommandInput, StartCanaryCommandOutput } from "./commands/StartCanaryCommand";
+import type {
+  StartCanaryDryRunCommandInput,
+  StartCanaryDryRunCommandOutput,
+} from "./commands/StartCanaryDryRunCommand";
+import type { StopCanaryCommandInput, StopCanaryCommandOutput } from "./commands/StopCanaryCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateCanaryCommandInput, UpdateCanaryCommandOutput } from "./commands/UpdateCanaryCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -279,7 +286,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

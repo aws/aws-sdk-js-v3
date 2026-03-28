@@ -8,7 +8,7 @@ import {
   DescribePoliciesCommandInput,
   DescribePoliciesCommandOutput,
 } from "../commands/DescribePoliciesCommand";
-import { AutoScalingPaginationConfiguration } from "./Interfaces";
+import type { AutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

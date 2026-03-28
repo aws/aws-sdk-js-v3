@@ -8,7 +8,7 @@ import {
   ListProjectsCommandOutput,
 } from "../commands/ListProjectsCommand";
 import { DeviceFarmClient } from "../DeviceFarmClient";
-import { DeviceFarmPaginationConfiguration } from "./Interfaces";
+import type { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

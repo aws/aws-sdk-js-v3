@@ -8,7 +8,7 @@ import {
   GetTimeSeriesServiceStatisticsCommandOutput,
 } from "../commands/GetTimeSeriesServiceStatisticsCommand";
 import { XRayClient } from "../XRayClient";
-import { XRayPaginationConfiguration } from "./Interfaces";
+import type { XRayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AppConfigDataServiceException as __BaseException } from "./AppConfigDataServiceException";
-import { BadRequestReason, ResourceType } from "./enums";
+import type { BadRequestReason, ResourceType } from "./enums";
 import type { BadRequestDetails } from "./models_0";
 
 /**

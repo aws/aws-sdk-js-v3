@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,279 +61,303 @@ import {
   defaultWorkMailHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateDelegateToResourceCommandInput,
   AssociateDelegateToResourceCommandOutput,
 } from "./commands/AssociateDelegateToResourceCommand";
-import {
+import type {
   AssociateMemberToGroupCommandInput,
   AssociateMemberToGroupCommandOutput,
 } from "./commands/AssociateMemberToGroupCommand";
-import {
+import type {
   AssumeImpersonationRoleCommandInput,
   AssumeImpersonationRoleCommandOutput,
 } from "./commands/AssumeImpersonationRoleCommand";
-import {
+import type {
   CancelMailboxExportJobCommandInput,
   CancelMailboxExportJobCommandOutput,
 } from "./commands/CancelMailboxExportJobCommand";
-import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
-import {
+import type { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import type {
   CreateAvailabilityConfigurationCommandInput,
   CreateAvailabilityConfigurationCommandOutput,
 } from "./commands/CreateAvailabilityConfigurationCommand";
-import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
-import {
+import type { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import type {
   CreateIdentityCenterApplicationCommandInput,
   CreateIdentityCenterApplicationCommandOutput,
 } from "./commands/CreateIdentityCenterApplicationCommand";
-import {
+import type {
   CreateImpersonationRoleCommandInput,
   CreateImpersonationRoleCommandOutput,
 } from "./commands/CreateImpersonationRoleCommand";
-import {
+import type {
   CreateMobileDeviceAccessRuleCommandInput,
   CreateMobileDeviceAccessRuleCommandOutput,
 } from "./commands/CreateMobileDeviceAccessRuleCommand";
-import { CreateOrganizationCommandInput, CreateOrganizationCommandOutput } from "./commands/CreateOrganizationCommand";
-import { CreateResourceCommandInput, CreateResourceCommandOutput } from "./commands/CreateResourceCommand";
-import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import {
+import type {
+  CreateOrganizationCommandInput,
+  CreateOrganizationCommandOutput,
+} from "./commands/CreateOrganizationCommand";
+import type { CreateResourceCommandInput, CreateResourceCommandOutput } from "./commands/CreateResourceCommand";
+import type { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import type {
   DeleteAccessControlRuleCommandInput,
   DeleteAccessControlRuleCommandOutput,
 } from "./commands/DeleteAccessControlRuleCommand";
-import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
-import {
+import type { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import type {
   DeleteAvailabilityConfigurationCommandInput,
   DeleteAvailabilityConfigurationCommandOutput,
 } from "./commands/DeleteAvailabilityConfigurationCommand";
-import {
+import type {
   DeleteEmailMonitoringConfigurationCommandInput,
   DeleteEmailMonitoringConfigurationCommandOutput,
 } from "./commands/DeleteEmailMonitoringConfigurationCommand";
-import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
-import {
+import type { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import type {
   DeleteIdentityCenterApplicationCommandInput,
   DeleteIdentityCenterApplicationCommandOutput,
 } from "./commands/DeleteIdentityCenterApplicationCommand";
-import {
+import type {
   DeleteIdentityProviderConfigurationCommandInput,
   DeleteIdentityProviderConfigurationCommandOutput,
 } from "./commands/DeleteIdentityProviderConfigurationCommand";
-import {
+import type {
   DeleteImpersonationRoleCommandInput,
   DeleteImpersonationRoleCommandOutput,
 } from "./commands/DeleteImpersonationRoleCommand";
-import {
+import type {
   DeleteMailboxPermissionsCommandInput,
   DeleteMailboxPermissionsCommandOutput,
 } from "./commands/DeleteMailboxPermissionsCommand";
-import {
+import type {
   DeleteMobileDeviceAccessOverrideCommandInput,
   DeleteMobileDeviceAccessOverrideCommandOutput,
 } from "./commands/DeleteMobileDeviceAccessOverrideCommand";
-import {
+import type {
   DeleteMobileDeviceAccessRuleCommandInput,
   DeleteMobileDeviceAccessRuleCommandOutput,
 } from "./commands/DeleteMobileDeviceAccessRuleCommand";
-import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "./commands/DeleteOrganizationCommand";
-import {
+import type {
+  DeleteOrganizationCommandInput,
+  DeleteOrganizationCommandOutput,
+} from "./commands/DeleteOrganizationCommand";
+import type {
   DeletePersonalAccessTokenCommandInput,
   DeletePersonalAccessTokenCommandOutput,
 } from "./commands/DeletePersonalAccessTokenCommand";
-import { DeleteResourceCommandInput, DeleteResourceCommandOutput } from "./commands/DeleteResourceCommand";
-import {
+import type { DeleteResourceCommandInput, DeleteResourceCommandOutput } from "./commands/DeleteResourceCommand";
+import type {
   DeleteRetentionPolicyCommandInput,
   DeleteRetentionPolicyCommandOutput,
 } from "./commands/DeleteRetentionPolicyCommand";
-import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
-import {
+import type { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import type {
   DeregisterFromWorkMailCommandInput,
   DeregisterFromWorkMailCommandOutput,
 } from "./commands/DeregisterFromWorkMailCommand";
-import {
+import type {
   DeregisterMailDomainCommandInput,
   DeregisterMailDomainCommandOutput,
 } from "./commands/DeregisterMailDomainCommand";
-import {
+import type {
   DescribeEmailMonitoringConfigurationCommandInput,
   DescribeEmailMonitoringConfigurationCommandOutput,
 } from "./commands/DescribeEmailMonitoringConfigurationCommand";
-import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./commands/DescribeEntityCommand";
-import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
-import {
+import type { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./commands/DescribeEntityCommand";
+import type { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
+import type {
   DescribeIdentityProviderConfigurationCommandInput,
   DescribeIdentityProviderConfigurationCommandOutput,
 } from "./commands/DescribeIdentityProviderConfigurationCommand";
-import {
+import type {
   DescribeInboundDmarcSettingsCommandInput,
   DescribeInboundDmarcSettingsCommandOutput,
 } from "./commands/DescribeInboundDmarcSettingsCommand";
-import {
+import type {
   DescribeMailboxExportJobCommandInput,
   DescribeMailboxExportJobCommandOutput,
 } from "./commands/DescribeMailboxExportJobCommand";
-import {
+import type {
   DescribeOrganizationCommandInput,
   DescribeOrganizationCommandOutput,
 } from "./commands/DescribeOrganizationCommand";
-import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand";
-import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
-import {
+import type { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand";
+import type { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
+import type {
   DisassociateDelegateFromResourceCommandInput,
   DisassociateDelegateFromResourceCommandOutput,
 } from "./commands/DisassociateDelegateFromResourceCommand";
-import {
+import type {
   DisassociateMemberFromGroupCommandInput,
   DisassociateMemberFromGroupCommandOutput,
 } from "./commands/DisassociateMemberFromGroupCommand";
-import {
+import type {
   GetAccessControlEffectCommandInput,
   GetAccessControlEffectCommandOutput,
 } from "./commands/GetAccessControlEffectCommand";
-import {
+import type {
   GetDefaultRetentionPolicyCommandInput,
   GetDefaultRetentionPolicyCommandOutput,
 } from "./commands/GetDefaultRetentionPolicyCommand";
-import {
+import type {
   GetImpersonationRoleCommandInput,
   GetImpersonationRoleCommandOutput,
 } from "./commands/GetImpersonationRoleCommand";
-import {
+import type {
   GetImpersonationRoleEffectCommandInput,
   GetImpersonationRoleEffectCommandOutput,
 } from "./commands/GetImpersonationRoleEffectCommand";
-import { GetMailboxDetailsCommandInput, GetMailboxDetailsCommandOutput } from "./commands/GetMailboxDetailsCommand";
-import { GetMailDomainCommandInput, GetMailDomainCommandOutput } from "./commands/GetMailDomainCommand";
-import {
+import type {
+  GetMailboxDetailsCommandInput,
+  GetMailboxDetailsCommandOutput,
+} from "./commands/GetMailboxDetailsCommand";
+import type { GetMailDomainCommandInput, GetMailDomainCommandOutput } from "./commands/GetMailDomainCommand";
+import type {
   GetMobileDeviceAccessEffectCommandInput,
   GetMobileDeviceAccessEffectCommandOutput,
 } from "./commands/GetMobileDeviceAccessEffectCommand";
-import {
+import type {
   GetMobileDeviceAccessOverrideCommandInput,
   GetMobileDeviceAccessOverrideCommandOutput,
 } from "./commands/GetMobileDeviceAccessOverrideCommand";
-import {
+import type {
   GetPersonalAccessTokenMetadataCommandInput,
   GetPersonalAccessTokenMetadataCommandOutput,
 } from "./commands/GetPersonalAccessTokenMetadataCommand";
-import {
+import type {
   ListAccessControlRulesCommandInput,
   ListAccessControlRulesCommandOutput,
 } from "./commands/ListAccessControlRulesCommand";
-import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
-import {
+import type { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
+import type {
   ListAvailabilityConfigurationsCommandInput,
   ListAvailabilityConfigurationsCommandOutput,
 } from "./commands/ListAvailabilityConfigurationsCommand";
-import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "./commands/ListGroupMembersCommand";
-import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
-import {
+import type { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "./commands/ListGroupMembersCommand";
+import type { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import type {
   ListGroupsForEntityCommandInput,
   ListGroupsForEntityCommandOutput,
 } from "./commands/ListGroupsForEntityCommand";
-import {
+import type {
   ListImpersonationRolesCommandInput,
   ListImpersonationRolesCommandOutput,
 } from "./commands/ListImpersonationRolesCommand";
-import {
+import type {
   ListMailboxExportJobsCommandInput,
   ListMailboxExportJobsCommandOutput,
 } from "./commands/ListMailboxExportJobsCommand";
-import {
+import type {
   ListMailboxPermissionsCommandInput,
   ListMailboxPermissionsCommandOutput,
 } from "./commands/ListMailboxPermissionsCommand";
-import { ListMailDomainsCommandInput, ListMailDomainsCommandOutput } from "./commands/ListMailDomainsCommand";
-import {
+import type { ListMailDomainsCommandInput, ListMailDomainsCommandOutput } from "./commands/ListMailDomainsCommand";
+import type {
   ListMobileDeviceAccessOverridesCommandInput,
   ListMobileDeviceAccessOverridesCommandOutput,
 } from "./commands/ListMobileDeviceAccessOverridesCommand";
-import {
+import type {
   ListMobileDeviceAccessRulesCommandInput,
   ListMobileDeviceAccessRulesCommandOutput,
 } from "./commands/ListMobileDeviceAccessRulesCommand";
-import { ListOrganizationsCommandInput, ListOrganizationsCommandOutput } from "./commands/ListOrganizationsCommand";
-import {
+import type {
+  ListOrganizationsCommandInput,
+  ListOrganizationsCommandOutput,
+} from "./commands/ListOrganizationsCommand";
+import type {
   ListPersonalAccessTokensCommandInput,
   ListPersonalAccessTokensCommandOutput,
 } from "./commands/ListPersonalAccessTokensCommand";
-import {
+import type {
   ListResourceDelegatesCommandInput,
   ListResourceDelegatesCommandOutput,
 } from "./commands/ListResourceDelegatesCommand";
-import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
-import {
+import type { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import {
+import type { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import type {
   PutAccessControlRuleCommandInput,
   PutAccessControlRuleCommandOutput,
 } from "./commands/PutAccessControlRuleCommand";
-import {
+import type {
   PutEmailMonitoringConfigurationCommandInput,
   PutEmailMonitoringConfigurationCommandOutput,
 } from "./commands/PutEmailMonitoringConfigurationCommand";
-import {
+import type {
   PutIdentityProviderConfigurationCommandInput,
   PutIdentityProviderConfigurationCommandOutput,
 } from "./commands/PutIdentityProviderConfigurationCommand";
-import {
+import type {
   PutInboundDmarcSettingsCommandInput,
   PutInboundDmarcSettingsCommandOutput,
 } from "./commands/PutInboundDmarcSettingsCommand";
-import {
+import type {
   PutMailboxPermissionsCommandInput,
   PutMailboxPermissionsCommandOutput,
 } from "./commands/PutMailboxPermissionsCommand";
-import {
+import type {
   PutMobileDeviceAccessOverrideCommandInput,
   PutMobileDeviceAccessOverrideCommandOutput,
 } from "./commands/PutMobileDeviceAccessOverrideCommand";
-import { PutRetentionPolicyCommandInput, PutRetentionPolicyCommandOutput } from "./commands/PutRetentionPolicyCommand";
-import { RegisterMailDomainCommandInput, RegisterMailDomainCommandOutput } from "./commands/RegisterMailDomainCommand";
-import { RegisterToWorkMailCommandInput, RegisterToWorkMailCommandOutput } from "./commands/RegisterToWorkMailCommand";
-import { ResetPasswordCommandInput, ResetPasswordCommandOutput } from "./commands/ResetPasswordCommand";
-import {
+import type {
+  PutRetentionPolicyCommandInput,
+  PutRetentionPolicyCommandOutput,
+} from "./commands/PutRetentionPolicyCommand";
+import type {
+  RegisterMailDomainCommandInput,
+  RegisterMailDomainCommandOutput,
+} from "./commands/RegisterMailDomainCommand";
+import type {
+  RegisterToWorkMailCommandInput,
+  RegisterToWorkMailCommandOutput,
+} from "./commands/RegisterToWorkMailCommand";
+import type { ResetPasswordCommandInput, ResetPasswordCommandOutput } from "./commands/ResetPasswordCommand";
+import type {
   StartMailboxExportJobCommandInput,
   StartMailboxExportJobCommandOutput,
 } from "./commands/StartMailboxExportJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   TestAvailabilityConfigurationCommandInput,
   TestAvailabilityConfigurationCommandOutput,
 } from "./commands/TestAvailabilityConfigurationCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAvailabilityConfigurationCommandInput,
   UpdateAvailabilityConfigurationCommandOutput,
 } from "./commands/UpdateAvailabilityConfigurationCommand";
-import {
+import type {
   UpdateDefaultMailDomainCommandInput,
   UpdateDefaultMailDomainCommandOutput,
 } from "./commands/UpdateDefaultMailDomainCommand";
-import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
-import {
+import type { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
+import type {
   UpdateImpersonationRoleCommandInput,
   UpdateImpersonationRoleCommandOutput,
 } from "./commands/UpdateImpersonationRoleCommand";
-import { UpdateMailboxQuotaCommandInput, UpdateMailboxQuotaCommandOutput } from "./commands/UpdateMailboxQuotaCommand";
-import {
+import type {
+  UpdateMailboxQuotaCommandInput,
+  UpdateMailboxQuotaCommandOutput,
+} from "./commands/UpdateMailboxQuotaCommand";
+import type {
   UpdateMobileDeviceAccessRuleCommandInput,
   UpdateMobileDeviceAccessRuleCommandOutput,
 } from "./commands/UpdateMobileDeviceAccessRuleCommand";
-import {
+import type {
   UpdatePrimaryEmailAddressCommandInput,
   UpdatePrimaryEmailAddressCommandOutput,
 } from "./commands/UpdatePrimaryEmailAddressCommand";
-import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
-import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import type { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
+import type { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -651,7 +673,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

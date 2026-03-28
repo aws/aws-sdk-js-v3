@@ -13,7 +13,7 @@
  */
 export * from "./DLMClient";
 export * from "./DLM";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DLMExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

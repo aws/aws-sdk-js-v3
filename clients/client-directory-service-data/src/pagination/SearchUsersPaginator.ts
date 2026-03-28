@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "../commands/SearchUsersCommand";
 import { DirectoryServiceDataClient } from "../DirectoryServiceDataClient";
-import { DirectoryServiceDataPaginationConfiguration } from "./Interfaces";
+import type { DirectoryServiceDataPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

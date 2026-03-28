@@ -8,7 +8,7 @@ import {
   ListBillingViewsCommandInput,
   ListBillingViewsCommandOutput,
 } from "../commands/ListBillingViewsCommand";
-import { BillingPaginationConfiguration } from "./Interfaces";
+import type { BillingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   DescribeCanariesLastRunCommandOutput,
 } from "../commands/DescribeCanariesLastRunCommand";
 import { SyntheticsClient } from "../SyntheticsClient";
-import { SyntheticsPaginationConfiguration } from "./Interfaces";
+import type { SyntheticsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

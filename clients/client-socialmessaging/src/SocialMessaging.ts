@@ -3,105 +3,109 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateWhatsAppBusinessAccountCommandInput,
+  type AssociateWhatsAppBusinessAccountCommandOutput,
   AssociateWhatsAppBusinessAccountCommand,
-  AssociateWhatsAppBusinessAccountCommandInput,
-  AssociateWhatsAppBusinessAccountCommandOutput,
 } from "./commands/AssociateWhatsAppBusinessAccountCommand";
 import {
+  type CreateWhatsAppMessageTemplateCommandInput,
+  type CreateWhatsAppMessageTemplateCommandOutput,
   CreateWhatsAppMessageTemplateCommand,
-  CreateWhatsAppMessageTemplateCommandInput,
-  CreateWhatsAppMessageTemplateCommandOutput,
 } from "./commands/CreateWhatsAppMessageTemplateCommand";
 import {
+  type CreateWhatsAppMessageTemplateFromLibraryCommandInput,
+  type CreateWhatsAppMessageTemplateFromLibraryCommandOutput,
   CreateWhatsAppMessageTemplateFromLibraryCommand,
-  CreateWhatsAppMessageTemplateFromLibraryCommandInput,
-  CreateWhatsAppMessageTemplateFromLibraryCommandOutput,
 } from "./commands/CreateWhatsAppMessageTemplateFromLibraryCommand";
 import {
+  type CreateWhatsAppMessageTemplateMediaCommandInput,
+  type CreateWhatsAppMessageTemplateMediaCommandOutput,
   CreateWhatsAppMessageTemplateMediaCommand,
-  CreateWhatsAppMessageTemplateMediaCommandInput,
-  CreateWhatsAppMessageTemplateMediaCommandOutput,
 } from "./commands/CreateWhatsAppMessageTemplateMediaCommand";
 import {
+  type DeleteWhatsAppMessageMediaCommandInput,
+  type DeleteWhatsAppMessageMediaCommandOutput,
   DeleteWhatsAppMessageMediaCommand,
-  DeleteWhatsAppMessageMediaCommandInput,
-  DeleteWhatsAppMessageMediaCommandOutput,
 } from "./commands/DeleteWhatsAppMessageMediaCommand";
 import {
+  type DeleteWhatsAppMessageTemplateCommandInput,
+  type DeleteWhatsAppMessageTemplateCommandOutput,
   DeleteWhatsAppMessageTemplateCommand,
-  DeleteWhatsAppMessageTemplateCommandInput,
-  DeleteWhatsAppMessageTemplateCommandOutput,
 } from "./commands/DeleteWhatsAppMessageTemplateCommand";
 import {
+  type DisassociateWhatsAppBusinessAccountCommandInput,
+  type DisassociateWhatsAppBusinessAccountCommandOutput,
   DisassociateWhatsAppBusinessAccountCommand,
-  DisassociateWhatsAppBusinessAccountCommandInput,
-  DisassociateWhatsAppBusinessAccountCommandOutput,
 } from "./commands/DisassociateWhatsAppBusinessAccountCommand";
 import {
+  type GetLinkedWhatsAppBusinessAccountCommandInput,
+  type GetLinkedWhatsAppBusinessAccountCommandOutput,
   GetLinkedWhatsAppBusinessAccountCommand,
-  GetLinkedWhatsAppBusinessAccountCommandInput,
-  GetLinkedWhatsAppBusinessAccountCommandOutput,
 } from "./commands/GetLinkedWhatsAppBusinessAccountCommand";
 import {
+  type GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
+  type GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput,
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommand,
-  GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
-  GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput,
 } from "./commands/GetLinkedWhatsAppBusinessAccountPhoneNumberCommand";
 import {
+  type GetWhatsAppMessageMediaCommandInput,
+  type GetWhatsAppMessageMediaCommandOutput,
   GetWhatsAppMessageMediaCommand,
-  GetWhatsAppMessageMediaCommandInput,
-  GetWhatsAppMessageMediaCommandOutput,
 } from "./commands/GetWhatsAppMessageMediaCommand";
 import {
+  type GetWhatsAppMessageTemplateCommandInput,
+  type GetWhatsAppMessageTemplateCommandOutput,
   GetWhatsAppMessageTemplateCommand,
-  GetWhatsAppMessageTemplateCommandInput,
-  GetWhatsAppMessageTemplateCommandOutput,
 } from "./commands/GetWhatsAppMessageTemplateCommand";
 import {
+  type ListLinkedWhatsAppBusinessAccountsCommandInput,
+  type ListLinkedWhatsAppBusinessAccountsCommandOutput,
   ListLinkedWhatsAppBusinessAccountsCommand,
-  ListLinkedWhatsAppBusinessAccountsCommandInput,
-  ListLinkedWhatsAppBusinessAccountsCommandOutput,
 } from "./commands/ListLinkedWhatsAppBusinessAccountsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWhatsAppMessageTemplatesCommandInput,
+  type ListWhatsAppMessageTemplatesCommandOutput,
   ListWhatsAppMessageTemplatesCommand,
-  ListWhatsAppMessageTemplatesCommandInput,
-  ListWhatsAppMessageTemplatesCommandOutput,
 } from "./commands/ListWhatsAppMessageTemplatesCommand";
 import {
+  type ListWhatsAppTemplateLibraryCommandInput,
+  type ListWhatsAppTemplateLibraryCommandOutput,
   ListWhatsAppTemplateLibraryCommand,
-  ListWhatsAppTemplateLibraryCommandInput,
-  ListWhatsAppTemplateLibraryCommandOutput,
 } from "./commands/ListWhatsAppTemplateLibraryCommand";
 import {
+  type PostWhatsAppMessageMediaCommandInput,
+  type PostWhatsAppMessageMediaCommandOutput,
   PostWhatsAppMessageMediaCommand,
-  PostWhatsAppMessageMediaCommandInput,
-  PostWhatsAppMessageMediaCommandOutput,
 } from "./commands/PostWhatsAppMessageMediaCommand";
 import {
+  type PutWhatsAppBusinessAccountEventDestinationsCommandInput,
+  type PutWhatsAppBusinessAccountEventDestinationsCommandOutput,
   PutWhatsAppBusinessAccountEventDestinationsCommand,
-  PutWhatsAppBusinessAccountEventDestinationsCommandInput,
-  PutWhatsAppBusinessAccountEventDestinationsCommandOutput,
 } from "./commands/PutWhatsAppBusinessAccountEventDestinationsCommand";
 import {
+  type SendWhatsAppMessageCommandInput,
+  type SendWhatsAppMessageCommandOutput,
   SendWhatsAppMessageCommand,
-  SendWhatsAppMessageCommandInput,
-  SendWhatsAppMessageCommandOutput,
 } from "./commands/SendWhatsAppMessageCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateWhatsAppMessageTemplateCommandInput,
+  type UpdateWhatsAppMessageTemplateCommandOutput,
   UpdateWhatsAppMessageTemplateCommand,
-  UpdateWhatsAppMessageTemplateCommandInput,
-  UpdateWhatsAppMessageTemplateCommandOutput,
 } from "./commands/UpdateWhatsAppMessageTemplateCommand";
 import { paginateListLinkedWhatsAppBusinessAccounts } from "./pagination/ListLinkedWhatsAppBusinessAccountsPaginator";
 import { paginateListWhatsAppMessageTemplates } from "./pagination/ListWhatsAppMessageTemplatesPaginator";

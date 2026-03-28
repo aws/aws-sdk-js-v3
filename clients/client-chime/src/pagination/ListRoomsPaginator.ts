@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ChimeClient } from "../ChimeClient";
 import { ListRoomsCommand, ListRoomsCommandInput, ListRoomsCommandOutput } from "../commands/ListRoomsCommand";
-import { ChimePaginationConfiguration } from "./Interfaces";
+import type { ChimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

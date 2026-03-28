@@ -8,7 +8,7 @@ import {
   ListFileTransferResultsCommandOutput,
 } from "../commands/ListFileTransferResultsCommand";
 import { TransferClient } from "../TransferClient";
-import { TransferPaginationConfiguration } from "./Interfaces";
+import type { TransferPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

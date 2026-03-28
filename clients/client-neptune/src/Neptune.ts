@@ -9,354 +9,354 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AddRoleToDBClusterCommandInput,
+  type AddRoleToDBClusterCommandOutput,
   AddRoleToDBClusterCommand,
-  AddRoleToDBClusterCommandInput,
-  AddRoleToDBClusterCommandOutput,
 } from "./commands/AddRoleToDBClusterCommand";
 import {
+  type AddSourceIdentifierToSubscriptionCommandInput,
+  type AddSourceIdentifierToSubscriptionCommandOutput,
   AddSourceIdentifierToSubscriptionCommand,
-  AddSourceIdentifierToSubscriptionCommandInput,
-  AddSourceIdentifierToSubscriptionCommandOutput,
 } from "./commands/AddSourceIdentifierToSubscriptionCommand";
 import {
+  type AddTagsToResourceCommandInput,
+  type AddTagsToResourceCommandOutput,
   AddTagsToResourceCommand,
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand";
 import {
+  type ApplyPendingMaintenanceActionCommandInput,
+  type ApplyPendingMaintenanceActionCommandOutput,
   ApplyPendingMaintenanceActionCommand,
-  ApplyPendingMaintenanceActionCommandInput,
-  ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
 import {
+  type CopyDBClusterParameterGroupCommandInput,
+  type CopyDBClusterParameterGroupCommandOutput,
   CopyDBClusterParameterGroupCommand,
-  CopyDBClusterParameterGroupCommandInput,
-  CopyDBClusterParameterGroupCommandOutput,
 } from "./commands/CopyDBClusterParameterGroupCommand";
 import {
+  type CopyDBClusterSnapshotCommandInput,
+  type CopyDBClusterSnapshotCommandOutput,
   CopyDBClusterSnapshotCommand,
-  CopyDBClusterSnapshotCommandInput,
-  CopyDBClusterSnapshotCommandOutput,
 } from "./commands/CopyDBClusterSnapshotCommand";
 import {
+  type CopyDBParameterGroupCommandInput,
+  type CopyDBParameterGroupCommandOutput,
   CopyDBParameterGroupCommand,
-  CopyDBParameterGroupCommandInput,
-  CopyDBParameterGroupCommandOutput,
 } from "./commands/CopyDBParameterGroupCommand";
 import {
+  type CreateDBClusterCommandInput,
+  type CreateDBClusterCommandOutput,
   CreateDBClusterCommand,
-  CreateDBClusterCommandInput,
-  CreateDBClusterCommandOutput,
 } from "./commands/CreateDBClusterCommand";
 import {
+  type CreateDBClusterEndpointCommandInput,
+  type CreateDBClusterEndpointCommandOutput,
   CreateDBClusterEndpointCommand,
-  CreateDBClusterEndpointCommandInput,
-  CreateDBClusterEndpointCommandOutput,
 } from "./commands/CreateDBClusterEndpointCommand";
 import {
+  type CreateDBClusterParameterGroupCommandInput,
+  type CreateDBClusterParameterGroupCommandOutput,
   CreateDBClusterParameterGroupCommand,
-  CreateDBClusterParameterGroupCommandInput,
-  CreateDBClusterParameterGroupCommandOutput,
 } from "./commands/CreateDBClusterParameterGroupCommand";
 import {
+  type CreateDBClusterSnapshotCommandInput,
+  type CreateDBClusterSnapshotCommandOutput,
   CreateDBClusterSnapshotCommand,
-  CreateDBClusterSnapshotCommandInput,
-  CreateDBClusterSnapshotCommandOutput,
 } from "./commands/CreateDBClusterSnapshotCommand";
 import {
+  type CreateDBInstanceCommandInput,
+  type CreateDBInstanceCommandOutput,
   CreateDBInstanceCommand,
-  CreateDBInstanceCommandInput,
-  CreateDBInstanceCommandOutput,
 } from "./commands/CreateDBInstanceCommand";
 import {
+  type CreateDBParameterGroupCommandInput,
+  type CreateDBParameterGroupCommandOutput,
   CreateDBParameterGroupCommand,
-  CreateDBParameterGroupCommandInput,
-  CreateDBParameterGroupCommandOutput,
 } from "./commands/CreateDBParameterGroupCommand";
 import {
+  type CreateDBSubnetGroupCommandInput,
+  type CreateDBSubnetGroupCommandOutput,
   CreateDBSubnetGroupCommand,
-  CreateDBSubnetGroupCommandInput,
-  CreateDBSubnetGroupCommandOutput,
 } from "./commands/CreateDBSubnetGroupCommand";
 import {
+  type CreateEventSubscriptionCommandInput,
+  type CreateEventSubscriptionCommandOutput,
   CreateEventSubscriptionCommand,
-  CreateEventSubscriptionCommandInput,
-  CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand";
 import {
+  type CreateGlobalClusterCommandInput,
+  type CreateGlobalClusterCommandOutput,
   CreateGlobalClusterCommand,
-  CreateGlobalClusterCommandInput,
-  CreateGlobalClusterCommandOutput,
 } from "./commands/CreateGlobalClusterCommand";
 import {
+  type DeleteDBClusterCommandInput,
+  type DeleteDBClusterCommandOutput,
   DeleteDBClusterCommand,
-  DeleteDBClusterCommandInput,
-  DeleteDBClusterCommandOutput,
 } from "./commands/DeleteDBClusterCommand";
 import {
+  type DeleteDBClusterEndpointCommandInput,
+  type DeleteDBClusterEndpointCommandOutput,
   DeleteDBClusterEndpointCommand,
-  DeleteDBClusterEndpointCommandInput,
-  DeleteDBClusterEndpointCommandOutput,
 } from "./commands/DeleteDBClusterEndpointCommand";
 import {
+  type DeleteDBClusterParameterGroupCommandInput,
+  type DeleteDBClusterParameterGroupCommandOutput,
   DeleteDBClusterParameterGroupCommand,
-  DeleteDBClusterParameterGroupCommandInput,
-  DeleteDBClusterParameterGroupCommandOutput,
 } from "./commands/DeleteDBClusterParameterGroupCommand";
 import {
+  type DeleteDBClusterSnapshotCommandInput,
+  type DeleteDBClusterSnapshotCommandOutput,
   DeleteDBClusterSnapshotCommand,
-  DeleteDBClusterSnapshotCommandInput,
-  DeleteDBClusterSnapshotCommandOutput,
 } from "./commands/DeleteDBClusterSnapshotCommand";
 import {
+  type DeleteDBInstanceCommandInput,
+  type DeleteDBInstanceCommandOutput,
   DeleteDBInstanceCommand,
-  DeleteDBInstanceCommandInput,
-  DeleteDBInstanceCommandOutput,
 } from "./commands/DeleteDBInstanceCommand";
 import {
+  type DeleteDBParameterGroupCommandInput,
+  type DeleteDBParameterGroupCommandOutput,
   DeleteDBParameterGroupCommand,
-  DeleteDBParameterGroupCommandInput,
-  DeleteDBParameterGroupCommandOutput,
 } from "./commands/DeleteDBParameterGroupCommand";
 import {
+  type DeleteDBSubnetGroupCommandInput,
+  type DeleteDBSubnetGroupCommandOutput,
   DeleteDBSubnetGroupCommand,
-  DeleteDBSubnetGroupCommandInput,
-  DeleteDBSubnetGroupCommandOutput,
 } from "./commands/DeleteDBSubnetGroupCommand";
 import {
+  type DeleteEventSubscriptionCommandInput,
+  type DeleteEventSubscriptionCommandOutput,
   DeleteEventSubscriptionCommand,
-  DeleteEventSubscriptionCommandInput,
-  DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
 import {
+  type DeleteGlobalClusterCommandInput,
+  type DeleteGlobalClusterCommandOutput,
   DeleteGlobalClusterCommand,
-  DeleteGlobalClusterCommandInput,
-  DeleteGlobalClusterCommandOutput,
 } from "./commands/DeleteGlobalClusterCommand";
 import {
+  type DescribeDBClusterEndpointsCommandInput,
+  type DescribeDBClusterEndpointsCommandOutput,
   DescribeDBClusterEndpointsCommand,
-  DescribeDBClusterEndpointsCommandInput,
-  DescribeDBClusterEndpointsCommandOutput,
 } from "./commands/DescribeDBClusterEndpointsCommand";
 import {
+  type DescribeDBClusterParameterGroupsCommandInput,
+  type DescribeDBClusterParameterGroupsCommandOutput,
   DescribeDBClusterParameterGroupsCommand,
-  DescribeDBClusterParameterGroupsCommandInput,
-  DescribeDBClusterParameterGroupsCommandOutput,
 } from "./commands/DescribeDBClusterParameterGroupsCommand";
 import {
+  type DescribeDBClusterParametersCommandInput,
+  type DescribeDBClusterParametersCommandOutput,
   DescribeDBClusterParametersCommand,
-  DescribeDBClusterParametersCommandInput,
-  DescribeDBClusterParametersCommandOutput,
 } from "./commands/DescribeDBClusterParametersCommand";
 import {
+  type DescribeDBClustersCommandInput,
+  type DescribeDBClustersCommandOutput,
   DescribeDBClustersCommand,
-  DescribeDBClustersCommandInput,
-  DescribeDBClustersCommandOutput,
 } from "./commands/DescribeDBClustersCommand";
 import {
+  type DescribeDBClusterSnapshotAttributesCommandInput,
+  type DescribeDBClusterSnapshotAttributesCommandOutput,
   DescribeDBClusterSnapshotAttributesCommand,
-  DescribeDBClusterSnapshotAttributesCommandInput,
-  DescribeDBClusterSnapshotAttributesCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotAttributesCommand";
 import {
+  type DescribeDBClusterSnapshotsCommandInput,
+  type DescribeDBClusterSnapshotsCommandOutput,
   DescribeDBClusterSnapshotsCommand,
-  DescribeDBClusterSnapshotsCommandInput,
-  DescribeDBClusterSnapshotsCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotsCommand";
 import {
+  type DescribeDBEngineVersionsCommandInput,
+  type DescribeDBEngineVersionsCommandOutput,
   DescribeDBEngineVersionsCommand,
-  DescribeDBEngineVersionsCommandInput,
-  DescribeDBEngineVersionsCommandOutput,
 } from "./commands/DescribeDBEngineVersionsCommand";
 import {
+  type DescribeDBInstancesCommandInput,
+  type DescribeDBInstancesCommandOutput,
   DescribeDBInstancesCommand,
-  DescribeDBInstancesCommandInput,
-  DescribeDBInstancesCommandOutput,
 } from "./commands/DescribeDBInstancesCommand";
 import {
+  type DescribeDBParameterGroupsCommandInput,
+  type DescribeDBParameterGroupsCommandOutput,
   DescribeDBParameterGroupsCommand,
-  DescribeDBParameterGroupsCommandInput,
-  DescribeDBParameterGroupsCommandOutput,
 } from "./commands/DescribeDBParameterGroupsCommand";
 import {
+  type DescribeDBParametersCommandInput,
+  type DescribeDBParametersCommandOutput,
   DescribeDBParametersCommand,
-  DescribeDBParametersCommandInput,
-  DescribeDBParametersCommandOutput,
 } from "./commands/DescribeDBParametersCommand";
 import {
+  type DescribeDBSubnetGroupsCommandInput,
+  type DescribeDBSubnetGroupsCommandOutput,
   DescribeDBSubnetGroupsCommand,
-  DescribeDBSubnetGroupsCommandInput,
-  DescribeDBSubnetGroupsCommandOutput,
 } from "./commands/DescribeDBSubnetGroupsCommand";
 import {
+  type DescribeEngineDefaultClusterParametersCommandInput,
+  type DescribeEngineDefaultClusterParametersCommandOutput,
   DescribeEngineDefaultClusterParametersCommand,
-  DescribeEngineDefaultClusterParametersCommandInput,
-  DescribeEngineDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultClusterParametersCommand";
 import {
+  type DescribeEngineDefaultParametersCommandInput,
+  type DescribeEngineDefaultParametersCommandOutput,
   DescribeEngineDefaultParametersCommand,
-  DescribeEngineDefaultParametersCommandInput,
-  DescribeEngineDefaultParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultParametersCommand";
 import {
+  type DescribeEventCategoriesCommandInput,
+  type DescribeEventCategoriesCommandOutput,
   DescribeEventCategoriesCommand,
-  DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
 import {
+  type DescribeEventsCommandInput,
+  type DescribeEventsCommandOutput,
   DescribeEventsCommand,
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  type DescribeEventSubscriptionsCommandInput,
+  type DescribeEventSubscriptionsCommandOutput,
   DescribeEventSubscriptionsCommand,
-  DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
 import {
+  type DescribeGlobalClustersCommandInput,
+  type DescribeGlobalClustersCommandOutput,
   DescribeGlobalClustersCommand,
-  DescribeGlobalClustersCommandInput,
-  DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand";
 import {
+  type DescribeOrderableDBInstanceOptionsCommandInput,
+  type DescribeOrderableDBInstanceOptionsCommandOutput,
   DescribeOrderableDBInstanceOptionsCommand,
-  DescribeOrderableDBInstanceOptionsCommandInput,
-  DescribeOrderableDBInstanceOptionsCommandOutput,
 } from "./commands/DescribeOrderableDBInstanceOptionsCommand";
 import {
+  type DescribePendingMaintenanceActionsCommandInput,
+  type DescribePendingMaintenanceActionsCommandOutput,
   DescribePendingMaintenanceActionsCommand,
-  DescribePendingMaintenanceActionsCommandInput,
-  DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand";
 import {
+  type DescribeValidDBInstanceModificationsCommandInput,
+  type DescribeValidDBInstanceModificationsCommandOutput,
   DescribeValidDBInstanceModificationsCommand,
-  DescribeValidDBInstanceModificationsCommandInput,
-  DescribeValidDBInstanceModificationsCommandOutput,
 } from "./commands/DescribeValidDBInstanceModificationsCommand";
 import {
+  type FailoverDBClusterCommandInput,
+  type FailoverDBClusterCommandOutput,
   FailoverDBClusterCommand,
-  FailoverDBClusterCommandInput,
-  FailoverDBClusterCommandOutput,
 } from "./commands/FailoverDBClusterCommand";
 import {
+  type FailoverGlobalClusterCommandInput,
+  type FailoverGlobalClusterCommandOutput,
   FailoverGlobalClusterCommand,
-  FailoverGlobalClusterCommandInput,
-  FailoverGlobalClusterCommandOutput,
 } from "./commands/FailoverGlobalClusterCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ModifyDBClusterCommandInput,
+  type ModifyDBClusterCommandOutput,
   ModifyDBClusterCommand,
-  ModifyDBClusterCommandInput,
-  ModifyDBClusterCommandOutput,
 } from "./commands/ModifyDBClusterCommand";
 import {
+  type ModifyDBClusterEndpointCommandInput,
+  type ModifyDBClusterEndpointCommandOutput,
   ModifyDBClusterEndpointCommand,
-  ModifyDBClusterEndpointCommandInput,
-  ModifyDBClusterEndpointCommandOutput,
 } from "./commands/ModifyDBClusterEndpointCommand";
 import {
+  type ModifyDBClusterParameterGroupCommandInput,
+  type ModifyDBClusterParameterGroupCommandOutput,
   ModifyDBClusterParameterGroupCommand,
-  ModifyDBClusterParameterGroupCommandInput,
-  ModifyDBClusterParameterGroupCommandOutput,
 } from "./commands/ModifyDBClusterParameterGroupCommand";
 import {
+  type ModifyDBClusterSnapshotAttributeCommandInput,
+  type ModifyDBClusterSnapshotAttributeCommandOutput,
   ModifyDBClusterSnapshotAttributeCommand,
-  ModifyDBClusterSnapshotAttributeCommandInput,
-  ModifyDBClusterSnapshotAttributeCommandOutput,
 } from "./commands/ModifyDBClusterSnapshotAttributeCommand";
 import {
+  type ModifyDBInstanceCommandInput,
+  type ModifyDBInstanceCommandOutput,
   ModifyDBInstanceCommand,
-  ModifyDBInstanceCommandInput,
-  ModifyDBInstanceCommandOutput,
 } from "./commands/ModifyDBInstanceCommand";
 import {
+  type ModifyDBParameterGroupCommandInput,
+  type ModifyDBParameterGroupCommandOutput,
   ModifyDBParameterGroupCommand,
-  ModifyDBParameterGroupCommandInput,
-  ModifyDBParameterGroupCommandOutput,
 } from "./commands/ModifyDBParameterGroupCommand";
 import {
+  type ModifyDBSubnetGroupCommandInput,
+  type ModifyDBSubnetGroupCommandOutput,
   ModifyDBSubnetGroupCommand,
-  ModifyDBSubnetGroupCommandInput,
-  ModifyDBSubnetGroupCommandOutput,
 } from "./commands/ModifyDBSubnetGroupCommand";
 import {
+  type ModifyEventSubscriptionCommandInput,
+  type ModifyEventSubscriptionCommandOutput,
   ModifyEventSubscriptionCommand,
-  ModifyEventSubscriptionCommandInput,
-  ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  type ModifyGlobalClusterCommandInput,
+  type ModifyGlobalClusterCommandOutput,
   ModifyGlobalClusterCommand,
-  ModifyGlobalClusterCommandInput,
-  ModifyGlobalClusterCommandOutput,
 } from "./commands/ModifyGlobalClusterCommand";
 import {
+  type PromoteReadReplicaDBClusterCommandInput,
+  type PromoteReadReplicaDBClusterCommandOutput,
   PromoteReadReplicaDBClusterCommand,
-  PromoteReadReplicaDBClusterCommandInput,
-  PromoteReadReplicaDBClusterCommandOutput,
 } from "./commands/PromoteReadReplicaDBClusterCommand";
 import {
+  type RebootDBInstanceCommandInput,
+  type RebootDBInstanceCommandOutput,
   RebootDBInstanceCommand,
-  RebootDBInstanceCommandInput,
-  RebootDBInstanceCommandOutput,
 } from "./commands/RebootDBInstanceCommand";
 import {
+  type RemoveFromGlobalClusterCommandInput,
+  type RemoveFromGlobalClusterCommandOutput,
   RemoveFromGlobalClusterCommand,
-  RemoveFromGlobalClusterCommandInput,
-  RemoveFromGlobalClusterCommandOutput,
 } from "./commands/RemoveFromGlobalClusterCommand";
 import {
+  type RemoveRoleFromDBClusterCommandInput,
+  type RemoveRoleFromDBClusterCommandOutput,
   RemoveRoleFromDBClusterCommand,
-  RemoveRoleFromDBClusterCommandInput,
-  RemoveRoleFromDBClusterCommandOutput,
 } from "./commands/RemoveRoleFromDBClusterCommand";
 import {
+  type RemoveSourceIdentifierFromSubscriptionCommandInput,
+  type RemoveSourceIdentifierFromSubscriptionCommandOutput,
   RemoveSourceIdentifierFromSubscriptionCommand,
-  RemoveSourceIdentifierFromSubscriptionCommandInput,
-  RemoveSourceIdentifierFromSubscriptionCommandOutput,
 } from "./commands/RemoveSourceIdentifierFromSubscriptionCommand";
 import {
+  type RemoveTagsFromResourceCommandInput,
+  type RemoveTagsFromResourceCommandOutput,
   RemoveTagsFromResourceCommand,
-  RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 import {
+  type ResetDBClusterParameterGroupCommandInput,
+  type ResetDBClusterParameterGroupCommandOutput,
   ResetDBClusterParameterGroupCommand,
-  ResetDBClusterParameterGroupCommandInput,
-  ResetDBClusterParameterGroupCommandOutput,
 } from "./commands/ResetDBClusterParameterGroupCommand";
 import {
+  type ResetDBParameterGroupCommandInput,
+  type ResetDBParameterGroupCommandOutput,
   ResetDBParameterGroupCommand,
-  ResetDBParameterGroupCommandInput,
-  ResetDBParameterGroupCommandOutput,
 } from "./commands/ResetDBParameterGroupCommand";
 import {
+  type RestoreDBClusterFromSnapshotCommandInput,
+  type RestoreDBClusterFromSnapshotCommandOutput,
   RestoreDBClusterFromSnapshotCommand,
-  RestoreDBClusterFromSnapshotCommandInput,
-  RestoreDBClusterFromSnapshotCommandOutput,
 } from "./commands/RestoreDBClusterFromSnapshotCommand";
 import {
+  type RestoreDBClusterToPointInTimeCommandInput,
+  type RestoreDBClusterToPointInTimeCommandOutput,
   RestoreDBClusterToPointInTimeCommand,
-  RestoreDBClusterToPointInTimeCommandInput,
-  RestoreDBClusterToPointInTimeCommandOutput,
 } from "./commands/RestoreDBClusterToPointInTimeCommand";
 import {
+  type StartDBClusterCommandInput,
+  type StartDBClusterCommandOutput,
   StartDBClusterCommand,
-  StartDBClusterCommandInput,
-  StartDBClusterCommandOutput,
 } from "./commands/StartDBClusterCommand";
 import {
+  type StopDBClusterCommandInput,
+  type StopDBClusterCommandOutput,
   StopDBClusterCommand,
-  StopDBClusterCommandInput,
-  StopDBClusterCommandOutput,
 } from "./commands/StopDBClusterCommand";
 import {
+  type SwitchoverGlobalClusterCommandInput,
+  type SwitchoverGlobalClusterCommandOutput,
   SwitchoverGlobalClusterCommand,
-  SwitchoverGlobalClusterCommandInput,
-  SwitchoverGlobalClusterCommandOutput,
 } from "./commands/SwitchoverGlobalClusterCommand";
 import { NeptuneClient } from "./NeptuneClient";
 import { paginateDescribeDBClusterEndpoints } from "./pagination/DescribeDBClusterEndpointsPaginator";

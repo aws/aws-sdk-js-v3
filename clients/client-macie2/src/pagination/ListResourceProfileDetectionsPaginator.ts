@@ -8,7 +8,7 @@ import {
   ListResourceProfileDetectionsCommandOutput,
 } from "../commands/ListResourceProfileDetectionsCommand";
 import { Macie2Client } from "../Macie2Client";
-import { Macie2PaginationConfiguration } from "./Interfaces";
+import type { Macie2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

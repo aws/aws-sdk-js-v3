@@ -49,7 +49,7 @@
  */
 export * from "./BudgetsClient";
 export * from "./Budgets";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BudgetsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

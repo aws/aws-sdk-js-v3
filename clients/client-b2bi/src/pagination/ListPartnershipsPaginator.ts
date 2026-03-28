@@ -8,7 +8,7 @@ import {
   ListPartnershipsCommandInput,
   ListPartnershipsCommandOutput,
 } from "../commands/ListPartnershipsCommand";
-import { B2biPaginationConfiguration } from "./Interfaces";
+import type { B2biPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListScheduledActionsCommandOutput,
 } from "../commands/ListScheduledActionsCommand";
 import { OpenSearchClient } from "../OpenSearchClient";
-import { OpenSearchPaginationConfiguration } from "./Interfaces";
+import type { OpenSearchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

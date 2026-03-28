@@ -8,7 +8,7 @@ import {
   ListListenersCommandOutput,
 } from "../commands/ListListenersCommand";
 import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
-import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
+import type { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

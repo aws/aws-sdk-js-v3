@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CloudDirectoryServiceException as __BaseException } from "./CloudDirectoryServiceException";
-import { BatchWriteExceptionType } from "./enums";
+import type { BatchWriteExceptionType } from "./enums";
 
 /**
  * <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>

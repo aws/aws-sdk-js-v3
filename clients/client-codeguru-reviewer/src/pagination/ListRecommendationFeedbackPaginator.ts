@@ -8,7 +8,7 @@ import {
   ListRecommendationFeedbackCommandInput,
   ListRecommendationFeedbackCommandOutput,
 } from "../commands/ListRecommendationFeedbackCommand";
-import { CodeGuruReviewerPaginationConfiguration } from "./Interfaces";
+import type { CodeGuruReviewerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

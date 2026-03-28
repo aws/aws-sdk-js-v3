@@ -8,7 +8,7 @@ import {
   ListUsageProfilesCommandOutput,
 } from "../commands/ListUsageProfilesCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

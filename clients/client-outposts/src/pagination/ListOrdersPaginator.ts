@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListOrdersCommand, ListOrdersCommandInput, ListOrdersCommandOutput } from "../commands/ListOrdersCommand";
 import { OutpostsClient } from "../OutpostsClient";
-import { OutpostsPaginationConfiguration } from "./Interfaces";
+import type { OutpostsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

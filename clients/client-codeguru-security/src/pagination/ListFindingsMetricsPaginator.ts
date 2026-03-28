@@ -8,7 +8,7 @@ import {
   ListFindingsMetricsCommandInput,
   ListFindingsMetricsCommandOutput,
 } from "../commands/ListFindingsMetricsCommand";
-import { CodeGuruSecurityPaginationConfiguration } from "./Interfaces";
+import type { CodeGuruSecurityPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

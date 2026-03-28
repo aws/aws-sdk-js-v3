@@ -3,145 +3,149 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateServiceRoleToAccountCommandInput,
+  type AssociateServiceRoleToAccountCommandOutput,
   AssociateServiceRoleToAccountCommand,
-  AssociateServiceRoleToAccountCommandInput,
-  AssociateServiceRoleToAccountCommandOutput,
 } from "./commands/AssociateServiceRoleToAccountCommand";
 import {
+  type BatchAssociateClientDeviceWithCoreDeviceCommandInput,
+  type BatchAssociateClientDeviceWithCoreDeviceCommandOutput,
   BatchAssociateClientDeviceWithCoreDeviceCommand,
-  BatchAssociateClientDeviceWithCoreDeviceCommandInput,
-  BatchAssociateClientDeviceWithCoreDeviceCommandOutput,
 } from "./commands/BatchAssociateClientDeviceWithCoreDeviceCommand";
 import {
+  type BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
+  type BatchDisassociateClientDeviceFromCoreDeviceCommandOutput,
   BatchDisassociateClientDeviceFromCoreDeviceCommand,
-  BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
-  BatchDisassociateClientDeviceFromCoreDeviceCommandOutput,
 } from "./commands/BatchDisassociateClientDeviceFromCoreDeviceCommand";
 import {
+  type CancelDeploymentCommandInput,
+  type CancelDeploymentCommandOutput,
   CancelDeploymentCommand,
-  CancelDeploymentCommandInput,
-  CancelDeploymentCommandOutput,
 } from "./commands/CancelDeploymentCommand";
 import {
+  type CreateComponentVersionCommandInput,
+  type CreateComponentVersionCommandOutput,
   CreateComponentVersionCommand,
-  CreateComponentVersionCommandInput,
-  CreateComponentVersionCommandOutput,
 } from "./commands/CreateComponentVersionCommand";
 import {
+  type CreateDeploymentCommandInput,
+  type CreateDeploymentCommandOutput,
   CreateDeploymentCommand,
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput,
 } from "./commands/CreateDeploymentCommand";
 import {
+  type DeleteComponentCommandInput,
+  type DeleteComponentCommandOutput,
   DeleteComponentCommand,
-  DeleteComponentCommandInput,
-  DeleteComponentCommandOutput,
 } from "./commands/DeleteComponentCommand";
 import {
+  type DeleteCoreDeviceCommandInput,
+  type DeleteCoreDeviceCommandOutput,
   DeleteCoreDeviceCommand,
-  DeleteCoreDeviceCommandInput,
-  DeleteCoreDeviceCommandOutput,
 } from "./commands/DeleteCoreDeviceCommand";
 import {
+  type DeleteDeploymentCommandInput,
+  type DeleteDeploymentCommandOutput,
   DeleteDeploymentCommand,
-  DeleteDeploymentCommandInput,
-  DeleteDeploymentCommandOutput,
 } from "./commands/DeleteDeploymentCommand";
 import {
+  type DescribeComponentCommandInput,
+  type DescribeComponentCommandOutput,
   DescribeComponentCommand,
-  DescribeComponentCommandInput,
-  DescribeComponentCommandOutput,
 } from "./commands/DescribeComponentCommand";
 import {
+  type DisassociateServiceRoleFromAccountCommandInput,
+  type DisassociateServiceRoleFromAccountCommandOutput,
   DisassociateServiceRoleFromAccountCommand,
-  DisassociateServiceRoleFromAccountCommandInput,
-  DisassociateServiceRoleFromAccountCommandOutput,
 } from "./commands/DisassociateServiceRoleFromAccountCommand";
 import {
+  type GetComponentCommandInput,
+  type GetComponentCommandOutput,
   GetComponentCommand,
-  GetComponentCommandInput,
-  GetComponentCommandOutput,
 } from "./commands/GetComponentCommand";
 import {
+  type GetComponentVersionArtifactCommandInput,
+  type GetComponentVersionArtifactCommandOutput,
   GetComponentVersionArtifactCommand,
-  GetComponentVersionArtifactCommandInput,
-  GetComponentVersionArtifactCommandOutput,
 } from "./commands/GetComponentVersionArtifactCommand";
 import {
+  type GetConnectivityInfoCommandInput,
+  type GetConnectivityInfoCommandOutput,
   GetConnectivityInfoCommand,
-  GetConnectivityInfoCommandInput,
-  GetConnectivityInfoCommandOutput,
 } from "./commands/GetConnectivityInfoCommand";
 import {
+  type GetCoreDeviceCommandInput,
+  type GetCoreDeviceCommandOutput,
   GetCoreDeviceCommand,
-  GetCoreDeviceCommandInput,
-  GetCoreDeviceCommandOutput,
 } from "./commands/GetCoreDeviceCommand";
 import {
+  type GetDeploymentCommandInput,
+  type GetDeploymentCommandOutput,
   GetDeploymentCommand,
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput,
 } from "./commands/GetDeploymentCommand";
 import {
+  type GetServiceRoleForAccountCommandInput,
+  type GetServiceRoleForAccountCommandOutput,
   GetServiceRoleForAccountCommand,
-  GetServiceRoleForAccountCommandInput,
-  GetServiceRoleForAccountCommandOutput,
 } from "./commands/GetServiceRoleForAccountCommand";
 import {
+  type ListClientDevicesAssociatedWithCoreDeviceCommandInput,
+  type ListClientDevicesAssociatedWithCoreDeviceCommandOutput,
   ListClientDevicesAssociatedWithCoreDeviceCommand,
-  ListClientDevicesAssociatedWithCoreDeviceCommandInput,
-  ListClientDevicesAssociatedWithCoreDeviceCommandOutput,
 } from "./commands/ListClientDevicesAssociatedWithCoreDeviceCommand";
 import {
+  type ListComponentsCommandInput,
+  type ListComponentsCommandOutput,
   ListComponentsCommand,
-  ListComponentsCommandInput,
-  ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
 import {
+  type ListComponentVersionsCommandInput,
+  type ListComponentVersionsCommandOutput,
   ListComponentVersionsCommand,
-  ListComponentVersionsCommandInput,
-  ListComponentVersionsCommandOutput,
 } from "./commands/ListComponentVersionsCommand";
 import {
+  type ListCoreDevicesCommandInput,
+  type ListCoreDevicesCommandOutput,
   ListCoreDevicesCommand,
-  ListCoreDevicesCommandInput,
-  ListCoreDevicesCommandOutput,
 } from "./commands/ListCoreDevicesCommand";
 import {
+  type ListDeploymentsCommandInput,
+  type ListDeploymentsCommandOutput,
   ListDeploymentsCommand,
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand";
 import {
+  type ListEffectiveDeploymentsCommandInput,
+  type ListEffectiveDeploymentsCommandOutput,
   ListEffectiveDeploymentsCommand,
-  ListEffectiveDeploymentsCommandInput,
-  ListEffectiveDeploymentsCommandOutput,
 } from "./commands/ListEffectiveDeploymentsCommand";
 import {
+  type ListInstalledComponentsCommandInput,
+  type ListInstalledComponentsCommandOutput,
   ListInstalledComponentsCommand,
-  ListInstalledComponentsCommandInput,
-  ListInstalledComponentsCommandOutput,
 } from "./commands/ListInstalledComponentsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ResolveComponentCandidatesCommandInput,
+  type ResolveComponentCandidatesCommandOutput,
   ResolveComponentCandidatesCommand,
-  ResolveComponentCandidatesCommandInput,
-  ResolveComponentCandidatesCommandOutput,
 } from "./commands/ResolveComponentCandidatesCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateConnectivityInfoCommandInput,
+  type UpdateConnectivityInfoCommandOutput,
   UpdateConnectivityInfoCommand,
-  UpdateConnectivityInfoCommandInput,
-  UpdateConnectivityInfoCommandOutput,
 } from "./commands/UpdateConnectivityInfoCommand";
 import { GreengrassV2Client } from "./GreengrassV2Client";
 import {

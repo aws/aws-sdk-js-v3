@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { CloudFormationClient } from "../CloudFormationClient";
-import { DescribeChangeSetCommand, DescribeChangeSetCommandInput } from "../commands/DescribeChangeSetCommand";
+import type { CloudFormationClient } from "../CloudFormationClient";
+import { type DescribeChangeSetCommandInput, DescribeChangeSetCommand } from "../commands/DescribeChangeSetCommand";
 
 const checkState = async (client: CloudFormationClient, input: DescribeChangeSetCommandInput): Promise<WaiterResult> => {
   let reason;

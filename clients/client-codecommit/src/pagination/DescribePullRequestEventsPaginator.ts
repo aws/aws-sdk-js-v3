@@ -8,7 +8,7 @@ import {
   DescribePullRequestEventsCommandInput,
   DescribePullRequestEventsCommandOutput,
 } from "../commands/DescribePullRequestEventsCommand";
-import { CodeCommitPaginationConfiguration } from "./Interfaces";
+import type { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   GetVehicleStatusCommandOutput,
 } from "../commands/GetVehicleStatusCommand";
 import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
-import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
+import type { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

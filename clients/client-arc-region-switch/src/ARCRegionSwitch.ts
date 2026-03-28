@@ -10,85 +10,101 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { ARCRegionSwitchClient } from "./ARCRegionSwitchClient";
 import {
+  type ApprovePlanExecutionStepCommandInput,
+  type ApprovePlanExecutionStepCommandOutput,
   ApprovePlanExecutionStepCommand,
-  ApprovePlanExecutionStepCommandInput,
-  ApprovePlanExecutionStepCommandOutput,
 } from "./commands/ApprovePlanExecutionStepCommand";
 import {
+  type CancelPlanExecutionCommandInput,
+  type CancelPlanExecutionCommandOutput,
   CancelPlanExecutionCommand,
-  CancelPlanExecutionCommandInput,
-  CancelPlanExecutionCommandOutput,
 } from "./commands/CancelPlanExecutionCommand";
-import { CreatePlanCommand, CreatePlanCommandInput, CreatePlanCommandOutput } from "./commands/CreatePlanCommand";
-import { DeletePlanCommand, DeletePlanCommandInput, DeletePlanCommandOutput } from "./commands/DeletePlanCommand";
-import { GetPlanCommand, GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
 import {
+  type CreatePlanCommandInput,
+  type CreatePlanCommandOutput,
+  CreatePlanCommand,
+} from "./commands/CreatePlanCommand";
+import {
+  type DeletePlanCommandInput,
+  type DeletePlanCommandOutput,
+  DeletePlanCommand,
+} from "./commands/DeletePlanCommand";
+import { type GetPlanCommandInput, type GetPlanCommandOutput, GetPlanCommand } from "./commands/GetPlanCommand";
+import {
+  type GetPlanEvaluationStatusCommandInput,
+  type GetPlanEvaluationStatusCommandOutput,
   GetPlanEvaluationStatusCommand,
-  GetPlanEvaluationStatusCommandInput,
-  GetPlanEvaluationStatusCommandOutput,
 } from "./commands/GetPlanEvaluationStatusCommand";
 import {
+  type GetPlanExecutionCommandInput,
+  type GetPlanExecutionCommandOutput,
   GetPlanExecutionCommand,
-  GetPlanExecutionCommandInput,
-  GetPlanExecutionCommandOutput,
 } from "./commands/GetPlanExecutionCommand";
 import {
+  type GetPlanInRegionCommandInput,
+  type GetPlanInRegionCommandOutput,
   GetPlanInRegionCommand,
-  GetPlanInRegionCommandInput,
-  GetPlanInRegionCommandOutput,
 } from "./commands/GetPlanInRegionCommand";
 import {
+  type ListPlanExecutionEventsCommandInput,
+  type ListPlanExecutionEventsCommandOutput,
   ListPlanExecutionEventsCommand,
-  ListPlanExecutionEventsCommandInput,
-  ListPlanExecutionEventsCommandOutput,
 } from "./commands/ListPlanExecutionEventsCommand";
 import {
+  type ListPlanExecutionsCommandInput,
+  type ListPlanExecutionsCommandOutput,
   ListPlanExecutionsCommand,
-  ListPlanExecutionsCommandInput,
-  ListPlanExecutionsCommandOutput,
 } from "./commands/ListPlanExecutionsCommand";
-import { ListPlansCommand, ListPlansCommandInput, ListPlansCommandOutput } from "./commands/ListPlansCommand";
+import { type ListPlansCommandInput, type ListPlansCommandOutput, ListPlansCommand } from "./commands/ListPlansCommand";
 import {
+  type ListPlansInRegionCommandInput,
+  type ListPlansInRegionCommandOutput,
   ListPlansInRegionCommand,
-  ListPlansInRegionCommandInput,
-  ListPlansInRegionCommandOutput,
 } from "./commands/ListPlansInRegionCommand";
 import {
+  type ListRoute53HealthChecksCommandInput,
+  type ListRoute53HealthChecksCommandOutput,
   ListRoute53HealthChecksCommand,
-  ListRoute53HealthChecksCommandInput,
-  ListRoute53HealthChecksCommandOutput,
 } from "./commands/ListRoute53HealthChecksCommand";
 import {
+  type ListRoute53HealthChecksInRegionCommandInput,
+  type ListRoute53HealthChecksInRegionCommandOutput,
   ListRoute53HealthChecksInRegionCommand,
-  ListRoute53HealthChecksInRegionCommandInput,
-  ListRoute53HealthChecksInRegionCommandOutput,
 } from "./commands/ListRoute53HealthChecksInRegionCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartPlanExecutionCommandInput,
+  type StartPlanExecutionCommandOutput,
   StartPlanExecutionCommand,
-  StartPlanExecutionCommandInput,
-  StartPlanExecutionCommandOutput,
 } from "./commands/StartPlanExecutionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdatePlanCommand, UpdatePlanCommandInput, UpdatePlanCommandOutput } from "./commands/UpdatePlanCommand";
 import {
+  type UpdatePlanCommandInput,
+  type UpdatePlanCommandOutput,
+  UpdatePlanCommand,
+} from "./commands/UpdatePlanCommand";
+import {
+  type UpdatePlanExecutionCommandInput,
+  type UpdatePlanExecutionCommandOutput,
   UpdatePlanExecutionCommand,
-  UpdatePlanExecutionCommandInput,
-  UpdatePlanExecutionCommandOutput,
 } from "./commands/UpdatePlanExecutionCommand";
 import {
+  type UpdatePlanExecutionStepCommandInput,
+  type UpdatePlanExecutionStepCommandOutput,
   UpdatePlanExecutionStepCommand,
-  UpdatePlanExecutionStepCommandInput,
-  UpdatePlanExecutionStepCommandOutput,
 } from "./commands/UpdatePlanExecutionStepCommand";
 import { paginateGetPlanEvaluationStatus } from "./pagination/GetPlanEvaluationStatusPaginator";
 import { paginateGetPlanExecution } from "./pagination/GetPlanExecutionPaginator";

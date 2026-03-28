@@ -12,7 +12,7 @@
  */
 export * from "./IoTTwinMakerClient";
 export * from "./IoTTwinMaker";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { IoTTwinMakerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

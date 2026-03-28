@@ -7,7 +7,7 @@
  */
 export * from "./KeyspacesStreamsClient";
 export * from "./KeyspacesStreams";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { KeyspacesStreamsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

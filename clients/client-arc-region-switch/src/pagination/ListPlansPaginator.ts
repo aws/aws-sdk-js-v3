@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ARCRegionSwitchClient } from "../ARCRegionSwitchClient";
 import { ListPlansCommand, ListPlansCommandInput, ListPlansCommandOutput } from "../commands/ListPlansCommand";
-import { ARCRegionSwitchPaginationConfiguration } from "./Interfaces";
+import type { ARCRegionSwitchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

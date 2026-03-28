@@ -8,7 +8,7 @@ import {
   GetSegmentDetectionCommandOutput,
 } from "../commands/GetSegmentDetectionCommand";
 import { RekognitionClient } from "../RekognitionClient";
-import { RekognitionPaginationConfiguration } from "./Interfaces";
+import type { RekognitionPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

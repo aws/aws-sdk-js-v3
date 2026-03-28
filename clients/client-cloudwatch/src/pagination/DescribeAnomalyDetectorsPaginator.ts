@@ -8,7 +8,7 @@ import {
   DescribeAnomalyDetectorsCommandInput,
   DescribeAnomalyDetectorsCommandOutput,
 } from "../commands/DescribeAnomalyDetectorsCommand";
-import { CloudWatchPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

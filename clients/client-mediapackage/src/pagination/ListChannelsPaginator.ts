@@ -8,7 +8,7 @@ import {
   ListChannelsCommandOutput,
 } from "../commands/ListChannelsCommand";
 import { MediaPackageClient } from "../MediaPackageClient";
-import { MediaPackagePaginationConfiguration } from "./Interfaces";
+import type { MediaPackagePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

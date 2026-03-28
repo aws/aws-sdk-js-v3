@@ -8,7 +8,7 @@ import {
   ListTableStorageOptimizersCommandOutput,
 } from "../commands/ListTableStorageOptimizersCommand";
 import { LakeFormationClient } from "../LakeFormationClient";
-import { LakeFormationPaginationConfiguration } from "./Interfaces";
+import type { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

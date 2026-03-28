@@ -3,122 +3,130 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateExperimentTemplateCommandInput,
+  type CreateExperimentTemplateCommandOutput,
   CreateExperimentTemplateCommand,
-  CreateExperimentTemplateCommandInput,
-  CreateExperimentTemplateCommandOutput,
 } from "./commands/CreateExperimentTemplateCommand";
 import {
+  type CreateTargetAccountConfigurationCommandInput,
+  type CreateTargetAccountConfigurationCommandOutput,
   CreateTargetAccountConfigurationCommand,
-  CreateTargetAccountConfigurationCommandInput,
-  CreateTargetAccountConfigurationCommandOutput,
 } from "./commands/CreateTargetAccountConfigurationCommand";
 import {
+  type DeleteExperimentTemplateCommandInput,
+  type DeleteExperimentTemplateCommandOutput,
   DeleteExperimentTemplateCommand,
-  DeleteExperimentTemplateCommandInput,
-  DeleteExperimentTemplateCommandOutput,
 } from "./commands/DeleteExperimentTemplateCommand";
 import {
+  type DeleteTargetAccountConfigurationCommandInput,
+  type DeleteTargetAccountConfigurationCommandOutput,
   DeleteTargetAccountConfigurationCommand,
-  DeleteTargetAccountConfigurationCommandInput,
-  DeleteTargetAccountConfigurationCommandOutput,
 } from "./commands/DeleteTargetAccountConfigurationCommand";
-import { GetActionCommand, GetActionCommandInput, GetActionCommandOutput } from "./commands/GetActionCommand";
+import { type GetActionCommandInput, type GetActionCommandOutput, GetActionCommand } from "./commands/GetActionCommand";
 import {
+  type GetExperimentCommandInput,
+  type GetExperimentCommandOutput,
   GetExperimentCommand,
-  GetExperimentCommandInput,
-  GetExperimentCommandOutput,
 } from "./commands/GetExperimentCommand";
 import {
+  type GetExperimentTargetAccountConfigurationCommandInput,
+  type GetExperimentTargetAccountConfigurationCommandOutput,
   GetExperimentTargetAccountConfigurationCommand,
-  GetExperimentTargetAccountConfigurationCommandInput,
-  GetExperimentTargetAccountConfigurationCommandOutput,
 } from "./commands/GetExperimentTargetAccountConfigurationCommand";
 import {
+  type GetExperimentTemplateCommandInput,
+  type GetExperimentTemplateCommandOutput,
   GetExperimentTemplateCommand,
-  GetExperimentTemplateCommandInput,
-  GetExperimentTemplateCommandOutput,
 } from "./commands/GetExperimentTemplateCommand";
 import {
+  type GetSafetyLeverCommandInput,
+  type GetSafetyLeverCommandOutput,
   GetSafetyLeverCommand,
-  GetSafetyLeverCommandInput,
-  GetSafetyLeverCommandOutput,
 } from "./commands/GetSafetyLeverCommand";
 import {
+  type GetTargetAccountConfigurationCommandInput,
+  type GetTargetAccountConfigurationCommandOutput,
   GetTargetAccountConfigurationCommand,
-  GetTargetAccountConfigurationCommandInput,
-  GetTargetAccountConfigurationCommandOutput,
 } from "./commands/GetTargetAccountConfigurationCommand";
 import {
+  type GetTargetResourceTypeCommandInput,
+  type GetTargetResourceTypeCommandOutput,
   GetTargetResourceTypeCommand,
-  GetTargetResourceTypeCommandInput,
-  GetTargetResourceTypeCommandOutput,
 } from "./commands/GetTargetResourceTypeCommand";
-import { ListActionsCommand, ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import {
+  type ListActionsCommandInput,
+  type ListActionsCommandOutput,
+  ListActionsCommand,
+} from "./commands/ListActionsCommand";
+import {
+  type ListExperimentResolvedTargetsCommandInput,
+  type ListExperimentResolvedTargetsCommandOutput,
   ListExperimentResolvedTargetsCommand,
-  ListExperimentResolvedTargetsCommandInput,
-  ListExperimentResolvedTargetsCommandOutput,
 } from "./commands/ListExperimentResolvedTargetsCommand";
 import {
+  type ListExperimentsCommandInput,
+  type ListExperimentsCommandOutput,
   ListExperimentsCommand,
-  ListExperimentsCommandInput,
-  ListExperimentsCommandOutput,
 } from "./commands/ListExperimentsCommand";
 import {
+  type ListExperimentTargetAccountConfigurationsCommandInput,
+  type ListExperimentTargetAccountConfigurationsCommandOutput,
   ListExperimentTargetAccountConfigurationsCommand,
-  ListExperimentTargetAccountConfigurationsCommandInput,
-  ListExperimentTargetAccountConfigurationsCommandOutput,
 } from "./commands/ListExperimentTargetAccountConfigurationsCommand";
 import {
+  type ListExperimentTemplatesCommandInput,
+  type ListExperimentTemplatesCommandOutput,
   ListExperimentTemplatesCommand,
-  ListExperimentTemplatesCommandInput,
-  ListExperimentTemplatesCommandOutput,
 } from "./commands/ListExperimentTemplatesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTargetAccountConfigurationsCommandInput,
+  type ListTargetAccountConfigurationsCommandOutput,
   ListTargetAccountConfigurationsCommand,
-  ListTargetAccountConfigurationsCommandInput,
-  ListTargetAccountConfigurationsCommandOutput,
 } from "./commands/ListTargetAccountConfigurationsCommand";
 import {
+  type ListTargetResourceTypesCommandInput,
+  type ListTargetResourceTypesCommandOutput,
   ListTargetResourceTypesCommand,
-  ListTargetResourceTypesCommandInput,
-  ListTargetResourceTypesCommandOutput,
 } from "./commands/ListTargetResourceTypesCommand";
 import {
+  type StartExperimentCommandInput,
+  type StartExperimentCommandOutput,
   StartExperimentCommand,
-  StartExperimentCommandInput,
-  StartExperimentCommandOutput,
 } from "./commands/StartExperimentCommand";
 import {
+  type StopExperimentCommandInput,
+  type StopExperimentCommandOutput,
   StopExperimentCommand,
-  StopExperimentCommandInput,
-  StopExperimentCommandOutput,
 } from "./commands/StopExperimentCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateExperimentTemplateCommandInput,
+  type UpdateExperimentTemplateCommandOutput,
   UpdateExperimentTemplateCommand,
-  UpdateExperimentTemplateCommandInput,
-  UpdateExperimentTemplateCommandOutput,
 } from "./commands/UpdateExperimentTemplateCommand";
 import {
+  type UpdateSafetyLeverStateCommandInput,
+  type UpdateSafetyLeverStateCommandOutput,
   UpdateSafetyLeverStateCommand,
-  UpdateSafetyLeverStateCommandInput,
-  UpdateSafetyLeverStateCommandOutput,
 } from "./commands/UpdateSafetyLeverStateCommand";
 import {
+  type UpdateTargetAccountConfigurationCommandInput,
+  type UpdateTargetAccountConfigurationCommandOutput,
   UpdateTargetAccountConfigurationCommand,
-  UpdateTargetAccountConfigurationCommandInput,
-  UpdateTargetAccountConfigurationCommandOutput,
 } from "./commands/UpdateTargetAccountConfigurationCommand";
 import { FisClient } from "./FisClient";
 import { paginateListActions } from "./pagination/ListActionsPaginator";

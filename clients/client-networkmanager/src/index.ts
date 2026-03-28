@@ -7,7 +7,7 @@
  */
 export * from "./NetworkManagerClient";
 export * from "./NetworkManager";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { NetworkManagerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

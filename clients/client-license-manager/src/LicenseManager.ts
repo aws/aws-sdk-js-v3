@@ -2,275 +2,311 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { AcceptGrantCommand, AcceptGrantCommandInput, AcceptGrantCommandOutput } from "./commands/AcceptGrantCommand";
 import {
+  type AcceptGrantCommandInput,
+  type AcceptGrantCommandOutput,
+  AcceptGrantCommand,
+} from "./commands/AcceptGrantCommand";
+import {
+  type CheckInLicenseCommandInput,
+  type CheckInLicenseCommandOutput,
   CheckInLicenseCommand,
-  CheckInLicenseCommandInput,
-  CheckInLicenseCommandOutput,
 } from "./commands/CheckInLicenseCommand";
 import {
+  type CheckoutBorrowLicenseCommandInput,
+  type CheckoutBorrowLicenseCommandOutput,
   CheckoutBorrowLicenseCommand,
-  CheckoutBorrowLicenseCommandInput,
-  CheckoutBorrowLicenseCommandOutput,
 } from "./commands/CheckoutBorrowLicenseCommand";
 import {
+  type CheckoutLicenseCommandInput,
+  type CheckoutLicenseCommandOutput,
   CheckoutLicenseCommand,
-  CheckoutLicenseCommandInput,
-  CheckoutLicenseCommandOutput,
 } from "./commands/CheckoutLicenseCommand";
-import { CreateGrantCommand, CreateGrantCommandInput, CreateGrantCommandOutput } from "./commands/CreateGrantCommand";
 import {
+  type CreateGrantCommandInput,
+  type CreateGrantCommandOutput,
+  CreateGrantCommand,
+} from "./commands/CreateGrantCommand";
+import {
+  type CreateGrantVersionCommandInput,
+  type CreateGrantVersionCommandOutput,
   CreateGrantVersionCommand,
-  CreateGrantVersionCommandInput,
-  CreateGrantVersionCommandOutput,
 } from "./commands/CreateGrantVersionCommand";
 import {
+  type CreateLicenseAssetGroupCommandInput,
+  type CreateLicenseAssetGroupCommandOutput,
   CreateLicenseAssetGroupCommand,
-  CreateLicenseAssetGroupCommandInput,
-  CreateLicenseAssetGroupCommandOutput,
 } from "./commands/CreateLicenseAssetGroupCommand";
 import {
+  type CreateLicenseAssetRulesetCommandInput,
+  type CreateLicenseAssetRulesetCommandOutput,
   CreateLicenseAssetRulesetCommand,
-  CreateLicenseAssetRulesetCommandInput,
-  CreateLicenseAssetRulesetCommandOutput,
 } from "./commands/CreateLicenseAssetRulesetCommand";
 import {
+  type CreateLicenseCommandInput,
+  type CreateLicenseCommandOutput,
   CreateLicenseCommand,
-  CreateLicenseCommandInput,
-  CreateLicenseCommandOutput,
 } from "./commands/CreateLicenseCommand";
 import {
+  type CreateLicenseConfigurationCommandInput,
+  type CreateLicenseConfigurationCommandOutput,
   CreateLicenseConfigurationCommand,
-  CreateLicenseConfigurationCommandInput,
-  CreateLicenseConfigurationCommandOutput,
 } from "./commands/CreateLicenseConfigurationCommand";
 import {
+  type CreateLicenseConversionTaskForResourceCommandInput,
+  type CreateLicenseConversionTaskForResourceCommandOutput,
   CreateLicenseConversionTaskForResourceCommand,
-  CreateLicenseConversionTaskForResourceCommandInput,
-  CreateLicenseConversionTaskForResourceCommandOutput,
 } from "./commands/CreateLicenseConversionTaskForResourceCommand";
 import {
+  type CreateLicenseManagerReportGeneratorCommandInput,
+  type CreateLicenseManagerReportGeneratorCommandOutput,
   CreateLicenseManagerReportGeneratorCommand,
-  CreateLicenseManagerReportGeneratorCommandInput,
-  CreateLicenseManagerReportGeneratorCommandOutput,
 } from "./commands/CreateLicenseManagerReportGeneratorCommand";
 import {
+  type CreateLicenseVersionCommandInput,
+  type CreateLicenseVersionCommandOutput,
   CreateLicenseVersionCommand,
-  CreateLicenseVersionCommandInput,
-  CreateLicenseVersionCommandOutput,
 } from "./commands/CreateLicenseVersionCommand";
-import { CreateTokenCommand, CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
-import { DeleteGrantCommand, DeleteGrantCommandInput, DeleteGrantCommandOutput } from "./commands/DeleteGrantCommand";
 import {
+  type CreateTokenCommandInput,
+  type CreateTokenCommandOutput,
+  CreateTokenCommand,
+} from "./commands/CreateTokenCommand";
+import {
+  type DeleteGrantCommandInput,
+  type DeleteGrantCommandOutput,
+  DeleteGrantCommand,
+} from "./commands/DeleteGrantCommand";
+import {
+  type DeleteLicenseAssetGroupCommandInput,
+  type DeleteLicenseAssetGroupCommandOutput,
   DeleteLicenseAssetGroupCommand,
-  DeleteLicenseAssetGroupCommandInput,
-  DeleteLicenseAssetGroupCommandOutput,
 } from "./commands/DeleteLicenseAssetGroupCommand";
 import {
+  type DeleteLicenseAssetRulesetCommandInput,
+  type DeleteLicenseAssetRulesetCommandOutput,
   DeleteLicenseAssetRulesetCommand,
-  DeleteLicenseAssetRulesetCommandInput,
-  DeleteLicenseAssetRulesetCommandOutput,
 } from "./commands/DeleteLicenseAssetRulesetCommand";
 import {
+  type DeleteLicenseCommandInput,
+  type DeleteLicenseCommandOutput,
   DeleteLicenseCommand,
-  DeleteLicenseCommandInput,
-  DeleteLicenseCommandOutput,
 } from "./commands/DeleteLicenseCommand";
 import {
+  type DeleteLicenseConfigurationCommandInput,
+  type DeleteLicenseConfigurationCommandOutput,
   DeleteLicenseConfigurationCommand,
-  DeleteLicenseConfigurationCommandInput,
-  DeleteLicenseConfigurationCommandOutput,
 } from "./commands/DeleteLicenseConfigurationCommand";
 import {
+  type DeleteLicenseManagerReportGeneratorCommandInput,
+  type DeleteLicenseManagerReportGeneratorCommandOutput,
   DeleteLicenseManagerReportGeneratorCommand,
-  DeleteLicenseManagerReportGeneratorCommandInput,
-  DeleteLicenseManagerReportGeneratorCommandOutput,
 } from "./commands/DeleteLicenseManagerReportGeneratorCommand";
-import { DeleteTokenCommand, DeleteTokenCommandInput, DeleteTokenCommandOutput } from "./commands/DeleteTokenCommand";
 import {
+  type DeleteTokenCommandInput,
+  type DeleteTokenCommandOutput,
+  DeleteTokenCommand,
+} from "./commands/DeleteTokenCommand";
+import {
+  type ExtendLicenseConsumptionCommandInput,
+  type ExtendLicenseConsumptionCommandOutput,
   ExtendLicenseConsumptionCommand,
-  ExtendLicenseConsumptionCommandInput,
-  ExtendLicenseConsumptionCommandOutput,
 } from "./commands/ExtendLicenseConsumptionCommand";
 import {
+  type GetAccessTokenCommandInput,
+  type GetAccessTokenCommandOutput,
   GetAccessTokenCommand,
-  GetAccessTokenCommandInput,
-  GetAccessTokenCommandOutput,
 } from "./commands/GetAccessTokenCommand";
-import { GetGrantCommand, GetGrantCommandInput, GetGrantCommandOutput } from "./commands/GetGrantCommand";
+import { type GetGrantCommandInput, type GetGrantCommandOutput, GetGrantCommand } from "./commands/GetGrantCommand";
 import {
+  type GetLicenseAssetGroupCommandInput,
+  type GetLicenseAssetGroupCommandOutput,
   GetLicenseAssetGroupCommand,
-  GetLicenseAssetGroupCommandInput,
-  GetLicenseAssetGroupCommandOutput,
 } from "./commands/GetLicenseAssetGroupCommand";
 import {
+  type GetLicenseAssetRulesetCommandInput,
+  type GetLicenseAssetRulesetCommandOutput,
   GetLicenseAssetRulesetCommand,
-  GetLicenseAssetRulesetCommandInput,
-  GetLicenseAssetRulesetCommandOutput,
 } from "./commands/GetLicenseAssetRulesetCommand";
-import { GetLicenseCommand, GetLicenseCommandInput, GetLicenseCommandOutput } from "./commands/GetLicenseCommand";
 import {
+  type GetLicenseCommandInput,
+  type GetLicenseCommandOutput,
+  GetLicenseCommand,
+} from "./commands/GetLicenseCommand";
+import {
+  type GetLicenseConfigurationCommandInput,
+  type GetLicenseConfigurationCommandOutput,
   GetLicenseConfigurationCommand,
-  GetLicenseConfigurationCommandInput,
-  GetLicenseConfigurationCommandOutput,
 } from "./commands/GetLicenseConfigurationCommand";
 import {
+  type GetLicenseConversionTaskCommandInput,
+  type GetLicenseConversionTaskCommandOutput,
   GetLicenseConversionTaskCommand,
-  GetLicenseConversionTaskCommandInput,
-  GetLicenseConversionTaskCommandOutput,
 } from "./commands/GetLicenseConversionTaskCommand";
 import {
+  type GetLicenseManagerReportGeneratorCommandInput,
+  type GetLicenseManagerReportGeneratorCommandOutput,
   GetLicenseManagerReportGeneratorCommand,
-  GetLicenseManagerReportGeneratorCommandInput,
-  GetLicenseManagerReportGeneratorCommandOutput,
 } from "./commands/GetLicenseManagerReportGeneratorCommand";
 import {
+  type GetLicenseUsageCommandInput,
+  type GetLicenseUsageCommandOutput,
   GetLicenseUsageCommand,
-  GetLicenseUsageCommandInput,
-  GetLicenseUsageCommandOutput,
 } from "./commands/GetLicenseUsageCommand";
 import {
+  type GetServiceSettingsCommandInput,
+  type GetServiceSettingsCommandOutput,
   GetServiceSettingsCommand,
-  GetServiceSettingsCommandInput,
-  GetServiceSettingsCommandOutput,
 } from "./commands/GetServiceSettingsCommand";
 import {
+  type ListAssetsForLicenseAssetGroupCommandInput,
+  type ListAssetsForLicenseAssetGroupCommandOutput,
   ListAssetsForLicenseAssetGroupCommand,
-  ListAssetsForLicenseAssetGroupCommandInput,
-  ListAssetsForLicenseAssetGroupCommandOutput,
 } from "./commands/ListAssetsForLicenseAssetGroupCommand";
 import {
+  type ListAssociationsForLicenseConfigurationCommandInput,
+  type ListAssociationsForLicenseConfigurationCommandOutput,
   ListAssociationsForLicenseConfigurationCommand,
-  ListAssociationsForLicenseConfigurationCommandInput,
-  ListAssociationsForLicenseConfigurationCommandOutput,
 } from "./commands/ListAssociationsForLicenseConfigurationCommand";
 import {
+  type ListDistributedGrantsCommandInput,
+  type ListDistributedGrantsCommandOutput,
   ListDistributedGrantsCommand,
-  ListDistributedGrantsCommandInput,
-  ListDistributedGrantsCommandOutput,
 } from "./commands/ListDistributedGrantsCommand";
 import {
+  type ListFailuresForLicenseConfigurationOperationsCommandInput,
+  type ListFailuresForLicenseConfigurationOperationsCommandOutput,
   ListFailuresForLicenseConfigurationOperationsCommand,
-  ListFailuresForLicenseConfigurationOperationsCommandInput,
-  ListFailuresForLicenseConfigurationOperationsCommandOutput,
 } from "./commands/ListFailuresForLicenseConfigurationOperationsCommand";
 import {
+  type ListLicenseAssetGroupsCommandInput,
+  type ListLicenseAssetGroupsCommandOutput,
   ListLicenseAssetGroupsCommand,
-  ListLicenseAssetGroupsCommandInput,
-  ListLicenseAssetGroupsCommandOutput,
 } from "./commands/ListLicenseAssetGroupsCommand";
 import {
+  type ListLicenseAssetRulesetsCommandInput,
+  type ListLicenseAssetRulesetsCommandOutput,
   ListLicenseAssetRulesetsCommand,
-  ListLicenseAssetRulesetsCommandInput,
-  ListLicenseAssetRulesetsCommandOutput,
 } from "./commands/ListLicenseAssetRulesetsCommand";
 import {
+  type ListLicenseConfigurationsCommandInput,
+  type ListLicenseConfigurationsCommandOutput,
   ListLicenseConfigurationsCommand,
-  ListLicenseConfigurationsCommandInput,
-  ListLicenseConfigurationsCommandOutput,
 } from "./commands/ListLicenseConfigurationsCommand";
 import {
+  type ListLicenseConfigurationsForOrganizationCommandInput,
+  type ListLicenseConfigurationsForOrganizationCommandOutput,
   ListLicenseConfigurationsForOrganizationCommand,
-  ListLicenseConfigurationsForOrganizationCommandInput,
-  ListLicenseConfigurationsForOrganizationCommandOutput,
 } from "./commands/ListLicenseConfigurationsForOrganizationCommand";
 import {
+  type ListLicenseConversionTasksCommandInput,
+  type ListLicenseConversionTasksCommandOutput,
   ListLicenseConversionTasksCommand,
-  ListLicenseConversionTasksCommandInput,
-  ListLicenseConversionTasksCommandOutput,
 } from "./commands/ListLicenseConversionTasksCommand";
 import {
+  type ListLicenseManagerReportGeneratorsCommandInput,
+  type ListLicenseManagerReportGeneratorsCommandOutput,
   ListLicenseManagerReportGeneratorsCommand,
-  ListLicenseManagerReportGeneratorsCommandInput,
-  ListLicenseManagerReportGeneratorsCommandOutput,
 } from "./commands/ListLicenseManagerReportGeneratorsCommand";
 import {
+  type ListLicensesCommandInput,
+  type ListLicensesCommandOutput,
   ListLicensesCommand,
-  ListLicensesCommandInput,
-  ListLicensesCommandOutput,
 } from "./commands/ListLicensesCommand";
 import {
+  type ListLicenseSpecificationsForResourceCommandInput,
+  type ListLicenseSpecificationsForResourceCommandOutput,
   ListLicenseSpecificationsForResourceCommand,
-  ListLicenseSpecificationsForResourceCommandInput,
-  ListLicenseSpecificationsForResourceCommandOutput,
 } from "./commands/ListLicenseSpecificationsForResourceCommand";
 import {
+  type ListLicenseVersionsCommandInput,
+  type ListLicenseVersionsCommandOutput,
   ListLicenseVersionsCommand,
-  ListLicenseVersionsCommandInput,
-  ListLicenseVersionsCommandOutput,
 } from "./commands/ListLicenseVersionsCommand";
 import {
+  type ListReceivedGrantsCommandInput,
+  type ListReceivedGrantsCommandOutput,
   ListReceivedGrantsCommand,
-  ListReceivedGrantsCommandInput,
-  ListReceivedGrantsCommandOutput,
 } from "./commands/ListReceivedGrantsCommand";
 import {
+  type ListReceivedGrantsForOrganizationCommandInput,
+  type ListReceivedGrantsForOrganizationCommandOutput,
   ListReceivedGrantsForOrganizationCommand,
-  ListReceivedGrantsForOrganizationCommandInput,
-  ListReceivedGrantsForOrganizationCommandOutput,
 } from "./commands/ListReceivedGrantsForOrganizationCommand";
 import {
+  type ListReceivedLicensesCommandInput,
+  type ListReceivedLicensesCommandOutput,
   ListReceivedLicensesCommand,
-  ListReceivedLicensesCommandInput,
-  ListReceivedLicensesCommandOutput,
 } from "./commands/ListReceivedLicensesCommand";
 import {
+  type ListReceivedLicensesForOrganizationCommandInput,
+  type ListReceivedLicensesForOrganizationCommandOutput,
   ListReceivedLicensesForOrganizationCommand,
-  ListReceivedLicensesForOrganizationCommandInput,
-  ListReceivedLicensesForOrganizationCommandOutput,
 } from "./commands/ListReceivedLicensesForOrganizationCommand";
 import {
+  type ListResourceInventoryCommandInput,
+  type ListResourceInventoryCommandOutput,
   ListResourceInventoryCommand,
-  ListResourceInventoryCommandInput,
-  ListResourceInventoryCommandOutput,
 } from "./commands/ListResourceInventoryCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTokensCommand, ListTokensCommandInput, ListTokensCommandOutput } from "./commands/ListTokensCommand";
 import {
+  type ListTokensCommandInput,
+  type ListTokensCommandOutput,
+  ListTokensCommand,
+} from "./commands/ListTokensCommand";
+import {
+  type ListUsageForLicenseConfigurationCommandInput,
+  type ListUsageForLicenseConfigurationCommandOutput,
   ListUsageForLicenseConfigurationCommand,
-  ListUsageForLicenseConfigurationCommandInput,
-  ListUsageForLicenseConfigurationCommandOutput,
 } from "./commands/ListUsageForLicenseConfigurationCommand";
-import { RejectGrantCommand, RejectGrantCommandInput, RejectGrantCommandOutput } from "./commands/RejectGrantCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type RejectGrantCommandInput,
+  type RejectGrantCommandOutput,
+  RejectGrantCommand,
+} from "./commands/RejectGrantCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateLicenseAssetGroupCommandInput,
+  type UpdateLicenseAssetGroupCommandOutput,
   UpdateLicenseAssetGroupCommand,
-  UpdateLicenseAssetGroupCommandInput,
-  UpdateLicenseAssetGroupCommandOutput,
 } from "./commands/UpdateLicenseAssetGroupCommand";
 import {
+  type UpdateLicenseAssetRulesetCommandInput,
+  type UpdateLicenseAssetRulesetCommandOutput,
   UpdateLicenseAssetRulesetCommand,
-  UpdateLicenseAssetRulesetCommandInput,
-  UpdateLicenseAssetRulesetCommandOutput,
 } from "./commands/UpdateLicenseAssetRulesetCommand";
 import {
+  type UpdateLicenseConfigurationCommandInput,
+  type UpdateLicenseConfigurationCommandOutput,
   UpdateLicenseConfigurationCommand,
-  UpdateLicenseConfigurationCommandInput,
-  UpdateLicenseConfigurationCommandOutput,
 } from "./commands/UpdateLicenseConfigurationCommand";
 import {
+  type UpdateLicenseManagerReportGeneratorCommandInput,
+  type UpdateLicenseManagerReportGeneratorCommandOutput,
   UpdateLicenseManagerReportGeneratorCommand,
-  UpdateLicenseManagerReportGeneratorCommandInput,
-  UpdateLicenseManagerReportGeneratorCommandOutput,
 } from "./commands/UpdateLicenseManagerReportGeneratorCommand";
 import {
+  type UpdateLicenseSpecificationsForResourceCommandInput,
+  type UpdateLicenseSpecificationsForResourceCommandOutput,
   UpdateLicenseSpecificationsForResourceCommand,
-  UpdateLicenseSpecificationsForResourceCommandInput,
-  UpdateLicenseSpecificationsForResourceCommandOutput,
 } from "./commands/UpdateLicenseSpecificationsForResourceCommand";
 import {
+  type UpdateServiceSettingsCommandInput,
+  type UpdateServiceSettingsCommandOutput,
   UpdateServiceSettingsCommand,
-  UpdateServiceSettingsCommandInput,
-  UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
 import { LicenseManagerClient } from "./LicenseManagerClient";
 

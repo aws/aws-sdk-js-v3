@@ -8,7 +8,7 @@ import {
   DescribeImagesCommandInput,
   DescribeImagesCommandOutput,
 } from "../commands/DescribeImagesCommand";
-import { AppStreamPaginationConfiguration } from "./Interfaces";
+import type { AppStreamPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,85 +4,89 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BedrockDataAutomationClient } from "./BedrockDataAutomationClient";
 import {
+  type CopyBlueprintStageCommandInput,
+  type CopyBlueprintStageCommandOutput,
   CopyBlueprintStageCommand,
-  CopyBlueprintStageCommandInput,
-  CopyBlueprintStageCommandOutput,
 } from "./commands/CopyBlueprintStageCommand";
 import {
+  type CreateBlueprintCommandInput,
+  type CreateBlueprintCommandOutput,
   CreateBlueprintCommand,
-  CreateBlueprintCommandInput,
-  CreateBlueprintCommandOutput,
 } from "./commands/CreateBlueprintCommand";
 import {
+  type CreateBlueprintVersionCommandInput,
+  type CreateBlueprintVersionCommandOutput,
   CreateBlueprintVersionCommand,
-  CreateBlueprintVersionCommandInput,
-  CreateBlueprintVersionCommandOutput,
 } from "./commands/CreateBlueprintVersionCommand";
 import {
+  type CreateDataAutomationProjectCommandInput,
+  type CreateDataAutomationProjectCommandOutput,
   CreateDataAutomationProjectCommand,
-  CreateDataAutomationProjectCommandInput,
-  CreateDataAutomationProjectCommandOutput,
 } from "./commands/CreateDataAutomationProjectCommand";
 import {
+  type DeleteBlueprintCommandInput,
+  type DeleteBlueprintCommandOutput,
   DeleteBlueprintCommand,
-  DeleteBlueprintCommandInput,
-  DeleteBlueprintCommandOutput,
 } from "./commands/DeleteBlueprintCommand";
 import {
+  type DeleteDataAutomationProjectCommandInput,
+  type DeleteDataAutomationProjectCommandOutput,
   DeleteDataAutomationProjectCommand,
-  DeleteDataAutomationProjectCommandInput,
-  DeleteDataAutomationProjectCommandOutput,
 } from "./commands/DeleteDataAutomationProjectCommand";
 import {
+  type GetBlueprintCommandInput,
+  type GetBlueprintCommandOutput,
   GetBlueprintCommand,
-  GetBlueprintCommandInput,
-  GetBlueprintCommandOutput,
 } from "./commands/GetBlueprintCommand";
 import {
+  type GetBlueprintOptimizationStatusCommandInput,
+  type GetBlueprintOptimizationStatusCommandOutput,
   GetBlueprintOptimizationStatusCommand,
-  GetBlueprintOptimizationStatusCommandInput,
-  GetBlueprintOptimizationStatusCommandOutput,
 } from "./commands/GetBlueprintOptimizationStatusCommand";
 import {
+  type GetDataAutomationProjectCommandInput,
+  type GetDataAutomationProjectCommandOutput,
   GetDataAutomationProjectCommand,
-  GetDataAutomationProjectCommandInput,
-  GetDataAutomationProjectCommandOutput,
 } from "./commands/GetDataAutomationProjectCommand";
 import {
+  type InvokeBlueprintOptimizationAsyncCommandInput,
+  type InvokeBlueprintOptimizationAsyncCommandOutput,
   InvokeBlueprintOptimizationAsyncCommand,
-  InvokeBlueprintOptimizationAsyncCommandInput,
-  InvokeBlueprintOptimizationAsyncCommandOutput,
 } from "./commands/InvokeBlueprintOptimizationAsyncCommand";
 import {
+  type ListBlueprintsCommandInput,
+  type ListBlueprintsCommandOutput,
   ListBlueprintsCommand,
-  ListBlueprintsCommandInput,
-  ListBlueprintsCommandOutput,
 } from "./commands/ListBlueprintsCommand";
 import {
+  type ListDataAutomationProjectsCommandInput,
+  type ListDataAutomationProjectsCommandOutput,
   ListDataAutomationProjectsCommand,
-  ListDataAutomationProjectsCommandInput,
-  ListDataAutomationProjectsCommandOutput,
 } from "./commands/ListDataAutomationProjectsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBlueprintCommandInput,
+  type UpdateBlueprintCommandOutput,
   UpdateBlueprintCommand,
-  UpdateBlueprintCommandInput,
-  UpdateBlueprintCommandOutput,
 } from "./commands/UpdateBlueprintCommand";
 import {
+  type UpdateDataAutomationProjectCommandInput,
+  type UpdateDataAutomationProjectCommandOutput,
   UpdateDataAutomationProjectCommand,
-  UpdateDataAutomationProjectCommandInput,
-  UpdateDataAutomationProjectCommandOutput,
 } from "./commands/UpdateDataAutomationProjectCommand";
 import { paginateListBlueprints } from "./pagination/ListBlueprintsPaginator";
 import { paginateListDataAutomationProjects } from "./pagination/ListDataAutomationProjectsPaginator";

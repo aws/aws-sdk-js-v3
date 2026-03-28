@@ -8,7 +8,7 @@ import {
   ListDevEnvironmentsCommandInput,
   ListDevEnvironmentsCommandOutput,
 } from "../commands/ListDevEnvironmentsCommand";
-import { CodeCatalystPaginationConfiguration } from "./Interfaces";
+import type { CodeCatalystPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

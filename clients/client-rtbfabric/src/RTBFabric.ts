@@ -8,108 +8,132 @@ import type {
 } from "@smithy/types";
 import type { WaiterResult } from "@smithy/util-waiter";
 
-import { AcceptLinkCommand, AcceptLinkCommandInput, AcceptLinkCommandOutput } from "./commands/AcceptLinkCommand";
 import {
+  type AcceptLinkCommandInput,
+  type AcceptLinkCommandOutput,
+  AcceptLinkCommand,
+} from "./commands/AcceptLinkCommand";
+import {
+  type CreateInboundExternalLinkCommandInput,
+  type CreateInboundExternalLinkCommandOutput,
   CreateInboundExternalLinkCommand,
-  CreateInboundExternalLinkCommandInput,
-  CreateInboundExternalLinkCommandOutput,
 } from "./commands/CreateInboundExternalLinkCommand";
-import { CreateLinkCommand, CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
 import {
+  type CreateLinkCommandInput,
+  type CreateLinkCommandOutput,
+  CreateLinkCommand,
+} from "./commands/CreateLinkCommand";
+import {
+  type CreateOutboundExternalLinkCommandInput,
+  type CreateOutboundExternalLinkCommandOutput,
   CreateOutboundExternalLinkCommand,
-  CreateOutboundExternalLinkCommandInput,
-  CreateOutboundExternalLinkCommandOutput,
 } from "./commands/CreateOutboundExternalLinkCommand";
 import {
+  type CreateRequesterGatewayCommandInput,
+  type CreateRequesterGatewayCommandOutput,
   CreateRequesterGatewayCommand,
-  CreateRequesterGatewayCommandInput,
-  CreateRequesterGatewayCommandOutput,
 } from "./commands/CreateRequesterGatewayCommand";
 import {
+  type CreateResponderGatewayCommandInput,
+  type CreateResponderGatewayCommandOutput,
   CreateResponderGatewayCommand,
-  CreateResponderGatewayCommandInput,
-  CreateResponderGatewayCommandOutput,
 } from "./commands/CreateResponderGatewayCommand";
 import {
+  type DeleteInboundExternalLinkCommandInput,
+  type DeleteInboundExternalLinkCommandOutput,
   DeleteInboundExternalLinkCommand,
-  DeleteInboundExternalLinkCommandInput,
-  DeleteInboundExternalLinkCommandOutput,
 } from "./commands/DeleteInboundExternalLinkCommand";
-import { DeleteLinkCommand, DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
 import {
+  type DeleteLinkCommandInput,
+  type DeleteLinkCommandOutput,
+  DeleteLinkCommand,
+} from "./commands/DeleteLinkCommand";
+import {
+  type DeleteOutboundExternalLinkCommandInput,
+  type DeleteOutboundExternalLinkCommandOutput,
   DeleteOutboundExternalLinkCommand,
-  DeleteOutboundExternalLinkCommandInput,
-  DeleteOutboundExternalLinkCommandOutput,
 } from "./commands/DeleteOutboundExternalLinkCommand";
 import {
+  type DeleteRequesterGatewayCommandInput,
+  type DeleteRequesterGatewayCommandOutput,
   DeleteRequesterGatewayCommand,
-  DeleteRequesterGatewayCommandInput,
-  DeleteRequesterGatewayCommandOutput,
 } from "./commands/DeleteRequesterGatewayCommand";
 import {
+  type DeleteResponderGatewayCommandInput,
+  type DeleteResponderGatewayCommandOutput,
   DeleteResponderGatewayCommand,
-  DeleteResponderGatewayCommandInput,
-  DeleteResponderGatewayCommandOutput,
 } from "./commands/DeleteResponderGatewayCommand";
 import {
+  type GetInboundExternalLinkCommandInput,
+  type GetInboundExternalLinkCommandOutput,
   GetInboundExternalLinkCommand,
-  GetInboundExternalLinkCommandInput,
-  GetInboundExternalLinkCommandOutput,
 } from "./commands/GetInboundExternalLinkCommand";
-import { GetLinkCommand, GetLinkCommandInput, GetLinkCommandOutput } from "./commands/GetLinkCommand";
+import { type GetLinkCommandInput, type GetLinkCommandOutput, GetLinkCommand } from "./commands/GetLinkCommand";
 import {
+  type GetOutboundExternalLinkCommandInput,
+  type GetOutboundExternalLinkCommandOutput,
   GetOutboundExternalLinkCommand,
-  GetOutboundExternalLinkCommandInput,
-  GetOutboundExternalLinkCommandOutput,
 } from "./commands/GetOutboundExternalLinkCommand";
 import {
+  type GetRequesterGatewayCommandInput,
+  type GetRequesterGatewayCommandOutput,
   GetRequesterGatewayCommand,
-  GetRequesterGatewayCommandInput,
-  GetRequesterGatewayCommandOutput,
 } from "./commands/GetRequesterGatewayCommand";
 import {
+  type GetResponderGatewayCommandInput,
+  type GetResponderGatewayCommandOutput,
   GetResponderGatewayCommand,
-  GetResponderGatewayCommandInput,
-  GetResponderGatewayCommandOutput,
 } from "./commands/GetResponderGatewayCommand";
-import { ListLinksCommand, ListLinksCommandInput, ListLinksCommandOutput } from "./commands/ListLinksCommand";
+import { type ListLinksCommandInput, type ListLinksCommandOutput, ListLinksCommand } from "./commands/ListLinksCommand";
 import {
+  type ListRequesterGatewaysCommandInput,
+  type ListRequesterGatewaysCommandOutput,
   ListRequesterGatewaysCommand,
-  ListRequesterGatewaysCommandInput,
-  ListRequesterGatewaysCommandOutput,
 } from "./commands/ListRequesterGatewaysCommand";
 import {
+  type ListResponderGatewaysCommandInput,
+  type ListResponderGatewaysCommandOutput,
   ListResponderGatewaysCommand,
-  ListResponderGatewaysCommandInput,
-  ListResponderGatewaysCommandOutput,
 } from "./commands/ListResponderGatewaysCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RejectLinkCommand, RejectLinkCommandInput, RejectLinkCommandOutput } from "./commands/RejectLinkCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type RejectLinkCommandInput,
+  type RejectLinkCommandOutput,
+  RejectLinkCommand,
+} from "./commands/RejectLinkCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateLinkCommand, UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
 import {
+  type UpdateLinkCommandInput,
+  type UpdateLinkCommandOutput,
+  UpdateLinkCommand,
+} from "./commands/UpdateLinkCommand";
+import {
+  type UpdateLinkModuleFlowCommandInput,
+  type UpdateLinkModuleFlowCommandOutput,
   UpdateLinkModuleFlowCommand,
-  UpdateLinkModuleFlowCommandInput,
-  UpdateLinkModuleFlowCommandOutput,
 } from "./commands/UpdateLinkModuleFlowCommand";
 import {
+  type UpdateRequesterGatewayCommandInput,
+  type UpdateRequesterGatewayCommandOutput,
   UpdateRequesterGatewayCommand,
-  UpdateRequesterGatewayCommandInput,
-  UpdateRequesterGatewayCommandOutput,
 } from "./commands/UpdateRequesterGatewayCommand";
 import {
+  type UpdateResponderGatewayCommandInput,
+  type UpdateResponderGatewayCommandOutput,
   UpdateResponderGatewayCommand,
-  UpdateResponderGatewayCommandInput,
-  UpdateResponderGatewayCommandOutput,
 } from "./commands/UpdateResponderGatewayCommand";
 import { paginateListLinks } from "./pagination/ListLinksPaginator";
 import { paginateListRequesterGateways } from "./pagination/ListRequesterGatewaysPaginator";

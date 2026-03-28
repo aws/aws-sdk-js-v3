@@ -64,7 +64,7 @@
  */
 export * from "./GameLiftClient";
 export * from "./GameLift";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { GameLiftExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

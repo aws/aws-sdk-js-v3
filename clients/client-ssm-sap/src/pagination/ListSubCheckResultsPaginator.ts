@@ -8,7 +8,7 @@ import {
   ListSubCheckResultsCommandOutput,
 } from "../commands/ListSubCheckResultsCommand";
 import { SsmSapClient } from "../SsmSapClient";
-import { SsmSapPaginationConfiguration } from "./Interfaces";
+import type { SsmSapPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

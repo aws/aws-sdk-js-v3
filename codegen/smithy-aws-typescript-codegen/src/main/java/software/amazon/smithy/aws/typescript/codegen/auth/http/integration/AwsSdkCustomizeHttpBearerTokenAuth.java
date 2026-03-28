@@ -84,9 +84,8 @@ public final class AwsSdkCustomizeHttpBearerTokenAuth implements HttpAuthTypeScr
                 .propertiesExtractor(
                     s -> w -> w
                         .addDependency(AwsDependency.TOKEN_PROVIDERS)
-                        .addImport("FromSsoInit", null, AwsDependency.TOKEN_PROVIDERS)
-                        .addDependency(TypeScriptDependency.SMITHY_TYPES)
-                        .addImport("HandlerExecutionContext", null, TypeScriptDependency.SMITHY_TYPES)
+                        .addTypeImport("FromSsoInit", null, AwsDependency.TOKEN_PROVIDERS)
+                        .addTypeImport("HandlerExecutionContext", null, TypeScriptDependency.SMITHY_TYPES)
                         .write("""
                                <T>({
                                  profile,

@@ -7,7 +7,7 @@
  */
 export * from "./MarketplaceCommerceAnalyticsClient";
 export * from "./MarketplaceCommerceAnalytics";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MarketplaceCommerceAnalyticsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

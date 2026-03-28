@@ -3,106 +3,114 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelSessionCommandInput,
+  type CancelSessionCommandOutput,
   CancelSessionCommand,
-  CancelSessionCommandInput,
-  CancelSessionCommandOutput,
 } from "./commands/CancelSessionCommand";
 import {
+  type CreateApprovalTeamCommandInput,
+  type CreateApprovalTeamCommandOutput,
   CreateApprovalTeamCommand,
-  CreateApprovalTeamCommandInput,
-  CreateApprovalTeamCommandOutput,
 } from "./commands/CreateApprovalTeamCommand";
 import {
+  type CreateIdentitySourceCommandInput,
+  type CreateIdentitySourceCommandOutput,
   CreateIdentitySourceCommand,
-  CreateIdentitySourceCommandInput,
-  CreateIdentitySourceCommandOutput,
 } from "./commands/CreateIdentitySourceCommand";
 import {
+  type DeleteIdentitySourceCommandInput,
+  type DeleteIdentitySourceCommandOutput,
   DeleteIdentitySourceCommand,
-  DeleteIdentitySourceCommandInput,
-  DeleteIdentitySourceCommandOutput,
 } from "./commands/DeleteIdentitySourceCommand";
 import {
+  type DeleteInactiveApprovalTeamVersionCommandInput,
+  type DeleteInactiveApprovalTeamVersionCommandOutput,
   DeleteInactiveApprovalTeamVersionCommand,
-  DeleteInactiveApprovalTeamVersionCommandInput,
-  DeleteInactiveApprovalTeamVersionCommandOutput,
 } from "./commands/DeleteInactiveApprovalTeamVersionCommand";
 import {
+  type GetApprovalTeamCommandInput,
+  type GetApprovalTeamCommandOutput,
   GetApprovalTeamCommand,
-  GetApprovalTeamCommandInput,
-  GetApprovalTeamCommandOutput,
 } from "./commands/GetApprovalTeamCommand";
 import {
+  type GetIdentitySourceCommandInput,
+  type GetIdentitySourceCommandOutput,
   GetIdentitySourceCommand,
-  GetIdentitySourceCommandInput,
-  GetIdentitySourceCommandOutput,
 } from "./commands/GetIdentitySourceCommand";
 import {
+  type GetPolicyVersionCommandInput,
+  type GetPolicyVersionCommandOutput,
   GetPolicyVersionCommand,
-  GetPolicyVersionCommandInput,
-  GetPolicyVersionCommandOutput,
 } from "./commands/GetPolicyVersionCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
-import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import {
+  type GetSessionCommandInput,
+  type GetSessionCommandOutput,
+  GetSessionCommand,
+} from "./commands/GetSessionCommand";
+import {
+  type ListApprovalTeamsCommandInput,
+  type ListApprovalTeamsCommandOutput,
   ListApprovalTeamsCommand,
-  ListApprovalTeamsCommandInput,
-  ListApprovalTeamsCommandOutput,
 } from "./commands/ListApprovalTeamsCommand";
 import {
+  type ListIdentitySourcesCommandInput,
+  type ListIdentitySourcesCommandOutput,
   ListIdentitySourcesCommand,
-  ListIdentitySourcesCommandInput,
-  ListIdentitySourcesCommandOutput,
 } from "./commands/ListIdentitySourcesCommand";
 import {
+  type ListPoliciesCommandInput,
+  type ListPoliciesCommandOutput,
   ListPoliciesCommand,
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput,
 } from "./commands/ListPoliciesCommand";
 import {
+  type ListPolicyVersionsCommandInput,
+  type ListPolicyVersionsCommandOutput,
   ListPolicyVersionsCommand,
-  ListPolicyVersionsCommandInput,
-  ListPolicyVersionsCommandOutput,
 } from "./commands/ListPolicyVersionsCommand";
 import {
+  type ListResourcePoliciesCommandInput,
+  type ListResourcePoliciesCommandOutput,
   ListResourcePoliciesCommand,
-  ListResourcePoliciesCommandInput,
-  ListResourcePoliciesCommandOutput,
 } from "./commands/ListResourcePoliciesCommand";
 import {
+  type ListSessionsCommandInput,
+  type ListSessionsCommandOutput,
   ListSessionsCommand,
-  ListSessionsCommandInput,
-  ListSessionsCommandOutput,
 } from "./commands/ListSessionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartActiveApprovalTeamDeletionCommandInput,
+  type StartActiveApprovalTeamDeletionCommandOutput,
   StartActiveApprovalTeamDeletionCommand,
-  StartActiveApprovalTeamDeletionCommandInput,
-  StartActiveApprovalTeamDeletionCommandOutput,
 } from "./commands/StartActiveApprovalTeamDeletionCommand";
 import {
+  type StartApprovalTeamBaselineCommandInput,
+  type StartApprovalTeamBaselineCommandOutput,
   StartApprovalTeamBaselineCommand,
-  StartApprovalTeamBaselineCommandInput,
-  StartApprovalTeamBaselineCommandOutput,
 } from "./commands/StartApprovalTeamBaselineCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApprovalTeamCommandInput,
+  type UpdateApprovalTeamCommandOutput,
   UpdateApprovalTeamCommand,
-  UpdateApprovalTeamCommandInput,
-  UpdateApprovalTeamCommandOutput,
 } from "./commands/UpdateApprovalTeamCommand";
 import { MPAClient } from "./MPAClient";
 import { paginateListApprovalTeams } from "./pagination/ListApprovalTeamsPaginator";

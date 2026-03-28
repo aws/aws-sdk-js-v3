@@ -7,7 +7,7 @@
  */
 export * from "./B2biClient";
 export * from "./B2bi";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { B2biExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

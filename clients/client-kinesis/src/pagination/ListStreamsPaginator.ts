@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/ListStreamsCommand";
 import { KinesisClient } from "../KinesisClient";
-import { KinesisPaginationConfiguration } from "./Interfaces";
+import type { KinesisPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

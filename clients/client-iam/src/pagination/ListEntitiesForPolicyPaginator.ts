@@ -8,7 +8,7 @@ import {
   ListEntitiesForPolicyCommandOutput,
 } from "../commands/ListEntitiesForPolicyCommand";
 import { IAMClient } from "../IAMClient";
-import { IAMPaginationConfiguration } from "./Interfaces";
+import type { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import { ResourceGroupsClient } from "../ResourceGroupsClient";
-import { ResourceGroupsPaginationConfiguration } from "./Interfaces";
+import type { ResourceGroupsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

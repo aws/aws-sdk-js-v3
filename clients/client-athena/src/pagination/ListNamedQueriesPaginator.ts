@@ -8,7 +8,7 @@ import {
   ListNamedQueriesCommandInput,
   ListNamedQueriesCommandOutput,
 } from "../commands/ListNamedQueriesCommand";
-import { AthenaPaginationConfiguration } from "./Interfaces";
+import type { AthenaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListSchedulingPoliciesCommandInput,
   ListSchedulingPoliciesCommandOutput,
 } from "../commands/ListSchedulingPoliciesCommand";
-import { BatchPaginationConfiguration } from "./Interfaces";
+import type { BatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

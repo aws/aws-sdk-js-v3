@@ -8,7 +8,7 @@ import {
   ListProcurementPortalPreferencesCommandOutput,
 } from "../commands/ListProcurementPortalPreferencesCommand";
 import { InvoicingClient } from "../InvoicingClient";
-import { InvoicingPaginationConfiguration } from "./Interfaces";
+import type { InvoicingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

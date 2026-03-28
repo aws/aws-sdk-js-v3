@@ -8,7 +8,7 @@ import {
   ListDatasourcePackagesCommandOutput,
 } from "../commands/ListDatasourcePackagesCommand";
 import { DetectiveClient } from "../DetectiveClient";
-import { DetectivePaginationConfiguration } from "./Interfaces";
+import type { DetectivePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

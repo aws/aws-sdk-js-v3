@@ -4,294 +4,314 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { AuditManagerClient } from "./AuditManagerClient";
 import {
+  type AssociateAssessmentReportEvidenceFolderCommandInput,
+  type AssociateAssessmentReportEvidenceFolderCommandOutput,
   AssociateAssessmentReportEvidenceFolderCommand,
-  AssociateAssessmentReportEvidenceFolderCommandInput,
-  AssociateAssessmentReportEvidenceFolderCommandOutput,
 } from "./commands/AssociateAssessmentReportEvidenceFolderCommand";
 import {
+  type BatchAssociateAssessmentReportEvidenceCommandInput,
+  type BatchAssociateAssessmentReportEvidenceCommandOutput,
   BatchAssociateAssessmentReportEvidenceCommand,
-  BatchAssociateAssessmentReportEvidenceCommandInput,
-  BatchAssociateAssessmentReportEvidenceCommandOutput,
 } from "./commands/BatchAssociateAssessmentReportEvidenceCommand";
 import {
+  type BatchCreateDelegationByAssessmentCommandInput,
+  type BatchCreateDelegationByAssessmentCommandOutput,
   BatchCreateDelegationByAssessmentCommand,
-  BatchCreateDelegationByAssessmentCommandInput,
-  BatchCreateDelegationByAssessmentCommandOutput,
 } from "./commands/BatchCreateDelegationByAssessmentCommand";
 import {
+  type BatchDeleteDelegationByAssessmentCommandInput,
+  type BatchDeleteDelegationByAssessmentCommandOutput,
   BatchDeleteDelegationByAssessmentCommand,
-  BatchDeleteDelegationByAssessmentCommandInput,
-  BatchDeleteDelegationByAssessmentCommandOutput,
 } from "./commands/BatchDeleteDelegationByAssessmentCommand";
 import {
+  type BatchDisassociateAssessmentReportEvidenceCommandInput,
+  type BatchDisassociateAssessmentReportEvidenceCommandOutput,
   BatchDisassociateAssessmentReportEvidenceCommand,
-  BatchDisassociateAssessmentReportEvidenceCommandInput,
-  BatchDisassociateAssessmentReportEvidenceCommandOutput,
 } from "./commands/BatchDisassociateAssessmentReportEvidenceCommand";
 import {
+  type BatchImportEvidenceToAssessmentControlCommandInput,
+  type BatchImportEvidenceToAssessmentControlCommandOutput,
   BatchImportEvidenceToAssessmentControlCommand,
-  BatchImportEvidenceToAssessmentControlCommandInput,
-  BatchImportEvidenceToAssessmentControlCommandOutput,
 } from "./commands/BatchImportEvidenceToAssessmentControlCommand";
 import {
+  type CreateAssessmentCommandInput,
+  type CreateAssessmentCommandOutput,
   CreateAssessmentCommand,
-  CreateAssessmentCommandInput,
-  CreateAssessmentCommandOutput,
 } from "./commands/CreateAssessmentCommand";
 import {
+  type CreateAssessmentFrameworkCommandInput,
+  type CreateAssessmentFrameworkCommandOutput,
   CreateAssessmentFrameworkCommand,
-  CreateAssessmentFrameworkCommandInput,
-  CreateAssessmentFrameworkCommandOutput,
 } from "./commands/CreateAssessmentFrameworkCommand";
 import {
+  type CreateAssessmentReportCommandInput,
+  type CreateAssessmentReportCommandOutput,
   CreateAssessmentReportCommand,
-  CreateAssessmentReportCommandInput,
-  CreateAssessmentReportCommandOutput,
 } from "./commands/CreateAssessmentReportCommand";
 import {
+  type CreateControlCommandInput,
+  type CreateControlCommandOutput,
   CreateControlCommand,
-  CreateControlCommandInput,
-  CreateControlCommandOutput,
 } from "./commands/CreateControlCommand";
 import {
+  type DeleteAssessmentCommandInput,
+  type DeleteAssessmentCommandOutput,
   DeleteAssessmentCommand,
-  DeleteAssessmentCommandInput,
-  DeleteAssessmentCommandOutput,
 } from "./commands/DeleteAssessmentCommand";
 import {
+  type DeleteAssessmentFrameworkCommandInput,
+  type DeleteAssessmentFrameworkCommandOutput,
   DeleteAssessmentFrameworkCommand,
-  DeleteAssessmentFrameworkCommandInput,
-  DeleteAssessmentFrameworkCommandOutput,
 } from "./commands/DeleteAssessmentFrameworkCommand";
 import {
+  type DeleteAssessmentFrameworkShareCommandInput,
+  type DeleteAssessmentFrameworkShareCommandOutput,
   DeleteAssessmentFrameworkShareCommand,
-  DeleteAssessmentFrameworkShareCommandInput,
-  DeleteAssessmentFrameworkShareCommandOutput,
 } from "./commands/DeleteAssessmentFrameworkShareCommand";
 import {
+  type DeleteAssessmentReportCommandInput,
+  type DeleteAssessmentReportCommandOutput,
   DeleteAssessmentReportCommand,
-  DeleteAssessmentReportCommandInput,
-  DeleteAssessmentReportCommandOutput,
 } from "./commands/DeleteAssessmentReportCommand";
 import {
+  type DeleteControlCommandInput,
+  type DeleteControlCommandOutput,
   DeleteControlCommand,
-  DeleteControlCommandInput,
-  DeleteControlCommandOutput,
 } from "./commands/DeleteControlCommand";
 import {
+  type DeregisterAccountCommandInput,
+  type DeregisterAccountCommandOutput,
   DeregisterAccountCommand,
-  DeregisterAccountCommandInput,
-  DeregisterAccountCommandOutput,
 } from "./commands/DeregisterAccountCommand";
 import {
+  type DeregisterOrganizationAdminAccountCommandInput,
+  type DeregisterOrganizationAdminAccountCommandOutput,
   DeregisterOrganizationAdminAccountCommand,
-  DeregisterOrganizationAdminAccountCommandInput,
-  DeregisterOrganizationAdminAccountCommandOutput,
 } from "./commands/DeregisterOrganizationAdminAccountCommand";
 import {
+  type DisassociateAssessmentReportEvidenceFolderCommandInput,
+  type DisassociateAssessmentReportEvidenceFolderCommandOutput,
   DisassociateAssessmentReportEvidenceFolderCommand,
-  DisassociateAssessmentReportEvidenceFolderCommandInput,
-  DisassociateAssessmentReportEvidenceFolderCommandOutput,
 } from "./commands/DisassociateAssessmentReportEvidenceFolderCommand";
 import {
+  type GetAccountStatusCommandInput,
+  type GetAccountStatusCommandOutput,
   GetAccountStatusCommand,
-  GetAccountStatusCommandInput,
-  GetAccountStatusCommandOutput,
 } from "./commands/GetAccountStatusCommand";
 import {
+  type GetAssessmentCommandInput,
+  type GetAssessmentCommandOutput,
   GetAssessmentCommand,
-  GetAssessmentCommandInput,
-  GetAssessmentCommandOutput,
 } from "./commands/GetAssessmentCommand";
 import {
+  type GetAssessmentFrameworkCommandInput,
+  type GetAssessmentFrameworkCommandOutput,
   GetAssessmentFrameworkCommand,
-  GetAssessmentFrameworkCommandInput,
-  GetAssessmentFrameworkCommandOutput,
 } from "./commands/GetAssessmentFrameworkCommand";
 import {
+  type GetAssessmentReportUrlCommandInput,
+  type GetAssessmentReportUrlCommandOutput,
   GetAssessmentReportUrlCommand,
-  GetAssessmentReportUrlCommandInput,
-  GetAssessmentReportUrlCommandOutput,
 } from "./commands/GetAssessmentReportUrlCommand";
 import {
+  type GetChangeLogsCommandInput,
+  type GetChangeLogsCommandOutput,
   GetChangeLogsCommand,
-  GetChangeLogsCommandInput,
-  GetChangeLogsCommandOutput,
 } from "./commands/GetChangeLogsCommand";
-import { GetControlCommand, GetControlCommandInput, GetControlCommandOutput } from "./commands/GetControlCommand";
 import {
+  type GetControlCommandInput,
+  type GetControlCommandOutput,
+  GetControlCommand,
+} from "./commands/GetControlCommand";
+import {
+  type GetDelegationsCommandInput,
+  type GetDelegationsCommandOutput,
   GetDelegationsCommand,
-  GetDelegationsCommandInput,
-  GetDelegationsCommandOutput,
 } from "./commands/GetDelegationsCommand";
 import {
+  type GetEvidenceByEvidenceFolderCommandInput,
+  type GetEvidenceByEvidenceFolderCommandOutput,
   GetEvidenceByEvidenceFolderCommand,
-  GetEvidenceByEvidenceFolderCommandInput,
-  GetEvidenceByEvidenceFolderCommandOutput,
 } from "./commands/GetEvidenceByEvidenceFolderCommand";
-import { GetEvidenceCommand, GetEvidenceCommandInput, GetEvidenceCommandOutput } from "./commands/GetEvidenceCommand";
 import {
+  type GetEvidenceCommandInput,
+  type GetEvidenceCommandOutput,
+  GetEvidenceCommand,
+} from "./commands/GetEvidenceCommand";
+import {
+  type GetEvidenceFileUploadUrlCommandInput,
+  type GetEvidenceFileUploadUrlCommandOutput,
   GetEvidenceFileUploadUrlCommand,
-  GetEvidenceFileUploadUrlCommandInput,
-  GetEvidenceFileUploadUrlCommandOutput,
 } from "./commands/GetEvidenceFileUploadUrlCommand";
 import {
+  type GetEvidenceFolderCommandInput,
+  type GetEvidenceFolderCommandOutput,
   GetEvidenceFolderCommand,
-  GetEvidenceFolderCommandInput,
-  GetEvidenceFolderCommandOutput,
 } from "./commands/GetEvidenceFolderCommand";
 import {
+  type GetEvidenceFoldersByAssessmentCommandInput,
+  type GetEvidenceFoldersByAssessmentCommandOutput,
   GetEvidenceFoldersByAssessmentCommand,
-  GetEvidenceFoldersByAssessmentCommandInput,
-  GetEvidenceFoldersByAssessmentCommandOutput,
 } from "./commands/GetEvidenceFoldersByAssessmentCommand";
 import {
+  type GetEvidenceFoldersByAssessmentControlCommandInput,
+  type GetEvidenceFoldersByAssessmentControlCommandOutput,
   GetEvidenceFoldersByAssessmentControlCommand,
-  GetEvidenceFoldersByAssessmentControlCommandInput,
-  GetEvidenceFoldersByAssessmentControlCommandOutput,
 } from "./commands/GetEvidenceFoldersByAssessmentControlCommand";
 import {
+  type GetInsightsByAssessmentCommandInput,
+  type GetInsightsByAssessmentCommandOutput,
   GetInsightsByAssessmentCommand,
-  GetInsightsByAssessmentCommandInput,
-  GetInsightsByAssessmentCommandOutput,
 } from "./commands/GetInsightsByAssessmentCommand";
-import { GetInsightsCommand, GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
 import {
+  type GetInsightsCommandInput,
+  type GetInsightsCommandOutput,
+  GetInsightsCommand,
+} from "./commands/GetInsightsCommand";
+import {
+  type GetOrganizationAdminAccountCommandInput,
+  type GetOrganizationAdminAccountCommandOutput,
   GetOrganizationAdminAccountCommand,
-  GetOrganizationAdminAccountCommandInput,
-  GetOrganizationAdminAccountCommandOutput,
 } from "./commands/GetOrganizationAdminAccountCommand";
 import {
+  type GetServicesInScopeCommandInput,
+  type GetServicesInScopeCommandOutput,
   GetServicesInScopeCommand,
-  GetServicesInScopeCommandInput,
-  GetServicesInScopeCommandOutput,
 } from "./commands/GetServicesInScopeCommand";
-import { GetSettingsCommand, GetSettingsCommandInput, GetSettingsCommandOutput } from "./commands/GetSettingsCommand";
 import {
+  type GetSettingsCommandInput,
+  type GetSettingsCommandOutput,
+  GetSettingsCommand,
+} from "./commands/GetSettingsCommand";
+import {
+  type ListAssessmentControlInsightsByControlDomainCommandInput,
+  type ListAssessmentControlInsightsByControlDomainCommandOutput,
   ListAssessmentControlInsightsByControlDomainCommand,
-  ListAssessmentControlInsightsByControlDomainCommandInput,
-  ListAssessmentControlInsightsByControlDomainCommandOutput,
 } from "./commands/ListAssessmentControlInsightsByControlDomainCommand";
 import {
+  type ListAssessmentFrameworksCommandInput,
+  type ListAssessmentFrameworksCommandOutput,
   ListAssessmentFrameworksCommand,
-  ListAssessmentFrameworksCommandInput,
-  ListAssessmentFrameworksCommandOutput,
 } from "./commands/ListAssessmentFrameworksCommand";
 import {
+  type ListAssessmentFrameworkShareRequestsCommandInput,
+  type ListAssessmentFrameworkShareRequestsCommandOutput,
   ListAssessmentFrameworkShareRequestsCommand,
-  ListAssessmentFrameworkShareRequestsCommandInput,
-  ListAssessmentFrameworkShareRequestsCommandOutput,
 } from "./commands/ListAssessmentFrameworkShareRequestsCommand";
 import {
+  type ListAssessmentReportsCommandInput,
+  type ListAssessmentReportsCommandOutput,
   ListAssessmentReportsCommand,
-  ListAssessmentReportsCommandInput,
-  ListAssessmentReportsCommandOutput,
 } from "./commands/ListAssessmentReportsCommand";
 import {
+  type ListAssessmentsCommandInput,
+  type ListAssessmentsCommandOutput,
   ListAssessmentsCommand,
-  ListAssessmentsCommandInput,
-  ListAssessmentsCommandOutput,
 } from "./commands/ListAssessmentsCommand";
 import {
+  type ListControlDomainInsightsByAssessmentCommandInput,
+  type ListControlDomainInsightsByAssessmentCommandOutput,
   ListControlDomainInsightsByAssessmentCommand,
-  ListControlDomainInsightsByAssessmentCommandInput,
-  ListControlDomainInsightsByAssessmentCommandOutput,
 } from "./commands/ListControlDomainInsightsByAssessmentCommand";
 import {
+  type ListControlDomainInsightsCommandInput,
+  type ListControlDomainInsightsCommandOutput,
   ListControlDomainInsightsCommand,
-  ListControlDomainInsightsCommandInput,
-  ListControlDomainInsightsCommandOutput,
 } from "./commands/ListControlDomainInsightsCommand";
 import {
+  type ListControlInsightsByControlDomainCommandInput,
+  type ListControlInsightsByControlDomainCommandOutput,
   ListControlInsightsByControlDomainCommand,
-  ListControlInsightsByControlDomainCommandInput,
-  ListControlInsightsByControlDomainCommandOutput,
 } from "./commands/ListControlInsightsByControlDomainCommand";
 import {
+  type ListControlsCommandInput,
+  type ListControlsCommandOutput,
   ListControlsCommand,
-  ListControlsCommandInput,
-  ListControlsCommandOutput,
 } from "./commands/ListControlsCommand";
 import {
+  type ListKeywordsForDataSourceCommandInput,
+  type ListKeywordsForDataSourceCommandOutput,
   ListKeywordsForDataSourceCommand,
-  ListKeywordsForDataSourceCommandInput,
-  ListKeywordsForDataSourceCommandOutput,
 } from "./commands/ListKeywordsForDataSourceCommand";
 import {
+  type ListNotificationsCommandInput,
+  type ListNotificationsCommandOutput,
   ListNotificationsCommand,
-  ListNotificationsCommandInput,
-  ListNotificationsCommandOutput,
 } from "./commands/ListNotificationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RegisterAccountCommandInput,
+  type RegisterAccountCommandOutput,
   RegisterAccountCommand,
-  RegisterAccountCommandInput,
-  RegisterAccountCommandOutput,
 } from "./commands/RegisterAccountCommand";
 import {
+  type RegisterOrganizationAdminAccountCommandInput,
+  type RegisterOrganizationAdminAccountCommandOutput,
   RegisterOrganizationAdminAccountCommand,
-  RegisterOrganizationAdminAccountCommandInput,
-  RegisterOrganizationAdminAccountCommandOutput,
 } from "./commands/RegisterOrganizationAdminAccountCommand";
 import {
+  type StartAssessmentFrameworkShareCommandInput,
+  type StartAssessmentFrameworkShareCommandOutput,
   StartAssessmentFrameworkShareCommand,
-  StartAssessmentFrameworkShareCommandInput,
-  StartAssessmentFrameworkShareCommandOutput,
 } from "./commands/StartAssessmentFrameworkShareCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAssessmentCommandInput,
+  type UpdateAssessmentCommandOutput,
   UpdateAssessmentCommand,
-  UpdateAssessmentCommandInput,
-  UpdateAssessmentCommandOutput,
 } from "./commands/UpdateAssessmentCommand";
 import {
+  type UpdateAssessmentControlCommandInput,
+  type UpdateAssessmentControlCommandOutput,
   UpdateAssessmentControlCommand,
-  UpdateAssessmentControlCommandInput,
-  UpdateAssessmentControlCommandOutput,
 } from "./commands/UpdateAssessmentControlCommand";
 import {
+  type UpdateAssessmentControlSetStatusCommandInput,
+  type UpdateAssessmentControlSetStatusCommandOutput,
   UpdateAssessmentControlSetStatusCommand,
-  UpdateAssessmentControlSetStatusCommandInput,
-  UpdateAssessmentControlSetStatusCommandOutput,
 } from "./commands/UpdateAssessmentControlSetStatusCommand";
 import {
+  type UpdateAssessmentFrameworkCommandInput,
+  type UpdateAssessmentFrameworkCommandOutput,
   UpdateAssessmentFrameworkCommand,
-  UpdateAssessmentFrameworkCommandInput,
-  UpdateAssessmentFrameworkCommandOutput,
 } from "./commands/UpdateAssessmentFrameworkCommand";
 import {
+  type UpdateAssessmentFrameworkShareCommandInput,
+  type UpdateAssessmentFrameworkShareCommandOutput,
   UpdateAssessmentFrameworkShareCommand,
-  UpdateAssessmentFrameworkShareCommandInput,
-  UpdateAssessmentFrameworkShareCommandOutput,
 } from "./commands/UpdateAssessmentFrameworkShareCommand";
 import {
+  type UpdateAssessmentStatusCommandInput,
+  type UpdateAssessmentStatusCommandOutput,
   UpdateAssessmentStatusCommand,
-  UpdateAssessmentStatusCommandInput,
-  UpdateAssessmentStatusCommandOutput,
 } from "./commands/UpdateAssessmentStatusCommand";
 import {
+  type UpdateControlCommandInput,
+  type UpdateControlCommandOutput,
   UpdateControlCommand,
-  UpdateControlCommandInput,
-  UpdateControlCommandOutput,
 } from "./commands/UpdateControlCommand";
 import {
+  type UpdateSettingsCommandInput,
+  type UpdateSettingsCommandOutput,
   UpdateSettingsCommand,
-  UpdateSettingsCommandInput,
-  UpdateSettingsCommandOutput,
 } from "./commands/UpdateSettingsCommand";
 import {
+  type ValidateAssessmentReportIntegrityCommandInput,
+  type ValidateAssessmentReportIntegrityCommandOutput,
   ValidateAssessmentReportIntegrityCommand,
-  ValidateAssessmentReportIntegrityCommandInput,
-  ValidateAssessmentReportIntegrityCommandOutput,
 } from "./commands/ValidateAssessmentReportIntegrityCommand";
 import { paginateGetChangeLogs } from "./pagination/GetChangeLogsPaginator";
 import { paginateGetDelegations } from "./pagination/GetDelegationsPaginator";

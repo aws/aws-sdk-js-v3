@@ -8,7 +8,7 @@ import {
   DescribeOpsItemsCommandOutput,
 } from "../commands/DescribeOpsItemsCommand";
 import { SSMClient } from "../SSMClient";
-import { SSMPaginationConfiguration } from "./Interfaces";
+import type { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,154 +61,160 @@ import {
   defaultLocationHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateTrackerConsumerCommandInput,
   AssociateTrackerConsumerCommandOutput,
 } from "./commands/AssociateTrackerConsumerCommand";
-import {
+import type {
   BatchDeleteDevicePositionHistoryCommandInput,
   BatchDeleteDevicePositionHistoryCommandOutput,
 } from "./commands/BatchDeleteDevicePositionHistoryCommand";
-import {
+import type {
   BatchDeleteGeofenceCommandInput,
   BatchDeleteGeofenceCommandOutput,
 } from "./commands/BatchDeleteGeofenceCommand";
-import {
+import type {
   BatchEvaluateGeofencesCommandInput,
   BatchEvaluateGeofencesCommandOutput,
 } from "./commands/BatchEvaluateGeofencesCommand";
-import {
+import type {
   BatchGetDevicePositionCommandInput,
   BatchGetDevicePositionCommandOutput,
 } from "./commands/BatchGetDevicePositionCommand";
-import { BatchPutGeofenceCommandInput, BatchPutGeofenceCommandOutput } from "./commands/BatchPutGeofenceCommand";
-import {
+import type { BatchPutGeofenceCommandInput, BatchPutGeofenceCommandOutput } from "./commands/BatchPutGeofenceCommand";
+import type {
   BatchUpdateDevicePositionCommandInput,
   BatchUpdateDevicePositionCommandOutput,
 } from "./commands/BatchUpdateDevicePositionCommand";
-import { CalculateRouteCommandInput, CalculateRouteCommandOutput } from "./commands/CalculateRouteCommand";
-import {
+import type { CalculateRouteCommandInput, CalculateRouteCommandOutput } from "./commands/CalculateRouteCommand";
+import type {
   CalculateRouteMatrixCommandInput,
   CalculateRouteMatrixCommandOutput,
 } from "./commands/CalculateRouteMatrixCommand";
-import {
+import type {
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
 } from "./commands/CreateGeofenceCollectionCommand";
-import { CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
-import { CreateMapCommandInput, CreateMapCommandOutput } from "./commands/CreateMapCommand";
-import { CreatePlaceIndexCommandInput, CreatePlaceIndexCommandOutput } from "./commands/CreatePlaceIndexCommand";
-import {
+import type { CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
+import type { CreateMapCommandInput, CreateMapCommandOutput } from "./commands/CreateMapCommand";
+import type { CreatePlaceIndexCommandInput, CreatePlaceIndexCommandOutput } from "./commands/CreatePlaceIndexCommand";
+import type {
   CreateRouteCalculatorCommandInput,
   CreateRouteCalculatorCommandOutput,
 } from "./commands/CreateRouteCalculatorCommand";
-import { CreateTrackerCommandInput, CreateTrackerCommandOutput } from "./commands/CreateTrackerCommand";
-import {
+import type { CreateTrackerCommandInput, CreateTrackerCommandOutput } from "./commands/CreateTrackerCommand";
+import type {
   DeleteGeofenceCollectionCommandInput,
   DeleteGeofenceCollectionCommandOutput,
 } from "./commands/DeleteGeofenceCollectionCommand";
-import { DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
-import { DeleteMapCommandInput, DeleteMapCommandOutput } from "./commands/DeleteMapCommand";
-import { DeletePlaceIndexCommandInput, DeletePlaceIndexCommandOutput } from "./commands/DeletePlaceIndexCommand";
-import {
+import type { DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
+import type { DeleteMapCommandInput, DeleteMapCommandOutput } from "./commands/DeleteMapCommand";
+import type { DeletePlaceIndexCommandInput, DeletePlaceIndexCommandOutput } from "./commands/DeletePlaceIndexCommand";
+import type {
   DeleteRouteCalculatorCommandInput,
   DeleteRouteCalculatorCommandOutput,
 } from "./commands/DeleteRouteCalculatorCommand";
-import { DeleteTrackerCommandInput, DeleteTrackerCommandOutput } from "./commands/DeleteTrackerCommand";
-import {
+import type { DeleteTrackerCommandInput, DeleteTrackerCommandOutput } from "./commands/DeleteTrackerCommand";
+import type {
   DescribeGeofenceCollectionCommandInput,
   DescribeGeofenceCollectionCommandOutput,
 } from "./commands/DescribeGeofenceCollectionCommand";
-import { DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand";
-import { DescribeMapCommandInput, DescribeMapCommandOutput } from "./commands/DescribeMapCommand";
-import { DescribePlaceIndexCommandInput, DescribePlaceIndexCommandOutput } from "./commands/DescribePlaceIndexCommand";
-import {
+import type { DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand";
+import type { DescribeMapCommandInput, DescribeMapCommandOutput } from "./commands/DescribeMapCommand";
+import type {
+  DescribePlaceIndexCommandInput,
+  DescribePlaceIndexCommandOutput,
+} from "./commands/DescribePlaceIndexCommand";
+import type {
   DescribeRouteCalculatorCommandInput,
   DescribeRouteCalculatorCommandOutput,
 } from "./commands/DescribeRouteCalculatorCommand";
-import { DescribeTrackerCommandInput, DescribeTrackerCommandOutput } from "./commands/DescribeTrackerCommand";
-import {
+import type { DescribeTrackerCommandInput, DescribeTrackerCommandOutput } from "./commands/DescribeTrackerCommand";
+import type {
   DisassociateTrackerConsumerCommandInput,
   DisassociateTrackerConsumerCommandOutput,
 } from "./commands/DisassociateTrackerConsumerCommand";
-import {
+import type {
   ForecastGeofenceEventsCommandInput,
   ForecastGeofenceEventsCommandOutput,
 } from "./commands/ForecastGeofenceEventsCommand";
-import { GetDevicePositionCommandInput, GetDevicePositionCommandOutput } from "./commands/GetDevicePositionCommand";
-import {
+import type {
+  GetDevicePositionCommandInput,
+  GetDevicePositionCommandOutput,
+} from "./commands/GetDevicePositionCommand";
+import type {
   GetDevicePositionHistoryCommandInput,
   GetDevicePositionHistoryCommandOutput,
 } from "./commands/GetDevicePositionHistoryCommand";
-import { GetGeofenceCommandInput, GetGeofenceCommandOutput } from "./commands/GetGeofenceCommand";
-import { GetMapGlyphsCommandInput, GetMapGlyphsCommandOutput } from "./commands/GetMapGlyphsCommand";
-import { GetMapSpritesCommandInput, GetMapSpritesCommandOutput } from "./commands/GetMapSpritesCommand";
-import {
+import type { GetGeofenceCommandInput, GetGeofenceCommandOutput } from "./commands/GetGeofenceCommand";
+import type { GetMapGlyphsCommandInput, GetMapGlyphsCommandOutput } from "./commands/GetMapGlyphsCommand";
+import type { GetMapSpritesCommandInput, GetMapSpritesCommandOutput } from "./commands/GetMapSpritesCommand";
+import type {
   GetMapStyleDescriptorCommandInput,
   GetMapStyleDescriptorCommandOutput,
 } from "./commands/GetMapStyleDescriptorCommand";
-import { GetMapTileCommandInput, GetMapTileCommandOutput } from "./commands/GetMapTileCommand";
-import { GetPlaceCommandInput, GetPlaceCommandOutput } from "./commands/GetPlaceCommand";
-import {
+import type { GetMapTileCommandInput, GetMapTileCommandOutput } from "./commands/GetMapTileCommand";
+import type { GetPlaceCommandInput, GetPlaceCommandOutput } from "./commands/GetPlaceCommand";
+import type {
   ListDevicePositionsCommandInput,
   ListDevicePositionsCommandOutput,
 } from "./commands/ListDevicePositionsCommand";
-import {
+import type {
   ListGeofenceCollectionsCommandInput,
   ListGeofenceCollectionsCommandOutput,
 } from "./commands/ListGeofenceCollectionsCommand";
-import { ListGeofencesCommandInput, ListGeofencesCommandOutput } from "./commands/ListGeofencesCommand";
-import { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
-import { ListMapsCommandInput, ListMapsCommandOutput } from "./commands/ListMapsCommand";
-import { ListPlaceIndexesCommandInput, ListPlaceIndexesCommandOutput } from "./commands/ListPlaceIndexesCommand";
-import {
+import type { ListGeofencesCommandInput, ListGeofencesCommandOutput } from "./commands/ListGeofencesCommand";
+import type { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
+import type { ListMapsCommandInput, ListMapsCommandOutput } from "./commands/ListMapsCommand";
+import type { ListPlaceIndexesCommandInput, ListPlaceIndexesCommandOutput } from "./commands/ListPlaceIndexesCommand";
+import type {
   ListRouteCalculatorsCommandInput,
   ListRouteCalculatorsCommandOutput,
 } from "./commands/ListRouteCalculatorsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTrackerConsumersCommandInput,
   ListTrackerConsumersCommandOutput,
 } from "./commands/ListTrackerConsumersCommand";
-import { ListTrackersCommandInput, ListTrackersCommandOutput } from "./commands/ListTrackersCommand";
-import { PutGeofenceCommandInput, PutGeofenceCommandOutput } from "./commands/PutGeofenceCommand";
-import {
+import type { ListTrackersCommandInput, ListTrackersCommandOutput } from "./commands/ListTrackersCommand";
+import type { PutGeofenceCommandInput, PutGeofenceCommandOutput } from "./commands/PutGeofenceCommand";
+import type {
   SearchPlaceIndexForPositionCommandInput,
   SearchPlaceIndexForPositionCommandOutput,
 } from "./commands/SearchPlaceIndexForPositionCommand";
-import {
+import type {
   SearchPlaceIndexForSuggestionsCommandInput,
   SearchPlaceIndexForSuggestionsCommandOutput,
 } from "./commands/SearchPlaceIndexForSuggestionsCommand";
-import {
+import type {
   SearchPlaceIndexForTextCommandInput,
   SearchPlaceIndexForTextCommandOutput,
 } from "./commands/SearchPlaceIndexForTextCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateGeofenceCollectionCommandInput,
   UpdateGeofenceCollectionCommandOutput,
 } from "./commands/UpdateGeofenceCollectionCommand";
-import { UpdateKeyCommandInput, UpdateKeyCommandOutput } from "./commands/UpdateKeyCommand";
-import { UpdateMapCommandInput, UpdateMapCommandOutput } from "./commands/UpdateMapCommand";
-import { UpdatePlaceIndexCommandInput, UpdatePlaceIndexCommandOutput } from "./commands/UpdatePlaceIndexCommand";
-import {
+import type { UpdateKeyCommandInput, UpdateKeyCommandOutput } from "./commands/UpdateKeyCommand";
+import type { UpdateMapCommandInput, UpdateMapCommandOutput } from "./commands/UpdateMapCommand";
+import type { UpdatePlaceIndexCommandInput, UpdatePlaceIndexCommandOutput } from "./commands/UpdatePlaceIndexCommand";
+import type {
   UpdateRouteCalculatorCommandInput,
   UpdateRouteCalculatorCommandOutput,
 } from "./commands/UpdateRouteCalculatorCommand";
-import { UpdateTrackerCommandInput, UpdateTrackerCommandOutput } from "./commands/UpdateTrackerCommand";
-import {
+import type { UpdateTrackerCommandInput, UpdateTrackerCommandOutput } from "./commands/UpdateTrackerCommand";
+import type {
   VerifyDevicePositionCommandInput,
   VerifyDevicePositionCommandOutput,
 } from "./commands/VerifyDevicePositionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -462,7 +466,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

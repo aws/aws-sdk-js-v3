@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,28 +61,31 @@ import {
   defaultOAMHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
-import { CreateSinkCommandInput, CreateSinkCommandOutput } from "./commands/CreateSinkCommand";
-import { DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
-import { DeleteSinkCommandInput, DeleteSinkCommandOutput } from "./commands/DeleteSinkCommand";
-import { GetLinkCommandInput, GetLinkCommandOutput } from "./commands/GetLinkCommand";
-import { GetSinkCommandInput, GetSinkCommandOutput } from "./commands/GetSinkCommand";
-import { GetSinkPolicyCommandInput, GetSinkPolicyCommandOutput } from "./commands/GetSinkPolicyCommand";
-import { ListAttachedLinksCommandInput, ListAttachedLinksCommandOutput } from "./commands/ListAttachedLinksCommand";
-import { ListLinksCommandInput, ListLinksCommandOutput } from "./commands/ListLinksCommand";
-import { ListSinksCommandInput, ListSinksCommandOutput } from "./commands/ListSinksCommand";
-import {
+import type { CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
+import type { CreateSinkCommandInput, CreateSinkCommandOutput } from "./commands/CreateSinkCommand";
+import type { DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
+import type { DeleteSinkCommandInput, DeleteSinkCommandOutput } from "./commands/DeleteSinkCommand";
+import type { GetLinkCommandInput, GetLinkCommandOutput } from "./commands/GetLinkCommand";
+import type { GetSinkCommandInput, GetSinkCommandOutput } from "./commands/GetSinkCommand";
+import type { GetSinkPolicyCommandInput, GetSinkPolicyCommandOutput } from "./commands/GetSinkPolicyCommand";
+import type {
+  ListAttachedLinksCommandInput,
+  ListAttachedLinksCommandOutput,
+} from "./commands/ListAttachedLinksCommand";
+import type { ListLinksCommandInput, ListLinksCommandOutput } from "./commands/ListLinksCommand";
+import type { ListSinksCommandInput, ListSinksCommandOutput } from "./commands/ListSinksCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutSinkPolicyCommandInput, PutSinkPolicyCommandOutput } from "./commands/PutSinkPolicyCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
+import type { PutSinkPolicyCommandInput, PutSinkPolicyCommandOutput } from "./commands/PutSinkPolicyCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -246,7 +247,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

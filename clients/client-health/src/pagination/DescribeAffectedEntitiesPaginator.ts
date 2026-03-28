@@ -8,7 +8,7 @@ import {
   DescribeAffectedEntitiesCommandOutput,
 } from "../commands/DescribeAffectedEntitiesCommand";
 import { HealthClient } from "../HealthClient";
-import { HealthPaginationConfiguration } from "./Interfaces";
+import type { HealthPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

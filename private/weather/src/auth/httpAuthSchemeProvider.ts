@@ -3,6 +3,8 @@ import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider 
 import {
   type ApiKeyIdentity,
   type ApiKeyIdentityProvider,
+  type AwsCredentialIdentity,
+  type AwsCredentialIdentityProvider,
   type HandlerExecutionContext,
   type HttpAuthOption,
   type HttpAuthScheme,
@@ -10,8 +12,6 @@ import {
   type HttpAuthSchemeParametersProvider,
   type HttpAuthSchemeProvider,
   type Provider,
-  AwsCredentialIdentity,
-  AwsCredentialIdentityProvider,
   HttpApiKeyAuthLocation,
   Provider as __Provider,
   TokenIdentity,

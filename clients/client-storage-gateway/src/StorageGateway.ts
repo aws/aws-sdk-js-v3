@@ -3,456 +3,476 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type ActivateGatewayCommandInput,
+  type ActivateGatewayCommandOutput,
   ActivateGatewayCommand,
-  ActivateGatewayCommandInput,
-  ActivateGatewayCommandOutput,
 } from "./commands/ActivateGatewayCommand";
-import { AddCacheCommand, AddCacheCommandInput, AddCacheCommandOutput } from "./commands/AddCacheCommand";
+import { type AddCacheCommandInput, type AddCacheCommandOutput, AddCacheCommand } from "./commands/AddCacheCommand";
 import {
+  type AddTagsToResourceCommandInput,
+  type AddTagsToResourceCommandOutput,
   AddTagsToResourceCommand,
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand";
 import {
+  type AddUploadBufferCommandInput,
+  type AddUploadBufferCommandOutput,
   AddUploadBufferCommand,
-  AddUploadBufferCommandInput,
-  AddUploadBufferCommandOutput,
 } from "./commands/AddUploadBufferCommand";
 import {
+  type AddWorkingStorageCommandInput,
+  type AddWorkingStorageCommandOutput,
   AddWorkingStorageCommand,
-  AddWorkingStorageCommandInput,
-  AddWorkingStorageCommandOutput,
 } from "./commands/AddWorkingStorageCommand";
 import {
+  type AssignTapePoolCommandInput,
+  type AssignTapePoolCommandOutput,
   AssignTapePoolCommand,
-  AssignTapePoolCommandInput,
-  AssignTapePoolCommandOutput,
 } from "./commands/AssignTapePoolCommand";
 import {
+  type AssociateFileSystemCommandInput,
+  type AssociateFileSystemCommandOutput,
   AssociateFileSystemCommand,
-  AssociateFileSystemCommandInput,
-  AssociateFileSystemCommandOutput,
 } from "./commands/AssociateFileSystemCommand";
 import {
+  type AttachVolumeCommandInput,
+  type AttachVolumeCommandOutput,
   AttachVolumeCommand,
-  AttachVolumeCommandInput,
-  AttachVolumeCommandOutput,
 } from "./commands/AttachVolumeCommand";
 import {
+  type CancelArchivalCommandInput,
+  type CancelArchivalCommandOutput,
   CancelArchivalCommand,
-  CancelArchivalCommandInput,
-  CancelArchivalCommandOutput,
 } from "./commands/CancelArchivalCommand";
 import {
+  type CancelCacheReportCommandInput,
+  type CancelCacheReportCommandOutput,
   CancelCacheReportCommand,
-  CancelCacheReportCommandInput,
-  CancelCacheReportCommandOutput,
 } from "./commands/CancelCacheReportCommand";
 import {
+  type CancelRetrievalCommandInput,
+  type CancelRetrievalCommandOutput,
   CancelRetrievalCommand,
-  CancelRetrievalCommandInput,
-  CancelRetrievalCommandOutput,
 } from "./commands/CancelRetrievalCommand";
 import {
+  type CreateCachediSCSIVolumeCommandInput,
+  type CreateCachediSCSIVolumeCommandOutput,
   CreateCachediSCSIVolumeCommand,
-  CreateCachediSCSIVolumeCommandInput,
-  CreateCachediSCSIVolumeCommandOutput,
 } from "./commands/CreateCachediSCSIVolumeCommand";
 import {
+  type CreateNFSFileShareCommandInput,
+  type CreateNFSFileShareCommandOutput,
   CreateNFSFileShareCommand,
-  CreateNFSFileShareCommandInput,
-  CreateNFSFileShareCommandOutput,
 } from "./commands/CreateNFSFileShareCommand";
 import {
+  type CreateSMBFileShareCommandInput,
+  type CreateSMBFileShareCommandOutput,
   CreateSMBFileShareCommand,
-  CreateSMBFileShareCommandInput,
-  CreateSMBFileShareCommandOutput,
 } from "./commands/CreateSMBFileShareCommand";
 import {
+  type CreateSnapshotCommandInput,
+  type CreateSnapshotCommandOutput,
   CreateSnapshotCommand,
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
 import {
+  type CreateSnapshotFromVolumeRecoveryPointCommandInput,
+  type CreateSnapshotFromVolumeRecoveryPointCommandOutput,
   CreateSnapshotFromVolumeRecoveryPointCommand,
-  CreateSnapshotFromVolumeRecoveryPointCommandInput,
-  CreateSnapshotFromVolumeRecoveryPointCommandOutput,
 } from "./commands/CreateSnapshotFromVolumeRecoveryPointCommand";
 import {
+  type CreateStorediSCSIVolumeCommandInput,
+  type CreateStorediSCSIVolumeCommandOutput,
   CreateStorediSCSIVolumeCommand,
-  CreateStorediSCSIVolumeCommandInput,
-  CreateStorediSCSIVolumeCommandOutput,
 } from "./commands/CreateStorediSCSIVolumeCommand";
 import {
+  type CreateTapePoolCommandInput,
+  type CreateTapePoolCommandOutput,
   CreateTapePoolCommand,
-  CreateTapePoolCommandInput,
-  CreateTapePoolCommandOutput,
 } from "./commands/CreateTapePoolCommand";
-import { CreateTapesCommand, CreateTapesCommandInput, CreateTapesCommandOutput } from "./commands/CreateTapesCommand";
 import {
+  type CreateTapesCommandInput,
+  type CreateTapesCommandOutput,
+  CreateTapesCommand,
+} from "./commands/CreateTapesCommand";
+import {
+  type CreateTapeWithBarcodeCommandInput,
+  type CreateTapeWithBarcodeCommandOutput,
   CreateTapeWithBarcodeCommand,
-  CreateTapeWithBarcodeCommandInput,
-  CreateTapeWithBarcodeCommandOutput,
 } from "./commands/CreateTapeWithBarcodeCommand";
 import {
+  type DeleteAutomaticTapeCreationPolicyCommandInput,
+  type DeleteAutomaticTapeCreationPolicyCommandOutput,
   DeleteAutomaticTapeCreationPolicyCommand,
-  DeleteAutomaticTapeCreationPolicyCommandInput,
-  DeleteAutomaticTapeCreationPolicyCommandOutput,
 } from "./commands/DeleteAutomaticTapeCreationPolicyCommand";
 import {
+  type DeleteBandwidthRateLimitCommandInput,
+  type DeleteBandwidthRateLimitCommandOutput,
   DeleteBandwidthRateLimitCommand,
-  DeleteBandwidthRateLimitCommandInput,
-  DeleteBandwidthRateLimitCommandOutput,
 } from "./commands/DeleteBandwidthRateLimitCommand";
 import {
+  type DeleteCacheReportCommandInput,
+  type DeleteCacheReportCommandOutput,
   DeleteCacheReportCommand,
-  DeleteCacheReportCommandInput,
-  DeleteCacheReportCommandOutput,
 } from "./commands/DeleteCacheReportCommand";
 import {
+  type DeleteChapCredentialsCommandInput,
+  type DeleteChapCredentialsCommandOutput,
   DeleteChapCredentialsCommand,
-  DeleteChapCredentialsCommandInput,
-  DeleteChapCredentialsCommandOutput,
 } from "./commands/DeleteChapCredentialsCommand";
 import {
+  type DeleteFileShareCommandInput,
+  type DeleteFileShareCommandOutput,
   DeleteFileShareCommand,
-  DeleteFileShareCommandInput,
-  DeleteFileShareCommandOutput,
 } from "./commands/DeleteFileShareCommand";
 import {
+  type DeleteGatewayCommandInput,
+  type DeleteGatewayCommandOutput,
   DeleteGatewayCommand,
-  DeleteGatewayCommandInput,
-  DeleteGatewayCommandOutput,
 } from "./commands/DeleteGatewayCommand";
 import {
+  type DeleteSnapshotScheduleCommandInput,
+  type DeleteSnapshotScheduleCommandOutput,
   DeleteSnapshotScheduleCommand,
-  DeleteSnapshotScheduleCommandInput,
-  DeleteSnapshotScheduleCommandOutput,
 } from "./commands/DeleteSnapshotScheduleCommand";
 import {
+  type DeleteTapeArchiveCommandInput,
+  type DeleteTapeArchiveCommandOutput,
   DeleteTapeArchiveCommand,
-  DeleteTapeArchiveCommandInput,
-  DeleteTapeArchiveCommandOutput,
 } from "./commands/DeleteTapeArchiveCommand";
-import { DeleteTapeCommand, DeleteTapeCommandInput, DeleteTapeCommandOutput } from "./commands/DeleteTapeCommand";
 import {
+  type DeleteTapeCommandInput,
+  type DeleteTapeCommandOutput,
+  DeleteTapeCommand,
+} from "./commands/DeleteTapeCommand";
+import {
+  type DeleteTapePoolCommandInput,
+  type DeleteTapePoolCommandOutput,
   DeleteTapePoolCommand,
-  DeleteTapePoolCommandInput,
-  DeleteTapePoolCommandOutput,
 } from "./commands/DeleteTapePoolCommand";
 import {
+  type DeleteVolumeCommandInput,
+  type DeleteVolumeCommandOutput,
   DeleteVolumeCommand,
-  DeleteVolumeCommandInput,
-  DeleteVolumeCommandOutput,
 } from "./commands/DeleteVolumeCommand";
 import {
+  type DescribeAvailabilityMonitorTestCommandInput,
+  type DescribeAvailabilityMonitorTestCommandOutput,
   DescribeAvailabilityMonitorTestCommand,
-  DescribeAvailabilityMonitorTestCommandInput,
-  DescribeAvailabilityMonitorTestCommandOutput,
 } from "./commands/DescribeAvailabilityMonitorTestCommand";
 import {
+  type DescribeBandwidthRateLimitCommandInput,
+  type DescribeBandwidthRateLimitCommandOutput,
   DescribeBandwidthRateLimitCommand,
-  DescribeBandwidthRateLimitCommandInput,
-  DescribeBandwidthRateLimitCommandOutput,
 } from "./commands/DescribeBandwidthRateLimitCommand";
 import {
+  type DescribeBandwidthRateLimitScheduleCommandInput,
+  type DescribeBandwidthRateLimitScheduleCommandOutput,
   DescribeBandwidthRateLimitScheduleCommand,
-  DescribeBandwidthRateLimitScheduleCommandInput,
-  DescribeBandwidthRateLimitScheduleCommandOutput,
 } from "./commands/DescribeBandwidthRateLimitScheduleCommand";
 import {
+  type DescribeCacheCommandInput,
+  type DescribeCacheCommandOutput,
   DescribeCacheCommand,
-  DescribeCacheCommandInput,
-  DescribeCacheCommandOutput,
 } from "./commands/DescribeCacheCommand";
 import {
+  type DescribeCachediSCSIVolumesCommandInput,
+  type DescribeCachediSCSIVolumesCommandOutput,
   DescribeCachediSCSIVolumesCommand,
-  DescribeCachediSCSIVolumesCommandInput,
-  DescribeCachediSCSIVolumesCommandOutput,
 } from "./commands/DescribeCachediSCSIVolumesCommand";
 import {
+  type DescribeCacheReportCommandInput,
+  type DescribeCacheReportCommandOutput,
   DescribeCacheReportCommand,
-  DescribeCacheReportCommandInput,
-  DescribeCacheReportCommandOutput,
 } from "./commands/DescribeCacheReportCommand";
 import {
+  type DescribeChapCredentialsCommandInput,
+  type DescribeChapCredentialsCommandOutput,
   DescribeChapCredentialsCommand,
-  DescribeChapCredentialsCommandInput,
-  DescribeChapCredentialsCommandOutput,
 } from "./commands/DescribeChapCredentialsCommand";
 import {
+  type DescribeFileSystemAssociationsCommandInput,
+  type DescribeFileSystemAssociationsCommandOutput,
   DescribeFileSystemAssociationsCommand,
-  DescribeFileSystemAssociationsCommandInput,
-  DescribeFileSystemAssociationsCommandOutput,
 } from "./commands/DescribeFileSystemAssociationsCommand";
 import {
+  type DescribeGatewayInformationCommandInput,
+  type DescribeGatewayInformationCommandOutput,
   DescribeGatewayInformationCommand,
-  DescribeGatewayInformationCommandInput,
-  DescribeGatewayInformationCommandOutput,
 } from "./commands/DescribeGatewayInformationCommand";
 import {
+  type DescribeMaintenanceStartTimeCommandInput,
+  type DescribeMaintenanceStartTimeCommandOutput,
   DescribeMaintenanceStartTimeCommand,
-  DescribeMaintenanceStartTimeCommandInput,
-  DescribeMaintenanceStartTimeCommandOutput,
 } from "./commands/DescribeMaintenanceStartTimeCommand";
 import {
+  type DescribeNFSFileSharesCommandInput,
+  type DescribeNFSFileSharesCommandOutput,
   DescribeNFSFileSharesCommand,
-  DescribeNFSFileSharesCommandInput,
-  DescribeNFSFileSharesCommandOutput,
 } from "./commands/DescribeNFSFileSharesCommand";
 import {
+  type DescribeSMBFileSharesCommandInput,
+  type DescribeSMBFileSharesCommandOutput,
   DescribeSMBFileSharesCommand,
-  DescribeSMBFileSharesCommandInput,
-  DescribeSMBFileSharesCommandOutput,
 } from "./commands/DescribeSMBFileSharesCommand";
 import {
+  type DescribeSMBSettingsCommandInput,
+  type DescribeSMBSettingsCommandOutput,
   DescribeSMBSettingsCommand,
-  DescribeSMBSettingsCommandInput,
-  DescribeSMBSettingsCommandOutput,
 } from "./commands/DescribeSMBSettingsCommand";
 import {
+  type DescribeSnapshotScheduleCommandInput,
+  type DescribeSnapshotScheduleCommandOutput,
   DescribeSnapshotScheduleCommand,
-  DescribeSnapshotScheduleCommandInput,
-  DescribeSnapshotScheduleCommandOutput,
 } from "./commands/DescribeSnapshotScheduleCommand";
 import {
+  type DescribeStorediSCSIVolumesCommandInput,
+  type DescribeStorediSCSIVolumesCommandOutput,
   DescribeStorediSCSIVolumesCommand,
-  DescribeStorediSCSIVolumesCommandInput,
-  DescribeStorediSCSIVolumesCommandOutput,
 } from "./commands/DescribeStorediSCSIVolumesCommand";
 import {
+  type DescribeTapeArchivesCommandInput,
+  type DescribeTapeArchivesCommandOutput,
   DescribeTapeArchivesCommand,
-  DescribeTapeArchivesCommandInput,
-  DescribeTapeArchivesCommandOutput,
 } from "./commands/DescribeTapeArchivesCommand";
 import {
+  type DescribeTapeRecoveryPointsCommandInput,
+  type DescribeTapeRecoveryPointsCommandOutput,
   DescribeTapeRecoveryPointsCommand,
-  DescribeTapeRecoveryPointsCommandInput,
-  DescribeTapeRecoveryPointsCommandOutput,
 } from "./commands/DescribeTapeRecoveryPointsCommand";
 import {
+  type DescribeTapesCommandInput,
+  type DescribeTapesCommandOutput,
   DescribeTapesCommand,
-  DescribeTapesCommandInput,
-  DescribeTapesCommandOutput,
 } from "./commands/DescribeTapesCommand";
 import {
+  type DescribeUploadBufferCommandInput,
+  type DescribeUploadBufferCommandOutput,
   DescribeUploadBufferCommand,
-  DescribeUploadBufferCommandInput,
-  DescribeUploadBufferCommandOutput,
 } from "./commands/DescribeUploadBufferCommand";
 import {
+  type DescribeVTLDevicesCommandInput,
+  type DescribeVTLDevicesCommandOutput,
   DescribeVTLDevicesCommand,
-  DescribeVTLDevicesCommandInput,
-  DescribeVTLDevicesCommandOutput,
 } from "./commands/DescribeVTLDevicesCommand";
 import {
+  type DescribeWorkingStorageCommandInput,
+  type DescribeWorkingStorageCommandOutput,
   DescribeWorkingStorageCommand,
-  DescribeWorkingStorageCommandInput,
-  DescribeWorkingStorageCommandOutput,
 } from "./commands/DescribeWorkingStorageCommand";
 import {
+  type DetachVolumeCommandInput,
+  type DetachVolumeCommandOutput,
   DetachVolumeCommand,
-  DetachVolumeCommandInput,
-  DetachVolumeCommandOutput,
 } from "./commands/DetachVolumeCommand";
 import {
+  type DisableGatewayCommandInput,
+  type DisableGatewayCommandOutput,
   DisableGatewayCommand,
-  DisableGatewayCommandInput,
-  DisableGatewayCommandOutput,
 } from "./commands/DisableGatewayCommand";
 import {
+  type DisassociateFileSystemCommandInput,
+  type DisassociateFileSystemCommandOutput,
   DisassociateFileSystemCommand,
-  DisassociateFileSystemCommandInput,
-  DisassociateFileSystemCommandOutput,
 } from "./commands/DisassociateFileSystemCommand";
 import {
+  type EvictFilesFailingUploadCommandInput,
+  type EvictFilesFailingUploadCommandOutput,
   EvictFilesFailingUploadCommand,
-  EvictFilesFailingUploadCommandInput,
-  EvictFilesFailingUploadCommandOutput,
 } from "./commands/EvictFilesFailingUploadCommand";
-import { JoinDomainCommand, JoinDomainCommandInput, JoinDomainCommandOutput } from "./commands/JoinDomainCommand";
 import {
+  type JoinDomainCommandInput,
+  type JoinDomainCommandOutput,
+  JoinDomainCommand,
+} from "./commands/JoinDomainCommand";
+import {
+  type ListAutomaticTapeCreationPoliciesCommandInput,
+  type ListAutomaticTapeCreationPoliciesCommandOutput,
   ListAutomaticTapeCreationPoliciesCommand,
-  ListAutomaticTapeCreationPoliciesCommandInput,
-  ListAutomaticTapeCreationPoliciesCommandOutput,
 } from "./commands/ListAutomaticTapeCreationPoliciesCommand";
 import {
+  type ListCacheReportsCommandInput,
+  type ListCacheReportsCommandOutput,
   ListCacheReportsCommand,
-  ListCacheReportsCommandInput,
-  ListCacheReportsCommandOutput,
 } from "./commands/ListCacheReportsCommand";
 import {
+  type ListFileSharesCommandInput,
+  type ListFileSharesCommandOutput,
   ListFileSharesCommand,
-  ListFileSharesCommandInput,
-  ListFileSharesCommandOutput,
 } from "./commands/ListFileSharesCommand";
 import {
+  type ListFileSystemAssociationsCommandInput,
+  type ListFileSystemAssociationsCommandOutput,
   ListFileSystemAssociationsCommand,
-  ListFileSystemAssociationsCommandInput,
-  ListFileSystemAssociationsCommandOutput,
 } from "./commands/ListFileSystemAssociationsCommand";
 import {
+  type ListGatewaysCommandInput,
+  type ListGatewaysCommandOutput,
   ListGatewaysCommand,
-  ListGatewaysCommandInput,
-  ListGatewaysCommandOutput,
 } from "./commands/ListGatewaysCommand";
 import {
+  type ListLocalDisksCommandInput,
+  type ListLocalDisksCommandOutput,
   ListLocalDisksCommand,
-  ListLocalDisksCommandInput,
-  ListLocalDisksCommandOutput,
 } from "./commands/ListLocalDisksCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTapePoolsCommandInput,
+  type ListTapePoolsCommandOutput,
   ListTapePoolsCommand,
-  ListTapePoolsCommandInput,
-  ListTapePoolsCommandOutput,
 } from "./commands/ListTapePoolsCommand";
-import { ListTapesCommand, ListTapesCommandInput, ListTapesCommandOutput } from "./commands/ListTapesCommand";
+import { type ListTapesCommandInput, type ListTapesCommandOutput, ListTapesCommand } from "./commands/ListTapesCommand";
 import {
+  type ListVolumeInitiatorsCommandInput,
+  type ListVolumeInitiatorsCommandOutput,
   ListVolumeInitiatorsCommand,
-  ListVolumeInitiatorsCommandInput,
-  ListVolumeInitiatorsCommandOutput,
 } from "./commands/ListVolumeInitiatorsCommand";
 import {
+  type ListVolumeRecoveryPointsCommandInput,
+  type ListVolumeRecoveryPointsCommandOutput,
   ListVolumeRecoveryPointsCommand,
-  ListVolumeRecoveryPointsCommandInput,
-  ListVolumeRecoveryPointsCommandOutput,
 } from "./commands/ListVolumeRecoveryPointsCommand";
-import { ListVolumesCommand, ListVolumesCommandInput, ListVolumesCommandOutput } from "./commands/ListVolumesCommand";
 import {
+  type ListVolumesCommandInput,
+  type ListVolumesCommandOutput,
+  ListVolumesCommand,
+} from "./commands/ListVolumesCommand";
+import {
+  type NotifyWhenUploadedCommandInput,
+  type NotifyWhenUploadedCommandOutput,
   NotifyWhenUploadedCommand,
-  NotifyWhenUploadedCommandInput,
-  NotifyWhenUploadedCommandOutput,
 } from "./commands/NotifyWhenUploadedCommand";
 import {
+  type RefreshCacheCommandInput,
+  type RefreshCacheCommandOutput,
   RefreshCacheCommand,
-  RefreshCacheCommandInput,
-  RefreshCacheCommandOutput,
 } from "./commands/RefreshCacheCommand";
 import {
+  type RemoveTagsFromResourceCommandInput,
+  type RemoveTagsFromResourceCommandOutput,
   RemoveTagsFromResourceCommand,
-  RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
-import { ResetCacheCommand, ResetCacheCommandInput, ResetCacheCommandOutput } from "./commands/ResetCacheCommand";
 import {
+  type ResetCacheCommandInput,
+  type ResetCacheCommandOutput,
+  ResetCacheCommand,
+} from "./commands/ResetCacheCommand";
+import {
+  type RetrieveTapeArchiveCommandInput,
+  type RetrieveTapeArchiveCommandOutput,
   RetrieveTapeArchiveCommand,
-  RetrieveTapeArchiveCommandInput,
-  RetrieveTapeArchiveCommandOutput,
 } from "./commands/RetrieveTapeArchiveCommand";
 import {
+  type RetrieveTapeRecoveryPointCommandInput,
+  type RetrieveTapeRecoveryPointCommandOutput,
   RetrieveTapeRecoveryPointCommand,
-  RetrieveTapeRecoveryPointCommandInput,
-  RetrieveTapeRecoveryPointCommandOutput,
 } from "./commands/RetrieveTapeRecoveryPointCommand";
 import {
+  type SetLocalConsolePasswordCommandInput,
+  type SetLocalConsolePasswordCommandOutput,
   SetLocalConsolePasswordCommand,
-  SetLocalConsolePasswordCommandInput,
-  SetLocalConsolePasswordCommandOutput,
 } from "./commands/SetLocalConsolePasswordCommand";
 import {
+  type SetSMBGuestPasswordCommandInput,
+  type SetSMBGuestPasswordCommandOutput,
   SetSMBGuestPasswordCommand,
-  SetSMBGuestPasswordCommandInput,
-  SetSMBGuestPasswordCommandOutput,
 } from "./commands/SetSMBGuestPasswordCommand";
 import {
+  type ShutdownGatewayCommandInput,
+  type ShutdownGatewayCommandOutput,
   ShutdownGatewayCommand,
-  ShutdownGatewayCommandInput,
-  ShutdownGatewayCommandOutput,
 } from "./commands/ShutdownGatewayCommand";
 import {
+  type StartAvailabilityMonitorTestCommandInput,
+  type StartAvailabilityMonitorTestCommandOutput,
   StartAvailabilityMonitorTestCommand,
-  StartAvailabilityMonitorTestCommandInput,
-  StartAvailabilityMonitorTestCommandOutput,
 } from "./commands/StartAvailabilityMonitorTestCommand";
 import {
+  type StartCacheReportCommandInput,
+  type StartCacheReportCommandOutput,
   StartCacheReportCommand,
-  StartCacheReportCommandInput,
-  StartCacheReportCommandOutput,
 } from "./commands/StartCacheReportCommand";
 import {
+  type StartGatewayCommandInput,
+  type StartGatewayCommandOutput,
   StartGatewayCommand,
-  StartGatewayCommandInput,
-  StartGatewayCommandOutput,
 } from "./commands/StartGatewayCommand";
 import {
+  type UpdateAutomaticTapeCreationPolicyCommandInput,
+  type UpdateAutomaticTapeCreationPolicyCommandOutput,
   UpdateAutomaticTapeCreationPolicyCommand,
-  UpdateAutomaticTapeCreationPolicyCommandInput,
-  UpdateAutomaticTapeCreationPolicyCommandOutput,
 } from "./commands/UpdateAutomaticTapeCreationPolicyCommand";
 import {
+  type UpdateBandwidthRateLimitCommandInput,
+  type UpdateBandwidthRateLimitCommandOutput,
   UpdateBandwidthRateLimitCommand,
-  UpdateBandwidthRateLimitCommandInput,
-  UpdateBandwidthRateLimitCommandOutput,
 } from "./commands/UpdateBandwidthRateLimitCommand";
 import {
+  type UpdateBandwidthRateLimitScheduleCommandInput,
+  type UpdateBandwidthRateLimitScheduleCommandOutput,
   UpdateBandwidthRateLimitScheduleCommand,
-  UpdateBandwidthRateLimitScheduleCommandInput,
-  UpdateBandwidthRateLimitScheduleCommandOutput,
 } from "./commands/UpdateBandwidthRateLimitScheduleCommand";
 import {
+  type UpdateChapCredentialsCommandInput,
+  type UpdateChapCredentialsCommandOutput,
   UpdateChapCredentialsCommand,
-  UpdateChapCredentialsCommandInput,
-  UpdateChapCredentialsCommandOutput,
 } from "./commands/UpdateChapCredentialsCommand";
 import {
+  type UpdateFileSystemAssociationCommandInput,
+  type UpdateFileSystemAssociationCommandOutput,
   UpdateFileSystemAssociationCommand,
-  UpdateFileSystemAssociationCommandInput,
-  UpdateFileSystemAssociationCommandOutput,
 } from "./commands/UpdateFileSystemAssociationCommand";
 import {
+  type UpdateGatewayInformationCommandInput,
+  type UpdateGatewayInformationCommandOutput,
   UpdateGatewayInformationCommand,
-  UpdateGatewayInformationCommandInput,
-  UpdateGatewayInformationCommandOutput,
 } from "./commands/UpdateGatewayInformationCommand";
 import {
+  type UpdateGatewaySoftwareNowCommandInput,
+  type UpdateGatewaySoftwareNowCommandOutput,
   UpdateGatewaySoftwareNowCommand,
-  UpdateGatewaySoftwareNowCommandInput,
-  UpdateGatewaySoftwareNowCommandOutput,
 } from "./commands/UpdateGatewaySoftwareNowCommand";
 import {
+  type UpdateMaintenanceStartTimeCommandInput,
+  type UpdateMaintenanceStartTimeCommandOutput,
   UpdateMaintenanceStartTimeCommand,
-  UpdateMaintenanceStartTimeCommandInput,
-  UpdateMaintenanceStartTimeCommandOutput,
 } from "./commands/UpdateMaintenanceStartTimeCommand";
 import {
+  type UpdateNFSFileShareCommandInput,
+  type UpdateNFSFileShareCommandOutput,
   UpdateNFSFileShareCommand,
-  UpdateNFSFileShareCommandInput,
-  UpdateNFSFileShareCommandOutput,
 } from "./commands/UpdateNFSFileShareCommand";
 import {
+  type UpdateSMBFileShareCommandInput,
+  type UpdateSMBFileShareCommandOutput,
   UpdateSMBFileShareCommand,
-  UpdateSMBFileShareCommandInput,
-  UpdateSMBFileShareCommandOutput,
 } from "./commands/UpdateSMBFileShareCommand";
 import {
+  type UpdateSMBFileShareVisibilityCommandInput,
+  type UpdateSMBFileShareVisibilityCommandOutput,
   UpdateSMBFileShareVisibilityCommand,
-  UpdateSMBFileShareVisibilityCommandInput,
-  UpdateSMBFileShareVisibilityCommandOutput,
 } from "./commands/UpdateSMBFileShareVisibilityCommand";
 import {
+  type UpdateSMBLocalGroupsCommandInput,
+  type UpdateSMBLocalGroupsCommandOutput,
   UpdateSMBLocalGroupsCommand,
-  UpdateSMBLocalGroupsCommandInput,
-  UpdateSMBLocalGroupsCommandOutput,
 } from "./commands/UpdateSMBLocalGroupsCommand";
 import {
+  type UpdateSMBSecurityStrategyCommandInput,
+  type UpdateSMBSecurityStrategyCommandOutput,
   UpdateSMBSecurityStrategyCommand,
-  UpdateSMBSecurityStrategyCommandInput,
-  UpdateSMBSecurityStrategyCommandOutput,
 } from "./commands/UpdateSMBSecurityStrategyCommand";
 import {
+  type UpdateSnapshotScheduleCommandInput,
+  type UpdateSnapshotScheduleCommandOutput,
   UpdateSnapshotScheduleCommand,
-  UpdateSnapshotScheduleCommandInput,
-  UpdateSnapshotScheduleCommandOutput,
 } from "./commands/UpdateSnapshotScheduleCommand";
 import {
+  type UpdateVTLDeviceTypeCommandInput,
+  type UpdateVTLDeviceTypeCommandOutput,
   UpdateVTLDeviceTypeCommand,
-  UpdateVTLDeviceTypeCommandInput,
-  UpdateVTLDeviceTypeCommandOutput,
 } from "./commands/UpdateVTLDeviceTypeCommand";
 import { paginateDescribeTapeArchives } from "./pagination/DescribeTapeArchivesPaginator";
 import { paginateDescribeTapeRecoveryPoints } from "./pagination/DescribeTapeRecoveryPointsPaginator";

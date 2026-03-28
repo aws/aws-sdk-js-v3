@@ -7,7 +7,7 @@
  */
 export * from "./SageMakerRuntimeHTTP2Client";
 export * from "./SageMakerRuntimeHTTP2";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SageMakerRuntimeHTTP2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -8,7 +8,7 @@ import {
   ListQuickResponsesCommandOutput,
 } from "../commands/ListQuickResponsesCommand";
 import { WisdomClient } from "../WisdomClient";
-import { WisdomPaginationConfiguration } from "./Interfaces";
+import type { WisdomPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

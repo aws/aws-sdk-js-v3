@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,77 +61,83 @@ import {
   defaultGrafanaHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateLicenseCommandInput, AssociateLicenseCommandOutput } from "./commands/AssociateLicenseCommand";
-import {
+import type { AssociateLicenseCommandInput, AssociateLicenseCommandOutput } from "./commands/AssociateLicenseCommand";
+import type {
   CreateWorkspaceApiKeyCommandInput,
   CreateWorkspaceApiKeyCommandOutput,
 } from "./commands/CreateWorkspaceApiKeyCommand";
-import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
-import {
+import type { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
+import type {
   CreateWorkspaceServiceAccountCommandInput,
   CreateWorkspaceServiceAccountCommandOutput,
 } from "./commands/CreateWorkspaceServiceAccountCommand";
-import {
+import type {
   CreateWorkspaceServiceAccountTokenCommandInput,
   CreateWorkspaceServiceAccountTokenCommandOutput,
 } from "./commands/CreateWorkspaceServiceAccountTokenCommand";
-import {
+import type {
   DeleteWorkspaceApiKeyCommandInput,
   DeleteWorkspaceApiKeyCommandOutput,
 } from "./commands/DeleteWorkspaceApiKeyCommand";
-import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
-import {
+import type { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
+import type {
   DeleteWorkspaceServiceAccountCommandInput,
   DeleteWorkspaceServiceAccountCommandOutput,
 } from "./commands/DeleteWorkspaceServiceAccountCommand";
-import {
+import type {
   DeleteWorkspaceServiceAccountTokenCommandInput,
   DeleteWorkspaceServiceAccountTokenCommandOutput,
 } from "./commands/DeleteWorkspaceServiceAccountTokenCommand";
-import {
+import type {
   DescribeWorkspaceAuthenticationCommandInput,
   DescribeWorkspaceAuthenticationCommandOutput,
 } from "./commands/DescribeWorkspaceAuthenticationCommand";
-import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "./commands/DescribeWorkspaceCommand";
-import {
+import type {
+  DescribeWorkspaceCommandInput,
+  DescribeWorkspaceCommandOutput,
+} from "./commands/DescribeWorkspaceCommand";
+import type {
   DescribeWorkspaceConfigurationCommandInput,
   DescribeWorkspaceConfigurationCommandOutput,
 } from "./commands/DescribeWorkspaceConfigurationCommand";
-import {
+import type {
   DisassociateLicenseCommandInput,
   DisassociateLicenseCommandOutput,
 } from "./commands/DisassociateLicenseCommand";
-import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
-import {
+import type { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/ListVersionsCommand";
-import { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "./commands/ListWorkspacesCommand";
-import {
+import type { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/ListVersionsCommand";
+import type { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "./commands/ListWorkspacesCommand";
+import type {
   ListWorkspaceServiceAccountsCommandInput,
   ListWorkspaceServiceAccountsCommandOutput,
 } from "./commands/ListWorkspaceServiceAccountsCommand";
-import {
+import type {
   ListWorkspaceServiceAccountTokensCommandInput,
   ListWorkspaceServiceAccountTokensCommandOutput,
 } from "./commands/ListWorkspaceServiceAccountTokensCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdatePermissionsCommandInput, UpdatePermissionsCommandOutput } from "./commands/UpdatePermissionsCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdatePermissionsCommandInput,
+  UpdatePermissionsCommandOutput,
+} from "./commands/UpdatePermissionsCommand";
+import type {
   UpdateWorkspaceAuthenticationCommandInput,
   UpdateWorkspaceAuthenticationCommandOutput,
 } from "./commands/UpdateWorkspaceAuthenticationCommand";
-import { UpdateWorkspaceCommandInput, UpdateWorkspaceCommandOutput } from "./commands/UpdateWorkspaceCommand";
-import {
+import type { UpdateWorkspaceCommandInput, UpdateWorkspaceCommandOutput } from "./commands/UpdateWorkspaceCommand";
+import type {
   UpdateWorkspaceConfigurationCommandInput,
   UpdateWorkspaceConfigurationCommandOutput,
 } from "./commands/UpdateWorkspaceConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -315,7 +319,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

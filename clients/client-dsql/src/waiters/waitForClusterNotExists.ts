@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { GetClusterCommand, GetClusterCommandInput } from "../commands/GetClusterCommand";
-import { DSQLClient } from "../DSQLClient";
+import { type GetClusterCommandInput, GetClusterCommand } from "../commands/GetClusterCommand";
+import type { DSQLClient } from "../DSQLClient";
 
 const checkState = async (client: DSQLClient, input: GetClusterCommandInput): Promise<WaiterResult> => {
   let reason;

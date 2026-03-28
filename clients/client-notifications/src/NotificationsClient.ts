@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,136 +61,139 @@ import {
   defaultNotificationsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssociateChannelCommandInput, AssociateChannelCommandOutput } from "./commands/AssociateChannelCommand";
-import {
+import type { AssociateChannelCommandInput, AssociateChannelCommandOutput } from "./commands/AssociateChannelCommand";
+import type {
   AssociateManagedNotificationAccountContactCommandInput,
   AssociateManagedNotificationAccountContactCommandOutput,
 } from "./commands/AssociateManagedNotificationAccountContactCommand";
-import {
+import type {
   AssociateManagedNotificationAdditionalChannelCommandInput,
   AssociateManagedNotificationAdditionalChannelCommandOutput,
 } from "./commands/AssociateManagedNotificationAdditionalChannelCommand";
-import {
+import type {
   AssociateOrganizationalUnitCommandInput,
   AssociateOrganizationalUnitCommandOutput,
 } from "./commands/AssociateOrganizationalUnitCommand";
-import { CreateEventRuleCommandInput, CreateEventRuleCommandOutput } from "./commands/CreateEventRuleCommand";
-import {
+import type { CreateEventRuleCommandInput, CreateEventRuleCommandOutput } from "./commands/CreateEventRuleCommand";
+import type {
   CreateNotificationConfigurationCommandInput,
   CreateNotificationConfigurationCommandOutput,
 } from "./commands/CreateNotificationConfigurationCommand";
-import { DeleteEventRuleCommandInput, DeleteEventRuleCommandOutput } from "./commands/DeleteEventRuleCommand";
-import {
+import type { DeleteEventRuleCommandInput, DeleteEventRuleCommandOutput } from "./commands/DeleteEventRuleCommand";
+import type {
   DeleteNotificationConfigurationCommandInput,
   DeleteNotificationConfigurationCommandOutput,
 } from "./commands/DeleteNotificationConfigurationCommand";
-import {
+import type {
   DeregisterNotificationHubCommandInput,
   DeregisterNotificationHubCommandOutput,
 } from "./commands/DeregisterNotificationHubCommand";
-import {
+import type {
   DisableNotificationsAccessForOrganizationCommandInput,
   DisableNotificationsAccessForOrganizationCommandOutput,
 } from "./commands/DisableNotificationsAccessForOrganizationCommand";
-import {
+import type {
   DisassociateChannelCommandInput,
   DisassociateChannelCommandOutput,
 } from "./commands/DisassociateChannelCommand";
-import {
+import type {
   DisassociateManagedNotificationAccountContactCommandInput,
   DisassociateManagedNotificationAccountContactCommandOutput,
 } from "./commands/DisassociateManagedNotificationAccountContactCommand";
-import {
+import type {
   DisassociateManagedNotificationAdditionalChannelCommandInput,
   DisassociateManagedNotificationAdditionalChannelCommandOutput,
 } from "./commands/DisassociateManagedNotificationAdditionalChannelCommand";
-import {
+import type {
   DisassociateOrganizationalUnitCommandInput,
   DisassociateOrganizationalUnitCommandOutput,
 } from "./commands/DisassociateOrganizationalUnitCommand";
-import {
+import type {
   EnableNotificationsAccessForOrganizationCommandInput,
   EnableNotificationsAccessForOrganizationCommandOutput,
 } from "./commands/EnableNotificationsAccessForOrganizationCommand";
-import { GetEventRuleCommandInput, GetEventRuleCommandOutput } from "./commands/GetEventRuleCommand";
-import {
+import type { GetEventRuleCommandInput, GetEventRuleCommandOutput } from "./commands/GetEventRuleCommand";
+import type {
   GetManagedNotificationChildEventCommandInput,
   GetManagedNotificationChildEventCommandOutput,
 } from "./commands/GetManagedNotificationChildEventCommand";
-import {
+import type {
   GetManagedNotificationConfigurationCommandInput,
   GetManagedNotificationConfigurationCommandOutput,
 } from "./commands/GetManagedNotificationConfigurationCommand";
-import {
+import type {
   GetManagedNotificationEventCommandInput,
   GetManagedNotificationEventCommandOutput,
 } from "./commands/GetManagedNotificationEventCommand";
-import {
+import type {
   GetNotificationConfigurationCommandInput,
   GetNotificationConfigurationCommandOutput,
 } from "./commands/GetNotificationConfigurationCommand";
-import {
+import type {
   GetNotificationEventCommandInput,
   GetNotificationEventCommandOutput,
 } from "./commands/GetNotificationEventCommand";
-import {
+import type {
   GetNotificationsAccessForOrganizationCommandInput,
   GetNotificationsAccessForOrganizationCommandOutput,
 } from "./commands/GetNotificationsAccessForOrganizationCommand";
-import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
-import { ListEventRulesCommandInput, ListEventRulesCommandOutput } from "./commands/ListEventRulesCommand";
-import {
+import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import type { ListEventRulesCommandInput, ListEventRulesCommandOutput } from "./commands/ListEventRulesCommand";
+import type {
   ListManagedNotificationChannelAssociationsCommandInput,
   ListManagedNotificationChannelAssociationsCommandOutput,
 } from "./commands/ListManagedNotificationChannelAssociationsCommand";
-import {
+import type {
   ListManagedNotificationChildEventsCommandInput,
   ListManagedNotificationChildEventsCommandOutput,
 } from "./commands/ListManagedNotificationChildEventsCommand";
-import {
+import type {
   ListManagedNotificationConfigurationsCommandInput,
   ListManagedNotificationConfigurationsCommandOutput,
 } from "./commands/ListManagedNotificationConfigurationsCommand";
-import {
+import type {
   ListManagedNotificationEventsCommandInput,
   ListManagedNotificationEventsCommandOutput,
 } from "./commands/ListManagedNotificationEventsCommand";
-import { ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput } from "./commands/ListMemberAccountsCommand";
-import {
+import type {
+  ListMemberAccountsCommandInput,
+  ListMemberAccountsCommandOutput,
+} from "./commands/ListMemberAccountsCommand";
+import type {
   ListNotificationConfigurationsCommandInput,
   ListNotificationConfigurationsCommandOutput,
 } from "./commands/ListNotificationConfigurationsCommand";
-import {
+import type {
   ListNotificationEventsCommandInput,
   ListNotificationEventsCommandOutput,
 } from "./commands/ListNotificationEventsCommand";
-import {
+import type {
   ListNotificationHubsCommandInput,
   ListNotificationHubsCommandOutput,
 } from "./commands/ListNotificationHubsCommand";
-import {
+import type {
   ListOrganizationalUnitsCommandInput,
   ListOrganizationalUnitsCommandOutput,
 } from "./commands/ListOrganizationalUnitsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   RegisterNotificationHubCommandInput,
   RegisterNotificationHubCommandOutput,
 } from "./commands/RegisterNotificationHubCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateEventRuleCommandInput, UpdateEventRuleCommandOutput } from "./commands/UpdateEventRuleCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateEventRuleCommandInput, UpdateEventRuleCommandOutput } from "./commands/UpdateEventRuleCommand";
+import type {
   UpdateNotificationConfigurationCommandInput,
   UpdateNotificationConfigurationCommandOutput,
 } from "./commands/UpdateNotificationConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -402,7 +403,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

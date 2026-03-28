@@ -5,7 +5,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type PostLineageEventOutput, PostLineageEventInput } from "../models/models_1";
+import type { PostLineageEventInput, PostLineageEventOutput } from "../models/models_1";
 import { PostLineageEvent$ } from "../schemas/schemas_0";
 
 /**

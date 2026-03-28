@@ -1,10 +1,16 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
-
-import { CodeGuruReviewerClient } from "../CodeGuruReviewerClient";
 import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
+
+import type { CodeGuruReviewerClient } from "../CodeGuruReviewerClient";
+import {
+  type DescribeRepositoryAssociationCommandInput,
   DescribeRepositoryAssociationCommand,
-  DescribeRepositoryAssociationCommandInput,
 } from "../commands/DescribeRepositoryAssociationCommand";
 
 const checkState = async (client: CodeGuruReviewerClient, input: DescribeRepositoryAssociationCommandInput): Promise<WaiterResult> => {

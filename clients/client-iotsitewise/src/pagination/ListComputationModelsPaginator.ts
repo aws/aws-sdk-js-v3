@@ -8,7 +8,7 @@ import {
   ListComputationModelsCommandOutput,
 } from "../commands/ListComputationModelsCommand";
 import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
-import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
+import type { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListDataIntegrationAssociationsCommandInput,
   ListDataIntegrationAssociationsCommandOutput,
 } from "../commands/ListDataIntegrationAssociationsCommand";
-import { AppIntegrationsPaginationConfiguration } from "./Interfaces";
+import type { AppIntegrationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

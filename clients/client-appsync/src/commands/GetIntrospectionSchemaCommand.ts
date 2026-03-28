@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type GetIntrospectionSchemaRequest, GetIntrospectionSchemaResponse } from "../models/models_0";
+import type { GetIntrospectionSchemaRequest, GetIntrospectionSchemaResponse } from "../models/models_0";
 import { GetIntrospectionSchema$ } from "../schemas/schemas_0";
 
 /**

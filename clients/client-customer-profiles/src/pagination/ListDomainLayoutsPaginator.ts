@@ -8,7 +8,7 @@ import {
   ListDomainLayoutsCommandOutput,
 } from "../commands/ListDomainLayoutsCommand";
 import { CustomerProfilesClient } from "../CustomerProfilesClient";
-import { CustomerProfilesPaginationConfiguration } from "./Interfaces";
+import type { CustomerProfilesPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

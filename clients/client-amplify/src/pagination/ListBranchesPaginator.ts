@@ -8,7 +8,7 @@ import {
   ListBranchesCommandInput,
   ListBranchesCommandOutput,
 } from "../commands/ListBranchesCommand";
-import { AmplifyPaginationConfiguration } from "./Interfaces";
+import type { AmplifyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

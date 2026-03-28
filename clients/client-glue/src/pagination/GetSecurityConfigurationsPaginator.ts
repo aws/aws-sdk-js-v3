@@ -8,7 +8,7 @@ import {
   GetSecurityConfigurationsCommandOutput,
 } from "../commands/GetSecurityConfigurationsCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

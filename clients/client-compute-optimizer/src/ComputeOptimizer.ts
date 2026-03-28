@@ -3,144 +3,144 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type DeleteRecommendationPreferencesCommandInput,
+  type DeleteRecommendationPreferencesCommandOutput,
   DeleteRecommendationPreferencesCommand,
-  DeleteRecommendationPreferencesCommandInput,
-  DeleteRecommendationPreferencesCommandOutput,
 } from "./commands/DeleteRecommendationPreferencesCommand";
 import {
+  type DescribeRecommendationExportJobsCommandInput,
+  type DescribeRecommendationExportJobsCommandOutput,
   DescribeRecommendationExportJobsCommand,
-  DescribeRecommendationExportJobsCommandInput,
-  DescribeRecommendationExportJobsCommandOutput,
 } from "./commands/DescribeRecommendationExportJobsCommand";
 import {
+  type ExportAutoScalingGroupRecommendationsCommandInput,
+  type ExportAutoScalingGroupRecommendationsCommandOutput,
   ExportAutoScalingGroupRecommendationsCommand,
-  ExportAutoScalingGroupRecommendationsCommandInput,
-  ExportAutoScalingGroupRecommendationsCommandOutput,
 } from "./commands/ExportAutoScalingGroupRecommendationsCommand";
 import {
+  type ExportEBSVolumeRecommendationsCommandInput,
+  type ExportEBSVolumeRecommendationsCommandOutput,
   ExportEBSVolumeRecommendationsCommand,
-  ExportEBSVolumeRecommendationsCommandInput,
-  ExportEBSVolumeRecommendationsCommandOutput,
 } from "./commands/ExportEBSVolumeRecommendationsCommand";
 import {
+  type ExportEC2InstanceRecommendationsCommandInput,
+  type ExportEC2InstanceRecommendationsCommandOutput,
   ExportEC2InstanceRecommendationsCommand,
-  ExportEC2InstanceRecommendationsCommandInput,
-  ExportEC2InstanceRecommendationsCommandOutput,
 } from "./commands/ExportEC2InstanceRecommendationsCommand";
 import {
+  type ExportECSServiceRecommendationsCommandInput,
+  type ExportECSServiceRecommendationsCommandOutput,
   ExportECSServiceRecommendationsCommand,
-  ExportECSServiceRecommendationsCommandInput,
-  ExportECSServiceRecommendationsCommandOutput,
 } from "./commands/ExportECSServiceRecommendationsCommand";
 import {
+  type ExportIdleRecommendationsCommandInput,
+  type ExportIdleRecommendationsCommandOutput,
   ExportIdleRecommendationsCommand,
-  ExportIdleRecommendationsCommandInput,
-  ExportIdleRecommendationsCommandOutput,
 } from "./commands/ExportIdleRecommendationsCommand";
 import {
+  type ExportLambdaFunctionRecommendationsCommandInput,
+  type ExportLambdaFunctionRecommendationsCommandOutput,
   ExportLambdaFunctionRecommendationsCommand,
-  ExportLambdaFunctionRecommendationsCommandInput,
-  ExportLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/ExportLambdaFunctionRecommendationsCommand";
 import {
+  type ExportLicenseRecommendationsCommandInput,
+  type ExportLicenseRecommendationsCommandOutput,
   ExportLicenseRecommendationsCommand,
-  ExportLicenseRecommendationsCommandInput,
-  ExportLicenseRecommendationsCommandOutput,
 } from "./commands/ExportLicenseRecommendationsCommand";
 import {
+  type ExportRDSDatabaseRecommendationsCommandInput,
+  type ExportRDSDatabaseRecommendationsCommandOutput,
   ExportRDSDatabaseRecommendationsCommand,
-  ExportRDSDatabaseRecommendationsCommandInput,
-  ExportRDSDatabaseRecommendationsCommandOutput,
 } from "./commands/ExportRDSDatabaseRecommendationsCommand";
 import {
+  type GetAutoScalingGroupRecommendationsCommandInput,
+  type GetAutoScalingGroupRecommendationsCommandOutput,
   GetAutoScalingGroupRecommendationsCommand,
-  GetAutoScalingGroupRecommendationsCommandInput,
-  GetAutoScalingGroupRecommendationsCommandOutput,
 } from "./commands/GetAutoScalingGroupRecommendationsCommand";
 import {
+  type GetEBSVolumeRecommendationsCommandInput,
+  type GetEBSVolumeRecommendationsCommandOutput,
   GetEBSVolumeRecommendationsCommand,
-  GetEBSVolumeRecommendationsCommandInput,
-  GetEBSVolumeRecommendationsCommandOutput,
 } from "./commands/GetEBSVolumeRecommendationsCommand";
 import {
+  type GetEC2InstanceRecommendationsCommandInput,
+  type GetEC2InstanceRecommendationsCommandOutput,
   GetEC2InstanceRecommendationsCommand,
-  GetEC2InstanceRecommendationsCommandInput,
-  GetEC2InstanceRecommendationsCommandOutput,
 } from "./commands/GetEC2InstanceRecommendationsCommand";
 import {
+  type GetEC2RecommendationProjectedMetricsCommandInput,
+  type GetEC2RecommendationProjectedMetricsCommandOutput,
   GetEC2RecommendationProjectedMetricsCommand,
-  GetEC2RecommendationProjectedMetricsCommandInput,
-  GetEC2RecommendationProjectedMetricsCommandOutput,
 } from "./commands/GetEC2RecommendationProjectedMetricsCommand";
 import {
+  type GetECSServiceRecommendationProjectedMetricsCommandInput,
+  type GetECSServiceRecommendationProjectedMetricsCommandOutput,
   GetECSServiceRecommendationProjectedMetricsCommand,
-  GetECSServiceRecommendationProjectedMetricsCommandInput,
-  GetECSServiceRecommendationProjectedMetricsCommandOutput,
 } from "./commands/GetECSServiceRecommendationProjectedMetricsCommand";
 import {
+  type GetECSServiceRecommendationsCommandInput,
+  type GetECSServiceRecommendationsCommandOutput,
   GetECSServiceRecommendationsCommand,
-  GetECSServiceRecommendationsCommandInput,
-  GetECSServiceRecommendationsCommandOutput,
 } from "./commands/GetECSServiceRecommendationsCommand";
 import {
+  type GetEffectiveRecommendationPreferencesCommandInput,
+  type GetEffectiveRecommendationPreferencesCommandOutput,
   GetEffectiveRecommendationPreferencesCommand,
-  GetEffectiveRecommendationPreferencesCommandInput,
-  GetEffectiveRecommendationPreferencesCommandOutput,
 } from "./commands/GetEffectiveRecommendationPreferencesCommand";
 import {
+  type GetEnrollmentStatusCommandInput,
+  type GetEnrollmentStatusCommandOutput,
   GetEnrollmentStatusCommand,
-  GetEnrollmentStatusCommandInput,
-  GetEnrollmentStatusCommandOutput,
 } from "./commands/GetEnrollmentStatusCommand";
 import {
+  type GetEnrollmentStatusesForOrganizationCommandInput,
+  type GetEnrollmentStatusesForOrganizationCommandOutput,
   GetEnrollmentStatusesForOrganizationCommand,
-  GetEnrollmentStatusesForOrganizationCommandInput,
-  GetEnrollmentStatusesForOrganizationCommandOutput,
 } from "./commands/GetEnrollmentStatusesForOrganizationCommand";
 import {
+  type GetIdleRecommendationsCommandInput,
+  type GetIdleRecommendationsCommandOutput,
   GetIdleRecommendationsCommand,
-  GetIdleRecommendationsCommandInput,
-  GetIdleRecommendationsCommandOutput,
 } from "./commands/GetIdleRecommendationsCommand";
 import {
+  type GetLambdaFunctionRecommendationsCommandInput,
+  type GetLambdaFunctionRecommendationsCommandOutput,
   GetLambdaFunctionRecommendationsCommand,
-  GetLambdaFunctionRecommendationsCommandInput,
-  GetLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/GetLambdaFunctionRecommendationsCommand";
 import {
+  type GetLicenseRecommendationsCommandInput,
+  type GetLicenseRecommendationsCommandOutput,
   GetLicenseRecommendationsCommand,
-  GetLicenseRecommendationsCommandInput,
-  GetLicenseRecommendationsCommandOutput,
 } from "./commands/GetLicenseRecommendationsCommand";
 import {
+  type GetRDSDatabaseRecommendationProjectedMetricsCommandInput,
+  type GetRDSDatabaseRecommendationProjectedMetricsCommandOutput,
   GetRDSDatabaseRecommendationProjectedMetricsCommand,
-  GetRDSDatabaseRecommendationProjectedMetricsCommandInput,
-  GetRDSDatabaseRecommendationProjectedMetricsCommandOutput,
 } from "./commands/GetRDSDatabaseRecommendationProjectedMetricsCommand";
 import {
+  type GetRDSDatabaseRecommendationsCommandInput,
+  type GetRDSDatabaseRecommendationsCommandOutput,
   GetRDSDatabaseRecommendationsCommand,
-  GetRDSDatabaseRecommendationsCommandInput,
-  GetRDSDatabaseRecommendationsCommandOutput,
 } from "./commands/GetRDSDatabaseRecommendationsCommand";
 import {
+  type GetRecommendationPreferencesCommandInput,
+  type GetRecommendationPreferencesCommandOutput,
   GetRecommendationPreferencesCommand,
-  GetRecommendationPreferencesCommandInput,
-  GetRecommendationPreferencesCommandOutput,
 } from "./commands/GetRecommendationPreferencesCommand";
 import {
+  type GetRecommendationSummariesCommandInput,
+  type GetRecommendationSummariesCommandOutput,
   GetRecommendationSummariesCommand,
-  GetRecommendationSummariesCommandInput,
-  GetRecommendationSummariesCommandOutput,
 } from "./commands/GetRecommendationSummariesCommand";
 import {
+  type PutRecommendationPreferencesCommandInput,
+  type PutRecommendationPreferencesCommandOutput,
   PutRecommendationPreferencesCommand,
-  PutRecommendationPreferencesCommandInput,
-  PutRecommendationPreferencesCommandOutput,
 } from "./commands/PutRecommendationPreferencesCommand";
 import {
+  type UpdateEnrollmentStatusCommandInput,
+  type UpdateEnrollmentStatusCommandOutput,
   UpdateEnrollmentStatusCommand,
-  UpdateEnrollmentStatusCommandInput,
-  UpdateEnrollmentStatusCommandOutput,
 } from "./commands/UpdateEnrollmentStatusCommand";
 import { ComputeOptimizerClient } from "./ComputeOptimizerClient";
 import { paginateDescribeRecommendationExportJobs } from "./pagination/DescribeRecommendationExportJobsPaginator";

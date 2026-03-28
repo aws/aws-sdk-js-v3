@@ -8,7 +8,7 @@ import {
   ListVirtualServicesCommandInput,
   ListVirtualServicesCommandOutput,
 } from "../commands/ListVirtualServicesCommand";
-import { AppMeshPaginationConfiguration } from "./Interfaces";
+import type { AppMeshPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

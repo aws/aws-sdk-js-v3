@@ -8,7 +8,7 @@ import {
   GetUsagePlanKeysCommandInput,
   GetUsagePlanKeysCommandOutput,
 } from "../commands/GetUsagePlanKeysCommand";
-import { APIGatewayPaginationConfiguration } from "./Interfaces";
+import type { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type ExportApiRequest, ExportApiResponse } from "../models/models_0";
+import type { ExportApiRequest, ExportApiResponse } from "../models/models_0";
 import { ExportApi$ } from "../schemas/schemas_0";
 
 /**

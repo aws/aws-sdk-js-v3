@@ -40,21 +40,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -64,39 +62,39 @@ import {
   defaultConnectParticipantHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CancelParticipantAuthenticationCommandInput,
   CancelParticipantAuthenticationCommandOutput,
 } from "./commands/CancelParticipantAuthenticationCommand";
-import {
+import type {
   CompleteAttachmentUploadCommandInput,
   CompleteAttachmentUploadCommandOutput,
 } from "./commands/CompleteAttachmentUploadCommand";
-import {
+import type {
   CreateParticipantConnectionCommandInput,
   CreateParticipantConnectionCommandOutput,
 } from "./commands/CreateParticipantConnectionCommand";
-import { DescribeViewCommandInput, DescribeViewCommandOutput } from "./commands/DescribeViewCommand";
-import {
+import type { DescribeViewCommandInput, DescribeViewCommandOutput } from "./commands/DescribeViewCommand";
+import type {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
-import { GetAttachmentCommandInput, GetAttachmentCommandOutput } from "./commands/GetAttachmentCommand";
-import {
+import type { GetAttachmentCommandInput, GetAttachmentCommandOutput } from "./commands/GetAttachmentCommand";
+import type {
   GetAuthenticationUrlCommandInput,
   GetAuthenticationUrlCommandOutput,
 } from "./commands/GetAuthenticationUrlCommand";
-import { GetTranscriptCommandInput, GetTranscriptCommandOutput } from "./commands/GetTranscriptCommand";
-import { SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
-import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
-import {
+import type { GetTranscriptCommandInput, GetTranscriptCommandOutput } from "./commands/GetTranscriptCommand";
+import type { SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
+import type { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
+import type {
   StartAttachmentUploadCommandInput,
   StartAttachmentUploadCommandOutput,
 } from "./commands/StartAttachmentUploadCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -250,7 +248,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

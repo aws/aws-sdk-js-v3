@@ -8,7 +8,7 @@ import {
   GetEnrollmentStatusesForOrganizationCommandOutput,
 } from "../commands/GetEnrollmentStatusesForOrganizationCommand";
 import { ComputeOptimizerClient } from "../ComputeOptimizerClient";
-import { ComputeOptimizerPaginationConfiguration } from "./Interfaces";
+import type { ComputeOptimizerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

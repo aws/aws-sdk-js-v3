@@ -8,7 +8,7 @@ import {
   ListApprovedOriginsCommandOutput,
 } from "../commands/ListApprovedOriginsCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

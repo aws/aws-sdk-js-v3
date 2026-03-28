@@ -8,7 +8,7 @@ import {
   ListTemplateGroupAccessControlEntriesCommandOutput,
 } from "../commands/ListTemplateGroupAccessControlEntriesCommand";
 import { PcaConnectorAdClient } from "../PcaConnectorAdClient";
-import { PcaConnectorAdPaginationConfiguration } from "./Interfaces";
+import type { PcaConnectorAdPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

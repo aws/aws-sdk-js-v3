@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListAssetsCommand, ListAssetsCommandInput, ListAssetsCommandOutput } from "../commands/ListAssetsCommand";
 import { MediaPackageVodClient } from "../MediaPackageVodClient";
-import { MediaPackageVodPaginationConfiguration } from "./Interfaces";
+import type { MediaPackageVodPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

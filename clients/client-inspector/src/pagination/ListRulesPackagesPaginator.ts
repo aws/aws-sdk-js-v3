@@ -8,7 +8,7 @@ import {
   ListRulesPackagesCommandOutput,
 } from "../commands/ListRulesPackagesCommand";
 import { InspectorClient } from "../InspectorClient";
-import { InspectorPaginationConfiguration } from "./Interfaces";
+import type { InspectorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListAnalyzedResourcesCommandInput,
   ListAnalyzedResourcesCommandOutput,
 } from "../commands/ListAnalyzedResourcesCommand";
-import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
+import type { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

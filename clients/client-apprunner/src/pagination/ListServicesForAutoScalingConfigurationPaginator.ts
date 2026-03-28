@@ -8,7 +8,7 @@ import {
   ListServicesForAutoScalingConfigurationCommandInput,
   ListServicesForAutoScalingConfigurationCommandOutput,
 } from "../commands/ListServicesForAutoScalingConfigurationCommand";
-import { AppRunnerPaginationConfiguration } from "./Interfaces";
+import type { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

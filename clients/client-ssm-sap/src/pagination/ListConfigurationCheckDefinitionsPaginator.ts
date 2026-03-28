@@ -8,7 +8,7 @@ import {
   ListConfigurationCheckDefinitionsCommandOutput,
 } from "../commands/ListConfigurationCheckDefinitionsCommand";
 import { SsmSapClient } from "../SsmSapClient";
-import { SsmSapPaginationConfiguration } from "./Interfaces";
+import type { SsmSapPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

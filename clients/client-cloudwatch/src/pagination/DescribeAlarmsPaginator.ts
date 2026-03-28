@@ -8,7 +8,7 @@ import {
   DescribeAlarmsCommandInput,
   DescribeAlarmsCommandOutput,
 } from "../commands/DescribeAlarmsCommand";
-import { CloudWatchPaginationConfiguration } from "./Interfaces";
+import type { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

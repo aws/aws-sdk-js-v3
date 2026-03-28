@@ -8,7 +8,7 @@ import {
   ListSolutionVersionsCommandOutput,
 } from "../commands/ListSolutionVersionsCommand";
 import { PersonalizeClient } from "../PersonalizeClient";
-import { PersonalizePaginationConfiguration } from "./Interfaces";
+import type { PersonalizePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

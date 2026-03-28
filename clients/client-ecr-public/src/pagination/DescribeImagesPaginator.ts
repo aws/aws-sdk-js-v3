@@ -8,7 +8,7 @@ import {
   DescribeImagesCommandOutput,
 } from "../commands/DescribeImagesCommand";
 import { ECRPUBLICClient } from "../ECRPUBLICClient";
-import { ECRPUBLICPaginationConfiguration } from "./Interfaces";
+import type { ECRPUBLICPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

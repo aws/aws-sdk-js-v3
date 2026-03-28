@@ -8,7 +8,7 @@ import {
   ListAudienceExportJobsCommandInput,
   ListAudienceExportJobsCommandOutput,
 } from "../commands/ListAudienceExportJobsCommand";
-import { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ResourceType } from "./enums";
-import { ResourceConflict, ValidationExceptionField } from "./models_0";
+import type { ResourceType } from "./enums";
+import type { ResourceConflict, ValidationExceptionField } from "./models_0";
 import { VerifiedPermissionsServiceException as __BaseException } from "./VerifiedPermissionsServiceException";
 
 /**

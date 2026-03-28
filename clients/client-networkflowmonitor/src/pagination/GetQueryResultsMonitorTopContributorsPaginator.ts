@@ -8,7 +8,7 @@ import {
   GetQueryResultsMonitorTopContributorsCommandOutput,
 } from "../commands/GetQueryResultsMonitorTopContributorsCommand";
 import { NetworkFlowMonitorClient } from "../NetworkFlowMonitorClient";
-import { NetworkFlowMonitorPaginationConfiguration } from "./Interfaces";
+import type { NetworkFlowMonitorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

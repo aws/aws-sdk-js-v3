@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,110 +61,116 @@ import {
   defaultRoute53DomainsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AcceptDomainTransferFromAnotherAwsAccountCommandInput,
   AcceptDomainTransferFromAnotherAwsAccountCommandOutput,
 } from "./commands/AcceptDomainTransferFromAnotherAwsAccountCommand";
-import {
+import type {
   AssociateDelegationSignerToDomainCommandInput,
   AssociateDelegationSignerToDomainCommandOutput,
 } from "./commands/AssociateDelegationSignerToDomainCommand";
-import {
+import type {
   CancelDomainTransferToAnotherAwsAccountCommandInput,
   CancelDomainTransferToAnotherAwsAccountCommandOutput,
 } from "./commands/CancelDomainTransferToAnotherAwsAccountCommand";
-import {
+import type {
   CheckDomainAvailabilityCommandInput,
   CheckDomainAvailabilityCommandOutput,
 } from "./commands/CheckDomainAvailabilityCommand";
-import {
+import type {
   CheckDomainTransferabilityCommandInput,
   CheckDomainTransferabilityCommandOutput,
 } from "./commands/CheckDomainTransferabilityCommand";
-import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
-import {
+import type { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import type {
   DeleteTagsForDomainCommandInput,
   DeleteTagsForDomainCommandOutput,
 } from "./commands/DeleteTagsForDomainCommand";
-import {
+import type {
   DisableDomainAutoRenewCommandInput,
   DisableDomainAutoRenewCommandOutput,
 } from "./commands/DisableDomainAutoRenewCommand";
-import {
+import type {
   DisableDomainTransferLockCommandInput,
   DisableDomainTransferLockCommandOutput,
 } from "./commands/DisableDomainTransferLockCommand";
-import {
+import type {
   DisassociateDelegationSignerFromDomainCommandInput,
   DisassociateDelegationSignerFromDomainCommandOutput,
 } from "./commands/DisassociateDelegationSignerFromDomainCommand";
-import {
+import type {
   EnableDomainAutoRenewCommandInput,
   EnableDomainAutoRenewCommandOutput,
 } from "./commands/EnableDomainAutoRenewCommand";
-import {
+import type {
   EnableDomainTransferLockCommandInput,
   EnableDomainTransferLockCommandOutput,
 } from "./commands/EnableDomainTransferLockCommand";
-import {
+import type {
   GetContactReachabilityStatusCommandInput,
   GetContactReachabilityStatusCommandOutput,
 } from "./commands/GetContactReachabilityStatusCommand";
-import { GetDomainDetailCommandInput, GetDomainDetailCommandOutput } from "./commands/GetDomainDetailCommand";
-import {
+import type { GetDomainDetailCommandInput, GetDomainDetailCommandOutput } from "./commands/GetDomainDetailCommand";
+import type {
   GetDomainSuggestionsCommandInput,
   GetDomainSuggestionsCommandOutput,
 } from "./commands/GetDomainSuggestionsCommand";
-import { GetOperationDetailCommandInput, GetOperationDetailCommandOutput } from "./commands/GetOperationDetailCommand";
-import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
-import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
-import { ListPricesCommandInput, ListPricesCommandOutput } from "./commands/ListPricesCommand";
-import { ListTagsForDomainCommandInput, ListTagsForDomainCommandOutput } from "./commands/ListTagsForDomainCommand";
-import { PushDomainCommandInput, PushDomainCommandOutput } from "./commands/PushDomainCommand";
-import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "./commands/RegisterDomainCommand";
-import {
+import type {
+  GetOperationDetailCommandInput,
+  GetOperationDetailCommandOutput,
+} from "./commands/GetOperationDetailCommand";
+import type { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import type { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
+import type { ListPricesCommandInput, ListPricesCommandOutput } from "./commands/ListPricesCommand";
+import type {
+  ListTagsForDomainCommandInput,
+  ListTagsForDomainCommandOutput,
+} from "./commands/ListTagsForDomainCommand";
+import type { PushDomainCommandInput, PushDomainCommandOutput } from "./commands/PushDomainCommand";
+import type { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "./commands/RegisterDomainCommand";
+import type {
   RejectDomainTransferFromAnotherAwsAccountCommandInput,
   RejectDomainTransferFromAnotherAwsAccountCommandOutput,
 } from "./commands/RejectDomainTransferFromAnotherAwsAccountCommand";
-import { RenewDomainCommandInput, RenewDomainCommandOutput } from "./commands/RenewDomainCommand";
-import {
+import type { RenewDomainCommandInput, RenewDomainCommandOutput } from "./commands/RenewDomainCommand";
+import type {
   ResendContactReachabilityEmailCommandInput,
   ResendContactReachabilityEmailCommandOutput,
 } from "./commands/ResendContactReachabilityEmailCommand";
-import {
+import type {
   ResendOperationAuthorizationCommandInput,
   ResendOperationAuthorizationCommandOutput,
 } from "./commands/ResendOperationAuthorizationCommand";
-import {
+import type {
   RetrieveDomainAuthCodeCommandInput,
   RetrieveDomainAuthCodeCommandOutput,
 } from "./commands/RetrieveDomainAuthCodeCommand";
-import { TransferDomainCommandInput, TransferDomainCommandOutput } from "./commands/TransferDomainCommand";
-import {
+import type { TransferDomainCommandInput, TransferDomainCommandOutput } from "./commands/TransferDomainCommand";
+import type {
   TransferDomainToAnotherAwsAccountCommandInput,
   TransferDomainToAnotherAwsAccountCommandOutput,
 } from "./commands/TransferDomainToAnotherAwsAccountCommand";
-import {
+import type {
   UpdateDomainContactCommandInput,
   UpdateDomainContactCommandOutput,
 } from "./commands/UpdateDomainContactCommand";
-import {
+import type {
   UpdateDomainContactPrivacyCommandInput,
   UpdateDomainContactPrivacyCommandOutput,
 } from "./commands/UpdateDomainContactPrivacyCommand";
-import {
+import type {
   UpdateDomainNameserversCommandInput,
   UpdateDomainNameserversCommandOutput,
 } from "./commands/UpdateDomainNameserversCommand";
-import {
+import type {
   UpdateTagsForDomainCommandInput,
   UpdateTagsForDomainCommandOutput,
 } from "./commands/UpdateTagsForDomainCommand";
-import { ViewBillingCommandInput, ViewBillingCommandOutput } from "./commands/ViewBillingCommand";
+import type { ViewBillingCommandInput, ViewBillingCommandOutput } from "./commands/ViewBillingCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -366,7 +370,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

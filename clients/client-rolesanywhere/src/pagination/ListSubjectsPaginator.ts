@@ -8,7 +8,7 @@ import {
   ListSubjectsCommandOutput,
 } from "../commands/ListSubjectsCommand";
 import { RolesAnywhereClient } from "../RolesAnywhereClient";
-import { RolesAnywherePaginationConfiguration } from "./Interfaces";
+import type { RolesAnywherePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

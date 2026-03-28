@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Capability, Status } from "./enums";
+import type { Capability, Status } from "./enums";
 
 /**
  * <p>A nested application summary.</p>

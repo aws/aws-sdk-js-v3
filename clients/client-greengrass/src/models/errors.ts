@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { GreengrassServiceException as __BaseException } from "./GreengrassServiceException";
-import { ErrorDetail } from "./models_0";
+import type { ErrorDetail } from "./models_0";
 
 /**
  * General error information.

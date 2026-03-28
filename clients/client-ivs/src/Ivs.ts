@@ -3,155 +3,175 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchGetChannelCommandInput,
+  type BatchGetChannelCommandOutput,
   BatchGetChannelCommand,
-  BatchGetChannelCommandInput,
-  BatchGetChannelCommandOutput,
 } from "./commands/BatchGetChannelCommand";
 import {
+  type BatchGetStreamKeyCommandInput,
+  type BatchGetStreamKeyCommandOutput,
   BatchGetStreamKeyCommand,
-  BatchGetStreamKeyCommandInput,
-  BatchGetStreamKeyCommandOutput,
 } from "./commands/BatchGetStreamKeyCommand";
 import {
+  type BatchStartViewerSessionRevocationCommandInput,
+  type BatchStartViewerSessionRevocationCommandOutput,
   BatchStartViewerSessionRevocationCommand,
-  BatchStartViewerSessionRevocationCommandInput,
-  BatchStartViewerSessionRevocationCommandOutput,
 } from "./commands/BatchStartViewerSessionRevocationCommand";
 import {
+  type CreateChannelCommandInput,
+  type CreateChannelCommandOutput,
   CreateChannelCommand,
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  type CreatePlaybackRestrictionPolicyCommandInput,
+  type CreatePlaybackRestrictionPolicyCommandOutput,
   CreatePlaybackRestrictionPolicyCommand,
-  CreatePlaybackRestrictionPolicyCommandInput,
-  CreatePlaybackRestrictionPolicyCommandOutput,
 } from "./commands/CreatePlaybackRestrictionPolicyCommand";
 import {
+  type CreateRecordingConfigurationCommandInput,
+  type CreateRecordingConfigurationCommandOutput,
   CreateRecordingConfigurationCommand,
-  CreateRecordingConfigurationCommandInput,
-  CreateRecordingConfigurationCommandOutput,
 } from "./commands/CreateRecordingConfigurationCommand";
 import {
+  type CreateStreamKeyCommandInput,
+  type CreateStreamKeyCommandOutput,
   CreateStreamKeyCommand,
-  CreateStreamKeyCommandInput,
-  CreateStreamKeyCommandOutput,
 } from "./commands/CreateStreamKeyCommand";
 import {
+  type DeleteChannelCommandInput,
+  type DeleteChannelCommandOutput,
   DeleteChannelCommand,
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
 import {
+  type DeletePlaybackKeyPairCommandInput,
+  type DeletePlaybackKeyPairCommandOutput,
   DeletePlaybackKeyPairCommand,
-  DeletePlaybackKeyPairCommandInput,
-  DeletePlaybackKeyPairCommandOutput,
 } from "./commands/DeletePlaybackKeyPairCommand";
 import {
+  type DeletePlaybackRestrictionPolicyCommandInput,
+  type DeletePlaybackRestrictionPolicyCommandOutput,
   DeletePlaybackRestrictionPolicyCommand,
-  DeletePlaybackRestrictionPolicyCommandInput,
-  DeletePlaybackRestrictionPolicyCommandOutput,
 } from "./commands/DeletePlaybackRestrictionPolicyCommand";
 import {
+  type DeleteRecordingConfigurationCommandInput,
+  type DeleteRecordingConfigurationCommandOutput,
   DeleteRecordingConfigurationCommand,
-  DeleteRecordingConfigurationCommandInput,
-  DeleteRecordingConfigurationCommandOutput,
 } from "./commands/DeleteRecordingConfigurationCommand";
 import {
+  type DeleteStreamKeyCommandInput,
+  type DeleteStreamKeyCommandOutput,
   DeleteStreamKeyCommand,
-  DeleteStreamKeyCommandInput,
-  DeleteStreamKeyCommandOutput,
 } from "./commands/DeleteStreamKeyCommand";
-import { GetChannelCommand, GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import {
+  type GetChannelCommandInput,
+  type GetChannelCommandOutput,
+  GetChannelCommand,
+} from "./commands/GetChannelCommand";
+import {
+  type GetPlaybackKeyPairCommandInput,
+  type GetPlaybackKeyPairCommandOutput,
   GetPlaybackKeyPairCommand,
-  GetPlaybackKeyPairCommandInput,
-  GetPlaybackKeyPairCommandOutput,
 } from "./commands/GetPlaybackKeyPairCommand";
 import {
+  type GetPlaybackRestrictionPolicyCommandInput,
+  type GetPlaybackRestrictionPolicyCommandOutput,
   GetPlaybackRestrictionPolicyCommand,
-  GetPlaybackRestrictionPolicyCommandInput,
-  GetPlaybackRestrictionPolicyCommandOutput,
 } from "./commands/GetPlaybackRestrictionPolicyCommand";
 import {
+  type GetRecordingConfigurationCommandInput,
+  type GetRecordingConfigurationCommandOutput,
   GetRecordingConfigurationCommand,
-  GetRecordingConfigurationCommandInput,
-  GetRecordingConfigurationCommandOutput,
 } from "./commands/GetRecordingConfigurationCommand";
-import { GetStreamCommand, GetStreamCommandInput, GetStreamCommandOutput } from "./commands/GetStreamCommand";
+import { type GetStreamCommandInput, type GetStreamCommandOutput, GetStreamCommand } from "./commands/GetStreamCommand";
 import {
+  type GetStreamKeyCommandInput,
+  type GetStreamKeyCommandOutput,
   GetStreamKeyCommand,
-  GetStreamKeyCommandInput,
-  GetStreamKeyCommandOutput,
 } from "./commands/GetStreamKeyCommand";
 import {
+  type GetStreamSessionCommandInput,
+  type GetStreamSessionCommandOutput,
   GetStreamSessionCommand,
-  GetStreamSessionCommandInput,
-  GetStreamSessionCommandOutput,
 } from "./commands/GetStreamSessionCommand";
 import {
+  type ImportPlaybackKeyPairCommandInput,
+  type ImportPlaybackKeyPairCommandOutput,
   ImportPlaybackKeyPairCommand,
-  ImportPlaybackKeyPairCommandInput,
-  ImportPlaybackKeyPairCommandOutput,
 } from "./commands/ImportPlaybackKeyPairCommand";
 import {
+  type ListChannelsCommandInput,
+  type ListChannelsCommandOutput,
   ListChannelsCommand,
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
 import {
+  type ListPlaybackKeyPairsCommandInput,
+  type ListPlaybackKeyPairsCommandOutput,
   ListPlaybackKeyPairsCommand,
-  ListPlaybackKeyPairsCommandInput,
-  ListPlaybackKeyPairsCommandOutput,
 } from "./commands/ListPlaybackKeyPairsCommand";
 import {
+  type ListPlaybackRestrictionPoliciesCommandInput,
+  type ListPlaybackRestrictionPoliciesCommandOutput,
   ListPlaybackRestrictionPoliciesCommand,
-  ListPlaybackRestrictionPoliciesCommandInput,
-  ListPlaybackRestrictionPoliciesCommandOutput,
 } from "./commands/ListPlaybackRestrictionPoliciesCommand";
 import {
+  type ListRecordingConfigurationsCommandInput,
+  type ListRecordingConfigurationsCommandOutput,
   ListRecordingConfigurationsCommand,
-  ListRecordingConfigurationsCommandInput,
-  ListRecordingConfigurationsCommandOutput,
 } from "./commands/ListRecordingConfigurationsCommand";
 import {
+  type ListStreamKeysCommandInput,
+  type ListStreamKeysCommandOutput,
   ListStreamKeysCommand,
-  ListStreamKeysCommandInput,
-  ListStreamKeysCommandOutput,
 } from "./commands/ListStreamKeysCommand";
-import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
+  type ListStreamsCommandInput,
+  type ListStreamsCommandOutput,
+  ListStreamsCommand,
+} from "./commands/ListStreamsCommand";
+import {
+  type ListStreamSessionsCommandInput,
+  type ListStreamSessionsCommandOutput,
   ListStreamSessionsCommand,
-  ListStreamSessionsCommandInput,
-  ListStreamSessionsCommandOutput,
 } from "./commands/ListStreamSessionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutMetadataCommand, PutMetadataCommandInput, PutMetadataCommandOutput } from "./commands/PutMetadataCommand";
 import {
+  type PutMetadataCommandInput,
+  type PutMetadataCommandOutput,
+  PutMetadataCommand,
+} from "./commands/PutMetadataCommand";
+import {
+  type StartViewerSessionRevocationCommandInput,
+  type StartViewerSessionRevocationCommandOutput,
   StartViewerSessionRevocationCommand,
-  StartViewerSessionRevocationCommandInput,
-  StartViewerSessionRevocationCommandOutput,
 } from "./commands/StartViewerSessionRevocationCommand";
-import { StopStreamCommand, StopStreamCommandInput, StopStreamCommandOutput } from "./commands/StopStreamCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type StopStreamCommandInput,
+  type StopStreamCommandOutput,
+  StopStreamCommand,
+} from "./commands/StopStreamCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateChannelCommandInput,
+  type UpdateChannelCommandOutput,
   UpdateChannelCommand,
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import {
+  type UpdatePlaybackRestrictionPolicyCommandInput,
+  type UpdatePlaybackRestrictionPolicyCommandOutput,
   UpdatePlaybackRestrictionPolicyCommand,
-  UpdatePlaybackRestrictionPolicyCommandInput,
-  UpdatePlaybackRestrictionPolicyCommandOutput,
 } from "./commands/UpdatePlaybackRestrictionPolicyCommand";
 import { IvsClient } from "./IvsClient";
 import { paginateListChannels } from "./pagination/ListChannelsPaginator";

@@ -8,7 +8,7 @@ import {
   ListServiceInstanceOutputsCommandOutput,
 } from "../commands/ListServiceInstanceOutputsCommand";
 import { ProtonClient } from "../ProtonClient";
-import { ProtonPaginationConfiguration } from "./Interfaces";
+import type { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

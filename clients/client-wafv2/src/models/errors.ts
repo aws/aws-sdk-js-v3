@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ParameterExceptionField } from "./enums";
-import { DisallowedFeature } from "./models_0";
+import type { ParameterExceptionField } from "./enums";
+import type { DisallowedFeature } from "./models_0";
 import { WAFV2ServiceException as __BaseException } from "./WAFV2ServiceException";
 
 /**

@@ -8,7 +8,7 @@ import {
   ListAnalyzersCommandInput,
   ListAnalyzersCommandOutput,
 } from "../commands/ListAnalyzersCommand";
-import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
+import type { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,111 +61,117 @@ import {
   defaultElasticLoadBalancingHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
-import {
+import type { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import type {
   ApplySecurityGroupsToLoadBalancerCommandInput,
   ApplySecurityGroupsToLoadBalancerCommandOutput,
 } from "./commands/ApplySecurityGroupsToLoadBalancerCommand";
-import {
+import type {
   AttachLoadBalancerToSubnetsCommandInput,
   AttachLoadBalancerToSubnetsCommandOutput,
 } from "./commands/AttachLoadBalancerToSubnetsCommand";
-import {
+import type {
   ConfigureHealthCheckCommandInput,
   ConfigureHealthCheckCommandOutput,
 } from "./commands/ConfigureHealthCheckCommand";
-import {
+import type {
   CreateAppCookieStickinessPolicyCommandInput,
   CreateAppCookieStickinessPolicyCommandOutput,
 } from "./commands/CreateAppCookieStickinessPolicyCommand";
-import {
+import type {
   CreateLBCookieStickinessPolicyCommandInput,
   CreateLBCookieStickinessPolicyCommandOutput,
 } from "./commands/CreateLBCookieStickinessPolicyCommand";
-import { CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput } from "./commands/CreateLoadBalancerCommand";
-import {
+import type {
+  CreateLoadBalancerCommandInput,
+  CreateLoadBalancerCommandOutput,
+} from "./commands/CreateLoadBalancerCommand";
+import type {
   CreateLoadBalancerListenersCommandInput,
   CreateLoadBalancerListenersCommandOutput,
 } from "./commands/CreateLoadBalancerListenersCommand";
-import {
+import type {
   CreateLoadBalancerPolicyCommandInput,
   CreateLoadBalancerPolicyCommandOutput,
 } from "./commands/CreateLoadBalancerPolicyCommand";
-import { DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput } from "./commands/DeleteLoadBalancerCommand";
-import {
+import type {
+  DeleteLoadBalancerCommandInput,
+  DeleteLoadBalancerCommandOutput,
+} from "./commands/DeleteLoadBalancerCommand";
+import type {
   DeleteLoadBalancerListenersCommandInput,
   DeleteLoadBalancerListenersCommandOutput,
 } from "./commands/DeleteLoadBalancerListenersCommand";
-import {
+import type {
   DeleteLoadBalancerPolicyCommandInput,
   DeleteLoadBalancerPolicyCommandOutput,
 } from "./commands/DeleteLoadBalancerPolicyCommand";
-import {
+import type {
   DeregisterInstancesFromLoadBalancerCommandInput,
   DeregisterInstancesFromLoadBalancerCommandOutput,
 } from "./commands/DeregisterInstancesFromLoadBalancerCommand";
-import {
+import type {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
-import {
+import type {
   DescribeInstanceHealthCommandInput,
   DescribeInstanceHealthCommandOutput,
 } from "./commands/DescribeInstanceHealthCommand";
-import {
+import type {
   DescribeLoadBalancerAttributesCommandInput,
   DescribeLoadBalancerAttributesCommandOutput,
 } from "./commands/DescribeLoadBalancerAttributesCommand";
-import {
+import type {
   DescribeLoadBalancerPoliciesCommandInput,
   DescribeLoadBalancerPoliciesCommandOutput,
 } from "./commands/DescribeLoadBalancerPoliciesCommand";
-import {
+import type {
   DescribeLoadBalancerPolicyTypesCommandInput,
   DescribeLoadBalancerPolicyTypesCommandOutput,
 } from "./commands/DescribeLoadBalancerPolicyTypesCommand";
-import {
+import type {
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand";
-import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
-import {
+import type { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import type {
   DetachLoadBalancerFromSubnetsCommandInput,
   DetachLoadBalancerFromSubnetsCommandOutput,
 } from "./commands/DetachLoadBalancerFromSubnetsCommand";
-import {
+import type {
   DisableAvailabilityZonesForLoadBalancerCommandInput,
   DisableAvailabilityZonesForLoadBalancerCommandOutput,
 } from "./commands/DisableAvailabilityZonesForLoadBalancerCommand";
-import {
+import type {
   EnableAvailabilityZonesForLoadBalancerCommandInput,
   EnableAvailabilityZonesForLoadBalancerCommandOutput,
 } from "./commands/EnableAvailabilityZonesForLoadBalancerCommand";
-import {
+import type {
   ModifyLoadBalancerAttributesCommandInput,
   ModifyLoadBalancerAttributesCommandOutput,
 } from "./commands/ModifyLoadBalancerAttributesCommand";
-import {
+import type {
   RegisterInstancesWithLoadBalancerCommandInput,
   RegisterInstancesWithLoadBalancerCommandOutput,
 } from "./commands/RegisterInstancesWithLoadBalancerCommand";
-import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
-import {
+import type { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import type {
   SetLoadBalancerListenerSSLCertificateCommandInput,
   SetLoadBalancerListenerSSLCertificateCommandOutput,
 } from "./commands/SetLoadBalancerListenerSSLCertificateCommand";
-import {
+import type {
   SetLoadBalancerPoliciesForBackendServerCommandInput,
   SetLoadBalancerPoliciesForBackendServerCommandOutput,
 } from "./commands/SetLoadBalancerPoliciesForBackendServerCommand";
-import {
+import type {
   SetLoadBalancerPoliciesOfListenerCommandInput,
   SetLoadBalancerPoliciesOfListenerCommandOutput,
 } from "./commands/SetLoadBalancerPoliciesOfListenerCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -357,7 +361,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -8,7 +8,7 @@ import {
   ListCapabilitiesCommandOutput,
 } from "../commands/ListCapabilitiesCommand";
 import { EKSClient } from "../EKSClient";
-import { EKSPaginationConfiguration } from "./Interfaces";
+import type { EKSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

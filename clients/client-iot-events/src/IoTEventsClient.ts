@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,69 +61,81 @@ import {
   defaultIoTEventsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateAlarmModelCommandInput, CreateAlarmModelCommandOutput } from "./commands/CreateAlarmModelCommand";
-import {
+import type { CreateAlarmModelCommandInput, CreateAlarmModelCommandOutput } from "./commands/CreateAlarmModelCommand";
+import type {
   CreateDetectorModelCommandInput,
   CreateDetectorModelCommandOutput,
 } from "./commands/CreateDetectorModelCommand";
-import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
-import { DeleteAlarmModelCommandInput, DeleteAlarmModelCommandOutput } from "./commands/DeleteAlarmModelCommand";
-import {
+import type { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
+import type { DeleteAlarmModelCommandInput, DeleteAlarmModelCommandOutput } from "./commands/DeleteAlarmModelCommand";
+import type {
   DeleteDetectorModelCommandInput,
   DeleteDetectorModelCommandOutput,
 } from "./commands/DeleteDetectorModelCommand";
-import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
-import { DescribeAlarmModelCommandInput, DescribeAlarmModelCommandOutput } from "./commands/DescribeAlarmModelCommand";
-import {
+import type { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
+import type {
+  DescribeAlarmModelCommandInput,
+  DescribeAlarmModelCommandOutput,
+} from "./commands/DescribeAlarmModelCommand";
+import type {
   DescribeDetectorModelAnalysisCommandInput,
   DescribeDetectorModelAnalysisCommandOutput,
 } from "./commands/DescribeDetectorModelAnalysisCommand";
-import {
+import type {
   DescribeDetectorModelCommandInput,
   DescribeDetectorModelCommandOutput,
 } from "./commands/DescribeDetectorModelCommand";
-import { DescribeInputCommandInput, DescribeInputCommandOutput } from "./commands/DescribeInputCommand";
-import {
+import type { DescribeInputCommandInput, DescribeInputCommandOutput } from "./commands/DescribeInputCommand";
+import type {
   DescribeLoggingOptionsCommandInput,
   DescribeLoggingOptionsCommandOutput,
 } from "./commands/DescribeLoggingOptionsCommand";
-import {
+import type {
   GetDetectorModelAnalysisResultsCommandInput,
   GetDetectorModelAnalysisResultsCommandOutput,
 } from "./commands/GetDetectorModelAnalysisResultsCommand";
-import { ListAlarmModelsCommandInput, ListAlarmModelsCommandOutput } from "./commands/ListAlarmModelsCommand";
-import {
+import type { ListAlarmModelsCommandInput, ListAlarmModelsCommandOutput } from "./commands/ListAlarmModelsCommand";
+import type {
   ListAlarmModelVersionsCommandInput,
   ListAlarmModelVersionsCommandOutput,
 } from "./commands/ListAlarmModelVersionsCommand";
-import { ListDetectorModelsCommandInput, ListDetectorModelsCommandOutput } from "./commands/ListDetectorModelsCommand";
-import {
+import type {
+  ListDetectorModelsCommandInput,
+  ListDetectorModelsCommandOutput,
+} from "./commands/ListDetectorModelsCommand";
+import type {
   ListDetectorModelVersionsCommandInput,
   ListDetectorModelVersionsCommandOutput,
 } from "./commands/ListDetectorModelVersionsCommand";
-import { ListInputRoutingsCommandInput, ListInputRoutingsCommandOutput } from "./commands/ListInputRoutingsCommand";
-import { ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
-import {
+import type {
+  ListInputRoutingsCommandInput,
+  ListInputRoutingsCommandOutput,
+} from "./commands/ListInputRoutingsCommand";
+import type { ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand";
-import {
+import type {
+  PutLoggingOptionsCommandInput,
+  PutLoggingOptionsCommandOutput,
+} from "./commands/PutLoggingOptionsCommand";
+import type {
   StartDetectorModelAnalysisCommandInput,
   StartDetectorModelAnalysisCommandOutput,
 } from "./commands/StartDetectorModelAnalysisCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAlarmModelCommandInput, UpdateAlarmModelCommandOutput } from "./commands/UpdateAlarmModelCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAlarmModelCommandInput, UpdateAlarmModelCommandOutput } from "./commands/UpdateAlarmModelCommand";
+import type {
   UpdateDetectorModelCommandInput,
   UpdateDetectorModelCommandOutput,
 } from "./commands/UpdateDetectorModelCommand";
-import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
+import type { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -309,7 +319,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

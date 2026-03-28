@@ -39,22 +39,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type SdkStreamMixinInjector as __SdkStreamMixinInjector,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -64,264 +62,306 @@ import {
   defaultOmicsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AbortMultipartReadSetUploadCommandInput,
   AbortMultipartReadSetUploadCommandOutput,
 } from "./commands/AbortMultipartReadSetUploadCommand";
-import { AcceptShareCommandInput, AcceptShareCommandOutput } from "./commands/AcceptShareCommand";
-import { BatchDeleteReadSetCommandInput, BatchDeleteReadSetCommandOutput } from "./commands/BatchDeleteReadSetCommand";
-import {
+import type { AcceptShareCommandInput, AcceptShareCommandOutput } from "./commands/AcceptShareCommand";
+import type {
+  BatchDeleteReadSetCommandInput,
+  BatchDeleteReadSetCommandOutput,
+} from "./commands/BatchDeleteReadSetCommand";
+import type {
   CancelAnnotationImportJobCommandInput,
   CancelAnnotationImportJobCommandOutput,
 } from "./commands/CancelAnnotationImportJobCommand";
-import { CancelRunBatchCommandInput, CancelRunBatchCommandOutput } from "./commands/CancelRunBatchCommand";
-import { CancelRunCommandInput, CancelRunCommandOutput } from "./commands/CancelRunCommand";
-import {
+import type { CancelRunBatchCommandInput, CancelRunBatchCommandOutput } from "./commands/CancelRunBatchCommand";
+import type { CancelRunCommandInput, CancelRunCommandOutput } from "./commands/CancelRunCommand";
+import type {
   CancelVariantImportJobCommandInput,
   CancelVariantImportJobCommandOutput,
 } from "./commands/CancelVariantImportJobCommand";
-import {
+import type {
   CompleteMultipartReadSetUploadCommandInput,
   CompleteMultipartReadSetUploadCommandOutput,
 } from "./commands/CompleteMultipartReadSetUploadCommand";
-import {
+import type {
   CreateAnnotationStoreCommandInput,
   CreateAnnotationStoreCommandOutput,
 } from "./commands/CreateAnnotationStoreCommand";
-import {
+import type {
   CreateAnnotationStoreVersionCommandInput,
   CreateAnnotationStoreVersionCommandOutput,
 } from "./commands/CreateAnnotationStoreVersionCommand";
-import {
+import type {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand";
-import {
+import type {
   CreateMultipartReadSetUploadCommandInput,
   CreateMultipartReadSetUploadCommandOutput,
 } from "./commands/CreateMultipartReadSetUploadCommand";
-import {
+import type {
   CreateReferenceStoreCommandInput,
   CreateReferenceStoreCommandOutput,
 } from "./commands/CreateReferenceStoreCommand";
-import { CreateRunCacheCommandInput, CreateRunCacheCommandOutput } from "./commands/CreateRunCacheCommand";
-import { CreateRunGroupCommandInput, CreateRunGroupCommandOutput } from "./commands/CreateRunGroupCommand";
-import {
+import type { CreateRunCacheCommandInput, CreateRunCacheCommandOutput } from "./commands/CreateRunCacheCommand";
+import type { CreateRunGroupCommandInput, CreateRunGroupCommandOutput } from "./commands/CreateRunGroupCommand";
+import type {
   CreateSequenceStoreCommandInput,
   CreateSequenceStoreCommandOutput,
 } from "./commands/CreateSequenceStoreCommand";
-import { CreateShareCommandInput, CreateShareCommandOutput } from "./commands/CreateShareCommand";
-import { CreateVariantStoreCommandInput, CreateVariantStoreCommandOutput } from "./commands/CreateVariantStoreCommand";
-import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
-import {
+import type { CreateShareCommandInput, CreateShareCommandOutput } from "./commands/CreateShareCommand";
+import type {
+  CreateVariantStoreCommandInput,
+  CreateVariantStoreCommandOutput,
+} from "./commands/CreateVariantStoreCommand";
+import type { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
+import type {
   CreateWorkflowVersionCommandInput,
   CreateWorkflowVersionCommandOutput,
 } from "./commands/CreateWorkflowVersionCommand";
-import {
+import type {
   DeleteAnnotationStoreCommandInput,
   DeleteAnnotationStoreCommandOutput,
 } from "./commands/DeleteAnnotationStoreCommand";
-import {
+import type {
   DeleteAnnotationStoreVersionsCommandInput,
   DeleteAnnotationStoreVersionsCommandOutput,
 } from "./commands/DeleteAnnotationStoreVersionsCommand";
-import { DeleteBatchCommandInput, DeleteBatchCommandOutput } from "./commands/DeleteBatchCommand";
-import {
+import type { DeleteBatchCommandInput, DeleteBatchCommandOutput } from "./commands/DeleteBatchCommand";
+import type {
   DeleteConfigurationCommandInput,
   DeleteConfigurationCommandOutput,
 } from "./commands/DeleteConfigurationCommand";
-import { DeleteReferenceCommandInput, DeleteReferenceCommandOutput } from "./commands/DeleteReferenceCommand";
-import {
+import type { DeleteReferenceCommandInput, DeleteReferenceCommandOutput } from "./commands/DeleteReferenceCommand";
+import type {
   DeleteReferenceStoreCommandInput,
   DeleteReferenceStoreCommandOutput,
 } from "./commands/DeleteReferenceStoreCommand";
-import { DeleteRunBatchCommandInput, DeleteRunBatchCommandOutput } from "./commands/DeleteRunBatchCommand";
-import { DeleteRunCacheCommandInput, DeleteRunCacheCommandOutput } from "./commands/DeleteRunCacheCommand";
-import { DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
-import { DeleteRunGroupCommandInput, DeleteRunGroupCommandOutput } from "./commands/DeleteRunGroupCommand";
-import {
+import type { DeleteRunBatchCommandInput, DeleteRunBatchCommandOutput } from "./commands/DeleteRunBatchCommand";
+import type { DeleteRunCacheCommandInput, DeleteRunCacheCommandOutput } from "./commands/DeleteRunCacheCommand";
+import type { DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
+import type { DeleteRunGroupCommandInput, DeleteRunGroupCommandOutput } from "./commands/DeleteRunGroupCommand";
+import type {
   DeleteS3AccessPolicyCommandInput,
   DeleteS3AccessPolicyCommandOutput,
 } from "./commands/DeleteS3AccessPolicyCommand";
-import {
+import type {
   DeleteSequenceStoreCommandInput,
   DeleteSequenceStoreCommandOutput,
 } from "./commands/DeleteSequenceStoreCommand";
-import { DeleteShareCommandInput, DeleteShareCommandOutput } from "./commands/DeleteShareCommand";
-import { DeleteVariantStoreCommandInput, DeleteVariantStoreCommandOutput } from "./commands/DeleteVariantStoreCommand";
-import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
-import {
+import type { DeleteShareCommandInput, DeleteShareCommandOutput } from "./commands/DeleteShareCommand";
+import type {
+  DeleteVariantStoreCommandInput,
+  DeleteVariantStoreCommandOutput,
+} from "./commands/DeleteVariantStoreCommand";
+import type { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
+import type {
   DeleteWorkflowVersionCommandInput,
   DeleteWorkflowVersionCommandOutput,
 } from "./commands/DeleteWorkflowVersionCommand";
-import {
+import type {
   GetAnnotationImportJobCommandInput,
   GetAnnotationImportJobCommandOutput,
 } from "./commands/GetAnnotationImportJobCommand";
-import { GetAnnotationStoreCommandInput, GetAnnotationStoreCommandOutput } from "./commands/GetAnnotationStoreCommand";
-import {
+import type {
+  GetAnnotationStoreCommandInput,
+  GetAnnotationStoreCommandOutput,
+} from "./commands/GetAnnotationStoreCommand";
+import type {
   GetAnnotationStoreVersionCommandInput,
   GetAnnotationStoreVersionCommandOutput,
 } from "./commands/GetAnnotationStoreVersionCommand";
-import { GetBatchCommandInput, GetBatchCommandOutput } from "./commands/GetBatchCommand";
-import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
-import {
+import type { GetBatchCommandInput, GetBatchCommandOutput } from "./commands/GetBatchCommand";
+import type { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
+import type {
   GetReadSetActivationJobCommandInput,
   GetReadSetActivationJobCommandOutput,
 } from "./commands/GetReadSetActivationJobCommand";
-import { GetReadSetCommandInput, GetReadSetCommandOutput } from "./commands/GetReadSetCommand";
-import {
+import type { GetReadSetCommandInput, GetReadSetCommandOutput } from "./commands/GetReadSetCommand";
+import type {
   GetReadSetExportJobCommandInput,
   GetReadSetExportJobCommandOutput,
 } from "./commands/GetReadSetExportJobCommand";
-import {
+import type {
   GetReadSetImportJobCommandInput,
   GetReadSetImportJobCommandOutput,
 } from "./commands/GetReadSetImportJobCommand";
-import { GetReadSetMetadataCommandInput, GetReadSetMetadataCommandOutput } from "./commands/GetReadSetMetadataCommand";
-import { GetReferenceCommandInput, GetReferenceCommandOutput } from "./commands/GetReferenceCommand";
-import {
+import type {
+  GetReadSetMetadataCommandInput,
+  GetReadSetMetadataCommandOutput,
+} from "./commands/GetReadSetMetadataCommand";
+import type { GetReferenceCommandInput, GetReferenceCommandOutput } from "./commands/GetReferenceCommand";
+import type {
   GetReferenceImportJobCommandInput,
   GetReferenceImportJobCommandOutput,
 } from "./commands/GetReferenceImportJobCommand";
-import {
+import type {
   GetReferenceMetadataCommandInput,
   GetReferenceMetadataCommandOutput,
 } from "./commands/GetReferenceMetadataCommand";
-import { GetReferenceStoreCommandInput, GetReferenceStoreCommandOutput } from "./commands/GetReferenceStoreCommand";
-import { GetRunCacheCommandInput, GetRunCacheCommandOutput } from "./commands/GetRunCacheCommand";
-import { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
-import { GetRunGroupCommandInput, GetRunGroupCommandOutput } from "./commands/GetRunGroupCommand";
-import { GetRunTaskCommandInput, GetRunTaskCommandOutput } from "./commands/GetRunTaskCommand";
-import { GetS3AccessPolicyCommandInput, GetS3AccessPolicyCommandOutput } from "./commands/GetS3AccessPolicyCommand";
-import { GetSequenceStoreCommandInput, GetSequenceStoreCommandOutput } from "./commands/GetSequenceStoreCommand";
-import { GetShareCommandInput, GetShareCommandOutput } from "./commands/GetShareCommand";
-import {
+import type {
+  GetReferenceStoreCommandInput,
+  GetReferenceStoreCommandOutput,
+} from "./commands/GetReferenceStoreCommand";
+import type { GetRunCacheCommandInput, GetRunCacheCommandOutput } from "./commands/GetRunCacheCommand";
+import type { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
+import type { GetRunGroupCommandInput, GetRunGroupCommandOutput } from "./commands/GetRunGroupCommand";
+import type { GetRunTaskCommandInput, GetRunTaskCommandOutput } from "./commands/GetRunTaskCommand";
+import type {
+  GetS3AccessPolicyCommandInput,
+  GetS3AccessPolicyCommandOutput,
+} from "./commands/GetS3AccessPolicyCommand";
+import type { GetSequenceStoreCommandInput, GetSequenceStoreCommandOutput } from "./commands/GetSequenceStoreCommand";
+import type { GetShareCommandInput, GetShareCommandOutput } from "./commands/GetShareCommand";
+import type {
   GetVariantImportJobCommandInput,
   GetVariantImportJobCommandOutput,
 } from "./commands/GetVariantImportJobCommand";
-import { GetVariantStoreCommandInput, GetVariantStoreCommandOutput } from "./commands/GetVariantStoreCommand";
-import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
-import { GetWorkflowVersionCommandInput, GetWorkflowVersionCommandOutput } from "./commands/GetWorkflowVersionCommand";
-import {
+import type { GetVariantStoreCommandInput, GetVariantStoreCommandOutput } from "./commands/GetVariantStoreCommand";
+import type { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import type {
+  GetWorkflowVersionCommandInput,
+  GetWorkflowVersionCommandOutput,
+} from "./commands/GetWorkflowVersionCommand";
+import type {
   ListAnnotationImportJobsCommandInput,
   ListAnnotationImportJobsCommandOutput,
 } from "./commands/ListAnnotationImportJobsCommand";
-import {
+import type {
   ListAnnotationStoresCommandInput,
   ListAnnotationStoresCommandOutput,
 } from "./commands/ListAnnotationStoresCommand";
-import {
+import type {
   ListAnnotationStoreVersionsCommandInput,
   ListAnnotationStoreVersionsCommandOutput,
 } from "./commands/ListAnnotationStoreVersionsCommand";
-import { ListBatchCommandInput, ListBatchCommandOutput } from "./commands/ListBatchCommand";
-import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
-import {
+import type { ListBatchCommandInput, ListBatchCommandOutput } from "./commands/ListBatchCommand";
+import type {
+  ListConfigurationsCommandInput,
+  ListConfigurationsCommandOutput,
+} from "./commands/ListConfigurationsCommand";
+import type {
   ListMultipartReadSetUploadsCommandInput,
   ListMultipartReadSetUploadsCommandOutput,
 } from "./commands/ListMultipartReadSetUploadsCommand";
-import {
+import type {
   ListReadSetActivationJobsCommandInput,
   ListReadSetActivationJobsCommandOutput,
 } from "./commands/ListReadSetActivationJobsCommand";
-import {
+import type {
   ListReadSetExportJobsCommandInput,
   ListReadSetExportJobsCommandOutput,
 } from "./commands/ListReadSetExportJobsCommand";
-import {
+import type {
   ListReadSetImportJobsCommandInput,
   ListReadSetImportJobsCommandOutput,
 } from "./commands/ListReadSetImportJobsCommand";
-import { ListReadSetsCommandInput, ListReadSetsCommandOutput } from "./commands/ListReadSetsCommand";
-import {
+import type { ListReadSetsCommandInput, ListReadSetsCommandOutput } from "./commands/ListReadSetsCommand";
+import type {
   ListReadSetUploadPartsCommandInput,
   ListReadSetUploadPartsCommandOutput,
 } from "./commands/ListReadSetUploadPartsCommand";
-import {
+import type {
   ListReferenceImportJobsCommandInput,
   ListReferenceImportJobsCommandOutput,
 } from "./commands/ListReferenceImportJobsCommand";
-import { ListReferencesCommandInput, ListReferencesCommandOutput } from "./commands/ListReferencesCommand";
-import {
+import type { ListReferencesCommandInput, ListReferencesCommandOutput } from "./commands/ListReferencesCommand";
+import type {
   ListReferenceStoresCommandInput,
   ListReferenceStoresCommandOutput,
 } from "./commands/ListReferenceStoresCommand";
-import { ListRunCachesCommandInput, ListRunCachesCommandOutput } from "./commands/ListRunCachesCommand";
-import { ListRunGroupsCommandInput, ListRunGroupsCommandOutput } from "./commands/ListRunGroupsCommand";
-import { ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
-import { ListRunsInBatchCommandInput, ListRunsInBatchCommandOutput } from "./commands/ListRunsInBatchCommand";
-import { ListRunTasksCommandInput, ListRunTasksCommandOutput } from "./commands/ListRunTasksCommand";
-import { ListSequenceStoresCommandInput, ListSequenceStoresCommandOutput } from "./commands/ListSequenceStoresCommand";
-import { ListSharesCommandInput, ListSharesCommandOutput } from "./commands/ListSharesCommand";
-import {
+import type { ListRunCachesCommandInput, ListRunCachesCommandOutput } from "./commands/ListRunCachesCommand";
+import type { ListRunGroupsCommandInput, ListRunGroupsCommandOutput } from "./commands/ListRunGroupsCommand";
+import type { ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
+import type { ListRunsInBatchCommandInput, ListRunsInBatchCommandOutput } from "./commands/ListRunsInBatchCommand";
+import type { ListRunTasksCommandInput, ListRunTasksCommandOutput } from "./commands/ListRunTasksCommand";
+import type {
+  ListSequenceStoresCommandInput,
+  ListSequenceStoresCommandOutput,
+} from "./commands/ListSequenceStoresCommand";
+import type { ListSharesCommandInput, ListSharesCommandOutput } from "./commands/ListSharesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListVariantImportJobsCommandInput,
   ListVariantImportJobsCommandOutput,
 } from "./commands/ListVariantImportJobsCommand";
-import { ListVariantStoresCommandInput, ListVariantStoresCommandOutput } from "./commands/ListVariantStoresCommand";
-import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
-import {
+import type {
+  ListVariantStoresCommandInput,
+  ListVariantStoresCommandOutput,
+} from "./commands/ListVariantStoresCommand";
+import type { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
+import type {
   ListWorkflowVersionsCommandInput,
   ListWorkflowVersionsCommandOutput,
 } from "./commands/ListWorkflowVersionsCommand";
-import { PutS3AccessPolicyCommandInput, PutS3AccessPolicyCommandOutput } from "./commands/PutS3AccessPolicyCommand";
-import {
+import type {
+  PutS3AccessPolicyCommandInput,
+  PutS3AccessPolicyCommandOutput,
+} from "./commands/PutS3AccessPolicyCommand";
+import type {
   StartAnnotationImportJobCommandInput,
   StartAnnotationImportJobCommandOutput,
 } from "./commands/StartAnnotationImportJobCommand";
-import {
+import type {
   StartReadSetActivationJobCommandInput,
   StartReadSetActivationJobCommandOutput,
 } from "./commands/StartReadSetActivationJobCommand";
-import {
+import type {
   StartReadSetExportJobCommandInput,
   StartReadSetExportJobCommandOutput,
 } from "./commands/StartReadSetExportJobCommand";
-import {
+import type {
   StartReadSetImportJobCommandInput,
   StartReadSetImportJobCommandOutput,
 } from "./commands/StartReadSetImportJobCommand";
-import {
+import type {
   StartReferenceImportJobCommandInput,
   StartReferenceImportJobCommandOutput,
 } from "./commands/StartReferenceImportJobCommand";
-import { StartRunBatchCommandInput, StartRunBatchCommandOutput } from "./commands/StartRunBatchCommand";
-import { StartRunCommandInput, StartRunCommandOutput } from "./commands/StartRunCommand";
-import {
+import type { StartRunBatchCommandInput, StartRunBatchCommandOutput } from "./commands/StartRunBatchCommand";
+import type { StartRunCommandInput, StartRunCommandOutput } from "./commands/StartRunCommand";
+import type {
   StartVariantImportJobCommandInput,
   StartVariantImportJobCommandOutput,
 } from "./commands/StartVariantImportJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAnnotationStoreCommandInput,
   UpdateAnnotationStoreCommandOutput,
 } from "./commands/UpdateAnnotationStoreCommand";
-import {
+import type {
   UpdateAnnotationStoreVersionCommandInput,
   UpdateAnnotationStoreVersionCommandOutput,
 } from "./commands/UpdateAnnotationStoreVersionCommand";
-import { UpdateRunCacheCommandInput, UpdateRunCacheCommandOutput } from "./commands/UpdateRunCacheCommand";
-import { UpdateRunGroupCommandInput, UpdateRunGroupCommandOutput } from "./commands/UpdateRunGroupCommand";
-import {
+import type { UpdateRunCacheCommandInput, UpdateRunCacheCommandOutput } from "./commands/UpdateRunCacheCommand";
+import type { UpdateRunGroupCommandInput, UpdateRunGroupCommandOutput } from "./commands/UpdateRunGroupCommand";
+import type {
   UpdateSequenceStoreCommandInput,
   UpdateSequenceStoreCommandOutput,
 } from "./commands/UpdateSequenceStoreCommand";
-import { UpdateVariantStoreCommandInput, UpdateVariantStoreCommandOutput } from "./commands/UpdateVariantStoreCommand";
-import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
-import {
+import type {
+  UpdateVariantStoreCommandInput,
+  UpdateVariantStoreCommandOutput,
+} from "./commands/UpdateVariantStoreCommand";
+import type { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
+import type {
   UpdateWorkflowVersionCommandInput,
   UpdateWorkflowVersionCommandOutput,
 } from "./commands/UpdateWorkflowVersionCommand";
-import { UploadReadSetPartCommandInput, UploadReadSetPartCommandOutput } from "./commands/UploadReadSetPartCommand";
+import type {
+  UploadReadSetPartCommandInput,
+  UploadReadSetPartCommandOutput,
+} from "./commands/UploadReadSetPartCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -667,7 +707,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

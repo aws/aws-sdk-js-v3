@@ -8,7 +8,7 @@ import {
   ListDataLakeNamespacesCommandOutput,
 } from "../commands/ListDataLakeNamespacesCommand";
 import { SupplyChainClient } from "../SupplyChainClient";
-import { SupplyChainPaginationConfiguration } from "./Interfaces";
+import type { SupplyChainPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -26,7 +26,7 @@
  */
 export * from "./GuardDutyClient";
 export * from "./GuardDuty";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { GuardDutyExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

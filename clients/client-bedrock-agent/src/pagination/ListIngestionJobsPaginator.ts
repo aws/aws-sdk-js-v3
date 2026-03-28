@@ -8,7 +8,7 @@ import {
   ListIngestionJobsCommandInput,
   ListIngestionJobsCommandOutput,
 } from "../commands/ListIngestionJobsCommand";
-import { BedrockAgentPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

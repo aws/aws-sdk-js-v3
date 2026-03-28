@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ChimeSDKMediaPipelinesServiceException as __BaseException } from "./ChimeSDKMediaPipelinesServiceException";
-import { ErrorCode } from "./enums";
+import type { ErrorCode } from "./enums";
 
 /**
  * <p>The input parameters don't match the service's restrictions.</p>

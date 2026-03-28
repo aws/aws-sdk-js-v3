@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ChecksumType, DeploymentStatus, DeploymentType, FailureHandlingPolicy, ModelState } from "./enums";
+import type { ChecksumType, DeploymentStatus, DeploymentType, FailureHandlingPolicy, ModelState } from "./enums";
 
 /**
  * @public

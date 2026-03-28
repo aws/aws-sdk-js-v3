@@ -8,7 +8,7 @@ import {
   ListAgentRuntimeVersionsCommandInput,
   ListAgentRuntimeVersionsCommandOutput,
 } from "../commands/ListAgentRuntimeVersionsCommand";
-import { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

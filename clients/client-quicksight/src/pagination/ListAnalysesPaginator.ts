@@ -8,7 +8,7 @@ import {
   ListAnalysesCommandOutput,
 } from "../commands/ListAnalysesCommand";
 import { QuickSightClient } from "../QuickSightClient";
-import { QuickSightPaginationConfiguration } from "./Interfaces";
+import type { QuickSightPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

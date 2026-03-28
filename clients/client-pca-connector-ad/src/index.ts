@@ -9,7 +9,7 @@
  */
 export * from "./PcaConnectorAdClient";
 export * from "./PcaConnectorAd";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { PcaConnectorAdExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

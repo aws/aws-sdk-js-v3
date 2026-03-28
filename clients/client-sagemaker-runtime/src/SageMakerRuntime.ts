@@ -3,19 +3,19 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type InvokeEndpointAsyncCommandInput,
+  type InvokeEndpointAsyncCommandOutput,
   InvokeEndpointAsyncCommand,
-  InvokeEndpointAsyncCommandInput,
-  InvokeEndpointAsyncCommandOutput,
 } from "./commands/InvokeEndpointAsyncCommand";
 import {
+  type InvokeEndpointCommandInput,
+  type InvokeEndpointCommandOutput,
   InvokeEndpointCommand,
-  InvokeEndpointCommandInput,
-  InvokeEndpointCommandOutput,
 } from "./commands/InvokeEndpointCommand";
 import {
+  type InvokeEndpointWithResponseStreamCommandInput,
+  type InvokeEndpointWithResponseStreamCommandOutput,
   InvokeEndpointWithResponseStreamCommand,
-  InvokeEndpointWithResponseStreamCommandInput,
-  InvokeEndpointWithResponseStreamCommandOutput,
 } from "./commands/InvokeEndpointWithResponseStreamCommand";
 import { SageMakerRuntimeClient } from "./SageMakerRuntimeClient";
 

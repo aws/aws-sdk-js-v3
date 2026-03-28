@@ -3,83 +3,91 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type ActivatePipelineCommandInput,
+  type ActivatePipelineCommandOutput,
   ActivatePipelineCommand,
-  ActivatePipelineCommandInput,
-  ActivatePipelineCommandOutput,
 } from "./commands/ActivatePipelineCommand";
-import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { type AddTagsCommandInput, type AddTagsCommandOutput, AddTagsCommand } from "./commands/AddTagsCommand";
 import {
+  type CreatePipelineCommandInput,
+  type CreatePipelineCommandOutput,
   CreatePipelineCommand,
-  CreatePipelineCommandInput,
-  CreatePipelineCommandOutput,
 } from "./commands/CreatePipelineCommand";
 import {
+  type DeactivatePipelineCommandInput,
+  type DeactivatePipelineCommandOutput,
   DeactivatePipelineCommand,
-  DeactivatePipelineCommandInput,
-  DeactivatePipelineCommandOutput,
 } from "./commands/DeactivatePipelineCommand";
 import {
+  type DeletePipelineCommandInput,
+  type DeletePipelineCommandOutput,
   DeletePipelineCommand,
-  DeletePipelineCommandInput,
-  DeletePipelineCommandOutput,
 } from "./commands/DeletePipelineCommand";
 import {
+  type DescribeObjectsCommandInput,
+  type DescribeObjectsCommandOutput,
   DescribeObjectsCommand,
-  DescribeObjectsCommandInput,
-  DescribeObjectsCommandOutput,
 } from "./commands/DescribeObjectsCommand";
 import {
+  type DescribePipelinesCommandInput,
+  type DescribePipelinesCommandOutput,
   DescribePipelinesCommand,
-  DescribePipelinesCommandInput,
-  DescribePipelinesCommandOutput,
 } from "./commands/DescribePipelinesCommand";
 import {
+  type EvaluateExpressionCommandInput,
+  type EvaluateExpressionCommandOutput,
   EvaluateExpressionCommand,
-  EvaluateExpressionCommandInput,
-  EvaluateExpressionCommandOutput,
 } from "./commands/EvaluateExpressionCommand";
 import {
+  type GetPipelineDefinitionCommandInput,
+  type GetPipelineDefinitionCommandOutput,
   GetPipelineDefinitionCommand,
-  GetPipelineDefinitionCommandInput,
-  GetPipelineDefinitionCommandOutput,
 } from "./commands/GetPipelineDefinitionCommand";
 import {
+  type ListPipelinesCommandInput,
+  type ListPipelinesCommandOutput,
   ListPipelinesCommand,
-  ListPipelinesCommandInput,
-  ListPipelinesCommandOutput,
 } from "./commands/ListPipelinesCommand";
-import { PollForTaskCommand, PollForTaskCommandInput, PollForTaskCommandOutput } from "./commands/PollForTaskCommand";
 import {
+  type PollForTaskCommandInput,
+  type PollForTaskCommandOutput,
+  PollForTaskCommand,
+} from "./commands/PollForTaskCommand";
+import {
+  type PutPipelineDefinitionCommandInput,
+  type PutPipelineDefinitionCommandOutput,
   PutPipelineDefinitionCommand,
-  PutPipelineDefinitionCommandInput,
-  PutPipelineDefinitionCommandOutput,
 } from "./commands/PutPipelineDefinitionCommand";
 import {
+  type QueryObjectsCommandInput,
+  type QueryObjectsCommandOutput,
   QueryObjectsCommand,
-  QueryObjectsCommandInput,
-  QueryObjectsCommandOutput,
 } from "./commands/QueryObjectsCommand";
-import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
+  type RemoveTagsCommandInput,
+  type RemoveTagsCommandOutput,
+  RemoveTagsCommand,
+} from "./commands/RemoveTagsCommand";
+import {
+  type ReportTaskProgressCommandInput,
+  type ReportTaskProgressCommandOutput,
   ReportTaskProgressCommand,
-  ReportTaskProgressCommandInput,
-  ReportTaskProgressCommandOutput,
 } from "./commands/ReportTaskProgressCommand";
 import {
+  type ReportTaskRunnerHeartbeatCommandInput,
+  type ReportTaskRunnerHeartbeatCommandOutput,
   ReportTaskRunnerHeartbeatCommand,
-  ReportTaskRunnerHeartbeatCommandInput,
-  ReportTaskRunnerHeartbeatCommandOutput,
 } from "./commands/ReportTaskRunnerHeartbeatCommand";
-import { SetStatusCommand, SetStatusCommandInput, SetStatusCommandOutput } from "./commands/SetStatusCommand";
+import { type SetStatusCommandInput, type SetStatusCommandOutput, SetStatusCommand } from "./commands/SetStatusCommand";
 import {
+  type SetTaskStatusCommandInput,
+  type SetTaskStatusCommandOutput,
   SetTaskStatusCommand,
-  SetTaskStatusCommandInput,
-  SetTaskStatusCommandOutput,
 } from "./commands/SetTaskStatusCommand";
 import {
+  type ValidatePipelineDefinitionCommandInput,
+  type ValidatePipelineDefinitionCommandOutput,
   ValidatePipelineDefinitionCommand,
-  ValidatePipelineDefinitionCommandInput,
-  ValidatePipelineDefinitionCommandOutput,
 } from "./commands/ValidatePipelineDefinitionCommand";
 import { DataPipelineClient } from "./DataPipelineClient";
 import { paginateDescribeObjects } from "./pagination/DescribeObjectsPaginator";

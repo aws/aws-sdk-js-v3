@@ -8,7 +8,7 @@ import {
   ListCustomRoutingEndpointGroupsCommandOutput,
 } from "../commands/ListCustomRoutingEndpointGroupsCommand";
 import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
-import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
+import type { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   PollForDecisionTaskCommandOutput,
 } from "../commands/PollForDecisionTaskCommand";
 import { SWFClient } from "../SWFClient";
-import { SWFPaginationConfiguration } from "./Interfaces";
+import type { SWFPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

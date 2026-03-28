@@ -7,7 +7,7 @@
  */
 export * from "./ARCZonalShiftClient";
 export * from "./ARCZonalShift";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ARCZonalShiftExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -8,7 +8,7 @@ import {
   ListKxEnvironmentsCommandOutput,
 } from "../commands/ListKxEnvironmentsCommand";
 import { FinspaceClient } from "../FinspaceClient";
-import { FinspacePaginationConfiguration } from "./Interfaces";
+import type { FinspacePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

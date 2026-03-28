@@ -9,68 +9,96 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type BatchAddChannelRoleToAccessorsCommandInput,
+  type BatchAddChannelRoleToAccessorsCommandOutput,
   BatchAddChannelRoleToAccessorsCommand,
-  BatchAddChannelRoleToAccessorsCommandInput,
-  BatchAddChannelRoleToAccessorsCommandOutput,
 } from "./commands/BatchAddChannelRoleToAccessorsCommand";
 import {
+  type BatchAddRoleCommandInput,
+  type BatchAddRoleCommandOutput,
   BatchAddRoleCommand,
-  BatchAddRoleCommandInput,
-  BatchAddRoleCommandOutput,
 } from "./commands/BatchAddRoleCommand";
 import {
+  type BatchRemoveChannelRoleFromAccessorsCommandInput,
+  type BatchRemoveChannelRoleFromAccessorsCommandOutput,
   BatchRemoveChannelRoleFromAccessorsCommand,
-  BatchRemoveChannelRoleFromAccessorsCommandInput,
-  BatchRemoveChannelRoleFromAccessorsCommandOutput,
 } from "./commands/BatchRemoveChannelRoleFromAccessorsCommand";
 import {
+  type BatchRemoveRoleCommandInput,
+  type BatchRemoveRoleCommandOutput,
   BatchRemoveRoleCommand,
-  BatchRemoveRoleCommandInput,
-  BatchRemoveRoleCommandOutput,
 } from "./commands/BatchRemoveRoleCommand";
 import {
+  type CreateChannelCommandInput,
+  type CreateChannelCommandOutput,
   CreateChannelCommand,
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
-import { CreateSpaceCommand, CreateSpaceCommandInput, CreateSpaceCommandOutput } from "./commands/CreateSpaceCommand";
-import { DeleteSpaceCommand, DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
 import {
+  type CreateSpaceCommandInput,
+  type CreateSpaceCommandOutput,
+  CreateSpaceCommand,
+} from "./commands/CreateSpaceCommand";
+import {
+  type DeleteSpaceCommandInput,
+  type DeleteSpaceCommandOutput,
+  DeleteSpaceCommand,
+} from "./commands/DeleteSpaceCommand";
+import {
+  type DeregisterAdminCommandInput,
+  type DeregisterAdminCommandOutput,
   DeregisterAdminCommand,
-  DeregisterAdminCommandInput,
-  DeregisterAdminCommandOutput,
 } from "./commands/DeregisterAdminCommand";
-import { GetChannelCommand, GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
-import { GetSpaceCommand, GetSpaceCommandInput, GetSpaceCommandOutput } from "./commands/GetSpaceCommand";
 import {
+  type GetChannelCommandInput,
+  type GetChannelCommandOutput,
+  GetChannelCommand,
+} from "./commands/GetChannelCommand";
+import { type GetSpaceCommandInput, type GetSpaceCommandOutput, GetSpaceCommand } from "./commands/GetSpaceCommand";
+import {
+  type ListChannelsCommandInput,
+  type ListChannelsCommandOutput,
   ListChannelsCommand,
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
-import { ListSpacesCommand, ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
 import {
+  type ListSpacesCommandInput,
+  type ListSpacesCommandOutput,
+  ListSpacesCommand,
+} from "./commands/ListSpacesCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RegisterAdminCommandInput,
+  type RegisterAdminCommandOutput,
   RegisterAdminCommand,
-  RegisterAdminCommandInput,
-  RegisterAdminCommandOutput,
 } from "./commands/RegisterAdminCommand";
-import { SendInvitesCommand, SendInvitesCommandInput, SendInvitesCommandOutput } from "./commands/SendInvitesCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type SendInvitesCommandInput,
+  type SendInvitesCommandOutput,
+  SendInvitesCommand,
+} from "./commands/SendInvitesCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateChannelCommandInput,
+  type UpdateChannelCommandOutput,
   UpdateChannelCommand,
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
-import { UpdateSpaceCommand, UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
+import {
+  type UpdateSpaceCommandInput,
+  type UpdateSpaceCommandOutput,
+  UpdateSpaceCommand,
+} from "./commands/UpdateSpaceCommand";
 import { paginateListChannels } from "./pagination/ListChannelsPaginator";
 import { paginateListSpaces } from "./pagination/ListSpacesPaginator";
 import { RepostspaceClient } from "./RepostspaceClient";

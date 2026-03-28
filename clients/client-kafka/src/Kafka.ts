@@ -3,276 +3,296 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchAssociateScramSecretCommandInput,
+  type BatchAssociateScramSecretCommandOutput,
   BatchAssociateScramSecretCommand,
-  BatchAssociateScramSecretCommandInput,
-  BatchAssociateScramSecretCommandOutput,
 } from "./commands/BatchAssociateScramSecretCommand";
 import {
+  type BatchDisassociateScramSecretCommandInput,
+  type BatchDisassociateScramSecretCommandOutput,
   BatchDisassociateScramSecretCommand,
-  BatchDisassociateScramSecretCommandInput,
-  BatchDisassociateScramSecretCommandOutput,
 } from "./commands/BatchDisassociateScramSecretCommand";
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateClusterV2CommandInput,
+  type CreateClusterV2CommandOutput,
   CreateClusterV2Command,
-  CreateClusterV2CommandInput,
-  CreateClusterV2CommandOutput,
 } from "./commands/CreateClusterV2Command";
 import {
+  type CreateConfigurationCommandInput,
+  type CreateConfigurationCommandOutput,
   CreateConfigurationCommand,
-  CreateConfigurationCommandInput,
-  CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand";
 import {
+  type CreateReplicatorCommandInput,
+  type CreateReplicatorCommandOutput,
   CreateReplicatorCommand,
-  CreateReplicatorCommandInput,
-  CreateReplicatorCommandOutput,
 } from "./commands/CreateReplicatorCommand";
-import { CreateTopicCommand, CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
 import {
+  type CreateTopicCommandInput,
+  type CreateTopicCommandOutput,
+  CreateTopicCommand,
+} from "./commands/CreateTopicCommand";
+import {
+  type CreateVpcConnectionCommandInput,
+  type CreateVpcConnectionCommandOutput,
   CreateVpcConnectionCommand,
-  CreateVpcConnectionCommandInput,
-  CreateVpcConnectionCommandOutput,
 } from "./commands/CreateVpcConnectionCommand";
 import {
+  type DeleteClusterCommandInput,
+  type DeleteClusterCommandOutput,
   DeleteClusterCommand,
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  type DeleteClusterPolicyCommandInput,
+  type DeleteClusterPolicyCommandOutput,
   DeleteClusterPolicyCommand,
-  DeleteClusterPolicyCommandInput,
-  DeleteClusterPolicyCommandOutput,
 } from "./commands/DeleteClusterPolicyCommand";
 import {
+  type DeleteConfigurationCommandInput,
+  type DeleteConfigurationCommandOutput,
   DeleteConfigurationCommand,
-  DeleteConfigurationCommandInput,
-  DeleteConfigurationCommandOutput,
 } from "./commands/DeleteConfigurationCommand";
 import {
+  type DeleteReplicatorCommandInput,
+  type DeleteReplicatorCommandOutput,
   DeleteReplicatorCommand,
-  DeleteReplicatorCommandInput,
-  DeleteReplicatorCommandOutput,
 } from "./commands/DeleteReplicatorCommand";
-import { DeleteTopicCommand, DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
 import {
+  type DeleteTopicCommandInput,
+  type DeleteTopicCommandOutput,
+  DeleteTopicCommand,
+} from "./commands/DeleteTopicCommand";
+import {
+  type DeleteVpcConnectionCommandInput,
+  type DeleteVpcConnectionCommandOutput,
   DeleteVpcConnectionCommand,
-  DeleteVpcConnectionCommandInput,
-  DeleteVpcConnectionCommandOutput,
 } from "./commands/DeleteVpcConnectionCommand";
 import {
+  type DescribeClusterCommandInput,
+  type DescribeClusterCommandOutput,
   DescribeClusterCommand,
-  DescribeClusterCommandInput,
-  DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand";
 import {
+  type DescribeClusterOperationCommandInput,
+  type DescribeClusterOperationCommandOutput,
   DescribeClusterOperationCommand,
-  DescribeClusterOperationCommandInput,
-  DescribeClusterOperationCommandOutput,
 } from "./commands/DescribeClusterOperationCommand";
 import {
+  type DescribeClusterOperationV2CommandInput,
+  type DescribeClusterOperationV2CommandOutput,
   DescribeClusterOperationV2Command,
-  DescribeClusterOperationV2CommandInput,
-  DescribeClusterOperationV2CommandOutput,
 } from "./commands/DescribeClusterOperationV2Command";
 import {
+  type DescribeClusterV2CommandInput,
+  type DescribeClusterV2CommandOutput,
   DescribeClusterV2Command,
-  DescribeClusterV2CommandInput,
-  DescribeClusterV2CommandOutput,
 } from "./commands/DescribeClusterV2Command";
 import {
+  type DescribeConfigurationCommandInput,
+  type DescribeConfigurationCommandOutput,
   DescribeConfigurationCommand,
-  DescribeConfigurationCommandInput,
-  DescribeConfigurationCommandOutput,
 } from "./commands/DescribeConfigurationCommand";
 import {
+  type DescribeConfigurationRevisionCommandInput,
+  type DescribeConfigurationRevisionCommandOutput,
   DescribeConfigurationRevisionCommand,
-  DescribeConfigurationRevisionCommandInput,
-  DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand";
 import {
+  type DescribeReplicatorCommandInput,
+  type DescribeReplicatorCommandOutput,
   DescribeReplicatorCommand,
-  DescribeReplicatorCommandInput,
-  DescribeReplicatorCommandOutput,
 } from "./commands/DescribeReplicatorCommand";
 import {
+  type DescribeTopicCommandInput,
+  type DescribeTopicCommandOutput,
   DescribeTopicCommand,
-  DescribeTopicCommandInput,
-  DescribeTopicCommandOutput,
 } from "./commands/DescribeTopicCommand";
 import {
+  type DescribeTopicPartitionsCommandInput,
+  type DescribeTopicPartitionsCommandOutput,
   DescribeTopicPartitionsCommand,
-  DescribeTopicPartitionsCommandInput,
-  DescribeTopicPartitionsCommandOutput,
 } from "./commands/DescribeTopicPartitionsCommand";
 import {
+  type DescribeVpcConnectionCommandInput,
+  type DescribeVpcConnectionCommandOutput,
   DescribeVpcConnectionCommand,
-  DescribeVpcConnectionCommandInput,
-  DescribeVpcConnectionCommandOutput,
 } from "./commands/DescribeVpcConnectionCommand";
 import {
+  type GetBootstrapBrokersCommandInput,
+  type GetBootstrapBrokersCommandOutput,
   GetBootstrapBrokersCommand,
-  GetBootstrapBrokersCommandInput,
-  GetBootstrapBrokersCommandOutput,
 } from "./commands/GetBootstrapBrokersCommand";
 import {
+  type GetClusterPolicyCommandInput,
+  type GetClusterPolicyCommandOutput,
   GetClusterPolicyCommand,
-  GetClusterPolicyCommandInput,
-  GetClusterPolicyCommandOutput,
 } from "./commands/GetClusterPolicyCommand";
 import {
+  type GetCompatibleKafkaVersionsCommandInput,
+  type GetCompatibleKafkaVersionsCommandOutput,
   GetCompatibleKafkaVersionsCommand,
-  GetCompatibleKafkaVersionsCommandInput,
-  GetCompatibleKafkaVersionsCommandOutput,
 } from "./commands/GetCompatibleKafkaVersionsCommand";
 import {
+  type ListClientVpcConnectionsCommandInput,
+  type ListClientVpcConnectionsCommandOutput,
   ListClientVpcConnectionsCommand,
-  ListClientVpcConnectionsCommandInput,
-  ListClientVpcConnectionsCommandOutput,
 } from "./commands/ListClientVpcConnectionsCommand";
 import {
+  type ListClusterOperationsCommandInput,
+  type ListClusterOperationsCommandOutput,
   ListClusterOperationsCommand,
-  ListClusterOperationsCommandInput,
-  ListClusterOperationsCommandOutput,
 } from "./commands/ListClusterOperationsCommand";
 import {
+  type ListClusterOperationsV2CommandInput,
+  type ListClusterOperationsV2CommandOutput,
   ListClusterOperationsV2Command,
-  ListClusterOperationsV2CommandInput,
-  ListClusterOperationsV2CommandOutput,
 } from "./commands/ListClusterOperationsV2Command";
 import {
+  type ListClustersCommandInput,
+  type ListClustersCommandOutput,
   ListClustersCommand,
-  ListClustersCommandInput,
-  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
 import {
+  type ListClustersV2CommandInput,
+  type ListClustersV2CommandOutput,
   ListClustersV2Command,
-  ListClustersV2CommandInput,
-  ListClustersV2CommandOutput,
 } from "./commands/ListClustersV2Command";
 import {
+  type ListConfigurationRevisionsCommandInput,
+  type ListConfigurationRevisionsCommandOutput,
   ListConfigurationRevisionsCommand,
-  ListConfigurationRevisionsCommandInput,
-  ListConfigurationRevisionsCommandOutput,
 } from "./commands/ListConfigurationRevisionsCommand";
 import {
+  type ListConfigurationsCommandInput,
+  type ListConfigurationsCommandOutput,
   ListConfigurationsCommand,
-  ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput,
 } from "./commands/ListConfigurationsCommand";
 import {
+  type ListKafkaVersionsCommandInput,
+  type ListKafkaVersionsCommandOutput,
   ListKafkaVersionsCommand,
-  ListKafkaVersionsCommandInput,
-  ListKafkaVersionsCommandOutput,
 } from "./commands/ListKafkaVersionsCommand";
-import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import { type ListNodesCommandInput, type ListNodesCommandOutput, ListNodesCommand } from "./commands/ListNodesCommand";
 import {
+  type ListReplicatorsCommandInput,
+  type ListReplicatorsCommandOutput,
   ListReplicatorsCommand,
-  ListReplicatorsCommandInput,
-  ListReplicatorsCommandOutput,
 } from "./commands/ListReplicatorsCommand";
 import {
+  type ListScramSecretsCommandInput,
+  type ListScramSecretsCommandOutput,
   ListScramSecretsCommand,
-  ListScramSecretsCommandInput,
-  ListScramSecretsCommandOutput,
 } from "./commands/ListScramSecretsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import {
+  type ListTopicsCommandInput,
+  type ListTopicsCommandOutput,
+  ListTopicsCommand,
+} from "./commands/ListTopicsCommand";
+import {
+  type ListVpcConnectionsCommandInput,
+  type ListVpcConnectionsCommandOutput,
   ListVpcConnectionsCommand,
-  ListVpcConnectionsCommandInput,
-  ListVpcConnectionsCommandOutput,
 } from "./commands/ListVpcConnectionsCommand";
 import {
+  type PutClusterPolicyCommandInput,
+  type PutClusterPolicyCommandOutput,
   PutClusterPolicyCommand,
-  PutClusterPolicyCommandInput,
-  PutClusterPolicyCommandOutput,
 } from "./commands/PutClusterPolicyCommand";
 import {
+  type RebootBrokerCommandInput,
+  type RebootBrokerCommandOutput,
   RebootBrokerCommand,
-  RebootBrokerCommandInput,
-  RebootBrokerCommandOutput,
 } from "./commands/RebootBrokerCommand";
 import {
+  type RejectClientVpcConnectionCommandInput,
+  type RejectClientVpcConnectionCommandOutput,
   RejectClientVpcConnectionCommand,
-  RejectClientVpcConnectionCommandInput,
-  RejectClientVpcConnectionCommandOutput,
 } from "./commands/RejectClientVpcConnectionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBrokerCountCommandInput,
+  type UpdateBrokerCountCommandOutput,
   UpdateBrokerCountCommand,
-  UpdateBrokerCountCommandInput,
-  UpdateBrokerCountCommandOutput,
 } from "./commands/UpdateBrokerCountCommand";
 import {
+  type UpdateBrokerStorageCommandInput,
+  type UpdateBrokerStorageCommandOutput,
   UpdateBrokerStorageCommand,
-  UpdateBrokerStorageCommandInput,
-  UpdateBrokerStorageCommandOutput,
 } from "./commands/UpdateBrokerStorageCommand";
 import {
+  type UpdateBrokerTypeCommandInput,
+  type UpdateBrokerTypeCommandOutput,
   UpdateBrokerTypeCommand,
-  UpdateBrokerTypeCommandInput,
-  UpdateBrokerTypeCommandOutput,
 } from "./commands/UpdateBrokerTypeCommand";
 import {
+  type UpdateClusterConfigurationCommandInput,
+  type UpdateClusterConfigurationCommandOutput,
   UpdateClusterConfigurationCommand,
-  UpdateClusterConfigurationCommandInput,
-  UpdateClusterConfigurationCommandOutput,
 } from "./commands/UpdateClusterConfigurationCommand";
 import {
+  type UpdateClusterKafkaVersionCommandInput,
+  type UpdateClusterKafkaVersionCommandOutput,
   UpdateClusterKafkaVersionCommand,
-  UpdateClusterKafkaVersionCommandInput,
-  UpdateClusterKafkaVersionCommandOutput,
 } from "./commands/UpdateClusterKafkaVersionCommand";
 import {
+  type UpdateConfigurationCommandInput,
+  type UpdateConfigurationCommandOutput,
   UpdateConfigurationCommand,
-  UpdateConfigurationCommandInput,
-  UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
 import {
+  type UpdateConnectivityCommandInput,
+  type UpdateConnectivityCommandOutput,
   UpdateConnectivityCommand,
-  UpdateConnectivityCommandInput,
-  UpdateConnectivityCommandOutput,
 } from "./commands/UpdateConnectivityCommand";
 import {
+  type UpdateMonitoringCommandInput,
+  type UpdateMonitoringCommandOutput,
   UpdateMonitoringCommand,
-  UpdateMonitoringCommandInput,
-  UpdateMonitoringCommandOutput,
 } from "./commands/UpdateMonitoringCommand";
 import {
+  type UpdateRebalancingCommandInput,
+  type UpdateRebalancingCommandOutput,
   UpdateRebalancingCommand,
-  UpdateRebalancingCommandInput,
-  UpdateRebalancingCommandOutput,
 } from "./commands/UpdateRebalancingCommand";
 import {
+  type UpdateReplicationInfoCommandInput,
+  type UpdateReplicationInfoCommandOutput,
   UpdateReplicationInfoCommand,
-  UpdateReplicationInfoCommandInput,
-  UpdateReplicationInfoCommandOutput,
 } from "./commands/UpdateReplicationInfoCommand";
 import {
+  type UpdateSecurityCommandInput,
+  type UpdateSecurityCommandOutput,
   UpdateSecurityCommand,
-  UpdateSecurityCommandInput,
-  UpdateSecurityCommandOutput,
 } from "./commands/UpdateSecurityCommand";
 import {
+  type UpdateStorageCommandInput,
+  type UpdateStorageCommandOutput,
   UpdateStorageCommand,
-  UpdateStorageCommandInput,
-  UpdateStorageCommandOutput,
 } from "./commands/UpdateStorageCommand";
-import { UpdateTopicCommand, UpdateTopicCommandInput, UpdateTopicCommandOutput } from "./commands/UpdateTopicCommand";
+import {
+  type UpdateTopicCommandInput,
+  type UpdateTopicCommandOutput,
+  UpdateTopicCommand,
+} from "./commands/UpdateTopicCommand";
 import { KafkaClient } from "./KafkaClient";
 import { paginateDescribeTopicPartitions } from "./pagination/DescribeTopicPartitionsPaginator";
 import { paginateListClientVpcConnections } from "./pagination/ListClientVpcConnectionsPaginator";

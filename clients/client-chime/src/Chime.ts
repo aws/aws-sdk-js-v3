@@ -4,250 +4,282 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ChimeClient } from "./ChimeClient";
 import {
+  type AssociatePhoneNumberWithUserCommandInput,
+  type AssociatePhoneNumberWithUserCommandOutput,
   AssociatePhoneNumberWithUserCommand,
-  AssociatePhoneNumberWithUserCommandInput,
-  AssociatePhoneNumberWithUserCommandOutput,
 } from "./commands/AssociatePhoneNumberWithUserCommand";
 import {
+  type AssociateSigninDelegateGroupsWithAccountCommandInput,
+  type AssociateSigninDelegateGroupsWithAccountCommandOutput,
   AssociateSigninDelegateGroupsWithAccountCommand,
-  AssociateSigninDelegateGroupsWithAccountCommandInput,
-  AssociateSigninDelegateGroupsWithAccountCommandOutput,
 } from "./commands/AssociateSigninDelegateGroupsWithAccountCommand";
 import {
+  type BatchCreateRoomMembershipCommandInput,
+  type BatchCreateRoomMembershipCommandOutput,
   BatchCreateRoomMembershipCommand,
-  BatchCreateRoomMembershipCommandInput,
-  BatchCreateRoomMembershipCommandOutput,
 } from "./commands/BatchCreateRoomMembershipCommand";
 import {
+  type BatchDeletePhoneNumberCommandInput,
+  type BatchDeletePhoneNumberCommandOutput,
   BatchDeletePhoneNumberCommand,
-  BatchDeletePhoneNumberCommandInput,
-  BatchDeletePhoneNumberCommandOutput,
 } from "./commands/BatchDeletePhoneNumberCommand";
 import {
+  type BatchSuspendUserCommandInput,
+  type BatchSuspendUserCommandOutput,
   BatchSuspendUserCommand,
-  BatchSuspendUserCommandInput,
-  BatchSuspendUserCommandOutput,
 } from "./commands/BatchSuspendUserCommand";
 import {
+  type BatchUnsuspendUserCommandInput,
+  type BatchUnsuspendUserCommandOutput,
   BatchUnsuspendUserCommand,
-  BatchUnsuspendUserCommandInput,
-  BatchUnsuspendUserCommandOutput,
 } from "./commands/BatchUnsuspendUserCommand";
 import {
+  type BatchUpdatePhoneNumberCommandInput,
+  type BatchUpdatePhoneNumberCommandOutput,
   BatchUpdatePhoneNumberCommand,
-  BatchUpdatePhoneNumberCommandInput,
-  BatchUpdatePhoneNumberCommandOutput,
 } from "./commands/BatchUpdatePhoneNumberCommand";
 import {
+  type BatchUpdateUserCommandInput,
+  type BatchUpdateUserCommandOutput,
   BatchUpdateUserCommand,
-  BatchUpdateUserCommandInput,
-  BatchUpdateUserCommandOutput,
 } from "./commands/BatchUpdateUserCommand";
 import {
+  type CreateAccountCommandInput,
+  type CreateAccountCommandOutput,
   CreateAccountCommand,
-  CreateAccountCommandInput,
-  CreateAccountCommandOutput,
 } from "./commands/CreateAccountCommand";
-import { CreateBotCommand, CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
+import { type CreateBotCommandInput, type CreateBotCommandOutput, CreateBotCommand } from "./commands/CreateBotCommand";
 import {
+  type CreateMeetingDialOutCommandInput,
+  type CreateMeetingDialOutCommandOutput,
   CreateMeetingDialOutCommand,
-  CreateMeetingDialOutCommandInput,
-  CreateMeetingDialOutCommandOutput,
 } from "./commands/CreateMeetingDialOutCommand";
 import {
+  type CreatePhoneNumberOrderCommandInput,
+  type CreatePhoneNumberOrderCommandOutput,
   CreatePhoneNumberOrderCommand,
-  CreatePhoneNumberOrderCommandInput,
-  CreatePhoneNumberOrderCommandOutput,
 } from "./commands/CreatePhoneNumberOrderCommand";
-import { CreateRoomCommand, CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand";
 import {
+  type CreateRoomCommandInput,
+  type CreateRoomCommandOutput,
+  CreateRoomCommand,
+} from "./commands/CreateRoomCommand";
+import {
+  type CreateRoomMembershipCommandInput,
+  type CreateRoomMembershipCommandOutput,
   CreateRoomMembershipCommand,
-  CreateRoomMembershipCommandInput,
-  CreateRoomMembershipCommandOutput,
 } from "./commands/CreateRoomMembershipCommand";
-import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  type CreateUserCommandInput,
+  type CreateUserCommandOutput,
+  CreateUserCommand,
+} from "./commands/CreateUserCommand";
+import {
+  type DeleteAccountCommandInput,
+  type DeleteAccountCommandOutput,
   DeleteAccountCommand,
-  DeleteAccountCommandInput,
-  DeleteAccountCommandOutput,
 } from "./commands/DeleteAccountCommand";
 import {
+  type DeleteEventsConfigurationCommandInput,
+  type DeleteEventsConfigurationCommandOutput,
   DeleteEventsConfigurationCommand,
-  DeleteEventsConfigurationCommandInput,
-  DeleteEventsConfigurationCommandOutput,
 } from "./commands/DeleteEventsConfigurationCommand";
 import {
+  type DeletePhoneNumberCommandInput,
+  type DeletePhoneNumberCommandOutput,
   DeletePhoneNumberCommand,
-  DeletePhoneNumberCommandInput,
-  DeletePhoneNumberCommandOutput,
 } from "./commands/DeletePhoneNumberCommand";
-import { DeleteRoomCommand, DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand";
 import {
+  type DeleteRoomCommandInput,
+  type DeleteRoomCommandOutput,
+  DeleteRoomCommand,
+} from "./commands/DeleteRoomCommand";
+import {
+  type DeleteRoomMembershipCommandInput,
+  type DeleteRoomMembershipCommandOutput,
   DeleteRoomMembershipCommand,
-  DeleteRoomMembershipCommandInput,
-  DeleteRoomMembershipCommandOutput,
 } from "./commands/DeleteRoomMembershipCommand";
 import {
+  type DisassociatePhoneNumberFromUserCommandInput,
+  type DisassociatePhoneNumberFromUserCommandOutput,
   DisassociatePhoneNumberFromUserCommand,
-  DisassociatePhoneNumberFromUserCommandInput,
-  DisassociatePhoneNumberFromUserCommandOutput,
 } from "./commands/DisassociatePhoneNumberFromUserCommand";
 import {
+  type DisassociateSigninDelegateGroupsFromAccountCommandInput,
+  type DisassociateSigninDelegateGroupsFromAccountCommandOutput,
   DisassociateSigninDelegateGroupsFromAccountCommand,
-  DisassociateSigninDelegateGroupsFromAccountCommandInput,
-  DisassociateSigninDelegateGroupsFromAccountCommandOutput,
 } from "./commands/DisassociateSigninDelegateGroupsFromAccountCommand";
-import { GetAccountCommand, GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
 import {
+  type GetAccountCommandInput,
+  type GetAccountCommandOutput,
+  GetAccountCommand,
+} from "./commands/GetAccountCommand";
+import {
+  type GetAccountSettingsCommandInput,
+  type GetAccountSettingsCommandOutput,
   GetAccountSettingsCommand,
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
-import { GetBotCommand, GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
+import { type GetBotCommandInput, type GetBotCommandOutput, GetBotCommand } from "./commands/GetBotCommand";
 import {
+  type GetEventsConfigurationCommandInput,
+  type GetEventsConfigurationCommandOutput,
   GetEventsConfigurationCommand,
-  GetEventsConfigurationCommandInput,
-  GetEventsConfigurationCommandOutput,
 } from "./commands/GetEventsConfigurationCommand";
 import {
+  type GetGlobalSettingsCommandInput,
+  type GetGlobalSettingsCommandOutput,
   GetGlobalSettingsCommand,
-  GetGlobalSettingsCommandInput,
-  GetGlobalSettingsCommandOutput,
 } from "./commands/GetGlobalSettingsCommand";
 import {
+  type GetPhoneNumberCommandInput,
+  type GetPhoneNumberCommandOutput,
   GetPhoneNumberCommand,
-  GetPhoneNumberCommandInput,
-  GetPhoneNumberCommandOutput,
 } from "./commands/GetPhoneNumberCommand";
 import {
+  type GetPhoneNumberOrderCommandInput,
+  type GetPhoneNumberOrderCommandOutput,
   GetPhoneNumberOrderCommand,
-  GetPhoneNumberOrderCommandInput,
-  GetPhoneNumberOrderCommandOutput,
 } from "./commands/GetPhoneNumberOrderCommand";
 import {
+  type GetPhoneNumberSettingsCommandInput,
+  type GetPhoneNumberSettingsCommandOutput,
   GetPhoneNumberSettingsCommand,
-  GetPhoneNumberSettingsCommandInput,
-  GetPhoneNumberSettingsCommandOutput,
 } from "./commands/GetPhoneNumberSettingsCommand";
 import {
+  type GetRetentionSettingsCommandInput,
+  type GetRetentionSettingsCommandOutput,
   GetRetentionSettingsCommand,
-  GetRetentionSettingsCommandInput,
-  GetRetentionSettingsCommandOutput,
 } from "./commands/GetRetentionSettingsCommand";
-import { GetRoomCommand, GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand";
-import { GetUserCommand, GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
+import { type GetRoomCommandInput, type GetRoomCommandOutput, GetRoomCommand } from "./commands/GetRoomCommand";
+import { type GetUserCommandInput, type GetUserCommandOutput, GetUserCommand } from "./commands/GetUserCommand";
 import {
+  type GetUserSettingsCommandInput,
+  type GetUserSettingsCommandOutput,
   GetUserSettingsCommand,
-  GetUserSettingsCommandInput,
-  GetUserSettingsCommandOutput,
 } from "./commands/GetUserSettingsCommand";
-import { InviteUsersCommand, InviteUsersCommandInput, InviteUsersCommandOutput } from "./commands/InviteUsersCommand";
 import {
+  type InviteUsersCommandInput,
+  type InviteUsersCommandOutput,
+  InviteUsersCommand,
+} from "./commands/InviteUsersCommand";
+import {
+  type ListAccountsCommandInput,
+  type ListAccountsCommandOutput,
   ListAccountsCommand,
-  ListAccountsCommandInput,
-  ListAccountsCommandOutput,
 } from "./commands/ListAccountsCommand";
-import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import { type ListBotsCommandInput, type ListBotsCommandOutput, ListBotsCommand } from "./commands/ListBotsCommand";
 import {
+  type ListPhoneNumberOrdersCommandInput,
+  type ListPhoneNumberOrdersCommandOutput,
   ListPhoneNumberOrdersCommand,
-  ListPhoneNumberOrdersCommandInput,
-  ListPhoneNumberOrdersCommandOutput,
 } from "./commands/ListPhoneNumberOrdersCommand";
 import {
+  type ListPhoneNumbersCommandInput,
+  type ListPhoneNumbersCommandOutput,
   ListPhoneNumbersCommand,
-  ListPhoneNumbersCommandInput,
-  ListPhoneNumbersCommandOutput,
 } from "./commands/ListPhoneNumbersCommand";
 import {
+  type ListRoomMembershipsCommandInput,
+  type ListRoomMembershipsCommandOutput,
   ListRoomMembershipsCommand,
-  ListRoomMembershipsCommandInput,
-  ListRoomMembershipsCommandOutput,
 } from "./commands/ListRoomMembershipsCommand";
-import { ListRoomsCommand, ListRoomsCommandInput, ListRoomsCommandOutput } from "./commands/ListRoomsCommand";
+import { type ListRoomsCommandInput, type ListRoomsCommandOutput, ListRoomsCommand } from "./commands/ListRoomsCommand";
 import {
+  type ListSupportedPhoneNumberCountriesCommandInput,
+  type ListSupportedPhoneNumberCountriesCommandOutput,
   ListSupportedPhoneNumberCountriesCommand,
-  ListSupportedPhoneNumberCountriesCommandInput,
-  ListSupportedPhoneNumberCountriesCommandOutput,
 } from "./commands/ListSupportedPhoneNumberCountriesCommand";
-import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import { LogoutUserCommand, LogoutUserCommandInput, LogoutUserCommandOutput } from "./commands/LogoutUserCommand";
+import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
 import {
+  type LogoutUserCommandInput,
+  type LogoutUserCommandOutput,
+  LogoutUserCommand,
+} from "./commands/LogoutUserCommand";
+import {
+  type PutEventsConfigurationCommandInput,
+  type PutEventsConfigurationCommandOutput,
   PutEventsConfigurationCommand,
-  PutEventsConfigurationCommandInput,
-  PutEventsConfigurationCommandOutput,
 } from "./commands/PutEventsConfigurationCommand";
 import {
+  type PutRetentionSettingsCommandInput,
+  type PutRetentionSettingsCommandOutput,
   PutRetentionSettingsCommand,
-  PutRetentionSettingsCommandInput,
-  PutRetentionSettingsCommandOutput,
 } from "./commands/PutRetentionSettingsCommand";
 import {
+  type RedactConversationMessageCommandInput,
+  type RedactConversationMessageCommandOutput,
   RedactConversationMessageCommand,
-  RedactConversationMessageCommandInput,
-  RedactConversationMessageCommandOutput,
 } from "./commands/RedactConversationMessageCommand";
 import {
+  type RedactRoomMessageCommandInput,
+  type RedactRoomMessageCommandOutput,
   RedactRoomMessageCommand,
-  RedactRoomMessageCommandInput,
-  RedactRoomMessageCommandOutput,
 } from "./commands/RedactRoomMessageCommand";
 import {
+  type RegenerateSecurityTokenCommandInput,
+  type RegenerateSecurityTokenCommandOutput,
   RegenerateSecurityTokenCommand,
-  RegenerateSecurityTokenCommandInput,
-  RegenerateSecurityTokenCommandOutput,
 } from "./commands/RegenerateSecurityTokenCommand";
 import {
+  type ResetPersonalPINCommandInput,
+  type ResetPersonalPINCommandOutput,
   ResetPersonalPINCommand,
-  ResetPersonalPINCommandInput,
-  ResetPersonalPINCommandOutput,
 } from "./commands/ResetPersonalPINCommand";
 import {
+  type RestorePhoneNumberCommandInput,
+  type RestorePhoneNumberCommandOutput,
   RestorePhoneNumberCommand,
-  RestorePhoneNumberCommandInput,
-  RestorePhoneNumberCommandOutput,
 } from "./commands/RestorePhoneNumberCommand";
 import {
+  type SearchAvailablePhoneNumbersCommandInput,
+  type SearchAvailablePhoneNumbersCommandOutput,
   SearchAvailablePhoneNumbersCommand,
-  SearchAvailablePhoneNumbersCommandInput,
-  SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
+  type UpdateAccountCommandInput,
+  type UpdateAccountCommandOutput,
   UpdateAccountCommand,
-  UpdateAccountCommandInput,
-  UpdateAccountCommandOutput,
 } from "./commands/UpdateAccountCommand";
 import {
+  type UpdateAccountSettingsCommandInput,
+  type UpdateAccountSettingsCommandOutput,
   UpdateAccountSettingsCommand,
-  UpdateAccountSettingsCommandInput,
-  UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
-import { UpdateBotCommand, UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
+import { type UpdateBotCommandInput, type UpdateBotCommandOutput, UpdateBotCommand } from "./commands/UpdateBotCommand";
 import {
+  type UpdateGlobalSettingsCommandInput,
+  type UpdateGlobalSettingsCommandOutput,
   UpdateGlobalSettingsCommand,
-  UpdateGlobalSettingsCommandInput,
-  UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
 import {
+  type UpdatePhoneNumberCommandInput,
+  type UpdatePhoneNumberCommandOutput,
   UpdatePhoneNumberCommand,
-  UpdatePhoneNumberCommandInput,
-  UpdatePhoneNumberCommandOutput,
 } from "./commands/UpdatePhoneNumberCommand";
 import {
+  type UpdatePhoneNumberSettingsCommandInput,
+  type UpdatePhoneNumberSettingsCommandOutput,
   UpdatePhoneNumberSettingsCommand,
-  UpdatePhoneNumberSettingsCommandInput,
-  UpdatePhoneNumberSettingsCommandOutput,
 } from "./commands/UpdatePhoneNumberSettingsCommand";
-import { UpdateRoomCommand, UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand";
 import {
+  type UpdateRoomCommandInput,
+  type UpdateRoomCommandOutput,
+  UpdateRoomCommand,
+} from "./commands/UpdateRoomCommand";
+import {
+  type UpdateRoomMembershipCommandInput,
+  type UpdateRoomMembershipCommandOutput,
   UpdateRoomMembershipCommand,
-  UpdateRoomMembershipCommandInput,
-  UpdateRoomMembershipCommandOutput,
 } from "./commands/UpdateRoomMembershipCommand";
-import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
+  type UpdateUserCommandInput,
+  type UpdateUserCommandOutput,
+  UpdateUserCommand,
+} from "./commands/UpdateUserCommand";
+import {
+  type UpdateUserSettingsCommandInput,
+  type UpdateUserSettingsCommandOutput,
   UpdateUserSettingsCommand,
-  UpdateUserSettingsCommandInput,
-  UpdateUserSettingsCommandOutput,
 } from "./commands/UpdateUserSettingsCommand";
 import { paginateListAccounts } from "./pagination/ListAccountsPaginator";
 import { paginateListBots } from "./pagination/ListBotsPaginator";

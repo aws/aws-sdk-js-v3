@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,67 +61,85 @@ import {
   defaultApplicationInsightsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddWorkloadCommandInput, AddWorkloadCommandOutput } from "./commands/AddWorkloadCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
-import { CreateLogPatternCommandInput, CreateLogPatternCommandOutput } from "./commands/CreateLogPatternCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
-import { DeleteLogPatternCommandInput, DeleteLogPatternCommandOutput } from "./commands/DeleteLogPatternCommand";
-import {
+import type { AddWorkloadCommandInput, AddWorkloadCommandOutput } from "./commands/AddWorkloadCommand";
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
+import type { CreateLogPatternCommandInput, CreateLogPatternCommandOutput } from "./commands/CreateLogPatternCommand";
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
+import type { DeleteLogPatternCommandInput, DeleteLogPatternCommandOutput } from "./commands/DeleteLogPatternCommand";
+import type {
   DescribeApplicationCommandInput,
   DescribeApplicationCommandOutput,
 } from "./commands/DescribeApplicationCommand";
-import { DescribeComponentCommandInput, DescribeComponentCommandOutput } from "./commands/DescribeComponentCommand";
-import {
+import type {
+  DescribeComponentCommandInput,
+  DescribeComponentCommandOutput,
+} from "./commands/DescribeComponentCommand";
+import type {
   DescribeComponentConfigurationCommandInput,
   DescribeComponentConfigurationCommandOutput,
 } from "./commands/DescribeComponentConfigurationCommand";
-import {
+import type {
   DescribeComponentConfigurationRecommendationCommandInput,
   DescribeComponentConfigurationRecommendationCommandOutput,
 } from "./commands/DescribeComponentConfigurationRecommendationCommand";
-import { DescribeLogPatternCommandInput, DescribeLogPatternCommandOutput } from "./commands/DescribeLogPatternCommand";
-import {
+import type {
+  DescribeLogPatternCommandInput,
+  DescribeLogPatternCommandOutput,
+} from "./commands/DescribeLogPatternCommand";
+import type {
   DescribeObservationCommandInput,
   DescribeObservationCommandOutput,
 } from "./commands/DescribeObservationCommand";
-import { DescribeProblemCommandInput, DescribeProblemCommandOutput } from "./commands/DescribeProblemCommand";
-import {
+import type { DescribeProblemCommandInput, DescribeProblemCommandOutput } from "./commands/DescribeProblemCommand";
+import type {
   DescribeProblemObservationsCommandInput,
   DescribeProblemObservationsCommandOutput,
 } from "./commands/DescribeProblemObservationsCommand";
-import { DescribeWorkloadCommandInput, DescribeWorkloadCommandOutput } from "./commands/DescribeWorkloadCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
-import {
+import type { DescribeWorkloadCommandInput, DescribeWorkloadCommandOutput } from "./commands/DescribeWorkloadCommand";
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
+import type {
   ListConfigurationHistoryCommandInput,
   ListConfigurationHistoryCommandOutput,
 } from "./commands/ListConfigurationHistoryCommand";
-import { ListLogPatternsCommandInput, ListLogPatternsCommandOutput } from "./commands/ListLogPatternsCommand";
-import { ListLogPatternSetsCommandInput, ListLogPatternSetsCommandOutput } from "./commands/ListLogPatternSetsCommand";
-import { ListProblemsCommandInput, ListProblemsCommandOutput } from "./commands/ListProblemsCommand";
-import {
+import type { ListLogPatternsCommandInput, ListLogPatternsCommandOutput } from "./commands/ListLogPatternsCommand";
+import type {
+  ListLogPatternSetsCommandInput,
+  ListLogPatternSetsCommandOutput,
+} from "./commands/ListLogPatternSetsCommand";
+import type { ListProblemsCommandInput, ListProblemsCommandOutput } from "./commands/ListProblemsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "./commands/ListWorkloadsCommand";
-import { RemoveWorkloadCommandInput, RemoveWorkloadCommandOutput } from "./commands/RemoveWorkloadCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "./commands/UpdateComponentCommand";
-import {
+import type { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "./commands/ListWorkloadsCommand";
+import type { RemoveWorkloadCommandInput, RemoveWorkloadCommandOutput } from "./commands/RemoveWorkloadCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "./commands/UpdateComponentCommand";
+import type {
   UpdateComponentConfigurationCommandInput,
   UpdateComponentConfigurationCommandOutput,
 } from "./commands/UpdateComponentConfigurationCommand";
-import { UpdateLogPatternCommandInput, UpdateLogPatternCommandOutput } from "./commands/UpdateLogPatternCommand";
-import { UpdateProblemCommandInput, UpdateProblemCommandOutput } from "./commands/UpdateProblemCommand";
-import { UpdateWorkloadCommandInput, UpdateWorkloadCommandOutput } from "./commands/UpdateWorkloadCommand";
+import type { UpdateLogPatternCommandInput, UpdateLogPatternCommandOutput } from "./commands/UpdateLogPatternCommand";
+import type { UpdateProblemCommandInput, UpdateProblemCommandOutput } from "./commands/UpdateProblemCommand";
+import type { UpdateWorkloadCommandInput, UpdateWorkloadCommandOutput } from "./commands/UpdateWorkloadCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -321,7 +337,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

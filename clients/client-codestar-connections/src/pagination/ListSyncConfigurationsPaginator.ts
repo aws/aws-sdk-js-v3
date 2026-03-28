@@ -8,7 +8,7 @@ import {
   ListSyncConfigurationsCommandInput,
   ListSyncConfigurationsCommandOutput,
 } from "../commands/ListSyncConfigurationsCommand";
-import { CodeStarConnectionsPaginationConfiguration } from "./Interfaces";
+import type { CodeStarConnectionsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

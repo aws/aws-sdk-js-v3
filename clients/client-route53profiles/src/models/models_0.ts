@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ProfileStatus, ShareStatus } from "./enums";
+import type { ProfileStatus, ShareStatus } from "./enums";
 
 /**
  * <p>

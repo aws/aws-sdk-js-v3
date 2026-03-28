@@ -2,8 +2,8 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { BedrockAgentCoreControlServiceException as __BaseException } from "./BedrockAgentCoreControlServiceException";
-import { ValidationExceptionReason } from "./enums";
-import { ValidationExceptionField } from "./models_0";
+import type { ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>This exception is thrown when a request is denied per access permissions</p>

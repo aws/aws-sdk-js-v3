@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListDbNodesCommand, ListDbNodesCommandInput, ListDbNodesCommandOutput } from "../commands/ListDbNodesCommand";
 import { OdbClient } from "../OdbClient";
-import { OdbPaginationConfiguration } from "./Interfaces";
+import type { OdbPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

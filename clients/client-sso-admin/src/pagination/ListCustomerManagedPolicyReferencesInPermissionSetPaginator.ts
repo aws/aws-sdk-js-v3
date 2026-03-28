@@ -8,7 +8,7 @@ import {
   ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput,
 } from "../commands/ListCustomerManagedPolicyReferencesInPermissionSetCommand";
 import { SSOAdminClient } from "../SSOAdminClient";
-import { SSOAdminPaginationConfiguration } from "./Interfaces";
+import type { SSOAdminPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

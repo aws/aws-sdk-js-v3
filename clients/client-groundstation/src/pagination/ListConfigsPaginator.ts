@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListConfigsCommand, ListConfigsCommandInput, ListConfigsCommandOutput } from "../commands/ListConfigsCommand";
 import { GroundStationClient } from "../GroundStationClient";
-import { GroundStationPaginationConfiguration } from "./Interfaces";
+import type { GroundStationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

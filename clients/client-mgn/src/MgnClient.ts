@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,279 +61,306 @@ import {
   defaultMgnHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { ArchiveApplicationCommandInput, ArchiveApplicationCommandOutput } from "./commands/ArchiveApplicationCommand";
-import { ArchiveWaveCommandInput, ArchiveWaveCommandOutput } from "./commands/ArchiveWaveCommand";
-import {
+import type {
+  ArchiveApplicationCommandInput,
+  ArchiveApplicationCommandOutput,
+} from "./commands/ArchiveApplicationCommand";
+import type { ArchiveWaveCommandInput, ArchiveWaveCommandOutput } from "./commands/ArchiveWaveCommand";
+import type {
   AssociateApplicationsCommandInput,
   AssociateApplicationsCommandOutput,
 } from "./commands/AssociateApplicationsCommand";
-import {
+import type {
   AssociateSourceServersCommandInput,
   AssociateSourceServersCommandOutput,
 } from "./commands/AssociateSourceServersCommand";
-import {
+import type {
   ChangeServerLifeCycleStateCommandInput,
   ChangeServerLifeCycleStateCommandOutput,
 } from "./commands/ChangeServerLifeCycleStateCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./commands/CreateConnectorCommand";
-import {
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./commands/CreateConnectorCommand";
+import type {
   CreateLaunchConfigurationTemplateCommandInput,
   CreateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/CreateLaunchConfigurationTemplateCommand";
-import {
+import type {
   CreateNetworkMigrationDefinitionCommandInput,
   CreateNetworkMigrationDefinitionCommandOutput,
 } from "./commands/CreateNetworkMigrationDefinitionCommand";
-import {
+import type {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
-import { CreateWaveCommandInput, CreateWaveCommandOutput } from "./commands/CreateWaveCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
-import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
-import {
+import type { CreateWaveCommandInput, CreateWaveCommandOutput } from "./commands/CreateWaveCommand";
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
+import type { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import type {
   DeleteLaunchConfigurationTemplateCommandInput,
   DeleteLaunchConfigurationTemplateCommandOutput,
 } from "./commands/DeleteLaunchConfigurationTemplateCommand";
-import {
+import type {
   DeleteNetworkMigrationDefinitionCommandInput,
   DeleteNetworkMigrationDefinitionCommandOutput,
 } from "./commands/DeleteNetworkMigrationDefinitionCommand";
-import {
+import type {
   DeleteReplicationConfigurationTemplateCommandInput,
   DeleteReplicationConfigurationTemplateCommandOutput,
 } from "./commands/DeleteReplicationConfigurationTemplateCommand";
-import { DeleteSourceServerCommandInput, DeleteSourceServerCommandOutput } from "./commands/DeleteSourceServerCommand";
-import {
+import type {
+  DeleteSourceServerCommandInput,
+  DeleteSourceServerCommandOutput,
+} from "./commands/DeleteSourceServerCommand";
+import type {
   DeleteVcenterClientCommandInput,
   DeleteVcenterClientCommandOutput,
 } from "./commands/DeleteVcenterClientCommand";
-import { DeleteWaveCommandInput, DeleteWaveCommandOutput } from "./commands/DeleteWaveCommand";
-import {
+import type { DeleteWaveCommandInput, DeleteWaveCommandOutput } from "./commands/DeleteWaveCommand";
+import type {
   DescribeJobLogItemsCommandInput,
   DescribeJobLogItemsCommandOutput,
 } from "./commands/DescribeJobLogItemsCommand";
-import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "./commands/DescribeJobsCommand";
-import {
+import type { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "./commands/DescribeJobsCommand";
+import type {
   DescribeLaunchConfigurationTemplatesCommandInput,
   DescribeLaunchConfigurationTemplatesCommandOutput,
 } from "./commands/DescribeLaunchConfigurationTemplatesCommand";
-import {
+import type {
   DescribeReplicationConfigurationTemplatesCommandInput,
   DescribeReplicationConfigurationTemplatesCommandOutput,
 } from "./commands/DescribeReplicationConfigurationTemplatesCommand";
-import {
+import type {
   DescribeSourceServersCommandInput,
   DescribeSourceServersCommandOutput,
 } from "./commands/DescribeSourceServersCommand";
-import {
+import type {
   DescribeVcenterClientsCommandInput,
   DescribeVcenterClientsCommandOutput,
 } from "./commands/DescribeVcenterClientsCommand";
-import {
+import type {
   DisassociateApplicationsCommandInput,
   DisassociateApplicationsCommandOutput,
 } from "./commands/DisassociateApplicationsCommand";
-import {
+import type {
   DisassociateSourceServersCommandInput,
   DisassociateSourceServersCommandOutput,
 } from "./commands/DisassociateSourceServersCommand";
-import {
+import type {
   DisconnectFromServiceCommandInput,
   DisconnectFromServiceCommandOutput,
 } from "./commands/DisconnectFromServiceCommand";
-import { FinalizeCutoverCommandInput, FinalizeCutoverCommandOutput } from "./commands/FinalizeCutoverCommand";
-import {
+import type { FinalizeCutoverCommandInput, FinalizeCutoverCommandOutput } from "./commands/FinalizeCutoverCommand";
+import type {
   GetLaunchConfigurationCommandInput,
   GetLaunchConfigurationCommandOutput,
 } from "./commands/GetLaunchConfigurationCommand";
-import {
+import type {
   GetNetworkMigrationDefinitionCommandInput,
   GetNetworkMigrationDefinitionCommandOutput,
 } from "./commands/GetNetworkMigrationDefinitionCommand";
-import {
+import type {
   GetNetworkMigrationMapperSegmentConstructCommandInput,
   GetNetworkMigrationMapperSegmentConstructCommandOutput,
 } from "./commands/GetNetworkMigrationMapperSegmentConstructCommand";
-import {
+import type {
   GetReplicationConfigurationCommandInput,
   GetReplicationConfigurationCommandOutput,
 } from "./commands/GetReplicationConfigurationCommand";
-import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "./commands/InitializeServiceCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
-import { ListExportErrorsCommandInput, ListExportErrorsCommandOutput } from "./commands/ListExportErrorsCommand";
-import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
-import { ListImportErrorsCommandInput, ListImportErrorsCommandOutput } from "./commands/ListImportErrorsCommand";
-import {
+import type {
+  InitializeServiceCommandInput,
+  InitializeServiceCommandOutput,
+} from "./commands/InitializeServiceCommand";
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
+import type { ListExportErrorsCommandInput, ListExportErrorsCommandOutput } from "./commands/ListExportErrorsCommand";
+import type { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import type { ListImportErrorsCommandInput, ListImportErrorsCommandOutput } from "./commands/ListImportErrorsCommand";
+import type {
   ListImportFileEnrichmentsCommandInput,
   ListImportFileEnrichmentsCommandOutput,
 } from "./commands/ListImportFileEnrichmentsCommand";
-import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
-import {
+import type { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import type {
   ListManagedAccountsCommandInput,
   ListManagedAccountsCommandOutput,
 } from "./commands/ListManagedAccountsCommand";
-import {
+import type {
   ListNetworkMigrationAnalysesCommandInput,
   ListNetworkMigrationAnalysesCommandOutput,
 } from "./commands/ListNetworkMigrationAnalysesCommand";
-import {
+import type {
   ListNetworkMigrationAnalysisResultsCommandInput,
   ListNetworkMigrationAnalysisResultsCommandOutput,
 } from "./commands/ListNetworkMigrationAnalysisResultsCommand";
-import {
+import type {
   ListNetworkMigrationCodeGenerationsCommandInput,
   ListNetworkMigrationCodeGenerationsCommandOutput,
 } from "./commands/ListNetworkMigrationCodeGenerationsCommand";
-import {
+import type {
   ListNetworkMigrationCodeGenerationSegmentsCommandInput,
   ListNetworkMigrationCodeGenerationSegmentsCommandOutput,
 } from "./commands/ListNetworkMigrationCodeGenerationSegmentsCommand";
-import {
+import type {
   ListNetworkMigrationDefinitionsCommandInput,
   ListNetworkMigrationDefinitionsCommandOutput,
 } from "./commands/ListNetworkMigrationDefinitionsCommand";
-import {
+import type {
   ListNetworkMigrationDeployedStacksCommandInput,
   ListNetworkMigrationDeployedStacksCommandOutput,
 } from "./commands/ListNetworkMigrationDeployedStacksCommand";
-import {
+import type {
   ListNetworkMigrationDeploymentsCommandInput,
   ListNetworkMigrationDeploymentsCommandOutput,
 } from "./commands/ListNetworkMigrationDeploymentsCommand";
-import {
+import type {
   ListNetworkMigrationExecutionsCommandInput,
   ListNetworkMigrationExecutionsCommandOutput,
 } from "./commands/ListNetworkMigrationExecutionsCommand";
-import {
+import type {
   ListNetworkMigrationMapperSegmentConstructsCommandInput,
   ListNetworkMigrationMapperSegmentConstructsCommandOutput,
 } from "./commands/ListNetworkMigrationMapperSegmentConstructsCommand";
-import {
+import type {
   ListNetworkMigrationMapperSegmentsCommandInput,
   ListNetworkMigrationMapperSegmentsCommandOutput,
 } from "./commands/ListNetworkMigrationMapperSegmentsCommand";
-import {
+import type {
   ListNetworkMigrationMappingsCommandInput,
   ListNetworkMigrationMappingsCommandOutput,
 } from "./commands/ListNetworkMigrationMappingsCommand";
-import {
+import type {
   ListNetworkMigrationMappingUpdatesCommandInput,
   ListNetworkMigrationMappingUpdatesCommandOutput,
 } from "./commands/ListNetworkMigrationMappingUpdatesCommand";
-import {
+import type {
   ListSourceServerActionsCommandInput,
   ListSourceServerActionsCommandOutput,
 } from "./commands/ListSourceServerActionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTemplateActionsCommandInput,
   ListTemplateActionsCommandOutput,
 } from "./commands/ListTemplateActionsCommand";
-import { ListWavesCommandInput, ListWavesCommandOutput } from "./commands/ListWavesCommand";
-import { MarkAsArchivedCommandInput, MarkAsArchivedCommandOutput } from "./commands/MarkAsArchivedCommand";
-import { PauseReplicationCommandInput, PauseReplicationCommandOutput } from "./commands/PauseReplicationCommand";
-import {
+import type { ListWavesCommandInput, ListWavesCommandOutput } from "./commands/ListWavesCommand";
+import type { MarkAsArchivedCommandInput, MarkAsArchivedCommandOutput } from "./commands/MarkAsArchivedCommand";
+import type { PauseReplicationCommandInput, PauseReplicationCommandOutput } from "./commands/PauseReplicationCommand";
+import type {
   PutSourceServerActionCommandInput,
   PutSourceServerActionCommandOutput,
 } from "./commands/PutSourceServerActionCommand";
-import { PutTemplateActionCommandInput, PutTemplateActionCommandOutput } from "./commands/PutTemplateActionCommand";
-import {
+import type {
+  PutTemplateActionCommandInput,
+  PutTemplateActionCommandOutput,
+} from "./commands/PutTemplateActionCommand";
+import type {
   RemoveSourceServerActionCommandInput,
   RemoveSourceServerActionCommandOutput,
 } from "./commands/RemoveSourceServerActionCommand";
-import {
+import type {
   RemoveTemplateActionCommandInput,
   RemoveTemplateActionCommandOutput,
 } from "./commands/RemoveTemplateActionCommand";
-import { ResumeReplicationCommandInput, ResumeReplicationCommandOutput } from "./commands/ResumeReplicationCommand";
-import {
+import type {
+  ResumeReplicationCommandInput,
+  ResumeReplicationCommandOutput,
+} from "./commands/ResumeReplicationCommand";
+import type {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
 } from "./commands/RetryDataReplicationCommand";
-import { StartCutoverCommandInput, StartCutoverCommandOutput } from "./commands/StartCutoverCommand";
-import { StartExportCommandInput, StartExportCommandOutput } from "./commands/StartExportCommand";
-import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
-import {
+import type { StartCutoverCommandInput, StartCutoverCommandOutput } from "./commands/StartCutoverCommand";
+import type { StartExportCommandInput, StartExportCommandOutput } from "./commands/StartExportCommand";
+import type { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import type {
   StartImportFileEnrichmentCommandInput,
   StartImportFileEnrichmentCommandOutput,
 } from "./commands/StartImportFileEnrichmentCommand";
-import {
+import type {
   StartNetworkMigrationAnalysisCommandInput,
   StartNetworkMigrationAnalysisCommandOutput,
 } from "./commands/StartNetworkMigrationAnalysisCommand";
-import {
+import type {
   StartNetworkMigrationCodeGenerationCommandInput,
   StartNetworkMigrationCodeGenerationCommandOutput,
 } from "./commands/StartNetworkMigrationCodeGenerationCommand";
-import {
+import type {
   StartNetworkMigrationDeploymentCommandInput,
   StartNetworkMigrationDeploymentCommandOutput,
 } from "./commands/StartNetworkMigrationDeploymentCommand";
-import {
+import type {
   StartNetworkMigrationMappingCommandInput,
   StartNetworkMigrationMappingCommandOutput,
 } from "./commands/StartNetworkMigrationMappingCommand";
-import {
+import type {
   StartNetworkMigrationMappingUpdateCommandInput,
   StartNetworkMigrationMappingUpdateCommandOutput,
 } from "./commands/StartNetworkMigrationMappingUpdateCommand";
-import { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
-import { StartTestCommandInput, StartTestCommandOutput } from "./commands/StartTestCommand";
-import { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
+import type { StartTestCommandInput, StartTestCommandOutput } from "./commands/StartTestCommand";
+import type { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   TerminateTargetInstancesCommandInput,
   TerminateTargetInstancesCommandOutput,
 } from "./commands/TerminateTargetInstancesCommand";
-import {
+import type {
   UnarchiveApplicationCommandInput,
   UnarchiveApplicationCommandOutput,
 } from "./commands/UnarchiveApplicationCommand";
-import { UnarchiveWaveCommandInput, UnarchiveWaveCommandOutput } from "./commands/UnarchiveWaveCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
-import {
+import type { UnarchiveWaveCommandInput, UnarchiveWaveCommandOutput } from "./commands/UnarchiveWaveCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
+import type {
   UpdateLaunchConfigurationCommandInput,
   UpdateLaunchConfigurationCommandOutput,
 } from "./commands/UpdateLaunchConfigurationCommand";
-import {
+import type {
   UpdateLaunchConfigurationTemplateCommandInput,
   UpdateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/UpdateLaunchConfigurationTemplateCommand";
-import {
+import type {
   UpdateNetworkMigrationDefinitionCommandInput,
   UpdateNetworkMigrationDefinitionCommandOutput,
 } from "./commands/UpdateNetworkMigrationDefinitionCommand";
-import {
+import type {
   UpdateNetworkMigrationMapperSegmentCommandInput,
   UpdateNetworkMigrationMapperSegmentCommandOutput,
 } from "./commands/UpdateNetworkMigrationMapperSegmentCommand";
-import {
+import type {
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
 } from "./commands/UpdateReplicationConfigurationCommand";
-import {
+import type {
   UpdateReplicationConfigurationTemplateCommandInput,
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
-import { UpdateSourceServerCommandInput, UpdateSourceServerCommandOutput } from "./commands/UpdateSourceServerCommand";
-import {
+import type {
+  UpdateSourceServerCommandInput,
+  UpdateSourceServerCommandOutput,
+} from "./commands/UpdateSourceServerCommand";
+import type {
   UpdateSourceServerReplicationTypeCommandInput,
   UpdateSourceServerReplicationTypeCommandOutput,
 } from "./commands/UpdateSourceServerReplicationTypeCommand";
-import { UpdateWaveCommandInput, UpdateWaveCommandOutput } from "./commands/UpdateWaveCommand";
+import type { UpdateWaveCommandInput, UpdateWaveCommandOutput } from "./commands/UpdateWaveCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -657,7 +682,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

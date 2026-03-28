@@ -8,7 +8,7 @@ import {
   ListExecutionsCommandInput,
   ListExecutionsCommandOutput,
 } from "../commands/ListExecutionsCommand";
-import { BCMDataExportsPaginationConfiguration } from "./Interfaces";
+import type { BCMDataExportsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

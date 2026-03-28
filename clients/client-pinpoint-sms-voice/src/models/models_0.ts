@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { EventType } from "./enums";
+import type { EventType } from "./enums";
 
 /**
  * An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.

@@ -8,7 +8,7 @@ import {
   ListRoute53HealthChecksInRegionCommandInput,
   ListRoute53HealthChecksInRegionCommandOutput,
 } from "../commands/ListRoute53HealthChecksInRegionCommand";
-import { ARCRegionSwitchPaginationConfiguration } from "./Interfaces";
+import type { ARCRegionSwitchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

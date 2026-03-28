@@ -3,143 +3,159 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateTemplateCommandInput,
+  type CreateTemplateCommandOutput,
   CreateTemplateCommand,
-  CreateTemplateCommandInput,
-  CreateTemplateCommandOutput,
 } from "./commands/CreateTemplateCommand";
 import {
+  type CreateWorkflowCommandInput,
+  type CreateWorkflowCommandOutput,
   CreateWorkflowCommand,
-  CreateWorkflowCommandInput,
-  CreateWorkflowCommandOutput,
 } from "./commands/CreateWorkflowCommand";
 import {
+  type CreateWorkflowStepCommandInput,
+  type CreateWorkflowStepCommandOutput,
   CreateWorkflowStepCommand,
-  CreateWorkflowStepCommandInput,
-  CreateWorkflowStepCommandOutput,
 } from "./commands/CreateWorkflowStepCommand";
 import {
+  type CreateWorkflowStepGroupCommandInput,
+  type CreateWorkflowStepGroupCommandOutput,
   CreateWorkflowStepGroupCommand,
-  CreateWorkflowStepGroupCommandInput,
-  CreateWorkflowStepGroupCommandOutput,
 } from "./commands/CreateWorkflowStepGroupCommand";
 import {
+  type DeleteTemplateCommandInput,
+  type DeleteTemplateCommandOutput,
   DeleteTemplateCommand,
-  DeleteTemplateCommandInput,
-  DeleteTemplateCommandOutput,
 } from "./commands/DeleteTemplateCommand";
 import {
+  type DeleteWorkflowCommandInput,
+  type DeleteWorkflowCommandOutput,
   DeleteWorkflowCommand,
-  DeleteWorkflowCommandInput,
-  DeleteWorkflowCommandOutput,
 } from "./commands/DeleteWorkflowCommand";
 import {
+  type DeleteWorkflowStepCommandInput,
+  type DeleteWorkflowStepCommandOutput,
   DeleteWorkflowStepCommand,
-  DeleteWorkflowStepCommandInput,
-  DeleteWorkflowStepCommandOutput,
 } from "./commands/DeleteWorkflowStepCommand";
 import {
+  type DeleteWorkflowStepGroupCommandInput,
+  type DeleteWorkflowStepGroupCommandOutput,
   DeleteWorkflowStepGroupCommand,
-  DeleteWorkflowStepGroupCommandInput,
-  DeleteWorkflowStepGroupCommandOutput,
 } from "./commands/DeleteWorkflowStepGroupCommand";
-import { GetTemplateCommand, GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
 import {
+  type GetTemplateCommandInput,
+  type GetTemplateCommandOutput,
+  GetTemplateCommand,
+} from "./commands/GetTemplateCommand";
+import {
+  type GetTemplateStepCommandInput,
+  type GetTemplateStepCommandOutput,
   GetTemplateStepCommand,
-  GetTemplateStepCommandInput,
-  GetTemplateStepCommandOutput,
 } from "./commands/GetTemplateStepCommand";
 import {
+  type GetTemplateStepGroupCommandInput,
+  type GetTemplateStepGroupCommandOutput,
   GetTemplateStepGroupCommand,
-  GetTemplateStepGroupCommandInput,
-  GetTemplateStepGroupCommandOutput,
 } from "./commands/GetTemplateStepGroupCommand";
-import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
+  type GetWorkflowCommandInput,
+  type GetWorkflowCommandOutput,
+  GetWorkflowCommand,
+} from "./commands/GetWorkflowCommand";
+import {
+  type GetWorkflowStepCommandInput,
+  type GetWorkflowStepCommandOutput,
   GetWorkflowStepCommand,
-  GetWorkflowStepCommandInput,
-  GetWorkflowStepCommandOutput,
 } from "./commands/GetWorkflowStepCommand";
 import {
+  type GetWorkflowStepGroupCommandInput,
+  type GetWorkflowStepGroupCommandOutput,
   GetWorkflowStepGroupCommand,
-  GetWorkflowStepGroupCommandInput,
-  GetWorkflowStepGroupCommandOutput,
 } from "./commands/GetWorkflowStepGroupCommand";
-import { ListPluginsCommand, ListPluginsCommandInput, ListPluginsCommandOutput } from "./commands/ListPluginsCommand";
 import {
+  type ListPluginsCommandInput,
+  type ListPluginsCommandOutput,
+  ListPluginsCommand,
+} from "./commands/ListPluginsCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTemplatesCommandInput,
+  type ListTemplatesCommandOutput,
   ListTemplatesCommand,
-  ListTemplatesCommandInput,
-  ListTemplatesCommandOutput,
 } from "./commands/ListTemplatesCommand";
 import {
+  type ListTemplateStepGroupsCommandInput,
+  type ListTemplateStepGroupsCommandOutput,
   ListTemplateStepGroupsCommand,
-  ListTemplateStepGroupsCommandInput,
-  ListTemplateStepGroupsCommandOutput,
 } from "./commands/ListTemplateStepGroupsCommand";
 import {
+  type ListTemplateStepsCommandInput,
+  type ListTemplateStepsCommandOutput,
   ListTemplateStepsCommand,
-  ListTemplateStepsCommandInput,
-  ListTemplateStepsCommandOutput,
 } from "./commands/ListTemplateStepsCommand";
 import {
+  type ListWorkflowsCommandInput,
+  type ListWorkflowsCommandOutput,
   ListWorkflowsCommand,
-  ListWorkflowsCommandInput,
-  ListWorkflowsCommandOutput,
 } from "./commands/ListWorkflowsCommand";
 import {
+  type ListWorkflowStepGroupsCommandInput,
+  type ListWorkflowStepGroupsCommandOutput,
   ListWorkflowStepGroupsCommand,
-  ListWorkflowStepGroupsCommandInput,
-  ListWorkflowStepGroupsCommandOutput,
 } from "./commands/ListWorkflowStepGroupsCommand";
 import {
+  type ListWorkflowStepsCommandInput,
+  type ListWorkflowStepsCommandOutput,
   ListWorkflowStepsCommand,
-  ListWorkflowStepsCommandInput,
-  ListWorkflowStepsCommandOutput,
 } from "./commands/ListWorkflowStepsCommand";
 import {
+  type RetryWorkflowStepCommandInput,
+  type RetryWorkflowStepCommandOutput,
   RetryWorkflowStepCommand,
-  RetryWorkflowStepCommandInput,
-  RetryWorkflowStepCommandOutput,
 } from "./commands/RetryWorkflowStepCommand";
 import {
+  type StartWorkflowCommandInput,
+  type StartWorkflowCommandOutput,
   StartWorkflowCommand,
-  StartWorkflowCommandInput,
-  StartWorkflowCommandOutput,
 } from "./commands/StartWorkflowCommand";
 import {
+  type StopWorkflowCommandInput,
+  type StopWorkflowCommandOutput,
   StopWorkflowCommand,
-  StopWorkflowCommandInput,
-  StopWorkflowCommandOutput,
 } from "./commands/StopWorkflowCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateTemplateCommandInput,
+  type UpdateTemplateCommandOutput,
   UpdateTemplateCommand,
-  UpdateTemplateCommandInput,
-  UpdateTemplateCommandOutput,
 } from "./commands/UpdateTemplateCommand";
 import {
+  type UpdateWorkflowCommandInput,
+  type UpdateWorkflowCommandOutput,
   UpdateWorkflowCommand,
-  UpdateWorkflowCommandInput,
-  UpdateWorkflowCommandOutput,
 } from "./commands/UpdateWorkflowCommand";
 import {
+  type UpdateWorkflowStepCommandInput,
+  type UpdateWorkflowStepCommandOutput,
   UpdateWorkflowStepCommand,
-  UpdateWorkflowStepCommandInput,
-  UpdateWorkflowStepCommandOutput,
 } from "./commands/UpdateWorkflowStepCommand";
 import {
+  type UpdateWorkflowStepGroupCommandInput,
+  type UpdateWorkflowStepGroupCommandOutput,
   UpdateWorkflowStepGroupCommand,
-  UpdateWorkflowStepGroupCommandInput,
-  UpdateWorkflowStepGroupCommandOutput,
 } from "./commands/UpdateWorkflowStepGroupCommand";
 import { MigrationHubOrchestratorClient } from "./MigrationHubOrchestratorClient";
 import { paginateListPlugins } from "./pagination/ListPluginsPaginator";

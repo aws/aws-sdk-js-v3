@@ -8,7 +8,7 @@ import {
   ListPermissionsCommandInput,
   ListPermissionsCommandOutput,
 } from "../commands/ListPermissionsCommand";
-import { ACMPCAPaginationConfiguration } from "./Interfaces";
+import type { ACMPCAPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

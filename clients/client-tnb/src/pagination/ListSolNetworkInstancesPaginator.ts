@@ -8,7 +8,7 @@ import {
   ListSolNetworkInstancesCommandOutput,
 } from "../commands/ListSolNetworkInstancesCommand";
 import { TnbClient } from "../TnbClient";
-import { TnbPaginationConfiguration } from "./Interfaces";
+import type { TnbPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

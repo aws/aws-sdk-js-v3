@@ -312,8 +312,8 @@ public final class AddS3Config implements TypeScriptIntegration {
             "Whether to override the request region with the region inferred from requested resource's ARN."
                 + " Defaults to undefined."
         )
-            .addImport("Provider", "Provider", TypeScriptDependency.SMITHY_TYPES)
-            .write("useArnRegion?: boolean | undefined | Provider<boolean | undefined>;");
+            .addTypeImport("Provider", "__Provider", TypeScriptDependency.SMITHY_TYPES)
+            .write("useArnRegion?: boolean | undefined | __Provider<boolean | undefined>;");
     }
 
     @Override
@@ -471,12 +471,14 @@ public final class AddS3Config implements TypeScriptIntegration {
                     Symbol.builder()
                         .namespace(AwsDependency.S3_MIDDLEWARE.dependency.getPackageName(), "/")
                         .name("S3InputConfig")
+                        .putProperty("typeOnly", true)
                         .build()
                 )
                 .resolvedConfig(
                     Symbol.builder()
                         .namespace(AwsDependency.S3_MIDDLEWARE.dependency.getPackageName(), "/")
                         .name("S3ResolvedConfig")
+                        .putProperty("typeOnly", true)
                         .build()
                 )
                 .resolveFunction(

@@ -40,7 +40,7 @@
  */
 export * from "./ResourceGroupsClient";
 export * from "./ResourceGroups";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ResourceGroupsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -8,7 +8,7 @@ import {
   GetPackageVersionHistoryCommandOutput,
 } from "../commands/GetPackageVersionHistoryCommand";
 import { OpenSearchClient } from "../OpenSearchClient";
-import { OpenSearchPaginationConfiguration } from "./Interfaces";
+import type { OpenSearchPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

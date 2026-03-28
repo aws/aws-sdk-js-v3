@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListLensesCommand, ListLensesCommandInput, ListLensesCommandOutput } from "../commands/ListLensesCommand";
 import { WellArchitectedClient } from "../WellArchitectedClient";
-import { WellArchitectedPaginationConfiguration } from "./Interfaces";
+import type { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

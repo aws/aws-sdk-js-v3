@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { GetRouterInputCommand, GetRouterInputCommandInput } from "../commands/GetRouterInputCommand";
-import { MediaConnectClient } from "../MediaConnectClient";
+import { type GetRouterInputCommandInput, GetRouterInputCommand } from "../commands/GetRouterInputCommand";
+import type { MediaConnectClient } from "../MediaConnectClient";
 
 const checkState = async (client: MediaConnectClient, input: GetRouterInputCommandInput): Promise<WaiterResult> => {
   let reason;

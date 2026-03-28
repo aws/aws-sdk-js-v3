@@ -8,7 +8,7 @@ import {
   ListSourceResourcesCommandOutput,
 } from "../commands/ListSourceResourcesCommand";
 import { MigrationHubClient } from "../MigrationHubClient";
-import { MigrationHubPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

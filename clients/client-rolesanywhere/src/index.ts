@@ -7,7 +7,7 @@
  */
 export * from "./RolesAnywhereClient";
 export * from "./RolesAnywhere";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { RolesAnywhereExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

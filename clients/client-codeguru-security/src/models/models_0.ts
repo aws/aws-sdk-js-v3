@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AnalysisType, ErrorCode, ScanState, ScanType, Severity, Status } from "./enums";
+import type { AnalysisType, ErrorCode, ScanState, ScanType, Severity, Status } from "./enums";
 
 /**
  * <p>A numeric value corresponding to the severity of a finding, such as the number of open findings or the average time it takes to close findings of a given severity.</p>

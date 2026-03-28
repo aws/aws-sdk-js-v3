@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CleanRoomsClient } from "../CleanRoomsClient";
 import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
-import { CleanRoomsPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

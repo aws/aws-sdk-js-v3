@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ThrottleReason } from "./enums";
+import type { ThrottleReason } from "./enums";
 import { LambdaServiceException as __BaseException } from "./LambdaServiceException";
 
 /**

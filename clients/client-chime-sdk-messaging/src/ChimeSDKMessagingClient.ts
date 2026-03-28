@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,157 +61,175 @@ import {
   defaultChimeSDKMessagingHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateChannelFlowCommandInput,
   AssociateChannelFlowCommandOutput,
 } from "./commands/AssociateChannelFlowCommand";
-import {
+import type {
   BatchCreateChannelMembershipCommandInput,
   BatchCreateChannelMembershipCommandOutput,
 } from "./commands/BatchCreateChannelMembershipCommand";
-import {
+import type {
   ChannelFlowCallbackCommandInput,
   ChannelFlowCallbackCommandOutput,
 } from "./commands/ChannelFlowCallbackCommand";
-import { CreateChannelBanCommandInput, CreateChannelBanCommandOutput } from "./commands/CreateChannelBanCommand";
-import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
-import { CreateChannelFlowCommandInput, CreateChannelFlowCommandOutput } from "./commands/CreateChannelFlowCommand";
-import {
+import type { CreateChannelBanCommandInput, CreateChannelBanCommandOutput } from "./commands/CreateChannelBanCommand";
+import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import type {
+  CreateChannelFlowCommandInput,
+  CreateChannelFlowCommandOutput,
+} from "./commands/CreateChannelFlowCommand";
+import type {
   CreateChannelMembershipCommandInput,
   CreateChannelMembershipCommandOutput,
 } from "./commands/CreateChannelMembershipCommand";
-import {
+import type {
   CreateChannelModeratorCommandInput,
   CreateChannelModeratorCommandOutput,
 } from "./commands/CreateChannelModeratorCommand";
-import { DeleteChannelBanCommandInput, DeleteChannelBanCommandOutput } from "./commands/DeleteChannelBanCommand";
-import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
-import { DeleteChannelFlowCommandInput, DeleteChannelFlowCommandOutput } from "./commands/DeleteChannelFlowCommand";
-import {
+import type { DeleteChannelBanCommandInput, DeleteChannelBanCommandOutput } from "./commands/DeleteChannelBanCommand";
+import type { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import type {
+  DeleteChannelFlowCommandInput,
+  DeleteChannelFlowCommandOutput,
+} from "./commands/DeleteChannelFlowCommand";
+import type {
   DeleteChannelMembershipCommandInput,
   DeleteChannelMembershipCommandOutput,
 } from "./commands/DeleteChannelMembershipCommand";
-import {
+import type {
   DeleteChannelMessageCommandInput,
   DeleteChannelMessageCommandOutput,
 } from "./commands/DeleteChannelMessageCommand";
-import {
+import type {
   DeleteChannelModeratorCommandInput,
   DeleteChannelModeratorCommandOutput,
 } from "./commands/DeleteChannelModeratorCommand";
-import {
+import type {
   DeleteMessagingStreamingConfigurationsCommandInput,
   DeleteMessagingStreamingConfigurationsCommandOutput,
 } from "./commands/DeleteMessagingStreamingConfigurationsCommand";
-import { DescribeChannelBanCommandInput, DescribeChannelBanCommandOutput } from "./commands/DescribeChannelBanCommand";
-import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
-import {
+import type {
+  DescribeChannelBanCommandInput,
+  DescribeChannelBanCommandOutput,
+} from "./commands/DescribeChannelBanCommand";
+import type { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
+import type {
   DescribeChannelFlowCommandInput,
   DescribeChannelFlowCommandOutput,
 } from "./commands/DescribeChannelFlowCommand";
-import {
+import type {
   DescribeChannelMembershipCommandInput,
   DescribeChannelMembershipCommandOutput,
 } from "./commands/DescribeChannelMembershipCommand";
-import {
+import type {
   DescribeChannelMembershipForAppInstanceUserCommandInput,
   DescribeChannelMembershipForAppInstanceUserCommandOutput,
 } from "./commands/DescribeChannelMembershipForAppInstanceUserCommand";
-import {
+import type {
   DescribeChannelModeratedByAppInstanceUserCommandInput,
   DescribeChannelModeratedByAppInstanceUserCommandOutput,
 } from "./commands/DescribeChannelModeratedByAppInstanceUserCommand";
-import {
+import type {
   DescribeChannelModeratorCommandInput,
   DescribeChannelModeratorCommandOutput,
 } from "./commands/DescribeChannelModeratorCommand";
-import {
+import type {
   DisassociateChannelFlowCommandInput,
   DisassociateChannelFlowCommandOutput,
 } from "./commands/DisassociateChannelFlowCommand";
-import {
+import type {
   GetChannelMembershipPreferencesCommandInput,
   GetChannelMembershipPreferencesCommandOutput,
 } from "./commands/GetChannelMembershipPreferencesCommand";
-import { GetChannelMessageCommandInput, GetChannelMessageCommandOutput } from "./commands/GetChannelMessageCommand";
-import {
+import type {
+  GetChannelMessageCommandInput,
+  GetChannelMessageCommandOutput,
+} from "./commands/GetChannelMessageCommand";
+import type {
   GetChannelMessageStatusCommandInput,
   GetChannelMessageStatusCommandOutput,
 } from "./commands/GetChannelMessageStatusCommand";
-import {
+import type {
   GetMessagingSessionEndpointCommandInput,
   GetMessagingSessionEndpointCommandOutput,
 } from "./commands/GetMessagingSessionEndpointCommand";
-import {
+import type {
   GetMessagingStreamingConfigurationsCommandInput,
   GetMessagingStreamingConfigurationsCommandOutput,
 } from "./commands/GetMessagingStreamingConfigurationsCommand";
-import { ListChannelBansCommandInput, ListChannelBansCommandOutput } from "./commands/ListChannelBansCommand";
-import { ListChannelFlowsCommandInput, ListChannelFlowsCommandOutput } from "./commands/ListChannelFlowsCommand";
-import {
+import type { ListChannelBansCommandInput, ListChannelBansCommandOutput } from "./commands/ListChannelBansCommand";
+import type { ListChannelFlowsCommandInput, ListChannelFlowsCommandOutput } from "./commands/ListChannelFlowsCommand";
+import type {
   ListChannelMembershipsCommandInput,
   ListChannelMembershipsCommandOutput,
 } from "./commands/ListChannelMembershipsCommand";
-import {
+import type {
   ListChannelMembershipsForAppInstanceUserCommandInput,
   ListChannelMembershipsForAppInstanceUserCommandOutput,
 } from "./commands/ListChannelMembershipsForAppInstanceUserCommand";
-import {
+import type {
   ListChannelMessagesCommandInput,
   ListChannelMessagesCommandOutput,
 } from "./commands/ListChannelMessagesCommand";
-import {
+import type {
   ListChannelModeratorsCommandInput,
   ListChannelModeratorsCommandOutput,
 } from "./commands/ListChannelModeratorsCommand";
-import {
+import type {
   ListChannelsAssociatedWithChannelFlowCommandInput,
   ListChannelsAssociatedWithChannelFlowCommandOutput,
 } from "./commands/ListChannelsAssociatedWithChannelFlowCommand";
-import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
-import {
+import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import type {
   ListChannelsModeratedByAppInstanceUserCommandInput,
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "./commands/ListChannelsModeratedByAppInstanceUserCommand";
-import { ListSubChannelsCommandInput, ListSubChannelsCommandOutput } from "./commands/ListSubChannelsCommand";
-import {
+import type { ListSubChannelsCommandInput, ListSubChannelsCommandOutput } from "./commands/ListSubChannelsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutChannelExpirationSettingsCommandInput,
   PutChannelExpirationSettingsCommandOutput,
 } from "./commands/PutChannelExpirationSettingsCommand";
-import {
+import type {
   PutChannelMembershipPreferencesCommandInput,
   PutChannelMembershipPreferencesCommandOutput,
 } from "./commands/PutChannelMembershipPreferencesCommand";
-import {
+import type {
   PutMessagingStreamingConfigurationsCommandInput,
   PutMessagingStreamingConfigurationsCommandOutput,
 } from "./commands/PutMessagingStreamingConfigurationsCommand";
-import {
+import type {
   RedactChannelMessageCommandInput,
   RedactChannelMessageCommandOutput,
 } from "./commands/RedactChannelMessageCommand";
-import { SearchChannelsCommandInput, SearchChannelsCommandOutput } from "./commands/SearchChannelsCommand";
-import { SendChannelMessageCommandInput, SendChannelMessageCommandOutput } from "./commands/SendChannelMessageCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
-import { UpdateChannelFlowCommandInput, UpdateChannelFlowCommandOutput } from "./commands/UpdateChannelFlowCommand";
-import {
+import type { SearchChannelsCommandInput, SearchChannelsCommandOutput } from "./commands/SearchChannelsCommand";
+import type {
+  SendChannelMessageCommandInput,
+  SendChannelMessageCommandOutput,
+} from "./commands/SendChannelMessageCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import type {
+  UpdateChannelFlowCommandInput,
+  UpdateChannelFlowCommandOutput,
+} from "./commands/UpdateChannelFlowCommand";
+import type {
   UpdateChannelMessageCommandInput,
   UpdateChannelMessageCommandOutput,
 } from "./commands/UpdateChannelMessageCommand";
-import {
+import type {
   UpdateChannelReadMarkerCommandInput,
   UpdateChannelReadMarkerCommandOutput,
 } from "./commands/UpdateChannelReadMarkerCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -447,7 +463,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

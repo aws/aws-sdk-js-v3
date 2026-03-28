@@ -9,146 +9,154 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type CancelHarvestJobCommandInput,
+  type CancelHarvestJobCommandOutput,
   CancelHarvestJobCommand,
-  CancelHarvestJobCommandInput,
-  CancelHarvestJobCommandOutput,
 } from "./commands/CancelHarvestJobCommand";
 import {
+  type CreateChannelCommandInput,
+  type CreateChannelCommandOutput,
   CreateChannelCommand,
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  type CreateChannelGroupCommandInput,
+  type CreateChannelGroupCommandOutput,
   CreateChannelGroupCommand,
-  CreateChannelGroupCommandInput,
-  CreateChannelGroupCommandOutput,
 } from "./commands/CreateChannelGroupCommand";
 import {
+  type CreateHarvestJobCommandInput,
+  type CreateHarvestJobCommandOutput,
   CreateHarvestJobCommand,
-  CreateHarvestJobCommandInput,
-  CreateHarvestJobCommandOutput,
 } from "./commands/CreateHarvestJobCommand";
 import {
+  type CreateOriginEndpointCommandInput,
+  type CreateOriginEndpointCommandOutput,
   CreateOriginEndpointCommand,
-  CreateOriginEndpointCommandInput,
-  CreateOriginEndpointCommandOutput,
 } from "./commands/CreateOriginEndpointCommand";
 import {
+  type DeleteChannelCommandInput,
+  type DeleteChannelCommandOutput,
   DeleteChannelCommand,
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
 import {
+  type DeleteChannelGroupCommandInput,
+  type DeleteChannelGroupCommandOutput,
   DeleteChannelGroupCommand,
-  DeleteChannelGroupCommandInput,
-  DeleteChannelGroupCommandOutput,
 } from "./commands/DeleteChannelGroupCommand";
 import {
+  type DeleteChannelPolicyCommandInput,
+  type DeleteChannelPolicyCommandOutput,
   DeleteChannelPolicyCommand,
-  DeleteChannelPolicyCommandInput,
-  DeleteChannelPolicyCommandOutput,
 } from "./commands/DeleteChannelPolicyCommand";
 import {
+  type DeleteOriginEndpointCommandInput,
+  type DeleteOriginEndpointCommandOutput,
   DeleteOriginEndpointCommand,
-  DeleteOriginEndpointCommandInput,
-  DeleteOriginEndpointCommandOutput,
 } from "./commands/DeleteOriginEndpointCommand";
 import {
+  type DeleteOriginEndpointPolicyCommandInput,
+  type DeleteOriginEndpointPolicyCommandOutput,
   DeleteOriginEndpointPolicyCommand,
-  DeleteOriginEndpointPolicyCommandInput,
-  DeleteOriginEndpointPolicyCommandOutput,
 } from "./commands/DeleteOriginEndpointPolicyCommand";
-import { GetChannelCommand, GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import {
+  type GetChannelCommandInput,
+  type GetChannelCommandOutput,
+  GetChannelCommand,
+} from "./commands/GetChannelCommand";
+import {
+  type GetChannelGroupCommandInput,
+  type GetChannelGroupCommandOutput,
   GetChannelGroupCommand,
-  GetChannelGroupCommandInput,
-  GetChannelGroupCommandOutput,
 } from "./commands/GetChannelGroupCommand";
 import {
+  type GetChannelPolicyCommandInput,
+  type GetChannelPolicyCommandOutput,
   GetChannelPolicyCommand,
-  GetChannelPolicyCommandInput,
-  GetChannelPolicyCommandOutput,
 } from "./commands/GetChannelPolicyCommand";
 import {
+  type GetHarvestJobCommandInput,
+  type GetHarvestJobCommandOutput,
   GetHarvestJobCommand,
-  GetHarvestJobCommandInput,
-  GetHarvestJobCommandOutput,
 } from "./commands/GetHarvestJobCommand";
 import {
+  type GetOriginEndpointCommandInput,
+  type GetOriginEndpointCommandOutput,
   GetOriginEndpointCommand,
-  GetOriginEndpointCommandInput,
-  GetOriginEndpointCommandOutput,
 } from "./commands/GetOriginEndpointCommand";
 import {
+  type GetOriginEndpointPolicyCommandInput,
+  type GetOriginEndpointPolicyCommandOutput,
   GetOriginEndpointPolicyCommand,
-  GetOriginEndpointPolicyCommandInput,
-  GetOriginEndpointPolicyCommandOutput,
 } from "./commands/GetOriginEndpointPolicyCommand";
 import {
+  type ListChannelGroupsCommandInput,
+  type ListChannelGroupsCommandOutput,
   ListChannelGroupsCommand,
-  ListChannelGroupsCommandInput,
-  ListChannelGroupsCommandOutput,
 } from "./commands/ListChannelGroupsCommand";
 import {
+  type ListChannelsCommandInput,
+  type ListChannelsCommandOutput,
   ListChannelsCommand,
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
 import {
+  type ListHarvestJobsCommandInput,
+  type ListHarvestJobsCommandOutput,
   ListHarvestJobsCommand,
-  ListHarvestJobsCommandInput,
-  ListHarvestJobsCommandOutput,
 } from "./commands/ListHarvestJobsCommand";
 import {
+  type ListOriginEndpointsCommandInput,
+  type ListOriginEndpointsCommandOutput,
   ListOriginEndpointsCommand,
-  ListOriginEndpointsCommandInput,
-  ListOriginEndpointsCommandOutput,
 } from "./commands/ListOriginEndpointsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutChannelPolicyCommandInput,
+  type PutChannelPolicyCommandOutput,
   PutChannelPolicyCommand,
-  PutChannelPolicyCommandInput,
-  PutChannelPolicyCommandOutput,
 } from "./commands/PutChannelPolicyCommand";
 import {
+  type PutOriginEndpointPolicyCommandInput,
+  type PutOriginEndpointPolicyCommandOutput,
   PutOriginEndpointPolicyCommand,
-  PutOriginEndpointPolicyCommandInput,
-  PutOriginEndpointPolicyCommandOutput,
 } from "./commands/PutOriginEndpointPolicyCommand";
 import {
+  type ResetChannelStateCommandInput,
+  type ResetChannelStateCommandOutput,
   ResetChannelStateCommand,
-  ResetChannelStateCommandInput,
-  ResetChannelStateCommandOutput,
 } from "./commands/ResetChannelStateCommand";
 import {
+  type ResetOriginEndpointStateCommandInput,
+  type ResetOriginEndpointStateCommandOutput,
   ResetOriginEndpointStateCommand,
-  ResetOriginEndpointStateCommandInput,
-  ResetOriginEndpointStateCommandOutput,
 } from "./commands/ResetOriginEndpointStateCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateChannelCommandInput,
+  type UpdateChannelCommandOutput,
   UpdateChannelCommand,
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import {
+  type UpdateChannelGroupCommandInput,
+  type UpdateChannelGroupCommandOutput,
   UpdateChannelGroupCommand,
-  UpdateChannelGroupCommandInput,
-  UpdateChannelGroupCommandOutput,
 } from "./commands/UpdateChannelGroupCommand";
 import {
+  type UpdateOriginEndpointCommandInput,
+  type UpdateOriginEndpointCommandOutput,
   UpdateOriginEndpointCommand,
-  UpdateOriginEndpointCommandInput,
-  UpdateOriginEndpointCommandOutput,
 } from "./commands/UpdateOriginEndpointCommand";
 import { MediaPackageV2Client } from "./MediaPackageV2Client";
 import { paginateListChannelGroups } from "./pagination/ListChannelGroupsPaginator";

@@ -8,7 +8,7 @@ import {
   ListResourcesCommandInput,
   ListResourcesCommandOutput,
 } from "../commands/ListResourcesCommand";
-import { CloudControlPaginationConfiguration } from "./Interfaces";
+import type { CloudControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   GetResourceMetricsCommandOutput,
 } from "../commands/GetResourceMetricsCommand";
 import { PIClient } from "../PIClient";
-import { PIPaginationConfiguration } from "./Interfaces";
+import type { PIPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -3,1062 +3,1146 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchCreateTopicReviewedAnswerCommandInput,
+  type BatchCreateTopicReviewedAnswerCommandOutput,
   BatchCreateTopicReviewedAnswerCommand,
-  BatchCreateTopicReviewedAnswerCommandInput,
-  BatchCreateTopicReviewedAnswerCommandOutput,
 } from "./commands/BatchCreateTopicReviewedAnswerCommand";
 import {
+  type BatchDeleteTopicReviewedAnswerCommandInput,
+  type BatchDeleteTopicReviewedAnswerCommandOutput,
   BatchDeleteTopicReviewedAnswerCommand,
-  BatchDeleteTopicReviewedAnswerCommandInput,
-  BatchDeleteTopicReviewedAnswerCommandOutput,
 } from "./commands/BatchDeleteTopicReviewedAnswerCommand";
 import {
+  type CancelIngestionCommandInput,
+  type CancelIngestionCommandOutput,
   CancelIngestionCommand,
-  CancelIngestionCommandInput,
-  CancelIngestionCommandOutput,
 } from "./commands/CancelIngestionCommand";
 import {
+  type CreateAccountCustomizationCommandInput,
+  type CreateAccountCustomizationCommandOutput,
   CreateAccountCustomizationCommand,
-  CreateAccountCustomizationCommandInput,
-  CreateAccountCustomizationCommandOutput,
 } from "./commands/CreateAccountCustomizationCommand";
 import {
+  type CreateAccountSubscriptionCommandInput,
+  type CreateAccountSubscriptionCommandOutput,
   CreateAccountSubscriptionCommand,
-  CreateAccountSubscriptionCommandInput,
-  CreateAccountSubscriptionCommandOutput,
 } from "./commands/CreateAccountSubscriptionCommand";
 import {
+  type CreateActionConnectorCommandInput,
+  type CreateActionConnectorCommandOutput,
   CreateActionConnectorCommand,
-  CreateActionConnectorCommandInput,
-  CreateActionConnectorCommandOutput,
 } from "./commands/CreateActionConnectorCommand";
 import {
+  type CreateAnalysisCommandInput,
+  type CreateAnalysisCommandOutput,
   CreateAnalysisCommand,
-  CreateAnalysisCommandInput,
-  CreateAnalysisCommandOutput,
 } from "./commands/CreateAnalysisCommand";
-import { CreateBrandCommand, CreateBrandCommandInput, CreateBrandCommandOutput } from "./commands/CreateBrandCommand";
 import {
+  type CreateBrandCommandInput,
+  type CreateBrandCommandOutput,
+  CreateBrandCommand,
+} from "./commands/CreateBrandCommand";
+import {
+  type CreateCustomPermissionsCommandInput,
+  type CreateCustomPermissionsCommandOutput,
   CreateCustomPermissionsCommand,
-  CreateCustomPermissionsCommandInput,
-  CreateCustomPermissionsCommandOutput,
 } from "./commands/CreateCustomPermissionsCommand";
 import {
+  type CreateDashboardCommandInput,
+  type CreateDashboardCommandOutput,
   CreateDashboardCommand,
-  CreateDashboardCommandInput,
-  CreateDashboardCommandOutput,
 } from "./commands/CreateDashboardCommand";
 import {
+  type CreateDataSetCommandInput,
+  type CreateDataSetCommandOutput,
   CreateDataSetCommand,
-  CreateDataSetCommandInput,
-  CreateDataSetCommandOutput,
 } from "./commands/CreateDataSetCommand";
 import {
+  type CreateDataSourceCommandInput,
+  type CreateDataSourceCommandOutput,
   CreateDataSourceCommand,
-  CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput,
 } from "./commands/CreateDataSourceCommand";
 import {
+  type CreateFolderCommandInput,
+  type CreateFolderCommandOutput,
   CreateFolderCommand,
-  CreateFolderCommandInput,
-  CreateFolderCommandOutput,
 } from "./commands/CreateFolderCommand";
 import {
+  type CreateFolderMembershipCommandInput,
+  type CreateFolderMembershipCommandOutput,
   CreateFolderMembershipCommand,
-  CreateFolderMembershipCommandInput,
-  CreateFolderMembershipCommandOutput,
 } from "./commands/CreateFolderMembershipCommand";
-import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
+  type CreateGroupCommandInput,
+  type CreateGroupCommandOutput,
+  CreateGroupCommand,
+} from "./commands/CreateGroupCommand";
+import {
+  type CreateGroupMembershipCommandInput,
+  type CreateGroupMembershipCommandOutput,
   CreateGroupMembershipCommand,
-  CreateGroupMembershipCommandInput,
-  CreateGroupMembershipCommandOutput,
 } from "./commands/CreateGroupMembershipCommand";
 import {
+  type CreateIAMPolicyAssignmentCommandInput,
+  type CreateIAMPolicyAssignmentCommandOutput,
   CreateIAMPolicyAssignmentCommand,
-  CreateIAMPolicyAssignmentCommandInput,
-  CreateIAMPolicyAssignmentCommandOutput,
 } from "./commands/CreateIAMPolicyAssignmentCommand";
 import {
+  type CreateIngestionCommandInput,
+  type CreateIngestionCommandOutput,
   CreateIngestionCommand,
-  CreateIngestionCommandInput,
-  CreateIngestionCommandOutput,
 } from "./commands/CreateIngestionCommand";
 import {
+  type CreateNamespaceCommandInput,
+  type CreateNamespaceCommandOutput,
   CreateNamespaceCommand,
-  CreateNamespaceCommandInput,
-  CreateNamespaceCommandOutput,
 } from "./commands/CreateNamespaceCommand";
 import {
+  type CreateRefreshScheduleCommandInput,
+  type CreateRefreshScheduleCommandOutput,
   CreateRefreshScheduleCommand,
-  CreateRefreshScheduleCommandInput,
-  CreateRefreshScheduleCommandOutput,
 } from "./commands/CreateRefreshScheduleCommand";
 import {
+  type CreateRoleMembershipCommandInput,
+  type CreateRoleMembershipCommandOutput,
   CreateRoleMembershipCommand,
-  CreateRoleMembershipCommandInput,
-  CreateRoleMembershipCommandOutput,
 } from "./commands/CreateRoleMembershipCommand";
 import {
+  type CreateTemplateAliasCommandInput,
+  type CreateTemplateAliasCommandOutput,
   CreateTemplateAliasCommand,
-  CreateTemplateAliasCommandInput,
-  CreateTemplateAliasCommandOutput,
 } from "./commands/CreateTemplateAliasCommand";
 import {
+  type CreateTemplateCommandInput,
+  type CreateTemplateCommandOutput,
   CreateTemplateCommand,
-  CreateTemplateCommandInput,
-  CreateTemplateCommandOutput,
 } from "./commands/CreateTemplateCommand";
 import {
+  type CreateThemeAliasCommandInput,
+  type CreateThemeAliasCommandOutput,
   CreateThemeAliasCommand,
-  CreateThemeAliasCommandInput,
-  CreateThemeAliasCommandOutput,
 } from "./commands/CreateThemeAliasCommand";
-import { CreateThemeCommand, CreateThemeCommandInput, CreateThemeCommandOutput } from "./commands/CreateThemeCommand";
-import { CreateTopicCommand, CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
 import {
+  type CreateThemeCommandInput,
+  type CreateThemeCommandOutput,
+  CreateThemeCommand,
+} from "./commands/CreateThemeCommand";
+import {
+  type CreateTopicCommandInput,
+  type CreateTopicCommandOutput,
+  CreateTopicCommand,
+} from "./commands/CreateTopicCommand";
+import {
+  type CreateTopicRefreshScheduleCommandInput,
+  type CreateTopicRefreshScheduleCommandOutput,
   CreateTopicRefreshScheduleCommand,
-  CreateTopicRefreshScheduleCommandInput,
-  CreateTopicRefreshScheduleCommandOutput,
 } from "./commands/CreateTopicRefreshScheduleCommand";
 import {
+  type CreateVPCConnectionCommandInput,
+  type CreateVPCConnectionCommandOutput,
   CreateVPCConnectionCommand,
-  CreateVPCConnectionCommandInput,
-  CreateVPCConnectionCommandOutput,
 } from "./commands/CreateVPCConnectionCommand";
 import {
+  type DeleteAccountCustomizationCommandInput,
+  type DeleteAccountCustomizationCommandOutput,
   DeleteAccountCustomizationCommand,
-  DeleteAccountCustomizationCommandInput,
-  DeleteAccountCustomizationCommandOutput,
 } from "./commands/DeleteAccountCustomizationCommand";
 import {
+  type DeleteAccountCustomPermissionCommandInput,
+  type DeleteAccountCustomPermissionCommandOutput,
   DeleteAccountCustomPermissionCommand,
-  DeleteAccountCustomPermissionCommandInput,
-  DeleteAccountCustomPermissionCommandOutput,
 } from "./commands/DeleteAccountCustomPermissionCommand";
 import {
+  type DeleteAccountSubscriptionCommandInput,
+  type DeleteAccountSubscriptionCommandOutput,
   DeleteAccountSubscriptionCommand,
-  DeleteAccountSubscriptionCommandInput,
-  DeleteAccountSubscriptionCommandOutput,
 } from "./commands/DeleteAccountSubscriptionCommand";
 import {
+  type DeleteActionConnectorCommandInput,
+  type DeleteActionConnectorCommandOutput,
   DeleteActionConnectorCommand,
-  DeleteActionConnectorCommandInput,
-  DeleteActionConnectorCommandOutput,
 } from "./commands/DeleteActionConnectorCommand";
 import {
+  type DeleteAnalysisCommandInput,
+  type DeleteAnalysisCommandOutput,
   DeleteAnalysisCommand,
-  DeleteAnalysisCommandInput,
-  DeleteAnalysisCommandOutput,
 } from "./commands/DeleteAnalysisCommand";
 import {
+  type DeleteBrandAssignmentCommandInput,
+  type DeleteBrandAssignmentCommandOutput,
   DeleteBrandAssignmentCommand,
-  DeleteBrandAssignmentCommandInput,
-  DeleteBrandAssignmentCommandOutput,
 } from "./commands/DeleteBrandAssignmentCommand";
-import { DeleteBrandCommand, DeleteBrandCommandInput, DeleteBrandCommandOutput } from "./commands/DeleteBrandCommand";
 import {
+  type DeleteBrandCommandInput,
+  type DeleteBrandCommandOutput,
+  DeleteBrandCommand,
+} from "./commands/DeleteBrandCommand";
+import {
+  type DeleteCustomPermissionsCommandInput,
+  type DeleteCustomPermissionsCommandOutput,
   DeleteCustomPermissionsCommand,
-  DeleteCustomPermissionsCommandInput,
-  DeleteCustomPermissionsCommandOutput,
 } from "./commands/DeleteCustomPermissionsCommand";
 import {
+  type DeleteDashboardCommandInput,
+  type DeleteDashboardCommandOutput,
   DeleteDashboardCommand,
-  DeleteDashboardCommandInput,
-  DeleteDashboardCommandOutput,
 } from "./commands/DeleteDashboardCommand";
 import {
+  type DeleteDataSetCommandInput,
+  type DeleteDataSetCommandOutput,
   DeleteDataSetCommand,
-  DeleteDataSetCommandInput,
-  DeleteDataSetCommandOutput,
 } from "./commands/DeleteDataSetCommand";
 import {
+  type DeleteDataSetRefreshPropertiesCommandInput,
+  type DeleteDataSetRefreshPropertiesCommandOutput,
   DeleteDataSetRefreshPropertiesCommand,
-  DeleteDataSetRefreshPropertiesCommandInput,
-  DeleteDataSetRefreshPropertiesCommandOutput,
 } from "./commands/DeleteDataSetRefreshPropertiesCommand";
 import {
+  type DeleteDataSourceCommandInput,
+  type DeleteDataSourceCommandOutput,
   DeleteDataSourceCommand,
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
 import {
+  type DeleteDefaultQBusinessApplicationCommandInput,
+  type DeleteDefaultQBusinessApplicationCommandOutput,
   DeleteDefaultQBusinessApplicationCommand,
-  DeleteDefaultQBusinessApplicationCommandInput,
-  DeleteDefaultQBusinessApplicationCommandOutput,
 } from "./commands/DeleteDefaultQBusinessApplicationCommand";
 import {
+  type DeleteFolderCommandInput,
+  type DeleteFolderCommandOutput,
   DeleteFolderCommand,
-  DeleteFolderCommandInput,
-  DeleteFolderCommandOutput,
 } from "./commands/DeleteFolderCommand";
 import {
+  type DeleteFolderMembershipCommandInput,
+  type DeleteFolderMembershipCommandOutput,
   DeleteFolderMembershipCommand,
-  DeleteFolderMembershipCommandInput,
-  DeleteFolderMembershipCommandOutput,
 } from "./commands/DeleteFolderMembershipCommand";
-import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
+  type DeleteGroupCommandInput,
+  type DeleteGroupCommandOutput,
+  DeleteGroupCommand,
+} from "./commands/DeleteGroupCommand";
+import {
+  type DeleteGroupMembershipCommandInput,
+  type DeleteGroupMembershipCommandOutput,
   DeleteGroupMembershipCommand,
-  DeleteGroupMembershipCommandInput,
-  DeleteGroupMembershipCommandOutput,
 } from "./commands/DeleteGroupMembershipCommand";
 import {
+  type DeleteIAMPolicyAssignmentCommandInput,
+  type DeleteIAMPolicyAssignmentCommandOutput,
   DeleteIAMPolicyAssignmentCommand,
-  DeleteIAMPolicyAssignmentCommandInput,
-  DeleteIAMPolicyAssignmentCommandOutput,
 } from "./commands/DeleteIAMPolicyAssignmentCommand";
 import {
+  type DeleteIdentityPropagationConfigCommandInput,
+  type DeleteIdentityPropagationConfigCommandOutput,
   DeleteIdentityPropagationConfigCommand,
-  DeleteIdentityPropagationConfigCommandInput,
-  DeleteIdentityPropagationConfigCommandOutput,
 } from "./commands/DeleteIdentityPropagationConfigCommand";
 import {
+  type DeleteNamespaceCommandInput,
+  type DeleteNamespaceCommandOutput,
   DeleteNamespaceCommand,
-  DeleteNamespaceCommandInput,
-  DeleteNamespaceCommandOutput,
 } from "./commands/DeleteNamespaceCommand";
 import {
+  type DeleteRefreshScheduleCommandInput,
+  type DeleteRefreshScheduleCommandOutput,
   DeleteRefreshScheduleCommand,
-  DeleteRefreshScheduleCommandInput,
-  DeleteRefreshScheduleCommandOutput,
 } from "./commands/DeleteRefreshScheduleCommand";
 import {
+  type DeleteRoleCustomPermissionCommandInput,
+  type DeleteRoleCustomPermissionCommandOutput,
   DeleteRoleCustomPermissionCommand,
-  DeleteRoleCustomPermissionCommandInput,
-  DeleteRoleCustomPermissionCommandOutput,
 } from "./commands/DeleteRoleCustomPermissionCommand";
 import {
+  type DeleteRoleMembershipCommandInput,
+  type DeleteRoleMembershipCommandOutput,
   DeleteRoleMembershipCommand,
-  DeleteRoleMembershipCommandInput,
-  DeleteRoleMembershipCommandOutput,
 } from "./commands/DeleteRoleMembershipCommand";
 import {
+  type DeleteTemplateAliasCommandInput,
+  type DeleteTemplateAliasCommandOutput,
   DeleteTemplateAliasCommand,
-  DeleteTemplateAliasCommandInput,
-  DeleteTemplateAliasCommandOutput,
 } from "./commands/DeleteTemplateAliasCommand";
 import {
+  type DeleteTemplateCommandInput,
+  type DeleteTemplateCommandOutput,
   DeleteTemplateCommand,
-  DeleteTemplateCommandInput,
-  DeleteTemplateCommandOutput,
 } from "./commands/DeleteTemplateCommand";
 import {
+  type DeleteThemeAliasCommandInput,
+  type DeleteThemeAliasCommandOutput,
   DeleteThemeAliasCommand,
-  DeleteThemeAliasCommandInput,
-  DeleteThemeAliasCommandOutput,
 } from "./commands/DeleteThemeAliasCommand";
-import { DeleteThemeCommand, DeleteThemeCommandInput, DeleteThemeCommandOutput } from "./commands/DeleteThemeCommand";
-import { DeleteTopicCommand, DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
 import {
+  type DeleteThemeCommandInput,
+  type DeleteThemeCommandOutput,
+  DeleteThemeCommand,
+} from "./commands/DeleteThemeCommand";
+import {
+  type DeleteTopicCommandInput,
+  type DeleteTopicCommandOutput,
+  DeleteTopicCommand,
+} from "./commands/DeleteTopicCommand";
+import {
+  type DeleteTopicRefreshScheduleCommandInput,
+  type DeleteTopicRefreshScheduleCommandOutput,
   DeleteTopicRefreshScheduleCommand,
-  DeleteTopicRefreshScheduleCommandInput,
-  DeleteTopicRefreshScheduleCommandOutput,
 } from "./commands/DeleteTopicRefreshScheduleCommand";
 import {
+  type DeleteUserByPrincipalIdCommandInput,
+  type DeleteUserByPrincipalIdCommandOutput,
   DeleteUserByPrincipalIdCommand,
-  DeleteUserByPrincipalIdCommandInput,
-  DeleteUserByPrincipalIdCommandOutput,
 } from "./commands/DeleteUserByPrincipalIdCommand";
-import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  type DeleteUserCommandInput,
+  type DeleteUserCommandOutput,
+  DeleteUserCommand,
+} from "./commands/DeleteUserCommand";
+import {
+  type DeleteUserCustomPermissionCommandInput,
+  type DeleteUserCustomPermissionCommandOutput,
   DeleteUserCustomPermissionCommand,
-  DeleteUserCustomPermissionCommandInput,
-  DeleteUserCustomPermissionCommandOutput,
 } from "./commands/DeleteUserCustomPermissionCommand";
 import {
+  type DeleteVPCConnectionCommandInput,
+  type DeleteVPCConnectionCommandOutput,
   DeleteVPCConnectionCommand,
-  DeleteVPCConnectionCommandInput,
-  DeleteVPCConnectionCommandOutput,
 } from "./commands/DeleteVPCConnectionCommand";
 import {
+  type DescribeAccountCustomizationCommandInput,
+  type DescribeAccountCustomizationCommandOutput,
   DescribeAccountCustomizationCommand,
-  DescribeAccountCustomizationCommandInput,
-  DescribeAccountCustomizationCommandOutput,
 } from "./commands/DescribeAccountCustomizationCommand";
 import {
+  type DescribeAccountCustomPermissionCommandInput,
+  type DescribeAccountCustomPermissionCommandOutput,
   DescribeAccountCustomPermissionCommand,
-  DescribeAccountCustomPermissionCommandInput,
-  DescribeAccountCustomPermissionCommandOutput,
 } from "./commands/DescribeAccountCustomPermissionCommand";
 import {
+  type DescribeAccountSettingsCommandInput,
+  type DescribeAccountSettingsCommandOutput,
   DescribeAccountSettingsCommand,
-  DescribeAccountSettingsCommandInput,
-  DescribeAccountSettingsCommandOutput,
 } from "./commands/DescribeAccountSettingsCommand";
 import {
+  type DescribeAccountSubscriptionCommandInput,
+  type DescribeAccountSubscriptionCommandOutput,
   DescribeAccountSubscriptionCommand,
-  DescribeAccountSubscriptionCommandInput,
-  DescribeAccountSubscriptionCommandOutput,
 } from "./commands/DescribeAccountSubscriptionCommand";
 import {
+  type DescribeActionConnectorCommandInput,
+  type DescribeActionConnectorCommandOutput,
   DescribeActionConnectorCommand,
-  DescribeActionConnectorCommandInput,
-  DescribeActionConnectorCommandOutput,
 } from "./commands/DescribeActionConnectorCommand";
 import {
+  type DescribeActionConnectorPermissionsCommandInput,
+  type DescribeActionConnectorPermissionsCommandOutput,
   DescribeActionConnectorPermissionsCommand,
-  DescribeActionConnectorPermissionsCommandInput,
-  DescribeActionConnectorPermissionsCommandOutput,
 } from "./commands/DescribeActionConnectorPermissionsCommand";
 import {
+  type DescribeAnalysisCommandInput,
+  type DescribeAnalysisCommandOutput,
   DescribeAnalysisCommand,
-  DescribeAnalysisCommandInput,
-  DescribeAnalysisCommandOutput,
 } from "./commands/DescribeAnalysisCommand";
 import {
+  type DescribeAnalysisDefinitionCommandInput,
+  type DescribeAnalysisDefinitionCommandOutput,
   DescribeAnalysisDefinitionCommand,
-  DescribeAnalysisDefinitionCommandInput,
-  DescribeAnalysisDefinitionCommandOutput,
 } from "./commands/DescribeAnalysisDefinitionCommand";
 import {
+  type DescribeAnalysisPermissionsCommandInput,
+  type DescribeAnalysisPermissionsCommandOutput,
   DescribeAnalysisPermissionsCommand,
-  DescribeAnalysisPermissionsCommandInput,
-  DescribeAnalysisPermissionsCommandOutput,
 } from "./commands/DescribeAnalysisPermissionsCommand";
 import {
+  type DescribeAssetBundleExportJobCommandInput,
+  type DescribeAssetBundleExportJobCommandOutput,
   DescribeAssetBundleExportJobCommand,
-  DescribeAssetBundleExportJobCommandInput,
-  DescribeAssetBundleExportJobCommandOutput,
 } from "./commands/DescribeAssetBundleExportJobCommand";
 import {
+  type DescribeAssetBundleImportJobCommandInput,
+  type DescribeAssetBundleImportJobCommandOutput,
   DescribeAssetBundleImportJobCommand,
-  DescribeAssetBundleImportJobCommandInput,
-  DescribeAssetBundleImportJobCommandOutput,
 } from "./commands/DescribeAssetBundleImportJobCommand";
 import {
+  type DescribeBrandAssignmentCommandInput,
+  type DescribeBrandAssignmentCommandOutput,
   DescribeBrandAssignmentCommand,
-  DescribeBrandAssignmentCommandInput,
-  DescribeBrandAssignmentCommandOutput,
 } from "./commands/DescribeBrandAssignmentCommand";
 import {
+  type DescribeBrandCommandInput,
+  type DescribeBrandCommandOutput,
   DescribeBrandCommand,
-  DescribeBrandCommandInput,
-  DescribeBrandCommandOutput,
 } from "./commands/DescribeBrandCommand";
 import {
+  type DescribeBrandPublishedVersionCommandInput,
+  type DescribeBrandPublishedVersionCommandOutput,
   DescribeBrandPublishedVersionCommand,
-  DescribeBrandPublishedVersionCommandInput,
-  DescribeBrandPublishedVersionCommandOutput,
 } from "./commands/DescribeBrandPublishedVersionCommand";
 import {
+  type DescribeCustomPermissionsCommandInput,
+  type DescribeCustomPermissionsCommandOutput,
   DescribeCustomPermissionsCommand,
-  DescribeCustomPermissionsCommandInput,
-  DescribeCustomPermissionsCommandOutput,
 } from "./commands/DescribeCustomPermissionsCommand";
 import {
+  type DescribeDashboardCommandInput,
+  type DescribeDashboardCommandOutput,
   DescribeDashboardCommand,
-  DescribeDashboardCommandInput,
-  DescribeDashboardCommandOutput,
 } from "./commands/DescribeDashboardCommand";
 import {
+  type DescribeDashboardDefinitionCommandInput,
+  type DescribeDashboardDefinitionCommandOutput,
   DescribeDashboardDefinitionCommand,
-  DescribeDashboardDefinitionCommandInput,
-  DescribeDashboardDefinitionCommandOutput,
 } from "./commands/DescribeDashboardDefinitionCommand";
 import {
+  type DescribeDashboardPermissionsCommandInput,
+  type DescribeDashboardPermissionsCommandOutput,
   DescribeDashboardPermissionsCommand,
-  DescribeDashboardPermissionsCommandInput,
-  DescribeDashboardPermissionsCommandOutput,
 } from "./commands/DescribeDashboardPermissionsCommand";
 import {
+  type DescribeDashboardSnapshotJobCommandInput,
+  type DescribeDashboardSnapshotJobCommandOutput,
   DescribeDashboardSnapshotJobCommand,
-  DescribeDashboardSnapshotJobCommandInput,
-  DescribeDashboardSnapshotJobCommandOutput,
 } from "./commands/DescribeDashboardSnapshotJobCommand";
 import {
+  type DescribeDashboardSnapshotJobResultCommandInput,
+  type DescribeDashboardSnapshotJobResultCommandOutput,
   DescribeDashboardSnapshotJobResultCommand,
-  DescribeDashboardSnapshotJobResultCommandInput,
-  DescribeDashboardSnapshotJobResultCommandOutput,
 } from "./commands/DescribeDashboardSnapshotJobResultCommand";
 import {
+  type DescribeDashboardsQAConfigurationCommandInput,
+  type DescribeDashboardsQAConfigurationCommandOutput,
   DescribeDashboardsQAConfigurationCommand,
-  DescribeDashboardsQAConfigurationCommandInput,
-  DescribeDashboardsQAConfigurationCommandOutput,
 } from "./commands/DescribeDashboardsQAConfigurationCommand";
 import {
+  type DescribeDataSetCommandInput,
+  type DescribeDataSetCommandOutput,
   DescribeDataSetCommand,
-  DescribeDataSetCommandInput,
-  DescribeDataSetCommandOutput,
 } from "./commands/DescribeDataSetCommand";
 import {
+  type DescribeDataSetPermissionsCommandInput,
+  type DescribeDataSetPermissionsCommandOutput,
   DescribeDataSetPermissionsCommand,
-  DescribeDataSetPermissionsCommandInput,
-  DescribeDataSetPermissionsCommandOutput,
 } from "./commands/DescribeDataSetPermissionsCommand";
 import {
+  type DescribeDataSetRefreshPropertiesCommandInput,
+  type DescribeDataSetRefreshPropertiesCommandOutput,
   DescribeDataSetRefreshPropertiesCommand,
-  DescribeDataSetRefreshPropertiesCommandInput,
-  DescribeDataSetRefreshPropertiesCommandOutput,
 } from "./commands/DescribeDataSetRefreshPropertiesCommand";
 import {
+  type DescribeDataSourceCommandInput,
+  type DescribeDataSourceCommandOutput,
   DescribeDataSourceCommand,
-  DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput,
 } from "./commands/DescribeDataSourceCommand";
 import {
+  type DescribeDataSourcePermissionsCommandInput,
+  type DescribeDataSourcePermissionsCommandOutput,
   DescribeDataSourcePermissionsCommand,
-  DescribeDataSourcePermissionsCommandInput,
-  DescribeDataSourcePermissionsCommandOutput,
 } from "./commands/DescribeDataSourcePermissionsCommand";
 import {
+  type DescribeDefaultQBusinessApplicationCommandInput,
+  type DescribeDefaultQBusinessApplicationCommandOutput,
   DescribeDefaultQBusinessApplicationCommand,
-  DescribeDefaultQBusinessApplicationCommandInput,
-  DescribeDefaultQBusinessApplicationCommandOutput,
 } from "./commands/DescribeDefaultQBusinessApplicationCommand";
 import {
+  type DescribeFolderCommandInput,
+  type DescribeFolderCommandOutput,
   DescribeFolderCommand,
-  DescribeFolderCommandInput,
-  DescribeFolderCommandOutput,
 } from "./commands/DescribeFolderCommand";
 import {
+  type DescribeFolderPermissionsCommandInput,
+  type DescribeFolderPermissionsCommandOutput,
   DescribeFolderPermissionsCommand,
-  DescribeFolderPermissionsCommandInput,
-  DescribeFolderPermissionsCommandOutput,
 } from "./commands/DescribeFolderPermissionsCommand";
 import {
+  type DescribeFolderResolvedPermissionsCommandInput,
+  type DescribeFolderResolvedPermissionsCommandOutput,
   DescribeFolderResolvedPermissionsCommand,
-  DescribeFolderResolvedPermissionsCommandInput,
-  DescribeFolderResolvedPermissionsCommandOutput,
 } from "./commands/DescribeFolderResolvedPermissionsCommand";
 import {
+  type DescribeGroupCommandInput,
+  type DescribeGroupCommandOutput,
   DescribeGroupCommand,
-  DescribeGroupCommandInput,
-  DescribeGroupCommandOutput,
 } from "./commands/DescribeGroupCommand";
 import {
+  type DescribeGroupMembershipCommandInput,
+  type DescribeGroupMembershipCommandOutput,
   DescribeGroupMembershipCommand,
-  DescribeGroupMembershipCommandInput,
-  DescribeGroupMembershipCommandOutput,
 } from "./commands/DescribeGroupMembershipCommand";
 import {
+  type DescribeIAMPolicyAssignmentCommandInput,
+  type DescribeIAMPolicyAssignmentCommandOutput,
   DescribeIAMPolicyAssignmentCommand,
-  DescribeIAMPolicyAssignmentCommandInput,
-  DescribeIAMPolicyAssignmentCommandOutput,
 } from "./commands/DescribeIAMPolicyAssignmentCommand";
 import {
+  type DescribeIngestionCommandInput,
+  type DescribeIngestionCommandOutput,
   DescribeIngestionCommand,
-  DescribeIngestionCommandInput,
-  DescribeIngestionCommandOutput,
 } from "./commands/DescribeIngestionCommand";
 import {
+  type DescribeIpRestrictionCommandInput,
+  type DescribeIpRestrictionCommandOutput,
   DescribeIpRestrictionCommand,
-  DescribeIpRestrictionCommandInput,
-  DescribeIpRestrictionCommandOutput,
 } from "./commands/DescribeIpRestrictionCommand";
 import {
+  type DescribeKeyRegistrationCommandInput,
+  type DescribeKeyRegistrationCommandOutput,
   DescribeKeyRegistrationCommand,
-  DescribeKeyRegistrationCommandInput,
-  DescribeKeyRegistrationCommandOutput,
 } from "./commands/DescribeKeyRegistrationCommand";
 import {
+  type DescribeNamespaceCommandInput,
+  type DescribeNamespaceCommandOutput,
   DescribeNamespaceCommand,
-  DescribeNamespaceCommandInput,
-  DescribeNamespaceCommandOutput,
 } from "./commands/DescribeNamespaceCommand";
 import {
+  type DescribeQPersonalizationConfigurationCommandInput,
+  type DescribeQPersonalizationConfigurationCommandOutput,
   DescribeQPersonalizationConfigurationCommand,
-  DescribeQPersonalizationConfigurationCommandInput,
-  DescribeQPersonalizationConfigurationCommandOutput,
 } from "./commands/DescribeQPersonalizationConfigurationCommand";
 import {
+  type DescribeQuickSightQSearchConfigurationCommandInput,
+  type DescribeQuickSightQSearchConfigurationCommandOutput,
   DescribeQuickSightQSearchConfigurationCommand,
-  DescribeQuickSightQSearchConfigurationCommandInput,
-  DescribeQuickSightQSearchConfigurationCommandOutput,
 } from "./commands/DescribeQuickSightQSearchConfigurationCommand";
 import {
+  type DescribeRefreshScheduleCommandInput,
+  type DescribeRefreshScheduleCommandOutput,
   DescribeRefreshScheduleCommand,
-  DescribeRefreshScheduleCommandInput,
-  DescribeRefreshScheduleCommandOutput,
 } from "./commands/DescribeRefreshScheduleCommand";
 import {
+  type DescribeRoleCustomPermissionCommandInput,
+  type DescribeRoleCustomPermissionCommandOutput,
   DescribeRoleCustomPermissionCommand,
-  DescribeRoleCustomPermissionCommandInput,
-  DescribeRoleCustomPermissionCommandOutput,
 } from "./commands/DescribeRoleCustomPermissionCommand";
 import {
+  type DescribeSelfUpgradeConfigurationCommandInput,
+  type DescribeSelfUpgradeConfigurationCommandOutput,
   DescribeSelfUpgradeConfigurationCommand,
-  DescribeSelfUpgradeConfigurationCommandInput,
-  DescribeSelfUpgradeConfigurationCommandOutput,
 } from "./commands/DescribeSelfUpgradeConfigurationCommand";
 import {
+  type DescribeTemplateAliasCommandInput,
+  type DescribeTemplateAliasCommandOutput,
   DescribeTemplateAliasCommand,
-  DescribeTemplateAliasCommandInput,
-  DescribeTemplateAliasCommandOutput,
 } from "./commands/DescribeTemplateAliasCommand";
 import {
+  type DescribeTemplateCommandInput,
+  type DescribeTemplateCommandOutput,
   DescribeTemplateCommand,
-  DescribeTemplateCommandInput,
-  DescribeTemplateCommandOutput,
 } from "./commands/DescribeTemplateCommand";
 import {
+  type DescribeTemplateDefinitionCommandInput,
+  type DescribeTemplateDefinitionCommandOutput,
   DescribeTemplateDefinitionCommand,
-  DescribeTemplateDefinitionCommandInput,
-  DescribeTemplateDefinitionCommandOutput,
 } from "./commands/DescribeTemplateDefinitionCommand";
 import {
+  type DescribeTemplatePermissionsCommandInput,
+  type DescribeTemplatePermissionsCommandOutput,
   DescribeTemplatePermissionsCommand,
-  DescribeTemplatePermissionsCommandInput,
-  DescribeTemplatePermissionsCommandOutput,
 } from "./commands/DescribeTemplatePermissionsCommand";
 import {
+  type DescribeThemeAliasCommandInput,
+  type DescribeThemeAliasCommandOutput,
   DescribeThemeAliasCommand,
-  DescribeThemeAliasCommandInput,
-  DescribeThemeAliasCommandOutput,
 } from "./commands/DescribeThemeAliasCommand";
 import {
+  type DescribeThemeCommandInput,
+  type DescribeThemeCommandOutput,
   DescribeThemeCommand,
-  DescribeThemeCommandInput,
-  DescribeThemeCommandOutput,
 } from "./commands/DescribeThemeCommand";
 import {
+  type DescribeThemePermissionsCommandInput,
+  type DescribeThemePermissionsCommandOutput,
   DescribeThemePermissionsCommand,
-  DescribeThemePermissionsCommandInput,
-  DescribeThemePermissionsCommandOutput,
 } from "./commands/DescribeThemePermissionsCommand";
 import {
+  type DescribeTopicCommandInput,
+  type DescribeTopicCommandOutput,
   DescribeTopicCommand,
-  DescribeTopicCommandInput,
-  DescribeTopicCommandOutput,
 } from "./commands/DescribeTopicCommand";
 import {
+  type DescribeTopicPermissionsCommandInput,
+  type DescribeTopicPermissionsCommandOutput,
   DescribeTopicPermissionsCommand,
-  DescribeTopicPermissionsCommandInput,
-  DescribeTopicPermissionsCommandOutput,
 } from "./commands/DescribeTopicPermissionsCommand";
 import {
+  type DescribeTopicRefreshCommandInput,
+  type DescribeTopicRefreshCommandOutput,
   DescribeTopicRefreshCommand,
-  DescribeTopicRefreshCommandInput,
-  DescribeTopicRefreshCommandOutput,
 } from "./commands/DescribeTopicRefreshCommand";
 import {
+  type DescribeTopicRefreshScheduleCommandInput,
+  type DescribeTopicRefreshScheduleCommandOutput,
   DescribeTopicRefreshScheduleCommand,
-  DescribeTopicRefreshScheduleCommandInput,
-  DescribeTopicRefreshScheduleCommandOutput,
 } from "./commands/DescribeTopicRefreshScheduleCommand";
 import {
+  type DescribeUserCommandInput,
+  type DescribeUserCommandOutput,
   DescribeUserCommand,
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput,
 } from "./commands/DescribeUserCommand";
 import {
+  type DescribeVPCConnectionCommandInput,
+  type DescribeVPCConnectionCommandOutput,
   DescribeVPCConnectionCommand,
-  DescribeVPCConnectionCommandInput,
-  DescribeVPCConnectionCommandOutput,
 } from "./commands/DescribeVPCConnectionCommand";
 import {
+  type GenerateEmbedUrlForAnonymousUserCommandInput,
+  type GenerateEmbedUrlForAnonymousUserCommandOutput,
   GenerateEmbedUrlForAnonymousUserCommand,
-  GenerateEmbedUrlForAnonymousUserCommandInput,
-  GenerateEmbedUrlForAnonymousUserCommandOutput,
 } from "./commands/GenerateEmbedUrlForAnonymousUserCommand";
 import {
+  type GenerateEmbedUrlForRegisteredUserCommandInput,
+  type GenerateEmbedUrlForRegisteredUserCommandOutput,
   GenerateEmbedUrlForRegisteredUserCommand,
-  GenerateEmbedUrlForRegisteredUserCommandInput,
-  GenerateEmbedUrlForRegisteredUserCommandOutput,
 } from "./commands/GenerateEmbedUrlForRegisteredUserCommand";
 import {
+  type GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
+  type GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput,
   GenerateEmbedUrlForRegisteredUserWithIdentityCommand,
-  GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
-  GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput,
 } from "./commands/GenerateEmbedUrlForRegisteredUserWithIdentityCommand";
 import {
+  type GetDashboardEmbedUrlCommandInput,
+  type GetDashboardEmbedUrlCommandOutput,
   GetDashboardEmbedUrlCommand,
-  GetDashboardEmbedUrlCommandInput,
-  GetDashboardEmbedUrlCommandOutput,
 } from "./commands/GetDashboardEmbedUrlCommand";
 import {
+  type GetFlowMetadataCommandInput,
+  type GetFlowMetadataCommandOutput,
   GetFlowMetadataCommand,
-  GetFlowMetadataCommandInput,
-  GetFlowMetadataCommandOutput,
 } from "./commands/GetFlowMetadataCommand";
 import {
+  type GetFlowPermissionsCommandInput,
+  type GetFlowPermissionsCommandOutput,
   GetFlowPermissionsCommand,
-  GetFlowPermissionsCommandInput,
-  GetFlowPermissionsCommandOutput,
 } from "./commands/GetFlowPermissionsCommand";
 import {
+  type GetIdentityContextCommandInput,
+  type GetIdentityContextCommandOutput,
   GetIdentityContextCommand,
-  GetIdentityContextCommandInput,
-  GetIdentityContextCommandOutput,
 } from "./commands/GetIdentityContextCommand";
 import {
+  type GetSessionEmbedUrlCommandInput,
+  type GetSessionEmbedUrlCommandOutput,
   GetSessionEmbedUrlCommand,
-  GetSessionEmbedUrlCommandInput,
-  GetSessionEmbedUrlCommandOutput,
 } from "./commands/GetSessionEmbedUrlCommand";
 import {
+  type ListActionConnectorsCommandInput,
+  type ListActionConnectorsCommandOutput,
   ListActionConnectorsCommand,
-  ListActionConnectorsCommandInput,
-  ListActionConnectorsCommandOutput,
 } from "./commands/ListActionConnectorsCommand";
 import {
+  type ListAnalysesCommandInput,
+  type ListAnalysesCommandOutput,
   ListAnalysesCommand,
-  ListAnalysesCommandInput,
-  ListAnalysesCommandOutput,
 } from "./commands/ListAnalysesCommand";
 import {
+  type ListAssetBundleExportJobsCommandInput,
+  type ListAssetBundleExportJobsCommandOutput,
   ListAssetBundleExportJobsCommand,
-  ListAssetBundleExportJobsCommandInput,
-  ListAssetBundleExportJobsCommandOutput,
 } from "./commands/ListAssetBundleExportJobsCommand";
 import {
+  type ListAssetBundleImportJobsCommandInput,
+  type ListAssetBundleImportJobsCommandOutput,
   ListAssetBundleImportJobsCommand,
-  ListAssetBundleImportJobsCommandInput,
-  ListAssetBundleImportJobsCommandOutput,
 } from "./commands/ListAssetBundleImportJobsCommand";
-import { ListBrandsCommand, ListBrandsCommandInput, ListBrandsCommandOutput } from "./commands/ListBrandsCommand";
 import {
+  type ListBrandsCommandInput,
+  type ListBrandsCommandOutput,
+  ListBrandsCommand,
+} from "./commands/ListBrandsCommand";
+import {
+  type ListCustomPermissionsCommandInput,
+  type ListCustomPermissionsCommandOutput,
   ListCustomPermissionsCommand,
-  ListCustomPermissionsCommandInput,
-  ListCustomPermissionsCommandOutput,
 } from "./commands/ListCustomPermissionsCommand";
 import {
+  type ListDashboardsCommandInput,
+  type ListDashboardsCommandOutput,
   ListDashboardsCommand,
-  ListDashboardsCommandInput,
-  ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
 import {
+  type ListDashboardVersionsCommandInput,
+  type ListDashboardVersionsCommandOutput,
   ListDashboardVersionsCommand,
-  ListDashboardVersionsCommandInput,
-  ListDashboardVersionsCommandOutput,
 } from "./commands/ListDashboardVersionsCommand";
 import {
+  type ListDataSetsCommandInput,
+  type ListDataSetsCommandOutput,
   ListDataSetsCommand,
-  ListDataSetsCommandInput,
-  ListDataSetsCommandOutput,
 } from "./commands/ListDataSetsCommand";
 import {
+  type ListDataSourcesCommandInput,
+  type ListDataSourcesCommandOutput,
   ListDataSourcesCommand,
-  ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
-import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
+import { type ListFlowsCommandInput, type ListFlowsCommandOutput, ListFlowsCommand } from "./commands/ListFlowsCommand";
 import {
+  type ListFolderMembersCommandInput,
+  type ListFolderMembersCommandOutput,
   ListFolderMembersCommand,
-  ListFolderMembersCommandInput,
-  ListFolderMembersCommandOutput,
 } from "./commands/ListFolderMembersCommand";
-import { ListFoldersCommand, ListFoldersCommandInput, ListFoldersCommandOutput } from "./commands/ListFoldersCommand";
 import {
+  type ListFoldersCommandInput,
+  type ListFoldersCommandOutput,
+  ListFoldersCommand,
+} from "./commands/ListFoldersCommand";
+import {
+  type ListFoldersForResourceCommandInput,
+  type ListFoldersForResourceCommandOutput,
   ListFoldersForResourceCommand,
-  ListFoldersForResourceCommandInput,
-  ListFoldersForResourceCommandOutput,
 } from "./commands/ListFoldersForResourceCommand";
 import {
+  type ListGroupMembershipsCommandInput,
+  type ListGroupMembershipsCommandOutput,
   ListGroupMembershipsCommand,
-  ListGroupMembershipsCommandInput,
-  ListGroupMembershipsCommandOutput,
 } from "./commands/ListGroupMembershipsCommand";
-import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
+  type ListGroupsCommandInput,
+  type ListGroupsCommandOutput,
+  ListGroupsCommand,
+} from "./commands/ListGroupsCommand";
+import {
+  type ListIAMPolicyAssignmentsCommandInput,
+  type ListIAMPolicyAssignmentsCommandOutput,
   ListIAMPolicyAssignmentsCommand,
-  ListIAMPolicyAssignmentsCommandInput,
-  ListIAMPolicyAssignmentsCommandOutput,
 } from "./commands/ListIAMPolicyAssignmentsCommand";
 import {
+  type ListIAMPolicyAssignmentsForUserCommandInput,
+  type ListIAMPolicyAssignmentsForUserCommandOutput,
   ListIAMPolicyAssignmentsForUserCommand,
-  ListIAMPolicyAssignmentsForUserCommandInput,
-  ListIAMPolicyAssignmentsForUserCommandOutput,
 } from "./commands/ListIAMPolicyAssignmentsForUserCommand";
 import {
+  type ListIdentityPropagationConfigsCommandInput,
+  type ListIdentityPropagationConfigsCommandOutput,
   ListIdentityPropagationConfigsCommand,
-  ListIdentityPropagationConfigsCommandInput,
-  ListIdentityPropagationConfigsCommandOutput,
 } from "./commands/ListIdentityPropagationConfigsCommand";
 import {
+  type ListIngestionsCommandInput,
+  type ListIngestionsCommandOutput,
   ListIngestionsCommand,
-  ListIngestionsCommandInput,
-  ListIngestionsCommandOutput,
 } from "./commands/ListIngestionsCommand";
 import {
+  type ListNamespacesCommandInput,
+  type ListNamespacesCommandOutput,
   ListNamespacesCommand,
-  ListNamespacesCommandInput,
-  ListNamespacesCommandOutput,
 } from "./commands/ListNamespacesCommand";
 import {
+  type ListRefreshSchedulesCommandInput,
+  type ListRefreshSchedulesCommandOutput,
   ListRefreshSchedulesCommand,
-  ListRefreshSchedulesCommandInput,
-  ListRefreshSchedulesCommandOutput,
 } from "./commands/ListRefreshSchedulesCommand";
 import {
+  type ListRoleMembershipsCommandInput,
+  type ListRoleMembershipsCommandOutput,
   ListRoleMembershipsCommand,
-  ListRoleMembershipsCommandInput,
-  ListRoleMembershipsCommandOutput,
 } from "./commands/ListRoleMembershipsCommand";
 import {
+  type ListSelfUpgradesCommandInput,
+  type ListSelfUpgradesCommandOutput,
   ListSelfUpgradesCommand,
-  ListSelfUpgradesCommandInput,
-  ListSelfUpgradesCommandOutput,
 } from "./commands/ListSelfUpgradesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTemplateAliasesCommandInput,
+  type ListTemplateAliasesCommandOutput,
   ListTemplateAliasesCommand,
-  ListTemplateAliasesCommandInput,
-  ListTemplateAliasesCommandOutput,
 } from "./commands/ListTemplateAliasesCommand";
 import {
+  type ListTemplatesCommandInput,
+  type ListTemplatesCommandOutput,
   ListTemplatesCommand,
-  ListTemplatesCommandInput,
-  ListTemplatesCommandOutput,
 } from "./commands/ListTemplatesCommand";
 import {
+  type ListTemplateVersionsCommandInput,
+  type ListTemplateVersionsCommandOutput,
   ListTemplateVersionsCommand,
-  ListTemplateVersionsCommandInput,
-  ListTemplateVersionsCommandOutput,
 } from "./commands/ListTemplateVersionsCommand";
 import {
+  type ListThemeAliasesCommandInput,
+  type ListThemeAliasesCommandOutput,
   ListThemeAliasesCommand,
-  ListThemeAliasesCommandInput,
-  ListThemeAliasesCommandOutput,
 } from "./commands/ListThemeAliasesCommand";
-import { ListThemesCommand, ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
 import {
+  type ListThemesCommandInput,
+  type ListThemesCommandOutput,
+  ListThemesCommand,
+} from "./commands/ListThemesCommand";
+import {
+  type ListThemeVersionsCommandInput,
+  type ListThemeVersionsCommandOutput,
   ListThemeVersionsCommand,
-  ListThemeVersionsCommandInput,
-  ListThemeVersionsCommandOutput,
 } from "./commands/ListThemeVersionsCommand";
 import {
+  type ListTopicRefreshSchedulesCommandInput,
+  type ListTopicRefreshSchedulesCommandOutput,
   ListTopicRefreshSchedulesCommand,
-  ListTopicRefreshSchedulesCommandInput,
-  ListTopicRefreshSchedulesCommandOutput,
 } from "./commands/ListTopicRefreshSchedulesCommand";
 import {
+  type ListTopicReviewedAnswersCommandInput,
+  type ListTopicReviewedAnswersCommandOutput,
   ListTopicReviewedAnswersCommand,
-  ListTopicReviewedAnswersCommandInput,
-  ListTopicReviewedAnswersCommandOutput,
 } from "./commands/ListTopicReviewedAnswersCommand";
-import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import {
+  type ListTopicsCommandInput,
+  type ListTopicsCommandOutput,
+  ListTopicsCommand,
+} from "./commands/ListTopicsCommand";
+import {
+  type ListUserGroupsCommandInput,
+  type ListUserGroupsCommandOutput,
   ListUserGroupsCommand,
-  ListUserGroupsCommandInput,
-  ListUserGroupsCommandOutput,
 } from "./commands/ListUserGroupsCommand";
-import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
 import {
+  type ListVPCConnectionsCommandInput,
+  type ListVPCConnectionsCommandOutput,
   ListVPCConnectionsCommand,
-  ListVPCConnectionsCommandInput,
-  ListVPCConnectionsCommandOutput,
 } from "./commands/ListVPCConnectionsCommand";
 import {
+  type PredictQAResultsCommandInput,
+  type PredictQAResultsCommandOutput,
   PredictQAResultsCommand,
-  PredictQAResultsCommandInput,
-  PredictQAResultsCommandOutput,
 } from "./commands/PredictQAResultsCommand";
 import {
+  type PutDataSetRefreshPropertiesCommandInput,
+  type PutDataSetRefreshPropertiesCommandOutput,
   PutDataSetRefreshPropertiesCommand,
-  PutDataSetRefreshPropertiesCommandInput,
-  PutDataSetRefreshPropertiesCommandOutput,
 } from "./commands/PutDataSetRefreshPropertiesCommand";
 import {
+  type RegisterUserCommandInput,
+  type RegisterUserCommandOutput,
   RegisterUserCommand,
-  RegisterUserCommandInput,
-  RegisterUserCommandOutput,
 } from "./commands/RegisterUserCommand";
 import {
+  type RestoreAnalysisCommandInput,
+  type RestoreAnalysisCommandOutput,
   RestoreAnalysisCommand,
-  RestoreAnalysisCommandInput,
-  RestoreAnalysisCommandOutput,
 } from "./commands/RestoreAnalysisCommand";
 import {
+  type SearchActionConnectorsCommandInput,
+  type SearchActionConnectorsCommandOutput,
   SearchActionConnectorsCommand,
-  SearchActionConnectorsCommandInput,
-  SearchActionConnectorsCommandOutput,
 } from "./commands/SearchActionConnectorsCommand";
 import {
+  type SearchAnalysesCommandInput,
+  type SearchAnalysesCommandOutput,
   SearchAnalysesCommand,
-  SearchAnalysesCommandInput,
-  SearchAnalysesCommandOutput,
 } from "./commands/SearchAnalysesCommand";
 import {
+  type SearchDashboardsCommandInput,
+  type SearchDashboardsCommandOutput,
   SearchDashboardsCommand,
-  SearchDashboardsCommandInput,
-  SearchDashboardsCommandOutput,
 } from "./commands/SearchDashboardsCommand";
 import {
+  type SearchDataSetsCommandInput,
+  type SearchDataSetsCommandOutput,
   SearchDataSetsCommand,
-  SearchDataSetsCommandInput,
-  SearchDataSetsCommandOutput,
 } from "./commands/SearchDataSetsCommand";
 import {
+  type SearchDataSourcesCommandInput,
+  type SearchDataSourcesCommandOutput,
   SearchDataSourcesCommand,
-  SearchDataSourcesCommandInput,
-  SearchDataSourcesCommandOutput,
 } from "./commands/SearchDataSourcesCommand";
-import { SearchFlowsCommand, SearchFlowsCommandInput, SearchFlowsCommandOutput } from "./commands/SearchFlowsCommand";
 import {
+  type SearchFlowsCommandInput,
+  type SearchFlowsCommandOutput,
+  SearchFlowsCommand,
+} from "./commands/SearchFlowsCommand";
+import {
+  type SearchFoldersCommandInput,
+  type SearchFoldersCommandOutput,
   SearchFoldersCommand,
-  SearchFoldersCommandInput,
-  SearchFoldersCommandOutput,
 } from "./commands/SearchFoldersCommand";
 import {
+  type SearchGroupsCommandInput,
+  type SearchGroupsCommandOutput,
   SearchGroupsCommand,
-  SearchGroupsCommandInput,
-  SearchGroupsCommandOutput,
 } from "./commands/SearchGroupsCommand";
 import {
+  type SearchTopicsCommandInput,
+  type SearchTopicsCommandOutput,
   SearchTopicsCommand,
-  SearchTopicsCommandInput,
-  SearchTopicsCommandOutput,
 } from "./commands/SearchTopicsCommand";
 import {
+  type StartAssetBundleExportJobCommandInput,
+  type StartAssetBundleExportJobCommandOutput,
   StartAssetBundleExportJobCommand,
-  StartAssetBundleExportJobCommandInput,
-  StartAssetBundleExportJobCommandOutput,
 } from "./commands/StartAssetBundleExportJobCommand";
 import {
+  type StartAssetBundleImportJobCommandInput,
+  type StartAssetBundleImportJobCommandOutput,
   StartAssetBundleImportJobCommand,
-  StartAssetBundleImportJobCommandInput,
-  StartAssetBundleImportJobCommandOutput,
 } from "./commands/StartAssetBundleImportJobCommand";
 import {
+  type StartDashboardSnapshotJobCommandInput,
+  type StartDashboardSnapshotJobCommandOutput,
   StartDashboardSnapshotJobCommand,
-  StartDashboardSnapshotJobCommandInput,
-  StartDashboardSnapshotJobCommandOutput,
 } from "./commands/StartDashboardSnapshotJobCommand";
 import {
+  type StartDashboardSnapshotJobScheduleCommandInput,
+  type StartDashboardSnapshotJobScheduleCommandOutput,
   StartDashboardSnapshotJobScheduleCommand,
-  StartDashboardSnapshotJobScheduleCommandInput,
-  StartDashboardSnapshotJobScheduleCommandOutput,
 } from "./commands/StartDashboardSnapshotJobScheduleCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccountCustomizationCommandInput,
+  type UpdateAccountCustomizationCommandOutput,
   UpdateAccountCustomizationCommand,
-  UpdateAccountCustomizationCommandInput,
-  UpdateAccountCustomizationCommandOutput,
 } from "./commands/UpdateAccountCustomizationCommand";
 import {
+  type UpdateAccountCustomPermissionCommandInput,
+  type UpdateAccountCustomPermissionCommandOutput,
   UpdateAccountCustomPermissionCommand,
-  UpdateAccountCustomPermissionCommandInput,
-  UpdateAccountCustomPermissionCommandOutput,
 } from "./commands/UpdateAccountCustomPermissionCommand";
 import {
+  type UpdateAccountSettingsCommandInput,
+  type UpdateAccountSettingsCommandOutput,
   UpdateAccountSettingsCommand,
-  UpdateAccountSettingsCommandInput,
-  UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
 import {
+  type UpdateActionConnectorCommandInput,
+  type UpdateActionConnectorCommandOutput,
   UpdateActionConnectorCommand,
-  UpdateActionConnectorCommandInput,
-  UpdateActionConnectorCommandOutput,
 } from "./commands/UpdateActionConnectorCommand";
 import {
+  type UpdateActionConnectorPermissionsCommandInput,
+  type UpdateActionConnectorPermissionsCommandOutput,
   UpdateActionConnectorPermissionsCommand,
-  UpdateActionConnectorPermissionsCommandInput,
-  UpdateActionConnectorPermissionsCommandOutput,
 } from "./commands/UpdateActionConnectorPermissionsCommand";
 import {
+  type UpdateAnalysisCommandInput,
+  type UpdateAnalysisCommandOutput,
   UpdateAnalysisCommand,
-  UpdateAnalysisCommandInput,
-  UpdateAnalysisCommandOutput,
 } from "./commands/UpdateAnalysisCommand";
 import {
+  type UpdateAnalysisPermissionsCommandInput,
+  type UpdateAnalysisPermissionsCommandOutput,
   UpdateAnalysisPermissionsCommand,
-  UpdateAnalysisPermissionsCommandInput,
-  UpdateAnalysisPermissionsCommandOutput,
 } from "./commands/UpdateAnalysisPermissionsCommand";
 import {
+  type UpdateApplicationWithTokenExchangeGrantCommandInput,
+  type UpdateApplicationWithTokenExchangeGrantCommandOutput,
   UpdateApplicationWithTokenExchangeGrantCommand,
-  UpdateApplicationWithTokenExchangeGrantCommandInput,
-  UpdateApplicationWithTokenExchangeGrantCommandOutput,
 } from "./commands/UpdateApplicationWithTokenExchangeGrantCommand";
 import {
+  type UpdateBrandAssignmentCommandInput,
+  type UpdateBrandAssignmentCommandOutput,
   UpdateBrandAssignmentCommand,
-  UpdateBrandAssignmentCommandInput,
-  UpdateBrandAssignmentCommandOutput,
 } from "./commands/UpdateBrandAssignmentCommand";
-import { UpdateBrandCommand, UpdateBrandCommandInput, UpdateBrandCommandOutput } from "./commands/UpdateBrandCommand";
 import {
+  type UpdateBrandCommandInput,
+  type UpdateBrandCommandOutput,
+  UpdateBrandCommand,
+} from "./commands/UpdateBrandCommand";
+import {
+  type UpdateBrandPublishedVersionCommandInput,
+  type UpdateBrandPublishedVersionCommandOutput,
   UpdateBrandPublishedVersionCommand,
-  UpdateBrandPublishedVersionCommandInput,
-  UpdateBrandPublishedVersionCommandOutput,
 } from "./commands/UpdateBrandPublishedVersionCommand";
 import {
+  type UpdateCustomPermissionsCommandInput,
+  type UpdateCustomPermissionsCommandOutput,
   UpdateCustomPermissionsCommand,
-  UpdateCustomPermissionsCommandInput,
-  UpdateCustomPermissionsCommandOutput,
 } from "./commands/UpdateCustomPermissionsCommand";
 import {
+  type UpdateDashboardCommandInput,
+  type UpdateDashboardCommandOutput,
   UpdateDashboardCommand,
-  UpdateDashboardCommandInput,
-  UpdateDashboardCommandOutput,
 } from "./commands/UpdateDashboardCommand";
 import {
+  type UpdateDashboardLinksCommandInput,
+  type UpdateDashboardLinksCommandOutput,
   UpdateDashboardLinksCommand,
-  UpdateDashboardLinksCommandInput,
-  UpdateDashboardLinksCommandOutput,
 } from "./commands/UpdateDashboardLinksCommand";
 import {
+  type UpdateDashboardPermissionsCommandInput,
+  type UpdateDashboardPermissionsCommandOutput,
   UpdateDashboardPermissionsCommand,
-  UpdateDashboardPermissionsCommandInput,
-  UpdateDashboardPermissionsCommandOutput,
 } from "./commands/UpdateDashboardPermissionsCommand";
 import {
+  type UpdateDashboardPublishedVersionCommandInput,
+  type UpdateDashboardPublishedVersionCommandOutput,
   UpdateDashboardPublishedVersionCommand,
-  UpdateDashboardPublishedVersionCommandInput,
-  UpdateDashboardPublishedVersionCommandOutput,
 } from "./commands/UpdateDashboardPublishedVersionCommand";
 import {
+  type UpdateDashboardsQAConfigurationCommandInput,
+  type UpdateDashboardsQAConfigurationCommandOutput,
   UpdateDashboardsQAConfigurationCommand,
-  UpdateDashboardsQAConfigurationCommandInput,
-  UpdateDashboardsQAConfigurationCommandOutput,
 } from "./commands/UpdateDashboardsQAConfigurationCommand";
 import {
+  type UpdateDataSetCommandInput,
+  type UpdateDataSetCommandOutput,
   UpdateDataSetCommand,
-  UpdateDataSetCommandInput,
-  UpdateDataSetCommandOutput,
 } from "./commands/UpdateDataSetCommand";
 import {
+  type UpdateDataSetPermissionsCommandInput,
+  type UpdateDataSetPermissionsCommandOutput,
   UpdateDataSetPermissionsCommand,
-  UpdateDataSetPermissionsCommandInput,
-  UpdateDataSetPermissionsCommandOutput,
 } from "./commands/UpdateDataSetPermissionsCommand";
 import {
+  type UpdateDataSourceCommandInput,
+  type UpdateDataSourceCommandOutput,
   UpdateDataSourceCommand,
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import {
+  type UpdateDataSourcePermissionsCommandInput,
+  type UpdateDataSourcePermissionsCommandOutput,
   UpdateDataSourcePermissionsCommand,
-  UpdateDataSourcePermissionsCommandInput,
-  UpdateDataSourcePermissionsCommandOutput,
 } from "./commands/UpdateDataSourcePermissionsCommand";
 import {
+  type UpdateDefaultQBusinessApplicationCommandInput,
+  type UpdateDefaultQBusinessApplicationCommandOutput,
   UpdateDefaultQBusinessApplicationCommand,
-  UpdateDefaultQBusinessApplicationCommandInput,
-  UpdateDefaultQBusinessApplicationCommandOutput,
 } from "./commands/UpdateDefaultQBusinessApplicationCommand";
 import {
+  type UpdateFlowPermissionsCommandInput,
+  type UpdateFlowPermissionsCommandOutput,
   UpdateFlowPermissionsCommand,
-  UpdateFlowPermissionsCommandInput,
-  UpdateFlowPermissionsCommandOutput,
 } from "./commands/UpdateFlowPermissionsCommand";
 import {
+  type UpdateFolderCommandInput,
+  type UpdateFolderCommandOutput,
   UpdateFolderCommand,
-  UpdateFolderCommandInput,
-  UpdateFolderCommandOutput,
 } from "./commands/UpdateFolderCommand";
 import {
+  type UpdateFolderPermissionsCommandInput,
+  type UpdateFolderPermissionsCommandOutput,
   UpdateFolderPermissionsCommand,
-  UpdateFolderPermissionsCommandInput,
-  UpdateFolderPermissionsCommandOutput,
 } from "./commands/UpdateFolderPermissionsCommand";
-import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
+  type UpdateGroupCommandInput,
+  type UpdateGroupCommandOutput,
+  UpdateGroupCommand,
+} from "./commands/UpdateGroupCommand";
+import {
+  type UpdateIAMPolicyAssignmentCommandInput,
+  type UpdateIAMPolicyAssignmentCommandOutput,
   UpdateIAMPolicyAssignmentCommand,
-  UpdateIAMPolicyAssignmentCommandInput,
-  UpdateIAMPolicyAssignmentCommandOutput,
 } from "./commands/UpdateIAMPolicyAssignmentCommand";
 import {
+  type UpdateIdentityPropagationConfigCommandInput,
+  type UpdateIdentityPropagationConfigCommandOutput,
   UpdateIdentityPropagationConfigCommand,
-  UpdateIdentityPropagationConfigCommandInput,
-  UpdateIdentityPropagationConfigCommandOutput,
 } from "./commands/UpdateIdentityPropagationConfigCommand";
 import {
+  type UpdateIpRestrictionCommandInput,
+  type UpdateIpRestrictionCommandOutput,
   UpdateIpRestrictionCommand,
-  UpdateIpRestrictionCommandInput,
-  UpdateIpRestrictionCommandOutput,
 } from "./commands/UpdateIpRestrictionCommand";
 import {
+  type UpdateKeyRegistrationCommandInput,
+  type UpdateKeyRegistrationCommandOutput,
   UpdateKeyRegistrationCommand,
-  UpdateKeyRegistrationCommandInput,
-  UpdateKeyRegistrationCommandOutput,
 } from "./commands/UpdateKeyRegistrationCommand";
 import {
+  type UpdatePublicSharingSettingsCommandInput,
+  type UpdatePublicSharingSettingsCommandOutput,
   UpdatePublicSharingSettingsCommand,
-  UpdatePublicSharingSettingsCommandInput,
-  UpdatePublicSharingSettingsCommandOutput,
 } from "./commands/UpdatePublicSharingSettingsCommand";
 import {
+  type UpdateQPersonalizationConfigurationCommandInput,
+  type UpdateQPersonalizationConfigurationCommandOutput,
   UpdateQPersonalizationConfigurationCommand,
-  UpdateQPersonalizationConfigurationCommandInput,
-  UpdateQPersonalizationConfigurationCommandOutput,
 } from "./commands/UpdateQPersonalizationConfigurationCommand";
 import {
+  type UpdateQuickSightQSearchConfigurationCommandInput,
+  type UpdateQuickSightQSearchConfigurationCommandOutput,
   UpdateQuickSightQSearchConfigurationCommand,
-  UpdateQuickSightQSearchConfigurationCommandInput,
-  UpdateQuickSightQSearchConfigurationCommandOutput,
 } from "./commands/UpdateQuickSightQSearchConfigurationCommand";
 import {
+  type UpdateRefreshScheduleCommandInput,
+  type UpdateRefreshScheduleCommandOutput,
   UpdateRefreshScheduleCommand,
-  UpdateRefreshScheduleCommandInput,
-  UpdateRefreshScheduleCommandOutput,
 } from "./commands/UpdateRefreshScheduleCommand";
 import {
+  type UpdateRoleCustomPermissionCommandInput,
+  type UpdateRoleCustomPermissionCommandOutput,
   UpdateRoleCustomPermissionCommand,
-  UpdateRoleCustomPermissionCommandInput,
-  UpdateRoleCustomPermissionCommandOutput,
 } from "./commands/UpdateRoleCustomPermissionCommand";
 import {
+  type UpdateSelfUpgradeCommandInput,
+  type UpdateSelfUpgradeCommandOutput,
   UpdateSelfUpgradeCommand,
-  UpdateSelfUpgradeCommandInput,
-  UpdateSelfUpgradeCommandOutput,
 } from "./commands/UpdateSelfUpgradeCommand";
 import {
+  type UpdateSelfUpgradeConfigurationCommandInput,
+  type UpdateSelfUpgradeConfigurationCommandOutput,
   UpdateSelfUpgradeConfigurationCommand,
-  UpdateSelfUpgradeConfigurationCommandInput,
-  UpdateSelfUpgradeConfigurationCommandOutput,
 } from "./commands/UpdateSelfUpgradeConfigurationCommand";
 import {
+  type UpdateSPICECapacityConfigurationCommandInput,
+  type UpdateSPICECapacityConfigurationCommandOutput,
   UpdateSPICECapacityConfigurationCommand,
-  UpdateSPICECapacityConfigurationCommandInput,
-  UpdateSPICECapacityConfigurationCommandOutput,
 } from "./commands/UpdateSPICECapacityConfigurationCommand";
 import {
+  type UpdateTemplateAliasCommandInput,
+  type UpdateTemplateAliasCommandOutput,
   UpdateTemplateAliasCommand,
-  UpdateTemplateAliasCommandInput,
-  UpdateTemplateAliasCommandOutput,
 } from "./commands/UpdateTemplateAliasCommand";
 import {
+  type UpdateTemplateCommandInput,
+  type UpdateTemplateCommandOutput,
   UpdateTemplateCommand,
-  UpdateTemplateCommandInput,
-  UpdateTemplateCommandOutput,
 } from "./commands/UpdateTemplateCommand";
 import {
+  type UpdateTemplatePermissionsCommandInput,
+  type UpdateTemplatePermissionsCommandOutput,
   UpdateTemplatePermissionsCommand,
-  UpdateTemplatePermissionsCommandInput,
-  UpdateTemplatePermissionsCommandOutput,
 } from "./commands/UpdateTemplatePermissionsCommand";
 import {
+  type UpdateThemeAliasCommandInput,
+  type UpdateThemeAliasCommandOutput,
   UpdateThemeAliasCommand,
-  UpdateThemeAliasCommandInput,
-  UpdateThemeAliasCommandOutput,
 } from "./commands/UpdateThemeAliasCommand";
-import { UpdateThemeCommand, UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
 import {
+  type UpdateThemeCommandInput,
+  type UpdateThemeCommandOutput,
+  UpdateThemeCommand,
+} from "./commands/UpdateThemeCommand";
+import {
+  type UpdateThemePermissionsCommandInput,
+  type UpdateThemePermissionsCommandOutput,
   UpdateThemePermissionsCommand,
-  UpdateThemePermissionsCommandInput,
-  UpdateThemePermissionsCommandOutput,
 } from "./commands/UpdateThemePermissionsCommand";
-import { UpdateTopicCommand, UpdateTopicCommandInput, UpdateTopicCommandOutput } from "./commands/UpdateTopicCommand";
 import {
+  type UpdateTopicCommandInput,
+  type UpdateTopicCommandOutput,
+  UpdateTopicCommand,
+} from "./commands/UpdateTopicCommand";
+import {
+  type UpdateTopicPermissionsCommandInput,
+  type UpdateTopicPermissionsCommandOutput,
   UpdateTopicPermissionsCommand,
-  UpdateTopicPermissionsCommandInput,
-  UpdateTopicPermissionsCommandOutput,
 } from "./commands/UpdateTopicPermissionsCommand";
 import {
+  type UpdateTopicRefreshScheduleCommandInput,
+  type UpdateTopicRefreshScheduleCommandOutput,
   UpdateTopicRefreshScheduleCommand,
-  UpdateTopicRefreshScheduleCommandInput,
-  UpdateTopicRefreshScheduleCommandOutput,
 } from "./commands/UpdateTopicRefreshScheduleCommand";
-import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
+  type UpdateUserCommandInput,
+  type UpdateUserCommandOutput,
+  UpdateUserCommand,
+} from "./commands/UpdateUserCommand";
+import {
+  type UpdateUserCustomPermissionCommandInput,
+  type UpdateUserCustomPermissionCommandOutput,
   UpdateUserCustomPermissionCommand,
-  UpdateUserCustomPermissionCommandInput,
-  UpdateUserCustomPermissionCommandOutput,
 } from "./commands/UpdateUserCustomPermissionCommand";
 import {
+  type UpdateVPCConnectionCommandInput,
+  type UpdateVPCConnectionCommandOutput,
   UpdateVPCConnectionCommand,
-  UpdateVPCConnectionCommandInput,
-  UpdateVPCConnectionCommandOutput,
 } from "./commands/UpdateVPCConnectionCommand";
 import { paginateDescribeFolderPermissions } from "./pagination/DescribeFolderPermissionsPaginator";
 import { paginateDescribeFolderResolvedPermissions } from "./pagination/DescribeFolderResolvedPermissionsPaginator";

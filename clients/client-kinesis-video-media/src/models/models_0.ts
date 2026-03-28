@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { StreamingBlobTypes } from "@smithy/types";
+import type { StreamingBlobTypes } from "@smithy/types";
 
-import { StartSelectorType } from "./enums";
+import type { StartSelectorType } from "./enums";
 
 /**
  * <p>Identifies the chunk on the Kinesis video stream where you want the

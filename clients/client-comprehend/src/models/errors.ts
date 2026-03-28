@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ComprehendServiceException as __BaseException } from "./ComprehendServiceException";
-import { InvalidRequestReason } from "./enums";
+import type { InvalidRequestReason } from "./enums";
 import type { InvalidRequestDetail } from "./models_0";
 
 /**

@@ -8,7 +8,7 @@ import {
   ListStreamSessionsByAccountCommandOutput,
 } from "../commands/ListStreamSessionsByAccountCommand";
 import { GameLiftStreamsClient } from "../GameLiftStreamsClient";
-import { GameLiftStreamsPaginationConfiguration } from "./Interfaces";
+import type { GameLiftStreamsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

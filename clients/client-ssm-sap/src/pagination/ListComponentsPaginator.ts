@@ -8,7 +8,7 @@ import {
   ListComponentsCommandOutput,
 } from "../commands/ListComponentsCommand";
 import { SsmSapClient } from "../SsmSapClient";
-import { SsmSapPaginationConfiguration } from "./Interfaces";
+import type { SsmSapPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

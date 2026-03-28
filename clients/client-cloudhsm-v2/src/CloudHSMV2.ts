@@ -4,78 +4,82 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CloudHSMV2Client } from "./CloudHSMV2Client";
 import {
+  type CopyBackupToRegionCommandInput,
+  type CopyBackupToRegionCommandOutput,
   CopyBackupToRegionCommand,
-  CopyBackupToRegionCommandInput,
-  CopyBackupToRegionCommandOutput,
 } from "./commands/CopyBackupToRegionCommand";
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
-import { CreateHsmCommand, CreateHsmCommandInput, CreateHsmCommandOutput } from "./commands/CreateHsmCommand";
+import { type CreateHsmCommandInput, type CreateHsmCommandOutput, CreateHsmCommand } from "./commands/CreateHsmCommand";
 import {
+  type DeleteBackupCommandInput,
+  type DeleteBackupCommandOutput,
   DeleteBackupCommand,
-  DeleteBackupCommandInput,
-  DeleteBackupCommandOutput,
 } from "./commands/DeleteBackupCommand";
 import {
+  type DeleteClusterCommandInput,
+  type DeleteClusterCommandOutput,
   DeleteClusterCommand,
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
-import { DeleteHsmCommand, DeleteHsmCommandInput, DeleteHsmCommandOutput } from "./commands/DeleteHsmCommand";
+import { type DeleteHsmCommandInput, type DeleteHsmCommandOutput, DeleteHsmCommand } from "./commands/DeleteHsmCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DescribeBackupsCommandInput,
+  type DescribeBackupsCommandOutput,
   DescribeBackupsCommand,
-  DescribeBackupsCommandInput,
-  DescribeBackupsCommandOutput,
 } from "./commands/DescribeBackupsCommand";
 import {
+  type DescribeClustersCommandInput,
+  type DescribeClustersCommandOutput,
   DescribeClustersCommand,
-  DescribeClustersCommandInput,
-  DescribeClustersCommandOutput,
 } from "./commands/DescribeClustersCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type InitializeClusterCommandInput,
+  type InitializeClusterCommandOutput,
   InitializeClusterCommand,
-  InitializeClusterCommandInput,
-  InitializeClusterCommandOutput,
 } from "./commands/InitializeClusterCommand";
-import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { type ListTagsCommandInput, type ListTagsCommandOutput, ListTagsCommand } from "./commands/ListTagsCommand";
 import {
+  type ModifyBackupAttributesCommandInput,
+  type ModifyBackupAttributesCommandOutput,
   ModifyBackupAttributesCommand,
-  ModifyBackupAttributesCommandInput,
-  ModifyBackupAttributesCommandOutput,
 } from "./commands/ModifyBackupAttributesCommand";
 import {
+  type ModifyClusterCommandInput,
+  type ModifyClusterCommandOutput,
   ModifyClusterCommand,
-  ModifyClusterCommandInput,
-  ModifyClusterCommandOutput,
 } from "./commands/ModifyClusterCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RestoreBackupCommandInput,
+  type RestoreBackupCommandOutput,
   RestoreBackupCommand,
-  RestoreBackupCommandInput,
-  RestoreBackupCommandOutput,
 } from "./commands/RestoreBackupCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateDescribeBackups } from "./pagination/DescribeBackupsPaginator";
 import { paginateDescribeClusters } from "./pagination/DescribeClustersPaginator";

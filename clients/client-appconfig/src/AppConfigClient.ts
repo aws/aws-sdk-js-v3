@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,121 +61,142 @@ import {
   defaultAppConfigHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import {
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type {
   CreateConfigurationProfileCommandInput,
   CreateConfigurationProfileCommandOutput,
 } from "./commands/CreateConfigurationProfileCommand";
-import {
+import type {
   CreateDeploymentStrategyCommandInput,
   CreateDeploymentStrategyCommandOutput,
 } from "./commands/CreateDeploymentStrategyCommand";
-import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
-import {
+import type {
+  CreateEnvironmentCommandInput,
+  CreateEnvironmentCommandOutput,
+} from "./commands/CreateEnvironmentCommand";
+import type {
   CreateExtensionAssociationCommandInput,
   CreateExtensionAssociationCommandOutput,
 } from "./commands/CreateExtensionAssociationCommand";
-import { CreateExtensionCommandInput, CreateExtensionCommandOutput } from "./commands/CreateExtensionCommand";
-import {
+import type { CreateExtensionCommandInput, CreateExtensionCommandOutput } from "./commands/CreateExtensionCommand";
+import type {
   CreateHostedConfigurationVersionCommandInput,
   CreateHostedConfigurationVersionCommandOutput,
 } from "./commands/CreateHostedConfigurationVersionCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import {
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type {
   DeleteConfigurationProfileCommandInput,
   DeleteConfigurationProfileCommandOutput,
 } from "./commands/DeleteConfigurationProfileCommand";
-import {
+import type {
   DeleteDeploymentStrategyCommandInput,
   DeleteDeploymentStrategyCommandOutput,
 } from "./commands/DeleteDeploymentStrategyCommand";
-import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
-import {
+import type {
+  DeleteEnvironmentCommandInput,
+  DeleteEnvironmentCommandOutput,
+} from "./commands/DeleteEnvironmentCommand";
+import type {
   DeleteExtensionAssociationCommandInput,
   DeleteExtensionAssociationCommandOutput,
 } from "./commands/DeleteExtensionAssociationCommand";
-import { DeleteExtensionCommandInput, DeleteExtensionCommandOutput } from "./commands/DeleteExtensionCommand";
-import {
+import type { DeleteExtensionCommandInput, DeleteExtensionCommandOutput } from "./commands/DeleteExtensionCommand";
+import type {
   DeleteHostedConfigurationVersionCommandInput,
   DeleteHostedConfigurationVersionCommandOutput,
 } from "./commands/DeleteHostedConfigurationVersionCommand";
-import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
-import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
-import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
-import {
+import type {
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput,
+} from "./commands/GetAccountSettingsCommand";
+import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import type { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
+import type {
   GetConfigurationProfileCommandInput,
   GetConfigurationProfileCommandOutput,
 } from "./commands/GetConfigurationProfileCommand";
-import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
-import {
+import type { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
+import type {
   GetDeploymentStrategyCommandInput,
   GetDeploymentStrategyCommandOutput,
 } from "./commands/GetDeploymentStrategyCommand";
-import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
-import {
+import type { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
+import type {
   GetExtensionAssociationCommandInput,
   GetExtensionAssociationCommandOutput,
 } from "./commands/GetExtensionAssociationCommand";
-import { GetExtensionCommandInput, GetExtensionCommandOutput } from "./commands/GetExtensionCommand";
-import {
+import type { GetExtensionCommandInput, GetExtensionCommandOutput } from "./commands/GetExtensionCommand";
+import type {
   GetHostedConfigurationVersionCommandInput,
   GetHostedConfigurationVersionCommandOutput,
 } from "./commands/GetHostedConfigurationVersionCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import {
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type {
   ListConfigurationProfilesCommandInput,
   ListConfigurationProfilesCommandOutput,
 } from "./commands/ListConfigurationProfilesCommand";
-import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
-import {
+import type { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
+import type {
   ListDeploymentStrategiesCommandInput,
   ListDeploymentStrategiesCommandOutput,
 } from "./commands/ListDeploymentStrategiesCommand";
-import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
-import {
+import type { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import type {
   ListExtensionAssociationsCommandInput,
   ListExtensionAssociationsCommandOutput,
 } from "./commands/ListExtensionAssociationsCommand";
-import { ListExtensionsCommandInput, ListExtensionsCommandOutput } from "./commands/ListExtensionsCommand";
-import {
+import type { ListExtensionsCommandInput, ListExtensionsCommandOutput } from "./commands/ListExtensionsCommand";
+import type {
   ListHostedConfigurationVersionsCommandInput,
   ListHostedConfigurationVersionsCommandOutput,
 } from "./commands/ListHostedConfigurationVersionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand";
-import { StopDeploymentCommandInput, StopDeploymentCommandOutput } from "./commands/StopDeploymentCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand";
+import type { StopDeploymentCommandInput, StopDeploymentCommandOutput } from "./commands/StopDeploymentCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import {
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type {
   UpdateConfigurationProfileCommandInput,
   UpdateConfigurationProfileCommandOutput,
 } from "./commands/UpdateConfigurationProfileCommand";
-import {
+import type {
   UpdateDeploymentStrategyCommandInput,
   UpdateDeploymentStrategyCommandOutput,
 } from "./commands/UpdateDeploymentStrategyCommand";
-import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
-import {
+import type {
+  UpdateEnvironmentCommandInput,
+  UpdateEnvironmentCommandOutput,
+} from "./commands/UpdateEnvironmentCommand";
+import type {
   UpdateExtensionAssociationCommandInput,
   UpdateExtensionAssociationCommandOutput,
 } from "./commands/UpdateExtensionAssociationCommand";
-import { UpdateExtensionCommandInput, UpdateExtensionCommandOutput } from "./commands/UpdateExtensionCommand";
-import {
+import type { UpdateExtensionCommandInput, UpdateExtensionCommandOutput } from "./commands/UpdateExtensionCommand";
+import type {
   ValidateConfigurationCommandInput,
   ValidateConfigurationCommandOutput,
 } from "./commands/ValidateConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -399,7 +418,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

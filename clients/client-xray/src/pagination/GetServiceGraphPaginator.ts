@@ -8,7 +8,7 @@ import {
   GetServiceGraphCommandOutput,
 } from "../commands/GetServiceGraphCommand";
 import { XRayClient } from "../XRayClient";
-import { XRayPaginationConfiguration } from "./Interfaces";
+import type { XRayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

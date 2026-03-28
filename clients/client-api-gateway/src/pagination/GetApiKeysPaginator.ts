@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { APIGatewayClient } from "../APIGatewayClient";
 import { GetApiKeysCommand, GetApiKeysCommandInput, GetApiKeysCommandOutput } from "../commands/GetApiKeysCommand";
-import { APIGatewayPaginationConfiguration } from "./Interfaces";
+import type { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

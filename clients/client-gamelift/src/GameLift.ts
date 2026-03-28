@@ -2,540 +2,600 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { AcceptMatchCommand, AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/AcceptMatchCommand";
 import {
+  type AcceptMatchCommandInput,
+  type AcceptMatchCommandOutput,
+  AcceptMatchCommand,
+} from "./commands/AcceptMatchCommand";
+import {
+  type ClaimGameServerCommandInput,
+  type ClaimGameServerCommandOutput,
   ClaimGameServerCommand,
-  ClaimGameServerCommandInput,
-  ClaimGameServerCommandOutput,
 } from "./commands/ClaimGameServerCommand";
-import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
-import { CreateBuildCommand, CreateBuildCommandInput, CreateBuildCommandOutput } from "./commands/CreateBuildCommand";
 import {
+  type CreateAliasCommandInput,
+  type CreateAliasCommandOutput,
+  CreateAliasCommand,
+} from "./commands/CreateAliasCommand";
+import {
+  type CreateBuildCommandInput,
+  type CreateBuildCommandOutput,
+  CreateBuildCommand,
+} from "./commands/CreateBuildCommand";
+import {
+  type CreateContainerFleetCommandInput,
+  type CreateContainerFleetCommandOutput,
   CreateContainerFleetCommand,
-  CreateContainerFleetCommandInput,
-  CreateContainerFleetCommandOutput,
 } from "./commands/CreateContainerFleetCommand";
 import {
+  type CreateContainerGroupDefinitionCommandInput,
+  type CreateContainerGroupDefinitionCommandOutput,
   CreateContainerGroupDefinitionCommand,
-  CreateContainerGroupDefinitionCommandInput,
-  CreateContainerGroupDefinitionCommandOutput,
 } from "./commands/CreateContainerGroupDefinitionCommand";
-import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
+  type CreateFleetCommandInput,
+  type CreateFleetCommandOutput,
+  CreateFleetCommand,
+} from "./commands/CreateFleetCommand";
+import {
+  type CreateFleetLocationsCommandInput,
+  type CreateFleetLocationsCommandOutput,
   CreateFleetLocationsCommand,
-  CreateFleetLocationsCommandInput,
-  CreateFleetLocationsCommandOutput,
 } from "./commands/CreateFleetLocationsCommand";
 import {
+  type CreateGameServerGroupCommandInput,
+  type CreateGameServerGroupCommandOutput,
   CreateGameServerGroupCommand,
-  CreateGameServerGroupCommandInput,
-  CreateGameServerGroupCommandOutput,
 } from "./commands/CreateGameServerGroupCommand";
 import {
+  type CreateGameSessionCommandInput,
+  type CreateGameSessionCommandOutput,
   CreateGameSessionCommand,
-  CreateGameSessionCommandInput,
-  CreateGameSessionCommandOutput,
 } from "./commands/CreateGameSessionCommand";
 import {
+  type CreateGameSessionQueueCommandInput,
+  type CreateGameSessionQueueCommandOutput,
   CreateGameSessionQueueCommand,
-  CreateGameSessionQueueCommandInput,
-  CreateGameSessionQueueCommandOutput,
 } from "./commands/CreateGameSessionQueueCommand";
 import {
+  type CreateLocationCommandInput,
+  type CreateLocationCommandOutput,
   CreateLocationCommand,
-  CreateLocationCommandInput,
-  CreateLocationCommandOutput,
 } from "./commands/CreateLocationCommand";
 import {
+  type CreateMatchmakingConfigurationCommandInput,
+  type CreateMatchmakingConfigurationCommandOutput,
   CreateMatchmakingConfigurationCommand,
-  CreateMatchmakingConfigurationCommandInput,
-  CreateMatchmakingConfigurationCommandOutput,
 } from "./commands/CreateMatchmakingConfigurationCommand";
 import {
+  type CreateMatchmakingRuleSetCommandInput,
+  type CreateMatchmakingRuleSetCommandOutput,
   CreateMatchmakingRuleSetCommand,
-  CreateMatchmakingRuleSetCommandInput,
-  CreateMatchmakingRuleSetCommandOutput,
 } from "./commands/CreateMatchmakingRuleSetCommand";
 import {
+  type CreatePlayerSessionCommandInput,
+  type CreatePlayerSessionCommandOutput,
   CreatePlayerSessionCommand,
-  CreatePlayerSessionCommandInput,
-  CreatePlayerSessionCommandOutput,
 } from "./commands/CreatePlayerSessionCommand";
 import {
+  type CreatePlayerSessionsCommandInput,
+  type CreatePlayerSessionsCommandOutput,
   CreatePlayerSessionsCommand,
-  CreatePlayerSessionsCommandInput,
-  CreatePlayerSessionsCommandOutput,
 } from "./commands/CreatePlayerSessionsCommand";
 import {
+  type CreateScriptCommandInput,
+  type CreateScriptCommandOutput,
   CreateScriptCommand,
-  CreateScriptCommandInput,
-  CreateScriptCommandOutput,
 } from "./commands/CreateScriptCommand";
 import {
+  type CreateVpcPeeringAuthorizationCommandInput,
+  type CreateVpcPeeringAuthorizationCommandOutput,
   CreateVpcPeeringAuthorizationCommand,
-  CreateVpcPeeringAuthorizationCommandInput,
-  CreateVpcPeeringAuthorizationCommandOutput,
 } from "./commands/CreateVpcPeeringAuthorizationCommand";
 import {
+  type CreateVpcPeeringConnectionCommandInput,
+  type CreateVpcPeeringConnectionCommandOutput,
   CreateVpcPeeringConnectionCommand,
-  CreateVpcPeeringConnectionCommandInput,
-  CreateVpcPeeringConnectionCommandOutput,
 } from "./commands/CreateVpcPeeringConnectionCommand";
-import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
-import { DeleteBuildCommand, DeleteBuildCommandInput, DeleteBuildCommandOutput } from "./commands/DeleteBuildCommand";
 import {
+  type DeleteAliasCommandInput,
+  type DeleteAliasCommandOutput,
+  DeleteAliasCommand,
+} from "./commands/DeleteAliasCommand";
+import {
+  type DeleteBuildCommandInput,
+  type DeleteBuildCommandOutput,
+  DeleteBuildCommand,
+} from "./commands/DeleteBuildCommand";
+import {
+  type DeleteContainerFleetCommandInput,
+  type DeleteContainerFleetCommandOutput,
   DeleteContainerFleetCommand,
-  DeleteContainerFleetCommandInput,
-  DeleteContainerFleetCommandOutput,
 } from "./commands/DeleteContainerFleetCommand";
 import {
+  type DeleteContainerGroupDefinitionCommandInput,
+  type DeleteContainerGroupDefinitionCommandOutput,
   DeleteContainerGroupDefinitionCommand,
-  DeleteContainerGroupDefinitionCommandInput,
-  DeleteContainerGroupDefinitionCommandOutput,
 } from "./commands/DeleteContainerGroupDefinitionCommand";
-import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
+  type DeleteFleetCommandInput,
+  type DeleteFleetCommandOutput,
+  DeleteFleetCommand,
+} from "./commands/DeleteFleetCommand";
+import {
+  type DeleteFleetLocationsCommandInput,
+  type DeleteFleetLocationsCommandOutput,
   DeleteFleetLocationsCommand,
-  DeleteFleetLocationsCommandInput,
-  DeleteFleetLocationsCommandOutput,
 } from "./commands/DeleteFleetLocationsCommand";
 import {
+  type DeleteGameServerGroupCommandInput,
+  type DeleteGameServerGroupCommandOutput,
   DeleteGameServerGroupCommand,
-  DeleteGameServerGroupCommandInput,
-  DeleteGameServerGroupCommandOutput,
 } from "./commands/DeleteGameServerGroupCommand";
 import {
+  type DeleteGameSessionQueueCommandInput,
+  type DeleteGameSessionQueueCommandOutput,
   DeleteGameSessionQueueCommand,
-  DeleteGameSessionQueueCommandInput,
-  DeleteGameSessionQueueCommandOutput,
 } from "./commands/DeleteGameSessionQueueCommand";
 import {
+  type DeleteLocationCommandInput,
+  type DeleteLocationCommandOutput,
   DeleteLocationCommand,
-  DeleteLocationCommandInput,
-  DeleteLocationCommandOutput,
 } from "./commands/DeleteLocationCommand";
 import {
+  type DeleteMatchmakingConfigurationCommandInput,
+  type DeleteMatchmakingConfigurationCommandOutput,
   DeleteMatchmakingConfigurationCommand,
-  DeleteMatchmakingConfigurationCommandInput,
-  DeleteMatchmakingConfigurationCommandOutput,
 } from "./commands/DeleteMatchmakingConfigurationCommand";
 import {
+  type DeleteMatchmakingRuleSetCommandInput,
+  type DeleteMatchmakingRuleSetCommandOutput,
   DeleteMatchmakingRuleSetCommand,
-  DeleteMatchmakingRuleSetCommandInput,
-  DeleteMatchmakingRuleSetCommandOutput,
 } from "./commands/DeleteMatchmakingRuleSetCommand";
 import {
+  type DeleteScalingPolicyCommandInput,
+  type DeleteScalingPolicyCommandOutput,
   DeleteScalingPolicyCommand,
-  DeleteScalingPolicyCommandInput,
-  DeleteScalingPolicyCommandOutput,
 } from "./commands/DeleteScalingPolicyCommand";
 import {
+  type DeleteScriptCommandInput,
+  type DeleteScriptCommandOutput,
   DeleteScriptCommand,
-  DeleteScriptCommandInput,
-  DeleteScriptCommandOutput,
 } from "./commands/DeleteScriptCommand";
 import {
+  type DeleteVpcPeeringAuthorizationCommandInput,
+  type DeleteVpcPeeringAuthorizationCommandOutput,
   DeleteVpcPeeringAuthorizationCommand,
-  DeleteVpcPeeringAuthorizationCommandInput,
-  DeleteVpcPeeringAuthorizationCommandOutput,
 } from "./commands/DeleteVpcPeeringAuthorizationCommand";
 import {
+  type DeleteVpcPeeringConnectionCommandInput,
+  type DeleteVpcPeeringConnectionCommandOutput,
   DeleteVpcPeeringConnectionCommand,
-  DeleteVpcPeeringConnectionCommandInput,
-  DeleteVpcPeeringConnectionCommandOutput,
 } from "./commands/DeleteVpcPeeringConnectionCommand";
 import {
+  type DeregisterComputeCommandInput,
+  type DeregisterComputeCommandOutput,
   DeregisterComputeCommand,
-  DeregisterComputeCommandInput,
-  DeregisterComputeCommandOutput,
 } from "./commands/DeregisterComputeCommand";
 import {
+  type DeregisterGameServerCommandInput,
+  type DeregisterGameServerCommandOutput,
   DeregisterGameServerCommand,
-  DeregisterGameServerCommandInput,
-  DeregisterGameServerCommandOutput,
 } from "./commands/DeregisterGameServerCommand";
 import {
+  type DescribeAliasCommandInput,
+  type DescribeAliasCommandOutput,
   DescribeAliasCommand,
-  DescribeAliasCommandInput,
-  DescribeAliasCommandOutput,
 } from "./commands/DescribeAliasCommand";
 import {
+  type DescribeBuildCommandInput,
+  type DescribeBuildCommandOutput,
   DescribeBuildCommand,
-  DescribeBuildCommandInput,
-  DescribeBuildCommandOutput,
 } from "./commands/DescribeBuildCommand";
 import {
+  type DescribeComputeCommandInput,
+  type DescribeComputeCommandOutput,
   DescribeComputeCommand,
-  DescribeComputeCommandInput,
-  DescribeComputeCommandOutput,
 } from "./commands/DescribeComputeCommand";
 import {
+  type DescribeContainerFleetCommandInput,
+  type DescribeContainerFleetCommandOutput,
   DescribeContainerFleetCommand,
-  DescribeContainerFleetCommandInput,
-  DescribeContainerFleetCommandOutput,
 } from "./commands/DescribeContainerFleetCommand";
 import {
+  type DescribeContainerGroupDefinitionCommandInput,
+  type DescribeContainerGroupDefinitionCommandOutput,
   DescribeContainerGroupDefinitionCommand,
-  DescribeContainerGroupDefinitionCommandInput,
-  DescribeContainerGroupDefinitionCommandOutput,
 } from "./commands/DescribeContainerGroupDefinitionCommand";
 import {
+  type DescribeEC2InstanceLimitsCommandInput,
+  type DescribeEC2InstanceLimitsCommandOutput,
   DescribeEC2InstanceLimitsCommand,
-  DescribeEC2InstanceLimitsCommandInput,
-  DescribeEC2InstanceLimitsCommandOutput,
 } from "./commands/DescribeEC2InstanceLimitsCommand";
 import {
+  type DescribeFleetAttributesCommandInput,
+  type DescribeFleetAttributesCommandOutput,
   DescribeFleetAttributesCommand,
-  DescribeFleetAttributesCommandInput,
-  DescribeFleetAttributesCommandOutput,
 } from "./commands/DescribeFleetAttributesCommand";
 import {
+  type DescribeFleetCapacityCommandInput,
+  type DescribeFleetCapacityCommandOutput,
   DescribeFleetCapacityCommand,
-  DescribeFleetCapacityCommandInput,
-  DescribeFleetCapacityCommandOutput,
 } from "./commands/DescribeFleetCapacityCommand";
 import {
+  type DescribeFleetDeploymentCommandInput,
+  type DescribeFleetDeploymentCommandOutput,
   DescribeFleetDeploymentCommand,
-  DescribeFleetDeploymentCommandInput,
-  DescribeFleetDeploymentCommandOutput,
 } from "./commands/DescribeFleetDeploymentCommand";
 import {
+  type DescribeFleetEventsCommandInput,
+  type DescribeFleetEventsCommandOutput,
   DescribeFleetEventsCommand,
-  DescribeFleetEventsCommandInput,
-  DescribeFleetEventsCommandOutput,
 } from "./commands/DescribeFleetEventsCommand";
 import {
+  type DescribeFleetLocationAttributesCommandInput,
+  type DescribeFleetLocationAttributesCommandOutput,
   DescribeFleetLocationAttributesCommand,
-  DescribeFleetLocationAttributesCommandInput,
-  DescribeFleetLocationAttributesCommandOutput,
 } from "./commands/DescribeFleetLocationAttributesCommand";
 import {
+  type DescribeFleetLocationCapacityCommandInput,
+  type DescribeFleetLocationCapacityCommandOutput,
   DescribeFleetLocationCapacityCommand,
-  DescribeFleetLocationCapacityCommandInput,
-  DescribeFleetLocationCapacityCommandOutput,
 } from "./commands/DescribeFleetLocationCapacityCommand";
 import {
+  type DescribeFleetLocationUtilizationCommandInput,
+  type DescribeFleetLocationUtilizationCommandOutput,
   DescribeFleetLocationUtilizationCommand,
-  DescribeFleetLocationUtilizationCommandInput,
-  DescribeFleetLocationUtilizationCommandOutput,
 } from "./commands/DescribeFleetLocationUtilizationCommand";
 import {
+  type DescribeFleetPortSettingsCommandInput,
+  type DescribeFleetPortSettingsCommandOutput,
   DescribeFleetPortSettingsCommand,
-  DescribeFleetPortSettingsCommandInput,
-  DescribeFleetPortSettingsCommandOutput,
 } from "./commands/DescribeFleetPortSettingsCommand";
 import {
+  type DescribeFleetUtilizationCommandInput,
+  type DescribeFleetUtilizationCommandOutput,
   DescribeFleetUtilizationCommand,
-  DescribeFleetUtilizationCommandInput,
-  DescribeFleetUtilizationCommandOutput,
 } from "./commands/DescribeFleetUtilizationCommand";
 import {
+  type DescribeGameServerCommandInput,
+  type DescribeGameServerCommandOutput,
   DescribeGameServerCommand,
-  DescribeGameServerCommandInput,
-  DescribeGameServerCommandOutput,
 } from "./commands/DescribeGameServerCommand";
 import {
+  type DescribeGameServerGroupCommandInput,
+  type DescribeGameServerGroupCommandOutput,
   DescribeGameServerGroupCommand,
-  DescribeGameServerGroupCommandInput,
-  DescribeGameServerGroupCommandOutput,
 } from "./commands/DescribeGameServerGroupCommand";
 import {
+  type DescribeGameServerInstancesCommandInput,
+  type DescribeGameServerInstancesCommandOutput,
   DescribeGameServerInstancesCommand,
-  DescribeGameServerInstancesCommandInput,
-  DescribeGameServerInstancesCommandOutput,
 } from "./commands/DescribeGameServerInstancesCommand";
 import {
+  type DescribeGameSessionDetailsCommandInput,
+  type DescribeGameSessionDetailsCommandOutput,
   DescribeGameSessionDetailsCommand,
-  DescribeGameSessionDetailsCommandInput,
-  DescribeGameSessionDetailsCommandOutput,
 } from "./commands/DescribeGameSessionDetailsCommand";
 import {
+  type DescribeGameSessionPlacementCommandInput,
+  type DescribeGameSessionPlacementCommandOutput,
   DescribeGameSessionPlacementCommand,
-  DescribeGameSessionPlacementCommandInput,
-  DescribeGameSessionPlacementCommandOutput,
 } from "./commands/DescribeGameSessionPlacementCommand";
 import {
+  type DescribeGameSessionQueuesCommandInput,
+  type DescribeGameSessionQueuesCommandOutput,
   DescribeGameSessionQueuesCommand,
-  DescribeGameSessionQueuesCommandInput,
-  DescribeGameSessionQueuesCommandOutput,
 } from "./commands/DescribeGameSessionQueuesCommand";
 import {
+  type DescribeGameSessionsCommandInput,
+  type DescribeGameSessionsCommandOutput,
   DescribeGameSessionsCommand,
-  DescribeGameSessionsCommandInput,
-  DescribeGameSessionsCommandOutput,
 } from "./commands/DescribeGameSessionsCommand";
 import {
+  type DescribeInstancesCommandInput,
+  type DescribeInstancesCommandOutput,
   DescribeInstancesCommand,
-  DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput,
 } from "./commands/DescribeInstancesCommand";
 import {
+  type DescribeMatchmakingCommandInput,
+  type DescribeMatchmakingCommandOutput,
   DescribeMatchmakingCommand,
-  DescribeMatchmakingCommandInput,
-  DescribeMatchmakingCommandOutput,
 } from "./commands/DescribeMatchmakingCommand";
 import {
+  type DescribeMatchmakingConfigurationsCommandInput,
+  type DescribeMatchmakingConfigurationsCommandOutput,
   DescribeMatchmakingConfigurationsCommand,
-  DescribeMatchmakingConfigurationsCommandInput,
-  DescribeMatchmakingConfigurationsCommandOutput,
 } from "./commands/DescribeMatchmakingConfigurationsCommand";
 import {
+  type DescribeMatchmakingRuleSetsCommandInput,
+  type DescribeMatchmakingRuleSetsCommandOutput,
   DescribeMatchmakingRuleSetsCommand,
-  DescribeMatchmakingRuleSetsCommandInput,
-  DescribeMatchmakingRuleSetsCommandOutput,
 } from "./commands/DescribeMatchmakingRuleSetsCommand";
 import {
+  type DescribePlayerSessionsCommandInput,
+  type DescribePlayerSessionsCommandOutput,
   DescribePlayerSessionsCommand,
-  DescribePlayerSessionsCommandInput,
-  DescribePlayerSessionsCommandOutput,
 } from "./commands/DescribePlayerSessionsCommand";
 import {
+  type DescribeRuntimeConfigurationCommandInput,
+  type DescribeRuntimeConfigurationCommandOutput,
   DescribeRuntimeConfigurationCommand,
-  DescribeRuntimeConfigurationCommandInput,
-  DescribeRuntimeConfigurationCommandOutput,
 } from "./commands/DescribeRuntimeConfigurationCommand";
 import {
+  type DescribeScalingPoliciesCommandInput,
+  type DescribeScalingPoliciesCommandOutput,
   DescribeScalingPoliciesCommand,
-  DescribeScalingPoliciesCommandInput,
-  DescribeScalingPoliciesCommandOutput,
 } from "./commands/DescribeScalingPoliciesCommand";
 import {
+  type DescribeScriptCommandInput,
+  type DescribeScriptCommandOutput,
   DescribeScriptCommand,
-  DescribeScriptCommandInput,
-  DescribeScriptCommandOutput,
 } from "./commands/DescribeScriptCommand";
 import {
+  type DescribeVpcPeeringAuthorizationsCommandInput,
+  type DescribeVpcPeeringAuthorizationsCommandOutput,
   DescribeVpcPeeringAuthorizationsCommand,
-  DescribeVpcPeeringAuthorizationsCommandInput,
-  DescribeVpcPeeringAuthorizationsCommandOutput,
 } from "./commands/DescribeVpcPeeringAuthorizationsCommand";
 import {
+  type DescribeVpcPeeringConnectionsCommandInput,
+  type DescribeVpcPeeringConnectionsCommandOutput,
   DescribeVpcPeeringConnectionsCommand,
-  DescribeVpcPeeringConnectionsCommandInput,
-  DescribeVpcPeeringConnectionsCommandOutput,
 } from "./commands/DescribeVpcPeeringConnectionsCommand";
 import {
+  type GetComputeAccessCommandInput,
+  type GetComputeAccessCommandOutput,
   GetComputeAccessCommand,
-  GetComputeAccessCommandInput,
-  GetComputeAccessCommandOutput,
 } from "./commands/GetComputeAccessCommand";
 import {
+  type GetComputeAuthTokenCommandInput,
+  type GetComputeAuthTokenCommandOutput,
   GetComputeAuthTokenCommand,
-  GetComputeAuthTokenCommandInput,
-  GetComputeAuthTokenCommandOutput,
 } from "./commands/GetComputeAuthTokenCommand";
 import {
+  type GetGameSessionLogUrlCommandInput,
+  type GetGameSessionLogUrlCommandOutput,
   GetGameSessionLogUrlCommand,
-  GetGameSessionLogUrlCommandInput,
-  GetGameSessionLogUrlCommandOutput,
 } from "./commands/GetGameSessionLogUrlCommand";
 import {
+  type GetInstanceAccessCommandInput,
+  type GetInstanceAccessCommandOutput,
   GetInstanceAccessCommand,
-  GetInstanceAccessCommandInput,
-  GetInstanceAccessCommandOutput,
 } from "./commands/GetInstanceAccessCommand";
 import {
+  type GetPlayerConnectionDetailsCommandInput,
+  type GetPlayerConnectionDetailsCommandOutput,
   GetPlayerConnectionDetailsCommand,
-  GetPlayerConnectionDetailsCommandInput,
-  GetPlayerConnectionDetailsCommandOutput,
 } from "./commands/GetPlayerConnectionDetailsCommand";
-import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
-import { ListBuildsCommand, ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
-import { ListComputeCommand, ListComputeCommandInput, ListComputeCommandOutput } from "./commands/ListComputeCommand";
 import {
+  type ListAliasesCommandInput,
+  type ListAliasesCommandOutput,
+  ListAliasesCommand,
+} from "./commands/ListAliasesCommand";
+import {
+  type ListBuildsCommandInput,
+  type ListBuildsCommandOutput,
+  ListBuildsCommand,
+} from "./commands/ListBuildsCommand";
+import {
+  type ListComputeCommandInput,
+  type ListComputeCommandOutput,
+  ListComputeCommand,
+} from "./commands/ListComputeCommand";
+import {
+  type ListContainerFleetsCommandInput,
+  type ListContainerFleetsCommandOutput,
   ListContainerFleetsCommand,
-  ListContainerFleetsCommandInput,
-  ListContainerFleetsCommandOutput,
 } from "./commands/ListContainerFleetsCommand";
 import {
+  type ListContainerGroupDefinitionsCommandInput,
+  type ListContainerGroupDefinitionsCommandOutput,
   ListContainerGroupDefinitionsCommand,
-  ListContainerGroupDefinitionsCommandInput,
-  ListContainerGroupDefinitionsCommandOutput,
 } from "./commands/ListContainerGroupDefinitionsCommand";
 import {
+  type ListContainerGroupDefinitionVersionsCommandInput,
+  type ListContainerGroupDefinitionVersionsCommandOutput,
   ListContainerGroupDefinitionVersionsCommand,
-  ListContainerGroupDefinitionVersionsCommandInput,
-  ListContainerGroupDefinitionVersionsCommandOutput,
 } from "./commands/ListContainerGroupDefinitionVersionsCommand";
 import {
+  type ListFleetDeploymentsCommandInput,
+  type ListFleetDeploymentsCommandOutput,
   ListFleetDeploymentsCommand,
-  ListFleetDeploymentsCommandInput,
-  ListFleetDeploymentsCommandOutput,
 } from "./commands/ListFleetDeploymentsCommand";
-import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
+  type ListFleetsCommandInput,
+  type ListFleetsCommandOutput,
+  ListFleetsCommand,
+} from "./commands/ListFleetsCommand";
+import {
+  type ListGameServerGroupsCommandInput,
+  type ListGameServerGroupsCommandOutput,
   ListGameServerGroupsCommand,
-  ListGameServerGroupsCommandInput,
-  ListGameServerGroupsCommandOutput,
 } from "./commands/ListGameServerGroupsCommand";
 import {
+  type ListGameServersCommandInput,
+  type ListGameServersCommandOutput,
   ListGameServersCommand,
-  ListGameServersCommandInput,
-  ListGameServersCommandOutput,
 } from "./commands/ListGameServersCommand";
 import {
+  type ListLocationsCommandInput,
+  type ListLocationsCommandOutput,
   ListLocationsCommand,
-  ListLocationsCommandInput,
-  ListLocationsCommandOutput,
 } from "./commands/ListLocationsCommand";
-import { ListScriptsCommand, ListScriptsCommandInput, ListScriptsCommandOutput } from "./commands/ListScriptsCommand";
 import {
+  type ListScriptsCommandInput,
+  type ListScriptsCommandOutput,
+  ListScriptsCommand,
+} from "./commands/ListScriptsCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutScalingPolicyCommandInput,
+  type PutScalingPolicyCommandOutput,
   PutScalingPolicyCommand,
-  PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput,
 } from "./commands/PutScalingPolicyCommand";
 import {
+  type RegisterComputeCommandInput,
+  type RegisterComputeCommandOutput,
   RegisterComputeCommand,
-  RegisterComputeCommandInput,
-  RegisterComputeCommandOutput,
 } from "./commands/RegisterComputeCommand";
 import {
+  type RegisterGameServerCommandInput,
+  type RegisterGameServerCommandOutput,
   RegisterGameServerCommand,
-  RegisterGameServerCommandInput,
-  RegisterGameServerCommandOutput,
 } from "./commands/RegisterGameServerCommand";
 import {
+  type RequestUploadCredentialsCommandInput,
+  type RequestUploadCredentialsCommandOutput,
   RequestUploadCredentialsCommand,
-  RequestUploadCredentialsCommandInput,
-  RequestUploadCredentialsCommandOutput,
 } from "./commands/RequestUploadCredentialsCommand";
 import {
+  type ResolveAliasCommandInput,
+  type ResolveAliasCommandOutput,
   ResolveAliasCommand,
-  ResolveAliasCommandInput,
-  ResolveAliasCommandOutput,
 } from "./commands/ResolveAliasCommand";
 import {
+  type ResumeGameServerGroupCommandInput,
+  type ResumeGameServerGroupCommandOutput,
   ResumeGameServerGroupCommand,
-  ResumeGameServerGroupCommandInput,
-  ResumeGameServerGroupCommandOutput,
 } from "./commands/ResumeGameServerGroupCommand";
 import {
+  type SearchGameSessionsCommandInput,
+  type SearchGameSessionsCommandOutput,
   SearchGameSessionsCommand,
-  SearchGameSessionsCommandInput,
-  SearchGameSessionsCommandOutput,
 } from "./commands/SearchGameSessionsCommand";
 import {
+  type StartFleetActionsCommandInput,
+  type StartFleetActionsCommandOutput,
   StartFleetActionsCommand,
-  StartFleetActionsCommandInput,
-  StartFleetActionsCommandOutput,
 } from "./commands/StartFleetActionsCommand";
 import {
+  type StartGameSessionPlacementCommandInput,
+  type StartGameSessionPlacementCommandOutput,
   StartGameSessionPlacementCommand,
-  StartGameSessionPlacementCommandInput,
-  StartGameSessionPlacementCommandOutput,
 } from "./commands/StartGameSessionPlacementCommand";
 import {
+  type StartMatchBackfillCommandInput,
+  type StartMatchBackfillCommandOutput,
   StartMatchBackfillCommand,
-  StartMatchBackfillCommandInput,
-  StartMatchBackfillCommandOutput,
 } from "./commands/StartMatchBackfillCommand";
 import {
+  type StartMatchmakingCommandInput,
+  type StartMatchmakingCommandOutput,
   StartMatchmakingCommand,
-  StartMatchmakingCommandInput,
-  StartMatchmakingCommandOutput,
 } from "./commands/StartMatchmakingCommand";
 import {
+  type StopFleetActionsCommandInput,
+  type StopFleetActionsCommandOutput,
   StopFleetActionsCommand,
-  StopFleetActionsCommandInput,
-  StopFleetActionsCommandOutput,
 } from "./commands/StopFleetActionsCommand";
 import {
+  type StopGameSessionPlacementCommandInput,
+  type StopGameSessionPlacementCommandOutput,
   StopGameSessionPlacementCommand,
-  StopGameSessionPlacementCommandInput,
-  StopGameSessionPlacementCommandOutput,
 } from "./commands/StopGameSessionPlacementCommand";
 import {
+  type StopMatchmakingCommandInput,
+  type StopMatchmakingCommandOutput,
   StopMatchmakingCommand,
-  StopMatchmakingCommandInput,
-  StopMatchmakingCommandOutput,
 } from "./commands/StopMatchmakingCommand";
 import {
+  type SuspendGameServerGroupCommandInput,
+  type SuspendGameServerGroupCommandOutput,
   SuspendGameServerGroupCommand,
-  SuspendGameServerGroupCommandInput,
-  SuspendGameServerGroupCommandOutput,
 } from "./commands/SuspendGameServerGroupCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TerminateGameSessionCommandInput,
+  type TerminateGameSessionCommandOutput,
   TerminateGameSessionCommand,
-  TerminateGameSessionCommandInput,
-  TerminateGameSessionCommandOutput,
 } from "./commands/TerminateGameSessionCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
-import { UpdateBuildCommand, UpdateBuildCommandInput, UpdateBuildCommandOutput } from "./commands/UpdateBuildCommand";
 import {
+  type UpdateAliasCommandInput,
+  type UpdateAliasCommandOutput,
+  UpdateAliasCommand,
+} from "./commands/UpdateAliasCommand";
+import {
+  type UpdateBuildCommandInput,
+  type UpdateBuildCommandOutput,
+  UpdateBuildCommand,
+} from "./commands/UpdateBuildCommand";
+import {
+  type UpdateContainerFleetCommandInput,
+  type UpdateContainerFleetCommandOutput,
   UpdateContainerFleetCommand,
-  UpdateContainerFleetCommandInput,
-  UpdateContainerFleetCommandOutput,
 } from "./commands/UpdateContainerFleetCommand";
 import {
+  type UpdateContainerGroupDefinitionCommandInput,
+  type UpdateContainerGroupDefinitionCommandOutput,
   UpdateContainerGroupDefinitionCommand,
-  UpdateContainerGroupDefinitionCommandInput,
-  UpdateContainerGroupDefinitionCommandOutput,
 } from "./commands/UpdateContainerGroupDefinitionCommand";
 import {
+  type UpdateFleetAttributesCommandInput,
+  type UpdateFleetAttributesCommandOutput,
   UpdateFleetAttributesCommand,
-  UpdateFleetAttributesCommandInput,
-  UpdateFleetAttributesCommandOutput,
 } from "./commands/UpdateFleetAttributesCommand";
 import {
+  type UpdateFleetCapacityCommandInput,
+  type UpdateFleetCapacityCommandOutput,
   UpdateFleetCapacityCommand,
-  UpdateFleetCapacityCommandInput,
-  UpdateFleetCapacityCommandOutput,
 } from "./commands/UpdateFleetCapacityCommand";
 import {
+  type UpdateFleetPortSettingsCommandInput,
+  type UpdateFleetPortSettingsCommandOutput,
   UpdateFleetPortSettingsCommand,
-  UpdateFleetPortSettingsCommandInput,
-  UpdateFleetPortSettingsCommandOutput,
 } from "./commands/UpdateFleetPortSettingsCommand";
 import {
+  type UpdateGameServerCommandInput,
+  type UpdateGameServerCommandOutput,
   UpdateGameServerCommand,
-  UpdateGameServerCommandInput,
-  UpdateGameServerCommandOutput,
 } from "./commands/UpdateGameServerCommand";
 import {
+  type UpdateGameServerGroupCommandInput,
+  type UpdateGameServerGroupCommandOutput,
   UpdateGameServerGroupCommand,
-  UpdateGameServerGroupCommandInput,
-  UpdateGameServerGroupCommandOutput,
 } from "./commands/UpdateGameServerGroupCommand";
 import {
+  type UpdateGameSessionCommandInput,
+  type UpdateGameSessionCommandOutput,
   UpdateGameSessionCommand,
-  UpdateGameSessionCommandInput,
-  UpdateGameSessionCommandOutput,
 } from "./commands/UpdateGameSessionCommand";
 import {
+  type UpdateGameSessionQueueCommandInput,
+  type UpdateGameSessionQueueCommandOutput,
   UpdateGameSessionQueueCommand,
-  UpdateGameSessionQueueCommandInput,
-  UpdateGameSessionQueueCommandOutput,
 } from "./commands/UpdateGameSessionQueueCommand";
 import {
+  type UpdateMatchmakingConfigurationCommandInput,
+  type UpdateMatchmakingConfigurationCommandOutput,
   UpdateMatchmakingConfigurationCommand,
-  UpdateMatchmakingConfigurationCommandInput,
-  UpdateMatchmakingConfigurationCommandOutput,
 } from "./commands/UpdateMatchmakingConfigurationCommand";
 import {
+  type UpdateRuntimeConfigurationCommandInput,
+  type UpdateRuntimeConfigurationCommandOutput,
   UpdateRuntimeConfigurationCommand,
-  UpdateRuntimeConfigurationCommandInput,
-  UpdateRuntimeConfigurationCommandOutput,
 } from "./commands/UpdateRuntimeConfigurationCommand";
 import {
+  type UpdateScriptCommandInput,
+  type UpdateScriptCommandOutput,
   UpdateScriptCommand,
-  UpdateScriptCommandInput,
-  UpdateScriptCommandOutput,
 } from "./commands/UpdateScriptCommand";
 import {
+  type ValidateMatchmakingRuleSetCommandInput,
+  type ValidateMatchmakingRuleSetCommandOutput,
   ValidateMatchmakingRuleSetCommand,
-  ValidateMatchmakingRuleSetCommandInput,
-  ValidateMatchmakingRuleSetCommandOutput,
 } from "./commands/ValidateMatchmakingRuleSetCommand";
 import { GameLiftClient } from "./GameLiftClient";
 import { paginateDescribeFleetAttributes } from "./pagination/DescribeFleetAttributesPaginator";

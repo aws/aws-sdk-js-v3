@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,148 +61,172 @@ import {
   defaultIoTFleetWiseHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateVehicleFleetCommandInput,
   AssociateVehicleFleetCommandOutput,
 } from "./commands/AssociateVehicleFleetCommand";
-import { BatchCreateVehicleCommandInput, BatchCreateVehicleCommandOutput } from "./commands/BatchCreateVehicleCommand";
-import { BatchUpdateVehicleCommandInput, BatchUpdateVehicleCommandOutput } from "./commands/BatchUpdateVehicleCommand";
-import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "./commands/CreateCampaignCommand";
-import {
+import type {
+  BatchCreateVehicleCommandInput,
+  BatchCreateVehicleCommandOutput,
+} from "./commands/BatchCreateVehicleCommand";
+import type {
+  BatchUpdateVehicleCommandInput,
+  BatchUpdateVehicleCommandOutput,
+} from "./commands/BatchUpdateVehicleCommand";
+import type { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "./commands/CreateCampaignCommand";
+import type {
   CreateDecoderManifestCommandInput,
   CreateDecoderManifestCommandOutput,
 } from "./commands/CreateDecoderManifestCommand";
-import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
-import {
+import type { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
+import type {
   CreateModelManifestCommandInput,
   CreateModelManifestCommandOutput,
 } from "./commands/CreateModelManifestCommand";
-import {
+import type {
   CreateSignalCatalogCommandInput,
   CreateSignalCatalogCommandOutput,
 } from "./commands/CreateSignalCatalogCommand";
-import {
+import type {
   CreateStateTemplateCommandInput,
   CreateStateTemplateCommandOutput,
 } from "./commands/CreateStateTemplateCommand";
-import { CreateVehicleCommandInput, CreateVehicleCommandOutput } from "./commands/CreateVehicleCommand";
-import { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "./commands/DeleteCampaignCommand";
-import {
+import type { CreateVehicleCommandInput, CreateVehicleCommandOutput } from "./commands/CreateVehicleCommand";
+import type { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "./commands/DeleteCampaignCommand";
+import type {
   DeleteDecoderManifestCommandInput,
   DeleteDecoderManifestCommandOutput,
 } from "./commands/DeleteDecoderManifestCommand";
-import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
-import {
+import type { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
+import type {
   DeleteModelManifestCommandInput,
   DeleteModelManifestCommandOutput,
 } from "./commands/DeleteModelManifestCommand";
-import {
+import type {
   DeleteSignalCatalogCommandInput,
   DeleteSignalCatalogCommandOutput,
 } from "./commands/DeleteSignalCatalogCommand";
-import {
+import type {
   DeleteStateTemplateCommandInput,
   DeleteStateTemplateCommandOutput,
 } from "./commands/DeleteStateTemplateCommand";
-import { DeleteVehicleCommandInput, DeleteVehicleCommandOutput } from "./commands/DeleteVehicleCommand";
-import {
+import type { DeleteVehicleCommandInput, DeleteVehicleCommandOutput } from "./commands/DeleteVehicleCommand";
+import type {
   DisassociateVehicleFleetCommandInput,
   DisassociateVehicleFleetCommandOutput,
 } from "./commands/DisassociateVehicleFleetCommand";
-import { GetCampaignCommandInput, GetCampaignCommandOutput } from "./commands/GetCampaignCommand";
-import { GetDecoderManifestCommandInput, GetDecoderManifestCommandOutput } from "./commands/GetDecoderManifestCommand";
-import {
+import type { GetCampaignCommandInput, GetCampaignCommandOutput } from "./commands/GetCampaignCommand";
+import type {
+  GetDecoderManifestCommandInput,
+  GetDecoderManifestCommandOutput,
+} from "./commands/GetDecoderManifestCommand";
+import type {
   GetEncryptionConfigurationCommandInput,
   GetEncryptionConfigurationCommandOutput,
 } from "./commands/GetEncryptionConfigurationCommand";
-import { GetFleetCommandInput, GetFleetCommandOutput } from "./commands/GetFleetCommand";
-import { GetLoggingOptionsCommandInput, GetLoggingOptionsCommandOutput } from "./commands/GetLoggingOptionsCommand";
-import { GetModelManifestCommandInput, GetModelManifestCommandOutput } from "./commands/GetModelManifestCommand";
-import {
+import type { GetFleetCommandInput, GetFleetCommandOutput } from "./commands/GetFleetCommand";
+import type {
+  GetLoggingOptionsCommandInput,
+  GetLoggingOptionsCommandOutput,
+} from "./commands/GetLoggingOptionsCommand";
+import type { GetModelManifestCommandInput, GetModelManifestCommandOutput } from "./commands/GetModelManifestCommand";
+import type {
   GetRegisterAccountStatusCommandInput,
   GetRegisterAccountStatusCommandOutput,
 } from "./commands/GetRegisterAccountStatusCommand";
-import { GetSignalCatalogCommandInput, GetSignalCatalogCommandOutput } from "./commands/GetSignalCatalogCommand";
-import { GetStateTemplateCommandInput, GetStateTemplateCommandOutput } from "./commands/GetStateTemplateCommand";
-import { GetVehicleCommandInput, GetVehicleCommandOutput } from "./commands/GetVehicleCommand";
-import { GetVehicleStatusCommandInput, GetVehicleStatusCommandOutput } from "./commands/GetVehicleStatusCommand";
-import {
+import type { GetSignalCatalogCommandInput, GetSignalCatalogCommandOutput } from "./commands/GetSignalCatalogCommand";
+import type { GetStateTemplateCommandInput, GetStateTemplateCommandOutput } from "./commands/GetStateTemplateCommand";
+import type { GetVehicleCommandInput, GetVehicleCommandOutput } from "./commands/GetVehicleCommand";
+import type { GetVehicleStatusCommandInput, GetVehicleStatusCommandOutput } from "./commands/GetVehicleStatusCommand";
+import type {
   ImportDecoderManifestCommandInput,
   ImportDecoderManifestCommandOutput,
 } from "./commands/ImportDecoderManifestCommand";
-import {
+import type {
   ImportSignalCatalogCommandInput,
   ImportSignalCatalogCommandOutput,
 } from "./commands/ImportSignalCatalogCommand";
-import { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "./commands/ListCampaignsCommand";
-import {
+import type { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "./commands/ListCampaignsCommand";
+import type {
   ListDecoderManifestNetworkInterfacesCommandInput,
   ListDecoderManifestNetworkInterfacesCommandOutput,
 } from "./commands/ListDecoderManifestNetworkInterfacesCommand";
-import {
+import type {
   ListDecoderManifestsCommandInput,
   ListDecoderManifestsCommandOutput,
 } from "./commands/ListDecoderManifestsCommand";
-import {
+import type {
   ListDecoderManifestSignalsCommandInput,
   ListDecoderManifestSignalsCommandOutput,
 } from "./commands/ListDecoderManifestSignalsCommand";
-import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
-import {
+import type { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
+import type {
   ListFleetsForVehicleCommandInput,
   ListFleetsForVehicleCommandOutput,
 } from "./commands/ListFleetsForVehicleCommand";
-import {
+import type {
   ListModelManifestNodesCommandInput,
   ListModelManifestNodesCommandOutput,
 } from "./commands/ListModelManifestNodesCommand";
-import { ListModelManifestsCommandInput, ListModelManifestsCommandOutput } from "./commands/ListModelManifestsCommand";
-import {
+import type {
+  ListModelManifestsCommandInput,
+  ListModelManifestsCommandOutput,
+} from "./commands/ListModelManifestsCommand";
+import type {
   ListSignalCatalogNodesCommandInput,
   ListSignalCatalogNodesCommandOutput,
 } from "./commands/ListSignalCatalogNodesCommand";
-import { ListSignalCatalogsCommandInput, ListSignalCatalogsCommandOutput } from "./commands/ListSignalCatalogsCommand";
-import { ListStateTemplatesCommandInput, ListStateTemplatesCommandOutput } from "./commands/ListStateTemplatesCommand";
-import {
+import type {
+  ListSignalCatalogsCommandInput,
+  ListSignalCatalogsCommandOutput,
+} from "./commands/ListSignalCatalogsCommand";
+import type {
+  ListStateTemplatesCommandInput,
+  ListStateTemplatesCommandOutput,
+} from "./commands/ListStateTemplatesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListVehiclesCommandInput, ListVehiclesCommandOutput } from "./commands/ListVehiclesCommand";
-import {
+import type { ListVehiclesCommandInput, ListVehiclesCommandOutput } from "./commands/ListVehiclesCommand";
+import type {
   ListVehiclesInFleetCommandInput,
   ListVehiclesInFleetCommandOutput,
 } from "./commands/ListVehiclesInFleetCommand";
-import {
+import type {
   PutEncryptionConfigurationCommandInput,
   PutEncryptionConfigurationCommandOutput,
 } from "./commands/PutEncryptionConfigurationCommand";
-import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand";
-import { RegisterAccountCommandInput, RegisterAccountCommandOutput } from "./commands/RegisterAccountCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand";
-import {
+import type {
+  PutLoggingOptionsCommandInput,
+  PutLoggingOptionsCommandOutput,
+} from "./commands/PutLoggingOptionsCommand";
+import type { RegisterAccountCommandInput, RegisterAccountCommandOutput } from "./commands/RegisterAccountCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand";
+import type {
   UpdateDecoderManifestCommandInput,
   UpdateDecoderManifestCommandOutput,
 } from "./commands/UpdateDecoderManifestCommand";
-import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
-import {
+import type { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
+import type {
   UpdateModelManifestCommandInput,
   UpdateModelManifestCommandOutput,
 } from "./commands/UpdateModelManifestCommand";
-import {
+import type {
   UpdateSignalCatalogCommandInput,
   UpdateSignalCatalogCommandOutput,
 } from "./commands/UpdateSignalCatalogCommand";
-import {
+import type {
   UpdateStateTemplateCommandInput,
   UpdateStateTemplateCommandOutput,
 } from "./commands/UpdateStateTemplateCommand";
-import { UpdateVehicleCommandInput, UpdateVehicleCommandOutput } from "./commands/UpdateVehicleCommand";
+import type { UpdateVehicleCommandInput, UpdateVehicleCommandOutput } from "./commands/UpdateVehicleCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -450,7 +472,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

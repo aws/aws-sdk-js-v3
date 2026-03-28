@@ -8,7 +8,7 @@ import {
   DescribeDBClusterBacktracksCommandOutput,
 } from "../commands/DescribeDBClusterBacktracksCommand";
 import { RDSClient } from "../RDSClient";
-import { RDSPaginationConfiguration } from "./Interfaces";
+import type { RDSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

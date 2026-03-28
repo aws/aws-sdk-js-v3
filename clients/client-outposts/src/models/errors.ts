@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ResourceType } from "./enums";
+import type { ResourceType } from "./enums";
 import { OutpostsServiceException as __BaseException } from "./OutpostsServiceException";
 
 /**

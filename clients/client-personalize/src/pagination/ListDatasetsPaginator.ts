@@ -8,7 +8,7 @@ import {
   ListDatasetsCommandOutput,
 } from "../commands/ListDatasetsCommand";
 import { PersonalizeClient } from "../PersonalizeClient";
-import { PersonalizePaginationConfiguration } from "./Interfaces";
+import type { PersonalizePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

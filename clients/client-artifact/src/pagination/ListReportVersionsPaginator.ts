@@ -8,7 +8,7 @@ import {
   ListReportVersionsCommandInput,
   ListReportVersionsCommandOutput,
 } from "../commands/ListReportVersionsCommand";
-import { ArtifactPaginationConfiguration } from "./Interfaces";
+import type { ArtifactPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

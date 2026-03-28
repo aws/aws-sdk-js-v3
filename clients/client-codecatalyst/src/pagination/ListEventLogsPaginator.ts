@@ -8,7 +8,7 @@ import {
   ListEventLogsCommandInput,
   ListEventLogsCommandOutput,
 } from "../commands/ListEventLogsCommand";
-import { CodeCatalystPaginationConfiguration } from "./Interfaces";
+import type { CodeCatalystPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

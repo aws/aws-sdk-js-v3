@@ -8,7 +8,7 @@ import {
   ListTrafficPoliciesCommandOutput,
 } from "../commands/ListTrafficPoliciesCommand";
 import { MailManagerClient } from "../MailManagerClient";
-import { MailManagerPaginationConfiguration } from "./Interfaces";
+import type { MailManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

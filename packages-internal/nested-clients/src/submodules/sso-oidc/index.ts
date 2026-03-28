@@ -45,7 +45,7 @@
  */
 export * from "./SSOOIDCClient";
 export * from "./SSOOIDC";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SSOOIDCExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

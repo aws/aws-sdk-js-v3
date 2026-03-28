@@ -8,7 +8,7 @@ import {
   ListEntitiesCommandOutput,
 } from "../commands/ListEntitiesCommand";
 import { MarketplaceCatalogClient } from "../MarketplaceCatalogClient";
-import { MarketplaceCatalogPaginationConfiguration } from "./Interfaces";
+import type { MarketplaceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

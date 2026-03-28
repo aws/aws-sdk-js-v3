@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,147 +61,156 @@ import {
   defaultAmpHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateAlertManagerDefinitionCommandInput,
   CreateAlertManagerDefinitionCommandOutput,
 } from "./commands/CreateAlertManagerDefinitionCommand";
-import {
+import type {
   CreateAnomalyDetectorCommandInput,
   CreateAnomalyDetectorCommandOutput,
 } from "./commands/CreateAnomalyDetectorCommand";
-import {
+import type {
   CreateLoggingConfigurationCommandInput,
   CreateLoggingConfigurationCommandOutput,
 } from "./commands/CreateLoggingConfigurationCommand";
-import {
+import type {
   CreateQueryLoggingConfigurationCommandInput,
   CreateQueryLoggingConfigurationCommandOutput,
 } from "./commands/CreateQueryLoggingConfigurationCommand";
-import {
+import type {
   CreateRuleGroupsNamespaceCommandInput,
   CreateRuleGroupsNamespaceCommandOutput,
 } from "./commands/CreateRuleGroupsNamespaceCommand";
-import { CreateScraperCommandInput, CreateScraperCommandOutput } from "./commands/CreateScraperCommand";
-import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
-import {
+import type { CreateScraperCommandInput, CreateScraperCommandOutput } from "./commands/CreateScraperCommand";
+import type { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
+import type {
   DeleteAlertManagerDefinitionCommandInput,
   DeleteAlertManagerDefinitionCommandOutput,
 } from "./commands/DeleteAlertManagerDefinitionCommand";
-import {
+import type {
   DeleteAnomalyDetectorCommandInput,
   DeleteAnomalyDetectorCommandOutput,
 } from "./commands/DeleteAnomalyDetectorCommand";
-import {
+import type {
   DeleteLoggingConfigurationCommandInput,
   DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand";
-import {
+import type {
   DeleteQueryLoggingConfigurationCommandInput,
   DeleteQueryLoggingConfigurationCommandOutput,
 } from "./commands/DeleteQueryLoggingConfigurationCommand";
-import {
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
 } from "./commands/DeleteRuleGroupsNamespaceCommand";
-import { DeleteScraperCommandInput, DeleteScraperCommandOutput } from "./commands/DeleteScraperCommand";
-import {
+import type { DeleteScraperCommandInput, DeleteScraperCommandOutput } from "./commands/DeleteScraperCommand";
+import type {
   DeleteScraperLoggingConfigurationCommandInput,
   DeleteScraperLoggingConfigurationCommandOutput,
 } from "./commands/DeleteScraperLoggingConfigurationCommand";
-import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
-import {
+import type { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
+import type {
   DescribeAlertManagerDefinitionCommandInput,
   DescribeAlertManagerDefinitionCommandOutput,
 } from "./commands/DescribeAlertManagerDefinitionCommand";
-import {
+import type {
   DescribeAnomalyDetectorCommandInput,
   DescribeAnomalyDetectorCommandOutput,
 } from "./commands/DescribeAnomalyDetectorCommand";
-import {
+import type {
   DescribeLoggingConfigurationCommandInput,
   DescribeLoggingConfigurationCommandOutput,
 } from "./commands/DescribeLoggingConfigurationCommand";
-import {
+import type {
   DescribeQueryLoggingConfigurationCommandInput,
   DescribeQueryLoggingConfigurationCommandOutput,
 } from "./commands/DescribeQueryLoggingConfigurationCommand";
-import {
+import type {
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
-import {
+import type {
   DescribeRuleGroupsNamespaceCommandInput,
   DescribeRuleGroupsNamespaceCommandOutput,
 } from "./commands/DescribeRuleGroupsNamespaceCommand";
-import { DescribeScraperCommandInput, DescribeScraperCommandOutput } from "./commands/DescribeScraperCommand";
-import {
+import type { DescribeScraperCommandInput, DescribeScraperCommandOutput } from "./commands/DescribeScraperCommand";
+import type {
   DescribeScraperLoggingConfigurationCommandInput,
   DescribeScraperLoggingConfigurationCommandOutput,
 } from "./commands/DescribeScraperLoggingConfigurationCommand";
-import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "./commands/DescribeWorkspaceCommand";
-import {
+import type {
+  DescribeWorkspaceCommandInput,
+  DescribeWorkspaceCommandOutput,
+} from "./commands/DescribeWorkspaceCommand";
+import type {
   DescribeWorkspaceConfigurationCommandInput,
   DescribeWorkspaceConfigurationCommandOutput,
 } from "./commands/DescribeWorkspaceConfigurationCommand";
-import {
+import type {
   GetDefaultScraperConfigurationCommandInput,
   GetDefaultScraperConfigurationCommandOutput,
 } from "./commands/GetDefaultScraperConfigurationCommand";
-import {
+import type {
   ListAnomalyDetectorsCommandInput,
   ListAnomalyDetectorsCommandOutput,
 } from "./commands/ListAnomalyDetectorsCommand";
-import {
+import type {
   ListRuleGroupsNamespacesCommandInput,
   ListRuleGroupsNamespacesCommandOutput,
 } from "./commands/ListRuleGroupsNamespacesCommand";
-import { ListScrapersCommandInput, ListScrapersCommandOutput } from "./commands/ListScrapersCommand";
-import {
+import type { ListScrapersCommandInput, ListScrapersCommandOutput } from "./commands/ListScrapersCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "./commands/ListWorkspacesCommand";
-import {
+import type { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "./commands/ListWorkspacesCommand";
+import type {
   PutAlertManagerDefinitionCommandInput,
   PutAlertManagerDefinitionCommandOutput,
 } from "./commands/PutAlertManagerDefinitionCommand";
-import { PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput } from "./commands/PutAnomalyDetectorCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type {
+  PutAnomalyDetectorCommandInput,
+  PutAnomalyDetectorCommandOutput,
+} from "./commands/PutAnomalyDetectorCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   PutRuleGroupsNamespaceCommandInput,
   PutRuleGroupsNamespaceCommandOutput,
 } from "./commands/PutRuleGroupsNamespaceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateLoggingConfigurationCommandInput,
   UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
-import {
+import type {
   UpdateQueryLoggingConfigurationCommandInput,
   UpdateQueryLoggingConfigurationCommandOutput,
 } from "./commands/UpdateQueryLoggingConfigurationCommand";
-import { UpdateScraperCommandInput, UpdateScraperCommandOutput } from "./commands/UpdateScraperCommand";
-import {
+import type { UpdateScraperCommandInput, UpdateScraperCommandOutput } from "./commands/UpdateScraperCommand";
+import type {
   UpdateScraperLoggingConfigurationCommandInput,
   UpdateScraperLoggingConfigurationCommandOutput,
 } from "./commands/UpdateScraperLoggingConfigurationCommand";
-import {
+import type {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
 } from "./commands/UpdateWorkspaceAliasCommand";
-import {
+import type {
   UpdateWorkspaceConfigurationCommandInput,
   UpdateWorkspaceConfigurationCommandOutput,
 } from "./commands/UpdateWorkspaceConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -423,7 +430,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

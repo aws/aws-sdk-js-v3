@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "../commands/ListBotsCommand";
 import { LexModelsV2Client } from "../LexModelsV2Client";
-import { LexModelsV2PaginationConfiguration } from "./Interfaces";
+import type { LexModelsV2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

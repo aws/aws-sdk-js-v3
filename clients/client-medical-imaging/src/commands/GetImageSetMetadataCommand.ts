@@ -9,7 +9,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MedicalImagingClient";
-import { type GetImageSetMetadataRequest, GetImageSetMetadataResponse } from "../models/models_0";
+import type { GetImageSetMetadataRequest, GetImageSetMetadataResponse } from "../models/models_0";
 import { GetImageSetMetadata$ } from "../schemas/schemas_0";
 
 /**

@@ -8,7 +8,7 @@ import {
   ListAccountsCommandOutput,
 } from "../commands/ListAccountsCommand";
 import { SSOClient } from "../SSOClient";
-import { SSOPaginationConfiguration } from "./Interfaces";
+import type { SSOPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

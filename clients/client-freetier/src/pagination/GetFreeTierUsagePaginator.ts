@@ -8,7 +8,7 @@ import {
   GetFreeTierUsageCommandOutput,
 } from "../commands/GetFreeTierUsageCommand";
 import { FreeTierClient } from "../FreeTierClient";
-import { FreeTierPaginationConfiguration } from "./Interfaces";
+import type { FreeTierPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

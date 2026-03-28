@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { KeyType, OperationType, ShardFilterType, ShardIteratorType, StreamStatus, StreamViewType } from "./enums";
+import type { KeyType, OperationType, ShardFilterType, ShardIteratorType, StreamStatus, StreamViewType } from "./enums";
 
 /**
  * <p>This optional field contains the filter

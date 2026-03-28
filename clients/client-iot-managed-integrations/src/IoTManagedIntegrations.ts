@@ -3,411 +3,419 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateAccountAssociationCommandInput,
+  type CreateAccountAssociationCommandOutput,
   CreateAccountAssociationCommand,
-  CreateAccountAssociationCommandInput,
-  CreateAccountAssociationCommandOutput,
 } from "./commands/CreateAccountAssociationCommand";
 import {
+  type CreateCloudConnectorCommandInput,
+  type CreateCloudConnectorCommandOutput,
   CreateCloudConnectorCommand,
-  CreateCloudConnectorCommandInput,
-  CreateCloudConnectorCommandOutput,
 } from "./commands/CreateCloudConnectorCommand";
 import {
+  type CreateConnectorDestinationCommandInput,
+  type CreateConnectorDestinationCommandOutput,
   CreateConnectorDestinationCommand,
-  CreateConnectorDestinationCommandInput,
-  CreateConnectorDestinationCommandOutput,
 } from "./commands/CreateConnectorDestinationCommand";
 import {
+  type CreateCredentialLockerCommandInput,
+  type CreateCredentialLockerCommandOutput,
   CreateCredentialLockerCommand,
-  CreateCredentialLockerCommandInput,
-  CreateCredentialLockerCommandOutput,
 } from "./commands/CreateCredentialLockerCommand";
 import {
+  type CreateDestinationCommandInput,
+  type CreateDestinationCommandOutput,
   CreateDestinationCommand,
-  CreateDestinationCommandInput,
-  CreateDestinationCommandOutput,
 } from "./commands/CreateDestinationCommand";
 import {
+  type CreateEventLogConfigurationCommandInput,
+  type CreateEventLogConfigurationCommandOutput,
   CreateEventLogConfigurationCommand,
-  CreateEventLogConfigurationCommandInput,
-  CreateEventLogConfigurationCommandOutput,
 } from "./commands/CreateEventLogConfigurationCommand";
 import {
+  type CreateManagedThingCommandInput,
+  type CreateManagedThingCommandOutput,
   CreateManagedThingCommand,
-  CreateManagedThingCommandInput,
-  CreateManagedThingCommandOutput,
 } from "./commands/CreateManagedThingCommand";
 import {
+  type CreateNotificationConfigurationCommandInput,
+  type CreateNotificationConfigurationCommandOutput,
   CreateNotificationConfigurationCommand,
-  CreateNotificationConfigurationCommandInput,
-  CreateNotificationConfigurationCommandOutput,
 } from "./commands/CreateNotificationConfigurationCommand";
 import {
+  type CreateOtaTaskCommandInput,
+  type CreateOtaTaskCommandOutput,
   CreateOtaTaskCommand,
-  CreateOtaTaskCommandInput,
-  CreateOtaTaskCommandOutput,
 } from "./commands/CreateOtaTaskCommand";
 import {
+  type CreateOtaTaskConfigurationCommandInput,
+  type CreateOtaTaskConfigurationCommandOutput,
   CreateOtaTaskConfigurationCommand,
-  CreateOtaTaskConfigurationCommandInput,
-  CreateOtaTaskConfigurationCommandOutput,
 } from "./commands/CreateOtaTaskConfigurationCommand";
 import {
+  type CreateProvisioningProfileCommandInput,
+  type CreateProvisioningProfileCommandOutput,
   CreateProvisioningProfileCommand,
-  CreateProvisioningProfileCommandInput,
-  CreateProvisioningProfileCommandOutput,
 } from "./commands/CreateProvisioningProfileCommand";
 import {
+  type DeleteAccountAssociationCommandInput,
+  type DeleteAccountAssociationCommandOutput,
   DeleteAccountAssociationCommand,
-  DeleteAccountAssociationCommandInput,
-  DeleteAccountAssociationCommandOutput,
 } from "./commands/DeleteAccountAssociationCommand";
 import {
+  type DeleteCloudConnectorCommandInput,
+  type DeleteCloudConnectorCommandOutput,
   DeleteCloudConnectorCommand,
-  DeleteCloudConnectorCommandInput,
-  DeleteCloudConnectorCommandOutput,
 } from "./commands/DeleteCloudConnectorCommand";
 import {
+  type DeleteConnectorDestinationCommandInput,
+  type DeleteConnectorDestinationCommandOutput,
   DeleteConnectorDestinationCommand,
-  DeleteConnectorDestinationCommandInput,
-  DeleteConnectorDestinationCommandOutput,
 } from "./commands/DeleteConnectorDestinationCommand";
 import {
+  type DeleteCredentialLockerCommandInput,
+  type DeleteCredentialLockerCommandOutput,
   DeleteCredentialLockerCommand,
-  DeleteCredentialLockerCommandInput,
-  DeleteCredentialLockerCommandOutput,
 } from "./commands/DeleteCredentialLockerCommand";
 import {
+  type DeleteDestinationCommandInput,
+  type DeleteDestinationCommandOutput,
   DeleteDestinationCommand,
-  DeleteDestinationCommandInput,
-  DeleteDestinationCommandOutput,
 } from "./commands/DeleteDestinationCommand";
 import {
+  type DeleteEventLogConfigurationCommandInput,
+  type DeleteEventLogConfigurationCommandOutput,
   DeleteEventLogConfigurationCommand,
-  DeleteEventLogConfigurationCommandInput,
-  DeleteEventLogConfigurationCommandOutput,
 } from "./commands/DeleteEventLogConfigurationCommand";
 import {
+  type DeleteManagedThingCommandInput,
+  type DeleteManagedThingCommandOutput,
   DeleteManagedThingCommand,
-  DeleteManagedThingCommandInput,
-  DeleteManagedThingCommandOutput,
 } from "./commands/DeleteManagedThingCommand";
 import {
+  type DeleteNotificationConfigurationCommandInput,
+  type DeleteNotificationConfigurationCommandOutput,
   DeleteNotificationConfigurationCommand,
-  DeleteNotificationConfigurationCommandInput,
-  DeleteNotificationConfigurationCommandOutput,
 } from "./commands/DeleteNotificationConfigurationCommand";
 import {
+  type DeleteOtaTaskCommandInput,
+  type DeleteOtaTaskCommandOutput,
   DeleteOtaTaskCommand,
-  DeleteOtaTaskCommandInput,
-  DeleteOtaTaskCommandOutput,
 } from "./commands/DeleteOtaTaskCommand";
 import {
+  type DeleteOtaTaskConfigurationCommandInput,
+  type DeleteOtaTaskConfigurationCommandOutput,
   DeleteOtaTaskConfigurationCommand,
-  DeleteOtaTaskConfigurationCommandInput,
-  DeleteOtaTaskConfigurationCommandOutput,
 } from "./commands/DeleteOtaTaskConfigurationCommand";
 import {
+  type DeleteProvisioningProfileCommandInput,
+  type DeleteProvisioningProfileCommandOutput,
   DeleteProvisioningProfileCommand,
-  DeleteProvisioningProfileCommandInput,
-  DeleteProvisioningProfileCommandOutput,
 } from "./commands/DeleteProvisioningProfileCommand";
 import {
+  type DeregisterAccountAssociationCommandInput,
+  type DeregisterAccountAssociationCommandOutput,
   DeregisterAccountAssociationCommand,
-  DeregisterAccountAssociationCommandInput,
-  DeregisterAccountAssociationCommandOutput,
 } from "./commands/DeregisterAccountAssociationCommand";
 import {
+  type GetAccountAssociationCommandInput,
+  type GetAccountAssociationCommandOutput,
   GetAccountAssociationCommand,
-  GetAccountAssociationCommandInput,
-  GetAccountAssociationCommandOutput,
 } from "./commands/GetAccountAssociationCommand";
 import {
+  type GetCloudConnectorCommandInput,
+  type GetCloudConnectorCommandOutput,
   GetCloudConnectorCommand,
-  GetCloudConnectorCommandInput,
-  GetCloudConnectorCommandOutput,
 } from "./commands/GetCloudConnectorCommand";
 import {
+  type GetConnectorDestinationCommandInput,
+  type GetConnectorDestinationCommandOutput,
   GetConnectorDestinationCommand,
-  GetConnectorDestinationCommandInput,
-  GetConnectorDestinationCommandOutput,
 } from "./commands/GetConnectorDestinationCommand";
 import {
+  type GetCredentialLockerCommandInput,
+  type GetCredentialLockerCommandOutput,
   GetCredentialLockerCommand,
-  GetCredentialLockerCommandInput,
-  GetCredentialLockerCommandOutput,
 } from "./commands/GetCredentialLockerCommand";
 import {
+  type GetCustomEndpointCommandInput,
+  type GetCustomEndpointCommandOutput,
   GetCustomEndpointCommand,
-  GetCustomEndpointCommandInput,
-  GetCustomEndpointCommandOutput,
 } from "./commands/GetCustomEndpointCommand";
 import {
+  type GetDefaultEncryptionConfigurationCommandInput,
+  type GetDefaultEncryptionConfigurationCommandOutput,
   GetDefaultEncryptionConfigurationCommand,
-  GetDefaultEncryptionConfigurationCommandInput,
-  GetDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/GetDefaultEncryptionConfigurationCommand";
 import {
+  type GetDestinationCommandInput,
+  type GetDestinationCommandOutput,
   GetDestinationCommand,
-  GetDestinationCommandInput,
-  GetDestinationCommandOutput,
 } from "./commands/GetDestinationCommand";
 import {
+  type GetDeviceDiscoveryCommandInput,
+  type GetDeviceDiscoveryCommandOutput,
   GetDeviceDiscoveryCommand,
-  GetDeviceDiscoveryCommandInput,
-  GetDeviceDiscoveryCommandOutput,
 } from "./commands/GetDeviceDiscoveryCommand";
 import {
+  type GetEventLogConfigurationCommandInput,
+  type GetEventLogConfigurationCommandOutput,
   GetEventLogConfigurationCommand,
-  GetEventLogConfigurationCommandInput,
-  GetEventLogConfigurationCommandOutput,
 } from "./commands/GetEventLogConfigurationCommand";
 import {
+  type GetHubConfigurationCommandInput,
+  type GetHubConfigurationCommandOutput,
   GetHubConfigurationCommand,
-  GetHubConfigurationCommandInput,
-  GetHubConfigurationCommandOutput,
 } from "./commands/GetHubConfigurationCommand";
 import {
+  type GetManagedThingCapabilitiesCommandInput,
+  type GetManagedThingCapabilitiesCommandOutput,
   GetManagedThingCapabilitiesCommand,
-  GetManagedThingCapabilitiesCommandInput,
-  GetManagedThingCapabilitiesCommandOutput,
 } from "./commands/GetManagedThingCapabilitiesCommand";
 import {
+  type GetManagedThingCertificateCommandInput,
+  type GetManagedThingCertificateCommandOutput,
   GetManagedThingCertificateCommand,
-  GetManagedThingCertificateCommandInput,
-  GetManagedThingCertificateCommandOutput,
 } from "./commands/GetManagedThingCertificateCommand";
 import {
+  type GetManagedThingCommandInput,
+  type GetManagedThingCommandOutput,
   GetManagedThingCommand,
-  GetManagedThingCommandInput,
-  GetManagedThingCommandOutput,
 } from "./commands/GetManagedThingCommand";
 import {
+  type GetManagedThingConnectivityDataCommandInput,
+  type GetManagedThingConnectivityDataCommandOutput,
   GetManagedThingConnectivityDataCommand,
-  GetManagedThingConnectivityDataCommandInput,
-  GetManagedThingConnectivityDataCommandOutput,
 } from "./commands/GetManagedThingConnectivityDataCommand";
 import {
+  type GetManagedThingMetaDataCommandInput,
+  type GetManagedThingMetaDataCommandOutput,
   GetManagedThingMetaDataCommand,
-  GetManagedThingMetaDataCommandInput,
-  GetManagedThingMetaDataCommandOutput,
 } from "./commands/GetManagedThingMetaDataCommand";
 import {
+  type GetManagedThingStateCommandInput,
+  type GetManagedThingStateCommandOutput,
   GetManagedThingStateCommand,
-  GetManagedThingStateCommandInput,
-  GetManagedThingStateCommandOutput,
 } from "./commands/GetManagedThingStateCommand";
 import {
+  type GetNotificationConfigurationCommandInput,
+  type GetNotificationConfigurationCommandOutput,
   GetNotificationConfigurationCommand,
-  GetNotificationConfigurationCommandInput,
-  GetNotificationConfigurationCommandOutput,
 } from "./commands/GetNotificationConfigurationCommand";
-import { GetOtaTaskCommand, GetOtaTaskCommandInput, GetOtaTaskCommandOutput } from "./commands/GetOtaTaskCommand";
 import {
+  type GetOtaTaskCommandInput,
+  type GetOtaTaskCommandOutput,
+  GetOtaTaskCommand,
+} from "./commands/GetOtaTaskCommand";
+import {
+  type GetOtaTaskConfigurationCommandInput,
+  type GetOtaTaskConfigurationCommandOutput,
   GetOtaTaskConfigurationCommand,
-  GetOtaTaskConfigurationCommandInput,
-  GetOtaTaskConfigurationCommandOutput,
 } from "./commands/GetOtaTaskConfigurationCommand";
 import {
+  type GetProvisioningProfileCommandInput,
+  type GetProvisioningProfileCommandOutput,
   GetProvisioningProfileCommand,
-  GetProvisioningProfileCommandInput,
-  GetProvisioningProfileCommandOutput,
 } from "./commands/GetProvisioningProfileCommand";
 import {
+  type GetRuntimeLogConfigurationCommandInput,
+  type GetRuntimeLogConfigurationCommandOutput,
   GetRuntimeLogConfigurationCommand,
-  GetRuntimeLogConfigurationCommandInput,
-  GetRuntimeLogConfigurationCommandOutput,
 } from "./commands/GetRuntimeLogConfigurationCommand";
 import {
+  type GetSchemaVersionCommandInput,
+  type GetSchemaVersionCommandOutput,
   GetSchemaVersionCommand,
-  GetSchemaVersionCommandInput,
-  GetSchemaVersionCommandOutput,
 } from "./commands/GetSchemaVersionCommand";
 import {
+  type ListAccountAssociationsCommandInput,
+  type ListAccountAssociationsCommandOutput,
   ListAccountAssociationsCommand,
-  ListAccountAssociationsCommandInput,
-  ListAccountAssociationsCommandOutput,
 } from "./commands/ListAccountAssociationsCommand";
 import {
+  type ListCloudConnectorsCommandInput,
+  type ListCloudConnectorsCommandOutput,
   ListCloudConnectorsCommand,
-  ListCloudConnectorsCommandInput,
-  ListCloudConnectorsCommandOutput,
 } from "./commands/ListCloudConnectorsCommand";
 import {
+  type ListConnectorDestinationsCommandInput,
+  type ListConnectorDestinationsCommandOutput,
   ListConnectorDestinationsCommand,
-  ListConnectorDestinationsCommandInput,
-  ListConnectorDestinationsCommandOutput,
 } from "./commands/ListConnectorDestinationsCommand";
 import {
+  type ListCredentialLockersCommandInput,
+  type ListCredentialLockersCommandOutput,
   ListCredentialLockersCommand,
-  ListCredentialLockersCommandInput,
-  ListCredentialLockersCommandOutput,
 } from "./commands/ListCredentialLockersCommand";
 import {
+  type ListDestinationsCommandInput,
+  type ListDestinationsCommandOutput,
   ListDestinationsCommand,
-  ListDestinationsCommandInput,
-  ListDestinationsCommandOutput,
 } from "./commands/ListDestinationsCommand";
 import {
+  type ListDeviceDiscoveriesCommandInput,
+  type ListDeviceDiscoveriesCommandOutput,
   ListDeviceDiscoveriesCommand,
-  ListDeviceDiscoveriesCommandInput,
-  ListDeviceDiscoveriesCommandOutput,
 } from "./commands/ListDeviceDiscoveriesCommand";
 import {
+  type ListDiscoveredDevicesCommandInput,
+  type ListDiscoveredDevicesCommandOutput,
   ListDiscoveredDevicesCommand,
-  ListDiscoveredDevicesCommandInput,
-  ListDiscoveredDevicesCommandOutput,
 } from "./commands/ListDiscoveredDevicesCommand";
 import {
+  type ListEventLogConfigurationsCommandInput,
+  type ListEventLogConfigurationsCommandOutput,
   ListEventLogConfigurationsCommand,
-  ListEventLogConfigurationsCommandInput,
-  ListEventLogConfigurationsCommandOutput,
 } from "./commands/ListEventLogConfigurationsCommand";
 import {
+  type ListManagedThingAccountAssociationsCommandInput,
+  type ListManagedThingAccountAssociationsCommandOutput,
   ListManagedThingAccountAssociationsCommand,
-  ListManagedThingAccountAssociationsCommandInput,
-  ListManagedThingAccountAssociationsCommandOutput,
 } from "./commands/ListManagedThingAccountAssociationsCommand";
 import {
+  type ListManagedThingSchemasCommandInput,
+  type ListManagedThingSchemasCommandOutput,
   ListManagedThingSchemasCommand,
-  ListManagedThingSchemasCommandInput,
-  ListManagedThingSchemasCommandOutput,
 } from "./commands/ListManagedThingSchemasCommand";
 import {
+  type ListManagedThingsCommandInput,
+  type ListManagedThingsCommandOutput,
   ListManagedThingsCommand,
-  ListManagedThingsCommandInput,
-  ListManagedThingsCommandOutput,
 } from "./commands/ListManagedThingsCommand";
 import {
+  type ListNotificationConfigurationsCommandInput,
+  type ListNotificationConfigurationsCommandOutput,
   ListNotificationConfigurationsCommand,
-  ListNotificationConfigurationsCommandInput,
-  ListNotificationConfigurationsCommandOutput,
 } from "./commands/ListNotificationConfigurationsCommand";
 import {
+  type ListOtaTaskConfigurationsCommandInput,
+  type ListOtaTaskConfigurationsCommandOutput,
   ListOtaTaskConfigurationsCommand,
-  ListOtaTaskConfigurationsCommandInput,
-  ListOtaTaskConfigurationsCommandOutput,
 } from "./commands/ListOtaTaskConfigurationsCommand";
 import {
+  type ListOtaTaskExecutionsCommandInput,
+  type ListOtaTaskExecutionsCommandOutput,
   ListOtaTaskExecutionsCommand,
-  ListOtaTaskExecutionsCommandInput,
-  ListOtaTaskExecutionsCommandOutput,
 } from "./commands/ListOtaTaskExecutionsCommand";
 import {
+  type ListOtaTasksCommandInput,
+  type ListOtaTasksCommandOutput,
   ListOtaTasksCommand,
-  ListOtaTasksCommandInput,
-  ListOtaTasksCommandOutput,
 } from "./commands/ListOtaTasksCommand";
 import {
+  type ListProvisioningProfilesCommandInput,
+  type ListProvisioningProfilesCommandOutput,
   ListProvisioningProfilesCommand,
-  ListProvisioningProfilesCommandInput,
-  ListProvisioningProfilesCommandOutput,
 } from "./commands/ListProvisioningProfilesCommand";
 import {
+  type ListSchemaVersionsCommandInput,
+  type ListSchemaVersionsCommandOutput,
   ListSchemaVersionsCommand,
-  ListSchemaVersionsCommandInput,
-  ListSchemaVersionsCommandOutput,
 } from "./commands/ListSchemaVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutDefaultEncryptionConfigurationCommandInput,
+  type PutDefaultEncryptionConfigurationCommandOutput,
   PutDefaultEncryptionConfigurationCommand,
-  PutDefaultEncryptionConfigurationCommandInput,
-  PutDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/PutDefaultEncryptionConfigurationCommand";
 import {
+  type PutHubConfigurationCommandInput,
+  type PutHubConfigurationCommandOutput,
   PutHubConfigurationCommand,
-  PutHubConfigurationCommandInput,
-  PutHubConfigurationCommandOutput,
 } from "./commands/PutHubConfigurationCommand";
 import {
+  type PutRuntimeLogConfigurationCommandInput,
+  type PutRuntimeLogConfigurationCommandOutput,
   PutRuntimeLogConfigurationCommand,
-  PutRuntimeLogConfigurationCommandInput,
-  PutRuntimeLogConfigurationCommandOutput,
 } from "./commands/PutRuntimeLogConfigurationCommand";
 import {
+  type RegisterAccountAssociationCommandInput,
+  type RegisterAccountAssociationCommandOutput,
   RegisterAccountAssociationCommand,
-  RegisterAccountAssociationCommandInput,
-  RegisterAccountAssociationCommandOutput,
 } from "./commands/RegisterAccountAssociationCommand";
 import {
+  type RegisterCustomEndpointCommandInput,
+  type RegisterCustomEndpointCommandOutput,
   RegisterCustomEndpointCommand,
-  RegisterCustomEndpointCommandInput,
-  RegisterCustomEndpointCommandOutput,
 } from "./commands/RegisterCustomEndpointCommand";
 import {
+  type ResetRuntimeLogConfigurationCommandInput,
+  type ResetRuntimeLogConfigurationCommandOutput,
   ResetRuntimeLogConfigurationCommand,
-  ResetRuntimeLogConfigurationCommandInput,
-  ResetRuntimeLogConfigurationCommandOutput,
 } from "./commands/ResetRuntimeLogConfigurationCommand";
 import {
+  type SendConnectorEventCommandInput,
+  type SendConnectorEventCommandOutput,
   SendConnectorEventCommand,
-  SendConnectorEventCommandInput,
-  SendConnectorEventCommandOutput,
 } from "./commands/SendConnectorEventCommand";
 import {
+  type SendManagedThingCommandCommandInput,
+  type SendManagedThingCommandCommandOutput,
   SendManagedThingCommandCommand,
-  SendManagedThingCommandCommandInput,
-  SendManagedThingCommandCommandOutput,
 } from "./commands/SendManagedThingCommandCommand";
 import {
+  type StartAccountAssociationRefreshCommandInput,
+  type StartAccountAssociationRefreshCommandOutput,
   StartAccountAssociationRefreshCommand,
-  StartAccountAssociationRefreshCommandInput,
-  StartAccountAssociationRefreshCommandOutput,
 } from "./commands/StartAccountAssociationRefreshCommand";
 import {
+  type StartDeviceDiscoveryCommandInput,
+  type StartDeviceDiscoveryCommandOutput,
   StartDeviceDiscoveryCommand,
-  StartDeviceDiscoveryCommandInput,
-  StartDeviceDiscoveryCommandOutput,
 } from "./commands/StartDeviceDiscoveryCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccountAssociationCommandInput,
+  type UpdateAccountAssociationCommandOutput,
   UpdateAccountAssociationCommand,
-  UpdateAccountAssociationCommandInput,
-  UpdateAccountAssociationCommandOutput,
 } from "./commands/UpdateAccountAssociationCommand";
 import {
+  type UpdateCloudConnectorCommandInput,
+  type UpdateCloudConnectorCommandOutput,
   UpdateCloudConnectorCommand,
-  UpdateCloudConnectorCommandInput,
-  UpdateCloudConnectorCommandOutput,
 } from "./commands/UpdateCloudConnectorCommand";
 import {
+  type UpdateConnectorDestinationCommandInput,
+  type UpdateConnectorDestinationCommandOutput,
   UpdateConnectorDestinationCommand,
-  UpdateConnectorDestinationCommandInput,
-  UpdateConnectorDestinationCommandOutput,
 } from "./commands/UpdateConnectorDestinationCommand";
 import {
+  type UpdateDestinationCommandInput,
+  type UpdateDestinationCommandOutput,
   UpdateDestinationCommand,
-  UpdateDestinationCommandInput,
-  UpdateDestinationCommandOutput,
 } from "./commands/UpdateDestinationCommand";
 import {
+  type UpdateEventLogConfigurationCommandInput,
+  type UpdateEventLogConfigurationCommandOutput,
   UpdateEventLogConfigurationCommand,
-  UpdateEventLogConfigurationCommandInput,
-  UpdateEventLogConfigurationCommandOutput,
 } from "./commands/UpdateEventLogConfigurationCommand";
 import {
+  type UpdateManagedThingCommandInput,
+  type UpdateManagedThingCommandOutput,
   UpdateManagedThingCommand,
-  UpdateManagedThingCommandInput,
-  UpdateManagedThingCommandOutput,
 } from "./commands/UpdateManagedThingCommand";
 import {
+  type UpdateNotificationConfigurationCommandInput,
+  type UpdateNotificationConfigurationCommandOutput,
   UpdateNotificationConfigurationCommand,
-  UpdateNotificationConfigurationCommandInput,
-  UpdateNotificationConfigurationCommandOutput,
 } from "./commands/UpdateNotificationConfigurationCommand";
 import {
+  type UpdateOtaTaskCommandInput,
+  type UpdateOtaTaskCommandOutput,
   UpdateOtaTaskCommand,
-  UpdateOtaTaskCommandInput,
-  UpdateOtaTaskCommandOutput,
 } from "./commands/UpdateOtaTaskCommand";
 import { IoTManagedIntegrationsClient } from "./IoTManagedIntegrationsClient";
 import { paginateListAccountAssociations } from "./pagination/ListAccountAssociationsPaginator";

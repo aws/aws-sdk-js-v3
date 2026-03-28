@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListPluginsCommand, ListPluginsCommandInput, ListPluginsCommandOutput } from "../commands/ListPluginsCommand";
 import { MigrationHubOrchestratorClient } from "../MigrationHubOrchestratorClient";
-import { MigrationHubOrchestratorPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubOrchestratorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

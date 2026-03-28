@@ -16,7 +16,7 @@
  */
 export * from "./IoTFleetWiseClient";
 export * from "./IoTFleetWise";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { IoTFleetWiseExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

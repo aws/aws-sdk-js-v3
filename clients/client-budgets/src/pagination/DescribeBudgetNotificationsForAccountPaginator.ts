@@ -8,7 +8,7 @@ import {
   DescribeBudgetNotificationsForAccountCommandInput,
   DescribeBudgetNotificationsForAccountCommandOutput,
 } from "../commands/DescribeBudgetNotificationsForAccountCommand";
-import { BudgetsPaginationConfiguration } from "./Interfaces";
+import type { BudgetsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -9,7 +9,7 @@
  */
 export * from "./KinesisClient";
 export * from "./Kinesis";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { KinesisExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -3,29 +3,29 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateEndpointCommandInput,
+  type CreateEndpointCommandOutput,
   CreateEndpointCommand,
-  CreateEndpointCommandInput,
-  CreateEndpointCommandOutput,
 } from "./commands/CreateEndpointCommand";
 import {
+  type DeleteEndpointCommandInput,
+  type DeleteEndpointCommandOutput,
   DeleteEndpointCommand,
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput,
 } from "./commands/DeleteEndpointCommand";
 import {
+  type ListEndpointsCommandInput,
+  type ListEndpointsCommandOutput,
   ListEndpointsCommand,
-  ListEndpointsCommandInput,
-  ListEndpointsCommandOutput,
 } from "./commands/ListEndpointsCommand";
 import {
+  type ListOutpostsWithS3CommandInput,
+  type ListOutpostsWithS3CommandOutput,
   ListOutpostsWithS3Command,
-  ListOutpostsWithS3CommandInput,
-  ListOutpostsWithS3CommandOutput,
 } from "./commands/ListOutpostsWithS3Command";
 import {
+  type ListSharedEndpointsCommandInput,
+  type ListSharedEndpointsCommandOutput,
   ListSharedEndpointsCommand,
-  ListSharedEndpointsCommandInput,
-  ListSharedEndpointsCommandOutput,
 } from "./commands/ListSharedEndpointsCommand";
 import { paginateListEndpoints } from "./pagination/ListEndpointsPaginator";
 import { paginateListOutpostsWithS3 } from "./pagination/ListOutpostsWithS3Paginator";

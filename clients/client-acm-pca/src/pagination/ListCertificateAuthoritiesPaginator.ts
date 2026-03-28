@@ -8,7 +8,7 @@ import {
   ListCertificateAuthoritiesCommandInput,
   ListCertificateAuthoritiesCommandOutput,
 } from "../commands/ListCertificateAuthoritiesCommand";
-import { ACMPCAPaginationConfiguration } from "./Interfaces";
+import type { ACMPCAPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

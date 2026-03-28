@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Format, ReportFrequency, S3BucketRegion } from "./enums";
+import type { Format, ReportFrequency, S3BucketRegion } from "./enums";
 
 /**
  * @public

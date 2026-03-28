@@ -8,7 +8,7 @@ import {
   ListChannelMembershipsForAppInstanceUserCommandInput,
   ListChannelMembershipsForAppInstanceUserCommandOutput,
 } from "../commands/ListChannelMembershipsForAppInstanceUserCommand";
-import { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
+import type { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

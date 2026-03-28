@@ -8,7 +8,7 @@ import {
   ListDomainNamesCommandInput,
   ListDomainNamesCommandOutput,
 } from "../commands/ListDomainNamesCommand";
-import { AppSyncPaginationConfiguration } from "./Interfaces";
+import type { AppSyncPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

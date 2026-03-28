@@ -8,7 +8,7 @@ import {
   ListCheckDetailsCommandOutput,
 } from "../commands/ListCheckDetailsCommand";
 import { WellArchitectedClient } from "../WellArchitectedClient";
-import { WellArchitectedPaginationConfiguration } from "./Interfaces";
+import type { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

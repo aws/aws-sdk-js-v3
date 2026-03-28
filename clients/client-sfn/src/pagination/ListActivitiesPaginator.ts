@@ -8,7 +8,7 @@ import {
   ListActivitiesCommandOutput,
 } from "../commands/ListActivitiesCommand";
 import { SFNClient } from "../SFNClient";
-import { SFNPaginationConfiguration } from "./Interfaces";
+import type { SFNPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

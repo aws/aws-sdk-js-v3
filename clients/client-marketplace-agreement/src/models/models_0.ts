@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AgreementStatus, PaymentRequestApprovalStrategy, PaymentRequestStatus, SortOrder } from "./enums";
+import type { AgreementStatus, PaymentRequestApprovalStrategy, PaymentRequestStatus, SortOrder } from "./enums";
 
 /**
  * <p>Enables you and your customers to move your existing agreements to AWS Marketplace. The customer won't be charged for product usage in AWS Marketplace because they already paid for the product outside of AWS Marketplace.</p>

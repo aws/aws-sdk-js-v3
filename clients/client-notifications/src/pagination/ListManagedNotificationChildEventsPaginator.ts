@@ -8,7 +8,7 @@ import {
   ListManagedNotificationChildEventsCommandOutput,
 } from "../commands/ListManagedNotificationChildEventsCommand";
 import { NotificationsClient } from "../NotificationsClient";
-import { NotificationsPaginationConfiguration } from "./Interfaces";
+import type { NotificationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

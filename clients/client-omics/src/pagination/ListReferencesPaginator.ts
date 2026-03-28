@@ -8,7 +8,7 @@ import {
   ListReferencesCommandOutput,
 } from "../commands/ListReferencesCommand";
 import { OmicsClient } from "../OmicsClient";
-import { OmicsPaginationConfiguration } from "./Interfaces";
+import type { OmicsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

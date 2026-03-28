@@ -30,7 +30,7 @@
  */
 export * from "./ChatbotClient";
 export * from "./Chatbot";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ChatbotExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

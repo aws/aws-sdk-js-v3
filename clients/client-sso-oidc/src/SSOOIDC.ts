@@ -2,21 +2,25 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { CreateTokenCommand, CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
 import {
+  type CreateTokenCommandInput,
+  type CreateTokenCommandOutput,
+  CreateTokenCommand,
+} from "./commands/CreateTokenCommand";
+import {
+  type CreateTokenWithIAMCommandInput,
+  type CreateTokenWithIAMCommandOutput,
   CreateTokenWithIAMCommand,
-  CreateTokenWithIAMCommandInput,
-  CreateTokenWithIAMCommandOutput,
 } from "./commands/CreateTokenWithIAMCommand";
 import {
+  type RegisterClientCommandInput,
+  type RegisterClientCommandOutput,
   RegisterClientCommand,
-  RegisterClientCommandInput,
-  RegisterClientCommandOutput,
 } from "./commands/RegisterClientCommand";
 import {
+  type StartDeviceAuthorizationCommandInput,
+  type StartDeviceAuthorizationCommandOutput,
   StartDeviceAuthorizationCommand,
-  StartDeviceAuthorizationCommandInput,
-  StartDeviceAuthorizationCommandOutput,
 } from "./commands/StartDeviceAuthorizationCommand";
 import { SSOOIDCClient } from "./SSOOIDCClient";
 

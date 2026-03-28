@@ -3,88 +3,116 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddPermissionCommandInput,
+  type AddPermissionCommandOutput,
   AddPermissionCommand,
-  AddPermissionCommandInput,
-  AddPermissionCommandOutput,
 } from "./commands/AddPermissionCommand";
 import {
+  type CancelMessageMoveTaskCommandInput,
+  type CancelMessageMoveTaskCommandOutput,
   CancelMessageMoveTaskCommand,
-  CancelMessageMoveTaskCommandInput,
-  CancelMessageMoveTaskCommandOutput,
 } from "./commands/CancelMessageMoveTaskCommand";
 import {
+  type ChangeMessageVisibilityBatchCommandInput,
+  type ChangeMessageVisibilityBatchCommandOutput,
   ChangeMessageVisibilityBatchCommand,
-  ChangeMessageVisibilityBatchCommandInput,
-  ChangeMessageVisibilityBatchCommandOutput,
 } from "./commands/ChangeMessageVisibilityBatchCommand";
 import {
+  type ChangeMessageVisibilityCommandInput,
+  type ChangeMessageVisibilityCommandOutput,
   ChangeMessageVisibilityCommand,
-  ChangeMessageVisibilityCommandInput,
-  ChangeMessageVisibilityCommandOutput,
 } from "./commands/ChangeMessageVisibilityCommand";
-import { CreateQueueCommand, CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import {
+  type CreateQueueCommandInput,
+  type CreateQueueCommandOutput,
+  CreateQueueCommand,
+} from "./commands/CreateQueueCommand";
+import {
+  type DeleteMessageBatchCommandInput,
+  type DeleteMessageBatchCommandOutput,
   DeleteMessageBatchCommand,
-  DeleteMessageBatchCommandInput,
-  DeleteMessageBatchCommandOutput,
 } from "./commands/DeleteMessageBatchCommand";
 import {
+  type DeleteMessageCommandInput,
+  type DeleteMessageCommandOutput,
   DeleteMessageCommand,
-  DeleteMessageCommandInput,
-  DeleteMessageCommandOutput,
 } from "./commands/DeleteMessageCommand";
-import { DeleteQueueCommand, DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
 import {
+  type DeleteQueueCommandInput,
+  type DeleteQueueCommandOutput,
+  DeleteQueueCommand,
+} from "./commands/DeleteQueueCommand";
+import {
+  type GetQueueAttributesCommandInput,
+  type GetQueueAttributesCommandOutput,
   GetQueueAttributesCommand,
-  GetQueueAttributesCommandInput,
-  GetQueueAttributesCommandOutput,
 } from "./commands/GetQueueAttributesCommand";
-import { GetQueueUrlCommand, GetQueueUrlCommandInput, GetQueueUrlCommandOutput } from "./commands/GetQueueUrlCommand";
 import {
+  type GetQueueUrlCommandInput,
+  type GetQueueUrlCommandOutput,
+  GetQueueUrlCommand,
+} from "./commands/GetQueueUrlCommand";
+import {
+  type ListDeadLetterSourceQueuesCommandInput,
+  type ListDeadLetterSourceQueuesCommandOutput,
   ListDeadLetterSourceQueuesCommand,
-  ListDeadLetterSourceQueuesCommandInput,
-  ListDeadLetterSourceQueuesCommandOutput,
 } from "./commands/ListDeadLetterSourceQueuesCommand";
 import {
+  type ListMessageMoveTasksCommandInput,
+  type ListMessageMoveTasksCommandOutput,
   ListMessageMoveTasksCommand,
-  ListMessageMoveTasksCommandInput,
-  ListMessageMoveTasksCommandOutput,
 } from "./commands/ListMessageMoveTasksCommand";
-import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import {
+  type ListQueuesCommandInput,
+  type ListQueuesCommandOutput,
+  ListQueuesCommand,
+} from "./commands/ListQueuesCommand";
+import {
+  type ListQueueTagsCommandInput,
+  type ListQueueTagsCommandOutput,
   ListQueueTagsCommand,
-  ListQueueTagsCommandInput,
-  ListQueueTagsCommandOutput,
 } from "./commands/ListQueueTagsCommand";
-import { PurgeQueueCommand, PurgeQueueCommandInput, PurgeQueueCommandOutput } from "./commands/PurgeQueueCommand";
 import {
+  type PurgeQueueCommandInput,
+  type PurgeQueueCommandOutput,
+  PurgeQueueCommand,
+} from "./commands/PurgeQueueCommand";
+import {
+  type ReceiveMessageCommandInput,
+  type ReceiveMessageCommandOutput,
   ReceiveMessageCommand,
-  ReceiveMessageCommandInput,
-  ReceiveMessageCommandOutput,
 } from "./commands/ReceiveMessageCommand";
 import {
+  type RemovePermissionCommandInput,
+  type RemovePermissionCommandOutput,
   RemovePermissionCommand,
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand";
 import {
+  type SendMessageBatchCommandInput,
+  type SendMessageBatchCommandOutput,
   SendMessageBatchCommand,
-  SendMessageBatchCommandInput,
-  SendMessageBatchCommandOutput,
 } from "./commands/SendMessageBatchCommand";
-import { SendMessageCommand, SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
 import {
+  type SendMessageCommandInput,
+  type SendMessageCommandOutput,
+  SendMessageCommand,
+} from "./commands/SendMessageCommand";
+import {
+  type SetQueueAttributesCommandInput,
+  type SetQueueAttributesCommandOutput,
   SetQueueAttributesCommand,
-  SetQueueAttributesCommandInput,
-  SetQueueAttributesCommandOutput,
 } from "./commands/SetQueueAttributesCommand";
 import {
+  type StartMessageMoveTaskCommandInput,
+  type StartMessageMoveTaskCommandOutput,
   StartMessageMoveTaskCommand,
-  StartMessageMoveTaskCommandInput,
-  StartMessageMoveTaskCommandOutput,
 } from "./commands/StartMessageMoveTaskCommand";
-import { TagQueueCommand, TagQueueCommandInput, TagQueueCommandOutput } from "./commands/TagQueueCommand";
-import { UntagQueueCommand, UntagQueueCommandInput, UntagQueueCommandOutput } from "./commands/UntagQueueCommand";
+import { type TagQueueCommandInput, type TagQueueCommandOutput, TagQueueCommand } from "./commands/TagQueueCommand";
+import {
+  type UntagQueueCommandInput,
+  type UntagQueueCommandOutput,
+  UntagQueueCommand,
+} from "./commands/UntagQueueCommand";
 import { paginateListDeadLetterSourceQueues } from "./pagination/ListDeadLetterSourceQueuesPaginator";
 import { paginateListQueues } from "./pagination/ListQueuesPaginator";
 import { SQSClient } from "./SQSClient";

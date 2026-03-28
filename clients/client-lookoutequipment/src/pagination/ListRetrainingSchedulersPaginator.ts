@@ -8,7 +8,7 @@ import {
   ListRetrainingSchedulersCommandOutput,
 } from "../commands/ListRetrainingSchedulersCommand";
 import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
-import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
+import type { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

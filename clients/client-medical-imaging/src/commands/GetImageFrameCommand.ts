@@ -9,7 +9,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MedicalImagingClient";
-import { type GetImageFrameRequest, GetImageFrameResponse } from "../models/models_0";
+import type { GetImageFrameRequest, GetImageFrameResponse } from "../models/models_0";
 import { GetImageFrame$ } from "../schemas/schemas_0";
 
 /**

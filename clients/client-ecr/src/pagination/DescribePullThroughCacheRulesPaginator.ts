@@ -8,7 +8,7 @@ import {
   DescribePullThroughCacheRulesCommandOutput,
 } from "../commands/DescribePullThroughCacheRulesCommand";
 import { ECRClient } from "../ECRClient";
-import { ECRPaginationConfiguration } from "./Interfaces";
+import type { ECRPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -2,567 +2,595 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
+import { type CreateAppCommandInput, type CreateAppCommandOutput, CreateAppCommand } from "./commands/CreateAppCommand";
 import {
+  type CreateCampaignCommandInput,
+  type CreateCampaignCommandOutput,
   CreateCampaignCommand,
-  CreateCampaignCommandInput,
-  CreateCampaignCommandOutput,
 } from "./commands/CreateCampaignCommand";
 import {
+  type CreateEmailTemplateCommandInput,
+  type CreateEmailTemplateCommandOutput,
   CreateEmailTemplateCommand,
-  CreateEmailTemplateCommandInput,
-  CreateEmailTemplateCommandOutput,
 } from "./commands/CreateEmailTemplateCommand";
 import {
+  type CreateExportJobCommandInput,
+  type CreateExportJobCommandOutput,
   CreateExportJobCommand,
-  CreateExportJobCommandInput,
-  CreateExportJobCommandOutput,
 } from "./commands/CreateExportJobCommand";
 import {
+  type CreateImportJobCommandInput,
+  type CreateImportJobCommandOutput,
   CreateImportJobCommand,
-  CreateImportJobCommandInput,
-  CreateImportJobCommandOutput,
 } from "./commands/CreateImportJobCommand";
 import {
+  type CreateInAppTemplateCommandInput,
+  type CreateInAppTemplateCommandOutput,
   CreateInAppTemplateCommand,
-  CreateInAppTemplateCommandInput,
-  CreateInAppTemplateCommandOutput,
 } from "./commands/CreateInAppTemplateCommand";
 import {
+  type CreateJourneyCommandInput,
+  type CreateJourneyCommandOutput,
   CreateJourneyCommand,
-  CreateJourneyCommandInput,
-  CreateJourneyCommandOutput,
 } from "./commands/CreateJourneyCommand";
 import {
+  type CreatePushTemplateCommandInput,
+  type CreatePushTemplateCommandOutput,
   CreatePushTemplateCommand,
-  CreatePushTemplateCommandInput,
-  CreatePushTemplateCommandOutput,
 } from "./commands/CreatePushTemplateCommand";
 import {
+  type CreateRecommenderConfigurationCommandInput,
+  type CreateRecommenderConfigurationCommandOutput,
   CreateRecommenderConfigurationCommand,
-  CreateRecommenderConfigurationCommandInput,
-  CreateRecommenderConfigurationCommandOutput,
 } from "./commands/CreateRecommenderConfigurationCommand";
 import {
+  type CreateSegmentCommandInput,
+  type CreateSegmentCommandOutput,
   CreateSegmentCommand,
-  CreateSegmentCommandInput,
-  CreateSegmentCommandOutput,
 } from "./commands/CreateSegmentCommand";
 import {
+  type CreateSmsTemplateCommandInput,
+  type CreateSmsTemplateCommandOutput,
   CreateSmsTemplateCommand,
-  CreateSmsTemplateCommandInput,
-  CreateSmsTemplateCommandOutput,
 } from "./commands/CreateSmsTemplateCommand";
 import {
+  type CreateVoiceTemplateCommandInput,
+  type CreateVoiceTemplateCommandOutput,
   CreateVoiceTemplateCommand,
-  CreateVoiceTemplateCommandInput,
-  CreateVoiceTemplateCommandOutput,
 } from "./commands/CreateVoiceTemplateCommand";
 import {
+  type DeleteAdmChannelCommandInput,
+  type DeleteAdmChannelCommandOutput,
   DeleteAdmChannelCommand,
-  DeleteAdmChannelCommandInput,
-  DeleteAdmChannelCommandOutput,
 } from "./commands/DeleteAdmChannelCommand";
 import {
+  type DeleteApnsChannelCommandInput,
+  type DeleteApnsChannelCommandOutput,
   DeleteApnsChannelCommand,
-  DeleteApnsChannelCommandInput,
-  DeleteApnsChannelCommandOutput,
 } from "./commands/DeleteApnsChannelCommand";
 import {
+  type DeleteApnsSandboxChannelCommandInput,
+  type DeleteApnsSandboxChannelCommandOutput,
   DeleteApnsSandboxChannelCommand,
-  DeleteApnsSandboxChannelCommandInput,
-  DeleteApnsSandboxChannelCommandOutput,
 } from "./commands/DeleteApnsSandboxChannelCommand";
 import {
+  type DeleteApnsVoipChannelCommandInput,
+  type DeleteApnsVoipChannelCommandOutput,
   DeleteApnsVoipChannelCommand,
-  DeleteApnsVoipChannelCommandInput,
-  DeleteApnsVoipChannelCommandOutput,
 } from "./commands/DeleteApnsVoipChannelCommand";
 import {
+  type DeleteApnsVoipSandboxChannelCommandInput,
+  type DeleteApnsVoipSandboxChannelCommandOutput,
   DeleteApnsVoipSandboxChannelCommand,
-  DeleteApnsVoipSandboxChannelCommandInput,
-  DeleteApnsVoipSandboxChannelCommandOutput,
 } from "./commands/DeleteApnsVoipSandboxChannelCommand";
-import { DeleteAppCommand, DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
+import { type DeleteAppCommandInput, type DeleteAppCommandOutput, DeleteAppCommand } from "./commands/DeleteAppCommand";
 import {
+  type DeleteBaiduChannelCommandInput,
+  type DeleteBaiduChannelCommandOutput,
   DeleteBaiduChannelCommand,
-  DeleteBaiduChannelCommandInput,
-  DeleteBaiduChannelCommandOutput,
 } from "./commands/DeleteBaiduChannelCommand";
 import {
+  type DeleteCampaignCommandInput,
+  type DeleteCampaignCommandOutput,
   DeleteCampaignCommand,
-  DeleteCampaignCommandInput,
-  DeleteCampaignCommandOutput,
 } from "./commands/DeleteCampaignCommand";
 import {
+  type DeleteEmailChannelCommandInput,
+  type DeleteEmailChannelCommandOutput,
   DeleteEmailChannelCommand,
-  DeleteEmailChannelCommandInput,
-  DeleteEmailChannelCommandOutput,
 } from "./commands/DeleteEmailChannelCommand";
 import {
+  type DeleteEmailTemplateCommandInput,
+  type DeleteEmailTemplateCommandOutput,
   DeleteEmailTemplateCommand,
-  DeleteEmailTemplateCommandInput,
-  DeleteEmailTemplateCommandOutput,
 } from "./commands/DeleteEmailTemplateCommand";
 import {
+  type DeleteEndpointCommandInput,
+  type DeleteEndpointCommandOutput,
   DeleteEndpointCommand,
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput,
 } from "./commands/DeleteEndpointCommand";
 import {
+  type DeleteEventStreamCommandInput,
+  type DeleteEventStreamCommandOutput,
   DeleteEventStreamCommand,
-  DeleteEventStreamCommandInput,
-  DeleteEventStreamCommandOutput,
 } from "./commands/DeleteEventStreamCommand";
 import {
+  type DeleteGcmChannelCommandInput,
+  type DeleteGcmChannelCommandOutput,
   DeleteGcmChannelCommand,
-  DeleteGcmChannelCommandInput,
-  DeleteGcmChannelCommandOutput,
 } from "./commands/DeleteGcmChannelCommand";
 import {
+  type DeleteInAppTemplateCommandInput,
+  type DeleteInAppTemplateCommandOutput,
   DeleteInAppTemplateCommand,
-  DeleteInAppTemplateCommandInput,
-  DeleteInAppTemplateCommandOutput,
 } from "./commands/DeleteInAppTemplateCommand";
 import {
+  type DeleteJourneyCommandInput,
+  type DeleteJourneyCommandOutput,
   DeleteJourneyCommand,
-  DeleteJourneyCommandInput,
-  DeleteJourneyCommandOutput,
 } from "./commands/DeleteJourneyCommand";
 import {
+  type DeletePushTemplateCommandInput,
+  type DeletePushTemplateCommandOutput,
   DeletePushTemplateCommand,
-  DeletePushTemplateCommandInput,
-  DeletePushTemplateCommandOutput,
 } from "./commands/DeletePushTemplateCommand";
 import {
+  type DeleteRecommenderConfigurationCommandInput,
+  type DeleteRecommenderConfigurationCommandOutput,
   DeleteRecommenderConfigurationCommand,
-  DeleteRecommenderConfigurationCommandInput,
-  DeleteRecommenderConfigurationCommandOutput,
 } from "./commands/DeleteRecommenderConfigurationCommand";
 import {
+  type DeleteSegmentCommandInput,
+  type DeleteSegmentCommandOutput,
   DeleteSegmentCommand,
-  DeleteSegmentCommandInput,
-  DeleteSegmentCommandOutput,
 } from "./commands/DeleteSegmentCommand";
 import {
+  type DeleteSmsChannelCommandInput,
+  type DeleteSmsChannelCommandOutput,
   DeleteSmsChannelCommand,
-  DeleteSmsChannelCommandInput,
-  DeleteSmsChannelCommandOutput,
 } from "./commands/DeleteSmsChannelCommand";
 import {
+  type DeleteSmsTemplateCommandInput,
+  type DeleteSmsTemplateCommandOutput,
   DeleteSmsTemplateCommand,
-  DeleteSmsTemplateCommandInput,
-  DeleteSmsTemplateCommandOutput,
 } from "./commands/DeleteSmsTemplateCommand";
 import {
+  type DeleteUserEndpointsCommandInput,
+  type DeleteUserEndpointsCommandOutput,
   DeleteUserEndpointsCommand,
-  DeleteUserEndpointsCommandInput,
-  DeleteUserEndpointsCommandOutput,
 } from "./commands/DeleteUserEndpointsCommand";
 import {
+  type DeleteVoiceChannelCommandInput,
+  type DeleteVoiceChannelCommandOutput,
   DeleteVoiceChannelCommand,
-  DeleteVoiceChannelCommandInput,
-  DeleteVoiceChannelCommandOutput,
 } from "./commands/DeleteVoiceChannelCommand";
 import {
+  type DeleteVoiceTemplateCommandInput,
+  type DeleteVoiceTemplateCommandOutput,
   DeleteVoiceTemplateCommand,
-  DeleteVoiceTemplateCommandInput,
-  DeleteVoiceTemplateCommandOutput,
 } from "./commands/DeleteVoiceTemplateCommand";
 import {
+  type GetAdmChannelCommandInput,
+  type GetAdmChannelCommandOutput,
   GetAdmChannelCommand,
-  GetAdmChannelCommandInput,
-  GetAdmChannelCommandOutput,
 } from "./commands/GetAdmChannelCommand";
 import {
+  type GetApnsChannelCommandInput,
+  type GetApnsChannelCommandOutput,
   GetApnsChannelCommand,
-  GetApnsChannelCommandInput,
-  GetApnsChannelCommandOutput,
 } from "./commands/GetApnsChannelCommand";
 import {
+  type GetApnsSandboxChannelCommandInput,
+  type GetApnsSandboxChannelCommandOutput,
   GetApnsSandboxChannelCommand,
-  GetApnsSandboxChannelCommandInput,
-  GetApnsSandboxChannelCommandOutput,
 } from "./commands/GetApnsSandboxChannelCommand";
 import {
+  type GetApnsVoipChannelCommandInput,
+  type GetApnsVoipChannelCommandOutput,
   GetApnsVoipChannelCommand,
-  GetApnsVoipChannelCommandInput,
-  GetApnsVoipChannelCommandOutput,
 } from "./commands/GetApnsVoipChannelCommand";
 import {
+  type GetApnsVoipSandboxChannelCommandInput,
+  type GetApnsVoipSandboxChannelCommandOutput,
   GetApnsVoipSandboxChannelCommand,
-  GetApnsVoipSandboxChannelCommandInput,
-  GetApnsVoipSandboxChannelCommandOutput,
 } from "./commands/GetApnsVoipSandboxChannelCommand";
-import { GetAppCommand, GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
+import { type GetAppCommandInput, type GetAppCommandOutput, GetAppCommand } from "./commands/GetAppCommand";
 import {
+  type GetApplicationDateRangeKpiCommandInput,
+  type GetApplicationDateRangeKpiCommandOutput,
   GetApplicationDateRangeKpiCommand,
-  GetApplicationDateRangeKpiCommandInput,
-  GetApplicationDateRangeKpiCommandOutput,
 } from "./commands/GetApplicationDateRangeKpiCommand";
 import {
+  type GetApplicationSettingsCommandInput,
+  type GetApplicationSettingsCommandOutput,
   GetApplicationSettingsCommand,
-  GetApplicationSettingsCommandInput,
-  GetApplicationSettingsCommandOutput,
 } from "./commands/GetApplicationSettingsCommand";
-import { GetAppsCommand, GetAppsCommandInput, GetAppsCommandOutput } from "./commands/GetAppsCommand";
+import { type GetAppsCommandInput, type GetAppsCommandOutput, GetAppsCommand } from "./commands/GetAppsCommand";
 import {
+  type GetBaiduChannelCommandInput,
+  type GetBaiduChannelCommandOutput,
   GetBaiduChannelCommand,
-  GetBaiduChannelCommandInput,
-  GetBaiduChannelCommandOutput,
 } from "./commands/GetBaiduChannelCommand";
 import {
+  type GetCampaignActivitiesCommandInput,
+  type GetCampaignActivitiesCommandOutput,
   GetCampaignActivitiesCommand,
-  GetCampaignActivitiesCommandInput,
-  GetCampaignActivitiesCommandOutput,
 } from "./commands/GetCampaignActivitiesCommand";
-import { GetCampaignCommand, GetCampaignCommandInput, GetCampaignCommandOutput } from "./commands/GetCampaignCommand";
 import {
+  type GetCampaignCommandInput,
+  type GetCampaignCommandOutput,
+  GetCampaignCommand,
+} from "./commands/GetCampaignCommand";
+import {
+  type GetCampaignDateRangeKpiCommandInput,
+  type GetCampaignDateRangeKpiCommandOutput,
   GetCampaignDateRangeKpiCommand,
-  GetCampaignDateRangeKpiCommandInput,
-  GetCampaignDateRangeKpiCommandOutput,
 } from "./commands/GetCampaignDateRangeKpiCommand";
 import {
+  type GetCampaignsCommandInput,
+  type GetCampaignsCommandOutput,
   GetCampaignsCommand,
-  GetCampaignsCommandInput,
-  GetCampaignsCommandOutput,
 } from "./commands/GetCampaignsCommand";
 import {
+  type GetCampaignVersionCommandInput,
+  type GetCampaignVersionCommandOutput,
   GetCampaignVersionCommand,
-  GetCampaignVersionCommandInput,
-  GetCampaignVersionCommandOutput,
 } from "./commands/GetCampaignVersionCommand";
 import {
+  type GetCampaignVersionsCommandInput,
+  type GetCampaignVersionsCommandOutput,
   GetCampaignVersionsCommand,
-  GetCampaignVersionsCommandInput,
-  GetCampaignVersionsCommandOutput,
 } from "./commands/GetCampaignVersionsCommand";
-import { GetChannelsCommand, GetChannelsCommandInput, GetChannelsCommandOutput } from "./commands/GetChannelsCommand";
 import {
+  type GetChannelsCommandInput,
+  type GetChannelsCommandOutput,
+  GetChannelsCommand,
+} from "./commands/GetChannelsCommand";
+import {
+  type GetEmailChannelCommandInput,
+  type GetEmailChannelCommandOutput,
   GetEmailChannelCommand,
-  GetEmailChannelCommandInput,
-  GetEmailChannelCommandOutput,
 } from "./commands/GetEmailChannelCommand";
 import {
+  type GetEmailTemplateCommandInput,
+  type GetEmailTemplateCommandOutput,
   GetEmailTemplateCommand,
-  GetEmailTemplateCommandInput,
-  GetEmailTemplateCommandOutput,
 } from "./commands/GetEmailTemplateCommand";
-import { GetEndpointCommand, GetEndpointCommandInput, GetEndpointCommandOutput } from "./commands/GetEndpointCommand";
 import {
+  type GetEndpointCommandInput,
+  type GetEndpointCommandOutput,
+  GetEndpointCommand,
+} from "./commands/GetEndpointCommand";
+import {
+  type GetEventStreamCommandInput,
+  type GetEventStreamCommandOutput,
   GetEventStreamCommand,
-  GetEventStreamCommandInput,
-  GetEventStreamCommandOutput,
 } from "./commands/GetEventStreamCommand";
 import {
+  type GetExportJobCommandInput,
+  type GetExportJobCommandOutput,
   GetExportJobCommand,
-  GetExportJobCommandInput,
-  GetExportJobCommandOutput,
 } from "./commands/GetExportJobCommand";
 import {
+  type GetExportJobsCommandInput,
+  type GetExportJobsCommandOutput,
   GetExportJobsCommand,
-  GetExportJobsCommandInput,
-  GetExportJobsCommandOutput,
 } from "./commands/GetExportJobsCommand";
 import {
+  type GetGcmChannelCommandInput,
+  type GetGcmChannelCommandOutput,
   GetGcmChannelCommand,
-  GetGcmChannelCommandInput,
-  GetGcmChannelCommandOutput,
 } from "./commands/GetGcmChannelCommand";
 import {
+  type GetImportJobCommandInput,
+  type GetImportJobCommandOutput,
   GetImportJobCommand,
-  GetImportJobCommandInput,
-  GetImportJobCommandOutput,
 } from "./commands/GetImportJobCommand";
 import {
+  type GetImportJobsCommandInput,
+  type GetImportJobsCommandOutput,
   GetImportJobsCommand,
-  GetImportJobsCommandInput,
-  GetImportJobsCommandOutput,
 } from "./commands/GetImportJobsCommand";
 import {
+  type GetInAppMessagesCommandInput,
+  type GetInAppMessagesCommandOutput,
   GetInAppMessagesCommand,
-  GetInAppMessagesCommandInput,
-  GetInAppMessagesCommandOutput,
 } from "./commands/GetInAppMessagesCommand";
 import {
+  type GetInAppTemplateCommandInput,
+  type GetInAppTemplateCommandOutput,
   GetInAppTemplateCommand,
-  GetInAppTemplateCommandInput,
-  GetInAppTemplateCommandOutput,
 } from "./commands/GetInAppTemplateCommand";
-import { GetJourneyCommand, GetJourneyCommandInput, GetJourneyCommandOutput } from "./commands/GetJourneyCommand";
 import {
+  type GetJourneyCommandInput,
+  type GetJourneyCommandOutput,
+  GetJourneyCommand,
+} from "./commands/GetJourneyCommand";
+import {
+  type GetJourneyDateRangeKpiCommandInput,
+  type GetJourneyDateRangeKpiCommandOutput,
   GetJourneyDateRangeKpiCommand,
-  GetJourneyDateRangeKpiCommandInput,
-  GetJourneyDateRangeKpiCommandOutput,
 } from "./commands/GetJourneyDateRangeKpiCommand";
 import {
+  type GetJourneyExecutionActivityMetricsCommandInput,
+  type GetJourneyExecutionActivityMetricsCommandOutput,
   GetJourneyExecutionActivityMetricsCommand,
-  GetJourneyExecutionActivityMetricsCommandInput,
-  GetJourneyExecutionActivityMetricsCommandOutput,
 } from "./commands/GetJourneyExecutionActivityMetricsCommand";
 import {
+  type GetJourneyExecutionMetricsCommandInput,
+  type GetJourneyExecutionMetricsCommandOutput,
   GetJourneyExecutionMetricsCommand,
-  GetJourneyExecutionMetricsCommandInput,
-  GetJourneyExecutionMetricsCommandOutput,
 } from "./commands/GetJourneyExecutionMetricsCommand";
 import {
+  type GetJourneyRunExecutionActivityMetricsCommandInput,
+  type GetJourneyRunExecutionActivityMetricsCommandOutput,
   GetJourneyRunExecutionActivityMetricsCommand,
-  GetJourneyRunExecutionActivityMetricsCommandInput,
-  GetJourneyRunExecutionActivityMetricsCommandOutput,
 } from "./commands/GetJourneyRunExecutionActivityMetricsCommand";
 import {
+  type GetJourneyRunExecutionMetricsCommandInput,
+  type GetJourneyRunExecutionMetricsCommandOutput,
   GetJourneyRunExecutionMetricsCommand,
-  GetJourneyRunExecutionMetricsCommandInput,
-  GetJourneyRunExecutionMetricsCommandOutput,
 } from "./commands/GetJourneyRunExecutionMetricsCommand";
 import {
+  type GetJourneyRunsCommandInput,
+  type GetJourneyRunsCommandOutput,
   GetJourneyRunsCommand,
-  GetJourneyRunsCommandInput,
-  GetJourneyRunsCommandOutput,
 } from "./commands/GetJourneyRunsCommand";
 import {
+  type GetPushTemplateCommandInput,
+  type GetPushTemplateCommandOutput,
   GetPushTemplateCommand,
-  GetPushTemplateCommandInput,
-  GetPushTemplateCommandOutput,
 } from "./commands/GetPushTemplateCommand";
 import {
+  type GetRecommenderConfigurationCommandInput,
+  type GetRecommenderConfigurationCommandOutput,
   GetRecommenderConfigurationCommand,
-  GetRecommenderConfigurationCommandInput,
-  GetRecommenderConfigurationCommandOutput,
 } from "./commands/GetRecommenderConfigurationCommand";
 import {
+  type GetRecommenderConfigurationsCommandInput,
+  type GetRecommenderConfigurationsCommandOutput,
   GetRecommenderConfigurationsCommand,
-  GetRecommenderConfigurationsCommandInput,
-  GetRecommenderConfigurationsCommandOutput,
 } from "./commands/GetRecommenderConfigurationsCommand";
-import { GetSegmentCommand, GetSegmentCommandInput, GetSegmentCommandOutput } from "./commands/GetSegmentCommand";
 import {
+  type GetSegmentCommandInput,
+  type GetSegmentCommandOutput,
+  GetSegmentCommand,
+} from "./commands/GetSegmentCommand";
+import {
+  type GetSegmentExportJobsCommandInput,
+  type GetSegmentExportJobsCommandOutput,
   GetSegmentExportJobsCommand,
-  GetSegmentExportJobsCommandInput,
-  GetSegmentExportJobsCommandOutput,
 } from "./commands/GetSegmentExportJobsCommand";
 import {
+  type GetSegmentImportJobsCommandInput,
+  type GetSegmentImportJobsCommandOutput,
   GetSegmentImportJobsCommand,
-  GetSegmentImportJobsCommandInput,
-  GetSegmentImportJobsCommandOutput,
 } from "./commands/GetSegmentImportJobsCommand";
-import { GetSegmentsCommand, GetSegmentsCommandInput, GetSegmentsCommandOutput } from "./commands/GetSegmentsCommand";
 import {
+  type GetSegmentsCommandInput,
+  type GetSegmentsCommandOutput,
+  GetSegmentsCommand,
+} from "./commands/GetSegmentsCommand";
+import {
+  type GetSegmentVersionCommandInput,
+  type GetSegmentVersionCommandOutput,
   GetSegmentVersionCommand,
-  GetSegmentVersionCommandInput,
-  GetSegmentVersionCommandOutput,
 } from "./commands/GetSegmentVersionCommand";
 import {
+  type GetSegmentVersionsCommandInput,
+  type GetSegmentVersionsCommandOutput,
   GetSegmentVersionsCommand,
-  GetSegmentVersionsCommandInput,
-  GetSegmentVersionsCommandOutput,
 } from "./commands/GetSegmentVersionsCommand";
 import {
+  type GetSmsChannelCommandInput,
+  type GetSmsChannelCommandOutput,
   GetSmsChannelCommand,
-  GetSmsChannelCommandInput,
-  GetSmsChannelCommandOutput,
 } from "./commands/GetSmsChannelCommand";
 import {
+  type GetSmsTemplateCommandInput,
+  type GetSmsTemplateCommandOutput,
   GetSmsTemplateCommand,
-  GetSmsTemplateCommandInput,
-  GetSmsTemplateCommandOutput,
 } from "./commands/GetSmsTemplateCommand";
 import {
+  type GetUserEndpointsCommandInput,
+  type GetUserEndpointsCommandOutput,
   GetUserEndpointsCommand,
-  GetUserEndpointsCommandInput,
-  GetUserEndpointsCommandOutput,
 } from "./commands/GetUserEndpointsCommand";
 import {
+  type GetVoiceChannelCommandInput,
+  type GetVoiceChannelCommandOutput,
   GetVoiceChannelCommand,
-  GetVoiceChannelCommandInput,
-  GetVoiceChannelCommandOutput,
 } from "./commands/GetVoiceChannelCommand";
 import {
+  type GetVoiceTemplateCommandInput,
+  type GetVoiceTemplateCommandOutput,
   GetVoiceTemplateCommand,
-  GetVoiceTemplateCommandInput,
-  GetVoiceTemplateCommandOutput,
 } from "./commands/GetVoiceTemplateCommand";
 import {
+  type ListJourneysCommandInput,
+  type ListJourneysCommandOutput,
   ListJourneysCommand,
-  ListJourneysCommandInput,
-  ListJourneysCommandOutput,
 } from "./commands/ListJourneysCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTemplatesCommandInput,
+  type ListTemplatesCommandOutput,
   ListTemplatesCommand,
-  ListTemplatesCommandInput,
-  ListTemplatesCommandOutput,
 } from "./commands/ListTemplatesCommand";
 import {
+  type ListTemplateVersionsCommandInput,
+  type ListTemplateVersionsCommandOutput,
   ListTemplateVersionsCommand,
-  ListTemplateVersionsCommandInput,
-  ListTemplateVersionsCommandOutput,
 } from "./commands/ListTemplateVersionsCommand";
 import {
+  type PhoneNumberValidateCommandInput,
+  type PhoneNumberValidateCommandOutput,
   PhoneNumberValidateCommand,
-  PhoneNumberValidateCommandInput,
-  PhoneNumberValidateCommandOutput,
 } from "./commands/PhoneNumberValidateCommand";
-import { PutEventsCommand, PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
+import { type PutEventsCommandInput, type PutEventsCommandOutput, PutEventsCommand } from "./commands/PutEventsCommand";
 import {
+  type PutEventStreamCommandInput,
+  type PutEventStreamCommandOutput,
   PutEventStreamCommand,
-  PutEventStreamCommandInput,
-  PutEventStreamCommandOutput,
 } from "./commands/PutEventStreamCommand";
 import {
+  type RemoveAttributesCommandInput,
+  type RemoveAttributesCommandOutput,
   RemoveAttributesCommand,
-  RemoveAttributesCommandInput,
-  RemoveAttributesCommandOutput,
 } from "./commands/RemoveAttributesCommand";
 import {
+  type SendMessagesCommandInput,
+  type SendMessagesCommandOutput,
   SendMessagesCommand,
-  SendMessagesCommandInput,
-  SendMessagesCommandOutput,
 } from "./commands/SendMessagesCommand";
 import {
+  type SendOTPMessageCommandInput,
+  type SendOTPMessageCommandOutput,
   SendOTPMessageCommand,
-  SendOTPMessageCommandInput,
-  SendOTPMessageCommandOutput,
 } from "./commands/SendOTPMessageCommand";
 import {
+  type SendUsersMessagesCommandInput,
+  type SendUsersMessagesCommandOutput,
   SendUsersMessagesCommand,
-  SendUsersMessagesCommandInput,
-  SendUsersMessagesCommandOutput,
 } from "./commands/SendUsersMessagesCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAdmChannelCommandInput,
+  type UpdateAdmChannelCommandOutput,
   UpdateAdmChannelCommand,
-  UpdateAdmChannelCommandInput,
-  UpdateAdmChannelCommandOutput,
 } from "./commands/UpdateAdmChannelCommand";
 import {
+  type UpdateApnsChannelCommandInput,
+  type UpdateApnsChannelCommandOutput,
   UpdateApnsChannelCommand,
-  UpdateApnsChannelCommandInput,
-  UpdateApnsChannelCommandOutput,
 } from "./commands/UpdateApnsChannelCommand";
 import {
+  type UpdateApnsSandboxChannelCommandInput,
+  type UpdateApnsSandboxChannelCommandOutput,
   UpdateApnsSandboxChannelCommand,
-  UpdateApnsSandboxChannelCommandInput,
-  UpdateApnsSandboxChannelCommandOutput,
 } from "./commands/UpdateApnsSandboxChannelCommand";
 import {
+  type UpdateApnsVoipChannelCommandInput,
+  type UpdateApnsVoipChannelCommandOutput,
   UpdateApnsVoipChannelCommand,
-  UpdateApnsVoipChannelCommandInput,
-  UpdateApnsVoipChannelCommandOutput,
 } from "./commands/UpdateApnsVoipChannelCommand";
 import {
+  type UpdateApnsVoipSandboxChannelCommandInput,
+  type UpdateApnsVoipSandboxChannelCommandOutput,
   UpdateApnsVoipSandboxChannelCommand,
-  UpdateApnsVoipSandboxChannelCommandInput,
-  UpdateApnsVoipSandboxChannelCommandOutput,
 } from "./commands/UpdateApnsVoipSandboxChannelCommand";
 import {
+  type UpdateApplicationSettingsCommandInput,
+  type UpdateApplicationSettingsCommandOutput,
   UpdateApplicationSettingsCommand,
-  UpdateApplicationSettingsCommandInput,
-  UpdateApplicationSettingsCommandOutput,
 } from "./commands/UpdateApplicationSettingsCommand";
 import {
+  type UpdateBaiduChannelCommandInput,
+  type UpdateBaiduChannelCommandOutput,
   UpdateBaiduChannelCommand,
-  UpdateBaiduChannelCommandInput,
-  UpdateBaiduChannelCommandOutput,
 } from "./commands/UpdateBaiduChannelCommand";
 import {
+  type UpdateCampaignCommandInput,
+  type UpdateCampaignCommandOutput,
   UpdateCampaignCommand,
-  UpdateCampaignCommandInput,
-  UpdateCampaignCommandOutput,
 } from "./commands/UpdateCampaignCommand";
 import {
+  type UpdateEmailChannelCommandInput,
+  type UpdateEmailChannelCommandOutput,
   UpdateEmailChannelCommand,
-  UpdateEmailChannelCommandInput,
-  UpdateEmailChannelCommandOutput,
 } from "./commands/UpdateEmailChannelCommand";
 import {
+  type UpdateEmailTemplateCommandInput,
+  type UpdateEmailTemplateCommandOutput,
   UpdateEmailTemplateCommand,
-  UpdateEmailTemplateCommandInput,
-  UpdateEmailTemplateCommandOutput,
 } from "./commands/UpdateEmailTemplateCommand";
 import {
+  type UpdateEndpointCommandInput,
+  type UpdateEndpointCommandOutput,
   UpdateEndpointCommand,
-  UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput,
 } from "./commands/UpdateEndpointCommand";
 import {
+  type UpdateEndpointsBatchCommandInput,
+  type UpdateEndpointsBatchCommandOutput,
   UpdateEndpointsBatchCommand,
-  UpdateEndpointsBatchCommandInput,
-  UpdateEndpointsBatchCommandOutput,
 } from "./commands/UpdateEndpointsBatchCommand";
 import {
+  type UpdateGcmChannelCommandInput,
+  type UpdateGcmChannelCommandOutput,
   UpdateGcmChannelCommand,
-  UpdateGcmChannelCommandInput,
-  UpdateGcmChannelCommandOutput,
 } from "./commands/UpdateGcmChannelCommand";
 import {
+  type UpdateInAppTemplateCommandInput,
+  type UpdateInAppTemplateCommandOutput,
   UpdateInAppTemplateCommand,
-  UpdateInAppTemplateCommandInput,
-  UpdateInAppTemplateCommandOutput,
 } from "./commands/UpdateInAppTemplateCommand";
 import {
+  type UpdateJourneyCommandInput,
+  type UpdateJourneyCommandOutput,
   UpdateJourneyCommand,
-  UpdateJourneyCommandInput,
-  UpdateJourneyCommandOutput,
 } from "./commands/UpdateJourneyCommand";
 import {
+  type UpdateJourneyStateCommandInput,
+  type UpdateJourneyStateCommandOutput,
   UpdateJourneyStateCommand,
-  UpdateJourneyStateCommandInput,
-  UpdateJourneyStateCommandOutput,
 } from "./commands/UpdateJourneyStateCommand";
 import {
+  type UpdatePushTemplateCommandInput,
+  type UpdatePushTemplateCommandOutput,
   UpdatePushTemplateCommand,
-  UpdatePushTemplateCommandInput,
-  UpdatePushTemplateCommandOutput,
 } from "./commands/UpdatePushTemplateCommand";
 import {
+  type UpdateRecommenderConfigurationCommandInput,
+  type UpdateRecommenderConfigurationCommandOutput,
   UpdateRecommenderConfigurationCommand,
-  UpdateRecommenderConfigurationCommandInput,
-  UpdateRecommenderConfigurationCommandOutput,
 } from "./commands/UpdateRecommenderConfigurationCommand";
 import {
+  type UpdateSegmentCommandInput,
+  type UpdateSegmentCommandOutput,
   UpdateSegmentCommand,
-  UpdateSegmentCommandInput,
-  UpdateSegmentCommandOutput,
 } from "./commands/UpdateSegmentCommand";
 import {
+  type UpdateSmsChannelCommandInput,
+  type UpdateSmsChannelCommandOutput,
   UpdateSmsChannelCommand,
-  UpdateSmsChannelCommandInput,
-  UpdateSmsChannelCommandOutput,
 } from "./commands/UpdateSmsChannelCommand";
 import {
+  type UpdateSmsTemplateCommandInput,
+  type UpdateSmsTemplateCommandOutput,
   UpdateSmsTemplateCommand,
-  UpdateSmsTemplateCommandInput,
-  UpdateSmsTemplateCommandOutput,
 } from "./commands/UpdateSmsTemplateCommand";
 import {
+  type UpdateTemplateActiveVersionCommandInput,
+  type UpdateTemplateActiveVersionCommandOutput,
   UpdateTemplateActiveVersionCommand,
-  UpdateTemplateActiveVersionCommandInput,
-  UpdateTemplateActiveVersionCommandOutput,
 } from "./commands/UpdateTemplateActiveVersionCommand";
 import {
+  type UpdateVoiceChannelCommandInput,
+  type UpdateVoiceChannelCommandOutput,
   UpdateVoiceChannelCommand,
-  UpdateVoiceChannelCommandInput,
-  UpdateVoiceChannelCommandOutput,
 } from "./commands/UpdateVoiceChannelCommand";
 import {
+  type UpdateVoiceTemplateCommandInput,
+  type UpdateVoiceTemplateCommandOutput,
   UpdateVoiceTemplateCommand,
-  UpdateVoiceTemplateCommandInput,
-  UpdateVoiceTemplateCommandOutput,
 } from "./commands/UpdateVoiceTemplateCommand";
 import {
+  type VerifyOTPMessageCommandInput,
+  type VerifyOTPMessageCommandOutput,
   VerifyOTPMessageCommand,
-  VerifyOTPMessageCommandInput,
-  VerifyOTPMessageCommandOutput,
 } from "./commands/VerifyOTPMessageCommand";
 import { PinpointClient } from "./PinpointClient";
 

@@ -8,7 +8,7 @@ import {
   ListWirelessGatewaysCommandOutput,
 } from "../commands/ListWirelessGatewaysCommand";
 import { IoTWirelessClient } from "../IoTWirelessClient";
-import { IoTWirelessPaginationConfiguration } from "./Interfaces";
+import type { IoTWirelessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

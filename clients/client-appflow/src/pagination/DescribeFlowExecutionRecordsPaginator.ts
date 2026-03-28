@@ -8,7 +8,7 @@ import {
   DescribeFlowExecutionRecordsCommandInput,
   DescribeFlowExecutionRecordsCommandOutput,
 } from "../commands/DescribeFlowExecutionRecordsCommand";
-import { AppflowPaginationConfiguration } from "./Interfaces";
+import type { AppflowPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

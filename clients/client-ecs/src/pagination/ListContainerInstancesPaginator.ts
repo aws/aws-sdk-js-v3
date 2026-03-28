@@ -8,7 +8,7 @@ import {
   ListContainerInstancesCommandOutput,
 } from "../commands/ListContainerInstancesCommand";
 import { ECSClient } from "../ECSClient";
-import { ECSPaginationConfiguration } from "./Interfaces";
+import type { ECSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

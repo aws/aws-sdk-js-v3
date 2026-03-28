@@ -8,7 +8,7 @@ import {
   ListPackagesCommandOutput,
 } from "../commands/ListPackagesCommand";
 import { PanoramaClient } from "../PanoramaClient";
-import { PanoramaPaginationConfiguration } from "./Interfaces";
+import type { PanoramaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

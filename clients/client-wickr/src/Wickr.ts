@@ -3,185 +3,197 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type BatchCreateUserCommandInput,
+  type BatchCreateUserCommandOutput,
   BatchCreateUserCommand,
-  BatchCreateUserCommandInput,
-  BatchCreateUserCommandOutput,
 } from "./commands/BatchCreateUserCommand";
 import {
+  type BatchDeleteUserCommandInput,
+  type BatchDeleteUserCommandOutput,
   BatchDeleteUserCommand,
-  BatchDeleteUserCommandInput,
-  BatchDeleteUserCommandOutput,
 } from "./commands/BatchDeleteUserCommand";
 import {
+  type BatchLookupUserUnameCommandInput,
+  type BatchLookupUserUnameCommandOutput,
   BatchLookupUserUnameCommand,
-  BatchLookupUserUnameCommandInput,
-  BatchLookupUserUnameCommandOutput,
 } from "./commands/BatchLookupUserUnameCommand";
 import {
+  type BatchReinviteUserCommandInput,
+  type BatchReinviteUserCommandOutput,
   BatchReinviteUserCommand,
-  BatchReinviteUserCommandInput,
-  BatchReinviteUserCommandOutput,
 } from "./commands/BatchReinviteUserCommand";
 import {
+  type BatchResetDevicesForUserCommandInput,
+  type BatchResetDevicesForUserCommandOutput,
   BatchResetDevicesForUserCommand,
-  BatchResetDevicesForUserCommandInput,
-  BatchResetDevicesForUserCommandOutput,
 } from "./commands/BatchResetDevicesForUserCommand";
 import {
+  type BatchToggleUserSuspendStatusCommandInput,
+  type BatchToggleUserSuspendStatusCommandOutput,
   BatchToggleUserSuspendStatusCommand,
-  BatchToggleUserSuspendStatusCommandInput,
-  BatchToggleUserSuspendStatusCommandOutput,
 } from "./commands/BatchToggleUserSuspendStatusCommand";
-import { CreateBotCommand, CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
+import { type CreateBotCommandInput, type CreateBotCommandOutput, CreateBotCommand } from "./commands/CreateBotCommand";
 import {
+  type CreateDataRetentionBotChallengeCommandInput,
+  type CreateDataRetentionBotChallengeCommandOutput,
   CreateDataRetentionBotChallengeCommand,
-  CreateDataRetentionBotChallengeCommandInput,
-  CreateDataRetentionBotChallengeCommandOutput,
 } from "./commands/CreateDataRetentionBotChallengeCommand";
 import {
+  type CreateDataRetentionBotCommandInput,
+  type CreateDataRetentionBotCommandOutput,
   CreateDataRetentionBotCommand,
-  CreateDataRetentionBotCommandInput,
-  CreateDataRetentionBotCommandOutput,
 } from "./commands/CreateDataRetentionBotCommand";
 import {
+  type CreateNetworkCommandInput,
+  type CreateNetworkCommandOutput,
   CreateNetworkCommand,
-  CreateNetworkCommandInput,
-  CreateNetworkCommandOutput,
 } from "./commands/CreateNetworkCommand";
 import {
+  type CreateSecurityGroupCommandInput,
+  type CreateSecurityGroupCommandOutput,
   CreateSecurityGroupCommand,
-  CreateSecurityGroupCommandInput,
-  CreateSecurityGroupCommandOutput,
 } from "./commands/CreateSecurityGroupCommand";
-import { DeleteBotCommand, DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
+import { type DeleteBotCommandInput, type DeleteBotCommandOutput, DeleteBotCommand } from "./commands/DeleteBotCommand";
 import {
+  type DeleteDataRetentionBotCommandInput,
+  type DeleteDataRetentionBotCommandOutput,
   DeleteDataRetentionBotCommand,
-  DeleteDataRetentionBotCommandInput,
-  DeleteDataRetentionBotCommandOutput,
 } from "./commands/DeleteDataRetentionBotCommand";
 import {
+  type DeleteNetworkCommandInput,
+  type DeleteNetworkCommandOutput,
   DeleteNetworkCommand,
-  DeleteNetworkCommandInput,
-  DeleteNetworkCommandOutput,
 } from "./commands/DeleteNetworkCommand";
 import {
+  type DeleteSecurityGroupCommandInput,
+  type DeleteSecurityGroupCommandOutput,
   DeleteSecurityGroupCommand,
-  DeleteSecurityGroupCommandInput,
-  DeleteSecurityGroupCommandOutput,
 } from "./commands/DeleteSecurityGroupCommand";
-import { GetBotCommand, GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
+import { type GetBotCommandInput, type GetBotCommandOutput, GetBotCommand } from "./commands/GetBotCommand";
 import {
+  type GetBotsCountCommandInput,
+  type GetBotsCountCommandOutput,
   GetBotsCountCommand,
-  GetBotsCountCommandInput,
-  GetBotsCountCommandOutput,
 } from "./commands/GetBotsCountCommand";
 import {
+  type GetDataRetentionBotCommandInput,
+  type GetDataRetentionBotCommandOutput,
   GetDataRetentionBotCommand,
-  GetDataRetentionBotCommandInput,
-  GetDataRetentionBotCommandOutput,
 } from "./commands/GetDataRetentionBotCommand";
 import {
+  type GetGuestUserHistoryCountCommandInput,
+  type GetGuestUserHistoryCountCommandOutput,
   GetGuestUserHistoryCountCommand,
-  GetGuestUserHistoryCountCommandInput,
-  GetGuestUserHistoryCountCommandOutput,
 } from "./commands/GetGuestUserHistoryCountCommand";
-import { GetNetworkCommand, GetNetworkCommandInput, GetNetworkCommandOutput } from "./commands/GetNetworkCommand";
 import {
+  type GetNetworkCommandInput,
+  type GetNetworkCommandOutput,
+  GetNetworkCommand,
+} from "./commands/GetNetworkCommand";
+import {
+  type GetNetworkSettingsCommandInput,
+  type GetNetworkSettingsCommandOutput,
   GetNetworkSettingsCommand,
-  GetNetworkSettingsCommandInput,
-  GetNetworkSettingsCommandOutput,
 } from "./commands/GetNetworkSettingsCommand";
-import { GetOidcInfoCommand, GetOidcInfoCommandInput, GetOidcInfoCommandOutput } from "./commands/GetOidcInfoCommand";
 import {
+  type GetOidcInfoCommandInput,
+  type GetOidcInfoCommandOutput,
+  GetOidcInfoCommand,
+} from "./commands/GetOidcInfoCommand";
+import {
+  type GetOpentdfConfigCommandInput,
+  type GetOpentdfConfigCommandOutput,
   GetOpentdfConfigCommand,
-  GetOpentdfConfigCommandInput,
-  GetOpentdfConfigCommandOutput,
 } from "./commands/GetOpentdfConfigCommand";
 import {
+  type GetSecurityGroupCommandInput,
+  type GetSecurityGroupCommandOutput,
   GetSecurityGroupCommand,
-  GetSecurityGroupCommandInput,
-  GetSecurityGroupCommandOutput,
 } from "./commands/GetSecurityGroupCommand";
-import { GetUserCommand, GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
+import { type GetUserCommandInput, type GetUserCommandOutput, GetUserCommand } from "./commands/GetUserCommand";
 import {
+  type GetUsersCountCommandInput,
+  type GetUsersCountCommandOutput,
   GetUsersCountCommand,
-  GetUsersCountCommandInput,
-  GetUsersCountCommandOutput,
 } from "./commands/GetUsersCountCommand";
 import {
+  type ListBlockedGuestUsersCommandInput,
+  type ListBlockedGuestUsersCommandOutput,
   ListBlockedGuestUsersCommand,
-  ListBlockedGuestUsersCommandInput,
-  ListBlockedGuestUsersCommandOutput,
 } from "./commands/ListBlockedGuestUsersCommand";
-import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import { type ListBotsCommandInput, type ListBotsCommandOutput, ListBotsCommand } from "./commands/ListBotsCommand";
 import {
+  type ListDevicesForUserCommandInput,
+  type ListDevicesForUserCommandOutput,
   ListDevicesForUserCommand,
-  ListDevicesForUserCommandInput,
-  ListDevicesForUserCommandOutput,
 } from "./commands/ListDevicesForUserCommand";
 import {
+  type ListGuestUsersCommandInput,
+  type ListGuestUsersCommandOutput,
   ListGuestUsersCommand,
-  ListGuestUsersCommandInput,
-  ListGuestUsersCommandOutput,
 } from "./commands/ListGuestUsersCommand";
 import {
+  type ListNetworksCommandInput,
+  type ListNetworksCommandOutput,
   ListNetworksCommand,
-  ListNetworksCommandInput,
-  ListNetworksCommandOutput,
 } from "./commands/ListNetworksCommand";
 import {
+  type ListSecurityGroupsCommandInput,
+  type ListSecurityGroupsCommandOutput,
   ListSecurityGroupsCommand,
-  ListSecurityGroupsCommandInput,
-  ListSecurityGroupsCommandOutput,
 } from "./commands/ListSecurityGroupsCommand";
 import {
+  type ListSecurityGroupUsersCommandInput,
+  type ListSecurityGroupUsersCommandOutput,
   ListSecurityGroupUsersCommand,
-  ListSecurityGroupUsersCommandInput,
-  ListSecurityGroupUsersCommandOutput,
 } from "./commands/ListSecurityGroupUsersCommand";
-import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
 import {
+  type RegisterOidcConfigCommandInput,
+  type RegisterOidcConfigCommandOutput,
   RegisterOidcConfigCommand,
-  RegisterOidcConfigCommandInput,
-  RegisterOidcConfigCommandOutput,
 } from "./commands/RegisterOidcConfigCommand";
 import {
+  type RegisterOidcConfigTestCommandInput,
+  type RegisterOidcConfigTestCommandOutput,
   RegisterOidcConfigTestCommand,
-  RegisterOidcConfigTestCommandInput,
-  RegisterOidcConfigTestCommandOutput,
 } from "./commands/RegisterOidcConfigTestCommand";
 import {
+  type RegisterOpentdfConfigCommandInput,
+  type RegisterOpentdfConfigCommandOutput,
   RegisterOpentdfConfigCommand,
-  RegisterOpentdfConfigCommandInput,
-  RegisterOpentdfConfigCommandOutput,
 } from "./commands/RegisterOpentdfConfigCommand";
-import { UpdateBotCommand, UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
+import { type UpdateBotCommandInput, type UpdateBotCommandOutput, UpdateBotCommand } from "./commands/UpdateBotCommand";
 import {
+  type UpdateDataRetentionCommandInput,
+  type UpdateDataRetentionCommandOutput,
   UpdateDataRetentionCommand,
-  UpdateDataRetentionCommandInput,
-  UpdateDataRetentionCommandOutput,
 } from "./commands/UpdateDataRetentionCommand";
 import {
+  type UpdateGuestUserCommandInput,
+  type UpdateGuestUserCommandOutput,
   UpdateGuestUserCommand,
-  UpdateGuestUserCommandInput,
-  UpdateGuestUserCommandOutput,
 } from "./commands/UpdateGuestUserCommand";
 import {
+  type UpdateNetworkCommandInput,
+  type UpdateNetworkCommandOutput,
   UpdateNetworkCommand,
-  UpdateNetworkCommandInput,
-  UpdateNetworkCommandOutput,
 } from "./commands/UpdateNetworkCommand";
 import {
+  type UpdateNetworkSettingsCommandInput,
+  type UpdateNetworkSettingsCommandOutput,
   UpdateNetworkSettingsCommand,
-  UpdateNetworkSettingsCommandInput,
-  UpdateNetworkSettingsCommandOutput,
 } from "./commands/UpdateNetworkSettingsCommand";
 import {
+  type UpdateSecurityGroupCommandInput,
+  type UpdateSecurityGroupCommandOutput,
   UpdateSecurityGroupCommand,
-  UpdateSecurityGroupCommandInput,
-  UpdateSecurityGroupCommandOutput,
 } from "./commands/UpdateSecurityGroupCommand";
-import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import {
+  type UpdateUserCommandInput,
+  type UpdateUserCommandOutput,
+  UpdateUserCommand,
+} from "./commands/UpdateUserCommand";
 import { paginateListBlockedGuestUsers } from "./pagination/ListBlockedGuestUsersPaginator";
 import { paginateListBots } from "./pagination/ListBotsPaginator";
 import { paginateListDevicesForUser } from "./pagination/ListDevicesForUserPaginator";

@@ -8,7 +8,7 @@ import {
   ListProxyRuleGroupsCommandOutput,
 } from "../commands/ListProxyRuleGroupsCommand";
 import { NetworkFirewallClient } from "../NetworkFirewallClient";
-import { NetworkFirewallPaginationConfiguration } from "./Interfaces";
+import type { NetworkFirewallPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

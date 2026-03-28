@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,141 +61,174 @@ import {
   defaultDataSyncHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CancelTaskExecutionCommandInput,
   CancelTaskExecutionCommandOutput,
 } from "./commands/CancelTaskExecutionCommand";
-import { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
-import {
+import type { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
+import type {
   CreateLocationAzureBlobCommandInput,
   CreateLocationAzureBlobCommandOutput,
 } from "./commands/CreateLocationAzureBlobCommand";
-import { CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput } from "./commands/CreateLocationEfsCommand";
-import {
+import type {
+  CreateLocationEfsCommandInput,
+  CreateLocationEfsCommandOutput,
+} from "./commands/CreateLocationEfsCommand";
+import type {
   CreateLocationFsxLustreCommandInput,
   CreateLocationFsxLustreCommandOutput,
 } from "./commands/CreateLocationFsxLustreCommand";
-import {
+import type {
   CreateLocationFsxOntapCommandInput,
   CreateLocationFsxOntapCommandOutput,
 } from "./commands/CreateLocationFsxOntapCommand";
-import {
+import type {
   CreateLocationFsxOpenZfsCommandInput,
   CreateLocationFsxOpenZfsCommandOutput,
 } from "./commands/CreateLocationFsxOpenZfsCommand";
-import {
+import type {
   CreateLocationFsxWindowsCommandInput,
   CreateLocationFsxWindowsCommandOutput,
 } from "./commands/CreateLocationFsxWindowsCommand";
-import { CreateLocationHdfsCommandInput, CreateLocationHdfsCommandOutput } from "./commands/CreateLocationHdfsCommand";
-import { CreateLocationNfsCommandInput, CreateLocationNfsCommandOutput } from "./commands/CreateLocationNfsCommand";
-import {
+import type {
+  CreateLocationHdfsCommandInput,
+  CreateLocationHdfsCommandOutput,
+} from "./commands/CreateLocationHdfsCommand";
+import type {
+  CreateLocationNfsCommandInput,
+  CreateLocationNfsCommandOutput,
+} from "./commands/CreateLocationNfsCommand";
+import type {
   CreateLocationObjectStorageCommandInput,
   CreateLocationObjectStorageCommandOutput,
 } from "./commands/CreateLocationObjectStorageCommand";
-import { CreateLocationS3CommandInput, CreateLocationS3CommandOutput } from "./commands/CreateLocationS3Command";
-import { CreateLocationSmbCommandInput, CreateLocationSmbCommandOutput } from "./commands/CreateLocationSmbCommand";
-import { CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
-import { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand";
-import { DeleteLocationCommandInput, DeleteLocationCommandOutput } from "./commands/DeleteLocationCommand";
-import { DeleteTaskCommandInput, DeleteTaskCommandOutput } from "./commands/DeleteTaskCommand";
-import { DescribeAgentCommandInput, DescribeAgentCommandOutput } from "./commands/DescribeAgentCommand";
-import {
+import type { CreateLocationS3CommandInput, CreateLocationS3CommandOutput } from "./commands/CreateLocationS3Command";
+import type {
+  CreateLocationSmbCommandInput,
+  CreateLocationSmbCommandOutput,
+} from "./commands/CreateLocationSmbCommand";
+import type { CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
+import type { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand";
+import type { DeleteLocationCommandInput, DeleteLocationCommandOutput } from "./commands/DeleteLocationCommand";
+import type { DeleteTaskCommandInput, DeleteTaskCommandOutput } from "./commands/DeleteTaskCommand";
+import type { DescribeAgentCommandInput, DescribeAgentCommandOutput } from "./commands/DescribeAgentCommand";
+import type {
   DescribeLocationAzureBlobCommandInput,
   DescribeLocationAzureBlobCommandOutput,
 } from "./commands/DescribeLocationAzureBlobCommand";
-import {
+import type {
   DescribeLocationEfsCommandInput,
   DescribeLocationEfsCommandOutput,
 } from "./commands/DescribeLocationEfsCommand";
-import {
+import type {
   DescribeLocationFsxLustreCommandInput,
   DescribeLocationFsxLustreCommandOutput,
 } from "./commands/DescribeLocationFsxLustreCommand";
-import {
+import type {
   DescribeLocationFsxOntapCommandInput,
   DescribeLocationFsxOntapCommandOutput,
 } from "./commands/DescribeLocationFsxOntapCommand";
-import {
+import type {
   DescribeLocationFsxOpenZfsCommandInput,
   DescribeLocationFsxOpenZfsCommandOutput,
 } from "./commands/DescribeLocationFsxOpenZfsCommand";
-import {
+import type {
   DescribeLocationFsxWindowsCommandInput,
   DescribeLocationFsxWindowsCommandOutput,
 } from "./commands/DescribeLocationFsxWindowsCommand";
-import {
+import type {
   DescribeLocationHdfsCommandInput,
   DescribeLocationHdfsCommandOutput,
 } from "./commands/DescribeLocationHdfsCommand";
-import {
+import type {
   DescribeLocationNfsCommandInput,
   DescribeLocationNfsCommandOutput,
 } from "./commands/DescribeLocationNfsCommand";
-import {
+import type {
   DescribeLocationObjectStorageCommandInput,
   DescribeLocationObjectStorageCommandOutput,
 } from "./commands/DescribeLocationObjectStorageCommand";
-import { DescribeLocationS3CommandInput, DescribeLocationS3CommandOutput } from "./commands/DescribeLocationS3Command";
-import {
+import type {
+  DescribeLocationS3CommandInput,
+  DescribeLocationS3CommandOutput,
+} from "./commands/DescribeLocationS3Command";
+import type {
   DescribeLocationSmbCommandInput,
   DescribeLocationSmbCommandOutput,
 } from "./commands/DescribeLocationSmbCommand";
-import { DescribeTaskCommandInput, DescribeTaskCommandOutput } from "./commands/DescribeTaskCommand";
-import {
+import type { DescribeTaskCommandInput, DescribeTaskCommandOutput } from "./commands/DescribeTaskCommand";
+import type {
   DescribeTaskExecutionCommandInput,
   DescribeTaskExecutionCommandOutput,
 } from "./commands/DescribeTaskExecutionCommand";
-import { ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
-import { ListLocationsCommandInput, ListLocationsCommandOutput } from "./commands/ListLocationsCommand";
-import {
+import type { ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
+import type { ListLocationsCommandInput, ListLocationsCommandOutput } from "./commands/ListLocationsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTaskExecutionsCommandInput, ListTaskExecutionsCommandOutput } from "./commands/ListTaskExecutionsCommand";
-import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
-import { StartTaskExecutionCommandInput, StartTaskExecutionCommandOutput } from "./commands/StartTaskExecutionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
-import {
+import type {
+  ListTaskExecutionsCommandInput,
+  ListTaskExecutionsCommandOutput,
+} from "./commands/ListTaskExecutionsCommand";
+import type { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
+import type {
+  StartTaskExecutionCommandInput,
+  StartTaskExecutionCommandOutput,
+} from "./commands/StartTaskExecutionCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
+import type {
   UpdateLocationAzureBlobCommandInput,
   UpdateLocationAzureBlobCommandOutput,
 } from "./commands/UpdateLocationAzureBlobCommand";
-import { UpdateLocationEfsCommandInput, UpdateLocationEfsCommandOutput } from "./commands/UpdateLocationEfsCommand";
-import {
+import type {
+  UpdateLocationEfsCommandInput,
+  UpdateLocationEfsCommandOutput,
+} from "./commands/UpdateLocationEfsCommand";
+import type {
   UpdateLocationFsxLustreCommandInput,
   UpdateLocationFsxLustreCommandOutput,
 } from "./commands/UpdateLocationFsxLustreCommand";
-import {
+import type {
   UpdateLocationFsxOntapCommandInput,
   UpdateLocationFsxOntapCommandOutput,
 } from "./commands/UpdateLocationFsxOntapCommand";
-import {
+import type {
   UpdateLocationFsxOpenZfsCommandInput,
   UpdateLocationFsxOpenZfsCommandOutput,
 } from "./commands/UpdateLocationFsxOpenZfsCommand";
-import {
+import type {
   UpdateLocationFsxWindowsCommandInput,
   UpdateLocationFsxWindowsCommandOutput,
 } from "./commands/UpdateLocationFsxWindowsCommand";
-import { UpdateLocationHdfsCommandInput, UpdateLocationHdfsCommandOutput } from "./commands/UpdateLocationHdfsCommand";
-import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "./commands/UpdateLocationNfsCommand";
-import {
+import type {
+  UpdateLocationHdfsCommandInput,
+  UpdateLocationHdfsCommandOutput,
+} from "./commands/UpdateLocationHdfsCommand";
+import type {
+  UpdateLocationNfsCommandInput,
+  UpdateLocationNfsCommandOutput,
+} from "./commands/UpdateLocationNfsCommand";
+import type {
   UpdateLocationObjectStorageCommandInput,
   UpdateLocationObjectStorageCommandOutput,
 } from "./commands/UpdateLocationObjectStorageCommand";
-import { UpdateLocationS3CommandInput, UpdateLocationS3CommandOutput } from "./commands/UpdateLocationS3Command";
-import { UpdateLocationSmbCommandInput, UpdateLocationSmbCommandOutput } from "./commands/UpdateLocationSmbCommand";
-import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
-import {
+import type { UpdateLocationS3CommandInput, UpdateLocationS3CommandOutput } from "./commands/UpdateLocationS3Command";
+import type {
+  UpdateLocationSmbCommandInput,
+  UpdateLocationSmbCommandOutput,
+} from "./commands/UpdateLocationSmbCommand";
+import type { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
+import type {
   UpdateTaskExecutionCommandInput,
   UpdateTaskExecutionCommandOutput,
 } from "./commands/UpdateTaskExecutionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -435,7 +466,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

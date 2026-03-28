@@ -3,62 +3,78 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateChatTokenCommandInput,
+  type CreateChatTokenCommandOutput,
   CreateChatTokenCommand,
-  CreateChatTokenCommandInput,
-  CreateChatTokenCommandOutput,
 } from "./commands/CreateChatTokenCommand";
 import {
+  type CreateLoggingConfigurationCommandInput,
+  type CreateLoggingConfigurationCommandOutput,
   CreateLoggingConfigurationCommand,
-  CreateLoggingConfigurationCommandInput,
-  CreateLoggingConfigurationCommandOutput,
 } from "./commands/CreateLoggingConfigurationCommand";
-import { CreateRoomCommand, CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand";
 import {
+  type CreateRoomCommandInput,
+  type CreateRoomCommandOutput,
+  CreateRoomCommand,
+} from "./commands/CreateRoomCommand";
+import {
+  type DeleteLoggingConfigurationCommandInput,
+  type DeleteLoggingConfigurationCommandOutput,
   DeleteLoggingConfigurationCommand,
-  DeleteLoggingConfigurationCommandInput,
-  DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand";
 import {
+  type DeleteMessageCommandInput,
+  type DeleteMessageCommandOutput,
   DeleteMessageCommand,
-  DeleteMessageCommandInput,
-  DeleteMessageCommandOutput,
 } from "./commands/DeleteMessageCommand";
-import { DeleteRoomCommand, DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand";
 import {
+  type DeleteRoomCommandInput,
+  type DeleteRoomCommandOutput,
+  DeleteRoomCommand,
+} from "./commands/DeleteRoomCommand";
+import {
+  type DisconnectUserCommandInput,
+  type DisconnectUserCommandOutput,
   DisconnectUserCommand,
-  DisconnectUserCommandInput,
-  DisconnectUserCommandOutput,
 } from "./commands/DisconnectUserCommand";
 import {
+  type GetLoggingConfigurationCommandInput,
+  type GetLoggingConfigurationCommandOutput,
   GetLoggingConfigurationCommand,
-  GetLoggingConfigurationCommandInput,
-  GetLoggingConfigurationCommandOutput,
 } from "./commands/GetLoggingConfigurationCommand";
-import { GetRoomCommand, GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand";
+import { type GetRoomCommandInput, type GetRoomCommandOutput, GetRoomCommand } from "./commands/GetRoomCommand";
 import {
+  type ListLoggingConfigurationsCommandInput,
+  type ListLoggingConfigurationsCommandOutput,
   ListLoggingConfigurationsCommand,
-  ListLoggingConfigurationsCommandInput,
-  ListLoggingConfigurationsCommandOutput,
 } from "./commands/ListLoggingConfigurationsCommand";
-import { ListRoomsCommand, ListRoomsCommandInput, ListRoomsCommandOutput } from "./commands/ListRoomsCommand";
+import { type ListRoomsCommandInput, type ListRoomsCommandOutput, ListRoomsCommand } from "./commands/ListRoomsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { SendEventCommand, SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type SendEventCommandInput, type SendEventCommandOutput, SendEventCommand } from "./commands/SendEventCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateLoggingConfigurationCommandInput,
+  type UpdateLoggingConfigurationCommandOutput,
   UpdateLoggingConfigurationCommand,
-  UpdateLoggingConfigurationCommandInput,
-  UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
-import { UpdateRoomCommand, UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand";
+import {
+  type UpdateRoomCommandInput,
+  type UpdateRoomCommandOutput,
+  UpdateRoomCommand,
+} from "./commands/UpdateRoomCommand";
 import { IvschatClient } from "./IvschatClient";
 import { paginateListLoggingConfigurations } from "./pagination/ListLoggingConfigurationsPaginator";
 import { paginateListRooms } from "./pagination/ListRoomsPaginator";

@@ -8,7 +8,7 @@ import {
   ListPlaybackRestrictionPoliciesCommandOutput,
 } from "../commands/ListPlaybackRestrictionPoliciesCommand";
 import { IvsClient } from "../IvsClient";
-import { IvsPaginationConfiguration } from "./Interfaces";
+import type { IvsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

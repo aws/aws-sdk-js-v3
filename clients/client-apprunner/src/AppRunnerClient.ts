@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,107 +61,116 @@ import {
   defaultAppRunnerHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateCustomDomainCommandInput,
   AssociateCustomDomainCommandOutput,
 } from "./commands/AssociateCustomDomainCommand";
-import {
+import type {
   CreateAutoScalingConfigurationCommandInput,
   CreateAutoScalingConfigurationCommandOutput,
 } from "./commands/CreateAutoScalingConfigurationCommand";
-import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
-import {
+import type { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
+import type {
   CreateObservabilityConfigurationCommandInput,
   CreateObservabilityConfigurationCommandOutput,
 } from "./commands/CreateObservabilityConfigurationCommand";
-import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
-import { CreateVpcConnectorCommandInput, CreateVpcConnectorCommandOutput } from "./commands/CreateVpcConnectorCommand";
-import {
+import type { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
+import type {
+  CreateVpcConnectorCommandInput,
+  CreateVpcConnectorCommandOutput,
+} from "./commands/CreateVpcConnectorCommand";
+import type {
   CreateVpcIngressConnectionCommandInput,
   CreateVpcIngressConnectionCommandOutput,
 } from "./commands/CreateVpcIngressConnectionCommand";
-import {
+import type {
   DeleteAutoScalingConfigurationCommandInput,
   DeleteAutoScalingConfigurationCommandOutput,
 } from "./commands/DeleteAutoScalingConfigurationCommand";
-import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
-import {
+import type { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import type {
   DeleteObservabilityConfigurationCommandInput,
   DeleteObservabilityConfigurationCommandOutput,
 } from "./commands/DeleteObservabilityConfigurationCommand";
-import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
-import { DeleteVpcConnectorCommandInput, DeleteVpcConnectorCommandOutput } from "./commands/DeleteVpcConnectorCommand";
-import {
+import type { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
+import type {
+  DeleteVpcConnectorCommandInput,
+  DeleteVpcConnectorCommandOutput,
+} from "./commands/DeleteVpcConnectorCommand";
+import type {
   DeleteVpcIngressConnectionCommandInput,
   DeleteVpcIngressConnectionCommandOutput,
 } from "./commands/DeleteVpcIngressConnectionCommand";
-import {
+import type {
   DescribeAutoScalingConfigurationCommandInput,
   DescribeAutoScalingConfigurationCommandOutput,
 } from "./commands/DescribeAutoScalingConfigurationCommand";
-import {
+import type {
   DescribeCustomDomainsCommandInput,
   DescribeCustomDomainsCommandOutput,
 } from "./commands/DescribeCustomDomainsCommand";
-import {
+import type {
   DescribeObservabilityConfigurationCommandInput,
   DescribeObservabilityConfigurationCommandOutput,
 } from "./commands/DescribeObservabilityConfigurationCommand";
-import { DescribeServiceCommandInput, DescribeServiceCommandOutput } from "./commands/DescribeServiceCommand";
-import {
+import type { DescribeServiceCommandInput, DescribeServiceCommandOutput } from "./commands/DescribeServiceCommand";
+import type {
   DescribeVpcConnectorCommandInput,
   DescribeVpcConnectorCommandOutput,
 } from "./commands/DescribeVpcConnectorCommand";
-import {
+import type {
   DescribeVpcIngressConnectionCommandInput,
   DescribeVpcIngressConnectionCommandOutput,
 } from "./commands/DescribeVpcIngressConnectionCommand";
-import {
+import type {
   DisassociateCustomDomainCommandInput,
   DisassociateCustomDomainCommandOutput,
 } from "./commands/DisassociateCustomDomainCommand";
-import {
+import type {
   ListAutoScalingConfigurationsCommandInput,
   ListAutoScalingConfigurationsCommandOutput,
 } from "./commands/ListAutoScalingConfigurationsCommand";
-import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
-import {
+import type { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
+import type {
   ListObservabilityConfigurationsCommandInput,
   ListObservabilityConfigurationsCommandOutput,
 } from "./commands/ListObservabilityConfigurationsCommand";
-import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
-import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
-import {
+import type { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
+import type { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
+import type {
   ListServicesForAutoScalingConfigurationCommandInput,
   ListServicesForAutoScalingConfigurationCommandOutput,
 } from "./commands/ListServicesForAutoScalingConfigurationCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListVpcConnectorsCommandInput, ListVpcConnectorsCommandOutput } from "./commands/ListVpcConnectorsCommand";
-import {
+import type {
+  ListVpcConnectorsCommandInput,
+  ListVpcConnectorsCommandOutput,
+} from "./commands/ListVpcConnectorsCommand";
+import type {
   ListVpcIngressConnectionsCommandInput,
   ListVpcIngressConnectionsCommandOutput,
 } from "./commands/ListVpcIngressConnectionsCommand";
-import { PauseServiceCommandInput, PauseServiceCommandOutput } from "./commands/PauseServiceCommand";
-import { ResumeServiceCommandInput, ResumeServiceCommandOutput } from "./commands/ResumeServiceCommand";
-import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { PauseServiceCommandInput, PauseServiceCommandOutput } from "./commands/PauseServiceCommand";
+import type { ResumeServiceCommandInput, ResumeServiceCommandOutput } from "./commands/ResumeServiceCommand";
+import type { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateDefaultAutoScalingConfigurationCommandInput,
   UpdateDefaultAutoScalingConfigurationCommandOutput,
 } from "./commands/UpdateDefaultAutoScalingConfigurationCommand";
-import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
-import {
+import type { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
+import type {
   UpdateVpcIngressConnectionCommandInput,
   UpdateVpcIngressConnectionCommandOutput,
 } from "./commands/UpdateVpcIngressConnectionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -369,7 +376,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

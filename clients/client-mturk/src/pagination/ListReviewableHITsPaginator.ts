@@ -8,7 +8,7 @@ import {
   ListReviewableHITsCommandOutput,
 } from "../commands/ListReviewableHITsCommand";
 import { MTurkClient } from "../MTurkClient";
-import { MTurkPaginationConfiguration } from "./Interfaces";
+import type { MTurkPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { OAuth2ErrorCode } from "./enums";
+import type { OAuth2ErrorCode } from "./enums";
 import { SigninServiceException as __BaseException } from "./SigninServiceException";
 
 /**

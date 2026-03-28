@@ -8,7 +8,7 @@ import {
   ListAgreementsCommandOutput,
 } from "../commands/ListAgreementsCommand";
 import { TransferClient } from "../TransferClient";
-import { TransferPaginationConfiguration } from "./Interfaces";
+import type { TransferPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

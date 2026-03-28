@@ -8,7 +8,7 @@ import {
   ListAnnotationImportJobsCommandOutput,
 } from "../commands/ListAnnotationImportJobsCommand";
 import { OmicsClient } from "../OmicsClient";
-import { OmicsPaginationConfiguration } from "./Interfaces";
+import type { OmicsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

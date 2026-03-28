@@ -7,7 +7,7 @@
  */
 export * from "./WickrClient";
 export * from "./Wickr";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { WickrExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

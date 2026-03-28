@@ -8,7 +8,7 @@ import {
   ListCertificatesCommandOutput,
 } from "../commands/ListCertificatesCommand";
 import { TransferClient } from "../TransferClient";
-import { TransferPaginationConfiguration } from "./Interfaces";
+import type { TransferPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

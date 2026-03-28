@@ -7,8 +7,8 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import {
+  type UploadMultipartPartInput,
   type UploadMultipartPartOutput,
-  UploadMultipartPartInput,
   UploadMultipartPartInputFilterSensitiveLog,
 } from "../models/models_0";
 import { de_UploadMultipartPartCommand, se_UploadMultipartPartCommand } from "../protocols/Aws_restJson1";

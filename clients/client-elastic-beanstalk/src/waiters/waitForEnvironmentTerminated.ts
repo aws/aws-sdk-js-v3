@@ -1,8 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeEnvironmentsCommand, DescribeEnvironmentsCommandInput } from "../commands/DescribeEnvironmentsCommand";
-import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
+import {
+  type DescribeEnvironmentsCommandInput,
+  DescribeEnvironmentsCommand,
+} from "../commands/DescribeEnvironmentsCommand";
+import type { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
 
 const checkState = async (client: ElasticBeanstalkClient, input: DescribeEnvironmentsCommandInput): Promise<WaiterResult> => {
   let reason;

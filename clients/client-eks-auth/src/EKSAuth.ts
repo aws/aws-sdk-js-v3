@@ -3,9 +3,9 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type AssumeRoleForPodIdentityCommandInput,
+  type AssumeRoleForPodIdentityCommandOutput,
   AssumeRoleForPodIdentityCommand,
-  AssumeRoleForPodIdentityCommandInput,
-  AssumeRoleForPodIdentityCommandOutput,
 } from "./commands/AssumeRoleForPodIdentityCommand";
 import { EKSAuthClient } from "./EKSAuthClient";
 

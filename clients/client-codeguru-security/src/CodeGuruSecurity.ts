@@ -4,49 +4,61 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CodeGuruSecurityClient } from "./CodeGuruSecurityClient";
 import {
+  type BatchGetFindingsCommandInput,
+  type BatchGetFindingsCommandOutput,
   BatchGetFindingsCommand,
-  BatchGetFindingsCommandInput,
-  BatchGetFindingsCommandOutput,
 } from "./commands/BatchGetFindingsCommand";
-import { CreateScanCommand, CreateScanCommandInput, CreateScanCommandOutput } from "./commands/CreateScanCommand";
 import {
+  type CreateScanCommandInput,
+  type CreateScanCommandOutput,
+  CreateScanCommand,
+} from "./commands/CreateScanCommand";
+import {
+  type CreateUploadUrlCommandInput,
+  type CreateUploadUrlCommandOutput,
   CreateUploadUrlCommand,
-  CreateUploadUrlCommandInput,
-  CreateUploadUrlCommandOutput,
 } from "./commands/CreateUploadUrlCommand";
 import {
+  type GetAccountConfigurationCommandInput,
+  type GetAccountConfigurationCommandOutput,
   GetAccountConfigurationCommand,
-  GetAccountConfigurationCommandInput,
-  GetAccountConfigurationCommandOutput,
 } from "./commands/GetAccountConfigurationCommand";
-import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
 import {
+  type GetFindingsCommandInput,
+  type GetFindingsCommandOutput,
+  GetFindingsCommand,
+} from "./commands/GetFindingsCommand";
+import {
+  type GetMetricsSummaryCommandInput,
+  type GetMetricsSummaryCommandOutput,
   GetMetricsSummaryCommand,
-  GetMetricsSummaryCommandInput,
-  GetMetricsSummaryCommandOutput,
 } from "./commands/GetMetricsSummaryCommand";
-import { GetScanCommand, GetScanCommandInput, GetScanCommandOutput } from "./commands/GetScanCommand";
+import { type GetScanCommandInput, type GetScanCommandOutput, GetScanCommand } from "./commands/GetScanCommand";
 import {
+  type ListFindingsMetricsCommandInput,
+  type ListFindingsMetricsCommandOutput,
   ListFindingsMetricsCommand,
-  ListFindingsMetricsCommandInput,
-  ListFindingsMetricsCommandOutput,
 } from "./commands/ListFindingsMetricsCommand";
-import { ListScansCommand, ListScansCommandInput, ListScansCommandOutput } from "./commands/ListScansCommand";
+import { type ListScansCommandInput, type ListScansCommandOutput, ListScansCommand } from "./commands/ListScansCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccountConfigurationCommandInput,
+  type UpdateAccountConfigurationCommandOutput,
   UpdateAccountConfigurationCommand,
-  UpdateAccountConfigurationCommandInput,
-  UpdateAccountConfigurationCommandOutput,
 } from "./commands/UpdateAccountConfigurationCommand";
 import { paginateGetFindings } from "./pagination/GetFindingsPaginator";
 import { paginateListFindingsMetrics } from "./pagination/ListFindingsMetricsPaginator";

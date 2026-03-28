@@ -8,7 +8,7 @@ import {
   ListWorkloadsCommandInput,
   ListWorkloadsCommandOutput,
 } from "../commands/ListWorkloadsCommand";
-import { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
+import type { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

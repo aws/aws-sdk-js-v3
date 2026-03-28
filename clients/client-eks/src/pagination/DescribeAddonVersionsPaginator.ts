@@ -8,7 +8,7 @@ import {
   DescribeAddonVersionsCommandOutput,
 } from "../commands/DescribeAddonVersionsCommand";
 import { EKSClient } from "../EKSClient";
-import { EKSPaginationConfiguration } from "./Interfaces";
+import type { EKSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

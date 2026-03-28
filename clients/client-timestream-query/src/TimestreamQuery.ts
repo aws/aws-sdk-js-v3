@@ -2,68 +2,76 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { CancelQueryCommand, CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
 import {
+  type CancelQueryCommandInput,
+  type CancelQueryCommandOutput,
+  CancelQueryCommand,
+} from "./commands/CancelQueryCommand";
+import {
+  type CreateScheduledQueryCommandInput,
+  type CreateScheduledQueryCommandOutput,
   CreateScheduledQueryCommand,
-  CreateScheduledQueryCommandInput,
-  CreateScheduledQueryCommandOutput,
 } from "./commands/CreateScheduledQueryCommand";
 import {
+  type DeleteScheduledQueryCommandInput,
+  type DeleteScheduledQueryCommandOutput,
   DeleteScheduledQueryCommand,
-  DeleteScheduledQueryCommandInput,
-  DeleteScheduledQueryCommandOutput,
 } from "./commands/DeleteScheduledQueryCommand";
 import {
+  type DescribeAccountSettingsCommandInput,
+  type DescribeAccountSettingsCommandOutput,
   DescribeAccountSettingsCommand,
-  DescribeAccountSettingsCommandInput,
-  DescribeAccountSettingsCommandOutput,
 } from "./commands/DescribeAccountSettingsCommand";
 import {
+  type DescribeEndpointsCommandInput,
+  type DescribeEndpointsCommandOutput,
   DescribeEndpointsCommand,
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
 import {
+  type DescribeScheduledQueryCommandInput,
+  type DescribeScheduledQueryCommandOutput,
   DescribeScheduledQueryCommand,
-  DescribeScheduledQueryCommandInput,
-  DescribeScheduledQueryCommandOutput,
 } from "./commands/DescribeScheduledQueryCommand";
 import {
+  type ExecuteScheduledQueryCommandInput,
+  type ExecuteScheduledQueryCommandOutput,
   ExecuteScheduledQueryCommand,
-  ExecuteScheduledQueryCommandInput,
-  ExecuteScheduledQueryCommandOutput,
 } from "./commands/ExecuteScheduledQueryCommand";
 import {
+  type ListScheduledQueriesCommandInput,
+  type ListScheduledQueriesCommandOutput,
   ListScheduledQueriesCommand,
-  ListScheduledQueriesCommandInput,
-  ListScheduledQueriesCommandOutput,
 } from "./commands/ListScheduledQueriesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PrepareQueryCommandInput,
+  type PrepareQueryCommandOutput,
   PrepareQueryCommand,
-  PrepareQueryCommandInput,
-  PrepareQueryCommandOutput,
 } from "./commands/PrepareQueryCommand";
-import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { type QueryCommandInput, type QueryCommandOutput, QueryCommand } from "./commands/QueryCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccountSettingsCommandInput,
+  type UpdateAccountSettingsCommandOutput,
   UpdateAccountSettingsCommand,
-  UpdateAccountSettingsCommandInput,
-  UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
 import {
+  type UpdateScheduledQueryCommandInput,
+  type UpdateScheduledQueryCommandOutput,
   UpdateScheduledQueryCommand,
-  UpdateScheduledQueryCommandInput,
-  UpdateScheduledQueryCommandOutput,
 } from "./commands/UpdateScheduledQueryCommand";
 import { paginateListScheduledQueries } from "./pagination/ListScheduledQueriesPaginator";
 import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";

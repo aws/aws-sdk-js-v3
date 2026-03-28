@@ -8,7 +8,7 @@ import {
   ListCodeInterpretersCommandInput,
   ListCodeInterpretersCommandOutput,
 } from "../commands/ListCodeInterpretersCommand";
-import { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
+import type { BedrockAgentCoreControlPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

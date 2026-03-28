@@ -8,7 +8,7 @@ import {
   ListCrossAccountAttachmentsCommandOutput,
 } from "../commands/ListCrossAccountAttachmentsCommand";
 import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
-import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
+import type { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

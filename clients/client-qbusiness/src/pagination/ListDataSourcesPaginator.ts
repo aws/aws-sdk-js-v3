@@ -8,7 +8,7 @@ import {
   ListDataSourcesCommandOutput,
 } from "../commands/ListDataSourcesCommand";
 import { QBusinessClient } from "../QBusinessClient";
-import { QBusinessPaginationConfiguration } from "./Interfaces";
+import type { QBusinessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

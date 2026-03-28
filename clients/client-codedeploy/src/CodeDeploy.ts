@@ -10,235 +10,239 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CodeDeployClient } from "./CodeDeployClient";
 import {
+  type AddTagsToOnPremisesInstancesCommandInput,
+  type AddTagsToOnPremisesInstancesCommandOutput,
   AddTagsToOnPremisesInstancesCommand,
-  AddTagsToOnPremisesInstancesCommandInput,
-  AddTagsToOnPremisesInstancesCommandOutput,
 } from "./commands/AddTagsToOnPremisesInstancesCommand";
 import {
+  type BatchGetApplicationRevisionsCommandInput,
+  type BatchGetApplicationRevisionsCommandOutput,
   BatchGetApplicationRevisionsCommand,
-  BatchGetApplicationRevisionsCommandInput,
-  BatchGetApplicationRevisionsCommandOutput,
 } from "./commands/BatchGetApplicationRevisionsCommand";
 import {
+  type BatchGetApplicationsCommandInput,
+  type BatchGetApplicationsCommandOutput,
   BatchGetApplicationsCommand,
-  BatchGetApplicationsCommandInput,
-  BatchGetApplicationsCommandOutput,
 } from "./commands/BatchGetApplicationsCommand";
 import {
+  type BatchGetDeploymentGroupsCommandInput,
+  type BatchGetDeploymentGroupsCommandOutput,
   BatchGetDeploymentGroupsCommand,
-  BatchGetDeploymentGroupsCommandInput,
-  BatchGetDeploymentGroupsCommandOutput,
 } from "./commands/BatchGetDeploymentGroupsCommand";
 import {
+  type BatchGetDeploymentInstancesCommandInput,
+  type BatchGetDeploymentInstancesCommandOutput,
   BatchGetDeploymentInstancesCommand,
-  BatchGetDeploymentInstancesCommandInput,
-  BatchGetDeploymentInstancesCommandOutput,
 } from "./commands/BatchGetDeploymentInstancesCommand";
 import {
+  type BatchGetDeploymentsCommandInput,
+  type BatchGetDeploymentsCommandOutput,
   BatchGetDeploymentsCommand,
-  BatchGetDeploymentsCommandInput,
-  BatchGetDeploymentsCommandOutput,
 } from "./commands/BatchGetDeploymentsCommand";
 import {
+  type BatchGetDeploymentTargetsCommandInput,
+  type BatchGetDeploymentTargetsCommandOutput,
   BatchGetDeploymentTargetsCommand,
-  BatchGetDeploymentTargetsCommandInput,
-  BatchGetDeploymentTargetsCommandOutput,
 } from "./commands/BatchGetDeploymentTargetsCommand";
 import {
+  type BatchGetOnPremisesInstancesCommandInput,
+  type BatchGetOnPremisesInstancesCommandOutput,
   BatchGetOnPremisesInstancesCommand,
-  BatchGetOnPremisesInstancesCommandInput,
-  BatchGetOnPremisesInstancesCommandOutput,
 } from "./commands/BatchGetOnPremisesInstancesCommand";
 import {
+  type ContinueDeploymentCommandInput,
+  type ContinueDeploymentCommandOutput,
   ContinueDeploymentCommand,
-  ContinueDeploymentCommandInput,
-  ContinueDeploymentCommandOutput,
 } from "./commands/ContinueDeploymentCommand";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateDeploymentCommandInput,
+  type CreateDeploymentCommandOutput,
   CreateDeploymentCommand,
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput,
 } from "./commands/CreateDeploymentCommand";
 import {
+  type CreateDeploymentConfigCommandInput,
+  type CreateDeploymentConfigCommandOutput,
   CreateDeploymentConfigCommand,
-  CreateDeploymentConfigCommandInput,
-  CreateDeploymentConfigCommandOutput,
 } from "./commands/CreateDeploymentConfigCommand";
 import {
+  type CreateDeploymentGroupCommandInput,
+  type CreateDeploymentGroupCommandOutput,
   CreateDeploymentGroupCommand,
-  CreateDeploymentGroupCommandInput,
-  CreateDeploymentGroupCommandOutput,
 } from "./commands/CreateDeploymentGroupCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteDeploymentConfigCommandInput,
+  type DeleteDeploymentConfigCommandOutput,
   DeleteDeploymentConfigCommand,
-  DeleteDeploymentConfigCommandInput,
-  DeleteDeploymentConfigCommandOutput,
 } from "./commands/DeleteDeploymentConfigCommand";
 import {
+  type DeleteDeploymentGroupCommandInput,
+  type DeleteDeploymentGroupCommandOutput,
   DeleteDeploymentGroupCommand,
-  DeleteDeploymentGroupCommandInput,
-  DeleteDeploymentGroupCommandOutput,
 } from "./commands/DeleteDeploymentGroupCommand";
 import {
+  type DeleteGitHubAccountTokenCommandInput,
+  type DeleteGitHubAccountTokenCommandOutput,
   DeleteGitHubAccountTokenCommand,
-  DeleteGitHubAccountTokenCommandInput,
-  DeleteGitHubAccountTokenCommandOutput,
 } from "./commands/DeleteGitHubAccountTokenCommand";
 import {
+  type DeleteResourcesByExternalIdCommandInput,
+  type DeleteResourcesByExternalIdCommandOutput,
   DeleteResourcesByExternalIdCommand,
-  DeleteResourcesByExternalIdCommandInput,
-  DeleteResourcesByExternalIdCommandOutput,
 } from "./commands/DeleteResourcesByExternalIdCommand";
 import {
+  type DeregisterOnPremisesInstanceCommandInput,
+  type DeregisterOnPremisesInstanceCommandOutput,
   DeregisterOnPremisesInstanceCommand,
-  DeregisterOnPremisesInstanceCommandInput,
-  DeregisterOnPremisesInstanceCommandOutput,
 } from "./commands/DeregisterOnPremisesInstanceCommand";
 import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
   GetApplicationCommand,
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  type GetApplicationRevisionCommandInput,
+  type GetApplicationRevisionCommandOutput,
   GetApplicationRevisionCommand,
-  GetApplicationRevisionCommandInput,
-  GetApplicationRevisionCommandOutput,
 } from "./commands/GetApplicationRevisionCommand";
 import {
+  type GetDeploymentCommandInput,
+  type GetDeploymentCommandOutput,
   GetDeploymentCommand,
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput,
 } from "./commands/GetDeploymentCommand";
 import {
+  type GetDeploymentConfigCommandInput,
+  type GetDeploymentConfigCommandOutput,
   GetDeploymentConfigCommand,
-  GetDeploymentConfigCommandInput,
-  GetDeploymentConfigCommandOutput,
 } from "./commands/GetDeploymentConfigCommand";
 import {
+  type GetDeploymentGroupCommandInput,
+  type GetDeploymentGroupCommandOutput,
   GetDeploymentGroupCommand,
-  GetDeploymentGroupCommandInput,
-  GetDeploymentGroupCommandOutput,
 } from "./commands/GetDeploymentGroupCommand";
 import {
+  type GetDeploymentInstanceCommandInput,
+  type GetDeploymentInstanceCommandOutput,
   GetDeploymentInstanceCommand,
-  GetDeploymentInstanceCommandInput,
-  GetDeploymentInstanceCommandOutput,
 } from "./commands/GetDeploymentInstanceCommand";
 import {
+  type GetDeploymentTargetCommandInput,
+  type GetDeploymentTargetCommandOutput,
   GetDeploymentTargetCommand,
-  GetDeploymentTargetCommandInput,
-  GetDeploymentTargetCommandOutput,
 } from "./commands/GetDeploymentTargetCommand";
 import {
+  type GetOnPremisesInstanceCommandInput,
+  type GetOnPremisesInstanceCommandOutput,
   GetOnPremisesInstanceCommand,
-  GetOnPremisesInstanceCommandInput,
-  GetOnPremisesInstanceCommandOutput,
 } from "./commands/GetOnPremisesInstanceCommand";
 import {
+  type ListApplicationRevisionsCommandInput,
+  type ListApplicationRevisionsCommandOutput,
   ListApplicationRevisionsCommand,
-  ListApplicationRevisionsCommandInput,
-  ListApplicationRevisionsCommandOutput,
 } from "./commands/ListApplicationRevisionsCommand";
 import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
   ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  type ListDeploymentConfigsCommandInput,
+  type ListDeploymentConfigsCommandOutput,
   ListDeploymentConfigsCommand,
-  ListDeploymentConfigsCommandInput,
-  ListDeploymentConfigsCommandOutput,
 } from "./commands/ListDeploymentConfigsCommand";
 import {
+  type ListDeploymentGroupsCommandInput,
+  type ListDeploymentGroupsCommandOutput,
   ListDeploymentGroupsCommand,
-  ListDeploymentGroupsCommandInput,
-  ListDeploymentGroupsCommandOutput,
 } from "./commands/ListDeploymentGroupsCommand";
 import {
+  type ListDeploymentInstancesCommandInput,
+  type ListDeploymentInstancesCommandOutput,
   ListDeploymentInstancesCommand,
-  ListDeploymentInstancesCommandInput,
-  ListDeploymentInstancesCommandOutput,
 } from "./commands/ListDeploymentInstancesCommand";
 import {
+  type ListDeploymentsCommandInput,
+  type ListDeploymentsCommandOutput,
   ListDeploymentsCommand,
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand";
 import {
+  type ListDeploymentTargetsCommandInput,
+  type ListDeploymentTargetsCommandOutput,
   ListDeploymentTargetsCommand,
-  ListDeploymentTargetsCommandInput,
-  ListDeploymentTargetsCommandOutput,
 } from "./commands/ListDeploymentTargetsCommand";
 import {
+  type ListGitHubAccountTokenNamesCommandInput,
+  type ListGitHubAccountTokenNamesCommandOutput,
   ListGitHubAccountTokenNamesCommand,
-  ListGitHubAccountTokenNamesCommandInput,
-  ListGitHubAccountTokenNamesCommandOutput,
 } from "./commands/ListGitHubAccountTokenNamesCommand";
 import {
+  type ListOnPremisesInstancesCommandInput,
+  type ListOnPremisesInstancesCommandOutput,
   ListOnPremisesInstancesCommand,
-  ListOnPremisesInstancesCommandInput,
-  ListOnPremisesInstancesCommandOutput,
 } from "./commands/ListOnPremisesInstancesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutLifecycleEventHookExecutionStatusCommandInput,
+  type PutLifecycleEventHookExecutionStatusCommandOutput,
   PutLifecycleEventHookExecutionStatusCommand,
-  PutLifecycleEventHookExecutionStatusCommandInput,
-  PutLifecycleEventHookExecutionStatusCommandOutput,
 } from "./commands/PutLifecycleEventHookExecutionStatusCommand";
 import {
+  type RegisterApplicationRevisionCommandInput,
+  type RegisterApplicationRevisionCommandOutput,
   RegisterApplicationRevisionCommand,
-  RegisterApplicationRevisionCommandInput,
-  RegisterApplicationRevisionCommandOutput,
 } from "./commands/RegisterApplicationRevisionCommand";
 import {
+  type RegisterOnPremisesInstanceCommandInput,
+  type RegisterOnPremisesInstanceCommandOutput,
   RegisterOnPremisesInstanceCommand,
-  RegisterOnPremisesInstanceCommandInput,
-  RegisterOnPremisesInstanceCommandOutput,
 } from "./commands/RegisterOnPremisesInstanceCommand";
 import {
+  type RemoveTagsFromOnPremisesInstancesCommandInput,
+  type RemoveTagsFromOnPremisesInstancesCommandOutput,
   RemoveTagsFromOnPremisesInstancesCommand,
-  RemoveTagsFromOnPremisesInstancesCommandInput,
-  RemoveTagsFromOnPremisesInstancesCommandOutput,
 } from "./commands/RemoveTagsFromOnPremisesInstancesCommand";
 import {
+  type SkipWaitTimeForInstanceTerminationCommandInput,
+  type SkipWaitTimeForInstanceTerminationCommandOutput,
   SkipWaitTimeForInstanceTerminationCommand,
-  SkipWaitTimeForInstanceTerminationCommandInput,
-  SkipWaitTimeForInstanceTerminationCommandOutput,
 } from "./commands/SkipWaitTimeForInstanceTerminationCommand";
 import {
+  type StopDeploymentCommandInput,
+  type StopDeploymentCommandOutput,
   StopDeploymentCommand,
-  StopDeploymentCommandInput,
-  StopDeploymentCommandOutput,
 } from "./commands/StopDeploymentCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateDeploymentGroupCommandInput,
+  type UpdateDeploymentGroupCommandOutput,
   UpdateDeploymentGroupCommand,
-  UpdateDeploymentGroupCommandInput,
-  UpdateDeploymentGroupCommandOutput,
 } from "./commands/UpdateDeploymentGroupCommand";
 import { paginateListApplicationRevisions } from "./pagination/ListApplicationRevisionsPaginator";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";

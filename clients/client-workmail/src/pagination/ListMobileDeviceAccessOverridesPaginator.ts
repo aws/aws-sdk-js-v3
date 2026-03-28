@@ -8,7 +8,7 @@ import {
   ListMobileDeviceAccessOverridesCommandOutput,
 } from "../commands/ListMobileDeviceAccessOverridesCommand";
 import { WorkMailClient } from "../WorkMailClient";
-import { WorkMailPaginationConfiguration } from "./Interfaces";
+import type { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

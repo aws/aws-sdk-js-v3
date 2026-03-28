@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "../commands/ListGraphsCommand";
 import { DetectiveClient } from "../DetectiveClient";
-import { DetectivePaginationConfiguration } from "./Interfaces";
+import type { DetectivePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

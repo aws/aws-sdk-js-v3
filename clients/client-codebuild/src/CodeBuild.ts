@@ -4,259 +4,295 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { CodeBuildClient } from "./CodeBuildClient";
 import {
+  type BatchDeleteBuildsCommandInput,
+  type BatchDeleteBuildsCommandOutput,
   BatchDeleteBuildsCommand,
-  BatchDeleteBuildsCommandInput,
-  BatchDeleteBuildsCommandOutput,
 } from "./commands/BatchDeleteBuildsCommand";
 import {
+  type BatchGetBuildBatchesCommandInput,
+  type BatchGetBuildBatchesCommandOutput,
   BatchGetBuildBatchesCommand,
-  BatchGetBuildBatchesCommandInput,
-  BatchGetBuildBatchesCommandOutput,
 } from "./commands/BatchGetBuildBatchesCommand";
 import {
+  type BatchGetBuildsCommandInput,
+  type BatchGetBuildsCommandOutput,
   BatchGetBuildsCommand,
-  BatchGetBuildsCommandInput,
-  BatchGetBuildsCommandOutput,
 } from "./commands/BatchGetBuildsCommand";
 import {
+  type BatchGetCommandExecutionsCommandInput,
+  type BatchGetCommandExecutionsCommandOutput,
   BatchGetCommandExecutionsCommand,
-  BatchGetCommandExecutionsCommandInput,
-  BatchGetCommandExecutionsCommandOutput,
 } from "./commands/BatchGetCommandExecutionsCommand";
 import {
+  type BatchGetFleetsCommandInput,
+  type BatchGetFleetsCommandOutput,
   BatchGetFleetsCommand,
-  BatchGetFleetsCommandInput,
-  BatchGetFleetsCommandOutput,
 } from "./commands/BatchGetFleetsCommand";
 import {
+  type BatchGetProjectsCommandInput,
+  type BatchGetProjectsCommandOutput,
   BatchGetProjectsCommand,
-  BatchGetProjectsCommandInput,
-  BatchGetProjectsCommandOutput,
 } from "./commands/BatchGetProjectsCommand";
 import {
+  type BatchGetReportGroupsCommandInput,
+  type BatchGetReportGroupsCommandOutput,
   BatchGetReportGroupsCommand,
-  BatchGetReportGroupsCommandInput,
-  BatchGetReportGroupsCommandOutput,
 } from "./commands/BatchGetReportGroupsCommand";
 import {
+  type BatchGetReportsCommandInput,
+  type BatchGetReportsCommandOutput,
   BatchGetReportsCommand,
-  BatchGetReportsCommandInput,
-  BatchGetReportsCommandOutput,
 } from "./commands/BatchGetReportsCommand";
 import {
+  type BatchGetSandboxesCommandInput,
+  type BatchGetSandboxesCommandOutput,
   BatchGetSandboxesCommand,
-  BatchGetSandboxesCommandInput,
-  BatchGetSandboxesCommandOutput,
 } from "./commands/BatchGetSandboxesCommand";
-import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
+  type CreateFleetCommandInput,
+  type CreateFleetCommandOutput,
+  CreateFleetCommand,
+} from "./commands/CreateFleetCommand";
+import {
+  type CreateProjectCommandInput,
+  type CreateProjectCommandOutput,
   CreateProjectCommand,
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput,
 } from "./commands/CreateProjectCommand";
 import {
+  type CreateReportGroupCommandInput,
+  type CreateReportGroupCommandOutput,
   CreateReportGroupCommand,
-  CreateReportGroupCommandInput,
-  CreateReportGroupCommandOutput,
 } from "./commands/CreateReportGroupCommand";
 import {
+  type CreateWebhookCommandInput,
+  type CreateWebhookCommandOutput,
   CreateWebhookCommand,
-  CreateWebhookCommandInput,
-  CreateWebhookCommandOutput,
 } from "./commands/CreateWebhookCommand";
 import {
+  type DeleteBuildBatchCommandInput,
+  type DeleteBuildBatchCommandOutput,
   DeleteBuildBatchCommand,
-  DeleteBuildBatchCommandInput,
-  DeleteBuildBatchCommandOutput,
 } from "./commands/DeleteBuildBatchCommand";
-import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
+  type DeleteFleetCommandInput,
+  type DeleteFleetCommandOutput,
+  DeleteFleetCommand,
+} from "./commands/DeleteFleetCommand";
+import {
+  type DeleteProjectCommandInput,
+  type DeleteProjectCommandOutput,
   DeleteProjectCommand,
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand";
 import {
+  type DeleteReportCommandInput,
+  type DeleteReportCommandOutput,
   DeleteReportCommand,
-  DeleteReportCommandInput,
-  DeleteReportCommandOutput,
 } from "./commands/DeleteReportCommand";
 import {
+  type DeleteReportGroupCommandInput,
+  type DeleteReportGroupCommandOutput,
   DeleteReportGroupCommand,
-  DeleteReportGroupCommandInput,
-  DeleteReportGroupCommandOutput,
 } from "./commands/DeleteReportGroupCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteSourceCredentialsCommandInput,
+  type DeleteSourceCredentialsCommandOutput,
   DeleteSourceCredentialsCommand,
-  DeleteSourceCredentialsCommandInput,
-  DeleteSourceCredentialsCommandOutput,
 } from "./commands/DeleteSourceCredentialsCommand";
 import {
+  type DeleteWebhookCommandInput,
+  type DeleteWebhookCommandOutput,
   DeleteWebhookCommand,
-  DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput,
 } from "./commands/DeleteWebhookCommand";
 import {
+  type DescribeCodeCoveragesCommandInput,
+  type DescribeCodeCoveragesCommandOutput,
   DescribeCodeCoveragesCommand,
-  DescribeCodeCoveragesCommandInput,
-  DescribeCodeCoveragesCommandOutput,
 } from "./commands/DescribeCodeCoveragesCommand";
 import {
+  type DescribeTestCasesCommandInput,
+  type DescribeTestCasesCommandOutput,
   DescribeTestCasesCommand,
-  DescribeTestCasesCommandInput,
-  DescribeTestCasesCommandOutput,
 } from "./commands/DescribeTestCasesCommand";
 import {
+  type GetReportGroupTrendCommandInput,
+  type GetReportGroupTrendCommandOutput,
   GetReportGroupTrendCommand,
-  GetReportGroupTrendCommandInput,
-  GetReportGroupTrendCommandOutput,
 } from "./commands/GetReportGroupTrendCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type ImportSourceCredentialsCommandInput,
+  type ImportSourceCredentialsCommandOutput,
   ImportSourceCredentialsCommand,
-  ImportSourceCredentialsCommandInput,
-  ImportSourceCredentialsCommandOutput,
 } from "./commands/ImportSourceCredentialsCommand";
 import {
+  type InvalidateProjectCacheCommandInput,
+  type InvalidateProjectCacheCommandOutput,
   InvalidateProjectCacheCommand,
-  InvalidateProjectCacheCommandInput,
-  InvalidateProjectCacheCommandOutput,
 } from "./commands/InvalidateProjectCacheCommand";
 import {
+  type ListBuildBatchesCommandInput,
+  type ListBuildBatchesCommandOutput,
   ListBuildBatchesCommand,
-  ListBuildBatchesCommandInput,
-  ListBuildBatchesCommandOutput,
 } from "./commands/ListBuildBatchesCommand";
 import {
+  type ListBuildBatchesForProjectCommandInput,
+  type ListBuildBatchesForProjectCommandOutput,
   ListBuildBatchesForProjectCommand,
-  ListBuildBatchesForProjectCommandInput,
-  ListBuildBatchesForProjectCommandOutput,
 } from "./commands/ListBuildBatchesForProjectCommand";
-import { ListBuildsCommand, ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import {
+  type ListBuildsCommandInput,
+  type ListBuildsCommandOutput,
+  ListBuildsCommand,
+} from "./commands/ListBuildsCommand";
+import {
+  type ListBuildsForProjectCommandInput,
+  type ListBuildsForProjectCommandOutput,
   ListBuildsForProjectCommand,
-  ListBuildsForProjectCommandInput,
-  ListBuildsForProjectCommandOutput,
 } from "./commands/ListBuildsForProjectCommand";
 import {
+  type ListCommandExecutionsForSandboxCommandInput,
+  type ListCommandExecutionsForSandboxCommandOutput,
   ListCommandExecutionsForSandboxCommand,
-  ListCommandExecutionsForSandboxCommandInput,
-  ListCommandExecutionsForSandboxCommandOutput,
 } from "./commands/ListCommandExecutionsForSandboxCommand";
 import {
+  type ListCuratedEnvironmentImagesCommandInput,
+  type ListCuratedEnvironmentImagesCommandOutput,
   ListCuratedEnvironmentImagesCommand,
-  ListCuratedEnvironmentImagesCommandInput,
-  ListCuratedEnvironmentImagesCommandOutput,
 } from "./commands/ListCuratedEnvironmentImagesCommand";
-import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
+  type ListFleetsCommandInput,
+  type ListFleetsCommandOutput,
+  ListFleetsCommand,
+} from "./commands/ListFleetsCommand";
+import {
+  type ListProjectsCommandInput,
+  type ListProjectsCommandOutput,
   ListProjectsCommand,
-  ListProjectsCommandInput,
-  ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
 import {
+  type ListReportGroupsCommandInput,
+  type ListReportGroupsCommandOutput,
   ListReportGroupsCommand,
-  ListReportGroupsCommandInput,
-  ListReportGroupsCommandOutput,
 } from "./commands/ListReportGroupsCommand";
-import { ListReportsCommand, ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
 import {
+  type ListReportsCommandInput,
+  type ListReportsCommandOutput,
+  ListReportsCommand,
+} from "./commands/ListReportsCommand";
+import {
+  type ListReportsForReportGroupCommandInput,
+  type ListReportsForReportGroupCommandOutput,
   ListReportsForReportGroupCommand,
-  ListReportsForReportGroupCommandInput,
-  ListReportsForReportGroupCommandOutput,
 } from "./commands/ListReportsForReportGroupCommand";
 import {
+  type ListSandboxesCommandInput,
+  type ListSandboxesCommandOutput,
   ListSandboxesCommand,
-  ListSandboxesCommandInput,
-  ListSandboxesCommandOutput,
 } from "./commands/ListSandboxesCommand";
 import {
+  type ListSandboxesForProjectCommandInput,
+  type ListSandboxesForProjectCommandOutput,
   ListSandboxesForProjectCommand,
-  ListSandboxesForProjectCommandInput,
-  ListSandboxesForProjectCommandOutput,
 } from "./commands/ListSandboxesForProjectCommand";
 import {
+  type ListSharedProjectsCommandInput,
+  type ListSharedProjectsCommandOutput,
   ListSharedProjectsCommand,
-  ListSharedProjectsCommandInput,
-  ListSharedProjectsCommandOutput,
 } from "./commands/ListSharedProjectsCommand";
 import {
+  type ListSharedReportGroupsCommandInput,
+  type ListSharedReportGroupsCommandOutput,
   ListSharedReportGroupsCommand,
-  ListSharedReportGroupsCommandInput,
-  ListSharedReportGroupsCommandOutput,
 } from "./commands/ListSharedReportGroupsCommand";
 import {
+  type ListSourceCredentialsCommandInput,
+  type ListSourceCredentialsCommandOutput,
   ListSourceCredentialsCommand,
-  ListSourceCredentialsCommandInput,
-  ListSourceCredentialsCommandOutput,
 } from "./commands/ListSourceCredentialsCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RetryBuildBatchCommandInput,
+  type RetryBuildBatchCommandOutput,
   RetryBuildBatchCommand,
-  RetryBuildBatchCommandInput,
-  RetryBuildBatchCommandOutput,
 } from "./commands/RetryBuildBatchCommand";
-import { RetryBuildCommand, RetryBuildCommandInput, RetryBuildCommandOutput } from "./commands/RetryBuildCommand";
 import {
+  type RetryBuildCommandInput,
+  type RetryBuildCommandOutput,
+  RetryBuildCommand,
+} from "./commands/RetryBuildCommand";
+import {
+  type StartBuildBatchCommandInput,
+  type StartBuildBatchCommandOutput,
   StartBuildBatchCommand,
-  StartBuildBatchCommandInput,
-  StartBuildBatchCommandOutput,
 } from "./commands/StartBuildBatchCommand";
-import { StartBuildCommand, StartBuildCommandInput, StartBuildCommandOutput } from "./commands/StartBuildCommand";
 import {
+  type StartBuildCommandInput,
+  type StartBuildCommandOutput,
+  StartBuildCommand,
+} from "./commands/StartBuildCommand";
+import {
+  type StartCommandExecutionCommandInput,
+  type StartCommandExecutionCommandOutput,
   StartCommandExecutionCommand,
-  StartCommandExecutionCommandInput,
-  StartCommandExecutionCommandOutput,
 } from "./commands/StartCommandExecutionCommand";
 import {
+  type StartSandboxCommandInput,
+  type StartSandboxCommandOutput,
   StartSandboxCommand,
-  StartSandboxCommandInput,
-  StartSandboxCommandOutput,
 } from "./commands/StartSandboxCommand";
 import {
+  type StartSandboxConnectionCommandInput,
+  type StartSandboxConnectionCommandOutput,
   StartSandboxConnectionCommand,
-  StartSandboxConnectionCommandInput,
-  StartSandboxConnectionCommandOutput,
 } from "./commands/StartSandboxConnectionCommand";
 import {
+  type StopBuildBatchCommandInput,
+  type StopBuildBatchCommandOutput,
   StopBuildBatchCommand,
-  StopBuildBatchCommandInput,
-  StopBuildBatchCommandOutput,
 } from "./commands/StopBuildBatchCommand";
-import { StopBuildCommand, StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand";
-import { StopSandboxCommand, StopSandboxCommandInput, StopSandboxCommandOutput } from "./commands/StopSandboxCommand";
-import { UpdateFleetCommand, UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
+import { type StopBuildCommandInput, type StopBuildCommandOutput, StopBuildCommand } from "./commands/StopBuildCommand";
 import {
+  type StopSandboxCommandInput,
+  type StopSandboxCommandOutput,
+  StopSandboxCommand,
+} from "./commands/StopSandboxCommand";
+import {
+  type UpdateFleetCommandInput,
+  type UpdateFleetCommandOutput,
+  UpdateFleetCommand,
+} from "./commands/UpdateFleetCommand";
+import {
+  type UpdateProjectCommandInput,
+  type UpdateProjectCommandOutput,
   UpdateProjectCommand,
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
 import {
+  type UpdateProjectVisibilityCommandInput,
+  type UpdateProjectVisibilityCommandOutput,
   UpdateProjectVisibilityCommand,
-  UpdateProjectVisibilityCommandInput,
-  UpdateProjectVisibilityCommandOutput,
 } from "./commands/UpdateProjectVisibilityCommand";
 import {
+  type UpdateReportGroupCommandInput,
+  type UpdateReportGroupCommandOutput,
   UpdateReportGroupCommand,
-  UpdateReportGroupCommandInput,
-  UpdateReportGroupCommandOutput,
 } from "./commands/UpdateReportGroupCommand";
 import {
+  type UpdateWebhookCommandInput,
+  type UpdateWebhookCommandOutput,
   UpdateWebhookCommand,
-  UpdateWebhookCommandInput,
-  UpdateWebhookCommandOutput,
 } from "./commands/UpdateWebhookCommand";
 import { paginateDescribeCodeCoverages } from "./pagination/DescribeCodeCoveragesPaginator";
 import { paginateDescribeTestCases } from "./pagination/DescribeTestCasesPaginator";

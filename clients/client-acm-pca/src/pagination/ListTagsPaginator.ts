@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ACMPCAClient } from "../ACMPCAClient";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
-import { ACMPCAPaginationConfiguration } from "./Interfaces";
+import type { ACMPCAPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

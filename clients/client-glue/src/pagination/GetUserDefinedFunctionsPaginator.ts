@@ -8,7 +8,7 @@ import {
   GetUserDefinedFunctionsCommandOutput,
 } from "../commands/GetUserDefinedFunctionsCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

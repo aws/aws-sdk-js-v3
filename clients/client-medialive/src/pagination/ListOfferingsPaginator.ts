@@ -8,7 +8,7 @@ import {
   ListOfferingsCommandOutput,
 } from "../commands/ListOfferingsCommand";
 import { MediaLiveClient } from "../MediaLiveClient";
-import { MediaLivePaginationConfiguration } from "./Interfaces";
+import type { MediaLivePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -9,167 +9,175 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type CancelContactCommandInput,
+  type CancelContactCommandOutput,
   CancelContactCommand,
-  CancelContactCommandInput,
-  CancelContactCommandOutput,
 } from "./commands/CancelContactCommand";
 import {
+  type CreateConfigCommandInput,
+  type CreateConfigCommandOutput,
   CreateConfigCommand,
-  CreateConfigCommandInput,
-  CreateConfigCommandOutput,
 } from "./commands/CreateConfigCommand";
 import {
+  type CreateDataflowEndpointGroupCommandInput,
+  type CreateDataflowEndpointGroupCommandOutput,
   CreateDataflowEndpointGroupCommand,
-  CreateDataflowEndpointGroupCommandInput,
-  CreateDataflowEndpointGroupCommandOutput,
 } from "./commands/CreateDataflowEndpointGroupCommand";
 import {
+  type CreateDataflowEndpointGroupV2CommandInput,
+  type CreateDataflowEndpointGroupV2CommandOutput,
   CreateDataflowEndpointGroupV2Command,
-  CreateDataflowEndpointGroupV2CommandInput,
-  CreateDataflowEndpointGroupV2CommandOutput,
 } from "./commands/CreateDataflowEndpointGroupV2Command";
 import {
+  type CreateEphemerisCommandInput,
+  type CreateEphemerisCommandOutput,
   CreateEphemerisCommand,
-  CreateEphemerisCommandInput,
-  CreateEphemerisCommandOutput,
 } from "./commands/CreateEphemerisCommand";
 import {
+  type CreateMissionProfileCommandInput,
+  type CreateMissionProfileCommandOutput,
   CreateMissionProfileCommand,
-  CreateMissionProfileCommandInput,
-  CreateMissionProfileCommandOutput,
 } from "./commands/CreateMissionProfileCommand";
 import {
+  type DeleteConfigCommandInput,
+  type DeleteConfigCommandOutput,
   DeleteConfigCommand,
-  DeleteConfigCommandInput,
-  DeleteConfigCommandOutput,
 } from "./commands/DeleteConfigCommand";
 import {
+  type DeleteDataflowEndpointGroupCommandInput,
+  type DeleteDataflowEndpointGroupCommandOutput,
   DeleteDataflowEndpointGroupCommand,
-  DeleteDataflowEndpointGroupCommandInput,
-  DeleteDataflowEndpointGroupCommandOutput,
 } from "./commands/DeleteDataflowEndpointGroupCommand";
 import {
+  type DeleteEphemerisCommandInput,
+  type DeleteEphemerisCommandOutput,
   DeleteEphemerisCommand,
-  DeleteEphemerisCommandInput,
-  DeleteEphemerisCommandOutput,
 } from "./commands/DeleteEphemerisCommand";
 import {
+  type DeleteMissionProfileCommandInput,
+  type DeleteMissionProfileCommandOutput,
   DeleteMissionProfileCommand,
-  DeleteMissionProfileCommandInput,
-  DeleteMissionProfileCommandOutput,
 } from "./commands/DeleteMissionProfileCommand";
 import {
+  type DescribeContactCommandInput,
+  type DescribeContactCommandOutput,
   DescribeContactCommand,
-  DescribeContactCommandInput,
-  DescribeContactCommandOutput,
 } from "./commands/DescribeContactCommand";
 import {
+  type DescribeEphemerisCommandInput,
+  type DescribeEphemerisCommandOutput,
   DescribeEphemerisCommand,
-  DescribeEphemerisCommandInput,
-  DescribeEphemerisCommandOutput,
 } from "./commands/DescribeEphemerisCommand";
 import {
+  type GetAgentConfigurationCommandInput,
+  type GetAgentConfigurationCommandOutput,
   GetAgentConfigurationCommand,
-  GetAgentConfigurationCommandInput,
-  GetAgentConfigurationCommandOutput,
 } from "./commands/GetAgentConfigurationCommand";
 import {
+  type GetAgentTaskResponseUrlCommandInput,
+  type GetAgentTaskResponseUrlCommandOutput,
   GetAgentTaskResponseUrlCommand,
-  GetAgentTaskResponseUrlCommandInput,
-  GetAgentTaskResponseUrlCommandOutput,
 } from "./commands/GetAgentTaskResponseUrlCommand";
-import { GetConfigCommand, GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
+import { type GetConfigCommandInput, type GetConfigCommandOutput, GetConfigCommand } from "./commands/GetConfigCommand";
 import {
+  type GetDataflowEndpointGroupCommandInput,
+  type GetDataflowEndpointGroupCommandOutput,
   GetDataflowEndpointGroupCommand,
-  GetDataflowEndpointGroupCommandInput,
-  GetDataflowEndpointGroupCommandOutput,
 } from "./commands/GetDataflowEndpointGroupCommand";
 import {
+  type GetMinuteUsageCommandInput,
+  type GetMinuteUsageCommandOutput,
   GetMinuteUsageCommand,
-  GetMinuteUsageCommandInput,
-  GetMinuteUsageCommandOutput,
 } from "./commands/GetMinuteUsageCommand";
 import {
+  type GetMissionProfileCommandInput,
+  type GetMissionProfileCommandOutput,
   GetMissionProfileCommand,
-  GetMissionProfileCommandInput,
-  GetMissionProfileCommandOutput,
 } from "./commands/GetMissionProfileCommand";
 import {
+  type GetSatelliteCommandInput,
+  type GetSatelliteCommandOutput,
   GetSatelliteCommand,
-  GetSatelliteCommandInput,
-  GetSatelliteCommandOutput,
 } from "./commands/GetSatelliteCommand";
-import { ListConfigsCommand, ListConfigsCommandInput, ListConfigsCommandOutput } from "./commands/ListConfigsCommand";
 import {
+  type ListConfigsCommandInput,
+  type ListConfigsCommandOutput,
+  ListConfigsCommand,
+} from "./commands/ListConfigsCommand";
+import {
+  type ListContactsCommandInput,
+  type ListContactsCommandOutput,
   ListContactsCommand,
-  ListContactsCommandInput,
-  ListContactsCommandOutput,
 } from "./commands/ListContactsCommand";
 import {
+  type ListDataflowEndpointGroupsCommandInput,
+  type ListDataflowEndpointGroupsCommandOutput,
   ListDataflowEndpointGroupsCommand,
-  ListDataflowEndpointGroupsCommandInput,
-  ListDataflowEndpointGroupsCommandOutput,
 } from "./commands/ListDataflowEndpointGroupsCommand";
 import {
+  type ListEphemeridesCommandInput,
+  type ListEphemeridesCommandOutput,
   ListEphemeridesCommand,
-  ListEphemeridesCommandInput,
-  ListEphemeridesCommandOutput,
 } from "./commands/ListEphemeridesCommand";
 import {
+  type ListGroundStationsCommandInput,
+  type ListGroundStationsCommandOutput,
   ListGroundStationsCommand,
-  ListGroundStationsCommandInput,
-  ListGroundStationsCommandOutput,
 } from "./commands/ListGroundStationsCommand";
 import {
+  type ListMissionProfilesCommandInput,
+  type ListMissionProfilesCommandOutput,
   ListMissionProfilesCommand,
-  ListMissionProfilesCommandInput,
-  ListMissionProfilesCommandOutput,
 } from "./commands/ListMissionProfilesCommand";
 import {
+  type ListSatellitesCommandInput,
+  type ListSatellitesCommandOutput,
   ListSatellitesCommand,
-  ListSatellitesCommandInput,
-  ListSatellitesCommandOutput,
 } from "./commands/ListSatellitesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RegisterAgentCommandInput,
+  type RegisterAgentCommandOutput,
   RegisterAgentCommand,
-  RegisterAgentCommandInput,
-  RegisterAgentCommandOutput,
 } from "./commands/RegisterAgentCommand";
 import {
+  type ReserveContactCommandInput,
+  type ReserveContactCommandOutput,
   ReserveContactCommand,
-  ReserveContactCommandInput,
-  ReserveContactCommandOutput,
 } from "./commands/ReserveContactCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAgentStatusCommandInput,
+  type UpdateAgentStatusCommandOutput,
   UpdateAgentStatusCommand,
-  UpdateAgentStatusCommandInput,
-  UpdateAgentStatusCommandOutput,
 } from "./commands/UpdateAgentStatusCommand";
 import {
+  type UpdateConfigCommandInput,
+  type UpdateConfigCommandOutput,
   UpdateConfigCommand,
-  UpdateConfigCommandInput,
-  UpdateConfigCommandOutput,
 } from "./commands/UpdateConfigCommand";
 import {
+  type UpdateEphemerisCommandInput,
+  type UpdateEphemerisCommandOutput,
   UpdateEphemerisCommand,
-  UpdateEphemerisCommandInput,
-  UpdateEphemerisCommandOutput,
 } from "./commands/UpdateEphemerisCommand";
 import {
+  type UpdateMissionProfileCommandInput,
+  type UpdateMissionProfileCommandOutput,
   UpdateMissionProfileCommand,
-  UpdateMissionProfileCommandInput,
-  UpdateMissionProfileCommandOutput,
 } from "./commands/UpdateMissionProfileCommand";
 import { GroundStationClient } from "./GroundStationClient";
 import { paginateListConfigs } from "./pagination/ListConfigsPaginator";

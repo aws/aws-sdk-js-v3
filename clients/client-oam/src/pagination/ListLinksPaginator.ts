@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListLinksCommand, ListLinksCommandInput, ListLinksCommandOutput } from "../commands/ListLinksCommand";
 import { OAMClient } from "../OAMClient";
-import { OAMPaginationConfiguration } from "./Interfaces";
+import type { OAMPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

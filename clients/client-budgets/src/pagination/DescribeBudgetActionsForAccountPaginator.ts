@@ -8,7 +8,7 @@ import {
   DescribeBudgetActionsForAccountCommandInput,
   DescribeBudgetActionsForAccountCommandOutput,
 } from "../commands/DescribeBudgetActionsForAccountCommand";
-import { BudgetsPaginationConfiguration } from "./Interfaces";
+import type { BudgetsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

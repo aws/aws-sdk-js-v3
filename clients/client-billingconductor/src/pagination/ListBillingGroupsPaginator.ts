@@ -8,7 +8,7 @@ import {
   ListBillingGroupsCommandInput,
   ListBillingGroupsCommandOutput,
 } from "../commands/ListBillingGroupsCommand";
-import { BillingconductorPaginationConfiguration } from "./Interfaces";
+import type { BillingconductorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

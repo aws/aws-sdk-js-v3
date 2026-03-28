@@ -8,7 +8,7 @@ import {
   ListCommandExecutionsForSandboxCommandInput,
   ListCommandExecutionsForSandboxCommandOutput,
 } from "../commands/ListCommandExecutionsForSandboxCommand";
-import { CodeBuildPaginationConfiguration } from "./Interfaces";
+import type { CodeBuildPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

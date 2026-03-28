@@ -9,151 +9,159 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type CreateDiscovererCommandInput,
+  type CreateDiscovererCommandOutput,
   CreateDiscovererCommand,
-  CreateDiscovererCommandInput,
-  CreateDiscovererCommandOutput,
 } from "./commands/CreateDiscovererCommand";
 import {
+  type CreateRegistryCommandInput,
+  type CreateRegistryCommandOutput,
   CreateRegistryCommand,
-  CreateRegistryCommandInput,
-  CreateRegistryCommandOutput,
 } from "./commands/CreateRegistryCommand";
 import {
+  type CreateSchemaCommandInput,
+  type CreateSchemaCommandOutput,
   CreateSchemaCommand,
-  CreateSchemaCommandInput,
-  CreateSchemaCommandOutput,
 } from "./commands/CreateSchemaCommand";
 import {
+  type DeleteDiscovererCommandInput,
+  type DeleteDiscovererCommandOutput,
   DeleteDiscovererCommand,
-  DeleteDiscovererCommandInput,
-  DeleteDiscovererCommandOutput,
 } from "./commands/DeleteDiscovererCommand";
 import {
+  type DeleteRegistryCommandInput,
+  type DeleteRegistryCommandOutput,
   DeleteRegistryCommand,
-  DeleteRegistryCommandInput,
-  DeleteRegistryCommandOutput,
 } from "./commands/DeleteRegistryCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteSchemaCommandInput,
+  type DeleteSchemaCommandOutput,
   DeleteSchemaCommand,
-  DeleteSchemaCommandInput,
-  DeleteSchemaCommandOutput,
 } from "./commands/DeleteSchemaCommand";
 import {
+  type DeleteSchemaVersionCommandInput,
+  type DeleteSchemaVersionCommandOutput,
   DeleteSchemaVersionCommand,
-  DeleteSchemaVersionCommandInput,
-  DeleteSchemaVersionCommandOutput,
 } from "./commands/DeleteSchemaVersionCommand";
 import {
+  type DescribeCodeBindingCommandInput,
+  type DescribeCodeBindingCommandOutput,
   DescribeCodeBindingCommand,
-  DescribeCodeBindingCommandInput,
-  DescribeCodeBindingCommandOutput,
 } from "./commands/DescribeCodeBindingCommand";
 import {
+  type DescribeDiscovererCommandInput,
+  type DescribeDiscovererCommandOutput,
   DescribeDiscovererCommand,
-  DescribeDiscovererCommandInput,
-  DescribeDiscovererCommandOutput,
 } from "./commands/DescribeDiscovererCommand";
 import {
+  type DescribeRegistryCommandInput,
+  type DescribeRegistryCommandOutput,
   DescribeRegistryCommand,
-  DescribeRegistryCommandInput,
-  DescribeRegistryCommandOutput,
 } from "./commands/DescribeRegistryCommand";
 import {
+  type DescribeSchemaCommandInput,
+  type DescribeSchemaCommandOutput,
   DescribeSchemaCommand,
-  DescribeSchemaCommandInput,
-  DescribeSchemaCommandOutput,
 } from "./commands/DescribeSchemaCommand";
 import {
+  type ExportSchemaCommandInput,
+  type ExportSchemaCommandOutput,
   ExportSchemaCommand,
-  ExportSchemaCommandInput,
-  ExportSchemaCommandOutput,
 } from "./commands/ExportSchemaCommand";
 import {
+  type GetCodeBindingSourceCommandInput,
+  type GetCodeBindingSourceCommandOutput,
   GetCodeBindingSourceCommand,
-  GetCodeBindingSourceCommandInput,
-  GetCodeBindingSourceCommandOutput,
 } from "./commands/GetCodeBindingSourceCommand";
 import {
+  type GetDiscoveredSchemaCommandInput,
+  type GetDiscoveredSchemaCommandOutput,
   GetDiscoveredSchemaCommand,
-  GetDiscoveredSchemaCommandInput,
-  GetDiscoveredSchemaCommandOutput,
 } from "./commands/GetDiscoveredSchemaCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type ListDiscoverersCommandInput,
+  type ListDiscoverersCommandOutput,
   ListDiscoverersCommand,
-  ListDiscoverersCommandInput,
-  ListDiscoverersCommandOutput,
 } from "./commands/ListDiscoverersCommand";
 import {
+  type ListRegistriesCommandInput,
+  type ListRegistriesCommandOutput,
   ListRegistriesCommand,
-  ListRegistriesCommandInput,
-  ListRegistriesCommandOutput,
 } from "./commands/ListRegistriesCommand";
-import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
+  type ListSchemasCommandInput,
+  type ListSchemasCommandOutput,
+  ListSchemasCommand,
+} from "./commands/ListSchemasCommand";
+import {
+  type ListSchemaVersionsCommandInput,
+  type ListSchemaVersionsCommandOutput,
   ListSchemaVersionsCommand,
-  ListSchemaVersionsCommandInput,
-  ListSchemaVersionsCommandOutput,
 } from "./commands/ListSchemaVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutCodeBindingCommandInput,
+  type PutCodeBindingCommandOutput,
   PutCodeBindingCommand,
-  PutCodeBindingCommandInput,
-  PutCodeBindingCommandOutput,
 } from "./commands/PutCodeBindingCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type SearchSchemasCommandInput,
+  type SearchSchemasCommandOutput,
   SearchSchemasCommand,
-  SearchSchemasCommandInput,
-  SearchSchemasCommandOutput,
 } from "./commands/SearchSchemasCommand";
 import {
+  type StartDiscovererCommandInput,
+  type StartDiscovererCommandOutput,
   StartDiscovererCommand,
-  StartDiscovererCommandInput,
-  StartDiscovererCommandOutput,
 } from "./commands/StartDiscovererCommand";
 import {
+  type StopDiscovererCommandInput,
+  type StopDiscovererCommandOutput,
   StopDiscovererCommand,
-  StopDiscovererCommandInput,
-  StopDiscovererCommandOutput,
 } from "./commands/StopDiscovererCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDiscovererCommandInput,
+  type UpdateDiscovererCommandOutput,
   UpdateDiscovererCommand,
-  UpdateDiscovererCommandInput,
-  UpdateDiscovererCommandOutput,
 } from "./commands/UpdateDiscovererCommand";
 import {
+  type UpdateRegistryCommandInput,
+  type UpdateRegistryCommandOutput,
   UpdateRegistryCommand,
-  UpdateRegistryCommandInput,
-  UpdateRegistryCommandOutput,
 } from "./commands/UpdateRegistryCommand";
 import {
+  type UpdateSchemaCommandInput,
+  type UpdateSchemaCommandOutput,
   UpdateSchemaCommand,
-  UpdateSchemaCommandInput,
-  UpdateSchemaCommandOutput,
 } from "./commands/UpdateSchemaCommand";
 import { paginateListDiscoverers } from "./pagination/ListDiscoverersPaginator";
 import { paginateListRegistries } from "./pagination/ListRegistriesPaginator";

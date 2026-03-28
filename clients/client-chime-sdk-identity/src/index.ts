@@ -10,7 +10,7 @@
  */
 export * from "./ChimeSDKIdentityClient";
 export * from "./ChimeSDKIdentity";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ChimeSDKIdentityExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

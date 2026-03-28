@@ -3,79 +3,99 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateBatchLoadTaskCommandInput,
+  type CreateBatchLoadTaskCommandOutput,
   CreateBatchLoadTaskCommand,
-  CreateBatchLoadTaskCommandInput,
-  CreateBatchLoadTaskCommandOutput,
 } from "./commands/CreateBatchLoadTaskCommand";
 import {
+  type CreateDatabaseCommandInput,
+  type CreateDatabaseCommandOutput,
   CreateDatabaseCommand,
-  CreateDatabaseCommandInput,
-  CreateDatabaseCommandOutput,
 } from "./commands/CreateDatabaseCommand";
-import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import {
+  type CreateTableCommandInput,
+  type CreateTableCommandOutput,
+  CreateTableCommand,
+} from "./commands/CreateTableCommand";
+import {
+  type DeleteDatabaseCommandInput,
+  type DeleteDatabaseCommandOutput,
   DeleteDatabaseCommand,
-  DeleteDatabaseCommandInput,
-  DeleteDatabaseCommandOutput,
 } from "./commands/DeleteDatabaseCommand";
-import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import {
+  type DeleteTableCommandInput,
+  type DeleteTableCommandOutput,
+  DeleteTableCommand,
+} from "./commands/DeleteTableCommand";
+import {
+  type DescribeBatchLoadTaskCommandInput,
+  type DescribeBatchLoadTaskCommandOutput,
   DescribeBatchLoadTaskCommand,
-  DescribeBatchLoadTaskCommandInput,
-  DescribeBatchLoadTaskCommandOutput,
 } from "./commands/DescribeBatchLoadTaskCommand";
 import {
+  type DescribeDatabaseCommandInput,
+  type DescribeDatabaseCommandOutput,
   DescribeDatabaseCommand,
-  DescribeDatabaseCommandInput,
-  DescribeDatabaseCommandOutput,
 } from "./commands/DescribeDatabaseCommand";
 import {
+  type DescribeEndpointsCommandInput,
+  type DescribeEndpointsCommandOutput,
   DescribeEndpointsCommand,
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
 import {
+  type DescribeTableCommandInput,
+  type DescribeTableCommandOutput,
   DescribeTableCommand,
-  DescribeTableCommandInput,
-  DescribeTableCommandOutput,
 } from "./commands/DescribeTableCommand";
 import {
+  type ListBatchLoadTasksCommandInput,
+  type ListBatchLoadTasksCommandOutput,
   ListBatchLoadTasksCommand,
-  ListBatchLoadTasksCommandInput,
-  ListBatchLoadTasksCommandOutput,
 } from "./commands/ListBatchLoadTasksCommand";
 import {
+  type ListDatabasesCommandInput,
+  type ListDatabasesCommandOutput,
   ListDatabasesCommand,
-  ListDatabasesCommandInput,
-  ListDatabasesCommandOutput,
 } from "./commands/ListDatabasesCommand";
-import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
+  type ListTablesCommandInput,
+  type ListTablesCommandOutput,
+  ListTablesCommand,
+} from "./commands/ListTablesCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ResumeBatchLoadTaskCommandInput,
+  type ResumeBatchLoadTaskCommandOutput,
   ResumeBatchLoadTaskCommand,
-  ResumeBatchLoadTaskCommandInput,
-  ResumeBatchLoadTaskCommandOutput,
 } from "./commands/ResumeBatchLoadTaskCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDatabaseCommandInput,
+  type UpdateDatabaseCommandOutput,
   UpdateDatabaseCommand,
-  UpdateDatabaseCommandInput,
-  UpdateDatabaseCommandOutput,
 } from "./commands/UpdateDatabaseCommand";
-import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
+  type UpdateTableCommandInput,
+  type UpdateTableCommandOutput,
+  UpdateTableCommand,
+} from "./commands/UpdateTableCommand";
+import {
+  type WriteRecordsCommandInput,
+  type WriteRecordsCommandOutput,
   WriteRecordsCommand,
-  WriteRecordsCommandInput,
-  WriteRecordsCommandOutput,
 } from "./commands/WriteRecordsCommand";
 import { paginateListBatchLoadTasks } from "./pagination/ListBatchLoadTasksPaginator";
 import { paginateListDatabases } from "./pagination/ListDatabasesPaginator";

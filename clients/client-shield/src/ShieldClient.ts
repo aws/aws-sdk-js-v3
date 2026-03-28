@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,115 +61,130 @@ import {
   defaultShieldHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateDRTLogBucketCommandInput,
   AssociateDRTLogBucketCommandOutput,
 } from "./commands/AssociateDRTLogBucketCommand";
-import { AssociateDRTRoleCommandInput, AssociateDRTRoleCommandOutput } from "./commands/AssociateDRTRoleCommand";
-import {
+import type { AssociateDRTRoleCommandInput, AssociateDRTRoleCommandOutput } from "./commands/AssociateDRTRoleCommand";
+import type {
   AssociateHealthCheckCommandInput,
   AssociateHealthCheckCommandOutput,
 } from "./commands/AssociateHealthCheckCommand";
-import {
+import type {
   AssociateProactiveEngagementDetailsCommandInput,
   AssociateProactiveEngagementDetailsCommandOutput,
 } from "./commands/AssociateProactiveEngagementDetailsCommand";
-import { CreateProtectionCommandInput, CreateProtectionCommandOutput } from "./commands/CreateProtectionCommand";
-import {
+import type { CreateProtectionCommandInput, CreateProtectionCommandOutput } from "./commands/CreateProtectionCommand";
+import type {
   CreateProtectionGroupCommandInput,
   CreateProtectionGroupCommandOutput,
 } from "./commands/CreateProtectionGroupCommand";
-import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "./commands/CreateSubscriptionCommand";
-import { DeleteProtectionCommandInput, DeleteProtectionCommandOutput } from "./commands/DeleteProtectionCommand";
-import {
+import type {
+  CreateSubscriptionCommandInput,
+  CreateSubscriptionCommandOutput,
+} from "./commands/CreateSubscriptionCommand";
+import type { DeleteProtectionCommandInput, DeleteProtectionCommandOutput } from "./commands/DeleteProtectionCommand";
+import type {
   DeleteProtectionGroupCommandInput,
   DeleteProtectionGroupCommandOutput,
 } from "./commands/DeleteProtectionGroupCommand";
-import { DeleteSubscriptionCommandInput, DeleteSubscriptionCommandOutput } from "./commands/DeleteSubscriptionCommand";
-import { DescribeAttackCommandInput, DescribeAttackCommandOutput } from "./commands/DescribeAttackCommand";
-import {
+import type {
+  DeleteSubscriptionCommandInput,
+  DeleteSubscriptionCommandOutput,
+} from "./commands/DeleteSubscriptionCommand";
+import type { DescribeAttackCommandInput, DescribeAttackCommandOutput } from "./commands/DescribeAttackCommand";
+import type {
   DescribeAttackStatisticsCommandInput,
   DescribeAttackStatisticsCommandOutput,
 } from "./commands/DescribeAttackStatisticsCommand";
-import { DescribeDRTAccessCommandInput, DescribeDRTAccessCommandOutput } from "./commands/DescribeDRTAccessCommand";
-import {
+import type {
+  DescribeDRTAccessCommandInput,
+  DescribeDRTAccessCommandOutput,
+} from "./commands/DescribeDRTAccessCommand";
+import type {
   DescribeEmergencyContactSettingsCommandInput,
   DescribeEmergencyContactSettingsCommandOutput,
 } from "./commands/DescribeEmergencyContactSettingsCommand";
-import { DescribeProtectionCommandInput, DescribeProtectionCommandOutput } from "./commands/DescribeProtectionCommand";
-import {
+import type {
+  DescribeProtectionCommandInput,
+  DescribeProtectionCommandOutput,
+} from "./commands/DescribeProtectionCommand";
+import type {
   DescribeProtectionGroupCommandInput,
   DescribeProtectionGroupCommandOutput,
 } from "./commands/DescribeProtectionGroupCommand";
-import {
+import type {
   DescribeSubscriptionCommandInput,
   DescribeSubscriptionCommandOutput,
 } from "./commands/DescribeSubscriptionCommand";
-import {
+import type {
   DisableApplicationLayerAutomaticResponseCommandInput,
   DisableApplicationLayerAutomaticResponseCommandOutput,
 } from "./commands/DisableApplicationLayerAutomaticResponseCommand";
-import {
+import type {
   DisableProactiveEngagementCommandInput,
   DisableProactiveEngagementCommandOutput,
 } from "./commands/DisableProactiveEngagementCommand";
-import {
+import type {
   DisassociateDRTLogBucketCommandInput,
   DisassociateDRTLogBucketCommandOutput,
 } from "./commands/DisassociateDRTLogBucketCommand";
-import {
+import type {
   DisassociateDRTRoleCommandInput,
   DisassociateDRTRoleCommandOutput,
 } from "./commands/DisassociateDRTRoleCommand";
-import {
+import type {
   DisassociateHealthCheckCommandInput,
   DisassociateHealthCheckCommandOutput,
 } from "./commands/DisassociateHealthCheckCommand";
-import {
+import type {
   EnableApplicationLayerAutomaticResponseCommandInput,
   EnableApplicationLayerAutomaticResponseCommandOutput,
 } from "./commands/EnableApplicationLayerAutomaticResponseCommand";
-import {
+import type {
   EnableProactiveEngagementCommandInput,
   EnableProactiveEngagementCommandOutput,
 } from "./commands/EnableProactiveEngagementCommand";
-import {
+import type {
   GetSubscriptionStateCommandInput,
   GetSubscriptionStateCommandOutput,
 } from "./commands/GetSubscriptionStateCommand";
-import { ListAttacksCommandInput, ListAttacksCommandOutput } from "./commands/ListAttacksCommand";
-import {
+import type { ListAttacksCommandInput, ListAttacksCommandOutput } from "./commands/ListAttacksCommand";
+import type {
   ListProtectionGroupsCommandInput,
   ListProtectionGroupsCommandOutput,
 } from "./commands/ListProtectionGroupsCommand";
-import { ListProtectionsCommandInput, ListProtectionsCommandOutput } from "./commands/ListProtectionsCommand";
-import {
+import type { ListProtectionsCommandInput, ListProtectionsCommandOutput } from "./commands/ListProtectionsCommand";
+import type {
   ListResourcesInProtectionGroupCommandInput,
   ListResourcesInProtectionGroupCommandOutput,
 } from "./commands/ListResourcesInProtectionGroupCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateApplicationLayerAutomaticResponseCommandInput,
   UpdateApplicationLayerAutomaticResponseCommandOutput,
 } from "./commands/UpdateApplicationLayerAutomaticResponseCommand";
-import {
+import type {
   UpdateEmergencyContactSettingsCommandInput,
   UpdateEmergencyContactSettingsCommandOutput,
 } from "./commands/UpdateEmergencyContactSettingsCommand";
-import {
+import type {
   UpdateProtectionGroupCommandInput,
   UpdateProtectionGroupCommandOutput,
 } from "./commands/UpdateProtectionGroupCommand";
-import { UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput } from "./commands/UpdateSubscriptionCommand";
+import type {
+  UpdateSubscriptionCommandInput,
+  UpdateSubscriptionCommandOutput,
+} from "./commands/UpdateSubscriptionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -375,7 +388,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

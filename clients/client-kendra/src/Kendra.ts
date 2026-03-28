@@ -3,290 +3,314 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateEntitiesToExperienceCommandInput,
+  type AssociateEntitiesToExperienceCommandOutput,
   AssociateEntitiesToExperienceCommand,
-  AssociateEntitiesToExperienceCommandInput,
-  AssociateEntitiesToExperienceCommandOutput,
 } from "./commands/AssociateEntitiesToExperienceCommand";
 import {
+  type AssociatePersonasToEntitiesCommandInput,
+  type AssociatePersonasToEntitiesCommandOutput,
   AssociatePersonasToEntitiesCommand,
-  AssociatePersonasToEntitiesCommandInput,
-  AssociatePersonasToEntitiesCommandOutput,
 } from "./commands/AssociatePersonasToEntitiesCommand";
 import {
+  type BatchDeleteDocumentCommandInput,
+  type BatchDeleteDocumentCommandOutput,
   BatchDeleteDocumentCommand,
-  BatchDeleteDocumentCommandInput,
-  BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
 import {
+  type BatchDeleteFeaturedResultsSetCommandInput,
+  type BatchDeleteFeaturedResultsSetCommandOutput,
   BatchDeleteFeaturedResultsSetCommand,
-  BatchDeleteFeaturedResultsSetCommandInput,
-  BatchDeleteFeaturedResultsSetCommandOutput,
 } from "./commands/BatchDeleteFeaturedResultsSetCommand";
 import {
+  type BatchGetDocumentStatusCommandInput,
+  type BatchGetDocumentStatusCommandOutput,
   BatchGetDocumentStatusCommand,
-  BatchGetDocumentStatusCommandInput,
-  BatchGetDocumentStatusCommandOutput,
 } from "./commands/BatchGetDocumentStatusCommand";
 import {
+  type BatchPutDocumentCommandInput,
+  type BatchPutDocumentCommandOutput,
   BatchPutDocumentCommand,
-  BatchPutDocumentCommandInput,
-  BatchPutDocumentCommandOutput,
 } from "./commands/BatchPutDocumentCommand";
 import {
+  type ClearQuerySuggestionsCommandInput,
+  type ClearQuerySuggestionsCommandOutput,
   ClearQuerySuggestionsCommand,
-  ClearQuerySuggestionsCommandInput,
-  ClearQuerySuggestionsCommandOutput,
 } from "./commands/ClearQuerySuggestionsCommand";
 import {
+  type CreateAccessControlConfigurationCommandInput,
+  type CreateAccessControlConfigurationCommandOutput,
   CreateAccessControlConfigurationCommand,
-  CreateAccessControlConfigurationCommandInput,
-  CreateAccessControlConfigurationCommandOutput,
 } from "./commands/CreateAccessControlConfigurationCommand";
 import {
+  type CreateDataSourceCommandInput,
+  type CreateDataSourceCommandOutput,
   CreateDataSourceCommand,
-  CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput,
 } from "./commands/CreateDataSourceCommand";
 import {
+  type CreateExperienceCommandInput,
+  type CreateExperienceCommandOutput,
   CreateExperienceCommand,
-  CreateExperienceCommandInput,
-  CreateExperienceCommandOutput,
 } from "./commands/CreateExperienceCommand";
-import { CreateFaqCommand, CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
+import { type CreateFaqCommandInput, type CreateFaqCommandOutput, CreateFaqCommand } from "./commands/CreateFaqCommand";
 import {
+  type CreateFeaturedResultsSetCommandInput,
+  type CreateFeaturedResultsSetCommandOutput,
   CreateFeaturedResultsSetCommand,
-  CreateFeaturedResultsSetCommandInput,
-  CreateFeaturedResultsSetCommandOutput,
 } from "./commands/CreateFeaturedResultsSetCommand";
-import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
+  type CreateIndexCommandInput,
+  type CreateIndexCommandOutput,
+  CreateIndexCommand,
+} from "./commands/CreateIndexCommand";
+import {
+  type CreateQuerySuggestionsBlockListCommandInput,
+  type CreateQuerySuggestionsBlockListCommandOutput,
   CreateQuerySuggestionsBlockListCommand,
-  CreateQuerySuggestionsBlockListCommandInput,
-  CreateQuerySuggestionsBlockListCommandOutput,
 } from "./commands/CreateQuerySuggestionsBlockListCommand";
 import {
+  type CreateThesaurusCommandInput,
+  type CreateThesaurusCommandOutput,
   CreateThesaurusCommand,
-  CreateThesaurusCommandInput,
-  CreateThesaurusCommandOutput,
 } from "./commands/CreateThesaurusCommand";
 import {
+  type DeleteAccessControlConfigurationCommandInput,
+  type DeleteAccessControlConfigurationCommandOutput,
   DeleteAccessControlConfigurationCommand,
-  DeleteAccessControlConfigurationCommandInput,
-  DeleteAccessControlConfigurationCommandOutput,
 } from "./commands/DeleteAccessControlConfigurationCommand";
 import {
+  type DeleteDataSourceCommandInput,
+  type DeleteDataSourceCommandOutput,
   DeleteDataSourceCommand,
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
 import {
+  type DeleteExperienceCommandInput,
+  type DeleteExperienceCommandOutput,
   DeleteExperienceCommand,
-  DeleteExperienceCommandInput,
-  DeleteExperienceCommandOutput,
 } from "./commands/DeleteExperienceCommand";
-import { DeleteFaqCommand, DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
-import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import { type DeleteFaqCommandInput, type DeleteFaqCommandOutput, DeleteFaqCommand } from "./commands/DeleteFaqCommand";
 import {
+  type DeleteIndexCommandInput,
+  type DeleteIndexCommandOutput,
+  DeleteIndexCommand,
+} from "./commands/DeleteIndexCommand";
+import {
+  type DeletePrincipalMappingCommandInput,
+  type DeletePrincipalMappingCommandOutput,
   DeletePrincipalMappingCommand,
-  DeletePrincipalMappingCommandInput,
-  DeletePrincipalMappingCommandOutput,
 } from "./commands/DeletePrincipalMappingCommand";
 import {
+  type DeleteQuerySuggestionsBlockListCommandInput,
+  type DeleteQuerySuggestionsBlockListCommandOutput,
   DeleteQuerySuggestionsBlockListCommand,
-  DeleteQuerySuggestionsBlockListCommandInput,
-  DeleteQuerySuggestionsBlockListCommandOutput,
 } from "./commands/DeleteQuerySuggestionsBlockListCommand";
 import {
+  type DeleteThesaurusCommandInput,
+  type DeleteThesaurusCommandOutput,
   DeleteThesaurusCommand,
-  DeleteThesaurusCommandInput,
-  DeleteThesaurusCommandOutput,
 } from "./commands/DeleteThesaurusCommand";
 import {
+  type DescribeAccessControlConfigurationCommandInput,
+  type DescribeAccessControlConfigurationCommandOutput,
   DescribeAccessControlConfigurationCommand,
-  DescribeAccessControlConfigurationCommandInput,
-  DescribeAccessControlConfigurationCommandOutput,
 } from "./commands/DescribeAccessControlConfigurationCommand";
 import {
+  type DescribeDataSourceCommandInput,
+  type DescribeDataSourceCommandOutput,
   DescribeDataSourceCommand,
-  DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput,
 } from "./commands/DescribeDataSourceCommand";
 import {
+  type DescribeExperienceCommandInput,
+  type DescribeExperienceCommandOutput,
   DescribeExperienceCommand,
-  DescribeExperienceCommandInput,
-  DescribeExperienceCommandOutput,
 } from "./commands/DescribeExperienceCommand";
-import { DescribeFaqCommand, DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
 import {
+  type DescribeFaqCommandInput,
+  type DescribeFaqCommandOutput,
+  DescribeFaqCommand,
+} from "./commands/DescribeFaqCommand";
+import {
+  type DescribeFeaturedResultsSetCommandInput,
+  type DescribeFeaturedResultsSetCommandOutput,
   DescribeFeaturedResultsSetCommand,
-  DescribeFeaturedResultsSetCommandInput,
-  DescribeFeaturedResultsSetCommandOutput,
 } from "./commands/DescribeFeaturedResultsSetCommand";
 import {
+  type DescribeIndexCommandInput,
+  type DescribeIndexCommandOutput,
   DescribeIndexCommand,
-  DescribeIndexCommandInput,
-  DescribeIndexCommandOutput,
 } from "./commands/DescribeIndexCommand";
 import {
+  type DescribePrincipalMappingCommandInput,
+  type DescribePrincipalMappingCommandOutput,
   DescribePrincipalMappingCommand,
-  DescribePrincipalMappingCommandInput,
-  DescribePrincipalMappingCommandOutput,
 } from "./commands/DescribePrincipalMappingCommand";
 import {
+  type DescribeQuerySuggestionsBlockListCommandInput,
+  type DescribeQuerySuggestionsBlockListCommandOutput,
   DescribeQuerySuggestionsBlockListCommand,
-  DescribeQuerySuggestionsBlockListCommandInput,
-  DescribeQuerySuggestionsBlockListCommandOutput,
 } from "./commands/DescribeQuerySuggestionsBlockListCommand";
 import {
+  type DescribeQuerySuggestionsConfigCommandInput,
+  type DescribeQuerySuggestionsConfigCommandOutput,
   DescribeQuerySuggestionsConfigCommand,
-  DescribeQuerySuggestionsConfigCommandInput,
-  DescribeQuerySuggestionsConfigCommandOutput,
 } from "./commands/DescribeQuerySuggestionsConfigCommand";
 import {
+  type DescribeThesaurusCommandInput,
+  type DescribeThesaurusCommandOutput,
   DescribeThesaurusCommand,
-  DescribeThesaurusCommandInput,
-  DescribeThesaurusCommandOutput,
 } from "./commands/DescribeThesaurusCommand";
 import {
+  type DisassociateEntitiesFromExperienceCommandInput,
+  type DisassociateEntitiesFromExperienceCommandOutput,
   DisassociateEntitiesFromExperienceCommand,
-  DisassociateEntitiesFromExperienceCommandInput,
-  DisassociateEntitiesFromExperienceCommandOutput,
 } from "./commands/DisassociateEntitiesFromExperienceCommand";
 import {
+  type DisassociatePersonasFromEntitiesCommandInput,
+  type DisassociatePersonasFromEntitiesCommandOutput,
   DisassociatePersonasFromEntitiesCommand,
-  DisassociatePersonasFromEntitiesCommandInput,
-  DisassociatePersonasFromEntitiesCommandOutput,
 } from "./commands/DisassociatePersonasFromEntitiesCommand";
 import {
+  type GetQuerySuggestionsCommandInput,
+  type GetQuerySuggestionsCommandOutput,
   GetQuerySuggestionsCommand,
-  GetQuerySuggestionsCommandInput,
-  GetQuerySuggestionsCommandOutput,
 } from "./commands/GetQuerySuggestionsCommand";
 import {
+  type GetSnapshotsCommandInput,
+  type GetSnapshotsCommandOutput,
   GetSnapshotsCommand,
-  GetSnapshotsCommandInput,
-  GetSnapshotsCommandOutput,
 } from "./commands/GetSnapshotsCommand";
 import {
+  type ListAccessControlConfigurationsCommandInput,
+  type ListAccessControlConfigurationsCommandOutput,
   ListAccessControlConfigurationsCommand,
-  ListAccessControlConfigurationsCommandInput,
-  ListAccessControlConfigurationsCommandOutput,
 } from "./commands/ListAccessControlConfigurationsCommand";
 import {
+  type ListDataSourcesCommandInput,
+  type ListDataSourcesCommandOutput,
   ListDataSourcesCommand,
-  ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
 import {
+  type ListDataSourceSyncJobsCommandInput,
+  type ListDataSourceSyncJobsCommandOutput,
   ListDataSourceSyncJobsCommand,
-  ListDataSourceSyncJobsCommandInput,
-  ListDataSourceSyncJobsCommandOutput,
 } from "./commands/ListDataSourceSyncJobsCommand";
 import {
+  type ListEntityPersonasCommandInput,
+  type ListEntityPersonasCommandOutput,
   ListEntityPersonasCommand,
-  ListEntityPersonasCommandInput,
-  ListEntityPersonasCommandOutput,
 } from "./commands/ListEntityPersonasCommand";
 import {
+  type ListExperienceEntitiesCommandInput,
+  type ListExperienceEntitiesCommandOutput,
   ListExperienceEntitiesCommand,
-  ListExperienceEntitiesCommandInput,
-  ListExperienceEntitiesCommandOutput,
 } from "./commands/ListExperienceEntitiesCommand";
 import {
+  type ListExperiencesCommandInput,
+  type ListExperiencesCommandOutput,
   ListExperiencesCommand,
-  ListExperiencesCommandInput,
-  ListExperiencesCommandOutput,
 } from "./commands/ListExperiencesCommand";
-import { ListFaqsCommand, ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
+import { type ListFaqsCommandInput, type ListFaqsCommandOutput, ListFaqsCommand } from "./commands/ListFaqsCommand";
 import {
+  type ListFeaturedResultsSetsCommandInput,
+  type ListFeaturedResultsSetsCommandOutput,
   ListFeaturedResultsSetsCommand,
-  ListFeaturedResultsSetsCommandInput,
-  ListFeaturedResultsSetsCommandOutput,
 } from "./commands/ListFeaturedResultsSetsCommand";
 import {
+  type ListGroupsOlderThanOrderingIdCommandInput,
+  type ListGroupsOlderThanOrderingIdCommandOutput,
   ListGroupsOlderThanOrderingIdCommand,
-  ListGroupsOlderThanOrderingIdCommandInput,
-  ListGroupsOlderThanOrderingIdCommandOutput,
 } from "./commands/ListGroupsOlderThanOrderingIdCommand";
-import { ListIndicesCommand, ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import {
+  type ListIndicesCommandInput,
+  type ListIndicesCommandOutput,
+  ListIndicesCommand,
+} from "./commands/ListIndicesCommand";
+import {
+  type ListQuerySuggestionsBlockListsCommandInput,
+  type ListQuerySuggestionsBlockListsCommandOutput,
   ListQuerySuggestionsBlockListsCommand,
-  ListQuerySuggestionsBlockListsCommandInput,
-  ListQuerySuggestionsBlockListsCommandOutput,
 } from "./commands/ListQuerySuggestionsBlockListsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListThesauriCommandInput,
+  type ListThesauriCommandOutput,
   ListThesauriCommand,
-  ListThesauriCommandInput,
-  ListThesauriCommandOutput,
 } from "./commands/ListThesauriCommand";
 import {
+  type PutPrincipalMappingCommandInput,
+  type PutPrincipalMappingCommandOutput,
   PutPrincipalMappingCommand,
-  PutPrincipalMappingCommandInput,
-  PutPrincipalMappingCommandOutput,
 } from "./commands/PutPrincipalMappingCommand";
-import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
-import { RetrieveCommand, RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
+import { type QueryCommandInput, type QueryCommandOutput, QueryCommand } from "./commands/QueryCommand";
+import { type RetrieveCommandInput, type RetrieveCommandOutput, RetrieveCommand } from "./commands/RetrieveCommand";
 import {
+  type StartDataSourceSyncJobCommandInput,
+  type StartDataSourceSyncJobCommandOutput,
   StartDataSourceSyncJobCommand,
-  StartDataSourceSyncJobCommandInput,
-  StartDataSourceSyncJobCommandOutput,
 } from "./commands/StartDataSourceSyncJobCommand";
 import {
+  type StopDataSourceSyncJobCommandInput,
+  type StopDataSourceSyncJobCommandOutput,
   StopDataSourceSyncJobCommand,
-  StopDataSourceSyncJobCommandInput,
-  StopDataSourceSyncJobCommandOutput,
 } from "./commands/StopDataSourceSyncJobCommand";
 import {
+  type SubmitFeedbackCommandInput,
+  type SubmitFeedbackCommandOutput,
   SubmitFeedbackCommand,
-  SubmitFeedbackCommandInput,
-  SubmitFeedbackCommandOutput,
 } from "./commands/SubmitFeedbackCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccessControlConfigurationCommandInput,
+  type UpdateAccessControlConfigurationCommandOutput,
   UpdateAccessControlConfigurationCommand,
-  UpdateAccessControlConfigurationCommandInput,
-  UpdateAccessControlConfigurationCommandOutput,
 } from "./commands/UpdateAccessControlConfigurationCommand";
 import {
+  type UpdateDataSourceCommandInput,
+  type UpdateDataSourceCommandOutput,
   UpdateDataSourceCommand,
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import {
+  type UpdateExperienceCommandInput,
+  type UpdateExperienceCommandOutput,
   UpdateExperienceCommand,
-  UpdateExperienceCommandInput,
-  UpdateExperienceCommandOutput,
 } from "./commands/UpdateExperienceCommand";
 import {
+  type UpdateFeaturedResultsSetCommandInput,
+  type UpdateFeaturedResultsSetCommandOutput,
   UpdateFeaturedResultsSetCommand,
-  UpdateFeaturedResultsSetCommandInput,
-  UpdateFeaturedResultsSetCommandOutput,
 } from "./commands/UpdateFeaturedResultsSetCommand";
-import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
+  type UpdateIndexCommandInput,
+  type UpdateIndexCommandOutput,
+  UpdateIndexCommand,
+} from "./commands/UpdateIndexCommand";
+import {
+  type UpdateQuerySuggestionsBlockListCommandInput,
+  type UpdateQuerySuggestionsBlockListCommandOutput,
   UpdateQuerySuggestionsBlockListCommand,
-  UpdateQuerySuggestionsBlockListCommandInput,
-  UpdateQuerySuggestionsBlockListCommandOutput,
 } from "./commands/UpdateQuerySuggestionsBlockListCommand";
 import {
+  type UpdateQuerySuggestionsConfigCommandInput,
+  type UpdateQuerySuggestionsConfigCommandOutput,
   UpdateQuerySuggestionsConfigCommand,
-  UpdateQuerySuggestionsConfigCommandInput,
-  UpdateQuerySuggestionsConfigCommandOutput,
 } from "./commands/UpdateQuerySuggestionsConfigCommand";
 import {
+  type UpdateThesaurusCommandInput,
+  type UpdateThesaurusCommandOutput,
   UpdateThesaurusCommand,
-  UpdateThesaurusCommandInput,
-  UpdateThesaurusCommandOutput,
 } from "./commands/UpdateThesaurusCommand";
 import { KendraClient } from "./KendraClient";
 import { paginateGetSnapshots } from "./pagination/GetSnapshotsPaginator";

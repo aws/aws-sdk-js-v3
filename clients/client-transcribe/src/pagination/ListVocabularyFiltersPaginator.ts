@@ -8,7 +8,7 @@ import {
   ListVocabularyFiltersCommandOutput,
 } from "../commands/ListVocabularyFiltersCommand";
 import { TranscribeClient } from "../TranscribeClient";
-import { TranscribePaginationConfiguration } from "./Interfaces";
+import type { TranscribePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

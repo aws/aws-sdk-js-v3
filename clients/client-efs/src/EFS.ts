@@ -3,147 +3,159 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateAccessPointCommandInput,
+  type CreateAccessPointCommandOutput,
   CreateAccessPointCommand,
-  CreateAccessPointCommandInput,
-  CreateAccessPointCommandOutput,
 } from "./commands/CreateAccessPointCommand";
 import {
+  type CreateFileSystemCommandInput,
+  type CreateFileSystemCommandOutput,
   CreateFileSystemCommand,
-  CreateFileSystemCommandInput,
-  CreateFileSystemCommandOutput,
 } from "./commands/CreateFileSystemCommand";
 import {
+  type CreateMountTargetCommandInput,
+  type CreateMountTargetCommandOutput,
   CreateMountTargetCommand,
-  CreateMountTargetCommandInput,
-  CreateMountTargetCommandOutput,
 } from "./commands/CreateMountTargetCommand";
 import {
+  type CreateReplicationConfigurationCommandInput,
+  type CreateReplicationConfigurationCommandOutput,
   CreateReplicationConfigurationCommand,
-  CreateReplicationConfigurationCommandInput,
-  CreateReplicationConfigurationCommandOutput,
 } from "./commands/CreateReplicationConfigurationCommand";
-import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
+  type CreateTagsCommandInput,
+  type CreateTagsCommandOutput,
+  CreateTagsCommand,
+} from "./commands/CreateTagsCommand";
+import {
+  type DeleteAccessPointCommandInput,
+  type DeleteAccessPointCommandOutput,
   DeleteAccessPointCommand,
-  DeleteAccessPointCommandInput,
-  DeleteAccessPointCommandOutput,
 } from "./commands/DeleteAccessPointCommand";
 import {
+  type DeleteFileSystemCommandInput,
+  type DeleteFileSystemCommandOutput,
   DeleteFileSystemCommand,
-  DeleteFileSystemCommandInput,
-  DeleteFileSystemCommandOutput,
 } from "./commands/DeleteFileSystemCommand";
 import {
+  type DeleteFileSystemPolicyCommandInput,
+  type DeleteFileSystemPolicyCommandOutput,
   DeleteFileSystemPolicyCommand,
-  DeleteFileSystemPolicyCommandInput,
-  DeleteFileSystemPolicyCommandOutput,
 } from "./commands/DeleteFileSystemPolicyCommand";
 import {
+  type DeleteMountTargetCommandInput,
+  type DeleteMountTargetCommandOutput,
   DeleteMountTargetCommand,
-  DeleteMountTargetCommandInput,
-  DeleteMountTargetCommandOutput,
 } from "./commands/DeleteMountTargetCommand";
 import {
+  type DeleteReplicationConfigurationCommandInput,
+  type DeleteReplicationConfigurationCommandOutput,
   DeleteReplicationConfigurationCommand,
-  DeleteReplicationConfigurationCommandInput,
-  DeleteReplicationConfigurationCommandOutput,
 } from "./commands/DeleteReplicationConfigurationCommand";
-import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
+  type DeleteTagsCommandInput,
+  type DeleteTagsCommandOutput,
+  DeleteTagsCommand,
+} from "./commands/DeleteTagsCommand";
+import {
+  type DescribeAccessPointsCommandInput,
+  type DescribeAccessPointsCommandOutput,
   DescribeAccessPointsCommand,
-  DescribeAccessPointsCommandInput,
-  DescribeAccessPointsCommandOutput,
 } from "./commands/DescribeAccessPointsCommand";
 import {
+  type DescribeAccountPreferencesCommandInput,
+  type DescribeAccountPreferencesCommandOutput,
   DescribeAccountPreferencesCommand,
-  DescribeAccountPreferencesCommandInput,
-  DescribeAccountPreferencesCommandOutput,
 } from "./commands/DescribeAccountPreferencesCommand";
 import {
+  type DescribeBackupPolicyCommandInput,
+  type DescribeBackupPolicyCommandOutput,
   DescribeBackupPolicyCommand,
-  DescribeBackupPolicyCommandInput,
-  DescribeBackupPolicyCommandOutput,
 } from "./commands/DescribeBackupPolicyCommand";
 import {
+  type DescribeFileSystemPolicyCommandInput,
+  type DescribeFileSystemPolicyCommandOutput,
   DescribeFileSystemPolicyCommand,
-  DescribeFileSystemPolicyCommandInput,
-  DescribeFileSystemPolicyCommandOutput,
 } from "./commands/DescribeFileSystemPolicyCommand";
 import {
+  type DescribeFileSystemsCommandInput,
+  type DescribeFileSystemsCommandOutput,
   DescribeFileSystemsCommand,
-  DescribeFileSystemsCommandInput,
-  DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
 import {
+  type DescribeLifecycleConfigurationCommandInput,
+  type DescribeLifecycleConfigurationCommandOutput,
   DescribeLifecycleConfigurationCommand,
-  DescribeLifecycleConfigurationCommandInput,
-  DescribeLifecycleConfigurationCommandOutput,
 } from "./commands/DescribeLifecycleConfigurationCommand";
 import {
+  type DescribeMountTargetsCommandInput,
+  type DescribeMountTargetsCommandOutput,
   DescribeMountTargetsCommand,
-  DescribeMountTargetsCommandInput,
-  DescribeMountTargetsCommandOutput,
 } from "./commands/DescribeMountTargetsCommand";
 import {
+  type DescribeMountTargetSecurityGroupsCommandInput,
+  type DescribeMountTargetSecurityGroupsCommandOutput,
   DescribeMountTargetSecurityGroupsCommand,
-  DescribeMountTargetSecurityGroupsCommandInput,
-  DescribeMountTargetSecurityGroupsCommandOutput,
 } from "./commands/DescribeMountTargetSecurityGroupsCommand";
 import {
+  type DescribeReplicationConfigurationsCommandInput,
+  type DescribeReplicationConfigurationsCommandOutput,
   DescribeReplicationConfigurationsCommand,
-  DescribeReplicationConfigurationsCommandInput,
-  DescribeReplicationConfigurationsCommandOutput,
 } from "./commands/DescribeReplicationConfigurationsCommand";
 import {
+  type DescribeTagsCommandInput,
+  type DescribeTagsCommandOutput,
   DescribeTagsCommand,
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ModifyMountTargetSecurityGroupsCommandInput,
+  type ModifyMountTargetSecurityGroupsCommandOutput,
   ModifyMountTargetSecurityGroupsCommand,
-  ModifyMountTargetSecurityGroupsCommandInput,
-  ModifyMountTargetSecurityGroupsCommandOutput,
 } from "./commands/ModifyMountTargetSecurityGroupsCommand";
 import {
+  type PutAccountPreferencesCommandInput,
+  type PutAccountPreferencesCommandOutput,
   PutAccountPreferencesCommand,
-  PutAccountPreferencesCommandInput,
-  PutAccountPreferencesCommandOutput,
 } from "./commands/PutAccountPreferencesCommand";
 import {
+  type PutBackupPolicyCommandInput,
+  type PutBackupPolicyCommandOutput,
   PutBackupPolicyCommand,
-  PutBackupPolicyCommandInput,
-  PutBackupPolicyCommandOutput,
 } from "./commands/PutBackupPolicyCommand";
 import {
+  type PutFileSystemPolicyCommandInput,
+  type PutFileSystemPolicyCommandOutput,
   PutFileSystemPolicyCommand,
-  PutFileSystemPolicyCommandInput,
-  PutFileSystemPolicyCommandOutput,
 } from "./commands/PutFileSystemPolicyCommand";
 import {
+  type PutLifecycleConfigurationCommandInput,
+  type PutLifecycleConfigurationCommandOutput,
   PutLifecycleConfigurationCommand,
-  PutLifecycleConfigurationCommandInput,
-  PutLifecycleConfigurationCommandOutput,
 } from "./commands/PutLifecycleConfigurationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateFileSystemCommandInput,
+  type UpdateFileSystemCommandOutput,
   UpdateFileSystemCommand,
-  UpdateFileSystemCommandInput,
-  UpdateFileSystemCommandOutput,
 } from "./commands/UpdateFileSystemCommand";
 import {
+  type UpdateFileSystemProtectionCommandInput,
+  type UpdateFileSystemProtectionCommandOutput,
   UpdateFileSystemProtectionCommand,
-  UpdateFileSystemProtectionCommandInput,
-  UpdateFileSystemProtectionCommandOutput,
 } from "./commands/UpdateFileSystemProtectionCommand";
 import { EFSClient } from "./EFSClient";
 import { paginateDescribeAccessPoints } from "./pagination/DescribeAccessPointsPaginator";

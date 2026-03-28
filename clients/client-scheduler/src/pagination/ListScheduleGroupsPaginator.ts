@@ -8,7 +8,7 @@ import {
   ListScheduleGroupsCommandOutput,
 } from "../commands/ListScheduleGroupsCommand";
 import { SchedulerClient } from "../SchedulerClient";
-import { SchedulerPaginationConfiguration } from "./Interfaces";
+import type { SchedulerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

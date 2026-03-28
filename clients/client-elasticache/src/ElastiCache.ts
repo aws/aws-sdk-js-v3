@@ -9,367 +9,379 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AddTagsToResourceCommandInput,
+  type AddTagsToResourceCommandOutput,
   AddTagsToResourceCommand,
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand";
 import {
+  type AuthorizeCacheSecurityGroupIngressCommandInput,
+  type AuthorizeCacheSecurityGroupIngressCommandOutput,
   AuthorizeCacheSecurityGroupIngressCommand,
-  AuthorizeCacheSecurityGroupIngressCommandInput,
-  AuthorizeCacheSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeCacheSecurityGroupIngressCommand";
 import {
+  type BatchApplyUpdateActionCommandInput,
+  type BatchApplyUpdateActionCommandOutput,
   BatchApplyUpdateActionCommand,
-  BatchApplyUpdateActionCommandInput,
-  BatchApplyUpdateActionCommandOutput,
 } from "./commands/BatchApplyUpdateActionCommand";
 import {
+  type BatchStopUpdateActionCommandInput,
+  type BatchStopUpdateActionCommandOutput,
   BatchStopUpdateActionCommand,
-  BatchStopUpdateActionCommandInput,
-  BatchStopUpdateActionCommandOutput,
 } from "./commands/BatchStopUpdateActionCommand";
 import {
+  type CompleteMigrationCommandInput,
+  type CompleteMigrationCommandOutput,
   CompleteMigrationCommand,
-  CompleteMigrationCommandInput,
-  CompleteMigrationCommandOutput,
 } from "./commands/CompleteMigrationCommand";
 import {
+  type CopyServerlessCacheSnapshotCommandInput,
+  type CopyServerlessCacheSnapshotCommandOutput,
   CopyServerlessCacheSnapshotCommand,
-  CopyServerlessCacheSnapshotCommandInput,
-  CopyServerlessCacheSnapshotCommandOutput,
 } from "./commands/CopyServerlessCacheSnapshotCommand";
 import {
+  type CopySnapshotCommandInput,
+  type CopySnapshotCommandOutput,
   CopySnapshotCommand,
-  CopySnapshotCommandInput,
-  CopySnapshotCommandOutput,
 } from "./commands/CopySnapshotCommand";
 import {
+  type CreateCacheClusterCommandInput,
+  type CreateCacheClusterCommandOutput,
   CreateCacheClusterCommand,
-  CreateCacheClusterCommandInput,
-  CreateCacheClusterCommandOutput,
 } from "./commands/CreateCacheClusterCommand";
 import {
+  type CreateCacheParameterGroupCommandInput,
+  type CreateCacheParameterGroupCommandOutput,
   CreateCacheParameterGroupCommand,
-  CreateCacheParameterGroupCommandInput,
-  CreateCacheParameterGroupCommandOutput,
 } from "./commands/CreateCacheParameterGroupCommand";
 import {
+  type CreateCacheSecurityGroupCommandInput,
+  type CreateCacheSecurityGroupCommandOutput,
   CreateCacheSecurityGroupCommand,
-  CreateCacheSecurityGroupCommandInput,
-  CreateCacheSecurityGroupCommandOutput,
 } from "./commands/CreateCacheSecurityGroupCommand";
 import {
+  type CreateCacheSubnetGroupCommandInput,
+  type CreateCacheSubnetGroupCommandOutput,
   CreateCacheSubnetGroupCommand,
-  CreateCacheSubnetGroupCommandInput,
-  CreateCacheSubnetGroupCommandOutput,
 } from "./commands/CreateCacheSubnetGroupCommand";
 import {
+  type CreateGlobalReplicationGroupCommandInput,
+  type CreateGlobalReplicationGroupCommandOutput,
   CreateGlobalReplicationGroupCommand,
-  CreateGlobalReplicationGroupCommandInput,
-  CreateGlobalReplicationGroupCommandOutput,
 } from "./commands/CreateGlobalReplicationGroupCommand";
 import {
+  type CreateReplicationGroupCommandInput,
+  type CreateReplicationGroupCommandOutput,
   CreateReplicationGroupCommand,
-  CreateReplicationGroupCommandInput,
-  CreateReplicationGroupCommandOutput,
 } from "./commands/CreateReplicationGroupCommand";
 import {
+  type CreateServerlessCacheCommandInput,
+  type CreateServerlessCacheCommandOutput,
   CreateServerlessCacheCommand,
-  CreateServerlessCacheCommandInput,
-  CreateServerlessCacheCommandOutput,
 } from "./commands/CreateServerlessCacheCommand";
 import {
+  type CreateServerlessCacheSnapshotCommandInput,
+  type CreateServerlessCacheSnapshotCommandOutput,
   CreateServerlessCacheSnapshotCommand,
-  CreateServerlessCacheSnapshotCommandInput,
-  CreateServerlessCacheSnapshotCommandOutput,
 } from "./commands/CreateServerlessCacheSnapshotCommand";
 import {
+  type CreateSnapshotCommandInput,
+  type CreateSnapshotCommandOutput,
   CreateSnapshotCommand,
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
-import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  type CreateUserCommandInput,
+  type CreateUserCommandOutput,
+  CreateUserCommand,
+} from "./commands/CreateUserCommand";
+import {
+  type CreateUserGroupCommandInput,
+  type CreateUserGroupCommandOutput,
   CreateUserGroupCommand,
-  CreateUserGroupCommandInput,
-  CreateUserGroupCommandOutput,
 } from "./commands/CreateUserGroupCommand";
 import {
+  type DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+  type DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
   DecreaseNodeGroupsInGlobalReplicationGroupCommand,
-  DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
-  DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
 } from "./commands/DecreaseNodeGroupsInGlobalReplicationGroupCommand";
 import {
+  type DecreaseReplicaCountCommandInput,
+  type DecreaseReplicaCountCommandOutput,
   DecreaseReplicaCountCommand,
-  DecreaseReplicaCountCommandInput,
-  DecreaseReplicaCountCommandOutput,
 } from "./commands/DecreaseReplicaCountCommand";
 import {
+  type DeleteCacheClusterCommandInput,
+  type DeleteCacheClusterCommandOutput,
   DeleteCacheClusterCommand,
-  DeleteCacheClusterCommandInput,
-  DeleteCacheClusterCommandOutput,
 } from "./commands/DeleteCacheClusterCommand";
 import {
+  type DeleteCacheParameterGroupCommandInput,
+  type DeleteCacheParameterGroupCommandOutput,
   DeleteCacheParameterGroupCommand,
-  DeleteCacheParameterGroupCommandInput,
-  DeleteCacheParameterGroupCommandOutput,
 } from "./commands/DeleteCacheParameterGroupCommand";
 import {
+  type DeleteCacheSecurityGroupCommandInput,
+  type DeleteCacheSecurityGroupCommandOutput,
   DeleteCacheSecurityGroupCommand,
-  DeleteCacheSecurityGroupCommandInput,
-  DeleteCacheSecurityGroupCommandOutput,
 } from "./commands/DeleteCacheSecurityGroupCommand";
 import {
+  type DeleteCacheSubnetGroupCommandInput,
+  type DeleteCacheSubnetGroupCommandOutput,
   DeleteCacheSubnetGroupCommand,
-  DeleteCacheSubnetGroupCommandInput,
-  DeleteCacheSubnetGroupCommandOutput,
 } from "./commands/DeleteCacheSubnetGroupCommand";
 import {
+  type DeleteGlobalReplicationGroupCommandInput,
+  type DeleteGlobalReplicationGroupCommandOutput,
   DeleteGlobalReplicationGroupCommand,
-  DeleteGlobalReplicationGroupCommandInput,
-  DeleteGlobalReplicationGroupCommandOutput,
 } from "./commands/DeleteGlobalReplicationGroupCommand";
 import {
+  type DeleteReplicationGroupCommandInput,
+  type DeleteReplicationGroupCommandOutput,
   DeleteReplicationGroupCommand,
-  DeleteReplicationGroupCommandInput,
-  DeleteReplicationGroupCommandOutput,
 } from "./commands/DeleteReplicationGroupCommand";
 import {
+  type DeleteServerlessCacheCommandInput,
+  type DeleteServerlessCacheCommandOutput,
   DeleteServerlessCacheCommand,
-  DeleteServerlessCacheCommandInput,
-  DeleteServerlessCacheCommandOutput,
 } from "./commands/DeleteServerlessCacheCommand";
 import {
+  type DeleteServerlessCacheSnapshotCommandInput,
+  type DeleteServerlessCacheSnapshotCommandOutput,
   DeleteServerlessCacheSnapshotCommand,
-  DeleteServerlessCacheSnapshotCommandInput,
-  DeleteServerlessCacheSnapshotCommandOutput,
 } from "./commands/DeleteServerlessCacheSnapshotCommand";
 import {
+  type DeleteSnapshotCommandInput,
+  type DeleteSnapshotCommandOutput,
   DeleteSnapshotCommand,
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput,
 } from "./commands/DeleteSnapshotCommand";
-import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  type DeleteUserCommandInput,
+  type DeleteUserCommandOutput,
+  DeleteUserCommand,
+} from "./commands/DeleteUserCommand";
+import {
+  type DeleteUserGroupCommandInput,
+  type DeleteUserGroupCommandOutput,
   DeleteUserGroupCommand,
-  DeleteUserGroupCommandInput,
-  DeleteUserGroupCommandOutput,
 } from "./commands/DeleteUserGroupCommand";
 import {
+  type DescribeCacheClustersCommandInput,
+  type DescribeCacheClustersCommandOutput,
   DescribeCacheClustersCommand,
-  DescribeCacheClustersCommandInput,
-  DescribeCacheClustersCommandOutput,
 } from "./commands/DescribeCacheClustersCommand";
 import {
+  type DescribeCacheEngineVersionsCommandInput,
+  type DescribeCacheEngineVersionsCommandOutput,
   DescribeCacheEngineVersionsCommand,
-  DescribeCacheEngineVersionsCommandInput,
-  DescribeCacheEngineVersionsCommandOutput,
 } from "./commands/DescribeCacheEngineVersionsCommand";
 import {
+  type DescribeCacheParameterGroupsCommandInput,
+  type DescribeCacheParameterGroupsCommandOutput,
   DescribeCacheParameterGroupsCommand,
-  DescribeCacheParameterGroupsCommandInput,
-  DescribeCacheParameterGroupsCommandOutput,
 } from "./commands/DescribeCacheParameterGroupsCommand";
 import {
+  type DescribeCacheParametersCommandInput,
+  type DescribeCacheParametersCommandOutput,
   DescribeCacheParametersCommand,
-  DescribeCacheParametersCommandInput,
-  DescribeCacheParametersCommandOutput,
 } from "./commands/DescribeCacheParametersCommand";
 import {
+  type DescribeCacheSecurityGroupsCommandInput,
+  type DescribeCacheSecurityGroupsCommandOutput,
   DescribeCacheSecurityGroupsCommand,
-  DescribeCacheSecurityGroupsCommandInput,
-  DescribeCacheSecurityGroupsCommandOutput,
 } from "./commands/DescribeCacheSecurityGroupsCommand";
 import {
+  type DescribeCacheSubnetGroupsCommandInput,
+  type DescribeCacheSubnetGroupsCommandOutput,
   DescribeCacheSubnetGroupsCommand,
-  DescribeCacheSubnetGroupsCommandInput,
-  DescribeCacheSubnetGroupsCommandOutput,
 } from "./commands/DescribeCacheSubnetGroupsCommand";
 import {
+  type DescribeEngineDefaultParametersCommandInput,
+  type DescribeEngineDefaultParametersCommandOutput,
   DescribeEngineDefaultParametersCommand,
-  DescribeEngineDefaultParametersCommandInput,
-  DescribeEngineDefaultParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultParametersCommand";
 import {
+  type DescribeEventsCommandInput,
+  type DescribeEventsCommandOutput,
   DescribeEventsCommand,
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  type DescribeGlobalReplicationGroupsCommandInput,
+  type DescribeGlobalReplicationGroupsCommandOutput,
   DescribeGlobalReplicationGroupsCommand,
-  DescribeGlobalReplicationGroupsCommandInput,
-  DescribeGlobalReplicationGroupsCommandOutput,
 } from "./commands/DescribeGlobalReplicationGroupsCommand";
 import {
+  type DescribeReplicationGroupsCommandInput,
+  type DescribeReplicationGroupsCommandOutput,
   DescribeReplicationGroupsCommand,
-  DescribeReplicationGroupsCommandInput,
-  DescribeReplicationGroupsCommandOutput,
 } from "./commands/DescribeReplicationGroupsCommand";
 import {
+  type DescribeReservedCacheNodesCommandInput,
+  type DescribeReservedCacheNodesCommandOutput,
   DescribeReservedCacheNodesCommand,
-  DescribeReservedCacheNodesCommandInput,
-  DescribeReservedCacheNodesCommandOutput,
 } from "./commands/DescribeReservedCacheNodesCommand";
 import {
+  type DescribeReservedCacheNodesOfferingsCommandInput,
+  type DescribeReservedCacheNodesOfferingsCommandOutput,
   DescribeReservedCacheNodesOfferingsCommand,
-  DescribeReservedCacheNodesOfferingsCommandInput,
-  DescribeReservedCacheNodesOfferingsCommandOutput,
 } from "./commands/DescribeReservedCacheNodesOfferingsCommand";
 import {
+  type DescribeServerlessCachesCommandInput,
+  type DescribeServerlessCachesCommandOutput,
   DescribeServerlessCachesCommand,
-  DescribeServerlessCachesCommandInput,
-  DescribeServerlessCachesCommandOutput,
 } from "./commands/DescribeServerlessCachesCommand";
 import {
+  type DescribeServerlessCacheSnapshotsCommandInput,
+  type DescribeServerlessCacheSnapshotsCommandOutput,
   DescribeServerlessCacheSnapshotsCommand,
-  DescribeServerlessCacheSnapshotsCommandInput,
-  DescribeServerlessCacheSnapshotsCommandOutput,
 } from "./commands/DescribeServerlessCacheSnapshotsCommand";
 import {
+  type DescribeServiceUpdatesCommandInput,
+  type DescribeServiceUpdatesCommandOutput,
   DescribeServiceUpdatesCommand,
-  DescribeServiceUpdatesCommandInput,
-  DescribeServiceUpdatesCommandOutput,
 } from "./commands/DescribeServiceUpdatesCommand";
 import {
+  type DescribeSnapshotsCommandInput,
+  type DescribeSnapshotsCommandOutput,
   DescribeSnapshotsCommand,
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput,
 } from "./commands/DescribeSnapshotsCommand";
 import {
+  type DescribeUpdateActionsCommandInput,
+  type DescribeUpdateActionsCommandOutput,
   DescribeUpdateActionsCommand,
-  DescribeUpdateActionsCommandInput,
-  DescribeUpdateActionsCommandOutput,
 } from "./commands/DescribeUpdateActionsCommand";
 import {
+  type DescribeUserGroupsCommandInput,
+  type DescribeUserGroupsCommandOutput,
   DescribeUserGroupsCommand,
-  DescribeUserGroupsCommandInput,
-  DescribeUserGroupsCommandOutput,
 } from "./commands/DescribeUserGroupsCommand";
 import {
+  type DescribeUsersCommandInput,
+  type DescribeUsersCommandOutput,
   DescribeUsersCommand,
-  DescribeUsersCommandInput,
-  DescribeUsersCommandOutput,
 } from "./commands/DescribeUsersCommand";
 import {
+  type DisassociateGlobalReplicationGroupCommandInput,
+  type DisassociateGlobalReplicationGroupCommandOutput,
   DisassociateGlobalReplicationGroupCommand,
-  DisassociateGlobalReplicationGroupCommandInput,
-  DisassociateGlobalReplicationGroupCommandOutput,
 } from "./commands/DisassociateGlobalReplicationGroupCommand";
 import {
+  type ExportServerlessCacheSnapshotCommandInput,
+  type ExportServerlessCacheSnapshotCommandOutput,
   ExportServerlessCacheSnapshotCommand,
-  ExportServerlessCacheSnapshotCommandInput,
-  ExportServerlessCacheSnapshotCommandOutput,
 } from "./commands/ExportServerlessCacheSnapshotCommand";
 import {
+  type FailoverGlobalReplicationGroupCommandInput,
+  type FailoverGlobalReplicationGroupCommandOutput,
   FailoverGlobalReplicationGroupCommand,
-  FailoverGlobalReplicationGroupCommandInput,
-  FailoverGlobalReplicationGroupCommandOutput,
 } from "./commands/FailoverGlobalReplicationGroupCommand";
 import {
+  type IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+  type IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
   IncreaseNodeGroupsInGlobalReplicationGroupCommand,
-  IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
-  IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
 } from "./commands/IncreaseNodeGroupsInGlobalReplicationGroupCommand";
 import {
+  type IncreaseReplicaCountCommandInput,
+  type IncreaseReplicaCountCommandOutput,
   IncreaseReplicaCountCommand,
-  IncreaseReplicaCountCommandInput,
-  IncreaseReplicaCountCommandOutput,
 } from "./commands/IncreaseReplicaCountCommand";
 import {
+  type ListAllowedNodeTypeModificationsCommandInput,
+  type ListAllowedNodeTypeModificationsCommandOutput,
   ListAllowedNodeTypeModificationsCommand,
-  ListAllowedNodeTypeModificationsCommandInput,
-  ListAllowedNodeTypeModificationsCommandOutput,
 } from "./commands/ListAllowedNodeTypeModificationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ModifyCacheClusterCommandInput,
+  type ModifyCacheClusterCommandOutput,
   ModifyCacheClusterCommand,
-  ModifyCacheClusterCommandInput,
-  ModifyCacheClusterCommandOutput,
 } from "./commands/ModifyCacheClusterCommand";
 import {
+  type ModifyCacheParameterGroupCommandInput,
+  type ModifyCacheParameterGroupCommandOutput,
   ModifyCacheParameterGroupCommand,
-  ModifyCacheParameterGroupCommandInput,
-  ModifyCacheParameterGroupCommandOutput,
 } from "./commands/ModifyCacheParameterGroupCommand";
 import {
+  type ModifyCacheSubnetGroupCommandInput,
+  type ModifyCacheSubnetGroupCommandOutput,
   ModifyCacheSubnetGroupCommand,
-  ModifyCacheSubnetGroupCommandInput,
-  ModifyCacheSubnetGroupCommandOutput,
 } from "./commands/ModifyCacheSubnetGroupCommand";
 import {
+  type ModifyGlobalReplicationGroupCommandInput,
+  type ModifyGlobalReplicationGroupCommandOutput,
   ModifyGlobalReplicationGroupCommand,
-  ModifyGlobalReplicationGroupCommandInput,
-  ModifyGlobalReplicationGroupCommandOutput,
 } from "./commands/ModifyGlobalReplicationGroupCommand";
 import {
+  type ModifyReplicationGroupCommandInput,
+  type ModifyReplicationGroupCommandOutput,
   ModifyReplicationGroupCommand,
-  ModifyReplicationGroupCommandInput,
-  ModifyReplicationGroupCommandOutput,
 } from "./commands/ModifyReplicationGroupCommand";
 import {
+  type ModifyReplicationGroupShardConfigurationCommandInput,
+  type ModifyReplicationGroupShardConfigurationCommandOutput,
   ModifyReplicationGroupShardConfigurationCommand,
-  ModifyReplicationGroupShardConfigurationCommandInput,
-  ModifyReplicationGroupShardConfigurationCommandOutput,
 } from "./commands/ModifyReplicationGroupShardConfigurationCommand";
 import {
+  type ModifyServerlessCacheCommandInput,
+  type ModifyServerlessCacheCommandOutput,
   ModifyServerlessCacheCommand,
-  ModifyServerlessCacheCommandInput,
-  ModifyServerlessCacheCommandOutput,
 } from "./commands/ModifyServerlessCacheCommand";
-import { ModifyUserCommand, ModifyUserCommandInput, ModifyUserCommandOutput } from "./commands/ModifyUserCommand";
 import {
+  type ModifyUserCommandInput,
+  type ModifyUserCommandOutput,
+  ModifyUserCommand,
+} from "./commands/ModifyUserCommand";
+import {
+  type ModifyUserGroupCommandInput,
+  type ModifyUserGroupCommandOutput,
   ModifyUserGroupCommand,
-  ModifyUserGroupCommandInput,
-  ModifyUserGroupCommandOutput,
 } from "./commands/ModifyUserGroupCommand";
 import {
+  type PurchaseReservedCacheNodesOfferingCommandInput,
+  type PurchaseReservedCacheNodesOfferingCommandOutput,
   PurchaseReservedCacheNodesOfferingCommand,
-  PurchaseReservedCacheNodesOfferingCommandInput,
-  PurchaseReservedCacheNodesOfferingCommandOutput,
 } from "./commands/PurchaseReservedCacheNodesOfferingCommand";
 import {
+  type RebalanceSlotsInGlobalReplicationGroupCommandInput,
+  type RebalanceSlotsInGlobalReplicationGroupCommandOutput,
   RebalanceSlotsInGlobalReplicationGroupCommand,
-  RebalanceSlotsInGlobalReplicationGroupCommandInput,
-  RebalanceSlotsInGlobalReplicationGroupCommandOutput,
 } from "./commands/RebalanceSlotsInGlobalReplicationGroupCommand";
 import {
+  type RebootCacheClusterCommandInput,
+  type RebootCacheClusterCommandOutput,
   RebootCacheClusterCommand,
-  RebootCacheClusterCommandInput,
-  RebootCacheClusterCommandOutput,
 } from "./commands/RebootCacheClusterCommand";
 import {
+  type RemoveTagsFromResourceCommandInput,
+  type RemoveTagsFromResourceCommandOutput,
   RemoveTagsFromResourceCommand,
-  RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 import {
+  type ResetCacheParameterGroupCommandInput,
+  type ResetCacheParameterGroupCommandOutput,
   ResetCacheParameterGroupCommand,
-  ResetCacheParameterGroupCommandInput,
-  ResetCacheParameterGroupCommandOutput,
 } from "./commands/ResetCacheParameterGroupCommand";
 import {
+  type RevokeCacheSecurityGroupIngressCommandInput,
+  type RevokeCacheSecurityGroupIngressCommandOutput,
   RevokeCacheSecurityGroupIngressCommand,
-  RevokeCacheSecurityGroupIngressCommandInput,
-  RevokeCacheSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeCacheSecurityGroupIngressCommand";
 import {
+  type StartMigrationCommandInput,
+  type StartMigrationCommandOutput,
   StartMigrationCommand,
-  StartMigrationCommandInput,
-  StartMigrationCommandOutput,
 } from "./commands/StartMigrationCommand";
 import {
+  type TestFailoverCommandInput,
+  type TestFailoverCommandOutput,
   TestFailoverCommand,
-  TestFailoverCommandInput,
-  TestFailoverCommandOutput,
 } from "./commands/TestFailoverCommand";
 import {
+  type TestMigrationCommandInput,
+  type TestMigrationCommandOutput,
   TestMigrationCommand,
-  TestMigrationCommandInput,
-  TestMigrationCommandOutput,
 } from "./commands/TestMigrationCommand";
 import { ElastiCacheClient } from "./ElastiCacheClient";
 import { paginateDescribeCacheClusters } from "./pagination/DescribeCacheClustersPaginator";

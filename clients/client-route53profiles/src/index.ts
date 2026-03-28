@@ -9,7 +9,7 @@
  */
 export * from "./Route53ProfilesClient";
 export * from "./Route53Profiles";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { Route53ProfilesExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

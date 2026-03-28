@@ -8,7 +8,7 @@ import {
   ListImportFileTaskCommandOutput,
 } from "../commands/ListImportFileTaskCommand";
 import { MigrationHubStrategyClient } from "../MigrationHubStrategyClient";
-import { MigrationHubStrategyPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubStrategyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

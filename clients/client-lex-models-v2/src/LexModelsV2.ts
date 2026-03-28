@@ -9,483 +9,519 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type BatchCreateCustomVocabularyItemCommandInput,
+  type BatchCreateCustomVocabularyItemCommandOutput,
   BatchCreateCustomVocabularyItemCommand,
-  BatchCreateCustomVocabularyItemCommandInput,
-  BatchCreateCustomVocabularyItemCommandOutput,
 } from "./commands/BatchCreateCustomVocabularyItemCommand";
 import {
+  type BatchDeleteCustomVocabularyItemCommandInput,
+  type BatchDeleteCustomVocabularyItemCommandOutput,
   BatchDeleteCustomVocabularyItemCommand,
-  BatchDeleteCustomVocabularyItemCommandInput,
-  BatchDeleteCustomVocabularyItemCommandOutput,
 } from "./commands/BatchDeleteCustomVocabularyItemCommand";
 import {
+  type BatchUpdateCustomVocabularyItemCommandInput,
+  type BatchUpdateCustomVocabularyItemCommandOutput,
   BatchUpdateCustomVocabularyItemCommand,
-  BatchUpdateCustomVocabularyItemCommandInput,
-  BatchUpdateCustomVocabularyItemCommandOutput,
 } from "./commands/BatchUpdateCustomVocabularyItemCommand";
 import {
+  type BuildBotLocaleCommandInput,
+  type BuildBotLocaleCommandOutput,
   BuildBotLocaleCommand,
-  BuildBotLocaleCommandInput,
-  BuildBotLocaleCommandOutput,
 } from "./commands/BuildBotLocaleCommand";
 import {
+  type CreateBotAliasCommandInput,
+  type CreateBotAliasCommandOutput,
   CreateBotAliasCommand,
-  CreateBotAliasCommandInput,
-  CreateBotAliasCommandOutput,
 } from "./commands/CreateBotAliasCommand";
-import { CreateBotCommand, CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
+import { type CreateBotCommandInput, type CreateBotCommandOutput, CreateBotCommand } from "./commands/CreateBotCommand";
 import {
+  type CreateBotLocaleCommandInput,
+  type CreateBotLocaleCommandOutput,
   CreateBotLocaleCommand,
-  CreateBotLocaleCommandInput,
-  CreateBotLocaleCommandOutput,
 } from "./commands/CreateBotLocaleCommand";
 import {
+  type CreateBotReplicaCommandInput,
+  type CreateBotReplicaCommandOutput,
   CreateBotReplicaCommand,
-  CreateBotReplicaCommandInput,
-  CreateBotReplicaCommandOutput,
 } from "./commands/CreateBotReplicaCommand";
 import {
+  type CreateBotVersionCommandInput,
+  type CreateBotVersionCommandOutput,
   CreateBotVersionCommand,
-  CreateBotVersionCommandInput,
-  CreateBotVersionCommandOutput,
 } from "./commands/CreateBotVersionCommand";
 import {
+  type CreateExportCommandInput,
+  type CreateExportCommandOutput,
   CreateExportCommand,
-  CreateExportCommandInput,
-  CreateExportCommandOutput,
 } from "./commands/CreateExportCommand";
 import {
+  type CreateIntentCommandInput,
+  type CreateIntentCommandOutput,
   CreateIntentCommand,
-  CreateIntentCommandInput,
-  CreateIntentCommandOutput,
 } from "./commands/CreateIntentCommand";
 import {
+  type CreateResourcePolicyCommandInput,
+  type CreateResourcePolicyCommandOutput,
   CreateResourcePolicyCommand,
-  CreateResourcePolicyCommandInput,
-  CreateResourcePolicyCommandOutput,
 } from "./commands/CreateResourcePolicyCommand";
 import {
+  type CreateResourcePolicyStatementCommandInput,
+  type CreateResourcePolicyStatementCommandOutput,
   CreateResourcePolicyStatementCommand,
-  CreateResourcePolicyStatementCommandInput,
-  CreateResourcePolicyStatementCommandOutput,
 } from "./commands/CreateResourcePolicyStatementCommand";
-import { CreateSlotCommand, CreateSlotCommandInput, CreateSlotCommandOutput } from "./commands/CreateSlotCommand";
 import {
+  type CreateSlotCommandInput,
+  type CreateSlotCommandOutput,
+  CreateSlotCommand,
+} from "./commands/CreateSlotCommand";
+import {
+  type CreateSlotTypeCommandInput,
+  type CreateSlotTypeCommandOutput,
   CreateSlotTypeCommand,
-  CreateSlotTypeCommandInput,
-  CreateSlotTypeCommandOutput,
 } from "./commands/CreateSlotTypeCommand";
 import {
+  type CreateTestSetDiscrepancyReportCommandInput,
+  type CreateTestSetDiscrepancyReportCommandOutput,
   CreateTestSetDiscrepancyReportCommand,
-  CreateTestSetDiscrepancyReportCommandInput,
-  CreateTestSetDiscrepancyReportCommandOutput,
 } from "./commands/CreateTestSetDiscrepancyReportCommand";
 import {
+  type CreateUploadUrlCommandInput,
+  type CreateUploadUrlCommandOutput,
   CreateUploadUrlCommand,
-  CreateUploadUrlCommandInput,
-  CreateUploadUrlCommandOutput,
 } from "./commands/CreateUploadUrlCommand";
 import {
+  type DeleteBotAliasCommandInput,
+  type DeleteBotAliasCommandOutput,
   DeleteBotAliasCommand,
-  DeleteBotAliasCommandInput,
-  DeleteBotAliasCommandOutput,
 } from "./commands/DeleteBotAliasCommand";
 import {
+  type DeleteBotAnalyzerRecommendationCommandInput,
+  type DeleteBotAnalyzerRecommendationCommandOutput,
   DeleteBotAnalyzerRecommendationCommand,
-  DeleteBotAnalyzerRecommendationCommandInput,
-  DeleteBotAnalyzerRecommendationCommandOutput,
 } from "./commands/DeleteBotAnalyzerRecommendationCommand";
-import { DeleteBotCommand, DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
+import { type DeleteBotCommandInput, type DeleteBotCommandOutput, DeleteBotCommand } from "./commands/DeleteBotCommand";
 import {
+  type DeleteBotLocaleCommandInput,
+  type DeleteBotLocaleCommandOutput,
   DeleteBotLocaleCommand,
-  DeleteBotLocaleCommandInput,
-  DeleteBotLocaleCommandOutput,
 } from "./commands/DeleteBotLocaleCommand";
 import {
+  type DeleteBotReplicaCommandInput,
+  type DeleteBotReplicaCommandOutput,
   DeleteBotReplicaCommand,
-  DeleteBotReplicaCommandInput,
-  DeleteBotReplicaCommandOutput,
 } from "./commands/DeleteBotReplicaCommand";
 import {
+  type DeleteBotVersionCommandInput,
+  type DeleteBotVersionCommandOutput,
   DeleteBotVersionCommand,
-  DeleteBotVersionCommandInput,
-  DeleteBotVersionCommandOutput,
 } from "./commands/DeleteBotVersionCommand";
 import {
+  type DeleteCustomVocabularyCommandInput,
+  type DeleteCustomVocabularyCommandOutput,
   DeleteCustomVocabularyCommand,
-  DeleteCustomVocabularyCommandInput,
-  DeleteCustomVocabularyCommandOutput,
 } from "./commands/DeleteCustomVocabularyCommand";
 import {
+  type DeleteExportCommandInput,
+  type DeleteExportCommandOutput,
   DeleteExportCommand,
-  DeleteExportCommandInput,
-  DeleteExportCommandOutput,
 } from "./commands/DeleteExportCommand";
 import {
+  type DeleteImportCommandInput,
+  type DeleteImportCommandOutput,
   DeleteImportCommand,
-  DeleteImportCommandInput,
-  DeleteImportCommandOutput,
 } from "./commands/DeleteImportCommand";
 import {
+  type DeleteIntentCommandInput,
+  type DeleteIntentCommandOutput,
   DeleteIntentCommand,
-  DeleteIntentCommandInput,
-  DeleteIntentCommandOutput,
 } from "./commands/DeleteIntentCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteResourcePolicyStatementCommandInput,
+  type DeleteResourcePolicyStatementCommandOutput,
   DeleteResourcePolicyStatementCommand,
-  DeleteResourcePolicyStatementCommandInput,
-  DeleteResourcePolicyStatementCommandOutput,
 } from "./commands/DeleteResourcePolicyStatementCommand";
-import { DeleteSlotCommand, DeleteSlotCommandInput, DeleteSlotCommandOutput } from "./commands/DeleteSlotCommand";
 import {
+  type DeleteSlotCommandInput,
+  type DeleteSlotCommandOutput,
+  DeleteSlotCommand,
+} from "./commands/DeleteSlotCommand";
+import {
+  type DeleteSlotTypeCommandInput,
+  type DeleteSlotTypeCommandOutput,
   DeleteSlotTypeCommand,
-  DeleteSlotTypeCommandInput,
-  DeleteSlotTypeCommandOutput,
 } from "./commands/DeleteSlotTypeCommand";
 import {
+  type DeleteTestSetCommandInput,
+  type DeleteTestSetCommandOutput,
   DeleteTestSetCommand,
-  DeleteTestSetCommandInput,
-  DeleteTestSetCommandOutput,
 } from "./commands/DeleteTestSetCommand";
 import {
+  type DeleteUtterancesCommandInput,
+  type DeleteUtterancesCommandOutput,
   DeleteUtterancesCommand,
-  DeleteUtterancesCommandInput,
-  DeleteUtterancesCommandOutput,
 } from "./commands/DeleteUtterancesCommand";
 import {
+  type DescribeBotAliasCommandInput,
+  type DescribeBotAliasCommandOutput,
   DescribeBotAliasCommand,
-  DescribeBotAliasCommandInput,
-  DescribeBotAliasCommandOutput,
 } from "./commands/DescribeBotAliasCommand";
 import {
+  type DescribeBotAnalyzerRecommendationCommandInput,
+  type DescribeBotAnalyzerRecommendationCommandOutput,
   DescribeBotAnalyzerRecommendationCommand,
-  DescribeBotAnalyzerRecommendationCommandInput,
-  DescribeBotAnalyzerRecommendationCommandOutput,
 } from "./commands/DescribeBotAnalyzerRecommendationCommand";
-import { DescribeBotCommand, DescribeBotCommandInput, DescribeBotCommandOutput } from "./commands/DescribeBotCommand";
 import {
+  type DescribeBotCommandInput,
+  type DescribeBotCommandOutput,
+  DescribeBotCommand,
+} from "./commands/DescribeBotCommand";
+import {
+  type DescribeBotLocaleCommandInput,
+  type DescribeBotLocaleCommandOutput,
   DescribeBotLocaleCommand,
-  DescribeBotLocaleCommandInput,
-  DescribeBotLocaleCommandOutput,
 } from "./commands/DescribeBotLocaleCommand";
 import {
+  type DescribeBotRecommendationCommandInput,
+  type DescribeBotRecommendationCommandOutput,
   DescribeBotRecommendationCommand,
-  DescribeBotRecommendationCommandInput,
-  DescribeBotRecommendationCommandOutput,
 } from "./commands/DescribeBotRecommendationCommand";
 import {
+  type DescribeBotReplicaCommandInput,
+  type DescribeBotReplicaCommandOutput,
   DescribeBotReplicaCommand,
-  DescribeBotReplicaCommandInput,
-  DescribeBotReplicaCommandOutput,
 } from "./commands/DescribeBotReplicaCommand";
 import {
+  type DescribeBotResourceGenerationCommandInput,
+  type DescribeBotResourceGenerationCommandOutput,
   DescribeBotResourceGenerationCommand,
-  DescribeBotResourceGenerationCommandInput,
-  DescribeBotResourceGenerationCommandOutput,
 } from "./commands/DescribeBotResourceGenerationCommand";
 import {
+  type DescribeBotVersionCommandInput,
+  type DescribeBotVersionCommandOutput,
   DescribeBotVersionCommand,
-  DescribeBotVersionCommandInput,
-  DescribeBotVersionCommandOutput,
 } from "./commands/DescribeBotVersionCommand";
 import {
+  type DescribeCustomVocabularyMetadataCommandInput,
+  type DescribeCustomVocabularyMetadataCommandOutput,
   DescribeCustomVocabularyMetadataCommand,
-  DescribeCustomVocabularyMetadataCommandInput,
-  DescribeCustomVocabularyMetadataCommandOutput,
 } from "./commands/DescribeCustomVocabularyMetadataCommand";
 import {
+  type DescribeExportCommandInput,
+  type DescribeExportCommandOutput,
   DescribeExportCommand,
-  DescribeExportCommandInput,
-  DescribeExportCommandOutput,
 } from "./commands/DescribeExportCommand";
 import {
+  type DescribeImportCommandInput,
+  type DescribeImportCommandOutput,
   DescribeImportCommand,
-  DescribeImportCommandInput,
-  DescribeImportCommandOutput,
 } from "./commands/DescribeImportCommand";
 import {
+  type DescribeIntentCommandInput,
+  type DescribeIntentCommandOutput,
   DescribeIntentCommand,
-  DescribeIntentCommandInput,
-  DescribeIntentCommandOutput,
 } from "./commands/DescribeIntentCommand";
 import {
+  type DescribeResourcePolicyCommandInput,
+  type DescribeResourcePolicyCommandOutput,
   DescribeResourcePolicyCommand,
-  DescribeResourcePolicyCommandInput,
-  DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
 import {
+  type DescribeSlotCommandInput,
+  type DescribeSlotCommandOutput,
   DescribeSlotCommand,
-  DescribeSlotCommandInput,
-  DescribeSlotCommandOutput,
 } from "./commands/DescribeSlotCommand";
 import {
+  type DescribeSlotTypeCommandInput,
+  type DescribeSlotTypeCommandOutput,
   DescribeSlotTypeCommand,
-  DescribeSlotTypeCommandInput,
-  DescribeSlotTypeCommandOutput,
 } from "./commands/DescribeSlotTypeCommand";
 import {
+  type DescribeTestExecutionCommandInput,
+  type DescribeTestExecutionCommandOutput,
   DescribeTestExecutionCommand,
-  DescribeTestExecutionCommandInput,
-  DescribeTestExecutionCommandOutput,
 } from "./commands/DescribeTestExecutionCommand";
 import {
+  type DescribeTestSetCommandInput,
+  type DescribeTestSetCommandOutput,
   DescribeTestSetCommand,
-  DescribeTestSetCommandInput,
-  DescribeTestSetCommandOutput,
 } from "./commands/DescribeTestSetCommand";
 import {
+  type DescribeTestSetDiscrepancyReportCommandInput,
+  type DescribeTestSetDiscrepancyReportCommandOutput,
   DescribeTestSetDiscrepancyReportCommand,
-  DescribeTestSetDiscrepancyReportCommandInput,
-  DescribeTestSetDiscrepancyReportCommandOutput,
 } from "./commands/DescribeTestSetDiscrepancyReportCommand";
 import {
+  type DescribeTestSetGenerationCommandInput,
+  type DescribeTestSetGenerationCommandOutput,
   DescribeTestSetGenerationCommand,
-  DescribeTestSetGenerationCommandInput,
-  DescribeTestSetGenerationCommandOutput,
 } from "./commands/DescribeTestSetGenerationCommand";
 import {
+  type GenerateBotElementCommandInput,
+  type GenerateBotElementCommandOutput,
   GenerateBotElementCommand,
-  GenerateBotElementCommandInput,
-  GenerateBotElementCommandOutput,
 } from "./commands/GenerateBotElementCommand";
 import {
+  type GetTestExecutionArtifactsUrlCommandInput,
+  type GetTestExecutionArtifactsUrlCommandOutput,
   GetTestExecutionArtifactsUrlCommand,
-  GetTestExecutionArtifactsUrlCommandInput,
-  GetTestExecutionArtifactsUrlCommandOutput,
 } from "./commands/GetTestExecutionArtifactsUrlCommand";
 import {
+  type ListAggregatedUtterancesCommandInput,
+  type ListAggregatedUtterancesCommandOutput,
   ListAggregatedUtterancesCommand,
-  ListAggregatedUtterancesCommandInput,
-  ListAggregatedUtterancesCommandOutput,
 } from "./commands/ListAggregatedUtterancesCommand";
 import {
+  type ListBotAliasesCommandInput,
+  type ListBotAliasesCommandOutput,
   ListBotAliasesCommand,
-  ListBotAliasesCommandInput,
-  ListBotAliasesCommandOutput,
 } from "./commands/ListBotAliasesCommand";
 import {
+  type ListBotAliasReplicasCommandInput,
+  type ListBotAliasReplicasCommandOutput,
   ListBotAliasReplicasCommand,
-  ListBotAliasReplicasCommandInput,
-  ListBotAliasReplicasCommandOutput,
 } from "./commands/ListBotAliasReplicasCommand";
 import {
+  type ListBotAnalyzerHistoryCommandInput,
+  type ListBotAnalyzerHistoryCommandOutput,
   ListBotAnalyzerHistoryCommand,
-  ListBotAnalyzerHistoryCommandInput,
-  ListBotAnalyzerHistoryCommandOutput,
 } from "./commands/ListBotAnalyzerHistoryCommand";
 import {
+  type ListBotLocalesCommandInput,
+  type ListBotLocalesCommandOutput,
   ListBotLocalesCommand,
-  ListBotLocalesCommandInput,
-  ListBotLocalesCommandOutput,
 } from "./commands/ListBotLocalesCommand";
 import {
+  type ListBotRecommendationsCommandInput,
+  type ListBotRecommendationsCommandOutput,
   ListBotRecommendationsCommand,
-  ListBotRecommendationsCommandInput,
-  ListBotRecommendationsCommandOutput,
 } from "./commands/ListBotRecommendationsCommand";
 import {
+  type ListBotReplicasCommandInput,
+  type ListBotReplicasCommandOutput,
   ListBotReplicasCommand,
-  ListBotReplicasCommandInput,
-  ListBotReplicasCommandOutput,
 } from "./commands/ListBotReplicasCommand";
 import {
+  type ListBotResourceGenerationsCommandInput,
+  type ListBotResourceGenerationsCommandOutput,
   ListBotResourceGenerationsCommand,
-  ListBotResourceGenerationsCommandInput,
-  ListBotResourceGenerationsCommandOutput,
 } from "./commands/ListBotResourceGenerationsCommand";
-import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import { type ListBotsCommandInput, type ListBotsCommandOutput, ListBotsCommand } from "./commands/ListBotsCommand";
 import {
+  type ListBotVersionReplicasCommandInput,
+  type ListBotVersionReplicasCommandOutput,
   ListBotVersionReplicasCommand,
-  ListBotVersionReplicasCommandInput,
-  ListBotVersionReplicasCommandOutput,
 } from "./commands/ListBotVersionReplicasCommand";
 import {
+  type ListBotVersionsCommandInput,
+  type ListBotVersionsCommandOutput,
   ListBotVersionsCommand,
-  ListBotVersionsCommandInput,
-  ListBotVersionsCommandOutput,
 } from "./commands/ListBotVersionsCommand";
 import {
+  type ListBuiltInIntentsCommandInput,
+  type ListBuiltInIntentsCommandOutput,
   ListBuiltInIntentsCommand,
-  ListBuiltInIntentsCommandInput,
-  ListBuiltInIntentsCommandOutput,
 } from "./commands/ListBuiltInIntentsCommand";
 import {
+  type ListBuiltInSlotTypesCommandInput,
+  type ListBuiltInSlotTypesCommandOutput,
   ListBuiltInSlotTypesCommand,
-  ListBuiltInSlotTypesCommandInput,
-  ListBuiltInSlotTypesCommandOutput,
 } from "./commands/ListBuiltInSlotTypesCommand";
 import {
+  type ListCustomVocabularyItemsCommandInput,
+  type ListCustomVocabularyItemsCommandOutput,
   ListCustomVocabularyItemsCommand,
-  ListCustomVocabularyItemsCommandInput,
-  ListCustomVocabularyItemsCommandOutput,
 } from "./commands/ListCustomVocabularyItemsCommand";
-import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
-import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
+  type ListExportsCommandInput,
+  type ListExportsCommandOutput,
+  ListExportsCommand,
+} from "./commands/ListExportsCommand";
+import {
+  type ListImportsCommandInput,
+  type ListImportsCommandOutput,
+  ListImportsCommand,
+} from "./commands/ListImportsCommand";
+import {
+  type ListIntentMetricsCommandInput,
+  type ListIntentMetricsCommandOutput,
   ListIntentMetricsCommand,
-  ListIntentMetricsCommandInput,
-  ListIntentMetricsCommandOutput,
 } from "./commands/ListIntentMetricsCommand";
 import {
+  type ListIntentPathsCommandInput,
+  type ListIntentPathsCommandOutput,
   ListIntentPathsCommand,
-  ListIntentPathsCommandInput,
-  ListIntentPathsCommandOutput,
 } from "./commands/ListIntentPathsCommand";
-import { ListIntentsCommand, ListIntentsCommandInput, ListIntentsCommandOutput } from "./commands/ListIntentsCommand";
 import {
+  type ListIntentsCommandInput,
+  type ListIntentsCommandOutput,
+  ListIntentsCommand,
+} from "./commands/ListIntentsCommand";
+import {
+  type ListIntentStageMetricsCommandInput,
+  type ListIntentStageMetricsCommandOutput,
   ListIntentStageMetricsCommand,
-  ListIntentStageMetricsCommandInput,
-  ListIntentStageMetricsCommandOutput,
 } from "./commands/ListIntentStageMetricsCommand";
 import {
+  type ListRecommendedIntentsCommandInput,
+  type ListRecommendedIntentsCommandOutput,
   ListRecommendedIntentsCommand,
-  ListRecommendedIntentsCommandInput,
-  ListRecommendedIntentsCommandOutput,
 } from "./commands/ListRecommendedIntentsCommand";
 import {
+  type ListSessionAnalyticsDataCommandInput,
+  type ListSessionAnalyticsDataCommandOutput,
   ListSessionAnalyticsDataCommand,
-  ListSessionAnalyticsDataCommandInput,
-  ListSessionAnalyticsDataCommandOutput,
 } from "./commands/ListSessionAnalyticsDataCommand";
 import {
+  type ListSessionMetricsCommandInput,
+  type ListSessionMetricsCommandOutput,
   ListSessionMetricsCommand,
-  ListSessionMetricsCommandInput,
-  ListSessionMetricsCommandOutput,
 } from "./commands/ListSessionMetricsCommand";
-import { ListSlotsCommand, ListSlotsCommandInput, ListSlotsCommandOutput } from "./commands/ListSlotsCommand";
+import { type ListSlotsCommandInput, type ListSlotsCommandOutput, ListSlotsCommand } from "./commands/ListSlotsCommand";
 import {
+  type ListSlotTypesCommandInput,
+  type ListSlotTypesCommandOutput,
   ListSlotTypesCommand,
-  ListSlotTypesCommandInput,
-  ListSlotTypesCommandOutput,
 } from "./commands/ListSlotTypesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTestExecutionResultItemsCommandInput,
+  type ListTestExecutionResultItemsCommandOutput,
   ListTestExecutionResultItemsCommand,
-  ListTestExecutionResultItemsCommandInput,
-  ListTestExecutionResultItemsCommandOutput,
 } from "./commands/ListTestExecutionResultItemsCommand";
 import {
+  type ListTestExecutionsCommandInput,
+  type ListTestExecutionsCommandOutput,
   ListTestExecutionsCommand,
-  ListTestExecutionsCommandInput,
-  ListTestExecutionsCommandOutput,
 } from "./commands/ListTestExecutionsCommand";
 import {
+  type ListTestSetRecordsCommandInput,
+  type ListTestSetRecordsCommandOutput,
   ListTestSetRecordsCommand,
-  ListTestSetRecordsCommandInput,
-  ListTestSetRecordsCommandOutput,
 } from "./commands/ListTestSetRecordsCommand";
 import {
+  type ListTestSetsCommandInput,
+  type ListTestSetsCommandOutput,
   ListTestSetsCommand,
-  ListTestSetsCommandInput,
-  ListTestSetsCommandOutput,
 } from "./commands/ListTestSetsCommand";
 import {
+  type ListUtteranceAnalyticsDataCommandInput,
+  type ListUtteranceAnalyticsDataCommandOutput,
   ListUtteranceAnalyticsDataCommand,
-  ListUtteranceAnalyticsDataCommandInput,
-  ListUtteranceAnalyticsDataCommandOutput,
 } from "./commands/ListUtteranceAnalyticsDataCommand";
 import {
+  type ListUtteranceMetricsCommandInput,
+  type ListUtteranceMetricsCommandOutput,
   ListUtteranceMetricsCommand,
-  ListUtteranceMetricsCommandInput,
-  ListUtteranceMetricsCommandOutput,
 } from "./commands/ListUtteranceMetricsCommand";
 import {
+  type SearchAssociatedTranscriptsCommandInput,
+  type SearchAssociatedTranscriptsCommandOutput,
   SearchAssociatedTranscriptsCommand,
-  SearchAssociatedTranscriptsCommandInput,
-  SearchAssociatedTranscriptsCommandOutput,
 } from "./commands/SearchAssociatedTranscriptsCommand";
 import {
+  type StartBotAnalyzerCommandInput,
+  type StartBotAnalyzerCommandOutput,
   StartBotAnalyzerCommand,
-  StartBotAnalyzerCommandInput,
-  StartBotAnalyzerCommandOutput,
 } from "./commands/StartBotAnalyzerCommand";
 import {
+  type StartBotRecommendationCommandInput,
+  type StartBotRecommendationCommandOutput,
   StartBotRecommendationCommand,
-  StartBotRecommendationCommandInput,
-  StartBotRecommendationCommandOutput,
 } from "./commands/StartBotRecommendationCommand";
 import {
+  type StartBotResourceGenerationCommandInput,
+  type StartBotResourceGenerationCommandOutput,
   StartBotResourceGenerationCommand,
-  StartBotResourceGenerationCommandInput,
-  StartBotResourceGenerationCommandOutput,
 } from "./commands/StartBotResourceGenerationCommand";
-import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import {
+  type StartImportCommandInput,
+  type StartImportCommandOutput,
+  StartImportCommand,
+} from "./commands/StartImportCommand";
+import {
+  type StartTestExecutionCommandInput,
+  type StartTestExecutionCommandOutput,
   StartTestExecutionCommand,
-  StartTestExecutionCommandInput,
-  StartTestExecutionCommandOutput,
 } from "./commands/StartTestExecutionCommand";
 import {
+  type StartTestSetGenerationCommandInput,
+  type StartTestSetGenerationCommandOutput,
   StartTestSetGenerationCommand,
-  StartTestSetGenerationCommandInput,
-  StartTestSetGenerationCommandOutput,
 } from "./commands/StartTestSetGenerationCommand";
 import {
+  type StopBotAnalyzerCommandInput,
+  type StopBotAnalyzerCommandOutput,
   StopBotAnalyzerCommand,
-  StopBotAnalyzerCommandInput,
-  StopBotAnalyzerCommandOutput,
 } from "./commands/StopBotAnalyzerCommand";
 import {
+  type StopBotRecommendationCommandInput,
+  type StopBotRecommendationCommandOutput,
   StopBotRecommendationCommand,
-  StopBotRecommendationCommandInput,
-  StopBotRecommendationCommandOutput,
 } from "./commands/StopBotRecommendationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBotAliasCommandInput,
+  type UpdateBotAliasCommandOutput,
   UpdateBotAliasCommand,
-  UpdateBotAliasCommandInput,
-  UpdateBotAliasCommandOutput,
 } from "./commands/UpdateBotAliasCommand";
-import { UpdateBotCommand, UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
+import { type UpdateBotCommandInput, type UpdateBotCommandOutput, UpdateBotCommand } from "./commands/UpdateBotCommand";
 import {
+  type UpdateBotLocaleCommandInput,
+  type UpdateBotLocaleCommandOutput,
   UpdateBotLocaleCommand,
-  UpdateBotLocaleCommandInput,
-  UpdateBotLocaleCommandOutput,
 } from "./commands/UpdateBotLocaleCommand";
 import {
+  type UpdateBotRecommendationCommandInput,
+  type UpdateBotRecommendationCommandOutput,
   UpdateBotRecommendationCommand,
-  UpdateBotRecommendationCommandInput,
-  UpdateBotRecommendationCommandOutput,
 } from "./commands/UpdateBotRecommendationCommand";
 import {
+  type UpdateExportCommandInput,
+  type UpdateExportCommandOutput,
   UpdateExportCommand,
-  UpdateExportCommandInput,
-  UpdateExportCommandOutput,
 } from "./commands/UpdateExportCommand";
 import {
+  type UpdateIntentCommandInput,
+  type UpdateIntentCommandOutput,
   UpdateIntentCommand,
-  UpdateIntentCommandInput,
-  UpdateIntentCommandOutput,
 } from "./commands/UpdateIntentCommand";
 import {
+  type UpdateResourcePolicyCommandInput,
+  type UpdateResourcePolicyCommandOutput,
   UpdateResourcePolicyCommand,
-  UpdateResourcePolicyCommandInput,
-  UpdateResourcePolicyCommandOutput,
 } from "./commands/UpdateResourcePolicyCommand";
-import { UpdateSlotCommand, UpdateSlotCommandInput, UpdateSlotCommandOutput } from "./commands/UpdateSlotCommand";
 import {
+  type UpdateSlotCommandInput,
+  type UpdateSlotCommandOutput,
+  UpdateSlotCommand,
+} from "./commands/UpdateSlotCommand";
+import {
+  type UpdateSlotTypeCommandInput,
+  type UpdateSlotTypeCommandOutput,
   UpdateSlotTypeCommand,
-  UpdateSlotTypeCommandInput,
-  UpdateSlotTypeCommandOutput,
 } from "./commands/UpdateSlotTypeCommand";
 import {
+  type UpdateTestSetCommandInput,
+  type UpdateTestSetCommandOutput,
   UpdateTestSetCommand,
-  UpdateTestSetCommandInput,
-  UpdateTestSetCommandOutput,
 } from "./commands/UpdateTestSetCommand";
 import { LexModelsV2Client } from "./LexModelsV2Client";
 import { paginateDescribeBotAnalyzerRecommendation } from "./pagination/DescribeBotAnalyzerRecommendationPaginator";

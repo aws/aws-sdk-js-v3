@@ -3,340 +3,344 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateFirewallRuleGroupCommandInput,
+  type AssociateFirewallRuleGroupCommandOutput,
   AssociateFirewallRuleGroupCommand,
-  AssociateFirewallRuleGroupCommandInput,
-  AssociateFirewallRuleGroupCommandOutput,
 } from "./commands/AssociateFirewallRuleGroupCommand";
 import {
+  type AssociateResolverEndpointIpAddressCommandInput,
+  type AssociateResolverEndpointIpAddressCommandOutput,
   AssociateResolverEndpointIpAddressCommand,
-  AssociateResolverEndpointIpAddressCommandInput,
-  AssociateResolverEndpointIpAddressCommandOutput,
 } from "./commands/AssociateResolverEndpointIpAddressCommand";
 import {
+  type AssociateResolverQueryLogConfigCommandInput,
+  type AssociateResolverQueryLogConfigCommandOutput,
   AssociateResolverQueryLogConfigCommand,
-  AssociateResolverQueryLogConfigCommandInput,
-  AssociateResolverQueryLogConfigCommandOutput,
 } from "./commands/AssociateResolverQueryLogConfigCommand";
 import {
+  type AssociateResolverRuleCommandInput,
+  type AssociateResolverRuleCommandOutput,
   AssociateResolverRuleCommand,
-  AssociateResolverRuleCommandInput,
-  AssociateResolverRuleCommandOutput,
 } from "./commands/AssociateResolverRuleCommand";
 import {
+  type CreateFirewallDomainListCommandInput,
+  type CreateFirewallDomainListCommandOutput,
   CreateFirewallDomainListCommand,
-  CreateFirewallDomainListCommandInput,
-  CreateFirewallDomainListCommandOutput,
 } from "./commands/CreateFirewallDomainListCommand";
 import {
+  type CreateFirewallRuleCommandInput,
+  type CreateFirewallRuleCommandOutput,
   CreateFirewallRuleCommand,
-  CreateFirewallRuleCommandInput,
-  CreateFirewallRuleCommandOutput,
 } from "./commands/CreateFirewallRuleCommand";
 import {
+  type CreateFirewallRuleGroupCommandInput,
+  type CreateFirewallRuleGroupCommandOutput,
   CreateFirewallRuleGroupCommand,
-  CreateFirewallRuleGroupCommandInput,
-  CreateFirewallRuleGroupCommandOutput,
 } from "./commands/CreateFirewallRuleGroupCommand";
 import {
+  type CreateOutpostResolverCommandInput,
+  type CreateOutpostResolverCommandOutput,
   CreateOutpostResolverCommand,
-  CreateOutpostResolverCommandInput,
-  CreateOutpostResolverCommandOutput,
 } from "./commands/CreateOutpostResolverCommand";
 import {
+  type CreateResolverEndpointCommandInput,
+  type CreateResolverEndpointCommandOutput,
   CreateResolverEndpointCommand,
-  CreateResolverEndpointCommandInput,
-  CreateResolverEndpointCommandOutput,
 } from "./commands/CreateResolverEndpointCommand";
 import {
+  type CreateResolverQueryLogConfigCommandInput,
+  type CreateResolverQueryLogConfigCommandOutput,
   CreateResolverQueryLogConfigCommand,
-  CreateResolverQueryLogConfigCommandInput,
-  CreateResolverQueryLogConfigCommandOutput,
 } from "./commands/CreateResolverQueryLogConfigCommand";
 import {
+  type CreateResolverRuleCommandInput,
+  type CreateResolverRuleCommandOutput,
   CreateResolverRuleCommand,
-  CreateResolverRuleCommandInput,
-  CreateResolverRuleCommandOutput,
 } from "./commands/CreateResolverRuleCommand";
 import {
+  type DeleteFirewallDomainListCommandInput,
+  type DeleteFirewallDomainListCommandOutput,
   DeleteFirewallDomainListCommand,
-  DeleteFirewallDomainListCommandInput,
-  DeleteFirewallDomainListCommandOutput,
 } from "./commands/DeleteFirewallDomainListCommand";
 import {
+  type DeleteFirewallRuleCommandInput,
+  type DeleteFirewallRuleCommandOutput,
   DeleteFirewallRuleCommand,
-  DeleteFirewallRuleCommandInput,
-  DeleteFirewallRuleCommandOutput,
 } from "./commands/DeleteFirewallRuleCommand";
 import {
+  type DeleteFirewallRuleGroupCommandInput,
+  type DeleteFirewallRuleGroupCommandOutput,
   DeleteFirewallRuleGroupCommand,
-  DeleteFirewallRuleGroupCommandInput,
-  DeleteFirewallRuleGroupCommandOutput,
 } from "./commands/DeleteFirewallRuleGroupCommand";
 import {
+  type DeleteOutpostResolverCommandInput,
+  type DeleteOutpostResolverCommandOutput,
   DeleteOutpostResolverCommand,
-  DeleteOutpostResolverCommandInput,
-  DeleteOutpostResolverCommandOutput,
 } from "./commands/DeleteOutpostResolverCommand";
 import {
+  type DeleteResolverEndpointCommandInput,
+  type DeleteResolverEndpointCommandOutput,
   DeleteResolverEndpointCommand,
-  DeleteResolverEndpointCommandInput,
-  DeleteResolverEndpointCommandOutput,
 } from "./commands/DeleteResolverEndpointCommand";
 import {
+  type DeleteResolverQueryLogConfigCommandInput,
+  type DeleteResolverQueryLogConfigCommandOutput,
   DeleteResolverQueryLogConfigCommand,
-  DeleteResolverQueryLogConfigCommandInput,
-  DeleteResolverQueryLogConfigCommandOutput,
 } from "./commands/DeleteResolverQueryLogConfigCommand";
 import {
+  type DeleteResolverRuleCommandInput,
+  type DeleteResolverRuleCommandOutput,
   DeleteResolverRuleCommand,
-  DeleteResolverRuleCommandInput,
-  DeleteResolverRuleCommandOutput,
 } from "./commands/DeleteResolverRuleCommand";
 import {
+  type DisassociateFirewallRuleGroupCommandInput,
+  type DisassociateFirewallRuleGroupCommandOutput,
   DisassociateFirewallRuleGroupCommand,
-  DisassociateFirewallRuleGroupCommandInput,
-  DisassociateFirewallRuleGroupCommandOutput,
 } from "./commands/DisassociateFirewallRuleGroupCommand";
 import {
+  type DisassociateResolverEndpointIpAddressCommandInput,
+  type DisassociateResolverEndpointIpAddressCommandOutput,
   DisassociateResolverEndpointIpAddressCommand,
-  DisassociateResolverEndpointIpAddressCommandInput,
-  DisassociateResolverEndpointIpAddressCommandOutput,
 } from "./commands/DisassociateResolverEndpointIpAddressCommand";
 import {
+  type DisassociateResolverQueryLogConfigCommandInput,
+  type DisassociateResolverQueryLogConfigCommandOutput,
   DisassociateResolverQueryLogConfigCommand,
-  DisassociateResolverQueryLogConfigCommandInput,
-  DisassociateResolverQueryLogConfigCommandOutput,
 } from "./commands/DisassociateResolverQueryLogConfigCommand";
 import {
+  type DisassociateResolverRuleCommandInput,
+  type DisassociateResolverRuleCommandOutput,
   DisassociateResolverRuleCommand,
-  DisassociateResolverRuleCommandInput,
-  DisassociateResolverRuleCommandOutput,
 } from "./commands/DisassociateResolverRuleCommand";
 import {
+  type GetFirewallConfigCommandInput,
+  type GetFirewallConfigCommandOutput,
   GetFirewallConfigCommand,
-  GetFirewallConfigCommandInput,
-  GetFirewallConfigCommandOutput,
 } from "./commands/GetFirewallConfigCommand";
 import {
+  type GetFirewallDomainListCommandInput,
+  type GetFirewallDomainListCommandOutput,
   GetFirewallDomainListCommand,
-  GetFirewallDomainListCommandInput,
-  GetFirewallDomainListCommandOutput,
 } from "./commands/GetFirewallDomainListCommand";
 import {
+  type GetFirewallRuleGroupAssociationCommandInput,
+  type GetFirewallRuleGroupAssociationCommandOutput,
   GetFirewallRuleGroupAssociationCommand,
-  GetFirewallRuleGroupAssociationCommandInput,
-  GetFirewallRuleGroupAssociationCommandOutput,
 } from "./commands/GetFirewallRuleGroupAssociationCommand";
 import {
+  type GetFirewallRuleGroupCommandInput,
+  type GetFirewallRuleGroupCommandOutput,
   GetFirewallRuleGroupCommand,
-  GetFirewallRuleGroupCommandInput,
-  GetFirewallRuleGroupCommandOutput,
 } from "./commands/GetFirewallRuleGroupCommand";
 import {
+  type GetFirewallRuleGroupPolicyCommandInput,
+  type GetFirewallRuleGroupPolicyCommandOutput,
   GetFirewallRuleGroupPolicyCommand,
-  GetFirewallRuleGroupPolicyCommandInput,
-  GetFirewallRuleGroupPolicyCommandOutput,
 } from "./commands/GetFirewallRuleGroupPolicyCommand";
 import {
+  type GetOutpostResolverCommandInput,
+  type GetOutpostResolverCommandOutput,
   GetOutpostResolverCommand,
-  GetOutpostResolverCommandInput,
-  GetOutpostResolverCommandOutput,
 } from "./commands/GetOutpostResolverCommand";
 import {
+  type GetResolverConfigCommandInput,
+  type GetResolverConfigCommandOutput,
   GetResolverConfigCommand,
-  GetResolverConfigCommandInput,
-  GetResolverConfigCommandOutput,
 } from "./commands/GetResolverConfigCommand";
 import {
+  type GetResolverDnssecConfigCommandInput,
+  type GetResolverDnssecConfigCommandOutput,
   GetResolverDnssecConfigCommand,
-  GetResolverDnssecConfigCommandInput,
-  GetResolverDnssecConfigCommandOutput,
 } from "./commands/GetResolverDnssecConfigCommand";
 import {
+  type GetResolverEndpointCommandInput,
+  type GetResolverEndpointCommandOutput,
   GetResolverEndpointCommand,
-  GetResolverEndpointCommandInput,
-  GetResolverEndpointCommandOutput,
 } from "./commands/GetResolverEndpointCommand";
 import {
+  type GetResolverQueryLogConfigAssociationCommandInput,
+  type GetResolverQueryLogConfigAssociationCommandOutput,
   GetResolverQueryLogConfigAssociationCommand,
-  GetResolverQueryLogConfigAssociationCommandInput,
-  GetResolverQueryLogConfigAssociationCommandOutput,
 } from "./commands/GetResolverQueryLogConfigAssociationCommand";
 import {
+  type GetResolverQueryLogConfigCommandInput,
+  type GetResolverQueryLogConfigCommandOutput,
   GetResolverQueryLogConfigCommand,
-  GetResolverQueryLogConfigCommandInput,
-  GetResolverQueryLogConfigCommandOutput,
 } from "./commands/GetResolverQueryLogConfigCommand";
 import {
+  type GetResolverQueryLogConfigPolicyCommandInput,
+  type GetResolverQueryLogConfigPolicyCommandOutput,
   GetResolverQueryLogConfigPolicyCommand,
-  GetResolverQueryLogConfigPolicyCommandInput,
-  GetResolverQueryLogConfigPolicyCommandOutput,
 } from "./commands/GetResolverQueryLogConfigPolicyCommand";
 import {
+  type GetResolverRuleAssociationCommandInput,
+  type GetResolverRuleAssociationCommandOutput,
   GetResolverRuleAssociationCommand,
-  GetResolverRuleAssociationCommandInput,
-  GetResolverRuleAssociationCommandOutput,
 } from "./commands/GetResolverRuleAssociationCommand";
 import {
+  type GetResolverRuleCommandInput,
+  type GetResolverRuleCommandOutput,
   GetResolverRuleCommand,
-  GetResolverRuleCommandInput,
-  GetResolverRuleCommandOutput,
 } from "./commands/GetResolverRuleCommand";
 import {
+  type GetResolverRulePolicyCommandInput,
+  type GetResolverRulePolicyCommandOutput,
   GetResolverRulePolicyCommand,
-  GetResolverRulePolicyCommandInput,
-  GetResolverRulePolicyCommandOutput,
 } from "./commands/GetResolverRulePolicyCommand";
 import {
+  type ImportFirewallDomainsCommandInput,
+  type ImportFirewallDomainsCommandOutput,
   ImportFirewallDomainsCommand,
-  ImportFirewallDomainsCommandInput,
-  ImportFirewallDomainsCommandOutput,
 } from "./commands/ImportFirewallDomainsCommand";
 import {
+  type ListFirewallConfigsCommandInput,
+  type ListFirewallConfigsCommandOutput,
   ListFirewallConfigsCommand,
-  ListFirewallConfigsCommandInput,
-  ListFirewallConfigsCommandOutput,
 } from "./commands/ListFirewallConfigsCommand";
 import {
+  type ListFirewallDomainListsCommandInput,
+  type ListFirewallDomainListsCommandOutput,
   ListFirewallDomainListsCommand,
-  ListFirewallDomainListsCommandInput,
-  ListFirewallDomainListsCommandOutput,
 } from "./commands/ListFirewallDomainListsCommand";
 import {
+  type ListFirewallDomainsCommandInput,
+  type ListFirewallDomainsCommandOutput,
   ListFirewallDomainsCommand,
-  ListFirewallDomainsCommandInput,
-  ListFirewallDomainsCommandOutput,
 } from "./commands/ListFirewallDomainsCommand";
 import {
+  type ListFirewallRuleGroupAssociationsCommandInput,
+  type ListFirewallRuleGroupAssociationsCommandOutput,
   ListFirewallRuleGroupAssociationsCommand,
-  ListFirewallRuleGroupAssociationsCommandInput,
-  ListFirewallRuleGroupAssociationsCommandOutput,
 } from "./commands/ListFirewallRuleGroupAssociationsCommand";
 import {
+  type ListFirewallRuleGroupsCommandInput,
+  type ListFirewallRuleGroupsCommandOutput,
   ListFirewallRuleGroupsCommand,
-  ListFirewallRuleGroupsCommandInput,
-  ListFirewallRuleGroupsCommandOutput,
 } from "./commands/ListFirewallRuleGroupsCommand";
 import {
+  type ListFirewallRulesCommandInput,
+  type ListFirewallRulesCommandOutput,
   ListFirewallRulesCommand,
-  ListFirewallRulesCommandInput,
-  ListFirewallRulesCommandOutput,
 } from "./commands/ListFirewallRulesCommand";
 import {
+  type ListOutpostResolversCommandInput,
+  type ListOutpostResolversCommandOutput,
   ListOutpostResolversCommand,
-  ListOutpostResolversCommandInput,
-  ListOutpostResolversCommandOutput,
 } from "./commands/ListOutpostResolversCommand";
 import {
+  type ListResolverConfigsCommandInput,
+  type ListResolverConfigsCommandOutput,
   ListResolverConfigsCommand,
-  ListResolverConfigsCommandInput,
-  ListResolverConfigsCommandOutput,
 } from "./commands/ListResolverConfigsCommand";
 import {
+  type ListResolverDnssecConfigsCommandInput,
+  type ListResolverDnssecConfigsCommandOutput,
   ListResolverDnssecConfigsCommand,
-  ListResolverDnssecConfigsCommandInput,
-  ListResolverDnssecConfigsCommandOutput,
 } from "./commands/ListResolverDnssecConfigsCommand";
 import {
+  type ListResolverEndpointIpAddressesCommandInput,
+  type ListResolverEndpointIpAddressesCommandOutput,
   ListResolverEndpointIpAddressesCommand,
-  ListResolverEndpointIpAddressesCommandInput,
-  ListResolverEndpointIpAddressesCommandOutput,
 } from "./commands/ListResolverEndpointIpAddressesCommand";
 import {
+  type ListResolverEndpointsCommandInput,
+  type ListResolverEndpointsCommandOutput,
   ListResolverEndpointsCommand,
-  ListResolverEndpointsCommandInput,
-  ListResolverEndpointsCommandOutput,
 } from "./commands/ListResolverEndpointsCommand";
 import {
+  type ListResolverQueryLogConfigAssociationsCommandInput,
+  type ListResolverQueryLogConfigAssociationsCommandOutput,
   ListResolverQueryLogConfigAssociationsCommand,
-  ListResolverQueryLogConfigAssociationsCommandInput,
-  ListResolverQueryLogConfigAssociationsCommandOutput,
 } from "./commands/ListResolverQueryLogConfigAssociationsCommand";
 import {
+  type ListResolverQueryLogConfigsCommandInput,
+  type ListResolverQueryLogConfigsCommandOutput,
   ListResolverQueryLogConfigsCommand,
-  ListResolverQueryLogConfigsCommandInput,
-  ListResolverQueryLogConfigsCommandOutput,
 } from "./commands/ListResolverQueryLogConfigsCommand";
 import {
+  type ListResolverRuleAssociationsCommandInput,
+  type ListResolverRuleAssociationsCommandOutput,
   ListResolverRuleAssociationsCommand,
-  ListResolverRuleAssociationsCommandInput,
-  ListResolverRuleAssociationsCommandOutput,
 } from "./commands/ListResolverRuleAssociationsCommand";
 import {
+  type ListResolverRulesCommandInput,
+  type ListResolverRulesCommandOutput,
   ListResolverRulesCommand,
-  ListResolverRulesCommandInput,
-  ListResolverRulesCommandOutput,
 } from "./commands/ListResolverRulesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutFirewallRuleGroupPolicyCommandInput,
+  type PutFirewallRuleGroupPolicyCommandOutput,
   PutFirewallRuleGroupPolicyCommand,
-  PutFirewallRuleGroupPolicyCommandInput,
-  PutFirewallRuleGroupPolicyCommandOutput,
 } from "./commands/PutFirewallRuleGroupPolicyCommand";
 import {
+  type PutResolverQueryLogConfigPolicyCommandInput,
+  type PutResolverQueryLogConfigPolicyCommandOutput,
   PutResolverQueryLogConfigPolicyCommand,
-  PutResolverQueryLogConfigPolicyCommandInput,
-  PutResolverQueryLogConfigPolicyCommandOutput,
 } from "./commands/PutResolverQueryLogConfigPolicyCommand";
 import {
+  type PutResolverRulePolicyCommandInput,
+  type PutResolverRulePolicyCommandOutput,
   PutResolverRulePolicyCommand,
-  PutResolverRulePolicyCommandInput,
-  PutResolverRulePolicyCommandOutput,
 } from "./commands/PutResolverRulePolicyCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateFirewallConfigCommandInput,
+  type UpdateFirewallConfigCommandOutput,
   UpdateFirewallConfigCommand,
-  UpdateFirewallConfigCommandInput,
-  UpdateFirewallConfigCommandOutput,
 } from "./commands/UpdateFirewallConfigCommand";
 import {
+  type UpdateFirewallDomainsCommandInput,
+  type UpdateFirewallDomainsCommandOutput,
   UpdateFirewallDomainsCommand,
-  UpdateFirewallDomainsCommandInput,
-  UpdateFirewallDomainsCommandOutput,
 } from "./commands/UpdateFirewallDomainsCommand";
 import {
+  type UpdateFirewallRuleCommandInput,
+  type UpdateFirewallRuleCommandOutput,
   UpdateFirewallRuleCommand,
-  UpdateFirewallRuleCommandInput,
-  UpdateFirewallRuleCommandOutput,
 } from "./commands/UpdateFirewallRuleCommand";
 import {
+  type UpdateFirewallRuleGroupAssociationCommandInput,
+  type UpdateFirewallRuleGroupAssociationCommandOutput,
   UpdateFirewallRuleGroupAssociationCommand,
-  UpdateFirewallRuleGroupAssociationCommandInput,
-  UpdateFirewallRuleGroupAssociationCommandOutput,
 } from "./commands/UpdateFirewallRuleGroupAssociationCommand";
 import {
+  type UpdateOutpostResolverCommandInput,
+  type UpdateOutpostResolverCommandOutput,
   UpdateOutpostResolverCommand,
-  UpdateOutpostResolverCommandInput,
-  UpdateOutpostResolverCommandOutput,
 } from "./commands/UpdateOutpostResolverCommand";
 import {
+  type UpdateResolverConfigCommandInput,
+  type UpdateResolverConfigCommandOutput,
   UpdateResolverConfigCommand,
-  UpdateResolverConfigCommandInput,
-  UpdateResolverConfigCommandOutput,
 } from "./commands/UpdateResolverConfigCommand";
 import {
+  type UpdateResolverDnssecConfigCommandInput,
+  type UpdateResolverDnssecConfigCommandOutput,
   UpdateResolverDnssecConfigCommand,
-  UpdateResolverDnssecConfigCommandInput,
-  UpdateResolverDnssecConfigCommandOutput,
 } from "./commands/UpdateResolverDnssecConfigCommand";
 import {
+  type UpdateResolverEndpointCommandInput,
+  type UpdateResolverEndpointCommandOutput,
   UpdateResolverEndpointCommand,
-  UpdateResolverEndpointCommandInput,
-  UpdateResolverEndpointCommandOutput,
 } from "./commands/UpdateResolverEndpointCommand";
 import {
+  type UpdateResolverRuleCommandInput,
+  type UpdateResolverRuleCommandOutput,
   UpdateResolverRuleCommand,
-  UpdateResolverRuleCommandInput,
-  UpdateResolverRuleCommandOutput,
 } from "./commands/UpdateResolverRuleCommand";
 import { paginateListFirewallConfigs } from "./pagination/ListFirewallConfigsPaginator";
 import { paginateListFirewallDomainLists } from "./pagination/ListFirewallDomainListsPaginator";

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListJobRunsCommand, ListJobRunsCommandInput, ListJobRunsCommandOutput } from "../commands/ListJobRunsCommand";
 import { EMRServerlessClient } from "../EMRServerlessClient";
-import { EMRServerlessPaginationConfiguration } from "./Interfaces";
+import type { EMRServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   DescribeTopicPartitionsCommandOutput,
 } from "../commands/DescribeTopicPartitionsCommand";
 import { KafkaClient } from "../KafkaClient";
-import { KafkaPaginationConfiguration } from "./Interfaces";
+import type { KafkaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

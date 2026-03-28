@@ -8,7 +8,7 @@ import {
   ListPrincipalsForPortfolioCommandOutput,
 } from "../commands/ListPrincipalsForPortfolioCommand";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
-import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
+import type { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

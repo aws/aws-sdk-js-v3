@@ -8,7 +8,7 @@ import {
   ListCollaborationTrainedModelsCommandInput,
   ListCollaborationTrainedModelsCommandOutput,
 } from "../commands/ListCollaborationTrainedModelsCommand";
-import { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsMLPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

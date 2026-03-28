@@ -8,7 +8,7 @@ import {
   ListAssessmentFrameworksCommandInput,
   ListAssessmentFrameworksCommandOutput,
 } from "../commands/ListAssessmentFrameworksCommand";
-import { AuditManagerPaginationConfiguration } from "./Interfaces";
+import type { AuditManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

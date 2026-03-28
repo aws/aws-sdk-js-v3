@@ -2,8 +2,8 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { BraketServiceException as __BaseException } from "./BraketServiceException";
-import { ValidationExceptionReason } from "./enums";
-import { ProgramSetValidationFailure } from "./models_0";
+import type { ValidationExceptionReason } from "./enums";
+import type { ProgramSetValidationFailure } from "./models_0";
 
 /**
  * <p>You do not have sufficient permissions to perform this action.</p>

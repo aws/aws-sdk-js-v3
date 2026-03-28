@@ -8,7 +8,7 @@ import {
   ListCompositionsCommandOutput,
 } from "../commands/ListCompositionsCommand";
 import { IVSRealTimeClient } from "../IVSRealTimeClient";
-import { IVSRealTimePaginationConfiguration } from "./Interfaces";
+import type { IVSRealTimePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

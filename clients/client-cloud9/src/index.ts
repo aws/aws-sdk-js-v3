@@ -79,7 +79,7 @@
  */
 export * from "./Cloud9Client";
 export * from "./Cloud9";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { Cloud9ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

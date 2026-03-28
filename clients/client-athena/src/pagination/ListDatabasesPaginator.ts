@@ -8,7 +8,7 @@ import {
   ListDatabasesCommandInput,
   ListDatabasesCommandOutput,
 } from "../commands/ListDatabasesCommand";
-import { AthenaPaginationConfiguration } from "./Interfaces";
+import type { AthenaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

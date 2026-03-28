@@ -8,7 +8,7 @@ import {
   ListCoverageCommandOutput,
 } from "../commands/ListCoverageCommand";
 import { GuardDutyClient } from "../GuardDutyClient";
-import { GuardDutyPaginationConfiguration } from "./Interfaces";
+import type { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

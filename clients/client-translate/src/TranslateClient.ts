@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,44 +61,65 @@ import {
   defaultTranslateHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateParallelDataCommandInput, CreateParallelDataCommandOutput } from "./commands/CreateParallelDataCommand";
-import { DeleteParallelDataCommandInput, DeleteParallelDataCommandOutput } from "./commands/DeleteParallelDataCommand";
-import { DeleteTerminologyCommandInput, DeleteTerminologyCommandOutput } from "./commands/DeleteTerminologyCommand";
-import {
+import type {
+  CreateParallelDataCommandInput,
+  CreateParallelDataCommandOutput,
+} from "./commands/CreateParallelDataCommand";
+import type {
+  DeleteParallelDataCommandInput,
+  DeleteParallelDataCommandOutput,
+} from "./commands/DeleteParallelDataCommand";
+import type {
+  DeleteTerminologyCommandInput,
+  DeleteTerminologyCommandOutput,
+} from "./commands/DeleteTerminologyCommand";
+import type {
   DescribeTextTranslationJobCommandInput,
   DescribeTextTranslationJobCommandOutput,
 } from "./commands/DescribeTextTranslationJobCommand";
-import { GetParallelDataCommandInput, GetParallelDataCommandOutput } from "./commands/GetParallelDataCommand";
-import { GetTerminologyCommandInput, GetTerminologyCommandOutput } from "./commands/GetTerminologyCommand";
-import { ImportTerminologyCommandInput, ImportTerminologyCommandOutput } from "./commands/ImportTerminologyCommand";
-import { ListLanguagesCommandInput, ListLanguagesCommandOutput } from "./commands/ListLanguagesCommand";
-import { ListParallelDataCommandInput, ListParallelDataCommandOutput } from "./commands/ListParallelDataCommand";
-import {
+import type { GetParallelDataCommandInput, GetParallelDataCommandOutput } from "./commands/GetParallelDataCommand";
+import type { GetTerminologyCommandInput, GetTerminologyCommandOutput } from "./commands/GetTerminologyCommand";
+import type {
+  ImportTerminologyCommandInput,
+  ImportTerminologyCommandOutput,
+} from "./commands/ImportTerminologyCommand";
+import type { ListLanguagesCommandInput, ListLanguagesCommandOutput } from "./commands/ListLanguagesCommand";
+import type { ListParallelDataCommandInput, ListParallelDataCommandOutput } from "./commands/ListParallelDataCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTerminologiesCommandInput, ListTerminologiesCommandOutput } from "./commands/ListTerminologiesCommand";
-import {
+import type {
+  ListTerminologiesCommandInput,
+  ListTerminologiesCommandOutput,
+} from "./commands/ListTerminologiesCommand";
+import type {
   ListTextTranslationJobsCommandInput,
   ListTextTranslationJobsCommandOutput,
 } from "./commands/ListTextTranslationJobsCommand";
-import {
+import type {
   StartTextTranslationJobCommandInput,
   StartTextTranslationJobCommandOutput,
 } from "./commands/StartTextTranslationJobCommand";
-import {
+import type {
   StopTextTranslationJobCommandInput,
   StopTextTranslationJobCommandOutput,
 } from "./commands/StopTextTranslationJobCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TranslateDocumentCommandInput, TranslateDocumentCommandOutput } from "./commands/TranslateDocumentCommand";
-import { TranslateTextCommandInput, TranslateTextCommandOutput } from "./commands/TranslateTextCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateParallelDataCommandInput, UpdateParallelDataCommandOutput } from "./commands/UpdateParallelDataCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
+  TranslateDocumentCommandInput,
+  TranslateDocumentCommandOutput,
+} from "./commands/TranslateDocumentCommand";
+import type { TranslateTextCommandInput, TranslateTextCommandOutput } from "./commands/TranslateTextCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateParallelDataCommandInput,
+  UpdateParallelDataCommandOutput,
+} from "./commands/UpdateParallelDataCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -270,7 +289,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

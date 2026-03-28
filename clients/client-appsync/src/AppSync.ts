@@ -4,315 +4,347 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { AppSyncClient } from "./AppSyncClient";
 import {
+  type AssociateApiCommandInput,
+  type AssociateApiCommandOutput,
   AssociateApiCommand,
-  AssociateApiCommandInput,
-  AssociateApiCommandOutput,
 } from "./commands/AssociateApiCommand";
 import {
+  type AssociateMergedGraphqlApiCommandInput,
+  type AssociateMergedGraphqlApiCommandOutput,
   AssociateMergedGraphqlApiCommand,
-  AssociateMergedGraphqlApiCommandInput,
-  AssociateMergedGraphqlApiCommandOutput,
 } from "./commands/AssociateMergedGraphqlApiCommand";
 import {
+  type AssociateSourceGraphqlApiCommandInput,
+  type AssociateSourceGraphqlApiCommandOutput,
   AssociateSourceGraphqlApiCommand,
-  AssociateSourceGraphqlApiCommandInput,
-  AssociateSourceGraphqlApiCommandOutput,
 } from "./commands/AssociateSourceGraphqlApiCommand";
 import {
+  type CreateApiCacheCommandInput,
+  type CreateApiCacheCommandOutput,
   CreateApiCacheCommand,
-  CreateApiCacheCommandInput,
-  CreateApiCacheCommandOutput,
 } from "./commands/CreateApiCacheCommand";
-import { CreateApiCommand, CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
+import { type CreateApiCommandInput, type CreateApiCommandOutput, CreateApiCommand } from "./commands/CreateApiCommand";
 import {
+  type CreateApiKeyCommandInput,
+  type CreateApiKeyCommandOutput,
   CreateApiKeyCommand,
-  CreateApiKeyCommandInput,
-  CreateApiKeyCommandOutput,
 } from "./commands/CreateApiKeyCommand";
 import {
+  type CreateChannelNamespaceCommandInput,
+  type CreateChannelNamespaceCommandOutput,
   CreateChannelNamespaceCommand,
-  CreateChannelNamespaceCommandInput,
-  CreateChannelNamespaceCommandOutput,
 } from "./commands/CreateChannelNamespaceCommand";
 import {
+  type CreateDataSourceCommandInput,
+  type CreateDataSourceCommandOutput,
   CreateDataSourceCommand,
-  CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput,
 } from "./commands/CreateDataSourceCommand";
 import {
+  type CreateDomainNameCommandInput,
+  type CreateDomainNameCommandOutput,
   CreateDomainNameCommand,
-  CreateDomainNameCommandInput,
-  CreateDomainNameCommandOutput,
 } from "./commands/CreateDomainNameCommand";
 import {
+  type CreateFunctionCommandInput,
+  type CreateFunctionCommandOutput,
   CreateFunctionCommand,
-  CreateFunctionCommandInput,
-  CreateFunctionCommandOutput,
 } from "./commands/CreateFunctionCommand";
 import {
+  type CreateGraphqlApiCommandInput,
+  type CreateGraphqlApiCommandOutput,
   CreateGraphqlApiCommand,
-  CreateGraphqlApiCommandInput,
-  CreateGraphqlApiCommandOutput,
 } from "./commands/CreateGraphqlApiCommand";
 import {
+  type CreateResolverCommandInput,
+  type CreateResolverCommandOutput,
   CreateResolverCommand,
-  CreateResolverCommandInput,
-  CreateResolverCommandOutput,
 } from "./commands/CreateResolverCommand";
-import { CreateTypeCommand, CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
 import {
+  type CreateTypeCommandInput,
+  type CreateTypeCommandOutput,
+  CreateTypeCommand,
+} from "./commands/CreateTypeCommand";
+import {
+  type DeleteApiCacheCommandInput,
+  type DeleteApiCacheCommandOutput,
   DeleteApiCacheCommand,
-  DeleteApiCacheCommandInput,
-  DeleteApiCacheCommandOutput,
 } from "./commands/DeleteApiCacheCommand";
-import { DeleteApiCommand, DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
+import { type DeleteApiCommandInput, type DeleteApiCommandOutput, DeleteApiCommand } from "./commands/DeleteApiCommand";
 import {
+  type DeleteApiKeyCommandInput,
+  type DeleteApiKeyCommandOutput,
   DeleteApiKeyCommand,
-  DeleteApiKeyCommandInput,
-  DeleteApiKeyCommandOutput,
 } from "./commands/DeleteApiKeyCommand";
 import {
+  type DeleteChannelNamespaceCommandInput,
+  type DeleteChannelNamespaceCommandOutput,
   DeleteChannelNamespaceCommand,
-  DeleteChannelNamespaceCommandInput,
-  DeleteChannelNamespaceCommandOutput,
 } from "./commands/DeleteChannelNamespaceCommand";
 import {
+  type DeleteDataSourceCommandInput,
+  type DeleteDataSourceCommandOutput,
   DeleteDataSourceCommand,
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
 import {
+  type DeleteDomainNameCommandInput,
+  type DeleteDomainNameCommandOutput,
   DeleteDomainNameCommand,
-  DeleteDomainNameCommandInput,
-  DeleteDomainNameCommandOutput,
 } from "./commands/DeleteDomainNameCommand";
 import {
+  type DeleteFunctionCommandInput,
+  type DeleteFunctionCommandOutput,
   DeleteFunctionCommand,
-  DeleteFunctionCommandInput,
-  DeleteFunctionCommandOutput,
 } from "./commands/DeleteFunctionCommand";
 import {
+  type DeleteGraphqlApiCommandInput,
+  type DeleteGraphqlApiCommandOutput,
   DeleteGraphqlApiCommand,
-  DeleteGraphqlApiCommandInput,
-  DeleteGraphqlApiCommandOutput,
 } from "./commands/DeleteGraphqlApiCommand";
 import {
+  type DeleteResolverCommandInput,
+  type DeleteResolverCommandOutput,
   DeleteResolverCommand,
-  DeleteResolverCommandInput,
-  DeleteResolverCommandOutput,
 } from "./commands/DeleteResolverCommand";
-import { DeleteTypeCommand, DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
 import {
+  type DeleteTypeCommandInput,
+  type DeleteTypeCommandOutput,
+  DeleteTypeCommand,
+} from "./commands/DeleteTypeCommand";
+import {
+  type DisassociateApiCommandInput,
+  type DisassociateApiCommandOutput,
   DisassociateApiCommand,
-  DisassociateApiCommandInput,
-  DisassociateApiCommandOutput,
 } from "./commands/DisassociateApiCommand";
 import {
+  type DisassociateMergedGraphqlApiCommandInput,
+  type DisassociateMergedGraphqlApiCommandOutput,
   DisassociateMergedGraphqlApiCommand,
-  DisassociateMergedGraphqlApiCommandInput,
-  DisassociateMergedGraphqlApiCommandOutput,
 } from "./commands/DisassociateMergedGraphqlApiCommand";
 import {
+  type DisassociateSourceGraphqlApiCommandInput,
+  type DisassociateSourceGraphqlApiCommandOutput,
   DisassociateSourceGraphqlApiCommand,
-  DisassociateSourceGraphqlApiCommandInput,
-  DisassociateSourceGraphqlApiCommandOutput,
 } from "./commands/DisassociateSourceGraphqlApiCommand";
 import {
+  type EvaluateCodeCommandInput,
+  type EvaluateCodeCommandOutput,
   EvaluateCodeCommand,
-  EvaluateCodeCommandInput,
-  EvaluateCodeCommandOutput,
 } from "./commands/EvaluateCodeCommand";
 import {
+  type EvaluateMappingTemplateCommandInput,
+  type EvaluateMappingTemplateCommandOutput,
   EvaluateMappingTemplateCommand,
-  EvaluateMappingTemplateCommandInput,
-  EvaluateMappingTemplateCommandOutput,
 } from "./commands/EvaluateMappingTemplateCommand";
 import {
+  type FlushApiCacheCommandInput,
+  type FlushApiCacheCommandOutput,
   FlushApiCacheCommand,
-  FlushApiCacheCommandInput,
-  FlushApiCacheCommandOutput,
 } from "./commands/FlushApiCacheCommand";
 import {
+  type GetApiAssociationCommandInput,
+  type GetApiAssociationCommandOutput,
   GetApiAssociationCommand,
-  GetApiAssociationCommandInput,
-  GetApiAssociationCommandOutput,
 } from "./commands/GetApiAssociationCommand";
-import { GetApiCacheCommand, GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
-import { GetApiCommand, GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
 import {
+  type GetApiCacheCommandInput,
+  type GetApiCacheCommandOutput,
+  GetApiCacheCommand,
+} from "./commands/GetApiCacheCommand";
+import { type GetApiCommandInput, type GetApiCommandOutput, GetApiCommand } from "./commands/GetApiCommand";
+import {
+  type GetChannelNamespaceCommandInput,
+  type GetChannelNamespaceCommandOutput,
   GetChannelNamespaceCommand,
-  GetChannelNamespaceCommandInput,
-  GetChannelNamespaceCommandOutput,
 } from "./commands/GetChannelNamespaceCommand";
 import {
+  type GetDataSourceCommandInput,
+  type GetDataSourceCommandOutput,
   GetDataSourceCommand,
-  GetDataSourceCommandInput,
-  GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand";
 import {
+  type GetDataSourceIntrospectionCommandInput,
+  type GetDataSourceIntrospectionCommandOutput,
   GetDataSourceIntrospectionCommand,
-  GetDataSourceIntrospectionCommandInput,
-  GetDataSourceIntrospectionCommandOutput,
 } from "./commands/GetDataSourceIntrospectionCommand";
 import {
+  type GetDomainNameCommandInput,
+  type GetDomainNameCommandOutput,
   GetDomainNameCommand,
-  GetDomainNameCommandInput,
-  GetDomainNameCommandOutput,
 } from "./commands/GetDomainNameCommand";
-import { GetFunctionCommand, GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import {
+  type GetFunctionCommandInput,
+  type GetFunctionCommandOutput,
+  GetFunctionCommand,
+} from "./commands/GetFunctionCommand";
+import {
+  type GetGraphqlApiCommandInput,
+  type GetGraphqlApiCommandOutput,
   GetGraphqlApiCommand,
-  GetGraphqlApiCommandInput,
-  GetGraphqlApiCommandOutput,
 } from "./commands/GetGraphqlApiCommand";
 import {
+  type GetGraphqlApiEnvironmentVariablesCommandInput,
+  type GetGraphqlApiEnvironmentVariablesCommandOutput,
   GetGraphqlApiEnvironmentVariablesCommand,
-  GetGraphqlApiEnvironmentVariablesCommandInput,
-  GetGraphqlApiEnvironmentVariablesCommandOutput,
 } from "./commands/GetGraphqlApiEnvironmentVariablesCommand";
 import {
+  type GetIntrospectionSchemaCommandInput,
+  type GetIntrospectionSchemaCommandOutput,
   GetIntrospectionSchemaCommand,
-  GetIntrospectionSchemaCommandInput,
-  GetIntrospectionSchemaCommandOutput,
 } from "./commands/GetIntrospectionSchemaCommand";
-import { GetResolverCommand, GetResolverCommandInput, GetResolverCommandOutput } from "./commands/GetResolverCommand";
 import {
+  type GetResolverCommandInput,
+  type GetResolverCommandOutput,
+  GetResolverCommand,
+} from "./commands/GetResolverCommand";
+import {
+  type GetSchemaCreationStatusCommandInput,
+  type GetSchemaCreationStatusCommandOutput,
   GetSchemaCreationStatusCommand,
-  GetSchemaCreationStatusCommandInput,
-  GetSchemaCreationStatusCommandOutput,
 } from "./commands/GetSchemaCreationStatusCommand";
 import {
+  type GetSourceApiAssociationCommandInput,
+  type GetSourceApiAssociationCommandOutput,
   GetSourceApiAssociationCommand,
-  GetSourceApiAssociationCommandInput,
-  GetSourceApiAssociationCommandOutput,
 } from "./commands/GetSourceApiAssociationCommand";
-import { GetTypeCommand, GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
-import { ListApiKeysCommand, ListApiKeysCommandInput, ListApiKeysCommandOutput } from "./commands/ListApiKeysCommand";
-import { ListApisCommand, ListApisCommandInput, ListApisCommandOutput } from "./commands/ListApisCommand";
+import { type GetTypeCommandInput, type GetTypeCommandOutput, GetTypeCommand } from "./commands/GetTypeCommand";
 import {
+  type ListApiKeysCommandInput,
+  type ListApiKeysCommandOutput,
+  ListApiKeysCommand,
+} from "./commands/ListApiKeysCommand";
+import { type ListApisCommandInput, type ListApisCommandOutput, ListApisCommand } from "./commands/ListApisCommand";
+import {
+  type ListChannelNamespacesCommandInput,
+  type ListChannelNamespacesCommandOutput,
   ListChannelNamespacesCommand,
-  ListChannelNamespacesCommandInput,
-  ListChannelNamespacesCommandOutput,
 } from "./commands/ListChannelNamespacesCommand";
 import {
+  type ListDataSourcesCommandInput,
+  type ListDataSourcesCommandOutput,
   ListDataSourcesCommand,
-  ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
 import {
+  type ListDomainNamesCommandInput,
+  type ListDomainNamesCommandOutput,
   ListDomainNamesCommand,
-  ListDomainNamesCommandInput,
-  ListDomainNamesCommandOutput,
 } from "./commands/ListDomainNamesCommand";
 import {
+  type ListFunctionsCommandInput,
+  type ListFunctionsCommandOutput,
   ListFunctionsCommand,
-  ListFunctionsCommandInput,
-  ListFunctionsCommandOutput,
 } from "./commands/ListFunctionsCommand";
 import {
+  type ListGraphqlApisCommandInput,
+  type ListGraphqlApisCommandOutput,
   ListGraphqlApisCommand,
-  ListGraphqlApisCommandInput,
-  ListGraphqlApisCommandOutput,
 } from "./commands/ListGraphqlApisCommand";
 import {
+  type ListResolversByFunctionCommandInput,
+  type ListResolversByFunctionCommandOutput,
   ListResolversByFunctionCommand,
-  ListResolversByFunctionCommandInput,
-  ListResolversByFunctionCommandOutput,
 } from "./commands/ListResolversByFunctionCommand";
 import {
+  type ListResolversCommandInput,
+  type ListResolversCommandOutput,
   ListResolversCommand,
-  ListResolversCommandInput,
-  ListResolversCommandOutput,
 } from "./commands/ListResolversCommand";
 import {
+  type ListSourceApiAssociationsCommandInput,
+  type ListSourceApiAssociationsCommandOutput,
   ListSourceApiAssociationsCommand,
-  ListSourceApiAssociationsCommandInput,
-  ListSourceApiAssociationsCommandOutput,
 } from "./commands/ListSourceApiAssociationsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTypesByAssociationCommandInput,
+  type ListTypesByAssociationCommandOutput,
   ListTypesByAssociationCommand,
-  ListTypesByAssociationCommandInput,
-  ListTypesByAssociationCommandOutput,
 } from "./commands/ListTypesByAssociationCommand";
-import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import { type ListTypesCommandInput, type ListTypesCommandOutput, ListTypesCommand } from "./commands/ListTypesCommand";
 import {
+  type PutGraphqlApiEnvironmentVariablesCommandInput,
+  type PutGraphqlApiEnvironmentVariablesCommandOutput,
   PutGraphqlApiEnvironmentVariablesCommand,
-  PutGraphqlApiEnvironmentVariablesCommandInput,
-  PutGraphqlApiEnvironmentVariablesCommandOutput,
 } from "./commands/PutGraphqlApiEnvironmentVariablesCommand";
 import {
+  type StartDataSourceIntrospectionCommandInput,
+  type StartDataSourceIntrospectionCommandOutput,
   StartDataSourceIntrospectionCommand,
-  StartDataSourceIntrospectionCommandInput,
-  StartDataSourceIntrospectionCommandOutput,
 } from "./commands/StartDataSourceIntrospectionCommand";
 import {
+  type StartSchemaCreationCommandInput,
+  type StartSchemaCreationCommandOutput,
   StartSchemaCreationCommand,
-  StartSchemaCreationCommandInput,
-  StartSchemaCreationCommandOutput,
 } from "./commands/StartSchemaCreationCommand";
 import {
+  type StartSchemaMergeCommandInput,
+  type StartSchemaMergeCommandOutput,
   StartSchemaMergeCommand,
-  StartSchemaMergeCommandInput,
-  StartSchemaMergeCommandOutput,
 } from "./commands/StartSchemaMergeCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateApiCacheCommandInput,
+  type UpdateApiCacheCommandOutput,
   UpdateApiCacheCommand,
-  UpdateApiCacheCommandInput,
-  UpdateApiCacheCommandOutput,
 } from "./commands/UpdateApiCacheCommand";
-import { UpdateApiCommand, UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
+import { type UpdateApiCommandInput, type UpdateApiCommandOutput, UpdateApiCommand } from "./commands/UpdateApiCommand";
 import {
+  type UpdateApiKeyCommandInput,
+  type UpdateApiKeyCommandOutput,
   UpdateApiKeyCommand,
-  UpdateApiKeyCommandInput,
-  UpdateApiKeyCommandOutput,
 } from "./commands/UpdateApiKeyCommand";
 import {
+  type UpdateChannelNamespaceCommandInput,
+  type UpdateChannelNamespaceCommandOutput,
   UpdateChannelNamespaceCommand,
-  UpdateChannelNamespaceCommandInput,
-  UpdateChannelNamespaceCommandOutput,
 } from "./commands/UpdateChannelNamespaceCommand";
 import {
+  type UpdateDataSourceCommandInput,
+  type UpdateDataSourceCommandOutput,
   UpdateDataSourceCommand,
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import {
+  type UpdateDomainNameCommandInput,
+  type UpdateDomainNameCommandOutput,
   UpdateDomainNameCommand,
-  UpdateDomainNameCommandInput,
-  UpdateDomainNameCommandOutput,
 } from "./commands/UpdateDomainNameCommand";
 import {
+  type UpdateFunctionCommandInput,
+  type UpdateFunctionCommandOutput,
   UpdateFunctionCommand,
-  UpdateFunctionCommandInput,
-  UpdateFunctionCommandOutput,
 } from "./commands/UpdateFunctionCommand";
 import {
+  type UpdateGraphqlApiCommandInput,
+  type UpdateGraphqlApiCommandOutput,
   UpdateGraphqlApiCommand,
-  UpdateGraphqlApiCommandInput,
-  UpdateGraphqlApiCommandOutput,
 } from "./commands/UpdateGraphqlApiCommand";
 import {
+  type UpdateResolverCommandInput,
+  type UpdateResolverCommandOutput,
   UpdateResolverCommand,
-  UpdateResolverCommandInput,
-  UpdateResolverCommandOutput,
 } from "./commands/UpdateResolverCommand";
 import {
+  type UpdateSourceApiAssociationCommandInput,
+  type UpdateSourceApiAssociationCommandOutput,
   UpdateSourceApiAssociationCommand,
-  UpdateSourceApiAssociationCommandInput,
-  UpdateSourceApiAssociationCommandOutput,
 } from "./commands/UpdateSourceApiAssociationCommand";
-import { UpdateTypeCommand, UpdateTypeCommandInput, UpdateTypeCommandOutput } from "./commands/UpdateTypeCommand";
+import {
+  type UpdateTypeCommandInput,
+  type UpdateTypeCommandOutput,
+  UpdateTypeCommand,
+} from "./commands/UpdateTypeCommand";
 import { paginateListApiKeys } from "./pagination/ListApiKeysPaginator";
 import { paginateListApis } from "./pagination/ListApisPaginator";
 import { paginateListChannelNamespaces } from "./pagination/ListChannelNamespacesPaginator";

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,265 +61,298 @@ import {
   defaultStorageGatewayHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { ActivateGatewayCommandInput, ActivateGatewayCommandOutput } from "./commands/ActivateGatewayCommand";
-import { AddCacheCommandInput, AddCacheCommandOutput } from "./commands/AddCacheCommand";
-import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
-import { AddUploadBufferCommandInput, AddUploadBufferCommandOutput } from "./commands/AddUploadBufferCommand";
-import { AddWorkingStorageCommandInput, AddWorkingStorageCommandOutput } from "./commands/AddWorkingStorageCommand";
-import { AssignTapePoolCommandInput, AssignTapePoolCommandOutput } from "./commands/AssignTapePoolCommand";
-import {
+import type { ActivateGatewayCommandInput, ActivateGatewayCommandOutput } from "./commands/ActivateGatewayCommand";
+import type { AddCacheCommandInput, AddCacheCommandOutput } from "./commands/AddCacheCommand";
+import type {
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput,
+} from "./commands/AddTagsToResourceCommand";
+import type { AddUploadBufferCommandInput, AddUploadBufferCommandOutput } from "./commands/AddUploadBufferCommand";
+import type {
+  AddWorkingStorageCommandInput,
+  AddWorkingStorageCommandOutput,
+} from "./commands/AddWorkingStorageCommand";
+import type { AssignTapePoolCommandInput, AssignTapePoolCommandOutput } from "./commands/AssignTapePoolCommand";
+import type {
   AssociateFileSystemCommandInput,
   AssociateFileSystemCommandOutput,
 } from "./commands/AssociateFileSystemCommand";
-import { AttachVolumeCommandInput, AttachVolumeCommandOutput } from "./commands/AttachVolumeCommand";
-import { CancelArchivalCommandInput, CancelArchivalCommandOutput } from "./commands/CancelArchivalCommand";
-import { CancelCacheReportCommandInput, CancelCacheReportCommandOutput } from "./commands/CancelCacheReportCommand";
-import { CancelRetrievalCommandInput, CancelRetrievalCommandOutput } from "./commands/CancelRetrievalCommand";
-import {
+import type { AttachVolumeCommandInput, AttachVolumeCommandOutput } from "./commands/AttachVolumeCommand";
+import type { CancelArchivalCommandInput, CancelArchivalCommandOutput } from "./commands/CancelArchivalCommand";
+import type {
+  CancelCacheReportCommandInput,
+  CancelCacheReportCommandOutput,
+} from "./commands/CancelCacheReportCommand";
+import type { CancelRetrievalCommandInput, CancelRetrievalCommandOutput } from "./commands/CancelRetrievalCommand";
+import type {
   CreateCachediSCSIVolumeCommandInput,
   CreateCachediSCSIVolumeCommandOutput,
 } from "./commands/CreateCachediSCSIVolumeCommand";
-import { CreateNFSFileShareCommandInput, CreateNFSFileShareCommandOutput } from "./commands/CreateNFSFileShareCommand";
-import { CreateSMBFileShareCommandInput, CreateSMBFileShareCommandOutput } from "./commands/CreateSMBFileShareCommand";
-import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
-import {
+import type {
+  CreateNFSFileShareCommandInput,
+  CreateNFSFileShareCommandOutput,
+} from "./commands/CreateNFSFileShareCommand";
+import type {
+  CreateSMBFileShareCommandInput,
+  CreateSMBFileShareCommandOutput,
+} from "./commands/CreateSMBFileShareCommand";
+import type { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import type {
   CreateSnapshotFromVolumeRecoveryPointCommandInput,
   CreateSnapshotFromVolumeRecoveryPointCommandOutput,
 } from "./commands/CreateSnapshotFromVolumeRecoveryPointCommand";
-import {
+import type {
   CreateStorediSCSIVolumeCommandInput,
   CreateStorediSCSIVolumeCommandOutput,
 } from "./commands/CreateStorediSCSIVolumeCommand";
-import { CreateTapePoolCommandInput, CreateTapePoolCommandOutput } from "./commands/CreateTapePoolCommand";
-import { CreateTapesCommandInput, CreateTapesCommandOutput } from "./commands/CreateTapesCommand";
-import {
+import type { CreateTapePoolCommandInput, CreateTapePoolCommandOutput } from "./commands/CreateTapePoolCommand";
+import type { CreateTapesCommandInput, CreateTapesCommandOutput } from "./commands/CreateTapesCommand";
+import type {
   CreateTapeWithBarcodeCommandInput,
   CreateTapeWithBarcodeCommandOutput,
 } from "./commands/CreateTapeWithBarcodeCommand";
-import {
+import type {
   DeleteAutomaticTapeCreationPolicyCommandInput,
   DeleteAutomaticTapeCreationPolicyCommandOutput,
 } from "./commands/DeleteAutomaticTapeCreationPolicyCommand";
-import {
+import type {
   DeleteBandwidthRateLimitCommandInput,
   DeleteBandwidthRateLimitCommandOutput,
 } from "./commands/DeleteBandwidthRateLimitCommand";
-import { DeleteCacheReportCommandInput, DeleteCacheReportCommandOutput } from "./commands/DeleteCacheReportCommand";
-import {
+import type {
+  DeleteCacheReportCommandInput,
+  DeleteCacheReportCommandOutput,
+} from "./commands/DeleteCacheReportCommand";
+import type {
   DeleteChapCredentialsCommandInput,
   DeleteChapCredentialsCommandOutput,
 } from "./commands/DeleteChapCredentialsCommand";
-import { DeleteFileShareCommandInput, DeleteFileShareCommandOutput } from "./commands/DeleteFileShareCommand";
-import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
-import {
+import type { DeleteFileShareCommandInput, DeleteFileShareCommandOutput } from "./commands/DeleteFileShareCommand";
+import type { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
+import type {
   DeleteSnapshotScheduleCommandInput,
   DeleteSnapshotScheduleCommandOutput,
 } from "./commands/DeleteSnapshotScheduleCommand";
-import { DeleteTapeArchiveCommandInput, DeleteTapeArchiveCommandOutput } from "./commands/DeleteTapeArchiveCommand";
-import { DeleteTapeCommandInput, DeleteTapeCommandOutput } from "./commands/DeleteTapeCommand";
-import { DeleteTapePoolCommandInput, DeleteTapePoolCommandOutput } from "./commands/DeleteTapePoolCommand";
-import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
-import {
+import type {
+  DeleteTapeArchiveCommandInput,
+  DeleteTapeArchiveCommandOutput,
+} from "./commands/DeleteTapeArchiveCommand";
+import type { DeleteTapeCommandInput, DeleteTapeCommandOutput } from "./commands/DeleteTapeCommand";
+import type { DeleteTapePoolCommandInput, DeleteTapePoolCommandOutput } from "./commands/DeleteTapePoolCommand";
+import type { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
+import type {
   DescribeAvailabilityMonitorTestCommandInput,
   DescribeAvailabilityMonitorTestCommandOutput,
 } from "./commands/DescribeAvailabilityMonitorTestCommand";
-import {
+import type {
   DescribeBandwidthRateLimitCommandInput,
   DescribeBandwidthRateLimitCommandOutput,
 } from "./commands/DescribeBandwidthRateLimitCommand";
-import {
+import type {
   DescribeBandwidthRateLimitScheduleCommandInput,
   DescribeBandwidthRateLimitScheduleCommandOutput,
 } from "./commands/DescribeBandwidthRateLimitScheduleCommand";
-import { DescribeCacheCommandInput, DescribeCacheCommandOutput } from "./commands/DescribeCacheCommand";
-import {
+import type { DescribeCacheCommandInput, DescribeCacheCommandOutput } from "./commands/DescribeCacheCommand";
+import type {
   DescribeCachediSCSIVolumesCommandInput,
   DescribeCachediSCSIVolumesCommandOutput,
 } from "./commands/DescribeCachediSCSIVolumesCommand";
-import {
+import type {
   DescribeCacheReportCommandInput,
   DescribeCacheReportCommandOutput,
 } from "./commands/DescribeCacheReportCommand";
-import {
+import type {
   DescribeChapCredentialsCommandInput,
   DescribeChapCredentialsCommandOutput,
 } from "./commands/DescribeChapCredentialsCommand";
-import {
+import type {
   DescribeFileSystemAssociationsCommandInput,
   DescribeFileSystemAssociationsCommandOutput,
 } from "./commands/DescribeFileSystemAssociationsCommand";
-import {
+import type {
   DescribeGatewayInformationCommandInput,
   DescribeGatewayInformationCommandOutput,
 } from "./commands/DescribeGatewayInformationCommand";
-import {
+import type {
   DescribeMaintenanceStartTimeCommandInput,
   DescribeMaintenanceStartTimeCommandOutput,
 } from "./commands/DescribeMaintenanceStartTimeCommand";
-import {
+import type {
   DescribeNFSFileSharesCommandInput,
   DescribeNFSFileSharesCommandOutput,
 } from "./commands/DescribeNFSFileSharesCommand";
-import {
+import type {
   DescribeSMBFileSharesCommandInput,
   DescribeSMBFileSharesCommandOutput,
 } from "./commands/DescribeSMBFileSharesCommand";
-import {
+import type {
   DescribeSMBSettingsCommandInput,
   DescribeSMBSettingsCommandOutput,
 } from "./commands/DescribeSMBSettingsCommand";
-import {
+import type {
   DescribeSnapshotScheduleCommandInput,
   DescribeSnapshotScheduleCommandOutput,
 } from "./commands/DescribeSnapshotScheduleCommand";
-import {
+import type {
   DescribeStorediSCSIVolumesCommandInput,
   DescribeStorediSCSIVolumesCommandOutput,
 } from "./commands/DescribeStorediSCSIVolumesCommand";
-import {
+import type {
   DescribeTapeArchivesCommandInput,
   DescribeTapeArchivesCommandOutput,
 } from "./commands/DescribeTapeArchivesCommand";
-import {
+import type {
   DescribeTapeRecoveryPointsCommandInput,
   DescribeTapeRecoveryPointsCommandOutput,
 } from "./commands/DescribeTapeRecoveryPointsCommand";
-import { DescribeTapesCommandInput, DescribeTapesCommandOutput } from "./commands/DescribeTapesCommand";
-import {
+import type { DescribeTapesCommandInput, DescribeTapesCommandOutput } from "./commands/DescribeTapesCommand";
+import type {
   DescribeUploadBufferCommandInput,
   DescribeUploadBufferCommandOutput,
 } from "./commands/DescribeUploadBufferCommand";
-import { DescribeVTLDevicesCommandInput, DescribeVTLDevicesCommandOutput } from "./commands/DescribeVTLDevicesCommand";
-import {
+import type {
+  DescribeVTLDevicesCommandInput,
+  DescribeVTLDevicesCommandOutput,
+} from "./commands/DescribeVTLDevicesCommand";
+import type {
   DescribeWorkingStorageCommandInput,
   DescribeWorkingStorageCommandOutput,
 } from "./commands/DescribeWorkingStorageCommand";
-import { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "./commands/DetachVolumeCommand";
-import { DisableGatewayCommandInput, DisableGatewayCommandOutput } from "./commands/DisableGatewayCommand";
-import {
+import type { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "./commands/DetachVolumeCommand";
+import type { DisableGatewayCommandInput, DisableGatewayCommandOutput } from "./commands/DisableGatewayCommand";
+import type {
   DisassociateFileSystemCommandInput,
   DisassociateFileSystemCommandOutput,
 } from "./commands/DisassociateFileSystemCommand";
-import {
+import type {
   EvictFilesFailingUploadCommandInput,
   EvictFilesFailingUploadCommandOutput,
 } from "./commands/EvictFilesFailingUploadCommand";
-import { JoinDomainCommandInput, JoinDomainCommandOutput } from "./commands/JoinDomainCommand";
-import {
+import type { JoinDomainCommandInput, JoinDomainCommandOutput } from "./commands/JoinDomainCommand";
+import type {
   ListAutomaticTapeCreationPoliciesCommandInput,
   ListAutomaticTapeCreationPoliciesCommandOutput,
 } from "./commands/ListAutomaticTapeCreationPoliciesCommand";
-import { ListCacheReportsCommandInput, ListCacheReportsCommandOutput } from "./commands/ListCacheReportsCommand";
-import { ListFileSharesCommandInput, ListFileSharesCommandOutput } from "./commands/ListFileSharesCommand";
-import {
+import type { ListCacheReportsCommandInput, ListCacheReportsCommandOutput } from "./commands/ListCacheReportsCommand";
+import type { ListFileSharesCommandInput, ListFileSharesCommandOutput } from "./commands/ListFileSharesCommand";
+import type {
   ListFileSystemAssociationsCommandInput,
   ListFileSystemAssociationsCommandOutput,
 } from "./commands/ListFileSystemAssociationsCommand";
-import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
-import { ListLocalDisksCommandInput, ListLocalDisksCommandOutput } from "./commands/ListLocalDisksCommand";
-import {
+import type { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
+import type { ListLocalDisksCommandInput, ListLocalDisksCommandOutput } from "./commands/ListLocalDisksCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTapePoolsCommandInput, ListTapePoolsCommandOutput } from "./commands/ListTapePoolsCommand";
-import { ListTapesCommandInput, ListTapesCommandOutput } from "./commands/ListTapesCommand";
-import {
+import type { ListTapePoolsCommandInput, ListTapePoolsCommandOutput } from "./commands/ListTapePoolsCommand";
+import type { ListTapesCommandInput, ListTapesCommandOutput } from "./commands/ListTapesCommand";
+import type {
   ListVolumeInitiatorsCommandInput,
   ListVolumeInitiatorsCommandOutput,
 } from "./commands/ListVolumeInitiatorsCommand";
-import {
+import type {
   ListVolumeRecoveryPointsCommandInput,
   ListVolumeRecoveryPointsCommandOutput,
 } from "./commands/ListVolumeRecoveryPointsCommand";
-import { ListVolumesCommandInput, ListVolumesCommandOutput } from "./commands/ListVolumesCommand";
-import { NotifyWhenUploadedCommandInput, NotifyWhenUploadedCommandOutput } from "./commands/NotifyWhenUploadedCommand";
-import { RefreshCacheCommandInput, RefreshCacheCommandOutput } from "./commands/RefreshCacheCommand";
-import {
+import type { ListVolumesCommandInput, ListVolumesCommandOutput } from "./commands/ListVolumesCommand";
+import type {
+  NotifyWhenUploadedCommandInput,
+  NotifyWhenUploadedCommandOutput,
+} from "./commands/NotifyWhenUploadedCommand";
+import type { RefreshCacheCommandInput, RefreshCacheCommandOutput } from "./commands/RefreshCacheCommand";
+import type {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
-import { ResetCacheCommandInput, ResetCacheCommandOutput } from "./commands/ResetCacheCommand";
-import {
+import type { ResetCacheCommandInput, ResetCacheCommandOutput } from "./commands/ResetCacheCommand";
+import type {
   RetrieveTapeArchiveCommandInput,
   RetrieveTapeArchiveCommandOutput,
 } from "./commands/RetrieveTapeArchiveCommand";
-import {
+import type {
   RetrieveTapeRecoveryPointCommandInput,
   RetrieveTapeRecoveryPointCommandOutput,
 } from "./commands/RetrieveTapeRecoveryPointCommand";
-import {
+import type {
   SetLocalConsolePasswordCommandInput,
   SetLocalConsolePasswordCommandOutput,
 } from "./commands/SetLocalConsolePasswordCommand";
-import {
+import type {
   SetSMBGuestPasswordCommandInput,
   SetSMBGuestPasswordCommandOutput,
 } from "./commands/SetSMBGuestPasswordCommand";
-import { ShutdownGatewayCommandInput, ShutdownGatewayCommandOutput } from "./commands/ShutdownGatewayCommand";
-import {
+import type { ShutdownGatewayCommandInput, ShutdownGatewayCommandOutput } from "./commands/ShutdownGatewayCommand";
+import type {
   StartAvailabilityMonitorTestCommandInput,
   StartAvailabilityMonitorTestCommandOutput,
 } from "./commands/StartAvailabilityMonitorTestCommand";
-import { StartCacheReportCommandInput, StartCacheReportCommandOutput } from "./commands/StartCacheReportCommand";
-import { StartGatewayCommandInput, StartGatewayCommandOutput } from "./commands/StartGatewayCommand";
-import {
+import type { StartCacheReportCommandInput, StartCacheReportCommandOutput } from "./commands/StartCacheReportCommand";
+import type { StartGatewayCommandInput, StartGatewayCommandOutput } from "./commands/StartGatewayCommand";
+import type {
   UpdateAutomaticTapeCreationPolicyCommandInput,
   UpdateAutomaticTapeCreationPolicyCommandOutput,
 } from "./commands/UpdateAutomaticTapeCreationPolicyCommand";
-import {
+import type {
   UpdateBandwidthRateLimitCommandInput,
   UpdateBandwidthRateLimitCommandOutput,
 } from "./commands/UpdateBandwidthRateLimitCommand";
-import {
+import type {
   UpdateBandwidthRateLimitScheduleCommandInput,
   UpdateBandwidthRateLimitScheduleCommandOutput,
 } from "./commands/UpdateBandwidthRateLimitScheduleCommand";
-import {
+import type {
   UpdateChapCredentialsCommandInput,
   UpdateChapCredentialsCommandOutput,
 } from "./commands/UpdateChapCredentialsCommand";
-import {
+import type {
   UpdateFileSystemAssociationCommandInput,
   UpdateFileSystemAssociationCommandOutput,
 } from "./commands/UpdateFileSystemAssociationCommand";
-import {
+import type {
   UpdateGatewayInformationCommandInput,
   UpdateGatewayInformationCommandOutput,
 } from "./commands/UpdateGatewayInformationCommand";
-import {
+import type {
   UpdateGatewaySoftwareNowCommandInput,
   UpdateGatewaySoftwareNowCommandOutput,
 } from "./commands/UpdateGatewaySoftwareNowCommand";
-import {
+import type {
   UpdateMaintenanceStartTimeCommandInput,
   UpdateMaintenanceStartTimeCommandOutput,
 } from "./commands/UpdateMaintenanceStartTimeCommand";
-import { UpdateNFSFileShareCommandInput, UpdateNFSFileShareCommandOutput } from "./commands/UpdateNFSFileShareCommand";
-import { UpdateSMBFileShareCommandInput, UpdateSMBFileShareCommandOutput } from "./commands/UpdateSMBFileShareCommand";
-import {
+import type {
+  UpdateNFSFileShareCommandInput,
+  UpdateNFSFileShareCommandOutput,
+} from "./commands/UpdateNFSFileShareCommand";
+import type {
+  UpdateSMBFileShareCommandInput,
+  UpdateSMBFileShareCommandOutput,
+} from "./commands/UpdateSMBFileShareCommand";
+import type {
   UpdateSMBFileShareVisibilityCommandInput,
   UpdateSMBFileShareVisibilityCommandOutput,
 } from "./commands/UpdateSMBFileShareVisibilityCommand";
-import {
+import type {
   UpdateSMBLocalGroupsCommandInput,
   UpdateSMBLocalGroupsCommandOutput,
 } from "./commands/UpdateSMBLocalGroupsCommand";
-import {
+import type {
   UpdateSMBSecurityStrategyCommandInput,
   UpdateSMBSecurityStrategyCommandOutput,
 } from "./commands/UpdateSMBSecurityStrategyCommand";
-import {
+import type {
   UpdateSnapshotScheduleCommandInput,
   UpdateSnapshotScheduleCommandOutput,
 } from "./commands/UpdateSnapshotScheduleCommand";
-import {
+import type {
   UpdateVTLDeviceTypeCommandInput,
   UpdateVTLDeviceTypeCommandOutput,
 } from "./commands/UpdateVTLDeviceTypeCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -645,7 +676,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

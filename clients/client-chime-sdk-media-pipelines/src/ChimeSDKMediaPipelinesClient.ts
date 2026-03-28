@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,122 +61,125 @@ import {
   defaultChimeSDKMediaPipelinesHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateMediaCapturePipelineCommandInput,
   CreateMediaCapturePipelineCommandOutput,
 } from "./commands/CreateMediaCapturePipelineCommand";
-import {
+import type {
   CreateMediaConcatenationPipelineCommandInput,
   CreateMediaConcatenationPipelineCommandOutput,
 } from "./commands/CreateMediaConcatenationPipelineCommand";
-import {
+import type {
   CreateMediaInsightsPipelineCommandInput,
   CreateMediaInsightsPipelineCommandOutput,
 } from "./commands/CreateMediaInsightsPipelineCommand";
-import {
+import type {
   CreateMediaInsightsPipelineConfigurationCommandInput,
   CreateMediaInsightsPipelineConfigurationCommandOutput,
 } from "./commands/CreateMediaInsightsPipelineConfigurationCommand";
-import {
+import type {
   CreateMediaLiveConnectorPipelineCommandInput,
   CreateMediaLiveConnectorPipelineCommandOutput,
 } from "./commands/CreateMediaLiveConnectorPipelineCommand";
-import {
+import type {
   CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
   CreateMediaPipelineKinesisVideoStreamPoolCommandOutput,
 } from "./commands/CreateMediaPipelineKinesisVideoStreamPoolCommand";
-import {
+import type {
   CreateMediaStreamPipelineCommandInput,
   CreateMediaStreamPipelineCommandOutput,
 } from "./commands/CreateMediaStreamPipelineCommand";
-import {
+import type {
   DeleteMediaCapturePipelineCommandInput,
   DeleteMediaCapturePipelineCommandOutput,
 } from "./commands/DeleteMediaCapturePipelineCommand";
-import {
+import type {
   DeleteMediaInsightsPipelineConfigurationCommandInput,
   DeleteMediaInsightsPipelineConfigurationCommandOutput,
 } from "./commands/DeleteMediaInsightsPipelineConfigurationCommand";
-import {
+import type {
   DeleteMediaPipelineCommandInput,
   DeleteMediaPipelineCommandOutput,
 } from "./commands/DeleteMediaPipelineCommand";
-import {
+import type {
   DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
   DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput,
 } from "./commands/DeleteMediaPipelineKinesisVideoStreamPoolCommand";
-import {
+import type {
   GetMediaCapturePipelineCommandInput,
   GetMediaCapturePipelineCommandOutput,
 } from "./commands/GetMediaCapturePipelineCommand";
-import {
+import type {
   GetMediaInsightsPipelineConfigurationCommandInput,
   GetMediaInsightsPipelineConfigurationCommandOutput,
 } from "./commands/GetMediaInsightsPipelineConfigurationCommand";
-import { GetMediaPipelineCommandInput, GetMediaPipelineCommandOutput } from "./commands/GetMediaPipelineCommand";
-import {
+import type { GetMediaPipelineCommandInput, GetMediaPipelineCommandOutput } from "./commands/GetMediaPipelineCommand";
+import type {
   GetMediaPipelineKinesisVideoStreamPoolCommandInput,
   GetMediaPipelineKinesisVideoStreamPoolCommandOutput,
 } from "./commands/GetMediaPipelineKinesisVideoStreamPoolCommand";
-import {
+import type {
   GetSpeakerSearchTaskCommandInput,
   GetSpeakerSearchTaskCommandOutput,
 } from "./commands/GetSpeakerSearchTaskCommand";
-import {
+import type {
   GetVoiceToneAnalysisTaskCommandInput,
   GetVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/GetVoiceToneAnalysisTaskCommand";
-import {
+import type {
   ListMediaCapturePipelinesCommandInput,
   ListMediaCapturePipelinesCommandOutput,
 } from "./commands/ListMediaCapturePipelinesCommand";
-import {
+import type {
   ListMediaInsightsPipelineConfigurationsCommandInput,
   ListMediaInsightsPipelineConfigurationsCommandOutput,
 } from "./commands/ListMediaInsightsPipelineConfigurationsCommand";
-import {
+import type {
   ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
   ListMediaPipelineKinesisVideoStreamPoolsCommandOutput,
 } from "./commands/ListMediaPipelineKinesisVideoStreamPoolsCommand";
-import { ListMediaPipelinesCommandInput, ListMediaPipelinesCommandOutput } from "./commands/ListMediaPipelinesCommand";
-import {
+import type {
+  ListMediaPipelinesCommandInput,
+  ListMediaPipelinesCommandOutput,
+} from "./commands/ListMediaPipelinesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   StartSpeakerSearchTaskCommandInput,
   StartSpeakerSearchTaskCommandOutput,
 } from "./commands/StartSpeakerSearchTaskCommand";
-import {
+import type {
   StartVoiceToneAnalysisTaskCommandInput,
   StartVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/StartVoiceToneAnalysisTaskCommand";
-import {
+import type {
   StopSpeakerSearchTaskCommandInput,
   StopSpeakerSearchTaskCommandOutput,
 } from "./commands/StopSpeakerSearchTaskCommand";
-import {
+import type {
   StopVoiceToneAnalysisTaskCommandInput,
   StopVoiceToneAnalysisTaskCommandOutput,
 } from "./commands/StopVoiceToneAnalysisTaskCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateMediaInsightsPipelineConfigurationCommandInput,
   UpdateMediaInsightsPipelineConfigurationCommandOutput,
 } from "./commands/UpdateMediaInsightsPipelineConfigurationCommand";
-import {
+import type {
   UpdateMediaInsightsPipelineStatusCommandInput,
   UpdateMediaInsightsPipelineStatusCommandOutput,
 } from "./commands/UpdateMediaInsightsPipelineStatusCommand";
-import {
+import type {
   UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
   UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput,
 } from "./commands/UpdateMediaPipelineKinesisVideoStreamPoolCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -372,7 +373,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

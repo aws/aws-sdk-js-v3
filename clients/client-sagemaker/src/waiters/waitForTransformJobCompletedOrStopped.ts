@@ -1,8 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeTransformJobCommand, DescribeTransformJobCommandInput } from "../commands/DescribeTransformJobCommand";
-import { SageMakerClient } from "../SageMakerClient";
+import {
+  type DescribeTransformJobCommandInput,
+  DescribeTransformJobCommand,
+} from "../commands/DescribeTransformJobCommand";
+import type { SageMakerClient } from "../SageMakerClient";
 
 const checkState = async (client: SageMakerClient, input: DescribeTransformJobCommandInput): Promise<WaiterResult> => {
   let reason;

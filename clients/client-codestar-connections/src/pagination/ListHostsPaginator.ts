@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { CodeStarConnectionsClient } from "../CodeStarConnectionsClient";
 import { ListHostsCommand, ListHostsCommandInput, ListHostsCommandOutput } from "../commands/ListHostsCommand";
-import { CodeStarConnectionsPaginationConfiguration } from "./Interfaces";
+import type { CodeStarConnectionsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

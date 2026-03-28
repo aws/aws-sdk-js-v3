@@ -8,7 +8,7 @@ import {
   ListRecommendationsCommandOutput,
 } from "../commands/ListRecommendationsCommand";
 import { CostOptimizationHubClient } from "../CostOptimizationHubClient";
-import { CostOptimizationHubPaginationConfiguration } from "./Interfaces";
+import type { CostOptimizationHubPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

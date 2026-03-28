@@ -8,7 +8,7 @@ import {
   ListEventDataStoresCommandInput,
   ListEventDataStoresCommandOutput,
 } from "../commands/ListEventDataStoresCommand";
-import { CloudTrailPaginationConfiguration } from "./Interfaces";
+import type { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

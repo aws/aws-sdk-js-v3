@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { FederationSourceErrorCode } from "./enums";
+import type { FederationSourceErrorCode } from "./enums";
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 
 /**

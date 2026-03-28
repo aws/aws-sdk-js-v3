@@ -9,7 +9,7 @@
  */
 export * from "./KinesisVideoWebRTCStorageClient";
 export * from "./KinesisVideoWebRTCStorage";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { KinesisVideoWebRTCStorageExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -8,7 +8,7 @@ import {
   ListCampaignsCommandOutput,
 } from "../commands/ListCampaignsCommand";
 import { PersonalizeClient } from "../PersonalizeClient";
-import { PersonalizePaginationConfiguration } from "./Interfaces";
+import type { PersonalizePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

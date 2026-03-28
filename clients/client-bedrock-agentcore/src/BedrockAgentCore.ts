@@ -4,165 +4,181 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BedrockAgentCoreClient } from "./BedrockAgentCoreClient";
 import {
+  type BatchCreateMemoryRecordsCommandInput,
+  type BatchCreateMemoryRecordsCommandOutput,
   BatchCreateMemoryRecordsCommand,
-  BatchCreateMemoryRecordsCommandInput,
-  BatchCreateMemoryRecordsCommandOutput,
 } from "./commands/BatchCreateMemoryRecordsCommand";
 import {
+  type BatchDeleteMemoryRecordsCommandInput,
+  type BatchDeleteMemoryRecordsCommandOutput,
   BatchDeleteMemoryRecordsCommand,
-  BatchDeleteMemoryRecordsCommandInput,
-  BatchDeleteMemoryRecordsCommandOutput,
 } from "./commands/BatchDeleteMemoryRecordsCommand";
 import {
+  type BatchUpdateMemoryRecordsCommandInput,
+  type BatchUpdateMemoryRecordsCommandOutput,
   BatchUpdateMemoryRecordsCommand,
-  BatchUpdateMemoryRecordsCommandInput,
-  BatchUpdateMemoryRecordsCommandOutput,
 } from "./commands/BatchUpdateMemoryRecordsCommand";
 import {
+  type CompleteResourceTokenAuthCommandInput,
+  type CompleteResourceTokenAuthCommandOutput,
   CompleteResourceTokenAuthCommand,
-  CompleteResourceTokenAuthCommandInput,
-  CompleteResourceTokenAuthCommandOutput,
 } from "./commands/CompleteResourceTokenAuthCommand";
-import { CreateEventCommand, CreateEventCommandInput, CreateEventCommandOutput } from "./commands/CreateEventCommand";
-import { DeleteEventCommand, DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
 import {
+  type CreateEventCommandInput,
+  type CreateEventCommandOutput,
+  CreateEventCommand,
+} from "./commands/CreateEventCommand";
+import {
+  type DeleteEventCommandInput,
+  type DeleteEventCommandOutput,
+  DeleteEventCommand,
+} from "./commands/DeleteEventCommand";
+import {
+  type DeleteMemoryRecordCommandInput,
+  type DeleteMemoryRecordCommandOutput,
   DeleteMemoryRecordCommand,
-  DeleteMemoryRecordCommandInput,
-  DeleteMemoryRecordCommandOutput,
 } from "./commands/DeleteMemoryRecordCommand";
-import { EvaluateCommand, EvaluateCommandInput, EvaluateCommandOutput } from "./commands/EvaluateCommand";
+import { type EvaluateCommandInput, type EvaluateCommandOutput, EvaluateCommand } from "./commands/EvaluateCommand";
 import {
+  type GetAgentCardCommandInput,
+  type GetAgentCardCommandOutput,
   GetAgentCardCommand,
-  GetAgentCardCommandInput,
-  GetAgentCardCommandOutput,
 } from "./commands/GetAgentCardCommand";
 import {
+  type GetBrowserSessionCommandInput,
+  type GetBrowserSessionCommandOutput,
   GetBrowserSessionCommand,
-  GetBrowserSessionCommandInput,
-  GetBrowserSessionCommandOutput,
 } from "./commands/GetBrowserSessionCommand";
 import {
+  type GetCodeInterpreterSessionCommandInput,
+  type GetCodeInterpreterSessionCommandOutput,
   GetCodeInterpreterSessionCommand,
-  GetCodeInterpreterSessionCommandInput,
-  GetCodeInterpreterSessionCommandOutput,
 } from "./commands/GetCodeInterpreterSessionCommand";
-import { GetEventCommand, GetEventCommandInput, GetEventCommandOutput } from "./commands/GetEventCommand";
+import { type GetEventCommandInput, type GetEventCommandOutput, GetEventCommand } from "./commands/GetEventCommand";
 import {
+  type GetMemoryRecordCommandInput,
+  type GetMemoryRecordCommandOutput,
   GetMemoryRecordCommand,
-  GetMemoryRecordCommandInput,
-  GetMemoryRecordCommandOutput,
 } from "./commands/GetMemoryRecordCommand";
 import {
+  type GetResourceApiKeyCommandInput,
+  type GetResourceApiKeyCommandOutput,
   GetResourceApiKeyCommand,
-  GetResourceApiKeyCommandInput,
-  GetResourceApiKeyCommandOutput,
 } from "./commands/GetResourceApiKeyCommand";
 import {
+  type GetResourceOauth2TokenCommandInput,
+  type GetResourceOauth2TokenCommandOutput,
   GetResourceOauth2TokenCommand,
-  GetResourceOauth2TokenCommandInput,
-  GetResourceOauth2TokenCommandOutput,
 } from "./commands/GetResourceOauth2TokenCommand";
 import {
+  type GetWorkloadAccessTokenCommandInput,
+  type GetWorkloadAccessTokenCommandOutput,
   GetWorkloadAccessTokenCommand,
-  GetWorkloadAccessTokenCommandInput,
-  GetWorkloadAccessTokenCommandOutput,
 } from "./commands/GetWorkloadAccessTokenCommand";
 import {
+  type GetWorkloadAccessTokenForJWTCommandInput,
+  type GetWorkloadAccessTokenForJWTCommandOutput,
   GetWorkloadAccessTokenForJWTCommand,
-  GetWorkloadAccessTokenForJWTCommandInput,
-  GetWorkloadAccessTokenForJWTCommandOutput,
 } from "./commands/GetWorkloadAccessTokenForJWTCommand";
 import {
+  type GetWorkloadAccessTokenForUserIdCommandInput,
+  type GetWorkloadAccessTokenForUserIdCommandOutput,
   GetWorkloadAccessTokenForUserIdCommand,
-  GetWorkloadAccessTokenForUserIdCommandInput,
-  GetWorkloadAccessTokenForUserIdCommandOutput,
 } from "./commands/GetWorkloadAccessTokenForUserIdCommand";
 import {
+  type InvokeAgentRuntimeCommandInput,
+  type InvokeAgentRuntimeCommandOutput,
   InvokeAgentRuntimeCommand,
-  InvokeAgentRuntimeCommandInput,
-  InvokeAgentRuntimeCommandOutput,
 } from "./commands/InvokeAgentRuntimeCommand";
 import {
+  type InvokeAgentRuntimeCommandCommandInput,
+  type InvokeAgentRuntimeCommandCommandOutput,
   InvokeAgentRuntimeCommandCommand,
-  InvokeAgentRuntimeCommandCommandInput,
-  InvokeAgentRuntimeCommandCommandOutput,
 } from "./commands/InvokeAgentRuntimeCommandCommand";
 import {
+  type InvokeCodeInterpreterCommandInput,
+  type InvokeCodeInterpreterCommandOutput,
   InvokeCodeInterpreterCommand,
-  InvokeCodeInterpreterCommandInput,
-  InvokeCodeInterpreterCommandOutput,
 } from "./commands/InvokeCodeInterpreterCommand";
-import { ListActorsCommand, ListActorsCommandInput, ListActorsCommandOutput } from "./commands/ListActorsCommand";
 import {
+  type ListActorsCommandInput,
+  type ListActorsCommandOutput,
+  ListActorsCommand,
+} from "./commands/ListActorsCommand";
+import {
+  type ListBrowserSessionsCommandInput,
+  type ListBrowserSessionsCommandOutput,
   ListBrowserSessionsCommand,
-  ListBrowserSessionsCommandInput,
-  ListBrowserSessionsCommandOutput,
 } from "./commands/ListBrowserSessionsCommand";
 import {
+  type ListCodeInterpreterSessionsCommandInput,
+  type ListCodeInterpreterSessionsCommandOutput,
   ListCodeInterpreterSessionsCommand,
-  ListCodeInterpreterSessionsCommandInput,
-  ListCodeInterpreterSessionsCommandOutput,
 } from "./commands/ListCodeInterpreterSessionsCommand";
-import { ListEventsCommand, ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
 import {
+  type ListEventsCommandInput,
+  type ListEventsCommandOutput,
+  ListEventsCommand,
+} from "./commands/ListEventsCommand";
+import {
+  type ListMemoryExtractionJobsCommandInput,
+  type ListMemoryExtractionJobsCommandOutput,
   ListMemoryExtractionJobsCommand,
-  ListMemoryExtractionJobsCommandInput,
-  ListMemoryExtractionJobsCommandOutput,
 } from "./commands/ListMemoryExtractionJobsCommand";
 import {
+  type ListMemoryRecordsCommandInput,
+  type ListMemoryRecordsCommandOutput,
   ListMemoryRecordsCommand,
-  ListMemoryRecordsCommandInput,
-  ListMemoryRecordsCommandOutput,
 } from "./commands/ListMemoryRecordsCommand";
 import {
+  type ListSessionsCommandInput,
+  type ListSessionsCommandOutput,
   ListSessionsCommand,
-  ListSessionsCommandInput,
-  ListSessionsCommandOutput,
 } from "./commands/ListSessionsCommand";
 import {
+  type RetrieveMemoryRecordsCommandInput,
+  type RetrieveMemoryRecordsCommandOutput,
   RetrieveMemoryRecordsCommand,
-  RetrieveMemoryRecordsCommandInput,
-  RetrieveMemoryRecordsCommandOutput,
 } from "./commands/RetrieveMemoryRecordsCommand";
 import {
+  type SaveBrowserSessionProfileCommandInput,
+  type SaveBrowserSessionProfileCommandOutput,
   SaveBrowserSessionProfileCommand,
-  SaveBrowserSessionProfileCommandInput,
-  SaveBrowserSessionProfileCommandOutput,
 } from "./commands/SaveBrowserSessionProfileCommand";
 import {
+  type StartBrowserSessionCommandInput,
+  type StartBrowserSessionCommandOutput,
   StartBrowserSessionCommand,
-  StartBrowserSessionCommandInput,
-  StartBrowserSessionCommandOutput,
 } from "./commands/StartBrowserSessionCommand";
 import {
+  type StartCodeInterpreterSessionCommandInput,
+  type StartCodeInterpreterSessionCommandOutput,
   StartCodeInterpreterSessionCommand,
-  StartCodeInterpreterSessionCommandInput,
-  StartCodeInterpreterSessionCommandOutput,
 } from "./commands/StartCodeInterpreterSessionCommand";
 import {
+  type StartMemoryExtractionJobCommandInput,
+  type StartMemoryExtractionJobCommandOutput,
   StartMemoryExtractionJobCommand,
-  StartMemoryExtractionJobCommandInput,
-  StartMemoryExtractionJobCommandOutput,
 } from "./commands/StartMemoryExtractionJobCommand";
 import {
+  type StopBrowserSessionCommandInput,
+  type StopBrowserSessionCommandOutput,
   StopBrowserSessionCommand,
-  StopBrowserSessionCommandInput,
-  StopBrowserSessionCommandOutput,
 } from "./commands/StopBrowserSessionCommand";
 import {
+  type StopCodeInterpreterSessionCommandInput,
+  type StopCodeInterpreterSessionCommandOutput,
   StopCodeInterpreterSessionCommand,
-  StopCodeInterpreterSessionCommandInput,
-  StopCodeInterpreterSessionCommandOutput,
 } from "./commands/StopCodeInterpreterSessionCommand";
 import {
+  type StopRuntimeSessionCommandInput,
+  type StopRuntimeSessionCommandOutput,
   StopRuntimeSessionCommand,
-  StopRuntimeSessionCommandInput,
-  StopRuntimeSessionCommandOutput,
 } from "./commands/StopRuntimeSessionCommand";
 import {
+  type UpdateBrowserStreamCommandInput,
+  type UpdateBrowserStreamCommandOutput,
   UpdateBrowserStreamCommand,
-  UpdateBrowserStreamCommandInput,
-  UpdateBrowserStreamCommandOutput,
 } from "./commands/UpdateBrowserStreamCommand";
 import { paginateListActors } from "./pagination/ListActorsPaginator";
 import { paginateListEvents } from "./pagination/ListEventsPaginator";

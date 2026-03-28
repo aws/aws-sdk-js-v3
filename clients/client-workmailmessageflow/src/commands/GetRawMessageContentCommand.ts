@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { type GetRawMessageContentRequest, GetRawMessageContentResponse } from "../models/models_0";
+import type { GetRawMessageContentRequest, GetRawMessageContentResponse } from "../models/models_0";
 import { GetRawMessageContent$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,74 +61,89 @@ import {
   defaultControlTowerHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateLandingZoneCommandInput, CreateLandingZoneCommandOutput } from "./commands/CreateLandingZoneCommand";
-import { DeleteLandingZoneCommandInput, DeleteLandingZoneCommandOutput } from "./commands/DeleteLandingZoneCommand";
-import { DisableBaselineCommandInput, DisableBaselineCommandOutput } from "./commands/DisableBaselineCommand";
-import { DisableControlCommandInput, DisableControlCommandOutput } from "./commands/DisableControlCommand";
-import { EnableBaselineCommandInput, EnableBaselineCommandOutput } from "./commands/EnableBaselineCommand";
-import { EnableControlCommandInput, EnableControlCommandOutput } from "./commands/EnableControlCommand";
-import { GetBaselineCommandInput, GetBaselineCommandOutput } from "./commands/GetBaselineCommand";
-import {
+import type {
+  CreateLandingZoneCommandInput,
+  CreateLandingZoneCommandOutput,
+} from "./commands/CreateLandingZoneCommand";
+import type {
+  DeleteLandingZoneCommandInput,
+  DeleteLandingZoneCommandOutput,
+} from "./commands/DeleteLandingZoneCommand";
+import type { DisableBaselineCommandInput, DisableBaselineCommandOutput } from "./commands/DisableBaselineCommand";
+import type { DisableControlCommandInput, DisableControlCommandOutput } from "./commands/DisableControlCommand";
+import type { EnableBaselineCommandInput, EnableBaselineCommandOutput } from "./commands/EnableBaselineCommand";
+import type { EnableControlCommandInput, EnableControlCommandOutput } from "./commands/EnableControlCommand";
+import type { GetBaselineCommandInput, GetBaselineCommandOutput } from "./commands/GetBaselineCommand";
+import type {
   GetBaselineOperationCommandInput,
   GetBaselineOperationCommandOutput,
 } from "./commands/GetBaselineOperationCommand";
-import {
+import type {
   GetControlOperationCommandInput,
   GetControlOperationCommandOutput,
 } from "./commands/GetControlOperationCommand";
-import { GetEnabledBaselineCommandInput, GetEnabledBaselineCommandOutput } from "./commands/GetEnabledBaselineCommand";
-import { GetEnabledControlCommandInput, GetEnabledControlCommandOutput } from "./commands/GetEnabledControlCommand";
-import { GetLandingZoneCommandInput, GetLandingZoneCommandOutput } from "./commands/GetLandingZoneCommand";
-import {
+import type {
+  GetEnabledBaselineCommandInput,
+  GetEnabledBaselineCommandOutput,
+} from "./commands/GetEnabledBaselineCommand";
+import type {
+  GetEnabledControlCommandInput,
+  GetEnabledControlCommandOutput,
+} from "./commands/GetEnabledControlCommand";
+import type { GetLandingZoneCommandInput, GetLandingZoneCommandOutput } from "./commands/GetLandingZoneCommand";
+import type {
   GetLandingZoneOperationCommandInput,
   GetLandingZoneOperationCommandOutput,
 } from "./commands/GetLandingZoneOperationCommand";
-import { ListBaselinesCommandInput, ListBaselinesCommandOutput } from "./commands/ListBaselinesCommand";
-import {
+import type { ListBaselinesCommandInput, ListBaselinesCommandOutput } from "./commands/ListBaselinesCommand";
+import type {
   ListControlOperationsCommandInput,
   ListControlOperationsCommandOutput,
 } from "./commands/ListControlOperationsCommand";
-import {
+import type {
   ListEnabledBaselinesCommandInput,
   ListEnabledBaselinesCommandOutput,
 } from "./commands/ListEnabledBaselinesCommand";
-import {
+import type {
   ListEnabledControlsCommandInput,
   ListEnabledControlsCommandOutput,
 } from "./commands/ListEnabledControlsCommand";
-import {
+import type {
   ListLandingZoneOperationsCommandInput,
   ListLandingZoneOperationsCommandOutput,
 } from "./commands/ListLandingZoneOperationsCommand";
-import { ListLandingZonesCommandInput, ListLandingZonesCommandOutput } from "./commands/ListLandingZonesCommand";
-import {
+import type { ListLandingZonesCommandInput, ListLandingZonesCommandOutput } from "./commands/ListLandingZonesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ResetEnabledBaselineCommandInput,
   ResetEnabledBaselineCommandOutput,
 } from "./commands/ResetEnabledBaselineCommand";
-import {
+import type {
   ResetEnabledControlCommandInput,
   ResetEnabledControlCommandOutput,
 } from "./commands/ResetEnabledControlCommand";
-import { ResetLandingZoneCommandInput, ResetLandingZoneCommandOutput } from "./commands/ResetLandingZoneCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { ResetLandingZoneCommandInput, ResetLandingZoneCommandOutput } from "./commands/ResetLandingZoneCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateEnabledBaselineCommandInput,
   UpdateEnabledBaselineCommandOutput,
 } from "./commands/UpdateEnabledBaselineCommand";
-import {
+import type {
   UpdateEnabledControlCommandInput,
   UpdateEnabledControlCommandOutput,
 } from "./commands/UpdateEnabledControlCommand";
-import { UpdateLandingZoneCommandInput, UpdateLandingZoneCommandOutput } from "./commands/UpdateLandingZoneCommand";
+import type {
+  UpdateLandingZoneCommandInput,
+  UpdateLandingZoneCommandOutput,
+} from "./commands/UpdateLandingZoneCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -318,7 +331,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

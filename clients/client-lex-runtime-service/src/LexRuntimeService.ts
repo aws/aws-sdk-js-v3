@@ -3,14 +3,26 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type DeleteSessionCommandInput,
+  type DeleteSessionCommandOutput,
   DeleteSessionCommand,
-  DeleteSessionCommandInput,
-  DeleteSessionCommandOutput,
 } from "./commands/DeleteSessionCommand";
-import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
-import { PostContentCommand, PostContentCommandInput, PostContentCommandOutput } from "./commands/PostContentCommand";
-import { PostTextCommand, PostTextCommandInput, PostTextCommandOutput } from "./commands/PostTextCommand";
-import { PutSessionCommand, PutSessionCommandInput, PutSessionCommandOutput } from "./commands/PutSessionCommand";
+import {
+  type GetSessionCommandInput,
+  type GetSessionCommandOutput,
+  GetSessionCommand,
+} from "./commands/GetSessionCommand";
+import {
+  type PostContentCommandInput,
+  type PostContentCommandOutput,
+  PostContentCommand,
+} from "./commands/PostContentCommand";
+import { type PostTextCommandInput, type PostTextCommandOutput, PostTextCommand } from "./commands/PostTextCommand";
+import {
+  type PutSessionCommandInput,
+  type PutSessionCommandOutput,
+  PutSessionCommand,
+} from "./commands/PutSessionCommand";
 import { LexRuntimeServiceClient } from "./LexRuntimeServiceClient";
 
 const commands = {

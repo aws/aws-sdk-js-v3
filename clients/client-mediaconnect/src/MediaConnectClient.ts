@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,179 +61,224 @@ import {
   defaultMediaConnectHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddBridgeOutputsCommandInput, AddBridgeOutputsCommandOutput } from "./commands/AddBridgeOutputsCommand";
-import { AddBridgeSourcesCommandInput, AddBridgeSourcesCommandOutput } from "./commands/AddBridgeSourcesCommand";
-import {
+import type { AddBridgeOutputsCommandInput, AddBridgeOutputsCommandOutput } from "./commands/AddBridgeOutputsCommand";
+import type { AddBridgeSourcesCommandInput, AddBridgeSourcesCommandOutput } from "./commands/AddBridgeSourcesCommand";
+import type {
   AddFlowMediaStreamsCommandInput,
   AddFlowMediaStreamsCommandOutput,
 } from "./commands/AddFlowMediaStreamsCommand";
-import { AddFlowOutputsCommandInput, AddFlowOutputsCommandOutput } from "./commands/AddFlowOutputsCommand";
-import { AddFlowSourcesCommandInput, AddFlowSourcesCommandOutput } from "./commands/AddFlowSourcesCommand";
-import {
+import type { AddFlowOutputsCommandInput, AddFlowOutputsCommandOutput } from "./commands/AddFlowOutputsCommand";
+import type { AddFlowSourcesCommandInput, AddFlowSourcesCommandOutput } from "./commands/AddFlowSourcesCommand";
+import type {
   AddFlowVpcInterfacesCommandInput,
   AddFlowVpcInterfacesCommandOutput,
 } from "./commands/AddFlowVpcInterfacesCommand";
-import {
+import type {
   BatchGetRouterInputCommandInput,
   BatchGetRouterInputCommandOutput,
 } from "./commands/BatchGetRouterInputCommand";
-import {
+import type {
   BatchGetRouterNetworkInterfaceCommandInput,
   BatchGetRouterNetworkInterfaceCommandOutput,
 } from "./commands/BatchGetRouterNetworkInterfaceCommand";
-import {
+import type {
   BatchGetRouterOutputCommandInput,
   BatchGetRouterOutputCommandOutput,
 } from "./commands/BatchGetRouterOutputCommand";
-import { CreateBridgeCommandInput, CreateBridgeCommandOutput } from "./commands/CreateBridgeCommand";
-import { CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
-import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
-import { CreateRouterInputCommandInput, CreateRouterInputCommandOutput } from "./commands/CreateRouterInputCommand";
-import {
+import type { CreateBridgeCommandInput, CreateBridgeCommandOutput } from "./commands/CreateBridgeCommand";
+import type { CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
+import type { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
+import type {
+  CreateRouterInputCommandInput,
+  CreateRouterInputCommandOutput,
+} from "./commands/CreateRouterInputCommand";
+import type {
   CreateRouterNetworkInterfaceCommandInput,
   CreateRouterNetworkInterfaceCommandOutput,
 } from "./commands/CreateRouterNetworkInterfaceCommand";
-import { CreateRouterOutputCommandInput, CreateRouterOutputCommandOutput } from "./commands/CreateRouterOutputCommand";
-import { DeleteBridgeCommandInput, DeleteBridgeCommandOutput } from "./commands/DeleteBridgeCommand";
-import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
-import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
-import { DeleteRouterInputCommandInput, DeleteRouterInputCommandOutput } from "./commands/DeleteRouterInputCommand";
-import {
+import type {
+  CreateRouterOutputCommandInput,
+  CreateRouterOutputCommandOutput,
+} from "./commands/CreateRouterOutputCommand";
+import type { DeleteBridgeCommandInput, DeleteBridgeCommandOutput } from "./commands/DeleteBridgeCommand";
+import type { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
+import type { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
+import type {
+  DeleteRouterInputCommandInput,
+  DeleteRouterInputCommandOutput,
+} from "./commands/DeleteRouterInputCommand";
+import type {
   DeleteRouterNetworkInterfaceCommandInput,
   DeleteRouterNetworkInterfaceCommandOutput,
 } from "./commands/DeleteRouterNetworkInterfaceCommand";
-import { DeleteRouterOutputCommandInput, DeleteRouterOutputCommandOutput } from "./commands/DeleteRouterOutputCommand";
-import {
+import type {
+  DeleteRouterOutputCommandInput,
+  DeleteRouterOutputCommandOutput,
+} from "./commands/DeleteRouterOutputCommand";
+import type {
   DeregisterGatewayInstanceCommandInput,
   DeregisterGatewayInstanceCommandOutput,
 } from "./commands/DeregisterGatewayInstanceCommand";
-import { DescribeBridgeCommandInput, DescribeBridgeCommandOutput } from "./commands/DescribeBridgeCommand";
-import { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "./commands/DescribeFlowCommand";
-import {
+import type { DescribeBridgeCommandInput, DescribeBridgeCommandOutput } from "./commands/DescribeBridgeCommand";
+import type { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "./commands/DescribeFlowCommand";
+import type {
   DescribeFlowSourceMetadataCommandInput,
   DescribeFlowSourceMetadataCommandOutput,
 } from "./commands/DescribeFlowSourceMetadataCommand";
-import {
+import type {
   DescribeFlowSourceThumbnailCommandInput,
   DescribeFlowSourceThumbnailCommandOutput,
 } from "./commands/DescribeFlowSourceThumbnailCommand";
-import { DescribeGatewayCommandInput, DescribeGatewayCommandOutput } from "./commands/DescribeGatewayCommand";
-import {
+import type { DescribeGatewayCommandInput, DescribeGatewayCommandOutput } from "./commands/DescribeGatewayCommand";
+import type {
   DescribeGatewayInstanceCommandInput,
   DescribeGatewayInstanceCommandOutput,
 } from "./commands/DescribeGatewayInstanceCommand";
-import { DescribeOfferingCommandInput, DescribeOfferingCommandOutput } from "./commands/DescribeOfferingCommand";
-import {
+import type { DescribeOfferingCommandInput, DescribeOfferingCommandOutput } from "./commands/DescribeOfferingCommand";
+import type {
   DescribeReservationCommandInput,
   DescribeReservationCommandOutput,
 } from "./commands/DescribeReservationCommand";
-import { GetRouterInputCommandInput, GetRouterInputCommandOutput } from "./commands/GetRouterInputCommand";
-import {
+import type { GetRouterInputCommandInput, GetRouterInputCommandOutput } from "./commands/GetRouterInputCommand";
+import type {
   GetRouterInputSourceMetadataCommandInput,
   GetRouterInputSourceMetadataCommandOutput,
 } from "./commands/GetRouterInputSourceMetadataCommand";
-import {
+import type {
   GetRouterInputThumbnailCommandInput,
   GetRouterInputThumbnailCommandOutput,
 } from "./commands/GetRouterInputThumbnailCommand";
-import {
+import type {
   GetRouterNetworkInterfaceCommandInput,
   GetRouterNetworkInterfaceCommandOutput,
 } from "./commands/GetRouterNetworkInterfaceCommand";
-import { GetRouterOutputCommandInput, GetRouterOutputCommandOutput } from "./commands/GetRouterOutputCommand";
-import {
+import type { GetRouterOutputCommandInput, GetRouterOutputCommandOutput } from "./commands/GetRouterOutputCommand";
+import type {
   GrantFlowEntitlementsCommandInput,
   GrantFlowEntitlementsCommandOutput,
 } from "./commands/GrantFlowEntitlementsCommand";
-import { ListBridgesCommandInput, ListBridgesCommandOutput } from "./commands/ListBridgesCommand";
-import { ListEntitlementsCommandInput, ListEntitlementsCommandOutput } from "./commands/ListEntitlementsCommand";
-import { ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
-import {
+import type { ListBridgesCommandInput, ListBridgesCommandOutput } from "./commands/ListBridgesCommand";
+import type { ListEntitlementsCommandInput, ListEntitlementsCommandOutput } from "./commands/ListEntitlementsCommand";
+import type { ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
+import type {
   ListGatewayInstancesCommandInput,
   ListGatewayInstancesCommandOutput,
 } from "./commands/ListGatewayInstancesCommand";
-import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
-import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand";
-import { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
-import { ListRouterInputsCommandInput, ListRouterInputsCommandOutput } from "./commands/ListRouterInputsCommand";
-import {
+import type { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
+import type { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand";
+import type { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
+import type { ListRouterInputsCommandInput, ListRouterInputsCommandOutput } from "./commands/ListRouterInputsCommand";
+import type {
   ListRouterNetworkInterfacesCommandInput,
   ListRouterNetworkInterfacesCommandOutput,
 } from "./commands/ListRouterNetworkInterfacesCommand";
-import { ListRouterOutputsCommandInput, ListRouterOutputsCommandOutput } from "./commands/ListRouterOutputsCommand";
-import {
+import type {
+  ListRouterOutputsCommandInput,
+  ListRouterOutputsCommandOutput,
+} from "./commands/ListRouterOutputsCommand";
+import type {
   ListTagsForGlobalResourceCommandInput,
   ListTagsForGlobalResourceCommandOutput,
 } from "./commands/ListTagsForGlobalResourceCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
-import { RemoveBridgeOutputCommandInput, RemoveBridgeOutputCommandOutput } from "./commands/RemoveBridgeOutputCommand";
-import { RemoveBridgeSourceCommandInput, RemoveBridgeSourceCommandOutput } from "./commands/RemoveBridgeSourceCommand";
-import {
+import type { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
+import type {
+  RemoveBridgeOutputCommandInput,
+  RemoveBridgeOutputCommandOutput,
+} from "./commands/RemoveBridgeOutputCommand";
+import type {
+  RemoveBridgeSourceCommandInput,
+  RemoveBridgeSourceCommandOutput,
+} from "./commands/RemoveBridgeSourceCommand";
+import type {
   RemoveFlowMediaStreamCommandInput,
   RemoveFlowMediaStreamCommandOutput,
 } from "./commands/RemoveFlowMediaStreamCommand";
-import { RemoveFlowOutputCommandInput, RemoveFlowOutputCommandOutput } from "./commands/RemoveFlowOutputCommand";
-import { RemoveFlowSourceCommandInput, RemoveFlowSourceCommandOutput } from "./commands/RemoveFlowSourceCommand";
-import {
+import type { RemoveFlowOutputCommandInput, RemoveFlowOutputCommandOutput } from "./commands/RemoveFlowOutputCommand";
+import type { RemoveFlowSourceCommandInput, RemoveFlowSourceCommandOutput } from "./commands/RemoveFlowSourceCommand";
+import type {
   RemoveFlowVpcInterfaceCommandInput,
   RemoveFlowVpcInterfaceCommandOutput,
 } from "./commands/RemoveFlowVpcInterfaceCommand";
-import { RestartRouterInputCommandInput, RestartRouterInputCommandOutput } from "./commands/RestartRouterInputCommand";
-import {
+import type {
+  RestartRouterInputCommandInput,
+  RestartRouterInputCommandOutput,
+} from "./commands/RestartRouterInputCommand";
+import type {
   RestartRouterOutputCommandInput,
   RestartRouterOutputCommandOutput,
 } from "./commands/RestartRouterOutputCommand";
-import {
+import type {
   RevokeFlowEntitlementCommandInput,
   RevokeFlowEntitlementCommandOutput,
 } from "./commands/RevokeFlowEntitlementCommand";
-import { StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartFlowCommand";
-import { StartRouterInputCommandInput, StartRouterInputCommandOutput } from "./commands/StartRouterInputCommand";
-import { StartRouterOutputCommandInput, StartRouterOutputCommandOutput } from "./commands/StartRouterOutputCommand";
-import { StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand";
-import { StopRouterInputCommandInput, StopRouterInputCommandOutput } from "./commands/StopRouterInputCommand";
-import { StopRouterOutputCommandInput, StopRouterOutputCommandOutput } from "./commands/StopRouterOutputCommand";
-import { TagGlobalResourceCommandInput, TagGlobalResourceCommandOutput } from "./commands/TagGlobalResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TakeRouterInputCommandInput, TakeRouterInputCommandOutput } from "./commands/TakeRouterInputCommand";
-import {
+import type { StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartFlowCommand";
+import type { StartRouterInputCommandInput, StartRouterInputCommandOutput } from "./commands/StartRouterInputCommand";
+import type {
+  StartRouterOutputCommandInput,
+  StartRouterOutputCommandOutput,
+} from "./commands/StartRouterOutputCommand";
+import type { StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand";
+import type { StopRouterInputCommandInput, StopRouterInputCommandOutput } from "./commands/StopRouterInputCommand";
+import type { StopRouterOutputCommandInput, StopRouterOutputCommandOutput } from "./commands/StopRouterOutputCommand";
+import type {
+  TagGlobalResourceCommandInput,
+  TagGlobalResourceCommandOutput,
+} from "./commands/TagGlobalResourceCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TakeRouterInputCommandInput, TakeRouterInputCommandOutput } from "./commands/TakeRouterInputCommand";
+import type {
   UntagGlobalResourceCommandInput,
   UntagGlobalResourceCommandOutput,
 } from "./commands/UntagGlobalResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateBridgeCommandInput, UpdateBridgeCommandOutput } from "./commands/UpdateBridgeCommand";
-import { UpdateBridgeOutputCommandInput, UpdateBridgeOutputCommandOutput } from "./commands/UpdateBridgeOutputCommand";
-import { UpdateBridgeSourceCommandInput, UpdateBridgeSourceCommandOutput } from "./commands/UpdateBridgeSourceCommand";
-import { UpdateBridgeStateCommandInput, UpdateBridgeStateCommandOutput } from "./commands/UpdateBridgeStateCommand";
-import { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
-import {
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateBridgeCommandInput, UpdateBridgeCommandOutput } from "./commands/UpdateBridgeCommand";
+import type {
+  UpdateBridgeOutputCommandInput,
+  UpdateBridgeOutputCommandOutput,
+} from "./commands/UpdateBridgeOutputCommand";
+import type {
+  UpdateBridgeSourceCommandInput,
+  UpdateBridgeSourceCommandOutput,
+} from "./commands/UpdateBridgeSourceCommand";
+import type {
+  UpdateBridgeStateCommandInput,
+  UpdateBridgeStateCommandOutput,
+} from "./commands/UpdateBridgeStateCommand";
+import type { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
+import type {
   UpdateFlowEntitlementCommandInput,
   UpdateFlowEntitlementCommandOutput,
 } from "./commands/UpdateFlowEntitlementCommand";
-import {
+import type {
   UpdateFlowMediaStreamCommandInput,
   UpdateFlowMediaStreamCommandOutput,
 } from "./commands/UpdateFlowMediaStreamCommand";
-import { UpdateFlowOutputCommandInput, UpdateFlowOutputCommandOutput } from "./commands/UpdateFlowOutputCommand";
-import { UpdateFlowSourceCommandInput, UpdateFlowSourceCommandOutput } from "./commands/UpdateFlowSourceCommand";
-import {
+import type { UpdateFlowOutputCommandInput, UpdateFlowOutputCommandOutput } from "./commands/UpdateFlowOutputCommand";
+import type { UpdateFlowSourceCommandInput, UpdateFlowSourceCommandOutput } from "./commands/UpdateFlowSourceCommand";
+import type {
   UpdateGatewayInstanceCommandInput,
   UpdateGatewayInstanceCommandOutput,
 } from "./commands/UpdateGatewayInstanceCommand";
-import { UpdateRouterInputCommandInput, UpdateRouterInputCommandOutput } from "./commands/UpdateRouterInputCommand";
-import {
+import type {
+  UpdateRouterInputCommandInput,
+  UpdateRouterInputCommandOutput,
+} from "./commands/UpdateRouterInputCommand";
+import type {
   UpdateRouterNetworkInterfaceCommandInput,
   UpdateRouterNetworkInterfaceCommandOutput,
 } from "./commands/UpdateRouterNetworkInterfaceCommand";
-import { UpdateRouterOutputCommandInput, UpdateRouterOutputCommandOutput } from "./commands/UpdateRouterOutputCommand";
+import type {
+  UpdateRouterOutputCommandInput,
+  UpdateRouterOutputCommandOutput,
+} from "./commands/UpdateRouterOutputCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -531,7 +574,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

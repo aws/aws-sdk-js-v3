@@ -8,7 +8,7 @@ import {
   ListPoliciesCommandOutput,
 } from "../commands/ListPoliciesCommand";
 import { IoTClient } from "../IoTClient";
-import { IoTPaginationConfiguration } from "./Interfaces";
+import type { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListRecommendedActionSummariesCommandOutput,
 } from "../commands/ListRecommendedActionSummariesCommand";
 import { ComputeOptimizerAutomationClient } from "../ComputeOptimizerAutomationClient";
-import { ComputeOptimizerAutomationPaginationConfiguration } from "./Interfaces";
+import type { ComputeOptimizerAutomationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

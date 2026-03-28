@@ -8,7 +8,7 @@ import {
   ListOriginEndpointsCommandOutput,
 } from "../commands/ListOriginEndpointsCommand";
 import { MediaPackageClient } from "../MediaPackageClient";
-import { MediaPackagePaginationConfiguration } from "./Interfaces";
+import type { MediaPackagePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

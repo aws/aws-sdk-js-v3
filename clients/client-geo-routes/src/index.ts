@@ -7,7 +7,7 @@
  */
 export * from "./GeoRoutesClient";
 export * from "./GeoRoutes";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { GeoRoutesExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

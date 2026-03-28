@@ -8,7 +8,7 @@ import {
   ListOrganizationRecommendationsCommandOutput,
 } from "../commands/ListOrganizationRecommendationsCommand";
 import { TrustedAdvisorClient } from "../TrustedAdvisorClient";
-import { TrustedAdvisorPaginationConfiguration } from "./Interfaces";
+import type { TrustedAdvisorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

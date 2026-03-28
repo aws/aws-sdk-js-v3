@@ -2,11 +2,11 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import type {
-  GetRoleCredentialsCommandInput,
-  GetRoleCredentialsCommandOutput,
+import {
+  type GetRoleCredentialsCommandInput,
+  type GetRoleCredentialsCommandOutput,
+  GetRoleCredentialsCommand,
 } from "./commands/GetRoleCredentialsCommand";
-import { GetRoleCredentialsCommand } from "./commands/GetRoleCredentialsCommand";
 import { SSOClient } from "./SSOClient";
 
 const commands = {

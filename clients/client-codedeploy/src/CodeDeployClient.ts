@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,159 +61,174 @@ import {
   defaultCodeDeployHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddTagsToOnPremisesInstancesCommandInput,
   AddTagsToOnPremisesInstancesCommandOutput,
 } from "./commands/AddTagsToOnPremisesInstancesCommand";
-import {
+import type {
   BatchGetApplicationRevisionsCommandInput,
   BatchGetApplicationRevisionsCommandOutput,
 } from "./commands/BatchGetApplicationRevisionsCommand";
-import {
+import type {
   BatchGetApplicationsCommandInput,
   BatchGetApplicationsCommandOutput,
 } from "./commands/BatchGetApplicationsCommand";
-import {
+import type {
   BatchGetDeploymentGroupsCommandInput,
   BatchGetDeploymentGroupsCommandOutput,
 } from "./commands/BatchGetDeploymentGroupsCommand";
-import {
+import type {
   BatchGetDeploymentInstancesCommandInput,
   BatchGetDeploymentInstancesCommandOutput,
 } from "./commands/BatchGetDeploymentInstancesCommand";
-import {
+import type {
   BatchGetDeploymentsCommandInput,
   BatchGetDeploymentsCommandOutput,
 } from "./commands/BatchGetDeploymentsCommand";
-import {
+import type {
   BatchGetDeploymentTargetsCommandInput,
   BatchGetDeploymentTargetsCommandOutput,
 } from "./commands/BatchGetDeploymentTargetsCommand";
-import {
+import type {
   BatchGetOnPremisesInstancesCommandInput,
   BatchGetOnPremisesInstancesCommandOutput,
 } from "./commands/BatchGetOnPremisesInstancesCommand";
-import { ContinueDeploymentCommandInput, ContinueDeploymentCommandOutput } from "./commands/ContinueDeploymentCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
-import {
+import type {
+  ContinueDeploymentCommandInput,
+  ContinueDeploymentCommandOutput,
+} from "./commands/ContinueDeploymentCommand";
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
+import type {
   CreateDeploymentConfigCommandInput,
   CreateDeploymentConfigCommandOutput,
 } from "./commands/CreateDeploymentConfigCommand";
-import {
+import type {
   CreateDeploymentGroupCommandInput,
   CreateDeploymentGroupCommandOutput,
 } from "./commands/CreateDeploymentGroupCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import {
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type {
   DeleteDeploymentConfigCommandInput,
   DeleteDeploymentConfigCommandOutput,
 } from "./commands/DeleteDeploymentConfigCommand";
-import {
+import type {
   DeleteDeploymentGroupCommandInput,
   DeleteDeploymentGroupCommandOutput,
 } from "./commands/DeleteDeploymentGroupCommand";
-import {
+import type {
   DeleteGitHubAccountTokenCommandInput,
   DeleteGitHubAccountTokenCommandOutput,
 } from "./commands/DeleteGitHubAccountTokenCommand";
-import {
+import type {
   DeleteResourcesByExternalIdCommandInput,
   DeleteResourcesByExternalIdCommandOutput,
 } from "./commands/DeleteResourcesByExternalIdCommand";
-import {
+import type {
   DeregisterOnPremisesInstanceCommandInput,
   DeregisterOnPremisesInstanceCommandOutput,
 } from "./commands/DeregisterOnPremisesInstanceCommand";
-import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
-import {
+import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import type {
   GetApplicationRevisionCommandInput,
   GetApplicationRevisionCommandOutput,
 } from "./commands/GetApplicationRevisionCommand";
-import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
-import {
+import type { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
+import type {
   GetDeploymentConfigCommandInput,
   GetDeploymentConfigCommandOutput,
 } from "./commands/GetDeploymentConfigCommand";
-import { GetDeploymentGroupCommandInput, GetDeploymentGroupCommandOutput } from "./commands/GetDeploymentGroupCommand";
-import {
+import type {
+  GetDeploymentGroupCommandInput,
+  GetDeploymentGroupCommandOutput,
+} from "./commands/GetDeploymentGroupCommand";
+import type {
   GetDeploymentInstanceCommandInput,
   GetDeploymentInstanceCommandOutput,
 } from "./commands/GetDeploymentInstanceCommand";
-import {
+import type {
   GetDeploymentTargetCommandInput,
   GetDeploymentTargetCommandOutput,
 } from "./commands/GetDeploymentTargetCommand";
-import {
+import type {
   GetOnPremisesInstanceCommandInput,
   GetOnPremisesInstanceCommandOutput,
 } from "./commands/GetOnPremisesInstanceCommand";
-import {
+import type {
   ListApplicationRevisionsCommandInput,
   ListApplicationRevisionsCommandOutput,
 } from "./commands/ListApplicationRevisionsCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import {
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type {
   ListDeploymentConfigsCommandInput,
   ListDeploymentConfigsCommandOutput,
 } from "./commands/ListDeploymentConfigsCommand";
-import {
+import type {
   ListDeploymentGroupsCommandInput,
   ListDeploymentGroupsCommandOutput,
 } from "./commands/ListDeploymentGroupsCommand";
-import {
+import type {
   ListDeploymentInstancesCommandInput,
   ListDeploymentInstancesCommandOutput,
 } from "./commands/ListDeploymentInstancesCommand";
-import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
-import {
+import type { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
+import type {
   ListDeploymentTargetsCommandInput,
   ListDeploymentTargetsCommandOutput,
 } from "./commands/ListDeploymentTargetsCommand";
-import {
+import type {
   ListGitHubAccountTokenNamesCommandInput,
   ListGitHubAccountTokenNamesCommandOutput,
 } from "./commands/ListGitHubAccountTokenNamesCommand";
-import {
+import type {
   ListOnPremisesInstancesCommandInput,
   ListOnPremisesInstancesCommandOutput,
 } from "./commands/ListOnPremisesInstancesCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutLifecycleEventHookExecutionStatusCommandInput,
   PutLifecycleEventHookExecutionStatusCommandOutput,
 } from "./commands/PutLifecycleEventHookExecutionStatusCommand";
-import {
+import type {
   RegisterApplicationRevisionCommandInput,
   RegisterApplicationRevisionCommandOutput,
 } from "./commands/RegisterApplicationRevisionCommand";
-import {
+import type {
   RegisterOnPremisesInstanceCommandInput,
   RegisterOnPremisesInstanceCommandOutput,
 } from "./commands/RegisterOnPremisesInstanceCommand";
-import {
+import type {
   RemoveTagsFromOnPremisesInstancesCommandInput,
   RemoveTagsFromOnPremisesInstancesCommandOutput,
 } from "./commands/RemoveTagsFromOnPremisesInstancesCommand";
-import {
+import type {
   SkipWaitTimeForInstanceTerminationCommandInput,
   SkipWaitTimeForInstanceTerminationCommandOutput,
 } from "./commands/SkipWaitTimeForInstanceTerminationCommand";
-import { StopDeploymentCommandInput, StopDeploymentCommandOutput } from "./commands/StopDeploymentCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import {
+import type { StopDeploymentCommandInput, StopDeploymentCommandOutput } from "./commands/StopDeploymentCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type {
   UpdateDeploymentGroupCommandInput,
   UpdateDeploymentGroupCommandOutput,
 } from "./commands/UpdateDeploymentGroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -441,7 +454,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

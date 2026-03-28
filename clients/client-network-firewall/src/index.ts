@@ -93,7 +93,7 @@
  */
 export * from "./NetworkFirewallClient";
 export * from "./NetworkFirewall";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { NetworkFirewallExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

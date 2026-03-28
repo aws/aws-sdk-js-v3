@@ -8,7 +8,7 @@ import {
   ListRoutingRulesCommandInput,
   ListRoutingRulesCommandOutput,
 } from "../commands/ListRoutingRulesCommand";
-import { ApiGatewayV2PaginationConfiguration } from "./Interfaces";
+import type { ApiGatewayV2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

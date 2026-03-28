@@ -8,7 +8,7 @@ import {
   ListQueuedMessagesCommandOutput,
 } from "../commands/ListQueuedMessagesCommand";
 import { IoTWirelessClient } from "../IoTWirelessClient";
-import { IoTWirelessPaginationConfiguration } from "./Interfaces";
+import type { IoTWirelessPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

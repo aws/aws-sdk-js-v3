@@ -8,7 +8,7 @@ import {
   ListPendingMaintenanceActionsCommandOutput,
 } from "../commands/ListPendingMaintenanceActionsCommand";
 import { DocDBElasticClient } from "../DocDBElasticClient";
-import { DocDBElasticPaginationConfiguration } from "./Interfaces";
+import type { DocDBElasticPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListIndexesCommand, ListIndexesCommandInput, ListIndexesCommandOutput } from "../commands/ListIndexesCommand";
 import { ResourceExplorer2Client } from "../ResourceExplorer2Client";
-import { ResourceExplorer2PaginationConfiguration } from "./Interfaces";
+import type { ResourceExplorer2PaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

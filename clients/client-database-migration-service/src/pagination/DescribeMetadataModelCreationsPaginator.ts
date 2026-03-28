@@ -8,7 +8,7 @@ import {
   DescribeMetadataModelCreationsCommandOutput,
 } from "../commands/DescribeMetadataModelCreationsCommand";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
-import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
+import type { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListExperimentsCommandOutput,
 } from "../commands/ListExperimentsCommand";
 import { FisClient } from "../FisClient";
-import { FisPaginationConfiguration } from "./Interfaces";
+import type { FisPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

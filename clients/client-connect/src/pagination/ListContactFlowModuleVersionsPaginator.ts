@@ -8,7 +8,7 @@ import {
   ListContactFlowModuleVersionsCommandOutput,
 } from "../commands/ListContactFlowModuleVersionsCommand";
 import { ConnectClient } from "../ConnectClient";
-import { ConnectPaginationConfiguration } from "./Interfaces";
+import type { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

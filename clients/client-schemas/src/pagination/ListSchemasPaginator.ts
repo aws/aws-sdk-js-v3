@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
 import { SchemasClient } from "../SchemasClient";
-import { SchemasPaginationConfiguration } from "./Interfaces";
+import type { SchemasPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

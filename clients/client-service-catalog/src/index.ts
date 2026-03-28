@@ -13,7 +13,7 @@
  */
 export * from "./ServiceCatalogClient";
 export * from "./ServiceCatalog";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ServiceCatalogExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -8,7 +8,7 @@ import {
   ListLegalHoldsCommandInput,
   ListLegalHoldsCommandOutput,
 } from "../commands/ListLegalHoldsCommand";
-import { BackupPaginationConfiguration } from "./Interfaces";
+import type { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

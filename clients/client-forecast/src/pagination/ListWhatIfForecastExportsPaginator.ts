@@ -8,7 +8,7 @@ import {
   ListWhatIfForecastExportsCommandOutput,
 } from "../commands/ListWhatIfForecastExportsCommand";
 import { ForecastClient } from "../ForecastClient";
-import { ForecastPaginationConfiguration } from "./Interfaces";
+import type { ForecastPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

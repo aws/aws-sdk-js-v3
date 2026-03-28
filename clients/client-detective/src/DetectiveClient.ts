@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,78 +61,84 @@ import {
   defaultDetectiveHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
-import {
+import type { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
+import type {
   BatchGetGraphMemberDatasourcesCommandInput,
   BatchGetGraphMemberDatasourcesCommandOutput,
 } from "./commands/BatchGetGraphMemberDatasourcesCommand";
-import {
+import type {
   BatchGetMembershipDatasourcesCommandInput,
   BatchGetMembershipDatasourcesCommandOutput,
 } from "./commands/BatchGetMembershipDatasourcesCommand";
-import { CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
-import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
-import { DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand";
-import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand";
-import {
+import type { CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
+import type { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
+import type { DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand";
+import type { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand";
+import type {
   DescribeOrganizationConfigurationCommandInput,
   DescribeOrganizationConfigurationCommandOutput,
 } from "./commands/DescribeOrganizationConfigurationCommand";
-import {
+import type {
   DisableOrganizationAdminAccountCommandInput,
   DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand";
-import {
+import type {
   DisassociateMembershipCommandInput,
   DisassociateMembershipCommandOutput,
 } from "./commands/DisassociateMembershipCommand";
-import {
+import type {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
-import { GetInvestigationCommandInput, GetInvestigationCommandOutput } from "./commands/GetInvestigationCommand";
-import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
-import {
+import type { GetInvestigationCommandInput, GetInvestigationCommandOutput } from "./commands/GetInvestigationCommand";
+import type { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import type {
   ListDatasourcePackagesCommandInput,
   ListDatasourcePackagesCommandOutput,
 } from "./commands/ListDatasourcePackagesCommand";
-import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
-import { ListIndicatorsCommandInput, ListIndicatorsCommandOutput } from "./commands/ListIndicatorsCommand";
-import { ListInvestigationsCommandInput, ListInvestigationsCommandOutput } from "./commands/ListInvestigationsCommand";
-import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
-import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
-import {
+import type { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
+import type { ListIndicatorsCommandInput, ListIndicatorsCommandOutput } from "./commands/ListIndicatorsCommand";
+import type {
+  ListInvestigationsCommandInput,
+  ListInvestigationsCommandOutput,
+} from "./commands/ListInvestigationsCommand";
+import type { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
+import type { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import type {
   ListOrganizationAdminAccountsCommandInput,
   ListOrganizationAdminAccountsCommandOutput,
 } from "./commands/ListOrganizationAdminAccountsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "./commands/RejectInvitationCommand";
-import { StartInvestigationCommandInput, StartInvestigationCommandOutput } from "./commands/StartInvestigationCommand";
-import {
+import type { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "./commands/RejectInvitationCommand";
+import type {
+  StartInvestigationCommandInput,
+  StartInvestigationCommandOutput,
+} from "./commands/StartInvestigationCommand";
+import type {
   StartMonitoringMemberCommandInput,
   StartMonitoringMemberCommandOutput,
 } from "./commands/StartMonitoringMemberCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateDatasourcePackagesCommandInput,
   UpdateDatasourcePackagesCommandOutput,
 } from "./commands/UpdateDatasourcePackagesCommand";
-import {
+import type {
   UpdateInvestigationStateCommandInput,
   UpdateInvestigationStateCommandOutput,
 } from "./commands/UpdateInvestigationStateCommand";
-import {
+import type {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -324,7 +328,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

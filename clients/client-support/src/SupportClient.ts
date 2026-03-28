@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,59 +61,62 @@ import {
   defaultSupportHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddAttachmentsToSetCommandInput,
   AddAttachmentsToSetCommandOutput,
 } from "./commands/AddAttachmentsToSetCommand";
-import {
+import type {
   AddCommunicationToCaseCommandInput,
   AddCommunicationToCaseCommandOutput,
 } from "./commands/AddCommunicationToCaseCommand";
-import { CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
-import { DescribeAttachmentCommandInput, DescribeAttachmentCommandOutput } from "./commands/DescribeAttachmentCommand";
-import { DescribeCasesCommandInput, DescribeCasesCommandOutput } from "./commands/DescribeCasesCommand";
-import {
+import type { CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
+import type {
+  DescribeAttachmentCommandInput,
+  DescribeAttachmentCommandOutput,
+} from "./commands/DescribeAttachmentCommand";
+import type { DescribeCasesCommandInput, DescribeCasesCommandOutput } from "./commands/DescribeCasesCommand";
+import type {
   DescribeCommunicationsCommandInput,
   DescribeCommunicationsCommandOutput,
 } from "./commands/DescribeCommunicationsCommand";
-import {
+import type {
   DescribeCreateCaseOptionsCommandInput,
   DescribeCreateCaseOptionsCommandOutput,
 } from "./commands/DescribeCreateCaseOptionsCommand";
-import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
-import {
+import type { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
+import type {
   DescribeSeverityLevelsCommandInput,
   DescribeSeverityLevelsCommandOutput,
 } from "./commands/DescribeSeverityLevelsCommand";
-import {
+import type {
   DescribeSupportedLanguagesCommandInput,
   DescribeSupportedLanguagesCommandOutput,
 } from "./commands/DescribeSupportedLanguagesCommand";
-import {
+import type {
   DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
   DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckRefreshStatusesCommand";
-import {
+import type {
   DescribeTrustedAdvisorCheckResultCommandInput,
   DescribeTrustedAdvisorCheckResultCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckResultCommand";
-import {
+import type {
   DescribeTrustedAdvisorChecksCommandInput,
   DescribeTrustedAdvisorChecksCommandOutput,
 } from "./commands/DescribeTrustedAdvisorChecksCommand";
-import {
+import type {
   DescribeTrustedAdvisorCheckSummariesCommandInput,
   DescribeTrustedAdvisorCheckSummariesCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckSummariesCommand";
-import {
+import type {
   RefreshTrustedAdvisorCheckCommandInput,
   RefreshTrustedAdvisorCheckCommandOutput,
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
-import { ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
+import type { ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -279,7 +280,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

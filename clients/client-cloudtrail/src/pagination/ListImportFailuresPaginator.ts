@@ -8,7 +8,7 @@ import {
   ListImportFailuresCommandInput,
   ListImportFailuresCommandOutput,
 } from "../commands/ListImportFailuresCommand";
-import { CloudTrailPaginationConfiguration } from "./Interfaces";
+import type { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

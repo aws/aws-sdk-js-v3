@@ -8,7 +8,7 @@ import {
   DescribeRepositoryCreationTemplatesCommandOutput,
 } from "../commands/DescribeRepositoryCreationTemplatesCommand";
 import { ECRClient } from "../ECRClient";
-import { ECRPaginationConfiguration } from "./Interfaces";
+import type { ECRPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

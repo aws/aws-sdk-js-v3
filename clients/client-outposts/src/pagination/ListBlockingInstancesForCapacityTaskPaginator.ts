@@ -8,7 +8,7 @@ import {
   ListBlockingInstancesForCapacityTaskCommandOutput,
 } from "../commands/ListBlockingInstancesForCapacityTaskCommand";
 import { OutpostsClient } from "../OutpostsClient";
-import { OutpostsPaginationConfiguration } from "./Interfaces";
+import type { OutpostsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

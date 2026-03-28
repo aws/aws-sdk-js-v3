@@ -8,7 +8,7 @@ import {
   ListResourcesAssociatedToCustomLineItemCommandInput,
   ListResourcesAssociatedToCustomLineItemCommandOutput,
 } from "../commands/ListResourcesAssociatedToCustomLineItemCommand";
-import { BillingconductorPaginationConfiguration } from "./Interfaces";
+import type { BillingconductorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListAppAuthorizationsCommandInput,
   ListAppAuthorizationsCommandOutput,
 } from "../commands/ListAppAuthorizationsCommand";
-import { AppFabricPaginationConfiguration } from "./Interfaces";
+import type { AppFabricPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

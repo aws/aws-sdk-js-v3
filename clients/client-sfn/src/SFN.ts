@@ -3,177 +3,185 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateActivityCommandInput,
+  type CreateActivityCommandOutput,
   CreateActivityCommand,
-  CreateActivityCommandInput,
-  CreateActivityCommandOutput,
 } from "./commands/CreateActivityCommand";
 import {
+  type CreateStateMachineAliasCommandInput,
+  type CreateStateMachineAliasCommandOutput,
   CreateStateMachineAliasCommand,
-  CreateStateMachineAliasCommandInput,
-  CreateStateMachineAliasCommandOutput,
 } from "./commands/CreateStateMachineAliasCommand";
 import {
+  type CreateStateMachineCommandInput,
+  type CreateStateMachineCommandOutput,
   CreateStateMachineCommand,
-  CreateStateMachineCommandInput,
-  CreateStateMachineCommandOutput,
 } from "./commands/CreateStateMachineCommand";
 import {
+  type DeleteActivityCommandInput,
+  type DeleteActivityCommandOutput,
   DeleteActivityCommand,
-  DeleteActivityCommandInput,
-  DeleteActivityCommandOutput,
 } from "./commands/DeleteActivityCommand";
 import {
+  type DeleteStateMachineAliasCommandInput,
+  type DeleteStateMachineAliasCommandOutput,
   DeleteStateMachineAliasCommand,
-  DeleteStateMachineAliasCommandInput,
-  DeleteStateMachineAliasCommandOutput,
 } from "./commands/DeleteStateMachineAliasCommand";
 import {
+  type DeleteStateMachineCommandInput,
+  type DeleteStateMachineCommandOutput,
   DeleteStateMachineCommand,
-  DeleteStateMachineCommandInput,
-  DeleteStateMachineCommandOutput,
 } from "./commands/DeleteStateMachineCommand";
 import {
+  type DeleteStateMachineVersionCommandInput,
+  type DeleteStateMachineVersionCommandOutput,
   DeleteStateMachineVersionCommand,
-  DeleteStateMachineVersionCommandInput,
-  DeleteStateMachineVersionCommandOutput,
 } from "./commands/DeleteStateMachineVersionCommand";
 import {
+  type DescribeActivityCommandInput,
+  type DescribeActivityCommandOutput,
   DescribeActivityCommand,
-  DescribeActivityCommandInput,
-  DescribeActivityCommandOutput,
 } from "./commands/DescribeActivityCommand";
 import {
+  type DescribeExecutionCommandInput,
+  type DescribeExecutionCommandOutput,
   DescribeExecutionCommand,
-  DescribeExecutionCommandInput,
-  DescribeExecutionCommandOutput,
 } from "./commands/DescribeExecutionCommand";
 import {
+  type DescribeMapRunCommandInput,
+  type DescribeMapRunCommandOutput,
   DescribeMapRunCommand,
-  DescribeMapRunCommandInput,
-  DescribeMapRunCommandOutput,
 } from "./commands/DescribeMapRunCommand";
 import {
+  type DescribeStateMachineAliasCommandInput,
+  type DescribeStateMachineAliasCommandOutput,
   DescribeStateMachineAliasCommand,
-  DescribeStateMachineAliasCommandInput,
-  DescribeStateMachineAliasCommandOutput,
 } from "./commands/DescribeStateMachineAliasCommand";
 import {
+  type DescribeStateMachineCommandInput,
+  type DescribeStateMachineCommandOutput,
   DescribeStateMachineCommand,
-  DescribeStateMachineCommandInput,
-  DescribeStateMachineCommandOutput,
 } from "./commands/DescribeStateMachineCommand";
 import {
+  type DescribeStateMachineForExecutionCommandInput,
+  type DescribeStateMachineForExecutionCommandOutput,
   DescribeStateMachineForExecutionCommand,
-  DescribeStateMachineForExecutionCommandInput,
-  DescribeStateMachineForExecutionCommandOutput,
 } from "./commands/DescribeStateMachineForExecutionCommand";
 import {
+  type GetActivityTaskCommandInput,
+  type GetActivityTaskCommandOutput,
   GetActivityTaskCommand,
-  GetActivityTaskCommandInput,
-  GetActivityTaskCommandOutput,
 } from "./commands/GetActivityTaskCommand";
 import {
+  type GetExecutionHistoryCommandInput,
+  type GetExecutionHistoryCommandOutput,
   GetExecutionHistoryCommand,
-  GetExecutionHistoryCommandInput,
-  GetExecutionHistoryCommandOutput,
 } from "./commands/GetExecutionHistoryCommand";
 import {
+  type ListActivitiesCommandInput,
+  type ListActivitiesCommandOutput,
   ListActivitiesCommand,
-  ListActivitiesCommandInput,
-  ListActivitiesCommandOutput,
 } from "./commands/ListActivitiesCommand";
 import {
+  type ListExecutionsCommandInput,
+  type ListExecutionsCommandOutput,
   ListExecutionsCommand,
-  ListExecutionsCommandInput,
-  ListExecutionsCommandOutput,
 } from "./commands/ListExecutionsCommand";
-import { ListMapRunsCommand, ListMapRunsCommandInput, ListMapRunsCommandOutput } from "./commands/ListMapRunsCommand";
 import {
+  type ListMapRunsCommandInput,
+  type ListMapRunsCommandOutput,
+  ListMapRunsCommand,
+} from "./commands/ListMapRunsCommand";
+import {
+  type ListStateMachineAliasesCommandInput,
+  type ListStateMachineAliasesCommandOutput,
   ListStateMachineAliasesCommand,
-  ListStateMachineAliasesCommandInput,
-  ListStateMachineAliasesCommandOutput,
 } from "./commands/ListStateMachineAliasesCommand";
 import {
+  type ListStateMachinesCommandInput,
+  type ListStateMachinesCommandOutput,
   ListStateMachinesCommand,
-  ListStateMachinesCommandInput,
-  ListStateMachinesCommandOutput,
 } from "./commands/ListStateMachinesCommand";
 import {
+  type ListStateMachineVersionsCommandInput,
+  type ListStateMachineVersionsCommandOutput,
   ListStateMachineVersionsCommand,
-  ListStateMachineVersionsCommandInput,
-  ListStateMachineVersionsCommandOutput,
 } from "./commands/ListStateMachineVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PublishStateMachineVersionCommandInput,
+  type PublishStateMachineVersionCommandOutput,
   PublishStateMachineVersionCommand,
-  PublishStateMachineVersionCommandInput,
-  PublishStateMachineVersionCommandOutput,
 } from "./commands/PublishStateMachineVersionCommand";
 import {
+  type RedriveExecutionCommandInput,
+  type RedriveExecutionCommandOutput,
   RedriveExecutionCommand,
-  RedriveExecutionCommandInput,
-  RedriveExecutionCommandOutput,
 } from "./commands/RedriveExecutionCommand";
 import {
+  type SendTaskFailureCommandInput,
+  type SendTaskFailureCommandOutput,
   SendTaskFailureCommand,
-  SendTaskFailureCommandInput,
-  SendTaskFailureCommandOutput,
 } from "./commands/SendTaskFailureCommand";
 import {
+  type SendTaskHeartbeatCommandInput,
+  type SendTaskHeartbeatCommandOutput,
   SendTaskHeartbeatCommand,
-  SendTaskHeartbeatCommandInput,
-  SendTaskHeartbeatCommandOutput,
 } from "./commands/SendTaskHeartbeatCommand";
 import {
+  type SendTaskSuccessCommandInput,
+  type SendTaskSuccessCommandOutput,
   SendTaskSuccessCommand,
-  SendTaskSuccessCommandInput,
-  SendTaskSuccessCommandOutput,
 } from "./commands/SendTaskSuccessCommand";
 import {
+  type StartExecutionCommandInput,
+  type StartExecutionCommandOutput,
   StartExecutionCommand,
-  StartExecutionCommandInput,
-  StartExecutionCommandOutput,
 } from "./commands/StartExecutionCommand";
 import {
+  type StartSyncExecutionCommandInput,
+  type StartSyncExecutionCommandOutput,
   StartSyncExecutionCommand,
-  StartSyncExecutionCommandInput,
-  StartSyncExecutionCommandOutput,
 } from "./commands/StartSyncExecutionCommand";
 import {
+  type StopExecutionCommandInput,
+  type StopExecutionCommandOutput,
   StopExecutionCommand,
-  StopExecutionCommandInput,
-  StopExecutionCommandOutput,
 } from "./commands/StopExecutionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { TestStateCommand, TestStateCommandInput, TestStateCommandOutput } from "./commands/TestStateCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import { type TestStateCommandInput, type TestStateCommandOutput, TestStateCommand } from "./commands/TestStateCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateMapRunCommandInput,
+  type UpdateMapRunCommandOutput,
   UpdateMapRunCommand,
-  UpdateMapRunCommandInput,
-  UpdateMapRunCommandOutput,
 } from "./commands/UpdateMapRunCommand";
 import {
+  type UpdateStateMachineAliasCommandInput,
+  type UpdateStateMachineAliasCommandOutput,
   UpdateStateMachineAliasCommand,
-  UpdateStateMachineAliasCommandInput,
-  UpdateStateMachineAliasCommandOutput,
 } from "./commands/UpdateStateMachineAliasCommand";
 import {
+  type UpdateStateMachineCommandInput,
+  type UpdateStateMachineCommandOutput,
   UpdateStateMachineCommand,
-  UpdateStateMachineCommandInput,
-  UpdateStateMachineCommandOutput,
 } from "./commands/UpdateStateMachineCommand";
 import {
+  type ValidateStateMachineDefinitionCommandInput,
+  type ValidateStateMachineDefinitionCommandOutput,
   ValidateStateMachineDefinitionCommand,
-  ValidateStateMachineDefinitionCommandInput,
-  ValidateStateMachineDefinitionCommandOutput,
 } from "./commands/ValidateStateMachineDefinitionCommand";
 import { paginateGetExecutionHistory } from "./pagination/GetExecutionHistoryPaginator";
 import { paginateListActivities } from "./pagination/ListActivitiesPaginator";

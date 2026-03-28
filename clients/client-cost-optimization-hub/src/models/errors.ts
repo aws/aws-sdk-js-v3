@@ -2,8 +2,8 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CostOptimizationHubServiceException as __BaseException } from "./CostOptimizationHubServiceException";
-import { ValidationExceptionReason } from "./enums";
-import { ValidationExceptionDetail } from "./models_0";
+import type { ValidationExceptionReason } from "./enums";
+import type { ValidationExceptionDetail } from "./models_0";
 
 /**
  * <p>You are not authorized to use this operation with the given parameters.</p>

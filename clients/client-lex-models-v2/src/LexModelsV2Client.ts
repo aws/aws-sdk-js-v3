@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,240 +61,270 @@ import {
   defaultLexModelsV2HttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   BatchCreateCustomVocabularyItemCommandInput,
   BatchCreateCustomVocabularyItemCommandOutput,
 } from "./commands/BatchCreateCustomVocabularyItemCommand";
-import {
+import type {
   BatchDeleteCustomVocabularyItemCommandInput,
   BatchDeleteCustomVocabularyItemCommandOutput,
 } from "./commands/BatchDeleteCustomVocabularyItemCommand";
-import {
+import type {
   BatchUpdateCustomVocabularyItemCommandInput,
   BatchUpdateCustomVocabularyItemCommandOutput,
 } from "./commands/BatchUpdateCustomVocabularyItemCommand";
-import { BuildBotLocaleCommandInput, BuildBotLocaleCommandOutput } from "./commands/BuildBotLocaleCommand";
-import { CreateBotAliasCommandInput, CreateBotAliasCommandOutput } from "./commands/CreateBotAliasCommand";
-import { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
-import { CreateBotLocaleCommandInput, CreateBotLocaleCommandOutput } from "./commands/CreateBotLocaleCommand";
-import { CreateBotReplicaCommandInput, CreateBotReplicaCommandOutput } from "./commands/CreateBotReplicaCommand";
-import { CreateBotVersionCommandInput, CreateBotVersionCommandOutput } from "./commands/CreateBotVersionCommand";
-import { CreateExportCommandInput, CreateExportCommandOutput } from "./commands/CreateExportCommand";
-import { CreateIntentCommandInput, CreateIntentCommandOutput } from "./commands/CreateIntentCommand";
-import {
+import type { BuildBotLocaleCommandInput, BuildBotLocaleCommandOutput } from "./commands/BuildBotLocaleCommand";
+import type { CreateBotAliasCommandInput, CreateBotAliasCommandOutput } from "./commands/CreateBotAliasCommand";
+import type { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
+import type { CreateBotLocaleCommandInput, CreateBotLocaleCommandOutput } from "./commands/CreateBotLocaleCommand";
+import type { CreateBotReplicaCommandInput, CreateBotReplicaCommandOutput } from "./commands/CreateBotReplicaCommand";
+import type { CreateBotVersionCommandInput, CreateBotVersionCommandOutput } from "./commands/CreateBotVersionCommand";
+import type { CreateExportCommandInput, CreateExportCommandOutput } from "./commands/CreateExportCommand";
+import type { CreateIntentCommandInput, CreateIntentCommandOutput } from "./commands/CreateIntentCommand";
+import type {
   CreateResourcePolicyCommandInput,
   CreateResourcePolicyCommandOutput,
 } from "./commands/CreateResourcePolicyCommand";
-import {
+import type {
   CreateResourcePolicyStatementCommandInput,
   CreateResourcePolicyStatementCommandOutput,
 } from "./commands/CreateResourcePolicyStatementCommand";
-import { CreateSlotCommandInput, CreateSlotCommandOutput } from "./commands/CreateSlotCommand";
-import { CreateSlotTypeCommandInput, CreateSlotTypeCommandOutput } from "./commands/CreateSlotTypeCommand";
-import {
+import type { CreateSlotCommandInput, CreateSlotCommandOutput } from "./commands/CreateSlotCommand";
+import type { CreateSlotTypeCommandInput, CreateSlotTypeCommandOutput } from "./commands/CreateSlotTypeCommand";
+import type {
   CreateTestSetDiscrepancyReportCommandInput,
   CreateTestSetDiscrepancyReportCommandOutput,
 } from "./commands/CreateTestSetDiscrepancyReportCommand";
-import { CreateUploadUrlCommandInput, CreateUploadUrlCommandOutput } from "./commands/CreateUploadUrlCommand";
-import { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "./commands/DeleteBotAliasCommand";
-import {
+import type { CreateUploadUrlCommandInput, CreateUploadUrlCommandOutput } from "./commands/CreateUploadUrlCommand";
+import type { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "./commands/DeleteBotAliasCommand";
+import type {
   DeleteBotAnalyzerRecommendationCommandInput,
   DeleteBotAnalyzerRecommendationCommandOutput,
 } from "./commands/DeleteBotAnalyzerRecommendationCommand";
-import { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
-import { DeleteBotLocaleCommandInput, DeleteBotLocaleCommandOutput } from "./commands/DeleteBotLocaleCommand";
-import { DeleteBotReplicaCommandInput, DeleteBotReplicaCommandOutput } from "./commands/DeleteBotReplicaCommand";
-import { DeleteBotVersionCommandInput, DeleteBotVersionCommandOutput } from "./commands/DeleteBotVersionCommand";
-import {
+import type { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
+import type { DeleteBotLocaleCommandInput, DeleteBotLocaleCommandOutput } from "./commands/DeleteBotLocaleCommand";
+import type { DeleteBotReplicaCommandInput, DeleteBotReplicaCommandOutput } from "./commands/DeleteBotReplicaCommand";
+import type { DeleteBotVersionCommandInput, DeleteBotVersionCommandOutput } from "./commands/DeleteBotVersionCommand";
+import type {
   DeleteCustomVocabularyCommandInput,
   DeleteCustomVocabularyCommandOutput,
 } from "./commands/DeleteCustomVocabularyCommand";
-import { DeleteExportCommandInput, DeleteExportCommandOutput } from "./commands/DeleteExportCommand";
-import { DeleteImportCommandInput, DeleteImportCommandOutput } from "./commands/DeleteImportCommand";
-import { DeleteIntentCommandInput, DeleteIntentCommandOutput } from "./commands/DeleteIntentCommand";
-import {
+import type { DeleteExportCommandInput, DeleteExportCommandOutput } from "./commands/DeleteExportCommand";
+import type { DeleteImportCommandInput, DeleteImportCommandOutput } from "./commands/DeleteImportCommand";
+import type { DeleteIntentCommandInput, DeleteIntentCommandOutput } from "./commands/DeleteIntentCommand";
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   DeleteResourcePolicyStatementCommandInput,
   DeleteResourcePolicyStatementCommandOutput,
 } from "./commands/DeleteResourcePolicyStatementCommand";
-import { DeleteSlotCommandInput, DeleteSlotCommandOutput } from "./commands/DeleteSlotCommand";
-import { DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput } from "./commands/DeleteSlotTypeCommand";
-import { DeleteTestSetCommandInput, DeleteTestSetCommandOutput } from "./commands/DeleteTestSetCommand";
-import { DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput } from "./commands/DeleteUtterancesCommand";
-import { DescribeBotAliasCommandInput, DescribeBotAliasCommandOutput } from "./commands/DescribeBotAliasCommand";
-import {
+import type { DeleteSlotCommandInput, DeleteSlotCommandOutput } from "./commands/DeleteSlotCommand";
+import type { DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput } from "./commands/DeleteSlotTypeCommand";
+import type { DeleteTestSetCommandInput, DeleteTestSetCommandOutput } from "./commands/DeleteTestSetCommand";
+import type { DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput } from "./commands/DeleteUtterancesCommand";
+import type { DescribeBotAliasCommandInput, DescribeBotAliasCommandOutput } from "./commands/DescribeBotAliasCommand";
+import type {
   DescribeBotAnalyzerRecommendationCommandInput,
   DescribeBotAnalyzerRecommendationCommandOutput,
 } from "./commands/DescribeBotAnalyzerRecommendationCommand";
-import { DescribeBotCommandInput, DescribeBotCommandOutput } from "./commands/DescribeBotCommand";
-import { DescribeBotLocaleCommandInput, DescribeBotLocaleCommandOutput } from "./commands/DescribeBotLocaleCommand";
-import {
+import type { DescribeBotCommandInput, DescribeBotCommandOutput } from "./commands/DescribeBotCommand";
+import type {
+  DescribeBotLocaleCommandInput,
+  DescribeBotLocaleCommandOutput,
+} from "./commands/DescribeBotLocaleCommand";
+import type {
   DescribeBotRecommendationCommandInput,
   DescribeBotRecommendationCommandOutput,
 } from "./commands/DescribeBotRecommendationCommand";
-import { DescribeBotReplicaCommandInput, DescribeBotReplicaCommandOutput } from "./commands/DescribeBotReplicaCommand";
-import {
+import type {
+  DescribeBotReplicaCommandInput,
+  DescribeBotReplicaCommandOutput,
+} from "./commands/DescribeBotReplicaCommand";
+import type {
   DescribeBotResourceGenerationCommandInput,
   DescribeBotResourceGenerationCommandOutput,
 } from "./commands/DescribeBotResourceGenerationCommand";
-import { DescribeBotVersionCommandInput, DescribeBotVersionCommandOutput } from "./commands/DescribeBotVersionCommand";
-import {
+import type {
+  DescribeBotVersionCommandInput,
+  DescribeBotVersionCommandOutput,
+} from "./commands/DescribeBotVersionCommand";
+import type {
   DescribeCustomVocabularyMetadataCommandInput,
   DescribeCustomVocabularyMetadataCommandOutput,
 } from "./commands/DescribeCustomVocabularyMetadataCommand";
-import { DescribeExportCommandInput, DescribeExportCommandOutput } from "./commands/DescribeExportCommand";
-import { DescribeImportCommandInput, DescribeImportCommandOutput } from "./commands/DescribeImportCommand";
-import { DescribeIntentCommandInput, DescribeIntentCommandOutput } from "./commands/DescribeIntentCommand";
-import {
+import type { DescribeExportCommandInput, DescribeExportCommandOutput } from "./commands/DescribeExportCommand";
+import type { DescribeImportCommandInput, DescribeImportCommandOutput } from "./commands/DescribeImportCommand";
+import type { DescribeIntentCommandInput, DescribeIntentCommandOutput } from "./commands/DescribeIntentCommand";
+import type {
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
-import { DescribeSlotCommandInput, DescribeSlotCommandOutput } from "./commands/DescribeSlotCommand";
-import { DescribeSlotTypeCommandInput, DescribeSlotTypeCommandOutput } from "./commands/DescribeSlotTypeCommand";
-import {
+import type { DescribeSlotCommandInput, DescribeSlotCommandOutput } from "./commands/DescribeSlotCommand";
+import type { DescribeSlotTypeCommandInput, DescribeSlotTypeCommandOutput } from "./commands/DescribeSlotTypeCommand";
+import type {
   DescribeTestExecutionCommandInput,
   DescribeTestExecutionCommandOutput,
 } from "./commands/DescribeTestExecutionCommand";
-import { DescribeTestSetCommandInput, DescribeTestSetCommandOutput } from "./commands/DescribeTestSetCommand";
-import {
+import type { DescribeTestSetCommandInput, DescribeTestSetCommandOutput } from "./commands/DescribeTestSetCommand";
+import type {
   DescribeTestSetDiscrepancyReportCommandInput,
   DescribeTestSetDiscrepancyReportCommandOutput,
 } from "./commands/DescribeTestSetDiscrepancyReportCommand";
-import {
+import type {
   DescribeTestSetGenerationCommandInput,
   DescribeTestSetGenerationCommandOutput,
 } from "./commands/DescribeTestSetGenerationCommand";
-import { GenerateBotElementCommandInput, GenerateBotElementCommandOutput } from "./commands/GenerateBotElementCommand";
-import {
+import type {
+  GenerateBotElementCommandInput,
+  GenerateBotElementCommandOutput,
+} from "./commands/GenerateBotElementCommand";
+import type {
   GetTestExecutionArtifactsUrlCommandInput,
   GetTestExecutionArtifactsUrlCommandOutput,
 } from "./commands/GetTestExecutionArtifactsUrlCommand";
-import {
+import type {
   ListAggregatedUtterancesCommandInput,
   ListAggregatedUtterancesCommandOutput,
 } from "./commands/ListAggregatedUtterancesCommand";
-import { ListBotAliasesCommandInput, ListBotAliasesCommandOutput } from "./commands/ListBotAliasesCommand";
-import {
+import type { ListBotAliasesCommandInput, ListBotAliasesCommandOutput } from "./commands/ListBotAliasesCommand";
+import type {
   ListBotAliasReplicasCommandInput,
   ListBotAliasReplicasCommandOutput,
 } from "./commands/ListBotAliasReplicasCommand";
-import {
+import type {
   ListBotAnalyzerHistoryCommandInput,
   ListBotAnalyzerHistoryCommandOutput,
 } from "./commands/ListBotAnalyzerHistoryCommand";
-import { ListBotLocalesCommandInput, ListBotLocalesCommandOutput } from "./commands/ListBotLocalesCommand";
-import {
+import type { ListBotLocalesCommandInput, ListBotLocalesCommandOutput } from "./commands/ListBotLocalesCommand";
+import type {
   ListBotRecommendationsCommandInput,
   ListBotRecommendationsCommandOutput,
 } from "./commands/ListBotRecommendationsCommand";
-import { ListBotReplicasCommandInput, ListBotReplicasCommandOutput } from "./commands/ListBotReplicasCommand";
-import {
+import type { ListBotReplicasCommandInput, ListBotReplicasCommandOutput } from "./commands/ListBotReplicasCommand";
+import type {
   ListBotResourceGenerationsCommandInput,
   ListBotResourceGenerationsCommandOutput,
 } from "./commands/ListBotResourceGenerationsCommand";
-import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
-import {
+import type { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import type {
   ListBotVersionReplicasCommandInput,
   ListBotVersionReplicasCommandOutput,
 } from "./commands/ListBotVersionReplicasCommand";
-import { ListBotVersionsCommandInput, ListBotVersionsCommandOutput } from "./commands/ListBotVersionsCommand";
-import { ListBuiltInIntentsCommandInput, ListBuiltInIntentsCommandOutput } from "./commands/ListBuiltInIntentsCommand";
-import {
+import type { ListBotVersionsCommandInput, ListBotVersionsCommandOutput } from "./commands/ListBotVersionsCommand";
+import type {
+  ListBuiltInIntentsCommandInput,
+  ListBuiltInIntentsCommandOutput,
+} from "./commands/ListBuiltInIntentsCommand";
+import type {
   ListBuiltInSlotTypesCommandInput,
   ListBuiltInSlotTypesCommandOutput,
 } from "./commands/ListBuiltInSlotTypesCommand";
-import {
+import type {
   ListCustomVocabularyItemsCommandInput,
   ListCustomVocabularyItemsCommandOutput,
 } from "./commands/ListCustomVocabularyItemsCommand";
-import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
-import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
-import { ListIntentMetricsCommandInput, ListIntentMetricsCommandOutput } from "./commands/ListIntentMetricsCommand";
-import { ListIntentPathsCommandInput, ListIntentPathsCommandOutput } from "./commands/ListIntentPathsCommand";
-import { ListIntentsCommandInput, ListIntentsCommandOutput } from "./commands/ListIntentsCommand";
-import {
+import type { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import type { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import type {
+  ListIntentMetricsCommandInput,
+  ListIntentMetricsCommandOutput,
+} from "./commands/ListIntentMetricsCommand";
+import type { ListIntentPathsCommandInput, ListIntentPathsCommandOutput } from "./commands/ListIntentPathsCommand";
+import type { ListIntentsCommandInput, ListIntentsCommandOutput } from "./commands/ListIntentsCommand";
+import type {
   ListIntentStageMetricsCommandInput,
   ListIntentStageMetricsCommandOutput,
 } from "./commands/ListIntentStageMetricsCommand";
-import {
+import type {
   ListRecommendedIntentsCommandInput,
   ListRecommendedIntentsCommandOutput,
 } from "./commands/ListRecommendedIntentsCommand";
-import {
+import type {
   ListSessionAnalyticsDataCommandInput,
   ListSessionAnalyticsDataCommandOutput,
 } from "./commands/ListSessionAnalyticsDataCommand";
-import { ListSessionMetricsCommandInput, ListSessionMetricsCommandOutput } from "./commands/ListSessionMetricsCommand";
-import { ListSlotsCommandInput, ListSlotsCommandOutput } from "./commands/ListSlotsCommand";
-import { ListSlotTypesCommandInput, ListSlotTypesCommandOutput } from "./commands/ListSlotTypesCommand";
-import {
+import type {
+  ListSessionMetricsCommandInput,
+  ListSessionMetricsCommandOutput,
+} from "./commands/ListSessionMetricsCommand";
+import type { ListSlotsCommandInput, ListSlotsCommandOutput } from "./commands/ListSlotsCommand";
+import type { ListSlotTypesCommandInput, ListSlotTypesCommandOutput } from "./commands/ListSlotTypesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTestExecutionResultItemsCommandInput,
   ListTestExecutionResultItemsCommandOutput,
 } from "./commands/ListTestExecutionResultItemsCommand";
-import { ListTestExecutionsCommandInput, ListTestExecutionsCommandOutput } from "./commands/ListTestExecutionsCommand";
-import { ListTestSetRecordsCommandInput, ListTestSetRecordsCommandOutput } from "./commands/ListTestSetRecordsCommand";
-import { ListTestSetsCommandInput, ListTestSetsCommandOutput } from "./commands/ListTestSetsCommand";
-import {
+import type {
+  ListTestExecutionsCommandInput,
+  ListTestExecutionsCommandOutput,
+} from "./commands/ListTestExecutionsCommand";
+import type {
+  ListTestSetRecordsCommandInput,
+  ListTestSetRecordsCommandOutput,
+} from "./commands/ListTestSetRecordsCommand";
+import type { ListTestSetsCommandInput, ListTestSetsCommandOutput } from "./commands/ListTestSetsCommand";
+import type {
   ListUtteranceAnalyticsDataCommandInput,
   ListUtteranceAnalyticsDataCommandOutput,
 } from "./commands/ListUtteranceAnalyticsDataCommand";
-import {
+import type {
   ListUtteranceMetricsCommandInput,
   ListUtteranceMetricsCommandOutput,
 } from "./commands/ListUtteranceMetricsCommand";
-import {
+import type {
   SearchAssociatedTranscriptsCommandInput,
   SearchAssociatedTranscriptsCommandOutput,
 } from "./commands/SearchAssociatedTranscriptsCommand";
-import { StartBotAnalyzerCommandInput, StartBotAnalyzerCommandOutput } from "./commands/StartBotAnalyzerCommand";
-import {
+import type { StartBotAnalyzerCommandInput, StartBotAnalyzerCommandOutput } from "./commands/StartBotAnalyzerCommand";
+import type {
   StartBotRecommendationCommandInput,
   StartBotRecommendationCommandOutput,
 } from "./commands/StartBotRecommendationCommand";
-import {
+import type {
   StartBotResourceGenerationCommandInput,
   StartBotResourceGenerationCommandOutput,
 } from "./commands/StartBotResourceGenerationCommand";
-import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
-import { StartTestExecutionCommandInput, StartTestExecutionCommandOutput } from "./commands/StartTestExecutionCommand";
-import {
+import type { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import type {
+  StartTestExecutionCommandInput,
+  StartTestExecutionCommandOutput,
+} from "./commands/StartTestExecutionCommand";
+import type {
   StartTestSetGenerationCommandInput,
   StartTestSetGenerationCommandOutput,
 } from "./commands/StartTestSetGenerationCommand";
-import { StopBotAnalyzerCommandInput, StopBotAnalyzerCommandOutput } from "./commands/StopBotAnalyzerCommand";
-import {
+import type { StopBotAnalyzerCommandInput, StopBotAnalyzerCommandOutput } from "./commands/StopBotAnalyzerCommand";
+import type {
   StopBotRecommendationCommandInput,
   StopBotRecommendationCommandOutput,
 } from "./commands/StopBotRecommendationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateBotAliasCommandInput, UpdateBotAliasCommandOutput } from "./commands/UpdateBotAliasCommand";
-import { UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
-import { UpdateBotLocaleCommandInput, UpdateBotLocaleCommandOutput } from "./commands/UpdateBotLocaleCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateBotAliasCommandInput, UpdateBotAliasCommandOutput } from "./commands/UpdateBotAliasCommand";
+import type { UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
+import type { UpdateBotLocaleCommandInput, UpdateBotLocaleCommandOutput } from "./commands/UpdateBotLocaleCommand";
+import type {
   UpdateBotRecommendationCommandInput,
   UpdateBotRecommendationCommandOutput,
 } from "./commands/UpdateBotRecommendationCommand";
-import { UpdateExportCommandInput, UpdateExportCommandOutput } from "./commands/UpdateExportCommand";
-import { UpdateIntentCommandInput, UpdateIntentCommandOutput } from "./commands/UpdateIntentCommand";
-import {
+import type { UpdateExportCommandInput, UpdateExportCommandOutput } from "./commands/UpdateExportCommand";
+import type { UpdateIntentCommandInput, UpdateIntentCommandOutput } from "./commands/UpdateIntentCommand";
+import type {
   UpdateResourcePolicyCommandInput,
   UpdateResourcePolicyCommandOutput,
 } from "./commands/UpdateResourcePolicyCommand";
-import { UpdateSlotCommandInput, UpdateSlotCommandOutput } from "./commands/UpdateSlotCommand";
-import { UpdateSlotTypeCommandInput, UpdateSlotTypeCommandOutput } from "./commands/UpdateSlotTypeCommand";
-import { UpdateTestSetCommandInput, UpdateTestSetCommandOutput } from "./commands/UpdateTestSetCommand";
+import type { UpdateSlotCommandInput, UpdateSlotCommandOutput } from "./commands/UpdateSlotCommand";
+import type { UpdateSlotTypeCommandInput, UpdateSlotTypeCommandOutput } from "./commands/UpdateSlotTypeCommand";
+import type { UpdateTestSetCommandInput, UpdateTestSetCommandOutput } from "./commands/UpdateTestSetCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -642,7 +670,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { LockState, ResourceType, RetentionPeriodUnit, RuleStatus, UnlockDelayUnit } from "./enums";
+import type { LockState, ResourceType, RetentionPeriodUnit, RuleStatus, UnlockDelayUnit } from "./enums";
 
 /**
  * <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention

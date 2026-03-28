@@ -8,7 +8,7 @@ import {
   ListBrowserSettingsCommandOutput,
 } from "../commands/ListBrowserSettingsCommand";
 import { WorkSpacesWebClient } from "../WorkSpacesWebClient";
-import { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
+import type { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

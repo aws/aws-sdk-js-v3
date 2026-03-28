@@ -3,217 +3,249 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateDatasetCommandInput,
+  type CreateDatasetCommandOutput,
   CreateDatasetCommand,
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput,
 } from "./commands/CreateDatasetCommand";
 import {
+  type CreateInferenceSchedulerCommandInput,
+  type CreateInferenceSchedulerCommandOutput,
   CreateInferenceSchedulerCommand,
-  CreateInferenceSchedulerCommandInput,
-  CreateInferenceSchedulerCommandOutput,
 } from "./commands/CreateInferenceSchedulerCommand";
-import { CreateLabelCommand, CreateLabelCommandInput, CreateLabelCommandOutput } from "./commands/CreateLabelCommand";
 import {
+  type CreateLabelCommandInput,
+  type CreateLabelCommandOutput,
+  CreateLabelCommand,
+} from "./commands/CreateLabelCommand";
+import {
+  type CreateLabelGroupCommandInput,
+  type CreateLabelGroupCommandOutput,
   CreateLabelGroupCommand,
-  CreateLabelGroupCommandInput,
-  CreateLabelGroupCommandOutput,
 } from "./commands/CreateLabelGroupCommand";
-import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
+  type CreateModelCommandInput,
+  type CreateModelCommandOutput,
+  CreateModelCommand,
+} from "./commands/CreateModelCommand";
+import {
+  type CreateRetrainingSchedulerCommandInput,
+  type CreateRetrainingSchedulerCommandOutput,
   CreateRetrainingSchedulerCommand,
-  CreateRetrainingSchedulerCommandInput,
-  CreateRetrainingSchedulerCommandOutput,
 } from "./commands/CreateRetrainingSchedulerCommand";
 import {
+  type DeleteDatasetCommandInput,
+  type DeleteDatasetCommandOutput,
   DeleteDatasetCommand,
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput,
 } from "./commands/DeleteDatasetCommand";
 import {
+  type DeleteInferenceSchedulerCommandInput,
+  type DeleteInferenceSchedulerCommandOutput,
   DeleteInferenceSchedulerCommand,
-  DeleteInferenceSchedulerCommandInput,
-  DeleteInferenceSchedulerCommandOutput,
 } from "./commands/DeleteInferenceSchedulerCommand";
-import { DeleteLabelCommand, DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
 import {
+  type DeleteLabelCommandInput,
+  type DeleteLabelCommandOutput,
+  DeleteLabelCommand,
+} from "./commands/DeleteLabelCommand";
+import {
+  type DeleteLabelGroupCommandInput,
+  type DeleteLabelGroupCommandOutput,
   DeleteLabelGroupCommand,
-  DeleteLabelGroupCommandInput,
-  DeleteLabelGroupCommandOutput,
 } from "./commands/DeleteLabelGroupCommand";
-import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
+  type DeleteModelCommandInput,
+  type DeleteModelCommandOutput,
+  DeleteModelCommand,
+} from "./commands/DeleteModelCommand";
+import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteRetrainingSchedulerCommandInput,
+  type DeleteRetrainingSchedulerCommandOutput,
   DeleteRetrainingSchedulerCommand,
-  DeleteRetrainingSchedulerCommandInput,
-  DeleteRetrainingSchedulerCommandOutput,
 } from "./commands/DeleteRetrainingSchedulerCommand";
 import {
+  type DescribeDataIngestionJobCommandInput,
+  type DescribeDataIngestionJobCommandOutput,
   DescribeDataIngestionJobCommand,
-  DescribeDataIngestionJobCommandInput,
-  DescribeDataIngestionJobCommandOutput,
 } from "./commands/DescribeDataIngestionJobCommand";
 import {
+  type DescribeDatasetCommandInput,
+  type DescribeDatasetCommandOutput,
   DescribeDatasetCommand,
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput,
 } from "./commands/DescribeDatasetCommand";
 import {
+  type DescribeInferenceSchedulerCommandInput,
+  type DescribeInferenceSchedulerCommandOutput,
   DescribeInferenceSchedulerCommand,
-  DescribeInferenceSchedulerCommandInput,
-  DescribeInferenceSchedulerCommandOutput,
 } from "./commands/DescribeInferenceSchedulerCommand";
 import {
+  type DescribeLabelCommandInput,
+  type DescribeLabelCommandOutput,
   DescribeLabelCommand,
-  DescribeLabelCommandInput,
-  DescribeLabelCommandOutput,
 } from "./commands/DescribeLabelCommand";
 import {
+  type DescribeLabelGroupCommandInput,
+  type DescribeLabelGroupCommandOutput,
   DescribeLabelGroupCommand,
-  DescribeLabelGroupCommandInput,
-  DescribeLabelGroupCommandOutput,
 } from "./commands/DescribeLabelGroupCommand";
 import {
+  type DescribeModelCommandInput,
+  type DescribeModelCommandOutput,
   DescribeModelCommand,
-  DescribeModelCommandInput,
-  DescribeModelCommandOutput,
 } from "./commands/DescribeModelCommand";
 import {
+  type DescribeModelVersionCommandInput,
+  type DescribeModelVersionCommandOutput,
   DescribeModelVersionCommand,
-  DescribeModelVersionCommandInput,
-  DescribeModelVersionCommandOutput,
 } from "./commands/DescribeModelVersionCommand";
 import {
+  type DescribeResourcePolicyCommandInput,
+  type DescribeResourcePolicyCommandOutput,
   DescribeResourcePolicyCommand,
-  DescribeResourcePolicyCommandInput,
-  DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
 import {
+  type DescribeRetrainingSchedulerCommandInput,
+  type DescribeRetrainingSchedulerCommandOutput,
   DescribeRetrainingSchedulerCommand,
-  DescribeRetrainingSchedulerCommandInput,
-  DescribeRetrainingSchedulerCommandOutput,
 } from "./commands/DescribeRetrainingSchedulerCommand";
 import {
+  type ImportDatasetCommandInput,
+  type ImportDatasetCommandOutput,
   ImportDatasetCommand,
-  ImportDatasetCommandInput,
-  ImportDatasetCommandOutput,
 } from "./commands/ImportDatasetCommand";
 import {
+  type ImportModelVersionCommandInput,
+  type ImportModelVersionCommandOutput,
   ImportModelVersionCommand,
-  ImportModelVersionCommandInput,
-  ImportModelVersionCommandOutput,
 } from "./commands/ImportModelVersionCommand";
 import {
+  type ListDataIngestionJobsCommandInput,
+  type ListDataIngestionJobsCommandOutput,
   ListDataIngestionJobsCommand,
-  ListDataIngestionJobsCommandInput,
-  ListDataIngestionJobsCommandOutput,
 } from "./commands/ListDataIngestionJobsCommand";
 import {
+  type ListDatasetsCommandInput,
+  type ListDatasetsCommandOutput,
   ListDatasetsCommand,
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
 import {
+  type ListInferenceEventsCommandInput,
+  type ListInferenceEventsCommandOutput,
   ListInferenceEventsCommand,
-  ListInferenceEventsCommandInput,
-  ListInferenceEventsCommandOutput,
 } from "./commands/ListInferenceEventsCommand";
 import {
+  type ListInferenceExecutionsCommandInput,
+  type ListInferenceExecutionsCommandOutput,
   ListInferenceExecutionsCommand,
-  ListInferenceExecutionsCommandInput,
-  ListInferenceExecutionsCommandOutput,
 } from "./commands/ListInferenceExecutionsCommand";
 import {
+  type ListInferenceSchedulersCommandInput,
+  type ListInferenceSchedulersCommandOutput,
   ListInferenceSchedulersCommand,
-  ListInferenceSchedulersCommandInput,
-  ListInferenceSchedulersCommandOutput,
 } from "./commands/ListInferenceSchedulersCommand";
 import {
+  type ListLabelGroupsCommandInput,
+  type ListLabelGroupsCommandOutput,
   ListLabelGroupsCommand,
-  ListLabelGroupsCommandInput,
-  ListLabelGroupsCommandOutput,
 } from "./commands/ListLabelGroupsCommand";
-import { ListLabelsCommand, ListLabelsCommandInput, ListLabelsCommandOutput } from "./commands/ListLabelsCommand";
-import { ListModelsCommand, ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import {
+  type ListLabelsCommandInput,
+  type ListLabelsCommandOutput,
+  ListLabelsCommand,
+} from "./commands/ListLabelsCommand";
+import {
+  type ListModelsCommandInput,
+  type ListModelsCommandOutput,
+  ListModelsCommand,
+} from "./commands/ListModelsCommand";
+import {
+  type ListModelVersionsCommandInput,
+  type ListModelVersionsCommandOutput,
   ListModelVersionsCommand,
-  ListModelVersionsCommandInput,
-  ListModelVersionsCommandOutput,
 } from "./commands/ListModelVersionsCommand";
 import {
+  type ListRetrainingSchedulersCommandInput,
+  type ListRetrainingSchedulersCommandOutput,
   ListRetrainingSchedulersCommand,
-  ListRetrainingSchedulersCommandInput,
-  ListRetrainingSchedulersCommandOutput,
 } from "./commands/ListRetrainingSchedulersCommand";
 import {
+  type ListSensorStatisticsCommandInput,
+  type ListSensorStatisticsCommandOutput,
   ListSensorStatisticsCommand,
-  ListSensorStatisticsCommandInput,
-  ListSensorStatisticsCommandOutput,
 } from "./commands/ListSensorStatisticsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type StartDataIngestionJobCommandInput,
+  type StartDataIngestionJobCommandOutput,
   StartDataIngestionJobCommand,
-  StartDataIngestionJobCommandInput,
-  StartDataIngestionJobCommandOutput,
 } from "./commands/StartDataIngestionJobCommand";
 import {
+  type StartInferenceSchedulerCommandInput,
+  type StartInferenceSchedulerCommandOutput,
   StartInferenceSchedulerCommand,
-  StartInferenceSchedulerCommandInput,
-  StartInferenceSchedulerCommandOutput,
 } from "./commands/StartInferenceSchedulerCommand";
 import {
+  type StartRetrainingSchedulerCommandInput,
+  type StartRetrainingSchedulerCommandOutput,
   StartRetrainingSchedulerCommand,
-  StartRetrainingSchedulerCommandInput,
-  StartRetrainingSchedulerCommandOutput,
 } from "./commands/StartRetrainingSchedulerCommand";
 import {
+  type StopInferenceSchedulerCommandInput,
+  type StopInferenceSchedulerCommandOutput,
   StopInferenceSchedulerCommand,
-  StopInferenceSchedulerCommandInput,
-  StopInferenceSchedulerCommandOutput,
 } from "./commands/StopInferenceSchedulerCommand";
 import {
+  type StopRetrainingSchedulerCommandInput,
+  type StopRetrainingSchedulerCommandOutput,
   StopRetrainingSchedulerCommand,
-  StopRetrainingSchedulerCommandInput,
-  StopRetrainingSchedulerCommandOutput,
 } from "./commands/StopRetrainingSchedulerCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateActiveModelVersionCommandInput,
+  type UpdateActiveModelVersionCommandOutput,
   UpdateActiveModelVersionCommand,
-  UpdateActiveModelVersionCommandInput,
-  UpdateActiveModelVersionCommandOutput,
 } from "./commands/UpdateActiveModelVersionCommand";
 import {
+  type UpdateInferenceSchedulerCommandInput,
+  type UpdateInferenceSchedulerCommandOutput,
   UpdateInferenceSchedulerCommand,
-  UpdateInferenceSchedulerCommandInput,
-  UpdateInferenceSchedulerCommandOutput,
 } from "./commands/UpdateInferenceSchedulerCommand";
 import {
+  type UpdateLabelGroupCommandInput,
+  type UpdateLabelGroupCommandOutput,
   UpdateLabelGroupCommand,
-  UpdateLabelGroupCommandInput,
-  UpdateLabelGroupCommandOutput,
 } from "./commands/UpdateLabelGroupCommand";
-import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import {
+  type UpdateModelCommandInput,
+  type UpdateModelCommandOutput,
+  UpdateModelCommand,
+} from "./commands/UpdateModelCommand";
+import {
+  type UpdateRetrainingSchedulerCommandInput,
+  type UpdateRetrainingSchedulerCommandOutput,
   UpdateRetrainingSchedulerCommand,
-  UpdateRetrainingSchedulerCommandInput,
-  UpdateRetrainingSchedulerCommandOutput,
 } from "./commands/UpdateRetrainingSchedulerCommand";
 import { LookoutEquipmentClient } from "./LookoutEquipmentClient";
 import { paginateListDataIngestionJobs } from "./pagination/ListDataIngestionJobsPaginator";

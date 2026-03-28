@@ -9,555 +9,611 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AcceptInputDeviceTransferCommandInput,
+  type AcceptInputDeviceTransferCommandOutput,
   AcceptInputDeviceTransferCommand,
-  AcceptInputDeviceTransferCommandInput,
-  AcceptInputDeviceTransferCommandOutput,
 } from "./commands/AcceptInputDeviceTransferCommand";
-import { BatchDeleteCommand, BatchDeleteCommandInput, BatchDeleteCommandOutput } from "./commands/BatchDeleteCommand";
-import { BatchStartCommand, BatchStartCommandInput, BatchStartCommandOutput } from "./commands/BatchStartCommand";
-import { BatchStopCommand, BatchStopCommandInput, BatchStopCommandOutput } from "./commands/BatchStopCommand";
 import {
+  type BatchDeleteCommandInput,
+  type BatchDeleteCommandOutput,
+  BatchDeleteCommand,
+} from "./commands/BatchDeleteCommand";
+import {
+  type BatchStartCommandInput,
+  type BatchStartCommandOutput,
+  BatchStartCommand,
+} from "./commands/BatchStartCommand";
+import { type BatchStopCommandInput, type BatchStopCommandOutput, BatchStopCommand } from "./commands/BatchStopCommand";
+import {
+  type BatchUpdateScheduleCommandInput,
+  type BatchUpdateScheduleCommandOutput,
   BatchUpdateScheduleCommand,
-  BatchUpdateScheduleCommandInput,
-  BatchUpdateScheduleCommandOutput,
 } from "./commands/BatchUpdateScheduleCommand";
 import {
+  type CancelInputDeviceTransferCommandInput,
+  type CancelInputDeviceTransferCommandOutput,
   CancelInputDeviceTransferCommand,
-  CancelInputDeviceTransferCommandInput,
-  CancelInputDeviceTransferCommandOutput,
 } from "./commands/CancelInputDeviceTransferCommand";
-import { ClaimDeviceCommand, ClaimDeviceCommandInput, ClaimDeviceCommandOutput } from "./commands/ClaimDeviceCommand";
 import {
+  type ClaimDeviceCommandInput,
+  type ClaimDeviceCommandOutput,
+  ClaimDeviceCommand,
+} from "./commands/ClaimDeviceCommand";
+import {
+  type CreateChannelCommandInput,
+  type CreateChannelCommandOutput,
   CreateChannelCommand,
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  type CreateChannelPlacementGroupCommandInput,
+  type CreateChannelPlacementGroupCommandOutput,
   CreateChannelPlacementGroupCommand,
-  CreateChannelPlacementGroupCommandInput,
-  CreateChannelPlacementGroupCommandOutput,
 } from "./commands/CreateChannelPlacementGroupCommand";
 import {
+  type CreateCloudWatchAlarmTemplateCommandInput,
+  type CreateCloudWatchAlarmTemplateCommandOutput,
   CreateCloudWatchAlarmTemplateCommand,
-  CreateCloudWatchAlarmTemplateCommandInput,
-  CreateCloudWatchAlarmTemplateCommandOutput,
 } from "./commands/CreateCloudWatchAlarmTemplateCommand";
 import {
+  type CreateCloudWatchAlarmTemplateGroupCommandInput,
+  type CreateCloudWatchAlarmTemplateGroupCommandOutput,
   CreateCloudWatchAlarmTemplateGroupCommand,
-  CreateCloudWatchAlarmTemplateGroupCommandInput,
-  CreateCloudWatchAlarmTemplateGroupCommandOutput,
 } from "./commands/CreateCloudWatchAlarmTemplateGroupCommand";
 import {
+  type CreateClusterCommandInput,
+  type CreateClusterCommandOutput,
   CreateClusterCommand,
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateEventBridgeRuleTemplateCommandInput,
+  type CreateEventBridgeRuleTemplateCommandOutput,
   CreateEventBridgeRuleTemplateCommand,
-  CreateEventBridgeRuleTemplateCommandInput,
-  CreateEventBridgeRuleTemplateCommandOutput,
 } from "./commands/CreateEventBridgeRuleTemplateCommand";
 import {
+  type CreateEventBridgeRuleTemplateGroupCommandInput,
+  type CreateEventBridgeRuleTemplateGroupCommandOutput,
   CreateEventBridgeRuleTemplateGroupCommand,
-  CreateEventBridgeRuleTemplateGroupCommandInput,
-  CreateEventBridgeRuleTemplateGroupCommandOutput,
 } from "./commands/CreateEventBridgeRuleTemplateGroupCommand";
-import { CreateInputCommand, CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
 import {
+  type CreateInputCommandInput,
+  type CreateInputCommandOutput,
+  CreateInputCommand,
+} from "./commands/CreateInputCommand";
+import {
+  type CreateInputSecurityGroupCommandInput,
+  type CreateInputSecurityGroupCommandOutput,
   CreateInputSecurityGroupCommand,
-  CreateInputSecurityGroupCommandInput,
-  CreateInputSecurityGroupCommandOutput,
 } from "./commands/CreateInputSecurityGroupCommand";
 import {
+  type CreateMultiplexCommandInput,
+  type CreateMultiplexCommandOutput,
   CreateMultiplexCommand,
-  CreateMultiplexCommandInput,
-  CreateMultiplexCommandOutput,
 } from "./commands/CreateMultiplexCommand";
 import {
+  type CreateMultiplexProgramCommandInput,
+  type CreateMultiplexProgramCommandOutput,
   CreateMultiplexProgramCommand,
-  CreateMultiplexProgramCommandInput,
-  CreateMultiplexProgramCommandOutput,
 } from "./commands/CreateMultiplexProgramCommand";
 import {
+  type CreateNetworkCommandInput,
+  type CreateNetworkCommandOutput,
   CreateNetworkCommand,
-  CreateNetworkCommandInput,
-  CreateNetworkCommandOutput,
 } from "./commands/CreateNetworkCommand";
-import { CreateNodeCommand, CreateNodeCommandInput, CreateNodeCommandOutput } from "./commands/CreateNodeCommand";
 import {
+  type CreateNodeCommandInput,
+  type CreateNodeCommandOutput,
+  CreateNodeCommand,
+} from "./commands/CreateNodeCommand";
+import {
+  type CreateNodeRegistrationScriptCommandInput,
+  type CreateNodeRegistrationScriptCommandOutput,
   CreateNodeRegistrationScriptCommand,
-  CreateNodeRegistrationScriptCommandInput,
-  CreateNodeRegistrationScriptCommandOutput,
 } from "./commands/CreateNodeRegistrationScriptCommand";
 import {
+  type CreatePartnerInputCommandInput,
+  type CreatePartnerInputCommandOutput,
   CreatePartnerInputCommand,
-  CreatePartnerInputCommandInput,
-  CreatePartnerInputCommandOutput,
 } from "./commands/CreatePartnerInputCommand";
 import {
+  type CreateSdiSourceCommandInput,
+  type CreateSdiSourceCommandOutput,
   CreateSdiSourceCommand,
-  CreateSdiSourceCommandInput,
-  CreateSdiSourceCommandOutput,
 } from "./commands/CreateSdiSourceCommand";
 import {
+  type CreateSignalMapCommandInput,
+  type CreateSignalMapCommandOutput,
   CreateSignalMapCommand,
-  CreateSignalMapCommandInput,
-  CreateSignalMapCommandOutput,
 } from "./commands/CreateSignalMapCommand";
-import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
+  type CreateTagsCommandInput,
+  type CreateTagsCommandOutput,
+  CreateTagsCommand,
+} from "./commands/CreateTagsCommand";
+import {
+  type DeleteChannelCommandInput,
+  type DeleteChannelCommandOutput,
   DeleteChannelCommand,
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
 import {
+  type DeleteChannelPlacementGroupCommandInput,
+  type DeleteChannelPlacementGroupCommandOutput,
   DeleteChannelPlacementGroupCommand,
-  DeleteChannelPlacementGroupCommandInput,
-  DeleteChannelPlacementGroupCommandOutput,
 } from "./commands/DeleteChannelPlacementGroupCommand";
 import {
+  type DeleteCloudWatchAlarmTemplateCommandInput,
+  type DeleteCloudWatchAlarmTemplateCommandOutput,
   DeleteCloudWatchAlarmTemplateCommand,
-  DeleteCloudWatchAlarmTemplateCommandInput,
-  DeleteCloudWatchAlarmTemplateCommandOutput,
 } from "./commands/DeleteCloudWatchAlarmTemplateCommand";
 import {
+  type DeleteCloudWatchAlarmTemplateGroupCommandInput,
+  type DeleteCloudWatchAlarmTemplateGroupCommandOutput,
   DeleteCloudWatchAlarmTemplateGroupCommand,
-  DeleteCloudWatchAlarmTemplateGroupCommandInput,
-  DeleteCloudWatchAlarmTemplateGroupCommandOutput,
 } from "./commands/DeleteCloudWatchAlarmTemplateGroupCommand";
 import {
+  type DeleteClusterCommandInput,
+  type DeleteClusterCommandOutput,
   DeleteClusterCommand,
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  type DeleteEventBridgeRuleTemplateCommandInput,
+  type DeleteEventBridgeRuleTemplateCommandOutput,
   DeleteEventBridgeRuleTemplateCommand,
-  DeleteEventBridgeRuleTemplateCommandInput,
-  DeleteEventBridgeRuleTemplateCommandOutput,
 } from "./commands/DeleteEventBridgeRuleTemplateCommand";
 import {
+  type DeleteEventBridgeRuleTemplateGroupCommandInput,
+  type DeleteEventBridgeRuleTemplateGroupCommandOutput,
   DeleteEventBridgeRuleTemplateGroupCommand,
-  DeleteEventBridgeRuleTemplateGroupCommandInput,
-  DeleteEventBridgeRuleTemplateGroupCommandOutput,
 } from "./commands/DeleteEventBridgeRuleTemplateGroupCommand";
-import { DeleteInputCommand, DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
 import {
+  type DeleteInputCommandInput,
+  type DeleteInputCommandOutput,
+  DeleteInputCommand,
+} from "./commands/DeleteInputCommand";
+import {
+  type DeleteInputSecurityGroupCommandInput,
+  type DeleteInputSecurityGroupCommandOutput,
   DeleteInputSecurityGroupCommand,
-  DeleteInputSecurityGroupCommandInput,
-  DeleteInputSecurityGroupCommandOutput,
 } from "./commands/DeleteInputSecurityGroupCommand";
 import {
+  type DeleteMultiplexCommandInput,
+  type DeleteMultiplexCommandOutput,
   DeleteMultiplexCommand,
-  DeleteMultiplexCommandInput,
-  DeleteMultiplexCommandOutput,
 } from "./commands/DeleteMultiplexCommand";
 import {
+  type DeleteMultiplexProgramCommandInput,
+  type DeleteMultiplexProgramCommandOutput,
   DeleteMultiplexProgramCommand,
-  DeleteMultiplexProgramCommandInput,
-  DeleteMultiplexProgramCommandOutput,
 } from "./commands/DeleteMultiplexProgramCommand";
 import {
+  type DeleteNetworkCommandInput,
+  type DeleteNetworkCommandOutput,
   DeleteNetworkCommand,
-  DeleteNetworkCommandInput,
-  DeleteNetworkCommandOutput,
 } from "./commands/DeleteNetworkCommand";
-import { DeleteNodeCommand, DeleteNodeCommandInput, DeleteNodeCommandOutput } from "./commands/DeleteNodeCommand";
 import {
+  type DeleteNodeCommandInput,
+  type DeleteNodeCommandOutput,
+  DeleteNodeCommand,
+} from "./commands/DeleteNodeCommand";
+import {
+  type DeleteReservationCommandInput,
+  type DeleteReservationCommandOutput,
   DeleteReservationCommand,
-  DeleteReservationCommandInput,
-  DeleteReservationCommandOutput,
 } from "./commands/DeleteReservationCommand";
 import {
+  type DeleteScheduleCommandInput,
+  type DeleteScheduleCommandOutput,
   DeleteScheduleCommand,
-  DeleteScheduleCommandInput,
-  DeleteScheduleCommandOutput,
 } from "./commands/DeleteScheduleCommand";
 import {
+  type DeleteSdiSourceCommandInput,
+  type DeleteSdiSourceCommandOutput,
   DeleteSdiSourceCommand,
-  DeleteSdiSourceCommandInput,
-  DeleteSdiSourceCommandOutput,
 } from "./commands/DeleteSdiSourceCommand";
 import {
+  type DeleteSignalMapCommandInput,
+  type DeleteSignalMapCommandOutput,
   DeleteSignalMapCommand,
-  DeleteSignalMapCommandInput,
-  DeleteSignalMapCommandOutput,
 } from "./commands/DeleteSignalMapCommand";
-import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
+  type DeleteTagsCommandInput,
+  type DeleteTagsCommandOutput,
+  DeleteTagsCommand,
+} from "./commands/DeleteTagsCommand";
+import {
+  type DescribeAccountConfigurationCommandInput,
+  type DescribeAccountConfigurationCommandOutput,
   DescribeAccountConfigurationCommand,
-  DescribeAccountConfigurationCommandInput,
-  DescribeAccountConfigurationCommandOutput,
 } from "./commands/DescribeAccountConfigurationCommand";
 import {
+  type DescribeChannelCommandInput,
+  type DescribeChannelCommandOutput,
   DescribeChannelCommand,
-  DescribeChannelCommandInput,
-  DescribeChannelCommandOutput,
 } from "./commands/DescribeChannelCommand";
 import {
+  type DescribeChannelPlacementGroupCommandInput,
+  type DescribeChannelPlacementGroupCommandOutput,
   DescribeChannelPlacementGroupCommand,
-  DescribeChannelPlacementGroupCommandInput,
-  DescribeChannelPlacementGroupCommandOutput,
 } from "./commands/DescribeChannelPlacementGroupCommand";
 import {
+  type DescribeClusterCommandInput,
+  type DescribeClusterCommandOutput,
   DescribeClusterCommand,
-  DescribeClusterCommandInput,
-  DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand";
 import {
+  type DescribeInputCommandInput,
+  type DescribeInputCommandOutput,
   DescribeInputCommand,
-  DescribeInputCommandInput,
-  DescribeInputCommandOutput,
 } from "./commands/DescribeInputCommand";
 import {
+  type DescribeInputDeviceCommandInput,
+  type DescribeInputDeviceCommandOutput,
   DescribeInputDeviceCommand,
-  DescribeInputDeviceCommandInput,
-  DescribeInputDeviceCommandOutput,
 } from "./commands/DescribeInputDeviceCommand";
 import {
+  type DescribeInputDeviceThumbnailCommandInput,
+  type DescribeInputDeviceThumbnailCommandOutput,
   DescribeInputDeviceThumbnailCommand,
-  DescribeInputDeviceThumbnailCommandInput,
-  DescribeInputDeviceThumbnailCommandOutput,
 } from "./commands/DescribeInputDeviceThumbnailCommand";
 import {
+  type DescribeInputSecurityGroupCommandInput,
+  type DescribeInputSecurityGroupCommandOutput,
   DescribeInputSecurityGroupCommand,
-  DescribeInputSecurityGroupCommandInput,
-  DescribeInputSecurityGroupCommandOutput,
 } from "./commands/DescribeInputSecurityGroupCommand";
 import {
+  type DescribeMultiplexCommandInput,
+  type DescribeMultiplexCommandOutput,
   DescribeMultiplexCommand,
-  DescribeMultiplexCommandInput,
-  DescribeMultiplexCommandOutput,
 } from "./commands/DescribeMultiplexCommand";
 import {
+  type DescribeMultiplexProgramCommandInput,
+  type DescribeMultiplexProgramCommandOutput,
   DescribeMultiplexProgramCommand,
-  DescribeMultiplexProgramCommandInput,
-  DescribeMultiplexProgramCommandOutput,
 } from "./commands/DescribeMultiplexProgramCommand";
 import {
+  type DescribeNetworkCommandInput,
+  type DescribeNetworkCommandOutput,
   DescribeNetworkCommand,
-  DescribeNetworkCommandInput,
-  DescribeNetworkCommandOutput,
 } from "./commands/DescribeNetworkCommand";
 import {
+  type DescribeNodeCommandInput,
+  type DescribeNodeCommandOutput,
   DescribeNodeCommand,
-  DescribeNodeCommandInput,
-  DescribeNodeCommandOutput,
 } from "./commands/DescribeNodeCommand";
 import {
+  type DescribeOfferingCommandInput,
+  type DescribeOfferingCommandOutput,
   DescribeOfferingCommand,
-  DescribeOfferingCommandInput,
-  DescribeOfferingCommandOutput,
 } from "./commands/DescribeOfferingCommand";
 import {
+  type DescribeReservationCommandInput,
+  type DescribeReservationCommandOutput,
   DescribeReservationCommand,
-  DescribeReservationCommandInput,
-  DescribeReservationCommandOutput,
 } from "./commands/DescribeReservationCommand";
 import {
+  type DescribeScheduleCommandInput,
+  type DescribeScheduleCommandOutput,
   DescribeScheduleCommand,
-  DescribeScheduleCommandInput,
-  DescribeScheduleCommandOutput,
 } from "./commands/DescribeScheduleCommand";
 import {
+  type DescribeSdiSourceCommandInput,
+  type DescribeSdiSourceCommandOutput,
   DescribeSdiSourceCommand,
-  DescribeSdiSourceCommandInput,
-  DescribeSdiSourceCommandOutput,
 } from "./commands/DescribeSdiSourceCommand";
 import {
+  type DescribeThumbnailsCommandInput,
+  type DescribeThumbnailsCommandOutput,
   DescribeThumbnailsCommand,
-  DescribeThumbnailsCommandInput,
-  DescribeThumbnailsCommandOutput,
 } from "./commands/DescribeThumbnailsCommand";
 import {
+  type GetCloudWatchAlarmTemplateCommandInput,
+  type GetCloudWatchAlarmTemplateCommandOutput,
   GetCloudWatchAlarmTemplateCommand,
-  GetCloudWatchAlarmTemplateCommandInput,
-  GetCloudWatchAlarmTemplateCommandOutput,
 } from "./commands/GetCloudWatchAlarmTemplateCommand";
 import {
+  type GetCloudWatchAlarmTemplateGroupCommandInput,
+  type GetCloudWatchAlarmTemplateGroupCommandOutput,
   GetCloudWatchAlarmTemplateGroupCommand,
-  GetCloudWatchAlarmTemplateGroupCommandInput,
-  GetCloudWatchAlarmTemplateGroupCommandOutput,
 } from "./commands/GetCloudWatchAlarmTemplateGroupCommand";
 import {
+  type GetEventBridgeRuleTemplateCommandInput,
+  type GetEventBridgeRuleTemplateCommandOutput,
   GetEventBridgeRuleTemplateCommand,
-  GetEventBridgeRuleTemplateCommandInput,
-  GetEventBridgeRuleTemplateCommandOutput,
 } from "./commands/GetEventBridgeRuleTemplateCommand";
 import {
+  type GetEventBridgeRuleTemplateGroupCommandInput,
+  type GetEventBridgeRuleTemplateGroupCommandOutput,
   GetEventBridgeRuleTemplateGroupCommand,
-  GetEventBridgeRuleTemplateGroupCommandInput,
-  GetEventBridgeRuleTemplateGroupCommandOutput,
 } from "./commands/GetEventBridgeRuleTemplateGroupCommand";
 import {
+  type GetSignalMapCommandInput,
+  type GetSignalMapCommandOutput,
   GetSignalMapCommand,
-  GetSignalMapCommandInput,
-  GetSignalMapCommandOutput,
 } from "./commands/GetSignalMapCommand";
-import { ListAlertsCommand, ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
 import {
+  type ListAlertsCommandInput,
+  type ListAlertsCommandOutput,
+  ListAlertsCommand,
+} from "./commands/ListAlertsCommand";
+import {
+  type ListChannelPlacementGroupsCommandInput,
+  type ListChannelPlacementGroupsCommandOutput,
   ListChannelPlacementGroupsCommand,
-  ListChannelPlacementGroupsCommandInput,
-  ListChannelPlacementGroupsCommandOutput,
 } from "./commands/ListChannelPlacementGroupsCommand";
 import {
+  type ListChannelsCommandInput,
+  type ListChannelsCommandOutput,
   ListChannelsCommand,
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
 import {
+  type ListCloudWatchAlarmTemplateGroupsCommandInput,
+  type ListCloudWatchAlarmTemplateGroupsCommandOutput,
   ListCloudWatchAlarmTemplateGroupsCommand,
-  ListCloudWatchAlarmTemplateGroupsCommandInput,
-  ListCloudWatchAlarmTemplateGroupsCommandOutput,
 } from "./commands/ListCloudWatchAlarmTemplateGroupsCommand";
 import {
+  type ListCloudWatchAlarmTemplatesCommandInput,
+  type ListCloudWatchAlarmTemplatesCommandOutput,
   ListCloudWatchAlarmTemplatesCommand,
-  ListCloudWatchAlarmTemplatesCommandInput,
-  ListCloudWatchAlarmTemplatesCommandOutput,
 } from "./commands/ListCloudWatchAlarmTemplatesCommand";
 import {
+  type ListClusterAlertsCommandInput,
+  type ListClusterAlertsCommandOutput,
   ListClusterAlertsCommand,
-  ListClusterAlertsCommandInput,
-  ListClusterAlertsCommandOutput,
 } from "./commands/ListClusterAlertsCommand";
 import {
+  type ListClustersCommandInput,
+  type ListClustersCommandOutput,
   ListClustersCommand,
-  ListClustersCommandInput,
-  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
 import {
+  type ListEventBridgeRuleTemplateGroupsCommandInput,
+  type ListEventBridgeRuleTemplateGroupsCommandOutput,
   ListEventBridgeRuleTemplateGroupsCommand,
-  ListEventBridgeRuleTemplateGroupsCommandInput,
-  ListEventBridgeRuleTemplateGroupsCommandOutput,
 } from "./commands/ListEventBridgeRuleTemplateGroupsCommand";
 import {
+  type ListEventBridgeRuleTemplatesCommandInput,
+  type ListEventBridgeRuleTemplatesCommandOutput,
   ListEventBridgeRuleTemplatesCommand,
-  ListEventBridgeRuleTemplatesCommandInput,
-  ListEventBridgeRuleTemplatesCommandOutput,
 } from "./commands/ListEventBridgeRuleTemplatesCommand";
 import {
+  type ListInputDevicesCommandInput,
+  type ListInputDevicesCommandOutput,
   ListInputDevicesCommand,
-  ListInputDevicesCommandInput,
-  ListInputDevicesCommandOutput,
 } from "./commands/ListInputDevicesCommand";
 import {
+  type ListInputDeviceTransfersCommandInput,
+  type ListInputDeviceTransfersCommandOutput,
   ListInputDeviceTransfersCommand,
-  ListInputDeviceTransfersCommandInput,
-  ListInputDeviceTransfersCommandOutput,
 } from "./commands/ListInputDeviceTransfersCommand";
-import { ListInputsCommand, ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
 import {
+  type ListInputsCommandInput,
+  type ListInputsCommandOutput,
+  ListInputsCommand,
+} from "./commands/ListInputsCommand";
+import {
+  type ListInputSecurityGroupsCommandInput,
+  type ListInputSecurityGroupsCommandOutput,
   ListInputSecurityGroupsCommand,
-  ListInputSecurityGroupsCommandInput,
-  ListInputSecurityGroupsCommandOutput,
 } from "./commands/ListInputSecurityGroupsCommand";
 import {
+  type ListMultiplexAlertsCommandInput,
+  type ListMultiplexAlertsCommandOutput,
   ListMultiplexAlertsCommand,
-  ListMultiplexAlertsCommandInput,
-  ListMultiplexAlertsCommandOutput,
 } from "./commands/ListMultiplexAlertsCommand";
 import {
+  type ListMultiplexesCommandInput,
+  type ListMultiplexesCommandOutput,
   ListMultiplexesCommand,
-  ListMultiplexesCommandInput,
-  ListMultiplexesCommandOutput,
 } from "./commands/ListMultiplexesCommand";
 import {
+  type ListMultiplexProgramsCommandInput,
+  type ListMultiplexProgramsCommandOutput,
   ListMultiplexProgramsCommand,
-  ListMultiplexProgramsCommandInput,
-  ListMultiplexProgramsCommandOutput,
 } from "./commands/ListMultiplexProgramsCommand";
 import {
+  type ListNetworksCommandInput,
+  type ListNetworksCommandOutput,
   ListNetworksCommand,
-  ListNetworksCommandInput,
-  ListNetworksCommandOutput,
 } from "./commands/ListNetworksCommand";
-import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import { type ListNodesCommandInput, type ListNodesCommandOutput, ListNodesCommand } from "./commands/ListNodesCommand";
 import {
+  type ListOfferingsCommandInput,
+  type ListOfferingsCommandOutput,
   ListOfferingsCommand,
-  ListOfferingsCommandInput,
-  ListOfferingsCommandOutput,
 } from "./commands/ListOfferingsCommand";
 import {
+  type ListReservationsCommandInput,
+  type ListReservationsCommandOutput,
   ListReservationsCommand,
-  ListReservationsCommandInput,
-  ListReservationsCommandOutput,
 } from "./commands/ListReservationsCommand";
 import {
+  type ListSdiSourcesCommandInput,
+  type ListSdiSourcesCommandOutput,
   ListSdiSourcesCommand,
-  ListSdiSourcesCommandInput,
-  ListSdiSourcesCommandOutput,
 } from "./commands/ListSdiSourcesCommand";
 import {
+  type ListSignalMapsCommandInput,
+  type ListSignalMapsCommandOutput,
   ListSignalMapsCommand,
-  ListSignalMapsCommandInput,
-  ListSignalMapsCommandOutput,
 } from "./commands/ListSignalMapsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVersionsCommandInput,
+  type ListVersionsCommandOutput,
   ListVersionsCommand,
-  ListVersionsCommandInput,
-  ListVersionsCommandOutput,
 } from "./commands/ListVersionsCommand";
 import {
+  type PurchaseOfferingCommandInput,
+  type PurchaseOfferingCommandOutput,
   PurchaseOfferingCommand,
-  PurchaseOfferingCommandInput,
-  PurchaseOfferingCommandOutput,
 } from "./commands/PurchaseOfferingCommand";
 import {
+  type RebootInputDeviceCommandInput,
+  type RebootInputDeviceCommandOutput,
   RebootInputDeviceCommand,
-  RebootInputDeviceCommandInput,
-  RebootInputDeviceCommandOutput,
 } from "./commands/RebootInputDeviceCommand";
 import {
+  type RejectInputDeviceTransferCommandInput,
+  type RejectInputDeviceTransferCommandOutput,
   RejectInputDeviceTransferCommand,
-  RejectInputDeviceTransferCommandInput,
-  RejectInputDeviceTransferCommandOutput,
 } from "./commands/RejectInputDeviceTransferCommand";
 import {
+  type RestartChannelPipelinesCommandInput,
+  type RestartChannelPipelinesCommandOutput,
   RestartChannelPipelinesCommand,
-  RestartChannelPipelinesCommandInput,
-  RestartChannelPipelinesCommandOutput,
 } from "./commands/RestartChannelPipelinesCommand";
 import {
+  type StartChannelCommandInput,
+  type StartChannelCommandOutput,
   StartChannelCommand,
-  StartChannelCommandInput,
-  StartChannelCommandOutput,
 } from "./commands/StartChannelCommand";
 import {
+  type StartDeleteMonitorDeploymentCommandInput,
+  type StartDeleteMonitorDeploymentCommandOutput,
   StartDeleteMonitorDeploymentCommand,
-  StartDeleteMonitorDeploymentCommandInput,
-  StartDeleteMonitorDeploymentCommandOutput,
 } from "./commands/StartDeleteMonitorDeploymentCommand";
 import {
+  type StartInputDeviceCommandInput,
+  type StartInputDeviceCommandOutput,
   StartInputDeviceCommand,
-  StartInputDeviceCommandInput,
-  StartInputDeviceCommandOutput,
 } from "./commands/StartInputDeviceCommand";
 import {
+  type StartInputDeviceMaintenanceWindowCommandInput,
+  type StartInputDeviceMaintenanceWindowCommandOutput,
   StartInputDeviceMaintenanceWindowCommand,
-  StartInputDeviceMaintenanceWindowCommandInput,
-  StartInputDeviceMaintenanceWindowCommandOutput,
 } from "./commands/StartInputDeviceMaintenanceWindowCommand";
 import {
+  type StartMonitorDeploymentCommandInput,
+  type StartMonitorDeploymentCommandOutput,
   StartMonitorDeploymentCommand,
-  StartMonitorDeploymentCommandInput,
-  StartMonitorDeploymentCommandOutput,
 } from "./commands/StartMonitorDeploymentCommand";
 import {
+  type StartMultiplexCommandInput,
+  type StartMultiplexCommandOutput,
   StartMultiplexCommand,
-  StartMultiplexCommandInput,
-  StartMultiplexCommandOutput,
 } from "./commands/StartMultiplexCommand";
 import {
+  type StartUpdateSignalMapCommandInput,
+  type StartUpdateSignalMapCommandOutput,
   StartUpdateSignalMapCommand,
-  StartUpdateSignalMapCommandInput,
-  StartUpdateSignalMapCommandOutput,
 } from "./commands/StartUpdateSignalMapCommand";
-import { StopChannelCommand, StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
 import {
+  type StopChannelCommandInput,
+  type StopChannelCommandOutput,
+  StopChannelCommand,
+} from "./commands/StopChannelCommand";
+import {
+  type StopInputDeviceCommandInput,
+  type StopInputDeviceCommandOutput,
   StopInputDeviceCommand,
-  StopInputDeviceCommandInput,
-  StopInputDeviceCommandOutput,
 } from "./commands/StopInputDeviceCommand";
 import {
+  type StopMultiplexCommandInput,
+  type StopMultiplexCommandOutput,
   StopMultiplexCommand,
-  StopMultiplexCommandInput,
-  StopMultiplexCommandOutput,
 } from "./commands/StopMultiplexCommand";
 import {
+  type TransferInputDeviceCommandInput,
+  type TransferInputDeviceCommandOutput,
   TransferInputDeviceCommand,
-  TransferInputDeviceCommandInput,
-  TransferInputDeviceCommandOutput,
 } from "./commands/TransferInputDeviceCommand";
 import {
+  type UpdateAccountConfigurationCommandInput,
+  type UpdateAccountConfigurationCommandOutput,
   UpdateAccountConfigurationCommand,
-  UpdateAccountConfigurationCommandInput,
-  UpdateAccountConfigurationCommandOutput,
 } from "./commands/UpdateAccountConfigurationCommand";
 import {
+  type UpdateChannelClassCommandInput,
+  type UpdateChannelClassCommandOutput,
   UpdateChannelClassCommand,
-  UpdateChannelClassCommandInput,
-  UpdateChannelClassCommandOutput,
 } from "./commands/UpdateChannelClassCommand";
 import {
+  type UpdateChannelCommandInput,
+  type UpdateChannelCommandOutput,
   UpdateChannelCommand,
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import {
+  type UpdateChannelPlacementGroupCommandInput,
+  type UpdateChannelPlacementGroupCommandOutput,
   UpdateChannelPlacementGroupCommand,
-  UpdateChannelPlacementGroupCommandInput,
-  UpdateChannelPlacementGroupCommandOutput,
 } from "./commands/UpdateChannelPlacementGroupCommand";
 import {
+  type UpdateCloudWatchAlarmTemplateCommandInput,
+  type UpdateCloudWatchAlarmTemplateCommandOutput,
   UpdateCloudWatchAlarmTemplateCommand,
-  UpdateCloudWatchAlarmTemplateCommandInput,
-  UpdateCloudWatchAlarmTemplateCommandOutput,
 } from "./commands/UpdateCloudWatchAlarmTemplateCommand";
 import {
+  type UpdateCloudWatchAlarmTemplateGroupCommandInput,
+  type UpdateCloudWatchAlarmTemplateGroupCommandOutput,
   UpdateCloudWatchAlarmTemplateGroupCommand,
-  UpdateCloudWatchAlarmTemplateGroupCommandInput,
-  UpdateCloudWatchAlarmTemplateGroupCommandOutput,
 } from "./commands/UpdateCloudWatchAlarmTemplateGroupCommand";
 import {
+  type UpdateClusterCommandInput,
+  type UpdateClusterCommandOutput,
   UpdateClusterCommand,
-  UpdateClusterCommandInput,
-  UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import {
+  type UpdateEventBridgeRuleTemplateCommandInput,
+  type UpdateEventBridgeRuleTemplateCommandOutput,
   UpdateEventBridgeRuleTemplateCommand,
-  UpdateEventBridgeRuleTemplateCommandInput,
-  UpdateEventBridgeRuleTemplateCommandOutput,
 } from "./commands/UpdateEventBridgeRuleTemplateCommand";
 import {
+  type UpdateEventBridgeRuleTemplateGroupCommandInput,
+  type UpdateEventBridgeRuleTemplateGroupCommandOutput,
   UpdateEventBridgeRuleTemplateGroupCommand,
-  UpdateEventBridgeRuleTemplateGroupCommandInput,
-  UpdateEventBridgeRuleTemplateGroupCommandOutput,
 } from "./commands/UpdateEventBridgeRuleTemplateGroupCommand";
-import { UpdateInputCommand, UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
 import {
+  type UpdateInputCommandInput,
+  type UpdateInputCommandOutput,
+  UpdateInputCommand,
+} from "./commands/UpdateInputCommand";
+import {
+  type UpdateInputDeviceCommandInput,
+  type UpdateInputDeviceCommandOutput,
   UpdateInputDeviceCommand,
-  UpdateInputDeviceCommandInput,
-  UpdateInputDeviceCommandOutput,
 } from "./commands/UpdateInputDeviceCommand";
 import {
+  type UpdateInputSecurityGroupCommandInput,
+  type UpdateInputSecurityGroupCommandOutput,
   UpdateInputSecurityGroupCommand,
-  UpdateInputSecurityGroupCommandInput,
-  UpdateInputSecurityGroupCommandOutput,
 } from "./commands/UpdateInputSecurityGroupCommand";
 import {
+  type UpdateMultiplexCommandInput,
+  type UpdateMultiplexCommandOutput,
   UpdateMultiplexCommand,
-  UpdateMultiplexCommandInput,
-  UpdateMultiplexCommandOutput,
 } from "./commands/UpdateMultiplexCommand";
 import {
+  type UpdateMultiplexProgramCommandInput,
+  type UpdateMultiplexProgramCommandOutput,
   UpdateMultiplexProgramCommand,
-  UpdateMultiplexProgramCommandInput,
-  UpdateMultiplexProgramCommandOutput,
 } from "./commands/UpdateMultiplexProgramCommand";
 import {
+  type UpdateNetworkCommandInput,
+  type UpdateNetworkCommandOutput,
   UpdateNetworkCommand,
-  UpdateNetworkCommandInput,
-  UpdateNetworkCommandOutput,
 } from "./commands/UpdateNetworkCommand";
-import { UpdateNodeCommand, UpdateNodeCommandInput, UpdateNodeCommandOutput } from "./commands/UpdateNodeCommand";
 import {
+  type UpdateNodeCommandInput,
+  type UpdateNodeCommandOutput,
+  UpdateNodeCommand,
+} from "./commands/UpdateNodeCommand";
+import {
+  type UpdateNodeStateCommandInput,
+  type UpdateNodeStateCommandOutput,
   UpdateNodeStateCommand,
-  UpdateNodeStateCommandInput,
-  UpdateNodeStateCommandOutput,
 } from "./commands/UpdateNodeStateCommand";
 import {
+  type UpdateReservationCommandInput,
+  type UpdateReservationCommandOutput,
   UpdateReservationCommand,
-  UpdateReservationCommandInput,
-  UpdateReservationCommandOutput,
 } from "./commands/UpdateReservationCommand";
 import {
+  type UpdateSdiSourceCommandInput,
+  type UpdateSdiSourceCommandOutput,
   UpdateSdiSourceCommand,
-  UpdateSdiSourceCommandInput,
-  UpdateSdiSourceCommandOutput,
 } from "./commands/UpdateSdiSourceCommand";
 import { MediaLiveClient } from "./MediaLiveClient";
 import { paginateDescribeSchedule } from "./pagination/DescribeSchedulePaginator";

@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { VerificationFailedReason } from "./enums";
-import { ValidationExceptionField } from "./models_0";
+import type { VerificationFailedReason } from "./enums";
+import type { ValidationExceptionField } from "./models_0";
 import { PaymentCryptographyDataServiceException as __BaseException } from "./PaymentCryptographyDataServiceException";
 
 /**

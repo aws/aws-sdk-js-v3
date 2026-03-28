@@ -44,22 +44,20 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type EventStreamSerdeProvider as __EventStreamSerdeProvider,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -69,278 +67,290 @@ import {
   defaultLambdaHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AddLayerVersionPermissionCommandInput,
   AddLayerVersionPermissionCommandOutput,
 } from "./commands/AddLayerVersionPermissionCommand";
-import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
-import {
+import type { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
+import type {
   CheckpointDurableExecutionCommandInput,
   CheckpointDurableExecutionCommandOutput,
 } from "./commands/CheckpointDurableExecutionCommand";
-import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
-import {
+import type { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import type {
   CreateCapacityProviderCommandInput,
   CreateCapacityProviderCommandOutput,
 } from "./commands/CreateCapacityProviderCommand";
-import {
+import type {
   CreateCodeSigningConfigCommandInput,
   CreateCodeSigningConfigCommandOutput,
 } from "./commands/CreateCodeSigningConfigCommand";
-import {
+import type {
   CreateEventSourceMappingCommandInput,
   CreateEventSourceMappingCommandOutput,
 } from "./commands/CreateEventSourceMappingCommand";
-import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
-import {
+import type { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
+import type {
   CreateFunctionUrlConfigCommandInput,
   CreateFunctionUrlConfigCommandOutput,
 } from "./commands/CreateFunctionUrlConfigCommand";
-import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
-import {
+import type { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import type {
   DeleteCapacityProviderCommandInput,
   DeleteCapacityProviderCommandOutput,
 } from "./commands/DeleteCapacityProviderCommand";
-import {
+import type {
   DeleteCodeSigningConfigCommandInput,
   DeleteCodeSigningConfigCommandOutput,
 } from "./commands/DeleteCodeSigningConfigCommand";
-import {
+import type {
   DeleteEventSourceMappingCommandInput,
   DeleteEventSourceMappingCommandOutput,
 } from "./commands/DeleteEventSourceMappingCommand";
-import {
+import type {
   DeleteFunctionCodeSigningConfigCommandInput,
   DeleteFunctionCodeSigningConfigCommandOutput,
 } from "./commands/DeleteFunctionCodeSigningConfigCommand";
-import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
-import {
+import type { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
+import type {
   DeleteFunctionConcurrencyCommandInput,
   DeleteFunctionConcurrencyCommandOutput,
 } from "./commands/DeleteFunctionConcurrencyCommand";
-import {
+import type {
   DeleteFunctionEventInvokeConfigCommandInput,
   DeleteFunctionEventInvokeConfigCommandOutput,
 } from "./commands/DeleteFunctionEventInvokeConfigCommand";
-import {
+import type {
   DeleteFunctionUrlConfigCommandInput,
   DeleteFunctionUrlConfigCommandOutput,
 } from "./commands/DeleteFunctionUrlConfigCommand";
-import { DeleteLayerVersionCommandInput, DeleteLayerVersionCommandOutput } from "./commands/DeleteLayerVersionCommand";
-import {
+import type {
+  DeleteLayerVersionCommandInput,
+  DeleteLayerVersionCommandOutput,
+} from "./commands/DeleteLayerVersionCommand";
+import type {
   DeleteProvisionedConcurrencyConfigCommandInput,
   DeleteProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/DeleteProvisionedConcurrencyConfigCommand";
-import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
-import { GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
-import {
+import type {
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput,
+} from "./commands/GetAccountSettingsCommand";
+import type { GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
+import type {
   GetCapacityProviderCommandInput,
   GetCapacityProviderCommandOutput,
 } from "./commands/GetCapacityProviderCommand";
-import {
+import type {
   GetCodeSigningConfigCommandInput,
   GetCodeSigningConfigCommandOutput,
 } from "./commands/GetCodeSigningConfigCommand";
-import {
+import type {
   GetDurableExecutionCommandInput,
   GetDurableExecutionCommandOutput,
 } from "./commands/GetDurableExecutionCommand";
-import {
+import type {
   GetDurableExecutionHistoryCommandInput,
   GetDurableExecutionHistoryCommandOutput,
 } from "./commands/GetDurableExecutionHistoryCommand";
-import {
+import type {
   GetDurableExecutionStateCommandInput,
   GetDurableExecutionStateCommandOutput,
 } from "./commands/GetDurableExecutionStateCommand";
-import {
+import type {
   GetEventSourceMappingCommandInput,
   GetEventSourceMappingCommandOutput,
 } from "./commands/GetEventSourceMappingCommand";
-import {
+import type {
   GetFunctionCodeSigningConfigCommandInput,
   GetFunctionCodeSigningConfigCommandOutput,
 } from "./commands/GetFunctionCodeSigningConfigCommand";
-import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
-import {
+import type { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
+import type {
   GetFunctionConcurrencyCommandInput,
   GetFunctionConcurrencyCommandOutput,
 } from "./commands/GetFunctionConcurrencyCommand";
-import {
+import type {
   GetFunctionConfigurationCommandInput,
   GetFunctionConfigurationCommandOutput,
 } from "./commands/GetFunctionConfigurationCommand";
-import {
+import type {
   GetFunctionEventInvokeConfigCommandInput,
   GetFunctionEventInvokeConfigCommandOutput,
 } from "./commands/GetFunctionEventInvokeConfigCommand";
-import {
+import type {
   GetFunctionRecursionConfigCommandInput,
   GetFunctionRecursionConfigCommandOutput,
 } from "./commands/GetFunctionRecursionConfigCommand";
-import {
+import type {
   GetFunctionScalingConfigCommandInput,
   GetFunctionScalingConfigCommandOutput,
 } from "./commands/GetFunctionScalingConfigCommand";
-import {
+import type {
   GetFunctionUrlConfigCommandInput,
   GetFunctionUrlConfigCommandOutput,
 } from "./commands/GetFunctionUrlConfigCommand";
-import {
+import type {
   GetLayerVersionByArnCommandInput,
   GetLayerVersionByArnCommandOutput,
 } from "./commands/GetLayerVersionByArnCommand";
-import { GetLayerVersionCommandInput, GetLayerVersionCommandOutput } from "./commands/GetLayerVersionCommand";
-import {
+import type { GetLayerVersionCommandInput, GetLayerVersionCommandOutput } from "./commands/GetLayerVersionCommand";
+import type {
   GetLayerVersionPolicyCommandInput,
   GetLayerVersionPolicyCommandOutput,
 } from "./commands/GetLayerVersionPolicyCommand";
-import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
-import {
+import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import type {
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/GetProvisionedConcurrencyConfigCommand";
-import {
+import type {
   GetRuntimeManagementConfigCommandInput,
   GetRuntimeManagementConfigCommandOutput,
 } from "./commands/GetRuntimeManagementConfigCommand";
-import { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/InvokeAsyncCommand";
-import { InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
-import {
+import type { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/InvokeAsyncCommand";
+import type { InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
+import type {
   InvokeWithResponseStreamCommandInput,
   InvokeWithResponseStreamCommandOutput,
 } from "./commands/InvokeWithResponseStreamCommand";
-import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
-import {
+import type { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
+import type {
   ListCapacityProvidersCommandInput,
   ListCapacityProvidersCommandOutput,
 } from "./commands/ListCapacityProvidersCommand";
-import {
+import type {
   ListCodeSigningConfigsCommandInput,
   ListCodeSigningConfigsCommandOutput,
 } from "./commands/ListCodeSigningConfigsCommand";
-import {
+import type {
   ListDurableExecutionsByFunctionCommandInput,
   ListDurableExecutionsByFunctionCommandOutput,
 } from "./commands/ListDurableExecutionsByFunctionCommand";
-import {
+import type {
   ListEventSourceMappingsCommandInput,
   ListEventSourceMappingsCommandOutput,
 } from "./commands/ListEventSourceMappingsCommand";
-import {
+import type {
   ListFunctionEventInvokeConfigsCommandInput,
   ListFunctionEventInvokeConfigsCommandOutput,
 } from "./commands/ListFunctionEventInvokeConfigsCommand";
-import {
+import type {
   ListFunctionsByCodeSigningConfigCommandInput,
   ListFunctionsByCodeSigningConfigCommandOutput,
 } from "./commands/ListFunctionsByCodeSigningConfigCommand";
-import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
-import {
+import type { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
+import type {
   ListFunctionUrlConfigsCommandInput,
   ListFunctionUrlConfigsCommandOutput,
 } from "./commands/ListFunctionUrlConfigsCommand";
-import {
+import type {
   ListFunctionVersionsByCapacityProviderCommandInput,
   ListFunctionVersionsByCapacityProviderCommandOutput,
 } from "./commands/ListFunctionVersionsByCapacityProviderCommand";
-import { ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
-import { ListLayerVersionsCommandInput, ListLayerVersionsCommandOutput } from "./commands/ListLayerVersionsCommand";
-import {
+import type { ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
+import type {
+  ListLayerVersionsCommandInput,
+  ListLayerVersionsCommandOutput,
+} from "./commands/ListLayerVersionsCommand";
+import type {
   ListProvisionedConcurrencyConfigsCommandInput,
   ListProvisionedConcurrencyConfigsCommandOutput,
 } from "./commands/ListProvisionedConcurrencyConfigsCommand";
-import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import {
+import type { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import type {
   ListVersionsByFunctionCommandInput,
   ListVersionsByFunctionCommandOutput,
 } from "./commands/ListVersionsByFunctionCommand";
-import {
+import type {
   PublishLayerVersionCommandInput,
   PublishLayerVersionCommandOutput,
 } from "./commands/PublishLayerVersionCommand";
-import { PublishVersionCommandInput, PublishVersionCommandOutput } from "./commands/PublishVersionCommand";
-import {
+import type { PublishVersionCommandInput, PublishVersionCommandOutput } from "./commands/PublishVersionCommand";
+import type {
   PutFunctionCodeSigningConfigCommandInput,
   PutFunctionCodeSigningConfigCommandOutput,
 } from "./commands/PutFunctionCodeSigningConfigCommand";
-import {
+import type {
   PutFunctionConcurrencyCommandInput,
   PutFunctionConcurrencyCommandOutput,
 } from "./commands/PutFunctionConcurrencyCommand";
-import {
+import type {
   PutFunctionEventInvokeConfigCommandInput,
   PutFunctionEventInvokeConfigCommandOutput,
 } from "./commands/PutFunctionEventInvokeConfigCommand";
-import {
+import type {
   PutFunctionRecursionConfigCommandInput,
   PutFunctionRecursionConfigCommandOutput,
 } from "./commands/PutFunctionRecursionConfigCommand";
-import {
+import type {
   PutFunctionScalingConfigCommandInput,
   PutFunctionScalingConfigCommandOutput,
 } from "./commands/PutFunctionScalingConfigCommand";
-import {
+import type {
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
-import {
+import type {
   PutRuntimeManagementConfigCommandInput,
   PutRuntimeManagementConfigCommandOutput,
 } from "./commands/PutRuntimeManagementConfigCommand";
-import {
+import type {
   RemoveLayerVersionPermissionCommandInput,
   RemoveLayerVersionPermissionCommandOutput,
 } from "./commands/RemoveLayerVersionPermissionCommand";
-import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
-import {
+import type { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
+import type {
   SendDurableExecutionCallbackFailureCommandInput,
   SendDurableExecutionCallbackFailureCommandOutput,
 } from "./commands/SendDurableExecutionCallbackFailureCommand";
-import {
+import type {
   SendDurableExecutionCallbackHeartbeatCommandInput,
   SendDurableExecutionCallbackHeartbeatCommandOutput,
 } from "./commands/SendDurableExecutionCallbackHeartbeatCommand";
-import {
+import type {
   SendDurableExecutionCallbackSuccessCommandInput,
   SendDurableExecutionCallbackSuccessCommandOutput,
 } from "./commands/SendDurableExecutionCallbackSuccessCommand";
-import {
+import type {
   StopDurableExecutionCommandInput,
   StopDurableExecutionCommandOutput,
 } from "./commands/StopDurableExecutionCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
+import type {
   UpdateCapacityProviderCommandInput,
   UpdateCapacityProviderCommandOutput,
 } from "./commands/UpdateCapacityProviderCommand";
-import {
+import type {
   UpdateCodeSigningConfigCommandInput,
   UpdateCodeSigningConfigCommandOutput,
 } from "./commands/UpdateCodeSigningConfigCommand";
-import {
+import type {
   UpdateEventSourceMappingCommandInput,
   UpdateEventSourceMappingCommandOutput,
 } from "./commands/UpdateEventSourceMappingCommand";
-import { UpdateFunctionCodeCommandInput, UpdateFunctionCodeCommandOutput } from "./commands/UpdateFunctionCodeCommand";
-import {
+import type {
+  UpdateFunctionCodeCommandInput,
+  UpdateFunctionCodeCommandOutput,
+} from "./commands/UpdateFunctionCodeCommand";
+import type {
   UpdateFunctionConfigurationCommandInput,
   UpdateFunctionConfigurationCommandOutput,
 } from "./commands/UpdateFunctionConfigurationCommand";
-import {
+import type {
   UpdateFunctionEventInvokeConfigCommandInput,
   UpdateFunctionEventInvokeConfigCommandOutput,
 } from "./commands/UpdateFunctionEventInvokeConfigCommand";
-import {
+import type {
   UpdateFunctionUrlConfigCommandInput,
   UpdateFunctionUrlConfigCommandOutput,
 } from "./commands/UpdateFunctionUrlConfigCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -642,7 +652,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

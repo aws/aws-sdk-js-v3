@@ -8,7 +8,7 @@ import {
   ListGatewaysCommandInput,
   ListGatewaysCommandOutput,
 } from "../commands/ListGatewaysCommand";
-import { BackupGatewayPaginationConfiguration } from "./Interfaces";
+import type { BackupGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

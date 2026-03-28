@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,203 +61,227 @@ import {
   defaultVPCLatticeHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { BatchUpdateRuleCommandInput, BatchUpdateRuleCommandOutput } from "./commands/BatchUpdateRuleCommand";
-import {
+import type { BatchUpdateRuleCommandInput, BatchUpdateRuleCommandOutput } from "./commands/BatchUpdateRuleCommand";
+import type {
   CreateAccessLogSubscriptionCommandInput,
   CreateAccessLogSubscriptionCommandOutput,
 } from "./commands/CreateAccessLogSubscriptionCommand";
-import { CreateListenerCommandInput, CreateListenerCommandOutput } from "./commands/CreateListenerCommand";
-import {
+import type { CreateListenerCommandInput, CreateListenerCommandOutput } from "./commands/CreateListenerCommand";
+import type {
   CreateResourceConfigurationCommandInput,
   CreateResourceConfigurationCommandOutput,
 } from "./commands/CreateResourceConfigurationCommand";
-import {
+import type {
   CreateResourceGatewayCommandInput,
   CreateResourceGatewayCommandOutput,
 } from "./commands/CreateResourceGatewayCommand";
-import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
-import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
-import {
+import type { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
+import type { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
+import type {
   CreateServiceNetworkCommandInput,
   CreateServiceNetworkCommandOutput,
 } from "./commands/CreateServiceNetworkCommand";
-import {
+import type {
   CreateServiceNetworkResourceAssociationCommandInput,
   CreateServiceNetworkResourceAssociationCommandOutput,
 } from "./commands/CreateServiceNetworkResourceAssociationCommand";
-import {
+import type {
   CreateServiceNetworkServiceAssociationCommandInput,
   CreateServiceNetworkServiceAssociationCommandOutput,
 } from "./commands/CreateServiceNetworkServiceAssociationCommand";
-import {
+import type {
   CreateServiceNetworkVpcAssociationCommandInput,
   CreateServiceNetworkVpcAssociationCommandOutput,
 } from "./commands/CreateServiceNetworkVpcAssociationCommand";
-import { CreateTargetGroupCommandInput, CreateTargetGroupCommandOutput } from "./commands/CreateTargetGroupCommand";
-import {
+import type {
+  CreateTargetGroupCommandInput,
+  CreateTargetGroupCommandOutput,
+} from "./commands/CreateTargetGroupCommand";
+import type {
   DeleteAccessLogSubscriptionCommandInput,
   DeleteAccessLogSubscriptionCommandOutput,
 } from "./commands/DeleteAccessLogSubscriptionCommand";
-import { DeleteAuthPolicyCommandInput, DeleteAuthPolicyCommandOutput } from "./commands/DeleteAuthPolicyCommand";
-import {
+import type { DeleteAuthPolicyCommandInput, DeleteAuthPolicyCommandOutput } from "./commands/DeleteAuthPolicyCommand";
+import type {
   DeleteDomainVerificationCommandInput,
   DeleteDomainVerificationCommandOutput,
 } from "./commands/DeleteDomainVerificationCommand";
-import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
-import {
+import type { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
+import type {
   DeleteResourceConfigurationCommandInput,
   DeleteResourceConfigurationCommandOutput,
 } from "./commands/DeleteResourceConfigurationCommand";
-import {
+import type {
   DeleteResourceEndpointAssociationCommandInput,
   DeleteResourceEndpointAssociationCommandOutput,
 } from "./commands/DeleteResourceEndpointAssociationCommand";
-import {
+import type {
   DeleteResourceGatewayCommandInput,
   DeleteResourceGatewayCommandOutput,
 } from "./commands/DeleteResourceGatewayCommand";
-import {
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
-import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
-import {
+import type { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import type { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
+import type {
   DeleteServiceNetworkCommandInput,
   DeleteServiceNetworkCommandOutput,
 } from "./commands/DeleteServiceNetworkCommand";
-import {
+import type {
   DeleteServiceNetworkResourceAssociationCommandInput,
   DeleteServiceNetworkResourceAssociationCommandOutput,
 } from "./commands/DeleteServiceNetworkResourceAssociationCommand";
-import {
+import type {
   DeleteServiceNetworkServiceAssociationCommandInput,
   DeleteServiceNetworkServiceAssociationCommandOutput,
 } from "./commands/DeleteServiceNetworkServiceAssociationCommand";
-import {
+import type {
   DeleteServiceNetworkVpcAssociationCommandInput,
   DeleteServiceNetworkVpcAssociationCommandOutput,
 } from "./commands/DeleteServiceNetworkVpcAssociationCommand";
-import { DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput } from "./commands/DeleteTargetGroupCommand";
-import { DeregisterTargetsCommandInput, DeregisterTargetsCommandOutput } from "./commands/DeregisterTargetsCommand";
-import {
+import type {
+  DeleteTargetGroupCommandInput,
+  DeleteTargetGroupCommandOutput,
+} from "./commands/DeleteTargetGroupCommand";
+import type {
+  DeregisterTargetsCommandInput,
+  DeregisterTargetsCommandOutput,
+} from "./commands/DeregisterTargetsCommand";
+import type {
   GetAccessLogSubscriptionCommandInput,
   GetAccessLogSubscriptionCommandOutput,
 } from "./commands/GetAccessLogSubscriptionCommand";
-import { GetAuthPolicyCommandInput, GetAuthPolicyCommandOutput } from "./commands/GetAuthPolicyCommand";
-import {
+import type { GetAuthPolicyCommandInput, GetAuthPolicyCommandOutput } from "./commands/GetAuthPolicyCommand";
+import type {
   GetDomainVerificationCommandInput,
   GetDomainVerificationCommandOutput,
 } from "./commands/GetDomainVerificationCommand";
-import { GetListenerCommandInput, GetListenerCommandOutput } from "./commands/GetListenerCommand";
-import {
+import type { GetListenerCommandInput, GetListenerCommandOutput } from "./commands/GetListenerCommand";
+import type {
   GetResourceConfigurationCommandInput,
   GetResourceConfigurationCommandOutput,
 } from "./commands/GetResourceConfigurationCommand";
-import { GetResourceGatewayCommandInput, GetResourceGatewayCommandOutput } from "./commands/GetResourceGatewayCommand";
-import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
-import { GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
-import { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
-import { GetServiceNetworkCommandInput, GetServiceNetworkCommandOutput } from "./commands/GetServiceNetworkCommand";
-import {
+import type {
+  GetResourceGatewayCommandInput,
+  GetResourceGatewayCommandOutput,
+} from "./commands/GetResourceGatewayCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type { GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
+import type { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
+import type {
+  GetServiceNetworkCommandInput,
+  GetServiceNetworkCommandOutput,
+} from "./commands/GetServiceNetworkCommand";
+import type {
   GetServiceNetworkResourceAssociationCommandInput,
   GetServiceNetworkResourceAssociationCommandOutput,
 } from "./commands/GetServiceNetworkResourceAssociationCommand";
-import {
+import type {
   GetServiceNetworkServiceAssociationCommandInput,
   GetServiceNetworkServiceAssociationCommandOutput,
 } from "./commands/GetServiceNetworkServiceAssociationCommand";
-import {
+import type {
   GetServiceNetworkVpcAssociationCommandInput,
   GetServiceNetworkVpcAssociationCommandOutput,
 } from "./commands/GetServiceNetworkVpcAssociationCommand";
-import { GetTargetGroupCommandInput, GetTargetGroupCommandOutput } from "./commands/GetTargetGroupCommand";
-import {
+import type { GetTargetGroupCommandInput, GetTargetGroupCommandOutput } from "./commands/GetTargetGroupCommand";
+import type {
   ListAccessLogSubscriptionsCommandInput,
   ListAccessLogSubscriptionsCommandOutput,
 } from "./commands/ListAccessLogSubscriptionsCommand";
-import {
+import type {
   ListDomainVerificationsCommandInput,
   ListDomainVerificationsCommandOutput,
 } from "./commands/ListDomainVerificationsCommand";
-import { ListListenersCommandInput, ListListenersCommandOutput } from "./commands/ListListenersCommand";
-import {
+import type { ListListenersCommandInput, ListListenersCommandOutput } from "./commands/ListListenersCommand";
+import type {
   ListResourceConfigurationsCommandInput,
   ListResourceConfigurationsCommandOutput,
 } from "./commands/ListResourceConfigurationsCommand";
-import {
+import type {
   ListResourceEndpointAssociationsCommandInput,
   ListResourceEndpointAssociationsCommandOutput,
 } from "./commands/ListResourceEndpointAssociationsCommand";
-import {
+import type {
   ListResourceGatewaysCommandInput,
   ListResourceGatewaysCommandOutput,
 } from "./commands/ListResourceGatewaysCommand";
-import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
-import {
+import type { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
+import type {
   ListServiceNetworkResourceAssociationsCommandInput,
   ListServiceNetworkResourceAssociationsCommandOutput,
 } from "./commands/ListServiceNetworkResourceAssociationsCommand";
-import {
+import type {
   ListServiceNetworksCommandInput,
   ListServiceNetworksCommandOutput,
 } from "./commands/ListServiceNetworksCommand";
-import {
+import type {
   ListServiceNetworkServiceAssociationsCommandInput,
   ListServiceNetworkServiceAssociationsCommandOutput,
 } from "./commands/ListServiceNetworkServiceAssociationsCommand";
-import {
+import type {
   ListServiceNetworkVpcAssociationsCommandInput,
   ListServiceNetworkVpcAssociationsCommandOutput,
 } from "./commands/ListServiceNetworkVpcAssociationsCommand";
-import {
+import type {
   ListServiceNetworkVpcEndpointAssociationsCommandInput,
   ListServiceNetworkVpcEndpointAssociationsCommandOutput,
 } from "./commands/ListServiceNetworkVpcEndpointAssociationsCommand";
-import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
-import {
+import type { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTargetGroupsCommandInput, ListTargetGroupsCommandOutput } from "./commands/ListTargetGroupsCommand";
-import { ListTargetsCommandInput, ListTargetsCommandOutput } from "./commands/ListTargetsCommand";
-import { PutAuthPolicyCommandInput, PutAuthPolicyCommandOutput } from "./commands/PutAuthPolicyCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import { RegisterTargetsCommandInput, RegisterTargetsCommandOutput } from "./commands/RegisterTargetsCommand";
-import {
+import type { ListTargetGroupsCommandInput, ListTargetGroupsCommandOutput } from "./commands/ListTargetGroupsCommand";
+import type { ListTargetsCommandInput, ListTargetsCommandOutput } from "./commands/ListTargetsCommand";
+import type { PutAuthPolicyCommandInput, PutAuthPolicyCommandOutput } from "./commands/PutAuthPolicyCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type { RegisterTargetsCommandInput, RegisterTargetsCommandOutput } from "./commands/RegisterTargetsCommand";
+import type {
   StartDomainVerificationCommandInput,
   StartDomainVerificationCommandOutput,
 } from "./commands/StartDomainVerificationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAccessLogSubscriptionCommandInput,
   UpdateAccessLogSubscriptionCommandOutput,
 } from "./commands/UpdateAccessLogSubscriptionCommand";
-import { UpdateListenerCommandInput, UpdateListenerCommandOutput } from "./commands/UpdateListenerCommand";
-import {
+import type { UpdateListenerCommandInput, UpdateListenerCommandOutput } from "./commands/UpdateListenerCommand";
+import type {
   UpdateResourceConfigurationCommandInput,
   UpdateResourceConfigurationCommandOutput,
 } from "./commands/UpdateResourceConfigurationCommand";
-import {
+import type {
   UpdateResourceGatewayCommandInput,
   UpdateResourceGatewayCommandOutput,
 } from "./commands/UpdateResourceGatewayCommand";
-import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
-import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
-import {
+import type { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
+import type { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
+import type {
   UpdateServiceNetworkCommandInput,
   UpdateServiceNetworkCommandOutput,
 } from "./commands/UpdateServiceNetworkCommand";
-import {
+import type {
   UpdateServiceNetworkVpcAssociationCommandInput,
   UpdateServiceNetworkVpcAssociationCommandOutput,
 } from "./commands/UpdateServiceNetworkVpcAssociationCommand";
-import { UpdateTargetGroupCommandInput, UpdateTargetGroupCommandOutput } from "./commands/UpdateTargetGroupCommand";
+import type {
+  UpdateTargetGroupCommandInput,
+  UpdateTargetGroupCommandOutput,
+} from "./commands/UpdateTargetGroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -537,7 +559,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

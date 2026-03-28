@@ -1,8 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeDBInstancesCommand, DescribeDBInstancesCommandInput } from "../commands/DescribeDBInstancesCommand";
-import { NeptuneClient } from "../NeptuneClient";
+import {
+  type DescribeDBInstancesCommandInput,
+  DescribeDBInstancesCommand,
+} from "../commands/DescribeDBInstancesCommand";
+import type { NeptuneClient } from "../NeptuneClient";
 
 const checkState = async (client: NeptuneClient, input: DescribeDBInstancesCommandInput): Promise<WaiterResult> => {
   let reason;

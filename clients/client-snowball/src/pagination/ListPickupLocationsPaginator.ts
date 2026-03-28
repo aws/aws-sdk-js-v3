@@ -8,7 +8,7 @@ import {
   ListPickupLocationsCommandOutput,
 } from "../commands/ListPickupLocationsCommand";
 import { SnowballClient } from "../SnowballClient";
-import { SnowballPaginationConfiguration } from "./Interfaces";
+import type { SnowballPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

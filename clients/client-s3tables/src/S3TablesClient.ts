@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,149 +61,161 @@ import {
   defaultS3TablesHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
-import { CreateTableBucketCommandInput, CreateTableBucketCommandOutput } from "./commands/CreateTableBucketCommand";
-import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
-import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
-import { DeleteTableBucketCommandInput, DeleteTableBucketCommandOutput } from "./commands/DeleteTableBucketCommand";
-import {
+import type { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
+import type {
+  CreateTableBucketCommandInput,
+  CreateTableBucketCommandOutput,
+} from "./commands/CreateTableBucketCommand";
+import type { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
+import type { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
+import type {
+  DeleteTableBucketCommandInput,
+  DeleteTableBucketCommandOutput,
+} from "./commands/DeleteTableBucketCommand";
+import type {
   DeleteTableBucketEncryptionCommandInput,
   DeleteTableBucketEncryptionCommandOutput,
 } from "./commands/DeleteTableBucketEncryptionCommand";
-import {
+import type {
   DeleteTableBucketMetricsConfigurationCommandInput,
   DeleteTableBucketMetricsConfigurationCommandOutput,
 } from "./commands/DeleteTableBucketMetricsConfigurationCommand";
-import {
+import type {
   DeleteTableBucketPolicyCommandInput,
   DeleteTableBucketPolicyCommandOutput,
 } from "./commands/DeleteTableBucketPolicyCommand";
-import {
+import type {
   DeleteTableBucketReplicationCommandInput,
   DeleteTableBucketReplicationCommandOutput,
 } from "./commands/DeleteTableBucketReplicationCommand";
-import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
-import { DeleteTablePolicyCommandInput, DeleteTablePolicyCommandOutput } from "./commands/DeleteTablePolicyCommand";
-import {
+import type { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
+import type {
+  DeleteTablePolicyCommandInput,
+  DeleteTablePolicyCommandOutput,
+} from "./commands/DeleteTablePolicyCommand";
+import type {
   DeleteTableReplicationCommandInput,
   DeleteTableReplicationCommandOutput,
 } from "./commands/DeleteTableReplicationCommand";
-import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
-import { GetTableBucketCommandInput, GetTableBucketCommandOutput } from "./commands/GetTableBucketCommand";
-import {
+import type { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
+import type { GetTableBucketCommandInput, GetTableBucketCommandOutput } from "./commands/GetTableBucketCommand";
+import type {
   GetTableBucketEncryptionCommandInput,
   GetTableBucketEncryptionCommandOutput,
 } from "./commands/GetTableBucketEncryptionCommand";
-import {
+import type {
   GetTableBucketMaintenanceConfigurationCommandInput,
   GetTableBucketMaintenanceConfigurationCommandOutput,
 } from "./commands/GetTableBucketMaintenanceConfigurationCommand";
-import {
+import type {
   GetTableBucketMetricsConfigurationCommandInput,
   GetTableBucketMetricsConfigurationCommandOutput,
 } from "./commands/GetTableBucketMetricsConfigurationCommand";
-import {
+import type {
   GetTableBucketPolicyCommandInput,
   GetTableBucketPolicyCommandOutput,
 } from "./commands/GetTableBucketPolicyCommand";
-import {
+import type {
   GetTableBucketReplicationCommandInput,
   GetTableBucketReplicationCommandOutput,
 } from "./commands/GetTableBucketReplicationCommand";
-import {
+import type {
   GetTableBucketStorageClassCommandInput,
   GetTableBucketStorageClassCommandOutput,
 } from "./commands/GetTableBucketStorageClassCommand";
-import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
-import { GetTableEncryptionCommandInput, GetTableEncryptionCommandOutput } from "./commands/GetTableEncryptionCommand";
-import {
+import type { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import type {
+  GetTableEncryptionCommandInput,
+  GetTableEncryptionCommandOutput,
+} from "./commands/GetTableEncryptionCommand";
+import type {
   GetTableMaintenanceConfigurationCommandInput,
   GetTableMaintenanceConfigurationCommandOutput,
 } from "./commands/GetTableMaintenanceConfigurationCommand";
-import {
+import type {
   GetTableMaintenanceJobStatusCommandInput,
   GetTableMaintenanceJobStatusCommandOutput,
 } from "./commands/GetTableMaintenanceJobStatusCommand";
-import {
+import type {
   GetTableMetadataLocationCommandInput,
   GetTableMetadataLocationCommandOutput,
 } from "./commands/GetTableMetadataLocationCommand";
-import { GetTablePolicyCommandInput, GetTablePolicyCommandOutput } from "./commands/GetTablePolicyCommand";
-import {
+import type { GetTablePolicyCommandInput, GetTablePolicyCommandOutput } from "./commands/GetTablePolicyCommand";
+import type {
   GetTableRecordExpirationConfigurationCommandInput,
   GetTableRecordExpirationConfigurationCommandOutput,
 } from "./commands/GetTableRecordExpirationConfigurationCommand";
-import {
+import type {
   GetTableRecordExpirationJobStatusCommandInput,
   GetTableRecordExpirationJobStatusCommandOutput,
 } from "./commands/GetTableRecordExpirationJobStatusCommand";
-import {
+import type {
   GetTableReplicationCommandInput,
   GetTableReplicationCommandOutput,
 } from "./commands/GetTableReplicationCommand";
-import {
+import type {
   GetTableReplicationStatusCommandInput,
   GetTableReplicationStatusCommandOutput,
 } from "./commands/GetTableReplicationStatusCommand";
-import {
+import type {
   GetTableStorageClassCommandInput,
   GetTableStorageClassCommandOutput,
 } from "./commands/GetTableStorageClassCommand";
-import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
-import { ListTableBucketsCommandInput, ListTableBucketsCommandOutput } from "./commands/ListTableBucketsCommand";
-import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
-import {
+import type { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
+import type { ListTableBucketsCommandInput, ListTableBucketsCommandOutput } from "./commands/ListTableBucketsCommand";
+import type { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutTableBucketEncryptionCommandInput,
   PutTableBucketEncryptionCommandOutput,
 } from "./commands/PutTableBucketEncryptionCommand";
-import {
+import type {
   PutTableBucketMaintenanceConfigurationCommandInput,
   PutTableBucketMaintenanceConfigurationCommandOutput,
 } from "./commands/PutTableBucketMaintenanceConfigurationCommand";
-import {
+import type {
   PutTableBucketMetricsConfigurationCommandInput,
   PutTableBucketMetricsConfigurationCommandOutput,
 } from "./commands/PutTableBucketMetricsConfigurationCommand";
-import {
+import type {
   PutTableBucketPolicyCommandInput,
   PutTableBucketPolicyCommandOutput,
 } from "./commands/PutTableBucketPolicyCommand";
-import {
+import type {
   PutTableBucketReplicationCommandInput,
   PutTableBucketReplicationCommandOutput,
 } from "./commands/PutTableBucketReplicationCommand";
-import {
+import type {
   PutTableBucketStorageClassCommandInput,
   PutTableBucketStorageClassCommandOutput,
 } from "./commands/PutTableBucketStorageClassCommand";
-import {
+import type {
   PutTableMaintenanceConfigurationCommandInput,
   PutTableMaintenanceConfigurationCommandOutput,
 } from "./commands/PutTableMaintenanceConfigurationCommand";
-import { PutTablePolicyCommandInput, PutTablePolicyCommandOutput } from "./commands/PutTablePolicyCommand";
-import {
+import type { PutTablePolicyCommandInput, PutTablePolicyCommandOutput } from "./commands/PutTablePolicyCommand";
+import type {
   PutTableRecordExpirationConfigurationCommandInput,
   PutTableRecordExpirationConfigurationCommandOutput,
 } from "./commands/PutTableRecordExpirationConfigurationCommand";
-import {
+import type {
   PutTableReplicationCommandInput,
   PutTableReplicationCommandOutput,
 } from "./commands/PutTableReplicationCommand";
-import { RenameTableCommandInput, RenameTableCommandOutput } from "./commands/RenameTableCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { RenameTableCommandInput, RenameTableCommandOutput } from "./commands/RenameTableCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateTableMetadataLocationCommandInput,
   UpdateTableMetadataLocationCommandOutput,
 } from "./commands/UpdateTableMetadataLocationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -435,7 +445,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,122 +61,122 @@ import {
   defaultComputeOptimizerHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   DeleteRecommendationPreferencesCommandInput,
   DeleteRecommendationPreferencesCommandOutput,
 } from "./commands/DeleteRecommendationPreferencesCommand";
-import {
+import type {
   DescribeRecommendationExportJobsCommandInput,
   DescribeRecommendationExportJobsCommandOutput,
 } from "./commands/DescribeRecommendationExportJobsCommand";
-import {
+import type {
   ExportAutoScalingGroupRecommendationsCommandInput,
   ExportAutoScalingGroupRecommendationsCommandOutput,
 } from "./commands/ExportAutoScalingGroupRecommendationsCommand";
-import {
+import type {
   ExportEBSVolumeRecommendationsCommandInput,
   ExportEBSVolumeRecommendationsCommandOutput,
 } from "./commands/ExportEBSVolumeRecommendationsCommand";
-import {
+import type {
   ExportEC2InstanceRecommendationsCommandInput,
   ExportEC2InstanceRecommendationsCommandOutput,
 } from "./commands/ExportEC2InstanceRecommendationsCommand";
-import {
+import type {
   ExportECSServiceRecommendationsCommandInput,
   ExportECSServiceRecommendationsCommandOutput,
 } from "./commands/ExportECSServiceRecommendationsCommand";
-import {
+import type {
   ExportIdleRecommendationsCommandInput,
   ExportIdleRecommendationsCommandOutput,
 } from "./commands/ExportIdleRecommendationsCommand";
-import {
+import type {
   ExportLambdaFunctionRecommendationsCommandInput,
   ExportLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/ExportLambdaFunctionRecommendationsCommand";
-import {
+import type {
   ExportLicenseRecommendationsCommandInput,
   ExportLicenseRecommendationsCommandOutput,
 } from "./commands/ExportLicenseRecommendationsCommand";
-import {
+import type {
   ExportRDSDatabaseRecommendationsCommandInput,
   ExportRDSDatabaseRecommendationsCommandOutput,
 } from "./commands/ExportRDSDatabaseRecommendationsCommand";
-import {
+import type {
   GetAutoScalingGroupRecommendationsCommandInput,
   GetAutoScalingGroupRecommendationsCommandOutput,
 } from "./commands/GetAutoScalingGroupRecommendationsCommand";
-import {
+import type {
   GetEBSVolumeRecommendationsCommandInput,
   GetEBSVolumeRecommendationsCommandOutput,
 } from "./commands/GetEBSVolumeRecommendationsCommand";
-import {
+import type {
   GetEC2InstanceRecommendationsCommandInput,
   GetEC2InstanceRecommendationsCommandOutput,
 } from "./commands/GetEC2InstanceRecommendationsCommand";
-import {
+import type {
   GetEC2RecommendationProjectedMetricsCommandInput,
   GetEC2RecommendationProjectedMetricsCommandOutput,
 } from "./commands/GetEC2RecommendationProjectedMetricsCommand";
-import {
+import type {
   GetECSServiceRecommendationProjectedMetricsCommandInput,
   GetECSServiceRecommendationProjectedMetricsCommandOutput,
 } from "./commands/GetECSServiceRecommendationProjectedMetricsCommand";
-import {
+import type {
   GetECSServiceRecommendationsCommandInput,
   GetECSServiceRecommendationsCommandOutput,
 } from "./commands/GetECSServiceRecommendationsCommand";
-import {
+import type {
   GetEffectiveRecommendationPreferencesCommandInput,
   GetEffectiveRecommendationPreferencesCommandOutput,
 } from "./commands/GetEffectiveRecommendationPreferencesCommand";
-import {
+import type {
   GetEnrollmentStatusCommandInput,
   GetEnrollmentStatusCommandOutput,
 } from "./commands/GetEnrollmentStatusCommand";
-import {
+import type {
   GetEnrollmentStatusesForOrganizationCommandInput,
   GetEnrollmentStatusesForOrganizationCommandOutput,
 } from "./commands/GetEnrollmentStatusesForOrganizationCommand";
-import {
+import type {
   GetIdleRecommendationsCommandInput,
   GetIdleRecommendationsCommandOutput,
 } from "./commands/GetIdleRecommendationsCommand";
-import {
+import type {
   GetLambdaFunctionRecommendationsCommandInput,
   GetLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/GetLambdaFunctionRecommendationsCommand";
-import {
+import type {
   GetLicenseRecommendationsCommandInput,
   GetLicenseRecommendationsCommandOutput,
 } from "./commands/GetLicenseRecommendationsCommand";
-import {
+import type {
   GetRDSDatabaseRecommendationProjectedMetricsCommandInput,
   GetRDSDatabaseRecommendationProjectedMetricsCommandOutput,
 } from "./commands/GetRDSDatabaseRecommendationProjectedMetricsCommand";
-import {
+import type {
   GetRDSDatabaseRecommendationsCommandInput,
   GetRDSDatabaseRecommendationsCommandOutput,
 } from "./commands/GetRDSDatabaseRecommendationsCommand";
-import {
+import type {
   GetRecommendationPreferencesCommandInput,
   GetRecommendationPreferencesCommandOutput,
 } from "./commands/GetRecommendationPreferencesCommand";
-import {
+import type {
   GetRecommendationSummariesCommandInput,
   GetRecommendationSummariesCommandOutput,
 } from "./commands/GetRecommendationSummariesCommand";
-import {
+import type {
   PutRecommendationPreferencesCommandInput,
   PutRecommendationPreferencesCommandOutput,
 } from "./commands/PutRecommendationPreferencesCommand";
-import {
+import type {
   UpdateEnrollmentStatusCommandInput,
   UpdateEnrollmentStatusCommandOutput,
 } from "./commands/UpdateEnrollmentStatusCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -366,7 +364,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

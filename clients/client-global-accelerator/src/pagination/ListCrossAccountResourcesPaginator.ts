@@ -8,7 +8,7 @@ import {
   ListCrossAccountResourcesCommandOutput,
 } from "../commands/ListCrossAccountResourcesCommand";
 import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
-import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
+import type { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

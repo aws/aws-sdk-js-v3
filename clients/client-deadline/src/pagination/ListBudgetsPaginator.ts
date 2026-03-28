@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ListBudgetsCommand, ListBudgetsCommandInput, ListBudgetsCommandOutput } from "../commands/ListBudgetsCommand";
 import { DeadlineClient } from "../DeadlineClient";
-import { DeadlinePaginationConfiguration } from "./Interfaces";
+import type { DeadlinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -3,439 +3,471 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptAttachmentCommandInput,
+  type AcceptAttachmentCommandOutput,
   AcceptAttachmentCommand,
-  AcceptAttachmentCommandInput,
-  AcceptAttachmentCommandOutput,
 } from "./commands/AcceptAttachmentCommand";
 import {
+  type AssociateConnectPeerCommandInput,
+  type AssociateConnectPeerCommandOutput,
   AssociateConnectPeerCommand,
-  AssociateConnectPeerCommandInput,
-  AssociateConnectPeerCommandOutput,
 } from "./commands/AssociateConnectPeerCommand";
 import {
+  type AssociateCustomerGatewayCommandInput,
+  type AssociateCustomerGatewayCommandOutput,
   AssociateCustomerGatewayCommand,
-  AssociateCustomerGatewayCommandInput,
-  AssociateCustomerGatewayCommandOutput,
 } from "./commands/AssociateCustomerGatewayCommand";
 import {
+  type AssociateLinkCommandInput,
+  type AssociateLinkCommandOutput,
   AssociateLinkCommand,
-  AssociateLinkCommandInput,
-  AssociateLinkCommandOutput,
 } from "./commands/AssociateLinkCommand";
 import {
+  type AssociateTransitGatewayConnectPeerCommandInput,
+  type AssociateTransitGatewayConnectPeerCommandOutput,
   AssociateTransitGatewayConnectPeerCommand,
-  AssociateTransitGatewayConnectPeerCommandInput,
-  AssociateTransitGatewayConnectPeerCommandOutput,
 } from "./commands/AssociateTransitGatewayConnectPeerCommand";
 import {
+  type CreateConnectAttachmentCommandInput,
+  type CreateConnectAttachmentCommandOutput,
   CreateConnectAttachmentCommand,
-  CreateConnectAttachmentCommandInput,
-  CreateConnectAttachmentCommandOutput,
 } from "./commands/CreateConnectAttachmentCommand";
 import {
+  type CreateConnectionCommandInput,
+  type CreateConnectionCommandOutput,
   CreateConnectionCommand,
-  CreateConnectionCommandInput,
-  CreateConnectionCommandOutput,
 } from "./commands/CreateConnectionCommand";
 import {
+  type CreateConnectPeerCommandInput,
+  type CreateConnectPeerCommandOutput,
   CreateConnectPeerCommand,
-  CreateConnectPeerCommandInput,
-  CreateConnectPeerCommandOutput,
 } from "./commands/CreateConnectPeerCommand";
 import {
+  type CreateCoreNetworkCommandInput,
+  type CreateCoreNetworkCommandOutput,
   CreateCoreNetworkCommand,
-  CreateCoreNetworkCommandInput,
-  CreateCoreNetworkCommandOutput,
 } from "./commands/CreateCoreNetworkCommand";
 import {
+  type CreateCoreNetworkPrefixListAssociationCommandInput,
+  type CreateCoreNetworkPrefixListAssociationCommandOutput,
   CreateCoreNetworkPrefixListAssociationCommand,
-  CreateCoreNetworkPrefixListAssociationCommandInput,
-  CreateCoreNetworkPrefixListAssociationCommandOutput,
 } from "./commands/CreateCoreNetworkPrefixListAssociationCommand";
 import {
+  type CreateDeviceCommandInput,
+  type CreateDeviceCommandOutput,
   CreateDeviceCommand,
-  CreateDeviceCommandInput,
-  CreateDeviceCommandOutput,
 } from "./commands/CreateDeviceCommand";
 import {
+  type CreateDirectConnectGatewayAttachmentCommandInput,
+  type CreateDirectConnectGatewayAttachmentCommandOutput,
   CreateDirectConnectGatewayAttachmentCommand,
-  CreateDirectConnectGatewayAttachmentCommandInput,
-  CreateDirectConnectGatewayAttachmentCommandOutput,
 } from "./commands/CreateDirectConnectGatewayAttachmentCommand";
 import {
+  type CreateGlobalNetworkCommandInput,
+  type CreateGlobalNetworkCommandOutput,
   CreateGlobalNetworkCommand,
-  CreateGlobalNetworkCommandInput,
-  CreateGlobalNetworkCommandOutput,
 } from "./commands/CreateGlobalNetworkCommand";
-import { CreateLinkCommand, CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
-import { CreateSiteCommand, CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
 import {
+  type CreateLinkCommandInput,
+  type CreateLinkCommandOutput,
+  CreateLinkCommand,
+} from "./commands/CreateLinkCommand";
+import {
+  type CreateSiteCommandInput,
+  type CreateSiteCommandOutput,
+  CreateSiteCommand,
+} from "./commands/CreateSiteCommand";
+import {
+  type CreateSiteToSiteVpnAttachmentCommandInput,
+  type CreateSiteToSiteVpnAttachmentCommandOutput,
   CreateSiteToSiteVpnAttachmentCommand,
-  CreateSiteToSiteVpnAttachmentCommandInput,
-  CreateSiteToSiteVpnAttachmentCommandOutput,
 } from "./commands/CreateSiteToSiteVpnAttachmentCommand";
 import {
+  type CreateTransitGatewayPeeringCommandInput,
+  type CreateTransitGatewayPeeringCommandOutput,
   CreateTransitGatewayPeeringCommand,
-  CreateTransitGatewayPeeringCommandInput,
-  CreateTransitGatewayPeeringCommandOutput,
 } from "./commands/CreateTransitGatewayPeeringCommand";
 import {
+  type CreateTransitGatewayRouteTableAttachmentCommandInput,
+  type CreateTransitGatewayRouteTableAttachmentCommandOutput,
   CreateTransitGatewayRouteTableAttachmentCommand,
-  CreateTransitGatewayRouteTableAttachmentCommandInput,
-  CreateTransitGatewayRouteTableAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayRouteTableAttachmentCommand";
 import {
+  type CreateVpcAttachmentCommandInput,
+  type CreateVpcAttachmentCommandOutput,
   CreateVpcAttachmentCommand,
-  CreateVpcAttachmentCommandInput,
-  CreateVpcAttachmentCommandOutput,
 } from "./commands/CreateVpcAttachmentCommand";
 import {
+  type DeleteAttachmentCommandInput,
+  type DeleteAttachmentCommandOutput,
   DeleteAttachmentCommand,
-  DeleteAttachmentCommandInput,
-  DeleteAttachmentCommandOutput,
 } from "./commands/DeleteAttachmentCommand";
 import {
+  type DeleteConnectionCommandInput,
+  type DeleteConnectionCommandOutput,
   DeleteConnectionCommand,
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
+  type DeleteConnectPeerCommandInput,
+  type DeleteConnectPeerCommandOutput,
   DeleteConnectPeerCommand,
-  DeleteConnectPeerCommandInput,
-  DeleteConnectPeerCommandOutput,
 } from "./commands/DeleteConnectPeerCommand";
 import {
+  type DeleteCoreNetworkCommandInput,
+  type DeleteCoreNetworkCommandOutput,
   DeleteCoreNetworkCommand,
-  DeleteCoreNetworkCommandInput,
-  DeleteCoreNetworkCommandOutput,
 } from "./commands/DeleteCoreNetworkCommand";
 import {
+  type DeleteCoreNetworkPolicyVersionCommandInput,
+  type DeleteCoreNetworkPolicyVersionCommandOutput,
   DeleteCoreNetworkPolicyVersionCommand,
-  DeleteCoreNetworkPolicyVersionCommandInput,
-  DeleteCoreNetworkPolicyVersionCommandOutput,
 } from "./commands/DeleteCoreNetworkPolicyVersionCommand";
 import {
+  type DeleteCoreNetworkPrefixListAssociationCommandInput,
+  type DeleteCoreNetworkPrefixListAssociationCommandOutput,
   DeleteCoreNetworkPrefixListAssociationCommand,
-  DeleteCoreNetworkPrefixListAssociationCommandInput,
-  DeleteCoreNetworkPrefixListAssociationCommandOutput,
 } from "./commands/DeleteCoreNetworkPrefixListAssociationCommand";
 import {
+  type DeleteDeviceCommandInput,
+  type DeleteDeviceCommandOutput,
   DeleteDeviceCommand,
-  DeleteDeviceCommandInput,
-  DeleteDeviceCommandOutput,
 } from "./commands/DeleteDeviceCommand";
 import {
+  type DeleteGlobalNetworkCommandInput,
+  type DeleteGlobalNetworkCommandOutput,
   DeleteGlobalNetworkCommand,
-  DeleteGlobalNetworkCommandInput,
-  DeleteGlobalNetworkCommandOutput,
 } from "./commands/DeleteGlobalNetworkCommand";
-import { DeleteLinkCommand, DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
 import {
+  type DeleteLinkCommandInput,
+  type DeleteLinkCommandOutput,
+  DeleteLinkCommand,
+} from "./commands/DeleteLinkCommand";
+import {
+  type DeletePeeringCommandInput,
+  type DeletePeeringCommandOutput,
   DeletePeeringCommand,
-  DeletePeeringCommandInput,
-  DeletePeeringCommandOutput,
 } from "./commands/DeletePeeringCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import { DeleteSiteCommand, DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
 import {
+  type DeleteSiteCommandInput,
+  type DeleteSiteCommandOutput,
+  DeleteSiteCommand,
+} from "./commands/DeleteSiteCommand";
+import {
+  type DeregisterTransitGatewayCommandInput,
+  type DeregisterTransitGatewayCommandOutput,
   DeregisterTransitGatewayCommand,
-  DeregisterTransitGatewayCommandInput,
-  DeregisterTransitGatewayCommandOutput,
 } from "./commands/DeregisterTransitGatewayCommand";
 import {
+  type DescribeGlobalNetworksCommandInput,
+  type DescribeGlobalNetworksCommandOutput,
   DescribeGlobalNetworksCommand,
-  DescribeGlobalNetworksCommandInput,
-  DescribeGlobalNetworksCommandOutput,
 } from "./commands/DescribeGlobalNetworksCommand";
 import {
+  type DisassociateConnectPeerCommandInput,
+  type DisassociateConnectPeerCommandOutput,
   DisassociateConnectPeerCommand,
-  DisassociateConnectPeerCommandInput,
-  DisassociateConnectPeerCommandOutput,
 } from "./commands/DisassociateConnectPeerCommand";
 import {
+  type DisassociateCustomerGatewayCommandInput,
+  type DisassociateCustomerGatewayCommandOutput,
   DisassociateCustomerGatewayCommand,
-  DisassociateCustomerGatewayCommandInput,
-  DisassociateCustomerGatewayCommandOutput,
 } from "./commands/DisassociateCustomerGatewayCommand";
 import {
+  type DisassociateLinkCommandInput,
+  type DisassociateLinkCommandOutput,
   DisassociateLinkCommand,
-  DisassociateLinkCommandInput,
-  DisassociateLinkCommandOutput,
 } from "./commands/DisassociateLinkCommand";
 import {
+  type DisassociateTransitGatewayConnectPeerCommandInput,
+  type DisassociateTransitGatewayConnectPeerCommandOutput,
   DisassociateTransitGatewayConnectPeerCommand,
-  DisassociateTransitGatewayConnectPeerCommandInput,
-  DisassociateTransitGatewayConnectPeerCommandOutput,
 } from "./commands/DisassociateTransitGatewayConnectPeerCommand";
 import {
+  type ExecuteCoreNetworkChangeSetCommandInput,
+  type ExecuteCoreNetworkChangeSetCommandOutput,
   ExecuteCoreNetworkChangeSetCommand,
-  ExecuteCoreNetworkChangeSetCommandInput,
-  ExecuteCoreNetworkChangeSetCommandOutput,
 } from "./commands/ExecuteCoreNetworkChangeSetCommand";
 import {
+  type GetConnectAttachmentCommandInput,
+  type GetConnectAttachmentCommandOutput,
   GetConnectAttachmentCommand,
-  GetConnectAttachmentCommandInput,
-  GetConnectAttachmentCommandOutput,
 } from "./commands/GetConnectAttachmentCommand";
 import {
+  type GetConnectionsCommandInput,
+  type GetConnectionsCommandOutput,
   GetConnectionsCommand,
-  GetConnectionsCommandInput,
-  GetConnectionsCommandOutput,
 } from "./commands/GetConnectionsCommand";
 import {
+  type GetConnectPeerAssociationsCommandInput,
+  type GetConnectPeerAssociationsCommandOutput,
   GetConnectPeerAssociationsCommand,
-  GetConnectPeerAssociationsCommandInput,
-  GetConnectPeerAssociationsCommandOutput,
 } from "./commands/GetConnectPeerAssociationsCommand";
 import {
+  type GetConnectPeerCommandInput,
+  type GetConnectPeerCommandOutput,
   GetConnectPeerCommand,
-  GetConnectPeerCommandInput,
-  GetConnectPeerCommandOutput,
 } from "./commands/GetConnectPeerCommand";
 import {
+  type GetCoreNetworkChangeEventsCommandInput,
+  type GetCoreNetworkChangeEventsCommandOutput,
   GetCoreNetworkChangeEventsCommand,
-  GetCoreNetworkChangeEventsCommandInput,
-  GetCoreNetworkChangeEventsCommandOutput,
 } from "./commands/GetCoreNetworkChangeEventsCommand";
 import {
+  type GetCoreNetworkChangeSetCommandInput,
+  type GetCoreNetworkChangeSetCommandOutput,
   GetCoreNetworkChangeSetCommand,
-  GetCoreNetworkChangeSetCommandInput,
-  GetCoreNetworkChangeSetCommandOutput,
 } from "./commands/GetCoreNetworkChangeSetCommand";
 import {
+  type GetCoreNetworkCommandInput,
+  type GetCoreNetworkCommandOutput,
   GetCoreNetworkCommand,
-  GetCoreNetworkCommandInput,
-  GetCoreNetworkCommandOutput,
 } from "./commands/GetCoreNetworkCommand";
 import {
+  type GetCoreNetworkPolicyCommandInput,
+  type GetCoreNetworkPolicyCommandOutput,
   GetCoreNetworkPolicyCommand,
-  GetCoreNetworkPolicyCommandInput,
-  GetCoreNetworkPolicyCommandOutput,
 } from "./commands/GetCoreNetworkPolicyCommand";
 import {
+  type GetCustomerGatewayAssociationsCommandInput,
+  type GetCustomerGatewayAssociationsCommandOutput,
   GetCustomerGatewayAssociationsCommand,
-  GetCustomerGatewayAssociationsCommandInput,
-  GetCustomerGatewayAssociationsCommandOutput,
 } from "./commands/GetCustomerGatewayAssociationsCommand";
-import { GetDevicesCommand, GetDevicesCommandInput, GetDevicesCommandOutput } from "./commands/GetDevicesCommand";
 import {
+  type GetDevicesCommandInput,
+  type GetDevicesCommandOutput,
+  GetDevicesCommand,
+} from "./commands/GetDevicesCommand";
+import {
+  type GetDirectConnectGatewayAttachmentCommandInput,
+  type GetDirectConnectGatewayAttachmentCommandOutput,
   GetDirectConnectGatewayAttachmentCommand,
-  GetDirectConnectGatewayAttachmentCommandInput,
-  GetDirectConnectGatewayAttachmentCommandOutput,
 } from "./commands/GetDirectConnectGatewayAttachmentCommand";
 import {
+  type GetLinkAssociationsCommandInput,
+  type GetLinkAssociationsCommandOutput,
   GetLinkAssociationsCommand,
-  GetLinkAssociationsCommandInput,
-  GetLinkAssociationsCommandOutput,
 } from "./commands/GetLinkAssociationsCommand";
-import { GetLinksCommand, GetLinksCommandInput, GetLinksCommandOutput } from "./commands/GetLinksCommand";
+import { type GetLinksCommandInput, type GetLinksCommandOutput, GetLinksCommand } from "./commands/GetLinksCommand";
 import {
+  type GetNetworkResourceCountsCommandInput,
+  type GetNetworkResourceCountsCommandOutput,
   GetNetworkResourceCountsCommand,
-  GetNetworkResourceCountsCommandInput,
-  GetNetworkResourceCountsCommandOutput,
 } from "./commands/GetNetworkResourceCountsCommand";
 import {
+  type GetNetworkResourceRelationshipsCommandInput,
+  type GetNetworkResourceRelationshipsCommandOutput,
   GetNetworkResourceRelationshipsCommand,
-  GetNetworkResourceRelationshipsCommandInput,
-  GetNetworkResourceRelationshipsCommandOutput,
 } from "./commands/GetNetworkResourceRelationshipsCommand";
 import {
+  type GetNetworkResourcesCommandInput,
+  type GetNetworkResourcesCommandOutput,
   GetNetworkResourcesCommand,
-  GetNetworkResourcesCommandInput,
-  GetNetworkResourcesCommandOutput,
 } from "./commands/GetNetworkResourcesCommand";
 import {
+  type GetNetworkRoutesCommandInput,
+  type GetNetworkRoutesCommandOutput,
   GetNetworkRoutesCommand,
-  GetNetworkRoutesCommandInput,
-  GetNetworkRoutesCommandOutput,
 } from "./commands/GetNetworkRoutesCommand";
 import {
+  type GetNetworkTelemetryCommandInput,
+  type GetNetworkTelemetryCommandOutput,
   GetNetworkTelemetryCommand,
-  GetNetworkTelemetryCommandInput,
-  GetNetworkTelemetryCommandOutput,
 } from "./commands/GetNetworkTelemetryCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type GetRouteAnalysisCommandInput,
+  type GetRouteAnalysisCommandOutput,
   GetRouteAnalysisCommand,
-  GetRouteAnalysisCommandInput,
-  GetRouteAnalysisCommandOutput,
 } from "./commands/GetRouteAnalysisCommand";
-import { GetSitesCommand, GetSitesCommandInput, GetSitesCommandOutput } from "./commands/GetSitesCommand";
+import { type GetSitesCommandInput, type GetSitesCommandOutput, GetSitesCommand } from "./commands/GetSitesCommand";
 import {
+  type GetSiteToSiteVpnAttachmentCommandInput,
+  type GetSiteToSiteVpnAttachmentCommandOutput,
   GetSiteToSiteVpnAttachmentCommand,
-  GetSiteToSiteVpnAttachmentCommandInput,
-  GetSiteToSiteVpnAttachmentCommandOutput,
 } from "./commands/GetSiteToSiteVpnAttachmentCommand";
 import {
+  type GetTransitGatewayConnectPeerAssociationsCommandInput,
+  type GetTransitGatewayConnectPeerAssociationsCommandOutput,
   GetTransitGatewayConnectPeerAssociationsCommand,
-  GetTransitGatewayConnectPeerAssociationsCommandInput,
-  GetTransitGatewayConnectPeerAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayConnectPeerAssociationsCommand";
 import {
+  type GetTransitGatewayPeeringCommandInput,
+  type GetTransitGatewayPeeringCommandOutput,
   GetTransitGatewayPeeringCommand,
-  GetTransitGatewayPeeringCommandInput,
-  GetTransitGatewayPeeringCommandOutput,
 } from "./commands/GetTransitGatewayPeeringCommand";
 import {
+  type GetTransitGatewayRegistrationsCommandInput,
+  type GetTransitGatewayRegistrationsCommandOutput,
   GetTransitGatewayRegistrationsCommand,
-  GetTransitGatewayRegistrationsCommandInput,
-  GetTransitGatewayRegistrationsCommandOutput,
 } from "./commands/GetTransitGatewayRegistrationsCommand";
 import {
+  type GetTransitGatewayRouteTableAttachmentCommandInput,
+  type GetTransitGatewayRouteTableAttachmentCommandOutput,
   GetTransitGatewayRouteTableAttachmentCommand,
-  GetTransitGatewayRouteTableAttachmentCommandInput,
-  GetTransitGatewayRouteTableAttachmentCommandOutput,
 } from "./commands/GetTransitGatewayRouteTableAttachmentCommand";
 import {
+  type GetVpcAttachmentCommandInput,
+  type GetVpcAttachmentCommandOutput,
   GetVpcAttachmentCommand,
-  GetVpcAttachmentCommandInput,
-  GetVpcAttachmentCommandOutput,
 } from "./commands/GetVpcAttachmentCommand";
 import {
+  type ListAttachmentRoutingPolicyAssociationsCommandInput,
+  type ListAttachmentRoutingPolicyAssociationsCommandOutput,
   ListAttachmentRoutingPolicyAssociationsCommand,
-  ListAttachmentRoutingPolicyAssociationsCommandInput,
-  ListAttachmentRoutingPolicyAssociationsCommandOutput,
 } from "./commands/ListAttachmentRoutingPolicyAssociationsCommand";
 import {
+  type ListAttachmentsCommandInput,
+  type ListAttachmentsCommandOutput,
   ListAttachmentsCommand,
-  ListAttachmentsCommandInput,
-  ListAttachmentsCommandOutput,
 } from "./commands/ListAttachmentsCommand";
 import {
+  type ListConnectPeersCommandInput,
+  type ListConnectPeersCommandOutput,
   ListConnectPeersCommand,
-  ListConnectPeersCommandInput,
-  ListConnectPeersCommandOutput,
 } from "./commands/ListConnectPeersCommand";
 import {
+  type ListCoreNetworkPolicyVersionsCommandInput,
+  type ListCoreNetworkPolicyVersionsCommandOutput,
   ListCoreNetworkPolicyVersionsCommand,
-  ListCoreNetworkPolicyVersionsCommandInput,
-  ListCoreNetworkPolicyVersionsCommandOutput,
 } from "./commands/ListCoreNetworkPolicyVersionsCommand";
 import {
+  type ListCoreNetworkPrefixListAssociationsCommandInput,
+  type ListCoreNetworkPrefixListAssociationsCommandOutput,
   ListCoreNetworkPrefixListAssociationsCommand,
-  ListCoreNetworkPrefixListAssociationsCommandInput,
-  ListCoreNetworkPrefixListAssociationsCommandOutput,
 } from "./commands/ListCoreNetworkPrefixListAssociationsCommand";
 import {
+  type ListCoreNetworkRoutingInformationCommandInput,
+  type ListCoreNetworkRoutingInformationCommandOutput,
   ListCoreNetworkRoutingInformationCommand,
-  ListCoreNetworkRoutingInformationCommandInput,
-  ListCoreNetworkRoutingInformationCommandOutput,
 } from "./commands/ListCoreNetworkRoutingInformationCommand";
 import {
+  type ListCoreNetworksCommandInput,
+  type ListCoreNetworksCommandOutput,
   ListCoreNetworksCommand,
-  ListCoreNetworksCommandInput,
-  ListCoreNetworksCommandOutput,
 } from "./commands/ListCoreNetworksCommand";
 import {
+  type ListOrganizationServiceAccessStatusCommandInput,
+  type ListOrganizationServiceAccessStatusCommandOutput,
   ListOrganizationServiceAccessStatusCommand,
-  ListOrganizationServiceAccessStatusCommandInput,
-  ListOrganizationServiceAccessStatusCommandOutput,
 } from "./commands/ListOrganizationServiceAccessStatusCommand";
 import {
+  type ListPeeringsCommandInput,
+  type ListPeeringsCommandOutput,
   ListPeeringsCommand,
-  ListPeeringsCommandInput,
-  ListPeeringsCommandOutput,
 } from "./commands/ListPeeringsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutAttachmentRoutingPolicyLabelCommandInput,
+  type PutAttachmentRoutingPolicyLabelCommandOutput,
   PutAttachmentRoutingPolicyLabelCommand,
-  PutAttachmentRoutingPolicyLabelCommandInput,
-  PutAttachmentRoutingPolicyLabelCommandOutput,
 } from "./commands/PutAttachmentRoutingPolicyLabelCommand";
 import {
+  type PutCoreNetworkPolicyCommandInput,
+  type PutCoreNetworkPolicyCommandOutput,
   PutCoreNetworkPolicyCommand,
-  PutCoreNetworkPolicyCommandInput,
-  PutCoreNetworkPolicyCommandOutput,
 } from "./commands/PutCoreNetworkPolicyCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RegisterTransitGatewayCommandInput,
+  type RegisterTransitGatewayCommandOutput,
   RegisterTransitGatewayCommand,
-  RegisterTransitGatewayCommandInput,
-  RegisterTransitGatewayCommandOutput,
 } from "./commands/RegisterTransitGatewayCommand";
 import {
+  type RejectAttachmentCommandInput,
+  type RejectAttachmentCommandOutput,
   RejectAttachmentCommand,
-  RejectAttachmentCommandInput,
-  RejectAttachmentCommandOutput,
 } from "./commands/RejectAttachmentCommand";
 import {
+  type RemoveAttachmentRoutingPolicyLabelCommandInput,
+  type RemoveAttachmentRoutingPolicyLabelCommandOutput,
   RemoveAttachmentRoutingPolicyLabelCommand,
-  RemoveAttachmentRoutingPolicyLabelCommandInput,
-  RemoveAttachmentRoutingPolicyLabelCommandOutput,
 } from "./commands/RemoveAttachmentRoutingPolicyLabelCommand";
 import {
+  type RestoreCoreNetworkPolicyVersionCommandInput,
+  type RestoreCoreNetworkPolicyVersionCommandOutput,
   RestoreCoreNetworkPolicyVersionCommand,
-  RestoreCoreNetworkPolicyVersionCommandInput,
-  RestoreCoreNetworkPolicyVersionCommandOutput,
 } from "./commands/RestoreCoreNetworkPolicyVersionCommand";
 import {
+  type StartOrganizationServiceAccessUpdateCommandInput,
+  type StartOrganizationServiceAccessUpdateCommandOutput,
   StartOrganizationServiceAccessUpdateCommand,
-  StartOrganizationServiceAccessUpdateCommandInput,
-  StartOrganizationServiceAccessUpdateCommandOutput,
 } from "./commands/StartOrganizationServiceAccessUpdateCommand";
 import {
+  type StartRouteAnalysisCommandInput,
+  type StartRouteAnalysisCommandOutput,
   StartRouteAnalysisCommand,
-  StartRouteAnalysisCommandInput,
-  StartRouteAnalysisCommandOutput,
 } from "./commands/StartRouteAnalysisCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateConnectionCommandInput,
+  type UpdateConnectionCommandOutput,
   UpdateConnectionCommand,
-  UpdateConnectionCommandInput,
-  UpdateConnectionCommandOutput,
 } from "./commands/UpdateConnectionCommand";
 import {
+  type UpdateCoreNetworkCommandInput,
+  type UpdateCoreNetworkCommandOutput,
   UpdateCoreNetworkCommand,
-  UpdateCoreNetworkCommandInput,
-  UpdateCoreNetworkCommandOutput,
 } from "./commands/UpdateCoreNetworkCommand";
 import {
+  type UpdateDeviceCommandInput,
+  type UpdateDeviceCommandOutput,
   UpdateDeviceCommand,
-  UpdateDeviceCommandInput,
-  UpdateDeviceCommandOutput,
 } from "./commands/UpdateDeviceCommand";
 import {
+  type UpdateDirectConnectGatewayAttachmentCommandInput,
+  type UpdateDirectConnectGatewayAttachmentCommandOutput,
   UpdateDirectConnectGatewayAttachmentCommand,
-  UpdateDirectConnectGatewayAttachmentCommandInput,
-  UpdateDirectConnectGatewayAttachmentCommandOutput,
 } from "./commands/UpdateDirectConnectGatewayAttachmentCommand";
 import {
+  type UpdateGlobalNetworkCommandInput,
+  type UpdateGlobalNetworkCommandOutput,
   UpdateGlobalNetworkCommand,
-  UpdateGlobalNetworkCommandInput,
-  UpdateGlobalNetworkCommandOutput,
 } from "./commands/UpdateGlobalNetworkCommand";
-import { UpdateLinkCommand, UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
 import {
+  type UpdateLinkCommandInput,
+  type UpdateLinkCommandOutput,
+  UpdateLinkCommand,
+} from "./commands/UpdateLinkCommand";
+import {
+  type UpdateNetworkResourceMetadataCommandInput,
+  type UpdateNetworkResourceMetadataCommandOutput,
   UpdateNetworkResourceMetadataCommand,
-  UpdateNetworkResourceMetadataCommandInput,
-  UpdateNetworkResourceMetadataCommandOutput,
 } from "./commands/UpdateNetworkResourceMetadataCommand";
-import { UpdateSiteCommand, UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
 import {
+  type UpdateSiteCommandInput,
+  type UpdateSiteCommandOutput,
+  UpdateSiteCommand,
+} from "./commands/UpdateSiteCommand";
+import {
+  type UpdateVpcAttachmentCommandInput,
+  type UpdateVpcAttachmentCommandOutput,
   UpdateVpcAttachmentCommand,
-  UpdateVpcAttachmentCommandInput,
-  UpdateVpcAttachmentCommandOutput,
 } from "./commands/UpdateVpcAttachmentCommand";
 import { NetworkManagerClient } from "./NetworkManagerClient";
 import { paginateDescribeGlobalNetworks } from "./pagination/DescribeGlobalNetworksPaginator";

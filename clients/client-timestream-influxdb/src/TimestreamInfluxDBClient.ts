@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,44 +61,44 @@ import {
   defaultTimestreamInfluxDBHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateDbClusterCommandInput, CreateDbClusterCommandOutput } from "./commands/CreateDbClusterCommand";
-import { CreateDbInstanceCommandInput, CreateDbInstanceCommandOutput } from "./commands/CreateDbInstanceCommand";
-import {
+import type { CreateDbClusterCommandInput, CreateDbClusterCommandOutput } from "./commands/CreateDbClusterCommand";
+import type { CreateDbInstanceCommandInput, CreateDbInstanceCommandOutput } from "./commands/CreateDbInstanceCommand";
+import type {
   CreateDbParameterGroupCommandInput,
   CreateDbParameterGroupCommandOutput,
 } from "./commands/CreateDbParameterGroupCommand";
-import { DeleteDbClusterCommandInput, DeleteDbClusterCommandOutput } from "./commands/DeleteDbClusterCommand";
-import { DeleteDbInstanceCommandInput, DeleteDbInstanceCommandOutput } from "./commands/DeleteDbInstanceCommand";
-import { GetDbClusterCommandInput, GetDbClusterCommandOutput } from "./commands/GetDbClusterCommand";
-import { GetDbInstanceCommandInput, GetDbInstanceCommandOutput } from "./commands/GetDbInstanceCommand";
-import {
+import type { DeleteDbClusterCommandInput, DeleteDbClusterCommandOutput } from "./commands/DeleteDbClusterCommand";
+import type { DeleteDbInstanceCommandInput, DeleteDbInstanceCommandOutput } from "./commands/DeleteDbInstanceCommand";
+import type { GetDbClusterCommandInput, GetDbClusterCommandOutput } from "./commands/GetDbClusterCommand";
+import type { GetDbInstanceCommandInput, GetDbInstanceCommandOutput } from "./commands/GetDbInstanceCommand";
+import type {
   GetDbParameterGroupCommandInput,
   GetDbParameterGroupCommandOutput,
 } from "./commands/GetDbParameterGroupCommand";
-import { ListDbClustersCommandInput, ListDbClustersCommandOutput } from "./commands/ListDbClustersCommand";
-import { ListDbInstancesCommandInput, ListDbInstancesCommandOutput } from "./commands/ListDbInstancesCommand";
-import {
+import type { ListDbClustersCommandInput, ListDbClustersCommandOutput } from "./commands/ListDbClustersCommand";
+import type { ListDbInstancesCommandInput, ListDbInstancesCommandOutput } from "./commands/ListDbInstancesCommand";
+import type {
   ListDbInstancesForClusterCommandInput,
   ListDbInstancesForClusterCommandOutput,
 } from "./commands/ListDbInstancesForClusterCommand";
-import {
+import type {
   ListDbParameterGroupsCommandInput,
   ListDbParameterGroupsCommandOutput,
 } from "./commands/ListDbParameterGroupsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { RebootDbClusterCommandInput, RebootDbClusterCommandOutput } from "./commands/RebootDbClusterCommand";
-import { RebootDbInstanceCommandInput, RebootDbInstanceCommandOutput } from "./commands/RebootDbInstanceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateDbClusterCommandInput, UpdateDbClusterCommandOutput } from "./commands/UpdateDbClusterCommand";
-import { UpdateDbInstanceCommandInput, UpdateDbInstanceCommandOutput } from "./commands/UpdateDbInstanceCommand";
+import type { RebootDbClusterCommandInput, RebootDbClusterCommandOutput } from "./commands/RebootDbClusterCommand";
+import type { RebootDbInstanceCommandInput, RebootDbInstanceCommandOutput } from "./commands/RebootDbInstanceCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateDbClusterCommandInput, UpdateDbClusterCommandOutput } from "./commands/UpdateDbClusterCommand";
+import type { UpdateDbInstanceCommandInput, UpdateDbInstanceCommandOutput } from "./commands/UpdateDbInstanceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -270,7 +268,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

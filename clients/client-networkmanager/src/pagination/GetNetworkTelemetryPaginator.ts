@@ -8,7 +8,7 @@ import {
   GetNetworkTelemetryCommandOutput,
 } from "../commands/GetNetworkTelemetryCommand";
 import { NetworkManagerClient } from "../NetworkManagerClient";
-import { NetworkManagerPaginationConfiguration } from "./Interfaces";
+import type { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

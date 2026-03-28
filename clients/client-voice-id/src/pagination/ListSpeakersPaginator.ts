@@ -8,7 +8,7 @@ import {
   ListSpeakersCommandOutput,
 } from "../commands/ListSpeakersCommand";
 import { VoiceIDClient } from "../VoiceIDClient";
-import { VoiceIDPaginationConfiguration } from "./Interfaces";
+import type { VoiceIDPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

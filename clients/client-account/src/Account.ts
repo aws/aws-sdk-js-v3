@@ -4,75 +4,79 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { AccountClient } from "./AccountClient";
 import {
+  type AcceptPrimaryEmailUpdateCommandInput,
+  type AcceptPrimaryEmailUpdateCommandOutput,
   AcceptPrimaryEmailUpdateCommand,
-  AcceptPrimaryEmailUpdateCommandInput,
-  AcceptPrimaryEmailUpdateCommandOutput,
 } from "./commands/AcceptPrimaryEmailUpdateCommand";
 import {
+  type DeleteAlternateContactCommandInput,
+  type DeleteAlternateContactCommandOutput,
   DeleteAlternateContactCommand,
-  DeleteAlternateContactCommandInput,
-  DeleteAlternateContactCommandOutput,
 } from "./commands/DeleteAlternateContactCommand";
 import {
+  type DisableRegionCommandInput,
+  type DisableRegionCommandOutput,
   DisableRegionCommand,
-  DisableRegionCommandInput,
-  DisableRegionCommandOutput,
 } from "./commands/DisableRegionCommand";
 import {
+  type EnableRegionCommandInput,
+  type EnableRegionCommandOutput,
   EnableRegionCommand,
-  EnableRegionCommandInput,
-  EnableRegionCommandOutput,
 } from "./commands/EnableRegionCommand";
 import {
+  type GetAccountInformationCommandInput,
+  type GetAccountInformationCommandOutput,
   GetAccountInformationCommand,
-  GetAccountInformationCommandInput,
-  GetAccountInformationCommandOutput,
 } from "./commands/GetAccountInformationCommand";
 import {
+  type GetAlternateContactCommandInput,
+  type GetAlternateContactCommandOutput,
   GetAlternateContactCommand,
-  GetAlternateContactCommandInput,
-  GetAlternateContactCommandOutput,
 } from "./commands/GetAlternateContactCommand";
 import {
+  type GetContactInformationCommandInput,
+  type GetContactInformationCommandOutput,
   GetContactInformationCommand,
-  GetContactInformationCommandInput,
-  GetContactInformationCommandOutput,
 } from "./commands/GetContactInformationCommand";
 import {
+  type GetGovCloudAccountInformationCommandInput,
+  type GetGovCloudAccountInformationCommandOutput,
   GetGovCloudAccountInformationCommand,
-  GetGovCloudAccountInformationCommandInput,
-  GetGovCloudAccountInformationCommandOutput,
 } from "./commands/GetGovCloudAccountInformationCommand";
 import {
+  type GetPrimaryEmailCommandInput,
+  type GetPrimaryEmailCommandOutput,
   GetPrimaryEmailCommand,
-  GetPrimaryEmailCommandInput,
-  GetPrimaryEmailCommandOutput,
 } from "./commands/GetPrimaryEmailCommand";
 import {
+  type GetRegionOptStatusCommandInput,
+  type GetRegionOptStatusCommandOutput,
   GetRegionOptStatusCommand,
-  GetRegionOptStatusCommandInput,
-  GetRegionOptStatusCommandOutput,
 } from "./commands/GetRegionOptStatusCommand";
-import { ListRegionsCommand, ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
 import {
+  type ListRegionsCommandInput,
+  type ListRegionsCommandOutput,
+  ListRegionsCommand,
+} from "./commands/ListRegionsCommand";
+import {
+  type PutAccountNameCommandInput,
+  type PutAccountNameCommandOutput,
   PutAccountNameCommand,
-  PutAccountNameCommandInput,
-  PutAccountNameCommandOutput,
 } from "./commands/PutAccountNameCommand";
 import {
+  type PutAlternateContactCommandInput,
+  type PutAlternateContactCommandOutput,
   PutAlternateContactCommand,
-  PutAlternateContactCommandInput,
-  PutAlternateContactCommandOutput,
 } from "./commands/PutAlternateContactCommand";
 import {
+  type PutContactInformationCommandInput,
+  type PutContactInformationCommandOutput,
   PutContactInformationCommand,
-  PutContactInformationCommandInput,
-  PutContactInformationCommandOutput,
 } from "./commands/PutContactInformationCommand";
 import {
+  type StartPrimaryEmailUpdateCommandInput,
+  type StartPrimaryEmailUpdateCommandOutput,
   StartPrimaryEmailUpdateCommand,
-  StartPrimaryEmailUpdateCommandInput,
-  StartPrimaryEmailUpdateCommandOutput,
 } from "./commands/StartPrimaryEmailUpdateCommand";
 import { paginateListRegions } from "./pagination/ListRegionsPaginator";
 

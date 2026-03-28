@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,242 +61,284 @@ import {
   defaultAppStreamHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateAppBlockBuilderAppBlockCommandInput,
   AssociateAppBlockBuilderAppBlockCommandOutput,
 } from "./commands/AssociateAppBlockBuilderAppBlockCommand";
-import {
+import type {
   AssociateApplicationFleetCommandInput,
   AssociateApplicationFleetCommandOutput,
 } from "./commands/AssociateApplicationFleetCommand";
-import {
+import type {
   AssociateApplicationToEntitlementCommandInput,
   AssociateApplicationToEntitlementCommandOutput,
 } from "./commands/AssociateApplicationToEntitlementCommand";
-import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "./commands/AssociateFleetCommand";
-import {
+import type { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "./commands/AssociateFleetCommand";
+import type {
   AssociateSoftwareToImageBuilderCommandInput,
   AssociateSoftwareToImageBuilderCommandOutput,
 } from "./commands/AssociateSoftwareToImageBuilderCommand";
-import {
+import type {
   BatchAssociateUserStackCommandInput,
   BatchAssociateUserStackCommandOutput,
 } from "./commands/BatchAssociateUserStackCommand";
-import {
+import type {
   BatchDisassociateUserStackCommandInput,
   BatchDisassociateUserStackCommandOutput,
 } from "./commands/BatchDisassociateUserStackCommand";
-import { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
-import {
+import type { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
+import type {
   CreateAppBlockBuilderCommandInput,
   CreateAppBlockBuilderCommandOutput,
 } from "./commands/CreateAppBlockBuilderCommand";
-import {
+import type {
   CreateAppBlockBuilderStreamingURLCommandInput,
   CreateAppBlockBuilderStreamingURLCommandOutput,
 } from "./commands/CreateAppBlockBuilderStreamingURLCommand";
-import { CreateAppBlockCommandInput, CreateAppBlockCommandOutput } from "./commands/CreateAppBlockCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import {
+import type { CreateAppBlockCommandInput, CreateAppBlockCommandOutput } from "./commands/CreateAppBlockCommand";
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type {
   CreateDirectoryConfigCommandInput,
   CreateDirectoryConfigCommandOutput,
 } from "./commands/CreateDirectoryConfigCommand";
-import { CreateEntitlementCommandInput, CreateEntitlementCommandOutput } from "./commands/CreateEntitlementCommand";
-import {
+import type {
+  CreateEntitlementCommandInput,
+  CreateEntitlementCommandOutput,
+} from "./commands/CreateEntitlementCommand";
+import type {
   CreateExportImageTaskCommandInput,
   CreateExportImageTaskCommandOutput,
 } from "./commands/CreateExportImageTaskCommand";
-import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
-import { CreateImageBuilderCommandInput, CreateImageBuilderCommandOutput } from "./commands/CreateImageBuilderCommand";
-import {
+import type { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
+import type {
+  CreateImageBuilderCommandInput,
+  CreateImageBuilderCommandOutput,
+} from "./commands/CreateImageBuilderCommand";
+import type {
   CreateImageBuilderStreamingURLCommandInput,
   CreateImageBuilderStreamingURLCommandOutput,
 } from "./commands/CreateImageBuilderStreamingURLCommand";
-import {
+import type {
   CreateImportedImageCommandInput,
   CreateImportedImageCommandOutput,
 } from "./commands/CreateImportedImageCommand";
-import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
-import { CreateStreamingURLCommandInput, CreateStreamingURLCommandOutput } from "./commands/CreateStreamingURLCommand";
-import {
+import type { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
+import type {
+  CreateStreamingURLCommandInput,
+  CreateStreamingURLCommandOutput,
+} from "./commands/CreateStreamingURLCommand";
+import type {
   CreateThemeForStackCommandInput,
   CreateThemeForStackCommandOutput,
 } from "./commands/CreateThemeForStackCommand";
-import { CreateUpdatedImageCommandInput, CreateUpdatedImageCommandOutput } from "./commands/CreateUpdatedImageCommand";
-import {
+import type {
+  CreateUpdatedImageCommandInput,
+  CreateUpdatedImageCommandOutput,
+} from "./commands/CreateUpdatedImageCommand";
+import type {
   CreateUsageReportSubscriptionCommandInput,
   CreateUsageReportSubscriptionCommandOutput,
 } from "./commands/CreateUsageReportSubscriptionCommand";
-import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import {
+import type { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import type {
   DeleteAppBlockBuilderCommandInput,
   DeleteAppBlockBuilderCommandOutput,
 } from "./commands/DeleteAppBlockBuilderCommand";
-import { DeleteAppBlockCommandInput, DeleteAppBlockCommandOutput } from "./commands/DeleteAppBlockCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import {
+import type { DeleteAppBlockCommandInput, DeleteAppBlockCommandOutput } from "./commands/DeleteAppBlockCommand";
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type {
   DeleteDirectoryConfigCommandInput,
   DeleteDirectoryConfigCommandOutput,
 } from "./commands/DeleteDirectoryConfigCommand";
-import { DeleteEntitlementCommandInput, DeleteEntitlementCommandOutput } from "./commands/DeleteEntitlementCommand";
-import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
-import { DeleteImageBuilderCommandInput, DeleteImageBuilderCommandOutput } from "./commands/DeleteImageBuilderCommand";
-import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
-import {
+import type {
+  DeleteEntitlementCommandInput,
+  DeleteEntitlementCommandOutput,
+} from "./commands/DeleteEntitlementCommand";
+import type { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
+import type {
+  DeleteImageBuilderCommandInput,
+  DeleteImageBuilderCommandOutput,
+} from "./commands/DeleteImageBuilderCommand";
+import type { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
+import type {
   DeleteImagePermissionsCommandInput,
   DeleteImagePermissionsCommandOutput,
 } from "./commands/DeleteImagePermissionsCommand";
-import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
-import {
+import type { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
+import type {
   DeleteThemeForStackCommandInput,
   DeleteThemeForStackCommandOutput,
 } from "./commands/DeleteThemeForStackCommand";
-import {
+import type {
   DeleteUsageReportSubscriptionCommandInput,
   DeleteUsageReportSubscriptionCommandOutput,
 } from "./commands/DeleteUsageReportSubscriptionCommand";
-import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
-import {
+import type { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import type {
   DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
   DescribeAppBlockBuilderAppBlockAssociationsCommandOutput,
 } from "./commands/DescribeAppBlockBuilderAppBlockAssociationsCommand";
-import {
+import type {
   DescribeAppBlockBuildersCommandInput,
   DescribeAppBlockBuildersCommandOutput,
 } from "./commands/DescribeAppBlockBuildersCommand";
-import { DescribeAppBlocksCommandInput, DescribeAppBlocksCommandOutput } from "./commands/DescribeAppBlocksCommand";
-import {
+import type {
+  DescribeAppBlocksCommandInput,
+  DescribeAppBlocksCommandOutput,
+} from "./commands/DescribeAppBlocksCommand";
+import type {
   DescribeApplicationFleetAssociationsCommandInput,
   DescribeApplicationFleetAssociationsCommandOutput,
 } from "./commands/DescribeApplicationFleetAssociationsCommand";
-import {
+import type {
   DescribeApplicationsCommandInput,
   DescribeApplicationsCommandOutput,
 } from "./commands/DescribeApplicationsCommand";
-import {
+import type {
   DescribeAppLicenseUsageCommandInput,
   DescribeAppLicenseUsageCommandOutput,
 } from "./commands/DescribeAppLicenseUsageCommand";
-import {
+import type {
   DescribeDirectoryConfigsCommandInput,
   DescribeDirectoryConfigsCommandOutput,
 } from "./commands/DescribeDirectoryConfigsCommand";
-import {
+import type {
   DescribeEntitlementsCommandInput,
   DescribeEntitlementsCommandOutput,
 } from "./commands/DescribeEntitlementsCommand";
-import { DescribeFleetsCommandInput, DescribeFleetsCommandOutput } from "./commands/DescribeFleetsCommand";
-import {
+import type { DescribeFleetsCommandInput, DescribeFleetsCommandOutput } from "./commands/DescribeFleetsCommand";
+import type {
   DescribeImageBuildersCommandInput,
   DescribeImageBuildersCommandOutput,
 } from "./commands/DescribeImageBuildersCommand";
-import {
+import type {
   DescribeImagePermissionsCommandInput,
   DescribeImagePermissionsCommandOutput,
 } from "./commands/DescribeImagePermissionsCommand";
-import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
-import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "./commands/DescribeSessionsCommand";
-import {
+import type { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
+import type { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "./commands/DescribeSessionsCommand";
+import type {
   DescribeSoftwareAssociationsCommandInput,
   DescribeSoftwareAssociationsCommandOutput,
 } from "./commands/DescribeSoftwareAssociationsCommand";
-import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand";
-import {
+import type { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand";
+import type {
   DescribeThemeForStackCommandInput,
   DescribeThemeForStackCommandOutput,
 } from "./commands/DescribeThemeForStackCommand";
-import {
+import type {
   DescribeUsageReportSubscriptionsCommandInput,
   DescribeUsageReportSubscriptionsCommandOutput,
 } from "./commands/DescribeUsageReportSubscriptionsCommand";
-import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./commands/DescribeUsersCommand";
-import {
+import type { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./commands/DescribeUsersCommand";
+import type {
   DescribeUserStackAssociationsCommandInput,
   DescribeUserStackAssociationsCommandOutput,
 } from "./commands/DescribeUserStackAssociationsCommand";
-import { DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
-import {
+import type { DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
+import type {
   DisassociateAppBlockBuilderAppBlockCommandInput,
   DisassociateAppBlockBuilderAppBlockCommandOutput,
 } from "./commands/DisassociateAppBlockBuilderAppBlockCommand";
-import {
+import type {
   DisassociateApplicationFleetCommandInput,
   DisassociateApplicationFleetCommandOutput,
 } from "./commands/DisassociateApplicationFleetCommand";
-import {
+import type {
   DisassociateApplicationFromEntitlementCommandInput,
   DisassociateApplicationFromEntitlementCommandOutput,
 } from "./commands/DisassociateApplicationFromEntitlementCommand";
-import { DisassociateFleetCommandInput, DisassociateFleetCommandOutput } from "./commands/DisassociateFleetCommand";
-import {
+import type {
+  DisassociateFleetCommandInput,
+  DisassociateFleetCommandOutput,
+} from "./commands/DisassociateFleetCommand";
+import type {
   DisassociateSoftwareFromImageBuilderCommandInput,
   DisassociateSoftwareFromImageBuilderCommandOutput,
 } from "./commands/DisassociateSoftwareFromImageBuilderCommand";
-import { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
-import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
-import { GetExportImageTaskCommandInput, GetExportImageTaskCommandOutput } from "./commands/GetExportImageTaskCommand";
-import {
+import type { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
+import type { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
+import type {
+  GetExportImageTaskCommandInput,
+  GetExportImageTaskCommandOutput,
+} from "./commands/GetExportImageTaskCommand";
+import type {
   ListAssociatedFleetsCommandInput,
   ListAssociatedFleetsCommandOutput,
 } from "./commands/ListAssociatedFleetsCommand";
-import {
+import type {
   ListAssociatedStacksCommandInput,
   ListAssociatedStacksCommandOutput,
 } from "./commands/ListAssociatedStacksCommand";
-import {
+import type {
   ListEntitledApplicationsCommandInput,
   ListEntitledApplicationsCommandOutput,
 } from "./commands/ListEntitledApplicationsCommand";
-import {
+import type {
   ListExportImageTasksCommandInput,
   ListExportImageTasksCommandOutput,
 } from "./commands/ListExportImageTasksCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   StartAppBlockBuilderCommandInput,
   StartAppBlockBuilderCommandOutput,
 } from "./commands/StartAppBlockBuilderCommand";
-import { StartFleetCommandInput, StartFleetCommandOutput } from "./commands/StartFleetCommand";
-import { StartImageBuilderCommandInput, StartImageBuilderCommandOutput } from "./commands/StartImageBuilderCommand";
-import {
+import type { StartFleetCommandInput, StartFleetCommandOutput } from "./commands/StartFleetCommand";
+import type {
+  StartImageBuilderCommandInput,
+  StartImageBuilderCommandOutput,
+} from "./commands/StartImageBuilderCommand";
+import type {
   StartSoftwareDeploymentToImageBuilderCommandInput,
   StartSoftwareDeploymentToImageBuilderCommandOutput,
 } from "./commands/StartSoftwareDeploymentToImageBuilderCommand";
-import {
+import type {
   StopAppBlockBuilderCommandInput,
   StopAppBlockBuilderCommandOutput,
 } from "./commands/StopAppBlockBuilderCommand";
-import { StopFleetCommandInput, StopFleetCommandOutput } from "./commands/StopFleetCommand";
-import { StopImageBuilderCommandInput, StopImageBuilderCommandOutput } from "./commands/StopImageBuilderCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { StopFleetCommandInput, StopFleetCommandOutput } from "./commands/StopFleetCommand";
+import type { StopImageBuilderCommandInput, StopImageBuilderCommandOutput } from "./commands/StopImageBuilderCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateAppBlockBuilderCommandInput,
   UpdateAppBlockBuilderCommandOutput,
 } from "./commands/UpdateAppBlockBuilderCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import {
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type {
   UpdateDirectoryConfigCommandInput,
   UpdateDirectoryConfigCommandOutput,
 } from "./commands/UpdateDirectoryConfigCommand";
-import { UpdateEntitlementCommandInput, UpdateEntitlementCommandOutput } from "./commands/UpdateEntitlementCommand";
-import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
-import {
+import type {
+  UpdateEntitlementCommandInput,
+  UpdateEntitlementCommandOutput,
+} from "./commands/UpdateEntitlementCommand";
+import type { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
+import type {
   UpdateImagePermissionsCommandInput,
   UpdateImagePermissionsCommandOutput,
 } from "./commands/UpdateImagePermissionsCommand";
-import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
-import {
+import type { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
+import type {
   UpdateThemeForStackCommandInput,
   UpdateThemeForStackCommandOutput,
 } from "./commands/UpdateThemeForStackCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -606,7 +646,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

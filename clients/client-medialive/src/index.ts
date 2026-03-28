@@ -7,7 +7,7 @@
  */
 export * from "./MediaLiveClient";
 export * from "./MediaLive";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MediaLiveExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

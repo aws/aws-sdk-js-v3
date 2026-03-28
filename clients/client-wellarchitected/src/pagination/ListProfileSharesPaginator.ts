@@ -8,7 +8,7 @@ import {
   ListProfileSharesCommandOutput,
 } from "../commands/ListProfileSharesCommand";
 import { WellArchitectedClient } from "../WellArchitectedClient";
-import { WellArchitectedPaginationConfiguration } from "./Interfaces";
+import type { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

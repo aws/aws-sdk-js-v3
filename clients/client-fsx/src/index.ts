@@ -8,7 +8,7 @@
  */
 export * from "./FSxClient";
 export * from "./FSx";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { FSxExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

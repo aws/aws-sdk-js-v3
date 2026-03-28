@@ -8,7 +8,7 @@ import {
   DescribeUpdateDirectoryCommandOutput,
 } from "../commands/DescribeUpdateDirectoryCommand";
 import { DirectoryServiceClient } from "../DirectoryServiceClient";
-import { DirectoryServicePaginationConfiguration } from "./Interfaces";
+import type { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListInstanceGroupsCommandOutput,
 } from "../commands/ListInstanceGroupsCommand";
 import { EMRClient } from "../EMRClient";
-import { EMRPaginationConfiguration } from "./Interfaces";
+import type { EMRPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

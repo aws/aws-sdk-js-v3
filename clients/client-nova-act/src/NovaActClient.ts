@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,38 +61,47 @@ import {
   defaultNovaActHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateActCommandInput, CreateActCommandOutput } from "./commands/CreateActCommand";
-import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
-import {
+import type { CreateActCommandInput, CreateActCommandOutput } from "./commands/CreateActCommand";
+import type { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
+import type {
   CreateWorkflowDefinitionCommandInput,
   CreateWorkflowDefinitionCommandOutput,
 } from "./commands/CreateWorkflowDefinitionCommand";
-import { CreateWorkflowRunCommandInput, CreateWorkflowRunCommandOutput } from "./commands/CreateWorkflowRunCommand";
-import {
+import type {
+  CreateWorkflowRunCommandInput,
+  CreateWorkflowRunCommandOutput,
+} from "./commands/CreateWorkflowRunCommand";
+import type {
   DeleteWorkflowDefinitionCommandInput,
   DeleteWorkflowDefinitionCommandOutput,
 } from "./commands/DeleteWorkflowDefinitionCommand";
-import { DeleteWorkflowRunCommandInput, DeleteWorkflowRunCommandOutput } from "./commands/DeleteWorkflowRunCommand";
-import {
+import type {
+  DeleteWorkflowRunCommandInput,
+  DeleteWorkflowRunCommandOutput,
+} from "./commands/DeleteWorkflowRunCommand";
+import type {
   GetWorkflowDefinitionCommandInput,
   GetWorkflowDefinitionCommandOutput,
 } from "./commands/GetWorkflowDefinitionCommand";
-import { GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput } from "./commands/GetWorkflowRunCommand";
-import { InvokeActStepCommandInput, InvokeActStepCommandOutput } from "./commands/InvokeActStepCommand";
-import { ListActsCommandInput, ListActsCommandOutput } from "./commands/ListActsCommand";
-import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
-import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
-import {
+import type { GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput } from "./commands/GetWorkflowRunCommand";
+import type { InvokeActStepCommandInput, InvokeActStepCommandOutput } from "./commands/InvokeActStepCommand";
+import type { ListActsCommandInput, ListActsCommandOutput } from "./commands/ListActsCommand";
+import type { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import type {
   ListWorkflowDefinitionsCommandInput,
   ListWorkflowDefinitionsCommandOutput,
 } from "./commands/ListWorkflowDefinitionsCommand";
-import { ListWorkflowRunsCommandInput, ListWorkflowRunsCommandOutput } from "./commands/ListWorkflowRunsCommand";
-import { UpdateActCommandInput, UpdateActCommandOutput } from "./commands/UpdateActCommand";
-import { UpdateWorkflowRunCommandInput, UpdateWorkflowRunCommandOutput } from "./commands/UpdateWorkflowRunCommand";
+import type { ListWorkflowRunsCommandInput, ListWorkflowRunsCommandOutput } from "./commands/ListWorkflowRunsCommand";
+import type { UpdateActCommandInput, UpdateActCommandOutput } from "./commands/UpdateActCommand";
+import type {
+  UpdateWorkflowRunCommandInput,
+  UpdateWorkflowRunCommandOutput,
+} from "./commands/UpdateWorkflowRunCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -258,7 +265,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

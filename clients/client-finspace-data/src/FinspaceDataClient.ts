@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,71 +61,80 @@ import {
   defaultFinspaceDataHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateUserToPermissionGroupCommandInput,
   AssociateUserToPermissionGroupCommandOutput,
 } from "./commands/AssociateUserToPermissionGroupCommand";
-import { CreateChangesetCommandInput, CreateChangesetCommandOutput } from "./commands/CreateChangesetCommand";
-import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
-import { CreateDataViewCommandInput, CreateDataViewCommandOutput } from "./commands/CreateDataViewCommand";
-import {
+import type { CreateChangesetCommandInput, CreateChangesetCommandOutput } from "./commands/CreateChangesetCommand";
+import type { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import type { CreateDataViewCommandInput, CreateDataViewCommandOutput } from "./commands/CreateDataViewCommand";
+import type {
   CreatePermissionGroupCommandInput,
   CreatePermissionGroupCommandOutput,
 } from "./commands/CreatePermissionGroupCommand";
-import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
-import {
+import type { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import type { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import type {
   DeletePermissionGroupCommandInput,
   DeletePermissionGroupCommandOutput,
 } from "./commands/DeletePermissionGroupCommand";
-import { DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
-import {
+import type { DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
+import type {
   DisassociateUserFromPermissionGroupCommandInput,
   DisassociateUserFromPermissionGroupCommandOutput,
 } from "./commands/DisassociateUserFromPermissionGroupCommand";
-import { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
-import { GetChangesetCommandInput, GetChangesetCommandOutput } from "./commands/GetChangesetCommand";
-import { GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
-import { GetDataViewCommandInput, GetDataViewCommandOutput } from "./commands/GetDataViewCommand";
-import {
+import type { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
+import type { GetChangesetCommandInput, GetChangesetCommandOutput } from "./commands/GetChangesetCommand";
+import type { GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
+import type { GetDataViewCommandInput, GetDataViewCommandOutput } from "./commands/GetDataViewCommand";
+import type {
   GetExternalDataViewAccessDetailsCommandInput,
   GetExternalDataViewAccessDetailsCommandOutput,
 } from "./commands/GetExternalDataViewAccessDetailsCommand";
-import { GetPermissionGroupCommandInput, GetPermissionGroupCommandOutput } from "./commands/GetPermissionGroupCommand";
-import {
+import type {
+  GetPermissionGroupCommandInput,
+  GetPermissionGroupCommandOutput,
+} from "./commands/GetPermissionGroupCommand";
+import type {
   GetProgrammaticAccessCredentialsCommandInput,
   GetProgrammaticAccessCredentialsCommandOutput,
 } from "./commands/GetProgrammaticAccessCredentialsCommand";
-import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
-import { GetWorkingLocationCommandInput, GetWorkingLocationCommandOutput } from "./commands/GetWorkingLocationCommand";
-import { ListChangesetsCommandInput, ListChangesetsCommandOutput } from "./commands/ListChangesetsCommand";
-import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
-import { ListDataViewsCommandInput, ListDataViewsCommandOutput } from "./commands/ListDataViewsCommand";
-import {
+import type { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
+import type {
+  GetWorkingLocationCommandInput,
+  GetWorkingLocationCommandOutput,
+} from "./commands/GetWorkingLocationCommand";
+import type { ListChangesetsCommandInput, ListChangesetsCommandOutput } from "./commands/ListChangesetsCommand";
+import type { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import type { ListDataViewsCommandInput, ListDataViewsCommandOutput } from "./commands/ListDataViewsCommand";
+import type {
   ListPermissionGroupsByUserCommandInput,
   ListPermissionGroupsByUserCommandOutput,
 } from "./commands/ListPermissionGroupsByUserCommand";
-import {
+import type {
   ListPermissionGroupsCommandInput,
   ListPermissionGroupsCommandOutput,
 } from "./commands/ListPermissionGroupsCommand";
-import {
+import type {
   ListUsersByPermissionGroupCommandInput,
   ListUsersByPermissionGroupCommandOutput,
 } from "./commands/ListUsersByPermissionGroupCommand";
-import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import { ResetUserPasswordCommandInput, ResetUserPasswordCommandOutput } from "./commands/ResetUserPasswordCommand";
-import { UpdateChangesetCommandInput, UpdateChangesetCommandOutput } from "./commands/UpdateChangesetCommand";
-import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
-import {
+import type { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import type {
+  ResetUserPasswordCommandInput,
+  ResetUserPasswordCommandOutput,
+} from "./commands/ResetUserPasswordCommand";
+import type { UpdateChangesetCommandInput, UpdateChangesetCommandOutput } from "./commands/UpdateChangesetCommand";
+import type { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
+import type {
   UpdatePermissionGroupCommandInput,
   UpdatePermissionGroupCommandOutput,
 } from "./commands/UpdatePermissionGroupCommand";
-import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import type { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -321,7 +328,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -9,65 +9,69 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type CreateFHIRDatastoreCommandInput,
+  type CreateFHIRDatastoreCommandOutput,
   CreateFHIRDatastoreCommand,
-  CreateFHIRDatastoreCommandInput,
-  CreateFHIRDatastoreCommandOutput,
 } from "./commands/CreateFHIRDatastoreCommand";
 import {
+  type DeleteFHIRDatastoreCommandInput,
+  type DeleteFHIRDatastoreCommandOutput,
   DeleteFHIRDatastoreCommand,
-  DeleteFHIRDatastoreCommandInput,
-  DeleteFHIRDatastoreCommandOutput,
 } from "./commands/DeleteFHIRDatastoreCommand";
 import {
+  type DescribeFHIRDatastoreCommandInput,
+  type DescribeFHIRDatastoreCommandOutput,
   DescribeFHIRDatastoreCommand,
-  DescribeFHIRDatastoreCommandInput,
-  DescribeFHIRDatastoreCommandOutput,
 } from "./commands/DescribeFHIRDatastoreCommand";
 import {
+  type DescribeFHIRExportJobCommandInput,
+  type DescribeFHIRExportJobCommandOutput,
   DescribeFHIRExportJobCommand,
-  DescribeFHIRExportJobCommandInput,
-  DescribeFHIRExportJobCommandOutput,
 } from "./commands/DescribeFHIRExportJobCommand";
 import {
+  type DescribeFHIRImportJobCommandInput,
+  type DescribeFHIRImportJobCommandOutput,
   DescribeFHIRImportJobCommand,
-  DescribeFHIRImportJobCommandInput,
-  DescribeFHIRImportJobCommandOutput,
 } from "./commands/DescribeFHIRImportJobCommand";
 import {
+  type ListFHIRDatastoresCommandInput,
+  type ListFHIRDatastoresCommandOutput,
   ListFHIRDatastoresCommand,
-  ListFHIRDatastoresCommandInput,
-  ListFHIRDatastoresCommandOutput,
 } from "./commands/ListFHIRDatastoresCommand";
 import {
+  type ListFHIRExportJobsCommandInput,
+  type ListFHIRExportJobsCommandOutput,
   ListFHIRExportJobsCommand,
-  ListFHIRExportJobsCommandInput,
-  ListFHIRExportJobsCommandOutput,
 } from "./commands/ListFHIRExportJobsCommand";
 import {
+  type ListFHIRImportJobsCommandInput,
+  type ListFHIRImportJobsCommandOutput,
   ListFHIRImportJobsCommand,
-  ListFHIRImportJobsCommandInput,
-  ListFHIRImportJobsCommandOutput,
 } from "./commands/ListFHIRImportJobsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartFHIRExportJobCommandInput,
+  type StartFHIRExportJobCommandOutput,
   StartFHIRExportJobCommand,
-  StartFHIRExportJobCommandInput,
-  StartFHIRExportJobCommandOutput,
 } from "./commands/StartFHIRExportJobCommand";
 import {
+  type StartFHIRImportJobCommandInput,
+  type StartFHIRImportJobCommandOutput,
   StartFHIRImportJobCommand,
-  StartFHIRImportJobCommandInput,
-  StartFHIRImportJobCommandOutput,
 } from "./commands/StartFHIRImportJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { HealthLakeClient } from "./HealthLakeClient";
 import { paginateListFHIRDatastores } from "./pagination/ListFHIRDatastoresPaginator";

@@ -17,7 +17,7 @@
  */
 export * from "./WAFClient";
 export * from "./WAF";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { WAFExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

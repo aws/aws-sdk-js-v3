@@ -7,7 +7,7 @@
  */
 export * from "./ACMPCAClient";
 export * from "./ACMPCA";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ACMPCAExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

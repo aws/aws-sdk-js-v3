@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,330 +61,345 @@ import {
   defaultGreengrassHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateRoleToGroupCommandInput,
   AssociateRoleToGroupCommandOutput,
 } from "./commands/AssociateRoleToGroupCommand";
-import {
+import type {
   AssociateServiceRoleToAccountCommandInput,
   AssociateServiceRoleToAccountCommandOutput,
 } from "./commands/AssociateServiceRoleToAccountCommand";
-import {
+import type {
   CreateConnectorDefinitionCommandInput,
   CreateConnectorDefinitionCommandOutput,
 } from "./commands/CreateConnectorDefinitionCommand";
-import {
+import type {
   CreateConnectorDefinitionVersionCommandInput,
   CreateConnectorDefinitionVersionCommandOutput,
 } from "./commands/CreateConnectorDefinitionVersionCommand";
-import {
+import type {
   CreateCoreDefinitionCommandInput,
   CreateCoreDefinitionCommandOutput,
 } from "./commands/CreateCoreDefinitionCommand";
-import {
+import type {
   CreateCoreDefinitionVersionCommandInput,
   CreateCoreDefinitionVersionCommandOutput,
 } from "./commands/CreateCoreDefinitionVersionCommand";
-import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
-import {
+import type { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
+import type {
   CreateDeviceDefinitionCommandInput,
   CreateDeviceDefinitionCommandOutput,
 } from "./commands/CreateDeviceDefinitionCommand";
-import {
+import type {
   CreateDeviceDefinitionVersionCommandInput,
   CreateDeviceDefinitionVersionCommandOutput,
 } from "./commands/CreateDeviceDefinitionVersionCommand";
-import {
+import type {
   CreateFunctionDefinitionCommandInput,
   CreateFunctionDefinitionCommandOutput,
 } from "./commands/CreateFunctionDefinitionCommand";
-import {
+import type {
   CreateFunctionDefinitionVersionCommandInput,
   CreateFunctionDefinitionVersionCommandOutput,
 } from "./commands/CreateFunctionDefinitionVersionCommand";
-import {
+import type {
   CreateGroupCertificateAuthorityCommandInput,
   CreateGroupCertificateAuthorityCommandOutput,
 } from "./commands/CreateGroupCertificateAuthorityCommand";
-import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
-import { CreateGroupVersionCommandInput, CreateGroupVersionCommandOutput } from "./commands/CreateGroupVersionCommand";
-import {
+import type { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import type {
+  CreateGroupVersionCommandInput,
+  CreateGroupVersionCommandOutput,
+} from "./commands/CreateGroupVersionCommand";
+import type {
   CreateLoggerDefinitionCommandInput,
   CreateLoggerDefinitionCommandOutput,
 } from "./commands/CreateLoggerDefinitionCommand";
-import {
+import type {
   CreateLoggerDefinitionVersionCommandInput,
   CreateLoggerDefinitionVersionCommandOutput,
 } from "./commands/CreateLoggerDefinitionVersionCommand";
-import {
+import type {
   CreateResourceDefinitionCommandInput,
   CreateResourceDefinitionCommandOutput,
 } from "./commands/CreateResourceDefinitionCommand";
-import {
+import type {
   CreateResourceDefinitionVersionCommandInput,
   CreateResourceDefinitionVersionCommandOutput,
 } from "./commands/CreateResourceDefinitionVersionCommand";
-import {
+import type {
   CreateSoftwareUpdateJobCommandInput,
   CreateSoftwareUpdateJobCommandOutput,
 } from "./commands/CreateSoftwareUpdateJobCommand";
-import {
+import type {
   CreateSubscriptionDefinitionCommandInput,
   CreateSubscriptionDefinitionCommandOutput,
 } from "./commands/CreateSubscriptionDefinitionCommand";
-import {
+import type {
   CreateSubscriptionDefinitionVersionCommandInput,
   CreateSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/CreateSubscriptionDefinitionVersionCommand";
-import {
+import type {
   DeleteConnectorDefinitionCommandInput,
   DeleteConnectorDefinitionCommandOutput,
 } from "./commands/DeleteConnectorDefinitionCommand";
-import {
+import type {
   DeleteCoreDefinitionCommandInput,
   DeleteCoreDefinitionCommandOutput,
 } from "./commands/DeleteCoreDefinitionCommand";
-import {
+import type {
   DeleteDeviceDefinitionCommandInput,
   DeleteDeviceDefinitionCommandOutput,
 } from "./commands/DeleteDeviceDefinitionCommand";
-import {
+import type {
   DeleteFunctionDefinitionCommandInput,
   DeleteFunctionDefinitionCommandOutput,
 } from "./commands/DeleteFunctionDefinitionCommand";
-import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
-import {
+import type { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import type {
   DeleteLoggerDefinitionCommandInput,
   DeleteLoggerDefinitionCommandOutput,
 } from "./commands/DeleteLoggerDefinitionCommand";
-import {
+import type {
   DeleteResourceDefinitionCommandInput,
   DeleteResourceDefinitionCommandOutput,
 } from "./commands/DeleteResourceDefinitionCommand";
-import {
+import type {
   DeleteSubscriptionDefinitionCommandInput,
   DeleteSubscriptionDefinitionCommandOutput,
 } from "./commands/DeleteSubscriptionDefinitionCommand";
-import {
+import type {
   DisassociateRoleFromGroupCommandInput,
   DisassociateRoleFromGroupCommandOutput,
 } from "./commands/DisassociateRoleFromGroupCommand";
-import {
+import type {
   DisassociateServiceRoleFromAccountCommandInput,
   DisassociateServiceRoleFromAccountCommandOutput,
 } from "./commands/DisassociateServiceRoleFromAccountCommand";
-import { GetAssociatedRoleCommandInput, GetAssociatedRoleCommandOutput } from "./commands/GetAssociatedRoleCommand";
-import {
+import type {
+  GetAssociatedRoleCommandInput,
+  GetAssociatedRoleCommandOutput,
+} from "./commands/GetAssociatedRoleCommand";
+import type {
   GetBulkDeploymentStatusCommandInput,
   GetBulkDeploymentStatusCommandOutput,
 } from "./commands/GetBulkDeploymentStatusCommand";
-import {
+import type {
   GetConnectivityInfoCommandInput,
   GetConnectivityInfoCommandOutput,
 } from "./commands/GetConnectivityInfoCommand";
-import {
+import type {
   GetConnectorDefinitionCommandInput,
   GetConnectorDefinitionCommandOutput,
 } from "./commands/GetConnectorDefinitionCommand";
-import {
+import type {
   GetConnectorDefinitionVersionCommandInput,
   GetConnectorDefinitionVersionCommandOutput,
 } from "./commands/GetConnectorDefinitionVersionCommand";
-import { GetCoreDefinitionCommandInput, GetCoreDefinitionCommandOutput } from "./commands/GetCoreDefinitionCommand";
-import {
+import type {
+  GetCoreDefinitionCommandInput,
+  GetCoreDefinitionCommandOutput,
+} from "./commands/GetCoreDefinitionCommand";
+import type {
   GetCoreDefinitionVersionCommandInput,
   GetCoreDefinitionVersionCommandOutput,
 } from "./commands/GetCoreDefinitionVersionCommand";
-import {
+import type {
   GetDeploymentStatusCommandInput,
   GetDeploymentStatusCommandOutput,
 } from "./commands/GetDeploymentStatusCommand";
-import {
+import type {
   GetDeviceDefinitionCommandInput,
   GetDeviceDefinitionCommandOutput,
 } from "./commands/GetDeviceDefinitionCommand";
-import {
+import type {
   GetDeviceDefinitionVersionCommandInput,
   GetDeviceDefinitionVersionCommandOutput,
 } from "./commands/GetDeviceDefinitionVersionCommand";
-import {
+import type {
   GetFunctionDefinitionCommandInput,
   GetFunctionDefinitionCommandOutput,
 } from "./commands/GetFunctionDefinitionCommand";
-import {
+import type {
   GetFunctionDefinitionVersionCommandInput,
   GetFunctionDefinitionVersionCommandOutput,
 } from "./commands/GetFunctionDefinitionVersionCommand";
-import {
+import type {
   GetGroupCertificateAuthorityCommandInput,
   GetGroupCertificateAuthorityCommandOutput,
 } from "./commands/GetGroupCertificateAuthorityCommand";
-import {
+import type {
   GetGroupCertificateConfigurationCommandInput,
   GetGroupCertificateConfigurationCommandOutput,
 } from "./commands/GetGroupCertificateConfigurationCommand";
-import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
-import { GetGroupVersionCommandInput, GetGroupVersionCommandOutput } from "./commands/GetGroupVersionCommand";
-import {
+import type { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import type { GetGroupVersionCommandInput, GetGroupVersionCommandOutput } from "./commands/GetGroupVersionCommand";
+import type {
   GetLoggerDefinitionCommandInput,
   GetLoggerDefinitionCommandOutput,
 } from "./commands/GetLoggerDefinitionCommand";
-import {
+import type {
   GetLoggerDefinitionVersionCommandInput,
   GetLoggerDefinitionVersionCommandOutput,
 } from "./commands/GetLoggerDefinitionVersionCommand";
-import {
+import type {
   GetResourceDefinitionCommandInput,
   GetResourceDefinitionCommandOutput,
 } from "./commands/GetResourceDefinitionCommand";
-import {
+import type {
   GetResourceDefinitionVersionCommandInput,
   GetResourceDefinitionVersionCommandOutput,
 } from "./commands/GetResourceDefinitionVersionCommand";
-import {
+import type {
   GetServiceRoleForAccountCommandInput,
   GetServiceRoleForAccountCommandOutput,
 } from "./commands/GetServiceRoleForAccountCommand";
-import {
+import type {
   GetSubscriptionDefinitionCommandInput,
   GetSubscriptionDefinitionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionCommand";
-import {
+import type {
   GetSubscriptionDefinitionVersionCommandInput,
   GetSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionVersionCommand";
-import {
+import type {
   GetThingRuntimeConfigurationCommandInput,
   GetThingRuntimeConfigurationCommandOutput,
 } from "./commands/GetThingRuntimeConfigurationCommand";
-import {
+import type {
   ListBulkDeploymentDetailedReportsCommandInput,
   ListBulkDeploymentDetailedReportsCommandOutput,
 } from "./commands/ListBulkDeploymentDetailedReportsCommand";
-import {
+import type {
   ListBulkDeploymentsCommandInput,
   ListBulkDeploymentsCommandOutput,
 } from "./commands/ListBulkDeploymentsCommand";
-import {
+import type {
   ListConnectorDefinitionsCommandInput,
   ListConnectorDefinitionsCommandOutput,
 } from "./commands/ListConnectorDefinitionsCommand";
-import {
+import type {
   ListConnectorDefinitionVersionsCommandInput,
   ListConnectorDefinitionVersionsCommandOutput,
 } from "./commands/ListConnectorDefinitionVersionsCommand";
-import {
+import type {
   ListCoreDefinitionsCommandInput,
   ListCoreDefinitionsCommandOutput,
 } from "./commands/ListCoreDefinitionsCommand";
-import {
+import type {
   ListCoreDefinitionVersionsCommandInput,
   ListCoreDefinitionVersionsCommandOutput,
 } from "./commands/ListCoreDefinitionVersionsCommand";
-import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
-import {
+import type { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
+import type {
   ListDeviceDefinitionsCommandInput,
   ListDeviceDefinitionsCommandOutput,
 } from "./commands/ListDeviceDefinitionsCommand";
-import {
+import type {
   ListDeviceDefinitionVersionsCommandInput,
   ListDeviceDefinitionVersionsCommandOutput,
 } from "./commands/ListDeviceDefinitionVersionsCommand";
-import {
+import type {
   ListFunctionDefinitionsCommandInput,
   ListFunctionDefinitionsCommandOutput,
 } from "./commands/ListFunctionDefinitionsCommand";
-import {
+import type {
   ListFunctionDefinitionVersionsCommandInput,
   ListFunctionDefinitionVersionsCommandOutput,
 } from "./commands/ListFunctionDefinitionVersionsCommand";
-import {
+import type {
   ListGroupCertificateAuthoritiesCommandInput,
   ListGroupCertificateAuthoritiesCommandOutput,
 } from "./commands/ListGroupCertificateAuthoritiesCommand";
-import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
-import { ListGroupVersionsCommandInput, ListGroupVersionsCommandOutput } from "./commands/ListGroupVersionsCommand";
-import {
+import type { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import type {
+  ListGroupVersionsCommandInput,
+  ListGroupVersionsCommandOutput,
+} from "./commands/ListGroupVersionsCommand";
+import type {
   ListLoggerDefinitionsCommandInput,
   ListLoggerDefinitionsCommandOutput,
 } from "./commands/ListLoggerDefinitionsCommand";
-import {
+import type {
   ListLoggerDefinitionVersionsCommandInput,
   ListLoggerDefinitionVersionsCommandOutput,
 } from "./commands/ListLoggerDefinitionVersionsCommand";
-import {
+import type {
   ListResourceDefinitionsCommandInput,
   ListResourceDefinitionsCommandOutput,
 } from "./commands/ListResourceDefinitionsCommand";
-import {
+import type {
   ListResourceDefinitionVersionsCommandInput,
   ListResourceDefinitionVersionsCommandOutput,
 } from "./commands/ListResourceDefinitionVersionsCommand";
-import {
+import type {
   ListSubscriptionDefinitionsCommandInput,
   ListSubscriptionDefinitionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionsCommand";
-import {
+import type {
   ListSubscriptionDefinitionVersionsCommandInput,
   ListSubscriptionDefinitionVersionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionVersionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ResetDeploymentsCommandInput, ResetDeploymentsCommandOutput } from "./commands/ResetDeploymentsCommand";
-import {
+import type { ResetDeploymentsCommandInput, ResetDeploymentsCommandOutput } from "./commands/ResetDeploymentsCommand";
+import type {
   StartBulkDeploymentCommandInput,
   StartBulkDeploymentCommandOutput,
 } from "./commands/StartBulkDeploymentCommand";
-import { StopBulkDeploymentCommandInput, StopBulkDeploymentCommandOutput } from "./commands/StopBulkDeploymentCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type {
+  StopBulkDeploymentCommandInput,
+  StopBulkDeploymentCommandOutput,
+} from "./commands/StopBulkDeploymentCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateConnectivityInfoCommandInput,
   UpdateConnectivityInfoCommandOutput,
 } from "./commands/UpdateConnectivityInfoCommand";
-import {
+import type {
   UpdateConnectorDefinitionCommandInput,
   UpdateConnectorDefinitionCommandOutput,
 } from "./commands/UpdateConnectorDefinitionCommand";
-import {
+import type {
   UpdateCoreDefinitionCommandInput,
   UpdateCoreDefinitionCommandOutput,
 } from "./commands/UpdateCoreDefinitionCommand";
-import {
+import type {
   UpdateDeviceDefinitionCommandInput,
   UpdateDeviceDefinitionCommandOutput,
 } from "./commands/UpdateDeviceDefinitionCommand";
-import {
+import type {
   UpdateFunctionDefinitionCommandInput,
   UpdateFunctionDefinitionCommandOutput,
 } from "./commands/UpdateFunctionDefinitionCommand";
-import {
+import type {
   UpdateGroupCertificateConfigurationCommandInput,
   UpdateGroupCertificateConfigurationCommandOutput,
 } from "./commands/UpdateGroupCertificateConfigurationCommand";
-import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
-import {
+import type { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
+import type {
   UpdateLoggerDefinitionCommandInput,
   UpdateLoggerDefinitionCommandOutput,
 } from "./commands/UpdateLoggerDefinitionCommand";
-import {
+import type {
   UpdateResourceDefinitionCommandInput,
   UpdateResourceDefinitionCommandOutput,
 } from "./commands/UpdateResourceDefinitionCommand";
-import {
+import type {
   UpdateSubscriptionDefinitionCommandInput,
   UpdateSubscriptionDefinitionCommandOutput,
 } from "./commands/UpdateSubscriptionDefinitionCommand";
-import {
+import type {
   UpdateThingRuntimeConfigurationCommandInput,
   UpdateThingRuntimeConfigurationCommandOutput,
 } from "./commands/UpdateThingRuntimeConfigurationCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -702,7 +715,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

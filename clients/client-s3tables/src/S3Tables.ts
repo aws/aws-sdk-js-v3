@@ -3,225 +3,245 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateNamespaceCommandInput,
+  type CreateNamespaceCommandOutput,
   CreateNamespaceCommand,
-  CreateNamespaceCommandInput,
-  CreateNamespaceCommandOutput,
 } from "./commands/CreateNamespaceCommand";
 import {
+  type CreateTableBucketCommandInput,
+  type CreateTableBucketCommandOutput,
   CreateTableBucketCommand,
-  CreateTableBucketCommandInput,
-  CreateTableBucketCommandOutput,
 } from "./commands/CreateTableBucketCommand";
-import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import {
+  type CreateTableCommandInput,
+  type CreateTableCommandOutput,
+  CreateTableCommand,
+} from "./commands/CreateTableCommand";
+import {
+  type DeleteNamespaceCommandInput,
+  type DeleteNamespaceCommandOutput,
   DeleteNamespaceCommand,
-  DeleteNamespaceCommandInput,
-  DeleteNamespaceCommandOutput,
 } from "./commands/DeleteNamespaceCommand";
 import {
+  type DeleteTableBucketCommandInput,
+  type DeleteTableBucketCommandOutput,
   DeleteTableBucketCommand,
-  DeleteTableBucketCommandInput,
-  DeleteTableBucketCommandOutput,
 } from "./commands/DeleteTableBucketCommand";
 import {
+  type DeleteTableBucketEncryptionCommandInput,
+  type DeleteTableBucketEncryptionCommandOutput,
   DeleteTableBucketEncryptionCommand,
-  DeleteTableBucketEncryptionCommandInput,
-  DeleteTableBucketEncryptionCommandOutput,
 } from "./commands/DeleteTableBucketEncryptionCommand";
 import {
+  type DeleteTableBucketMetricsConfigurationCommandInput,
+  type DeleteTableBucketMetricsConfigurationCommandOutput,
   DeleteTableBucketMetricsConfigurationCommand,
-  DeleteTableBucketMetricsConfigurationCommandInput,
-  DeleteTableBucketMetricsConfigurationCommandOutput,
 } from "./commands/DeleteTableBucketMetricsConfigurationCommand";
 import {
+  type DeleteTableBucketPolicyCommandInput,
+  type DeleteTableBucketPolicyCommandOutput,
   DeleteTableBucketPolicyCommand,
-  DeleteTableBucketPolicyCommandInput,
-  DeleteTableBucketPolicyCommandOutput,
 } from "./commands/DeleteTableBucketPolicyCommand";
 import {
+  type DeleteTableBucketReplicationCommandInput,
+  type DeleteTableBucketReplicationCommandOutput,
   DeleteTableBucketReplicationCommand,
-  DeleteTableBucketReplicationCommandInput,
-  DeleteTableBucketReplicationCommandOutput,
 } from "./commands/DeleteTableBucketReplicationCommand";
-import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import {
+  type DeleteTableCommandInput,
+  type DeleteTableCommandOutput,
+  DeleteTableCommand,
+} from "./commands/DeleteTableCommand";
+import {
+  type DeleteTablePolicyCommandInput,
+  type DeleteTablePolicyCommandOutput,
   DeleteTablePolicyCommand,
-  DeleteTablePolicyCommandInput,
-  DeleteTablePolicyCommandOutput,
 } from "./commands/DeleteTablePolicyCommand";
 import {
+  type DeleteTableReplicationCommandInput,
+  type DeleteTableReplicationCommandOutput,
   DeleteTableReplicationCommand,
-  DeleteTableReplicationCommandInput,
-  DeleteTableReplicationCommandOutput,
 } from "./commands/DeleteTableReplicationCommand";
 import {
+  type GetNamespaceCommandInput,
+  type GetNamespaceCommandOutput,
   GetNamespaceCommand,
-  GetNamespaceCommandInput,
-  GetNamespaceCommandOutput,
 } from "./commands/GetNamespaceCommand";
 import {
+  type GetTableBucketCommandInput,
+  type GetTableBucketCommandOutput,
   GetTableBucketCommand,
-  GetTableBucketCommandInput,
-  GetTableBucketCommandOutput,
 } from "./commands/GetTableBucketCommand";
 import {
+  type GetTableBucketEncryptionCommandInput,
+  type GetTableBucketEncryptionCommandOutput,
   GetTableBucketEncryptionCommand,
-  GetTableBucketEncryptionCommandInput,
-  GetTableBucketEncryptionCommandOutput,
 } from "./commands/GetTableBucketEncryptionCommand";
 import {
+  type GetTableBucketMaintenanceConfigurationCommandInput,
+  type GetTableBucketMaintenanceConfigurationCommandOutput,
   GetTableBucketMaintenanceConfigurationCommand,
-  GetTableBucketMaintenanceConfigurationCommandInput,
-  GetTableBucketMaintenanceConfigurationCommandOutput,
 } from "./commands/GetTableBucketMaintenanceConfigurationCommand";
 import {
+  type GetTableBucketMetricsConfigurationCommandInput,
+  type GetTableBucketMetricsConfigurationCommandOutput,
   GetTableBucketMetricsConfigurationCommand,
-  GetTableBucketMetricsConfigurationCommandInput,
-  GetTableBucketMetricsConfigurationCommandOutput,
 } from "./commands/GetTableBucketMetricsConfigurationCommand";
 import {
+  type GetTableBucketPolicyCommandInput,
+  type GetTableBucketPolicyCommandOutput,
   GetTableBucketPolicyCommand,
-  GetTableBucketPolicyCommandInput,
-  GetTableBucketPolicyCommandOutput,
 } from "./commands/GetTableBucketPolicyCommand";
 import {
+  type GetTableBucketReplicationCommandInput,
+  type GetTableBucketReplicationCommandOutput,
   GetTableBucketReplicationCommand,
-  GetTableBucketReplicationCommandInput,
-  GetTableBucketReplicationCommandOutput,
 } from "./commands/GetTableBucketReplicationCommand";
 import {
+  type GetTableBucketStorageClassCommandInput,
+  type GetTableBucketStorageClassCommandOutput,
   GetTableBucketStorageClassCommand,
-  GetTableBucketStorageClassCommandInput,
-  GetTableBucketStorageClassCommandOutput,
 } from "./commands/GetTableBucketStorageClassCommand";
-import { GetTableCommand, GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import { type GetTableCommandInput, type GetTableCommandOutput, GetTableCommand } from "./commands/GetTableCommand";
 import {
+  type GetTableEncryptionCommandInput,
+  type GetTableEncryptionCommandOutput,
   GetTableEncryptionCommand,
-  GetTableEncryptionCommandInput,
-  GetTableEncryptionCommandOutput,
 } from "./commands/GetTableEncryptionCommand";
 import {
+  type GetTableMaintenanceConfigurationCommandInput,
+  type GetTableMaintenanceConfigurationCommandOutput,
   GetTableMaintenanceConfigurationCommand,
-  GetTableMaintenanceConfigurationCommandInput,
-  GetTableMaintenanceConfigurationCommandOutput,
 } from "./commands/GetTableMaintenanceConfigurationCommand";
 import {
+  type GetTableMaintenanceJobStatusCommandInput,
+  type GetTableMaintenanceJobStatusCommandOutput,
   GetTableMaintenanceJobStatusCommand,
-  GetTableMaintenanceJobStatusCommandInput,
-  GetTableMaintenanceJobStatusCommandOutput,
 } from "./commands/GetTableMaintenanceJobStatusCommand";
 import {
+  type GetTableMetadataLocationCommandInput,
+  type GetTableMetadataLocationCommandOutput,
   GetTableMetadataLocationCommand,
-  GetTableMetadataLocationCommandInput,
-  GetTableMetadataLocationCommandOutput,
 } from "./commands/GetTableMetadataLocationCommand";
 import {
+  type GetTablePolicyCommandInput,
+  type GetTablePolicyCommandOutput,
   GetTablePolicyCommand,
-  GetTablePolicyCommandInput,
-  GetTablePolicyCommandOutput,
 } from "./commands/GetTablePolicyCommand";
 import {
+  type GetTableRecordExpirationConfigurationCommandInput,
+  type GetTableRecordExpirationConfigurationCommandOutput,
   GetTableRecordExpirationConfigurationCommand,
-  GetTableRecordExpirationConfigurationCommandInput,
-  GetTableRecordExpirationConfigurationCommandOutput,
 } from "./commands/GetTableRecordExpirationConfigurationCommand";
 import {
+  type GetTableRecordExpirationJobStatusCommandInput,
+  type GetTableRecordExpirationJobStatusCommandOutput,
   GetTableRecordExpirationJobStatusCommand,
-  GetTableRecordExpirationJobStatusCommandInput,
-  GetTableRecordExpirationJobStatusCommandOutput,
 } from "./commands/GetTableRecordExpirationJobStatusCommand";
 import {
+  type GetTableReplicationCommandInput,
+  type GetTableReplicationCommandOutput,
   GetTableReplicationCommand,
-  GetTableReplicationCommandInput,
-  GetTableReplicationCommandOutput,
 } from "./commands/GetTableReplicationCommand";
 import {
+  type GetTableReplicationStatusCommandInput,
+  type GetTableReplicationStatusCommandOutput,
   GetTableReplicationStatusCommand,
-  GetTableReplicationStatusCommandInput,
-  GetTableReplicationStatusCommandOutput,
 } from "./commands/GetTableReplicationStatusCommand";
 import {
+  type GetTableStorageClassCommandInput,
+  type GetTableStorageClassCommandOutput,
   GetTableStorageClassCommand,
-  GetTableStorageClassCommandInput,
-  GetTableStorageClassCommandOutput,
 } from "./commands/GetTableStorageClassCommand";
 import {
+  type ListNamespacesCommandInput,
+  type ListNamespacesCommandOutput,
   ListNamespacesCommand,
-  ListNamespacesCommandInput,
-  ListNamespacesCommandOutput,
 } from "./commands/ListNamespacesCommand";
 import {
+  type ListTableBucketsCommandInput,
+  type ListTableBucketsCommandOutput,
   ListTableBucketsCommand,
-  ListTableBucketsCommandInput,
-  ListTableBucketsCommandOutput,
 } from "./commands/ListTableBucketsCommand";
-import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
+  type ListTablesCommandInput,
+  type ListTablesCommandOutput,
+  ListTablesCommand,
+} from "./commands/ListTablesCommand";
+import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutTableBucketEncryptionCommandInput,
+  type PutTableBucketEncryptionCommandOutput,
   PutTableBucketEncryptionCommand,
-  PutTableBucketEncryptionCommandInput,
-  PutTableBucketEncryptionCommandOutput,
 } from "./commands/PutTableBucketEncryptionCommand";
 import {
+  type PutTableBucketMaintenanceConfigurationCommandInput,
+  type PutTableBucketMaintenanceConfigurationCommandOutput,
   PutTableBucketMaintenanceConfigurationCommand,
-  PutTableBucketMaintenanceConfigurationCommandInput,
-  PutTableBucketMaintenanceConfigurationCommandOutput,
 } from "./commands/PutTableBucketMaintenanceConfigurationCommand";
 import {
+  type PutTableBucketMetricsConfigurationCommandInput,
+  type PutTableBucketMetricsConfigurationCommandOutput,
   PutTableBucketMetricsConfigurationCommand,
-  PutTableBucketMetricsConfigurationCommandInput,
-  PutTableBucketMetricsConfigurationCommandOutput,
 } from "./commands/PutTableBucketMetricsConfigurationCommand";
 import {
+  type PutTableBucketPolicyCommandInput,
+  type PutTableBucketPolicyCommandOutput,
   PutTableBucketPolicyCommand,
-  PutTableBucketPolicyCommandInput,
-  PutTableBucketPolicyCommandOutput,
 } from "./commands/PutTableBucketPolicyCommand";
 import {
+  type PutTableBucketReplicationCommandInput,
+  type PutTableBucketReplicationCommandOutput,
   PutTableBucketReplicationCommand,
-  PutTableBucketReplicationCommandInput,
-  PutTableBucketReplicationCommandOutput,
 } from "./commands/PutTableBucketReplicationCommand";
 import {
+  type PutTableBucketStorageClassCommandInput,
+  type PutTableBucketStorageClassCommandOutput,
   PutTableBucketStorageClassCommand,
-  PutTableBucketStorageClassCommandInput,
-  PutTableBucketStorageClassCommandOutput,
 } from "./commands/PutTableBucketStorageClassCommand";
 import {
+  type PutTableMaintenanceConfigurationCommandInput,
+  type PutTableMaintenanceConfigurationCommandOutput,
   PutTableMaintenanceConfigurationCommand,
-  PutTableMaintenanceConfigurationCommandInput,
-  PutTableMaintenanceConfigurationCommandOutput,
 } from "./commands/PutTableMaintenanceConfigurationCommand";
 import {
+  type PutTablePolicyCommandInput,
+  type PutTablePolicyCommandOutput,
   PutTablePolicyCommand,
-  PutTablePolicyCommandInput,
-  PutTablePolicyCommandOutput,
 } from "./commands/PutTablePolicyCommand";
 import {
+  type PutTableRecordExpirationConfigurationCommandInput,
+  type PutTableRecordExpirationConfigurationCommandOutput,
   PutTableRecordExpirationConfigurationCommand,
-  PutTableRecordExpirationConfigurationCommandInput,
-  PutTableRecordExpirationConfigurationCommandOutput,
 } from "./commands/PutTableRecordExpirationConfigurationCommand";
 import {
+  type PutTableReplicationCommandInput,
+  type PutTableReplicationCommandOutput,
   PutTableReplicationCommand,
-  PutTableReplicationCommandInput,
-  PutTableReplicationCommandOutput,
 } from "./commands/PutTableReplicationCommand";
-import { RenameTableCommand, RenameTableCommandInput, RenameTableCommandOutput } from "./commands/RenameTableCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type RenameTableCommandInput,
+  type RenameTableCommandOutput,
+  RenameTableCommand,
+} from "./commands/RenameTableCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateTableMetadataLocationCommandInput,
+  type UpdateTableMetadataLocationCommandOutput,
   UpdateTableMetadataLocationCommand,
-  UpdateTableMetadataLocationCommandInput,
-  UpdateTableMetadataLocationCommandOutput,
 } from "./commands/UpdateTableMetadataLocationCommand";
 import { paginateListNamespaces } from "./pagination/ListNamespacesPaginator";
 import { paginateListTableBuckets } from "./pagination/ListTableBucketsPaginator";

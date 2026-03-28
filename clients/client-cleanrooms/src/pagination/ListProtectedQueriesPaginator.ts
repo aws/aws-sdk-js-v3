@@ -8,7 +8,7 @@ import {
   ListProtectedQueriesCommandInput,
   ListProtectedQueriesCommandOutput,
 } from "../commands/ListProtectedQueriesCommand";
-import { CleanRoomsPaginationConfiguration } from "./Interfaces";
+import type { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

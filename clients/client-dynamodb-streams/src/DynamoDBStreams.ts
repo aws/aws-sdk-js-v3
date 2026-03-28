@@ -3,17 +3,25 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type DescribeStreamCommandInput,
+  type DescribeStreamCommandOutput,
   DescribeStreamCommand,
-  DescribeStreamCommandInput,
-  DescribeStreamCommandOutput,
 } from "./commands/DescribeStreamCommand";
-import { GetRecordsCommand, GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
 import {
+  type GetRecordsCommandInput,
+  type GetRecordsCommandOutput,
+  GetRecordsCommand,
+} from "./commands/GetRecordsCommand";
+import {
+  type GetShardIteratorCommandInput,
+  type GetShardIteratorCommandOutput,
   GetShardIteratorCommand,
-  GetShardIteratorCommandInput,
-  GetShardIteratorCommandOutput,
 } from "./commands/GetShardIteratorCommand";
-import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
+import {
+  type ListStreamsCommandInput,
+  type ListStreamsCommandOutput,
+  ListStreamsCommand,
+} from "./commands/ListStreamsCommand";
 import { DynamoDBStreamsClient } from "./DynamoDBStreamsClient";
 
 const commands = {

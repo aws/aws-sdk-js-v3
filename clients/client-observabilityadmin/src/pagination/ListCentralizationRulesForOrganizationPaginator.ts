@@ -8,7 +8,7 @@ import {
   ListCentralizationRulesForOrganizationCommandOutput,
 } from "../commands/ListCentralizationRulesForOrganizationCommand";
 import { ObservabilityAdminClient } from "../ObservabilityAdminClient";
-import { ObservabilityAdminPaginationConfiguration } from "./Interfaces";
+import type { ObservabilityAdminPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

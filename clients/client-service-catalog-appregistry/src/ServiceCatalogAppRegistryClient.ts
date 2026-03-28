@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,70 +61,85 @@ import {
   defaultServiceCatalogAppRegistryHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AssociateAttributeGroupCommandInput,
   AssociateAttributeGroupCommandOutput,
 } from "./commands/AssociateAttributeGroupCommand";
-import { AssociateResourceCommandInput, AssociateResourceCommandOutput } from "./commands/AssociateResourceCommand";
-import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
-import {
+import type {
+  AssociateResourceCommandInput,
+  AssociateResourceCommandOutput,
+} from "./commands/AssociateResourceCommand";
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import type {
   CreateAttributeGroupCommandInput,
   CreateAttributeGroupCommandOutput,
 } from "./commands/CreateAttributeGroupCommand";
-import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
-import {
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import type {
   DeleteAttributeGroupCommandInput,
   DeleteAttributeGroupCommandOutput,
 } from "./commands/DeleteAttributeGroupCommand";
-import {
+import type {
   DisassociateAttributeGroupCommandInput,
   DisassociateAttributeGroupCommandOutput,
 } from "./commands/DisassociateAttributeGroupCommand";
-import {
+import type {
   DisassociateResourceCommandInput,
   DisassociateResourceCommandOutput,
 } from "./commands/DisassociateResourceCommand";
-import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
-import {
+import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import type {
   GetAssociatedResourceCommandInput,
   GetAssociatedResourceCommandOutput,
 } from "./commands/GetAssociatedResourceCommand";
-import { GetAttributeGroupCommandInput, GetAttributeGroupCommandOutput } from "./commands/GetAttributeGroupCommand";
-import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import {
+import type {
+  GetAttributeGroupCommandInput,
+  GetAttributeGroupCommandOutput,
+} from "./commands/GetAttributeGroupCommand";
+import type { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type {
   ListAssociatedAttributeGroupsCommandInput,
   ListAssociatedAttributeGroupsCommandOutput,
 } from "./commands/ListAssociatedAttributeGroupsCommand";
-import {
+import type {
   ListAssociatedResourcesCommandInput,
   ListAssociatedResourcesCommandOutput,
 } from "./commands/ListAssociatedResourcesCommand";
-import {
+import type {
   ListAttributeGroupsCommandInput,
   ListAttributeGroupsCommandOutput,
 } from "./commands/ListAttributeGroupsCommand";
-import {
+import type {
   ListAttributeGroupsForApplicationCommandInput,
   ListAttributeGroupsForApplicationCommandOutput,
 } from "./commands/ListAttributeGroupsForApplicationCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutConfigurationCommandInput, PutConfigurationCommandOutput } from "./commands/PutConfigurationCommand";
-import { SyncResourceCommandInput, SyncResourceCommandOutput } from "./commands/SyncResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
-import {
+import type { PutConfigurationCommandInput, PutConfigurationCommandOutput } from "./commands/PutConfigurationCommand";
+import type { SyncResourceCommandInput, SyncResourceCommandOutput } from "./commands/SyncResourceCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import type {
   UpdateAttributeGroupCommandInput,
   UpdateAttributeGroupCommandOutput,
 } from "./commands/UpdateAttributeGroupCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -306,7 +319,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

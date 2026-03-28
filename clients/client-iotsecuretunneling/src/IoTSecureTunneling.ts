@@ -2,29 +2,45 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
-import { CloseTunnelCommand, CloseTunnelCommandInput, CloseTunnelCommandOutput } from "./commands/CloseTunnelCommand";
 import {
+  type CloseTunnelCommandInput,
+  type CloseTunnelCommandOutput,
+  CloseTunnelCommand,
+} from "./commands/CloseTunnelCommand";
+import {
+  type DescribeTunnelCommandInput,
+  type DescribeTunnelCommandOutput,
   DescribeTunnelCommand,
-  DescribeTunnelCommandInput,
-  DescribeTunnelCommandOutput,
 } from "./commands/DescribeTunnelCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTunnelsCommand, ListTunnelsCommandInput, ListTunnelsCommandOutput } from "./commands/ListTunnelsCommand";
-import { OpenTunnelCommand, OpenTunnelCommandInput, OpenTunnelCommandOutput } from "./commands/OpenTunnelCommand";
 import {
+  type ListTunnelsCommandInput,
+  type ListTunnelsCommandOutput,
+  ListTunnelsCommand,
+} from "./commands/ListTunnelsCommand";
+import {
+  type OpenTunnelCommandInput,
+  type OpenTunnelCommandOutput,
+  OpenTunnelCommand,
+} from "./commands/OpenTunnelCommand";
+import {
+  type RotateTunnelAccessTokenCommandInput,
+  type RotateTunnelAccessTokenCommandOutput,
   RotateTunnelAccessTokenCommand,
-  RotateTunnelAccessTokenCommandInput,
-  RotateTunnelAccessTokenCommandOutput,
 } from "./commands/RotateTunnelAccessTokenCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { IoTSecureTunnelingClient } from "./IoTSecureTunnelingClient";
 import { paginateListTunnels } from "./pagination/ListTunnelsPaginator";

@@ -8,7 +8,7 @@ import {
   ListConfigurationsCommandOutput,
 } from "../commands/ListConfigurationsCommand";
 import { SSMQuickSetupClient } from "../SSMQuickSetupClient";
-import { SSMQuickSetupPaginationConfiguration } from "./Interfaces";
+import type { SSMQuickSetupPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

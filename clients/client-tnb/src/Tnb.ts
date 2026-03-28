@@ -3,165 +3,169 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelSolNetworkOperationCommandInput,
+  type CancelSolNetworkOperationCommandOutput,
   CancelSolNetworkOperationCommand,
-  CancelSolNetworkOperationCommandInput,
-  CancelSolNetworkOperationCommandOutput,
 } from "./commands/CancelSolNetworkOperationCommand";
 import {
+  type CreateSolFunctionPackageCommandInput,
+  type CreateSolFunctionPackageCommandOutput,
   CreateSolFunctionPackageCommand,
-  CreateSolFunctionPackageCommandInput,
-  CreateSolFunctionPackageCommandOutput,
 } from "./commands/CreateSolFunctionPackageCommand";
 import {
+  type CreateSolNetworkInstanceCommandInput,
+  type CreateSolNetworkInstanceCommandOutput,
   CreateSolNetworkInstanceCommand,
-  CreateSolNetworkInstanceCommandInput,
-  CreateSolNetworkInstanceCommandOutput,
 } from "./commands/CreateSolNetworkInstanceCommand";
 import {
+  type CreateSolNetworkPackageCommandInput,
+  type CreateSolNetworkPackageCommandOutput,
   CreateSolNetworkPackageCommand,
-  CreateSolNetworkPackageCommandInput,
-  CreateSolNetworkPackageCommandOutput,
 } from "./commands/CreateSolNetworkPackageCommand";
 import {
+  type DeleteSolFunctionPackageCommandInput,
+  type DeleteSolFunctionPackageCommandOutput,
   DeleteSolFunctionPackageCommand,
-  DeleteSolFunctionPackageCommandInput,
-  DeleteSolFunctionPackageCommandOutput,
 } from "./commands/DeleteSolFunctionPackageCommand";
 import {
+  type DeleteSolNetworkInstanceCommandInput,
+  type DeleteSolNetworkInstanceCommandOutput,
   DeleteSolNetworkInstanceCommand,
-  DeleteSolNetworkInstanceCommandInput,
-  DeleteSolNetworkInstanceCommandOutput,
 } from "./commands/DeleteSolNetworkInstanceCommand";
 import {
+  type DeleteSolNetworkPackageCommandInput,
+  type DeleteSolNetworkPackageCommandOutput,
   DeleteSolNetworkPackageCommand,
-  DeleteSolNetworkPackageCommandInput,
-  DeleteSolNetworkPackageCommandOutput,
 } from "./commands/DeleteSolNetworkPackageCommand";
 import {
+  type GetSolFunctionInstanceCommandInput,
+  type GetSolFunctionInstanceCommandOutput,
   GetSolFunctionInstanceCommand,
-  GetSolFunctionInstanceCommandInput,
-  GetSolFunctionInstanceCommandOutput,
 } from "./commands/GetSolFunctionInstanceCommand";
 import {
+  type GetSolFunctionPackageCommandInput,
+  type GetSolFunctionPackageCommandOutput,
   GetSolFunctionPackageCommand,
-  GetSolFunctionPackageCommandInput,
-  GetSolFunctionPackageCommandOutput,
 } from "./commands/GetSolFunctionPackageCommand";
 import {
+  type GetSolFunctionPackageContentCommandInput,
+  type GetSolFunctionPackageContentCommandOutput,
   GetSolFunctionPackageContentCommand,
-  GetSolFunctionPackageContentCommandInput,
-  GetSolFunctionPackageContentCommandOutput,
 } from "./commands/GetSolFunctionPackageContentCommand";
 import {
+  type GetSolFunctionPackageDescriptorCommandInput,
+  type GetSolFunctionPackageDescriptorCommandOutput,
   GetSolFunctionPackageDescriptorCommand,
-  GetSolFunctionPackageDescriptorCommandInput,
-  GetSolFunctionPackageDescriptorCommandOutput,
 } from "./commands/GetSolFunctionPackageDescriptorCommand";
 import {
+  type GetSolNetworkInstanceCommandInput,
+  type GetSolNetworkInstanceCommandOutput,
   GetSolNetworkInstanceCommand,
-  GetSolNetworkInstanceCommandInput,
-  GetSolNetworkInstanceCommandOutput,
 } from "./commands/GetSolNetworkInstanceCommand";
 import {
+  type GetSolNetworkOperationCommandInput,
+  type GetSolNetworkOperationCommandOutput,
   GetSolNetworkOperationCommand,
-  GetSolNetworkOperationCommandInput,
-  GetSolNetworkOperationCommandOutput,
 } from "./commands/GetSolNetworkOperationCommand";
 import {
+  type GetSolNetworkPackageCommandInput,
+  type GetSolNetworkPackageCommandOutput,
   GetSolNetworkPackageCommand,
-  GetSolNetworkPackageCommandInput,
-  GetSolNetworkPackageCommandOutput,
 } from "./commands/GetSolNetworkPackageCommand";
 import {
+  type GetSolNetworkPackageContentCommandInput,
+  type GetSolNetworkPackageContentCommandOutput,
   GetSolNetworkPackageContentCommand,
-  GetSolNetworkPackageContentCommandInput,
-  GetSolNetworkPackageContentCommandOutput,
 } from "./commands/GetSolNetworkPackageContentCommand";
 import {
+  type GetSolNetworkPackageDescriptorCommandInput,
+  type GetSolNetworkPackageDescriptorCommandOutput,
   GetSolNetworkPackageDescriptorCommand,
-  GetSolNetworkPackageDescriptorCommandInput,
-  GetSolNetworkPackageDescriptorCommandOutput,
 } from "./commands/GetSolNetworkPackageDescriptorCommand";
 import {
+  type InstantiateSolNetworkInstanceCommandInput,
+  type InstantiateSolNetworkInstanceCommandOutput,
   InstantiateSolNetworkInstanceCommand,
-  InstantiateSolNetworkInstanceCommandInput,
-  InstantiateSolNetworkInstanceCommandOutput,
 } from "./commands/InstantiateSolNetworkInstanceCommand";
 import {
+  type ListSolFunctionInstancesCommandInput,
+  type ListSolFunctionInstancesCommandOutput,
   ListSolFunctionInstancesCommand,
-  ListSolFunctionInstancesCommandInput,
-  ListSolFunctionInstancesCommandOutput,
 } from "./commands/ListSolFunctionInstancesCommand";
 import {
+  type ListSolFunctionPackagesCommandInput,
+  type ListSolFunctionPackagesCommandOutput,
   ListSolFunctionPackagesCommand,
-  ListSolFunctionPackagesCommandInput,
-  ListSolFunctionPackagesCommandOutput,
 } from "./commands/ListSolFunctionPackagesCommand";
 import {
+  type ListSolNetworkInstancesCommandInput,
+  type ListSolNetworkInstancesCommandOutput,
   ListSolNetworkInstancesCommand,
-  ListSolNetworkInstancesCommandInput,
-  ListSolNetworkInstancesCommandOutput,
 } from "./commands/ListSolNetworkInstancesCommand";
 import {
+  type ListSolNetworkOperationsCommandInput,
+  type ListSolNetworkOperationsCommandOutput,
   ListSolNetworkOperationsCommand,
-  ListSolNetworkOperationsCommandInput,
-  ListSolNetworkOperationsCommandOutput,
 } from "./commands/ListSolNetworkOperationsCommand";
 import {
+  type ListSolNetworkPackagesCommandInput,
+  type ListSolNetworkPackagesCommandOutput,
   ListSolNetworkPackagesCommand,
-  ListSolNetworkPackagesCommandInput,
-  ListSolNetworkPackagesCommandOutput,
 } from "./commands/ListSolNetworkPackagesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutSolFunctionPackageContentCommandInput,
+  type PutSolFunctionPackageContentCommandOutput,
   PutSolFunctionPackageContentCommand,
-  PutSolFunctionPackageContentCommandInput,
-  PutSolFunctionPackageContentCommandOutput,
 } from "./commands/PutSolFunctionPackageContentCommand";
 import {
+  type PutSolNetworkPackageContentCommandInput,
+  type PutSolNetworkPackageContentCommandOutput,
   PutSolNetworkPackageContentCommand,
-  PutSolNetworkPackageContentCommandInput,
-  PutSolNetworkPackageContentCommandOutput,
 } from "./commands/PutSolNetworkPackageContentCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TerminateSolNetworkInstanceCommandInput,
+  type TerminateSolNetworkInstanceCommandOutput,
   TerminateSolNetworkInstanceCommand,
-  TerminateSolNetworkInstanceCommandInput,
-  TerminateSolNetworkInstanceCommandOutput,
 } from "./commands/TerminateSolNetworkInstanceCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateSolFunctionPackageCommandInput,
+  type UpdateSolFunctionPackageCommandOutput,
   UpdateSolFunctionPackageCommand,
-  UpdateSolFunctionPackageCommandInput,
-  UpdateSolFunctionPackageCommandOutput,
 } from "./commands/UpdateSolFunctionPackageCommand";
 import {
+  type UpdateSolNetworkInstanceCommandInput,
+  type UpdateSolNetworkInstanceCommandOutput,
   UpdateSolNetworkInstanceCommand,
-  UpdateSolNetworkInstanceCommandInput,
-  UpdateSolNetworkInstanceCommandOutput,
 } from "./commands/UpdateSolNetworkInstanceCommand";
 import {
+  type UpdateSolNetworkPackageCommandInput,
+  type UpdateSolNetworkPackageCommandOutput,
   UpdateSolNetworkPackageCommand,
-  UpdateSolNetworkPackageCommandInput,
-  UpdateSolNetworkPackageCommandOutput,
 } from "./commands/UpdateSolNetworkPackageCommand";
 import {
+  type ValidateSolFunctionPackageContentCommandInput,
+  type ValidateSolFunctionPackageContentCommandOutput,
   ValidateSolFunctionPackageContentCommand,
-  ValidateSolFunctionPackageContentCommandInput,
-  ValidateSolFunctionPackageContentCommandOutput,
 } from "./commands/ValidateSolFunctionPackageContentCommand";
 import {
+  type ValidateSolNetworkPackageContentCommandInput,
+  type ValidateSolNetworkPackageContentCommandOutput,
   ValidateSolNetworkPackageContentCommand,
-  ValidateSolNetworkPackageContentCommandInput,
-  ValidateSolNetworkPackageContentCommandOutput,
 } from "./commands/ValidateSolNetworkPackageContentCommand";
 import { paginateListSolFunctionInstances } from "./pagination/ListSolFunctionInstancesPaginator";
 import { paginateListSolFunctionPackages } from "./pagination/ListSolFunctionPackagesPaginator";

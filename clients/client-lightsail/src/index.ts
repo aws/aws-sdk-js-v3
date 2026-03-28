@@ -20,7 +20,7 @@
  */
 export * from "./LightsailClient";
 export * from "./Lightsail";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { LightsailExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

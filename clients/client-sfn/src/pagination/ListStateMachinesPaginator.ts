@@ -8,7 +8,7 @@ import {
   ListStateMachinesCommandOutput,
 } from "../commands/ListStateMachinesCommand";
 import { SFNClient } from "../SFNClient";
-import { SFNPaginationConfiguration } from "./Interfaces";
+import type { SFNPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListRequiredTagsCommandOutput,
 } from "../commands/ListRequiredTagsCommand";
 import { ResourceGroupsTaggingAPIClient } from "../ResourceGroupsTaggingAPIClient";
-import { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
+import type { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

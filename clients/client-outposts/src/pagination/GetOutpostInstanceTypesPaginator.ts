@@ -8,7 +8,7 @@ import {
   GetOutpostInstanceTypesCommandOutput,
 } from "../commands/GetOutpostInstanceTypesCommand";
 import { OutpostsClient } from "../OutpostsClient";
-import { OutpostsPaginationConfiguration } from "./Interfaces";
+import type { OutpostsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

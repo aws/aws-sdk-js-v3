@@ -3,44 +3,44 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type GetPreferencesCommandInput,
+  type GetPreferencesCommandOutput,
   GetPreferencesCommand,
-  GetPreferencesCommandInput,
-  GetPreferencesCommandOutput,
 } from "./commands/GetPreferencesCommand";
 import {
+  type GetRecommendationCommandInput,
+  type GetRecommendationCommandOutput,
   GetRecommendationCommand,
-  GetRecommendationCommandInput,
-  GetRecommendationCommandOutput,
 } from "./commands/GetRecommendationCommand";
 import {
+  type ListEfficiencyMetricsCommandInput,
+  type ListEfficiencyMetricsCommandOutput,
   ListEfficiencyMetricsCommand,
-  ListEfficiencyMetricsCommandInput,
-  ListEfficiencyMetricsCommandOutput,
 } from "./commands/ListEfficiencyMetricsCommand";
 import {
+  type ListEnrollmentStatusesCommandInput,
+  type ListEnrollmentStatusesCommandOutput,
   ListEnrollmentStatusesCommand,
-  ListEnrollmentStatusesCommandInput,
-  ListEnrollmentStatusesCommandOutput,
 } from "./commands/ListEnrollmentStatusesCommand";
 import {
+  type ListRecommendationsCommandInput,
+  type ListRecommendationsCommandOutput,
   ListRecommendationsCommand,
-  ListRecommendationsCommandInput,
-  ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
 import {
+  type ListRecommendationSummariesCommandInput,
+  type ListRecommendationSummariesCommandOutput,
   ListRecommendationSummariesCommand,
-  ListRecommendationSummariesCommandInput,
-  ListRecommendationSummariesCommandOutput,
 } from "./commands/ListRecommendationSummariesCommand";
 import {
+  type UpdateEnrollmentStatusCommandInput,
+  type UpdateEnrollmentStatusCommandOutput,
   UpdateEnrollmentStatusCommand,
-  UpdateEnrollmentStatusCommandInput,
-  UpdateEnrollmentStatusCommandOutput,
 } from "./commands/UpdateEnrollmentStatusCommand";
 import {
+  type UpdatePreferencesCommandInput,
+  type UpdatePreferencesCommandOutput,
   UpdatePreferencesCommand,
-  UpdatePreferencesCommandInput,
-  UpdatePreferencesCommandOutput,
 } from "./commands/UpdatePreferencesCommand";
 import { CostOptimizationHubClient } from "./CostOptimizationHubClient";
 import { paginateListEfficiencyMetrics } from "./pagination/ListEfficiencyMetricsPaginator";

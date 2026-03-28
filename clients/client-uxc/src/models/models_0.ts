@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AccountColor } from "./enums";
+import type { AccountColor } from "./enums";
 
 /**
  * @public

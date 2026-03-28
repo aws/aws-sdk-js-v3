@@ -8,7 +8,7 @@ import {
   ListResourceSnapshotJobsCommandOutput,
 } from "../commands/ListResourceSnapshotJobsCommand";
 import { PartnerCentralSellingClient } from "../PartnerCentralSellingClient";
-import { PartnerCentralSellingPaginationConfiguration } from "./Interfaces";
+import type { PartnerCentralSellingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

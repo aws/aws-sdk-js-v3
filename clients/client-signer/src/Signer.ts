@@ -9,91 +9,99 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type AddProfilePermissionCommandInput,
+  type AddProfilePermissionCommandOutput,
   AddProfilePermissionCommand,
-  AddProfilePermissionCommandInput,
-  AddProfilePermissionCommandOutput,
 } from "./commands/AddProfilePermissionCommand";
 import {
+  type CancelSigningProfileCommandInput,
+  type CancelSigningProfileCommandOutput,
   CancelSigningProfileCommand,
-  CancelSigningProfileCommandInput,
-  CancelSigningProfileCommandOutput,
 } from "./commands/CancelSigningProfileCommand";
 import {
+  type DescribeSigningJobCommandInput,
+  type DescribeSigningJobCommandOutput,
   DescribeSigningJobCommand,
-  DescribeSigningJobCommandInput,
-  DescribeSigningJobCommandOutput,
 } from "./commands/DescribeSigningJobCommand";
 import {
+  type GetRevocationStatusCommandInput,
+  type GetRevocationStatusCommandOutput,
   GetRevocationStatusCommand,
-  GetRevocationStatusCommandInput,
-  GetRevocationStatusCommandOutput,
 } from "./commands/GetRevocationStatusCommand";
 import {
+  type GetSigningPlatformCommandInput,
+  type GetSigningPlatformCommandOutput,
   GetSigningPlatformCommand,
-  GetSigningPlatformCommandInput,
-  GetSigningPlatformCommandOutput,
 } from "./commands/GetSigningPlatformCommand";
 import {
+  type GetSigningProfileCommandInput,
+  type GetSigningProfileCommandOutput,
   GetSigningProfileCommand,
-  GetSigningProfileCommandInput,
-  GetSigningProfileCommandOutput,
 } from "./commands/GetSigningProfileCommand";
 import {
+  type ListProfilePermissionsCommandInput,
+  type ListProfilePermissionsCommandOutput,
   ListProfilePermissionsCommand,
-  ListProfilePermissionsCommandInput,
-  ListProfilePermissionsCommandOutput,
 } from "./commands/ListProfilePermissionsCommand";
 import {
+  type ListSigningJobsCommandInput,
+  type ListSigningJobsCommandOutput,
   ListSigningJobsCommand,
-  ListSigningJobsCommandInput,
-  ListSigningJobsCommandOutput,
 } from "./commands/ListSigningJobsCommand";
 import {
+  type ListSigningPlatformsCommandInput,
+  type ListSigningPlatformsCommandOutput,
   ListSigningPlatformsCommand,
-  ListSigningPlatformsCommandInput,
-  ListSigningPlatformsCommandOutput,
 } from "./commands/ListSigningPlatformsCommand";
 import {
+  type ListSigningProfilesCommandInput,
+  type ListSigningProfilesCommandOutput,
   ListSigningProfilesCommand,
-  ListSigningProfilesCommandInput,
-  ListSigningProfilesCommandOutput,
 } from "./commands/ListSigningProfilesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutSigningProfileCommandInput,
+  type PutSigningProfileCommandOutput,
   PutSigningProfileCommand,
-  PutSigningProfileCommandInput,
-  PutSigningProfileCommandOutput,
 } from "./commands/PutSigningProfileCommand";
 import {
+  type RemoveProfilePermissionCommandInput,
+  type RemoveProfilePermissionCommandOutput,
   RemoveProfilePermissionCommand,
-  RemoveProfilePermissionCommandInput,
-  RemoveProfilePermissionCommandOutput,
 } from "./commands/RemoveProfilePermissionCommand";
 import {
+  type RevokeSignatureCommandInput,
+  type RevokeSignatureCommandOutput,
   RevokeSignatureCommand,
-  RevokeSignatureCommandInput,
-  RevokeSignatureCommandOutput,
 } from "./commands/RevokeSignatureCommand";
 import {
+  type RevokeSigningProfileCommandInput,
+  type RevokeSigningProfileCommandOutput,
   RevokeSigningProfileCommand,
-  RevokeSigningProfileCommandInput,
-  RevokeSigningProfileCommandOutput,
 } from "./commands/RevokeSigningProfileCommand";
-import { SignPayloadCommand, SignPayloadCommandInput, SignPayloadCommandOutput } from "./commands/SignPayloadCommand";
 import {
+  type SignPayloadCommandInput,
+  type SignPayloadCommandOutput,
+  SignPayloadCommand,
+} from "./commands/SignPayloadCommand";
+import {
+  type StartSigningJobCommandInput,
+  type StartSigningJobCommandOutput,
   StartSigningJobCommand,
-  StartSigningJobCommandInput,
-  StartSigningJobCommandOutput,
 } from "./commands/StartSigningJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { paginateListSigningJobs } from "./pagination/ListSigningJobsPaginator";
 import { paginateListSigningPlatforms } from "./pagination/ListSigningPlatformsPaginator";

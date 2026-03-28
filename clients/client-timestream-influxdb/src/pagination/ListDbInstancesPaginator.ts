@@ -8,7 +8,7 @@ import {
   ListDbInstancesCommandOutput,
 } from "../commands/ListDbInstancesCommand";
 import { TimestreamInfluxDBClient } from "../TimestreamInfluxDBClient";
-import { TimestreamInfluxDBPaginationConfiguration } from "./Interfaces";
+import type { TimestreamInfluxDBPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

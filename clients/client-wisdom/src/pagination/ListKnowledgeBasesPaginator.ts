@@ -8,7 +8,7 @@ import {
   ListKnowledgeBasesCommandOutput,
 } from "../commands/ListKnowledgeBasesCommand";
 import { WisdomClient } from "../WisdomClient";
-import { WisdomPaginationConfiguration } from "./Interfaces";
+import type { WisdomPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -8,7 +8,7 @@ import {
   ListOperationsCommandInput,
   ListOperationsCommandOutput,
 } from "../commands/ListOperationsCommand";
-import { AppRunnerPaginationConfiguration } from "./Interfaces";
+import type { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

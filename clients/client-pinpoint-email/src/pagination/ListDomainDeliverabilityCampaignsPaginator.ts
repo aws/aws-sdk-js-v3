@@ -8,7 +8,7 @@ import {
   ListDomainDeliverabilityCampaignsCommandOutput,
 } from "../commands/ListDomainDeliverabilityCampaignsCommand";
 import { PinpointEmailClient } from "../PinpointEmailClient";
-import { PinpointEmailPaginationConfiguration } from "./Interfaces";
+import type { PinpointEmailPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

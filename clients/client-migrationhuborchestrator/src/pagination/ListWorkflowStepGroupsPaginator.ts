@@ -8,7 +8,7 @@ import {
   ListWorkflowStepGroupsCommandOutput,
 } from "../commands/ListWorkflowStepGroupsCommand";
 import { MigrationHubOrchestratorClient } from "../MigrationHubOrchestratorClient";
-import { MigrationHubOrchestratorPaginationConfiguration } from "./Interfaces";
+import type { MigrationHubOrchestratorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

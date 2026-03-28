@@ -8,7 +8,7 @@ import {
   ListMitigationActionsCommandOutput,
 } from "../commands/ListMitigationActionsCommand";
 import { IoTClient } from "../IoTClient";
-import { IoTPaginationConfiguration } from "./Interfaces";
+import type { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -3,73 +3,89 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type ConfigureLogsCommandInput,
+  type ConfigureLogsCommandOutput,
   ConfigureLogsCommand,
-  ConfigureLogsCommandInput,
-  ConfigureLogsCommandOutput,
 } from "./commands/ConfigureLogsCommand";
-import { CreateAssetCommand, CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import {
+  type CreateAssetCommandInput,
+  type CreateAssetCommandOutput,
+  CreateAssetCommand,
+} from "./commands/CreateAssetCommand";
+import {
+  type CreatePackagingConfigurationCommandInput,
+  type CreatePackagingConfigurationCommandOutput,
   CreatePackagingConfigurationCommand,
-  CreatePackagingConfigurationCommandInput,
-  CreatePackagingConfigurationCommandOutput,
 } from "./commands/CreatePackagingConfigurationCommand";
 import {
+  type CreatePackagingGroupCommandInput,
+  type CreatePackagingGroupCommandOutput,
   CreatePackagingGroupCommand,
-  CreatePackagingGroupCommandInput,
-  CreatePackagingGroupCommandOutput,
 } from "./commands/CreatePackagingGroupCommand";
-import { DeleteAssetCommand, DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import {
+  type DeleteAssetCommandInput,
+  type DeleteAssetCommandOutput,
+  DeleteAssetCommand,
+} from "./commands/DeleteAssetCommand";
+import {
+  type DeletePackagingConfigurationCommandInput,
+  type DeletePackagingConfigurationCommandOutput,
   DeletePackagingConfigurationCommand,
-  DeletePackagingConfigurationCommandInput,
-  DeletePackagingConfigurationCommandOutput,
 } from "./commands/DeletePackagingConfigurationCommand";
 import {
+  type DeletePackagingGroupCommandInput,
+  type DeletePackagingGroupCommandOutput,
   DeletePackagingGroupCommand,
-  DeletePackagingGroupCommandInput,
-  DeletePackagingGroupCommandOutput,
 } from "./commands/DeletePackagingGroupCommand";
 import {
+  type DescribeAssetCommandInput,
+  type DescribeAssetCommandOutput,
   DescribeAssetCommand,
-  DescribeAssetCommandInput,
-  DescribeAssetCommandOutput,
 } from "./commands/DescribeAssetCommand";
 import {
+  type DescribePackagingConfigurationCommandInput,
+  type DescribePackagingConfigurationCommandOutput,
   DescribePackagingConfigurationCommand,
-  DescribePackagingConfigurationCommandInput,
-  DescribePackagingConfigurationCommandOutput,
 } from "./commands/DescribePackagingConfigurationCommand";
 import {
+  type DescribePackagingGroupCommandInput,
+  type DescribePackagingGroupCommandOutput,
   DescribePackagingGroupCommand,
-  DescribePackagingGroupCommandInput,
-  DescribePackagingGroupCommandOutput,
 } from "./commands/DescribePackagingGroupCommand";
-import { ListAssetsCommand, ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
 import {
+  type ListAssetsCommandInput,
+  type ListAssetsCommandOutput,
+  ListAssetsCommand,
+} from "./commands/ListAssetsCommand";
+import {
+  type ListPackagingConfigurationsCommandInput,
+  type ListPackagingConfigurationsCommandOutput,
   ListPackagingConfigurationsCommand,
-  ListPackagingConfigurationsCommandInput,
-  ListPackagingConfigurationsCommandOutput,
 } from "./commands/ListPackagingConfigurationsCommand";
 import {
+  type ListPackagingGroupsCommandInput,
+  type ListPackagingGroupsCommandOutput,
   ListPackagingGroupsCommand,
-  ListPackagingGroupsCommandInput,
-  ListPackagingGroupsCommandOutput,
 } from "./commands/ListPackagingGroupsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdatePackagingGroupCommandInput,
+  type UpdatePackagingGroupCommandOutput,
   UpdatePackagingGroupCommand,
-  UpdatePackagingGroupCommandInput,
-  UpdatePackagingGroupCommandOutput,
 } from "./commands/UpdatePackagingGroupCommand";
 import { MediaPackageVodClient } from "./MediaPackageVodClient";
 import { paginateListAssets } from "./pagination/ListAssetsPaginator";

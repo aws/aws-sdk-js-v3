@@ -8,7 +8,7 @@ import {
   ListConnectionsCommandInput,
   ListConnectionsCommandOutput,
 } from "../commands/ListConnectionsCommand";
-import { AppRunnerPaginationConfiguration } from "./Interfaces";
+import type { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

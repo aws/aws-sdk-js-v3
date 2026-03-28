@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,72 +61,75 @@ import {
   defaultACMPCAHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   CreateCertificateAuthorityAuditReportCommandInput,
   CreateCertificateAuthorityAuditReportCommandOutput,
 } from "./commands/CreateCertificateAuthorityAuditReportCommand";
-import {
+import type {
   CreateCertificateAuthorityCommandInput,
   CreateCertificateAuthorityCommandOutput,
 } from "./commands/CreateCertificateAuthorityCommand";
-import { CreatePermissionCommandInput, CreatePermissionCommandOutput } from "./commands/CreatePermissionCommand";
-import {
+import type { CreatePermissionCommandInput, CreatePermissionCommandOutput } from "./commands/CreatePermissionCommand";
+import type {
   DeleteCertificateAuthorityCommandInput,
   DeleteCertificateAuthorityCommandOutput,
 } from "./commands/DeleteCertificateAuthorityCommand";
-import { DeletePermissionCommandInput, DeletePermissionCommandOutput } from "./commands/DeletePermissionCommand";
-import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
-import {
+import type { DeletePermissionCommandInput, DeletePermissionCommandOutput } from "./commands/DeletePermissionCommand";
+import type { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
+import type {
   DescribeCertificateAuthorityAuditReportCommandInput,
   DescribeCertificateAuthorityAuditReportCommandOutput,
 } from "./commands/DescribeCertificateAuthorityAuditReportCommand";
-import {
+import type {
   DescribeCertificateAuthorityCommandInput,
   DescribeCertificateAuthorityCommandOutput,
 } from "./commands/DescribeCertificateAuthorityCommand";
-import {
+import type {
   GetCertificateAuthorityCertificateCommandInput,
   GetCertificateAuthorityCertificateCommandOutput,
 } from "./commands/GetCertificateAuthorityCertificateCommand";
-import {
+import type {
   GetCertificateAuthorityCsrCommandInput,
   GetCertificateAuthorityCsrCommandOutput,
 } from "./commands/GetCertificateAuthorityCsrCommand";
-import { GetCertificateCommandInput, GetCertificateCommandOutput } from "./commands/GetCertificateCommand";
-import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
-import {
+import type { GetCertificateCommandInput, GetCertificateCommandOutput } from "./commands/GetCertificateCommand";
+import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import type {
   ImportCertificateAuthorityCertificateCommandInput,
   ImportCertificateAuthorityCertificateCommandOutput,
 } from "./commands/ImportCertificateAuthorityCertificateCommand";
-import { IssueCertificateCommandInput, IssueCertificateCommandOutput } from "./commands/IssueCertificateCommand";
-import {
+import type { IssueCertificateCommandInput, IssueCertificateCommandOutput } from "./commands/IssueCertificateCommand";
+import type {
   ListCertificateAuthoritiesCommandInput,
   ListCertificateAuthoritiesCommandOutput,
 } from "./commands/ListCertificateAuthoritiesCommand";
-import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
-import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
-import {
+import type { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
+import type { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import type { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import type {
   RestoreCertificateAuthorityCommandInput,
   RestoreCertificateAuthorityCommandOutput,
 } from "./commands/RestoreCertificateAuthorityCommand";
-import { RevokeCertificateCommandInput, RevokeCertificateCommandOutput } from "./commands/RevokeCertificateCommand";
-import {
+import type {
+  RevokeCertificateCommandInput,
+  RevokeCertificateCommandOutput,
+} from "./commands/RevokeCertificateCommand";
+import type {
   TagCertificateAuthorityCommandInput,
   TagCertificateAuthorityCommandOutput,
 } from "./commands/TagCertificateAuthorityCommand";
-import {
+import type {
   UntagCertificateAuthorityCommandInput,
   UntagCertificateAuthorityCommandOutput,
 } from "./commands/UntagCertificateAuthorityCommand";
-import {
+import type {
   UpdateCertificateAuthorityCommandInput,
   UpdateCertificateAuthorityCommandOutput,
 } from "./commands/UpdateCertificateAuthorityCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -306,7 +307,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

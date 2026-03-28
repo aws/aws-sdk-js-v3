@@ -39,20 +39,18 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
-  EndpointV2 as __EndpointV2,
-  Provider,
+import type {
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -62,93 +60,105 @@ import {
   defaultCodeCatalystHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateAccessTokenCommandInput, CreateAccessTokenCommandOutput } from "./commands/CreateAccessTokenCommand";
-import {
+import type {
+  CreateAccessTokenCommandInput,
+  CreateAccessTokenCommandOutput,
+} from "./commands/CreateAccessTokenCommand";
+import type {
   CreateDevEnvironmentCommandInput,
   CreateDevEnvironmentCommandOutput,
 } from "./commands/CreateDevEnvironmentCommand";
-import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
-import {
+import type { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import type {
   CreateSourceRepositoryBranchCommandInput,
   CreateSourceRepositoryBranchCommandOutput,
 } from "./commands/CreateSourceRepositoryBranchCommand";
-import {
+import type {
   CreateSourceRepositoryCommandInput,
   CreateSourceRepositoryCommandOutput,
 } from "./commands/CreateSourceRepositoryCommand";
-import { DeleteAccessTokenCommandInput, DeleteAccessTokenCommandOutput } from "./commands/DeleteAccessTokenCommand";
-import {
+import type {
+  DeleteAccessTokenCommandInput,
+  DeleteAccessTokenCommandOutput,
+} from "./commands/DeleteAccessTokenCommand";
+import type {
   DeleteDevEnvironmentCommandInput,
   DeleteDevEnvironmentCommandOutput,
 } from "./commands/DeleteDevEnvironmentCommand";
-import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
-import {
+import type { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import type {
   DeleteSourceRepositoryCommandInput,
   DeleteSourceRepositoryCommandOutput,
 } from "./commands/DeleteSourceRepositoryCommand";
-import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
-import { GetDevEnvironmentCommandInput, GetDevEnvironmentCommandOutput } from "./commands/GetDevEnvironmentCommand";
-import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
-import {
+import type { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
+import type {
+  GetDevEnvironmentCommandInput,
+  GetDevEnvironmentCommandOutput,
+} from "./commands/GetDevEnvironmentCommand";
+import type { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
+import type {
   GetSourceRepositoryCloneUrlsCommandInput,
   GetSourceRepositoryCloneUrlsCommandOutput,
 } from "./commands/GetSourceRepositoryCloneUrlsCommand";
-import {
+import type {
   GetSourceRepositoryCommandInput,
   GetSourceRepositoryCommandOutput,
 } from "./commands/GetSourceRepositoryCommand";
-import { GetSpaceCommandInput, GetSpaceCommandOutput } from "./commands/GetSpaceCommand";
-import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "./commands/GetSubscriptionCommand";
-import { GetUserDetailsCommandInput, GetUserDetailsCommandOutput } from "./commands/GetUserDetailsCommand";
-import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
-import { GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput } from "./commands/GetWorkflowRunCommand";
-import { ListAccessTokensCommandInput, ListAccessTokensCommandOutput } from "./commands/ListAccessTokensCommand";
-import {
+import type { GetSpaceCommandInput, GetSpaceCommandOutput } from "./commands/GetSpaceCommand";
+import type { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "./commands/GetSubscriptionCommand";
+import type { GetUserDetailsCommandInput, GetUserDetailsCommandOutput } from "./commands/GetUserDetailsCommand";
+import type { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import type { GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput } from "./commands/GetWorkflowRunCommand";
+import type { ListAccessTokensCommandInput, ListAccessTokensCommandOutput } from "./commands/ListAccessTokensCommand";
+import type {
   ListDevEnvironmentsCommandInput,
   ListDevEnvironmentsCommandOutput,
 } from "./commands/ListDevEnvironmentsCommand";
-import {
+import type {
   ListDevEnvironmentSessionsCommandInput,
   ListDevEnvironmentSessionsCommandOutput,
 } from "./commands/ListDevEnvironmentSessionsCommand";
-import { ListEventLogsCommandInput, ListEventLogsCommandOutput } from "./commands/ListEventLogsCommand";
-import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
-import {
+import type { ListEventLogsCommandInput, ListEventLogsCommandOutput } from "./commands/ListEventLogsCommand";
+import type { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import type {
   ListSourceRepositoriesCommandInput,
   ListSourceRepositoriesCommandOutput,
 } from "./commands/ListSourceRepositoriesCommand";
-import {
+import type {
   ListSourceRepositoryBranchesCommandInput,
   ListSourceRepositoryBranchesCommandOutput,
 } from "./commands/ListSourceRepositoryBranchesCommand";
-import { ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
-import { ListWorkflowRunsCommandInput, ListWorkflowRunsCommandOutput } from "./commands/ListWorkflowRunsCommand";
-import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
-import {
+import type { ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
+import type { ListWorkflowRunsCommandInput, ListWorkflowRunsCommandOutput } from "./commands/ListWorkflowRunsCommand";
+import type { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
+import type {
   StartDevEnvironmentCommandInput,
   StartDevEnvironmentCommandOutput,
 } from "./commands/StartDevEnvironmentCommand";
-import {
+import type {
   StartDevEnvironmentSessionCommandInput,
   StartDevEnvironmentSessionCommandOutput,
 } from "./commands/StartDevEnvironmentSessionCommand";
-import { StartWorkflowRunCommandInput, StartWorkflowRunCommandOutput } from "./commands/StartWorkflowRunCommand";
-import { StopDevEnvironmentCommandInput, StopDevEnvironmentCommandOutput } from "./commands/StopDevEnvironmentCommand";
-import {
+import type { StartWorkflowRunCommandInput, StartWorkflowRunCommandOutput } from "./commands/StartWorkflowRunCommand";
+import type {
+  StopDevEnvironmentCommandInput,
+  StopDevEnvironmentCommandOutput,
+} from "./commands/StopDevEnvironmentCommand";
+import type {
   StopDevEnvironmentSessionCommandInput,
   StopDevEnvironmentSessionCommandOutput,
 } from "./commands/StopDevEnvironmentSessionCommand";
-import {
+import type {
   UpdateDevEnvironmentCommandInput,
   UpdateDevEnvironmentCommandOutput,
 } from "./commands/UpdateDevEnvironmentCommand";
-import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
-import { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
-import { VerifySessionCommandInput, VerifySessionCommandOutput } from "./commands/VerifySessionCommand";
+import type { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import type { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
+import type { VerifySessionCommandInput, VerifySessionCommandOutput } from "./commands/VerifySessionCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -356,7 +366,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.

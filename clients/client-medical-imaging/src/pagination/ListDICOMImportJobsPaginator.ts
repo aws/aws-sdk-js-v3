@@ -8,7 +8,7 @@ import {
   ListDICOMImportJobsCommandOutput,
 } from "../commands/ListDICOMImportJobsCommand";
 import { MedicalImagingClient } from "../MedicalImagingClient";
-import { MedicalImagingPaginationConfiguration } from "./Interfaces";
+import type { MedicalImagingPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

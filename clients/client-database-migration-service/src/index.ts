@@ -16,7 +16,7 @@
  */
 export * from "./DatabaseMigrationServiceClient";
 export * from "./DatabaseMigrationService";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DatabaseMigrationServiceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,42 +61,51 @@ import {
   defaultBraketHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
-import { CancelQuantumTaskCommandInput, CancelQuantumTaskCommandOutput } from "./commands/CancelQuantumTaskCommand";
-import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
-import { CreateQuantumTaskCommandInput, CreateQuantumTaskCommandOutput } from "./commands/CreateQuantumTaskCommand";
-import {
+import type { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import type {
+  CancelQuantumTaskCommandInput,
+  CancelQuantumTaskCommandOutput,
+} from "./commands/CancelQuantumTaskCommand";
+import type { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import type {
+  CreateQuantumTaskCommandInput,
+  CreateQuantumTaskCommandOutput,
+} from "./commands/CreateQuantumTaskCommand";
+import type {
   CreateSpendingLimitCommandInput,
   CreateSpendingLimitCommandOutput,
 } from "./commands/CreateSpendingLimitCommand";
-import {
+import type {
   DeleteSpendingLimitCommandInput,
   DeleteSpendingLimitCommandOutput,
 } from "./commands/DeleteSpendingLimitCommand";
-import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
-import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
-import { GetQuantumTaskCommandInput, GetQuantumTaskCommandOutput } from "./commands/GetQuantumTaskCommand";
-import {
+import type { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
+import type { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import type { GetQuantumTaskCommandInput, GetQuantumTaskCommandOutput } from "./commands/GetQuantumTaskCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { SearchDevicesCommandInput, SearchDevicesCommandOutput } from "./commands/SearchDevicesCommand";
-import { SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
-import { SearchQuantumTasksCommandInput, SearchQuantumTasksCommandOutput } from "./commands/SearchQuantumTasksCommand";
-import {
+import type { SearchDevicesCommandInput, SearchDevicesCommandOutput } from "./commands/SearchDevicesCommand";
+import type { SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
+import type {
+  SearchQuantumTasksCommandInput,
+  SearchQuantumTasksCommandOutput,
+} from "./commands/SearchQuantumTasksCommand";
+import type {
   SearchSpendingLimitsCommandInput,
   SearchSpendingLimitsCommandOutput,
 } from "./commands/SearchSpendingLimitsCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateSpendingLimitCommandInput,
   UpdateSpendingLimitCommandOutput,
 } from "./commands/UpdateSpendingLimitCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -264,7 +271,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

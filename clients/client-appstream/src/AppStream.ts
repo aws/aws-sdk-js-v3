@@ -10,384 +10,436 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { AppStreamClient } from "./AppStreamClient";
 import {
+  type AssociateAppBlockBuilderAppBlockCommandInput,
+  type AssociateAppBlockBuilderAppBlockCommandOutput,
   AssociateAppBlockBuilderAppBlockCommand,
-  AssociateAppBlockBuilderAppBlockCommandInput,
-  AssociateAppBlockBuilderAppBlockCommandOutput,
 } from "./commands/AssociateAppBlockBuilderAppBlockCommand";
 import {
+  type AssociateApplicationFleetCommandInput,
+  type AssociateApplicationFleetCommandOutput,
   AssociateApplicationFleetCommand,
-  AssociateApplicationFleetCommandInput,
-  AssociateApplicationFleetCommandOutput,
 } from "./commands/AssociateApplicationFleetCommand";
 import {
+  type AssociateApplicationToEntitlementCommandInput,
+  type AssociateApplicationToEntitlementCommandOutput,
   AssociateApplicationToEntitlementCommand,
-  AssociateApplicationToEntitlementCommandInput,
-  AssociateApplicationToEntitlementCommandOutput,
 } from "./commands/AssociateApplicationToEntitlementCommand";
 import {
+  type AssociateFleetCommandInput,
+  type AssociateFleetCommandOutput,
   AssociateFleetCommand,
-  AssociateFleetCommandInput,
-  AssociateFleetCommandOutput,
 } from "./commands/AssociateFleetCommand";
 import {
+  type AssociateSoftwareToImageBuilderCommandInput,
+  type AssociateSoftwareToImageBuilderCommandOutput,
   AssociateSoftwareToImageBuilderCommand,
-  AssociateSoftwareToImageBuilderCommandInput,
-  AssociateSoftwareToImageBuilderCommandOutput,
 } from "./commands/AssociateSoftwareToImageBuilderCommand";
 import {
+  type BatchAssociateUserStackCommandInput,
+  type BatchAssociateUserStackCommandOutput,
   BatchAssociateUserStackCommand,
-  BatchAssociateUserStackCommandInput,
-  BatchAssociateUserStackCommandOutput,
 } from "./commands/BatchAssociateUserStackCommand";
 import {
+  type BatchDisassociateUserStackCommandInput,
+  type BatchDisassociateUserStackCommandOutput,
   BatchDisassociateUserStackCommand,
-  BatchDisassociateUserStackCommandInput,
-  BatchDisassociateUserStackCommandOutput,
 } from "./commands/BatchDisassociateUserStackCommand";
-import { CopyImageCommand, CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
+import { type CopyImageCommandInput, type CopyImageCommandOutput, CopyImageCommand } from "./commands/CopyImageCommand";
 import {
+  type CreateAppBlockBuilderCommandInput,
+  type CreateAppBlockBuilderCommandOutput,
   CreateAppBlockBuilderCommand,
-  CreateAppBlockBuilderCommandInput,
-  CreateAppBlockBuilderCommandOutput,
 } from "./commands/CreateAppBlockBuilderCommand";
 import {
+  type CreateAppBlockBuilderStreamingURLCommandInput,
+  type CreateAppBlockBuilderStreamingURLCommandOutput,
   CreateAppBlockBuilderStreamingURLCommand,
-  CreateAppBlockBuilderStreamingURLCommandInput,
-  CreateAppBlockBuilderStreamingURLCommandOutput,
 } from "./commands/CreateAppBlockBuilderStreamingURLCommand";
 import {
+  type CreateAppBlockCommandInput,
+  type CreateAppBlockCommandOutput,
   CreateAppBlockCommand,
-  CreateAppBlockCommandInput,
-  CreateAppBlockCommandOutput,
 } from "./commands/CreateAppBlockCommand";
 import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
   CreateApplicationCommand,
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  type CreateDirectoryConfigCommandInput,
+  type CreateDirectoryConfigCommandOutput,
   CreateDirectoryConfigCommand,
-  CreateDirectoryConfigCommandInput,
-  CreateDirectoryConfigCommandOutput,
 } from "./commands/CreateDirectoryConfigCommand";
 import {
+  type CreateEntitlementCommandInput,
+  type CreateEntitlementCommandOutput,
   CreateEntitlementCommand,
-  CreateEntitlementCommandInput,
-  CreateEntitlementCommandOutput,
 } from "./commands/CreateEntitlementCommand";
 import {
+  type CreateExportImageTaskCommandInput,
+  type CreateExportImageTaskCommandOutput,
   CreateExportImageTaskCommand,
-  CreateExportImageTaskCommandInput,
-  CreateExportImageTaskCommandOutput,
 } from "./commands/CreateExportImageTaskCommand";
-import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
+  type CreateFleetCommandInput,
+  type CreateFleetCommandOutput,
+  CreateFleetCommand,
+} from "./commands/CreateFleetCommand";
+import {
+  type CreateImageBuilderCommandInput,
+  type CreateImageBuilderCommandOutput,
   CreateImageBuilderCommand,
-  CreateImageBuilderCommandInput,
-  CreateImageBuilderCommandOutput,
 } from "./commands/CreateImageBuilderCommand";
 import {
+  type CreateImageBuilderStreamingURLCommandInput,
+  type CreateImageBuilderStreamingURLCommandOutput,
   CreateImageBuilderStreamingURLCommand,
-  CreateImageBuilderStreamingURLCommandInput,
-  CreateImageBuilderStreamingURLCommandOutput,
 } from "./commands/CreateImageBuilderStreamingURLCommand";
 import {
+  type CreateImportedImageCommandInput,
+  type CreateImportedImageCommandOutput,
   CreateImportedImageCommand,
-  CreateImportedImageCommandInput,
-  CreateImportedImageCommandOutput,
 } from "./commands/CreateImportedImageCommand";
-import { CreateStackCommand, CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
+  type CreateStackCommandInput,
+  type CreateStackCommandOutput,
+  CreateStackCommand,
+} from "./commands/CreateStackCommand";
+import {
+  type CreateStreamingURLCommandInput,
+  type CreateStreamingURLCommandOutput,
   CreateStreamingURLCommand,
-  CreateStreamingURLCommandInput,
-  CreateStreamingURLCommandOutput,
 } from "./commands/CreateStreamingURLCommand";
 import {
+  type CreateThemeForStackCommandInput,
+  type CreateThemeForStackCommandOutput,
   CreateThemeForStackCommand,
-  CreateThemeForStackCommandInput,
-  CreateThemeForStackCommandOutput,
 } from "./commands/CreateThemeForStackCommand";
 import {
+  type CreateUpdatedImageCommandInput,
+  type CreateUpdatedImageCommandOutput,
   CreateUpdatedImageCommand,
-  CreateUpdatedImageCommandInput,
-  CreateUpdatedImageCommandOutput,
 } from "./commands/CreateUpdatedImageCommand";
 import {
+  type CreateUsageReportSubscriptionCommandInput,
+  type CreateUsageReportSubscriptionCommandOutput,
   CreateUsageReportSubscriptionCommand,
-  CreateUsageReportSubscriptionCommandInput,
-  CreateUsageReportSubscriptionCommandOutput,
 } from "./commands/CreateUsageReportSubscriptionCommand";
-import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  type CreateUserCommandInput,
+  type CreateUserCommandOutput,
+  CreateUserCommand,
+} from "./commands/CreateUserCommand";
+import {
+  type DeleteAppBlockBuilderCommandInput,
+  type DeleteAppBlockBuilderCommandOutput,
   DeleteAppBlockBuilderCommand,
-  DeleteAppBlockBuilderCommandInput,
-  DeleteAppBlockBuilderCommandOutput,
 } from "./commands/DeleteAppBlockBuilderCommand";
 import {
+  type DeleteAppBlockCommandInput,
+  type DeleteAppBlockCommandOutput,
   DeleteAppBlockCommand,
-  DeleteAppBlockCommandInput,
-  DeleteAppBlockCommandOutput,
 } from "./commands/DeleteAppBlockCommand";
 import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  type DeleteDirectoryConfigCommandInput,
+  type DeleteDirectoryConfigCommandOutput,
   DeleteDirectoryConfigCommand,
-  DeleteDirectoryConfigCommandInput,
-  DeleteDirectoryConfigCommandOutput,
 } from "./commands/DeleteDirectoryConfigCommand";
 import {
+  type DeleteEntitlementCommandInput,
+  type DeleteEntitlementCommandOutput,
   DeleteEntitlementCommand,
-  DeleteEntitlementCommandInput,
-  DeleteEntitlementCommandOutput,
 } from "./commands/DeleteEntitlementCommand";
-import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
+  type DeleteFleetCommandInput,
+  type DeleteFleetCommandOutput,
+  DeleteFleetCommand,
+} from "./commands/DeleteFleetCommand";
+import {
+  type DeleteImageBuilderCommandInput,
+  type DeleteImageBuilderCommandOutput,
   DeleteImageBuilderCommand,
-  DeleteImageBuilderCommandInput,
-  DeleteImageBuilderCommandOutput,
 } from "./commands/DeleteImageBuilderCommand";
-import { DeleteImageCommand, DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
 import {
+  type DeleteImageCommandInput,
+  type DeleteImageCommandOutput,
+  DeleteImageCommand,
+} from "./commands/DeleteImageCommand";
+import {
+  type DeleteImagePermissionsCommandInput,
+  type DeleteImagePermissionsCommandOutput,
   DeleteImagePermissionsCommand,
-  DeleteImagePermissionsCommandInput,
-  DeleteImagePermissionsCommandOutput,
 } from "./commands/DeleteImagePermissionsCommand";
-import { DeleteStackCommand, DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
 import {
+  type DeleteStackCommandInput,
+  type DeleteStackCommandOutput,
+  DeleteStackCommand,
+} from "./commands/DeleteStackCommand";
+import {
+  type DeleteThemeForStackCommandInput,
+  type DeleteThemeForStackCommandOutput,
   DeleteThemeForStackCommand,
-  DeleteThemeForStackCommandInput,
-  DeleteThemeForStackCommandOutput,
 } from "./commands/DeleteThemeForStackCommand";
 import {
+  type DeleteUsageReportSubscriptionCommandInput,
+  type DeleteUsageReportSubscriptionCommandOutput,
   DeleteUsageReportSubscriptionCommand,
-  DeleteUsageReportSubscriptionCommandInput,
-  DeleteUsageReportSubscriptionCommandOutput,
 } from "./commands/DeleteUsageReportSubscriptionCommand";
-import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  type DeleteUserCommandInput,
+  type DeleteUserCommandOutput,
+  DeleteUserCommand,
+} from "./commands/DeleteUserCommand";
+import {
+  type DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
+  type DescribeAppBlockBuilderAppBlockAssociationsCommandOutput,
   DescribeAppBlockBuilderAppBlockAssociationsCommand,
-  DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
-  DescribeAppBlockBuilderAppBlockAssociationsCommandOutput,
 } from "./commands/DescribeAppBlockBuilderAppBlockAssociationsCommand";
 import {
+  type DescribeAppBlockBuildersCommandInput,
+  type DescribeAppBlockBuildersCommandOutput,
   DescribeAppBlockBuildersCommand,
-  DescribeAppBlockBuildersCommandInput,
-  DescribeAppBlockBuildersCommandOutput,
 } from "./commands/DescribeAppBlockBuildersCommand";
 import {
+  type DescribeAppBlocksCommandInput,
+  type DescribeAppBlocksCommandOutput,
   DescribeAppBlocksCommand,
-  DescribeAppBlocksCommandInput,
-  DescribeAppBlocksCommandOutput,
 } from "./commands/DescribeAppBlocksCommand";
 import {
+  type DescribeApplicationFleetAssociationsCommandInput,
+  type DescribeApplicationFleetAssociationsCommandOutput,
   DescribeApplicationFleetAssociationsCommand,
-  DescribeApplicationFleetAssociationsCommandInput,
-  DescribeApplicationFleetAssociationsCommandOutput,
 } from "./commands/DescribeApplicationFleetAssociationsCommand";
 import {
+  type DescribeApplicationsCommandInput,
+  type DescribeApplicationsCommandOutput,
   DescribeApplicationsCommand,
-  DescribeApplicationsCommandInput,
-  DescribeApplicationsCommandOutput,
 } from "./commands/DescribeApplicationsCommand";
 import {
+  type DescribeAppLicenseUsageCommandInput,
+  type DescribeAppLicenseUsageCommandOutput,
   DescribeAppLicenseUsageCommand,
-  DescribeAppLicenseUsageCommandInput,
-  DescribeAppLicenseUsageCommandOutput,
 } from "./commands/DescribeAppLicenseUsageCommand";
 import {
+  type DescribeDirectoryConfigsCommandInput,
+  type DescribeDirectoryConfigsCommandOutput,
   DescribeDirectoryConfigsCommand,
-  DescribeDirectoryConfigsCommandInput,
-  DescribeDirectoryConfigsCommandOutput,
 } from "./commands/DescribeDirectoryConfigsCommand";
 import {
+  type DescribeEntitlementsCommandInput,
+  type DescribeEntitlementsCommandOutput,
   DescribeEntitlementsCommand,
-  DescribeEntitlementsCommandInput,
-  DescribeEntitlementsCommandOutput,
 } from "./commands/DescribeEntitlementsCommand";
 import {
+  type DescribeFleetsCommandInput,
+  type DescribeFleetsCommandOutput,
   DescribeFleetsCommand,
-  DescribeFleetsCommandInput,
-  DescribeFleetsCommandOutput,
 } from "./commands/DescribeFleetsCommand";
 import {
+  type DescribeImageBuildersCommandInput,
+  type DescribeImageBuildersCommandOutput,
   DescribeImageBuildersCommand,
-  DescribeImageBuildersCommandInput,
-  DescribeImageBuildersCommandOutput,
 } from "./commands/DescribeImageBuildersCommand";
 import {
+  type DescribeImagePermissionsCommandInput,
+  type DescribeImagePermissionsCommandOutput,
   DescribeImagePermissionsCommand,
-  DescribeImagePermissionsCommandInput,
-  DescribeImagePermissionsCommandOutput,
 } from "./commands/DescribeImagePermissionsCommand";
 import {
+  type DescribeImagesCommandInput,
+  type DescribeImagesCommandOutput,
   DescribeImagesCommand,
-  DescribeImagesCommandInput,
-  DescribeImagesCommandOutput,
 } from "./commands/DescribeImagesCommand";
 import {
+  type DescribeSessionsCommandInput,
+  type DescribeSessionsCommandOutput,
   DescribeSessionsCommand,
-  DescribeSessionsCommandInput,
-  DescribeSessionsCommandOutput,
 } from "./commands/DescribeSessionsCommand";
 import {
+  type DescribeSoftwareAssociationsCommandInput,
+  type DescribeSoftwareAssociationsCommandOutput,
   DescribeSoftwareAssociationsCommand,
-  DescribeSoftwareAssociationsCommandInput,
-  DescribeSoftwareAssociationsCommandOutput,
 } from "./commands/DescribeSoftwareAssociationsCommand";
 import {
+  type DescribeStacksCommandInput,
+  type DescribeStacksCommandOutput,
   DescribeStacksCommand,
-  DescribeStacksCommandInput,
-  DescribeStacksCommandOutput,
 } from "./commands/DescribeStacksCommand";
 import {
+  type DescribeThemeForStackCommandInput,
+  type DescribeThemeForStackCommandOutput,
   DescribeThemeForStackCommand,
-  DescribeThemeForStackCommandInput,
-  DescribeThemeForStackCommandOutput,
 } from "./commands/DescribeThemeForStackCommand";
 import {
+  type DescribeUsageReportSubscriptionsCommandInput,
+  type DescribeUsageReportSubscriptionsCommandOutput,
   DescribeUsageReportSubscriptionsCommand,
-  DescribeUsageReportSubscriptionsCommandInput,
-  DescribeUsageReportSubscriptionsCommandOutput,
 } from "./commands/DescribeUsageReportSubscriptionsCommand";
 import {
+  type DescribeUsersCommandInput,
+  type DescribeUsersCommandOutput,
   DescribeUsersCommand,
-  DescribeUsersCommandInput,
-  DescribeUsersCommandOutput,
 } from "./commands/DescribeUsersCommand";
 import {
+  type DescribeUserStackAssociationsCommandInput,
+  type DescribeUserStackAssociationsCommandOutput,
   DescribeUserStackAssociationsCommand,
-  DescribeUserStackAssociationsCommandInput,
-  DescribeUserStackAssociationsCommandOutput,
 } from "./commands/DescribeUserStackAssociationsCommand";
-import { DisableUserCommand, DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
 import {
+  type DisableUserCommandInput,
+  type DisableUserCommandOutput,
+  DisableUserCommand,
+} from "./commands/DisableUserCommand";
+import {
+  type DisassociateAppBlockBuilderAppBlockCommandInput,
+  type DisassociateAppBlockBuilderAppBlockCommandOutput,
   DisassociateAppBlockBuilderAppBlockCommand,
-  DisassociateAppBlockBuilderAppBlockCommandInput,
-  DisassociateAppBlockBuilderAppBlockCommandOutput,
 } from "./commands/DisassociateAppBlockBuilderAppBlockCommand";
 import {
+  type DisassociateApplicationFleetCommandInput,
+  type DisassociateApplicationFleetCommandOutput,
   DisassociateApplicationFleetCommand,
-  DisassociateApplicationFleetCommandInput,
-  DisassociateApplicationFleetCommandOutput,
 } from "./commands/DisassociateApplicationFleetCommand";
 import {
+  type DisassociateApplicationFromEntitlementCommandInput,
+  type DisassociateApplicationFromEntitlementCommandOutput,
   DisassociateApplicationFromEntitlementCommand,
-  DisassociateApplicationFromEntitlementCommandInput,
-  DisassociateApplicationFromEntitlementCommandOutput,
 } from "./commands/DisassociateApplicationFromEntitlementCommand";
 import {
+  type DisassociateFleetCommandInput,
+  type DisassociateFleetCommandOutput,
   DisassociateFleetCommand,
-  DisassociateFleetCommandInput,
-  DisassociateFleetCommandOutput,
 } from "./commands/DisassociateFleetCommand";
 import {
+  type DisassociateSoftwareFromImageBuilderCommandInput,
+  type DisassociateSoftwareFromImageBuilderCommandOutput,
   DisassociateSoftwareFromImageBuilderCommand,
-  DisassociateSoftwareFromImageBuilderCommandInput,
-  DisassociateSoftwareFromImageBuilderCommandOutput,
 } from "./commands/DisassociateSoftwareFromImageBuilderCommand";
-import { EnableUserCommand, EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import {
+  type EnableUserCommandInput,
+  type EnableUserCommandOutput,
+  EnableUserCommand,
+} from "./commands/EnableUserCommand";
+import {
+  type ExpireSessionCommandInput,
+  type ExpireSessionCommandOutput,
   ExpireSessionCommand,
-  ExpireSessionCommandInput,
-  ExpireSessionCommandOutput,
 } from "./commands/ExpireSessionCommand";
 import {
+  type GetExportImageTaskCommandInput,
+  type GetExportImageTaskCommandOutput,
   GetExportImageTaskCommand,
-  GetExportImageTaskCommandInput,
-  GetExportImageTaskCommandOutput,
 } from "./commands/GetExportImageTaskCommand";
 import {
+  type ListAssociatedFleetsCommandInput,
+  type ListAssociatedFleetsCommandOutput,
   ListAssociatedFleetsCommand,
-  ListAssociatedFleetsCommandInput,
-  ListAssociatedFleetsCommandOutput,
 } from "./commands/ListAssociatedFleetsCommand";
 import {
+  type ListAssociatedStacksCommandInput,
+  type ListAssociatedStacksCommandOutput,
   ListAssociatedStacksCommand,
-  ListAssociatedStacksCommandInput,
-  ListAssociatedStacksCommandOutput,
 } from "./commands/ListAssociatedStacksCommand";
 import {
+  type ListEntitledApplicationsCommandInput,
+  type ListEntitledApplicationsCommandOutput,
   ListEntitledApplicationsCommand,
-  ListEntitledApplicationsCommandInput,
-  ListEntitledApplicationsCommandOutput,
 } from "./commands/ListEntitledApplicationsCommand";
 import {
+  type ListExportImageTasksCommandInput,
+  type ListExportImageTasksCommandOutput,
   ListExportImageTasksCommand,
-  ListExportImageTasksCommandInput,
-  ListExportImageTasksCommandOutput,
 } from "./commands/ListExportImageTasksCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type StartAppBlockBuilderCommandInput,
+  type StartAppBlockBuilderCommandOutput,
   StartAppBlockBuilderCommand,
-  StartAppBlockBuilderCommandInput,
-  StartAppBlockBuilderCommandOutput,
 } from "./commands/StartAppBlockBuilderCommand";
-import { StartFleetCommand, StartFleetCommandInput, StartFleetCommandOutput } from "./commands/StartFleetCommand";
 import {
+  type StartFleetCommandInput,
+  type StartFleetCommandOutput,
+  StartFleetCommand,
+} from "./commands/StartFleetCommand";
+import {
+  type StartImageBuilderCommandInput,
+  type StartImageBuilderCommandOutput,
   StartImageBuilderCommand,
-  StartImageBuilderCommandInput,
-  StartImageBuilderCommandOutput,
 } from "./commands/StartImageBuilderCommand";
 import {
+  type StartSoftwareDeploymentToImageBuilderCommandInput,
+  type StartSoftwareDeploymentToImageBuilderCommandOutput,
   StartSoftwareDeploymentToImageBuilderCommand,
-  StartSoftwareDeploymentToImageBuilderCommandInput,
-  StartSoftwareDeploymentToImageBuilderCommandOutput,
 } from "./commands/StartSoftwareDeploymentToImageBuilderCommand";
 import {
+  type StopAppBlockBuilderCommandInput,
+  type StopAppBlockBuilderCommandOutput,
   StopAppBlockBuilderCommand,
-  StopAppBlockBuilderCommandInput,
-  StopAppBlockBuilderCommandOutput,
 } from "./commands/StopAppBlockBuilderCommand";
-import { StopFleetCommand, StopFleetCommandInput, StopFleetCommandOutput } from "./commands/StopFleetCommand";
+import { type StopFleetCommandInput, type StopFleetCommandOutput, StopFleetCommand } from "./commands/StopFleetCommand";
 import {
+  type StopImageBuilderCommandInput,
+  type StopImageBuilderCommandOutput,
   StopImageBuilderCommand,
-  StopImageBuilderCommandInput,
-  StopImageBuilderCommandOutput,
 } from "./commands/StopImageBuilderCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAppBlockBuilderCommandInput,
+  type UpdateAppBlockBuilderCommandOutput,
   UpdateAppBlockBuilderCommand,
-  UpdateAppBlockBuilderCommandInput,
-  UpdateAppBlockBuilderCommandOutput,
 } from "./commands/UpdateAppBlockBuilderCommand";
 import {
+  type UpdateApplicationCommandInput,
+  type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  type UpdateDirectoryConfigCommandInput,
+  type UpdateDirectoryConfigCommandOutput,
   UpdateDirectoryConfigCommand,
-  UpdateDirectoryConfigCommandInput,
-  UpdateDirectoryConfigCommandOutput,
 } from "./commands/UpdateDirectoryConfigCommand";
 import {
+  type UpdateEntitlementCommandInput,
+  type UpdateEntitlementCommandOutput,
   UpdateEntitlementCommand,
-  UpdateEntitlementCommandInput,
-  UpdateEntitlementCommandOutput,
 } from "./commands/UpdateEntitlementCommand";
-import { UpdateFleetCommand, UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
 import {
+  type UpdateFleetCommandInput,
+  type UpdateFleetCommandOutput,
+  UpdateFleetCommand,
+} from "./commands/UpdateFleetCommand";
+import {
+  type UpdateImagePermissionsCommandInput,
+  type UpdateImagePermissionsCommandOutput,
   UpdateImagePermissionsCommand,
-  UpdateImagePermissionsCommandInput,
-  UpdateImagePermissionsCommandOutput,
 } from "./commands/UpdateImagePermissionsCommand";
-import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
+  type UpdateStackCommandInput,
+  type UpdateStackCommandOutput,
+  UpdateStackCommand,
+} from "./commands/UpdateStackCommand";
+import {
+  type UpdateThemeForStackCommandInput,
+  type UpdateThemeForStackCommandOutput,
   UpdateThemeForStackCommand,
-  UpdateThemeForStackCommandInput,
-  UpdateThemeForStackCommandOutput,
 } from "./commands/UpdateThemeForStackCommand";
 import {
   paginateDescribeAppBlockBuilderAppBlockAssociations,

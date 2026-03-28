@@ -7,7 +7,7 @@
  */
 export * from "./Route53RecoveryReadinessClient";
 export * from "./Route53RecoveryReadiness";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { Route53RecoveryReadinessExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

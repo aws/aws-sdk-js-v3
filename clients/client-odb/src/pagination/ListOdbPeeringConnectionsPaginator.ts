@@ -8,7 +8,7 @@ import {
   ListOdbPeeringConnectionsCommandOutput,
 } from "../commands/ListOdbPeeringConnectionsCommand";
 import { OdbClient } from "../OdbClient";
-import { OdbPaginationConfiguration } from "./Interfaces";
+import type { OdbPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

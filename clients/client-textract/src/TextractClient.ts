@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,68 +61,80 @@ import {
   defaultTextractHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AnalyzeDocumentCommandInput, AnalyzeDocumentCommandOutput } from "./commands/AnalyzeDocumentCommand";
-import { AnalyzeExpenseCommandInput, AnalyzeExpenseCommandOutput } from "./commands/AnalyzeExpenseCommand";
-import { AnalyzeIDCommandInput, AnalyzeIDCommandOutput } from "./commands/AnalyzeIDCommand";
-import { CreateAdapterCommandInput, CreateAdapterCommandOutput } from "./commands/CreateAdapterCommand";
-import {
+import type { AnalyzeDocumentCommandInput, AnalyzeDocumentCommandOutput } from "./commands/AnalyzeDocumentCommand";
+import type { AnalyzeExpenseCommandInput, AnalyzeExpenseCommandOutput } from "./commands/AnalyzeExpenseCommand";
+import type { AnalyzeIDCommandInput, AnalyzeIDCommandOutput } from "./commands/AnalyzeIDCommand";
+import type { CreateAdapterCommandInput, CreateAdapterCommandOutput } from "./commands/CreateAdapterCommand";
+import type {
   CreateAdapterVersionCommandInput,
   CreateAdapterVersionCommandOutput,
 } from "./commands/CreateAdapterVersionCommand";
-import { DeleteAdapterCommandInput, DeleteAdapterCommandOutput } from "./commands/DeleteAdapterCommand";
-import {
+import type { DeleteAdapterCommandInput, DeleteAdapterCommandOutput } from "./commands/DeleteAdapterCommand";
+import type {
   DeleteAdapterVersionCommandInput,
   DeleteAdapterVersionCommandOutput,
 } from "./commands/DeleteAdapterVersionCommand";
-import { DetectDocumentTextCommandInput, DetectDocumentTextCommandOutput } from "./commands/DetectDocumentTextCommand";
-import { GetAdapterCommandInput, GetAdapterCommandOutput } from "./commands/GetAdapterCommand";
-import { GetAdapterVersionCommandInput, GetAdapterVersionCommandOutput } from "./commands/GetAdapterVersionCommand";
-import {
+import type {
+  DetectDocumentTextCommandInput,
+  DetectDocumentTextCommandOutput,
+} from "./commands/DetectDocumentTextCommand";
+import type { GetAdapterCommandInput, GetAdapterCommandOutput } from "./commands/GetAdapterCommand";
+import type {
+  GetAdapterVersionCommandInput,
+  GetAdapterVersionCommandOutput,
+} from "./commands/GetAdapterVersionCommand";
+import type {
   GetDocumentAnalysisCommandInput,
   GetDocumentAnalysisCommandOutput,
 } from "./commands/GetDocumentAnalysisCommand";
-import {
+import type {
   GetDocumentTextDetectionCommandInput,
   GetDocumentTextDetectionCommandOutput,
 } from "./commands/GetDocumentTextDetectionCommand";
-import { GetExpenseAnalysisCommandInput, GetExpenseAnalysisCommandOutput } from "./commands/GetExpenseAnalysisCommand";
-import { GetLendingAnalysisCommandInput, GetLendingAnalysisCommandOutput } from "./commands/GetLendingAnalysisCommand";
-import {
+import type {
+  GetExpenseAnalysisCommandInput,
+  GetExpenseAnalysisCommandOutput,
+} from "./commands/GetExpenseAnalysisCommand";
+import type {
+  GetLendingAnalysisCommandInput,
+  GetLendingAnalysisCommandOutput,
+} from "./commands/GetLendingAnalysisCommand";
+import type {
   GetLendingAnalysisSummaryCommandInput,
   GetLendingAnalysisSummaryCommandOutput,
 } from "./commands/GetLendingAnalysisSummaryCommand";
-import { ListAdaptersCommandInput, ListAdaptersCommandOutput } from "./commands/ListAdaptersCommand";
-import {
+import type { ListAdaptersCommandInput, ListAdaptersCommandOutput } from "./commands/ListAdaptersCommand";
+import type {
   ListAdapterVersionsCommandInput,
   ListAdapterVersionsCommandOutput,
 } from "./commands/ListAdapterVersionsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   StartDocumentAnalysisCommandInput,
   StartDocumentAnalysisCommandOutput,
 } from "./commands/StartDocumentAnalysisCommand";
-import {
+import type {
   StartDocumentTextDetectionCommandInput,
   StartDocumentTextDetectionCommandOutput,
 } from "./commands/StartDocumentTextDetectionCommand";
-import {
+import type {
   StartExpenseAnalysisCommandInput,
   StartExpenseAnalysisCommandOutput,
 } from "./commands/StartExpenseAnalysisCommand";
-import {
+import type {
   StartLendingAnalysisCommandInput,
   StartLendingAnalysisCommandOutput,
 } from "./commands/StartLendingAnalysisCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { UpdateAdapterCommandInput, UpdateAdapterCommandOutput } from "./commands/UpdateAdapterCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAdapterCommandInput, UpdateAdapterCommandOutput } from "./commands/UpdateAdapterCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -306,7 +316,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

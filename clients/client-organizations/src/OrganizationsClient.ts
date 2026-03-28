@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,178 +61,199 @@ import {
   defaultOrganizationsHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput } from "./commands/AcceptHandshakeCommand";
-import { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "./commands/AttachPolicyCommand";
-import { CancelHandshakeCommandInput, CancelHandshakeCommandOutput } from "./commands/CancelHandshakeCommand";
-import { CloseAccountCommandInput, CloseAccountCommandOutput } from "./commands/CloseAccountCommand";
-import { CreateAccountCommandInput, CreateAccountCommandOutput } from "./commands/CreateAccountCommand";
-import {
+import type { AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput } from "./commands/AcceptHandshakeCommand";
+import type { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "./commands/AttachPolicyCommand";
+import type { CancelHandshakeCommandInput, CancelHandshakeCommandOutput } from "./commands/CancelHandshakeCommand";
+import type { CloseAccountCommandInput, CloseAccountCommandOutput } from "./commands/CloseAccountCommand";
+import type { CreateAccountCommandInput, CreateAccountCommandOutput } from "./commands/CreateAccountCommand";
+import type {
   CreateGovCloudAccountCommandInput,
   CreateGovCloudAccountCommandOutput,
 } from "./commands/CreateGovCloudAccountCommand";
-import {
+import type {
   CreateOrganizationalUnitCommandInput,
   CreateOrganizationalUnitCommandOutput,
 } from "./commands/CreateOrganizationalUnitCommand";
-import { CreateOrganizationCommandInput, CreateOrganizationCommandOutput } from "./commands/CreateOrganizationCommand";
-import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
-import { DeclineHandshakeCommandInput, DeclineHandshakeCommandOutput } from "./commands/DeclineHandshakeCommand";
-import {
+import type {
+  CreateOrganizationCommandInput,
+  CreateOrganizationCommandOutput,
+} from "./commands/CreateOrganizationCommand";
+import type { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
+import type { DeclineHandshakeCommandInput, DeclineHandshakeCommandOutput } from "./commands/DeclineHandshakeCommand";
+import type {
   DeleteOrganizationalUnitCommandInput,
   DeleteOrganizationalUnitCommandOutput,
 } from "./commands/DeleteOrganizationalUnitCommand";
-import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "./commands/DeleteOrganizationCommand";
-import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
-import {
+import type {
+  DeleteOrganizationCommandInput,
+  DeleteOrganizationCommandOutput,
+} from "./commands/DeleteOrganizationCommand";
+import type { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
+import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
+import type {
   DeregisterDelegatedAdministratorCommandInput,
   DeregisterDelegatedAdministratorCommandOutput,
 } from "./commands/DeregisterDelegatedAdministratorCommand";
-import { DescribeAccountCommandInput, DescribeAccountCommandOutput } from "./commands/DescribeAccountCommand";
-import {
+import type { DescribeAccountCommandInput, DescribeAccountCommandOutput } from "./commands/DescribeAccountCommand";
+import type {
   DescribeCreateAccountStatusCommandInput,
   DescribeCreateAccountStatusCommandOutput,
 } from "./commands/DescribeCreateAccountStatusCommand";
-import {
+import type {
   DescribeEffectivePolicyCommandInput,
   DescribeEffectivePolicyCommandOutput,
 } from "./commands/DescribeEffectivePolicyCommand";
-import { DescribeHandshakeCommandInput, DescribeHandshakeCommandOutput } from "./commands/DescribeHandshakeCommand";
-import {
+import type {
+  DescribeHandshakeCommandInput,
+  DescribeHandshakeCommandOutput,
+} from "./commands/DescribeHandshakeCommand";
+import type {
   DescribeOrganizationalUnitCommandInput,
   DescribeOrganizationalUnitCommandOutput,
 } from "./commands/DescribeOrganizationalUnitCommand";
-import {
+import type {
   DescribeOrganizationCommandInput,
   DescribeOrganizationCommandOutput,
 } from "./commands/DescribeOrganizationCommand";
-import { DescribePolicyCommandInput, DescribePolicyCommandOutput } from "./commands/DescribePolicyCommand";
-import {
+import type { DescribePolicyCommandInput, DescribePolicyCommandOutput } from "./commands/DescribePolicyCommand";
+import type {
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
-import {
+import type {
   DescribeResponsibilityTransferCommandInput,
   DescribeResponsibilityTransferCommandOutput,
 } from "./commands/DescribeResponsibilityTransferCommand";
-import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand";
-import {
+import type { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand";
+import type {
   DisableAWSServiceAccessCommandInput,
   DisableAWSServiceAccessCommandOutput,
 } from "./commands/DisableAWSServiceAccessCommand";
-import { DisablePolicyTypeCommandInput, DisablePolicyTypeCommandOutput } from "./commands/DisablePolicyTypeCommand";
-import { EnableAllFeaturesCommandInput, EnableAllFeaturesCommandOutput } from "./commands/EnableAllFeaturesCommand";
-import {
+import type {
+  DisablePolicyTypeCommandInput,
+  DisablePolicyTypeCommandOutput,
+} from "./commands/DisablePolicyTypeCommand";
+import type {
+  EnableAllFeaturesCommandInput,
+  EnableAllFeaturesCommandOutput,
+} from "./commands/EnableAllFeaturesCommand";
+import type {
   EnableAWSServiceAccessCommandInput,
   EnableAWSServiceAccessCommandOutput,
 } from "./commands/EnableAWSServiceAccessCommand";
-import { EnablePolicyTypeCommandInput, EnablePolicyTypeCommandOutput } from "./commands/EnablePolicyTypeCommand";
-import {
+import type { EnablePolicyTypeCommandInput, EnablePolicyTypeCommandOutput } from "./commands/EnablePolicyTypeCommand";
+import type {
   InviteAccountToOrganizationCommandInput,
   InviteAccountToOrganizationCommandOutput,
 } from "./commands/InviteAccountToOrganizationCommand";
-import {
+import type {
   InviteOrganizationToTransferResponsibilityCommandInput,
   InviteOrganizationToTransferResponsibilityCommandOutput,
 } from "./commands/InviteOrganizationToTransferResponsibilityCommand";
-import { LeaveOrganizationCommandInput, LeaveOrganizationCommandOutput } from "./commands/LeaveOrganizationCommand";
-import { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand";
-import {
+import type {
+  LeaveOrganizationCommandInput,
+  LeaveOrganizationCommandOutput,
+} from "./commands/LeaveOrganizationCommand";
+import type { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand";
+import type {
   ListAccountsForParentCommandInput,
   ListAccountsForParentCommandOutput,
 } from "./commands/ListAccountsForParentCommand";
-import {
+import type {
   ListAccountsWithInvalidEffectivePolicyCommandInput,
   ListAccountsWithInvalidEffectivePolicyCommandOutput,
 } from "./commands/ListAccountsWithInvalidEffectivePolicyCommand";
-import {
+import type {
   ListAWSServiceAccessForOrganizationCommandInput,
   ListAWSServiceAccessForOrganizationCommandOutput,
 } from "./commands/ListAWSServiceAccessForOrganizationCommand";
-import { ListChildrenCommandInput, ListChildrenCommandOutput } from "./commands/ListChildrenCommand";
-import {
+import type { ListChildrenCommandInput, ListChildrenCommandOutput } from "./commands/ListChildrenCommand";
+import type {
   ListCreateAccountStatusCommandInput,
   ListCreateAccountStatusCommandOutput,
 } from "./commands/ListCreateAccountStatusCommand";
-import {
+import type {
   ListDelegatedAdministratorsCommandInput,
   ListDelegatedAdministratorsCommandOutput,
 } from "./commands/ListDelegatedAdministratorsCommand";
-import {
+import type {
   ListDelegatedServicesForAccountCommandInput,
   ListDelegatedServicesForAccountCommandOutput,
 } from "./commands/ListDelegatedServicesForAccountCommand";
-import {
+import type {
   ListEffectivePolicyValidationErrorsCommandInput,
   ListEffectivePolicyValidationErrorsCommandOutput,
 } from "./commands/ListEffectivePolicyValidationErrorsCommand";
-import {
+import type {
   ListHandshakesForAccountCommandInput,
   ListHandshakesForAccountCommandOutput,
 } from "./commands/ListHandshakesForAccountCommand";
-import {
+import type {
   ListHandshakesForOrganizationCommandInput,
   ListHandshakesForOrganizationCommandOutput,
 } from "./commands/ListHandshakesForOrganizationCommand";
-import {
+import type {
   ListInboundResponsibilityTransfersCommandInput,
   ListInboundResponsibilityTransfersCommandOutput,
 } from "./commands/ListInboundResponsibilityTransfersCommand";
-import {
+import type {
   ListOrganizationalUnitsForParentCommandInput,
   ListOrganizationalUnitsForParentCommandOutput,
 } from "./commands/ListOrganizationalUnitsForParentCommand";
-import {
+import type {
   ListOutboundResponsibilityTransfersCommandInput,
   ListOutboundResponsibilityTransfersCommandOutput,
 } from "./commands/ListOutboundResponsibilityTransfersCommand";
-import { ListParentsCommandInput, ListParentsCommandOutput } from "./commands/ListParentsCommand";
-import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
-import {
+import type { ListParentsCommandInput, ListParentsCommandOutput } from "./commands/ListParentsCommand";
+import type { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
+import type {
   ListPoliciesForTargetCommandInput,
   ListPoliciesForTargetCommandOutput,
 } from "./commands/ListPoliciesForTargetCommand";
-import { ListRootsCommandInput, ListRootsCommandOutput } from "./commands/ListRootsCommand";
-import {
+import type { ListRootsCommandInput, ListRootsCommandOutput } from "./commands/ListRootsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   ListTargetsForPolicyCommandInput,
   ListTargetsForPolicyCommandOutput,
 } from "./commands/ListTargetsForPolicyCommand";
-import { MoveAccountCommandInput, MoveAccountCommandOutput } from "./commands/MoveAccountCommand";
-import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
-import {
+import type { MoveAccountCommandInput, MoveAccountCommandOutput } from "./commands/MoveAccountCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import type {
   RegisterDelegatedAdministratorCommandInput,
   RegisterDelegatedAdministratorCommandOutput,
 } from "./commands/RegisterDelegatedAdministratorCommand";
-import {
+import type {
   RemoveAccountFromOrganizationCommandInput,
   RemoveAccountFromOrganizationCommandOutput,
 } from "./commands/RemoveAccountFromOrganizationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type {
   TerminateResponsibilityTransferCommandInput,
   TerminateResponsibilityTransferCommandOutput,
 } from "./commands/TerminateResponsibilityTransferCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateOrganizationalUnitCommandInput,
   UpdateOrganizationalUnitCommandOutput,
 } from "./commands/UpdateOrganizationalUnitCommand";
-import { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand";
-import {
+import type { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand";
+import type {
   UpdateResponsibilityTransferCommandInput,
   UpdateResponsibilityTransferCommandOutput,
 } from "./commands/UpdateResponsibilityTransferCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -492,7 +511,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

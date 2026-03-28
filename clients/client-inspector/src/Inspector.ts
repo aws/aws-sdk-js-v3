@@ -3,189 +3,189 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AddAttributesToFindingsCommandInput,
+  type AddAttributesToFindingsCommandOutput,
   AddAttributesToFindingsCommand,
-  AddAttributesToFindingsCommandInput,
-  AddAttributesToFindingsCommandOutput,
 } from "./commands/AddAttributesToFindingsCommand";
 import {
+  type CreateAssessmentTargetCommandInput,
+  type CreateAssessmentTargetCommandOutput,
   CreateAssessmentTargetCommand,
-  CreateAssessmentTargetCommandInput,
-  CreateAssessmentTargetCommandOutput,
 } from "./commands/CreateAssessmentTargetCommand";
 import {
+  type CreateAssessmentTemplateCommandInput,
+  type CreateAssessmentTemplateCommandOutput,
   CreateAssessmentTemplateCommand,
-  CreateAssessmentTemplateCommandInput,
-  CreateAssessmentTemplateCommandOutput,
 } from "./commands/CreateAssessmentTemplateCommand";
 import {
+  type CreateExclusionsPreviewCommandInput,
+  type CreateExclusionsPreviewCommandOutput,
   CreateExclusionsPreviewCommand,
-  CreateExclusionsPreviewCommandInput,
-  CreateExclusionsPreviewCommandOutput,
 } from "./commands/CreateExclusionsPreviewCommand";
 import {
+  type CreateResourceGroupCommandInput,
+  type CreateResourceGroupCommandOutput,
   CreateResourceGroupCommand,
-  CreateResourceGroupCommandInput,
-  CreateResourceGroupCommandOutput,
 } from "./commands/CreateResourceGroupCommand";
 import {
+  type DeleteAssessmentRunCommandInput,
+  type DeleteAssessmentRunCommandOutput,
   DeleteAssessmentRunCommand,
-  DeleteAssessmentRunCommandInput,
-  DeleteAssessmentRunCommandOutput,
 } from "./commands/DeleteAssessmentRunCommand";
 import {
+  type DeleteAssessmentTargetCommandInput,
+  type DeleteAssessmentTargetCommandOutput,
   DeleteAssessmentTargetCommand,
-  DeleteAssessmentTargetCommandInput,
-  DeleteAssessmentTargetCommandOutput,
 } from "./commands/DeleteAssessmentTargetCommand";
 import {
+  type DeleteAssessmentTemplateCommandInput,
+  type DeleteAssessmentTemplateCommandOutput,
   DeleteAssessmentTemplateCommand,
-  DeleteAssessmentTemplateCommandInput,
-  DeleteAssessmentTemplateCommandOutput,
 } from "./commands/DeleteAssessmentTemplateCommand";
 import {
+  type DescribeAssessmentRunsCommandInput,
+  type DescribeAssessmentRunsCommandOutput,
   DescribeAssessmentRunsCommand,
-  DescribeAssessmentRunsCommandInput,
-  DescribeAssessmentRunsCommandOutput,
 } from "./commands/DescribeAssessmentRunsCommand";
 import {
+  type DescribeAssessmentTargetsCommandInput,
+  type DescribeAssessmentTargetsCommandOutput,
   DescribeAssessmentTargetsCommand,
-  DescribeAssessmentTargetsCommandInput,
-  DescribeAssessmentTargetsCommandOutput,
 } from "./commands/DescribeAssessmentTargetsCommand";
 import {
+  type DescribeAssessmentTemplatesCommandInput,
+  type DescribeAssessmentTemplatesCommandOutput,
   DescribeAssessmentTemplatesCommand,
-  DescribeAssessmentTemplatesCommandInput,
-  DescribeAssessmentTemplatesCommandOutput,
 } from "./commands/DescribeAssessmentTemplatesCommand";
 import {
+  type DescribeCrossAccountAccessRoleCommandInput,
+  type DescribeCrossAccountAccessRoleCommandOutput,
   DescribeCrossAccountAccessRoleCommand,
-  DescribeCrossAccountAccessRoleCommandInput,
-  DescribeCrossAccountAccessRoleCommandOutput,
 } from "./commands/DescribeCrossAccountAccessRoleCommand";
 import {
+  type DescribeExclusionsCommandInput,
+  type DescribeExclusionsCommandOutput,
   DescribeExclusionsCommand,
-  DescribeExclusionsCommandInput,
-  DescribeExclusionsCommandOutput,
 } from "./commands/DescribeExclusionsCommand";
 import {
+  type DescribeFindingsCommandInput,
+  type DescribeFindingsCommandOutput,
   DescribeFindingsCommand,
-  DescribeFindingsCommandInput,
-  DescribeFindingsCommandOutput,
 } from "./commands/DescribeFindingsCommand";
 import {
+  type DescribeResourceGroupsCommandInput,
+  type DescribeResourceGroupsCommandOutput,
   DescribeResourceGroupsCommand,
-  DescribeResourceGroupsCommandInput,
-  DescribeResourceGroupsCommandOutput,
 } from "./commands/DescribeResourceGroupsCommand";
 import {
+  type DescribeRulesPackagesCommandInput,
+  type DescribeRulesPackagesCommandOutput,
   DescribeRulesPackagesCommand,
-  DescribeRulesPackagesCommandInput,
-  DescribeRulesPackagesCommandOutput,
 } from "./commands/DescribeRulesPackagesCommand";
 import {
+  type GetAssessmentReportCommandInput,
+  type GetAssessmentReportCommandOutput,
   GetAssessmentReportCommand,
-  GetAssessmentReportCommandInput,
-  GetAssessmentReportCommandOutput,
 } from "./commands/GetAssessmentReportCommand";
 import {
+  type GetExclusionsPreviewCommandInput,
+  type GetExclusionsPreviewCommandOutput,
   GetExclusionsPreviewCommand,
-  GetExclusionsPreviewCommandInput,
-  GetExclusionsPreviewCommandOutput,
 } from "./commands/GetExclusionsPreviewCommand";
 import {
+  type GetTelemetryMetadataCommandInput,
+  type GetTelemetryMetadataCommandOutput,
   GetTelemetryMetadataCommand,
-  GetTelemetryMetadataCommandInput,
-  GetTelemetryMetadataCommandOutput,
 } from "./commands/GetTelemetryMetadataCommand";
 import {
+  type ListAssessmentRunAgentsCommandInput,
+  type ListAssessmentRunAgentsCommandOutput,
   ListAssessmentRunAgentsCommand,
-  ListAssessmentRunAgentsCommandInput,
-  ListAssessmentRunAgentsCommandOutput,
 } from "./commands/ListAssessmentRunAgentsCommand";
 import {
+  type ListAssessmentRunsCommandInput,
+  type ListAssessmentRunsCommandOutput,
   ListAssessmentRunsCommand,
-  ListAssessmentRunsCommandInput,
-  ListAssessmentRunsCommandOutput,
 } from "./commands/ListAssessmentRunsCommand";
 import {
+  type ListAssessmentTargetsCommandInput,
+  type ListAssessmentTargetsCommandOutput,
   ListAssessmentTargetsCommand,
-  ListAssessmentTargetsCommandInput,
-  ListAssessmentTargetsCommandOutput,
 } from "./commands/ListAssessmentTargetsCommand";
 import {
+  type ListAssessmentTemplatesCommandInput,
+  type ListAssessmentTemplatesCommandOutput,
   ListAssessmentTemplatesCommand,
-  ListAssessmentTemplatesCommandInput,
-  ListAssessmentTemplatesCommandOutput,
 } from "./commands/ListAssessmentTemplatesCommand";
 import {
+  type ListEventSubscriptionsCommandInput,
+  type ListEventSubscriptionsCommandOutput,
   ListEventSubscriptionsCommand,
-  ListEventSubscriptionsCommandInput,
-  ListEventSubscriptionsCommandOutput,
 } from "./commands/ListEventSubscriptionsCommand";
 import {
+  type ListExclusionsCommandInput,
+  type ListExclusionsCommandOutput,
   ListExclusionsCommand,
-  ListExclusionsCommandInput,
-  ListExclusionsCommandOutput,
 } from "./commands/ListExclusionsCommand";
 import {
+  type ListFindingsCommandInput,
+  type ListFindingsCommandOutput,
   ListFindingsCommand,
-  ListFindingsCommandInput,
-  ListFindingsCommandOutput,
 } from "./commands/ListFindingsCommand";
 import {
+  type ListRulesPackagesCommandInput,
+  type ListRulesPackagesCommandOutput,
   ListRulesPackagesCommand,
-  ListRulesPackagesCommandInput,
-  ListRulesPackagesCommandOutput,
 } from "./commands/ListRulesPackagesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PreviewAgentsCommandInput,
+  type PreviewAgentsCommandOutput,
   PreviewAgentsCommand,
-  PreviewAgentsCommandInput,
-  PreviewAgentsCommandOutput,
 } from "./commands/PreviewAgentsCommand";
 import {
+  type RegisterCrossAccountAccessRoleCommandInput,
+  type RegisterCrossAccountAccessRoleCommandOutput,
   RegisterCrossAccountAccessRoleCommand,
-  RegisterCrossAccountAccessRoleCommandInput,
-  RegisterCrossAccountAccessRoleCommandOutput,
 } from "./commands/RegisterCrossAccountAccessRoleCommand";
 import {
+  type RemoveAttributesFromFindingsCommandInput,
+  type RemoveAttributesFromFindingsCommandOutput,
   RemoveAttributesFromFindingsCommand,
-  RemoveAttributesFromFindingsCommandInput,
-  RemoveAttributesFromFindingsCommandOutput,
 } from "./commands/RemoveAttributesFromFindingsCommand";
 import {
+  type SetTagsForResourceCommandInput,
+  type SetTagsForResourceCommandOutput,
   SetTagsForResourceCommand,
-  SetTagsForResourceCommandInput,
-  SetTagsForResourceCommandOutput,
 } from "./commands/SetTagsForResourceCommand";
 import {
+  type StartAssessmentRunCommandInput,
+  type StartAssessmentRunCommandOutput,
   StartAssessmentRunCommand,
-  StartAssessmentRunCommandInput,
-  StartAssessmentRunCommandOutput,
 } from "./commands/StartAssessmentRunCommand";
 import {
+  type StopAssessmentRunCommandInput,
+  type StopAssessmentRunCommandOutput,
   StopAssessmentRunCommand,
-  StopAssessmentRunCommandInput,
-  StopAssessmentRunCommandOutput,
 } from "./commands/StopAssessmentRunCommand";
 import {
+  type SubscribeToEventCommandInput,
+  type SubscribeToEventCommandOutput,
   SubscribeToEventCommand,
-  SubscribeToEventCommandInput,
-  SubscribeToEventCommandOutput,
 } from "./commands/SubscribeToEventCommand";
 import {
+  type UnsubscribeFromEventCommandInput,
+  type UnsubscribeFromEventCommandOutput,
   UnsubscribeFromEventCommand,
-  UnsubscribeFromEventCommandInput,
-  UnsubscribeFromEventCommandOutput,
 } from "./commands/UnsubscribeFromEventCommand";
 import {
+  type UpdateAssessmentTargetCommandInput,
+  type UpdateAssessmentTargetCommandOutput,
   UpdateAssessmentTargetCommand,
-  UpdateAssessmentTargetCommandInput,
-  UpdateAssessmentTargetCommandOutput,
 } from "./commands/UpdateAssessmentTargetCommand";
 import { InspectorClient } from "./InspectorClient";
 import { paginateGetExclusionsPreview } from "./pagination/GetExclusionsPreviewPaginator";

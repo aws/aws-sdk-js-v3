@@ -1,8 +1,14 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { DescribeClusterCommand, DescribeClusterCommandInput } from "../commands/DescribeClusterCommand";
-import { EKSClient } from "../EKSClient";
+import { type DescribeClusterCommandInput, DescribeClusterCommand } from "../commands/DescribeClusterCommand";
+import type { EKSClient } from "../EKSClient";
 
 const checkState = async (client: EKSClient, input: DescribeClusterCommandInput): Promise<WaiterResult> => {
   let reason;

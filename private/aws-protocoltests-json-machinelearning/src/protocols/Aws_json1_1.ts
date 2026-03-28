@@ -21,7 +21,7 @@ import {
   HeaderBag as __HeaderBag,
 } from "@smithy/types";
 
-import { PredictCommandInput, PredictCommandOutput } from "../commands/PredictCommand";
+import type { PredictCommandInput, PredictCommandOutput } from "../commands/PredictCommand";
 import {
   InternalServerException,
   InvalidInputException,
@@ -30,7 +30,7 @@ import {
   ResourceNotFoundException,
 } from "../models/errors";
 import { MachineLearningServiceException as __BaseException } from "../models/MachineLearningServiceException";
-import { PredictInput, Prediction, PredictOutput } from "../models/models_0";
+import type { PredictInput, Prediction, PredictOutput } from "../models/models_0";
 
 /**
  * serializeAws_json1_1PredictCommand

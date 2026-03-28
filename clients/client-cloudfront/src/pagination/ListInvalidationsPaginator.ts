@@ -8,7 +8,7 @@ import {
   ListInvalidationsCommandInput,
   ListInvalidationsCommandOutput,
 } from "../commands/ListInvalidationsCommand";
-import { CloudFrontPaginationConfiguration } from "./Interfaces";
+import type { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

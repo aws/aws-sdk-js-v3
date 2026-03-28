@@ -1,8 +1,17 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
+import {
+  type WaiterConfiguration,
+  type WaiterResult,
+  checkExceptions,
+  createWaiter,
+  WaiterState,
+} from "@smithy/util-waiter";
 
-import { GetRequesterGatewayCommand, GetRequesterGatewayCommandInput } from "../commands/GetRequesterGatewayCommand";
-import { RTBFabricClient } from "../RTBFabricClient";
+import {
+  type GetRequesterGatewayCommandInput,
+  GetRequesterGatewayCommand,
+} from "../commands/GetRequesterGatewayCommand";
+import type { RTBFabricClient } from "../RTBFabricClient";
 
 const checkState = async (client: RTBFabricClient, input: GetRequesterGatewayCommandInput): Promise<WaiterResult> => {
   let reason;

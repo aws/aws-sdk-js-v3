@@ -8,7 +8,7 @@ import {
   ListCustomEntityTypesCommandOutput,
 } from "../commands/ListCustomEntityTypesCommand";
 import { GlueClient } from "../GlueClient";
-import { GluePaginationConfiguration } from "./Interfaces";
+import type { GluePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

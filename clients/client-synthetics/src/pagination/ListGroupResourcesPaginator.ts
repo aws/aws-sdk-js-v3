@@ -8,7 +8,7 @@ import {
   ListGroupResourcesCommandOutput,
 } from "../commands/ListGroupResourcesCommand";
 import { SyntheticsClient } from "../SyntheticsClient";
-import { SyntheticsPaginationConfiguration } from "./Interfaces";
+import type { SyntheticsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

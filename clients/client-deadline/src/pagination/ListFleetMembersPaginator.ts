@@ -8,7 +8,7 @@ import {
   ListFleetMembersCommandOutput,
 } from "../commands/ListFleetMembersCommand";
 import { DeadlineClient } from "../DeadlineClient";
-import { DeadlinePaginationConfiguration } from "./Interfaces";
+import type { DeadlinePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

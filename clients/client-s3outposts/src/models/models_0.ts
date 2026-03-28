@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { EndpointAccessType, EndpointStatus } from "./enums";
+import type { EndpointAccessType, EndpointStatus } from "./enums";
 
 /**
  * @public

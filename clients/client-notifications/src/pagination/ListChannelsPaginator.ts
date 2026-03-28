@@ -8,7 +8,7 @@ import {
   ListChannelsCommandOutput,
 } from "../commands/ListChannelsCommand";
 import { NotificationsClient } from "../NotificationsClient";
-import { NotificationsPaginationConfiguration } from "./Interfaces";
+import type { NotificationsPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

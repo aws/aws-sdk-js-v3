@@ -8,7 +8,7 @@ import {
   ListManagedSchemaArnsCommandInput,
   ListManagedSchemaArnsCommandOutput,
 } from "../commands/ListManagedSchemaArnsCommand";
-import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
+import type { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

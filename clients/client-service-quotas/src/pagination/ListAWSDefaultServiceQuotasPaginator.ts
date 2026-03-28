@@ -8,7 +8,7 @@ import {
   ListAWSDefaultServiceQuotasCommandOutput,
 } from "../commands/ListAWSDefaultServiceQuotasCommand";
 import { ServiceQuotasClient } from "../ServiceQuotasClient";
-import { ServiceQuotasPaginationConfiguration } from "./Interfaces";
+import type { ServiceQuotasPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

@@ -10,138 +10,154 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { B2biClient } from "./B2biClient";
 import {
+  type CreateCapabilityCommandInput,
+  type CreateCapabilityCommandOutput,
   CreateCapabilityCommand,
-  CreateCapabilityCommandInput,
-  CreateCapabilityCommandOutput,
 } from "./commands/CreateCapabilityCommand";
 import {
+  type CreatePartnershipCommandInput,
+  type CreatePartnershipCommandOutput,
   CreatePartnershipCommand,
-  CreatePartnershipCommandInput,
-  CreatePartnershipCommandOutput,
 } from "./commands/CreatePartnershipCommand";
 import {
+  type CreateProfileCommandInput,
+  type CreateProfileCommandOutput,
   CreateProfileCommand,
-  CreateProfileCommandInput,
-  CreateProfileCommandOutput,
 } from "./commands/CreateProfileCommand";
 import {
+  type CreateStarterMappingTemplateCommandInput,
+  type CreateStarterMappingTemplateCommandOutput,
   CreateStarterMappingTemplateCommand,
-  CreateStarterMappingTemplateCommandInput,
-  CreateStarterMappingTemplateCommandOutput,
 } from "./commands/CreateStarterMappingTemplateCommand";
 import {
+  type CreateTransformerCommandInput,
+  type CreateTransformerCommandOutput,
   CreateTransformerCommand,
-  CreateTransformerCommandInput,
-  CreateTransformerCommandOutput,
 } from "./commands/CreateTransformerCommand";
 import {
+  type DeleteCapabilityCommandInput,
+  type DeleteCapabilityCommandOutput,
   DeleteCapabilityCommand,
-  DeleteCapabilityCommandInput,
-  DeleteCapabilityCommandOutput,
 } from "./commands/DeleteCapabilityCommand";
 import {
+  type DeletePartnershipCommandInput,
+  type DeletePartnershipCommandOutput,
   DeletePartnershipCommand,
-  DeletePartnershipCommandInput,
-  DeletePartnershipCommandOutput,
 } from "./commands/DeletePartnershipCommand";
 import {
+  type DeleteProfileCommandInput,
+  type DeleteProfileCommandOutput,
   DeleteProfileCommand,
-  DeleteProfileCommandInput,
-  DeleteProfileCommandOutput,
 } from "./commands/DeleteProfileCommand";
 import {
+  type DeleteTransformerCommandInput,
+  type DeleteTransformerCommandOutput,
   DeleteTransformerCommand,
-  DeleteTransformerCommandInput,
-  DeleteTransformerCommandOutput,
 } from "./commands/DeleteTransformerCommand";
 import {
+  type GenerateMappingCommandInput,
+  type GenerateMappingCommandOutput,
   GenerateMappingCommand,
-  GenerateMappingCommandInput,
-  GenerateMappingCommandOutput,
 } from "./commands/GenerateMappingCommand";
 import {
+  type GetCapabilityCommandInput,
+  type GetCapabilityCommandOutput,
   GetCapabilityCommand,
-  GetCapabilityCommandInput,
-  GetCapabilityCommandOutput,
 } from "./commands/GetCapabilityCommand";
 import {
+  type GetPartnershipCommandInput,
+  type GetPartnershipCommandOutput,
   GetPartnershipCommand,
-  GetPartnershipCommandInput,
-  GetPartnershipCommandOutput,
 } from "./commands/GetPartnershipCommand";
-import { GetProfileCommand, GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
 import {
+  type GetProfileCommandInput,
+  type GetProfileCommandOutput,
+  GetProfileCommand,
+} from "./commands/GetProfileCommand";
+import {
+  type GetTransformerCommandInput,
+  type GetTransformerCommandOutput,
   GetTransformerCommand,
-  GetTransformerCommandInput,
-  GetTransformerCommandOutput,
 } from "./commands/GetTransformerCommand";
 import {
+  type GetTransformerJobCommandInput,
+  type GetTransformerJobCommandOutput,
   GetTransformerJobCommand,
-  GetTransformerJobCommandInput,
-  GetTransformerJobCommandOutput,
 } from "./commands/GetTransformerJobCommand";
 import {
+  type ListCapabilitiesCommandInput,
+  type ListCapabilitiesCommandOutput,
   ListCapabilitiesCommand,
-  ListCapabilitiesCommandInput,
-  ListCapabilitiesCommandOutput,
 } from "./commands/ListCapabilitiesCommand";
 import {
+  type ListPartnershipsCommandInput,
+  type ListPartnershipsCommandOutput,
   ListPartnershipsCommand,
-  ListPartnershipsCommandInput,
-  ListPartnershipsCommandOutput,
 } from "./commands/ListPartnershipsCommand";
 import {
+  type ListProfilesCommandInput,
+  type ListProfilesCommandOutput,
   ListProfilesCommand,
-  ListProfilesCommandInput,
-  ListProfilesCommandOutput,
 } from "./commands/ListProfilesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTransformersCommandInput,
+  type ListTransformersCommandOutput,
   ListTransformersCommand,
-  ListTransformersCommandInput,
-  ListTransformersCommandOutput,
 } from "./commands/ListTransformersCommand";
 import {
+  type StartTransformerJobCommandInput,
+  type StartTransformerJobCommandOutput,
   StartTransformerJobCommand,
-  StartTransformerJobCommandInput,
-  StartTransformerJobCommandOutput,
 } from "./commands/StartTransformerJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TestConversionCommandInput,
+  type TestConversionCommandOutput,
   TestConversionCommand,
-  TestConversionCommandInput,
-  TestConversionCommandOutput,
 } from "./commands/TestConversionCommand";
-import { TestMappingCommand, TestMappingCommandInput, TestMappingCommandOutput } from "./commands/TestMappingCommand";
-import { TestParsingCommand, TestParsingCommandInput, TestParsingCommandOutput } from "./commands/TestParsingCommand";
 import {
+  type TestMappingCommandInput,
+  type TestMappingCommandOutput,
+  TestMappingCommand,
+} from "./commands/TestMappingCommand";
+import {
+  type TestParsingCommandInput,
+  type TestParsingCommandOutput,
+  TestParsingCommand,
+} from "./commands/TestParsingCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCapabilityCommandInput,
+  type UpdateCapabilityCommandOutput,
   UpdateCapabilityCommand,
-  UpdateCapabilityCommandInput,
-  UpdateCapabilityCommandOutput,
 } from "./commands/UpdateCapabilityCommand";
 import {
+  type UpdatePartnershipCommandInput,
+  type UpdatePartnershipCommandOutput,
   UpdatePartnershipCommand,
-  UpdatePartnershipCommandInput,
-  UpdatePartnershipCommandOutput,
 } from "./commands/UpdatePartnershipCommand";
 import {
+  type UpdateProfileCommandInput,
+  type UpdateProfileCommandOutput,
   UpdateProfileCommand,
-  UpdateProfileCommandInput,
-  UpdateProfileCommandOutput,
 } from "./commands/UpdateProfileCommand";
 import {
+  type UpdateTransformerCommandInput,
+  type UpdateTransformerCommandOutput,
   UpdateTransformerCommand,
-  UpdateTransformerCommandInput,
-  UpdateTransformerCommandOutput,
 } from "./commands/UpdateTransformerCommand";
 import { paginateListCapabilities } from "./pagination/ListCapabilitiesPaginator";
 import { paginateListPartnerships } from "./pagination/ListPartnershipsPaginator";

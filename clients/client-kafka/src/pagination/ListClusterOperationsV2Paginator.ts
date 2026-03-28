@@ -8,7 +8,7 @@ import {
   ListClusterOperationsV2CommandOutput,
 } from "../commands/ListClusterOperationsV2Command";
 import { KafkaClient } from "../KafkaClient";
-import { KafkaPaginationConfiguration } from "./Interfaces";
+import type { KafkaPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

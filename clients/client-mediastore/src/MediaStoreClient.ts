@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,40 +61,64 @@ import {
   defaultMediaStoreHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { CreateContainerCommandInput, CreateContainerCommandOutput } from "./commands/CreateContainerCommand";
-import { DeleteContainerCommandInput, DeleteContainerCommandOutput } from "./commands/DeleteContainerCommand";
-import {
+import type { CreateContainerCommandInput, CreateContainerCommandOutput } from "./commands/CreateContainerCommand";
+import type { DeleteContainerCommandInput, DeleteContainerCommandOutput } from "./commands/DeleteContainerCommand";
+import type {
   DeleteContainerPolicyCommandInput,
   DeleteContainerPolicyCommandOutput,
 } from "./commands/DeleteContainerPolicyCommand";
-import { DeleteCorsPolicyCommandInput, DeleteCorsPolicyCommandOutput } from "./commands/DeleteCorsPolicyCommand";
-import {
+import type { DeleteCorsPolicyCommandInput, DeleteCorsPolicyCommandOutput } from "./commands/DeleteCorsPolicyCommand";
+import type {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
-import { DeleteMetricPolicyCommandInput, DeleteMetricPolicyCommandOutput } from "./commands/DeleteMetricPolicyCommand";
-import { DescribeContainerCommandInput, DescribeContainerCommandOutput } from "./commands/DescribeContainerCommand";
-import { GetContainerPolicyCommandInput, GetContainerPolicyCommandOutput } from "./commands/GetContainerPolicyCommand";
-import { GetCorsPolicyCommandInput, GetCorsPolicyCommandOutput } from "./commands/GetCorsPolicyCommand";
-import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "./commands/GetLifecyclePolicyCommand";
-import { GetMetricPolicyCommandInput, GetMetricPolicyCommandOutput } from "./commands/GetMetricPolicyCommand";
-import { ListContainersCommandInput, ListContainersCommandOutput } from "./commands/ListContainersCommand";
-import {
+import type {
+  DeleteMetricPolicyCommandInput,
+  DeleteMetricPolicyCommandOutput,
+} from "./commands/DeleteMetricPolicyCommand";
+import type {
+  DescribeContainerCommandInput,
+  DescribeContainerCommandOutput,
+} from "./commands/DescribeContainerCommand";
+import type {
+  GetContainerPolicyCommandInput,
+  GetContainerPolicyCommandOutput,
+} from "./commands/GetContainerPolicyCommand";
+import type { GetCorsPolicyCommandInput, GetCorsPolicyCommandOutput } from "./commands/GetCorsPolicyCommand";
+import type {
+  GetLifecyclePolicyCommandInput,
+  GetLifecyclePolicyCommandOutput,
+} from "./commands/GetLifecyclePolicyCommand";
+import type { GetMetricPolicyCommandInput, GetMetricPolicyCommandOutput } from "./commands/GetMetricPolicyCommand";
+import type { ListContainersCommandInput, ListContainersCommandOutput } from "./commands/ListContainersCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutContainerPolicyCommandInput, PutContainerPolicyCommandOutput } from "./commands/PutContainerPolicyCommand";
-import { PutCorsPolicyCommandInput, PutCorsPolicyCommandOutput } from "./commands/PutCorsPolicyCommand";
-import { PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput } from "./commands/PutLifecyclePolicyCommand";
-import { PutMetricPolicyCommandInput, PutMetricPolicyCommandOutput } from "./commands/PutMetricPolicyCommand";
-import { StartAccessLoggingCommandInput, StartAccessLoggingCommandOutput } from "./commands/StartAccessLoggingCommand";
-import { StopAccessLoggingCommandInput, StopAccessLoggingCommandOutput } from "./commands/StopAccessLoggingCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  PutContainerPolicyCommandInput,
+  PutContainerPolicyCommandOutput,
+} from "./commands/PutContainerPolicyCommand";
+import type { PutCorsPolicyCommandInput, PutCorsPolicyCommandOutput } from "./commands/PutCorsPolicyCommand";
+import type {
+  PutLifecyclePolicyCommandInput,
+  PutLifecyclePolicyCommandOutput,
+} from "./commands/PutLifecyclePolicyCommand";
+import type { PutMetricPolicyCommandInput, PutMetricPolicyCommandOutput } from "./commands/PutMetricPolicyCommand";
+import type {
+  StartAccessLoggingCommandInput,
+  StartAccessLoggingCommandOutput,
+} from "./commands/StartAccessLoggingCommand";
+import type {
+  StopAccessLoggingCommandInput,
+  StopAccessLoggingCommandOutput,
+} from "./commands/StopAccessLoggingCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -270,7 +292,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

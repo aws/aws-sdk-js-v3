@@ -8,7 +8,7 @@ import {
   DescribeProjectsCommandOutput,
 } from "../commands/DescribeProjectsCommand";
 import { RekognitionClient } from "../RekognitionClient";
-import { RekognitionPaginationConfiguration } from "./Interfaces";
+import type { RekognitionPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

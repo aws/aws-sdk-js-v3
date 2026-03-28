@@ -8,7 +8,7 @@ import {
   ListBillScenarioCommitmentModificationsCommandInput,
   ListBillScenarioCommitmentModificationsCommandOutput,
 } from "../commands/ListBillScenarioCommitmentModificationsCommand";
-import { BCMPricingCalculatorPaginationConfiguration } from "./Interfaces";
+import type { BCMPricingCalculatorPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

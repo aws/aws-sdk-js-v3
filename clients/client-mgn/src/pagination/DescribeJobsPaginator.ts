@@ -8,7 +8,7 @@ import {
   DescribeJobsCommandOutput,
 } from "../commands/DescribeJobsCommand";
 import { MgnClient } from "../MgnClient";
-import { MgnPaginationConfiguration } from "./Interfaces";
+import type { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

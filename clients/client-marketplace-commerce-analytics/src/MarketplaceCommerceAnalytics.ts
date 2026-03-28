@@ -3,14 +3,14 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type GenerateDataSetCommandInput,
+  type GenerateDataSetCommandOutput,
   GenerateDataSetCommand,
-  GenerateDataSetCommandInput,
-  GenerateDataSetCommandOutput,
 } from "./commands/GenerateDataSetCommand";
 import {
+  type StartSupportDataExportCommandInput,
+  type StartSupportDataExportCommandOutput,
   StartSupportDataExportCommand,
-  StartSupportDataExportCommandInput,
-  StartSupportDataExportCommandOutput,
 } from "./commands/StartSupportDataExportCommand";
 import { MarketplaceCommerceAnalyticsClient } from "./MarketplaceCommerceAnalyticsClient";
 

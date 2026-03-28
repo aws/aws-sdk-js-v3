@@ -8,7 +8,7 @@ import {
   ListComponentsCommandInput,
   ListComponentsCommandOutput,
 } from "../commands/ListComponentsCommand";
-import { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
+import type { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

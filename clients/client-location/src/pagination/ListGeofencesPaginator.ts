@@ -8,7 +8,7 @@ import {
   ListGeofencesCommandOutput,
 } from "../commands/ListGeofencesCommand";
 import { LocationClient } from "../LocationClient";
-import { LocationPaginationConfiguration } from "./Interfaces";
+import type { LocationPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

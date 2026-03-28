@@ -4,536 +4,540 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BackupClient } from "./BackupClient";
 import {
+  type AssociateBackupVaultMpaApprovalTeamCommandInput,
+  type AssociateBackupVaultMpaApprovalTeamCommandOutput,
   AssociateBackupVaultMpaApprovalTeamCommand,
-  AssociateBackupVaultMpaApprovalTeamCommandInput,
-  AssociateBackupVaultMpaApprovalTeamCommandOutput,
 } from "./commands/AssociateBackupVaultMpaApprovalTeamCommand";
 import {
+  type CancelLegalHoldCommandInput,
+  type CancelLegalHoldCommandOutput,
   CancelLegalHoldCommand,
-  CancelLegalHoldCommandInput,
-  CancelLegalHoldCommandOutput,
 } from "./commands/CancelLegalHoldCommand";
 import {
+  type CreateBackupPlanCommandInput,
+  type CreateBackupPlanCommandOutput,
   CreateBackupPlanCommand,
-  CreateBackupPlanCommandInput,
-  CreateBackupPlanCommandOutput,
 } from "./commands/CreateBackupPlanCommand";
 import {
+  type CreateBackupSelectionCommandInput,
+  type CreateBackupSelectionCommandOutput,
   CreateBackupSelectionCommand,
-  CreateBackupSelectionCommandInput,
-  CreateBackupSelectionCommandOutput,
 } from "./commands/CreateBackupSelectionCommand";
 import {
+  type CreateBackupVaultCommandInput,
+  type CreateBackupVaultCommandOutput,
   CreateBackupVaultCommand,
-  CreateBackupVaultCommandInput,
-  CreateBackupVaultCommandOutput,
 } from "./commands/CreateBackupVaultCommand";
 import {
+  type CreateFrameworkCommandInput,
+  type CreateFrameworkCommandOutput,
   CreateFrameworkCommand,
-  CreateFrameworkCommandInput,
-  CreateFrameworkCommandOutput,
 } from "./commands/CreateFrameworkCommand";
 import {
+  type CreateLegalHoldCommandInput,
+  type CreateLegalHoldCommandOutput,
   CreateLegalHoldCommand,
-  CreateLegalHoldCommandInput,
-  CreateLegalHoldCommandOutput,
 } from "./commands/CreateLegalHoldCommand";
 import {
+  type CreateLogicallyAirGappedBackupVaultCommandInput,
+  type CreateLogicallyAirGappedBackupVaultCommandOutput,
   CreateLogicallyAirGappedBackupVaultCommand,
-  CreateLogicallyAirGappedBackupVaultCommandInput,
-  CreateLogicallyAirGappedBackupVaultCommandOutput,
 } from "./commands/CreateLogicallyAirGappedBackupVaultCommand";
 import {
+  type CreateReportPlanCommandInput,
+  type CreateReportPlanCommandOutput,
   CreateReportPlanCommand,
-  CreateReportPlanCommandInput,
-  CreateReportPlanCommandOutput,
 } from "./commands/CreateReportPlanCommand";
 import {
+  type CreateRestoreAccessBackupVaultCommandInput,
+  type CreateRestoreAccessBackupVaultCommandOutput,
   CreateRestoreAccessBackupVaultCommand,
-  CreateRestoreAccessBackupVaultCommandInput,
-  CreateRestoreAccessBackupVaultCommandOutput,
 } from "./commands/CreateRestoreAccessBackupVaultCommand";
 import {
+  type CreateRestoreTestingPlanCommandInput,
+  type CreateRestoreTestingPlanCommandOutput,
   CreateRestoreTestingPlanCommand,
-  CreateRestoreTestingPlanCommandInput,
-  CreateRestoreTestingPlanCommandOutput,
 } from "./commands/CreateRestoreTestingPlanCommand";
 import {
+  type CreateRestoreTestingSelectionCommandInput,
+  type CreateRestoreTestingSelectionCommandOutput,
   CreateRestoreTestingSelectionCommand,
-  CreateRestoreTestingSelectionCommandInput,
-  CreateRestoreTestingSelectionCommandOutput,
 } from "./commands/CreateRestoreTestingSelectionCommand";
 import {
+  type CreateTieringConfigurationCommandInput,
+  type CreateTieringConfigurationCommandOutput,
   CreateTieringConfigurationCommand,
-  CreateTieringConfigurationCommandInput,
-  CreateTieringConfigurationCommandOutput,
 } from "./commands/CreateTieringConfigurationCommand";
 import {
+  type DeleteBackupPlanCommandInput,
+  type DeleteBackupPlanCommandOutput,
   DeleteBackupPlanCommand,
-  DeleteBackupPlanCommandInput,
-  DeleteBackupPlanCommandOutput,
 } from "./commands/DeleteBackupPlanCommand";
 import {
+  type DeleteBackupSelectionCommandInput,
+  type DeleteBackupSelectionCommandOutput,
   DeleteBackupSelectionCommand,
-  DeleteBackupSelectionCommandInput,
-  DeleteBackupSelectionCommandOutput,
 } from "./commands/DeleteBackupSelectionCommand";
 import {
+  type DeleteBackupVaultAccessPolicyCommandInput,
+  type DeleteBackupVaultAccessPolicyCommandOutput,
   DeleteBackupVaultAccessPolicyCommand,
-  DeleteBackupVaultAccessPolicyCommandInput,
-  DeleteBackupVaultAccessPolicyCommandOutput,
 } from "./commands/DeleteBackupVaultAccessPolicyCommand";
 import {
+  type DeleteBackupVaultCommandInput,
+  type DeleteBackupVaultCommandOutput,
   DeleteBackupVaultCommand,
-  DeleteBackupVaultCommandInput,
-  DeleteBackupVaultCommandOutput,
 } from "./commands/DeleteBackupVaultCommand";
 import {
+  type DeleteBackupVaultLockConfigurationCommandInput,
+  type DeleteBackupVaultLockConfigurationCommandOutput,
   DeleteBackupVaultLockConfigurationCommand,
-  DeleteBackupVaultLockConfigurationCommandInput,
-  DeleteBackupVaultLockConfigurationCommandOutput,
 } from "./commands/DeleteBackupVaultLockConfigurationCommand";
 import {
+  type DeleteBackupVaultNotificationsCommandInput,
+  type DeleteBackupVaultNotificationsCommandOutput,
   DeleteBackupVaultNotificationsCommand,
-  DeleteBackupVaultNotificationsCommandInput,
-  DeleteBackupVaultNotificationsCommandOutput,
 } from "./commands/DeleteBackupVaultNotificationsCommand";
 import {
+  type DeleteFrameworkCommandInput,
+  type DeleteFrameworkCommandOutput,
   DeleteFrameworkCommand,
-  DeleteFrameworkCommandInput,
-  DeleteFrameworkCommandOutput,
 } from "./commands/DeleteFrameworkCommand";
 import {
+  type DeleteRecoveryPointCommandInput,
+  type DeleteRecoveryPointCommandOutput,
   DeleteRecoveryPointCommand,
-  DeleteRecoveryPointCommandInput,
-  DeleteRecoveryPointCommandOutput,
 } from "./commands/DeleteRecoveryPointCommand";
 import {
+  type DeleteReportPlanCommandInput,
+  type DeleteReportPlanCommandOutput,
   DeleteReportPlanCommand,
-  DeleteReportPlanCommandInput,
-  DeleteReportPlanCommandOutput,
 } from "./commands/DeleteReportPlanCommand";
 import {
+  type DeleteRestoreTestingPlanCommandInput,
+  type DeleteRestoreTestingPlanCommandOutput,
   DeleteRestoreTestingPlanCommand,
-  DeleteRestoreTestingPlanCommandInput,
-  DeleteRestoreTestingPlanCommandOutput,
 } from "./commands/DeleteRestoreTestingPlanCommand";
 import {
+  type DeleteRestoreTestingSelectionCommandInput,
+  type DeleteRestoreTestingSelectionCommandOutput,
   DeleteRestoreTestingSelectionCommand,
-  DeleteRestoreTestingSelectionCommandInput,
-  DeleteRestoreTestingSelectionCommandOutput,
 } from "./commands/DeleteRestoreTestingSelectionCommand";
 import {
+  type DeleteTieringConfigurationCommandInput,
+  type DeleteTieringConfigurationCommandOutput,
   DeleteTieringConfigurationCommand,
-  DeleteTieringConfigurationCommandInput,
-  DeleteTieringConfigurationCommandOutput,
 } from "./commands/DeleteTieringConfigurationCommand";
 import {
+  type DescribeBackupJobCommandInput,
+  type DescribeBackupJobCommandOutput,
   DescribeBackupJobCommand,
-  DescribeBackupJobCommandInput,
-  DescribeBackupJobCommandOutput,
 } from "./commands/DescribeBackupJobCommand";
 import {
+  type DescribeBackupVaultCommandInput,
+  type DescribeBackupVaultCommandOutput,
   DescribeBackupVaultCommand,
-  DescribeBackupVaultCommandInput,
-  DescribeBackupVaultCommandOutput,
 } from "./commands/DescribeBackupVaultCommand";
 import {
+  type DescribeCopyJobCommandInput,
+  type DescribeCopyJobCommandOutput,
   DescribeCopyJobCommand,
-  DescribeCopyJobCommandInput,
-  DescribeCopyJobCommandOutput,
 } from "./commands/DescribeCopyJobCommand";
 import {
+  type DescribeFrameworkCommandInput,
+  type DescribeFrameworkCommandOutput,
   DescribeFrameworkCommand,
-  DescribeFrameworkCommandInput,
-  DescribeFrameworkCommandOutput,
 } from "./commands/DescribeFrameworkCommand";
 import {
+  type DescribeGlobalSettingsCommandInput,
+  type DescribeGlobalSettingsCommandOutput,
   DescribeGlobalSettingsCommand,
-  DescribeGlobalSettingsCommandInput,
-  DescribeGlobalSettingsCommandOutput,
 } from "./commands/DescribeGlobalSettingsCommand";
 import {
+  type DescribeProtectedResourceCommandInput,
+  type DescribeProtectedResourceCommandOutput,
   DescribeProtectedResourceCommand,
-  DescribeProtectedResourceCommandInput,
-  DescribeProtectedResourceCommandOutput,
 } from "./commands/DescribeProtectedResourceCommand";
 import {
+  type DescribeRecoveryPointCommandInput,
+  type DescribeRecoveryPointCommandOutput,
   DescribeRecoveryPointCommand,
-  DescribeRecoveryPointCommandInput,
-  DescribeRecoveryPointCommandOutput,
 } from "./commands/DescribeRecoveryPointCommand";
 import {
+  type DescribeRegionSettingsCommandInput,
+  type DescribeRegionSettingsCommandOutput,
   DescribeRegionSettingsCommand,
-  DescribeRegionSettingsCommandInput,
-  DescribeRegionSettingsCommandOutput,
 } from "./commands/DescribeRegionSettingsCommand";
 import {
+  type DescribeReportJobCommandInput,
+  type DescribeReportJobCommandOutput,
   DescribeReportJobCommand,
-  DescribeReportJobCommandInput,
-  DescribeReportJobCommandOutput,
 } from "./commands/DescribeReportJobCommand";
 import {
+  type DescribeReportPlanCommandInput,
+  type DescribeReportPlanCommandOutput,
   DescribeReportPlanCommand,
-  DescribeReportPlanCommandInput,
-  DescribeReportPlanCommandOutput,
 } from "./commands/DescribeReportPlanCommand";
 import {
+  type DescribeRestoreJobCommandInput,
+  type DescribeRestoreJobCommandOutput,
   DescribeRestoreJobCommand,
-  DescribeRestoreJobCommandInput,
-  DescribeRestoreJobCommandOutput,
 } from "./commands/DescribeRestoreJobCommand";
 import {
+  type DescribeScanJobCommandInput,
+  type DescribeScanJobCommandOutput,
   DescribeScanJobCommand,
-  DescribeScanJobCommandInput,
-  DescribeScanJobCommandOutput,
 } from "./commands/DescribeScanJobCommand";
 import {
+  type DisassociateBackupVaultMpaApprovalTeamCommandInput,
+  type DisassociateBackupVaultMpaApprovalTeamCommandOutput,
   DisassociateBackupVaultMpaApprovalTeamCommand,
-  DisassociateBackupVaultMpaApprovalTeamCommandInput,
-  DisassociateBackupVaultMpaApprovalTeamCommandOutput,
 } from "./commands/DisassociateBackupVaultMpaApprovalTeamCommand";
 import {
+  type DisassociateRecoveryPointCommandInput,
+  type DisassociateRecoveryPointCommandOutput,
   DisassociateRecoveryPointCommand,
-  DisassociateRecoveryPointCommandInput,
-  DisassociateRecoveryPointCommandOutput,
 } from "./commands/DisassociateRecoveryPointCommand";
 import {
+  type DisassociateRecoveryPointFromParentCommandInput,
+  type DisassociateRecoveryPointFromParentCommandOutput,
   DisassociateRecoveryPointFromParentCommand,
-  DisassociateRecoveryPointFromParentCommandInput,
-  DisassociateRecoveryPointFromParentCommandOutput,
 } from "./commands/DisassociateRecoveryPointFromParentCommand";
 import {
+  type ExportBackupPlanTemplateCommandInput,
+  type ExportBackupPlanTemplateCommandOutput,
   ExportBackupPlanTemplateCommand,
-  ExportBackupPlanTemplateCommandInput,
-  ExportBackupPlanTemplateCommandOutput,
 } from "./commands/ExportBackupPlanTemplateCommand";
 import {
+  type GetBackupPlanCommandInput,
+  type GetBackupPlanCommandOutput,
   GetBackupPlanCommand,
-  GetBackupPlanCommandInput,
-  GetBackupPlanCommandOutput,
 } from "./commands/GetBackupPlanCommand";
 import {
+  type GetBackupPlanFromJSONCommandInput,
+  type GetBackupPlanFromJSONCommandOutput,
   GetBackupPlanFromJSONCommand,
-  GetBackupPlanFromJSONCommandInput,
-  GetBackupPlanFromJSONCommandOutput,
 } from "./commands/GetBackupPlanFromJSONCommand";
 import {
+  type GetBackupPlanFromTemplateCommandInput,
+  type GetBackupPlanFromTemplateCommandOutput,
   GetBackupPlanFromTemplateCommand,
-  GetBackupPlanFromTemplateCommandInput,
-  GetBackupPlanFromTemplateCommandOutput,
 } from "./commands/GetBackupPlanFromTemplateCommand";
 import {
+  type GetBackupSelectionCommandInput,
+  type GetBackupSelectionCommandOutput,
   GetBackupSelectionCommand,
-  GetBackupSelectionCommandInput,
-  GetBackupSelectionCommandOutput,
 } from "./commands/GetBackupSelectionCommand";
 import {
+  type GetBackupVaultAccessPolicyCommandInput,
+  type GetBackupVaultAccessPolicyCommandOutput,
   GetBackupVaultAccessPolicyCommand,
-  GetBackupVaultAccessPolicyCommandInput,
-  GetBackupVaultAccessPolicyCommandOutput,
 } from "./commands/GetBackupVaultAccessPolicyCommand";
 import {
+  type GetBackupVaultNotificationsCommandInput,
+  type GetBackupVaultNotificationsCommandOutput,
   GetBackupVaultNotificationsCommand,
-  GetBackupVaultNotificationsCommandInput,
-  GetBackupVaultNotificationsCommandOutput,
 } from "./commands/GetBackupVaultNotificationsCommand";
 import {
+  type GetLegalHoldCommandInput,
+  type GetLegalHoldCommandOutput,
   GetLegalHoldCommand,
-  GetLegalHoldCommandInput,
-  GetLegalHoldCommandOutput,
 } from "./commands/GetLegalHoldCommand";
 import {
+  type GetRecoveryPointIndexDetailsCommandInput,
+  type GetRecoveryPointIndexDetailsCommandOutput,
   GetRecoveryPointIndexDetailsCommand,
-  GetRecoveryPointIndexDetailsCommandInput,
-  GetRecoveryPointIndexDetailsCommandOutput,
 } from "./commands/GetRecoveryPointIndexDetailsCommand";
 import {
+  type GetRecoveryPointRestoreMetadataCommandInput,
+  type GetRecoveryPointRestoreMetadataCommandOutput,
   GetRecoveryPointRestoreMetadataCommand,
-  GetRecoveryPointRestoreMetadataCommandInput,
-  GetRecoveryPointRestoreMetadataCommandOutput,
 } from "./commands/GetRecoveryPointRestoreMetadataCommand";
 import {
+  type GetRestoreJobMetadataCommandInput,
+  type GetRestoreJobMetadataCommandOutput,
   GetRestoreJobMetadataCommand,
-  GetRestoreJobMetadataCommandInput,
-  GetRestoreJobMetadataCommandOutput,
 } from "./commands/GetRestoreJobMetadataCommand";
 import {
+  type GetRestoreTestingInferredMetadataCommandInput,
+  type GetRestoreTestingInferredMetadataCommandOutput,
   GetRestoreTestingInferredMetadataCommand,
-  GetRestoreTestingInferredMetadataCommandInput,
-  GetRestoreTestingInferredMetadataCommandOutput,
 } from "./commands/GetRestoreTestingInferredMetadataCommand";
 import {
+  type GetRestoreTestingPlanCommandInput,
+  type GetRestoreTestingPlanCommandOutput,
   GetRestoreTestingPlanCommand,
-  GetRestoreTestingPlanCommandInput,
-  GetRestoreTestingPlanCommandOutput,
 } from "./commands/GetRestoreTestingPlanCommand";
 import {
+  type GetRestoreTestingSelectionCommandInput,
+  type GetRestoreTestingSelectionCommandOutput,
   GetRestoreTestingSelectionCommand,
-  GetRestoreTestingSelectionCommandInput,
-  GetRestoreTestingSelectionCommandOutput,
 } from "./commands/GetRestoreTestingSelectionCommand";
 import {
+  type GetSupportedResourceTypesCommandInput,
+  type GetSupportedResourceTypesCommandOutput,
   GetSupportedResourceTypesCommand,
-  GetSupportedResourceTypesCommandInput,
-  GetSupportedResourceTypesCommandOutput,
 } from "./commands/GetSupportedResourceTypesCommand";
 import {
+  type GetTieringConfigurationCommandInput,
+  type GetTieringConfigurationCommandOutput,
   GetTieringConfigurationCommand,
-  GetTieringConfigurationCommandInput,
-  GetTieringConfigurationCommandOutput,
 } from "./commands/GetTieringConfigurationCommand";
 import {
+  type ListBackupJobsCommandInput,
+  type ListBackupJobsCommandOutput,
   ListBackupJobsCommand,
-  ListBackupJobsCommandInput,
-  ListBackupJobsCommandOutput,
 } from "./commands/ListBackupJobsCommand";
 import {
+  type ListBackupJobSummariesCommandInput,
+  type ListBackupJobSummariesCommandOutput,
   ListBackupJobSummariesCommand,
-  ListBackupJobSummariesCommandInput,
-  ListBackupJobSummariesCommandOutput,
 } from "./commands/ListBackupJobSummariesCommand";
 import {
+  type ListBackupPlansCommandInput,
+  type ListBackupPlansCommandOutput,
   ListBackupPlansCommand,
-  ListBackupPlansCommandInput,
-  ListBackupPlansCommandOutput,
 } from "./commands/ListBackupPlansCommand";
 import {
+  type ListBackupPlanTemplatesCommandInput,
+  type ListBackupPlanTemplatesCommandOutput,
   ListBackupPlanTemplatesCommand,
-  ListBackupPlanTemplatesCommandInput,
-  ListBackupPlanTemplatesCommandOutput,
 } from "./commands/ListBackupPlanTemplatesCommand";
 import {
+  type ListBackupPlanVersionsCommandInput,
+  type ListBackupPlanVersionsCommandOutput,
   ListBackupPlanVersionsCommand,
-  ListBackupPlanVersionsCommandInput,
-  ListBackupPlanVersionsCommandOutput,
 } from "./commands/ListBackupPlanVersionsCommand";
 import {
+  type ListBackupSelectionsCommandInput,
+  type ListBackupSelectionsCommandOutput,
   ListBackupSelectionsCommand,
-  ListBackupSelectionsCommandInput,
-  ListBackupSelectionsCommandOutput,
 } from "./commands/ListBackupSelectionsCommand";
 import {
+  type ListBackupVaultsCommandInput,
+  type ListBackupVaultsCommandOutput,
   ListBackupVaultsCommand,
-  ListBackupVaultsCommandInput,
-  ListBackupVaultsCommandOutput,
 } from "./commands/ListBackupVaultsCommand";
 import {
+  type ListCopyJobsCommandInput,
+  type ListCopyJobsCommandOutput,
   ListCopyJobsCommand,
-  ListCopyJobsCommandInput,
-  ListCopyJobsCommandOutput,
 } from "./commands/ListCopyJobsCommand";
 import {
+  type ListCopyJobSummariesCommandInput,
+  type ListCopyJobSummariesCommandOutput,
   ListCopyJobSummariesCommand,
-  ListCopyJobSummariesCommandInput,
-  ListCopyJobSummariesCommandOutput,
 } from "./commands/ListCopyJobSummariesCommand";
 import {
+  type ListFrameworksCommandInput,
+  type ListFrameworksCommandOutput,
   ListFrameworksCommand,
-  ListFrameworksCommandInput,
-  ListFrameworksCommandOutput,
 } from "./commands/ListFrameworksCommand";
 import {
+  type ListIndexedRecoveryPointsCommandInput,
+  type ListIndexedRecoveryPointsCommandOutput,
   ListIndexedRecoveryPointsCommand,
-  ListIndexedRecoveryPointsCommandInput,
-  ListIndexedRecoveryPointsCommandOutput,
 } from "./commands/ListIndexedRecoveryPointsCommand";
 import {
+  type ListLegalHoldsCommandInput,
+  type ListLegalHoldsCommandOutput,
   ListLegalHoldsCommand,
-  ListLegalHoldsCommandInput,
-  ListLegalHoldsCommandOutput,
 } from "./commands/ListLegalHoldsCommand";
 import {
+  type ListProtectedResourcesByBackupVaultCommandInput,
+  type ListProtectedResourcesByBackupVaultCommandOutput,
   ListProtectedResourcesByBackupVaultCommand,
-  ListProtectedResourcesByBackupVaultCommandInput,
-  ListProtectedResourcesByBackupVaultCommandOutput,
 } from "./commands/ListProtectedResourcesByBackupVaultCommand";
 import {
+  type ListProtectedResourcesCommandInput,
+  type ListProtectedResourcesCommandOutput,
   ListProtectedResourcesCommand,
-  ListProtectedResourcesCommandInput,
-  ListProtectedResourcesCommandOutput,
 } from "./commands/ListProtectedResourcesCommand";
 import {
+  type ListRecoveryPointsByBackupVaultCommandInput,
+  type ListRecoveryPointsByBackupVaultCommandOutput,
   ListRecoveryPointsByBackupVaultCommand,
-  ListRecoveryPointsByBackupVaultCommandInput,
-  ListRecoveryPointsByBackupVaultCommandOutput,
 } from "./commands/ListRecoveryPointsByBackupVaultCommand";
 import {
+  type ListRecoveryPointsByLegalHoldCommandInput,
+  type ListRecoveryPointsByLegalHoldCommandOutput,
   ListRecoveryPointsByLegalHoldCommand,
-  ListRecoveryPointsByLegalHoldCommandInput,
-  ListRecoveryPointsByLegalHoldCommandOutput,
 } from "./commands/ListRecoveryPointsByLegalHoldCommand";
 import {
+  type ListRecoveryPointsByResourceCommandInput,
+  type ListRecoveryPointsByResourceCommandOutput,
   ListRecoveryPointsByResourceCommand,
-  ListRecoveryPointsByResourceCommandInput,
-  ListRecoveryPointsByResourceCommandOutput,
 } from "./commands/ListRecoveryPointsByResourceCommand";
 import {
+  type ListReportJobsCommandInput,
+  type ListReportJobsCommandOutput,
   ListReportJobsCommand,
-  ListReportJobsCommandInput,
-  ListReportJobsCommandOutput,
 } from "./commands/ListReportJobsCommand";
 import {
+  type ListReportPlansCommandInput,
+  type ListReportPlansCommandOutput,
   ListReportPlansCommand,
-  ListReportPlansCommandInput,
-  ListReportPlansCommandOutput,
 } from "./commands/ListReportPlansCommand";
 import {
+  type ListRestoreAccessBackupVaultsCommandInput,
+  type ListRestoreAccessBackupVaultsCommandOutput,
   ListRestoreAccessBackupVaultsCommand,
-  ListRestoreAccessBackupVaultsCommandInput,
-  ListRestoreAccessBackupVaultsCommandOutput,
 } from "./commands/ListRestoreAccessBackupVaultsCommand";
 import {
+  type ListRestoreJobsByProtectedResourceCommandInput,
+  type ListRestoreJobsByProtectedResourceCommandOutput,
   ListRestoreJobsByProtectedResourceCommand,
-  ListRestoreJobsByProtectedResourceCommandInput,
-  ListRestoreJobsByProtectedResourceCommandOutput,
 } from "./commands/ListRestoreJobsByProtectedResourceCommand";
 import {
+  type ListRestoreJobsCommandInput,
+  type ListRestoreJobsCommandOutput,
   ListRestoreJobsCommand,
-  ListRestoreJobsCommandInput,
-  ListRestoreJobsCommandOutput,
 } from "./commands/ListRestoreJobsCommand";
 import {
+  type ListRestoreJobSummariesCommandInput,
+  type ListRestoreJobSummariesCommandOutput,
   ListRestoreJobSummariesCommand,
-  ListRestoreJobSummariesCommandInput,
-  ListRestoreJobSummariesCommandOutput,
 } from "./commands/ListRestoreJobSummariesCommand";
 import {
+  type ListRestoreTestingPlansCommandInput,
+  type ListRestoreTestingPlansCommandOutput,
   ListRestoreTestingPlansCommand,
-  ListRestoreTestingPlansCommandInput,
-  ListRestoreTestingPlansCommandOutput,
 } from "./commands/ListRestoreTestingPlansCommand";
 import {
+  type ListRestoreTestingSelectionsCommandInput,
+  type ListRestoreTestingSelectionsCommandOutput,
   ListRestoreTestingSelectionsCommand,
-  ListRestoreTestingSelectionsCommandInput,
-  ListRestoreTestingSelectionsCommandOutput,
 } from "./commands/ListRestoreTestingSelectionsCommand";
 import {
+  type ListScanJobsCommandInput,
+  type ListScanJobsCommandOutput,
   ListScanJobsCommand,
-  ListScanJobsCommandInput,
-  ListScanJobsCommandOutput,
 } from "./commands/ListScanJobsCommand";
 import {
+  type ListScanJobSummariesCommandInput,
+  type ListScanJobSummariesCommandOutput,
   ListScanJobSummariesCommand,
-  ListScanJobSummariesCommandInput,
-  ListScanJobSummariesCommandOutput,
 } from "./commands/ListScanJobSummariesCommand";
-import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { type ListTagsCommandInput, type ListTagsCommandOutput, ListTagsCommand } from "./commands/ListTagsCommand";
 import {
+  type ListTieringConfigurationsCommandInput,
+  type ListTieringConfigurationsCommandOutput,
   ListTieringConfigurationsCommand,
-  ListTieringConfigurationsCommandInput,
-  ListTieringConfigurationsCommandOutput,
 } from "./commands/ListTieringConfigurationsCommand";
 import {
+  type PutBackupVaultAccessPolicyCommandInput,
+  type PutBackupVaultAccessPolicyCommandOutput,
   PutBackupVaultAccessPolicyCommand,
-  PutBackupVaultAccessPolicyCommandInput,
-  PutBackupVaultAccessPolicyCommandOutput,
 } from "./commands/PutBackupVaultAccessPolicyCommand";
 import {
+  type PutBackupVaultLockConfigurationCommandInput,
+  type PutBackupVaultLockConfigurationCommandOutput,
   PutBackupVaultLockConfigurationCommand,
-  PutBackupVaultLockConfigurationCommandInput,
-  PutBackupVaultLockConfigurationCommandOutput,
 } from "./commands/PutBackupVaultLockConfigurationCommand";
 import {
+  type PutBackupVaultNotificationsCommandInput,
+  type PutBackupVaultNotificationsCommandOutput,
   PutBackupVaultNotificationsCommand,
-  PutBackupVaultNotificationsCommandInput,
-  PutBackupVaultNotificationsCommandOutput,
 } from "./commands/PutBackupVaultNotificationsCommand";
 import {
+  type PutRestoreValidationResultCommandInput,
+  type PutRestoreValidationResultCommandOutput,
   PutRestoreValidationResultCommand,
-  PutRestoreValidationResultCommandInput,
-  PutRestoreValidationResultCommandOutput,
 } from "./commands/PutRestoreValidationResultCommand";
 import {
+  type RevokeRestoreAccessBackupVaultCommandInput,
+  type RevokeRestoreAccessBackupVaultCommandOutput,
   RevokeRestoreAccessBackupVaultCommand,
-  RevokeRestoreAccessBackupVaultCommandInput,
-  RevokeRestoreAccessBackupVaultCommandOutput,
 } from "./commands/RevokeRestoreAccessBackupVaultCommand";
 import {
+  type StartBackupJobCommandInput,
+  type StartBackupJobCommandOutput,
   StartBackupJobCommand,
-  StartBackupJobCommandInput,
-  StartBackupJobCommandOutput,
 } from "./commands/StartBackupJobCommand";
 import {
+  type StartCopyJobCommandInput,
+  type StartCopyJobCommandOutput,
   StartCopyJobCommand,
-  StartCopyJobCommandInput,
-  StartCopyJobCommandOutput,
 } from "./commands/StartCopyJobCommand";
 import {
+  type StartReportJobCommandInput,
+  type StartReportJobCommandOutput,
   StartReportJobCommand,
-  StartReportJobCommandInput,
-  StartReportJobCommandOutput,
 } from "./commands/StartReportJobCommand";
 import {
+  type StartRestoreJobCommandInput,
+  type StartRestoreJobCommandOutput,
   StartRestoreJobCommand,
-  StartRestoreJobCommandInput,
-  StartRestoreJobCommandOutput,
 } from "./commands/StartRestoreJobCommand";
 import {
+  type StartScanJobCommandInput,
+  type StartScanJobCommandOutput,
   StartScanJobCommand,
-  StartScanJobCommandInput,
-  StartScanJobCommandOutput,
 } from "./commands/StartScanJobCommand";
 import {
+  type StopBackupJobCommandInput,
+  type StopBackupJobCommandOutput,
   StopBackupJobCommand,
-  StopBackupJobCommandInput,
-  StopBackupJobCommandOutput,
 } from "./commands/StopBackupJobCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBackupPlanCommandInput,
+  type UpdateBackupPlanCommandOutput,
   UpdateBackupPlanCommand,
-  UpdateBackupPlanCommandInput,
-  UpdateBackupPlanCommandOutput,
 } from "./commands/UpdateBackupPlanCommand";
 import {
+  type UpdateFrameworkCommandInput,
+  type UpdateFrameworkCommandOutput,
   UpdateFrameworkCommand,
-  UpdateFrameworkCommandInput,
-  UpdateFrameworkCommandOutput,
 } from "./commands/UpdateFrameworkCommand";
 import {
+  type UpdateGlobalSettingsCommandInput,
+  type UpdateGlobalSettingsCommandOutput,
   UpdateGlobalSettingsCommand,
-  UpdateGlobalSettingsCommandInput,
-  UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
 import {
+  type UpdateRecoveryPointIndexSettingsCommandInput,
+  type UpdateRecoveryPointIndexSettingsCommandOutput,
   UpdateRecoveryPointIndexSettingsCommand,
-  UpdateRecoveryPointIndexSettingsCommandInput,
-  UpdateRecoveryPointIndexSettingsCommandOutput,
 } from "./commands/UpdateRecoveryPointIndexSettingsCommand";
 import {
+  type UpdateRecoveryPointLifecycleCommandInput,
+  type UpdateRecoveryPointLifecycleCommandOutput,
   UpdateRecoveryPointLifecycleCommand,
-  UpdateRecoveryPointLifecycleCommandInput,
-  UpdateRecoveryPointLifecycleCommandOutput,
 } from "./commands/UpdateRecoveryPointLifecycleCommand";
 import {
+  type UpdateRegionSettingsCommandInput,
+  type UpdateRegionSettingsCommandOutput,
   UpdateRegionSettingsCommand,
-  UpdateRegionSettingsCommandInput,
-  UpdateRegionSettingsCommandOutput,
 } from "./commands/UpdateRegionSettingsCommand";
 import {
+  type UpdateReportPlanCommandInput,
+  type UpdateReportPlanCommandOutput,
   UpdateReportPlanCommand,
-  UpdateReportPlanCommandInput,
-  UpdateReportPlanCommandOutput,
 } from "./commands/UpdateReportPlanCommand";
 import {
+  type UpdateRestoreTestingPlanCommandInput,
+  type UpdateRestoreTestingPlanCommandOutput,
   UpdateRestoreTestingPlanCommand,
-  UpdateRestoreTestingPlanCommandInput,
-  UpdateRestoreTestingPlanCommandOutput,
 } from "./commands/UpdateRestoreTestingPlanCommand";
 import {
+  type UpdateRestoreTestingSelectionCommandInput,
+  type UpdateRestoreTestingSelectionCommandOutput,
   UpdateRestoreTestingSelectionCommand,
-  UpdateRestoreTestingSelectionCommandInput,
-  UpdateRestoreTestingSelectionCommandOutput,
 } from "./commands/UpdateRestoreTestingSelectionCommand";
 import {
+  type UpdateTieringConfigurationCommandInput,
+  type UpdateTieringConfigurationCommandOutput,
   UpdateTieringConfigurationCommand,
-  UpdateTieringConfigurationCommandInput,
-  UpdateTieringConfigurationCommandOutput,
 } from "./commands/UpdateTieringConfigurationCommand";
 import { paginateListBackupJobs } from "./pagination/ListBackupJobsPaginator";
 import { paginateListBackupJobSummaries } from "./pagination/ListBackupJobSummariesPaginator";

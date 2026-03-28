@@ -8,7 +8,7 @@ import {
   ListClosedWorkflowExecutionsCommandOutput,
 } from "../commands/ListClosedWorkflowExecutionsCommand";
 import { SWFClient } from "../SWFClient";
-import { SWFPaginationConfiguration } from "./Interfaces";
+import type { SWFPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

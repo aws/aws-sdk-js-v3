@@ -219,8 +219,7 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
                     .writeDocs("""
                                Reference to STSClient class constructor.
                                @internal""")
-                    .addDependency(TypeScriptDependency.SMITHY_TYPES)
-                    .addImport("Client", null, TypeScriptDependency.SMITHY_TYPES)
+                    .addTypeImport("Client", null, TypeScriptDependency.SMITHY_TYPES)
                     .write("stsClientCtor: new (clientConfig: any) => Client<any, any, any>;")
             );
             w.openBlock("""

@@ -9,7 +9,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import { type GetMediaForFragmentListInput, GetMediaForFragmentListOutput } from "../models/models_0";
+import type { GetMediaForFragmentListInput, GetMediaForFragmentListOutput } from "../models/models_0";
 import { GetMediaForFragmentList$ } from "../schemas/schemas_0";
 
 /**

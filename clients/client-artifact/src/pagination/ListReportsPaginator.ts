@@ -4,7 +4,7 @@ import type { Paginator } from "@smithy/types";
 
 import { ArtifactClient } from "../ArtifactClient";
 import { ListReportsCommand, ListReportsCommandInput, ListReportsCommandOutput } from "../commands/ListReportsCommand";
-import { ArtifactPaginationConfiguration } from "./Interfaces";
+import type { ArtifactPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

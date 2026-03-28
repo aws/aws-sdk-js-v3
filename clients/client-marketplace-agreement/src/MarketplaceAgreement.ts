@@ -3,39 +3,39 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CancelAgreementPaymentRequestCommandInput,
+  type CancelAgreementPaymentRequestCommandOutput,
   CancelAgreementPaymentRequestCommand,
-  CancelAgreementPaymentRequestCommandInput,
-  CancelAgreementPaymentRequestCommandOutput,
 } from "./commands/CancelAgreementPaymentRequestCommand";
 import {
+  type DescribeAgreementCommandInput,
+  type DescribeAgreementCommandOutput,
   DescribeAgreementCommand,
-  DescribeAgreementCommandInput,
-  DescribeAgreementCommandOutput,
 } from "./commands/DescribeAgreementCommand";
 import {
+  type GetAgreementPaymentRequestCommandInput,
+  type GetAgreementPaymentRequestCommandOutput,
   GetAgreementPaymentRequestCommand,
-  GetAgreementPaymentRequestCommandInput,
-  GetAgreementPaymentRequestCommandOutput,
 } from "./commands/GetAgreementPaymentRequestCommand";
 import {
+  type GetAgreementTermsCommandInput,
+  type GetAgreementTermsCommandOutput,
   GetAgreementTermsCommand,
-  GetAgreementTermsCommandInput,
-  GetAgreementTermsCommandOutput,
 } from "./commands/GetAgreementTermsCommand";
 import {
+  type ListAgreementPaymentRequestsCommandInput,
+  type ListAgreementPaymentRequestsCommandOutput,
   ListAgreementPaymentRequestsCommand,
-  ListAgreementPaymentRequestsCommandInput,
-  ListAgreementPaymentRequestsCommandOutput,
 } from "./commands/ListAgreementPaymentRequestsCommand";
 import {
+  type SearchAgreementsCommandInput,
+  type SearchAgreementsCommandOutput,
   SearchAgreementsCommand,
-  SearchAgreementsCommandInput,
-  SearchAgreementsCommandOutput,
 } from "./commands/SearchAgreementsCommand";
 import {
+  type SendAgreementPaymentRequestCommandInput,
+  type SendAgreementPaymentRequestCommandOutput,
   SendAgreementPaymentRequestCommand,
-  SendAgreementPaymentRequestCommandInput,
-  SendAgreementPaymentRequestCommandOutput,
 } from "./commands/SendAgreementPaymentRequestCommand";
 import { MarketplaceAgreementClient } from "./MarketplaceAgreementClient";
 import { paginateGetAgreementTerms } from "./pagination/GetAgreementTermsPaginator";

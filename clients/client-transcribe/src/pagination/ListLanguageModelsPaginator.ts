@@ -8,7 +8,7 @@ import {
   ListLanguageModelsCommandOutput,
 } from "../commands/ListLanguageModelsCommand";
 import { TranscribeClient } from "../TranscribeClient";
-import { TranscribePaginationConfiguration } from "./Interfaces";
+import type { TranscribePaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

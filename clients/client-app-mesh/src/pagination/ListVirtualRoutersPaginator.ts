@@ -8,7 +8,7 @@ import {
   ListVirtualRoutersCommandInput,
   ListVirtualRoutersCommandOutput,
 } from "../commands/ListVirtualRoutersCommand";
-import { AppMeshPaginationConfiguration } from "./Interfaces";
+import type { AppMeshPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

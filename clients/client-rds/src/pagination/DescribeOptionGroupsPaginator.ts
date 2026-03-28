@@ -8,7 +8,7 @@ import {
   DescribeOptionGroupsCommandOutput,
 } from "../commands/DescribeOptionGroupsCommand";
 import { RDSClient } from "../RDSClient";
-import { RDSPaginationConfiguration } from "./Interfaces";
+import type { RDSPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

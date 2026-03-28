@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import { PostContentRequest, PostContentResponse } from "../models/models_0";
+import type { PostContentRequest, PostContentResponse } from "../models/models_0";
 import { PostContent$ } from "../schemas/schemas_0";
 
 /**

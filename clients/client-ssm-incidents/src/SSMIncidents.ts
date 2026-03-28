@@ -9,155 +9,159 @@ import type {
 import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
+  type BatchGetIncidentFindingsCommandInput,
+  type BatchGetIncidentFindingsCommandOutput,
   BatchGetIncidentFindingsCommand,
-  BatchGetIncidentFindingsCommandInput,
-  BatchGetIncidentFindingsCommandOutput,
 } from "./commands/BatchGetIncidentFindingsCommand";
 import {
+  type CreateReplicationSetCommandInput,
+  type CreateReplicationSetCommandOutput,
   CreateReplicationSetCommand,
-  CreateReplicationSetCommandInput,
-  CreateReplicationSetCommandOutput,
 } from "./commands/CreateReplicationSetCommand";
 import {
+  type CreateResponsePlanCommandInput,
+  type CreateResponsePlanCommandOutput,
   CreateResponsePlanCommand,
-  CreateResponsePlanCommandInput,
-  CreateResponsePlanCommandOutput,
 } from "./commands/CreateResponsePlanCommand";
 import {
+  type CreateTimelineEventCommandInput,
+  type CreateTimelineEventCommandOutput,
   CreateTimelineEventCommand,
-  CreateTimelineEventCommandInput,
-  CreateTimelineEventCommandOutput,
 } from "./commands/CreateTimelineEventCommand";
 import {
+  type DeleteIncidentRecordCommandInput,
+  type DeleteIncidentRecordCommandOutput,
   DeleteIncidentRecordCommand,
-  DeleteIncidentRecordCommandInput,
-  DeleteIncidentRecordCommandOutput,
 } from "./commands/DeleteIncidentRecordCommand";
 import {
+  type DeleteReplicationSetCommandInput,
+  type DeleteReplicationSetCommandOutput,
   DeleteReplicationSetCommand,
-  DeleteReplicationSetCommandInput,
-  DeleteReplicationSetCommandOutput,
 } from "./commands/DeleteReplicationSetCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DeleteResponsePlanCommandInput,
+  type DeleteResponsePlanCommandOutput,
   DeleteResponsePlanCommand,
-  DeleteResponsePlanCommandInput,
-  DeleteResponsePlanCommandOutput,
 } from "./commands/DeleteResponsePlanCommand";
 import {
+  type DeleteTimelineEventCommandInput,
+  type DeleteTimelineEventCommandOutput,
   DeleteTimelineEventCommand,
-  DeleteTimelineEventCommandInput,
-  DeleteTimelineEventCommandOutput,
 } from "./commands/DeleteTimelineEventCommand";
 import {
+  type GetIncidentRecordCommandInput,
+  type GetIncidentRecordCommandOutput,
   GetIncidentRecordCommand,
-  GetIncidentRecordCommandInput,
-  GetIncidentRecordCommandOutput,
 } from "./commands/GetIncidentRecordCommand";
 import {
+  type GetReplicationSetCommandInput,
+  type GetReplicationSetCommandOutput,
   GetReplicationSetCommand,
-  GetReplicationSetCommandInput,
-  GetReplicationSetCommandOutput,
 } from "./commands/GetReplicationSetCommand";
 import {
+  type GetResourcePoliciesCommandInput,
+  type GetResourcePoliciesCommandOutput,
   GetResourcePoliciesCommand,
-  GetResourcePoliciesCommandInput,
-  GetResourcePoliciesCommandOutput,
 } from "./commands/GetResourcePoliciesCommand";
 import {
+  type GetResponsePlanCommandInput,
+  type GetResponsePlanCommandOutput,
   GetResponsePlanCommand,
-  GetResponsePlanCommandInput,
-  GetResponsePlanCommandOutput,
 } from "./commands/GetResponsePlanCommand";
 import {
+  type GetTimelineEventCommandInput,
+  type GetTimelineEventCommandOutput,
   GetTimelineEventCommand,
-  GetTimelineEventCommandInput,
-  GetTimelineEventCommandOutput,
 } from "./commands/GetTimelineEventCommand";
 import {
+  type ListIncidentFindingsCommandInput,
+  type ListIncidentFindingsCommandOutput,
   ListIncidentFindingsCommand,
-  ListIncidentFindingsCommandInput,
-  ListIncidentFindingsCommandOutput,
 } from "./commands/ListIncidentFindingsCommand";
 import {
+  type ListIncidentRecordsCommandInput,
+  type ListIncidentRecordsCommandOutput,
   ListIncidentRecordsCommand,
-  ListIncidentRecordsCommandInput,
-  ListIncidentRecordsCommandOutput,
 } from "./commands/ListIncidentRecordsCommand";
 import {
+  type ListRelatedItemsCommandInput,
+  type ListRelatedItemsCommandOutput,
   ListRelatedItemsCommand,
-  ListRelatedItemsCommandInput,
-  ListRelatedItemsCommandOutput,
 } from "./commands/ListRelatedItemsCommand";
 import {
+  type ListReplicationSetsCommandInput,
+  type ListReplicationSetsCommandOutput,
   ListReplicationSetsCommand,
-  ListReplicationSetsCommandInput,
-  ListReplicationSetsCommandOutput,
 } from "./commands/ListReplicationSetsCommand";
 import {
+  type ListResponsePlansCommandInput,
+  type ListResponsePlansCommandOutput,
   ListResponsePlansCommand,
-  ListResponsePlansCommandInput,
-  ListResponsePlansCommandOutput,
 } from "./commands/ListResponsePlansCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTimelineEventsCommandInput,
+  type ListTimelineEventsCommandOutput,
   ListTimelineEventsCommand,
-  ListTimelineEventsCommandInput,
-  ListTimelineEventsCommandOutput,
 } from "./commands/ListTimelineEventsCommand";
 import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type StartIncidentCommandInput,
+  type StartIncidentCommandOutput,
   StartIncidentCommand,
-  StartIncidentCommandInput,
-  StartIncidentCommandOutput,
 } from "./commands/StartIncidentCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDeletionProtectionCommandInput,
+  type UpdateDeletionProtectionCommandOutput,
   UpdateDeletionProtectionCommand,
-  UpdateDeletionProtectionCommandInput,
-  UpdateDeletionProtectionCommandOutput,
 } from "./commands/UpdateDeletionProtectionCommand";
 import {
+  type UpdateIncidentRecordCommandInput,
+  type UpdateIncidentRecordCommandOutput,
   UpdateIncidentRecordCommand,
-  UpdateIncidentRecordCommandInput,
-  UpdateIncidentRecordCommandOutput,
 } from "./commands/UpdateIncidentRecordCommand";
 import {
+  type UpdateRelatedItemsCommandInput,
+  type UpdateRelatedItemsCommandOutput,
   UpdateRelatedItemsCommand,
-  UpdateRelatedItemsCommandInput,
-  UpdateRelatedItemsCommandOutput,
 } from "./commands/UpdateRelatedItemsCommand";
 import {
+  type UpdateReplicationSetCommandInput,
+  type UpdateReplicationSetCommandOutput,
   UpdateReplicationSetCommand,
-  UpdateReplicationSetCommandInput,
-  UpdateReplicationSetCommandOutput,
 } from "./commands/UpdateReplicationSetCommand";
 import {
+  type UpdateResponsePlanCommandInput,
+  type UpdateResponsePlanCommandOutput,
   UpdateResponsePlanCommand,
-  UpdateResponsePlanCommandInput,
-  UpdateResponsePlanCommandOutput,
 } from "./commands/UpdateResponsePlanCommand";
 import {
+  type UpdateTimelineEventCommandInput,
+  type UpdateTimelineEventCommandOutput,
   UpdateTimelineEventCommand,
-  UpdateTimelineEventCommandInput,
-  UpdateTimelineEventCommandOutput,
 } from "./commands/UpdateTimelineEventCommand";
 import { paginateGetResourcePolicies } from "./pagination/GetResourcePoliciesPaginator";
 import { paginateListIncidentFindings } from "./pagination/ListIncidentFindingsPaginator";

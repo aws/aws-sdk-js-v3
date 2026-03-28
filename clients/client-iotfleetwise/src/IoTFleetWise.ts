@@ -3,257 +3,285 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateVehicleFleetCommandInput,
+  type AssociateVehicleFleetCommandOutput,
   AssociateVehicleFleetCommand,
-  AssociateVehicleFleetCommandInput,
-  AssociateVehicleFleetCommandOutput,
 } from "./commands/AssociateVehicleFleetCommand";
 import {
+  type BatchCreateVehicleCommandInput,
+  type BatchCreateVehicleCommandOutput,
   BatchCreateVehicleCommand,
-  BatchCreateVehicleCommandInput,
-  BatchCreateVehicleCommandOutput,
 } from "./commands/BatchCreateVehicleCommand";
 import {
+  type BatchUpdateVehicleCommandInput,
+  type BatchUpdateVehicleCommandOutput,
   BatchUpdateVehicleCommand,
-  BatchUpdateVehicleCommandInput,
-  BatchUpdateVehicleCommandOutput,
 } from "./commands/BatchUpdateVehicleCommand";
 import {
+  type CreateCampaignCommandInput,
+  type CreateCampaignCommandOutput,
   CreateCampaignCommand,
-  CreateCampaignCommandInput,
-  CreateCampaignCommandOutput,
 } from "./commands/CreateCampaignCommand";
 import {
+  type CreateDecoderManifestCommandInput,
+  type CreateDecoderManifestCommandOutput,
   CreateDecoderManifestCommand,
-  CreateDecoderManifestCommandInput,
-  CreateDecoderManifestCommandOutput,
 } from "./commands/CreateDecoderManifestCommand";
-import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
+  type CreateFleetCommandInput,
+  type CreateFleetCommandOutput,
+  CreateFleetCommand,
+} from "./commands/CreateFleetCommand";
+import {
+  type CreateModelManifestCommandInput,
+  type CreateModelManifestCommandOutput,
   CreateModelManifestCommand,
-  CreateModelManifestCommandInput,
-  CreateModelManifestCommandOutput,
 } from "./commands/CreateModelManifestCommand";
 import {
+  type CreateSignalCatalogCommandInput,
+  type CreateSignalCatalogCommandOutput,
   CreateSignalCatalogCommand,
-  CreateSignalCatalogCommandInput,
-  CreateSignalCatalogCommandOutput,
 } from "./commands/CreateSignalCatalogCommand";
 import {
+  type CreateStateTemplateCommandInput,
+  type CreateStateTemplateCommandOutput,
   CreateStateTemplateCommand,
-  CreateStateTemplateCommandInput,
-  CreateStateTemplateCommandOutput,
 } from "./commands/CreateStateTemplateCommand";
 import {
+  type CreateVehicleCommandInput,
+  type CreateVehicleCommandOutput,
   CreateVehicleCommand,
-  CreateVehicleCommandInput,
-  CreateVehicleCommandOutput,
 } from "./commands/CreateVehicleCommand";
 import {
+  type DeleteCampaignCommandInput,
+  type DeleteCampaignCommandOutput,
   DeleteCampaignCommand,
-  DeleteCampaignCommandInput,
-  DeleteCampaignCommandOutput,
 } from "./commands/DeleteCampaignCommand";
 import {
+  type DeleteDecoderManifestCommandInput,
+  type DeleteDecoderManifestCommandOutput,
   DeleteDecoderManifestCommand,
-  DeleteDecoderManifestCommandInput,
-  DeleteDecoderManifestCommandOutput,
 } from "./commands/DeleteDecoderManifestCommand";
-import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
+  type DeleteFleetCommandInput,
+  type DeleteFleetCommandOutput,
+  DeleteFleetCommand,
+} from "./commands/DeleteFleetCommand";
+import {
+  type DeleteModelManifestCommandInput,
+  type DeleteModelManifestCommandOutput,
   DeleteModelManifestCommand,
-  DeleteModelManifestCommandInput,
-  DeleteModelManifestCommandOutput,
 } from "./commands/DeleteModelManifestCommand";
 import {
+  type DeleteSignalCatalogCommandInput,
+  type DeleteSignalCatalogCommandOutput,
   DeleteSignalCatalogCommand,
-  DeleteSignalCatalogCommandInput,
-  DeleteSignalCatalogCommandOutput,
 } from "./commands/DeleteSignalCatalogCommand";
 import {
+  type DeleteStateTemplateCommandInput,
+  type DeleteStateTemplateCommandOutput,
   DeleteStateTemplateCommand,
-  DeleteStateTemplateCommandInput,
-  DeleteStateTemplateCommandOutput,
 } from "./commands/DeleteStateTemplateCommand";
 import {
+  type DeleteVehicleCommandInput,
+  type DeleteVehicleCommandOutput,
   DeleteVehicleCommand,
-  DeleteVehicleCommandInput,
-  DeleteVehicleCommandOutput,
 } from "./commands/DeleteVehicleCommand";
 import {
+  type DisassociateVehicleFleetCommandInput,
+  type DisassociateVehicleFleetCommandOutput,
   DisassociateVehicleFleetCommand,
-  DisassociateVehicleFleetCommandInput,
-  DisassociateVehicleFleetCommandOutput,
 } from "./commands/DisassociateVehicleFleetCommand";
-import { GetCampaignCommand, GetCampaignCommandInput, GetCampaignCommandOutput } from "./commands/GetCampaignCommand";
 import {
+  type GetCampaignCommandInput,
+  type GetCampaignCommandOutput,
+  GetCampaignCommand,
+} from "./commands/GetCampaignCommand";
+import {
+  type GetDecoderManifestCommandInput,
+  type GetDecoderManifestCommandOutput,
   GetDecoderManifestCommand,
-  GetDecoderManifestCommandInput,
-  GetDecoderManifestCommandOutput,
 } from "./commands/GetDecoderManifestCommand";
 import {
+  type GetEncryptionConfigurationCommandInput,
+  type GetEncryptionConfigurationCommandOutput,
   GetEncryptionConfigurationCommand,
-  GetEncryptionConfigurationCommandInput,
-  GetEncryptionConfigurationCommandOutput,
 } from "./commands/GetEncryptionConfigurationCommand";
-import { GetFleetCommand, GetFleetCommandInput, GetFleetCommandOutput } from "./commands/GetFleetCommand";
+import { type GetFleetCommandInput, type GetFleetCommandOutput, GetFleetCommand } from "./commands/GetFleetCommand";
 import {
+  type GetLoggingOptionsCommandInput,
+  type GetLoggingOptionsCommandOutput,
   GetLoggingOptionsCommand,
-  GetLoggingOptionsCommandInput,
-  GetLoggingOptionsCommandOutput,
 } from "./commands/GetLoggingOptionsCommand";
 import {
+  type GetModelManifestCommandInput,
+  type GetModelManifestCommandOutput,
   GetModelManifestCommand,
-  GetModelManifestCommandInput,
-  GetModelManifestCommandOutput,
 } from "./commands/GetModelManifestCommand";
 import {
+  type GetRegisterAccountStatusCommandInput,
+  type GetRegisterAccountStatusCommandOutput,
   GetRegisterAccountStatusCommand,
-  GetRegisterAccountStatusCommandInput,
-  GetRegisterAccountStatusCommandOutput,
 } from "./commands/GetRegisterAccountStatusCommand";
 import {
+  type GetSignalCatalogCommandInput,
+  type GetSignalCatalogCommandOutput,
   GetSignalCatalogCommand,
-  GetSignalCatalogCommandInput,
-  GetSignalCatalogCommandOutput,
 } from "./commands/GetSignalCatalogCommand";
 import {
+  type GetStateTemplateCommandInput,
+  type GetStateTemplateCommandOutput,
   GetStateTemplateCommand,
-  GetStateTemplateCommandInput,
-  GetStateTemplateCommandOutput,
 } from "./commands/GetStateTemplateCommand";
-import { GetVehicleCommand, GetVehicleCommandInput, GetVehicleCommandOutput } from "./commands/GetVehicleCommand";
 import {
+  type GetVehicleCommandInput,
+  type GetVehicleCommandOutput,
+  GetVehicleCommand,
+} from "./commands/GetVehicleCommand";
+import {
+  type GetVehicleStatusCommandInput,
+  type GetVehicleStatusCommandOutput,
   GetVehicleStatusCommand,
-  GetVehicleStatusCommandInput,
-  GetVehicleStatusCommandOutput,
 } from "./commands/GetVehicleStatusCommand";
 import {
+  type ImportDecoderManifestCommandInput,
+  type ImportDecoderManifestCommandOutput,
   ImportDecoderManifestCommand,
-  ImportDecoderManifestCommandInput,
-  ImportDecoderManifestCommandOutput,
 } from "./commands/ImportDecoderManifestCommand";
 import {
+  type ImportSignalCatalogCommandInput,
+  type ImportSignalCatalogCommandOutput,
   ImportSignalCatalogCommand,
-  ImportSignalCatalogCommandInput,
-  ImportSignalCatalogCommandOutput,
 } from "./commands/ImportSignalCatalogCommand";
 import {
+  type ListCampaignsCommandInput,
+  type ListCampaignsCommandOutput,
   ListCampaignsCommand,
-  ListCampaignsCommandInput,
-  ListCampaignsCommandOutput,
 } from "./commands/ListCampaignsCommand";
 import {
+  type ListDecoderManifestNetworkInterfacesCommandInput,
+  type ListDecoderManifestNetworkInterfacesCommandOutput,
   ListDecoderManifestNetworkInterfacesCommand,
-  ListDecoderManifestNetworkInterfacesCommandInput,
-  ListDecoderManifestNetworkInterfacesCommandOutput,
 } from "./commands/ListDecoderManifestNetworkInterfacesCommand";
 import {
+  type ListDecoderManifestsCommandInput,
+  type ListDecoderManifestsCommandOutput,
   ListDecoderManifestsCommand,
-  ListDecoderManifestsCommandInput,
-  ListDecoderManifestsCommandOutput,
 } from "./commands/ListDecoderManifestsCommand";
 import {
+  type ListDecoderManifestSignalsCommandInput,
+  type ListDecoderManifestSignalsCommandOutput,
   ListDecoderManifestSignalsCommand,
-  ListDecoderManifestSignalsCommandInput,
-  ListDecoderManifestSignalsCommandOutput,
 } from "./commands/ListDecoderManifestSignalsCommand";
-import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
+  type ListFleetsCommandInput,
+  type ListFleetsCommandOutput,
+  ListFleetsCommand,
+} from "./commands/ListFleetsCommand";
+import {
+  type ListFleetsForVehicleCommandInput,
+  type ListFleetsForVehicleCommandOutput,
   ListFleetsForVehicleCommand,
-  ListFleetsForVehicleCommandInput,
-  ListFleetsForVehicleCommandOutput,
 } from "./commands/ListFleetsForVehicleCommand";
 import {
+  type ListModelManifestNodesCommandInput,
+  type ListModelManifestNodesCommandOutput,
   ListModelManifestNodesCommand,
-  ListModelManifestNodesCommandInput,
-  ListModelManifestNodesCommandOutput,
 } from "./commands/ListModelManifestNodesCommand";
 import {
+  type ListModelManifestsCommandInput,
+  type ListModelManifestsCommandOutput,
   ListModelManifestsCommand,
-  ListModelManifestsCommandInput,
-  ListModelManifestsCommandOutput,
 } from "./commands/ListModelManifestsCommand";
 import {
+  type ListSignalCatalogNodesCommandInput,
+  type ListSignalCatalogNodesCommandOutput,
   ListSignalCatalogNodesCommand,
-  ListSignalCatalogNodesCommandInput,
-  ListSignalCatalogNodesCommandOutput,
 } from "./commands/ListSignalCatalogNodesCommand";
 import {
+  type ListSignalCatalogsCommandInput,
+  type ListSignalCatalogsCommandOutput,
   ListSignalCatalogsCommand,
-  ListSignalCatalogsCommandInput,
-  ListSignalCatalogsCommandOutput,
 } from "./commands/ListSignalCatalogsCommand";
 import {
+  type ListStateTemplatesCommandInput,
+  type ListStateTemplatesCommandOutput,
   ListStateTemplatesCommand,
-  ListStateTemplatesCommandInput,
-  ListStateTemplatesCommandOutput,
 } from "./commands/ListStateTemplatesCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVehiclesCommandInput,
+  type ListVehiclesCommandOutput,
   ListVehiclesCommand,
-  ListVehiclesCommandInput,
-  ListVehiclesCommandOutput,
 } from "./commands/ListVehiclesCommand";
 import {
+  type ListVehiclesInFleetCommandInput,
+  type ListVehiclesInFleetCommandOutput,
   ListVehiclesInFleetCommand,
-  ListVehiclesInFleetCommandInput,
-  ListVehiclesInFleetCommandOutput,
 } from "./commands/ListVehiclesInFleetCommand";
 import {
+  type PutEncryptionConfigurationCommandInput,
+  type PutEncryptionConfigurationCommandOutput,
   PutEncryptionConfigurationCommand,
-  PutEncryptionConfigurationCommandInput,
-  PutEncryptionConfigurationCommandOutput,
 } from "./commands/PutEncryptionConfigurationCommand";
 import {
+  type PutLoggingOptionsCommandInput,
+  type PutLoggingOptionsCommandOutput,
   PutLoggingOptionsCommand,
-  PutLoggingOptionsCommandInput,
-  PutLoggingOptionsCommandOutput,
 } from "./commands/PutLoggingOptionsCommand";
 import {
+  type RegisterAccountCommandInput,
+  type RegisterAccountCommandOutput,
   RegisterAccountCommand,
-  RegisterAccountCommandInput,
-  RegisterAccountCommandOutput,
 } from "./commands/RegisterAccountCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCampaignCommandInput,
+  type UpdateCampaignCommandOutput,
   UpdateCampaignCommand,
-  UpdateCampaignCommandInput,
-  UpdateCampaignCommandOutput,
 } from "./commands/UpdateCampaignCommand";
 import {
+  type UpdateDecoderManifestCommandInput,
+  type UpdateDecoderManifestCommandOutput,
   UpdateDecoderManifestCommand,
-  UpdateDecoderManifestCommandInput,
-  UpdateDecoderManifestCommandOutput,
 } from "./commands/UpdateDecoderManifestCommand";
-import { UpdateFleetCommand, UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
 import {
+  type UpdateFleetCommandInput,
+  type UpdateFleetCommandOutput,
+  UpdateFleetCommand,
+} from "./commands/UpdateFleetCommand";
+import {
+  type UpdateModelManifestCommandInput,
+  type UpdateModelManifestCommandOutput,
   UpdateModelManifestCommand,
-  UpdateModelManifestCommandInput,
-  UpdateModelManifestCommandOutput,
 } from "./commands/UpdateModelManifestCommand";
 import {
+  type UpdateSignalCatalogCommandInput,
+  type UpdateSignalCatalogCommandOutput,
   UpdateSignalCatalogCommand,
-  UpdateSignalCatalogCommandInput,
-  UpdateSignalCatalogCommandOutput,
 } from "./commands/UpdateSignalCatalogCommand";
 import {
+  type UpdateStateTemplateCommandInput,
+  type UpdateStateTemplateCommandOutput,
   UpdateStateTemplateCommand,
-  UpdateStateTemplateCommandInput,
-  UpdateStateTemplateCommandOutput,
 } from "./commands/UpdateStateTemplateCommand";
 import {
+  type UpdateVehicleCommandInput,
+  type UpdateVehicleCommandOutput,
   UpdateVehicleCommand,
-  UpdateVehicleCommandInput,
-  UpdateVehicleCommandOutput,
 } from "./commands/UpdateVehicleCommand";
 import { IoTFleetWiseClient } from "./IoTFleetWiseClient";
 import { paginateGetVehicleStatus } from "./pagination/GetVehicleStatusPaginator";

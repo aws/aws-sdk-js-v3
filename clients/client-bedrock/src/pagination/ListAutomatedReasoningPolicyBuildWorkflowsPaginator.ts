@@ -8,7 +8,7 @@ import {
   ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
   ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput,
 } from "../commands/ListAutomatedReasoningPolicyBuildWorkflowsCommand";
-import { BedrockPaginationConfiguration } from "./Interfaces";
+import type { BedrockPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

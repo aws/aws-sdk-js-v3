@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import {
+import type {
   CallAnalyticsLanguageCode,
   ClinicalNoteGenerationStatus,
   ContentIdentificationType,
@@ -25,7 +25,7 @@ import {
   Type,
   VocabularyFilterMethod,
 } from "./enums";
-import {
+import type {
   BadRequestException,
   ConflictException,
   InternalFailureException,

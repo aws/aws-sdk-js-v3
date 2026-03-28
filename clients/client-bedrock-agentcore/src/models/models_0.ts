@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
+import type { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
-import {
+import type {
   AutomationStreamStatus,
   BrowserEnterprisePolicyType,
   BrowserSessionStatus,
@@ -20,7 +20,7 @@ import {
   TaskStatus,
   ToolName,
 } from "./enums";
-import {
+import type {
   AccessDeniedException,
   ConflictException,
   InternalServerException,

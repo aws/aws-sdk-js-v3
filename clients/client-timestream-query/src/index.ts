@@ -9,7 +9,7 @@
  */
 export * from "./TimestreamQueryClient";
 export * from "./TimestreamQuery";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { TimestreamQueryExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

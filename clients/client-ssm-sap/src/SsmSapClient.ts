@@ -39,21 +39,19 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
-import {
-  type BodyLengthCalculator as __BodyLengthCalculator,
-  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  type ChecksumConstructor as __ChecksumConstructor,
-  type Decoder as __Decoder,
-  type Encoder as __Encoder,
-  type HashConstructor as __HashConstructor,
-  type HttpHandlerOptions as __HttpHandlerOptions,
-  type Logger as __Logger,
-  type Provider as __Provider,
-  type StreamCollector as __StreamCollector,
-  type UrlParser as __UrlParser,
+import type {
   AwsCredentialIdentityProvider,
-  EndpointV2 as __EndpointV2,
-  Provider,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  ChecksumConstructor as __ChecksumConstructor,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -63,82 +61,82 @@ import {
   defaultSsmSapHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   DeleteResourcePermissionCommandInput,
   DeleteResourcePermissionCommandOutput,
 } from "./commands/DeleteResourcePermissionCommand";
-import {
+import type {
   DeregisterApplicationCommandInput,
   DeregisterApplicationCommandOutput,
 } from "./commands/DeregisterApplicationCommand";
-import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
-import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
-import {
+import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import type { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
+import type {
   GetConfigurationCheckOperationCommandInput,
   GetConfigurationCheckOperationCommandOutput,
 } from "./commands/GetConfigurationCheckOperationCommand";
-import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
-import { GetOperationCommandInput, GetOperationCommandOutput } from "./commands/GetOperationCommand";
-import {
+import type { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
+import type { GetOperationCommandInput, GetOperationCommandOutput } from "./commands/GetOperationCommand";
+import type {
   GetResourcePermissionCommandInput,
   GetResourcePermissionCommandOutput,
 } from "./commands/GetResourcePermissionCommand";
-import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
-import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
-import {
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
+import type {
   ListConfigurationCheckDefinitionsCommandInput,
   ListConfigurationCheckDefinitionsCommandOutput,
 } from "./commands/ListConfigurationCheckDefinitionsCommand";
-import {
+import type {
   ListConfigurationCheckOperationsCommandInput,
   ListConfigurationCheckOperationsCommandOutput,
 } from "./commands/ListConfigurationCheckOperationsCommand";
-import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
-import {
+import type { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
+import type {
   ListOperationEventsCommandInput,
   ListOperationEventsCommandOutput,
 } from "./commands/ListOperationEventsCommand";
-import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
-import {
+import type { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
+import type {
   ListSubCheckResultsCommandInput,
   ListSubCheckResultsCommandOutput,
 } from "./commands/ListSubCheckResultsCommand";
-import {
+import type {
   ListSubCheckRuleResultsCommandInput,
   ListSubCheckRuleResultsCommandOutput,
 } from "./commands/ListSubCheckRuleResultsCommand";
-import {
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
+import type {
   PutResourcePermissionCommandInput,
   PutResourcePermissionCommandOutput,
 } from "./commands/PutResourcePermissionCommand";
-import {
+import type {
   RegisterApplicationCommandInput,
   RegisterApplicationCommandOutput,
 } from "./commands/RegisterApplicationCommand";
-import { StartApplicationCommandInput, StartApplicationCommandOutput } from "./commands/StartApplicationCommand";
-import {
+import type { StartApplicationCommandInput, StartApplicationCommandOutput } from "./commands/StartApplicationCommand";
+import type {
   StartApplicationRefreshCommandInput,
   StartApplicationRefreshCommandOutput,
 } from "./commands/StartApplicationRefreshCommand";
-import {
+import type {
   StartConfigurationChecksCommandInput,
   StartConfigurationChecksCommandOutput,
 } from "./commands/StartConfigurationChecksCommand";
-import { StopApplicationCommandInput, StopApplicationCommandOutput } from "./commands/StopApplicationCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import {
+import type { StopApplicationCommandInput, StopApplicationCommandOutput } from "./commands/StopApplicationCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
   UpdateApplicationSettingsCommandInput,
   UpdateApplicationSettingsCommandOutput,
 } from "./commands/UpdateApplicationSettingsCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -324,7 +322,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultUserAgentProvider?: __Provider<__UserAgent>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

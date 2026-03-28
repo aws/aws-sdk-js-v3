@@ -8,7 +8,7 @@ import {
   ListConnectPeersCommandOutput,
 } from "../commands/ListConnectPeersCommand";
 import { NetworkManagerClient } from "../NetworkManagerClient";
-import { NetworkManagerPaginationConfiguration } from "./Interfaces";
+import type { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public

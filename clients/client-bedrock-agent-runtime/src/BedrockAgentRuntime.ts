@@ -4,131 +4,151 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BedrockAgentRuntimeClient } from "./BedrockAgentRuntimeClient";
 import {
+  type CreateInvocationCommandInput,
+  type CreateInvocationCommandOutput,
   CreateInvocationCommand,
-  CreateInvocationCommandInput,
-  CreateInvocationCommandOutput,
 } from "./commands/CreateInvocationCommand";
 import {
+  type CreateSessionCommandInput,
+  type CreateSessionCommandOutput,
   CreateSessionCommand,
-  CreateSessionCommandInput,
-  CreateSessionCommandOutput,
 } from "./commands/CreateSessionCommand";
 import {
+  type DeleteAgentMemoryCommandInput,
+  type DeleteAgentMemoryCommandOutput,
   DeleteAgentMemoryCommand,
-  DeleteAgentMemoryCommandInput,
-  DeleteAgentMemoryCommandOutput,
 } from "./commands/DeleteAgentMemoryCommand";
 import {
+  type DeleteSessionCommandInput,
+  type DeleteSessionCommandOutput,
   DeleteSessionCommand,
-  DeleteSessionCommandInput,
-  DeleteSessionCommandOutput,
 } from "./commands/DeleteSessionCommand";
-import { EndSessionCommand, EndSessionCommandInput, EndSessionCommandOutput } from "./commands/EndSessionCommand";
 import {
+  type EndSessionCommandInput,
+  type EndSessionCommandOutput,
+  EndSessionCommand,
+} from "./commands/EndSessionCommand";
+import {
+  type GenerateQueryCommandInput,
+  type GenerateQueryCommandOutput,
   GenerateQueryCommand,
-  GenerateQueryCommandInput,
-  GenerateQueryCommandOutput,
 } from "./commands/GenerateQueryCommand";
 import {
+  type GetAgentMemoryCommandInput,
+  type GetAgentMemoryCommandOutput,
   GetAgentMemoryCommand,
-  GetAgentMemoryCommandInput,
-  GetAgentMemoryCommandOutput,
 } from "./commands/GetAgentMemoryCommand";
 import {
+  type GetExecutionFlowSnapshotCommandInput,
+  type GetExecutionFlowSnapshotCommandOutput,
   GetExecutionFlowSnapshotCommand,
-  GetExecutionFlowSnapshotCommandInput,
-  GetExecutionFlowSnapshotCommandOutput,
 } from "./commands/GetExecutionFlowSnapshotCommand";
 import {
+  type GetFlowExecutionCommandInput,
+  type GetFlowExecutionCommandOutput,
   GetFlowExecutionCommand,
-  GetFlowExecutionCommandInput,
-  GetFlowExecutionCommandOutput,
 } from "./commands/GetFlowExecutionCommand";
 import {
+  type GetInvocationStepCommandInput,
+  type GetInvocationStepCommandOutput,
   GetInvocationStepCommand,
-  GetInvocationStepCommandInput,
-  GetInvocationStepCommandOutput,
 } from "./commands/GetInvocationStepCommand";
-import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
-import { InvokeAgentCommand, InvokeAgentCommandInput, InvokeAgentCommandOutput } from "./commands/InvokeAgentCommand";
-import { InvokeFlowCommand, InvokeFlowCommandInput, InvokeFlowCommandOutput } from "./commands/InvokeFlowCommand";
 import {
+  type GetSessionCommandInput,
+  type GetSessionCommandOutput,
+  GetSessionCommand,
+} from "./commands/GetSessionCommand";
+import {
+  type InvokeAgentCommandInput,
+  type InvokeAgentCommandOutput,
+  InvokeAgentCommand,
+} from "./commands/InvokeAgentCommand";
+import {
+  type InvokeFlowCommandInput,
+  type InvokeFlowCommandOutput,
+  InvokeFlowCommand,
+} from "./commands/InvokeFlowCommand";
+import {
+  type InvokeInlineAgentCommandInput,
+  type InvokeInlineAgentCommandOutput,
   InvokeInlineAgentCommand,
-  InvokeInlineAgentCommandInput,
-  InvokeInlineAgentCommandOutput,
 } from "./commands/InvokeInlineAgentCommand";
 import {
+  type ListFlowExecutionEventsCommandInput,
+  type ListFlowExecutionEventsCommandOutput,
   ListFlowExecutionEventsCommand,
-  ListFlowExecutionEventsCommandInput,
-  ListFlowExecutionEventsCommandOutput,
 } from "./commands/ListFlowExecutionEventsCommand";
 import {
+  type ListFlowExecutionsCommandInput,
+  type ListFlowExecutionsCommandOutput,
   ListFlowExecutionsCommand,
-  ListFlowExecutionsCommandInput,
-  ListFlowExecutionsCommandOutput,
 } from "./commands/ListFlowExecutionsCommand";
 import {
+  type ListInvocationsCommandInput,
+  type ListInvocationsCommandOutput,
   ListInvocationsCommand,
-  ListInvocationsCommandInput,
-  ListInvocationsCommandOutput,
 } from "./commands/ListInvocationsCommand";
 import {
+  type ListInvocationStepsCommandInput,
+  type ListInvocationStepsCommandOutput,
   ListInvocationStepsCommand,
-  ListInvocationStepsCommandInput,
-  ListInvocationStepsCommandOutput,
 } from "./commands/ListInvocationStepsCommand";
 import {
+  type ListSessionsCommandInput,
+  type ListSessionsCommandOutput,
   ListSessionsCommand,
-  ListSessionsCommandInput,
-  ListSessionsCommandOutput,
 } from "./commands/ListSessionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type OptimizePromptCommandInput,
+  type OptimizePromptCommandOutput,
   OptimizePromptCommand,
-  OptimizePromptCommandInput,
-  OptimizePromptCommandOutput,
 } from "./commands/OptimizePromptCommand";
 import {
+  type PutInvocationStepCommandInput,
+  type PutInvocationStepCommandOutput,
   PutInvocationStepCommand,
-  PutInvocationStepCommandInput,
-  PutInvocationStepCommandOutput,
 } from "./commands/PutInvocationStepCommand";
-import { RerankCommand, RerankCommandInput, RerankCommandOutput } from "./commands/RerankCommand";
+import { type RerankCommandInput, type RerankCommandOutput, RerankCommand } from "./commands/RerankCommand";
 import {
+  type RetrieveAndGenerateCommandInput,
+  type RetrieveAndGenerateCommandOutput,
   RetrieveAndGenerateCommand,
-  RetrieveAndGenerateCommandInput,
-  RetrieveAndGenerateCommandOutput,
 } from "./commands/RetrieveAndGenerateCommand";
 import {
+  type RetrieveAndGenerateStreamCommandInput,
+  type RetrieveAndGenerateStreamCommandOutput,
   RetrieveAndGenerateStreamCommand,
-  RetrieveAndGenerateStreamCommandInput,
-  RetrieveAndGenerateStreamCommandOutput,
 } from "./commands/RetrieveAndGenerateStreamCommand";
-import { RetrieveCommand, RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
+import { type RetrieveCommandInput, type RetrieveCommandOutput, RetrieveCommand } from "./commands/RetrieveCommand";
 import {
+  type StartFlowExecutionCommandInput,
+  type StartFlowExecutionCommandOutput,
   StartFlowExecutionCommand,
-  StartFlowExecutionCommandInput,
-  StartFlowExecutionCommandOutput,
 } from "./commands/StartFlowExecutionCommand";
 import {
+  type StopFlowExecutionCommandInput,
+  type StopFlowExecutionCommandOutput,
   StopFlowExecutionCommand,
-  StopFlowExecutionCommandInput,
-  StopFlowExecutionCommandOutput,
 } from "./commands/StopFlowExecutionCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateSessionCommandInput,
+  type UpdateSessionCommandOutput,
   UpdateSessionCommand,
-  UpdateSessionCommandInput,
-  UpdateSessionCommandOutput,
 } from "./commands/UpdateSessionCommand";
 import { paginateGetAgentMemory } from "./pagination/GetAgentMemoryPaginator";
 import { paginateListFlowExecutionEvents } from "./pagination/ListFlowExecutionEventsPaginator";

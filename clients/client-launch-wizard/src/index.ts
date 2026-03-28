@@ -7,7 +7,7 @@
  */
 export * from "./LaunchWizardClient";
 export * from "./LaunchWizard";
-export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { LaunchWizardExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
