@@ -1,11 +1,11 @@
-import { setFeature } from "@aws-sdk/core";
+import { setFeature } from "@aws-sdk/core/client";
 import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import type { PreviouslyResolved } from "./configuration";
-import { DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
+import { RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
 import { flexibleChecksumsInputMiddleware } from "./flexibleChecksumsInputMiddleware";
 
-vi.mock("@aws-sdk/core");
+vi.mock("@aws-sdk/core/client");
 
 describe(flexibleChecksumsInputMiddleware.name, () => {
   const mockNext = vi.fn();

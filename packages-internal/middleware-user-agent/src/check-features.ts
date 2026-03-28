@@ -1,5 +1,5 @@
-import { setFeature } from "@aws-sdk/core";
 import type { AccountIdEndpointMode } from "@aws-sdk/core/account-id-endpoint";
+import { setFeature } from "@aws-sdk/core/client";
 import type {
   AttributedAwsCredentialIdentity,
   AwsHandlerExecutionContext,

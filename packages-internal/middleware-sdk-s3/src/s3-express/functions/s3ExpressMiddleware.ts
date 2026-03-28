@@ -1,4 +1,4 @@
-import { setFeature } from "@aws-sdk/core";
+import { setFeature } from "@aws-sdk/core/client";
 import type { AwsCredentialIdentity } from "@aws-sdk/types";
 import { HttpRequest } from "@smithy/protocol-http";
 import type {

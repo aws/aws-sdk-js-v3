@@ -1,4 +1,4 @@
-import { setFeature } from "@aws-sdk/core";
+import { setFeature } from "@aws-sdk/core/client";
 import type {
   HandlerExecutionContext,
   MetadataBearer,
