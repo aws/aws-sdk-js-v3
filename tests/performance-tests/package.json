@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "dependencies": {
+    "esbuild": "*",
+    "vite": "*",
+    "webpack": "*",
+    "ts-loader": "*",
+    "prettier": "*"
+  }
+}
