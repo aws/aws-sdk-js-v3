@@ -36,12 +36,12 @@ function getChangedClients(sinceCommit) {
 
   const clientNames = new Set();
   // Matches client package names in commit message of format "client-" like "client-s3".
-  const regex = /client-[a-z0-9-]+/g;
+  const regex = /^\w+\((client-\w+)\):/;
   for (const message of diffOutput.split("\n")) {
     const scope = message.split(":")[0];
     const match = scope.match(regex);
     if (match) {
-      clientNames.add(match[0]);
+      clientNames.add(match[1]);
     }
   }
   return [...clientNames];
@@ -60,7 +60,8 @@ for (const clientName of changedClients) {
       cwd: rootDir,
       stdio: "inherit",
     });
-  } catch {
+  } catch (e) {
+    console.error(`Failed to generate tarball for ${clientName}`, e);
     failed.push(clientName);
   }
 }
