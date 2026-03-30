@@ -25,25 +25,33 @@ if (!commitHash) {
 }
 
 function getChangedClients(sinceCommit) {
-  const diffOutput = execSync(`git diff --name-only ${sinceCommit}..HEAD`, {
+  const diffOutput = execSync(`git log ${sinceCommit}..HEAD --format=%s`, {
     cwd: rootDir,
     encoding: "utf-8",
   }).trim();
 
-  if (!diffOutput) return [];
+  if (!diffOutput) {
+    return [];
+  }
 
   const clientNames = new Set();
-  for (const file of diffOutput.split("\n")) {
-    const match = file.match(/^clients\/(client-[^/]+)\//);
-    if (match) clientNames.add(match[1]);
+  // Matches client package names in commit message of format "client-" like "client-s3".
+  const regex = /client-[a-z0-9-]+/g;
+  for (const message of diffOutput.split("\n")) {
+    const scope = message.split(":")[0];
+    const match = scope.match(regex);
+    if (match) {
+      clientNames.add(match[0]);
+    }
   }
   return [...clientNames];
 }
 
 const changedClients = getChangedClients(commitHash).filter((name) => existsSync(join(rootDir, "clients", name)));
 
-if (changedClients.length === 0) process.exit(0);
-
+if (changedClients.length === 0) {
+  process.exit(0);
+}
 const failed = [];
 
 for (const clientName of changedClients) {
@@ -57,4 +65,6 @@ for (const clientName of changedClients) {
   }
 }
 
-if (failed.length > 0) process.exit(1);
+if (failed.length > 0) {
+  process.exit(1);
+}
