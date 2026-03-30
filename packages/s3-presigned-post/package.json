@@ -28,7 +28,7 @@
     "@aws-sdk/client-s3": "workspace:3.1019.0",
     "@aws-sdk/types": "workspace:^3.973.6",
     "@aws-sdk/util-format-url": "workspace:^3.972.8",
-    "@smithy/middleware-endpoint": "^4.4.27",
+    "@smithy/middleware-endpoint": "^4.4.28",
     "@smithy/signature-v4": "^5.3.12",
     "@smithy/types": "^4.13.1",
     "@smithy/util-hex-encoding": "^4.2.2",

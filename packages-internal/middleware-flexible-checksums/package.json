@@ -45,12 +45,12 @@
     "@smithy/protocol-http": "^5.3.12",
     "@smithy/types": "^4.13.1",
     "@smithy/util-middleware": "^4.2.12",
-    "@smithy/util-stream": "^4.5.20",
+    "@smithy/util-stream": "^4.5.21",
     "@smithy/util-utf8": "^4.2.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/node-http-handler": "^4.5.0",
+    "@smithy/node-http-handler": "^4.5.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "premove": "4.0.0",
