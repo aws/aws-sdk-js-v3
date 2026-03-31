@@ -11,9 +11,7 @@ const runTestCases = (testCases: any[], ruleSetObject: any) => {
   for (const testCase of testCases) {
     const { documentation, params = {} } = testCase;
     it(documentation, () => {
-      const _expect = testCase.expect;
-
-      const { endpoint, error } = _expect;
+      const { endpoint, error } = testCase.expect;
 
       if (endpoint) {
         const result = resolveEndpoint(ruleSetObject, { endpointParams: params });
