@@ -17,6 +17,7 @@ function byteSize(num) {
  * @param {string} sdkVersion
  */
 export async function generateBundleSizeReport(appResults, sdkVersion) {
+  if (!fs.existsSync(path.dirname(REPORT_PATH))) return;
   const rows = appResults.map(({ app, stats }) => {
     const byBundler = Object.fromEntries(stats.map(({ bundler, bytes }) => [bundler, bytes]));
     return `|${app}|${sdkVersion}|${byteSize(byBundler.webpack)}|${byteSize(byBundler.rollup)}|${byteSize(byBundler.esbuild)}|`;
