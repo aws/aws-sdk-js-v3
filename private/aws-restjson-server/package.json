@@ -31,7 +31,7 @@
     "@smithy/hash-node": "^4.2.12",
     "@smithy/invalid-dependency": "^4.2.12",
     "@smithy/middleware-content-length": "^4.2.12",
-    "@smithy/middleware-retry": "^4.4.45",
+    "@smithy/middleware-retry": "^4.4.46",
     "@smithy/middleware-serde": "^4.2.16",
     "@smithy/middleware-stack": "^4.2.12",
     "@smithy/node-http-handler": "^4.5.1",
