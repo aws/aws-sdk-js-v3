@@ -10,7 +10,7 @@ import { EndpointError } from "./types";
 const runTestCases = (testCases: any[], ruleSetObject: any) => {
   for (const testCase of testCases) {
     const { documentation, params = {} } = testCase;
-    (testCase.skip ? it.skip : it)(documentation, () => {
+    it(documentation, () => {
       const _expect = testCase.expect;
 
       const { endpoint, error } = _expect;
