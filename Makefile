@@ -65,7 +65,7 @@ test-integration: bundles
 	make test-endpoints
 
 test-endpoints:
-	npx jest -c ./tests/endpoints-2.0/jest.config.js --bail --verbose false
+	npx vitest run -c ./tests/endpoints-2.0/vitest.config.mts --bail 1
 
 # run all e2e tests (real services).
 test-e2e: bundles
