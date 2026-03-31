@@ -3,6 +3,7 @@ import { EndpointV2, RelativeMiddlewareOptions } from "@smithy/types";
 import { EndpointParams, resolveEndpoint } from "@smithy/util-endpoints";
 import { existsSync, readdirSync } from "fs";
 import { join } from "path";
+import { describe, expect, it } from "vitest";
 
 import { EndpointExpectation, ServiceModel, ServiceNamespace } from "./integration-test-types";
 import { HttpRequest } from "@smithy/protocol-http";
