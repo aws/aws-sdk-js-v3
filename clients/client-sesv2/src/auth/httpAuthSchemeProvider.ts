@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import {
-  AwsSdkSigV4AAuthInputConfig,
-  AwsSdkSigV4AAuthResolvedConfig,
-  AwsSdkSigV4APreviouslyResolved,
-  AwsSdkSigV4AuthInputConfig,
-  AwsSdkSigV4AuthResolvedConfig,
-  AwsSdkSigV4PreviouslyResolved,
+  type AwsSdkSigV4AAuthInputConfig,
+  type AwsSdkSigV4AAuthResolvedConfig,
+  type AwsSdkSigV4APreviouslyResolved,
+  type AwsSdkSigV4AuthInputConfig,
+  type AwsSdkSigV4AuthResolvedConfig,
+  type AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4AConfig,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
@@ -25,9 +25,9 @@ import type {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { EndpointParameters } from "../endpoint/EndpointParameters";
+import type { EndpointParameters } from "../endpoint/EndpointParameters";
 import { defaultEndpointResolver } from "../endpoint/endpointResolver";
-import { SESv2ClientConfig, SESv2ClientResolvedConfig } from "../SESv2Client";
+import { type SESv2ClientResolvedConfig, SESv2ClientConfig } from "../SESv2Client";
 
 /**
  * @internal

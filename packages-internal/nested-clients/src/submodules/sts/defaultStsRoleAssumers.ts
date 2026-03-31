@@ -10,7 +10,7 @@ import type { AssumeRoleCommandInput } from "./commands/AssumeRoleCommand";
 import { AssumeRoleCommand } from "./commands/AssumeRoleCommand";
 import type { AssumeRoleWithWebIdentityCommandInput } from "./commands/AssumeRoleWithWebIdentityCommand";
 import { AssumeRoleWithWebIdentityCommand } from "./commands/AssumeRoleWithWebIdentityCommand";
-import type { STSClient, STSClientConfig, STSClientResolvedConfig } from "./STSClient";
+import type { STSClient, STSClientConfig } from "./STSClient";
 
 /**
  * @public
@@ -216,31 +216,6 @@ export const getDefaultRoleAssumerWithWebIdentity = (
     return credentials;
   };
 };
-
-/**
- * @internal
- */
-export type DefaultCredentialProvider = (input: any) => Provider<AwsCredentialIdentity>;
-
-/**
- * The default credential providers depend STS client to assume role with desired API: sts:assumeRole,
- * sts:assumeRoleWithWebIdentity, etc. This function decorates the default credential provider with role assumers which
- * encapsulates the process of calling STS commands. This can only be imported by AWS client packages to avoid circular
- * dependencies.
- *
- * @internal
- */
-export const decorateDefaultCredentialProvider =
-  (provider: DefaultCredentialProvider): DefaultCredentialProvider =>
-  (input: STSClientResolvedConfig) =>
-    provider({
-      roleAssumer: getDefaultRoleAssumer(input, input.stsClientCtor as new (options: STSClientConfig) => STSClient),
-      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(
-        input,
-        input.stsClientCtor as new (options: STSClientConfig) => STSClient
-      ),
-      ...input,
-    });
 
 const isH2 = (requestHandler: any): boolean => {
   return requestHandler?.metadata?.handlerProtocol === "h2";

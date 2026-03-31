@@ -197,41 +197,6 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
                        """)
                 .popState();
         });
-
-        codegenContext.writerDelegator().useFileWriter(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_PATH, w -> {
-            ServiceShape service = codegenContext.settings().getService(codegenContext.model());
-            Symbol serviceSymbol = codegenContext.symbolProvider().toSymbol(service);
-            w.addRelativeImport(
-                serviceSymbol.getName(),
-                null,
-                Paths.get(".", serviceSymbol.getNamespace())
-            );
-            w.addRelativeImport(
-                serviceSymbol.getName() + "Config",
-                null,
-                Paths.get(".", serviceSymbol.getNamespace())
-            );
-            w.write("export interface StsAuthInputConfig {}\n");
-            w.openBlock(
-                "export interface StsAuthResolvedConfig {",
-                "}\n",
-                () -> w
-                    .writeDocs("""
-                               Reference to STSClient class constructor.
-                               @internal""")
-                    .addTypeImport("Client", null, TypeScriptDependency.SMITHY_TYPES)
-                    .write("stsClientCtor: new (clientConfig: any) => Client<any, any, any>;")
-            );
-            w.openBlock("""
-                        export const resolveStsAuthConfig = <T>(
-                          input: T & StsAuthInputConfig
-                        ): T & StsAuthResolvedConfig => Object.assign(input, {
-                        """, "});", () -> {
-                w.write("""
-                        stsClientCtor: STSClient,
-                        """);
-            });
-        });
     }
 
     @Override
@@ -252,28 +217,6 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
                         .write("""
                                async (idProps) => await \
                                credentialDefaultProvider(idProps?.__config || {})()""")
-                )
-                .addResolveConfigFunction(
-                    ResolveConfigFunction.builder()
-                        .resolveConfigFunction(
-                            Symbol.builder()
-                                .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
-                                .name("resolveStsAuthConfig")
-                                .build()
-                        )
-                        .inputConfig(
-                            Symbol.builder()
-                                .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
-                                .name("StsAuthInputConfig")
-                                .build()
-                        )
-                        .resolvedConfig(
-                            Symbol.builder()
-                                .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
-                                .name("StsAuthResolvedConfig")
-                                .build()
-                        )
-                        .build()
                 )
                 .build();
             supportedHttpAuthSchemesIndex.putHttpAuthScheme(authScheme.getSchemeId(), authScheme);

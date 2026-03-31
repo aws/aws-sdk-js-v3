@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import {
-  AwsSdkSigV4AuthInputConfig,
-  AwsSdkSigV4AuthResolvedConfig,
-  AwsSdkSigV4PreviouslyResolved,
+  type AwsSdkSigV4AuthInputConfig,
+  type AwsSdkSigV4AuthResolvedConfig,
+  type AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
 import type { FromSsoInit } from "@aws-sdk/token-providers";

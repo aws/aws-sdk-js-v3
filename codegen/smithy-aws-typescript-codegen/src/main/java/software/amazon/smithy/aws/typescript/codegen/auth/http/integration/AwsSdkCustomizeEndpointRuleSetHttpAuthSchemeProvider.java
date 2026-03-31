@@ -178,7 +178,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                             }
                         }
                     );
-                    w.addImport("EndpointParameters", null, EndpointsV2Generator.ENDPOINT_PARAMETERS_DEPENDENCY);
+                    w.addTypeImport("EndpointParameters", null, EndpointsV2Generator.ENDPOINT_PARAMETERS_DEPENDENCY);
                     w.writeDocs("@internal");
                     w.openBlock(
                         """
@@ -228,8 +228,11 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                         );
                     Map<String, HttpAuthSchemeParameter> httpAuthSchemeParameters =
                         AuthUtils.collectHttpAuthSchemeParameters(effectiveHttpAuthSchemes.values());
-                    Symbol serviceSymbol = s.getSymbolProvider().toSymbol(s.getService());
-                    w.addRelativeImport(
+                    Symbol serviceSymbol = s.getSymbolProvider().toSymbol(s.getService())
+                        .toBuilder()
+                        .putProperty("typeOnly", true)
+                        .build();
+                    w.addRelativeTypeImport(
                         serviceSymbol.getName() + "ResolvedConfig",
                         null,
                         Paths.get(".", serviceSymbol.getNamespace())

@@ -1,10 +1,10 @@
 // smithy-typescript generated code
-import type {
-  AwsSdkSigV4AuthInputConfig,
-  AwsSdkSigV4AuthResolvedConfig,
-  AwsSdkSigV4PreviouslyResolved,
+import {
+  type AwsSdkSigV4AuthInputConfig,
+  type AwsSdkSigV4AuthResolvedConfig,
+  type AwsSdkSigV4PreviouslyResolved,
+  resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
-import { resolveAwsSdkSigV4Config } from "@aws-sdk/core/httpAuthSchemes";
 import type {
   HandlerExecutionContext,
   HttpAuthOption,

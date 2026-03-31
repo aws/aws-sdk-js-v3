@@ -3,12 +3,7 @@
 // https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultRoleAssumers.ts
 import type { Pluggable } from "@smithy/types";
 
-import type {
-  DefaultCredentialProvider,
-  RoleAssumer,
-  RoleAssumerWithWebIdentity,
-  STSRoleAssumerOptions,
-} from "./defaultStsRoleAssumers";
+import type { RoleAssumer, RoleAssumerWithWebIdentity, STSRoleAssumerOptions } from "./defaultStsRoleAssumers";
 import {
   getDefaultRoleAssumer as StsGetDefaultRoleAssumer,
   getDefaultRoleAssumerWithWebIdentity as StsGetDefaultRoleAssumerWithWebIdentity,
@@ -48,23 +43,3 @@ export const getDefaultRoleAssumerWithWebIdentity = (
   stsPlugins?: Pluggable<ServiceInputTypes, ServiceOutputTypes>[]
 ): RoleAssumerWithWebIdentity =>
   StsGetDefaultRoleAssumerWithWebIdentity(stsOptions, getCustomizableStsClientCtor(STSClient, stsPlugins));
-
-/**
- * The default credential providers depend STS client to assume role with desired API: sts:assumeRole,
- * sts:assumeRoleWithWebIdentity, etc. This function decorates the default credential provider with role assumers which
- * encapsulates the process of calling STS commands. This can only be imported by AWS client packages to avoid circular
- * dependencies.
- *
- * @internal
- *
- * @deprecated this is no longer needed. Use the defaultProvider directly,
- * which will load STS if needed.
- */
-export const decorateDefaultCredentialProvider =
-  (provider: DefaultCredentialProvider): DefaultCredentialProvider =>
-  (input: any) =>
-    provider({
-      roleAssumer: getDefaultRoleAssumer(input),
-      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input),
-      ...input,
-    });
