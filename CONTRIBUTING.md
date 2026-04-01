@@ -277,7 +277,7 @@ the following rules:
   tools, and reviewed by <person>"
 - Please ensure that your submissions are actually improvements. While we are
   grateful for any proposed fixes, even if they are very small, behavior that
-  looks like creating nuisance PRs or artificially inflating submission counts
+  looks like creating noisy PRs or artificially inflating submission counts
   is not acceptable.
 - We may close issues or pull requests, or limit your ability to interact with
   this repository, for behavior that in our estimation violates these rules or
