@@ -43,7 +43,7 @@ const packageJson = {
   name: "canary-aws-sdk-js-v3",
   private: true,
   scripts: {
-    canary: "vitest run --retry=4 --test-timeout=60000",
+    canary: "vitest run --retry=4 --test-timeout=60000 --hook-timeout=60000",
   },
   devDependencies: {
     ...Object.fromEntries([...dependencies].sort().map((dep) => [dep, "latest"])),

@@ -69,7 +69,7 @@ test-endpoints:
 
 # run all e2e tests (real services).
 test-e2e: bundles
-	yarn g:vitest run -c vitest.config.e2e.mts --retry=4 --test-timeout=60000
+	yarn g:vitest run -c vitest.config.e2e.mts --retry=4 --test-timeout=60000 --hook-timeout=60000
 	make test-browser-cross-platform
 	make test-bundlers
 	make test-canary
@@ -79,7 +79,7 @@ test-x: test-browser-cross-platform
 # e2e tests run in browser, but using tests that also run in Node.js
 test-browser-cross-platform:
 	node ./scripts/browser-testing/writeTestCredentials.mjs
-	yarn g:vitest run -c vitest.config.cross-platform.e2e.mts --retry=4 --test-timeout=60000; \
+	yarn g:vitest run -c vitest.config.cross-platform.e2e.mts --retry=4 --test-timeout=60000 --hook-timeout=60000; \
 		EXIT_CODE=$$?; \
 		make reset-test-credentials; \
 		exit $$EXIT_CODE;
