@@ -62,7 +62,7 @@ function measurePerformance(
   ruleSet: RuleSetObject,
   params: EndpointParams,
   iterations: number
-): { avgNs: number; stdDevNs: number } {
+): { avgNs: number; p50Ns: number; p90Ns: number; stdDevNs: number } {
   const times: number[] = [];
 
   for (let i = 0; i < iterations; i++) {
@@ -72,11 +72,14 @@ function measurePerformance(
     times.push((end - start) * 1_000_000);
   }
 
+  const sorted = [...times].sort((a, b) => a - b);
   const avg = times.reduce((sum, t) => sum + t, 0) / times.length;
+  const p50 = sorted[Math.floor(sorted.length * 0.5)];
+  const p90 = sorted[Math.floor(sorted.length * 0.9)];
   const variance = times.reduce((sum, t) => sum + (t - avg) ** 2, 0) / times.length;
   const stdDev = Math.sqrt(variance);
 
-  return { avgNs: avg, stdDevNs: stdDev };
+  return { avgNs: avg, p50Ns: p50, p90Ns: p90, stdDevNs: stdDev };
 }
 
 describe("resolveEndpoint performance", () => {
@@ -101,9 +104,11 @@ describe("resolveEndpoint performance", () => {
       }
 
       // Measure performance
-      const { avgNs, stdDevNs } = measurePerformance(ruleSet, testCase.params, ITERATIONS);
+      const { avgNs, p50Ns, p90Ns, stdDevNs } = measurePerformance(ruleSet, testCase.params, ITERATIONS);
       console.log(
-        `[S3] ${documentation}: avg=${avgNs.toFixed(0)}ns, stdDev=${stdDevNs.toFixed(0)}ns (${ITERATIONS} iterations)`
+        `[S3] ${documentation}: avg=${avgNs.toFixed(0)}ns, p50=${p50Ns.toFixed(0)}ns, p90=${p90Ns.toFixed(
+          0
+        )}ns, stdDev=${stdDevNs.toFixed(0)}ns (${ITERATIONS} iterations)`
       );
 
       // Sanity check: average should be under 50ms per resolution
@@ -129,11 +134,11 @@ describe("resolveEndpoint performance", () => {
       }
 
       // Measure performance
-      const { avgNs, stdDevNs } = measurePerformance(ruleSet, testCase.params, ITERATIONS);
+      const { avgNs, p50Ns, p90Ns, stdDevNs } = measurePerformance(ruleSet, testCase.params, ITERATIONS);
       console.log(
-        `[Lambda] ${documentation}: avg=${avgNs.toFixed(0)}ns, stdDev=${stdDevNs.toFixed(
+        `[Lambda] ${documentation}: avg=${avgNs.toFixed(0)}ns, p50=${p50Ns.toFixed(0)}ns, p90=${p90Ns.toFixed(
           0
-        )}ns (${ITERATIONS} iterations)`
+        )}ns, stdDev=${stdDevNs.toFixed(0)}ns (${ITERATIONS} iterations)`
       );
 
       // Sanity check: average should be under 50ms per resolution
