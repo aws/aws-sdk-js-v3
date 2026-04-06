@@ -29,7 +29,8 @@ describe("S3TransferManager Unit Tests", () => {
       expect(tm.s3ClientInstance).toBeInstanceOf(S3Client);
       expect(tm.targetPartSizeBytes).toBe(8 * 1024 * 1024);
       expect(tm.multipartUploadThresholdBytes).toBe(16 * 1024 * 1024);
-      expect(tm.checksumValidationEnabled).toBe(true);
+      expect(tm.requestChecksumCalculation).toBe("WHEN_SUPPORTED");
+      expect(tm.responseChecksumValidation).toBe("WHEN_SUPPORTED");
       expect(tm.checksumAlgorithm).toBe("CRC32");
       expect(tm.multipartDownloadType).toBe("PART");
       expect(tm.eventListeners).toEqual({
@@ -50,7 +51,8 @@ describe("S3TransferManager Unit Tests", () => {
       const tm = new S3TransferManager({
         s3ClientInstance: client,
         targetPartSizeBytes: 8 * 1024 * 1024,
-        checksumValidationEnabled: true,
+        requestChecksumCalculation: "WHEN_SUPPORTED",
+        responseChecksumValidation: "WHEN_REQUIRED",
         checksumAlgorithm: "CRC32",
         multipartDownloadType: "RANGE",
         eventListeners: eventListeners,
@@ -58,7 +60,8 @@ describe("S3TransferManager Unit Tests", () => {
 
       expect(tm.s3ClientInstance).toBe(client);
       expect(tm.targetPartSizeBytes).toBe(8 * 1024 * 1024);
-      expect(tm.checksumValidationEnabled).toBe(true);
+      expect(tm.requestChecksumCalculation).toBe("WHEN_SUPPORTED");
+      expect(tm.responseChecksumValidation).toBe("WHEN_REQUIRED");
       expect(tm.checksumAlgorithm).toBe("CRC32");
       expect(tm.multipartDownloadType).toBe("RANGE");
       expect(tm.eventListeners).toEqual(eventListeners);
@@ -522,7 +525,7 @@ describe("S3TransferManager Unit Tests", () => {
       expect(results[2][0]).toEqual({ eventType: "transferFailed", callback: objectCallback });
     });
 
-    it("Should handle event lisetners with duplicate callbacks in the same event type", () => {
+    it("Should handle event listeners with duplicate callbacks in the same event type", () => {
       const callback = vi.fn();
 
       const eventListeners = {
@@ -763,7 +766,7 @@ describe("S3TransferManager Unit Tests", () => {
       const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
 
       expect(partSize).toBeGreaterThan(8 * 1024 * 1024);
-      expect(partSize).toBe(Math.floor(contentLength / 10_000));
+      expect(partSize).toBe(Math.ceil(contentLength / 10_000));
       //expectedPartsCount can be 10,001 due to Math.ceil(contentLength / partSize)
       expect(expectedPartsCount).toBeGreaterThanOrEqual(10_000);
       expect(expectedPartsCount).toBeLessThanOrEqual(10_001);
@@ -773,7 +776,7 @@ describe("S3TransferManager Unit Tests", () => {
       const contentLength = 5 * 1024 * 1024 * 1024 * 1024; // 5TB
       const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
 
-      expect(partSize).toBe(Math.floor(contentLength / 10_000));
+      expect(partSize).toBe(Math.ceil(contentLength / 10_000));
       expect(expectedPartsCount).toBe(Math.ceil(contentLength / partSize));
       // Note: expectedPartsCount can be 10,001 due to Math.ceil(contentLength / partSize)
       expect(expectedPartsCount).toBeGreaterThanOrEqual(10_000);

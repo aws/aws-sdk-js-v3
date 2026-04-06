@@ -32,9 +32,15 @@ export interface S3TransferManagerConfig {
    */
   multipartUploadThresholdBytes?: number;
   /**
-   * Option for whether to use checksum validation for download.
+   * Specifies when a checksum will be calculated for request payloads.
+   * Takes precedence over the config on the S3 client.
    */
-  checksumValidationEnabled?: boolean;
+  requestChecksumCalculation?: "WHEN_SUPPORTED" | "WHEN_REQUIRED";
+  /**
+   * Specifies when checksum validation will be performed on response payloads.
+   * Takes precedence over the config on the S3 client.
+   */
+  responseChecksumValidation?: "WHEN_SUPPORTED" | "WHEN_REQUIRED";
   /**
    * Checksum algorithm to use for upload.
    */
@@ -52,6 +58,10 @@ export interface S3TransferManagerConfig {
    * Effective memory limit = maxInMemoryParts * partSize.
    */
   maxInMemoryParts?: number;
+  /**
+   * Maximum number of parts that can be uploaded concurrenlty for multipart upload operations.
+   */
+  maxConcurrentUploads?: number;
 }
 
 /**

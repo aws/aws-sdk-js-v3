@@ -57,23 +57,24 @@ export class S3TransferManager implements IS3TransferManager {
   private readonly s3ClientInstance: S3Client;
   private readonly targetPartSizeBytes: number;
   private readonly multipartUploadThresholdBytes: number;
-  private readonly checksumValidationEnabled: boolean;
+  private readonly requestChecksumCalculation: "WHEN_SUPPORTED" | "WHEN_REQUIRED";
+  private readonly responseChecksumValidation: "WHEN_SUPPORTED" | "WHEN_REQUIRED";
   private readonly checksumAlgorithm: ChecksumAlgorithm;
   private readonly multipartDownloadType: "PART" | "RANGE";
   private readonly eventListeners: TransferEventListeners;
   private readonly abortCleanupFunctions = new WeakMap<AbortSignal, () => void>();
   private readonly maxConcurrentRequests: number;
+  private readonly maxConcurrentUploads: number;
 
   public constructor(config: S3TransferManagerConfig = {}) {
-    this.checksumValidationEnabled = config.checksumValidationEnabled ?? true;
-
-    const checksumMode = this.checksumValidationEnabled ? "WHEN_SUPPORTED" : "WHEN_REQUIRED";
+    this.requestChecksumCalculation = config.requestChecksumCalculation ?? "WHEN_SUPPORTED";
+    this.responseChecksumValidation = config.responseChecksumValidation ?? "WHEN_SUPPORTED";
 
     this.s3ClientInstance =
       config.s3ClientInstance ??
       new S3Client({
-        requestChecksumCalculation: checksumMode,
-        responseChecksumValidation: checksumMode,
+        requestChecksumCalculation: this.requestChecksumCalculation,
+        responseChecksumValidation: this.responseChecksumValidation,
       });
 
     this.targetPartSizeBytes = config.targetPartSizeBytes ?? S3TransferManager.DEFAULT_PART_SIZE;
@@ -82,6 +83,7 @@ export class S3TransferManager implements IS3TransferManager {
     this.checksumAlgorithm = config.checksumAlgorithm ?? "CRC32";
     this.multipartDownloadType = config.multipartDownloadType ?? "PART";
     this.maxConcurrentRequests = config.maxInMemoryParts ?? 8;
+    this.maxConcurrentUploads = config.maxConcurrentUploads ?? 4;
     this.eventListeners = {
       transferInitiated: config.eventListeners?.transferInitiated ?? [],
       bytesTransferred: config.eventListeners?.bytesTransferred ?? [],
@@ -337,9 +339,8 @@ export class S3TransferManager implements IS3TransferManager {
     this.checkAborted(transferOptions);
     this.addEventListeners(transferOptions?.eventListeners);
 
-    const responseChecksumValidation = await this.s3ClientInstance.config.responseChecksumValidation?.();
     const checksumValidationEnabled =
-      request.ChecksumMode === "ENABLED" || responseChecksumValidation === "WHEN_SUPPORTED";
+      request.ChecksumMode === "ENABLED" || this.responseChecksumValidation === "WHEN_SUPPORTED";
 
     let onStreamConsumed: ((index: number) => void) | undefined;
 
@@ -841,13 +842,13 @@ export class S3TransferManager implements IS3TransferManager {
   }
 
   /**
-   * Throws AbortError if transfer has been aborted via signal.
+   * Throws AbortError if the transfer has been aborted via signal.
    *
    * @internal
    */
   private checkAborted(transferOptions?: TransferOptions): void {
     if (transferOptions?.abortSignal?.aborted) {
-      throw Object.assign(new Error("Download aborted."), { name: "AbortError" });
+      throw Object.assign(new Error("Transfer aborted."), { name: "AbortError" });
     }
   }
 
@@ -1067,10 +1068,8 @@ export class S3TransferManager implements IS3TransferManager {
     contentLength: number,
     transferOptions?: TransferOptions
   ): Promise<PutObjectCommandOutput> {
-    const requestChecksumCalculation = await this.s3ClientInstance.config?.requestChecksumCalculation?.();
-
     const putObjectRequest = { ...request };
-    if (requestChecksumCalculation === "WHEN_SUPPORTED") {
+    if (this.requestChecksumCalculation === "WHEN_SUPPORTED") {
       putObjectRequest.ChecksumAlgorithm = this.checksumAlgorithm;
     }
 
@@ -1104,7 +1103,6 @@ export class S3TransferManager implements IS3TransferManager {
     const { partSize, expectedPartsCount } = this.calculatePartSize(contentLength);
 
     this.checkAborted(transferOptions);
-    const requestChecksumCalculation = await this.s3ClientInstance.config?.requestChecksumCalculation?.();
 
     const createMpuRequest: CreateMultipartUploadCommandInput = { ...request };
 
@@ -1114,7 +1112,7 @@ export class S3TransferManager implements IS3TransferManager {
     if (hasFullObjectChecksum) {
       createMpuRequest.ChecksumType = "FULL_OBJECT";
       createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm ?? this.checksumAlgorithm;
-    } else if (requestChecksumCalculation === "WHEN_SUPPORTED") {
+    } else if (this.requestChecksumCalculation === "WHEN_SUPPORTED") {
       createMpuRequest.ChecksumAlgorithm = this.checksumAlgorithm;
     }
 
@@ -1131,7 +1129,7 @@ export class S3TransferManager implements IS3TransferManager {
       const completedParts: CompletedPart[] = [];
       const dataFeeder = getChunk(request.Body, partSize);
       let bytesUploaded = 0;
-      const queueSize = 4;
+      const queueSize = this.maxConcurrentUploads;
 
       const uploadPart = async (dataFeeder: AsyncGenerator<any, void, undefined>) => {
         for await (const dataPart of dataFeeder) {
@@ -1147,7 +1145,10 @@ export class S3TransferManager implements IS3TransferManager {
             Body: dataPart.data,
             UploadId: uploadId,
             PartNumber: dataPart.partNumber,
-            ContentLength: undefined,
+            ContentLength: byteLength(dataPart.data),
+            ...(this.requestChecksumCalculation === "WHEN_SUPPORTED" && {
+              ChecksumAlgorithm: this.checksumAlgorithm,
+            }),
           };
 
           const partResponse = await this.s3ClientInstance.send(new UploadPartCommand(partRequest), transferOptions);
@@ -1268,7 +1269,7 @@ export class S3TransferManager implements IS3TransferManager {
    * @internal
    */
   private calculatePartSize(contentLength: number): { partSize: number; expectedPartsCount: number } {
-    const partSize = Math.max(this.targetPartSizeBytes, Math.floor(contentLength / 10_000));
+    const partSize = Math.max(this.targetPartSizeBytes, Math.ceil(contentLength / 10_000));
     const expectedPartsCount = Math.ceil(contentLength / partSize);
     return { partSize, expectedPartsCount };
   }
