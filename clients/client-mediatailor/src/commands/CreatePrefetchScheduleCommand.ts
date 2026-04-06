@@ -93,6 +93,7 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  *   },
  *   ScheduleType: "SINGLE" || "RECURRING",
  *   StreamId: "STRING_VALUE",
+ *   Tags: "<__mapOf__string>",
  * };
  * const command = new CreatePrefetchScheduleCommand(input);
  * const response = await client.send(command);
@@ -154,6 +155,7 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  * //   },
  * //   ScheduleType: "SINGLE" || "RECURRING",
  * //   StreamId: "STRING_VALUE",
+ * //   Tags: "<__mapOf__string>",
  * // };
  *
  * ```

@@ -1461,6 +1461,13 @@
           "traits": {
             "smithy.api#documentation": "<p>An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams that use the same playback configuration. If <code>StreamId</code> is specified, MediaTailor returns all of the prefetch schedules with an exact match on <code>StreamId</code>. If not specified, MediaTailor returns all of the prefetch schedules for the playback configuration, regardless of <code>StreamId</code>.</p>"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediatailor#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to assign to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>",
+            "smithy.api#jsonName": "tags"
+          }
         }
       }
     },
@@ -1513,6 +1520,13 @@
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
             "smithy.api#documentation": "<p>An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams that use the same playback configuration. If <code>StreamId</code> is specified, MediaTailor returns all of the prefetch schedules with an exact match on <code>StreamId</code>. If not specified, MediaTailor returns all of the prefetch schedules for the playback configuration, regardless of <code>StreamId</code>.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediatailor#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to assign to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>",
+            "smithy.api#jsonName": "tags"
           }
         }
       }
@@ -1591,6 +1605,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The list of AudienceMedia defined in program.</p>"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediatailor#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to assign to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>",
+            "smithy.api#jsonName": "tags"
+          }
         }
       }
     },
@@ -1667,6 +1688,13 @@
           "target": "com.amazonaws.mediatailor#__listOfAudienceMedia",
           "traits": {
             "smithy.api#documentation": "<p>The list of AudienceMedia defined in program.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediatailor#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to assign to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>",
+            "smithy.api#jsonName": "tags"
           }
         }
       }
@@ -2621,6 +2649,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The list of AudienceMedia defined in program.</p>"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediatailor#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags assigned to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>",
+            "smithy.api#jsonName": "tags"
+          }
         }
       }
     },
@@ -3207,6 +3242,13 @@
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
             "smithy.api#documentation": "<p>An optional stream identifier that you can specify in order to prefetch for multiple streams that use the same playback configuration.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediatailor#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags assigned to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>",
+            "smithy.api#jsonName": "tags"
           }
         }
       }
@@ -5542,6 +5584,13 @@
           "traits": {
             "smithy.api#documentation": "<p>An optional stream identifier that you can specify in order to prefetch for multiple streams that use the same playback configuration.</p>"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediatailor#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags assigned to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>",
+            "smithy.api#jsonName": "tags"
+          }
         }
       },
       "traits": {
@@ -7257,6 +7306,13 @@
           "target": "com.amazonaws.mediatailor#__listOfAudienceMedia",
           "traits": {
             "smithy.api#documentation": "<p>The list of AudienceMedia defined in program.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediatailor#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags assigned to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>",
+            "smithy.api#jsonName": "tags"
           }
         }
       }

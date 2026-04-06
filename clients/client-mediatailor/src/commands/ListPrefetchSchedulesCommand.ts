@@ -105,6 +105,7 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  * //         },
  * //       },
  * //       StreamId: "STRING_VALUE",
+ * //       Tags: "<__mapOf__string>",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

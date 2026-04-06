@@ -1214,6 +1214,12 @@ export interface PrefetchSchedule {
    * @public
    */
   StreamId?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2089,6 +2095,12 @@ export interface CreateProgramRequest {
    * @public
    */
   AudienceMedia?: AudienceMedia[] | undefined;
+
+  /**
+   * <p>The tags to assign to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2166,6 +2178,12 @@ export interface CreateProgramResponse {
    * @public
    */
   AudienceMedia?: AudienceMedia[] | undefined;
+
+  /**
+   * <p>The tags to assign to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2282,6 +2300,12 @@ export interface DescribeProgramResponse {
    * @public
    */
   AudienceMedia?: AudienceMedia[] | undefined;
+
+  /**
+   * <p>The tags assigned to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2430,6 +2454,12 @@ export interface UpdateProgramResponse {
    * @public
    */
   AudienceMedia?: AudienceMedia[] | undefined;
+
+  /**
+   * <p>The tags assigned to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2768,6 +2798,12 @@ export interface CreatePrefetchScheduleRequest {
    * @public
    */
   StreamId?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2821,6 +2857,12 @@ export interface CreatePrefetchScheduleResponse {
    * @public
    */
   StreamId?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3535,6 +3577,12 @@ export interface GetPrefetchScheduleResponse {
    * @public
    */
   StreamId?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**

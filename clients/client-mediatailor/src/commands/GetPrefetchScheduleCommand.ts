@@ -100,6 +100,7 @@ export interface GetPrefetchScheduleCommandOutput extends GetPrefetchScheduleRes
  * //     },
  * //   },
  * //   StreamId: "STRING_VALUE",
+ * //   Tags: "<__mapOf__string>",
  * // };
  *
  * ```

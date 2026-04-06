@@ -246,6 +246,9 @@ export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __Met
  * //       ],
  * //     },
  * //   ],
+ * //   Tags: { // __mapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

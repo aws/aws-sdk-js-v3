@@ -504,23 +504,23 @@ export var CreateLiveSourceResponse$: StaticStructureSchema = [3, n0, _CLSRr,
 ];
 export var CreatePrefetchScheduleRequest$: StaticStructureSchema = [3, n0, _CPSR,
   0,
-  [_N, _PCN, _Co, _R, _RPC, _ST, _SI],
-  [[0, 1], [0, 1], () => PrefetchConsumption$, () => PrefetchRetrieval$, () => RecurringPrefetchConfiguration$, 0, 0], 2
+  [_N, _PCN, _Co, _R, _RPC, _ST, _SI, _Ta],
+  [[0, 1], [0, 1], () => PrefetchConsumption$, () => PrefetchRetrieval$, () => RecurringPrefetchConfiguration$, 0, 0, [128 | 0, { [_jN]: _t }]], 2
 ];
 export var CreatePrefetchScheduleResponse$: StaticStructureSchema = [3, n0, _CPSRr,
   0,
-  [_Ar, _Co, _N, _PCN, _R, _RPC, _ST, _SI],
-  [0, () => PrefetchConsumption$, 0, 0, () => PrefetchRetrieval$, () => RecurringPrefetchConfiguration$, 0, 0]
+  [_Ar, _Co, _N, _PCN, _R, _RPC, _ST, _SI, _Ta],
+  [0, () => PrefetchConsumption$, 0, 0, () => PrefetchRetrieval$, () => RecurringPrefetchConfiguration$, 0, 0, [128 | 0, { [_jN]: _t }]]
 ];
 export var CreateProgramRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_CN, _PN, _SC, _SLN, _ABd, _LSN, _VSN, _AMu],
-  [[0, 1], [0, 1], () => ScheduleConfiguration$, 0, () => __listOfAdBreak, 0, 0, () => __listOfAudienceMedia], 4
+  [_CN, _PN, _SC, _SLN, _ABd, _LSN, _VSN, _AMu, _Ta],
+  [[0, 1], [0, 1], () => ScheduleConfiguration$, 0, () => __listOfAdBreak, 0, 0, () => __listOfAudienceMedia, [128 | 0, { [_jN]: _t }]], 4
 ];
 export var CreateProgramResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_ABd, _Ar, _CN, _CT, _LSN, _PN, _SST, _SLN, _VSN, _CR, _DM, _AMu],
-  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 7, 0, 0, () => ClipRange$, 1, () => __listOfAudienceMedia]
+  [_ABd, _Ar, _CN, _CT, _LSN, _PN, _SST, _SLN, _VSN, _CR, _DM, _AMu, _Ta],
+  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 7, 0, 0, () => ClipRange$, 1, () => __listOfAudienceMedia, [128 | 0, { [_jN]: _t }]]
 ];
 export var CreateSourceLocationRequest$: StaticStructureSchema = [3, n0, _CSLR,
   0,
@@ -669,8 +669,8 @@ export var DescribeProgramRequest$: StaticStructureSchema = [3, n0, _DPRes,
 ];
 export var DescribeProgramResponse$: StaticStructureSchema = [3, n0, _DPResc,
   0,
-  [_ABd, _Ar, _CN, _CT, _LSN, _PN, _SST, _SLN, _VSN, _CR, _DM, _AMu],
-  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 7, 0, 0, () => ClipRange$, 1, () => __listOfAudienceMedia]
+  [_ABd, _Ar, _CN, _CT, _LSN, _PN, _SST, _SLN, _VSN, _CR, _DM, _AMu, _Ta],
+  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 7, 0, 0, () => ClipRange$, 1, () => __listOfAudienceMedia, [128 | 0, { [_jN]: _t }]]
 ];
 export var DescribeSourceLocationRequest$: StaticStructureSchema = [3, n0, _DSLRes,
   0,
@@ -729,8 +729,8 @@ export var GetPrefetchScheduleRequest$: StaticStructureSchema = [3, n0, _GPSR,
 ];
 export var GetPrefetchScheduleResponse$: StaticStructureSchema = [3, n0, _GPSRe,
   0,
-  [_Ar, _Co, _N, _PCN, _R, _ST, _RPC, _SI],
-  [0, () => PrefetchConsumption$, 0, 0, () => PrefetchRetrieval$, 0, () => RecurringPrefetchConfiguration$, 0]
+  [_Ar, _Co, _N, _PCN, _R, _ST, _RPC, _SI, _Ta],
+  [0, () => PrefetchConsumption$, 0, 0, () => PrefetchRetrieval$, 0, () => RecurringPrefetchConfiguration$, 0, [128 | 0, { [_jN]: _t }]]
 ];
 export var HlsConfiguration$: StaticStructureSchema = [3, n0, _HCl,
   0,
@@ -810,7 +810,7 @@ export var ListPrefetchSchedulesRequest$: StaticStructureSchema = [3, n0, _LPSR,
 export var ListPrefetchSchedulesResponse$: StaticStructureSchema = [3, n0, _LPSRi,
   0,
   [_I, _NT],
-  [() => __listOfPrefetchSchedule, 0]
+  [[() => __listOfPrefetchSchedule, 0], 0]
 ];
 export var ListSourceLocationsRequest$: StaticStructureSchema = [3, n0, _LSLR,
   0,
@@ -889,8 +889,8 @@ export var PrefetchRetrieval$: StaticStructureSchema = [3, n0, _PR,
 ];
 export var PrefetchSchedule$: StaticStructureSchema = [3, n0, _PS,
   0,
-  [_Ar, _N, _PCN, _Co, _R, _ST, _RPC, _SI],
-  [0, 0, 0, () => PrefetchConsumption$, () => PrefetchRetrieval$, 0, () => RecurringPrefetchConfiguration$, 0], 3
+  [_Ar, _N, _PCN, _Co, _R, _ST, _RPC, _SI, _Ta],
+  [0, 0, 0, () => PrefetchConsumption$, () => PrefetchRetrieval$, 0, () => RecurringPrefetchConfiguration$, 0, [128 | 0, { [_jN]: _t }]], 3
 ];
 export var PutChannelPolicyRequest$: StaticStructureSchema = [3, n0, _PCPR,
   0,
@@ -1064,8 +1064,8 @@ export var UpdateProgramRequest$: StaticStructureSchema = [3, n0, _UPR,
 ];
 export var UpdateProgramResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
-  [_ABd, _Ar, _CN, _CT, _PN, _SLN, _VSN, _LSN, _CR, _DM, _SST, _AMu],
-  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 0, 0, () => ClipRange$, 1, 7, () => __listOfAudienceMedia]
+  [_ABd, _Ar, _CN, _CT, _PN, _SLN, _VSN, _LSN, _CR, _DM, _SST, _AMu, _Ta],
+  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 0, 0, () => ClipRange$, 1, 7, () => __listOfAudienceMedia, [128 | 0, { [_jN]: _t }]]
 ];
 export var UpdateProgramScheduleConfiguration$: StaticStructureSchema = [3, n0, _UPSC,
   0,
@@ -1135,7 +1135,8 @@ var __listOfPlaybackConfiguration: StaticListSchema = [1, n0, _lOPC,
     0]
 ];
 var __listOfPrefetchSchedule: StaticListSchema = [1, n0, _lOPS,
-  0, () => PrefetchSchedule$
+  0, [() => PrefetchSchedule$,
+    0]
 ];
 var __listOfScheduleAdBreak: StaticListSchema = [1, n0, _lOSAB,
   0, () => ScheduleAdBreak$

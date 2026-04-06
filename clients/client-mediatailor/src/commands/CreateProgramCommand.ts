@@ -145,6 +145,9 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  *       ],
  *     },
  *   ],
+ *   Tags: { // __mapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateProgramCommand(input);
  * const response = await client.send(command);
@@ -252,6 +255,9 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  * //       ],
  * //     },
  * //   ],
+ * //   Tags: { // __mapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

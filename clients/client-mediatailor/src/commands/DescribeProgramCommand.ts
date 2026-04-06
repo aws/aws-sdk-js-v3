@@ -146,6 +146,9 @@ export interface DescribeProgramCommandOutput extends DescribeProgramResponse, _
  * //       ],
  * //     },
  * //   ],
+ * //   Tags: { // __mapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
