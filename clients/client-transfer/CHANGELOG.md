@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1025.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1024.0...v3.1025.0) (2026-04-06)
+
+
+### Features
+
+* **client-transfer:** AWS Transfer Family Connectors now support IPv6 connectivity, enabling outbound connections to remote SFTP or AS2 servers using IPv4-only or dual-stack (IPv4 and IPv6) configurations based on network requirements. ([51cf6a6](https://github.com/aws/aws-sdk-js-v3/commit/51cf6a624b30aaa76d96aa7447b110ec6ed1240c))
+
+
+
+
+
 # [3.1024.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1023.0...v3.1024.0) (2026-04-03)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1025.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1024.0...v3.1025.0) (2026-04-06)
+
+
+### Features
+
+* **client-accessanalyzer:** Brookie helps customers preview the impact of SCPs before deployment using historical access activity. It evaluates attached policies and proposed policy updates using collected access activity through CloudTrail authorization events and reports where currently allowed access will be denied. ([940df70](https://github.com/aws/aws-sdk-js-v3/commit/940df70360ac51652192675a9f377cac4ba3db4d))
+* **client-deadline:** Added 8 batch APIs (BatchGetJob, BatchGetStep, BatchGetTask, BatchGetSession, BatchGetSessionAction, BatchGetWorker, BatchUpdateJob, BatchUpdateTask) for bulk operations. Monitors can now use an Identity Center instance in a different region via the identityCenterRegion parameter. ([64147e0](https://github.com/aws/aws-sdk-js-v3/commit/64147e0837aeeade6809d40f34c443403a30f58b))
+* **client-dlm:** This release adds support for Fast Snapshot Restore AvailabilityZone Ids in Amazon Data Lifecycle Manager EBS snapshot lifecycle policies. ([18d4b47](https://github.com/aws/aws-sdk-js-v3/commit/18d4b471019f383d44daa7e42cd8feb23dcb5a14))
+* **client-guardduty:** Migrated to Smithy. No functional changes ([0054ddd](https://github.com/aws/aws-sdk-js-v3/commit/0054ddde0e7b5cc663ac42ad7be76811cb2c57e1))
+* **client-lightsail:** This release adds support for the Asia Pacific (Malaysia) (ap-southeast-5) Region. ([6ceeb5d](https://github.com/aws/aws-sdk-js-v3/commit/6ceeb5d63759e180ca54aac1d36aaac4b90addc4))
+* **client-mediatailor:** This change adds support for Tagging the resource types Programs and Prefetch Schedules ([cfa9a0a](https://github.com/aws/aws-sdk-js-v3/commit/cfa9a0a9a29534151741cdcc1a24ead2b36bf665))
+* **client-qconnect:** Added optional originRequestId parameter to SendMessageRequest and ListSpans response in Amazon Q in Connect to support request tracing across service boundaries. ([5b3e0a7](https://github.com/aws/aws-sdk-js-v3/commit/5b3e0a76e4c5cec1d955b98fa6d8f8c70577f574))
+* **client-transfer:** AWS Transfer Family Connectors now support IPv6 connectivity, enabling outbound connections to remote SFTP or AS2 servers using IPv4-only or dual-stack (IPv4 and IPv6) configurations based on network requirements. ([51cf6a6](https://github.com/aws/aws-sdk-js-v3/commit/51cf6a624b30aaa76d96aa7447b110ec6ed1240c))
+* **clients:** update client endpoints as of 2026-04-06 ([a2eb33d](https://github.com/aws/aws-sdk-js-v3/commit/a2eb33dab191fcd690a3b7010b62b3097d44dbda))
+
+
+
+
+
 # [3.1024.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1023.0...v3.1024.0) (2026-04-03)
 
 

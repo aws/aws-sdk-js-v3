@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1025.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1024.0...v3.1025.0) (2026-04-06)
+
+
+### Features
+
+* **client-accessanalyzer:** Brookie helps customers preview the impact of SCPs before deployment using historical access activity. It evaluates attached policies and proposed policy updates using collected access activity through CloudTrail authorization events and reports where currently allowed access will be denied. ([940df70](https://github.com/aws/aws-sdk-js-v3/commit/940df70360ac51652192675a9f377cac4ba3db4d))
+
+
+
+
+
 # [3.1024.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1023.0...v3.1024.0) (2026-04-03)
 
 **Note:** Version bump only for package @aws-sdk/client-accessanalyzer

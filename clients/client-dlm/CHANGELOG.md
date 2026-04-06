@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1025.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1024.0...v3.1025.0) (2026-04-06)
+
+
+### Features
+
+* **client-dlm:** This release adds support for Fast Snapshot Restore AvailabilityZone Ids in Amazon Data Lifecycle Manager EBS snapshot lifecycle policies. ([18d4b47](https://github.com/aws/aws-sdk-js-v3/commit/18d4b471019f383d44daa7e42cd8feb23dcb5a14))
+
+
+
+
+
 # [3.1024.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1023.0...v3.1024.0) (2026-04-03)
 
 **Note:** Version bump only for package @aws-sdk/client-dlm

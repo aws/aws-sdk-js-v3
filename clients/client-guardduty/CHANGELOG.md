@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1025.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1024.0...v3.1025.0) (2026-04-06)
+
+
+### Features
+
+* **client-guardduty:** Migrated to Smithy. No functional changes ([0054ddd](https://github.com/aws/aws-sdk-js-v3/commit/0054ddde0e7b5cc663ac42ad7be76811cb2c57e1))
+
+
+
+
+
 # [3.1024.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1023.0...v3.1024.0) (2026-04-03)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty
