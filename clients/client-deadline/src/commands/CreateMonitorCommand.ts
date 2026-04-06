@@ -40,6 +40,7 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  *   clientToken: "STRING_VALUE",
  *   displayName: "STRING_VALUE", // required
  *   identityCenterInstanceArn: "STRING_VALUE", // required
+ *   identityCenterRegion: "STRING_VALUE",
  *   subdomain: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE", // required
  *   tags: { // Tags

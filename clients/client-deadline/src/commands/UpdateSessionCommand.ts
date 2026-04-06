@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateSessionRequest, UpdateSessionResponse } from "../models/models_0";
+import type { UpdateSessionRequest, UpdateSessionResponse } from "../models/models_1";
 import { UpdateSession$ } from "../schemas/schemas_0";
 
 /**

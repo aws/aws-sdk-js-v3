@@ -55,10 +55,72 @@ import {
   AutoScalingMode,
   AutoScalingStatus,
   AwsCredentials$,
+  BatchGetJob$,
+  BatchGetJobCommand,
   BatchGetJobEntity$,
   BatchGetJobEntityCommand,
   BatchGetJobEntityRequest$,
   BatchGetJobEntityResponse$,
+  BatchGetJobError$,
+  BatchGetJobErrorCode,
+  BatchGetJobIdentifier$,
+  BatchGetJobItem$,
+  BatchGetJobRequest$,
+  BatchGetJobResponse$,
+  BatchGetSession$,
+  BatchGetSessionAction$,
+  BatchGetSessionActionCommand,
+  BatchGetSessionActionError$,
+  BatchGetSessionActionErrorCode,
+  BatchGetSessionActionIdentifier$,
+  BatchGetSessionActionItem$,
+  BatchGetSessionActionRequest$,
+  BatchGetSessionActionResponse$,
+  BatchGetSessionCommand,
+  BatchGetSessionError$,
+  BatchGetSessionErrorCode,
+  BatchGetSessionIdentifier$,
+  BatchGetSessionItem$,
+  BatchGetSessionRequest$,
+  BatchGetSessionResponse$,
+  BatchGetStep$,
+  BatchGetStepCommand,
+  BatchGetStepError$,
+  BatchGetStepErrorCode,
+  BatchGetStepIdentifier$,
+  BatchGetStepItem$,
+  BatchGetStepRequest$,
+  BatchGetStepResponse$,
+  BatchGetTask$,
+  BatchGetTaskCommand,
+  BatchGetTaskError$,
+  BatchGetTaskErrorCode,
+  BatchGetTaskIdentifier$,
+  BatchGetTaskItem$,
+  BatchGetTaskRequest$,
+  BatchGetTaskResponse$,
+  BatchGetWorker$,
+  BatchGetWorkerCommand,
+  BatchGetWorkerError$,
+  BatchGetWorkerErrorCode,
+  BatchGetWorkerIdentifier$,
+  BatchGetWorkerItem$,
+  BatchGetWorkerRequest$,
+  BatchGetWorkerResponse$,
+  BatchUpdateJob$,
+  BatchUpdateJobCommand,
+  BatchUpdateJobError$,
+  BatchUpdateJobErrorCode,
+  BatchUpdateJobItem$,
+  BatchUpdateJobRequest$,
+  BatchUpdateJobResponse$,
+  BatchUpdateTask$,
+  BatchUpdateTaskCommand,
+  BatchUpdateTaskError$,
+  BatchUpdateTaskErrorCode,
+  BatchUpdateTaskItem$,
+  BatchUpdateTaskRequest$,
+  BatchUpdateTaskResponse$,
   BudgetActionToAdd$,
   BudgetActionToRemove$,
   BudgetActionType,
@@ -742,8 +804,24 @@ assert(typeof AssumeQueueRoleForUserCommand === "function");
 assert(typeof AssumeQueueRoleForUser$ === "object");
 assert(typeof AssumeQueueRoleForWorkerCommand === "function");
 assert(typeof AssumeQueueRoleForWorker$ === "object");
+assert(typeof BatchGetJobCommand === "function");
+assert(typeof BatchGetJob$ === "object");
 assert(typeof BatchGetJobEntityCommand === "function");
 assert(typeof BatchGetJobEntity$ === "object");
+assert(typeof BatchGetSessionCommand === "function");
+assert(typeof BatchGetSession$ === "object");
+assert(typeof BatchGetSessionActionCommand === "function");
+assert(typeof BatchGetSessionAction$ === "object");
+assert(typeof BatchGetStepCommand === "function");
+assert(typeof BatchGetStep$ === "object");
+assert(typeof BatchGetTaskCommand === "function");
+assert(typeof BatchGetTask$ === "object");
+assert(typeof BatchGetWorkerCommand === "function");
+assert(typeof BatchGetWorker$ === "object");
+assert(typeof BatchUpdateJobCommand === "function");
+assert(typeof BatchUpdateJob$ === "object");
+assert(typeof BatchUpdateTaskCommand === "function");
+assert(typeof BatchUpdateTask$ === "object");
 assert(typeof CopyJobTemplateCommand === "function");
 assert(typeof CopyJobTemplate$ === "object");
 assert(typeof CreateBudgetCommand === "function");
@@ -985,6 +1063,44 @@ assert(typeof Attachments$ === "object");
 assert(typeof AwsCredentials$ === "object");
 assert(typeof BatchGetJobEntityRequest$ === "object");
 assert(typeof BatchGetJobEntityResponse$ === "object");
+assert(typeof BatchGetJobError$ === "object");
+assert(typeof BatchGetJobIdentifier$ === "object");
+assert(typeof BatchGetJobItem$ === "object");
+assert(typeof BatchGetJobRequest$ === "object");
+assert(typeof BatchGetJobResponse$ === "object");
+assert(typeof BatchGetSessionActionError$ === "object");
+assert(typeof BatchGetSessionActionIdentifier$ === "object");
+assert(typeof BatchGetSessionActionItem$ === "object");
+assert(typeof BatchGetSessionActionRequest$ === "object");
+assert(typeof BatchGetSessionActionResponse$ === "object");
+assert(typeof BatchGetSessionError$ === "object");
+assert(typeof BatchGetSessionIdentifier$ === "object");
+assert(typeof BatchGetSessionItem$ === "object");
+assert(typeof BatchGetSessionRequest$ === "object");
+assert(typeof BatchGetSessionResponse$ === "object");
+assert(typeof BatchGetStepError$ === "object");
+assert(typeof BatchGetStepIdentifier$ === "object");
+assert(typeof BatchGetStepItem$ === "object");
+assert(typeof BatchGetStepRequest$ === "object");
+assert(typeof BatchGetStepResponse$ === "object");
+assert(typeof BatchGetTaskError$ === "object");
+assert(typeof BatchGetTaskIdentifier$ === "object");
+assert(typeof BatchGetTaskItem$ === "object");
+assert(typeof BatchGetTaskRequest$ === "object");
+assert(typeof BatchGetTaskResponse$ === "object");
+assert(typeof BatchGetWorkerError$ === "object");
+assert(typeof BatchGetWorkerIdentifier$ === "object");
+assert(typeof BatchGetWorkerItem$ === "object");
+assert(typeof BatchGetWorkerRequest$ === "object");
+assert(typeof BatchGetWorkerResponse$ === "object");
+assert(typeof BatchUpdateJobError$ === "object");
+assert(typeof BatchUpdateJobItem$ === "object");
+assert(typeof BatchUpdateJobRequest$ === "object");
+assert(typeof BatchUpdateJobResponse$ === "object");
+assert(typeof BatchUpdateTaskError$ === "object");
+assert(typeof BatchUpdateTaskItem$ === "object");
+assert(typeof BatchUpdateTaskRequest$ === "object");
+assert(typeof BatchUpdateTaskResponse$ === "object");
 assert(typeof BudgetActionToAdd$ === "object");
 assert(typeof BudgetActionToRemove$ === "object");
 assert(typeof BudgetSchedule$ === "object");
@@ -1323,6 +1439,14 @@ assert(typeof AcceleratorName === "object");
 assert(typeof AcceleratorType === "object");
 assert(typeof AutoScalingMode === "object");
 assert(typeof AutoScalingStatus === "object");
+assert(typeof BatchGetJobErrorCode === "object");
+assert(typeof BatchGetSessionActionErrorCode === "object");
+assert(typeof BatchGetSessionErrorCode === "object");
+assert(typeof BatchGetStepErrorCode === "object");
+assert(typeof BatchGetTaskErrorCode === "object");
+assert(typeof BatchGetWorkerErrorCode === "object");
+assert(typeof BatchUpdateJobErrorCode === "object");
+assert(typeof BatchUpdateTaskErrorCode === "object");
 assert(typeof BudgetActionType === "object");
 assert(typeof BudgetStatus === "object");
 assert(typeof ComparisonOperator === "object");

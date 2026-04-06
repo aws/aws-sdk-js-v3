@@ -97,10 +97,21 @@ import type {
   AssumeQueueRoleForWorkerCommandInput,
   AssumeQueueRoleForWorkerCommandOutput,
 } from "./commands/AssumeQueueRoleForWorkerCommand";
+import type { BatchGetJobCommandInput, BatchGetJobCommandOutput } from "./commands/BatchGetJobCommand";
 import type {
   BatchGetJobEntityCommandInput,
   BatchGetJobEntityCommandOutput,
 } from "./commands/BatchGetJobEntityCommand";
+import type {
+  BatchGetSessionActionCommandInput,
+  BatchGetSessionActionCommandOutput,
+} from "./commands/BatchGetSessionActionCommand";
+import type { BatchGetSessionCommandInput, BatchGetSessionCommandOutput } from "./commands/BatchGetSessionCommand";
+import type { BatchGetStepCommandInput, BatchGetStepCommandOutput } from "./commands/BatchGetStepCommand";
+import type { BatchGetTaskCommandInput, BatchGetTaskCommandOutput } from "./commands/BatchGetTaskCommand";
+import type { BatchGetWorkerCommandInput, BatchGetWorkerCommandOutput } from "./commands/BatchGetWorkerCommand";
+import type { BatchUpdateJobCommandInput, BatchUpdateJobCommandOutput } from "./commands/BatchUpdateJobCommand";
+import type { BatchUpdateTaskCommandInput, BatchUpdateTaskCommandOutput } from "./commands/BatchUpdateTaskCommand";
 import type { CopyJobTemplateCommandInput, CopyJobTemplateCommandOutput } from "./commands/CopyJobTemplateCommand";
 import type { CreateBudgetCommandInput, CreateBudgetCommandOutput } from "./commands/CreateBudgetCommand";
 import type { CreateFarmCommandInput, CreateFarmCommandOutput } from "./commands/CreateFarmCommand";
@@ -357,7 +368,15 @@ export type ServiceInputTypes =
   | AssumeQueueRoleForReadCommandInput
   | AssumeQueueRoleForUserCommandInput
   | AssumeQueueRoleForWorkerCommandInput
+  | BatchGetJobCommandInput
   | BatchGetJobEntityCommandInput
+  | BatchGetSessionActionCommandInput
+  | BatchGetSessionCommandInput
+  | BatchGetStepCommandInput
+  | BatchGetTaskCommandInput
+  | BatchGetWorkerCommandInput
+  | BatchUpdateJobCommandInput
+  | BatchUpdateTaskCommandInput
   | CopyJobTemplateCommandInput
   | CreateBudgetCommandInput
   | CreateFarmCommandInput
@@ -475,7 +494,15 @@ export type ServiceOutputTypes =
   | AssumeQueueRoleForReadCommandOutput
   | AssumeQueueRoleForUserCommandOutput
   | AssumeQueueRoleForWorkerCommandOutput
+  | BatchGetJobCommandOutput
   | BatchGetJobEntityCommandOutput
+  | BatchGetSessionActionCommandOutput
+  | BatchGetSessionCommandOutput
+  | BatchGetStepCommandOutput
+  | BatchGetTaskCommandOutput
+  | BatchGetWorkerCommandOutput
+  | BatchUpdateJobCommandOutput
+  | BatchUpdateTaskCommandOutput
   | CopyJobTemplateCommandOutput
   | CreateBudgetCommandOutput
   | CreateFarmCommandOutput

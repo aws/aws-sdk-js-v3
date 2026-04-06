@@ -48,6 +48,7 @@ export interface GetMonitorCommandOutput extends GetMonitorResponse, __MetadataB
  * //   url: "STRING_VALUE", // required
  * //   roleArn: "STRING_VALUE", // required
  * //   identityCenterInstanceArn: "STRING_VALUE", // required
+ * //   identityCenterRegion: "STRING_VALUE",
  * //   identityCenterApplicationArn: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   createdBy: "STRING_VALUE", // required

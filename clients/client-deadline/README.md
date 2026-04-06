@@ -244,10 +244,66 @@ AssumeQueueRoleForWorker
 </details>
 <details>
 <summary>
+BatchGetJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/BatchGetJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetJobCommandOutput/)
+</details>
+<details>
+<summary>
 BatchGetJobEntity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/BatchGetJobEntityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetJobEntityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetJobEntityCommandOutput/)
+</details>
+<details>
+<summary>
+BatchGetSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/BatchGetSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetSessionCommandOutput/)
+</details>
+<details>
+<summary>
+BatchGetSessionAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/BatchGetSessionActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetSessionActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetSessionActionCommandOutput/)
+</details>
+<details>
+<summary>
+BatchGetStep
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/BatchGetStepCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetStepCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetStepCommandOutput/)
+</details>
+<details>
+<summary>
+BatchGetTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/BatchGetTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetTaskCommandOutput/)
+</details>
+<details>
+<summary>
+BatchGetWorker
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/BatchGetWorkerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetWorkerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchGetWorkerCommandOutput/)
+</details>
+<details>
+<summary>
+BatchUpdateJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/BatchUpdateJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchUpdateJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchUpdateJobCommandOutput/)
+</details>
+<details>
+<summary>
+BatchUpdateTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/BatchUpdateTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchUpdateTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/BatchUpdateTaskCommandOutput/)
 </details>
 <details>
 <summary>

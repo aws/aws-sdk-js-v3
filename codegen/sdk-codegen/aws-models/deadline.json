@@ -1502,6 +1502,71 @@
         "smithy.api#sensitive": {}
       }
     },
+    "com.amazonaws.deadline#BatchGetJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deadline#BatchGetJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deadline#BatchGetJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deadline#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deadline#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.iam#iamAction": {
+          "name": "GetJob",
+          "documentation": "Grants permission to get a job",
+          "relativeDocumentation": "API_GetJob.html",
+          "requiredActions": ["identitystore:ListGroupMembershipsForMember"],
+          "resources": {
+            "required": {
+              "job": {}
+            }
+          }
+        },
+        "smithy.api#documentation": "<p>Retrieves multiple jobs in a single request. This is a batch version of the <code>GetJob</code> API.</p> <p>The result of getting each job is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "management."
+        },
+        "smithy.api#examples": [
+          {
+            "title": "Get multiple jobs in a single request",
+            "input": {
+              "identifiers": [
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef"
+                },
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-234567890abcdef1234567890abcdef1"
+                }
+              ]
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/2023-10-12/batch-get-job",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
     "com.amazonaws.deadline#BatchGetJobEntity": {
       "type": "operation",
       "input": {
@@ -1621,6 +1686,2761 @@
           "target": "com.amazonaws.deadline#BatchGetJobEntityErrors",
           "traits": {
             "smithy.api#documentation": "<p>A list of errors from the job error logs for the batch.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetJobError": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the job that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the job that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the job that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "code": {
+          "target": "com.amazonaws.deadline#BatchGetJobErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.deadline#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The error details for a job that could not be retrieved in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetJobErrorCode": {
+      "type": "enum",
+      "members": {
+        "InternalServerErrorException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InternalServerErrorException"
+          }
+        },
+        "ResourceNotFoundException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceNotFoundException"
+          }
+        },
+        "ValidationException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ValidationException"
+          }
+        },
+        "AccessDeniedException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccessDeniedException"
+          }
+        },
+        "ThrottlingException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ThrottlingException"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetJobErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetJobError"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetJobIdentifier": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The identifiers for a job.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetJobIdentifiers": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetJobIdentifier"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetJobItem": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deadline#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lifecycleStatus": {
+          "target": "com.amazonaws.deadline#JobLifecycleStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The life cycle status of the job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lifecycleStatusMessage": {
+          "target": "com.amazonaws.deadline#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A message that communicates the status of the life cycle.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "priority": {
+          "target": "com.amazonaws.deadline#JobPriority",
+          "traits": {
+            "smithy.api#documentation": "<p>The job priority.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.deadline#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "createdBy": {
+          "target": "com.amazonaws.deadline#CreatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The user or system that created this resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.deadline#UpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource was updated.</p>"
+          }
+        },
+        "updatedBy": {
+          "target": "com.amazonaws.deadline#UpdatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The user or system that updated this resource.</p>"
+          }
+        },
+        "startedAt": {
+          "target": "com.amazonaws.deadline#StartedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource started running.</p>"
+          }
+        },
+        "endedAt": {
+          "target": "com.amazonaws.deadline#EndedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource ended running.</p>"
+          }
+        },
+        "taskRunStatus": {
+          "target": "com.amazonaws.deadline#TaskRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The task run status for the job.</p>"
+          }
+        },
+        "targetTaskRunStatus": {
+          "target": "com.amazonaws.deadline#JobTargetTaskRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The task status to start with on the job.</p>"
+          }
+        },
+        "taskRunStatusCounts": {
+          "target": "com.amazonaws.deadline#TaskRunStatusCounts",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of tasks for each run status for the job.</p>"
+          }
+        },
+        "taskFailureRetryCount": {
+          "target": "com.amazonaws.deadline#TaskFailureRetryCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of times that tasks failed and were retried.</p>"
+          }
+        },
+        "storageProfileId": {
+          "target": "com.amazonaws.deadline#StorageProfileId",
+          "traits": {
+            "smithy.api#documentation": "<p>The storage profile ID associated with the job.</p>"
+          }
+        },
+        "maxFailedTasksCount": {
+          "target": "com.amazonaws.deadline#MaxFailedTasksCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of task failures before the job stops running and is marked as <code>FAILED</code>.</p>"
+          }
+        },
+        "maxRetriesPerTask": {
+          "target": "com.amazonaws.deadline#MaxRetriesPerTask",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of retries per failed tasks.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.deadline#JobParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameters for the job.</p>"
+          }
+        },
+        "attachments": {
+          "target": "com.amazonaws.deadline#Attachments",
+          "traits": {
+            "smithy.api#documentation": "<p>The attachments for the job.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deadline#JobDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the job.</p>"
+          }
+        },
+        "maxWorkerCount": {
+          "target": "com.amazonaws.deadline#MaxWorkerCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of worker hosts that can concurrently process a job.</p>"
+          }
+        },
+        "sourceJobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID for the source job.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The details of a job returned in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetJobItems": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetJobItem"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetJobRequest": {
+      "type": "structure",
+      "members": {
+        "identifiers": {
+          "target": "com.amazonaws.deadline#BatchGetJobIdentifiers",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of job identifiers to retrieve. You can specify up to 100 identifiers per request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetJobResponse": {
+      "type": "structure",
+      "members": {
+        "jobs": {
+          "target": "com.amazonaws.deadline#BatchGetJobItems",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of jobs that were successfully retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "errors": {
+          "target": "com.amazonaws.deadline#BatchGetJobErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of errors for jobs that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSession": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deadline#BatchGetSessionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deadline#BatchGetSessionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deadline#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deadline#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.iam#iamAction": {
+          "name": "GetSession",
+          "documentation": "Grants permission to get a session for a job",
+          "relativeDocumentation": "API_GetSession.html",
+          "requiredActions": ["identitystore:ListGroupMembershipsForMember"],
+          "resources": {
+            "required": {
+              "job": {}
+            }
+          }
+        },
+        "smithy.api#documentation": "<p>Retrieves multiple sessions in a single request. This is a batch version of the <code>GetSession</code> API.</p> <p>The result of getting each session is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "management."
+        },
+        "smithy.api#examples": [
+          {
+            "title": "Get multiple sessions in a single request",
+            "input": {
+              "identifiers": [
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef",
+                  "sessionId": "session-1234567890abcdef1234567890abcdef"
+                },
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef",
+                  "sessionId": "session-234567890abcdef1234567890abcdef1"
+                }
+              ]
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/2023-10-12/batch-get-session",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionAction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deadline#BatchGetSessionActionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deadline#BatchGetSessionActionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deadline#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deadline#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.iam#iamAction": {
+          "name": "GetSessionAction",
+          "documentation": "Grants permission to get a session action for a job",
+          "relativeDocumentation": "API_GetSessionAction.html",
+          "requiredActions": ["identitystore:ListGroupMembershipsForMember"],
+          "resources": {
+            "required": {
+              "job": {}
+            }
+          }
+        },
+        "smithy.api#documentation": "<p>Retrieves multiple session actions in a single request. This is a batch version of the <code>GetSessionAction</code> API.</p> <p>The result of getting each session action is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "management."
+        },
+        "smithy.api#examples": [
+          {
+            "title": "Get multiple session actions in a single request",
+            "input": {
+              "identifiers": [
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef",
+                  "sessionActionId": "sessionaction-1234567890abcdef1234567890abcdef-0"
+                },
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef",
+                  "sessionActionId": "sessionaction-1234567890abcdef1234567890abcdef-1"
+                }
+              ]
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/2023-10-12/batch-get-session-action",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionActionError": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the session action that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the session action that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the session action that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sessionActionId": {
+          "target": "com.amazonaws.deadline#SessionActionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The session action ID of the session action that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "code": {
+          "target": "com.amazonaws.deadline#BatchGetSessionActionErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.deadline#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The error details for a session action that could not be retrieved in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionActionErrorCode": {
+      "type": "enum",
+      "members": {
+        "InternalServerErrorException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InternalServerErrorException"
+          }
+        },
+        "ResourceNotFoundException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceNotFoundException"
+          }
+        },
+        "ValidationException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ValidationException"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionActionErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetSessionActionError"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionActionIdentifier": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the session action.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the session action.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the session action.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sessionActionId": {
+          "target": "com.amazonaws.deadline#SessionActionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The session action ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The identifiers for a session action.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionActionIdentifiers": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetSessionActionIdentifier"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionActionItem": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the session action.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the session action.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the session action.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sessionActionId": {
+          "target": "com.amazonaws.deadline#SessionActionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The session action ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.deadline#SessionActionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the session action.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "startedAt": {
+          "target": "com.amazonaws.deadline#StartedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource started running.</p>"
+          }
+        },
+        "endedAt": {
+          "target": "com.amazonaws.deadline#EndedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource ended running.</p>"
+          }
+        },
+        "workerUpdatedAt": {
+          "target": "com.amazonaws.deadline#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource was updated by a worker.</p>"
+          }
+        },
+        "progressPercent": {
+          "target": "com.amazonaws.deadline#SessionActionProgressPercent",
+          "traits": {
+            "smithy.api#documentation": "<p>The completion percentage for the session action.</p>"
+          }
+        },
+        "manifests": {
+          "target": "com.amazonaws.deadline#TaskRunManifestPropertiesListResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>The manifests for the session action.</p>"
+          }
+        },
+        "sessionId": {
+          "target": "com.amazonaws.deadline#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The session ID for the session action.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "processExitCode": {
+          "target": "com.amazonaws.deadline#ProcessExitCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The exit code to apply to the session action.</p>"
+          }
+        },
+        "progressMessage": {
+          "target": "com.amazonaws.deadline#SessionActionProgressMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message that communicates the progress of the session action.</p>"
+          }
+        },
+        "acquiredLimits": {
+          "target": "com.amazonaws.deadline#AcquiredLimits",
+          "traits": {
+            "smithy.api#documentation": "<p>The limits that were acquired for the session action.</p>"
+          }
+        },
+        "definition": {
+          "target": "com.amazonaws.deadline#SessionActionDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>The session action definition.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The details of a session action returned in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionActionItems": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetSessionActionItem"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionActionRequest": {
+      "type": "structure",
+      "members": {
+        "identifiers": {
+          "target": "com.amazonaws.deadline#BatchGetSessionActionIdentifiers",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of session action identifiers to retrieve. You can specify up to 100 identifiers per request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionActionResponse": {
+      "type": "structure",
+      "members": {
+        "sessionActions": {
+          "target": "com.amazonaws.deadline#BatchGetSessionActionItems",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of session actions that were successfully retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "errors": {
+          "target": "com.amazonaws.deadline#BatchGetSessionActionErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of errors for session actions that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionError": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the session that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the session that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the session that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sessionId": {
+          "target": "com.amazonaws.deadline#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The session ID of the session that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "code": {
+          "target": "com.amazonaws.deadline#BatchGetSessionErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.deadline#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The error details for a session that could not be retrieved in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionErrorCode": {
+      "type": "enum",
+      "members": {
+        "InternalServerErrorException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InternalServerErrorException"
+          }
+        },
+        "ResourceNotFoundException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceNotFoundException"
+          }
+        },
+        "ValidationException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ValidationException"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetSessionError"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionIdentifier": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the session.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the session.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the session.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sessionId": {
+          "target": "com.amazonaws.deadline#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The session ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The identifiers for a session.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionIdentifiers": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetSessionIdentifier"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionItem": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the session.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the session.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the session.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sessionId": {
+          "target": "com.amazonaws.deadline#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The session ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "fleetId": {
+          "target": "com.amazonaws.deadline#FleetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The fleet ID of the session.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "workerId": {
+          "target": "com.amazonaws.deadline#WorkerId",
+          "traits": {
+            "smithy.api#documentation": "<p>The worker ID of the session.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "startedAt": {
+          "target": "com.amazonaws.deadline#StartedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource started running.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lifecycleStatus": {
+          "target": "com.amazonaws.deadline#SessionLifecycleStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The life cycle status of the session.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "endedAt": {
+          "target": "com.amazonaws.deadline#EndedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource ended running.</p>"
+          }
+        },
+        "targetLifecycleStatus": {
+          "target": "com.amazonaws.deadline#SessionLifecycleTargetStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The target life cycle status for the session.</p>"
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.deadline#UpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource was updated.</p>"
+          }
+        },
+        "updatedBy": {
+          "target": "com.amazonaws.deadline#UpdatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The user or system that updated this resource.</p>"
+          }
+        },
+        "log": {
+          "target": "com.amazonaws.deadline#LogConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The session log.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "hostProperties": {
+          "target": "com.amazonaws.deadline#HostPropertiesResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>The host properties for the session.</p>"
+          }
+        },
+        "workerLog": {
+          "target": "com.amazonaws.deadline#LogConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The worker log for the session.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The details of a session returned in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionItems": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetSessionItem"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionRequest": {
+      "type": "structure",
+      "members": {
+        "identifiers": {
+          "target": "com.amazonaws.deadline#BatchGetSessionIdentifiers",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of session identifiers to retrieve. You can specify up to 100 identifiers per request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetSessionResponse": {
+      "type": "structure",
+      "members": {
+        "sessions": {
+          "target": "com.amazonaws.deadline#BatchGetSessionItems",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of sessions that were successfully retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "errors": {
+          "target": "com.amazonaws.deadline#BatchGetSessionErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of errors for sessions that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetStep": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deadline#BatchGetStepRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deadline#BatchGetStepResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deadline#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deadline#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.iam#iamAction": {
+          "name": "GetStep",
+          "documentation": "Grants permission to get a step in a job",
+          "relativeDocumentation": "API_GetStep.html",
+          "requiredActions": ["identitystore:ListGroupMembershipsForMember"],
+          "resources": {
+            "required": {
+              "job": {}
+            }
+          }
+        },
+        "smithy.api#documentation": "<p>Retrieves multiple steps in a single request. This is a batch version of the <code>GetStep</code> API.</p> <p>The result of getting each step is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "management."
+        },
+        "smithy.api#examples": [
+          {
+            "title": "Get multiple steps in a single request",
+            "input": {
+              "identifiers": [
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef",
+                  "stepId": "step-1234567890abcdef1234567890abcdef"
+                },
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef",
+                  "stepId": "step-234567890abcdef1234567890abcdef1"
+                }
+              ]
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/2023-10-12/batch-get-step",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetStepError": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the step that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the step that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the step that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stepId": {
+          "target": "com.amazonaws.deadline#StepId",
+          "traits": {
+            "smithy.api#documentation": "<p>The step ID of the step that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "code": {
+          "target": "com.amazonaws.deadline#BatchGetStepErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.deadline#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The error details for a step that could not be retrieved in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetStepErrorCode": {
+      "type": "enum",
+      "members": {
+        "InternalServerErrorException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InternalServerErrorException"
+          }
+        },
+        "ResourceNotFoundException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceNotFoundException"
+          }
+        },
+        "ValidationException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ValidationException"
+          }
+        },
+        "AccessDeniedException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccessDeniedException"
+          }
+        },
+        "ThrottlingException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ThrottlingException"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetStepErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetStepError"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetStepIdentifier": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the step.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the step.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the step.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stepId": {
+          "target": "com.amazonaws.deadline#StepId",
+          "traits": {
+            "smithy.api#documentation": "<p>The step ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The identifiers for a step.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetStepIdentifiers": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetStepIdentifier"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetStepItem": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the step.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the step.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the step.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stepId": {
+          "target": "com.amazonaws.deadline#StepId",
+          "traits": {
+            "smithy.api#documentation": "<p>The step ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deadline#StepName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the step.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lifecycleStatus": {
+          "target": "com.amazonaws.deadline#StepLifecycleStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The life cycle status of the step.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lifecycleStatusMessage": {
+          "target": "com.amazonaws.deadline#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A message that communicates the status of the life cycle.</p>"
+          }
+        },
+        "taskRunStatus": {
+          "target": "com.amazonaws.deadline#TaskRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The task run status for the step.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "taskRunStatusCounts": {
+          "target": "com.amazonaws.deadline#TaskRunStatusCounts",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of tasks for each run status for the step.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "taskFailureRetryCount": {
+          "target": "com.amazonaws.deadline#TaskFailureRetryCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of times that tasks failed and were retried.</p>"
+          }
+        },
+        "targetTaskRunStatus": {
+          "target": "com.amazonaws.deadline#StepTargetTaskRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The task status to start with on the step.</p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.deadline#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "createdBy": {
+          "target": "com.amazonaws.deadline#CreatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The user or system that created this resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.deadline#UpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource was updated.</p>"
+          }
+        },
+        "updatedBy": {
+          "target": "com.amazonaws.deadline#UpdatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The user or system that updated this resource.</p>"
+          }
+        },
+        "startedAt": {
+          "target": "com.amazonaws.deadline#StartedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource started running.</p>"
+          }
+        },
+        "endedAt": {
+          "target": "com.amazonaws.deadline#EndedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource ended running.</p>"
+          }
+        },
+        "dependencyCounts": {
+          "target": "com.amazonaws.deadline#DependencyCounts",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of dependencies for the step.</p>"
+          }
+        },
+        "requiredCapabilities": {
+          "target": "com.amazonaws.deadline#StepRequiredCapabilities",
+          "traits": {
+            "smithy.api#documentation": "<p>The required capabilities for the step.</p>"
+          }
+        },
+        "parameterSpace": {
+          "target": "com.amazonaws.deadline#ParameterSpace",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter space for the step.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deadline#StepDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the step.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The details of a step returned in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetStepItems": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetStepItem"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetStepRequest": {
+      "type": "structure",
+      "members": {
+        "identifiers": {
+          "target": "com.amazonaws.deadline#BatchGetStepIdentifiers",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of step identifiers to retrieve. You can specify up to 100 identifiers per request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetStepResponse": {
+      "type": "structure",
+      "members": {
+        "steps": {
+          "target": "com.amazonaws.deadline#BatchGetStepItems",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of steps that were successfully retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "errors": {
+          "target": "com.amazonaws.deadline#BatchGetStepErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of errors for steps that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetTask": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deadline#BatchGetTaskRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deadline#BatchGetTaskResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deadline#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deadline#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.iam#iamAction": {
+          "name": "GetTask",
+          "documentation": "Grants permission to get a job task",
+          "relativeDocumentation": "API_GetTask.html",
+          "requiredActions": ["identitystore:ListGroupMembershipsForMember"],
+          "resources": {
+            "required": {
+              "job": {}
+            }
+          }
+        },
+        "smithy.api#documentation": "<p>Retrieves multiple tasks in a single request. This is a batch version of the <code>GetTask</code> API.</p> <p>The result of getting each task is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "management."
+        },
+        "smithy.api#examples": [
+          {
+            "title": "Get multiple tasks in a single request",
+            "input": {
+              "identifiers": [
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef",
+                  "stepId": "step-1234567890abcdef1234567890abcdef",
+                  "taskId": "task-1234567890abcdef1234567890abcdef-0"
+                },
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef",
+                  "stepId": "step-1234567890abcdef1234567890abcdef",
+                  "taskId": "task-1234567890abcdef1234567890abcdef-1"
+                }
+              ]
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/2023-10-12/batch-get-task",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetTaskError": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the task that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the task that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the task that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stepId": {
+          "target": "com.amazonaws.deadline#StepId",
+          "traits": {
+            "smithy.api#documentation": "<p>The step ID of the task that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "taskId": {
+          "target": "com.amazonaws.deadline#TaskId",
+          "traits": {
+            "smithy.api#documentation": "<p>The task ID of the task that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "code": {
+          "target": "com.amazonaws.deadline#BatchGetTaskErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.deadline#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The error details for a task that could not be retrieved in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetTaskErrorCode": {
+      "type": "enum",
+      "members": {
+        "InternalServerErrorException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InternalServerErrorException"
+          }
+        },
+        "ResourceNotFoundException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceNotFoundException"
+          }
+        },
+        "ValidationException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ValidationException"
+          }
+        },
+        "AccessDeniedException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccessDeniedException"
+          }
+        },
+        "ThrottlingException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ThrottlingException"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetTaskErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetTaskError"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetTaskIdentifier": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the task.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the task.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the task.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stepId": {
+          "target": "com.amazonaws.deadline#StepId",
+          "traits": {
+            "smithy.api#documentation": "<p>The step ID of the task.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "taskId": {
+          "target": "com.amazonaws.deadline#TaskId",
+          "traits": {
+            "smithy.api#documentation": "<p>The task ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The identifiers for a task.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetTaskIdentifiers": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetTaskIdentifier"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetTaskItem": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the task.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the task.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the task.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stepId": {
+          "target": "com.amazonaws.deadline#StepId",
+          "traits": {
+            "smithy.api#documentation": "<p>The step ID of the task.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "taskId": {
+          "target": "com.amazonaws.deadline#TaskId",
+          "traits": {
+            "smithy.api#documentation": "<p>The task ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.deadline#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "createdBy": {
+          "target": "com.amazonaws.deadline#CreatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The user or system that created this resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "runStatus": {
+          "target": "com.amazonaws.deadline#TaskRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The run status of the task.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "targetRunStatus": {
+          "target": "com.amazonaws.deadline#TaskTargetRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The run status with which to start the task.</p>"
+          }
+        },
+        "failureRetryCount": {
+          "target": "com.amazonaws.deadline#TaskRetryCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of times the task failed and was retried.</p>"
+          }
+        },
+        "startedAt": {
+          "target": "com.amazonaws.deadline#StartedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource started running.</p>"
+          }
+        },
+        "endedAt": {
+          "target": "com.amazonaws.deadline#EndedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource ended running.</p>"
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.deadline#UpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource was updated.</p>"
+          }
+        },
+        "updatedBy": {
+          "target": "com.amazonaws.deadline#UpdatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The user or system that updated this resource.</p>"
+          }
+        },
+        "latestSessionActionId": {
+          "target": "com.amazonaws.deadline#SessionActionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The latest session action for the task.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.deadline#TaskParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameters for the task.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The details of a task returned in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetTaskItems": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetTaskItem"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetTaskRequest": {
+      "type": "structure",
+      "members": {
+        "identifiers": {
+          "target": "com.amazonaws.deadline#BatchGetTaskIdentifiers",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of task identifiers to retrieve. You can specify up to 100 identifiers per request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetTaskResponse": {
+      "type": "structure",
+      "members": {
+        "tasks": {
+          "target": "com.amazonaws.deadline#BatchGetTaskItems",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tasks that were successfully retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "errors": {
+          "target": "com.amazonaws.deadline#BatchGetTaskErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of errors for tasks that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetWorker": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deadline#BatchGetWorkerRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deadline#BatchGetWorkerResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deadline#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deadline#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.iam#iamAction": {
+          "name": "GetWorker",
+          "documentation": "Grants permission to get a worker",
+          "relativeDocumentation": "API_GetWorker.html",
+          "requiredActions": ["identitystore:ListGroupMembershipsForMember"],
+          "resources": {
+            "required": {
+              "worker": {}
+            }
+          }
+        },
+        "smithy.api#documentation": "<p>Retrieves multiple workers in a single request. This is a batch version of the <code>GetWorker</code> API.</p> <p>The result of getting each worker is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "management."
+        },
+        "smithy.api#examples": [
+          {
+            "title": "Get multiple workers in a single request",
+            "input": {
+              "identifiers": [
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "fleetId": "fleet-1234567890abcdef1234567890abcdef",
+                  "workerId": "worker-1234567890abcdef1234567890abcdef"
+                },
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "fleetId": "fleet-1234567890abcdef1234567890abcdef",
+                  "workerId": "worker-234567890abcdef1234567890abcdef1"
+                }
+              ]
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/2023-10-12/batch-get-worker",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetWorkerError": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the worker that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "fleetId": {
+          "target": "com.amazonaws.deadline#FleetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The fleet ID of the worker that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "workerId": {
+          "target": "com.amazonaws.deadline#WorkerId",
+          "traits": {
+            "smithy.api#documentation": "<p>The worker ID of the worker that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "code": {
+          "target": "com.amazonaws.deadline#BatchGetWorkerErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.deadline#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The error details for a worker that could not be retrieved in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#WorkerResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetWorkerErrorCode": {
+      "type": "enum",
+      "members": {
+        "InternalServerErrorException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InternalServerErrorException"
+          }
+        },
+        "ResourceNotFoundException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceNotFoundException"
+          }
+        },
+        "ValidationException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ValidationException"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetWorkerErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetWorkerError"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetWorkerIdentifier": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the worker.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "fleetId": {
+          "target": "com.amazonaws.deadline#FleetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The fleet ID of the worker.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "workerId": {
+          "target": "com.amazonaws.deadline#WorkerId",
+          "traits": {
+            "smithy.api#documentation": "<p>The worker ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The identifiers for a worker.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#WorkerResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetWorkerIdentifiers": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetWorkerIdentifier"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchGetWorkerItem": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the worker.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "fleetId": {
+          "target": "com.amazonaws.deadline#FleetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The fleet ID of the worker.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "workerId": {
+          "target": "com.amazonaws.deadline#WorkerId",
+          "traits": {
+            "smithy.api#documentation": "<p>The worker ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "hostProperties": {
+          "target": "com.amazonaws.deadline#HostPropertiesResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>The host properties for the worker.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.deadline#WorkerStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the worker.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "log": {
+          "target": "com.amazonaws.deadline#LogConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The log configuration for the worker.</p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.deadline#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "createdBy": {
+          "target": "com.amazonaws.deadline#CreatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The user or system that created this resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.deadline#UpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the resource was updated.</p>"
+          }
+        },
+        "updatedBy": {
+          "target": "com.amazonaws.deadline#UpdatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The user or system that updated this resource.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The details of a worker returned in a batch get operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#WorkerResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchGetWorkerItems": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchGetWorkerItem"
+      }
+    },
+    "com.amazonaws.deadline#BatchGetWorkerRequest": {
+      "type": "structure",
+      "members": {
+        "identifiers": {
+          "target": "com.amazonaws.deadline#BatchGetWorkerIdentifiers",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of worker identifiers to retrieve. You can specify up to 100 identifiers per request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchGetWorkerResponse": {
+      "type": "structure",
+      "members": {
+        "workers": {
+          "target": "com.amazonaws.deadline#BatchGetWorkerItems",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of workers that were successfully retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "errors": {
+          "target": "com.amazonaws.deadline#BatchGetWorkerErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of errors for workers that could not be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deadline#BatchUpdateJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deadline#BatchUpdateJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deadline#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deadline#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.iam#iamAction": {
+          "name": "UpdateJob",
+          "documentation": "Grants permission to update a job",
+          "relativeDocumentation": "API_UpdateJob.html",
+          "requiredActions": ["identitystore:ListGroupMembershipsForMember"],
+          "resources": {
+            "required": {
+              "job": {}
+            }
+          }
+        },
+        "smithy.api#documentation": "<p>Updates multiple jobs in a single request. This is a batch version of the <code>UpdateJob</code> API.</p> <p>The result of updating each job is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p> <p>When you change the status of a job to <code>ARCHIVED</code>, the job can't be scheduled or archived.</p> <important> <p>An archived job and its steps and tasks are deleted after 120 days. The job can't be recovered.</p> </important>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "management."
+        },
+        "smithy.api#examples": [
+          {
+            "title": "Update multiple jobs in a single request",
+            "input": {
+              "jobs": [
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef",
+                  "targetTaskRunStatus": "FAILED"
+                },
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-234567890abcdef1234567890abcdef1",
+                  "targetTaskRunStatus": "FAILED"
+                }
+              ]
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/2023-10-12/batch-update-job",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateJobError": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the job that could not be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the job that could not be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the job that could not be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "code": {
+          "target": "com.amazonaws.deadline#BatchUpdateJobErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.deadline#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The error details for a job that could not be updated in a batch update operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateJobErrorCode": {
+      "type": "enum",
+      "members": {
+        "ConflictException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ConflictException"
+          }
+        },
+        "InternalServerErrorException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InternalServerErrorException"
+          }
+        },
+        "ResourceNotFoundException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceNotFoundException"
+          }
+        },
+        "ValidationException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ValidationException"
+          }
+        },
+        "AccessDeniedException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccessDeniedException"
+          }
+        },
+        "ThrottlingException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ThrottlingException"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateJobErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchUpdateJobError"
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateJobItem": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the job to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the job to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the job to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "targetTaskRunStatus": {
+          "target": "com.amazonaws.deadline#JobTargetTaskRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The task status to update the job's tasks to.</p>"
+          }
+        },
+        "priority": {
+          "target": "com.amazonaws.deadline#JobPriority",
+          "traits": {
+            "smithy.api#documentation": "<p>The job priority to update.</p>"
+          }
+        },
+        "maxFailedTasksCount": {
+          "target": "com.amazonaws.deadline#MaxFailedTasksCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of task failures before the job stops running and is marked as <code>FAILED</code>.</p>"
+          }
+        },
+        "maxRetriesPerTask": {
+          "target": "com.amazonaws.deadline#MaxRetriesPerTask",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of retries per failed tasks.</p>"
+          }
+        },
+        "lifecycleStatus": {
+          "target": "com.amazonaws.deadline#UpdateJobLifecycleStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of a job in its lifecycle. When you change the status of the job to <code>ARCHIVED</code>, the job can't be scheduled or archived.</p> <important> <p>An archived job and its steps and tasks are deleted after 120 days. The job can't be recovered.</p> </important>"
+          }
+        },
+        "maxWorkerCount": {
+          "target": "com.amazonaws.deadline#MaxWorkerCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of worker hosts that can concurrently process a job.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deadline#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the job to update.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deadline#JobDescriptionOverride",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the job to update.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The details of a job to update in a batch update operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateJobItems": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchUpdateJobItem"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateJobRequest": {
+      "type": "structure",
+      "members": {
+        "clientToken": {
+          "target": "com.amazonaws.deadline#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique token which the server uses to recognize retries of the same request.</p>",
+            "smithy.api#httpHeader": "X-Amz-Client-Token",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "jobs": {
+          "target": "com.amazonaws.deadline#BatchUpdateJobItems",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of jobs to update. You can specify up to 100 jobs per request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateJobResponse": {
+      "type": "structure",
+      "members": {
+        "errors": {
+          "target": "com.amazonaws.deadline#BatchUpdateJobErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of errors for jobs that could not be updated.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateTask": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deadline#BatchUpdateTaskRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deadline#BatchUpdateTaskResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deadline#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deadline#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.iam#iamAction": {
+          "name": "UpdateTask",
+          "documentation": "Grants permission to update a task",
+          "relativeDocumentation": "API_UpdateTask.html",
+          "requiredActions": ["identitystore:ListGroupMembershipsForMember"],
+          "resources": {
+            "required": {
+              "job": {}
+            }
+          }
+        },
+        "smithy.api#documentation": "<p>Updates multiple tasks in a single request. This is a batch version of the <code>UpdateTask</code> API.</p> <p>The result of updating each task is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "management."
+        },
+        "smithy.api#examples": [
+          {
+            "title": "Update multiple tasks in a single request",
+            "input": {
+              "tasks": [
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef",
+                  "stepId": "step-1234567890abcdef1234567890abcdef",
+                  "taskId": "task-1234567890abcdef1234567890abcdef-0",
+                  "targetRunStatus": "FAILED"
+                },
+                {
+                  "farmId": "farm-1234567890abcdef1234567890abcdef",
+                  "queueId": "queue-1234567890abcdef1234567890abcdef",
+                  "jobId": "job-1234567890abcdef1234567890abcdef",
+                  "stepId": "step-1234567890abcdef1234567890abcdef",
+                  "taskId": "task-1234567890abcdef1234567890abcdef-1",
+                  "targetRunStatus": "FAILED"
+                }
+              ]
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/2023-10-12/batch-update-task",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateTaskError": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the task that could not be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the task that could not be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the task that could not be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stepId": {
+          "target": "com.amazonaws.deadline#StepId",
+          "traits": {
+            "smithy.api#documentation": "<p>The step ID of the task that could not be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "taskId": {
+          "target": "com.amazonaws.deadline#TaskId",
+          "traits": {
+            "smithy.api#documentation": "<p>The task ID of the task that could not be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "code": {
+          "target": "com.amazonaws.deadline#BatchUpdateTaskErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.deadline#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The error details for a task that could not be updated in a batch update operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateTaskErrorCode": {
+      "type": "enum",
+      "members": {
+        "ConflictException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ConflictException"
+          }
+        },
+        "InternalServerErrorException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InternalServerErrorException"
+          }
+        },
+        "ResourceNotFoundException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceNotFoundException"
+          }
+        },
+        "ValidationException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ValidationException"
+          }
+        },
+        "AccessDeniedException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccessDeniedException"
+          }
+        },
+        "ThrottlingException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ThrottlingException"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateTaskErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchUpdateTaskError"
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateTaskItem": {
+      "type": "structure",
+      "members": {
+        "farmId": {
+          "target": "com.amazonaws.deadline#FarmId",
+          "traits": {
+            "smithy.api#documentation": "<p>The farm ID of the task to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueId": {
+          "target": "com.amazonaws.deadline#QueueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The queue ID of the task to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.deadline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The job ID of the task to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stepId": {
+          "target": "com.amazonaws.deadline#StepId",
+          "traits": {
+            "smithy.api#documentation": "<p>The step ID of the task to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "taskId": {
+          "target": "com.amazonaws.deadline#TaskId",
+          "traits": {
+            "smithy.api#documentation": "<p>The task ID of the task to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "targetRunStatus": {
+          "target": "com.amazonaws.deadline#TaskTargetRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The run status with which to start the task.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The details of a task to update in a batch update operation.</p>",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.deadline#JobResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateTaskItems": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deadline#BatchUpdateTaskItem"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateTaskRequest": {
+      "type": "structure",
+      "members": {
+        "clientToken": {
+          "target": "com.amazonaws.deadline#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique token which the server uses to recognize retries of the same request.</p>",
+            "smithy.api#httpHeader": "X-Amz-Client-Token",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "tasks": {
+          "target": "com.amazonaws.deadline#BatchUpdateTaskItems",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of tasks to update. You can specify up to 100 tasks per request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.deadline#BatchUpdateTaskResponse": {
+      "type": "structure",
+      "members": {
+        "errors": {
+          "target": "com.amazonaws.deadline#BatchUpdateTaskErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of errors for tasks that could not be updated.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3163,6 +5983,12 @@
             "smithy.api#required": {}
           }
         },
+        "identityCenterRegion": {
+          "target": "com.amazonaws.deadline#Region",
+          "traits": {
+            "smithy.api#documentation": "The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor."
+          }
+        },
         "subdomain": {
           "target": "com.amazonaws.deadline#Subdomain",
           "traits": {
@@ -4104,6 +6930,30 @@
       "type": "service",
       "version": "2023-10-12",
       "operations": [
+        {
+          "target": "com.amazonaws.deadline#BatchGetJob"
+        },
+        {
+          "target": "com.amazonaws.deadline#BatchGetSession"
+        },
+        {
+          "target": "com.amazonaws.deadline#BatchGetSessionAction"
+        },
+        {
+          "target": "com.amazonaws.deadline#BatchGetStep"
+        },
+        {
+          "target": "com.amazonaws.deadline#BatchGetTask"
+        },
+        {
+          "target": "com.amazonaws.deadline#BatchGetWorker"
+        },
+        {
+          "target": "com.amazonaws.deadline#BatchUpdateJob"
+        },
+        {
+          "target": "com.amazonaws.deadline#BatchUpdateTask"
+        },
         {
           "target": "com.amazonaws.deadline#CreateQueueFleetAssociation"
         },
@@ -8868,6 +11718,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "identityCenterRegion": {
+          "target": "com.amazonaws.deadline#Region",
+          "traits": {
+            "smithy.api#documentation": "The AWS region where IAM Identity Center is enabled."
           }
         },
         "identityCenterApplicationArn": {
@@ -16157,6 +19013,12 @@
             "smithy.api#required": {}
           }
         },
+        "identityCenterRegion": {
+          "target": "com.amazonaws.deadline#Region",
+          "traits": {
+            "smithy.api#documentation": "The AWS region where IAM Identity Center is enabled."
+          }
+        },
         "identityCenterApplicationArn": {
           "target": "com.amazonaws.deadline#IdentityCenterApplicationArn",
           "traits": {
@@ -17083,6 +19945,16 @@
             "smithy.api#enumValue": "NONCONTIGUOUS"
           }
         }
+      }
+    },
+    "com.amazonaws.deadline#Region": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        },
+        "smithy.api#pattern": "^[a-z0-9-]+$"
       }
     },
     "com.amazonaws.deadline#RequiredFileSystemLocationNames": {

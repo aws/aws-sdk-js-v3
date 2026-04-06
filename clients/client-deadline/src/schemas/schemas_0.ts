@@ -49,14 +49,82 @@ const _BATA = "BudgetActionToAdd";
 const _BATAu = "BudgetActionsToAdd";
 const _BATR = "BudgetActionToRemove";
 const _BATRu = "BudgetActionsToRemove";
-const _BGJE = "BatchGetJobEntity";
+const _BGJ = "BatchGetJob";
+const _BGJE = "BatchGetJobError";
 const _BGJEE = "BatchGetJobEntityErrors";
 const _BGJEL = "BatchGetJobEntityList";
 const _BGJER = "BatchGetJobEntityRequest";
 const _BGJERa = "BatchGetJobEntityResponse";
+const _BGJEa = "BatchGetJobErrors";
+const _BGJEat = "BatchGetJobEntity";
+const _BGJI = "BatchGetJobIdentifier";
+const _BGJIa = "BatchGetJobItem";
+const _BGJIat = "BatchGetJobIdentifiers";
+const _BGJIatc = "BatchGetJobItems";
+const _BGJR = "BatchGetJobRequest";
+const _BGJRa = "BatchGetJobResponse";
+const _BGS = "BatchGetSession";
+const _BGSA = "BatchGetSessionAction";
+const _BGSAE = "BatchGetSessionActionError";
+const _BGSAEa = "BatchGetSessionActionErrors";
+const _BGSAI = "BatchGetSessionActionIdentifier";
+const _BGSAIa = "BatchGetSessionActionItem";
+const _BGSAIat = "BatchGetSessionActionIdentifiers";
+const _BGSAIatc = "BatchGetSessionActionItems";
+const _BGSAR = "BatchGetSessionActionRequest";
+const _BGSARa = "BatchGetSessionActionResponse";
+const _BGSE = "BatchGetSessionError";
+const _BGSEa = "BatchGetStepError";
+const _BGSEat = "BatchGetSessionErrors";
+const _BGSEatc = "BatchGetStepErrors";
+const _BGSI = "BatchGetSessionIdentifier";
+const _BGSIa = "BatchGetSessionItem";
+const _BGSIat = "BatchGetStepIdentifier";
+const _BGSIatc = "BatchGetStepItem";
+const _BGSIatch = "BatchGetSessionIdentifiers";
+const _BGSIatche = "BatchGetSessionItems";
+const _BGSIatchet = "BatchGetStepIdentifiers";
+const _BGSIatchett = "BatchGetStepItems";
+const _BGSR = "BatchGetSessionRequest";
+const _BGSRa = "BatchGetSessionResponse";
+const _BGSRat = "BatchGetStepRequest";
+const _BGSRatc = "BatchGetStepResponse";
+const _BGSa = "BatchGetStep";
+const _BGT = "BatchGetTask";
+const _BGTE = "BatchGetTaskError";
+const _BGTEa = "BatchGetTaskErrors";
+const _BGTI = "BatchGetTaskIdentifier";
+const _BGTIa = "BatchGetTaskItem";
+const _BGTIat = "BatchGetTaskIdentifiers";
+const _BGTIatc = "BatchGetTaskItems";
+const _BGTR = "BatchGetTaskRequest";
+const _BGTRa = "BatchGetTaskResponse";
+const _BGW = "BatchGetWorker";
+const _BGWE = "BatchGetWorkerError";
+const _BGWEa = "BatchGetWorkerErrors";
+const _BGWI = "BatchGetWorkerIdentifier";
+const _BGWIa = "BatchGetWorkerItem";
+const _BGWIat = "BatchGetWorkerIdentifiers";
+const _BGWIatc = "BatchGetWorkerItems";
+const _BGWR = "BatchGetWorkerRequest";
+const _BGWRa = "BatchGetWorkerResponse";
 const _BS = "BudgetSummary";
 const _BSu = "BudgetSummaries";
 const _BSud = "BudgetSchedule";
+const _BUJ = "BatchUpdateJob";
+const _BUJE = "BatchUpdateJobError";
+const _BUJEa = "BatchUpdateJobErrors";
+const _BUJI = "BatchUpdateJobItem";
+const _BUJIa = "BatchUpdateJobItems";
+const _BUJR = "BatchUpdateJobRequest";
+const _BUJRa = "BatchUpdateJobResponse";
+const _BUT = "BatchUpdateTask";
+const _BUTE = "BatchUpdateTaskError";
+const _BUTEa = "BatchUpdateTaskErrors";
+const _BUTI = "BatchUpdateTaskItem";
+const _BUTIa = "BatchUpdateTaskItems";
+const _BUTR = "BatchUpdateTaskRequest";
+const _BUTRa = "BatchUpdateTaskResponse";
 const _CB = "CreateBudget";
 const _CBR = "CreateBudgetRequest";
 const _CBRr = "CreateBudgetResponse";
@@ -560,7 +628,7 @@ const _WSSor = "WorkerSearchSummaries";
 const _WSo = "WorkerSummaries";
 const _WU = "WindowsUser";
 const _XACT = "X-Amz-Client-Token";
-const _a = "actions";
+const _a = "attachments";
 const _aC = "acceleratorCount";
 const _aCc = "acceleratorCapabilities";
 const _aDL = "approximateDollarLimit";
@@ -586,9 +654,9 @@ const _aT = "acceleratorTypes";
 const _aTA = "actionsToAdd";
 const _aTMMB = "acceleratorTotalMemoryMiB";
 const _aTR = "actionsToRemove";
+const _ac = "actions";
 const _am = "amounts";
-const _at = "attachments";
-const _att = "attributes";
+const _at = "attributes";
 const _av = "avg";
 const _b = "budgets";
 const _bI = "budgetId";
@@ -683,6 +751,7 @@ const _iA = "ipAddresses";
 const _iC = "instanceCapabilities";
 const _iCAA = "identityCenterApplicationArn";
 const _iCIA = "identityCenterInstanceArn";
+const _iCR = "identityCenterRegion";
 const _iMH = "inputManifestHash";
 const _iMO = "instanceMarketOptions";
 const _iMP = "inputManifestPath";
@@ -846,7 +915,7 @@ const _ste = "steps";
 const _str = "string";
 const _su = "subdomain";
 const _sum = "sum";
-const _t = "type";
+const _t = "tasks";
 const _tFRC = "taskFailureRetryCount";
 const _tI = "taskId";
 const _tK = "tagKeys";
@@ -865,9 +934,9 @@ const _tT = "templateType";
 const _tTRS = "targetTaskRunStatus";
 const _tWC = "targetWorkerCount";
 const _ta = "tags";
-const _tas = "tasks";
 const _te = "template";
 const _ti = "timezone";
+const _ty = "type";
 const _u = "usages";
 const _uA = "updatedAt";
 const _uB = "updatedBy";
@@ -886,7 +955,7 @@ const _vCC = "vCpuCount";
 const _vI = "vpcId";
 const _va = "value";
 const _ve = "vendor";
-const _w = "windows";
+const _w = "workers";
 const _wB = "weightedBalanced";
 const _wC = "workerCapabilities";
 const _wCo = "workerCount";
@@ -894,7 +963,7 @@ const _wI = "workerId";
 const _wIDS = "workerIdleDurationSeconds";
 const _wL = "workerLog";
 const _wUA = "workerUpdatedAt";
-const _wo = "workers";
+const _wi = "windows";
 const n0 = "com.amazonaws.deadline";
 
 // smithy-typescript generated code
@@ -1153,14 +1222,204 @@ export var BatchGetJobEntityResponse$: StaticStructureSchema = [3, n0, _BGJERa,
   [_en, _er],
   [[() => BatchGetJobEntityList, 0], () => BatchGetJobEntityErrors], 2
 ];
+export var BatchGetJobError$: StaticStructureSchema = [3, n0, _BGJE,
+  0,
+  [_fI, _qI, _jI, _cod, _m],
+  [0, 0, 0, 0, 0], 5
+];
+export var BatchGetJobIdentifier$: StaticStructureSchema = [3, n0, _BGJI,
+  0,
+  [_fI, _qI, _jI],
+  [0, 0, 0], 3
+];
+export var BatchGetJobItem$: StaticStructureSchema = [3, n0, _BGJIa,
+  0,
+  [_fI, _qI, _jI, _n, _lS, _lSM, _pr, _cA, _cB, _uA, _uB, _sAt, _eA, _tRS, _tTRS, _tRSC, _tFRC, _sPI, _mFTC, _mRPT, _p, _a, _de, _mWC, _sJI],
+  [0, 0, 0, 0, 0, 0, 1, 5, 0, 5, 0, 5, 5, 0, 0, 128 | 1, 1, 0, 1, 1, [() => JobParameters, 0], [() => Attachments$, 0], [() => JobDescription, 0], 1, 0], 9
+];
+export var BatchGetJobRequest$: StaticStructureSchema = [3, n0, _BGJR,
+  0,
+  [_i],
+  [() => BatchGetJobIdentifiers], 1
+];
+export var BatchGetJobResponse$: StaticStructureSchema = [3, n0, _BGJRa,
+  0,
+  [_j, _er],
+  [[() => BatchGetJobItems, 0], () => BatchGetJobErrors], 2
+];
+export var BatchGetSessionActionError$: StaticStructureSchema = [3, n0, _BGSAE,
+  0,
+  [_fI, _qI, _jI, _sAI, _cod, _m],
+  [0, 0, 0, 0, 0, 0], 6
+];
+export var BatchGetSessionActionIdentifier$: StaticStructureSchema = [3, n0, _BGSAI,
+  0,
+  [_fI, _qI, _jI, _sAI],
+  [0, 0, 0, 0], 4
+];
+export var BatchGetSessionActionItem$: StaticStructureSchema = [3, n0, _BGSAIa,
+  0,
+  [_fI, _qI, _jI, _sAI, _st, _sIe, _d, _sAt, _eA, _wUA, _pP, _man, _pEC, _pM, _aL],
+  [0, 0, 0, 0, 0, 0, [() => SessionActionDefinition$, 0], 5, 5, 5, 1, () => TaskRunManifestPropertiesListResponse, 1, [() => SessionActionProgressMessage, 0], () => AcquiredLimits], 7
+];
+export var BatchGetSessionActionRequest$: StaticStructureSchema = [3, n0, _BGSAR,
+  0,
+  [_i],
+  [() => BatchGetSessionActionIdentifiers], 1
+];
+export var BatchGetSessionActionResponse$: StaticStructureSchema = [3, n0, _BGSARa,
+  0,
+  [_sA, _er],
+  [[() => BatchGetSessionActionItems, 0], () => BatchGetSessionActionErrors], 2
+];
+export var BatchGetSessionError$: StaticStructureSchema = [3, n0, _BGSE,
+  0,
+  [_fI, _qI, _jI, _sIe, _cod, _m],
+  [0, 0, 0, 0, 0, 0], 6
+];
+export var BatchGetSessionIdentifier$: StaticStructureSchema = [3, n0, _BGSI,
+  0,
+  [_fI, _qI, _jI, _sIe],
+  [0, 0, 0, 0], 4
+];
+export var BatchGetSessionItem$: StaticStructureSchema = [3, n0, _BGSIa,
+  0,
+  [_fI, _qI, _jI, _sIe, _fIl, _wI, _sAt, _lS, _l, _eA, _tLS, _uA, _uB, _hP, _wL],
+  [0, 0, 0, 0, 0, 0, 5, 0, () => LogConfiguration$, 5, 0, 5, 0, () => HostPropertiesResponse$, () => LogConfiguration$], 9
+];
+export var BatchGetSessionRequest$: StaticStructureSchema = [3, n0, _BGSR,
+  0,
+  [_i],
+  [() => BatchGetSessionIdentifiers], 1
+];
+export var BatchGetSessionResponse$: StaticStructureSchema = [3, n0, _BGSRa,
+  0,
+  [_ses, _er],
+  [() => BatchGetSessionItems, () => BatchGetSessionErrors], 2
+];
+export var BatchGetStepError$: StaticStructureSchema = [3, n0, _BGSEa,
+  0,
+  [_fI, _qI, _jI, _sI, _cod, _m],
+  [0, 0, 0, 0, 0, 0], 6
+];
+export var BatchGetStepIdentifier$: StaticStructureSchema = [3, n0, _BGSIat,
+  0,
+  [_fI, _qI, _jI, _sI],
+  [0, 0, 0, 0], 4
+];
+export var BatchGetStepItem$: StaticStructureSchema = [3, n0, _BGSIatc,
+  0,
+  [_fI, _qI, _jI, _sI, _n, _lS, _tRS, _tRSC, _cA, _cB, _lSM, _tFRC, _tTRS, _uA, _uB, _sAt, _eA, _dC, _rC, _pS, _de],
+  [0, 0, 0, 0, 0, 0, 0, 128 | 1, 5, 0, 0, 1, 0, 5, 0, 5, 5, () => DependencyCounts$, () => StepRequiredCapabilities$, () => ParameterSpace$, [() => StepDescription, 0]], 10
+];
+export var BatchGetStepRequest$: StaticStructureSchema = [3, n0, _BGSRat,
+  0,
+  [_i],
+  [() => BatchGetStepIdentifiers], 1
+];
+export var BatchGetStepResponse$: StaticStructureSchema = [3, n0, _BGSRatc,
+  0,
+  [_ste, _er],
+  [[() => BatchGetStepItems, 0], () => BatchGetStepErrors], 2
+];
+export var BatchGetTaskError$: StaticStructureSchema = [3, n0, _BGTE,
+  0,
+  [_fI, _qI, _jI, _sI, _tI, _cod, _m],
+  [0, 0, 0, 0, 0, 0, 0], 7
+];
+export var BatchGetTaskIdentifier$: StaticStructureSchema = [3, n0, _BGTI,
+  0,
+  [_fI, _qI, _jI, _sI, _tI],
+  [0, 0, 0, 0, 0], 5
+];
+export var BatchGetTaskItem$: StaticStructureSchema = [3, n0, _BGTIa,
+  0,
+  [_fI, _qI, _jI, _sI, _tI, _cA, _cB, _rS, _tRSa, _fRC, _sAt, _eA, _uA, _uB, _lSAI, _p],
+  [0, 0, 0, 0, 0, 5, 0, 0, 0, 1, 5, 5, 5, 0, 0, [() => TaskParameters, 0]], 8
+];
+export var BatchGetTaskRequest$: StaticStructureSchema = [3, n0, _BGTR,
+  0,
+  [_i],
+  [() => BatchGetTaskIdentifiers], 1
+];
+export var BatchGetTaskResponse$: StaticStructureSchema = [3, n0, _BGTRa,
+  0,
+  [_t, _er],
+  [[() => BatchGetTaskItems, 0], () => BatchGetTaskErrors], 2
+];
+export var BatchGetWorkerError$: StaticStructureSchema = [3, n0, _BGWE,
+  0,
+  [_fI, _fIl, _wI, _cod, _m],
+  [0, 0, 0, 0, 0], 5
+];
+export var BatchGetWorkerIdentifier$: StaticStructureSchema = [3, n0, _BGWI,
+  0,
+  [_fI, _fIl, _wI],
+  [0, 0, 0], 3
+];
+export var BatchGetWorkerItem$: StaticStructureSchema = [3, n0, _BGWIa,
+  0,
+  [_fI, _fIl, _wI, _st, _cA, _cB, _hP, _l, _uA, _uB],
+  [0, 0, 0, 0, 5, 0, () => HostPropertiesResponse$, () => LogConfiguration$, 5, 0], 6
+];
+export var BatchGetWorkerRequest$: StaticStructureSchema = [3, n0, _BGWR,
+  0,
+  [_i],
+  [() => BatchGetWorkerIdentifiers], 1
+];
+export var BatchGetWorkerResponse$: StaticStructureSchema = [3, n0, _BGWRa,
+  0,
+  [_w, _er],
+  [() => BatchGetWorkerItems, () => BatchGetWorkerErrors], 2
+];
+export var BatchUpdateJobError$: StaticStructureSchema = [3, n0, _BUJE,
+  0,
+  [_fI, _qI, _jI, _cod, _m],
+  [0, 0, 0, 0, 0], 5
+];
+export var BatchUpdateJobItem$: StaticStructureSchema = [3, n0, _BUJI,
+  0,
+  [_fI, _qI, _jI, _tTRS, _pr, _mFTC, _mRPT, _lS, _mWC, _n, _de],
+  [0, 0, 0, 0, 1, 1, 1, 0, 1, 0, [() => JobDescriptionOverride, 0]], 3
+];
+export var BatchUpdateJobRequest$: StaticStructureSchema = [3, n0, _BUJR,
+  0,
+  [_j, _cT],
+  [[() => BatchUpdateJobItems, 0], [0, { [_hH]: _XACT, [_iT]: 1 }]], 1
+];
+export var BatchUpdateJobResponse$: StaticStructureSchema = [3, n0, _BUJRa,
+  0,
+  [_er],
+  [() => BatchUpdateJobErrors], 1
+];
+export var BatchUpdateTaskError$: StaticStructureSchema = [3, n0, _BUTE,
+  0,
+  [_fI, _qI, _jI, _sI, _tI, _cod, _m],
+  [0, 0, 0, 0, 0, 0, 0], 7
+];
+export var BatchUpdateTaskItem$: StaticStructureSchema = [3, n0, _BUTI,
+  0,
+  [_fI, _qI, _jI, _sI, _tI, _tRSa],
+  [0, 0, 0, 0, 0, 0], 6
+];
+export var BatchUpdateTaskRequest$: StaticStructureSchema = [3, n0, _BUTR,
+  0,
+  [_t, _cT],
+  [() => BatchUpdateTaskItems, [0, { [_hH]: _XACT, [_iT]: 1 }]], 1
+];
+export var BatchUpdateTaskResponse$: StaticStructureSchema = [3, n0, _BUTRa,
+  0,
+  [_er],
+  [() => BatchUpdateTaskErrors], 1
+];
 export var BudgetActionToAdd$: StaticStructureSchema = [3, n0, _BATA,
   0,
-  [_t, _tP, _de],
+  [_ty, _tP, _de],
   [0, 1, [() => Description, 0]], 2
 ];
 export var BudgetActionToRemove$: StaticStructureSchema = [3, n0, _BATR,
   0,
-  [_t, _tP],
+  [_ty, _tP],
   [0, 1], 2
 ];
 export var BudgetSummary$: StaticStructureSchema = [3, n0, _BS,
@@ -1185,7 +1444,7 @@ export var CopyJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRo,
 ];
 export var CreateBudgetRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_fI, _dN, _uTR, _aDL, _a, _sc, _de, _cT, _ta],
+  [_fI, _dN, _uTR, _aDL, _ac, _sc, _de, _cT, _ta],
   [[0, 1], 0, () => UsageTrackingResource$, 1, [() => BudgetActionsToAdd, 0], () => BudgetSchedule$, [() => Description, 0], [0, { [_hH]: _XACT, [_iT]: 1 }], 128 | 0], 6
 ];
 export var CreateBudgetResponse$: StaticStructureSchema = [3, n0, _CBRr,
@@ -1215,7 +1474,7 @@ export var CreateFleetResponse$: StaticStructureSchema = [3, n0, _CFRrea,
 ];
 export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJR,
   0,
-  [_fI, _qI, _pr, _cT, _te, _tT, _p, _at, _sPI, _tTRS, _mFTC, _mRPT, _mWC, _sJI, _nO, _dO, _ta],
+  [_fI, _qI, _pr, _cT, _te, _tT, _p, _a, _sPI, _tTRS, _mFTC, _mRPT, _mWC, _sJI, _nO, _dO, _ta],
   [[0, 1], [0, 1], 1, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => JobTemplate, 0], 0, [() => JobParameters, 0], [() => Attachments$, 0], 0, 0, 1, 1, 1, 0, 0, [() => JobDescriptionOverride, 0], 128 | 0], 3
 ];
 export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRr,
@@ -1245,8 +1504,8 @@ export var CreateLimitResponse$: StaticStructureSchema = [3, n0, _CLRr,
 ];
 export var CreateMonitorRequest$: StaticStructureSchema = [3, n0, _CMR,
   0,
-  [_dN, _iCIA, _su, _rA, _cT, _ta],
-  [0, 0, 0, 0, [0, { [_hH]: _XACT, [_iT]: 1 }], 128 | 0], 4
+  [_dN, _iCIA, _su, _rA, _cT, _iCR, _ta],
+  [0, 0, 0, 0, [0, { [_hH]: _XACT, [_iT]: 1 }], 0, 128 | 0], 4
 ];
 export var CreateMonitorResponse$: StaticStructureSchema = [3, n0, _CMRr,
   0,
@@ -1565,7 +1824,7 @@ export var FieldSortExpression$: StaticStructureSchema = [3, n0, _FSE,
 ];
 export var FileSystemLocation$: StaticStructureSchema = [3, n0, _FSL,
   8,
-  [_n, _pa, _t],
+  [_n, _pa, _ty],
   [0, 0, 0], 3
 ];
 export var FixedBudgetSchedule$: StaticStructureSchema = [3, n0, _FBS,
@@ -1585,7 +1844,7 @@ export var FleetAttributeCapability$: StaticStructureSchema = [3, n0, _FACl,
 ];
 export var FleetCapabilities$: StaticStructureSchema = [3, n0, _FC,
   0,
-  [_am, _att],
+  [_am, _at],
   [() => FleetAmountCapabilities, () => FleetAttributeCapabilities]
 ];
 export var FleetMember$: StaticStructureSchema = [3, n0, _FMl,
@@ -1605,7 +1864,7 @@ export var GetBudgetRequest$: StaticStructureSchema = [3, n0, _GBR,
 ];
 export var GetBudgetResponse$: StaticStructureSchema = [3, n0, _GBRe,
   0,
-  [_bI, _uTR, _st, _dN, _aDL, _u, _cB, _cA, _a, _sc, _uB, _uA, _de, _qSA],
+  [_bI, _uTR, _st, _dN, _aDL, _u, _cB, _cA, _ac, _sc, _uB, _uA, _de, _qSA],
   [0, () => UsageTrackingResource$, 0, 0, 1, () => ConsumedUsages$, 0, 5, [() => ResponseBudgetActionList, 0], () => BudgetSchedule$, 0, 5, [() => Description, 0], 5], 10
 ];
 export var GetFarmRequest$: StaticStructureSchema = [3, n0, _GFR,
@@ -1635,7 +1894,7 @@ export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR,
 ];
 export var GetJobResponse$: StaticStructureSchema = [3, n0, _GJRe,
   0,
-  [_jI, _n, _lS, _lSM, _pr, _cA, _cB, _uA, _uB, _sAt, _eA, _tRS, _tTRS, _tRSC, _tFRC, _sPI, _mFTC, _mRPT, _p, _at, _de, _mWC, _sJI],
+  [_jI, _n, _lS, _lSM, _pr, _cA, _cB, _uA, _uB, _sAt, _eA, _tRS, _tTRS, _tRSC, _tFRC, _sPI, _mFTC, _mRPT, _p, _a, _de, _mWC, _sJI],
   [0, 0, 0, 0, 1, 5, 0, 5, 0, 5, 5, 0, 0, 128 | 1, 1, 0, 1, 1, [() => JobParameters, 0], [() => Attachments$, 0], [() => JobDescription, 0], 1, 0], 7
 ];
 export var GetLicenseEndpointRequest$: StaticStructureSchema = [3, n0, _GLER,
@@ -1665,8 +1924,8 @@ export var GetMonitorRequest$: StaticStructureSchema = [3, n0, _GMR,
 ];
 export var GetMonitorResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
-  [_mI, _dN, _su, _ur, _rA, _iCIA, _iCAA, _cA, _cB, _uA, _uB],
-  [0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0], 9
+  [_mI, _dN, _su, _ur, _rA, _iCIA, _iCAA, _cA, _cB, _iCR, _uA, _uB],
+  [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 5, 0], 9
 ];
 export var GetQueueEnvironmentRequest$: StaticStructureSchema = [3, n0, _GQER,
   0,
@@ -1810,7 +2069,7 @@ export var IpAddresses$: StaticStructureSchema = [3, n0, _IA,
 ];
 export var JobAttachmentDetailsEntity$: StaticStructureSchema = [3, n0, _JADE,
   0,
-  [_jI, _at],
+  [_jI, _a],
   [0, [() => Attachments$, 0]], 2
 ];
 export var JobAttachmentDetailsError$: StaticStructureSchema = [3, n0, _JADEo,
@@ -1850,7 +2109,7 @@ export var JobMember$: StaticStructureSchema = [3, n0, _JM,
 ];
 export var JobRunAsUser$: StaticStructureSchema = [3, n0, _JRAU,
   0,
-  [_rAu, _po, _w],
+  [_rAu, _po, _wi],
   [0, () => PosixUser$, () => WindowsUser$], 1
 ];
 export var JobSearchSummary$: StaticStructureSchema = [3, n0, _JSS,
@@ -2150,7 +2409,7 @@ export var ListTasksRequest$: StaticStructureSchema = [3, n0, _LTR,
 ];
 export var ListTasksResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
-  [_tas, _nT],
+  [_t, _nT],
   [[() => TaskSummaries, 0], 0], 1
 ];
 export var ListWorkersRequest$: StaticStructureSchema = [3, n0, _LWR,
@@ -2160,7 +2419,7 @@ export var ListWorkersRequest$: StaticStructureSchema = [3, n0, _LWR,
 ];
 export var ListWorkersResponse$: StaticStructureSchema = [3, n0, _LWRi,
   0,
-  [_wo, _nT],
+  [_w, _nT],
   [() => WorkerSummaries, 0], 1
 ];
 export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC,
@@ -2185,8 +2444,8 @@ export var MeteredProductSummary$: StaticStructureSchema = [3, n0, _MPS,
 ];
 export var MonitorSummary$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_mI, _dN, _su, _ur, _rA, _iCIA, _iCAA, _cA, _cB, _uA, _uB],
-  [0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0], 9
+  [_mI, _dN, _su, _ur, _rA, _iCIA, _iCAA, _cA, _cB, _iCR, _uA, _uB],
+  [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 5, 0], 9
 ];
 export var ParameterFilterExpression$: StaticStructureSchema = [3, n0, _PFE,
   0,
@@ -2260,7 +2519,7 @@ export var QueueSummary$: StaticStructureSchema = [3, n0, _QS,
 ];
 export var ResponseBudgetAction$: StaticStructureSchema = [3, n0, _RBA,
   0,
-  [_t, _tP, _de],
+  [_ty, _tP, _de],
   [0, 1, [() => Description, 0]], 2
 ];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
@@ -2310,7 +2569,7 @@ export var SearchTasksRequest$: StaticStructureSchema = [3, n0, _STR,
 ];
 export var SearchTasksResponse$: StaticStructureSchema = [3, n0, _STRe,
   0,
-  [_tas, _tR, _nIO],
+  [_t, _tR, _nIO],
   [[() => TaskSearchSummaries, 0], 1, 1], 2
 ];
 export var SearchTermFilterExpression$: StaticStructureSchema = [3, n0, _STFE,
@@ -2325,7 +2584,7 @@ export var SearchWorkersRequest$: StaticStructureSchema = [3, n0, _SWR,
 ];
 export var SearchWorkersResponse$: StaticStructureSchema = [3, n0, _SWRe,
   0,
-  [_wo, _tR, _nIO],
+  [_w, _tR, _nIO],
   [() => WorkerSearchSummaries, 1, 1], 2
 ];
 export var ServiceManagedEc2AutoScalingConfiguration$: StaticStructureSchema = [3, n0, _SMEASC,
@@ -2345,7 +2604,7 @@ export var ServiceManagedEc2InstanceCapabilities$: StaticStructureSchema = [3, n
 ];
 export var ServiceManagedEc2InstanceMarketOptions$: StaticStructureSchema = [3, n0, _SMEIMO,
   0,
-  [_t],
+  [_ty],
   [0], 1
 ];
 export var SessionActionSummary$: StaticStructureSchema = [3, n0, _SAS,
@@ -2415,7 +2674,7 @@ export var StepDetailsIdentifiers$: StaticStructureSchema = [3, n0, _SDI,
 ];
 export var StepParameter$: StaticStructureSchema = [3, n0, _SP,
   0,
-  [_n, _t, _ch],
+  [_n, _ty, _ch],
   [0, 0, () => StepParameterChunks$], 2
 ];
 export var StepParameterChunks$: StaticStructureSchema = [3, n0, _SPC,
@@ -2425,7 +2684,7 @@ export var StepParameterChunks$: StaticStructureSchema = [3, n0, _SPC,
 ];
 export var StepRequiredCapabilities$: StaticStructureSchema = [3, n0, _SRC,
   0,
-  [_att, _am],
+  [_at, _am],
   [() => StepAttributeCapabilities, () => StepAmountCapabilities], 2
 ];
 export var StepSearchSummary$: StaticStructureSchema = [3, n0, _SSS,
@@ -2720,7 +2979,7 @@ export var WorkerAttributeCapability$: StaticStructureSchema = [3, n0, _WACo,
 ];
 export var WorkerCapabilities$: StaticStructureSchema = [3, n0, _WC,
   0,
-  [_am, _att],
+  [_am, _at],
   [() => WorkerAmountCapabilityList, () => WorkerAttributeCapabilityList], 2
 ];
 export var WorkerSearchSummary$: StaticStructureSchema = [3, n0, _WSS,
@@ -2757,6 +3016,77 @@ var BatchGetJobEntityErrors: StaticListSchema = [1, n0, _BGJEE,
 var BatchGetJobEntityList: StaticListSchema = [1, n0, _BGJEL,
   0, [() => JobEntity$,
     0]
+];
+var BatchGetJobErrors: StaticListSchema = [1, n0, _BGJEa,
+  0, () => BatchGetJobError$
+];
+var BatchGetJobIdentifiers: StaticListSchema = [1, n0, _BGJIat,
+  0, () => BatchGetJobIdentifier$
+];
+var BatchGetJobItems: StaticListSchema = [1, n0, _BGJIatc,
+  0, [() => BatchGetJobItem$,
+    0]
+];
+var BatchGetSessionActionErrors: StaticListSchema = [1, n0, _BGSAEa,
+  0, () => BatchGetSessionActionError$
+];
+var BatchGetSessionActionIdentifiers: StaticListSchema = [1, n0, _BGSAIat,
+  0, () => BatchGetSessionActionIdentifier$
+];
+var BatchGetSessionActionItems: StaticListSchema = [1, n0, _BGSAIatc,
+  0, [() => BatchGetSessionActionItem$,
+    0]
+];
+var BatchGetSessionErrors: StaticListSchema = [1, n0, _BGSEat,
+  0, () => BatchGetSessionError$
+];
+var BatchGetSessionIdentifiers: StaticListSchema = [1, n0, _BGSIatch,
+  0, () => BatchGetSessionIdentifier$
+];
+var BatchGetSessionItems: StaticListSchema = [1, n0, _BGSIatche,
+  0, () => BatchGetSessionItem$
+];
+var BatchGetStepErrors: StaticListSchema = [1, n0, _BGSEatc,
+  0, () => BatchGetStepError$
+];
+var BatchGetStepIdentifiers: StaticListSchema = [1, n0, _BGSIatchet,
+  0, () => BatchGetStepIdentifier$
+];
+var BatchGetStepItems: StaticListSchema = [1, n0, _BGSIatchett,
+  0, [() => BatchGetStepItem$,
+    0]
+];
+var BatchGetTaskErrors: StaticListSchema = [1, n0, _BGTEa,
+  0, () => BatchGetTaskError$
+];
+var BatchGetTaskIdentifiers: StaticListSchema = [1, n0, _BGTIat,
+  0, () => BatchGetTaskIdentifier$
+];
+var BatchGetTaskItems: StaticListSchema = [1, n0, _BGTIatc,
+  0, [() => BatchGetTaskItem$,
+    0]
+];
+var BatchGetWorkerErrors: StaticListSchema = [1, n0, _BGWEa,
+  0, () => BatchGetWorkerError$
+];
+var BatchGetWorkerIdentifiers: StaticListSchema = [1, n0, _BGWIat,
+  0, () => BatchGetWorkerIdentifier$
+];
+var BatchGetWorkerItems: StaticListSchema = [1, n0, _BGWIatc,
+  0, () => BatchGetWorkerItem$
+];
+var BatchUpdateJobErrors: StaticListSchema = [1, n0, _BUJEa,
+  0, () => BatchUpdateJobError$
+];
+var BatchUpdateJobItems: StaticListSchema = [1, n0, _BUJIa,
+  0, [() => BatchUpdateJobItem$,
+    0]
+];
+var BatchUpdateTaskErrors: StaticListSchema = [1, n0, _BUTEa,
+  0, () => BatchUpdateTaskError$
+];
+var BatchUpdateTaskItems: StaticListSchema = [1, n0, _BUTIa,
+  0, () => BatchUpdateTaskItem$
 ];
 var BudgetActionsToAdd: StaticListSchema = [1, n0, _BATAu,
   0, [() => BudgetActionToAdd$,
@@ -3080,8 +3410,32 @@ export var AssumeQueueRoleForUser$: StaticOperationSchema = [9, n0, _AQRFU,
 export var AssumeQueueRoleForWorker$: StaticOperationSchema = [9, n0, _AQRFW,
   { [_end]: ["scheduling."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}/queue-roles", 200] }, () => AssumeQueueRoleForWorkerRequest$, () => AssumeQueueRoleForWorkerResponse$
 ];
-export var BatchGetJobEntity$: StaticOperationSchema = [9, n0, _BGJE,
+export var BatchGetJob$: StaticOperationSchema = [9, n0, _BGJ,
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/batch-get-job", 200] }, () => BatchGetJobRequest$, () => BatchGetJobResponse$
+];
+export var BatchGetJobEntity$: StaticOperationSchema = [9, n0, _BGJEat,
   { [_end]: ["scheduling."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}/batchGetJobEntity", 200] }, () => BatchGetJobEntityRequest$, () => BatchGetJobEntityResponse$
+];
+export var BatchGetSession$: StaticOperationSchema = [9, n0, _BGS,
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/batch-get-session", 200] }, () => BatchGetSessionRequest$, () => BatchGetSessionResponse$
+];
+export var BatchGetSessionAction$: StaticOperationSchema = [9, n0, _BGSA,
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/batch-get-session-action", 200] }, () => BatchGetSessionActionRequest$, () => BatchGetSessionActionResponse$
+];
+export var BatchGetStep$: StaticOperationSchema = [9, n0, _BGSa,
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/batch-get-step", 200] }, () => BatchGetStepRequest$, () => BatchGetStepResponse$
+];
+export var BatchGetTask$: StaticOperationSchema = [9, n0, _BGT,
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/batch-get-task", 200] }, () => BatchGetTaskRequest$, () => BatchGetTaskResponse$
+];
+export var BatchGetWorker$: StaticOperationSchema = [9, n0, _BGW,
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/batch-get-worker", 200] }, () => BatchGetWorkerRequest$, () => BatchGetWorkerResponse$
+];
+export var BatchUpdateJob$: StaticOperationSchema = [9, n0, _BUJ,
+  { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/batch-update-job", 200] }, () => BatchUpdateJobRequest$, () => BatchUpdateJobResponse$
+];
+export var BatchUpdateTask$: StaticOperationSchema = [9, n0, _BUT,
+  { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/batch-update-task", 200] }, () => BatchUpdateTaskRequest$, () => BatchUpdateTaskResponse$
 ];
 export var CopyJobTemplate$: StaticOperationSchema = [9, n0, _CJT,
   { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/template", 200] }, () => CopyJobTemplateRequest$, () => CopyJobTemplateResponse$

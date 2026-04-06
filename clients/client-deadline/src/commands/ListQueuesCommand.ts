@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListQueuesRequest, ListQueuesResponse } from "../models/models_0";
+import type { ListQueuesRequest, ListQueuesResponse } from "../models/models_1";
 import { ListQueues$ } from "../schemas/schemas_0";
 
 /**

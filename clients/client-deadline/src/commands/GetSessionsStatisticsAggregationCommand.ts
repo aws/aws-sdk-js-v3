@@ -5,8 +5,10 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetSessionsStatisticsAggregationRequest } from "../models/models_0";
-import type { GetSessionsStatisticsAggregationResponse } from "../models/models_1";
+import type {
+  GetSessionsStatisticsAggregationRequest,
+  GetSessionsStatisticsAggregationResponse,
+} from "../models/models_1";
 import { GetSessionsStatisticsAggregation$ } from "../schemas/schemas_0";
 
 /**

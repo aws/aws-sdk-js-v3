@@ -54,10 +54,50 @@ import {
   AssumeQueueRoleForWorkerCommand,
 } from "./commands/AssumeQueueRoleForWorkerCommand";
 import {
+  type BatchGetJobCommandInput,
+  type BatchGetJobCommandOutput,
+  BatchGetJobCommand,
+} from "./commands/BatchGetJobCommand";
+import {
   type BatchGetJobEntityCommandInput,
   type BatchGetJobEntityCommandOutput,
   BatchGetJobEntityCommand,
 } from "./commands/BatchGetJobEntityCommand";
+import {
+  type BatchGetSessionActionCommandInput,
+  type BatchGetSessionActionCommandOutput,
+  BatchGetSessionActionCommand,
+} from "./commands/BatchGetSessionActionCommand";
+import {
+  type BatchGetSessionCommandInput,
+  type BatchGetSessionCommandOutput,
+  BatchGetSessionCommand,
+} from "./commands/BatchGetSessionCommand";
+import {
+  type BatchGetStepCommandInput,
+  type BatchGetStepCommandOutput,
+  BatchGetStepCommand,
+} from "./commands/BatchGetStepCommand";
+import {
+  type BatchGetTaskCommandInput,
+  type BatchGetTaskCommandOutput,
+  BatchGetTaskCommand,
+} from "./commands/BatchGetTaskCommand";
+import {
+  type BatchGetWorkerCommandInput,
+  type BatchGetWorkerCommandOutput,
+  BatchGetWorkerCommand,
+} from "./commands/BatchGetWorkerCommand";
+import {
+  type BatchUpdateJobCommandInput,
+  type BatchUpdateJobCommandOutput,
+  BatchUpdateJobCommand,
+} from "./commands/BatchUpdateJobCommand";
+import {
+  type BatchUpdateTaskCommandInput,
+  type BatchUpdateTaskCommandOutput,
+  BatchUpdateTaskCommand,
+} from "./commands/BatchUpdateTaskCommand";
 import {
   type CopyJobTemplateCommandInput,
   type CopyJobTemplateCommandOutput,
@@ -564,7 +604,15 @@ const commands = {
   AssumeQueueRoleForReadCommand,
   AssumeQueueRoleForUserCommand,
   AssumeQueueRoleForWorkerCommand,
+  BatchGetJobCommand,
   BatchGetJobEntityCommand,
+  BatchGetSessionCommand,
+  BatchGetSessionActionCommand,
+  BatchGetStepCommand,
+  BatchGetTaskCommand,
+  BatchGetWorkerCommand,
+  BatchUpdateJobCommand,
+  BatchUpdateTaskCommand,
   CopyJobTemplateCommand,
   CreateBudgetCommand,
   CreateFarmCommand,
@@ -868,6 +916,23 @@ export interface Deadline {
   ): void;
 
   /**
+   * @see {@link BatchGetJobCommand}
+   */
+  batchGetJob(
+    args: BatchGetJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetJobCommandOutput>;
+  batchGetJob(
+    args: BatchGetJobCommandInput,
+    cb: (err: any, data?: BatchGetJobCommandOutput) => void
+  ): void;
+  batchGetJob(
+    args: BatchGetJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchGetJobEntityCommand}
    */
   batchGetJobEntity(
@@ -882,6 +947,125 @@ export interface Deadline {
     args: BatchGetJobEntityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetJobEntityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetSessionCommand}
+   */
+  batchGetSession(
+    args: BatchGetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetSessionCommandOutput>;
+  batchGetSession(
+    args: BatchGetSessionCommandInput,
+    cb: (err: any, data?: BatchGetSessionCommandOutput) => void
+  ): void;
+  batchGetSession(
+    args: BatchGetSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetSessionActionCommand}
+   */
+  batchGetSessionAction(
+    args: BatchGetSessionActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetSessionActionCommandOutput>;
+  batchGetSessionAction(
+    args: BatchGetSessionActionCommandInput,
+    cb: (err: any, data?: BatchGetSessionActionCommandOutput) => void
+  ): void;
+  batchGetSessionAction(
+    args: BatchGetSessionActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetSessionActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetStepCommand}
+   */
+  batchGetStep(
+    args: BatchGetStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetStepCommandOutput>;
+  batchGetStep(
+    args: BatchGetStepCommandInput,
+    cb: (err: any, data?: BatchGetStepCommandOutput) => void
+  ): void;
+  batchGetStep(
+    args: BatchGetStepCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetStepCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetTaskCommand}
+   */
+  batchGetTask(
+    args: BatchGetTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetTaskCommandOutput>;
+  batchGetTask(
+    args: BatchGetTaskCommandInput,
+    cb: (err: any, data?: BatchGetTaskCommandOutput) => void
+  ): void;
+  batchGetTask(
+    args: BatchGetTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetWorkerCommand}
+   */
+  batchGetWorker(
+    args: BatchGetWorkerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetWorkerCommandOutput>;
+  batchGetWorker(
+    args: BatchGetWorkerCommandInput,
+    cb: (err: any, data?: BatchGetWorkerCommandOutput) => void
+  ): void;
+  batchGetWorker(
+    args: BatchGetWorkerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetWorkerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateJobCommand}
+   */
+  batchUpdateJob(
+    args: BatchUpdateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateJobCommandOutput>;
+  batchUpdateJob(
+    args: BatchUpdateJobCommandInput,
+    cb: (err: any, data?: BatchUpdateJobCommandOutput) => void
+  ): void;
+  batchUpdateJob(
+    args: BatchUpdateJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateTaskCommand}
+   */
+  batchUpdateTask(
+    args: BatchUpdateTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateTaskCommandOutput>;
+  batchUpdateTask(
+    args: BatchUpdateTaskCommandInput,
+    cb: (err: any, data?: BatchUpdateTaskCommandOutput) => void
+  ): void;
+  batchUpdateTask(
+    args: BatchUpdateTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateTaskCommandOutput) => void
   ): void;
 
   /**

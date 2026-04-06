@@ -160,6 +160,82 @@ export type AutoScalingStatus = (typeof AutoScalingStatus)[keyof typeof AutoScal
  * @public
  * @enum
  */
+export const BatchGetJobErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  InternalServerErrorException: "InternalServerErrorException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ThrottlingException: "ThrottlingException",
+  ValidationException: "ValidationException",
+} as const;
+/**
+ * @public
+ */
+export type BatchGetJobErrorCode = (typeof BatchGetJobErrorCode)[keyof typeof BatchGetJobErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobLifecycleStatus = {
+  ARCHIVED: "ARCHIVED",
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCEEDED: "UPDATE_SUCCEEDED",
+  UPLOAD_FAILED: "UPLOAD_FAILED",
+  UPLOAD_IN_PROGRESS: "UPLOAD_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type JobLifecycleStatus = (typeof JobLifecycleStatus)[keyof typeof JobLifecycleStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobTargetTaskRunStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  READY: "READY",
+  SUCCEEDED: "SUCCEEDED",
+  SUSPENDED: "SUSPENDED",
+} as const;
+/**
+ * @public
+ */
+export type JobTargetTaskRunStatus = (typeof JobTargetTaskRunStatus)[keyof typeof JobTargetTaskRunStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskRunStatus = {
+  ASSIGNED: "ASSIGNED",
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  INTERRUPTING: "INTERRUPTING",
+  NOT_COMPATIBLE: "NOT_COMPATIBLE",
+  PENDING: "PENDING",
+  READY: "READY",
+  RUNNING: "RUNNING",
+  SCHEDULED: "SCHEDULED",
+  STARTING: "STARTING",
+  SUCCEEDED: "SUCCEEDED",
+  SUSPENDED: "SUSPENDED",
+} as const;
+/**
+ * @public
+ */
+export type TaskRunStatus = (typeof TaskRunStatus)[keyof typeof TaskRunStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const RunAs = {
   QUEUE_CONFIGURED_USER: "QUEUE_CONFIGURED_USER",
   WORKER_AGENT_USER: "WORKER_AGENT_USER",
@@ -185,6 +261,275 @@ export const JobEntityErrorCode = {
  * @public
  */
 export type JobEntityErrorCode = (typeof JobEntityErrorCode)[keyof typeof JobEntityErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchGetSessionErrorCode = {
+  InternalServerErrorException: "InternalServerErrorException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ValidationException: "ValidationException",
+} as const;
+/**
+ * @public
+ */
+export type BatchGetSessionErrorCode = (typeof BatchGetSessionErrorCode)[keyof typeof BatchGetSessionErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionLifecycleStatus = {
+  ENDED: "ENDED",
+  STARTED: "STARTED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCEEDED: "UPDATE_SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type SessionLifecycleStatus = (typeof SessionLifecycleStatus)[keyof typeof SessionLifecycleStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionLifecycleTargetStatus = {
+  ENDED: "ENDED",
+} as const;
+/**
+ * @public
+ */
+export type SessionLifecycleTargetStatus =
+  (typeof SessionLifecycleTargetStatus)[keyof typeof SessionLifecycleTargetStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchGetSessionActionErrorCode = {
+  InternalServerErrorException: "InternalServerErrorException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ValidationException: "ValidationException",
+} as const;
+/**
+ * @public
+ */
+export type BatchGetSessionActionErrorCode =
+  (typeof BatchGetSessionActionErrorCode)[keyof typeof BatchGetSessionActionErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionActionStatus = {
+  ASSIGNED: "ASSIGNED",
+  CANCELED: "CANCELED",
+  CANCELING: "CANCELING",
+  FAILED: "FAILED",
+  INTERRUPTED: "INTERRUPTED",
+  NEVER_ATTEMPTED: "NEVER_ATTEMPTED",
+  RECLAIMED: "RECLAIMED",
+  RECLAIMING: "RECLAIMING",
+  RUNNING: "RUNNING",
+  SCHEDULED: "SCHEDULED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type SessionActionStatus = (typeof SessionActionStatus)[keyof typeof SessionActionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchGetStepErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  InternalServerErrorException: "InternalServerErrorException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ThrottlingException: "ThrottlingException",
+  ValidationException: "ValidationException",
+} as const;
+/**
+ * @public
+ */
+export type BatchGetStepErrorCode = (typeof BatchGetStepErrorCode)[keyof typeof BatchGetStepErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const StepLifecycleStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCEEDED: "UPDATE_SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type StepLifecycleStatus = (typeof StepLifecycleStatus)[keyof typeof StepLifecycleStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RangeConstraint = {
+  CONTIGUOUS: "CONTIGUOUS",
+  NONCONTIGUOUS: "NONCONTIGUOUS",
+} as const;
+/**
+ * @public
+ */
+export type RangeConstraint = (typeof RangeConstraint)[keyof typeof RangeConstraint];
+
+/**
+ * @public
+ * @enum
+ */
+export const StepParameterType = {
+  CHUNK_INT: "CHUNK_INT",
+  FLOAT: "FLOAT",
+  INT: "INT",
+  PATH: "PATH",
+  STRING: "STRING",
+} as const;
+/**
+ * @public
+ */
+export type StepParameterType = (typeof StepParameterType)[keyof typeof StepParameterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const StepTargetTaskRunStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  READY: "READY",
+  SUCCEEDED: "SUCCEEDED",
+  SUSPENDED: "SUSPENDED",
+} as const;
+/**
+ * @public
+ */
+export type StepTargetTaskRunStatus = (typeof StepTargetTaskRunStatus)[keyof typeof StepTargetTaskRunStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchGetTaskErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  InternalServerErrorException: "InternalServerErrorException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ThrottlingException: "ThrottlingException",
+  ValidationException: "ValidationException",
+} as const;
+/**
+ * @public
+ */
+export type BatchGetTaskErrorCode = (typeof BatchGetTaskErrorCode)[keyof typeof BatchGetTaskErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskTargetRunStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  READY: "READY",
+  SUCCEEDED: "SUCCEEDED",
+  SUSPENDED: "SUSPENDED",
+} as const;
+/**
+ * @public
+ */
+export type TaskTargetRunStatus = (typeof TaskTargetRunStatus)[keyof typeof TaskTargetRunStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchGetWorkerErrorCode = {
+  InternalServerErrorException: "InternalServerErrorException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ValidationException: "ValidationException",
+} as const;
+/**
+ * @public
+ */
+export type BatchGetWorkerErrorCode = (typeof BatchGetWorkerErrorCode)[keyof typeof BatchGetWorkerErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkerStatus = {
+  CREATED: "CREATED",
+  IDLE: "IDLE",
+  NOT_COMPATIBLE: "NOT_COMPATIBLE",
+  NOT_RESPONDING: "NOT_RESPONDING",
+  RUNNING: "RUNNING",
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+/**
+ * @public
+ */
+export type WorkerStatus = (typeof WorkerStatus)[keyof typeof WorkerStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateJobLifecycleStatus = {
+  ARCHIVED: "ARCHIVED",
+} as const;
+/**
+ * @public
+ */
+export type UpdateJobLifecycleStatus = (typeof UpdateJobLifecycleStatus)[keyof typeof UpdateJobLifecycleStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchUpdateJobErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  ConflictException: "ConflictException",
+  InternalServerErrorException: "InternalServerErrorException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ThrottlingException: "ThrottlingException",
+  ValidationException: "ValidationException",
+} as const;
+/**
+ * @public
+ */
+export type BatchUpdateJobErrorCode = (typeof BatchUpdateJobErrorCode)[keyof typeof BatchUpdateJobErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchUpdateTaskErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  ConflictException: "ConflictException",
+  InternalServerErrorException: "InternalServerErrorException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ThrottlingException: "ThrottlingException",
+  ValidationException: "ValidationException",
+} as const;
+/**
+ * @public
+ */
+export type BatchUpdateTaskErrorCode = (typeof BatchUpdateTaskErrorCode)[keyof typeof BatchUpdateTaskErrorCode];
 
 /**
  * @public
@@ -419,54 +764,6 @@ export type FleetStatus = (typeof FleetStatus)[keyof typeof FleetStatus];
  * @public
  * @enum
  */
-export const WorkerStatus = {
-  CREATED: "CREATED",
-  IDLE: "IDLE",
-  NOT_COMPATIBLE: "NOT_COMPATIBLE",
-  NOT_RESPONDING: "NOT_RESPONDING",
-  RUNNING: "RUNNING",
-  STARTED: "STARTED",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-/**
- * @public
- */
-export type WorkerStatus = (typeof WorkerStatus)[keyof typeof WorkerStatus];
-
-/**
- * @public
- * @enum
- */
-export const SessionLifecycleStatus = {
-  ENDED: "ENDED",
-  STARTED: "STARTED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCEEDED: "UPDATE_SUCCEEDED",
-} as const;
-/**
- * @public
- */
-export type SessionLifecycleStatus = (typeof SessionLifecycleStatus)[keyof typeof SessionLifecycleStatus];
-
-/**
- * @public
- * @enum
- */
-export const SessionLifecycleTargetStatus = {
-  ENDED: "ENDED",
-} as const;
-/**
- * @public
- */
-export type SessionLifecycleTargetStatus =
-  (typeof SessionLifecycleTargetStatus)[keyof typeof SessionLifecycleTargetStatus];
-
-/**
- * @public
- * @enum
- */
 export const UpdatedWorkerStatus = {
   STARTED: "STARTED",
   STOPPED: "STOPPED",
@@ -520,166 +817,6 @@ export type QueueStatus = (typeof QueueStatus)[keyof typeof QueueStatus];
  * @public
  * @enum
  */
-export const JobLifecycleStatus = {
-  ARCHIVED: "ARCHIVED",
-  CREATE_COMPLETE: "CREATE_COMPLETE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCEEDED: "UPDATE_SUCCEEDED",
-  UPLOAD_FAILED: "UPLOAD_FAILED",
-  UPLOAD_IN_PROGRESS: "UPLOAD_IN_PROGRESS",
-} as const;
-/**
- * @public
- */
-export type JobLifecycleStatus = (typeof JobLifecycleStatus)[keyof typeof JobLifecycleStatus];
-
-/**
- * @public
- * @enum
- */
-export const JobTargetTaskRunStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  READY: "READY",
-  SUCCEEDED: "SUCCEEDED",
-  SUSPENDED: "SUSPENDED",
-} as const;
-/**
- * @public
- */
-export type JobTargetTaskRunStatus = (typeof JobTargetTaskRunStatus)[keyof typeof JobTargetTaskRunStatus];
-
-/**
- * @public
- * @enum
- */
-export const TaskRunStatus = {
-  ASSIGNED: "ASSIGNED",
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  INTERRUPTING: "INTERRUPTING",
-  NOT_COMPATIBLE: "NOT_COMPATIBLE",
-  PENDING: "PENDING",
-  READY: "READY",
-  RUNNING: "RUNNING",
-  SCHEDULED: "SCHEDULED",
-  STARTING: "STARTING",
-  SUCCEEDED: "SUCCEEDED",
-  SUSPENDED: "SUSPENDED",
-} as const;
-/**
- * @public
- */
-export type TaskRunStatus = (typeof TaskRunStatus)[keyof typeof TaskRunStatus];
-
-/**
- * @public
- * @enum
- */
-export const SessionActionStatus = {
-  ASSIGNED: "ASSIGNED",
-  CANCELED: "CANCELED",
-  CANCELING: "CANCELING",
-  FAILED: "FAILED",
-  INTERRUPTED: "INTERRUPTED",
-  NEVER_ATTEMPTED: "NEVER_ATTEMPTED",
-  RECLAIMED: "RECLAIMED",
-  RECLAIMING: "RECLAIMING",
-  RUNNING: "RUNNING",
-  SCHEDULED: "SCHEDULED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-/**
- * @public
- */
-export type SessionActionStatus = (typeof SessionActionStatus)[keyof typeof SessionActionStatus];
-
-/**
- * @public
- * @enum
- */
-export const StepLifecycleStatus = {
-  CREATE_COMPLETE: "CREATE_COMPLETE",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCEEDED: "UPDATE_SUCCEEDED",
-} as const;
-/**
- * @public
- */
-export type StepLifecycleStatus = (typeof StepLifecycleStatus)[keyof typeof StepLifecycleStatus];
-
-/**
- * @public
- * @enum
- */
-export const RangeConstraint = {
-  CONTIGUOUS: "CONTIGUOUS",
-  NONCONTIGUOUS: "NONCONTIGUOUS",
-} as const;
-/**
- * @public
- */
-export type RangeConstraint = (typeof RangeConstraint)[keyof typeof RangeConstraint];
-
-/**
- * @public
- * @enum
- */
-export const StepParameterType = {
-  CHUNK_INT: "CHUNK_INT",
-  FLOAT: "FLOAT",
-  INT: "INT",
-  PATH: "PATH",
-  STRING: "STRING",
-} as const;
-/**
- * @public
- */
-export type StepParameterType = (typeof StepParameterType)[keyof typeof StepParameterType];
-
-/**
- * @public
- * @enum
- */
-export const StepTargetTaskRunStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  READY: "READY",
-  SUCCEEDED: "SUCCEEDED",
-  SUSPENDED: "SUSPENDED",
-} as const;
-/**
- * @public
- */
-export type StepTargetTaskRunStatus = (typeof StepTargetTaskRunStatus)[keyof typeof StepTargetTaskRunStatus];
-
-/**
- * @public
- * @enum
- */
-export const TaskTargetRunStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  READY: "READY",
-  SUCCEEDED: "SUCCEEDED",
-  SUSPENDED: "SUSPENDED",
-} as const;
-/**
- * @public
- */
-export type TaskTargetRunStatus = (typeof TaskTargetRunStatus)[keyof typeof TaskTargetRunStatus];
-
-/**
- * @public
- * @enum
- */
 export const DependencyConsumerResolutionStatus = {
   RESOLVED: "RESOLVED",
   UNRESOLVED: "UNRESOLVED",
@@ -689,18 +826,6 @@ export const DependencyConsumerResolutionStatus = {
  */
 export type DependencyConsumerResolutionStatus =
   (typeof DependencyConsumerResolutionStatus)[keyof typeof DependencyConsumerResolutionStatus];
-
-/**
- * @public
- * @enum
- */
-export const UpdateJobLifecycleStatus = {
-  ARCHIVED: "ARCHIVED",
-} as const;
-/**
- * @public
- */
-export type UpdateJobLifecycleStatus = (typeof UpdateJobLifecycleStatus)[keyof typeof UpdateJobLifecycleStatus];
 
 /**
  * @public
