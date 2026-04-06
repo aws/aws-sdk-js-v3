@@ -40,7 +40,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "defaultValue": 0,
           "dimensions": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "unit": "__unit__"
         },
@@ -51,7 +52,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "defaultValue": 0,
           "dimensions": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "unit": "__unit__"
         },
@@ -62,7 +64,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "defaultValue": 0,
           "dimensions": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "unit": "__unit__"
         }
@@ -88,7 +91,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "defaultValue": 0,
           "dimensions": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "unit": "__unit__"
         },
@@ -99,7 +103,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "defaultValue": 0,
           "dimensions": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "unit": "__unit__"
         },
@@ -110,7 +115,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "defaultValue": 0,
           "dimensions": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "unit": "__unit__"
         }
@@ -136,7 +142,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "defaultValue": 0,
           "dimensions": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "unit": "__unit__"
         },
@@ -147,7 +154,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "defaultValue": 0,
           "dimensions": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "unit": "__unit__"
         },
@@ -158,7 +166,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "defaultValue": 0,
           "dimensions": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "unit": "__unit__"
         }
@@ -192,7 +201,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           defaultValue: (number) 0,
           dimensions: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           unit: "__unit__"
         },
@@ -203,7 +213,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           defaultValue: (number) 0,
           dimensions: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           unit: "__unit__"
         },
@@ -214,7 +225,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           defaultValue: (number) 0,
           dimensions: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           unit: "__unit__"
         }
@@ -240,7 +252,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           defaultValue: (number) 0,
           dimensions: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           unit: "__unit__"
         },
@@ -251,7 +264,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           defaultValue: (number) 0,
           dimensions: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           unit: "__unit__"
         },
@@ -262,7 +276,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           defaultValue: (number) 0,
           dimensions: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           unit: "__unit__"
         }
@@ -288,7 +303,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           defaultValue: (number) 0,
           dimensions: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           unit: "__unit__"
         },
@@ -299,7 +315,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           defaultValue: (number) 0,
           dimensions: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           unit: "__unit__"
         },
@@ -310,7 +327,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           defaultValue: (number) 0,
           dimensions: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           unit: "__unit__"
         }

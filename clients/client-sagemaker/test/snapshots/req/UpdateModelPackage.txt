@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.UpdateModelPackage
-content-length: 14209
+content-length: 14456
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 1ca8869fcfc13cb4cfa0e96263d74e7e11ac6e2fe048704cf4d94b7626700056
+x-amz-content-sha256: 4007e783829c604f324b893437017f0f7b59bc15f47c02c0952e2d1755b47143
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -21,7 +21,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
   "ApprovalDescription": "__ApprovalDescription__",
   "CustomerMetadataProperties": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "CustomerMetadataPropertiesToRemove": [
     "__member__",
@@ -56,7 +57,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "ProductId": "__ProductId__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "ModelInput": {
             "DataInputConfig": "__DataInputConfig__"
@@ -102,7 +104,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "ProductId": "__ProductId__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "ModelInput": {
             "DataInputConfig": "__DataInputConfig__"
@@ -148,7 +151,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "ProductId": "__ProductId__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "ModelInput": {
             "DataInputConfig": "__DataInputConfig__"
@@ -220,7 +224,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "ProductId": "__ProductId__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "ModelInput": {
             "DataInputConfig": "__DataInputConfig__"
@@ -266,7 +271,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "ProductId": "__ProductId__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "ModelInput": {
             "DataInputConfig": "__DataInputConfig__"
@@ -312,7 +318,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "ProductId": "__ProductId__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "ModelInput": {
             "DataInputConfig": "__DataInputConfig__"
@@ -384,7 +391,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "ProductId": "__ProductId__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "ModelInput": {
             "DataInputConfig": "__DataInputConfig__"
@@ -430,7 +438,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "ProductId": "__ProductId__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "ModelInput": {
             "DataInputConfig": "__DataInputConfig__"
@@ -476,7 +485,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "ProductId": "__ProductId__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "ModelInput": {
             "DataInputConfig": "__DataInputConfig__"
@@ -548,7 +558,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "ProductId": "__ProductId__",
         "Environment": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "ModelInput": {
           "DataInputConfig": "__DataInputConfig__"
@@ -594,7 +605,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "ProductId": "__ProductId__",
         "Environment": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "ModelInput": {
           "DataInputConfig": "__DataInputConfig__"
@@ -640,7 +652,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "ProductId": "__ProductId__",
         "Environment": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "ModelInput": {
           "DataInputConfig": "__DataInputConfig__"

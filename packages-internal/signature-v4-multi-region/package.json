@@ -27,9 +27,9 @@
   "dependencies": {
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.27",
     "@aws-sdk/types": "workspace:^3.973.6",
-    "@smithy/protocol-http": "^5.3.12",
-    "@smithy/signature-v4": "^5.3.12",
-    "@smithy/types": "^4.13.1",
+    "@smithy/protocol-http": "^5.3.13",
+    "@smithy/signature-v4": "^5.3.13",
+    "@smithy/types": "^4.14.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

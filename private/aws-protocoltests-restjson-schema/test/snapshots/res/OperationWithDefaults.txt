@@ -105,7 +105,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "defaultDouble": 0,
   "defaultMap": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "defaultEnum": "__defaultEnum__",
   "defaultIntEnum": 0,
@@ -200,7 +201,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   defaultDouble: (number) 0,
   defaultMap: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   defaultEnum: "__defaultEnum__",
   defaultIntEnum: (number) 0,

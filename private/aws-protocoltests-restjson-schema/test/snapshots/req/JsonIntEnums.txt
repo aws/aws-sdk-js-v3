@@ -2,14 +2,14 @@ PUT https://restjson.us-east-1.amazonaws.com
 /JsonIntEnums
 
 content-type: application/json
-content-length: 140
+content-length: 149
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/rest-json-protocol#_.__ m/E,e
 host: restjson.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: b95486b5da9110a3a06a0f2c6cbbef63184a995b0242c0dd742b521a4a6f040d
+x-amz-content-sha256: 01eada7b0b48b6fce912101e547371e202990952d955c8d5fa73b2c00f05fdf4
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restjson/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -29,6 +29,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restjson/aws4_
   ],
   "integerEnumMap": {
     "key1": 0,
-    "key2": 0
+    "key2": 0,
+    "key3": 0
   }
 }

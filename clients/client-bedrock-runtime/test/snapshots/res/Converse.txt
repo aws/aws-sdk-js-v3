@@ -760,6 +760,271 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "automatedReasoningPolicy": {
             "findings": [
               {
+                "translationAmbiguous": {
+                  "options": [
+                    {
+                      "translations": [
+                        {},
+                        {},
+                        {}
+                      ]
+                    },
+                    {
+                      "translations": [
+                        {},
+                        {},
+                        {}
+                      ]
+                    },
+                    {
+                      "translations": [
+                        {},
+                        {},
+                        {}
+                      ]
+                    }
+                  ],
+                  "differenceScenarios": [
+                    {
+                      "statements": [
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        }
+                      ]
+                    },
+                    {
+                      "statements": [
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        }
+                      ]
+                    },
+                    {
+                      "statements": [
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "tooComplex": {}
+              },
+              {
+                "noTranslations": {}
+              }
+            ]
+          },
+          "invocationMetrics": {
+            "guardrailProcessingLatency": 0,
+            "usage": {
+              "topicPolicyUnits": 0,
+              "contentPolicyUnits": 0,
+              "wordPolicyUnits": 0,
+              "sensitiveInformationPolicyUnits": 0,
+              "sensitiveInformationPolicyFreeUnits": 0,
+              "contextualGroundingPolicyUnits": 0,
+              "contentPolicyImageUnits": 0,
+              "automatedReasoningPolicyUnits": 0,
+              "automatedReasoningPolicies": 0
+            },
+            "guardrailCoverage": {
+              "textCharacters": {
+                "guarded": 0,
+                "total": 0
+              },
+              "images": {
+                "guarded": 0,
+                "total": 0
+              }
+            }
+          },
+          "appliedGuardrailDetails": {
+            "guardrailId": "__guardrailId__",
+            "guardrailVersion": "__guardrailVersion__",
+            "guardrailArn": "__guardrailArn__",
+            "guardrailOrigin": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "guardrailOwnership": "__guardrailOwnership__"
+          }
+        },
+        "key3": {
+          "topicPolicy": {
+            "topics": [
+              {},
+              {},
+              {}
+            ]
+          },
+          "contentPolicy": {
+            "filters": [
+              {
+                "type": "__type__",
+                "confidence": "__confidence__",
+                "action": "__action__",
+                "filterStrength": "__filterStrength__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "confidence": "__confidence__",
+                "action": "__action__",
+                "filterStrength": "__filterStrength__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "confidence": "__confidence__",
+                "action": "__action__",
+                "filterStrength": "__filterStrength__",
+                "detected": false
+              }
+            ]
+          },
+          "wordPolicy": {
+            "customWords": [
+              {
+                "match": "__match__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "action": "__action__",
+                "detected": false
+              }
+            ],
+            "managedWordLists": [
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              }
+            ]
+          },
+          "sensitiveInformationPolicy": {
+            "piiEntities": [
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              }
+            ],
+            "regexes": [
+              {
+                "action": "__action__",
+                "name": "__name__",
+                "match": "__match__",
+                "regex": "__regex__",
+                "detected": false
+              },
+              {
+                "action": "__action__",
+                "name": "__name__",
+                "match": "__match__",
+                "regex": "__regex__",
+                "detected": false
+              },
+              {
+                "action": "__action__",
+                "name": "__name__",
+                "match": "__match__",
+                "regex": "__regex__",
+                "detected": false
+              }
+            ]
+          },
+          "contextualGroundingPolicy": {
+            "filters": [
+              {
+                "type": "__type__",
+                "threshold": 0,
+                "score": 0,
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "threshold": 0,
+                "score": 0,
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "threshold": 0,
+                "score": 0,
+                "action": "__action__",
+                "detected": false
+              }
+            ]
+          },
+          "automatedReasoningPolicy": {
+            "findings": [
+              {
                 "tooComplex": {}
               },
               {
@@ -929,6 +1194,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           {}
         ],
         "key2": [
+          {},
+          {},
+          {}
+        ],
+        "key3": [
           {},
           {},
           {}
@@ -1596,6 +1866,271 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           automatedReasoningPolicy: {
             findings: [
               {
+                translationAmbiguous: {
+                  options: [
+                    {
+                      translations: [
+                        {},
+                        {},
+                        {}
+                      ]
+                    },
+                    {
+                      translations: [
+                        {},
+                        {},
+                        {}
+                      ]
+                    },
+                    {
+                      translations: [
+                        {},
+                        {},
+                        {}
+                      ]
+                    }
+                  ],
+                  differenceScenarios: [
+                    {
+                      statements: [
+                        {
+                          logic: "__logic__",
+                          naturalLanguage: "__naturalLanguage__"
+                        },
+                        {
+                          logic: "__logic__",
+                          naturalLanguage: "__naturalLanguage__"
+                        },
+                        {
+                          logic: "__logic__",
+                          naturalLanguage: "__naturalLanguage__"
+                        }
+                      ]
+                    },
+                    {
+                      statements: [
+                        {
+                          logic: "__logic__",
+                          naturalLanguage: "__naturalLanguage__"
+                        },
+                        {
+                          logic: "__logic__",
+                          naturalLanguage: "__naturalLanguage__"
+                        },
+                        {
+                          logic: "__logic__",
+                          naturalLanguage: "__naturalLanguage__"
+                        }
+                      ]
+                    },
+                    {
+                      statements: [
+                        {
+                          logic: "__logic__",
+                          naturalLanguage: "__naturalLanguage__"
+                        },
+                        {
+                          logic: "__logic__",
+                          naturalLanguage: "__naturalLanguage__"
+                        },
+                        {
+                          logic: "__logic__",
+                          naturalLanguage: "__naturalLanguage__"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                tooComplex: {}
+              },
+              {
+                noTranslations: {}
+              }
+            ]
+          },
+          invocationMetrics: {
+            guardrailProcessingLatency: (number) 0,
+            usage: {
+              topicPolicyUnits: (number) 0,
+              contentPolicyUnits: (number) 0,
+              wordPolicyUnits: (number) 0,
+              sensitiveInformationPolicyUnits: (number) 0,
+              sensitiveInformationPolicyFreeUnits: (number) 0,
+              contextualGroundingPolicyUnits: (number) 0,
+              contentPolicyImageUnits: (number) 0,
+              automatedReasoningPolicyUnits: (number) 0,
+              automatedReasoningPolicies: (number) 0
+            },
+            guardrailCoverage: {
+              textCharacters: {
+                guarded: (number) 0,
+                total: (number) 0
+              },
+              images: {
+                guarded: (number) 0,
+                total: (number) 0
+              }
+            }
+          },
+          appliedGuardrailDetails: {
+            guardrailId: "__guardrailId__",
+            guardrailVersion: "__guardrailVersion__",
+            guardrailArn: "__guardrailArn__",
+            guardrailOrigin: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            guardrailOwnership: "__guardrailOwnership__"
+          }
+        },
+        key3: {
+          topicPolicy: {
+            topics: [
+              {},
+              {},
+              {}
+            ]
+          },
+          contentPolicy: {
+            filters: [
+              {
+                type: "__type__",
+                confidence: "__confidence__",
+                action: "__action__",
+                filterStrength: "__filterStrength__",
+                detected: (boolean) false
+              },
+              {
+                type: "__type__",
+                confidence: "__confidence__",
+                action: "__action__",
+                filterStrength: "__filterStrength__",
+                detected: (boolean) false
+              },
+              {
+                type: "__type__",
+                confidence: "__confidence__",
+                action: "__action__",
+                filterStrength: "__filterStrength__",
+                detected: (boolean) false
+              }
+            ]
+          },
+          wordPolicy: {
+            customWords: [
+              {
+                match: "__match__",
+                action: "__action__",
+                detected: (boolean) false
+              },
+              {
+                match: "__match__",
+                action: "__action__",
+                detected: (boolean) false
+              },
+              {
+                match: "__match__",
+                action: "__action__",
+                detected: (boolean) false
+              }
+            ],
+            managedWordLists: [
+              {
+                match: "__match__",
+                type: "__type__",
+                action: "__action__",
+                detected: (boolean) false
+              },
+              {
+                match: "__match__",
+                type: "__type__",
+                action: "__action__",
+                detected: (boolean) false
+              },
+              {
+                match: "__match__",
+                type: "__type__",
+                action: "__action__",
+                detected: (boolean) false
+              }
+            ]
+          },
+          sensitiveInformationPolicy: {
+            piiEntities: [
+              {
+                match: "__match__",
+                type: "__type__",
+                action: "__action__",
+                detected: (boolean) false
+              },
+              {
+                match: "__match__",
+                type: "__type__",
+                action: "__action__",
+                detected: (boolean) false
+              },
+              {
+                match: "__match__",
+                type: "__type__",
+                action: "__action__",
+                detected: (boolean) false
+              }
+            ],
+            regexes: [
+              {
+                action: "__action__",
+                name: "__name__",
+                match: "__match__",
+                regex: "__regex__",
+                detected: (boolean) false
+              },
+              {
+                action: "__action__",
+                name: "__name__",
+                match: "__match__",
+                regex: "__regex__",
+                detected: (boolean) false
+              },
+              {
+                action: "__action__",
+                name: "__name__",
+                match: "__match__",
+                regex: "__regex__",
+                detected: (boolean) false
+              }
+            ]
+          },
+          contextualGroundingPolicy: {
+            filters: [
+              {
+                type: "__type__",
+                threshold: (number) 0,
+                score: (number) 0,
+                action: "__action__",
+                detected: (boolean) false
+              },
+              {
+                type: "__type__",
+                threshold: (number) 0,
+                score: (number) 0,
+                action: "__action__",
+                detected: (boolean) false
+              },
+              {
+                type: "__type__",
+                threshold: (number) 0,
+                score: (number) 0,
+                action: "__action__",
+                detected: (boolean) false
+              }
+            ]
+          },
+          automatedReasoningPolicy: {
+            findings: [
+              {
                 tooComplex: {}
               },
               {
@@ -1765,6 +2300,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           {}
         ],
         key2: [
+          {},
+          {},
+          {}
+        ],
+        key3: [
           {},
           {},
           {}

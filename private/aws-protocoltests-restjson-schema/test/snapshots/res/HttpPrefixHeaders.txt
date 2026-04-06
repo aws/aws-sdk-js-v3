@@ -32,7 +32,8 @@ x-foo: __foo__
 {
   "fooMap": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   }
 }
 

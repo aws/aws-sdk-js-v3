@@ -2,14 +2,14 @@ PUT https://s3tables.us-east-1.amazonaws.com
 /buckets
 
 content-type: application/json
-content-length: 220
+content-length: 239
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/s3tables#_.__ m/E,e
 host: s3tables.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 464dd297d51ac52a287853a326b054c0e92152ed8bfb48b571eae0e64400949f
+x-amz-content-sha256: 29adad5dc2f8e82e102d54ca40197f40a3cf0a81661162b2207dcd80e19ee62b
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3tables/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -24,6 +24,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3tables/aws4_
   },
   "tags": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   }
 }

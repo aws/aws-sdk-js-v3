@@ -31,7 +31,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "contents": {
     "mapValue": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     }
   }
 }
@@ -42,7 +43,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   contents: {
     mapValue: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     }
   },
   $metadata: {

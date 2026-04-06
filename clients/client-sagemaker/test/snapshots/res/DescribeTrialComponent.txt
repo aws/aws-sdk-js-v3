@@ -68,6 +68,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "StringValue": "__StringValue__"
     },
     "key2": {
+      "NumberValue": 0
+    },
+    "key3": {
       "StringValue": "__StringValue__"
     }
   },
@@ -79,6 +82,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "key2": {
       "Value": "__Value__",
       "MediaType": "__MediaType__"
+    },
+    "key3": {
+      "Value": "__Value__",
+      "MediaType": "__MediaType__"
     }
   },
   "OutputArtifacts": {
@@ -87,6 +94,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "MediaType": "__MediaType__"
     },
     "key2": {
+      "Value": "__Value__",
+      "MediaType": "__MediaType__"
+    },
+    "key3": {
       "Value": "__Value__",
       "MediaType": "__MediaType__"
     }
@@ -192,6 +203,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       StringValue: "__StringValue__"
     },
     key2: {
+      NumberValue: (number) 0
+    },
+    key3: {
       StringValue: "__StringValue__"
     }
   },
@@ -203,6 +217,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     key2: {
       Value: "__Value__",
       MediaType: "__MediaType__"
+    },
+    key3: {
+      Value: "__Value__",
+      MediaType: "__MediaType__"
     }
   },
   OutputArtifacts: {
@@ -211,6 +229,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       MediaType: "__MediaType__"
     },
     key2: {
+      Value: "__Value__",
+      MediaType: "__MediaType__"
+    },
+    key3: {
       Value: "__Value__",
       MediaType: "__MediaType__"
     }

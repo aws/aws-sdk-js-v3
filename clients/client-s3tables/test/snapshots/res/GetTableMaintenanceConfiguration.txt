@@ -9,7 +9,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "tableARN": "__tableARN__",
   "configuration": {
     "key1": {},
-    "key2": {}
+    "key2": {},
+    "key3": {}
   }
 }
 
@@ -19,7 +20,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   tableARN: "__tableARN__",
   configuration: {
     key1: {},
-    key2: {}
+    key2: {},
+    key3: {}
   },
   $metadata: {
     httpStatusCode: (number) 200,
@@ -53,6 +55,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "key2": {
       "status": "__status__",
       "settings": {
+        "icebergCompaction": {
+          "targetFileSizeMB": 0,
+          "strategy": "__strategy__"
+        }
+      }
+    },
+    "key3": {
+      "status": "__status__",
+      "settings": {
         "icebergSnapshotManagement": {
           "minSnapshotsToKeep": 0,
           "maxSnapshotAgeHours": 0
@@ -77,6 +88,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     },
     key2: {
+      status: "__status__",
+      settings: {
+        icebergCompaction: {
+          targetFileSizeMB: (number) 0,
+          strategy: "__strategy__"
+        }
+      }
+    },
+    key3: {
       status: "__status__",
       settings: {
         icebergSnapshotManagement: {

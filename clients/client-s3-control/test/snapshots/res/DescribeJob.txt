@@ -98,6 +98,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             __value__
                         </value>
                     </entry>
+                    <entry>
+                        <key>
+                            key3
+                        </key>
+                        <value>
+                            __value__
+                        </value>
+                    </entry>
                 </UserArguments>
             </LambdaInvoke>
             <S3PutObjectCopy>
@@ -188,6 +196,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <entry>
                             <key>
                                 key2
+                            </key>
+                            <value>
+                                __value__
+                            </value>
+                        </entry>
+                        <entry>
+                            <key>
+                                key3
                             </key>
                             <value>
                                 __value__
@@ -678,7 +694,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         InvocationSchemaVersion: "__InvocationSchemaVersion__",
         UserArguments: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         }
       },
       S3PutObjectCopy: {
@@ -719,7 +736,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ContentLanguage: "__ContentLanguage__",
           UserMetadata: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           ContentLength: (number) 0,
           ContentMD5: "__ContentMD5__",

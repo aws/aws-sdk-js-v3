@@ -21,7 +21,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "FailureReason": "__FailureReason__",
   "HyperParameters": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "AlgorithmSpecification": {
     "TrainingInputMode": "__TrainingInputMode__",
@@ -161,7 +162,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "LocalPath": "__LocalPath__",
     "HookParameters": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     "CollectionConfigurations": [
       {},
@@ -180,7 +182,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -192,7 +195,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -204,7 +208,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     }
   ],
@@ -228,7 +233,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -240,7 +246,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -252,7 +259,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     }
   ],
@@ -264,7 +272,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "ProfilingStatus": "__ProfilingStatus__",
   "Environment": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "RetryStrategy": {
     "MaximumRetryAttempts": 0
@@ -312,7 +321,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   FailureReason: "__FailureReason__",
   HyperParameters: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   AlgorithmSpecification: {
     TrainingInputMode: "__TrainingInputMode__",
@@ -452,7 +462,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     LocalPath: "__LocalPath__",
     HookParameters: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     },
     CollectionConfigurations: [
       {},
@@ -471,7 +482,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     },
     {
@@ -483,7 +495,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     },
     {
@@ -495,7 +508,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     }
   ],
@@ -519,7 +533,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     },
     {
@@ -531,7 +546,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     },
     {
@@ -543,7 +559,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     }
   ],
@@ -555,7 +572,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ProfilingStatus: "__ProfilingStatus__",
   Environment: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   RetryStrategy: {
     MaximumRetryAttempts: (number) 0
@@ -620,7 +638,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "FailureReason": "__FailureReason__",
   "HyperParameters": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "AlgorithmSpecification": {
     "TrainingInputMode": "__TrainingInputMode__",
@@ -906,28 +925,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "LocalPath": "__LocalPath__",
     "HookParameters": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     "CollectionConfigurations": [
       {
         "CollectionName": "__CollectionName__",
         "CollectionParameters": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         }
       },
       {
         "CollectionName": "__CollectionName__",
         "CollectionParameters": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         }
       },
       {
         "CollectionName": "__CollectionName__",
         "CollectionParameters": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         }
       }
     ]
@@ -948,7 +971,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -960,7 +984,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -972,7 +997,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     }
   ],
@@ -1008,7 +1034,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "ProfilingIntervalInMilliseconds": 0,
     "ProfilingParameters": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     "DisableProfiler": false
   },
@@ -1022,7 +1049,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -1034,7 +1062,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -1046,7 +1075,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     }
   ],
@@ -1076,7 +1106,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "ProfilingStatus": "__ProfilingStatus__",
   "Environment": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "RetryStrategy": {
     "MaximumRetryAttempts": 0
@@ -1140,7 +1171,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   FailureReason: "__FailureReason__",
   HyperParameters: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   AlgorithmSpecification: {
     TrainingInputMode: "__TrainingInputMode__",
@@ -1426,28 +1458,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     LocalPath: "__LocalPath__",
     HookParameters: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     },
     CollectionConfigurations: [
       {
         CollectionName: "__CollectionName__",
         CollectionParameters: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         }
       },
       {
         CollectionName: "__CollectionName__",
         CollectionParameters: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         }
       },
       {
         CollectionName: "__CollectionName__",
         CollectionParameters: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         }
       }
     ]
@@ -1468,7 +1504,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     },
     {
@@ -1480,7 +1517,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     },
     {
@@ -1492,7 +1530,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     }
   ],
@@ -1528,7 +1567,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     ProfilingIntervalInMilliseconds: (number) 0,
     ProfilingParameters: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     },
     DisableProfiler: (boolean) false
   },
@@ -1542,7 +1582,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     },
     {
@@ -1554,7 +1595,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     },
     {
@@ -1566,7 +1608,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       VolumeSizeInGB: (number) 0,
       RuleParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     }
   ],
@@ -1596,7 +1639,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ProfilingStatus: "__ProfilingStatus__",
   Environment: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   RetryStrategy: {
     MaximumRetryAttempts: (number) 0

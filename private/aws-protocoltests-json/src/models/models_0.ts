@@ -341,8 +341,8 @@ export interface SimpleScalarPropertiesInputOutput {
  * @public
  */
 export interface SparseNullsOperationInputOutput {
-  sparseStringList?: string[] | undefined;
-  sparseStringMap?: Record<string, string> | undefined;
+  sparseStringList?: (string | null)[] | undefined;
+  sparseStringMap?: Record<string, string | null> | undefined;
 }
 
 /**

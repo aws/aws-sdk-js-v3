@@ -31,12 +31,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "sparseStringList": [
     "__member__",
     "__member__",
-    "__member__"
+    "__member__",
+    null
   ],
   "sparseShortList": [
     0,
     0,
-    0
+    0,
+    null
   ]
 }
 
@@ -46,12 +48,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   sparseStringList: [
     "__member__",
     "__member__",
-    "__member__"
+    "__member__",
+    (null)
   ],
   sparseShortList: [
     (number) 0,
     (number) 0,
-    (number) 0
+    (number) 0,
+    (null)
   ],
   $metadata: {
     httpStatusCode: (number) 200,

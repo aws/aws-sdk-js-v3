@@ -50,6 +50,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __value__
                     </value>
                 </entry>
+                <entry>
+                    <key>
+                        key3
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
             </value>
         </entry>
         <entry>
@@ -68,6 +76,45 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <entry>
                     <key>
                         key2
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+                <entry>
+                    <key>
+                        key3
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                key3
+            </key>
+            <value>
+                <entry>
+                    <key>
+                        key1
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+                <entry>
+                    <key>
+                        key2
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+                <entry>
+                    <key>
+                        key3
                     </key>
                     <value>
                         __value__
@@ -97,6 +144,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __value__
                 </value>
             </entry>
+            <entry>
+                <key>
+                    key3
+                </key>
+                <value>
+                    __value__
+                </value>
+            </entry>
         </value>
     </flatNestedMap>
     <flatNestedMap>
@@ -120,6 +175,45 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __value__
                 </value>
             </entry>
+            <entry>
+                <key>
+                    key3
+                </key>
+                <value>
+                    __value__
+                </value>
+            </entry>
+        </value>
+    </flatNestedMap>
+    <flatNestedMap>
+        <key>
+            key3
+        </key>
+        <value>
+            <entry>
+                <key>
+                    key1
+                </key>
+                <value>
+                    __value__
+                </value>
+            </entry>
+            <entry>
+                <key>
+                    key2
+                </key>
+                <value>
+                    __value__
+                </value>
+            </entry>
+            <entry>
+                <key>
+                    key3
+                </key>
+                <value>
+                    __value__
+                </value>
+            </entry>
         </value>
     </flatNestedMap>
 </NestedXmlMapsResponse>
@@ -130,21 +224,35 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   nestedMap: {
     key1: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     },
     key2: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
+    },
+    key3: {
+      key1: "__value__",
+      key2: "__value__",
+      key3: "__value__"
     }
   },
   flatNestedMap: {
     key1: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     },
     key2: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
+    },
+    key3: {
+      key1: "__value__",
+      key2: "__value__",
+      key3: "__value__"
     }
   },
   $metadata: {

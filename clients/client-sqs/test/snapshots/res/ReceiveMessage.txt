@@ -36,7 +36,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "Body": "__Body__",
       "Attributes": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MD5OfMessageAttributes": "__MD5OfMessageAttributes__",
       "MessageAttributes": {
@@ -56,6 +57,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         },
         "key2": {
+          "DataType": "__DataType__",
+          "StringValue": "__StringValue__",
+          "BinaryValue": "AQAAAQ==",
+          "StringListValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "BinaryListValues": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        },
+        "key3": {
           "DataType": "__DataType__",
           "StringValue": "__StringValue__",
           "BinaryValue": "AQAAAQ==",
@@ -79,7 +95,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "Body": "__Body__",
       "Attributes": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MD5OfMessageAttributes": "__MD5OfMessageAttributes__",
       "MessageAttributes": {
@@ -99,6 +116,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         },
         "key2": {
+          "DataType": "__DataType__",
+          "StringValue": "__StringValue__",
+          "BinaryValue": "AQAAAQ==",
+          "StringListValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "BinaryListValues": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        },
+        "key3": {
           "DataType": "__DataType__",
           "StringValue": "__StringValue__",
           "BinaryValue": "AQAAAQ==",
@@ -122,7 +154,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "Body": "__Body__",
       "Attributes": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MD5OfMessageAttributes": "__MD5OfMessageAttributes__",
       "MessageAttributes": {
@@ -142,6 +175,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         },
         "key2": {
+          "DataType": "__DataType__",
+          "StringValue": "__StringValue__",
+          "BinaryValue": "AQAAAQ==",
+          "StringListValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "BinaryListValues": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        },
+        "key3": {
           "DataType": "__DataType__",
           "StringValue": "__StringValue__",
           "BinaryValue": "AQAAAQ==",
@@ -172,7 +220,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Body: "__Body__",
       Attributes: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       MD5OfMessageAttributes: "__MD5OfMessageAttributes__",
       MessageAttributes: {
@@ -192,6 +241,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         },
         key2: {
+          DataType: "__DataType__",
+          StringValue: "__StringValue__",
+          BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],
+          StringListValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          BinaryListValues: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        },
+        key3: {
           DataType: "__DataType__",
           StringValue: "__StringValue__",
           BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],
@@ -215,7 +279,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Body: "__Body__",
       Attributes: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       MD5OfMessageAttributes: "__MD5OfMessageAttributes__",
       MessageAttributes: {
@@ -235,6 +300,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         },
         key2: {
+          DataType: "__DataType__",
+          StringValue: "__StringValue__",
+          BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],
+          StringListValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          BinaryListValues: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        },
+        key3: {
           DataType: "__DataType__",
           StringValue: "__StringValue__",
           BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],
@@ -258,7 +338,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Body: "__Body__",
       Attributes: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       MD5OfMessageAttributes: "__MD5OfMessageAttributes__",
       MessageAttributes: {
@@ -278,6 +359,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         },
         key2: {
+          DataType: "__DataType__",
+          StringValue: "__StringValue__",
+          BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],
+          StringListValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          BinaryListValues: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        },
+        key3: {
           DataType: "__DataType__",
           StringValue: "__StringValue__",
           BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],

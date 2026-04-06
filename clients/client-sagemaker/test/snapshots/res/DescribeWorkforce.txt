@@ -128,7 +128,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "Scope": "__Scope__",
       "AuthenticationRequestExtraParams": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     "CreateDate": 946702799.999,
@@ -182,7 +183,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Scope: "__Scope__",
       AuthenticationRequestExtraParams: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     },
     CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,

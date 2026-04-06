@@ -3,14 +3,14 @@ POST https://dynamodb.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.0
 x-amz-target: DynamoDB_20120810.BatchWriteItem
-content-length: 1417
+content-length: 2892
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/dynamodb#_.__ m/E,P,e
 host: dynamodb.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 63b91076178498802c67afd9c981b53071da217655da8c54804cd6989b551218
+x-amz-content-sha256: 64fd9549689c385dbbc3708c9de20be22c6f0bc23c9fa8ed93b06c63602af583
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -26,11 +26,35 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
                   "NULL": false
                 },
                 "key2": {
+                  "BOOL": false
+                },
+                "key3": {
                   "S": "__S__"
                 }
               }
             },
             "key2": {
+              "L": [
+                {
+                  "M": {
+                    "key1": {},
+                    "key2": {},
+                    "key3": {}
+                  }
+                },
+                {
+                  "L": [
+                    {},
+                    {},
+                    {}
+                  ]
+                },
+                {
+                  "NULL": false
+                }
+              ]
+            },
+            "key3": {
               "NULL": false
             }
           }
@@ -41,6 +65,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               "N": "__N__"
             },
             "key2": {
+              "B": "AQAAAQ=="
+            },
+            "key3": {
               "SS": [
                 "__member__",
                 "__member__",
@@ -58,7 +85,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
                 {
                   "M": {
                     "key1": {},
-                    "key2": {}
+                    "key2": {},
+                    "key3": {}
                   }
                 },
                 {
@@ -74,6 +102,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               ]
             },
             "key2": {
+              "NULL": false
+            },
+            "key3": {
               "BOOL": false
             }
           }
@@ -84,6 +115,13 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               "B": "AQAAAQ=="
             },
             "key2": {
+              "SS": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "key3": {
               "NS": [
                 "__member__",
                 "__member__",
@@ -100,6 +138,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               "NULL": false
             },
             "key2": {
+              "BOOL": false
+            },
+            "key3": {
               "S": "__S__"
             }
           }
@@ -114,6 +155,13 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               ]
             },
             "key2": {
+              "NS": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "key3": {
               "BS": [
                 "AQAAAQ==",
                 "AQAAAQ==",
@@ -129,9 +177,66 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
         "PutRequest": {
           "Item": {
             "key1": {
+              "L": [
+                {
+                  "M": {
+                    "key1": {},
+                    "key2": {},
+                    "key3": {}
+                  }
+                },
+                {
+                  "L": [
+                    {},
+                    {},
+                    {}
+                  ]
+                },
+                {
+                  "NULL": false
+                }
+              ]
+            },
+            "key2": {
+              "NULL": false
+            },
+            "key3": {
+              "BOOL": false
+            }
+          }
+        },
+        "DeleteRequest": {
+          "Key": {
+            "key1": {
+              "B": "AQAAAQ=="
+            },
+            "key2": {
+              "SS": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "key3": {
+              "NS": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "key1": {
               "NULL": false
             },
             "key2": {
+              "BOOL": false
+            },
+            "key3": {
               "S": "__S__"
             }
           }
@@ -146,6 +251,13 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               ]
             },
             "key2": {
+              "NS": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "key3": {
               "BS": [
                 "AQAAAQ==",
                 "AQAAAQ==",
@@ -162,6 +274,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               "BOOL": false
             },
             "key2": {
+              "S": "__S__"
+            },
+            "key3": {
               "N": "__N__"
             }
           }
@@ -176,11 +291,109 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               ]
             },
             "key2": {
+              "BS": [
+                "AQAAAQ==",
+                "AQAAAQ==",
+                "AQAAAQ=="
+              ]
+            },
+            "key3": {
               "M": {
                 "key1": {
                   "NULL": false
                 },
                 "key2": {
+                  "BOOL": false
+                },
+                "key3": {
+                  "S": "__S__"
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "key3": [
+      {
+        "PutRequest": {
+          "Item": {
+            "key1": {
+              "NULL": false
+            },
+            "key2": {
+              "BOOL": false
+            },
+            "key3": {
+              "S": "__S__"
+            }
+          }
+        },
+        "DeleteRequest": {
+          "Key": {
+            "key1": {
+              "SS": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "key2": {
+              "NS": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "key3": {
+              "BS": [
+                "AQAAAQ==",
+                "AQAAAQ==",
+                "AQAAAQ=="
+              ]
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "key1": {
+              "BOOL": false
+            },
+            "key2": {
+              "S": "__S__"
+            },
+            "key3": {
+              "N": "__N__"
+            }
+          }
+        },
+        "DeleteRequest": {
+          "Key": {
+            "key1": {
+              "NS": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "key2": {
+              "BS": [
+                "AQAAAQ==",
+                "AQAAAQ==",
+                "AQAAAQ=="
+              ]
+            },
+            "key3": {
+              "M": {
+                "key1": {
+                  "NULL": false
+                },
+                "key2": {
+                  "BOOL": false
+                },
+                "key3": {
                   "S": "__S__"
                 }
               }
@@ -195,6 +408,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               "S": "__S__"
             },
             "key2": {
+              "N": "__N__"
+            },
+            "key3": {
               "B": "AQAAAQ=="
             }
           }
@@ -209,11 +425,25 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               ]
             },
             "key2": {
+              "M": {
+                "key1": {
+                  "NULL": false
+                },
+                "key2": {
+                  "BOOL": false
+                },
+                "key3": {
+                  "S": "__S__"
+                }
+              }
+            },
+            "key3": {
               "L": [
                 {
                   "M": {
                     "key1": {},
-                    "key2": {}
+                    "key2": {},
+                    "key3": {}
                   }
                 },
                 {

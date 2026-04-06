@@ -44,7 +44,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "FailureReason": "__FailureReason__",
         "HyperParameters": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "AlgorithmSpecification": {
           "TrainingInputMode": "__TrainingInputMode__",
@@ -330,28 +331,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "LocalPath": "__LocalPath__",
           "HookParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "CollectionConfigurations": [
             {
               "CollectionName": "__CollectionName__",
               "CollectionParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               }
             },
             {
               "CollectionName": "__CollectionName__",
               "CollectionParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               }
             },
             {
               "CollectionName": "__CollectionName__",
               "CollectionParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               }
             }
           ]
@@ -372,7 +377,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "VolumeSizeInGB": 0,
             "RuleParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -384,7 +390,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "VolumeSizeInGB": 0,
             "RuleParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -396,7 +403,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "VolumeSizeInGB": 0,
             "RuleParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           }
         ],
@@ -437,13 +445,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "ProfilingIntervalInMilliseconds": 0,
           "ProfilingParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "DisableProfiler": false
         },
         "Environment": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "RetryStrategy": {
           "MaximumRetryAttempts": 0
@@ -661,6 +671,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "StringValue": "__StringValue__"
           },
           "key2": {
+            "NumberValue": 0
+          },
+          "key3": {
             "StringValue": "__StringValue__"
           }
         },
@@ -672,6 +685,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "key2": {
             "Value": "__Value__",
             "MediaType": "__MediaType__"
+          },
+          "key3": {
+            "Value": "__Value__",
+            "MediaType": "__MediaType__"
           }
         },
         "OutputArtifacts": {
@@ -680,6 +697,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "MediaType": "__MediaType__"
           },
           "key2": {
+            "Value": "__Value__",
+            "MediaType": "__MediaType__"
+          },
+          "key3": {
             "Value": "__Value__",
             "MediaType": "__MediaType__"
           }
@@ -741,7 +762,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "FailureReason": "__FailureReason__",
             "HyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "AlgorithmSpecification": {
               "TrainingInputMode": "__TrainingInputMode__",
@@ -1027,28 +1049,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "LocalPath": "__LocalPath__",
               "HookParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "CollectionConfigurations": [
                 {
                   "CollectionName": "__CollectionName__",
                   "CollectionParameters": {
                     "key1": "__value__",
-                    "key2": "__value__"
+                    "key2": "__value__",
+                    "key3": "__value__"
                   }
                 },
                 {
                   "CollectionName": "__CollectionName__",
                   "CollectionParameters": {
                     "key1": "__value__",
-                    "key2": "__value__"
+                    "key2": "__value__",
+                    "key3": "__value__"
                   }
                 },
                 {
                   "CollectionName": "__CollectionName__",
                   "CollectionParameters": {
                     "key1": "__value__",
-                    "key2": "__value__"
+                    "key2": "__value__",
+                    "key3": "__value__"
                   }
                 }
               ]
@@ -1069,7 +1095,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "VolumeSizeInGB": 0,
                 "RuleParameters": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -1081,7 +1108,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "VolumeSizeInGB": 0,
                 "RuleParameters": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -1093,7 +1121,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "VolumeSizeInGB": 0,
                 "RuleParameters": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             ],
@@ -1134,13 +1163,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProfilingIntervalInMilliseconds": 0,
               "ProfilingParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "DisableProfiler": false
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "RetryStrategy": {
               "MaximumRetryAttempts": 0
@@ -1312,7 +1343,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "NetworkConfig": {
               "EnableInterContainerTrafficEncryption": false,
@@ -1378,7 +1410,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "BatchStrategy": "__BatchStrategy__",
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "TransformInput": {
               "DataSource": {
@@ -1936,7 +1969,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -2160,7 +2194,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -2384,7 +2419,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -2759,7 +2795,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProductId": "__ProductId__",
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelInput": {
                 "DataInputConfig": "__DataInputConfig__"
@@ -2805,7 +2842,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProductId": "__ProductId__",
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelInput": {
                 "DataInputConfig": "__DataInputConfig__"
@@ -2851,7 +2889,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProductId": "__ProductId__",
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelInput": {
                 "DataInputConfig": "__DataInputConfig__"
@@ -2936,7 +2975,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "BatchStrategy": "__BatchStrategy__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             },
@@ -2971,7 +3011,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "BatchStrategy": "__BatchStrategy__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             },
@@ -3006,7 +3047,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "BatchStrategy": "__BatchStrategy__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             }
@@ -3160,7 +3202,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -3206,7 +3249,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -3252,7 +3296,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -3324,7 +3369,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -3370,7 +3416,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -3416,7 +3463,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -3488,7 +3536,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -3534,7 +3583,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -3580,7 +3630,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -3655,7 +3706,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         "CustomerMetadataProperties": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "DriftCheckBaselines": {
           "Bias": {
@@ -4385,7 +4437,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           "StaticHyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "InputDataConfig": [
             {
@@ -4605,7 +4658,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           }
         },
         "TrainingJobDefinitions": [
@@ -4729,7 +4783,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "StaticHyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "InputDataConfig": [
               {
@@ -4949,7 +5004,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -5072,7 +5128,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "StaticHyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "InputDataConfig": [
               {
@@ -5292,7 +5349,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -5415,7 +5473,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "StaticHyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "InputDataConfig": [
               {
@@ -5635,7 +5694,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           }
         ],
@@ -5662,7 +5722,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "TrainingJobStatus": "__TrainingJobStatus__",
           "TunedHyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
           "TuningJobName": "__TuningJobName__",
@@ -5683,7 +5744,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "TrainingJobStatus": "__TrainingJobStatus__",
           "TunedHyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
           "TuningJobName": "__TuningJobName__",
@@ -5868,7 +5930,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ],
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "ModelPackageName": "__ModelPackageName__",
             "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -5959,7 +6022,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelPackageName": "__ModelPackageName__",
               "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -6049,7 +6113,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelPackageName": "__ModelPackageName__",
               "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -6139,7 +6204,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelPackageName": "__ModelPackageName__",
               "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -6189,7 +6255,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "InstanceType": "__InstanceType__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -6197,7 +6264,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "InstanceType": "__InstanceType__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -6205,7 +6273,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "InstanceType": "__InstanceType__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             ]
@@ -6249,7 +6318,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "BatchStrategy": "__BatchStrategy__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "TransformInput": {
             "DataSource": {
@@ -6485,7 +6555,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -6758,7 +6829,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -7031,7 +7103,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -7195,7 +7268,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "FailureReason": "__FailureReason__",
         "HyperParameters": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "AlgorithmSpecification": {
           "TrainingInputMode": "__TrainingInputMode__",
@@ -7481,28 +7555,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "LocalPath": "__LocalPath__",
           "HookParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "CollectionConfigurations": [
             {
               "CollectionName": "__CollectionName__",
               "CollectionParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               }
             },
             {
               "CollectionName": "__CollectionName__",
               "CollectionParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               }
             },
             {
               "CollectionName": "__CollectionName__",
               "CollectionParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               }
             }
           ]
@@ -7523,7 +7601,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "VolumeSizeInGB": 0,
             "RuleParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -7535,7 +7614,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "VolumeSizeInGB": 0,
             "RuleParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -7547,7 +7627,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "VolumeSizeInGB": 0,
             "RuleParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           }
         ],
@@ -7588,13 +7669,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "ProfilingIntervalInMilliseconds": 0,
           "ProfilingParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "DisableProfiler": false
         },
         "Environment": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "RetryStrategy": {
           "MaximumRetryAttempts": 0
@@ -7812,6 +7895,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "NumberValue": 0
           },
           "key2": {
+            "StringValue": "__StringValue__"
+          },
+          "key3": {
             "NumberValue": 0
           }
         },
@@ -7823,6 +7909,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "key2": {
             "Value": "__Value__",
             "MediaType": "__MediaType__"
+          },
+          "key3": {
+            "Value": "__Value__",
+            "MediaType": "__MediaType__"
           }
         },
         "OutputArtifacts": {
@@ -7831,6 +7921,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "MediaType": "__MediaType__"
           },
           "key2": {
+            "Value": "__Value__",
+            "MediaType": "__MediaType__"
+          },
+          "key3": {
             "Value": "__Value__",
             "MediaType": "__MediaType__"
           }
@@ -7892,7 +7986,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "FailureReason": "__FailureReason__",
             "HyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "AlgorithmSpecification": {
               "TrainingInputMode": "__TrainingInputMode__",
@@ -8178,28 +8273,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "LocalPath": "__LocalPath__",
               "HookParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "CollectionConfigurations": [
                 {
                   "CollectionName": "__CollectionName__",
                   "CollectionParameters": {
                     "key1": "__value__",
-                    "key2": "__value__"
+                    "key2": "__value__",
+                    "key3": "__value__"
                   }
                 },
                 {
                   "CollectionName": "__CollectionName__",
                   "CollectionParameters": {
                     "key1": "__value__",
-                    "key2": "__value__"
+                    "key2": "__value__",
+                    "key3": "__value__"
                   }
                 },
                 {
                   "CollectionName": "__CollectionName__",
                   "CollectionParameters": {
                     "key1": "__value__",
-                    "key2": "__value__"
+                    "key2": "__value__",
+                    "key3": "__value__"
                   }
                 }
               ]
@@ -8220,7 +8319,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "VolumeSizeInGB": 0,
                 "RuleParameters": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -8232,7 +8332,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "VolumeSizeInGB": 0,
                 "RuleParameters": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -8244,7 +8345,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "VolumeSizeInGB": 0,
                 "RuleParameters": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             ],
@@ -8285,13 +8387,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProfilingIntervalInMilliseconds": 0,
               "ProfilingParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "DisableProfiler": false
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "RetryStrategy": {
               "MaximumRetryAttempts": 0
@@ -8463,7 +8567,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "NetworkConfig": {
               "EnableInterContainerTrafficEncryption": false,
@@ -8529,7 +8634,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "BatchStrategy": "__BatchStrategy__",
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "TransformInput": {
               "DataSource": {
@@ -9087,7 +9193,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -9311,7 +9418,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -9535,7 +9643,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -9910,7 +10019,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProductId": "__ProductId__",
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelInput": {
                 "DataInputConfig": "__DataInputConfig__"
@@ -9956,7 +10066,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProductId": "__ProductId__",
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelInput": {
                 "DataInputConfig": "__DataInputConfig__"
@@ -10002,7 +10113,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProductId": "__ProductId__",
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelInput": {
                 "DataInputConfig": "__DataInputConfig__"
@@ -10087,7 +10199,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "BatchStrategy": "__BatchStrategy__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             },
@@ -10122,7 +10235,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "BatchStrategy": "__BatchStrategy__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             },
@@ -10157,7 +10271,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "BatchStrategy": "__BatchStrategy__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             }
@@ -10311,7 +10426,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -10357,7 +10473,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -10403,7 +10520,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -10475,7 +10593,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -10521,7 +10640,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -10567,7 +10687,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -10639,7 +10760,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -10685,7 +10807,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -10731,7 +10854,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -10806,7 +10930,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         "CustomerMetadataProperties": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "DriftCheckBaselines": {
           "Bias": {
@@ -11536,7 +11661,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           "StaticHyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "InputDataConfig": [
             {
@@ -11756,7 +11882,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           }
         },
         "TrainingJobDefinitions": [
@@ -11880,7 +12007,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "StaticHyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "InputDataConfig": [
               {
@@ -12100,7 +12228,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -12223,7 +12352,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "StaticHyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "InputDataConfig": [
               {
@@ -12443,7 +12573,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -12566,7 +12697,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "StaticHyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "InputDataConfig": [
               {
@@ -12786,7 +12918,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           }
         ],
@@ -12813,7 +12946,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "TrainingJobStatus": "__TrainingJobStatus__",
           "TunedHyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
           "TuningJobName": "__TuningJobName__",
@@ -12834,7 +12968,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "TrainingJobStatus": "__TrainingJobStatus__",
           "TunedHyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
           "TuningJobName": "__TuningJobName__",
@@ -13019,7 +13154,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ],
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "ModelPackageName": "__ModelPackageName__",
             "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -13110,7 +13246,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelPackageName": "__ModelPackageName__",
               "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -13200,7 +13337,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelPackageName": "__ModelPackageName__",
               "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -13290,7 +13428,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelPackageName": "__ModelPackageName__",
               "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -13340,7 +13479,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "InstanceType": "__InstanceType__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -13348,7 +13488,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "InstanceType": "__InstanceType__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -13356,7 +13497,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "InstanceType": "__InstanceType__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             ]
@@ -13400,7 +13542,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "BatchStrategy": "__BatchStrategy__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "TransformInput": {
             "DataSource": {
@@ -13636,7 +13779,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -13909,7 +14053,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -14182,7 +14327,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -14346,7 +14492,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "FailureReason": "__FailureReason__",
         "HyperParameters": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "AlgorithmSpecification": {
           "TrainingInputMode": "__TrainingInputMode__",
@@ -14632,28 +14779,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "LocalPath": "__LocalPath__",
           "HookParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "CollectionConfigurations": [
             {
               "CollectionName": "__CollectionName__",
               "CollectionParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               }
             },
             {
               "CollectionName": "__CollectionName__",
               "CollectionParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               }
             },
             {
               "CollectionName": "__CollectionName__",
               "CollectionParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               }
             }
           ]
@@ -14674,7 +14825,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "VolumeSizeInGB": 0,
             "RuleParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -14686,7 +14838,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "VolumeSizeInGB": 0,
             "RuleParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -14698,7 +14851,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "VolumeSizeInGB": 0,
             "RuleParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           }
         ],
@@ -14739,13 +14893,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "ProfilingIntervalInMilliseconds": 0,
           "ProfilingParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "DisableProfiler": false
         },
         "Environment": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "RetryStrategy": {
           "MaximumRetryAttempts": 0
@@ -14963,6 +15119,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "StringValue": "__StringValue__"
           },
           "key2": {
+            "NumberValue": 0
+          },
+          "key3": {
             "StringValue": "__StringValue__"
           }
         },
@@ -14974,6 +15133,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "key2": {
             "Value": "__Value__",
             "MediaType": "__MediaType__"
+          },
+          "key3": {
+            "Value": "__Value__",
+            "MediaType": "__MediaType__"
           }
         },
         "OutputArtifacts": {
@@ -14982,6 +15145,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "MediaType": "__MediaType__"
           },
           "key2": {
+            "Value": "__Value__",
+            "MediaType": "__MediaType__"
+          },
+          "key3": {
             "Value": "__Value__",
             "MediaType": "__MediaType__"
           }
@@ -15043,7 +15210,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "FailureReason": "__FailureReason__",
             "HyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "AlgorithmSpecification": {
               "TrainingInputMode": "__TrainingInputMode__",
@@ -15329,28 +15497,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "LocalPath": "__LocalPath__",
               "HookParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "CollectionConfigurations": [
                 {
                   "CollectionName": "__CollectionName__",
                   "CollectionParameters": {
                     "key1": "__value__",
-                    "key2": "__value__"
+                    "key2": "__value__",
+                    "key3": "__value__"
                   }
                 },
                 {
                   "CollectionName": "__CollectionName__",
                   "CollectionParameters": {
                     "key1": "__value__",
-                    "key2": "__value__"
+                    "key2": "__value__",
+                    "key3": "__value__"
                   }
                 },
                 {
                   "CollectionName": "__CollectionName__",
                   "CollectionParameters": {
                     "key1": "__value__",
-                    "key2": "__value__"
+                    "key2": "__value__",
+                    "key3": "__value__"
                   }
                 }
               ]
@@ -15371,7 +15543,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "VolumeSizeInGB": 0,
                 "RuleParameters": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -15383,7 +15556,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "VolumeSizeInGB": 0,
                 "RuleParameters": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -15395,7 +15569,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "VolumeSizeInGB": 0,
                 "RuleParameters": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             ],
@@ -15436,13 +15611,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProfilingIntervalInMilliseconds": 0,
               "ProfilingParameters": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "DisableProfiler": false
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "RetryStrategy": {
               "MaximumRetryAttempts": 0
@@ -15614,7 +15791,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "NetworkConfig": {
               "EnableInterContainerTrafficEncryption": false,
@@ -15680,7 +15858,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "BatchStrategy": "__BatchStrategy__",
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "TransformInput": {
               "DataSource": {
@@ -16238,7 +16417,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -16462,7 +16642,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -16686,7 +16867,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -17061,7 +17243,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProductId": "__ProductId__",
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelInput": {
                 "DataInputConfig": "__DataInputConfig__"
@@ -17107,7 +17290,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProductId": "__ProductId__",
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelInput": {
                 "DataInputConfig": "__DataInputConfig__"
@@ -17153,7 +17337,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "ProductId": "__ProductId__",
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelInput": {
                 "DataInputConfig": "__DataInputConfig__"
@@ -17238,7 +17423,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "BatchStrategy": "__BatchStrategy__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             },
@@ -17273,7 +17459,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "BatchStrategy": "__BatchStrategy__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             },
@@ -17308,7 +17495,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "BatchStrategy": "__BatchStrategy__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             }
@@ -17462,7 +17650,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -17508,7 +17697,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -17554,7 +17744,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -17626,7 +17817,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -17672,7 +17864,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -17718,7 +17911,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -17790,7 +17984,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -17836,7 +18031,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -17882,7 +18078,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "ProductId": "__ProductId__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "ModelInput": {
                   "DataInputConfig": "__DataInputConfig__"
@@ -17957,7 +18154,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         "CustomerMetadataProperties": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "DriftCheckBaselines": {
           "Bias": {
@@ -18687,7 +18885,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           "StaticHyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "InputDataConfig": [
             {
@@ -18907,7 +19106,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           }
         },
         "TrainingJobDefinitions": [
@@ -19031,7 +19231,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "StaticHyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "InputDataConfig": [
               {
@@ -19251,7 +19452,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -19374,7 +19576,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "StaticHyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "InputDataConfig": [
               {
@@ -19594,7 +19797,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           },
           {
@@ -19717,7 +19921,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "StaticHyperParameters": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "InputDataConfig": [
               {
@@ -19937,7 +20142,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             }
           }
         ],
@@ -19964,7 +20170,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "TrainingJobStatus": "__TrainingJobStatus__",
           "TunedHyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
           "TuningJobName": "__TuningJobName__",
@@ -19985,7 +20192,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "TrainingJobStatus": "__TrainingJobStatus__",
           "TunedHyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
           "TuningJobName": "__TuningJobName__",
@@ -20170,7 +20378,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ],
             "Environment": {
               "key1": "__value__",
-              "key2": "__value__"
+              "key2": "__value__",
+              "key3": "__value__"
             },
             "ModelPackageName": "__ModelPackageName__",
             "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -20261,7 +20470,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelPackageName": "__ModelPackageName__",
               "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -20351,7 +20561,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelPackageName": "__ModelPackageName__",
               "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -20441,7 +20652,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               "Environment": {
                 "key1": "__value__",
-                "key2": "__value__"
+                "key2": "__value__",
+                "key3": "__value__"
               },
               "ModelPackageName": "__ModelPackageName__",
               "InferenceSpecificationName": "__InferenceSpecificationName__",
@@ -20491,7 +20703,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "InstanceType": "__InstanceType__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -20499,7 +20712,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "InstanceType": "__InstanceType__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               },
               {
@@ -20507,7 +20721,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 "InstanceType": "__InstanceType__",
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 }
               }
             ]
@@ -20551,7 +20766,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "BatchStrategy": "__BatchStrategy__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "TransformInput": {
             "DataSource": {
@@ -20787,7 +21003,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -21060,7 +21277,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -21333,7 +21551,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 "Environment": {
                   "key1": "__value__",
-                  "key2": "__value__"
+                  "key2": "__value__",
+                  "key3": "__value__"
                 },
                 "NetworkConfig": {
                   "EnableInterContainerTrafficEncryption": false,
@@ -21509,7 +21728,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         FailureReason: "__FailureReason__",
         HyperParameters: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         AlgorithmSpecification: {
           TrainingInputMode: "__TrainingInputMode__",
@@ -21795,28 +22015,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           LocalPath: "__LocalPath__",
           HookParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           CollectionConfigurations: [
             {
               CollectionName: "__CollectionName__",
               CollectionParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               }
             },
             {
               CollectionName: "__CollectionName__",
               CollectionParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               }
             },
             {
               CollectionName: "__CollectionName__",
               CollectionParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               }
             }
           ]
@@ -21837,7 +22061,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeSizeInGB: (number) 0,
             RuleParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -21849,7 +22074,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeSizeInGB: (number) 0,
             RuleParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -21861,7 +22087,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeSizeInGB: (number) 0,
             RuleParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           }
         ],
@@ -21902,13 +22129,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ProfilingIntervalInMilliseconds: (number) 0,
           ProfilingParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           DisableProfiler: (boolean) false
         },
         Environment: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         RetryStrategy: {
           MaximumRetryAttempts: (number) 0
@@ -22126,6 +22355,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             StringValue: "__StringValue__"
           },
           key2: {
+            NumberValue: (number) 0
+          },
+          key3: {
             StringValue: "__StringValue__"
           }
         },
@@ -22137,6 +22369,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           key2: {
             Value: "__Value__",
             MediaType: "__MediaType__"
+          },
+          key3: {
+            Value: "__Value__",
+            MediaType: "__MediaType__"
           }
         },
         OutputArtifacts: {
@@ -22145,6 +22381,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             MediaType: "__MediaType__"
           },
           key2: {
+            Value: "__Value__",
+            MediaType: "__MediaType__"
+          },
+          key3: {
             Value: "__Value__",
             MediaType: "__MediaType__"
           }
@@ -22206,7 +22446,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             FailureReason: "__FailureReason__",
             HyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             AlgorithmSpecification: {
               TrainingInputMode: "__TrainingInputMode__",
@@ -22492,28 +22733,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               LocalPath: "__LocalPath__",
               HookParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               CollectionConfigurations: [
                 {
                   CollectionName: "__CollectionName__",
                   CollectionParameters: {
                     key1: "__value__",
-                    key2: "__value__"
+                    key2: "__value__",
+                    key3: "__value__"
                   }
                 },
                 {
                   CollectionName: "__CollectionName__",
                   CollectionParameters: {
                     key1: "__value__",
-                    key2: "__value__"
+                    key2: "__value__",
+                    key3: "__value__"
                   }
                 },
                 {
                   CollectionName: "__CollectionName__",
                   CollectionParameters: {
                     key1: "__value__",
-                    key2: "__value__"
+                    key2: "__value__",
+                    key3: "__value__"
                   }
                 }
               ]
@@ -22534,7 +22779,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 VolumeSizeInGB: (number) 0,
                 RuleParameters: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -22546,7 +22792,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 VolumeSizeInGB: (number) 0,
                 RuleParameters: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -22558,7 +22805,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 VolumeSizeInGB: (number) 0,
                 RuleParameters: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             ],
@@ -22599,13 +22847,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProfilingIntervalInMilliseconds: (number) 0,
               ProfilingParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               DisableProfiler: (boolean) false
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             RetryStrategy: {
               MaximumRetryAttempts: (number) 0
@@ -22777,7 +23027,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             NetworkConfig: {
               EnableInterContainerTrafficEncryption: (boolean) false,
@@ -22843,7 +23094,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             BatchStrategy: "__BatchStrategy__",
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             TransformInput: {
               DataSource: {
@@ -23401,7 +23653,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -23625,7 +23878,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -23849,7 +24103,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -24224,7 +24479,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProductId: "__ProductId__",
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelInput: {
                 DataInputConfig: "__DataInputConfig__"
@@ -24270,7 +24526,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProductId: "__ProductId__",
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelInput: {
                 DataInputConfig: "__DataInputConfig__"
@@ -24316,7 +24573,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProductId: "__ProductId__",
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelInput: {
                 DataInputConfig: "__DataInputConfig__"
@@ -24401,7 +24659,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 BatchStrategy: "__BatchStrategy__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             },
@@ -24436,7 +24695,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 BatchStrategy: "__BatchStrategy__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             },
@@ -24471,7 +24731,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 BatchStrategy: "__BatchStrategy__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             }
@@ -24625,7 +24886,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -24671,7 +24933,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -24717,7 +24980,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -24789,7 +25053,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -24835,7 +25100,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -24881,7 +25147,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -24953,7 +25220,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -24999,7 +25267,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -25045,7 +25314,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -25120,7 +25390,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         CustomerMetadataProperties: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         DriftCheckBaselines: {
           Bias: {
@@ -25850,7 +26121,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           StaticHyperParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           InputDataConfig: [
             {
@@ -26070,7 +26342,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Environment: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           }
         },
         TrainingJobDefinitions: [
@@ -26194,7 +26467,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             StaticHyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             InputDataConfig: [
               {
@@ -26414,7 +26688,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -26537,7 +26812,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             StaticHyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             InputDataConfig: [
               {
@@ -26757,7 +27033,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -26880,7 +27157,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             StaticHyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             InputDataConfig: [
               {
@@ -27100,7 +27378,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           }
         ],
@@ -27127,7 +27406,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           TrainingJobStatus: "__TrainingJobStatus__",
           TunedHyperParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
           TuningJobName: "__TuningJobName__",
@@ -27148,7 +27428,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           TrainingJobStatus: "__TrainingJobStatus__",
           TunedHyperParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
           TuningJobName: "__TuningJobName__",
@@ -27333,7 +27614,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ],
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             ModelPackageName: "__ModelPackageName__",
             InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -27424,7 +27706,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelPackageName: "__ModelPackageName__",
               InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -27514,7 +27797,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelPackageName: "__ModelPackageName__",
               InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -27604,7 +27888,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelPackageName: "__ModelPackageName__",
               InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -27654,7 +27939,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 InstanceType: "__InstanceType__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -27662,7 +27948,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 InstanceType: "__InstanceType__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -27670,7 +27957,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 InstanceType: "__InstanceType__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             ]
@@ -27714,7 +28002,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           BatchStrategy: "__BatchStrategy__",
           Environment: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           TransformInput: {
             DataSource: {
@@ -27950,7 +28239,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -28223,7 +28513,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -28496,7 +28787,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -28660,7 +28952,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         FailureReason: "__FailureReason__",
         HyperParameters: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         AlgorithmSpecification: {
           TrainingInputMode: "__TrainingInputMode__",
@@ -28946,28 +29239,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           LocalPath: "__LocalPath__",
           HookParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           CollectionConfigurations: [
             {
               CollectionName: "__CollectionName__",
               CollectionParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               }
             },
             {
               CollectionName: "__CollectionName__",
               CollectionParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               }
             },
             {
               CollectionName: "__CollectionName__",
               CollectionParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               }
             }
           ]
@@ -28988,7 +29285,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeSizeInGB: (number) 0,
             RuleParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -29000,7 +29298,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeSizeInGB: (number) 0,
             RuleParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -29012,7 +29311,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeSizeInGB: (number) 0,
             RuleParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           }
         ],
@@ -29053,13 +29353,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ProfilingIntervalInMilliseconds: (number) 0,
           ProfilingParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           DisableProfiler: (boolean) false
         },
         Environment: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         RetryStrategy: {
           MaximumRetryAttempts: (number) 0
@@ -29277,6 +29579,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             NumberValue: (number) 0
           },
           key2: {
+            StringValue: "__StringValue__"
+          },
+          key3: {
             NumberValue: (number) 0
           }
         },
@@ -29288,6 +29593,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           key2: {
             Value: "__Value__",
             MediaType: "__MediaType__"
+          },
+          key3: {
+            Value: "__Value__",
+            MediaType: "__MediaType__"
           }
         },
         OutputArtifacts: {
@@ -29296,6 +29605,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             MediaType: "__MediaType__"
           },
           key2: {
+            Value: "__Value__",
+            MediaType: "__MediaType__"
+          },
+          key3: {
             Value: "__Value__",
             MediaType: "__MediaType__"
           }
@@ -29357,7 +29670,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             FailureReason: "__FailureReason__",
             HyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             AlgorithmSpecification: {
               TrainingInputMode: "__TrainingInputMode__",
@@ -29643,28 +29957,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               LocalPath: "__LocalPath__",
               HookParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               CollectionConfigurations: [
                 {
                   CollectionName: "__CollectionName__",
                   CollectionParameters: {
                     key1: "__value__",
-                    key2: "__value__"
+                    key2: "__value__",
+                    key3: "__value__"
                   }
                 },
                 {
                   CollectionName: "__CollectionName__",
                   CollectionParameters: {
                     key1: "__value__",
-                    key2: "__value__"
+                    key2: "__value__",
+                    key3: "__value__"
                   }
                 },
                 {
                   CollectionName: "__CollectionName__",
                   CollectionParameters: {
                     key1: "__value__",
-                    key2: "__value__"
+                    key2: "__value__",
+                    key3: "__value__"
                   }
                 }
               ]
@@ -29685,7 +30003,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 VolumeSizeInGB: (number) 0,
                 RuleParameters: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -29697,7 +30016,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 VolumeSizeInGB: (number) 0,
                 RuleParameters: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -29709,7 +30029,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 VolumeSizeInGB: (number) 0,
                 RuleParameters: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             ],
@@ -29750,13 +30071,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProfilingIntervalInMilliseconds: (number) 0,
               ProfilingParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               DisableProfiler: (boolean) false
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             RetryStrategy: {
               MaximumRetryAttempts: (number) 0
@@ -29928,7 +30251,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             NetworkConfig: {
               EnableInterContainerTrafficEncryption: (boolean) false,
@@ -29994,7 +30318,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             BatchStrategy: "__BatchStrategy__",
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             TransformInput: {
               DataSource: {
@@ -30552,7 +30877,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -30776,7 +31102,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -31000,7 +31327,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -31375,7 +31703,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProductId: "__ProductId__",
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelInput: {
                 DataInputConfig: "__DataInputConfig__"
@@ -31421,7 +31750,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProductId: "__ProductId__",
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelInput: {
                 DataInputConfig: "__DataInputConfig__"
@@ -31467,7 +31797,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProductId: "__ProductId__",
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelInput: {
                 DataInputConfig: "__DataInputConfig__"
@@ -31552,7 +31883,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 BatchStrategy: "__BatchStrategy__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             },
@@ -31587,7 +31919,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 BatchStrategy: "__BatchStrategy__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             },
@@ -31622,7 +31955,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 BatchStrategy: "__BatchStrategy__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             }
@@ -31776,7 +32110,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -31822,7 +32157,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -31868,7 +32204,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -31940,7 +32277,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -31986,7 +32324,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -32032,7 +32371,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -32104,7 +32444,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -32150,7 +32491,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -32196,7 +32538,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -32271,7 +32614,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         CustomerMetadataProperties: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         DriftCheckBaselines: {
           Bias: {
@@ -33001,7 +33345,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           StaticHyperParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           InputDataConfig: [
             {
@@ -33221,7 +33566,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Environment: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           }
         },
         TrainingJobDefinitions: [
@@ -33345,7 +33691,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             StaticHyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             InputDataConfig: [
               {
@@ -33565,7 +33912,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -33688,7 +34036,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             StaticHyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             InputDataConfig: [
               {
@@ -33908,7 +34257,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -34031,7 +34381,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             StaticHyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             InputDataConfig: [
               {
@@ -34251,7 +34602,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           }
         ],
@@ -34278,7 +34630,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           TrainingJobStatus: "__TrainingJobStatus__",
           TunedHyperParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
           TuningJobName: "__TuningJobName__",
@@ -34299,7 +34652,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           TrainingJobStatus: "__TrainingJobStatus__",
           TunedHyperParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
           TuningJobName: "__TuningJobName__",
@@ -34484,7 +34838,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ],
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             ModelPackageName: "__ModelPackageName__",
             InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -34575,7 +34930,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelPackageName: "__ModelPackageName__",
               InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -34665,7 +35021,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelPackageName: "__ModelPackageName__",
               InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -34755,7 +35112,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelPackageName: "__ModelPackageName__",
               InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -34805,7 +35163,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 InstanceType: "__InstanceType__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -34813,7 +35172,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 InstanceType: "__InstanceType__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -34821,7 +35181,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 InstanceType: "__InstanceType__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             ]
@@ -34865,7 +35226,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           BatchStrategy: "__BatchStrategy__",
           Environment: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           TransformInput: {
             DataSource: {
@@ -35101,7 +35463,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -35374,7 +35737,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -35647,7 +36011,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -35811,7 +36176,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         FailureReason: "__FailureReason__",
         HyperParameters: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         AlgorithmSpecification: {
           TrainingInputMode: "__TrainingInputMode__",
@@ -36097,28 +36463,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           LocalPath: "__LocalPath__",
           HookParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           CollectionConfigurations: [
             {
               CollectionName: "__CollectionName__",
               CollectionParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               }
             },
             {
               CollectionName: "__CollectionName__",
               CollectionParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               }
             },
             {
               CollectionName: "__CollectionName__",
               CollectionParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               }
             }
           ]
@@ -36139,7 +36509,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeSizeInGB: (number) 0,
             RuleParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -36151,7 +36522,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeSizeInGB: (number) 0,
             RuleParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -36163,7 +36535,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeSizeInGB: (number) 0,
             RuleParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           }
         ],
@@ -36204,13 +36577,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ProfilingIntervalInMilliseconds: (number) 0,
           ProfilingParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           DisableProfiler: (boolean) false
         },
         Environment: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         RetryStrategy: {
           MaximumRetryAttempts: (number) 0
@@ -36428,6 +36803,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             StringValue: "__StringValue__"
           },
           key2: {
+            NumberValue: (number) 0
+          },
+          key3: {
             StringValue: "__StringValue__"
           }
         },
@@ -36439,6 +36817,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           key2: {
             Value: "__Value__",
             MediaType: "__MediaType__"
+          },
+          key3: {
+            Value: "__Value__",
+            MediaType: "__MediaType__"
           }
         },
         OutputArtifacts: {
@@ -36447,6 +36829,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             MediaType: "__MediaType__"
           },
           key2: {
+            Value: "__Value__",
+            MediaType: "__MediaType__"
+          },
+          key3: {
             Value: "__Value__",
             MediaType: "__MediaType__"
           }
@@ -36508,7 +36894,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             FailureReason: "__FailureReason__",
             HyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             AlgorithmSpecification: {
               TrainingInputMode: "__TrainingInputMode__",
@@ -36794,28 +37181,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               LocalPath: "__LocalPath__",
               HookParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               CollectionConfigurations: [
                 {
                   CollectionName: "__CollectionName__",
                   CollectionParameters: {
                     key1: "__value__",
-                    key2: "__value__"
+                    key2: "__value__",
+                    key3: "__value__"
                   }
                 },
                 {
                   CollectionName: "__CollectionName__",
                   CollectionParameters: {
                     key1: "__value__",
-                    key2: "__value__"
+                    key2: "__value__",
+                    key3: "__value__"
                   }
                 },
                 {
                   CollectionName: "__CollectionName__",
                   CollectionParameters: {
                     key1: "__value__",
-                    key2: "__value__"
+                    key2: "__value__",
+                    key3: "__value__"
                   }
                 }
               ]
@@ -36836,7 +37227,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 VolumeSizeInGB: (number) 0,
                 RuleParameters: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -36848,7 +37240,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 VolumeSizeInGB: (number) 0,
                 RuleParameters: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -36860,7 +37253,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 VolumeSizeInGB: (number) 0,
                 RuleParameters: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             ],
@@ -36901,13 +37295,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProfilingIntervalInMilliseconds: (number) 0,
               ProfilingParameters: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               DisableProfiler: (boolean) false
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             RetryStrategy: {
               MaximumRetryAttempts: (number) 0
@@ -37079,7 +37475,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             NetworkConfig: {
               EnableInterContainerTrafficEncryption: (boolean) false,
@@ -37145,7 +37542,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             BatchStrategy: "__BatchStrategy__",
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             TransformInput: {
               DataSource: {
@@ -37703,7 +38101,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -37927,7 +38326,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -38151,7 +38551,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -38526,7 +38927,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProductId: "__ProductId__",
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelInput: {
                 DataInputConfig: "__DataInputConfig__"
@@ -38572,7 +38974,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProductId: "__ProductId__",
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelInput: {
                 DataInputConfig: "__DataInputConfig__"
@@ -38618,7 +39021,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ProductId: "__ProductId__",
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelInput: {
                 DataInputConfig: "__DataInputConfig__"
@@ -38703,7 +39107,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 BatchStrategy: "__BatchStrategy__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             },
@@ -38738,7 +39143,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 BatchStrategy: "__BatchStrategy__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             },
@@ -38773,7 +39179,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 BatchStrategy: "__BatchStrategy__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             }
@@ -38927,7 +39334,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -38973,7 +39381,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -39019,7 +39428,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -39091,7 +39501,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -39137,7 +39548,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -39183,7 +39595,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -39255,7 +39668,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -39301,7 +39715,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -39347,7 +39762,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 ProductId: "__ProductId__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 ModelInput: {
                   DataInputConfig: "__DataInputConfig__"
@@ -39422,7 +39838,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ],
         CustomerMetadataProperties: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         DriftCheckBaselines: {
           Bias: {
@@ -40152,7 +40569,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           StaticHyperParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           InputDataConfig: [
             {
@@ -40372,7 +40790,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Environment: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           }
         },
         TrainingJobDefinitions: [
@@ -40496,7 +40915,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             StaticHyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             InputDataConfig: [
               {
@@ -40716,7 +41136,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -40839,7 +41260,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             StaticHyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             InputDataConfig: [
               {
@@ -41059,7 +41481,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           },
           {
@@ -41182,7 +41605,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             StaticHyperParameters: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             InputDataConfig: [
               {
@@ -41402,7 +41826,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             },
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             }
           }
         ],
@@ -41429,7 +41854,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           TrainingJobStatus: "__TrainingJobStatus__",
           TunedHyperParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
           TuningJobName: "__TuningJobName__",
@@ -41450,7 +41876,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           TrainingJobStatus: "__TrainingJobStatus__",
           TunedHyperParameters: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
           TuningJobName: "__TuningJobName__",
@@ -41635,7 +42062,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ],
             Environment: {
               key1: "__value__",
-              key2: "__value__"
+              key2: "__value__",
+              key3: "__value__"
             },
             ModelPackageName: "__ModelPackageName__",
             InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -41726,7 +42154,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelPackageName: "__ModelPackageName__",
               InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -41816,7 +42245,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelPackageName: "__ModelPackageName__",
               InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -41906,7 +42336,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ],
               Environment: {
                 key1: "__value__",
-                key2: "__value__"
+                key2: "__value__",
+                key3: "__value__"
               },
               ModelPackageName: "__ModelPackageName__",
               InferenceSpecificationName: "__InferenceSpecificationName__",
@@ -41956,7 +42387,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 InstanceType: "__InstanceType__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -41964,7 +42396,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 InstanceType: "__InstanceType__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               },
               {
@@ -41972,7 +42405,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 InstanceType: "__InstanceType__",
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 }
               }
             ]
@@ -42016,7 +42450,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           BatchStrategy: "__BatchStrategy__",
           Environment: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           TransformInput: {
             DataSource: {
@@ -42252,7 +42687,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -42525,7 +42961,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,
@@ -42798,7 +43235,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 },
                 Environment: {
                   key1: "__value__",
-                  key2: "__value__"
+                  key2: "__value__",
+                  key3: "__value__"
                 },
                 NetworkConfig: {
                   EnableInterContainerTrafficEncryption: (boolean) false,

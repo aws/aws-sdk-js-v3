@@ -1119,7 +1119,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
    *          </note>
    * @public
    */
-  checkIds: string[] | undefined;
+  checkIds: (string | null)[] | undefined;
 }
 
 /**
@@ -1323,7 +1323,7 @@ export interface TrustedAdvisorResourceDetail {
    *             download, even in those cases where the UI shows just summary data.</p>
    * @public
    */
-  metadata: string[] | undefined;
+  metadata: (string | null)[] | undefined;
 }
 
 /**
@@ -1510,7 +1510,7 @@ export interface TrustedAdvisorCheckDescription {
    *         </p>
    * @public
    */
-  metadata: string[] | undefined;
+  metadata: (string | null)[] | undefined;
 }
 
 /**
@@ -1533,7 +1533,7 @@ export interface DescribeTrustedAdvisorCheckSummariesRequest {
    * <p>The IDs of the Trusted Advisor checks.</p>
    * @public
    */
-  checkIds: string[] | undefined;
+  checkIds: (string | null)[] | undefined;
 }
 
 /**

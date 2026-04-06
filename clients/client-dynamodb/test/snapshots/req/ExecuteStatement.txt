@@ -3,14 +3,14 @@ POST https://dynamodb.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.0
 x-amz-target: DynamoDB_20120810.ExecuteStatement
-content-length: 373
+content-length: 405
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/dynamodb#_.__ m/E,P,e
 host: dynamodb.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 75106476d2ed5d6d533587ba25c1fa1e5051bf0c6f8ecfc6494c3142fc6045a8
+x-amz-content-sha256: 66885b9ccf0e7a489e4ce9678370317602791722a6c7cf6f96ee0e6e67cd6242
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -23,6 +23,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
           "NULL": false
         },
         "key2": {
+          "BOOL": false
+        },
+        "key3": {
           "S": "__S__"
         }
       }
@@ -32,7 +35,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
         {
           "M": {
             "key1": {},
-            "key2": {}
+            "key2": {},
+            "key3": {}
           }
         },
         {

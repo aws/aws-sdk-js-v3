@@ -1844,19 +1844,19 @@ export interface SimpleScalarPropertiesInputOutput {
  * @public
  */
 export interface SparseJsonListsInputOutput {
-  sparseStringList?: string[] | undefined;
-  sparseShortList?: number[] | undefined;
+  sparseStringList?: (string | null)[] | undefined;
+  sparseShortList?: (number | null)[] | undefined;
 }
 
 /**
  * @public
  */
 export interface SparseJsonMapsInputOutput {
-  sparseStructMap?: Record<string, GreetingStruct> | undefined;
-  sparseNumberMap?: Record<string, number> | undefined;
-  sparseBooleanMap?: Record<string, boolean> | undefined;
-  sparseStringMap?: Record<string, string> | undefined;
-  sparseSetMap?: Record<string, string[]> | undefined;
+  sparseStructMap?: Record<string, GreetingStruct | null> | undefined;
+  sparseNumberMap?: Record<string, number | null> | undefined;
+  sparseBooleanMap?: Record<string, boolean | null> | undefined;
+  sparseStringMap?: Record<string, string | null> | undefined;
+  sparseSetMap?: Record<string, string[] | null> | undefined;
 }
 
 /**

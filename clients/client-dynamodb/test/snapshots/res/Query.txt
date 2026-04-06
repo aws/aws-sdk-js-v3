@@ -34,6 +34,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "BOOL": false
       },
       "key2": {
+        "S": "__S__"
+      },
+      "key3": {
         "N": "__N__"
       }
     },
@@ -42,6 +45,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "S": "__S__"
       },
       "key2": {
+        "N": "__N__"
+      },
+      "key3": {
         "B": "AQAAAQ=="
       }
     },
@@ -50,6 +56,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "N": "__N__"
       },
       "key2": {
+        "B": "AQAAAQ=="
+      },
+      "key3": {
         "SS": [
           "__member__",
           "__member__",
@@ -65,6 +74,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "S": "__S__"
     },
     "key2": {
+      "N": "__N__"
+    },
+    "key3": {
       "B": "AQAAAQ=="
     }
   },
@@ -88,6 +100,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "ReadCapacityUnits": 0,
         "WriteCapacityUnits": 0,
         "CapacityUnits": 0
+      },
+      "key3": {
+        "ReadCapacityUnits": 0,
+        "WriteCapacityUnits": 0,
+        "CapacityUnits": 0
       }
     },
     "GlobalSecondaryIndexes": {
@@ -97,6 +114,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CapacityUnits": 0
       },
       "key2": {
+        "ReadCapacityUnits": 0,
+        "WriteCapacityUnits": 0,
+        "CapacityUnits": 0
+      },
+      "key3": {
         "ReadCapacityUnits": 0,
         "WriteCapacityUnits": 0,
         "CapacityUnits": 0
@@ -114,6 +136,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         BOOL: (boolean) false
       },
       key2: {
+        S: "__S__"
+      },
+      key3: {
         N: "__N__"
       }
     },
@@ -122,6 +147,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         S: "__S__"
       },
       key2: {
+        N: "__N__"
+      },
+      key3: {
         B: (Uint8Array) bytes[1, 0, 0, 1]
       }
     },
@@ -130,6 +158,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         N: "__N__"
       },
       key2: {
+        B: (Uint8Array) bytes[1, 0, 0, 1]
+      },
+      key3: {
         SS: [
           "__member__",
           "__member__",
@@ -145,6 +176,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       S: "__S__"
     },
     key2: {
+      N: "__N__"
+    },
+    key3: {
       B: (Uint8Array) bytes[1, 0, 0, 1]
     }
   },
@@ -168,6 +202,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ReadCapacityUnits: (number) 0,
         WriteCapacityUnits: (number) 0,
         CapacityUnits: (number) 0
+      },
+      key3: {
+        ReadCapacityUnits: (number) 0,
+        WriteCapacityUnits: (number) 0,
+        CapacityUnits: (number) 0
       }
     },
     GlobalSecondaryIndexes: {
@@ -177,6 +216,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CapacityUnits: (number) 0
       },
       key2: {
+        ReadCapacityUnits: (number) 0,
+        WriteCapacityUnits: (number) 0,
+        CapacityUnits: (number) 0
+      },
+      key3: {
         ReadCapacityUnits: (number) 0,
         WriteCapacityUnits: (number) 0,
         CapacityUnits: (number) 0

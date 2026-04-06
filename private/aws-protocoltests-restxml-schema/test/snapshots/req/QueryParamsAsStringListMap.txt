@@ -1,5 +1,5 @@
 POST https://restxml.us-east-1.amazonaws.com 
-/StringListMap?corge=__qux__&key1=__member__&key1=__member__&key1=__member__&key2=__member__&key2=__member__&key2=__member__
+/StringListMap?corge=__qux__&key1=__member__&key1=__member__&key1=__member__&key2=__member__&key2=__member__&key2=__member__&key3=__member__&key3=__member__&key3=__member__
 
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/rest-xml-protocol#_.__ m/E,e

@@ -23,7 +23,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "requiredDouble": 0,
   "requiredMap": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "requiredEnum": "__requiredEnum__",
   "requiredIntEnum": 0
@@ -49,7 +50,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   requiredDouble: (number) 0,
   requiredMap: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   requiredEnum: "__requiredEnum__",
   requiredIntEnum: (number) 0,
@@ -88,7 +90,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "requiredDouble": 0,
   "requiredMap": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "requiredEnum": "__requiredEnum__",
   "requiredIntEnum": 0
@@ -114,7 +117,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   requiredDouble: (number) 0,
   requiredMap: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   requiredEnum: "__requiredEnum__",
   requiredIntEnum: (number) 0,

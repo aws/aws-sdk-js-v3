@@ -7260,14 +7260,14 @@ export namespace SimpleScalarPropertiesInputOutput {
  * @public
  */
 export interface SparseJsonListsInputOutput {
-  sparseStringList?: string[] | undefined;
-  sparseShortList?: number[] | undefined;
+  sparseStringList?: (string | null)[] | undefined;
+  sparseShortList?: (number | null)[] | undefined;
 }
 
 export namespace SparseJsonListsInputOutput {
   const memberValidators : {
-    sparseStringList?: __MultiConstraintValidator<Iterable<string>>,
-    sparseShortList?: __MultiConstraintValidator<Iterable<number>>,
+    sparseStringList?: __MultiConstraintValidator<Iterable<string | null>>,
+    sparseShortList?: __MultiConstraintValidator<Iterable<number | null>>,
   } = {};
   /**
    * @internal
@@ -7277,14 +7277,14 @@ export namespace SparseJsonListsInputOutput {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "sparseStringList": {
-            memberValidators["sparseStringList"] = new __CompositeCollectionValidator<string>(
+            memberValidators["sparseStringList"] = new __CompositeCollectionValidator<string | null>(
               new __NoOpValidator(),
               new __NoOpValidator()
             );
             break;
           }
           case "sparseShortList": {
-            memberValidators["sparseShortList"] = new __CompositeCollectionValidator<number>(
+            memberValidators["sparseShortList"] = new __CompositeCollectionValidator<number | null>(
               new __NoOpValidator(),
               new __NoOpValidator()
             );
@@ -7305,20 +7305,20 @@ export namespace SparseJsonListsInputOutput {
  * @public
  */
 export interface SparseJsonMapsInputOutput {
-  sparseStructMap?: Record<string, GreetingStruct> | undefined;
-  sparseNumberMap?: Record<string, number> | undefined;
-  sparseBooleanMap?: Record<string, boolean> | undefined;
-  sparseStringMap?: Record<string, string> | undefined;
-  sparseSetMap?: Record<string, string[]> | undefined;
+  sparseStructMap?: Record<string, GreetingStruct | null> | undefined;
+  sparseNumberMap?: Record<string, number | null> | undefined;
+  sparseBooleanMap?: Record<string, boolean | null> | undefined;
+  sparseStringMap?: Record<string, string | null> | undefined;
+  sparseSetMap?: Record<string, string[] | null> | undefined;
 }
 
 export namespace SparseJsonMapsInputOutput {
   const memberValidators : {
-    sparseStructMap?: __MultiConstraintValidator<Record<string, GreetingStruct>>,
-    sparseNumberMap?: __MultiConstraintValidator<Record<string, number>>,
-    sparseBooleanMap?: __MultiConstraintValidator<Record<string, boolean>>,
-    sparseStringMap?: __MultiConstraintValidator<Record<string, string>>,
-    sparseSetMap?: __MultiConstraintValidator<Record<string, string[]>>,
+    sparseStructMap?: __MultiConstraintValidator<Record<string, GreetingStruct | null>>,
+    sparseNumberMap?: __MultiConstraintValidator<Record<string, number | null>>,
+    sparseBooleanMap?: __MultiConstraintValidator<Record<string, boolean | null>>,
+    sparseStringMap?: __MultiConstraintValidator<Record<string, string | null>>,
+    sparseSetMap?: __MultiConstraintValidator<Record<string, string[] | null>>,
   } = {};
   /**
    * @internal
@@ -7328,7 +7328,7 @@ export namespace SparseJsonMapsInputOutput {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "sparseStructMap": {
-            memberValidators["sparseStructMap"] = new __CompositeMapValidator<GreetingStruct>(
+            memberValidators["sparseStructMap"] = new __CompositeMapValidator<GreetingStruct | null>(
               new __NoOpValidator(),
               new __NoOpValidator(),
               new __CompositeStructureValidator<GreetingStruct>(
@@ -7339,7 +7339,7 @@ export namespace SparseJsonMapsInputOutput {
             break;
           }
           case "sparseNumberMap": {
-            memberValidators["sparseNumberMap"] = new __CompositeMapValidator<number>(
+            memberValidators["sparseNumberMap"] = new __CompositeMapValidator<number | null>(
               new __NoOpValidator(),
               new __NoOpValidator(),
               new __NoOpValidator()
@@ -7347,7 +7347,7 @@ export namespace SparseJsonMapsInputOutput {
             break;
           }
           case "sparseBooleanMap": {
-            memberValidators["sparseBooleanMap"] = new __CompositeMapValidator<boolean>(
+            memberValidators["sparseBooleanMap"] = new __CompositeMapValidator<boolean | null>(
               new __NoOpValidator(),
               new __NoOpValidator(),
               new __NoOpValidator()
@@ -7355,7 +7355,7 @@ export namespace SparseJsonMapsInputOutput {
             break;
           }
           case "sparseStringMap": {
-            memberValidators["sparseStringMap"] = new __CompositeMapValidator<string>(
+            memberValidators["sparseStringMap"] = new __CompositeMapValidator<string | null>(
               new __NoOpValidator(),
               new __NoOpValidator(),
               new __NoOpValidator()
@@ -7363,7 +7363,7 @@ export namespace SparseJsonMapsInputOutput {
             break;
           }
           case "sparseSetMap": {
-            memberValidators["sparseSetMap"] = new __CompositeMapValidator<string[]>(
+            memberValidators["sparseSetMap"] = new __CompositeMapValidator<string[] | null>(
               new __NoOpValidator(),
               new __NoOpValidator(),
               new __CompositeCollectionValidator<string>(

@@ -76,6 +76,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 0
             </value>
         </entry>
+        <entry>
+            <key>
+                key3
+            </key>
+            <value>
+                0
+            </value>
+        </entry>
     </intEnumMap>
 </XmlIntEnumsResponse>
 
@@ -97,7 +105,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ],
   intEnumMap: {
     key1: (number) 0,
-    key2: (number) 0
+    key2: (number) 0,
+    key3: (number) 0
   },
   $metadata: {
     httpStatusCode: (number) 200,

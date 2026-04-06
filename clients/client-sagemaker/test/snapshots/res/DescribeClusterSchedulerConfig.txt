@@ -15,7 +15,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "FailureReason": "__FailureReason__",
   "StatusDetails": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "ClusterArn": "__ClusterArn__",
   "SchedulerConfig": {},
@@ -37,7 +38,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   FailureReason: "__FailureReason__",
   StatusDetails: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   ClusterArn: "__ClusterArn__",
   SchedulerConfig: {},
@@ -72,7 +74,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "FailureReason": "__FailureReason__",
   "StatusDetails": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "ClusterArn": "__ClusterArn__",
   "SchedulerConfig": {
@@ -129,7 +132,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   FailureReason: "__FailureReason__",
   StatusDetails: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   ClusterArn: "__ClusterArn__",
   SchedulerConfig: {

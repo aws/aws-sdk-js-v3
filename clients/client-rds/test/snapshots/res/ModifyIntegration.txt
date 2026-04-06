@@ -60,6 +60,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 __value__
             </value>
         </entry>
+        <entry>
+            <key>
+                key3
+            </key>
+            <value>
+                __value__
+            </value>
+        </entry>
     </AdditionalEncryptionContext>
     <Status>
         __Status__

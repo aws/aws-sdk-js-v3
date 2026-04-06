@@ -14,7 +14,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "TrainingJobStatus": "__TrainingJobStatus__",
       "TunedHyperParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
       "TuningJobName": "__TuningJobName__",
@@ -35,7 +36,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "TrainingJobStatus": "__TrainingJobStatus__",
       "TunedHyperParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
       "TuningJobName": "__TuningJobName__",
@@ -56,7 +58,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "TrainingJobStatus": "__TrainingJobStatus__",
       "TunedHyperParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
       "TuningJobName": "__TuningJobName__",
@@ -85,7 +88,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       TrainingJobStatus: "__TrainingJobStatus__",
       TunedHyperParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
       TuningJobName: "__TuningJobName__",
@@ -106,7 +110,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       TrainingJobStatus: "__TrainingJobStatus__",
       TunedHyperParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
       TuningJobName: "__TuningJobName__",
@@ -127,7 +132,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       TrainingJobStatus: "__TrainingJobStatus__",
       TunedHyperParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
       TuningJobName: "__TuningJobName__",
@@ -169,7 +175,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "TrainingJobStatus": "__TrainingJobStatus__",
       "TunedHyperParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
       "TuningJobName": "__TuningJobName__",
@@ -190,7 +197,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "TrainingJobStatus": "__TrainingJobStatus__",
       "TunedHyperParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
       "TuningJobName": "__TuningJobName__",
@@ -211,7 +219,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "TrainingJobStatus": "__TrainingJobStatus__",
       "TunedHyperParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "TrainingJobDefinitionName": "__TrainingJobDefinitionName__",
       "TuningJobName": "__TuningJobName__",
@@ -240,7 +249,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       TrainingJobStatus: "__TrainingJobStatus__",
       TunedHyperParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
       TuningJobName: "__TuningJobName__",
@@ -261,7 +271,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       TrainingJobStatus: "__TrainingJobStatus__",
       TunedHyperParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
       TuningJobName: "__TuningJobName__",
@@ -282,7 +293,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       TrainingJobStatus: "__TrainingJobStatus__",
       TunedHyperParameters: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       TrainingJobDefinitionName: "__TrainingJobDefinitionName__",
       TuningJobName: "__TuningJobName__",

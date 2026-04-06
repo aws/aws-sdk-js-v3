@@ -34,19 +34,25 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     },
     "key2": {
       "hi": "__hi__"
+    },
+    "key3": {
+      "hi": "__hi__"
     }
   },
   "denseNumberMap": {
     "key1": 0,
-    "key2": 0
+    "key2": 0,
+    "key3": 0
   },
   "denseBooleanMap": {
     "key1": false,
-    "key2": false
+    "key2": false,
+    "key3": false
   },
   "denseStringMap": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "denseSetMap": {
     "key1": [
@@ -55,6 +61,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "__member__"
     ],
     "key2": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "key3": [
       "__member__",
       "__member__",
       "__member__"
@@ -71,19 +82,25 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     },
     key2: {
       hi: "__hi__"
+    },
+    key3: {
+      hi: "__hi__"
     }
   },
   denseNumberMap: {
     key1: (number) 0,
-    key2: (number) 0
+    key2: (number) 0,
+    key3: (number) 0
   },
   denseBooleanMap: {
     key1: (boolean) false,
-    key2: (boolean) false
+    key2: (boolean) false,
+    key3: (boolean) false
   },
   denseStringMap: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   denseSetMap: {
     key1: [
@@ -92,6 +109,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "__member__"
     ],
     key2: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    key3: [
       "__member__",
       "__member__",
       "__member__"

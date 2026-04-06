@@ -14,7 +14,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ],
   "dialogMap": {
     "key1": {},
-    "key2": {}
+    "key2": {},
+    "key3": {}
   }
 }
 
@@ -29,7 +30,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ],
   dialogMap: {
     key1: {},
-    key2: {}
+    key2: {},
+    key3: {}
   },
   $metadata: {
     httpStatusCode: (number) 200,
@@ -93,6 +95,13 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "farewell": {
         "phrase": "__phrase__"
       }
+    },
+    "key3": {
+      "language": "__language__",
+      "greeting": "__greeting__",
+      "farewell": {
+        "phrase": "__phrase__"
+      }
     }
   }
 }
@@ -139,6 +148,13 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     },
     key2: {
+      language: "__language__",
+      greeting: "__greeting__",
+      farewell: {
+        phrase: "__phrase__"
+      }
+    },
+    key3: {
       language: "__language__",
       greeting: "__greeting__",
       farewell: {

@@ -48,6 +48,13 @@ content-type: application/x-amz-json-1.0
       ]
     },
     "key2": {
+      "NS": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "key3": {
       "BS": [
         "AQAAAQ==",
         "AQAAAQ==",
@@ -83,6 +90,13 @@ ConditionalCheckFailedException: __message__
       ]
     },
     key2: {
+      NS: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    key3: {
       BS: [
         (Uint8Array) bytes[1, 0, 0, 1],
         (Uint8Array) bytes[1, 0, 0, 1],

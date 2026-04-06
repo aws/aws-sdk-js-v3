@@ -17,6 +17,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "status": "__status__",
       "lastRunTimestamp": "2000-01-01T04:59:59.999Z",
       "failureMessage": "__failureMessage__"
+    },
+    "key3": {
+      "status": "__status__",
+      "lastRunTimestamp": "2000-01-01T04:59:59.999Z",
+      "failureMessage": "__failureMessage__"
     }
   }
 }
@@ -32,6 +37,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       failureMessage: "__failureMessage__"
     },
     key2: {
+      status: "__status__",
+      lastRunTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      failureMessage: "__failureMessage__"
+    },
+    key3: {
       status: "__status__",
       lastRunTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       failureMessage: "__failureMessage__"
@@ -66,6 +76,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "status": "__status__",
       "lastRunTimestamp": "2000-01-01T04:59:59.999Z",
       "failureMessage": "__failureMessage__"
+    },
+    "key3": {
+      "status": "__status__",
+      "lastRunTimestamp": "2000-01-01T04:59:59.999Z",
+      "failureMessage": "__failureMessage__"
     }
   }
 }
@@ -81,6 +96,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       failureMessage: "__failureMessage__"
     },
     key2: {
+      status: "__status__",
+      lastRunTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      failureMessage: "__failureMessage__"
+    },
+    key3: {
       status: "__status__",
       lastRunTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       failureMessage: "__failureMessage__"

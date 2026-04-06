@@ -2,14 +2,14 @@ POST https://awsquery.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 1219
+content-length: 1811
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/query-protocol#_.__ m/E,e
 host: awsquery.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 674fdedfa45c9c49201f80977476e1f5c49c7798ac22c1943c8da0b803e81bf8
+x-amz-content-sha256: 453240e04f18e491b61e22ea266e7fbc1b4c5cdd61cdf2a6dcbc5dbd10f72fe5
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/awsquery/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -19,26 +19,38 @@ MapArg.entry.1.key=key1&
 MapArg.entry.1.value=__value__&
 MapArg.entry.2.key=key2&
 MapArg.entry.2.value=__value__&
+MapArg.entry.3.key=key3&
+MapArg.entry.3.value=__value__&
 Foo.entry.1.key=key1&
 Foo.entry.1.value=__value__&
 Foo.entry.2.key=key2&
 Foo.entry.2.value=__value__&
+Foo.entry.3.key=key3&
+Foo.entry.3.value=__value__&
 ComplexMapArg.entry.1.key=key1&
 ComplexMapArg.entry.1.value.hi=__hi__&
 ComplexMapArg.entry.2.key=key2&
 ComplexMapArg.entry.2.value.hi=__hi__&
+ComplexMapArg.entry.3.key=key3&
+ComplexMapArg.entry.3.value.hi=__hi__&
 MapWithXmlMemberName.entry.1.K=key1&
 MapWithXmlMemberName.entry.1.V=__value__&
 MapWithXmlMemberName.entry.2.K=key2&
 MapWithXmlMemberName.entry.2.V=__value__&
+MapWithXmlMemberName.entry.3.K=key3&
+MapWithXmlMemberName.entry.3.V=__value__&
 FlattenedMap.1.key=key1&
 FlattenedMap.1.value=__value__&
 FlattenedMap.2.key=key2&
 FlattenedMap.2.value=__value__&
+FlattenedMap.3.key=key3&
+FlattenedMap.3.value=__value__&
 Hi.1.K=key1&
 Hi.1.V=__value__&
 Hi.2.K=key2&
 Hi.2.V=__value__&
+Hi.3.K=key3&
+Hi.3.V=__value__&
 MapOfLists.entry.1.key=key1&
 MapOfLists.entry.1.value.member.1=__member__&
 MapOfLists.entry.1.value.member.2=__member__&
@@ -47,7 +59,13 @@ MapOfLists.entry.2.key=key2&
 MapOfLists.entry.2.value.member.1=__member__&
 MapOfLists.entry.2.value.member.2=__member__&
 MapOfLists.entry.2.value.member.3=__member__&
+MapOfLists.entry.3.key=key3&
+MapOfLists.entry.3.value.member.1=__member__&
+MapOfLists.entry.3.value.member.2=__member__&
+MapOfLists.entry.3.value.member.3=__member__&
 NestedStructWithMap.MapArg.entry.1.key=key1&
 NestedStructWithMap.MapArg.entry.1.value=__value__&
 NestedStructWithMap.MapArg.entry.2.key=key2&
-NestedStructWithMap.MapArg.entry.2.value=__value__
+NestedStructWithMap.MapArg.entry.2.value=__value__&
+NestedStructWithMap.MapArg.entry.3.key=key3&
+NestedStructWithMap.MapArg.entry.3.value=__value__

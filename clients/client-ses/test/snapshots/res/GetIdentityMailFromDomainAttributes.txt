@@ -39,6 +39,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 </BehaviorOnMXFailure>
             </value>
         </entry>
+        <entry>
+            <key>
+                key3
+            </key>
+            <value>
+                <MailFromDomain>
+                    __MailFromDomain__
+                </MailFromDomain>
+                <MailFromDomainStatus>
+                    __MailFromDomainStatus__
+                </MailFromDomainStatus>
+                <BehaviorOnMXFailure>
+                    __BehaviorOnMXFailure__
+                </BehaviorOnMXFailure>
+            </value>
+        </entry>
     </MailFromDomainAttributes>
 </GetIdentityMailFromDomainAttributesResponse>
 
@@ -83,6 +99,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <entry>
             <key>
                 key2
+            </key>
+            <value>
+                <MailFromDomain>
+                    __MailFromDomain__
+                </MailFromDomain>
+                <MailFromDomainStatus>
+                    __MailFromDomainStatus__
+                </MailFromDomainStatus>
+                <BehaviorOnMXFailure>
+                    __BehaviorOnMXFailure__
+                </BehaviorOnMXFailure>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                key3
             </key>
             <value>
                 <MailFromDomain>

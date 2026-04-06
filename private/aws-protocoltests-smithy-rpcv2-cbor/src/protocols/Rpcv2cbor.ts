@@ -794,7 +794,7 @@ const se_SimpleScalarStructure = (
  * serializeRpcv2cborSparseBooleanMap
  */
 const se_SparseBooleanMap = (
-  input: Record<string, boolean>,
+  input: Record<string, boolean | null>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -827,7 +827,7 @@ const se_SparseNullsOperationInputOutput = (
  * serializeRpcv2cborSparseNumberMap
  */
 const se_SparseNumberMap = (
-  input: Record<string, number>,
+  input: Record<string, number | null>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -847,7 +847,7 @@ const se_SparseNumberMap = (
  * serializeRpcv2cborSparseSetMap
  */
 const se_SparseSetMap = (
-  input: Record<string, string[]>,
+  input: Record<string, string[] | null>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -867,7 +867,7 @@ const se_SparseSetMap = (
  * serializeRpcv2cborSparseStructMap
  */
 const se_SparseStructMap = (
-  input: Record<string, GreetingStruct>,
+  input: Record<string, GreetingStruct | null>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -917,7 +917,7 @@ const se_BlobList = (
  * serializeRpcv2cborSparseStringList
  */
 const se_SparseStringList = (
-  input: string[],
+  input: (string | null)[],
   context: __SerdeContext
 ): any => {
   return input;
@@ -927,7 +927,7 @@ const se_SparseStringList = (
  * serializeRpcv2cborSparseStringMap
  */
 const se_SparseStringMap = (
-  input: Record<string, string>,
+  input: Record<string, string | null>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -1149,8 +1149,8 @@ const de_SimpleScalarStructure = (
 const de_SparseBooleanMap = (
   output: any,
   context: __SerdeContext
-): Record<string, boolean> => {
-  return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
+): Record<string, boolean | null> => {
+  return Object.entries(output).reduce((acc: Record<string, boolean | null>, [key, value]: [string, any]) => {
     if (value !== null) {
       acc[key as string] = __expectBoolean(value) as any;
     }
@@ -1159,7 +1159,7 @@ const de_SparseBooleanMap = (
     }
     return acc;
 
-  }, {} as Record<string, boolean>);}
+  }, {} as Record<string, boolean | null>);}
 
 /**
  * deserializeRpcv2cborSparseNullsOperationInputOutput
@@ -1180,8 +1180,8 @@ const de_SparseNullsOperationInputOutput = (
 const de_SparseNumberMap = (
   output: any,
   context: __SerdeContext
-): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
+): Record<string, number | null> => {
+  return Object.entries(output).reduce((acc: Record<string, number | null>, [key, value]: [string, any]) => {
     if (value !== null) {
       acc[key as string] = __expectInt32(value) as any;
     }
@@ -1190,7 +1190,7 @@ const de_SparseNumberMap = (
     }
     return acc;
 
-  }, {} as Record<string, number>);}
+  }, {} as Record<string, number | null>);}
 
 /**
  * deserializeRpcv2cborSparseSetMap
@@ -1198,8 +1198,8 @@ const de_SparseNumberMap = (
 const de_SparseSetMap = (
   output: any,
   context: __SerdeContext
-): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
+): Record<string, string[] | null> => {
+  return Object.entries(output).reduce((acc: Record<string, string[] | null>, [key, value]: [string, any]) => {
     if (value !== null) {
       acc[key as string] = _json(value);
     }
@@ -1208,7 +1208,7 @@ const de_SparseSetMap = (
     }
     return acc;
 
-  }, {} as Record<string, string[]>);}
+  }, {} as Record<string, string[] | null>);}
 
 /**
  * deserializeRpcv2cborSparseStructMap
@@ -1216,8 +1216,8 @@ const de_SparseSetMap = (
 const de_SparseStructMap = (
   output: any,
   context: __SerdeContext
-): Record<string, GreetingStruct> => {
-  return Object.entries(output).reduce((acc: Record<string, GreetingStruct>, [key, value]: [string, any]) => {
+): Record<string, GreetingStruct | null> => {
+  return Object.entries(output).reduce((acc: Record<string, GreetingStruct | null>, [key, value]: [string, any]) => {
     if (value !== null) {
       acc[key as string] = _json(value);
     }
@@ -1226,7 +1226,7 @@ const de_SparseStructMap = (
     }
     return acc;
 
-  }, {} as Record<string, GreetingStruct>);}
+  }, {} as Record<string, GreetingStruct | null>);}
 
 // de_StructureList omitted.
 
@@ -1265,7 +1265,7 @@ const de_BlobList = (
 const de_SparseStringList = (
   output: any,
   context: __SerdeContext
-): string[] => {
+): (string | null)[] => {
   const collection = (output || []).map((entry: any) => {
     if (entry === null) {
       return null as any;
@@ -1281,8 +1281,8 @@ const de_SparseStringList = (
 const de_SparseStringMap = (
   output: any,
   context: __SerdeContext
-): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+): Record<string, string | null> => {
+  return Object.entries(output).reduce((acc: Record<string, string | null>, [key, value]: [string, any]) => {
     if (value !== null) {
       acc[key as string] = __expectString(value) as any;
     }
@@ -1291,7 +1291,7 @@ const de_SparseStringMap = (
     }
     return acc;
 
-  }, {} as Record<string, string>);}
+  }, {} as Record<string, string | null>);}
 
 // de_StringList omitted.
 

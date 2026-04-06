@@ -2,14 +2,14 @@ PUT https://restjson.us-east-1.amazonaws.com
 /DocumentTypeAsMapValue
 
 content-type: application/json
-content-length: 244
+content-length: 357
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/rest-json-protocol#_.__ m/E,e
 host: restjson.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: c3bbd433aa75aaca3eb362835237f013350a37fc70096ff5adc619e77f186331
+x-amz-content-sha256: c9971e8f60589c8867cf204334d3263451e7622691a68a58638d68c94cd196c5
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restjson/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -28,6 +28,18 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restjson/aws4_
       ]
     },
     "key2": {
+      "doc_note": "this is a document",
+      "doc_date": 946702799.999,
+      "doc_blob": "AQAAAQ==",
+      "doc_list": [
+        -7,
+        -3,
+        0,
+        1,
+        5
+      ]
+    },
+    "key3": {
       "doc_note": "this is a document",
       "doc_date": 946702799.999,
       "doc_blob": "AQAAAQ==",

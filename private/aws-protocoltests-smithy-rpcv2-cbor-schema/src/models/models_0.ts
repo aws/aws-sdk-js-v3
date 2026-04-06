@@ -185,11 +185,11 @@ export interface RpcV2CborListInputOutput {
  * @public
  */
 export interface RpcV2CborSparseMapsInputOutput {
-  sparseStructMap?: Record<string, GreetingStruct> | undefined;
-  sparseNumberMap?: Record<string, number> | undefined;
-  sparseBooleanMap?: Record<string, boolean> | undefined;
-  sparseStringMap?: Record<string, string> | undefined;
-  sparseSetMap?: Record<string, string[]> | undefined;
+  sparseStructMap?: Record<string, GreetingStruct | null> | undefined;
+  sparseNumberMap?: Record<string, number | null> | undefined;
+  sparseBooleanMap?: Record<string, boolean | null> | undefined;
+  sparseStringMap?: Record<string, string | null> | undefined;
+  sparseSetMap?: Record<string, string[] | null> | undefined;
 }
 
 /**
@@ -212,8 +212,8 @@ export interface SimpleScalarStructure {
  * @public
  */
 export interface SparseNullsOperationInputOutput {
-  sparseStringList?: string[] | undefined;
-  sparseStringMap?: Record<string, string> | undefined;
+  sparseStringList?: (string | null)[] | undefined;
+  sparseStringMap?: Record<string, string | null> | undefined;
 }
 
 /**
