@@ -17,12 +17,9 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, "..", "..");
-const commitHash = process.argv[2];
+const commitHash = process.argv[2] ?? execSync("git rev-parse origin/main", { cwd: rootDir, encoding: "utf-8" }).trim();
 
-if (!commitHash) {
-  console.error("Usage: yarn generate:client:tarball:since <commit-hash>");
-  process.exit(1);
-}
+console.log(`Generating tarball for clients since ${commitHash}`);
 
 function getChangedClients(sinceCommit) {
   const diffOutput = execSync(`git log ${sinceCommit}..HEAD --format=%s`, {
