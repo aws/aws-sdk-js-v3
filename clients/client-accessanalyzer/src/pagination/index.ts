@@ -10,4 +10,5 @@ export * from "./ListArchiveRulesPaginator";
 export * from "./ListFindingsPaginator";
 export * from "./ListFindingsV2Paginator";
 export * from "./ListPolicyGenerationsPaginator";
+export * from "./ListPolicyPreviewJobsPaginator";
 export * from "./ValidatePolicyPaginator";

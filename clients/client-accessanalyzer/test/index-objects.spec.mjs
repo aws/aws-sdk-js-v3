@@ -30,6 +30,10 @@ import {
   CancelPolicyGenerationCommand,
   CancelPolicyGenerationRequest$,
   CancelPolicyGenerationResponse$,
+  CancelPolicyPreviewJob$,
+  CancelPolicyPreviewJobCommand,
+  CancelPolicyPreviewJobRequest$,
+  CancelPolicyPreviewJobResponse$,
   CheckAccessNotGranted$,
   CheckAccessNotGrantedCommand,
   CheckAccessNotGrantedRequest$,
@@ -61,6 +65,10 @@ import {
   CreateArchiveRule$,
   CreateArchiveRuleCommand,
   CreateArchiveRuleRequest$,
+  CreatePolicyPreviewConfiguration$,
+  CreatePolicyPreviewConfigurationCommand,
+  CreatePolicyPreviewConfigurationRequest$,
+  CreatePolicyPreviewConfigurationResponse$,
   Criterion$,
   DeleteAnalyzer$,
   DeleteAnalyzerCommand,
@@ -68,6 +76,10 @@ import {
   DeleteArchiveRule$,
   DeleteArchiveRuleCommand,
   DeleteArchiveRuleRequest$,
+  DeletePolicyPreviewConfiguration$,
+  DeletePolicyPreviewConfigurationCommand,
+  DeletePolicyPreviewConfigurationRequest$,
+  DeletePolicyPreviewConfigurationResponse$,
   DynamodbStreamConfiguration$,
   DynamodbTableConfiguration$,
   EbsSnapshotConfiguration$,
@@ -130,7 +142,17 @@ import {
   GetGeneratedPolicyCommand,
   GetGeneratedPolicyRequest$,
   GetGeneratedPolicyResponse$,
+  GetPolicyPreviewConfiguration$,
+  GetPolicyPreviewConfigurationCommand,
+  GetPolicyPreviewConfigurationRequest$,
+  GetPolicyPreviewConfigurationResponse$,
+  GetPolicyPreviewJob$,
+  GetPolicyPreviewJobCommand,
+  GetPolicyPreviewJobRequest$,
+  GetPolicyPreviewJobResponse$,
   IamRoleConfiguration$,
+  ImpactAnalysisJobStatus,
+  ImpactAnalysisJobType,
   InlineArchiveRule$,
   InternalAccessAnalysisRule$,
   InternalAccessAnalysisRuleCriteria$,
@@ -184,6 +206,10 @@ import {
   ListPolicyGenerationsCommand,
   ListPolicyGenerationsRequest$,
   ListPolicyGenerationsResponse$,
+  ListPolicyPreviewJobs$,
+  ListPolicyPreviewJobsCommand,
+  ListPolicyPreviewJobsRequest$,
+  ListPolicyPreviewJobsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -202,10 +228,19 @@ import {
   paginateListFindings,
   paginateListFindingsV2,
   paginateListPolicyGenerations,
+  paginateListPolicyPreviewJobs,
   paginateValidatePolicy,
   PathElement$,
+  PolicyConfiguration$,
   PolicyGeneration$,
   PolicyGenerationDetails$,
+  PolicyPreviewAnalysisReport$,
+  PolicyPreviewConfiguration$,
+  PolicyPreviewJobDetails$,
+  PolicyPreviewJobFilterName,
+  PolicyPreviewJobParameters$,
+  PolicyPreviewScope,
+  PolicyPreviewStatus,
   PolicyType,
   Position$,
   PrincipalType,
@@ -242,6 +277,10 @@ import {
   StartPolicyGenerationCommand,
   StartPolicyGenerationRequest$,
   StartPolicyGenerationResponse$,
+  StartPolicyPreviewJob$,
+  StartPolicyPreviewJobCommand,
+  StartPolicyPreviewJobRequest$,
+  StartPolicyPreviewJobResponse$,
   StartResourceScan$,
   StartResourceScanCommand,
   StartResourceScanRequest$,
@@ -294,6 +333,10 @@ import {
   ValidationExceptionField$,
   ValidationExceptionReason,
   VpcConfiguration$,
+  waitForPolicyPreviewConfigurationActive,
+  waitForPolicyPreviewJobCompleted,
+  waitUntilPolicyPreviewConfigurationActive,
+  waitUntilPolicyPreviewJobCompleted,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -304,6 +347,8 @@ assert(typeof ApplyArchiveRuleCommand === "function");
 assert(typeof ApplyArchiveRule$ === "object");
 assert(typeof CancelPolicyGenerationCommand === "function");
 assert(typeof CancelPolicyGeneration$ === "object");
+assert(typeof CancelPolicyPreviewJobCommand === "function");
+assert(typeof CancelPolicyPreviewJob$ === "object");
 assert(typeof CheckAccessNotGrantedCommand === "function");
 assert(typeof CheckAccessNotGranted$ === "object");
 assert(typeof CheckNoNewAccessCommand === "function");
@@ -316,10 +361,14 @@ assert(typeof CreateAnalyzerCommand === "function");
 assert(typeof CreateAnalyzer$ === "object");
 assert(typeof CreateArchiveRuleCommand === "function");
 assert(typeof CreateArchiveRule$ === "object");
+assert(typeof CreatePolicyPreviewConfigurationCommand === "function");
+assert(typeof CreatePolicyPreviewConfiguration$ === "object");
 assert(typeof DeleteAnalyzerCommand === "function");
 assert(typeof DeleteAnalyzer$ === "object");
 assert(typeof DeleteArchiveRuleCommand === "function");
 assert(typeof DeleteArchiveRule$ === "object");
+assert(typeof DeletePolicyPreviewConfigurationCommand === "function");
+assert(typeof DeletePolicyPreviewConfiguration$ === "object");
 assert(typeof GenerateFindingRecommendationCommand === "function");
 assert(typeof GenerateFindingRecommendation$ === "object");
 assert(typeof GetAccessPreviewCommand === "function");
@@ -340,6 +389,10 @@ assert(typeof GetFindingV2Command === "function");
 assert(typeof GetFindingV2$ === "object");
 assert(typeof GetGeneratedPolicyCommand === "function");
 assert(typeof GetGeneratedPolicy$ === "object");
+assert(typeof GetPolicyPreviewConfigurationCommand === "function");
+assert(typeof GetPolicyPreviewConfiguration$ === "object");
+assert(typeof GetPolicyPreviewJobCommand === "function");
+assert(typeof GetPolicyPreviewJob$ === "object");
 assert(typeof ListAccessPreviewFindingsCommand === "function");
 assert(typeof ListAccessPreviewFindings$ === "object");
 assert(typeof ListAccessPreviewsCommand === "function");
@@ -356,10 +409,14 @@ assert(typeof ListFindingsV2Command === "function");
 assert(typeof ListFindingsV2$ === "object");
 assert(typeof ListPolicyGenerationsCommand === "function");
 assert(typeof ListPolicyGenerations$ === "object");
+assert(typeof ListPolicyPreviewJobsCommand === "function");
+assert(typeof ListPolicyPreviewJobs$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof StartPolicyGenerationCommand === "function");
 assert(typeof StartPolicyGeneration$ === "object");
+assert(typeof StartPolicyPreviewJobCommand === "function");
+assert(typeof StartPolicyPreviewJob$ === "object");
 assert(typeof StartResourceScanCommand === "function");
 assert(typeof StartResourceScan$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -391,6 +448,8 @@ assert(typeof ApplyArchiveRuleRequest$ === "object");
 assert(typeof ArchiveRuleSummary$ === "object");
 assert(typeof CancelPolicyGenerationRequest$ === "object");
 assert(typeof CancelPolicyGenerationResponse$ === "object");
+assert(typeof CancelPolicyPreviewJobRequest$ === "object");
+assert(typeof CancelPolicyPreviewJobResponse$ === "object");
 assert(typeof CheckAccessNotGrantedRequest$ === "object");
 assert(typeof CheckAccessNotGrantedResponse$ === "object");
 assert(typeof CheckNoNewAccessRequest$ === "object");
@@ -405,9 +464,13 @@ assert(typeof CreateAccessPreviewResponse$ === "object");
 assert(typeof CreateAnalyzerRequest$ === "object");
 assert(typeof CreateAnalyzerResponse$ === "object");
 assert(typeof CreateArchiveRuleRequest$ === "object");
+assert(typeof CreatePolicyPreviewConfigurationRequest$ === "object");
+assert(typeof CreatePolicyPreviewConfigurationResponse$ === "object");
 assert(typeof Criterion$ === "object");
 assert(typeof DeleteAnalyzerRequest$ === "object");
 assert(typeof DeleteArchiveRuleRequest$ === "object");
+assert(typeof DeletePolicyPreviewConfigurationRequest$ === "object");
+assert(typeof DeletePolicyPreviewConfigurationResponse$ === "object");
 assert(typeof DynamodbStreamConfiguration$ === "object");
 assert(typeof DynamodbTableConfiguration$ === "object");
 assert(typeof EbsSnapshotConfiguration$ === "object");
@@ -445,6 +508,10 @@ assert(typeof GetFindingV2Request$ === "object");
 assert(typeof GetFindingV2Response$ === "object");
 assert(typeof GetGeneratedPolicyRequest$ === "object");
 assert(typeof GetGeneratedPolicyResponse$ === "object");
+assert(typeof GetPolicyPreviewConfigurationRequest$ === "object");
+assert(typeof GetPolicyPreviewConfigurationResponse$ === "object");
+assert(typeof GetPolicyPreviewJobRequest$ === "object");
+assert(typeof GetPolicyPreviewJobResponse$ === "object");
 assert(typeof IamRoleConfiguration$ === "object");
 assert(typeof InlineArchiveRule$ === "object");
 assert(typeof InternalAccessAnalysisRule$ === "object");
@@ -475,13 +542,20 @@ assert(typeof ListFindingsV2Request$ === "object");
 assert(typeof ListFindingsV2Response$ === "object");
 assert(typeof ListPolicyGenerationsRequest$ === "object");
 assert(typeof ListPolicyGenerationsResponse$ === "object");
+assert(typeof ListPolicyPreviewJobsRequest$ === "object");
+assert(typeof ListPolicyPreviewJobsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof Location$ === "object");
 assert(typeof NetworkOriginConfiguration$ === "object");
 assert(typeof PathElement$ === "object");
+assert(typeof PolicyConfiguration$ === "object");
 assert(typeof PolicyGeneration$ === "object");
 assert(typeof PolicyGenerationDetails$ === "object");
+assert(typeof PolicyPreviewAnalysisReport$ === "object");
+assert(typeof PolicyPreviewConfiguration$ === "object");
+assert(typeof PolicyPreviewJobDetails$ === "object");
+assert(typeof PolicyPreviewJobParameters$ === "object");
 assert(typeof Position$ === "object");
 assert(typeof RdsDbClusterSnapshotAttributeValue$ === "object");
 assert(typeof RdsDbClusterSnapshotConfiguration$ === "object");
@@ -504,6 +578,8 @@ assert(typeof Span$ === "object");
 assert(typeof SqsQueueConfiguration$ === "object");
 assert(typeof StartPolicyGenerationRequest$ === "object");
 assert(typeof StartPolicyGenerationResponse$ === "object");
+assert(typeof StartPolicyPreviewJobRequest$ === "object");
+assert(typeof StartPolicyPreviewJobResponse$ === "object");
 assert(typeof StartResourceScanRequest$ === "object");
 assert(typeof StatusReason$ === "object");
 assert(typeof Substring$ === "object");
@@ -546,12 +622,17 @@ assert(typeof FindingSourceType === "object");
 assert(typeof FindingStatus === "object");
 assert(typeof FindingStatusUpdate === "object");
 assert(typeof FindingType === "object");
+assert(typeof ImpactAnalysisJobStatus === "object");
+assert(typeof ImpactAnalysisJobType === "object");
 assert(typeof InternalAccessType === "object");
 assert(typeof JobErrorCode === "object");
 assert(typeof JobStatus === "object");
 assert(typeof KmsGrantOperation === "object");
 assert(typeof Locale === "object");
 assert(typeof OrderBy === "object");
+assert(typeof PolicyPreviewJobFilterName === "object");
+assert(typeof PolicyPreviewScope === "object");
+assert(typeof PolicyPreviewStatus === "object");
 assert(typeof PolicyType === "object");
 assert(typeof PrincipalType === "object");
 assert(typeof ReasonCode === "object");
@@ -585,6 +666,11 @@ assert(typeof UnprocessableEntityException$ === "object");
 assert(ValidationException.prototype instanceof AccessAnalyzerServiceException);
 assert(typeof ValidationException$ === "object");
 assert(AccessAnalyzerServiceException.prototype instanceof Error);
+// waiters
+assert(typeof waitForPolicyPreviewConfigurationActive === "function");
+assert(typeof waitForPolicyPreviewJobCompleted === "function");
+assert(typeof waitUntilPolicyPreviewConfigurationActive === "function");
+assert(typeof waitUntilPolicyPreviewJobCompleted === "function");
 // paginators
 assert(typeof paginateGetFindingRecommendation === "function");
 assert(typeof paginateGetFindingV2 === "function");
@@ -596,5 +682,6 @@ assert(typeof paginateListArchiveRules === "function");
 assert(typeof paginateListFindings === "function");
 assert(typeof paginateListFindingsV2 === "function");
 assert(typeof paginateListPolicyGenerations === "function");
+assert(typeof paginateListPolicyPreviewJobs === "function");
 assert(typeof paginateValidatePolicy === "function");
 console.log(`AccessAnalyzer index test passed.`);

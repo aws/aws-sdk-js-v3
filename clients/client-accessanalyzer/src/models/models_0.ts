@@ -14,12 +14,17 @@ import type {
   FindingStatus,
   FindingStatusUpdate,
   FindingType,
+  ImpactAnalysisJobStatus,
+  ImpactAnalysisJobType,
   InternalAccessType,
   JobErrorCode,
   JobStatus,
   KmsGrantOperation,
   Locale,
   OrderBy,
+  PolicyPreviewJobFilterName,
+  PolicyPreviewScope,
+  PolicyPreviewStatus,
   PolicyType,
   PrincipalType,
   ReasonCode,
@@ -736,6 +741,22 @@ export interface CancelPolicyGenerationRequest {
  * @public
  */
 export interface CancelPolicyGenerationResponse {}
+
+/**
+ * @public
+ */
+export interface CancelPolicyPreviewJobRequest {
+  /**
+   * <p>The unique identifier of the policy preview job to cancel.</p>
+   * @public
+   */
+  jobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelPolicyPreviewJobResponse {}
 
 /**
  * @public
@@ -1865,6 +1886,50 @@ export interface CreateAccessPreviewResponse {
    */
   id: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface CreatePolicyPreviewConfigurationRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, subsequent retries with the same client token return the result from the original successful request and have no additional effect.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The scope of the policy preview configuration. Currently only <code>GLOBAL</code> is supported.</p>
+   * @public
+   */
+  scope?: PolicyPreviewScope | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePolicyPreviewConfigurationResponse {
+  /**
+   * <p>The status of the policy preview configuration after creation. The status is <code>PENDING_CREATION</code> until the configuration is fully provisioned and becomes <code>ACTIVE</code>. If provisioning fails, the status is <code>FAILED</code>.</p>
+   * @public
+   */
+  status: PolicyPreviewStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePolicyPreviewConfigurationRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, subsequent retries with the same client token return the result from the original successful request and have no additional effect.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePolicyPreviewConfigurationResponse {}
 
 /**
  * @public
@@ -3301,6 +3366,176 @@ export interface GetGeneratedPolicyResponse {
 /**
  * @public
  */
+export interface GetPolicyPreviewConfigurationRequest {}
+
+/**
+ * <p>Contains the configuration details for policy preview, including the scope, status, and timestamps.</p>
+ * @public
+ */
+export interface PolicyPreviewConfiguration {
+  /**
+   * <p>The scope of the policy preview configuration. Currently only <code>GLOBAL</code> is supported.</p>
+   * @public
+   */
+  scope: PolicyPreviewScope | undefined;
+
+  /**
+   * <p>The status of the policy preview configuration. A value of <code>ACTIVE</code> indicates the configuration is enabled and CloudTrail authorization events are being collected.</p>
+   * @public
+   */
+  status: PolicyPreviewStatus | undefined;
+
+  /**
+   * <p>The time at which the policy preview configuration was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time at which the policy preview configuration was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyPreviewConfigurationResponse {
+  /**
+   * <p>A list of policy preview configurations for the account.</p>
+   * @public
+   */
+  policyPreviewConfigurations?: PolicyPreviewConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyPreviewJobRequest {
+  /**
+   * <p>The unique identifier of the policy preview job to retrieve. This is the job ID returned by <code>StartPolicyPreviewJob</code>.</p>
+   * @public
+   */
+  jobId: string | undefined;
+}
+
+/**
+ * <p>Contains details about the execution of a policy preview job.</p>
+ * @public
+ */
+export interface PolicyPreviewJobDetails {
+  /**
+   * <p>The current status of the job. Possible values are:</p> <ul> <li> <p> <code>SUBMITTED</code> - The job has been submitted but not yet started.</p> </li> <li> <p> <code>IN_PROGRESS</code> - The job is currently executing.</p> </li> <li> <p> <code>COMPLETED</code> - The job completed successfully.</p> </li> <li> <p> <code>FAILED</code> - The job failed with an error.</p> </li> <li> <p> <code>CANCELED</code> - The job was canceled by the user.</p> </li> </ul>
+   * @public
+   */
+  jobStatus: ImpactAnalysisJobStatus | undefined;
+
+  /**
+   * <p>The time at which the job was submitted.</p>
+   * @public
+   */
+  submittedAt: Date | undefined;
+
+  /**
+   * <p>The time at which the job execution started. This field is not populated until the job begins processing.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the job completed. This field is populated only when the job reaches a terminal state (COMPLETED, FAILED, or CANCELED).</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+
+  /**
+   * <p>Detailed information about the error that caused the job to fail. This field is populated only when the job status is FAILED.</p>
+   * @public
+   */
+  jobError?: JobError | undefined;
+}
+
+/**
+ * <p>Specifies the configuration for a policy preview analysis, including the type of analysis, the target resource, and the policy documents to evaluate.</p>
+ * @public
+ */
+export interface PolicyConfiguration {
+  /**
+   * <p>The type of impact analysis job. Currently only <code>SCP</code> (Service Control Policy) is supported.</p>
+   * @public
+   */
+  jobType: ImpactAnalysisJobType | undefined;
+
+  /**
+   * <p>The identifier of the target resource for the policy analysis. This can be an Amazon Web Services account ID (12-digit number), an organization root ID (format: <code>r-[0-9a-z]\{4,32\}</code>), or an organizational unit ID (format: <code>ou-[0-9a-z]\{4,32\}-[a-z0-9]\{8,32\}</code>).</p>
+   * @public
+   */
+  targetId: string | undefined;
+
+  /**
+   * <p>A list of SCP policy documents to test. Each policy document is a JSON string with a maximum length of 5,120 characters. The analysis evaluates how these policies would affect access to resources.</p>
+   * @public
+   */
+  policyDocumentsList: string[] | undefined;
+}
+
+/**
+ * <p>Contains the parameters used to create a policy preview job.</p>
+ * @public
+ */
+export interface PolicyPreviewJobParameters {
+  /**
+   * <p>The start of the CloudTrail event analysis window.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end of the CloudTrail event analysis window.</p>
+   * @public
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The list of policy configurations that were analyzed.</p>
+   * @public
+   */
+  policyConfigurations: PolicyConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyPreviewJobResponse {
+  /**
+   * <p>The unique identifier of the policy preview job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The original parameters used to create the policy preview job, including the analysis time window and policy configurations.</p>
+   * @public
+   */
+  jobParameters?: PolicyPreviewJobParameters | undefined;
+
+  /**
+   * <p>Details about the job execution, including current status, submission time, start time, completion time, and any errors that occurred.</p>
+   * @public
+   */
+  jobDetails?: PolicyPreviewJobDetails | undefined;
+
+  /**
+   * <p>The Amazon S3 URI where the analysis report is stored. The report contains metadata for CloudTrail events that would be denied by the proposed policy.</p>
+   * @public
+   */
+  outputS3Uri: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAccessPreviewFindingsRequest {
   /**
    * <p>The unique ID for the access preview.</p>
@@ -3963,6 +4198,88 @@ export interface ListPolicyGenerationsResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListPolicyPreviewJobsRequest {
+  /**
+   * <p>Optional filter criteria to narrow the list of returned jobs. You can filter by job status or target ID. Maximum of one filter can be specified.</p>
+   * @public
+   */
+  filters?: Partial<Record<PolicyPreviewJobFilterName, string>> | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single page. Minimum value is 1.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token used for pagination of results. Use the token returned in the previous response to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a policy preview job.</p>
+ * @public
+ */
+export interface PolicyPreviewAnalysisReport {
+  /**
+   * <p>The unique identifier of the policy preview job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The current status of the job.</p>
+   * @public
+   */
+  status: ImpactAnalysisJobStatus | undefined;
+
+  /**
+   * <p>The time at which the job was submitted.</p>
+   * @public
+   */
+  submittedAt: Date | undefined;
+
+  /**
+   * <p>The time at which the job execution started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the job completed.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon S3 URI where the analysis report is stored.</p>
+   * @public
+   */
+  outputS3Uri: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyPreviewJobsResponse {
+  /**
+   * <p>A list of policy preview job summaries that match the specified filter criteria.</p>
+   * @public
+   */
+  analysisReports: PolicyPreviewAnalysisReport[] | undefined;
+
+  /**
+   * <p>A token used for pagination. If present, indicates there are more results available. Pass this token to the next request to retrieve the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>Retrieves a list of tags applied to the specified resource.</p>
  * @public
  */
@@ -4081,6 +4398,52 @@ export interface StartPolicyGenerationRequest {
 export interface StartPolicyGenerationResponse {
   /**
    * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.</p>
+   * @public
+   */
+  jobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartPolicyPreviewJobRequest {
+  /**
+   * <p>A list of policy configurations to analyze. Currently limited to one configuration per request. Each configuration specifies the job type, target ID, and policy documents to test.</p>
+   * @public
+   */
+  policyConfigurations: PolicyConfiguration[] | undefined;
+
+  /**
+   * <p>The start of the CloudTrail event analysis window. The analysis will evaluate events from this time forward.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end of the analysis window. If not specified, defaults to the time of the request. The analysis will evaluate CloudTrail events up to this time.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon S3 URI where the completed analysis report will be stored. The Amazon S3 bucket must grant access to the IAM Access Analyzer service principal in its resource policy. The report will be stored at the path: <code>outputS3Uri/jobId/timestamp/</code>.</p>
+   * @public
+   */
+  outputS3Uri: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, subsequent retries with the same client token return the result from the original successful request and have no additional effect.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartPolicyPreviewJobResponse {
+  /**
+   * <p>The unique identifier for the created policy preview job. Use this ID with <code>GetPolicyPreviewJob</code> to retrieve job status and details, or with <code>CancelPolicyPreviewJob</code> to cancel the job.</p>
    * @public
    */
   jobId: string | undefined;
