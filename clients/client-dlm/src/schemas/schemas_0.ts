@@ -3,6 +3,7 @@ const _AL = "ActionList";
 const _AR = "ArchiveRule";
 const _ARR = "ArchiveRetainRule";
 const _AZ = "AvailabilityZones";
+const _AZI = "AvailabilityZoneIds";
 const _Ac = "Actions";
 const _C = "Code";
 const _CA = "CmkArn";
@@ -299,8 +300,8 @@ export var Exclusions$: StaticStructureSchema = [3, n0, _E,
 ];
 export var FastRestoreRule$: StaticStructureSchema = [3, n0, _FRR,
   0,
-  [_AZ, _Co, _I, _IU],
-  [64 | 0, 1, 1, 0], 1
+  [_Co, _I, _IU, _AZ, _AZI],
+  [1, 1, 0, 64 | 0, 64 | 0]
 ];
 export var GetLifecyclePoliciesRequest$: StaticStructureSchema = [3, n0, _GLPR,
   0,
@@ -415,6 +416,7 @@ export var UpdateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _ULPR
 var ActionList: StaticListSchema = [1, n0, _AL,
   0, () => Action$
 ];
+var AvailabilityZoneIdList = 64 | 0;
 var AvailabilityZoneList = 64 | 0;
 var CrossRegionCopyActionList: StaticListSchema = [1, n0, _CRCAL,
   0, () => CrossRegionCopyAction$

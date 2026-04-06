@@ -110,7 +110,10 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * //             Count: Number("int"),
  * //             Interval: Number("int"),
  * //             IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
- * //             AvailabilityZones: [ // AvailabilityZoneList // required
+ * //             AvailabilityZones: [ // AvailabilityZoneList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             AvailabilityZoneIds: [ // AvailabilityZoneIdList
  * //               "STRING_VALUE",
  * //             ],
  * //           },

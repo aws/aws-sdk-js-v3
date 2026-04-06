@@ -730,7 +730,13 @@ export interface FastRestoreRule {
    * <p>The Availability Zones in which to enable fast snapshot restore.</p>
    * @public
    */
-  AvailabilityZones: string[] | undefined;
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>The Availability Zone Ids in which to enable fast snapshot restore.</p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
 }
 
 /**
