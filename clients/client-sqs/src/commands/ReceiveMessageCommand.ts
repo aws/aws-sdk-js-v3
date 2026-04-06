@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getLongPollPlugin } from "@aws-sdk/core/client";
 import { getReceiveMessagePlugin } from "@aws-sdk/middleware-sdk-sqs";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -218,6 +219,7 @@ export class ReceiveMessageCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getLongPollPlugin(config),
       getReceiveMessagePlugin(config),
     ];
   })

@@ -6,6 +6,7 @@ import { NoOpLogger } from "@smithy/smithy-client";
 import type { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
+import { Retry, StandardRetryStrategy } from "@smithy/util-retry";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultDynamoDBHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
@@ -43,6 +44,14 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
       serviceTarget: "DynamoDB_20120810",
       jsonCodec: new DynamoDBJsonCodec(),
     },
+    retryStrategy: config?.retryStrategy ?? (
+      config?.maxAttempts == null && config?.retryMode == null && Retry.v2026
+        ? new StandardRetryStrategy({
+            maxAttempts: 4,
+            baseDelay: 25,
+          })
+        : undefined
+    ),
     serviceId: config?.serviceId ?? "DynamoDB",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
