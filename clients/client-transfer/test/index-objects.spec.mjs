@@ -14,6 +14,7 @@ import {
   ConnectorEgressConfig$,
   ConnectorEgressType,
   ConnectorFileTransferResult$,
+  ConnectorsIpAddressType,
   ConnectorStatus,
   ConnectorVpcLatticeEgressConfig$,
   CopyStepDetails$,
@@ -783,6 +784,7 @@ assert(typeof CertificateType === "object");
 assert(typeof CertificateUsageType === "object");
 assert(typeof CompressionEnum === "object");
 assert(typeof ConnectorEgressType === "object");
+assert(typeof ConnectorsIpAddressType === "object");
 assert(typeof ConnectorStatus === "object");
 assert(typeof CustomStepStatus === "object");
 assert(typeof DirectoryListingOptimization === "object");

@@ -7,6 +7,7 @@ import type {
   CertificateUsageType,
   CompressionEnum,
   ConnectorEgressType,
+  ConnectorsIpAddressType,
   ConnectorStatus,
   CustomStepStatus,
   DirectoryListingOptimization,
@@ -1043,6 +1044,12 @@ export interface CreateConnectorRequest {
    * @public
    */
   EgressConfig?: ConnectorEgressConfig | undefined;
+
+  /**
+   * <p>Specifies the IP address type for the connector's network connections. When set to <code>IPV4</code>, the connector uses IPv4 addresses only. When set to <code>DUALSTACK</code>, the connector supports both IPv4 and IPv6 addresses, with IPv6 preferred when available.</p>
+   * @public
+   */
+  IpAddressType?: ConnectorsIpAddressType | undefined;
 }
 
 /**
@@ -1223,6 +1230,12 @@ export interface DescribedConnector {
    * @public
    */
   Status: ConnectorStatus | undefined;
+
+  /**
+   * <p>IP address type for the connector's network connections. When set to <code>IPV4</code>, the connector uses IPv4 addresses only. When set to <code>DUALSTACK</code>, the connector supports both IPv4 and IPv6 addresses, with IPv6 preferred when available.</p>
+   * @public
+   */
+  IpAddressType?: ConnectorsIpAddressType | undefined;
 }
 
 /**
@@ -1402,6 +1415,12 @@ export interface UpdateConnectorRequest {
    * @public
    */
   EgressConfig?: UpdateConnectorEgressConfig | undefined;
+
+  /**
+   * <p>Specifies the IP address type for the connector's network connections. When set to <code>IPV4</code>, the connector uses IPv4 addresses only. When set to <code>DUALSTACK</code>, the connector supports both IPv4 and IPv6 addresses, with IPv6 preferred when available.</p>
+   * @public
+   */
+  IpAddressType?: ConnectorsIpAddressType | undefined;
 }
 
 /**

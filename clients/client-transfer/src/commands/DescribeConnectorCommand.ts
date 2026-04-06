@@ -92,6 +92,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * //     EgressType: "SERVICE_MANAGED" || "VPC_LATTICE", // required
  * //     ErrorMessage: "STRING_VALUE",
  * //     Status: "ACTIVE" || "ERRORED" || "PENDING", // required
+ * //     IpAddressType: "IPV4" || "DUALSTACK",
  * //   },
  * // };
  *

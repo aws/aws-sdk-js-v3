@@ -674,8 +674,8 @@ export var CreateAgreementResponse$: StaticStructureSchema = [3, n0, _CARrea,
 ];
 export var CreateConnectorRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_AR, _U, _AC, _LR, _T, _SCf, _SPN, _EC],
-  [0, 0, [() => As2ConnectorConfig$, 0], 0, () => Tags, () => SftpConnectorConfig$, 0, () => ConnectorEgressConfig$], 1
+  [_AR, _U, _AC, _LR, _T, _SCf, _SPN, _EC, _IAT],
+  [0, 0, [() => As2ConnectorConfig$, 0], 0, () => Tags, () => SftpConnectorConfig$, 0, () => ConnectorEgressConfig$, 0], 1
 ];
 export var CreateConnectorResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -874,8 +874,8 @@ export var DescribedCertificate$: StaticStructureSchema = [3, n0, _DC,
 ];
 export var DescribedConnector$: StaticStructureSchema = [3, n0, _DCe,
   0,
-  [_Ar, _ETg, _S, _CI, _U, _AC, _AR, _LR, _T, _SCf, _SMEIA, _SPN, _EC, _EM],
-  [0, 0, 0, 0, 0, [() => As2ConnectorConfig$, 0], 0, 0, () => Tags, () => SftpConnectorConfig$, 64 | 0, 0, () => DescribedConnectorEgressConfig$, 0], 3
+  [_Ar, _ETg, _S, _CI, _U, _AC, _AR, _LR, _T, _SCf, _SMEIA, _SPN, _EC, _EM, _IAT],
+  [0, 0, 0, 0, 0, [() => As2ConnectorConfig$, 0], 0, 0, () => Tags, () => SftpConnectorConfig$, 64 | 0, 0, () => DescribedConnectorEgressConfig$, 0, 0], 3
 ];
 export var DescribedConnectorVpcLatticeEgressConfig$: StaticStructureSchema = [3, n0, _DCVLEC,
   0,
@@ -1489,8 +1489,8 @@ export var UpdateCertificateResponse$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateConnectorRequest$: StaticStructureSchema = [3, n0, _UCRpd,
   0,
-  [_CI, _U, _AC, _AR, _LR, _SCf, _SPN, _EC],
-  [0, 0, [() => As2ConnectorConfig$, 0], 0, 0, () => SftpConnectorConfig$, 0, () => UpdateConnectorEgressConfig$], 1
+  [_CI, _U, _AC, _AR, _LR, _SCf, _SPN, _EC, _IAT],
+  [0, 0, [() => As2ConnectorConfig$, 0], 0, 0, () => SftpConnectorConfig$, 0, () => UpdateConnectorEgressConfig$, 0], 1
 ];
 export var UpdateConnectorResponse$: StaticStructureSchema = [3, n0, _UCRpda,
   0,

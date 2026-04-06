@@ -212,6 +212,19 @@ export type TransferTableStatus = (typeof TransferTableStatus)[keyof typeof Tran
  * @public
  * @enum
  */
+export const ConnectorsIpAddressType = {
+  DUALSTACK: "DUALSTACK",
+  IPV4: "IPV4",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorsIpAddressType = (typeof ConnectorsIpAddressType)[keyof typeof ConnectorsIpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConnectorStatus = {
   ACTIVE: "ACTIVE",
   ERRORED: "ERRORED",

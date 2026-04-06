@@ -73,6 +73,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *       PortNumber: Number("int"),
  *     },
  *   },
+ *   IpAddressType: "IPV4" || "DUALSTACK",
  * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);

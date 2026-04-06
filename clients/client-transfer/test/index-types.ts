@@ -222,6 +222,7 @@ export type {
   CertificateUsageType,
   CompressionEnum,
   ConnectorEgressType,
+  ConnectorsIpAddressType,
   ConnectorStatus,
   CustomStepStatus,
   DirectoryListingOptimization,

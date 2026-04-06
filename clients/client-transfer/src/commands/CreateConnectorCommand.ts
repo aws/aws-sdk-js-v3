@@ -78,6 +78,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *       PortNumber: Number("int"),
  *     },
  *   },
+ *   IpAddressType: "IPV4" || "DUALSTACK",
  * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);
