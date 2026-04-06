@@ -27,8 +27,7 @@ export interface DeleteIPSetCommandInput extends DeleteIPSetRequest {}
 export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted IP
- *       lists in the console user interface.</p>
+ * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted IP lists in the console user interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

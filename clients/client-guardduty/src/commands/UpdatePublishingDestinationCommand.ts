@@ -27,8 +27,7 @@ export interface UpdatePublishingDestinationCommandInput extends UpdatePublishin
 export interface UpdatePublishingDestinationCommandOutput extends UpdatePublishingDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates information about the publishing destination specified by the
- *         <code>destinationId</code>.</p>
+ * <p>Updates information about the publishing destination specified by the <code>destinationId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

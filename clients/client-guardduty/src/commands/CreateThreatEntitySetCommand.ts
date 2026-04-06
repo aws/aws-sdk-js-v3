@@ -27,11 +27,7 @@ export interface CreateThreatEntitySetCommandInput extends CreateThreatEntitySet
 export interface CreateThreatEntitySetCommandOutput extends CreateThreatEntitySetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new threat entity set. In a threat entity set, you can provide known malicious
- *         IP addresses and domains for your Amazon Web Services environment.
- *         GuardDuty generates findings based on the entries in the threat entity sets.
- *         Only users of the administrator account can manage entity sets, which automatically apply
- *         to member accounts.</p>
+ * <p>Creates a new threat entity set. In a threat entity set, you can provide known malicious IP addresses and domains for your Amazon Web Services environment. GuardDuty generates findings based on the entries in the threat entity sets. Only users of the administrator account can manage entity sets, which automatically apply to member accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

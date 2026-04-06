@@ -27,8 +27,7 @@ export interface GetMasterAccountCommandInput extends GetMasterAccountRequest {}
 export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Provides the details for the GuardDuty administrator account associated with the current
- *       GuardDuty member account.</p>
+ * <p>Provides the details for the GuardDuty administrator account associated with the current GuardDuty member account.</p>
  *
  * @deprecated This operation is deprecated, use GetAdministratorAccount instead.
  * @example

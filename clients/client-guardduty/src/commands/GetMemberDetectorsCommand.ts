@@ -28,10 +28,7 @@ export interface GetMemberDetectorsCommandInput extends GetMemberDetectorsReques
 export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes which data sources are enabled for the member account's detector.</p>
- *          <p>There might be regional differences because some data sources might not be
- *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
- *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
+ * <p>Describes which data sources are enabled for the member account's detector.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +79,7 @@ export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsRespo
  * //       },
  * //       Features: [ // MemberFeaturesConfigurationsResults
  * //         { // MemberFeaturesConfigurationResult
- * //           Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS" || "RUNTIME_MONITORING",
+ * //           Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING",
  * //           Status: "ENABLED" || "DISABLED",
  * //           UpdatedAt: new Date("TIMESTAMP"),
  * //           AdditionalConfiguration: [ // MemberAdditionalConfigurationResults

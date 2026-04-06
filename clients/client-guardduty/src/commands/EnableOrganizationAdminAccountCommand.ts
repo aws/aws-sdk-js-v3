@@ -27,9 +27,7 @@ export interface EnableOrganizationAdminAccountCommandInput extends EnableOrgani
 export interface EnableOrganizationAdminAccountCommandOutput extends EnableOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Designates an Amazon Web Services account within the organization as your GuardDuty delegated
- *       administrator. Only the organization's management account can run this
- *     API operation.</p>
+ * <p>Designates an Amazon Web Services account within the organization as your GuardDuty delegated administrator. Only the organization's management account can run this API operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

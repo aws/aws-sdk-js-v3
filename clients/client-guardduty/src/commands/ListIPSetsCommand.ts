@@ -27,9 +27,7 @@ export interface ListIPSetsCommandInput extends ListIPSetsRequest {}
 export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this
- *       operation from a member account, the IPSets returned are the IPSets from the associated
- *       administrator account.</p>
+ * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this operation from a member account, the IPSets returned are the IPSets from the associated administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

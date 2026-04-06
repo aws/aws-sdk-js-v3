@@ -27,10 +27,7 @@ export interface GetDetectorCommandInput extends GetDetectorRequest {}
 export interface GetDetectorCommandOutput extends GetDetectorResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a GuardDuty detector specified by the detectorId.</p>
- *          <p>There might be regional differences because some data sources might not be
- *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
- *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
+ * <p>Retrieves a GuardDuty detector specified by the detectorId.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,7 +80,7 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
  * //   },
  * //   Features: [ // DetectorFeatureConfigurationsResults
  * //     { // DetectorFeatureConfigurationResult
- * //       Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS" || "RUNTIME_MONITORING",
+ * //       Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING",
  * //       Status: "ENABLED" || "DISABLED",
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //       AdditionalConfiguration: [ // DetectorAdditionalConfigurationResults

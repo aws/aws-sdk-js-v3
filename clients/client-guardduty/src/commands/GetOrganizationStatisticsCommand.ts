@@ -27,10 +27,7 @@ export interface GetOrganizationStatisticsCommandInput {}
 export interface GetOrganizationStatisticsCommandOutput extends GetOrganizationStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves how many active member accounts have
- *       each feature enabled within GuardDuty. Only a delegated GuardDuty administrator of an organization can run this API.</p>
- *          <p>When you create a new organization, it might take up to 24
- *       hours to generate the statistics for the entire organization.</p>
+ * <p>Retrieves how many active member accounts have each feature enabled within GuardDuty. Only a delegated GuardDuty administrator of an organization can run this API.</p> <p>When you create a new organization, it might take up to 24 hours to generate the statistics for the entire organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,7 +49,7 @@ export interface GetOrganizationStatisticsCommandOutput extends GetOrganizationS
  * //       EnabledAccountsCount: Number("int"),
  * //       CountByFeature: [ // OrganizationFeatureStatisticsResults
  * //         { // OrganizationFeatureStatistics
- * //           Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS" || "RUNTIME_MONITORING",
+ * //           Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING",
  * //           EnabledAccountsCount: Number("int"),
  * //           AdditionalConfiguration: [ // OrganizationFeatureStatisticsAdditionalConfigurations
  * //             { // OrganizationFeatureStatisticsAdditionalConfiguration

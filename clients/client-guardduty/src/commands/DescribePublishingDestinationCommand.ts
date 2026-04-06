@@ -27,8 +27,7 @@ export interface DescribePublishingDestinationCommandInput extends DescribePubli
 export interface DescribePublishingDestinationCommandOutput extends DescribePublishingDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the publishing destination specified by the provided
- *         <code>destinationId</code>.</p>
+ * <p>Returns information about the publishing destination specified by the provided <code>destinationId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

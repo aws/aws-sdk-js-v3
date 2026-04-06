@@ -73,15 +73,13 @@ export interface AcceptAdministratorInvitationRequest {
   DetectorId: string | undefined;
 
   /**
-   * <p>The account ID of the GuardDuty administrator account whose invitation you're
-   *       accepting.</p>
+   * <p>The account ID of the GuardDuty administrator account whose invitation you're accepting.</p>
    * @public
    */
   AdministratorId: string | undefined;
 
   /**
-   * <p>The value that is used to validate the administrator account to the member
-   *       account.</p>
+   * <p>The value that is used to validate the administrator account to the member account.</p>
    * @public
    */
   InvitationId: string | undefined;
@@ -98,23 +96,19 @@ export interface AcceptAdministratorInvitationResponse {}
  */
 export interface AcceptInvitationRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty member account.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector of the GuardDuty member account.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>The account ID of the GuardDuty administrator account whose invitation you're
-   *       accepting.</p>
+   * <p>The account ID of the GuardDuty administrator account whose invitation you're accepting.</p>
    * @public
    */
   MasterId: string | undefined;
 
   /**
-   * <p>The value that is used to validate the administrator account to the member
-   *       account.</p>
+   * <p>The value that is used to validate the administrator account to the member account.</p>
    * @public
    */
   InvitationId: string | undefined;
@@ -132,15 +126,13 @@ export interface AcceptInvitationResponse {}
  */
 export interface AccessControlList {
   /**
-   * <p>A value that indicates whether public read access for the bucket is enabled through an
-   *       Access Control List (ACL).</p>
+   * <p>A value that indicates whether public read access for the bucket is enabled through an Access Control List (ACL).</p>
    * @public
    */
   AllowsPublicReadAccess?: boolean | undefined;
 
   /**
-   * <p>A value that indicates whether public write access for the bucket is enabled through an
-   *       Access Control List (ACL).</p>
+   * <p>A value that indicates whether public write access for the bucket is enabled through an Access Control List (ACL).</p>
    * @public
    */
   AllowsPublicWriteAccess?: boolean | undefined;
@@ -230,43 +222,14 @@ export interface AccountDetail {
   AccountId: string | undefined;
 
   /**
-   * <p>The email address of the member account. The following list includes the
-   *       rules for a valid email address:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The email address must be a minimum of 6 and a maximum of 64 characters long.</p>
-   *             </li>
-   *             <li>
-   *                <p>All characters must be 7-bit ASCII characters.</p>
-   *             </li>
-   *             <li>
-   *                <p>There must be one and only one @ symbol, which separates the local name from the domain name.</p>
-   *             </li>
-   *             <li>
-   *                <p>The local name can't contain any of the following characters:</p>
-   *                <p>whitespace, " ' ( ) < > [ ] : ' , \ | % &</p>
-   *             </li>
-   *             <li>
-   *                <p>The local name can't begin with a dot (.).</p>
-   *             </li>
-   *             <li>
-   *                <p>The domain name can consist of only the characters [a-z], [A-Z], [0-9], hyphen (-), or dot (.).</p>
-   *             </li>
-   *             <li>
-   *                <p>The domain name can't begin or end with a dot (.) or hyphen (-).</p>
-   *             </li>
-   *             <li>
-   *                <p>The domain name must contain at least one dot. </p>
-   *             </li>
-   *          </ul>
+   * <p>The email address of the member account. The following list includes the rules for a valid email address:</p> <ul> <li> <p>The email address must be a minimum of 6 and a maximum of 64 characters long.</p> </li> <li> <p>All characters must be 7-bit ASCII characters.</p> </li> <li> <p>There must be one and only one @ symbol, which separates the local name from the domain name.</p> </li> <li> <p>The local name can't contain any of the following characters:</p> <p>whitespace, " ' ( ) &lt; &gt; [ ] : ' , \ | % &amp;</p> </li> <li> <p>The local name can't begin with a dot (.).</p> </li> <li> <p>The domain name can consist of only the characters [a-z], [A-Z], [0-9], hyphen (-), or dot (.).</p> </li> <li> <p>The domain name can't begin or end with a dot (.) or hyphen (-).</p> </li> <li> <p>The domain name must contain at least one dot. </p> </li> </ul>
    * @public
    */
   Email: string | undefined;
 }
 
 /**
- * <p>Contains information about which data sources are enabled for the GuardDuty member
- *       account.</p>
+ * <p>Contains information about which data sources are enabled for the GuardDuty member account.</p>
  * @public
  */
 export interface DataSourceFreeTrial {
@@ -278,8 +241,7 @@ export interface DataSourceFreeTrial {
 }
 
 /**
- * <p>Provides details about the Kubernetes resources when it is enabled as a data
- *       source.</p>
+ * <p>Provides details about the Kubernetes resources when it is enabled as a data source.</p>
  * @public
  */
 export interface KubernetesDataSourceFreeTrial {
@@ -296,16 +258,14 @@ export interface KubernetesDataSourceFreeTrial {
  */
 export interface MalwareProtectionDataSourceFreeTrial {
   /**
-   * <p>Describes whether Malware Protection for EC2 instances with findings is enabled as a data
-   *       source.</p>
+   * <p>Describes whether Malware Protection for EC2 instances with findings is enabled as a data source.</p>
    * @public
    */
   ScanEc2InstanceWithFindings?: DataSourceFreeTrial | undefined;
 }
 
 /**
- * <p>Contains information about which data sources are enabled for the GuardDuty member
- *       account.</p>
+ * <p>Contains information about which data sources are enabled for the GuardDuty member account.</p>
  * @public
  */
 export interface DataSourcesFreeTrial {
@@ -391,9 +351,7 @@ export interface AccountFreeTrialInfo {
 }
 
 /**
- * <p>Contains information on how the bucker owner's S3 Block Public Access settings are being
- *       applied to the S3 bucket. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">S3 Block Public
- *         Access</a> for more information. </p>
+ * <p>Contains information on how the bucker owner's S3 Block Public Access settings are being applied to the S3 bucket. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">S3 Block Public Access</a> for more information. </p>
  * @public
  */
 export interface BlockPublicAccess {
@@ -482,10 +440,7 @@ export interface RemoteAccountDetails {
   AccountId?: string | undefined;
 
   /**
-   * <p>Details on whether the Amazon Web Services account of the remote API caller is related to your GuardDuty
-   *       environment. If this value is <code>True</code> the API caller is affiliated to your account
-   *       in some way. If it is <code>False</code> the API caller is from outside your
-   *       environment.</p>
+   * <p>Details on whether the Amazon Web Services account of the remote API caller is related to your GuardDuty environment. If this value is <code>True</code> the API caller is affiliated to your account in some way. If it is <code>False</code> the API caller is from outside your environment.</p>
    * @public
    */
   Affiliated?: boolean | undefined;
@@ -522,8 +477,7 @@ export interface Country {
 }
 
 /**
- * <p>Contains information about the location of the remote IP address. By default, GuardDuty
- *     returns <code>Geolocation</code> with <code>Lat</code> and <code>Lon</code> as <code>0.0</code>.</p>
+ * <p>Contains information about the location of the remote IP address. By default, GuardDuty returns <code>Geolocation</code> with <code>Lat</code> and <code>Lon</code> as <code>0.0</code>.</p>
  * @public
  */
 export interface GeoLocation {
@@ -546,8 +500,7 @@ export interface GeoLocation {
  */
 export interface Organization {
   /**
-   * <p>The Autonomous System Number (ASN) of the internet provider of the remote IP
-   *       address.</p>
+   * <p>The Autonomous System Number (ASN) of the internet provider of the remote IP address.</p>
    * @public
    */
   Asn?: string | undefined;
@@ -661,15 +614,13 @@ export interface AwsApiCallAction {
   ServiceName?: string | undefined;
 
   /**
-   * <p>The details of the Amazon Web Services account that made the API call. This field appears if the call
-   *       was made from outside your account.</p>
+   * <p>The details of the Amazon Web Services account that made the API call. This field appears if the call was made from outside your account.</p>
    * @public
    */
   RemoteAccountDetails?: RemoteAccountDetails | undefined;
 
   /**
-   * <p>The details of the Amazon Web Services account that made the API call. This field identifies the
-   *       resources that were affected by this API call.</p>
+   * <p>The details of the Amazon Web Services account that made the API call. This field identifies the resources that were affected by this API call.</p>
    * @public
    */
   AffectedResources?: Record<string, string> | undefined;
@@ -687,8 +638,7 @@ export interface DnsRequestAction {
   Domain?: string | undefined;
 
   /**
-   * <p>The network connection protocol observed in the activity that prompted GuardDuty to
-   *       generate the finding.</p>
+   * <p>The network connection protocol observed in the activity that prompted GuardDuty to generate the finding.</p>
    * @public
    */
   Protocol?: string | undefined;
@@ -700,9 +650,7 @@ export interface DnsRequestAction {
   Blocked?: boolean | undefined;
 
   /**
-   * <p>The second and top level domain involved in the
-   *       activity that potentially prompted GuardDuty to generate this finding.
-   *       For a list of top-level and second-level domains, see <a href="https://publicsuffix.org/">public suffix list</a>.</p>
+   * <p>The second and top level domain involved in the activity that potentially prompted GuardDuty to generate this finding. For a list of top-level and second-level domains, see <a href="https://publicsuffix.org/">public suffix list</a>.</p>
    * @public
    */
   DomainWithSuffix?: string | undefined;
@@ -732,8 +680,31 @@ export interface KubernetesApiCallAction {
   Verb?: string | undefined;
 
   /**
-   * <p>The IP of the Kubernetes API caller and the IPs of any proxies or load balancers between
-   *       the caller and the API endpoint.</p>
+   * <p>The resource component in the Kubernetes API call action.</p>
+   * @public
+   */
+  Resource?: string | undefined;
+
+  /**
+   * <p>The name of the sub-resource in the Kubernetes API call action.</p>
+   * @public
+   */
+  Subresource?: string | undefined;
+
+  /**
+   * <p>The name of the namespace where the Kubernetes API call action takes place.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+
+  /**
+   * <p>The name of the resource in the Kubernetes API call action.</p>
+   * @public
+   */
+  ResourceName?: string | undefined;
+
+  /**
+   * <p>The IP of the Kubernetes API caller and the IPs of any proxies or load balancers between the caller and the API endpoint.</p>
    * @public
    */
   SourceIps?: string[] | undefined;
@@ -761,30 +732,6 @@ export interface KubernetesApiCallAction {
    * @public
    */
   Parameters?: string | undefined;
-
-  /**
-   * <p>The resource component in the Kubernetes API call action.</p>
-   * @public
-   */
-  Resource?: string | undefined;
-
-  /**
-   * <p>The name of the sub-resource in the Kubernetes API call action.</p>
-   * @public
-   */
-  Subresource?: string | undefined;
-
-  /**
-   * <p>The name of the namespace where the Kubernetes API call action takes place.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-
-  /**
-   * <p>The name of the resource in the Kubernetes API call action.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
 }
 
 /**
@@ -793,8 +740,7 @@ export interface KubernetesApiCallAction {
  */
 export interface KubernetesPermissionCheckedDetails {
   /**
-   * <p>The verb component of the Kubernetes API call. For example, when you check whether or not you have the permission
-   *     to call the <code>CreatePod</code> API, the verb component will be <code>Create</code>.</p>
+   * <p>The verb component of the Kubernetes API call. For example, when you check whether or not you have the permission to call the <code>CreatePod</code> API, the verb component will be <code>Create</code>.</p>
    * @public
    */
   Verb?: string | undefined;
@@ -842,15 +788,13 @@ export interface KubernetesRoleBindingDetails {
   Uid?: string | undefined;
 
   /**
-   * <p>The name of the role being referenced. This must match the name of the <code>Role</code>
-   *     or <code>ClusterRole</code> that you want to bind to.</p>
+   * <p>The name of the role being referenced. This must match the name of the <code>Role</code> or <code>ClusterRole</code> that you want to bind to.</p>
    * @public
    */
   RoleRefName?: string | undefined;
 
   /**
-   * <p>The type of the role being referenced. This could be either <code>Role</code> or
-   *     <code>ClusterRole</code>.</p>
+   * <p>The type of the role being referenced. This could be either <code>Role</code> or <code>ClusterRole</code>.</p>
    * @public
    */
   RoleRefKind?: string | undefined;
@@ -1048,23 +992,20 @@ export interface LoginAttribute {
   Application?: string | undefined;
 
   /**
-   * <p>Represents the sum of failed (unsuccessful) login attempts made to establish a connection
-   *       to the database instance.</p>
+   * <p>Represents the sum of failed (unsuccessful) login attempts made to establish a connection to the database instance.</p>
    * @public
    */
   FailedLoginAttempts?: number | undefined;
 
   /**
-   * <p>Represents the sum of successful connections (a correct combination of login attributes)
-   *       made to the database instance by the actor.</p>
+   * <p>Represents the sum of successful connections (a correct combination of login attributes) made to the database instance by the actor.</p>
    * @public
    */
   SuccessfulLoginAttempts?: number | undefined;
 }
 
 /**
- * <p>Indicates that a login attempt was made to the potentially compromised database from a
- *       remote IP address.</p>
+ * <p>Indicates that a login attempt was made to the potentially compromised database from a remote IP address.</p>
  * @public
  */
 export interface RdsLoginAttemptAction {
@@ -1123,12 +1064,6 @@ export interface Action {
   KubernetesApiCallAction?: KubernetesApiCallAction | undefined;
 
   /**
-   * <p>Information about <code>RDS_LOGIN_ATTEMPT</code> action described in this finding.</p>
-   * @public
-   */
-  RdsLoginAttemptAction?: RdsLoginAttemptAction | undefined;
-
-  /**
    * <p>Information whether the user has the permission to use a specific Kubernetes API.</p>
    * @public
    */
@@ -1145,11 +1080,16 @@ export interface Action {
    * @public
    */
   KubernetesRoleDetails?: KubernetesRoleDetails | undefined;
+
+  /**
+   * <p>Information about <code>RDS_LOGIN_ATTEMPT</code> action described in this finding.</p>
+   * @public
+   */
+  RdsLoginAttemptAction?: RdsLoginAttemptAction | undefined;
 }
 
 /**
- * <p>Contains information about a process involved in a GuardDuty finding, including process identification,
- *       execution details, and file information.</p>
+ * <p>Contains information about a process involved in a GuardDuty finding, including process identification, execution details, and file information.</p>
  * @public
  */
 export interface ActorProcess {
@@ -1166,8 +1106,7 @@ export interface ActorProcess {
   Path: string | undefined;
 
   /**
-   * <p>The SHA256 hash of the process executable file, which can be used for identification
-   *       and verification purposes.</p>
+   * <p>The SHA256 hash of the process executable file, which can be used for identification and verification purposes.</p>
    * @public
    */
   Sha256?: string | undefined;
@@ -1185,22 +1124,19 @@ export interface Session {
   Uid?: string | undefined;
 
   /**
-   * <p>Indicates whether or not multi-factor authencation (MFA) was used during authentication.</p>
-   *          <p>In Amazon Web Services CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.mfaAuthenticated</code>.</p>
+   * <p>Indicates whether or not multi-factor authencation (MFA) was used during authentication.</p> <p>In Amazon Web Services CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.mfaAuthenticated</code>.</p>
    * @public
    */
   MfaStatus?: MfaStatus | undefined;
 
   /**
-   * <p>The timestamp for when the session was created.</p>
-   *          <p>In Amazon Web Services CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.creationDate</code>.</p>
+   * <p>The timestamp for when the session was created.</p> <p>In Amazon Web Services CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.creationDate</code>.</p>
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>Identifier of the session issuer.</p>
-   *          <p>In Amazon Web Services CloudTrail, you can find this value as <code>userIdentity.sessionContext.sessionIssuer.arn</code>.</p>
+   * <p>Identifier of the session issuer.</p> <p>In Amazon Web Services CloudTrail, you can find this value as <code>userIdentity.sessionContext.sessionIssuer.arn</code>.</p>
    * @public
    */
   Issuer?: string | undefined;
@@ -1266,9 +1202,7 @@ export interface Actor {
   Session?: Session | undefined;
 
   /**
-   * <p>Contains information about the process associated with the threat actor.
-   *       This includes details such as process name, path, execution time, and
-   *       unique identifiers that help track the actor's activities within the system.</p>
+   * <p>Contains information about the process associated with the threat actor. This includes details such as process name, path, execution time, and unique identifiers that help track the actor's activities within the system.</p>
    * @public
    */
   Process?: ActorProcess | undefined;
@@ -1311,8 +1245,7 @@ export interface AddonDetails {
 }
 
 /**
- * <p>The account within the organization specified as the GuardDuty delegated
- *       administrator.</p>
+ * <p>The account within the organization specified as the GuardDuty delegated administrator.</p>
  * @public
  */
 export interface AdminAccount {
@@ -1341,8 +1274,7 @@ export interface Administrator {
   AccountId?: string | undefined;
 
   /**
-   * <p>The value that is used to validate the administrator account to the member
-   *       account.</p>
+   * <p>The value that is used to validate the administrator account to the member account.</p>
    * @public
    */
   InvitationId?: string | undefined;
@@ -1414,8 +1346,7 @@ export interface AnomalyObject {
  */
 export interface AnomalyUnusual {
   /**
-   * <p>The behavior of the anomalous activity that caused GuardDuty to
-   *       generate the finding.</p>
+   * <p>The behavior of the anomalous activity that caused GuardDuty to generate the finding.</p>
    * @public
    */
   Behavior?: Record<string, Record<string, AnomalyObject>> | undefined;
@@ -1444,10 +1375,7 @@ export interface Anomaly {
  */
 export interface ArchiveFindingsRequest {
   /**
-   * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
-   *       archive.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to archive.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1465,8 +1393,7 @@ export interface ArchiveFindingsRequest {
 export interface ArchiveFindingsResponse {}
 
 /**
- * <p>Contains information about the Autonomous System (AS) associated with the network
- *        endpoints involved in an attack sequence.</p>
+ * <p>Contains information about the Autonomous System (AS) associated with the network endpoints involved in an attack sequence.</p>
  * @public
  */
 export interface AutonomousSystem {
@@ -1484,14 +1411,12 @@ export interface AutonomousSystem {
 }
 
 /**
- * <p>Contains information about the Auto Scaling Group involved in a GuardDuty finding,
- *           including unique identifiers of the Amazon EC2 instances.</p>
+ * <p>Contains information about the Auto Scaling Group involved in a GuardDuty finding, including unique identifiers of the Amazon EC2 instances.</p>
  * @public
  */
 export interface AutoscalingAutoScalingGroup {
   /**
-   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that are part of the
-   *           same Auto Scaling Group.</p>
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that are part of the same Auto Scaling Group.</p>
    * @public
    */
   Ec2InstanceUids?: string[] | undefined;
@@ -1503,15 +1428,13 @@ export interface AutoscalingAutoScalingGroup {
  */
 export interface BucketPolicy {
   /**
-   * <p>A value that indicates whether public read access for the bucket is enabled through a
-   *       bucket policy.</p>
+   * <p>A value that indicates whether public read access for the bucket is enabled through a bucket policy.</p>
    * @public
    */
   AllowsPublicReadAccess?: boolean | undefined;
 
   /**
-   * <p>A value that indicates whether public write access for the bucket is enabled through a
-   *       bucket policy.</p>
+   * <p>A value that indicates whether public write access for the bucket is enabled through a bucket policy.</p>
    * @public
    */
   AllowsPublicWriteAccess?: boolean | undefined;
@@ -1535,22 +1458,19 @@ export interface BucketLevelPermissions {
   BucketPolicy?: BucketPolicy | undefined;
 
   /**
-   * <p>Contains information on which account level S3 Block Public Access settings are applied to
-   *       the S3 bucket.</p>
+   * <p>Contains information on which account level S3 Block Public Access settings are applied to the S3 bucket.</p>
    * @public
    */
   BlockPublicAccess?: BlockPublicAccess | undefined;
 }
 
 /**
- * <p>Contains information about the CloudFormation stack involved in a GuardDuty finding,
- *           including unique identifiers of the Amazon EC2 instances.</p>
+ * <p>Contains information about the CloudFormation stack involved in a GuardDuty finding, including unique identifiers of the Amazon EC2 instances.</p>
  * @public
  */
 export interface CloudformationStack {
   /**
-   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that were created as part of the
-   *           same CloudFormation stack.</p>
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that were created as part of the same CloudFormation stack.</p>
    * @public
    */
   Ec2InstanceUids?: string[] | undefined;
@@ -1574,8 +1494,7 @@ export interface CloudTrailConfigurationResult {
  */
 export interface Condition {
   /**
-   * <p>Represents the <i>equal</i> condition to be applied to a single field when
-   *       querying for findings.</p>
+   * <p>Represents the <i>equal</i> condition to be applied to a single field when querying for findings.</p>
    *
    * @deprecated deprecated.
    * @public
@@ -1583,8 +1502,7 @@ export interface Condition {
   Eq?: string[] | undefined;
 
   /**
-   * <p>Represents the <i>not equal</i> condition to be applied to a single field
-   *       when querying for findings.</p>
+   * <p>Represents the <i>not equal</i> condition to be applied to a single field when querying for findings.</p>
    *
    * @deprecated deprecated.
    * @public
@@ -1592,8 +1510,7 @@ export interface Condition {
   Neq?: string[] | undefined;
 
   /**
-   * <p>Represents a <i>greater than</i> condition to be applied to a single field
-   *       when querying for findings.</p>
+   * <p>Represents a <i>greater than</i> condition to be applied to a single field when querying for findings.</p>
    *
    * @deprecated deprecated.
    * @public
@@ -1601,8 +1518,7 @@ export interface Condition {
   Gt?: number | undefined;
 
   /**
-   * <p>Represents a <i>greater than or equal</i> condition to be applied to a
-   *       single field when querying for findings.</p>
+   * <p>Represents a <i>greater than or equal</i> condition to be applied to a single field when querying for findings.</p>
    *
    * @deprecated deprecated.
    * @public
@@ -1610,8 +1526,7 @@ export interface Condition {
   Gte?: number | undefined;
 
   /**
-   * <p>Represents a <i>less than</i> condition to be applied to a single field when
-   *       querying for findings.</p>
+   * <p>Represents a <i>less than</i> condition to be applied to a single field when querying for findings.</p>
    *
    * @deprecated deprecated.
    * @public
@@ -1619,8 +1534,7 @@ export interface Condition {
   Lt?: number | undefined;
 
   /**
-   * <p>Represents a <i>less than or equal</i> condition to be applied to a single
-   *       field when querying for findings.</p>
+   * <p>Represents a <i>less than or equal</i> condition to be applied to a single field when querying for findings.</p>
    *
    * @deprecated deprecated.
    * @public
@@ -1628,69 +1542,49 @@ export interface Condition {
   Lte?: number | undefined;
 
   /**
-   * <p>Represents an <i>equal</i>
-   *             <b></b> condition to be applied to
-   *       a single field when querying for findings.</p>
+   * <p>Represents an <i>equal</i> <b/> condition to be applied to a single field when querying for findings.</p>
    * @public
    */
   Equals?: string[] | undefined;
 
   /**
-   * <p>Represents a <i>not equal</i>
-   *             <b></b> condition to be applied
-   *       to a single field when querying for findings.</p>
+   * <p>Represents a <i>not equal</i> <b/> condition to be applied to a single field when querying for findings.</p>
    * @public
    */
   NotEquals?: string[] | undefined;
 
   /**
-   * <p>Represents a <i>greater than</i> condition to be applied to a single field
-   *       when querying for findings.</p>
+   * <p>Represents a <i>greater than</i> condition to be applied to a single field when querying for findings.</p>
    * @public
    */
   GreaterThan?: number | undefined;
 
   /**
-   * <p>Represents a <i>greater than or equal</i> condition to be applied to a
-   *       single field when querying for findings.</p>
+   * <p>Represents a <i>greater than or equal</i> condition to be applied to a single field when querying for findings.</p>
    * @public
    */
   GreaterThanOrEqual?: number | undefined;
 
   /**
-   * <p>Represents a <i>less than</i> condition to be applied to a single field when
-   *       querying for findings.</p>
+   * <p>Represents a <i>less than</i> condition to be applied to a single field when querying for findings.</p>
    * @public
    */
   LessThan?: number | undefined;
 
   /**
-   * <p>Represents a <i>less than or equal</i> condition to be applied to a single
-   *       field when querying for findings.</p>
+   * <p>Represents a <i>less than or equal</i> condition to be applied to a single field when querying for findings.</p>
    * @public
    */
   LessThanOrEqual?: number | undefined;
 
   /**
-   * <p>Represents the <i>match</i> condition to be applied to a single field when querying for findings.
-   *     </p>
-   *          <note>
-   *             <p>
-   *           The <i>matches</i> condition is available only for create-filter and update-filter APIs.
-   *         </p>
-   *          </note>
+   * <p>Represents the <i>match</i> condition to be applied to a single field when querying for findings. </p> <note> <p> The <i>matches</i> condition is available only for create-filter and update-filter APIs. </p> </note>
    * @public
    */
   Matches?: string[] | undefined;
 
   /**
-   * <p>Represents the <i>not match</i> condition to be applied to a single field when querying for findings.
-   *     </p>
-   *          <note>
-   *             <p>
-   *         The <i>not-matches</i> condition is available only for create-filter and update-filter APIs.
-   *       </p>
-   *          </note>
+   * <p>Represents the <i>not match</i> condition to be applied to a single field when querying for findings. </p> <note> <p> The <i>not-matches</i> condition is available only for create-filter and update-filter APIs. </p> </note>
    * @public
    */
   NotMatches?: string[] | undefined;
@@ -1762,9 +1656,7 @@ export interface Container {
   Image?: string | undefined;
 
   /**
-   * <p>Part of the image name before the last slash. For example, imagePrefix for
-   *       public.ecr.aws/amazonlinux/amazonlinux:latest would be public.ecr.aws/amazonlinux. If the
-   *       image name is relative and does not have a slash, this field is empty.</p>
+   * <p>Part of the image name before the last slash. For example, imagePrefix for public.ecr.aws/amazonlinux/amazonlinux:latest would be public.ecr.aws/amazonlinux. If the image name is relative and does not have a slash, this field is empty.</p>
    * @public
    */
   ImagePrefix?: string | undefined;
@@ -1783,15 +1675,12 @@ export interface Container {
 }
 
 /**
- * <p>Contains information about container resources involved in a GuardDuty finding.
- *       This structure provides details about containers that were identified as part of
- *       suspicious or malicious activity.</p>
+ * <p>Contains information about container resources involved in a GuardDuty finding. This structure provides details about containers that were identified as part of suspicious or malicious activity.</p>
  * @public
  */
 export interface ContainerFindingResource {
   /**
-   * <p>The container image information, including the image name and tag used to run the container
-   *       that was involved in the finding.</p>
+   * <p>The container image information, including the image name and tag used to run the container that was involved in the finding.</p>
    * @public
    */
   Image: string | undefined;
@@ -1804,14 +1693,12 @@ export interface ContainerFindingResource {
 }
 
 /**
- * <p>Contains information about the Amazon EC2 instance that is running
- *     the Amazon ECS container.</p>
+ * <p>Contains information about the Amazon EC2 instance that is running the Amazon ECS container.</p>
  * @public
  */
 export interface ContainerInstanceDetails {
   /**
-   * <p>Represents the nodes in the Amazon ECS cluster that has a <code>HEALTHY</code>
-   *       coverage status.</p>
+   * <p>Represents the nodes in the Amazon ECS cluster that has a <code>HEALTHY</code> coverage status.</p>
    * @public
    */
   CoveredContainerInstances?: number | undefined;
@@ -1824,8 +1711,7 @@ export interface ContainerInstanceDetails {
 }
 
 /**
- * <p>Contains information about the Amazon EC2 instance runtime
- *     coverage details.</p>
+ * <p>Contains information about the Amazon EC2 instance runtime coverage details.</p>
  * @public
  */
 export interface CoverageEc2InstanceDetails {
@@ -1842,8 +1728,7 @@ export interface CoverageEc2InstanceDetails {
   InstanceType?: string | undefined;
 
   /**
-   * <p>The cluster ARN of the Amazon ECS cluster running on
-   *     the Amazon EC2 instance.</p>
+   * <p>The cluster ARN of the Amazon ECS cluster running on the Amazon EC2 instance.</p>
    * @public
    */
   ClusterArn?: string | undefined;
@@ -1855,30 +1740,14 @@ export interface CoverageEc2InstanceDetails {
   AgentDetails?: AgentDetails | undefined;
 
   /**
-   * <p>Indicates how the GuardDuty security agent is managed for this resource.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AUTO_MANAGED</code> indicates that GuardDuty deploys and manages updates for this resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MANUAL</code> indicates that you are responsible to deploy, update, and manage the GuardDuty
-   *           security agent updates for this resource.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The <code>DISABLED</code> status doesn't apply to Amazon
-   *     EC2 instances and Amazon EKS clusters.</p>
-   *          </note>
+   * <p>Indicates how the GuardDuty security agent is managed for this resource.</p> <ul> <li> <p> <code>AUTO_MANAGED</code> indicates that GuardDuty deploys and manages updates for this resource.</p> </li> <li> <p> <code>MANUAL</code> indicates that you are responsible to deploy, update, and manage the GuardDuty security agent updates for this resource.</p> </li> </ul> <note> <p>The <code>DISABLED</code> status doesn't apply to Amazon EC2 instances and Amazon EKS clusters.</p> </note>
    * @public
    */
   ManagementType?: ManagementType | undefined;
 }
 
 /**
- * <p>Contains information about Amazon Web Services Fargate details associated with
- *       an Amazon ECS cluster.</p>
+ * <p>Contains information about Amazon Web Services Fargate details associated with an Amazon ECS cluster.</p>
  * @public
  */
 export interface FargateDetails {
@@ -1889,20 +1758,7 @@ export interface FargateDetails {
   Issues?: string[] | undefined;
 
   /**
-   * <p>Indicates how the GuardDuty security agent is managed for this resource.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AUTO_MANAGED</code> indicates that GuardDuty deploys and manages updates for this resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code> indicates that the deployment of the GuardDuty security agent is disabled for this resource.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The <code>MANUAL</code> status doesn't apply to the Amazon Web Services Fargate (Amazon ECS only) woprkloads.</p>
-   *          </note>
+   * <p>Indicates how the GuardDuty security agent is managed for this resource.</p> <ul> <li> <p> <code>AUTO_MANAGED</code> indicates that GuardDuty deploys and manages updates for this resource.</p> </li> <li> <p> <code>DISABLED</code> indicates that the deployment of the GuardDuty security agent is disabled for this resource.</p> </li> </ul> <note> <p>The <code>MANUAL</code> status doesn't apply to the Amazon Web Services Fargate (Amazon ECS only) woprkloads.</p> </note>
    * @public
    */
   ManagementType?: ManagementType | undefined;
@@ -1920,15 +1776,13 @@ export interface CoverageEcsClusterDetails {
   ClusterName?: string | undefined;
 
   /**
-   * <p>Information about the Fargate details associated with the Amazon
-   *       ECS cluster.</p>
+   * <p>Information about the Fargate details associated with the Amazon ECS cluster.</p>
    * @public
    */
   FargateDetails?: FargateDetails | undefined;
 
   /**
-   * <p>Information about the Amazon ECS container running on Amazon EC2
-   *       instance.</p>
+   * <p>Information about the Amazon ECS container running on Amazon EC2 instance.</p>
    * @public
    */
   ContainerInstanceDetails?: ContainerInstanceDetails | undefined;
@@ -1946,8 +1800,7 @@ export interface CoverageEksClusterDetails {
   ClusterName?: string | undefined;
 
   /**
-   * <p>Represents the nodes within the EKS cluster that have a <code>HEALTHY</code> coverage
-   *       status.</p>
+   * <p>Represents the nodes within the EKS cluster that have a <code>HEALTHY</code> coverage status.</p>
    * @public
    */
   CoveredNodes?: number | undefined;
@@ -1965,50 +1818,37 @@ export interface CoverageEksClusterDetails {
   AddonDetails?: AddonDetails | undefined;
 
   /**
-   * <p>Indicates how the Amazon EKS add-on GuardDuty agent is managed for this EKS cluster.</p>
-   *          <p>
-   *             <code>AUTO_MANAGED</code> indicates GuardDuty deploys and manages updates for this resource.</p>
-   *          <p>
-   *             <code>MANUAL</code> indicates that you are responsible to deploy, update, and manage
-   *       the Amazon EKS add-on GuardDuty agent for this resource.</p>
+   * <p>Indicates how the Amazon EKS add-on GuardDuty agent is managed for this EKS cluster.</p> <p> <code>AUTO_MANAGED</code> indicates GuardDuty deploys and manages updates for this resource.</p> <p> <code>MANUAL</code> indicates that you are responsible to deploy, update, and manage the Amazon EKS add-on GuardDuty agent for this resource.</p>
    * @public
    */
   ManagementType?: ManagementType | undefined;
 }
 
 /**
- * <p>Represents a condition that when matched will be added to the response of the
- *       operation.</p>
+ * <p>Represents a condition that when matched will be added to the response of the operation.</p>
  * @public
  */
 export interface CoverageFilterCondition {
   /**
-   * <p>Represents an equal condition that is applied to a single field while retrieving the
-   *       coverage details.</p>
+   * <p>Represents an equal condition that is applied to a single field while retrieving the coverage details.</p>
    * @public
    */
   Equals?: string[] | undefined;
 
   /**
-   * <p>Represents a not equal condition that is applied to a single field while retrieving the
-   *       coverage details.</p>
+   * <p>Represents a not equal condition that is applied to a single field while retrieving the coverage details.</p>
    * @public
    */
   NotEquals?: string[] | undefined;
 }
 
 /**
- * <p>Represents a condition that when matched will be added to the response of the
- *       operation.</p>
+ * <p>Represents a condition that when matched will be added to the response of the operation.</p>
  * @public
  */
 export interface CoverageFilterCriterion {
   /**
-   * <p>An enum value representing possible filter fields.</p>
-   *          <note>
-   *             <p>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>.
-   *       <code>CLUSTER_NAME</code> has been deprecated.</p>
-   *          </note>
+   * <p>An enum value representing possible filter fields.</p> <note> <p>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>. <code>CLUSTER_NAME</code> has been deprecated.</p> </note>
    * @public
    */
   CriterionKey?: CoverageFilterCriterionKey | undefined;
@@ -2026,8 +1866,7 @@ export interface CoverageFilterCriterion {
  */
 export interface CoverageFilterCriteria {
   /**
-   * <p>Represents a condition that when matched will be added to the response of the
-   *       operation.</p>
+   * <p>Represents a condition that when matched will be added to the response of the operation.</p>
    * @public
    */
   FilterCriterion?: CoverageFilterCriterion[] | undefined;
@@ -2045,24 +1884,22 @@ export interface CoverageResourceDetails {
   EksClusterDetails?: CoverageEksClusterDetails | undefined;
 
   /**
-   * <p>The type of Amazon Web Services resource.</p>
-   * @public
-   */
-  ResourceType?: ResourceType | undefined;
-
-  /**
-   * <p>Information about the Amazon ECS cluster that is assessed for
-   *     runtime coverage.</p>
+   * <p>Information about the Amazon ECS cluster that is assessed for runtime coverage.</p>
    * @public
    */
   EcsClusterDetails?: CoverageEcsClusterDetails | undefined;
 
   /**
-   * <p>Information about the Amazon EC2 instance assessed
-   *       for runtime coverage.</p>
+   * <p>Information about the Amazon EC2 instance assessed for runtime coverage.</p>
    * @public
    */
   Ec2InstanceDetails?: CoverageEc2InstanceDetails | undefined;
+
+  /**
+   * <p>The type of Amazon Web Services resource.</p>
+   * @public
+   */
+  ResourceType?: ResourceType | undefined;
 }
 
 /**
@@ -2101,15 +1938,13 @@ export interface CoverageResource {
   CoverageStatus?: CoverageStatus | undefined;
 
   /**
-   * <p>Represents the reason why a coverage status was <code>UNHEALTHY</code> for the EKS
-   *       cluster.</p>
+   * <p>Represents the reason why a coverage status was <code>UNHEALTHY</code> for the EKS cluster.</p>
    * @public
    */
   Issue?: string | undefined;
 
   /**
-   * <p>The timestamp at which the coverage details for the resource were last updated. This is in
-   *       UTC format.</p>
+   * <p>The timestamp at which the coverage details for the resource were last updated. This is in UTC format.</p>
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -2121,11 +1956,7 @@ export interface CoverageResource {
  */
 export interface CoverageSortCriteria {
   /**
-   * <p>Represents the field name used to sort the coverage details.</p>
-   *          <note>
-   *             <p>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>.
-   *       <code>CLUSTER_NAME</code> has been deprecated.</p>
-   *          </note>
+   * <p>Represents the field name used to sort the coverage details.</p> <note> <p>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>. <code>CLUSTER_NAME</code> has been deprecated.</p> </note>
    * @public
    */
   AttributeName?: CoverageSortKey | undefined;
@@ -2180,8 +2011,7 @@ export interface KubernetesConfiguration {
 }
 
 /**
- * <p>Describes whether Malware Protection for EC2 instances with findings will be enabled as a
- *       data source.</p>
+ * <p>Describes whether Malware Protection for EC2 instances with findings will be enabled as a data source.</p>
  * @public
  */
 export interface ScanEc2InstanceWithFindings {
@@ -2259,12 +2089,7 @@ export interface DetectorAdditionalConfiguration {
 }
 
 /**
- * <p>Contains information about a GuardDuty feature.</p>
- *          <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>)
- *       and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error.
- *       You can add only one of these two features because Runtime Monitoring already includes the
- *       threat detection for Amazon EKS resources. For more information, see
- *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime Monitoring</a>.</p>
+ * <p>Contains information about a GuardDuty feature.</p> <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>) and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error. You can add only one of these two features because Runtime Monitoring already includes the threat detection for Amazon EKS resources. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime Monitoring</a>.</p>
  * @public
  */
 export interface DetectorFeatureConfiguration {
@@ -2310,10 +2135,7 @@ export interface CreateDetectorRequest {
   FindingPublishingFrequency?: FindingPublishingFrequency | undefined;
 
   /**
-   * <p>Describes which data sources will be enabled for the detector.</p>
-   *          <p>There might be regional differences because some data sources might not be
-   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
-   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
+   * <p>Describes which data sources will be enabled for the detector.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    *
    * @deprecated This parameter is deprecated, use Features instead.
    * @public
@@ -2345,16 +2167,14 @@ export interface EbsVolumesResult {
   Status?: DataSourceStatus | undefined;
 
   /**
-   * <p>Specifies the reason why scanning EBS volumes (Malware Protection) was not enabled as a
-   *       data source.</p>
+   * <p>Specifies the reason why scanning EBS volumes (Malware Protection) was not enabled as a data source.</p>
    * @public
    */
   Reason?: string | undefined;
 }
 
 /**
- * <p>An object that contains information on the status of whether Malware Protection for EC2
- *       instances with findings will be enabled as a data source.</p>
+ * <p>An object that contains information on the status of whether Malware Protection for EC2 instances with findings will be enabled as a data source.</p>
  * @public
  */
 export interface ScanEc2InstanceWithFindingsResult {
@@ -2366,8 +2186,7 @@ export interface ScanEc2InstanceWithFindingsResult {
 }
 
 /**
- * <p>An object that contains information on the status of all Malware Protection data
- *       sources.</p>
+ * <p>An object that contains information on the status of all Malware Protection data sources.</p>
  * @public
  */
 export interface MalwareProtectionConfigurationResult {
@@ -2390,8 +2209,7 @@ export interface MalwareProtectionConfigurationResult {
  */
 export interface UnprocessedDataSourcesResult {
   /**
-   * <p>An object that contains information on the status of all Malware Protection data
-   *       sources.</p>
+   * <p>An object that contains information on the status of all Malware Protection data sources.</p>
    * @public
    */
   MalwareProtection?: MalwareProtectionConfigurationResult | undefined;
@@ -2408,8 +2226,7 @@ export interface CreateDetectorResponse {
   DetectorId?: string | undefined;
 
   /**
-   * <p>Specifies the data sources that couldn't be enabled when GuardDuty was enabled for the
-   *       first time.</p>
+   * <p>Specifies the data sources that couldn't be enabled when GuardDuty was enabled for the first time.</p>
    * @public
    */
   UnprocessedDataSources?: UnprocessedDataSourcesResult | undefined;
@@ -2421,8 +2238,7 @@ export interface CreateDetectorResponse {
  */
 export interface FindingCriteria {
   /**
-   * <p>Represents a map of finding properties that match specified conditions and values when
-   *       querying findings.</p>
+   * <p>Represents a map of finding properties that match specified conditions and values when querying findings.</p>
    * @public
    */
   Criterion?: Record<string, Condition> | undefined;
@@ -2433,25 +2249,19 @@ export interface FindingCriteria {
  */
 export interface CreateFilterRequest {
   /**
-   * <p>The detector ID associated with the GuardDuty account for which you want to create a filter.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The detector ID associated with the GuardDuty account for which you want to create a filter.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>The name of the filter. Valid characters include period (.), underscore (_), dash (-), and
-   *       alphanumeric characters. A whitespace is considered to be an invalid character.</p>
+   * <p>The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the filter. Valid characters include alphanumeric characters, and
-   *       special characters such as hyphen, period, colon, underscore, parentheses (<code>\{ \}</code>,
-   *         <code>[ ]</code>, and <code>( )</code>), forward slash, horizontal tab, vertical tab,
-   *       newline, form feed, return, and whitespace.</p>
+   * <p>The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses (<code>\{ \}</code>, <code>[ ]</code>, and <code>( )</code>), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.</p>
    * @public
    */
   Description?: string | undefined;
@@ -2463,334 +2273,13 @@ export interface CreateFilterRequest {
   Action?: FilterAction | undefined;
 
   /**
-   * <p>Specifies the position of the filter in the list of current filters. Also specifies the
-   *       order in which this filter is applied to the findings.</p>
+   * <p>Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.</p>
    * @public
    */
   Rank?: number | undefined;
 
   /**
-   * <p>Represents the criteria to be used in the filter for querying findings.</p>
-   *          <p>You can only use the following attributes to query findings:</p>
-   *          <ul>
-   *             <li>
-   *                <p>accountId</p>
-   *             </li>
-   *             <li>
-   *                <p>id</p>
-   *             </li>
-   *             <li>
-   *                <p>region</p>
-   *             </li>
-   *             <li>
-   *                <p>severity</p>
-   *                <p>To filter on the basis of severity, the API and CLI use the following input list for
-   *           the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a>
-   *           condition:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>Low</b>: <code>["1", "2", "3"]</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>Medium</b>: <code>["4", "5", "6"]</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>High</b>: <code>["7", "8"]</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>Critical</b>: <code>["9", "10"]</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-severity.html">Findings severity levels</a>
-   *           in the <i>Amazon GuardDuty User Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>type</p>
-   *             </li>
-   *             <li>
-   *                <p>updatedAt</p>
-   *                <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ
-   *           depending on whether the value contains milliseconds.</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.accessKeyId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.principalId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.userName</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.userType</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.iamInstanceProfile.id</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.imageId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.instanceId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.tags.key</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.tags.value</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.publicDnsName</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.publicIp</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.subnetId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.vpcId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.outpostArn</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.resourceType</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.s3BucketDetails.name</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.s3BucketDetails.tags.key</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.s3BucketDetails.tags.value</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.s3BucketDetails.type</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.actionType</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.api</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.callerType</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.errorCode</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV6</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.serviceName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.dnsRequestAction.domain</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.dnsRequestAction.domainWithSuffix</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.dnsRequestAction.vpcOwnerAccountId</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.blocked</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.connectionDirection</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.localPortDetails.port</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.protocol</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV6</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remotePortDetails.port</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.kubernetesApiCallAction.namespace</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.kubernetesApiCallAction.requestUri</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.kubernetesApiCallAction.statusCode</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.localIpDetails.ipAddressV6</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.protocol</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.serviceName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p>
-   *             </li>
-   *             <li>
-   *                <p>service.additionalInfo.threatListName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.resourceRole</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.eksClusterDetails.name</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.kubernetesDetails.kubernetesUserDetails.username</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p>
-   *             </li>
-   *             <li>
-   *                <p>service.ebsVolumeScanDetails.scanId</p>
-   *             </li>
-   *             <li>
-   *                <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p>
-   *             </li>
-   *             <li>
-   *                <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p>
-   *             </li>
-   *             <li>
-   *                <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.ecsClusterDetails.name</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.ecsClusterDetails.taskDetails.containers.image</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.ecsClusterDetails.taskDetails.definitionArn</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.containerDetails.image</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.rdsDbInstanceDetails.engine</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.rdsDbUserDetails.user</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.rdsDbInstanceDetails.tags.key</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.rdsDbInstanceDetails.tags.value</p>
-   *             </li>
-   *             <li>
-   *                <p>service.runtimeDetails.process.executableSha256</p>
-   *             </li>
-   *             <li>
-   *                <p>service.runtimeDetails.process.name</p>
-   *             </li>
-   *             <li>
-   *                <p>service.runtimeDetails.process.executablePath</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.lambdaDetails.functionName</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.lambdaDetails.functionArn</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.lambdaDetails.tags.key</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.lambdaDetails.tags.value</p>
-   *             </li>
-   *          </ul>
+   * <p>Represents the criteria to be used in the filter for querying findings.</p> <p>You can only use the following attributes to query findings:</p> <ul> <li> <p>accountId</p> </li> <li> <p>id</p> </li> <li> <p>region</p> </li> <li> <p>severity</p> <p>To filter on the basis of severity, the API and CLI use the following input list for the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a> condition:</p> <ul> <li> <p> <b>Low</b>: <code>["1", "2", "3"]</code> </p> </li> <li> <p> <b>Medium</b>: <code>["4", "5", "6"]</code> </p> </li> <li> <p> <b>High</b>: <code>["7", "8"]</code> </p> </li> <li> <p> <b>Critical</b>: <code>["9", "10"]</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-severity.html">Findings severity levels</a> in the <i>Amazon GuardDuty User Guide</i>.</p> </li> <li> <p>type</p> </li> <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li> <li> <p>resource.accessKeyDetails.accessKeyId</p> </li> <li> <p>resource.accessKeyDetails.principalId</p> </li> <li> <p>resource.accessKeyDetails.userName</p> </li> <li> <p>resource.accessKeyDetails.userType</p> </li> <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li> <li> <p>resource.instanceDetails.imageId</p> </li> <li> <p>resource.instanceDetails.instanceId</p> </li> <li> <p>resource.instanceDetails.tags.key</p> </li> <li> <p>resource.instanceDetails.tags.value</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li> <li> <p>resource.instanceDetails.outpostArn</p> </li> <li> <p>resource.resourceType</p> </li> <li> <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p> </li> <li> <p>resource.s3BucketDetails.name</p> </li> <li> <p>resource.s3BucketDetails.tags.key</p> </li> <li> <p>resource.s3BucketDetails.tags.value</p> </li> <li> <p>resource.s3BucketDetails.type</p> </li> <li> <p>service.action.actionType</p> </li> <li> <p>service.action.awsApiCallAction.api</p> </li> <li> <p>service.action.awsApiCallAction.callerType</p> </li> <li> <p>service.action.awsApiCallAction.errorCode</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV6</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li> <li> <p>service.action.awsApiCallAction.serviceName</p> </li> <li> <p>service.action.dnsRequestAction.domain</p> </li> <li> <p>service.action.dnsRequestAction.domainWithSuffix</p> </li> <li> <p>service.action.dnsRequestAction.vpcOwnerAccountId</p> </li> <li> <p>service.action.networkConnectionAction.blocked</p> </li> <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li> <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li> <li> <p>service.action.networkConnectionAction.protocol</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV6</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li> <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li> <li> <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p> </li> <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p> </li> <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6</p> </li> <li> <p>service.action.kubernetesApiCallAction.namespace</p> </li> <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p> </li> <li> <p>service.action.kubernetesApiCallAction.requestUri</p> </li> <li> <p>service.action.kubernetesApiCallAction.statusCode</p> </li> <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li> <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV6</p> </li> <li> <p>service.action.networkConnectionAction.protocol</p> </li> <li> <p>service.action.awsApiCallAction.serviceName</p> </li> <li> <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p> </li> <li> <p>service.additionalInfo.threatListName</p> </li> <li> <p>service.resourceRole</p> </li> <li> <p>resource.eksClusterDetails.name</p> </li> <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p> </li> <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p> </li> <li> <p>resource.kubernetesDetails.kubernetesUserDetails.username</p> </li> <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p> </li> <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p> </li> <li> <p>service.ebsVolumeScanDetails.scanId</p> </li> <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p> </li> <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p> </li> <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p> </li> <li> <p>resource.ecsClusterDetails.name</p> </li> <li> <p>resource.ecsClusterDetails.taskDetails.containers.image</p> </li> <li> <p>resource.ecsClusterDetails.taskDetails.definitionArn</p> </li> <li> <p>resource.containerDetails.image</p> </li> <li> <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p> </li> <li> <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p> </li> <li> <p>resource.rdsDbInstanceDetails.engine</p> </li> <li> <p>resource.rdsDbUserDetails.user</p> </li> <li> <p>resource.rdsDbInstanceDetails.tags.key</p> </li> <li> <p>resource.rdsDbInstanceDetails.tags.value</p> </li> <li> <p>service.runtimeDetails.process.executableSha256</p> </li> <li> <p>service.runtimeDetails.process.name</p> </li> <li> <p>service.runtimeDetails.process.executablePath</p> </li> <li> <p>resource.lambdaDetails.functionName</p> </li> <li> <p>resource.lambdaDetails.functionArn</p> </li> <li> <p>resource.lambdaDetails.tags.key</p> </li> <li> <p>resource.lambdaDetails.tags.value</p> </li> </ul>
    * @public
    */
   FindingCriteria: FindingCriteria | undefined;
@@ -2824,16 +2313,13 @@ export interface CreateFilterResponse {
  */
 export interface CreateIPSetRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>The user-friendly name to identify the IPSet.</p>
-   *          <p> Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).</p>
+   * <p>The user-friendly name to identify the IPSet.</p> <p> Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).</p>
    * @public
    */
   Name: string | undefined;
@@ -2851,8 +2337,7 @@ export interface CreateIPSetRequest {
   Location: string | undefined;
 
   /**
-   * <p>A Boolean value that indicates whether GuardDuty is to start using the uploaded
-   *       IPSet.</p>
+   * <p>A Boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.</p>
    * @public
    */
   Activate: boolean | undefined;
@@ -2923,18 +2408,14 @@ export interface CreateS3BucketResource {
   BucketName?: string | undefined;
 
   /**
-   * <p>Information about the specified object prefixes. The S3 object will be scanned only
-   *       if it belongs to any of the specified object prefixes.</p>
+   * <p>Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.</p>
    * @public
    */
   ObjectPrefixes?: string[] | undefined;
 }
 
 /**
- * <p>Information about the protected resource that
- *       is associated with the created Malware Protection plan.
- *       Presently, <code>S3Bucket</code> is the only supported
- *       protected resource.</p>
+ * <p>Information about the protected resource that is associated with the created Malware Protection plan. Presently, <code>S3Bucket</code> is the only supported protected resource.</p>
  * @public
  */
 export interface CreateProtectedResource {
@@ -2956,16 +2437,13 @@ export interface CreateMalwareProtectionPlanRequest {
   ClientToken?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the IAM role that has the permissions to scan and add tags to the associated
-   *       protected resource.</p>
+   * <p>Amazon Resource Name (ARN) of the IAM role that has the permissions to scan and add tags to the associated protected resource.</p>
    * @public
    */
   Role: string | undefined;
 
   /**
-   * <p>Information about the protected resource that is associated with the created
-   *       Malware Protection plan. Presently, <code>S3Bucket</code> is the only supported
-   *       protected resource.</p>
+   * <p>Information about the protected resource that is associated with the created Malware Protection plan. Presently, <code>S3Bucket</code> is the only supported protected resource.</p>
    * @public
    */
   ProtectedResource: CreateProtectedResource | undefined;
@@ -2999,17 +2477,13 @@ export interface CreateMalwareProtectionPlanResponse {
  */
 export interface CreateMembersRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty account for which you want to associate member
-   *       accounts.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector of the GuardDuty account for which you want to associate member accounts.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>A list of account ID and email address pairs of the accounts that you want to associate
-   *       with the GuardDuty administrator account.</p>
+   * <p>A list of account ID and email address pairs of the accounts that you want to associate with the GuardDuty administrator account.</p>
    * @public
    */
   AccountDetails: AccountDetail[] | undefined;
@@ -3038,24 +2512,19 @@ export interface UnprocessedAccount {
  */
 export interface CreateMembersResponse {
   /**
-   * <p>A list of objects that include the <code>accountIds</code> of the unprocessed accounts and
-   *       a result string that explains why each was unprocessed.</p>
+   * <p>A list of objects that include the <code>accountIds</code> of the unprocessed accounts and a result string that explains why each was unprocessed.</p>
    * @public
    */
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
 /**
- * <p>Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3
- *       bucket, and the ARN of the KMS key to use to encrypt published findings.</p>
+ * <p>Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.</p>
  * @public
  */
 export interface DestinationProperties {
   /**
-   * <p>The ARN of the resource to publish to.</p>
-   *          <p>To specify an S3 bucket folder use the following format:
-   *         <code>arn:aws:s3:::DOC-EXAMPLE-BUCKET/myFolder/</code>
-   *          </p>
+   * <p>The ARN of the resource to publish to.</p> <p>To specify an S3 bucket folder use the following format: <code>arn:aws:s3:::DOC-EXAMPLE-BUCKET/myFolder/</code> </p>
    * @public
    */
   DestinationArn?: string | undefined;
@@ -3072,23 +2541,19 @@ export interface DestinationProperties {
  */
 export interface CreatePublishingDestinationRequest {
   /**
-   * <p>The ID of the GuardDuty detector associated with the publishing destination.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The ID of the GuardDuty detector associated with the publishing destination.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>The type of resource for the publishing destination. Currently only Amazon S3 buckets are
-   *       supported.</p>
+   * <p>The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.</p>
    * @public
    */
   DestinationType: DestinationType | undefined;
 
   /**
-   * <p>The properties of the publishing destination, including the ARNs for the destination and
-   *       the KMS key used for encryption.</p>
+   * <p>The properties of the publishing destination, including the ARNs for the destination and the KMS key used for encryption.</p>
    * @public
    */
   DestinationProperties: DestinationProperties | undefined;
@@ -3122,9 +2587,7 @@ export interface CreatePublishingDestinationResponse {
  */
 export interface CreateSampleFindingsRequest {
   /**
-   * <p>The ID of the detector for which you need to create sample findings.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The ID of the detector for which you need to create sample findings.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3146,17 +2609,13 @@ export interface CreateSampleFindingsResponse {}
  */
 export interface CreateThreatEntitySetRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty account for which you want to create a threat entity set.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector of the GuardDuty account for which you want to create a threat entity set.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>A user-friendly name to identify the threat entity set.</p>
-   *          <p>The name of your list can include
-   *                                 lowercase letters, uppercase letters, numbers, dash (-), and underscore (_).</p>
+   * <p>A user-friendly name to identify the threat entity set.</p> <p>The name of your list can include lowercase letters, uppercase letters, numbers, dash (-), and underscore (_).</p>
    * @public
    */
   Name: string | undefined;
@@ -3168,10 +2627,7 @@ export interface CreateThreatEntitySetRequest {
   Format: ThreatEntitySetFormat | undefined;
 
   /**
-   * <p>The URI of the file that contains the threat entity set. The format of the <code>Location</code> URL must be a valid
-   *        Amazon S3 URL format. Invalid URL formats will result in an error, regardless of whether you activate the entity set or not. For more information about
-   *        format of the location URLs, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-lists-create-activate.html">Format of location URL under Step 2: Adding trusted or threat intelligence data</a>
-   *      in the <i>Amazon GuardDuty User Guide</i>.</p>
+   * <p>The URI of the file that contains the threat entity set. The format of the <code>Location</code> URL must be a valid Amazon S3 URL format. Invalid URL formats will result in an error, regardless of whether you activate the entity set or not. For more information about format of the location URLs, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-lists-create-activate.html">Format of location URL under Step 2: Adding trusted or threat intelligence data</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
    * @public
    */
   Location: string | undefined;
@@ -3183,8 +2639,7 @@ export interface CreateThreatEntitySetRequest {
   ExpectedBucketOwner?: string | undefined;
 
   /**
-   * <p>A boolean value that indicates whether GuardDuty should start using the uploaded threat entity set to
-   *         generate findings.</p>
+   * <p>A boolean value that indicates whether GuardDuty should start using the uploaded threat entity set to generate findings.</p>
    * @public
    */
   Activate: boolean | undefined;
@@ -3218,17 +2673,13 @@ export interface CreateThreatEntitySetResponse {
  */
 export interface CreateThreatIntelSetRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty account for which you want to create a
-   *       <code>threatIntelSet</code>.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector of the GuardDuty account for which you want to create a <code>threatIntelSet</code>.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>A user-friendly ThreatIntelSet name displayed in all findings that are generated by
-   *       activity that involves IP addresses included in this ThreatIntelSet.</p>
+   * <p>A user-friendly ThreatIntelSet name displayed in all findings that are generated by activity that involves IP addresses included in this ThreatIntelSet.</p>
    * @public
    */
   Name: string | undefined;
@@ -3246,8 +2697,7 @@ export interface CreateThreatIntelSetRequest {
   Location: string | undefined;
 
   /**
-   * <p>A Boolean value that indicates whether GuardDuty is to start using the uploaded
-   *       ThreatIntelSet.</p>
+   * <p>A Boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet.</p>
    * @public
    */
   Activate: boolean | undefined;
@@ -3287,18 +2737,13 @@ export interface CreateThreatIntelSetResponse {
  */
 export interface CreateTrustedEntitySetRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty account for which you want to create a trusted
-   *       entity set.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector of the GuardDuty account for which you want to create a trusted entity set.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>A user-friendly name to identify the trusted entity set.</p>
-   *          <p>The name of your list can include
-   *                                 lowercase letters, uppercase letters, numbers, dash (-), and underscore (_).</p>
+   * <p>A user-friendly name to identify the trusted entity set.</p> <p>The name of your list can include lowercase letters, uppercase letters, numbers, dash (-), and underscore (_).</p>
    * @public
    */
   Name: string | undefined;
@@ -3310,17 +2755,13 @@ export interface CreateTrustedEntitySetRequest {
   Format: TrustedEntitySetFormat | undefined;
 
   /**
-   * <p>The URI of the file that contains the threat entity set. The format of the <code>Location</code> URL must be a valid
-   *        Amazon S3 URL format. Invalid URL formats will result in an error, regardless of whether you activate the entity set or not. For more information about
-   *        format of the location URLs, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-lists-create-activate.html">Format of location URL under Step 2: Adding trusted or threat intelligence data</a>
-   *        in the <i>Amazon GuardDuty User Guide</i>.</p>
+   * <p>The URI of the file that contains the threat entity set. The format of the <code>Location</code> URL must be a valid Amazon S3 URL format. Invalid URL formats will result in an error, regardless of whether you activate the entity set or not. For more information about format of the location URLs, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-lists-create-activate.html">Format of location URL under Step 2: Adding trusted or threat intelligence data</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
    * @public
    */
   Location: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b>
-   *       parameter.</p>
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter.</p>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -3409,8 +2850,7 @@ export interface KubernetesConfigurationResult {
  */
 export interface S3LogsConfigurationResult {
   /**
-   * <p>A value that describes whether S3 data event logs are automatically enabled for new
-   *       members of the organization.</p>
+   * <p>A value that describes whether S3 data event logs are automatically enabled for new members of the organization.</p>
    * @public
    */
   Status: DataSourceStatus | undefined;
@@ -3434,15 +2874,13 @@ export interface DataSourceConfigurationsResult {
   DNSLogs: DNSLogsConfigurationResult | undefined;
 
   /**
-   * <p>An object that contains information on the status of VPC flow logs as a data
-   *       source.</p>
+   * <p>An object that contains information on the status of VPC flow logs as a data source.</p>
    * @public
    */
   FlowLogs: FlowLogsConfigurationResult | undefined;
 
   /**
-   * <p>An object that contains information on the status of S3 Data event logs as a data
-   *       source.</p>
+   * <p>An object that contains information on the status of S3 Data event logs as a data source.</p>
    * @public
    */
   S3Logs: S3LogsConfigurationResult | undefined;
@@ -3466,9 +2904,7 @@ export interface DataSourceConfigurationsResult {
  */
 export interface DateStatistics {
   /**
-   * <p>The timestamp when the total findings count is observed.</p>
-   *          <p>For example, <code>Date</code> would look like <code>"2024-09-05T17:00:00-07:00"</code>
-   *       whereas <code>LastGeneratedAt</code> would look like 2024-09-05T17:12:29-07:00".</p>
+   * <p>The timestamp when the total findings count is observed.</p> <p>For example, <code>Date</code> would look like <code>"2024-09-05T17:00:00-07:00"</code> whereas <code>LastGeneratedAt</code> would look like 2024-09-05T17:12:29-07:00".</p>
    * @public
    */
   Date?: Date | undefined;
@@ -3497,8 +2933,7 @@ export interface DateStatistics {
  */
 export interface DeclineInvitationsRequest {
   /**
-   * <p>A list of account IDs of the Amazon Web Services accounts that sent invitations to the current member
-   *       account that you want to decline invitations from.</p>
+   * <p>A list of account IDs of the Amazon Web Services accounts that sent invitations to the current member account that you want to decline invitations from.</p>
    * @public
    */
   AccountIds: string[] | undefined;
@@ -3509,17 +2944,14 @@ export interface DeclineInvitationsRequest {
  */
 export interface DeclineInvitationsResponse {
   /**
-   * <p>A list of objects that contain the unprocessed account and a result string that explains
-   *       why it was unprocessed.</p>
+   * <p>A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.</p>
    * @public
    */
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
 /**
- * <p>Contains information on the server side encryption method used in the S3 bucket. See
- *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">S3
- *         Server-Side Encryption</a> for more information.</p>
+ * <p>Contains information on the server side encryption method used in the S3 bucket. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">S3 Server-Side Encryption</a> for more information.</p>
  * @public
  */
 export interface DefaultServerSideEncryption {
@@ -3530,8 +2962,7 @@ export interface DefaultServerSideEncryption {
   EncryptionType?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS encryption key. Only available if the bucket
-   *         <code>EncryptionType</code> is <code>aws:kms</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS encryption key. Only available if the bucket <code>EncryptionType</code> is <code>aws:kms</code>.</p>
    * @public
    */
   KmsMasterKeyArn?: string | undefined;
@@ -3542,9 +2973,7 @@ export interface DefaultServerSideEncryption {
  */
 export interface DeleteDetectorRequest {
   /**
-   * <p>The unique ID of the detector that you want to delete.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector that you want to delete.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3560,9 +2989,7 @@ export interface DeleteDetectorResponse {}
  */
 export interface DeleteFilterRequest {
   /**
-   * <p>The unique ID of the detector that is associated with the filter.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector that is associated with the filter.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3584,8 +3011,7 @@ export interface DeleteFilterResponse {}
  */
 export interface DeleteInvitationsRequest {
   /**
-   * <p>A list of account IDs of the Amazon Web Services accounts that sent invitations to the current member
-   *       account that you want to delete invitations from.</p>
+   * <p>A list of account IDs of the Amazon Web Services accounts that sent invitations to the current member account that you want to delete invitations from.</p>
    * @public
    */
   AccountIds: string[] | undefined;
@@ -3596,8 +3022,7 @@ export interface DeleteInvitationsRequest {
  */
 export interface DeleteInvitationsResponse {
   /**
-   * <p>A list of objects that contain the unprocessed account and a result string that explains
-   *       why it was unprocessed.</p>
+   * <p>A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.</p>
    * @public
    */
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
@@ -3608,9 +3033,7 @@ export interface DeleteInvitationsResponse {
  */
 export interface DeleteIPSetRequest {
   /**
-   * <p>The unique ID of the detector associated with the IPSet.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector associated with the IPSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3643,10 +3066,7 @@ export interface DeleteMalwareProtectionPlanRequest {
  */
 export interface DeleteMembersRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty account whose members you want to
-   *       delete.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector of the GuardDuty account whose members you want to delete.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3674,9 +3094,7 @@ export interface DeleteMembersResponse {
  */
 export interface DeletePublishingDestinationRequest {
   /**
-   * <p>The unique ID of the detector associated with the publishing destination to delete.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector associated with the publishing destination to delete.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3698,9 +3116,7 @@ export interface DeletePublishingDestinationResponse {}
  */
 export interface DeleteThreatEntitySetRequest {
   /**
-   * <p>The unique ID of the detector associated with the threat entity set resource.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector associated with the threat entity set resource.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3722,9 +3138,7 @@ export interface DeleteThreatEntitySetResponse {}
  */
 export interface DeleteThreatIntelSetRequest {
   /**
-   * <p>The unique ID of the detector that is associated with the threatIntelSet.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector that is associated with the threatIntelSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3746,9 +3160,7 @@ export interface DeleteThreatIntelSetResponse {}
  */
 export interface DeleteTrustedEntitySetRequest {
   /**
-   * <p>The unique ID of the detector associated with the trusted entity set resource.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector associated with the trusted entity set resource.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3771,39 +3183,31 @@ export interface DeleteTrustedEntitySetResponse {}
  */
 export interface FilterCondition {
   /**
-   * <p>Represents an <i>equal</i>
-   *             <b></b> condition to be applied to
-   *       a single field when querying for scan entries.</p>
+   * <p>Represents an <i>equal</i> <b/> condition to be applied to a single field when querying for scan entries.</p>
    * @public
    */
   EqualsValue?: string | undefined;
 
   /**
-   * <p>Represents a <i>greater than</i> condition to be applied to a single field
-   *       when querying for scan entries.</p>
+   * <p>Represents a <i>greater than</i> condition to be applied to a single field when querying for scan entries.</p>
    * @public
    */
   GreaterThan?: number | undefined;
 
   /**
-   * <p>Represents a <i>less than</i> condition to be applied to a single field when
-   *       querying for scan entries.</p>
+   * <p>Represents a <i>less than</i> condition to be applied to a single field when querying for scan entries.</p>
    * @public
    */
   LessThan?: number | undefined;
 }
 
 /**
- * <p>Represents a condition that when matched will be added to the response of the operation.
- *       Irrespective of using any filter criteria, an administrator account can view the scan entries
- *       for all of its member accounts. However, each member account can view the scan entries only
- *       for their own account.</p>
+ * <p>Represents a condition that when matched will be added to the response of the operation. Irrespective of using any filter criteria, an administrator account can view the scan entries for all of its member accounts. However, each member account can view the scan entries only for their own account.</p>
  * @public
  */
 export interface FilterCriterion {
   /**
-   * <p>An enum value representing possible scan properties to match with given scan
-   *       entries.</p>
+   * <p>An enum value representing possible scan properties to match with given scan entries.</p>
    * @public
    */
   CriterionKey?: CriterionKey | undefined;
@@ -3821,8 +3225,7 @@ export interface FilterCriterion {
  */
 export interface FilterCriteria {
   /**
-   * <p>Represents a condition that when matched will be added to the response of the
-   *       operation.</p>
+   * <p>Represents a condition that when matched will be added to the response of the operation.</p>
    * @public
    */
   FilterCriterion?: FilterCriterion[] | undefined;
@@ -3834,8 +3237,7 @@ export interface FilterCriteria {
  */
 export interface SortCriteria {
   /**
-   * <p>Represents the finding attribute, such as <code>accountId</code>, that sorts the
-   *       findings.</p>
+   * <p>Represents the finding attribute, such as <code>accountId</code>, that sorts the findings.</p>
    * @public
    */
   AttributeName?: string | undefined;
@@ -3852,25 +3254,19 @@ export interface SortCriteria {
  */
 export interface DescribeMalwareScansRequest {
   /**
-   * <p>The unique ID of the detector that the request is associated with.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector that the request is associated with.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>You can use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -3882,10 +3278,7 @@ export interface DescribeMalwareScansRequest {
   FilterCriteria?: FilterCriteria | undefined;
 
   /**
-   * <p>Represents the criteria used for sorting scan entries. The <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_SortCriteria.html#guardduty-Type-SortCriteria-attributeName">
-   *                <code>attributeName</code>
-   *             </a> is required and it must be
-   *       <code>scanStartTime</code>.</p>
+   * <p>Represents the criteria used for sorting scan entries. The <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_SortCriteria.html#guardduty-Type-SortCriteria-attributeName"> <code>attributeName</code> </a> is required and it must be <code>scanStartTime</code>.</p>
    * @public
    */
   SortCriteria?: SortCriteria | undefined;
@@ -3993,19 +3386,13 @@ export interface TriggerDetails {
  */
 export interface Scan {
   /**
-   * <p>The unique ID of the detector that is associated with the request.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector that is associated with the request.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId?: string | undefined;
 
   /**
-   * <p>The unique detector ID of the administrator account that the request is associated with.
-   *       If the account is an administrator, the <code>AdminDetectorId</code> will be the same as the one used for
-   *       <code>DetectorId</code>.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique detector ID of the administrator account that the request is associated with. If the account is an administrator, the <code>AdminDetectorId</code> will be the same as the one used for <code>DetectorId</code>.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   AdminDetectorId?: string | undefined;
@@ -4100,8 +3487,7 @@ export interface DescribeMalwareScansResponse {
   Scans: Scan[] | undefined;
 
   /**
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4112,39 +3498,31 @@ export interface DescribeMalwareScansResponse {
  */
 export interface DescribeOrganizationConfigurationRequest {
   /**
-   * <p>The detector ID of the delegated administrator for which you need to retrieve the information.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The detector ID of the delegated administrator for which you need to retrieve the information.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>You can use this parameter to indicate the maximum number of items that you want in the
-   *       response.</p>
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the response.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill
-   *         <code>nextToken</code> in the request with the value of <code>NextToken</code> from the
-   *       previous response to continue listing data.</p>
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill <code>nextToken</code> in the request with the value of <code>NextToken</code> from the previous response to continue listing data.</p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The current configuration of Kubernetes audit logs as a data source for the
- *       organization.</p>
+ * <p>The current configuration of Kubernetes audit logs as a data source for the organization.</p>
  * @public
  */
 export interface OrganizationKubernetesAuditLogsConfigurationResult {
   /**
-   * <p>Whether Kubernetes audit logs data source should be auto-enabled for new members joining
-   *       the organization.</p>
+   * <p>Whether Kubernetes audit logs data source should be auto-enabled for new members joining the organization.</p>
    * @public
    */
   AutoEnable: boolean | undefined;
@@ -4156,30 +3534,26 @@ export interface OrganizationKubernetesAuditLogsConfigurationResult {
  */
 export interface OrganizationKubernetesConfigurationResult {
   /**
-   * <p>The current configuration of Kubernetes audit logs as a data source for the
-   *       organization.</p>
+   * <p>The current configuration of Kubernetes audit logs as a data source for the organization.</p>
    * @public
    */
   AuditLogs: OrganizationKubernetesAuditLogsConfigurationResult | undefined;
 }
 
 /**
- * <p>An object that contains information on the status of whether EBS volumes scanning will be
- *       enabled as a data source for an organization.</p>
+ * <p>An object that contains information on the status of whether EBS volumes scanning will be enabled as a data source for an organization.</p>
  * @public
  */
 export interface OrganizationEbsVolumesResult {
   /**
-   * <p>An object that contains the status of whether scanning EBS volumes should be auto-enabled
-   *       for new members joining the organization.</p>
+   * <p>An object that contains the status of whether scanning EBS volumes should be auto-enabled for new members joining the organization.</p>
    * @public
    */
   AutoEnable?: boolean | undefined;
 }
 
 /**
- * <p>An object that contains information on the status of scanning EC2 instances with findings
- *       for an organization.</p>
+ * <p>An object that contains information on the status of scanning EC2 instances with findings for an organization.</p>
  * @public
  */
 export interface OrganizationScanEc2InstanceWithFindingsResult {
@@ -4191,36 +3565,31 @@ export interface OrganizationScanEc2InstanceWithFindingsResult {
 }
 
 /**
- * <p>An object that contains information on the status of all Malware Protection data source
- *       for an organization.</p>
+ * <p>An object that contains information on the status of all Malware Protection data source for an organization.</p>
  * @public
  */
 export interface OrganizationMalwareProtectionConfigurationResult {
   /**
-   * <p>Describes the configuration for scanning EC2 instances with findings for an
-   *       organization.</p>
+   * <p>Describes the configuration for scanning EC2 instances with findings for an organization.</p>
    * @public
    */
   ScanEc2InstanceWithFindings?: OrganizationScanEc2InstanceWithFindingsResult | undefined;
 }
 
 /**
- * <p>The current configuration of S3 data event logs as a data source for the
- *       organization.</p>
+ * <p>The current configuration of S3 data event logs as a data source for the organization.</p>
  * @public
  */
 export interface OrganizationS3LogsConfigurationResult {
   /**
-   * <p>A value that describes whether S3 data event logs are automatically enabled for new
-   *       members of the organization.</p>
+   * <p>A value that describes whether S3 data event logs are automatically enabled for new members of the organization.</p>
    * @public
    */
   AutoEnable: boolean | undefined;
 }
 
 /**
- * <p>An object that contains information on which data sources are automatically enabled for
- *       new members within the organization.</p>
+ * <p>An object that contains information on which data sources are automatically enabled for new members within the organization.</p>
  * @public
  */
 export interface OrganizationDataSourceConfigurationsResult {
@@ -4249,39 +3618,13 @@ export interface OrganizationDataSourceConfigurationsResult {
  */
 export interface OrganizationAdditionalConfigurationResult {
   /**
-   * <p>The name of the additional configuration that is configured for the member accounts within
-   *       the organization. These values are applicable to only Runtime Monitoring protection plan.</p>
+   * <p>The name of the additional configuration that is configured for the member accounts within the organization. These values are applicable to only Runtime Monitoring protection plan.</p>
    * @public
    */
   Name?: OrgFeatureAdditionalConfiguration | undefined;
 
   /**
-   * <p>Describes the status of the additional configuration that is configured for the
-   *       member accounts within the organization. One of the following
-   *     values is the status for the entire organization:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW</code>: Indicates that when a new account joins the organization, they will
-   *           have the additional configuration enabled automatically. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL</code>: Indicates that all accounts in the organization have
-   *           the additional configuration
-   *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
-   *           and accounts that may have been suspended or removed from the organization in
-   *           GuardDuty.</p>
-   *                <p>It may take up to 24 hours to update the configuration for all the member accounts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code>: Indicates that the additional configuration will not be
-   *           automatically enabled for any
-   *           account in the organization. The administrator must manage the additional configuration
-   *           for each account individually.</p>
-   *             </li>
-   *          </ul>
+   * <p>Describes the status of the additional configuration that is configured for the member accounts within the organization. One of the following values is the status for the entire organization:</p> <ul> <li> <p> <code>NEW</code>: Indicates that when a new account joins the organization, they will have the additional configuration enabled automatically. </p> </li> <li> <p> <code>ALL</code>: Indicates that all accounts in the organization have the additional configuration enabled automatically. This includes <code>NEW</code> accounts that join the organization and accounts that may have been suspended or removed from the organization in GuardDuty.</p> <p>It may take up to 24 hours to update the configuration for all the member accounts.</p> </li> <li> <p> <code>NONE</code>: Indicates that the additional configuration will not be automatically enabled for any account in the organization. The administrator must manage the additional configuration for each account individually.</p> </li> </ul>
    * @public
    */
   AutoEnable?: OrgFeatureStatus | undefined;
@@ -4293,43 +3636,19 @@ export interface OrganizationAdditionalConfigurationResult {
  */
 export interface OrganizationFeatureConfigurationResult {
   /**
-   * <p>The name of the feature that is configured for the member accounts within the
-   *       organization.</p>
+   * <p>The name of the feature that is configured for the member accounts within the organization.</p>
    * @public
    */
   Name?: OrgFeature | undefined;
 
   /**
-   * <p>Describes the status of the feature that is configured for the member accounts within
-   *       the organization.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW</code>: Indicates that when a new account joins the organization, they will
-   *           have the feature enabled automatically. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL</code>: Indicates that all accounts in the organization have the feature
-   *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
-   *           and accounts that may have been suspended or removed from the organization in
-   *           GuardDuty.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code>: Indicates that the feature will not be automatically enabled for any
-   *           account in the organization. In this case, each account will be managed individually
-   *           by the
-   *           administrator.</p>
-   *             </li>
-   *          </ul>
+   * <p>Describes the status of the feature that is configured for the member accounts within the organization.</p> <ul> <li> <p> <code>NEW</code>: Indicates that when a new account joins the organization, they will have the feature enabled automatically. </p> </li> <li> <p> <code>ALL</code>: Indicates that all accounts in the organization have the feature enabled automatically. This includes <code>NEW</code> accounts that join the organization and accounts that may have been suspended or removed from the organization in GuardDuty.</p> </li> <li> <p> <code>NONE</code>: Indicates that the feature will not be automatically enabled for any account in the organization. In this case, each account will be managed individually by the administrator.</p> </li> </ul>
    * @public
    */
   AutoEnable?: OrgFeatureStatus | undefined;
 
   /**
-   * <p>The additional configuration that is configured for the member accounts within the
-   *       organization.</p>
+   * <p>The additional configuration that is configured for the member accounts within the organization.</p>
    * @public
    */
   AdditionalConfiguration?: OrganizationAdditionalConfigurationResult[] | undefined;
@@ -4340,10 +3659,7 @@ export interface OrganizationFeatureConfigurationResult {
  */
 export interface DescribeOrganizationConfigurationResponse {
   /**
-   * <p>Indicates whether GuardDuty is automatically enabled for accounts added to the
-   *       organization.</p>
-   *          <p>Even though this is still supported, we recommend using
-   *         <code>AutoEnableOrganizationMembers</code> to achieve the similar results.</p>
+   * <p>Indicates whether GuardDuty is automatically enabled for accounts added to the organization.</p> <p>Even though this is still supported, we recommend using <code>AutoEnableOrganizationMembers</code> to achieve the similar results.</p>
    *
    * @deprecated This field is deprecated, use AutoEnableOrganizationMembers instead.
    * @public
@@ -4351,8 +3667,7 @@ export interface DescribeOrganizationConfigurationResponse {
   AutoEnable?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the maximum number of allowed member accounts are already associated
-   *       with the delegated administrator account for your organization.</p>
+   * <p>Indicates whether the maximum number of allowed member accounts are already associated with the delegated administrator account for your organization.</p>
    * @public
    */
   MemberAccountLimitReached: boolean | undefined;
@@ -4372,40 +3687,13 @@ export interface DescribeOrganizationConfigurationResponse {
   Features?: OrganizationFeatureConfigurationResult[] | undefined;
 
   /**
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Indicates the auto-enablement configuration of GuardDuty or any of the corresponding protection plans for the member accounts in the
-   *       organization.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW</code>: Indicates that when a new account joins the organization, they will
-   *           have GuardDuty or any of the corresponding protection plans enabled automatically. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL</code>: Indicates that all accounts in the organization have GuardDuty and any of the corresponding
-   *           protection plans enabled automatically. This includes <code>NEW</code> accounts that join the organization
-   *           and accounts that may have been suspended or removed from the organization in
-   *           GuardDuty.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code>: Indicates that GuardDuty or any of the corresponding protection plans
-   *           will not be automatically enabled for any
-   *           account in the organization. The administrator must manage GuardDuty for each account in
-   *           the organization individually.</p>
-   *                <p>When you update the auto-enable setting from <code>ALL</code> or <code>NEW</code> to
-   *         <code>NONE</code>, this action doesn't disable the corresponding option for your existing accounts. This
-   *         configuration will apply to the new accounts that join the organization. After you update the auto-enable settings,
-   *         no new account will have the corresponding option as enabled.</p>
-   *             </li>
-   *          </ul>
+   * <p>Indicates the auto-enablement configuration of GuardDuty or any of the corresponding protection plans for the member accounts in the organization.</p> <ul> <li> <p> <code>NEW</code>: Indicates that when a new account joins the organization, they will have GuardDuty or any of the corresponding protection plans enabled automatically. </p> </li> <li> <p> <code>ALL</code>: Indicates that all accounts in the organization have GuardDuty and any of the corresponding protection plans enabled automatically. This includes <code>NEW</code> accounts that join the organization and accounts that may have been suspended or removed from the organization in GuardDuty.</p> </li> <li> <p> <code>NONE</code>: Indicates that GuardDuty or any of the corresponding protection plans will not be automatically enabled for any account in the organization. The administrator must manage GuardDuty for each account in the organization individually.</p> <p>When you update the auto-enable setting from <code>ALL</code> or <code>NEW</code> to <code>NONE</code>, this action doesn't disable the corresponding option for your existing accounts. This configuration will apply to the new accounts that join the organization. After you update the auto-enable settings, no new account will have the corresponding option as enabled.</p> </li> </ul>
    * @public
    */
   AutoEnableOrganizationMembers?: AutoEnableMembers | undefined;
@@ -4416,10 +3704,7 @@ export interface DescribeOrganizationConfigurationResponse {
  */
 export interface DescribePublishingDestinationRequest {
   /**
-   * <p>The unique ID of the detector associated with the publishing destination to
-   *       retrieve.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector associated with the publishing destination to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -4442,8 +3727,7 @@ export interface DescribePublishingDestinationResponse {
   DestinationId: string | undefined;
 
   /**
-   * <p>The type of publishing destination. Currently, only Amazon S3 buckets are
-   *       supported.</p>
+   * <p>The type of publishing destination. Currently, only Amazon S3 buckets are supported.</p>
    * @public
    */
   DestinationType: DestinationType | undefined;
@@ -4455,15 +3739,13 @@ export interface DescribePublishingDestinationResponse {
   Status: PublishingStatus | undefined;
 
   /**
-   * <p>The time, in epoch millisecond format, at which GuardDuty was first unable to publish
-   *       findings to the destination.</p>
+   * <p>The time, in epoch millisecond format, at which GuardDuty was first unable to publish findings to the destination.</p>
    * @public
    */
   PublishingFailureStartTimestamp: number | undefined;
 
   /**
-   * <p>A <code>DestinationProperties</code> object that includes the <code>DestinationArn</code>
-   *       and <code>KmsKeyArn</code> of the publishing destination.</p>
+   * <p>A <code>DestinationProperties</code> object that includes the <code>DestinationArn</code> and <code>KmsKeyArn</code> of the publishing destination.</p>
    * @public
    */
   DestinationProperties: DestinationProperties | undefined;
@@ -4476,8 +3758,7 @@ export interface DescribePublishingDestinationResponse {
 }
 
 /**
- * <p>Contains information about the publishing destination, including the ID, type, and
- *       status.</p>
+ * <p>Contains information about the publishing destination, including the ID, type, and status.</p>
  * @public
  */
 export interface Destination {
@@ -4488,8 +3769,7 @@ export interface Destination {
   DestinationId: string | undefined;
 
   /**
-   * <p>The type of resource used for the publishing destination. Currently, only Amazon S3
-   *       buckets are supported.</p>
+   * <p>The type of resource used for the publishing destination. Currently, only Amazon S3 buckets are supported.</p>
    * @public
    */
   DestinationType: DestinationType | undefined;
@@ -4592,14 +3872,12 @@ export interface NetworkEndpoint {
 }
 
 /**
- * <p>Contains information about the Amazon EC2 Image involved in a GuardDuty finding,
- *           including unique identifiers of the Amazon EC2 instances.</p>
+ * <p>Contains information about the Amazon EC2 Image involved in a GuardDuty finding, including unique identifiers of the Amazon EC2 instances.</p>
  * @public
  */
 export interface Ec2Image {
   /**
-   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that were launched with the
-   *           same Amazon Machine Image (AMI).</p>
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that were launched with the same Amazon Machine Image (AMI).</p>
    * @public
    */
   Ec2InstanceUids?: string[] | undefined;
@@ -4647,9 +3925,7 @@ export interface ProductCode {
  */
 export interface Ec2Instance {
   /**
-   * <p>The availability zone of the Amazon EC2 instance. For more information, see
-   *        <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability zones</a>
-   *        in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The availability zone of the Amazon EC2 instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability zones</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
@@ -4661,9 +3937,7 @@ export interface Ec2Instance {
   ImageDescription?: string | undefined;
 
   /**
-   * <p>The state of the Amazon EC2 instance. For more information, see
-   *        <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Amazon EC2 instance state changes</a>
-   *        in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The state of the Amazon EC2 instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Amazon EC2 instance state changes</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   InstanceState?: string | undefined;
@@ -4706,14 +3980,12 @@ export interface Ec2Instance {
 }
 
 /**
- * <p>Contains information about the Amazon EC2 launch template involved in a GuardDuty finding,
- *           including unique identifiers of the Amazon EC2 instances.</p>
+ * <p>Contains information about the Amazon EC2 launch template involved in a GuardDuty finding, including unique identifiers of the Amazon EC2 instances.</p>
  * @public
  */
 export interface Ec2LaunchTemplate {
   /**
-   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that share the
-   *           same Amazon EC2 launch template.</p>
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that share the same Amazon EC2 launch template.</p>
    * @public
    */
   Ec2InstanceUids?: string[] | undefined;
@@ -4804,22 +4076,19 @@ export interface Ec2NetworkInterface {
 }
 
 /**
- * <p>Contains information about the Amazon EC2 VPC involved in a GuardDuty finding,
- *           including unique identifiers of the Amazon EC2 instances.</p>
+ * <p>Contains information about the Amazon EC2 VPC involved in a GuardDuty finding, including unique identifiers of the Amazon EC2 instances.</p>
  * @public
  */
 export interface Ec2Vpc {
   /**
-   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that were launched within the
-   *           same Virtual Private Cloud (VPC).</p>
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that were launched within the same Virtual Private Cloud (VPC).</p>
    * @public
    */
   Ec2InstanceUids?: string[] | undefined;
 }
 
 /**
- * <p>Contains information about the Amazon ECS cluster involved in a GuardDuty finding,
- *           including cluster identification and status.</p>
+ * <p>Contains information about the Amazon ECS cluster involved in a GuardDuty finding, including cluster identification and status.</p>
  * @public
  */
 export interface EcsCluster {
@@ -4830,16 +4099,14 @@ export interface EcsCluster {
   Status?: EcsClusterStatus | undefined;
 
   /**
-   * <p>A list of unique identifiers for the Amazon EC2 instances that serve as container instances in
-   *           the Amazon ECS cluster.</p>
+   * <p>A list of unique identifiers for the Amazon EC2 instances that serve as container instances in the Amazon ECS cluster.</p>
    * @public
    */
   Ec2InstanceUids?: string[] | undefined;
 }
 
 /**
- * <p>Contains information about Amazon ECS task involved in a GuardDuty finding,
- *           including task definition and container identifiers.</p>
+ * <p>Contains information about Amazon ECS task involved in a GuardDuty finding, including task definition and container identifiers.</p>
  * @public
  */
 export interface EcsTask {
@@ -4869,8 +4136,7 @@ export interface EcsTask {
 }
 
 /**
- * <p>Contains information about the Amazon EKS cluster involved in a GuardDuty finding,
- *       including cluster identification, status, and network configuration.</p>
+ * <p>Contains information about the Amazon EKS cluster involved in a GuardDuty finding, including cluster identification, status, and network configuration.</p>
  * @public
  */
 export interface EksCluster {
@@ -4906,22 +4172,19 @@ export interface EksCluster {
 }
 
 /**
- * <p>Contains information about the IAM instance profile involved in a GuardDuty finding,
- *           including unique identifiers of the Amazon EC2 instances.</p>
+ * <p>Contains information about the IAM instance profile involved in a GuardDuty finding, including unique identifiers of the Amazon EC2 instances.</p>
  * @public
  */
 export interface IamInstanceProfileV2 {
   /**
-   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that share the
-   *           same IAM instance profile.</p>
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that share the same IAM instance profile.</p>
    * @public
    */
   Ec2InstanceUids?: string[] | undefined;
 }
 
 /**
- * <p>Contains information about Kubernetes workloads involved in a GuardDuty finding,
- *       including pods, deployments, and other Kubernetes resources.</p>
+ * <p>Contains information about Kubernetes workloads involved in a GuardDuty finding, including pods, deployments, and other Kubernetes resources.</p>
  * @public
  */
 export interface KubernetesWorkload {
@@ -4945,15 +4208,12 @@ export interface KubernetesWorkload {
 }
 
 /**
- * <p>Describes public access policies that apply to the Amazon S3 bucket.</p>
- *          <p>For information about each of the following settings, see
- *        <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html">Blocking public access to your Amazon S3 storage</a> in the <i>Amazon S3 User Guide</i>.</p>
+ * <p>Describes public access policies that apply to the Amazon S3 bucket.</p> <p>For information about each of the following settings, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html">Blocking public access to your Amazon S3 storage</a> in the <i>Amazon S3 User Guide</i>.</p>
  * @public
  */
 export interface PublicAccessConfiguration {
   /**
-   * <p>Indicates whether or not there is a setting that allows public access to the Amazon S3 buckets through access
-   *        control lists (ACLs).</p>
+   * <p>Indicates whether or not there is a setting that allows public access to the Amazon S3 buckets through access control lists (ACLs).</p>
    * @public
    */
   PublicAclAccess?: PublicAccessStatus | undefined;
@@ -4965,8 +4225,7 @@ export interface PublicAccessConfiguration {
   PublicPolicyAccess?: PublicAccessStatus | undefined;
 
   /**
-   * <p>Indicates whether or not there is a setting that ignores all public access control lists (ACLs)
-   *        on the Amazon S3 bucket and the objects that it contains.</p>
+   * <p>Indicates whether or not there is a setting that ignores all public access control lists (ACLs) on the Amazon S3 bucket and the objects that it contains.</p>
    * @public
    */
   PublicAclIgnoreBehavior?: PublicAclIgnoreBehavior | undefined;
@@ -4996,9 +4255,7 @@ export interface S3Bucket {
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The type of encryption used for the Amazon S3 buckets and its objects. For more information,
-   *        see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html">Protecting data with server-side encryption</a>
-   *        in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>The type of encryption used for the Amazon S3 buckets and its objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   EncryptionType?: string | undefined;
@@ -5052,8 +4309,7 @@ export interface S3Bucket {
  */
 export interface S3Object {
   /**
-   * <p>The entity tag is a hash of the Amazon S3 object. The ETag reflects changes only to the
-   *        contents of an object, and not its metadata.</p>
+   * <p>The entity tag is a hash of the Amazon S3 object. The ETag reflects changes only to the contents of an object, and not its metadata.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -5072,8 +4328,7 @@ export interface S3Object {
 }
 
 /**
- * <p>Contains information about the Amazon Web Services resource that is associated with the activity that prompted
- *        GuardDuty to generate a finding.</p>
+ * <p>Contains information about the Amazon Web Services resource that is associated with the activity that prompted GuardDuty to generate a finding.</p>
  * @public
  */
 export interface ResourceData {
@@ -5108,78 +4363,67 @@ export interface ResourceData {
   S3Object?: S3Object | undefined;
 
   /**
-   * <p>Contains detailed information about the Amazon EKS cluster associated with the activity that
-   *       prompted GuardDuty to generate a finding.</p>
+   * <p>Contains detailed information about the Amazon EKS cluster associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   EksCluster?: EksCluster | undefined;
 
   /**
-   * <p>Contains detailed information about the Kubernetes workload associated with the activity that
-   *       prompted GuardDuty to generate a finding.</p>
+   * <p>Contains detailed information about the Kubernetes workload associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   KubernetesWorkload?: KubernetesWorkload | undefined;
 
   /**
-   * <p>Contains detailed information about the container associated with the activity that
-   *       prompted GuardDuty to generate a finding.</p>
+   * <p>Contains detailed information about the container associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   Container?: ContainerFindingResource | undefined;
 
   /**
-   * <p>Contains detailed information about the Amazon ECS cluster associated with the activity that
-   *           prompted GuardDuty to generate a finding.</p>
+   * <p>Contains detailed information about the Amazon ECS cluster associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   EcsCluster?: EcsCluster | undefined;
 
   /**
-   * <p>Contains detailed information about the Amazon ECS task associated with the activity that
-   *             prompted GuardDuty to generate a finding.</p>
+   * <p>Contains detailed information about the Amazon ECS task associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   EcsTask?: EcsTask | undefined;
 
   /**
-   * <p>Contains detailed information about the IAM instance profile associated with the activity that
-   *             prompted GuardDuty to generate a finding.</p>
+   * <p>Contains detailed information about the IAM instance profile associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   IamInstanceProfile?: IamInstanceProfileV2 | undefined;
 
   /**
-   * <p>Contains detailed information about the Auto Scaling Group associated with the activity that
-   *             prompted GuardDuty to generate a finding.</p>
+   * <p>Contains detailed information about the Auto Scaling Group associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   AutoscalingAutoScalingGroup?: AutoscalingAutoScalingGroup | undefined;
 
   /**
-   * <p>Contains detailed information about the EC2 launch template associated with the activity that
-   *             prompted GuardDuty to generate a finding.</p>
+   * <p>Contains detailed information about the EC2 launch template associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   Ec2LaunchTemplate?: Ec2LaunchTemplate | undefined;
 
   /**
-   * <p>Contains detailed information about the EC2 VPC associated with the activity that
-   *             prompted GuardDuty to generate a finding.</p>
+   * <p>Contains detailed information about the EC2 VPC associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   Ec2Vpc?: Ec2Vpc | undefined;
 
   /**
-   * <p>Contains detailed information about the EC2 Image associated with the activity that
-   *             prompted GuardDuty to generate a finding.</p>
+   * <p>Contains detailed information about the EC2 Image associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   Ec2Image?: Ec2Image | undefined;
 
   /**
-   * <p>Contains detailed information about the CloudFormation stack associated with the activity that
-   *             prompted GuardDuty to generate a finding.</p>
+   * <p>Contains detailed information about the CloudFormation stack associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   CloudformationStack?: CloudformationStack | undefined;
@@ -5257,30 +4501,25 @@ export interface ResourceV2 {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted
-   *        GuardDuty to generate a finding.</p>
+   * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   Data?: ResourceData | undefined;
 }
 
 /**
- * <p>Contains information about the indicators that include a set of
- *        signals observed in an attack sequence.</p>
+ * <p>Contains information about the indicators that include a set of signals observed in an attack sequence.</p>
  * @public
  */
 export interface Indicator {
   /**
-   * <p>Specific indicator keys observed in the attack sequence. For description of the valid values for key,
-   *         see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-summary.html#guardduty-extended-threat-detection-attack-sequence-finding-details">Attack sequence finding details</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+   * <p>Specific indicator keys observed in the attack sequence. For description of the valid values for key, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-summary.html#guardduty-extended-threat-detection-attack-sequence-finding-details">Attack sequence finding details</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
    * @public
    */
   Key: IndicatorType | undefined;
 
   /**
-   * <p>Values associated with each indicator key. For example, if the indicator key is
-   *         <code>SUSPICIOUS_NETWORK</code>, then the value will be the name of the network. If
-   *         the indicator key is <code>ATTACK_TACTIC</code>, then the value will be one of the MITRE tactics. </p>
+   * <p>Values associated with each indicator key. For example, if the indicator key is <code>SUSPICIOUS_NETWORK</code>, then the value will be the name of the network. If the indicator key is <code>ATTACK_TACTIC</code>, then the value will be one of the MITRE tactics. </p>
    * @public
    */
   Values?: string[] | undefined;
@@ -5304,30 +4543,7 @@ export interface Signal {
   Uid: string | undefined;
 
   /**
-   * <p>The type of the signal used to identify an attack sequence.</p>
-   *          <p>Signals can be GuardDuty findings or activities observed in data sources that GuardDuty monitors. For
-   *        more information, see
-   *        <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html">Foundational data sources</a> in the
-   *      <i>Amazon GuardDuty User Guide</i>.</p>
-   *          <p>A signal type can be one of the valid values listed in this API. Here are the related descriptions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FINDING</code> - Individually generated GuardDuty finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CLOUD_TRAIL</code> - Activity observed from CloudTrail logs</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>S3_DATA_EVENTS</code> - Activity observed from CloudTrail data events for S3. Activities associated
-   *            with this type will show up only when
-   *            you have enabled GuardDuty S3 Protection feature in your account. For more information about S3 Protection and
-   *            steps to enable it, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html">S3 Protection</a> in the
-   *            <i>Amazon GuardDuty User Guide</i>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The type of the signal used to identify an attack sequence.</p> <p>Signals can be GuardDuty findings or activities observed in data sources that GuardDuty monitors. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html">Foundational data sources</a> in the <i>Amazon GuardDuty User Guide</i>.</p> <p>A signal type can be one of the valid values listed in this API. Here are the related descriptions:</p> <ul> <li> <p> <code>FINDING</code> - Individually generated GuardDuty finding.</p> </li> <li> <p> <code>CLOUD_TRAIL</code> - Activity observed from CloudTrail logs</p> </li> <li> <p> <code>S3_DATA_EVENTS</code> - Activity observed from CloudTrail data events for S3. Activities associated with this type will show up only when you have enabled GuardDuty S3 Protection feature in your account. For more information about S3 Protection and steps to enable it, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html">S3 Protection</a> in the <i>Amazon GuardDuty User Guide</i>.</p> </li> </ul>
    * @public
    */
   Type: SignalType | undefined;
@@ -5339,8 +4555,7 @@ export interface Signal {
   Description?: string | undefined;
 
   /**
-   * <p>The name of the signal. For example, when signal type is <code>FINDING</code>,
-   *        the signal name is the name of the finding.</p>
+   * <p>The name of the signal. For example, when signal type is <code>FINDING</code>, the signal name is the name of the finding.</p>
    * @public
    */
   Name: string | undefined;
@@ -5370,9 +4585,7 @@ export interface Signal {
   LastSeenAt: Date | undefined;
 
   /**
-   * <p>The severity associated with the signal. For more information about severity, see
-   *        <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-severity.html">Findings severity levels</a>
-   *      in the <i>Amazon GuardDuty User Guide</i>.</p>
+   * <p>The severity associated with the signal. For more information about severity, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-severity.html">Findings severity levels</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
    * @public
    */
   Severity?: number | undefined;
@@ -5456,8 +4669,7 @@ export interface Sequence {
   SequenceIndicators?: Indicator[] | undefined;
 
   /**
-   * <p>Additional types of sequences that may be associated with the attack sequence finding,
-   *       providing further context about the nature of the detected threat.</p>
+   * <p>Additional types of sequences that may be associated with the attack sequence finding, providing further context about the nature of the detected threat.</p>
    * @public
    */
   AdditionalSequenceTypes?: string[] | undefined;
@@ -5469,8 +4681,7 @@ export interface Sequence {
  */
 export interface Detection {
   /**
-   * <p>The details about the anomalous activity that caused GuardDuty to
-   *       generate the finding.</p>
+   * <p>The details about the anomalous activity that caused GuardDuty to generate the finding.</p>
    * @public
    */
   Anomaly?: Anomaly | undefined;
@@ -5500,20 +4711,14 @@ export interface DetectorAdditionalConfigurationResult {
   Status?: FeatureStatus | undefined;
 
   /**
-   * <p>The timestamp at which the additional configuration was last updated. This is in UTC
-   *       format.</p>
+   * <p>The timestamp at which the additional configuration was last updated. This is in UTC format.</p>
    * @public
    */
   UpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Contains information about a GuardDuty feature.</p>
- *          <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>)
- *       and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error.
- *       You can add only one of these two features because Runtime Monitoring already includes the
- *       threat detection for Amazon EKS resources. For more information, see
- *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime Monitoring</a>.</p>
+ * <p>Contains information about a GuardDuty feature.</p> <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>) and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error. You can add only one of these two features because Runtime Monitoring already includes the threat detection for Amazon EKS resources. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime Monitoring</a>.</p>
  * @public
  */
 export interface DetectorFeatureConfigurationResult {
@@ -5547,8 +4752,7 @@ export interface DetectorFeatureConfigurationResult {
  */
 export interface DisableOrganizationAdminAccountRequest {
   /**
-   * <p>The Amazon Web Services Account ID for the organizations account to be disabled as a GuardDuty delegated
-   *       administrator.</p>
+   * <p>The Amazon Web Services Account ID for the organizations account to be disabled as a GuardDuty delegated administrator.</p>
    * @public
    */
   AdminAccountId: string | undefined;
@@ -5598,15 +4802,13 @@ export interface DisassociateFromMasterAccountResponse {}
  */
 export interface DisassociateMembersRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty account whose members you want to
-   *       disassociate from the administrator account.</p>
+   * <p>The unique ID of the detector of the GuardDuty account whose members you want to disassociate from the administrator account.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>A list of account IDs of the GuardDuty member accounts that you want to disassociate from
-   *       the administrator account.</p>
+   * <p>A list of account IDs of the GuardDuty member accounts that you want to disassociate from the administrator account.</p>
    * @public
    */
   AccountIds: string[] | undefined;
@@ -5617,8 +4819,7 @@ export interface DisassociateMembersRequest {
  */
 export interface DisassociateMembersResponse {
   /**
-   * <p>A list of objects that contain the unprocessed account and a result string that explains
-   *       why it was unprocessed.</p>
+   * <p>A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.</p>
    * @public
    */
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
@@ -5667,8 +4868,7 @@ export interface EbsVolumeDetails {
 }
 
 /**
- * <p>Contains details of the highest severity threat detected during scan and number of
- *       infected files.</p>
+ * <p>Contains details of the highest severity threat detected during scan and number of infected files.</p>
  * @public
  */
 export interface HighestSeverityThreatDetails {
@@ -5746,8 +4946,7 @@ export interface ScanFilePath {
 }
 
 /**
- * <p>Contains files infected with the given threat providing details of malware name and
- *       severity.</p>
+ * <p>Contains files infected with the given threat providing details of malware name and severity.</p>
  * @public
  */
 export interface ScanThreatName {
@@ -5794,8 +4993,7 @@ export interface ThreatDetectedByName {
   UniqueThreatNameCount?: number | undefined;
 
   /**
-   * <p>Flag to determine if the finding contains every single infected file-path and/or every
-   *       threat.</p>
+   * <p>Flag to determine if the finding contains every single infected file-path and/or every threat.</p>
    * @public
    */
   Shortened?: boolean | undefined;
@@ -5837,8 +5035,7 @@ export interface ScanDetections {
   ThreatsDetectedItemCount?: ThreatsDetectedItemCount | undefined;
 
   /**
-   * <p>Details of the highest severity threat detected during malware scan and number of infected
-   *       files.</p>
+   * <p>Details of the highest severity threat detected during malware scan and number of infected files.</p>
    * @public
    */
   HighestSeverityThreatDetails?: HighestSeverityThreatDetails | undefined;
@@ -5911,8 +5108,7 @@ export interface Ec2ImageDetails {
 }
 
 /**
- * <p>Represents a pre-existing file or directory on the host machine that the volume maps
- *       to.</p>
+ * <p>Represents a pre-existing file or directory on the host machine that the volume maps to.</p>
  * @public
  */
 export interface HostPath {
@@ -5935,8 +5131,7 @@ export interface Volume {
   Name?: string | undefined;
 
   /**
-   * <p>Represents a pre-existing file or directory on the host machine that the volume maps
-   *       to.</p>
+   * <p>Represents a pre-existing file or directory on the host machine that the volume maps to.</p>
    * @public
    */
   HostPath?: HostPath | undefined;
@@ -6115,8 +5310,7 @@ export interface EksClusterDetails {
  */
 export interface EnableOrganizationAdminAccountRequest {
   /**
-   * <p>The Amazon Web Services account ID for the organization account to be enabled as a GuardDuty delegated
-   *       administrator.</p>
+   * <p>The Amazon Web Services account ID for the organization account to be enabled as a GuardDuty delegated administrator.</p>
    * @public
    */
   AdminAccountId: string | undefined;
@@ -6128,8 +5322,7 @@ export interface EnableOrganizationAdminAccountRequest {
 export interface EnableOrganizationAdminAccountResponse {}
 
 /**
- * <p>An instance of a threat intelligence detail that constitutes evidence for the
- *       finding.</p>
+ * <p>An instance of a threat intelligence detail that constitutes evidence for the finding.</p>
  * @public
  */
 export interface ThreatIntelligenceDetail {
@@ -6140,8 +5333,7 @@ export interface ThreatIntelligenceDetail {
   ThreatListName?: string | undefined;
 
   /**
-   * <p>A list of names of the threats in the threat intelligence list that triggered the
-   *       finding.</p>
+   * <p>A list of names of the threats in the threat intelligence list that triggered the finding.</p>
    * @public
    */
   ThreatNames?: string[] | undefined;
@@ -6279,8 +5471,7 @@ export interface InstanceDetails {
   InstanceType?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost. Only applicable to Amazon Web Services Outposts
-   *       instances.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost. Only applicable to Amazon Web Services Outposts instances.</p>
    * @public
    */
   OutpostArn?: string | undefined;
@@ -6358,8 +5549,7 @@ export interface KubernetesUserDetails {
   Groups?: string[] | undefined;
 
   /**
-   * <p>Entity that assumes the IAM role
-   *       when Kubernetes RBAC permissions are assigned to that role.</p>
+   * <p>Entity that assumes the IAM role when Kubernetes RBAC permissions are assigned to that role.</p>
    * @public
    */
   SessionName?: string[] | undefined;
@@ -6407,6 +5597,12 @@ export interface KubernetesWorkloadDetails {
   HostNetwork?: boolean | undefined;
 
   /**
+   * <p>The service account name that is associated with a Kubernetes workload.</p>
+   * @public
+   */
+  ServiceAccountName?: string | undefined;
+
+  /**
    * <p>Containers running as part of the Kubernetes workload.</p>
    * @public
    */
@@ -6417,12 +5613,6 @@ export interface KubernetesWorkloadDetails {
    * @public
    */
   Volumes?: Volume[] | undefined;
-
-  /**
-   * <p>The service account name that is associated with a Kubernetes workload.</p>
-   * @public
-   */
-  ServiceAccountName?: string | undefined;
 
   /**
    * <p>Whether the host IPC flag is enabled for the pods in the workload.</p>
@@ -6438,8 +5628,7 @@ export interface KubernetesWorkloadDetails {
 }
 
 /**
- * <p>Details about Kubernetes resources such as a Kubernetes user or workload resource involved
- *       in a Kubernetes finding.</p>
+ * <p>Details about Kubernetes resources such as a Kubernetes user or workload resource involved in a Kubernetes finding.</p>
  * @public
  */
 export interface KubernetesDetails {
@@ -6504,8 +5693,7 @@ export interface LambdaDetails {
   Description?: string | undefined;
 
   /**
-   * <p>The timestamp when the Lambda function was last modified. This field is in the UTC date string
-   *       format <code>(2023-03-22T19:37:20.168Z)</code>.</p>
+   * <p>The timestamp when the Lambda function was last modified. This field is in the UTC date string format <code>(2023-03-22T19:37:20.168Z)</code>.</p>
    * @public
    */
   LastModifiedAt?: Date | undefined;
@@ -6535,22 +5723,19 @@ export interface LambdaDetails {
   VpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>A list of tags attached to this resource, listed in the format of
-   *       <code>key</code>:<code>value</code> pair.</p>
+   * <p>A list of tags attached to this resource, listed in the format of <code>key</code>:<code>value</code> pair.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Contains information about the resource type <code>RDSDBInstance</code> involved in a
- *       GuardDuty finding.</p>
+ * <p>Contains information about the resource type <code>RDSDBInstance</code> involved in a GuardDuty finding.</p>
  * @public
  */
 export interface RdsDbInstanceDetails {
   /**
-   * <p>The identifier associated to the database instance that was involved in the
-   *       finding.</p>
+   * <p>The identifier associated to the database instance that was involved in the finding.</p>
    * @public
    */
   DbInstanceIdentifier?: string | undefined;
@@ -6568,22 +5753,19 @@ export interface RdsDbInstanceDetails {
   EngineVersion?: string | undefined;
 
   /**
-   * <p>The identifier of the database cluster that contains the database instance ID involved in
-   *       the finding.</p>
+   * <p>The identifier of the database cluster that contains the database instance ID involved in the finding.</p>
    * @public
    */
   DbClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the database instance involved in the
-   *       finding.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the database instance involved in the finding.</p>
    * @public
    */
   DbInstanceArn?: string | undefined;
 
   /**
-   * <p>The unique ID of the database resource involved in the activity that prompted GuardDuty
-   *       to generate the finding.</p>
+   * <p>The unique ID of the database resource involved in the activity that prompted GuardDuty to generate the finding.</p>
    * @public
    */
   DbiResourceId?: string | undefined;
@@ -6596,8 +5778,7 @@ export interface RdsDbInstanceDetails {
 }
 
 /**
- * <p>Contains information about the user and authentication details for a database instance
- *       involved in the finding.</p>
+ * <p>Contains information about the user and authentication details for a database instance involved in the finding.</p>
  * @public
  */
 export interface RdsDbUserDetails {
@@ -6633,8 +5814,7 @@ export interface RdsDbUserDetails {
 }
 
 /**
- * <p>Contains information about the resource type <code>RDSLimitlessDB</code> that is involved in a GuardDuty
- *     finding.</p>
+ * <p>Contains information about the resource type <code>RDSLimitlessDB</code> that is involved in a GuardDuty finding.</p>
  * @public
  */
 export interface RdsLimitlessDbDetails {
@@ -6705,10 +5885,7 @@ export interface RecoveryPointDetails {
  */
 export interface Owner {
   /**
-   * <p>The canonical user ID of the bucket owner. For information about locating your canonical
-   *       user ID see <a href="https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId">Finding Your Account
-   *         Canonical User ID.</a>
-   *          </p>
+   * <p>The canonical user ID of the bucket owner. For information about locating your canonical user ID see <a href="https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId">Finding Your Account Canonical User ID.</a> </p>
    * @public
    */
   Id?: string | undefined;
@@ -6744,8 +5921,7 @@ export interface PublicAccess {
   PermissionConfiguration?: PermissionConfiguration | undefined;
 
   /**
-   * <p>Describes the effective permission on this bucket after factoring all attached
-   *       policies.</p>
+   * <p>Describes the effective permission on this bucket after factoring all attached policies.</p>
    * @public
    */
   EffectivePermission?: string | undefined;
@@ -6769,8 +5945,7 @@ export interface S3ObjectDetail {
   Key?: string | undefined;
 
   /**
-   * <p>The entity tag is a hash of the S3 object. The ETag reflects changes only to the contents of
-   *     an object, and not its metadata.</p>
+   * <p>The entity tag is a hash of the S3 object. The ETag reflects changes only to the contents of an object, and not its metadata.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -6849,14 +6024,12 @@ export interface S3BucketDetail {
 }
 
 /**
- * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted
- *       GuardDuty to generate a finding.</p>
+ * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted GuardDuty to generate a finding.</p>
  * @public
  */
 export interface Resource {
   /**
-   * <p>The IAM access key details (user information) of a user that engaged in the activity that
-   *       prompted GuardDuty to generate a finding.</p>
+   * <p>The IAM access key details (user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   AccessKeyDetails?: AccessKeyDetails | undefined;
@@ -6868,8 +6041,7 @@ export interface Resource {
   S3BucketDetails?: S3BucketDetail[] | undefined;
 
   /**
-   * <p>The information about the EC2 instance associated with the activity that prompted
-   *       GuardDuty to generate a finding.</p>
+   * <p>The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   InstanceDetails?: InstanceDetails | undefined;
@@ -6911,8 +6083,13 @@ export interface Resource {
   ContainerDetails?: Container | undefined;
 
   /**
-   * <p>Contains information about the database instance to which an anomalous login attempt was
-   *       made.</p>
+   * <p>Contains information about the Lambda function that was involved in a finding.</p>
+   * @public
+   */
+  LambdaDetails?: LambdaDetails | undefined;
+
+  /**
+   * <p>Contains information about the database instance to which an anomalous login attempt was made.</p>
    * @public
    */
   RdsDbInstanceDetails?: RdsDbInstanceDetails | undefined;
@@ -6924,17 +6101,10 @@ export interface Resource {
   RdsLimitlessDbDetails?: RdsLimitlessDbDetails | undefined;
 
   /**
-   * <p>Contains information about the user details through which anomalous login attempt was
-   *       made.</p>
+   * <p>Contains information about the user details through which anomalous login attempt was made.</p>
    * @public
    */
   RdsDbUserDetails?: RdsDbUserDetails | undefined;
-
-  /**
-   * <p>Contains information about the Lambda function that was involved in a finding.</p>
-   * @public
-   */
-  LambdaDetails?: LambdaDetails | undefined;
 
   /**
    * <p>Contains details about the EBS snapshot that was scanned.</p>
@@ -6979,8 +6149,7 @@ export interface ServiceAdditionalInfo {
  */
 export interface IncrementalScanDetails {
   /**
-   * <p>Amazon Resource Name (ARN) of the baseline resource used for incremental scanning. The scan will only
-   *       process changes since this baseline resource was created.</p>
+   * <p>Amazon Resource Name (ARN) of the baseline resource used for incremental scanning. The scan will only process changes since this baseline resource was created.</p>
    * @public
    */
   BaselineResourceArn: string | undefined;
@@ -7035,8 +6204,7 @@ export interface ItemDetails {
 }
 
 /**
- * <p>Information about the nested item path and hash of the protected
- *       resource.</p>
+ * <p>Information about the nested item path and hash of the protected resource.</p>
  * @public
  */
 export interface ItemPath {
@@ -7054,8 +6222,7 @@ export interface ItemPath {
 }
 
 /**
- * <p>Information about the detected threats associated with the
- *       generated finding.</p>
+ * <p>Information about the detected threats associated with the generated finding.</p>
  * @public
  */
 export interface Threat {
@@ -7072,8 +6239,7 @@ export interface Threat {
   Source?: string | undefined;
 
   /**
-   * <p>Information about the nested item path and
-   *       hash of the protected resource.</p>
+   * <p>Information about the nested item path and hash of the protected resource.</p>
    * @public
    */
   ItemPaths?: ItemPath[] | undefined;
@@ -7103,8 +6269,7 @@ export interface Threat {
  */
 export interface MalwareScanDetails {
   /**
-   * <p>Information about the detected threats associated with the
-   *       generated GuardDuty finding.</p>
+   * <p>Information about the detected threats associated with the generated GuardDuty finding.</p>
    * @public
    */
   Threats?: Threat[] | undefined;
@@ -7194,8 +6359,7 @@ export interface LineageObject {
   Euid?: number | undefined;
 
   /**
-   * <p>The unique ID of the parent process. This ID is assigned to the parent process by
-   *       GuardDuty.</p>
+   * <p>The unique ID of the parent process. This ID is assigned to the parent process by GuardDuty.</p>
    * @public
    */
   ParentUuid?: string | undefined;
@@ -7255,8 +6419,7 @@ export interface ProcessDetails {
   Uuid?: string | undefined;
 
   /**
-   * <p>The unique ID of the parent process. This ID is assigned to the parent process by
-   *       GuardDuty.</p>
+   * <p>The unique ID of the parent process. This ID is assigned to the parent process by GuardDuty.</p>
    * @public
    */
   ParentUuid?: string | undefined;
@@ -7292,15 +6455,13 @@ export interface ProcessDetails {
  */
 export interface RuntimeContext {
   /**
-   * <p>Information about the process that modified the current process. This is available for
-   *       multiple finding types.</p>
+   * <p>Information about the process that modified the current process. This is available for multiple finding types.</p>
    * @public
    */
   ModifyingProcess?: ProcessDetails | undefined;
 
   /**
-   * <p>The timestamp at which the process modified the current process. The timestamp is in UTC date string
-   *       format.</p>
+   * <p>The timestamp at which the process modified the current process. The timestamp is in UTC date string format.</p>
    * @public
    */
   ModifiedAt?: Date | undefined;
@@ -7360,8 +6521,7 @@ export interface RuntimeContext {
   FileSystemType?: string | undefined;
 
   /**
-   * <p>Represents options that control the behavior of a runtime operation or action. For
-   *       example, a filesystem mount operation may contain a read-only flag.</p>
+   * <p>Represents options that control the behavior of a runtime operation or action. For example, a filesystem mount operation may contain a read-only flag.</p>
    * @public
    */
   Flags?: string[] | undefined;
@@ -7397,16 +6557,13 @@ export interface RuntimeContext {
   TargetProcess?: ProcessDetails | undefined;
 
   /**
-   * <p>Represents the communication protocol associated with the address. For example, the address
-   *       family <code>AF_INET</code> is used for IP version of 4 protocol.</p>
+   * <p>Represents the communication protocol associated with the address. For example, the address family <code>AF_INET</code> is used for IP version of 4 protocol.</p>
    * @public
    */
   AddressFamily?: string | undefined;
 
   /**
-   * <p>Specifies a particular protocol within the address family. Usually there is a single
-   *       protocol in address families. For example, the address family <code>AF_INET</code> only has
-   *       the IP protocol.</p>
+   * <p>Specifies a particular protocol within the address family. Usually there is a single protocol in address families. For example, the address family <code>AF_INET</code> only has the IP protocol.</p>
    * @public
    */
   IanaProtocolNumber?: number | undefined;
@@ -7424,8 +6581,7 @@ export interface RuntimeContext {
   ToolName?: string | undefined;
 
   /**
-   * <p>Category that the tool belongs to. Some of the examples
-   *     are Backdoor Tool, Pentest Tool, Network Scanner, and Network Sniffer.</p>
+   * <p>Category that the tool belongs to. Some of the examples are Backdoor Tool, Pentest Tool, Network Scanner, and Network Sniffer.</p>
    * @public
    */
   ToolCategory?: string | undefined;
@@ -7450,8 +6606,7 @@ export interface RuntimeContext {
 }
 
 /**
- * <p>Information about the process and any required context values for a specific
- *       finding.</p>
+ * <p>Information about the process and any required context values for a specific finding.</p>
  * @public
  */
 export interface RuntimeDetails {
@@ -7504,15 +6659,13 @@ export interface Service {
   DetectorId?: string | undefined;
 
   /**
-   * <p>The first-seen timestamp of the activity that prompted GuardDuty to generate this
-   *       finding.</p>
+   * <p>The first-seen timestamp of the activity that prompted GuardDuty to generate this finding.</p>
    * @public
    */
   EventFirstSeen?: string | undefined;
 
   /**
-   * <p>The last-seen timestamp of the activity that prompted GuardDuty to generate this
-   *       finding.</p>
+   * <p>The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.</p>
    * @public
    */
   EventLastSeen?: string | undefined;
@@ -7554,8 +6707,7 @@ export interface Service {
   EbsVolumeScanDetails?: EbsVolumeScanDetails | undefined;
 
   /**
-   * <p>Information about the process and any required context values for a specific
-   *       finding</p>
+   * <p>Information about the process and any required context values for a specific finding</p>
    * @public
    */
   RuntimeDetails?: RuntimeDetails | undefined;
@@ -7574,8 +6726,7 @@ export interface Service {
 }
 
 /**
- * <p>Contains information about the finding that is generated when abnormal or suspicious
- *       activity is detected.</p>
+ * <p>Contains information about the finding that is generated when abnormal or suspicious activity is detected.</p>
  * @public
  */
 export interface Finding {
@@ -7622,18 +6773,13 @@ export interface Finding {
   Partition?: string | undefined;
 
   /**
-   * <p>The Region where the finding was generated. For findings generated
-   *       from <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-global-service-events">Global Service Events</a>, the Region value in the finding might differ from the Region where
-   *       GuardDuty identifies the potential threat. For more information,
-   *       see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html#cloudtrail_global">How GuardDuty
-   *         handles Amazon Web Services CloudTrail global events</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+   * <p>The Region where the finding was generated. For findings generated from <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-global-service-events">Global Service Events</a>, the Region value in the finding might differ from the Region where GuardDuty identifies the potential threat. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html#cloudtrail_global">How GuardDuty handles Amazon Web Services CloudTrail global events</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
    * @public
    */
   Region: string | undefined;
 
   /**
-   * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted
-   *       GuardDuty to generate a finding.</p>
+   * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted GuardDuty to generate a finding.</p>
    * @public
    */
   Resource: Resource | undefined;
@@ -7682,8 +6828,7 @@ export interface Finding {
 }
 
 /**
- * <p>Information about each finding type associated with the
- *       <code>groupedByFindingType</code> statistics.</p>
+ * <p>Information about each finding type associated with the <code>groupedByFindingType</code> statistics.</p>
  * @public
  */
 export interface FindingTypeStatistics {
@@ -7707,8 +6852,7 @@ export interface FindingTypeStatistics {
 }
 
 /**
- * <p>Information about each resource type associated with the
- *       <code>groupedByResource</code> statistics.</p>
+ * <p>Information about each resource type associated with the <code>groupedByResource</code> statistics.</p>
  * @public
  */
 export interface ResourceStatistics {
@@ -7725,53 +6869,7 @@ export interface ResourceStatistics {
   LastGeneratedAt?: Date | undefined;
 
   /**
-   * <p>ID associated with each resource. The following list provides the mapping of the resource type
-   *     and resource ID.</p>
-   *          <p class="title">
-   *             <b>Mapping of resource and resource ID</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>AccessKey - <code>resource.accessKeyDetails.accessKeyId</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Container - <code>resource.containerDetails.id</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>ECSCluster - <code>resource.ecsClusterDetails.name</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>EKSCluster - <code>resource.eksClusterDetails.name</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Instance - <code>resource.instanceDetails.instanceId</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>KubernetesCluster - <code>resource.kubernetesDetails.kubernetesWorkloadDetails.name</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Lambda - <code>resource.lambdaDetails.functionName</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>RDSDBInstance - <code>resource.rdsDbInstanceDetails.dbInstanceIdentifier</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>S3Bucket - <code>resource.s3BucketDetails.name</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>S3Object - <code>resource.s3BucketDetails.name</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>ID associated with each resource. The following list provides the mapping of the resource type and resource ID.</p> <p class="title"> <b>Mapping of resource and resource ID</b> </p> <ul> <li> <p>AccessKey - <code>resource.accessKeyDetails.accessKeyId</code> </p> </li> <li> <p>Container - <code>resource.containerDetails.id</code> </p> </li> <li> <p>ECSCluster - <code>resource.ecsClusterDetails.name</code> </p> </li> <li> <p>EKSCluster - <code>resource.eksClusterDetails.name</code> </p> </li> <li> <p>Instance - <code>resource.instanceDetails.instanceId</code> </p> </li> <li> <p>KubernetesCluster - <code>resource.kubernetesDetails.kubernetesWorkloadDetails.name</code> </p> </li> <li> <p>Lambda - <code>resource.lambdaDetails.functionName</code> </p> </li> <li> <p>RDSDBInstance - <code>resource.rdsDbInstanceDetails.dbInstanceIdentifier</code> </p> </li> <li> <p>S3Bucket - <code>resource.s3BucketDetails.name</code> </p> </li> <li> <p>S3Object - <code>resource.s3BucketDetails.name</code> </p> </li> </ul>
    * @public
    */
   ResourceId?: string | undefined;
@@ -7839,12 +6937,7 @@ export interface FindingStatistics {
   GroupedByDate?: DateStatistics[] | undefined;
 
   /**
-   * <p>Represents a list of map of finding types with a count of total findings generated for each type. </p>
-   *          <p>Based on the <code>orderBy</code>
-   *     parameter, this request returns either the most occurring finding types or the least occurring finding types. If the
-   *     <code>orderBy</code> parameter is <code>ASC</code>, this will represent the least occurring finding types in
-   *     your account; otherwise, this will represent the most occurring finding types. The default
-   *     value of <code>orderBy</code> is <code>DESC</code>.</p>
+   * <p>Represents a list of map of finding types with a count of total findings generated for each type. </p> <p>Based on the <code>orderBy</code> parameter, this request returns either the most occurring finding types or the least occurring finding types. If the <code>orderBy</code> parameter is <code>ASC</code>, this will represent the least occurring finding types in your account; otherwise, this will represent the most occurring finding types. The default value of <code>orderBy</code> is <code>DESC</code>.</p>
    * @public
    */
   GroupedByFindingType?: FindingTypeStatistics[] | undefined;
@@ -7889,9 +6982,7 @@ export interface GetAdministratorAccountResponse {
  */
 export interface GetCoverageStatisticsRequest {
   /**
-   * <p>The unique ID of the GuardDuty detector.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the GuardDuty detector.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -7914,8 +7005,7 @@ export interface GetCoverageStatisticsRequest {
  */
 export interface GetCoverageStatisticsResponse {
   /**
-   * <p>Represents the count aggregated by the <code>statusCode</code> and
-   *         <code>resourceType</code>.</p>
+   * <p>Represents the count aggregated by the <code>statusCode</code> and <code>resourceType</code>.</p>
    * @public
    */
   CoverageStatistics?: CoverageStatistics | undefined;
@@ -7926,9 +7016,7 @@ export interface GetCoverageStatisticsResponse {
  */
 export interface GetDetectorRequest {
   /**
-   * <p>The unique ID of the detector that you want to get.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector that you want to get.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -7994,9 +7082,7 @@ export interface GetDetectorResponse {
  */
 export interface GetFilterRequest {
   /**
-   * <p>The unique ID of the detector that is associated with this filter.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector that is associated with this filter.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -8031,8 +7117,7 @@ export interface GetFilterResponse {
   Action: FilterAction | undefined;
 
   /**
-   * <p>Specifies the position of the filter in the list of current filters. Also specifies the
-   *       order in which this filter is applied to the findings.</p>
+   * <p>Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.</p>
    * @public
    */
   Rank?: number | undefined;
@@ -8055,10 +7140,7 @@ export interface GetFilterResponse {
  */
 export interface GetFindingsRequest {
   /**
-   * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
-   *       retrieve.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -8092,10 +7174,7 @@ export interface GetFindingsResponse {
  */
 export interface GetFindingsStatisticsRequest {
   /**
-   * <p>The ID of the detector whose findings statistics you
-   *       want to retrieve.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The ID of the detector whose findings statistics you want to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -8121,16 +7200,13 @@ export interface GetFindingsStatisticsRequest {
   GroupBy?: GroupByType | undefined;
 
   /**
-   * <p>Displays the sorted findings in the requested order. The default
-   *       value of <code>orderBy</code> is <code>DESC</code>.</p>
-   *          <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
+   * <p>Displays the sorted findings in the requested order. The default value of <code>orderBy</code> is <code>DESC</code>.</p> <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
    * @public
    */
   OrderBy?: OrderBy | undefined;
 
   /**
-   * <p>The maximum number of results to be returned in the response. The default value is 25.</p>
-   *          <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
+   * <p>The maximum number of results to be returned in the response. The default value is 25.</p> <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -8147,8 +7223,7 @@ export interface GetFindingsStatisticsResponse {
   FindingStatistics: FindingStatistics | undefined;
 
   /**
-   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-   *          <p>This parameter is currently not supported.</p>
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p> <p>This parameter is currently not supported.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -8175,9 +7250,7 @@ export interface GetInvitationsCountResponse {
  */
 export interface GetIPSetRequest {
   /**
-   * <p>The unique ID of the detector that is associated with the IPSet.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector that is associated with the IPSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -8224,8 +7297,7 @@ export interface GetIPSetResponse {
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter. This field appears
-   *       in the response only if it was provided during IPSet creation or update.</p>
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter. This field appears in the response only if it was provided during IPSet creation or update.</p>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -8243,8 +7315,7 @@ export interface GetMalwareProtectionPlanRequest {
 }
 
 /**
- * <p>Information about the issue code and message associated to the status of
- *       your Malware Protection plan.</p>
+ * <p>Information about the issue code and message associated to the status of your Malware Protection plan.</p>
  * @public
  */
 export interface MalwareProtectionPlanStatusReason {
@@ -8255,10 +7326,7 @@ export interface MalwareProtectionPlanStatusReason {
   Code?: string | undefined;
 
   /**
-   * <p>Issue message that specifies the reason. For information
-   *       about potential troubleshooting steps, see
-   *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/troubleshoot-s3-malware-protection-status-errors.html">Troubleshooting Malware Protection for S3 status issues</a> in the
-   *       <i>Amazon GuardDuty User Guide</i>.</p>
+   * <p>Issue message that specifies the reason. For information about potential troubleshooting steps, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/troubleshoot-s3-malware-protection-status-errors.html">Troubleshooting Malware Protection for S3 status issues</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
    * @public
    */
   Message?: string | undefined;
@@ -8275,16 +7343,13 @@ export interface GetMalwareProtectionPlanResponse {
   Arn?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the IAM role that includes the permissions to scan and
-   *       add tags to the associated protected resource.</p>
+   * <p>Amazon Resource Name (ARN) of the IAM role that includes the permissions to scan and add tags to the associated protected resource.</p>
    * @public
    */
   Role?: string | undefined;
 
   /**
-   * <p>Information about the protected resource that is associated with the created
-   *       Malware Protection plan. Presently, <code>S3Bucket</code> is the only supported
-   *       protected resource.</p>
+   * <p>Information about the protected resource that is associated with the created Malware Protection plan. Presently, <code>S3Bucket</code> is the only supported protected resource.</p>
    * @public
    */
   ProtectedResource?: CreateProtectedResource | undefined;
@@ -8308,8 +7373,7 @@ export interface GetMalwareProtectionPlanResponse {
   Status?: MalwareProtectionPlanStatus | undefined;
 
   /**
-   * <p>Information about the issue code and message associated to the status of
-   *     your Malware Protection plan.</p>
+   * <p>Information about the issue code and message associated to the status of your Malware Protection plan.</p>
    * @public
    */
   StatusReasons?: MalwareProtectionPlanStatusReason[] | undefined;
@@ -8326,8 +7390,7 @@ export interface GetMalwareProtectionPlanResponse {
  */
 export interface GetMalwareScanRequest {
   /**
-   * <p>A unique identifier that gets generated when you invoke the API without any error. Each malware scan has
-   *       a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
+   * <p>A unique identifier that gets generated when you invoke the API without any error. Each malware scan has a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
    * @public
    */
   ScanId: string | undefined;
@@ -8524,26 +7587,19 @@ export interface GetMalwareScanResultDetails {
  */
 export interface GetMalwareScanResponse {
   /**
-   * <p>A unique identifier associated with the malware scan. Each malware scan has
-   *       a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
+   * <p>A unique identifier associated with the malware scan. Each malware scan has a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
    * @public
    */
   ScanId?: string | undefined;
 
   /**
-   * <p>The unique ID of the detector that is associated with the request, if it belongs to an account which is a GuardDuty customer.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector that is associated with the request, if it belongs to an account which is a GuardDuty customer.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId?: string | undefined;
 
   /**
-   * <p>The unique detector ID of the administrator account that the request is associated with.
-   *       If the account is an administrator, the <code>AdminDetectorId</code> will be the same as the one used for
-   *       <code>DetectorId. If the customer is not a GuardDuty customer, this field will not be present.</code>.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique detector ID of the administrator account that the request is associated with. If the account is an administrator, the <code>AdminDetectorId</code> will be the same as the one used for <code>DetectorId. If the customer is not a GuardDuty customer, this field will not be present.</code>.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   AdminDetectorId?: string | undefined;
@@ -8638,9 +7694,7 @@ export interface GetMalwareScanResponse {
  */
 export interface GetMalwareScanSettingsRequest {
   /**
-   * <p>The unique ID of the detector that is associated with this scan.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector that is associated with this scan.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -8658,9 +7712,7 @@ export interface ScanConditionPair {
   Key: string | undefined;
 
   /**
-   * <p>Represents optional <b>value</b> in the map
-   *       condition. If not specified, only the <b>key</b> will be
-   *       matched.</p>
+   * <p>Represents optional <b>value</b> in the map condition. If not specified, only the <b>key</b> will be matched.</p>
    * @public
    */
   Value?: string | undefined;
@@ -8672,30 +7724,25 @@ export interface ScanConditionPair {
  */
 export interface ScanCondition {
   /**
-   * <p>Represents an <i>mapEqual</i>
-   *             <b></b> condition to be applied
-   *       to a single field when triggering for malware scan.</p>
+   * <p>Represents an <i>mapEqual</i> <b/> condition to be applied to a single field when triggering for malware scan.</p>
    * @public
    */
   MapEquals: ScanConditionPair[] | undefined;
 }
 
 /**
- * <p>Contains information about criteria used to filter resources before triggering malware
- *       scan.</p>
+ * <p>Contains information about criteria used to filter resources before triggering malware scan.</p>
  * @public
  */
 export interface ScanResourceCriteria {
   /**
-   * <p>Represents condition that when matched will allow a malware scan for a certain
-   *       resource.</p>
+   * <p>Represents condition that when matched will allow a malware scan for a certain resource.</p>
    * @public
    */
   Include?: Partial<Record<ScanCriterionKey, ScanCondition>> | undefined;
 
   /**
-   * <p>Represents condition that when matched will prevent a malware scan for a certain
-   *       resource.</p>
+   * <p>Represents condition that when matched will prevent a malware scan for a certain resource.</p>
    * @public
    */
   Exclude?: Partial<Record<ScanCriterionKey, ScanCondition>> | undefined;
@@ -8724,9 +7771,7 @@ export interface GetMalwareScanSettingsResponse {
  */
 export interface GetMasterAccountRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty member account.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The unique ID of the detector of the GuardDuty member account.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -8779,9 +7824,7 @@ export interface GetMasterAccountResponse {
  */
 export interface GetMemberDetectorsRequest {
   /**
-   * <p>The detector ID for the administrator account.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * <p>The detector ID for the administrator account.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;

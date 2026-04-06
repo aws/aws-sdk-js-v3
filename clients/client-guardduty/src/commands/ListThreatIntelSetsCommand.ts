@@ -27,9 +27,7 @@ export interface ListThreatIntelSetsCommandInput extends ListThreatIntelSetsRequ
 export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
- *       use this operation from a member account, the ThreatIntelSets associated with the
- *       administrator account are returned.</p>
+ * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you use this operation from a member account, the ThreatIntelSets associated with the administrator account are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

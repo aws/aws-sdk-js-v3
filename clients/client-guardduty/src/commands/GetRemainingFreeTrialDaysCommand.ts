@@ -27,8 +27,7 @@ export interface GetRemainingFreeTrialDaysCommandInput extends GetRemainingFreeT
 export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFreeTrialDaysResponse, __MetadataBearer {}
 
 /**
- * <p>Provides the number of days left for each data source used in the free trial
- *       period.</p>
+ * <p>Provides the number of days left for each data source used in the free trial period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,7 +72,7 @@ export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFree
  * //       },
  * //       Features: [ // FreeTrialFeatureConfigurationsResults
  * //         { // FreeTrialFeatureConfigurationResult
- * //           Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS" || "FARGATE_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING",
+ * //           Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING",
  * //           FreeTrialDaysRemaining: Number("int"),
  * //         },
  * //       ],

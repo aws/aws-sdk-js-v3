@@ -27,12 +27,7 @@ export interface GetFindingsStatisticsCommandInput extends GetFindingsStatistics
 export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists GuardDuty findings statistics for the specified detector ID.</p>
- *          <p>You must provide either <code>findingStatisticTypes</code> or
- *       <code>groupBy</code> parameter, and not both. You can use the <code>maxResults</code> and <code>orderBy</code>
- *       parameters only when using <code>groupBy</code>.</p>
- *          <p>There might be regional differences because some flags might not be available in all the Regions where GuardDuty
- *       is currently supported. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
+ * <p>Lists GuardDuty findings statistics for the specified detector ID.</p> <p>You must provide either <code>findingStatisticTypes</code> or <code>groupBy</code> parameter, and not both. You can use the <code>maxResults</code> and <code>orderBy</code> parameters only when using <code>groupBy</code>.</p> <p>There might be regional differences because some flags might not be available in all the Regions where GuardDuty is currently supported. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

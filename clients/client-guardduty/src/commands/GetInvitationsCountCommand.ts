@@ -27,8 +27,7 @@ export interface GetInvitationsCountCommandInput extends GetInvitationsCountRequ
 export interface GetInvitationsCountCommandOutput extends GetInvitationsCountResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the count of all GuardDuty membership invitations that were sent to the current
- *       member account except the currently accepted invitation.</p>
+ * <p>Returns the count of all GuardDuty membership invitations that were sent to the current member account except the currently accepted invitation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,10 +27,7 @@ export interface CreateIPSetCommandInput extends CreateIPSetRequest {}
 export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new IPSet, which is called a trusted IP list in the console user interface. An
- *       IPSet is a list of IP addresses that are trusted for secure communication with Amazon Web Services
- *       infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are
- *       included in IPSets. Only users from the administrator account can use this operation.</p>
+ * <p>Creates a new IPSet, which is called a trusted IP list in the console user interface. An IPSet is a list of IP addresses that are trusted for secure communication with Amazon Web Services infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are included in IPSets. Only users from the administrator account can use this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

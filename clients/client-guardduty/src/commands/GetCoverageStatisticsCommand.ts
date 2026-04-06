@@ -27,10 +27,7 @@ export interface GetCoverageStatisticsCommandInput extends GetCoverageStatistics
 export interface GetCoverageStatisticsCommandOutput extends GetCoverageStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves aggregated statistics for your account. If you are a GuardDuty administrator, you
- *       can retrieve the statistics for all the resources associated with the active member accounts
- *       in your organization who have enabled Runtime Monitoring and have the GuardDuty security agent running
- *       on their resources.</p>
+ * <p>Retrieves aggregated statistics for your account. If you are a GuardDuty administrator, you can retrieve the statistics for all the resources associated with the active member accounts in your organization who have enabled Runtime Monitoring and have the GuardDuty security agent running on their resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,7 +41,7 @@ export interface GetCoverageStatisticsCommandOutput extends GetCoverageStatistic
  *   FilterCriteria: { // CoverageFilterCriteria
  *     FilterCriterion: [ // CoverageFilterCriterionList
  *       { // CoverageFilterCriterion
- *         CriterionKey: "ACCOUNT_ID" || "CLUSTER_NAME" || "RESOURCE_TYPE" || "COVERAGE_STATUS" || "ADDON_VERSION" || "MANAGEMENT_TYPE" || "EKS_CLUSTER_NAME" || "ECS_CLUSTER_NAME" || "AGENT_VERSION" || "INSTANCE_ID" || "CLUSTER_ARN",
+ *         CriterionKey: "ACCOUNT_ID" || "RESOURCE_TYPE" || "COVERAGE_STATUS" || "ADDON_VERSION" || "CLUSTER_NAME" || "ECS_CLUSTER_NAME" || "MANAGEMENT_TYPE" || "EKS_CLUSTER_NAME" || "AGENT_VERSION" || "INSTANCE_ID" || "CLUSTER_ARN",
  *         FilterCondition: { // CoverageFilterCondition
  *           Equals: [ // Equals
  *             "STRING_VALUE",

@@ -27,8 +27,7 @@ export interface DeleteThreatEntitySetCommandInput extends DeleteThreatEntitySet
 export interface DeleteThreatEntitySetCommandOutput extends DeleteThreatEntitySetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the threat entity set that is associated with the specified
- *        <code>threatEntitySetId</code>.</p>
+ * <p>Deletes the threat entity set that is associated with the specified <code>threatEntitySetId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

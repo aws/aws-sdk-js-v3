@@ -1222,11 +1222,10 @@ const _fFC = "failedFileCount";
 const _fI = "findingIds";
 const _fL = "flowLogs";
 const _fLA = "failedLoginAttempts";
-const _fN = "filterName";
+const _fN = "functionName";
 const _fNe = "featureName";
 const _fNi = "filterNames";
 const _fNil = "fileName";
-const _fNu = "functionName";
 const _fP = "filePath";
 const _fPF = "findingPublishingFrequency";
 const _fPi = "filePaths";
@@ -1265,7 +1264,6 @@ const _gt = "gte";
 const _h = "hash";
 const _hE = "httpError";
 const _hIPC = "hostIPC";
-const _hL = "httpLabel";
 const _hN = "hostNetwork";
 const _hP = "hostPath";
 const _hPID = "hostPID";
@@ -1537,7 +1535,7 @@ const _sou = "source";
 const _ss = "ssl";
 const _st = "status";
 const _su = "subresource";
-const _t = "__type";
+const _t = "type";
 const _tABF = "topAccountsByFeature";
 const _tAC = "totalAccountsCount";
 const _tB = "totalBytes";
@@ -1575,7 +1573,6 @@ const _te = "text";
 const _th = "threats";
 const _ti = "title";
 const _to = "total";
-const _ty = "type";
 const _u = "uid";
 const _uA = "userAgent";
 const _uAn = "unprocessedAccounts";
@@ -1679,7 +1676,7 @@ var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AcceptAdministratorInvitationRequest$: StaticStructureSchema = [3, n0, _AAIR,
   0,
   [_DI, _AI, _II],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_jN]: _aI }], [0, { [_jN]: _iI }]], 3
+  [[0, 1], [0, { [_jN]: _aI }], [0, { [_jN]: _iI }]], 3
 ];
 export var AcceptAdministratorInvitationResponse$: StaticStructureSchema = [3, n0, _AAIRc,
   0,
@@ -1689,7 +1686,7 @@ export var AcceptAdministratorInvitationResponse$: StaticStructureSchema = [3, n
 export var AcceptInvitationRequest$: StaticStructureSchema = [3, n0, _AIR,
   0,
   [_DI, _MI, _II],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_jN]: _mI }], [0, { [_jN]: _iI }]], 3
+  [[0, 1], [0, { [_jN]: _mI }], [0, { [_jN]: _iI }]], 3
 ];
 export var AcceptInvitationResponse$: StaticStructureSchema = [3, n0, _AIRc,
   0,
@@ -1738,8 +1735,8 @@ export var AccountStatistics$: StaticStructureSchema = [3, n0, _AS,
 ];
 export var Action$: StaticStructureSchema = [3, n0, _Ac,
   0,
-  [_AT, _AACA, _DRA, _NCA, _PPA, _KACA, _RLAA, _KPCD, _KRBD, _KRD],
-  [[0, { [_jN]: _aT }], [() => AwsApiCallAction$, { [_jN]: _aACA }], [() => DnsRequestAction$, { [_jN]: _dRA }], [() => NetworkConnectionAction$, { [_jN]: _nCA }], [() => PortProbeAction$, { [_jN]: _pPA }], [() => KubernetesApiCallAction$, { [_jN]: _kACA }], [() => RdsLoginAttemptAction$, { [_jN]: _rLAA }], [() => KubernetesPermissionCheckedDetails$, { [_jN]: _kPCD }], [() => KubernetesRoleBindingDetails$, { [_jN]: _kRBD }], [() => KubernetesRoleDetails$, { [_jN]: _kRD }]]
+  [_AT, _AACA, _DRA, _NCA, _PPA, _KACA, _KPCD, _KRBD, _KRD, _RLAA],
+  [[0, { [_jN]: _aT }], [() => AwsApiCallAction$, { [_jN]: _aACA }], [() => DnsRequestAction$, { [_jN]: _dRA }], [() => NetworkConnectionAction$, { [_jN]: _nCA }], [() => PortProbeAction$, { [_jN]: _pPA }], [() => KubernetesApiCallAction$, { [_jN]: _kACA }], [() => KubernetesPermissionCheckedDetails$, { [_jN]: _kPCD }], [() => KubernetesRoleBindingDetails$, { [_jN]: _kRBD }], [() => KubernetesRoleDetails$, { [_jN]: _kRD }], [() => RdsLoginAttemptAction$, { [_jN]: _rLAA }]]
 ];
 export var Actor$: StaticStructureSchema = [3, n0, _Act,
   0,
@@ -1794,7 +1791,7 @@ export var AnomalyUnusual$: StaticStructureSchema = [3, n0, _AU,
 export var ArchiveFindingsRequest$: StaticStructureSchema = [3, n0, _AFR,
   0,
   [_DI, _FI],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _fI }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _fI }]], 2
 ];
 export var ArchiveFindingsResponse$: StaticStructureSchema = [3, n0, _AFRr,
   0,
@@ -1908,8 +1905,8 @@ export var CoverageResource$: StaticStructureSchema = [3, n0, _CRo,
 ];
 export var CoverageResourceDetails$: StaticStructureSchema = [3, n0, _CRD,
   0,
-  [_ECD, _RT, _ECDc, _EID],
-  [[() => CoverageEksClusterDetails$, { [_jN]: _eCD }], [0, { [_jN]: _rT }], [() => CoverageEcsClusterDetails$, { [_jN]: _eCDc }], [() => CoverageEc2InstanceDetails$, { [_jN]: _eID }]]
+  [_ECD, _ECDc, _EID, _RT],
+  [[() => CoverageEksClusterDetails$, { [_jN]: _eCD }], [() => CoverageEcsClusterDetails$, { [_jN]: _eCDc }], [() => CoverageEc2InstanceDetails$, { [_jN]: _eID }], [0, { [_jN]: _rT }]]
 ];
 export var CoverageSortCriteria$: StaticStructureSchema = [3, n0, _CSC,
   0,
@@ -1934,7 +1931,7 @@ export var CreateDetectorResponse$: StaticStructureSchema = [3, n0, _CDRr,
 export var CreateFilterRequest$: StaticStructureSchema = [3, n0, _CFRr,
   0,
   [_DI, _N, _FCin, _D, _Ac, _R, _CTl, _Ta],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_jN]: _n }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _d }], [0, { [_jN]: _ac }], [1, { [_jN]: _r }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }]], 3
+  [[0, 1], [0, { [_jN]: _n }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _d }], [0, { [_jN]: _ac }], [1, { [_jN]: _r }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }]], 3
 ];
 export var CreateFilterResponse$: StaticStructureSchema = [3, n0, _CFRre,
   0,
@@ -1944,7 +1941,7 @@ export var CreateFilterResponse$: StaticStructureSchema = [3, n0, _CFRre,
 export var CreateIPSetRequest$: StaticStructureSchema = [3, n0, _CIPSR,
   0,
   [_DI, _N, _Fo, _Lo, _Acti, _CTl, _Ta, _EBO],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_jN]: _n }], [0, { [_jN]: _fo }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _eBO }]], 5
+  [[0, 1], [0, { [_jN]: _n }], [0, { [_jN]: _fo }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _eBO }]], 5
 ];
 export var CreateIPSetResponse$: StaticStructureSchema = [3, n0, _CIPSRr,
   0,
@@ -1964,7 +1961,7 @@ export var CreateMalwareProtectionPlanResponse$: StaticStructureSchema = [3, n0,
 export var CreateMembersRequest$: StaticStructureSchema = [3, n0, _CMR,
   0,
   [_DI, _ADc],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [() => AccountDetails, { [_jN]: _aDc }]], 2
+  [[0, 1], [() => AccountDetails, { [_jN]: _aDc }]], 2
 ];
 export var CreateMembersResponse$: StaticStructureSchema = [3, n0, _CMRr,
   0,
@@ -1979,7 +1976,7 @@ export var CreateProtectedResource$: StaticStructureSchema = [3, n0, _CPR,
 export var CreatePublishingDestinationRequest$: StaticStructureSchema = [3, n0, _CPDR,
   0,
   [_DI, _DT, _DP, _CTl, _Ta],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_jN]: _dT }], [() => DestinationProperties$, { [_jN]: _dP }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }]], 3
+  [[0, 1], [0, { [_jN]: _dT }], [() => DestinationProperties$, { [_jN]: _dP }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }]], 3
 ];
 export var CreatePublishingDestinationResponse$: StaticStructureSchema = [3, n0, _CPDRr,
   0,
@@ -1994,7 +1991,7 @@ export var CreateS3BucketResource$: StaticStructureSchema = [3, n0, _CSBR,
 export var CreateSampleFindingsRequest$: StaticStructureSchema = [3, n0, _CSFR,
   0,
   [_DI, _FT],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _fT }]], 1
+  [[0, 1], [64 | 0, { [_jN]: _fT }]], 1
 ];
 export var CreateSampleFindingsResponse$: StaticStructureSchema = [3, n0, _CSFRr,
   0,
@@ -2004,7 +2001,7 @@ export var CreateSampleFindingsResponse$: StaticStructureSchema = [3, n0, _CSFRr
 export var CreateThreatEntitySetRequest$: StaticStructureSchema = [3, n0, _CTESR,
   0,
   [_DI, _N, _Fo, _Lo, _Acti, _EBO, _CTl, _Ta],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_jN]: _n }], [0, { [_jN]: _fo }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_jN]: _eBO }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }]], 5
+  [[0, 1], [0, { [_jN]: _n }], [0, { [_jN]: _fo }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_jN]: _eBO }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }]], 5
 ];
 export var CreateThreatEntitySetResponse$: StaticStructureSchema = [3, n0, _CTESRr,
   0,
@@ -2014,7 +2011,7 @@ export var CreateThreatEntitySetResponse$: StaticStructureSchema = [3, n0, _CTES
 export var CreateThreatIntelSetRequest$: StaticStructureSchema = [3, n0, _CTISR,
   0,
   [_DI, _N, _Fo, _Lo, _Acti, _CTl, _Ta, _EBO],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_jN]: _n }], [0, { [_jN]: _fo }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _eBO }]], 5
+  [[0, 1], [0, { [_jN]: _n }], [0, { [_jN]: _fo }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _eBO }]], 5
 ];
 export var CreateThreatIntelSetResponse$: StaticStructureSchema = [3, n0, _CTISRr,
   0,
@@ -2024,7 +2021,7 @@ export var CreateThreatIntelSetResponse$: StaticStructureSchema = [3, n0, _CTISR
 export var CreateTrustedEntitySetRequest$: StaticStructureSchema = [3, n0, _CTESRre,
   0,
   [_DI, _N, _Fo, _Lo, _Acti, _EBO, _CTl, _Ta],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_jN]: _n }], [0, { [_jN]: _fo }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_jN]: _eBO }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }]], 5
+  [[0, 1], [0, { [_jN]: _n }], [0, { [_jN]: _fo }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_jN]: _eBO }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }]], 5
 ];
 export var CreateTrustedEntitySetResponse$: StaticStructureSchema = [3, n0, _CTESRrea,
   0,
@@ -2074,7 +2071,7 @@ export var DefaultServerSideEncryption$: StaticStructureSchema = [3, n0, _DSSE,
 export var DeleteDetectorRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DI],
-  [[0, { [_hL]: 1, [_jN]: _dI }]], 1
+  [[0, 1]], 1
 ];
 export var DeleteDetectorResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -2084,7 +2081,7 @@ export var DeleteDetectorResponse$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeleteFilterRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_DI, _FN],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _fN }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteFilterResponse$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -2104,7 +2101,7 @@ export var DeleteInvitationsResponse$: StaticStructureSchema = [3, n0, _DIRele,
 export var DeleteIPSetRequest$: StaticStructureSchema = [3, n0, _DIPSR,
   0,
   [_DI, _ISI],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _iSI }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteIPSetResponse$: StaticStructureSchema = [3, n0, _DIPSRe,
   0,
@@ -2114,12 +2111,12 @@ export var DeleteIPSetResponse$: StaticStructureSchema = [3, n0, _DIPSRe,
 export var DeleteMalwareProtectionPlanRequest$: StaticStructureSchema = [3, n0, _DMPPR,
   0,
   [_MPPI],
-  [[0, { [_hL]: 1, [_jN]: _mPPI }]], 1
+  [[0, 1]], 1
 ];
 export var DeleteMembersRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_DI, _AIcc],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _aIcc }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _aIcc }]], 2
 ];
 export var DeleteMembersResponse$: StaticStructureSchema = [3, n0, _DMRe,
   0,
@@ -2129,7 +2126,7 @@ export var DeleteMembersResponse$: StaticStructureSchema = [3, n0, _DMRe,
 export var DeletePublishingDestinationRequest$: StaticStructureSchema = [3, n0, _DPDR,
   0,
   [_DI, _DIe],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _dIe }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var DeletePublishingDestinationResponse$: StaticStructureSchema = [3, n0, _DPDRe,
   0,
@@ -2139,7 +2136,7 @@ export var DeletePublishingDestinationResponse$: StaticStructureSchema = [3, n0,
 export var DeleteThreatEntitySetRequest$: StaticStructureSchema = [3, n0, _DTESR,
   0,
   [_DI, _TESI],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _tESI }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteThreatEntitySetResponse$: StaticStructureSchema = [3, n0, _DTESRe,
   0,
@@ -2149,7 +2146,7 @@ export var DeleteThreatEntitySetResponse$: StaticStructureSchema = [3, n0, _DTES
 export var DeleteThreatIntelSetRequest$: StaticStructureSchema = [3, n0, _DTISR,
   0,
   [_DI, _TISI],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _tISI }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteThreatIntelSetResponse$: StaticStructureSchema = [3, n0, _DTISRe,
   0,
@@ -2159,7 +2156,7 @@ export var DeleteThreatIntelSetResponse$: StaticStructureSchema = [3, n0, _DTISR
 export var DeleteTrustedEntitySetRequest$: StaticStructureSchema = [3, n0, _DTESRel,
   0,
   [_DI, _TESIr],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _tESIr }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteTrustedEntitySetResponse$: StaticStructureSchema = [3, n0, _DTESRele,
   0,
@@ -2169,7 +2166,7 @@ export var DeleteTrustedEntitySetResponse$: StaticStructureSchema = [3, n0, _DTE
 export var DescribeMalwareScansRequest$: StaticStructureSchema = [3, n0, _DMSR,
   0,
   [_DI, _NT, _MR, _FCil, _SCo],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_jN]: _nT }], [1, { [_jN]: _mR }], [() => FilterCriteria$, { [_jN]: _fCil }], [() => SortCriteria$, { [_jN]: _sCo }]], 1
+  [[0, 1], [0, { [_jN]: _nT }], [1, { [_jN]: _mR }], [() => FilterCriteria$, { [_jN]: _fCil }], [() => SortCriteria$, { [_jN]: _sCo }]], 1
 ];
 export var DescribeMalwareScansResponse$: StaticStructureSchema = [3, n0, _DMSRe,
   0,
@@ -2179,7 +2176,7 @@ export var DescribeMalwareScansResponse$: StaticStructureSchema = [3, n0, _DMSRe
 export var DescribeOrganizationConfigurationRequest$: StaticStructureSchema = [3, n0, _DOCR,
   0,
   [_DI, _MR, _NT],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }]], 1
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var DescribeOrganizationConfigurationResponse$: StaticStructureSchema = [3, n0, _DOCRe,
   0,
@@ -2189,7 +2186,7 @@ export var DescribeOrganizationConfigurationResponse$: StaticStructureSchema = [
 export var DescribePublishingDestinationRequest$: StaticStructureSchema = [3, n0, _DPDRes,
   0,
   [_DI, _DIe],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _dIe }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribePublishingDestinationResponse$: StaticStructureSchema = [3, n0, _DPDResc,
   0,
@@ -2244,7 +2241,7 @@ export var DisableOrganizationAdminAccountResponse$: StaticStructureSchema = [3,
 export var DisassociateFromAdministratorAccountRequest$: StaticStructureSchema = [3, n0, _DFAAR,
   0,
   [_DI],
-  [[0, { [_hL]: 1, [_jN]: _dI }]], 1
+  [[0, 1]], 1
 ];
 export var DisassociateFromAdministratorAccountResponse$: StaticStructureSchema = [3, n0, _DFAARi,
   0,
@@ -2254,7 +2251,7 @@ export var DisassociateFromAdministratorAccountResponse$: StaticStructureSchema 
 export var DisassociateFromMasterAccountRequest$: StaticStructureSchema = [3, n0, _DFMAR,
   0,
   [_DI],
-  [[0, { [_hL]: 1, [_jN]: _dI }]], 1
+  [[0, 1]], 1
 ];
 export var DisassociateFromMasterAccountResponse$: StaticStructureSchema = [3, n0, _DFMARi,
   0,
@@ -2264,7 +2261,7 @@ export var DisassociateFromMasterAccountResponse$: StaticStructureSchema = [3, n
 export var DisassociateMembersRequest$: StaticStructureSchema = [3, n0, _DMRi,
   0,
   [_DI, _AIcc],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _aIcc }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _aIcc }]], 2
 ];
 export var DisassociateMembersResponse$: StaticStructureSchema = [3, n0, _DMRis,
   0,
@@ -2409,7 +2406,7 @@ export var FilterCriterion$: StaticStructureSchema = [3, n0, _FC,
 export var Finding$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_AIc, _Ar, _CAr, _I, _Reg, _Res, _SV, _Se, _T, _UAp, _Conf, _D, _Par, _Ser, _Ti, _AASA],
-  [[0, { [_jN]: _aIc }], [0, { [_jN]: _ar }], [0, { [_jN]: _cAr }], [0, { [_jN]: _i }], [0, { [_jN]: _reg }], [() => Resource$, { [_jN]: _res }], [0, { [_jN]: _sV }], [1, { [_jN]: _sev }], [0, { [_jN]: _ty }], [0, { [_jN]: _uAp }], [1, { [_jN]: _con }], [0, { [_jN]: _d }], [0, { [_jN]: _par }], [() => Service$, { [_jN]: _ser }], [0, { [_jN]: _ti }], [0, { [_jN]: _aASA }]], 10
+  [[0, { [_jN]: _aIc }], [0, { [_jN]: _ar }], [0, { [_jN]: _cAr }], [0, { [_jN]: _i }], [0, { [_jN]: _reg }], [() => Resource$, { [_jN]: _res }], [0, { [_jN]: _sV }], [1, { [_jN]: _sev }], [0, { [_jN]: _t }], [0, { [_jN]: _uAp }], [1, { [_jN]: _con }], [0, { [_jN]: _d }], [0, { [_jN]: _par }], [() => Service$, { [_jN]: _ser }], [0, { [_jN]: _ti }], [0, { [_jN]: _aASA }]], 10
 ];
 export var FindingCriteria$: StaticStructureSchema = [3, n0, _FCin,
   0,
@@ -2444,7 +2441,7 @@ export var GeoLocation$: StaticStructureSchema = [3, n0, _GL,
 export var GetAdministratorAccountRequest$: StaticStructureSchema = [3, n0, _GAAR,
   0,
   [_DI],
-  [[0, { [_hL]: 1, [_jN]: _dI }]], 1
+  [[0, 1]], 1
 ];
 export var GetAdministratorAccountResponse$: StaticStructureSchema = [3, n0, _GAARe,
   0,
@@ -2454,7 +2451,7 @@ export var GetAdministratorAccountResponse$: StaticStructureSchema = [3, n0, _GA
 export var GetCoverageStatisticsRequest$: StaticStructureSchema = [3, n0, _GCSR,
   0,
   [_DI, _STt, _FCil],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _sTt }], [() => CoverageFilterCriteria$, { [_jN]: _fCil }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _sTt }], [() => CoverageFilterCriteria$, { [_jN]: _fCil }]], 2
 ];
 export var GetCoverageStatisticsResponse$: StaticStructureSchema = [3, n0, _GCSRe,
   0,
@@ -2464,7 +2461,7 @@ export var GetCoverageStatisticsResponse$: StaticStructureSchema = [3, n0, _GCSR
 export var GetDetectorRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_DI],
-  [[0, { [_hL]: 1, [_jN]: _dI }]], 1
+  [[0, 1]], 1
 ];
 export var GetDetectorResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
@@ -2474,7 +2471,7 @@ export var GetDetectorResponse$: StaticStructureSchema = [3, n0, _GDRe,
 export var GetFilterRequest$: StaticStructureSchema = [3, n0, _GFR,
   0,
   [_DI, _FN],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _fN }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var GetFilterResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
@@ -2484,7 +2481,7 @@ export var GetFilterResponse$: StaticStructureSchema = [3, n0, _GFRe,
 export var GetFindingsRequest$: StaticStructureSchema = [3, n0, _GFRet,
   0,
   [_DI, _FI, _SCo],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _fI }], [() => SortCriteria$, { [_jN]: _sCo }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _fI }], [() => SortCriteria$, { [_jN]: _sCo }]], 2
 ];
 export var GetFindingsResponse$: StaticStructureSchema = [3, n0, _GFReti,
   0,
@@ -2494,7 +2491,7 @@ export var GetFindingsResponse$: StaticStructureSchema = [3, n0, _GFReti,
 export var GetFindingsStatisticsRequest$: StaticStructureSchema = [3, n0, _GFSR,
   0,
   [_DI, _FST, _FCin, _GB, _OB, _MR],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _fST }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _gB }], [0, { [_jN]: _oB }], [1, { [_jN]: _mR }]], 1
+  [[0, 1], [64 | 0, { [_jN]: _fST }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _gB }], [0, { [_jN]: _oB }], [1, { [_jN]: _mR }]], 1
 ];
 export var GetFindingsStatisticsResponse$: StaticStructureSchema = [3, n0, _GFSRe,
   0,
@@ -2514,7 +2511,7 @@ export var GetInvitationsCountResponse$: StaticStructureSchema = [3, n0, _GICRe,
 export var GetIPSetRequest$: StaticStructureSchema = [3, n0, _GIPSR,
   0,
   [_DI, _ISI],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _iSI }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var GetIPSetResponse$: StaticStructureSchema = [3, n0, _GIPSRe,
   0,
@@ -2524,7 +2521,7 @@ export var GetIPSetResponse$: StaticStructureSchema = [3, n0, _GIPSRe,
 export var GetMalwareProtectionPlanRequest$: StaticStructureSchema = [3, n0, _GMPPR,
   0,
   [_MPPI],
-  [[0, { [_hL]: 1, [_jN]: _mPPI }]], 1
+  [[0, 1]], 1
 ];
 export var GetMalwareProtectionPlanResponse$: StaticStructureSchema = [3, n0, _GMPPRe,
   0,
@@ -2534,7 +2531,7 @@ export var GetMalwareProtectionPlanResponse$: StaticStructureSchema = [3, n0, _G
 export var GetMalwareScanRequest$: StaticStructureSchema = [3, n0, _GMSR,
   0,
   [_SI],
-  [[0, { [_hL]: 1, [_jN]: _sI }]], 1
+  [[0, 1]], 1
 ];
 export var GetMalwareScanResponse$: StaticStructureSchema = [3, n0, _GMSRe,
   0,
@@ -2549,7 +2546,7 @@ export var GetMalwareScanResultDetails$: StaticStructureSchema = [3, n0, _GMSRD,
 export var GetMalwareScanSettingsRequest$: StaticStructureSchema = [3, n0, _GMSSR,
   0,
   [_DI],
-  [[0, { [_hL]: 1, [_jN]: _dI }]], 1
+  [[0, 1]], 1
 ];
 export var GetMalwareScanSettingsResponse$: StaticStructureSchema = [3, n0, _GMSSRe,
   0,
@@ -2559,7 +2556,7 @@ export var GetMalwareScanSettingsResponse$: StaticStructureSchema = [3, n0, _GMS
 export var GetMasterAccountRequest$: StaticStructureSchema = [3, n0, _GMAR,
   0,
   [_DI],
-  [[0, { [_hL]: 1, [_jN]: _dI }]], 1
+  [[0, 1]], 1
 ];
 export var GetMasterAccountResponse$: StaticStructureSchema = [3, n0, _GMARe,
   0,
@@ -2569,7 +2566,7 @@ export var GetMasterAccountResponse$: StaticStructureSchema = [3, n0, _GMARe,
 export var GetMemberDetectorsRequest$: StaticStructureSchema = [3, n0, _GMDR,
   0,
   [_DI, _AIcc],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _aIcc }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _aIcc }]], 2
 ];
 export var GetMemberDetectorsResponse$: StaticStructureSchema = [3, n0, _GMDRe,
   0,
@@ -2579,7 +2576,7 @@ export var GetMemberDetectorsResponse$: StaticStructureSchema = [3, n0, _GMDRe,
 export var GetMembersRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
   [_DI, _AIcc],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _aIcc }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _aIcc }]], 2
 ];
 export var GetMembersResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
@@ -2594,7 +2591,7 @@ export var GetOrganizationStatisticsResponse$: StaticStructureSchema = [3, n0, _
 export var GetRemainingFreeTrialDaysRequest$: StaticStructureSchema = [3, n0, _GRFTDR,
   0,
   [_DI, _AIcc],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _aIcc }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _aIcc }]], 2
 ];
 export var GetRemainingFreeTrialDaysResponse$: StaticStructureSchema = [3, n0, _GRFTDRe,
   0,
@@ -2604,7 +2601,7 @@ export var GetRemainingFreeTrialDaysResponse$: StaticStructureSchema = [3, n0, _
 export var GetThreatEntitySetRequest$: StaticStructureSchema = [3, n0, _GTESR,
   0,
   [_DI, _TESI],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _tESI }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var GetThreatEntitySetResponse$: StaticStructureSchema = [3, n0, _GTESRe,
   0,
@@ -2614,7 +2611,7 @@ export var GetThreatEntitySetResponse$: StaticStructureSchema = [3, n0, _GTESRe,
 export var GetThreatIntelSetRequest$: StaticStructureSchema = [3, n0, _GTISR,
   0,
   [_DI, _TISI],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _tISI }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var GetThreatIntelSetResponse$: StaticStructureSchema = [3, n0, _GTISRe,
   0,
@@ -2624,7 +2621,7 @@ export var GetThreatIntelSetResponse$: StaticStructureSchema = [3, n0, _GTISRe,
 export var GetTrustedEntitySetRequest$: StaticStructureSchema = [3, n0, _GTESRet,
   0,
   [_DI, _TESIr],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _tESIr }]], 2
+  [[0, 1], [0, 1]], 2
 ];
 export var GetTrustedEntitySetResponse$: StaticStructureSchema = [3, n0, _GTESRetr,
   0,
@@ -2634,7 +2631,7 @@ export var GetTrustedEntitySetResponse$: StaticStructureSchema = [3, n0, _GTESRe
 export var GetUsageStatisticsRequest$: StaticStructureSchema = [3, n0, _GUSR,
   0,
   [_DI, _UST, _UC, _Uni, _MR, _NT],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_jN]: _uST }], [() => UsageCriteria$, { [_jN]: _uC }], [0, { [_jN]: _uni }], [1, { [_jN]: _mR }], [0, { [_jN]: _nT }]], 3
+  [[0, 1], [0, { [_jN]: _uST }], [() => UsageCriteria$, { [_jN]: _uC }], [0, { [_jN]: _uni }], [1, { [_jN]: _mR }], [0, { [_jN]: _nT }]], 3
 ];
 export var GetUsageStatisticsResponse$: StaticStructureSchema = [3, n0, _GUSRe,
   0,
@@ -2689,7 +2686,7 @@ export var Invitation$: StaticStructureSchema = [3, n0, _Inv,
 export var InviteMembersRequest$: StaticStructureSchema = [3, n0, _IMR,
   0,
   [_DI, _AIcc, _DEN, _M],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _aIcc }], [2, { [_jN]: _dEN }], [0, { [_jN]: _m }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _aIcc }], [2, { [_jN]: _dEN }], [0, { [_jN]: _m }]], 2
 ];
 export var InviteMembersResponse$: StaticStructureSchema = [3, n0, _IMRn,
   0,
@@ -2708,8 +2705,8 @@ export var ItemPath$: StaticStructureSchema = [3, n0, _IPt,
 ];
 export var KubernetesApiCallAction$: StaticStructureSchema = [3, n0, _KACA,
   0,
-  [_RU, _Ve, _SIo, _UA, _RID, _SCt, _Para, _Res, _Su, _Na, _RN],
-  [[0, { [_jN]: _rU }], [0, { [_jN]: _ve }], [64 | 0, { [_jN]: _sIP }], [0, { [_jN]: _uA }], [() => RemoteIpDetails$, { [_jN]: _rID }], [1, { [_jN]: _sCt }], [0, { [_jN]: _para }], [0, { [_jN]: _res }], [0, { [_jN]: _su }], [0, { [_jN]: _na }], [0, { [_jN]: _rN }]]
+  [_RU, _Ve, _Res, _Su, _Na, _RN, _SIo, _UA, _RID, _SCt, _Para],
+  [[0, { [_jN]: _rU }], [0, { [_jN]: _ve }], [0, { [_jN]: _res }], [0, { [_jN]: _su }], [0, { [_jN]: _na }], [0, { [_jN]: _rN }], [64 | 0, { [_jN]: _sIP }], [0, { [_jN]: _uA }], [() => RemoteIpDetails$, { [_jN]: _rID }], [1, { [_jN]: _sCt }], [0, { [_jN]: _para }]]
 ];
 export var KubernetesAuditLogsConfiguration$: StaticStructureSchema = [3, n0, _KALC,
   0,
@@ -2764,17 +2761,17 @@ export var KubernetesUserDetails$: StaticStructureSchema = [3, n0, _KUD,
 export var KubernetesWorkload$: StaticStructureSchema = [3, n0, _KW,
   0,
   [_CU, _Na, _KRT],
-  [[64 | 0, { [_jN]: _cU }], [0, { [_jN]: _na }], [0, { [_jN]: _ty }]]
+  [[64 | 0, { [_jN]: _cU }], [0, { [_jN]: _na }], [0, { [_jN]: _t }]]
 ];
 export var KubernetesWorkloadDetails$: StaticStructureSchema = [3, n0, _KWD,
   0,
-  [_N, _T, _U, _Na, _HN, _Cont, _Vo, _SAN, _HIPC, _HPID],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _ty }], [0, { [_jN]: _u }], [0, { [_jN]: _na }], [2, { [_jN]: _hN }], [() => Containers, { [_jN]: _co }], [() => Volumes, { [_jN]: _vo }], [0, { [_jN]: _sAN }], [2, { [_jN]: _hIPC }], [2, { [_jN]: _hPID }]]
+  [_N, _T, _U, _Na, _HN, _SAN, _Cont, _Vo, _HIPC, _HPID],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _t }], [0, { [_jN]: _u }], [0, { [_jN]: _na }], [2, { [_jN]: _hN }], [0, { [_jN]: _sAN }], [() => Containers, { [_jN]: _co }], [() => Volumes, { [_jN]: _vo }], [2, { [_jN]: _hIPC }], [2, { [_jN]: _hPID }]]
 ];
 export var LambdaDetails$: StaticStructureSchema = [3, n0, _LD,
   0,
   [_FA, _FNu, _D, _LMA, _RIe, _FV, _Ro, _VC, _Ta],
-  [[0, { [_jN]: _fA }], [0, { [_jN]: _fNu }], [0, { [_jN]: _d }], [4, { [_jN]: _lMA }], [0, { [_jN]: _rIe }], [0, { [_jN]: _fV }], [0, { [_jN]: _ro }], [() => VpcConfig$, { [_jN]: _vC }], [() => Tags, { [_jN]: _ta }]]
+  [[0, { [_jN]: _fA }], [0, { [_jN]: _fN }], [0, { [_jN]: _d }], [4, { [_jN]: _lMA }], [0, { [_jN]: _rIe }], [0, { [_jN]: _fV }], [0, { [_jN]: _ro }], [() => VpcConfig$, { [_jN]: _vC }], [() => Tags, { [_jN]: _ta }]]
 ];
 export var LineageObject$: StaticStructureSchema = [3, n0, _LO,
   0,
@@ -2784,7 +2781,7 @@ export var LineageObject$: StaticStructureSchema = [3, n0, _LO,
 export var ListCoverageRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_DI, _NT, _MR, _FCil, _SCo],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_jN]: _nT }], [1, { [_jN]: _mR }], [() => CoverageFilterCriteria$, { [_jN]: _fCil }], [() => CoverageSortCriteria$, { [_jN]: _sCo }]], 1
+  [[0, 1], [0, { [_jN]: _nT }], [1, { [_jN]: _mR }], [() => CoverageFilterCriteria$, { [_jN]: _fCil }], [() => CoverageSortCriteria$, { [_jN]: _sCo }]], 1
 ];
 export var ListCoverageResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -2794,7 +2791,7 @@ export var ListCoverageResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListDetectorsRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_MR, _NT],
-  [[1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }]]
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
 export var ListDetectorsResponse$: StaticStructureSchema = [3, n0, _LDRi,
   0,
@@ -2804,7 +2801,7 @@ export var ListDetectorsResponse$: StaticStructureSchema = [3, n0, _LDRi,
 export var ListFiltersRequest$: StaticStructureSchema = [3, n0, _LFR,
   0,
   [_DI, _MR, _NT],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }]], 1
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListFiltersResponse$: StaticStructureSchema = [3, n0, _LFRi,
   0,
@@ -2814,7 +2811,7 @@ export var ListFiltersResponse$: StaticStructureSchema = [3, n0, _LFRi,
 export var ListFindingsRequest$: StaticStructureSchema = [3, n0, _LFRis,
   0,
   [_DI, _FCin, _SCo, _MR, _NT],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [() => FindingCriteria$, { [_jN]: _fCin }], [() => SortCriteria$, { [_jN]: _sCo }], [1, { [_jN]: _mR }], [0, { [_jN]: _nT }]], 1
+  [[0, 1], [() => FindingCriteria$, { [_jN]: _fCin }], [() => SortCriteria$, { [_jN]: _sCo }], [1, { [_jN]: _mR }], [0, { [_jN]: _nT }]], 1
 ];
 export var ListFindingsResponse$: StaticStructureSchema = [3, n0, _LFRist,
   0,
@@ -2824,7 +2821,7 @@ export var ListFindingsResponse$: StaticStructureSchema = [3, n0, _LFRist,
 export var ListInvitationsRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
   [_MR, _NT],
-  [[1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }]]
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
 export var ListInvitationsResponse$: StaticStructureSchema = [3, n0, _LIRi,
   0,
@@ -2834,7 +2831,7 @@ export var ListInvitationsResponse$: StaticStructureSchema = [3, n0, _LIRi,
 export var ListIPSetsRequest$: StaticStructureSchema = [3, n0, _LIPSR,
   0,
   [_DI, _MR, _NT],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }]], 1
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListIPSetsResponse$: StaticStructureSchema = [3, n0, _LIPSRi,
   0,
@@ -2844,7 +2841,7 @@ export var ListIPSetsResponse$: StaticStructureSchema = [3, n0, _LIPSRi,
 export var ListMalwareProtectionPlansRequest$: StaticStructureSchema = [3, n0, _LMPPR,
   0,
   [_NT],
-  [[0, { [_hQ]: _nT, [_jN]: _nT }]]
+  [[0, { [_hQ]: _nT }]]
 ];
 export var ListMalwareProtectionPlansResponse$: StaticStructureSchema = [3, n0, _LMPPRi,
   0,
@@ -2864,7 +2861,7 @@ export var ListMalwareScansFilterCriterion$: StaticStructureSchema = [3, n0, _LM
 export var ListMalwareScansRequest$: StaticStructureSchema = [3, n0, _LMSR,
   0,
   [_MR, _NT, _FCil, _SCo],
-  [[1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }], [() => ListMalwareScansFilterCriteria$, { [_jN]: _fCil }], [() => SortCriteria$, { [_jN]: _sCo }]]
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [() => ListMalwareScansFilterCriteria$, { [_jN]: _fCil }], [() => SortCriteria$, { [_jN]: _sCo }]]
 ];
 export var ListMalwareScansResponse$: StaticStructureSchema = [3, n0, _LMSRi,
   0,
@@ -2874,7 +2871,7 @@ export var ListMalwareScansResponse$: StaticStructureSchema = [3, n0, _LMSRi,
 export var ListMembersRequest$: StaticStructureSchema = [3, n0, _LMR,
   0,
   [_DI, _MR, _NT, _OAn],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }], [0, { [_hQ]: _oAn, [_jN]: _oAn }]], 1
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _oAn }]], 1
 ];
 export var ListMembersResponse$: StaticStructureSchema = [3, n0, _LMRi,
   0,
@@ -2884,7 +2881,7 @@ export var ListMembersResponse$: StaticStructureSchema = [3, n0, _LMRi,
 export var ListOrganizationAdminAccountsRequest$: StaticStructureSchema = [3, n0, _LOAAR,
   0,
   [_MR, _NT],
-  [[1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }]]
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
 export var ListOrganizationAdminAccountsResponse$: StaticStructureSchema = [3, n0, _LOAARi,
   0,
@@ -2894,7 +2891,7 @@ export var ListOrganizationAdminAccountsResponse$: StaticStructureSchema = [3, n
 export var ListPublishingDestinationsRequest$: StaticStructureSchema = [3, n0, _LPDR,
   0,
   [_DI, _MR, _NT],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }]], 1
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListPublishingDestinationsResponse$: StaticStructureSchema = [3, n0, _LPDRi,
   0,
@@ -2904,7 +2901,7 @@ export var ListPublishingDestinationsResponse$: StaticStructureSchema = [3, n0, 
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, { [_hL]: 1, [_jN]: _rA }]], 1
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -2914,7 +2911,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListThreatEntitySetsRequest$: StaticStructureSchema = [3, n0, _LTESR,
   0,
   [_DI, _MR, _NT],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }]], 1
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListThreatEntitySetsResponse$: StaticStructureSchema = [3, n0, _LTESRi,
   0,
@@ -2924,7 +2921,7 @@ export var ListThreatEntitySetsResponse$: StaticStructureSchema = [3, n0, _LTESR
 export var ListThreatIntelSetsRequest$: StaticStructureSchema = [3, n0, _LTISR,
   0,
   [_DI, _MR, _NT],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }]], 1
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListThreatIntelSetsResponse$: StaticStructureSchema = [3, n0, _LTISRi,
   0,
@@ -2934,7 +2931,7 @@ export var ListThreatIntelSetsResponse$: StaticStructureSchema = [3, n0, _LTISRi
 export var ListTrustedEntitySetsRequest$: StaticStructureSchema = [3, n0, _LTESRis,
   0,
   [_DI, _MR, _NT],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [1, { [_hQ]: _mR, [_jN]: _mR }], [0, { [_hQ]: _nT, [_jN]: _nT }]], 1
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListTrustedEntitySetsResponse$: StaticStructureSchema = [3, n0, _LTESRist,
   0,
@@ -3029,7 +3026,7 @@ export var MemberAdditionalConfigurationResult$: StaticStructureSchema = [3, n0,
 export var MemberDataSourceConfiguration$: StaticStructureSchema = [3, n0, _MDSCe,
   0,
   [_AIc, _DS, _F],
-  [[0, { [_jN]: _aIc }], [() => DataSourceConfigurationsResult$, { [_jN]: _dS }], [() => MemberFeaturesConfigurationsResults, { [_jN]: _f }]], 1
+  [[0, { [_jN]: _aIc }], [() => DataSourceConfigurationsResult$, { [_jN]: _dS }], [() => MemberFeaturesConfigurationsResults, { [_jN]: _f }]], 2
 ];
 export var MemberFeaturesConfiguration$: StaticStructureSchema = [3, n0, _MFC,
   0,
@@ -3278,8 +3275,8 @@ export var RemotePortDetails$: StaticStructureSchema = [3, n0, _RPD,
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _Res,
   0,
-  [_AKD, _SBD, _IDn, _ECD, _KD, _RT, _EVD, _ECDc, _CDo, _RDID, _RLDD, _RDUD, _LD, _ESD, _EIDc, _RPDe],
-  [[() => AccessKeyDetails$, { [_jN]: _aKD }], [() => S3BucketDetails, { [_jN]: _sBD }], [() => InstanceDetails$, { [_jN]: _iDn }], [() => EksClusterDetails$, { [_jN]: _eCD }], [() => KubernetesDetails$, { [_jN]: _kD }], [0, { [_jN]: _rT }], [() => EbsVolumeDetails$, { [_jN]: _eVD }], [() => EcsClusterDetails$, { [_jN]: _eCDc }], [() => Container$, { [_jN]: _cDo }], [() => RdsDbInstanceDetails$, { [_jN]: _rDID }], [() => RdsLimitlessDbDetails$, { [_jN]: _rLDD }], [() => RdsDbUserDetails$, { [_jN]: _rDUD }], [() => LambdaDetails$, { [_jN]: _lD }], [() => EbsSnapshotDetails$, { [_jN]: _eSD }], [() => Ec2ImageDetails$, { [_jN]: _eIDc }], [() => RecoveryPointDetails$, { [_jN]: _rPDe }]]
+  [_AKD, _SBD, _IDn, _ECD, _KD, _RT, _EVD, _ECDc, _CDo, _LD, _RDID, _RLDD, _RDUD, _ESD, _EIDc, _RPDe],
+  [[() => AccessKeyDetails$, { [_jN]: _aKD }], [() => S3BucketDetails, { [_jN]: _sBD }], [() => InstanceDetails$, { [_jN]: _iDn }], [() => EksClusterDetails$, { [_jN]: _eCD }], [() => KubernetesDetails$, { [_jN]: _kD }], [0, { [_jN]: _rT }], [() => EbsVolumeDetails$, { [_jN]: _eVD }], [() => EcsClusterDetails$, { [_jN]: _eCDc }], [() => Container$, { [_jN]: _cDo }], [() => LambdaDetails$, { [_jN]: _lD }], [() => RdsDbInstanceDetails$, { [_jN]: _rDID }], [() => RdsLimitlessDbDetails$, { [_jN]: _rLDD }], [() => RdsDbUserDetails$, { [_jN]: _rDUD }], [() => EbsSnapshotDetails$, { [_jN]: _eSD }], [() => Ec2ImageDetails$, { [_jN]: _eIDc }], [() => RecoveryPointDetails$, { [_jN]: _rPDe }]]
 ];
 export var ResourceData$: StaticStructureSchema = [3, n0, _RDe,
   0,
@@ -3319,7 +3316,7 @@ export var S3Bucket$: StaticStructureSchema = [3, n0, _SB,
 export var S3BucketDetail$: StaticStructureSchema = [3, n0, _SBDu,
   0,
   [_Ar, _N, _T, _CAr, _Ow, _Ta, _DSSE, _PA, _SOD],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _n }], [0, { [_jN]: _ty }], [4, { [_jN]: _cAr }], [() => Owner$, { [_jN]: _ow }], [() => Tags, { [_jN]: _ta }], [() => DefaultServerSideEncryption$, { [_jN]: _dSSE }], [() => PublicAccess$, { [_jN]: _pA }], [() => S3ObjectDetails, { [_jN]: _sOD }]]
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _n }], [0, { [_jN]: _t }], [4, { [_jN]: _cAr }], [() => Owner$, { [_jN]: _ow }], [() => Tags, { [_jN]: _ta }], [() => DefaultServerSideEncryption$, { [_jN]: _dSSE }], [() => PublicAccess$, { [_jN]: _pA }], [() => S3ObjectDetails, { [_jN]: _sOD }]]
 ];
 export var S3LogsConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
@@ -3459,7 +3456,7 @@ export var Service$: StaticStructureSchema = [3, n0, _Ser,
 export var ServiceAdditionalInfo$: StaticStructureSchema = [3, n0, _SAI,
   0,
   [_Val, _T],
-  [[0, { [_jN]: _val }], [0, { [_jN]: _ty }]]
+  [[0, { [_jN]: _val }], [0, { [_jN]: _t }]]
 ];
 export var Session$: StaticStructureSchema = [3, n0, _S,
   0,
@@ -3474,7 +3471,7 @@ export var SeverityStatistics$: StaticStructureSchema = [3, n0, _SSe,
 export var Signal$: StaticStructureSchema = [3, n0, _Sig,
   0,
   [_U, _T, _N, _CAr, _UAp, _FSA, _LSA, _Coun, _D, _Se, _RUe, _AIct, _EIn, _SIi],
-  [[0, { [_jN]: _u }], [0, { [_jN]: _ty }], [0, { [_jN]: _n }], [4, { [_jN]: _cAr }], [4, { [_jN]: _uAp }], [4, { [_jN]: _fSA }], [4, { [_jN]: _lSA }], [1, { [_jN]: _cou }], [0, { [_jN]: _d }], [1, { [_jN]: _sev }], [64 | 0, { [_jN]: _rUe }], [64 | 0, { [_jN]: _aIct }], [64 | 0, { [_jN]: _eIn }], [() => Indicators, { [_jN]: _sIi }]], 8
+  [[0, { [_jN]: _u }], [0, { [_jN]: _t }], [0, { [_jN]: _n }], [4, { [_jN]: _cAr }], [4, { [_jN]: _uAp }], [4, { [_jN]: _fSA }], [4, { [_jN]: _lSA }], [1, { [_jN]: _cou }], [0, { [_jN]: _d }], [1, { [_jN]: _sev }], [64 | 0, { [_jN]: _rUe }], [64 | 0, { [_jN]: _aIct }], [64 | 0, { [_jN]: _eIn }], [() => Indicators, { [_jN]: _sIi }]], 8
 ];
 export var SortCriteria$: StaticStructureSchema = [3, n0, _SCo,
   0,
@@ -3499,7 +3496,7 @@ export var StartMalwareScanResponse$: StaticStructureSchema = [3, n0, _SMSRt,
 export var StartMonitoringMembersRequest$: StaticStructureSchema = [3, n0, _SMMR,
   0,
   [_DI, _AIcc],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _aIcc }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _aIcc }]], 2
 ];
 export var StartMonitoringMembersResponse$: StaticStructureSchema = [3, n0, _SMMRt,
   0,
@@ -3509,7 +3506,7 @@ export var StartMonitoringMembersResponse$: StaticStructureSchema = [3, n0, _SMM
 export var StopMonitoringMembersRequest$: StaticStructureSchema = [3, n0, _SMMRto,
   0,
   [_DI, _AIcc],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _aIcc }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _aIcc }]], 2
 ];
 export var StopMonitoringMembersResponse$: StaticStructureSchema = [3, n0, _SMMRtop,
   0,
@@ -3524,7 +3521,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag_,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [[0, { [_hL]: 1, [_jN]: _rA }], [128 | 0, { [_jN]: _ta }]], 2
+  [[0, 1], [128 | 0, { [_jN]: _ta }]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -3564,7 +3561,7 @@ export var TriggerDetails$: StaticStructureSchema = [3, n0, _TDr,
 export var UnarchiveFindingsRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
   [_DI, _FI],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _fI }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _fI }]], 2
 ];
 export var UnarchiveFindingsResponse$: StaticStructureSchema = [3, n0, _UFRn,
   0,
@@ -3584,7 +3581,7 @@ export var UnprocessedDataSourcesResult$: StaticStructureSchema = [3, n0, _UDSR,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, { [_hL]: 1, [_jN]: _rA }], [64 | 0, { [_hQ]: _tK, [_jN]: _tK }]], 2
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -3594,7 +3591,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDetectorRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_DI, _En, _FPF, _DS, _F],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [2, { [_jN]: _en }], [0, { [_jN]: _fPF }], [() => DataSourceConfigurations$, { [_jN]: _dS }], [() => DetectorFeatureConfigurations, { [_jN]: _f }]], 1
+  [[0, 1], [2, { [_jN]: _en }], [0, { [_jN]: _fPF }], [() => DataSourceConfigurations$, { [_jN]: _dS }], [() => DetectorFeatureConfigurations, { [_jN]: _f }]], 1
 ];
 export var UpdateDetectorResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -3604,7 +3601,7 @@ export var UpdateDetectorResponse$: StaticStructureSchema = [3, n0, _UDRp,
 export var UpdateFilterRequest$: StaticStructureSchema = [3, n0, _UFRp,
   0,
   [_DI, _FN, _D, _Ac, _R, _FCin],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _fN }], [0, { [_jN]: _d }], [0, { [_jN]: _ac }], [1, { [_jN]: _r }], [() => FindingCriteria$, { [_jN]: _fCin }]], 2
+  [[0, 1], [0, 1], [0, { [_jN]: _d }], [0, { [_jN]: _ac }], [1, { [_jN]: _r }], [() => FindingCriteria$, { [_jN]: _fCin }]], 2
 ];
 export var UpdateFilterResponse$: StaticStructureSchema = [3, n0, _UFRpd,
   0,
@@ -3614,7 +3611,7 @@ export var UpdateFilterResponse$: StaticStructureSchema = [3, n0, _UFRpd,
 export var UpdateFindingsFeedbackRequest$: StaticStructureSchema = [3, n0, _UFFR,
   0,
   [_DI, _FI, _Fe, _Com],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _fI }], [0, { [_jN]: _fe }], [() => SensitiveString, { [_jN]: _com }]], 3
+  [[0, 1], [64 | 0, { [_jN]: _fI }], [0, { [_jN]: _fe }], [() => SensitiveString, { [_jN]: _com }]], 3
 ];
 export var UpdateFindingsFeedbackResponse$: StaticStructureSchema = [3, n0, _UFFRp,
   0,
@@ -3624,7 +3621,7 @@ export var UpdateFindingsFeedbackResponse$: StaticStructureSchema = [3, n0, _UFF
 export var UpdateIPSetRequest$: StaticStructureSchema = [3, n0, _UIPSR,
   0,
   [_DI, _ISI, _N, _Lo, _Acti, _EBO],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _iSI }], [0, { [_jN]: _n }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_jN]: _eBO }]], 2
+  [[0, 1], [0, 1], [0, { [_jN]: _n }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_jN]: _eBO }]], 2
 ];
 export var UpdateIPSetResponse$: StaticStructureSchema = [3, n0, _UIPSRp,
   0,
@@ -3634,12 +3631,12 @@ export var UpdateIPSetResponse$: StaticStructureSchema = [3, n0, _UIPSRp,
 export var UpdateMalwareProtectionPlanRequest$: StaticStructureSchema = [3, n0, _UMPPR,
   0,
   [_MPPI, _Ro, _Actio, _PR],
-  [[0, { [_hL]: 1, [_jN]: _mPPI }], [0, { [_jN]: _ro }], [() => MalwareProtectionPlanActions$, { [_jN]: _acti }], [() => UpdateProtectedResource$, { [_jN]: _pR }]], 1
+  [[0, 1], [0, { [_jN]: _ro }], [() => MalwareProtectionPlanActions$, { [_jN]: _acti }], [() => UpdateProtectedResource$, { [_jN]: _pR }]], 1
 ];
 export var UpdateMalwareScanSettingsRequest$: StaticStructureSchema = [3, n0, _UMSSR,
   0,
   [_DI, _SRCc, _ESP],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [() => ScanResourceCriteria$, { [_jN]: _sRCc }], [0, { [_jN]: _eSP }]], 1
+  [[0, 1], [() => ScanResourceCriteria$, { [_jN]: _sRCc }], [0, { [_jN]: _eSP }]], 1
 ];
 export var UpdateMalwareScanSettingsResponse$: StaticStructureSchema = [3, n0, _UMSSRp,
   0,
@@ -3649,7 +3646,7 @@ export var UpdateMalwareScanSettingsResponse$: StaticStructureSchema = [3, n0, _
 export var UpdateMemberDetectorsRequest$: StaticStructureSchema = [3, n0, _UMDR,
   0,
   [_DI, _AIcc, _DS, _F],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [64 | 0, { [_jN]: _aIcc }], [() => DataSourceConfigurations$, { [_jN]: _dS }], [() => MemberFeaturesConfigurations, { [_jN]: _f }]], 2
+  [[0, 1], [64 | 0, { [_jN]: _aIcc }], [() => DataSourceConfigurations$, { [_jN]: _dS }], [() => MemberFeaturesConfigurations, { [_jN]: _f }]], 2
 ];
 export var UpdateMemberDetectorsResponse$: StaticStructureSchema = [3, n0, _UMDRp,
   0,
@@ -3659,7 +3656,7 @@ export var UpdateMemberDetectorsResponse$: StaticStructureSchema = [3, n0, _UMDR
 export var UpdateOrganizationConfigurationRequest$: StaticStructureSchema = [3, n0, _UOCR,
   0,
   [_DI, _AE, _DS, _F, _AEOM],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [2, { [_jN]: _aE }], [() => OrganizationDataSourceConfigurations$, { [_jN]: _dS }], [() => OrganizationFeaturesConfigurations, { [_jN]: _f }], [0, { [_jN]: _aEOM }]], 1
+  [[0, 1], [2, { [_jN]: _aE }], [() => OrganizationDataSourceConfigurations$, { [_jN]: _dS }], [() => OrganizationFeaturesConfigurations, { [_jN]: _f }], [0, { [_jN]: _aEOM }]], 1
 ];
 export var UpdateOrganizationConfigurationResponse$: StaticStructureSchema = [3, n0, _UOCRp,
   0,
@@ -3674,7 +3671,7 @@ export var UpdateProtectedResource$: StaticStructureSchema = [3, n0, _UPR,
 export var UpdatePublishingDestinationRequest$: StaticStructureSchema = [3, n0, _UPDR,
   0,
   [_DI, _DIe, _DP],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _dIe }], [() => DestinationProperties$, { [_jN]: _dP }]], 2
+  [[0, 1], [0, 1], [() => DestinationProperties$, { [_jN]: _dP }]], 2
 ];
 export var UpdatePublishingDestinationResponse$: StaticStructureSchema = [3, n0, _UPDRp,
   0,
@@ -3689,7 +3686,7 @@ export var UpdateS3BucketResource$: StaticStructureSchema = [3, n0, _USBR,
 export var UpdateThreatEntitySetRequest$: StaticStructureSchema = [3, n0, _UTESR,
   0,
   [_DI, _TESI, _N, _Lo, _EBO, _Acti],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _tESI }], [0, { [_jN]: _n }], [0, { [_jN]: _lo }], [0, { [_jN]: _eBO }], [2, { [_jN]: _act }]], 2
+  [[0, 1], [0, 1], [0, { [_jN]: _n }], [0, { [_jN]: _lo }], [0, { [_jN]: _eBO }], [2, { [_jN]: _act }]], 2
 ];
 export var UpdateThreatEntitySetResponse$: StaticStructureSchema = [3, n0, _UTESRp,
   0,
@@ -3699,7 +3696,7 @@ export var UpdateThreatEntitySetResponse$: StaticStructureSchema = [3, n0, _UTES
 export var UpdateThreatIntelSetRequest$: StaticStructureSchema = [3, n0, _UTISR,
   0,
   [_DI, _TISI, _N, _Lo, _Acti, _EBO],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _tISI }], [0, { [_jN]: _n }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_jN]: _eBO }]], 2
+  [[0, 1], [0, 1], [0, { [_jN]: _n }], [0, { [_jN]: _lo }], [2, { [_jN]: _act }], [0, { [_jN]: _eBO }]], 2
 ];
 export var UpdateThreatIntelSetResponse$: StaticStructureSchema = [3, n0, _UTISRp,
   0,
@@ -3709,7 +3706,7 @@ export var UpdateThreatIntelSetResponse$: StaticStructureSchema = [3, n0, _UTISR
 export var UpdateTrustedEntitySetRequest$: StaticStructureSchema = [3, n0, _UTESRpd,
   0,
   [_DI, _TESIr, _N, _Lo, _EBO, _Acti],
-  [[0, { [_hL]: 1, [_jN]: _dI }], [0, { [_hL]: 1, [_jN]: _tESIr }], [0, { [_jN]: _n }], [0, { [_jN]: _lo }], [0, { [_jN]: _eBO }], [2, { [_jN]: _act }]], 2
+  [[0, 1], [0, 1], [0, { [_jN]: _n }], [0, { [_jN]: _lo }], [0, { [_jN]: _eBO }], [2, { [_jN]: _act }]], 2
 ];
 export var UpdateTrustedEntitySetResponse$: StaticStructureSchema = [3, n0, _UTESRpda,
   0,
@@ -3759,7 +3756,7 @@ export var UsageTopAccountsResult$: StaticStructureSchema = [3, n0, _UTARs,
 export var User$: StaticStructureSchema = [3, n0, _Us,
   0,
   [_N, _U, _T, _CUr, _A],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _u }], [0, { [_jN]: _ty }], [0, { [_jN]: _cUr }], [() => Account$, { [_jN]: _a }]], 3
+  [[0, { [_jN]: _n }], [0, { [_jN]: _u }], [0, { [_jN]: _t }], [0, { [_jN]: _cUr }], [() => Account$, { [_jN]: _a }]], 3
 ];
 export var Volume$: StaticStructureSchema = [3, n0, _Vol,
   0,

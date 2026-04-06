@@ -27,8 +27,7 @@ export interface ListPublishingDestinationsCommandInput extends ListPublishingDe
 export interface ListPublishingDestinationsCommandOutput extends ListPublishingDestinationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of publishing destinations associated with the specified
- *         <code>detectorId</code>.</p>
+ * <p>Returns a list of publishing destinations associated with the specified <code>detectorId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

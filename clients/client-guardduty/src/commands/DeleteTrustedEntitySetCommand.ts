@@ -27,8 +27,7 @@ export interface DeleteTrustedEntitySetCommandInput extends DeleteTrustedEntityS
 export interface DeleteTrustedEntitySetCommandOutput extends DeleteTrustedEntitySetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the trusted entity set that is associated with the specified
- *        <code>trustedEntitySetId</code>.</p>
+ * <p>Deletes the trusted entity set that is associated with the specified <code>trustedEntitySetId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

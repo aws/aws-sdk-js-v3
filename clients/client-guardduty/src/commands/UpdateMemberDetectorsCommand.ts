@@ -27,15 +27,7 @@ export interface UpdateMemberDetectorsCommandInput extends UpdateMemberDetectors
 export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Contains information on member accounts to be updated.</p>
- *          <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>)
- *       and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error.
- *       You can add only one of these two features because Runtime Monitoring already includes the
- *       threat detection for Amazon EKS resources. For more information, see
- *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime Monitoring</a>.</p>
- *          <p>There might be regional differences because some data sources might not be
- *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
- *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
+ * <p>Contains information on member accounts to be updated.</p> <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>) and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error. You can add only one of these two features because Runtime Monitoring already includes the threat detection for Amazon EKS resources. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime Monitoring</a>.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,7 +58,7 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  *   },
  *   Features: [ // MemberFeaturesConfigurations
  *     { // MemberFeaturesConfiguration
- *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS" || "RUNTIME_MONITORING",
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING",
  *       Status: "ENABLED" || "DISABLED",
  *       AdditionalConfiguration: [ // MemberAdditionalConfigurations
  *         { // MemberAdditionalConfiguration

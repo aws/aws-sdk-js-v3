@@ -27,10 +27,7 @@ export interface ListCoverageCommandInput extends ListCoverageRequest {}
 export interface ListCoverageCommandOutput extends ListCoverageResponse, __MetadataBearer {}
 
 /**
- * <p>Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can
- *       retrieve all resources associated with the active member accounts in your organization.</p>
- *          <p>Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running on
- *       their resources.</p>
+ * <p>Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can retrieve all resources associated with the active member accounts in your organization.</p> <p>Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running on their resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,7 +43,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *   FilterCriteria: { // CoverageFilterCriteria
  *     FilterCriterion: [ // CoverageFilterCriterionList
  *       { // CoverageFilterCriterion
- *         CriterionKey: "ACCOUNT_ID" || "CLUSTER_NAME" || "RESOURCE_TYPE" || "COVERAGE_STATUS" || "ADDON_VERSION" || "MANAGEMENT_TYPE" || "EKS_CLUSTER_NAME" || "ECS_CLUSTER_NAME" || "AGENT_VERSION" || "INSTANCE_ID" || "CLUSTER_ARN",
+ *         CriterionKey: "ACCOUNT_ID" || "RESOURCE_TYPE" || "COVERAGE_STATUS" || "ADDON_VERSION" || "CLUSTER_NAME" || "ECS_CLUSTER_NAME" || "MANAGEMENT_TYPE" || "EKS_CLUSTER_NAME" || "AGENT_VERSION" || "INSTANCE_ID" || "CLUSTER_ARN",
  *         FilterCondition: { // CoverageFilterCondition
  *           Equals: [ // Equals
  *             "STRING_VALUE",
@@ -59,7 +56,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *     ],
  *   },
  *   SortCriteria: { // CoverageSortCriteria
- *     AttributeName: "ACCOUNT_ID" || "CLUSTER_NAME" || "COVERAGE_STATUS" || "ISSUE" || "ADDON_VERSION" || "UPDATED_AT" || "EKS_CLUSTER_NAME" || "ECS_CLUSTER_NAME" || "INSTANCE_ID",
+ *     AttributeName: "ACCOUNT_ID" || "COVERAGE_STATUS" || "ISSUE" || "ADDON_VERSION" || "UPDATED_AT" || "CLUSTER_NAME" || "EKS_CLUSTER_NAME" || "ECS_CLUSTER_NAME" || "INSTANCE_ID",
  *     OrderBy: "ASC" || "DESC",
  *   },
  * };
@@ -82,7 +79,6 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //           },
  * //           ManagementType: "AUTO_MANAGED" || "MANUAL" || "DISABLED",
  * //         },
- * //         ResourceType: "EKS" || "ECS" || "EC2",
  * //         EcsClusterDetails: { // CoverageEcsClusterDetails
  * //           ClusterName: "STRING_VALUE",
  * //           FargateDetails: { // FargateDetails
@@ -105,6 +101,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //           },
  * //           ManagementType: "AUTO_MANAGED" || "MANUAL" || "DISABLED",
  * //         },
+ * //         ResourceType: "EKS" || "ECS" || "EC2",
  * //       },
  * //       CoverageStatus: "HEALTHY" || "UNHEALTHY",
  * //       Issue: "STRING_VALUE",

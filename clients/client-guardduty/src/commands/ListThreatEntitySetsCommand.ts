@@ -27,9 +27,7 @@ export interface ListThreatEntitySetsCommandInput extends ListThreatEntitySetsRe
 export interface ListThreatEntitySetsCommandOutput extends ListThreatEntitySetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the threat entity sets associated with the specified GuardDuty detector ID. If you use this
- *       operation from a member account, the threat entity sets that are returned as a response, belong to the
- *       administrator account.</p>
+ * <p>Lists the threat entity sets associated with the specified GuardDuty detector ID. If you use this operation from a member account, the threat entity sets that are returned as a response, belong to the administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

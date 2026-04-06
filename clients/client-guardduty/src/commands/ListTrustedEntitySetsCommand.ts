@@ -27,9 +27,7 @@ export interface ListTrustedEntitySetsCommandInput extends ListTrustedEntitySets
 export interface ListTrustedEntitySetsCommandOutput extends ListTrustedEntitySetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the trusted entity sets associated with the specified GuardDuty detector ID. If you use this
- *        operation from a member account, the trusted entity sets that are returned as a response, belong to the
- *        administrator account.</p>
+ * <p>Lists the trusted entity sets associated with the specified GuardDuty detector ID. If you use this operation from a member account, the trusted entity sets that are returned as a response, belong to the administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

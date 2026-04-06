@@ -214,6 +214,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             Uid: "STRING_VALUE",
  * //             Namespace: "STRING_VALUE",
  * //             HostNetwork: true || false,
+ * //             ServiceAccountName: "STRING_VALUE",
  * //             Containers: [ // Containers
  * //               { // Container
  * //                 ContainerRuntime: "STRING_VALUE",
@@ -241,7 +242,6 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 },
  * //               },
  * //             ],
- * //             ServiceAccountName: "STRING_VALUE",
  * //             HostIPC: true || false,
  * //             HostPID: true || false,
  * //           },
@@ -345,6 +345,28 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             AllowPrivilegeEscalation: true || false,
  * //           },
  * //         },
+ * //         LambdaDetails: { // LambdaDetails
+ * //           FunctionArn: "STRING_VALUE",
+ * //           FunctionName: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //           LastModifiedAt: new Date("TIMESTAMP"),
+ * //           RevisionId: "STRING_VALUE",
+ * //           FunctionVersion: "STRING_VALUE",
+ * //           Role: "STRING_VALUE",
+ * //           VpcConfig: { // VpcConfig
+ * //             SubnetIds: [ // SubnetIds
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             VpcId: "STRING_VALUE",
+ * //             SecurityGroups: [
+ * //               {
+ * //                 GroupId: "STRING_VALUE",
+ * //                 GroupName: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //           Tags: "<Tags>",
+ * //         },
  * //         RdsDbInstanceDetails: { // RdsDbInstanceDetails
  * //           DbInstanceIdentifier: "STRING_VALUE",
  * //           Engine: "STRING_VALUE",
@@ -369,28 +391,6 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           Database: "STRING_VALUE",
  * //           Ssl: "STRING_VALUE",
  * //           AuthMethod: "STRING_VALUE",
- * //         },
- * //         LambdaDetails: { // LambdaDetails
- * //           FunctionArn: "STRING_VALUE",
- * //           FunctionName: "STRING_VALUE",
- * //           Description: "STRING_VALUE",
- * //           LastModifiedAt: new Date("TIMESTAMP"),
- * //           RevisionId: "STRING_VALUE",
- * //           FunctionVersion: "STRING_VALUE",
- * //           Role: "STRING_VALUE",
- * //           VpcConfig: { // VpcConfig
- * //             SubnetIds: [ // SubnetIds
- * //               "STRING_VALUE",
- * //             ],
- * //             VpcId: "STRING_VALUE",
- * //             SecurityGroups: [
- * //               {
- * //                 GroupId: "STRING_VALUE",
- * //                 GroupName: "STRING_VALUE",
- * //               },
- * //             ],
- * //           },
- * //           Tags: "<Tags>",
  * //         },
  * //         EbsSnapshotDetails: { // EbsSnapshotDetails
  * //           SnapshotArn: "STRING_VALUE",
@@ -530,6 +530,10 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           KubernetesApiCallAction: { // KubernetesApiCallAction
  * //             RequestUri: "STRING_VALUE",
  * //             Verb: "STRING_VALUE",
+ * //             Resource: "STRING_VALUE",
+ * //             Subresource: "STRING_VALUE",
+ * //             Namespace: "STRING_VALUE",
+ * //             ResourceName: "STRING_VALUE",
  * //             SourceIps: [ // SourceIps
  * //               "STRING_VALUE",
  * //             ],
@@ -557,10 +561,24 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             },
  * //             StatusCode: Number("int"),
  * //             Parameters: "STRING_VALUE",
+ * //           },
+ * //           KubernetesPermissionCheckedDetails: { // KubernetesPermissionCheckedDetails
+ * //             Verb: "STRING_VALUE",
  * //             Resource: "STRING_VALUE",
- * //             Subresource: "STRING_VALUE",
  * //             Namespace: "STRING_VALUE",
- * //             ResourceName: "STRING_VALUE",
+ * //             Allowed: true || false,
+ * //           },
+ * //           KubernetesRoleBindingDetails: { // KubernetesRoleBindingDetails
+ * //             Kind: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //             Uid: "STRING_VALUE",
+ * //             RoleRefName: "STRING_VALUE",
+ * //             RoleRefKind: "STRING_VALUE",
+ * //           },
+ * //           KubernetesRoleDetails: { // KubernetesRoleDetails
+ * //             Kind: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //             Uid: "STRING_VALUE",
  * //           },
  * //           RdsLoginAttemptAction: { // RdsLoginAttemptAction
  * //             RemoteIpDetails: {
@@ -592,24 +610,6 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 SuccessfulLoginAttempts: Number("int"),
  * //               },
  * //             ],
- * //           },
- * //           KubernetesPermissionCheckedDetails: { // KubernetesPermissionCheckedDetails
- * //             Verb: "STRING_VALUE",
- * //             Resource: "STRING_VALUE",
- * //             Namespace: "STRING_VALUE",
- * //             Allowed: true || false,
- * //           },
- * //           KubernetesRoleBindingDetails: { // KubernetesRoleBindingDetails
- * //             Kind: "STRING_VALUE",
- * //             Name: "STRING_VALUE",
- * //             Uid: "STRING_VALUE",
- * //             RoleRefName: "STRING_VALUE",
- * //             RoleRefKind: "STRING_VALUE",
- * //           },
- * //           KubernetesRoleDetails: { // KubernetesRoleDetails
- * //             Kind: "STRING_VALUE",
- * //             Name: "STRING_VALUE",
- * //             Uid: "STRING_VALUE",
  * //           },
  * //         },
  * //         Evidence: { // Evidence

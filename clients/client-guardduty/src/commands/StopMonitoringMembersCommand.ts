@@ -27,12 +27,7 @@ export interface StopMonitoringMembersCommandInput extends StopMonitoringMembers
 export interface StopMonitoringMembersCommandOutput extends StopMonitoringMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Stops GuardDuty monitoring for the specified member accounts. Use the
- *         <code>StartMonitoringMembers</code> operation to restart monitoring for those
- *       accounts.</p>
- *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
- *         <code>ALL</code>, you'll receive an error if you attempt to stop monitoring the member
- *       accounts in your organization.</p>
+ * <p>Stops GuardDuty monitoring for the specified member accounts. Use the <code>StartMonitoringMembers</code> operation to restart monitoring for those accounts.</p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to stop monitoring the member accounts in your organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

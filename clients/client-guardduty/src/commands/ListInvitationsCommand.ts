@@ -27,8 +27,7 @@ export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all GuardDuty membership invitations that were sent to the current Amazon Web Services
- *       account.</p>
+ * <p>Lists all GuardDuty membership invitations that were sent to the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,10 +27,7 @@ export interface GetUsageStatisticsCommandInput extends GetUsageStatisticsReques
 export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector
- *       ID. For newly enabled detectors or data sources, the cost returned will include only the usage
- *       so far under 30 days. This may differ from the cost metrics in the console, which project
- *       usage over 30 days to provide a monthly cost estimate. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations">Understanding How Usage Costs are Calculated</a>.</p>
+ * <p>Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector ID. For newly enabled detectors or data sources, the cost returned will include only the usage so far under 30 days. This may differ from the cost metrics in the console, which project usage over 30 days to provide a monthly cost estimate. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations">Understanding How Usage Costs are Calculated</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,7 +50,7 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  *       "STRING_VALUE",
  *     ],
  *     Features: [ // UsageFeatureList
- *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING" || "RDS_DBI_PROTECTION_PROVISIONED" || "RDS_DBI_PROTECTION_SERVERLESS",
+ *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "RDS_DBI_PROTECTION_PROVISIONED" || "RDS_DBI_PROTECTION_SERVERLESS",
  *     ],
  *   },
  *   Unit: "STRING_VALUE",
@@ -75,7 +72,7 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * //     ],
  * //     TopAccountsByFeature: [ // UsageTopAccountsResultList
  * //       { // UsageTopAccountsResult
- * //         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING" || "RDS_DBI_PROTECTION_PROVISIONED" || "RDS_DBI_PROTECTION_SERVERLESS",
+ * //         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "RDS_DBI_PROTECTION_PROVISIONED" || "RDS_DBI_PROTECTION_SERVERLESS",
  * //         Accounts: [ // UsageTopAccountsByFeatureList
  * //           { // UsageTopAccountResult
  * //             AccountId: "STRING_VALUE",
@@ -116,7 +113,7 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * //     ],
  * //     SumByFeature: [ // UsageFeatureResultList
  * //       { // UsageFeatureResult
- * //         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING" || "RDS_DBI_PROTECTION_PROVISIONED" || "RDS_DBI_PROTECTION_SERVERLESS",
+ * //         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "RDS_DBI_PROTECTION_PROVISIONED" || "RDS_DBI_PROTECTION_SERVERLESS",
  * //         Total: "<Total>",
  * //       },
  * //     ],

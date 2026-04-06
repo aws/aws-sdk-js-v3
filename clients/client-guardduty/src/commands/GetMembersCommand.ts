@@ -27,8 +27,7 @@ export interface GetMembersCommandInput extends GetMembersRequest {}
 export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account)
- *       specified by the account IDs.</p>
+ * <p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account) specified by the account IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
