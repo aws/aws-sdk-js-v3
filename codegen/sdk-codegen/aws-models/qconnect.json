@@ -16175,6 +16175,16 @@
           "traits": {
             "smithy.api#documentation": "<p>Additional metadata for the message.</p>"
           }
+        },
+        "originRequestId": {
+          "target": "com.amazonaws.qconnect#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "Request identifier from the origin system, used for end-to-end tracing across spans.",
+            "smithy.api#length": {
+              "min": 1,
+              "max": 256
+            }
+          }
         }
       },
       "traits": {
@@ -16575,6 +16585,16 @@
           "traits": {
             "smithy.api#documentation": "<p>The service request ID that initiated the operation</p>",
             "smithy.api#required": {}
+          }
+        },
+        "originRequestId": {
+          "target": "com.amazonaws.qconnect#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "The origin request identifier for end-to-end tracing.",
+            "smithy.api#length": {
+              "min": 1,
+              "max": 256
+            }
           }
         },
         "attributes": {

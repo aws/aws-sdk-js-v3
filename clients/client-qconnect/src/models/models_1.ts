@@ -3261,6 +3261,12 @@ export interface Span {
   requestId: string | undefined;
 
   /**
+   * The origin request identifier for end-to-end tracing.
+   * @public
+   */
+  originRequestId?: string | undefined;
+
+  /**
    * <p>Span-specific contextual attributes</p>
    * @public
    */

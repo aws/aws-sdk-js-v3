@@ -89,6 +89,7 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  *   metadata: { // MessageMetadata
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   originRequestId: "STRING_VALUE",
  * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);

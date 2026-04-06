@@ -929,6 +929,7 @@ const _oM = "outputMessages";
 const _oN = "operationName";
 const _oOF = "orderOnField";
 const _oP = "overlapPercentage";
+const _oRI = "originRequestId";
 const _oS = "outputStrength";
 const _oSu = "outputSchema";
 const _oT = "overlapTokens";
@@ -2728,8 +2729,8 @@ export var SemanticChunkingConfiguration$: StaticStructureSchema = [3, n0, _SCC,
 ];
 export var SendMessageRequest$: StaticStructureSchema = [3, n0, _SMR,
   0,
-  [_aI, _sI, _t, _m, _aAI, _cCo, _co, _cTl, _oUC, _me],
-  [[0, 1], [0, 1], 0, [() => MessageInput$, 0], 0, [() => ConversationContext$, 0], () => MessageConfiguration$, [0, 4], 0, 128 | 0], 4
+  [_aI, _sI, _t, _m, _aAI, _cCo, _co, _cTl, _oUC, _me, _oRI],
+  [[0, 1], [0, 1], 0, [() => MessageInput$, 0], 0, [() => ConversationContext$, 0], () => MessageConfiguration$, [0, 4], 0, 128 | 0, 0], 4
 ];
 export var SendMessageResponse$: StaticStructureSchema = [3, n0, _SMRe,
   0,
@@ -2773,8 +2774,8 @@ export var SourceContentDataDetails$: StaticStructureSchema = [3, n0, _SCDD,
 ];
 export var Span$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_sIp, _aI, _sI, _sN, _sT, _sTt, _eT, _st, _rIeq, _attr, _pSI],
-  [0, 0, 0, 0, 0, 4, 4, 0, 0, [() => SpanAttributes$, 0], 0], 10
+  [_sIp, _aI, _sI, _sN, _sT, _sTt, _eT, _st, _rIeq, _attr, _pSI, _oRI],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, [() => SpanAttributes$, 0], 0, 0], 10
 ];
 export var SpanAttributes$: StaticStructureSchema = [3, n0, _SA,
   0,

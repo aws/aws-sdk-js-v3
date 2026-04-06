@@ -5839,6 +5839,12 @@ export interface SendMessageRequest {
    * @public
    */
   metadata?: Record<string, string> | undefined;
+
+  /**
+   * Request identifier from the origin system, used for end-to-end tracing across spans.
+   * @public
+   */
+  originRequestId?: string | undefined;
 }
 
 /**

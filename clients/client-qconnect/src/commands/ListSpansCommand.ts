@@ -58,6 +58,7 @@ export interface ListSpansCommandOutput extends ListSpansResponse, __MetadataBea
  * //       endTimestamp: new Date("TIMESTAMP"), // required
  * //       status: "STRING_VALUE", // required
  * //       requestId: "STRING_VALUE", // required
+ * //       originRequestId: "STRING_VALUE",
  * //       attributes: { // SpanAttributes
  * //         operationName: "STRING_VALUE",
  * //         providerName: "STRING_VALUE",
