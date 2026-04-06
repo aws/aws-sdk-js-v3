@@ -20194,6 +20194,12 @@
             "smithy.api#enumValue": "eu-central-1"
           }
         },
+        "EU_NORTH_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-north-1"
+          }
+        },
         "CA_CENTRAL_1": {
           "target": "smithy.api#Unit",
           "traits": {
@@ -20230,16 +20236,16 @@
             "smithy.api#enumValue": "ap-northeast-2"
           }
         },
-        "EU_NORTH_1": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "eu-north-1"
-          }
-        },
         "AP_SOUTHEAST_3": {
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "ap-southeast-3"
+          }
+        },
+        "AP_SOUTHEAST_5": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-5"
           }
         }
       }

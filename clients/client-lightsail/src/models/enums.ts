@@ -119,6 +119,7 @@ export const RegionName = {
   AP_SOUTHEAST_1: "ap-southeast-1",
   AP_SOUTHEAST_2: "ap-southeast-2",
   AP_SOUTHEAST_3: "ap-southeast-3",
+  AP_SOUTHEAST_5: "ap-southeast-5",
   AP_SOUTH_1: "ap-south-1",
   CA_CENTRAL_1: "ca-central-1",
   EU_CENTRAL_1: "eu-central-1",
