@@ -10,7 +10,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DIST_DIR = path.resolve(__dirname, "../dist-perf");
+const DIST_DIR = path.join(__dirname, "..", "dist-perf");
 
 const bundles = [
   { name: "rollup", file: "rollup-sdk-s3-single-command.ts.js" },

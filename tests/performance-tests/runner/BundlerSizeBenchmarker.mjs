@@ -6,8 +6,8 @@ import esbuild from "esbuild";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const APPLICATIONS_DIR = path.resolve(__dirname, "../applications");
-const DIST_DIR = path.resolve(__dirname, "../dist-perf");
+const APPLICATIONS_DIR = path.join(__dirname, "..", "applications");
+const DIST_DIR = path.join(__dirname, "..", "dist-perf");
 
 export class BundlerSizeBenchmarker {
   constructor({ application }) {

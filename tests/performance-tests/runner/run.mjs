@@ -7,18 +7,22 @@ import { BundlerSizeBenchmarker } from "./BundlerSizeBenchmarker.mjs";
 import { generateBundleSizeReport } from "./BundleSizeReportGenerator.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const APPLICATIONS_DIR = path.resolve(__dirname, "../applications");
-const DIST_DIR = path.resolve(__dirname, "../dist-perf");
+const APPLICATIONS_DIR = path.join(__dirname, "..", "applications");
+const DIST_DIR = path.join(__dirname, "..", "dist-perf");
 
 let lerna = { version: "unknown" };
 try {
-  lerna = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../lerna.json"), "utf-8"));
-} catch {}
+  lerna = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "lerna.json"), "utf-8"));
+} catch (e) {
+  console.warn("WARN: could not read lerna.json:", e.message);
+}
 
 let commitId = "unknown";
 try {
   commitId = execSync("git rev-parse HEAD", { encoding: "utf-8" }).trim();
-} catch {}
+} catch (e) {
+  console.warn("WARN: could not determine commitId:", e.message);
+}
 
 fs.mkdirSync(DIST_DIR, { recursive: true });
 

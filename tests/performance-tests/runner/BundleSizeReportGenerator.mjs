@@ -4,12 +4,16 @@ import fs from "node:fs";
 import prettier from "prettier";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const REPORT_PATH = path.resolve(__dirname, "../../../benchmark/size/report-bundlers.md");
+const REPORT_PATH = path.join(__dirname, "..", "..", "..", "benchmark", "size", "report-bundlers.md");
 
 function byteSize(num) {
-  if (num > 1024 ** 2) return ((((num / 1024 ** 2) * 1000) | 0) / 1000).toLocaleString() + " mb";
-  if (num > 1024) return ((num / 1024) | 0).toLocaleString() + " kb";
-  return num.toLocaleString() + " b";
+  if (num > 1024 ** 2) {
+    return (num / 1024 ** 2).toFixed(3) + " mb";
+  }
+  if (num > 1024) {
+    return (num / 1024).toFixed(1) + " kb";
+  }
+  return num + " b";
 }
 
 /**

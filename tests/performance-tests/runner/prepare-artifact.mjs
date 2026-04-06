@@ -15,7 +15,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PERF_TESTS_DIR = path.resolve(__dirname, "..");
+const PERF_TESTS_DIR = path.join(__dirname, "..");
 
 const artifactDir = process.argv[2];
 const monorepoRoot = process.argv[3];
@@ -25,21 +25,8 @@ if (!artifactDir || !monorepoRoot) {
   process.exit(1);
 }
 
-function copyDir(src, dest) {
-  fs.mkdirSync(dest, { recursive: true });
-  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
-    if (entry.isDirectory()) {
-      copyDir(srcPath, destPath);
-    } else {
-      fs.copyFileSync(srcPath, destPath);
-    }
-  }
-}
-
 for (const dir of ["runner", "applications"]) {
-  copyDir(path.join(PERF_TESTS_DIR, dir), path.join(artifactDir, dir));
+  fs.cpSync(path.join(PERF_TESTS_DIR, dir), path.join(artifactDir, dir), { recursive: true });
 }
 
 const monorepoModules = path.join(monorepoRoot, "node_modules");
@@ -47,15 +34,15 @@ const monorepoModules = path.join(monorepoRoot, "node_modules");
 // Copy bundler node_modules (esbuild, webpack, vite, etc.) — these take precedence
 const bundlerModules = path.join(PERF_TESTS_DIR, "node_modules");
 if (fs.existsSync(bundlerModules)) {
-  copyDir(bundlerModules, path.join(artifactDir, "node_modules"));
+  fs.cpSync(bundlerModules, path.join(artifactDir, "node_modules"), { recursive: true });
 }
 
 // Copy non-workspace npm packages needed at bundle time.
-const RUNTIME_SCOPES = ["@aws-crypto", "@aws-smithy", "@aws"];
-for (const scope of RUNTIME_SCOPES) {
+const RUNTIME_SCOPED_PACKAGES = ["@aws-crypto", "@aws-smithy", "@aws"];
+for (const scope of RUNTIME_SCOPED_PACKAGES) {
   const scopeDir = path.join(monorepoModules, scope);
   if (!fs.existsSync(scopeDir)) continue;
-  copyDir(scopeDir, path.join(artifactDir, "node_modules", scope));
+  fs.cpSync(scopeDir, path.join(artifactDir, "node_modules", scope), { recursive: true });
 }
 
 // Non-scoped runtime deps referenced by SDK packages
@@ -63,7 +50,7 @@ const RUNTIME_PACKAGES = ["bowser", "mnemonist", "obliterator", "fflate", "fast-
 for (const pkg of RUNTIME_PACKAGES) {
   const src = path.join(monorepoModules, pkg);
   if (fs.existsSync(src)) {
-    copyDir(src, path.join(artifactDir, "node_modules", pkg));
+    fs.cpSync(src, path.join(artifactDir, "node_modules", pkg), { recursive: true });
   }
 }
 
@@ -83,10 +70,10 @@ for (const scope of ["@aws-sdk", "@smithy"]) {
     if (fs.existsSync(pkgJson)) {
       fs.copyFileSync(pkgJson, path.join(destPkgDir, "package.json"));
     }
-    for (const distDir of ["dist-es", "dist-cjs"]) {
+    for (const distDir of ["dist-es", "dist-cjs", "dist-types"]) {
       const src = path.join(realPkgDir, distDir);
       if (fs.existsSync(src)) {
-        copyDir(src, path.join(destPkgDir, distDir));
+        fs.cpSync(src, path.join(destPkgDir, distDir), { recursive: true });
       }
     }
     for (const f of fs.readdirSync(realPkgDir)) {
@@ -102,4 +89,4 @@ if (fs.existsSync(lernaJson)) {
   fs.copyFileSync(lernaJson, path.join(artifactDir, "lerna.json"));
 }
 
-process.stdout.write(`Artifact prepared at: ${artifactDir}\n`);
+console.info(`Artifact prepared at: ${artifactDir}`);
