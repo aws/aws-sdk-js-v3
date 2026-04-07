@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1026.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1025.0...v3.1026.0) (2026-04-07)
+
+
+### Bug Fixes
+
+* **scripts:** default generate-client-tarball-since to origin/main ([#7917](https://github.com/aws/aws-sdk-js-v3/issues/7917)) ([314b203](https://github.com/aws/aws-sdk-js-v3/commit/314b203d283df1e8d9e78080f2823cc81a14a223))
+
+
+### Features
+
+* **client-accessanalyzer:** Revert previous additions of API changes. ([2498b34](https://github.com/aws/aws-sdk-js-v3/commit/2498b34454db79c36fffdeaf3ea21efc606ec090))
+* **client-bedrock-agentcore:** This release includes support for 1) InvokeBrowser API, enabling OS-level control of AgentCore Browser Tool sessions through mouse actions, keyboard input, and screenshots. 2) Added documentation noting that empty sessions are automatically deleted after one day in the ListSessions API. ([209baf8](https://github.com/aws/aws-sdk-js-v3/commit/209baf8c3004f6b7d9aa736fcaf896f6bb35ada1))
+* **client-braket:** Added support for t3, g6, and g6e instance types for Hybrid Jobs. ([5107b43](https://github.com/aws/aws-sdk-js-v3/commit/5107b43e9ed72f4a5a2c5ab65ce8686540a5dc16))
+* **client-connect:** The voice enhancement mode used by the agent can now be viewed on the contact record via the DescribeContact api. ([1411825](https://github.com/aws/aws-sdk-js-v3/commit/1411825c58f5351b15a5f561e914f54aa9a61b7f))
+* **client-datasync:** Allow IAM role ARNs with IAM Paths for "SecretAccessRoleArn" field in "CustomSecretConfig" ([2493464](https://github.com/aws/aws-sdk-js-v3/commit/2493464bae635f3707ac32e79db4d8aa1fdf6fbf))
+* **client-datazone:** Update Configurations and registerS3AccessGrantLocation as public attributes for cfn ([4959747](https://github.com/aws/aws-sdk-js-v3/commit/49597475aa62448829fb5e0fc958a1f1e263c1c2))
+* **client-ec2:** EC2 Capacity Manager adds new dimensions for grouping and filtering capacity metrics, including tag-based dimensions and Account Name. ([4f5a452](https://github.com/aws/aws-sdk-js-v3/commit/4f5a452ac08084462195df32604cd720a3d5951e))
+* **client-ecs:** This release provides the functionality of mounting Amazon S3 Files to Amazon ECS tasks by adding support for the new S3FilesVolumeConfiguration parameter in ECS RegisterTaskDefinition API. ([1816b91](https://github.com/aws/aws-sdk-js-v3/commit/1816b9153fc7805c933193b2b5455e68b1f680ac))
+* **client-eks:** EKS MNG WarmPool feature to support ASG WarmPool feature. ([b982b67](https://github.com/aws/aws-sdk-js-v3/commit/b982b6788cad08dac3f335ab1f52739b10f565ca))
+* **client-lambda:** Launching Lambda integration with S3 Files as a new file system configuration. ([4e40cc0](https://github.com/aws/aws-sdk-js-v3/commit/4e40cc0ce3526c16d5d0464e37755692143532a1))
+* **client-outposts:** This change allows listAssets to surface pending and non-compute asset information. Adds the INSTALLING asset state enum and the STORAGE, POWERSHELF, SWITCH, and NETWORKING AssetTypes. ([12921a6](https://github.com/aws/aws-sdk-js-v3/commit/12921a6f530a2bdcdcc66e8c3e687f9a23944e3d))
+* **client-rtbfabric:** AWS RTB Fabric External Responder gateways now support HTTP in addition to HTTPS for inbound external links. Gateways can accept bid requests on port 80 or serve both protocols simultaneously via listener configuration, giving customers flexible transport options for their bidding infrastructure ([e7dae9e](https://github.com/aws/aws-sdk-js-v3/commit/e7dae9e324f9f5e7b0810633d7e085182f5de5a4))
+* **client-s3files:** Support for S3 Files, a new shared file system that connects any AWS compute directly with your data in Amazon S3. It provides fast, direct access to all of your S3 data as files with full file system semantics and low-latency performance, without your data ever leaving S3. ([b87065a](https://github.com/aws/aws-sdk-js-v3/commit/b87065a7c02cdf72e65c3e1249ca66e2bebed3bc))
+* **client-s3:** Updated list of the valid AWS Region values for the LocationConstraint parameter for general purpose buckets. ([229167d](https://github.com/aws/aws-sdk-js-v3/commit/229167dd9dc54fa300fd9bd68837fcf6eb82e566))
+* **clients:** update client endpoints as of 2026-04-07 ([1a9724c](https://github.com/aws/aws-sdk-js-v3/commit/1a9724c88ec4457cbdd24f1fbb871eccbfb2f3e6))
+
+
+
+
+
 # [3.1025.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1024.0...v3.1025.0) (2026-04-06)
 
 

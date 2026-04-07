@@ -12,6 +12,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.993.10 (2026-04-07)
+### Chores
+* **codegen:** update for sparse types and retry 2.1 updates ([#7916](https://github.com/aws/aws-sdk-js-v3/issues/7916)) ([b19357a](https://github.com/aws/aws-sdk-js-v3/commit/b19357a7a6cac4cbe040a6ac429102cfbc378b1e))
+
+
+
 # 3.993.9 (2026-03-30)
 ### Chores
 * **codegen:** update smithy package versions ([#7903](https://github.com/aws/aws-sdk-js-v3/issues/7903)) ([c702a75](https://github.com/aws/aws-sdk-js-v3/commit/c702a7595037829166db776cffdfea785588d78a))

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1026.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1025.0...v3.1026.0) (2026-04-07)
+
+
+### Features
+
+* **client-ec2:** EC2 Capacity Manager adds new dimensions for grouping and filtering capacity metrics, including tag-based dimensions and Account Name. ([4f5a452](https://github.com/aws/aws-sdk-js-v3/commit/4f5a452ac08084462195df32604cd720a3d5951e))
+
+
+
+
+
 # [3.1025.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1024.0...v3.1025.0) (2026-04-06)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

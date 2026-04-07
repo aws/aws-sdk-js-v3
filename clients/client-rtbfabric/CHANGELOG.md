@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1026.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1025.0...v3.1026.0) (2026-04-07)
+
+
+### Features
+
+* **client-rtbfabric:** AWS RTB Fabric External Responder gateways now support HTTP in addition to HTTPS for inbound external links. Gateways can accept bid requests on port 80 or serve both protocols simultaneously via listener configuration, giving customers flexible transport options for their bidding infrastructure ([e7dae9e](https://github.com/aws/aws-sdk-js-v3/commit/e7dae9e324f9f5e7b0810633d7e085182f5de5a4))
+
+
+
+
+
 # [3.1025.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1024.0...v3.1025.0) (2026-04-06)
 
 **Note:** Version bump only for package @aws-sdk/client-rtbfabric

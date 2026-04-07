@@ -30,6 +30,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.27 (2026-04-07)
+### Chores
+* **clients:** add AWS retry customizations for DynamoDB, SQS, SFN, SWF ([#7922](https://github.com/aws/aws-sdk-js-v3/issues/7922)) ([4d9c592](https://github.com/aws/aws-sdk-js-v3/commit/4d9c592830725c8dbbfa84299345d70fdc82a574))
+* **codegen:** update for sparse types and retry 2.1 updates ([#7916](https://github.com/aws/aws-sdk-js-v3/issues/7916)) ([b19357a](https://github.com/aws/aws-sdk-js-v3/commit/b19357a7a6cac4cbe040a6ac429102cfbc378b1e))
+
+
+
 # 3.973.26 (2026-03-30)
 ### Chores
 * **codegen:** update smithy package versions ([#7903](https://github.com/aws/aws-sdk-js-v3/issues/7903)) ([c702a75](https://github.com/aws/aws-sdk-js-v3/commit/c702a7595037829166db776cffdfea785588d78a))

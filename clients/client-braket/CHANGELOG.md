@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1026.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1025.0...v3.1026.0) (2026-04-07)
+
+
+### Features
+
+* **client-braket:** Added support for t3, g6, and g6e instance types for Hybrid Jobs. ([5107b43](https://github.com/aws/aws-sdk-js-v3/commit/5107b43e9ed72f4a5a2c5ab65ce8686540a5dc16))
+
+
+
+
+
 # [3.1025.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1024.0...v3.1025.0) (2026-04-06)
 
 **Note:** Version bump only for package @aws-sdk/client-braket

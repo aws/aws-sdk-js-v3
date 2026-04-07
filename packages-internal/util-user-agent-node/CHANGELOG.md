@@ -31,6 +31,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.15 (2026-04-07)
+### Chores
+* **codegen:** update for sparse types and retry 2.1 updates ([#7916](https://github.com/aws/aws-sdk-js-v3/issues/7916)) ([b19357a](https://github.com/aws/aws-sdk-js-v3/commit/b19357a7a6cac4cbe040a6ac429102cfbc378b1e))
+
+
+
 # 3.973.14 (2026-03-31)
 ### Chores
 * **util-user-agent-node:** update dependencies.

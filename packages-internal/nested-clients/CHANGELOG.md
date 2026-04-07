@@ -21,6 +21,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.19 (2026-04-07)
+### Chores
+* **codegen:** update for sparse types and retry 2.1 updates ([#7916](https://github.com/aws/aws-sdk-js-v3/issues/7916)) ([b19357a](https://github.com/aws/aws-sdk-js-v3/commit/b19357a7a6cac4cbe040a6ac429102cfbc378b1e))
+
+
+
 # 3.996.18 (2026-03-31)
 ### Bug Fixes
 * **codegen:** sync for adaptive retry throttling detection fix ([#7905](https://github.com/aws/aws-sdk-js-v3/issues/7905)) ([03f108d](https://github.com/aws/aws-sdk-js-v3/commit/03f108d08c37fcde9de0a62c29887458e980d84e))
