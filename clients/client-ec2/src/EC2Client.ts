@@ -1952,6 +1952,10 @@ import type {
   GetCapacityManagerMetricDimensionsCommandOutput,
 } from "./commands/GetCapacityManagerMetricDimensionsCommand";
 import type {
+  GetCapacityManagerMonitoredTagKeysCommandInput,
+  GetCapacityManagerMonitoredTagKeysCommandOutput,
+} from "./commands/GetCapacityManagerMonitoredTagKeysCommand";
+import type {
   GetCapacityReservationUsageCommandInput,
   GetCapacityReservationUsageCommandOutput,
 } from "./commands/GetCapacityReservationUsageCommand";
@@ -2736,6 +2740,10 @@ import type {
   UnmonitorInstancesCommandOutput,
 } from "./commands/UnmonitorInstancesCommand";
 import type {
+  UpdateCapacityManagerMonitoredTagKeysCommandInput,
+  UpdateCapacityManagerMonitoredTagKeysCommandOutput,
+} from "./commands/UpdateCapacityManagerMonitoredTagKeysCommand";
+import type {
   UpdateCapacityManagerOrganizationsAccessCommandInput,
   UpdateCapacityManagerOrganizationsAccessCommandOutput,
 } from "./commands/UpdateCapacityManagerOrganizationsAccessCommand";
@@ -3301,6 +3309,7 @@ export type ServiceInputTypes =
   | GetCapacityManagerAttributesCommandInput
   | GetCapacityManagerMetricDataCommandInput
   | GetCapacityManagerMetricDimensionsCommandInput
+  | GetCapacityManagerMonitoredTagKeysCommandInput
   | GetCapacityReservationUsageCommandInput
   | GetCoipPoolUsageCommandInput
   | GetConsoleOutputCommandInput
@@ -3521,6 +3530,7 @@ export type ServiceInputTypes =
   | UnassignPrivateNatGatewayAddressCommandInput
   | UnlockSnapshotCommandInput
   | UnmonitorInstancesCommandInput
+  | UpdateCapacityManagerMonitoredTagKeysCommandInput
   | UpdateCapacityManagerOrganizationsAccessCommandInput
   | UpdateInterruptibleCapacityReservationAllocationCommandInput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandInput
@@ -4062,6 +4072,7 @@ export type ServiceOutputTypes =
   | GetCapacityManagerAttributesCommandOutput
   | GetCapacityManagerMetricDataCommandOutput
   | GetCapacityManagerMetricDimensionsCommandOutput
+  | GetCapacityManagerMonitoredTagKeysCommandOutput
   | GetCapacityReservationUsageCommandOutput
   | GetCoipPoolUsageCommandOutput
   | GetConsoleOutputCommandOutput
@@ -4282,6 +4293,7 @@ export type ServiceOutputTypes =
   | UnassignPrivateNatGatewayAddressCommandOutput
   | UnlockSnapshotCommandOutput
   | UnmonitorInstancesCommandOutput
+  | UpdateCapacityManagerMonitoredTagKeysCommandOutput
   | UpdateCapacityManagerOrganizationsAccessCommandOutput
   | UpdateInterruptibleCapacityReservationAllocationCommandOutput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandOutput

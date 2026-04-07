@@ -188,8 +188,9 @@ const _ANLBAd = "AddNetworkLoadBalancerArn";
 const _ANS = "AddNetworkServices";
 const _ANSc = "AcceleratorNameSet";
 const _ANSd = "AddNetworkService";
-const _ANc = "AcceleratorNames";
-const _ANcc = "AcceleratorName";
+const _ANc = "AccountName";
+const _ANcc = "AcceleratorNames";
+const _ANcce = "AcceleratorName";
 const _ANt = "AttributeNames";
 const _AO = "AuthenticationOptions";
 const _AOI = "AddressOwnerId";
@@ -341,6 +342,8 @@ const _ATI = "AccepterTgwInfo";
 const _ATIR = "AssociateTrunkInterfaceRequest";
 const _ATIRs = "AssociateTrunkInterfaceResult";
 const _ATIs = "AssociateTrunkInterface";
+const _ATK = "ActivateTagKeys";
+const _ATKc = "ActivateTagKey";
 const _ATL = "AddressTransferList";
 const _ATLr = "ArchitectureTypeList";
 const _ATMMB = "AcceleratorTotalMemoryMiB";
@@ -777,6 +780,9 @@ const _CMDEIa = "CapacityManagerDataExportIds";
 const _CMDER = "CapacityManagerDataExportResponse";
 const _CMDERS = "CapacityManagerDataExportResponseSet";
 const _CMKE = "CustomerManagedKeyEnabled";
+const _CMMTK = "CapacityManagerMonitoredTagKey";
+const _CMMTKL = "CapacityManagerMonitoredTagKeyList";
+const _CMP = "CapacityManagerProvided";
 const _CMPL = "CreateManagedPrefixList";
 const _CMPLR = "CreateManagedPrefixListRequest";
 const _CMPLRr = "CreateManagedPrefixListResult";
@@ -785,6 +791,9 @@ const _CMSIPMT = "CreateMacSystemIntegrityProtectionModificationTask";
 const _CMSIPMTR = "CreateMacSystemIntegrityProtectionModificationTaskRequest";
 const _CMSIPMTRr = "CreateMacSystemIntegrityProtectionModificationTaskResult";
 const _CMSp = "CpuManufacturerSet";
+const _CMTD = "CapacityManagerTagDimension";
+const _CMTDS = "CapacityManagerTagDimensionSet";
+const _CMTK = "CapacityManagerTagKeys";
 const _CMp = "CpuManufacturer";
 const _CN = "CommonName";
 const _CNA = "CoreNetworkArn";
@@ -2103,6 +2112,8 @@ const _DTIAR = "DescribeTrunkInterfaceAssociationsRequest";
 const _DTIARe = "DescribeTrunkInterfaceAssociationsResult";
 const _DTIR = "DisassociateTrunkInterfaceRequest";
 const _DTIRi = "DisassociateTrunkInterfaceResult";
+const _DTK = "DeactivateTagKeys";
+const _DTKe = "DeactivateTagKey";
 const _DTMF = "DeleteTrafficMirrorFilter";
 const _DTMFR = "DeleteTrafficMirrorFilterRequest";
 const _DTMFRR = "DeleteTrafficMirrorFilterRuleRequest";
@@ -2348,8 +2359,8 @@ const _EDH = "EnableDnsHostnames";
 const _EDP = "EndpointDomainPrefix";
 const _EDR = "EndDateRange";
 const _EDS = "EnableDnsSupport";
-const _EDT = "EndDateType";
-const _EDTa = "EarliestDatapointTimestamp";
+const _EDT = "EarliestDatapointTimestamp";
+const _EDTn = "EndDateType";
 const _EDVI = "ExcludeDataVolumeIds";
 const _EDVIx = "ExcludeDataVolumeId";
 const _EDf = "EffectiveDate";
@@ -2704,6 +2715,9 @@ const _GCMMDRe = "GetCapacityManagerMetricDataResult";
 const _GCMMDRet = "GetCapacityManagerMetricDimensionsRequest";
 const _GCMMDReta = "GetCapacityManagerMetricDimensionsResult";
 const _GCMMDe = "GetCapacityManagerMetricDimensions";
+const _GCMMTK = "GetCapacityManagerMonitoredTagKeys";
+const _GCMMTKR = "GetCapacityManagerMonitoredTagKeysRequest";
+const _GCMMTKRe = "GetCapacityManagerMonitoredTagKeysResult";
 const _GCO = "GetConsoleOutput";
 const _GCOR = "GetConsoleOutputRequest";
 const _GCORe = "GetConsoleOutputResult";
@@ -5602,6 +5616,7 @@ const _TIa = "TargetId";
 const _TIar = "TargetIops";
 const _TIe = "TenantId";
 const _TIer = "TerminatingInstances";
+const _TK = "TagKey";
 const _TL = "TagList";
 const _TLSGB = "TotalLocalStorageGB";
 const _TLSGBR = "TotalLocalStorageGBRequest";
@@ -5704,6 +5719,9 @@ const _UA = "UpdatedAt";
 const _UB = "UserBucket";
 const _UBD = "UserBucketDetails";
 const _UC = "UltraserverCount";
+const _UCMMTK = "UpdateCapacityManagerMonitoredTagKeys";
+const _UCMMTKR = "UpdateCapacityManagerMonitoredTagKeysRequest";
+const _UCMMTKRp = "UpdateCapacityManagerMonitoredTagKeysResult";
 const _UCMOA = "UpdateCapacityManagerOrganizationsAccess";
 const _UCMOAR = "UpdateCapacityManagerOrganizationsAccessRequest";
 const _UCMOARp = "UpdateCapacityManagerOrganizationsAccessResult";
@@ -6102,6 +6120,7 @@ const _aMS = "acceleratorManufacturerSet";
 const _aMSp = "applianceModeSupport";
 const _aN = "attributeName";
 const _aNS = "acceleratorNameSet";
+const _aNc = "accountName";
 const _aO = "authenticationOptions";
 const _aOI = "addressOwnerId";
 const _aP = "autoPlacement";
@@ -6315,8 +6334,10 @@ const _cLO = "connectionLogOptions";
 const _cMDEI = "capacityManagerDataExportId";
 const _cMDES = "capacityManagerDataExportSet";
 const _cMKE = "customerManagedKeyEnabled";
+const _cMP = "capacityManagerProvided";
 const _cMS = "capacityManagerStatus";
 const _cMSp = "cpuManufacturerSet";
+const _cMTKS = "capacityManagerTagKeySet";
 const _cN = "commonName";
 const _cNA = "coreNetworkArn";
 const _cNAA = "coreNetworkAttachmentArn";
@@ -6531,8 +6552,8 @@ const _eCx = "explanationCode";
 const _eD = "endDate";
 const _eDH = "enableDnsHostnames";
 const _eDS = "enableDnsSupport";
-const _eDT = "endDateType";
-const _eDTa = "earliestDatapointTimestamp";
+const _eDT = "earliestDatapointTimestamp";
+const _eDTn = "endDateType";
 const _eDf = "effectiveDate";
 const _eDn = "enableDns64";
 const _eDnd = "endpointDomain";
@@ -7900,6 +7921,7 @@ const _tIWE = "terminateInstancesWithExpiration";
 const _tIa = "targetId";
 const _tIar = "targetIops";
 const _tIe = "tenantId";
+const _tK = "tagKey";
 const _tLSGB = "totalLocalStorageGB";
 const _tLV = "trackLatestVersion";
 const _tMAE = "targetMultiAttachEnabled";
@@ -9462,11 +9484,12 @@ export var CapacityManagerDataExportResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var CapacityManagerDimension$: StaticStructureSchema = [3, n0, _CMD,
   0,
-  [_RR, _AZI, _AIc, _IF, _IT, _IPn, _RAe, _RIe, _RT, _RCT, _RST, _RET, _REDT, _Te, _RSe, _RIMC, _RUFO],
+  [_RR, _AZI, _AIc, _ANc, _IF, _IT, _IPn, _RAe, _RIe, _RT, _RCT, _RST, _RET, _REDT, _Te, _RSe, _RIMC, _RUFO, _T],
   [[0, { [_eQN]: `ResourceRegion`
   , [_xN]: _rR }], [0, { [_eQN]: `AvailabilityZoneId`
   , [_xN]: _aZI }], [0, { [_eQN]: `AccountId`
-  , [_xN]: _aIc }], [0, { [_eQN]: `InstanceFamily`
+  , [_xN]: _aIc }], [0, { [_eQN]: `AccountName`
+  , [_xN]: _aNc }], [0, { [_eQN]: `InstanceFamily`
   , [_xN]: _iF }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `InstancePlatform`
   , [_xN]: _iPn }], [0, { [_eQN]: `ReservationArn`
@@ -9480,11 +9503,29 @@ export var CapacityManagerDimension$: StaticStructureSchema = [3, n0, _CMD,
   , [_xN]: _t }], [0, { [_eQN]: `ReservationState`
   , [_xN]: _rS }], [0, { [_eQN]: `ReservationInstanceMatchCriteria`
   , [_xN]: _rIMC }], [0, { [_eQN]: `ReservationUnusedFinancialOwner`
-  , [_xN]: _rUFO }]]
+  , [_xN]: _rUFO }], [() => CapacityManagerTagDimensionSet, { [_eQN]: `TagSet`
+  , [_xN]: _tS }]]
+];
+export var CapacityManagerMonitoredTagKey$: StaticStructureSchema = [3, n0, _CMMTK,
+  0,
+  [_TK, _Sta, _SMt, _CMP, _EDT],
+  [[0, { [_eQN]: `TagKey`
+  , [_xN]: _tK }], [0, { [_eQN]: `Status`
+  , [_xN]: _sta }], [0, { [_eQN]: `StatusMessage`
+  , [_xN]: _sMt }], [2, { [_eQN]: `CapacityManagerProvided`
+  , [_xN]: _cMP }], [4, { [_eQN]: `EarliestDatapointTimestamp`
+  , [_xN]: _eDT }]]
+];
+export var CapacityManagerTagDimension$: StaticStructureSchema = [3, n0, _CMTD,
+  0,
+  [_K, _V],
+  [[0, { [_eQN]: `Key`
+  , [_xN]: _k }], [0, { [_eQN]: `Value`
+  , [_xN]: _v }]]
 ];
 export var CapacityReservation$: StaticStructureSchema = [3, n0, _CRa,
   0,
-  [_CRI, _OI, _CRA, _AZI, _IT, _IPn, _AZ, _Te, _TIC, _AICv, _EO, _ES, _St, _SD, _ED, _EDT, _IMC, _CD, _T, _OA, _CRFIa, _PGA, _CAap, _RT, _URBOI, _CIom, _DP, _CBI, _Int, _ICA, _IIn],
+  [_CRI, _OI, _CRA, _AZI, _IT, _IPn, _AZ, _Te, _TIC, _AICv, _EO, _ES, _St, _SD, _ED, _EDTn, _IMC, _CD, _T, _OA, _CRFIa, _PGA, _CAap, _RT, _URBOI, _CIom, _DP, _CBI, _Int, _ICA, _IIn],
   [[0, { [_eQN]: `CapacityReservationId`
   , [_xN]: _cRI }], [0, { [_eQN]: `OwnerId`
   , [_xN]: _oI }], [0, { [_eQN]: `CapacityReservationArn`
@@ -9501,7 +9542,7 @@ export var CapacityReservation$: StaticStructureSchema = [3, n0, _CRa,
   , [_xN]: _st }], [4, { [_eQN]: `StartDate`
   , [_xN]: _sD }], [4, { [_eQN]: `EndDate`
   , [_xN]: _eD }], [0, { [_eQN]: `EndDateType`
-  , [_xN]: _eDT }], [0, { [_eQN]: `InstanceMatchCriteria`
+  , [_xN]: _eDTn }], [0, { [_eQN]: `InstanceMatchCriteria`
   , [_xN]: _iMC }], [4, { [_eQN]: `CreateDate`
   , [_xN]: _cD }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [0, { [_eQN]: `OutpostArn`
@@ -10101,7 +10142,7 @@ export var CreateCapacityReservationFleetResult$: StaticStructureSchema = [3, n0
 ];
 export var CreateCapacityReservationRequest$: StaticStructureSchema = [3, n0, _CCRRr,
   0,
-  [_IT, _IPn, _IC, _CT, _AZ, _AZI, _Te, _EO, _ES, _ED, _EDT, _IMC, _TS, _DR, _OA, _PGA, _SD, _CDo, _DP],
+  [_IT, _IPn, _IC, _CT, _AZ, _AZI, _Te, _EO, _ES, _ED, _EDTn, _IMC, _TS, _DR, _OA, _PGA, _SD, _CDo, _DP],
   [0, 0, 1, 0, 0, 0, 0, 2, 2, 4, 0, 0, [() => TagSpecificationList, 0], 2, 0, 0, 4, 1, 0], 3
 ];
 export var CreateCapacityReservationResult$: StaticStructureSchema = [3, n0, _CCRRre,
@@ -16613,14 +16654,14 @@ export var GetCapacityManagerAttributesRequest$: StaticStructureSchema = [3, n0,
 ];
 export var GetCapacityManagerAttributesResult$: StaticStructureSchema = [3, n0, _GCMARe,
   0,
-  [_CMS, _OAr, _DEC, _ISng, _ISM, _EDTa, _LDTa],
+  [_CMS, _OAr, _DEC, _ISng, _ISM, _EDT, _LDTa],
   [[0, { [_eQN]: `CapacityManagerStatus`
   , [_xN]: _cMS }], [2, { [_eQN]: `OrganizationsAccess`
   , [_xN]: _oAr }], [1, { [_eQN]: `DataExportCount`
   , [_xN]: _dEC }], [0, { [_eQN]: `IngestionStatus`
   , [_xN]: _iSng }], [0, { [_eQN]: `IngestionStatusMessage`
   , [_xN]: _iSM }], [4, { [_eQN]: `EarliestDatapointTimestamp`
-  , [_xN]: _eDTa }], [4, { [_eQN]: `LatestDatapointTimestamp`
+  , [_xN]: _eDT }], [4, { [_eQN]: `LatestDatapointTimestamp`
   , [_xN]: _lDTa }]]
 ];
 export var GetCapacityManagerMetricDataRequest$: StaticStructureSchema = [3, n0, _GCMMDR,
@@ -16645,6 +16686,18 @@ export var GetCapacityManagerMetricDimensionsResult$: StaticStructureSchema = [3
   [_MDRe, _NTe],
   [[() => MetricDimensionResultSet, { [_eQN]: `MetricDimensionResultSet`
   , [_xN]: _mDRSe }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
+];
+export var GetCapacityManagerMonitoredTagKeysRequest$: StaticStructureSchema = [3, n0, _GCMMTKR,
+  0,
+  [_MR, _NTe, _DR],
+  [1, 0, 2]
+];
+export var GetCapacityManagerMonitoredTagKeysResult$: StaticStructureSchema = [3, n0, _GCMMTKRe,
+  0,
+  [_CMTK, _NTe],
+  [[() => CapacityManagerMonitoredTagKeyList, { [_eQN]: `CapacityManagerTagKeySet`
+  , [_xN]: _cMTKS }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }]]
 ];
 export var GetCapacityReservationUsageRequest$: StaticStructureSchema = [3, n0, _GCRUR,
@@ -18372,7 +18425,7 @@ export var InstancePrivateIpAddress$: StaticStructureSchema = [3, n0, _IPIA,
 ];
 export var InstanceRequirements$: StaticStructureSchema = [3, n0, _IRn,
   0,
-  [_VCC, _MMB, _CM, _MGBPVC, _EITxc, _IGns, _SMPPOLP, _ODMPPOLP, _BMa, _BP, _RHS, _NIC, _LSo, _LST, _TLSGB, _BEBM, _ATc, _AC, _AMc, _ANc, _ATMMB, _NBGe, _AIT, _MSPAPOOODP, _BPF, _REIT],
+  [_VCC, _MMB, _CM, _MGBPVC, _EITxc, _IGns, _SMPPOLP, _ODMPPOLP, _BMa, _BP, _RHS, _NIC, _LSo, _LST, _TLSGB, _BEBM, _ATc, _AC, _AMc, _ANcc, _ATMMB, _NBGe, _AIT, _MSPAPOOODP, _BPF, _REIT],
   [[() => VCpuCountRange$, { [_eQN]: `VCpuCount`
   , [_xN]: _vCC }], [() => MemoryMiB$, { [_eQN]: `MemoryMiB`
   , [_xN]: _mMB }], [() => CpuManufacturerSet, { [_eQN]: `CpuManufacturerSet`
@@ -18403,8 +18456,8 @@ export var InstanceRequirements$: StaticStructureSchema = [3, n0, _IRn,
 ];
 export var InstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _IRR,
   0,
-  [_VCC, _MMB, _CM, _MGBPVC, _EITxc, _IGns, _SMPPOLP, _ODMPPOLP, _BMa, _BP, _RHS, _NIC, _LSo, _LST, _TLSGB, _BEBM, _ATc, _AC, _AMc, _ANc, _ATMMB, _NBGe, _AIT, _MSPAPOOODP, _BPF, _REIT],
-  [() => VCpuCountRangeRequest$, () => MemoryMiBRequest$, [() => CpuManufacturerSet, { [_xN]: _CMp }], () => MemoryGiBPerVCpuRequest$, [() => ExcludedInstanceTypeSet, { [_xN]: _EITxcl }], [() => InstanceGenerationSet, { [_xN]: _IGnst }], 1, 1, 0, 0, 2, () => NetworkInterfaceCountRequest$, 0, [() => LocalStorageTypeSet, { [_xN]: _LSTo }], () => TotalLocalStorageGBRequest$, () => BaselineEbsBandwidthMbpsRequest$, [() => AcceleratorTypeSet, { [_xN]: _ATcc }], () => AcceleratorCountRequest$, [() => AcceleratorManufacturerSet, { [_xN]: _AMcc }], [() => AcceleratorNameSet, { [_xN]: _ANcc }], () => AcceleratorTotalMemoryMiBRequest$, () => NetworkBandwidthGbpsRequest$, [() => AllowedInstanceTypeSet, { [_xN]: _AITl }], 1, [() => BaselinePerformanceFactorsRequest$, 0], 2], 2
+  [_VCC, _MMB, _CM, _MGBPVC, _EITxc, _IGns, _SMPPOLP, _ODMPPOLP, _BMa, _BP, _RHS, _NIC, _LSo, _LST, _TLSGB, _BEBM, _ATc, _AC, _AMc, _ANcc, _ATMMB, _NBGe, _AIT, _MSPAPOOODP, _BPF, _REIT],
+  [() => VCpuCountRangeRequest$, () => MemoryMiBRequest$, [() => CpuManufacturerSet, { [_xN]: _CMp }], () => MemoryGiBPerVCpuRequest$, [() => ExcludedInstanceTypeSet, { [_xN]: _EITxcl }], [() => InstanceGenerationSet, { [_xN]: _IGnst }], 1, 1, 0, 0, 2, () => NetworkInterfaceCountRequest$, 0, [() => LocalStorageTypeSet, { [_xN]: _LSTo }], () => TotalLocalStorageGBRequest$, () => BaselineEbsBandwidthMbpsRequest$, [() => AcceleratorTypeSet, { [_xN]: _ATcc }], () => AcceleratorCountRequest$, [() => AcceleratorManufacturerSet, { [_xN]: _AMcc }], [() => AcceleratorNameSet, { [_xN]: _ANcce }], () => AcceleratorTotalMemoryMiBRequest$, () => NetworkBandwidthGbpsRequest$, [() => AllowedInstanceTypeSet, { [_xN]: _AITl }], 1, [() => BaselinePerformanceFactorsRequest$, 0], 2], 2
 ];
 export var InstanceRequirementsWithMetadataRequest$: StaticStructureSchema = [3, n0, _IRWMR,
   0,
@@ -19941,7 +19994,7 @@ export var ModifyCapacityReservationFleetResult$: StaticStructureSchema = [3, n0
 ];
 export var ModifyCapacityReservationRequest$: StaticStructureSchema = [3, n0, _MCRR,
   0,
-  [_CRI, _IC, _ED, _EDT, _Acce, _DR, _AId, _IMC],
+  [_CRI, _IC, _ED, _EDTn, _Acce, _DR, _AId, _IMC],
   [0, 1, 4, 0, 2, 2, 0, 0], 1
 ];
 export var ModifyCapacityReservationResult$: StaticStructureSchema = [3, n0, _MCRRo,
@@ -24609,6 +24662,17 @@ export var UnsuccessfulItemError$: StaticStructureSchema = [3, n0, _UIEn,
   , [_xN]: _co }], [0, { [_eQN]: `Message`
   , [_xN]: _me }]]
 ];
+export var UpdateCapacityManagerMonitoredTagKeysRequest$: StaticStructureSchema = [3, n0, _UCMMTKR,
+  0,
+  [_ATK, _DTK, _DR, _CT],
+  [[() => ValueStringList, { [_xN]: _ATKc }], [() => ValueStringList, { [_xN]: _DTKe }], 2, [0, 4]]
+];
+export var UpdateCapacityManagerMonitoredTagKeysResult$: StaticStructureSchema = [3, n0, _UCMMTKRp,
+  0,
+  [_CMTK],
+  [[() => CapacityManagerMonitoredTagKeyList, { [_eQN]: `CapacityManagerTagKeySet`
+  , [_xN]: _cMTKS }]]
+];
 export var UpdateCapacityManagerOrganizationsAccessRequest$: StaticStructureSchema = [3, n0, _UCMOAR,
   0,
   [_OAr, _DR, _CT],
@@ -25756,6 +25820,14 @@ var CapacityManagerDataExportIdSet: StaticListSchema = [1, n0, _CMDEIS,
 ];
 var CapacityManagerDataExportResponseSet: StaticListSchema = [1, n0, _CMDERS,
   0, [() => CapacityManagerDataExportResponse$,
+    { [_xN]: _it }]
+];
+var CapacityManagerMonitoredTagKeyList: StaticListSchema = [1, n0, _CMMTKL,
+  0, [() => CapacityManagerMonitoredTagKey$,
+    { [_xN]: _it }]
+];
+var CapacityManagerTagDimensionSet: StaticListSchema = [1, n0, _CMTDS,
+  0, [() => CapacityManagerTagDimension$,
     { [_xN]: _it }]
 ];
 var CapacityReservationBillingRequestSet: StaticListSchema = [1, n0, _CRBRS,
@@ -29928,6 +30000,9 @@ export var GetCapacityManagerMetricData$: StaticOperationSchema = [9, n0, _GCMMD
 export var GetCapacityManagerMetricDimensions$: StaticOperationSchema = [9, n0, _GCMMDe,
   0, () => GetCapacityManagerMetricDimensionsRequest$, () => GetCapacityManagerMetricDimensionsResult$
 ];
+export var GetCapacityManagerMonitoredTagKeys$: StaticOperationSchema = [9, n0, _GCMMTK,
+  0, () => GetCapacityManagerMonitoredTagKeysRequest$, () => GetCapacityManagerMonitoredTagKeysResult$
+];
 export var GetCapacityReservationUsage$: StaticOperationSchema = [9, n0, _GCRU,
   0, () => GetCapacityReservationUsageRequest$, () => GetCapacityReservationUsageResult$
 ];
@@ -30587,6 +30662,9 @@ export var UnlockSnapshot$: StaticOperationSchema = [9, n0, _USn,
 ];
 export var UnmonitorInstances$: StaticOperationSchema = [9, n0, _UInm,
   0, () => UnmonitorInstancesRequest$, () => UnmonitorInstancesResult$
+];
+export var UpdateCapacityManagerMonitoredTagKeys$: StaticOperationSchema = [9, n0, _UCMMTK,
+  0, () => UpdateCapacityManagerMonitoredTagKeysRequest$, () => UpdateCapacityManagerMonitoredTagKeysResult$
 ];
 export var UpdateCapacityManagerOrganizationsAccess$: StaticOperationSchema = [9, n0, _UCMOA,
   0, () => UpdateCapacityManagerOrganizationsAccessRequest$, () => UpdateCapacityManagerOrganizationsAccessResult$

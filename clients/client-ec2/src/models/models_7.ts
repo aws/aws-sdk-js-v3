@@ -48,6 +48,10 @@ import type {
   SSEType,
   Status,
   TpmSupportValues,
+  TrafficDirection,
+  TrafficMirrorFilterRuleField,
+  TrafficMirrorNetworkService,
+  TrafficMirrorRuleAction,
   TrafficMirrorSessionField,
   TransitGatewayAttachmentResourceType,
   VerificationMethod,
@@ -101,6 +105,9 @@ import type {
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
   SubnetConfiguration,
+  TrafficMirrorFilter,
+  TrafficMirrorFilterRule,
+  TrafficMirrorPortRangeRequest,
   TrafficMirrorSession,
   TransitGateway,
   TransitGatewayMeteringPolicy,
@@ -137,11 +144,149 @@ import type {
   SpotPlacement,
 } from "./models_4";
 import type {
+  CapacityManagerMonitoredTagKey,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 import type { CapacityReservationSpecification, Purchase } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   * @public
+   */
+  TrafficMirrorFilterId: string | undefined;
+
+  /**
+   * <p>The network service, for example Amazon DNS, that you want to mirror.</p>
+   * @public
+   */
+  AddNetworkServices?: TrafficMirrorNetworkService[] | undefined;
+
+  /**
+   * <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
+   * @public
+   */
+  RemoveNetworkServices?: TrafficMirrorNetworkService[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorFilterNetworkServicesResult {
+  /**
+   * <p>The Traffic Mirror filter that the network service is associated with.</p>
+   * @public
+   */
+  TrafficMirrorFilter?: TrafficMirrorFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorFilterRuleRequest {
+  /**
+   * <p>The ID of the Traffic Mirror rule.</p>
+   * @public
+   */
+  TrafficMirrorFilterRuleId: string | undefined;
+
+  /**
+   * <p>The type of traffic to assign to the rule.</p>
+   * @public
+   */
+  TrafficDirection?: TrafficDirection | undefined;
+
+  /**
+   * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
+   *          direction. The rules are processed in ascending order by rule number.</p>
+   * @public
+   */
+  RuleNumber?: number | undefined;
+
+  /**
+   * <p>The action to assign to the rule.</p>
+   * @public
+   */
+  RuleAction?: TrafficMirrorRuleAction | undefined;
+
+  /**
+   * <p>The destination ports that are associated with the Traffic Mirror rule.</p>
+   * @public
+   */
+  DestinationPortRange?: TrafficMirrorPortRangeRequest | undefined;
+
+  /**
+   * <p>The port range to assign to the Traffic Mirror rule.</p>
+   * @public
+   */
+  SourcePortRange?: TrafficMirrorPortRangeRequest | undefined;
+
+  /**
+   * <p>The protocol, for example TCP, to assign to the Traffic Mirror rule.</p>
+   * @public
+   */
+  Protocol?: number | undefined;
+
+  /**
+   * <p>The destination CIDR block to assign to the Traffic Mirror rule.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The source CIDR block to assign to the Traffic Mirror rule.</p>
+   * @public
+   */
+  SourceCidrBlock?: string | undefined;
+
+  /**
+   * <p>The description to assign to the Traffic Mirror rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The properties that you want to remove from the Traffic Mirror filter rule.</p>
+   *          <p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
+   * @public
+   */
+  RemoveFields?: TrafficMirrorFilterRuleField[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorFilterRuleResult {
+  /**
+   * <note>
+   *             <p>Tags are not returned for ModifyTrafficMirrorFilterRule.</p>
+   *          </note>
+   *          <p>A Traffic Mirror rule.</p>
+   * @public
+   */
+  TrafficMirrorFilterRule?: TrafficMirrorFilterRule | undefined;
+}
 
 /**
  * @public
@@ -8049,6 +8194,57 @@ export interface UnmonitorInstancesResult {
    * @public
    */
   InstanceMonitorings?: InstanceMonitoring[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityManagerMonitoredTagKeysRequest {
+  /**
+   * <p>
+   * The tag keys to activate for monitoring. Once activated, these tag keys will be included as dimensions in capacity metric data.
+   * </p>
+   * @public
+   */
+  ActivateTagKeys?: string[] | undefined;
+
+  /**
+   * <p>
+   * The tag keys to deactivate. Deactivated tag keys will no longer be included as dimensions in capacity metric data.
+   * </p>
+   * @public
+   */
+  DeactivateTagKeys?: string[] | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityManagerMonitoredTagKeysResult {
+  /**
+   * <p>
+   * The list of tag keys affected by the update, including their current status and metadata.
+   * </p>
+   * @public
+   */
+  CapacityManagerTagKeys?: CapacityManagerMonitoredTagKey[] | undefined;
 }
 
 /**

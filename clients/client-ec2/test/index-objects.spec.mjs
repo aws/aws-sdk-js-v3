@@ -344,7 +344,10 @@ import {
   CapacityManagerDataExportResponse$,
   CapacityManagerDataExportStatus,
   CapacityManagerDimension$,
+  CapacityManagerMonitoredTagKey$,
+  CapacityManagerMonitoredTagKeyStatus,
   CapacityManagerStatus,
+  CapacityManagerTagDimension$,
   CapacityReservation$,
   CapacityReservationBillingRequest$,
   CapacityReservationBillingRequestStatus,
@@ -2490,6 +2493,10 @@ import {
   GetCapacityManagerMetricDimensionsCommand,
   GetCapacityManagerMetricDimensionsRequest$,
   GetCapacityManagerMetricDimensionsResult$,
+  GetCapacityManagerMonitoredTagKeys$,
+  GetCapacityManagerMonitoredTagKeysCommand,
+  GetCapacityManagerMonitoredTagKeysRequest$,
+  GetCapacityManagerMonitoredTagKeysResult$,
   GetCapacityReservationUsage$,
   GetCapacityReservationUsageCommand,
   GetCapacityReservationUsageRequest$,
@@ -3665,6 +3672,7 @@ import {
   paginateGetAwsNetworkPerformanceData,
   paginateGetCapacityManagerMetricData,
   paginateGetCapacityManagerMetricDimensions,
+  paginateGetCapacityManagerMonitoredTagKeys,
   paginateGetGroupsForCapacityReservation,
   paginateGetInstanceTypesFromInstanceRequirements,
   paginateGetIpamAddressHistory,
@@ -4347,6 +4355,10 @@ import {
   UnsuccessfulInstanceCreditSpecificationItemError$,
   UnsuccessfulItem$,
   UnsuccessfulItemError$,
+  UpdateCapacityManagerMonitoredTagKeys$,
+  UpdateCapacityManagerMonitoredTagKeysCommand,
+  UpdateCapacityManagerMonitoredTagKeysRequest$,
+  UpdateCapacityManagerMonitoredTagKeysResult$,
   UpdateCapacityManagerOrganizationsAccess$,
   UpdateCapacityManagerOrganizationsAccessCommand,
   UpdateCapacityManagerOrganizationsAccessRequest$,
@@ -5637,6 +5649,8 @@ assert(typeof GetCapacityManagerMetricDataCommand === "function");
 assert(typeof GetCapacityManagerMetricData$ === "object");
 assert(typeof GetCapacityManagerMetricDimensionsCommand === "function");
 assert(typeof GetCapacityManagerMetricDimensions$ === "object");
+assert(typeof GetCapacityManagerMonitoredTagKeysCommand === "function");
+assert(typeof GetCapacityManagerMonitoredTagKeys$ === "object");
 assert(typeof GetCapacityReservationUsageCommand === "function");
 assert(typeof GetCapacityReservationUsage$ === "object");
 assert(typeof GetCoipPoolUsageCommand === "function");
@@ -6077,6 +6091,8 @@ assert(typeof UnlockSnapshotCommand === "function");
 assert(typeof UnlockSnapshot$ === "object");
 assert(typeof UnmonitorInstancesCommand === "function");
 assert(typeof UnmonitorInstances$ === "object");
+assert(typeof UpdateCapacityManagerMonitoredTagKeysCommand === "function");
+assert(typeof UpdateCapacityManagerMonitoredTagKeys$ === "object");
 assert(typeof UpdateCapacityManagerOrganizationsAccessCommand === "function");
 assert(typeof UpdateCapacityManagerOrganizationsAccess$ === "object");
 assert(typeof UpdateInterruptibleCapacityReservationAllocationCommand === "function");
@@ -6269,6 +6285,8 @@ assert(typeof CapacityBlockStatus$ === "object");
 assert(typeof CapacityManagerCondition$ === "object");
 assert(typeof CapacityManagerDataExportResponse$ === "object");
 assert(typeof CapacityManagerDimension$ === "object");
+assert(typeof CapacityManagerMonitoredTagKey$ === "object");
+assert(typeof CapacityManagerTagDimension$ === "object");
 assert(typeof CapacityReservation$ === "object");
 assert(typeof CapacityReservationBillingRequest$ === "object");
 assert(typeof CapacityReservationCommitmentInfo$ === "object");
@@ -7375,6 +7393,8 @@ assert(typeof GetCapacityManagerMetricDataRequest$ === "object");
 assert(typeof GetCapacityManagerMetricDataResult$ === "object");
 assert(typeof GetCapacityManagerMetricDimensionsRequest$ === "object");
 assert(typeof GetCapacityManagerMetricDimensionsResult$ === "object");
+assert(typeof GetCapacityManagerMonitoredTagKeysRequest$ === "object");
+assert(typeof GetCapacityManagerMonitoredTagKeysResult$ === "object");
 assert(typeof GetCapacityReservationUsageRequest$ === "object");
 assert(typeof GetCapacityReservationUsageResult$ === "object");
 assert(typeof GetCoipPoolUsageRequest$ === "object");
@@ -8357,6 +8377,8 @@ assert(typeof UnsuccessfulInstanceCreditSpecificationItem$ === "object");
 assert(typeof UnsuccessfulInstanceCreditSpecificationItemError$ === "object");
 assert(typeof UnsuccessfulItem$ === "object");
 assert(typeof UnsuccessfulItemError$ === "object");
+assert(typeof UpdateCapacityManagerMonitoredTagKeysRequest$ === "object");
+assert(typeof UpdateCapacityManagerMonitoredTagKeysResult$ === "object");
 assert(typeof UpdateCapacityManagerOrganizationsAccessRequest$ === "object");
 assert(typeof UpdateCapacityManagerOrganizationsAccessResult$ === "object");
 assert(typeof UpdateInterruptibleCapacityReservationAllocationRequest$ === "object");
@@ -8498,6 +8520,7 @@ assert(typeof CapacityBlockExtensionStatus === "object");
 assert(typeof CapacityBlockInterconnectStatus === "object");
 assert(typeof CapacityBlockResourceState === "object");
 assert(typeof CapacityManagerDataExportStatus === "object");
+assert(typeof CapacityManagerMonitoredTagKeyStatus === "object");
 assert(typeof CapacityManagerStatus === "object");
 assert(typeof CapacityReservationBillingRequestStatus === "object");
 assert(typeof CapacityReservationDeliveryPreference === "object");
@@ -9120,6 +9143,7 @@ assert(typeof paginateGetAssociatedIpv6PoolCidrs === "function");
 assert(typeof paginateGetAwsNetworkPerformanceData === "function");
 assert(typeof paginateGetCapacityManagerMetricData === "function");
 assert(typeof paginateGetCapacityManagerMetricDimensions === "function");
+assert(typeof paginateGetCapacityManagerMonitoredTagKeys === "function");
 assert(typeof paginateGetGroupsForCapacityReservation === "function");
 assert(typeof paginateGetInstanceTypesFromInstanceRequirements === "function");
 assert(typeof paginateGetIpamAddressHistory === "function");

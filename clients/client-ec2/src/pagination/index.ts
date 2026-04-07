@@ -139,6 +139,7 @@ export * from "./GetAssociatedIpv6PoolCidrsPaginator";
 export * from "./GetAwsNetworkPerformanceDataPaginator";
 export * from "./GetCapacityManagerMetricDataPaginator";
 export * from "./GetCapacityManagerMetricDimensionsPaginator";
+export * from "./GetCapacityManagerMonitoredTagKeysPaginator";
 export * from "./GetGroupsForCapacityReservationPaginator";
 export * from "./GetInstanceTypesFromInstanceRequirementsPaginator";
 export * from "./GetIpamAddressHistoryPaginator";

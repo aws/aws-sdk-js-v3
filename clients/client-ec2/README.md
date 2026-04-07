@@ -3900,6 +3900,13 @@ GetCapacityManagerMetricDimensions
 </details>
 <details>
 <summary>
+GetCapacityManagerMonitoredTagKeys
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetCapacityManagerMonitoredTagKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetCapacityManagerMonitoredTagKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetCapacityManagerMonitoredTagKeysCommandOutput/)
+</details>
+<details>
+<summary>
 GetCapacityReservationUsage
 </summary>
 
@@ -5437,6 +5444,13 @@ UnmonitorInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/UnmonitorInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/UnmonitorInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/UnmonitorInstancesCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateCapacityManagerMonitoredTagKeys
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/UpdateCapacityManagerMonitoredTagKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/UpdateCapacityManagerMonitoredTagKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/UpdateCapacityManagerMonitoredTagKeysCommandOutput/)
 </details>
 <details>
 <summary>

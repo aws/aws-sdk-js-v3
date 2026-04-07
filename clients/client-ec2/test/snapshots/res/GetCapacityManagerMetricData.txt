@@ -40,6 +40,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <accountId>
                     123456789012
                 </accountId>
+                <accountName>
+                    __AccountName__
+                </accountName>
                 <instanceFamily>
                     __InstanceFamily__
                 </instanceFamily>
@@ -82,6 +85,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <reservationUnusedFinancialOwner>
                     __ReservationUnusedFinancialOwner__
                 </reservationUnusedFinancialOwner>
+                <tagSet>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </tagSet>
             </dimension>
             <timestamp>
                 2000-01-01T04:59:59.999Z
@@ -124,6 +153,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <accountId>
                     123456789012
                 </accountId>
+                <accountName>
+                    __AccountName__
+                </accountName>
                 <instanceFamily>
                     __InstanceFamily__
                 </instanceFamily>
@@ -166,6 +198,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <reservationUnusedFinancialOwner>
                     __ReservationUnusedFinancialOwner__
                 </reservationUnusedFinancialOwner>
+                <tagSet>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </tagSet>
             </dimension>
             <timestamp>
                 2000-01-01T04:59:59.999Z
@@ -208,6 +266,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <accountId>
                     123456789012
                 </accountId>
+                <accountName>
+                    __AccountName__
+                </accountName>
                 <instanceFamily>
                     __InstanceFamily__
                 </instanceFamily>
@@ -250,6 +311,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <reservationUnusedFinancialOwner>
                     __ReservationUnusedFinancialOwner__
                 </reservationUnusedFinancialOwner>
+                <tagSet>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </tagSet>
             </dimension>
             <timestamp>
                 2000-01-01T04:59:59.999Z
@@ -304,6 +391,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ResourceRegion: "__ResourceRegion__",
         AvailabilityZoneId: "__AvailabilityZoneId__",
         AccountId: "123456789012",
+        AccountName: "__AccountName__",
         InstanceFamily: "__InstanceFamily__",
         InstanceType: "__InstanceType__",
         InstancePlatform: "__InstancePlatform__",
@@ -317,7 +405,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Tenancy: "__Tenancy__",
         ReservationState: "__ReservationState__",
         ReservationInstanceMatchCriteria: "__ReservationInstanceMatchCriteria__",
-        ReservationUnusedFinancialOwner: "__ReservationUnusedFinancialOwner__"
+        ReservationUnusedFinancialOwner: "__ReservationUnusedFinancialOwner__",
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
       },
       Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       MetricValues: [
@@ -340,6 +442,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ResourceRegion: "__ResourceRegion__",
         AvailabilityZoneId: "__AvailabilityZoneId__",
         AccountId: "123456789012",
+        AccountName: "__AccountName__",
         InstanceFamily: "__InstanceFamily__",
         InstanceType: "__InstanceType__",
         InstancePlatform: "__InstancePlatform__",
@@ -353,7 +456,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Tenancy: "__Tenancy__",
         ReservationState: "__ReservationState__",
         ReservationInstanceMatchCriteria: "__ReservationInstanceMatchCriteria__",
-        ReservationUnusedFinancialOwner: "__ReservationUnusedFinancialOwner__"
+        ReservationUnusedFinancialOwner: "__ReservationUnusedFinancialOwner__",
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
       },
       Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       MetricValues: [
@@ -376,6 +493,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ResourceRegion: "__ResourceRegion__",
         AvailabilityZoneId: "__AvailabilityZoneId__",
         AccountId: "123456789012",
+        AccountName: "__AccountName__",
         InstanceFamily: "__InstanceFamily__",
         InstanceType: "__InstanceType__",
         InstancePlatform: "__InstancePlatform__",
@@ -389,7 +507,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Tenancy: "__Tenancy__",
         ReservationState: "__ReservationState__",
         ReservationInstanceMatchCriteria: "__ReservationInstanceMatchCriteria__",
-        ReservationUnusedFinancialOwner: "__ReservationUnusedFinancialOwner__"
+        ReservationUnusedFinancialOwner: "__ReservationUnusedFinancialOwner__",
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
       },
       Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       MetricValues: [

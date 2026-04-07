@@ -73,10 +73,6 @@ import type {
   SSEType,
   TargetCapacityUnitType,
   TargetStorageTier,
-  TrafficDirection,
-  TrafficMirrorFilterRuleField,
-  TrafficMirrorNetworkService,
-  TrafficMirrorRuleAction,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayPropagationState,
@@ -136,9 +132,6 @@ import type {
 } from "./models_1";
 import type {
   SubnetCidrReservation,
-  TrafficMirrorFilter,
-  TrafficMirrorFilterRule,
-  TrafficMirrorPortRangeRequest,
   TransitGatewayMeteringPolicyEntry,
   TransitGatewayPrefixListReference,
 } from "./models_2";
@@ -160,7 +153,95 @@ import type {
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
 } from "./models_4";
-import type { RegionalSummary, RouteServerPropagation } from "./models_5";
+import type { RouteServerPropagation } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetConsoleScreenshotRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>When set to <code>true</code>, acts as keystroke input and wakes up an instance that's
+   *             in standby or "sleep" mode.</p>
+   * @public
+   */
+  WakeUp?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConsoleScreenshotResult {
+  /**
+   * <p>The data that comprises the image.</p>
+   * @public
+   */
+  ImageData?: string | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDeclarativePoliciesReportSummaryRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the report.</p>
+   * @public
+   */
+  ReportId: string | undefined;
+}
+
+/**
+ * <p>A summary report for the attribute for a Region.</p>
+ * @public
+ */
+export interface RegionalSummary {
+  /**
+   * <p>The Amazon Web Services Region.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The number of accounts in the Region with the same configuration value for the
+   *             attribute that is most frequently observed.</p>
+   * @public
+   */
+  NumberOfMatchedAccounts?: number | undefined;
+
+  /**
+   * <p>The number of accounts in the Region with a configuration value different from the
+   *             most frequently observed value for the attribute.</p>
+   * @public
+   */
+  NumberOfUnmatchedAccounts?: number | undefined;
+}
 
 /**
  * <p>A summary report for the attribute across all Regions.</p>
@@ -9905,141 +9986,4 @@ export interface ModifySubnetAttributeRequest {
    * @public
    */
   DisableLniAtDeviceIndex?: AttributeBooleanValue | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   * @public
-   */
-  TrafficMirrorFilterId: string | undefined;
-
-  /**
-   * <p>The network service, for example Amazon DNS, that you want to mirror.</p>
-   * @public
-   */
-  AddNetworkServices?: TrafficMirrorNetworkService[] | undefined;
-
-  /**
-   * <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
-   * @public
-   */
-  RemoveNetworkServices?: TrafficMirrorNetworkService[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorFilterNetworkServicesResult {
-  /**
-   * <p>The Traffic Mirror filter that the network service is associated with.</p>
-   * @public
-   */
-  TrafficMirrorFilter?: TrafficMirrorFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorFilterRuleRequest {
-  /**
-   * <p>The ID of the Traffic Mirror rule.</p>
-   * @public
-   */
-  TrafficMirrorFilterRuleId: string | undefined;
-
-  /**
-   * <p>The type of traffic to assign to the rule.</p>
-   * @public
-   */
-  TrafficDirection?: TrafficDirection | undefined;
-
-  /**
-   * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
-   *          direction. The rules are processed in ascending order by rule number.</p>
-   * @public
-   */
-  RuleNumber?: number | undefined;
-
-  /**
-   * <p>The action to assign to the rule.</p>
-   * @public
-   */
-  RuleAction?: TrafficMirrorRuleAction | undefined;
-
-  /**
-   * <p>The destination ports that are associated with the Traffic Mirror rule.</p>
-   * @public
-   */
-  DestinationPortRange?: TrafficMirrorPortRangeRequest | undefined;
-
-  /**
-   * <p>The port range to assign to the Traffic Mirror rule.</p>
-   * @public
-   */
-  SourcePortRange?: TrafficMirrorPortRangeRequest | undefined;
-
-  /**
-   * <p>The protocol, for example TCP, to assign to the Traffic Mirror rule.</p>
-   * @public
-   */
-  Protocol?: number | undefined;
-
-  /**
-   * <p>The destination CIDR block to assign to the Traffic Mirror rule.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string | undefined;
-
-  /**
-   * <p>The source CIDR block to assign to the Traffic Mirror rule.</p>
-   * @public
-   */
-  SourceCidrBlock?: string | undefined;
-
-  /**
-   * <p>The description to assign to the Traffic Mirror rule.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The properties that you want to remove from the Traffic Mirror filter rule.</p>
-   *          <p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
-   * @public
-   */
-  RemoveFields?: TrafficMirrorFilterRuleField[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorFilterRuleResult {
-  /**
-   * <note>
-   *             <p>Tags are not returned for ModifyTrafficMirrorFilterRule.</p>
-   *          </note>
-   *          <p>A Traffic Mirror rule.</p>
-   * @public
-   */
-  TrafficMirrorFilterRule?: TrafficMirrorFilterRule | undefined;
 }

@@ -2652,6 +2652,11 @@ import {
   GetCapacityManagerMetricDimensionsCommand,
 } from "./commands/GetCapacityManagerMetricDimensionsCommand";
 import {
+  type GetCapacityManagerMonitoredTagKeysCommandInput,
+  type GetCapacityManagerMonitoredTagKeysCommandOutput,
+  GetCapacityManagerMonitoredTagKeysCommand,
+} from "./commands/GetCapacityManagerMonitoredTagKeysCommand";
+import {
   type GetCapacityReservationUsageCommandInput,
   type GetCapacityReservationUsageCommandOutput,
   GetCapacityReservationUsageCommand,
@@ -3752,6 +3757,11 @@ import {
   UnmonitorInstancesCommand,
 } from "./commands/UnmonitorInstancesCommand";
 import {
+  type UpdateCapacityManagerMonitoredTagKeysCommandInput,
+  type UpdateCapacityManagerMonitoredTagKeysCommandOutput,
+  UpdateCapacityManagerMonitoredTagKeysCommand,
+} from "./commands/UpdateCapacityManagerMonitoredTagKeysCommand";
+import {
   type UpdateCapacityManagerOrganizationsAccessCommandInput,
   type UpdateCapacityManagerOrganizationsAccessCommandOutput,
   UpdateCapacityManagerOrganizationsAccessCommand,
@@ -3966,6 +3976,7 @@ import { paginateGetAssociatedIpv6PoolCidrs } from "./pagination/GetAssociatedIp
 import { paginateGetAwsNetworkPerformanceData } from "./pagination/GetAwsNetworkPerformanceDataPaginator";
 import { paginateGetCapacityManagerMetricData } from "./pagination/GetCapacityManagerMetricDataPaginator";
 import { paginateGetCapacityManagerMetricDimensions } from "./pagination/GetCapacityManagerMetricDimensionsPaginator";
+import { paginateGetCapacityManagerMonitoredTagKeys } from "./pagination/GetCapacityManagerMonitoredTagKeysPaginator";
 import { paginateGetGroupsForCapacityReservation } from "./pagination/GetGroupsForCapacityReservationPaginator";
 import {
   paginateGetInstanceTypesFromInstanceRequirements,
@@ -4590,6 +4601,7 @@ const commands = {
   GetCapacityManagerAttributesCommand,
   GetCapacityManagerMetricDataCommand,
   GetCapacityManagerMetricDimensionsCommand,
+  GetCapacityManagerMonitoredTagKeysCommand,
   GetCapacityReservationUsageCommand,
   GetCoipPoolUsageCommand,
   GetConsoleOutputCommand,
@@ -4810,6 +4822,7 @@ const commands = {
   UnassignPrivateNatGatewayAddressCommand,
   UnlockSnapshotCommand,
   UnmonitorInstancesCommand,
+  UpdateCapacityManagerMonitoredTagKeysCommand,
   UpdateCapacityManagerOrganizationsAccessCommand,
   UpdateInterruptibleCapacityReservationAllocationCommand,
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
@@ -4956,6 +4969,7 @@ const paginators = {
   paginateGetAwsNetworkPerformanceData,
   paginateGetCapacityManagerMetricData,
   paginateGetCapacityManagerMetricDimensions,
+  paginateGetCapacityManagerMonitoredTagKeys,
   paginateGetGroupsForCapacityReservation,
   paginateGetInstanceTypesFromInstanceRequirements,
   paginateGetIpamAddressHistory,
@@ -14266,6 +14280,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetCapacityManagerMonitoredTagKeysCommand}
+   */
+  getCapacityManagerMonitoredTagKeys(): Promise<GetCapacityManagerMonitoredTagKeysCommandOutput>;
+  getCapacityManagerMonitoredTagKeys(
+    args: GetCapacityManagerMonitoredTagKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapacityManagerMonitoredTagKeysCommandOutput>;
+  getCapacityManagerMonitoredTagKeys(
+    args: GetCapacityManagerMonitoredTagKeysCommandInput,
+    cb: (err: any, data?: GetCapacityManagerMonitoredTagKeysCommandOutput) => void
+  ): void;
+  getCapacityManagerMonitoredTagKeys(
+    args: GetCapacityManagerMonitoredTagKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapacityManagerMonitoredTagKeysCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCapacityReservationUsageCommand}
    */
   getCapacityReservationUsage(
@@ -18027,6 +18059,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link UpdateCapacityManagerMonitoredTagKeysCommand}
+   */
+  updateCapacityManagerMonitoredTagKeys(): Promise<UpdateCapacityManagerMonitoredTagKeysCommandOutput>;
+  updateCapacityManagerMonitoredTagKeys(
+    args: UpdateCapacityManagerMonitoredTagKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCapacityManagerMonitoredTagKeysCommandOutput>;
+  updateCapacityManagerMonitoredTagKeys(
+    args: UpdateCapacityManagerMonitoredTagKeysCommandInput,
+    cb: (err: any, data?: UpdateCapacityManagerMonitoredTagKeysCommandOutput) => void
+  ): void;
+  updateCapacityManagerMonitoredTagKeys(
+    args: UpdateCapacityManagerMonitoredTagKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCapacityManagerMonitoredTagKeysCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateCapacityManagerOrganizationsAccessCommand}
    */
   updateCapacityManagerOrganizationsAccess(
@@ -19641,6 +19691,17 @@ export interface EC2 {
     args: GetCapacityManagerMetricDimensionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<GetCapacityManagerMetricDimensionsCommandOutput>;
+
+  /**
+   * @see {@link GetCapacityManagerMonitoredTagKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCapacityManagerMonitoredTagKeysCommandOutput}.
+   */
+  paginateGetCapacityManagerMonitoredTagKeys(
+    args?: GetCapacityManagerMonitoredTagKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCapacityManagerMonitoredTagKeysCommandOutput>;
 
   /**
    * @see {@link GetGroupsForCapacityReservationCommand}

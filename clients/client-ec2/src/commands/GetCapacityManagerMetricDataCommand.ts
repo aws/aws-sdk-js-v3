@@ -47,12 +47,12 @@ export interface GetCapacityManagerMetricDataCommandOutput extends GetCapacityMa
  *   EndTime: new Date("TIMESTAMP"), // required
  *   Period: Number("int"), // required
  *   GroupBy: [ // GroupBySet
- *     "resource-region" || "availability-zone-id" || "account-id" || "instance-family" || "instance-type" || "instance-platform" || "reservation-arn" || "reservation-id" || "reservation-type" || "reservation-create-timestamp" || "reservation-start-timestamp" || "reservation-end-timestamp" || "reservation-end-date-type" || "tenancy" || "reservation-state" || "reservation-instance-match-criteria" || "reservation-unused-financial-owner",
+ *     "resource-region" || "availability-zone-id" || "account-id" || "account-name" || "instance-family" || "instance-type" || "instance-platform" || "reservation-arn" || "reservation-id" || "reservation-type" || "reservation-create-timestamp" || "reservation-start-timestamp" || "reservation-end-timestamp" || "reservation-end-date-type" || "tenancy" || "reservation-state" || "reservation-instance-match-criteria" || "reservation-unused-financial-owner",
  *   ],
  *   FilterBy: [ // CapacityManagerConditionSet
  *     { // CapacityManagerCondition
  *       DimensionCondition: { // DimensionCondition
- *         Dimension: "resource-region" || "availability-zone-id" || "account-id" || "instance-family" || "instance-type" || "instance-platform" || "reservation-arn" || "reservation-id" || "reservation-type" || "reservation-create-timestamp" || "reservation-start-timestamp" || "reservation-end-timestamp" || "reservation-end-date-type" || "tenancy" || "reservation-state" || "reservation-instance-match-criteria" || "reservation-unused-financial-owner",
+ *         Dimension: "resource-region" || "availability-zone-id" || "account-id" || "account-name" || "instance-family" || "instance-type" || "instance-platform" || "reservation-arn" || "reservation-id" || "reservation-type" || "reservation-create-timestamp" || "reservation-start-timestamp" || "reservation-end-timestamp" || "reservation-end-date-type" || "tenancy" || "reservation-state" || "reservation-instance-match-criteria" || "reservation-unused-financial-owner",
  *         Comparison: "equals" || "in",
  *         Values: [ // ConditionValueList
  *           "STRING_VALUE",
@@ -73,6 +73,7 @@ export interface GetCapacityManagerMetricDataCommandOutput extends GetCapacityMa
  * //         ResourceRegion: "STRING_VALUE",
  * //         AvailabilityZoneId: "STRING_VALUE",
  * //         AccountId: "STRING_VALUE",
+ * //         AccountName: "STRING_VALUE",
  * //         InstanceFamily: "STRING_VALUE",
  * //         InstanceType: "STRING_VALUE",
  * //         InstancePlatform: "STRING_VALUE",
@@ -87,6 +88,12 @@ export interface GetCapacityManagerMetricDataCommandOutput extends GetCapacityMa
  * //         ReservationState: "active" || "expired" || "cancelled" || "scheduled" || "pending" || "failed" || "delayed" || "unsupported" || "payment-pending" || "payment-failed" || "retired",
  * //         ReservationInstanceMatchCriteria: "STRING_VALUE",
  * //         ReservationUnusedFinancialOwner: "STRING_VALUE",
+ * //         Tags: [ // CapacityManagerTagDimensionSet
+ * //           { // CapacityManagerTagDimension
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //       Timestamp: new Date("TIMESTAMP"),
  * //       MetricValues: [ // MetricValueSet

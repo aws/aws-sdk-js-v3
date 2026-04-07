@@ -7245,6 +7245,7 @@ export type Comparison = (typeof Comparison)[keyof typeof Comparison];
  */
 export const FilterByDimension = {
   ACCOUNT_ID: "account-id",
+  ACCOUNT_NAME: "account-name",
   AVAILABILITY_ZONE_ID: "availability-zone-id",
   INSTANCE_FAMILY: "instance-family",
   INSTANCE_PLATFORM: "instance-platform",
@@ -7273,6 +7274,7 @@ export type FilterByDimension = (typeof FilterByDimension)[keyof typeof FilterBy
  */
 export const GroupBy = {
   ACCOUNT_ID: "account-id",
+  ACCOUNT_NAME: "account-name",
   AVAILABILITY_ZONE_ID: "availability-zone-id",
   INSTANCE_FAMILY: "instance-family",
   INSTANCE_PLATFORM: "instance-platform",
@@ -7393,6 +7395,22 @@ export const CapacityTenancy = {
  * @public
  */
 export type CapacityTenancy = (typeof CapacityTenancy)[keyof typeof CapacityTenancy];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityManagerMonitoredTagKeyStatus = {
+  ACTIVATED: "activated",
+  ACTIVATING: "activating",
+  DEACTIVATING: "deactivating",
+  SUSPENDED: "suspended",
+} as const;
+/**
+ * @public
+ */
+export type CapacityManagerMonitoredTagKeyStatus =
+  (typeof CapacityManagerMonitoredTagKeyStatus)[keyof typeof CapacityManagerMonitoredTagKeyStatus];
 
 /**
  * @public

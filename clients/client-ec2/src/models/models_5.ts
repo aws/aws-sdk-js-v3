@@ -2,6 +2,7 @@
 import type {
   AllowedImagesSettingsDisabledState,
   AllowedImagesSettingsEnabledState,
+  CapacityManagerMonitoredTagKeyStatus,
   CapacityManagerStatus,
   CapacityReservationState,
   CapacityTenancy,
@@ -8338,6 +8339,30 @@ export interface GetCapacityManagerMetricDataRequest {
 
 /**
  * <p>
+ * A key-value pair representing a tag associated with a capacity resource in Capacity Manager.
+ * </p>
+ * @public
+ */
+export interface CapacityManagerTagDimension {
+  /**
+   * <p>
+   * The tag key.
+   * </p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>
+   * The tag value.
+   * </p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>
  * Represents dimension values for capacity metrics, including resource identifiers, geographic information, and reservation details used for grouping and filtering capacity data.
  * </p>
  * @public
@@ -8366,6 +8391,14 @@ export interface CapacityManagerDimension {
    * @public
    */
   AccountId?: string | undefined;
+
+  /**
+   * <p>
+   *     The name of the Amazon Web Services account that owns the capacity resource. This dimension is only available when Organizations access is enabled for Capacity Manager.
+   * </p>
+   * @public
+   */
+  AccountName?: string | undefined;
 
   /**
    * <p>
@@ -8479,6 +8512,14 @@ export interface CapacityManagerDimension {
    * @public
    */
   ReservationUnusedFinancialOwner?: string | undefined;
+
+  /**
+   * <p>
+   * The tags associated with the capacity resource, represented as key-value pairs. Only tags that have been activated for monitoring via <code>UpdateCapacityManagerMonitoredTagKeys</code> are included.
+   * </p>
+   * @public
+   */
+  Tags?: CapacityManagerTagDimension[] | undefined;
 }
 
 /**
@@ -8640,6 +8681,105 @@ export interface GetCapacityManagerMetricDimensionsResult {
    * @public
    */
   MetricDimensionResults?: CapacityManagerDimension[] | undefined;
+
+  /**
+   * <p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerMonitoredTagKeysRequest {
+  /**
+   * <p>
+   * The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. If not specified, up to 1000 results are returned.
+   * </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>
+   * The token for the next page of results. Use the value returned from a previous call to retrieve additional results.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>
+ * Describes a tag key that is being monitored by Capacity Manager, including its activation status and the earliest available data point.
+ * </p>
+ * @public
+ */
+export interface CapacityManagerMonitoredTagKey {
+  /**
+   * <p>
+   * The tag key being monitored.
+   * </p>
+   * @public
+   */
+  TagKey?: string | undefined;
+
+  /**
+   * <p>
+   * The current status of the monitored tag key. Valid values are <code>activating</code>, <code>activated</code>, <code>deactivating</code>, and <code>suspended</code>.
+   * </p>
+   * @public
+   */
+  Status?: CapacityManagerMonitoredTagKeyStatus | undefined;
+
+  /**
+   * <p>
+   * A message providing additional details about the current status of the monitored tag key.
+   * </p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>
+   * Indicates whether this tag key is provided by Capacity Manager by default, rather than being user-activated.
+   * </p>
+   * @public
+   */
+  CapacityManagerProvided?: boolean | undefined;
+
+  /**
+   * <p>
+   * The earliest timestamp from which tag data is available for queries, in UTC ISO 8601 format.
+   * </p>
+   * @public
+   */
+  EarliestDatapointTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerMonitoredTagKeysResult {
+  /**
+   * <p>
+   * The list of tag keys being monitored by Capacity Manager, including their current status and metadata.
+   * </p>
+   * @public
+   */
+  CapacityManagerTagKeys?: CapacityManagerMonitoredTagKey[] | undefined;
 
   /**
    * <p>
@@ -8996,92 +9136,4 @@ export interface GetConsoleOutputResult {
    * @public
    */
   Output?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetConsoleScreenshotRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>When set to <code>true</code>, acts as keystroke input and wakes up an instance that's
-   *             in standby or "sleep" mode.</p>
-   * @public
-   */
-  WakeUp?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetConsoleScreenshotResult {
-  /**
-   * <p>The data that comprises the image.</p>
-   * @public
-   */
-  ImageData?: string | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDeclarativePoliciesReportSummaryRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the report.</p>
-   * @public
-   */
-  ReportId: string | undefined;
-}
-
-/**
- * <p>A summary report for the attribute for a Region.</p>
- * @public
- */
-export interface RegionalSummary {
-  /**
-   * <p>The Amazon Web Services Region.</p>
-   * @public
-   */
-  RegionName?: string | undefined;
-
-  /**
-   * <p>The number of accounts in the Region with the same configuration value for the
-   *             attribute that is most frequently observed.</p>
-   * @public
-   */
-  NumberOfMatchedAccounts?: number | undefined;
-
-  /**
-   * <p>The number of accounts in the Region with a configuration value different from the
-   *             most frequently observed value for the attribute.</p>
-   * @public
-   */
-  NumberOfUnmatchedAccounts?: number | undefined;
 }
