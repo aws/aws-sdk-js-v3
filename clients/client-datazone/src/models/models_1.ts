@@ -74,6 +74,7 @@ import type {
   AssetListing,
   AssetRevision,
   ConfigurableEnvironmentAction,
+  Configuration,
   ConnectionCredentials,
   ConnectionPropertiesOutput,
   ConnectionSummary,
@@ -118,6 +119,77 @@ import type {
   TimeSeriesDataPointSummaryFormOutput,
   UserProfileDetails,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionTargetInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which subscription target is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the environment in which subscription target is created.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the subscription target.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the subscription target.</p>
+   * @public
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The configuration of the subscription target.</p>
+   * @public
+   */
+  subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
+
+  /**
+   * <p>The authorized principals of the subscription target.</p>
+   * @public
+   */
+  authorizedPrincipals: string[] | undefined;
+
+  /**
+   * <p>The manage access role that is used to create the subscription target.</p>
+   * @public
+   */
+  manageAccessRole: string | undefined;
+
+  /**
+   * <p>The asset types that can be included in the subscription target.</p>
+   * @public
+   */
+  applicableAssetTypes: string[] | undefined;
+
+  /**
+   * <p>The provider of the subscription target.</p>
+   * @public
+   */
+  provider?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
+   * @public
+   */
+  subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
+}
 
 /**
  * @public
@@ -3810,6 +3882,12 @@ export interface GetConnectionOutput {
    * @public
    */
   connectionCredentials?: ConnectionCredentials | undefined;
+
+  /**
+   * <p>The configurations of the connection.</p>
+   * @public
+   */
+  configurations?: Configuration[] | undefined;
 
   /**
    * <p>The ID of the connection.</p>
@@ -11216,21 +11294,4 @@ export interface GroupProfileSummary {
    * @public
    */
   groupName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchGroupProfilesOutput {
-  /**
-   * <p>The results of the <code>SearchGroupProfiles</code> action.</p>
-   * @public
-   */
-  items?: GroupProfileSummary[] | undefined;
-
-  /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }

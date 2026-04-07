@@ -44,6 +44,14 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *     iamConnectionId: "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
+ *   configurations: [ // Configurations
+ *     { // Configuration
+ *       classification: "STRING_VALUE",
+ *       properties: { // PropertyMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
  *   description: "STRING_VALUE",
  *   domainIdentifier: "STRING_VALUE", // required
  *   environmentIdentifier: "STRING_VALUE",
@@ -75,7 +83,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *         validateForComputeEnvironments: [ // ComputeEnvironmentsList
  *           "SPARK" || "ATHENA" || "PYTHON",
  *         ],
- *         sparkProperties: { // PropertyMap
+ *         sparkProperties: {
  *           "<keys>": "STRING_VALUE",
  *         },
  *         athenaProperties: {
@@ -162,6 +170,9 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *         connection: "STRING_VALUE",
  *       },
  *       glueConnectionName: "STRING_VALUE",
+ *       glueConnectionNames: [ // GlueConnectionNames
+ *         "STRING_VALUE",
+ *       ],
  *       glueVersion: "STRING_VALUE",
  *       idleTimeout: Number("int"),
  *       javaVirtualEnv: "STRING_VALUE",
@@ -172,6 +183,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *     s3Properties: { // S3PropertiesInput
  *       s3Uri: "STRING_VALUE", // required
  *       s3AccessGrantLocationId: "STRING_VALUE",
+ *       registerS3AccessGrantLocation: true || false,
  *     },
  *     amazonQProperties: { // AmazonQPropertiesInput
  *       isEnabled: true || false, // required
@@ -193,6 +205,14 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * const response = await client.send(command);
  * // { // CreateConnectionOutput
  * //   connectionId: "STRING_VALUE", // required
+ * //   configurations: [ // Configurations
+ * //     { // Configuration
+ * //       classification: "STRING_VALUE",
+ * //       properties: { // PropertyMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
  * //   description: "STRING_VALUE",
  * //   domainId: "STRING_VALUE", // required
  * //   domainUnitId: "STRING_VALUE", // required
@@ -207,6 +227,9 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //         iamConnectionId: "STRING_VALUE",
  * //       },
  * //       glueConnectionName: "STRING_VALUE",
+ * //       glueConnectionNames: [ // GlueConnectionNames
+ * //         "STRING_VALUE",
+ * //       ],
  * //       glueConnection: { // GlueConnection
  * //         name: "STRING_VALUE",
  * //         description: "STRING_VALUE",
@@ -217,7 +240,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //         connectionProperties: { // ConnectionProperties
  * //           "<keys>": "STRING_VALUE",
  * //         },
- * //         sparkProperties: { // PropertyMap
+ * //         sparkProperties: {
  * //           "<keys>": "STRING_VALUE",
  * //         },
  * //         athenaProperties: {
@@ -350,6 +373,9 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //         connection: "STRING_VALUE",
  * //       },
  * //       glueConnectionName: "STRING_VALUE",
+ * //       glueConnectionNames: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //       glueVersion: "STRING_VALUE",
  * //       idleTimeout: Number("int"),
  * //       javaVirtualEnv: "STRING_VALUE",
@@ -360,6 +386,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //     s3Properties: { // S3PropertiesOutput
  * //       s3Uri: "STRING_VALUE", // required
  * //       s3AccessGrantLocationId: "STRING_VALUE",
+ * //       registerS3AccessGrantLocation: true || false,
  * //       status: "CREATING" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED" || "READY" || "UPDATING" || "UPDATE_FAILED" || "DELETED",
  * //       errorMessage: "STRING_VALUE",
  * //     },

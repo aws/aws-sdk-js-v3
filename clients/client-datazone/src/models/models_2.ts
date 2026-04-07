@@ -32,6 +32,7 @@ import type {
   AwsLocation,
   ColumnFilterConfiguration,
   ConfigurableEnvironmentAction,
+  Configuration,
   ConnectionPropertiesOutput,
   ConnectionPropertiesPatch,
   CustomParameter,
@@ -59,7 +60,32 @@ import type {
   SubscriptionTargetForm,
   UserProfileDetails,
 } from "./models_0";
-import type { DataProductListingItem, Filter, Import, RelationPattern, SearchInItem, SearchSort } from "./models_1";
+import type {
+  DataProductListingItem,
+  Filter,
+  GroupProfileSummary,
+  Import,
+  RelationPattern,
+  SearchInItem,
+  SearchSort,
+} from "./models_1";
+
+/**
+ * @public
+ */
+export interface SearchGroupProfilesOutput {
+  /**
+   * <p>The results of the <code>SearchGroupProfiles</code> action.</p>
+   * @public
+   */
+  items?: GroupProfileSummary[] | undefined;
+
+  /**
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * <p>The details of the results of the <code>SearchListings</code> action.</p>
@@ -622,6 +648,12 @@ export interface UpdateAccountPoolOutput {
  */
 export interface UpdateConnectionInput {
   /**
+   * <p>The configurations of the connection.</p>
+   * @public
+   */
+  configurations?: Configuration[] | undefined;
+
+  /**
    * <p>The ID of the domain where a connection is to be updated.</p>
    * @public
    */
@@ -656,6 +688,12 @@ export interface UpdateConnectionInput {
  * @public
  */
 export interface UpdateConnectionOutput {
+  /**
+   * <p>The configurations of the connection.</p>
+   * @public
+   */
+  configurations?: Configuration[] | undefined;
+
   /**
    * <p>The ID of the connection.</p>
    * @public

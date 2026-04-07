@@ -3264,6 +3264,30 @@
         "smithy.api#documentation": "<p>The configurable action of a Amazon DataZone environment.</p>"
       }
     },
+    "com.amazonaws.datazone#Configuration": {
+      "type": "structure",
+      "members": {
+        "classification": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The classification of the connection configuration.</p>",
+            "smithy.api#length": {
+              "max": 64
+            },
+            "smithy.api#pattern": "^[\\w][\\w\\.\\-\\_]*$"
+          }
+        },
+        "properties": {
+          "target": "com.amazonaws.datazone#PropertyMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The properties of the connection configuration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration of a connection.</p>"
+      }
+    },
     "com.amazonaws.datazone#ConfigurationStatus": {
       "type": "enum",
       "members": {
@@ -3279,6 +3303,12 @@
             "smithy.api#enumValue": "FAILED"
           }
         }
+      }
+    },
+    "com.amazonaws.datazone#Configurations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.datazone#Configuration"
       }
     },
     "com.amazonaws.datazone#ConflictException": {
@@ -3657,6 +3687,12 @@
     "com.amazonaws.datazone#ConnectionSummary": {
       "type": "structure",
       "members": {
+        "configurations": {
+          "target": "com.amazonaws.datazone#Configurations",
+          "traits": {
+            "smithy.api#documentation": "<p>The configurations of a connection summary.</p>"
+          }
+        },
         "connectionId": {
           "target": "com.amazonaws.datazone#ConnectionId",
           "traits": {
@@ -4946,6 +4982,12 @@
             "smithy.api#idempotencyToken": {}
           }
         },
+        "configurations": {
+          "target": "com.amazonaws.datazone#Configurations",
+          "traits": {
+            "smithy.api#documentation": "<p>The configurations of the connection.</p>"
+          }
+        },
         "description": {
           "target": "com.amazonaws.datazone#Description",
           "traits": {
@@ -5007,6 +5049,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the connection.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "configurations": {
+          "target": "com.amazonaws.datazone#Configurations",
+          "traits": {
+            "smithy.api#documentation": "<p>The configurations of the connection.</p>"
           }
         },
         "description": {
@@ -16633,6 +16681,12 @@
             "smithy.api#documentation": "<p>Connection credentials.</p>"
           }
         },
+        "configurations": {
+          "target": "com.amazonaws.datazone#Configurations",
+          "traits": {
+            "smithy.api#documentation": "<p>The configurations of the connection.</p>"
+          }
+        },
         "connectionId": {
           "target": "com.amazonaws.datazone#ConnectionId",
           "traits": {
@@ -21832,6 +21886,26 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The Amazon Web Services Glue connecton input.</p>"
+      }
+    },
+    "com.amazonaws.datazone#GlueConnectionName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 64
+        }
+      }
+    },
+    "com.amazonaws.datazone#GlueConnectionNames": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.datazone#GlueConnectionName"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 16
+        }
       }
     },
     "com.amazonaws.datazone#GlueConnectionPatch": {
@@ -29056,6 +29130,12 @@
             "smithy.api#documentation": "<p>The Amazon Web Services Glue connection name.</p>"
           }
         },
+        "glueConnectionNames": {
+          "target": "com.amazonaws.datazone#GlueConnectionNames",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services Glue connection names in the physical endpoint.</p>"
+          }
+        },
         "glueConnection": {
           "target": "com.amazonaws.datazone#GlueConnection",
           "traits": {
@@ -32417,6 +32497,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.</p>"
           }
+        },
+        "registerS3AccessGrantLocation": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to register the Amazon S3 Access Grant location.</p>"
+          }
         }
       },
       "traits": {
@@ -32437,6 +32523,12 @@
           "target": "com.amazonaws.datazone#S3AccessGrantLocationId",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.</p>"
+          }
+        },
+        "registerS3AccessGrantLocation": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to register the Amazon S3 Access Grant location.</p>"
           }
         },
         "status": {
@@ -32470,6 +32562,12 @@
           "target": "com.amazonaws.datazone#S3AccessGrantLocationId",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties patch of a connection.</p>"
+          }
+        },
+        "registerS3AccessGrantLocation": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to register the Amazon S3 Access Grant location.</p>"
           }
         }
       },
@@ -33897,10 +33995,16 @@
         "glueConnectionName": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties.</p>",
+            "smithy.api#documentation": "<p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties. Specify either <code>glueConnectionName</code> or <code>glueConnectionNames</code>, but not both.</p>",
             "smithy.api#length": {
               "max": 256
             }
+          }
+        },
+        "glueConnectionNames": {
+          "target": "com.amazonaws.datazone#GlueConnectionNames",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services Glue connection names in the Spark Amazon Web Services Glue properties. Specify either <code>glueConnectionName</code> or <code>glueConnectionNames</code>, but not both.</p>"
           }
         },
         "glueVersion": {
@@ -33969,6 +34073,12 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties. </p>"
+          }
+        },
+        "glueConnectionNames": {
+          "target": "com.amazonaws.datazone#GlueConnectionNames",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services Glue connection names in the Spark Amazon Web Services Glue properties.</p>"
           }
         },
         "glueVersion": {
@@ -36914,6 +37024,12 @@
     "com.amazonaws.datazone#UpdateConnectionInput": {
       "type": "structure",
       "members": {
+        "configurations": {
+          "target": "com.amazonaws.datazone#Configurations",
+          "traits": {
+            "smithy.api#documentation": "<p>The configurations of the connection.</p>"
+          }
+        },
         "domainIdentifier": {
           "target": "com.amazonaws.datazone#DomainId",
           "traits": {
@@ -36960,6 +37076,12 @@
     "com.amazonaws.datazone#UpdateConnectionOutput": {
       "type": "structure",
       "members": {
+        "configurations": {
+          "target": "com.amazonaws.datazone#Configurations",
+          "traits": {
+            "smithy.api#documentation": "<p>The configurations of the connection.</p>"
+          }
+        },
         "connectionId": {
           "target": "com.amazonaws.datazone#ConnectionId",
           "traits": {

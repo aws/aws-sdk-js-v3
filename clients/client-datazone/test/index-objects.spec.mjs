@@ -100,6 +100,7 @@ import {
   ConfigurableActionParameter$,
   ConfigurableActionTypeAuthorization,
   ConfigurableEnvironmentAction$,
+  Configuration$,
   ConfigurationStatus,
   ConflictException,
   ConflictException$,
@@ -1592,6 +1593,7 @@ assert(typeof CloudFormationProperties$ === "object");
 assert(typeof ColumnFilterConfiguration$ === "object");
 assert(typeof ConfigurableActionParameter$ === "object");
 assert(typeof ConfigurableEnvironmentAction$ === "object");
+assert(typeof Configuration$ === "object");
 assert(typeof ConnectionCredentials$ === "object");
 assert(typeof ConnectionPropertiesInput$ === "object");
 assert(typeof ConnectionPropertiesOutput$ === "object");

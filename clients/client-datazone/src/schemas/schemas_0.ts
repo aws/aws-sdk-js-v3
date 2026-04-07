@@ -91,6 +91,7 @@ const _BPAM = "BatchPutAttributesMetadata";
 const _BPAMI = "BatchPutAttributesMetadataInput";
 const _BPAMO = "BatchPutAttributesMetadataOutput";
 const _BPAO = "BatchPutAttributeOutput";
+const _C = "Configuration";
 const _CA = "Created-At";
 const _CAF = "CreateAssetFilter";
 const _CAFI = "CreateAssetFilterInput";
@@ -207,6 +208,7 @@ const _CT = "Client-Token";
 const _CUP = "CreateUserProfile";
 const _CUPI = "CreateUserProfileInput";
 const _CUPO = "CreateUserProfileOutput";
+const _Co = "Configurations";
 const _D = "Description";
 const _DA = "DeleteAsset";
 const _DAF = "DeleteAssetFilter";
@@ -1096,10 +1098,12 @@ const _cT = "clientToken";
 const _cTo = "connectionType";
 const _cTr = "creationTime";
 const _cTre = "creationTimestamp";
-const _cl = "classifies";
+const _cl = "classification";
+const _cla = "classifies";
 const _co = "count";
 const _cod = "code";
-const _con = "configuration";
+const _con = "configurations";
+const _conf = "configuration";
 const _conn = "connection";
 const _cont = "content";
 const _cr = "credentials";
@@ -1228,6 +1232,7 @@ const _g = "group";
 const _gC = "glueConnection";
 const _gCI = "glueConnectionInput";
 const _gCN = "glueConnectionName";
+const _gCNl = "glueConnectionNames";
 const _gE = "grantedEntity";
 const _gGT = "governedGlossaryTerms";
 const _gI = "grantId";
@@ -1436,10 +1441,11 @@ const _pa = "password";
 const _par = "parameters";
 const _pe = "permissions";
 const _po = "port";
-const _pr = "props";
-const _pro = "provider";
+const _pr = "properties";
+const _pro = "props";
 const _proj = "project";
 const _prot = "protocol";
+const _prov = "provider";
 const _qET = "queryEndTime";
 const _qST = "queryStartTime";
 const _r = "revision";
@@ -1472,6 +1478,7 @@ const _rRC = "redshiftRunConfiguration";
 const _rRe = "rejectRule";
 const _rRu = "runtimeRole";
 const _rS = "resolutionStrategy";
+const _rSAGL = "registerS3AccessGrantLocation";
 const _rSFA = "runStatisticsForAssets";
 const _rSGS = "redshiftSelfGrantStatus";
 const _rSS = "redshiftServerlessSource";
@@ -2092,6 +2099,11 @@ export var ConfigurableEnvironmentAction$: StaticStructureSchema = [3, n0, _CEA,
   [_ty, _par, _au],
   [0, () => ConfigurableActionParameterList, 0], 2
 ];
+export var Configuration$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_cl, _pr],
+  [0, 128 | 0]
+];
 export var ConnectionCredentials$: StaticStructureSchema = [3, n0, _CC,
   8,
   [_aKI, _sAK, _sT, _ex],
@@ -2099,8 +2111,8 @@ export var ConnectionCredentials$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var ConnectionSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_cI, _dIo, _dUI, _n, _pE, _ty, _eInvi, _pI, _pr, _sc],
-  [0, 0, 0, 0, [() => PhysicalEndpoints, 0], 0, 0, 0, [() => ConnectionPropertiesOutput$, 0], 0], 6
+  [_cI, _dIo, _dUI, _n, _pE, _ty, _con, _eInvi, _pI, _pro, _sc],
+  [0, 0, 0, 0, [() => PhysicalEndpoints, 0], 0, () => Configurations, 0, 0, [() => ConnectionPropertiesOutput$, 0], 0], 6
 ];
 export var CreateAccountPoolInput$: StaticStructureSchema = [3, n0, _CAPI,
   0,
@@ -2114,12 +2126,12 @@ export var CreateAccountPoolOutput$: StaticStructureSchema = [3, n0, _CAPO,
 ];
 export var CreateAssetFilterInput$: StaticStructureSchema = [3, n0, _CAFI,
   0,
-  [_dI, _aIs, _n, _con, _de, _cT],
+  [_dI, _aIs, _n, _conf, _de, _cT],
   [[0, 1], [0, 1], [() => FilterName, 0], () => AssetFilterConfiguration$, [() => Description, 0], [0, 4]], 4
 ];
 export var CreateAssetFilterOutput$: StaticStructureSchema = [3, n0, _CAFO,
   0,
-  [_id, _dIo, _aI, _n, _con, _de, _st, _cA, _eM, _eCN, _eRF],
+  [_id, _dIo, _aI, _n, _conf, _de, _st, _cA, _eM, _eCN, _eRF],
   [0, 0, 0, [() => FilterName, 0], () => AssetFilterConfiguration$, [() => Description, 0], 0, 4, 0, 64 | 0, 0], 5
 ];
 export var CreateAssetInput$: StaticStructureSchema = [3, n0, _CAI,
@@ -2159,13 +2171,13 @@ export var CreateAssetTypePolicyGrantDetail$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateConnectionInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
-  [_dI, _n, _aL, _cT, _de, _eInv, _pr, _eTIP, _sc],
-  [[0, 1], 0, () => AwsLocation$, [0, 4], [() => Description, 0], 0, [() => ConnectionPropertiesInput$, 0], 2, 0], 2
+  [_dI, _n, _aL, _cT, _con, _de, _eInv, _pro, _eTIP, _sc],
+  [[0, 1], 0, () => AwsLocation$, [0, 4], () => Configurations, [() => Description, 0], 0, [() => ConnectionPropertiesInput$, 0], 2, 0], 2
 ];
 export var CreateConnectionOutput$: StaticStructureSchema = [3, n0, _CCO,
   0,
-  [_cI, _dIo, _dUI, _n, _pE, _ty, _de, _eInvi, _pI, _pr, _sc],
-  [0, 0, 0, 0, [() => PhysicalEndpoints, 0], 0, [() => Description, 0], 0, 0, [() => ConnectionPropertiesOutput$, 0], 0], 6
+  [_cI, _dIo, _dUI, _n, _pE, _ty, _con, _de, _eInvi, _pI, _pro, _sc],
+  [0, 0, 0, 0, [() => PhysicalEndpoints, 0], 0, () => Configurations, [() => Description, 0], 0, 0, [() => ConnectionPropertiesOutput$, 0], 0], 6
 ];
 export var CreateDataProductInput$: StaticStructureSchema = [3, n0, _CDPI,
   0,
@@ -2189,12 +2201,12 @@ export var CreateDataProductRevisionOutput$: StaticStructureSchema = [3, n0, _CD
 ];
 export var CreateDataSourceInput$: StaticStructureSchema = [3, n0, _CDSI,
   0,
-  [_n, _dI, _pIr, _ty, _de, _eInv, _cIo, _con, _re, _eS, _sch, _pOI, _aFI, _cT],
+  [_n, _dI, _pIr, _ty, _de, _eInv, _cIo, _conf, _re, _eS, _sch, _pOI, _aFI, _cT],
   [[() => Name, 0], [0, 1], 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationInput$, () => RecommendationConfiguration$, 0, [() => ScheduleConfiguration$, 0], 2, [() => FormInputList, 0], [0, 4]], 4
 ];
 export var CreateDataSourceOutput$: StaticStructureSchema = [3, n0, _CDSO,
   0,
-  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _con, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA],
+  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _conf, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA],
   [0, [() => Name, 0], 0, 0, 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationOutput$, () => RecommendationConfiguration$, 0, 2, [() => FormOutputList, 0], [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, () => DataSourceErrorMessage$, 5, 5], 4
 ];
 export var CreateDomainInput$: StaticStructureSchema = [3, n0, _CDI,
@@ -2239,7 +2251,7 @@ export var CreateEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _CE
 ];
 export var CreateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _CEBO,
   0,
-  [_id, _n, _pro, _pP, _de, _dP, _uP, _gT, _cA, _uA],
+  [_id, _n, _prov, _pP, _de, _dP, _uP, _gT, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
 ];
 export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
@@ -2249,7 +2261,7 @@ export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
 ];
 export var CreateEnvironmentOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
+  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var CreateEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _CEPI,
@@ -2399,12 +2411,12 @@ export var CreateSubscriptionRequestOutput$: StaticStructureSchema = [3, n0, _CS
 ];
 export var CreateSubscriptionTargetInput$: StaticStructureSchema = [3, n0, _CSTI,
   0,
-  [_dI, _eInv, _n, _ty, _sTC, _aPu, _mAR, _aAT, _pro, _cT, _sGCM],
+  [_dI, _eInv, _n, _ty, _sTC, _aPu, _mAR, _aAT, _prov, _cT, _sGCM],
   [[0, 1], [0, 1], [() => SubscriptionTargetName, 0], 0, () => SubscriptionTargetForms, 64 | 0, 0, 64 | 0, 0, [0, 4], 0], 8
 ];
 export var CreateSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _CSTO,
   0,
-  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _cA, _aAT, _sTC, _pro, _uB, _uA, _mAR, _sGCM],
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _cA, _aAT, _sTC, _prov, _uB, _uA, _mAR, _sGCM],
   [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 4, 64 | 0, () => SubscriptionTargetForms, 0, 0, 4, 0, 0], 12
 ];
 export var CreateUserProfileInput$: StaticStructureSchema = [3, n0, _CUPI,
@@ -2559,7 +2571,7 @@ export var DeleteDataSourceInput$: StaticStructureSchema = [3, n0, _DDSI,
 ];
 export var DeleteDataSourceOutput$: StaticStructureSchema = [3, n0, _DDSO,
   0,
-  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _con, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA, _sGS, _rPORF],
+  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _conf, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA, _sGS, _rPORF],
   [0, [() => Name, 0], 0, 0, 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationOutput$, 0, 2, [() => FormOutputList, 0], [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, () => DataSourceErrorMessage$, 5, 5, () => SelfGrantStatusOutput$, 2], 4
 ];
 export var DeleteDomainInput$: StaticStructureSchema = [3, n0, _DDI,
@@ -2814,7 +2826,7 @@ export var EnvironmentBlueprintConfigurationItem$: StaticStructureSchema = [3, n
 ];
 export var EnvironmentBlueprintSummary$: StaticStructureSchema = [3, n0, _EBS,
   0,
-  [_id, _n, _pro, _pP, _de, _cA, _uA],
+  [_id, _n, _prov, _pP, _de, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], 5, 5], 4
 ];
 export var EnvironmentConfiguration$: StaticStructureSchema = [3, n0, _ECn,
@@ -2864,7 +2876,7 @@ export var EnvironmentResolvedAccount$: StaticStructureSchema = [3, n0, _ERA,
 ];
 export var EnvironmentSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _st, _eCI, _eCNn],
+  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _st, _eCI, _eCNn],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var EqualToExpression$: StaticStructureSchema = [3, n0, _ETE,
@@ -2929,7 +2941,7 @@ export var GetAssetFilterInput$: StaticStructureSchema = [3, n0, _GAFI,
 ];
 export var GetAssetFilterOutput$: StaticStructureSchema = [3, n0, _GAFO,
   0,
-  [_id, _dIo, _aI, _n, _con, _de, _st, _cA, _eM, _eCN, _eRF],
+  [_id, _dIo, _aI, _n, _conf, _de, _st, _cA, _eM, _eCN, _eRF],
   [0, 0, 0, [() => FilterName, 0], () => AssetFilterConfiguration$, [() => Description, 0], 0, 4, 0, 64 | 0, 0], 5
 ];
 export var GetAssetInput$: StaticStructureSchema = [3, n0, _GAI,
@@ -2959,8 +2971,8 @@ export var GetConnectionInput$: StaticStructureSchema = [3, n0, _GCI,
 ];
 export var GetConnectionOutput$: StaticStructureSchema = [3, n0, _GCO,
   0,
-  [_cI, _dIo, _dUI, _n, _pE, _ty, _cC, _de, _eInvi, _eUR, _pI, _pr, _sc],
-  [0, 0, 0, 0, [() => PhysicalEndpoints, 0], 0, [() => ConnectionCredentials$, 0], [() => Description, 0], 0, 0, 0, [() => ConnectionPropertiesOutput$, 0], 0], 6
+  [_cI, _dIo, _dUI, _n, _pE, _ty, _cC, _con, _de, _eInvi, _eUR, _pI, _pro, _sc],
+  [0, 0, 0, 0, [() => PhysicalEndpoints, 0], 0, [() => ConnectionCredentials$, 0], () => Configurations, [() => Description, 0], 0, 0, 0, [() => ConnectionPropertiesOutput$, 0], 0], 6
 ];
 export var GetDataExportConfigurationInput$: StaticStructureSchema = [3, n0, _GDECI,
   0,
@@ -2989,7 +3001,7 @@ export var GetDataSourceInput$: StaticStructureSchema = [3, n0, _GDSI,
 ];
 export var GetDataSourceOutput$: StaticStructureSchema = [3, n0, _GDSO,
   0,
-  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _con, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _lRAC, _eM, _cA, _uA, _sGS],
+  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _conf, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _lRAC, _eM, _cA, _uA, _sGS],
   [0, [() => Name, 0], 0, 0, 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationOutput$, () => RecommendationConfiguration$, 0, 2, [() => FormOutputList, 0], [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, 1, () => DataSourceErrorMessage$, 5, 5, () => SelfGrantStatusOutput$], 4
 ];
 export var GetDataSourceRunInput$: StaticStructureSchema = [3, n0, _GDSRI,
@@ -3049,7 +3061,7 @@ export var GetEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _GEBI,
 ];
 export var GetEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _GEBO,
   0,
-  [_id, _n, _pro, _pP, _de, _dP, _uP, _gT, _cA, _uA],
+  [_id, _n, _prov, _pP, _de, _dP, _uP, _gT, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
 ];
 export var GetEnvironmentCredentialsInput$: StaticStructureSchema = [3, n0, _GECI,
@@ -3069,7 +3081,7 @@ export var GetEnvironmentInput$: StaticStructureSchema = [3, n0, _GEI,
 ];
 export var GetEnvironmentOutput$: StaticStructureSchema = [3, n0, _GEO,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
+  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var GetEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _GEPI,
@@ -3249,7 +3261,7 @@ export var GetSubscriptionTargetInput$: StaticStructureSchema = [3, n0, _GSTI,
 ];
 export var GetSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _GSTO,
   0,
-  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _cA, _aAT, _sTC, _pro, _uB, _uA, _mAR, _sGCM],
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _cA, _aAT, _sTC, _prov, _uB, _uA, _mAR, _sGCM],
   [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 4, 64 | 0, () => SubscriptionTargetForms, 0, 0, 4, 0, 0], 12
 ];
 export var GetTimeSeriesDataPointInput$: StaticStructureSchema = [3, n0, _GTSDPI,
@@ -3654,8 +3666,8 @@ export var ListEnvironmentProfilesOutput$: StaticStructureSchema = [3, n0, _LEPO
 ];
 export var ListEnvironmentsInput$: StaticStructureSchema = [3, n0, _LEI,
   0,
-  [_dI, _pIr, _aAI, _st, _aAR, _ePI, _eBI, _pro, _n, _mRa, _nT],
-  [[0, 1], [0, { [_hQ]: _pIr }], [0, { [_hQ]: _aAI }], [0, { [_hQ]: _st }], [0, { [_hQ]: _aAR }], [0, { [_hQ]: _ePI }], [0, { [_hQ]: _eBI }], [0, { [_hQ]: _pro }], [0, { [_hQ]: _n }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 2
+  [_dI, _pIr, _aAI, _st, _aAR, _ePI, _eBI, _prov, _n, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _pIr }], [0, { [_hQ]: _aAI }], [0, { [_hQ]: _st }], [0, { [_hQ]: _aAR }], [0, { [_hQ]: _ePI }], [0, { [_hQ]: _eBI }], [0, { [_hQ]: _prov }], [0, { [_hQ]: _n }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListEnvironmentsOutput$: StaticStructureSchema = [3, n0, _LEO,
   0,
@@ -3979,8 +3991,8 @@ export var PhysicalConnectionRequirements$: StaticStructureSchema = [3, n0, _PCR
 ];
 export var PhysicalEndpoint$: StaticStructureSchema = [3, n0, _PE,
   0,
-  [_aL, _gCN, _gC, _eTIP, _h, _po, _prot, _sta],
-  [() => AwsLocation$, 0, [() => GlueConnection$, 0], 2, 0, 1, 0, 0]
+  [_aL, _gCN, _gCNl, _gC, _eTIP, _h, _po, _prot, _sta],
+  [() => AwsLocation$, 0, 64 | 0, [() => GlueConnection$, 0], 2, 0, 1, 0, 0]
 ];
 export var PolicyGrantMember$: StaticStructureSchema = [3, n0, _PGM,
   0,
@@ -4194,7 +4206,7 @@ export var RemovePolicyGrantOutput$: StaticStructureSchema = [3, n0, _RPGO,
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_v, _ty, _pro, _n],
+  [_v, _ty, _prov, _n],
   [0, 0, 0, 0], 2
 ];
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RT,
@@ -4239,18 +4251,18 @@ export var RunStatisticsForAssets$: StaticStructureSchema = [3, n0, _RSFA,
 ];
 export var S3PropertiesInput$: StaticStructureSchema = [3, n0, _SPI,
   0,
-  [_sU, _sAGLI],
-  [0, 0], 1
+  [_sU, _sAGLI, _rSAGL],
+  [0, 0, 2], 1
 ];
 export var S3PropertiesOutput$: StaticStructureSchema = [3, n0, _SPO,
   0,
-  [_sU, _sAGLI, _st, _eM],
-  [0, 0, 0, 0], 1
+  [_sU, _sAGLI, _rSAGL, _st, _eM],
+  [0, 0, 2, 0, 0], 1
 ];
 export var S3PropertiesPatch$: StaticStructureSchema = [3, n0, _SPP,
   0,
-  [_sU, _sAGLI],
-  [0, 0], 1
+  [_sU, _sAGLI, _rSAGL],
+  [0, 0, 2], 1
 ];
 export var SageMakerRunConfigurationInput$: StaticStructureSchema = [3, n0, _SMRCI,
   0,
@@ -4359,13 +4371,13 @@ export var SparkGlueArgs$: StaticStructureSchema = [3, n0, _SGA,
 ];
 export var SparkGluePropertiesInput$: StaticStructureSchema = [3, n0, _SGPIp,
   0,
-  [_aAd, _gCN, _gV, _iTdl, _jVE, _nOW, _pVE, _wT],
-  [() => SparkGlueArgs$, 0, 0, 1, 0, 1, 0, 0]
+  [_aAd, _gCN, _gCNl, _gV, _iTdl, _jVE, _nOW, _pVE, _wT],
+  [() => SparkGlueArgs$, 0, 64 | 0, 0, 1, 0, 1, 0, 0]
 ];
 export var SparkGluePropertiesOutput$: StaticStructureSchema = [3, n0, _SGPOp,
   0,
-  [_aAd, _gCN, _gV, _iTdl, _jVE, _nOW, _pVE, _wT],
-  [() => SparkGlueArgs$, 0, 0, 1, 0, 1, 0, 0]
+  [_aAd, _gCN, _gCNl, _gV, _iTdl, _jVE, _nOW, _pVE, _wT],
+  [() => SparkGlueArgs$, 0, 64 | 0, 0, 1, 0, 1, 0, 0]
 ];
 export var SsoUserProfileDetails$: StaticStructureSchema = [3, n0, _SUPD,
   0,
@@ -4479,7 +4491,7 @@ export var SubscriptionTargetForm$: StaticStructureSchema = [3, n0, _STF,
 ];
 export var SubscriptionTargetSummary$: StaticStructureSchema = [3, n0, _STS,
   0,
-  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _cA, _aAT, _sTC, _pro, _uB, _uA, _mAR, _sGCM],
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _cA, _aAT, _sTC, _prov, _uB, _uA, _mAR, _sGCM],
   [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 4, 64 | 0, () => SubscriptionTargetForms, 0, 0, 4, 0, 0], 12
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
@@ -4494,7 +4506,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TermRelations$: StaticStructureSchema = [3, n0, _TR,
   0,
-  [_iA, _cl],
+  [_iA, _cla],
   [64 | 0, 64 | 0]
 ];
 export var TextMatchItem$: StaticStructureSchema = [3, n0, _TMI,
@@ -4549,32 +4561,32 @@ export var UpdateAccountPoolOutput$: StaticStructureSchema = [3, n0, _UAPO,
 ];
 export var UpdateAssetFilterInput$: StaticStructureSchema = [3, n0, _UAFI,
   0,
-  [_dI, _aIs, _i, _n, _de, _con],
+  [_dI, _aIs, _i, _n, _de, _conf],
   [[0, 1], [0, 1], [0, 1], 0, [() => Description, 0], () => AssetFilterConfiguration$], 3
 ];
 export var UpdateAssetFilterOutput$: StaticStructureSchema = [3, n0, _UAFO,
   0,
-  [_id, _dIo, _aI, _n, _con, _de, _st, _cA, _eM, _eCN, _eRF],
+  [_id, _dIo, _aI, _n, _conf, _de, _st, _cA, _eM, _eCN, _eRF],
   [0, 0, 0, [() => FilterName, 0], () => AssetFilterConfiguration$, [() => Description, 0], 0, 4, 0, 64 | 0, 0], 5
 ];
 export var UpdateConnectionInput$: StaticStructureSchema = [3, n0, _UCI,
   0,
-  [_dI, _i, _de, _aL, _pr],
-  [[0, 1], [0, 1], [() => Description, 0], () => AwsLocation$, [() => ConnectionPropertiesPatch$, 0]], 2
+  [_dI, _i, _con, _de, _aL, _pro],
+  [[0, 1], [0, 1], () => Configurations, [() => Description, 0], () => AwsLocation$, [() => ConnectionPropertiesPatch$, 0]], 2
 ];
 export var UpdateConnectionOutput$: StaticStructureSchema = [3, n0, _UCO,
   0,
-  [_cI, _dIo, _dUI, _n, _pE, _ty, _de, _eInvi, _pI, _pr, _sc],
-  [0, 0, 0, 0, [() => PhysicalEndpoints, 0], 0, [() => Description, 0], 0, 0, [() => ConnectionPropertiesOutput$, 0], 0], 6
+  [_cI, _dIo, _dUI, _n, _pE, _ty, _con, _de, _eInvi, _pI, _pro, _sc],
+  [0, 0, 0, 0, [() => PhysicalEndpoints, 0], 0, () => Configurations, [() => Description, 0], 0, 0, [() => ConnectionPropertiesOutput$, 0], 0], 6
 ];
 export var UpdateDataSourceInput$: StaticStructureSchema = [3, n0, _UDSI,
   0,
-  [_dI, _i, _n, _de, _eS, _pOI, _aFI, _sch, _con, _re, _rPORF],
+  [_dI, _i, _n, _de, _eS, _pOI, _aFI, _sch, _conf, _re, _rPORF],
   [[0, 1], [0, 1], [() => Name, 0], [() => Description, 0], 0, 2, [() => FormInputList, 0], [() => ScheduleConfiguration$, 0], () => DataSourceConfigurationInput$, () => RecommendationConfiguration$, 2], 2
 ];
 export var UpdateDataSourceOutput$: StaticStructureSchema = [3, n0, _UDSO,
   0,
-  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _con, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA, _sGS, _rPORF],
+  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _conf, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA, _sGS, _rPORF],
   [0, [() => Name, 0], 0, 0, 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationOutput$, () => RecommendationConfiguration$, 0, 2, [() => FormOutputList, 0], [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, () => DataSourceErrorMessage$, 5, 5, () => SelfGrantStatusOutput$, 2], 4
 ];
 export var UpdateDomainInput$: StaticStructureSchema = [3, n0, _UDI,
@@ -4614,7 +4626,7 @@ export var UpdateEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _UE
 ];
 export var UpdateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _UEBO,
   0,
-  [_id, _n, _pro, _pP, _de, _dP, _uP, _gT, _cA, _uA],
+  [_id, _n, _prov, _pP, _de, _dP, _uP, _gT, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
 ];
 export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
@@ -4624,7 +4636,7 @@ export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
 ];
 export var UpdateEnvironmentOutput$: StaticStructureSchema = [3, n0, _UEO,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
+  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var UpdateEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _UEPI,
@@ -4729,12 +4741,12 @@ export var UpdateSubscriptionRequestOutput$: StaticStructureSchema = [3, n0, _US
 ];
 export var UpdateSubscriptionTargetInput$: StaticStructureSchema = [3, n0, _USTI,
   0,
-  [_dI, _eInv, _i, _n, _aPu, _aAT, _sTC, _mAR, _pro, _sGCM],
+  [_dI, _eInv, _i, _n, _aPu, _aAT, _sTC, _mAR, _prov, _sGCM],
   [[0, 1], [0, 1], [0, 1], [() => SubscriptionTargetName, 0], 64 | 0, 64 | 0, () => SubscriptionTargetForms, 0, 0, 0], 3
 ];
 export var UpdateSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _USTO,
   0,
-  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _cA, _aAT, _sTC, _pro, _uB, _uA, _mAR, _sGCM],
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _cA, _aAT, _sTC, _prov, _uB, _uA, _mAR, _sGCM],
   [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 4, 64 | 0, () => SubscriptionTargetForms, 0, 0, 4, 0, 0], 12
 ];
 export var UpdateUserProfileInput$: StaticStructureSchema = [3, n0, _UUPI,
@@ -4853,6 +4865,9 @@ var ComputeEnvironmentsList = 64 | 0;
 var ConfigurableActionParameterList: StaticListSchema = [1, n0, _CAPL,
   0, () => ConfigurableActionParameter$
 ];
+var Configurations: StaticListSchema = [1, n0, _Co,
+  0, () => Configuration$
+];
 var ConnectionSummaries: StaticListSchema = [1, n0, _CSo,
   0, [() => ConnectionSummary$,
     0]
@@ -4956,6 +4971,7 @@ var FormOutputList: StaticListSchema = [1, n0, _FOL,
 var GlossaryTermIdentifiers = 64 | 0;
 var GlossaryTerms = 64 | 0;
 var GlossaryUsageRestrictions = 64 | 0;
+var GlueConnectionNames = 64 | 0;
 var GovernedGlossaryTerms = 64 | 0;
 var GroupProfileSummaries: StaticListSchema = [1, n0, _GPSr,
   0, [() => GroupProfileSummary$,

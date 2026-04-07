@@ -51,7 +51,6 @@ import type {
   RuleType,
   S3Permission,
   Status,
-  SubscriptionGrantCreationMode,
   SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
   SubscriptionRequestStatus,
@@ -5071,6 +5070,24 @@ export interface ConfigurableEnvironmentAction {
 }
 
 /**
+ * <p>The configuration of a connection.</p>
+ * @public
+ */
+export interface Configuration {
+  /**
+   * <p>The classification of the connection configuration.</p>
+   * @public
+   */
+  classification?: string | undefined;
+
+  /**
+   * <p>The properties of the connection configuration.</p>
+   * @public
+   */
+  properties?: Record<string, string> | undefined;
+}
+
+/**
  * <p>The credentials of a connection.</p>
  * @public
  */
@@ -5468,6 +5485,12 @@ export interface S3PropertiesInput {
    * @public
    */
   s3AccessGrantLocationId?: string | undefined;
+
+  /**
+   * <p>Specifies whether to register the Amazon S3 Access Grant location.</p>
+   * @public
+   */
+  registerS3AccessGrantLocation?: boolean | undefined;
 }
 
 /**
@@ -5548,10 +5571,16 @@ export interface SparkGluePropertiesInput {
   additionalArgs?: SparkGlueArgs | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties.</p>
+   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties. Specify either <code>glueConnectionName</code> or <code>glueConnectionNames</code>, but not both.</p>
    * @public
    */
   glueConnectionName?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Glue connection names in the Spark Amazon Web Services Glue properties. Specify either <code>glueConnectionName</code> or <code>glueConnectionNames</code>, but not both.</p>
+   * @public
+   */
+  glueConnectionNames?: string[] | undefined;
 
   /**
    * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties.</p>
@@ -6085,6 +6114,12 @@ export interface S3PropertiesOutput {
   s3AccessGrantLocationId?: string | undefined;
 
   /**
+   * <p>Specifies whether to register the Amazon S3 Access Grant location.</p>
+   * @public
+   */
+  registerS3AccessGrantLocation?: boolean | undefined;
+
+  /**
    * <p>The status of the Amazon S3 connection.</p>
    * @public
    */
@@ -6221,6 +6256,12 @@ export interface SparkGluePropertiesOutput {
    * @public
    */
   glueConnectionName?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Glue connection names in the Spark Amazon Web Services Glue properties.</p>
+   * @public
+   */
+  glueConnectionNames?: string[] | undefined;
 
   /**
    * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties. </p>
@@ -6698,6 +6739,12 @@ export interface S3PropertiesPatch {
    * @public
    */
   s3AccessGrantLocationId?: string | undefined;
+
+  /**
+   * <p>Specifies whether to register the Amazon S3 Access Grant location.</p>
+   * @public
+   */
+  registerS3AccessGrantLocation?: boolean | undefined;
 }
 
 /**
@@ -7065,6 +7112,12 @@ export interface PhysicalEndpoint {
   glueConnectionName?: string | undefined;
 
   /**
+   * <p>The Amazon Web Services Glue connection names in the physical endpoint.</p>
+   * @public
+   */
+  glueConnectionNames?: string[] | undefined;
+
+  /**
    * <p>The Amazon Web Services Glue connection.</p>
    * @public
    */
@@ -7106,6 +7159,12 @@ export interface PhysicalEndpoint {
  * @public
  */
 export interface ConnectionSummary {
+  /**
+   * <p>The configurations of a connection summary.</p>
+   * @public
+   */
+  configurations?: Configuration[] | undefined;
+
   /**
    * <p>The ID of a connection.</p>
    * @public
@@ -7290,6 +7349,12 @@ export interface CreateConnectionInput {
   clientToken?: string | undefined;
 
   /**
+   * <p>The configurations of the connection.</p>
+   * @public
+   */
+  configurations?: Configuration[] | undefined;
+
+  /**
    * <p>A connection description.</p>
    * @public
    */
@@ -7341,6 +7406,12 @@ export interface CreateConnectionOutput {
    * @public
    */
   connectionId: string | undefined;
+
+  /**
+   * <p>The configurations of the connection.</p>
+   * @public
+   */
+  configurations?: Configuration[] | undefined;
 
   /**
    * <p>The connection description.</p>
@@ -11594,75 +11665,4 @@ export interface SubscriptionTargetForm {
    * @public
    */
   content: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSubscriptionTargetInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which subscription target is created.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the environment in which subscription target is created.</p>
-   * @public
-   */
-  environmentIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the subscription target.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of the subscription target.</p>
-   * @public
-   */
-  type: string | undefined;
-
-  /**
-   * <p>The configuration of the subscription target.</p>
-   * @public
-   */
-  subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
-
-  /**
-   * <p>The authorized principals of the subscription target.</p>
-   * @public
-   */
-  authorizedPrincipals: string[] | undefined;
-
-  /**
-   * <p>The manage access role that is used to create the subscription target.</p>
-   * @public
-   */
-  manageAccessRole: string | undefined;
-
-  /**
-   * <p>The asset types that can be included in the subscription target.</p>
-   * @public
-   */
-  applicableAssetTypes: string[] | undefined;
-
-  /**
-   * <p>The provider of the subscription target.</p>
-   * @public
-   */
-  provider?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
-   * @public
-   */
-  subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
 }

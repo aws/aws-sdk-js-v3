@@ -53,6 +53,14 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * // { // ListConnectionsOutput
  * //   items: [ // ConnectionSummaries // required
  * //     { // ConnectionSummary
+ * //       configurations: [ // Configurations
+ * //         { // Configuration
+ * //           classification: "STRING_VALUE",
+ * //           properties: { // PropertyMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
  * //       connectionId: "STRING_VALUE", // required
  * //       domainId: "STRING_VALUE", // required
  * //       domainUnitId: "STRING_VALUE", // required
@@ -67,6 +75,9 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //             iamConnectionId: "STRING_VALUE",
  * //           },
  * //           glueConnectionName: "STRING_VALUE",
+ * //           glueConnectionNames: [ // GlueConnectionNames
+ * //             "STRING_VALUE",
+ * //           ],
  * //           glueConnection: { // GlueConnection
  * //             name: "STRING_VALUE",
  * //             description: "STRING_VALUE",
@@ -77,7 +88,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //             connectionProperties: { // ConnectionProperties
  * //               "<keys>": "STRING_VALUE",
  * //             },
- * //             sparkProperties: { // PropertyMap
+ * //             sparkProperties: {
  * //               "<keys>": "STRING_VALUE",
  * //             },
  * //             athenaProperties: {
@@ -210,6 +221,9 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //             connection: "STRING_VALUE",
  * //           },
  * //           glueConnectionName: "STRING_VALUE",
+ * //           glueConnectionNames: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //           glueVersion: "STRING_VALUE",
  * //           idleTimeout: Number("int"),
  * //           javaVirtualEnv: "STRING_VALUE",
@@ -220,6 +234,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //         s3Properties: { // S3PropertiesOutput
  * //           s3Uri: "STRING_VALUE", // required
  * //           s3AccessGrantLocationId: "STRING_VALUE",
+ * //           registerS3AccessGrantLocation: true || false,
  * //           status: "CREATING" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED" || "READY" || "UPDATING" || "UPDATE_FAILED" || "DELETED",
  * //           errorMessage: "STRING_VALUE",
  * //         },

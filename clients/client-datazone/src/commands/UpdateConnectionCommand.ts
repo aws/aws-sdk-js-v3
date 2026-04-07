@@ -37,6 +37,14 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateConnectionInput
+ *   configurations: [ // Configurations
+ *     { // Configuration
+ *       classification: "STRING_VALUE",
+ *       properties: { // PropertyMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
@@ -103,6 +111,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  *     s3Properties: { // S3PropertiesPatch
  *       s3Uri: "STRING_VALUE", // required
  *       s3AccessGrantLocationId: "STRING_VALUE",
+ *       registerS3AccessGrantLocation: true || false,
  *     },
  *     amazonQProperties: { // AmazonQPropertiesPatch
  *       isEnabled: true || false, // required
@@ -117,6 +126,14 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
  * // { // UpdateConnectionOutput
+ * //   configurations: [ // Configurations
+ * //     { // Configuration
+ * //       classification: "STRING_VALUE",
+ * //       properties: { // PropertyMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
  * //   connectionId: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   domainId: "STRING_VALUE", // required
@@ -132,6 +149,9 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //         iamConnectionId: "STRING_VALUE",
  * //       },
  * //       glueConnectionName: "STRING_VALUE",
+ * //       glueConnectionNames: [ // GlueConnectionNames
+ * //         "STRING_VALUE",
+ * //       ],
  * //       glueConnection: { // GlueConnection
  * //         name: "STRING_VALUE",
  * //         description: "STRING_VALUE",
@@ -142,7 +162,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //         connectionProperties: { // ConnectionProperties
  * //           "<keys>": "STRING_VALUE",
  * //         },
- * //         sparkProperties: { // PropertyMap
+ * //         sparkProperties: {
  * //           "<keys>": "STRING_VALUE",
  * //         },
  * //         athenaProperties: {
@@ -275,6 +295,9 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //         connection: "STRING_VALUE",
  * //       },
  * //       glueConnectionName: "STRING_VALUE",
+ * //       glueConnectionNames: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //       glueVersion: "STRING_VALUE",
  * //       idleTimeout: Number("int"),
  * //       javaVirtualEnv: "STRING_VALUE",
@@ -285,6 +308,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //     s3Properties: { // S3PropertiesOutput
  * //       s3Uri: "STRING_VALUE", // required
  * //       s3AccessGrantLocationId: "STRING_VALUE",
+ * //       registerS3AccessGrantLocation: true || false,
  * //       status: "CREATING" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED" || "READY" || "UPDATING" || "UPDATE_FAILED" || "DELETED",
  * //       errorMessage: "STRING_VALUE",
  * //     },

@@ -50,6 +50,14 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * //     sessionToken: "STRING_VALUE",
  * //     expiration: new Date("TIMESTAMP"),
  * //   },
+ * //   configurations: [ // Configurations
+ * //     { // Configuration
+ * //       classification: "STRING_VALUE",
+ * //       properties: { // PropertyMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
  * //   connectionId: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   domainId: "STRING_VALUE", // required
@@ -66,6 +74,9 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * //         iamConnectionId: "STRING_VALUE",
  * //       },
  * //       glueConnectionName: "STRING_VALUE",
+ * //       glueConnectionNames: [ // GlueConnectionNames
+ * //         "STRING_VALUE",
+ * //       ],
  * //       glueConnection: { // GlueConnection
  * //         name: "STRING_VALUE",
  * //         description: "STRING_VALUE",
@@ -76,7 +87,7 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * //         connectionProperties: { // ConnectionProperties
  * //           "<keys>": "STRING_VALUE",
  * //         },
- * //         sparkProperties: { // PropertyMap
+ * //         sparkProperties: {
  * //           "<keys>": "STRING_VALUE",
  * //         },
  * //         athenaProperties: {
@@ -209,6 +220,9 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * //         connection: "STRING_VALUE",
  * //       },
  * //       glueConnectionName: "STRING_VALUE",
+ * //       glueConnectionNames: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //       glueVersion: "STRING_VALUE",
  * //       idleTimeout: Number("int"),
  * //       javaVirtualEnv: "STRING_VALUE",
@@ -219,6 +233,7 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * //     s3Properties: { // S3PropertiesOutput
  * //       s3Uri: "STRING_VALUE", // required
  * //       s3AccessGrantLocationId: "STRING_VALUE",
+ * //       registerS3AccessGrantLocation: true || false,
  * //       status: "CREATING" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED" || "READY" || "UPDATING" || "UPDATE_FAILED" || "DELETED",
  * //       errorMessage: "STRING_VALUE",
  * //     },

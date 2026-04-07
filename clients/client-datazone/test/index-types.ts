@@ -699,6 +699,7 @@ export type {
   ColumnFilterConfiguration,
   ConfigurableActionParameter,
   ConfigurableEnvironmentAction,
+  Configuration,
   ConnectionCredentials,
   ConnectionPropertiesInput,
   ConnectionPropertiesOutput,
