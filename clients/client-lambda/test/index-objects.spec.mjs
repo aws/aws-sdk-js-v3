@@ -481,6 +481,12 @@ import {
   Runtime,
   RuntimeVersionConfig$,
   RuntimeVersionError$,
+  S3FilesMountConnectivityException,
+  S3FilesMountConnectivityException$,
+  S3FilesMountFailureException,
+  S3FilesMountFailureException$,
+  S3FilesMountTimeoutException,
+  S3FilesMountTimeoutException$,
   ScalingConfig$,
   SchemaRegistryEventRecordFormat,
   SelfManagedEventSource$,
@@ -1149,6 +1155,12 @@ assert(ResourceNotFoundException.prototype instanceof LambdaServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ResourceNotReadyException.prototype instanceof LambdaServiceException);
 assert(typeof ResourceNotReadyException$ === "object");
+assert(S3FilesMountConnectivityException.prototype instanceof LambdaServiceException);
+assert(typeof S3FilesMountConnectivityException$ === "object");
+assert(S3FilesMountFailureException.prototype instanceof LambdaServiceException);
+assert(typeof S3FilesMountFailureException$ === "object");
+assert(S3FilesMountTimeoutException.prototype instanceof LambdaServiceException);
+assert(typeof S3FilesMountTimeoutException$ === "object");
 assert(SerializedRequestEntityTooLargeException.prototype instanceof LambdaServiceException);
 assert(typeof SerializedRequestEntityTooLargeException$ === "object");
 assert(ServiceException.prototype instanceof LambdaServiceException);

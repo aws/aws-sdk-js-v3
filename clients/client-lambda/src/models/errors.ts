@@ -917,6 +917,105 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
+ * <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
+ * @public
+ */
+export class S3FilesMountConnectivityException extends __BaseException {
+  readonly name = "S3FilesMountConnectivityException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The exception message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<S3FilesMountConnectivityException, __BaseException>) {
+    super({
+      name: "S3FilesMountConnectivityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, S3FilesMountConnectivityException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
+ * @public
+ */
+export class S3FilesMountFailureException extends __BaseException {
+  readonly name = "S3FilesMountFailureException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The exception message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<S3FilesMountFailureException, __BaseException>) {
+    super({
+      name: "S3FilesMountFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, S3FilesMountFailureException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
+ * @public
+ */
+export class S3FilesMountTimeoutException extends __BaseException {
+  readonly name = "S3FilesMountTimeoutException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The exception message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<S3FilesMountTimeoutException, __BaseException>) {
+    super({
+      name: "S3FilesMountTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, S3FilesMountTimeoutException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
  * @public
  */

@@ -155,6 +155,15 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * @throws {@link ResourceNotReadyException} (server fault)
  *  <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
  *
+ * @throws {@link S3FilesMountConnectivityException} (client fault)
+ *  <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
+ *
+ * @throws {@link S3FilesMountFailureException} (client fault)
+ *  <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
+ *
+ * @throws {@link S3FilesMountTimeoutException} (client fault)
+ *  <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
+ *
  * @throws {@link SerializedRequestEntityTooLargeException} (client fault)
  *  <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
  *

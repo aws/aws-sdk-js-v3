@@ -579,6 +579,9 @@ const _SDERt = "StopDurableExecutionResponse";
 const _SE = "ServiceException";
 const _SET = "ScheduledEndTimestamp";
 const _SFD = "StepFailedDetails";
+const _SFMCE = "S3FilesMountConnectivityException";
+const _SFMFE = "S3FilesMountFailureException";
+const _SFMTE = "S3FilesMountTimeoutException";
 const _SGI = "SecurityGroupIds";
 const _SI = "StatementId";
 const _SIPALRE = "SubnetIPAddressLimitReachedException";
@@ -762,6 +765,9 @@ import {
   ResourceInUseException,
   ResourceNotFoundException,
   ResourceNotReadyException,
+  S3FilesMountConnectivityException,
+  S3FilesMountFailureException,
+  S3FilesMountTimeoutException,
   SerializedRequestEntityTooLargeException,
   ServiceException,
   SnapStartException,
@@ -994,6 +1000,24 @@ export var ResourceNotReadyException$: StaticErrorSchema = [-3, n0, _RNRE,
   [0, 0]
 ];
 n0_registry.registerError(ResourceNotReadyException$, ResourceNotReadyException);
+export var S3FilesMountConnectivityException$: StaticErrorSchema = [-3, n0, _SFMCE,
+  { [_e]: _c, [_hE]: 408 },
+  [_T, _M],
+  [0, 0]
+];
+n0_registry.registerError(S3FilesMountConnectivityException$, S3FilesMountConnectivityException);
+export var S3FilesMountFailureException$: StaticErrorSchema = [-3, n0, _SFMFE,
+  { [_e]: _c, [_hE]: 403 },
+  [_T, _M],
+  [0, 0]
+];
+n0_registry.registerError(S3FilesMountFailureException$, S3FilesMountFailureException);
+export var S3FilesMountTimeoutException$: StaticErrorSchema = [-3, n0, _SFMTE,
+  { [_e]: _c, [_hE]: 408 },
+  [_T, _M],
+  [0, 0]
+];
+n0_registry.registerError(S3FilesMountTimeoutException$, S3FilesMountTimeoutException);
 export var SerializedRequestEntityTooLargeException$: StaticErrorSchema = [-3, n0, _SRETLE,
   { [_e]: _c, [_hE]: 413 },
   [_T, _m],

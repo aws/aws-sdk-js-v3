@@ -2464,12 +2464,12 @@ export interface EphemeralStorage {
 }
 
 /**
- * <p>Details about the connection between a Lambda function and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
+ * <p>Details about the connection between a Lambda function and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
  * @public
  */
 export interface FileSystemConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.</p>
    * @public
    */
   Arn: string | undefined;
@@ -2702,7 +2702,7 @@ export interface CreateFunctionRequest {
   Layers?: string[] | undefined;
 
   /**
-   * <p>Connection settings for an Amazon EFS file system.</p>
+   * <p>Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.</p>
    * @public
    */
   FileSystemConfigs?: FileSystemConfig[] | undefined;
@@ -3128,7 +3128,7 @@ export interface FunctionConfiguration {
   LastUpdateStatusReasonCode?: LastUpdateStatusReasonCode | undefined;
 
   /**
-   * <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
+   * <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
    * @public
    */
   FileSystemConfigs?: FileSystemConfig[] | undefined;
@@ -4616,7 +4616,7 @@ export interface UpdateFunctionConfigurationRequest {
   Layers?: string[] | undefined;
 
   /**
-   * <p>Connection settings for an Amazon EFS file system.</p>
+   * <p>Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.</p>
    * @public
    */
   FileSystemConfigs?: FileSystemConfig[] | undefined;
@@ -6378,7 +6378,7 @@ export interface ListDurableExecutionsByFunctionRequest {
   Qualifier?: string | undefined;
 
   /**
-   * <p>Filter executions by name. Only executions with names that contain this string are returned.</p>
+   * <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
    * @public
    */
   DurableExecutionName?: string | undefined;
